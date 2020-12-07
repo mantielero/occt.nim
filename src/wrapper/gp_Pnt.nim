@@ -13,7 +13,7 @@ proc constructor_gp_Pnt(Xp: Standard_Real, Yp: Standard_Real, Zp: Standard_Real)
 #proc operator delete*(this: gp_Pnt, void *, void *)  {.importcpp: "operator delete".}
 proc SetCoord*(this: gp_Pnt, Index: Standard_Integer, Xi: Standard_Real)  {.importcpp: "SetCoord".}
 proc SetCoord*(this: gp_Pnt, Xp: Standard_Real, Yp: Standard_Real, Zp: Standard_Real)  {.importcpp: "SetCoord".}
-proc SetX*(this: gp_Pnt, X: Standard_Real)  {.importcpp: "SetX".}
+proc SetX*(this: var gp_Pnt, X: Standard_Real)  {.importcpp: "SetX".}
 proc SetY*(this: gp_Pnt, Y: Standard_Real)  {.importcpp: "SetY".}
 proc SetZ*(this: gp_Pnt, Z: Standard_Real)  {.importcpp: "SetZ".}
 proc SetXYZ*(this: gp_Pnt, Coord: gp_XYZ)  {.importcpp: "SetXYZ".}
@@ -31,7 +31,7 @@ proc Distance*(this: gp_Pnt, Other: gp_Pnt): Standard_Real  {.importcpp: "Distan
 proc SquareDistance*(this: gp_Pnt, Other: gp_Pnt): Standard_Real  {.importcpp: "SquareDistance".}
 proc Mirror*(this: gp_Pnt, P: gp_Pnt)  {.importcpp: "Mirror".}
 proc Mirrored*(this: gp_Pnt, P: gp_Pnt): gp_Pnt  {.importcpp: "Mirrored".}
-#proc Mirror*(this: gp_Pnt, A1: gp_Ax1)  {.importcpp: "Mirror".}
+proc Mirror*(this: gp_Pnt, A1: gp_Ax1)  {.importcpp: "Mirror".}
 proc Mirrored*(this: gp_Pnt, A1: gp_Ax1): gp_Pnt  {.importcpp: "Mirrored".}
 #proc Mirror*(this: gp_Pnt, A2: gp_Ax2)  {.importcpp: "Mirror".}
 #proc Mirrored*(this: gp_Pnt, A2: gp_Ax2): gp_Pnt  {.importcpp: "Mirrored".}
@@ -60,11 +60,14 @@ proc y*(pnt:gp_Pnt):float =
 proc z*(pnt:gp_Pnt):float =
   pnt.Z.float
 
-proc `x=`*(this:gp_Pnt, val:float) =
-  echo val
-  echo "X>>>  ", this.x
+proc `x=`*(this:var gp_Pnt, val:float) =
   this.SetX( val.Standard_Real )
-  echo "X>>>> ", this.x
-  
+
+proc `y=`*(this:var gp_Pnt, val:float) =
+  this.SetY( val.Standard_Real )
+
+proc `z=`*(this:var gp_Pnt, val:float) =
+  this.SetZ( val.Standard_Real )
+
 proc `$`*(this:gp_Pnt):string =
   result = "Pnt(x:" & $this.x & ", y:" & $this.y & ", z:" & $this.z & ")"

@@ -1,3 +1,5 @@
+# https://github.com/lvk88/OccTutorial
+# https://github.com/lvk88/OccTutorial/blob/master/Chapter1_Basics/runners/chapter1_1.cpp
 import occt
 
 # Create two point classes, with (x,y,z) coordinates
@@ -5,9 +7,6 @@ var pnt1 = Pnt(0.0,0.0,0.0)
 let pnt2 = Pnt(1.0,1.0,1.0)
 echo "PNT1: ", pnt1
 echo "PNT2: ", pnt2
-echo "  X: ", pnt2.x
-echo "  Y: ", pnt2.y
-echo "  Z: ", pnt2.z
 
 pnt1.x = 3.0
 echo "nueva x: ", pnt1.x

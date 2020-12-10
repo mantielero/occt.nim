@@ -8,7 +8,7 @@ proc constructor_gp_Pnt2d*(): gp_Pnt2d {.constructor,importcpp: "gp_Pnt2d".}
 proc constructor_gp_Pnt2d*(Coord: gp_XY): gp_Pnt2d {.constructor,importcpp: "gp_Pnt2d(@)".}
   ## Creates a point with a doublet of coordinates.
 
-proc constructor_gp_Pnt2d*(Xp: Standard_Real, Yp: Standard_Real): gp_Pnt2d {.constructor,importcpp: "gp_Pnt2d(@)".}
+proc constructor_gp_Pnt2d*(Xp: cdouble, Yp: cdouble): gp_Pnt2d {.constructor,importcpp: "gp_Pnt2d(@)".}
   ## Creates a point with its 2 cartesian's coordinates : Xp, Yp.
 
 proc ` new`*(this: var gp_Pnt2d, theSize: cint)  {.importcpp: "` new`".}
@@ -23,34 +23,34 @@ proc ` new`*(this: var gp_Pnt2d, cint, theAddress: pointer)  {.importcpp: "` new
 
 proc ` delete`*(this: var gp_Pnt2d, pointer, pointer)  {.importcpp: "` delete`".}
 
-proc SetCoord*(this: var gp_Pnt2d, Index: Standard_Integer, Xi: Standard_Real)  {.importcpp: "SetCoord".}
+proc SetCoord*(this: var gp_Pnt2d, Index: cint, Xi: cdouble)  {.importcpp: "SetCoord".}
   ## Assigns the value Xi to the coordinate that corresponds to Index:
   ## Index = 1 => X is modified Index = 2 => Y is modified Raises
   ## OutOfRange if Index != {1, 2}.
 
-proc SetCoord*(this: var gp_Pnt2d, Xp: Standard_Real, Yp: Standard_Real)  {.importcpp: "SetCoord".}
+proc SetCoord*(this: var gp_Pnt2d, Xp: cdouble, Yp: cdouble)  {.importcpp: "SetCoord".}
   ## For this point, assigns the values Xp and Yp to its two coordinates
 
-proc SetX*(this: var gp_Pnt2d, X: Standard_Real)  {.importcpp: "SetX".}
+proc SetX*(this: var gp_Pnt2d, X: cdouble)  {.importcpp: "SetX".}
   ## Assigns the given value to the X coordinate of this point.
 
-proc SetY*(this: var gp_Pnt2d, Y: Standard_Real)  {.importcpp: "SetY".}
+proc SetY*(this: var gp_Pnt2d, Y: cdouble)  {.importcpp: "SetY".}
   ## Assigns the given value to the Y coordinate of this point.
 
 proc SetXY*(this: var gp_Pnt2d, Coord: gp_XY)  {.importcpp: "SetXY".}
   ## Assigns the two coordinates of Coord to this point.
 
-proc Coord*(this: gp_Pnt2d, Index: Standard_Integer): Standard_Real  {.importcpp: "Coord".}
+proc Coord*(this: gp_Pnt2d, Index: cint): cdouble  {.importcpp: "Coord".}
   ## Returns the coordinate of range Index : Index = 1 => X is returned
   ## Index = 2 => Y is returned Raises OutOfRange if Index != {1, 2}.
 
-proc Coord*(this: gp_Pnt2d, Xp: var Standard_Real, Yp: var Standard_Real)  {.importcpp: "Coord".}
+proc Coord*(this: gp_Pnt2d, Xp: var cdouble, Yp: var cdouble)  {.importcpp: "Coord".}
   ## For this point returns its two coordinates as a number pair.
 
-proc X*(this: gp_Pnt2d): Standard_Real  {.importcpp: "X".}
+proc X*(this: gp_Pnt2d): cdouble  {.importcpp: "X".}
   ## For this point, returns its X coordinate.
 
-proc Y*(this: gp_Pnt2d): Standard_Real  {.importcpp: "Y".}
+proc Y*(this: gp_Pnt2d): cdouble  {.importcpp: "Y".}
   ## For this point, returns its Y coordinate.
 
 proc XY*(this: gp_Pnt2d): gp_XY  {.importcpp: "XY".}
@@ -63,14 +63,14 @@ proc ChangeCoord*(this: var gp_Pnt2d): gp_XY  {.importcpp: "ChangeCoord".}
   ## Returns the coordinates of this point. Note: This syntax allows direct
   ## modification of the returned value.
 
-proc IsEqual*(this: gp_Pnt2d, Other: gp_Pnt2d, LinearTolerance: Standard_Real): Standard_Boolean  {.importcpp: "IsEqual".}
+proc IsEqual*(this: gp_Pnt2d, Other: gp_Pnt2d, LinearTolerance: cdouble): bool  {.importcpp: "IsEqual".}
   ## Comparison Returns True if the distance between the two points is
   ## lower or equal to LinearTolerance.
 
-proc Distance*(this: gp_Pnt2d, Other: gp_Pnt2d): Standard_Real  {.importcpp: "Distance".}
+proc Distance*(this: gp_Pnt2d, Other: gp_Pnt2d): cdouble  {.importcpp: "Distance".}
   ## Computes the distance between two points.
 
-proc SquareDistance*(this: gp_Pnt2d, Other: gp_Pnt2d): Standard_Real  {.importcpp: "SquareDistance".}
+proc SquareDistance*(this: gp_Pnt2d, Other: gp_Pnt2d): cdouble  {.importcpp: "SquareDistance".}
   ## Computes the square distance between two points.
 
 proc Mirror*(this: var gp_Pnt2d, P: gp_Pnt2d)  {.importcpp: "Mirror".}
@@ -87,14 +87,14 @@ proc Mirrored*(this: gp_Pnt2d, A: gp_Ax2d): gp_Pnt2d  {.importcpp: "Mirrored".}
   ## Rotates a point. A1 is the axis of the rotation. Ang is the angular
   ## value of the rotation in radians.
 
-proc Rotate*(this: var gp_Pnt2d, P: gp_Pnt2d, Ang: Standard_Real)  {.importcpp: "Rotate".}
+proc Rotate*(this: var gp_Pnt2d, P: gp_Pnt2d, Ang: cdouble)  {.importcpp: "Rotate".}
 
-proc Rotated*(this: gp_Pnt2d, P: gp_Pnt2d, Ang: Standard_Real): gp_Pnt2d  {.importcpp: "Rotated".}
+proc Rotated*(this: gp_Pnt2d, P: gp_Pnt2d, Ang: cdouble): gp_Pnt2d  {.importcpp: "Rotated".}
   ## Scales a point. S is the scaling value.
 
-proc Scale*(this: var gp_Pnt2d, P: gp_Pnt2d, S: Standard_Real)  {.importcpp: "Scale".}
+proc Scale*(this: var gp_Pnt2d, P: gp_Pnt2d, S: cdouble)  {.importcpp: "Scale".}
 
-proc Scaled*(this: gp_Pnt2d, P: gp_Pnt2d, S: Standard_Real): gp_Pnt2d  {.importcpp: "Scaled".}
+proc Scaled*(this: gp_Pnt2d, P: gp_Pnt2d, S: cdouble): gp_Pnt2d  {.importcpp: "Scaled".}
   ## Transforms a point with the transformation T.
 
 proc Transform*(this: var gp_Pnt2d, T: gp_Trsf2d)  {.importcpp: "Transform".}

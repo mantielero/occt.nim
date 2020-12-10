@@ -5,7 +5,7 @@
 proc constructor_gp_Cone*(): gp_Cone {.constructor,importcpp: "gp_Cone".}
   ## Creates an indefinite Cone.
 
-proc constructor_gp_Cone*(A3: gp_Ax3, Ang: Standard_Real, Radius: Standard_Real): gp_Cone {.constructor,importcpp: "gp_Cone(@)".}
+proc constructor_gp_Cone*(A3: gp_Ax3, Ang: cdouble, Radius: cdouble): gp_Cone {.constructor,importcpp: "gp_Cone(@)".}
   ## Creates an infinite conical surface. A3 locates the cone in the space
   ## and defines the reference plane of the surface. Ang is the conical
   ## surface semi-angle. Its absolute value is in range ]0, PI/2[. Radius
@@ -37,11 +37,11 @@ proc SetPosition*(this: var gp_Cone, A3: gp_Ax3)  {.importcpp: "SetPosition".}
   ## Changes the local coordinate system of the cone. This coordinate
   ## system defines the reference plane of the cone.
 
-proc SetRadius*(this: var gp_Cone, R: Standard_Real)  {.importcpp: "SetRadius".}
+proc SetRadius*(this: var gp_Cone, R: cdouble)  {.importcpp: "SetRadius".}
   ## Changes the radius of the cone in the reference plane of the cone.
   ## Raised if R < 0.0
 
-proc SetSemiAngle*(this: var gp_Cone, Ang: Standard_Real)  {.importcpp: "SetSemiAngle".}
+proc SetSemiAngle*(this: var gp_Cone, Ang: cdouble)  {.importcpp: "SetSemiAngle".}
   ## Changes the semi-angle of the cone. Semi-angle can be negative. Its
   ## absolute value Abs(Ang) is in range ]0,PI/2[. Raises ConstructionError
   ## if Abs(Ang) < Resolution from gp or Abs(Ang) >= PI/2 - Resolution
@@ -56,14 +56,14 @@ proc UReverse*(this: var gp_Cone)  {.importcpp: "UReverse".}
 proc VReverse*(this: var gp_Cone)  {.importcpp: "VReverse".}
   ## Reverses the V parametrization of the cone reversing the ZAxis.
 
-proc Direct*(this: gp_Cone): Standard_Boolean  {.importcpp: "Direct".}
+proc Direct*(this: gp_Cone): bool  {.importcpp: "Direct".}
   ## Returns true if the local coordinate system of this cone is right-
   ## handed.
 
 proc Axis*(this: gp_Cone): gp_Ax1  {.importcpp: "Axis".}
   ## returns the symmetry axis of the cone.
 
-proc Coefficients*(this: gp_Cone, A1: var Standard_Real, A2: var Standard_Real, A3: var Standard_Real, B1: var Standard_Real, B2: var Standard_Real, B3: var Standard_Real, C1: var Standard_Real, C2: var Standard_Real, C3: var Standard_Real, D: var Standard_Real)  {.importcpp: "Coefficients".}
+proc Coefficients*(this: gp_Cone, A1: var cdouble, A2: var cdouble, A3: var cdouble, B1: var cdouble, B2: var cdouble, B3: var cdouble, C1: var cdouble, C2: var cdouble, C3: var cdouble, D: var cdouble)  {.importcpp: "Coefficients".}
   ## Computes the coefficients of the implicit equation of the quadric in
   ## the absolute cartesian coordinates system : A1.X**2 + A2.Y**2 +
   ## A3.Z**2 + 2.(B1.X.Y + B2.X.Z + B3.Y.Z) + 2.(C1.X + C2.Y + C3.Z) + D =
@@ -75,10 +75,10 @@ proc Location*(this: gp_Cone): gp_Pnt  {.importcpp: "Location".}
 proc Position*(this: gp_Cone): gp_Ax3  {.importcpp: "Position".}
   ## Returns the local coordinates system of the cone.
 
-proc RefRadius*(this: gp_Cone): Standard_Real  {.importcpp: "RefRadius".}
+proc RefRadius*(this: gp_Cone): cdouble  {.importcpp: "RefRadius".}
   ## Returns the radius of the cone in the reference plane.
 
-proc SemiAngle*(this: gp_Cone): Standard_Real  {.importcpp: "SemiAngle".}
+proc SemiAngle*(this: gp_Cone): cdouble  {.importcpp: "SemiAngle".}
   ## Returns the half-angle at the apex of this cone. Attention! Semi-angle
   ## can be negative.
 
@@ -107,15 +107,15 @@ proc Mirrored*(this: gp_Cone, A2: gp_Ax2): gp_Cone  {.importcpp: "Mirrored".}
   ## plane. The axis placement A2 locates the plane of the of the symmetry
   ## : (Location, XDirection, YDirection).
 
-proc Rotate*(this: var gp_Cone, A1: gp_Ax1, Ang: Standard_Real)  {.importcpp: "Rotate".}
+proc Rotate*(this: var gp_Cone, A1: gp_Ax1, Ang: cdouble)  {.importcpp: "Rotate".}
 
-proc Rotated*(this: gp_Cone, A1: gp_Ax1, Ang: Standard_Real): gp_Cone  {.importcpp: "Rotated".}
+proc Rotated*(this: gp_Cone, A1: gp_Ax1, Ang: cdouble): gp_Cone  {.importcpp: "Rotated".}
   ## Rotates a cone. A1 is the axis of the rotation. Ang is the angular
   ## value of the rotation in radians.
 
-proc Scale*(this: var gp_Cone, P: gp_Pnt, S: Standard_Real)  {.importcpp: "Scale".}
+proc Scale*(this: var gp_Cone, P: gp_Pnt, S: cdouble)  {.importcpp: "Scale".}
 
-proc Scaled*(this: gp_Cone, P: gp_Pnt, S: Standard_Real): gp_Cone  {.importcpp: "Scaled".}
+proc Scaled*(this: gp_Cone, P: gp_Pnt, S: cdouble): gp_Cone  {.importcpp: "Scaled".}
   ## Scales a cone. S is the scaling value. The absolute value of S is used
   ## to scale the cone
 

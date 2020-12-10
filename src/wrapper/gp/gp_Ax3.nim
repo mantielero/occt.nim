@@ -77,7 +77,7 @@ proc SetYDirection*(this: var gp_Ax3, Vy: gp_Dir)  {.importcpp: "SetYDirection".
   ## Direction ^ (<Vy> ^ Direction). Raises ConstructionError if <Vy> is
   ## parallel to the main direction of <me>
 
-proc Angle*(this: gp_Ax3, Other: gp_Ax3): Standard_Real  {.importcpp: "Angle".}
+proc Angle*(this: gp_Ax3, Other: gp_Ax3): cdouble  {.importcpp: "Angle".}
   ## Computes the angular value between the main direction of <me> and the
   ## main direction of <Other>. Returns the angle between 0 and PI in
   ## radians.
@@ -105,18 +105,18 @@ proc XDirection*(this: gp_Ax3): gp_Dir  {.importcpp: "XDirection".}
 proc YDirection*(this: gp_Ax3): gp_Dir  {.importcpp: "YDirection".}
   ## Returns the "YDirection" of <me>.
 
-proc Direct*(this: gp_Ax3): Standard_Boolean  {.importcpp: "Direct".}
+proc Direct*(this: gp_Ax3): bool  {.importcpp: "Direct".}
   ## Returns True if the coordinate system is right-handed. i.e.
   ## XDirection().Crossed(YDirection()).Dot(Direction()) > 0
 
-proc IsCoplanar*(this: gp_Ax3, Other: gp_Ax3, LinearTolerance: Standard_Real, AngularTolerance: Standard_Real): Standard_Boolean  {.importcpp: "IsCoplanar".}
+proc IsCoplanar*(this: gp_Ax3, Other: gp_Ax3, LinearTolerance: cdouble, AngularTolerance: cdouble): bool  {.importcpp: "IsCoplanar".}
   ## Returns True if . the distance between the "Location" point of <me>
   ## and <Other> is lower or equal to LinearTolerance and . the distance
   ## between the "Location" point of <Other> and <me> is lower or equal to
   ## LinearTolerance and . the main direction of <me> and the main
   ## direction of <Other> are parallel (same or opposite orientation).
 
-proc IsCoplanar*(this: gp_Ax3, A1: gp_Ax1, LinearTolerance: Standard_Real, AngularTolerance: Standard_Real): Standard_Boolean  {.importcpp: "IsCoplanar".}
+proc IsCoplanar*(this: gp_Ax3, A1: gp_Ax1, LinearTolerance: cdouble, AngularTolerance: cdouble): bool  {.importcpp: "IsCoplanar".}
   ## Returns True if . the distance between <me> and the "Location" point
   ## of A1 is lower of equal to LinearTolerance and . the distance between
   ## A1 and the "Location" point of <me> is lower or equal to
@@ -152,15 +152,15 @@ proc Mirrored*(this: gp_Ax3, A2: gp_Ax2): gp_Ax3  {.importcpp: "Mirrored".}
   ## "YDirection". The resulting main "Direction" is the cross product
   ## between the "XDirection" and the "YDirection" after transformation.
 
-proc Rotate*(this: var gp_Ax3, A1: gp_Ax1, Ang: Standard_Real)  {.importcpp: "Rotate".}
+proc Rotate*(this: var gp_Ax3, A1: gp_Ax1, Ang: cdouble)  {.importcpp: "Rotate".}
 
-proc Rotated*(this: gp_Ax3, A1: gp_Ax1, Ang: Standard_Real): gp_Ax3  {.importcpp: "Rotated".}
+proc Rotated*(this: gp_Ax3, A1: gp_Ax1, Ang: cdouble): gp_Ax3  {.importcpp: "Rotated".}
   ## Rotates an axis placement. <A1> is the axis of the rotation . Ang is
   ## the angular value of the rotation in radians.
 
-proc Scale*(this: var gp_Ax3, P: gp_Pnt, S: Standard_Real)  {.importcpp: "Scale".}
+proc Scale*(this: var gp_Ax3, P: gp_Pnt, S: cdouble)  {.importcpp: "Scale".}
 
-proc Scaled*(this: gp_Ax3, P: gp_Pnt, S: Standard_Real): gp_Ax3  {.importcpp: "Scaled".}
+proc Scaled*(this: gp_Ax3, P: gp_Pnt, S: cdouble): gp_Ax3  {.importcpp: "Scaled".}
   ## Applies a scaling transformation on the axis placement. The "Location"
   ## point of the axisplacement is modified. Warnings : If the scale <S> is
   ## negative : . the main direction of the axis placement is not changed.

@@ -41,7 +41,7 @@ proc SetMirror*(this: var gp_Trsf, A2: gp_Ax2)  {.importcpp: "SetMirror".}
   ## center of the planar symmetry and defines the plane of symmetry by its
   ## origin, "X Direction" and "Y Direction".
 
-proc SetRotation*(this: var gp_Trsf, A1: gp_Ax1, Ang: Standard_Real)  {.importcpp: "SetRotation".}
+proc SetRotation*(this: var gp_Trsf, A1: gp_Ax1, Ang: cdouble)  {.importcpp: "SetRotation".}
   ## Changes the transformation into a rotation. A1 is the rotation axis
   ## and Ang is the angular value of the rotation in radians.
 
@@ -50,7 +50,7 @@ proc SetRotation*(this: var gp_Trsf, R: gp_Quaternion)  {.importcpp: "SetRotatio
   ## that rotation is performed around origin, i.e. no translation is
   ## involved.
 
-proc SetScale*(this: var gp_Trsf, P: gp_Pnt, S: Standard_Real)  {.importcpp: "SetScale".}
+proc SetScale*(this: var gp_Trsf, P: gp_Pnt, S: cdouble)  {.importcpp: "SetScale".}
   ## Changes the transformation into a scale. P is the center of the scale
   ## and S is the scaling value. Raises ConstructionError If <S> is null.
 
@@ -107,16 +107,16 @@ proc SetTranslation*(this: var gp_Trsf, P1: gp_Pnt, P2: gp_Pnt)  {.importcpp: "S
 proc SetTranslationPart*(this: var gp_Trsf, V: gp_Vec)  {.importcpp: "SetTranslationPart".}
   ## Replaces the translation vector with the vector V.
 
-proc SetScaleFactor*(this: var gp_Trsf, S: Standard_Real)  {.importcpp: "SetScaleFactor".}
+proc SetScaleFactor*(this: var gp_Trsf, S: cdouble)  {.importcpp: "SetScaleFactor".}
   ## Modifies the scale factor. Raises ConstructionError If S is null.
 
 proc SetForm*(this: var gp_Trsf, P: gp_TrsfForm)  {.importcpp: "SetForm".}
 
-proc SetValues*(this: var gp_Trsf, a11: Standard_Real, a12: Standard_Real, a13: Standard_Real, a14: Standard_Real, a21: Standard_Real, a22: Standard_Real, a23: Standard_Real, a24: Standard_Real, a31: Standard_Real, a32: Standard_Real, a33: Standard_Real, a34: Standard_Real)  {.importcpp: "SetValues".}
+proc SetValues*(this: var gp_Trsf, a11: cdouble, a12: cdouble, a13: cdouble, a14: cdouble, a21: cdouble, a22: cdouble, a23: cdouble, a24: cdouble, a31: cdouble, a32: cdouble, a33: cdouble, a34: cdouble)  {.importcpp: "SetValues".}
   ## Sets the coefficients of the transformation. The transformation of the
   ## point x,y,z is the point x',y',z' with :
 
-proc IsNegative*(this: gp_Trsf): Standard_Boolean  {.importcpp: "IsNegative".}
+proc IsNegative*(this: gp_Trsf): bool  {.importcpp: "IsNegative".}
   ## Returns true if the determinant of the vectorial part of this
   ## transformation is negative.
 
@@ -126,13 +126,13 @@ proc Form*(this: gp_Trsf): gp_TrsfForm  {.importcpp: "Form".}
   ## (relative to a point, an axis or a plane), a scaling transformation,
   ## or a compound transformation.
 
-proc ScaleFactor*(this: gp_Trsf): Standard_Real  {.importcpp: "ScaleFactor".}
+proc ScaleFactor*(this: gp_Trsf): cdouble  {.importcpp: "ScaleFactor".}
   ## Returns the scale factor.
 
 proc TranslationPart*(this: gp_Trsf): gp_XYZ  {.importcpp: "TranslationPart".}
   ## Returns the translation part of the transformation's matrix
 
-proc GetRotation*(this: gp_Trsf, theAxis: var gp_XYZ, theAngle: var Standard_Real): Standard_Boolean  {.importcpp: "GetRotation".}
+proc GetRotation*(this: gp_Trsf, theAxis: var gp_XYZ, theAngle: var cdouble): bool  {.importcpp: "GetRotation".}
   ## Returns the boolean True if there is non-zero rotation. In the
   ## presence of rotation, the output parameters store the axis and the
   ## angle of rotation. The method always returns positive value
@@ -156,7 +156,7 @@ proc HVectorialPart*(this: gp_Trsf): gp_Mat  {.importcpp: "HVectorialPart".}
   ## this matrix must be multiplied by the scale factor to obtain the
   ## coefficients of the transformation.
 
-proc Value*(this: gp_Trsf, Row: Standard_Integer, Col: Standard_Integer): Standard_Real  {.importcpp: "Value".}
+proc Value*(this: gp_Trsf, Row: cint, Col: cint): cdouble  {.importcpp: "Value".}
   ## Returns the coefficients of the transformation's matrix. It is a 3
   ## rows * 4 columns matrix. This coefficient includes the scale factor.
   ## Raises OutOfRanged if Row < 1 or Row > 3 or Col < 1 or Col > 4
@@ -186,19 +186,19 @@ proc `*=`*(this: var gp_Trsf, T: gp_Trsf)  {.importcpp: "`*=`".}
 proc PreMultiply*(this: var gp_Trsf, T: gp_Trsf)  {.importcpp: "PreMultiply".}
   ## Computes the transformation composed with <me> and T. <me> = T * <me>
 
-proc Power*(this: var gp_Trsf, N: Standard_Integer)  {.importcpp: "Power".}
+proc Power*(this: var gp_Trsf, N: cint)  {.importcpp: "Power".}
 
-proc Powered*(this: gp_Trsf, N: Standard_Integer): gp_Trsf  {.importcpp: "Powered".}
+proc Powered*(this: gp_Trsf, N: cint): gp_Trsf  {.importcpp: "Powered".}
   ## Computes the following composition of transformations <me> * <me> *
   ## .......* <me>, N time. if N = 0 <me> = Identity if N < 0 <me> =
   ## <me>.Inverse() *...........* <me>.Inverse().
 
-proc Transforms*(this: gp_Trsf, X: var Standard_Real, Y: var Standard_Real, Z: var Standard_Real)  {.importcpp: "Transforms".}
+proc Transforms*(this: gp_Trsf, X: var cdouble, Y: var cdouble, Z: var cdouble)  {.importcpp: "Transforms".}
 
 proc Transforms*(this: gp_Trsf, Coord: var gp_XYZ)  {.importcpp: "Transforms".}
   ## Transformation of a triplet XYZ with a Trsf
 
-proc DumpJson*(this: gp_Trsf, theOStream: var Standard_OStream, theDepth: Standard_Integer)  {.importcpp: "DumpJson".}
+proc DumpJson*(this: gp_Trsf, theOStream: var Standard_OStream, theDepth: cint)  {.importcpp: "DumpJson".}
   ## Dumps the content of me into the stream
 
 proc Orthogonalize*(this: var gp_Trsf)  {.importcpp: "Orthogonalize".}

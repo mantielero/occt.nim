@@ -5,7 +5,7 @@
 proc constructor_gp_Elips*(): gp_Elips {.constructor,importcpp: "gp_Elips".}
   ## Creates an indefinite ellipse.
 
-proc constructor_gp_Elips*(A2: gp_Ax2, MajorRadius: Standard_Real, MinorRadius: Standard_Real): gp_Elips {.constructor,importcpp: "gp_Elips(@)".}
+proc constructor_gp_Elips*(A2: gp_Ax2, MajorRadius: cdouble, MinorRadius: cdouble): gp_Elips {.constructor,importcpp: "gp_Elips(@)".}
   ## The major radius of the ellipse is on the "XAxis" and the minor radius
   ## is on the "YAxis" of the ellipse. The "XAxis" is defined with the
   ## "XDirection" of A2 and the "YAxis" is defined with the "YDirection" of
@@ -38,11 +38,11 @@ proc SetLocation*(this: var gp_Elips, P: gp_Pnt)  {.importcpp: "SetLocation".}
   ## Modifies this ellipse, by redefining its local coordinate so that its
   ## origin becomes P.
 
-proc SetMajorRadius*(this: var gp_Elips, MajorRadius: Standard_Real)  {.importcpp: "SetMajorRadius".}
+proc SetMajorRadius*(this: var gp_Elips, MajorRadius: cdouble)  {.importcpp: "SetMajorRadius".}
   ## The major radius of the ellipse is on the "XAxis" (major axis) of the
   ## ellipse. Raises ConstructionError if MajorRadius < MinorRadius.
 
-proc SetMinorRadius*(this: var gp_Elips, MinorRadius: Standard_Real)  {.importcpp: "SetMinorRadius".}
+proc SetMinorRadius*(this: var gp_Elips, MinorRadius: cdouble)  {.importcpp: "SetMinorRadius".}
   ## The minor radius of the ellipse is on the "YAxis" (minor axis) of the
   ## ellipse. Raises ConstructionError if MinorRadius > MajorRadius or
   ## MinorRadius < 0.
@@ -51,7 +51,7 @@ proc SetPosition*(this: var gp_Elips, A2: gp_Ax2)  {.importcpp: "SetPosition".}
   ## Modifies this ellipse, by redefining its local coordinate so that it
   ## becomes A2e.
 
-proc Area*(this: gp_Elips): Standard_Real  {.importcpp: "Area".}
+proc Area*(this: gp_Elips): cdouble  {.importcpp: "Area".}
   ## Computes the area of the Ellipse.
 
 proc Axis*(this: gp_Elips): gp_Ax1  {.importcpp: "Axis".}
@@ -75,13 +75,13 @@ proc Directrix2*(this: gp_Elips): gp_Ax1  {.importcpp: "Directrix2".}
   ## Standard_ConstructionError if the eccentricity is null (the ellipse
   ## has degenerated into a circle).
 
-proc Eccentricity*(this: gp_Elips): Standard_Real  {.importcpp: "Eccentricity".}
+proc Eccentricity*(this: gp_Elips): cdouble  {.importcpp: "Eccentricity".}
   ## Returns the eccentricity of the ellipse between 0.0 and 1.0 If f is
   ## the distance between the center of the ellipse and the Focus1 then the
   ## eccentricity e = f / MajorRadius. Raises ConstructionError if
   ## MajorRadius = 0.0
 
-proc Focal*(this: gp_Elips): Standard_Real  {.importcpp: "Focal".}
+proc Focal*(this: gp_Elips): cdouble  {.importcpp: "Focal".}
   ## Computes the focal distance. It is the distance between the two focus
   ## focus1 and focus2 of the ellipse.
 
@@ -97,13 +97,13 @@ proc Location*(this: gp_Elips): gp_Pnt  {.importcpp: "Location".}
   ## Returns the center of the ellipse. It is the "Location" point of the
   ## coordinate system of the ellipse.
 
-proc MajorRadius*(this: gp_Elips): Standard_Real  {.importcpp: "MajorRadius".}
+proc MajorRadius*(this: gp_Elips): cdouble  {.importcpp: "MajorRadius".}
   ## Returns the major radius of the ellipse.
 
-proc MinorRadius*(this: gp_Elips): Standard_Real  {.importcpp: "MinorRadius".}
+proc MinorRadius*(this: gp_Elips): cdouble  {.importcpp: "MinorRadius".}
   ## Returns the minor radius of the ellipse.
 
-proc Parameter*(this: gp_Elips): Standard_Real  {.importcpp: "Parameter".}
+proc Parameter*(this: gp_Elips): cdouble  {.importcpp: "Parameter".}
   ## Returns p = (1 - e * e) * MajorRadius where e is the eccentricity of
   ## the ellipse. Returns 0 if MajorRadius = 0
 
@@ -138,15 +138,15 @@ proc Mirrored*(this: gp_Elips, A2: gp_Ax2): gp_Elips  {.importcpp: "Mirrored".}
   ## a plane. The axis placement A2 locates the plane of the symmetry
   ## (Location, XDirection, YDirection).
 
-proc Rotate*(this: var gp_Elips, A1: gp_Ax1, Ang: Standard_Real)  {.importcpp: "Rotate".}
+proc Rotate*(this: var gp_Elips, A1: gp_Ax1, Ang: cdouble)  {.importcpp: "Rotate".}
 
-proc Rotated*(this: gp_Elips, A1: gp_Ax1, Ang: Standard_Real): gp_Elips  {.importcpp: "Rotated".}
+proc Rotated*(this: gp_Elips, A1: gp_Ax1, Ang: cdouble): gp_Elips  {.importcpp: "Rotated".}
   ## Rotates an ellipse. A1 is the axis of the rotation. Ang is the angular
   ## value of the rotation in radians.
 
-proc Scale*(this: var gp_Elips, P: gp_Pnt, S: Standard_Real)  {.importcpp: "Scale".}
+proc Scale*(this: var gp_Elips, P: gp_Pnt, S: cdouble)  {.importcpp: "Scale".}
 
-proc Scaled*(this: gp_Elips, P: gp_Pnt, S: Standard_Real): gp_Elips  {.importcpp: "Scaled".}
+proc Scaled*(this: gp_Elips, P: gp_Pnt, S: cdouble): gp_Elips  {.importcpp: "Scaled".}
   ## Scales an ellipse. S is the scaling value.
 
 proc Transform*(this: var gp_Elips, T: gp_Trsf)  {.importcpp: "Transform".}

@@ -25,14 +25,14 @@ proc ` new`*(this: var gp_GTrsf2d, cint, theAddress: pointer)  {.importcpp: "` n
 
 proc ` delete`*(this: var gp_GTrsf2d, pointer, pointer)  {.importcpp: "` delete`".}
 
-proc SetAffinity*(this: var gp_GTrsf2d, A: gp_Ax2d, Ratio: Standard_Real)  {.importcpp: "SetAffinity".}
+proc SetAffinity*(this: var gp_GTrsf2d, A: gp_Ax2d, Ratio: cdouble)  {.importcpp: "SetAffinity".}
   ## Changes this transformation into an affinity of ratio Ratio with
   ## respect to the axis A. Note: An affinity is a point-by-point
   ## transformation that transforms any point P into a point P' such that
   ## if H is the orthogonal projection of P on the axis A, the vectors HP
   ## and HP' satisfy: HP' = Ratio * HP.
 
-proc SetValue*(this: var gp_GTrsf2d, Row: Standard_Integer, Col: Standard_Integer, Value: Standard_Real)  {.importcpp: "SetValue".}
+proc SetValue*(this: var gp_GTrsf2d, Row: cint, Col: cint, Value: cdouble)  {.importcpp: "SetValue".}
   ## Replaces the coefficient (Row, Col) of the matrix representing this
   ## transformation by Value, Raises OutOfRange if Row < 1 or Row > 2 or
   ## Col < 1 or Col > 3
@@ -48,11 +48,11 @@ proc SetTrsf2d*(this: var gp_GTrsf2d, T: gp_Trsf2d)  {.importcpp: "SetTrsf2d".}
 proc SetVectorialPart*(this: var gp_GTrsf2d, Matrix: gp_Mat2d)  {.importcpp: "SetVectorialPart".}
   ## Replaces the vectorial part of this transformation by Matrix.
 
-proc IsNegative*(this: gp_GTrsf2d): Standard_Boolean  {.importcpp: "IsNegative".}
+proc IsNegative*(this: gp_GTrsf2d): bool  {.importcpp: "IsNegative".}
   ## Returns true if the determinant of the vectorial part of this
   ## transformation is negative.
 
-proc IsSingular*(this: gp_GTrsf2d): Standard_Boolean  {.importcpp: "IsSingular".}
+proc IsSingular*(this: gp_GTrsf2d): bool  {.importcpp: "IsSingular".}
   ## Returns true if this transformation is singular (and therefore, cannot
   ## be inverted). Note: The Gauss LU decomposition is used to invert the
   ## transformation matrix. Consequently, the transformation is considered
@@ -73,11 +73,11 @@ proc VectorialPart*(this: gp_GTrsf2d): gp_Mat2d  {.importcpp: "VectorialPart".}
   ## Computes the vectorial part of the GTrsf2d. The returned Matrix is a
   ## 2*2 matrix.
 
-proc Value*(this: gp_GTrsf2d, Row: Standard_Integer, Col: Standard_Integer): Standard_Real  {.importcpp: "Value".}
+proc Value*(this: gp_GTrsf2d, Row: cint, Col: cint): cdouble  {.importcpp: "Value".}
   ## Returns the coefficients of the global matrix of transformation.
   ## Raised OutOfRange if Row < 1 or Row > 2 or Col < 1 or Col > 3
 
-proc `()`*(this: gp_GTrsf2d, Row: Standard_Integer, Col: Standard_Integer): Standard_Real  {.importcpp: "`()`".}
+proc `()`*(this: gp_GTrsf2d, Row: cint, Col: cint): cdouble  {.importcpp: "`()`".}
 
 proc Invert*(this: var gp_GTrsf2d)  {.importcpp: "Invert".}
 
@@ -104,9 +104,9 @@ proc PreMultiply*(this: var gp_GTrsf2d, T: gp_GTrsf2d)  {.importcpp: "PreMultipl
   ## Computes the product of the transformation T and this transformation,
   ## and assigns the result to this transformation: this = T * this
 
-proc Power*(this: var gp_GTrsf2d, N: Standard_Integer)  {.importcpp: "Power".}
+proc Power*(this: var gp_GTrsf2d, N: cint)  {.importcpp: "Power".}
 
-proc Powered*(this: gp_GTrsf2d, N: Standard_Integer): gp_GTrsf2d  {.importcpp: "Powered".}
+proc Powered*(this: gp_GTrsf2d, N: cint): gp_GTrsf2d  {.importcpp: "Powered".}
   ## Computes the following composition of transformations <me> * <me> *
   ## .......* <me>, N time. if N = 0 <me> = Identity if N < 0 <me> =
   ## <me>.Inverse() *...........* <me>.Inverse().
@@ -115,7 +115,7 @@ proc Transforms*(this: gp_GTrsf2d, Coord: var gp_XY)  {.importcpp: "Transforms".
 
 proc Transformed*(this: gp_GTrsf2d, Coord: gp_XY): gp_XY  {.importcpp: "Transformed".}
 
-proc Transforms*(this: gp_GTrsf2d, X: var Standard_Real, Y: var Standard_Real)  {.importcpp: "Transforms".}
+proc Transforms*(this: gp_GTrsf2d, X: var cdouble, Y: var cdouble)  {.importcpp: "Transforms".}
   ## Applies this transformation to the coordinates: - of the number pair
   ## Coord, or - X and Y.
 

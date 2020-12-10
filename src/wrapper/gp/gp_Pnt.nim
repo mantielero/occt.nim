@@ -4,13 +4,16 @@
 # Constructors and methods
 proc constructor_gp_Pnt*(): gp_Pnt {.constructor,importcpp: "gp_Pnt".}
   ## Creates a point with zero coordinates.
+  ## DONE
 
 proc constructor_gp_Pnt*(Coord: gp_XYZ): gp_Pnt {.constructor,importcpp: "gp_Pnt(@)".}
   ## Creates a point from a XYZ object.
 
-proc constructor_gp_Pnt*(Xp: Standard_Real, Yp: Standard_Real, Zp: Standard_Real): gp_Pnt {.constructor,importcpp: "gp_Pnt(@)".}
+proc constructor_gp_Pnt*(Xp: cdouble, Yp: cdouble, Zp: cdouble): gp_Pnt {.constructor,importcpp: "gp_Pnt(@)".}
   ## Creates a point with its 3 cartesian's coordinates : Xp, Yp, Zp.
-
+  ## DONE
+  
+#[
 proc ` new`*(this: var gp_Pnt, theSize: cint)  {.importcpp: "` new`".}
 
 proc ` delete`*(this: var gp_Pnt, theAddress: pointer)  {.importcpp: "` delete`".}
@@ -22,44 +25,49 @@ proc ` delete[]`*(this: var gp_Pnt, theAddress: pointer)  {.importcpp: "` delete
 proc ` new`*(this: var gp_Pnt, cint, theAddress: pointer)  {.importcpp: "` new`".}
 
 proc ` delete`*(this: var gp_Pnt, pointer, pointer)  {.importcpp: "` delete`".}
+]#
 
-proc SetCoord*(this: var gp_Pnt, Index: Standard_Integer, Xi: Standard_Real)  {.importcpp: "SetCoord".}
+proc SetCoord*(this: var gp_Pnt, Index: cint, Xi: cdouble)  {.importcpp: "SetCoord".}
   ## Changes the coordinate of range Index : Index = 1 => X is modified
   ## Index = 2 => Y is modified Index = 3 => Z is modified Raised if Index
   ## != {1, 2, 3}.
 
-proc SetCoord*(this: var gp_Pnt, Xp: Standard_Real, Yp: Standard_Real, Zp: Standard_Real)  {.importcpp: "SetCoord".}
+proc SetCoord*(this: var gp_Pnt, Xp: cdouble, Yp: cdouble, Zp: cdouble)  {.importcpp: "SetCoord".}
   ## For this point, assigns the values Xp, Yp and Zp to its three
   ## coordinates.
+  ## DONE
 
-proc SetX*(this: var gp_Pnt, X: Standard_Real)  {.importcpp: "SetX".}
+proc SetX*(this: var gp_Pnt, X: cdouble)  {.importcpp: "SetX".}
   ## Assigns the given value to the X coordinate of this point.
+  ## DONE
 
-proc SetY*(this: var gp_Pnt, Y: Standard_Real)  {.importcpp: "SetY".}
+proc SetY*(this: var gp_Pnt, Y: cdouble)  {.importcpp: "SetY".}
   ## Assigns the given value to the Y coordinate of this point.
-
-proc SetZ*(this: var gp_Pnt, Z: Standard_Real)  {.importcpp: "SetZ".}
+  ## DONE
+  
+proc SetZ*(this: var gp_Pnt, Z: cdouble)  {.importcpp: "SetZ".}
   ## Assigns the given value to the Z coordinate of this point.
+  ## DONE
 
 proc SetXYZ*(this: var gp_Pnt, Coord: gp_XYZ)  {.importcpp: "SetXYZ".}
   ## Assigns the three coordinates of Coord to this point.
 
-proc Coord*(this: gp_Pnt, Index: Standard_Integer): Standard_Real  {.importcpp: "Coord".}
+proc Coord*(this: gp_Pnt, Index: cint): cdouble  {.importcpp: "Coord".}
   ## Returns the coordinate of corresponding to the value of Index : Index
   ## = 1 => X is returned Index = 2 => Y is returned Index = 3 => Z is
   ## returned Raises OutOfRange if Index != {1, 2, 3}. Raised if Index !=
   ## {1, 2, 3}.
 
-proc Coord*(this: gp_Pnt, Xp: var Standard_Real, Yp: var Standard_Real, Zp: var Standard_Real)  {.importcpp: "Coord".}
+proc Coord*(this: gp_Pnt, Xp: var cdouble, Yp: var cdouble, Zp: var cdouble)  {.importcpp: "Coord".}
   ## For this point gives its three coordinates Xp, Yp and Zp.
 
-proc X*(this: gp_Pnt): Standard_Real  {.importcpp: "X".}
+proc X*(this: gp_Pnt): cdouble  {.importcpp: "X".}
   ## For this point, returns its X coordinate.
 
-proc Y*(this: gp_Pnt): Standard_Real  {.importcpp: "Y".}
+proc Y*(this: gp_Pnt): cdouble  {.importcpp: "Y".}
   ## For this point, returns its Y coordinate.
 
-proc Z*(this: gp_Pnt): Standard_Real  {.importcpp: "Z".}
+proc Z*(this: gp_Pnt): cdouble  {.importcpp: "Z".}
   ## For this point, returns its Z coordinate.
 
 proc XYZ*(this: gp_Pnt): gp_XYZ  {.importcpp: "XYZ".}
@@ -72,18 +80,20 @@ proc ChangeCoord*(this: var gp_Pnt): gp_XYZ  {.importcpp: "ChangeCoord".}
   ## Returns the coordinates of this point. Note: This syntax allows direct
   ## modification of the returned value.
 
-proc BaryCenter*(this: var gp_Pnt, Alpha: Standard_Real, P: gp_Pnt, Beta: Standard_Real)  {.importcpp: "BaryCenter".}
+#------
+
+proc BaryCenter*(this: var gp_Pnt, Alpha: cdouble, P: gp_Pnt, Beta: cdouble)  {.importcpp: "BaryCenter".}
   ## Assigns the result of the following expression to this point
   ## (Alpha*this + Beta*P) / (Alpha + Beta)
 
-proc IsEqual*(this: gp_Pnt, Other: gp_Pnt, LinearTolerance: Standard_Real): Standard_Boolean  {.importcpp: "IsEqual".}
+proc IsEqual*(this: gp_Pnt, Other: gp_Pnt, LinearTolerance: cdouble): bool  {.importcpp: "IsEqual".}
   ## Comparison Returns True if the distance between the two points is
   ## lower or equal to LinearTolerance.
 
-proc Distance*(this: gp_Pnt, Other: gp_Pnt): Standard_Real  {.importcpp: "Distance".}
+proc Distance*(this: gp_Pnt, Other: gp_Pnt): cdouble  {.importcpp: "Distance".}
   ## Computes the distance between two points.
 
-proc SquareDistance*(this: gp_Pnt, Other: gp_Pnt): Standard_Real  {.importcpp: "SquareDistance".}
+proc SquareDistance*(this: gp_Pnt, Other: gp_Pnt): cdouble  {.importcpp: "SquareDistance".}
   ## Computes the square distance between two points.
 
 proc Mirror*(this: var gp_Pnt, P: gp_Pnt)  {.importcpp: "Mirror".}
@@ -107,14 +117,14 @@ proc Mirrored*(this: gp_Pnt, A2: gp_Ax2): gp_Pnt  {.importcpp: "Mirrored".}
   ## Rotates a point. A1 is the axis of the rotation. Ang is the angular
   ## value of the rotation in radians.
 
-proc Rotate*(this: var gp_Pnt, A1: gp_Ax1, Ang: Standard_Real)  {.importcpp: "Rotate".}
+proc Rotate*(this: var gp_Pnt, A1: gp_Ax1, Ang: cdouble)  {.importcpp: "Rotate".}
 
-proc Rotated*(this: gp_Pnt, A1: gp_Ax1, Ang: Standard_Real): gp_Pnt  {.importcpp: "Rotated".}
+proc Rotated*(this: gp_Pnt, A1: gp_Ax1, Ang: cdouble): gp_Pnt  {.importcpp: "Rotated".}
   ## Scales a point. S is the scaling value.
 
-proc Scale*(this: var gp_Pnt, P: gp_Pnt, S: Standard_Real)  {.importcpp: "Scale".}
+proc Scale*(this: var gp_Pnt, P: gp_Pnt, S: cdouble)  {.importcpp: "Scale".}
 
-proc Scaled*(this: gp_Pnt, P: gp_Pnt, S: Standard_Real): gp_Pnt  {.importcpp: "Scaled".}
+proc Scaled*(this: gp_Pnt, P: gp_Pnt, S: cdouble): gp_Pnt  {.importcpp: "Scaled".}
   ## Transforms a point with the transformation T.
 
 proc Transform*(this: var gp_Pnt, T: gp_Trsf)  {.importcpp: "Transform".}

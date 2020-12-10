@@ -13,7 +13,7 @@ proc constructor_gp_Lin2d*(P: gp_Pnt2d, V: gp_Dir2d): gp_Lin2d {.constructor,imp
   ## <P> is the location point (origin) of the line and <V> is the
   ## direction of the line.
 
-proc constructor_gp_Lin2d*(A: Standard_Real, B: Standard_Real, C: Standard_Real): gp_Lin2d {.constructor,importcpp: "gp_Lin2d(@)".}
+proc constructor_gp_Lin2d*(A: cdouble, B: cdouble, C: cdouble): gp_Lin2d {.constructor,importcpp: "gp_Lin2d(@)".}
   ## Creates the line from the equation A*X + B*Y + C = 0.0 Raises
   ## ConstructionError if Sqrt(A*A + B*B) <= Resolution from gp. Raised if
   ## Sqrt(A*A + B*B) <= Resolution from gp.
@@ -47,7 +47,7 @@ proc SetPosition*(this: var gp_Lin2d, A: gp_Ax2d)  {.importcpp: "SetPosition".}
   ## origin of the line. The "Direction" of <A> is the direction of the
   ## line.
 
-proc Coefficients*(this: gp_Lin2d, A: var Standard_Real, B: var Standard_Real, C: var Standard_Real)  {.importcpp: "Coefficients".}
+proc Coefficients*(this: gp_Lin2d, A: var cdouble, B: var cdouble, C: var cdouble)  {.importcpp: "Coefficients".}
   ## Returns the normalized coefficients of the line : A * X + B * Y + C =
   ## 0.
 
@@ -61,24 +61,24 @@ proc Position*(this: gp_Lin2d): gp_Ax2d  {.importcpp: "Position".}
   ## Returns the axis placement one axis whith the same location and
   ## direction as <me>.
 
-proc Angle*(this: gp_Lin2d, Other: gp_Lin2d): Standard_Real  {.importcpp: "Angle".}
+proc Angle*(this: gp_Lin2d, Other: gp_Lin2d): cdouble  {.importcpp: "Angle".}
   ## Computes the angle between two lines in radians.
 
-proc Contains*(this: gp_Lin2d, P: gp_Pnt2d, LinearTolerance: Standard_Real): Standard_Boolean  {.importcpp: "Contains".}
+proc Contains*(this: gp_Lin2d, P: gp_Pnt2d, LinearTolerance: cdouble): bool  {.importcpp: "Contains".}
   ## Returns true if this line contains the point P, that is, if the
   ## distance between point P and this line is less than or equal to
   ## LinearTolerance.
 
-proc Distance*(this: gp_Lin2d, P: gp_Pnt2d): Standard_Real  {.importcpp: "Distance".}
+proc Distance*(this: gp_Lin2d, P: gp_Pnt2d): cdouble  {.importcpp: "Distance".}
   ## Computes the distance between <me> and the point <P>.
 
-proc Distance*(this: gp_Lin2d, Other: gp_Lin2d): Standard_Real  {.importcpp: "Distance".}
+proc Distance*(this: gp_Lin2d, Other: gp_Lin2d): cdouble  {.importcpp: "Distance".}
   ## Computes the distance between two lines.
 
-proc SquareDistance*(this: gp_Lin2d, P: gp_Pnt2d): Standard_Real  {.importcpp: "SquareDistance".}
+proc SquareDistance*(this: gp_Lin2d, P: gp_Pnt2d): cdouble  {.importcpp: "SquareDistance".}
   ## Computes the square distance between <me> and the point <P>.
 
-proc SquareDistance*(this: gp_Lin2d, Other: gp_Lin2d): Standard_Real  {.importcpp: "SquareDistance".}
+proc SquareDistance*(this: gp_Lin2d, Other: gp_Lin2d): cdouble  {.importcpp: "SquareDistance".}
   ## Computes the square distance between two lines.
 
 proc Normal*(this: gp_Lin2d, P: gp_Pnt2d): gp_Lin2d  {.importcpp: "Normal".}
@@ -97,15 +97,15 @@ proc Mirrored*(this: gp_Lin2d, A: gp_Ax2d): gp_Lin2d  {.importcpp: "Mirrored".}
   ## Performs the symmetrical transformation of a line with respect to an
   ## axis placement which is the axis of the symmetry.
 
-proc Rotate*(this: var gp_Lin2d, P: gp_Pnt2d, Ang: Standard_Real)  {.importcpp: "Rotate".}
+proc Rotate*(this: var gp_Lin2d, P: gp_Pnt2d, Ang: cdouble)  {.importcpp: "Rotate".}
 
-proc Rotated*(this: gp_Lin2d, P: gp_Pnt2d, Ang: Standard_Real): gp_Lin2d  {.importcpp: "Rotated".}
+proc Rotated*(this: gp_Lin2d, P: gp_Pnt2d, Ang: cdouble): gp_Lin2d  {.importcpp: "Rotated".}
   ## Rotates a line. P is the center of the rotation. Ang is the angular
   ## value of the rotation in radians.
 
-proc Scale*(this: var gp_Lin2d, P: gp_Pnt2d, S: Standard_Real)  {.importcpp: "Scale".}
+proc Scale*(this: var gp_Lin2d, P: gp_Pnt2d, S: cdouble)  {.importcpp: "Scale".}
 
-proc Scaled*(this: gp_Lin2d, P: gp_Pnt2d, S: Standard_Real): gp_Lin2d  {.importcpp: "Scaled".}
+proc Scaled*(this: gp_Lin2d, P: gp_Pnt2d, S: cdouble): gp_Lin2d  {.importcpp: "Scaled".}
   ## Scales a line. S is the scaling value. Only the origin of the line is
   ## modified.
 

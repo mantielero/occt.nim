@@ -5,7 +5,7 @@
 proc constructor_gp_Hypr*(): gp_Hypr {.constructor,importcpp: "gp_Hypr".}
   ## Creates of an indefinite hyperbola.
 
-proc constructor_gp_Hypr*(A2: gp_Ax2, MajorRadius: Standard_Real, MinorRadius: Standard_Real): gp_Hypr {.constructor,importcpp: "gp_Hypr(@)".}
+proc constructor_gp_Hypr*(A2: gp_Ax2, MajorRadius: cdouble, MinorRadius: cdouble): gp_Hypr {.constructor,importcpp: "gp_Hypr(@)".}
   ## Creates a hyperbola with radii MajorRadius and MinorRadius, positioned
   ## in the space by the coordinate system A2 such that: - the origin of A2
   ## is the center of the hyperbola, - the "X Direction" of A2 defines the
@@ -42,11 +42,11 @@ proc SetLocation*(this: var gp_Hypr, P: gp_Pnt)  {.importcpp: "SetLocation".}
   ## Modifies this hyperbola, by redefining its local coordinate system so
   ## that its origin becomes P.
 
-proc SetMajorRadius*(this: var gp_Hypr, MajorRadius: Standard_Real)  {.importcpp: "SetMajorRadius".}
+proc SetMajorRadius*(this: var gp_Hypr, MajorRadius: cdouble)  {.importcpp: "SetMajorRadius".}
   ## Modifies the major radius of this hyperbola. Exceptions
   ## Standard_ConstructionError if MajorRadius is negative.
 
-proc SetMinorRadius*(this: var gp_Hypr, MinorRadius: Standard_Real)  {.importcpp: "SetMinorRadius".}
+proc SetMinorRadius*(this: var gp_Hypr, MinorRadius: cdouble)  {.importcpp: "SetMinorRadius".}
   ## Modifies the minor radius of this hyperbola. Exceptions
   ## Standard_ConstructionError if MinorRadius is negative.
 
@@ -90,13 +90,13 @@ proc Directrix2*(this: gp_Hypr): gp_Ax1  {.importcpp: "Directrix2".}
   ## This line is obtained by the symmetrical transformation of
   ## "Directrix1" with respect to the "YAxis" of the hyperbola.
 
-proc Eccentricity*(this: gp_Hypr): Standard_Real  {.importcpp: "Eccentricity".}
+proc Eccentricity*(this: gp_Hypr): cdouble  {.importcpp: "Eccentricity".}
   ## Returns the excentricity of the hyperbola (e > 1). If f is the
   ## distance between the location of the hyperbola and the Focus1 then the
   ## eccentricity e = f / MajorRadius. Raises DomainError if MajorRadius =
   ## 0.0
 
-proc Focal*(this: gp_Hypr): Standard_Real  {.importcpp: "Focal".}
+proc Focal*(this: gp_Hypr): cdouble  {.importcpp: "Focal".}
   ## Computes the focal distance. It is the distance between the the two
   ## focus of the hyperbola.
 
@@ -112,11 +112,11 @@ proc Location*(this: gp_Hypr): gp_Pnt  {.importcpp: "Location".}
   ## Returns the location point of the hyperbola. It is the intersection
   ## point between the "XAxis" and the "YAxis".
 
-proc MajorRadius*(this: gp_Hypr): Standard_Real  {.importcpp: "MajorRadius".}
+proc MajorRadius*(this: gp_Hypr): cdouble  {.importcpp: "MajorRadius".}
   ## Returns the major radius of the hyperbola. It is the radius on the
   ## "XAxis" of the hyperbola.
 
-proc MinorRadius*(this: gp_Hypr): Standard_Real  {.importcpp: "MinorRadius".}
+proc MinorRadius*(this: gp_Hypr): cdouble  {.importcpp: "MinorRadius".}
   ## Returns the minor radius of the hyperbola. It is the radius on the
   ## "YAxis" of the hyperbola.
 
@@ -124,7 +124,7 @@ proc OtherBranch*(this: gp_Hypr): gp_Hypr  {.importcpp: "OtherBranch".}
   ## Returns the branch of hyperbola obtained by doing the symmetrical
   ## transformation of <me> with respect to the "YAxis" of <me>.
 
-proc Parameter*(this: gp_Hypr): Standard_Real  {.importcpp: "Parameter".}
+proc Parameter*(this: gp_Hypr): cdouble  {.importcpp: "Parameter".}
   ## Returns p = (e * e - 1) * MajorRadius where e is the eccentricity of
   ## the hyperbola. Raises DomainError if MajorRadius = 0.0
 
@@ -162,15 +162,15 @@ proc Mirrored*(this: gp_Hypr, A2: gp_Ax2): gp_Hypr  {.importcpp: "Mirrored".}
   ## to a plane. The axis placement A2 locates the plane of the symmetry
   ## (Location, XDirection, YDirection).
 
-proc Rotate*(this: var gp_Hypr, A1: gp_Ax1, Ang: Standard_Real)  {.importcpp: "Rotate".}
+proc Rotate*(this: var gp_Hypr, A1: gp_Ax1, Ang: cdouble)  {.importcpp: "Rotate".}
 
-proc Rotated*(this: gp_Hypr, A1: gp_Ax1, Ang: Standard_Real): gp_Hypr  {.importcpp: "Rotated".}
+proc Rotated*(this: gp_Hypr, A1: gp_Ax1, Ang: cdouble): gp_Hypr  {.importcpp: "Rotated".}
   ## Rotates an hyperbola. A1 is the axis of the rotation. Ang is the
   ## angular value of the rotation in radians.
 
-proc Scale*(this: var gp_Hypr, P: gp_Pnt, S: Standard_Real)  {.importcpp: "Scale".}
+proc Scale*(this: var gp_Hypr, P: gp_Pnt, S: cdouble)  {.importcpp: "Scale".}
 
-proc Scaled*(this: gp_Hypr, P: gp_Pnt, S: Standard_Real): gp_Hypr  {.importcpp: "Scaled".}
+proc Scaled*(this: gp_Hypr, P: gp_Pnt, S: cdouble): gp_Hypr  {.importcpp: "Scaled".}
   ## Scales an hyperbola. S is the scaling value.
 
 proc Transform*(this: var gp_Hypr, T: gp_Trsf)  {.importcpp: "Transform".}

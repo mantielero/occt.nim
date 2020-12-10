@@ -5,7 +5,7 @@
 proc constructor_gp_Cylinder*(): gp_Cylinder {.constructor,importcpp: "gp_Cylinder".}
   ## Creates a indefinite cylinder.
 
-proc constructor_gp_Cylinder*(A3: gp_Ax3, Radius: Standard_Real): gp_Cylinder {.constructor,importcpp: "gp_Cylinder(@)".}
+proc constructor_gp_Cylinder*(A3: gp_Ax3, Radius: cdouble): gp_Cylinder {.constructor,importcpp: "gp_Cylinder(@)".}
   ## Creates a cylinder of radius Radius, whose axis is the "main Axis" of
   ## A3. A3 is the local coordinate system of the cylinder. Raises
   ## ConstructionErrord if R < 0.0
@@ -33,7 +33,7 @@ proc SetLocation*(this: var gp_Cylinder, Loc: gp_Pnt)  {.importcpp: "SetLocation
 proc SetPosition*(this: var gp_Cylinder, A3: gp_Ax3)  {.importcpp: "SetPosition".}
   ## Change the local coordinate system of the surface.
 
-proc SetRadius*(this: var gp_Cylinder, R: Standard_Real)  {.importcpp: "SetRadius".}
+proc SetRadius*(this: var gp_Cylinder, R: cdouble)  {.importcpp: "SetRadius".}
   ## Modifies the radius of this cylinder. Exceptions
   ## Standard_ConstructionError if R is negative.
 
@@ -43,14 +43,14 @@ proc UReverse*(this: var gp_Cylinder)  {.importcpp: "UReverse".}
 proc VReverse*(this: var gp_Cylinder)  {.importcpp: "VReverse".}
   ## Reverses the V parametrization of the plane reversing the Axis.
 
-proc Direct*(this: gp_Cylinder): Standard_Boolean  {.importcpp: "Direct".}
+proc Direct*(this: gp_Cylinder): bool  {.importcpp: "Direct".}
   ## Returns true if the local coordinate system of this cylinder is right-
   ## handed.
 
 proc Axis*(this: gp_Cylinder): gp_Ax1  {.importcpp: "Axis".}
   ## Returns the symmetry axis of the cylinder.
 
-proc Coefficients*(this: gp_Cylinder, A1: var Standard_Real, A2: var Standard_Real, A3: var Standard_Real, B1: var Standard_Real, B2: var Standard_Real, B3: var Standard_Real, C1: var Standard_Real, C2: var Standard_Real, C3: var Standard_Real, D: var Standard_Real)  {.importcpp: "Coefficients".}
+proc Coefficients*(this: gp_Cylinder, A1: var cdouble, A2: var cdouble, A3: var cdouble, B1: var cdouble, B2: var cdouble, B3: var cdouble, C1: var cdouble, C2: var cdouble, C3: var cdouble, D: var cdouble)  {.importcpp: "Coefficients".}
   ## Computes the coefficients of the implicit equation of the quadric in
   ## the absolute cartesian coordinate system : A1.X**2 + A2.Y**2 + A3.Z**2
   ## + 2.(B1.X.Y + B2.X.Z + B3.Y.Z) + 2.(C1.X + C2.Y + C3.Z) + D = 0.0
@@ -61,7 +61,7 @@ proc Location*(this: gp_Cylinder): gp_Pnt  {.importcpp: "Location".}
 proc Position*(this: gp_Cylinder): gp_Ax3  {.importcpp: "Position".}
   ## Returns the local coordinate system of the cylinder.
 
-proc Radius*(this: gp_Cylinder): Standard_Real  {.importcpp: "Radius".}
+proc Radius*(this: gp_Cylinder): cdouble  {.importcpp: "Radius".}
   ## Returns the radius of the cylinder.
 
 proc XAxis*(this: gp_Cylinder): gp_Ax1  {.importcpp: "XAxis".}
@@ -89,15 +89,15 @@ proc Mirrored*(this: gp_Cylinder, A2: gp_Ax2): gp_Cylinder  {.importcpp: "Mirror
   ## a plane. The axis placement A2 locates the plane of the of the
   ## symmetry : (Location, XDirection, YDirection).
 
-proc Rotate*(this: var gp_Cylinder, A1: gp_Ax1, Ang: Standard_Real)  {.importcpp: "Rotate".}
+proc Rotate*(this: var gp_Cylinder, A1: gp_Ax1, Ang: cdouble)  {.importcpp: "Rotate".}
 
-proc Rotated*(this: gp_Cylinder, A1: gp_Ax1, Ang: Standard_Real): gp_Cylinder  {.importcpp: "Rotated".}
+proc Rotated*(this: gp_Cylinder, A1: gp_Ax1, Ang: cdouble): gp_Cylinder  {.importcpp: "Rotated".}
   ## Rotates a cylinder. A1 is the axis of the rotation. Ang is the angular
   ## value of the rotation in radians.
 
-proc Scale*(this: var gp_Cylinder, P: gp_Pnt, S: Standard_Real)  {.importcpp: "Scale".}
+proc Scale*(this: var gp_Cylinder, P: gp_Pnt, S: cdouble)  {.importcpp: "Scale".}
 
-proc Scaled*(this: gp_Cylinder, P: gp_Pnt, S: Standard_Real): gp_Cylinder  {.importcpp: "Scaled".}
+proc Scaled*(this: gp_Cylinder, P: gp_Pnt, S: cdouble): gp_Cylinder  {.importcpp: "Scaled".}
   ## Scales a cylinder. S is the scaling value. The absolute value of S is
   ## used to scale the cylinder
 

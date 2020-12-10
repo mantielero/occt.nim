@@ -12,12 +12,12 @@ proc constructor_gp_Ax22d*(P: gp_Pnt2d, Vx: gp_Dir2d, Vy: gp_Dir2d): gp_Ax22d {.
   ## sign. Raises ConstructionError if Vx and Vy are parallel (same or
   ## opposite orientation).
 
-proc constructor_gp_Ax22d*(P: gp_Pnt2d, V: gp_Dir2d, Sense: Standard_Boolean): gp_Ax22d {.constructor,importcpp: "gp_Ax22d(@)".}
+proc constructor_gp_Ax22d*(P: gp_Pnt2d, V: gp_Dir2d, Sense: bool): gp_Ax22d {.constructor,importcpp: "gp_Ax22d(@)".}
   ## Creates - a coordinate system with origin P and "X Direction" V, which
   ## is: - right-handed if Sense is true (default value), or - left-handed
   ## if Sense is false
 
-proc constructor_gp_Ax22d*(A: gp_Ax2d, Sense: Standard_Boolean): gp_Ax22d {.constructor,importcpp: "gp_Ax22d(@)".}
+proc constructor_gp_Ax22d*(A: gp_Ax2d, Sense: bool): gp_Ax22d {.constructor,importcpp: "gp_Ax22d(@)".}
   ## Creates - a coordinate system where its origin is the origin of A and
   ## its "X Direction" is the unit vector of A, which is: - right-handed if
   ## Sense is true (default value), or - left-handed if Sense is false.
@@ -101,15 +101,15 @@ proc Mirrored*(this: gp_Ax22d, A: gp_Ax2d): gp_Ax22d  {.importcpp: "Mirrored".}
   ## cross product between the "XDirection" and the "YDirection" after
   ## transformation.
 
-proc Rotate*(this: var gp_Ax22d, P: gp_Pnt2d, Ang: Standard_Real)  {.importcpp: "Rotate".}
+proc Rotate*(this: var gp_Ax22d, P: gp_Pnt2d, Ang: cdouble)  {.importcpp: "Rotate".}
 
-proc Rotated*(this: gp_Ax22d, P: gp_Pnt2d, Ang: Standard_Real): gp_Ax22d  {.importcpp: "Rotated".}
+proc Rotated*(this: gp_Ax22d, P: gp_Pnt2d, Ang: cdouble): gp_Ax22d  {.importcpp: "Rotated".}
   ## Rotates an axis placement. <A1> is the axis of the rotation . Ang is
   ## the angular value of the rotation in radians.
 
-proc Scale*(this: var gp_Ax22d, P: gp_Pnt2d, S: Standard_Real)  {.importcpp: "Scale".}
+proc Scale*(this: var gp_Ax22d, P: gp_Pnt2d, S: cdouble)  {.importcpp: "Scale".}
 
-proc Scaled*(this: gp_Ax22d, P: gp_Pnt2d, S: Standard_Real): gp_Ax22d  {.importcpp: "Scaled".}
+proc Scaled*(this: gp_Ax22d, P: gp_Pnt2d, S: cdouble): gp_Ax22d  {.importcpp: "Scaled".}
   ## Applies a scaling transformation on the axis placement. The "Location"
   ## point of the axisplacement is modified. Warnings : If the scale <S> is
   ## negative : . the main direction of the axis placement is not changed.

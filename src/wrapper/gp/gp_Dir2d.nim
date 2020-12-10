@@ -13,7 +13,7 @@ proc constructor_gp_Dir2d*(Coord: gp_XY): gp_Dir2d {.constructor,importcpp: "gp_
   ## Creates a Direction from a doublet of coordinates. Raises
   ## ConstructionError if Coord.Modulus() <= Resolution from gp.
 
-proc constructor_gp_Dir2d*(Xv: Standard_Real, Yv: Standard_Real): gp_Dir2d {.constructor,importcpp: "gp_Dir2d(@)".}
+proc constructor_gp_Dir2d*(Xv: cdouble, Yv: cdouble): gp_Dir2d {.constructor,importcpp: "gp_Dir2d(@)".}
   ## Creates a Direction with its 2 cartesian coordinates. Raises
   ## ConstructionError if Sqrt(Xv*Xv + Yv*Yv) <= Resolution from gp.
 
@@ -29,7 +29,7 @@ proc ` new`*(this: var gp_Dir2d, cint, theAddress: pointer)  {.importcpp: "` new
 
 proc ` delete`*(this: var gp_Dir2d, pointer, pointer)  {.importcpp: "` delete`".}
 
-proc SetCoord*(this: var gp_Dir2d, Index: Standard_Integer, Xi: Standard_Real)  {.importcpp: "SetCoord".}
+proc SetCoord*(this: var gp_Dir2d, Index: cint, Xi: cdouble)  {.importcpp: "SetCoord".}
   ## For this unit vector, assigns: the value Xi to: - the X coordinate if
   ## Index is 1, or - the Y coordinate if Index is 2, and then normalizes
   ## it. Warning Remember that all the coordinates of a unit vector are
@@ -41,7 +41,7 @@ proc SetCoord*(this: var gp_Dir2d, Index: Standard_Integer, Xi: Standard_Real)  
   ## this vector that was not directly modified. Raises OutOfRange if Index
   ## != {1, 2}.
 
-proc SetCoord*(this: var gp_Dir2d, Xv: Standard_Real, Yv: Standard_Real)  {.importcpp: "SetCoord".}
+proc SetCoord*(this: var gp_Dir2d, Xv: cdouble, Yv: cdouble)  {.importcpp: "SetCoord".}
   ## For this unit vector, assigns: - the values Xv and Yv to its two
   ## coordinates, Warning Remember that all the coordinates of a unit
   ## vector are implicitly modified when any single one is changed
@@ -52,7 +52,7 @@ proc SetCoord*(this: var gp_Dir2d, Xv: Standard_Real, Yv: Standard_Real)  {.impo
   ## this vector that was not directly modified. Raises OutOfRange if Index
   ## != {1, 2}.
 
-proc SetX*(this: var gp_Dir2d, X: Standard_Real)  {.importcpp: "SetX".}
+proc SetX*(this: var gp_Dir2d, X: cdouble)  {.importcpp: "SetX".}
   ## Assigns the given value to the X coordinate of this unit vector, and
   ## then normalizes it. Warning Remember that all the coordinates of a
   ## unit vector are implicitly modified when any single one is changed
@@ -62,7 +62,7 @@ proc SetX*(this: var gp_Dir2d, X: Standard_Real)  {.importcpp: "SetX".}
   ## coordinate and the other coordinate of this vector that was not
   ## directly modified.
 
-proc SetY*(this: var gp_Dir2d, Y: Standard_Real)  {.importcpp: "SetY".}
+proc SetY*(this: var gp_Dir2d, Y: cdouble)  {.importcpp: "SetY".}
   ## Assigns the given value to the Y coordinate of this unit vector, and
   ## then normalizes it. Warning Remember that all the coordinates of a
   ## unit vector are implicitly modified when any single one is changed
@@ -82,58 +82,58 @@ proc SetXY*(this: var gp_Dir2d, Coord: gp_XY)  {.importcpp: "SetXY".}
   ## coordinate and the other coordinate of this vector that was not
   ## directly modified.
 
-proc Coord*(this: gp_Dir2d, Index: Standard_Integer): Standard_Real  {.importcpp: "Coord".}
+proc Coord*(this: gp_Dir2d, Index: cint): cdouble  {.importcpp: "Coord".}
   ## For this unit vector returns the coordinate of range Index : Index = 1
   ## => X is returned Index = 2 => Y is returned Raises OutOfRange if Index
   ## != {1, 2}.
 
-proc Coord*(this: gp_Dir2d, Xv: var Standard_Real, Yv: var Standard_Real)  {.importcpp: "Coord".}
+proc Coord*(this: gp_Dir2d, Xv: var cdouble, Yv: var cdouble)  {.importcpp: "Coord".}
   ## For this unit vector returns its two coordinates Xv and Yv. Raises
   ## OutOfRange if Index != {1, 2}.
 
-proc X*(this: gp_Dir2d): Standard_Real  {.importcpp: "X".}
+proc X*(this: gp_Dir2d): cdouble  {.importcpp: "X".}
   ## For this unit vector, returns its X coordinate.
 
-proc Y*(this: gp_Dir2d): Standard_Real  {.importcpp: "Y".}
+proc Y*(this: gp_Dir2d): cdouble  {.importcpp: "Y".}
   ## For this unit vector, returns its Y coordinate.
 
 proc XY*(this: gp_Dir2d): gp_XY  {.importcpp: "XY".}
   ## For this unit vector, returns its two coordinates as a number pair.
   ## Comparison between Directions The precision value is an input data.
 
-proc IsEqual*(this: gp_Dir2d, Other: gp_Dir2d, AngularTolerance: Standard_Real): Standard_Boolean  {.importcpp: "IsEqual".}
+proc IsEqual*(this: gp_Dir2d, Other: gp_Dir2d, AngularTolerance: cdouble): bool  {.importcpp: "IsEqual".}
   ## Returns True if the two vectors have the same direction i.e. the angle
   ## between this unit vector and the unit vector Other is less than or
   ## equal to AngularTolerance.
 
-proc IsNormal*(this: gp_Dir2d, Other: gp_Dir2d, AngularTolerance: Standard_Real): Standard_Boolean  {.importcpp: "IsNormal".}
+proc IsNormal*(this: gp_Dir2d, Other: gp_Dir2d, AngularTolerance: cdouble): bool  {.importcpp: "IsNormal".}
   ## Returns True if the angle between this unit vector and the unit vector
   ## Other is equal to Pi/2 or -Pi/2 (normal) i.e.
   ## Abs(Abs(<me>.Angle(Other)) - PI/2.) <= AngularTolerance
 
-proc IsOpposite*(this: gp_Dir2d, Other: gp_Dir2d, AngularTolerance: Standard_Real): Standard_Boolean  {.importcpp: "IsOpposite".}
+proc IsOpposite*(this: gp_Dir2d, Other: gp_Dir2d, AngularTolerance: cdouble): bool  {.importcpp: "IsOpposite".}
   ## Returns True if the angle between this unit vector and the unit vector
   ## Other is equal to Pi or -Pi (opposite). i.e. PI -
   ## Abs(<me>.Angle(Other)) <= AngularTolerance
 
-proc IsParallel*(this: gp_Dir2d, Other: gp_Dir2d, AngularTolerance: Standard_Real): Standard_Boolean  {.importcpp: "IsParallel".}
+proc IsParallel*(this: gp_Dir2d, Other: gp_Dir2d, AngularTolerance: cdouble): bool  {.importcpp: "IsParallel".}
   ## returns true if if the angle between this unit vector and unit vector
   ## Other is equal to 0, Pi or -Pi. i.e. Abs(Angle(<me>, Other)) <=
   ## AngularTolerance or PI - Abs(Angle(<me>, Other)) <= AngularTolerance
 
-proc Angle*(this: gp_Dir2d, Other: gp_Dir2d): Standard_Real  {.importcpp: "Angle".}
+proc Angle*(this: gp_Dir2d, Other: gp_Dir2d): cdouble  {.importcpp: "Angle".}
   ## Computes the angular value in radians between <me> and <Other>.
   ## Returns the angle in the range [-PI, PI].
 
-proc Crossed*(this: gp_Dir2d, Right: gp_Dir2d): Standard_Real  {.importcpp: "Crossed".}
+proc Crossed*(this: gp_Dir2d, Right: gp_Dir2d): cdouble  {.importcpp: "Crossed".}
   ## Computes the cross product between two directions.
 
-proc `^`*(this: gp_Dir2d, Right: gp_Dir2d): Standard_Real  {.importcpp: "`^`".}
+proc `^`*(this: gp_Dir2d, Right: gp_Dir2d): cdouble  {.importcpp: "`^`".}
 
-proc Dot*(this: gp_Dir2d, Other: gp_Dir2d): Standard_Real  {.importcpp: "Dot".}
+proc Dot*(this: gp_Dir2d, Other: gp_Dir2d): cdouble  {.importcpp: "Dot".}
   ## Computes the scalar product
 
-proc `*`*(this: gp_Dir2d, Other: gp_Dir2d): Standard_Real  {.importcpp: "`*`".}
+proc `*`*(this: gp_Dir2d, Other: gp_Dir2d): cdouble  {.importcpp: "`*`".}
 
 proc Reverse*(this: var gp_Dir2d)  {.importcpp: "Reverse".}
 
@@ -154,9 +154,9 @@ proc Mirrored*(this: gp_Dir2d, A: gp_Ax2d): gp_Dir2d  {.importcpp: "Mirrored".}
   ## Performs the symmetrical transformation of a direction with respect to
   ## an axis placement which is the axis of the symmetry.
 
-proc Rotate*(this: var gp_Dir2d, Ang: Standard_Real)  {.importcpp: "Rotate".}
+proc Rotate*(this: var gp_Dir2d, Ang: cdouble)  {.importcpp: "Rotate".}
 
-proc Rotated*(this: gp_Dir2d, Ang: Standard_Real): gp_Dir2d  {.importcpp: "Rotated".}
+proc Rotated*(this: gp_Dir2d, Ang: cdouble): gp_Dir2d  {.importcpp: "Rotated".}
   ## Rotates a direction. Ang is the angular value of the rotation in
   ## radians.
 

@@ -53,24 +53,24 @@ proc Position*(this: gp_Lin): gp_Ax1  {.importcpp: "Position".}
   ## Returns the axis placement one axis whith the same location and
   ## direction as <me>.
 
-proc Angle*(this: gp_Lin, Other: gp_Lin): Standard_Real  {.importcpp: "Angle".}
+proc Angle*(this: gp_Lin, Other: gp_Lin): cdouble  {.importcpp: "Angle".}
   ## Computes the angle between two lines in radians.
 
-proc Contains*(this: gp_Lin, P: gp_Pnt, LinearTolerance: Standard_Real): Standard_Boolean  {.importcpp: "Contains".}
+proc Contains*(this: gp_Lin, P: gp_Pnt, LinearTolerance: cdouble): bool  {.importcpp: "Contains".}
   ## Returns true if this line contains the point P, that is, if the
   ## distance between point P and this line is less than or equal to
   ## LinearTolerance..
 
-proc Distance*(this: gp_Lin, P: gp_Pnt): Standard_Real  {.importcpp: "Distance".}
+proc Distance*(this: gp_Lin, P: gp_Pnt): cdouble  {.importcpp: "Distance".}
   ## Computes the distance between <me> and the point P.
 
-proc Distance*(this: gp_Lin, Other: gp_Lin): Standard_Real  {.importcpp: "Distance".}
+proc Distance*(this: gp_Lin, Other: gp_Lin): cdouble  {.importcpp: "Distance".}
   ## Computes the distance between two lines.
 
-proc SquareDistance*(this: gp_Lin, P: gp_Pnt): Standard_Real  {.importcpp: "SquareDistance".}
+proc SquareDistance*(this: gp_Lin, P: gp_Pnt): cdouble  {.importcpp: "SquareDistance".}
   ## Computes the square distance between <me> and the point P.
 
-proc SquareDistance*(this: gp_Lin, Other: gp_Lin): Standard_Real  {.importcpp: "SquareDistance".}
+proc SquareDistance*(this: gp_Lin, Other: gp_Lin): cdouble  {.importcpp: "SquareDistance".}
   ## Computes the square distance between two lines.
 
 proc Normal*(this: gp_Lin, P: gp_Pnt): gp_Lin  {.importcpp: "Normal".}
@@ -98,15 +98,15 @@ proc Mirrored*(this: gp_Lin, A2: gp_Ax2): gp_Lin  {.importcpp: "Mirrored".}
   ## plane. The axis placement <A2> locates the plane of the symmetry :
   ## (Location, XDirection, YDirection).
 
-proc Rotate*(this: var gp_Lin, A1: gp_Ax1, Ang: Standard_Real)  {.importcpp: "Rotate".}
+proc Rotate*(this: var gp_Lin, A1: gp_Ax1, Ang: cdouble)  {.importcpp: "Rotate".}
 
-proc Rotated*(this: gp_Lin, A1: gp_Ax1, Ang: Standard_Real): gp_Lin  {.importcpp: "Rotated".}
+proc Rotated*(this: gp_Lin, A1: gp_Ax1, Ang: cdouble): gp_Lin  {.importcpp: "Rotated".}
   ## Rotates a line. A1 is the axis of the rotation. Ang is the angular
   ## value of the rotation in radians.
 
-proc Scale*(this: var gp_Lin, P: gp_Pnt, S: Standard_Real)  {.importcpp: "Scale".}
+proc Scale*(this: var gp_Lin, P: gp_Pnt, S: cdouble)  {.importcpp: "Scale".}
 
-proc Scaled*(this: gp_Lin, P: gp_Pnt, S: Standard_Real): gp_Lin  {.importcpp: "Scaled".}
+proc Scaled*(this: gp_Lin, P: gp_Pnt, S: cdouble): gp_Lin  {.importcpp: "Scaled".}
   ## Scales a line. S is the scaling value. The "Location" point (origin)
   ## of the line is modified. The "Direction" is reversed if the scale is
   ## negative.

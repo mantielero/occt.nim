@@ -5,7 +5,7 @@
 proc constructor_gp_Parab2d*(): gp_Parab2d {.constructor,importcpp: "gp_Parab2d".}
   ## Creates an indefinite parabola.
 
-proc constructor_gp_Parab2d*(theMirrorAxis: gp_Ax2d, theFocalLength: Standard_Real, theSense: Standard_Boolean): gp_Parab2d {.constructor,importcpp: "gp_Parab2d(@)".}
+proc constructor_gp_Parab2d*(theMirrorAxis: gp_Ax2d, theFocalLength: cdouble, theSense: bool): gp_Parab2d {.constructor,importcpp: "gp_Parab2d(@)".}
   ## Creates a parabola with its vertex point, its axis of symmetry
   ## ("XAxis") and its focal length. The sense of parametrization is given
   ## by theSense. If theSense == TRUE (by default) then right-handed
@@ -14,14 +14,14 @@ proc constructor_gp_Parab2d*(theMirrorAxis: gp_Ax2d, theFocalLength: Standard_Re
   ## like a line, which is parallel to the symmetry-axis. Raises
   ## ConstructionError if FocalLength < 0.0
 
-proc constructor_gp_Parab2d*(theAxes: gp_Ax22d, theFocalLength: Standard_Real): gp_Parab2d {.constructor,importcpp: "gp_Parab2d(@)".}
+proc constructor_gp_Parab2d*(theAxes: gp_Ax22d, theFocalLength: cdouble): gp_Parab2d {.constructor,importcpp: "gp_Parab2d(@)".}
   ## Creates a parabola with its vertex point, its axis of symmetry
   ## ("XAxis"), correspond Y-axis and its focal length. Warnings : It is
   ## possible to have FocalLength = 0. In this case, the parabola looks
   ## like a line, which is parallel to the symmetry-axis. Raises
   ## ConstructionError if Focal < 0.0
 
-proc constructor_gp_Parab2d*(theDirectrix: gp_Ax2d, theFocus: gp_Pnt2d, theSense: Standard_Boolean): gp_Parab2d {.constructor,importcpp: "gp_Parab2d(@)".}
+proc constructor_gp_Parab2d*(theDirectrix: gp_Ax2d, theFocus: gp_Pnt2d, theSense: bool): gp_Parab2d {.constructor,importcpp: "gp_Parab2d(@)".}
   ## Creates a parabola with the directrix and the focus point. Y-axis of
   ## the parabola (in User Coordinate System - UCS) is the direction of
   ## theDirectrix. X-axis always directs from theDirectrix to theFocus
@@ -46,7 +46,7 @@ proc ` new`*(this: var gp_Parab2d, cint, theAddress: pointer)  {.importcpp: "` n
 
 proc ` delete`*(this: var gp_Parab2d, pointer, pointer)  {.importcpp: "` delete`".}
 
-proc SetFocal*(this: var gp_Parab2d, Focal: Standard_Real)  {.importcpp: "SetFocal".}
+proc SetFocal*(this: var gp_Parab2d, Focal: cdouble)  {.importcpp: "SetFocal".}
   ## Changes the focal distance of the parabola Warnings : It is possible
   ## to have Focal = 0. Raises ConstructionError if Focal < 0.0
 
@@ -64,7 +64,7 @@ proc SetAxis*(this: var gp_Parab2d, A: gp_Ax22d)  {.importcpp: "SetAxis".}
   ## Changes the local coordinate system of the parabola. The "Location"
   ## point of A becomes the vertex of the parabola.
 
-proc Coefficients*(this: gp_Parab2d, A: var Standard_Real, B: var Standard_Real, C: var Standard_Real, D: var Standard_Real, E: var Standard_Real, F: var Standard_Real)  {.importcpp: "Coefficients".}
+proc Coefficients*(this: gp_Parab2d, A: var cdouble, B: var cdouble, C: var cdouble, D: var cdouble, E: var cdouble, F: var cdouble)  {.importcpp: "Coefficients".}
   ## Computes the coefficients of the implicit equation of the parabola (in
   ## WCS - World Coordinate System). A * (X**2) + B * (Y**2) + 2*C*(X*Y) +
   ## 2*D*X + 2*E*Y + F = 0.
@@ -77,7 +77,7 @@ proc Directrix*(this: gp_Parab2d): gp_Ax2d  {.importcpp: "Directrix".}
   ## parabola. The directrix is returned as an axis (a gp_Ax2d object), the
   ## origin of which is situated on the "X Axis" of this parabola.
 
-proc Focal*(this: gp_Parab2d): Standard_Real  {.importcpp: "Focal".}
+proc Focal*(this: gp_Parab2d): cdouble  {.importcpp: "Focal".}
   ## Returns the distance between the vertex and the focus of the parabola.
 
 proc Focus*(this: gp_Parab2d): gp_Pnt2d  {.importcpp: "Focus".}
@@ -94,7 +94,7 @@ proc Axis*(this: gp_Parab2d): gp_Ax22d  {.importcpp: "Axis".}
   ## Returns the local coordinate system of the parabola. The "Location"
   ## point of this axis is the vertex of the parabola.
 
-proc Parameter*(this: gp_Parab2d): Standard_Real  {.importcpp: "Parameter".}
+proc Parameter*(this: gp_Parab2d): cdouble  {.importcpp: "Parameter".}
   ## Returns the distance between the focus and the directrix of the
   ## parabola.
 
@@ -106,7 +106,7 @@ proc Reversed*(this: gp_Parab2d): gp_Parab2d  {.importcpp: "Reversed".}
   ## orientation of this parabola is reversed. Note: - Reverse assigns the
   ## result to this parabola, while - Reversed creates a new one.
 
-proc IsDirect*(this: gp_Parab2d): Standard_Boolean  {.importcpp: "IsDirect".}
+proc IsDirect*(this: gp_Parab2d): bool  {.importcpp: "IsDirect".}
   ## Returns true if the local coordinate system is direct and false in the
   ## other case.
 
@@ -122,15 +122,15 @@ proc Mirrored*(this: gp_Parab2d, A: gp_Ax2d): gp_Parab2d  {.importcpp: "Mirrored
   ## Performs the symmetrical transformation of a parabola with respect to
   ## an axis placement which is the axis of the symmetry.
 
-proc Rotate*(this: var gp_Parab2d, P: gp_Pnt2d, Ang: Standard_Real)  {.importcpp: "Rotate".}
+proc Rotate*(this: var gp_Parab2d, P: gp_Pnt2d, Ang: cdouble)  {.importcpp: "Rotate".}
 
-proc Rotated*(this: gp_Parab2d, P: gp_Pnt2d, Ang: Standard_Real): gp_Parab2d  {.importcpp: "Rotated".}
+proc Rotated*(this: gp_Parab2d, P: gp_Pnt2d, Ang: cdouble): gp_Parab2d  {.importcpp: "Rotated".}
   ## Rotates a parabola. P is the center of the rotation. Ang is the
   ## angular value of the rotation in radians.
 
-proc Scale*(this: var gp_Parab2d, P: gp_Pnt2d, S: Standard_Real)  {.importcpp: "Scale".}
+proc Scale*(this: var gp_Parab2d, P: gp_Pnt2d, S: cdouble)  {.importcpp: "Scale".}
 
-proc Scaled*(this: gp_Parab2d, P: gp_Pnt2d, S: Standard_Real): gp_Parab2d  {.importcpp: "Scaled".}
+proc Scaled*(this: gp_Parab2d, P: gp_Pnt2d, S: cdouble): gp_Parab2d  {.importcpp: "Scaled".}
   ## Scales a parabola. S is the scaling value. If S is negative the
   ## direction of the symmetry axis "XAxis" is reversed and the direction
   ## of the "YAxis" too.

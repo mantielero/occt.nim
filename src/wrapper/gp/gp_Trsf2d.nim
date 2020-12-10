@@ -8,6 +8,7 @@ proc constructor_gp_Trsf2d*(): gp_Trsf2d {.constructor,importcpp: "gp_Trsf2d".}
 proc constructor_gp_Trsf2d*(T: gp_Trsf): gp_Trsf2d {.constructor,importcpp: "gp_Trsf2d(@)".}
   ## Creates a 2d transformation in the XY plane from a 3d transformation .
 
+#[
 proc ` new`*(this: var gp_Trsf2d, theSize: cint)  {.importcpp: "` new`".}
 
 proc ` delete`*(this: var gp_Trsf2d, theAddress: pointer)  {.importcpp: "` delete`".}
@@ -19,7 +20,7 @@ proc ` delete[]`*(this: var gp_Trsf2d, theAddress: pointer)  {.importcpp: "` del
 proc ` new`*(this: var gp_Trsf2d, cint, theAddress: pointer)  {.importcpp: "` new`".}
 
 proc ` delete`*(this: var gp_Trsf2d, pointer, pointer)  {.importcpp: "` delete`".}
-
+]#
 proc SetMirror*(this: var gp_Trsf2d, P: gp_Pnt2d)  {.importcpp: "SetMirror".}
   ## Changes the transformation into a symmetrical transformation. P is the
   ## center of the symmetry.
@@ -28,11 +29,11 @@ proc SetMirror*(this: var gp_Trsf2d, A: gp_Ax2d)  {.importcpp: "SetMirror".}
   ## Changes the transformation into a symmetrical transformation. A is the
   ## center of the axial symmetry.
 
-proc SetRotation*(this: var gp_Trsf2d, P: gp_Pnt2d, Ang: Standard_Real)  {.importcpp: "SetRotation".}
+proc SetRotation*(this: var gp_Trsf2d, P: gp_Pnt2d, Ang: cdouble)  {.importcpp: "SetRotation".}
   ## Changes the transformation into a rotation. P is the rotation's center
   ## and Ang is the angular value of the rotation in radian.
 
-proc SetScale*(this: var gp_Trsf2d, P: gp_Pnt2d, S: Standard_Real)  {.importcpp: "SetScale".}
+proc SetScale*(this: var gp_Trsf2d, P: gp_Pnt2d, S: cdouble)  {.importcpp: "SetScale".}
   ## Changes the transformation into a scale. P is the center of the scale
   ## and S is the scaling value.
 
@@ -56,10 +57,10 @@ proc SetTranslation*(this: var gp_Trsf2d, P1: gp_Pnt2d, P2: gp_Pnt2d)  {.importc
 proc SetTranslationPart*(this: var gp_Trsf2d, V: gp_Vec2d)  {.importcpp: "SetTranslationPart".}
   ## Replaces the translation vector with V.
 
-proc SetScaleFactor*(this: var gp_Trsf2d, S: Standard_Real)  {.importcpp: "SetScaleFactor".}
+proc SetScaleFactor*(this: var gp_Trsf2d, S: cdouble)  {.importcpp: "SetScaleFactor".}
   ## Modifies the scale factor.
 
-proc IsNegative*(this: gp_Trsf2d): Standard_Boolean  {.importcpp: "IsNegative".}
+proc IsNegative*(this: gp_Trsf2d): bool  {.importcpp: "IsNegative".}
   ## Returns true if the determinant of the vectorial part of this
   ## transformation is negative..
 
@@ -69,7 +70,7 @@ proc Form*(this: gp_Trsf2d): gp_TrsfForm  {.importcpp: "Form".}
   ## point or an axis), a scaling transformation, or a compound
   ## transformation.
 
-proc ScaleFactor*(this: gp_Trsf2d): Standard_Real  {.importcpp: "ScaleFactor".}
+proc ScaleFactor*(this: gp_Trsf2d): cdouble  {.importcpp: "ScaleFactor".}
   ## Returns the scale factor.
 
 proc TranslationPart*(this: gp_Trsf2d): gp_XY  {.importcpp: "TranslationPart".}
@@ -85,11 +86,11 @@ proc HVectorialPart*(this: gp_Trsf2d): gp_Mat2d  {.importcpp: "HVectorialPart".}
   ## this matrix must be multiplied by the scale factor to obtain the
   ## coefficients of the transformation.
 
-proc RotationPart*(this: gp_Trsf2d): Standard_Real  {.importcpp: "RotationPart".}
+proc RotationPart*(this: gp_Trsf2d): cdouble  {.importcpp: "RotationPart".}
   ## Returns the angle corresponding to the rotational component of the
   ## transformation matrix (operation opposite to SetRotation()).
 
-proc Value*(this: gp_Trsf2d, Row: Standard_Integer, Col: Standard_Integer): Standard_Real  {.importcpp: "Value".}
+proc Value*(this: gp_Trsf2d, Row: cint, Col: cint): cdouble  {.importcpp: "Value".}
   ## Returns the coefficients of the transformation's matrix. It is a 2
   ## rows * 3 columns matrix. Raises OutOfRange if Row < 1 or Row > 2 or
   ## Col < 1 or Col > 3
@@ -113,19 +114,19 @@ proc `*=`*(this: var gp_Trsf2d, T: gp_Trsf2d)  {.importcpp: "`*=`".}
 proc PreMultiply*(this: var gp_Trsf2d, T: gp_Trsf2d)  {.importcpp: "PreMultiply".}
   ## Computes the transformation composed from <me> and T. <me> = T * <me>
 
-proc Power*(this: var gp_Trsf2d, N: Standard_Integer)  {.importcpp: "Power".}
+proc Power*(this: var gp_Trsf2d, N: cint)  {.importcpp: "Power".}
 
-proc Powered*(this: var gp_Trsf2d, N: Standard_Integer): gp_Trsf2d  {.importcpp: "Powered".}
+proc Powered*(this: var gp_Trsf2d, N: cint): gp_Trsf2d  {.importcpp: "Powered".}
   ## Computes the following composition of transformations <me> * <me> *
   ## .......* <me>, N time. if N = 0 <me> = Identity if N < 0 <me> =
   ## <me>.Inverse() *...........* <me>.Inverse().
 
-proc Transforms*(this: gp_Trsf2d, X: var Standard_Real, Y: var Standard_Real)  {.importcpp: "Transforms".}
+proc Transforms*(this: gp_Trsf2d, X: var cdouble, Y: var cdouble)  {.importcpp: "Transforms".}
 
 proc Transforms*(this: gp_Trsf2d, Coord: var gp_XY)  {.importcpp: "Transforms".}
   ## Transforms a doublet XY with a Trsf2d
 
-proc SetValues*(this: var gp_Trsf2d, a11: Standard_Real, a12: Standard_Real, a13: Standard_Real, a21: Standard_Real, a22: Standard_Real, a23: Standard_Real)  {.importcpp: "SetValues".}
+proc SetValues*(this: var gp_Trsf2d, a11: cdouble, a12: cdouble, a13: cdouble, a21: cdouble, a22: cdouble, a23: cdouble)  {.importcpp: "SetValues".}
   ## Sets the coefficients of the transformation. The transformation of the
   ## point x,y is the point x',y' with :
 

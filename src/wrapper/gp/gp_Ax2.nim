@@ -64,7 +64,7 @@ proc SetYDirection*(this: var gp_Ax2, Vy: gp_Dir)  {.importcpp: "SetYDirection".
   ## if Vx or Vy is parallel to the "main Direction" of this coordinate
   ## system.
 
-proc Angle*(this: gp_Ax2, Other: gp_Ax2): Standard_Real  {.importcpp: "Angle".}
+proc Angle*(this: gp_Ax2, Other: gp_Ax2): cdouble  {.importcpp: "Angle".}
   ## Computes the angular value, in radians, between the main direction of
   ## <me> and the main direction of <Other>. Returns the angle between 0
   ## and PI in radians.
@@ -85,9 +85,9 @@ proc XDirection*(this: gp_Ax2): gp_Dir  {.importcpp: "XDirection".}
 proc YDirection*(this: gp_Ax2): gp_Dir  {.importcpp: "YDirection".}
   ## Returns the "YDirection" of <me>.
 
-proc IsCoplanar*(this: gp_Ax2, Other: gp_Ax2, LinearTolerance: Standard_Real, AngularTolerance: Standard_Real): Standard_Boolean  {.importcpp: "IsCoplanar".}
+proc IsCoplanar*(this: gp_Ax2, Other: gp_Ax2, LinearTolerance: cdouble, AngularTolerance: cdouble): bool  {.importcpp: "IsCoplanar".}
 
-proc IsCoplanar*(this: gp_Ax2, A1: gp_Ax1, LinearTolerance: Standard_Real, AngularTolerance: Standard_Real): Standard_Boolean  {.importcpp: "IsCoplanar".}
+proc IsCoplanar*(this: gp_Ax2, A1: gp_Ax1, LinearTolerance: cdouble, AngularTolerance: cdouble): bool  {.importcpp: "IsCoplanar".}
   ## Returns True if . the distance between <me> and the "Location" point
   ## of A1 is lower of equal to LinearTolerance and . the main direction of
   ## <me> and the direction of A1 are normal. Note: the tolerance criterion
@@ -169,15 +169,15 @@ proc Mirrored*(this: gp_Ax2, A2: gp_Ax2): gp_Ax2  {.importcpp: "Mirrored".}
   ## recomputed as the cross product "X Direction" ^ "Y Direction". This
   ## maintains the right-handed property of the coordinate system.
 
-proc Rotate*(this: var gp_Ax2, A1: gp_Ax1, Ang: Standard_Real)  {.importcpp: "Rotate".}
+proc Rotate*(this: var gp_Ax2, A1: gp_Ax1, Ang: cdouble)  {.importcpp: "Rotate".}
 
-proc Rotated*(this: gp_Ax2, A1: gp_Ax1, Ang: Standard_Real): gp_Ax2  {.importcpp: "Rotated".}
+proc Rotated*(this: gp_Ax2, A1: gp_Ax1, Ang: cdouble): gp_Ax2  {.importcpp: "Rotated".}
   ## Rotates an axis placement. <A1> is the axis of the rotation . Ang is
   ## the angular value of the rotation in radians.
 
-proc Scale*(this: var gp_Ax2, P: gp_Pnt, S: Standard_Real)  {.importcpp: "Scale".}
+proc Scale*(this: var gp_Ax2, P: gp_Pnt, S: cdouble)  {.importcpp: "Scale".}
 
-proc Scaled*(this: gp_Ax2, P: gp_Pnt, S: Standard_Real): gp_Ax2  {.importcpp: "Scaled".}
+proc Scaled*(this: gp_Ax2, P: gp_Pnt, S: cdouble): gp_Ax2  {.importcpp: "Scaled".}
   ## Applies a scaling transformation on the axis placement. The "Location"
   ## point of the axisplacement is modified. Warnings : If the scale <S> is
   ## negative : . the main direction of the axis placement is not changed.

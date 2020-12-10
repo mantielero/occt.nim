@@ -5,7 +5,7 @@
 proc constructor_gp_Parab*(): gp_Parab {.constructor,importcpp: "gp_Parab".}
   ## Creates an indefinite Parabola.
 
-proc constructor_gp_Parab*(A2: gp_Ax2, Focal: Standard_Real): gp_Parab {.constructor,importcpp: "gp_Parab(@)".}
+proc constructor_gp_Parab*(A2: gp_Ax2, Focal: cdouble): gp_Parab {.constructor,importcpp: "gp_Parab(@)".}
   ## Creates a parabola with its local coordinate system "A2" and it's
   ## focal length "Focal". The XDirection of A2 defines the axis of
   ## symmetry of the parabola. The YDirection of A2 is parallel to the
@@ -40,7 +40,7 @@ proc SetAxis*(this: var gp_Parab, A1: gp_Ax1)  {.importcpp: "SetAxis".}
   ## way as for any gp_Ax2) Raises ConstructionError if the direction of A1
   ## is parallel to the previous XAxis of the parabola.
 
-proc SetFocal*(this: var gp_Parab, Focal: Standard_Real)  {.importcpp: "SetFocal".}
+proc SetFocal*(this: var gp_Parab, Focal: cdouble)  {.importcpp: "SetFocal".}
   ## Changes the focal distance of the parabola. Raises ConstructionError
   ## if Focal < 0.0
 
@@ -63,7 +63,7 @@ proc Directrix*(this: gp_Parab): gp_Ax1  {.importcpp: "Directrix".}
   ## parabola. The directrix is returned as an axis (a gp_Ax1 object), the
   ## origin of which is situated on the "X Axis" of this parabola.
 
-proc Focal*(this: gp_Parab): Standard_Real  {.importcpp: "Focal".}
+proc Focal*(this: gp_Parab): cdouble  {.importcpp: "Focal".}
   ## Returns the distance between the vertex and the focus of the parabola.
 
 proc Focus*(this: gp_Parab): gp_Pnt  {.importcpp: "Focus".}
@@ -73,7 +73,7 @@ proc Location*(this: gp_Parab): gp_Pnt  {.importcpp: "Location".}
   ## Returns the vertex of the parabola. It is the "Location" point of the
   ## coordinate system of the parabola.
 
-proc Parameter*(this: gp_Parab): Standard_Real  {.importcpp: "Parameter".}
+proc Parameter*(this: gp_Parab): cdouble  {.importcpp: "Parameter".}
   ## Computes the parameter of the parabola. It is the distance between the
   ## focus and the directrix of the parabola. This distance is twice the
   ## focal length.
@@ -108,15 +108,15 @@ proc Mirrored*(this: gp_Parab, A2: gp_Ax2): gp_Parab  {.importcpp: "Mirrored".}
   ## a plane. The axis placement A2 locates the plane of the symmetry
   ## (Location, XDirection, YDirection).
 
-proc Rotate*(this: var gp_Parab, A1: gp_Ax1, Ang: Standard_Real)  {.importcpp: "Rotate".}
+proc Rotate*(this: var gp_Parab, A1: gp_Ax1, Ang: cdouble)  {.importcpp: "Rotate".}
 
-proc Rotated*(this: gp_Parab, A1: gp_Ax1, Ang: Standard_Real): gp_Parab  {.importcpp: "Rotated".}
+proc Rotated*(this: gp_Parab, A1: gp_Ax1, Ang: cdouble): gp_Parab  {.importcpp: "Rotated".}
   ## Rotates a parabola. A1 is the axis of the rotation. Ang is the angular
   ## value of the rotation in radians.
 
-proc Scale*(this: var gp_Parab, P: gp_Pnt, S: Standard_Real)  {.importcpp: "Scale".}
+proc Scale*(this: var gp_Parab, P: gp_Pnt, S: cdouble)  {.importcpp: "Scale".}
 
-proc Scaled*(this: gp_Parab, P: gp_Pnt, S: Standard_Real): gp_Parab  {.importcpp: "Scaled".}
+proc Scaled*(this: gp_Parab, P: gp_Pnt, S: cdouble): gp_Parab  {.importcpp: "Scaled".}
   ## Scales a parabola. S is the scaling value. If S is negative the
   ## direction of the symmetry axis XAxis is reversed and the direction of
   ## the YAxis too.

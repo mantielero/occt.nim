@@ -5,7 +5,7 @@
 proc constructor_gp_Torus*(): gp_Torus {.constructor,importcpp: "gp_Torus".}
   ## creates an indefinite Torus.
 
-proc constructor_gp_Torus*(A3: gp_Ax3, MajorRadius: Standard_Real, MinorRadius: Standard_Real): gp_Torus {.constructor,importcpp: "gp_Torus(@)".}
+proc constructor_gp_Torus*(A3: gp_Ax3, MajorRadius: cdouble, MinorRadius: cdouble): gp_Torus {.constructor,importcpp: "gp_Torus(@)".}
   ## a torus centered on the origin of coordinate system A3, with major
   ## radius MajorRadius and minor radius MinorRadius, and with the
   ## reference plane defined by the origin, the "X Direction" and the "Y
@@ -35,11 +35,11 @@ proc SetAxis*(this: var gp_Torus, A1: gp_Ax1)  {.importcpp: "SetAxis".}
 proc SetLocation*(this: var gp_Torus, Loc: gp_Pnt)  {.importcpp: "SetLocation".}
   ## Changes the location of the torus.
 
-proc SetMajorRadius*(this: var gp_Torus, MajorRadius: Standard_Real)  {.importcpp: "SetMajorRadius".}
+proc SetMajorRadius*(this: var gp_Torus, MajorRadius: cdouble)  {.importcpp: "SetMajorRadius".}
   ## Assigns value to the major radius of this torus. Raises
   ## ConstructionError if MajorRadius - MinorRadius <= Resolution()
 
-proc SetMinorRadius*(this: var gp_Torus, MinorRadius: Standard_Real)  {.importcpp: "SetMinorRadius".}
+proc SetMinorRadius*(this: var gp_Torus, MinorRadius: cdouble)  {.importcpp: "SetMinorRadius".}
   ## Assigns value to the minor radius of this torus. Raises
   ## ConstructionError if MinorRadius < 0.0 or if MajorRadius - MinorRadius
   ## <= Resolution from gp.
@@ -47,7 +47,7 @@ proc SetMinorRadius*(this: var gp_Torus, MinorRadius: Standard_Real)  {.importcp
 proc SetPosition*(this: var gp_Torus, A3: gp_Ax3)  {.importcpp: "SetPosition".}
   ## Changes the local coordinate system of the surface.
 
-proc Area*(this: gp_Torus): Standard_Real  {.importcpp: "Area".}
+proc Area*(this: gp_Torus): cdouble  {.importcpp: "Area".}
   ## Computes the area of the torus.
 
 proc UReverse*(this: var gp_Torus)  {.importcpp: "UReverse".}
@@ -56,7 +56,7 @@ proc UReverse*(this: var gp_Torus)  {.importcpp: "UReverse".}
 proc VReverse*(this: var gp_Torus)  {.importcpp: "VReverse".}
   ## Reverses the V parametrization of the torus reversing the ZAxis.
 
-proc Direct*(this: gp_Torus): Standard_Boolean  {.importcpp: "Direct".}
+proc Direct*(this: gp_Torus): bool  {.importcpp: "Direct".}
   ## returns true if the Ax3, the local coordinate system of this torus, is
   ## right handed.
 
@@ -84,13 +84,13 @@ proc Location*(this: gp_Torus): gp_Pnt  {.importcpp: "Location".}
 proc Position*(this: gp_Torus): gp_Ax3  {.importcpp: "Position".}
   ## Returns the local coordinates system of the torus.
 
-proc MajorRadius*(this: gp_Torus): Standard_Real  {.importcpp: "MajorRadius".}
+proc MajorRadius*(this: gp_Torus): cdouble  {.importcpp: "MajorRadius".}
   ## returns the major radius of the torus.
 
-proc MinorRadius*(this: gp_Torus): Standard_Real  {.importcpp: "MinorRadius".}
+proc MinorRadius*(this: gp_Torus): cdouble  {.importcpp: "MinorRadius".}
   ## returns the minor radius of the torus.
 
-proc Volume*(this: gp_Torus): Standard_Real  {.importcpp: "Volume".}
+proc Volume*(this: gp_Torus): cdouble  {.importcpp: "Volume".}
   ## Computes the volume of the torus.
 
 proc XAxis*(this: gp_Torus): gp_Ax1  {.importcpp: "XAxis".}
@@ -118,15 +118,15 @@ proc Mirrored*(this: gp_Torus, A2: gp_Ax2): gp_Torus  {.importcpp: "Mirrored".}
   ## plane. The axis placement A2 locates the plane of the of the symmetry
   ## : (Location, XDirection, YDirection).
 
-proc Rotate*(this: var gp_Torus, A1: gp_Ax1, Ang: Standard_Real)  {.importcpp: "Rotate".}
+proc Rotate*(this: var gp_Torus, A1: gp_Ax1, Ang: cdouble)  {.importcpp: "Rotate".}
 
-proc Rotated*(this: gp_Torus, A1: gp_Ax1, Ang: Standard_Real): gp_Torus  {.importcpp: "Rotated".}
+proc Rotated*(this: gp_Torus, A1: gp_Ax1, Ang: cdouble): gp_Torus  {.importcpp: "Rotated".}
   ## Rotates a torus. A1 is the axis of the rotation. Ang is the angular
   ## value of the rotation in radians.
 
-proc Scale*(this: var gp_Torus, P: gp_Pnt, S: Standard_Real)  {.importcpp: "Scale".}
+proc Scale*(this: var gp_Torus, P: gp_Pnt, S: cdouble)  {.importcpp: "Scale".}
 
-proc Scaled*(this: gp_Torus, P: gp_Pnt, S: Standard_Real): gp_Torus  {.importcpp: "Scaled".}
+proc Scaled*(this: gp_Torus, P: gp_Pnt, S: cdouble): gp_Torus  {.importcpp: "Scaled".}
   ## Scales a torus. S is the scaling value. The absolute value of S is
   ## used to scale the torus
 

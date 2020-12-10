@@ -5,7 +5,7 @@
 proc constructor_gp_Sphere*(): gp_Sphere {.constructor,importcpp: "gp_Sphere".}
   ## Creates an indefinite sphere.
 
-proc constructor_gp_Sphere*(A3: gp_Ax3, Radius: Standard_Real): gp_Sphere {.constructor,importcpp: "gp_Sphere(@)".}
+proc constructor_gp_Sphere*(A3: gp_Ax3, Radius: cdouble): gp_Sphere {.constructor,importcpp: "gp_Sphere(@)".}
   ## Constructs a sphere with radius Radius, centered on the origin of A3.
   ## A3 is the local coordinate system of the sphere. Warnings : It is not
   ## forbidden to create a sphere with null radius. Raises
@@ -29,14 +29,14 @@ proc SetLocation*(this: var gp_Sphere, Loc: gp_Pnt)  {.importcpp: "SetLocation".
 proc SetPosition*(this: var gp_Sphere, A3: gp_Ax3)  {.importcpp: "SetPosition".}
   ## Changes the local coordinate system of the sphere.
 
-proc SetRadius*(this: var gp_Sphere, R: Standard_Real)  {.importcpp: "SetRadius".}
+proc SetRadius*(this: var gp_Sphere, R: cdouble)  {.importcpp: "SetRadius".}
   ## Assigns R the radius of the Sphere. Warnings : It is not forbidden to
   ## create a sphere with null radius. Raises ConstructionError if R < 0.0
 
-proc Area*(this: gp_Sphere): Standard_Real  {.importcpp: "Area".}
+proc Area*(this: gp_Sphere): cdouble  {.importcpp: "Area".}
   ## Computes the aera of the sphere.
 
-proc Coefficients*(this: gp_Sphere, A1: var Standard_Real, A2: var Standard_Real, A3: var Standard_Real, B1: var Standard_Real, B2: var Standard_Real, B3: var Standard_Real, C1: var Standard_Real, C2: var Standard_Real, C3: var Standard_Real, D: var Standard_Real)  {.importcpp: "Coefficients".}
+proc Coefficients*(this: gp_Sphere, A1: var cdouble, A2: var cdouble, A3: var cdouble, B1: var cdouble, B2: var cdouble, B3: var cdouble, C1: var cdouble, C2: var cdouble, C3: var cdouble, D: var cdouble)  {.importcpp: "Coefficients".}
   ## Computes the coefficients of the implicit equation of the quadric in
   ## the absolute cartesian coordinates system : A1.X**2 + A2.Y**2 +
   ## A3.Z**2 + 2.(B1.X.Y + B2.X.Z + B3.Y.Z) + 2.(C1.X + C2.Y + C3.Z) + D =
@@ -48,7 +48,7 @@ proc UReverse*(this: var gp_Sphere)  {.importcpp: "UReverse".}
 proc VReverse*(this: var gp_Sphere)  {.importcpp: "VReverse".}
   ## Reverses the V parametrization of the sphere reversing the ZAxis.
 
-proc Direct*(this: gp_Sphere): Standard_Boolean  {.importcpp: "Direct".}
+proc Direct*(this: gp_Sphere): bool  {.importcpp: "Direct".}
   ## Returns true if the local coordinate system of this sphere is right-
   ## handed.
 
@@ -58,10 +58,10 @@ proc Location*(this: gp_Sphere): gp_Pnt  {.importcpp: "Location".}
 proc Position*(this: gp_Sphere): gp_Ax3  {.importcpp: "Position".}
   ## Returns the local coordinates system of the sphere.
 
-proc Radius*(this: gp_Sphere): Standard_Real  {.importcpp: "Radius".}
+proc Radius*(this: gp_Sphere): cdouble  {.importcpp: "Radius".}
   ## Returns the radius of the sphere.
 
-proc Volume*(this: gp_Sphere): Standard_Real  {.importcpp: "Volume".}
+proc Volume*(this: gp_Sphere): cdouble  {.importcpp: "Volume".}
   ## Computes the volume of the sphere
 
 proc XAxis*(this: gp_Sphere): gp_Ax1  {.importcpp: "XAxis".}
@@ -89,15 +89,15 @@ proc Mirrored*(this: gp_Sphere, A2: gp_Ax2): gp_Sphere  {.importcpp: "Mirrored".
   ## plane. The axis placement A2 locates the plane of the of the symmetry
   ## : (Location, XDirection, YDirection).
 
-proc Rotate*(this: var gp_Sphere, A1: gp_Ax1, Ang: Standard_Real)  {.importcpp: "Rotate".}
+proc Rotate*(this: var gp_Sphere, A1: gp_Ax1, Ang: cdouble)  {.importcpp: "Rotate".}
 
-proc Rotated*(this: gp_Sphere, A1: gp_Ax1, Ang: Standard_Real): gp_Sphere  {.importcpp: "Rotated".}
+proc Rotated*(this: gp_Sphere, A1: gp_Ax1, Ang: cdouble): gp_Sphere  {.importcpp: "Rotated".}
   ## Rotates a sphere. A1 is the axis of the rotation. Ang is the angular
   ## value of the rotation in radians.
 
-proc Scale*(this: var gp_Sphere, P: gp_Pnt, S: Standard_Real)  {.importcpp: "Scale".}
+proc Scale*(this: var gp_Sphere, P: gp_Pnt, S: cdouble)  {.importcpp: "Scale".}
 
-proc Scaled*(this: gp_Sphere, P: gp_Pnt, S: Standard_Real): gp_Sphere  {.importcpp: "Scaled".}
+proc Scaled*(this: gp_Sphere, P: gp_Pnt, S: cdouble): gp_Sphere  {.importcpp: "Scaled".}
   ## Scales a sphere. S is the scaling value. The absolute value of S is
   ## used to scale the sphere
 

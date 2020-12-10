@@ -5,7 +5,7 @@
 proc constructor_gp_Circ*(): gp_Circ {.constructor,importcpp: "gp_Circ".}
   ## Creates an indefinite circle.
 
-proc constructor_gp_Circ*(A2: gp_Ax2, Radius: Standard_Real): gp_Circ {.constructor,importcpp: "gp_Circ(@)".}
+proc constructor_gp_Circ*(A2: gp_Ax2, Radius: cdouble): gp_Circ {.constructor,importcpp: "gp_Circ(@)".}
   ## A2 locates the circle and gives its orientation in 3D space. Warnings
   ## : It is not forbidden to create a circle with Radius = 0.0 Raises
   ## ConstructionError if Radius < 0.0
@@ -33,12 +33,12 @@ proc SetLocation*(this: var gp_Circ, P: gp_Pnt)  {.importcpp: "SetLocation".}
 proc SetPosition*(this: var gp_Circ, A2: gp_Ax2)  {.importcpp: "SetPosition".}
   ## Changes the position of the circle.
 
-proc SetRadius*(this: var gp_Circ, Radius: Standard_Real)  {.importcpp: "SetRadius".}
+proc SetRadius*(this: var gp_Circ, Radius: cdouble)  {.importcpp: "SetRadius".}
   ## Modifies the radius of this circle. Warning. This class does not
   ## prevent the creation of a circle where Radius is null. Exceptions
   ## Standard_ConstructionError if Radius is negative.
 
-proc Area*(this: gp_Circ): Standard_Real  {.importcpp: "Area".}
+proc Area*(this: gp_Circ): cdouble  {.importcpp: "Area".}
   ## Computes the area of the circle.
 
 proc Axis*(this: gp_Circ): gp_Ax1  {.importcpp: "Axis".}
@@ -46,7 +46,7 @@ proc Axis*(this: gp_Circ): gp_Ax1  {.importcpp: "Axis".}
   ## the plane of the circle, passing through the "Location" point (center)
   ## of the circle.
 
-proc Length*(this: gp_Circ): Standard_Real  {.importcpp: "Length".}
+proc Length*(this: gp_Circ): cdouble  {.importcpp: "Length".}
   ## Computes the circumference of the circle.
 
 proc Location*(this: gp_Circ): gp_Pnt  {.importcpp: "Location".}
@@ -57,7 +57,7 @@ proc Position*(this: gp_Circ): gp_Ax2  {.importcpp: "Position".}
   ## Returns the position of the circle. It is the local coordinate system
   ## of the circle.
 
-proc Radius*(this: gp_Circ): Standard_Real  {.importcpp: "Radius".}
+proc Radius*(this: gp_Circ): cdouble  {.importcpp: "Radius".}
   ## Returns the radius of this circle.
 
 proc XAxis*(this: gp_Circ): gp_Ax1  {.importcpp: "XAxis".}
@@ -69,14 +69,14 @@ proc YAxis*(this: gp_Circ): gp_Ax1  {.importcpp: "YAxis".}
   ## Returns the "YAxis" of the circle. This axis and the "Xaxis" define
   ## the plane of the conic. The "YAxis" is perpendicular to the "Xaxis".
 
-proc Distance*(this: gp_Circ, P: gp_Pnt): Standard_Real  {.importcpp: "Distance".}
+proc Distance*(this: gp_Circ, P: gp_Pnt): cdouble  {.importcpp: "Distance".}
   ## Computes the minimum of distance between the point P and any point on
   ## the circumference of the circle.
 
-proc SquareDistance*(this: gp_Circ, P: gp_Pnt): Standard_Real  {.importcpp: "SquareDistance".}
+proc SquareDistance*(this: gp_Circ, P: gp_Pnt): cdouble  {.importcpp: "SquareDistance".}
   ## Computes the square distance between <me> and the point P.
 
-proc Contains*(this: gp_Circ, P: gp_Pnt, LinearTolerance: Standard_Real): Standard_Boolean  {.importcpp: "Contains".}
+proc Contains*(this: gp_Circ, P: gp_Pnt, LinearTolerance: cdouble): bool  {.importcpp: "Contains".}
   ## Returns True if the point P is on the circumference. The distance
   ## between <me> and <P> must be lower or equal to LinearTolerance.
 
@@ -99,15 +99,15 @@ proc Mirrored*(this: gp_Circ, A2: gp_Ax2): gp_Circ  {.importcpp: "Mirrored".}
   ## plane. The axis placement A2 locates the plane of the of the symmetry
   ## : (Location, XDirection, YDirection).
 
-proc Rotate*(this: var gp_Circ, A1: gp_Ax1, Ang: Standard_Real)  {.importcpp: "Rotate".}
+proc Rotate*(this: var gp_Circ, A1: gp_Ax1, Ang: cdouble)  {.importcpp: "Rotate".}
 
-proc Rotated*(this: gp_Circ, A1: gp_Ax1, Ang: Standard_Real): gp_Circ  {.importcpp: "Rotated".}
+proc Rotated*(this: gp_Circ, A1: gp_Ax1, Ang: cdouble): gp_Circ  {.importcpp: "Rotated".}
   ## Rotates a circle. A1 is the axis of the rotation. Ang is the angular
   ## value of the rotation in radians.
 
-proc Scale*(this: var gp_Circ, P: gp_Pnt, S: Standard_Real)  {.importcpp: "Scale".}
+proc Scale*(this: var gp_Circ, P: gp_Pnt, S: cdouble)  {.importcpp: "Scale".}
 
-proc Scaled*(this: gp_Circ, P: gp_Pnt, S: Standard_Real): gp_Circ  {.importcpp: "Scaled".}
+proc Scaled*(this: gp_Circ, P: gp_Pnt, S: cdouble): gp_Circ  {.importcpp: "Scaled".}
   ## Scales a circle. S is the scaling value. Warnings : If S is negative
   ## the radius stay positive but the "XAxis" and the "YAxis" are reversed
   ## as for an ellipse.

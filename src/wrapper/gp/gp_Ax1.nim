@@ -33,31 +33,31 @@ proc Direction*(this: gp_Ax1): gp_Dir  {.importcpp: "Direction".}
 proc Location*(this: gp_Ax1): gp_Pnt  {.importcpp: "Location".}
   ## Returns the location point of <me>.
 
-proc IsCoaxial*(this: gp_Ax1, Other: gp_Ax1, AngularTolerance: Standard_Real, LinearTolerance: Standard_Real): Standard_Boolean  {.importcpp: "IsCoaxial".}
+proc IsCoaxial*(this: gp_Ax1, Other: gp_Ax1, AngularTolerance: cdouble, LinearTolerance: cdouble): bool  {.importcpp: "IsCoaxial".}
   ## Returns True if : . the angle between <me> and <Other> is lower or
   ## equal to <AngularTolerance> and . the distance between <me>.Location()
   ## and <Other> is lower or equal to <LinearTolerance> and . the distance
   ## between <Other>.Location() and <me> is lower or equal to
   ## LinearTolerance.
 
-proc IsNormal*(this: gp_Ax1, Other: gp_Ax1, AngularTolerance: Standard_Real): Standard_Boolean  {.importcpp: "IsNormal".}
+proc IsNormal*(this: gp_Ax1, Other: gp_Ax1, AngularTolerance: cdouble): bool  {.importcpp: "IsNormal".}
   ## Returns True if the direction of the <me> and <Other> are normal to
   ## each other. That is, if the angle between the two axes is equal to
   ## Pi/2. Note: the tolerance criterion is given by AngularTolerance..
 
-proc IsOpposite*(this: gp_Ax1, Other: gp_Ax1, AngularTolerance: Standard_Real): Standard_Boolean  {.importcpp: "IsOpposite".}
+proc IsOpposite*(this: gp_Ax1, Other: gp_Ax1, AngularTolerance: cdouble): bool  {.importcpp: "IsOpposite".}
   ## Returns True if the direction of <me> and <Other> are parallel with
   ## opposite orientation. That is, if the angle between the two axes is
   ## equal to Pi. Note: the tolerance criterion is given by
   ## AngularTolerance.
 
-proc IsParallel*(this: gp_Ax1, Other: gp_Ax1, AngularTolerance: Standard_Real): Standard_Boolean  {.importcpp: "IsParallel".}
+proc IsParallel*(this: gp_Ax1, Other: gp_Ax1, AngularTolerance: cdouble): bool  {.importcpp: "IsParallel".}
   ## Returns True if the direction of <me> and <Other> are parallel with
   ## same orientation or opposite orientation. That is, if the angle
   ## between the two axes is equal to 0 or Pi. Note: the tolerance
   ## criterion is given by AngularTolerance.
 
-proc Angle*(this: gp_Ax1, Other: gp_Ax1): Standard_Real  {.importcpp: "Angle".}
+proc Angle*(this: gp_Ax1, Other: gp_Ax1): cdouble  {.importcpp: "Angle".}
   ## Computes the angular value, in radians, between <me>.Direction() and
   ## <Other>.Direction(). Returns the angle between 0 and 2*PI radians.
 
@@ -99,19 +99,19 @@ proc Mirrored*(this: gp_Ax1, A2: gp_Ax2): gp_Ax1  {.importcpp: "Mirrored".}
   ## respect to a plane. The axis placement <A2> locates the plane of the
   ## symmetry : (Location, XDirection, YDirection) and creates a new axis.
 
-proc Rotate*(this: var gp_Ax1, A1: gp_Ax1, Ang: Standard_Real)  {.importcpp: "Rotate".}
+proc Rotate*(this: var gp_Ax1, A1: gp_Ax1, Ang: cdouble)  {.importcpp: "Rotate".}
   ## Rotates this axis at an angle Ang (in radians) about the axis A1 and
   ## assigns the result to this axis.
 
-proc Rotated*(this: gp_Ax1, A1: gp_Ax1, Ang: Standard_Real): gp_Ax1  {.importcpp: "Rotated".}
+proc Rotated*(this: gp_Ax1, A1: gp_Ax1, Ang: cdouble): gp_Ax1  {.importcpp: "Rotated".}
   ## Rotates this axis at an angle Ang (in radians) about the axis A1 and
   ## creates a new one.
 
-proc Scale*(this: var gp_Ax1, P: gp_Pnt, S: Standard_Real)  {.importcpp: "Scale".}
+proc Scale*(this: var gp_Ax1, P: gp_Pnt, S: cdouble)  {.importcpp: "Scale".}
   ## Applies a scaling transformation to this axis with: - scale factor S,
   ## and - center P and assigns the result to this axis.
 
-proc Scaled*(this: gp_Ax1, P: gp_Pnt, S: Standard_Real): gp_Ax1  {.importcpp: "Scaled".}
+proc Scaled*(this: gp_Ax1, P: gp_Pnt, S: cdouble): gp_Ax1  {.importcpp: "Scaled".}
   ## Applies a scaling transformation to this axis with: - scale factor S,
   ## and - center P and creates a new axis.
 

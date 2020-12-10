@@ -17,7 +17,7 @@ proc constructor_gp_Pln*(P: gp_Pnt, V: gp_Dir): gp_Pln {.constructor,importcpp: 
   ## Creates a plane with the "Location" point <P> and the normal direction
   ## <V>.
 
-proc constructor_gp_Pln*(A: Standard_Real, B: Standard_Real, C: Standard_Real, D: Standard_Real): gp_Pln {.constructor,importcpp: "gp_Pln(@)".}
+proc constructor_gp_Pln*(A: cdouble, B: cdouble, C: cdouble, D: cdouble): gp_Pln {.constructor,importcpp: "gp_Pln(@)".}
   ## Creates a plane from its cartesian equation : A * X + B * Y + C * Z +
   ## D = 0.0 Raises ConstructionError if Sqrt (A*A + B*B + C*C) <=
   ## Resolution from gp.
@@ -34,7 +34,7 @@ proc ` new`*(this: var gp_Pln, cint, theAddress: pointer)  {.importcpp: "` new`"
 
 proc ` delete`*(this: var gp_Pln, pointer, pointer)  {.importcpp: "` delete`".}
 
-proc Coefficients*(this: gp_Pln, A: var Standard_Real, B: var Standard_Real, C: var Standard_Real, D: var Standard_Real)  {.importcpp: "Coefficients".}
+proc Coefficients*(this: gp_Pln, A: var cdouble, B: var cdouble, C: var cdouble, D: var cdouble)  {.importcpp: "Coefficients".}
   ## Returns the coefficients of the plane's cartesian equation : A * X + B
   ## * Y + C * Z + D = 0.
 
@@ -56,7 +56,7 @@ proc UReverse*(this: var gp_Pln)  {.importcpp: "UReverse".}
 proc VReverse*(this: var gp_Pln)  {.importcpp: "VReverse".}
   ## Reverses the V parametrization of the plane reversing the YAxis.
 
-proc Direct*(this: gp_Pln): Standard_Boolean  {.importcpp: "Direct".}
+proc Direct*(this: gp_Pln): bool  {.importcpp: "Direct".}
   ## returns true if the Ax3 is right handed.
 
 proc Axis*(this: gp_Pln): gp_Ax1  {.importcpp: "Axis".}
@@ -68,22 +68,22 @@ proc Location*(this: gp_Pln): gp_Pnt  {.importcpp: "Location".}
 proc Position*(this: gp_Pln): gp_Ax3  {.importcpp: "Position".}
   ## Returns the local coordinate system of the plane .
 
-proc Distance*(this: gp_Pln, P: gp_Pnt): Standard_Real  {.importcpp: "Distance".}
+proc Distance*(this: gp_Pln, P: gp_Pnt): cdouble  {.importcpp: "Distance".}
   ## Computes the distance between <me> and the point <P>.
 
-proc Distance*(this: gp_Pln, L: gp_Lin): Standard_Real  {.importcpp: "Distance".}
+proc Distance*(this: gp_Pln, L: gp_Lin): cdouble  {.importcpp: "Distance".}
   ## Computes the distance between <me> and the line <L>.
 
-proc Distance*(this: gp_Pln, Other: gp_Pln): Standard_Real  {.importcpp: "Distance".}
+proc Distance*(this: gp_Pln, Other: gp_Pln): cdouble  {.importcpp: "Distance".}
   ## Computes the distance between two planes.
 
-proc SquareDistance*(this: gp_Pln, P: gp_Pnt): Standard_Real  {.importcpp: "SquareDistance".}
+proc SquareDistance*(this: gp_Pln, P: gp_Pnt): cdouble  {.importcpp: "SquareDistance".}
   ## Computes the square distance between <me> and the point <P>.
 
-proc SquareDistance*(this: gp_Pln, L: gp_Lin): Standard_Real  {.importcpp: "SquareDistance".}
+proc SquareDistance*(this: gp_Pln, L: gp_Lin): cdouble  {.importcpp: "SquareDistance".}
   ## Computes the square distance between <me> and the line <L>.
 
-proc SquareDistance*(this: gp_Pln, Other: gp_Pln): Standard_Real  {.importcpp: "SquareDistance".}
+proc SquareDistance*(this: gp_Pln, Other: gp_Pln): cdouble  {.importcpp: "SquareDistance".}
   ## Computes the square distance between two planes.
 
 proc XAxis*(this: gp_Pln): gp_Ax1  {.importcpp: "XAxis".}
@@ -92,7 +92,7 @@ proc XAxis*(this: gp_Pln): gp_Ax1  {.importcpp: "XAxis".}
 proc YAxis*(this: gp_Pln): gp_Ax1  {.importcpp: "YAxis".}
   ## Returns the Y axis of the plane.
 
-proc Contains*(this: gp_Pln, P: gp_Pnt, LinearTolerance: Standard_Real): Standard_Boolean  {.importcpp: "Contains".}
+proc Contains*(this: gp_Pln, P: gp_Pnt, LinearTolerance: cdouble): bool  {.importcpp: "Contains".}
   ## Returns true if this plane contains the point P. This means that - the
   ## distance between point P and this plane is less than or equal to
   ## LinearTolerance, or - line L is normal to the "main Axis" of the local
@@ -100,7 +100,7 @@ proc Contains*(this: gp_Pln, P: gp_Pnt, LinearTolerance: Standard_Real): Standar
   ## AngularTolerance, and the distance between the origin of line L and
   ## this plane is less than or equal to LinearTolerance.
 
-proc Contains*(this: gp_Pln, L: gp_Lin, LinearTolerance: Standard_Real, AngularTolerance: Standard_Real): Standard_Boolean  {.importcpp: "Contains".}
+proc Contains*(this: gp_Pln, L: gp_Lin, LinearTolerance: cdouble, AngularTolerance: cdouble): bool  {.importcpp: "Contains".}
   ## Returns true if this plane contains the line L. This means that - the
   ## distance between point P and this plane is less than or equal to
   ## LinearTolerance, or - line L is normal to the "main Axis" of the local
@@ -137,15 +137,15 @@ proc Mirrored*(this: gp_Pln, A2: gp_Ax2): gp_Pln  {.importcpp: "Mirrored".}
   ## transformation if the initial plane was right handed, else it is the
   ## opposite.
 
-proc Rotate*(this: var gp_Pln, A1: gp_Ax1, Ang: Standard_Real)  {.importcpp: "Rotate".}
+proc Rotate*(this: var gp_Pln, A1: gp_Ax1, Ang: cdouble)  {.importcpp: "Rotate".}
 
-proc Rotated*(this: gp_Pln, A1: gp_Ax1, Ang: Standard_Real): gp_Pln  {.importcpp: "Rotated".}
+proc Rotated*(this: gp_Pln, A1: gp_Ax1, Ang: cdouble): gp_Pln  {.importcpp: "Rotated".}
   ## rotates a plane. A1 is the axis of the rotation. Ang is the angular
   ## value of the rotation in radians.
 
-proc Scale*(this: var gp_Pln, P: gp_Pnt, S: Standard_Real)  {.importcpp: "Scale".}
+proc Scale*(this: var gp_Pln, P: gp_Pnt, S: cdouble)  {.importcpp: "Scale".}
 
-proc Scaled*(this: gp_Pln, P: gp_Pnt, S: Standard_Real): gp_Pln  {.importcpp: "Scaled".}
+proc Scaled*(this: gp_Pln, P: gp_Pnt, S: cdouble): gp_Pln  {.importcpp: "Scaled".}
   ## Scales a plane. S is the scaling value.
 
 proc Transform*(this: var gp_Pln, T: gp_Trsf)  {.importcpp: "Transform".}

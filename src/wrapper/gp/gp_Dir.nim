@@ -13,7 +13,7 @@ proc constructor_gp_Dir*(Coord: gp_XYZ): gp_Dir {.constructor,importcpp: "gp_Dir
   ## Creates a direction from a triplet of coordinates. Raises
   ## ConstructionError if Coord.Modulus() <= Resolution from gp.
 
-proc constructor_gp_Dir*(Xv: Standard_Real, Yv: Standard_Real, Zv: Standard_Real): gp_Dir {.constructor,importcpp: "gp_Dir(@)".}
+proc constructor_gp_Dir*(Xv: cdouble, Yv: cdouble, Zv: cdouble): gp_Dir {.constructor,importcpp: "gp_Dir(@)".}
   ## Creates a direction with its 3 cartesian coordinates. Raises
   ## ConstructionError if Sqrt(Xv*Xv + Yv*Yv + Zv*Zv) <= Resolution
   ## Modification of the direction's coordinates If Sqrt (X*X + Y*Y + Z*Z)
@@ -33,7 +33,7 @@ proc ` new`*(this: var gp_Dir, cint, theAddress: pointer)  {.importcpp: "` new`"
 
 proc ` delete`*(this: var gp_Dir, pointer, pointer)  {.importcpp: "` delete`".}
 
-proc SetCoord*(this: var gp_Dir, Index: Standard_Integer, Xi: Standard_Real)  {.importcpp: "SetCoord".}
+proc SetCoord*(this: var gp_Dir, Index: cint, Xi: cdouble)  {.importcpp: "SetCoord".}
   ## For this unit vector, assigns the value Xi to: - the X coordinate if
   ## Index is 1, or - the Y coordinate if Index is 2, or - the Z coordinate
   ## if Index is 3, and then normalizes it. Warning Remember that all the
@@ -45,67 +45,67 @@ proc SetCoord*(this: var gp_Dir, Index: Standard_Integer, Xi: Standard_Real)  {.
   ## Xi and the two other coordinates of this vector that were not directly
   ## modified.
 
-proc SetCoord*(this: var gp_Dir, Xv: Standard_Real, Yv: Standard_Real, Zv: Standard_Real)  {.importcpp: "SetCoord".}
+proc SetCoord*(this: var gp_Dir, Xv: cdouble, Yv: cdouble, Zv: cdouble)  {.importcpp: "SetCoord".}
   ## For this unit vector, assigns the values Xv, Yv and Zv to its three
   ## coordinates. Remember that all the coordinates of a unit vector are
   ## implicitly modified when any single one is changed directly.
 
-proc SetX*(this: var gp_Dir, X: Standard_Real)  {.importcpp: "SetX".}
+proc SetX*(this: var gp_Dir, X: cdouble)  {.importcpp: "SetX".}
   ## Assigns the given value to the X coordinate of this unit vector.
 
-proc SetY*(this: var gp_Dir, Y: Standard_Real)  {.importcpp: "SetY".}
+proc SetY*(this: var gp_Dir, Y: cdouble)  {.importcpp: "SetY".}
   ## Assigns the given value to the Y coordinate of this unit vector.
 
-proc SetZ*(this: var gp_Dir, Z: Standard_Real)  {.importcpp: "SetZ".}
+proc SetZ*(this: var gp_Dir, Z: cdouble)  {.importcpp: "SetZ".}
   ## Assigns the given value to the Z coordinate of this unit vector.
 
 proc SetXYZ*(this: var gp_Dir, Coord: gp_XYZ)  {.importcpp: "SetXYZ".}
   ## Assigns the three coordinates of Coord to this unit vector.
 
-proc Coord*(this: gp_Dir, Index: Standard_Integer): Standard_Real  {.importcpp: "Coord".}
+proc Coord*(this: gp_Dir, Index: cint): cdouble  {.importcpp: "Coord".}
   ## Returns the coordinate of range Index : Index = 1 => X is returned
   ## Index = 2 => Y is returned Index = 3 => Z is returned Exceptions
   ## Standard_OutOfRange if Index is not 1, 2, or 3.
 
-proc Coord*(this: gp_Dir, Xv: var Standard_Real, Yv: var Standard_Real, Zv: var Standard_Real)  {.importcpp: "Coord".}
+proc Coord*(this: gp_Dir, Xv: var cdouble, Yv: var cdouble, Zv: var cdouble)  {.importcpp: "Coord".}
   ## Returns for the unit vector its three coordinates Xv, Yv, and Zv.
 
-proc X*(this: gp_Dir): Standard_Real  {.importcpp: "X".}
+proc X*(this: gp_Dir): cdouble  {.importcpp: "X".}
   ## Returns the X coordinate for a unit vector.
 
-proc Y*(this: gp_Dir): Standard_Real  {.importcpp: "Y".}
+proc Y*(this: gp_Dir): cdouble  {.importcpp: "Y".}
   ## Returns the Y coordinate for a unit vector.
 
-proc Z*(this: gp_Dir): Standard_Real  {.importcpp: "Z".}
+proc Z*(this: gp_Dir): cdouble  {.importcpp: "Z".}
   ## Returns the Z coordinate for a unit vector.
 
 proc XYZ*(this: gp_Dir): gp_XYZ  {.importcpp: "XYZ".}
   ## for this unit vector, returns its three coordinates as a number
   ## triplea.
 
-proc IsEqual*(this: gp_Dir, Other: gp_Dir, AngularTolerance: Standard_Real): Standard_Boolean  {.importcpp: "IsEqual".}
+proc IsEqual*(this: gp_Dir, Other: gp_Dir, AngularTolerance: cdouble): bool  {.importcpp: "IsEqual".}
   ## Returns True if the angle between the two directions is lower or equal
   ## to AngularTolerance.
 
-proc IsNormal*(this: gp_Dir, Other: gp_Dir, AngularTolerance: Standard_Real): Standard_Boolean  {.importcpp: "IsNormal".}
+proc IsNormal*(this: gp_Dir, Other: gp_Dir, AngularTolerance: cdouble): bool  {.importcpp: "IsNormal".}
   ## Returns True if the angle between this unit vector and the unit vector
   ## Other is equal to Pi/2 (normal).
 
-proc IsOpposite*(this: gp_Dir, Other: gp_Dir, AngularTolerance: Standard_Real): Standard_Boolean  {.importcpp: "IsOpposite".}
+proc IsOpposite*(this: gp_Dir, Other: gp_Dir, AngularTolerance: cdouble): bool  {.importcpp: "IsOpposite".}
   ## Returns True if the angle between this unit vector and the unit vector
   ## Other is equal to Pi (opposite).
 
-proc IsParallel*(this: gp_Dir, Other: gp_Dir, AngularTolerance: Standard_Real): Standard_Boolean  {.importcpp: "IsParallel".}
+proc IsParallel*(this: gp_Dir, Other: gp_Dir, AngularTolerance: cdouble): bool  {.importcpp: "IsParallel".}
   ## Returns true if the angle between this unit vector and the unit vector
   ## Other is equal to 0 or to Pi. Note: the tolerance criterion is given
   ## by AngularTolerance.
 
-proc Angle*(this: gp_Dir, Other: gp_Dir): Standard_Real  {.importcpp: "Angle".}
+proc Angle*(this: gp_Dir, Other: gp_Dir): cdouble  {.importcpp: "Angle".}
   ## Computes the angular value in radians between <me> and <Other>. This
   ## value is always positive in 3D space. Returns the angle in the range
   ## [0, PI]
 
-proc AngleWithRef*(this: gp_Dir, Other: gp_Dir, VRef: gp_Dir): Standard_Real  {.importcpp: "AngleWithRef".}
+proc AngleWithRef*(this: gp_Dir, Other: gp_Dir, VRef: gp_Dir): cdouble  {.importcpp: "AngleWithRef".}
   ## Computes the angular value between <me> and <Other>. <VRef> is the
   ## direction of reference normal to <me> and <Other> and its orientation
   ## gives the positive sense of rotation. If the cross product <me> ^
@@ -140,12 +140,12 @@ proc CrossCrossed*(this: gp_Dir, V1: gp_Dir, V2: gp_Dir): gp_Dir  {.importcpp: "
   ## parallel. This is because, in these conditions, the computed vector is
   ## null and cannot be normalized.
 
-proc Dot*(this: gp_Dir, Other: gp_Dir): Standard_Real  {.importcpp: "Dot".}
+proc Dot*(this: gp_Dir, Other: gp_Dir): cdouble  {.importcpp: "Dot".}
   ## Computes the scalar product
 
-proc `*`*(this: gp_Dir, Other: gp_Dir): Standard_Real  {.importcpp: "`*`".}
+proc `*`*(this: gp_Dir, Other: gp_Dir): cdouble  {.importcpp: "`*`".}
 
-proc DotCross*(this: gp_Dir, V1: gp_Dir, V2: gp_Dir): Standard_Real  {.importcpp: "DotCross".}
+proc DotCross*(this: gp_Dir, V1: gp_Dir, V2: gp_Dir): cdouble  {.importcpp: "DotCross".}
   ## Computes the triple scalar product <me> * (V1 ^ V2). Warnings : The
   ## computed vector V1' = V1 ^ V2 is not normalized to create a unitary
   ## vector. So this method never raises an exception even if V1 and V2 are
@@ -179,9 +179,9 @@ proc Mirrored*(this: gp_Dir, A2: gp_Ax2): gp_Dir  {.importcpp: "Mirrored".}
   ## a plane. The axis placement A2 locates the plane of the symmetry :
   ## (Location, XDirection, YDirection).
 
-proc Rotate*(this: var gp_Dir, A1: gp_Ax1, Ang: Standard_Real)  {.importcpp: "Rotate".}
+proc Rotate*(this: var gp_Dir, A1: gp_Ax1, Ang: cdouble)  {.importcpp: "Rotate".}
 
-proc Rotated*(this: gp_Dir, A1: gp_Ax1, Ang: Standard_Real): gp_Dir  {.importcpp: "Rotated".}
+proc Rotated*(this: gp_Dir, A1: gp_Ax1, Ang: cdouble): gp_Dir  {.importcpp: "Rotated".}
   ## Rotates a direction. A1 is the axis of the rotation. Ang is the
   ## angular value of the rotation in radians.
 

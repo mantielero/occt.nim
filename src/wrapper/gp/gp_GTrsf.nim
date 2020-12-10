@@ -27,14 +27,14 @@ proc ` new`*(this: var gp_GTrsf, cint, theAddress: pointer)  {.importcpp: "` new
 
 proc ` delete`*(this: var gp_GTrsf, pointer, pointer)  {.importcpp: "` delete`".}
 
-proc SetAffinity*(this: var gp_GTrsf, A1: gp_Ax1, Ratio: Standard_Real)  {.importcpp: "SetAffinity".}
+proc SetAffinity*(this: var gp_GTrsf, A1: gp_Ax1, Ratio: cdouble)  {.importcpp: "SetAffinity".}
   ## Changes this transformation into an affinity of ratio Ratio with
   ## respect to the axis A1. Note: an affinity is a point-by-point
   ## transformation that transforms any point P into a point P' such that
   ## if H is the orthogonal projection of P on the axis A1 or the plane A2,
   ## the vectors HP and HP' satisfy: HP' = Ratio * HP.
 
-proc SetAffinity*(this: var gp_GTrsf, A2: gp_Ax2, Ratio: Standard_Real)  {.importcpp: "SetAffinity".}
+proc SetAffinity*(this: var gp_GTrsf, A2: gp_Ax2, Ratio: cdouble)  {.importcpp: "SetAffinity".}
   ## Changes this transformation into an affinity of ratio Ratio with
   ## respect to the plane defined by the origin, the "X Direction" and the
   ## "Y Direction" of coordinate system A2. Note: an affinity is a point-
@@ -42,7 +42,7 @@ proc SetAffinity*(this: var gp_GTrsf, A2: gp_Ax2, Ratio: Standard_Real)  {.impor
   ## such that if H is the orthogonal projection of P on the axis A1 or the
   ## plane A2, the vectors HP and HP' satisfy: HP' = Ratio * HP.
 
-proc SetValue*(this: var gp_GTrsf, Row: Standard_Integer, Col: Standard_Integer, Value: Standard_Real)  {.importcpp: "SetValue".}
+proc SetValue*(this: var gp_GTrsf, Row: cint, Col: cint, Value: cdouble)  {.importcpp: "SetValue".}
   ## Replaces the coefficient (Row, Col) of the matrix representing this
   ## transformation by Value. Raises OutOfRange if Row < 1 or Row > 3 or
   ## Col < 1 or Col > 4
@@ -58,11 +58,11 @@ proc SetTrsf*(this: var gp_GTrsf, T: gp_Trsf)  {.importcpp: "SetTrsf".}
   ## Assigns the vectorial and translation parts of T to this
   ## transformation.
 
-proc IsNegative*(this: gp_GTrsf): Standard_Boolean  {.importcpp: "IsNegative".}
+proc IsNegative*(this: gp_GTrsf): bool  {.importcpp: "IsNegative".}
   ## Returns true if the determinant of the vectorial part of this
   ## transformation is negative.
 
-proc IsSingular*(this: gp_GTrsf): Standard_Boolean  {.importcpp: "IsSingular".}
+proc IsSingular*(this: gp_GTrsf): bool  {.importcpp: "IsSingular".}
   ## Returns true if this transformation is singular (and therefore, cannot
   ## be inverted). Note: The Gauss LU decomposition is used to invert the
   ## transformation matrix. Consequently, the transformation is considered
@@ -88,11 +88,11 @@ proc VectorialPart*(this: gp_GTrsf): gp_Mat  {.importcpp: "VectorialPart".}
   ## Computes the vectorial part of the GTrsf. The returned Matrix is a 3*3
   ## matrix.
 
-proc Value*(this: gp_GTrsf, Row: Standard_Integer, Col: Standard_Integer): Standard_Real  {.importcpp: "Value".}
+proc Value*(this: gp_GTrsf, Row: cint, Col: cint): cdouble  {.importcpp: "Value".}
   ## Returns the coefficients of the global matrix of transformation.
   ## Raises OutOfRange if Row < 1 or Row > 3 or Col < 1 or Col > 4
 
-proc `()`*(this: gp_GTrsf, Row: Standard_Integer, Col: Standard_Integer): Standard_Real  {.importcpp: "`()`".}
+proc `()`*(this: gp_GTrsf, Row: cint, Col: cint): cdouble  {.importcpp: "`()`".}
 
 proc Invert*(this: var gp_GTrsf)  {.importcpp: "Invert".}
 
@@ -120,9 +120,9 @@ proc PreMultiply*(this: var gp_GTrsf, T: gp_GTrsf)  {.importcpp: "PreMultiply".}
   ## Computes the product of the transformation T and this transformation
   ## and assigns the result to this transformation. this = T * this
 
-proc Power*(this: var gp_GTrsf, N: Standard_Integer)  {.importcpp: "Power".}
+proc Power*(this: var gp_GTrsf, N: cint)  {.importcpp: "Power".}
 
-proc Powered*(this: gp_GTrsf, N: Standard_Integer): gp_GTrsf  {.importcpp: "Powered".}
+proc Powered*(this: gp_GTrsf, N: cint): gp_GTrsf  {.importcpp: "Powered".}
   ## Computes: - the product of this transformation multiplied by itself N
   ## times, if N is positive, or - the product of the inverse of this
   ## transformation multiplied by itself |N| times, if N is negative. If N
@@ -132,7 +132,7 @@ proc Powered*(this: gp_GTrsf, N: Standard_Integer): gp_GTrsf  {.importcpp: "Powe
 
 proc Transforms*(this: gp_GTrsf, Coord: var gp_XYZ)  {.importcpp: "Transforms".}
 
-proc Transforms*(this: gp_GTrsf, X: var Standard_Real, Y: var Standard_Real, Z: var Standard_Real)  {.importcpp: "Transforms".}
+proc Transforms*(this: gp_GTrsf, X: var cdouble, Y: var cdouble, Z: var cdouble)  {.importcpp: "Transforms".}
   ## Transforms a triplet XYZ with a GTrsf.
 
 proc Trsf*(this: gp_GTrsf): gp_Trsf  {.importcpp: "Trsf".}

@@ -57,18 +57,23 @@ proc Coord*(this: gp_Pnt, Index: cint): cdouble  {.importcpp: "Coord".}
   ## = 1 => X is returned Index = 2 => Y is returned Index = 3 => Z is
   ## returned Raises OutOfRange if Index != {1, 2, 3}. Raised if Index !=
   ## {1, 2, 3}.
+  ## DONE
 
 proc Coord*(this: gp_Pnt, Xp: var cdouble, Yp: var cdouble, Zp: var cdouble)  {.importcpp: "Coord".}
   ## For this point gives its three coordinates Xp, Yp and Zp.
+  ## DONE
 
 proc X*(this: gp_Pnt): cdouble  {.importcpp: "X".}
   ## For this point, returns its X coordinate.
+  ## DONE
 
 proc Y*(this: gp_Pnt): cdouble  {.importcpp: "Y".}
   ## For this point, returns its Y coordinate.
+  ## DONE
 
 proc Z*(this: gp_Pnt): cdouble  {.importcpp: "Z".}
   ## For this point, returns its Z coordinate.
+  ## DONE
 
 proc XYZ*(this: gp_Pnt): gp_XYZ  {.importcpp: "XYZ".}
   ## For this point, returns its three coordinates as a XYZ object.
@@ -92,19 +97,24 @@ proc IsEqual*(this: gp_Pnt, Other: gp_Pnt, LinearTolerance: cdouble): bool  {.im
 
 proc Distance*(this: gp_Pnt, Other: gp_Pnt): cdouble  {.importcpp: "Distance".}
   ## Computes the distance between two points.
+  ## DONE
 
 proc SquareDistance*(this: gp_Pnt, Other: gp_Pnt): cdouble  {.importcpp: "SquareDistance".}
   ## Computes the square distance between two points.
+  ## DONE
 
 proc Mirror*(this: var gp_Pnt, P: gp_Pnt)  {.importcpp: "Mirror".}
   ## Performs the symmetrical transformation of a point with respect to the
   ## point P which is the center of the symmetry.
+  ## DONE
 
 proc Mirrored*(this: gp_Pnt, P: gp_Pnt): gp_Pnt  {.importcpp: "Mirrored".}
   ## Performs the symmetrical transformation of a point with respect to an
   ## axis placement which is the axis of the symmetry.
+  ## DONE
 
 proc Mirror*(this: var gp_Pnt, A1: gp_Ax1)  {.importcpp: "Mirror".}
+
 
 proc Mirrored*(this: gp_Pnt, A1: gp_Ax1): gp_Pnt  {.importcpp: "Mirrored".}
   ## Performs the symmetrical transformation of a point with respect to a

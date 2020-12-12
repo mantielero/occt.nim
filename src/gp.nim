@@ -1,47 +1,27 @@
 import wrapper/gp/gp
+export gp
+type
+  Point = gp_Pnt | gp_Vec  | gp_XYZ
 
-proc Pnt*():gp_Pnt = 
-  constructor_gp_Pnt()
+proc x*[T:Point](p:T):float =
+  p.X.float
 
-proc Pnt*[X,Y,Z:SomeNumber](x:X,y:Y,z:Z):gp_Pnt =
-  constructor_gp_Pnt(x.cdouble, y.cdouble, z.cdouble)
+proc y*[T:Point](p:T):float =
+  p.Y.float
 
-proc x*(pnt:gp_Pnt):float =
-  pnt.X.float
+proc z*[T:Point](p:T):float =
+  p.Z.float
 
-proc y*(pnt:gp_Pnt):float =
-  pnt.Y.float
-
-proc z*(pnt:gp_Pnt):float =
-  pnt.Z.float  
-
-proc `$`*(pnt:gp_Pnt):string =
-  result = "Pnt(x:" & $pnt.x & ", y:" & $pnt.y & ", z:" & $pnt.z & ")\n"
-
-proc `x=`*[T:SomeNumber](pnt:var gp_Pnt,val:T) =
+proc `x=`*[T:Point, V:SomeNumber](pnt:var T,val:V) =
   pnt.SetX(val.cdouble)
 
-proc `y=`*[T:SomeNumber](pnt:var gp_Pnt,val:T) =
+proc `y=`*[T:Point, V:SomeNumber](pnt:var T,val:V) =
   pnt.SetY(val.cdouble)
 
-proc `z=`*[T:SomeNumber](pnt:var gp_Pnt,val:T) =
+proc `z=`*[T:Point, V:SomeNumber](pnt:var T,val:V) =
   pnt.SetZ(val.cdouble)
 
-proc set*[X,Y,Z:SomeNumber](pnt:var gp_Pnt,x:X, y:Y, z:Z) =
-  pnt.SetCoord(x.cdouble, y.cdouble, z.cdouble)
 
-proc `[]`*[I:SomeInteger](pnt:gp_Pnt, idx:I):float =
-  pnt.Coord(idx.cint).float
+include gp_Pnt, gp_XYZ, gp_Vec
 
-#--------
-proc distance*(p1,p2:gp_Pnt):float =
-  p1.Distance(p2).float
 
-proc squareDistance*(p1, p2: gp_Pnt): float =
-  p1.SquareDistance(p2).float
-
-#proc mirrored*(p1,p:gp_Pnt): gp_Pnt =
-#    p1.Mirrored( p )
-
-proc mirror*(p1: var gp_Pnt,p:gp_Pnt) =
-    p1.Mirror( p )

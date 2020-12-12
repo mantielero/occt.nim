@@ -472,6 +472,10 @@ type
 
   gp_TrsfForm* {.header: "gp_Trsf.hxx", importcpp: "gp_TrsfForm", byref.} = object
 
+include "gp_Pnt.nim"
+include "gp_XYZ.nim"
+include gp_Ax1
+include gp_Vec
 #[
 include "gp_Trsf2d.nim"
 include "gp_GTrsf2d.nim"
@@ -487,7 +491,7 @@ include "gp_Circ2d.nim"
 include "gp_Quaternion.nim"
 include "gp_Pln.nim"
 ]#
-include "gp_Pnt.nim"
+
 #[
 include "gp_Ax2d.nim"
 include "gp_Circ.nim"
@@ -502,7 +506,7 @@ include "gp_QuaternionSLerp.nim"
 include "gp_Ax3.nim"
 include "gp_Mat2d.nim"
 include "gp_Ax22d.nim"
-include "gp_Ax1.nim"
+
 include "gp_Lin2d.nim"
 include "gp_Torus.nim"
 include "gp_Trsf.nim"
@@ -512,8 +516,8 @@ include "gp_EulerSequence.nim"
 include "gp_TrsfForm.nim"
 include "gp_XY.nim"
 include "gp_TrsfNLerp.nim"
-include "gp_Vec.nim"
+
 include "gp_Parab.nim"
-include "gp_XYZ.nim"
+
 include "gp_Dir.nim"
 ]#

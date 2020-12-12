@@ -7,7 +7,7 @@ proc constructor_gp_XYZ*(): gp_XYZ {.constructor,importcpp: "gp_XYZ".}
 
 proc constructor_gp_XYZ*(X: cdouble, Y: cdouble, Z: cdouble): gp_XYZ {.constructor,importcpp: "gp_XYZ(@)".}
   ## creates an XYZ with given coordinates
-
+#[
 proc ` new`*(this: var gp_XYZ, theSize: cint)  {.importcpp: "` new`".}
 
 proc ` delete`*(this: var gp_XYZ, theAddress: pointer)  {.importcpp: "` delete`".}
@@ -19,7 +19,7 @@ proc ` delete[]`*(this: var gp_XYZ, theAddress: pointer)  {.importcpp: "` delete
 proc ` new`*(this: var gp_XYZ, cint, theAddress: pointer)  {.importcpp: "` new`".}
 
 proc ` delete`*(this: var gp_XYZ, pointer, pointer)  {.importcpp: "` delete`".}
-
+]#
 proc SetCoord*(this: var gp_XYZ, X: cdouble, Y: cdouble, Z: cdouble)  {.importcpp: "SetCoord".}
   ## For this XYZ object, assigns the values X, Y and Z to its three
   ## coordinates
@@ -46,6 +46,7 @@ proc ChangeCoord*(this: var gp_XYZ, theIndex: cint): cdouble  {.importcpp: "Chan
 
 proc Coord*(this: gp_XYZ, X: var cdouble, Y: var cdouble, Z: var cdouble)  {.importcpp: "Coord".}
 
+#[
 proc GetData*(this: gp_XYZ): cdouble *  {.importcpp: "GetData".}
   ## Returns a const ptr to coordinates location. Is useful for algorithms,
   ## but DOES NOT PERFORM ANY CHECKS!
@@ -53,6 +54,7 @@ proc GetData*(this: gp_XYZ): cdouble *  {.importcpp: "GetData".}
 proc ChangeData*(this: var gp_XYZ): cdouble *  {.importcpp: "ChangeData".}
   ## Returns a ptr to coordinates location. Is useful for algorithms, but
   ## DOES NOT PERFORM ANY CHECKS!
+]#
 
 proc X*(this: gp_XYZ): cdouble  {.importcpp: "X".}
   ## Returns the X coordinate
@@ -66,10 +68,12 @@ proc Z*(this: gp_XYZ): cdouble  {.importcpp: "Z".}
 proc Modulus*(this: gp_XYZ): cdouble  {.importcpp: "Modulus".}
   ## computes Sqrt (X*X + Y*Y + Z*Z) where X, Y and Z are the three
   ## coordinates of this XYZ object.
+  ## DONE
 
 proc SquareModulus*(this: gp_XYZ): cdouble  {.importcpp: "SquareModulus".}
   ## Computes X*X + Y*Y + Z*Z where X, Y and Z are the three coordinates of
   ## this XYZ object.
+  ## DONE
 
 proc IsEqual*(this: gp_XYZ, Other: gp_XYZ, Tolerance: cdouble): bool  {.importcpp: "IsEqual".}
   ## Returns True if he coordinates of this XYZ object are equal to the
@@ -81,28 +85,29 @@ proc IsEqual*(this: gp_XYZ, Other: gp_XYZ, Tolerance: cdouble): bool  {.importcp
 proc Add*(this: var gp_XYZ, Other: gp_XYZ)  {.importcpp: "Add".}
   ## <me>.X() = <me>.X() + Other.X() <me>.Y() = <me>.Y() + Other.Y()
   ## <me>.Z() = <me>.Z() + Other.Z()
+  ## DONE
 
-proc `+=`*(this: var gp_XYZ, Other: gp_XYZ)  {.importcpp: "`+=`".}
+proc `+=`*(this: var gp_XYZ, Other: gp_XYZ)  {.importcpp: "# += #".}
 
 proc Added*(this: gp_XYZ, Other: gp_XYZ): gp_XYZ  {.importcpp: "Added".}
   ## new.X() = <me>.X() + Other.X() new.Y() = <me>.Y() + Other.Y() new.Z()
   ## = <me>.Z() + Other.Z()
 
-proc `+`*(this: gp_XYZ, Other: gp_XYZ): gp_XYZ  {.importcpp: "`+`".}
+proc `+`*(this: gp_XYZ, Other: gp_XYZ): gp_XYZ  {.importcpp: "# + #".}
 
-proc Cross*(this: var gp_XYZ, Right: gp_XYZ)  {.importcpp: "Cross".}
+proc cross*(this: var gp_XYZ, Right: gp_XYZ)  {.importcpp: "Cross".}
   ## <me>.X() = <me>.Y() * Other.Z() - <me>.Z() * Other.Y() <me>.Y() =
   ## <me>.Z() * Other.X() - <me>.X() * Other.Z() <me>.Z() = <me>.X() *
   ## Other.Y() - <me>.Y() * Other.X()
 
-proc `^=`*(this: var gp_XYZ, Right: gp_XYZ)  {.importcpp: "`^=`".}
+proc `^=`*(this: var gp_XYZ, Right: gp_XYZ)  {.importcpp: "# ^= #".}
 
-proc Crossed*(this: gp_XYZ, Right: gp_XYZ): gp_XYZ  {.importcpp: "Crossed".}
+proc crossed*(this: gp_XYZ, Right: gp_XYZ): gp_XYZ  {.importcpp: "Crossed".}
   ## new.X() = <me>.Y() * Other.Z() - <me>.Z() * Other.Y() new.Y() =
   ## <me>.Z() * Other.X() - <me>.X() * Other.Z() new.Z() = <me>.X() *
   ## Other.Y() - <me>.Y() * Other.X()
 
-proc `^`*(this: gp_XYZ, Right: gp_XYZ): gp_XYZ  {.importcpp: "`^`".}
+proc `^`*(this: gp_XYZ, Right: gp_XYZ): gp_XYZ  {.importcpp: "# ^ #".}
 
 proc CrossMagnitude*(this: gp_XYZ, Right: gp_XYZ): cdouble  {.importcpp: "CrossMagnitude".}
   ## Computes the magnitude of the cross product between <me> and Right.
@@ -121,17 +126,17 @@ proc CrossCrossed*(this: gp_XYZ, Coord1: gp_XYZ, Coord2: gp_XYZ): gp_XYZ  {.impo
 proc Divide*(this: var gp_XYZ, Scalar: cdouble)  {.importcpp: "Divide".}
   ## divides <me> by a real.
 
-proc `/=`*(this: var gp_XYZ, Scalar: cdouble)  {.importcpp: "`/=`".}
+proc `/=`*(this: var gp_XYZ, Scalar: cdouble)  {.importcpp: "# /= #".}
 
 proc Divided*(this: gp_XYZ, Scalar: cdouble): gp_XYZ  {.importcpp: "Divided".}
   ## divides <me> by a real.
 
-proc `/`*(this: gp_XYZ, Scalar: cdouble): gp_XYZ  {.importcpp: "`/`".}
+proc `/`*(this: gp_XYZ, Scalar: cdouble): gp_XYZ  {.importcpp: "# / #".}
 
 proc Dot*(this: gp_XYZ, Other: gp_XYZ): cdouble  {.importcpp: "Dot".}
   ## computes the scalar product between <me> and Other
 
-proc `*`*(this: gp_XYZ, Other: gp_XYZ): cdouble  {.importcpp: "`*`".}
+proc `*`*(this: gp_XYZ, Other: gp_XYZ): cdouble  {.importcpp: "# * #".}
 
 proc DotCross*(this: gp_XYZ, Coord1: gp_XYZ, Coord2: gp_XYZ): cdouble  {.importcpp: "DotCross".}
   ## computes the triple scalar product
@@ -140,24 +145,24 @@ proc Multiply*(this: var gp_XYZ, Scalar: cdouble)  {.importcpp: "Multiply".}
   ## <me>.X() = <me>.X() * Scalar; <me>.Y() = <me>.Y() * Scalar; <me>.Z() =
   ## <me>.Z() * Scalar;
 
-proc `*=`*(this: var gp_XYZ, Scalar: cdouble)  {.importcpp: "`*=`".}
+proc `*=`*(this: var gp_XYZ, Scalar: cdouble)  {.importcpp: "# *= #".}
 
 proc Multiply*(this: var gp_XYZ, Other: gp_XYZ)  {.importcpp: "Multiply".}
   ## <me>.X() = <me>.X() * Other.X(); <me>.Y() = <me>.Y() * Other.Y();
   ## <me>.Z() = <me>.Z() * Other.Z();
 
-proc `*=`*(this: var gp_XYZ, Other: gp_XYZ)  {.importcpp: "`*=`".}
+proc `*=`*(this: var gp_XYZ, Other: gp_XYZ)  {.importcpp: "# *= #".}
 
 proc Multiply*(this: var gp_XYZ, Matrix: gp_Mat)  {.importcpp: "Multiply".}
   ## <me> = Matrix * <me>
 
-proc `*=`*(this: var gp_XYZ, Matrix: gp_Mat)  {.importcpp: "`*=`".}
+proc `*=`*(this: var gp_XYZ, Matrix: gp_Mat)  {.importcpp: "# *= #".}
 
 proc Multiplied*(this: gp_XYZ, Scalar: cdouble): gp_XYZ  {.importcpp: "Multiplied".}
   ## New.X() = <me>.X() * Scalar; New.Y() = <me>.Y() * Scalar; New.Z() =
   ## <me>.Z() * Scalar;
 
-proc `*`*(this: gp_XYZ, Scalar: cdouble): gp_XYZ  {.importcpp: "`*`".}
+proc `*`*(this: gp_XYZ, Scalar: cdouble): gp_XYZ  {.importcpp: "# * #".}
 
 proc Multiplied*(this: gp_XYZ, Other: gp_XYZ): gp_XYZ  {.importcpp: "Multiplied".}
   ## new.X() = <me>.X() * Other.X(); new.Y() = <me>.Y() * Other.Y();
@@ -166,7 +171,7 @@ proc Multiplied*(this: gp_XYZ, Other: gp_XYZ): gp_XYZ  {.importcpp: "Multiplied"
 proc Multiplied*(this: gp_XYZ, Matrix: gp_Mat): gp_XYZ  {.importcpp: "Multiplied".}
   ## New = Matrix * <me>
 
-proc `*`*(this: gp_XYZ, Matrix: gp_Mat): gp_XYZ  {.importcpp: "`*`".}
+proc `*`*(this: gp_XYZ, Matrix: gp_Mat): gp_XYZ  {.importcpp: "# * #".}
 
 proc Normalize*(this: var gp_XYZ)  {.importcpp: "Normalize".}
   ## <me>.X() = <me>.X()/ <me>.Modulus() <me>.Y() = <me>.Y()/
@@ -188,13 +193,13 @@ proc Subtract*(this: var gp_XYZ, Right: gp_XYZ)  {.importcpp: "Subtract".}
   ## <me>.X() = <me>.X() - Other.X() <me>.Y() = <me>.Y() - Other.Y()
   ## <me>.Z() = <me>.Z() - Other.Z()
 
-proc `-=`*(this: var gp_XYZ, Right: gp_XYZ)  {.importcpp: "`-=`".}
+proc `-=`*(this: var gp_XYZ, Right: gp_XYZ)  {.importcpp: "# -= #".}
 
 proc Subtracted*(this: gp_XYZ, Right: gp_XYZ): gp_XYZ  {.importcpp: "Subtracted".}
   ## new.X() = <me>.X() - Other.X() new.Y() = <me>.Y() - Other.Y() new.Z()
   ## = <me>.Z() - Other.Z()
 
-proc `-`*(this: gp_XYZ, Right: gp_XYZ): gp_XYZ  {.importcpp: "`-`".}
+proc `-`*(this: gp_XYZ, Right: gp_XYZ): gp_XYZ  {.importcpp: "# - #".}
 
 proc SetLinearForm*(this: var gp_XYZ, A1: cdouble, XYZ1: gp_XYZ, A2: cdouble, XYZ2: gp_XYZ, A3: cdouble, XYZ3: gp_XYZ, XYZ4: gp_XYZ)  {.importcpp: "SetLinearForm".}
   ## <me> is set to the following linear form : A1 * XYZ1 + A2 * XYZ2 + A3
@@ -214,10 +219,12 @@ proc SetLinearForm*(this: var gp_XYZ, A1: cdouble, XYZ1: gp_XYZ, A2: cdouble, XY
 proc SetLinearForm*(this: var gp_XYZ, A1: cdouble, XYZ1: gp_XYZ, XYZ2: gp_XYZ)  {.importcpp: "SetLinearForm".}
   ## <me> is set to the following linear form : A1 * XYZ1 + XYZ2
 
-proc SetLinearForm*(this: var gp_XYZ, XYZ1: gp_XYZ, XYZ2: gp_XYZ)  {.importcpp: "SetLinearForm".}
+proc setLinearForm*(this: var gp_XYZ, XYZ1: gp_XYZ, XYZ2: gp_XYZ)  {.importcpp: "SetLinearForm".}
   ## <me> is set to the following linear form : XYZ1 + XYZ2
+  ## DONE
 
+#[
 proc DumpJson*(this: gp_XYZ, theOStream: var Standard_OStream, theDepth: cint)  {.importcpp: "DumpJson".}
   ## Dumps the content of me into the stream
-
+]#
 {.pop.} # header: "gp_XYZ.hxx

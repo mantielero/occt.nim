@@ -32,7 +32,7 @@ echo pnt1.squareDistance(pnt2)
 # https://nim-lang.org/blog/2020/04/03/version-120-released.html#dup
 pnt1.mirror(pnt2)
 echo pnt1
-var pnt4 = pnt1.dup(mirror(pnt2))   # This would be equivalent to mirrored
+var pnt4 = pnt1.dup: mirror(pnt2)   # This would be equivalent to Mirrored: https://forum.nim-lang.org/t/7240
 echo pnt4
 
 

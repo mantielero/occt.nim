@@ -1,4 +1,4 @@
-import ../src/gp
+import ../src/tkMath/tkmath
 import sugar
 
 # Create two point classes, with (x,y,z) coordinates

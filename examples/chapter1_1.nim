@@ -1,5 +1,5 @@
 # https://occtutorials.wordpress.com/2015/12/07/chapter-1-2-curves-from-the-gp-package/
-import ../src/tkMath/tkmath
+import ../src/occt
 
 proc main() =
   # Create two point classes, with (x,y,z) coordinates

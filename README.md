@@ -61,7 +61,10 @@ https://old.opencascade.com/doc/occt-7.3.0/overview/html/occt__tutorial.html#sec
 
 https://github.com/lvk88/OccTutorial
 https://github.com/lvk88/OccTutorial/blob/master/Chapter1_Basics/runners/chapter1_1.cpp
+https://github.com/tpaviot/pythonocc-demos/tree/master/examples
 
+## NCollection
+Creo que podrían ser innecesarios. Parece que es mejor usar arrays o secuencias de Nim.
 ## HANDLES
 In line 60, we create a so-called Handle to an array. What are they good for? If you really want to pass around arrays between functions, but you are not allowed to pass them by value, you have another choice: use pointers instead! But the usage of raw pointers comes with its own problems: you have to decide when it gets deleted, who is responsible for deleting it, you have to take care that you don’t try to access already deleted pointers, etc… That’s why OpenCASCADE uses the nice concept of Handles, a.k.a. smart pointers (or shared_ptr-s more or less for Boost or C++11 users). Handles can be used just like ordinary pointers, with a very important difference that you don’t have to worry too much about deleting them or thinking about who owns them. They take care of their own reference counting, and when there is no more object referring to them, they just simply get destroyed. Of course, containers are not the only things that can be operated on by Handles: actually, in the higher-level packages many objects use them.
 

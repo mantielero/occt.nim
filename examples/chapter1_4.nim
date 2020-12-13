@@ -1,9 +1,29 @@
 # https://occtutorials.wordpress.com/2015/12/14/chapter-1-3-polygonizing-a-circle/
-import ../src/tkMath/tkmath
+import ../src/occt
 import math  # For Pi
 import strformat  # For fmt"Hello {name}" like formatting
 
 proc main() =
+  # Create a simple box with a size 100x100x50, centered around the origin
+  let lowerLeftCornerOfBox = Pnt(-50, -50, 0)
+  let boxMaker = MakeBox( lowerLeftCornerOfBox, 100, 100, 50)
+  let box = boxMaker.shape
+
+  # Create a cylinder with a radius 25.0 and height 50.0, centered at the origin 
+  cylinderMaker = MakeCylinder(25.0,50.0)
+  cylinder = cylinderMaker.shape
+
+  # Cut the cylinder out from the box
+  cutMaker = BRepAlgoAPI_Cut(box,cylinder)
+  boxWithHole = cutMaker.shape
+
+  # Write the resulting shape to a file
+  let writer:STEPControl_Writer
+  writer.transfer( boxWithHole, STEPControl_AsIs)
+  writer.Write("boxWithHole.stp")
+
+
+
   # Create a circle like before
   let centerPoint = Pnt(2.5, 2.5, 0)
   let normalDirection = Dir(0,0,1)
@@ -83,12 +103,10 @@ when isMainModule:
 
 
 #[
-#include <iostream>
-#include <iomanip>
-#include "BRepPrimAPI_MakeCylinder.hxx"
-#include "BRepPrimAPI_MakeBox.hxx"
+
 #include "BRepAlgoAPI_Cut.hxx"
 #include "STEPControl_Writer.hxx"
+
 #include "BRepGProp.hxx"
 #include "GProp_GProps.hxx"
  
@@ -97,24 +115,12 @@ int main(int argc, char *argv[])
 {
         std::cout << "------- OpenCASCADE Tutorial by Laszlo Kudela -------" << std::endl;  
         std::cout << "------- Chapter 0: Demonstrative example      -------" << std::endl;  
- 
-    //Create a simple box with a size 100x100x50, centered around the origin
-    gp_Pnt lowerLeftCornerOfBox(-50.0,-50.0,0.0);
-    BRepPrimAPI_MakeBox boxMaker(lowerLeftCornerOfBox,100,100,50);
-    TopoDS_Shape box = boxMaker.Shape();
      
-    //Create a cylinder with a radius 25.0 and height 50.0, centered at the origin 
-    BRepPrimAPI_MakeCylinder cylinderMaker(25.0,50.0);
-    TopoDS_Shape cylinder = cylinderMaker.Shape();
+
  
-    //Cut the cylinder out from the box
-    BRepAlgoAPI_Cut cutMaker(box,cylinder);
-    TopoDS_Shape boxWithHole = cutMaker.Shape();
+
      
-    //Write the resulting shape to a file
-    STEPControl_Writer writer;
-    writer.Transfer(boxWithHole,STEPControl_AsIs);
-    writer.Write("boxWithHole.stp");
+
  
     std::cout << "Created box with hole, file is written to boxWithHole.stp" << std::endl;  
  

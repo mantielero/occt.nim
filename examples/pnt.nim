@@ -22,7 +22,6 @@ var pnt3 = Pnt()
 pnt3.set(-1,-2,-3)
 echo pnt3
 
-#
 echo pnt3[1]," ", pnt3[2], " ", pnt3[3]
 
 echo pnt1.distance(pnt2), " == ", distance(pnt1, pnt2)

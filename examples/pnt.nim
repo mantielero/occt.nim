@@ -34,4 +34,10 @@ echo pnt1
 var pnt4 = pnt1.dup: mirror(pnt2)   # This would be equivalent to Mirrored: https://forum.nim-lang.org/t/7240
 echo pnt4
 
+pnt4[2] = 3.0
+echo pnt4
+
+pnt4.z = -2
+echo pnt4
+
 

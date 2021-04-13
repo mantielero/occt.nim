@@ -1,6 +1,6 @@
 # https://github.com/lvk88/OccTutorial
 # https://github.com/lvk88/OccTutorial/blob/master/Chapter1_Basics/runners/chapter1_1.cpp
-import ../src/tkMath/tkmath
+import ../src/occt #tkMath/tkmath
 import sugar
 
 # Create two point classes, with (x,y,z) coordinates

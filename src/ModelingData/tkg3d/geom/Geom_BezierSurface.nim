@@ -75,7 +75,7 @@ proc constructGeom_BezierSurface*(SurfacePoles: TColgp_Array2OfPnt, PoleWeights:
     ## is considered as non-rational (the tolerance criterion is Resolution
     ## from package gp).
 
-proc constructGeom_BezierSurface*(SurfacePoles: handle[TColgp_HArray2OfPnt], PoleWeights: handle[TColStd_HArray2OfReal], IsURational: Standard_Boolean, IsVRational: Standard_Boolean): Geom_BezierSurface {.constructor,importcpp: "Geom_BezierSurface::Geom_BezierSurface(@)".}
+proc constructGeom_BezierSurface*(SurfacePoles: handle[TColgp_HArray2OfPnt], PoleWeights: handle[TColStd_HArray2OfReal], IsURational: bool, IsVRational: bool): Geom_BezierSurface {.constructor,importcpp: "Geom_BezierSurface::Geom_BezierSurface(@)".}
 
 proc exchangeUV*(this: var Geom_BezierSurface)  {.importcpp: "ExchangeUV".}
     ## Exchanges the direction U and V on a Bezier surface As a consequence:
@@ -83,51 +83,51 @@ proc exchangeUV*(this: var Geom_BezierSurface)  {.importcpp: "ExchangeUV".}
     ## characteristics and so on are exchanged between the two parametric
     ## directions, and - the orientation of the surface is reversed.
 
-proc increase*(this: var Geom_BezierSurface, UDeg: Standard_Integer, VDeg: Standard_Integer)  {.importcpp: "Increase".}
+proc increase*(this: var Geom_BezierSurface, UDeg: cint, VDeg: cint)  {.importcpp: "Increase".}
     ## Increases the degree of this Bezier surface in the two parametric
     ## directions.
 
-proc insertPoleColAfter*(this: var Geom_BezierSurface, VIndex: Standard_Integer, CPoles: TColgp_Array1OfPnt)  {.importcpp: "InsertPoleColAfter".}
+proc insertPoleColAfter*(this: var Geom_BezierSurface, VIndex: cint, CPoles: TColgp_Array1OfPnt)  {.importcpp: "InsertPoleColAfter".}
     ## Inserts a column of poles. If the surface is rational the weights
     ## values associated with CPoles are equal defaulted to 1.
 
-proc insertPoleColAfter*(this: var Geom_BezierSurface, VIndex: Standard_Integer, CPoles: TColgp_Array1OfPnt, CPoleWeights: TColStd_Array1OfReal)  {.importcpp: "InsertPoleColAfter".}
+proc insertPoleColAfter*(this: var Geom_BezierSurface, VIndex: cint, CPoles: TColgp_Array1OfPnt, CPoleWeights: TColStd_Array1OfReal)  {.importcpp: "InsertPoleColAfter".}
     ## Inserts a column of poles and weights. If the surface was non-rational
     ## it can become rational.
 
-proc insertPoleColBefore*(this: var Geom_BezierSurface, VIndex: Standard_Integer, CPoles: TColgp_Array1OfPnt)  {.importcpp: "InsertPoleColBefore".}
+proc insertPoleColBefore*(this: var Geom_BezierSurface, VIndex: cint, CPoles: TColgp_Array1OfPnt)  {.importcpp: "InsertPoleColBefore".}
     ## Inserts a column of poles. If the surface is rational the weights
     ## values associated with CPoles are equal defaulted to 1.
 
-proc insertPoleColBefore*(this: var Geom_BezierSurface, VIndex: Standard_Integer, CPoles: TColgp_Array1OfPnt, CPoleWeights: TColStd_Array1OfReal)  {.importcpp: "InsertPoleColBefore".}
+proc insertPoleColBefore*(this: var Geom_BezierSurface, VIndex: cint, CPoles: TColgp_Array1OfPnt, CPoleWeights: TColStd_Array1OfReal)  {.importcpp: "InsertPoleColBefore".}
     ## Inserts a column of poles and weights. If the surface was non-rational
     ## it can become rational.
 
-proc insertPoleRowAfter*(this: var Geom_BezierSurface, UIndex: Standard_Integer, CPoles: TColgp_Array1OfPnt)  {.importcpp: "InsertPoleRowAfter".}
+proc insertPoleRowAfter*(this: var Geom_BezierSurface, UIndex: cint, CPoles: TColgp_Array1OfPnt)  {.importcpp: "InsertPoleRowAfter".}
     ## Inserts a row of poles. If the surface is rational the weights values
     ## associated with CPoles are equal defaulted to 1.
 
-proc insertPoleRowAfter*(this: var Geom_BezierSurface, UIndex: Standard_Integer, CPoles: TColgp_Array1OfPnt, CPoleWeights: TColStd_Array1OfReal)  {.importcpp: "InsertPoleRowAfter".}
+proc insertPoleRowAfter*(this: var Geom_BezierSurface, UIndex: cint, CPoles: TColgp_Array1OfPnt, CPoleWeights: TColStd_Array1OfReal)  {.importcpp: "InsertPoleRowAfter".}
     ## Inserts a row of poles and weights. If the surface was non-rational it
     ## can become rational.
 
-proc insertPoleRowBefore*(this: var Geom_BezierSurface, UIndex: Standard_Integer, CPoles: TColgp_Array1OfPnt)  {.importcpp: "InsertPoleRowBefore".}
+proc insertPoleRowBefore*(this: var Geom_BezierSurface, UIndex: cint, CPoles: TColgp_Array1OfPnt)  {.importcpp: "InsertPoleRowBefore".}
     ## Inserts a row of poles. If the surface is rational the weights values
     ## associated with CPoles are equal defaulted to 1.
 
-proc insertPoleRowBefore*(this: var Geom_BezierSurface, UIndex: Standard_Integer, CPoles: TColgp_Array1OfPnt, CPoleWeights: TColStd_Array1OfReal)  {.importcpp: "InsertPoleRowBefore".}
+proc insertPoleRowBefore*(this: var Geom_BezierSurface, UIndex: cint, CPoles: TColgp_Array1OfPnt, CPoleWeights: TColStd_Array1OfReal)  {.importcpp: "InsertPoleRowBefore".}
     ## Inserts a row of poles and weights. If the surface was non-rational it
     ## can become rational.
 
-proc removePoleCol*(this: var Geom_BezierSurface, VIndex: Standard_Integer)  {.importcpp: "RemovePoleCol".}
+proc removePoleCol*(this: var Geom_BezierSurface, VIndex: cint)  {.importcpp: "RemovePoleCol".}
     ## Removes a column of poles. If the surface was rational it can become
     ## non-rational.
 
-proc removePoleRow*(this: var Geom_BezierSurface, UIndex: Standard_Integer)  {.importcpp: "RemovePoleRow".}
+proc removePoleRow*(this: var Geom_BezierSurface, UIndex: cint)  {.importcpp: "RemovePoleRow".}
     ## Removes a row of poles. If the surface was rational it can become non-
     ## rational.
 
-proc segment*(this: var Geom_BezierSurface, U1: Standard_Real, U2: Standard_Real, V1: Standard_Real, V2: Standard_Real)  {.importcpp: "Segment".}
+proc segment*(this: var Geom_BezierSurface, U1: cdouble, U2: cdouble, V1: cdouble, V2: cdouble)  {.importcpp: "Segment".}
     ## Modifies this Bezier surface by segmenting it between U1 and U2 in the
     ## u parametric direction, and between V1 and V2 in the v parametric
     ## direction. U1, U2, V1, and V2 can be outside the bounds of this
@@ -143,51 +143,51 @@ proc segment*(this: var Geom_BezierSurface, U1: Standard_Real, U2: Standard_Real
     ## The orientation of the surface is inverted if one (and only one)
     ## parametric direction is inverted.
 
-proc setPole*(this: var Geom_BezierSurface, UIndex: Standard_Integer, VIndex: Standard_Integer, P: gp_Pnt)  {.importcpp: "SetPole".}
+proc setPole*(this: var Geom_BezierSurface, UIndex: cint, VIndex: cint, P: gp_Pnt)  {.importcpp: "SetPole".}
     ## Modifies a pole value. If the surface is rational the weight of range
     ## (UIndex, VIndex) is not modified.
 
-proc setPole*(this: var Geom_BezierSurface, UIndex: Standard_Integer, VIndex: Standard_Integer, P: gp_Pnt, Weight: Standard_Real)  {.importcpp: "SetPole".}
+proc setPole*(this: var Geom_BezierSurface, UIndex: cint, VIndex: cint, P: gp_Pnt, Weight: cdouble)  {.importcpp: "SetPole".}
     ## Substitutes the pole and the weight of range UIndex, VIndex. If the
     ## surface <me> is not rational it can become rational. if the surface
     ## was rational it can become non-rational.
 
-proc setPoleCol*(this: var Geom_BezierSurface, VIndex: Standard_Integer, CPoles: TColgp_Array1OfPnt)  {.importcpp: "SetPoleCol".}
+proc setPoleCol*(this: var Geom_BezierSurface, VIndex: cint, CPoles: TColgp_Array1OfPnt)  {.importcpp: "SetPoleCol".}
     ## Modifies a column of poles. The length of CPoles can be lower but not
     ## greater than NbUPoles so you can modify just a part of the column.
     ## Raised if VIndex < 1 or VIndex > NbVPoles
 
-proc setPoleCol*(this: var Geom_BezierSurface, VIndex: Standard_Integer, CPoles: TColgp_Array1OfPnt, CPoleWeights: TColStd_Array1OfReal)  {.importcpp: "SetPoleCol".}
+proc setPoleCol*(this: var Geom_BezierSurface, VIndex: cint, CPoles: TColgp_Array1OfPnt, CPoleWeights: TColStd_Array1OfReal)  {.importcpp: "SetPoleCol".}
     ## Modifies a column of poles. If the surface was rational it can become
     ## non-rational If the surface was non-rational it can become rational.
     ## The length of CPoles can be lower but not greater than NbUPoles so you
     ## can modify just a part of the column. Raised if VIndex < 1 or VIndex >
     ## NbVPoles
 
-proc setPoleRow*(this: var Geom_BezierSurface, UIndex: Standard_Integer, CPoles: TColgp_Array1OfPnt)  {.importcpp: "SetPoleRow".}
+proc setPoleRow*(this: var Geom_BezierSurface, UIndex: cint, CPoles: TColgp_Array1OfPnt)  {.importcpp: "SetPoleRow".}
     ## Modifies a row of poles. The length of CPoles can be lower but not
     ## greater than NbVPoles so you can modify just a part of the row. Raised
     ## if UIndex < 1 or UIndex > NbUPoles
 
-proc setPoleRow*(this: var Geom_BezierSurface, UIndex: Standard_Integer, CPoles: TColgp_Array1OfPnt, CPoleWeights: TColStd_Array1OfReal)  {.importcpp: "SetPoleRow".}
+proc setPoleRow*(this: var Geom_BezierSurface, UIndex: cint, CPoles: TColgp_Array1OfPnt, CPoleWeights: TColStd_Array1OfReal)  {.importcpp: "SetPoleRow".}
     ## Modifies a row of poles and weights. If the surface was rational it
     ## can become non-rational. If the surface was non-rational it can become
     ## rational. The length of CPoles can be lower but not greater than
     ## NbVPoles so you can modify just a part of the row. Raised if UIndex <
     ## 1 or UIndex > NbUPoles
 
-proc setWeight*(this: var Geom_BezierSurface, UIndex: Standard_Integer, VIndex: Standard_Integer, Weight: Standard_Real)  {.importcpp: "SetWeight".}
+proc setWeight*(this: var Geom_BezierSurface, UIndex: cint, VIndex: cint, Weight: cdouble)  {.importcpp: "SetWeight".}
     ## Modifies the weight of the pole of range UIndex, VIndex. If the
     ## surface was non-rational it can become rational. If the surface was
     ## rational it can become non-rational.
 
-proc setWeightCol*(this: var Geom_BezierSurface, VIndex: Standard_Integer, CPoleWeights: TColStd_Array1OfReal)  {.importcpp: "SetWeightCol".}
+proc setWeightCol*(this: var Geom_BezierSurface, VIndex: cint, CPoleWeights: TColStd_Array1OfReal)  {.importcpp: "SetWeightCol".}
     ## Modifies a column of weights. If the surface was rational it can
     ## become non-rational. If the surface was non-rational it can become
     ## rational. The length of CPoleWeights can be lower but not greater than
     ## NbUPoles. Raised if VIndex < 1 or VIndex > NbVPoles
 
-proc setWeightRow*(this: var Geom_BezierSurface, UIndex: Standard_Integer, CPoleWeights: TColStd_Array1OfReal)  {.importcpp: "SetWeightRow".}
+proc setWeightRow*(this: var Geom_BezierSurface, UIndex: cint, CPoleWeights: TColStd_Array1OfReal)  {.importcpp: "SetWeightRow".}
     ## Modifies a row of weights. If the surface was rational it can become
     ## non-rational. If the surface was non-rational it can become rational.
     ## The length of CPoleWeights can be lower but not greater than NbVPoles.
@@ -199,7 +199,7 @@ proc uReverse*(this: var Geom_BezierSurface)  {.importcpp: "UReverse".}
     ## parametric direction is reversed. Hence, the orientation of the
     ## surface is reversed.
 
-proc uReversedParameter*(this: Geom_BezierSurface, U: Standard_Real): Standard_Real  {.importcpp: "UReversedParameter".}
+proc uReversedParameter*(this: Geom_BezierSurface, U: cdouble): cdouble  {.importcpp: "UReversedParameter".}
     ## Computes the u (or v) parameter on the modified surface, produced by
     ## reversing its u (or v) parametric direction, for any point of u
     ## parameter U (or of v parameter V) on this Bezier surface. In the case
@@ -212,14 +212,14 @@ proc vReverse*(this: var Geom_BezierSurface)  {.importcpp: "VReverse".}
     ## parametric direction is reversed. Hence, the orientation of the
     ## surface is reversed.
 
-proc vReversedParameter*(this: Geom_BezierSurface, V: Standard_Real): Standard_Real  {.importcpp: "VReversedParameter".}
+proc vReversedParameter*(this: Geom_BezierSurface, V: cdouble): cdouble  {.importcpp: "VReversedParameter".}
     ## Computes the u (or v) parameter on the modified surface, produced by
     ## reversing its u (or v) parametric direction, for any point of u
     ## parameter U (or of v parameter V) on this Bezier surface. In the case
     ## of a Bezier surface, these functions return respectively: - 1.-U, or
     ## 1.-V.
 
-proc bounds*(this: Geom_BezierSurface, U1: var Standard_Real, U2: var Standard_Real, V1: var Standard_Real, V2: var Standard_Real)  {.importcpp: "Bounds".}
+proc bounds*(this: Geom_BezierSurface, U1: var cdouble, U2: var cdouble, V1: var cdouble, V2: var cdouble)  {.importcpp: "Bounds".}
     ## Returns the parametric bounds U1, U2, V1 and V2 of this Bezier
     ## surface. In the case of a Bezier surface, this function returns U1 =
     ## 0, V1 = 0, U2 = 1, V2 = 1.
@@ -228,13 +228,13 @@ proc continuity*(this: Geom_BezierSurface): GeomAbs_Shape  {.importcpp: "Continu
     ## Returns the continuity of the surface CN : the order of continuity is
     ## infinite.
 
-proc d0*(this: Geom_BezierSurface, U: Standard_Real, V: Standard_Real, P: var gp_Pnt)  {.importcpp: "D0".}
+proc d0*(this: Geom_BezierSurface, U: cdouble, V: cdouble, P: var gp_Pnt)  {.importcpp: "D0".}
 
-proc d1*(this: Geom_BezierSurface, U: Standard_Real, V: Standard_Real, P: var gp_Pnt, D1U: var gp_Vec, D1V: var gp_Vec)  {.importcpp: "D1".}
+proc d1*(this: Geom_BezierSurface, U: cdouble, V: cdouble, P: var gp_Pnt, D1U: var gp_Vec, D1V: var gp_Vec)  {.importcpp: "D1".}
 
-proc d2*(this: Geom_BezierSurface, U: Standard_Real, V: Standard_Real, P: var gp_Pnt, D1U: var gp_Vec, D1V: var gp_Vec, D2U: var gp_Vec, D2V: var gp_Vec, D2UV: var gp_Vec)  {.importcpp: "D2".}
+proc d2*(this: Geom_BezierSurface, U: cdouble, V: cdouble, P: var gp_Pnt, D1U: var gp_Vec, D1V: var gp_Vec, D2U: var gp_Vec, D2V: var gp_Vec, D2UV: var gp_Vec)  {.importcpp: "D2".}
 
-proc d3*(this: Geom_BezierSurface, U: Standard_Real, V: Standard_Real, P: var gp_Pnt, D1U: var gp_Vec, D1V: var gp_Vec, D2U: var gp_Vec, D2V: var gp_Vec, D2UV: var gp_Vec, D3U: var gp_Vec, D3V: var gp_Vec, D3UUV: var gp_Vec, D3UVV: var gp_Vec)  {.importcpp: "D3".}
+proc d3*(this: Geom_BezierSurface, U: cdouble, V: cdouble, P: var gp_Pnt, D1U: var gp_Vec, D1V: var gp_Vec, D2U: var gp_Vec, D2V: var gp_Vec, D2UV: var gp_Vec, D3U: var gp_Vec, D3V: var gp_Vec, D3UUV: var gp_Vec, D3UVV: var gp_Vec)  {.importcpp: "D3".}
     ## Computes P, the point of parameters (U, V) of this Bezier surface, and
     ## - one or more of the following sets of vectors: - D1U and D1V, the
     ## first derivative vectors at this point, - D2U, D2V and D2UV, the
@@ -242,20 +242,20 @@ proc d3*(this: Geom_BezierSurface, U: Standard_Real, V: Standard_Real, P: var gp
     ## the third derivative vectors at this point. Note: The parameters U and
     ## V can be outside the bounds of the surface.
 
-proc dN*(this: Geom_BezierSurface, U: Standard_Real, V: Standard_Real, Nu: Standard_Integer, Nv: Standard_Integer): gp_Vec  {.importcpp: "DN".}
+proc dN*(this: Geom_BezierSurface, U: cdouble, V: cdouble, Nu: cint, Nv: cint): gp_Vec  {.importcpp: "DN".}
     ## Computes the derivative of order Nu in the u parametric direction, and
     ## Nv in the v parametric direction, at the point of parameters (U, V) of
     ## this Bezier surface. Note: The parameters U and V can be outside the
     ## bounds of the surface. Exceptions Standard_RangeError if: - Nu + Nv is
     ## less than 1, or Nu or Nv is negative.
 
-proc nbUPoles*(this: Geom_BezierSurface): Standard_Integer  {.importcpp: "NbUPoles".}
+proc nbUPoles*(this: Geom_BezierSurface): cint  {.importcpp: "NbUPoles".}
     ## Returns the number of poles in the U direction.
 
-proc nbVPoles*(this: Geom_BezierSurface): Standard_Integer  {.importcpp: "NbVPoles".}
+proc nbVPoles*(this: Geom_BezierSurface): cint  {.importcpp: "NbVPoles".}
     ## Returns the number of poles in the V direction.
 
-proc pole*(this: Geom_BezierSurface, UIndex: Standard_Integer, VIndex: Standard_Integer): gp_Pnt  {.importcpp: "Pole".}
+proc pole*(this: Geom_BezierSurface, UIndex: cint, VIndex: cint): gp_Pnt  {.importcpp: "Pole".}
     ## Returns the pole of range UIndex, VIndex Raised if UIndex < 1 or
     ## UIndex > NbUPoles, or VIndex < 1 or VIndex > NbVPoles.
 
@@ -265,23 +265,23 @@ proc poles*(this: Geom_BezierSurface, P: var TColgp_Array2OfPnt)  {.importcpp: "
 proc poles*(this: Geom_BezierSurface): TColgp_Array2OfPnt  {.importcpp: "Poles".}
     ## Returns the poles of the Bezier surface.
 
-proc uDegree*(this: Geom_BezierSurface): Standard_Integer  {.importcpp: "UDegree".}
+proc uDegree*(this: Geom_BezierSurface): cint  {.importcpp: "UDegree".}
     ## Returns the degree of the surface in the U direction it is NbUPoles -
     ## 1
 
-proc uIso*(this: Geom_BezierSurface, U: Standard_Real): handle[Geom_Curve]  {.importcpp: "UIso".}
+proc uIso*(this: Geom_BezierSurface, U: cdouble): handle[Geom_Curve]  {.importcpp: "UIso".}
     ## Computes the U isoparametric curve. For a Bezier surface the UIso
     ## curve is a Bezier curve.
 
-proc vDegree*(this: Geom_BezierSurface): Standard_Integer  {.importcpp: "VDegree".}
+proc vDegree*(this: Geom_BezierSurface): cint  {.importcpp: "VDegree".}
     ## Returns the degree of the surface in the V direction it is NbVPoles -
     ## 1
 
-proc vIso*(this: Geom_BezierSurface, V: Standard_Real): handle[Geom_Curve]  {.importcpp: "VIso".}
+proc vIso*(this: Geom_BezierSurface, V: cdouble): handle[Geom_Curve]  {.importcpp: "VIso".}
     ## Computes the V isoparametric curve. For a Bezier surface the VIso
     ## curve is a Bezier curve.
 
-proc weight*(this: Geom_BezierSurface, UIndex: Standard_Integer, VIndex: Standard_Integer): Standard_Real  {.importcpp: "Weight".}
+proc weight*(this: Geom_BezierSurface, UIndex: cint, VIndex: cint): cdouble  {.importcpp: "Weight".}
     ## Returns the weight of range UIndex, VIndex
 
 proc weights*(this: Geom_BezierSurface, W: var TColStd_Array2OfReal)  {.importcpp: "Weights".}
@@ -290,34 +290,34 @@ proc weights*(this: Geom_BezierSurface, W: var TColStd_Array2OfReal)  {.importcp
 proc weights*(this: Geom_BezierSurface): ptr TColStd_Array2OfReal  {.importcpp: "Weights".}
     ## Returns the weights of the Bezier surface.
 
-proc isUClosed*(this: Geom_BezierSurface): Standard_Boolean  {.importcpp: "IsUClosed".}
+proc isUClosed*(this: Geom_BezierSurface): bool  {.importcpp: "IsUClosed".}
     ## Returns True if the first control points row and the last control
     ## points row are identical. The tolerance criterion is Resolution from
     ## package gp.
 
-proc isVClosed*(this: Geom_BezierSurface): Standard_Boolean  {.importcpp: "IsVClosed".}
+proc isVClosed*(this: Geom_BezierSurface): bool  {.importcpp: "IsVClosed".}
     ## Returns True if the first control points column and the last control
     ## points column are identical. The tolerance criterion is Resolution
     ## from package gp.
 
-proc isCNu*(this: Geom_BezierSurface, N: Standard_Integer): Standard_Boolean  {.importcpp: "IsCNu".}
+proc isCNu*(this: Geom_BezierSurface, N: cint): bool  {.importcpp: "IsCNu".}
     ## Returns True, a Bezier surface is always CN
 
-proc isCNv*(this: Geom_BezierSurface, N: Standard_Integer): Standard_Boolean  {.importcpp: "IsCNv".}
+proc isCNv*(this: Geom_BezierSurface, N: cint): bool  {.importcpp: "IsCNv".}
     ## Returns True, a BezierSurface is always CN
 
-proc isUPeriodic*(this: Geom_BezierSurface): Standard_Boolean  {.importcpp: "IsUPeriodic".}
+proc isUPeriodic*(this: Geom_BezierSurface): bool  {.importcpp: "IsUPeriodic".}
     ## Returns False.
 
-proc isVPeriodic*(this: Geom_BezierSurface): Standard_Boolean  {.importcpp: "IsVPeriodic".}
+proc isVPeriodic*(this: Geom_BezierSurface): bool  {.importcpp: "IsVPeriodic".}
     ## Returns False.
 
-proc isURational*(this: Geom_BezierSurface): Standard_Boolean  {.importcpp: "IsURational".}
+proc isURational*(this: Geom_BezierSurface): bool  {.importcpp: "IsURational".}
     ## Returns False if the weights are identical in the U direction, The
     ## tolerance criterion is Resolution from package gp. Example : |1.0,
     ## 1.0, 1.0| if Weights = |0.5, 0.5, 0.5| returns False |2.0, 2.0, 2.0|
 
-proc isVRational*(this: Geom_BezierSurface): Standard_Boolean  {.importcpp: "IsVRational".}
+proc isVRational*(this: Geom_BezierSurface): bool  {.importcpp: "IsVRational".}
     ## Returns False if the weights are identical in the V direction, The
     ## tolerance criterion is Resolution from package gp. Example : |1.0,
     ## 2.0, 0.5| if Weights = |1.0, 2.0, 0.5| returns False |1.0, 2.0, 0.5|
@@ -325,11 +325,11 @@ proc isVRational*(this: Geom_BezierSurface): Standard_Boolean  {.importcpp: "IsV
 proc transform*(this: var Geom_BezierSurface, T: gp_Trsf)  {.importcpp: "Transform".}
     ## Applies the transformation T to this Bezier surface.
 
-proc maxDegree*(this: var Geom_BezierSurface): Standard_Integer  {.importcpp: "MaxDegree".}
+proc maxDegree*(this: var Geom_BezierSurface): cint  {.importcpp: "MaxDegree".}
     ## Returns the value of the maximum polynomial degree of a Bezier
     ## surface. This value is 25.
 
-proc resolution*(this: var Geom_BezierSurface, Tolerance3D: Standard_Real, UTolerance: var Standard_Real, VTolerance: var Standard_Real)  {.importcpp: "Resolution".}
+proc resolution*(this: var Geom_BezierSurface, Tolerance3D: cdouble, UTolerance: var cdouble, VTolerance: var cdouble)  {.importcpp: "Resolution".}
     ## Computes two tolerance values for this Bezier surface, based on the
     ## given tolerance in 3D space Tolerance3D. The tolerances computed are:
     ## - UTolerance in the u parametric direction, and - VTolerance in the v
@@ -341,7 +341,7 @@ proc resolution*(this: var Geom_BezierSurface, Tolerance3D: Standard_Real, UTole
 proc copy*(this: Geom_BezierSurface): handle[Geom_Geometry]  {.importcpp: "Copy".}
     ## Creates a new object which is a copy of this Bezier surface.
 
-proc dumpJson*(this: Geom_BezierSurface, theOStream: var Standard_OStream, theDepth: Standard_Integer = 1)  {.importcpp: "DumpJson".}
+proc dumpJson*(this: Geom_BezierSurface, theOStream: var Standard_OStream, theDepth: cint = 1)  {.importcpp: "DumpJson".}
     ## Dumps the content of me into the stream
 
 proc get_type_name*(this: var Geom_BezierSurface): cstring  {.importcpp: "get_type_name".}

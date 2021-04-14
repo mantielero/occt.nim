@@ -34,7 +34,7 @@ type
 proc constructGeom_Circle*(C: gp_Circ): Geom_Circle {.constructor,importcpp: "Geom_Circle::Geom_Circle(@)".}
     ## Constructs a circle by conversion of the gp_Circ circle C.
 
-proc constructGeom_Circle*(A2: gp_Ax2, Radius: Standard_Real): Geom_Circle {.constructor,importcpp: "Geom_Circle::Geom_Circle(@)".}
+proc constructGeom_Circle*(A2: gp_Ax2, Radius: cdouble): Geom_Circle {.constructor,importcpp: "Geom_Circle::Geom_Circle(@)".}
     ## Constructs a circle of radius Radius, where A2 locates the circle and
     ## defines its orientation in 3D space such that: - the center of the
     ## circle is the origin of A2, - the origin, "X Direction" and "Y
@@ -45,7 +45,7 @@ proc constructGeom_Circle*(A2: gp_Ax2, Radius: Standard_Real): Geom_Circle {.con
 proc setCirc*(this: var Geom_Circle, C: gp_Circ)  {.importcpp: "SetCirc".}
     ## Set <me> so that <me> has the same geometric properties as C.
 
-proc setRadius*(this: var Geom_Circle, R: Standard_Real)  {.importcpp: "SetRadius".}
+proc setRadius*(this: var Geom_Circle, R: cdouble)  {.importcpp: "SetRadius".}
     ## Assigns the value R to the radius of this circle. Note: it is possible
     ## to have a circle with a radius equal to 0.0. Exceptions -
     ## Standard_ConstructionError if R is negative.
@@ -54,51 +54,51 @@ proc circ*(this: Geom_Circle): gp_Circ  {.importcpp: "Circ".}
     ## returns the non transient circle from gp with the same geometric
     ## properties as <me>.
 
-proc radius*(this: Geom_Circle): Standard_Real  {.importcpp: "Radius".}
+proc radius*(this: Geom_Circle): cdouble  {.importcpp: "Radius".}
     ## Returns the radius of this circle.
 
-proc reversedParameter*(this: Geom_Circle, U: Standard_Real): Standard_Real  {.importcpp: "ReversedParameter".}
+proc reversedParameter*(this: Geom_Circle, U: cdouble): cdouble  {.importcpp: "ReversedParameter".}
     ## Computes the parameter on the reversed circle for the point of
     ## parameter U on this circle. For a circle, the returned value is: 2.*Pi
     ## - U.
 
-proc eccentricity*(this: Geom_Circle): Standard_Real  {.importcpp: "Eccentricity".}
+proc eccentricity*(this: Geom_Circle): cdouble  {.importcpp: "Eccentricity".}
     ## Returns the eccentricity e = 0 for a circle.
 
-proc firstParameter*(this: Geom_Circle): Standard_Real  {.importcpp: "FirstParameter".}
+proc firstParameter*(this: Geom_Circle): cdouble  {.importcpp: "FirstParameter".}
     ## Returns the value of the first parameter of this circle. This is 0.0,
     ## which gives the start point of this circle, or The start point and end
     ## point of a circle are coincident.
 
-proc lastParameter*(this: Geom_Circle): Standard_Real  {.importcpp: "LastParameter".}
+proc lastParameter*(this: Geom_Circle): cdouble  {.importcpp: "LastParameter".}
     ## Returns the value of the last parameter of this circle. This is 2.*Pi,
     ## which gives the end point of this circle. The start point and end
     ## point of a circle are coincident.
 
-proc isClosed*(this: Geom_Circle): Standard_Boolean  {.importcpp: "IsClosed".}
+proc isClosed*(this: Geom_Circle): bool  {.importcpp: "IsClosed".}
     ## returns True.
 
-proc isPeriodic*(this: Geom_Circle): Standard_Boolean  {.importcpp: "IsPeriodic".}
+proc isPeriodic*(this: Geom_Circle): bool  {.importcpp: "IsPeriodic".}
     ## returns True.
 
-proc d0*(this: Geom_Circle, U: Standard_Real, P: var gp_Pnt)  {.importcpp: "D0".}
+proc d0*(this: Geom_Circle, U: cdouble, P: var gp_Pnt)  {.importcpp: "D0".}
     ## Returns in P the point of parameter U. P = C + R * Cos (U) * XDir + R
     ## * Sin (U) * YDir where C is the center of the circle , XDir the
     ## XDirection and YDir the YDirection of the circle's local coordinate
     ## system.
 
-proc d1*(this: Geom_Circle, U: Standard_Real, P: var gp_Pnt, V1: var gp_Vec)  {.importcpp: "D1".}
+proc d1*(this: Geom_Circle, U: cdouble, P: var gp_Pnt, V1: var gp_Vec)  {.importcpp: "D1".}
     ## Returns the point P of parameter U and the first derivative V1.
 
-proc d2*(this: Geom_Circle, U: Standard_Real, P: var gp_Pnt, V1: var gp_Vec, V2: var gp_Vec)  {.importcpp: "D2".}
+proc d2*(this: Geom_Circle, U: cdouble, P: var gp_Pnt, V1: var gp_Vec, V2: var gp_Vec)  {.importcpp: "D2".}
     ## Returns the point P of parameter U, the first and second derivatives
     ## V1 and V2.
 
-proc d3*(this: Geom_Circle, U: Standard_Real, P: var gp_Pnt, V1: var gp_Vec, V2: var gp_Vec, V3: var gp_Vec)  {.importcpp: "D3".}
+proc d3*(this: Geom_Circle, U: cdouble, P: var gp_Pnt, V1: var gp_Vec, V2: var gp_Vec, V3: var gp_Vec)  {.importcpp: "D3".}
     ## Returns the point P of parameter u, the first second and third
     ## derivatives V1 V2 and V3.
 
-proc dN*(this: Geom_Circle, U: Standard_Real, N: Standard_Integer): gp_Vec  {.importcpp: "DN".}
+proc dN*(this: Geom_Circle, U: cdouble, N: cint): gp_Vec  {.importcpp: "DN".}
     ## The returned vector gives the value of the derivative for the order of
     ## derivation N. Raised if N < 1.
 
@@ -108,7 +108,7 @@ proc transform*(this: var Geom_Circle, T: gp_Trsf)  {.importcpp: "Transform".}
 proc copy*(this: Geom_Circle): handle[Geom_Geometry]  {.importcpp: "Copy".}
     ## Creates a new object which is a copy of this circle.
 
-proc dumpJson*(this: Geom_Circle, theOStream: var Standard_OStream, theDepth: Standard_Integer = 1)  {.importcpp: "DumpJson".}
+proc dumpJson*(this: Geom_Circle, theOStream: var Standard_OStream, theDepth: cint = 1)  {.importcpp: "DumpJson".}
     ## Dumps the content of me into the stream
 
 proc get_type_name*(this: var Geom_Circle): cstring  {.importcpp: "get_type_name".}

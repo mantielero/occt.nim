@@ -52,7 +52,7 @@ proc position*(this: Geom_Conic): gp_Ax2  {.importcpp: "Position".}
     ## direction of the Axis2placement is in the plane of the conic and
     ## corresponds to the origin for the conic's parametric value u.
 
-proc eccentricity*(this: Geom_Conic): Standard_Real  {.importcpp: "Eccentricity".}
+proc eccentricity*(this: Geom_Conic): cdouble  {.importcpp: "Eccentricity".}
     ## Returns the eccentricity value of the conic e. e = 0 for a circle 0 <
     ## e < 1 for an ellipse (e = 0 if MajorRadius = MinorRadius) e > 1 for a
     ## hyperbola e = 1 for a parabola Exceptions Standard_DomainError in the
@@ -71,17 +71,17 @@ proc reverse*(this: var Geom_Conic)  {.importcpp: "Reverse".}
     ## Reverses the direction of parameterization of <me>. The local
     ## coordinate system of the conic is modified.
 
-proc reversedParameter*(this: Geom_Conic, U: Standard_Real): Standard_Real  {.importcpp: "ReversedParameter".}
+proc reversedParameter*(this: Geom_Conic, U: cdouble): cdouble  {.importcpp: "ReversedParameter".}
     ## Returns the parameter on the reversed curve for the point of parameter
     ## U on <me>.
 
 proc continuity*(this: Geom_Conic): GeomAbs_Shape  {.importcpp: "Continuity".}
     ## The continuity of the conic is Cn.
 
-proc isCN*(this: Geom_Conic, N: Standard_Integer): Standard_Boolean  {.importcpp: "IsCN".}
+proc isCN*(this: Geom_Conic, N: cint): bool  {.importcpp: "IsCN".}
     ## Returns True. Raised if N < 0.
 
-proc dumpJson*(this: Geom_Conic, theOStream: var Standard_OStream, theDepth: Standard_Integer = 1)  {.importcpp: "DumpJson".}
+proc dumpJson*(this: Geom_Conic, theOStream: var Standard_OStream, theDepth: cint = 1)  {.importcpp: "DumpJson".}
     ## Dumps the content of me into the stream
 
 proc get_type_name*(this: var Geom_Conic): cstring  {.importcpp: "get_type_name".}

@@ -35,7 +35,7 @@ type
 proc constructGeom_Parabola*(Prb: gp_Parab): Geom_Parabola {.constructor,importcpp: "Geom_Parabola::Geom_Parabola(@)".}
     ## Creates a parabola from a non transient one.
 
-proc constructGeom_Parabola*(A2: gp_Ax2, Focal: Standard_Real): Geom_Parabola {.constructor,importcpp: "Geom_Parabola::Geom_Parabola(@)".}
+proc constructGeom_Parabola*(A2: gp_Ax2, Focal: cdouble): Geom_Parabola {.constructor,importcpp: "Geom_Parabola::Geom_Parabola(@)".}
     ## Creates a parabola with its local coordinate system "A2" and it's
     ## focal length "Focal". The XDirection of A2 defines the axis of
     ## symmetry of the parabola. The YDirection of A2 is parallel to the
@@ -50,7 +50,7 @@ proc constructGeom_Parabola*(D: gp_Ax1, F: gp_Pnt): Geom_Parabola {.constructor,
     ## point is the vertex of the parabola. The normal to the plane of the
     ## parabola is the cross product between the XAxis and the YAxis.
 
-proc setFocal*(this: var Geom_Parabola, Focal: Standard_Real)  {.importcpp: "SetFocal".}
+proc setFocal*(this: var Geom_Parabola, Focal: cdouble)  {.importcpp: "SetFocal".}
     ## Assigns the value Focal to the focal distance of this parabola.
     ## Exceptions Standard_ConstructionError if Focal is negative.
 
@@ -61,25 +61,25 @@ proc parab*(this: Geom_Parabola): gp_Parab  {.importcpp: "Parab".}
     ## Returns the non transient parabola from gp with the same geometric
     ## properties as <me>.
 
-proc reversedParameter*(this: Geom_Parabola, U: Standard_Real): Standard_Real  {.importcpp: "ReversedParameter".}
+proc reversedParameter*(this: Geom_Parabola, U: cdouble): cdouble  {.importcpp: "ReversedParameter".}
     ## Computes the parameter on the reversed parabola, for the point of
     ## parameter U on this parabola. For a parabola, the returned value is:
     ## -U.
 
-proc firstParameter*(this: Geom_Parabola): Standard_Real  {.importcpp: "FirstParameter".}
+proc firstParameter*(this: Geom_Parabola): cdouble  {.importcpp: "FirstParameter".}
     ## Returns the value of the first or last parameter of this parabola.
-    ## This is, respectively: - Standard_Real::RealFirst(), or -
-    ## Standard_Real::RealLast().
+    ## This is, respectively: - cdouble::RealFirst(), or -
+    ## cdouble::RealLast().
 
-proc lastParameter*(this: Geom_Parabola): Standard_Real  {.importcpp: "LastParameter".}
+proc lastParameter*(this: Geom_Parabola): cdouble  {.importcpp: "LastParameter".}
     ## Returns the value of the first or last parameter of this parabola.
-    ## This is, respectively: - Standard_Real::RealFirst(), or -
-    ## Standard_Real::RealLast().
+    ## This is, respectively: - cdouble::RealFirst(), or -
+    ## cdouble::RealLast().
 
-proc isClosed*(this: Geom_Parabola): Standard_Boolean  {.importcpp: "IsClosed".}
+proc isClosed*(this: Geom_Parabola): bool  {.importcpp: "IsClosed".}
     ## Returns False
 
-proc isPeriodic*(this: Geom_Parabola): Standard_Boolean  {.importcpp: "IsPeriodic".}
+proc isPeriodic*(this: Geom_Parabola): bool  {.importcpp: "IsPeriodic".}
     ## Returns False
 
 proc directrix*(this: Geom_Parabola): gp_Ax1  {.importcpp: "Directrix".}
@@ -90,42 +90,42 @@ proc directrix*(this: Geom_Parabola): gp_Ax1  {.importcpp: "Directrix".}
     ## (gp_Ax1 object), where the origin is located on the "X Axis" of this
     ## parabola.
 
-proc eccentricity*(this: Geom_Parabola): Standard_Real  {.importcpp: "Eccentricity".}
+proc eccentricity*(this: Geom_Parabola): cdouble  {.importcpp: "Eccentricity".}
     ## Returns 1. (which is the eccentricity of any parabola).
 
 proc focus*(this: Geom_Parabola): gp_Pnt  {.importcpp: "Focus".}
     ## Computes the focus of this parabola. The focus is on the positive side
     ## of the "X Axis" of the local coordinate system of the parabola.
 
-proc focal*(this: Geom_Parabola): Standard_Real  {.importcpp: "Focal".}
+proc focal*(this: Geom_Parabola): cdouble  {.importcpp: "Focal".}
     ## Computes the focal distance of this parabola The focal distance is the
     ## distance between the apex and the focus of the parabola.
 
-proc parameter*(this: Geom_Parabola): Standard_Real  {.importcpp: "Parameter".}
+proc parameter*(this: Geom_Parabola): cdouble  {.importcpp: "Parameter".}
     ## Computes the parameter of this parabola which is the distance between
     ## its focus and its directrix. This distance is twice the focal length.
     ## If P is the parameter of the parabola, the equation of the parabola in
     ## its local coordinate system is: Y**2 = 2.*P*X.
 
-proc d0*(this: Geom_Parabola, U: Standard_Real, P: var gp_Pnt)  {.importcpp: "D0".}
+proc d0*(this: Geom_Parabola, U: cdouble, P: var gp_Pnt)  {.importcpp: "D0".}
     ## Returns in P the point of parameter U. If U = 0 the returned point is
     ## the origin of the XAxis and the YAxis of the parabola and it is the
     ## vertex of the parabola. P = S + F * (U * U * XDir + * U * YDir) where
     ## S is the vertex of the parabola, XDir the XDirection and YDir the
     ## YDirection of the parabola's local coordinate system.
 
-proc d1*(this: Geom_Parabola, U: Standard_Real, P: var gp_Pnt, V1: var gp_Vec)  {.importcpp: "D1".}
+proc d1*(this: Geom_Parabola, U: cdouble, P: var gp_Pnt, V1: var gp_Vec)  {.importcpp: "D1".}
     ## Returns the point P of parameter U and the first derivative V1.
 
-proc d2*(this: Geom_Parabola, U: Standard_Real, P: var gp_Pnt, V1: var gp_Vec, V2: var gp_Vec)  {.importcpp: "D2".}
+proc d2*(this: Geom_Parabola, U: cdouble, P: var gp_Pnt, V1: var gp_Vec, V2: var gp_Vec)  {.importcpp: "D2".}
     ## Returns the point P of parameter U, the first and second derivatives
     ## V1 and V2.
 
-proc d3*(this: Geom_Parabola, U: Standard_Real, P: var gp_Pnt, V1: var gp_Vec, V2: var gp_Vec, V3: var gp_Vec)  {.importcpp: "D3".}
+proc d3*(this: Geom_Parabola, U: cdouble, P: var gp_Pnt, V1: var gp_Vec, V2: var gp_Vec, V3: var gp_Vec)  {.importcpp: "D3".}
     ## Returns the point P of parameter U, the first second and third
     ## derivatives V1 V2 and V3.
 
-proc dN*(this: Geom_Parabola, U: Standard_Real, N: Standard_Integer): gp_Vec  {.importcpp: "DN".}
+proc dN*(this: Geom_Parabola, U: cdouble, N: cint): gp_Vec  {.importcpp: "DN".}
     ## For the point of parameter U of this parabola, computes the vector
     ## corresponding to the Nth derivative. Exceptions Standard_RangeError if
     ## N is less than 1.
@@ -133,18 +133,18 @@ proc dN*(this: Geom_Parabola, U: Standard_Real, N: Standard_Integer): gp_Vec  {.
 proc transform*(this: var Geom_Parabola, T: gp_Trsf)  {.importcpp: "Transform".}
     ## Applies the transformation T to this parabola.
 
-proc transformedParameter*(this: Geom_Parabola, U: Standard_Real, T: gp_Trsf): Standard_Real  {.importcpp: "TransformedParameter".}
+proc transformedParameter*(this: Geom_Parabola, U: cdouble, T: gp_Trsf): cdouble  {.importcpp: "TransformedParameter".}
     ## Returns the parameter on the transformed curve for the transform of
     ## the point of parameter U on <me>.
 
-proc parametricTransformation*(this: Geom_Parabola, T: gp_Trsf): Standard_Real  {.importcpp: "ParametricTransformation".}
+proc parametricTransformation*(this: Geom_Parabola, T: gp_Trsf): cdouble  {.importcpp: "ParametricTransformation".}
     ## Returns a coefficient to compute the parameter on the transformed
     ## curve for the transform of the point on <me>.
 
 proc copy*(this: Geom_Parabola): handle[Geom_Geometry]  {.importcpp: "Copy".}
     ## Creates a new object which is a copy of this parabola.
 
-proc dumpJson*(this: Geom_Parabola, theOStream: var Standard_OStream, theDepth: Standard_Integer = 1)  {.importcpp: "DumpJson".}
+proc dumpJson*(this: Geom_Parabola, theOStream: var Standard_OStream, theDepth: cint = 1)  {.importcpp: "DumpJson".}
     ## Dumps the content of me into the stream
 
 proc get_type_name*(this: var Geom_Parabola): cstring  {.importcpp: "get_type_name".}

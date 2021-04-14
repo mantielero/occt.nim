@@ -23,7 +23,7 @@ type
 
 {.push header: "Geom_RectangularTrimmedSurface.hxx".}
 
-proc constructGeom_RectangularTrimmedSurface*(S: handle[Geom_Surface], U1: Standard_Real, U2: Standard_Real, V1: Standard_Real, V2: Standard_Real, USense: Standard_Boolean, VSense: Standard_Boolean): Geom_RectangularTrimmedSurface {.constructor,importcpp: "Geom_RectangularTrimmedSurface::Geom_RectangularTrimmedSurface(@)".}
+proc constructGeom_RectangularTrimmedSurface*(S: handle[Geom_Surface], U1: cdouble, U2: cdouble, V1: cdouble, V2: cdouble, USense: bool, VSense: bool): Geom_RectangularTrimmedSurface {.constructor,importcpp: "Geom_RectangularTrimmedSurface::Geom_RectangularTrimmedSurface(@)".}
     ## The U parametric direction of the surface is oriented from U1 to U2.
     ## The V parametric direction of the surface is oriented from V1 to V2.
     ## These two directions define the orientation of the surface (normal).
@@ -36,7 +36,7 @@ proc constructGeom_RectangularTrimmedSurface*(S: handle[Geom_Surface], U1: Stand
     ## the bounds of S. S is not periodic in the VDirection and V1 or V2 are
     ## out of the bounds of S. U1 = U2 or V1 = V2
 
-proc constructGeom_RectangularTrimmedSurface*(S: handle[Geom_Surface], Param1: Standard_Real, Param2: Standard_Real, UTrim: Standard_Boolean, Sense: Standard_Boolean): Geom_RectangularTrimmedSurface {.constructor,importcpp: "Geom_RectangularTrimmedSurface::Geom_RectangularTrimmedSurface(@)".}
+proc constructGeom_RectangularTrimmedSurface*(S: handle[Geom_Surface], Param1: cdouble, Param2: cdouble, UTrim: bool, Sense: bool): Geom_RectangularTrimmedSurface {.constructor,importcpp: "Geom_RectangularTrimmedSurface::Geom_RectangularTrimmedSurface(@)".}
     ## The basis surface S is only trim in one parametric direction. If UTrim
     ## = True the surface is trimmed in the U parametric direction else the
     ## surface is trimmed in the V parametric direction. In the considered
@@ -53,7 +53,7 @@ proc constructGeom_RectangularTrimmedSurface*(S: handle[Geom_Surface], Param1: S
     ## Raised if S is not periodic in the considered parametric direction and
     ## Param1 or Param2 are out of the bounds of S. Param1 = Param2
 
-proc setTrim*(this: var Geom_RectangularTrimmedSurface, U1: Standard_Real, U2: Standard_Real, V1: Standard_Real, V2: Standard_Real, USense: Standard_Boolean, VSense: Standard_Boolean)  {.importcpp: "SetTrim".}
+proc setTrim*(this: var Geom_RectangularTrimmedSurface, U1: cdouble, U2: cdouble, V1: cdouble, V2: cdouble, USense: bool, VSense: bool)  {.importcpp: "SetTrim".}
     ## Modifies this patch by changing the trim values applied to the
     ## original surface The u parametric direction of this patch is oriented
     ## from U1 to U2. The v parametric direction of this patch is oriented
@@ -66,7 +66,7 @@ proc setTrim*(this: var Geom_RectangularTrimmedSurface, U1: Standard_Real, U2: S
     ## periodic in the VDirection and V1 or V2 are out of the bounds of the
     ## BasisSurface. U1 = U2 or V1 = V2
 
-proc setTrim*(this: var Geom_RectangularTrimmedSurface, Param1: Standard_Real, Param2: Standard_Real, UTrim: Standard_Boolean, Sense: Standard_Boolean)  {.importcpp: "SetTrim".}
+proc setTrim*(this: var Geom_RectangularTrimmedSurface, Param1: cdouble, Param2: cdouble, UTrim: bool, Sense: bool)  {.importcpp: "SetTrim".}
     ## Modifies this patch by changing the trim values applied to the
     ## original surface The basis surface is trimmed only in one parametric
     ## direction: if UTrim is true, the surface is trimmed in the u
@@ -91,7 +91,7 @@ proc uReverse*(this: var Geom_RectangularTrimmedSurface)  {.importcpp: "UReverse
     ## direction is reversed. Hence the orientation of the surface is
     ## reversed.
 
-proc uReversedParameter*(this: Geom_RectangularTrimmedSurface, U: Standard_Real): Standard_Real  {.importcpp: "UReversedParameter".}
+proc uReversedParameter*(this: Geom_RectangularTrimmedSurface, U: cdouble): cdouble  {.importcpp: "UReversedParameter".}
     ## Computes the u parameter on the modified surface, produced by when
     ## reversing its u parametric direction, for any point of u parameter U
     ## on this patch.
@@ -102,12 +102,12 @@ proc vReverse*(this: var Geom_RectangularTrimmedSurface)  {.importcpp: "VReverse
     ## direction is reversed. Hence the orientation of the surface is
     ## reversed.
 
-proc vReversedParameter*(this: Geom_RectangularTrimmedSurface, V: Standard_Real): Standard_Real  {.importcpp: "VReversedParameter".}
+proc vReversedParameter*(this: Geom_RectangularTrimmedSurface, V: cdouble): cdouble  {.importcpp: "VReversedParameter".}
     ## Computes the v parameter on the modified surface, produced by when
     ## reversing its v parametric direction, for any point of v parameter V
     ## on this patch.
 
-proc bounds*(this: Geom_RectangularTrimmedSurface, U1: var Standard_Real, U2: var Standard_Real, V1: var Standard_Real, V2: var Standard_Real)  {.importcpp: "Bounds".}
+proc bounds*(this: Geom_RectangularTrimmedSurface, U1: var cdouble, U2: var cdouble, V1: var cdouble, V2: var cdouble)  {.importcpp: "Bounds".}
     ## Returns the parametric bounds U1, U2, V1 and V2 of this patch.
 
 proc continuity*(this: Geom_RectangularTrimmedSurface): GeomAbs_Shape  {.importcpp: "Continuity".}
@@ -117,66 +117,66 @@ proc continuity*(this: Geom_RectangularTrimmedSurface): GeomAbs_Shape  {.importc
     ## Surface, C3 : continuity of the third derivative all along the
     ## Surface, CN : the order of continuity is infinite.
 
-proc isUClosed*(this: Geom_RectangularTrimmedSurface): Standard_Boolean  {.importcpp: "IsUClosed".}
+proc isUClosed*(this: Geom_RectangularTrimmedSurface): bool  {.importcpp: "IsUClosed".}
     ## Returns true if this patch is closed in the given parametric
     ## direction.
 
-proc isVClosed*(this: Geom_RectangularTrimmedSurface): Standard_Boolean  {.importcpp: "IsVClosed".}
+proc isVClosed*(this: Geom_RectangularTrimmedSurface): bool  {.importcpp: "IsVClosed".}
     ## Returns true if this patch is closed in the given parametric
     ## direction.
 
-proc isCNu*(this: Geom_RectangularTrimmedSurface, N: Standard_Integer): Standard_Boolean  {.importcpp: "IsCNu".}
+proc isCNu*(this: Geom_RectangularTrimmedSurface, N: cint): bool  {.importcpp: "IsCNu".}
     ## Returns true if the order of derivation in the U parametric direction
     ## is N. Raised if N < 0.
 
-proc isCNv*(this: Geom_RectangularTrimmedSurface, N: Standard_Integer): Standard_Boolean  {.importcpp: "IsCNv".}
+proc isCNv*(this: Geom_RectangularTrimmedSurface, N: cint): bool  {.importcpp: "IsCNv".}
     ## Returns true if the order of derivation in the V parametric direction
     ## is N. Raised if N < 0.
 
-proc isUPeriodic*(this: Geom_RectangularTrimmedSurface): Standard_Boolean  {.importcpp: "IsUPeriodic".}
+proc isUPeriodic*(this: Geom_RectangularTrimmedSurface): bool  {.importcpp: "IsUPeriodic".}
     ## Returns true if this patch is periodic and not trimmed in the given
     ## parametric direction.
 
-proc uPeriod*(this: Geom_RectangularTrimmedSurface): Standard_Real  {.importcpp: "UPeriod".}
+proc uPeriod*(this: Geom_RectangularTrimmedSurface): cdouble  {.importcpp: "UPeriod".}
     ## Returns the period of this patch in the u parametric direction. raises
     ## if the surface is not uperiodic.
 
-proc isVPeriodic*(this: Geom_RectangularTrimmedSurface): Standard_Boolean  {.importcpp: "IsVPeriodic".}
+proc isVPeriodic*(this: Geom_RectangularTrimmedSurface): bool  {.importcpp: "IsVPeriodic".}
     ## Returns true if this patch is periodic and not trimmed in the given
     ## parametric direction.
 
-proc vPeriod*(this: Geom_RectangularTrimmedSurface): Standard_Real  {.importcpp: "VPeriod".}
+proc vPeriod*(this: Geom_RectangularTrimmedSurface): cdouble  {.importcpp: "VPeriod".}
     ## Returns the period of this patch in the v parametric direction. raises
     ## if the surface is not vperiodic. value and derivatives
 
-proc uIso*(this: Geom_RectangularTrimmedSurface, U: Standard_Real): handle[Geom_Curve]  {.importcpp: "UIso".}
+proc uIso*(this: Geom_RectangularTrimmedSurface, U: cdouble): handle[Geom_Curve]  {.importcpp: "UIso".}
     ## computes the U isoparametric curve.
 
-proc vIso*(this: Geom_RectangularTrimmedSurface, V: Standard_Real): handle[Geom_Curve]  {.importcpp: "VIso".}
+proc vIso*(this: Geom_RectangularTrimmedSurface, V: cdouble): handle[Geom_Curve]  {.importcpp: "VIso".}
     ## Computes the V isoparametric curve.
 
-proc d0*(this: Geom_RectangularTrimmedSurface, U: Standard_Real, V: Standard_Real, P: var gp_Pnt)  {.importcpp: "D0".}
+proc d0*(this: Geom_RectangularTrimmedSurface, U: cdouble, V: cdouble, P: var gp_Pnt)  {.importcpp: "D0".}
     ## Can be raised if the basis surface is an OffsetSurface.
 
-proc d1*(this: Geom_RectangularTrimmedSurface, U: Standard_Real, V: Standard_Real, P: var gp_Pnt, D1U: var gp_Vec, D1V: var gp_Vec)  {.importcpp: "D1".}
+proc d1*(this: Geom_RectangularTrimmedSurface, U: cdouble, V: cdouble, P: var gp_Pnt, D1U: var gp_Vec, D1V: var gp_Vec)  {.importcpp: "D1".}
     ## The returned derivatives have the same orientation as the derivatives
     ## of the basis surface even if the trimmed surface has not the same
     ## parametric orientation. Warning! UndefinedDerivative raised if the
     ## continuity of the surface is not C1.
 
-proc d2*(this: Geom_RectangularTrimmedSurface, U: Standard_Real, V: Standard_Real, P: var gp_Pnt, D1U: var gp_Vec, D1V: var gp_Vec, D2U: var gp_Vec, D2V: var gp_Vec, D2UV: var gp_Vec)  {.importcpp: "D2".}
+proc d2*(this: Geom_RectangularTrimmedSurface, U: cdouble, V: cdouble, P: var gp_Pnt, D1U: var gp_Vec, D1V: var gp_Vec, D2U: var gp_Vec, D2V: var gp_Vec, D2UV: var gp_Vec)  {.importcpp: "D2".}
     ## The returned derivatives have the same orientation as the derivatives
     ## of the basis surface even if the trimmed surface has not the same
     ## parametric orientation. Warning! UndefinedDerivative raised if the
     ## continuity of the surface is not C2.
 
-proc d3*(this: Geom_RectangularTrimmedSurface, U: Standard_Real, V: Standard_Real, P: var gp_Pnt, D1U: var gp_Vec, D1V: var gp_Vec, D2U: var gp_Vec, D2V: var gp_Vec, D2UV: var gp_Vec, D3U: var gp_Vec, D3V: var gp_Vec, D3UUV: var gp_Vec, D3UVV: var gp_Vec)  {.importcpp: "D3".}
+proc d3*(this: Geom_RectangularTrimmedSurface, U: cdouble, V: cdouble, P: var gp_Pnt, D1U: var gp_Vec, D1V: var gp_Vec, D2U: var gp_Vec, D2V: var gp_Vec, D2UV: var gp_Vec, D3U: var gp_Vec, D3V: var gp_Vec, D3UUV: var gp_Vec, D3UVV: var gp_Vec)  {.importcpp: "D3".}
     ## The returned derivatives have the same orientation as the derivatives
     ## of the basis surface even if the trimmed surface has not the same
     ## parametric orientation. Warning UndefinedDerivative raised if the
     ## continuity of the surface is not C3.
 
-proc dN*(this: Geom_RectangularTrimmedSurface, U: Standard_Real, V: Standard_Real, Nu: Standard_Integer, Nv: Standard_Integer): gp_Vec  {.importcpp: "DN".}
+proc dN*(this: Geom_RectangularTrimmedSurface, U: cdouble, V: cdouble, Nu: cint, Nv: cint): gp_Vec  {.importcpp: "DN".}
     ## The returned derivative has the same orientation as the derivative of
     ## the basis surface even if the trimmed surface has not the same
     ## parametric orientation. Warning! UndefinedDerivative raised if the
@@ -189,7 +189,7 @@ proc transform*(this: var Geom_RectangularTrimmedSurface, T: gp_Trsf)  {.importc
     ## the basis surface included in the data structure of this patch is also
     ## modified.
 
-proc transformParameters*(this: Geom_RectangularTrimmedSurface, U: var Standard_Real, V: var Standard_Real, T: gp_Trsf)  {.importcpp: "TransformParameters".}
+proc transformParameters*(this: Geom_RectangularTrimmedSurface, U: var cdouble, V: var cdouble, T: gp_Trsf)  {.importcpp: "TransformParameters".}
     ## Computes the parameters on the transformed surface for the transform
     ## of the point of parameters U,V on <me>.
 
@@ -200,7 +200,7 @@ proc parametricTransformation*(this: Geom_RectangularTrimmedSurface, T: gp_Trsf)
 proc copy*(this: Geom_RectangularTrimmedSurface): handle[Geom_Geometry]  {.importcpp: "Copy".}
     ## Creates a new object which is a copy of this patch.
 
-proc dumpJson*(this: Geom_RectangularTrimmedSurface, theOStream: var Standard_OStream, theDepth: Standard_Integer = 1)  {.importcpp: "DumpJson".}
+proc dumpJson*(this: Geom_RectangularTrimmedSurface, theOStream: var Standard_OStream, theDepth: cint = 1)  {.importcpp: "DumpJson".}
     ## Dumps the content of me into the stream
 
 proc get_type_name*(this: var Geom_RectangularTrimmedSurface): cstring  {.importcpp: "get_type_name".}
@@ -209,7 +209,7 @@ proc get_type_descriptor*(this: var Geom_RectangularTrimmedSurface): handle[Stan
 
 proc dynamicType*(this: Geom_RectangularTrimmedSurface): handle[Standard_Type]  {.importcpp: "DynamicType".}
 
-proc setTrim*(this: var Geom_RectangularTrimmedSurface, U1: Standard_Real, U2: Standard_Real, V1: Standard_Real, V2: Standard_Real, UTrim: Standard_Boolean, VTrim: Standard_Boolean, USense: Standard_Boolean, VSense: Standard_Boolean)  {.importcpp: "SetTrim".}
+proc setTrim*(this: var Geom_RectangularTrimmedSurface, U1: cdouble, U2: cdouble, V1: cdouble, V2: cdouble, UTrim: bool, VTrim: bool, USense: bool, VSense: bool)  {.importcpp: "SetTrim".}
     ## General set trim, to implement constructors and others set trim.
 
 {.pop.}  # header: "Geom_RectangularTrimmedSurface.hxx"

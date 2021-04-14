@@ -15,39 +15,39 @@ type
 proc constructGeom_CartesianPoint*(P: gp_Pnt): Geom_CartesianPoint {.constructor,importcpp: "Geom_CartesianPoint::Geom_CartesianPoint(@)".}
     ## Returns a transient copy of P.
 
-proc constructGeom_CartesianPoint*(X: Standard_Real, Y: Standard_Real, Z: Standard_Real): Geom_CartesianPoint {.constructor,importcpp: "Geom_CartesianPoint::Geom_CartesianPoint(@)".}
+proc constructGeom_CartesianPoint*(X: cdouble, Y: cdouble, Z: cdouble): Geom_CartesianPoint {.constructor,importcpp: "Geom_CartesianPoint::Geom_CartesianPoint(@)".}
     ## Constructs a point defined by its three Cartesian coordinates X, Y and
     ## Z.
 
-proc setCoord*(this: var Geom_CartesianPoint, X: Standard_Real, Y: Standard_Real, Z: Standard_Real)  {.importcpp: "SetCoord".}
+proc setCoord*(this: var Geom_CartesianPoint, X: cdouble, Y: cdouble, Z: cdouble)  {.importcpp: "SetCoord".}
     ## Assigns the coordinates X, Y and Z to this point.
 
 proc setPnt*(this: var Geom_CartesianPoint, P: gp_Pnt)  {.importcpp: "SetPnt".}
     ## Set <me> to P.X(), P.Y(), P.Z() coordinates.
 
-proc setX*(this: var Geom_CartesianPoint, X: Standard_Real)  {.importcpp: "SetX".}
+proc setX*(this: var Geom_CartesianPoint, X: cdouble)  {.importcpp: "SetX".}
     ## Changes the X coordinate of me.
 
-proc setY*(this: var Geom_CartesianPoint, Y: Standard_Real)  {.importcpp: "SetY".}
+proc setY*(this: var Geom_CartesianPoint, Y: cdouble)  {.importcpp: "SetY".}
     ## Changes the Y coordinate of me.
 
-proc setZ*(this: var Geom_CartesianPoint, Z: Standard_Real)  {.importcpp: "SetZ".}
+proc setZ*(this: var Geom_CartesianPoint, Z: cdouble)  {.importcpp: "SetZ".}
     ## Changes the Z coordinate of me.
 
-proc coord*(this: Geom_CartesianPoint, X: var Standard_Real, Y: var Standard_Real, Z: var Standard_Real)  {.importcpp: "Coord".}
+proc coord*(this: Geom_CartesianPoint, X: var cdouble, Y: var cdouble, Z: var cdouble)  {.importcpp: "Coord".}
     ## Returns the coordinates of <me>.
 
 proc pnt*(this: Geom_CartesianPoint): gp_Pnt  {.importcpp: "Pnt".}
     ## Returns a non transient cartesian point with the same coordinates as
     ## <me>.
 
-proc x*(this: Geom_CartesianPoint): Standard_Real  {.importcpp: "X".}
+proc x*(this: Geom_CartesianPoint): cdouble  {.importcpp: "X".}
     ## Returns the X coordinate of <me>.
 
-proc y*(this: Geom_CartesianPoint): Standard_Real  {.importcpp: "Y".}
+proc y*(this: Geom_CartesianPoint): cdouble  {.importcpp: "Y".}
     ## Returns the Y coordinate of <me>.
 
-proc z*(this: Geom_CartesianPoint): Standard_Real  {.importcpp: "Z".}
+proc z*(this: Geom_CartesianPoint): cdouble  {.importcpp: "Z".}
     ## Returns the Z coordinate of <me>.
 
 proc transform*(this: var Geom_CartesianPoint, T: gp_Trsf)  {.importcpp: "Transform".}

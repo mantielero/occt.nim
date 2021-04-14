@@ -60,34 +60,34 @@ proc constructGeom_BezierCurve*(CurvePoles: TColgp_Array1OfPnt, PoleWeights: TCo
     ## CurvePoles and CurveWeights have not the same length or one weight
     ## value is lower or equal to Resolution from package gp.
 
-proc increase*(this: var Geom_BezierCurve, Degree: Standard_Integer)  {.importcpp: "Increase".}
+proc increase*(this: var Geom_BezierCurve, Degree: cint)  {.importcpp: "Increase".}
     ## Increases the degree of a bezier curve. Degree is the new degree of
     ## <me>. Raises ConstructionError if Degree is greater than MaxDegree or
     ## lower than 2 or lower than the initial degree of <me>.
 
-proc insertPoleAfter*(this: var Geom_BezierCurve, Index: Standard_Integer, P: gp_Pnt)  {.importcpp: "InsertPoleAfter".}
+proc insertPoleAfter*(this: var Geom_BezierCurve, Index: cint, P: gp_Pnt)  {.importcpp: "InsertPoleAfter".}
     ## Inserts a pole P after the pole of range Index. If the curve <me> is
     ## rational the weight value for the new pole of range Index is 1.0.
     ## raised if Index is not in the range [1, NbPoles]
 
-proc insertPoleAfter*(this: var Geom_BezierCurve, Index: Standard_Integer, P: gp_Pnt, Weight: Standard_Real)  {.importcpp: "InsertPoleAfter".}
+proc insertPoleAfter*(this: var Geom_BezierCurve, Index: cint, P: gp_Pnt, Weight: cdouble)  {.importcpp: "InsertPoleAfter".}
     ## Inserts a pole with its weight in the set of poles after the pole of
     ## range Index. If the curve was non rational it can become rational if
     ## all the weights are not identical. Raised if Index is not in the range
     ## [1, NbPoles]
 
-proc insertPoleBefore*(this: var Geom_BezierCurve, Index: Standard_Integer, P: gp_Pnt)  {.importcpp: "InsertPoleBefore".}
+proc insertPoleBefore*(this: var Geom_BezierCurve, Index: cint, P: gp_Pnt)  {.importcpp: "InsertPoleBefore".}
     ## Inserts a pole P before the pole of range Index. If the curve <me> is
     ## rational the weight value for the new pole of range Index is 1.0.
     ## Raised if Index is not in the range [1, NbPoles]
 
-proc insertPoleBefore*(this: var Geom_BezierCurve, Index: Standard_Integer, P: gp_Pnt, Weight: Standard_Real)  {.importcpp: "InsertPoleBefore".}
+proc insertPoleBefore*(this: var Geom_BezierCurve, Index: cint, P: gp_Pnt, Weight: cdouble)  {.importcpp: "InsertPoleBefore".}
     ## Inserts a pole with its weight in the set of poles after the pole of
     ## range Index. If the curve was non rational it can become rational if
     ## all the weights are not identical. Raised if Index is not in the range
     ## [1, NbPoles]
 
-proc removePole*(this: var Geom_BezierCurve, Index: Standard_Integer)  {.importcpp: "RemovePole".}
+proc removePole*(this: var Geom_BezierCurve, Index: cint)  {.importcpp: "RemovePole".}
     ## Removes the pole of range Index. If the curve was rational it can
     ## become non rational. Raised if Index is not in the range [1, NbPoles]
     ## Raised if Degree is lower than 2.
@@ -96,11 +96,11 @@ proc reverse*(this: var Geom_BezierCurve)  {.importcpp: "Reverse".}
     ## Reverses the direction of parametrization of <me> Value (NewU) = Value
     ## (1 - OldU)
 
-proc reversedParameter*(this: Geom_BezierCurve, U: Standard_Real): Standard_Real  {.importcpp: "ReversedParameter".}
+proc reversedParameter*(this: Geom_BezierCurve, U: cdouble): cdouble  {.importcpp: "ReversedParameter".}
     ## Returns the parameter on the reversed curve for the point of parameter
     ## U on <me>.
 
-proc segment*(this: var Geom_BezierCurve, U1: Standard_Real, U2: Standard_Real)  {.importcpp: "Segment".}
+proc segment*(this: var Geom_BezierCurve, U1: cdouble, U2: cdouble)  {.importcpp: "Segment".}
     ## Segments the curve between U1 and U2 which can be out of the bounds of
     ## the curve. The curve is oriented from U1 to U2. The control points are
     ## modified, the first and the last point are not the same but the
@@ -110,64 +110,64 @@ proc segment*(this: var Geom_BezierCurve, U1: Standard_Real, U2: Standard_Real) 
     ## curve <me> or if the curve makes loop. After the segmentation the
     ## length of a curve can be null.
 
-proc setPole*(this: var Geom_BezierCurve, Index: Standard_Integer, P: gp_Pnt)  {.importcpp: "SetPole".}
+proc setPole*(this: var Geom_BezierCurve, Index: cint, P: gp_Pnt)  {.importcpp: "SetPole".}
     ## Substitutes the pole of range index with P. If the curve <me> is
     ## rational the weight of range Index is not modified. raiseD if Index is
     ## not in the range [1, NbPoles]
 
-proc setPole*(this: var Geom_BezierCurve, Index: Standard_Integer, P: gp_Pnt, Weight: Standard_Real)  {.importcpp: "SetPole".}
+proc setPole*(this: var Geom_BezierCurve, Index: cint, P: gp_Pnt, Weight: cdouble)  {.importcpp: "SetPole".}
     ## Substitutes the pole and the weights of range Index. If the curve <me>
     ## is not rational it can become rational if all the weights are not
     ## identical. If the curve was rational it can become non rational if all
     ## the weights are identical. Raised if Index is not in the range [1,
     ## NbPoles] Raised if Weight <= Resolution from package gp
 
-proc setWeight*(this: var Geom_BezierCurve, Index: Standard_Integer, Weight: Standard_Real)  {.importcpp: "SetWeight".}
+proc setWeight*(this: var Geom_BezierCurve, Index: cint, Weight: cdouble)  {.importcpp: "SetWeight".}
     ## Changes the weight of the pole of range Index. If the curve <me> is
     ## not rational it can become rational if all the weights are not
     ## identical. If the curve was rational it can become non rational if all
     ## the weights are identical. Raised if Index is not in the range [1,
     ## NbPoles] Raised if Weight <= Resolution from package gp
 
-proc isClosed*(this: Geom_BezierCurve): Standard_Boolean  {.importcpp: "IsClosed".}
+proc isClosed*(this: Geom_BezierCurve): bool  {.importcpp: "IsClosed".}
     ## Returns True if the distance between the first point and the last
     ## point of the curve is lower or equal to the Resolution from package
     ## gp.
 
-proc isCN*(this: Geom_BezierCurve, N: Standard_Integer): Standard_Boolean  {.importcpp: "IsCN".}
+proc isCN*(this: Geom_BezierCurve, N: cint): bool  {.importcpp: "IsCN".}
     ## Continuity of the curve, returns True.
 
-proc isPeriodic*(this: Geom_BezierCurve): Standard_Boolean  {.importcpp: "IsPeriodic".}
+proc isPeriodic*(this: Geom_BezierCurve): bool  {.importcpp: "IsPeriodic".}
     ## Returns True if the parametrization of a curve is periodic. (P(u) =
     ## P(u + T) T = constante)
 
-proc isRational*(this: Geom_BezierCurve): Standard_Boolean  {.importcpp: "IsRational".}
+proc isRational*(this: Geom_BezierCurve): bool  {.importcpp: "IsRational".}
     ## Returns false if all the weights are identical. The tolerance
     ## criterion is Resolution from package gp.
 
 proc continuity*(this: Geom_BezierCurve): GeomAbs_Shape  {.importcpp: "Continuity".}
     ## a Bezier curve is CN
 
-proc degree*(this: Geom_BezierCurve): Standard_Integer  {.importcpp: "Degree".}
+proc degree*(this: Geom_BezierCurve): cint  {.importcpp: "Degree".}
     ## Returns the polynomial degree of the curve. it is the number of poles
     ## - 1 point P and derivatives (V1, V2, V3) computation The Bezier Curve
     ## has a Polynomial representation so the parameter U can be out of the
     ## bounds of the curve.
 
-proc d0*(this: Geom_BezierCurve, U: Standard_Real, P: var gp_Pnt)  {.importcpp: "D0".}
+proc d0*(this: Geom_BezierCurve, U: cdouble, P: var gp_Pnt)  {.importcpp: "D0".}
 
-proc d1*(this: Geom_BezierCurve, U: Standard_Real, P: var gp_Pnt, V1: var gp_Vec)  {.importcpp: "D1".}
+proc d1*(this: Geom_BezierCurve, U: cdouble, P: var gp_Pnt, V1: var gp_Vec)  {.importcpp: "D1".}
 
-proc d2*(this: Geom_BezierCurve, U: Standard_Real, P: var gp_Pnt, V1: var gp_Vec, V2: var gp_Vec)  {.importcpp: "D2".}
+proc d2*(this: Geom_BezierCurve, U: cdouble, P: var gp_Pnt, V1: var gp_Vec, V2: var gp_Vec)  {.importcpp: "D2".}
 
-proc d3*(this: Geom_BezierCurve, U: Standard_Real, P: var gp_Pnt, V1: var gp_Vec, V2: var gp_Vec, V3: var gp_Vec)  {.importcpp: "D3".}
+proc d3*(this: Geom_BezierCurve, U: cdouble, P: var gp_Pnt, V1: var gp_Vec, V2: var gp_Vec, V3: var gp_Vec)  {.importcpp: "D3".}
     ## For this Bezier curve, computes - the point P of parameter U, or - the
     ## point P and one or more of the following values: - V1, the first
     ## derivative vector, - V2, the second derivative vector, - V3, the third
     ## derivative vector. Note: the parameter U can be outside the bounds of
     ## the curve.
 
-proc dN*(this: Geom_BezierCurve, U: Standard_Real, N: Standard_Integer): gp_Vec  {.importcpp: "DN".}
+proc dN*(this: Geom_BezierCurve, U: cdouble, N: cint): gp_Vec  {.importcpp: "DN".}
     ## For the point of parameter U of this Bezier curve, computes the vector
     ## corresponding to the Nth derivative. Note: the parameter U can be
     ## outside the bounds of the curve. Exceptions Standard_RangeError if N
@@ -180,18 +180,18 @@ proc endPoint*(this: Geom_BezierCurve): gp_Pnt  {.importcpp: "EndPoint".}
     ## Returns Value (U=1.), it is the last control point of the Bezier
     ## curve.
 
-proc firstParameter*(this: Geom_BezierCurve): Standard_Real  {.importcpp: "FirstParameter".}
+proc firstParameter*(this: Geom_BezierCurve): cdouble  {.importcpp: "FirstParameter".}
     ## Returns the value of the first parameter of this Bezier curve. This is
     ## 0.0, which gives the start point of this Bezier curve
 
-proc lastParameter*(this: Geom_BezierCurve): Standard_Real  {.importcpp: "LastParameter".}
+proc lastParameter*(this: Geom_BezierCurve): cdouble  {.importcpp: "LastParameter".}
     ## Returns the value of the last parameter of this Bezier curve. This is
     ## 1.0, which gives the end point of this Bezier curve.
 
-proc nbPoles*(this: Geom_BezierCurve): Standard_Integer  {.importcpp: "NbPoles".}
+proc nbPoles*(this: Geom_BezierCurve): cint  {.importcpp: "NbPoles".}
     ## Returns the number of poles of this Bezier curve.
 
-proc pole*(this: Geom_BezierCurve, Index: Standard_Integer): gp_Pnt  {.importcpp: "Pole".}
+proc pole*(this: Geom_BezierCurve, Index: cint): gp_Pnt  {.importcpp: "Pole".}
     ## Returns the pole of range Index. Raised if Index is not in the range
     ## [1, NbPoles]
 
@@ -201,7 +201,7 @@ proc poles*(this: Geom_BezierCurve, P: var TColgp_Array1OfPnt)  {.importcpp: "Po
 proc poles*(this: Geom_BezierCurve): TColgp_Array1OfPnt  {.importcpp: "Poles".}
     ## Returns all the poles of the curve.
 
-proc weight*(this: Geom_BezierCurve, Index: Standard_Integer): Standard_Real  {.importcpp: "Weight".}
+proc weight*(this: Geom_BezierCurve, Index: cint): cdouble  {.importcpp: "Weight".}
     ## Returns the weight of range Index. Raised if Index is not in the range
     ## [1, NbPoles]
 
@@ -214,11 +214,11 @@ proc weights*(this: Geom_BezierCurve): ptr TColStd_Array1OfReal  {.importcpp: "W
 proc transform*(this: var Geom_BezierCurve, T: gp_Trsf)  {.importcpp: "Transform".}
     ## Applies the transformation T to this Bezier curve.
 
-proc maxDegree*(this: var Geom_BezierCurve): Standard_Integer  {.importcpp: "MaxDegree".}
+proc maxDegree*(this: var Geom_BezierCurve): cint  {.importcpp: "MaxDegree".}
     ## Returns the value of the maximum polynomial degree of any
     ## Geom_BezierCurve curve. This value is 25.
 
-proc resolution*(this: var Geom_BezierCurve, Tolerance3D: Standard_Real, UTolerance: var Standard_Real)  {.importcpp: "Resolution".}
+proc resolution*(this: var Geom_BezierCurve, Tolerance3D: cdouble, UTolerance: var cdouble)  {.importcpp: "Resolution".}
     ## Computes for this Bezier curve the parametric tolerance UTolerance for
     ## a given 3D tolerance Tolerance3D. If f(t) is the equation of this
     ## Bezier curve, UTolerance ensures that: |t1-t0| < UTolerance ===>
@@ -227,7 +227,7 @@ proc resolution*(this: var Geom_BezierCurve, Tolerance3D: Standard_Real, UTolera
 proc copy*(this: Geom_BezierCurve): handle[Geom_Geometry]  {.importcpp: "Copy".}
     ## Creates a new object which is a copy of this Bezier curve.
 
-proc dumpJson*(this: Geom_BezierCurve, theOStream: var Standard_OStream, theDepth: Standard_Integer = 1)  {.importcpp: "DumpJson".}
+proc dumpJson*(this: Geom_BezierCurve, theOStream: var Standard_OStream, theDepth: cint = 1)  {.importcpp: "DumpJson".}
     ## Dumps the content of me into the stream
 
 proc get_type_name*(this: var Geom_BezierCurve): cstring  {.importcpp: "get_type_name".}

@@ -21,11 +21,11 @@ proc mirror*(this: var Geom_Geometry, A2: gp_Ax2)  {.importcpp: "Mirror".}
     ## a plane. The axis placement A2 locates the plane of the symmetry :
     ## (Location, XDirection, YDirection).
 
-proc rotate*(this: var Geom_Geometry, A1: gp_Ax1, Ang: Standard_Real)  {.importcpp: "Rotate".}
+proc rotate*(this: var Geom_Geometry, A1: gp_Ax1, Ang: cdouble)  {.importcpp: "Rotate".}
     ## Rotates a Geometry. A1 is the axis of the rotation. Ang is the angular
     ## value of the rotation in radians.
 
-proc scale*(this: var Geom_Geometry, P: gp_Pnt, S: Standard_Real)  {.importcpp: "Scale".}
+proc scale*(this: var Geom_Geometry, P: gp_Pnt, S: cdouble)  {.importcpp: "Scale".}
     ## Scales a Geometry. S is the scaling value.
 
 proc translate*(this: var Geom_Geometry, V: gp_Vec)  {.importcpp: "Translate".}
@@ -46,9 +46,9 @@ proc mirrored*(this: Geom_Geometry, A1: gp_Ax1): handle[Geom_Geometry]  {.import
 
 proc mirrored*(this: Geom_Geometry, A2: gp_Ax2): handle[Geom_Geometry]  {.importcpp: "Mirrored".}
 
-proc rotated*(this: Geom_Geometry, A1: gp_Ax1, Ang: Standard_Real): handle[Geom_Geometry]  {.importcpp: "Rotated".}
+proc rotated*(this: Geom_Geometry, A1: gp_Ax1, Ang: cdouble): handle[Geom_Geometry]  {.importcpp: "Rotated".}
 
-proc scaled*(this: Geom_Geometry, P: gp_Pnt, S: Standard_Real): handle[Geom_Geometry]  {.importcpp: "Scaled".}
+proc scaled*(this: Geom_Geometry, P: gp_Pnt, S: cdouble): handle[Geom_Geometry]  {.importcpp: "Scaled".}
 
 proc transformed*(this: Geom_Geometry, T: gp_Trsf): handle[Geom_Geometry]  {.importcpp: "Transformed".}
 
@@ -59,7 +59,7 @@ proc translated*(this: Geom_Geometry, P1: gp_Pnt, P2: gp_Pnt): handle[Geom_Geome
 proc copy*(this: Geom_Geometry): handle[Geom_Geometry]  {.importcpp: "Copy".}
     ## Creates a new object which is a copy of this geometric object.
 
-proc dumpJson*(this: Geom_Geometry, theOStream: var Standard_OStream, theDepth: Standard_Integer = 1)  {.importcpp: "DumpJson".}
+proc dumpJson*(this: Geom_Geometry, theOStream: var Standard_OStream, theDepth: cint = 1)  {.importcpp: "DumpJson".}
     ## Dumps the content of me into the stream
 
 proc get_type_name*(this: var Geom_Geometry): cstring  {.importcpp: "get_type_name".}

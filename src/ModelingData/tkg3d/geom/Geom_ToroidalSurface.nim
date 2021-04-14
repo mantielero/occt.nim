@@ -40,7 +40,7 @@ type
 
 {.push header: "Geom_ToroidalSurface.hxx".}
 
-proc constructGeom_ToroidalSurface*(A3: gp_Ax3, MajorRadius: Standard_Real, MinorRadius: Standard_Real): Geom_ToroidalSurface {.constructor,importcpp: "Geom_ToroidalSurface::Geom_ToroidalSurface(@)".}
+proc constructGeom_ToroidalSurface*(A3: gp_Ax3, MajorRadius: cdouble, MinorRadius: cdouble): Geom_ToroidalSurface {.constructor,importcpp: "Geom_ToroidalSurface::Geom_ToroidalSurface(@)".}
     ## A3 is the local coordinate system of the surface. The orientation of
     ## increasing V parametric value is defined by the rotation around the
     ## main axis (ZAxis) in the trigonometric sense. The parametrization of
@@ -52,13 +52,13 @@ proc constructGeom_ToroidalSurface*(A3: gp_Ax3, MajorRadius: Standard_Real, Mino
 proc constructGeom_ToroidalSurface*(T: gp_Torus): Geom_ToroidalSurface {.constructor,importcpp: "Geom_ToroidalSurface::Geom_ToroidalSurface(@)".}
     ## Creates a ToroidalSurface from a non transient Torus from package gp.
 
-proc setMajorRadius*(this: var Geom_ToroidalSurface, MajorRadius: Standard_Real)  {.importcpp: "SetMajorRadius".}
+proc setMajorRadius*(this: var Geom_ToroidalSurface, MajorRadius: cdouble)  {.importcpp: "SetMajorRadius".}
     ## Modifies this torus by changing its major radius. Exceptions
     ## Standard_ConstructionError if: - MajorRadius is negative, or -
     ## MajorRadius - r is less than or equal to gp::Resolution(), where r is
     ## the minor radius of this torus.
 
-proc setMinorRadius*(this: var Geom_ToroidalSurface, MinorRadius: Standard_Real)  {.importcpp: "SetMinorRadius".}
+proc setMinorRadius*(this: var Geom_ToroidalSurface, MinorRadius: cdouble)  {.importcpp: "SetMinorRadius".}
     ## Modifies this torus by changing its minor radius. Exceptions
     ## Standard_ConstructionError if: - MinorRadius is negative, or - R -
     ## MinorRadius is less than or equal to gp::Resolution(), where R is the
@@ -71,18 +71,18 @@ proc torus*(this: Geom_ToroidalSurface): gp_Torus  {.importcpp: "Torus".}
     ## Returns the non transient torus with the same geometric properties as
     ## <me>.
 
-proc uReversedParameter*(this: Geom_ToroidalSurface, U: Standard_Real): Standard_Real  {.importcpp: "UReversedParameter".}
+proc uReversedParameter*(this: Geom_ToroidalSurface, U: cdouble): cdouble  {.importcpp: "UReversedParameter".}
     ## Return the parameter on the Ureversed surface for the point of
     ## parameter U on <me>. Return 2.PI - U.
 
-proc vReversedParameter*(this: Geom_ToroidalSurface, U: Standard_Real): Standard_Real  {.importcpp: "VReversedParameter".}
+proc vReversedParameter*(this: Geom_ToroidalSurface, U: cdouble): cdouble  {.importcpp: "VReversedParameter".}
     ## Return the parameter on the Ureversed surface for the point of
     ## parameter U on <me>. Return 2.PI - U.
 
-proc area*(this: Geom_ToroidalSurface): Standard_Real  {.importcpp: "Area".}
+proc area*(this: Geom_ToroidalSurface): cdouble  {.importcpp: "Area".}
     ## Computes the aera of the surface.
 
-proc bounds*(this: Geom_ToroidalSurface, U1: var Standard_Real, U2: var Standard_Real, V1: var Standard_Real, V2: var Standard_Real)  {.importcpp: "Bounds".}
+proc bounds*(this: Geom_ToroidalSurface, U1: var cdouble, U2: var cdouble, V1: var cdouble, V2: var cdouble)  {.importcpp: "Bounds".}
     ## Returns the parametric bounds U1, U2, V1 and V2 of this torus. For a
     ## torus: U1 = V1 = 0 and U2 = V2 = 2*PI .
 
@@ -100,53 +100,53 @@ proc coefficients*(this: Geom_ToroidalSurface, Coef: var TColStd_Array1OfReal)  
     ## Coef(30) * Z + Coef(31) = 0.0 Raised if the length of Coef is lower
     ## than 31.
 
-proc majorRadius*(this: Geom_ToroidalSurface): Standard_Real  {.importcpp: "MajorRadius".}
+proc majorRadius*(this: Geom_ToroidalSurface): cdouble  {.importcpp: "MajorRadius".}
     ## Returns the major radius, or the minor radius, of this torus.
 
-proc minorRadius*(this: Geom_ToroidalSurface): Standard_Real  {.importcpp: "MinorRadius".}
+proc minorRadius*(this: Geom_ToroidalSurface): cdouble  {.importcpp: "MinorRadius".}
     ## Returns the major radius, or the minor radius, of this torus.
 
-proc volume*(this: Geom_ToroidalSurface): Standard_Real  {.importcpp: "Volume".}
+proc volume*(this: Geom_ToroidalSurface): cdouble  {.importcpp: "Volume".}
     ## Computes the volume.
 
-proc isUClosed*(this: Geom_ToroidalSurface): Standard_Boolean  {.importcpp: "IsUClosed".}
+proc isUClosed*(this: Geom_ToroidalSurface): bool  {.importcpp: "IsUClosed".}
     ## Returns True.
 
-proc isVClosed*(this: Geom_ToroidalSurface): Standard_Boolean  {.importcpp: "IsVClosed".}
+proc isVClosed*(this: Geom_ToroidalSurface): bool  {.importcpp: "IsVClosed".}
     ## Returns True.
 
-proc isUPeriodic*(this: Geom_ToroidalSurface): Standard_Boolean  {.importcpp: "IsUPeriodic".}
+proc isUPeriodic*(this: Geom_ToroidalSurface): bool  {.importcpp: "IsUPeriodic".}
     ## Returns True.
 
-proc isVPeriodic*(this: Geom_ToroidalSurface): Standard_Boolean  {.importcpp: "IsVPeriodic".}
+proc isVPeriodic*(this: Geom_ToroidalSurface): bool  {.importcpp: "IsVPeriodic".}
     ## Returns True.
 
-proc uIso*(this: Geom_ToroidalSurface, U: Standard_Real): handle[Geom_Curve]  {.importcpp: "UIso".}
+proc uIso*(this: Geom_ToroidalSurface, U: cdouble): handle[Geom_Curve]  {.importcpp: "UIso".}
     ## Computes the U isoparametric curve.
 
-proc vIso*(this: Geom_ToroidalSurface, V: Standard_Real): handle[Geom_Curve]  {.importcpp: "VIso".}
+proc vIso*(this: Geom_ToroidalSurface, V: cdouble): handle[Geom_Curve]  {.importcpp: "VIso".}
     ## Computes the V isoparametric curve.
 
-proc d0*(this: Geom_ToroidalSurface, U: Standard_Real, V: Standard_Real, P: var gp_Pnt)  {.importcpp: "D0".}
+proc d0*(this: Geom_ToroidalSurface, U: cdouble, V: cdouble, P: var gp_Pnt)  {.importcpp: "D0".}
     ## Computes the point P (U, V) on the surface. P (U, V) = Loc +
     ## MinorRadius * Sin (V) * Zdir + (MajorRadius + MinorRadius * Cos(V)) *
     ## (cos (U) * XDir + sin (U) * YDir) where Loc is the origin of the
     ## placement plane (XAxis, YAxis) XDir is the direction of the XAxis and
     ## YDir the direction of the YAxis and ZDir the direction of the ZAxis.
 
-proc d1*(this: Geom_ToroidalSurface, U: Standard_Real, V: Standard_Real, P: var gp_Pnt, D1U: var gp_Vec, D1V: var gp_Vec)  {.importcpp: "D1".}
+proc d1*(this: Geom_ToroidalSurface, U: cdouble, V: cdouble, P: var gp_Pnt, D1U: var gp_Vec, D1V: var gp_Vec)  {.importcpp: "D1".}
     ## Computes the current point and the first derivatives in the directions
     ## U and V.
 
-proc d2*(this: Geom_ToroidalSurface, U: Standard_Real, V: Standard_Real, P: var gp_Pnt, D1U: var gp_Vec, D1V: var gp_Vec, D2U: var gp_Vec, D2V: var gp_Vec, D2UV: var gp_Vec)  {.importcpp: "D2".}
+proc d2*(this: Geom_ToroidalSurface, U: cdouble, V: cdouble, P: var gp_Pnt, D1U: var gp_Vec, D1V: var gp_Vec, D2U: var gp_Vec, D2V: var gp_Vec, D2UV: var gp_Vec)  {.importcpp: "D2".}
     ## Computes the current point, the first and the second derivatives in
     ## the directions U and V.
 
-proc d3*(this: Geom_ToroidalSurface, U: Standard_Real, V: Standard_Real, P: var gp_Pnt, D1U: var gp_Vec, D1V: var gp_Vec, D2U: var gp_Vec, D2V: var gp_Vec, D2UV: var gp_Vec, D3U: var gp_Vec, D3V: var gp_Vec, D3UUV: var gp_Vec, D3UVV: var gp_Vec)  {.importcpp: "D3".}
+proc d3*(this: Geom_ToroidalSurface, U: cdouble, V: cdouble, P: var gp_Pnt, D1U: var gp_Vec, D1V: var gp_Vec, D2U: var gp_Vec, D2V: var gp_Vec, D2UV: var gp_Vec, D3U: var gp_Vec, D3V: var gp_Vec, D3UUV: var gp_Vec, D3UVV: var gp_Vec)  {.importcpp: "D3".}
     ## Computes the current point, the first,the second and the third
     ## derivatives in the directions U and V.
 
-proc dN*(this: Geom_ToroidalSurface, U: Standard_Real, V: Standard_Real, Nu: Standard_Integer, Nv: Standard_Integer): gp_Vec  {.importcpp: "DN".}
+proc dN*(this: Geom_ToroidalSurface, U: cdouble, V: cdouble, Nu: cint, Nv: cint): gp_Vec  {.importcpp: "DN".}
     ## Computes the derivative of order Nu in the direction u and Nv in the
     ## direction v. Raised if Nu + Nv < 1 or Nu < 0 or Nv < 0.
 
@@ -156,7 +156,7 @@ proc transform*(this: var Geom_ToroidalSurface, T: gp_Trsf)  {.importcpp: "Trans
 proc copy*(this: Geom_ToroidalSurface): handle[Geom_Geometry]  {.importcpp: "Copy".}
     ## Creates a new object which is a copy of this torus.
 
-proc dumpJson*(this: Geom_ToroidalSurface, theOStream: var Standard_OStream, theDepth: Standard_Integer = 1)  {.importcpp: "DumpJson".}
+proc dumpJson*(this: Geom_ToroidalSurface, theOStream: var Standard_OStream, theDepth: cint = 1)  {.importcpp: "DumpJson".}
     ## Dumps the content of me into the stream
 
 proc get_type_name*(this: var Geom_ToroidalSurface): cstring  {.importcpp: "get_type_name".}

@@ -36,7 +36,7 @@ type
 proc constructGeom_Ellipse*(E: gp_Elips): Geom_Ellipse {.constructor,importcpp: "Geom_Ellipse::Geom_Ellipse(@)".}
     ## Constructs an ellipse by conversion of the gp_Elips ellipse E.
 
-proc constructGeom_Ellipse*(A2: gp_Ax2, MajorRadius: Standard_Real, MinorRadius: Standard_Real): Geom_Ellipse {.constructor,importcpp: "Geom_Ellipse::Geom_Ellipse(@)".}
+proc constructGeom_Ellipse*(A2: gp_Ax2, MajorRadius: cdouble, MinorRadius: cdouble): Geom_Ellipse {.constructor,importcpp: "Geom_Ellipse::Geom_Ellipse(@)".}
     ## Constructs an ellipse defined by its major and minor radii,
     ## MajorRadius and MinorRadius, where A2 locates the ellipse and defines
     ## its orientation in 3D space such that: - the center of the ellipse is
@@ -53,18 +53,18 @@ proc constructGeom_Ellipse*(A2: gp_Ax2, MajorRadius: Standard_Real, MinorRadius:
 proc setElips*(this: var Geom_Ellipse, E: gp_Elips)  {.importcpp: "SetElips".}
     ## Converts the gp_Elips ellipse E into this ellipse.
 
-proc setMajorRadius*(this: var Geom_Ellipse, MajorRadius: Standard_Real)  {.importcpp: "SetMajorRadius".}
+proc setMajorRadius*(this: var Geom_Ellipse, MajorRadius: cdouble)  {.importcpp: "SetMajorRadius".}
     ## Assigns a value to the major radius of this ellipse. ConstructionError
     ## raised if MajorRadius < MinorRadius.
 
-proc setMinorRadius*(this: var Geom_Ellipse, MinorRadius: Standard_Real)  {.importcpp: "SetMinorRadius".}
+proc setMinorRadius*(this: var Geom_Ellipse, MinorRadius: cdouble)  {.importcpp: "SetMinorRadius".}
     ## Assigns a value to the minor radius of this ellipse. ConstructionError
     ## raised if MajorRadius < MinorRadius or if MinorRadius < 0.
 
 proc elips*(this: Geom_Ellipse): gp_Elips  {.importcpp: "Elips".}
     ## returns the non transient ellipse from gp with the same
 
-proc reversedParameter*(this: Geom_Ellipse, U: Standard_Real): Standard_Real  {.importcpp: "ReversedParameter".}
+proc reversedParameter*(this: Geom_Ellipse, U: cdouble): cdouble  {.importcpp: "ReversedParameter".}
     ## Computes the parameter on the reversed ellipse for the point of
     ## parameter U on this ellipse. For an ellipse, the returned value is:
     ## 2.*Pi - U.
@@ -82,12 +82,12 @@ proc directrix2*(this: Geom_Ellipse): gp_Ax1  {.importcpp: "Directrix2".}
     ## This line is obtained by the symmetrical transformation of
     ## "Directrix1" with respect to the "YAxis" of the ellipse.
 
-proc eccentricity*(this: Geom_Ellipse): Standard_Real  {.importcpp: "Eccentricity".}
+proc eccentricity*(this: Geom_Ellipse): cdouble  {.importcpp: "Eccentricity".}
     ## Returns the eccentricity of the ellipse between 0.0 and 1.0 If f is
     ## the distance between the center of the ellipse and the Focus1 then the
     ## eccentricity e = f / MajorRadius. Returns 0 if MajorRadius = 0
 
-proc focal*(this: Geom_Ellipse): Standard_Real  {.importcpp: "Focal".}
+proc focal*(this: Geom_Ellipse): cdouble  {.importcpp: "Focal".}
     ## Computes the focal distance. It is the distance between the the two
     ## focus of the ellipse.
 
@@ -99,49 +99,49 @@ proc focus2*(this: Geom_Ellipse): gp_Pnt  {.importcpp: "Focus2".}
     ## Returns the second focus of the ellipse. This focus is on the negative
     ## side of the "XAxis" of the ellipse.
 
-proc majorRadius*(this: Geom_Ellipse): Standard_Real  {.importcpp: "MajorRadius".}
+proc majorRadius*(this: Geom_Ellipse): cdouble  {.importcpp: "MajorRadius".}
     ## Returns the major radius of this ellipse.
 
-proc minorRadius*(this: Geom_Ellipse): Standard_Real  {.importcpp: "MinorRadius".}
+proc minorRadius*(this: Geom_Ellipse): cdouble  {.importcpp: "MinorRadius".}
     ## Returns the minor radius of this ellipse.
 
-proc parameter*(this: Geom_Ellipse): Standard_Real  {.importcpp: "Parameter".}
+proc parameter*(this: Geom_Ellipse): cdouble  {.importcpp: "Parameter".}
     ## Returns p = (1 - e * e) * MajorRadius where e is the eccentricity of
     ## the ellipse. Returns 0 if MajorRadius = 0
 
-proc firstParameter*(this: Geom_Ellipse): Standard_Real  {.importcpp: "FirstParameter".}
+proc firstParameter*(this: Geom_Ellipse): cdouble  {.importcpp: "FirstParameter".}
     ## Returns the value of the first parameter of this ellipse. This is
     ## respectively: - 0.0, which gives the start point of this ellipse, or
     ## The start point and end point of an ellipse are coincident.
 
-proc lastParameter*(this: Geom_Ellipse): Standard_Real  {.importcpp: "LastParameter".}
+proc lastParameter*(this: Geom_Ellipse): cdouble  {.importcpp: "LastParameter".}
     ## Returns the value of the last parameter of this ellipse. This is
     ## respectively: - 2.*Pi, which gives the end point of this ellipse. The
     ## start point and end point of an ellipse are coincident.
 
-proc isClosed*(this: Geom_Ellipse): Standard_Boolean  {.importcpp: "IsClosed".}
+proc isClosed*(this: Geom_Ellipse): bool  {.importcpp: "IsClosed".}
     ## return True.
 
-proc isPeriodic*(this: Geom_Ellipse): Standard_Boolean  {.importcpp: "IsPeriodic".}
+proc isPeriodic*(this: Geom_Ellipse): bool  {.importcpp: "IsPeriodic".}
     ## return True.
 
-proc d0*(this: Geom_Ellipse, U: Standard_Real, P: var gp_Pnt)  {.importcpp: "D0".}
+proc d0*(this: Geom_Ellipse, U: cdouble, P: var gp_Pnt)  {.importcpp: "D0".}
     ## Returns in P the point of parameter U. P = C + MajorRadius * Cos (U) *
     ## XDir + MinorRadius * Sin (U) * YDir where C is the center of the
     ## ellipse , XDir the direction of the "XAxis" and "YDir" the "YAxis" of
     ## the ellipse.
 
-proc d1*(this: Geom_Ellipse, U: Standard_Real, P: var gp_Pnt, V1: var gp_Vec)  {.importcpp: "D1".}
+proc d1*(this: Geom_Ellipse, U: cdouble, P: var gp_Pnt, V1: var gp_Vec)  {.importcpp: "D1".}
 
-proc d2*(this: Geom_Ellipse, U: Standard_Real, P: var gp_Pnt, V1: var gp_Vec, V2: var gp_Vec)  {.importcpp: "D2".}
+proc d2*(this: Geom_Ellipse, U: cdouble, P: var gp_Pnt, V1: var gp_Vec, V2: var gp_Vec)  {.importcpp: "D2".}
     ## Returns the point P of parameter U. The vectors V1 and V2 are the
     ## first and second derivatives at this point.
 
-proc d3*(this: Geom_Ellipse, U: Standard_Real, P: var gp_Pnt, V1: var gp_Vec, V2: var gp_Vec, V3: var gp_Vec)  {.importcpp: "D3".}
+proc d3*(this: Geom_Ellipse, U: cdouble, P: var gp_Pnt, V1: var gp_Vec, V2: var gp_Vec, V3: var gp_Vec)  {.importcpp: "D3".}
     ## Returns the point P of parameter U, the first second and third
     ## derivatives V1 V2 and V3.
 
-proc dN*(this: Geom_Ellipse, U: Standard_Real, N: Standard_Integer): gp_Vec  {.importcpp: "DN".}
+proc dN*(this: Geom_Ellipse, U: cdouble, N: cint): gp_Vec  {.importcpp: "DN".}
     ## For the point of parameter U of this ellipse, computes the vector
     ## corresponding to the Nth derivative. Exceptions Standard_RangeError if
     ## N is less than 1.
@@ -152,7 +152,7 @@ proc transform*(this: var Geom_Ellipse, T: gp_Trsf)  {.importcpp: "Transform".}
 proc copy*(this: Geom_Ellipse): handle[Geom_Geometry]  {.importcpp: "Copy".}
     ## Creates a new object which is a copy of this ellipse.
 
-proc dumpJson*(this: Geom_Ellipse, theOStream: var Standard_OStream, theDepth: Standard_Integer = 1)  {.importcpp: "DumpJson".}
+proc dumpJson*(this: Geom_Ellipse, theOStream: var Standard_OStream, theDepth: cint = 1)  {.importcpp: "DumpJson".}
     ## Dumps the content of me into the stream
 
 proc get_type_name*(this: var Geom_Ellipse): cstring  {.importcpp: "get_type_name".}

@@ -87,7 +87,7 @@ proc uReverse*(this: var Geom_SurfaceOfRevolution)  {.importcpp: "UReverse".}
     ## the surface is reversed. As a consequence: - UReverse reverses the
     ## direction of the axis of revolution of this surface,
 
-proc uReversedParameter*(this: Geom_SurfaceOfRevolution, U: Standard_Real): Standard_Real  {.importcpp: "UReversedParameter".}
+proc uReversedParameter*(this: Geom_SurfaceOfRevolution, U: cdouble): cdouble  {.importcpp: "UReversedParameter".}
     ## Computes the u parameter on the modified surface, when reversing its u
     ## parametric direction, for any point of u parameter U on this surface
     ## of revolution. In the case of a revolved surface: - UReversedParameter
@@ -100,14 +100,14 @@ proc vReverse*(this: var Geom_SurfaceOfRevolution)  {.importcpp: "VReverse".}
     ## the surface is reversed. As a consequence: - VReverse reverses the
     ## meridian of this surface of revolution.
 
-proc vReversedParameter*(this: Geom_SurfaceOfRevolution, V: Standard_Real): Standard_Real  {.importcpp: "VReversedParameter".}
+proc vReversedParameter*(this: Geom_SurfaceOfRevolution, V: cdouble): cdouble  {.importcpp: "VReversedParameter".}
     ## Computes the v parameter on the modified surface, when reversing its v
     ## parametric direction, for any point of v parameter V on this surface
     ## of revolution. In the case of a revolved surface: - VReversedParameter
     ## returns the reversed parameter given by the function ReversedParameter
     ## called with V on the meridian.
 
-proc transformParameters*(this: Geom_SurfaceOfRevolution, U: var Standard_Real, V: var Standard_Real, T: gp_Trsf)  {.importcpp: "TransformParameters".}
+proc transformParameters*(this: Geom_SurfaceOfRevolution, U: var cdouble, V: var cdouble, T: gp_Trsf)  {.importcpp: "TransformParameters".}
     ## Computes the parameters on the transformed surface for the transform
     ## of the point of parameters U,V on <me>.
 
@@ -115,61 +115,61 @@ proc parametricTransformation*(this: Geom_SurfaceOfRevolution, T: gp_Trsf): gp_G
     ## Returns a 2d transformation used to find the new parameters of a point
     ## on the transformed surface.
 
-proc bounds*(this: Geom_SurfaceOfRevolution, U1: var Standard_Real, U2: var Standard_Real, V1: var Standard_Real, V2: var Standard_Real)  {.importcpp: "Bounds".}
+proc bounds*(this: Geom_SurfaceOfRevolution, U1: var cdouble, U2: var cdouble, V1: var cdouble, V2: var cdouble)  {.importcpp: "Bounds".}
     ## Returns the parametric bounds U1, U2 , V1 and V2 of this surface. A
     ## surface of revolution is always complete, so U1 = 0, U2 = 2*PI.
 
-proc isUClosed*(this: Geom_SurfaceOfRevolution): Standard_Boolean  {.importcpp: "IsUClosed".}
+proc isUClosed*(this: Geom_SurfaceOfRevolution): bool  {.importcpp: "IsUClosed".}
     ## IsUClosed always returns true.
 
-proc isVClosed*(this: Geom_SurfaceOfRevolution): Standard_Boolean  {.importcpp: "IsVClosed".}
+proc isVClosed*(this: Geom_SurfaceOfRevolution): bool  {.importcpp: "IsVClosed".}
     ## IsVClosed returns true if the meridian of this surface of revolution
     ## is closed.
 
-proc isCNu*(this: Geom_SurfaceOfRevolution, N: Standard_Integer): Standard_Boolean  {.importcpp: "IsCNu".}
+proc isCNu*(this: Geom_SurfaceOfRevolution, N: cint): bool  {.importcpp: "IsCNu".}
     ## IsCNu always returns true.
 
-proc isCNv*(this: Geom_SurfaceOfRevolution, N: Standard_Integer): Standard_Boolean  {.importcpp: "IsCNv".}
+proc isCNv*(this: Geom_SurfaceOfRevolution, N: cint): bool  {.importcpp: "IsCNv".}
     ## IsCNv returns true if the degree of continuity of the meridian of this
     ## surface of revolution is at least N. Raised if N < 0.
 
-proc isUPeriodic*(this: Geom_SurfaceOfRevolution): Standard_Boolean  {.importcpp: "IsUPeriodic".}
+proc isUPeriodic*(this: Geom_SurfaceOfRevolution): bool  {.importcpp: "IsUPeriodic".}
     ## Returns True.
 
-proc isVPeriodic*(this: Geom_SurfaceOfRevolution): Standard_Boolean  {.importcpp: "IsVPeriodic".}
+proc isVPeriodic*(this: Geom_SurfaceOfRevolution): bool  {.importcpp: "IsVPeriodic".}
     ## IsVPeriodic returns true if the meridian of this surface of revolution
     ## is periodic.
 
-proc uIso*(this: Geom_SurfaceOfRevolution, U: Standard_Real): handle[Geom_Curve]  {.importcpp: "UIso".}
+proc uIso*(this: Geom_SurfaceOfRevolution, U: cdouble): handle[Geom_Curve]  {.importcpp: "UIso".}
     ## Computes the U isoparametric curve of this surface of revolution. It
     ## is the curve obtained by rotating the meridian through an angle U
     ## about the axis of revolution.
 
-proc vIso*(this: Geom_SurfaceOfRevolution, V: Standard_Real): handle[Geom_Curve]  {.importcpp: "VIso".}
+proc vIso*(this: Geom_SurfaceOfRevolution, V: cdouble): handle[Geom_Curve]  {.importcpp: "VIso".}
     ## Computes the U isoparametric curve of this surface of revolution. It
     ## is the curve obtained by rotating the meridian through an angle U
     ## about the axis of revolution.
 
-proc d0*(this: Geom_SurfaceOfRevolution, U: Standard_Real, V: Standard_Real, P: var gp_Pnt)  {.importcpp: "D0".}
+proc d0*(this: Geom_SurfaceOfRevolution, U: cdouble, V: cdouble, P: var gp_Pnt)  {.importcpp: "D0".}
     ## Computes the point P (U, V) on the surface. U is the angle of the
     ## rotation around the revolution axis. The direction of this axis gives
     ## the sense of rotation. V is the parameter of the revolved curve.
 
-proc d1*(this: Geom_SurfaceOfRevolution, U: Standard_Real, V: Standard_Real, P: var gp_Pnt, D1U: var gp_Vec, D1V: var gp_Vec)  {.importcpp: "D1".}
+proc d1*(this: Geom_SurfaceOfRevolution, U: cdouble, V: cdouble, P: var gp_Pnt, D1U: var gp_Vec, D1V: var gp_Vec)  {.importcpp: "D1".}
     ## Computes the current point and the first derivatives in the directions
     ## U and V. Raised if the continuity of the surface is not C1.
 
-proc d2*(this: Geom_SurfaceOfRevolution, U: Standard_Real, V: Standard_Real, P: var gp_Pnt, D1U: var gp_Vec, D1V: var gp_Vec, D2U: var gp_Vec, D2V: var gp_Vec, D2UV: var gp_Vec)  {.importcpp: "D2".}
+proc d2*(this: Geom_SurfaceOfRevolution, U: cdouble, V: cdouble, P: var gp_Pnt, D1U: var gp_Vec, D1V: var gp_Vec, D2U: var gp_Vec, D2V: var gp_Vec, D2UV: var gp_Vec)  {.importcpp: "D2".}
     ## Computes the current point, the first and the second derivatives in
     ## the directions U and V. Raised if the continuity of the surface is not
     ## C2.
 
-proc d3*(this: Geom_SurfaceOfRevolution, U: Standard_Real, V: Standard_Real, P: var gp_Pnt, D1U: var gp_Vec, D1V: var gp_Vec, D2U: var gp_Vec, D2V: var gp_Vec, D2UV: var gp_Vec, D3U: var gp_Vec, D3V: var gp_Vec, D3UUV: var gp_Vec, D3UVV: var gp_Vec)  {.importcpp: "D3".}
+proc d3*(this: Geom_SurfaceOfRevolution, U: cdouble, V: cdouble, P: var gp_Pnt, D1U: var gp_Vec, D1V: var gp_Vec, D2U: var gp_Vec, D2V: var gp_Vec, D2UV: var gp_Vec, D3U: var gp_Vec, D3V: var gp_Vec, D3UUV: var gp_Vec, D3UVV: var gp_Vec)  {.importcpp: "D3".}
     ## Computes the current point, the first,the second and the third
     ## derivatives in the directions U and V. Raised if the continuity of the
     ## surface is not C3.
 
-proc dN*(this: Geom_SurfaceOfRevolution, U: Standard_Real, V: Standard_Real, Nu: Standard_Integer, Nv: Standard_Integer): gp_Vec  {.importcpp: "DN".}
+proc dN*(this: Geom_SurfaceOfRevolution, U: cdouble, V: cdouble, Nu: cint, Nv: cint): gp_Vec  {.importcpp: "DN".}
     ## Computes the derivative of order Nu in the direction u and Nv in the
     ## direction v.
 
@@ -179,7 +179,7 @@ proc transform*(this: var Geom_SurfaceOfRevolution, T: gp_Trsf)  {.importcpp: "T
 proc copy*(this: Geom_SurfaceOfRevolution): handle[Geom_Geometry]  {.importcpp: "Copy".}
     ## Creates a new object which is a copy of this surface of revolution.
 
-proc dumpJson*(this: Geom_SurfaceOfRevolution, theOStream: var Standard_OStream, theDepth: Standard_Integer = 1)  {.importcpp: "DumpJson".}
+proc dumpJson*(this: Geom_SurfaceOfRevolution, theOStream: var Standard_OStream, theDepth: cint = 1)  {.importcpp: "DumpJson".}
     ## Dumps the content of me into the stream
 
 proc get_type_name*(this: var Geom_SurfaceOfRevolution): cstring  {.importcpp: "get_type_name".}

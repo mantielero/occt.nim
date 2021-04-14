@@ -55,7 +55,7 @@ proc uReverse*(this: var Geom_SurfaceOfLinearExtrusion)  {.importcpp: "UReverse"
     ## - UReverse reverses the basis curve, and - VReverse reverses the
     ## direction of linear extrusion.
 
-proc uReversedParameter*(this: Geom_SurfaceOfLinearExtrusion, U: Standard_Real): Standard_Real  {.importcpp: "UReversedParameter".}
+proc uReversedParameter*(this: Geom_SurfaceOfLinearExtrusion, U: cdouble): cdouble  {.importcpp: "UReversedParameter".}
     ## Computes the u parameter on the modified surface, produced by
     ## reversing its u parametric direction, for any point of u parameter U
     ## on this surface of linear extrusion. In the case of an extruded
@@ -70,72 +70,72 @@ proc vReverse*(this: var Geom_SurfaceOfLinearExtrusion)  {.importcpp: "VReverse"
     ## - UReverse reverses the basis curve, and - VReverse reverses the
     ## direction of linear extrusion.
 
-proc vReversedParameter*(this: Geom_SurfaceOfLinearExtrusion, V: Standard_Real): Standard_Real  {.importcpp: "VReversedParameter".}
+proc vReversedParameter*(this: Geom_SurfaceOfLinearExtrusion, V: cdouble): cdouble  {.importcpp: "VReversedParameter".}
     ## Computes the v parameter on the modified surface, produced by
     ## reversing its u v parametric direction, for any point of v parameter V
     ## on this surface of linear extrusion. In the case of an extruded
     ## surface VReverse returns -V.
 
-proc bounds*(this: Geom_SurfaceOfLinearExtrusion, U1: var Standard_Real, U2: var Standard_Real, V1: var Standard_Real, V2: var Standard_Real)  {.importcpp: "Bounds".}
+proc bounds*(this: Geom_SurfaceOfLinearExtrusion, U1: var cdouble, U2: var cdouble, V1: var cdouble, V2: var cdouble)  {.importcpp: "Bounds".}
     ## Returns the parametric bounds U1, U2, V1 and V2 of this surface of
     ## linear extrusion. A surface of linear extrusion is infinite in the v
-    ## parametric direction, so: - V1 = Standard_Real::RealFirst() - V2 =
-    ## Standard_Real::RealLast().
+    ## parametric direction, so: - V1 = cdouble::RealFirst() - V2 =
+    ## cdouble::RealLast().
 
-proc isUClosed*(this: Geom_SurfaceOfLinearExtrusion): Standard_Boolean  {.importcpp: "IsUClosed".}
+proc isUClosed*(this: Geom_SurfaceOfLinearExtrusion): bool  {.importcpp: "IsUClosed".}
     ## IsUClosed returns true if the "basis curve" of this surface of linear
     ## extrusion is closed.
 
-proc isVClosed*(this: Geom_SurfaceOfLinearExtrusion): Standard_Boolean  {.importcpp: "IsVClosed".}
+proc isVClosed*(this: Geom_SurfaceOfLinearExtrusion): bool  {.importcpp: "IsVClosed".}
     ## IsVClosed always returns false.
 
-proc isCNu*(this: Geom_SurfaceOfLinearExtrusion, N: Standard_Integer): Standard_Boolean  {.importcpp: "IsCNu".}
+proc isCNu*(this: Geom_SurfaceOfLinearExtrusion, N: cint): bool  {.importcpp: "IsCNu".}
     ## IsCNu returns true if the degree of continuity for the "basis curve"
     ## of this surface of linear extrusion is at least N. Raises RangeError
     ## if N < 0.
 
-proc isCNv*(this: Geom_SurfaceOfLinearExtrusion, N: Standard_Integer): Standard_Boolean  {.importcpp: "IsCNv".}
+proc isCNv*(this: Geom_SurfaceOfLinearExtrusion, N: cint): bool  {.importcpp: "IsCNv".}
     ## IsCNv always returns true.
 
-proc isUPeriodic*(this: Geom_SurfaceOfLinearExtrusion): Standard_Boolean  {.importcpp: "IsUPeriodic".}
+proc isUPeriodic*(this: Geom_SurfaceOfLinearExtrusion): bool  {.importcpp: "IsUPeriodic".}
     ## IsUPeriodic returns true if the "basis curve" of this surface of
     ## linear extrusion is periodic.
 
-proc isVPeriodic*(this: Geom_SurfaceOfLinearExtrusion): Standard_Boolean  {.importcpp: "IsVPeriodic".}
+proc isVPeriodic*(this: Geom_SurfaceOfLinearExtrusion): bool  {.importcpp: "IsVPeriodic".}
     ## IsVPeriodic always returns false.
 
-proc uIso*(this: Geom_SurfaceOfLinearExtrusion, U: Standard_Real): handle[Geom_Curve]  {.importcpp: "UIso".}
+proc uIso*(this: Geom_SurfaceOfLinearExtrusion, U: cdouble): handle[Geom_Curve]  {.importcpp: "UIso".}
     ## Computes the U isoparametric curve of this surface of linear
     ## extrusion. This is the line parallel to the direction of extrusion,
     ## passing through the point of parameter U of the basis curve.
 
-proc vIso*(this: Geom_SurfaceOfLinearExtrusion, V: Standard_Real): handle[Geom_Curve]  {.importcpp: "VIso".}
+proc vIso*(this: Geom_SurfaceOfLinearExtrusion, V: cdouble): handle[Geom_Curve]  {.importcpp: "VIso".}
     ## Computes the V isoparametric curve of this surface of linear
     ## extrusion. This curve is obtained by translating the extruded curve in
     ## the direction of extrusion, with the magnitude V.
 
-proc d0*(this: Geom_SurfaceOfLinearExtrusion, U: Standard_Real, V: Standard_Real, P: var gp_Pnt)  {.importcpp: "D0".}
+proc d0*(this: Geom_SurfaceOfLinearExtrusion, U: cdouble, V: cdouble, P: var gp_Pnt)  {.importcpp: "D0".}
     ## Computes the point P (U, V) on the surface. The parameter U is the
     ## parameter on the extruded curve. The parametrization V is a linear
     ## parametrization, and the direction of parametrization is the direction
     ## of extrusion. If the point is on the extruded curve, V = 0.0
 
-proc d1*(this: Geom_SurfaceOfLinearExtrusion, U: Standard_Real, V: Standard_Real, P: var gp_Pnt, D1U: var gp_Vec, D1V: var gp_Vec)  {.importcpp: "D1".}
+proc d1*(this: Geom_SurfaceOfLinearExtrusion, U: cdouble, V: cdouble, P: var gp_Pnt, D1U: var gp_Vec, D1V: var gp_Vec)  {.importcpp: "D1".}
     ## Computes the current point and the first derivatives in the directions
     ## U and V. Raises UndefinedDerivative if the continuity of the surface
     ## is not C1.
 
-proc d2*(this: Geom_SurfaceOfLinearExtrusion, U: Standard_Real, V: Standard_Real, P: var gp_Pnt, D1U: var gp_Vec, D1V: var gp_Vec, D2U: var gp_Vec, D2V: var gp_Vec, D2UV: var gp_Vec)  {.importcpp: "D2".}
+proc d2*(this: Geom_SurfaceOfLinearExtrusion, U: cdouble, V: cdouble, P: var gp_Pnt, D1U: var gp_Vec, D1V: var gp_Vec, D2U: var gp_Vec, D2V: var gp_Vec, D2UV: var gp_Vec)  {.importcpp: "D2".}
     ## --- Purpose ; Computes the current point, the first and the second
     ## derivatives in the directions U and V. Raises UndefinedDerivative if
     ## the continuity of the surface is not C2.
 
-proc d3*(this: Geom_SurfaceOfLinearExtrusion, U: Standard_Real, V: Standard_Real, P: var gp_Pnt, D1U: var gp_Vec, D1V: var gp_Vec, D2U: var gp_Vec, D2V: var gp_Vec, D2UV: var gp_Vec, D3U: var gp_Vec, D3V: var gp_Vec, D3UUV: var gp_Vec, D3UVV: var gp_Vec)  {.importcpp: "D3".}
+proc d3*(this: Geom_SurfaceOfLinearExtrusion, U: cdouble, V: cdouble, P: var gp_Pnt, D1U: var gp_Vec, D1V: var gp_Vec, D2U: var gp_Vec, D2V: var gp_Vec, D2UV: var gp_Vec, D3U: var gp_Vec, D3V: var gp_Vec, D3UUV: var gp_Vec, D3UVV: var gp_Vec)  {.importcpp: "D3".}
     ## Computes the current point, the first,the second and the third
     ## derivatives in the directions U and V. Raises UndefinedDerivative if
     ## the continuity of the surface is not C3.
 
-proc dN*(this: Geom_SurfaceOfLinearExtrusion, U: Standard_Real, V: Standard_Real, Nu: Standard_Integer, Nv: Standard_Integer): gp_Vec  {.importcpp: "DN".}
+proc dN*(this: Geom_SurfaceOfLinearExtrusion, U: cdouble, V: cdouble, Nu: cint, Nv: cint): gp_Vec  {.importcpp: "DN".}
     ## Computes the derivative of order Nu in the direction u and Nv in the
     ## direction v. Raises UndefinedDerivative if the continuity of the
     ## surface is not CNu in the u direction and CNv in the v direction.
@@ -144,7 +144,7 @@ proc dN*(this: Geom_SurfaceOfLinearExtrusion, U: Standard_Real, V: Standard_Real
 proc transform*(this: var Geom_SurfaceOfLinearExtrusion, T: gp_Trsf)  {.importcpp: "Transform".}
     ## Applies the transformation T to this surface of linear extrusion.
 
-proc transformParameters*(this: Geom_SurfaceOfLinearExtrusion, U: var Standard_Real, V: var Standard_Real, T: gp_Trsf)  {.importcpp: "TransformParameters".}
+proc transformParameters*(this: Geom_SurfaceOfLinearExtrusion, U: var cdouble, V: var cdouble, T: gp_Trsf)  {.importcpp: "TransformParameters".}
     ## Computes the parameters on the transformed surface for the transform
     ## of the point of parameters U,V on <me>.
 
@@ -156,7 +156,7 @@ proc copy*(this: Geom_SurfaceOfLinearExtrusion): handle[Geom_Geometry]  {.import
     ## Creates a new object which is a copy of this surface of linear
     ## extrusion.
 
-proc dumpJson*(this: Geom_SurfaceOfLinearExtrusion, theOStream: var Standard_OStream, theDepth: Standard_Integer = 1)  {.importcpp: "DumpJson".}
+proc dumpJson*(this: Geom_SurfaceOfLinearExtrusion, theOStream: var Standard_OStream, theDepth: cint = 1)  {.importcpp: "DumpJson".}
     ## Dumps the content of me into the stream
 
 proc get_type_name*(this: var Geom_SurfaceOfLinearExtrusion): cstring  {.importcpp: "get_type_name".}

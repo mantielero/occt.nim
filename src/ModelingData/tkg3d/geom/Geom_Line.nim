@@ -53,63 +53,63 @@ proc reverse*(this: var Geom_Line)  {.importcpp: "Reverse".}
     ## Changes the orientation of this line. As a result, the unit vector of
     ## the positioning axis of this line is reversed.
 
-proc reversedParameter*(this: Geom_Line, U: Standard_Real): Standard_Real  {.importcpp: "ReversedParameter".}
+proc reversedParameter*(this: Geom_Line, U: cdouble): cdouble  {.importcpp: "ReversedParameter".}
     ## Computes the parameter on the reversed line for the point of parameter
     ## U on this line. For a line, the returned value is -U.
 
-proc firstParameter*(this: Geom_Line): Standard_Real  {.importcpp: "FirstParameter".}
+proc firstParameter*(this: Geom_Line): cdouble  {.importcpp: "FirstParameter".}
     ## Returns the value of the first parameter of this line. This is
-    ## Standard_Real::RealFirst().
+    ## cdouble::RealFirst().
 
-proc lastParameter*(this: Geom_Line): Standard_Real  {.importcpp: "LastParameter".}
+proc lastParameter*(this: Geom_Line): cdouble  {.importcpp: "LastParameter".}
     ## Returns the value of the last parameter of this line. This is
-    ## Standard_Real::RealLast().
+    ## cdouble::RealLast().
 
-proc isClosed*(this: Geom_Line): Standard_Boolean  {.importcpp: "IsClosed".}
+proc isClosed*(this: Geom_Line): bool  {.importcpp: "IsClosed".}
     ## returns False
 
-proc isPeriodic*(this: Geom_Line): Standard_Boolean  {.importcpp: "IsPeriodic".}
+proc isPeriodic*(this: Geom_Line): bool  {.importcpp: "IsPeriodic".}
     ## returns False
 
 proc continuity*(this: Geom_Line): GeomAbs_Shape  {.importcpp: "Continuity".}
     ## Returns GeomAbs_CN, which is the global continuity of any line.
 
-proc isCN*(this: Geom_Line, N: Standard_Integer): Standard_Boolean  {.importcpp: "IsCN".}
+proc isCN*(this: Geom_Line, N: cint): bool  {.importcpp: "IsCN".}
     ## returns True. Raised if N < 0.
 
-proc d0*(this: Geom_Line, U: Standard_Real, P: var gp_Pnt)  {.importcpp: "D0".}
+proc d0*(this: Geom_Line, U: cdouble, P: var gp_Pnt)  {.importcpp: "D0".}
     ## Returns in P the point of parameter U. P (U) = O + U * Dir where O is
     ## the "Location" point of the line and Dir the direction of the line.
 
-proc d1*(this: Geom_Line, U: Standard_Real, P: var gp_Pnt, V1: var gp_Vec)  {.importcpp: "D1".}
+proc d1*(this: Geom_Line, U: cdouble, P: var gp_Pnt, V1: var gp_Vec)  {.importcpp: "D1".}
     ## Returns the point P of parameter u and the first derivative V1.
 
-proc d2*(this: Geom_Line, U: Standard_Real, P: var gp_Pnt, V1: var gp_Vec, V2: var gp_Vec)  {.importcpp: "D2".}
+proc d2*(this: Geom_Line, U: cdouble, P: var gp_Pnt, V1: var gp_Vec, V2: var gp_Vec)  {.importcpp: "D2".}
     ## Returns the point P of parameter U, the first and second derivatives
     ## V1 and V2. V2 is a vector with null magnitude for a line.
 
-proc d3*(this: Geom_Line, U: Standard_Real, P: var gp_Pnt, V1: var gp_Vec, V2: var gp_Vec, V3: var gp_Vec)  {.importcpp: "D3".}
+proc d3*(this: Geom_Line, U: cdouble, P: var gp_Pnt, V1: var gp_Vec, V2: var gp_Vec, V3: var gp_Vec)  {.importcpp: "D3".}
     ## V2 and V3 are vectors with null magnitude for a line.
 
-proc dN*(this: Geom_Line, U: Standard_Real, N: Standard_Integer): gp_Vec  {.importcpp: "DN".}
+proc dN*(this: Geom_Line, U: cdouble, N: cint): gp_Vec  {.importcpp: "DN".}
     ## The returned vector gives the value of the derivative for the order of
     ## derivation N. Raised if N < 1.
 
 proc transform*(this: var Geom_Line, T: gp_Trsf)  {.importcpp: "Transform".}
     ## Applies the transformation T to this line.
 
-proc transformedParameter*(this: Geom_Line, U: Standard_Real, T: gp_Trsf): Standard_Real  {.importcpp: "TransformedParameter".}
+proc transformedParameter*(this: Geom_Line, U: cdouble, T: gp_Trsf): cdouble  {.importcpp: "TransformedParameter".}
     ## Returns the parameter on the transformed curve for the transform of
     ## the point of parameter U on <me>.
 
-proc parametricTransformation*(this: Geom_Line, T: gp_Trsf): Standard_Real  {.importcpp: "ParametricTransformation".}
+proc parametricTransformation*(this: Geom_Line, T: gp_Trsf): cdouble  {.importcpp: "ParametricTransformation".}
     ## Returns a coefficient to compute the parameter on the transformed
     ## curve for the transform of the point on <me>.
 
 proc copy*(this: Geom_Line): handle[Geom_Geometry]  {.importcpp: "Copy".}
     ## Creates a new object which is a copy of this line.
 
-proc dumpJson*(this: Geom_Line, theOStream: var Standard_OStream, theDepth: Standard_Integer = 1)  {.importcpp: "DumpJson".}
+proc dumpJson*(this: Geom_Line, theOStream: var Standard_OStream, theDepth: cint = 1)  {.importcpp: "DumpJson".}
     ## Dumps the content of me into the stream
 
 proc get_type_name*(this: var Geom_Line): cstring  {.importcpp: "get_type_name".}

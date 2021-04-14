@@ -23,7 +23,7 @@ type
 
 {.push header: "Geom_OffsetCurve.hxx".}
 
-proc constructGeom_OffsetCurve*(C: handle[Geom_Curve], Offset: Standard_Real, V: gp_Dir, isNotCheckC0: Standard_Boolean): Geom_OffsetCurve {.constructor,importcpp: "Geom_OffsetCurve::Geom_OffsetCurve(@)".}
+proc constructGeom_OffsetCurve*(C: handle[Geom_Curve], Offset: cdouble, V: gp_Dir, isNotCheckC0: bool): Geom_OffsetCurve {.constructor,importcpp: "Geom_OffsetCurve::Geom_OffsetCurve(@)".}
     ## C is the basis curve, Offset is the distance between <me> and the
     ## basis curve at any point. V defines the fixed reference direction
     ## (offset direction). If P is a point on the basis curve and T the first
@@ -41,11 +41,11 @@ proc reverse*(this: var Geom_OffsetCurve)  {.importcpp: "Reverse".}
     ## becomes the start point of the reversed curve, and - the first and
     ## last parameters are recomputed.
 
-proc reversedParameter*(this: Geom_OffsetCurve, U: Standard_Real): Standard_Real  {.importcpp: "ReversedParameter".}
+proc reversedParameter*(this: Geom_OffsetCurve, U: cdouble): cdouble  {.importcpp: "ReversedParameter".}
     ## Computes the parameter on the reversed curve for the point of
     ## parameter U on this offset curve.
 
-proc setBasisCurve*(this: var Geom_OffsetCurve, C: handle[Geom_Curve], isNotCheckC0: Standard_Boolean)  {.importcpp: "SetBasisCurve".}
+proc setBasisCurve*(this: var Geom_OffsetCurve, C: handle[Geom_Curve], isNotCheckC0: bool)  {.importcpp: "SetBasisCurve".}
     ## Changes this offset curve by assigning C as the basis curve from which
     ## it is built. If isNotCheckC0 = TRUE checking if basis curve has
     ## C0-continuity is not made. Exceptions Standard_ConstructionError if
@@ -55,7 +55,7 @@ proc setDirection*(this: var Geom_OffsetCurve, V: gp_Dir)  {.importcpp: "SetDire
     ## Changes this offset curve by assigning V as the reference vector used
     ## to compute the offset direction.
 
-proc setOffsetValue*(this: var Geom_OffsetCurve, D: Standard_Real)  {.importcpp: "SetOffsetValue".}
+proc setOffsetValue*(this: var Geom_OffsetCurve, D: cdouble)  {.importcpp: "SetOffsetValue".}
     ## Changes this offset curve by assigning D as the offset value.
 
 proc basisCurve*(this: Geom_OffsetCurve): handle[Geom_Curve]  {.importcpp: "BasisCurve".}
@@ -85,56 +85,56 @@ proc direction*(this: Geom_OffsetCurve): gp_Dir  {.importcpp: "Direction".}
     ## creation time and we suppose in this package that the offset curve is
     ## well defined.
 
-proc d0*(this: Geom_OffsetCurve, U: Standard_Real, P: var gp_Pnt)  {.importcpp: "D0".}
+proc d0*(this: Geom_OffsetCurve, U: cdouble, P: var gp_Pnt)  {.importcpp: "D0".}
     ## Warning! this should not be called if the basis curve is not at least
     ## C1. Nevertheless if used on portion where the curve is C1, it is OK
 
-proc d1*(this: Geom_OffsetCurve, U: Standard_Real, P: var gp_Pnt, V1: var gp_Vec)  {.importcpp: "D1".}
+proc d1*(this: Geom_OffsetCurve, U: cdouble, P: var gp_Pnt, V1: var gp_Vec)  {.importcpp: "D1".}
     ## Warning! this should not be called if the continuity of the basis
     ## curve is not C2. Nevertheless, it's OK to use it on portion where the
     ## curve is C2
 
-proc d2*(this: Geom_OffsetCurve, U: Standard_Real, P: var gp_Pnt, V1: var gp_Vec, V2: var gp_Vec)  {.importcpp: "D2".}
+proc d2*(this: Geom_OffsetCurve, U: cdouble, P: var gp_Pnt, V1: var gp_Vec, V2: var gp_Vec)  {.importcpp: "D2".}
     ## Warning! this should not be called if the continuity of the basis
     ## curve is not C3. Nevertheless, it's OK to use it on portion where the
     ## curve is C3
 
-proc d3*(this: Geom_OffsetCurve, U: Standard_Real, P: var gp_Pnt, V1: var gp_Vec, V2: var gp_Vec, V3: var gp_Vec)  {.importcpp: "D3".}
+proc d3*(this: Geom_OffsetCurve, U: cdouble, P: var gp_Pnt, V1: var gp_Vec, V2: var gp_Vec, V3: var gp_Vec)  {.importcpp: "D3".}
 
-proc dN*(this: Geom_OffsetCurve, U: Standard_Real, N: Standard_Integer): gp_Vec  {.importcpp: "DN".}
+proc dN*(this: Geom_OffsetCurve, U: cdouble, N: cint): gp_Vec  {.importcpp: "DN".}
     ## The returned vector gives the value of the derivative for the order of
     ## derivation N.
 
-proc firstParameter*(this: Geom_OffsetCurve): Standard_Real  {.importcpp: "FirstParameter".}
+proc firstParameter*(this: Geom_OffsetCurve): cdouble  {.importcpp: "FirstParameter".}
     ## Returns the value of the first parameter of this offset curve. The
     ## first parameter corresponds to the start point of the curve. Note: the
     ## first and last parameters of this offset curve are also the ones of
     ## its basis curve.
 
-proc lastParameter*(this: Geom_OffsetCurve): Standard_Real  {.importcpp: "LastParameter".}
+proc lastParameter*(this: Geom_OffsetCurve): cdouble  {.importcpp: "LastParameter".}
     ## Returns the value of the last parameter of this offset curve. The last
     ## parameter corresponds to the end point. Note: the first and last
     ## parameters of this offset curve are also the ones of its basis curve.
 
-proc offset*(this: Geom_OffsetCurve): Standard_Real  {.importcpp: "Offset".}
+proc offset*(this: Geom_OffsetCurve): cdouble  {.importcpp: "Offset".}
     ## Returns the offset value of this offset curve.
 
-proc isClosed*(this: Geom_OffsetCurve): Standard_Boolean  {.importcpp: "IsClosed".}
+proc isClosed*(this: Geom_OffsetCurve): bool  {.importcpp: "IsClosed".}
     ## Returns True if the distance between the start point and the end point
     ## of the curve is lower or equal to Resolution from package gp.
 
-proc isCN*(this: Geom_OffsetCurve, N: Standard_Integer): Standard_Boolean  {.importcpp: "IsCN".}
+proc isCN*(this: Geom_OffsetCurve, N: cint): bool  {.importcpp: "IsCN".}
     ## Returns true if the degree of continuity of the basis curve of this
     ## offset curve is at least N + 1. This method answer True if the
     ## continuity of the basis curve is N + 1. We suppose in this class that
     ## a normal direction to the basis curve (used to compute the offset
     ## curve) is defined at any point on the basis curve. Raised if N < 0.
 
-proc isPeriodic*(this: Geom_OffsetCurve): Standard_Boolean  {.importcpp: "IsPeriodic".}
+proc isPeriodic*(this: Geom_OffsetCurve): bool  {.importcpp: "IsPeriodic".}
     ## Returns true if this offset curve is periodic, i.e. if the basis curve
     ## of this offset curve is periodic.
 
-proc period*(this: Geom_OffsetCurve): Standard_Real  {.importcpp: "Period".}
+proc period*(this: Geom_OffsetCurve): cdouble  {.importcpp: "Period".}
     ## Returns the period of this offset curve, i.e. the period of the basis
     ## curve of this offset curve. Exceptions Standard_NoSuchObject if the
     ## basis curve is not periodic.
@@ -143,14 +143,14 @@ proc transform*(this: var Geom_OffsetCurve, T: gp_Trsf)  {.importcpp: "Transform
     ## Applies the transformation T to this offset curve. Note: the basis
     ## curve is also modified.
 
-proc transformedParameter*(this: Geom_OffsetCurve, U: Standard_Real, T: gp_Trsf): Standard_Real  {.importcpp: "TransformedParameter".}
+proc transformedParameter*(this: Geom_OffsetCurve, U: cdouble, T: gp_Trsf): cdouble  {.importcpp: "TransformedParameter".}
     ## Returns the parameter on the transformed curve for the transform of
     ## the point of parameter U on <me>.
     ## me->Transformed(T)->Value(me->TransformedParameter(U,T)) is the same
     ## point as me->Value(U).Transformed(T) This methods calls the basis
     ## curve method.
 
-proc parametricTransformation*(this: Geom_OffsetCurve, T: gp_Trsf): Standard_Real  {.importcpp: "ParametricTransformation".}
+proc parametricTransformation*(this: Geom_OffsetCurve, T: gp_Trsf): cdouble  {.importcpp: "ParametricTransformation".}
     ## Returns a coefficient to compute the parameter on the transformed
     ## curve for the transform of the point on <me>.
 
@@ -160,7 +160,7 @@ proc copy*(this: Geom_OffsetCurve): handle[Geom_Geometry]  {.importcpp: "Copy".}
 proc getBasisCurveContinuity*(this: Geom_OffsetCurve): GeomAbs_Shape  {.importcpp: "GetBasisCurveContinuity".}
     ## Returns continuity of the basis curve.
 
-proc dumpJson*(this: Geom_OffsetCurve, theOStream: var Standard_OStream, theDepth: Standard_Integer = 1)  {.importcpp: "DumpJson".}
+proc dumpJson*(this: Geom_OffsetCurve, theOStream: var Standard_OStream, theDepth: cint = 1)  {.importcpp: "DumpJson".}
     ## Dumps the content of me into the stream
 
 proc get_type_name*(this: var Geom_OffsetCurve): cstring  {.importcpp: "get_type_name".}

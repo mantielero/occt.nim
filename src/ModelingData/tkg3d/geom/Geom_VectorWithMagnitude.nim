@@ -15,32 +15,32 @@ type
 proc constructGeom_VectorWithMagnitude*(V: gp_Vec): Geom_VectorWithMagnitude {.constructor,importcpp: "Geom_VectorWithMagnitude::Geom_VectorWithMagnitude(@)".}
     ## Creates a transient copy of V.
 
-proc constructGeom_VectorWithMagnitude*(X: Standard_Real, Y: Standard_Real, Z: Standard_Real): Geom_VectorWithMagnitude {.constructor,importcpp: "Geom_VectorWithMagnitude::Geom_VectorWithMagnitude(@)".}
+proc constructGeom_VectorWithMagnitude*(X: cdouble, Y: cdouble, Z: cdouble): Geom_VectorWithMagnitude {.constructor,importcpp: "Geom_VectorWithMagnitude::Geom_VectorWithMagnitude(@)".}
     ## Creates a vector with three cartesian coordinates.
 
 proc constructGeom_VectorWithMagnitude*(P1: gp_Pnt, P2: gp_Pnt): Geom_VectorWithMagnitude {.constructor,importcpp: "Geom_VectorWithMagnitude::Geom_VectorWithMagnitude(@)".}
     ## Creates a vector from the point P1 to the point P2. The magnitude of
     ## the vector is the distance between P1 and P2
 
-proc setCoord*(this: var Geom_VectorWithMagnitude, X: Standard_Real, Y: Standard_Real, Z: Standard_Real)  {.importcpp: "SetCoord".}
+proc setCoord*(this: var Geom_VectorWithMagnitude, X: cdouble, Y: cdouble, Z: cdouble)  {.importcpp: "SetCoord".}
     ## Assigns the values X, Y and Z to the coordinates of this vector.
 
 proc setVec*(this: var Geom_VectorWithMagnitude, V: gp_Vec)  {.importcpp: "SetVec".}
     ## Converts the gp_Vec vector V into this vector.
 
-proc setX*(this: var Geom_VectorWithMagnitude, X: Standard_Real)  {.importcpp: "SetX".}
+proc setX*(this: var Geom_VectorWithMagnitude, X: cdouble)  {.importcpp: "SetX".}
     ## Changes the X coordinate of <me>.
 
-proc setY*(this: var Geom_VectorWithMagnitude, Y: Standard_Real)  {.importcpp: "SetY".}
+proc setY*(this: var Geom_VectorWithMagnitude, Y: cdouble)  {.importcpp: "SetY".}
     ## Changes the Y coordinate of <me>
 
-proc setZ*(this: var Geom_VectorWithMagnitude, Z: Standard_Real)  {.importcpp: "SetZ".}
+proc setZ*(this: var Geom_VectorWithMagnitude, Z: cdouble)  {.importcpp: "SetZ".}
     ## Changes the Z coordinate of <me>.
 
-proc magnitude*(this: Geom_VectorWithMagnitude): Standard_Real  {.importcpp: "Magnitude".}
+proc magnitude*(this: Geom_VectorWithMagnitude): cdouble  {.importcpp: "Magnitude".}
     ## Returns the magnitude of <me>.
 
-proc squareMagnitude*(this: Geom_VectorWithMagnitude): Standard_Real  {.importcpp: "SquareMagnitude".}
+proc squareMagnitude*(this: Geom_VectorWithMagnitude): cdouble  {.importcpp: "SquareMagnitude".}
     ## Returns the square magnitude of <me>.
 
 proc add*(this: var Geom_VectorWithMagnitude, Other: handle[Geom_Vector])  {.importcpp: "Add".}
@@ -63,17 +63,17 @@ proc crossCrossed*(this: Geom_VectorWithMagnitude, V1: handle[Geom_Vector], V2: 
     ## Computes the triple vector product <me> ^ (V1 ^ V2). A new vector is
     ## returned.
 
-proc divide*(this: var Geom_VectorWithMagnitude, Scalar: Standard_Real)  {.importcpp: "Divide".}
+proc divide*(this: var Geom_VectorWithMagnitude, Scalar: cdouble)  {.importcpp: "Divide".}
     ## Divides <me> by a scalar.
 
-proc divided*(this: Geom_VectorWithMagnitude, Scalar: Standard_Real): handle[Geom_VectorWithMagnitude]  {.importcpp: "Divided".}
+proc divided*(this: Geom_VectorWithMagnitude, Scalar: cdouble): handle[Geom_VectorWithMagnitude]  {.importcpp: "Divided".}
     ## Divides <me> by a scalar. A new vector is returned.
 
-proc multiplied*(this: Geom_VectorWithMagnitude, Scalar: Standard_Real): handle[Geom_VectorWithMagnitude]  {.importcpp: "Multiplied".}
+proc multiplied*(this: Geom_VectorWithMagnitude, Scalar: cdouble): handle[Geom_VectorWithMagnitude]  {.importcpp: "Multiplied".}
     ## Computes the product of the vector <me> by a scalar. A new vector is
     ## returned.
 
-proc multiply*(this: var Geom_VectorWithMagnitude, Scalar: Standard_Real)  {.importcpp: "Multiply".}
+proc multiply*(this: var Geom_VectorWithMagnitude, Scalar: cdouble)  {.importcpp: "Multiply".}
     ## Computes the product of the vector <me> by a scalar.
 
 proc normalize*(this: var Geom_VectorWithMagnitude)  {.importcpp: "Normalize".}

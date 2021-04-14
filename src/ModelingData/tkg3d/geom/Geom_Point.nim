@@ -13,25 +13,25 @@ type
 
 {.push header: "Geom_Point.hxx".}
 
-proc coord*(this: Geom_Point, X: var Standard_Real, Y: var Standard_Real, Z: var Standard_Real)  {.importcpp: "Coord".}
+proc coord*(this: Geom_Point, X: var cdouble, Y: var cdouble, Z: var cdouble)  {.importcpp: "Coord".}
     ## returns the Coordinates of <me>.
 
 proc pnt*(this: Geom_Point): gp_Pnt  {.importcpp: "Pnt".}
     ## returns a non transient copy of <me>
 
-proc x*(this: Geom_Point): Standard_Real  {.importcpp: "X".}
+proc x*(this: Geom_Point): cdouble  {.importcpp: "X".}
     ## returns the X coordinate of <me>.
 
-proc y*(this: Geom_Point): Standard_Real  {.importcpp: "Y".}
+proc y*(this: Geom_Point): cdouble  {.importcpp: "Y".}
     ## returns the Y coordinate of <me>.
 
-proc z*(this: Geom_Point): Standard_Real  {.importcpp: "Z".}
+proc z*(this: Geom_Point): cdouble  {.importcpp: "Z".}
     ## returns the Z coordinate of <me>.
 
-proc distance*(this: Geom_Point, Other: handle[Geom_Point]): Standard_Real  {.importcpp: "Distance".}
+proc distance*(this: Geom_Point, Other: handle[Geom_Point]): cdouble  {.importcpp: "Distance".}
     ## Computes the distance between <me> and <Other>.
 
-proc squareDistance*(this: Geom_Point, Other: handle[Geom_Point]): Standard_Real  {.importcpp: "SquareDistance".}
+proc squareDistance*(this: Geom_Point, Other: handle[Geom_Point]): cdouble  {.importcpp: "SquareDistance".}
     ## Computes the square distance between <me> and <Other>.
 
 proc get_type_name*(this: var Geom_Point): cstring  {.importcpp: "get_type_name".}

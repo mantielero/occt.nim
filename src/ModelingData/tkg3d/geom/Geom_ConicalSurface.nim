@@ -33,7 +33,7 @@ type
 
 {.push header: "Geom_ConicalSurface.hxx".}
 
-proc constructGeom_ConicalSurface*(A3: gp_Ax3, Ang: Standard_Real, Radius: Standard_Real): Geom_ConicalSurface {.constructor,importcpp: "Geom_ConicalSurface::Geom_ConicalSurface(@)".}
+proc constructGeom_ConicalSurface*(A3: gp_Ax3, Ang: cdouble, Radius: cdouble): Geom_ConicalSurface {.constructor,importcpp: "Geom_ConicalSurface::Geom_ConicalSurface(@)".}
     ## A3 defines the local coordinate system of the conical surface. Ang is
     ## the conical surface semi-angle. Its absolute value is in range ]0,
     ## PI/2[. Radius is the radius of the circle Viso in the placement plane
@@ -50,12 +50,12 @@ proc constructGeom_ConicalSurface*(C: gp_Cone): Geom_ConicalSurface {.constructo
 proc setCone*(this: var Geom_ConicalSurface, C: gp_Cone)  {.importcpp: "SetCone".}
     ## Set <me> so that <me> has the same geometric properties as C.
 
-proc setRadius*(this: var Geom_ConicalSurface, R: Standard_Real)  {.importcpp: "SetRadius".}
+proc setRadius*(this: var Geom_ConicalSurface, R: cdouble)  {.importcpp: "SetRadius".}
     ## Changes the radius of the conical surface in the placement plane (Z =
     ## 0, V = 0). The local coordinate system is not modified. Raised if R <
     ## 0.0
 
-proc setSemiAngle*(this: var Geom_ConicalSurface, Ang: Standard_Real)  {.importcpp: "SetSemiAngle".}
+proc setSemiAngle*(this: var Geom_ConicalSurface, Ang: cdouble)  {.importcpp: "SetSemiAngle".}
     ## Changes the semi angle of the conical surface. Semi-angle can be
     ## negative. Its absolute value Abs(Ang) is in range ]0,PI/2[. Raises
     ## ConstructionError if Abs(Ang) < Resolution from gp or Abs(Ang) >= PI/2
@@ -65,10 +65,10 @@ proc cone*(this: Geom_ConicalSurface): gp_Cone  {.importcpp: "Cone".}
     ## returns a non transient cone with the same geometric properties as
     ## <me>.
 
-proc uReversedParameter*(this: Geom_ConicalSurface, U: Standard_Real): Standard_Real  {.importcpp: "UReversedParameter".}
+proc uReversedParameter*(this: Geom_ConicalSurface, U: cdouble): cdouble  {.importcpp: "UReversedParameter".}
     ## return 2.PI - U.
 
-proc vReversedParameter*(this: Geom_ConicalSurface, V: Standard_Real): Standard_Real  {.importcpp: "VReversedParameter".}
+proc vReversedParameter*(this: Geom_ConicalSurface, V: cdouble): cdouble  {.importcpp: "VReversedParameter".}
     ## Computes the u (or v) parameter on the modified surface, when
     ## reversing its u (or v) parametric direction, for any point of u
     ## parameter U (or of v parameter V) on this cone. In the case of a cone,
@@ -81,7 +81,7 @@ proc vReverse*(this: var Geom_ConicalSurface)  {.importcpp: "VReverse".}
     ## Direction" of the local coordinate system is reversed, and - the half-
     ## angle at the apex is inverted.
 
-proc transformParameters*(this: Geom_ConicalSurface, U: var Standard_Real, V: var Standard_Real, T: gp_Trsf)  {.importcpp: "TransformParameters".}
+proc transformParameters*(this: Geom_ConicalSurface, U: var cdouble, V: var cdouble, T: gp_Trsf)  {.importcpp: "TransformParameters".}
     ## Computes the parameters on the transformed surface for the transform
     ## of the point of parameters U,V on <me>.
 
@@ -95,17 +95,17 @@ proc apex*(this: Geom_ConicalSurface): gp_Pnt  {.importcpp: "Apex".}
     ## and on the positive side of the "main Axis" if the half-angle is
     ## negative.
 
-proc bounds*(this: Geom_ConicalSurface, U1: var Standard_Real, U2: var Standard_Real, V1: var Standard_Real, V2: var Standard_Real)  {.importcpp: "Bounds".}
+proc bounds*(this: Geom_ConicalSurface, U1: var cdouble, U2: var cdouble, V1: var cdouble, V2: var cdouble)  {.importcpp: "Bounds".}
     ## The conical surface is infinite in the V direction so V1 = Realfirst
     ## from Standard and V2 = RealLast. U1 = 0 and U2 = 2*PI.
 
-proc coefficients*(this: Geom_ConicalSurface, A1: var Standard_Real, A2: var Standard_Real, A3: var Standard_Real, B1: var Standard_Real, B2: var Standard_Real, B3: var Standard_Real, C1: var Standard_Real, C2: var Standard_Real, C3: var Standard_Real, D: var Standard_Real)  {.importcpp: "Coefficients".}
+proc coefficients*(this: Geom_ConicalSurface, A1: var cdouble, A2: var cdouble, A3: var cdouble, B1: var cdouble, B2: var cdouble, B3: var cdouble, C1: var cdouble, C2: var cdouble, C3: var cdouble, D: var cdouble)  {.importcpp: "Coefficients".}
     ## Returns the coefficients of the implicit equation of the quadric in
     ## the absolute cartesian coordinate system : These coefficients are
     ## normalized. A1.X**2 + A2.Y**2 + A3.Z**2 + 2.(B1.X.Y + B2.X.Z + B3.Y.Z)
     ## + 2.(C1.X + C2.Y + C3.Z) + D = 0.0
 
-proc refRadius*(this: Geom_ConicalSurface): Standard_Real  {.importcpp: "RefRadius".}
+proc refRadius*(this: Geom_ConicalSurface): cdouble  {.importcpp: "RefRadius".}
     ## Returns the reference radius of this cone. The reference radius is the
     ## radius of the circle formed by the intersection of this cone and its
     ## reference plane (i.e. the plane defined by the origin, "X Direction"
@@ -113,29 +113,29 @@ proc refRadius*(this: Geom_ConicalSurface): Standard_Real  {.importcpp: "RefRadi
     ## apex of this cone is on the origin of the local coordinate system of
     ## this cone, the returned value is 0.
 
-proc semiAngle*(this: Geom_ConicalSurface): Standard_Real  {.importcpp: "SemiAngle".}
+proc semiAngle*(this: Geom_ConicalSurface): cdouble  {.importcpp: "SemiAngle".}
     ## Returns the semi-angle at the apex of this cone. Attention! Semi-angle
     ## can be negative.
 
-proc isUClosed*(this: Geom_ConicalSurface): Standard_Boolean  {.importcpp: "IsUClosed".}
+proc isUClosed*(this: Geom_ConicalSurface): bool  {.importcpp: "IsUClosed".}
     ## returns True.
 
-proc isVClosed*(this: Geom_ConicalSurface): Standard_Boolean  {.importcpp: "IsVClosed".}
+proc isVClosed*(this: Geom_ConicalSurface): bool  {.importcpp: "IsVClosed".}
     ## returns False.
 
-proc isUPeriodic*(this: Geom_ConicalSurface): Standard_Boolean  {.importcpp: "IsUPeriodic".}
+proc isUPeriodic*(this: Geom_ConicalSurface): bool  {.importcpp: "IsUPeriodic".}
     ## Returns True.
 
-proc isVPeriodic*(this: Geom_ConicalSurface): Standard_Boolean  {.importcpp: "IsVPeriodic".}
+proc isVPeriodic*(this: Geom_ConicalSurface): bool  {.importcpp: "IsVPeriodic".}
     ## Returns False.
 
-proc uIso*(this: Geom_ConicalSurface, U: Standard_Real): handle[Geom_Curve]  {.importcpp: "UIso".}
+proc uIso*(this: Geom_ConicalSurface, U: cdouble): handle[Geom_Curve]  {.importcpp: "UIso".}
     ## Builds the U isoparametric line of this cone. The origin of this line
     ## is on the reference plane of this cone (i.e. the plane defined by the
     ## origin, "X Direction" and "Y Direction" of the local coordinate system
     ## of this cone).
 
-proc vIso*(this: Geom_ConicalSurface, V: Standard_Real): handle[Geom_Curve]  {.importcpp: "VIso".}
+proc vIso*(this: Geom_ConicalSurface, V: cdouble): handle[Geom_Curve]  {.importcpp: "VIso".}
     ## Builds the V isoparametric circle of this cone. It is the circle on
     ## this cone, located in the plane of Z coordinate V*cos(Semi-Angle) in
     ## the local coordinate system of this cone. The "Axis" of this circle is
@@ -144,26 +144,26 @@ proc vIso*(this: Geom_ConicalSurface, V: Standard_Real): handle[Geom_Curve]  {.i
     ## is close to the apex of this cone, the radius of the circle becomes
     ## very small. It is possible to have a circle with radius equal to 0.0.
 
-proc d0*(this: Geom_ConicalSurface, U: Standard_Real, V: Standard_Real, P: var gp_Pnt)  {.importcpp: "D0".}
+proc d0*(this: Geom_ConicalSurface, U: cdouble, V: cdouble, P: var gp_Pnt)  {.importcpp: "D0".}
     ## Computes the point P (U, V) on the surface. P (U, V) = Loc +
     ## (RefRadius + V * sin (Semi-Angle)) * (cos (U) * XDir + sin (U) * YDir)
     ## + V * cos (Semi-Angle) * ZDir where Loc is the origin of the placement
     ## plane (XAxis, YAxis) XDir is the direction of the XAxis and YDir the
     ## direction of the YAxis.
 
-proc d1*(this: Geom_ConicalSurface, U: Standard_Real, V: Standard_Real, P: var gp_Pnt, D1U: var gp_Vec, D1V: var gp_Vec)  {.importcpp: "D1".}
+proc d1*(this: Geom_ConicalSurface, U: cdouble, V: cdouble, P: var gp_Pnt, D1U: var gp_Vec, D1V: var gp_Vec)  {.importcpp: "D1".}
     ## Computes the current point and the first derivatives in the directions
     ## U and V.
 
-proc d2*(this: Geom_ConicalSurface, U: Standard_Real, V: Standard_Real, P: var gp_Pnt, D1U: var gp_Vec, D1V: var gp_Vec, D2U: var gp_Vec, D2V: var gp_Vec, D2UV: var gp_Vec)  {.importcpp: "D2".}
+proc d2*(this: Geom_ConicalSurface, U: cdouble, V: cdouble, P: var gp_Pnt, D1U: var gp_Vec, D1V: var gp_Vec, D2U: var gp_Vec, D2V: var gp_Vec, D2UV: var gp_Vec)  {.importcpp: "D2".}
     ## Computes the current point, the first and the second derivatives in
     ## the directions U and V.
 
-proc d3*(this: Geom_ConicalSurface, U: Standard_Real, V: Standard_Real, P: var gp_Pnt, D1U: var gp_Vec, D1V: var gp_Vec, D2U: var gp_Vec, D2V: var gp_Vec, D2UV: var gp_Vec, D3U: var gp_Vec, D3V: var gp_Vec, D3UUV: var gp_Vec, D3UVV: var gp_Vec)  {.importcpp: "D3".}
+proc d3*(this: Geom_ConicalSurface, U: cdouble, V: cdouble, P: var gp_Pnt, D1U: var gp_Vec, D1V: var gp_Vec, D2U: var gp_Vec, D2V: var gp_Vec, D2UV: var gp_Vec, D3U: var gp_Vec, D3V: var gp_Vec, D3UUV: var gp_Vec, D3UVV: var gp_Vec)  {.importcpp: "D3".}
     ## Computes the current point, the first,the second and the third
     ## derivatives in the directions U and V.
 
-proc dN*(this: Geom_ConicalSurface, U: Standard_Real, V: Standard_Real, Nu: Standard_Integer, Nv: Standard_Integer): gp_Vec  {.importcpp: "DN".}
+proc dN*(this: Geom_ConicalSurface, U: cdouble, V: cdouble, Nu: cint, Nv: cint): gp_Vec  {.importcpp: "DN".}
     ## Computes the derivative of order Nu in the u parametric direction, and
     ## Nv in the v parametric direction at the point of parameters (U, V) of
     ## this cone. Exceptions Standard_RangeError if: - Nu + Nv is less than
@@ -175,7 +175,7 @@ proc transform*(this: var Geom_ConicalSurface, T: gp_Trsf)  {.importcpp: "Transf
 proc copy*(this: Geom_ConicalSurface): handle[Geom_Geometry]  {.importcpp: "Copy".}
     ## Creates a new object which is a copy of this cone.
 
-proc dumpJson*(this: Geom_ConicalSurface, theOStream: var Standard_OStream, theDepth: Standard_Integer = 1)  {.importcpp: "DumpJson".}
+proc dumpJson*(this: Geom_ConicalSurface, theOStream: var Standard_OStream, theDepth: cint = 1)  {.importcpp: "DumpJson".}
     ## Dumps the content of me into the stream
 
 proc get_type_name*(this: var Geom_ConicalSurface): cstring  {.importcpp: "get_type_name".}

@@ -12,34 +12,34 @@ type
 
 {.push header: "Geom_Direction.hxx".}
 
-proc constructGeom_Direction*(X: Standard_Real, Y: Standard_Real, Z: Standard_Real): Geom_Direction {.constructor,importcpp: "Geom_Direction::Geom_Direction(@)".}
+proc constructGeom_Direction*(X: cdouble, Y: cdouble, Z: cdouble): Geom_Direction {.constructor,importcpp: "Geom_Direction::Geom_Direction(@)".}
     ## Creates a unit vector with it 3 cartesian coordinates.
 
 proc constructGeom_Direction*(V: gp_Dir): Geom_Direction {.constructor,importcpp: "Geom_Direction::Geom_Direction(@)".}
     ## Creates a transient copy of <me>.
 
-proc setCoord*(this: var Geom_Direction, X: Standard_Real, Y: Standard_Real, Z: Standard_Real)  {.importcpp: "SetCoord".}
+proc setCoord*(this: var Geom_Direction, X: cdouble, Y: cdouble, Z: cdouble)  {.importcpp: "SetCoord".}
     ## Sets <me> to X,Y,Z coordinates.
 
 proc setDir*(this: var Geom_Direction, V: gp_Dir)  {.importcpp: "SetDir".}
     ## Converts the gp_Dir unit vector V into this unit vector.
 
-proc setX*(this: var Geom_Direction, X: Standard_Real)  {.importcpp: "SetX".}
+proc setX*(this: var Geom_Direction, X: cdouble)  {.importcpp: "SetX".}
     ## Changes the X coordinate of <me>.
 
-proc setY*(this: var Geom_Direction, Y: Standard_Real)  {.importcpp: "SetY".}
+proc setY*(this: var Geom_Direction, Y: cdouble)  {.importcpp: "SetY".}
     ## Changes the Y coordinate of <me>.
 
-proc setZ*(this: var Geom_Direction, Z: Standard_Real)  {.importcpp: "SetZ".}
+proc setZ*(this: var Geom_Direction, Z: cdouble)  {.importcpp: "SetZ".}
     ## Changes the Z coordinate of <me>.
 
 proc dir*(this: Geom_Direction): gp_Dir  {.importcpp: "Dir".}
     ## Returns the non transient direction with the same coordinates as <me>.
 
-proc magnitude*(this: Geom_Direction): Standard_Real  {.importcpp: "Magnitude".}
+proc magnitude*(this: Geom_Direction): cdouble  {.importcpp: "Magnitude".}
     ## returns 1.0 which is the magnitude of any unit vector.
 
-proc squareMagnitude*(this: Geom_Direction): Standard_Real  {.importcpp: "SquareMagnitude".}
+proc squareMagnitude*(this: Geom_Direction): cdouble  {.importcpp: "SquareMagnitude".}
     ## returns 1.0 which is the square magnitude of any unit vector.
 
 proc cross*(this: var Geom_Direction, Other: handle[Geom_Vector])  {.importcpp: "Cross".}

@@ -48,7 +48,7 @@ proc setDirection*(this: var Geom_AxisPlacement, V: gp_Dir)  {.importcpp: "SetDi
 proc setLocation*(this: var Geom_AxisPlacement, P: gp_Pnt)  {.importcpp: "SetLocation".}
     ## Assigns the point P as the origin of this positioning system.
 
-proc angle*(this: Geom_AxisPlacement, Other: handle[Geom_AxisPlacement]): Standard_Real  {.importcpp: "Angle".}
+proc angle*(this: Geom_AxisPlacement, Other: handle[Geom_AxisPlacement]): cdouble  {.importcpp: "Angle".}
     ## Computes the angular value, in radians, between the "main Direction"
     ## of this positioning system and that of positioning system Other. The
     ## result is a value between 0 and Pi.

@@ -44,11 +44,11 @@ proc setMirror*(this: var Geom_Transformation, theA2: gp_Ax2)  {.importcpp: "Set
     ## respect to a plane. The plane of the symmetry is defined with the axis
     ## placement A2. It is the plane (Location, XDirection, YDirection).
 
-proc setRotation*(this: var Geom_Transformation, theA1: gp_Ax1, theAng: Standard_Real)  {.importcpp: "SetRotation".}
+proc setRotation*(this: var Geom_Transformation, theA1: gp_Ax1, theAng: cdouble)  {.importcpp: "SetRotation".}
     ## Makes the transformation into a rotation. A1 is the axis rotation and
     ## Ang is the angular value of the rotation in radians.
 
-proc setScale*(this: var Geom_Transformation, thePnt: gp_Pnt, theScale: Standard_Real)  {.importcpp: "SetScale".}
+proc setScale*(this: var Geom_Transformation, thePnt: gp_Pnt, theScale: cdouble)  {.importcpp: "SetScale".}
     ## Makes the transformation into a scale. P is the center of the scale
     ## and S is the scaling value.
 
@@ -79,7 +79,7 @@ proc setTranslation*(this: var Geom_Transformation, P1: gp_Pnt, P2: gp_Pnt)  {.i
 proc setTrsf*(this: var Geom_Transformation, theTrsf: gp_Trsf)  {.importcpp: "SetTrsf".}
     ## Converts the gp_Trsf transformation T into this transformation.
 
-proc isNegative*(this: Geom_Transformation): Standard_Boolean  {.importcpp: "IsNegative".}
+proc isNegative*(this: Geom_Transformation): bool  {.importcpp: "IsNegative".}
     ## Checks whether this transformation is an indirect transformation:
     ## returns true if the determinant of the matrix of the vectorial part of
     ## the transformation is less than 0.
@@ -88,13 +88,13 @@ proc form*(this: Geom_Transformation): gp_TrsfForm  {.importcpp: "Form".}
     ## Returns the nature of this transformation as a value of the
     ## gp_TrsfForm enumeration.
 
-proc scaleFactor*(this: Geom_Transformation): Standard_Real  {.importcpp: "ScaleFactor".}
+proc scaleFactor*(this: Geom_Transformation): cdouble  {.importcpp: "ScaleFactor".}
     ## Returns the scale value of the transformation.
 
 proc trsf*(this: Geom_Transformation): gp_Trsf  {.importcpp: "Trsf".}
     ## Returns a non transient copy of <me>.
 
-proc value*(this: Geom_Transformation, theRow: Standard_Integer, theCol: Standard_Integer): Standard_Real  {.importcpp: "Value".}
+proc value*(this: Geom_Transformation, theRow: cint, theCol: cint): cdouble  {.importcpp: "Value".}
     ## Returns the coefficients of the global matrix of transformation. It is
     ## a 3 rows X 4 columns matrix.
 
@@ -114,25 +114,25 @@ proc multiply*(this: var Geom_Transformation, theOther: handle[Geom_Transformati
     ## Computes the transformation composed with Other and <me> . <me> = <me>
     ## * Other.
 
-proc power*(this: var Geom_Transformation, N: Standard_Integer)  {.importcpp: "Power".}
+proc power*(this: var Geom_Transformation, N: cint)  {.importcpp: "Power".}
     ## Computes the following composition of transformations if N > 0 <me> *
     ## <me> * .......* <me>. if N = 0 Identity if N < 0 <me>.Invert() *
     ## .........* <me>.Invert()
 
-proc powered*(this: Geom_Transformation, N: Standard_Integer): handle[Geom_Transformation]  {.importcpp: "Powered".}
+proc powered*(this: Geom_Transformation, N: cint): handle[Geom_Transformation]  {.importcpp: "Powered".}
     ## Raised if N < 0 and if the transformation is not inversible
 
 proc preMultiply*(this: var Geom_Transformation, Other: handle[Geom_Transformation])  {.importcpp: "PreMultiply".}
     ## Computes the matrix of the transformation composed with <me> and
     ## Other. <me> = Other * <me>
 
-proc transforms*(this: Geom_Transformation, theX: var Standard_Real, theY: var Standard_Real, theZ: var Standard_Real)  {.importcpp: "Transforms".}
+proc transforms*(this: Geom_Transformation, theX: var cdouble, theY: var cdouble, theZ: var cdouble)  {.importcpp: "Transforms".}
     ## Applies the transformation <me> to the triplet {X, Y, Z}.
 
 proc copy*(this: Geom_Transformation): handle[Geom_Transformation]  {.importcpp: "Copy".}
     ## Creates a new object which is a copy of this transformation.
 
-proc dumpJson*(this: Geom_Transformation, theOStream: var Standard_OStream, theDepth: Standard_Integer = 1)  {.importcpp: "DumpJson".}
+proc dumpJson*(this: Geom_Transformation, theOStream: var Standard_OStream, theDepth: cint = 1)  {.importcpp: "DumpJson".}
     ## Dumps the content of me into the stream
 
 {.pop.}  # header: "Geom_Transformation.hxx"

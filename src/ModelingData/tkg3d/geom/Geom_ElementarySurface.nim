@@ -58,27 +58,27 @@ proc position*(this: Geom_ElementarySurface): gp_Ax3  {.importcpp: "Position".}
 proc uReverse*(this: var Geom_ElementarySurface)  {.importcpp: "UReverse".}
     ## Reverses the U parametric direction of the surface.
 
-proc uReversedParameter*(this: Geom_ElementarySurface, U: Standard_Real): Standard_Real  {.importcpp: "UReversedParameter".}
+proc uReversedParameter*(this: Geom_ElementarySurface, U: cdouble): cdouble  {.importcpp: "UReversedParameter".}
     ## Return the parameter on the Ureversed surface for the point of
     ## parameter U on <me>.
 
 proc vReverse*(this: var Geom_ElementarySurface)  {.importcpp: "VReverse".}
     ## Reverses the V parametric direction of the surface.
 
-proc vReversedParameter*(this: Geom_ElementarySurface, V: Standard_Real): Standard_Real  {.importcpp: "VReversedParameter".}
+proc vReversedParameter*(this: Geom_ElementarySurface, V: cdouble): cdouble  {.importcpp: "VReversedParameter".}
     ## Return the parameter on the Vreversed surface for the point of
     ## parameter V on <me>.
 
 proc continuity*(this: Geom_ElementarySurface): GeomAbs_Shape  {.importcpp: "Continuity".}
     ## Returns GeomAbs_CN, the global continuity of any elementary surface.
 
-proc isCNu*(this: Geom_ElementarySurface, N: Standard_Integer): Standard_Boolean  {.importcpp: "IsCNu".}
+proc isCNu*(this: Geom_ElementarySurface, N: cint): bool  {.importcpp: "IsCNu".}
     ## Returns True.
 
-proc isCNv*(this: Geom_ElementarySurface, N: Standard_Integer): Standard_Boolean  {.importcpp: "IsCNv".}
+proc isCNv*(this: Geom_ElementarySurface, N: cint): bool  {.importcpp: "IsCNv".}
     ## Returns True.
 
-proc dumpJson*(this: Geom_ElementarySurface, theOStream: var Standard_OStream, theDepth: Standard_Integer = 1)  {.importcpp: "DumpJson".}
+proc dumpJson*(this: Geom_ElementarySurface, theOStream: var Standard_OStream, theDepth: cint = 1)  {.importcpp: "DumpJson".}
     ## Dumps the content of me into the stream
 
 proc get_type_name*(this: var Geom_ElementarySurface): cstring  {.importcpp: "get_type_name".}

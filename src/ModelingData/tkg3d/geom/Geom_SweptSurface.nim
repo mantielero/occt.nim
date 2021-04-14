@@ -33,7 +33,7 @@ proc basisCurve*(this: Geom_SweptSurface): handle[Geom_Curve]  {.importcpp: "Bas
     ## revolution it is the revolution curve, for a surface of linear
     ## extrusion it is the extruded curve.
 
-proc dumpJson*(this: Geom_SweptSurface, theOStream: var Standard_OStream, theDepth: Standard_Integer = 1)  {.importcpp: "DumpJson".}
+proc dumpJson*(this: Geom_SweptSurface, theOStream: var Standard_OStream, theDepth: cint = 1)  {.importcpp: "DumpJson".}
     ## Dumps the content of me into the stream
 
 proc get_type_name*(this: var Geom_SweptSurface): cstring  {.importcpp: "get_type_name".}

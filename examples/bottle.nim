@@ -13,5 +13,5 @@ var
 echo aPnt2
 echo aPnt3
 echo aPnt4
-var aArcOfCircle = MakeArcOfCircle(aPnt2,aPnt3,aPnt4)
+var aArcOfCircle:Handle_Geom_TrimmedCurve = MakeArcOfCircle(aPnt2,aPnt3,aPnt4)
 #Handle(Geom_TrimmedCurve) ;

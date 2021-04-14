@@ -14,7 +14,9 @@ proc MakeArcOfCircle*(Circ: gp_Circ, P1: gp_Pnt, P2: gp_Pnt, Sense: bool): GC_Ma
   ## Make an arc of circle (TrimmedCurve from Geom) from a circle between
   ## two points P1 and P2.
 
-proc MakeArcOfCircle*(P1: gp_Pnt, P2: gp_Pnt, P3: gp_Pnt): GC_MakeArcOfCircle {.constructor,importcpp: "GC_MakeArcOfCircle(@)".}
+proc MakeArcOfCircle*(P1: gp_Pnt, P2: gp_Pnt, P3: gp_Pnt): Handle_Geom_TrimmedCurve {.constructor,importcpp: "GC_MakeArcOfCircle(@)".}
+
+#proc MakeArcOfCircle*(P1: gp_Pnt, P2: gp_Pnt, P3: gp_Pnt): GC_MakeArcOfCircle {.constructor,importcpp: "GC_MakeArcOfCircle(@)".}
   ## Make an arc of circle (TrimmedCurve from Geom) from three points
   ## P1,P2,P3 between two points P1 and P2.
 

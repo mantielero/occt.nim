@@ -276,6 +276,3 @@ proc transformed*(this: gp_Vec, T: gp_Trsf): gp_Vec  {.importcpp: "Transformed".
   ## Transforms a vector with the transformation T.
 
 {.pop.} # header: "gp_Vec.hxx
-
-proc `$`*(pnt:gp_Vec):string =
-  result = "Vec(x:" & $pnt.x & ", y:" & $pnt.y & ", z:" & $pnt.z & ")\n"

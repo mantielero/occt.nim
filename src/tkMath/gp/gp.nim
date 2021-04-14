@@ -466,7 +466,7 @@ type
   ## additional functions for constructing unit vectors and works, in
   ## particular, with the parametric equations of unit vectors.
 
-  Handle* {.importcpp: "opencascade::handle", header: "<map>".} [K] = object
+  
 
   gp_TrsfForm* {.header: "gp_Trsf.hxx", importcpp: "gp_TrsfForm", byref.} = object
 
@@ -523,7 +523,19 @@ include "gp_Dir.nim"
 ]#
 
 type
-  Point = gp_Pnt | gp_Vec  | gp_XYZ
+  Point = gp_Pnt | gp_Vec  | gp_XYZ | gp_Dir
+
+proc `$`*(pnt:gp_Pnt):string =
+  result = "Pnt(x:" & $pnt.x & ", y:" & $pnt.y & ", z:" & $pnt.z & ")\n"
+
+proc `$`*(pnt:gp_Vec):string =
+  result = "Vec(x:" & $pnt.x & ", y:" & $pnt.y & ", z:" & $pnt.z & ")\n"
+
+proc `$`*(pnt:gp_XYZ):string =
+  result = "XYZ(x:" & $pnt.x & ", y:" & $pnt.y & ", z:" & $pnt.z & ")\n"
+
+proc `$`*(pnt:gp_Dir):string =
+  result = "Dir(x:" & $pnt.x & ", y:" & $pnt.y & ", z:" & $pnt.z & ")\n"
 
 proc x*[T:Point](p:T):float =
   p.x.float
@@ -542,3 +554,20 @@ proc `y=`*[T:Point, V:SomeNumber](pnt:var T,val:V) =
 
 proc `z=`*[T:Point, V:SomeNumber](pnt:var T,val:V) =
   pnt.setZ(val.cdouble)
+
+proc `[]`*[P:Point, I:SomeInteger](pnt:P, idx:I):float =
+  pnt.coord(idx.cint + 1.cint).float
+
+#proc `[]`*[I:SomeInteger](pnt:gp_Pnt, idx:I):float =
+#  pnt.coord(idx.cint).float
+
+proc `[]=`*[P:Point, I:SomeInteger, X:SomeNumber](pnt:var P, idx:I, val:X) =
+  let tmp = val.cdouble
+  case idx:
+  of 0: pnt.setX(tmp)
+  of 1: pnt.setY(tmp)  
+  of 2: pnt.setZ(tmp)
+  else: raise newException(ValueError, "the index should be 0..2")
+
+proc set*[P:Point, X,Y,Z:SomeNumber](pnt:var P, x:X, y:Y, z:Z) =
+  pnt.setCoord(x.cdouble, y.cdouble, z.cdouble)

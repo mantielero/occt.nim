@@ -22,6 +22,7 @@ proc constructor_gp_Pln*(A: cdouble, B: cdouble, C: cdouble, D: cdouble): gp_Pln
   ## D = 0.0 Raises ConstructionError if Sqrt (A*A + B*B + C*C) <=
   ## Resolution from gp.
 
+#[
 proc ` new`*(this: var gp_Pln, theSize: cint)  {.importcpp: "` new`".}
 
 proc ` delete`*(this: var gp_Pln, theAddress: pointer)  {.importcpp: "` delete`".}
@@ -33,6 +34,7 @@ proc ` delete[]`*(this: var gp_Pln, theAddress: pointer)  {.importcpp: "` delete
 proc ` new`*(this: var gp_Pln, cint, theAddress: pointer)  {.importcpp: "` new`".}
 
 proc ` delete`*(this: var gp_Pln, pointer, pointer)  {.importcpp: "` delete`".}
+]#
 
 proc Coefficients*(this: gp_Pln, A: var cdouble, B: var cdouble, C: var cdouble, D: var cdouble)  {.importcpp: "Coefficients".}
   ## Returns the coefficients of the plane's cartesian equation : A * X + B

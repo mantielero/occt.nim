@@ -7,6 +7,7 @@ proc XYZ*(): gp_XYZ {.constructor,importcpp: "gp_XYZ".}
 
 proc XYZ*(X: cdouble, Y: cdouble, Z: cdouble): gp_XYZ {.constructor,importcpp: "gp_XYZ(@)".}
   ## creates an XYZ with given coordinates
+  ## 
 #[
 proc ` new`*(this: var gp_XYZ, theSize: cint)  {.importcpp: "` new`".}
 
@@ -20,22 +21,22 @@ proc ` new`*(this: var gp_XYZ, cint, theAddress: pointer)  {.importcpp: "` new`"
 
 proc ` delete`*(this: var gp_XYZ, pointer, pointer)  {.importcpp: "` delete`".}
 ]#
-proc SetCoord*(this: var gp_XYZ, X: cdouble, Y: cdouble, Z: cdouble)  {.importcpp: "SetCoord".}
+proc setCoord*(this: var gp_XYZ, X: cdouble, Y: cdouble, Z: cdouble)  {.importcpp: "SetCoord".}
   ## For this XYZ object, assigns the values X, Y and Z to its three
   ## coordinates
 
-proc SetCoord*(this: var gp_XYZ, Index: cint, Xi: cdouble)  {.importcpp: "SetCoord".}
+proc setCoord*(this: var gp_XYZ, Index: cint, Xi: cdouble)  {.importcpp: "SetCoord".}
   ## modifies the coordinate of range Index Index = 1 => X is modified
   ## Index = 2 => Y is modified Index = 3 => Z is modified Raises
   ## OutOfRange if Index != {1, 2, 3}.
 
-proc SetX*(this: var gp_XYZ, X: cdouble)  {.importcpp: "SetX".}
+proc setX*(this: var gp_XYZ, X: cdouble)  {.importcpp: "SetX".}
   ## Assigns the given value to the X coordinate
 
-proc SetY*(this: var gp_XYZ, Y: cdouble)  {.importcpp: "SetY".}
+proc setY*(this: var gp_XYZ, Y: cdouble)  {.importcpp: "SetY".}
   ## Assigns the given value to the Y coordinate
 
-proc SetZ*(this: var gp_XYZ, Z: cdouble)  {.importcpp: "SetZ".}
+proc setZ*(this: var gp_XYZ, Z: cdouble)  {.importcpp: "SetZ".}
   ## Assigns the given value to the Z coordinate
 
 proc Coord*(this: gp_XYZ, Index: cint): cdouble  {.importcpp: "Coord".}
@@ -229,11 +230,7 @@ proc DumpJson*(this: gp_XYZ, theOStream: var Standard_OStream, theDepth: cint)  
 ]#
 {.pop.} # header: "gp_XYZ.hxx
 
-proc `$`*(pnt:gp_XYZ):string =
-  result = "XYZ(x:" & $pnt.x & ", y:" & $pnt.y & ", z:" & $pnt.z & ")\n"
 
-proc set*[X,Y,Z:SomeNumber](pnt:var gp_XYZ, x:X, y:Y, z:Z) =
-  pnt.SetCoord(x.cdouble, y.cdouble, z.cdouble)
 
-proc `[]`*[I:SomeInteger](pnt:gp_XYZ, idx:I):float =
-  pnt.Coord(idx.cint).float
+
+

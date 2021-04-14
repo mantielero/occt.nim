@@ -1,6 +1,6 @@
 # https://github.com/lvk88/OccTutorial
 # https://github.com/lvk88/OccTutorial/blob/master/Chapter1_Basics/runners/chapter1_1.cpp
-import ../src/tkMath/tkmath
+import ../src/occt
 import sugar
 
 # Create two point classes, with (x,y,z) coordinates
@@ -20,4 +20,4 @@ xyz1 = XYZ(1, 0,  0)
 xyz2 = XYZ(0, 1,  0)
 xyz1.cross(xyz2)
 echo xyz1
-echo xyz1 + xyz2
+echo "SUM: ", xyz1, " + ", xyz2, " = ", xyz1 + xyz2

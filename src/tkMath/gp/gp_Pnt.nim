@@ -158,33 +158,12 @@ proc translated*(this: gp_Pnt, P1: gp_Pnt, P2: gp_Pnt): gp_Pnt  {.importcpp: "Tr
 
 {.pop.} # header: "gp_Pnt.hxx
 
-proc `$`*(pnt:gp_Pnt):string =
-  result = "Pnt(x:" & $pnt.x & ", y:" & $pnt.y & ", z:" & $pnt.z & ")\n"
 
-proc set*[X,Y,Z:SomeNumber](pnt:var gp_Pnt, x:X, y:Y, z:Z) =
-  pnt.setCoord(x.cdouble, y.cdouble, z.cdouble)
 
-proc `[]`*[I:SomeInteger](pnt:gp_Pnt, idx:I):float =
-  pnt.coord(idx.cint).float
 
-proc `[]=`*[I:SomeInteger,X:SomeNumber](pnt:var gp_Pnt, idx:I, val:X) =
-  let tmp = val.cdouble
-  case idx:
-  of 0: pnt.setX(tmp)
-  of 1: pnt.setY(tmp)  
-  of 2: pnt.setZ(tmp)
-  else: raise newException(ValueError, "the index should be 0..2")
 
-  #pnt.coord(idx.cint).float
 
-proc `x=`[X:SomeNumber](pnt:var gp_Pnt, val:X) =
-  let tmp = val.cdouble
-  pnt.setX(tmp)
 
-proc `y=`[X:SomeNumber](pnt:var gp_Pnt, val:X) =
-  let tmp = val.cdouble
-  pnt.setY(tmp)
 
-proc `z=`[X:SomeNumber](pnt:var gp_Pnt, val:X) =
-  let tmp = val.cdouble
-  pnt.setZ(tmp)
+
+

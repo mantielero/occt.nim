@@ -6,8 +6,12 @@
 
 include Standard/standard
 include tkMath/tkmath
-include tkBRep/tkbrep
-include tkPrim/tkprim
+#include tkBRep/tkbrep
+#include tkPrim/tkprim
 
 include ModelingData/tkg3d/tkg3d
+include ModelingData/tkbrep/tkbrep
+#include ModelingData/tkbrep/tkbrep
+#include ModelingData/tkbrep/topods
+include ModelingAlgorithms/tktopalgo/tktopalgo
 include tkGeomBase/tkgeombase

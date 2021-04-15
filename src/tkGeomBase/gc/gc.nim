@@ -162,7 +162,7 @@ type
 #include "GC_MakeArcOfHyperbola.nim"
 #include "GC_MakeScale.nim"
 #include "GC_MakeCylindricalSurface.nim"
-#include "GC_MakeSegment.nim"
+include "GC_MakeSegment.nim"
 #include "GC_MakeHyperbola.nim"
 #include "GC_MakeEllipse.nim"
 #include "GC_MakeLine.nim"

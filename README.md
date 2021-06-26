@@ -70,3 +70,21 @@ In line 60, we create a so-called Handle to an array. What are they good for? If
 
 ## TODO
 Take a look at [pyocct.pdf](https://buildmedia.readthedocs.org/media/pdf/pyocct/latest/pyocct.pdf)
+
+pyOcct seem to cover:
+- AIS
+- BRepAlgoAPI
+- BRepPrimAPI
+- Font
+- Geom
+- Graphic3d
+- InteractiveObject
+- OpenGl
+- Select3d
+- ShapeAnalysis
+- Standard
+- TColgp
+- TDocStd
+- TopoDS
+- V3d
+- XCAFDoc

@@ -1,5 +1,5 @@
 import brepbuilderapi_types
-
+import ../TopoDS/topods_types
 
 type
   BRepBuilderAPI_MakeWire* {.header: "BRepBuilderAPI_MakeWire.hxx", importcpp: "BRepBuilderAPI_MakeWire", byref.} = object #of class BRepBuilderAPI_MakeShape

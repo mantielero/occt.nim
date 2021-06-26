@@ -1,11 +1,5 @@
 import brepbuilderapi_types
-
-
-type
-  BRepBuilderAPI_Command* {.header: "BRepBuilderAPI_Command.hxx", importcpp: "BRepBuilderAPI_Command", byref.} = object
-    ## Root class for all commands in BRepBuilderAPI.
-
-
+import Standard/standard
 
 {.push header: "BRepBuilderAPI_Command.hxx".}
 

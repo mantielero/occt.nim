@@ -18,6 +18,8 @@ var
   aSegment1 = MakeSegment(aPnt1, aPnt2)
   aSegment2 = MakeSegment(aPnt4, aPnt5)
 
+# Profile: Defining the Topology
+# Converting suporting geometry
 var
   aEdge1:TopoDS_Edge = MakeEdge(aSegment1) # BRepBuilderAPI_
   aEdge2 = MakeEdge(aArcOfCircle)
@@ -28,6 +30,7 @@ var
 
   aWire = MakeWire(aEdge1, aEdge2, aEdge3)
 
+  # Profile: Completing the Profile
   aOrigin = Pnt(0, 0, 0)
   xDir = Dir(1, 0, 0)
   xAxis = Ax1(aOrigin, xDir)
@@ -37,3 +40,7 @@ var
   aTrsf:gp_Trsf
 
 aTrsf.SetMirror(xAxis)
+
+# apply the transformation 
+let aBRepTrsf = BRepBuilderAPI_Transform(aWire, aTrsf)
+let aMirroredShape:TopoDS_Shape  = aBRepTrsf.shape()

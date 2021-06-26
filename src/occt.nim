@@ -18,7 +18,7 @@ export standard
 # exec "nimgen CSLib
 # exec "nimgen Convert
 # exec "nimgen ElCLib
-#import elclib/elclib
+import ElcLib/elclib
 # exec "nimgen ElSLib
 # exec "nimgen Expr
 # exec "nimgen ExprIntrp
@@ -29,7 +29,7 @@ export standard
 # exec "nimgen tcolgp.cfg"
 # exec "nimgen TopLoc
 import gp/gp
-export gp#, elclib
+export elclib, gp#, elclib
 # exec "nimgen math
 
 # -TKMath

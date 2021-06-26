@@ -1,3 +1,5 @@
+import ../gp/gp_types
+
 {.push header: "ElCLib.hxx".}
 
 

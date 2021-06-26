@@ -1,8 +1,8 @@
 import brepbuilderapi_types
 
-
+{.push header: "BRepBuilderAPI_Transform.hxx".}
 type
-  BRepBuilderAPI_Transform* {.header: "BRepBuilderAPI_Transform.hxx", importcpp: "BRepBuilderAPI_Transform", byref.} = object #of class BRepBuilderAPI_ModifyShape
+  BRepBuilderAPI_Transform* {.byref.} = object of BRepBuilderAPI_ModifyShape
     ## Geometric transformation on a shape. The transformation to be applied
     ## is defined as a gp_Trsf transformation, i.e. a transformation which
     ## does not modify the underlying geometry of shapes. The transformation
@@ -14,19 +14,20 @@ type
 
 
 
-{.push header: "BRepBuilderAPI_Transform.hxx".}
+#{.push header: "BRepBuilderAPI_Transform.hxx".}
 
-proc constructBRepBuilderAPI_Transform*(T: gp_Trsf): BRepBuilderAPI_Transform {.constructor,importcpp: "BRepBuilderAPI_Transform::BRepBuilderAPI_Transform(@)".}
+proc BRepBuilderAPI_Transform*(T: gp_Trsf): BRepBuilderAPI_Transform {.constructor,importcpp: "BRepBuilderAPI_Transform::BRepBuilderAPI_Transform(@)".}
     ## Constructs a framework for applying the geometric transformation T to
     ## a shape. Use the function Perform to define the shape to transform.
 
-proc constructBRepBuilderAPI_Transform*(S: TopoDS_Shape, T: gp_Trsf, Copy: Standard_Boolean): BRepBuilderAPI_Transform {.constructor,importcpp: "BRepBuilderAPI_Transform::BRepBuilderAPI_Transform(@)".}
+proc BRepBuilderAPI_Transform*(S: TopoDS_Shape, T: gp_Trsf, Copy: Standard_Boolean = false): BRepBuilderAPI_Transform {.constructor,importcpp: "BRepBuilderAPI_Transform::BRepBuilderAPI_Transform(@)".}
     ## Creates a transformation from the gp_Trsf <T>, and applies it to the
     ## shape <S>. If the transformation is direct and isometric (determinant
     ## = 1) and <Copy> = Standard_False, the resulting shape is <S> on which
     ## a new location has been set. Otherwise, the transformation is applied
     ## on a duplication of <S>.
 
+#[
 proc ` new`*(this: var BRepBuilderAPI_Transform, theSize: cint)  {.importcpp: "#  new #".}
 
 proc ` delete`*(this: var BRepBuilderAPI_Transform, theAddress: pointer)  {.importcpp: "#  delete #".}
@@ -38,6 +39,7 @@ proc ` delete[]`*(this: var BRepBuilderAPI_Transform, theAddress: pointer)  {.im
 proc ` new`*(this: var BRepBuilderAPI_Transform, a00: cint, theAddress: pointer)  {.importcpp: "#  new #".}
 
 proc ` delete`*(this: var BRepBuilderAPI_Transform, a00: pointer, a01: pointer)  {.importcpp: "#  delete #".}
+]#
 
 proc perform*(this: var BRepBuilderAPI_Transform, S: TopoDS_Shape, Copy: Standard_Boolean)  {.importcpp: "Perform".}
     ## pplies the geometric transformation defined at the time of

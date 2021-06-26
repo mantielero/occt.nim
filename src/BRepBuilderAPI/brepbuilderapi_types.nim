@@ -1,4 +1,24 @@
 type
+  BRepBuilderAPI_Command* {.header: "BRepBuilderAPI_Command.hxx", importcpp: "BRepBuilderAPI_Command", byref.} = object of RootObj
+    ## Root class for all commands in BRepBuilderAPI.
+
+  BRepBuilderAPI_MakeShape* {.header: "BRepBuilderAPI_MakeShape.hxx", importcpp: "BRepBuilderAPI_MakeShape", byref.} = object of BRepBuilderAPI_Command
+    ## This is the root class for all shape constructions. It stores the
+    ## result.
+
+  BRepBuilderAPI_ModifyShape* {.importcpp: "BRepBuilderAPI_ModifyShape", byref.} = object of BRepBuilderAPI_MakeShape
+    ## Implements the methods of MakeShape for the constant topology
+    ## modifications. The methods are implemented when the modification uses
+    ## a Modifier from BRepTools. Some of them have to be redefined if the
+    ## modification is implemented with another tool (see Transform from
+    ## BRepBuilderAPI for example). The BRepBuilderAPI package provides the
+    ## following frameworks to perform modifications of this sort: -
+    ## BRepBuilderAPI_Copy to produce the copy of a shape, -
+    ## BRepBuilderAPI_Transform and BRepBuilderAPI_GTransform to apply a
+    ## geometric transformation to a shape, - BRepBuilderAPI_NurbsConvert to
+    ## convert the whole geometry of a shape into NURBS geometry, -
+    ## BRepOffsetAPI_DraftAngle to build a tapered shape.
+    
   BRepBuilderAPI_WireError* {.size:sizeof(cuint),header: "BRepBuilderAPI_WireError.hxx", importcpp: "BRepBuilderAPI_WireError", pure.} = enum
     ## Indicates the outcome of wire construction, i.e. whether it is
     ## successful or not, as explained below: - BRepBuilderAPI_WireDone No
@@ -72,9 +92,7 @@ type
     BRepBuilderAPI_DifferentsPointAndParameter = 5,
     BRepBuilderAPI_LineThroughIdenticPoints = 6
 
-  BRepBuilderAPI_MakeShape* {.header: "BRepBuilderAPI_MakeShape.hxx", importcpp: "BRepBuilderAPI_MakeShape", byref.} = object #of class BRepBuilderAPI_Command
-    ## This is the root class for all shape constructions. It stores the
-    ## result.
+
 
 
 

@@ -1,2 +1,0 @@
-include brepbuilderapi/brepbuilderapi_types
-include brepbuilderapi/brepbuilderapi

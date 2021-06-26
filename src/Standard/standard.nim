@@ -1,6 +1,7 @@
 {.passL: "-lTKBO -lTKSTEP -lTKPrim -lTKSTEPAttr -lTKSTEP209 -lTKSTEPBase -lTKXSBase -lTKShHealing -lTKTopAlgo -lTKGeomAlgo -lTKBRep -lTKGeomBase -lTKG3d -lTKG2d -lTKMath -lTKernel", passC:"-I/usr/include/opencascade" .}
 
 type
+  Handle* {.importcpp: "opencascade::handle", header: "<map>".} [K] = object  
   Standard_MMgrRoot* {.header: "Standard_MMgrRoot.hxx", importcpp: "Standard_MMgrRoot", byref.} = object
   ## Root class for Open CASCADE mmemory managers. Defines only abstract
   ## interface functions.
@@ -238,7 +239,7 @@ type
   ## Root of "persistent" classes, a legacy support of object oriented
   ## databases, now outdated.
 
-  Handle* {.importcpp: "opencascade::handle", header: "<map>".} [K] = object
+
 
   Istream* {.importcpp: "var std::istream", header: "<map>".} [K] = object
 

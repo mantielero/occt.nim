@@ -1,6 +1,6 @@
 # https://github.com/lvk88/OccTutorial
 # https://github.com/lvk88/OccTutorial/blob/master/Chapter1_Basics/runners/chapter1_1.cpp
-import ../src/occt #tkMath/tkmath
+import occt #tkMath/tkmath
 import sugar
 
 # Create two point classes, with (x,y,z) coordinates
@@ -22,7 +22,8 @@ var pnt3 = Pnt()
 pnt3.set(-1,-2,-3)
 echo pnt3
 
-echo pnt3[1]," ", pnt3[2], " ", pnt3[3]
+#echo pnt3[1]," ", pnt3[2], " ", pnt3[3]
+echo pnt3[0]," ", pnt3[1], " ", pnt3[2]
 
 echo pnt1.distance(pnt2), " == ", distance(pnt1, pnt2)
 echo pnt1.squareDistance(pnt2)

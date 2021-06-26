@@ -1,3 +1,5 @@
+import gp_Pnt
+
 # /usr/include/opencascade/gp_Ax1.hxx --> occt/gp/gp_Ax1.nim
 import os, strutils
 # import std/time_t  # To use C "time_t" uncomment this line and use time_t.Time

@@ -43,7 +43,7 @@ let
   aPnt5 = Pnt(myWidth / 2.0, 0, 0)  
 
 #echo aPnt1.x
-#let aSegment1 = cppnewref(GC_MakeSegment, aPnt1, aPnt2)
+let aSegment1 = cppinit(GC_MakeSegment, aPnt1, aPnt2)
 
 #let
   #aArcOfCircle = cppinit(GC_MakeArcOfCircle, aPnt2, aPnt3, aPnt4)

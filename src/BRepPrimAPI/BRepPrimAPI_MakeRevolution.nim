@@ -1,3 +1,9 @@
+import brepprimapi_types
+import ../Standard/standard
+import ../Geom/geom_types
+import ../gp/gp_types
+import ../BRepPrim/brepprim_types
+
 {.push header: "BRepPrimAPI_MakeRevolution.hxx".}
 
 

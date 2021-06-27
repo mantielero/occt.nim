@@ -1,10 +1,10 @@
 {.passL: "-losg -losgSim -losgAnimation -losgTerrain -losgDB -losgText -losgFX -losgUI -losgGA -losgUtil -losgManipulator -losgViewer -losgParticle -losgVolume -losgPresentation -losgWidget -losgShadow", passC:"-I/usr/include/osg" .}
 
-
+import brepbuilderapi_types
 import BRepBuilderAPI_Command
 # include BRepBuilderAPI_Collect
-# include BRepBuilderAPI_Transform
-# include BRepBuilderAPI_MakeFace
+import BRepBuilderAPI_Transform
+import BRepBuilderAPI_MakeFace
 import BRepBuilderAPI_ModifyShape
 # include BRepBuilderAPI_TransitionMode
 # include BRepBuilderAPI_EdgeError
@@ -36,6 +36,9 @@ import BRepBuilderAPI_MakeWire
 
 # include BRepBuilderAPI_GTransform
 
-export BRepBuilderAPI_Command, BRepBuilderAPI_ModifyShape, BRepBuilderAPI_MakeShape, 
+export brepbuilderapi_types,
+       BRepBuilderAPI_Command, BRepBuilderAPI_Transform, 
+       BRepBuilderAPI_MakeFace,       
+       BRepBuilderAPI_ModifyShape, BRepBuilderAPI_MakeShape, 
        BRepBuilderAPI_MakeEdge, BRepBuilderAPI_MakeWire
 

@@ -1,3 +1,7 @@
+import brepprimapi_types
+import ../TopoDS/topods_types
+
+
 {.push header: "BRepPrimAPI_MakeOneAxis.hxx".}
 
 

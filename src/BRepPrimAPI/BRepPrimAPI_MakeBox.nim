@@ -1,3 +1,8 @@
+import brepprimapi_types
+import ../gp/gp_types
+import ../BRepPrim/brepprim_types
+import ../TopoDS/topods_types
+
 {.push header: "BRepPrimAPI_MakeBox.hxx".}
 
 

@@ -1,3 +1,5 @@
+import topods_types
+
 {.push header: "TopoDS_Edge.hxx".}
 
 

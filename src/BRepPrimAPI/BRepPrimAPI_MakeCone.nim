@@ -1,3 +1,4 @@
+import brepprimapi_types
 import ../gp/gp_types
 import ../BRepPrim/brepprim_types
 

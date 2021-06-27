@@ -1,4 +1,6 @@
 import ../TopoDS/topods_types
+import brepprimapi_types
+
 
 {.push header: "BRepPrimAPI_MakeSweep.hxx".}
 

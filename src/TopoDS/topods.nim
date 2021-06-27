@@ -29,32 +29,33 @@ include "TopoDSToStep_MakeFaceError.nim"
 include "TopoDSToStep_MakeStepEdge.nim"
 include "TopoDSToStep_MakeWireError.nim"
 ]#
-include "TopoDS_Edge.nim"
-#[
-include "TopoDS.nim"
-include "TopoDS_Shape.nim"
-include "TopoDS_UnCompatibleShapes.nim"
-include "TopoDSToStep_MakeVertexError.nim"
-include "TopoDSToStep_MakeManifoldSolidBrep.nim"
-include "TopoDSToStep_FacetedTool.nim"
-include "TopoDSToStep_Builder.nim"
-include "TopoDSToStep_BuilderError.nim"
-include "TopoDSToStep_FacetedError.nim"
-include "TopoDSToStep_MakeStepVertex.nim"
-include "TopoDS_Iterator.nim"
-include "TopoDS_TEdge.nim"
-include "TopoDSToStep_MakeGeometricCurveSet.nim"
-include "TopoDS_Builder.nim"
-include "TopoDSToStep_MakeFacetedBrep.nim"
-include "TopoDS_ListOfShape.nim"
-include "TopoDS_ListIteratorOfListOfShape.nim"
-include "TopoDS_Face.nim"
-]#
-include TopoDS_Shell
-#[
-include "TopoDS_TShell.nim"
-include "TopoDS_TCompound.nim"
-include "TopoDS_FrozenShape.nim"
-include "TopoDSToStep_MakeStepWire.nim"
-include "TopoDSToStep_MakeBrepWithVoids.nim"
-]#
+import TopoDS_Edge
+import TopoDS
+# include "TopoDS_Shape.nim"
+# include "TopoDS_UnCompatibleShapes.nim"
+# include "TopoDSToStep_MakeVertexError.nim"
+# include "TopoDSToStep_MakeManifoldSolidBrep.nim"
+# include "TopoDSToStep_FacetedTool.nim"
+# include "TopoDSToStep_Builder.nim"
+# include "TopoDSToStep_BuilderError.nim"
+# include "TopoDSToStep_FacetedError.nim"
+# include "TopoDSToStep_MakeStepVertex.nim"
+# include "TopoDS_Iterator.nim"
+# include "TopoDS_TEdge.nim"
+# include "TopoDSToStep_MakeGeometricCurveSet.nim"
+# include "TopoDS_Builder.nim"
+# include "TopoDSToStep_MakeFacetedBrep.nim"
+# include "TopoDS_ListOfShape.nim"
+# include "TopoDS_ListIteratorOfListOfShape.nim"
+# include "TopoDS_Face.nim"
+
+import TopoDS_Shell
+
+# include "TopoDS_TShell.nim"
+# include "TopoDS_TCompound.nim"
+# include "TopoDS_FrozenShape.nim"
+# include "TopoDSToStep_MakeStepWire.nim"
+# include "TopoDSToStep_MakeBrepWithVoids.nim"
+
+
+export TopoDS_Edge, TopoDS, TopoDS_Shell

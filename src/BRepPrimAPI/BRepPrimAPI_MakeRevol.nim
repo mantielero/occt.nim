@@ -1,3 +1,8 @@
+import brepprimapi_types
+import ../gp/gp_types
+import ../BRepPrim/brepprim_types
+import ../TopoDS/topods_types
+
 {.push header: "BRepPrimAPI_MakeRevol.hxx".}
 
 
@@ -22,9 +27,10 @@ proc ` new`*(this: var BRepPrimAPI_MakeRevol, cint, theAddress: pointer)  {.impo
 
 proc ` delete`*(this: var BRepPrimAPI_MakeRevol, pointer, pointer)  {.importcpp: "#  delete #".}
 ]#
+#[FIXME
 proc revol*(this: BRepPrimAPI_MakeRevol): BRepSweep_Revol  {.importcpp: "Revol".}
   ## Returns the internal sweeping algorithm.
-
+]#
 proc build*(this: var BRepPrimAPI_MakeRevol)  {.importcpp: "Build".}
   ## Builds the resulting shape (redefined from MakeShape).
 
@@ -35,11 +41,12 @@ proc firstShape*(this: var BRepPrimAPI_MakeRevol): TopoDS_Shape  {.importcpp: "F
 proc lastShape*(this: var BRepPrimAPI_MakeRevol): TopoDS_Shape  {.importcpp: "LastShape".}
   ## Returns the TopoDS Shape of the end of the revol.
 
+#[FIXME
 proc generated*(this: var BRepPrimAPI_MakeRevol, S: TopoDS_Shape): TopTools_ListOfShape  {.importcpp: "Generated".}
   ## Returns list of shape generated from shape S Warning: shape S must be
   ## shape of type VERTEX, EDGE, FACE, SOLID. For shapes of other types
   ## method always returns empty list
-
+]#
 proc isDeleted*(this: var BRepPrimAPI_MakeRevol, S: TopoDS_Shape): bool  {.importcpp: "IsDeleted".}
   ## Returns true if the shape S has been deleted.
 
@@ -53,10 +60,10 @@ proc lastShape*(this: var BRepPrimAPI_MakeRevol, theShape: TopoDS_Shape): TopoDS
 
 proc hasDegenerated*(this: BRepPrimAPI_MakeRevol): bool  {.importcpp: "HasDegenerated".}
   ## Check if there are degenerated edges in the result.
-
+#[FIXME
 proc degenerated*(this: BRepPrimAPI_MakeRevol): TopTools_ListOfShape  {.importcpp: "Degenerated".}
   ## Returns the list of degenerated edges
-
+]#
 proc checkValidity*(this: var BRepPrimAPI_MakeRevol, theShape: TopoDS_Shape, theA: gp_Ax1): bool  {.importcpp: "CheckValidity".}
   ## Checks possibilities of producing self-intersection surface returns
   ## true if all surfaces are valid

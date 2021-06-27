@@ -1,82 +1,80 @@
 import brepbuilderapi_types
-
-
-type
-  BRepBuilderAPI_MakeFace* {.header: "BRepBuilderAPI_MakeFace.hxx", importcpp: "BRepBuilderAPI_MakeFace", byref.} = object #of class BRepBuilderAPI_MakeShape
-    ## Provides methods to build faces.
-
-
+import ../Standard/standard
+import ../TopoDS/topods_types
+import ../gp/gp_types
+import ../Geom/geom_types
 
 {.push header: "BRepBuilderAPI_MakeFace.hxx".}
 
-proc constructBRepBuilderAPI_MakeFace*(): BRepBuilderAPI_MakeFace {.constructor,importcpp: "BRepBuilderAPI_MakeFace::BRepBuilderAPI_MakeFace".}
+proc MakeFace*(): BRepBuilderAPI_MakeFace {.constructor,importcpp: "BRepBuilderAPI_MakeFace::BRepBuilderAPI_MakeFace".}
     ## Not done.
 
-proc constructBRepBuilderAPI_MakeFace*(F: TopoDS_Face): BRepBuilderAPI_MakeFace {.constructor,importcpp: "BRepBuilderAPI_MakeFace::BRepBuilderAPI_MakeFace(@)".}
+proc MakeFace*(F: TopoDS_Face): BRepBuilderAPI_MakeFace {.constructor,importcpp: "BRepBuilderAPI_MakeFace::BRepBuilderAPI_MakeFace(@)".}
     ## Load a face. Usefull to add wires.
 
-proc constructBRepBuilderAPI_MakeFace*(P: gp_Pln): BRepBuilderAPI_MakeFace {.constructor,importcpp: "BRepBuilderAPI_MakeFace::BRepBuilderAPI_MakeFace(@)".}
+proc MakeFace*(P: gp_Pln): BRepBuilderAPI_MakeFace {.constructor,importcpp: "BRepBuilderAPI_MakeFace::BRepBuilderAPI_MakeFace(@)".}
     ## Make a face from a plane.
 
-proc constructBRepBuilderAPI_MakeFace*(C: gp_Cylinder): BRepBuilderAPI_MakeFace {.constructor,importcpp: "BRepBuilderAPI_MakeFace::BRepBuilderAPI_MakeFace(@)".}
+proc MakeFace*(C: gp_Cylinder): BRepBuilderAPI_MakeFace {.constructor,importcpp: "BRepBuilderAPI_MakeFace::BRepBuilderAPI_MakeFace(@)".}
     ## Make a face from a cylinder.
 
-proc constructBRepBuilderAPI_MakeFace*(C: gp_Cone): BRepBuilderAPI_MakeFace {.constructor,importcpp: "BRepBuilderAPI_MakeFace::BRepBuilderAPI_MakeFace(@)".}
+proc MakeFace*(C: gp_Cone): BRepBuilderAPI_MakeFace {.constructor,importcpp: "BRepBuilderAPI_MakeFace::BRepBuilderAPI_MakeFace(@)".}
     ## Make a face from a cone.
 
-proc constructBRepBuilderAPI_MakeFace*(S: gp_Sphere): BRepBuilderAPI_MakeFace {.constructor,importcpp: "BRepBuilderAPI_MakeFace::BRepBuilderAPI_MakeFace(@)".}
+proc MakeFace*(S: gp_Sphere): BRepBuilderAPI_MakeFace {.constructor,importcpp: "BRepBuilderAPI_MakeFace::BRepBuilderAPI_MakeFace(@)".}
     ## Make a face from a sphere.
 
-proc constructBRepBuilderAPI_MakeFace*(C: gp_Torus): BRepBuilderAPI_MakeFace {.constructor,importcpp: "BRepBuilderAPI_MakeFace::BRepBuilderAPI_MakeFace(@)".}
+proc MakeFace*(C: gp_Torus): BRepBuilderAPI_MakeFace {.constructor,importcpp: "BRepBuilderAPI_MakeFace::BRepBuilderAPI_MakeFace(@)".}
     ## Make a face from a torus.
 
-proc constructBRepBuilderAPI_MakeFace*(S: handle[Geom_Surface], TolDegen: Standard_Real): BRepBuilderAPI_MakeFace {.constructor,importcpp: "BRepBuilderAPI_MakeFace::BRepBuilderAPI_MakeFace(@)".}
+proc MakeFace*(S: Handle[Geom_Surface], TolDegen: Standard_Real): BRepBuilderAPI_MakeFace {.constructor,importcpp: "BRepBuilderAPI_MakeFace::BRepBuilderAPI_MakeFace(@)".}
     ## Make a face from a Surface. Accepts tolerance value (TolDegen) for
     ## resolution of degenerated edges.
 
-proc constructBRepBuilderAPI_MakeFace*(P: gp_Pln, UMin: Standard_Real, UMax: Standard_Real, VMin: Standard_Real, VMax: Standard_Real): BRepBuilderAPI_MakeFace {.constructor,importcpp: "BRepBuilderAPI_MakeFace::BRepBuilderAPI_MakeFace(@)".}
+proc MakeFace*(P: gp_Pln, UMin: Standard_Real, UMax: Standard_Real, VMin: Standard_Real, VMax: Standard_Real): BRepBuilderAPI_MakeFace {.constructor,importcpp: "BRepBuilderAPI_MakeFace::BRepBuilderAPI_MakeFace(@)".}
     ## Make a face from a plane.
 
-proc constructBRepBuilderAPI_MakeFace*(C: gp_Cylinder, UMin: Standard_Real, UMax: Standard_Real, VMin: Standard_Real, VMax: Standard_Real): BRepBuilderAPI_MakeFace {.constructor,importcpp: "BRepBuilderAPI_MakeFace::BRepBuilderAPI_MakeFace(@)".}
+proc MakeFace*(C: gp_Cylinder, UMin: Standard_Real, UMax: Standard_Real, VMin: Standard_Real, VMax: Standard_Real): BRepBuilderAPI_MakeFace {.constructor,importcpp: "BRepBuilderAPI_MakeFace::BRepBuilderAPI_MakeFace(@)".}
     ## Make a face from a cylinder.
 
-proc constructBRepBuilderAPI_MakeFace*(C: gp_Cone, UMin: Standard_Real, UMax: Standard_Real, VMin: Standard_Real, VMax: Standard_Real): BRepBuilderAPI_MakeFace {.constructor,importcpp: "BRepBuilderAPI_MakeFace::BRepBuilderAPI_MakeFace(@)".}
+proc MakeFace*(C: gp_Cone, UMin: Standard_Real, UMax: Standard_Real, VMin: Standard_Real, VMax: Standard_Real): BRepBuilderAPI_MakeFace {.constructor,importcpp: "BRepBuilderAPI_MakeFace::BRepBuilderAPI_MakeFace(@)".}
     ## Make a face from a cone.
 
-proc constructBRepBuilderAPI_MakeFace*(S: gp_Sphere, UMin: Standard_Real, UMax: Standard_Real, VMin: Standard_Real, VMax: Standard_Real): BRepBuilderAPI_MakeFace {.constructor,importcpp: "BRepBuilderAPI_MakeFace::BRepBuilderAPI_MakeFace(@)".}
+proc MakeFace*(S: gp_Sphere, UMin: Standard_Real, UMax: Standard_Real, VMin: Standard_Real, VMax: Standard_Real): BRepBuilderAPI_MakeFace {.constructor,importcpp: "BRepBuilderAPI_MakeFace::BRepBuilderAPI_MakeFace(@)".}
     ## Make a face from a sphere.
 
-proc constructBRepBuilderAPI_MakeFace*(C: gp_Torus, UMin: Standard_Real, UMax: Standard_Real, VMin: Standard_Real, VMax: Standard_Real): BRepBuilderAPI_MakeFace {.constructor,importcpp: "BRepBuilderAPI_MakeFace::BRepBuilderAPI_MakeFace(@)".}
+proc MakeFace*(C: gp_Torus, UMin: Standard_Real, UMax: Standard_Real, VMin: Standard_Real, VMax: Standard_Real): BRepBuilderAPI_MakeFace {.constructor,importcpp: "BRepBuilderAPI_MakeFace::BRepBuilderAPI_MakeFace(@)".}
     ## Make a face from a torus.
 
-proc constructBRepBuilderAPI_MakeFace*(S: handle[Geom_Surface], UMin: Standard_Real, UMax: Standard_Real, VMin: Standard_Real, VMax: Standard_Real, TolDegen: Standard_Real): BRepBuilderAPI_MakeFace {.constructor,importcpp: "BRepBuilderAPI_MakeFace::BRepBuilderAPI_MakeFace(@)".}
+proc MakeFace*(S: Handle[Geom_Surface], UMin: Standard_Real, UMax: Standard_Real, VMin: Standard_Real, VMax: Standard_Real, TolDegen: Standard_Real): BRepBuilderAPI_MakeFace {.constructor,importcpp: "BRepBuilderAPI_MakeFace::BRepBuilderAPI_MakeFace(@)".}
     ## Make a face from a Surface. Accepts tolerance value (TolDegen) for
     ## resolution of degenerated edges.
 
-proc constructBRepBuilderAPI_MakeFace*(W: TopoDS_Wire, OnlyPlane: Standard_Boolean): BRepBuilderAPI_MakeFace {.constructor,importcpp: "BRepBuilderAPI_MakeFace::BRepBuilderAPI_MakeFace(@)".}
+#BRepBuilderAPI_MakeFace
+proc MakeFace*(W: TopoDS_Wire, OnlyPlane: Standard_Boolean = false): TopoDS_Face  {.constructor,importcpp: "BRepBuilderAPI_MakeFace::BRepBuilderAPI_MakeFace(@)".}
     ## Find a surface from the wire and make a face. if <OnlyPlane> is true,
     ## the computed surface will be a plane. If it is not possible to find a
     ## plane, the flag NotDone will be set.
 
-proc constructBRepBuilderAPI_MakeFace*(P: gp_Pln, W: TopoDS_Wire, Inside: Standard_Boolean): BRepBuilderAPI_MakeFace {.constructor,importcpp: "BRepBuilderAPI_MakeFace::BRepBuilderAPI_MakeFace(@)".}
+proc MakeFace*(P: gp_Pln, W: TopoDS_Wire, Inside: Standard_Boolean = true): BRepBuilderAPI_MakeFace {.constructor,importcpp: "BRepBuilderAPI_MakeFace::BRepBuilderAPI_MakeFace(@)".}
     ## Make a face from a plane and a wire.
 
-proc constructBRepBuilderAPI_MakeFace*(C: gp_Cylinder, W: TopoDS_Wire, Inside: Standard_Boolean): BRepBuilderAPI_MakeFace {.constructor,importcpp: "BRepBuilderAPI_MakeFace::BRepBuilderAPI_MakeFace(@)".}
+proc MakeFace*(C: gp_Cylinder, W: TopoDS_Wire, Inside: Standard_Boolean= true): BRepBuilderAPI_MakeFace {.constructor,importcpp: "BRepBuilderAPI_MakeFace::BRepBuilderAPI_MakeFace(@)".}
     ## Make a face from a cylinder and a wire.
 
-proc constructBRepBuilderAPI_MakeFace*(C: gp_Cone, W: TopoDS_Wire, Inside: Standard_Boolean): BRepBuilderAPI_MakeFace {.constructor,importcpp: "BRepBuilderAPI_MakeFace::BRepBuilderAPI_MakeFace(@)".}
+proc MakeFace*(C: gp_Cone, W: TopoDS_Wire, Inside: Standard_Boolean= true): BRepBuilderAPI_MakeFace {.constructor,importcpp: "BRepBuilderAPI_MakeFace::BRepBuilderAPI_MakeFace(@)".}
     ## Make a face from a cone and a wire.
 
-proc constructBRepBuilderAPI_MakeFace*(S: gp_Sphere, W: TopoDS_Wire, Inside: Standard_Boolean): BRepBuilderAPI_MakeFace {.constructor,importcpp: "BRepBuilderAPI_MakeFace::BRepBuilderAPI_MakeFace(@)".}
+proc MakeFace*(S: gp_Sphere, W: TopoDS_Wire, Inside: Standard_Boolean= true): BRepBuilderAPI_MakeFace {.constructor,importcpp: "BRepBuilderAPI_MakeFace::BRepBuilderAPI_MakeFace(@)".}
     ## Make a face from a sphere and a wire.
 
-proc constructBRepBuilderAPI_MakeFace*(C: gp_Torus, W: TopoDS_Wire, Inside: Standard_Boolean): BRepBuilderAPI_MakeFace {.constructor,importcpp: "BRepBuilderAPI_MakeFace::BRepBuilderAPI_MakeFace(@)".}
+proc MakeFace*(C: gp_Torus, W: TopoDS_Wire, Inside: Standard_Boolean= true): BRepBuilderAPI_MakeFace {.constructor,importcpp: "BRepBuilderAPI_MakeFace::BRepBuilderAPI_MakeFace(@)".}
     ## Make a face from a torus and a wire.
 
-proc constructBRepBuilderAPI_MakeFace*(S: handle[Geom_Surface], W: TopoDS_Wire, Inside: Standard_Boolean): BRepBuilderAPI_MakeFace {.constructor,importcpp: "BRepBuilderAPI_MakeFace::BRepBuilderAPI_MakeFace(@)".}
+proc MakeFace*(S: Handle[Geom_Surface], W: TopoDS_Wire, Inside: Standard_Boolean= true): BRepBuilderAPI_MakeFace {.constructor,importcpp: "BRepBuilderAPI_MakeFace::BRepBuilderAPI_MakeFace(@)".}
     ## Make a face from a Surface and a wire.
 
-proc constructBRepBuilderAPI_MakeFace*(F: TopoDS_Face, W: TopoDS_Wire): BRepBuilderAPI_MakeFace {.constructor,importcpp: "BRepBuilderAPI_MakeFace::BRepBuilderAPI_MakeFace(@)".}
+proc MakeFace*(F: TopoDS_Face, W: TopoDS_Wire): BRepBuilderAPI_MakeFace {.constructor,importcpp: "BRepBuilderAPI_MakeFace::BRepBuilderAPI_MakeFace(@)".}
     ## Adds the wire <W> in the face <F> A general method to create a face is
     ## to give - a surface S as the support (the geometric domain) of the
     ## face, - and a wire W to bound it. The bounds of the face can also be
@@ -132,7 +130,7 @@ proc init*(this: var BRepBuilderAPI_MakeFace, F: TopoDS_Face)  {.importcpp: "Ini
     ## is only required if you want to work on the geometries of the two
     ## faces independently.
 
-proc init*(this: var BRepBuilderAPI_MakeFace, S: handle[Geom_Surface], Bound: Standard_Boolean, TolDegen: Standard_Real)  {.importcpp: "Init".}
+proc init*(this: var BRepBuilderAPI_MakeFace, S: Handle[Geom_Surface], Bound: Standard_Boolean, TolDegen: Standard_Real)  {.importcpp: "Init".}
     ## Initializes (or reinitializes) the construction of a face on the
     ## surface S. If Bound is true, a wire is automatically created from the
     ## natural bounds of the surface S and added to the face in order to
@@ -142,7 +140,7 @@ proc init*(this: var BRepBuilderAPI_MakeFace, S: handle[Geom_Surface], Bound: St
     ## resolution of degenerated edges if calculation of natural bounds is
     ## turned on.
 
-proc init*(this: var BRepBuilderAPI_MakeFace, S: handle[Geom_Surface], UMin: Standard_Real, UMax: Standard_Real, VMin: Standard_Real, VMax: Standard_Real, TolDegen: Standard_Real)  {.importcpp: "Init".}
+proc init*(this: var BRepBuilderAPI_MakeFace, S: Handle[Geom_Surface], UMin: Standard_Real, UMax: Standard_Real, VMin: Standard_Real, VMax: Standard_Real, TolDegen: Standard_Real)  {.importcpp: "Init".}
     ## Initializes (or reinitializes) the construction of a face on the
     ## surface S, limited in the u parametric direction by the two parameter
     ## values UMin and UMax and in the v parametric direction by the two

@@ -1,3 +1,7 @@
+import ../TopoDS/topods_types
+import ../gp/gp_types
+import brepprimapi_types
+
 {.push header: "BRepPrimAPI_MakeHalfSpace.hxx".}
 
 

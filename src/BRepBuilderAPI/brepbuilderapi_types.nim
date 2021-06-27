@@ -1,12 +1,17 @@
 type
-  BRepBuilderAPI_Command* {.header: "BRepBuilderAPI_Command.hxx", importcpp: "BRepBuilderAPI_Command", byref.} = object of RootObj
+  BRepBuilderAPI_Command* {.header: "BRepBuilderAPI_Command.hxx", 
+      importcpp: "BRepBuilderAPI_Command", byref.} = object of RootObj
     ## Root class for all commands in BRepBuilderAPI.
 
-  BRepBuilderAPI_MakeShape* {.header: "BRepBuilderAPI_MakeShape.hxx", importcpp: "BRepBuilderAPI_MakeShape", byref.} = object of BRepBuilderAPI_Command
+  BRepBuilderAPI_MakeShape* {.header: "BRepBuilderAPI_MakeShape.hxx", 
+      importcpp: "BRepBuilderAPI_MakeShape", byref.} = object of BRepBuilderAPI_Command
     ## This is the root class for all shape constructions. It stores the
     ## result.
 
-  BRepBuilderAPI_ModifyShape* {.importcpp: "BRepBuilderAPI_ModifyShape", byref.} = object of BRepBuilderAPI_MakeShape
+
+  BRepBuilderAPI_ModifyShape* {.header: "BRepBuilderAPI_ModifyShape.hxx",
+      importcpp: "BRepBuilderAPI_ModifyShape",
+      byref.} = object of BRepBuilderAPI_MakeShape
     ## Implements the methods of MakeShape for the constant topology
     ## modifications. The methods are implemented when the modification uses
     ## a Modifier from BRepTools. Some of them have to be redefined if the
@@ -18,7 +23,20 @@ type
     ## geometric transformation to a shape, - BRepBuilderAPI_NurbsConvert to
     ## convert the whole geometry of a shape into NURBS geometry, -
     ## BRepOffsetAPI_DraftAngle to build a tapered shape.
+
+  BRepBuilderAPI_Transform* {.header: "BRepBuilderAPI_Transform.hxx",
+      importcpp: "BRepBuilderAPI_Transform",
+      byref.} = object of BRepBuilderAPI_ModifyShape
+    ## Geometric transformation on a shape. The transformation to be applied
+    ## is defined as a gp_Trsf transformation, i.e. a transformation which
+    ## does not modify the underlying geometry of shapes. The transformation
+    ## is applied to: - all curves which support edges of a shape, and - all
+    ## surfaces which support its faces. A Transform object provides a
+    ## framework for: - defining the geometric transformation to be applied,
+    ## - implementing the transformation algorithm, and - consulting the
+    ## results.
     
+
   BRepBuilderAPI_WireError* {.size:sizeof(cuint),header: "BRepBuilderAPI_WireError.hxx", importcpp: "BRepBuilderAPI_WireError", pure.} = enum
     ## Indicates the outcome of wire construction, i.e. whether it is
     ## successful or not, as explained below: - BRepBuilderAPI_WireDone No
@@ -92,7 +110,34 @@ type
     BRepBuilderAPI_DifferentsPointAndParameter = 5,
     BRepBuilderAPI_LineThroughIdenticPoints = 6
 
+  BRepBuilderAPI_MakeWire* {.header: "BRepBuilderAPI_MakeWire.hxx", importcpp: "BRepBuilderAPI_MakeWire", byref.} = object #of class BRepBuilderAPI_MakeShape
+    ## Describes functions to build wires from edges. A wire can be built
+    ## from any number of edges. To build a wire you first initialize the
+    ## construction, then add edges in sequence. An unlimited number of edges
+    ## can be added. The initialization of construction is done with: - no
+    ## edge (an empty wire), or - edges of an existing wire, or - up to four
+    ## connectable edges. In order to be added to a wire under construction,
+    ## an edge (unless it is the first one) must satisfy the following
+    ## condition: one of its vertices must be geometrically coincident with
+    ## one of the vertices of the wire (provided that the highest tolerance
+    ## factor is assigned to the two vertices). It could also be the same
+    ## vertex. - The given edge is shared by the wire if it contains: - two
+    ## vertices, identical to two vertices of the wire under construction (a
+    ## general case of the wire closure), or - one vertex, identical to a
+    ## vertex of the wire under construction; the other vertex not being
+    ## geometrically coincident with another vertex of the wire. - In other
+    ## cases, when one of the vertices of the edge is simply geometrically
+    ## coincident with a vertex of the wire under construction (provided that
+    ## the highest tolerance factor is assigned to the two vertices), the
+    ## given edge is first copied and the coincident vertex is replaced in
+    ## this new edge, by the coincident vertex of the wire. Note: it is
+    ## possible to build non manifold wires using this construction tool. A
+    ## MakeWire object provides a framework for: - initializing the
+    ## construction of a wire, - adding edges to the wire under construction,
+    ## and - consulting the result.
 
 
-
+  BRepBuilderAPI_MakeFace* {.header: "BRepBuilderAPI_MakeFace.hxx", 
+    importcpp: "BRepBuilderAPI_MakeFace", byref.} = object of BRepBuilderAPI_MakeShape
+    ## Provides methods to build faces.
 

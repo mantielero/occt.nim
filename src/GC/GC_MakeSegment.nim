@@ -1,4 +1,4 @@
-import ../gp/gp, ../Geom/geom
+import ../gp/gp, ../Geom/geom_types
 import gc_types
 {.push header: "GC_MakeSegment.hxx".}
 

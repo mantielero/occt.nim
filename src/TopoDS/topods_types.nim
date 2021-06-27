@@ -16,13 +16,6 @@ type
   ## A TShape is a topological structure describing a set of points in a 2D
   ## or 3D space.
 
-  TopoDS_Solid* {.header: "TopoDS_Solid.hxx", importcpp: "TopoDS_Solid", byref.} = object
-  ## Describes a solid shape which - references an underlying solid shape
-  ## with the potential to be given a location and an orientation - has a
-  ## location for the underlying shape, giving its placement in the local
-  ## coordinate system - has an orientation for the underlying shape, in
-  ## terms of its geometry (as opposed to orientation in relation to other
-  ## shapes).
 
   TopoDSToStep_MakeShellBasedSurfaceModel* {.header: "TopoDSToStep_MakeShellBasedSurfaceModel.hxx", importcpp: "TopoDSToStep_MakeShellBasedSurfaceModel", byref.} = object
   ## This class implements the mapping between classes Face, Shell or Solid
@@ -35,14 +28,7 @@ type
   TopoDS_HShape* {.header: "TopoDS_HShape.hxx", importcpp: "TopoDS_HShape", byref.} = object
   ## Class to manipulate a Shape with handle.
 
-  TopoDS_Compound* {.header: "TopoDS_Compound.hxx", importcpp: "TopoDS_Compound", byref.} = object
-  ## Describes a compound which - references an underlying compound with
-  ## the potential to be given a location and an orientation - has a
-  ## location for the underlying compound, giving its placement in the
-  ## local coordinate system - has an orientation for the underlying
-  ## compound, in terms of its geometry (as opposed to orientation in
-  ## relation to other shapes). Casts shape S to the more specialized
-  ## return type, Compound.
+
 
   TopoDSToStep* {.header: "TopoDSToStep.hxx", importcpp: "TopoDSToStep", byref.} = object
   ## This package implements the mapping between CAS.CAD Shape
@@ -55,33 +41,11 @@ type
   ## A topological part of a surface or of the 2D space. The boundary is a
   ## set of wires and vertices.
 
-  TopoDS_Vertex* {.header: "TopoDS_Vertex.hxx", importcpp: "TopoDS_Vertex", byref.} = object
-  ## Describes a vertex which - references an underlying vertex with the
-  ## potential to be given a location and an orientation - has a location
-  ## for the underlying vertex, giving its placement in the local
-  ## coordinate system - has an orientation for the underlying vertex, in
-  ## terms of its geometry (as opposed to orientation in relation to other
-  ## shapes).
 
   TopoDSToStep_Tool* {.header: "TopoDSToStep_Tool.hxx", importcpp: "TopoDSToStep_Tool", byref.} = object
   ## This Tool Class provides Information to build a ProSTEP Shape model
   ## from a Cas.Cad BRep.
 
-  TopoDS_Wire* {.header: "TopoDS_Wire.hxx", importcpp: "TopoDS_Wire", byref.} = object
-  ## Describes a wire which - references an underlying wire with the
-  ## potential to be given a location and an orientation - has a location
-  ## for the underlying wire, giving its placement in the local coordinate
-  ## system - has an orientation for the underlying wire, in terms of its
-  ## geometry (as opposed to orientation in relation to other shapes).
-
-  TopoDS_CompSolid* {.header: "TopoDS_CompSolid.hxx", importcpp: "TopoDS_CompSolid", byref.} = object
-  ## Describes a composite solid which - references an underlying composite
-  ## solid with the potential to be given a location and an orientation -
-  ## has a location for the underlying composite solid, giving its
-  ## placement in the local coordinate system - has an orientation for the
-  ## underlying composite solid, in terms of its geometry (as opposed to
-  ## orientation in relation to other shapes). Casts shape S to the more
-  ## specialized return type, CompSolid.
 
   TopoDSToStep_MakeStepFace* {.header: "TopoDSToStep_MakeStepFace.hxx", importcpp: "TopoDSToStep_MakeStepFace", byref.} = object
   ## This class implements the mapping between classes Face from TopoDS and
@@ -126,12 +90,7 @@ type
   ## This class implements the mapping between classes Edge from TopoDS and
   ## TopologicalRepresentationItem from StepShape.
 
-  TopoDS_Edge* {.header: "TopoDS_Edge.hxx", importcpp: "TopoDS_Edge", byref.} = object
-  ## Describes an edge which - references an underlying edge with the
-  ## potential to be given a location and an orientation - has a location
-  ## for the underlying edge, giving its placement in the local coordinate
-  ## system - has an orientation for the underlying edge, in terms of its
-  ## geometry (as opposed to orientation in relation to other shapes).
+
 
   TopoDS* {.header: "TopoDS.hxx", importcpp: "TopoDS", byref.} = object
   ## Provides methods to cast objects of class TopoDS_Shape to be onjects
@@ -139,7 +98,8 @@ type
   ## example below, the first two blocks are correct but the third is
   ## rejected by the compiler.
 
-  TopoDS_Shape* {.header: "TopoDS_Shape.hxx", importcpp: "TopoDS_Shape", byref.} = object
+  # Object hierarchy
+  TopoDS_Shape* {.header: "TopoDS_Shape.hxx", importcpp: "TopoDS_Shape", byref.} = object of RootObj
   ## Describes a shape which - references an underlying shape with the
   ## potential to be given a location and an orientation - has a location
   ## for the underlying shape, giving its placement in the local coordinate
@@ -147,6 +107,71 @@ type
   ## geometry (as opposed to orientation in relation to other shapes).
   ## Note: A Shape is empty if it references an underlying shape which has
   ## an empty list of shapes.
+
+  TopoDS_Compound* {.header: "TopoDS_Compound.hxx", importcpp: "TopoDS_Compound", byref.} = object of TopoDS_Shape
+  ## Describes a compound which - references an underlying compound with
+  ## the potential to be given a location and an orientation - has a
+  ## location for the underlying compound, giving its placement in the
+  ## local coordinate system - has an orientation for the underlying
+  ## compound, in terms of its geometry (as opposed to orientation in
+  ## relation to other shapes). Casts shape S to the more specialized
+  ## return type, Compound.
+
+  TopoDS_CompSolid* {.header: "TopoDS_CompSolid.hxx", importcpp: "TopoDS_CompSolid", byref.} = object of TopoDS_Shape
+  ## Describes a composite solid which - references an underlying composite
+  ## solid with the potential to be given a location and an orientation -
+  ## has a location for the underlying composite solid, giving its
+  ## placement in the local coordinate system - has an orientation for the
+  ## underlying composite solid, in terms of its geometry (as opposed to
+  ## orientation in relation to other shapes). Casts shape S to the more
+  ## specialized return type, CompSolid.
+
+  TopoDS_Edge* {.header: "TopoDS_Edge.hxx", importcpp: "TopoDS_Edge", byref.} = object of TopoDS_Shape
+  ## Describes an edge which - references an underlying edge with the
+  ## potential to be given a location and an orientation - has a location
+  ## for the underlying edge, giving its placement in the local coordinate
+  ## system - has an orientation for the underlying edge, in terms of its
+  ## geometry (as opposed to orientation in relation to other shapes).
+
+  TopoDS_Face* {.header: "TopoDS_Face.hxx", importcpp: "TopoDS_Face", byref.} = object of TopoDS_Shape
+  ## Describes a face which - references an underlying face with the
+  ## potential to be given a location and an orientation - has a location
+  ## for the underlying face, giving its placement in the local coordinate
+  ## system - has an orientation for the underlying face, in terms of its
+  ## geometry (as opposed to orientation in relation to other shapes).
+
+  TopoDS_Shell* {.header: "TopoDS_Shell.hxx", importcpp: "TopoDS_Shell", byref.} = object of TopoDS_Shape
+  ## Describes a shell which - references an underlying shell with the
+  ## potential to be given a location and an orientation - has a location
+  ## for the underlying shell, giving its placement in the local coordinate
+  ## system - has an orientation for the underlying shell, in terms of its
+  ## geometry (as opposed to orientation in relation to other shapes).
+
+
+  TopoDS_Solid* {.header: "TopoDS_Solid.hxx", importcpp: "TopoDS_Solid", byref.} = object of TopoDS_Shape
+  ## Describes a solid shape which - references an underlying solid shape
+  ## with the potential to be given a location and an orientation - has a
+  ## location for the underlying shape, giving its placement in the local
+  ## coordinate system - has an orientation for the underlying shape, in
+  ## terms of its geometry (as opposed to orientation in relation to other
+  ## shapes).
+
+
+  TopoDS_Vertex* {.header: "TopoDS_Vertex.hxx", importcpp: "TopoDS_Vertex", byref.} = object of TopoDS_Shape
+  ## Describes a vertex which - references an underlying vertex with the
+  ## potential to be given a location and an orientation - has a location
+  ## for the underlying vertex, giving its placement in the local
+  ## coordinate system - has an orientation for the underlying vertex, in
+  ## terms of its geometry (as opposed to orientation in relation to other
+  ## shapes).
+
+  TopoDS_Wire* {.header: "TopoDS_Wire.hxx", importcpp: "TopoDS_Wire", byref.} = object of TopoDS_Shape
+  ## Describes a wire which - references an underlying wire with the
+  ## potential to be given a location and an orientation - has a location
+  ## for the underlying wire, giving its placement in the local coordinate
+  ## system - has an orientation for the underlying wire, in terms of its
+  ## geometry (as opposed to orientation in relation to other shapes).
+
 
   Handle_TopoDS_UnCompatibleShapes* {.header: "TopoDS_UnCompatibleShapes.hxx", importcpp: "Handle_TopoDS_UnCompatibleShapes".} = Handle[TopoDS_UnCompatibleShapes]
   #base_type* {.header: "TopoDS_UnCompatibleShapes.hxx", importcpp: "base_type".} = Standard_DomainError
@@ -200,19 +225,9 @@ type
 
   #TopoDS_ListOfShape* {.header: "TopoDS_ListOfShape.hxx", importcpp: "TopoDS_ListOfShape".} = NCollection_List<TopoDS_Shape>
   #TopoDS_ListIteratorOfListOfShape* {.header: "TopoDS_ListOfShape.hxx", importcpp: "TopoDS_ListIteratorOfListOfShape".} = cint
-  TopoDS_Face* {.header: "TopoDS_Face.hxx", importcpp: "TopoDS_Face", byref.} = object
-  ## Describes a face which - references an underlying face with the
-  ## potential to be given a location and an orientation - has a location
-  ## for the underlying face, giving its placement in the local coordinate
-  ## system - has an orientation for the underlying face, in terms of its
-  ## geometry (as opposed to orientation in relation to other shapes).
 
-  TopoDS_Shell* {.header: "TopoDS_Shell.hxx", importcpp: "TopoDS_Shell", byref.} = object
-  ## Describes a shell which - references an underlying shell with the
-  ## potential to be given a location and an orientation - has a location
-  ## for the underlying shell, giving its placement in the local coordinate
-  ## system - has an orientation for the underlying shell, in terms of its
-  ## geometry (as opposed to orientation in relation to other shapes).
+
+
 
   Handle_TopoDS_TShell* {.header: "TopoDS_TShell.hxx", importcpp: "Handle_TopoDS_TShell".} = Handle[TopoDS_TShell]
   #base_type* {.header: "TopoDS_TShell.hxx", importcpp: "base_type".} = TopoDS_TShape

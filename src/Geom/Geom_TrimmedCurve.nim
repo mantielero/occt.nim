@@ -4,18 +4,6 @@ import ../Standard/standard
 #type
 #  Handle {.importcpp: "opencascade::Handle", header: "<map>".} [K] = object
 
-type
-  Geom_TrimmedCurve* {.header: "Geom_TrimmedCurve.hxx", importcpp: "Geom_TrimmedCurve", byref.} = object #of class Geom_BoundedCurve
-    ## Describes a portion of a curve (termed the "basis curve") limited by
-    ## two parameter values inside the parametric domain of the basis curve.
-    ## The trimmed curve is defined by: - the basis curve, and - the two
-    ## parameter values which limit it. The trimmed curve can either have the
-    ## same orientation as the basis curve or the opposite orientation.
-
-  Handle_Geom_TrimmedCurve* {.header: "Geom_TrimmedCurve.hxx", importcpp: "Handle_Geom_TrimmedCurve".} = Handle[Geom_TrimmedCurve]
-  #Base_type* {.header: "Geom_TrimmedCurve.hxx", importcpp: "Geom_TrimmedCurve::base_type".} = Geom_BoundedCurve
-
-
 {.push header: "Geom_TrimmedCurve.hxx".}
 
 proc constructGeom_TrimmedCurve*(C: Handle[Geom_Curve], U1: cdouble, U2: cdouble, Sense: bool, theAdjustPeriodic: bool): Geom_TrimmedCurve {.constructor,importcpp: "Geom_TrimmedCurve::Geom_TrimmedCurve(@)".}

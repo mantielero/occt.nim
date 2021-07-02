@@ -1,0 +1,115 @@
+## !!!Ignored construct:  typedef unsigned char __u_char ;
+## Error: identifier expected, but got: ;!!!
+
+## !!!Ignored construct:  typedef unsigned short int __u_short ;
+## Error: identifier expected, but got: ;!!!
+
+## !!!Ignored construct:  typedef unsigned int __u_int ;
+## Error: identifier expected, but got: ;!!!
+
+## !!!Ignored construct:  typedef unsigned long int __u_long ;
+## Error: identifier expected, but got: ;!!!
+
+## !!!Ignored construct:  typedef signed char __int8_t ;
+## Error: identifier expected, but got: ;!!!
+
+## !!!Ignored construct:  typedef unsigned char __uint8_t ;
+## Error: identifier expected, but got: ;!!!
+
+## !!!Ignored construct:  typedef signed short int __int16_t ;
+## Error: identifier expected, but got: ;!!!
+
+## !!!Ignored construct:  typedef unsigned short int __uint16_t ;
+## Error: identifier expected, but got: ;!!!
+
+## !!!Ignored construct:  typedef signed int __int32_t ;
+## Error: identifier expected, but got: ;!!!
+
+## !!!Ignored construct:  typedef unsigned int __uint32_t ;
+## Error: identifier expected, but got: ;!!!
+
+## !!!Ignored construct:  typedef signed long int __int64_t ;
+## Error: identifier expected, but got: ;!!!
+
+## !!!Ignored construct:  typedef unsigned long int __uint64_t ;
+## Error: identifier expected, but got: ;!!!
+
+## !!!Ignored construct:  typedef __int8_t __int_least8_t ;
+## Error: identifier expected, but got: ;!!!
+
+## !!!Ignored construct:  typedef __uint8_t __uint_least8_t ;
+## Error: identifier expected, but got: ;!!!
+
+## !!!Ignored construct:  typedef __int16_t __int_least16_t ;
+## Error: identifier expected, but got: ;!!!
+
+## !!!Ignored construct:  typedef __uint16_t __uint_least16_t ;
+## Error: identifier expected, but got: ;!!!
+
+## !!!Ignored construct:  typedef __int32_t __int_least32_t ;
+## Error: identifier expected, but got: ;!!!
+
+## !!!Ignored construct:  typedef __uint32_t __uint_least32_t ;
+## Error: identifier expected, but got: ;!!!
+
+## !!!Ignored construct:  typedef __int64_t __int_least64_t ;
+## Error: identifier expected, but got: ;!!!
+
+## !!!Ignored construct:  typedef __uint64_t __uint_least64_t ;
+## Error: identifier expected, but got: ;!!!
+
+## !!!Ignored construct:  typedef long int __quad_t ;
+## Error: identifier expected, but got: ;!!!
+
+## !!!Ignored construct:  typedef unsigned long int __u_quad_t ;
+## Error: identifier expected, but got: ;!!!
+
+## !!!Ignored construct:  typedef long int __intmax_t ;
+## Error: identifier expected, but got: ;!!!
+
+## !!!Ignored construct:  typedef unsigned long int __uintmax_t ;
+## Error: identifier expected, but got: ;!!!
+
+## !!!Ignored construct:  typedef unsigned long int __dev_t ;
+## Error: identifier expected, but got: ;!!!
+
+## !!!Ignored construct:  typedef unsigned int __uid_t ;
+## Error: identifier expected, but got: ;!!!
+
+## !!!Ignored construct:  typedef unsigned int __gid_t ;
+## Error: identifier expected, but got: ;!!!
+
+## !!!Ignored construct:  typedef unsigned long int __ino_t ;
+## Error: identifier expected, but got: ;!!!
+
+## !!!Ignored construct:  typedef unsigned long int __ino64_t ;
+## Error: identifier expected, but got: ;!!!
+
+## !!!Ignored construct:  typedef unsigned int __mode_t ;
+## Error: identifier expected, but got: ;!!!
+
+## !!!Ignored construct:  typedef unsigned long int __nlink_t ;
+## Error: identifier expected, but got: ;!!!
+
+## !!!Ignored construct:  typedef long int __off_t ;
+## Error: identifier expected, but got: ;!!!
+
+## !!!Ignored construct:  typedef long int __off64_t ;
+## Error: identifier expected, but got: ;!!!
+
+## !!!Ignored construct:  typedef int __pid_t ;
+## Error: identifier expected, but got: ;!!!
+
+## !!!Ignored construct:  typedef struct { int __val [ 2 ] ; } __fsid_t ;
+## Error: identifier expected, but got: ;!!!
+
+## !!!Ignored construct:  typedef long int __clock_t ;
+## Error: identifier expected, but got: ;!!!
+
+## !!!Ignored construct:  typedef unsigned long int __rlim_t ;
+## Error: identifier expected, but got: ;!!!
+
+## !!!Ignored construct:  typedef unsigned long int __rlim64_t ;
+## Error: identifier expected, but got: ;!!!
+
+## !!!Ignored construct:  typedef un

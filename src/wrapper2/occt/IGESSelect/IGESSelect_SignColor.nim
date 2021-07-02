@@ -1,0 +1,87 @@
+##  Created on: 2001-03-06
+##  Created by: Christian CAILLET
+##  Copyright (c) 2001-2014 OPEN CASCADE SAS
+##
+##  This file is part of Open CASCADE Technology software library.
+##
+##  This library is free software; you can redistribute it and/or modify it under
+##  the terms of the GNU Lesser General Public License version 2.1 as published
+##  by the Free Software Foundation, with special exception defined in the file
+##  OCCT_LGPL_EXCEPTION.txt. Consult the file LICENSE_LGPL_21.txt included in OCCT
+##  distribution for complete text of the license and disclaimer of any warranty.
+##
+##  Alternatively, this file may be used under the terms of Open CASCADE
+##  commercial license or contractual agreement.
+
+discard "forward decl of Standard_Transient"
+discard "forward decl of Interface_InterfaceModel"
+discard "forward decl of IGESSelect_SignColor"
+discard "forward decl of IGESSelect_SignColor"
+type
+  HandleIGESSelectSignColor* = Handle[IGESSelectSignColor]
+
+## ! Gives Color attached to an entity
+## ! Several forms are possible, according to <mode>
+## ! 1 : number : "Dnn" for entity, "Snn" for standard, "(none)" for 0
+## ! 2 : name : Of standard color, or of the color entity, or "(none)"
+## ! (if the color entity has no name, its label is taken)
+## ! 3 : RGB values, form R:nn,G:nn,B:nn
+## ! 4 : RED value   : an integer
+## ! 5 : GREEN value : an integer
+## ! 6 : BLUE value  : an integer
+## ! Other computable values can be added if needed :
+## ! CMY values, Percentages for Hue, Lightness, Saturation
+
+type
+  IGESSelectSignColor* {.importcpp: "IGESSelect_SignColor",
+                        header: "IGESSelect_SignColor.hxx", bycopy.} = object of IFSelectSignature ##
+                                                                                            ## !
+                                                                                            ## Creates
+                                                                                            ## a
+                                                                                            ## SignColor
+                                                                                            ##
+                                                                                            ## !
+                                                                                            ## mode
+                                                                                            ## :
+                                                                                            ## see
+                                                                                            ## above
+                                                                                            ## for
+                                                                                            ## the
+                                                                                            ## meaning
+                                                                                            ##
+                                                                                            ## !
+                                                                                            ## modes
+                                                                                            ## 4,5,6
+                                                                                            ## give
+                                                                                            ## a
+                                                                                            ## numeric
+                                                                                            ## integer
+                                                                                            ## value
+                                                                                            ##
+                                                                                            ## !
+                                                                                            ## Name
+                                                                                            ## is
+                                                                                            ## initialised
+                                                                                            ## according
+                                                                                            ## to
+                                                                                            ## the
+                                                                                            ## mode
+
+
+proc constructIGESSelectSignColor*(mode: StandardInteger): IGESSelectSignColor {.
+    constructor, importcpp: "IGESSelect_SignColor(@)",
+    header: "IGESSelect_SignColor.hxx".}
+proc value*(this: IGESSelectSignColor; ent: Handle[StandardTransient];
+           model: Handle[InterfaceInterfaceModel]): StandardCString {.noSideEffect,
+    importcpp: "Value", header: "IGESSelect_SignColor.hxx".}
+type
+  IGESSelectSignColorbaseType* = IFSelectSignature
+
+proc getTypeName*(): cstring {.importcpp: "IGESSelect_SignColor::get_type_name(@)",
+                            header: "IGESSelect_SignColor.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
+    importcpp: "IGESSelect_SignColor::get_type_descriptor(@)",
+    header: "IGESSelect_SignColor.hxx".}
+proc dynamicType*(this: IGESSelectSignColor): Handle[StandardType] {.noSideEffect,
+    importcpp: "DynamicType", header: "IGESSelect_SignColor.hxx".}
+

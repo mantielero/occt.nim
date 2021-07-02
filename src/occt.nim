@@ -143,9 +143,8 @@ export gc
 ]#
 
 # - TKFillet
-#[
 # exec "nimgen BRepBlend
-# exec "nimgen BRepFilletAPI
+import BRepFilletAPI/brepfilletapi
 # exec "nimgen Blend
 # exec "nimgen BlendFunc
 # exec "nimgen ChFi2d
@@ -153,7 +152,7 @@ export gc
 # exec "nimgen ChFiDS
 # exec "nimgen ChFiKPart
 # exec "nimgen FilletSurf
-]#
+export brepfilletapi
 
 # - TKGeomAlgo
 #include tkGeomBase/tkgeombase

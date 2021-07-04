@@ -4,4 +4,5 @@
 .note
 *~
 src/wrapper2/headers/*
+src/wrapper2/temp/*
 src/wrapper2/acme.py

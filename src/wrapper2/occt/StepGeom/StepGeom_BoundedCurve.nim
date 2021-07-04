@@ -1,0 +1,43 @@
+##  Created on: 1995-12-01
+##  Created by: EXPRESS->CDL V0.2 Translator
+##  Copyright (c) 1995-1999 Matra Datavision
+##  Copyright (c) 1999-2014 OPEN CASCADE SAS
+##
+##  This file is part of Open CASCADE Technology software library.
+##
+##  This library is free software; you can redistribute it and/or modify it under
+##  the terms of the GNU Lesser General Public License version 2.1 as published
+##  by the Free Software Foundation, with special exception defined in the file
+##  OCCT_LGPL_EXCEPTION.txt. Consult the file LICENSE_LGPL_21.txt included in OCCT
+##  distribution for complete text of the license and disclaimer of any warranty.
+##
+##  Alternatively, this file may be used under the terms of Open CASCADE
+##  commercial license or contractual agreement.
+
+import
+  ../Standard/Standard, ../Standard/Standard_Type, StepGeom_Curve
+
+discard "forward decl of StepGeom_BoundedCurve"
+discard "forward decl of StepGeom_BoundedCurve"
+type
+  Handle_StepGeom_BoundedCurve* = handle[StepGeom_BoundedCurve]
+  StepGeom_BoundedCurve* {.importcpp: "StepGeom_BoundedCurve",
+                          header: "StepGeom_BoundedCurve.hxx", bycopy.} = object of StepGeom_Curve ##
+                                                                                            ## !
+                                                                                            ## Returns
+                                                                                            ## a
+                                                                                            ## BoundedCurve
+
+
+proc constructStepGeom_BoundedCurve*(): StepGeom_BoundedCurve {.constructor,
+    importcpp: "StepGeom_BoundedCurve(@)", header: "StepGeom_BoundedCurve.hxx".}
+type
+  StepGeom_BoundedCurvebase_type* = StepGeom_Curve
+
+proc get_type_name*(): cstring {.importcpp: "StepGeom_BoundedCurve::get_type_name(@)",
+                              header: "StepGeom_BoundedCurve.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
+    importcpp: "StepGeom_BoundedCurve::get_type_descriptor(@)",
+    header: "StepGeom_BoundedCurve.hxx".}
+proc DynamicType*(this: StepGeom_BoundedCurve): handle[Standard_Type] {.
+    noSideEffect, importcpp: "DynamicType", header: "StepGeom_BoundedCurve.hxx".}

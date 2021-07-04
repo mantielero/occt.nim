@@ -12,7 +12,8 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../NCollection/NCollection_Vector, BOPDS_ShapeInfo
+
 type
-  BOPDS_VectorOfShapeInfo* = NCollectionVector[BOPDS_ShapeInfo]
-
-
+  BOPDS_VectorOfShapeInfo* = NCollection_Vector[BOPDS_ShapeInfo]

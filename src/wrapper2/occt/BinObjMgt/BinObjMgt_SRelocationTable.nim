@@ -13,7 +13,8 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../TColStd/TColStd_IndexedMapOfTransient
+
 type
-  BinObjMgtSRelocationTable* = TColStdIndexedMapOfTransient
-
-
+  BinObjMgt_SRelocationTable* = TColStd_IndexedMapOfTransient

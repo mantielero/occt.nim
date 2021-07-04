@@ -13,11 +13,14 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  OpenGl_Texture, OpenGl_HaltonSampler, ../Image/Image_PixMapTypedData
+
 discard "forward decl of Graphic3d_RenderingParams"
 type
-  OpenGlTileSampler* {.importcpp: "OpenGl_TileSampler",
-                      header: "OpenGl_TileSampler.hxx", bycopy.} = object ## ! Creates new tile sampler.
-                                                                     ## ! Returns number of pixels in the given tile.
+  OpenGl_TileSampler* {.importcpp: "OpenGl_TileSampler",
+                       header: "OpenGl_TileSampler.hxx", bycopy.} = object ## ! Creates new tile sampler.
+                                                                      ## ! Returns number of pixels in the given tile.
     ## !< number of samples per tile (initially all 1)
     ## !< number of samples for all pixels within the tile (initially equals to Tile area)
     ## !< Estimation of visual error per tile
@@ -32,45 +35,46 @@ type
     ## !< ray-tracing viewport
 
 
-proc constructOpenGlTileSampler*(): OpenGlTileSampler {.constructor,
+proc constructOpenGl_TileSampler*(): OpenGl_TileSampler {.constructor,
     importcpp: "OpenGl_TileSampler(@)", header: "OpenGl_TileSampler.hxx".}
-proc tileSize*(this: OpenGlTileSampler): Graphic3dVec2i {.noSideEffect,
+proc TileSize*(this: OpenGl_TileSampler): Graphic3d_Vec2i {.noSideEffect,
     importcpp: "TileSize", header: "OpenGl_TileSampler.hxx".}
-proc varianceScaleFactor*(this: OpenGlTileSampler): cfloat {.noSideEffect,
+proc VarianceScaleFactor*(this: OpenGl_TileSampler): cfloat {.noSideEffect,
     importcpp: "VarianceScaleFactor", header: "OpenGl_TileSampler.hxx".}
-proc nbTilesX*(this: OpenGlTileSampler): cint {.noSideEffect, importcpp: "NbTilesX",
+proc NbTilesX*(this: OpenGl_TileSampler): cint {.noSideEffect, importcpp: "NbTilesX",
     header: "OpenGl_TileSampler.hxx".}
-proc nbTilesY*(this: OpenGlTileSampler): cint {.noSideEffect, importcpp: "NbTilesY",
+proc NbTilesY*(this: OpenGl_TileSampler): cint {.noSideEffect, importcpp: "NbTilesY",
     header: "OpenGl_TileSampler.hxx".}
-proc nbTiles*(this: OpenGlTileSampler): cint {.noSideEffect, importcpp: "NbTiles",
+proc NbTiles*(this: OpenGl_TileSampler): cint {.noSideEffect, importcpp: "NbTiles",
     header: "OpenGl_TileSampler.hxx".}
-proc viewSize*(this: OpenGlTileSampler): Graphic3dVec2i {.noSideEffect,
+proc ViewSize*(this: OpenGl_TileSampler): Graphic3d_Vec2i {.noSideEffect,
     importcpp: "ViewSize", header: "OpenGl_TileSampler.hxx".}
-proc nbOffsetTiles*(this: OpenGlTileSampler; theAdaptive: bool): Graphic3dVec2i {.
+proc NbOffsetTiles*(this: OpenGl_TileSampler; theAdaptive: bool): Graphic3d_Vec2i {.
     noSideEffect, importcpp: "NbOffsetTiles", header: "OpenGl_TileSampler.hxx".}
-proc nbOffsetTilesMax*(this: OpenGlTileSampler): Graphic3dVec2i {.noSideEffect,
+proc NbOffsetTilesMax*(this: OpenGl_TileSampler): Graphic3d_Vec2i {.noSideEffect,
     importcpp: "NbOffsetTilesMax", header: "OpenGl_TileSampler.hxx".}
-proc offsetTilesViewport*(this: OpenGlTileSampler; theAdaptive: bool): Graphic3dVec2i {.
+proc OffsetTilesViewport*(this: OpenGl_TileSampler; theAdaptive: bool): Graphic3d_Vec2i {.
     noSideEffect, importcpp: "OffsetTilesViewport",
     header: "OpenGl_TileSampler.hxx".}
-proc offsetTilesViewportMax*(this: OpenGlTileSampler): Graphic3dVec2i {.
+proc OffsetTilesViewportMax*(this: OpenGl_TileSampler): Graphic3d_Vec2i {.
     noSideEffect, importcpp: "OffsetTilesViewportMax",
     header: "OpenGl_TileSampler.hxx".}
-proc maxTileSamples*(this: OpenGlTileSampler): cint {.noSideEffect,
+proc MaxTileSamples*(this: OpenGl_TileSampler): cint {.noSideEffect,
     importcpp: "MaxTileSamples", header: "OpenGl_TileSampler.hxx".}
-proc setSize*(this: var OpenGlTileSampler; theParams: Graphic3dRenderingParams;
-             theSize: Graphic3dVec2i) {.importcpp: "SetSize",
-                                      header: "OpenGl_TileSampler.hxx".}
-proc grabVarianceMap*(this: var OpenGlTileSampler;
-                     theContext: Handle[OpenGlContext];
-                     theTexture: Handle[OpenGlTexture]) {.
-    importcpp: "GrabVarianceMap", header: "OpenGl_TileSampler.hxx".}
-proc reset*(this: var OpenGlTileSampler) {.importcpp: "Reset",
+proc SetSize*(this: var OpenGl_TileSampler; theParams: Graphic3d_RenderingParams;
+             theSize: Graphic3d_Vec2i) {.importcpp: "SetSize",
                                        header: "OpenGl_TileSampler.hxx".}
-proc uploadSamples*(this: var OpenGlTileSampler; theContext: Handle[OpenGlContext];
-                   theSamplesTexture: Handle[OpenGlTexture]; theAdaptive: bool): bool {.
+proc GrabVarianceMap*(this: var OpenGl_TileSampler;
+                     theContext: handle[OpenGl_Context];
+                     theTexture: handle[OpenGl_Texture]) {.
+    importcpp: "GrabVarianceMap", header: "OpenGl_TileSampler.hxx".}
+proc Reset*(this: var OpenGl_TileSampler) {.importcpp: "Reset",
+                                        header: "OpenGl_TileSampler.hxx".}
+proc UploadSamples*(this: var OpenGl_TileSampler;
+                   theContext: handle[OpenGl_Context];
+                   theSamplesTexture: handle[OpenGl_Texture]; theAdaptive: bool): bool {.
     importcpp: "UploadSamples", header: "OpenGl_TileSampler.hxx".}
-proc uploadOffsets*(this: var OpenGlTileSampler; theContext: Handle[OpenGlContext];
-                   theOffsetsTexture: Handle[OpenGlTexture]; theAdaptive: bool): bool {.
+proc UploadOffsets*(this: var OpenGl_TileSampler;
+                   theContext: handle[OpenGl_Context];
+                   theOffsetsTexture: handle[OpenGl_Texture]; theAdaptive: bool): bool {.
     importcpp: "UploadOffsets", header: "OpenGl_TileSampler.hxx".}
-

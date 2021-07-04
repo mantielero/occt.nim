@@ -14,6 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, GeomToStep_Root
+
 discard "forward decl of StepGeom_Line"
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of gp_Lin"
@@ -21,20 +25,19 @@ discard "forward decl of gp_Lin2d"
 discard "forward decl of Geom_Line"
 discard "forward decl of Geom2d_Line"
 type
-  GeomToStepMakeLine* {.importcpp: "GeomToStep_MakeLine",
-                       header: "GeomToStep_MakeLine.hxx", bycopy.} = object of GeomToStepRoot
+  GeomToStep_MakeLine* {.importcpp: "GeomToStep_MakeLine",
+                        header: "GeomToStep_MakeLine.hxx", bycopy.} = object of GeomToStep_Root
 
 
-proc constructGeomToStepMakeLine*(L: GpLin): GeomToStepMakeLine {.constructor,
+proc constructGeomToStep_MakeLine*(L: gp_Lin): GeomToStep_MakeLine {.constructor,
     importcpp: "GeomToStep_MakeLine(@)", header: "GeomToStep_MakeLine.hxx".}
-proc constructGeomToStepMakeLine*(L: GpLin2d): GeomToStepMakeLine {.constructor,
+proc constructGeomToStep_MakeLine*(L: gp_Lin2d): GeomToStep_MakeLine {.constructor,
     importcpp: "GeomToStep_MakeLine(@)", header: "GeomToStep_MakeLine.hxx".}
-proc constructGeomToStepMakeLine*(c: Handle[GeomLine]): GeomToStepMakeLine {.
+proc constructGeomToStep_MakeLine*(C: handle[Geom_Line]): GeomToStep_MakeLine {.
     constructor, importcpp: "GeomToStep_MakeLine(@)",
     header: "GeomToStep_MakeLine.hxx".}
-proc constructGeomToStepMakeLine*(c: Handle[Geom2dLine]): GeomToStepMakeLine {.
+proc constructGeomToStep_MakeLine*(C: handle[Geom2d_Line]): GeomToStep_MakeLine {.
     constructor, importcpp: "GeomToStep_MakeLine(@)",
     header: "GeomToStep_MakeLine.hxx".}
-proc value*(this: GeomToStepMakeLine): Handle[StepGeomLine] {.noSideEffect,
+proc Value*(this: GeomToStep_MakeLine): handle[StepGeom_Line] {.noSideEffect,
     importcpp: "Value", header: "GeomToStep_MakeLine.hxx".}
-

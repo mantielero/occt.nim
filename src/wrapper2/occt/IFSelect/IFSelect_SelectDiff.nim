@@ -14,52 +14,55 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, IFSelect_SelectControl,
+  ../Standard/Standard_Boolean
+
 discard "forward decl of Interface_EntityIterator"
 discard "forward decl of Interface_Graph"
 discard "forward decl of TCollection_AsciiString"
 discard "forward decl of IFSelect_SelectDiff"
 discard "forward decl of IFSelect_SelectDiff"
 type
-  HandleIFSelectSelectDiff* = Handle[IFSelectSelectDiff]
+  Handle_IFSelect_SelectDiff* = handle[IFSelect_SelectDiff]
 
 ## ! A SelectDiff keeps the entities from a Selection, the Main
 ## ! Input, which are not listed by the Second Input
 
 type
-  IFSelectSelectDiff* {.importcpp: "IFSelect_SelectDiff",
-                       header: "IFSelect_SelectDiff.hxx", bycopy.} = object of IFSelectSelectControl ##
-                                                                                              ## !
-                                                                                              ## Creates
-                                                                                              ## an
-                                                                                              ## empty
-                                                                                              ## SelectDiff
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ## Returns
-                                                                                              ## always
-                                                                                              ## True,
-                                                                                              ## because
-                                                                                              ## RootResult
-                                                                                              ## gives
-                                                                                              ## a
-                                                                                              ## Unique
-                                                                                              ## list
+  IFSelect_SelectDiff* {.importcpp: "IFSelect_SelectDiff",
+                        header: "IFSelect_SelectDiff.hxx", bycopy.} = object of IFSelect_SelectControl ##
+                                                                                                ## !
+                                                                                                ## Creates
+                                                                                                ## an
+                                                                                                ## empty
+                                                                                                ## SelectDiff
+                                                                                                ##
+                                                                                                ## !
+                                                                                                ## Returns
+                                                                                                ## always
+                                                                                                ## True,
+                                                                                                ## because
+                                                                                                ## RootResult
+                                                                                                ## gives
+                                                                                                ## a
+                                                                                                ## Unique
+                                                                                                ## list
 
 
-proc constructIFSelectSelectDiff*(): IFSelectSelectDiff {.constructor,
+proc constructIFSelect_SelectDiff*(): IFSelect_SelectDiff {.constructor,
     importcpp: "IFSelect_SelectDiff(@)", header: "IFSelect_SelectDiff.hxx".}
-proc rootResult*(this: IFSelectSelectDiff; g: InterfaceGraph): InterfaceEntityIterator {.
+proc RootResult*(this: IFSelect_SelectDiff; G: Interface_Graph): Interface_EntityIterator {.
     noSideEffect, importcpp: "RootResult", header: "IFSelect_SelectDiff.hxx".}
-proc label*(this: IFSelectSelectDiff): TCollectionAsciiString {.noSideEffect,
+proc Label*(this: IFSelect_SelectDiff): TCollection_AsciiString {.noSideEffect,
     importcpp: "Label", header: "IFSelect_SelectDiff.hxx".}
 type
-  IFSelectSelectDiffbaseType* = IFSelectSelectControl
+  IFSelect_SelectDiffbase_type* = IFSelect_SelectControl
 
-proc getTypeName*(): cstring {.importcpp: "IFSelect_SelectDiff::get_type_name(@)",
-                            header: "IFSelect_SelectDiff.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "IFSelect_SelectDiff::get_type_name(@)",
+                              header: "IFSelect_SelectDiff.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "IFSelect_SelectDiff::get_type_descriptor(@)",
     header: "IFSelect_SelectDiff.hxx".}
-proc dynamicType*(this: IFSelectSelectDiff): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: IFSelect_SelectDiff): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "IFSelect_SelectDiff.hxx".}
-

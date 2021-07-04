@@ -14,6 +14,17 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../TopoDS/TopoDS_Wire,
+  ../TopoDS/TopoDS_Shape, BRepFill_SequenceOfSection,
+  ../TopTools/TopTools_DataMapOfShapeListOfShape, ../Standard/Standard_Real,
+  ../Standard/Standard_Integer, ../Standard/Standard_Boolean,
+  ../TopTools/TopTools_HArray2OfShape, ../GeomFill/GeomFill_Trihedron,
+  BRepFill_TransitionStyle, ../GeomFill/GeomFill_PipeError,
+  ../Standard/Standard_Transient, BRepFill_TypeOfContact,
+  ../TopTools/TopTools_ListOfShape, ../TopTools/TopTools_SequenceOfShape,
+  ../TColStd/TColStd_SequenceOfInteger
+
 discard "forward decl of Law_Function"
 discard "forward decl of BRepFill_LocationLaw"
 discard "forward decl of BRepFill_SectionLaw"
@@ -30,119 +41,120 @@ discard "forward decl of BRepFill_Sweep"
 discard "forward decl of BRepFill_PipeShell"
 discard "forward decl of BRepFill_PipeShell"
 type
-  HandleBRepFillPipeShell* = Handle[BRepFillPipeShell]
+  Handle_BRepFill_PipeShell* = handle[BRepFill_PipeShell]
 
 ## ! Computes a topological shell using some wires
 ## ! (spines and profiles) and diplacement option
 ## ! Perform general sweeping construction
 
 type
-  BRepFillPipeShell* {.importcpp: "BRepFill_PipeShell",
-                      header: "BRepFill_PipeShell.hxx", bycopy.} = object of StandardTransient ##
-                                                                                        ## !
-                                                                                        ## Set
-                                                                                        ## an
-                                                                                        ## sweep's
-                                                                                        ## mode
-                                                                                        ##
-                                                                                        ## !
-                                                                                        ## If
-                                                                                        ## no
-                                                                                        ## mode
-                                                                                        ## are
-                                                                                        ## setted,
-                                                                                        ## the
-                                                                                        ## mode
-                                                                                        ## use
-                                                                                        ## in
-                                                                                        ## MakePipe
-                                                                                        ## is
-                                                                                        ## used
+  BRepFill_PipeShell* {.importcpp: "BRepFill_PipeShell",
+                       header: "BRepFill_PipeShell.hxx", bycopy.} = object of Standard_Transient ##
+                                                                                          ## !
+                                                                                          ## Set
+                                                                                          ## an
+                                                                                          ## sweep's
+                                                                                          ## mode
+                                                                                          ##
+                                                                                          ## !
+                                                                                          ## If
+                                                                                          ## no
+                                                                                          ## mode
+                                                                                          ## are
+                                                                                          ## setted,
+                                                                                          ## the
+                                                                                          ## mode
+                                                                                          ## use
+                                                                                          ## in
+                                                                                          ## MakePipe
+                                                                                          ## is
+                                                                                          ## used
 
 
-proc constructBRepFillPipeShell*(spine: TopoDS_Wire): BRepFillPipeShell {.
+proc constructBRepFill_PipeShell*(Spine: TopoDS_Wire): BRepFill_PipeShell {.
     constructor, importcpp: "BRepFill_PipeShell(@)",
     header: "BRepFill_PipeShell.hxx".}
-proc set*(this: var BRepFillPipeShell; frenet: StandardBoolean = standardFalse) {.
+proc Set*(this: var BRepFill_PipeShell; Frenet: Standard_Boolean = Standard_False) {.
     importcpp: "Set", header: "BRepFill_PipeShell.hxx".}
-proc setDiscrete*(this: var BRepFillPipeShell) {.importcpp: "SetDiscrete",
+proc SetDiscrete*(this: var BRepFill_PipeShell) {.importcpp: "SetDiscrete",
     header: "BRepFill_PipeShell.hxx".}
-proc set*(this: var BRepFillPipeShell; axe: GpAx2) {.importcpp: "Set",
+proc Set*(this: var BRepFill_PipeShell; Axe: gp_Ax2) {.importcpp: "Set",
     header: "BRepFill_PipeShell.hxx".}
-proc set*(this: var BRepFillPipeShell; biNormal: GpDir) {.importcpp: "Set",
+proc Set*(this: var BRepFill_PipeShell; BiNormal: gp_Dir) {.importcpp: "Set",
     header: "BRepFill_PipeShell.hxx".}
-proc set*(this: var BRepFillPipeShell; spineSupport: TopoDS_Shape): StandardBoolean {.
+proc Set*(this: var BRepFill_PipeShell; SpineSupport: TopoDS_Shape): Standard_Boolean {.
     importcpp: "Set", header: "BRepFill_PipeShell.hxx".}
-proc set*(this: var BRepFillPipeShell; auxiliarySpine: TopoDS_Wire;
-         curvilinearEquivalence: StandardBoolean = standardTrue;
-         keepContact: BRepFillTypeOfContact = bRepFillNoContact) {.importcpp: "Set",
-    header: "BRepFill_PipeShell.hxx".}
-proc setMaxDegree*(this: var BRepFillPipeShell; newMaxDegree: StandardInteger) {.
+proc Set*(this: var BRepFill_PipeShell; AuxiliarySpine: TopoDS_Wire;
+         CurvilinearEquivalence: Standard_Boolean = Standard_True;
+         KeepContact: BRepFill_TypeOfContact = BRepFill_NoContact) {.
+    importcpp: "Set", header: "BRepFill_PipeShell.hxx".}
+proc SetMaxDegree*(this: var BRepFill_PipeShell; NewMaxDegree: Standard_Integer) {.
     importcpp: "SetMaxDegree", header: "BRepFill_PipeShell.hxx".}
-proc setMaxSegments*(this: var BRepFillPipeShell; newMaxSegments: StandardInteger) {.
+proc SetMaxSegments*(this: var BRepFill_PipeShell; NewMaxSegments: Standard_Integer) {.
     importcpp: "SetMaxSegments", header: "BRepFill_PipeShell.hxx".}
-proc setForceApproxC1*(this: var BRepFillPipeShell; forceApproxC1: StandardBoolean) {.
+proc SetForceApproxC1*(this: var BRepFill_PipeShell; ForceApproxC1: Standard_Boolean) {.
     importcpp: "SetForceApproxC1", header: "BRepFill_PipeShell.hxx".}
-proc add*(this: var BRepFillPipeShell; profile: TopoDS_Shape;
-         withContact: StandardBoolean = standardFalse;
-         withCorrection: StandardBoolean = standardFalse) {.importcpp: "Add",
+proc Add*(this: var BRepFill_PipeShell; Profile: TopoDS_Shape;
+         WithContact: Standard_Boolean = Standard_False;
+         WithCorrection: Standard_Boolean = Standard_False) {.importcpp: "Add",
     header: "BRepFill_PipeShell.hxx".}
-proc add*(this: var BRepFillPipeShell; profile: TopoDS_Shape; location: TopoDS_Vertex;
-         withContact: StandardBoolean = standardFalse;
-         withCorrection: StandardBoolean = standardFalse) {.importcpp: "Add",
+proc Add*(this: var BRepFill_PipeShell; Profile: TopoDS_Shape;
+         Location: TopoDS_Vertex; WithContact: Standard_Boolean = Standard_False;
+         WithCorrection: Standard_Boolean = Standard_False) {.importcpp: "Add",
     header: "BRepFill_PipeShell.hxx".}
-proc setLaw*(this: var BRepFillPipeShell; profile: TopoDS_Shape;
-            L: Handle[LawFunction]; withContact: StandardBoolean = standardFalse;
-            withCorrection: StandardBoolean = standardFalse) {.importcpp: "SetLaw",
-    header: "BRepFill_PipeShell.hxx".}
-proc setLaw*(this: var BRepFillPipeShell; profile: TopoDS_Shape;
-            L: Handle[LawFunction]; location: TopoDS_Vertex;
-            withContact: StandardBoolean = standardFalse;
-            withCorrection: StandardBoolean = standardFalse) {.importcpp: "SetLaw",
-    header: "BRepFill_PipeShell.hxx".}
-proc deleteProfile*(this: var BRepFillPipeShell; profile: TopoDS_Shape) {.
+proc SetLaw*(this: var BRepFill_PipeShell; Profile: TopoDS_Shape;
+            L: handle[Law_Function];
+            WithContact: Standard_Boolean = Standard_False;
+            WithCorrection: Standard_Boolean = Standard_False) {.
+    importcpp: "SetLaw", header: "BRepFill_PipeShell.hxx".}
+proc SetLaw*(this: var BRepFill_PipeShell; Profile: TopoDS_Shape;
+            L: handle[Law_Function]; Location: TopoDS_Vertex;
+            WithContact: Standard_Boolean = Standard_False;
+            WithCorrection: Standard_Boolean = Standard_False) {.
+    importcpp: "SetLaw", header: "BRepFill_PipeShell.hxx".}
+proc DeleteProfile*(this: var BRepFill_PipeShell; Profile: TopoDS_Shape) {.
     importcpp: "DeleteProfile", header: "BRepFill_PipeShell.hxx".}
-proc isReady*(this: BRepFillPipeShell): StandardBoolean {.noSideEffect,
+proc IsReady*(this: BRepFill_PipeShell): Standard_Boolean {.noSideEffect,
     importcpp: "IsReady", header: "BRepFill_PipeShell.hxx".}
-proc getStatus*(this: BRepFillPipeShell): GeomFillPipeError {.noSideEffect,
+proc GetStatus*(this: BRepFill_PipeShell): GeomFill_PipeError {.noSideEffect,
     importcpp: "GetStatus", header: "BRepFill_PipeShell.hxx".}
-proc setTolerance*(this: var BRepFillPipeShell; tol3d: StandardReal = 1.0e-4;
-                  boundTol: StandardReal = 1.0e-4; tolAngular: StandardReal = 1.0e-2) {.
-    importcpp: "SetTolerance", header: "BRepFill_PipeShell.hxx".}
-proc setTransition*(this: var BRepFillPipeShell;
-                   mode: BRepFillTransitionStyle = bRepFillModified;
-                   angmin: StandardReal = 1.0e-2; angmax: StandardReal = 6.0) {.
+proc SetTolerance*(this: var BRepFill_PipeShell; Tol3d: Standard_Real = 1.0e-4;
+                  BoundTol: Standard_Real = 1.0e-4;
+                  TolAngular: Standard_Real = 1.0e-2) {.importcpp: "SetTolerance",
+    header: "BRepFill_PipeShell.hxx".}
+proc SetTransition*(this: var BRepFill_PipeShell;
+                   Mode: BRepFill_TransitionStyle = BRepFill_Modified;
+                   Angmin: Standard_Real = 1.0e-2; Angmax: Standard_Real = 6.0) {.
     importcpp: "SetTransition", header: "BRepFill_PipeShell.hxx".}
-proc simulate*(this: var BRepFillPipeShell; numberOfSection: StandardInteger;
-              sections: var TopToolsListOfShape) {.importcpp: "Simulate",
+proc Simulate*(this: var BRepFill_PipeShell; NumberOfSection: Standard_Integer;
+              Sections: var TopTools_ListOfShape) {.importcpp: "Simulate",
     header: "BRepFill_PipeShell.hxx".}
-proc build*(this: var BRepFillPipeShell): StandardBoolean {.importcpp: "Build",
+proc Build*(this: var BRepFill_PipeShell): Standard_Boolean {.importcpp: "Build",
     header: "BRepFill_PipeShell.hxx".}
-proc makeSolid*(this: var BRepFillPipeShell): StandardBoolean {.
+proc MakeSolid*(this: var BRepFill_PipeShell): Standard_Boolean {.
     importcpp: "MakeSolid", header: "BRepFill_PipeShell.hxx".}
-proc shape*(this: BRepFillPipeShell): TopoDS_Shape {.noSideEffect,
+proc Shape*(this: BRepFill_PipeShell): TopoDS_Shape {.noSideEffect,
     importcpp: "Shape", header: "BRepFill_PipeShell.hxx".}
-proc errorOnSurface*(this: BRepFillPipeShell): StandardReal {.noSideEffect,
+proc ErrorOnSurface*(this: BRepFill_PipeShell): Standard_Real {.noSideEffect,
     importcpp: "ErrorOnSurface", header: "BRepFill_PipeShell.hxx".}
-proc firstShape*(this: BRepFillPipeShell): TopoDS_Shape {.noSideEffect,
+proc FirstShape*(this: BRepFill_PipeShell): TopoDS_Shape {.noSideEffect,
     importcpp: "FirstShape", header: "BRepFill_PipeShell.hxx".}
-proc lastShape*(this: BRepFillPipeShell): TopoDS_Shape {.noSideEffect,
+proc LastShape*(this: BRepFill_PipeShell): TopoDS_Shape {.noSideEffect,
     importcpp: "LastShape", header: "BRepFill_PipeShell.hxx".}
-proc profiles*(this: var BRepFillPipeShell; theProfiles: var TopToolsListOfShape) {.
+proc Profiles*(this: var BRepFill_PipeShell; theProfiles: var TopTools_ListOfShape) {.
     importcpp: "Profiles", header: "BRepFill_PipeShell.hxx".}
-proc spine*(this: var BRepFillPipeShell): TopoDS_Wire {.importcpp: "Spine",
+proc Spine*(this: var BRepFill_PipeShell): TopoDS_Wire {.importcpp: "Spine",
     header: "BRepFill_PipeShell.hxx".}
-proc generated*(this: var BRepFillPipeShell; s: TopoDS_Shape;
-               L: var TopToolsListOfShape) {.importcpp: "Generated",
+proc Generated*(this: var BRepFill_PipeShell; S: TopoDS_Shape;
+               L: var TopTools_ListOfShape) {.importcpp: "Generated",
     header: "BRepFill_PipeShell.hxx".}
 type
-  BRepFillPipeShellbaseType* = StandardTransient
+  BRepFill_PipeShellbase_type* = Standard_Transient
 
-proc getTypeName*(): cstring {.importcpp: "BRepFill_PipeShell::get_type_name(@)",
-                            header: "BRepFill_PipeShell.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "BRepFill_PipeShell::get_type_name(@)",
+                              header: "BRepFill_PipeShell.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "BRepFill_PipeShell::get_type_descriptor(@)",
     header: "BRepFill_PipeShell.hxx".}
-proc dynamicType*(this: BRepFillPipeShell): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: BRepFill_PipeShell): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "BRepFill_PipeShell.hxx".}
-

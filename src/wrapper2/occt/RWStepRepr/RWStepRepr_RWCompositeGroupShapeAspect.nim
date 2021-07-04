@@ -13,32 +13,35 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepRepr_CompositeGroupShapeAspect"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepReprRWCompositeGroupShapeAspect* {.
+  RWStepRepr_RWCompositeGroupShapeAspect* {.
       importcpp: "RWStepRepr_RWCompositeGroupShapeAspect",
       header: "RWStepRepr_RWCompositeGroupShapeAspect.hxx", bycopy.} = object ## ! Empty
                                                                          ## constructor
 
 
-proc constructRWStepReprRWCompositeGroupShapeAspect*(): RWStepReprRWCompositeGroupShapeAspect {.
+proc constructRWStepRepr_RWCompositeGroupShapeAspect*(): RWStepRepr_RWCompositeGroupShapeAspect {.
     constructor, importcpp: "RWStepRepr_RWCompositeGroupShapeAspect(@)",
     header: "RWStepRepr_RWCompositeGroupShapeAspect.hxx".}
-proc readStep*(this: RWStepReprRWCompositeGroupShapeAspect;
-              data: Handle[StepDataStepReaderData]; num: StandardInteger;
-              ach: var Handle[InterfaceCheck];
-              ent: Handle[StepReprCompositeGroupShapeAspect]) {.noSideEffect,
+proc ReadStep*(this: RWStepRepr_RWCompositeGroupShapeAspect;
+              data: handle[StepData_StepReaderData]; num: Standard_Integer;
+              ach: var handle[Interface_Check];
+              ent: handle[StepRepr_CompositeGroupShapeAspect]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepRepr_RWCompositeGroupShapeAspect.hxx".}
-proc writeStep*(this: RWStepReprRWCompositeGroupShapeAspect;
-               sw: var StepDataStepWriter;
-               ent: Handle[StepReprCompositeGroupShapeAspect]) {.noSideEffect,
+proc WriteStep*(this: RWStepRepr_RWCompositeGroupShapeAspect;
+               SW: var StepData_StepWriter;
+               ent: handle[StepRepr_CompositeGroupShapeAspect]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepRepr_RWCompositeGroupShapeAspect.hxx".}
-proc share*(this: RWStepReprRWCompositeGroupShapeAspect;
-           ent: Handle[StepReprCompositeGroupShapeAspect];
-           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
+proc Share*(this: RWStepRepr_RWCompositeGroupShapeAspect;
+           ent: handle[StepRepr_CompositeGroupShapeAspect];
+           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepRepr_RWCompositeGroupShapeAspect.hxx".}
-

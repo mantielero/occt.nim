@@ -14,10 +14,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  MAT2d_BiInt, ../TColStd/TColStd_SequenceOfInteger, MAT2d_MapBiIntHasher,
+  ../NCollection/NCollection_DataMap
+
 type
-  MAT2dDataMapOfBiIntSequenceOfInteger* = NCollectionDataMap[MAT2dBiInt,
-      TColStdSequenceOfInteger, MAT2dMapBiIntHasher]
-  MAT2dDataMapIteratorOfDataMapOfBiIntSequenceOfInteger* = Iterator[MAT2dBiInt,
-      TColStdSequenceOfInteger, MAT2dMapBiIntHasher]
-
-
+  MAT2d_DataMapOfBiIntSequenceOfInteger* = NCollection_DataMap[MAT2d_BiInt,
+      TColStd_SequenceOfInteger, MAT2d_MapBiIntHasher]
+  MAT2d_DataMapIteratorOfDataMapOfBiIntSequenceOfInteger* = Iterator[MAT2d_BiInt,
+      TColStd_SequenceOfInteger, MAT2d_MapBiIntHasher]

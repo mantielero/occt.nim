@@ -14,77 +14,89 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../AppParCurves/AppParCurves_SequenceOfMultiCurve,
+  ../TColStd/TColStd_SequenceOfReal, ../AppParCurves/AppParCurves_MultiCurve,
+  ../Standard/Standard_Boolean, ../Standard/Standard_Integer,
+  ../Standard/Standard_Real, ../AppParCurves/AppParCurves_Constraint,
+  ../AppCont/AppCont_Function
+
 discard "forward decl of AppParCurves_MultiCurve"
 type
-  ApproxFitAndDivide2d* {.importcpp: "Approx_FitAndDivide2d",
-                         header: "Approx_FitAndDivide2d.hxx", bycopy.} = object ## ! The
-                                                                           ## MultiLine
-                                                                           ## <Line> will be
-                                                                           ## approximated until
-                                                                           ## tolerances
-                                                                           ## ! will be
-                                                                           ## reached.
-                                                                           ## ! The
-                                                                           ## approximation will be done from
-                                                                           ## degreemin to
-                                                                           ## degreemax
-                                                                           ## ! with a
-                                                                           ## cutting if the
-                                                                           ## corresponding
-                                                                           ## boolean is True.
-                                                                           ## ! is
-                                                                           ## internally used by the
-                                                                           ## algorithms.
+  Approx_FitAndDivide2d* {.importcpp: "Approx_FitAndDivide2d",
+                          header: "Approx_FitAndDivide2d.hxx", bycopy.} = object ## ! The
+                                                                            ## MultiLine
+                                                                            ## <Line> will be
+                                                                            ## approximated
+                                                                            ## until
+                                                                            ## tolerances
+                                                                            ## ! will be
+                                                                            ## reached.
+                                                                            ## ! The
+                                                                            ## approximation will be done from
+                                                                            ## degreemin to
+                                                                            ## degreemax
+                                                                            ## ! with a
+                                                                            ## cutting if the
+                                                                            ## corresponding
+                                                                            ## boolean is
+                                                                            ## True.
+                                                                            ## ! is
+                                                                            ## internally used by the
+                                                                            ## algorithms.
 
 
-proc constructApproxFitAndDivide2d*(line: AppContFunction;
-                                   degreemin: StandardInteger = 3;
-                                   degreemax: StandardInteger = 8;
-                                   tolerance3d: StandardReal = 1.0e-5;
-                                   tolerance2d: StandardReal = 1.0e-5;
-                                   cutting: StandardBoolean = standardFalse; firstC: AppParCurvesConstraint = appParCurvesTangencyPoint;
-    lastC: AppParCurvesConstraint = appParCurvesTangencyPoint): ApproxFitAndDivide2d {.
+proc constructApprox_FitAndDivide2d*(Line: AppCont_Function;
+                                    degreemin: Standard_Integer = 3;
+                                    degreemax: Standard_Integer = 8;
+                                    Tolerance3d: Standard_Real = 1.0e-5;
+                                    Tolerance2d: Standard_Real = 1.0e-5;
+                                    cutting: Standard_Boolean = Standard_False;
+    FirstC: AppParCurves_Constraint = AppParCurves_TangencyPoint; LastC: AppParCurves_Constraint = AppParCurves_TangencyPoint): Approx_FitAndDivide2d {.
     constructor, importcpp: "Approx_FitAndDivide2d(@)",
     header: "Approx_FitAndDivide2d.hxx".}
-proc constructApproxFitAndDivide2d*(degreemin: StandardInteger = 3;
-                                   degreemax: StandardInteger = 8;
-                                   tolerance3d: StandardReal = 1.0e-05;
-                                   tolerance2d: StandardReal = 1.0e-05;
-                                   cutting: StandardBoolean = standardFalse; firstC: AppParCurvesConstraint = appParCurvesTangencyPoint;
-    lastC: AppParCurvesConstraint = appParCurvesTangencyPoint): ApproxFitAndDivide2d {.
+proc constructApprox_FitAndDivide2d*(degreemin: Standard_Integer = 3;
+                                    degreemax: Standard_Integer = 8;
+                                    Tolerance3d: Standard_Real = 1.0e-05;
+                                    Tolerance2d: Standard_Real = 1.0e-05;
+                                    cutting: Standard_Boolean = Standard_False;
+    FirstC: AppParCurves_Constraint = AppParCurves_TangencyPoint; LastC: AppParCurves_Constraint = AppParCurves_TangencyPoint): Approx_FitAndDivide2d {.
     constructor, importcpp: "Approx_FitAndDivide2d(@)",
     header: "Approx_FitAndDivide2d.hxx".}
-proc perform*(this: var ApproxFitAndDivide2d; line: AppContFunction) {.
+proc Perform*(this: var Approx_FitAndDivide2d; Line: AppCont_Function) {.
     importcpp: "Perform", header: "Approx_FitAndDivide2d.hxx".}
-proc setDegrees*(this: var ApproxFitAndDivide2d; degreemin: StandardInteger;
-                degreemax: StandardInteger) {.importcpp: "SetDegrees",
+proc SetDegrees*(this: var Approx_FitAndDivide2d; degreemin: Standard_Integer;
+                degreemax: Standard_Integer) {.importcpp: "SetDegrees",
     header: "Approx_FitAndDivide2d.hxx".}
-proc setTolerances*(this: var ApproxFitAndDivide2d; tolerance3d: StandardReal;
-                   tolerance2d: StandardReal) {.importcpp: "SetTolerances",
+proc SetTolerances*(this: var Approx_FitAndDivide2d; Tolerance3d: Standard_Real;
+                   Tolerance2d: Standard_Real) {.importcpp: "SetTolerances",
     header: "Approx_FitAndDivide2d.hxx".}
-proc setConstraints*(this: var ApproxFitAndDivide2d; firstC: AppParCurvesConstraint;
-                    lastC: AppParCurvesConstraint) {.importcpp: "SetConstraints",
+proc SetConstraints*(this: var Approx_FitAndDivide2d;
+                    FirstC: AppParCurves_Constraint;
+                    LastC: AppParCurves_Constraint) {.importcpp: "SetConstraints",
     header: "Approx_FitAndDivide2d.hxx".}
-proc setMaxSegments*(this: var ApproxFitAndDivide2d; theMaxSegments: StandardInteger) {.
+proc SetMaxSegments*(this: var Approx_FitAndDivide2d;
+                    theMaxSegments: Standard_Integer) {.
     importcpp: "SetMaxSegments", header: "Approx_FitAndDivide2d.hxx".}
-proc setInvOrder*(this: var ApproxFitAndDivide2d; theInvOrder: StandardBoolean) {.
+proc SetInvOrder*(this: var Approx_FitAndDivide2d; theInvOrder: Standard_Boolean) {.
     importcpp: "SetInvOrder", header: "Approx_FitAndDivide2d.hxx".}
-proc setHangChecking*(this: var ApproxFitAndDivide2d;
-                     theHangChecking: StandardBoolean) {.
+proc SetHangChecking*(this: var Approx_FitAndDivide2d;
+                     theHangChecking: Standard_Boolean) {.
     importcpp: "SetHangChecking", header: "Approx_FitAndDivide2d.hxx".}
-proc isAllApproximated*(this: ApproxFitAndDivide2d): StandardBoolean {.noSideEffect,
-    importcpp: "IsAllApproximated", header: "Approx_FitAndDivide2d.hxx".}
-proc isToleranceReached*(this: ApproxFitAndDivide2d): StandardBoolean {.
+proc IsAllApproximated*(this: Approx_FitAndDivide2d): Standard_Boolean {.
+    noSideEffect, importcpp: "IsAllApproximated",
+    header: "Approx_FitAndDivide2d.hxx".}
+proc IsToleranceReached*(this: Approx_FitAndDivide2d): Standard_Boolean {.
     noSideEffect, importcpp: "IsToleranceReached",
     header: "Approx_FitAndDivide2d.hxx".}
-proc error*(this: ApproxFitAndDivide2d; index: StandardInteger;
-           tol3d: var StandardReal; tol2d: var StandardReal) {.noSideEffect,
+proc Error*(this: Approx_FitAndDivide2d; Index: Standard_Integer;
+           tol3d: var Standard_Real; tol2d: var Standard_Real) {.noSideEffect,
     importcpp: "Error", header: "Approx_FitAndDivide2d.hxx".}
-proc nbMultiCurves*(this: ApproxFitAndDivide2d): StandardInteger {.noSideEffect,
+proc NbMultiCurves*(this: Approx_FitAndDivide2d): Standard_Integer {.noSideEffect,
     importcpp: "NbMultiCurves", header: "Approx_FitAndDivide2d.hxx".}
-proc value*(this: ApproxFitAndDivide2d; index: StandardInteger = 1): AppParCurvesMultiCurve {.
+proc Value*(this: Approx_FitAndDivide2d; Index: Standard_Integer = 1): AppParCurves_MultiCurve {.
     noSideEffect, importcpp: "Value", header: "Approx_FitAndDivide2d.hxx".}
-proc parameters*(this: ApproxFitAndDivide2d; index: StandardInteger;
-                firstp: var StandardReal; lastp: var StandardReal) {.noSideEffect,
+proc Parameters*(this: Approx_FitAndDivide2d; Index: Standard_Integer;
+                firstp: var Standard_Real; lastp: var Standard_Real) {.noSideEffect,
     importcpp: "Parameters", header: "Approx_FitAndDivide2d.hxx".}
-

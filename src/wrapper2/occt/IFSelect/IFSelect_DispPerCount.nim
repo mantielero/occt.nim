@@ -14,6 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, IFSelect_Dispatch,
+  ../Standard/Standard_Integer, ../Standard/Standard_Boolean
+
 discard "forward decl of IFSelect_IntParam"
 discard "forward decl of Interface_InterfaceError"
 discard "forward decl of TCollection_AsciiString"
@@ -22,7 +26,7 @@ discard "forward decl of IFGraph_SubPartsIterator"
 discard "forward decl of IFSelect_DispPerCount"
 discard "forward decl of IFSelect_DispPerCount"
 type
-  HandleIFSelectDispPerCount* = Handle[IFSelectDispPerCount]
+  Handle_IFSelect_DispPerCount* = handle[IFSelect_DispPerCount]
 
 ## ! A DispPerCount gathers all the input Entities into one or
 ## ! several Packets, each containing a defined count of Entity
@@ -30,44 +34,43 @@ type
 ## ! IntParam, thus allowing external control of its Value
 
 type
-  IFSelectDispPerCount* {.importcpp: "IFSelect_DispPerCount",
-                         header: "IFSelect_DispPerCount.hxx", bycopy.} = object of IFSelectDispatch ##
-                                                                                             ## !
-                                                                                             ## Creates
-                                                                                             ## a
-                                                                                             ## DispPerCount
-                                                                                             ## with
-                                                                                             ## no
-                                                                                             ## Count
-                                                                                             ## (default
-                                                                                             ## value
-                                                                                             ## 1)
+  IFSelect_DispPerCount* {.importcpp: "IFSelect_DispPerCount",
+                          header: "IFSelect_DispPerCount.hxx", bycopy.} = object of IFSelect_Dispatch ##
+                                                                                               ## !
+                                                                                               ## Creates
+                                                                                               ## a
+                                                                                               ## DispPerCount
+                                                                                               ## with
+                                                                                               ## no
+                                                                                               ## Count
+                                                                                               ## (default
+                                                                                               ## value
+                                                                                               ## 1)
 
 
-proc constructIFSelectDispPerCount*(): IFSelectDispPerCount {.constructor,
+proc constructIFSelect_DispPerCount*(): IFSelect_DispPerCount {.constructor,
     importcpp: "IFSelect_DispPerCount(@)", header: "IFSelect_DispPerCount.hxx".}
-proc count*(this: IFSelectDispPerCount): Handle[IFSelectIntParam] {.noSideEffect,
+proc Count*(this: IFSelect_DispPerCount): handle[IFSelect_IntParam] {.noSideEffect,
     importcpp: "Count", header: "IFSelect_DispPerCount.hxx".}
-proc setCount*(this: var IFSelectDispPerCount; count: Handle[IFSelectIntParam]) {.
+proc SetCount*(this: var IFSelect_DispPerCount; count: handle[IFSelect_IntParam]) {.
     importcpp: "SetCount", header: "IFSelect_DispPerCount.hxx".}
-proc countValue*(this: IFSelectDispPerCount): StandardInteger {.noSideEffect,
+proc CountValue*(this: IFSelect_DispPerCount): Standard_Integer {.noSideEffect,
     importcpp: "CountValue", header: "IFSelect_DispPerCount.hxx".}
-proc label*(this: IFSelectDispPerCount): TCollectionAsciiString {.noSideEffect,
+proc Label*(this: IFSelect_DispPerCount): TCollection_AsciiString {.noSideEffect,
     importcpp: "Label", header: "IFSelect_DispPerCount.hxx".}
-proc limitedMax*(this: IFSelectDispPerCount; nbent: StandardInteger;
-                max: var StandardInteger): StandardBoolean {.noSideEffect,
+proc LimitedMax*(this: IFSelect_DispPerCount; nbent: Standard_Integer;
+                max: var Standard_Integer): Standard_Boolean {.noSideEffect,
     importcpp: "LimitedMax", header: "IFSelect_DispPerCount.hxx".}
-proc packets*(this: IFSelectDispPerCount; g: InterfaceGraph;
-             packs: var IFGraphSubPartsIterator) {.noSideEffect,
+proc Packets*(this: IFSelect_DispPerCount; G: Interface_Graph;
+             packs: var IFGraph_SubPartsIterator) {.noSideEffect,
     importcpp: "Packets", header: "IFSelect_DispPerCount.hxx".}
 type
-  IFSelectDispPerCountbaseType* = IFSelectDispatch
+  IFSelect_DispPerCountbase_type* = IFSelect_Dispatch
 
-proc getTypeName*(): cstring {.importcpp: "IFSelect_DispPerCount::get_type_name(@)",
-                            header: "IFSelect_DispPerCount.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "IFSelect_DispPerCount::get_type_name(@)",
+                              header: "IFSelect_DispPerCount.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "IFSelect_DispPerCount::get_type_descriptor(@)",
     header: "IFSelect_DispPerCount.hxx".}
-proc dynamicType*(this: IFSelectDispPerCount): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "IFSelect_DispPerCount.hxx".}
-
+proc DynamicType*(this: IFSelect_DispPerCount): handle[Standard_Type] {.
+    noSideEffect, importcpp: "DynamicType", header: "IFSelect_DispPerCount.hxx".}

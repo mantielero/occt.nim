@@ -14,13 +14,19 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Integer,
+  ../TColStd/TColStd_HSequenceOfAsciiString,
+  ../TCollection/TCollection_AsciiString, ../Interface/Interface_SignType,
+  ../Standard/Standard_CString, ../Standard/Standard_Boolean
+
 discard "forward decl of TCollection_AsciiString"
 discard "forward decl of Standard_Transient"
 discard "forward decl of Interface_InterfaceModel"
 discard "forward decl of IFSelect_Signature"
 discard "forward decl of IFSelect_Signature"
 type
-  HandleIFSelectSignature* = Handle[IFSelectSignature]
+  Handle_IFSelect_Signature* = handle[IFSelect_Signature]
 
 ## ! Signature provides the basic service used by the classes
 ## ! SelectSignature and Counter (i.e. Name, Value), which is :
@@ -31,76 +37,75 @@ type
 ## ! Exemples : Dynamic Type; Category; etc
 
 type
-  IFSelectSignature* {.importcpp: "IFSelect_Signature",
-                      header: "IFSelect_Signature.hxx", bycopy.} = object of InterfaceSignType ##
-                                                                                        ## !
-                                                                                        ## Sets
-                                                                                        ## the
-                                                                                        ## information
-                                                                                        ## data
-                                                                                        ## to
-                                                                                        ## tell
-                                                                                        ## "integer
-                                                                                        ## cases"
-                                                                                        ## with
-                                                                                        ##
-                                                                                        ## !
-                                                                                        ## possible
-                                                                                        ## min
-                                                                                        ## and
-                                                                                        ## max
-                                                                                        ## values
-                                                                                        ##
-                                                                                        ## !
-                                                                                        ## To
-                                                                                        ## be
-                                                                                        ## called
-                                                                                        ## when
-                                                                                        ## creating
-                                                                                        ##
-                                                                                        ## !
-                                                                                        ## Initializes
-                                                                                        ## a
-                                                                                        ## Signature
-                                                                                        ## with
-                                                                                        ## its
-                                                                                        ## name
+  IFSelect_Signature* {.importcpp: "IFSelect_Signature",
+                       header: "IFSelect_Signature.hxx", bycopy.} = object of Interface_SignType ##
+                                                                                          ## !
+                                                                                          ## Sets
+                                                                                          ## the
+                                                                                          ## information
+                                                                                          ## data
+                                                                                          ## to
+                                                                                          ## tell
+                                                                                          ## "integer
+                                                                                          ## cases"
+                                                                                          ## with
+                                                                                          ##
+                                                                                          ## !
+                                                                                          ## possible
+                                                                                          ## min
+                                                                                          ## and
+                                                                                          ## max
+                                                                                          ## values
+                                                                                          ##
+                                                                                          ## !
+                                                                                          ## To
+                                                                                          ## be
+                                                                                          ## called
+                                                                                          ## when
+                                                                                          ## creating
+                                                                                          ##
+                                                                                          ## !
+                                                                                          ## Initializes
+                                                                                          ## a
+                                                                                          ## Signature
+                                                                                          ## with
+                                                                                          ## its
+                                                                                          ## name
 
 
-proc setIntCase*(this: var IFSelectSignature; hasmin: StandardBoolean;
-                valmin: StandardInteger; hasmax: StandardBoolean;
-                valmax: StandardInteger) {.importcpp: "SetIntCase",
+proc SetIntCase*(this: var IFSelect_Signature; hasmin: Standard_Boolean;
+                valmin: Standard_Integer; hasmax: Standard_Boolean;
+                valmax: Standard_Integer) {.importcpp: "SetIntCase",
     header: "IFSelect_Signature.hxx".}
-proc isIntCase*(this: IFSelectSignature; hasmin: var StandardBoolean;
-               valmin: var StandardInteger; hasmax: var StandardBoolean;
-               valmax: var StandardInteger): StandardBoolean {.noSideEffect,
+proc IsIntCase*(this: IFSelect_Signature; hasmin: var Standard_Boolean;
+               valmin: var Standard_Integer; hasmax: var Standard_Boolean;
+               valmax: var Standard_Integer): Standard_Boolean {.noSideEffect,
     importcpp: "IsIntCase", header: "IFSelect_Signature.hxx".}
-proc addCase*(this: var IFSelectSignature; acase: StandardCString) {.
+proc AddCase*(this: var IFSelect_Signature; acase: Standard_CString) {.
     importcpp: "AddCase", header: "IFSelect_Signature.hxx".}
-proc caseList*(this: IFSelectSignature): Handle[TColStdHSequenceOfAsciiString] {.
+proc CaseList*(this: IFSelect_Signature): handle[TColStd_HSequenceOfAsciiString] {.
     noSideEffect, importcpp: "CaseList", header: "IFSelect_Signature.hxx".}
-proc name*(this: IFSelectSignature): StandardCString {.noSideEffect,
+proc Name*(this: IFSelect_Signature): Standard_CString {.noSideEffect,
     importcpp: "Name", header: "IFSelect_Signature.hxx".}
-proc label*(this: IFSelectSignature): TCollectionAsciiString {.noSideEffect,
+proc Label*(this: IFSelect_Signature): TCollection_AsciiString {.noSideEffect,
     importcpp: "Label", header: "IFSelect_Signature.hxx".}
-proc matches*(this: IFSelectSignature; ent: Handle[StandardTransient];
-             model: Handle[InterfaceInterfaceModel]; text: TCollectionAsciiString;
-             exact: StandardBoolean): StandardBoolean {.noSideEffect,
-    importcpp: "Matches", header: "IFSelect_Signature.hxx".}
-proc matchValue*(val: StandardCString; text: TCollectionAsciiString;
-                exact: StandardBoolean): StandardBoolean {.
+proc Matches*(this: IFSelect_Signature; ent: handle[Standard_Transient];
+             model: handle[Interface_InterfaceModel];
+             text: TCollection_AsciiString; exact: Standard_Boolean): Standard_Boolean {.
+    noSideEffect, importcpp: "Matches", header: "IFSelect_Signature.hxx".}
+proc MatchValue*(val: Standard_CString; text: TCollection_AsciiString;
+                exact: Standard_Boolean): Standard_Boolean {.
     importcpp: "IFSelect_Signature::MatchValue(@)",
     header: "IFSelect_Signature.hxx".}
-proc intValue*(val: StandardInteger): StandardCString {.
+proc IntValue*(val: Standard_Integer): Standard_CString {.
     importcpp: "IFSelect_Signature::IntValue(@)", header: "IFSelect_Signature.hxx".}
 type
-  IFSelectSignaturebaseType* = InterfaceSignType
+  IFSelect_Signaturebase_type* = Interface_SignType
 
-proc getTypeName*(): cstring {.importcpp: "IFSelect_Signature::get_type_name(@)",
-                            header: "IFSelect_Signature.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "IFSelect_Signature::get_type_name(@)",
+                              header: "IFSelect_Signature.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "IFSelect_Signature::get_type_descriptor(@)",
     header: "IFSelect_Signature.hxx".}
-proc dynamicType*(this: IFSelectSignature): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: IFSelect_Signature): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "IFSelect_Signature.hxx".}
-

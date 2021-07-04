@@ -14,52 +14,56 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
+  ../LProp/LProp_CurAndInf
+
 discard "forward decl of Geom2d_Curve"
 type
-  Geom2dLPropCurAndInf2d* {.importcpp: "Geom2dLProp_CurAndInf2d",
-                           header: "Geom2dLProp_CurAndInf2d.hxx", bycopy.} = object of LPropCurAndInf ##
-                                                                                               ## !
-                                                                                               ## Initializes
-                                                                                               ## the
-                                                                                               ## framework.
-                                                                                               ##
-                                                                                               ## !
-                                                                                               ## Note:
-                                                                                               ## The
-                                                                                               ## curve
-                                                                                               ## on
-                                                                                               ## which
-                                                                                               ## the
-                                                                                               ## local
-                                                                                               ## properties
-                                                                                               ## are
-                                                                                               ##
-                                                                                               ## !
-                                                                                               ## computed
-                                                                                               ## is
-                                                                                               ## defined
-                                                                                               ## using
-                                                                                               ## one
-                                                                                               ## of
-                                                                                               ## the
-                                                                                               ## following
-                                                                                               ##
-                                                                                               ## !
-                                                                                               ## functions:
-                                                                                               ## Perform,
-                                                                                               ## PerformCurExt
-                                                                                               ## or
-                                                                                               ## PerformInf.
+  Geom2dLProp_CurAndInf2d* {.importcpp: "Geom2dLProp_CurAndInf2d",
+                            header: "Geom2dLProp_CurAndInf2d.hxx", bycopy.} = object of LProp_CurAndInf ##
+                                                                                                 ## !
+                                                                                                 ## Initializes
+                                                                                                 ## the
+                                                                                                 ## framework.
+                                                                                                 ##
+                                                                                                 ## !
+                                                                                                 ## Note:
+                                                                                                 ## The
+                                                                                                 ## curve
+                                                                                                 ## on
+                                                                                                 ## which
+                                                                                                 ## the
+                                                                                                 ## local
+                                                                                                 ## properties
+                                                                                                 ## are
+                                                                                                 ##
+                                                                                                 ## !
+                                                                                                 ## computed
+                                                                                                 ## is
+                                                                                                 ## defined
+                                                                                                 ## using
+                                                                                                 ## one
+                                                                                                 ## of
+                                                                                                 ## the
+                                                                                                 ## following
+                                                                                                 ##
+                                                                                                 ## !
+                                                                                                 ## functions:
+                                                                                                 ## Perform,
+                                                                                                 ## PerformCurExt
+                                                                                                 ## or
+                                                                                                 ## PerformInf.
 
 
-proc constructGeom2dLPropCurAndInf2d*(): Geom2dLPropCurAndInf2d {.constructor,
+proc constructGeom2dLProp_CurAndInf2d*(): Geom2dLProp_CurAndInf2d {.constructor,
     importcpp: "Geom2dLProp_CurAndInf2d(@)", header: "Geom2dLProp_CurAndInf2d.hxx".}
-proc perform*(this: var Geom2dLPropCurAndInf2d; c: Handle[Geom2dCurve]) {.
+proc Perform*(this: var Geom2dLProp_CurAndInf2d; C: handle[Geom2d_Curve]) {.
     importcpp: "Perform", header: "Geom2dLProp_CurAndInf2d.hxx".}
-proc performCurExt*(this: var Geom2dLPropCurAndInf2d; c: Handle[Geom2dCurve]) {.
+proc PerformCurExt*(this: var Geom2dLProp_CurAndInf2d; C: handle[Geom2d_Curve]) {.
     importcpp: "PerformCurExt", header: "Geom2dLProp_CurAndInf2d.hxx".}
-proc performInf*(this: var Geom2dLPropCurAndInf2d; c: Handle[Geom2dCurve]) {.
+proc PerformInf*(this: var Geom2dLProp_CurAndInf2d; C: handle[Geom2d_Curve]) {.
     importcpp: "PerformInf", header: "Geom2dLProp_CurAndInf2d.hxx".}
-proc isDone*(this: Geom2dLPropCurAndInf2d): StandardBoolean {.noSideEffect,
+proc IsDone*(this: Geom2dLProp_CurAndInf2d): Standard_Boolean {.noSideEffect,
     importcpp: "IsDone", header: "Geom2dLProp_CurAndInf2d.hxx".}
-

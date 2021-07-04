@@ -14,7 +14,8 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  MAT_Arc, ../NCollection/NCollection_Sequence
+
 type
-  MAT_SequenceOfArc* = NCollectionSequence[Handle[MAT_Arc]]
-
-
+  MAT_SequenceOfArc* = NCollection_Sequence[handle[MAT_Arc]]

@@ -14,253 +14,265 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer,
+  ../TColStd/TColStd_HArray1OfReal, ../Standard/Standard_Real,
+  ../GeomAbs/GeomAbs_Shape, ../Standard/Standard_Boolean,
+  ../TColStd/TColStd_HArray2OfReal, ../TColgp/TColgp_HArray2OfPnt2d,
+  ../TColgp/TColgp_HArray2OfPnt, ../TColStd/TColStd_HArray1OfInteger,
+  ../Standard/Standard_Address, AdvApprox_EvaluatorFunction,
+  ../TColStd/TColStd_Array1OfInteger, ../TColStd/TColStd_Array1OfReal,
+  ../TColgp/TColgp_Array1OfPnt2d, ../TColgp/TColgp_Array1OfPnt,
+  ../Standard/Standard_OStream
+
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of Standard_ConstructionError"
 discard "forward decl of AdvApprox_Cutting"
 type
-  AdvApproxApproxAFunction* {.importcpp: "AdvApprox_ApproxAFunction",
-                             header: "AdvApprox_ApproxAFunction.hxx", bycopy.} = object ##
-                                                                                   ## !
-                                                                                   ## Constructs
-                                                                                   ## approximator
-                                                                                   ## tool.
-                                                                                   ##
-                                                                                   ## !
-                                                                                   ##
-                                                                                   ## !
-                                                                                   ## Warning:
-                                                                                   ##
-                                                                                   ## !
-                                                                                   ## the
-                                                                                   ## Func
-                                                                                   ## should
-                                                                                   ## be
-                                                                                   ## valid
-                                                                                   ## reference
-                                                                                   ## to
-                                                                                   ## object
-                                                                                   ## of
-                                                                                   ## type
-                                                                                   ##
-                                                                                   ## !
-                                                                                   ## inherited
-                                                                                   ## from
-                                                                                   ## class
-                                                                                   ## EvaluatorFunction
-                                                                                   ## from
-                                                                                   ## Approx
-                                                                                   ##
-                                                                                   ## !
-                                                                                   ## with
-                                                                                   ## life
-                                                                                   ## time
-                                                                                   ## longer
-                                                                                   ## than
-                                                                                   ## that
-                                                                                   ## of
-                                                                                   ## the
-                                                                                   ## approximator
-                                                                                   ## tool;
-                                                                                   ##
-                                                                                   ## !
-                                                                                   ##
-                                                                                   ## !
-                                                                                   ## the
-                                                                                   ## result
-                                                                                   ## should
-                                                                                   ## be
-                                                                                   ## formatted
-                                                                                   ## in
-                                                                                   ## the
-                                                                                   ## following
-                                                                                   ## way
-                                                                                   ## :
-                                                                                   ##
-                                                                                   ## !
-                                                                                   ## <--Num1DSS-->
-                                                                                   ## <--2
-                                                                                   ## *
-                                                                                   ## Num2DSS-->
-                                                                                   ## <--3
-                                                                                   ## *
-                                                                                   ## Num3DSS-->
-                                                                                   ##
-                                                                                   ## !
-                                                                                   ## R[0]
-                                                                                   ## ....
-                                                                                   ## R[Num1DSS].....
-                                                                                   ## R[Dimension-1]
-                                                                                   ##
-                                                                                   ## !
-                                                                                   ##
-                                                                                   ## !
-                                                                                   ## the
-                                                                                   ## order
-                                                                                   ## in
-                                                                                   ## which
-                                                                                   ## each
-                                                                                   ## Subspace
-                                                                                   ## appears
-                                                                                   ## should
-                                                                                   ## be
-                                                                                   ## consistent
-                                                                                   ##
-                                                                                   ## !
-                                                                                   ## with
-                                                                                   ## the
-                                                                                   ## tolerances
-                                                                                   ## given
-                                                                                   ## in
-                                                                                   ## the
-                                                                                   ## create
-                                                                                   ## function
-                                                                                   ## and
-                                                                                   ## the
-                                                                                   ##
-                                                                                   ## !
-                                                                                   ## results
-                                                                                   ## will
-                                                                                   ## be
-                                                                                   ## given
-                                                                                   ## in
-                                                                                   ## that
-                                                                                   ## order
-                                                                                   ## as
-                                                                                   ## well
-                                                                                   ## that
-                                                                                   ## is
-                                                                                   ## :
-                                                                                   ##
-                                                                                   ## !
-                                                                                   ## Curve2d(n)
-                                                                                   ## will
-                                                                                   ## correspond
-                                                                                   ## to
-                                                                                   ## the
-                                                                                   ## nth
-                                                                                   ## entry
-                                                                                   ##
-                                                                                   ## !
-                                                                                   ## described
-                                                                                   ## by
-                                                                                   ## Num2DSS,
-                                                                                   ## Curve(n)
-                                                                                   ## will
-                                                                                   ## correspond
-                                                                                   ## to
-                                                                                   ##
-                                                                                   ## !
-                                                                                   ## the
-                                                                                   ## nth
-                                                                                   ## entry
-                                                                                   ## described
-                                                                                   ## by
-                                                                                   ## Num3DSS
-                                                                                   ##
-                                                                                   ## !
-                                                                                   ## The
-                                                                                   ## same
-                                                                                   ## type
-                                                                                   ## of
-                                                                                   ## schema
-                                                                                   ## applies
-                                                                                   ## to
-                                                                                   ## the
-                                                                                   ## Poles1d,
-                                                                                   ## Poles2d
-                                                                                   ## and
-                                                                                   ##
-                                                                                   ## !
-                                                                                   ## Poles.
+  AdvApprox_ApproxAFunction* {.importcpp: "AdvApprox_ApproxAFunction",
+                              header: "AdvApprox_ApproxAFunction.hxx", bycopy.} = object ##
+                                                                                    ## !
+                                                                                    ## Constructs
+                                                                                    ## approximator
+                                                                                    ## tool.
+                                                                                    ##
+                                                                                    ## !
+                                                                                    ##
+                                                                                    ## !
+                                                                                    ## Warning:
+                                                                                    ##
+                                                                                    ## !
+                                                                                    ## the
+                                                                                    ## Func
+                                                                                    ## should
+                                                                                    ## be
+                                                                                    ## valid
+                                                                                    ## reference
+                                                                                    ## to
+                                                                                    ## object
+                                                                                    ## of
+                                                                                    ## type
+                                                                                    ##
+                                                                                    ## !
+                                                                                    ## inherited
+                                                                                    ## from
+                                                                                    ## class
+                                                                                    ## EvaluatorFunction
+                                                                                    ## from
+                                                                                    ## Approx
+                                                                                    ##
+                                                                                    ## !
+                                                                                    ## with
+                                                                                    ## life
+                                                                                    ## time
+                                                                                    ## longer
+                                                                                    ## than
+                                                                                    ## that
+                                                                                    ## of
+                                                                                    ## the
+                                                                                    ## approximator
+                                                                                    ## tool;
+                                                                                    ##
+                                                                                    ## !
+                                                                                    ##
+                                                                                    ## !
+                                                                                    ## the
+                                                                                    ## result
+                                                                                    ## should
+                                                                                    ## be
+                                                                                    ## formatted
+                                                                                    ## in
+                                                                                    ## the
+                                                                                    ## following
+                                                                                    ## way
+                                                                                    ## :
+                                                                                    ##
+                                                                                    ## !
+                                                                                    ## <--Num1DSS-->
+                                                                                    ## <--2
+                                                                                    ## *
+                                                                                    ## Num2DSS-->
+                                                                                    ## <--3
+                                                                                    ## *
+                                                                                    ## Num3DSS-->
+                                                                                    ##
+                                                                                    ## !
+                                                                                    ## R[0]
+                                                                                    ## ....
+                                                                                    ## R[Num1DSS].....
+                                                                                    ## R[Dimension-1]
+                                                                                    ##
+                                                                                    ## !
+                                                                                    ##
+                                                                                    ## !
+                                                                                    ## the
+                                                                                    ## order
+                                                                                    ## in
+                                                                                    ## which
+                                                                                    ## each
+                                                                                    ## Subspace
+                                                                                    ## appears
+                                                                                    ## should
+                                                                                    ## be
+                                                                                    ## consistent
+                                                                                    ##
+                                                                                    ## !
+                                                                                    ## with
+                                                                                    ## the
+                                                                                    ## tolerances
+                                                                                    ## given
+                                                                                    ## in
+                                                                                    ## the
+                                                                                    ## create
+                                                                                    ## function
+                                                                                    ## and
+                                                                                    ## the
+                                                                                    ##
+                                                                                    ## !
+                                                                                    ## results
+                                                                                    ## will
+                                                                                    ## be
+                                                                                    ## given
+                                                                                    ## in
+                                                                                    ## that
+                                                                                    ## order
+                                                                                    ## as
+                                                                                    ## well
+                                                                                    ## that
+                                                                                    ## is
+                                                                                    ## :
+                                                                                    ##
+                                                                                    ## !
+                                                                                    ## Curve2d(n)
+                                                                                    ## will
+                                                                                    ## correspond
+                                                                                    ## to
+                                                                                    ## the
+                                                                                    ## nth
+                                                                                    ## entry
+                                                                                    ##
+                                                                                    ## !
+                                                                                    ## described
+                                                                                    ## by
+                                                                                    ## Num2DSS,
+                                                                                    ## Curve(n)
+                                                                                    ## will
+                                                                                    ## correspond
+                                                                                    ## to
+                                                                                    ##
+                                                                                    ## !
+                                                                                    ## the
+                                                                                    ## nth
+                                                                                    ## entry
+                                                                                    ## described
+                                                                                    ## by
+                                                                                    ## Num3DSS
+                                                                                    ##
+                                                                                    ## !
+                                                                                    ## The
+                                                                                    ## same
+                                                                                    ## type
+                                                                                    ## of
+                                                                                    ## schema
+                                                                                    ## applies
+                                                                                    ## to
+                                                                                    ## the
+                                                                                    ## Poles1d,
+                                                                                    ## Poles2d
+                                                                                    ## and
+                                                                                    ##
+                                                                                    ## !
+                                                                                    ## Poles.
 
 
-proc constructAdvApproxApproxAFunction*(num1DSS: StandardInteger;
-                                       num2DSS: StandardInteger;
-                                       num3DSS: StandardInteger;
-                                       oneDTol: Handle[TColStdHArray1OfReal];
-                                       twoDTol: Handle[TColStdHArray1OfReal];
-                                       threeDTol: Handle[TColStdHArray1OfReal];
-                                       first: StandardReal; last: StandardReal;
-                                       continuity: GeomAbsShape;
-                                       maxDeg: StandardInteger;
-                                       maxSeg: StandardInteger;
-                                       `func`: AdvApproxEvaluatorFunction): AdvApproxApproxAFunction {.
+proc constructAdvApprox_ApproxAFunction*(Num1DSS: Standard_Integer;
+                                        Num2DSS: Standard_Integer;
+                                        Num3DSS: Standard_Integer;
+                                        OneDTol: handle[TColStd_HArray1OfReal];
+                                        TwoDTol: handle[TColStd_HArray1OfReal];
+    ThreeDTol: handle[TColStd_HArray1OfReal]; First: Standard_Real;
+                                        Last: Standard_Real;
+                                        Continuity: GeomAbs_Shape;
+                                        MaxDeg: Standard_Integer;
+                                        MaxSeg: Standard_Integer;
+                                        Func: AdvApprox_EvaluatorFunction): AdvApprox_ApproxAFunction {.
     constructor, importcpp: "AdvApprox_ApproxAFunction(@)",
     header: "AdvApprox_ApproxAFunction.hxx".}
-proc constructAdvApproxApproxAFunction*(num1DSS: StandardInteger;
-                                       num2DSS: StandardInteger;
-                                       num3DSS: StandardInteger;
-                                       oneDTol: Handle[TColStdHArray1OfReal];
-                                       twoDTol: Handle[TColStdHArray1OfReal];
-                                       threeDTol: Handle[TColStdHArray1OfReal];
-                                       first: StandardReal; last: StandardReal;
-                                       continuity: GeomAbsShape;
-                                       maxDeg: StandardInteger;
-                                       maxSeg: StandardInteger;
-                                       `func`: AdvApproxEvaluatorFunction;
-                                       cutTool: AdvApproxCutting): AdvApproxApproxAFunction {.
+proc constructAdvApprox_ApproxAFunction*(Num1DSS: Standard_Integer;
+                                        Num2DSS: Standard_Integer;
+                                        Num3DSS: Standard_Integer;
+                                        OneDTol: handle[TColStd_HArray1OfReal];
+                                        TwoDTol: handle[TColStd_HArray1OfReal];
+    ThreeDTol: handle[TColStd_HArray1OfReal]; First: Standard_Real;
+                                        Last: Standard_Real;
+                                        Continuity: GeomAbs_Shape;
+                                        MaxDeg: Standard_Integer;
+                                        MaxSeg: Standard_Integer;
+                                        Func: AdvApprox_EvaluatorFunction;
+                                        CutTool: AdvApprox_Cutting): AdvApprox_ApproxAFunction {.
     constructor, importcpp: "AdvApprox_ApproxAFunction(@)",
     header: "AdvApprox_ApproxAFunction.hxx".}
-proc approximation*(totalDimension: StandardInteger; totalNumSS: StandardInteger;
-                   localDimension: TColStdArray1OfInteger; first: StandardReal;
-                   last: StandardReal; evaluator: var AdvApproxEvaluatorFunction;
-                   cutTool: AdvApproxCutting; continuityOrder: StandardInteger;
-                   numMaxCoeffs: StandardInteger; maxSegments: StandardInteger;
-                   tolerancesArray: TColStdArray1OfReal;
-                   codePrecis: StandardInteger; numCurves: var StandardInteger;
-                   numCoeffPerCurveArray: var TColStdArray1OfInteger;
-                   localCoefficientArray: var TColStdArray1OfReal;
-                   intervalsArray: var TColStdArray1OfReal;
-                   errorMaxArray: var TColStdArray1OfReal;
-                   averageErrorArray: var TColStdArray1OfReal;
-                   errorCode: var StandardInteger) {.
+proc Approximation*(TotalDimension: Standard_Integer; TotalNumSS: Standard_Integer;
+                   LocalDimension: TColStd_Array1OfInteger; First: Standard_Real;
+                   Last: Standard_Real;
+                   Evaluator: var AdvApprox_EvaluatorFunction;
+                   CutTool: AdvApprox_Cutting; ContinuityOrder: Standard_Integer;
+                   NumMaxCoeffs: Standard_Integer; MaxSegments: Standard_Integer;
+                   TolerancesArray: TColStd_Array1OfReal;
+                   code_precis: Standard_Integer; NumCurves: var Standard_Integer;
+                   NumCoeffPerCurveArray: var TColStd_Array1OfInteger;
+                   LocalCoefficientArray: var TColStd_Array1OfReal;
+                   IntervalsArray: var TColStd_Array1OfReal;
+                   ErrorMaxArray: var TColStd_Array1OfReal;
+                   AverageErrorArray: var TColStd_Array1OfReal;
+                   ErrorCode: var Standard_Integer) {.
     importcpp: "AdvApprox_ApproxAFunction::Approximation(@)",
     header: "AdvApprox_ApproxAFunction.hxx".}
-proc isDone*(this: AdvApproxApproxAFunction): StandardBoolean {.noSideEffect,
+proc IsDone*(this: AdvApprox_ApproxAFunction): Standard_Boolean {.noSideEffect,
     importcpp: "IsDone", header: "AdvApprox_ApproxAFunction.hxx".}
-proc hasResult*(this: AdvApproxApproxAFunction): StandardBoolean {.noSideEffect,
+proc HasResult*(this: AdvApprox_ApproxAFunction): Standard_Boolean {.noSideEffect,
     importcpp: "HasResult", header: "AdvApprox_ApproxAFunction.hxx".}
-proc poles1d*(this: AdvApproxApproxAFunction): Handle[TColStdHArray2OfReal] {.
+proc Poles1d*(this: AdvApprox_ApproxAFunction): handle[TColStd_HArray2OfReal] {.
     noSideEffect, importcpp: "Poles1d", header: "AdvApprox_ApproxAFunction.hxx".}
-proc poles2d*(this: AdvApproxApproxAFunction): Handle[TColgpHArray2OfPnt2d] {.
+proc Poles2d*(this: AdvApprox_ApproxAFunction): handle[TColgp_HArray2OfPnt2d] {.
     noSideEffect, importcpp: "Poles2d", header: "AdvApprox_ApproxAFunction.hxx".}
-proc poles*(this: AdvApproxApproxAFunction): Handle[TColgpHArray2OfPnt] {.
+proc Poles*(this: AdvApprox_ApproxAFunction): handle[TColgp_HArray2OfPnt] {.
     noSideEffect, importcpp: "Poles", header: "AdvApprox_ApproxAFunction.hxx".}
-proc nbPoles*(this: AdvApproxApproxAFunction): StandardInteger {.noSideEffect,
+proc NbPoles*(this: AdvApprox_ApproxAFunction): Standard_Integer {.noSideEffect,
     importcpp: "NbPoles", header: "AdvApprox_ApproxAFunction.hxx".}
-proc poles1d*(this: AdvApproxApproxAFunction; index: StandardInteger;
-             p: var TColStdArray1OfReal) {.noSideEffect, importcpp: "Poles1d",
-                                        header: "AdvApprox_ApproxAFunction.hxx".}
-proc poles2d*(this: AdvApproxApproxAFunction; index: StandardInteger;
-             p: var TColgpArray1OfPnt2d) {.noSideEffect, importcpp: "Poles2d",
-                                        header: "AdvApprox_ApproxAFunction.hxx".}
-proc poles*(this: AdvApproxApproxAFunction; index: StandardInteger;
-           p: var TColgpArray1OfPnt) {.noSideEffect, importcpp: "Poles",
-                                    header: "AdvApprox_ApproxAFunction.hxx".}
-proc degree*(this: AdvApproxApproxAFunction): StandardInteger {.noSideEffect,
+proc Poles1d*(this: AdvApprox_ApproxAFunction; Index: Standard_Integer;
+             P: var TColStd_Array1OfReal) {.noSideEffect, importcpp: "Poles1d",
+    header: "AdvApprox_ApproxAFunction.hxx".}
+proc Poles2d*(this: AdvApprox_ApproxAFunction; Index: Standard_Integer;
+             P: var TColgp_Array1OfPnt2d) {.noSideEffect, importcpp: "Poles2d",
+    header: "AdvApprox_ApproxAFunction.hxx".}
+proc Poles*(this: AdvApprox_ApproxAFunction; Index: Standard_Integer;
+           P: var TColgp_Array1OfPnt) {.noSideEffect, importcpp: "Poles",
+                                     header: "AdvApprox_ApproxAFunction.hxx".}
+proc Degree*(this: AdvApprox_ApproxAFunction): Standard_Integer {.noSideEffect,
     importcpp: "Degree", header: "AdvApprox_ApproxAFunction.hxx".}
-proc nbKnots*(this: AdvApproxApproxAFunction): StandardInteger {.noSideEffect,
+proc NbKnots*(this: AdvApprox_ApproxAFunction): Standard_Integer {.noSideEffect,
     importcpp: "NbKnots", header: "AdvApprox_ApproxAFunction.hxx".}
-proc numSubSpaces*(this: AdvApproxApproxAFunction; dimension: StandardInteger): StandardInteger {.
+proc NumSubSpaces*(this: AdvApprox_ApproxAFunction; Dimension: Standard_Integer): Standard_Integer {.
     noSideEffect, importcpp: "NumSubSpaces",
     header: "AdvApprox_ApproxAFunction.hxx".}
-proc knots*(this: AdvApproxApproxAFunction): Handle[TColStdHArray1OfReal] {.
+proc Knots*(this: AdvApprox_ApproxAFunction): handle[TColStd_HArray1OfReal] {.
     noSideEffect, importcpp: "Knots", header: "AdvApprox_ApproxAFunction.hxx".}
-proc multiplicities*(this: AdvApproxApproxAFunction): Handle[
-    TColStdHArray1OfInteger] {.noSideEffect, importcpp: "Multiplicities",
-                              header: "AdvApprox_ApproxAFunction.hxx".}
-proc maxError*(this: AdvApproxApproxAFunction; dimension: StandardInteger): Handle[
-    TColStdHArray1OfReal] {.noSideEffect, importcpp: "MaxError",
-                           header: "AdvApprox_ApproxAFunction.hxx".}
-proc averageError*(this: AdvApproxApproxAFunction; dimension: StandardInteger): Handle[
-    TColStdHArray1OfReal] {.noSideEffect, importcpp: "AverageError",
-                           header: "AdvApprox_ApproxAFunction.hxx".}
-proc maxError*(this: AdvApproxApproxAFunction; dimension: StandardInteger;
-              index: StandardInteger): StandardReal {.noSideEffect,
+proc Multiplicities*(this: AdvApprox_ApproxAFunction): handle[
+    TColStd_HArray1OfInteger] {.noSideEffect, importcpp: "Multiplicities",
+                               header: "AdvApprox_ApproxAFunction.hxx".}
+proc MaxError*(this: AdvApprox_ApproxAFunction; Dimension: Standard_Integer): handle[
+    TColStd_HArray1OfReal] {.noSideEffect, importcpp: "MaxError",
+                            header: "AdvApprox_ApproxAFunction.hxx".}
+proc AverageError*(this: AdvApprox_ApproxAFunction; Dimension: Standard_Integer): handle[
+    TColStd_HArray1OfReal] {.noSideEffect, importcpp: "AverageError",
+                            header: "AdvApprox_ApproxAFunction.hxx".}
+proc MaxError*(this: AdvApprox_ApproxAFunction; Dimension: Standard_Integer;
+              Index: Standard_Integer): Standard_Real {.noSideEffect,
     importcpp: "MaxError", header: "AdvApprox_ApproxAFunction.hxx".}
-proc averageError*(this: AdvApproxApproxAFunction; dimension: StandardInteger;
-                  index: StandardInteger): StandardReal {.noSideEffect,
+proc AverageError*(this: AdvApprox_ApproxAFunction; Dimension: Standard_Integer;
+                  Index: Standard_Integer): Standard_Real {.noSideEffect,
     importcpp: "AverageError", header: "AdvApprox_ApproxAFunction.hxx".}
-proc dump*(this: AdvApproxApproxAFunction; o: var StandardOStream) {.noSideEffect,
+proc Dump*(this: AdvApprox_ApproxAFunction; o: var Standard_OStream) {.noSideEffect,
     importcpp: "Dump", header: "AdvApprox_ApproxAFunction.hxx".}
-

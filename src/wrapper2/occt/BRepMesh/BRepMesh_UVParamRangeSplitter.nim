@@ -13,33 +13,41 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  BRepMesh_DefaultRangeSplitter, ../IMeshData/IMeshData_Types
+
 ## ! Intended to generate internal mesh nodes using UV parameters of boundary discrete points.
 
 type
-  BRepMeshUVParamRangeSplitter* {.importcpp: "BRepMesh_UVParamRangeSplitter",
-                                 header: "BRepMesh_UVParamRangeSplitter.hxx",
-                                 bycopy.} = object of BRepMeshDefaultRangeSplitter ## !
-                                                                              ## Constructor.
-                                                                              ## !
-                                                                              ## Returns U
-                                                                              ## parameters.
+  BRepMesh_UVParamRangeSplitter* {.importcpp: "BRepMesh_UVParamRangeSplitter",
+                                  header: "BRepMesh_UVParamRangeSplitter.hxx",
+                                  bycopy.} = object of BRepMesh_DefaultRangeSplitter ##
+                                                                                ## !
+                                                                                ## Constructor.
+                                                                                ##
+                                                                                ## !
+                                                                                ## Returns
+                                                                                ## U
+                                                                                ## parameters.
 
 
-proc constructBRepMeshUVParamRangeSplitter*(): BRepMeshUVParamRangeSplitter {.
+proc constructBRepMesh_UVParamRangeSplitter*(): BRepMesh_UVParamRangeSplitter {.
     constructor, importcpp: "BRepMesh_UVParamRangeSplitter(@)",
     header: "BRepMesh_UVParamRangeSplitter.hxx".}
-proc destroyBRepMeshUVParamRangeSplitter*(this: var BRepMeshUVParamRangeSplitter) {.
+proc destroyBRepMesh_UVParamRangeSplitter*(
+    this: var BRepMesh_UVParamRangeSplitter) {.
     importcpp: "#.~BRepMesh_UVParamRangeSplitter()",
     header: "BRepMesh_UVParamRangeSplitter.hxx".}
-proc reset*(this: var BRepMeshUVParamRangeSplitter; theDFace: IFaceHandle;
-           theParameters: IMeshToolsParameters) {.importcpp: "Reset",
+proc Reset*(this: var BRepMesh_UVParamRangeSplitter; theDFace: IFaceHandle;
+           theParameters: IMeshTools_Parameters) {.importcpp: "Reset",
     header: "BRepMesh_UVParamRangeSplitter.hxx".}
-proc getParametersU*(this: BRepMeshUVParamRangeSplitter): IMapOfReal {.noSideEffect,
+proc GetParametersU*(this: BRepMesh_UVParamRangeSplitter): IMapOfReal {.
+    noSideEffect, importcpp: "GetParametersU",
+    header: "BRepMesh_UVParamRangeSplitter.hxx".}
+proc GetParametersU*(this: var BRepMesh_UVParamRangeSplitter): var IMapOfReal {.
     importcpp: "GetParametersU", header: "BRepMesh_UVParamRangeSplitter.hxx".}
-proc getParametersU*(this: var BRepMeshUVParamRangeSplitter): var IMapOfReal {.
-    importcpp: "GetParametersU", header: "BRepMesh_UVParamRangeSplitter.hxx".}
-proc getParametersV*(this: BRepMeshUVParamRangeSplitter): IMapOfReal {.noSideEffect,
+proc GetParametersV*(this: BRepMesh_UVParamRangeSplitter): IMapOfReal {.
+    noSideEffect, importcpp: "GetParametersV",
+    header: "BRepMesh_UVParamRangeSplitter.hxx".}
+proc GetParametersV*(this: var BRepMesh_UVParamRangeSplitter): var IMapOfReal {.
     importcpp: "GetParametersV", header: "BRepMesh_UVParamRangeSplitter.hxx".}
-proc getParametersV*(this: var BRepMeshUVParamRangeSplitter): var IMapOfReal {.
-    importcpp: "GetParametersV", header: "BRepMesh_UVParamRangeSplitter.hxx".}
-

@@ -14,18 +14,21 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, GeomToStep_Root
+
 discard "forward decl of StepGeom_BSplineSurfaceWithKnotsAndRationalBSplineSurface"
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of Geom_BSplineSurface"
 type
-  GeomToStepMakeBSplineSurfaceWithKnotsAndRationalBSplineSurface* {.importcpp: "GeomToStep_MakeBSplineSurfaceWithKnotsAndRationalBSplineSurface", header: "GeomToStep_MakeBSplineSurfaceWithKnotsAndRationalBSplineSurface.hxx",
-      bycopy.} = object of GeomToStepRoot
+  GeomToStep_MakeBSplineSurfaceWithKnotsAndRationalBSplineSurface* {.importcpp: "GeomToStep_MakeBSplineSurfaceWithKnotsAndRationalBSplineSurface", header: "GeomToStep_MakeBSplineSurfaceWithKnotsAndRationalBSplineSurface.hxx",
+      bycopy.} = object of GeomToStep_Root
 
 
-proc constructGeomToStepMakeBSplineSurfaceWithKnotsAndRationalBSplineSurface*(
-    bsplin: Handle[GeomBSplineSurface]): GeomToStepMakeBSplineSurfaceWithKnotsAndRationalBSplineSurface {.
+proc constructGeomToStep_MakeBSplineSurfaceWithKnotsAndRationalBSplineSurface*(
+    Bsplin: handle[Geom_BSplineSurface]): GeomToStep_MakeBSplineSurfaceWithKnotsAndRationalBSplineSurface {.
     constructor, importcpp: "GeomToStep_MakeBSplineSurfaceWithKnotsAndRationalBSplineSurface(@)", header: "GeomToStep_MakeBSplineSurfaceWithKnotsAndRationalBSplineSurface.hxx".}
-proc value*(this: GeomToStepMakeBSplineSurfaceWithKnotsAndRationalBSplineSurface): Handle[
-    StepGeomBSplineSurfaceWithKnotsAndRationalBSplineSurface] {.noSideEffect,
+proc Value*(this: GeomToStep_MakeBSplineSurfaceWithKnotsAndRationalBSplineSurface): handle[
+    StepGeom_BSplineSurfaceWithKnotsAndRationalBSplineSurface] {.noSideEffect,
     importcpp: "Value", header: "GeomToStep_MakeBSplineSurfaceWithKnotsAndRationalBSplineSurface.hxx".}
-

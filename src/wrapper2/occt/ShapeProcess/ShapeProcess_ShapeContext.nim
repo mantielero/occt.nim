@@ -13,6 +13,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../TopoDS/TopoDS_Shape,
+  ../TopTools/TopTools_DataMapOfShapeShape, ../TopAbs/TopAbs_ShapeEnum,
+  ShapeProcess_Context, ../Standard/Standard_CString, ../Message/Message_Gravity,
+  ../Standard/Standard_Boolean, ../GeomAbs/GeomAbs_Shape
+
 discard "forward decl of ShapeExtend_MsgRegistrator"
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of ShapeBuild_ReShape"
@@ -21,84 +27,83 @@ discard "forward decl of Message_Msg"
 discard "forward decl of ShapeProcess_ShapeContext"
 discard "forward decl of ShapeProcess_ShapeContext"
 type
-  HandleShapeProcessShapeContext* = Handle[ShapeProcessShapeContext]
+  Handle_ShapeProcess_ShapeContext* = handle[ShapeProcess_ShapeContext]
 
 ## ! Extends Context to handle shapes
 ## ! Contains map of shape-shape, and messages
 ## ! attached to shapes
 
 type
-  ShapeProcessShapeContext* {.importcpp: "ShapeProcess_ShapeContext",
-                             header: "ShapeProcess_ShapeContext.hxx", bycopy.} = object of ShapeProcessContext
+  ShapeProcess_ShapeContext* {.importcpp: "ShapeProcess_ShapeContext",
+                              header: "ShapeProcess_ShapeContext.hxx", bycopy.} = object of ShapeProcess_Context
 
 
-proc constructShapeProcessShapeContext*(file: StandardCString;
-                                       seq: StandardCString = ""): ShapeProcessShapeContext {.
+proc constructShapeProcess_ShapeContext*(file: Standard_CString;
+                                        seq: Standard_CString = ""): ShapeProcess_ShapeContext {.
     constructor, importcpp: "ShapeProcess_ShapeContext(@)",
     header: "ShapeProcess_ShapeContext.hxx".}
-proc constructShapeProcessShapeContext*(s: TopoDS_Shape; file: StandardCString;
-                                       seq: StandardCString = ""): ShapeProcessShapeContext {.
+proc constructShapeProcess_ShapeContext*(S: TopoDS_Shape; file: Standard_CString;
+                                        seq: Standard_CString = ""): ShapeProcess_ShapeContext {.
     constructor, importcpp: "ShapeProcess_ShapeContext(@)",
     header: "ShapeProcess_ShapeContext.hxx".}
-proc init*(this: var ShapeProcessShapeContext; s: TopoDS_Shape) {.importcpp: "Init",
+proc Init*(this: var ShapeProcess_ShapeContext; S: TopoDS_Shape) {.importcpp: "Init",
     header: "ShapeProcess_ShapeContext.hxx".}
-proc shape*(this: ShapeProcessShapeContext): TopoDS_Shape {.noSideEffect,
+proc Shape*(this: ShapeProcess_ShapeContext): TopoDS_Shape {.noSideEffect,
     importcpp: "Shape", header: "ShapeProcess_ShapeContext.hxx".}
-proc result*(this: ShapeProcessShapeContext): TopoDS_Shape {.noSideEffect,
+proc Result*(this: ShapeProcess_ShapeContext): TopoDS_Shape {.noSideEffect,
     importcpp: "Result", header: "ShapeProcess_ShapeContext.hxx".}
-proc map*(this: ShapeProcessShapeContext): TopToolsDataMapOfShapeShape {.
+proc Map*(this: ShapeProcess_ShapeContext): TopTools_DataMapOfShapeShape {.
     noSideEffect, importcpp: "Map", header: "ShapeProcess_ShapeContext.hxx".}
-proc messages*(this: ShapeProcessShapeContext): Handle[ShapeExtendMsgRegistrator] {.
+proc Messages*(this: ShapeProcess_ShapeContext): handle[ShapeExtend_MsgRegistrator] {.
     noSideEffect, importcpp: "Messages", header: "ShapeProcess_ShapeContext.hxx".}
-proc messages*(this: var ShapeProcessShapeContext): var Handle[
-    ShapeExtendMsgRegistrator] {.importcpp: "Messages",
-                                header: "ShapeProcess_ShapeContext.hxx".}
-proc setDetalisation*(this: var ShapeProcessShapeContext; level: TopAbsShapeEnum) {.
+proc Messages*(this: var ShapeProcess_ShapeContext): var handle[
+    ShapeExtend_MsgRegistrator] {.importcpp: "Messages",
+                                 header: "ShapeProcess_ShapeContext.hxx".}
+proc SetDetalisation*(this: var ShapeProcess_ShapeContext; level: TopAbs_ShapeEnum) {.
     importcpp: "SetDetalisation", header: "ShapeProcess_ShapeContext.hxx".}
-proc getDetalisation*(this: ShapeProcessShapeContext): TopAbsShapeEnum {.
+proc GetDetalisation*(this: ShapeProcess_ShapeContext): TopAbs_ShapeEnum {.
     noSideEffect, importcpp: "GetDetalisation",
     header: "ShapeProcess_ShapeContext.hxx".}
-proc setResult*(this: var ShapeProcessShapeContext; s: TopoDS_Shape) {.
+proc SetResult*(this: var ShapeProcess_ShapeContext; S: TopoDS_Shape) {.
     importcpp: "SetResult", header: "ShapeProcess_ShapeContext.hxx".}
-proc recordModification*(this: var ShapeProcessShapeContext;
-                        repl: TopToolsDataMapOfShapeShape;
-                        msg: Handle[ShapeExtendMsgRegistrator] = 0) {.
+proc RecordModification*(this: var ShapeProcess_ShapeContext;
+                        repl: TopTools_DataMapOfShapeShape;
+                        msg: handle[ShapeExtend_MsgRegistrator] = 0) {.
     importcpp: "RecordModification", header: "ShapeProcess_ShapeContext.hxx".}
-proc recordModification*(this: var ShapeProcessShapeContext;
-                        repl: Handle[ShapeBuildReShape];
-                        msg: Handle[ShapeExtendMsgRegistrator]) {.
+proc RecordModification*(this: var ShapeProcess_ShapeContext;
+                        repl: handle[ShapeBuild_ReShape];
+                        msg: handle[ShapeExtend_MsgRegistrator]) {.
     importcpp: "RecordModification", header: "ShapeProcess_ShapeContext.hxx".}
-proc recordModification*(this: var ShapeProcessShapeContext;
-                        repl: Handle[ShapeBuildReShape]) {.
+proc RecordModification*(this: var ShapeProcess_ShapeContext;
+                        repl: handle[ShapeBuild_ReShape]) {.
     importcpp: "RecordModification", header: "ShapeProcess_ShapeContext.hxx".}
-proc recordModification*(this: var ShapeProcessShapeContext; sh: TopoDS_Shape;
-                        repl: BRepToolsModifier;
-                        msg: Handle[ShapeExtendMsgRegistrator] = 0) {.
+proc RecordModification*(this: var ShapeProcess_ShapeContext; sh: TopoDS_Shape;
+                        repl: BRepTools_Modifier;
+                        msg: handle[ShapeExtend_MsgRegistrator] = 0) {.
     importcpp: "RecordModification", header: "ShapeProcess_ShapeContext.hxx".}
-proc addMessage*(this: var ShapeProcessShapeContext; s: TopoDS_Shape; msg: MessageMsg;
-                gravity: MessageGravity = messageWarning) {.importcpp: "AddMessage",
-    header: "ShapeProcess_ShapeContext.hxx".}
-proc getContinuity*(this: ShapeProcessShapeContext; param: StandardCString;
-                   val: var GeomAbsShape): StandardBoolean {.noSideEffect,
+proc AddMessage*(this: var ShapeProcess_ShapeContext; S: TopoDS_Shape;
+                msg: Message_Msg; gravity: Message_Gravity = Message_Warning) {.
+    importcpp: "AddMessage", header: "ShapeProcess_ShapeContext.hxx".}
+proc GetContinuity*(this: ShapeProcess_ShapeContext; param: Standard_CString;
+                   val: var GeomAbs_Shape): Standard_Boolean {.noSideEffect,
     importcpp: "GetContinuity", header: "ShapeProcess_ShapeContext.hxx".}
-proc continuityVal*(this: ShapeProcessShapeContext; param: StandardCString;
-                   def: GeomAbsShape): GeomAbsShape {.noSideEffect,
+proc ContinuityVal*(this: ShapeProcess_ShapeContext; param: Standard_CString;
+                   def: GeomAbs_Shape): GeomAbs_Shape {.noSideEffect,
     importcpp: "ContinuityVal", header: "ShapeProcess_ShapeContext.hxx".}
-proc printStatistics*(this: ShapeProcessShapeContext) {.noSideEffect,
+proc PrintStatistics*(this: ShapeProcess_ShapeContext) {.noSideEffect,
     importcpp: "PrintStatistics", header: "ShapeProcess_ShapeContext.hxx".}
-proc setNonManifold*(this: var ShapeProcessShapeContext;
-                    theNonManifold: StandardBoolean) {.
+proc SetNonManifold*(this: var ShapeProcess_ShapeContext;
+                    theNonManifold: Standard_Boolean) {.
     importcpp: "SetNonManifold", header: "ShapeProcess_ShapeContext.hxx".}
-proc isNonManifold*(this: var ShapeProcessShapeContext): StandardBoolean {.
+proc IsNonManifold*(this: var ShapeProcess_ShapeContext): Standard_Boolean {.
     importcpp: "IsNonManifold", header: "ShapeProcess_ShapeContext.hxx".}
 type
-  ShapeProcessShapeContextbaseType* = ShapeProcessContext
+  ShapeProcess_ShapeContextbase_type* = ShapeProcess_Context
 
-proc getTypeName*(): cstring {.importcpp: "ShapeProcess_ShapeContext::get_type_name(@)",
-                            header: "ShapeProcess_ShapeContext.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "ShapeProcess_ShapeContext::get_type_name(@)",
+                              header: "ShapeProcess_ShapeContext.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "ShapeProcess_ShapeContext::get_type_descriptor(@)",
     header: "ShapeProcess_ShapeContext.hxx".}
-proc dynamicType*(this: ShapeProcessShapeContext): Handle[StandardType] {.
+proc DynamicType*(this: ShapeProcess_ShapeContext): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType", header: "ShapeProcess_ShapeContext.hxx".}
-

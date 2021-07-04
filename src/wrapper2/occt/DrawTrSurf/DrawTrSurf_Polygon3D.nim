@@ -14,48 +14,51 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Boolean,
+  ../Draw/Draw_Drawable3D, ../Standard/Standard_OStream, ../Draw/Draw_Interpretor
+
 discard "forward decl of Poly_Polygon3D"
 discard "forward decl of Draw_Display"
 discard "forward decl of Draw_Drawable3D"
 discard "forward decl of DrawTrSurf_Polygon3D"
 discard "forward decl of DrawTrSurf_Polygon3D"
 type
-  HandleDrawTrSurfPolygon3D* = Handle[DrawTrSurfPolygon3D]
+  Handle_DrawTrSurf_Polygon3D* = handle[DrawTrSurf_Polygon3D]
 
 ## ! Used to display a 3d polygon.
 ## !
 ## ! Optional display of nodes.
 
 type
-  DrawTrSurfPolygon3D* {.importcpp: "DrawTrSurf_Polygon3D",
-                        header: "DrawTrSurf_Polygon3D.hxx", bycopy.} = object of DrawDrawable3D
+  DrawTrSurf_Polygon3D* {.importcpp: "DrawTrSurf_Polygon3D",
+                         header: "DrawTrSurf_Polygon3D.hxx", bycopy.} = object of Draw_Drawable3D
 
 
-proc constructDrawTrSurfPolygon3D*(p: Handle[PolyPolygon3D]): DrawTrSurfPolygon3D {.
+proc constructDrawTrSurf_Polygon3D*(P: handle[Poly_Polygon3D]): DrawTrSurf_Polygon3D {.
     constructor, importcpp: "DrawTrSurf_Polygon3D(@)",
     header: "DrawTrSurf_Polygon3D.hxx".}
-proc polygon3D*(this: DrawTrSurfPolygon3D): Handle[PolyPolygon3D] {.noSideEffect,
+proc Polygon3D*(this: DrawTrSurf_Polygon3D): handle[Poly_Polygon3D] {.noSideEffect,
     importcpp: "Polygon3D", header: "DrawTrSurf_Polygon3D.hxx".}
-proc showNodes*(this: var DrawTrSurfPolygon3D; b: StandardBoolean) {.
+proc ShowNodes*(this: var DrawTrSurf_Polygon3D; B: Standard_Boolean) {.
     importcpp: "ShowNodes", header: "DrawTrSurf_Polygon3D.hxx".}
-proc showNodes*(this: DrawTrSurfPolygon3D): StandardBoolean {.noSideEffect,
+proc ShowNodes*(this: DrawTrSurf_Polygon3D): Standard_Boolean {.noSideEffect,
     importcpp: "ShowNodes", header: "DrawTrSurf_Polygon3D.hxx".}
-proc drawOn*(this: DrawTrSurfPolygon3D; dis: var DrawDisplay) {.noSideEffect,
+proc DrawOn*(this: DrawTrSurf_Polygon3D; dis: var Draw_Display) {.noSideEffect,
     importcpp: "DrawOn", header: "DrawTrSurf_Polygon3D.hxx".}
-proc copy*(this: DrawTrSurfPolygon3D): Handle[DrawDrawable3D] {.noSideEffect,
+proc Copy*(this: DrawTrSurf_Polygon3D): handle[Draw_Drawable3D] {.noSideEffect,
     importcpp: "Copy", header: "DrawTrSurf_Polygon3D.hxx".}
-proc dump*(this: DrawTrSurfPolygon3D; s: var StandardOStream) {.noSideEffect,
+proc Dump*(this: DrawTrSurf_Polygon3D; S: var Standard_OStream) {.noSideEffect,
     importcpp: "Dump", header: "DrawTrSurf_Polygon3D.hxx".}
-proc whatis*(this: DrawTrSurfPolygon3D; i: var DrawInterpretor) {.noSideEffect,
+proc Whatis*(this: DrawTrSurf_Polygon3D; I: var Draw_Interpretor) {.noSideEffect,
     importcpp: "Whatis", header: "DrawTrSurf_Polygon3D.hxx".}
 type
-  DrawTrSurfPolygon3DbaseType* = DrawDrawable3D
+  DrawTrSurf_Polygon3Dbase_type* = Draw_Drawable3D
 
-proc getTypeName*(): cstring {.importcpp: "DrawTrSurf_Polygon3D::get_type_name(@)",
-                            header: "DrawTrSurf_Polygon3D.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "DrawTrSurf_Polygon3D::get_type_name(@)",
+                              header: "DrawTrSurf_Polygon3D.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "DrawTrSurf_Polygon3D::get_type_descriptor(@)",
     header: "DrawTrSurf_Polygon3D.hxx".}
-proc dynamicType*(this: DrawTrSurfPolygon3D): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: DrawTrSurf_Polygon3D): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "DrawTrSurf_Polygon3D.hxx".}
-

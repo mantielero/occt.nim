@@ -14,87 +14,91 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard_Handle, ../IntAna/IntAna_Curve, IntPatch_Line,
+  IntPatch_SequenceOfPoint, ../TColStd/TColStd_ListOfReal
+
 discard "forward decl of IntAna_Curve"
 discard "forward decl of IntPatch_Point"
 discard "forward decl of IntPatch_ALine"
 discard "forward decl of IntPatch_ALine"
 type
-  HandleIntPatchALine* = Handle[IntPatchALine]
+  Handle_IntPatch_ALine* = handle[IntPatch_ALine]
 
 ## ! Implementation of an intersection line described by a
 ## ! parametrized curve.
 
 type
-  IntPatchALine* {.importcpp: "IntPatch_ALine", header: "IntPatch_ALine.hxx", bycopy.} = object of IntPatchLine ##
-                                                                                                      ## !
-                                                                                                      ## Creates
-                                                                                                      ## an
-                                                                                                      ## analytic
-                                                                                                      ## intersection
-                                                                                                      ## line
-                                                                                                      ##
-                                                                                                      ## !
-                                                                                                      ## when
-                                                                                                      ## the
-                                                                                                      ## transitions
-                                                                                                      ## are
-                                                                                                      ## In
-                                                                                                      ## or
-                                                                                                      ## Out.
+  IntPatch_ALine* {.importcpp: "IntPatch_ALine", header: "IntPatch_ALine.hxx", bycopy.} = object of IntPatch_Line ##
+                                                                                                        ## !
+                                                                                                        ## Creates
+                                                                                                        ## an
+                                                                                                        ## analytic
+                                                                                                        ## intersection
+                                                                                                        ## line
+                                                                                                        ##
+                                                                                                        ## !
+                                                                                                        ## when
+                                                                                                        ## the
+                                                                                                        ## transitions
+                                                                                                        ## are
+                                                                                                        ## In
+                                                                                                        ## or
+                                                                                                        ## Out.
 
 
-proc constructIntPatchALine*(c: IntAnaCurve; tang: StandardBoolean;
-                            trans1: IntSurfTypeTrans; trans2: IntSurfTypeTrans): IntPatchALine {.
+proc constructIntPatch_ALine*(C: IntAna_Curve; Tang: Standard_Boolean;
+                             Trans1: IntSurf_TypeTrans; Trans2: IntSurf_TypeTrans): IntPatch_ALine {.
     constructor, importcpp: "IntPatch_ALine(@)", header: "IntPatch_ALine.hxx".}
-proc constructIntPatchALine*(c: IntAnaCurve; tang: StandardBoolean;
-                            situ1: IntSurfSituation; situ2: IntSurfSituation): IntPatchALine {.
+proc constructIntPatch_ALine*(C: IntAna_Curve; Tang: Standard_Boolean;
+                             Situ1: IntSurf_Situation; Situ2: IntSurf_Situation): IntPatch_ALine {.
     constructor, importcpp: "IntPatch_ALine(@)", header: "IntPatch_ALine.hxx".}
-proc constructIntPatchALine*(c: IntAnaCurve; tang: StandardBoolean): IntPatchALine {.
+proc constructIntPatch_ALine*(C: IntAna_Curve; Tang: Standard_Boolean): IntPatch_ALine {.
     constructor, importcpp: "IntPatch_ALine(@)", header: "IntPatch_ALine.hxx".}
-proc addVertex*(this: var IntPatchALine; pnt: IntPatchPoint) {.importcpp: "AddVertex",
-    header: "IntPatch_ALine.hxx".}
-proc replace*(this: var IntPatchALine; index: StandardInteger; pnt: IntPatchPoint) {.
+proc AddVertex*(this: var IntPatch_ALine; Pnt: IntPatch_Point) {.
+    importcpp: "AddVertex", header: "IntPatch_ALine.hxx".}
+proc Replace*(this: var IntPatch_ALine; Index: Standard_Integer; Pnt: IntPatch_Point) {.
     importcpp: "Replace", header: "IntPatch_ALine.hxx".}
-proc setFirstPoint*(this: var IntPatchALine; indFirst: StandardInteger) {.
+proc SetFirstPoint*(this: var IntPatch_ALine; IndFirst: Standard_Integer) {.
     importcpp: "SetFirstPoint", header: "IntPatch_ALine.hxx".}
-proc setLastPoint*(this: var IntPatchALine; indLast: StandardInteger) {.
+proc SetLastPoint*(this: var IntPatch_ALine; IndLast: Standard_Integer) {.
     importcpp: "SetLastPoint", header: "IntPatch_ALine.hxx".}
-proc firstParameter*(this: IntPatchALine; isIncluded: var StandardBoolean): StandardReal {.
+proc FirstParameter*(this: IntPatch_ALine; IsIncluded: var Standard_Boolean): Standard_Real {.
     noSideEffect, importcpp: "FirstParameter", header: "IntPatch_ALine.hxx".}
-proc lastParameter*(this: IntPatchALine; isIncluded: var StandardBoolean): StandardReal {.
+proc LastParameter*(this: IntPatch_ALine; IsIncluded: var Standard_Boolean): Standard_Real {.
     noSideEffect, importcpp: "LastParameter", header: "IntPatch_ALine.hxx".}
-proc value*(this: var IntPatchALine; u: StandardReal): GpPnt {.importcpp: "Value",
+proc Value*(this: var IntPatch_ALine; U: Standard_Real): gp_Pnt {.importcpp: "Value",
     header: "IntPatch_ALine.hxx".}
-proc d1*(this: var IntPatchALine; u: StandardReal; p: var GpPnt; du: var GpVec): StandardBoolean {.
+proc D1*(this: var IntPatch_ALine; U: Standard_Real; P: var gp_Pnt; Du: var gp_Vec): Standard_Boolean {.
     importcpp: "D1", header: "IntPatch_ALine.hxx".}
-proc findParameter*(this: IntPatchALine; p: GpPnt; theParams: var TColStdListOfReal) {.
-    noSideEffect, importcpp: "FindParameter", header: "IntPatch_ALine.hxx".}
-proc hasFirstPoint*(this: IntPatchALine): StandardBoolean {.noSideEffect,
+proc FindParameter*(this: IntPatch_ALine; P: gp_Pnt;
+                   theParams: var TColStd_ListOfReal) {.noSideEffect,
+    importcpp: "FindParameter", header: "IntPatch_ALine.hxx".}
+proc HasFirstPoint*(this: IntPatch_ALine): Standard_Boolean {.noSideEffect,
     importcpp: "HasFirstPoint", header: "IntPatch_ALine.hxx".}
-proc hasLastPoint*(this: IntPatchALine): StandardBoolean {.noSideEffect,
+proc HasLastPoint*(this: IntPatch_ALine): Standard_Boolean {.noSideEffect,
     importcpp: "HasLastPoint", header: "IntPatch_ALine.hxx".}
-proc firstPoint*(this: IntPatchALine): IntPatchPoint {.noSideEffect,
+proc FirstPoint*(this: IntPatch_ALine): IntPatch_Point {.noSideEffect,
     importcpp: "FirstPoint", header: "IntPatch_ALine.hxx".}
-proc lastPoint*(this: IntPatchALine): IntPatchPoint {.noSideEffect,
+proc LastPoint*(this: IntPatch_ALine): IntPatch_Point {.noSideEffect,
     importcpp: "LastPoint", header: "IntPatch_ALine.hxx".}
-proc nbVertex*(this: IntPatchALine): StandardInteger {.noSideEffect,
+proc NbVertex*(this: IntPatch_ALine): Standard_Integer {.noSideEffect,
     importcpp: "NbVertex", header: "IntPatch_ALine.hxx".}
-proc vertex*(this: IntPatchALine; index: StandardInteger): IntPatchPoint {.
+proc Vertex*(this: IntPatch_ALine; Index: Standard_Integer): IntPatch_Point {.
     noSideEffect, importcpp: "Vertex", header: "IntPatch_ALine.hxx".}
-proc changeVertex*(this: var IntPatchALine; theIndex: StandardInteger): var IntPatchPoint {.
+proc ChangeVertex*(this: var IntPatch_ALine; theIndex: Standard_Integer): var IntPatch_Point {.
     importcpp: "ChangeVertex", header: "IntPatch_ALine.hxx".}
-proc computeVertexParameters*(this: var IntPatchALine; tol: StandardReal) {.
+proc ComputeVertexParameters*(this: var IntPatch_ALine; Tol: Standard_Real) {.
     importcpp: "ComputeVertexParameters", header: "IntPatch_ALine.hxx".}
-proc curve*(this: IntPatchALine): IntAnaCurve {.noSideEffect, importcpp: "Curve",
+proc Curve*(this: IntPatch_ALine): IntAna_Curve {.noSideEffect, importcpp: "Curve",
     header: "IntPatch_ALine.hxx".}
 type
-  IntPatchALinebaseType* = IntPatchLine
+  IntPatch_ALinebase_type* = IntPatch_Line
 
-proc getTypeName*(): cstring {.importcpp: "IntPatch_ALine::get_type_name(@)",
-                            header: "IntPatch_ALine.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "IntPatch_ALine::get_type_name(@)",
+                              header: "IntPatch_ALine.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "IntPatch_ALine::get_type_descriptor(@)",
     header: "IntPatch_ALine.hxx".}
-proc dynamicType*(this: IntPatchALine): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: IntPatch_ALine): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "IntPatch_ALine.hxx".}
-

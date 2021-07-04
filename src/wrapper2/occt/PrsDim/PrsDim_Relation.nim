@@ -14,85 +14,91 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../AIS/AIS_KindOfInteractive, ../AIS/AIS_InteractiveObject,
+  ../Aspect/Aspect_TypeOfLine, ../Aspect/Aspect_TypeOfMarker, ../Bnd/Bnd_Box,
+  ../DsgPrs/DsgPrs_ArrowSide, ../gp/gp_Pln, ../gp/gp_Pnt, PrsDim_KindOfDimension,
+  PrsDim_KindOfSurface, ../TCollection/TCollection_ExtendedString,
+  ../TopoDS/TopoDS_Shape
+
 discard "forward decl of Geom_Curve"
 discard "forward decl of Geom_Plane"
 discard "forward decl of Geom_Surface"
 discard "forward decl of TopoDS_Edge"
 discard "forward decl of TopoDS_Vertex"
 type
-  PrsDimRelation* {.importcpp: "PrsDim_Relation", header: "PrsDim_Relation.hxx",
-                   bycopy.} = object of AIS_InteractiveObject ## ! Allows you to provide settings for the color theColor
-                                                         ## ! of the lines representing the relation between the two shapes.
+  PrsDim_Relation* {.importcpp: "PrsDim_Relation", header: "PrsDim_Relation.hxx",
+                    bycopy.} = object of AIS_InteractiveObject ## ! Allows you to provide settings for the color theColor
+                                                          ## ! of the lines representing the relation between the two shapes.
 
-  PrsDimRelationbaseType* = AIS_InteractiveObject
+  PrsDim_Relationbase_type* = AIS_InteractiveObject
 
-proc getTypeName*(): cstring {.importcpp: "PrsDim_Relation::get_type_name(@)",
-                            header: "PrsDim_Relation.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "PrsDim_Relation::get_type_name(@)",
+                              header: "PrsDim_Relation.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "PrsDim_Relation::get_type_descriptor(@)",
     header: "PrsDim_Relation.hxx".}
-proc dynamicType*(this: PrsDimRelation): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: PrsDim_Relation): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "PrsDim_Relation.hxx".}
-proc setColor*(this: var PrsDimRelation; theColor: QuantityColor) {.
+proc SetColor*(this: var PrsDim_Relation; theColor: Quantity_Color) {.
     importcpp: "SetColor", header: "PrsDim_Relation.hxx".}
-proc unsetColor*(this: var PrsDimRelation) {.importcpp: "UnsetColor",
+proc UnsetColor*(this: var PrsDim_Relation) {.importcpp: "UnsetColor",
     header: "PrsDim_Relation.hxx".}
-proc `type`*(this: PrsDimRelation): AIS_KindOfInteractive {.noSideEffect,
+proc Type*(this: PrsDim_Relation): AIS_KindOfInteractive {.noSideEffect,
     importcpp: "Type", header: "PrsDim_Relation.hxx".}
-proc kindOfDimension*(this: PrsDimRelation): PrsDimKindOfDimension {.noSideEffect,
+proc KindOfDimension*(this: PrsDim_Relation): PrsDim_KindOfDimension {.noSideEffect,
     importcpp: "KindOfDimension", header: "PrsDim_Relation.hxx".}
-proc isMovable*(this: PrsDimRelation): StandardBoolean {.noSideEffect,
+proc IsMovable*(this: PrsDim_Relation): Standard_Boolean {.noSideEffect,
     importcpp: "IsMovable", header: "PrsDim_Relation.hxx".}
-proc firstShape*(this: PrsDimRelation): TopoDS_Shape {.noSideEffect,
+proc FirstShape*(this: PrsDim_Relation): TopoDS_Shape {.noSideEffect,
     importcpp: "FirstShape", header: "PrsDim_Relation.hxx".}
-proc setFirstShape*(this: var PrsDimRelation; aFShape: TopoDS_Shape) {.
+proc SetFirstShape*(this: var PrsDim_Relation; aFShape: TopoDS_Shape) {.
     importcpp: "SetFirstShape", header: "PrsDim_Relation.hxx".}
-proc secondShape*(this: PrsDimRelation): TopoDS_Shape {.noSideEffect,
+proc SecondShape*(this: PrsDim_Relation): TopoDS_Shape {.noSideEffect,
     importcpp: "SecondShape", header: "PrsDim_Relation.hxx".}
-proc setSecondShape*(this: var PrsDimRelation; aSShape: TopoDS_Shape) {.
+proc SetSecondShape*(this: var PrsDim_Relation; aSShape: TopoDS_Shape) {.
     importcpp: "SetSecondShape", header: "PrsDim_Relation.hxx".}
-proc setBndBox*(this: var PrsDimRelation; theXmin: StandardReal;
-               theYmin: StandardReal; theZmin: StandardReal; theXmax: StandardReal;
-               theYmax: StandardReal; theZmax: StandardReal) {.
-    importcpp: "SetBndBox", header: "PrsDim_Relation.hxx".}
-proc unsetBndBox*(this: var PrsDimRelation) {.importcpp: "UnsetBndBox",
+proc SetBndBox*(this: var PrsDim_Relation; theXmin: Standard_Real;
+               theYmin: Standard_Real; theZmin: Standard_Real;
+               theXmax: Standard_Real; theYmax: Standard_Real;
+               theZmax: Standard_Real) {.importcpp: "SetBndBox",
+                                       header: "PrsDim_Relation.hxx".}
+proc UnsetBndBox*(this: var PrsDim_Relation) {.importcpp: "UnsetBndBox",
     header: "PrsDim_Relation.hxx".}
-proc plane*(this: PrsDimRelation): Handle[GeomPlane] {.noSideEffect,
+proc Plane*(this: PrsDim_Relation): handle[Geom_Plane] {.noSideEffect,
     importcpp: "Plane", header: "PrsDim_Relation.hxx".}
-proc setPlane*(this: var PrsDimRelation; thePlane: Handle[GeomPlane]) {.
+proc SetPlane*(this: var PrsDim_Relation; thePlane: handle[Geom_Plane]) {.
     importcpp: "SetPlane", header: "PrsDim_Relation.hxx".}
-proc value*(this: PrsDimRelation): StandardReal {.noSideEffect, importcpp: "Value",
+proc Value*(this: PrsDim_Relation): Standard_Real {.noSideEffect, importcpp: "Value",
     header: "PrsDim_Relation.hxx".}
-proc setValue*(this: var PrsDimRelation; theVal: StandardReal) {.
+proc SetValue*(this: var PrsDim_Relation; theVal: Standard_Real) {.
     importcpp: "SetValue", header: "PrsDim_Relation.hxx".}
-proc position*(this: PrsDimRelation): GpPnt {.noSideEffect, importcpp: "Position",
+proc Position*(this: PrsDim_Relation): gp_Pnt {.noSideEffect, importcpp: "Position",
     header: "PrsDim_Relation.hxx".}
-proc setPosition*(this: var PrsDimRelation; thePosition: GpPnt) {.
+proc SetPosition*(this: var PrsDim_Relation; thePosition: gp_Pnt) {.
     importcpp: "SetPosition", header: "PrsDim_Relation.hxx".}
-proc text*(this: PrsDimRelation): TCollectionExtendedString {.noSideEffect,
+proc Text*(this: PrsDim_Relation): TCollection_ExtendedString {.noSideEffect,
     importcpp: "Text", header: "PrsDim_Relation.hxx".}
-proc setText*(this: var PrsDimRelation; theText: TCollectionExtendedString) {.
+proc SetText*(this: var PrsDim_Relation; theText: TCollection_ExtendedString) {.
     importcpp: "SetText", header: "PrsDim_Relation.hxx".}
-proc arrowSize*(this: PrsDimRelation): StandardReal {.noSideEffect,
+proc ArrowSize*(this: PrsDim_Relation): Standard_Real {.noSideEffect,
     importcpp: "ArrowSize", header: "PrsDim_Relation.hxx".}
-proc setArrowSize*(this: var PrsDimRelation; theArrowSize: StandardReal) {.
+proc SetArrowSize*(this: var PrsDim_Relation; theArrowSize: Standard_Real) {.
     importcpp: "SetArrowSize", header: "PrsDim_Relation.hxx".}
-proc symbolPrs*(this: PrsDimRelation): DsgPrsArrowSide {.noSideEffect,
+proc SymbolPrs*(this: PrsDim_Relation): DsgPrs_ArrowSide {.noSideEffect,
     importcpp: "SymbolPrs", header: "PrsDim_Relation.hxx".}
-proc setSymbolPrs*(this: var PrsDimRelation; theSymbolPrs: DsgPrsArrowSide) {.
+proc SetSymbolPrs*(this: var PrsDim_Relation; theSymbolPrs: DsgPrs_ArrowSide) {.
     importcpp: "SetSymbolPrs", header: "PrsDim_Relation.hxx".}
-proc setExtShape*(this: var PrsDimRelation; theIndex: StandardInteger) {.
+proc SetExtShape*(this: var PrsDim_Relation; theIndex: Standard_Integer) {.
     importcpp: "SetExtShape", header: "PrsDim_Relation.hxx".}
-proc extShape*(this: PrsDimRelation): StandardInteger {.noSideEffect,
+proc ExtShape*(this: PrsDim_Relation): Standard_Integer {.noSideEffect,
     importcpp: "ExtShape", header: "PrsDim_Relation.hxx".}
-proc acceptDisplayMode*(this: PrsDimRelation; theMode: StandardInteger): StandardBoolean {.
+proc AcceptDisplayMode*(this: PrsDim_Relation; theMode: Standard_Integer): Standard_Boolean {.
     noSideEffect, importcpp: "AcceptDisplayMode", header: "PrsDim_Relation.hxx".}
-proc setAutomaticPosition*(this: var PrsDimRelation; theStatus: StandardBoolean) {.
+proc SetAutomaticPosition*(this: var PrsDim_Relation; theStatus: Standard_Boolean) {.
     importcpp: "SetAutomaticPosition", header: "PrsDim_Relation.hxx".}
-proc automaticPosition*(this: PrsDimRelation): StandardBoolean {.noSideEffect,
+proc AutomaticPosition*(this: PrsDim_Relation): Standard_Boolean {.noSideEffect,
     importcpp: "AutomaticPosition", header: "PrsDim_Relation.hxx".}
 discard "forward decl of PrsDim_Relation"
 type
-  HandlePrsDimRelation* = Handle[PrsDimRelation]
-
-
+  Handle_PrsDim_Relation* = handle[PrsDim_Relation]

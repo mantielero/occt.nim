@@ -13,6 +13,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../TFunction/TFunction_Driver,
+  ../Standard/Standard_Boolean, ../Standard/Standard_Integer
+
 discard "forward decl of TFunction_Logbook"
 discard "forward decl of TDF_Label"
 discard "forward decl of BRepAlgoAPI_BooleanOperation"
@@ -20,39 +24,39 @@ discard "forward decl of TFunction_Function"
 discard "forward decl of DNaming_BooleanOperationDriver"
 discard "forward decl of DNaming_BooleanOperationDriver"
 type
-  HandleDNamingBooleanOperationDriver* = Handle[DNamingBooleanOperationDriver]
+  Handle_DNaming_BooleanOperationDriver* = handle[DNaming_BooleanOperationDriver]
 
 ## ! Driver  for Fuse,  Cut,  Common
 
 type
-  DNamingBooleanOperationDriver* {.importcpp: "DNaming_BooleanOperationDriver",
-                                  header: "DNaming_BooleanOperationDriver.hxx",
-                                  bycopy.} = object of TFunctionDriver ## ! Constructor
-                                                                  ## ! validation
-                                                                  ## ! ==========
+  DNaming_BooleanOperationDriver* {.importcpp: "DNaming_BooleanOperationDriver", header: "DNaming_BooleanOperationDriver.hxx",
+                                   bycopy.} = object of TFunction_Driver ## ! Constructor
+                                                                    ## ! validation
+                                                                    ## ! ==========
 
 
-proc constructDNamingBooleanOperationDriver*(): DNamingBooleanOperationDriver {.
+proc constructDNaming_BooleanOperationDriver*(): DNaming_BooleanOperationDriver {.
     constructor, importcpp: "DNaming_BooleanOperationDriver(@)",
     header: "DNaming_BooleanOperationDriver.hxx".}
-proc validate*(this: DNamingBooleanOperationDriver;
-              theLog: var Handle[TFunctionLogbook]) {.noSideEffect,
+proc Validate*(this: DNaming_BooleanOperationDriver;
+              theLog: var handle[TFunction_Logbook]) {.noSideEffect,
     importcpp: "Validate", header: "DNaming_BooleanOperationDriver.hxx".}
-proc mustExecute*(this: DNamingBooleanOperationDriver;
-                 theLog: Handle[TFunctionLogbook]): StandardBoolean {.noSideEffect,
-    importcpp: "MustExecute", header: "DNaming_BooleanOperationDriver.hxx".}
-proc execute*(this: DNamingBooleanOperationDriver;
-             theLog: var Handle[TFunctionLogbook]): StandardInteger {.noSideEffect,
-    importcpp: "Execute", header: "DNaming_BooleanOperationDriver.hxx".}
+proc MustExecute*(this: DNaming_BooleanOperationDriver;
+                 theLog: handle[TFunction_Logbook]): Standard_Boolean {.
+    noSideEffect, importcpp: "MustExecute",
+    header: "DNaming_BooleanOperationDriver.hxx".}
+proc Execute*(this: DNaming_BooleanOperationDriver;
+             theLog: var handle[TFunction_Logbook]): Standard_Integer {.
+    noSideEffect, importcpp: "Execute",
+    header: "DNaming_BooleanOperationDriver.hxx".}
 type
-  DNamingBooleanOperationDriverbaseType* = TFunctionDriver
+  DNaming_BooleanOperationDriverbase_type* = TFunction_Driver
 
-proc getTypeName*(): cstring {.importcpp: "DNaming_BooleanOperationDriver::get_type_name(@)",
-                            header: "DNaming_BooleanOperationDriver.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "DNaming_BooleanOperationDriver::get_type_name(@)",
+                              header: "DNaming_BooleanOperationDriver.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "DNaming_BooleanOperationDriver::get_type_descriptor(@)",
     header: "DNaming_BooleanOperationDriver.hxx".}
-proc dynamicType*(this: DNamingBooleanOperationDriver): Handle[StandardType] {.
+proc DynamicType*(this: DNaming_BooleanOperationDriver): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType",
     header: "DNaming_BooleanOperationDriver.hxx".}
-

@@ -14,25 +14,28 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepVisual_PreDefinedCurveFont"
 discard "forward decl of StepData_StepWriter"
 type
-  RWStepVisualRWPreDefinedCurveFont* {.importcpp: "RWStepVisual_RWPreDefinedCurveFont", header: "RWStepVisual_RWPreDefinedCurveFont.hxx",
-                                      bycopy.} = object
+  RWStepVisual_RWPreDefinedCurveFont* {.importcpp: "RWStepVisual_RWPreDefinedCurveFont", header: "RWStepVisual_RWPreDefinedCurveFont.hxx",
+                                       bycopy.} = object
 
 
-proc constructRWStepVisualRWPreDefinedCurveFont*(): RWStepVisualRWPreDefinedCurveFont {.
+proc constructRWStepVisual_RWPreDefinedCurveFont*(): RWStepVisual_RWPreDefinedCurveFont {.
     constructor, importcpp: "RWStepVisual_RWPreDefinedCurveFont(@)",
     header: "RWStepVisual_RWPreDefinedCurveFont.hxx".}
-proc readStep*(this: RWStepVisualRWPreDefinedCurveFont;
-              data: Handle[StepDataStepReaderData]; num: StandardInteger;
-              ach: var Handle[InterfaceCheck];
-              ent: Handle[StepVisualPreDefinedCurveFont]) {.noSideEffect,
+proc ReadStep*(this: RWStepVisual_RWPreDefinedCurveFont;
+              data: handle[StepData_StepReaderData]; num: Standard_Integer;
+              ach: var handle[Interface_Check];
+              ent: handle[StepVisual_PreDefinedCurveFont]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepVisual_RWPreDefinedCurveFont.hxx".}
-proc writeStep*(this: RWStepVisualRWPreDefinedCurveFont;
-               sw: var StepDataStepWriter;
-               ent: Handle[StepVisualPreDefinedCurveFont]) {.noSideEffect,
+proc WriteStep*(this: RWStepVisual_RWPreDefinedCurveFont;
+               SW: var StepData_StepWriter;
+               ent: handle[StepVisual_PreDefinedCurveFont]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepVisual_RWPreDefinedCurveFont.hxx".}
-

@@ -14,15 +14,18 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Boolean
+
 discard "forward decl of TCollection_AsciiString"
 type
-  ResourceLexicalCompare* {.importcpp: "Resource_LexicalCompare",
-                           header: "Resource_LexicalCompare.hxx", bycopy.} = object
+  Resource_LexicalCompare* {.importcpp: "Resource_LexicalCompare",
+                            header: "Resource_LexicalCompare.hxx", bycopy.} = object
 
 
-proc constructResourceLexicalCompare*(): ResourceLexicalCompare {.constructor,
+proc constructResource_LexicalCompare*(): Resource_LexicalCompare {.constructor,
     importcpp: "Resource_LexicalCompare(@)", header: "Resource_LexicalCompare.hxx".}
-proc isLower*(this: ResourceLexicalCompare; left: TCollectionAsciiString;
-             right: TCollectionAsciiString): StandardBoolean {.noSideEffect,
+proc IsLower*(this: Resource_LexicalCompare; Left: TCollection_AsciiString;
+             Right: TCollection_AsciiString): Standard_Boolean {.noSideEffect,
     importcpp: "IsLower", header: "Resource_LexicalCompare.hxx".}
-

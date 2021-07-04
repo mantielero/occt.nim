@@ -14,6 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepShape_EdgeCurve"
@@ -21,23 +25,22 @@ discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 discard "forward decl of Interface_ShareTool"
 type
-  RWStepShapeRWEdgeCurve* {.importcpp: "RWStepShape_RWEdgeCurve",
-                           header: "RWStepShape_RWEdgeCurve.hxx", bycopy.} = object
+  RWStepShape_RWEdgeCurve* {.importcpp: "RWStepShape_RWEdgeCurve",
+                            header: "RWStepShape_RWEdgeCurve.hxx", bycopy.} = object
 
 
-proc constructRWStepShapeRWEdgeCurve*(): RWStepShapeRWEdgeCurve {.constructor,
+proc constructRWStepShape_RWEdgeCurve*(): RWStepShape_RWEdgeCurve {.constructor,
     importcpp: "RWStepShape_RWEdgeCurve(@)", header: "RWStepShape_RWEdgeCurve.hxx".}
-proc readStep*(this: RWStepShapeRWEdgeCurve; data: Handle[StepDataStepReaderData];
-              num: StandardInteger; ach: var Handle[InterfaceCheck];
-              ent: Handle[StepShapeEdgeCurve]) {.noSideEffect,
-    importcpp: "ReadStep", header: "RWStepShape_RWEdgeCurve.hxx".}
-proc writeStep*(this: RWStepShapeRWEdgeCurve; sw: var StepDataStepWriter;
-               ent: Handle[StepShapeEdgeCurve]) {.noSideEffect,
+proc ReadStep*(this: RWStepShape_RWEdgeCurve;
+              data: handle[StepData_StepReaderData]; num: Standard_Integer;
+              ach: var handle[Interface_Check]; ent: handle[StepShape_EdgeCurve]) {.
+    noSideEffect, importcpp: "ReadStep", header: "RWStepShape_RWEdgeCurve.hxx".}
+proc WriteStep*(this: RWStepShape_RWEdgeCurve; SW: var StepData_StepWriter;
+               ent: handle[StepShape_EdgeCurve]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepShape_RWEdgeCurve.hxx".}
-proc share*(this: RWStepShapeRWEdgeCurve; ent: Handle[StepShapeEdgeCurve];
-           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
+proc Share*(this: RWStepShape_RWEdgeCurve; ent: handle[StepShape_EdgeCurve];
+           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepShape_RWEdgeCurve.hxx".}
-proc check*(this: RWStepShapeRWEdgeCurve; ent: Handle[StepShapeEdgeCurve];
-           shares: InterfaceShareTool; ach: var Handle[InterfaceCheck]) {.
+proc Check*(this: RWStepShape_RWEdgeCurve; ent: handle[StepShape_EdgeCurve];
+           shares: Interface_ShareTool; ach: var handle[Interface_Check]) {.
     noSideEffect, importcpp: "Check", header: "RWStepShape_RWEdgeCurve.hxx".}
-

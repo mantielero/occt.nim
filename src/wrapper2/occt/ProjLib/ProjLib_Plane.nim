@@ -14,6 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../gp/gp_Pln, ProjLib_Projector
+
 discard "forward decl of Standard_NoSuchObject"
 discard "forward decl of gp_Pln"
 discard "forward decl of gp_Lin"
@@ -22,36 +26,35 @@ discard "forward decl of gp_Elips"
 discard "forward decl of gp_Parab"
 discard "forward decl of gp_Hypr"
 type
-  ProjLibPlane* {.importcpp: "ProjLib_Plane", header: "ProjLib_Plane.hxx", bycopy.} = object of ProjLibProjector ##
-                                                                                                       ## !
-                                                                                                       ## Undefined
-                                                                                                       ## projection.
+  ProjLib_Plane* {.importcpp: "ProjLib_Plane", header: "ProjLib_Plane.hxx", bycopy.} = object of ProjLib_Projector ##
+                                                                                                         ## !
+                                                                                                         ## Undefined
+                                                                                                         ## projection.
 
 
-proc constructProjLibPlane*(): ProjLibPlane {.constructor,
+proc constructProjLib_Plane*(): ProjLib_Plane {.constructor,
     importcpp: "ProjLib_Plane(@)", header: "ProjLib_Plane.hxx".}
-proc constructProjLibPlane*(pl: GpPln): ProjLibPlane {.constructor,
+proc constructProjLib_Plane*(Pl: gp_Pln): ProjLib_Plane {.constructor,
     importcpp: "ProjLib_Plane(@)", header: "ProjLib_Plane.hxx".}
-proc constructProjLibPlane*(pl: GpPln; L: GpLin): ProjLibPlane {.constructor,
+proc constructProjLib_Plane*(Pl: gp_Pln; L: gp_Lin): ProjLib_Plane {.constructor,
     importcpp: "ProjLib_Plane(@)", header: "ProjLib_Plane.hxx".}
-proc constructProjLibPlane*(pl: GpPln; c: GpCirc): ProjLibPlane {.constructor,
+proc constructProjLib_Plane*(Pl: gp_Pln; C: gp_Circ): ProjLib_Plane {.constructor,
     importcpp: "ProjLib_Plane(@)", header: "ProjLib_Plane.hxx".}
-proc constructProjLibPlane*(pl: GpPln; e: GpElips): ProjLibPlane {.constructor,
+proc constructProjLib_Plane*(Pl: gp_Pln; E: gp_Elips): ProjLib_Plane {.constructor,
     importcpp: "ProjLib_Plane(@)", header: "ProjLib_Plane.hxx".}
-proc constructProjLibPlane*(pl: GpPln; p: GpParab): ProjLibPlane {.constructor,
+proc constructProjLib_Plane*(Pl: gp_Pln; P: gp_Parab): ProjLib_Plane {.constructor,
     importcpp: "ProjLib_Plane(@)", header: "ProjLib_Plane.hxx".}
-proc constructProjLibPlane*(pl: GpPln; h: GpHypr): ProjLibPlane {.constructor,
+proc constructProjLib_Plane*(Pl: gp_Pln; H: gp_Hypr): ProjLib_Plane {.constructor,
     importcpp: "ProjLib_Plane(@)", header: "ProjLib_Plane.hxx".}
-proc init*(this: var ProjLibPlane; pl: GpPln) {.importcpp: "Init",
+proc Init*(this: var ProjLib_Plane; Pl: gp_Pln) {.importcpp: "Init",
     header: "ProjLib_Plane.hxx".}
-proc project*(this: var ProjLibPlane; L: GpLin) {.importcpp: "Project",
+proc Project*(this: var ProjLib_Plane; L: gp_Lin) {.importcpp: "Project",
     header: "ProjLib_Plane.hxx".}
-proc project*(this: var ProjLibPlane; c: GpCirc) {.importcpp: "Project",
+proc Project*(this: var ProjLib_Plane; C: gp_Circ) {.importcpp: "Project",
     header: "ProjLib_Plane.hxx".}
-proc project*(this: var ProjLibPlane; e: GpElips) {.importcpp: "Project",
+proc Project*(this: var ProjLib_Plane; E: gp_Elips) {.importcpp: "Project",
     header: "ProjLib_Plane.hxx".}
-proc project*(this: var ProjLibPlane; p: GpParab) {.importcpp: "Project",
+proc Project*(this: var ProjLib_Plane; P: gp_Parab) {.importcpp: "Project",
     header: "ProjLib_Plane.hxx".}
-proc project*(this: var ProjLibPlane; h: GpHypr) {.importcpp: "Project",
+proc Project*(this: var ProjLib_Plane; H: gp_Hypr) {.importcpp: "Project",
     header: "ProjLib_Plane.hxx".}
-

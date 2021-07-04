@@ -14,7 +14,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  Expr_GeneralRelation, ../NCollection/NCollection_Sequence
+
 type
-  ExprSequenceOfGeneralRelation* = NCollectionSequence[Handle[ExprGeneralRelation]]
-
-
+  Expr_SequenceOfGeneralRelation* = NCollection_Sequence[
+      handle[Expr_GeneralRelation]]

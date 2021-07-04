@@ -14,7 +14,8 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  Blend_Point, ../NCollection/NCollection_Sequence
+
 type
-  BlendSequenceOfPoint* = NCollectionSequence[BlendPoint]
-
-
+  Blend_SequenceOfPoint* = NCollection_Sequence[Blend_Point]

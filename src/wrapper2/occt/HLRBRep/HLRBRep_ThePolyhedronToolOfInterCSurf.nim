@@ -14,53 +14,53 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _HLRBRep_ThePolyhedronToolOfInterCSurf_HeaderFile [NewLine] # _HLRBRep_ThePolyhedronToolOfInterCSurf_HeaderFile [NewLine] # < Standard . hxx > [NewLine] # < Standard_DefineAlloc . hxx > [NewLine] # < Standard_Handle . hxx > [NewLine] # < Bnd_HArray1OfBox . hxx > [NewLine] # < Standard_Real . hxx > [NewLine] # < Standard_Integer . hxx > [NewLine] # < Standard_Boolean . hxx > [NewLine] class Standard_OutOfRange ;
+## !!!Ignored construct:  # _HLRBRep_ThePolyhedronToolOfInterCSurf_HeaderFile [NewLine] # _HLRBRep_ThePolyhedronToolOfInterCSurf_HeaderFile [NewLine] # ../Standard/Standard.hxx [NewLine] # ../Standard/Standard_DefineAlloc.hxx [NewLine] # ../Standard/Standard_Handle.hxx [NewLine] # ../Bnd/Bnd_HArray1OfBox.hxx [NewLine] # ../Standard/Standard_Real.hxx [NewLine] # ../Standard/Standard_Integer.hxx [NewLine] # ../Standard/Standard_Boolean.hxx [NewLine] class Standard_OutOfRange ;
 ## Error: did not expect <!!!
 
 discard "forward decl of HLRBRep_ThePolyhedronOfInterCSurf"
 discard "forward decl of Bnd_Box"
 discard "forward decl of gp_Pnt"
 type
-  HLRBRepThePolyhedronToolOfInterCSurf* {.
+  HLRBRep_ThePolyhedronToolOfInterCSurf* {.
       importcpp: "HLRBRep_ThePolyhedronToolOfInterCSurf",
       header: "HLRBRep_ThePolyhedronToolOfInterCSurf.hxx", bycopy.} = object ## ! Give the bounding box of the
                                                                         ## PolyhedronTool.
 
 
-proc bounding*(thePolyh: HLRBRepThePolyhedronOfInterCSurf): BndBox {.
+proc Bounding*(thePolyh: HLRBRep_ThePolyhedronOfInterCSurf): Bnd_Box {.
     importcpp: "HLRBRep_ThePolyhedronToolOfInterCSurf::Bounding(@)",
     header: "HLRBRep_ThePolyhedronToolOfInterCSurf.hxx".}
-proc componentsBounding*(thePolyh: HLRBRepThePolyhedronOfInterCSurf): Handle[
-    BndHArray1OfBox] {.importcpp: "HLRBRep_ThePolyhedronToolOfInterCSurf::ComponentsBounding(@)",
-                      header: "HLRBRep_ThePolyhedronToolOfInterCSurf.hxx".}
-proc deflectionOverEstimation*(thePolyh: HLRBRepThePolyhedronOfInterCSurf): StandardReal {.importcpp: "HLRBRep_ThePolyhedronToolOfInterCSurf::DeflectionOverEstimation(@)",
+proc ComponentsBounding*(thePolyh: HLRBRep_ThePolyhedronOfInterCSurf): handle[
+    Bnd_HArray1OfBox] {.importcpp: "HLRBRep_ThePolyhedronToolOfInterCSurf::ComponentsBounding(@)",
+                       header: "HLRBRep_ThePolyhedronToolOfInterCSurf.hxx".}
+proc DeflectionOverEstimation*(thePolyh: HLRBRep_ThePolyhedronOfInterCSurf): Standard_Real {.importcpp: "HLRBRep_ThePolyhedronToolOfInterCSurf::DeflectionOverEstimation(@)",
     header: "HLRBRep_ThePolyhedronToolOfInterCSurf.hxx".}
-proc nbTriangles*(thePolyh: HLRBRepThePolyhedronOfInterCSurf): StandardInteger {.
+proc NbTriangles*(thePolyh: HLRBRep_ThePolyhedronOfInterCSurf): Standard_Integer {.
     importcpp: "HLRBRep_ThePolyhedronToolOfInterCSurf::NbTriangles(@)",
     header: "HLRBRep_ThePolyhedronToolOfInterCSurf.hxx".}
-proc triangle*(thePolyh: HLRBRepThePolyhedronOfInterCSurf; index: StandardInteger;
-              p1: var StandardInteger; p2: var StandardInteger;
-              p3: var StandardInteger) {.importcpp: "HLRBRep_ThePolyhedronToolOfInterCSurf::Triangle(@)", header: "HLRBRep_ThePolyhedronToolOfInterCSurf.hxx".}
-proc point*(thePolyh: HLRBRepThePolyhedronOfInterCSurf; index: StandardInteger): GpPnt {.
+proc Triangle*(thePolyh: HLRBRep_ThePolyhedronOfInterCSurf;
+              Index: Standard_Integer; P1: var Standard_Integer;
+              P2: var Standard_Integer; P3: var Standard_Integer) {.
+    importcpp: "HLRBRep_ThePolyhedronToolOfInterCSurf::Triangle(@)",
+    header: "HLRBRep_ThePolyhedronToolOfInterCSurf.hxx".}
+proc Point*(thePolyh: HLRBRep_ThePolyhedronOfInterCSurf; Index: Standard_Integer): gp_Pnt {.
     importcpp: "HLRBRep_ThePolyhedronToolOfInterCSurf::Point(@)",
     header: "HLRBRep_ThePolyhedronToolOfInterCSurf.hxx".}
-proc triConnex*(thePolyh: HLRBRepThePolyhedronOfInterCSurf;
-               triang: StandardInteger; pivot: StandardInteger;
-               pedge: StandardInteger; triCon: var StandardInteger;
-               otherP: var StandardInteger): StandardInteger {.
+proc TriConnex*(thePolyh: HLRBRep_ThePolyhedronOfInterCSurf;
+               Triang: Standard_Integer; Pivot: Standard_Integer;
+               Pedge: Standard_Integer; TriCon: var Standard_Integer;
+               OtherP: var Standard_Integer): Standard_Integer {.
     importcpp: "HLRBRep_ThePolyhedronToolOfInterCSurf::TriConnex(@)",
     header: "HLRBRep_ThePolyhedronToolOfInterCSurf.hxx".}
-proc isOnBound*(thePolyh: HLRBRepThePolyhedronOfInterCSurf;
-               index1: StandardInteger; index2: StandardInteger): StandardBoolean {.
+proc IsOnBound*(thePolyh: HLRBRep_ThePolyhedronOfInterCSurf;
+               Index1: Standard_Integer; Index2: Standard_Integer): Standard_Boolean {.
     importcpp: "HLRBRep_ThePolyhedronToolOfInterCSurf::IsOnBound(@)",
     header: "HLRBRep_ThePolyhedronToolOfInterCSurf.hxx".}
-proc getBorderDeflection*(thePolyh: HLRBRepThePolyhedronOfInterCSurf): StandardReal {.
+proc GetBorderDeflection*(thePolyh: HLRBRep_ThePolyhedronOfInterCSurf): Standard_Real {.
     importcpp: "HLRBRep_ThePolyhedronToolOfInterCSurf::GetBorderDeflection(@)",
     header: "HLRBRep_ThePolyhedronToolOfInterCSurf.hxx".}
-proc dump*(thePolyh: HLRBRepThePolyhedronOfInterCSurf) {.
+proc Dump*(thePolyh: HLRBRep_ThePolyhedronOfInterCSurf) {.
     importcpp: "HLRBRep_ThePolyhedronToolOfInterCSurf::Dump(@)",
     header: "HLRBRep_ThePolyhedronToolOfInterCSurf.hxx".}
-## !!!Ignored construct:  # ThePolyhedron HLRBRep_ThePolyhedronOfInterCSurf [NewLine] # ThePolyhedron_hxx < HLRBRep_ThePolyhedronOfInterCSurf . hxx > [NewLine] # IntCurveSurface_PolyhedronTool HLRBRep_ThePolyhedronToolOfInterCSurf [NewLine] # IntCurveSurface_PolyhedronTool_hxx < HLRBRep_ThePolyhedronToolOfInterCSurf . hxx > [NewLine] # < IntCurveSurface_PolyhedronTool . lxx > [NewLine] # ThePolyhedron [NewLine] # ThePolyhedron_hxx [NewLine] # IntCurveSurface_PolyhedronTool [NewLine] # IntCurveSurface_PolyhedronTool_hxx [NewLine] #  _HLRBRep_ThePolyhedronToolOfInterCSurf_HeaderFile
+## !!!Ignored construct:  # ThePolyhedron HLRBRep_ThePolyhedronOfInterCSurf [NewLine] # ThePolyhedron_hxx < HLRBRep_ThePolyhedronOfInterCSurf . hxx > [NewLine] # IntCurveSurface_PolyhedronTool HLRBRep_ThePolyhedronToolOfInterCSurf [NewLine] # IntCurveSurface_PolyhedronTool_hxx < HLRBRep_ThePolyhedronToolOfInterCSurf . hxx > [NewLine] # < IntCurveSurface_PolyhedronTool . lxx > [NewLine] # ThePolyhedron [NewLine] # ThePolyhedron_hxx [NewLine] # IntCurveSurface_PolyhedronTool [NewLine] # IntCurveSurface_PolyhedronTool_hxx [NewLine] #  _HLRBRep_ThePolyhedronToolOfInterCSurf_HeaderFile [NewLine]
 ## Error: did not expect <!!!
-
-

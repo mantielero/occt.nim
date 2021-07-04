@@ -13,33 +13,39 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../TColStd/TColStd_IndexedMapOfTransient,
+  ../Standard/Standard_Integer, ../Standard/Standard_OStream,
+  ../Standard/Standard_IStream, ../Message/Message_ProgressRange
+
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of Geom_Surface"
 type
-  BinToolsSurfaceSet* {.importcpp: "BinTools_SurfaceSet",
-                       header: "BinTools_SurfaceSet.hxx", bycopy.} = object ## ! Returns an empty set of Surfaces.
+  BinTools_SurfaceSet* {.importcpp: "BinTools_SurfaceSet",
+                        header: "BinTools_SurfaceSet.hxx", bycopy.} = object ## ! Returns an empty set of
+                                                                        ## Surfaces.
 
 
-proc constructBinToolsSurfaceSet*(): BinToolsSurfaceSet {.constructor,
+proc constructBinTools_SurfaceSet*(): BinTools_SurfaceSet {.constructor,
     importcpp: "BinTools_SurfaceSet(@)", header: "BinTools_SurfaceSet.hxx".}
-proc clear*(this: var BinToolsSurfaceSet) {.importcpp: "Clear",
-                                        header: "BinTools_SurfaceSet.hxx".}
-proc add*(this: var BinToolsSurfaceSet; s: Handle[GeomSurface]): StandardInteger {.
+proc Clear*(this: var BinTools_SurfaceSet) {.importcpp: "Clear",
+    header: "BinTools_SurfaceSet.hxx".}
+proc Add*(this: var BinTools_SurfaceSet; S: handle[Geom_Surface]): Standard_Integer {.
     importcpp: "Add", header: "BinTools_SurfaceSet.hxx".}
-proc surface*(this: BinToolsSurfaceSet; i: StandardInteger): Handle[GeomSurface] {.
+proc Surface*(this: BinTools_SurfaceSet; I: Standard_Integer): handle[Geom_Surface] {.
     noSideEffect, importcpp: "Surface", header: "BinTools_SurfaceSet.hxx".}
-proc index*(this: BinToolsSurfaceSet; s: Handle[GeomSurface]): StandardInteger {.
+proc Index*(this: BinTools_SurfaceSet; S: handle[Geom_Surface]): Standard_Integer {.
     noSideEffect, importcpp: "Index", header: "BinTools_SurfaceSet.hxx".}
-proc write*(this: BinToolsSurfaceSet; os: var StandardOStream;
-           theRange: MessageProgressRange = messageProgressRange()) {.noSideEffect,
-    importcpp: "Write", header: "BinTools_SurfaceSet.hxx".}
-proc read*(this: var BinToolsSurfaceSet; `is`: var StandardIStream;
-          therange: MessageProgressRange = messageProgressRange()) {.
+proc Write*(this: BinTools_SurfaceSet; OS: var Standard_OStream;
+           theRange: Message_ProgressRange = Message_ProgressRange()) {.
+    noSideEffect, importcpp: "Write", header: "BinTools_SurfaceSet.hxx".}
+proc Read*(this: var BinTools_SurfaceSet; IS: var Standard_IStream;
+          therange: Message_ProgressRange = Message_ProgressRange()) {.
     importcpp: "Read", header: "BinTools_SurfaceSet.hxx".}
-proc writeSurface*(s: Handle[GeomSurface]; os: var StandardOStream) {.
+proc WriteSurface*(S: handle[Geom_Surface]; OS: var Standard_OStream) {.
     importcpp: "BinTools_SurfaceSet::WriteSurface(@)",
     header: "BinTools_SurfaceSet.hxx".}
-proc readSurface*(`is`: var StandardIStream; s: var Handle[GeomSurface]): var StandardIStream {.
+proc ReadSurface*(IS: var Standard_IStream; S: var handle[Geom_Surface]): var Standard_IStream {.
     importcpp: "BinTools_SurfaceSet::ReadSurface(@)",
     header: "BinTools_SurfaceSet.hxx".}
-

@@ -14,6 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 discard "forward decl of Standard_DomainError"
 discard "forward decl of IGESBasic_SingularSubfigure"
 discard "forward decl of IGESData_IGESReaderData"
@@ -26,41 +30,40 @@ discard "forward decl of Interface_Check"
 discard "forward decl of Interface_CopyTool"
 discard "forward decl of IGESData_IGESDumper"
 type
-  IGESBasicToolSingularSubfigure* {.importcpp: "IGESBasic_ToolSingularSubfigure", header: "IGESBasic_ToolSingularSubfigure.hxx",
-                                   bycopy.} = object ## ! Returns a ToolSingularSubfigure, ready to work
+  IGESBasic_ToolSingularSubfigure* {.importcpp: "IGESBasic_ToolSingularSubfigure", header: "IGESBasic_ToolSingularSubfigure.hxx",
+                                    bycopy.} = object ## ! Returns a ToolSingularSubfigure, ready to work
 
 
-proc constructIGESBasicToolSingularSubfigure*(): IGESBasicToolSingularSubfigure {.
+proc constructIGESBasic_ToolSingularSubfigure*(): IGESBasic_ToolSingularSubfigure {.
     constructor, importcpp: "IGESBasic_ToolSingularSubfigure(@)",
     header: "IGESBasic_ToolSingularSubfigure.hxx".}
-proc readOwnParams*(this: IGESBasicToolSingularSubfigure;
-                   ent: Handle[IGESBasicSingularSubfigure];
-                   ir: Handle[IGESDataIGESReaderData]; pr: var IGESDataParamReader) {.
-    noSideEffect, importcpp: "ReadOwnParams",
-    header: "IGESBasic_ToolSingularSubfigure.hxx".}
-proc writeOwnParams*(this: IGESBasicToolSingularSubfigure;
-                    ent: Handle[IGESBasicSingularSubfigure];
-                    iw: var IGESDataIGESWriter) {.noSideEffect,
+proc ReadOwnParams*(this: IGESBasic_ToolSingularSubfigure;
+                   ent: handle[IGESBasic_SingularSubfigure];
+                   IR: handle[IGESData_IGESReaderData];
+                   PR: var IGESData_ParamReader) {.noSideEffect,
+    importcpp: "ReadOwnParams", header: "IGESBasic_ToolSingularSubfigure.hxx".}
+proc WriteOwnParams*(this: IGESBasic_ToolSingularSubfigure;
+                    ent: handle[IGESBasic_SingularSubfigure];
+                    IW: var IGESData_IGESWriter) {.noSideEffect,
     importcpp: "WriteOwnParams", header: "IGESBasic_ToolSingularSubfigure.hxx".}
-proc ownShared*(this: IGESBasicToolSingularSubfigure;
-               ent: Handle[IGESBasicSingularSubfigure];
-               iter: var InterfaceEntityIterator) {.noSideEffect,
+proc OwnShared*(this: IGESBasic_ToolSingularSubfigure;
+               ent: handle[IGESBasic_SingularSubfigure];
+               iter: var Interface_EntityIterator) {.noSideEffect,
     importcpp: "OwnShared", header: "IGESBasic_ToolSingularSubfigure.hxx".}
-proc dirChecker*(this: IGESBasicToolSingularSubfigure;
-                ent: Handle[IGESBasicSingularSubfigure]): IGESDataDirChecker {.
+proc DirChecker*(this: IGESBasic_ToolSingularSubfigure;
+                ent: handle[IGESBasic_SingularSubfigure]): IGESData_DirChecker {.
     noSideEffect, importcpp: "DirChecker",
     header: "IGESBasic_ToolSingularSubfigure.hxx".}
-proc ownCheck*(this: IGESBasicToolSingularSubfigure;
-              ent: Handle[IGESBasicSingularSubfigure]; shares: InterfaceShareTool;
-              ach: var Handle[InterfaceCheck]) {.noSideEffect,
-    importcpp: "OwnCheck", header: "IGESBasic_ToolSingularSubfigure.hxx".}
-proc ownCopy*(this: IGESBasicToolSingularSubfigure;
-             entfrom: Handle[IGESBasicSingularSubfigure];
-             entto: Handle[IGESBasicSingularSubfigure]; tc: var InterfaceCopyTool) {.
-    noSideEffect, importcpp: "OwnCopy",
+proc OwnCheck*(this: IGESBasic_ToolSingularSubfigure;
+              ent: handle[IGESBasic_SingularSubfigure];
+              shares: Interface_ShareTool; ach: var handle[Interface_Check]) {.
+    noSideEffect, importcpp: "OwnCheck",
     header: "IGESBasic_ToolSingularSubfigure.hxx".}
-proc ownDump*(this: IGESBasicToolSingularSubfigure;
-             ent: Handle[IGESBasicSingularSubfigure]; dumper: IGESDataIGESDumper;
-             s: var StandardOStream; own: StandardInteger) {.noSideEffect,
-    importcpp: "OwnDump", header: "IGESBasic_ToolSingularSubfigure.hxx".}
-
+proc OwnCopy*(this: IGESBasic_ToolSingularSubfigure;
+             entfrom: handle[IGESBasic_SingularSubfigure];
+             entto: handle[IGESBasic_SingularSubfigure];
+             TC: var Interface_CopyTool) {.noSideEffect, importcpp: "OwnCopy", header: "IGESBasic_ToolSingularSubfigure.hxx".}
+proc OwnDump*(this: IGESBasic_ToolSingularSubfigure;
+             ent: handle[IGESBasic_SingularSubfigure];
+             dumper: IGESData_IGESDumper; S: var Standard_OStream;
+             own: Standard_Integer) {.noSideEffect, importcpp: "OwnDump", header: "IGESBasic_ToolSingularSubfigure.hxx".}

@@ -14,6 +14,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Real,
+  ../TopoDS/TopoDS_Shape, ../Standard/Standard_Transient,
+  ../Message/Message_Gravity, ../Standard/Standard_Boolean,
+  ../Standard/Standard_Integer, ../ShapeExtend/ShapeExtend_BasicMsgRegistrator
+
 discard "forward decl of ShapeBuild_ReShape"
 discard "forward decl of ShapeExtend_BasicMsgRegistrator"
 discard "forward decl of TopoDS_Shape"
@@ -21,7 +27,7 @@ discard "forward decl of Message_Msg"
 discard "forward decl of ShapeFix_Root"
 discard "forward decl of ShapeFix_Root"
 type
-  HandleShapeFixRoot* = Handle[ShapeFixRoot]
+  Handle_ShapeFix_Root* = handle[ShapeFix_Root]
 
 ## ! Root class for fixing operations
 ## ! Provides context for recording changes (optional),
@@ -30,80 +36,79 @@ type
 ## ! and message registrator
 
 type
-  ShapeFixRoot* {.importcpp: "ShapeFix_Root", header: "ShapeFix_Root.hxx", bycopy.} = object of StandardTransient ##
-                                                                                                        ## !
-                                                                                                        ## Empty
-                                                                                                        ## Constructor
-                                                                                                        ## (no
-                                                                                                        ## context
-                                                                                                        ## is
-                                                                                                        ## created)
-                                                                                                        ##
-                                                                                                        ## !
-                                                                                                        ## Auxiliary
-                                                                                                        ## method
-                                                                                                        ## for
-                                                                                                        ## work
-                                                                                                        ## with
-                                                                                                        ## three-position
-                                                                                                        ##
-                                                                                                        ## !
-                                                                                                        ## (on/off/default)
-                                                                                                        ## flags
-                                                                                                        ## (modes)
-                                                                                                        ## in
-                                                                                                        ## ShapeFix.
+  ShapeFix_Root* {.importcpp: "ShapeFix_Root", header: "ShapeFix_Root.hxx", bycopy.} = object of Standard_Transient ##
+                                                                                                          ## !
+                                                                                                          ## Empty
+                                                                                                          ## Constructor
+                                                                                                          ## (no
+                                                                                                          ## context
+                                                                                                          ## is
+                                                                                                          ## created)
+                                                                                                          ##
+                                                                                                          ## !
+                                                                                                          ## Auxiliary
+                                                                                                          ## method
+                                                                                                          ## for
+                                                                                                          ## work
+                                                                                                          ## with
+                                                                                                          ## three-position
+                                                                                                          ##
+                                                                                                          ## !
+                                                                                                          ## (on/off/default)
+                                                                                                          ## flags
+                                                                                                          ## (modes)
+                                                                                                          ## in
+                                                                                                          ## ShapeFix.
 
 
-proc constructShapeFixRoot*(): ShapeFixRoot {.constructor,
+proc constructShapeFix_Root*(): ShapeFix_Root {.constructor,
     importcpp: "ShapeFix_Root(@)", header: "ShapeFix_Root.hxx".}
-proc set*(this: var ShapeFixRoot; root: Handle[ShapeFixRoot]) {.importcpp: "Set",
+proc Set*(this: var ShapeFix_Root; Root: handle[ShapeFix_Root]) {.importcpp: "Set",
     header: "ShapeFix_Root.hxx".}
-proc setContext*(this: var ShapeFixRoot; context: Handle[ShapeBuildReShape]) {.
+proc SetContext*(this: var ShapeFix_Root; context: handle[ShapeBuild_ReShape]) {.
     importcpp: "SetContext", header: "ShapeFix_Root.hxx".}
-proc context*(this: ShapeFixRoot): Handle[ShapeBuildReShape] {.noSideEffect,
+proc Context*(this: ShapeFix_Root): handle[ShapeBuild_ReShape] {.noSideEffect,
     importcpp: "Context", header: "ShapeFix_Root.hxx".}
-proc setMsgRegistrator*(this: var ShapeFixRoot;
-                       msgreg: Handle[ShapeExtendBasicMsgRegistrator]) {.
+proc SetMsgRegistrator*(this: var ShapeFix_Root;
+                       msgreg: handle[ShapeExtend_BasicMsgRegistrator]) {.
     importcpp: "SetMsgRegistrator", header: "ShapeFix_Root.hxx".}
-proc msgRegistrator*(this: ShapeFixRoot): Handle[ShapeExtendBasicMsgRegistrator] {.
+proc MsgRegistrator*(this: ShapeFix_Root): handle[ShapeExtend_BasicMsgRegistrator] {.
     noSideEffect, importcpp: "MsgRegistrator", header: "ShapeFix_Root.hxx".}
-proc setPrecision*(this: var ShapeFixRoot; preci: StandardReal) {.
+proc SetPrecision*(this: var ShapeFix_Root; preci: Standard_Real) {.
     importcpp: "SetPrecision", header: "ShapeFix_Root.hxx".}
-proc precision*(this: ShapeFixRoot): StandardReal {.noSideEffect,
+proc Precision*(this: ShapeFix_Root): Standard_Real {.noSideEffect,
     importcpp: "Precision", header: "ShapeFix_Root.hxx".}
-proc setMinTolerance*(this: var ShapeFixRoot; mintol: StandardReal) {.
+proc SetMinTolerance*(this: var ShapeFix_Root; mintol: Standard_Real) {.
     importcpp: "SetMinTolerance", header: "ShapeFix_Root.hxx".}
-proc minTolerance*(this: ShapeFixRoot): StandardReal {.noSideEffect,
+proc MinTolerance*(this: ShapeFix_Root): Standard_Real {.noSideEffect,
     importcpp: "MinTolerance", header: "ShapeFix_Root.hxx".}
-proc setMaxTolerance*(this: var ShapeFixRoot; maxtol: StandardReal) {.
+proc SetMaxTolerance*(this: var ShapeFix_Root; maxtol: Standard_Real) {.
     importcpp: "SetMaxTolerance", header: "ShapeFix_Root.hxx".}
-proc maxTolerance*(this: ShapeFixRoot): StandardReal {.noSideEffect,
+proc MaxTolerance*(this: ShapeFix_Root): Standard_Real {.noSideEffect,
     importcpp: "MaxTolerance", header: "ShapeFix_Root.hxx".}
-proc limitTolerance*(this: ShapeFixRoot; toler: StandardReal): StandardReal {.
+proc LimitTolerance*(this: ShapeFix_Root; toler: Standard_Real): Standard_Real {.
     noSideEffect, importcpp: "LimitTolerance", header: "ShapeFix_Root.hxx".}
-proc sendMsg*(this: ShapeFixRoot; shape: TopoDS_Shape; message: MessageMsg;
-             gravity: MessageGravity = messageInfo) {.noSideEffect,
+proc SendMsg*(this: ShapeFix_Root; shape: TopoDS_Shape; message: Message_Msg;
+             gravity: Message_Gravity = Message_Info) {.noSideEffect,
     importcpp: "SendMsg", header: "ShapeFix_Root.hxx".}
-proc sendMsg*(this: ShapeFixRoot; message: MessageMsg;
-             gravity: MessageGravity = messageInfo) {.noSideEffect,
+proc SendMsg*(this: ShapeFix_Root; message: Message_Msg;
+             gravity: Message_Gravity = Message_Info) {.noSideEffect,
     importcpp: "SendMsg", header: "ShapeFix_Root.hxx".}
-proc sendWarning*(this: ShapeFixRoot; shape: TopoDS_Shape; message: MessageMsg) {.
+proc SendWarning*(this: ShapeFix_Root; shape: TopoDS_Shape; message: Message_Msg) {.
     noSideEffect, importcpp: "SendWarning", header: "ShapeFix_Root.hxx".}
-proc sendWarning*(this: ShapeFixRoot; message: MessageMsg) {.noSideEffect,
+proc SendWarning*(this: ShapeFix_Root; message: Message_Msg) {.noSideEffect,
     importcpp: "SendWarning", header: "ShapeFix_Root.hxx".}
-proc sendFail*(this: ShapeFixRoot; shape: TopoDS_Shape; message: MessageMsg) {.
+proc SendFail*(this: ShapeFix_Root; shape: TopoDS_Shape; message: Message_Msg) {.
     noSideEffect, importcpp: "SendFail", header: "ShapeFix_Root.hxx".}
-proc sendFail*(this: ShapeFixRoot; message: MessageMsg) {.noSideEffect,
+proc SendFail*(this: ShapeFix_Root; message: Message_Msg) {.noSideEffect,
     importcpp: "SendFail", header: "ShapeFix_Root.hxx".}
 type
-  ShapeFixRootbaseType* = StandardTransient
+  ShapeFix_Rootbase_type* = Standard_Transient
 
-proc getTypeName*(): cstring {.importcpp: "ShapeFix_Root::get_type_name(@)",
-                            header: "ShapeFix_Root.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "ShapeFix_Root::get_type_name(@)",
+                              header: "ShapeFix_Root.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "ShapeFix_Root::get_type_descriptor(@)",
     header: "ShapeFix_Root.hxx".}
-proc dynamicType*(this: ShapeFixRoot): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: ShapeFix_Root): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "ShapeFix_Root.hxx".}
-

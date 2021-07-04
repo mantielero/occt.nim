@@ -14,6 +14,13 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type,
+  ../TopTools/TopTools_ListOfShape, ../TColStd/TColStd_ListOfTransient,
+  ../TColStd/TColStd_IndexedDataMapOfTransientTransient, BRepTools_Modification,
+  ../Standard/Standard_Boolean, ../Standard/Standard_Real,
+  ../GeomAbs/GeomAbs_Shape
+
 discard "forward decl of TopoDS_Face"
 discard "forward decl of Geom_Surface"
 discard "forward decl of TopLoc_Location"
@@ -25,55 +32,55 @@ discard "forward decl of Geom2d_Curve"
 discard "forward decl of BRepTools_NurbsConvertModification"
 discard "forward decl of BRepTools_NurbsConvertModification"
 type
-  HandleBRepToolsNurbsConvertModification* = Handle[
-      BRepToolsNurbsConvertModification]
+  Handle_BRepTools_NurbsConvertModification* = handle[
+      BRepTools_NurbsConvertModification]
 
 ## ! Defines a modification of the  geometry by a  Trsf
 ## ! from gp. All methods return True and transform the
 ## ! geometry.
 
 type
-  BRepToolsNurbsConvertModification* {.importcpp: "BRepTools_NurbsConvertModification", header: "BRepTools_NurbsConvertModification.hxx",
-                                      bycopy.} = object of BRepToolsModification
+  BRepTools_NurbsConvertModification* {.importcpp: "BRepTools_NurbsConvertModification", header: "BRepTools_NurbsConvertModification.hxx",
+                                       bycopy.} = object of BRepTools_Modification
 
 
-proc constructBRepToolsNurbsConvertModification*(): BRepToolsNurbsConvertModification {.
+proc constructBRepTools_NurbsConvertModification*(): BRepTools_NurbsConvertModification {.
     constructor, importcpp: "BRepTools_NurbsConvertModification(@)",
     header: "BRepTools_NurbsConvertModification.hxx".}
-proc newSurface*(this: var BRepToolsNurbsConvertModification; f: TopoDS_Face;
-                s: var Handle[GeomSurface]; L: var TopLocLocation;
-                tol: var StandardReal; revWires: var StandardBoolean;
-                revFace: var StandardBoolean): StandardBoolean {.
+proc NewSurface*(this: var BRepTools_NurbsConvertModification; F: TopoDS_Face;
+                S: var handle[Geom_Surface]; L: var TopLoc_Location;
+                Tol: var Standard_Real; RevWires: var Standard_Boolean;
+                RevFace: var Standard_Boolean): Standard_Boolean {.
     importcpp: "NewSurface", header: "BRepTools_NurbsConvertModification.hxx".}
-proc newCurve*(this: var BRepToolsNurbsConvertModification; e: TopoDS_Edge;
-              c: var Handle[GeomCurve]; L: var TopLocLocation; tol: var StandardReal): StandardBoolean {.
-    importcpp: "NewCurve", header: "BRepTools_NurbsConvertModification.hxx".}
-proc newPoint*(this: var BRepToolsNurbsConvertModification; v: TopoDS_Vertex;
-              p: var GpPnt; tol: var StandardReal): StandardBoolean {.
+proc NewCurve*(this: var BRepTools_NurbsConvertModification; E: TopoDS_Edge;
+              C: var handle[Geom_Curve]; L: var TopLoc_Location;
+              Tol: var Standard_Real): Standard_Boolean {.importcpp: "NewCurve",
+    header: "BRepTools_NurbsConvertModification.hxx".}
+proc NewPoint*(this: var BRepTools_NurbsConvertModification; V: TopoDS_Vertex;
+              P: var gp_Pnt; Tol: var Standard_Real): Standard_Boolean {.
     importcpp: "NewPoint", header: "BRepTools_NurbsConvertModification.hxx".}
-proc newCurve2d*(this: var BRepToolsNurbsConvertModification; e: TopoDS_Edge;
-                f: TopoDS_Face; newE: TopoDS_Edge; newF: TopoDS_Face;
-                c: var Handle[Geom2dCurve]; tol: var StandardReal): StandardBoolean {.
+proc NewCurve2d*(this: var BRepTools_NurbsConvertModification; E: TopoDS_Edge;
+                F: TopoDS_Face; NewE: TopoDS_Edge; NewF: TopoDS_Face;
+                C: var handle[Geom2d_Curve]; Tol: var Standard_Real): Standard_Boolean {.
     importcpp: "NewCurve2d", header: "BRepTools_NurbsConvertModification.hxx".}
-proc newParameter*(this: var BRepToolsNurbsConvertModification; v: TopoDS_Vertex;
-                  e: TopoDS_Edge; p: var StandardReal; tol: var StandardReal): StandardBoolean {.
+proc NewParameter*(this: var BRepTools_NurbsConvertModification; V: TopoDS_Vertex;
+                  E: TopoDS_Edge; P: var Standard_Real; Tol: var Standard_Real): Standard_Boolean {.
     importcpp: "NewParameter", header: "BRepTools_NurbsConvertModification.hxx".}
-proc continuity*(this: var BRepToolsNurbsConvertModification; e: TopoDS_Edge;
-                f1: TopoDS_Face; f2: TopoDS_Face; newE: TopoDS_Edge;
-                newF1: TopoDS_Face; newF2: TopoDS_Face): GeomAbsShape {.
+proc Continuity*(this: var BRepTools_NurbsConvertModification; E: TopoDS_Edge;
+                F1: TopoDS_Face; F2: TopoDS_Face; NewE: TopoDS_Edge;
+                NewF1: TopoDS_Face; NewF2: TopoDS_Face): GeomAbs_Shape {.
     importcpp: "Continuity", header: "BRepTools_NurbsConvertModification.hxx".}
-proc getUpdatedEdges*(this: BRepToolsNurbsConvertModification): TopToolsListOfShape {.
+proc GetUpdatedEdges*(this: BRepTools_NurbsConvertModification): TopTools_ListOfShape {.
     noSideEffect, importcpp: "GetUpdatedEdges",
     header: "BRepTools_NurbsConvertModification.hxx".}
 type
-  BRepToolsNurbsConvertModificationbaseType* = BRepToolsModification
+  BRepTools_NurbsConvertModificationbase_type* = BRepTools_Modification
 
-proc getTypeName*(): cstring {.importcpp: "BRepTools_NurbsConvertModification::get_type_name(@)",
-                            header: "BRepTools_NurbsConvertModification.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "BRepTools_NurbsConvertModification::get_type_name(@)",
+                              header: "BRepTools_NurbsConvertModification.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "BRepTools_NurbsConvertModification::get_type_descriptor(@)",
     header: "BRepTools_NurbsConvertModification.hxx".}
-proc dynamicType*(this: BRepToolsNurbsConvertModification): Handle[StandardType] {.
+proc DynamicType*(this: BRepTools_NurbsConvertModification): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType",
     header: "BRepTools_NurbsConvertModification.hxx".}
-

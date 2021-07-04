@@ -14,11 +14,13 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-proc buildPolynomialCosAndSin*(a1: StandardReal; a2: StandardReal;
-                              a3: StandardInteger;
-                              a4: var Handle[TColStdHArray1OfReal];
-                              a5: var Handle[TColStdHArray1OfReal];
-                              a6: var Handle[TColStdHArray1OfReal]) {.
+import
+  ../TColStd/TColStd_HArray1OfReal, ../TColStd/TColStd_HArray1OfInteger
+
+proc BuildPolynomialCosAndSin*(a1: Standard_Real; a2: Standard_Real;
+                              a3: Standard_Integer;
+                              a4: var handle[TColStd_HArray1OfReal];
+                              a5: var handle[TColStd_HArray1OfReal];
+                              a6: var handle[TColStd_HArray1OfReal]) {.
     importcpp: "BuildPolynomialCosAndSin(@)",
     header: "Convert_PolynomialCosAndSin.hxx".}
-

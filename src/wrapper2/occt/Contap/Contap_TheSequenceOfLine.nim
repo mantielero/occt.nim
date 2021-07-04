@@ -14,7 +14,8 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  Contap_Line, ../NCollection/NCollection_Sequence
+
 type
-  ContapTheSequenceOfLine* = NCollectionSequence[ContapLine]
-
-
+  Contap_TheSequenceOfLine* = NCollection_Sequence[Contap_Line]

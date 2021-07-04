@@ -13,7 +13,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # NCollection_IndexedMap_HeaderFile [NewLine] # NCollection_IndexedMap_HeaderFile [NewLine] # < NCollection_BaseMap . hxx > [NewLine] # < NCollection_TListNode . hxx > [NewLine] # < NCollection_StlIterator . hxx > [NewLine] # < Standard_NoSuchObject . hxx > [NewLine] # < NCollection_DefaultHasher . hxx > [NewLine] # < Standard_OutOfRange . hxx > [NewLine] *
+## !!!Ignored construct:  # NCollection_IndexedMap_HeaderFile [NewLine] # NCollection_IndexedMap_HeaderFile [NewLine] # NCollection_BaseMap.hxx [NewLine] # NCollection_TListNode.hxx [NewLine] # NCollection_StlIterator.hxx [NewLine] # ../Standard/Standard_NoSuchObject.hxx [NewLine] # NCollection_DefaultHasher.hxx [NewLine] # ../Standard/Standard_OutOfRange.hxx [NewLine] *
 ##  Purpose:     An indexed map is used to  store  keys and to bind
 ##               an index to them.  Each new key stored in  the map
 ##               gets an index.  Index are incremented  as keys are
@@ -29,5 +29,3 @@
 ## ! Caution! The index of the last key can be changed. Standard_Boolean RemoveKey ( const TheKeyType & theKey1 ) { Standard_Integer anIndToRemove = FindIndex ( theKey1 ) ; if ( anIndToRemove < 1 ) { return Standard_False ; } RemoveFromIndex ( anIndToRemove ) ; return Standard_True ; } ! FindKey const TheKeyType & FindKey ( const Standard_Integer theIndex ) const { Standard_OutOfRange_Raise_if ( theIndex < 1 || theIndex > Extent ( ) , NCollection_IndexedMap::FindKey ) ; IndexedMapNode * pNode2 = ( IndexedMapNode * ) myData2 [ theIndex - 1 ] ; return pNode2 -> Key1 ( ) ; } ! operator () const TheKeyType & operator ( ) ( const Standard_Integer theIndex ) const { return FindKey ( theIndex ) ; } ! FindIndex Standard_Integer FindIndex ( const TheKeyType & theKey1 ) const { if ( IsEmpty ( ) ) return 0 ; IndexedMapNode * pNode1 = ( IndexedMapNode * ) myData1 [ Hasher :: HashCode ( theKey1 , NbBuckets ( ) ) ] ; while ( pNode1 ) { if ( Hasher :: IsEqual ( pNode1 -> Key1 ( ) , theKey1 ) ) { return pNode1 -> Index ( ) ; } pNode1 = ( IndexedMapNode * ) pNode1 -> Next ( ) ; } return 0 ; } ! Clear data. If doReleaseMemory is false then the table of
 ## ! buckets is not released and will be reused. void Clear ( const Standard_Boolean doReleaseMemory = Standard_True ) { Destroy ( IndexedMapNode :: delNode , doReleaseMemory ) ; } ! Clear data and reset allocator void Clear ( const opencascade :: handle < NCollection_BaseAllocator > & theAllocator ) { Clear ( ) ; this -> myAllocator = ( ! theAllocator . IsNull ( ) ? theAllocator : NCollection_BaseAllocator :: CommonBaseAllocator ( ) ) ; } ! Destructor virtual ~ NCollection_IndexedMap ( void ) { Clear ( ) ; } ! Size Standard_Integer Size ( void ) const { return Extent ( ) ; } } ;
 ## Error: token expected: > [end of template] but got: =!!!
-
-

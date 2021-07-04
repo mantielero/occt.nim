@@ -14,6 +14,15 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
+  ../TopoDS/TopoDS_Shape, ../TopAbs/TopAbs_Orientation, LocOpe_Operation,
+  ../TopTools/TopTools_IndexedDataMapOfShapeShape,
+  ../TopTools/TopTools_DataMapOfShapeShape,
+  ../TopTools/TopTools_DataMapOfShapeListOfShape,
+  ../TopTools/TopTools_ListOfShape
+
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of Standard_NoSuchObject"
 discard "forward decl of Standard_ConstructionError"
@@ -21,35 +30,34 @@ discard "forward decl of TopoDS_Shape"
 discard "forward decl of TopoDS_Face"
 discard "forward decl of TopoDS_Edge"
 type
-  LocOpeGluer* {.importcpp: "LocOpe_Gluer", header: "LocOpe_Gluer.hxx", bycopy.} = object
+  LocOpe_Gluer* {.importcpp: "LocOpe_Gluer", header: "LocOpe_Gluer.hxx", bycopy.} = object
 
 
-proc constructLocOpeGluer*(): LocOpeGluer {.constructor,
+proc constructLocOpe_Gluer*(): LocOpe_Gluer {.constructor,
     importcpp: "LocOpe_Gluer(@)", header: "LocOpe_Gluer.hxx".}
-proc constructLocOpeGluer*(sbase: TopoDS_Shape; snew: TopoDS_Shape): LocOpeGluer {.
+proc constructLocOpe_Gluer*(Sbase: TopoDS_Shape; Snew: TopoDS_Shape): LocOpe_Gluer {.
     constructor, importcpp: "LocOpe_Gluer(@)", header: "LocOpe_Gluer.hxx".}
-proc init*(this: var LocOpeGluer; sbase: TopoDS_Shape; snew: TopoDS_Shape) {.
+proc Init*(this: var LocOpe_Gluer; Sbase: TopoDS_Shape; Snew: TopoDS_Shape) {.
     importcpp: "Init", header: "LocOpe_Gluer.hxx".}
-proc `bind`*(this: var LocOpeGluer; fnew: TopoDS_Face; fbase: TopoDS_Face) {.
+proc Bind*(this: var LocOpe_Gluer; Fnew: TopoDS_Face; Fbase: TopoDS_Face) {.
     importcpp: "Bind", header: "LocOpe_Gluer.hxx".}
-proc `bind`*(this: var LocOpeGluer; enew: TopoDS_Edge; ebase: TopoDS_Edge) {.
+proc Bind*(this: var LocOpe_Gluer; Enew: TopoDS_Edge; Ebase: TopoDS_Edge) {.
     importcpp: "Bind", header: "LocOpe_Gluer.hxx".}
-proc opeType*(this: LocOpeGluer): LocOpeOperation {.noSideEffect,
+proc OpeType*(this: LocOpe_Gluer): LocOpe_Operation {.noSideEffect,
     importcpp: "OpeType", header: "LocOpe_Gluer.hxx".}
-proc perform*(this: var LocOpeGluer) {.importcpp: "Perform",
-                                   header: "LocOpe_Gluer.hxx".}
-proc isDone*(this: LocOpeGluer): StandardBoolean {.noSideEffect, importcpp: "IsDone",
-    header: "LocOpe_Gluer.hxx".}
-proc resultingShape*(this: LocOpeGluer): TopoDS_Shape {.noSideEffect,
+proc Perform*(this: var LocOpe_Gluer) {.importcpp: "Perform",
+                                    header: "LocOpe_Gluer.hxx".}
+proc IsDone*(this: LocOpe_Gluer): Standard_Boolean {.noSideEffect,
+    importcpp: "IsDone", header: "LocOpe_Gluer.hxx".}
+proc ResultingShape*(this: LocOpe_Gluer): TopoDS_Shape {.noSideEffect,
     importcpp: "ResultingShape", header: "LocOpe_Gluer.hxx".}
-proc descendantFaces*(this: LocOpeGluer; f: TopoDS_Face): TopToolsListOfShape {.
+proc DescendantFaces*(this: LocOpe_Gluer; F: TopoDS_Face): TopTools_ListOfShape {.
     noSideEffect, importcpp: "DescendantFaces", header: "LocOpe_Gluer.hxx".}
-proc basisShape*(this: LocOpeGluer): TopoDS_Shape {.noSideEffect,
+proc BasisShape*(this: LocOpe_Gluer): TopoDS_Shape {.noSideEffect,
     importcpp: "BasisShape", header: "LocOpe_Gluer.hxx".}
-proc gluedShape*(this: LocOpeGluer): TopoDS_Shape {.noSideEffect,
+proc GluedShape*(this: LocOpe_Gluer): TopoDS_Shape {.noSideEffect,
     importcpp: "GluedShape", header: "LocOpe_Gluer.hxx".}
-proc edges*(this: LocOpeGluer): TopToolsListOfShape {.noSideEffect,
+proc Edges*(this: LocOpe_Gluer): TopTools_ListOfShape {.noSideEffect,
     importcpp: "Edges", header: "LocOpe_Gluer.hxx".}
-proc tgtEdges*(this: LocOpeGluer): TopToolsListOfShape {.noSideEffect,
+proc TgtEdges*(this: LocOpe_Gluer): TopTools_ListOfShape {.noSideEffect,
     importcpp: "TgtEdges", header: "LocOpe_Gluer.hxx".}
-

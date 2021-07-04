@@ -14,10 +14,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard_Integer, MAT2d_Connexion,
+  ../TColStd/TColStd_MapIntegerHasher, ../NCollection/NCollection_DataMap
+
 type
-  MAT2dDataMapOfIntegerConnexion* = NCollectionDataMap[StandardInteger,
-      Handle[MAT2dConnexion], TColStdMapIntegerHasher]
-  MAT2dDataMapIteratorOfDataMapOfIntegerConnexion* = Iterator[StandardInteger,
-      Handle[MAT2dConnexion], TColStdMapIntegerHasher]
-
-
+  MAT2d_DataMapOfIntegerConnexion* = NCollection_DataMap[Standard_Integer,
+      handle[MAT2d_Connexion], TColStd_MapIntegerHasher]
+  MAT2d_DataMapIteratorOfDataMapOfIntegerConnexion* = Iterator[Standard_Integer,
+      handle[MAT2d_Connexion], TColStd_MapIntegerHasher]

@@ -14,67 +14,72 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  PrsDim_Relation, ../DsgPrs/DsgPrs_ArrowSide
+
 discard "forward decl of PrsDim_ParallelRelation"
 type
-  HandlePrsDimParallelRelation* = Handle[PrsDimParallelRelation]
+  Handle_PrsDim_ParallelRelation* = handle[PrsDim_ParallelRelation]
 
 ## ! A framework to display constraints of parallelism
 ## ! between two or more Interactive Objects. These
 ## ! entities can be faces or edges.
 
 type
-  PrsDimParallelRelation* {.importcpp: "PrsDim_ParallelRelation",
-                           header: "PrsDim_ParallelRelation.hxx", bycopy.} = object of PrsDimRelation ##
-                                                                                               ## !
-                                                                                               ## Constructs
-                                                                                               ## an
-                                                                                               ## object
-                                                                                               ## to
-                                                                                               ## display
-                                                                                               ## parallel
-                                                                                               ## constraints.
-                                                                                               ##
-                                                                                               ## !
-                                                                                               ## This
-                                                                                               ## object
-                                                                                               ## is
-                                                                                               ## defined
-                                                                                               ## by
-                                                                                               ## the
-                                                                                               ## first
-                                                                                               ## shape
-                                                                                               ## aFShape
-                                                                                               ## and
-                                                                                               ##
-                                                                                               ## !
-                                                                                               ## the
-                                                                                               ## second
-                                                                                               ## shape
-                                                                                               ## aSShape
-                                                                                               ## and
-                                                                                               ## the
-                                                                                               ## plane
-                                                                                               ## aPlane.
+  PrsDim_ParallelRelation* {.importcpp: "PrsDim_ParallelRelation",
+                            header: "PrsDim_ParallelRelation.hxx", bycopy.} = object of PrsDim_Relation ##
+                                                                                                 ## !
+                                                                                                 ## Constructs
+                                                                                                 ## an
+                                                                                                 ## object
+                                                                                                 ## to
+                                                                                                 ## display
+                                                                                                 ## parallel
+                                                                                                 ## constraints.
+                                                                                                 ##
+                                                                                                 ## !
+                                                                                                 ## This
+                                                                                                 ## object
+                                                                                                 ## is
+                                                                                                 ## defined
+                                                                                                 ## by
+                                                                                                 ## the
+                                                                                                 ## first
+                                                                                                 ## shape
+                                                                                                 ## aFShape
+                                                                                                 ## and
+                                                                                                 ##
+                                                                                                 ## !
+                                                                                                 ## the
+                                                                                                 ## second
+                                                                                                 ## shape
+                                                                                                 ## aSShape
+                                                                                                 ## and
+                                                                                                 ## the
+                                                                                                 ## plane
+                                                                                                 ## aPlane.
 
-  PrsDimParallelRelationbaseType* = PrsDimRelation
+  PrsDim_ParallelRelationbase_type* = PrsDim_Relation
 
-proc getTypeName*(): cstring {.importcpp: "PrsDim_ParallelRelation::get_type_name(@)",
-                            header: "PrsDim_ParallelRelation.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "PrsDim_ParallelRelation::get_type_name(@)",
+                              header: "PrsDim_ParallelRelation.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "PrsDim_ParallelRelation::get_type_descriptor(@)",
     header: "PrsDim_ParallelRelation.hxx".}
-proc dynamicType*(this: PrsDimParallelRelation): Handle[StandardType] {.
+proc DynamicType*(this: PrsDim_ParallelRelation): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType", header: "PrsDim_ParallelRelation.hxx".}
-proc constructPrsDimParallelRelation*(aFShape: TopoDS_Shape; aSShape: TopoDS_Shape;
-                                     aPlane: Handle[GeomPlane]): PrsDimParallelRelation {.
+proc constructPrsDim_ParallelRelation*(aFShape: TopoDS_Shape;
+                                      aSShape: TopoDS_Shape;
+                                      aPlane: handle[Geom_Plane]): PrsDim_ParallelRelation {.
     constructor, importcpp: "PrsDim_ParallelRelation(@)",
     header: "PrsDim_ParallelRelation.hxx".}
-proc constructPrsDimParallelRelation*(aFShape: TopoDS_Shape; aSShape: TopoDS_Shape;
-                                     aPlane: Handle[GeomPlane]; aPosition: GpPnt;
-                                     aSymbolPrs: DsgPrsArrowSide;
-                                     anArrowSize: StandardReal = 0.01): PrsDimParallelRelation {.
+proc constructPrsDim_ParallelRelation*(aFShape: TopoDS_Shape;
+                                      aSShape: TopoDS_Shape;
+                                      aPlane: handle[Geom_Plane];
+                                      aPosition: gp_Pnt;
+                                      aSymbolPrs: DsgPrs_ArrowSide;
+                                      anArrowSize: Standard_Real = 0.01): PrsDim_ParallelRelation {.
     constructor, importcpp: "PrsDim_ParallelRelation(@)",
     header: "PrsDim_ParallelRelation.hxx".}
-proc isMovable*(this: PrsDimParallelRelation): StandardBoolean {.noSideEffect,
+proc IsMovable*(this: PrsDim_ParallelRelation): Standard_Boolean {.noSideEffect,
     importcpp: "IsMovable", header: "PrsDim_ParallelRelation.hxx".}
-

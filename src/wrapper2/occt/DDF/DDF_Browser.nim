@@ -13,6 +13,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../TDF/TDF_AttributeIndexedMap,
+  ../Draw/Draw_Drawable3D, ../Standard/Standard_OStream, ../Draw/Draw_Interpretor,
+  ../Standard/Standard_Integer
+
 discard "forward decl of TDF_Data"
 discard "forward decl of Draw_Display"
 discard "forward decl of Draw_Drawable3D"
@@ -21,49 +26,48 @@ discard "forward decl of TDF_Label"
 discard "forward decl of DDF_Browser"
 discard "forward decl of DDF_Browser"
 type
-  HandleDDF_Browser* = Handle[DDF_Browser]
+  Handle_DDF_Browser* = handle[DDF_Browser]
 
 ## ! Browses a data framework from TDF.
 
 type
-  DDF_Browser* {.importcpp: "DDF_Browser", header: "DDF_Browser.hxx", bycopy.} = object of DrawDrawable3D
+  DDF_Browser* {.importcpp: "DDF_Browser", header: "DDF_Browser.hxx", bycopy.} = object of Draw_Drawable3D
 
 
-proc constructDDF_Browser*(aDF: Handle[TDF_Data]): DDF_Browser {.constructor,
+proc constructDDF_Browser*(aDF: handle[TDF_Data]): DDF_Browser {.constructor,
     importcpp: "DDF_Browser(@)", header: "DDF_Browser.hxx".}
-proc drawOn*(this: DDF_Browser; dis: var DrawDisplay) {.noSideEffect,
+proc DrawOn*(this: DDF_Browser; dis: var Draw_Display) {.noSideEffect,
     importcpp: "DrawOn", header: "DDF_Browser.hxx".}
-proc copy*(this: DDF_Browser): Handle[DrawDrawable3D] {.noSideEffect,
+proc Copy*(this: DDF_Browser): handle[Draw_Drawable3D] {.noSideEffect,
     importcpp: "Copy", header: "DDF_Browser.hxx".}
-proc dump*(this: DDF_Browser; s: var StandardOStream) {.noSideEffect,
+proc Dump*(this: DDF_Browser; S: var Standard_OStream) {.noSideEffect,
     importcpp: "Dump", header: "DDF_Browser.hxx".}
-proc whatis*(this: DDF_Browser; i: var DrawInterpretor) {.noSideEffect,
+proc Whatis*(this: DDF_Browser; I: var Draw_Interpretor) {.noSideEffect,
     importcpp: "Whatis", header: "DDF_Browser.hxx".}
-proc data*(this: var DDF_Browser; aDF: Handle[TDF_Data]) {.importcpp: "Data",
+proc Data*(this: var DDF_Browser; aDF: handle[TDF_Data]) {.importcpp: "Data",
     header: "DDF_Browser.hxx".}
-proc data*(this: DDF_Browser): Handle[TDF_Data] {.noSideEffect, importcpp: "Data",
+proc Data*(this: DDF_Browser): handle[TDF_Data] {.noSideEffect, importcpp: "Data",
     header: "DDF_Browser.hxx".}
-proc openRoot*(this: DDF_Browser): TCollectionAsciiString {.noSideEffect,
+proc OpenRoot*(this: DDF_Browser): TCollection_AsciiString {.noSideEffect,
     importcpp: "OpenRoot", header: "DDF_Browser.hxx".}
-proc openLabel*(this: DDF_Browser; aLab: TDF_Label): TCollectionAsciiString {.
+proc OpenLabel*(this: DDF_Browser; aLab: TDF_Label): TCollection_AsciiString {.
     noSideEffect, importcpp: "OpenLabel", header: "DDF_Browser.hxx".}
-proc openAttributeList*(this: var DDF_Browser; aLab: TDF_Label): TCollectionAsciiString {.
+proc OpenAttributeList*(this: var DDF_Browser; aLab: TDF_Label): TCollection_AsciiString {.
     importcpp: "OpenAttributeList", header: "DDF_Browser.hxx".}
-proc openAttribute*(this: var DDF_Browser; anIndex: StandardInteger = 0): TCollectionAsciiString {.
+proc OpenAttribute*(this: var DDF_Browser; anIndex: Standard_Integer = 0): TCollection_AsciiString {.
     importcpp: "OpenAttribute", header: "DDF_Browser.hxx".}
-proc information*(this: DDF_Browser): TCollectionAsciiString {.noSideEffect,
+proc Information*(this: DDF_Browser): TCollection_AsciiString {.noSideEffect,
     importcpp: "Information", header: "DDF_Browser.hxx".}
-proc information*(this: DDF_Browser; aLab: TDF_Label): TCollectionAsciiString {.
+proc Information*(this: DDF_Browser; aLab: TDF_Label): TCollection_AsciiString {.
     noSideEffect, importcpp: "Information", header: "DDF_Browser.hxx".}
-proc information*(this: DDF_Browser; anIndex: StandardInteger = 0): TCollectionAsciiString {.
+proc Information*(this: DDF_Browser; anIndex: Standard_Integer = 0): TCollection_AsciiString {.
     noSideEffect, importcpp: "Information", header: "DDF_Browser.hxx".}
 type
-  DDF_BrowserbaseType* = DrawDrawable3D
+  DDF_Browserbase_type* = Draw_Drawable3D
 
-proc getTypeName*(): cstring {.importcpp: "DDF_Browser::get_type_name(@)",
-                            header: "DDF_Browser.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "DDF_Browser::get_type_name(@)",
+                              header: "DDF_Browser.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "DDF_Browser::get_type_descriptor(@)", header: "DDF_Browser.hxx".}
-proc dynamicType*(this: DDF_Browser): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: DDF_Browser): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "DDF_Browser.hxx".}
-

@@ -14,6 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, GC_Root, ../Geom/Geom_TrimmedCurve
+
 discard "forward decl of gp_Circ"
 discard "forward decl of gp_Pnt"
 discard "forward decl of gp_Vec"
@@ -43,27 +47,26 @@ type
                                                                                ## radiians.
 
 
-proc constructGC_MakeArcOfCircle*(circ: GpCirc; alpha1: StandardReal;
-                                 alpha2: StandardReal; sense: StandardBoolean): GC_MakeArcOfCircle {.
+proc constructGC_MakeArcOfCircle*(Circ: gp_Circ; Alpha1: Standard_Real;
+                                 Alpha2: Standard_Real; Sense: Standard_Boolean): GC_MakeArcOfCircle {.
     constructor, importcpp: "GC_MakeArcOfCircle(@)",
     header: "GC_MakeArcOfCircle.hxx".}
-proc constructGC_MakeArcOfCircle*(circ: GpCirc; p: GpPnt; alpha: StandardReal;
-                                 sense: StandardBoolean): GC_MakeArcOfCircle {.
+proc constructGC_MakeArcOfCircle*(Circ: gp_Circ; P: gp_Pnt; Alpha: Standard_Real;
+                                 Sense: Standard_Boolean): GC_MakeArcOfCircle {.
     constructor, importcpp: "GC_MakeArcOfCircle(@)",
     header: "GC_MakeArcOfCircle.hxx".}
-proc constructGC_MakeArcOfCircle*(circ: GpCirc; p1: GpPnt; p2: GpPnt;
-                                 sense: StandardBoolean): GC_MakeArcOfCircle {.
+proc constructGC_MakeArcOfCircle*(Circ: gp_Circ; P1: gp_Pnt; P2: gp_Pnt;
+                                 Sense: Standard_Boolean): GC_MakeArcOfCircle {.
     constructor, importcpp: "GC_MakeArcOfCircle(@)",
     header: "GC_MakeArcOfCircle.hxx".}
-proc constructGC_MakeArcOfCircle*(p1: GpPnt; p2: GpPnt; p3: GpPnt): GC_MakeArcOfCircle {.
+proc constructGC_MakeArcOfCircle*(P1: gp_Pnt; P2: gp_Pnt; P3: gp_Pnt): GC_MakeArcOfCircle {.
     constructor, importcpp: "GC_MakeArcOfCircle(@)",
     header: "GC_MakeArcOfCircle.hxx".}
-proc constructGC_MakeArcOfCircle*(p1: GpPnt; v: GpVec; p2: GpPnt): GC_MakeArcOfCircle {.
+proc constructGC_MakeArcOfCircle*(P1: gp_Pnt; V: gp_Vec; P2: gp_Pnt): GC_MakeArcOfCircle {.
     constructor, importcpp: "GC_MakeArcOfCircle(@)",
     header: "GC_MakeArcOfCircle.hxx".}
-proc value*(this: GC_MakeArcOfCircle): Handle[GeomTrimmedCurve] {.noSideEffect,
+proc Value*(this: GC_MakeArcOfCircle): handle[Geom_TrimmedCurve] {.noSideEffect,
     importcpp: "Value", header: "GC_MakeArcOfCircle.hxx".}
-converter `constopencascade`*(this: GC_MakeArcOfCircle): Handle[GeomTrimmedCurve] {.
+converter `constopencascade`*(this: GC_MakeArcOfCircle): handle[Geom_TrimmedCurve] {.
     noSideEffect, importcpp: "GC_MakeArcOfCircle::operator constopencascade",
     header: "GC_MakeArcOfCircle.hxx".}
-

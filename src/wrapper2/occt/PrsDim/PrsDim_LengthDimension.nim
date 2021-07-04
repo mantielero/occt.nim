@@ -11,9 +11,14 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  PrsDim_Dimension, PrsDim_KindOfDimension, ../Geom/Geom_Plane, ../gp/gp_Pnt,
+  ../gp/gp_Dir, ../Prs3d/Prs3d_DimensionAspect, ../Prs3d/Prs3d_Drawer,
+  ../TopoDS/TopoDS, ../TopoDS/TopoDS_Vertex
+
 discard "forward decl of PrsDim_LengthDimension"
 type
-  HandlePrsDimLengthDimension* = Handle[PrsDimLengthDimension]
+  Handle_PrsDim_LengthDimension* = handle[PrsDim_LengthDimension]
 
 ## ! Length dimension. Can be constructued:
 ## ! - Between two generic points.
@@ -35,208 +40,208 @@ type
 ## ! presentation can not be computed.
 
 type
-  PrsDimLengthDimension* {.importcpp: "PrsDim_LengthDimension",
-                          header: "PrsDim_LengthDimension.hxx", bycopy.} = object of PrsDimDimension ##
-                                                                                              ## !
-                                                                                              ## Construct
-                                                                                              ## length
-                                                                                              ## dimension
-                                                                                              ## between
-                                                                                              ## face
-                                                                                              ## and
-                                                                                              ## edge.
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ## Here
-                                                                                              ## dimension
-                                                                                              ## can
-                                                                                              ## be
-                                                                                              ## built
-                                                                                              ## without
-                                                                                              ## user-defined
-                                                                                              ## plane.
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ## @param
-                                                                                              ## theFace
-                                                                                              ## [in]
-                                                                                              ## the
-                                                                                              ## face
-                                                                                              ## (first
-                                                                                              ## shape).
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ## @param
-                                                                                              ## theEdge
-                                                                                              ## [in]
-                                                                                              ## the
-                                                                                              ## edge
-                                                                                              ## (second
-                                                                                              ## shape).
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ## @return
-                                                                                              ## first
-                                                                                              ## attachement
-                                                                                              ## point.
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ## Measure
-                                                                                              ## distance
-                                                                                              ## between
-                                                                                              ## two
-                                                                                              ## points.
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ## The
-                                                                                              ## dimension
-                                                                                              ## will
-                                                                                              ## become
-                                                                                              ## invalid
-                                                                                              ## if
-                                                                                              ## the
-                                                                                              ## new
-                                                                                              ## distance
-                                                                                              ## between
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ## attachement
-                                                                                              ## points
-                                                                                              ## is
-                                                                                              ## less
-                                                                                              ## than
-                                                                                              ## Precision::Confusion().
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ## @param
-                                                                                              ## theFirstPoint
-                                                                                              ## [in]
-                                                                                              ## the
-                                                                                              ## first
-                                                                                              ## point.
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ## @param
-                                                                                              ## theSecondPoint
-                                                                                              ## [in]
-                                                                                              ## the
-                                                                                              ## second
-                                                                                              ## point.
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ## @param
-                                                                                              ## thePlane
-                                                                                              ## [in]
-                                                                                              ## the
-                                                                                              ## user-defined
-                                                                                              ## plane
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ## Checks
-                                                                                              ## if
-                                                                                              ## the
-                                                                                              ## plane
-                                                                                              ## includes
-                                                                                              ## first
-                                                                                              ## and
-                                                                                              ## second
-                                                                                              ## points
-                                                                                              ## to
-                                                                                              ## build
-                                                                                              ## dimension.
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ## Checks
-                                                                                              ## that
-                                                                                              ## distance
-                                                                                              ## between
-                                                                                              ## two
-                                                                                              ## points
-                                                                                              ## is
-                                                                                              ## valid.
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ## @param
-                                                                                              ## theFirstPoint
-                                                                                              ## [in]
-                                                                                              ## the
-                                                                                              ## first
-                                                                                              ## point.
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ## @param
-                                                                                              ## theSecondPoint
-                                                                                              ## [in]
-                                                                                              ## the
-                                                                                              ## second
-                                                                                              ## point.
+  PrsDim_LengthDimension* {.importcpp: "PrsDim_LengthDimension",
+                           header: "PrsDim_LengthDimension.hxx", bycopy.} = object of PrsDim_Dimension ##
+                                                                                                ## !
+                                                                                                ## Construct
+                                                                                                ## length
+                                                                                                ## dimension
+                                                                                                ## between
+                                                                                                ## face
+                                                                                                ## and
+                                                                                                ## edge.
+                                                                                                ##
+                                                                                                ## !
+                                                                                                ## Here
+                                                                                                ## dimension
+                                                                                                ## can
+                                                                                                ## be
+                                                                                                ## built
+                                                                                                ## without
+                                                                                                ## user-defined
+                                                                                                ## plane.
+                                                                                                ##
+                                                                                                ## !
+                                                                                                ## @param
+                                                                                                ## theFace
+                                                                                                ## [in]
+                                                                                                ## the
+                                                                                                ## face
+                                                                                                ## (first
+                                                                                                ## shape).
+                                                                                                ##
+                                                                                                ## !
+                                                                                                ## @param
+                                                                                                ## theEdge
+                                                                                                ## [in]
+                                                                                                ## the
+                                                                                                ## edge
+                                                                                                ## (second
+                                                                                                ## shape).
+                                                                                                ##
+                                                                                                ## !
+                                                                                                ## @return
+                                                                                                ## first
+                                                                                                ## attachement
+                                                                                                ## point.
+                                                                                                ##
+                                                                                                ## !
+                                                                                                ## Measure
+                                                                                                ## distance
+                                                                                                ## between
+                                                                                                ## two
+                                                                                                ## points.
+                                                                                                ##
+                                                                                                ## !
+                                                                                                ## The
+                                                                                                ## dimension
+                                                                                                ## will
+                                                                                                ## become
+                                                                                                ## invalid
+                                                                                                ## if
+                                                                                                ## the
+                                                                                                ## new
+                                                                                                ## distance
+                                                                                                ## between
+                                                                                                ##
+                                                                                                ## !
+                                                                                                ## attachement
+                                                                                                ## points
+                                                                                                ## is
+                                                                                                ## less
+                                                                                                ## than
+                                                                                                ## Precision::Confusion().
+                                                                                                ##
+                                                                                                ## !
+                                                                                                ## @param
+                                                                                                ## theFirstPoint
+                                                                                                ## [in]
+                                                                                                ## the
+                                                                                                ## first
+                                                                                                ## point.
+                                                                                                ##
+                                                                                                ## !
+                                                                                                ## @param
+                                                                                                ## theSecondPoint
+                                                                                                ## [in]
+                                                                                                ## the
+                                                                                                ## second
+                                                                                                ## point.
+                                                                                                ##
+                                                                                                ## !
+                                                                                                ## @param
+                                                                                                ## thePlane
+                                                                                                ## [in]
+                                                                                                ## the
+                                                                                                ## user-defined
+                                                                                                ## plane
+                                                                                                ##
+                                                                                                ## !
+                                                                                                ## Checks
+                                                                                                ## if
+                                                                                                ## the
+                                                                                                ## plane
+                                                                                                ## includes
+                                                                                                ## first
+                                                                                                ## and
+                                                                                                ## second
+                                                                                                ## points
+                                                                                                ## to
+                                                                                                ## build
+                                                                                                ## dimension.
+                                                                                                ##
+                                                                                                ## !
+                                                                                                ## Checks
+                                                                                                ## that
+                                                                                                ## distance
+                                                                                                ## between
+                                                                                                ## two
+                                                                                                ## points
+                                                                                                ## is
+                                                                                                ## valid.
+                                                                                                ##
+                                                                                                ## !
+                                                                                                ## @param
+                                                                                                ## theFirstPoint
+                                                                                                ## [in]
+                                                                                                ## the
+                                                                                                ## first
+                                                                                                ## point.
+                                                                                                ##
+                                                                                                ## !
+                                                                                                ## @param
+                                                                                                ## theSecondPoint
+                                                                                                ## [in]
+                                                                                                ## the
+                                                                                                ## second
+                                                                                                ## point.
 
-  PrsDimLengthDimensionbaseType* = PrsDimDimension
+  PrsDim_LengthDimensionbase_type* = PrsDim_Dimension
 
-proc getTypeName*(): cstring {.importcpp: "PrsDim_LengthDimension::get_type_name(@)",
-                            header: "PrsDim_LengthDimension.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "PrsDim_LengthDimension::get_type_name(@)",
+                              header: "PrsDim_LengthDimension.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "PrsDim_LengthDimension::get_type_descriptor(@)",
     header: "PrsDim_LengthDimension.hxx".}
-proc dynamicType*(this: PrsDimLengthDimension): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "PrsDim_LengthDimension.hxx".}
-proc constructPrsDimLengthDimension*(theFace: TopoDS_Face; theEdge: TopoDS_Edge): PrsDimLengthDimension {.
+proc DynamicType*(this: PrsDim_LengthDimension): handle[Standard_Type] {.
+    noSideEffect, importcpp: "DynamicType", header: "PrsDim_LengthDimension.hxx".}
+proc constructPrsDim_LengthDimension*(theFace: TopoDS_Face; theEdge: TopoDS_Edge): PrsDim_LengthDimension {.
     constructor, importcpp: "PrsDim_LengthDimension(@)",
     header: "PrsDim_LengthDimension.hxx".}
-proc constructPrsDimLengthDimension*(theFirstFace: TopoDS_Face;
-                                    theSecondFace: TopoDS_Face): PrsDimLengthDimension {.
+proc constructPrsDim_LengthDimension*(theFirstFace: TopoDS_Face;
+                                     theSecondFace: TopoDS_Face): PrsDim_LengthDimension {.
     constructor, importcpp: "PrsDim_LengthDimension(@)",
     header: "PrsDim_LengthDimension.hxx".}
-proc constructPrsDimLengthDimension*(theFirstPoint: GpPnt; theSecondPoint: GpPnt;
-                                    thePlane: GpPln): PrsDimLengthDimension {.
+proc constructPrsDim_LengthDimension*(theFirstPoint: gp_Pnt;
+                                     theSecondPoint: gp_Pnt; thePlane: gp_Pln): PrsDim_LengthDimension {.
     constructor, importcpp: "PrsDim_LengthDimension(@)",
     header: "PrsDim_LengthDimension.hxx".}
-proc constructPrsDimLengthDimension*(theFirstShape: TopoDS_Shape;
-                                    theSecondShape: TopoDS_Shape; thePlane: GpPln): PrsDimLengthDimension {.
+proc constructPrsDim_LengthDimension*(theFirstShape: TopoDS_Shape;
+                                     theSecondShape: TopoDS_Shape;
+                                     thePlane: gp_Pln): PrsDim_LengthDimension {.
     constructor, importcpp: "PrsDim_LengthDimension(@)",
     header: "PrsDim_LengthDimension.hxx".}
-proc constructPrsDimLengthDimension*(theEdge: TopoDS_Edge; thePlane: GpPln): PrsDimLengthDimension {.
+proc constructPrsDim_LengthDimension*(theEdge: TopoDS_Edge; thePlane: gp_Pln): PrsDim_LengthDimension {.
     constructor, importcpp: "PrsDim_LengthDimension(@)",
     header: "PrsDim_LengthDimension.hxx".}
-proc firstPoint*(this: PrsDimLengthDimension): GpPnt {.noSideEffect,
+proc FirstPoint*(this: PrsDim_LengthDimension): gp_Pnt {.noSideEffect,
     importcpp: "FirstPoint", header: "PrsDim_LengthDimension.hxx".}
-proc secondPoint*(this: PrsDimLengthDimension): GpPnt {.noSideEffect,
+proc SecondPoint*(this: PrsDim_LengthDimension): gp_Pnt {.noSideEffect,
     importcpp: "SecondPoint", header: "PrsDim_LengthDimension.hxx".}
-proc firstShape*(this: PrsDimLengthDimension): TopoDS_Shape {.noSideEffect,
+proc FirstShape*(this: PrsDim_LengthDimension): TopoDS_Shape {.noSideEffect,
     importcpp: "FirstShape", header: "PrsDim_LengthDimension.hxx".}
-proc secondShape*(this: PrsDimLengthDimension): TopoDS_Shape {.noSideEffect,
+proc SecondShape*(this: PrsDim_LengthDimension): TopoDS_Shape {.noSideEffect,
     importcpp: "SecondShape", header: "PrsDim_LengthDimension.hxx".}
-proc setMeasuredGeometry*(this: var PrsDimLengthDimension; theFirstPoint: GpPnt;
-                         theSecondPoint: GpPnt; thePlane: GpPln) {.
+proc SetMeasuredGeometry*(this: var PrsDim_LengthDimension; theFirstPoint: gp_Pnt;
+                         theSecondPoint: gp_Pnt; thePlane: gp_Pln) {.
     importcpp: "SetMeasuredGeometry", header: "PrsDim_LengthDimension.hxx".}
-proc setMeasuredGeometry*(this: var PrsDimLengthDimension; theEdge: TopoDS_Edge;
-                         thePlane: GpPln) {.importcpp: "SetMeasuredGeometry",
+proc SetMeasuredGeometry*(this: var PrsDim_LengthDimension; theEdge: TopoDS_Edge;
+                         thePlane: gp_Pln) {.importcpp: "SetMeasuredGeometry",
     header: "PrsDim_LengthDimension.hxx".}
-proc setMeasuredGeometry*(this: var PrsDimLengthDimension;
+proc SetMeasuredGeometry*(this: var PrsDim_LengthDimension;
                          theFirstFace: TopoDS_Face; theSecondFace: TopoDS_Face) {.
     importcpp: "SetMeasuredGeometry", header: "PrsDim_LengthDimension.hxx".}
-proc setMeasuredGeometry*(this: var PrsDimLengthDimension; theFace: TopoDS_Face;
+proc SetMeasuredGeometry*(this: var PrsDim_LengthDimension; theFace: TopoDS_Face;
                          theEdge: TopoDS_Edge) {.importcpp: "SetMeasuredGeometry",
     header: "PrsDim_LengthDimension.hxx".}
-proc setMeasuredShapes*(this: var PrsDimLengthDimension;
+proc SetMeasuredShapes*(this: var PrsDim_LengthDimension;
                        theFirstShape: TopoDS_Shape; theSecondShape: TopoDS_Shape) {.
     importcpp: "SetMeasuredShapes", header: "PrsDim_LengthDimension.hxx".}
-proc getDisplayUnits*(this: PrsDimLengthDimension): TCollectionAsciiString {.
+proc GetDisplayUnits*(this: PrsDim_LengthDimension): TCollection_AsciiString {.
     noSideEffect, importcpp: "GetDisplayUnits",
     header: "PrsDim_LengthDimension.hxx".}
-proc getModelUnits*(this: PrsDimLengthDimension): TCollectionAsciiString {.
+proc GetModelUnits*(this: PrsDim_LengthDimension): TCollection_AsciiString {.
     noSideEffect, importcpp: "GetModelUnits", header: "PrsDim_LengthDimension.hxx".}
-proc setDisplayUnits*(this: var PrsDimLengthDimension;
-                     theUnits: TCollectionAsciiString) {.
+proc SetDisplayUnits*(this: var PrsDim_LengthDimension;
+                     theUnits: TCollection_AsciiString) {.
     importcpp: "SetDisplayUnits", header: "PrsDim_LengthDimension.hxx".}
-proc setModelUnits*(this: var PrsDimLengthDimension;
-                   theUnits: TCollectionAsciiString) {.importcpp: "SetModelUnits",
-    header: "PrsDim_LengthDimension.hxx".}
-proc setTextPosition*(this: var PrsDimLengthDimension; theTextPos: GpPnt) {.
+proc SetModelUnits*(this: var PrsDim_LengthDimension;
+                   theUnits: TCollection_AsciiString) {.
+    importcpp: "SetModelUnits", header: "PrsDim_LengthDimension.hxx".}
+proc SetTextPosition*(this: var PrsDim_LengthDimension; theTextPos: gp_Pnt) {.
     importcpp: "SetTextPosition", header: "PrsDim_LengthDimension.hxx".}
-proc getTextPosition*(this: PrsDimLengthDimension): GpPnt {.noSideEffect,
+proc GetTextPosition*(this: PrsDim_LengthDimension): gp_Pnt {.noSideEffect,
     importcpp: "GetTextPosition", header: "PrsDim_LengthDimension.hxx".}
-proc setDirection*(this: var PrsDimLengthDimension; theDirection: GpDir;
-                  theUseDirection: StandardBoolean = standardTrue) {.
+proc SetDirection*(this: var PrsDim_LengthDimension; theDirection: gp_Dir;
+                  theUseDirection: Standard_Boolean = Standard_True) {.
     importcpp: "SetDirection", header: "PrsDim_LengthDimension.hxx".}
-

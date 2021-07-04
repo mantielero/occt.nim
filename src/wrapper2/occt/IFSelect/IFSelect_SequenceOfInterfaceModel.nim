@@ -14,8 +14,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Interface/Interface_InterfaceModel, ../NCollection/NCollection_Sequence
+
 type
-  IFSelectSequenceOfInterfaceModel* = NCollectionSequence[
-      Handle[InterfaceInterfaceModel]]
-
-
+  IFSelect_SequenceOfInterfaceModel* = NCollection_Sequence[
+      handle[Interface_InterfaceModel]]

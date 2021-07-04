@@ -12,8 +12,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../NCollection/NCollection_List, BOPTools_ConnexityBlock
+
 type
-  BOPToolsListOfConnexityBlock* = NCollectionList[BOPToolsConnexityBlock]
-  BOPToolsListIteratorOfListOfConnexityBlock* = Iterator
-
-
+  BOPTools_ListOfConnexityBlock* = NCollection_List[BOPTools_ConnexityBlock]
+  BOPTools_ListIteratorOfListOfConnexityBlock* = Iterator

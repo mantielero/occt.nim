@@ -14,11 +14,15 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Integer,
+  ../IGESData/IGESData_IGESEntity, ../Standard/Standard_Boolean
+
 discard "forward decl of IGESData_IGESEntity"
 discard "forward decl of IGESGeom_RuledSurface"
 discard "forward decl of IGESGeom_RuledSurface"
 type
-  HandleIGESGeomRuledSurface* = Handle[IGESGeomRuledSurface]
+  Handle_IGESGeom_RuledSurface* = handle[IGESGeom_RuledSurface]
 
 ## ! defines IGESRuledSurface, Type <118> Form <0-1>
 ## ! in package IGESGeom
@@ -31,37 +35,36 @@ type
 ## ! the IGES specification.
 
 type
-  IGESGeomRuledSurface* {.importcpp: "IGESGeom_RuledSurface",
-                         header: "IGESGeom_RuledSurface.hxx", bycopy.} = object of IGESDataIGESEntity
+  IGESGeom_RuledSurface* {.importcpp: "IGESGeom_RuledSurface",
+                          header: "IGESGeom_RuledSurface.hxx", bycopy.} = object of IGESData_IGESEntity
 
 
-proc constructIGESGeomRuledSurface*(): IGESGeomRuledSurface {.constructor,
+proc constructIGESGeom_RuledSurface*(): IGESGeom_RuledSurface {.constructor,
     importcpp: "IGESGeom_RuledSurface(@)", header: "IGESGeom_RuledSurface.hxx".}
-proc init*(this: var IGESGeomRuledSurface; aCurve: Handle[IGESDataIGESEntity];
-          anotherCurve: Handle[IGESDataIGESEntity]; aDirFlag: StandardInteger;
-          aDevFlag: StandardInteger) {.importcpp: "Init",
-                                     header: "IGESGeom_RuledSurface.hxx".}
-proc setRuledByParameter*(this: var IGESGeomRuledSurface; mode: StandardBoolean) {.
+proc Init*(this: var IGESGeom_RuledSurface; aCurve: handle[IGESData_IGESEntity];
+          anotherCurve: handle[IGESData_IGESEntity]; aDirFlag: Standard_Integer;
+          aDevFlag: Standard_Integer) {.importcpp: "Init",
+                                      header: "IGESGeom_RuledSurface.hxx".}
+proc SetRuledByParameter*(this: var IGESGeom_RuledSurface; mode: Standard_Boolean) {.
     importcpp: "SetRuledByParameter", header: "IGESGeom_RuledSurface.hxx".}
-proc isRuledByParameter*(this: IGESGeomRuledSurface): StandardBoolean {.
+proc IsRuledByParameter*(this: IGESGeom_RuledSurface): Standard_Boolean {.
     noSideEffect, importcpp: "IsRuledByParameter",
     header: "IGESGeom_RuledSurface.hxx".}
-proc firstCurve*(this: IGESGeomRuledSurface): Handle[IGESDataIGESEntity] {.
+proc FirstCurve*(this: IGESGeom_RuledSurface): handle[IGESData_IGESEntity] {.
     noSideEffect, importcpp: "FirstCurve", header: "IGESGeom_RuledSurface.hxx".}
-proc secondCurve*(this: IGESGeomRuledSurface): Handle[IGESDataIGESEntity] {.
+proc SecondCurve*(this: IGESGeom_RuledSurface): handle[IGESData_IGESEntity] {.
     noSideEffect, importcpp: "SecondCurve", header: "IGESGeom_RuledSurface.hxx".}
-proc directionFlag*(this: IGESGeomRuledSurface): StandardInteger {.noSideEffect,
+proc DirectionFlag*(this: IGESGeom_RuledSurface): Standard_Integer {.noSideEffect,
     importcpp: "DirectionFlag", header: "IGESGeom_RuledSurface.hxx".}
-proc isDevelopable*(this: IGESGeomRuledSurface): StandardBoolean {.noSideEffect,
+proc IsDevelopable*(this: IGESGeom_RuledSurface): Standard_Boolean {.noSideEffect,
     importcpp: "IsDevelopable", header: "IGESGeom_RuledSurface.hxx".}
 type
-  IGESGeomRuledSurfacebaseType* = IGESDataIGESEntity
+  IGESGeom_RuledSurfacebase_type* = IGESData_IGESEntity
 
-proc getTypeName*(): cstring {.importcpp: "IGESGeom_RuledSurface::get_type_name(@)",
-                            header: "IGESGeom_RuledSurface.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "IGESGeom_RuledSurface::get_type_name(@)",
+                              header: "IGESGeom_RuledSurface.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "IGESGeom_RuledSurface::get_type_descriptor(@)",
     header: "IGESGeom_RuledSurface.hxx".}
-proc dynamicType*(this: IGESGeomRuledSurface): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "IGESGeom_RuledSurface.hxx".}
-
+proc DynamicType*(this: IGESGeom_RuledSurface): handle[Standard_Type] {.
+    noSideEffect, importcpp: "DynamicType", header: "IGESGeom_RuledSurface.hxx".}

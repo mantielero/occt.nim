@@ -13,30 +13,32 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard_Type, ../TopoDS/TopoDS_Shape
+
 ## ! Interface class representing model with associated TopoDS_Shape.
 ## ! Intended for inheritance by structures and algorithms keeping
 ## ! reference TopoDS_Shape.
 
 type
-  IMeshDataShape* {.importcpp: "IMeshData_Shape", header: "IMeshData_Shape.hxx",
-                   bycopy.} = object of StandardTransient ## ! Destructor.
-                                                     ## ! Constructor.
+  IMeshData_Shape* {.importcpp: "IMeshData_Shape", header: "IMeshData_Shape.hxx",
+                    bycopy.} = object of Standard_Transient ## ! Destructor.
+                                                       ## ! Constructor.
 
 
-proc destroyIMeshDataShape*(this: var IMeshDataShape) {.
+proc destroyIMeshData_Shape*(this: var IMeshData_Shape) {.
     importcpp: "#.~IMeshData_Shape()", header: "IMeshData_Shape.hxx".}
-proc setShape*(this: var IMeshDataShape; theShape: TopoDS_Shape) {.
+proc SetShape*(this: var IMeshData_Shape; theShape: TopoDS_Shape) {.
     importcpp: "SetShape", header: "IMeshData_Shape.hxx".}
-proc getShape*(this: IMeshDataShape): TopoDS_Shape {.noSideEffect,
+proc GetShape*(this: IMeshData_Shape): TopoDS_Shape {.noSideEffect,
     importcpp: "GetShape", header: "IMeshData_Shape.hxx".}
 type
-  IMeshDataShapebaseType* = StandardTransient
+  IMeshData_Shapebase_type* = Standard_Transient
 
-proc getTypeName*(): cstring {.importcpp: "IMeshData_Shape::get_type_name(@)",
-                            header: "IMeshData_Shape.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "IMeshData_Shape::get_type_name(@)",
+                              header: "IMeshData_Shape.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "IMeshData_Shape::get_type_descriptor(@)",
     header: "IMeshData_Shape.hxx".}
-proc dynamicType*(this: IMeshDataShape): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: IMeshData_Shape): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "IMeshData_Shape.hxx".}
-

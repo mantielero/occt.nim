@@ -14,54 +14,66 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer,
+  ../Standard/Standard_Boolean
+
 discard "forward decl of Interface_InterfaceError"
 type
-  IGESDataParamCursor* {.importcpp: "IGESData_ParamCursor",
-                        header: "IGESData_ParamCursor.hxx", bycopy.} = object ## ! Creates a Cursor to read a precise
-                                                                         ## parameter of
-                                                                         ## ParamReader,
-                                                                         ## !
-                                                                         ## identified by its number, then set Current Number to "num + 1"
-                                                                         ## ! (this
-                                                                         ## constructor allows to simply give a Number to a method
-                                                                         ## ! Read... from
-                                                                         ## ParamReader, which will be
-                                                                         ## translated into a
-                                                                         ## !
-                                                                         ## ParamCursor by
-                                                                         ## compiler)
+  IGESData_ParamCursor* {.importcpp: "IGESData_ParamCursor",
+                         header: "IGESData_ParamCursor.hxx", bycopy.} = object ## !
+                                                                          ## Creates a Cursor to read a
+                                                                          ## precise
+                                                                          ## parameter of
+                                                                          ## ParamReader,
+                                                                          ## !
+                                                                          ## identified by its
+                                                                          ## number, then set
+                                                                          ## Current Number to "num + 1"
+                                                                          ## ! (this
+                                                                          ## constructor allows to simply give a Number to a method
+                                                                          ## !
+                                                                          ## Read... from
+                                                                          ## ParamReader, which will be
+                                                                          ## translated into a
+                                                                          ## !
+                                                                          ## ParamCursor by
+                                                                          ## compiler)
 
 
-proc constructIGESDataParamCursor*(num: StandardInteger): IGESDataParamCursor {.
+proc constructIGESData_ParamCursor*(num: Standard_Integer): IGESData_ParamCursor {.
     constructor, importcpp: "IGESData_ParamCursor(@)",
     header: "IGESData_ParamCursor.hxx".}
-proc constructIGESDataParamCursor*(num: StandardInteger; nb: StandardInteger;
-                                  size: StandardInteger = 1): IGESDataParamCursor {.
+proc constructIGESData_ParamCursor*(num: Standard_Integer; nb: Standard_Integer;
+                                   size: Standard_Integer = 1): IGESData_ParamCursor {.
     constructor, importcpp: "IGESData_ParamCursor(@)",
     header: "IGESData_ParamCursor.hxx".}
-proc setTerm*(this: var IGESDataParamCursor; size: StandardInteger;
-             autoadv: StandardBoolean = standardTrue) {.importcpp: "SetTerm",
+proc SetTerm*(this: var IGESData_ParamCursor; size: Standard_Integer;
+             autoadv: Standard_Boolean = Standard_True) {.importcpp: "SetTerm",
     header: "IGESData_ParamCursor.hxx".}
-proc setOne*(this: var IGESDataParamCursor; autoadv: StandardBoolean = standardTrue) {.
-    importcpp: "SetOne", header: "IGESData_ParamCursor.hxx".}
-proc setXY*(this: var IGESDataParamCursor; autoadv: StandardBoolean = standardTrue) {.
-    importcpp: "SetXY", header: "IGESData_ParamCursor.hxx".}
-proc setXYZ*(this: var IGESDataParamCursor; autoadv: StandardBoolean = standardTrue) {.
-    importcpp: "SetXYZ", header: "IGESData_ParamCursor.hxx".}
-proc setAdvance*(this: var IGESDataParamCursor; advance: StandardBoolean) {.
+proc SetOne*(this: var IGESData_ParamCursor;
+            autoadv: Standard_Boolean = Standard_True) {.importcpp: "SetOne",
+    header: "IGESData_ParamCursor.hxx".}
+proc SetXY*(this: var IGESData_ParamCursor;
+           autoadv: Standard_Boolean = Standard_True) {.importcpp: "SetXY",
+    header: "IGESData_ParamCursor.hxx".}
+proc SetXYZ*(this: var IGESData_ParamCursor;
+            autoadv: Standard_Boolean = Standard_True) {.importcpp: "SetXYZ",
+    header: "IGESData_ParamCursor.hxx".}
+proc SetAdvance*(this: var IGESData_ParamCursor; advance: Standard_Boolean) {.
     importcpp: "SetAdvance", header: "IGESData_ParamCursor.hxx".}
-proc start*(this: IGESDataParamCursor): StandardInteger {.noSideEffect,
+proc Start*(this: IGESData_ParamCursor): Standard_Integer {.noSideEffect,
     importcpp: "Start", header: "IGESData_ParamCursor.hxx".}
-proc limit*(this: IGESDataParamCursor): StandardInteger {.noSideEffect,
+proc Limit*(this: IGESData_ParamCursor): Standard_Integer {.noSideEffect,
     importcpp: "Limit", header: "IGESData_ParamCursor.hxx".}
-proc count*(this: IGESDataParamCursor): StandardInteger {.noSideEffect,
+proc Count*(this: IGESData_ParamCursor): Standard_Integer {.noSideEffect,
     importcpp: "Count", header: "IGESData_ParamCursor.hxx".}
-proc itemSize*(this: IGESDataParamCursor): StandardInteger {.noSideEffect,
+proc ItemSize*(this: IGESData_ParamCursor): Standard_Integer {.noSideEffect,
     importcpp: "ItemSize", header: "IGESData_ParamCursor.hxx".}
-proc termSize*(this: IGESDataParamCursor): StandardInteger {.noSideEffect,
+proc TermSize*(this: IGESData_ParamCursor): Standard_Integer {.noSideEffect,
     importcpp: "TermSize", header: "IGESData_ParamCursor.hxx".}
-proc offset*(this: IGESDataParamCursor): StandardInteger {.noSideEffect,
+proc Offset*(this: IGESData_ParamCursor): Standard_Integer {.noSideEffect,
     importcpp: "Offset", header: "IGESData_ParamCursor.hxx".}
-proc advance*(this: IGESDataParamCursor): StandardBoolean {.noSideEffect,
+proc Advance*(this: IGESData_ParamCursor): Standard_Boolean {.noSideEffect,
     importcpp: "Advance", header: "IGESData_ParamCursor.hxx".}
-

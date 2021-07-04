@@ -14,13 +14,18 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Real,
+  ../gp/gp_XYZ, ../IGESData/IGESData_IGESEntity
+
 discard "forward decl of IGESData_IGESEntity"
 discard "forward decl of gp_XYZ"
 discard "forward decl of gp_Dir"
 discard "forward decl of IGESSolid_SolidOfLinearExtrusion"
 discard "forward decl of IGESSolid_SolidOfLinearExtrusion"
 type
-  HandleIGESSolidSolidOfLinearExtrusion* = Handle[IGESSolidSolidOfLinearExtrusion]
+  Handle_IGESSolid_SolidOfLinearExtrusion* = handle[
+      IGESSolid_SolidOfLinearExtrusion]
 
 ## ! defines SolidOfLinearExtrusion, Type <164> Form Number <0>
 ## ! in package IGESSolid
@@ -28,38 +33,37 @@ type
 ## ! area determined by a planar curve
 
 type
-  IGESSolidSolidOfLinearExtrusion* {.importcpp: "IGESSolid_SolidOfLinearExtrusion", header: "IGESSolid_SolidOfLinearExtrusion.hxx",
-                                    bycopy.} = object of IGESDataIGESEntity
+  IGESSolid_SolidOfLinearExtrusion* {.importcpp: "IGESSolid_SolidOfLinearExtrusion", header: "IGESSolid_SolidOfLinearExtrusion.hxx",
+                                     bycopy.} = object of IGESData_IGESEntity
 
 
-proc constructIGESSolidSolidOfLinearExtrusion*(): IGESSolidSolidOfLinearExtrusion {.
+proc constructIGESSolid_SolidOfLinearExtrusion*(): IGESSolid_SolidOfLinearExtrusion {.
     constructor, importcpp: "IGESSolid_SolidOfLinearExtrusion(@)",
     header: "IGESSolid_SolidOfLinearExtrusion.hxx".}
-proc init*(this: var IGESSolidSolidOfLinearExtrusion;
-          aCurve: Handle[IGESDataIGESEntity]; aLength: StandardReal;
-          aDirection: GpXYZ) {.importcpp: "Init",
-                             header: "IGESSolid_SolidOfLinearExtrusion.hxx".}
-proc curve*(this: IGESSolidSolidOfLinearExtrusion): Handle[IGESDataIGESEntity] {.
+proc Init*(this: var IGESSolid_SolidOfLinearExtrusion;
+          aCurve: handle[IGESData_IGESEntity]; aLength: Standard_Real;
+          aDirection: gp_XYZ) {.importcpp: "Init",
+                              header: "IGESSolid_SolidOfLinearExtrusion.hxx".}
+proc Curve*(this: IGESSolid_SolidOfLinearExtrusion): handle[IGESData_IGESEntity] {.
     noSideEffect, importcpp: "Curve",
     header: "IGESSolid_SolidOfLinearExtrusion.hxx".}
-proc extrusionLength*(this: IGESSolidSolidOfLinearExtrusion): StandardReal {.
+proc ExtrusionLength*(this: IGESSolid_SolidOfLinearExtrusion): Standard_Real {.
     noSideEffect, importcpp: "ExtrusionLength",
     header: "IGESSolid_SolidOfLinearExtrusion.hxx".}
-proc extrusionDirection*(this: IGESSolidSolidOfLinearExtrusion): GpDir {.
+proc ExtrusionDirection*(this: IGESSolid_SolidOfLinearExtrusion): gp_Dir {.
     noSideEffect, importcpp: "ExtrusionDirection",
     header: "IGESSolid_SolidOfLinearExtrusion.hxx".}
-proc transformedExtrusionDirection*(this: IGESSolidSolidOfLinearExtrusion): GpDir {.
+proc TransformedExtrusionDirection*(this: IGESSolid_SolidOfLinearExtrusion): gp_Dir {.
     noSideEffect, importcpp: "TransformedExtrusionDirection",
     header: "IGESSolid_SolidOfLinearExtrusion.hxx".}
 type
-  IGESSolidSolidOfLinearExtrusionbaseType* = IGESDataIGESEntity
+  IGESSolid_SolidOfLinearExtrusionbase_type* = IGESData_IGESEntity
 
-proc getTypeName*(): cstring {.importcpp: "IGESSolid_SolidOfLinearExtrusion::get_type_name(@)",
-                            header: "IGESSolid_SolidOfLinearExtrusion.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "IGESSolid_SolidOfLinearExtrusion::get_type_name(@)",
+                              header: "IGESSolid_SolidOfLinearExtrusion.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "IGESSolid_SolidOfLinearExtrusion::get_type_descriptor(@)",
     header: "IGESSolid_SolidOfLinearExtrusion.hxx".}
-proc dynamicType*(this: IGESSolidSolidOfLinearExtrusion): Handle[StandardType] {.
+proc DynamicType*(this: IGESSolid_SolidOfLinearExtrusion): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType",
     header: "IGESSolid_SolidOfLinearExtrusion.hxx".}
-

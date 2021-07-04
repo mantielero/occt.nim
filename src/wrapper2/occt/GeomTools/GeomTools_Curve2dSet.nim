@@ -14,36 +14,44 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../TColStd/TColStd_IndexedMapOfTransient,
+  ../Standard/Standard_Integer, ../Standard/Standard_OStream,
+  ../Standard/Standard_IStream, ../Standard/Standard_Boolean,
+  ../Message/Message_ProgressRange
+
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of Geom2d_Curve"
 type
-  GeomToolsCurve2dSet* {.importcpp: "GeomTools_Curve2dSet",
-                        header: "GeomTools_Curve2dSet.hxx", bycopy.} = object ## ! Returns an empty set of Curves.
+  GeomTools_Curve2dSet* {.importcpp: "GeomTools_Curve2dSet",
+                         header: "GeomTools_Curve2dSet.hxx", bycopy.} = object ## !
+                                                                          ## Returns an empty set of
+                                                                          ## Curves.
 
 
-proc constructGeomToolsCurve2dSet*(): GeomToolsCurve2dSet {.constructor,
+proc constructGeomTools_Curve2dSet*(): GeomTools_Curve2dSet {.constructor,
     importcpp: "GeomTools_Curve2dSet(@)", header: "GeomTools_Curve2dSet.hxx".}
-proc clear*(this: var GeomToolsCurve2dSet) {.importcpp: "Clear",
+proc Clear*(this: var GeomTools_Curve2dSet) {.importcpp: "Clear",
     header: "GeomTools_Curve2dSet.hxx".}
-proc add*(this: var GeomToolsCurve2dSet; c: Handle[Geom2dCurve]): StandardInteger {.
+proc Add*(this: var GeomTools_Curve2dSet; C: handle[Geom2d_Curve]): Standard_Integer {.
     importcpp: "Add", header: "GeomTools_Curve2dSet.hxx".}
-proc curve2d*(this: GeomToolsCurve2dSet; i: StandardInteger): Handle[Geom2dCurve] {.
+proc Curve2d*(this: GeomTools_Curve2dSet; I: Standard_Integer): handle[Geom2d_Curve] {.
     noSideEffect, importcpp: "Curve2d", header: "GeomTools_Curve2dSet.hxx".}
-proc index*(this: GeomToolsCurve2dSet; c: Handle[Geom2dCurve]): StandardInteger {.
+proc Index*(this: GeomTools_Curve2dSet; C: handle[Geom2d_Curve]): Standard_Integer {.
     noSideEffect, importcpp: "Index", header: "GeomTools_Curve2dSet.hxx".}
-proc dump*(this: GeomToolsCurve2dSet; os: var StandardOStream) {.noSideEffect,
+proc Dump*(this: GeomTools_Curve2dSet; OS: var Standard_OStream) {.noSideEffect,
     importcpp: "Dump", header: "GeomTools_Curve2dSet.hxx".}
-proc write*(this: GeomToolsCurve2dSet; os: var StandardOStream;
-           theProgress: MessageProgressRange = messageProgressRange()) {.
+proc Write*(this: GeomTools_Curve2dSet; OS: var Standard_OStream;
+           theProgress: Message_ProgressRange = Message_ProgressRange()) {.
     noSideEffect, importcpp: "Write", header: "GeomTools_Curve2dSet.hxx".}
-proc read*(this: var GeomToolsCurve2dSet; `is`: var StandardIStream;
-          theProgress: MessageProgressRange = messageProgressRange()) {.
+proc Read*(this: var GeomTools_Curve2dSet; IS: var Standard_IStream;
+          theProgress: Message_ProgressRange = Message_ProgressRange()) {.
     importcpp: "Read", header: "GeomTools_Curve2dSet.hxx".}
-proc printCurve2d*(c: Handle[Geom2dCurve]; os: var StandardOStream;
-                  compact: StandardBoolean = standardFalse) {.
+proc PrintCurve2d*(C: handle[Geom2d_Curve]; OS: var Standard_OStream;
+                  compact: Standard_Boolean = Standard_False) {.
     importcpp: "GeomTools_Curve2dSet::PrintCurve2d(@)",
     header: "GeomTools_Curve2dSet.hxx".}
-proc readCurve2d*(`is`: var StandardIStream): Handle[Geom2dCurve] {.
+proc ReadCurve2d*(IS: var Standard_IStream): handle[Geom2d_Curve] {.
     importcpp: "GeomTools_Curve2dSet::ReadCurve2d(@)",
     header: "GeomTools_Curve2dSet.hxx".}
-

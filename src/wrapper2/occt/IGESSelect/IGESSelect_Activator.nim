@@ -14,35 +14,39 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../IFSelect/IFSelect_Activator,
+  ../IFSelect/IFSelect_ReturnStatus, ../Standard/Standard_Integer,
+  ../Standard/Standard_CString
+
 discard "forward decl of IFSelect_SessionPilot"
 discard "forward decl of IGESSelect_Activator"
 discard "forward decl of IGESSelect_Activator"
 type
-  HandleIGESSelectActivator* = Handle[IGESSelectActivator]
+  Handle_IGESSelect_Activator* = handle[IGESSelect_Activator]
 
 ## ! Performs Actions specific to IGESSelect, i.e. creation of
 ## ! IGES Selections and Dispatches, plus dumping specific to IGES
 
 type
-  IGESSelectActivator* {.importcpp: "IGESSelect_Activator",
-                        header: "IGESSelect_Activator.hxx", bycopy.} = object of IFSelectActivator
+  IGESSelect_Activator* {.importcpp: "IGESSelect_Activator",
+                         header: "IGESSelect_Activator.hxx", bycopy.} = object of IFSelect_Activator
 
 
-proc constructIGESSelectActivator*(): IGESSelectActivator {.constructor,
+proc constructIGESSelect_Activator*(): IGESSelect_Activator {.constructor,
     importcpp: "IGESSelect_Activator(@)", header: "IGESSelect_Activator.hxx".}
-proc `do`*(this: var IGESSelectActivator; number: StandardInteger;
-          pilot: Handle[IFSelectSessionPilot]): IFSelectReturnStatus {.
+proc Do*(this: var IGESSelect_Activator; number: Standard_Integer;
+        pilot: handle[IFSelect_SessionPilot]): IFSelect_ReturnStatus {.
     importcpp: "Do", header: "IGESSelect_Activator.hxx".}
-proc help*(this: IGESSelectActivator; number: StandardInteger): StandardCString {.
+proc Help*(this: IGESSelect_Activator; number: Standard_Integer): Standard_CString {.
     noSideEffect, importcpp: "Help", header: "IGESSelect_Activator.hxx".}
 type
-  IGESSelectActivatorbaseType* = IFSelectActivator
+  IGESSelect_Activatorbase_type* = IFSelect_Activator
 
-proc getTypeName*(): cstring {.importcpp: "IGESSelect_Activator::get_type_name(@)",
-                            header: "IGESSelect_Activator.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "IGESSelect_Activator::get_type_name(@)",
+                              header: "IGESSelect_Activator.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "IGESSelect_Activator::get_type_descriptor(@)",
     header: "IGESSelect_Activator.hxx".}
-proc dynamicType*(this: IGESSelectActivator): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: IGESSelect_Activator): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "IGESSelect_Activator.hxx".}
-

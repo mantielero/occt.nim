@@ -12,18 +12,16 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _OSD_Exception_NONCONTINUABLE_EXCEPTION_HeaderFile [NewLine] # _OSD_Exception_NONCONTINUABLE_EXCEPTION_HeaderFile [NewLine] # < Standard_Type . hxx > [NewLine] # < Standard_DefineException . hxx > [NewLine] # < Standard_SStream . hxx > [NewLine] # < OSD_Exception . hxx > [NewLine] class OSD_Exception_NONCONTINUABLE_EXCEPTION ;
+## !!!Ignored construct:  # _OSD_Exception_NONCONTINUABLE_EXCEPTION_HeaderFile [NewLine] # _OSD_Exception_NONCONTINUABLE_EXCEPTION_HeaderFile [NewLine] # ../Standard/Standard_Type.hxx [NewLine] # ../Standard/Standard_DefineException.hxx [NewLine] # ../Standard/Standard_SStream.hxx [NewLine] # OSD_Exception.hxx [NewLine] class OSD_Exception_NONCONTINUABLE_EXCEPTION ;
 ## Error: expected ';'!!!
 
 discard "forward decl of OSD_Exception_NONCONTINUABLE_EXCEPTION"
 type
-  HandleOSD_ExceptionNONCONTINUABLE_EXCEPTIONOSD_ExceptionNONCONTINUABLE_EXCEPTION* = Handle[
-      OSD_ExceptionNONCONTINUABLE_EXCEPTION]
+  Handle_OSD_Exception_NONCONTINUABLE_EXCEPTIONOSD_Exception_NONCONTINUABLE_EXCEPTION* = handle[
+      OSD_Exception_NONCONTINUABLE_EXCEPTION]
 
 ## !!!Ignored construct:  # ! defined No_Exception && ! defined No_OSD_Exception_NONCONTINUABLE_EXCEPTION [NewLine] # if ( CONDITION ) throw OSD_Exception_NONCONTINUABLE_EXCEPTION ( MESSAGE ) ;
 ## Error: did not expect [NewLine]!!!
 
-## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( OSD_Exception_NONCONTINUABLE_EXCEPTION , OSD_Exception ) #  _OSD_Exception_NONCONTINUABLE_EXCEPTION_HeaderFile
+## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( OSD_Exception_NONCONTINUABLE_EXCEPTION , OSD_Exception ) #  _OSD_Exception_NONCONTINUABLE_EXCEPTION_HeaderFile [NewLine]
 ## Error: did not expect [NewLine]!!!
-
-

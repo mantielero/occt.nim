@@ -14,6 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, GeomToStep_Root
+
 discard "forward decl of StepGeom_CartesianPoint"
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of gp_Pnt"
@@ -21,23 +25,22 @@ discard "forward decl of gp_Pnt2d"
 discard "forward decl of Geom_CartesianPoint"
 discard "forward decl of Geom2d_CartesianPoint"
 type
-  GeomToStepMakeCartesianPoint* {.importcpp: "GeomToStep_MakeCartesianPoint",
-                                 header: "GeomToStep_MakeCartesianPoint.hxx",
-                                 bycopy.} = object of GeomToStepRoot
+  GeomToStep_MakeCartesianPoint* {.importcpp: "GeomToStep_MakeCartesianPoint",
+                                  header: "GeomToStep_MakeCartesianPoint.hxx",
+                                  bycopy.} = object of GeomToStep_Root
 
 
-proc constructGeomToStepMakeCartesianPoint*(p: GpPnt): GeomToStepMakeCartesianPoint {.
+proc constructGeomToStep_MakeCartesianPoint*(P: gp_Pnt): GeomToStep_MakeCartesianPoint {.
     constructor, importcpp: "GeomToStep_MakeCartesianPoint(@)",
     header: "GeomToStep_MakeCartesianPoint.hxx".}
-proc constructGeomToStepMakeCartesianPoint*(p: GpPnt2d): GeomToStepMakeCartesianPoint {.
+proc constructGeomToStep_MakeCartesianPoint*(P: gp_Pnt2d): GeomToStep_MakeCartesianPoint {.
     constructor, importcpp: "GeomToStep_MakeCartesianPoint(@)",
     header: "GeomToStep_MakeCartesianPoint.hxx".}
-proc constructGeomToStepMakeCartesianPoint*(p: Handle[GeomCartesianPoint]): GeomToStepMakeCartesianPoint {.
+proc constructGeomToStep_MakeCartesianPoint*(P: handle[Geom_CartesianPoint]): GeomToStep_MakeCartesianPoint {.
     constructor, importcpp: "GeomToStep_MakeCartesianPoint(@)",
     header: "GeomToStep_MakeCartesianPoint.hxx".}
-proc constructGeomToStepMakeCartesianPoint*(p: Handle[Geom2dCartesianPoint]): GeomToStepMakeCartesianPoint {.
+proc constructGeomToStep_MakeCartesianPoint*(P: handle[Geom2d_CartesianPoint]): GeomToStep_MakeCartesianPoint {.
     constructor, importcpp: "GeomToStep_MakeCartesianPoint(@)",
     header: "GeomToStep_MakeCartesianPoint.hxx".}
-proc value*(this: GeomToStepMakeCartesianPoint): Handle[StepGeomCartesianPoint] {.
+proc Value*(this: GeomToStep_MakeCartesianPoint): handle[StepGeom_CartesianPoint] {.
     noSideEffect, importcpp: "Value", header: "GeomToStep_MakeCartesianPoint.hxx".}
-

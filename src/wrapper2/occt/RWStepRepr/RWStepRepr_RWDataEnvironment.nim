@@ -13,30 +13,33 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepRepr_DataEnvironment"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepReprRWDataEnvironment* {.importcpp: "RWStepRepr_RWDataEnvironment",
-                                header: "RWStepRepr_RWDataEnvironment.hxx", bycopy.} = object ##
-                                                                                         ## !
-                                                                                         ## Empty
-                                                                                         ## constructor
+  RWStepRepr_RWDataEnvironment* {.importcpp: "RWStepRepr_RWDataEnvironment",
+                                 header: "RWStepRepr_RWDataEnvironment.hxx",
+                                 bycopy.} = object ## ! Empty constructor
 
 
-proc constructRWStepReprRWDataEnvironment*(): RWStepReprRWDataEnvironment {.
+proc constructRWStepRepr_RWDataEnvironment*(): RWStepRepr_RWDataEnvironment {.
     constructor, importcpp: "RWStepRepr_RWDataEnvironment(@)",
     header: "RWStepRepr_RWDataEnvironment.hxx".}
-proc readStep*(this: RWStepReprRWDataEnvironment;
-              data: Handle[StepDataStepReaderData]; num: StandardInteger;
-              ach: var Handle[InterfaceCheck]; ent: Handle[StepReprDataEnvironment]) {.
-    noSideEffect, importcpp: "ReadStep", header: "RWStepRepr_RWDataEnvironment.hxx".}
-proc writeStep*(this: RWStepReprRWDataEnvironment; sw: var StepDataStepWriter;
-               ent: Handle[StepReprDataEnvironment]) {.noSideEffect,
+proc ReadStep*(this: RWStepRepr_RWDataEnvironment;
+              data: handle[StepData_StepReaderData]; num: Standard_Integer;
+              ach: var handle[Interface_Check];
+              ent: handle[StepRepr_DataEnvironment]) {.noSideEffect,
+    importcpp: "ReadStep", header: "RWStepRepr_RWDataEnvironment.hxx".}
+proc WriteStep*(this: RWStepRepr_RWDataEnvironment; SW: var StepData_StepWriter;
+               ent: handle[StepRepr_DataEnvironment]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepRepr_RWDataEnvironment.hxx".}
-proc share*(this: RWStepReprRWDataEnvironment;
-           ent: Handle[StepReprDataEnvironment]; iter: var InterfaceEntityIterator) {.
-    noSideEffect, importcpp: "Share", header: "RWStepRepr_RWDataEnvironment.hxx".}
-
+proc Share*(this: RWStepRepr_RWDataEnvironment;
+           ent: handle[StepRepr_DataEnvironment];
+           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
+    header: "RWStepRepr_RWDataEnvironment.hxx".}

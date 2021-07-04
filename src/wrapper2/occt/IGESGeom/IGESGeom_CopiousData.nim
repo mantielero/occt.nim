@@ -14,13 +14,18 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Integer,
+  ../Standard/Standard_Real, ../TColStd/TColStd_HArray1OfReal,
+  ../IGESData/IGESData_IGESEntity, ../Standard/Standard_Boolean
+
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of gp_Pnt"
 discard "forward decl of gp_Vec"
 discard "forward decl of IGESGeom_CopiousData"
 discard "forward decl of IGESGeom_CopiousData"
 type
-  HandleIGESGeomCopiousData* = Handle[IGESGeomCopiousData]
+  Handle_IGESGeom_CopiousData* = handle[IGESGeom_CopiousData]
 
 ## ! defines IGESCopiousData, Type <106> Form <1-3,11-13,63>
 ## ! in package IGESGeom
@@ -29,51 +34,50 @@ type
 ## ! signifies which of these forms is being used.
 
 type
-  IGESGeomCopiousData* {.importcpp: "IGESGeom_CopiousData",
-                        header: "IGESGeom_CopiousData.hxx", bycopy.} = object of IGESDataIGESEntity
+  IGESGeom_CopiousData* {.importcpp: "IGESGeom_CopiousData",
+                         header: "IGESGeom_CopiousData.hxx", bycopy.} = object of IGESData_IGESEntity
 
 
-proc constructIGESGeomCopiousData*(): IGESGeomCopiousData {.constructor,
+proc constructIGESGeom_CopiousData*(): IGESGeom_CopiousData {.constructor,
     importcpp: "IGESGeom_CopiousData(@)", header: "IGESGeom_CopiousData.hxx".}
-proc init*(this: var IGESGeomCopiousData; aDataType: StandardInteger;
-          aZPlane: StandardReal; allData: Handle[TColStdHArray1OfReal]) {.
+proc Init*(this: var IGESGeom_CopiousData; aDataType: Standard_Integer;
+          aZPlane: Standard_Real; allData: handle[TColStd_HArray1OfReal]) {.
     importcpp: "Init", header: "IGESGeom_CopiousData.hxx".}
-proc setPolyline*(this: var IGESGeomCopiousData; mode: StandardBoolean) {.
+proc SetPolyline*(this: var IGESGeom_CopiousData; mode: Standard_Boolean) {.
     importcpp: "SetPolyline", header: "IGESGeom_CopiousData.hxx".}
-proc setClosedPath2D*(this: var IGESGeomCopiousData) {.importcpp: "SetClosedPath2D",
-    header: "IGESGeom_CopiousData.hxx".}
-proc isPointSet*(this: IGESGeomCopiousData): StandardBoolean {.noSideEffect,
+proc SetClosedPath2D*(this: var IGESGeom_CopiousData) {.
+    importcpp: "SetClosedPath2D", header: "IGESGeom_CopiousData.hxx".}
+proc IsPointSet*(this: IGESGeom_CopiousData): Standard_Boolean {.noSideEffect,
     importcpp: "IsPointSet", header: "IGESGeom_CopiousData.hxx".}
-proc isPolyline*(this: IGESGeomCopiousData): StandardBoolean {.noSideEffect,
+proc IsPolyline*(this: IGESGeom_CopiousData): Standard_Boolean {.noSideEffect,
     importcpp: "IsPolyline", header: "IGESGeom_CopiousData.hxx".}
-proc isClosedPath2D*(this: IGESGeomCopiousData): StandardBoolean {.noSideEffect,
+proc IsClosedPath2D*(this: IGESGeom_CopiousData): Standard_Boolean {.noSideEffect,
     importcpp: "IsClosedPath2D", header: "IGESGeom_CopiousData.hxx".}
-proc dataType*(this: IGESGeomCopiousData): StandardInteger {.noSideEffect,
+proc DataType*(this: IGESGeom_CopiousData): Standard_Integer {.noSideEffect,
     importcpp: "DataType", header: "IGESGeom_CopiousData.hxx".}
-proc nbPoints*(this: IGESGeomCopiousData): StandardInteger {.noSideEffect,
+proc NbPoints*(this: IGESGeom_CopiousData): Standard_Integer {.noSideEffect,
     importcpp: "NbPoints", header: "IGESGeom_CopiousData.hxx".}
-proc data*(this: IGESGeomCopiousData; numPoint: StandardInteger;
-          numData: StandardInteger): StandardReal {.noSideEffect, importcpp: "Data",
-    header: "IGESGeom_CopiousData.hxx".}
-proc zPlane*(this: IGESGeomCopiousData): StandardReal {.noSideEffect,
+proc Data*(this: IGESGeom_CopiousData; NumPoint: Standard_Integer;
+          NumData: Standard_Integer): Standard_Real {.noSideEffect,
+    importcpp: "Data", header: "IGESGeom_CopiousData.hxx".}
+proc ZPlane*(this: IGESGeom_CopiousData): Standard_Real {.noSideEffect,
     importcpp: "ZPlane", header: "IGESGeom_CopiousData.hxx".}
-proc point*(this: IGESGeomCopiousData; anIndex: StandardInteger): GpPnt {.
+proc Point*(this: IGESGeom_CopiousData; anIndex: Standard_Integer): gp_Pnt {.
     noSideEffect, importcpp: "Point", header: "IGESGeom_CopiousData.hxx".}
-proc transformedPoint*(this: IGESGeomCopiousData; anIndex: StandardInteger): GpPnt {.
+proc TransformedPoint*(this: IGESGeom_CopiousData; anIndex: Standard_Integer): gp_Pnt {.
     noSideEffect, importcpp: "TransformedPoint", header: "IGESGeom_CopiousData.hxx".}
-proc vector*(this: IGESGeomCopiousData; anIndex: StandardInteger): GpVec {.
+proc Vector*(this: IGESGeom_CopiousData; anIndex: Standard_Integer): gp_Vec {.
     noSideEffect, importcpp: "Vector", header: "IGESGeom_CopiousData.hxx".}
-proc transformedVector*(this: IGESGeomCopiousData; anIndex: StandardInteger): GpVec {.
+proc TransformedVector*(this: IGESGeom_CopiousData; anIndex: Standard_Integer): gp_Vec {.
     noSideEffect, importcpp: "TransformedVector",
     header: "IGESGeom_CopiousData.hxx".}
 type
-  IGESGeomCopiousDatabaseType* = IGESDataIGESEntity
+  IGESGeom_CopiousDatabase_type* = IGESData_IGESEntity
 
-proc getTypeName*(): cstring {.importcpp: "IGESGeom_CopiousData::get_type_name(@)",
-                            header: "IGESGeom_CopiousData.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "IGESGeom_CopiousData::get_type_name(@)",
+                              header: "IGESGeom_CopiousData.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "IGESGeom_CopiousData::get_type_descriptor(@)",
     header: "IGESGeom_CopiousData.hxx".}
-proc dynamicType*(this: IGESGeomCopiousData): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: IGESGeom_CopiousData): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "IGESGeom_CopiousData.hxx".}
-

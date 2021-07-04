@@ -14,8 +14,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  DBRep_Face, ../NCollection/NCollection_List
+
 type
-  DBRepListOfFace* = NCollectionList[Handle[DBRepFace]]
-  DBRepListIteratorOfListOfFace* = Iterator[Handle[DBRepFace]]
-
-
+  DBRep_ListOfFace* = NCollection_List[handle[DBRep_Face]]
+  DBRep_ListIteratorOfListOfFace* = Iterator[handle[DBRep_Face]]

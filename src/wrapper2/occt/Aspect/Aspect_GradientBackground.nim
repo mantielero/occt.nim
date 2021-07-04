@@ -13,49 +13,53 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Quantity/Quantity_Color,
+  Aspect_GradientFillMethod, Aspect_Background
+
 discard "forward decl of Quantity_Color"
 type
-  AspectGradientBackground* {.importcpp: "Aspect_GradientBackground",
-                             header: "Aspect_GradientBackground.hxx", bycopy.} = object of AspectBackground ##
-                                                                                                     ## !
-                                                                                                     ## Creates
-                                                                                                     ## a
-                                                                                                     ## window
-                                                                                                     ## gradient
-                                                                                                     ## background.
-                                                                                                     ##
-                                                                                                     ## !
-                                                                                                     ## Default
-                                                                                                     ## colors
-                                                                                                     ## :
-                                                                                                     ## Quantity_NOC_BLACK.
-                                                                                                     ##
-                                                                                                     ## !
-                                                                                                     ## Default
-                                                                                                     ## fill
-                                                                                                     ## method
-                                                                                                     ## :
-                                                                                                     ## Aspect_GFM_NONE
+  Aspect_GradientBackground* {.importcpp: "Aspect_GradientBackground",
+                              header: "Aspect_GradientBackground.hxx", bycopy.} = object of Aspect_Background ##
+                                                                                                       ## !
+                                                                                                       ## Creates
+                                                                                                       ## a
+                                                                                                       ## window
+                                                                                                       ## gradient
+                                                                                                       ## background.
+                                                                                                       ##
+                                                                                                       ## !
+                                                                                                       ## Default
+                                                                                                       ## colors
+                                                                                                       ## :
+                                                                                                       ## Quantity_NOC_BLACK.
+                                                                                                       ##
+                                                                                                       ## !
+                                                                                                       ## Default
+                                                                                                       ## fill
+                                                                                                       ## method
+                                                                                                       ## :
+                                                                                                       ## Aspect_GFM_NONE
 
 
-proc constructAspectGradientBackground*(): AspectGradientBackground {.constructor,
-    importcpp: "Aspect_GradientBackground(@)",
-    header: "Aspect_GradientBackground.hxx".}
-proc constructAspectGradientBackground*(aColor1: QuantityColor;
-                                       aColor2: QuantityColor; aMethod: AspectGradientFillMethod = aspectGFM_HOR): AspectGradientBackground {.
+proc constructAspect_GradientBackground*(): Aspect_GradientBackground {.
     constructor, importcpp: "Aspect_GradientBackground(@)",
     header: "Aspect_GradientBackground.hxx".}
-proc setColors*(this: var AspectGradientBackground; aColor1: QuantityColor;
-               aColor2: QuantityColor;
-               aMethod: AspectGradientFillMethod = aspectGFM_HOR) {.
+proc constructAspect_GradientBackground*(AColor1: Quantity_Color;
+                                        AColor2: Quantity_Color; AMethod: Aspect_GradientFillMethod = Aspect_GFM_HOR): Aspect_GradientBackground {.
+    constructor, importcpp: "Aspect_GradientBackground(@)",
+    header: "Aspect_GradientBackground.hxx".}
+proc SetColors*(this: var Aspect_GradientBackground; AColor1: Quantity_Color;
+               AColor2: Quantity_Color;
+               AMethod: Aspect_GradientFillMethod = Aspect_GFM_HOR) {.
     importcpp: "SetColors", header: "Aspect_GradientBackground.hxx".}
-proc colors*(this: AspectGradientBackground; aColor1: var QuantityColor;
-            aColor2: var QuantityColor) {.noSideEffect, importcpp: "Colors",
-                                       header: "Aspect_GradientBackground.hxx".}
-proc bgGradientFillMethod*(this: AspectGradientBackground): AspectGradientFillMethod {.
+proc Colors*(this: Aspect_GradientBackground; AColor1: var Quantity_Color;
+            AColor2: var Quantity_Color) {.noSideEffect, importcpp: "Colors",
+                                        header: "Aspect_GradientBackground.hxx".}
+proc BgGradientFillMethod*(this: Aspect_GradientBackground): Aspect_GradientFillMethod {.
     noSideEffect, importcpp: "BgGradientFillMethod",
     header: "Aspect_GradientBackground.hxx".}
-proc dumpJson*(this: AspectGradientBackground; theOStream: var StandardOStream;
-              theDepth: StandardInteger = -1) {.noSideEffect, importcpp: "DumpJson",
+proc DumpJson*(this: Aspect_GradientBackground; theOStream: var Standard_OStream;
+              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
     header: "Aspect_GradientBackground.hxx".}
-

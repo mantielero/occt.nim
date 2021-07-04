@@ -12,119 +12,168 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  Graphic3d_ArrayOfPrimitives
+
 ## ! Contains triangles fan array definition
 
 type
-  Graphic3dArrayOfTriangleFans* {.importcpp: "Graphic3d_ArrayOfTriangleFans",
-                                 header: "Graphic3d_ArrayOfTriangleFans.hxx",
-                                 bycopy.} = object of Graphic3dArrayOfPrimitives ## !
-                                                                            ## Creates an
-                                                                            ## array of
-                                                                            ## triangle fans
-                                                                            ## (Graphic3d_TOPA_TRIANGLEFANS), a
-                                                                            ## polygon can be
-                                                                            ## filled as:
-                                                                            ## ! 1)
-                                                                            ## Creating a
-                                                                            ## single fan
-                                                                            ## defined with his
-                                                                            ## vertexes, i.e:
-                                                                            ## !
-                                                                            ## @code
-                                                                            ## !
-                                                                            ## myArray =
-                                                                            ## Graphic3d_ArrayOfTriangleFans (7);
-                                                                            ## !
-                                                                            ## myArray->AddVertex (x1, y1, z1);
-                                                                            ## !   ....
-                                                                            ## !
-                                                                            ## myArray->AddVertex (x7, y7, z7);
-                                                                            ## !
-                                                                            ## @endcode
-                                                                            ## ! 2)
-                                                                            ## creating
-                                                                            ## separate fans
-                                                                            ## defined with a
-                                                                            ## predefined
-                                                                            ## number of fans and the
-                                                                            ## number of
-                                                                            ## vertex per fan, i.e:
-                                                                            ## !
-                                                                            ## @code
-                                                                            ## !
-                                                                            ## myArray =
-                                                                            ## Graphic3d_ArrayOfTriangleFans (8, 2);
-                                                                            ## !
-                                                                            ## myArray->AddBound (4);
-                                                                            ## !
-                                                                            ## myArray->AddVertex (x1, y1, z1);
-                                                                            ## !   ....
-                                                                            ## !
-                                                                            ## myArray->AddVertex (x4, y4, z4);
-                                                                            ## !
-                                                                            ## myArray->AddBound (4);
-                                                                            ## !
-                                                                            ## myArray->AddVertex (x5, y5, z5);
-                                                                            ## !   ....
-                                                                            ## !
-                                                                            ## myArray->AddVertex (x8, y8, z8);
-                                                                            ## !
-                                                                            ## @endcode
-                                                                            ## ! The
-                                                                            ## number of
-                                                                            ## triangle
-                                                                            ## really
-                                                                            ## drawn is:
-                                                                            ## VertexNumber() - 2 *
-                                                                            ## Min(1,
-                                                                            ## BoundNumber())
-                                                                            ## !
-                                                                            ## @param
-                                                                            ## theMaxVertexs
-                                                                            ## defines the
-                                                                            ## maximum
-                                                                            ## allowed
-                                                                            ## vertex
-                                                                            ## number in the
-                                                                            ## array
-                                                                            ## !
-                                                                            ## @param
-                                                                            ## theMaxFans
-                                                                            ## defines the
-                                                                            ## maximum
-                                                                            ## allowed fan
-                                                                            ## number in the
-                                                                            ## array
-                                                                            ## !
-                                                                            ## @param
-                                                                            ## theArrayFlags
-                                                                            ## array
-                                                                            ## flags
+  Graphic3d_ArrayOfTriangleFans* {.importcpp: "Graphic3d_ArrayOfTriangleFans",
+                                  header: "Graphic3d_ArrayOfTriangleFans.hxx",
+                                  bycopy.} = object of Graphic3d_ArrayOfPrimitives ## !
+                                                                              ## Creates an
+                                                                              ## array of
+                                                                              ## triangle
+                                                                              ## fans
+                                                                              ## (Graphic3d_TOPA_TRIANGLEFANS), a
+                                                                              ## polygon
+                                                                              ## can be
+                                                                              ## filled
+                                                                              ## as:
+                                                                              ## ! 1)
+                                                                              ## Creating a
+                                                                              ## single
+                                                                              ## fan
+                                                                              ## defined
+                                                                              ## with
+                                                                              ## his
+                                                                              ## vertexes,
+                                                                              ## i.e:
+                                                                              ## !
+                                                                              ## @code
+                                                                              ## !
+                                                                              ## myArray =
+                                                                              ## Graphic3d_ArrayOfTriangleFans
+                                                                              ## (7);
+                                                                              ## !
+                                                                              ## myArray->AddVertex
+                                                                              ## (x1,
+                                                                              ## y1,
+                                                                              ## z1);
+                                                                              ## !
+                                                                              ## ....
+                                                                              ## !
+                                                                              ## myArray->AddVertex
+                                                                              ## (x7,
+                                                                              ## y7,
+                                                                              ## z7);
+                                                                              ## !
+                                                                              ## @endcode
+                                                                              ## ! 2)
+                                                                              ## creating
+                                                                              ## separate
+                                                                              ## fans
+                                                                              ## defined
+                                                                              ## with a
+                                                                              ## predefined
+                                                                              ## number of
+                                                                              ## fans
+                                                                              ## and
+                                                                              ## the
+                                                                              ## number of
+                                                                              ## vertex
+                                                                              ## per
+                                                                              ## fan,
+                                                                              ## i.e:
+                                                                              ## !
+                                                                              ## @code
+                                                                              ## !
+                                                                              ## myArray =
+                                                                              ## Graphic3d_ArrayOfTriangleFans
+                                                                              ## (8,
+                                                                              ## 2);
+                                                                              ## !
+                                                                              ## myArray->AddBound
+                                                                              ## (4);
+                                                                              ## !
+                                                                              ## myArray->AddVertex
+                                                                              ## (x1,
+                                                                              ## y1,
+                                                                              ## z1);
+                                                                              ## !
+                                                                              ## ....
+                                                                              ## !
+                                                                              ## myArray->AddVertex
+                                                                              ## (x4,
+                                                                              ## y4,
+                                                                              ## z4);
+                                                                              ## !
+                                                                              ## myArray->AddBound
+                                                                              ## (4);
+                                                                              ## !
+                                                                              ## myArray->AddVertex
+                                                                              ## (x5,
+                                                                              ## y5,
+                                                                              ## z5);
+                                                                              ## !
+                                                                              ## ....
+                                                                              ## !
+                                                                              ## myArray->AddVertex
+                                                                              ## (x8,
+                                                                              ## y8,
+                                                                              ## z8);
+                                                                              ## !
+                                                                              ## @endcode
+                                                                              ## !
+                                                                              ## The
+                                                                              ## number of
+                                                                              ## triangle
+                                                                              ## really
+                                                                              ## drawn
+                                                                              ## is:
+                                                                              ## VertexNumber() - 2 *
+                                                                              ## Min(1,
+                                                                              ## BoundNumber())
+                                                                              ## !
+                                                                              ## @param
+                                                                              ## theMaxVertexs
+                                                                              ## defines
+                                                                              ## the
+                                                                              ## maximum
+                                                                              ## allowed
+                                                                              ## vertex
+                                                                              ## number in
+                                                                              ## the
+                                                                              ## array
+                                                                              ## !
+                                                                              ## @param
+                                                                              ## theMaxFans
+                                                                              ## defines
+                                                                              ## the
+                                                                              ## maximum
+                                                                              ## allowed
+                                                                              ## fan
+                                                                              ## number in
+                                                                              ## the
+                                                                              ## array
+                                                                              ## !
+                                                                              ## @param
+                                                                              ## theArrayFlags
+                                                                              ## array
+                                                                              ## flags
 
-  Graphic3dArrayOfTriangleFansbaseType* = Graphic3dArrayOfPrimitives
+  Graphic3d_ArrayOfTriangleFansbase_type* = Graphic3d_ArrayOfPrimitives
 
-proc getTypeName*(): cstring {.importcpp: "Graphic3d_ArrayOfTriangleFans::get_type_name(@)",
-                            header: "Graphic3d_ArrayOfTriangleFans.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "Graphic3d_ArrayOfTriangleFans::get_type_name(@)",
+                              header: "Graphic3d_ArrayOfTriangleFans.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "Graphic3d_ArrayOfTriangleFans::get_type_descriptor(@)",
     header: "Graphic3d_ArrayOfTriangleFans.hxx".}
-proc dynamicType*(this: Graphic3dArrayOfTriangleFans): Handle[StandardType] {.
+proc DynamicType*(this: Graphic3d_ArrayOfTriangleFans): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType",
     header: "Graphic3d_ArrayOfTriangleFans.hxx".}
-proc constructGraphic3dArrayOfTriangleFans*(theMaxVertexs: StandardInteger;
-    theMaxFans: StandardInteger; theArrayFlags: Graphic3dArrayFlags): Graphic3dArrayOfTriangleFans {.
+proc constructGraphic3d_ArrayOfTriangleFans*(theMaxVertexs: Standard_Integer;
+    theMaxFans: Standard_Integer; theArrayFlags: Graphic3d_ArrayFlags): Graphic3d_ArrayOfTriangleFans {.
     constructor, importcpp: "Graphic3d_ArrayOfTriangleFans(@)",
     header: "Graphic3d_ArrayOfTriangleFans.hxx".}
-proc constructGraphic3dArrayOfTriangleFans*(theMaxVertexs: StandardInteger;
-    theMaxFans: StandardInteger = 0;
-    theHasVNormals: StandardBoolean = standardFalse;
-    theHasVColors: StandardBoolean = standardFalse;
-    theHasBColors: StandardBoolean = standardFalse;
-    theHasVTexels: StandardBoolean = standardFalse): Graphic3dArrayOfTriangleFans {.
+proc constructGraphic3d_ArrayOfTriangleFans*(theMaxVertexs: Standard_Integer;
+    theMaxFans: Standard_Integer = 0;
+    theHasVNormals: Standard_Boolean = Standard_False;
+    theHasVColors: Standard_Boolean = Standard_False;
+    theHasBColors: Standard_Boolean = Standard_False;
+    theHasVTexels: Standard_Boolean = Standard_False): Graphic3d_ArrayOfTriangleFans {.
     constructor, importcpp: "Graphic3d_ArrayOfTriangleFans(@)",
     header: "Graphic3d_ArrayOfTriangleFans.hxx".}
 discard "forward decl of Graphic3d_ArrayOfTriangleFans"
 type
-  HandleGraphic3dArrayOfTriangleFans* = Handle[Graphic3dArrayOfTriangleFans]
-
-
+  Handle_Graphic3d_ArrayOfTriangleFans* = handle[Graphic3d_ArrayOfTriangleFans]

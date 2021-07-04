@@ -14,8 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _Quantity_SolidAngle_HeaderFile [NewLine] # _Quantity_SolidAngle_HeaderFile [NewLine] # < Standard_Real . hxx > [NewLine] ! Defined as an angle formed by three or more planes.
+## !!!Ignored construct:  # _Quantity_SolidAngle_HeaderFile [NewLine] # _Quantity_SolidAngle_HeaderFile [NewLine] # ../Standard/Standard_Real.hxx [NewLine] ! Defined as an angle formed by three or more planes.
 ## ! It is measured in steradians. Standard_DEPRECATED ( This type is deprecated - Standard_Real should be used instead ) typedef Standard_Real Quantity_SolidAngle ;
 ## Error: expected ';'!!!
-
-

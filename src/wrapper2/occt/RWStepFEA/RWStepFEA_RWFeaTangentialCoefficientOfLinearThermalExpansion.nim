@@ -13,6 +13,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepFEA_FeaTangentialCoefficientOfLinearThermalExpansion"
@@ -26,19 +30,18 @@ type
 proc constructRWStepFEA_RWFeaTangentialCoefficientOfLinearThermalExpansion*(): RWStepFEA_RWFeaTangentialCoefficientOfLinearThermalExpansion {.
     constructor, importcpp: "RWStepFEA_RWFeaTangentialCoefficientOfLinearThermalExpansion(@)",
     header: "RWStepFEA_RWFeaTangentialCoefficientOfLinearThermalExpansion.hxx".}
-proc readStep*(this: RWStepFEA_RWFeaTangentialCoefficientOfLinearThermalExpansion;
-              data: Handle[StepDataStepReaderData]; num: StandardInteger;
-              ach: var Handle[InterfaceCheck]; ent: Handle[
+proc ReadStep*(this: RWStepFEA_RWFeaTangentialCoefficientOfLinearThermalExpansion;
+              data: handle[StepData_StepReaderData]; num: Standard_Integer;
+              ach: var handle[Interface_Check]; ent: handle[
     StepFEA_FeaTangentialCoefficientOfLinearThermalExpansion]) {.noSideEffect,
     importcpp: "ReadStep",
     header: "RWStepFEA_RWFeaTangentialCoefficientOfLinearThermalExpansion.hxx".}
-proc writeStep*(this: RWStepFEA_RWFeaTangentialCoefficientOfLinearThermalExpansion;
-               sw: var StepDataStepWriter; ent: Handle[
+proc WriteStep*(this: RWStepFEA_RWFeaTangentialCoefficientOfLinearThermalExpansion;
+               SW: var StepData_StepWriter; ent: handle[
     StepFEA_FeaTangentialCoefficientOfLinearThermalExpansion]) {.noSideEffect,
     importcpp: "WriteStep",
     header: "RWStepFEA_RWFeaTangentialCoefficientOfLinearThermalExpansion.hxx".}
-proc share*(this: RWStepFEA_RWFeaTangentialCoefficientOfLinearThermalExpansion; ent: Handle[
+proc Share*(this: RWStepFEA_RWFeaTangentialCoefficientOfLinearThermalExpansion; ent: handle[
     StepFEA_FeaTangentialCoefficientOfLinearThermalExpansion];
-           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
+           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepFEA_RWFeaTangentialCoefficientOfLinearThermalExpansion.hxx".}
-

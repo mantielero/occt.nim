@@ -14,24 +14,28 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepBasic_SiUnitAndLengthUnit"
 discard "forward decl of StepData_StepWriter"
 type
-  RWStepBasicRWSiUnitAndLengthUnit* {.importcpp: "RWStepBasic_RWSiUnitAndLengthUnit", header: "RWStepBasic_RWSiUnitAndLengthUnit.hxx",
-                                     bycopy.} = object
+  RWStepBasic_RWSiUnitAndLengthUnit* {.importcpp: "RWStepBasic_RWSiUnitAndLengthUnit", header: "RWStepBasic_RWSiUnitAndLengthUnit.hxx",
+                                      bycopy.} = object
 
 
-proc constructRWStepBasicRWSiUnitAndLengthUnit*(): RWStepBasicRWSiUnitAndLengthUnit {.
+proc constructRWStepBasic_RWSiUnitAndLengthUnit*(): RWStepBasic_RWSiUnitAndLengthUnit {.
     constructor, importcpp: "RWStepBasic_RWSiUnitAndLengthUnit(@)",
     header: "RWStepBasic_RWSiUnitAndLengthUnit.hxx".}
-proc readStep*(this: RWStepBasicRWSiUnitAndLengthUnit;
-              data: Handle[StepDataStepReaderData]; num: StandardInteger;
-              ach: var Handle[InterfaceCheck];
-              ent: Handle[StepBasicSiUnitAndLengthUnit]) {.noSideEffect,
+proc ReadStep*(this: RWStepBasic_RWSiUnitAndLengthUnit;
+              data: handle[StepData_StepReaderData]; num: Standard_Integer;
+              ach: var handle[Interface_Check];
+              ent: handle[StepBasic_SiUnitAndLengthUnit]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepBasic_RWSiUnitAndLengthUnit.hxx".}
-proc writeStep*(this: RWStepBasicRWSiUnitAndLengthUnit; sw: var StepDataStepWriter;
-               ent: Handle[StepBasicSiUnitAndLengthUnit]) {.noSideEffect,
+proc WriteStep*(this: RWStepBasic_RWSiUnitAndLengthUnit;
+               SW: var StepData_StepWriter;
+               ent: handle[StepBasic_SiUnitAndLengthUnit]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepBasic_RWSiUnitAndLengthUnit.hxx".}
-

@@ -14,24 +14,26 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Prs3d/Prs3d_Drawer, ../Prs3d/Prs3d_Presentation
+
 discard "forward decl of gp_Pnt"
 discard "forward decl of Geom_Plane"
 type
-  DsgPrsEqualRadiusPresentation* {.importcpp: "DsgPrs_EqualRadiusPresentation",
-                                  header: "DsgPrs_EqualRadiusPresentation.hxx",
-                                  bycopy.} = object ## ! Adds the points FirstCenter, SecondCenter,
-                                                 ## ! FirstPoint, SecondPoint, and the plane Plane to the
-                                                 ## ! presentation object aPresentation.
-                                                 ## ! The display attributes of these elements is defined by
-                                                 ## ! the attribute manager aDrawer.
-                                                 ## ! FirstCenter and SecondCenter are the centers of the
-                                                 ## ! first and second shapes respectively, and FirstPoint
-                                                 ## ! and SecondPoint are the attachment points of the radii to arcs.
+  DsgPrs_EqualRadiusPresentation* {.importcpp: "DsgPrs_EqualRadiusPresentation", header: "DsgPrs_EqualRadiusPresentation.hxx",
+                                   bycopy.} = object ## ! Adds the points FirstCenter, SecondCenter,
+                                                  ## ! FirstPoint, SecondPoint, and the plane Plane to the
+                                                  ## ! presentation object aPresentation.
+                                                  ## ! The display attributes of these elements is defined by
+                                                  ## ! the attribute manager aDrawer.
+                                                  ## ! FirstCenter and SecondCenter are the centers of the
+                                                  ## ! first and second shapes respectively, and FirstPoint
+                                                  ## ! and SecondPoint are the attachment points of the radii to arcs.
 
 
-proc add*(aPresentation: Handle[Prs3dPresentation]; aDrawer: Handle[Prs3dDrawer];
-         firstCenter: GpPnt; secondCenter: GpPnt; firstPoint: GpPnt;
-         secondPoint: GpPnt; plane: Handle[GeomPlane]) {.
+proc Add*(aPresentation: handle[Prs3d_Presentation]; aDrawer: handle[Prs3d_Drawer];
+         FirstCenter: gp_Pnt; SecondCenter: gp_Pnt; FirstPoint: gp_Pnt;
+         SecondPoint: gp_Pnt; Plane: handle[Geom_Plane]) {.
     importcpp: "DsgPrs_EqualRadiusPresentation::Add(@)",
     header: "DsgPrs_EqualRadiusPresentation.hxx".}
-

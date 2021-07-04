@@ -13,71 +13,76 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement
 
+import
+  ../Adaptor2d/Adaptor2d_Curve2d, ../Adaptor3d/Adaptor3d_Curve,
+  ../math/math_Matrix, ../math/math_Vector, ../math/math_MultipleVarFunction,
+  ../math/math_MultipleVarFunctionWithGradient,
+  ../math/math_MultipleVarFunctionWithHessian
+
 ## ! This class implements function which calculate Eucluidean distance
 ## ! between point on curve and point on other curve in case of C1 and C2 continuity is C0.
 
 type
-  ExtremaGlobOptFuncCCC0* {.importcpp: "Extrema_GlobOptFuncCCC0",
-                           header: "Extrema_GlobOptFuncCC.hxx", bycopy.} = object of MathMultipleVarFunction
+  Extrema_GlobOptFuncCCC0* {.importcpp: "Extrema_GlobOptFuncCCC0",
+                            header: "Extrema_GlobOptFuncCC.hxx", bycopy.} = object of math_MultipleVarFunction
 
 
-proc constructExtremaGlobOptFuncCCC0*(c1: Adaptor3dCurve; c2: Adaptor3dCurve): ExtremaGlobOptFuncCCC0 {.
+proc constructExtrema_GlobOptFuncCCC0*(C1: Adaptor3d_Curve; C2: Adaptor3d_Curve): Extrema_GlobOptFuncCCC0 {.
     constructor, importcpp: "Extrema_GlobOptFuncCCC0(@)",
     header: "Extrema_GlobOptFuncCC.hxx".}
-proc constructExtremaGlobOptFuncCCC0*(c1: Adaptor2dCurve2d; c2: Adaptor2dCurve2d): ExtremaGlobOptFuncCCC0 {.
+proc constructExtrema_GlobOptFuncCCC0*(C1: Adaptor2d_Curve2d; C2: Adaptor2d_Curve2d): Extrema_GlobOptFuncCCC0 {.
     constructor, importcpp: "Extrema_GlobOptFuncCCC0(@)",
     header: "Extrema_GlobOptFuncCC.hxx".}
-proc nbVariables*(this: ExtremaGlobOptFuncCCC0): StandardInteger {.noSideEffect,
+proc NbVariables*(this: Extrema_GlobOptFuncCCC0): Standard_Integer {.noSideEffect,
     importcpp: "NbVariables", header: "Extrema_GlobOptFuncCC.hxx".}
-proc value*(this: var ExtremaGlobOptFuncCCC0; x: MathVector; f: var StandardReal): StandardBoolean {.
+proc Value*(this: var Extrema_GlobOptFuncCCC0; X: math_Vector; F: var Standard_Real): Standard_Boolean {.
     importcpp: "Value", header: "Extrema_GlobOptFuncCC.hxx".}
 ## ! This class implements function which calculate Eucluidean distance
 ## ! between point on curve and point on other curve in case of C1 and C2 continuity is C1.
 
 type
-  ExtremaGlobOptFuncCCC1* {.importcpp: "Extrema_GlobOptFuncCCC1",
-                           header: "Extrema_GlobOptFuncCC.hxx", bycopy.} = object of MathMultipleVarFunctionWithGradient
+  Extrema_GlobOptFuncCCC1* {.importcpp: "Extrema_GlobOptFuncCCC1",
+                            header: "Extrema_GlobOptFuncCC.hxx", bycopy.} = object of math_MultipleVarFunctionWithGradient
 
 
-proc constructExtremaGlobOptFuncCCC1*(c1: Adaptor3dCurve; c2: Adaptor3dCurve): ExtremaGlobOptFuncCCC1 {.
+proc constructExtrema_GlobOptFuncCCC1*(C1: Adaptor3d_Curve; C2: Adaptor3d_Curve): Extrema_GlobOptFuncCCC1 {.
     constructor, importcpp: "Extrema_GlobOptFuncCCC1(@)",
     header: "Extrema_GlobOptFuncCC.hxx".}
-proc constructExtremaGlobOptFuncCCC1*(c1: Adaptor2dCurve2d; c2: Adaptor2dCurve2d): ExtremaGlobOptFuncCCC1 {.
+proc constructExtrema_GlobOptFuncCCC1*(C1: Adaptor2d_Curve2d; C2: Adaptor2d_Curve2d): Extrema_GlobOptFuncCCC1 {.
     constructor, importcpp: "Extrema_GlobOptFuncCCC1(@)",
     header: "Extrema_GlobOptFuncCC.hxx".}
-proc nbVariables*(this: ExtremaGlobOptFuncCCC1): StandardInteger {.noSideEffect,
+proc NbVariables*(this: Extrema_GlobOptFuncCCC1): Standard_Integer {.noSideEffect,
     importcpp: "NbVariables", header: "Extrema_GlobOptFuncCC.hxx".}
-proc value*(this: var ExtremaGlobOptFuncCCC1; x: MathVector; f: var StandardReal): StandardBoolean {.
+proc Value*(this: var Extrema_GlobOptFuncCCC1; X: math_Vector; F: var Standard_Real): Standard_Boolean {.
     importcpp: "Value", header: "Extrema_GlobOptFuncCC.hxx".}
-proc gradient*(this: var ExtremaGlobOptFuncCCC1; x: MathVector; g: var MathVector): StandardBoolean {.
+proc Gradient*(this: var Extrema_GlobOptFuncCCC1; X: math_Vector; G: var math_Vector): Standard_Boolean {.
     importcpp: "Gradient", header: "Extrema_GlobOptFuncCC.hxx".}
-proc values*(this: var ExtremaGlobOptFuncCCC1; x: MathVector; f: var StandardReal;
-            g: var MathVector): StandardBoolean {.importcpp: "Values",
+proc Values*(this: var Extrema_GlobOptFuncCCC1; X: math_Vector; F: var Standard_Real;
+            G: var math_Vector): Standard_Boolean {.importcpp: "Values",
     header: "Extrema_GlobOptFuncCC.hxx".}
 ## ! This class implements function which calculate Eucluidean distance
 ## ! between point on curve and point on other curve in case of C1 and C2 continuity is C2.
 
 type
-  ExtremaGlobOptFuncCCC2* {.importcpp: "Extrema_GlobOptFuncCCC2",
-                           header: "Extrema_GlobOptFuncCC.hxx", bycopy.} = object of MathMultipleVarFunctionWithHessian
+  Extrema_GlobOptFuncCCC2* {.importcpp: "Extrema_GlobOptFuncCCC2",
+                            header: "Extrema_GlobOptFuncCC.hxx", bycopy.} = object of math_MultipleVarFunctionWithHessian
 
 
-proc constructExtremaGlobOptFuncCCC2*(c1: Adaptor3dCurve; c2: Adaptor3dCurve): ExtremaGlobOptFuncCCC2 {.
+proc constructExtrema_GlobOptFuncCCC2*(C1: Adaptor3d_Curve; C2: Adaptor3d_Curve): Extrema_GlobOptFuncCCC2 {.
     constructor, importcpp: "Extrema_GlobOptFuncCCC2(@)",
     header: "Extrema_GlobOptFuncCC.hxx".}
-proc constructExtremaGlobOptFuncCCC2*(c1: Adaptor2dCurve2d; c2: Adaptor2dCurve2d): ExtremaGlobOptFuncCCC2 {.
+proc constructExtrema_GlobOptFuncCCC2*(C1: Adaptor2d_Curve2d; C2: Adaptor2d_Curve2d): Extrema_GlobOptFuncCCC2 {.
     constructor, importcpp: "Extrema_GlobOptFuncCCC2(@)",
     header: "Extrema_GlobOptFuncCC.hxx".}
-proc nbVariables*(this: ExtremaGlobOptFuncCCC2): StandardInteger {.noSideEffect,
+proc NbVariables*(this: Extrema_GlobOptFuncCCC2): Standard_Integer {.noSideEffect,
     importcpp: "NbVariables", header: "Extrema_GlobOptFuncCC.hxx".}
-proc value*(this: var ExtremaGlobOptFuncCCC2; x: MathVector; f: var StandardReal): StandardBoolean {.
+proc Value*(this: var Extrema_GlobOptFuncCCC2; X: math_Vector; F: var Standard_Real): Standard_Boolean {.
     importcpp: "Value", header: "Extrema_GlobOptFuncCC.hxx".}
-proc gradient*(this: var ExtremaGlobOptFuncCCC2; x: MathVector; g: var MathVector): StandardBoolean {.
+proc Gradient*(this: var Extrema_GlobOptFuncCCC2; X: math_Vector; G: var math_Vector): Standard_Boolean {.
     importcpp: "Gradient", header: "Extrema_GlobOptFuncCC.hxx".}
-proc values*(this: var ExtremaGlobOptFuncCCC2; x: MathVector; f: var StandardReal;
-            g: var MathVector): StandardBoolean {.importcpp: "Values",
+proc Values*(this: var Extrema_GlobOptFuncCCC2; X: math_Vector; F: var Standard_Real;
+            G: var math_Vector): Standard_Boolean {.importcpp: "Values",
     header: "Extrema_GlobOptFuncCC.hxx".}
-proc values*(this: var ExtremaGlobOptFuncCCC2; x: MathVector; f: var StandardReal;
-            g: var MathVector; h: var MathMatrix): StandardBoolean {.
+proc Values*(this: var Extrema_GlobOptFuncCCC2; X: math_Vector; F: var Standard_Real;
+            G: var math_Vector; H: var math_Matrix): Standard_Boolean {.
     importcpp: "Values", header: "Extrema_GlobOptFuncCC.hxx".}
-

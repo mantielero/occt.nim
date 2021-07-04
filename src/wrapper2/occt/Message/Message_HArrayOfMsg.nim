@@ -11,8 +11,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  Message_Msg, ../NCollection/NCollection_Array1,
+  ../NCollection/NCollection_Handle
+
 type
-  MessageArrayOfMsg* = NCollectionArray1[NCollectionHandle[MessageMsg]]
-  MessageHArrayOfMsg* = NCollectionHandle[MessageArrayOfMsg]
-
-
+  Message_ArrayOfMsg* = NCollection_Array1[NCollection_Handle[Message_Msg]]
+  Message_HArrayOfMsg* = NCollection_Handle[Message_ArrayOfMsg]

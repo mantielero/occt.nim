@@ -14,10 +14,14 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Integer,
+  ../IGESData/IGESData_IGESEntity, ../Standard/Standard_Boolean
+
 discard "forward decl of IGESGraph_HighLight"
 discard "forward decl of IGESGraph_HighLight"
 type
-  HandleIGESGraphHighLight* = Handle[IGESGraphHighLight]
+  Handle_IGESGraph_HighLight* = handle[IGESGraph_HighLight]
 
 ## ! defines IGESHighLight, Type <406> Form <20>
 ## ! in package IGESGraph
@@ -26,29 +30,28 @@ type
 ## ! displayed in some system dependent manner
 
 type
-  IGESGraphHighLight* {.importcpp: "IGESGraph_HighLight",
-                       header: "IGESGraph_HighLight.hxx", bycopy.} = object of IGESDataIGESEntity
+  IGESGraph_HighLight* {.importcpp: "IGESGraph_HighLight",
+                        header: "IGESGraph_HighLight.hxx", bycopy.} = object of IGESData_IGESEntity
 
 
-proc constructIGESGraphHighLight*(): IGESGraphHighLight {.constructor,
+proc constructIGESGraph_HighLight*(): IGESGraph_HighLight {.constructor,
     importcpp: "IGESGraph_HighLight(@)", header: "IGESGraph_HighLight.hxx".}
-proc init*(this: var IGESGraphHighLight; nbProps: StandardInteger;
-          aHighLightStatus: StandardInteger) {.importcpp: "Init",
+proc Init*(this: var IGESGraph_HighLight; nbProps: Standard_Integer;
+          aHighLightStatus: Standard_Integer) {.importcpp: "Init",
     header: "IGESGraph_HighLight.hxx".}
-proc nbPropertyValues*(this: IGESGraphHighLight): StandardInteger {.noSideEffect,
+proc NbPropertyValues*(this: IGESGraph_HighLight): Standard_Integer {.noSideEffect,
     importcpp: "NbPropertyValues", header: "IGESGraph_HighLight.hxx".}
-proc highLightStatus*(this: IGESGraphHighLight): StandardInteger {.noSideEffect,
+proc HighLightStatus*(this: IGESGraph_HighLight): Standard_Integer {.noSideEffect,
     importcpp: "HighLightStatus", header: "IGESGraph_HighLight.hxx".}
-proc isHighLighted*(this: IGESGraphHighLight): StandardBoolean {.noSideEffect,
+proc IsHighLighted*(this: IGESGraph_HighLight): Standard_Boolean {.noSideEffect,
     importcpp: "IsHighLighted", header: "IGESGraph_HighLight.hxx".}
 type
-  IGESGraphHighLightbaseType* = IGESDataIGESEntity
+  IGESGraph_HighLightbase_type* = IGESData_IGESEntity
 
-proc getTypeName*(): cstring {.importcpp: "IGESGraph_HighLight::get_type_name(@)",
-                            header: "IGESGraph_HighLight.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "IGESGraph_HighLight::get_type_name(@)",
+                              header: "IGESGraph_HighLight.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "IGESGraph_HighLight::get_type_descriptor(@)",
     header: "IGESGraph_HighLight.hxx".}
-proc dynamicType*(this: IGESGraphHighLight): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: IGESGraph_HighLight): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "IGESGraph_HighLight.hxx".}
-

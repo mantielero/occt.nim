@@ -13,22 +13,47 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Graphic3d/Graphic3d_BufferType, OpenGl_Aspects, OpenGl_CappingAlgo,
+  OpenGl_FrameBuffer, OpenGl_Material, OpenGl_Matrix, OpenGl_ShaderObject,
+  OpenGl_ShaderProgram, OpenGl_TextureBufferArb, OpenGl_RenderFilter, OpenGl_Vec,
+  OpenGl_Window
+
 discard "forward decl of OpenGl_View"
 discard "forward decl of Image_PixMap"
 discard "forward decl of OpenGl_Workspace"
 discard "forward decl of OpenGl_Workspace"
 type
-  HandleOpenGlWorkspace* = Handle[OpenGlWorkspace]
+  Handle_OpenGl_Workspace* = handle[OpenGl_Workspace]
 
 ## ! Rendering workspace.
 ## ! Provides methods to render primitives and maintain GL state.
 
 type
-  OpenGlWorkspace* {.importcpp: "OpenGl_Workspace", header: "OpenGl_Workspace.hxx",
-                    bycopy.} = object of StandardTransient ## ! Constructor of rendering workspace.
-                                                      ## ! @name protected fields
-                                                      ## ! @name fields related to status
-                                                      ## ! @name type definition
+  OpenGl_Workspace* {.importcpp: "OpenGl_Workspace",
+                     header: "OpenGl_Workspace.hxx", bycopy.} = object of Standard_Transient ##
+                                                                                      ## !
+                                                                                      ## Constructor
+                                                                                      ## of
+                                                                                      ## rendering
+                                                                                      ## workspace.
+                                                                                      ##
+                                                                                      ## !
+                                                                                      ## @name
+                                                                                      ## protected
+                                                                                      ## fields
+                                                                                      ##
+                                                                                      ## !
+                                                                                      ## @name
+                                                                                      ## fields
+                                                                                      ## related
+                                                                                      ## to
+                                                                                      ## status
+                                                                                      ##
+                                                                                      ## !
+                                                                                      ## @name
+                                                                                      ## type
+                                                                                      ## definition
     ## !< counter of skipped transparent elements for OpenGl_LayerList two rendering passes method
     ## !< active filter for skipping rendering of elements by some criteria (multiple render passes)
     ## !< allow back face culling
@@ -37,101 +62,101 @@ type
     ## !< Hiddenline aspect
 
 
-proc constructOpenGlWorkspace*(theView: ptr OpenGlView;
-                              theWindow: Handle[OpenGlWindow]): OpenGlWorkspace {.
+proc constructOpenGl_Workspace*(theView: ptr OpenGl_View;
+                               theWindow: handle[OpenGl_Window]): OpenGl_Workspace {.
     constructor, importcpp: "OpenGl_Workspace(@)", header: "OpenGl_Workspace.hxx".}
-proc destroyOpenGlWorkspace*(this: var OpenGlWorkspace) {.
+proc destroyOpenGl_Workspace*(this: var OpenGl_Workspace) {.
     importcpp: "#.~OpenGl_Workspace()", header: "OpenGl_Workspace.hxx".}
-proc activate*(this: var OpenGlWorkspace): StandardBoolean {.importcpp: "Activate",
+proc Activate*(this: var OpenGl_Workspace): Standard_Boolean {.importcpp: "Activate",
     header: "OpenGl_Workspace.hxx".}
-proc view*(this: OpenGlWorkspace): ptr OpenGlView {.noSideEffect, importcpp: "View",
+proc View*(this: OpenGl_Workspace): ptr OpenGl_View {.noSideEffect, importcpp: "View",
     header: "OpenGl_Workspace.hxx".}
-proc getGlContext*(this: var OpenGlWorkspace): Handle[OpenGlContext] {.
+proc GetGlContext*(this: var OpenGl_Workspace): handle[OpenGl_Context] {.
     importcpp: "GetGlContext", header: "OpenGl_Workspace.hxx".}
-proc fBOCreate*(this: var OpenGlWorkspace; theWidth: StandardInteger;
-               theHeight: StandardInteger): Handle[OpenGlFrameBuffer] {.
+proc FBOCreate*(this: var OpenGl_Workspace; theWidth: Standard_Integer;
+               theHeight: Standard_Integer): handle[OpenGl_FrameBuffer] {.
     importcpp: "FBOCreate", header: "OpenGl_Workspace.hxx".}
-proc fBORelease*(this: var OpenGlWorkspace; theFbo: var Handle[OpenGlFrameBuffer]) {.
+proc FBORelease*(this: var OpenGl_Workspace; theFbo: var handle[OpenGl_FrameBuffer]) {.
     importcpp: "FBORelease", header: "OpenGl_Workspace.hxx".}
-proc bufferDump*(this: var OpenGlWorkspace; theFbo: Handle[OpenGlFrameBuffer];
-                theImage: var ImagePixMap; theBufferType: Graphic3dBufferType): StandardBoolean {.
+proc BufferDump*(this: var OpenGl_Workspace; theFbo: handle[OpenGl_FrameBuffer];
+                theImage: var Image_PixMap; theBufferType: Graphic3d_BufferType): Standard_Boolean {.
     importcpp: "BufferDump", header: "OpenGl_Workspace.hxx".}
-proc width*(this: OpenGlWorkspace): StandardInteger {.noSideEffect,
+proc Width*(this: OpenGl_Workspace): Standard_Integer {.noSideEffect,
     importcpp: "Width", header: "OpenGl_Workspace.hxx".}
-proc height*(this: OpenGlWorkspace): StandardInteger {.noSideEffect,
+proc Height*(this: OpenGl_Workspace): Standard_Integer {.noSideEffect,
     importcpp: "Height", header: "OpenGl_Workspace.hxx".}
-proc setUseZBuffer*(this: var OpenGlWorkspace; theToUse: StandardBoolean): StandardBoolean {.
+proc SetUseZBuffer*(this: var OpenGl_Workspace; theToUse: Standard_Boolean): Standard_Boolean {.
     importcpp: "SetUseZBuffer", header: "OpenGl_Workspace.hxx".}
-proc useZBuffer*(this: var OpenGlWorkspace): var StandardBoolean {.
+proc UseZBuffer*(this: var OpenGl_Workspace): var Standard_Boolean {.
     importcpp: "UseZBuffer", header: "OpenGl_Workspace.hxx".}
-proc useDepthWrite*(this: var OpenGlWorkspace): var StandardBoolean {.
+proc UseDepthWrite*(this: var OpenGl_Workspace): var Standard_Boolean {.
     importcpp: "UseDepthWrite", header: "OpenGl_Workspace.hxx".}
-proc setDefaultPolygonOffset*(this: var OpenGlWorkspace;
-                             theOffset: Graphic3dPolygonOffset): Graphic3dPolygonOffset {.
+proc SetDefaultPolygonOffset*(this: var OpenGl_Workspace;
+                             theOffset: Graphic3d_PolygonOffset): Graphic3d_PolygonOffset {.
     importcpp: "SetDefaultPolygonOffset", header: "OpenGl_Workspace.hxx".}
-proc toAllowFaceCulling*(this: OpenGlWorkspace): bool {.noSideEffect,
+proc ToAllowFaceCulling*(this: OpenGl_Workspace): bool {.noSideEffect,
     importcpp: "ToAllowFaceCulling", header: "OpenGl_Workspace.hxx".}
-proc setAllowFaceCulling*(this: var OpenGlWorkspace; theToAllow: bool): bool {.
+proc SetAllowFaceCulling*(this: var OpenGl_Workspace; theToAllow: bool): bool {.
     importcpp: "SetAllowFaceCulling", header: "OpenGl_Workspace.hxx".}
-proc toHighlight*(this: OpenGlWorkspace): bool {.noSideEffect,
+proc ToHighlight*(this: OpenGl_Workspace): bool {.noSideEffect,
     importcpp: "ToHighlight", header: "OpenGl_Workspace.hxx".}
-proc highlightStyle*(this: OpenGlWorkspace): Handle[Graphic3dPresentationAttributes] {.
-    noSideEffect, importcpp: "HighlightStyle", header: "OpenGl_Workspace.hxx".}
-proc setHighlightStyle*(this: var OpenGlWorkspace;
-                       theStyle: Handle[Graphic3dPresentationAttributes]) {.
+proc HighlightStyle*(this: OpenGl_Workspace): handle[
+    Graphic3d_PresentationAttributes] {.noSideEffect, importcpp: "HighlightStyle",
+                                       header: "OpenGl_Workspace.hxx".}
+proc SetHighlightStyle*(this: var OpenGl_Workspace;
+                       theStyle: handle[Graphic3d_PresentationAttributes]) {.
     importcpp: "SetHighlightStyle", header: "OpenGl_Workspace.hxx".}
-proc edgeColor*(this: OpenGlWorkspace): OpenGlVec4 {.noSideEffect,
+proc EdgeColor*(this: OpenGl_Workspace): OpenGl_Vec4 {.noSideEffect,
     importcpp: "EdgeColor", header: "OpenGl_Workspace.hxx".}
-proc interiorColor*(this: OpenGlWorkspace): OpenGlVec4 {.noSideEffect,
+proc InteriorColor*(this: OpenGl_Workspace): OpenGl_Vec4 {.noSideEffect,
     importcpp: "InteriorColor", header: "OpenGl_Workspace.hxx".}
-proc textColor*(this: OpenGlWorkspace): OpenGlVec4 {.noSideEffect,
+proc TextColor*(this: OpenGl_Workspace): OpenGl_Vec4 {.noSideEffect,
     importcpp: "TextColor", header: "OpenGl_Workspace.hxx".}
-proc textSubtitleColor*(this: OpenGlWorkspace): OpenGlVec4 {.noSideEffect,
+proc TextSubtitleColor*(this: OpenGl_Workspace): OpenGl_Vec4 {.noSideEffect,
     importcpp: "TextSubtitleColor", header: "OpenGl_Workspace.hxx".}
-proc aspects*(this: OpenGlWorkspace): ptr OpenGlAspects {.noSideEffect,
+proc Aspects*(this: OpenGl_Workspace): ptr OpenGl_Aspects {.noSideEffect,
     importcpp: "Aspects", header: "OpenGl_Workspace.hxx".}
-proc setAspects*(this: var OpenGlWorkspace; theAspect: ptr OpenGlAspects): ptr OpenGlAspects {.
+proc SetAspects*(this: var OpenGl_Workspace; theAspect: ptr OpenGl_Aspects): ptr OpenGl_Aspects {.
     importcpp: "SetAspects", header: "OpenGl_Workspace.hxx".}
-proc textureSet*(this: OpenGlWorkspace): Handle[OpenGlTextureSet] {.noSideEffect,
+proc TextureSet*(this: OpenGl_Workspace): handle[OpenGl_TextureSet] {.noSideEffect,
     importcpp: "TextureSet", header: "OpenGl_Workspace.hxx".}
-proc applyAspects*(this: var OpenGlWorkspace; theToBindTextures: bool = true): ptr OpenGlAspects {.
+proc ApplyAspects*(this: var OpenGl_Workspace; theToBindTextures: bool = true): ptr OpenGl_Aspects {.
     importcpp: "ApplyAspects", header: "OpenGl_Workspace.hxx".}
-proc resetAppliedAspect*(this: var OpenGlWorkspace) {.
+proc ResetAppliedAspect*(this: var OpenGl_Workspace) {.
     importcpp: "ResetAppliedAspect", header: "OpenGl_Workspace.hxx".}
-proc renderFilter*(this: OpenGlWorkspace): StandardInteger {.noSideEffect,
+proc RenderFilter*(this: OpenGl_Workspace): Standard_Integer {.noSideEffect,
     importcpp: "RenderFilter", header: "OpenGl_Workspace.hxx".}
-proc setRenderFilter*(this: var OpenGlWorkspace; theFilter: StandardInteger) {.
+proc SetRenderFilter*(this: var OpenGl_Workspace; theFilter: Standard_Integer) {.
     importcpp: "SetRenderFilter", header: "OpenGl_Workspace.hxx".}
-proc shouldRender*(this: var OpenGlWorkspace; theElement: ptr OpenGlElement): bool {.
+proc ShouldRender*(this: var OpenGl_Workspace; theElement: ptr OpenGl_Element): bool {.
     importcpp: "ShouldRender", header: "OpenGl_Workspace.hxx".}
-proc nbSkippedTransparentElements*(this: var OpenGlWorkspace): StandardInteger {.
+proc NbSkippedTransparentElements*(this: var OpenGl_Workspace): Standard_Integer {.
     importcpp: "NbSkippedTransparentElements", header: "OpenGl_Workspace.hxx".}
-proc resetSkippedCounter*(this: var OpenGlWorkspace) {.
+proc ResetSkippedCounter*(this: var OpenGl_Workspace) {.
     importcpp: "ResetSkippedCounter", header: "OpenGl_Workspace.hxx".}
-proc viewMatrix*(this: OpenGlWorkspace): ptr OpenGlMatrix {.noSideEffect,
+proc ViewMatrix*(this: OpenGl_Workspace): ptr OpenGl_Matrix {.noSideEffect,
     importcpp: "ViewMatrix", header: "OpenGl_Workspace.hxx".}
-proc modelMatrix*(this: OpenGlWorkspace): ptr OpenGlMatrix {.noSideEffect,
+proc ModelMatrix*(this: OpenGl_Workspace): ptr OpenGl_Matrix {.noSideEffect,
     importcpp: "ModelMatrix", header: "OpenGl_Workspace.hxx".}
-proc noneCulling*(this: OpenGlWorkspace): OpenGlAspects {.noSideEffect,
+proc NoneCulling*(this: OpenGl_Workspace): OpenGl_Aspects {.noSideEffect,
     importcpp: "NoneCulling", header: "OpenGl_Workspace.hxx".}
-proc frontCulling*(this: OpenGlWorkspace): OpenGlAspects {.noSideEffect,
+proc FrontCulling*(this: OpenGl_Workspace): OpenGl_Aspects {.noSideEffect,
     importcpp: "FrontCulling", header: "OpenGl_Workspace.hxx".}
-proc setEnvironmentTexture*(this: var OpenGlWorkspace;
-                           theTexture: Handle[OpenGlTextureSet]) {.
+proc SetEnvironmentTexture*(this: var OpenGl_Workspace;
+                           theTexture: handle[OpenGl_TextureSet]) {.
     importcpp: "SetEnvironmentTexture", header: "OpenGl_Workspace.hxx".}
-proc environmentTexture*(this: OpenGlWorkspace): Handle[OpenGlTextureSet] {.
+proc EnvironmentTexture*(this: OpenGl_Workspace): handle[OpenGl_TextureSet] {.
     noSideEffect, importcpp: "EnvironmentTexture", header: "OpenGl_Workspace.hxx".}
-proc dumpJson*(this: OpenGlWorkspace; theOStream: var StandardOStream;
-              theDepth: StandardInteger = -1) {.noSideEffect, importcpp: "DumpJson",
+proc DumpJson*(this: OpenGl_Workspace; theOStream: var Standard_OStream;
+              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
     header: "OpenGl_Workspace.hxx".}
 type
-  OpenGlWorkspacebaseType* = StandardTransient
+  OpenGl_Workspacebase_type* = Standard_Transient
 
-proc getTypeName*(): cstring {.importcpp: "OpenGl_Workspace::get_type_name(@)",
-                            header: "OpenGl_Workspace.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "OpenGl_Workspace::get_type_name(@)",
+                              header: "OpenGl_Workspace.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "OpenGl_Workspace::get_type_descriptor(@)",
     header: "OpenGl_Workspace.hxx".}
-proc dynamicType*(this: OpenGlWorkspace): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: OpenGl_Workspace): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "OpenGl_Workspace.hxx".}
-

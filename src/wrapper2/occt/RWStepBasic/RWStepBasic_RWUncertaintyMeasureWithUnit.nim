@@ -14,31 +14,34 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepBasic_UncertaintyMeasureWithUnit"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepBasicRWUncertaintyMeasureWithUnit* {.
+  RWStepBasic_RWUncertaintyMeasureWithUnit* {.
       importcpp: "RWStepBasic_RWUncertaintyMeasureWithUnit",
       header: "RWStepBasic_RWUncertaintyMeasureWithUnit.hxx", bycopy.} = object
 
 
-proc constructRWStepBasicRWUncertaintyMeasureWithUnit*(): RWStepBasicRWUncertaintyMeasureWithUnit {.
+proc constructRWStepBasic_RWUncertaintyMeasureWithUnit*(): RWStepBasic_RWUncertaintyMeasureWithUnit {.
     constructor, importcpp: "RWStepBasic_RWUncertaintyMeasureWithUnit(@)",
     header: "RWStepBasic_RWUncertaintyMeasureWithUnit.hxx".}
-proc readStep*(this: RWStepBasicRWUncertaintyMeasureWithUnit;
-              data: Handle[StepDataStepReaderData]; num: StandardInteger;
-              ach: var Handle[InterfaceCheck];
-              ent: Handle[StepBasicUncertaintyMeasureWithUnit]) {.noSideEffect,
+proc ReadStep*(this: RWStepBasic_RWUncertaintyMeasureWithUnit;
+              data: handle[StepData_StepReaderData]; num: Standard_Integer;
+              ach: var handle[Interface_Check];
+              ent: handle[StepBasic_UncertaintyMeasureWithUnit]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepBasic_RWUncertaintyMeasureWithUnit.hxx".}
-proc writeStep*(this: RWStepBasicRWUncertaintyMeasureWithUnit;
-               sw: var StepDataStepWriter;
-               ent: Handle[StepBasicUncertaintyMeasureWithUnit]) {.noSideEffect,
+proc WriteStep*(this: RWStepBasic_RWUncertaintyMeasureWithUnit;
+               SW: var StepData_StepWriter;
+               ent: handle[StepBasic_UncertaintyMeasureWithUnit]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepBasic_RWUncertaintyMeasureWithUnit.hxx".}
-proc share*(this: RWStepBasicRWUncertaintyMeasureWithUnit;
-           ent: Handle[StepBasicUncertaintyMeasureWithUnit];
-           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
+proc Share*(this: RWStepBasic_RWUncertaintyMeasureWithUnit;
+           ent: handle[StepBasic_UncertaintyMeasureWithUnit];
+           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepBasic_RWUncertaintyMeasureWithUnit.hxx".}
-

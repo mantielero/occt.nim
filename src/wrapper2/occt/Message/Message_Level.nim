@@ -11,7 +11,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _Message_Level_HeaderFile [NewLine] # _Message_Level_HeaderFile [NewLine] # < Message . hxx > [NewLine] # < Message_AlertExtended . hxx > [NewLine] # < Message_Gravity . hxx > [NewLine] # < Message_Messenger . hxx > [NewLine] # < Message_MetricType . hxx > [NewLine] # < NCollection_DataMap . hxx > [NewLine] # < Standard . hxx > [NewLine] ! This class is an instance of Sentry to create a level in a message report
+## !!!Ignored construct:  # _Message_Level_HeaderFile [NewLine] # _Message_Level_HeaderFile [NewLine] # Message.hxx [NewLine] # Message_AlertExtended.hxx [NewLine] # Message_Gravity.hxx [NewLine] # Message_Messenger.hxx [NewLine] # Message_MetricType.hxx [NewLine] # ../NCollection/NCollection_DataMap.hxx [NewLine] # ../Standard/Standard.hxx [NewLine] ! This class is an instance of Sentry to create a level in a message report
 ## ! Constructor of the class add new (active) level in the report, destructor removes it
 ## ! While the level is active in the report, new alerts are added below the level root alert.
 ## !
@@ -36,11 +36,9 @@
 ## ! @def MESSAGE_NEW_LEVEL
 ## ! Creates a new level instance of Sentry. This row should be inserted before messages using in the method.
 
-template occt_Add_Message_Level_Sentry*(theMessage: untyped): untyped =
-  constructMessageLevel
+template OCCT_ADD_MESSAGE_LEVEL_SENTRY*(theMessage: untyped): untyped =
+  constructMessage_Level
 
 aLevel(theMessage)
-## !!!Ignored construct:  [NewLine] #  _Message_Level_HeaderFile
+## !!!Ignored construct:  [NewLine] #  _Message_Level_HeaderFile [NewLine]
 ## Error: did not expect [NewLine]!!!
-
-

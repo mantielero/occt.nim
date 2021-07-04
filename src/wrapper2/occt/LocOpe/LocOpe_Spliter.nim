@@ -14,36 +14,41 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../TopoDS/TopoDS_Shape,
+  ../Standard/Standard_Boolean, ../TopTools/TopTools_DataMapOfShapeListOfShape,
+  ../TopTools/TopTools_ListOfShape
+
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of Standard_NullObject"
 discard "forward decl of Standard_NoSuchObject"
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of LocOpe_WiresOnShape"
 type
-  LocOpeSpliter* {.importcpp: "LocOpe_Spliter", header: "LocOpe_Spliter.hxx", bycopy.} = object ##
-                                                                                        ## !
-                                                                                        ## Empty
-                                                                                        ## constructor.
+  LocOpe_Spliter* {.importcpp: "LocOpe_Spliter", header: "LocOpe_Spliter.hxx", bycopy.} = object ##
+                                                                                         ## !
+                                                                                         ## Empty
+                                                                                         ## constructor.
 
 
-proc constructLocOpeSpliter*(): LocOpeSpliter {.constructor,
+proc constructLocOpe_Spliter*(): LocOpe_Spliter {.constructor,
     importcpp: "LocOpe_Spliter(@)", header: "LocOpe_Spliter.hxx".}
-proc constructLocOpeSpliter*(s: TopoDS_Shape): LocOpeSpliter {.constructor,
+proc constructLocOpe_Spliter*(S: TopoDS_Shape): LocOpe_Spliter {.constructor,
     importcpp: "LocOpe_Spliter(@)", header: "LocOpe_Spliter.hxx".}
-proc init*(this: var LocOpeSpliter; s: TopoDS_Shape) {.importcpp: "Init",
+proc Init*(this: var LocOpe_Spliter; S: TopoDS_Shape) {.importcpp: "Init",
     header: "LocOpe_Spliter.hxx".}
-proc perform*(this: var LocOpeSpliter; pw: Handle[LocOpeWiresOnShape]) {.
+proc Perform*(this: var LocOpe_Spliter; PW: handle[LocOpe_WiresOnShape]) {.
     importcpp: "Perform", header: "LocOpe_Spliter.hxx".}
-proc isDone*(this: LocOpeSpliter): StandardBoolean {.noSideEffect,
+proc IsDone*(this: LocOpe_Spliter): Standard_Boolean {.noSideEffect,
     importcpp: "IsDone", header: "LocOpe_Spliter.hxx".}
-proc resultingShape*(this: LocOpeSpliter): TopoDS_Shape {.noSideEffect,
+proc ResultingShape*(this: LocOpe_Spliter): TopoDS_Shape {.noSideEffect,
     importcpp: "ResultingShape", header: "LocOpe_Spliter.hxx".}
-proc shape*(this: LocOpeSpliter): TopoDS_Shape {.noSideEffect, importcpp: "Shape",
+proc Shape*(this: LocOpe_Spliter): TopoDS_Shape {.noSideEffect, importcpp: "Shape",
     header: "LocOpe_Spliter.hxx".}
-proc directLeft*(this: LocOpeSpliter): TopToolsListOfShape {.noSideEffect,
+proc DirectLeft*(this: LocOpe_Spliter): TopTools_ListOfShape {.noSideEffect,
     importcpp: "DirectLeft", header: "LocOpe_Spliter.hxx".}
-proc left*(this: LocOpeSpliter): TopToolsListOfShape {.noSideEffect,
+proc Left*(this: LocOpe_Spliter): TopTools_ListOfShape {.noSideEffect,
     importcpp: "Left", header: "LocOpe_Spliter.hxx".}
-proc descendantShapes*(this: var LocOpeSpliter; s: TopoDS_Shape): TopToolsListOfShape {.
+proc DescendantShapes*(this: var LocOpe_Spliter; S: TopoDS_Shape): TopTools_ListOfShape {.
     importcpp: "DescendantShapes", header: "LocOpe_Spliter.hxx".}
-

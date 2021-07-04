@@ -14,71 +14,75 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, GCE2d_Root, ../Geom2d/Geom2d_TrimmedCurve
+
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of gp_Circ2d"
 discard "forward decl of gp_Pnt2d"
 discard "forward decl of gp_Vec2d"
 type
-  GCE2dMakeArcOfCircle* {.importcpp: "GCE2d_MakeArcOfCircle",
-                         header: "GCE2d_MakeArcOfCircle.hxx", bycopy.} = object of GCE2dRoot ##
-                                                                                      ## !
-                                                                                      ## Makes
-                                                                                      ## an
-                                                                                      ## arc
-                                                                                      ## of
-                                                                                      ## circle
-                                                                                      ## (TrimmedCurve
-                                                                                      ## from
-                                                                                      ## Geom2d)
-                                                                                      ## from
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## a
-                                                                                      ## circle
-                                                                                      ## between
-                                                                                      ## two
-                                                                                      ## parameters
-                                                                                      ## Alpha1
-                                                                                      ## and
-                                                                                      ## Alpha2.
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## The
-                                                                                      ## two
-                                                                                      ## parameters
-                                                                                      ## are
-                                                                                      ## angles.
-                                                                                      ## The
-                                                                                      ## parameters
-                                                                                      ## are
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## in
-                                                                                      ## radians.
+  GCE2d_MakeArcOfCircle* {.importcpp: "GCE2d_MakeArcOfCircle",
+                          header: "GCE2d_MakeArcOfCircle.hxx", bycopy.} = object of GCE2d_Root ##
+                                                                                        ## !
+                                                                                        ## Makes
+                                                                                        ## an
+                                                                                        ## arc
+                                                                                        ## of
+                                                                                        ## circle
+                                                                                        ## (TrimmedCurve
+                                                                                        ## from
+                                                                                        ## Geom2d)
+                                                                                        ## from
+                                                                                        ##
+                                                                                        ## !
+                                                                                        ## a
+                                                                                        ## circle
+                                                                                        ## between
+                                                                                        ## two
+                                                                                        ## parameters
+                                                                                        ## Alpha1
+                                                                                        ## and
+                                                                                        ## Alpha2.
+                                                                                        ##
+                                                                                        ## !
+                                                                                        ## The
+                                                                                        ## two
+                                                                                        ## parameters
+                                                                                        ## are
+                                                                                        ## angles.
+                                                                                        ## The
+                                                                                        ## parameters
+                                                                                        ## are
+                                                                                        ##
+                                                                                        ## !
+                                                                                        ## in
+                                                                                        ## radians.
 
 
-proc constructGCE2dMakeArcOfCircle*(circ: GpCirc2d; alpha1: StandardReal;
-                                   alpha2: StandardReal;
-                                   sense: StandardBoolean = standardTrue): GCE2dMakeArcOfCircle {.
+proc constructGCE2d_MakeArcOfCircle*(Circ: gp_Circ2d; Alpha1: Standard_Real;
+                                    Alpha2: Standard_Real;
+                                    Sense: Standard_Boolean = Standard_True): GCE2d_MakeArcOfCircle {.
     constructor, importcpp: "GCE2d_MakeArcOfCircle(@)",
     header: "GCE2d_MakeArcOfCircle.hxx".}
-proc constructGCE2dMakeArcOfCircle*(circ: GpCirc2d; p: GpPnt2d; alpha: StandardReal;
-                                   sense: StandardBoolean = standardTrue): GCE2dMakeArcOfCircle {.
+proc constructGCE2d_MakeArcOfCircle*(Circ: gp_Circ2d; P: gp_Pnt2d;
+                                    Alpha: Standard_Real;
+                                    Sense: Standard_Boolean = Standard_True): GCE2d_MakeArcOfCircle {.
     constructor, importcpp: "GCE2d_MakeArcOfCircle(@)",
     header: "GCE2d_MakeArcOfCircle.hxx".}
-proc constructGCE2dMakeArcOfCircle*(circ: GpCirc2d; p1: GpPnt2d; p2: GpPnt2d;
-                                   sense: StandardBoolean = standardTrue): GCE2dMakeArcOfCircle {.
+proc constructGCE2d_MakeArcOfCircle*(Circ: gp_Circ2d; P1: gp_Pnt2d; P2: gp_Pnt2d;
+                                    Sense: Standard_Boolean = Standard_True): GCE2d_MakeArcOfCircle {.
     constructor, importcpp: "GCE2d_MakeArcOfCircle(@)",
     header: "GCE2d_MakeArcOfCircle.hxx".}
-proc constructGCE2dMakeArcOfCircle*(p1: GpPnt2d; p2: GpPnt2d; p3: GpPnt2d): GCE2dMakeArcOfCircle {.
+proc constructGCE2d_MakeArcOfCircle*(P1: gp_Pnt2d; P2: gp_Pnt2d; P3: gp_Pnt2d): GCE2d_MakeArcOfCircle {.
     constructor, importcpp: "GCE2d_MakeArcOfCircle(@)",
     header: "GCE2d_MakeArcOfCircle.hxx".}
-proc constructGCE2dMakeArcOfCircle*(p1: GpPnt2d; v: GpVec2d; p2: GpPnt2d): GCE2dMakeArcOfCircle {.
+proc constructGCE2d_MakeArcOfCircle*(P1: gp_Pnt2d; V: gp_Vec2d; P2: gp_Pnt2d): GCE2d_MakeArcOfCircle {.
     constructor, importcpp: "GCE2d_MakeArcOfCircle(@)",
     header: "GCE2d_MakeArcOfCircle.hxx".}
-proc value*(this: GCE2dMakeArcOfCircle): Handle[Geom2dTrimmedCurve] {.noSideEffect,
-    importcpp: "Value", header: "GCE2d_MakeArcOfCircle.hxx".}
-converter `constopencascade`*(this: GCE2dMakeArcOfCircle): Handle[
-    Geom2dTrimmedCurve] {.noSideEffect, importcpp: "GCE2d_MakeArcOfCircle::operator constopencascade",
-                         header: "GCE2d_MakeArcOfCircle.hxx".}
-
+proc Value*(this: GCE2d_MakeArcOfCircle): handle[Geom2d_TrimmedCurve] {.
+    noSideEffect, importcpp: "Value", header: "GCE2d_MakeArcOfCircle.hxx".}
+converter `constopencascade`*(this: GCE2d_MakeArcOfCircle): handle[
+    Geom2d_TrimmedCurve] {.noSideEffect, importcpp: "GCE2d_MakeArcOfCircle::operator constopencascade",
+                          header: "GCE2d_MakeArcOfCircle.hxx".}

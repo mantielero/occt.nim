@@ -14,6 +14,14 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../gp/gp_Pnt2d, ../Standard/Standard_Address,
+  ../Standard/Standard_Real, ../TColStd/TColStd_SequenceOfReal,
+  ../TColStd/TColStd_SequenceOfInteger, ../Extrema/Extrema_SequenceOfPOnCurv2d,
+  ../Standard/Standard_Boolean, ../Standard/Standard_Integer,
+  ../math/math_FunctionWithDerivative
+
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of Standard_TypeMismatch"
 discard "forward decl of HLRBRep_CurveTool"
@@ -21,57 +29,58 @@ discard "forward decl of Extrema_POnCurv2d"
 discard "forward decl of gp_Pnt2d"
 discard "forward decl of gp_Vec2d"
 type
-  HLRBRepPCLocFOfTheLocateExtPCOfTheProjPCurOfCInter* {.
+  HLRBRep_PCLocFOfTheLocateExtPCOfTheProjPCurOfCInter* {.
       importcpp: "HLRBRep_PCLocFOfTheLocateExtPCOfTheProjPCurOfCInter",
-      header: "HLRBRep_PCLocFOfTheLocateExtPCOfTheProjPCurOfCInter.hxx", bycopy.} = object of MathFunctionWithDerivative
+      header: "HLRBRep_PCLocFOfTheLocateExtPCOfTheProjPCurOfCInter.hxx", bycopy.} = object of math_FunctionWithDerivative
 
 
-proc constructHLRBRepPCLocFOfTheLocateExtPCOfTheProjPCurOfCInter*(): HLRBRepPCLocFOfTheLocateExtPCOfTheProjPCurOfCInter {.
+proc constructHLRBRep_PCLocFOfTheLocateExtPCOfTheProjPCurOfCInter*(): HLRBRep_PCLocFOfTheLocateExtPCOfTheProjPCurOfCInter {.
     constructor,
     importcpp: "HLRBRep_PCLocFOfTheLocateExtPCOfTheProjPCurOfCInter(@)",
     header: "HLRBRep_PCLocFOfTheLocateExtPCOfTheProjPCurOfCInter.hxx".}
-proc constructHLRBRepPCLocFOfTheLocateExtPCOfTheProjPCurOfCInter*(p: GpPnt2d;
-    c: StandardAddress): HLRBRepPCLocFOfTheLocateExtPCOfTheProjPCurOfCInter {.
+proc constructHLRBRep_PCLocFOfTheLocateExtPCOfTheProjPCurOfCInter*(P: gp_Pnt2d;
+    C: Standard_Address): HLRBRep_PCLocFOfTheLocateExtPCOfTheProjPCurOfCInter {.
     constructor,
     importcpp: "HLRBRep_PCLocFOfTheLocateExtPCOfTheProjPCurOfCInter(@)",
     header: "HLRBRep_PCLocFOfTheLocateExtPCOfTheProjPCurOfCInter.hxx".}
-proc initialize*(this: var HLRBRepPCLocFOfTheLocateExtPCOfTheProjPCurOfCInter;
-                c: StandardAddress) {.importcpp: "Initialize", header: "HLRBRep_PCLocFOfTheLocateExtPCOfTheProjPCurOfCInter.hxx".}
-proc setPoint*(this: var HLRBRepPCLocFOfTheLocateExtPCOfTheProjPCurOfCInter;
-              p: GpPnt2d) {.importcpp: "SetPoint", header: "HLRBRep_PCLocFOfTheLocateExtPCOfTheProjPCurOfCInter.hxx".}
-proc value*(this: var HLRBRepPCLocFOfTheLocateExtPCOfTheProjPCurOfCInter;
-           u: StandardReal; f: var StandardReal): StandardBoolean {.
+proc Initialize*(this: var HLRBRep_PCLocFOfTheLocateExtPCOfTheProjPCurOfCInter;
+                C: Standard_Address) {.importcpp: "Initialize", header: "HLRBRep_PCLocFOfTheLocateExtPCOfTheProjPCurOfCInter.hxx".}
+proc SetPoint*(this: var HLRBRep_PCLocFOfTheLocateExtPCOfTheProjPCurOfCInter;
+              P: gp_Pnt2d) {.importcpp: "SetPoint", header: "HLRBRep_PCLocFOfTheLocateExtPCOfTheProjPCurOfCInter.hxx".}
+proc Value*(this: var HLRBRep_PCLocFOfTheLocateExtPCOfTheProjPCurOfCInter;
+           U: Standard_Real; F: var Standard_Real): Standard_Boolean {.
     importcpp: "Value",
     header: "HLRBRep_PCLocFOfTheLocateExtPCOfTheProjPCurOfCInter.hxx".}
-proc derivative*(this: var HLRBRepPCLocFOfTheLocateExtPCOfTheProjPCurOfCInter;
-                u: StandardReal; df: var StandardReal): StandardBoolean {.
+proc Derivative*(this: var HLRBRep_PCLocFOfTheLocateExtPCOfTheProjPCurOfCInter;
+                U: Standard_Real; DF: var Standard_Real): Standard_Boolean {.
     importcpp: "Derivative",
     header: "HLRBRep_PCLocFOfTheLocateExtPCOfTheProjPCurOfCInter.hxx".}
-proc values*(this: var HLRBRepPCLocFOfTheLocateExtPCOfTheProjPCurOfCInter;
-            u: StandardReal; f: var StandardReal; df: var StandardReal): StandardBoolean {.
+proc Values*(this: var HLRBRep_PCLocFOfTheLocateExtPCOfTheProjPCurOfCInter;
+            U: Standard_Real; F: var Standard_Real; DF: var Standard_Real): Standard_Boolean {.
     importcpp: "Values",
     header: "HLRBRep_PCLocFOfTheLocateExtPCOfTheProjPCurOfCInter.hxx".}
-proc getStateNumber*(this: var HLRBRepPCLocFOfTheLocateExtPCOfTheProjPCurOfCInter): StandardInteger {.
+proc GetStateNumber*(this: var HLRBRep_PCLocFOfTheLocateExtPCOfTheProjPCurOfCInter): Standard_Integer {.
     importcpp: "GetStateNumber",
     header: "HLRBRep_PCLocFOfTheLocateExtPCOfTheProjPCurOfCInter.hxx".}
-proc nbExt*(this: HLRBRepPCLocFOfTheLocateExtPCOfTheProjPCurOfCInter): StandardInteger {.
+proc NbExt*(this: HLRBRep_PCLocFOfTheLocateExtPCOfTheProjPCurOfCInter): Standard_Integer {.
     noSideEffect, importcpp: "NbExt",
     header: "HLRBRep_PCLocFOfTheLocateExtPCOfTheProjPCurOfCInter.hxx".}
-proc squareDistance*(this: HLRBRepPCLocFOfTheLocateExtPCOfTheProjPCurOfCInter;
-                    n: StandardInteger): StandardReal {.noSideEffect,
+proc SquareDistance*(this: HLRBRep_PCLocFOfTheLocateExtPCOfTheProjPCurOfCInter;
+                    N: Standard_Integer): Standard_Real {.noSideEffect,
     importcpp: "SquareDistance",
     header: "HLRBRep_PCLocFOfTheLocateExtPCOfTheProjPCurOfCInter.hxx".}
-proc isMin*(this: HLRBRepPCLocFOfTheLocateExtPCOfTheProjPCurOfCInter;
-           n: StandardInteger): StandardBoolean {.noSideEffect, importcpp: "IsMin",
+proc IsMin*(this: HLRBRep_PCLocFOfTheLocateExtPCOfTheProjPCurOfCInter;
+           N: Standard_Integer): Standard_Boolean {.noSideEffect,
+    importcpp: "IsMin",
     header: "HLRBRep_PCLocFOfTheLocateExtPCOfTheProjPCurOfCInter.hxx".}
-proc point*(this: HLRBRepPCLocFOfTheLocateExtPCOfTheProjPCurOfCInter;
-           n: StandardInteger): ExtremaPOnCurv2d {.noSideEffect, importcpp: "Point",
+proc Point*(this: HLRBRep_PCLocFOfTheLocateExtPCOfTheProjPCurOfCInter;
+           N: Standard_Integer): Extrema_POnCurv2d {.noSideEffect,
+    importcpp: "Point",
     header: "HLRBRep_PCLocFOfTheLocateExtPCOfTheProjPCurOfCInter.hxx".}
-proc subIntervalInitialize*(this: var HLRBRepPCLocFOfTheLocateExtPCOfTheProjPCurOfCInter;
-                           theUfirst: StandardReal; theUlast: StandardReal) {.
+proc SubIntervalInitialize*(this: var HLRBRep_PCLocFOfTheLocateExtPCOfTheProjPCurOfCInter;
+                           theUfirst: Standard_Real; theUlast: Standard_Real) {.
     importcpp: "SubIntervalInitialize",
     header: "HLRBRep_PCLocFOfTheLocateExtPCOfTheProjPCurOfCInter.hxx".}
-proc searchOfTolerance*(this: var HLRBRepPCLocFOfTheLocateExtPCOfTheProjPCurOfCInter): StandardReal {.
+proc SearchOfTolerance*(this: var HLRBRep_PCLocFOfTheLocateExtPCOfTheProjPCurOfCInter): Standard_Real {.
     importcpp: "SearchOfTolerance",
     header: "HLRBRep_PCLocFOfTheLocateExtPCOfTheProjPCurOfCInter.hxx".}
-

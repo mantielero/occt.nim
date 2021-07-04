@@ -14,6 +14,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../GeomAbs/GeomAbs_CurveType, ../gp/gp_Lin2d,
+  ../gp/gp_Circ2d, ../gp/gp_Elips2d, ../gp/gp_Hypr2d, ../gp/gp_Parab2d,
+  ../Standard/Standard_Boolean, ../Standard/Standard_Real
+
 discard "forward decl of Geom2d_BSplineCurve"
 discard "forward decl of Geom2d_BezierCurve"
 discard "forward decl of Standard_NoSuchObject"
@@ -29,58 +35,57 @@ discard "forward decl of gp_Elips"
 discard "forward decl of gp_Parab"
 discard "forward decl of gp_Hypr"
 type
-  ProjLibProjector* {.importcpp: "ProjLib_Projector",
-                     header: "ProjLib_Projector.hxx", bycopy.} = object ## ! Sets the type to OtherCurve
+  ProjLib_Projector* {.importcpp: "ProjLib_Projector",
+                      header: "ProjLib_Projector.hxx", bycopy.} = object ## ! Sets the type to OtherCurve
 
 
-proc constructProjLibProjector*(): ProjLibProjector {.constructor,
+proc constructProjLib_Projector*(): ProjLib_Projector {.constructor,
     importcpp: "ProjLib_Projector(@)", header: "ProjLib_Projector.hxx".}
-proc destroyProjLibProjector*(this: var ProjLibProjector) {.
+proc destroyProjLib_Projector*(this: var ProjLib_Projector) {.
     importcpp: "#.~ProjLib_Projector()", header: "ProjLib_Projector.hxx".}
-proc isDone*(this: ProjLibProjector): StandardBoolean {.noSideEffect,
+proc IsDone*(this: ProjLib_Projector): Standard_Boolean {.noSideEffect,
     importcpp: "IsDone", header: "ProjLib_Projector.hxx".}
-proc done*(this: var ProjLibProjector) {.importcpp: "Done",
-                                     header: "ProjLib_Projector.hxx".}
-proc getType*(this: ProjLibProjector): GeomAbsCurveType {.noSideEffect,
+proc Done*(this: var ProjLib_Projector) {.importcpp: "Done",
+                                      header: "ProjLib_Projector.hxx".}
+proc GetType*(this: ProjLib_Projector): GeomAbs_CurveType {.noSideEffect,
     importcpp: "GetType", header: "ProjLib_Projector.hxx".}
-proc setBSpline*(this: var ProjLibProjector; c: Handle[Geom2dBSplineCurve]) {.
+proc SetBSpline*(this: var ProjLib_Projector; C: handle[Geom2d_BSplineCurve]) {.
     importcpp: "SetBSpline", header: "ProjLib_Projector.hxx".}
-proc setBezier*(this: var ProjLibProjector; c: Handle[Geom2dBezierCurve]) {.
+proc SetBezier*(this: var ProjLib_Projector; C: handle[Geom2d_BezierCurve]) {.
     importcpp: "SetBezier", header: "ProjLib_Projector.hxx".}
-proc setType*(this: var ProjLibProjector; `type`: GeomAbsCurveType) {.
+proc SetType*(this: var ProjLib_Projector; Type: GeomAbs_CurveType) {.
     importcpp: "SetType", header: "ProjLib_Projector.hxx".}
-proc isPeriodic*(this: ProjLibProjector): StandardBoolean {.noSideEffect,
+proc IsPeriodic*(this: ProjLib_Projector): Standard_Boolean {.noSideEffect,
     importcpp: "IsPeriodic", header: "ProjLib_Projector.hxx".}
-proc setPeriodic*(this: var ProjLibProjector) {.importcpp: "SetPeriodic",
+proc SetPeriodic*(this: var ProjLib_Projector) {.importcpp: "SetPeriodic",
     header: "ProjLib_Projector.hxx".}
-proc line*(this: ProjLibProjector): GpLin2d {.noSideEffect, importcpp: "Line",
+proc Line*(this: ProjLib_Projector): gp_Lin2d {.noSideEffect, importcpp: "Line",
     header: "ProjLib_Projector.hxx".}
-proc circle*(this: ProjLibProjector): GpCirc2d {.noSideEffect, importcpp: "Circle",
+proc Circle*(this: ProjLib_Projector): gp_Circ2d {.noSideEffect, importcpp: "Circle",
     header: "ProjLib_Projector.hxx".}
-proc ellipse*(this: ProjLibProjector): GpElips2d {.noSideEffect,
+proc Ellipse*(this: ProjLib_Projector): gp_Elips2d {.noSideEffect,
     importcpp: "Ellipse", header: "ProjLib_Projector.hxx".}
-proc hyperbola*(this: ProjLibProjector): GpHypr2d {.noSideEffect,
+proc Hyperbola*(this: ProjLib_Projector): gp_Hypr2d {.noSideEffect,
     importcpp: "Hyperbola", header: "ProjLib_Projector.hxx".}
-proc parabola*(this: ProjLibProjector): GpParab2d {.noSideEffect,
+proc Parabola*(this: ProjLib_Projector): gp_Parab2d {.noSideEffect,
     importcpp: "Parabola", header: "ProjLib_Projector.hxx".}
-proc bezier*(this: ProjLibProjector): Handle[Geom2dBezierCurve] {.noSideEffect,
+proc Bezier*(this: ProjLib_Projector): handle[Geom2d_BezierCurve] {.noSideEffect,
     importcpp: "Bezier", header: "ProjLib_Projector.hxx".}
-proc bSpline*(this: ProjLibProjector): Handle[Geom2dBSplineCurve] {.noSideEffect,
+proc BSpline*(this: ProjLib_Projector): handle[Geom2d_BSplineCurve] {.noSideEffect,
     importcpp: "BSpline", header: "ProjLib_Projector.hxx".}
-proc project*(this: var ProjLibProjector; L: GpLin) {.importcpp: "Project",
+proc Project*(this: var ProjLib_Projector; L: gp_Lin) {.importcpp: "Project",
     header: "ProjLib_Projector.hxx".}
-proc project*(this: var ProjLibProjector; c: GpCirc) {.importcpp: "Project",
+proc Project*(this: var ProjLib_Projector; C: gp_Circ) {.importcpp: "Project",
     header: "ProjLib_Projector.hxx".}
-proc project*(this: var ProjLibProjector; e: GpElips) {.importcpp: "Project",
+proc Project*(this: var ProjLib_Projector; E: gp_Elips) {.importcpp: "Project",
     header: "ProjLib_Projector.hxx".}
-proc project*(this: var ProjLibProjector; p: GpParab) {.importcpp: "Project",
+proc Project*(this: var ProjLib_Projector; P: gp_Parab) {.importcpp: "Project",
     header: "ProjLib_Projector.hxx".}
-proc project*(this: var ProjLibProjector; h: GpHypr) {.importcpp: "Project",
+proc Project*(this: var ProjLib_Projector; H: gp_Hypr) {.importcpp: "Project",
     header: "ProjLib_Projector.hxx".}
-proc uFrame*(this: var ProjLibProjector; cFirst: StandardReal; cLast: StandardReal;
-            uFirst: StandardReal; period: StandardReal) {.importcpp: "UFrame",
+proc UFrame*(this: var ProjLib_Projector; CFirst: Standard_Real; CLast: Standard_Real;
+            UFirst: Standard_Real; Period: Standard_Real) {.importcpp: "UFrame",
     header: "ProjLib_Projector.hxx".}
-proc vFrame*(this: var ProjLibProjector; cFirst: StandardReal; cLast: StandardReal;
-            vFirst: StandardReal; period: StandardReal) {.importcpp: "VFrame",
+proc VFrame*(this: var ProjLib_Projector; CFirst: Standard_Real; CLast: Standard_Real;
+            VFirst: Standard_Real; Period: Standard_Real) {.importcpp: "VFrame",
     header: "ProjLib_Projector.hxx".}
-

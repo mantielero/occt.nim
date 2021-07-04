@@ -12,17 +12,15 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _OSD_SIGSYS_HeaderFile [NewLine] # _OSD_SIGSYS_HeaderFile [NewLine] # < Standard_Type . hxx > [NewLine] # < Standard_DefineException . hxx > [NewLine] # < Standard_SStream . hxx > [NewLine] # < OSD_Signal . hxx > [NewLine] class OSD_SIGSYS ;
+## !!!Ignored construct:  # _OSD_SIGSYS_HeaderFile [NewLine] # _OSD_SIGSYS_HeaderFile [NewLine] # ../Standard/Standard_Type.hxx [NewLine] # ../Standard/Standard_DefineException.hxx [NewLine] # ../Standard/Standard_SStream.hxx [NewLine] # OSD_Signal.hxx [NewLine] class OSD_SIGSYS ;
 ## Error: expected ';'!!!
 
 discard "forward decl of OSD_SIGSYS"
 type
-  HandleOSD_SIGSYSOSD_SIGSYS* = Handle[Osd_Sigsys]
+  Handle_OSD_SIGSYSOSD_SIGSYS* = handle[OSD_SIGSYS]
 
 ## !!!Ignored construct:  # ! defined No_Exception && ! defined No_OSD_SIGSYS [NewLine] # if ( CONDITION ) throw OSD_SIGSYS ( MESSAGE ) ;
 ## Error: did not expect [NewLine]!!!
 
-## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( OSD_SIGSYS , OSD_Signal ) #  _OSD_SIGSYS_HeaderFile
+## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( OSD_SIGSYS , OSD_Signal ) #  _OSD_SIGSYS_HeaderFile [NewLine]
 ## Error: did not expect [NewLine]!!!
-
-

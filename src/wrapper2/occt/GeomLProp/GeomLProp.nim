@@ -14,6 +14,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../GeomAbs/GeomAbs_Shape,
+  ../Standard/Standard_Real, ../Standard/Standard_Boolean
+
 discard "forward decl of Geom_Curve"
 discard "forward decl of GeomLProp_CurveTool"
 discard "forward decl of GeomLProp_SurfaceTool"
@@ -39,11 +44,10 @@ type
                                                                           ## derivative.
 
 
-proc continuity*(c1: Handle[GeomCurve]; c2: Handle[GeomCurve]; u1: StandardReal;
-                u2: StandardReal; r1: StandardBoolean; r2: StandardBoolean;
-                tl: StandardReal; ta: StandardReal): GeomAbsShape {.
+proc Continuity*(C1: handle[Geom_Curve]; C2: handle[Geom_Curve]; u1: Standard_Real;
+                u2: Standard_Real; r1: Standard_Boolean; r2: Standard_Boolean;
+                tl: Standard_Real; ta: Standard_Real): GeomAbs_Shape {.
     importcpp: "GeomLProp::Continuity(@)", header: "GeomLProp.hxx".}
-proc continuity*(c1: Handle[GeomCurve]; c2: Handle[GeomCurve]; u1: StandardReal;
-                u2: StandardReal; r1: StandardBoolean; r2: StandardBoolean): GeomAbsShape {.
+proc Continuity*(C1: handle[Geom_Curve]; C2: handle[Geom_Curve]; u1: Standard_Real;
+                u2: Standard_Real; r1: Standard_Boolean; r2: Standard_Boolean): GeomAbs_Shape {.
     importcpp: "GeomLProp::Continuity(@)", header: "GeomLProp.hxx".}
-

@@ -14,6 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, IGESSelect_ModelModifier,
+  ../Standard/Standard_Boolean
+
 discard "forward decl of IFSelect_IntParam"
 discard "forward decl of IFSelect_ContextModif"
 discard "forward decl of IGESData_IGESModel"
@@ -22,7 +26,7 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of IGESSelect_ChangeLevelList"
 discard "forward decl of IGESSelect_ChangeLevelList"
 type
-  HandleIGESSelectChangeLevelList* = Handle[IGESSelectChangeLevelList]
+  Handle_IGESSelect_ChangeLevelList* = handle[IGESSelect_ChangeLevelList]
 
 ## ! Changes Level List (in directory part) to a new single value
 ## ! Only entities attached to a LevelListEntity are considered
@@ -37,54 +41,55 @@ type
 ## ! is set as new LevelNumber
 
 type
-  IGESSelectChangeLevelList* {.importcpp: "IGESSelect_ChangeLevelList",
-                              header: "IGESSelect_ChangeLevelList.hxx", bycopy.} = object of IGESSelectModelModifier ##
-                                                                                                              ## !
-                                                                                                              ## Creates
-                                                                                                              ## a
-                                                                                                              ## ChangeLevelList,
-                                                                                                              ## not
-                                                                                                              ## yet
-                                                                                                              ## defined
-                                                                                                              ##
-                                                                                                              ## !
-                                                                                                              ## (see
-                                                                                                              ## SetOldNumber
-                                                                                                              ## and
-                                                                                                              ## SetNewNumber)
+  IGESSelect_ChangeLevelList* {.importcpp: "IGESSelect_ChangeLevelList",
+                               header: "IGESSelect_ChangeLevelList.hxx", bycopy.} = object of IGESSelect_ModelModifier ##
+                                                                                                                ## !
+                                                                                                                ## Creates
+                                                                                                                ## a
+                                                                                                                ## ChangeLevelList,
+                                                                                                                ## not
+                                                                                                                ## yet
+                                                                                                                ## defined
+                                                                                                                ##
+                                                                                                                ## !
+                                                                                                                ## (see
+                                                                                                                ## SetOldNumber
+                                                                                                                ## and
+                                                                                                                ## SetNewNumber)
 
 
-proc constructIGESSelectChangeLevelList*(): IGESSelectChangeLevelList {.
+proc constructIGESSelect_ChangeLevelList*(): IGESSelect_ChangeLevelList {.
     constructor, importcpp: "IGESSelect_ChangeLevelList(@)",
     header: "IGESSelect_ChangeLevelList.hxx".}
-proc hasOldNumber*(this: IGESSelectChangeLevelList): StandardBoolean {.noSideEffect,
-    importcpp: "HasOldNumber", header: "IGESSelect_ChangeLevelList.hxx".}
-proc oldNumber*(this: IGESSelectChangeLevelList): Handle[IFSelectIntParam] {.
+proc HasOldNumber*(this: IGESSelect_ChangeLevelList): Standard_Boolean {.
+    noSideEffect, importcpp: "HasOldNumber",
+    header: "IGESSelect_ChangeLevelList.hxx".}
+proc OldNumber*(this: IGESSelect_ChangeLevelList): handle[IFSelect_IntParam] {.
     noSideEffect, importcpp: "OldNumber", header: "IGESSelect_ChangeLevelList.hxx".}
-proc setOldNumber*(this: var IGESSelectChangeLevelList;
-                  param: Handle[IFSelectIntParam]) {.importcpp: "SetOldNumber",
+proc SetOldNumber*(this: var IGESSelect_ChangeLevelList;
+                  param: handle[IFSelect_IntParam]) {.importcpp: "SetOldNumber",
     header: "IGESSelect_ChangeLevelList.hxx".}
-proc hasNewNumber*(this: IGESSelectChangeLevelList): StandardBoolean {.noSideEffect,
-    importcpp: "HasNewNumber", header: "IGESSelect_ChangeLevelList.hxx".}
-proc newNumber*(this: IGESSelectChangeLevelList): Handle[IFSelectIntParam] {.
+proc HasNewNumber*(this: IGESSelect_ChangeLevelList): Standard_Boolean {.
+    noSideEffect, importcpp: "HasNewNumber",
+    header: "IGESSelect_ChangeLevelList.hxx".}
+proc NewNumber*(this: IGESSelect_ChangeLevelList): handle[IFSelect_IntParam] {.
     noSideEffect, importcpp: "NewNumber", header: "IGESSelect_ChangeLevelList.hxx".}
-proc setNewNumber*(this: var IGESSelectChangeLevelList;
-                  param: Handle[IFSelectIntParam]) {.importcpp: "SetNewNumber",
+proc SetNewNumber*(this: var IGESSelect_ChangeLevelList;
+                  param: handle[IFSelect_IntParam]) {.importcpp: "SetNewNumber",
     header: "IGESSelect_ChangeLevelList.hxx".}
-proc performing*(this: IGESSelectChangeLevelList; ctx: var IFSelectContextModif;
-                target: Handle[IGESDataIGESModel]; tc: var InterfaceCopyTool) {.
+proc Performing*(this: IGESSelect_ChangeLevelList; ctx: var IFSelect_ContextModif;
+                target: handle[IGESData_IGESModel]; TC: var Interface_CopyTool) {.
     noSideEffect, importcpp: "Performing", header: "IGESSelect_ChangeLevelList.hxx".}
-proc label*(this: IGESSelectChangeLevelList): TCollectionAsciiString {.noSideEffect,
-    importcpp: "Label", header: "IGESSelect_ChangeLevelList.hxx".}
+proc Label*(this: IGESSelect_ChangeLevelList): TCollection_AsciiString {.
+    noSideEffect, importcpp: "Label", header: "IGESSelect_ChangeLevelList.hxx".}
 type
-  IGESSelectChangeLevelListbaseType* = IGESSelectModelModifier
+  IGESSelect_ChangeLevelListbase_type* = IGESSelect_ModelModifier
 
-proc getTypeName*(): cstring {.importcpp: "IGESSelect_ChangeLevelList::get_type_name(@)",
-                            header: "IGESSelect_ChangeLevelList.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "IGESSelect_ChangeLevelList::get_type_name(@)",
+                              header: "IGESSelect_ChangeLevelList.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "IGESSelect_ChangeLevelList::get_type_descriptor(@)",
     header: "IGESSelect_ChangeLevelList.hxx".}
-proc dynamicType*(this: IGESSelectChangeLevelList): Handle[StandardType] {.
+proc DynamicType*(this: IGESSelect_ChangeLevelList): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType",
     header: "IGESSelect_ChangeLevelList.hxx".}
-

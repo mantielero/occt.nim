@@ -12,15 +12,18 @@
 ##  commercial license or contractual agreement.
 ##   Include a utiliser pour appeler IGESFile_Read
 
-proc iGESFileRead*(nomfic: cstring; amodel: Handle[IGESDataIGESModel];
-                  protocol: Handle[IGESDataProtocol]): StandardInteger {.
-    importcpp: "IGESFile_Read(@)", header: "IGESFile_Read.hxx".}
-proc iGESFileReadFNES*(nomfic: cstring; amodel: Handle[IGESDataIGESModel];
-                      protocol: Handle[IGESDataProtocol]): StandardInteger {.
-    importcpp: "IGESFile_ReadFNES(@)", header: "IGESFile_Read.hxx".}
-proc iGESFileRead*(nomfic: cstring; amodel: Handle[IGESDataIGESModel];
-                  protocol: Handle[IGESDataProtocol];
-                  reco: Handle[IGESDataFileRecognizer];
-                  modefnes: StandardBoolean = standardFalse): StandardInteger {.
-    importcpp: "IGESFile_Read(@)", header: "IGESFile_Read.hxx".}
+import
+  ../IGESData/IGESData_IGESModel, ../IGESData/IGESData_Protocol,
+  ../IGESData/IGESData_FileRecognizer
 
+proc IGESFile_Read*(nomfic: cstring; amodel: handle[IGESData_IGESModel];
+                   protocol: handle[IGESData_Protocol]): Standard_Integer {.
+    importcpp: "IGESFile_Read(@)", header: "IGESFile_Read.hxx".}
+proc IGESFile_ReadFNES*(nomfic: cstring; amodel: handle[IGESData_IGESModel];
+                       protocol: handle[IGESData_Protocol]): Standard_Integer {.
+    importcpp: "IGESFile_ReadFNES(@)", header: "IGESFile_Read.hxx".}
+proc IGESFile_Read*(nomfic: cstring; amodel: handle[IGESData_IGESModel];
+                   protocol: handle[IGESData_Protocol];
+                   reco: handle[IGESData_FileRecognizer];
+                   modefnes: Standard_Boolean = Standard_False): Standard_Integer {.
+    importcpp: "IGESFile_Read(@)", header: "IGESFile_Read.hxx".}

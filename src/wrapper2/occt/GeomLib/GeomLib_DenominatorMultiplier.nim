@@ -14,25 +14,29 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../TColStd/TColStd_Array1OfReal,
+  ../Standard/Standard_Real
+
 discard "forward decl of Geom_BSplineSurface"
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of Standard_ConstructionError"
 type
-  GeomLibDenominatorMultiplier* {.importcpp: "GeomLib_DenominatorMultiplier",
-                                 header: "GeomLib_DenominatorMultiplier.hxx",
-                                 bycopy.} = object ## ! if the surface is rational this will define the evaluator
-                                                ## ! of a real function of 2 variables a(u,v) such that
-                                                ## ! if we define a new surface by :
-                                                ## ! a(u,v) * N(u,v)
-                                                ## ! NewF(u,v) = ----------------
-                                                ## ! a(u,v) * D(u,v)
+  GeomLib_DenominatorMultiplier* {.importcpp: "GeomLib_DenominatorMultiplier",
+                                  header: "GeomLib_DenominatorMultiplier.hxx",
+                                  bycopy.} = object ## ! if the surface is rational this will define the evaluator
+                                                 ## ! of a real function of 2 variables a(u,v) such that
+                                                 ## ! if we define a new surface by :
+                                                 ## ! a(u,v) * N(u,v)
+                                                 ## ! NewF(u,v) = ----------------
+                                                 ## ! a(u,v) * D(u,v)
 
 
-proc constructGeomLibDenominatorMultiplier*(surface: Handle[GeomBSplineSurface];
-    knotVector: TColStdArray1OfReal): GeomLibDenominatorMultiplier {.constructor,
-    importcpp: "GeomLib_DenominatorMultiplier(@)",
+proc constructGeomLib_DenominatorMultiplier*(
+    Surface: handle[Geom_BSplineSurface]; KnotVector: TColStd_Array1OfReal): GeomLib_DenominatorMultiplier {.
+    constructor, importcpp: "GeomLib_DenominatorMultiplier(@)",
     header: "GeomLib_DenominatorMultiplier.hxx".}
-proc value*(this: GeomLibDenominatorMultiplier; uParameter: StandardReal;
-           vParameter: StandardReal): StandardReal {.noSideEffect,
+proc Value*(this: GeomLib_DenominatorMultiplier; UParameter: Standard_Real;
+           VParameter: Standard_Real): Standard_Real {.noSideEffect,
     importcpp: "Value", header: "GeomLib_DenominatorMultiplier.hxx".}
-

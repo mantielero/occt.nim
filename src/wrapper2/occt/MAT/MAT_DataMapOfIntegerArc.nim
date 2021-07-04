@@ -14,10 +14,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard_Integer, MAT_Arc, ../TColStd/TColStd_MapIntegerHasher,
+  ../NCollection/NCollection_DataMap
+
 type
-  MAT_DataMapOfIntegerArc* = NCollectionDataMap[StandardInteger, Handle[MAT_Arc],
-      TColStdMapIntegerHasher]
-  MAT_DataMapIteratorOfDataMapOfIntegerArc* = Iterator[StandardInteger,
-      Handle[MAT_Arc], TColStdMapIntegerHasher]
-
-
+  MAT_DataMapOfIntegerArc* = NCollection_DataMap[Standard_Integer, handle[MAT_Arc],
+      TColStd_MapIntegerHasher]
+  MAT_DataMapIteratorOfDataMapOfIntegerArc* = Iterator[Standard_Integer,
+      handle[MAT_Arc], TColStd_MapIntegerHasher]

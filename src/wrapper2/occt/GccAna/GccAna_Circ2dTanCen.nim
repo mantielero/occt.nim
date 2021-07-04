@@ -14,6 +14,14 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
+  ../Standard/Standard_Integer, ../TColgp/TColgp_Array1OfCirc2d,
+  ../GccEnt/GccEnt_Array1OfPosition, ../TColStd/TColStd_Array1OfInteger,
+  ../TColgp/TColgp_Array1OfPnt2d, ../TColStd/TColStd_Array1OfReal,
+  ../Standard/Standard_Real, ../GccEnt/GccEnt_Position
+
 discard "forward decl of Standard_NegativeValue"
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of StdFail_NotDone"
@@ -23,36 +31,36 @@ discard "forward decl of gp_Pnt2d"
 discard "forward decl of gp_Lin2d"
 discard "forward decl of gp_Circ2d"
 type
-  GccAnaCirc2dTanCen* {.importcpp: "GccAna_Circ2dTanCen",
-                       header: "GccAna_Circ2dTanCen.hxx", bycopy.} = object ## ! This method
-                                                                       ## implements the
-                                                                       ## algorithms used to
-                                                                       ## ! create 2d circles tangent to a circle and
-                                                                       ## ! centered on a point.
+  GccAna_Circ2dTanCen* {.importcpp: "GccAna_Circ2dTanCen",
+                        header: "GccAna_Circ2dTanCen.hxx", bycopy.} = object ## ! This method
+                                                                        ## implements the
+                                                                        ## algorithms used to
+                                                                        ## ! create 2d circles tangent to a circle and
+                                                                        ## ! centered on a point.
 
 
-proc constructGccAnaCirc2dTanCen*(qualified1: GccEntQualifiedCirc;
-                                 pcenter: GpPnt2d; tolerance: StandardReal): GccAnaCirc2dTanCen {.
+proc constructGccAna_Circ2dTanCen*(Qualified1: GccEnt_QualifiedCirc;
+                                  Pcenter: gp_Pnt2d; Tolerance: Standard_Real): GccAna_Circ2dTanCen {.
     constructor, importcpp: "GccAna_Circ2dTanCen(@)",
     header: "GccAna_Circ2dTanCen.hxx".}
-proc constructGccAnaCirc2dTanCen*(linetan: GpLin2d; pcenter: GpPnt2d): GccAnaCirc2dTanCen {.
+proc constructGccAna_Circ2dTanCen*(Linetan: gp_Lin2d; Pcenter: gp_Pnt2d): GccAna_Circ2dTanCen {.
     constructor, importcpp: "GccAna_Circ2dTanCen(@)",
     header: "GccAna_Circ2dTanCen.hxx".}
-proc constructGccAnaCirc2dTanCen*(point1: GpPnt2d; pcenter: GpPnt2d): GccAnaCirc2dTanCen {.
+proc constructGccAna_Circ2dTanCen*(Point1: gp_Pnt2d; Pcenter: gp_Pnt2d): GccAna_Circ2dTanCen {.
     constructor, importcpp: "GccAna_Circ2dTanCen(@)",
     header: "GccAna_Circ2dTanCen.hxx".}
-proc isDone*(this: GccAnaCirc2dTanCen): StandardBoolean {.noSideEffect,
+proc IsDone*(this: GccAna_Circ2dTanCen): Standard_Boolean {.noSideEffect,
     importcpp: "IsDone", header: "GccAna_Circ2dTanCen.hxx".}
-proc nbSolutions*(this: GccAnaCirc2dTanCen): StandardInteger {.noSideEffect,
+proc NbSolutions*(this: GccAna_Circ2dTanCen): Standard_Integer {.noSideEffect,
     importcpp: "NbSolutions", header: "GccAna_Circ2dTanCen.hxx".}
-proc thisSolution*(this: GccAnaCirc2dTanCen; index: StandardInteger): GpCirc2d {.
+proc ThisSolution*(this: GccAna_Circ2dTanCen; Index: Standard_Integer): gp_Circ2d {.
     noSideEffect, importcpp: "ThisSolution", header: "GccAna_Circ2dTanCen.hxx".}
-proc whichQualifier*(this: GccAnaCirc2dTanCen; index: StandardInteger;
-                    qualif1: var GccEntPosition) {.noSideEffect,
+proc WhichQualifier*(this: GccAna_Circ2dTanCen; Index: Standard_Integer;
+                    Qualif1: var GccEnt_Position) {.noSideEffect,
     importcpp: "WhichQualifier", header: "GccAna_Circ2dTanCen.hxx".}
-proc tangency1*(this: GccAnaCirc2dTanCen; index: StandardInteger;
-               parSol: var StandardReal; parArg: var StandardReal; pntSol: var GpPnt2d) {.
-    noSideEffect, importcpp: "Tangency1", header: "GccAna_Circ2dTanCen.hxx".}
-proc isTheSame1*(this: GccAnaCirc2dTanCen; index: StandardInteger): StandardBoolean {.
+proc Tangency1*(this: GccAna_Circ2dTanCen; Index: Standard_Integer;
+               ParSol: var Standard_Real; ParArg: var Standard_Real;
+               PntSol: var gp_Pnt2d) {.noSideEffect, importcpp: "Tangency1",
+                                    header: "GccAna_Circ2dTanCen.hxx".}
+proc IsTheSame1*(this: GccAna_Circ2dTanCen; Index: Standard_Integer): Standard_Boolean {.
     noSideEffect, importcpp: "IsTheSame1", header: "GccAna_Circ2dTanCen.hxx".}
-

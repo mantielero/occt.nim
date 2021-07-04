@@ -12,6 +12,15 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer,
+  ../Standard/Standard_Real, BlendFunc_GenChamfer, ../Standard/Standard_Boolean,
+  ../math/math_Vector, ../TColStd/TColStd_Array1OfReal, ../GeomAbs/GeomAbs_Shape,
+  ../TColStd/TColStd_Array1OfInteger, ../TColgp/TColgp_Array1OfPnt,
+  ../TColgp/TColgp_Array1OfVec, ../TColgp/TColgp_Array1OfPnt2d,
+  ../TColgp/TColgp_Array1OfVec2d
+
 discard "forward decl of Adaptor3d_HSurface"
 discard "forward decl of Adaptor3d_HCurve"
 discard "forward decl of math_Matrix"
@@ -21,44 +30,43 @@ discard "forward decl of gp_Vec2d"
 discard "forward decl of gp_Lin"
 discard "forward decl of Blend_Point"
 type
-  BlendFuncConstThroat* {.importcpp: "BlendFunc_ConstThroat",
-                         header: "BlendFunc_ConstThroat.hxx", bycopy.} = object of BlendFuncGenChamfer
+  BlendFunc_ConstThroat* {.importcpp: "BlendFunc_ConstThroat",
+                          header: "BlendFunc_ConstThroat.hxx", bycopy.} = object of BlendFunc_GenChamfer
 
 
-proc constructBlendFuncConstThroat*(s1: Handle[Adaptor3dHSurface];
-                                   s2: Handle[Adaptor3dHSurface];
-                                   c: Handle[Adaptor3dHCurve]): BlendFuncConstThroat {.
+proc constructBlendFunc_ConstThroat*(S1: handle[Adaptor3d_HSurface];
+                                    S2: handle[Adaptor3d_HSurface];
+                                    C: handle[Adaptor3d_HCurve]): BlendFunc_ConstThroat {.
     constructor, importcpp: "BlendFunc_ConstThroat(@)",
     header: "BlendFunc_ConstThroat.hxx".}
-proc value*(this: var BlendFuncConstThroat; x: MathVector; f: var MathVector): StandardBoolean {.
+proc Value*(this: var BlendFunc_ConstThroat; X: math_Vector; F: var math_Vector): Standard_Boolean {.
     importcpp: "Value", header: "BlendFunc_ConstThroat.hxx".}
-proc derivatives*(this: var BlendFuncConstThroat; x: MathVector; d: var MathMatrix): StandardBoolean {.
+proc Derivatives*(this: var BlendFunc_ConstThroat; X: math_Vector; D: var math_Matrix): Standard_Boolean {.
     importcpp: "Derivatives", header: "BlendFunc_ConstThroat.hxx".}
-proc set*(this: var BlendFuncConstThroat; param: StandardReal) {.importcpp: "Set",
+proc Set*(this: var BlendFunc_ConstThroat; Param: Standard_Real) {.importcpp: "Set",
     header: "BlendFunc_ConstThroat.hxx".}
-proc isSolution*(this: var BlendFuncConstThroat; sol: MathVector; tol: StandardReal): StandardBoolean {.
+proc IsSolution*(this: var BlendFunc_ConstThroat; Sol: math_Vector; Tol: Standard_Real): Standard_Boolean {.
     importcpp: "IsSolution", header: "BlendFunc_ConstThroat.hxx".}
-proc pointOnS1*(this: BlendFuncConstThroat): GpPnt {.noSideEffect,
+proc PointOnS1*(this: BlendFunc_ConstThroat): gp_Pnt {.noSideEffect,
     importcpp: "PointOnS1", header: "BlendFunc_ConstThroat.hxx".}
-proc pointOnS2*(this: BlendFuncConstThroat): GpPnt {.noSideEffect,
+proc PointOnS2*(this: BlendFunc_ConstThroat): gp_Pnt {.noSideEffect,
     importcpp: "PointOnS2", header: "BlendFunc_ConstThroat.hxx".}
-proc isTangencyPoint*(this: BlendFuncConstThroat): StandardBoolean {.noSideEffect,
+proc IsTangencyPoint*(this: BlendFunc_ConstThroat): Standard_Boolean {.noSideEffect,
     importcpp: "IsTangencyPoint", header: "BlendFunc_ConstThroat.hxx".}
-proc tangentOnS1*(this: BlendFuncConstThroat): GpVec {.noSideEffect,
+proc TangentOnS1*(this: BlendFunc_ConstThroat): gp_Vec {.noSideEffect,
     importcpp: "TangentOnS1", header: "BlendFunc_ConstThroat.hxx".}
-proc tangent2dOnS1*(this: BlendFuncConstThroat): GpVec2d {.noSideEffect,
+proc Tangent2dOnS1*(this: BlendFunc_ConstThroat): gp_Vec2d {.noSideEffect,
     importcpp: "Tangent2dOnS1", header: "BlendFunc_ConstThroat.hxx".}
-proc tangentOnS2*(this: BlendFuncConstThroat): GpVec {.noSideEffect,
+proc TangentOnS2*(this: BlendFunc_ConstThroat): gp_Vec {.noSideEffect,
     importcpp: "TangentOnS2", header: "BlendFunc_ConstThroat.hxx".}
-proc tangent2dOnS2*(this: BlendFuncConstThroat): GpVec2d {.noSideEffect,
+proc Tangent2dOnS2*(this: BlendFunc_ConstThroat): gp_Vec2d {.noSideEffect,
     importcpp: "Tangent2dOnS2", header: "BlendFunc_ConstThroat.hxx".}
-proc tangent*(this: BlendFuncConstThroat; u1: StandardReal; v1: StandardReal;
-             u2: StandardReal; v2: StandardReal; tgFirst: var GpVec; tgLast: var GpVec;
-             normFirst: var GpVec; normLast: var GpVec) {.noSideEffect,
-    importcpp: "Tangent", header: "BlendFunc_ConstThroat.hxx".}
-proc set*(this: var BlendFuncConstThroat; aThroat: StandardReal; a3: StandardReal;
-         choix: StandardInteger) {.importcpp: "Set",
-                                 header: "BlendFunc_ConstThroat.hxx".}
-proc getSectionSize*(this: BlendFuncConstThroat): StandardReal {.noSideEffect,
+proc Tangent*(this: BlendFunc_ConstThroat; U1: Standard_Real; V1: Standard_Real;
+             U2: Standard_Real; V2: Standard_Real; TgFirst: var gp_Vec;
+             TgLast: var gp_Vec; NormFirst: var gp_Vec; NormLast: var gp_Vec) {.
+    noSideEffect, importcpp: "Tangent", header: "BlendFunc_ConstThroat.hxx".}
+proc Set*(this: var BlendFunc_ConstThroat; aThroat: Standard_Real; a3: Standard_Real;
+         Choix: Standard_Integer) {.importcpp: "Set",
+                                  header: "BlendFunc_ConstThroat.hxx".}
+proc GetSectionSize*(this: BlendFunc_ConstThroat): Standard_Real {.noSideEffect,
     importcpp: "GetSectionSize", header: "BlendFunc_ConstThroat.hxx".}
-

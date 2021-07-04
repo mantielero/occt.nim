@@ -14,6 +14,13 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../AppParCurves/AppParCurves_MultiCurve,
+  ../math/math_Vector, ../Standard/Standard_Real, ../Standard/Standard_Boolean,
+  ../Standard/Standard_Integer,
+  ../AppParCurves/AppParCurves_HArray1OfConstraintCouple
+
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of BRepApprox_TheMultiLineOfApprox"
@@ -24,7 +31,7 @@ discard "forward decl of BRepApprox_ParFunctionOfMyGradientbisOfTheComputeLineOf
 discard "forward decl of BRepApprox_Gradient_BFGSOfMyGradientbisOfTheComputeLineOfApprox"
 discard "forward decl of AppParCurves_MultiCurve"
 type
-  BRepApproxMyGradientbisOfTheComputeLineOfApprox* {.
+  BRepApprox_MyGradientbisOfTheComputeLineOfApprox* {.
       importcpp: "BRepApprox_MyGradientbisOfTheComputeLineOfApprox",
       header: "BRepApprox_MyGradientbisOfTheComputeLineOfApprox.hxx", bycopy.} = object ##
                                                                                    ## !
@@ -92,31 +99,31 @@ type
                                                                                    ## Deg.
 
 
-proc constructBRepApproxMyGradientbisOfTheComputeLineOfApprox*(
-    ssp: BRepApproxTheMultiLineOfApprox; firstPoint: StandardInteger;
-    lastPoint: StandardInteger;
-    theConstraints: Handle[AppParCurvesHArray1OfConstraintCouple];
-    parameters: var MathVector; deg: StandardInteger; tol3d: StandardReal;
-    tol2d: StandardReal; nbIterations: StandardInteger = 200): BRepApproxMyGradientbisOfTheComputeLineOfApprox {.
+proc constructBRepApprox_MyGradientbisOfTheComputeLineOfApprox*(
+    SSP: BRepApprox_TheMultiLineOfApprox; FirstPoint: Standard_Integer;
+    LastPoint: Standard_Integer;
+    TheConstraints: handle[AppParCurves_HArray1OfConstraintCouple];
+    Parameters: var math_Vector; Deg: Standard_Integer; Tol3d: Standard_Real;
+    Tol2d: Standard_Real; NbIterations: Standard_Integer = 200): BRepApprox_MyGradientbisOfTheComputeLineOfApprox {.
     constructor,
     importcpp: "BRepApprox_MyGradientbisOfTheComputeLineOfApprox(@)",
     header: "BRepApprox_MyGradientbisOfTheComputeLineOfApprox.hxx".}
-proc isDone*(this: BRepApproxMyGradientbisOfTheComputeLineOfApprox): StandardBoolean {.
+proc IsDone*(this: BRepApprox_MyGradientbisOfTheComputeLineOfApprox): Standard_Boolean {.
     noSideEffect, importcpp: "IsDone",
     header: "BRepApprox_MyGradientbisOfTheComputeLineOfApprox.hxx".}
-proc value*(this: BRepApproxMyGradientbisOfTheComputeLineOfApprox): AppParCurvesMultiCurve {.
+proc Value*(this: BRepApprox_MyGradientbisOfTheComputeLineOfApprox): AppParCurves_MultiCurve {.
     noSideEffect, importcpp: "Value",
     header: "BRepApprox_MyGradientbisOfTheComputeLineOfApprox.hxx".}
-proc error*(this: BRepApproxMyGradientbisOfTheComputeLineOfApprox;
-           index: StandardInteger): StandardReal {.noSideEffect, importcpp: "Error",
+proc Error*(this: BRepApprox_MyGradientbisOfTheComputeLineOfApprox;
+           Index: Standard_Integer): Standard_Real {.noSideEffect,
+    importcpp: "Error",
     header: "BRepApprox_MyGradientbisOfTheComputeLineOfApprox.hxx".}
-proc maxError3d*(this: BRepApproxMyGradientbisOfTheComputeLineOfApprox): StandardReal {.
+proc MaxError3d*(this: BRepApprox_MyGradientbisOfTheComputeLineOfApprox): Standard_Real {.
     noSideEffect, importcpp: "MaxError3d",
     header: "BRepApprox_MyGradientbisOfTheComputeLineOfApprox.hxx".}
-proc maxError2d*(this: BRepApproxMyGradientbisOfTheComputeLineOfApprox): StandardReal {.
+proc MaxError2d*(this: BRepApprox_MyGradientbisOfTheComputeLineOfApprox): Standard_Real {.
     noSideEffect, importcpp: "MaxError2d",
     header: "BRepApprox_MyGradientbisOfTheComputeLineOfApprox.hxx".}
-proc averageError*(this: BRepApproxMyGradientbisOfTheComputeLineOfApprox): StandardReal {.
+proc AverageError*(this: BRepApprox_MyGradientbisOfTheComputeLineOfApprox): Standard_Real {.
     noSideEffect, importcpp: "AverageError",
     header: "BRepApprox_MyGradientbisOfTheComputeLineOfApprox.hxx".}
-

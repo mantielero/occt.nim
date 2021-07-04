@@ -14,6 +14,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
+  ../Standard/Standard_Integer, ../Standard/Standard_CString,
+  ../Interface/Interface_HArray1OfHAsciiString
+
 discard "forward decl of HeaderSection_FileName"
 discard "forward decl of HeaderSection_FileSchema"
 discard "forward decl of HeaderSection_FileDescription"
@@ -21,143 +27,142 @@ discard "forward decl of StepData_StepModel"
 discard "forward decl of Interface_Protocol"
 discard "forward decl of TCollection_HAsciiString"
 type
-  APIHeaderSectionMakeHeader* {.importcpp: "APIHeaderSection_MakeHeader",
-                               header: "APIHeaderSection_MakeHeader.hxx", bycopy.} = object ##
-                                                                                       ## !
-                                                                                       ## Prepares
-                                                                                       ## a
-                                                                                       ## new
-                                                                                       ## MakeHeader
-                                                                                       ## from
-                                                                                       ## scratch
+  APIHeaderSection_MakeHeader* {.importcpp: "APIHeaderSection_MakeHeader",
+                                header: "APIHeaderSection_MakeHeader.hxx", bycopy.} = object ##
+                                                                                        ## !
+                                                                                        ## Prepares
+                                                                                        ## a
+                                                                                        ## new
+                                                                                        ## MakeHeader
+                                                                                        ## from
+                                                                                        ## scratch
 
 
-proc constructAPIHeaderSectionMakeHeader*(shapetype: StandardInteger = 0): APIHeaderSectionMakeHeader {.
+proc constructAPIHeaderSection_MakeHeader*(shapetype: Standard_Integer = 0): APIHeaderSection_MakeHeader {.
     constructor, importcpp: "APIHeaderSection_MakeHeader(@)",
     header: "APIHeaderSection_MakeHeader.hxx".}
-proc constructAPIHeaderSectionMakeHeader*(model: Handle[StepDataStepModel]): APIHeaderSectionMakeHeader {.
+proc constructAPIHeaderSection_MakeHeader*(model: handle[StepData_StepModel]): APIHeaderSection_MakeHeader {.
     constructor, importcpp: "APIHeaderSection_MakeHeader(@)",
     header: "APIHeaderSection_MakeHeader.hxx".}
-proc init*(this: var APIHeaderSectionMakeHeader; nameval: StandardCString) {.
+proc Init*(this: var APIHeaderSection_MakeHeader; nameval: Standard_CString) {.
     importcpp: "Init", header: "APIHeaderSection_MakeHeader.hxx".}
-proc isDone*(this: APIHeaderSectionMakeHeader): StandardBoolean {.noSideEffect,
+proc IsDone*(this: APIHeaderSection_MakeHeader): Standard_Boolean {.noSideEffect,
     importcpp: "IsDone", header: "APIHeaderSection_MakeHeader.hxx".}
-proc apply*(this: APIHeaderSectionMakeHeader; model: Handle[StepDataStepModel]) {.
+proc Apply*(this: APIHeaderSection_MakeHeader; model: handle[StepData_StepModel]) {.
     noSideEffect, importcpp: "Apply", header: "APIHeaderSection_MakeHeader.hxx".}
-proc newModel*(this: APIHeaderSectionMakeHeader;
-              protocol: Handle[InterfaceProtocol]): Handle[StepDataStepModel] {.
+proc NewModel*(this: APIHeaderSection_MakeHeader;
+              protocol: handle[Interface_Protocol]): handle[StepData_StepModel] {.
     noSideEffect, importcpp: "NewModel", header: "APIHeaderSection_MakeHeader.hxx".}
-proc hasFn*(this: APIHeaderSectionMakeHeader): StandardBoolean {.noSideEffect,
+proc HasFn*(this: APIHeaderSection_MakeHeader): Standard_Boolean {.noSideEffect,
     importcpp: "HasFn", header: "APIHeaderSection_MakeHeader.hxx".}
-proc fnValue*(this: APIHeaderSectionMakeHeader): Handle[HeaderSectionFileName] {.
+proc FnValue*(this: APIHeaderSection_MakeHeader): handle[HeaderSection_FileName] {.
     noSideEffect, importcpp: "FnValue", header: "APIHeaderSection_MakeHeader.hxx".}
-proc setName*(this: var APIHeaderSectionMakeHeader;
-             aName: Handle[TCollectionHAsciiString]) {.importcpp: "SetName",
+proc SetName*(this: var APIHeaderSection_MakeHeader;
+             aName: handle[TCollection_HAsciiString]) {.importcpp: "SetName",
     header: "APIHeaderSection_MakeHeader.hxx".}
-proc name*(this: APIHeaderSectionMakeHeader): Handle[TCollectionHAsciiString] {.
+proc Name*(this: APIHeaderSection_MakeHeader): handle[TCollection_HAsciiString] {.
     noSideEffect, importcpp: "Name", header: "APIHeaderSection_MakeHeader.hxx".}
-proc setTimeStamp*(this: var APIHeaderSectionMakeHeader;
-                  aTimeStamp: Handle[TCollectionHAsciiString]) {.
+proc SetTimeStamp*(this: var APIHeaderSection_MakeHeader;
+                  aTimeStamp: handle[TCollection_HAsciiString]) {.
     importcpp: "SetTimeStamp", header: "APIHeaderSection_MakeHeader.hxx".}
-proc timeStamp*(this: APIHeaderSectionMakeHeader): Handle[TCollectionHAsciiString] {.
+proc TimeStamp*(this: APIHeaderSection_MakeHeader): handle[TCollection_HAsciiString] {.
     noSideEffect, importcpp: "TimeStamp", header: "APIHeaderSection_MakeHeader.hxx".}
-proc setAuthor*(this: var APIHeaderSectionMakeHeader;
-               aAuthor: Handle[InterfaceHArray1OfHAsciiString]) {.
+proc SetAuthor*(this: var APIHeaderSection_MakeHeader;
+               aAuthor: handle[Interface_HArray1OfHAsciiString]) {.
     importcpp: "SetAuthor", header: "APIHeaderSection_MakeHeader.hxx".}
-proc setAuthorValue*(this: var APIHeaderSectionMakeHeader; num: StandardInteger;
-                    aAuthor: Handle[TCollectionHAsciiString]) {.
+proc SetAuthorValue*(this: var APIHeaderSection_MakeHeader; num: Standard_Integer;
+                    aAuthor: handle[TCollection_HAsciiString]) {.
     importcpp: "SetAuthorValue", header: "APIHeaderSection_MakeHeader.hxx".}
-proc author*(this: APIHeaderSectionMakeHeader): Handle[
-    InterfaceHArray1OfHAsciiString] {.noSideEffect, importcpp: "Author",
-                                     header: "APIHeaderSection_MakeHeader.hxx".}
-proc authorValue*(this: APIHeaderSectionMakeHeader; num: StandardInteger): Handle[
-    TCollectionHAsciiString] {.noSideEffect, importcpp: "AuthorValue",
-                              header: "APIHeaderSection_MakeHeader.hxx".}
-proc nbAuthor*(this: APIHeaderSectionMakeHeader): StandardInteger {.noSideEffect,
+proc Author*(this: APIHeaderSection_MakeHeader): handle[
+    Interface_HArray1OfHAsciiString] {.noSideEffect, importcpp: "Author",
+                                      header: "APIHeaderSection_MakeHeader.hxx".}
+proc AuthorValue*(this: APIHeaderSection_MakeHeader; num: Standard_Integer): handle[
+    TCollection_HAsciiString] {.noSideEffect, importcpp: "AuthorValue",
+                               header: "APIHeaderSection_MakeHeader.hxx".}
+proc NbAuthor*(this: APIHeaderSection_MakeHeader): Standard_Integer {.noSideEffect,
     importcpp: "NbAuthor", header: "APIHeaderSection_MakeHeader.hxx".}
-proc setOrganization*(this: var APIHeaderSectionMakeHeader;
-                     aOrganization: Handle[InterfaceHArray1OfHAsciiString]) {.
+proc SetOrganization*(this: var APIHeaderSection_MakeHeader;
+                     aOrganization: handle[Interface_HArray1OfHAsciiString]) {.
     importcpp: "SetOrganization", header: "APIHeaderSection_MakeHeader.hxx".}
-proc setOrganizationValue*(this: var APIHeaderSectionMakeHeader;
-                          num: StandardInteger;
-                          aOrganization: Handle[TCollectionHAsciiString]) {.
+proc SetOrganizationValue*(this: var APIHeaderSection_MakeHeader;
+                          num: Standard_Integer;
+                          aOrganization: handle[TCollection_HAsciiString]) {.
     importcpp: "SetOrganizationValue", header: "APIHeaderSection_MakeHeader.hxx".}
-proc organization*(this: APIHeaderSectionMakeHeader): Handle[
-    InterfaceHArray1OfHAsciiString] {.noSideEffect, importcpp: "Organization",
-                                     header: "APIHeaderSection_MakeHeader.hxx".}
-proc organizationValue*(this: APIHeaderSectionMakeHeader; num: StandardInteger): Handle[
-    TCollectionHAsciiString] {.noSideEffect, importcpp: "OrganizationValue",
-                              header: "APIHeaderSection_MakeHeader.hxx".}
-proc nbOrganization*(this: APIHeaderSectionMakeHeader): StandardInteger {.
+proc Organization*(this: APIHeaderSection_MakeHeader): handle[
+    Interface_HArray1OfHAsciiString] {.noSideEffect, importcpp: "Organization",
+                                      header: "APIHeaderSection_MakeHeader.hxx".}
+proc OrganizationValue*(this: APIHeaderSection_MakeHeader; num: Standard_Integer): handle[
+    TCollection_HAsciiString] {.noSideEffect, importcpp: "OrganizationValue",
+                               header: "APIHeaderSection_MakeHeader.hxx".}
+proc NbOrganization*(this: APIHeaderSection_MakeHeader): Standard_Integer {.
     noSideEffect, importcpp: "NbOrganization",
     header: "APIHeaderSection_MakeHeader.hxx".}
-proc setPreprocessorVersion*(this: var APIHeaderSectionMakeHeader;
-    aPreprocessorVersion: Handle[TCollectionHAsciiString]) {.
+proc SetPreprocessorVersion*(this: var APIHeaderSection_MakeHeader;
+    aPreprocessorVersion: handle[TCollection_HAsciiString]) {.
     importcpp: "SetPreprocessorVersion", header: "APIHeaderSection_MakeHeader.hxx".}
-proc preprocessorVersion*(this: APIHeaderSectionMakeHeader): Handle[
-    TCollectionHAsciiString] {.noSideEffect, importcpp: "PreprocessorVersion",
-                              header: "APIHeaderSection_MakeHeader.hxx".}
-proc setOriginatingSystem*(this: var APIHeaderSectionMakeHeader;
-                          aOriginatingSystem: Handle[TCollectionHAsciiString]) {.
-    importcpp: "SetOriginatingSystem", header: "APIHeaderSection_MakeHeader.hxx".}
-proc originatingSystem*(this: APIHeaderSectionMakeHeader): Handle[
-    TCollectionHAsciiString] {.noSideEffect, importcpp: "OriginatingSystem",
-                              header: "APIHeaderSection_MakeHeader.hxx".}
-proc setAuthorisation*(this: var APIHeaderSectionMakeHeader;
-                      aAuthorisation: Handle[TCollectionHAsciiString]) {.
-    importcpp: "SetAuthorisation", header: "APIHeaderSection_MakeHeader.hxx".}
-proc authorisation*(this: APIHeaderSectionMakeHeader): Handle[
-    TCollectionHAsciiString] {.noSideEffect, importcpp: "Authorisation",
-                              header: "APIHeaderSection_MakeHeader.hxx".}
-proc hasFs*(this: APIHeaderSectionMakeHeader): StandardBoolean {.noSideEffect,
-    importcpp: "HasFs", header: "APIHeaderSection_MakeHeader.hxx".}
-proc fsValue*(this: APIHeaderSectionMakeHeader): Handle[HeaderSectionFileSchema] {.
-    noSideEffect, importcpp: "FsValue", header: "APIHeaderSection_MakeHeader.hxx".}
-proc setSchemaIdentifiers*(this: var APIHeaderSectionMakeHeader; aSchemaIdentifiers: Handle[
-    InterfaceHArray1OfHAsciiString]) {.importcpp: "SetSchemaIdentifiers",
-                                      header: "APIHeaderSection_MakeHeader.hxx".}
-proc setSchemaIdentifiersValue*(this: var APIHeaderSectionMakeHeader;
-                               num: StandardInteger; aSchemaIdentifier: Handle[
-    TCollectionHAsciiString]) {.importcpp: "SetSchemaIdentifiersValue",
+proc PreprocessorVersion*(this: APIHeaderSection_MakeHeader): handle[
+    TCollection_HAsciiString] {.noSideEffect, importcpp: "PreprocessorVersion",
                                header: "APIHeaderSection_MakeHeader.hxx".}
-proc schemaIdentifiers*(this: APIHeaderSectionMakeHeader): Handle[
-    InterfaceHArray1OfHAsciiString] {.noSideEffect,
-                                     importcpp: "SchemaIdentifiers",
-                                     header: "APIHeaderSection_MakeHeader.hxx".}
-proc schemaIdentifiersValue*(this: APIHeaderSectionMakeHeader; num: StandardInteger): Handle[
-    TCollectionHAsciiString] {.noSideEffect, importcpp: "SchemaIdentifiersValue",
-                              header: "APIHeaderSection_MakeHeader.hxx".}
-proc nbSchemaIdentifiers*(this: APIHeaderSectionMakeHeader): StandardInteger {.
+proc SetOriginatingSystem*(this: var APIHeaderSection_MakeHeader;
+                          aOriginatingSystem: handle[TCollection_HAsciiString]) {.
+    importcpp: "SetOriginatingSystem", header: "APIHeaderSection_MakeHeader.hxx".}
+proc OriginatingSystem*(this: APIHeaderSection_MakeHeader): handle[
+    TCollection_HAsciiString] {.noSideEffect, importcpp: "OriginatingSystem",
+                               header: "APIHeaderSection_MakeHeader.hxx".}
+proc SetAuthorisation*(this: var APIHeaderSection_MakeHeader;
+                      aAuthorisation: handle[TCollection_HAsciiString]) {.
+    importcpp: "SetAuthorisation", header: "APIHeaderSection_MakeHeader.hxx".}
+proc Authorisation*(this: APIHeaderSection_MakeHeader): handle[
+    TCollection_HAsciiString] {.noSideEffect, importcpp: "Authorisation",
+                               header: "APIHeaderSection_MakeHeader.hxx".}
+proc HasFs*(this: APIHeaderSection_MakeHeader): Standard_Boolean {.noSideEffect,
+    importcpp: "HasFs", header: "APIHeaderSection_MakeHeader.hxx".}
+proc FsValue*(this: APIHeaderSection_MakeHeader): handle[HeaderSection_FileSchema] {.
+    noSideEffect, importcpp: "FsValue", header: "APIHeaderSection_MakeHeader.hxx".}
+proc SetSchemaIdentifiers*(this: var APIHeaderSection_MakeHeader; aSchemaIdentifiers: handle[
+    Interface_HArray1OfHAsciiString]) {.importcpp: "SetSchemaIdentifiers", header: "APIHeaderSection_MakeHeader.hxx".}
+proc SetSchemaIdentifiersValue*(this: var APIHeaderSection_MakeHeader;
+                               num: Standard_Integer; aSchemaIdentifier: handle[
+    TCollection_HAsciiString]) {.importcpp: "SetSchemaIdentifiersValue",
+                                header: "APIHeaderSection_MakeHeader.hxx".}
+proc SchemaIdentifiers*(this: APIHeaderSection_MakeHeader): handle[
+    Interface_HArray1OfHAsciiString] {.noSideEffect,
+                                      importcpp: "SchemaIdentifiers",
+                                      header: "APIHeaderSection_MakeHeader.hxx".}
+proc SchemaIdentifiersValue*(this: APIHeaderSection_MakeHeader;
+                            num: Standard_Integer): handle[
+    TCollection_HAsciiString] {.noSideEffect, importcpp: "SchemaIdentifiersValue",
+                               header: "APIHeaderSection_MakeHeader.hxx".}
+proc NbSchemaIdentifiers*(this: APIHeaderSection_MakeHeader): Standard_Integer {.
     noSideEffect, importcpp: "NbSchemaIdentifiers",
     header: "APIHeaderSection_MakeHeader.hxx".}
-proc addSchemaIdentifier*(this: var APIHeaderSectionMakeHeader;
-                         aSchemaIdentifier: Handle[TCollectionHAsciiString]) {.
+proc AddSchemaIdentifier*(this: var APIHeaderSection_MakeHeader;
+                         aSchemaIdentifier: handle[TCollection_HAsciiString]) {.
     importcpp: "AddSchemaIdentifier", header: "APIHeaderSection_MakeHeader.hxx".}
-proc hasFd*(this: APIHeaderSectionMakeHeader): StandardBoolean {.noSideEffect,
+proc HasFd*(this: APIHeaderSection_MakeHeader): Standard_Boolean {.noSideEffect,
     importcpp: "HasFd", header: "APIHeaderSection_MakeHeader.hxx".}
-proc fdValue*(this: APIHeaderSectionMakeHeader): Handle[
-    HeaderSectionFileDescription] {.noSideEffect, importcpp: "FdValue",
-                                   header: "APIHeaderSection_MakeHeader.hxx".}
-proc setDescription*(this: var APIHeaderSectionMakeHeader;
-                    aDescription: Handle[InterfaceHArray1OfHAsciiString]) {.
+proc FdValue*(this: APIHeaderSection_MakeHeader): handle[
+    HeaderSection_FileDescription] {.noSideEffect, importcpp: "FdValue",
+                                    header: "APIHeaderSection_MakeHeader.hxx".}
+proc SetDescription*(this: var APIHeaderSection_MakeHeader;
+                    aDescription: handle[Interface_HArray1OfHAsciiString]) {.
     importcpp: "SetDescription", header: "APIHeaderSection_MakeHeader.hxx".}
-proc setDescriptionValue*(this: var APIHeaderSectionMakeHeader;
-                         num: StandardInteger;
-                         aDescription: Handle[TCollectionHAsciiString]) {.
+proc SetDescriptionValue*(this: var APIHeaderSection_MakeHeader;
+                         num: Standard_Integer;
+                         aDescription: handle[TCollection_HAsciiString]) {.
     importcpp: "SetDescriptionValue", header: "APIHeaderSection_MakeHeader.hxx".}
-proc description*(this: APIHeaderSectionMakeHeader): Handle[
-    InterfaceHArray1OfHAsciiString] {.noSideEffect, importcpp: "Description",
-                                     header: "APIHeaderSection_MakeHeader.hxx".}
-proc descriptionValue*(this: APIHeaderSectionMakeHeader; num: StandardInteger): Handle[
-    TCollectionHAsciiString] {.noSideEffect, importcpp: "DescriptionValue",
-                              header: "APIHeaderSection_MakeHeader.hxx".}
-proc nbDescription*(this: APIHeaderSectionMakeHeader): StandardInteger {.
+proc Description*(this: APIHeaderSection_MakeHeader): handle[
+    Interface_HArray1OfHAsciiString] {.noSideEffect, importcpp: "Description",
+                                      header: "APIHeaderSection_MakeHeader.hxx".}
+proc DescriptionValue*(this: APIHeaderSection_MakeHeader; num: Standard_Integer): handle[
+    TCollection_HAsciiString] {.noSideEffect, importcpp: "DescriptionValue",
+                               header: "APIHeaderSection_MakeHeader.hxx".}
+proc NbDescription*(this: APIHeaderSection_MakeHeader): Standard_Integer {.
     noSideEffect, importcpp: "NbDescription",
     header: "APIHeaderSection_MakeHeader.hxx".}
-proc setImplementationLevel*(this: var APIHeaderSectionMakeHeader;
-    aImplementationLevel: Handle[TCollectionHAsciiString]) {.
+proc SetImplementationLevel*(this: var APIHeaderSection_MakeHeader;
+    aImplementationLevel: handle[TCollection_HAsciiString]) {.
     importcpp: "SetImplementationLevel", header: "APIHeaderSection_MakeHeader.hxx".}
-proc implementationLevel*(this: APIHeaderSectionMakeHeader): Handle[
-    TCollectionHAsciiString] {.noSideEffect, importcpp: "ImplementationLevel",
-                              header: "APIHeaderSection_MakeHeader.hxx".}
-
+proc ImplementationLevel*(this: APIHeaderSection_MakeHeader): handle[
+    TCollection_HAsciiString] {.noSideEffect, importcpp: "ImplementationLevel",
+                               header: "APIHeaderSection_MakeHeader.hxx".}

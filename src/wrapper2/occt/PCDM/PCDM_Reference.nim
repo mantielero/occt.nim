@@ -14,6 +14,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer,
+  ../TCollection/TCollection_ExtendedString
+
 discard "forward decl of TCollection_ExtendedString"
 type
   PCDM_Reference* {.importcpp: "PCDM_Reference", header: "PCDM_Reference.hxx", bycopy.} = object
@@ -21,14 +26,13 @@ type
 
 proc constructPCDM_Reference*(): PCDM_Reference {.constructor,
     importcpp: "PCDM_Reference(@)", header: "PCDM_Reference.hxx".}
-proc constructPCDM_Reference*(aReferenceIdentifier: StandardInteger;
-                             aFileName: TCollectionExtendedString;
-                             aDocumentVersion: StandardInteger): PCDM_Reference {.
+proc constructPCDM_Reference*(aReferenceIdentifier: Standard_Integer;
+                             aFileName: TCollection_ExtendedString;
+                             aDocumentVersion: Standard_Integer): PCDM_Reference {.
     constructor, importcpp: "PCDM_Reference(@)", header: "PCDM_Reference.hxx".}
-proc referenceIdentifier*(this: PCDM_Reference): StandardInteger {.noSideEffect,
+proc ReferenceIdentifier*(this: PCDM_Reference): Standard_Integer {.noSideEffect,
     importcpp: "ReferenceIdentifier", header: "PCDM_Reference.hxx".}
-proc fileName*(this: PCDM_Reference): TCollectionExtendedString {.noSideEffect,
+proc FileName*(this: PCDM_Reference): TCollection_ExtendedString {.noSideEffect,
     importcpp: "FileName", header: "PCDM_Reference.hxx".}
-proc documentVersion*(this: PCDM_Reference): StandardInteger {.noSideEffect,
+proc DocumentVersion*(this: PCDM_Reference): Standard_Integer {.noSideEffect,
     importcpp: "DocumentVersion", header: "PCDM_Reference.hxx".}
-

@@ -14,30 +14,36 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../TopoDS/TopoDS_Shape, ../gp/gp_Vec,
+  ../Standard/Standard_Real, ../gp/gp_Ax1, ../Standard/Standard_Boolean,
+  ../TopTools/TopTools_DataMapOfShapeListOfShape, ../gp/gp_Pnt,
+  ../TopTools/TopTools_ListOfShape
+
 discard "forward decl of Standard_NoSuchObject"
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of gp_Ax1"
 type
-  LocOpeRevolutionForm* {.importcpp: "LocOpe_RevolutionForm",
-                         header: "LocOpe_RevolutionForm.hxx", bycopy.} = object
+  LocOpe_RevolutionForm* {.importcpp: "LocOpe_RevolutionForm",
+                          header: "LocOpe_RevolutionForm.hxx", bycopy.} = object
 
 
-proc constructLocOpeRevolutionForm*(): LocOpeRevolutionForm {.constructor,
+proc constructLocOpe_RevolutionForm*(): LocOpe_RevolutionForm {.constructor,
     importcpp: "LocOpe_RevolutionForm(@)", header: "LocOpe_RevolutionForm.hxx".}
-proc constructLocOpeRevolutionForm*(base: TopoDS_Shape; axe: GpAx1;
-                                   angle: StandardReal): LocOpeRevolutionForm {.
+proc constructLocOpe_RevolutionForm*(Base: TopoDS_Shape; Axe: gp_Ax1;
+                                    Angle: Standard_Real): LocOpe_RevolutionForm {.
     constructor, importcpp: "LocOpe_RevolutionForm(@)",
     header: "LocOpe_RevolutionForm.hxx".}
-proc perform*(this: var LocOpeRevolutionForm; base: TopoDS_Shape; axe: GpAx1;
-             angle: StandardReal) {.importcpp: "Perform",
-                                  header: "LocOpe_RevolutionForm.hxx".}
-proc firstShape*(this: LocOpeRevolutionForm): TopoDS_Shape {.noSideEffect,
+proc Perform*(this: var LocOpe_RevolutionForm; Base: TopoDS_Shape; Axe: gp_Ax1;
+             Angle: Standard_Real) {.importcpp: "Perform",
+                                   header: "LocOpe_RevolutionForm.hxx".}
+proc FirstShape*(this: LocOpe_RevolutionForm): TopoDS_Shape {.noSideEffect,
     importcpp: "FirstShape", header: "LocOpe_RevolutionForm.hxx".}
-proc lastShape*(this: LocOpeRevolutionForm): TopoDS_Shape {.noSideEffect,
+proc LastShape*(this: LocOpe_RevolutionForm): TopoDS_Shape {.noSideEffect,
     importcpp: "LastShape", header: "LocOpe_RevolutionForm.hxx".}
-proc shape*(this: LocOpeRevolutionForm): TopoDS_Shape {.noSideEffect,
+proc Shape*(this: LocOpe_RevolutionForm): TopoDS_Shape {.noSideEffect,
     importcpp: "Shape", header: "LocOpe_RevolutionForm.hxx".}
-proc shapes*(this: LocOpeRevolutionForm; s: TopoDS_Shape): TopToolsListOfShape {.
+proc Shapes*(this: LocOpe_RevolutionForm; S: TopoDS_Shape): TopTools_ListOfShape {.
     noSideEffect, importcpp: "Shapes", header: "LocOpe_RevolutionForm.hxx".}
-

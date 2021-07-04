@@ -14,43 +14,47 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, Intf_SeqOfSectionPoint,
+  ../Standard/Standard_Boolean, ../Standard/Standard_Integer
+
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of Intf_SectionPoint"
 type
-  IntfSectionLine* {.importcpp: "Intf_SectionLine", header: "Intf_SectionLine.hxx",
-                    bycopy.} = object ## ! Returns number of points in this SectionLine.
+  Intf_SectionLine* {.importcpp: "Intf_SectionLine",
+                     header: "Intf_SectionLine.hxx", bycopy.} = object ## ! Returns number of points in this SectionLine.
 
 
-proc numberOfPoints*(this: IntfSectionLine): StandardInteger {.noSideEffect,
+proc NumberOfPoints*(this: Intf_SectionLine): Standard_Integer {.noSideEffect,
     importcpp: "NumberOfPoints", header: "Intf_SectionLine.hxx".}
-proc getPoint*(this: IntfSectionLine; index: StandardInteger): IntfSectionPoint {.
+proc GetPoint*(this: Intf_SectionLine; Index: Standard_Integer): Intf_SectionPoint {.
     noSideEffect, importcpp: "GetPoint", header: "Intf_SectionLine.hxx".}
-proc isClosed*(this: IntfSectionLine): StandardBoolean {.noSideEffect,
+proc IsClosed*(this: Intf_SectionLine): Standard_Boolean {.noSideEffect,
     importcpp: "IsClosed", header: "Intf_SectionLine.hxx".}
-proc contains*(this: IntfSectionLine; thePI: IntfSectionPoint): StandardBoolean {.
+proc Contains*(this: Intf_SectionLine; ThePI: Intf_SectionPoint): Standard_Boolean {.
     noSideEffect, importcpp: "Contains", header: "Intf_SectionLine.hxx".}
-proc isEnd*(this: IntfSectionLine; thePI: IntfSectionPoint): StandardInteger {.
+proc IsEnd*(this: Intf_SectionLine; ThePI: Intf_SectionPoint): Standard_Integer {.
     noSideEffect, importcpp: "IsEnd", header: "Intf_SectionLine.hxx".}
-proc isEqual*(this: IntfSectionLine; other: IntfSectionLine): StandardBoolean {.
+proc IsEqual*(this: Intf_SectionLine; Other: Intf_SectionLine): Standard_Boolean {.
     noSideEffect, importcpp: "IsEqual", header: "Intf_SectionLine.hxx".}
-proc `==`*(this: IntfSectionLine; other: IntfSectionLine): StandardBoolean {.
+proc `==`*(this: Intf_SectionLine; Other: Intf_SectionLine): Standard_Boolean {.
     noSideEffect, importcpp: "(# == #)", header: "Intf_SectionLine.hxx".}
-proc constructIntfSectionLine*(): IntfSectionLine {.constructor,
+proc constructIntf_SectionLine*(): Intf_SectionLine {.constructor,
     importcpp: "Intf_SectionLine(@)", header: "Intf_SectionLine.hxx".}
-proc constructIntfSectionLine*(other: IntfSectionLine): IntfSectionLine {.
+proc constructIntf_SectionLine*(Other: Intf_SectionLine): Intf_SectionLine {.
     constructor, importcpp: "Intf_SectionLine(@)", header: "Intf_SectionLine.hxx".}
-proc append*(this: var IntfSectionLine; pi: IntfSectionPoint) {.importcpp: "Append",
+proc Append*(this: var Intf_SectionLine; Pi: Intf_SectionPoint) {.importcpp: "Append",
     header: "Intf_SectionLine.hxx".}
-proc append*(this: var IntfSectionLine; ls: var IntfSectionLine) {.importcpp: "Append",
-    header: "Intf_SectionLine.hxx".}
-proc prepend*(this: var IntfSectionLine; pi: IntfSectionPoint) {.importcpp: "Prepend",
-    header: "Intf_SectionLine.hxx".}
-proc prepend*(this: var IntfSectionLine; ls: var IntfSectionLine) {.
+proc Append*(this: var Intf_SectionLine; LS: var Intf_SectionLine) {.
+    importcpp: "Append", header: "Intf_SectionLine.hxx".}
+proc Prepend*(this: var Intf_SectionLine; Pi: Intf_SectionPoint) {.
     importcpp: "Prepend", header: "Intf_SectionLine.hxx".}
-proc reverse*(this: var IntfSectionLine) {.importcpp: "Reverse",
-                                       header: "Intf_SectionLine.hxx".}
-proc close*(this: var IntfSectionLine) {.importcpp: "Close",
-                                     header: "Intf_SectionLine.hxx".}
-proc dump*(this: IntfSectionLine; indent: StandardInteger) {.noSideEffect,
+proc Prepend*(this: var Intf_SectionLine; LS: var Intf_SectionLine) {.
+    importcpp: "Prepend", header: "Intf_SectionLine.hxx".}
+proc Reverse*(this: var Intf_SectionLine) {.importcpp: "Reverse",
+                                        header: "Intf_SectionLine.hxx".}
+proc Close*(this: var Intf_SectionLine) {.importcpp: "Close",
+                                      header: "Intf_SectionLine.hxx".}
+proc Dump*(this: Intf_SectionLine; Indent: Standard_Integer) {.noSideEffect,
     importcpp: "Dump", header: "Intf_SectionLine.hxx".}
-

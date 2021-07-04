@@ -14,6 +14,14 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Real,
+  ../GeomAbs/GeomAbs_Shape, ../Standard/Standard_Integer,
+  ../TColStd/TColStd_Array1OfReal, ../Standard/Standard_Boolean, ../gp/gp_Pnt,
+  ../gp/gp_Vec, ../GeomAbs/GeomAbs_CurveType, ../gp/gp_Lin, ../gp/gp_Circ,
+  ../gp/gp_Elips, ../gp/gp_Hypr, ../gp/gp_Parab
+
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of Standard_NoSuchObject"
 discard "forward decl of Standard_DomainError"
@@ -23,76 +31,75 @@ discard "forward decl of gp_Vec"
 discard "forward decl of Geom_BezierCurve"
 discard "forward decl of Geom_BSplineCurve"
 type
-  BRepBlendHCurveTool* {.importcpp: "BRepBlend_HCurveTool",
-                        header: "BRepBlend_HCurveTool.hxx", bycopy.} = object
+  BRepBlend_HCurveTool* {.importcpp: "BRepBlend_HCurveTool",
+                         header: "BRepBlend_HCurveTool.hxx", bycopy.} = object
 
 
-proc firstParameter*(c: Handle[Adaptor3dHCurve]): StandardReal {.
+proc FirstParameter*(C: handle[Adaptor3d_HCurve]): Standard_Real {.
     importcpp: "BRepBlend_HCurveTool::FirstParameter(@)",
     header: "BRepBlend_HCurveTool.hxx".}
-proc lastParameter*(c: Handle[Adaptor3dHCurve]): StandardReal {.
+proc LastParameter*(C: handle[Adaptor3d_HCurve]): Standard_Real {.
     importcpp: "BRepBlend_HCurveTool::LastParameter(@)",
     header: "BRepBlend_HCurveTool.hxx".}
-proc continuity*(c: Handle[Adaptor3dHCurve]): GeomAbsShape {.
+proc Continuity*(C: handle[Adaptor3d_HCurve]): GeomAbs_Shape {.
     importcpp: "BRepBlend_HCurveTool::Continuity(@)",
     header: "BRepBlend_HCurveTool.hxx".}
-proc nbIntervals*(c: Handle[Adaptor3dHCurve]; s: GeomAbsShape): StandardInteger {.
+proc NbIntervals*(C: handle[Adaptor3d_HCurve]; S: GeomAbs_Shape): Standard_Integer {.
     importcpp: "BRepBlend_HCurveTool::NbIntervals(@)",
     header: "BRepBlend_HCurveTool.hxx".}
-proc intervals*(c: Handle[Adaptor3dHCurve]; t: var TColStdArray1OfReal;
-               s: GeomAbsShape) {.importcpp: "BRepBlend_HCurveTool::Intervals(@)",
-                                header: "BRepBlend_HCurveTool.hxx".}
-proc isClosed*(c: Handle[Adaptor3dHCurve]): StandardBoolean {.
+proc Intervals*(C: handle[Adaptor3d_HCurve]; T: var TColStd_Array1OfReal;
+               S: GeomAbs_Shape) {.importcpp: "BRepBlend_HCurveTool::Intervals(@)",
+                                 header: "BRepBlend_HCurveTool.hxx".}
+proc IsClosed*(C: handle[Adaptor3d_HCurve]): Standard_Boolean {.
     importcpp: "BRepBlend_HCurveTool::IsClosed(@)",
     header: "BRepBlend_HCurveTool.hxx".}
-proc isPeriodic*(c: Handle[Adaptor3dHCurve]): StandardBoolean {.
+proc IsPeriodic*(C: handle[Adaptor3d_HCurve]): Standard_Boolean {.
     importcpp: "BRepBlend_HCurveTool::IsPeriodic(@)",
     header: "BRepBlend_HCurveTool.hxx".}
-proc period*(c: Handle[Adaptor3dHCurve]): StandardReal {.
+proc Period*(C: handle[Adaptor3d_HCurve]): Standard_Real {.
     importcpp: "BRepBlend_HCurveTool::Period(@)",
     header: "BRepBlend_HCurveTool.hxx".}
-proc value*(c: Handle[Adaptor3dHCurve]; u: StandardReal): GpPnt {.
+proc Value*(C: handle[Adaptor3d_HCurve]; U: Standard_Real): gp_Pnt {.
     importcpp: "BRepBlend_HCurveTool::Value(@)",
     header: "BRepBlend_HCurveTool.hxx".}
-proc d0*(c: Handle[Adaptor3dHCurve]; u: StandardReal; p: var GpPnt) {.
+proc D0*(C: handle[Adaptor3d_HCurve]; U: Standard_Real; P: var gp_Pnt) {.
     importcpp: "BRepBlend_HCurveTool::D0(@)", header: "BRepBlend_HCurveTool.hxx".}
-proc d1*(c: Handle[Adaptor3dHCurve]; u: StandardReal; p: var GpPnt; v: var GpVec) {.
+proc D1*(C: handle[Adaptor3d_HCurve]; U: Standard_Real; P: var gp_Pnt; V: var gp_Vec) {.
     importcpp: "BRepBlend_HCurveTool::D1(@)", header: "BRepBlend_HCurveTool.hxx".}
-proc d2*(c: Handle[Adaptor3dHCurve]; u: StandardReal; p: var GpPnt; v1: var GpVec;
-        v2: var GpVec) {.importcpp: "BRepBlend_HCurveTool::D2(@)",
-                      header: "BRepBlend_HCurveTool.hxx".}
-proc d3*(c: Handle[Adaptor3dHCurve]; u: StandardReal; p: var GpPnt; v1: var GpVec;
-        v2: var GpVec; v3: var GpVec) {.importcpp: "BRepBlend_HCurveTool::D3(@)",
-                                  header: "BRepBlend_HCurveTool.hxx".}
-proc dn*(c: Handle[Adaptor3dHCurve]; u: StandardReal; n: StandardInteger): GpVec {.
+proc D2*(C: handle[Adaptor3d_HCurve]; U: Standard_Real; P: var gp_Pnt; V1: var gp_Vec;
+        V2: var gp_Vec) {.importcpp: "BRepBlend_HCurveTool::D2(@)",
+                       header: "BRepBlend_HCurveTool.hxx".}
+proc D3*(C: handle[Adaptor3d_HCurve]; U: Standard_Real; P: var gp_Pnt; V1: var gp_Vec;
+        V2: var gp_Vec; V3: var gp_Vec) {.importcpp: "BRepBlend_HCurveTool::D3(@)",
+                                    header: "BRepBlend_HCurveTool.hxx".}
+proc DN*(C: handle[Adaptor3d_HCurve]; U: Standard_Real; N: Standard_Integer): gp_Vec {.
     importcpp: "BRepBlend_HCurveTool::DN(@)", header: "BRepBlend_HCurveTool.hxx".}
-proc resolution*(c: Handle[Adaptor3dHCurve]; r3d: StandardReal): StandardReal {.
+proc Resolution*(C: handle[Adaptor3d_HCurve]; R3d: Standard_Real): Standard_Real {.
     importcpp: "BRepBlend_HCurveTool::Resolution(@)",
     header: "BRepBlend_HCurveTool.hxx".}
-proc getType*(c: Handle[Adaptor3dHCurve]): GeomAbsCurveType {.
+proc GetType*(C: handle[Adaptor3d_HCurve]): GeomAbs_CurveType {.
     importcpp: "BRepBlend_HCurveTool::GetType(@)",
     header: "BRepBlend_HCurveTool.hxx".}
-proc line*(c: Handle[Adaptor3dHCurve]): GpLin {.
+proc Line*(C: handle[Adaptor3d_HCurve]): gp_Lin {.
     importcpp: "BRepBlend_HCurveTool::Line(@)", header: "BRepBlend_HCurveTool.hxx".}
-proc circle*(c: Handle[Adaptor3dHCurve]): GpCirc {.
+proc Circle*(C: handle[Adaptor3d_HCurve]): gp_Circ {.
     importcpp: "BRepBlend_HCurveTool::Circle(@)",
     header: "BRepBlend_HCurveTool.hxx".}
-proc ellipse*(c: Handle[Adaptor3dHCurve]): GpElips {.
+proc Ellipse*(C: handle[Adaptor3d_HCurve]): gp_Elips {.
     importcpp: "BRepBlend_HCurveTool::Ellipse(@)",
     header: "BRepBlend_HCurveTool.hxx".}
-proc hyperbola*(c: Handle[Adaptor3dHCurve]): GpHypr {.
+proc Hyperbola*(C: handle[Adaptor3d_HCurve]): gp_Hypr {.
     importcpp: "BRepBlend_HCurveTool::Hyperbola(@)",
     header: "BRepBlend_HCurveTool.hxx".}
-proc parabola*(c: Handle[Adaptor3dHCurve]): GpParab {.
+proc Parabola*(C: handle[Adaptor3d_HCurve]): gp_Parab {.
     importcpp: "BRepBlend_HCurveTool::Parabola(@)",
     header: "BRepBlend_HCurveTool.hxx".}
-proc bezier*(c: Handle[Adaptor3dHCurve]): Handle[GeomBezierCurve] {.
+proc Bezier*(C: handle[Adaptor3d_HCurve]): handle[Geom_BezierCurve] {.
     importcpp: "BRepBlend_HCurveTool::Bezier(@)",
     header: "BRepBlend_HCurveTool.hxx".}
-proc bSpline*(c: Handle[Adaptor3dHCurve]): Handle[GeomBSplineCurve] {.
+proc BSpline*(C: handle[Adaptor3d_HCurve]): handle[Geom_BSplineCurve] {.
     importcpp: "BRepBlend_HCurveTool::BSpline(@)",
     header: "BRepBlend_HCurveTool.hxx".}
-proc nbSamples*(c: Handle[Adaptor3dHCurve]; u0: StandardReal; u1: StandardReal): StandardInteger {.
+proc NbSamples*(C: handle[Adaptor3d_HCurve]; U0: Standard_Real; U1: Standard_Real): Standard_Integer {.
     importcpp: "BRepBlend_HCurveTool::NbSamples(@)",
     header: "BRepBlend_HCurveTool.hxx".}
-

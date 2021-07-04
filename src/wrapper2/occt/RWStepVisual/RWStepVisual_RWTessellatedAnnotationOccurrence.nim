@@ -13,33 +13,36 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepVisual_TessellatedAnnotationOccurrence"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepVisualRWTessellatedAnnotationOccurrence* {.
+  RWStepVisual_RWTessellatedAnnotationOccurrence* {.
       importcpp: "RWStepVisual_RWTessellatedAnnotationOccurrence",
       header: "RWStepVisual_RWTessellatedAnnotationOccurrence.hxx", bycopy.} = object
 
 
-proc constructRWStepVisualRWTessellatedAnnotationOccurrence*(): RWStepVisualRWTessellatedAnnotationOccurrence {.
+proc constructRWStepVisual_RWTessellatedAnnotationOccurrence*(): RWStepVisual_RWTessellatedAnnotationOccurrence {.
     constructor, importcpp: "RWStepVisual_RWTessellatedAnnotationOccurrence(@)",
     header: "RWStepVisual_RWTessellatedAnnotationOccurrence.hxx".}
-proc readStep*(this: RWStepVisualRWTessellatedAnnotationOccurrence;
-              data: Handle[StepDataStepReaderData]; num: StandardInteger;
-              ach: var Handle[InterfaceCheck];
-              ent: Handle[StepVisualTessellatedAnnotationOccurrence]) {.
+proc ReadStep*(this: RWStepVisual_RWTessellatedAnnotationOccurrence;
+              data: handle[StepData_StepReaderData]; num: Standard_Integer;
+              ach: var handle[Interface_Check];
+              ent: handle[StepVisual_TessellatedAnnotationOccurrence]) {.
     noSideEffect, importcpp: "ReadStep",
     header: "RWStepVisual_RWTessellatedAnnotationOccurrence.hxx".}
-proc writeStep*(this: RWStepVisualRWTessellatedAnnotationOccurrence;
-               sw: var StepDataStepWriter;
-               ent: Handle[StepVisualTessellatedAnnotationOccurrence]) {.
+proc WriteStep*(this: RWStepVisual_RWTessellatedAnnotationOccurrence;
+               SW: var StepData_StepWriter;
+               ent: handle[StepVisual_TessellatedAnnotationOccurrence]) {.
     noSideEffect, importcpp: "WriteStep",
     header: "RWStepVisual_RWTessellatedAnnotationOccurrence.hxx".}
-proc share*(this: RWStepVisualRWTessellatedAnnotationOccurrence;
-           ent: Handle[StepVisualTessellatedAnnotationOccurrence];
-           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
+proc Share*(this: RWStepVisual_RWTessellatedAnnotationOccurrence;
+           ent: handle[StepVisual_TessellatedAnnotationOccurrence];
+           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepVisual_RWTessellatedAnnotationOccurrence.hxx".}
-

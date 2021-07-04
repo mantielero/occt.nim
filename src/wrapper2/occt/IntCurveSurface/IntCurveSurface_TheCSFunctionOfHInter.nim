@@ -14,6 +14,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../gp/gp_Pnt, ../Standard/Standard_Real,
+  ../math/math_FunctionSetWithDerivatives, ../Standard/Standard_Integer,
+  ../Standard/Standard_Boolean, ../math/math_Vector
+
 discard "forward decl of Adaptor3d_HSurface"
 discard "forward decl of Adaptor3d_HCurve"
 discard "forward decl of Adaptor3d_HSurfaceTool"
@@ -21,38 +27,38 @@ discard "forward decl of IntCurveSurface_TheHCurveTool"
 discard "forward decl of math_Matrix"
 discard "forward decl of gp_Pnt"
 type
-  IntCurveSurfaceTheCSFunctionOfHInter* {.
+  IntCurveSurface_TheCSFunctionOfHInter* {.
       importcpp: "IntCurveSurface_TheCSFunctionOfHInter",
-      header: "IntCurveSurface_TheCSFunctionOfHInter.hxx", bycopy.} = object of MathFunctionSetWithDerivatives
+      header: "IntCurveSurface_TheCSFunctionOfHInter.hxx", bycopy.} = object of math_FunctionSetWithDerivatives
 
 
-proc constructIntCurveSurfaceTheCSFunctionOfHInter*(s: Handle[Adaptor3dHSurface];
-    c: Handle[Adaptor3dHCurve]): IntCurveSurfaceTheCSFunctionOfHInter {.
+proc constructIntCurveSurface_TheCSFunctionOfHInter*(
+    S: handle[Adaptor3d_HSurface]; C: handle[Adaptor3d_HCurve]): IntCurveSurface_TheCSFunctionOfHInter {.
     constructor, importcpp: "IntCurveSurface_TheCSFunctionOfHInter(@)",
     header: "IntCurveSurface_TheCSFunctionOfHInter.hxx".}
-proc nbVariables*(this: IntCurveSurfaceTheCSFunctionOfHInter): StandardInteger {.
+proc NbVariables*(this: IntCurveSurface_TheCSFunctionOfHInter): Standard_Integer {.
     noSideEffect, importcpp: "NbVariables",
     header: "IntCurveSurface_TheCSFunctionOfHInter.hxx".}
-proc nbEquations*(this: IntCurveSurfaceTheCSFunctionOfHInter): StandardInteger {.
+proc NbEquations*(this: IntCurveSurface_TheCSFunctionOfHInter): Standard_Integer {.
     noSideEffect, importcpp: "NbEquations",
     header: "IntCurveSurface_TheCSFunctionOfHInter.hxx".}
-proc value*(this: var IntCurveSurfaceTheCSFunctionOfHInter; x: MathVector;
-           f: var MathVector): StandardBoolean {.importcpp: "Value",
+proc Value*(this: var IntCurveSurface_TheCSFunctionOfHInter; X: math_Vector;
+           F: var math_Vector): Standard_Boolean {.importcpp: "Value",
     header: "IntCurveSurface_TheCSFunctionOfHInter.hxx".}
-proc derivatives*(this: var IntCurveSurfaceTheCSFunctionOfHInter; x: MathVector;
-                 d: var MathMatrix): StandardBoolean {.importcpp: "Derivatives",
+proc Derivatives*(this: var IntCurveSurface_TheCSFunctionOfHInter; X: math_Vector;
+                 D: var math_Matrix): Standard_Boolean {.importcpp: "Derivatives",
     header: "IntCurveSurface_TheCSFunctionOfHInter.hxx".}
-proc values*(this: var IntCurveSurfaceTheCSFunctionOfHInter; x: MathVector;
-            f: var MathVector; d: var MathMatrix): StandardBoolean {.
+proc Values*(this: var IntCurveSurface_TheCSFunctionOfHInter; X: math_Vector;
+            F: var math_Vector; D: var math_Matrix): Standard_Boolean {.
     importcpp: "Values", header: "IntCurveSurface_TheCSFunctionOfHInter.hxx".}
-proc point*(this: IntCurveSurfaceTheCSFunctionOfHInter): GpPnt {.noSideEffect,
+proc Point*(this: IntCurveSurface_TheCSFunctionOfHInter): gp_Pnt {.noSideEffect,
     importcpp: "Point", header: "IntCurveSurface_TheCSFunctionOfHInter.hxx".}
-proc root*(this: IntCurveSurfaceTheCSFunctionOfHInter): StandardReal {.noSideEffect,
-    importcpp: "Root", header: "IntCurveSurface_TheCSFunctionOfHInter.hxx".}
-proc auxillarSurface*(this: IntCurveSurfaceTheCSFunctionOfHInter): Handle[
-    Adaptor3dHSurface] {.noSideEffect, importcpp: "AuxillarSurface",
-                        header: "IntCurveSurface_TheCSFunctionOfHInter.hxx".}
-proc auxillarCurve*(this: IntCurveSurfaceTheCSFunctionOfHInter): Handle[
-    Adaptor3dHCurve] {.noSideEffect, importcpp: "AuxillarCurve",
-                      header: "IntCurveSurface_TheCSFunctionOfHInter.hxx".}
-
+proc Root*(this: IntCurveSurface_TheCSFunctionOfHInter): Standard_Real {.
+    noSideEffect, importcpp: "Root",
+    header: "IntCurveSurface_TheCSFunctionOfHInter.hxx".}
+proc AuxillarSurface*(this: IntCurveSurface_TheCSFunctionOfHInter): handle[
+    Adaptor3d_HSurface] {.noSideEffect, importcpp: "AuxillarSurface",
+                         header: "IntCurveSurface_TheCSFunctionOfHInter.hxx".}
+proc AuxillarCurve*(this: IntCurveSurface_TheCSFunctionOfHInter): handle[
+    Adaptor3d_HCurve] {.noSideEffect, importcpp: "AuxillarCurve",
+                       header: "IntCurveSurface_TheCSFunctionOfHInter.hxx".}

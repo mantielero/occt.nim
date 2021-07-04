@@ -14,6 +14,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../TopAbs/TopAbs_State,
+  ../Standard/Standard_Integer, ../Standard/Standard_Boolean,
+  ../TopAbs/TopAbs_Orientation
+
 discard "forward decl of HLRBRep_AreaLimit"
 discard "forward decl of Standard_NoMoreObject"
 discard "forward decl of Standard_NoSuchObject"
@@ -21,58 +27,59 @@ discard "forward decl of Standard_DomainError"
 discard "forward decl of HLRBRep_VertexList"
 discard "forward decl of HLRAlgo_Intersection"
 type
-  HLRBRepEdgeBuilder* {.importcpp: "HLRBRep_EdgeBuilder",
-                       header: "HLRBRep_EdgeBuilder.hxx", bycopy.} = object ## ! Creates  an
-                                                                       ## EdgeBuilder
-                                                                       ## algorithm.    <VList>
-                                                                       ## ! describes   the edge    and  the
-                                                                       ## interferences.
-                                                                       ## !
-                                                                       ## AreaLimits   are   created  from   the   vertices.
-                                                                       ## !
-                                                                       ## Builds(IN) is
-                                                                       ## automatically called.
+  HLRBRep_EdgeBuilder* {.importcpp: "HLRBRep_EdgeBuilder",
+                        header: "HLRBRep_EdgeBuilder.hxx", bycopy.} = object ## ! Creates  an
+                                                                        ## EdgeBuilder
+                                                                        ## algorithm.    <VList>
+                                                                        ## !
+                                                                        ## describes   the edge    and  the
+                                                                        ## interferences.
+                                                                        ## !
+                                                                        ## AreaLimits   are   created  from   the
+                                                                        ## vertices.
+                                                                        ## !
+                                                                        ## Builds(IN) is
+                                                                        ## automatically called.
 
 
-proc constructHLRBRepEdgeBuilder*(vList: var HLRBRepVertexList): HLRBRepEdgeBuilder {.
+proc constructHLRBRep_EdgeBuilder*(VList: var HLRBRep_VertexList): HLRBRep_EdgeBuilder {.
     constructor, importcpp: "HLRBRep_EdgeBuilder(@)",
     header: "HLRBRep_EdgeBuilder.hxx".}
-proc initAreas*(this: var HLRBRepEdgeBuilder) {.importcpp: "InitAreas",
+proc InitAreas*(this: var HLRBRep_EdgeBuilder) {.importcpp: "InitAreas",
     header: "HLRBRep_EdgeBuilder.hxx".}
-proc nextArea*(this: var HLRBRepEdgeBuilder) {.importcpp: "NextArea",
+proc NextArea*(this: var HLRBRep_EdgeBuilder) {.importcpp: "NextArea",
     header: "HLRBRep_EdgeBuilder.hxx".}
-proc previousArea*(this: var HLRBRepEdgeBuilder) {.importcpp: "PreviousArea",
+proc PreviousArea*(this: var HLRBRep_EdgeBuilder) {.importcpp: "PreviousArea",
     header: "HLRBRep_EdgeBuilder.hxx".}
-proc hasArea*(this: HLRBRepEdgeBuilder): StandardBoolean {.noSideEffect,
+proc HasArea*(this: HLRBRep_EdgeBuilder): Standard_Boolean {.noSideEffect,
     importcpp: "HasArea", header: "HLRBRep_EdgeBuilder.hxx".}
-proc areaState*(this: HLRBRepEdgeBuilder): TopAbsState {.noSideEffect,
+proc AreaState*(this: HLRBRep_EdgeBuilder): TopAbs_State {.noSideEffect,
     importcpp: "AreaState", header: "HLRBRep_EdgeBuilder.hxx".}
-proc areaEdgeState*(this: HLRBRepEdgeBuilder): TopAbsState {.noSideEffect,
+proc AreaEdgeState*(this: HLRBRep_EdgeBuilder): TopAbs_State {.noSideEffect,
     importcpp: "AreaEdgeState", header: "HLRBRep_EdgeBuilder.hxx".}
-proc leftLimit*(this: HLRBRepEdgeBuilder): Handle[HLRBRepAreaLimit] {.noSideEffect,
-    importcpp: "LeftLimit", header: "HLRBRep_EdgeBuilder.hxx".}
-proc rightLimit*(this: HLRBRepEdgeBuilder): Handle[HLRBRepAreaLimit] {.noSideEffect,
-    importcpp: "RightLimit", header: "HLRBRep_EdgeBuilder.hxx".}
-proc builds*(this: var HLRBRepEdgeBuilder; toBuild: TopAbsState) {.
+proc LeftLimit*(this: HLRBRep_EdgeBuilder): handle[HLRBRep_AreaLimit] {.
+    noSideEffect, importcpp: "LeftLimit", header: "HLRBRep_EdgeBuilder.hxx".}
+proc RightLimit*(this: HLRBRep_EdgeBuilder): handle[HLRBRep_AreaLimit] {.
+    noSideEffect, importcpp: "RightLimit", header: "HLRBRep_EdgeBuilder.hxx".}
+proc Builds*(this: var HLRBRep_EdgeBuilder; ToBuild: TopAbs_State) {.
     importcpp: "Builds", header: "HLRBRep_EdgeBuilder.hxx".}
-proc moreEdges*(this: HLRBRepEdgeBuilder): StandardBoolean {.noSideEffect,
+proc MoreEdges*(this: HLRBRep_EdgeBuilder): Standard_Boolean {.noSideEffect,
     importcpp: "MoreEdges", header: "HLRBRep_EdgeBuilder.hxx".}
-proc nextEdge*(this: var HLRBRepEdgeBuilder) {.importcpp: "NextEdge",
+proc NextEdge*(this: var HLRBRep_EdgeBuilder) {.importcpp: "NextEdge",
     header: "HLRBRep_EdgeBuilder.hxx".}
-proc moreVertices*(this: HLRBRepEdgeBuilder): StandardBoolean {.noSideEffect,
+proc MoreVertices*(this: HLRBRep_EdgeBuilder): Standard_Boolean {.noSideEffect,
     importcpp: "MoreVertices", header: "HLRBRep_EdgeBuilder.hxx".}
-proc nextVertex*(this: var HLRBRepEdgeBuilder) {.importcpp: "NextVertex",
+proc NextVertex*(this: var HLRBRep_EdgeBuilder) {.importcpp: "NextVertex",
     header: "HLRBRep_EdgeBuilder.hxx".}
-proc current*(this: HLRBRepEdgeBuilder): HLRAlgoIntersection {.noSideEffect,
+proc Current*(this: HLRBRep_EdgeBuilder): HLRAlgo_Intersection {.noSideEffect,
     importcpp: "Current", header: "HLRBRep_EdgeBuilder.hxx".}
-proc isBoundary*(this: HLRBRepEdgeBuilder): StandardBoolean {.noSideEffect,
+proc IsBoundary*(this: HLRBRep_EdgeBuilder): Standard_Boolean {.noSideEffect,
     importcpp: "IsBoundary", header: "HLRBRep_EdgeBuilder.hxx".}
-proc isInterference*(this: HLRBRepEdgeBuilder): StandardBoolean {.noSideEffect,
+proc IsInterference*(this: HLRBRep_EdgeBuilder): Standard_Boolean {.noSideEffect,
     importcpp: "IsInterference", header: "HLRBRep_EdgeBuilder.hxx".}
-proc orientation*(this: HLRBRepEdgeBuilder): TopAbsOrientation {.noSideEffect,
+proc Orientation*(this: HLRBRep_EdgeBuilder): TopAbs_Orientation {.noSideEffect,
     importcpp: "Orientation", header: "HLRBRep_EdgeBuilder.hxx".}
-proc destroy*(this: var HLRBRepEdgeBuilder) {.importcpp: "Destroy",
+proc Destroy*(this: var HLRBRep_EdgeBuilder) {.importcpp: "Destroy",
     header: "HLRBRep_EdgeBuilder.hxx".}
-proc destroyHLRBRepEdgeBuilder*(this: var HLRBRepEdgeBuilder) {.
+proc destroyHLRBRep_EdgeBuilder*(this: var HLRBRep_EdgeBuilder) {.
     importcpp: "#.~HLRBRep_EdgeBuilder()", header: "HLRBRep_EdgeBuilder.hxx".}
-

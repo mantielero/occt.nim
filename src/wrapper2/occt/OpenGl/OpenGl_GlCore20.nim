@@ -13,18 +13,21 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  OpenGl_GlCore15
+
 ## ! OpenGL 2.0 core based on 1.5 version.
 
 type
-  OpenGlTmplCore20*[TheBaseClassT] {.importcpp: "OpenGl_TmplCore20<\'0>",
-                                    header: "OpenGl_GlCore20.hxx", bycopy.} = object of TheBaseClassT ##
-                                                                                               ## !
-                                                                                               ## @name
-                                                                                               ## OpenGL
-                                                                                               ## 2.0
-                                                                                               ## additives
-                                                                                               ## to
-                                                                                               ## 1.5
+  OpenGl_TmplCore20*[theBaseClass_t] {.importcpp: "OpenGl_TmplCore20<\'0>",
+                                      header: "OpenGl_GlCore20.hxx", bycopy.} = object of theBaseClass_t ##
+                                                                                                  ## !
+                                                                                                  ## @name
+                                                                                                  ## OpenGL
+                                                                                                  ## 2.0
+                                                                                                  ## additives
+                                                                                                  ## to
+                                                                                                  ## 1.5
 
 
 ## using statement
@@ -153,74 +156,72 @@ type
 
 ## using statement
 
-# when not defined(gl_Es_Version_20):
-#   discard
-# when not defined(gl_Es_Version_20):
-#   discard
-# when not defined(gl_Es_Version_20):
-#   discard
-# when not defined(gl_Es_Version_20):
-#   discard
-# when not defined(gl_Es_Version_20):
-#   discard
-# when not defined(gl_Es_Version_20):
-#   discard
-# when not defined(gl_Es_Version_20):
-#   discard
-# when not defined(gl_Es_Version_20):
-#   discard
-# when not defined(gl_Es_Version_20):
-#   discard
-# when not defined(gl_Es_Version_20):
-#   discard
-# when not defined(gl_Es_Version_20):
-#   discard
-# when not defined(gl_Es_Version_20):
-#   discard
-# when not defined(gl_Es_Version_20):
-#   discard
-# when not defined(gl_Es_Version_20):
-#   discard
-# when not defined(gl_Es_Version_20):
-#   discard
-# when not defined(gl_Es_Version_20):
-#   discard
-# when not defined(gl_Es_Version_20):
-#   discard
-# when not defined(gl_Es_Version_20):
-#   discard
-# when not defined(gl_Es_Version_20):
-#   discard
-# when not defined(gl_Es_Version_20):
-#   discard
-# when not defined(gl_Es_Version_20):
-#   discard
-# when not defined(gl_Es_Version_20):
-#   discard
-# when not defined(gl_Es_Version_20):
-#   discard
-# when not defined(gl_Es_Version_20):
-#   discard
-# when not defined(gl_Es_Version_20):
-#   discard
-# when not defined(gl_Es_Version_20):
-#   discard
-# when not defined(gl_Es_Version_20):
-#   discard
-# when not defined(gl_Es_Version_20):
-#   discard
-# when not defined(gl_Es_Version_20):
-#   discard
-# when not defined(gl_Es_Version_20):
-#   discard
+when not defined(GL_ES_VERSION_2_0):
+  discard
+when not defined(GL_ES_VERSION_2_0):
+  discard
+when not defined(GL_ES_VERSION_2_0):
+  discard
+when not defined(GL_ES_VERSION_2_0):
+  discard
+when not defined(GL_ES_VERSION_2_0):
+  discard
+when not defined(GL_ES_VERSION_2_0):
+  discard
+when not defined(GL_ES_VERSION_2_0):
+  discard
+when not defined(GL_ES_VERSION_2_0):
+  discard
+when not defined(GL_ES_VERSION_2_0):
+  discard
+when not defined(GL_ES_VERSION_2_0):
+  discard
+when not defined(GL_ES_VERSION_2_0):
+  discard
+when not defined(GL_ES_VERSION_2_0):
+  discard
+when not defined(GL_ES_VERSION_2_0):
+  discard
+when not defined(GL_ES_VERSION_2_0):
+  discard
+when not defined(GL_ES_VERSION_2_0):
+  discard
+when not defined(GL_ES_VERSION_2_0):
+  discard
+when not defined(GL_ES_VERSION_2_0):
+  discard
+when not defined(GL_ES_VERSION_2_0):
+  discard
+when not defined(GL_ES_VERSION_2_0):
+  discard
+when not defined(GL_ES_VERSION_2_0):
+  discard
+when not defined(GL_ES_VERSION_2_0):
+  discard
+when not defined(GL_ES_VERSION_2_0):
+  discard
+when not defined(GL_ES_VERSION_2_0):
+  discard
+when not defined(GL_ES_VERSION_2_0):
+  discard
+when not defined(GL_ES_VERSION_2_0):
+  discard
+when not defined(GL_ES_VERSION_2_0):
+  discard
+when not defined(GL_ES_VERSION_2_0):
+  discard
+when not defined(GL_ES_VERSION_2_0):
+  discard
+when not defined(GL_ES_VERSION_2_0):
+  discard
+when not defined(GL_ES_VERSION_2_0):
+  discard
 ## ! OpenGL 2.0 core based on 1.5 version.
 
 type
-  OpenGlGlCore20* = OpenGlTmplCore20[OpenGlGlCore15]
+  OpenGl_GlCore20* = OpenGl_TmplCore20[OpenGl_GlCore15]
 
 ## ! OpenGL 2.0 without deprecated entry points.
 
 type
-  OpenGlGlCore20Fwd* = OpenGlTmplCore20[OpenGlGlCore15Fwd]
-
-
+  OpenGl_GlCore20Fwd* = OpenGl_TmplCore20[OpenGl_GlCore15Fwd]

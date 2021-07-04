@@ -14,49 +14,54 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../TopAbs/TopAbs_Orientation,
+  ../Standard/Standard_Integer, ../Standard/Standard_Real,
+  ../Standard/Standard_ShortReal, ../TopAbs/TopAbs_State
+
 ## ! Describes  an intersection  on   an edge to  hide.
 ## ! Contains a parameter and   a state (ON =   on  the
 ## ! face, OUT = above the face, IN = under the Face)
 
 type
-  HLRAlgoIntersection* {.importcpp: "HLRAlgo_Intersection",
-                        header: "HLRAlgo_Intersection.hxx", bycopy.} = object
+  HLRAlgo_Intersection* {.importcpp: "HLRAlgo_Intersection",
+                         header: "HLRAlgo_Intersection.hxx", bycopy.} = object
 
 
-proc constructHLRAlgoIntersection*(): HLRAlgoIntersection {.constructor,
+proc constructHLRAlgo_Intersection*(): HLRAlgo_Intersection {.constructor,
     importcpp: "HLRAlgo_Intersection(@)", header: "HLRAlgo_Intersection.hxx".}
-proc constructHLRAlgoIntersection*(ori: TopAbsOrientation; lev: StandardInteger;
-                                  segInd: StandardInteger; ind: StandardInteger;
-                                  p: StandardReal; tol: StandardShortReal;
-                                  s: TopAbsState): HLRAlgoIntersection {.
+proc constructHLRAlgo_Intersection*(Ori: TopAbs_Orientation; Lev: Standard_Integer;
+                                   SegInd: Standard_Integer;
+                                   Ind: Standard_Integer; P: Standard_Real;
+                                   Tol: Standard_ShortReal; S: TopAbs_State): HLRAlgo_Intersection {.
     constructor, importcpp: "HLRAlgo_Intersection(@)",
     header: "HLRAlgo_Intersection.hxx".}
-proc orientation*(this: var HLRAlgoIntersection; ori: TopAbsOrientation) {.
+proc Orientation*(this: var HLRAlgo_Intersection; Ori: TopAbs_Orientation) {.
     importcpp: "Orientation", header: "HLRAlgo_Intersection.hxx".}
-proc orientation*(this: HLRAlgoIntersection): TopAbsOrientation {.noSideEffect,
+proc Orientation*(this: HLRAlgo_Intersection): TopAbs_Orientation {.noSideEffect,
     importcpp: "Orientation", header: "HLRAlgo_Intersection.hxx".}
-proc level*(this: var HLRAlgoIntersection; lev: StandardInteger) {.importcpp: "Level",
-    header: "HLRAlgo_Intersection.hxx".}
-proc level*(this: HLRAlgoIntersection): StandardInteger {.noSideEffect,
+proc Level*(this: var HLRAlgo_Intersection; Lev: Standard_Integer) {.
     importcpp: "Level", header: "HLRAlgo_Intersection.hxx".}
-proc segIndex*(this: var HLRAlgoIntersection; segInd: StandardInteger) {.
+proc Level*(this: HLRAlgo_Intersection): Standard_Integer {.noSideEffect,
+    importcpp: "Level", header: "HLRAlgo_Intersection.hxx".}
+proc SegIndex*(this: var HLRAlgo_Intersection; SegInd: Standard_Integer) {.
     importcpp: "SegIndex", header: "HLRAlgo_Intersection.hxx".}
-proc segIndex*(this: HLRAlgoIntersection): StandardInteger {.noSideEffect,
+proc SegIndex*(this: HLRAlgo_Intersection): Standard_Integer {.noSideEffect,
     importcpp: "SegIndex", header: "HLRAlgo_Intersection.hxx".}
-proc index*(this: var HLRAlgoIntersection; ind: StandardInteger) {.importcpp: "Index",
-    header: "HLRAlgo_Intersection.hxx".}
-proc index*(this: HLRAlgoIntersection): StandardInteger {.noSideEffect,
+proc Index*(this: var HLRAlgo_Intersection; Ind: Standard_Integer) {.
     importcpp: "Index", header: "HLRAlgo_Intersection.hxx".}
-proc parameter*(this: var HLRAlgoIntersection; p: StandardReal) {.
+proc Index*(this: HLRAlgo_Intersection): Standard_Integer {.noSideEffect,
+    importcpp: "Index", header: "HLRAlgo_Intersection.hxx".}
+proc Parameter*(this: var HLRAlgo_Intersection; P: Standard_Real) {.
     importcpp: "Parameter", header: "HLRAlgo_Intersection.hxx".}
-proc parameter*(this: HLRAlgoIntersection): StandardReal {.noSideEffect,
+proc Parameter*(this: HLRAlgo_Intersection): Standard_Real {.noSideEffect,
     importcpp: "Parameter", header: "HLRAlgo_Intersection.hxx".}
-proc tolerance*(this: var HLRAlgoIntersection; t: StandardShortReal) {.
+proc Tolerance*(this: var HLRAlgo_Intersection; T: Standard_ShortReal) {.
     importcpp: "Tolerance", header: "HLRAlgo_Intersection.hxx".}
-proc tolerance*(this: HLRAlgoIntersection): StandardShortReal {.noSideEffect,
+proc Tolerance*(this: HLRAlgo_Intersection): Standard_ShortReal {.noSideEffect,
     importcpp: "Tolerance", header: "HLRAlgo_Intersection.hxx".}
-proc state*(this: var HLRAlgoIntersection; s: TopAbsState) {.importcpp: "State",
+proc State*(this: var HLRAlgo_Intersection; S: TopAbs_State) {.importcpp: "State",
     header: "HLRAlgo_Intersection.hxx".}
-proc state*(this: HLRAlgoIntersection): TopAbsState {.noSideEffect,
+proc State*(this: HLRAlgo_Intersection): TopAbs_State {.noSideEffect,
     importcpp: "State", header: "HLRAlgo_Intersection.hxx".}
-

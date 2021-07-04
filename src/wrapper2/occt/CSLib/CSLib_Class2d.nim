@@ -14,93 +14,99 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Address,
+  ../Standard/Standard_Real, ../Standard/Standard_Integer,
+  ../TColgp/TColgp_Array1OfPnt2d, ../NCollection/NCollection_Handle,
+  ../TColStd/TColStd_Array1OfReal, ../TColgp/TColgp_SequenceOfPnt2d
+
 discard "forward decl of gp_Pnt2d"
 type
-  CSLibClass2d* {.importcpp: "CSLib_Class2d", header: "CSLib_Class2d.hxx", bycopy.} = object ##
-                                                                                     ## !
-                                                                                     ## Constructs
-                                                                                     ## the
-                                                                                     ## 2D-polygon.
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## thePnts2d
-                                                                                     ## is
-                                                                                     ## the
-                                                                                     ## set
-                                                                                     ## of
-                                                                                     ## the
-                                                                                     ## vertices
-                                                                                     ## (closed
-                                                                                     ## polygon
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## will
-                                                                                     ## always
-                                                                                     ## be
-                                                                                     ## created
-                                                                                     ## inside
-                                                                                     ## of
-                                                                                     ## this
-                                                                                     ## constructor;
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## consequently,
-                                                                                     ## there
-                                                                                     ## is
-                                                                                     ## no
-                                                                                     ## point
-                                                                                     ## in
-                                                                                     ## repeating
-                                                                                     ## first
-                                                                                     ## and
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## last
-                                                                                     ## point
-                                                                                     ## in
-                                                                                     ## thePnts2d).
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## theTolu
-                                                                                     ## and
-                                                                                     ## theTolv
-                                                                                     ## are
-                                                                                     ## tolerances.
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## theUmin,
-                                                                                     ## theVmin,
-                                                                                     ## theUmax,
-                                                                                     ## theVmax
-                                                                                     ## are
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## UV-bounds
-                                                                                     ## of
-                                                                                     ## the
-                                                                                     ## polygon.
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## Initializes
-                                                                                     ## theObj
+  CSLib_Class2d* {.importcpp: "CSLib_Class2d", header: "CSLib_Class2d.hxx", bycopy.} = object ##
+                                                                                      ## !
+                                                                                      ## Constructs
+                                                                                      ## the
+                                                                                      ## 2D-polygon.
+                                                                                      ##
+                                                                                      ## !
+                                                                                      ## thePnts2d
+                                                                                      ## is
+                                                                                      ## the
+                                                                                      ## set
+                                                                                      ## of
+                                                                                      ## the
+                                                                                      ## vertices
+                                                                                      ## (closed
+                                                                                      ## polygon
+                                                                                      ##
+                                                                                      ## !
+                                                                                      ## will
+                                                                                      ## always
+                                                                                      ## be
+                                                                                      ## created
+                                                                                      ## inside
+                                                                                      ## of
+                                                                                      ## this
+                                                                                      ## constructor;
+                                                                                      ##
+                                                                                      ## !
+                                                                                      ## consequently,
+                                                                                      ## there
+                                                                                      ## is
+                                                                                      ## no
+                                                                                      ## point
+                                                                                      ## in
+                                                                                      ## repeating
+                                                                                      ## first
+                                                                                      ## and
+                                                                                      ##
+                                                                                      ## !
+                                                                                      ## last
+                                                                                      ## point
+                                                                                      ## in
+                                                                                      ## thePnts2d).
+                                                                                      ##
+                                                                                      ## !
+                                                                                      ## theTolu
+                                                                                      ## and
+                                                                                      ## theTolv
+                                                                                      ## are
+                                                                                      ## tolerances.
+                                                                                      ##
+                                                                                      ## !
+                                                                                      ## theUmin,
+                                                                                      ## theVmin,
+                                                                                      ## theUmax,
+                                                                                      ## theVmax
+                                                                                      ## are
+                                                                                      ##
+                                                                                      ## !
+                                                                                      ## UV-bounds
+                                                                                      ## of
+                                                                                      ## the
+                                                                                      ## polygon.
+                                                                                      ##
+                                                                                      ## !
+                                                                                      ## Initializes
+                                                                                      ## theObj
 
 
-proc constructCSLibClass2d*(thePnts2d: TColgpArray1OfPnt2d; theTolU: StandardReal;
-                           theTolV: StandardReal; theUMin: StandardReal;
-                           theVMin: StandardReal; theUMax: StandardReal;
-                           theVMax: StandardReal): CSLibClass2d {.constructor,
-    importcpp: "CSLib_Class2d(@)", header: "CSLib_Class2d.hxx".}
-proc constructCSLibClass2d*(thePnts2d: TColgpSequenceOfPnt2d;
-                           theTolU: StandardReal; theTolV: StandardReal;
-                           theUMin: StandardReal; theVMin: StandardReal;
-                           theUMax: StandardReal; theVMax: StandardReal): CSLibClass2d {.
+proc constructCSLib_Class2d*(thePnts2d: TColgp_Array1OfPnt2d;
+                            theTolU: Standard_Real; theTolV: Standard_Real;
+                            theUMin: Standard_Real; theVMin: Standard_Real;
+                            theUMax: Standard_Real; theVMax: Standard_Real): CSLib_Class2d {.
     constructor, importcpp: "CSLib_Class2d(@)", header: "CSLib_Class2d.hxx".}
-proc siDans*(this: CSLibClass2d; p: GpPnt2d): StandardInteger {.noSideEffect,
+proc constructCSLib_Class2d*(thePnts2d: TColgp_SequenceOfPnt2d;
+                            theTolU: Standard_Real; theTolV: Standard_Real;
+                            theUMin: Standard_Real; theVMin: Standard_Real;
+                            theUMax: Standard_Real; theVMax: Standard_Real): CSLib_Class2d {.
+    constructor, importcpp: "CSLib_Class2d(@)", header: "CSLib_Class2d.hxx".}
+proc SiDans*(this: CSLib_Class2d; P: gp_Pnt2d): Standard_Integer {.noSideEffect,
     importcpp: "SiDans", header: "CSLib_Class2d.hxx".}
-proc siDansOnMode*(this: CSLibClass2d; p: GpPnt2d; tol: StandardReal): StandardInteger {.
+proc SiDans_OnMode*(this: CSLib_Class2d; P: gp_Pnt2d; Tol: Standard_Real): Standard_Integer {.
     noSideEffect, importcpp: "SiDans_OnMode", header: "CSLib_Class2d.hxx".}
-proc internalSiDans*(this: CSLibClass2d; x: StandardReal; y: StandardReal): StandardInteger {.
+proc InternalSiDans*(this: CSLib_Class2d; X: Standard_Real; Y: Standard_Real): Standard_Integer {.
     noSideEffect, importcpp: "InternalSiDans", header: "CSLib_Class2d.hxx".}
-proc internalSiDansOuOn*(this: CSLibClass2d; x: StandardReal; y: StandardReal): StandardInteger {.
+proc InternalSiDansOuOn*(this: CSLib_Class2d; X: Standard_Real; Y: Standard_Real): Standard_Integer {.
     noSideEffect, importcpp: "InternalSiDansOuOn", header: "CSLib_Class2d.hxx".}
-

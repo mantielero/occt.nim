@@ -14,39 +14,42 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, IntCurveSurface_IntersectionPoint
+
 discard "forward decl of IntCurveSurface_IntersectionPoint"
 type
-  IntCurveSurfaceIntersectionSegment* {.importcpp: "IntCurveSurface_IntersectionSegment", header: "IntCurveSurface_IntersectionSegment.hxx",
-                                       bycopy.} = object
+  IntCurveSurface_IntersectionSegment* {.importcpp: "IntCurveSurface_IntersectionSegment", header: "IntCurveSurface_IntersectionSegment.hxx",
+                                        bycopy.} = object
 
 
-proc constructIntCurveSurfaceIntersectionSegment*(): IntCurveSurfaceIntersectionSegment {.
+proc constructIntCurveSurface_IntersectionSegment*(): IntCurveSurface_IntersectionSegment {.
     constructor, importcpp: "IntCurveSurface_IntersectionSegment(@)",
     header: "IntCurveSurface_IntersectionSegment.hxx".}
-proc constructIntCurveSurfaceIntersectionSegment*(
-    p1: IntCurveSurfaceIntersectionPoint; p2: IntCurveSurfaceIntersectionPoint): IntCurveSurfaceIntersectionSegment {.
+proc constructIntCurveSurface_IntersectionSegment*(
+    P1: IntCurveSurface_IntersectionPoint; P2: IntCurveSurface_IntersectionPoint): IntCurveSurface_IntersectionSegment {.
     constructor, importcpp: "IntCurveSurface_IntersectionSegment(@)",
     header: "IntCurveSurface_IntersectionSegment.hxx".}
-proc setValues*(this: var IntCurveSurfaceIntersectionSegment;
-               p1: IntCurveSurfaceIntersectionPoint;
-               p2: IntCurveSurfaceIntersectionPoint) {.importcpp: "SetValues",
+proc SetValues*(this: var IntCurveSurface_IntersectionSegment;
+               P1: IntCurveSurface_IntersectionPoint;
+               P2: IntCurveSurface_IntersectionPoint) {.importcpp: "SetValues",
     header: "IntCurveSurface_IntersectionSegment.hxx".}
-proc values*(this: IntCurveSurfaceIntersectionSegment;
-            p1: var IntCurveSurfaceIntersectionPoint;
-            p2: var IntCurveSurfaceIntersectionPoint) {.noSideEffect,
+proc Values*(this: IntCurveSurface_IntersectionSegment;
+            P1: var IntCurveSurface_IntersectionPoint;
+            P2: var IntCurveSurface_IntersectionPoint) {.noSideEffect,
     importcpp: "Values", header: "IntCurveSurface_IntersectionSegment.hxx".}
-proc firstPoint*(this: IntCurveSurfaceIntersectionSegment;
-                p1: var IntCurveSurfaceIntersectionPoint) {.noSideEffect,
+proc FirstPoint*(this: IntCurveSurface_IntersectionSegment;
+                P1: var IntCurveSurface_IntersectionPoint) {.noSideEffect,
     importcpp: "FirstPoint", header: "IntCurveSurface_IntersectionSegment.hxx".}
-proc secondPoint*(this: IntCurveSurfaceIntersectionSegment;
-                 p2: var IntCurveSurfaceIntersectionPoint) {.noSideEffect,
+proc SecondPoint*(this: IntCurveSurface_IntersectionSegment;
+                 P2: var IntCurveSurface_IntersectionPoint) {.noSideEffect,
     importcpp: "SecondPoint", header: "IntCurveSurface_IntersectionSegment.hxx".}
-proc firstPoint*(this: IntCurveSurfaceIntersectionSegment): IntCurveSurfaceIntersectionPoint {.
+proc FirstPoint*(this: IntCurveSurface_IntersectionSegment): IntCurveSurface_IntersectionPoint {.
     noSideEffect, importcpp: "FirstPoint",
     header: "IntCurveSurface_IntersectionSegment.hxx".}
-proc secondPoint*(this: IntCurveSurfaceIntersectionSegment): IntCurveSurfaceIntersectionPoint {.
+proc SecondPoint*(this: IntCurveSurface_IntersectionSegment): IntCurveSurface_IntersectionPoint {.
     noSideEffect, importcpp: "SecondPoint",
     header: "IntCurveSurface_IntersectionSegment.hxx".}
-proc dump*(this: IntCurveSurfaceIntersectionSegment) {.noSideEffect,
+proc Dump*(this: IntCurveSurface_IntersectionSegment) {.noSideEffect,
     importcpp: "Dump", header: "IntCurveSurface_IntersectionSegment.hxx".}
-

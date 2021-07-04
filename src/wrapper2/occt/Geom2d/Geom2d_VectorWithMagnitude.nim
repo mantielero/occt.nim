@@ -14,6 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, Geom2d_Vector,
+  ../Standard/Standard_Real
+
 discard "forward decl of Standard_ConstructionError"
 discard "forward decl of gp_Vec2d"
 discard "forward decl of gp_Pnt2d"
@@ -23,54 +27,56 @@ discard "forward decl of Geom2d_Geometry"
 discard "forward decl of Geom2d_VectorWithMagnitude"
 discard "forward decl of Geom2d_VectorWithMagnitude"
 type
-  HandleGeom2dVectorWithMagnitude* = Handle[Geom2dVectorWithMagnitude]
+  Handle_Geom2d_VectorWithMagnitude* = handle[Geom2d_VectorWithMagnitude]
 
 ## ! Defines a vector with magnitude.
 ## ! A vector with magnitude can have a zero length.
 
 type
-  Geom2dVectorWithMagnitude* {.importcpp: "Geom2d_VectorWithMagnitude",
-                              header: "Geom2d_VectorWithMagnitude.hxx", bycopy.} = object of Geom2dVector ##
-                                                                                                   ## !
-                                                                                                   ## Creates
-                                                                                                   ## a
-                                                                                                   ## persistent
-                                                                                                   ## copy
-                                                                                                   ## of
-                                                                                                   ## V.
-    opencascade* {.importc: "opencascade".}: StandardNODISCARD
-    opencascade* {.importc: "opencascade".}: StandardNODISCARD
-    opencascade* {.importc: "opencascade".}: StandardNODISCARD
-    opencascade* {.importc: "opencascade".}: StandardNODISCARD
-    opencascade* {.importc: "opencascade".}: StandardNODISCARD
-    opencascade* {.importc: "opencascade".}: StandardNODISCARD
-    opencascade* {.importc: "opencascade".}: StandardNODISCARD
+  Geom2d_VectorWithMagnitude* {.importcpp: "Geom2d_VectorWithMagnitude",
+                               header: "Geom2d_VectorWithMagnitude.hxx", bycopy.} = object of Geom2d_Vector ##
+                                                                                                     ## !
+                                                                                                     ## Creates
+                                                                                                     ## a
+                                                                                                     ## persistent
+                                                                                                     ## copy
+                                                                                                     ## of
+                                                                                                     ## V.
+    opencascade* {.importc: "opencascade".}: Standard_NODISCARD
+    opencascade* {.importc: "opencascade".}: Standard_NODISCARD
+    opencascade* {.importc: "opencascade".}: Standard_NODISCARD
+    opencascade* {.importc: "opencascade".}: Standard_NODISCARD
+    opencascade* {.importc: "opencascade".}: Standard_NODISCARD
+    opencascade* {.importc: "opencascade".}: Standard_NODISCARD
+    opencascade* {.importc: "opencascade".}: Standard_NODISCARD
 
 
-proc constructGeom2dVectorWithMagnitude*(v: GpVec2d): Geom2dVectorWithMagnitude {.
+proc constructGeom2d_VectorWithMagnitude*(V: gp_Vec2d): Geom2d_VectorWithMagnitude {.
     constructor, importcpp: "Geom2d_VectorWithMagnitude(@)",
     header: "Geom2d_VectorWithMagnitude.hxx".}
-proc constructGeom2dVectorWithMagnitude*(x: StandardReal; y: StandardReal): Geom2dVectorWithMagnitude {.
+proc constructGeom2d_VectorWithMagnitude*(X: Standard_Real; Y: Standard_Real): Geom2d_VectorWithMagnitude {.
     constructor, importcpp: "Geom2d_VectorWithMagnitude(@)",
     header: "Geom2d_VectorWithMagnitude.hxx".}
-proc constructGeom2dVectorWithMagnitude*(p1: GpPnt2d; p2: GpPnt2d): Geom2dVectorWithMagnitude {.
+proc constructGeom2d_VectorWithMagnitude*(P1: gp_Pnt2d; P2: gp_Pnt2d): Geom2d_VectorWithMagnitude {.
     constructor, importcpp: "Geom2d_VectorWithMagnitude(@)",
     header: "Geom2d_VectorWithMagnitude.hxx".}
-proc setCoord*(this: var Geom2dVectorWithMagnitude; x: StandardReal; y: StandardReal) {.
-    importcpp: "SetCoord", header: "Geom2d_VectorWithMagnitude.hxx".}
-proc setVec2d*(this: var Geom2dVectorWithMagnitude; v: GpVec2d) {.
+proc SetCoord*(this: var Geom2d_VectorWithMagnitude; X: Standard_Real;
+              Y: Standard_Real) {.importcpp: "SetCoord",
+                                header: "Geom2d_VectorWithMagnitude.hxx".}
+proc SetVec2d*(this: var Geom2d_VectorWithMagnitude; V: gp_Vec2d) {.
     importcpp: "SetVec2d", header: "Geom2d_VectorWithMagnitude.hxx".}
-proc setX*(this: var Geom2dVectorWithMagnitude; x: StandardReal) {.importcpp: "SetX",
-    header: "Geom2d_VectorWithMagnitude.hxx".}
-proc setY*(this: var Geom2dVectorWithMagnitude; y: StandardReal) {.importcpp: "SetY",
-    header: "Geom2d_VectorWithMagnitude.hxx".}
-proc magnitude*(this: Geom2dVectorWithMagnitude): StandardReal {.noSideEffect,
+proc SetX*(this: var Geom2d_VectorWithMagnitude; X: Standard_Real) {.
+    importcpp: "SetX", header: "Geom2d_VectorWithMagnitude.hxx".}
+proc SetY*(this: var Geom2d_VectorWithMagnitude; Y: Standard_Real) {.
+    importcpp: "SetY", header: "Geom2d_VectorWithMagnitude.hxx".}
+proc Magnitude*(this: Geom2d_VectorWithMagnitude): Standard_Real {.noSideEffect,
     importcpp: "Magnitude", header: "Geom2d_VectorWithMagnitude.hxx".}
-proc squareMagnitude*(this: Geom2dVectorWithMagnitude): StandardReal {.noSideEffect,
-    importcpp: "SquareMagnitude", header: "Geom2d_VectorWithMagnitude.hxx".}
-proc add*(this: var Geom2dVectorWithMagnitude; other: Handle[Geom2dVector]) {.
+proc SquareMagnitude*(this: Geom2d_VectorWithMagnitude): Standard_Real {.
+    noSideEffect, importcpp: "SquareMagnitude",
+    header: "Geom2d_VectorWithMagnitude.hxx".}
+proc Add*(this: var Geom2d_VectorWithMagnitude; Other: handle[Geom2d_Vector]) {.
     importcpp: "Add", header: "Geom2d_VectorWithMagnitude.hxx".}
-proc `+=`*(this: var Geom2dVectorWithMagnitude; other: Handle[Geom2dVector]) {.
+proc `+=`*(this: var Geom2d_VectorWithMagnitude; Other: handle[Geom2d_Vector]) {.
     importcpp: "(# += #)", header: "Geom2d_VectorWithMagnitude.hxx".}
 ## !!!Ignored construct:  :: handle < Geom2d_VectorWithMagnitude > [end of template] Added ( const opencascade :: handle < Geom2d_Vector > [end of template] & Other ) const ;
 ## Error: identifier expected, but got: ::!!!
@@ -79,11 +85,11 @@ proc `+=`*(this: var Geom2dVectorWithMagnitude; other: Handle[Geom2dVector]) {.
 ## ! <me> ^ Other. A new vector is returned. Standard_Real Crossed ( const opencascade :: handle < Geom2d_Vector > [end of template] & Other ) const ;
 ## Error: identifier expected, but got: ::!!!
 
-proc `^`*(this: Geom2dVectorWithMagnitude; other: Handle[Geom2dVector]): StandardReal {.
+proc `^`*(this: Geom2d_VectorWithMagnitude; Other: handle[Geom2d_Vector]): Standard_Real {.
     noSideEffect, importcpp: "(# ^ #)", header: "Geom2d_VectorWithMagnitude.hxx".}
-proc divide*(this: var Geom2dVectorWithMagnitude; scalar: StandardReal) {.
+proc Divide*(this: var Geom2d_VectorWithMagnitude; Scalar: Standard_Real) {.
     importcpp: "Divide", header: "Geom2d_VectorWithMagnitude.hxx".}
-proc `/=`*(this: var Geom2dVectorWithMagnitude; scalar: StandardReal) {.
+proc `/=`*(this: var Geom2d_VectorWithMagnitude; Scalar: Standard_Real) {.
     importcpp: "(# /= #)", header: "Geom2d_VectorWithMagnitude.hxx".}
 ## !!!Ignored construct:  :: handle < Geom2d_VectorWithMagnitude > [end of template] Divided ( const Standard_Real Scalar ) const ;
 ## Error: identifier expected, but got: ::!!!
@@ -95,18 +101,18 @@ proc `/=`*(this: var Geom2dVectorWithMagnitude; scalar: StandardReal) {.
 ## ! Collision with same operator defined for the class Vector! Standard_NODISCARD opencascade :: handle < Geom2d_VectorWithMagnitude > [end of template] Multiplied ( const Standard_Real Scalar ) const ;
 ## Error: identifier expected, but got: ::!!!
 
-proc multiply*(this: var Geom2dVectorWithMagnitude; scalar: StandardReal) {.
+proc Multiply*(this: var Geom2d_VectorWithMagnitude; Scalar: Standard_Real) {.
     importcpp: "Multiply", header: "Geom2d_VectorWithMagnitude.hxx".}
-proc `*=`*(this: var Geom2dVectorWithMagnitude; scalar: StandardReal) {.
+proc `*=`*(this: var Geom2d_VectorWithMagnitude; Scalar: Standard_Real) {.
     importcpp: "(# *= #)", header: "Geom2d_VectorWithMagnitude.hxx".}
-proc normalize*(this: var Geom2dVectorWithMagnitude) {.importcpp: "Normalize",
+proc Normalize*(this: var Geom2d_VectorWithMagnitude) {.importcpp: "Normalize",
     header: "Geom2d_VectorWithMagnitude.hxx".}
 ## !!!Ignored construct:  :: handle < Geom2d_VectorWithMagnitude > [end of template] Normalized ( ) const ;
 ## Error: identifier expected, but got: ::!!!
 
-proc subtract*(this: var Geom2dVectorWithMagnitude; other: Handle[Geom2dVector]) {.
+proc Subtract*(this: var Geom2d_VectorWithMagnitude; Other: handle[Geom2d_Vector]) {.
     importcpp: "Subtract", header: "Geom2d_VectorWithMagnitude.hxx".}
-proc `-=`*(this: var Geom2dVectorWithMagnitude; other: Handle[Geom2dVector]) {.
+proc `-=`*(this: var Geom2d_VectorWithMagnitude; Other: handle[Geom2d_Vector]) {.
     importcpp: "(# -= #)", header: "Geom2d_VectorWithMagnitude.hxx".}
 ## !!!Ignored construct:  :: handle < Geom2d_VectorWithMagnitude > [end of template] Subtracted ( const opencascade :: handle < Geom2d_Vector > [end of template] & Other ) const ;
 ## Error: identifier expected, but got: ::!!!
@@ -114,17 +120,16 @@ proc `-=`*(this: var Geom2dVectorWithMagnitude; other: Handle[Geom2dVector]) {.
 ## !!!Ignored construct:  :: handle < Geom2d_VectorWithMagnitude > [end of template] operator - ( const opencascade :: handle < Geom2d_Vector > [end of template] & Other ) const { return Subtracted ( Other ) ; } ! Applies the transformation T to this vector. void Transform ( const gp_Trsf2d & T ) ;
 ## Error: identifier expected, but got: ::!!!
 
-proc copy*(this: Geom2dVectorWithMagnitude): Handle[Geom2dGeometry] {.noSideEffect,
-    importcpp: "Copy", header: "Geom2d_VectorWithMagnitude.hxx".}
+proc Copy*(this: Geom2d_VectorWithMagnitude): handle[Geom2d_Geometry] {.
+    noSideEffect, importcpp: "Copy", header: "Geom2d_VectorWithMagnitude.hxx".}
 type
-  Geom2dVectorWithMagnitudebaseType* = Geom2dVector
+  Geom2d_VectorWithMagnitudebase_type* = Geom2d_Vector
 
-proc getTypeName*(): cstring {.importcpp: "Geom2d_VectorWithMagnitude::get_type_name(@)",
-                            header: "Geom2d_VectorWithMagnitude.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "Geom2d_VectorWithMagnitude::get_type_name(@)",
+                              header: "Geom2d_VectorWithMagnitude.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "Geom2d_VectorWithMagnitude::get_type_descriptor(@)",
     header: "Geom2d_VectorWithMagnitude.hxx".}
-proc dynamicType*(this: Geom2dVectorWithMagnitude): Handle[StandardType] {.
+proc DynamicType*(this: Geom2d_VectorWithMagnitude): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType",
     header: "Geom2d_VectorWithMagnitude.hxx".}
-

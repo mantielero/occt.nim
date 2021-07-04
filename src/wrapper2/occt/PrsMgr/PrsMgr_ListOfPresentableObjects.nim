@@ -13,10 +13,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../NCollection/NCollection_List, ../Standard/Standard_Transient
+
 discard "forward decl of PrsMgr_PresentableObject"
 type
-  PrsMgrListOfPresentableObjects* = NCollectionList[
-      Handle[PrsMgrPresentableObject]]
-  PrsMgrListOfPresentableObjectsIter* = Iterator[Handle[PrsMgrPresentableObject]]
-
-
+  PrsMgr_ListOfPresentableObjects* = NCollection_List[
+      handle[PrsMgr_PresentableObject]]
+  PrsMgr_ListOfPresentableObjectsIter* = Iterator[handle[PrsMgr_PresentableObject]]

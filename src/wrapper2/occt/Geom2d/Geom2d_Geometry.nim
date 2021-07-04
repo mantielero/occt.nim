@@ -14,6 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Transient,
+  ../Standard/Standard_Real
+
 discard "forward decl of Standard_ConstructionError"
 discard "forward decl of gp_Pnt2d"
 discard "forward decl of gp_Ax2d"
@@ -22,7 +26,7 @@ discard "forward decl of gp_Trsf2d"
 discard "forward decl of Geom2d_Geometry"
 discard "forward decl of Geom2d_Geometry"
 type
-  HandleGeom2dGeometry* = Handle[Geom2dGeometry]
+  Handle_Geom2d_Geometry* = handle[Geom2d_Geometry]
 
 ## ! The general abstract class Geometry in 2D space describes
 ## ! the common behaviour of all the geometric entities.
@@ -49,32 +53,32 @@ type
 ## ! transformations are implemented using the Transform method.
 
 type
-  Geom2dGeometry* {.importcpp: "Geom2d_Geometry", header: "Geom2d_Geometry.hxx",
-                   bycopy.} = object of StandardTransient ## ! Performs the symmetrical transformation of a Geometry
-                                                     ## ! with respect to the point P which is the center of the
-                                                     ## ! symmetry and assigns the result to this geometric object.
-    opencascade* {.importc: "opencascade".}: StandardNODISCARD
-    opencascade* {.importc: "opencascade".}: StandardNODISCARD
-    opencascade* {.importc: "opencascade".}: StandardNODISCARD
-    opencascade* {.importc: "opencascade".}: StandardNODISCARD
-    opencascade* {.importc: "opencascade".}: StandardNODISCARD
-    opencascade* {.importc: "opencascade".}: StandardNODISCARD
-    opencascade* {.importc: "opencascade".}: StandardNODISCARD
+  Geom2d_Geometry* {.importcpp: "Geom2d_Geometry", header: "Geom2d_Geometry.hxx",
+                    bycopy.} = object of Standard_Transient ## ! Performs the symmetrical transformation of a Geometry
+                                                       ## ! with respect to the point P which is the center of the
+                                                       ## ! symmetry and assigns the result to this geometric object.
+    opencascade* {.importc: "opencascade".}: Standard_NODISCARD
+    opencascade* {.importc: "opencascade".}: Standard_NODISCARD
+    opencascade* {.importc: "opencascade".}: Standard_NODISCARD
+    opencascade* {.importc: "opencascade".}: Standard_NODISCARD
+    opencascade* {.importc: "opencascade".}: Standard_NODISCARD
+    opencascade* {.importc: "opencascade".}: Standard_NODISCARD
+    opencascade* {.importc: "opencascade".}: Standard_NODISCARD
 
 
-proc mirror*(this: var Geom2dGeometry; p: GpPnt2d) {.importcpp: "Mirror",
+proc Mirror*(this: var Geom2d_Geometry; P: gp_Pnt2d) {.importcpp: "Mirror",
     header: "Geom2d_Geometry.hxx".}
-proc mirror*(this: var Geom2dGeometry; a: GpAx2d) {.importcpp: "Mirror",
+proc Mirror*(this: var Geom2d_Geometry; A: gp_Ax2d) {.importcpp: "Mirror",
     header: "Geom2d_Geometry.hxx".}
-proc rotate*(this: var Geom2dGeometry; p: GpPnt2d; ang: StandardReal) {.
+proc Rotate*(this: var Geom2d_Geometry; P: gp_Pnt2d; Ang: Standard_Real) {.
     importcpp: "Rotate", header: "Geom2d_Geometry.hxx".}
-proc scale*(this: var Geom2dGeometry; p: GpPnt2d; s: StandardReal) {.importcpp: "Scale",
+proc Scale*(this: var Geom2d_Geometry; P: gp_Pnt2d; S: Standard_Real) {.
+    importcpp: "Scale", header: "Geom2d_Geometry.hxx".}
+proc Translate*(this: var Geom2d_Geometry; V: gp_Vec2d) {.importcpp: "Translate",
     header: "Geom2d_Geometry.hxx".}
-proc translate*(this: var Geom2dGeometry; v: GpVec2d) {.importcpp: "Translate",
-    header: "Geom2d_Geometry.hxx".}
-proc translate*(this: var Geom2dGeometry; p1: GpPnt2d; p2: GpPnt2d) {.
+proc Translate*(this: var Geom2d_Geometry; P1: gp_Pnt2d; P2: gp_Pnt2d) {.
     importcpp: "Translate", header: "Geom2d_Geometry.hxx".}
-proc transform*(this: var Geom2dGeometry; t: GpTrsf2d) {.importcpp: "Transform",
+proc Transform*(this: var Geom2d_Geometry; T: gp_Trsf2d) {.importcpp: "Transform",
     header: "Geom2d_Geometry.hxx".}
 ## !!!Ignored construct:  :: handle < Geom2d_Geometry > [end of template] Mirrored ( const gp_Pnt2d & P ) const ;
 ## Error: identifier expected, but got: ::!!!
@@ -97,19 +101,18 @@ proc transform*(this: var Geom2dGeometry; t: GpTrsf2d) {.importcpp: "Transform",
 ## !!!Ignored construct:  :: handle < Geom2d_Geometry > [end of template] Translated ( const gp_Pnt2d & P1 , const gp_Pnt2d & P2 ) const ;
 ## Error: identifier expected, but got: ::!!!
 
-proc copy*(this: Geom2dGeometry): Handle[Geom2dGeometry] {.noSideEffect,
+proc Copy*(this: Geom2d_Geometry): handle[Geom2d_Geometry] {.noSideEffect,
     importcpp: "Copy", header: "Geom2d_Geometry.hxx".}
-proc dumpJson*(this: Geom2dGeometry; theOStream: var StandardOStream;
-              theDepth: StandardInteger = -1) {.noSideEffect, importcpp: "DumpJson",
+proc DumpJson*(this: Geom2d_Geometry; theOStream: var Standard_OStream;
+              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
     header: "Geom2d_Geometry.hxx".}
 type
-  Geom2dGeometrybaseType* = StandardTransient
+  Geom2d_Geometrybase_type* = Standard_Transient
 
-proc getTypeName*(): cstring {.importcpp: "Geom2d_Geometry::get_type_name(@)",
-                            header: "Geom2d_Geometry.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "Geom2d_Geometry::get_type_name(@)",
+                              header: "Geom2d_Geometry.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "Geom2d_Geometry::get_type_descriptor(@)",
     header: "Geom2d_Geometry.hxx".}
-proc dynamicType*(this: Geom2dGeometry): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: Geom2d_Geometry): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "Geom2d_Geometry.hxx".}
-

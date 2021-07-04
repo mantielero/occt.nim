@@ -12,7 +12,8 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../NCollection/NCollection_Vector, BOPDS_Interf
+
 type
-  BOPDS_VectorOfInterfVF* = NCollectionVector[BOPDS_InterfVF]
-
-
+  BOPDS_VectorOfInterfVF* = NCollection_Vector[BOPDS_InterfVF]

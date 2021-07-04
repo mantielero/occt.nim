@@ -11,7 +11,5 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _AIS_DiameterDimension_HeaderFile [NewLine] # _AIS_DiameterDimension_HeaderFile [NewLine] # < PrsDim_DiameterDimension . hxx > [NewLine] Standard_DEPRECATED ( Alias to moved class ) typedef PrsDim_DiameterDimension AIS_DiameterDimension ;
+## !!!Ignored construct:  # _AIS_DiameterDimension_HeaderFile [NewLine] # _AIS_DiameterDimension_HeaderFile [NewLine] # ../PrsDim/PrsDim_DiameterDimension.hxx [NewLine] Standard_DEPRECATED ( Alias to moved class ) typedef PrsDim_DiameterDimension AIS_DiameterDimension ;
 ## Error: expected ';'!!!
-
-

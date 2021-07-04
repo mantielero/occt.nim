@@ -13,42 +13,50 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../NCollection/NCollection_UBTree, ../Bnd/Bnd_Box, ../gp/gp_Pnt,
+  ../Standard/Standard_Transient, ../TopTools/TopTools_HArray1OfShape,
+  ../ShapeExtend/ShapeExtend, ../ShapeExtend/ShapeExtend_Status,
+  ../TopoDS/TopoDS_Vertex, ../TColStd/TColStd_MapOfInteger,
+  ../TColStd/TColStd_Array1OfInteger
+
 type
-  ShapeAnalysisBoxBndTree* = NCollectionUBTree[StandardInteger, BndBox]
-  ShapeAnalysisBoxBndTreeSelector* {.importcpp: "ShapeAnalysis_BoxBndTreeSelector",
-                                    header: "ShapeAnalysis_BoxBndTree.hxx", bycopy.} = object of Selector
+  ShapeAnalysis_BoxBndTree* = NCollection_UBTree[Standard_Integer, Bnd_Box]
+  ShapeAnalysis_BoxBndTreeSelector* {.importcpp: "ShapeAnalysis_BoxBndTreeSelector",
+                                     header: "ShapeAnalysis_BoxBndTree.hxx",
+                                     bycopy.} = object of Selector
 
 
-proc constructShapeAnalysisBoxBndTreeSelector*(
-    theSeq: Handle[TopToolsHArray1OfShape]; theShared: StandardBoolean): ShapeAnalysisBoxBndTreeSelector {.
+proc constructShapeAnalysis_BoxBndTreeSelector*(
+    theSeq: handle[TopTools_HArray1OfShape]; theShared: Standard_Boolean): ShapeAnalysis_BoxBndTreeSelector {.
     constructor, importcpp: "ShapeAnalysis_BoxBndTreeSelector(@)",
     header: "ShapeAnalysis_BoxBndTree.hxx".}
-proc defineBoxes*(this: var ShapeAnalysisBoxBndTreeSelector; theFBox: BndBox;
-                 theLBox: BndBox) {.importcpp: "DefineBoxes",
-                                  header: "ShapeAnalysis_BoxBndTree.hxx".}
-proc defineVertexes*(this: var ShapeAnalysisBoxBndTreeSelector;
+proc DefineBoxes*(this: var ShapeAnalysis_BoxBndTreeSelector; theFBox: Bnd_Box;
+                 theLBox: Bnd_Box) {.importcpp: "DefineBoxes",
+                                   header: "ShapeAnalysis_BoxBndTree.hxx".}
+proc DefineVertexes*(this: var ShapeAnalysis_BoxBndTreeSelector;
                     theVf: TopoDS_Vertex; theVl: TopoDS_Vertex) {.
     importcpp: "DefineVertexes", header: "ShapeAnalysis_BoxBndTree.hxx".}
-proc definePnt*(this: var ShapeAnalysisBoxBndTreeSelector; theFPnt: GpPnt;
-               theLPnt: GpPnt) {.importcpp: "DefinePnt",
-                               header: "ShapeAnalysis_BoxBndTree.hxx".}
-proc getNb*(this: var ShapeAnalysisBoxBndTreeSelector): StandardInteger {.
+proc DefinePnt*(this: var ShapeAnalysis_BoxBndTreeSelector; theFPnt: gp_Pnt;
+               theLPnt: gp_Pnt) {.importcpp: "DefinePnt",
+                                header: "ShapeAnalysis_BoxBndTree.hxx".}
+proc GetNb*(this: var ShapeAnalysis_BoxBndTreeSelector): Standard_Integer {.
     importcpp: "GetNb", header: "ShapeAnalysis_BoxBndTree.hxx".}
-proc setNb*(this: var ShapeAnalysisBoxBndTreeSelector; theNb: StandardInteger) {.
+proc SetNb*(this: var ShapeAnalysis_BoxBndTreeSelector; theNb: Standard_Integer) {.
     importcpp: "SetNb", header: "ShapeAnalysis_BoxBndTree.hxx".}
-proc loadList*(this: var ShapeAnalysisBoxBndTreeSelector; elem: StandardInteger) {.
+proc LoadList*(this: var ShapeAnalysis_BoxBndTreeSelector; elem: Standard_Integer) {.
     importcpp: "LoadList", header: "ShapeAnalysis_BoxBndTree.hxx".}
-proc setStop*(this: var ShapeAnalysisBoxBndTreeSelector) {.importcpp: "SetStop",
+proc SetStop*(this: var ShapeAnalysis_BoxBndTreeSelector) {.importcpp: "SetStop",
     header: "ShapeAnalysis_BoxBndTree.hxx".}
-proc setTolerance*(this: var ShapeAnalysisBoxBndTreeSelector; theTol: StandardReal) {.
+proc SetTolerance*(this: var ShapeAnalysis_BoxBndTreeSelector; theTol: Standard_Real) {.
     importcpp: "SetTolerance", header: "ShapeAnalysis_BoxBndTree.hxx".}
-proc contWire*(this: var ShapeAnalysisBoxBndTreeSelector; nbWire: StandardInteger): StandardBoolean {.
+proc ContWire*(this: var ShapeAnalysis_BoxBndTreeSelector; nbWire: Standard_Integer): Standard_Boolean {.
     importcpp: "ContWire", header: "ShapeAnalysis_BoxBndTree.hxx".}
-proc lastCheckStatus*(this: ShapeAnalysisBoxBndTreeSelector;
-                     theStatus: ShapeExtendStatus): StandardBoolean {.noSideEffect,
-    importcpp: "LastCheckStatus", header: "ShapeAnalysis_BoxBndTree.hxx".}
-proc reject*(this: ShapeAnalysisBoxBndTreeSelector; theBnd: BndBox): StandardBoolean {.
+proc LastCheckStatus*(this: ShapeAnalysis_BoxBndTreeSelector;
+                     theStatus: ShapeExtend_Status): Standard_Boolean {.
+    noSideEffect, importcpp: "LastCheckStatus",
+    header: "ShapeAnalysis_BoxBndTree.hxx".}
+proc Reject*(this: ShapeAnalysis_BoxBndTreeSelector; theBnd: Bnd_Box): Standard_Boolean {.
     noSideEffect, importcpp: "Reject", header: "ShapeAnalysis_BoxBndTree.hxx".}
-proc accept*(this: var ShapeAnalysisBoxBndTreeSelector; a2: StandardInteger): StandardBoolean {.
+proc Accept*(this: var ShapeAnalysis_BoxBndTreeSelector; a2: Standard_Integer): Standard_Boolean {.
     importcpp: "Accept", header: "ShapeAnalysis_BoxBndTree.hxx".}
-

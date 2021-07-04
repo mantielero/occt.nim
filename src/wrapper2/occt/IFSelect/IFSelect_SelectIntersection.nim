@@ -14,44 +14,46 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, IFSelect_SelectCombine
+
 discard "forward decl of Interface_EntityIterator"
 discard "forward decl of Interface_Graph"
 discard "forward decl of TCollection_AsciiString"
 discard "forward decl of IFSelect_SelectIntersection"
 discard "forward decl of IFSelect_SelectIntersection"
 type
-  HandleIFSelectSelectIntersection* = Handle[IFSelectSelectIntersection]
+  Handle_IFSelect_SelectIntersection* = handle[IFSelect_SelectIntersection]
 
 ## ! A SelectIntersection filters the Entities issued from several
 ## ! other Selections as Intersection of results : "AND" operator
 
 type
-  IFSelectSelectIntersection* {.importcpp: "IFSelect_SelectIntersection",
-                               header: "IFSelect_SelectIntersection.hxx", bycopy.} = object of IFSelectSelectCombine ##
-                                                                                                              ## !
-                                                                                                              ## Creates
-                                                                                                              ## an
-                                                                                                              ## empty
-                                                                                                              ## SelectIntersection
+  IFSelect_SelectIntersection* {.importcpp: "IFSelect_SelectIntersection",
+                                header: "IFSelect_SelectIntersection.hxx", bycopy.} = object of IFSelect_SelectCombine ##
+                                                                                                                ## !
+                                                                                                                ## Creates
+                                                                                                                ## an
+                                                                                                                ## empty
+                                                                                                                ## SelectIntersection
 
 
-proc constructIFSelectSelectIntersection*(): IFSelectSelectIntersection {.
+proc constructIFSelect_SelectIntersection*(): IFSelect_SelectIntersection {.
     constructor, importcpp: "IFSelect_SelectIntersection(@)",
     header: "IFSelect_SelectIntersection.hxx".}
-proc rootResult*(this: IFSelectSelectIntersection; g: InterfaceGraph): InterfaceEntityIterator {.
+proc RootResult*(this: IFSelect_SelectIntersection; G: Interface_Graph): Interface_EntityIterator {.
     noSideEffect, importcpp: "RootResult",
     header: "IFSelect_SelectIntersection.hxx".}
-proc label*(this: IFSelectSelectIntersection): TCollectionAsciiString {.
+proc Label*(this: IFSelect_SelectIntersection): TCollection_AsciiString {.
     noSideEffect, importcpp: "Label", header: "IFSelect_SelectIntersection.hxx".}
 type
-  IFSelectSelectIntersectionbaseType* = IFSelectSelectCombine
+  IFSelect_SelectIntersectionbase_type* = IFSelect_SelectCombine
 
-proc getTypeName*(): cstring {.importcpp: "IFSelect_SelectIntersection::get_type_name(@)",
-                            header: "IFSelect_SelectIntersection.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "IFSelect_SelectIntersection::get_type_name(@)",
+                              header: "IFSelect_SelectIntersection.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "IFSelect_SelectIntersection::get_type_descriptor(@)",
     header: "IFSelect_SelectIntersection.hxx".}
-proc dynamicType*(this: IFSelectSelectIntersection): Handle[StandardType] {.
+proc DynamicType*(this: IFSelect_SelectIntersection): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType",
     header: "IFSelect_SelectIntersection.hxx".}
-

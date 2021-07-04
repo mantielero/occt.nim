@@ -14,7 +14,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _Quantity_Power_HeaderFile [NewLine] # _Quantity_Power_HeaderFile [NewLine] # < Standard_Real . hxx > [NewLine] ! Defined as the rate of expending energy or doing work.
+## !!!Ignored construct:  # _Quantity_Power_HeaderFile [NewLine] # _Quantity_Power_HeaderFile [NewLine] # ../Standard/Standard_Real.hxx [NewLine] ! Defined as the rate of expending energy or doing work.
 ## ! In mechanical terms it is the product of a force and
 ## ! the distance it moves per unit time.
 ## ! In electrical terms it is the product of the voltage
@@ -22,5 +22,3 @@
 ## ! are multiplied by the cosine of the phase angle.
 ## ! It is measured in watts (joules per second). Standard_DEPRECATED ( This type is deprecated - Standard_Real should be used instead ) typedef Standard_Real Quantity_Power ;
 ## Error: expected ';'!!!
-
-

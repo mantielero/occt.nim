@@ -14,6 +14,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
+  ../TColgp/TColgp_SequenceOfPnt
+
 discard "forward decl of TopoDS_Wire"
 discard "forward decl of TopoDS_Face"
 discard "forward decl of TopoDS_Edge"
@@ -44,12 +49,11 @@ type
                                                                  ## ! on the face <OnF>.
 
 
-proc closed*(w: TopoDS_Wire; onF: TopoDS_Face): StandardBoolean {.
+proc Closed*(W: TopoDS_Wire; OnF: TopoDS_Face): Standard_Boolean {.
     importcpp: "LocOpe::Closed(@)", header: "LocOpe.hxx".}
-proc closed*(e: TopoDS_Edge; onF: TopoDS_Face): StandardBoolean {.
+proc Closed*(E: TopoDS_Edge; OnF: TopoDS_Face): Standard_Boolean {.
     importcpp: "LocOpe::Closed(@)", header: "LocOpe.hxx".}
-proc tgtFaces*(e: TopoDS_Edge; f1: TopoDS_Face; f2: TopoDS_Face): StandardBoolean {.
+proc TgtFaces*(E: TopoDS_Edge; F1: TopoDS_Face; F2: TopoDS_Face): Standard_Boolean {.
     importcpp: "LocOpe::TgtFaces(@)", header: "LocOpe.hxx".}
-proc sampleEdges*(s: TopoDS_Shape; pt: var TColgpSequenceOfPnt) {.
+proc SampleEdges*(S: TopoDS_Shape; Pt: var TColgp_SequenceOfPnt) {.
     importcpp: "LocOpe::SampleEdges(@)", header: "LocOpe.hxx".}
-

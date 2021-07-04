@@ -14,33 +14,36 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Integer,
+  ../Standard/Standard_Transient
+
 discard "forward decl of GeomFill_Line"
 discard "forward decl of GeomFill_Line"
 type
-  HandleGeomFillLine* = Handle[GeomFillLine]
+  Handle_GeomFill_Line* = handle[GeomFill_Line]
 
 ## ! class for instantiation of AppBlend
 
 type
-  GeomFillLine* {.importcpp: "GeomFill_Line", header: "GeomFill_Line.hxx", bycopy.} = object of StandardTransient
+  GeomFill_Line* {.importcpp: "GeomFill_Line", header: "GeomFill_Line.hxx", bycopy.} = object of Standard_Transient
 
 
-proc constructGeomFillLine*(): GeomFillLine {.constructor,
+proc constructGeomFill_Line*(): GeomFill_Line {.constructor,
     importcpp: "GeomFill_Line(@)", header: "GeomFill_Line.hxx".}
-proc constructGeomFillLine*(nbPoints: StandardInteger): GeomFillLine {.constructor,
-    importcpp: "GeomFill_Line(@)", header: "GeomFill_Line.hxx".}
-proc nbPoints*(this: GeomFillLine): StandardInteger {.noSideEffect,
+proc constructGeomFill_Line*(NbPoints: Standard_Integer): GeomFill_Line {.
+    constructor, importcpp: "GeomFill_Line(@)", header: "GeomFill_Line.hxx".}
+proc NbPoints*(this: GeomFill_Line): Standard_Integer {.noSideEffect,
     importcpp: "NbPoints", header: "GeomFill_Line.hxx".}
-proc point*(this: GeomFillLine; index: StandardInteger): StandardInteger {.
+proc Point*(this: GeomFill_Line; Index: Standard_Integer): Standard_Integer {.
     noSideEffect, importcpp: "Point", header: "GeomFill_Line.hxx".}
 type
-  GeomFillLinebaseType* = StandardTransient
+  GeomFill_Linebase_type* = Standard_Transient
 
-proc getTypeName*(): cstring {.importcpp: "GeomFill_Line::get_type_name(@)",
-                            header: "GeomFill_Line.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "GeomFill_Line::get_type_name(@)",
+                              header: "GeomFill_Line.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "GeomFill_Line::get_type_descriptor(@)",
     header: "GeomFill_Line.hxx".}
-proc dynamicType*(this: GeomFillLine): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: GeomFill_Line): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "GeomFill_Line.hxx".}
-

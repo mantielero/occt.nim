@@ -13,6 +13,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
+  ../TColStd/TColStd_Array1OfReal
+
 discard "forward decl of Graphic3d_AspectFillArea3d"
 discard "forward decl of MeshVS_Drawer"
 discard "forward decl of Graphic3d_MaterialAspect"
@@ -38,29 +43,28 @@ type
                                                                                 ## DrawerAttribute
 
 
-proc createAspectFillArea3d*(theDr: Handle[MeshVS_Drawer];
-                            useDefaults: StandardBoolean = standardTrue): Handle[
-    Graphic3dAspectFillArea3d] {.importcpp: "MeshVS_Tool::CreateAspectFillArea3d(@)",
-                                header: "MeshVS_Tool.hxx".}
-proc createAspectFillArea3d*(theDr: Handle[MeshVS_Drawer];
-                            mat: Graphic3dMaterialAspect;
-                            useDefaults: StandardBoolean = standardTrue): Handle[
-    Graphic3dAspectFillArea3d] {.importcpp: "MeshVS_Tool::CreateAspectFillArea3d(@)",
-                                header: "MeshVS_Tool.hxx".}
-proc createAspectLine3d*(theDr: Handle[MeshVS_Drawer];
-                        useDefaults: StandardBoolean = standardTrue): Handle[
-    Graphic3dAspectLine3d] {.importcpp: "MeshVS_Tool::CreateAspectLine3d(@)",
-                            header: "MeshVS_Tool.hxx".}
-proc createAspectMarker3d*(theDr: Handle[MeshVS_Drawer];
-                          useDefaults: StandardBoolean = standardTrue): Handle[
-    Graphic3dAspectMarker3d] {.importcpp: "MeshVS_Tool::CreateAspectMarker3d(@)",
-                              header: "MeshVS_Tool.hxx".}
-proc createAspectText3d*(theDr: Handle[MeshVS_Drawer];
-                        useDefaults: StandardBoolean = standardTrue): Handle[
-    Graphic3dAspectText3d] {.importcpp: "MeshVS_Tool::CreateAspectText3d(@)",
-                            header: "MeshVS_Tool.hxx".}
-proc getNormal*(nodes: TColStdArray1OfReal; norm: var GpVec): StandardBoolean {.
+proc CreateAspectFillArea3d*(theDr: handle[MeshVS_Drawer];
+                            UseDefaults: Standard_Boolean = Standard_True): handle[
+    Graphic3d_AspectFillArea3d] {.importcpp: "MeshVS_Tool::CreateAspectFillArea3d(@)",
+                                 header: "MeshVS_Tool.hxx".}
+proc CreateAspectFillArea3d*(theDr: handle[MeshVS_Drawer];
+                            Mat: Graphic3d_MaterialAspect;
+                            UseDefaults: Standard_Boolean = Standard_True): handle[
+    Graphic3d_AspectFillArea3d] {.importcpp: "MeshVS_Tool::CreateAspectFillArea3d(@)",
+                                 header: "MeshVS_Tool.hxx".}
+proc CreateAspectLine3d*(theDr: handle[MeshVS_Drawer];
+                        UseDefaults: Standard_Boolean = Standard_True): handle[
+    Graphic3d_AspectLine3d] {.importcpp: "MeshVS_Tool::CreateAspectLine3d(@)",
+                             header: "MeshVS_Tool.hxx".}
+proc CreateAspectMarker3d*(theDr: handle[MeshVS_Drawer];
+                          UseDefaults: Standard_Boolean = Standard_True): handle[
+    Graphic3d_AspectMarker3d] {.importcpp: "MeshVS_Tool::CreateAspectMarker3d(@)",
+                               header: "MeshVS_Tool.hxx".}
+proc CreateAspectText3d*(theDr: handle[MeshVS_Drawer];
+                        UseDefaults: Standard_Boolean = Standard_True): handle[
+    Graphic3d_AspectText3d] {.importcpp: "MeshVS_Tool::CreateAspectText3d(@)",
+                             header: "MeshVS_Tool.hxx".}
+proc GetNormal*(Nodes: TColStd_Array1OfReal; Norm: var gp_Vec): Standard_Boolean {.
     importcpp: "MeshVS_Tool::GetNormal(@)", header: "MeshVS_Tool.hxx".}
-proc getAverageNormal*(nodes: TColStdArray1OfReal; norm: var GpVec): StandardBoolean {.
+proc GetAverageNormal*(Nodes: TColStd_Array1OfReal; Norm: var gp_Vec): Standard_Boolean {.
     importcpp: "MeshVS_Tool::GetAverageNormal(@)", header: "MeshVS_Tool.hxx".}
-

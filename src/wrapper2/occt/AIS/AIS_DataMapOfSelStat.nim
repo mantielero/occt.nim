@@ -14,11 +14,13 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../SelectMgr/SelectMgr_SelectableObject, ../TColStd/TColStd_MapTransientHasher,
+  ../NCollection/NCollection_DataMap
+
 type
-  AIS_DataMapOfSelStat* = NCollectionDataMap[Handle[SelectMgrSelectableObject],
-      Handle[AIS_LocalStatus], TColStdMapTransientHasher]
+  AIS_DataMapOfSelStat* = NCollection_DataMap[handle[SelectMgr_SelectableObject],
+      handle[AIS_LocalStatus], TColStd_MapTransientHasher]
   AIS_DataMapIteratorOfDataMapOfSelStat* = Iterator[
-      Handle[SelectMgrSelectableObject], Handle[AIS_LocalStatus],
-      TColStdMapTransientHasher]
-
-
+      handle[SelectMgr_SelectableObject], handle[AIS_LocalStatus],
+      TColStd_MapTransientHasher]

@@ -14,8 +14,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  IntAna_Curve, ../NCollection/NCollection_List
+
 type
-  IntAnaListOfCurve* = NCollectionList[IntAnaCurve]
-  IntAnaListIteratorOfListOfCurve* = Iterator[IntAnaCurve]
-
-
+  IntAna_ListOfCurve* = NCollection_List[IntAna_Curve]
+  IntAna_ListIteratorOfListOfCurve* = Iterator[IntAna_Curve]

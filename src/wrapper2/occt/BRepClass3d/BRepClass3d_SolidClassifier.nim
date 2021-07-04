@@ -14,36 +14,40 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
+  BRepClass3d_SolidExplorer, BRepClass3d_SClassifier, ../Standard/Standard_Real
+
 discard "forward decl of Standard_DomainError"
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of gp_Pnt"
 type
-  BRepClass3dSolidClassifier* {.importcpp: "BRepClass3d_SolidClassifier",
-                               header: "BRepClass3d_SolidClassifier.hxx", bycopy.} = object of BRepClass3dSClassifier ##
-                                                                                                               ## !
-                                                                                                               ## empty
-                                                                                                               ## constructor
+  BRepClass3d_SolidClassifier* {.importcpp: "BRepClass3d_SolidClassifier",
+                                header: "BRepClass3d_SolidClassifier.hxx", bycopy.} = object of BRepClass3d_SClassifier ##
+                                                                                                                 ## !
+                                                                                                                 ## empty
+                                                                                                                 ## constructor
 
 
-proc constructBRepClass3dSolidClassifier*(): BRepClass3dSolidClassifier {.
+proc constructBRepClass3d_SolidClassifier*(): BRepClass3d_SolidClassifier {.
     constructor, importcpp: "BRepClass3d_SolidClassifier(@)",
     header: "BRepClass3d_SolidClassifier.hxx".}
-proc load*(this: var BRepClass3dSolidClassifier; s: TopoDS_Shape) {.importcpp: "Load",
-    header: "BRepClass3d_SolidClassifier.hxx".}
-proc constructBRepClass3dSolidClassifier*(s: TopoDS_Shape): BRepClass3dSolidClassifier {.
+proc Load*(this: var BRepClass3d_SolidClassifier; S: TopoDS_Shape) {.
+    importcpp: "Load", header: "BRepClass3d_SolidClassifier.hxx".}
+proc constructBRepClass3d_SolidClassifier*(S: TopoDS_Shape): BRepClass3d_SolidClassifier {.
     constructor, importcpp: "BRepClass3d_SolidClassifier(@)",
     header: "BRepClass3d_SolidClassifier.hxx".}
-proc constructBRepClass3dSolidClassifier*(s: TopoDS_Shape; p: GpPnt;
-    tol: StandardReal): BRepClass3dSolidClassifier {.constructor,
+proc constructBRepClass3d_SolidClassifier*(S: TopoDS_Shape; P: gp_Pnt;
+    Tol: Standard_Real): BRepClass3d_SolidClassifier {.constructor,
     importcpp: "BRepClass3d_SolidClassifier(@)",
     header: "BRepClass3d_SolidClassifier.hxx".}
-proc perform*(this: var BRepClass3dSolidClassifier; p: GpPnt; tol: StandardReal) {.
+proc Perform*(this: var BRepClass3d_SolidClassifier; P: gp_Pnt; Tol: Standard_Real) {.
     importcpp: "Perform", header: "BRepClass3d_SolidClassifier.hxx".}
-proc performInfinitePoint*(this: var BRepClass3dSolidClassifier; tol: StandardReal) {.
+proc PerformInfinitePoint*(this: var BRepClass3d_SolidClassifier; Tol: Standard_Real) {.
     importcpp: "PerformInfinitePoint", header: "BRepClass3d_SolidClassifier.hxx".}
-proc destroy*(this: var BRepClass3dSolidClassifier) {.importcpp: "Destroy",
+proc Destroy*(this: var BRepClass3d_SolidClassifier) {.importcpp: "Destroy",
     header: "BRepClass3d_SolidClassifier.hxx".}
-proc destroyBRepClass3dSolidClassifier*(this: var BRepClass3dSolidClassifier) {.
+proc destroyBRepClass3d_SolidClassifier*(this: var BRepClass3d_SolidClassifier) {.
     importcpp: "#.~BRepClass3d_SolidClassifier()",
     header: "BRepClass3d_SolidClassifier.hxx".}
-

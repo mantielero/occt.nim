@@ -14,6 +14,13 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Real,
+  ../TColgp/TColgp_HArray1OfPnt2d, ../Standard/Standard_Boolean,
+  ../TColgp/TColgp_HArray1OfVec2d, ../TColStd/TColStd_HArray1OfBoolean,
+  ../TColStd/TColStd_HArray1OfReal, ../TColgp/TColgp_Array1OfVec2d
+
 discard "forward decl of Geom2d_BSplineCurve"
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of Standard_ConstructionError"
@@ -46,33 +53,32 @@ type
                                                                             ## fashion
 
 
-proc constructGeom2dAPI_Interpolate*(points: Handle[TColgpHArray1OfPnt2d];
-                                    periodicFlag: StandardBoolean;
-                                    tolerance: StandardReal): Geom2dAPI_Interpolate {.
+proc constructGeom2dAPI_Interpolate*(Points: handle[TColgp_HArray1OfPnt2d];
+                                    PeriodicFlag: Standard_Boolean;
+                                    Tolerance: Standard_Real): Geom2dAPI_Interpolate {.
     constructor, importcpp: "Geom2dAPI_Interpolate(@)",
     header: "Geom2dAPI_Interpolate.hxx".}
-proc constructGeom2dAPI_Interpolate*(points: Handle[TColgpHArray1OfPnt2d];
-                                    parameters: Handle[TColStdHArray1OfReal];
-                                    periodicFlag: StandardBoolean;
-                                    tolerance: StandardReal): Geom2dAPI_Interpolate {.
+proc constructGeom2dAPI_Interpolate*(Points: handle[TColgp_HArray1OfPnt2d];
+                                    Parameters: handle[TColStd_HArray1OfReal];
+                                    PeriodicFlag: Standard_Boolean;
+                                    Tolerance: Standard_Real): Geom2dAPI_Interpolate {.
     constructor, importcpp: "Geom2dAPI_Interpolate(@)",
     header: "Geom2dAPI_Interpolate.hxx".}
-proc load*(this: var Geom2dAPI_Interpolate; initialTangent: GpVec2d;
-          finalTangent: GpVec2d; scale: StandardBoolean = standardTrue) {.
+proc Load*(this: var Geom2dAPI_Interpolate; InitialTangent: gp_Vec2d;
+          FinalTangent: gp_Vec2d; Scale: Standard_Boolean = Standard_True) {.
     importcpp: "Load", header: "Geom2dAPI_Interpolate.hxx".}
-proc load*(this: var Geom2dAPI_Interpolate; tangents: TColgpArray1OfVec2d;
-          tangentFlags: Handle[TColStdHArray1OfBoolean];
-          scale: StandardBoolean = standardTrue) {.importcpp: "Load",
+proc Load*(this: var Geom2dAPI_Interpolate; Tangents: TColgp_Array1OfVec2d;
+          TangentFlags: handle[TColStd_HArray1OfBoolean];
+          Scale: Standard_Boolean = Standard_True) {.importcpp: "Load",
     header: "Geom2dAPI_Interpolate.hxx".}
-proc clearTangents*(this: var Geom2dAPI_Interpolate) {.importcpp: "ClearTangents",
+proc ClearTangents*(this: var Geom2dAPI_Interpolate) {.importcpp: "ClearTangents",
     header: "Geom2dAPI_Interpolate.hxx".}
-proc perform*(this: var Geom2dAPI_Interpolate) {.importcpp: "Perform",
+proc Perform*(this: var Geom2dAPI_Interpolate) {.importcpp: "Perform",
     header: "Geom2dAPI_Interpolate.hxx".}
-proc curve*(this: Geom2dAPI_Interpolate): Handle[Geom2dBSplineCurve] {.noSideEffect,
-    importcpp: "Curve", header: "Geom2dAPI_Interpolate.hxx".}
-converter `opencascade`*(this: Geom2dAPI_Interpolate): Handle[Geom2dBSplineCurve] {.
+proc Curve*(this: Geom2dAPI_Interpolate): handle[Geom2d_BSplineCurve] {.
+    noSideEffect, importcpp: "Curve", header: "Geom2dAPI_Interpolate.hxx".}
+converter `opencascade`*(this: Geom2dAPI_Interpolate): handle[Geom2d_BSplineCurve] {.
     noSideEffect, importcpp: "Geom2dAPI_Interpolate::operator opencascade",
     header: "Geom2dAPI_Interpolate.hxx".}
-proc isDone*(this: Geom2dAPI_Interpolate): StandardBoolean {.noSideEffect,
+proc IsDone*(this: Geom2dAPI_Interpolate): Standard_Boolean {.noSideEffect,
     importcpp: "IsDone", header: "Geom2dAPI_Interpolate.hxx".}
-

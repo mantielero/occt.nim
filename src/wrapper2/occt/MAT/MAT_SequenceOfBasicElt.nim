@@ -14,7 +14,8 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  MAT_BasicElt, ../NCollection/NCollection_Sequence
+
 type
-  MAT_SequenceOfBasicElt* = NCollectionSequence[Handle[MAT_BasicElt]]
-
-
+  MAT_SequenceOfBasicElt* = NCollection_Sequence[handle[MAT_BasicElt]]

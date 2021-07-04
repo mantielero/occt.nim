@@ -14,6 +14,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../BRepAdaptor/BRepAdaptor_Curve,
+  ../Standard/Standard_Real, ../Standard/Standard_Integer, ../gp/gp_Pnt,
+  ../gp/gp_Vec, ../gp/gp_Dir, ../LProp/LProp_Status, ../Standard/Standard_Boolean
+
 discard "forward decl of LProp_BadContinuity"
 discard "forward decl of Standard_DomainError"
 discard "forward decl of Standard_OutOfRange"
@@ -24,46 +30,45 @@ discard "forward decl of gp_Pnt"
 discard "forward decl of gp_Dir"
 discard "forward decl of BRepLProp_CurveTool"
 type
-  BRepLPropCLProps* {.importcpp: "BRepLProp_CLProps",
-                     header: "BRepLProp_CLProps.hxx", bycopy.} = object ## ! Initializes the local properties of the curve <C>
-                                                                   ## ! The current point and the derivatives are
-                                                                   ## ! computed at the same time, which allows an
-                                                                   ## ! optimization of the computation time.
-                                                                   ## ! <N> indicates the maximum number of derivations to
-                                                                   ## ! be done (0, 1, 2 or 3). For example, to compute
-                                                                   ## ! only the tangent, N should be equal to 1.
-                                                                   ## ! <Resolution> is the linear tolerance (it is used to test
-                                                                   ## ! if a vector is null).
+  BRepLProp_CLProps* {.importcpp: "BRepLProp_CLProps",
+                      header: "BRepLProp_CLProps.hxx", bycopy.} = object ## ! Initializes the local properties of the curve <C>
+                                                                    ## ! The current point and the derivatives are
+                                                                    ## ! computed at the same time, which allows an
+                                                                    ## ! optimization of the computation time.
+                                                                    ## ! <N> indicates the maximum number of derivations to
+                                                                    ## ! be done (0, 1, 2 or 3). For example, to compute
+                                                                    ## ! only the tangent, N should be equal to 1.
+                                                                    ## ! <Resolution> is the linear tolerance (it is used to test
+                                                                    ## ! if a vector is null).
 
 
-proc constructBRepLPropCLProps*(c: BRepAdaptorCurve; n: StandardInteger;
-                               resolution: StandardReal): BRepLPropCLProps {.
+proc constructBRepLProp_CLProps*(C: BRepAdaptor_Curve; N: Standard_Integer;
+                                Resolution: Standard_Real): BRepLProp_CLProps {.
     constructor, importcpp: "BRepLProp_CLProps(@)", header: "BRepLProp_CLProps.hxx".}
-proc constructBRepLPropCLProps*(c: BRepAdaptorCurve; u: StandardReal;
-                               n: StandardInteger; resolution: StandardReal): BRepLPropCLProps {.
+proc constructBRepLProp_CLProps*(C: BRepAdaptor_Curve; U: Standard_Real;
+                                N: Standard_Integer; Resolution: Standard_Real): BRepLProp_CLProps {.
     constructor, importcpp: "BRepLProp_CLProps(@)", header: "BRepLProp_CLProps.hxx".}
-proc constructBRepLPropCLProps*(n: StandardInteger; resolution: StandardReal): BRepLPropCLProps {.
+proc constructBRepLProp_CLProps*(N: Standard_Integer; Resolution: Standard_Real): BRepLProp_CLProps {.
     constructor, importcpp: "BRepLProp_CLProps(@)", header: "BRepLProp_CLProps.hxx".}
-proc setParameter*(this: var BRepLPropCLProps; u: StandardReal) {.
+proc SetParameter*(this: var BRepLProp_CLProps; U: Standard_Real) {.
     importcpp: "SetParameter", header: "BRepLProp_CLProps.hxx".}
-proc setCurve*(this: var BRepLPropCLProps; c: BRepAdaptorCurve) {.
+proc SetCurve*(this: var BRepLProp_CLProps; C: BRepAdaptor_Curve) {.
     importcpp: "SetCurve", header: "BRepLProp_CLProps.hxx".}
-proc value*(this: BRepLPropCLProps): GpPnt {.noSideEffect, importcpp: "Value",
+proc Value*(this: BRepLProp_CLProps): gp_Pnt {.noSideEffect, importcpp: "Value",
     header: "BRepLProp_CLProps.hxx".}
-proc d1*(this: var BRepLPropCLProps): GpVec {.importcpp: "D1",
+proc D1*(this: var BRepLProp_CLProps): gp_Vec {.importcpp: "D1",
     header: "BRepLProp_CLProps.hxx".}
-proc d2*(this: var BRepLPropCLProps): GpVec {.importcpp: "D2",
+proc D2*(this: var BRepLProp_CLProps): gp_Vec {.importcpp: "D2",
     header: "BRepLProp_CLProps.hxx".}
-proc d3*(this: var BRepLPropCLProps): GpVec {.importcpp: "D3",
+proc D3*(this: var BRepLProp_CLProps): gp_Vec {.importcpp: "D3",
     header: "BRepLProp_CLProps.hxx".}
-proc isTangentDefined*(this: var BRepLPropCLProps): StandardBoolean {.
+proc IsTangentDefined*(this: var BRepLProp_CLProps): Standard_Boolean {.
     importcpp: "IsTangentDefined", header: "BRepLProp_CLProps.hxx".}
-proc tangent*(this: var BRepLPropCLProps; d: var GpDir) {.importcpp: "Tangent",
+proc Tangent*(this: var BRepLProp_CLProps; D: var gp_Dir) {.importcpp: "Tangent",
     header: "BRepLProp_CLProps.hxx".}
-proc curvature*(this: var BRepLPropCLProps): StandardReal {.importcpp: "Curvature",
+proc Curvature*(this: var BRepLProp_CLProps): Standard_Real {.importcpp: "Curvature",
     header: "BRepLProp_CLProps.hxx".}
-proc normal*(this: var BRepLPropCLProps; n: var GpDir) {.importcpp: "Normal",
+proc Normal*(this: var BRepLProp_CLProps; N: var gp_Dir) {.importcpp: "Normal",
     header: "BRepLProp_CLProps.hxx".}
-proc centreOfCurvature*(this: var BRepLPropCLProps; p: var GpPnt) {.
+proc CentreOfCurvature*(this: var BRepLProp_CLProps; P: var gp_Pnt) {.
     importcpp: "CentreOfCurvature", header: "BRepLProp_CLProps.hxx".}
-

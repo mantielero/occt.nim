@@ -14,58 +14,63 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Address, ../gp/gp_Pnt,
+  ../Standard/Standard_Real, ../math/math_FunctionSetWithDerivatives,
+  ../Standard/Standard_Integer, ../Standard/Standard_Boolean, ../math/math_Vector
+
 discard "forward decl of Adaptor3d_HSurface"
 discard "forward decl of Adaptor2d_HCurve2d"
 discard "forward decl of math_Matrix"
 discard "forward decl of gp_Pnt"
 type
-  IntPatchCSFunction* {.importcpp: "IntPatch_CSFunction",
-                       header: "IntPatch_CSFunction.hxx", bycopy.} = object of MathFunctionSetWithDerivatives ##
-                                                                                                       ## !
-                                                                                                       ## S1
-                                                                                                       ## is
-                                                                                                       ## the
-                                                                                                       ## surface
-                                                                                                       ## on
-                                                                                                       ## which
-                                                                                                       ## the
-                                                                                                       ## intersection
-                                                                                                       ## is
-                                                                                                       ## searched.
-                                                                                                       ##
-                                                                                                       ## !
-                                                                                                       ## C
-                                                                                                       ## is
-                                                                                                       ## a
-                                                                                                       ## curve
-                                                                                                       ## on
-                                                                                                       ## the
-                                                                                                       ## surface
-                                                                                                       ## S2.
+  IntPatch_CSFunction* {.importcpp: "IntPatch_CSFunction",
+                        header: "IntPatch_CSFunction.hxx", bycopy.} = object of math_FunctionSetWithDerivatives ##
+                                                                                                         ## !
+                                                                                                         ## S1
+                                                                                                         ## is
+                                                                                                         ## the
+                                                                                                         ## surface
+                                                                                                         ## on
+                                                                                                         ## which
+                                                                                                         ## the
+                                                                                                         ## intersection
+                                                                                                         ## is
+                                                                                                         ## searched.
+                                                                                                         ##
+                                                                                                         ## !
+                                                                                                         ## C
+                                                                                                         ## is
+                                                                                                         ## a
+                                                                                                         ## curve
+                                                                                                         ## on
+                                                                                                         ## the
+                                                                                                         ## surface
+                                                                                                         ## S2.
 
 
-proc constructIntPatchCSFunction*(s1: Handle[Adaptor3dHSurface];
-                                 c: Handle[Adaptor2dHCurve2d];
-                                 s2: Handle[Adaptor3dHSurface]): IntPatchCSFunction {.
+proc constructIntPatch_CSFunction*(S1: handle[Adaptor3d_HSurface];
+                                  C: handle[Adaptor2d_HCurve2d];
+                                  S2: handle[Adaptor3d_HSurface]): IntPatch_CSFunction {.
     constructor, importcpp: "IntPatch_CSFunction(@)",
     header: "IntPatch_CSFunction.hxx".}
-proc nbVariables*(this: IntPatchCSFunction): StandardInteger {.noSideEffect,
+proc NbVariables*(this: IntPatch_CSFunction): Standard_Integer {.noSideEffect,
     importcpp: "NbVariables", header: "IntPatch_CSFunction.hxx".}
-proc nbEquations*(this: IntPatchCSFunction): StandardInteger {.noSideEffect,
+proc NbEquations*(this: IntPatch_CSFunction): Standard_Integer {.noSideEffect,
     importcpp: "NbEquations", header: "IntPatch_CSFunction.hxx".}
-proc value*(this: var IntPatchCSFunction; x: MathVector; f: var MathVector): StandardBoolean {.
+proc Value*(this: var IntPatch_CSFunction; X: math_Vector; F: var math_Vector): Standard_Boolean {.
     importcpp: "Value", header: "IntPatch_CSFunction.hxx".}
-proc derivatives*(this: var IntPatchCSFunction; x: MathVector; d: var MathMatrix): StandardBoolean {.
+proc Derivatives*(this: var IntPatch_CSFunction; X: math_Vector; D: var math_Matrix): Standard_Boolean {.
     importcpp: "Derivatives", header: "IntPatch_CSFunction.hxx".}
-proc values*(this: var IntPatchCSFunction; x: MathVector; f: var MathVector;
-            d: var MathMatrix): StandardBoolean {.importcpp: "Values",
+proc Values*(this: var IntPatch_CSFunction; X: math_Vector; F: var math_Vector;
+            D: var math_Matrix): Standard_Boolean {.importcpp: "Values",
     header: "IntPatch_CSFunction.hxx".}
-proc point*(this: IntPatchCSFunction): GpPnt {.noSideEffect, importcpp: "Point",
+proc Point*(this: IntPatch_CSFunction): gp_Pnt {.noSideEffect, importcpp: "Point",
     header: "IntPatch_CSFunction.hxx".}
-proc root*(this: IntPatchCSFunction): StandardReal {.noSideEffect, importcpp: "Root",
-    header: "IntPatch_CSFunction.hxx".}
-proc auxillarSurface*(this: IntPatchCSFunction): Handle[Adaptor3dHSurface] {.
+proc Root*(this: IntPatch_CSFunction): Standard_Real {.noSideEffect,
+    importcpp: "Root", header: "IntPatch_CSFunction.hxx".}
+proc AuxillarSurface*(this: IntPatch_CSFunction): handle[Adaptor3d_HSurface] {.
     noSideEffect, importcpp: "AuxillarSurface", header: "IntPatch_CSFunction.hxx".}
-proc auxillarCurve*(this: IntPatchCSFunction): Handle[Adaptor2dHCurve2d] {.
+proc AuxillarCurve*(this: IntPatch_CSFunction): handle[Adaptor2d_HCurve2d] {.
     noSideEffect, importcpp: "AuxillarCurve", header: "IntPatch_CSFunction.hxx".}
-

@@ -14,6 +14,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Integer,
+  ../TColStd/TColStd_HArray1OfInteger, ../IGESData/IGESData_IGESEntity,
+  ../Standard/Standard_Boolean
+
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of IGESBasic_HArray1OfHArray1OfInteger"
 discard "forward decl of Standard_DimensionMismatch"
@@ -21,7 +26,7 @@ discard "forward decl of Standard_OutOfRange"
 discard "forward decl of IGESGraph_TextFontDef"
 discard "forward decl of IGESGraph_TextFontDef"
 type
-  HandleIGESGraphTextFontDef* = Handle[IGESGraphTextFontDef]
+  Handle_IGESGraph_TextFontDef* = handle[IGESGraph_TextFontDef]
 
 ## ! defines IGES Text Font Definition Entity, Type <310>
 ## ! in package IGESGraph
@@ -31,63 +36,63 @@ type
 ## ! modification to a subset of characters in another font.
 
 type
-  IGESGraphTextFontDef* {.importcpp: "IGESGraph_TextFontDef",
-                         header: "IGESGraph_TextFontDef.hxx", bycopy.} = object of IGESDataIGESEntity
+  IGESGraph_TextFontDef* {.importcpp: "IGESGraph_TextFontDef",
+                          header: "IGESGraph_TextFontDef.hxx", bycopy.} = object of IGESData_IGESEntity
 
 
-proc constructIGESGraphTextFontDef*(): IGESGraphTextFontDef {.constructor,
+proc constructIGESGraph_TextFontDef*(): IGESGraph_TextFontDef {.constructor,
     importcpp: "IGESGraph_TextFontDef(@)", header: "IGESGraph_TextFontDef.hxx".}
-proc init*(this: var IGESGraphTextFontDef; aFontCode: StandardInteger;
-          aFontName: Handle[TCollectionHAsciiString];
-          aSupersededFont: StandardInteger;
-          aSupersededEntity: Handle[IGESGraphTextFontDef];
-          aScale: StandardInteger; allASCIICodes: Handle[TColStdHArray1OfInteger];
-          allNextCharX: Handle[TColStdHArray1OfInteger];
-          allNextCharY: Handle[TColStdHArray1OfInteger];
-          allPenMotions: Handle[TColStdHArray1OfInteger];
-          allPenFlags: Handle[IGESBasicHArray1OfHArray1OfInteger];
-          allMovePenToX: Handle[IGESBasicHArray1OfHArray1OfInteger];
-          allMovePenToY: Handle[IGESBasicHArray1OfHArray1OfInteger]) {.
+proc Init*(this: var IGESGraph_TextFontDef; aFontCode: Standard_Integer;
+          aFontName: handle[TCollection_HAsciiString];
+          aSupersededFont: Standard_Integer;
+          aSupersededEntity: handle[IGESGraph_TextFontDef];
+          aScale: Standard_Integer;
+          allASCIICodes: handle[TColStd_HArray1OfInteger];
+          allNextCharX: handle[TColStd_HArray1OfInteger];
+          allNextCharY: handle[TColStd_HArray1OfInteger];
+          allPenMotions: handle[TColStd_HArray1OfInteger];
+          allPenFlags: handle[IGESBasic_HArray1OfHArray1OfInteger];
+          allMovePenToX: handle[IGESBasic_HArray1OfHArray1OfInteger];
+          allMovePenToY: handle[IGESBasic_HArray1OfHArray1OfInteger]) {.
     importcpp: "Init", header: "IGESGraph_TextFontDef.hxx".}
-proc fontCode*(this: IGESGraphTextFontDef): StandardInteger {.noSideEffect,
+proc FontCode*(this: IGESGraph_TextFontDef): Standard_Integer {.noSideEffect,
     importcpp: "FontCode", header: "IGESGraph_TextFontDef.hxx".}
-proc fontName*(this: IGESGraphTextFontDef): Handle[TCollectionHAsciiString] {.
+proc FontName*(this: IGESGraph_TextFontDef): handle[TCollection_HAsciiString] {.
     noSideEffect, importcpp: "FontName", header: "IGESGraph_TextFontDef.hxx".}
-proc isSupersededFontEntity*(this: IGESGraphTextFontDef): StandardBoolean {.
+proc IsSupersededFontEntity*(this: IGESGraph_TextFontDef): Standard_Boolean {.
     noSideEffect, importcpp: "IsSupersededFontEntity",
     header: "IGESGraph_TextFontDef.hxx".}
-proc supersededFontCode*(this: IGESGraphTextFontDef): StandardInteger {.
+proc SupersededFontCode*(this: IGESGraph_TextFontDef): Standard_Integer {.
     noSideEffect, importcpp: "SupersededFontCode",
     header: "IGESGraph_TextFontDef.hxx".}
-proc supersededFontEntity*(this: IGESGraphTextFontDef): Handle[IGESGraphTextFontDef] {.
-    noSideEffect, importcpp: "SupersededFontEntity",
-    header: "IGESGraph_TextFontDef.hxx".}
-proc scale*(this: IGESGraphTextFontDef): StandardInteger {.noSideEffect,
+proc SupersededFontEntity*(this: IGESGraph_TextFontDef): handle[
+    IGESGraph_TextFontDef] {.noSideEffect, importcpp: "SupersededFontEntity",
+                            header: "IGESGraph_TextFontDef.hxx".}
+proc Scale*(this: IGESGraph_TextFontDef): Standard_Integer {.noSideEffect,
     importcpp: "Scale", header: "IGESGraph_TextFontDef.hxx".}
-proc nbCharacters*(this: IGESGraphTextFontDef): StandardInteger {.noSideEffect,
+proc NbCharacters*(this: IGESGraph_TextFontDef): Standard_Integer {.noSideEffect,
     importcpp: "NbCharacters", header: "IGESGraph_TextFontDef.hxx".}
-proc aSCIICode*(this: IGESGraphTextFontDef; chnum: StandardInteger): StandardInteger {.
+proc ASCIICode*(this: IGESGraph_TextFontDef; Chnum: Standard_Integer): Standard_Integer {.
     noSideEffect, importcpp: "ASCIICode", header: "IGESGraph_TextFontDef.hxx".}
-proc nextCharOrigin*(this: IGESGraphTextFontDef; chnum: StandardInteger;
-                    nx: var StandardInteger; ny: var StandardInteger) {.noSideEffect,
-    importcpp: "NextCharOrigin", header: "IGESGraph_TextFontDef.hxx".}
-proc nbPenMotions*(this: IGESGraphTextFontDef; chnum: StandardInteger): StandardInteger {.
+proc NextCharOrigin*(this: IGESGraph_TextFontDef; Chnum: Standard_Integer;
+                    NX: var Standard_Integer; NY: var Standard_Integer) {.
+    noSideEffect, importcpp: "NextCharOrigin", header: "IGESGraph_TextFontDef.hxx".}
+proc NbPenMotions*(this: IGESGraph_TextFontDef; Chnum: Standard_Integer): Standard_Integer {.
     noSideEffect, importcpp: "NbPenMotions", header: "IGESGraph_TextFontDef.hxx".}
-proc isPenUp*(this: IGESGraphTextFontDef; chnum: StandardInteger;
-             motionnum: StandardInteger): StandardBoolean {.noSideEffect,
+proc IsPenUp*(this: IGESGraph_TextFontDef; Chnum: Standard_Integer;
+             Motionnum: Standard_Integer): Standard_Boolean {.noSideEffect,
     importcpp: "IsPenUp", header: "IGESGraph_TextFontDef.hxx".}
-proc nextPenPosition*(this: IGESGraphTextFontDef; chnum: StandardInteger;
-                     motionnum: StandardInteger; ix: var StandardInteger;
-                     iy: var StandardInteger) {.noSideEffect,
+proc NextPenPosition*(this: IGESGraph_TextFontDef; Chnum: Standard_Integer;
+                     Motionnum: Standard_Integer; IX: var Standard_Integer;
+                     IY: var Standard_Integer) {.noSideEffect,
     importcpp: "NextPenPosition", header: "IGESGraph_TextFontDef.hxx".}
 type
-  IGESGraphTextFontDefbaseType* = IGESDataIGESEntity
+  IGESGraph_TextFontDefbase_type* = IGESData_IGESEntity
 
-proc getTypeName*(): cstring {.importcpp: "IGESGraph_TextFontDef::get_type_name(@)",
-                            header: "IGESGraph_TextFontDef.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "IGESGraph_TextFontDef::get_type_name(@)",
+                              header: "IGESGraph_TextFontDef.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "IGESGraph_TextFontDef::get_type_descriptor(@)",
     header: "IGESGraph_TextFontDef.hxx".}
-proc dynamicType*(this: IGESGraphTextFontDef): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "IGESGraph_TextFontDef.hxx".}
-
+proc DynamicType*(this: IGESGraph_TextFontDef): handle[Standard_Type] {.
+    noSideEffect, importcpp: "DynamicType", header: "IGESGraph_TextFontDef.hxx".}

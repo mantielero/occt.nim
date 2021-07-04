@@ -12,29 +12,36 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer,
+  ../Standard/Standard_Boolean, BlendFunc_GenChamfInv, ../math/math_Vector,
+  ../Standard/Standard_Real
+
 discard "forward decl of Adaptor3d_HSurface"
 discard "forward decl of Adaptor3d_HCurve"
 discard "forward decl of Adaptor2d_HCurve2d"
 discard "forward decl of math_Matrix"
 type
-  BlendFuncConstThroatInv* {.importcpp: "BlendFunc_ConstThroatInv",
-                            header: "BlendFunc_ConstThroatInv.hxx", bycopy.} = object of BlendFuncGenChamfInv
+  BlendFunc_ConstThroatInv* {.importcpp: "BlendFunc_ConstThroatInv",
+                             header: "BlendFunc_ConstThroatInv.hxx", bycopy.} = object of BlendFunc_GenChamfInv
 
 
-proc constructBlendFuncConstThroatInv*(s1: Handle[Adaptor3dHSurface];
-                                      s2: Handle[Adaptor3dHSurface];
-                                      c: Handle[Adaptor3dHCurve]): BlendFuncConstThroatInv {.
+proc constructBlendFunc_ConstThroatInv*(S1: handle[Adaptor3d_HSurface];
+                                       S2: handle[Adaptor3d_HSurface];
+                                       C: handle[Adaptor3d_HCurve]): BlendFunc_ConstThroatInv {.
     constructor, importcpp: "BlendFunc_ConstThroatInv(@)",
     header: "BlendFunc_ConstThroatInv.hxx".}
-proc isSolution*(this: var BlendFuncConstThroatInv; sol: MathVector; tol: StandardReal): StandardBoolean {.
-    importcpp: "IsSolution", header: "BlendFunc_ConstThroatInv.hxx".}
-proc value*(this: var BlendFuncConstThroatInv; x: MathVector; f: var MathVector): StandardBoolean {.
+proc IsSolution*(this: var BlendFunc_ConstThroatInv; Sol: math_Vector;
+                Tol: Standard_Real): Standard_Boolean {.importcpp: "IsSolution",
+    header: "BlendFunc_ConstThroatInv.hxx".}
+proc Value*(this: var BlendFunc_ConstThroatInv; X: math_Vector; F: var math_Vector): Standard_Boolean {.
     importcpp: "Value", header: "BlendFunc_ConstThroatInv.hxx".}
-proc derivatives*(this: var BlendFuncConstThroatInv; x: MathVector; d: var MathMatrix): StandardBoolean {.
-    importcpp: "Derivatives", header: "BlendFunc_ConstThroatInv.hxx".}
+proc Derivatives*(this: var BlendFunc_ConstThroatInv; X: math_Vector;
+                 D: var math_Matrix): Standard_Boolean {.importcpp: "Derivatives",
+    header: "BlendFunc_ConstThroatInv.hxx".}
 ## using statement
 
-proc set*(this: var BlendFuncConstThroatInv; theThroat: StandardReal;
-         a3: StandardReal; choix: StandardInteger) {.importcpp: "Set",
+proc Set*(this: var BlendFunc_ConstThroatInv; theThroat: Standard_Real;
+         a3: Standard_Real; Choix: Standard_Integer) {.importcpp: "Set",
     header: "BlendFunc_ConstThroatInv.hxx".}
-

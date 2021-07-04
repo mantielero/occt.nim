@@ -12,15 +12,18 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  Media_Packet
+
 discard "forward decl of AVCodec"
 discard "forward decl of AVCodecContext"
 discard "forward decl of AVStream"
 discard "forward decl of Media_Frame"
 type
-  MediaCodecContext* {.importcpp: "Media_CodecContext",
-                      header: "Media_CodecContext.hxx", bycopy.} = object of StandardTransient ##
-                                                                                        ## !
-                                                                                        ## Constructor.
+  Media_CodecContext* {.importcpp: "Media_CodecContext",
+                       header: "Media_CodecContext.hxx", bycopy.} = object of Standard_Transient ##
+                                                                                          ## !
+                                                                                          ## Constructor.
     ## !< codec context
     ## !< opened codec
     ## !< starting PTS in context
@@ -29,41 +32,40 @@ type
     ## !< stream index
     ## !< pixel aspect ratio
 
-  MediaCodecContextbaseType* = StandardTransient
+  Media_CodecContextbase_type* = Standard_Transient
 
-proc getTypeName*(): cstring {.importcpp: "Media_CodecContext::get_type_name(@)",
-                            header: "Media_CodecContext.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "Media_CodecContext::get_type_name(@)",
+                              header: "Media_CodecContext.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "Media_CodecContext::get_type_descriptor(@)",
     header: "Media_CodecContext.hxx".}
-proc dynamicType*(this: MediaCodecContext): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: Media_CodecContext): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "Media_CodecContext.hxx".}
-proc constructMediaCodecContext*(): MediaCodecContext {.constructor,
+proc constructMedia_CodecContext*(): Media_CodecContext {.constructor,
     importcpp: "Media_CodecContext(@)", header: "Media_CodecContext.hxx".}
-proc destroyMediaCodecContext*(this: var MediaCodecContext) {.
+proc destroyMedia_CodecContext*(this: var Media_CodecContext) {.
     importcpp: "#.~Media_CodecContext()", header: "Media_CodecContext.hxx".}
-proc context*(this: MediaCodecContext): ptr AVCodecContext {.noSideEffect,
+proc Context*(this: Media_CodecContext): ptr AVCodecContext {.noSideEffect,
     importcpp: "Context", header: "Media_CodecContext.hxx".}
-proc init*(this: var MediaCodecContext; theStream: AVStream; thePtsStartBase: cdouble;
-          theNbThreads: cint = -1): bool {.importcpp: "Init",
-                                      header: "Media_CodecContext.hxx".}
-proc init*(this: var MediaCodecContext; theStream: AVStream; thePtsStartBase: cdouble;
-          theNbThreads: cint; theCodecId: cint): bool {.importcpp: "Init",
+proc Init*(this: var Media_CodecContext; theStream: AVStream;
+          thePtsStartBase: cdouble; theNbThreads: cint = -1): bool {.importcpp: "Init",
     header: "Media_CodecContext.hxx".}
-proc close*(this: var MediaCodecContext) {.importcpp: "Close",
-                                       header: "Media_CodecContext.hxx".}
-proc sizeX*(this: MediaCodecContext): cint {.noSideEffect, importcpp: "SizeX",
+proc Init*(this: var Media_CodecContext; theStream: AVStream;
+          thePtsStartBase: cdouble; theNbThreads: cint; theCodecId: cint): bool {.
+    importcpp: "Init", header: "Media_CodecContext.hxx".}
+proc Close*(this: var Media_CodecContext) {.importcpp: "Close",
+                                        header: "Media_CodecContext.hxx".}
+proc SizeX*(this: Media_CodecContext): cint {.noSideEffect, importcpp: "SizeX",
     header: "Media_CodecContext.hxx".}
-proc sizeY*(this: MediaCodecContext): cint {.noSideEffect, importcpp: "SizeY",
+proc SizeY*(this: Media_CodecContext): cint {.noSideEffect, importcpp: "SizeY",
     header: "Media_CodecContext.hxx".}
-proc streamIndex*(this: MediaCodecContext): cint {.noSideEffect,
+proc StreamIndex*(this: Media_CodecContext): cint {.noSideEffect,
     importcpp: "StreamIndex", header: "Media_CodecContext.hxx".}
-proc flush*(this: var MediaCodecContext) {.importcpp: "Flush",
-                                       header: "Media_CodecContext.hxx".}
-proc canProcessPacket*(this: MediaCodecContext; thePacket: Handle[MediaPacket]): bool {.
+proc Flush*(this: var Media_CodecContext) {.importcpp: "Flush",
+                                        header: "Media_CodecContext.hxx".}
+proc CanProcessPacket*(this: Media_CodecContext; thePacket: handle[Media_Packet]): bool {.
     noSideEffect, importcpp: "CanProcessPacket", header: "Media_CodecContext.hxx".}
-proc sendPacket*(this: var MediaCodecContext; thePacket: Handle[MediaPacket]): bool {.
+proc SendPacket*(this: var Media_CodecContext; thePacket: handle[Media_Packet]): bool {.
     importcpp: "SendPacket", header: "Media_CodecContext.hxx".}
-proc receiveFrame*(this: var MediaCodecContext; theFrame: Handle[MediaFrame]): bool {.
+proc ReceiveFrame*(this: var Media_CodecContext; theFrame: handle[Media_Frame]): bool {.
     importcpp: "ReceiveFrame", header: "Media_CodecContext.hxx".}
-

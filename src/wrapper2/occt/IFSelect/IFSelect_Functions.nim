@@ -14,34 +14,40 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_CString,
+  ../Standard/Standard_Integer, ../TColStd/TColStd_HSequenceOfTransient,
+  ../Standard/Standard_Boolean
+
 discard "forward decl of Standard_Transient"
 discard "forward decl of IFSelect_WorkSession"
 discard "forward decl of IFSelect_Dispatch"
 type
-  IFSelectFunctions* {.importcpp: "IFSelect_Functions",
-                      header: "IFSelect_Functions.hxx", bycopy.} = object ## ! Takes the name of an entity, either as argument, or (if <name>
-                                                                     ## ! is empty) on keybord, and returns the entity
-                                                                     ## ! name can be a label or a number (in
-                                                                     ## alphanumeric), it is
-                                                                     ## ! searched by
-                                                                     ## NumberFromLabel from
-                                                                     ## WorkSession.
-                                                                     ## ! If <name> doesn't match en entity, a Null Handle is returned
+  IFSelect_Functions* {.importcpp: "IFSelect_Functions",
+                       header: "IFSelect_Functions.hxx", bycopy.} = object ## ! Takes the name of an entity, either as argument, or (if <name>
+                                                                      ## ! is empty) on keybord, and returns the entity
+                                                                      ## ! name can be a label or a number (in
+                                                                      ## alphanumeric), it is
+                                                                      ## ! searched by
+                                                                      ## NumberFromLabel from
+                                                                      ## WorkSession.
+                                                                      ## ! If <name> doesn't match en entity, a Null Handle is returned
 
 
-proc giveEntity*(ws: Handle[IFSelectWorkSession]; name: StandardCString = ""): Handle[
-    StandardTransient] {.importcpp: "IFSelect_Functions::GiveEntity(@)",
-                        header: "IFSelect_Functions.hxx".}
-proc giveEntityNumber*(ws: Handle[IFSelectWorkSession]; name: StandardCString = ""): StandardInteger {.
+proc GiveEntity*(WS: handle[IFSelect_WorkSession]; name: Standard_CString = ""): handle[
+    Standard_Transient] {.importcpp: "IFSelect_Functions::GiveEntity(@)",
+                         header: "IFSelect_Functions.hxx".}
+proc GiveEntityNumber*(WS: handle[IFSelect_WorkSession];
+                      name: Standard_CString = ""): Standard_Integer {.
     importcpp: "IFSelect_Functions::GiveEntityNumber(@)",
     header: "IFSelect_Functions.hxx".}
-proc giveList*(ws: Handle[IFSelectWorkSession]; first: StandardCString = "";
-              second: StandardCString = ""): Handle[TColStdHSequenceOfTransient] {.
+proc GiveList*(WS: handle[IFSelect_WorkSession]; first: Standard_CString = "";
+              second: Standard_CString = ""): handle[TColStd_HSequenceOfTransient] {.
     importcpp: "IFSelect_Functions::GiveList(@)", header: "IFSelect_Functions.hxx".}
-proc giveDispatch*(ws: Handle[IFSelectWorkSession]; name: StandardCString;
-                  mode: StandardBoolean = standardTrue): Handle[IFSelectDispatch] {.
+proc GiveDispatch*(WS: handle[IFSelect_WorkSession]; name: Standard_CString;
+                  mode: Standard_Boolean = Standard_True): handle[IFSelect_Dispatch] {.
     importcpp: "IFSelect_Functions::GiveDispatch(@)",
     header: "IFSelect_Functions.hxx".}
-proc init*() {.importcpp: "IFSelect_Functions::Init(@)",
+proc Init*() {.importcpp: "IFSelect_Functions::Init(@)",
              header: "IFSelect_Functions.hxx".}
-

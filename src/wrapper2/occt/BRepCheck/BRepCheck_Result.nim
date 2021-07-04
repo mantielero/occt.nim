@@ -14,52 +14,57 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../TopoDS/TopoDS_Shape,
+  ../Standard/Standard_Boolean, BRepCheck_DataMapOfShapeListOfStatus,
+  BRepCheck_DataMapIteratorOfDataMapOfShapeListOfStatus,
+  ../Standard/Standard_Transient, BRepCheck_ListOfStatus
+
 discard "forward decl of Standard_NoSuchObject"
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of BRepCheck_Result"
 discard "forward decl of BRepCheck_Result"
 type
-  HandleBRepCheckResult* = Handle[BRepCheckResult]
-  BRepCheckResult* {.importcpp: "BRepCheck_Result", header: "BRepCheck_Result.hxx",
-                    bycopy.} = object of StandardTransient
+  Handle_BRepCheck_Result* = handle[BRepCheck_Result]
+  BRepCheck_Result* {.importcpp: "BRepCheck_Result",
+                     header: "BRepCheck_Result.hxx", bycopy.} = object of Standard_Transient
 
 
-proc init*(this: var BRepCheckResult; s: TopoDS_Shape) {.importcpp: "Init",
+proc Init*(this: var BRepCheck_Result; S: TopoDS_Shape) {.importcpp: "Init",
     header: "BRepCheck_Result.hxx".}
-proc inContext*(this: var BRepCheckResult; contextShape: TopoDS_Shape) {.
+proc InContext*(this: var BRepCheck_Result; ContextShape: TopoDS_Shape) {.
     importcpp: "InContext", header: "BRepCheck_Result.hxx".}
-proc minimum*(this: var BRepCheckResult) {.importcpp: "Minimum",
-                                       header: "BRepCheck_Result.hxx".}
-proc blind*(this: var BRepCheckResult) {.importcpp: "Blind",
-                                     header: "BRepCheck_Result.hxx".}
-proc setFailStatus*(this: var BRepCheckResult; s: TopoDS_Shape) {.
+proc Minimum*(this: var BRepCheck_Result) {.importcpp: "Minimum",
+                                        header: "BRepCheck_Result.hxx".}
+proc Blind*(this: var BRepCheck_Result) {.importcpp: "Blind",
+                                      header: "BRepCheck_Result.hxx".}
+proc SetFailStatus*(this: var BRepCheck_Result; S: TopoDS_Shape) {.
     importcpp: "SetFailStatus", header: "BRepCheck_Result.hxx".}
-proc status*(this: BRepCheckResult): BRepCheckListOfStatus {.noSideEffect,
+proc Status*(this: BRepCheck_Result): BRepCheck_ListOfStatus {.noSideEffect,
     importcpp: "Status", header: "BRepCheck_Result.hxx".}
-proc isMinimum*(this: BRepCheckResult): StandardBoolean {.noSideEffect,
+proc IsMinimum*(this: BRepCheck_Result): Standard_Boolean {.noSideEffect,
     importcpp: "IsMinimum", header: "BRepCheck_Result.hxx".}
-proc isBlind*(this: BRepCheckResult): StandardBoolean {.noSideEffect,
+proc IsBlind*(this: BRepCheck_Result): Standard_Boolean {.noSideEffect,
     importcpp: "IsBlind", header: "BRepCheck_Result.hxx".}
-proc statusOnShape*(this: var BRepCheckResult; s: TopoDS_Shape): BRepCheckListOfStatus {.
+proc StatusOnShape*(this: var BRepCheck_Result; S: TopoDS_Shape): BRepCheck_ListOfStatus {.
     importcpp: "StatusOnShape", header: "BRepCheck_Result.hxx".}
-proc initContextIterator*(this: var BRepCheckResult) {.
+proc InitContextIterator*(this: var BRepCheck_Result) {.
     importcpp: "InitContextIterator", header: "BRepCheck_Result.hxx".}
-proc moreShapeInContext*(this: BRepCheckResult): StandardBoolean {.noSideEffect,
+proc MoreShapeInContext*(this: BRepCheck_Result): Standard_Boolean {.noSideEffect,
     importcpp: "MoreShapeInContext", header: "BRepCheck_Result.hxx".}
-proc contextualShape*(this: BRepCheckResult): TopoDS_Shape {.noSideEffect,
+proc ContextualShape*(this: BRepCheck_Result): TopoDS_Shape {.noSideEffect,
     importcpp: "ContextualShape", header: "BRepCheck_Result.hxx".}
-proc statusOnShape*(this: BRepCheckResult): BRepCheckListOfStatus {.noSideEffect,
+proc StatusOnShape*(this: BRepCheck_Result): BRepCheck_ListOfStatus {.noSideEffect,
     importcpp: "StatusOnShape", header: "BRepCheck_Result.hxx".}
-proc nextShapeInContext*(this: var BRepCheckResult) {.
+proc NextShapeInContext*(this: var BRepCheck_Result) {.
     importcpp: "NextShapeInContext", header: "BRepCheck_Result.hxx".}
 type
-  BRepCheckResultbaseType* = StandardTransient
+  BRepCheck_Resultbase_type* = Standard_Transient
 
-proc getTypeName*(): cstring {.importcpp: "BRepCheck_Result::get_type_name(@)",
-                            header: "BRepCheck_Result.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "BRepCheck_Result::get_type_name(@)",
+                              header: "BRepCheck_Result.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "BRepCheck_Result::get_type_descriptor(@)",
     header: "BRepCheck_Result.hxx".}
-proc dynamicType*(this: BRepCheckResult): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: BRepCheck_Result): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "BRepCheck_Result.hxx".}
-

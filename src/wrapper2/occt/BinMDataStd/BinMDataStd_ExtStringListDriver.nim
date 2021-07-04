@@ -13,41 +13,45 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../BinMDF/BinMDF_ADriver,
+  ../Standard/Standard_Boolean, ../BinObjMgt/BinObjMgt_RRelocationTable,
+  ../BinObjMgt/BinObjMgt_SRelocationTable
+
 discard "forward decl of Message_Messenger"
 discard "forward decl of TDF_Attribute"
 discard "forward decl of BinObjMgt_Persistent"
 discard "forward decl of BinMDataStd_ExtStringListDriver"
 discard "forward decl of BinMDataStd_ExtStringListDriver"
 type
-  HandleBinMDataStdExtStringListDriver* = Handle[BinMDataStdExtStringListDriver]
-  BinMDataStdExtStringListDriver* {.importcpp: "BinMDataStd_ExtStringListDriver", header: "BinMDataStd_ExtStringListDriver.hxx",
-                                   bycopy.} = object of BinMDF_ADriver
+  Handle_BinMDataStd_ExtStringListDriver* = handle[BinMDataStd_ExtStringListDriver]
+  BinMDataStd_ExtStringListDriver* {.importcpp: "BinMDataStd_ExtStringListDriver", header: "BinMDataStd_ExtStringListDriver.hxx",
+                                    bycopy.} = object of BinMDF_ADriver
 
 
-proc constructBinMDataStdExtStringListDriver*(
-    theMessageDriver: Handle[MessageMessenger]): BinMDataStdExtStringListDriver {.
+proc constructBinMDataStd_ExtStringListDriver*(
+    theMessageDriver: handle[Message_Messenger]): BinMDataStd_ExtStringListDriver {.
     constructor, importcpp: "BinMDataStd_ExtStringListDriver(@)",
     header: "BinMDataStd_ExtStringListDriver.hxx".}
-proc newEmpty*(this: BinMDataStdExtStringListDriver): Handle[TDF_Attribute] {.
+proc NewEmpty*(this: BinMDataStd_ExtStringListDriver): handle[TDF_Attribute] {.
     noSideEffect, importcpp: "NewEmpty",
     header: "BinMDataStd_ExtStringListDriver.hxx".}
-proc paste*(this: BinMDataStdExtStringListDriver; source: BinObjMgtPersistent;
-           target: Handle[TDF_Attribute];
-           relocTable: var BinObjMgtRRelocationTable): StandardBoolean {.
+proc Paste*(this: BinMDataStd_ExtStringListDriver; Source: BinObjMgt_Persistent;
+           Target: handle[TDF_Attribute];
+           RelocTable: var BinObjMgt_RRelocationTable): Standard_Boolean {.
     noSideEffect, importcpp: "Paste", header: "BinMDataStd_ExtStringListDriver.hxx".}
-proc paste*(this: BinMDataStdExtStringListDriver; source: Handle[TDF_Attribute];
-           target: var BinObjMgtPersistent;
-           relocTable: var BinObjMgtSRelocationTable) {.noSideEffect,
+proc Paste*(this: BinMDataStd_ExtStringListDriver; Source: handle[TDF_Attribute];
+           Target: var BinObjMgt_Persistent;
+           RelocTable: var BinObjMgt_SRelocationTable) {.noSideEffect,
     importcpp: "Paste", header: "BinMDataStd_ExtStringListDriver.hxx".}
 type
-  BinMDataStdExtStringListDriverbaseType* = BinMDF_ADriver
+  BinMDataStd_ExtStringListDriverbase_type* = BinMDF_ADriver
 
-proc getTypeName*(): cstring {.importcpp: "BinMDataStd_ExtStringListDriver::get_type_name(@)",
-                            header: "BinMDataStd_ExtStringListDriver.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "BinMDataStd_ExtStringListDriver::get_type_name(@)",
+                              header: "BinMDataStd_ExtStringListDriver.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "BinMDataStd_ExtStringListDriver::get_type_descriptor(@)",
     header: "BinMDataStd_ExtStringListDriver.hxx".}
-proc dynamicType*(this: BinMDataStdExtStringListDriver): Handle[StandardType] {.
+proc DynamicType*(this: BinMDataStd_ExtStringListDriver): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType",
     header: "BinMDataStd_ExtStringListDriver.hxx".}
-

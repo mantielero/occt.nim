@@ -11,55 +11,62 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Macro, ../Standard/Standard_Real, BRepMesh_CircleInspector,
+  ../gp/gp_XY, ../gp/gp_XYZ, ../Standard/Standard_Integer,
+  ../Standard/Standard_Boolean, ../IMeshData/IMeshData_Types,
+  ../NCollection/NCollection_Array1
+
 discard "forward decl of gp_Circ2d"
 type
-  BRepMeshCircleTool* {.importcpp: "BRepMesh_CircleTool",
-                       header: "BRepMesh_CircleTool.hxx", bycopy.} = object ## !
-                                                                       ## Constructor.
-                                                                       ## ! @param
-                                                                       ## theAllocator memory allocator to be used by internal
-                                                                       ## structures.
-                                                                       ## ! Creates circle with the given
-                                                                       ## parameters and binds it to the tool.
-                                                                       ## ! @param theIndex index a circle should be bound with.
-                                                                       ## ! @param
-                                                                       ## theLocation location of a circle.
-                                                                       ## ! @param theRadius radius of a circle.
+  BRepMesh_CircleTool* {.importcpp: "BRepMesh_CircleTool",
+                        header: "BRepMesh_CircleTool.hxx", bycopy.} = object ## !
+                                                                        ## Constructor.
+                                                                        ## ! @param
+                                                                        ## theAllocator memory
+                                                                        ## allocator to be used by internal
+                                                                        ## structures.
+                                                                        ## ! Creates circle with the given
+                                                                        ## parameters and binds it to the tool.
+                                                                        ## ! @param theIndex index a circle should be bound with.
+                                                                        ## ! @param
+                                                                        ## theLocation location of a circle.
+                                                                        ## ! @param
+                                                                        ## theRadius radius of a circle.
 
 
-proc constructBRepMeshCircleTool*(theAllocator: Handle[NCollectionIncAllocator]): BRepMeshCircleTool {.
+proc constructBRepMesh_CircleTool*(theAllocator: handle[NCollection_IncAllocator]): BRepMesh_CircleTool {.
     constructor, importcpp: "BRepMesh_CircleTool(@)",
     header: "BRepMesh_CircleTool.hxx".}
-proc constructBRepMeshCircleTool*(theReservedSize: StandardInteger;
-                                 theAllocator: Handle[NCollectionIncAllocator]): BRepMeshCircleTool {.
-    constructor, importcpp: "BRepMesh_CircleTool(@)",
-    header: "BRepMesh_CircleTool.hxx".}
-proc init*(this: var BRepMeshCircleTool; a2: StandardInteger) {.importcpp: "Init",
+proc constructBRepMesh_CircleTool*(theReservedSize: Standard_Integer; theAllocator: handle[
+    NCollection_IncAllocator]): BRepMesh_CircleTool {.constructor,
+    importcpp: "BRepMesh_CircleTool(@)", header: "BRepMesh_CircleTool.hxx".}
+proc Init*(this: var BRepMesh_CircleTool; a2: Standard_Integer) {.importcpp: "Init",
     header: "BRepMesh_CircleTool.hxx".}
   ## theReservedSize
-proc setCellSize*(this: var BRepMeshCircleTool; theSize: StandardReal) {.
+proc SetCellSize*(this: var BRepMesh_CircleTool; theSize: Standard_Real) {.
     importcpp: "SetCellSize", header: "BRepMesh_CircleTool.hxx".}
-proc setCellSize*(this: var BRepMeshCircleTool; theSizeX: StandardReal;
-                 theSizeY: StandardReal) {.importcpp: "SetCellSize",
+proc SetCellSize*(this: var BRepMesh_CircleTool; theSizeX: Standard_Real;
+                 theSizeY: Standard_Real) {.importcpp: "SetCellSize",
     header: "BRepMesh_CircleTool.hxx".}
-proc setMinMaxSize*(this: var BRepMeshCircleTool; theMin: GpXY; theMax: GpXY) {.
+proc SetMinMaxSize*(this: var BRepMesh_CircleTool; theMin: gp_XY; theMax: gp_XY) {.
     importcpp: "SetMinMaxSize", header: "BRepMesh_CircleTool.hxx".}
-proc isEmpty*(this: BRepMeshCircleTool): StandardBoolean {.noSideEffect,
+proc IsEmpty*(this: BRepMesh_CircleTool): Standard_Boolean {.noSideEffect,
     importcpp: "IsEmpty", header: "BRepMesh_CircleTool.hxx".}
-proc `bind`*(this: var BRepMeshCircleTool; theIndex: StandardInteger;
-            theCircle: GpCirc2d) {.importcpp: "Bind",
-                                 header: "BRepMesh_CircleTool.hxx".}
-proc makeCircle*(thePoint1: GpXY; thePoint2: GpXY; thePoint3: GpXY;
-                theLocation: var GpXY; theRadius: var StandardReal): StandardBoolean {.
+proc Bind*(this: var BRepMesh_CircleTool; theIndex: Standard_Integer;
+          theCircle: gp_Circ2d) {.importcpp: "Bind",
+                                header: "BRepMesh_CircleTool.hxx".}
+proc MakeCircle*(thePoint1: gp_XY; thePoint2: gp_XY; thePoint3: gp_XY;
+                theLocation: var gp_XY; theRadius: var Standard_Real): Standard_Boolean {.
     importcpp: "BRepMesh_CircleTool::MakeCircle(@)",
     header: "BRepMesh_CircleTool.hxx".}
-proc `bind`*(this: var BRepMeshCircleTool; theIndex: StandardInteger; thePoint1: GpXY;
-            thePoint2: GpXY; thePoint3: GpXY): StandardBoolean {.importcpp: "Bind",
-    header: "BRepMesh_CircleTool.hxx".}
-proc mocBind*(this: var BRepMeshCircleTool; theIndex: StandardInteger) {.
+proc Bind*(this: var BRepMesh_CircleTool; theIndex: Standard_Integer;
+          thePoint1: gp_XY; thePoint2: gp_XY; thePoint3: gp_XY): Standard_Boolean {.
+    importcpp: "Bind", header: "BRepMesh_CircleTool.hxx".}
+proc MocBind*(this: var BRepMesh_CircleTool; theIndex: Standard_Integer) {.
     importcpp: "MocBind", header: "BRepMesh_CircleTool.hxx".}
-proc delete*(this: var BRepMeshCircleTool; theIndex: StandardInteger) {.
+proc Delete*(this: var BRepMesh_CircleTool; theIndex: Standard_Integer) {.
     importcpp: "Delete", header: "BRepMesh_CircleTool.hxx".}
-proc select*(this: var BRepMeshCircleTool; thePoint: GpXY): var ListOfInteger {.
+proc Select*(this: var BRepMesh_CircleTool; thePoint: gp_XY): var ListOfInteger {.
     importcpp: "Select", header: "BRepMesh_CircleTool.hxx".}
-

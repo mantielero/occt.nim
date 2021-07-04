@@ -14,6 +14,14 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
+  ../TColgp/TColgp_Array1OfCirc2d, ../Standard/Standard_Integer,
+  ../GccEnt/GccEnt_Array1OfPosition, ../TColStd/TColStd_Array1OfInteger,
+  ../TColgp/TColgp_Array1OfPnt2d, ../TColStd/TColStd_Array1OfReal,
+  ../Standard/Standard_Real, ../GccEnt/GccEnt_Position
+
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of GccEnt_BadQualifier"
 discard "forward decl of StdFail_NotDone"
@@ -25,47 +33,51 @@ discard "forward decl of Geom2dGcc_Circ2d2TanRadGeo"
 discard "forward decl of gp_Circ2d"
 discard "forward decl of gp_Pnt2d"
 type
-  Geom2dGccCirc2d2TanRad* {.importcpp: "Geom2dGcc_Circ2d2TanRad",
-                           header: "Geom2dGcc_Circ2d2TanRad.hxx", bycopy.} = object
+  Geom2dGcc_Circ2d2TanRad* {.importcpp: "Geom2dGcc_Circ2d2TanRad",
+                            header: "Geom2dGcc_Circ2d2TanRad.hxx", bycopy.} = object
 
 
-proc constructGeom2dGccCirc2d2TanRad*(qualified1: Geom2dGccQualifiedCurve;
-                                     qualified2: Geom2dGccQualifiedCurve;
-                                     radius: StandardReal; tolerance: StandardReal): Geom2dGccCirc2d2TanRad {.
+proc constructGeom2dGcc_Circ2d2TanRad*(Qualified1: Geom2dGcc_QualifiedCurve;
+                                      Qualified2: Geom2dGcc_QualifiedCurve;
+                                      Radius: Standard_Real;
+                                      Tolerance: Standard_Real): Geom2dGcc_Circ2d2TanRad {.
     constructor, importcpp: "Geom2dGcc_Circ2d2TanRad(@)",
     header: "Geom2dGcc_Circ2d2TanRad.hxx".}
-proc constructGeom2dGccCirc2d2TanRad*(qualified1: Geom2dGccQualifiedCurve;
-                                     point: Handle[Geom2dPoint];
-                                     radius: StandardReal; tolerance: StandardReal): Geom2dGccCirc2d2TanRad {.
+proc constructGeom2dGcc_Circ2d2TanRad*(Qualified1: Geom2dGcc_QualifiedCurve;
+                                      Point: handle[Geom2d_Point];
+                                      Radius: Standard_Real;
+                                      Tolerance: Standard_Real): Geom2dGcc_Circ2d2TanRad {.
     constructor, importcpp: "Geom2dGcc_Circ2d2TanRad(@)",
     header: "Geom2dGcc_Circ2d2TanRad.hxx".}
-proc constructGeom2dGccCirc2d2TanRad*(point1: Handle[Geom2dPoint];
-                                     point2: Handle[Geom2dPoint];
-                                     radius: StandardReal; tolerance: StandardReal): Geom2dGccCirc2d2TanRad {.
+proc constructGeom2dGcc_Circ2d2TanRad*(Point1: handle[Geom2d_Point];
+                                      Point2: handle[Geom2d_Point];
+                                      Radius: Standard_Real;
+                                      Tolerance: Standard_Real): Geom2dGcc_Circ2d2TanRad {.
     constructor, importcpp: "Geom2dGcc_Circ2d2TanRad(@)",
     header: "Geom2dGcc_Circ2d2TanRad.hxx".}
-proc results*(this: var Geom2dGccCirc2d2TanRad; circ: GccAnaCirc2d2TanRad) {.
+proc Results*(this: var Geom2dGcc_Circ2d2TanRad; Circ: GccAna_Circ2d2TanRad) {.
     importcpp: "Results", header: "Geom2dGcc_Circ2d2TanRad.hxx".}
-proc results*(this: var Geom2dGccCirc2d2TanRad; circ: Geom2dGccCirc2d2TanRadGeo) {.
+proc Results*(this: var Geom2dGcc_Circ2d2TanRad; Circ: Geom2dGcc_Circ2d2TanRadGeo) {.
     importcpp: "Results", header: "Geom2dGcc_Circ2d2TanRad.hxx".}
-proc isDone*(this: Geom2dGccCirc2d2TanRad): StandardBoolean {.noSideEffect,
+proc IsDone*(this: Geom2dGcc_Circ2d2TanRad): Standard_Boolean {.noSideEffect,
     importcpp: "IsDone", header: "Geom2dGcc_Circ2d2TanRad.hxx".}
-proc nbSolutions*(this: Geom2dGccCirc2d2TanRad): StandardInteger {.noSideEffect,
+proc NbSolutions*(this: Geom2dGcc_Circ2d2TanRad): Standard_Integer {.noSideEffect,
     importcpp: "NbSolutions", header: "Geom2dGcc_Circ2d2TanRad.hxx".}
-proc thisSolution*(this: Geom2dGccCirc2d2TanRad; index: StandardInteger): GpCirc2d {.
+proc ThisSolution*(this: Geom2dGcc_Circ2d2TanRad; Index: Standard_Integer): gp_Circ2d {.
     noSideEffect, importcpp: "ThisSolution", header: "Geom2dGcc_Circ2d2TanRad.hxx".}
-proc whichQualifier*(this: Geom2dGccCirc2d2TanRad; index: StandardInteger;
-                    qualif1: var GccEntPosition; qualif2: var GccEntPosition) {.
+proc WhichQualifier*(this: Geom2dGcc_Circ2d2TanRad; Index: Standard_Integer;
+                    Qualif1: var GccEnt_Position; Qualif2: var GccEnt_Position) {.
     noSideEffect, importcpp: "WhichQualifier",
     header: "Geom2dGcc_Circ2d2TanRad.hxx".}
-proc tangency1*(this: Geom2dGccCirc2d2TanRad; index: StandardInteger;
-               parSol: var StandardReal; parArg: var StandardReal; pntSol: var GpPnt2d) {.
-    noSideEffect, importcpp: "Tangency1", header: "Geom2dGcc_Circ2d2TanRad.hxx".}
-proc tangency2*(this: Geom2dGccCirc2d2TanRad; index: StandardInteger;
-               parSol: var StandardReal; parArg: var StandardReal; pntSol: var GpPnt2d) {.
-    noSideEffect, importcpp: "Tangency2", header: "Geom2dGcc_Circ2d2TanRad.hxx".}
-proc isTheSame1*(this: Geom2dGccCirc2d2TanRad; index: StandardInteger): StandardBoolean {.
+proc Tangency1*(this: Geom2dGcc_Circ2d2TanRad; Index: Standard_Integer;
+               ParSol: var Standard_Real; ParArg: var Standard_Real;
+               PntSol: var gp_Pnt2d) {.noSideEffect, importcpp: "Tangency1",
+                                    header: "Geom2dGcc_Circ2d2TanRad.hxx".}
+proc Tangency2*(this: Geom2dGcc_Circ2d2TanRad; Index: Standard_Integer;
+               ParSol: var Standard_Real; ParArg: var Standard_Real;
+               PntSol: var gp_Pnt2d) {.noSideEffect, importcpp: "Tangency2",
+                                    header: "Geom2dGcc_Circ2d2TanRad.hxx".}
+proc IsTheSame1*(this: Geom2dGcc_Circ2d2TanRad; Index: Standard_Integer): Standard_Boolean {.
     noSideEffect, importcpp: "IsTheSame1", header: "Geom2dGcc_Circ2d2TanRad.hxx".}
-proc isTheSame2*(this: Geom2dGccCirc2d2TanRad; index: StandardInteger): StandardBoolean {.
+proc IsTheSame2*(this: Geom2dGcc_Circ2d2TanRad; Index: Standard_Integer): Standard_Boolean {.
     noSideEffect, importcpp: "IsTheSame2", header: "Geom2dGcc_Circ2d2TanRad.hxx".}
-

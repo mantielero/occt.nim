@@ -13,13 +13,18 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  Message_Gravity, Message_SequenceOfPrinters,
+  ../TCollection/TCollection_HAsciiString,
+  ../TCollection/TCollection_HExtendedString
+
 discard "forward decl of Message_Printer"
-# when defined(AddPrinter):
-#   discard
+when defined(AddPrinter):
+  discard
 discard "forward decl of Message_Messenger"
 discard "forward decl of Message_Messenger"
 type
-  HandleMessageMessenger* = Handle[MessageMessenger]
+  Handle_Message_Messenger* = handle[Message_Messenger]
 
 ## ! Messenger is API class providing general-purpose interface for
 ## ! libraries that may issue text messages without knowledge
@@ -42,205 +47,206 @@ type
 ## ! Empty messages are not sent except if manipulator is used.
 
 type
-  MessageMessenger* {.importcpp: "Message_Messenger",
-                     header: "Message_Messenger.hxx", bycopy.} = object of StandardTransient ##
-                                                                                      ## !
-                                                                                      ## Auxiliary
-                                                                                      ## class
-                                                                                      ## wrapping
-                                                                                      ## std::stringstream
-                                                                                      ## thus
-                                                                                      ## allowing
-                                                                                      ## constructing
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## message
-                                                                                      ## via
-                                                                                      ## stream
-                                                                                      ## interface,
-                                                                                      ## and
-                                                                                      ## putting
-                                                                                      ## result
-                                                                                      ## into
-                                                                                      ## its
-                                                                                      ## creator
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## Message_Messenger
-                                                                                      ## within
-                                                                                      ## destructor.
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## It
-                                                                                      ## is
-                                                                                      ## intended
-                                                                                      ## to
-                                                                                      ## be
-                                                                                      ## used
-                                                                                      ## either
-                                                                                      ## as
-                                                                                      ## temporary
-                                                                                      ## object
-                                                                                      ## or
-                                                                                      ## as
-                                                                                      ## local
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## variable,
-                                                                                      ## note
-                                                                                      ## that
-                                                                                      ## content
-                                                                                      ## will
-                                                                                      ## be
-                                                                                      ## lost
-                                                                                      ## if
-                                                                                      ## it
-                                                                                      ## is
-                                                                                      ## copied.
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## Empty
-                                                                                      ## constructor;
-                                                                                      ## initializes
-                                                                                      ## by
-                                                                                      ## single
-                                                                                      ## printer
-                                                                                      ## directed
-                                                                                      ## to
-                                                                                      ## std::cout.
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## Note:
-                                                                                      ## the
-                                                                                      ## default
-                                                                                      ## messenger
-                                                                                      ## is
-                                                                                      ## not
-                                                                                      ## empty
-                                                                                      ## but
-                                                                                      ## directed
-                                                                                      ## to
-                                                                                      ## cout
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## in
-                                                                                      ## order
-                                                                                      ## to
-                                                                                      ## protect
-                                                                                      ## against
-                                                                                      ## possibility
-                                                                                      ## to
-                                                                                      ## forget
-                                                                                      ## defining
-                                                                                      ## printers.
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## If
-                                                                                      ## printing
-                                                                                      ## to
-                                                                                      ## cout
-                                                                                      ## is
-                                                                                      ## not
-                                                                                      ## needed,
-                                                                                      ## clear
-                                                                                      ## messenger
-                                                                                      ## by
-                                                                                      ## GetPrinters().Clear()
+  Message_Messenger* {.importcpp: "Message_Messenger",
+                      header: "Message_Messenger.hxx", bycopy.} = object of Standard_Transient ##
+                                                                                        ## !
+                                                                                        ## Auxiliary
+                                                                                        ## class
+                                                                                        ## wrapping
+                                                                                        ## std::stringstream
+                                                                                        ## thus
+                                                                                        ## allowing
+                                                                                        ## constructing
+                                                                                        ##
+                                                                                        ## !
+                                                                                        ## message
+                                                                                        ## via
+                                                                                        ## stream
+                                                                                        ## interface,
+                                                                                        ## and
+                                                                                        ## putting
+                                                                                        ## result
+                                                                                        ## into
+                                                                                        ## its
+                                                                                        ## creator
+                                                                                        ##
+                                                                                        ## !
+                                                                                        ## Message_Messenger
+                                                                                        ## within
+                                                                                        ## destructor.
+                                                                                        ##
+                                                                                        ## !
+                                                                                        ##
+                                                                                        ## !
+                                                                                        ## It
+                                                                                        ## is
+                                                                                        ## intended
+                                                                                        ## to
+                                                                                        ## be
+                                                                                        ## used
+                                                                                        ## either
+                                                                                        ## as
+                                                                                        ## temporary
+                                                                                        ## object
+                                                                                        ## or
+                                                                                        ## as
+                                                                                        ## local
+                                                                                        ##
+                                                                                        ## !
+                                                                                        ## variable,
+                                                                                        ## note
+                                                                                        ## that
+                                                                                        ## content
+                                                                                        ## will
+                                                                                        ## be
+                                                                                        ## lost
+                                                                                        ## if
+                                                                                        ## it
+                                                                                        ## is
+                                                                                        ## copied.
+                                                                                        ##
+                                                                                        ## !
+                                                                                        ## Empty
+                                                                                        ## constructor;
+                                                                                        ## initializes
+                                                                                        ## by
+                                                                                        ## single
+                                                                                        ## printer
+                                                                                        ## directed
+                                                                                        ## to
+                                                                                        ## std::cout.
+                                                                                        ##
+                                                                                        ## !
+                                                                                        ## Note:
+                                                                                        ## the
+                                                                                        ## default
+                                                                                        ## messenger
+                                                                                        ## is
+                                                                                        ## not
+                                                                                        ## empty
+                                                                                        ## but
+                                                                                        ## directed
+                                                                                        ## to
+                                                                                        ## cout
+                                                                                        ##
+                                                                                        ## !
+                                                                                        ## in
+                                                                                        ## order
+                                                                                        ## to
+                                                                                        ## protect
+                                                                                        ## against
+                                                                                        ## possibility
+                                                                                        ## to
+                                                                                        ## forget
+                                                                                        ## defining
+                                                                                        ## printers.
+                                                                                        ##
+                                                                                        ## !
+                                                                                        ## If
+                                                                                        ## printing
+                                                                                        ## to
+                                                                                        ## cout
+                                                                                        ## is
+                                                                                        ## not
+                                                                                        ## needed,
+                                                                                        ## clear
+                                                                                        ## messenger
+                                                                                        ## by
+                                                                                        ## GetPrinters().Clear()
 
-  MessageMessengerbaseType* = StandardTransient
+  Message_Messengerbase_type* = Standard_Transient
 
-proc getTypeName*(): cstring {.importcpp: "Message_Messenger::get_type_name(@)",
-                            header: "Message_Messenger.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "Message_Messenger::get_type_name(@)",
+                              header: "Message_Messenger.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "Message_Messenger::get_type_descriptor(@)",
     header: "Message_Messenger.hxx".}
-proc dynamicType*(this: MessageMessenger): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: Message_Messenger): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "Message_Messenger.hxx".}
 type
-  MessageMessengerStreamBuffer* {.importcpp: "Message_Messenger::StreamBuffer",
-                                 header: "Message_Messenger.hxx", bycopy.} = object ## !
-                                                                               ## Destructor
-                                                                               ## flushing
-                                                                               ## constructed
-                                                                               ## message.
+  Message_MessengerStreamBuffer* {.importcpp: "Message_Messenger::StreamBuffer",
+                                  header: "Message_Messenger.hxx", bycopy.} = object ##
+                                                                                ## !
+                                                                                ## Destructor
+                                                                                ## flushing
+                                                                                ## constructed
+                                                                                ## message.
     ##  don't make a Handle since this object should be created on stack
 
 
-proc destroyMessageMessengerStreamBuffer*(this: var MessageMessengerStreamBuffer) {.
-    importcpp: "#.~StreamBuffer()", header: "Message_Messenger.hxx".}
-proc flush*(this: var MessageMessengerStreamBuffer;
-           doForce: StandardBoolean = standardFalse) {.importcpp: "Flush",
+proc destroyMessage_MessengerStreamBuffer*(
+    this: var Message_MessengerStreamBuffer) {.importcpp: "#.~StreamBuffer()",
     header: "Message_Messenger.hxx".}
-proc constructMessageMessengerStreamBuffer*(
-    theOther: MessageMessengerStreamBuffer): MessageMessengerStreamBuffer {.
+proc Flush*(this: var Message_MessengerStreamBuffer;
+           doForce: Standard_Boolean = Standard_False) {.importcpp: "Flush",
+    header: "Message_Messenger.hxx".}
+proc constructMessage_MessengerStreamBuffer*(
+    theOther: Message_MessengerStreamBuffer): Message_MessengerStreamBuffer {.
     constructor, importcpp: "Message_Messenger::StreamBuffer(@)",
     header: "Message_Messenger.hxx".}
-proc `<<`*[T](this: var MessageMessengerStreamBuffer; theArg: T): var MessageMessengerStreamBuffer {.
+proc `<<`*[T](this: var Message_MessengerStreamBuffer; theArg: T): var Message_MessengerStreamBuffer {.
     importcpp: "(# << #)", header: "Message_Messenger.hxx".}
-proc `<<`*(this: var MessageMessengerStreamBuffer;
-          a2: proc (a1: var Ostream): var Ostream): var MessageMessengerStreamBuffer {.
+proc `<<`*(this: var Message_MessengerStreamBuffer;
+          a2: proc (a1: var ostream): var ostream): var Message_MessengerStreamBuffer {.
     importcpp: "(# << #)", header: "Message_Messenger.hxx".}
-proc stream*(this: var MessageMessengerStreamBuffer): var StandardSStream {.
+proc Stream*(this: var Message_MessengerStreamBuffer): var Standard_SStream {.
     importcpp: "Stream", header: "Message_Messenger.hxx".}
-converter `standardOStream&`*(this: var MessageMessengerStreamBuffer): var StandardOStream {.
+converter `Standard_OStream&`*(this: var Message_MessengerStreamBuffer): var Standard_OStream {.
     importcpp: "StreamBuffer::operator Standard_OStream&",
     header: "Message_Messenger.hxx".}
-proc messenger*(this: var MessageMessengerStreamBuffer): ptr MessageMessenger {.
+proc Messenger*(this: var Message_MessengerStreamBuffer): ptr Message_Messenger {.
     importcpp: "Messenger", header: "Message_Messenger.hxx".}
-proc constructMessageMessenger*(): MessageMessenger {.constructor,
+proc constructMessage_Messenger*(): Message_Messenger {.constructor,
     importcpp: "Message_Messenger(@)", header: "Message_Messenger.hxx".}
-proc constructMessageMessenger*(thePrinter: Handle[MessagePrinter]): MessageMessenger {.
+proc constructMessage_Messenger*(thePrinter: handle[Message_Printer]): Message_Messenger {.
     constructor, importcpp: "Message_Messenger(@)", header: "Message_Messenger.hxx".}
-proc addPrinter*(this: var MessageMessenger; thePrinter: Handle[MessagePrinter]): StandardBoolean {.
+proc AddPrinter*(this: var Message_Messenger; thePrinter: handle[Message_Printer]): Standard_Boolean {.
     importcpp: "AddPrinter", header: "Message_Messenger.hxx".}
-proc removePrinter*(this: var MessageMessenger; thePrinter: Handle[MessagePrinter]): StandardBoolean {.
+proc RemovePrinter*(this: var Message_Messenger; thePrinter: handle[Message_Printer]): Standard_Boolean {.
     importcpp: "RemovePrinter", header: "Message_Messenger.hxx".}
-proc removePrinters*(this: var MessageMessenger; theType: Handle[StandardType]): StandardInteger {.
+proc RemovePrinters*(this: var Message_Messenger; theType: handle[Standard_Type]): Standard_Integer {.
     importcpp: "RemovePrinters", header: "Message_Messenger.hxx".}
-proc printers*(this: MessageMessenger): MessageSequenceOfPrinters {.noSideEffect,
+proc Printers*(this: Message_Messenger): Message_SequenceOfPrinters {.noSideEffect,
     importcpp: "Printers", header: "Message_Messenger.hxx".}
-proc changePrinters*(this: var MessageMessenger): var MessageSequenceOfPrinters {.
+proc ChangePrinters*(this: var Message_Messenger): var Message_SequenceOfPrinters {.
     importcpp: "ChangePrinters", header: "Message_Messenger.hxx".}
-proc send*(this: MessageMessenger; theString: StandardCString;
-          theGravity: MessageGravity = messageWarning) {.noSideEffect,
+proc Send*(this: Message_Messenger; theString: Standard_CString;
+          theGravity: Message_Gravity = Message_Warning) {.noSideEffect,
     importcpp: "Send", header: "Message_Messenger.hxx".}
-proc send*(this: MessageMessenger; theStream: StandardSStream;
-          theGravity: MessageGravity = messageWarning) {.noSideEffect,
+proc Send*(this: Message_Messenger; theStream: Standard_SStream;
+          theGravity: Message_Gravity = Message_Warning) {.noSideEffect,
     importcpp: "Send", header: "Message_Messenger.hxx".}
-proc send*(this: MessageMessenger; theString: TCollectionAsciiString;
-          theGravity: MessageGravity = messageWarning) {.noSideEffect,
+proc Send*(this: Message_Messenger; theString: TCollection_AsciiString;
+          theGravity: Message_Gravity = Message_Warning) {.noSideEffect,
     importcpp: "Send", header: "Message_Messenger.hxx".}
-proc send*(this: MessageMessenger; theString: TCollectionExtendedString;
-          theGravity: MessageGravity = messageWarning) {.noSideEffect,
+proc Send*(this: Message_Messenger; theString: TCollection_ExtendedString;
+          theGravity: Message_Gravity = Message_Warning) {.noSideEffect,
     importcpp: "Send", header: "Message_Messenger.hxx".}
-proc send*(this: var MessageMessenger; theGravity: MessageGravity): MessageMessengerStreamBuffer {.
+proc Send*(this: var Message_Messenger; theGravity: Message_Gravity): Message_MessengerStreamBuffer {.
     importcpp: "Send", header: "Message_Messenger.hxx".}
-proc send*(this: MessageMessenger; theObject: Handle[StandardTransient];
-          theGravity: MessageGravity = messageWarning) {.noSideEffect,
+proc Send*(this: Message_Messenger; theObject: handle[Standard_Transient];
+          theGravity: Message_Gravity = Message_Warning) {.noSideEffect,
     importcpp: "Send", header: "Message_Messenger.hxx".}
-proc sendFail*(this: var MessageMessenger): MessageMessengerStreamBuffer {.
+proc SendFail*(this: var Message_Messenger): Message_MessengerStreamBuffer {.
     importcpp: "SendFail", header: "Message_Messenger.hxx".}
-proc sendAlarm*(this: var MessageMessenger): MessageMessengerStreamBuffer {.
+proc SendAlarm*(this: var Message_Messenger): Message_MessengerStreamBuffer {.
     importcpp: "SendAlarm", header: "Message_Messenger.hxx".}
-proc sendWarning*(this: var MessageMessenger): MessageMessengerStreamBuffer {.
+proc SendWarning*(this: var Message_Messenger): Message_MessengerStreamBuffer {.
     importcpp: "SendWarning", header: "Message_Messenger.hxx".}
-proc sendInfo*(this: var MessageMessenger): MessageMessengerStreamBuffer {.
+proc SendInfo*(this: var Message_Messenger): Message_MessengerStreamBuffer {.
     importcpp: "SendInfo", header: "Message_Messenger.hxx".}
-proc sendTrace*(this: var MessageMessenger): MessageMessengerStreamBuffer {.
+proc SendTrace*(this: var Message_Messenger): Message_MessengerStreamBuffer {.
     importcpp: "SendTrace", header: "Message_Messenger.hxx".}
-proc sendFail*(this: var MessageMessenger; theMessage: TCollectionAsciiString) {.
+proc SendFail*(this: var Message_Messenger; theMessage: TCollection_AsciiString) {.
     importcpp: "SendFail", header: "Message_Messenger.hxx".}
-proc sendAlarm*(this: var MessageMessenger; theMessage: TCollectionAsciiString) {.
+proc SendAlarm*(this: var Message_Messenger; theMessage: TCollection_AsciiString) {.
     importcpp: "SendAlarm", header: "Message_Messenger.hxx".}
-proc sendWarning*(this: var MessageMessenger; theMessage: TCollectionAsciiString) {.
+proc SendWarning*(this: var Message_Messenger; theMessage: TCollection_AsciiString) {.
     importcpp: "SendWarning", header: "Message_Messenger.hxx".}
-proc sendInfo*(this: var MessageMessenger; theMessage: TCollectionAsciiString) {.
+proc SendInfo*(this: var Message_Messenger; theMessage: TCollection_AsciiString) {.
     importcpp: "SendInfo", header: "Message_Messenger.hxx".}
-proc sendTrace*(this: var MessageMessenger; theMessage: TCollectionAsciiString) {.
+proc SendTrace*(this: var Message_Messenger; theMessage: TCollection_AsciiString) {.
     importcpp: "SendTrace", header: "Message_Messenger.hxx".}
-proc dumpJson*(this: MessageMessenger; theOStream: var StandardOStream;
-              theDepth: StandardInteger = -1) {.noSideEffect, importcpp: "DumpJson",
+proc DumpJson*(this: Message_Messenger; theOStream: var Standard_OStream;
+              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
     header: "Message_Messenger.hxx".}
-

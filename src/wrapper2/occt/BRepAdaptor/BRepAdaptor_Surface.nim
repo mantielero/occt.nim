@@ -14,6 +14,14 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../GeomAdaptor/GeomAdaptor_Surface, ../gp/gp_Trsf,
+  ../TopoDS/TopoDS_Face, ../Adaptor3d/Adaptor3d_Surface,
+  ../Standard/Standard_Boolean, ../Standard/Standard_Real,
+  ../GeomAbs/GeomAbs_Shape, ../Standard/Standard_Integer,
+  ../TColStd/TColStd_Array1OfReal, ../GeomAbs/GeomAbs_SurfaceType
+
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of Standard_DomainError"
 discard "forward decl of Standard_NoSuchObject"
@@ -34,136 +42,139 @@ discard "forward decl of gp_Ax1"
 discard "forward decl of gp_Dir"
 discard "forward decl of Adaptor3d_HCurve"
 type
-  BRepAdaptorSurface* {.importcpp: "BRepAdaptor_Surface",
-                       header: "BRepAdaptor_Surface.hxx", bycopy.} = object of Adaptor3dSurface ##
-                                                                                         ## !
-                                                                                         ## Creates
-                                                                                         ## an
-                                                                                         ## undefined
-                                                                                         ## surface
-                                                                                         ## with
-                                                                                         ## no
-                                                                                         ## face
-                                                                                         ## loaded.
+  BRepAdaptor_Surface* {.importcpp: "BRepAdaptor_Surface",
+                        header: "BRepAdaptor_Surface.hxx", bycopy.} = object of Adaptor3d_Surface ##
+                                                                                           ## !
+                                                                                           ## Creates
+                                                                                           ## an
+                                                                                           ## undefined
+                                                                                           ## surface
+                                                                                           ## with
+                                                                                           ## no
+                                                                                           ## face
+                                                                                           ## loaded.
 
 
-proc constructBRepAdaptorSurface*(): BRepAdaptorSurface {.constructor,
+proc constructBRepAdaptor_Surface*(): BRepAdaptor_Surface {.constructor,
     importcpp: "BRepAdaptor_Surface(@)", header: "BRepAdaptor_Surface.hxx".}
-proc constructBRepAdaptorSurface*(f: TopoDS_Face; r: StandardBoolean = standardTrue): BRepAdaptorSurface {.
+proc constructBRepAdaptor_Surface*(F: TopoDS_Face;
+                                  R: Standard_Boolean = Standard_True): BRepAdaptor_Surface {.
     constructor, importcpp: "BRepAdaptor_Surface(@)",
     header: "BRepAdaptor_Surface.hxx".}
-proc initialize*(this: var BRepAdaptorSurface; f: TopoDS_Face;
-                restriction: StandardBoolean = standardTrue) {.
+proc Initialize*(this: var BRepAdaptor_Surface; F: TopoDS_Face;
+                Restriction: Standard_Boolean = Standard_True) {.
     importcpp: "Initialize", header: "BRepAdaptor_Surface.hxx".}
-proc surface*(this: BRepAdaptorSurface): GeomAdaptorSurface {.noSideEffect,
+proc Surface*(this: BRepAdaptor_Surface): GeomAdaptor_Surface {.noSideEffect,
     importcpp: "Surface", header: "BRepAdaptor_Surface.hxx".}
-proc changeSurface*(this: var BRepAdaptorSurface): var GeomAdaptorSurface {.
+proc ChangeSurface*(this: var BRepAdaptor_Surface): var GeomAdaptor_Surface {.
     importcpp: "ChangeSurface", header: "BRepAdaptor_Surface.hxx".}
-proc trsf*(this: BRepAdaptorSurface): GpTrsf {.noSideEffect, importcpp: "Trsf",
+proc Trsf*(this: BRepAdaptor_Surface): gp_Trsf {.noSideEffect, importcpp: "Trsf",
     header: "BRepAdaptor_Surface.hxx".}
-proc face*(this: BRepAdaptorSurface): TopoDS_Face {.noSideEffect, importcpp: "Face",
+proc Face*(this: BRepAdaptor_Surface): TopoDS_Face {.noSideEffect, importcpp: "Face",
     header: "BRepAdaptor_Surface.hxx".}
-proc tolerance*(this: BRepAdaptorSurface): StandardReal {.noSideEffect,
+proc Tolerance*(this: BRepAdaptor_Surface): Standard_Real {.noSideEffect,
     importcpp: "Tolerance", header: "BRepAdaptor_Surface.hxx".}
-proc firstUParameter*(this: BRepAdaptorSurface): StandardReal {.noSideEffect,
+proc FirstUParameter*(this: BRepAdaptor_Surface): Standard_Real {.noSideEffect,
     importcpp: "FirstUParameter", header: "BRepAdaptor_Surface.hxx".}
-proc lastUParameter*(this: BRepAdaptorSurface): StandardReal {.noSideEffect,
+proc LastUParameter*(this: BRepAdaptor_Surface): Standard_Real {.noSideEffect,
     importcpp: "LastUParameter", header: "BRepAdaptor_Surface.hxx".}
-proc firstVParameter*(this: BRepAdaptorSurface): StandardReal {.noSideEffect,
+proc FirstVParameter*(this: BRepAdaptor_Surface): Standard_Real {.noSideEffect,
     importcpp: "FirstVParameter", header: "BRepAdaptor_Surface.hxx".}
-proc lastVParameter*(this: BRepAdaptorSurface): StandardReal {.noSideEffect,
+proc LastVParameter*(this: BRepAdaptor_Surface): Standard_Real {.noSideEffect,
     importcpp: "LastVParameter", header: "BRepAdaptor_Surface.hxx".}
-proc uContinuity*(this: BRepAdaptorSurface): GeomAbsShape {.noSideEffect,
+proc UContinuity*(this: BRepAdaptor_Surface): GeomAbs_Shape {.noSideEffect,
     importcpp: "UContinuity", header: "BRepAdaptor_Surface.hxx".}
-proc vContinuity*(this: BRepAdaptorSurface): GeomAbsShape {.noSideEffect,
+proc VContinuity*(this: BRepAdaptor_Surface): GeomAbs_Shape {.noSideEffect,
     importcpp: "VContinuity", header: "BRepAdaptor_Surface.hxx".}
-proc nbUIntervals*(this: BRepAdaptorSurface; s: GeomAbsShape): StandardInteger {.
+proc NbUIntervals*(this: BRepAdaptor_Surface; S: GeomAbs_Shape): Standard_Integer {.
     noSideEffect, importcpp: "NbUIntervals", header: "BRepAdaptor_Surface.hxx".}
-proc nbVIntervals*(this: BRepAdaptorSurface; s: GeomAbsShape): StandardInteger {.
+proc NbVIntervals*(this: BRepAdaptor_Surface; S: GeomAbs_Shape): Standard_Integer {.
     noSideEffect, importcpp: "NbVIntervals", header: "BRepAdaptor_Surface.hxx".}
-proc uIntervals*(this: BRepAdaptorSurface; t: var TColStdArray1OfReal; s: GeomAbsShape) {.
-    noSideEffect, importcpp: "UIntervals", header: "BRepAdaptor_Surface.hxx".}
-proc vIntervals*(this: BRepAdaptorSurface; t: var TColStdArray1OfReal; s: GeomAbsShape) {.
-    noSideEffect, importcpp: "VIntervals", header: "BRepAdaptor_Surface.hxx".}
-proc uTrim*(this: BRepAdaptorSurface; first: StandardReal; last: StandardReal;
-           tol: StandardReal): Handle[Adaptor3dHSurface] {.noSideEffect,
+proc UIntervals*(this: BRepAdaptor_Surface; T: var TColStd_Array1OfReal;
+                S: GeomAbs_Shape) {.noSideEffect, importcpp: "UIntervals",
+                                  header: "BRepAdaptor_Surface.hxx".}
+proc VIntervals*(this: BRepAdaptor_Surface; T: var TColStd_Array1OfReal;
+                S: GeomAbs_Shape) {.noSideEffect, importcpp: "VIntervals",
+                                  header: "BRepAdaptor_Surface.hxx".}
+proc UTrim*(this: BRepAdaptor_Surface; First: Standard_Real; Last: Standard_Real;
+           Tol: Standard_Real): handle[Adaptor3d_HSurface] {.noSideEffect,
     importcpp: "UTrim", header: "BRepAdaptor_Surface.hxx".}
-proc vTrim*(this: BRepAdaptorSurface; first: StandardReal; last: StandardReal;
-           tol: StandardReal): Handle[Adaptor3dHSurface] {.noSideEffect,
+proc VTrim*(this: BRepAdaptor_Surface; First: Standard_Real; Last: Standard_Real;
+           Tol: Standard_Real): handle[Adaptor3d_HSurface] {.noSideEffect,
     importcpp: "VTrim", header: "BRepAdaptor_Surface.hxx".}
-proc isUClosed*(this: BRepAdaptorSurface): StandardBoolean {.noSideEffect,
+proc IsUClosed*(this: BRepAdaptor_Surface): Standard_Boolean {.noSideEffect,
     importcpp: "IsUClosed", header: "BRepAdaptor_Surface.hxx".}
-proc isVClosed*(this: BRepAdaptorSurface): StandardBoolean {.noSideEffect,
+proc IsVClosed*(this: BRepAdaptor_Surface): Standard_Boolean {.noSideEffect,
     importcpp: "IsVClosed", header: "BRepAdaptor_Surface.hxx".}
-proc isUPeriodic*(this: BRepAdaptorSurface): StandardBoolean {.noSideEffect,
+proc IsUPeriodic*(this: BRepAdaptor_Surface): Standard_Boolean {.noSideEffect,
     importcpp: "IsUPeriodic", header: "BRepAdaptor_Surface.hxx".}
-proc uPeriod*(this: BRepAdaptorSurface): StandardReal {.noSideEffect,
+proc UPeriod*(this: BRepAdaptor_Surface): Standard_Real {.noSideEffect,
     importcpp: "UPeriod", header: "BRepAdaptor_Surface.hxx".}
-proc isVPeriodic*(this: BRepAdaptorSurface): StandardBoolean {.noSideEffect,
+proc IsVPeriodic*(this: BRepAdaptor_Surface): Standard_Boolean {.noSideEffect,
     importcpp: "IsVPeriodic", header: "BRepAdaptor_Surface.hxx".}
-proc vPeriod*(this: BRepAdaptorSurface): StandardReal {.noSideEffect,
+proc VPeriod*(this: BRepAdaptor_Surface): Standard_Real {.noSideEffect,
     importcpp: "VPeriod", header: "BRepAdaptor_Surface.hxx".}
-proc value*(this: BRepAdaptorSurface; u: StandardReal; v: StandardReal): GpPnt {.
+proc Value*(this: BRepAdaptor_Surface; U: Standard_Real; V: Standard_Real): gp_Pnt {.
     noSideEffect, importcpp: "Value", header: "BRepAdaptor_Surface.hxx".}
-proc d0*(this: BRepAdaptorSurface; u: StandardReal; v: StandardReal; p: var GpPnt) {.
+proc D0*(this: BRepAdaptor_Surface; U: Standard_Real; V: Standard_Real; P: var gp_Pnt) {.
     noSideEffect, importcpp: "D0", header: "BRepAdaptor_Surface.hxx".}
-proc d1*(this: BRepAdaptorSurface; u: StandardReal; v: StandardReal; p: var GpPnt;
-        d1u: var GpVec; d1v: var GpVec) {.noSideEffect, importcpp: "D1",
-                                    header: "BRepAdaptor_Surface.hxx".}
-proc d2*(this: BRepAdaptorSurface; u: StandardReal; v: StandardReal; p: var GpPnt;
-        d1u: var GpVec; d1v: var GpVec; d2u: var GpVec; d2v: var GpVec; d2uv: var GpVec) {.
+proc D1*(this: BRepAdaptor_Surface; U: Standard_Real; V: Standard_Real; P: var gp_Pnt;
+        D1U: var gp_Vec; D1V: var gp_Vec) {.noSideEffect, importcpp: "D1",
+                                      header: "BRepAdaptor_Surface.hxx".}
+proc D2*(this: BRepAdaptor_Surface; U: Standard_Real; V: Standard_Real; P: var gp_Pnt;
+        D1U: var gp_Vec; D1V: var gp_Vec; D2U: var gp_Vec; D2V: var gp_Vec; D2UV: var gp_Vec) {.
     noSideEffect, importcpp: "D2", header: "BRepAdaptor_Surface.hxx".}
-proc d3*(this: BRepAdaptorSurface; u: StandardReal; v: StandardReal; p: var GpPnt;
-        d1u: var GpVec; d1v: var GpVec; d2u: var GpVec; d2v: var GpVec; d2uv: var GpVec;
-        d3u: var GpVec; d3v: var GpVec; d3uuv: var GpVec; d3uvv: var GpVec) {.noSideEffect,
-    importcpp: "D3", header: "BRepAdaptor_Surface.hxx".}
-proc dn*(this: BRepAdaptorSurface; u: StandardReal; v: StandardReal;
-        nu: StandardInteger; nv: StandardInteger): GpVec {.noSideEffect,
+proc D3*(this: BRepAdaptor_Surface; U: Standard_Real; V: Standard_Real; P: var gp_Pnt;
+        D1U: var gp_Vec; D1V: var gp_Vec; D2U: var gp_Vec; D2V: var gp_Vec;
+        D2UV: var gp_Vec; D3U: var gp_Vec; D3V: var gp_Vec; D3UUV: var gp_Vec;
+        D3UVV: var gp_Vec) {.noSideEffect, importcpp: "D3",
+                          header: "BRepAdaptor_Surface.hxx".}
+proc DN*(this: BRepAdaptor_Surface; U: Standard_Real; V: Standard_Real;
+        Nu: Standard_Integer; Nv: Standard_Integer): gp_Vec {.noSideEffect,
     importcpp: "DN", header: "BRepAdaptor_Surface.hxx".}
-proc uResolution*(this: BRepAdaptorSurface; r3d: StandardReal): StandardReal {.
+proc UResolution*(this: BRepAdaptor_Surface; R3d: Standard_Real): Standard_Real {.
     noSideEffect, importcpp: "UResolution", header: "BRepAdaptor_Surface.hxx".}
-proc vResolution*(this: BRepAdaptorSurface; r3d: StandardReal): StandardReal {.
+proc VResolution*(this: BRepAdaptor_Surface; R3d: Standard_Real): Standard_Real {.
     noSideEffect, importcpp: "VResolution", header: "BRepAdaptor_Surface.hxx".}
-proc getType*(this: BRepAdaptorSurface): GeomAbsSurfaceType {.noSideEffect,
+proc GetType*(this: BRepAdaptor_Surface): GeomAbs_SurfaceType {.noSideEffect,
     importcpp: "GetType", header: "BRepAdaptor_Surface.hxx".}
-proc plane*(this: BRepAdaptorSurface): GpPln {.noSideEffect, importcpp: "Plane",
+proc Plane*(this: BRepAdaptor_Surface): gp_Pln {.noSideEffect, importcpp: "Plane",
     header: "BRepAdaptor_Surface.hxx".}
-proc cylinder*(this: BRepAdaptorSurface): GpCylinder {.noSideEffect,
+proc Cylinder*(this: BRepAdaptor_Surface): gp_Cylinder {.noSideEffect,
     importcpp: "Cylinder", header: "BRepAdaptor_Surface.hxx".}
-proc cone*(this: BRepAdaptorSurface): GpCone {.noSideEffect, importcpp: "Cone",
+proc Cone*(this: BRepAdaptor_Surface): gp_Cone {.noSideEffect, importcpp: "Cone",
     header: "BRepAdaptor_Surface.hxx".}
-proc sphere*(this: BRepAdaptorSurface): GpSphere {.noSideEffect, importcpp: "Sphere",
+proc Sphere*(this: BRepAdaptor_Surface): gp_Sphere {.noSideEffect,
+    importcpp: "Sphere", header: "BRepAdaptor_Surface.hxx".}
+proc Torus*(this: BRepAdaptor_Surface): gp_Torus {.noSideEffect, importcpp: "Torus",
     header: "BRepAdaptor_Surface.hxx".}
-proc torus*(this: BRepAdaptorSurface): GpTorus {.noSideEffect, importcpp: "Torus",
-    header: "BRepAdaptor_Surface.hxx".}
-proc uDegree*(this: BRepAdaptorSurface): StandardInteger {.noSideEffect,
+proc UDegree*(this: BRepAdaptor_Surface): Standard_Integer {.noSideEffect,
     importcpp: "UDegree", header: "BRepAdaptor_Surface.hxx".}
-proc nbUPoles*(this: BRepAdaptorSurface): StandardInteger {.noSideEffect,
+proc NbUPoles*(this: BRepAdaptor_Surface): Standard_Integer {.noSideEffect,
     importcpp: "NbUPoles", header: "BRepAdaptor_Surface.hxx".}
-proc vDegree*(this: BRepAdaptorSurface): StandardInteger {.noSideEffect,
+proc VDegree*(this: BRepAdaptor_Surface): Standard_Integer {.noSideEffect,
     importcpp: "VDegree", header: "BRepAdaptor_Surface.hxx".}
-proc nbVPoles*(this: BRepAdaptorSurface): StandardInteger {.noSideEffect,
+proc NbVPoles*(this: BRepAdaptor_Surface): Standard_Integer {.noSideEffect,
     importcpp: "NbVPoles", header: "BRepAdaptor_Surface.hxx".}
-proc nbUKnots*(this: BRepAdaptorSurface): StandardInteger {.noSideEffect,
+proc NbUKnots*(this: BRepAdaptor_Surface): Standard_Integer {.noSideEffect,
     importcpp: "NbUKnots", header: "BRepAdaptor_Surface.hxx".}
-proc nbVKnots*(this: BRepAdaptorSurface): StandardInteger {.noSideEffect,
+proc NbVKnots*(this: BRepAdaptor_Surface): Standard_Integer {.noSideEffect,
     importcpp: "NbVKnots", header: "BRepAdaptor_Surface.hxx".}
-proc isURational*(this: BRepAdaptorSurface): StandardBoolean {.noSideEffect,
+proc IsURational*(this: BRepAdaptor_Surface): Standard_Boolean {.noSideEffect,
     importcpp: "IsURational", header: "BRepAdaptor_Surface.hxx".}
-proc isVRational*(this: BRepAdaptorSurface): StandardBoolean {.noSideEffect,
+proc IsVRational*(this: BRepAdaptor_Surface): Standard_Boolean {.noSideEffect,
     importcpp: "IsVRational", header: "BRepAdaptor_Surface.hxx".}
-proc bezier*(this: BRepAdaptorSurface): Handle[GeomBezierSurface] {.noSideEffect,
+proc Bezier*(this: BRepAdaptor_Surface): handle[Geom_BezierSurface] {.noSideEffect,
     importcpp: "Bezier", header: "BRepAdaptor_Surface.hxx".}
-proc bSpline*(this: BRepAdaptorSurface): Handle[GeomBSplineSurface] {.noSideEffect,
-    importcpp: "BSpline", header: "BRepAdaptor_Surface.hxx".}
-proc axeOfRevolution*(this: BRepAdaptorSurface): GpAx1 {.noSideEffect,
+proc BSpline*(this: BRepAdaptor_Surface): handle[Geom_BSplineSurface] {.
+    noSideEffect, importcpp: "BSpline", header: "BRepAdaptor_Surface.hxx".}
+proc AxeOfRevolution*(this: BRepAdaptor_Surface): gp_Ax1 {.noSideEffect,
     importcpp: "AxeOfRevolution", header: "BRepAdaptor_Surface.hxx".}
-proc direction*(this: BRepAdaptorSurface): GpDir {.noSideEffect,
+proc Direction*(this: BRepAdaptor_Surface): gp_Dir {.noSideEffect,
     importcpp: "Direction", header: "BRepAdaptor_Surface.hxx".}
-proc basisCurve*(this: BRepAdaptorSurface): Handle[Adaptor3dHCurve] {.noSideEffect,
-    importcpp: "BasisCurve", header: "BRepAdaptor_Surface.hxx".}
-proc basisSurface*(this: BRepAdaptorSurface): Handle[Adaptor3dHSurface] {.
+proc BasisCurve*(this: BRepAdaptor_Surface): handle[Adaptor3d_HCurve] {.
+    noSideEffect, importcpp: "BasisCurve", header: "BRepAdaptor_Surface.hxx".}
+proc BasisSurface*(this: BRepAdaptor_Surface): handle[Adaptor3d_HSurface] {.
     noSideEffect, importcpp: "BasisSurface", header: "BRepAdaptor_Surface.hxx".}
-proc offsetValue*(this: BRepAdaptorSurface): StandardReal {.noSideEffect,
+proc OffsetValue*(this: BRepAdaptor_Surface): Standard_Real {.noSideEffect,
     importcpp: "OffsetValue", header: "BRepAdaptor_Surface.hxx".}
-

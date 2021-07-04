@@ -14,27 +14,33 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepVisual_CompositeText"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepVisualRWCompositeText* {.importcpp: "RWStepVisual_RWCompositeText",
-                                header: "RWStepVisual_RWCompositeText.hxx", bycopy.} = object
+  RWStepVisual_RWCompositeText* {.importcpp: "RWStepVisual_RWCompositeText",
+                                 header: "RWStepVisual_RWCompositeText.hxx",
+                                 bycopy.} = object
 
 
-proc constructRWStepVisualRWCompositeText*(): RWStepVisualRWCompositeText {.
+proc constructRWStepVisual_RWCompositeText*(): RWStepVisual_RWCompositeText {.
     constructor, importcpp: "RWStepVisual_RWCompositeText(@)",
     header: "RWStepVisual_RWCompositeText.hxx".}
-proc readStep*(this: RWStepVisualRWCompositeText;
-              data: Handle[StepDataStepReaderData]; num: StandardInteger;
-              ach: var Handle[InterfaceCheck]; ent: Handle[StepVisualCompositeText]) {.
-    noSideEffect, importcpp: "ReadStep", header: "RWStepVisual_RWCompositeText.hxx".}
-proc writeStep*(this: RWStepVisualRWCompositeText; sw: var StepDataStepWriter;
-               ent: Handle[StepVisualCompositeText]) {.noSideEffect,
+proc ReadStep*(this: RWStepVisual_RWCompositeText;
+              data: handle[StepData_StepReaderData]; num: Standard_Integer;
+              ach: var handle[Interface_Check];
+              ent: handle[StepVisual_CompositeText]) {.noSideEffect,
+    importcpp: "ReadStep", header: "RWStepVisual_RWCompositeText.hxx".}
+proc WriteStep*(this: RWStepVisual_RWCompositeText; SW: var StepData_StepWriter;
+               ent: handle[StepVisual_CompositeText]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepVisual_RWCompositeText.hxx".}
-proc share*(this: RWStepVisualRWCompositeText;
-           ent: Handle[StepVisualCompositeText]; iter: var InterfaceEntityIterator) {.
-    noSideEffect, importcpp: "Share", header: "RWStepVisual_RWCompositeText.hxx".}
-
+proc Share*(this: RWStepVisual_RWCompositeText;
+           ent: handle[StepVisual_CompositeText];
+           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
+    header: "RWStepVisual_RWCompositeText.hxx".}

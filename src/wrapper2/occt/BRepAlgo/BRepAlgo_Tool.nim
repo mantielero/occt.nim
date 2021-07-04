@@ -14,70 +14,73 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../TopTools/TopTools_MapOfShape
+
 discard "forward decl of TopoDS_Shape"
 type
-  BRepAlgoTool* {.importcpp: "BRepAlgo_Tool", header: "BRepAlgo_Tool.hxx", bycopy.} = object ##
-                                                                                     ## !
-                                                                                     ## Remove
-                                                                                     ## the
-                                                                                     ## non
-                                                                                     ## valid
-                                                                                     ## part
-                                                                                     ## of
-                                                                                     ## an
-                                                                                     ## offsetshape
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## 1
-                                                                                     ## -
-                                                                                     ## Remove
-                                                                                     ## all
-                                                                                     ## the
-                                                                                     ## free
-                                                                                     ## boundary
-                                                                                     ## and
-                                                                                     ## the
-                                                                                     ## faces
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## connex
-                                                                                     ## to
-                                                                                     ## such
-                                                                                     ## edges.
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## 2
-                                                                                     ## -
-                                                                                     ## Remove
-                                                                                     ## all
-                                                                                     ## the
-                                                                                     ## shapes
-                                                                                     ## not
-                                                                                     ## valid
-                                                                                     ## in
-                                                                                     ## the
-                                                                                     ## result
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## (according
-                                                                                     ## to
-                                                                                     ## the
-                                                                                     ## side
-                                                                                     ## of
-                                                                                     ## offseting)
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## in
-                                                                                     ## this
-                                                                                     ## verion
-                                                                                     ## only
-                                                                                     ## the
-                                                                                     ## first
-                                                                                     ## point
-                                                                                     ## is
-                                                                                     ## implemented.
+  BRepAlgo_Tool* {.importcpp: "BRepAlgo_Tool", header: "BRepAlgo_Tool.hxx", bycopy.} = object ##
+                                                                                      ## !
+                                                                                      ## Remove
+                                                                                      ## the
+                                                                                      ## non
+                                                                                      ## valid
+                                                                                      ## part
+                                                                                      ## of
+                                                                                      ## an
+                                                                                      ## offsetshape
+                                                                                      ##
+                                                                                      ## !
+                                                                                      ## 1
+                                                                                      ## -
+                                                                                      ## Remove
+                                                                                      ## all
+                                                                                      ## the
+                                                                                      ## free
+                                                                                      ## boundary
+                                                                                      ## and
+                                                                                      ## the
+                                                                                      ## faces
+                                                                                      ##
+                                                                                      ## !
+                                                                                      ## connex
+                                                                                      ## to
+                                                                                      ## such
+                                                                                      ## edges.
+                                                                                      ##
+                                                                                      ## !
+                                                                                      ## 2
+                                                                                      ## -
+                                                                                      ## Remove
+                                                                                      ## all
+                                                                                      ## the
+                                                                                      ## shapes
+                                                                                      ## not
+                                                                                      ## valid
+                                                                                      ## in
+                                                                                      ## the
+                                                                                      ## result
+                                                                                      ##
+                                                                                      ## !
+                                                                                      ## (according
+                                                                                      ## to
+                                                                                      ## the
+                                                                                      ## side
+                                                                                      ## of
+                                                                                      ## offseting)
+                                                                                      ##
+                                                                                      ## !
+                                                                                      ## in
+                                                                                      ## this
+                                                                                      ## verion
+                                                                                      ## only
+                                                                                      ## the
+                                                                                      ## first
+                                                                                      ## point
+                                                                                      ## is
+                                                                                      ## implemented.
 
 
-proc deboucle3D*(s: TopoDS_Shape; boundary: TopToolsMapOfShape): TopoDS_Shape {.
+proc Deboucle3D*(S: TopoDS_Shape; Boundary: TopTools_MapOfShape): TopoDS_Shape {.
     importcpp: "BRepAlgo_Tool::Deboucle3D(@)", header: "BRepAlgo_Tool.hxx".}
-

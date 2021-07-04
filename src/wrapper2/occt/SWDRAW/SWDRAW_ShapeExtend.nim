@@ -14,6 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Draw/Draw_Interpretor
+
 ## ! Contains commands to activate package ShapeExtend
 ## ! List of DRAW commands and corresponding functionalities:
 ## ! sortcompound - ShapeExtend_Explorer::SortedCompound
@@ -24,7 +28,6 @@ type
                                                                       ## ShapeExtend
 
 
-proc initCommands*(theCommands: var DrawInterpretor) {.
+proc InitCommands*(theCommands: var Draw_Interpretor) {.
     importcpp: "SWDRAW_ShapeExtend::InitCommands(@)",
     header: "SWDRAW_ShapeExtend.hxx".}
-

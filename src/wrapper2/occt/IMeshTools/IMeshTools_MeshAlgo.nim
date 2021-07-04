@@ -13,30 +13,33 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard_Transient, ../Standard/Standard_Type,
+  ../IMeshData/IMeshData_Types, ../Message/Message_ProgressRange
+
 discard "forward decl of IMeshTools_Parameters"
 type
-  IMeshToolsMeshAlgo* {.importcpp: "IMeshTools_MeshAlgo",
-                       header: "IMeshTools_MeshAlgo.hxx", bycopy.} = object of StandardTransient ##
-                                                                                          ## !
-                                                                                          ## Destructor.
-                                                                                          ##
-                                                                                          ## !
-                                                                                          ## Constructor.
+  IMeshTools_MeshAlgo* {.importcpp: "IMeshTools_MeshAlgo",
+                        header: "IMeshTools_MeshAlgo.hxx", bycopy.} = object of Standard_Transient ##
+                                                                                            ## !
+                                                                                            ## Destructor.
+                                                                                            ##
+                                                                                            ## !
+                                                                                            ## Constructor.
 
 
-proc destroyIMeshToolsMeshAlgo*(this: var IMeshToolsMeshAlgo) {.
+proc destroyIMeshTools_MeshAlgo*(this: var IMeshTools_MeshAlgo) {.
     importcpp: "#.~IMeshTools_MeshAlgo()", header: "IMeshTools_MeshAlgo.hxx".}
-proc perform*(this: var IMeshToolsMeshAlgo; theDFace: IFaceHandle;
-             theParameters: IMeshToolsParameters; theRange: MessageProgressRange) {.
+proc Perform*(this: var IMeshTools_MeshAlgo; theDFace: IFaceHandle;
+             theParameters: IMeshTools_Parameters; theRange: Message_ProgressRange) {.
     importcpp: "Perform", header: "IMeshTools_MeshAlgo.hxx".}
 type
-  IMeshToolsMeshAlgobaseType* = StandardTransient
+  IMeshTools_MeshAlgobase_type* = Standard_Transient
 
-proc getTypeName*(): cstring {.importcpp: "IMeshTools_MeshAlgo::get_type_name(@)",
-                            header: "IMeshTools_MeshAlgo.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "IMeshTools_MeshAlgo::get_type_name(@)",
+                              header: "IMeshTools_MeshAlgo.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "IMeshTools_MeshAlgo::get_type_descriptor(@)",
     header: "IMeshTools_MeshAlgo.hxx".}
-proc dynamicType*(this: IMeshToolsMeshAlgo): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: IMeshTools_MeshAlgo): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "IMeshTools_MeshAlgo.hxx".}
-

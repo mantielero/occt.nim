@@ -14,6 +14,19 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Integer,
+  ../TopTools/TopTools_IndexedMapOfShape, HLRBRep_Array1OfEData,
+  HLRBRep_Array1OfFData, ../TColStd/TColStd_Array1OfInteger,
+  ../Standard/Standard_ShortReal, ../HLRAlgo/HLRAlgo_Projector, HLRBRep_CLProps,
+  HLRBRep_SLProps, ../Standard/Standard_Real, HLRBRep_FaceIterator,
+  ../Standard/Standard_Address, ../GeomAbs/GeomAbs_SurfaceType,
+  ../Standard/Standard_Boolean, ../GeomAbs/GeomAbs_CurveType,
+  ../TopAbs/TopAbs_Orientation, HLRBRep_Intersector,
+  ../HLRAlgo/HLRAlgo_Interference, ../Standard/Standard_Transient,
+  ../BRepTopAdaptor/BRepTopAdaptor_MapOfShapeTool, ../TopAbs/TopAbs_State,
+  ../HLRAlgo/HLRAlgo_InterferenceList
+
 discard "forward decl of BRepTopAdaptor_TopolTool"
 discard "forward decl of StdFail_UndefinedDerivative"
 discard "forward decl of HLRAlgo_Projector"
@@ -26,148 +39,148 @@ discard "forward decl of TableauRejection"
 discard "forward decl of HLRBRep_Data"
 discard "forward decl of HLRBRep_Data"
 type
-  HandleHLRBRepData* = Handle[HLRBRepData]
-  HLRBRepData* {.importcpp: "HLRBRep_Data", header: "HLRBRep_Data.hxx", bycopy.} = object of StandardTransient ##
-                                                                                                     ## !
-                                                                                                     ## Create
-                                                                                                     ## an
-                                                                                                     ## empty
-                                                                                                     ## data
-                                                                                                     ## structure
-                                                                                                     ## of
-                                                                                                     ## <NV>
-                                                                                                     ## vertices,
-                                                                                                     ##
-                                                                                                     ## !
-                                                                                                     ## <NE>
-                                                                                                     ## edges
-                                                                                                     ## and
-                                                                                                     ## <NF>
-                                                                                                     ## faces.
-                                                                                                     ##
-                                                                                                     ## !
-                                                                                                     ## Orient
-                                                                                                     ## the
-                                                                                                     ## OutLines
-                                                                                                     ## (
-                                                                                                     ## left
-                                                                                                     ## must
-                                                                                                     ## be
-                                                                                                     ## inside
-                                                                                                     ## in
-                                                                                                     ##
-                                                                                                     ## !
-                                                                                                     ## projection
-                                                                                                     ## ).
-                                                                                                     ## Returns
-                                                                                                     ## True
-                                                                                                     ## if
-                                                                                                     ## the
-                                                                                                     ## face
-                                                                                                     ## of
-                                                                                                     ## a
-                                                                                                     ## closed
-                                                                                                     ##
-                                                                                                     ## !
-                                                                                                     ## shell
-                                                                                                     ## has
-                                                                                                     ## been
-                                                                                                     ## inverted;
+  Handle_HLRBRep_Data* = handle[HLRBRep_Data]
+  HLRBRep_Data* {.importcpp: "HLRBRep_Data", header: "HLRBRep_Data.hxx", bycopy.} = object of Standard_Transient ##
+                                                                                                       ## !
+                                                                                                       ## Create
+                                                                                                       ## an
+                                                                                                       ## empty
+                                                                                                       ## data
+                                                                                                       ## structure
+                                                                                                       ## of
+                                                                                                       ## <NV>
+                                                                                                       ## vertices,
+                                                                                                       ##
+                                                                                                       ## !
+                                                                                                       ## <NE>
+                                                                                                       ## edges
+                                                                                                       ## and
+                                                                                                       ## <NF>
+                                                                                                       ## faces.
+                                                                                                       ##
+                                                                                                       ## !
+                                                                                                       ## Orient
+                                                                                                       ## the
+                                                                                                       ## OutLines
+                                                                                                       ## (
+                                                                                                       ## left
+                                                                                                       ## must
+                                                                                                       ## be
+                                                                                                       ## inside
+                                                                                                       ## in
+                                                                                                       ##
+                                                                                                       ## !
+                                                                                                       ## projection
+                                                                                                       ## ).
+                                                                                                       ## Returns
+                                                                                                       ## True
+                                                                                                       ## if
+                                                                                                       ## the
+                                                                                                       ## face
+                                                                                                       ## of
+                                                                                                       ## a
+                                                                                                       ## closed
+                                                                                                       ##
+                                                                                                       ## !
+                                                                                                       ## shell
+                                                                                                       ## has
+                                                                                                       ## been
+                                                                                                       ## inverted;
 
 
-proc constructHLRBRepData*(nv: StandardInteger; ne: StandardInteger;
-                          nf: StandardInteger): HLRBRepData {.constructor,
+proc constructHLRBRep_Data*(NV: Standard_Integer; NE: Standard_Integer;
+                           NF: Standard_Integer): HLRBRep_Data {.constructor,
     importcpp: "HLRBRep_Data(@)", header: "HLRBRep_Data.hxx".}
-proc write*(this: var HLRBRepData; ds: Handle[HLRBRepData]; dv: StandardInteger;
-           de: StandardInteger; df: StandardInteger) {.importcpp: "Write",
+proc Write*(this: var HLRBRep_Data; DS: handle[HLRBRep_Data]; dv: Standard_Integer;
+           de: Standard_Integer; df: Standard_Integer) {.importcpp: "Write",
     header: "HLRBRep_Data.hxx".}
-proc eDataArray*(this: var HLRBRepData): var HLRBRepArray1OfEData {.
+proc EDataArray*(this: var HLRBRep_Data): var HLRBRep_Array1OfEData {.
     importcpp: "EDataArray", header: "HLRBRep_Data.hxx".}
-proc fDataArray*(this: var HLRBRepData): var HLRBRepArray1OfFData {.
+proc FDataArray*(this: var HLRBRep_Data): var HLRBRep_Array1OfFData {.
     importcpp: "FDataArray", header: "HLRBRep_Data.hxx".}
-proc tolerance*(this: var HLRBRepData; tol: StandardShortReal) {.
+proc Tolerance*(this: var HLRBRep_Data; tol: Standard_ShortReal) {.
     importcpp: "Tolerance", header: "HLRBRep_Data.hxx".}
-proc tolerance*(this: HLRBRepData): StandardShortReal {.noSideEffect,
+proc Tolerance*(this: HLRBRep_Data): Standard_ShortReal {.noSideEffect,
     importcpp: "Tolerance", header: "HLRBRep_Data.hxx".}
-proc update*(this: var HLRBRepData; p: HLRAlgoProjector) {.importcpp: "Update",
+proc Update*(this: var HLRBRep_Data; P: HLRAlgo_Projector) {.importcpp: "Update",
     header: "HLRBRep_Data.hxx".}
-proc projector*(this: var HLRBRepData): var HLRAlgoProjector {.importcpp: "Projector",
-    header: "HLRBRep_Data.hxx".}
-proc nbVertices*(this: HLRBRepData): StandardInteger {.noSideEffect,
+proc Projector*(this: var HLRBRep_Data): var HLRAlgo_Projector {.
+    importcpp: "Projector", header: "HLRBRep_Data.hxx".}
+proc NbVertices*(this: HLRBRep_Data): Standard_Integer {.noSideEffect,
     importcpp: "NbVertices", header: "HLRBRep_Data.hxx".}
-proc nbEdges*(this: HLRBRepData): StandardInteger {.noSideEffect,
+proc NbEdges*(this: HLRBRep_Data): Standard_Integer {.noSideEffect,
     importcpp: "NbEdges", header: "HLRBRep_Data.hxx".}
-proc nbFaces*(this: HLRBRepData): StandardInteger {.noSideEffect,
+proc NbFaces*(this: HLRBRep_Data): Standard_Integer {.noSideEffect,
     importcpp: "NbFaces", header: "HLRBRep_Data.hxx".}
-proc edgeMap*(this: var HLRBRepData): var TopToolsIndexedMapOfShape {.
+proc EdgeMap*(this: var HLRBRep_Data): var TopTools_IndexedMapOfShape {.
     importcpp: "EdgeMap", header: "HLRBRep_Data.hxx".}
-proc faceMap*(this: var HLRBRepData): var TopToolsIndexedMapOfShape {.
+proc FaceMap*(this: var HLRBRep_Data): var TopTools_IndexedMapOfShape {.
     importcpp: "FaceMap", header: "HLRBRep_Data.hxx".}
-proc initBoundSort*(this: var HLRBRepData; minMaxTot: MinMaxIndices;
-                   e1: StandardInteger; e2: StandardInteger) {.
+proc InitBoundSort*(this: var HLRBRep_Data; MinMaxTot: MinMaxIndices;
+                   e1: Standard_Integer; e2: Standard_Integer) {.
     importcpp: "InitBoundSort", header: "HLRBRep_Data.hxx".}
-proc initEdge*(this: var HLRBRepData; fi: StandardInteger;
-              mst: var BRepTopAdaptorMapOfShapeTool) {.importcpp: "InitEdge",
+proc InitEdge*(this: var HLRBRep_Data; FI: Standard_Integer;
+              MST: var BRepTopAdaptor_MapOfShapeTool) {.importcpp: "InitEdge",
     header: "HLRBRep_Data.hxx".}
-proc moreEdge*(this: var HLRBRepData): StandardBoolean {.importcpp: "MoreEdge",
+proc MoreEdge*(this: var HLRBRep_Data): Standard_Boolean {.importcpp: "MoreEdge",
     header: "HLRBRep_Data.hxx".}
-proc nextEdge*(this: var HLRBRepData; skip: StandardBoolean = standardTrue) {.
+proc NextEdge*(this: var HLRBRep_Data; skip: Standard_Boolean = Standard_True) {.
     importcpp: "NextEdge", header: "HLRBRep_Data.hxx".}
-proc edge*(this: HLRBRepData): StandardInteger {.noSideEffect, importcpp: "Edge",
+proc Edge*(this: HLRBRep_Data): Standard_Integer {.noSideEffect, importcpp: "Edge",
     header: "HLRBRep_Data.hxx".}
-proc hidingTheFace*(this: HLRBRepData): StandardBoolean {.noSideEffect,
+proc HidingTheFace*(this: HLRBRep_Data): Standard_Boolean {.noSideEffect,
     importcpp: "HidingTheFace", header: "HLRBRep_Data.hxx".}
-proc simpleHidingFace*(this: HLRBRepData): StandardBoolean {.noSideEffect,
+proc SimpleHidingFace*(this: HLRBRep_Data): Standard_Boolean {.noSideEffect,
     importcpp: "SimpleHidingFace", header: "HLRBRep_Data.hxx".}
-proc initInterference*(this: var HLRBRepData) {.importcpp: "InitInterference",
+proc InitInterference*(this: var HLRBRep_Data) {.importcpp: "InitInterference",
     header: "HLRBRep_Data.hxx".}
-proc moreInterference*(this: HLRBRepData): StandardBoolean {.noSideEffect,
+proc MoreInterference*(this: HLRBRep_Data): Standard_Boolean {.noSideEffect,
     importcpp: "MoreInterference", header: "HLRBRep_Data.hxx".}
-proc nextInterference*(this: var HLRBRepData) {.importcpp: "NextInterference",
+proc NextInterference*(this: var HLRBRep_Data) {.importcpp: "NextInterference",
     header: "HLRBRep_Data.hxx".}
-proc rejectedInterference*(this: var HLRBRepData): StandardBoolean {.
+proc RejectedInterference*(this: var HLRBRep_Data): Standard_Boolean {.
     importcpp: "RejectedInterference", header: "HLRBRep_Data.hxx".}
-proc aboveInterference*(this: var HLRBRepData): StandardBoolean {.
+proc AboveInterference*(this: var HLRBRep_Data): Standard_Boolean {.
     importcpp: "AboveInterference", header: "HLRBRep_Data.hxx".}
-proc interference*(this: var HLRBRepData): var HLRAlgoInterference {.
+proc Interference*(this: var HLRBRep_Data): var HLRAlgo_Interference {.
     importcpp: "Interference", header: "HLRBRep_Data.hxx".}
-proc localLEGeometry2D*(this: var HLRBRepData; param: StandardReal; tg: var GpDir2d;
-                       nm: var GpDir2d; cu: var StandardReal) {.
+proc LocalLEGeometry2D*(this: var HLRBRep_Data; Param: Standard_Real;
+                       Tg: var gp_Dir2d; Nm: var gp_Dir2d; Cu: var Standard_Real) {.
     importcpp: "LocalLEGeometry2D", header: "HLRBRep_Data.hxx".}
-proc localFEGeometry2D*(this: var HLRBRepData; fe: StandardInteger;
-                       param: StandardReal; tg: var GpDir2d; nm: var GpDir2d;
-                       cu: var StandardReal) {.importcpp: "LocalFEGeometry2D",
+proc LocalFEGeometry2D*(this: var HLRBRep_Data; FE: Standard_Integer;
+                       Param: Standard_Real; Tg: var gp_Dir2d; Nm: var gp_Dir2d;
+                       Cu: var Standard_Real) {.importcpp: "LocalFEGeometry2D",
     header: "HLRBRep_Data.hxx".}
-proc edgeState*(this: var HLRBRepData; p1: StandardReal; p2: StandardReal;
-               stbef: var TopAbsState; staf: var TopAbsState) {.
+proc EdgeState*(this: var HLRBRep_Data; p1: Standard_Real; p2: Standard_Real;
+               stbef: var TopAbs_State; staf: var TopAbs_State) {.
     importcpp: "EdgeState", header: "HLRBRep_Data.hxx".}
-proc edgeOfTheHidingFace*(this: HLRBRepData; e: StandardInteger; ed: HLRBRepEdgeData): StandardBoolean {.
-    noSideEffect, importcpp: "EdgeOfTheHidingFace", header: "HLRBRep_Data.hxx".}
-proc hidingStartLevel*(this: var HLRBRepData; e: StandardInteger; ed: HLRBRepEdgeData;
-                      il: HLRAlgoInterferenceList): StandardInteger {.
+proc EdgeOfTheHidingFace*(this: HLRBRep_Data; E: Standard_Integer;
+                         ED: HLRBRep_EdgeData): Standard_Boolean {.noSideEffect,
+    importcpp: "EdgeOfTheHidingFace", header: "HLRBRep_Data.hxx".}
+proc HidingStartLevel*(this: var HLRBRep_Data; E: Standard_Integer;
+                      ED: HLRBRep_EdgeData; IL: HLRAlgo_InterferenceList): Standard_Integer {.
     importcpp: "HidingStartLevel", header: "HLRBRep_Data.hxx".}
-proc compare*(this: var HLRBRepData; e: StandardInteger; ed: HLRBRepEdgeData): TopAbsState {.
+proc Compare*(this: var HLRBRep_Data; E: Standard_Integer; ED: HLRBRep_EdgeData): TopAbs_State {.
     importcpp: "Compare", header: "HLRBRep_Data.hxx".}
-proc simplClassify*(this: var HLRBRepData; e: StandardInteger; ed: HLRBRepEdgeData;
-                   nbp: StandardInteger; p1: StandardReal; p2: StandardReal): TopAbsState {.
+proc SimplClassify*(this: var HLRBRep_Data; E: Standard_Integer; ED: HLRBRep_EdgeData;
+                   Nbp: Standard_Integer; p1: Standard_Real; p2: Standard_Real): TopAbs_State {.
     importcpp: "SimplClassify", header: "HLRBRep_Data.hxx".}
-proc classify*(this: var HLRBRepData; e: StandardInteger; ed: HLRBRepEdgeData;
-              levelFlag: StandardBoolean; level: var StandardInteger;
-              param: StandardReal): TopAbsState {.importcpp: "Classify",
+proc Classify*(this: var HLRBRep_Data; E: Standard_Integer; ED: HLRBRep_EdgeData;
+              LevelFlag: Standard_Boolean; Level: var Standard_Integer;
+              param: Standard_Real): TopAbs_State {.importcpp: "Classify",
     header: "HLRBRep_Data.hxx".}
-proc isBadFace*(this: HLRBRepData): StandardBoolean {.noSideEffect,
+proc IsBadFace*(this: HLRBRep_Data): Standard_Boolean {.noSideEffect,
     importcpp: "IsBadFace", header: "HLRBRep_Data.hxx".}
-proc destroy*(this: var HLRBRepData) {.importcpp: "Destroy",
-                                   header: "HLRBRep_Data.hxx".}
-proc destroyHLRBRepData*(this: var HLRBRepData) {.importcpp: "#.~HLRBRep_Data()",
+proc Destroy*(this: var HLRBRep_Data) {.importcpp: "Destroy",
+                                    header: "HLRBRep_Data.hxx".}
+proc destroyHLRBRep_Data*(this: var HLRBRep_Data) {.importcpp: "#.~HLRBRep_Data()",
     header: "HLRBRep_Data.hxx".}
 type
-  HLRBRepDatabaseType* = StandardTransient
+  HLRBRep_Database_type* = Standard_Transient
 
-proc getTypeName*(): cstring {.importcpp: "HLRBRep_Data::get_type_name(@)",
-                            header: "HLRBRep_Data.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "HLRBRep_Data::get_type_name(@)",
+                              header: "HLRBRep_Data.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "HLRBRep_Data::get_type_descriptor(@)", header: "HLRBRep_Data.hxx".}
-proc dynamicType*(this: HLRBRepData): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: HLRBRep_Data): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "HLRBRep_Data.hxx".}
-

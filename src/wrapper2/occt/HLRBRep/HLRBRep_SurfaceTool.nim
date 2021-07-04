@@ -14,6 +14,15 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Real,
+  ../Standard/Standard_Address, ../Standard/Standard_Integer,
+  ../GeomAbs/GeomAbs_Shape, ../TColStd/TColStd_Array1OfReal,
+  ../Standard/Standard_Boolean, ../gp/gp_Pnt, ../gp/gp_Vec,
+  ../GeomAbs/GeomAbs_SurfaceType, ../gp/gp_Pln, ../gp/gp_Cylinder, ../gp/gp_Cone,
+  ../gp/gp_Torus, ../gp/gp_Sphere, ../gp/gp_Ax1, ../gp/gp_Dir
+
 discard "forward decl of Standard_NoSuchObject"
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of Adaptor3d_HSurface"
@@ -23,125 +32,125 @@ discard "forward decl of Geom_BezierSurface"
 discard "forward decl of Geom_BSplineSurface"
 discard "forward decl of Adaptor3d_HCurve"
 type
-  HLRBRepSurfaceTool* {.importcpp: "HLRBRep_SurfaceTool",
-                       header: "HLRBRep_SurfaceTool.hxx", bycopy.} = object
+  HLRBRep_SurfaceTool* {.importcpp: "HLRBRep_SurfaceTool",
+                        header: "HLRBRep_SurfaceTool.hxx", bycopy.} = object
 
 
-proc firstUParameter*(s: StandardAddress): StandardReal {.
+proc FirstUParameter*(S: Standard_Address): Standard_Real {.
     importcpp: "HLRBRep_SurfaceTool::FirstUParameter(@)",
     header: "HLRBRep_SurfaceTool.hxx".}
-proc firstVParameter*(s: StandardAddress): StandardReal {.
+proc FirstVParameter*(S: Standard_Address): Standard_Real {.
     importcpp: "HLRBRep_SurfaceTool::FirstVParameter(@)",
     header: "HLRBRep_SurfaceTool.hxx".}
-proc lastUParameter*(s: StandardAddress): StandardReal {.
+proc LastUParameter*(S: Standard_Address): Standard_Real {.
     importcpp: "HLRBRep_SurfaceTool::LastUParameter(@)",
     header: "HLRBRep_SurfaceTool.hxx".}
-proc lastVParameter*(s: StandardAddress): StandardReal {.
+proc LastVParameter*(S: Standard_Address): Standard_Real {.
     importcpp: "HLRBRep_SurfaceTool::LastVParameter(@)",
     header: "HLRBRep_SurfaceTool.hxx".}
-proc nbUIntervals*(s: StandardAddress; sh: GeomAbsShape): StandardInteger {.
+proc NbUIntervals*(S: Standard_Address; Sh: GeomAbs_Shape): Standard_Integer {.
     importcpp: "HLRBRep_SurfaceTool::NbUIntervals(@)",
     header: "HLRBRep_SurfaceTool.hxx".}
-proc nbVIntervals*(s: StandardAddress; sh: GeomAbsShape): StandardInteger {.
+proc NbVIntervals*(S: Standard_Address; Sh: GeomAbs_Shape): Standard_Integer {.
     importcpp: "HLRBRep_SurfaceTool::NbVIntervals(@)",
     header: "HLRBRep_SurfaceTool.hxx".}
-proc uIntervals*(s: StandardAddress; t: var TColStdArray1OfReal; sh: GeomAbsShape) {.
+proc UIntervals*(S: Standard_Address; T: var TColStd_Array1OfReal; Sh: GeomAbs_Shape) {.
     importcpp: "HLRBRep_SurfaceTool::UIntervals(@)",
     header: "HLRBRep_SurfaceTool.hxx".}
-proc vIntervals*(s: StandardAddress; t: var TColStdArray1OfReal; sh: GeomAbsShape) {.
+proc VIntervals*(S: Standard_Address; T: var TColStd_Array1OfReal; Sh: GeomAbs_Shape) {.
     importcpp: "HLRBRep_SurfaceTool::VIntervals(@)",
     header: "HLRBRep_SurfaceTool.hxx".}
-proc uTrim*(s: StandardAddress; first: StandardReal; last: StandardReal;
-           tol: StandardReal): Handle[Adaptor3dHSurface] {.
+proc UTrim*(S: Standard_Address; First: Standard_Real; Last: Standard_Real;
+           Tol: Standard_Real): handle[Adaptor3d_HSurface] {.
     importcpp: "HLRBRep_SurfaceTool::UTrim(@)", header: "HLRBRep_SurfaceTool.hxx".}
-proc vTrim*(s: StandardAddress; first: StandardReal; last: StandardReal;
-           tol: StandardReal): Handle[Adaptor3dHSurface] {.
+proc VTrim*(S: Standard_Address; First: Standard_Real; Last: Standard_Real;
+           Tol: Standard_Real): handle[Adaptor3d_HSurface] {.
     importcpp: "HLRBRep_SurfaceTool::VTrim(@)", header: "HLRBRep_SurfaceTool.hxx".}
-proc isUClosed*(s: StandardAddress): StandardBoolean {.
+proc IsUClosed*(S: Standard_Address): Standard_Boolean {.
     importcpp: "HLRBRep_SurfaceTool::IsUClosed(@)",
     header: "HLRBRep_SurfaceTool.hxx".}
-proc isVClosed*(s: StandardAddress): StandardBoolean {.
+proc IsVClosed*(S: Standard_Address): Standard_Boolean {.
     importcpp: "HLRBRep_SurfaceTool::IsVClosed(@)",
     header: "HLRBRep_SurfaceTool.hxx".}
-proc isUPeriodic*(s: StandardAddress): StandardBoolean {.
+proc IsUPeriodic*(S: Standard_Address): Standard_Boolean {.
     importcpp: "HLRBRep_SurfaceTool::IsUPeriodic(@)",
     header: "HLRBRep_SurfaceTool.hxx".}
-proc uPeriod*(s: StandardAddress): StandardReal {.
+proc UPeriod*(S: Standard_Address): Standard_Real {.
     importcpp: "HLRBRep_SurfaceTool::UPeriod(@)",
     header: "HLRBRep_SurfaceTool.hxx".}
-proc isVPeriodic*(s: StandardAddress): StandardBoolean {.
+proc IsVPeriodic*(S: Standard_Address): Standard_Boolean {.
     importcpp: "HLRBRep_SurfaceTool::IsVPeriodic(@)",
     header: "HLRBRep_SurfaceTool.hxx".}
-proc vPeriod*(s: StandardAddress): StandardReal {.
+proc VPeriod*(S: Standard_Address): Standard_Real {.
     importcpp: "HLRBRep_SurfaceTool::VPeriod(@)",
     header: "HLRBRep_SurfaceTool.hxx".}
-proc value*(s: StandardAddress; u: StandardReal; v: StandardReal): GpPnt {.
+proc Value*(S: Standard_Address; u: Standard_Real; v: Standard_Real): gp_Pnt {.
     importcpp: "HLRBRep_SurfaceTool::Value(@)", header: "HLRBRep_SurfaceTool.hxx".}
-proc d0*(s: StandardAddress; u: StandardReal; v: StandardReal; p: var GpPnt) {.
+proc D0*(S: Standard_Address; u: Standard_Real; v: Standard_Real; P: var gp_Pnt) {.
     importcpp: "HLRBRep_SurfaceTool::D0(@)", header: "HLRBRep_SurfaceTool.hxx".}
-proc d1*(s: StandardAddress; u: StandardReal; v: StandardReal; p: var GpPnt;
-        d1u: var GpVec; d1v: var GpVec) {.importcpp: "HLRBRep_SurfaceTool::D1(@)",
-                                    header: "HLRBRep_SurfaceTool.hxx".}
-proc d2*(s: StandardAddress; u: StandardReal; v: StandardReal; p: var GpPnt;
-        d1u: var GpVec; d1v: var GpVec; d2u: var GpVec; d2v: var GpVec; d2uv: var GpVec) {.
+proc D1*(S: Standard_Address; u: Standard_Real; v: Standard_Real; P: var gp_Pnt;
+        D1u: var gp_Vec; D1v: var gp_Vec) {.importcpp: "HLRBRep_SurfaceTool::D1(@)",
+                                      header: "HLRBRep_SurfaceTool.hxx".}
+proc D2*(S: Standard_Address; u: Standard_Real; v: Standard_Real; P: var gp_Pnt;
+        D1U: var gp_Vec; D1V: var gp_Vec; D2U: var gp_Vec; D2V: var gp_Vec; D2UV: var gp_Vec) {.
     importcpp: "HLRBRep_SurfaceTool::D2(@)", header: "HLRBRep_SurfaceTool.hxx".}
-proc d3*(s: StandardAddress; u: StandardReal; v: StandardReal; p: var GpPnt;
-        d1u: var GpVec; d1v: var GpVec; d2u: var GpVec; d2v: var GpVec; d2uv: var GpVec;
-        d3u: var GpVec; d3v: var GpVec; d3uuv: var GpVec; d3uvv: var GpVec) {.
-    importcpp: "HLRBRep_SurfaceTool::D3(@)", header: "HLRBRep_SurfaceTool.hxx".}
-proc dn*(s: StandardAddress; u: StandardReal; v: StandardReal; nu: StandardInteger;
-        nv: StandardInteger): GpVec {.importcpp: "HLRBRep_SurfaceTool::DN(@)",
-                                   header: "HLRBRep_SurfaceTool.hxx".}
-proc uResolution*(s: StandardAddress; r3d: StandardReal): StandardReal {.
+proc D3*(S: Standard_Address; u: Standard_Real; v: Standard_Real; P: var gp_Pnt;
+        D1U: var gp_Vec; D1V: var gp_Vec; D2U: var gp_Vec; D2V: var gp_Vec;
+        D2UV: var gp_Vec; D3U: var gp_Vec; D3V: var gp_Vec; D3UUV: var gp_Vec;
+        D3UVV: var gp_Vec) {.importcpp: "HLRBRep_SurfaceTool::D3(@)",
+                          header: "HLRBRep_SurfaceTool.hxx".}
+proc DN*(S: Standard_Address; u: Standard_Real; v: Standard_Real; Nu: Standard_Integer;
+        Nv: Standard_Integer): gp_Vec {.importcpp: "HLRBRep_SurfaceTool::DN(@)",
+                                     header: "HLRBRep_SurfaceTool.hxx".}
+proc UResolution*(S: Standard_Address; R3d: Standard_Real): Standard_Real {.
     importcpp: "HLRBRep_SurfaceTool::UResolution(@)",
     header: "HLRBRep_SurfaceTool.hxx".}
-proc vResolution*(s: StandardAddress; r3d: StandardReal): StandardReal {.
+proc VResolution*(S: Standard_Address; R3d: Standard_Real): Standard_Real {.
     importcpp: "HLRBRep_SurfaceTool::VResolution(@)",
     header: "HLRBRep_SurfaceTool.hxx".}
-proc getType*(s: StandardAddress): GeomAbsSurfaceType {.
+proc GetType*(S: Standard_Address): GeomAbs_SurfaceType {.
     importcpp: "HLRBRep_SurfaceTool::GetType(@)",
     header: "HLRBRep_SurfaceTool.hxx".}
-proc plane*(s: StandardAddress): GpPln {.importcpp: "HLRBRep_SurfaceTool::Plane(@)",
-                                     header: "HLRBRep_SurfaceTool.hxx".}
-proc cylinder*(s: StandardAddress): GpCylinder {.
+proc Plane*(S: Standard_Address): gp_Pln {.importcpp: "HLRBRep_SurfaceTool::Plane(@)",
+                                       header: "HLRBRep_SurfaceTool.hxx".}
+proc Cylinder*(S: Standard_Address): gp_Cylinder {.
     importcpp: "HLRBRep_SurfaceTool::Cylinder(@)",
     header: "HLRBRep_SurfaceTool.hxx".}
-proc cone*(s: StandardAddress): GpCone {.importcpp: "HLRBRep_SurfaceTool::Cone(@)",
-                                     header: "HLRBRep_SurfaceTool.hxx".}
-proc torus*(s: StandardAddress): GpTorus {.importcpp: "HLRBRep_SurfaceTool::Torus(@)",
+proc Cone*(S: Standard_Address): gp_Cone {.importcpp: "HLRBRep_SurfaceTool::Cone(@)",
                                        header: "HLRBRep_SurfaceTool.hxx".}
-proc sphere*(s: StandardAddress): GpSphere {.
+proc Torus*(S: Standard_Address): gp_Torus {.
+    importcpp: "HLRBRep_SurfaceTool::Torus(@)", header: "HLRBRep_SurfaceTool.hxx".}
+proc Sphere*(S: Standard_Address): gp_Sphere {.
     importcpp: "HLRBRep_SurfaceTool::Sphere(@)", header: "HLRBRep_SurfaceTool.hxx".}
-proc bezier*(s: StandardAddress): Handle[GeomBezierSurface] {.
+proc Bezier*(S: Standard_Address): handle[Geom_BezierSurface] {.
     importcpp: "HLRBRep_SurfaceTool::Bezier(@)", header: "HLRBRep_SurfaceTool.hxx".}
-proc bSpline*(s: StandardAddress): Handle[GeomBSplineSurface] {.
+proc BSpline*(S: Standard_Address): handle[Geom_BSplineSurface] {.
     importcpp: "HLRBRep_SurfaceTool::BSpline(@)",
     header: "HLRBRep_SurfaceTool.hxx".}
-proc axeOfRevolution*(s: StandardAddress): GpAx1 {.
+proc AxeOfRevolution*(S: Standard_Address): gp_Ax1 {.
     importcpp: "HLRBRep_SurfaceTool::AxeOfRevolution(@)",
     header: "HLRBRep_SurfaceTool.hxx".}
-proc direction*(s: StandardAddress): GpDir {.
+proc Direction*(S: Standard_Address): gp_Dir {.
     importcpp: "HLRBRep_SurfaceTool::Direction(@)",
     header: "HLRBRep_SurfaceTool.hxx".}
-proc basisCurve*(s: StandardAddress): Handle[Adaptor3dHCurve] {.
+proc BasisCurve*(S: Standard_Address): handle[Adaptor3d_HCurve] {.
     importcpp: "HLRBRep_SurfaceTool::BasisCurve(@)",
     header: "HLRBRep_SurfaceTool.hxx".}
-proc basisSurface*(s: StandardAddress): Handle[Adaptor3dHSurface] {.
+proc BasisSurface*(S: Standard_Address): handle[Adaptor3d_HSurface] {.
     importcpp: "HLRBRep_SurfaceTool::BasisSurface(@)",
     header: "HLRBRep_SurfaceTool.hxx".}
-proc offsetValue*(s: StandardAddress): StandardReal {.
+proc OffsetValue*(S: Standard_Address): Standard_Real {.
     importcpp: "HLRBRep_SurfaceTool::OffsetValue(@)",
     header: "HLRBRep_SurfaceTool.hxx".}
-proc nbSamplesU*(s: StandardAddress): StandardInteger {.
+proc NbSamplesU*(S: Standard_Address): Standard_Integer {.
     importcpp: "HLRBRep_SurfaceTool::NbSamplesU(@)",
     header: "HLRBRep_SurfaceTool.hxx".}
-proc nbSamplesV*(s: StandardAddress): StandardInteger {.
+proc NbSamplesV*(S: Standard_Address): Standard_Integer {.
     importcpp: "HLRBRep_SurfaceTool::NbSamplesV(@)",
     header: "HLRBRep_SurfaceTool.hxx".}
-proc nbSamplesU*(s: StandardAddress; u1: StandardReal; u2: StandardReal): StandardInteger {.
+proc NbSamplesU*(S: Standard_Address; u1: Standard_Real; u2: Standard_Real): Standard_Integer {.
     importcpp: "HLRBRep_SurfaceTool::NbSamplesU(@)",
     header: "HLRBRep_SurfaceTool.hxx".}
-proc nbSamplesV*(s: StandardAddress; v1: StandardReal; v2: StandardReal): StandardInteger {.
+proc NbSamplesV*(S: Standard_Address; v1: Standard_Real; v2: Standard_Real): Standard_Integer {.
     importcpp: "HLRBRep_SurfaceTool::NbSamplesV(@)",
     header: "HLRBRep_SurfaceTool.hxx".}
-

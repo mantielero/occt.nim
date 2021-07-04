@@ -14,21 +14,25 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer,
+  ../TColStd/TColStd_HArray1OfReal, ../TColgp/TColgp_HArray1OfPnt2d,
+  ../math/math_FunctionSet
+
 ## ! Abstract class to use the Energy of an FairCurve
 
 type
-  FairCurveDistributionOfEnergy* {.importcpp: "FairCurve_DistributionOfEnergy",
-                                  header: "FairCurve_DistributionOfEnergy.hxx",
-                                  bycopy.} = object of MathFunctionSet ## ! returns the number of variables of the function.
+  FairCurve_DistributionOfEnergy* {.importcpp: "FairCurve_DistributionOfEnergy", header: "FairCurve_DistributionOfEnergy.hxx",
+                                   bycopy.} = object of math_FunctionSet ## ! returns the number of variables of the function.
 
 
-proc nbVariables*(this: FairCurveDistributionOfEnergy): StandardInteger {.
+proc NbVariables*(this: FairCurve_DistributionOfEnergy): Standard_Integer {.
     noSideEffect, importcpp: "NbVariables",
     header: "FairCurve_DistributionOfEnergy.hxx".}
-proc nbEquations*(this: FairCurveDistributionOfEnergy): StandardInteger {.
+proc NbEquations*(this: FairCurve_DistributionOfEnergy): Standard_Integer {.
     noSideEffect, importcpp: "NbEquations",
     header: "FairCurve_DistributionOfEnergy.hxx".}
-proc setDerivativeOrder*(this: var FairCurveDistributionOfEnergy;
-                        derivativeOrder: StandardInteger) {.
+proc SetDerivativeOrder*(this: var FairCurve_DistributionOfEnergy;
+                        DerivativeOrder: Standard_Integer) {.
     importcpp: "SetDerivativeOrder", header: "FairCurve_DistributionOfEnergy.hxx".}
-

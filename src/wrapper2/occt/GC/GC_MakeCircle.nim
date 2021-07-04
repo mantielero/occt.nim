@@ -14,6 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, GC_Root, ../Geom/Geom_Circle
+
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of gp_Circ"
 discard "forward decl of gp_Ax2"
@@ -37,25 +41,24 @@ type
                                                                                                ## conversion.
 
 
-proc constructGC_MakeCircle*(c: GpCirc): GC_MakeCircle {.constructor,
+proc constructGC_MakeCircle*(C: gp_Circ): GC_MakeCircle {.constructor,
     importcpp: "GC_MakeCircle(@)", header: "GC_MakeCircle.hxx".}
-proc constructGC_MakeCircle*(a2: GpAx2; radius: StandardReal): GC_MakeCircle {.
+proc constructGC_MakeCircle*(A2: gp_Ax2; Radius: Standard_Real): GC_MakeCircle {.
     constructor, importcpp: "GC_MakeCircle(@)", header: "GC_MakeCircle.hxx".}
-proc constructGC_MakeCircle*(circ: GpCirc; dist: StandardReal): GC_MakeCircle {.
+proc constructGC_MakeCircle*(Circ: gp_Circ; Dist: Standard_Real): GC_MakeCircle {.
     constructor, importcpp: "GC_MakeCircle(@)", header: "GC_MakeCircle.hxx".}
-proc constructGC_MakeCircle*(circ: GpCirc; point: GpPnt): GC_MakeCircle {.constructor,
-    importcpp: "GC_MakeCircle(@)", header: "GC_MakeCircle.hxx".}
-proc constructGC_MakeCircle*(p1: GpPnt; p2: GpPnt; p3: GpPnt): GC_MakeCircle {.
+proc constructGC_MakeCircle*(Circ: gp_Circ; Point: gp_Pnt): GC_MakeCircle {.
     constructor, importcpp: "GC_MakeCircle(@)", header: "GC_MakeCircle.hxx".}
-proc constructGC_MakeCircle*(center: GpPnt; norm: GpDir; radius: StandardReal): GC_MakeCircle {.
+proc constructGC_MakeCircle*(P1: gp_Pnt; P2: gp_Pnt; P3: gp_Pnt): GC_MakeCircle {.
     constructor, importcpp: "GC_MakeCircle(@)", header: "GC_MakeCircle.hxx".}
-proc constructGC_MakeCircle*(center: GpPnt; ptAxis: GpPnt; radius: StandardReal): GC_MakeCircle {.
+proc constructGC_MakeCircle*(Center: gp_Pnt; Norm: gp_Dir; Radius: Standard_Real): GC_MakeCircle {.
     constructor, importcpp: "GC_MakeCircle(@)", header: "GC_MakeCircle.hxx".}
-proc constructGC_MakeCircle*(axis: GpAx1; radius: StandardReal): GC_MakeCircle {.
+proc constructGC_MakeCircle*(Center: gp_Pnt; PtAxis: gp_Pnt; Radius: Standard_Real): GC_MakeCircle {.
     constructor, importcpp: "GC_MakeCircle(@)", header: "GC_MakeCircle.hxx".}
-proc value*(this: GC_MakeCircle): Handle[GeomCircle] {.noSideEffect,
+proc constructGC_MakeCircle*(Axis: gp_Ax1; Radius: Standard_Real): GC_MakeCircle {.
+    constructor, importcpp: "GC_MakeCircle(@)", header: "GC_MakeCircle.hxx".}
+proc Value*(this: GC_MakeCircle): handle[Geom_Circle] {.noSideEffect,
     importcpp: "Value", header: "GC_MakeCircle.hxx".}
-converter `constopencascade`*(this: GC_MakeCircle): Handle[GeomCircle] {.
+converter `constopencascade`*(this: GC_MakeCircle): handle[Geom_Circle] {.
     noSideEffect, importcpp: "GC_MakeCircle::operator constopencascade",
     header: "GC_MakeCircle.hxx".}
-

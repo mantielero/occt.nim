@@ -14,6 +14,13 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Real, ../gp/gp_Ax2d,
+  Adaptor2d_Curve2d, ../GeomAbs/GeomAbs_Shape, ../Standard/Standard_Integer,
+  ../TColStd/TColStd_Array1OfReal, ../Standard/Standard_Boolean,
+  ../GeomAbs/GeomAbs_CurveType
+
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of Standard_NoSuchObject"
 discard "forward decl of Standard_DomainError"
@@ -29,76 +36,75 @@ discard "forward decl of gp_Parab2d"
 discard "forward decl of Geom2d_BezierCurve"
 discard "forward decl of Geom2d_BSplineCurve"
 type
-  Adaptor2dLine2d* {.importcpp: "Adaptor2d_Line2d", header: "Adaptor2d_Line2d.hxx",
-                    bycopy.} = object of Adaptor2dCurve2d
+  Adaptor2d_Line2d* {.importcpp: "Adaptor2d_Line2d",
+                     header: "Adaptor2d_Line2d.hxx", bycopy.} = object of Adaptor2d_Curve2d
 
 
-proc constructAdaptor2dLine2d*(): Adaptor2dLine2d {.constructor,
+proc constructAdaptor2d_Line2d*(): Adaptor2d_Line2d {.constructor,
     importcpp: "Adaptor2d_Line2d(@)", header: "Adaptor2d_Line2d.hxx".}
-proc constructAdaptor2dLine2d*(p: GpPnt2d; d: GpDir2d; uFirst: StandardReal;
-                              uLast: StandardReal): Adaptor2dLine2d {.constructor,
-    importcpp: "Adaptor2d_Line2d(@)", header: "Adaptor2d_Line2d.hxx".}
-proc load*(this: var Adaptor2dLine2d; L: GpLin2d) {.importcpp: "Load",
+proc constructAdaptor2d_Line2d*(P: gp_Pnt2d; D: gp_Dir2d; UFirst: Standard_Real;
+                               ULast: Standard_Real): Adaptor2d_Line2d {.
+    constructor, importcpp: "Adaptor2d_Line2d(@)", header: "Adaptor2d_Line2d.hxx".}
+proc Load*(this: var Adaptor2d_Line2d; L: gp_Lin2d) {.importcpp: "Load",
     header: "Adaptor2d_Line2d.hxx".}
-proc load*(this: var Adaptor2dLine2d; L: GpLin2d; uFirst: StandardReal;
-          uLast: StandardReal) {.importcpp: "Load", header: "Adaptor2d_Line2d.hxx".}
-proc firstParameter*(this: Adaptor2dLine2d): StandardReal {.noSideEffect,
+proc Load*(this: var Adaptor2d_Line2d; L: gp_Lin2d; UFirst: Standard_Real;
+          ULast: Standard_Real) {.importcpp: "Load", header: "Adaptor2d_Line2d.hxx".}
+proc FirstParameter*(this: Adaptor2d_Line2d): Standard_Real {.noSideEffect,
     importcpp: "FirstParameter", header: "Adaptor2d_Line2d.hxx".}
-proc lastParameter*(this: Adaptor2dLine2d): StandardReal {.noSideEffect,
+proc LastParameter*(this: Adaptor2d_Line2d): Standard_Real {.noSideEffect,
     importcpp: "LastParameter", header: "Adaptor2d_Line2d.hxx".}
-proc continuity*(this: Adaptor2dLine2d): GeomAbsShape {.noSideEffect,
+proc Continuity*(this: Adaptor2d_Line2d): GeomAbs_Shape {.noSideEffect,
     importcpp: "Continuity", header: "Adaptor2d_Line2d.hxx".}
-proc nbIntervals*(this: Adaptor2dLine2d; s: GeomAbsShape): StandardInteger {.
+proc NbIntervals*(this: Adaptor2d_Line2d; S: GeomAbs_Shape): Standard_Integer {.
     noSideEffect, importcpp: "NbIntervals", header: "Adaptor2d_Line2d.hxx".}
-proc intervals*(this: Adaptor2dLine2d; t: var TColStdArray1OfReal; s: GeomAbsShape) {.
+proc Intervals*(this: Adaptor2d_Line2d; T: var TColStd_Array1OfReal; S: GeomAbs_Shape) {.
     noSideEffect, importcpp: "Intervals", header: "Adaptor2d_Line2d.hxx".}
-proc trim*(this: Adaptor2dLine2d; first: StandardReal; last: StandardReal;
-          tol: StandardReal): Handle[Adaptor2dHCurve2d] {.noSideEffect,
+proc Trim*(this: Adaptor2d_Line2d; First: Standard_Real; Last: Standard_Real;
+          Tol: Standard_Real): handle[Adaptor2d_HCurve2d] {.noSideEffect,
     importcpp: "Trim", header: "Adaptor2d_Line2d.hxx".}
-proc isClosed*(this: Adaptor2dLine2d): StandardBoolean {.noSideEffect,
+proc IsClosed*(this: Adaptor2d_Line2d): Standard_Boolean {.noSideEffect,
     importcpp: "IsClosed", header: "Adaptor2d_Line2d.hxx".}
-proc isPeriodic*(this: Adaptor2dLine2d): StandardBoolean {.noSideEffect,
+proc IsPeriodic*(this: Adaptor2d_Line2d): Standard_Boolean {.noSideEffect,
     importcpp: "IsPeriodic", header: "Adaptor2d_Line2d.hxx".}
-proc period*(this: Adaptor2dLine2d): StandardReal {.noSideEffect,
+proc Period*(this: Adaptor2d_Line2d): Standard_Real {.noSideEffect,
     importcpp: "Period", header: "Adaptor2d_Line2d.hxx".}
-proc value*(this: Adaptor2dLine2d; x: StandardReal): GpPnt2d {.noSideEffect,
+proc Value*(this: Adaptor2d_Line2d; X: Standard_Real): gp_Pnt2d {.noSideEffect,
     importcpp: "Value", header: "Adaptor2d_Line2d.hxx".}
-proc d0*(this: Adaptor2dLine2d; x: StandardReal; p: var GpPnt2d) {.noSideEffect,
+proc D0*(this: Adaptor2d_Line2d; X: Standard_Real; P: var gp_Pnt2d) {.noSideEffect,
     importcpp: "D0", header: "Adaptor2d_Line2d.hxx".}
-proc d1*(this: Adaptor2dLine2d; x: StandardReal; p: var GpPnt2d; v: var GpVec2d) {.
+proc D1*(this: Adaptor2d_Line2d; X: Standard_Real; P: var gp_Pnt2d; V: var gp_Vec2d) {.
     noSideEffect, importcpp: "D1", header: "Adaptor2d_Line2d.hxx".}
-proc d2*(this: Adaptor2dLine2d; x: StandardReal; p: var GpPnt2d; v1: var GpVec2d;
-        v2: var GpVec2d) {.noSideEffect, importcpp: "D2",
-                        header: "Adaptor2d_Line2d.hxx".}
-proc d3*(this: Adaptor2dLine2d; x: StandardReal; p: var GpPnt2d; v1: var GpVec2d;
-        v2: var GpVec2d; v3: var GpVec2d) {.noSideEffect, importcpp: "D3",
-                                      header: "Adaptor2d_Line2d.hxx".}
-proc dn*(this: Adaptor2dLine2d; u: StandardReal; n: StandardInteger): GpVec2d {.
+proc D2*(this: Adaptor2d_Line2d; X: Standard_Real; P: var gp_Pnt2d; V1: var gp_Vec2d;
+        V2: var gp_Vec2d) {.noSideEffect, importcpp: "D2",
+                         header: "Adaptor2d_Line2d.hxx".}
+proc D3*(this: Adaptor2d_Line2d; X: Standard_Real; P: var gp_Pnt2d; V1: var gp_Vec2d;
+        V2: var gp_Vec2d; V3: var gp_Vec2d) {.noSideEffect, importcpp: "D3",
+                                        header: "Adaptor2d_Line2d.hxx".}
+proc DN*(this: Adaptor2d_Line2d; U: Standard_Real; N: Standard_Integer): gp_Vec2d {.
     noSideEffect, importcpp: "DN", header: "Adaptor2d_Line2d.hxx".}
-proc resolution*(this: Adaptor2dLine2d; r3d: StandardReal): StandardReal {.
+proc Resolution*(this: Adaptor2d_Line2d; R3d: Standard_Real): Standard_Real {.
     noSideEffect, importcpp: "Resolution", header: "Adaptor2d_Line2d.hxx".}
-proc getType*(this: Adaptor2dLine2d): GeomAbsCurveType {.noSideEffect,
+proc GetType*(this: Adaptor2d_Line2d): GeomAbs_CurveType {.noSideEffect,
     importcpp: "GetType", header: "Adaptor2d_Line2d.hxx".}
-proc line*(this: Adaptor2dLine2d): GpLin2d {.noSideEffect, importcpp: "Line",
+proc Line*(this: Adaptor2d_Line2d): gp_Lin2d {.noSideEffect, importcpp: "Line",
     header: "Adaptor2d_Line2d.hxx".}
-proc circle*(this: Adaptor2dLine2d): GpCirc2d {.noSideEffect, importcpp: "Circle",
+proc Circle*(this: Adaptor2d_Line2d): gp_Circ2d {.noSideEffect, importcpp: "Circle",
     header: "Adaptor2d_Line2d.hxx".}
-proc ellipse*(this: Adaptor2dLine2d): GpElips2d {.noSideEffect, importcpp: "Ellipse",
-    header: "Adaptor2d_Line2d.hxx".}
-proc hyperbola*(this: Adaptor2dLine2d): GpHypr2d {.noSideEffect,
+proc Ellipse*(this: Adaptor2d_Line2d): gp_Elips2d {.noSideEffect,
+    importcpp: "Ellipse", header: "Adaptor2d_Line2d.hxx".}
+proc Hyperbola*(this: Adaptor2d_Line2d): gp_Hypr2d {.noSideEffect,
     importcpp: "Hyperbola", header: "Adaptor2d_Line2d.hxx".}
-proc parabola*(this: Adaptor2dLine2d): GpParab2d {.noSideEffect,
+proc Parabola*(this: Adaptor2d_Line2d): gp_Parab2d {.noSideEffect,
     importcpp: "Parabola", header: "Adaptor2d_Line2d.hxx".}
-proc degree*(this: Adaptor2dLine2d): StandardInteger {.noSideEffect,
+proc Degree*(this: Adaptor2d_Line2d): Standard_Integer {.noSideEffect,
     importcpp: "Degree", header: "Adaptor2d_Line2d.hxx".}
-proc isRational*(this: Adaptor2dLine2d): StandardBoolean {.noSideEffect,
+proc IsRational*(this: Adaptor2d_Line2d): Standard_Boolean {.noSideEffect,
     importcpp: "IsRational", header: "Adaptor2d_Line2d.hxx".}
-proc nbPoles*(this: Adaptor2dLine2d): StandardInteger {.noSideEffect,
+proc NbPoles*(this: Adaptor2d_Line2d): Standard_Integer {.noSideEffect,
     importcpp: "NbPoles", header: "Adaptor2d_Line2d.hxx".}
-proc nbKnots*(this: Adaptor2dLine2d): StandardInteger {.noSideEffect,
+proc NbKnots*(this: Adaptor2d_Line2d): Standard_Integer {.noSideEffect,
     importcpp: "NbKnots", header: "Adaptor2d_Line2d.hxx".}
-proc bezier*(this: Adaptor2dLine2d): Handle[Geom2dBezierCurve] {.noSideEffect,
+proc Bezier*(this: Adaptor2d_Line2d): handle[Geom2d_BezierCurve] {.noSideEffect,
     importcpp: "Bezier", header: "Adaptor2d_Line2d.hxx".}
-proc bSpline*(this: Adaptor2dLine2d): Handle[Geom2dBSplineCurve] {.noSideEffect,
+proc BSpline*(this: Adaptor2d_Line2d): handle[Geom2d_BSplineCurve] {.noSideEffect,
     importcpp: "BSpline", header: "Adaptor2d_Line2d.hxx".}
-

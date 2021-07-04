@@ -14,6 +14,14 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Real,
+  ../IntCurveSurface/IntCurveSurface_HInter, ../Standard/Standard_Integer,
+  ../TopAbs/TopAbs_State, ../Bnd/Bnd_Box, ../TopTools/TopTools_SequenceOfShape,
+  ../Bnd/Bnd_HArray1OfBox, ../Standard/Standard_Boolean,
+  ../IntCurveSurface/IntCurveSurface_TransitionOnCurve
+
 discard "forward decl of GeomAdaptor_HCurve"
 discard "forward decl of BRepTopAdaptor_TopolTool"
 discard "forward decl of StdFail_NotDone"
@@ -24,49 +32,48 @@ discard "forward decl of IntCurveSurface_IntersectionPoint"
 discard "forward decl of gp_Pnt"
 discard "forward decl of TopoDS_Face"
 type
-  BRepIntCurveSurfaceInter* {.importcpp: "BRepIntCurveSurface_Inter",
-                             header: "BRepIntCurveSurface_Inter.hxx", bycopy.} = object ##
-                                                                                   ## !
-                                                                                   ## Empty
-                                                                                   ## constructor;
-                                                                                   ##
-                                                                                   ## !
-                                                                                   ## Internal
-                                                                                   ## function
+  BRepIntCurveSurface_Inter* {.importcpp: "BRepIntCurveSurface_Inter",
+                              header: "BRepIntCurveSurface_Inter.hxx", bycopy.} = object ##
+                                                                                    ## !
+                                                                                    ## Empty
+                                                                                    ## constructor;
+                                                                                    ##
+                                                                                    ## !
+                                                                                    ## Internal
+                                                                                    ## function
 
 
-proc constructBRepIntCurveSurfaceInter*(): BRepIntCurveSurfaceInter {.constructor,
-    importcpp: "BRepIntCurveSurface_Inter(@)",
+proc constructBRepIntCurveSurface_Inter*(): BRepIntCurveSurface_Inter {.
+    constructor, importcpp: "BRepIntCurveSurface_Inter(@)",
     header: "BRepIntCurveSurface_Inter.hxx".}
-proc init*(this: var BRepIntCurveSurfaceInter; theShape: TopoDS_Shape;
-          theCurve: GeomAdaptorCurve; theTol: StandardReal) {.importcpp: "Init",
+proc Init*(this: var BRepIntCurveSurface_Inter; theShape: TopoDS_Shape;
+          theCurve: GeomAdaptor_Curve; theTol: Standard_Real) {.importcpp: "Init",
     header: "BRepIntCurveSurface_Inter.hxx".}
-proc init*(this: var BRepIntCurveSurfaceInter; theShape: TopoDS_Shape; theLine: GpLin;
-          theTol: StandardReal) {.importcpp: "Init",
-                                header: "BRepIntCurveSurface_Inter.hxx".}
-proc load*(this: var BRepIntCurveSurfaceInter; theShape: TopoDS_Shape;
-          theTol: StandardReal) {.importcpp: "Load",
-                                header: "BRepIntCurveSurface_Inter.hxx".}
-proc init*(this: var BRepIntCurveSurfaceInter; theCurve: GeomAdaptorCurve) {.
+proc Init*(this: var BRepIntCurveSurface_Inter; theShape: TopoDS_Shape;
+          theLine: gp_Lin; theTol: Standard_Real) {.importcpp: "Init",
+    header: "BRepIntCurveSurface_Inter.hxx".}
+proc Load*(this: var BRepIntCurveSurface_Inter; theShape: TopoDS_Shape;
+          theTol: Standard_Real) {.importcpp: "Load",
+                                 header: "BRepIntCurveSurface_Inter.hxx".}
+proc Init*(this: var BRepIntCurveSurface_Inter; theCurve: GeomAdaptor_Curve) {.
     importcpp: "Init", header: "BRepIntCurveSurface_Inter.hxx".}
-proc more*(this: BRepIntCurveSurfaceInter): StandardBoolean {.noSideEffect,
+proc More*(this: BRepIntCurveSurface_Inter): Standard_Boolean {.noSideEffect,
     importcpp: "More", header: "BRepIntCurveSurface_Inter.hxx".}
-proc next*(this: var BRepIntCurveSurfaceInter) {.importcpp: "Next",
+proc Next*(this: var BRepIntCurveSurface_Inter) {.importcpp: "Next",
     header: "BRepIntCurveSurface_Inter.hxx".}
-proc point*(this: BRepIntCurveSurfaceInter): IntCurveSurfaceIntersectionPoint {.
+proc Point*(this: BRepIntCurveSurface_Inter): IntCurveSurface_IntersectionPoint {.
     noSideEffect, importcpp: "Point", header: "BRepIntCurveSurface_Inter.hxx".}
-proc pnt*(this: BRepIntCurveSurfaceInter): GpPnt {.noSideEffect, importcpp: "Pnt",
+proc Pnt*(this: BRepIntCurveSurface_Inter): gp_Pnt {.noSideEffect, importcpp: "Pnt",
     header: "BRepIntCurveSurface_Inter.hxx".}
-proc u*(this: BRepIntCurveSurfaceInter): StandardReal {.noSideEffect, importcpp: "U",
-    header: "BRepIntCurveSurface_Inter.hxx".}
-proc v*(this: BRepIntCurveSurfaceInter): StandardReal {.noSideEffect, importcpp: "V",
-    header: "BRepIntCurveSurface_Inter.hxx".}
-proc w*(this: BRepIntCurveSurfaceInter): StandardReal {.noSideEffect, importcpp: "W",
-    header: "BRepIntCurveSurface_Inter.hxx".}
-proc state*(this: BRepIntCurveSurfaceInter): TopAbsState {.noSideEffect,
+proc U*(this: BRepIntCurveSurface_Inter): Standard_Real {.noSideEffect,
+    importcpp: "U", header: "BRepIntCurveSurface_Inter.hxx".}
+proc V*(this: BRepIntCurveSurface_Inter): Standard_Real {.noSideEffect,
+    importcpp: "V", header: "BRepIntCurveSurface_Inter.hxx".}
+proc W*(this: BRepIntCurveSurface_Inter): Standard_Real {.noSideEffect,
+    importcpp: "W", header: "BRepIntCurveSurface_Inter.hxx".}
+proc State*(this: BRepIntCurveSurface_Inter): TopAbs_State {.noSideEffect,
     importcpp: "State", header: "BRepIntCurveSurface_Inter.hxx".}
-proc transition*(this: BRepIntCurveSurfaceInter): IntCurveSurfaceTransitionOnCurve {.
+proc Transition*(this: BRepIntCurveSurface_Inter): IntCurveSurface_TransitionOnCurve {.
     noSideEffect, importcpp: "Transition", header: "BRepIntCurveSurface_Inter.hxx".}
-proc face*(this: BRepIntCurveSurfaceInter): TopoDS_Face {.noSideEffect,
+proc Face*(this: BRepIntCurveSurface_Inter): TopoDS_Face {.noSideEffect,
     importcpp: "Face", header: "BRepIntCurveSurface_Inter.hxx".}
-

@@ -14,30 +14,33 @@
 ## !@file
 ## ! Functions working with plain C strings
 
-when defined(msc_Ver) and not defined(strcasecmp):
+import
+  Standard_Macro
+
+when defined(_MSC_VER) and not defined(strcasecmp):
   const
-    strcasecmp* = stricmp
+    strcasecmp* = _stricmp
 ##  C++ only definitions
 
 ## ! Equivalent of standard C function atof() that always uses C locale
 
-proc atof*(theStr: cstring): cdouble {.importcpp: "Atof(@)",
+proc Atof*(theStr: cstring): cdouble {.importcpp: "Atof(@)",
                                    header: "Standard_CString.hxx".}
 ## ! Optimized equivalent of standard C function strtod() that always uses C locale
 
-proc strtod*(theStr: cstring; theNextPtr: cstringArray): cdouble {.
+proc Strtod*(theStr: cstring; theNextPtr: cstringArray): cdouble {.
     importcpp: "Strtod(@)", header: "Standard_CString.hxx".}
 ## ! Equivalent of standard C function printf() that always uses C locale
 
-proc printf*(theFormat: cstring): cint {.varargs, importcpp: "Printf(@)",
+proc Printf*(theFormat: cstring): cint {.varargs, importcpp: "Printf(@)",
                                      header: "Standard_CString.hxx".}
 ## ! Equivalent of standard C function fprintf() that always uses C locale
 
-proc fprintf*(theFile: ptr File; theFormat: cstring): cint {.varargs,
+proc Fprintf*(theFile: ptr FILE; theFormat: cstring): cint {.varargs,
     importcpp: "Fprintf(@)", header: "Standard_CString.hxx".}
 ## ! Equivalent of standard C function sprintf() that always uses C locale
 
-proc sprintf*(theBuffer: cstring; theFormat: cstring): cint {.varargs,
+proc Sprintf*(theBuffer: cstring; theFormat: cstring): cint {.varargs,
     importcpp: "Sprintf(@)", header: "Standard_CString.hxx".}
 ## ! Equivalent of standard C function vsprintf() that always uses C locale.
 ## ! Note that this function does not check buffer bounds and should be used with precaution measures
@@ -47,6 +50,5 @@ proc sprintf*(theBuffer: cstring; theFormat: cstring): cint {.varargs,
 ## ! @param theArgList [in] argument list for specified format
 ## ! @return the total number of characters written, or a negative number on error
 
-proc vsprintf*(theBuffer: cstring; theFormat: cstring; theArgList: VaList): cint {.
+proc Vsprintf*(theBuffer: cstring; theFormat: cstring; theArgList: va_list): cint {.
     importcpp: "Vsprintf(@)", header: "Standard_CString.hxx".}
-

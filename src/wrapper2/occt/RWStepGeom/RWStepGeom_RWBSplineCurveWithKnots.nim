@@ -14,6 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepGeom_BSplineCurveWithKnots"
@@ -21,28 +25,28 @@ discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 discard "forward decl of Interface_ShareTool"
 type
-  RWStepGeomRWBSplineCurveWithKnots* {.importcpp: "RWStepGeom_RWBSplineCurveWithKnots", header: "RWStepGeom_RWBSplineCurveWithKnots.hxx",
-                                      bycopy.} = object
+  RWStepGeom_RWBSplineCurveWithKnots* {.importcpp: "RWStepGeom_RWBSplineCurveWithKnots", header: "RWStepGeom_RWBSplineCurveWithKnots.hxx",
+                                       bycopy.} = object
 
 
-proc constructRWStepGeomRWBSplineCurveWithKnots*(): RWStepGeomRWBSplineCurveWithKnots {.
+proc constructRWStepGeom_RWBSplineCurveWithKnots*(): RWStepGeom_RWBSplineCurveWithKnots {.
     constructor, importcpp: "RWStepGeom_RWBSplineCurveWithKnots(@)",
     header: "RWStepGeom_RWBSplineCurveWithKnots.hxx".}
-proc readStep*(this: RWStepGeomRWBSplineCurveWithKnots;
-              data: Handle[StepDataStepReaderData]; num: StandardInteger;
-              ach: var Handle[InterfaceCheck];
-              ent: Handle[StepGeomBSplineCurveWithKnots]) {.noSideEffect,
+proc ReadStep*(this: RWStepGeom_RWBSplineCurveWithKnots;
+              data: handle[StepData_StepReaderData]; num: Standard_Integer;
+              ach: var handle[Interface_Check];
+              ent: handle[StepGeom_BSplineCurveWithKnots]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepGeom_RWBSplineCurveWithKnots.hxx".}
-proc writeStep*(this: RWStepGeomRWBSplineCurveWithKnots;
-               sw: var StepDataStepWriter;
-               ent: Handle[StepGeomBSplineCurveWithKnots]) {.noSideEffect,
+proc WriteStep*(this: RWStepGeom_RWBSplineCurveWithKnots;
+               SW: var StepData_StepWriter;
+               ent: handle[StepGeom_BSplineCurveWithKnots]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepGeom_RWBSplineCurveWithKnots.hxx".}
-proc share*(this: RWStepGeomRWBSplineCurveWithKnots;
-           ent: Handle[StepGeomBSplineCurveWithKnots];
-           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
+proc Share*(this: RWStepGeom_RWBSplineCurveWithKnots;
+           ent: handle[StepGeom_BSplineCurveWithKnots];
+           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepGeom_RWBSplineCurveWithKnots.hxx".}
-proc check*(this: RWStepGeomRWBSplineCurveWithKnots;
-           ent: Handle[StepGeomBSplineCurveWithKnots]; shares: InterfaceShareTool;
-           ach: var Handle[InterfaceCheck]) {.noSideEffect, importcpp: "Check",
+proc Check*(this: RWStepGeom_RWBSplineCurveWithKnots;
+           ent: handle[StepGeom_BSplineCurveWithKnots];
+           shares: Interface_ShareTool; ach: var handle[Interface_Check]) {.
+    noSideEffect, importcpp: "Check",
     header: "RWStepGeom_RWBSplineCurveWithKnots.hxx".}
-

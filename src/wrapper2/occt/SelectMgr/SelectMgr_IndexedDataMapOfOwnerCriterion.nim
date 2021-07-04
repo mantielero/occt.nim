@@ -14,9 +14,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  SelectMgr_EntityOwner, SelectMgr_SortCriterion,
+  ../TColStd/TColStd_MapTransientHasher,
+  ../NCollection/NCollection_IndexedDataMap
+
 type
-  SelectMgrIndexedDataMapOfOwnerCriterion* = NCollectionIndexedDataMap[
-      Handle[SelectMgrEntityOwner], SelectMgrSortCriterion,
-      TColStdMapTransientHasher]
-
-
+  SelectMgr_IndexedDataMapOfOwnerCriterion* = NCollection_IndexedDataMap[
+      handle[SelectMgr_EntityOwner], SelectMgr_SortCriterion,
+      TColStd_MapTransientHasher]

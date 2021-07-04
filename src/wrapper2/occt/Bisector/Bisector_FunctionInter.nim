@@ -14,28 +14,33 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../math/math_FunctionWithDerivative,
+  ../Standard/Standard_Boolean, ../Standard/Standard_Real
+
 discard "forward decl of Geom2d_Curve"
 discard "forward decl of Bisector_Curve"
 type
-  BisectorFunctionInter* {.importcpp: "Bisector_FunctionInter",
-                          header: "Bisector_FunctionInter.hxx", bycopy.} = object of MathFunctionWithDerivative
+  Bisector_FunctionInter* {.importcpp: "Bisector_FunctionInter",
+                           header: "Bisector_FunctionInter.hxx", bycopy.} = object of math_FunctionWithDerivative
 
 
-proc constructBisectorFunctionInter*(): BisectorFunctionInter {.constructor,
+proc constructBisector_FunctionInter*(): Bisector_FunctionInter {.constructor,
     importcpp: "Bisector_FunctionInter(@)", header: "Bisector_FunctionInter.hxx".}
-proc constructBisectorFunctionInter*(c: Handle[Geom2dCurve];
-                                    bis1: Handle[BisectorCurve];
-                                    bis2: Handle[BisectorCurve]): BisectorFunctionInter {.
+proc constructBisector_FunctionInter*(C: handle[Geom2d_Curve];
+                                     Bis1: handle[Bisector_Curve];
+                                     Bis2: handle[Bisector_Curve]): Bisector_FunctionInter {.
     constructor, importcpp: "Bisector_FunctionInter(@)",
     header: "Bisector_FunctionInter.hxx".}
-proc perform*(this: var BisectorFunctionInter; c: Handle[Geom2dCurve];
-             bis1: Handle[BisectorCurve]; bis2: Handle[BisectorCurve]) {.
+proc Perform*(this: var Bisector_FunctionInter; C: handle[Geom2d_Curve];
+             Bis1: handle[Bisector_Curve]; Bis2: handle[Bisector_Curve]) {.
     importcpp: "Perform", header: "Bisector_FunctionInter.hxx".}
-proc value*(this: var BisectorFunctionInter; x: StandardReal; f: var StandardReal): StandardBoolean {.
+proc Value*(this: var Bisector_FunctionInter; X: Standard_Real; F: var Standard_Real): Standard_Boolean {.
     importcpp: "Value", header: "Bisector_FunctionInter.hxx".}
-proc derivative*(this: var BisectorFunctionInter; x: StandardReal; d: var StandardReal): StandardBoolean {.
-    importcpp: "Derivative", header: "Bisector_FunctionInter.hxx".}
-proc values*(this: var BisectorFunctionInter; x: StandardReal; f: var StandardReal;
-            d: var StandardReal): StandardBoolean {.importcpp: "Values",
+proc Derivative*(this: var Bisector_FunctionInter; X: Standard_Real;
+                D: var Standard_Real): Standard_Boolean {.importcpp: "Derivative",
     header: "Bisector_FunctionInter.hxx".}
-
+proc Values*(this: var Bisector_FunctionInter; X: Standard_Real; F: var Standard_Real;
+            D: var Standard_Real): Standard_Boolean {.importcpp: "Values",
+    header: "Bisector_FunctionInter.hxx".}

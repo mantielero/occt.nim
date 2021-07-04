@@ -13,26 +13,25 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Real, ShapeUpgrade_ShapeDivide
+
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of ShapeUpgrade_FaceDivide"
 type
-  ShapeUpgradeShapeDivideArea* {.importcpp: "ShapeUpgrade_ShapeDivideArea",
-                                header: "ShapeUpgrade_ShapeDivideArea.hxx", bycopy.} = object of ShapeUpgradeShapeDivide ##
-                                                                                                                  ## !
-                                                                                                                  ## Returns
-                                                                                                                  ## the
-                                                                                                                  ## tool
-                                                                                                                  ## for
-                                                                                                                  ## splitting
-                                                                                                                  ## faces.
+  ShapeUpgrade_ShapeDivideArea* {.importcpp: "ShapeUpgrade_ShapeDivideArea",
+                                 header: "ShapeUpgrade_ShapeDivideArea.hxx",
+                                 bycopy.} = object of ShapeUpgrade_ShapeDivide ## !
+                                                                          ## Returns the tool for
+                                                                          ## splitting faces.
 
 
-proc constructShapeUpgradeShapeDivideArea*(): ShapeUpgradeShapeDivideArea {.
+proc constructShapeUpgrade_ShapeDivideArea*(): ShapeUpgrade_ShapeDivideArea {.
     constructor, importcpp: "ShapeUpgrade_ShapeDivideArea(@)",
     header: "ShapeUpgrade_ShapeDivideArea.hxx".}
-proc constructShapeUpgradeShapeDivideArea*(s: TopoDS_Shape): ShapeUpgradeShapeDivideArea {.
+proc constructShapeUpgrade_ShapeDivideArea*(S: TopoDS_Shape): ShapeUpgrade_ShapeDivideArea {.
     constructor, importcpp: "ShapeUpgrade_ShapeDivideArea(@)",
     header: "ShapeUpgrade_ShapeDivideArea.hxx".}
-proc maxArea*(this: var ShapeUpgradeShapeDivideArea): var StandardReal {.
+proc MaxArea*(this: var ShapeUpgrade_ShapeDivideArea): var Standard_Real {.
     importcpp: "MaxArea", header: "ShapeUpgrade_ShapeDivideArea.hxx".}
-

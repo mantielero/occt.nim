@@ -14,7 +14,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _Geom2dHatch_Classifier_HeaderFile [NewLine] # _Geom2dHatch_Classifier_HeaderFile [NewLine] # < Standard . hxx > [NewLine] # < Standard_DefineAlloc . hxx > [NewLine] # < Standard_Handle . hxx > [NewLine] # < Geom2dHatch_FClass2dOfClassifier . hxx > [NewLine] # < Geom2dAdaptor_Curve . hxx > [NewLine] # < Standard_Real . hxx > [NewLine] # < IntRes2d_Position . hxx > [NewLine] # < Standard_Boolean . hxx > [NewLine] # < TopAbs_State . hxx > [NewLine] class Standard_DomainError ;
+## !!!Ignored construct:  # _Geom2dHatch_Classifier_HeaderFile [NewLine] # _Geom2dHatch_Classifier_HeaderFile [NewLine] # ../Standard/Standard.hxx [NewLine] # ../Standard/Standard_DefineAlloc.hxx [NewLine] # ../Standard/Standard_Handle.hxx [NewLine] # Geom2dHatch_FClass2dOfClassifier.hxx [NewLine] # ../Geom2dAdaptor/Geom2dAdaptor_Curve.hxx [NewLine] # ../Standard/Standard_Real.hxx [NewLine] # ../IntRes2d/IntRes2d_Position.hxx [NewLine] # ../Standard/Standard_Boolean.hxx [NewLine] # ../TopAbs/TopAbs_State.hxx [NewLine] class Standard_DomainError ;
 ## Error: did not expect <!!!
 
 discard "forward decl of Geom2dHatch_Elements"
@@ -23,36 +23,34 @@ discard "forward decl of Geom2dHatch_Intersector"
 discard "forward decl of Geom2dHatch_FClass2dOfClassifier"
 discard "forward decl of gp_Pnt2d"
 type
-  Geom2dHatchClassifier* {.importcpp: "Geom2dHatch_Classifier",
-                          header: "Geom2dHatch_Classifier.hxx", bycopy.} = object ## !
-                                                                             ## Empty
-                                                                             ## constructor,
-                                                                             ## undefined
-                                                                             ## algorithm.
+  Geom2dHatch_Classifier* {.importcpp: "Geom2dHatch_Classifier",
+                           header: "Geom2dHatch_Classifier.hxx", bycopy.} = object ## !
+                                                                              ## Empty
+                                                                              ## constructor,
+                                                                              ## undefined
+                                                                              ## algorithm.
 
 
-proc constructGeom2dHatchClassifier*(): Geom2dHatchClassifier {.constructor,
+proc constructGeom2dHatch_Classifier*(): Geom2dHatch_Classifier {.constructor,
     importcpp: "Geom2dHatch_Classifier(@)", header: "Geom2dHatch_Classifier.hxx".}
-proc constructGeom2dHatchClassifier*(f: var Geom2dHatchElements; p: GpPnt2d;
-                                    tol: StandardReal): Geom2dHatchClassifier {.
+proc constructGeom2dHatch_Classifier*(F: var Geom2dHatch_Elements; P: gp_Pnt2d;
+                                     Tol: Standard_Real): Geom2dHatch_Classifier {.
     constructor, importcpp: "Geom2dHatch_Classifier(@)",
     header: "Geom2dHatch_Classifier.hxx".}
-proc perform*(this: var Geom2dHatchClassifier; f: var Geom2dHatchElements; p: GpPnt2d;
-             tol: StandardReal) {.importcpp: "Perform",
-                                header: "Geom2dHatch_Classifier.hxx".}
-proc state*(this: Geom2dHatchClassifier): TopAbsState {.noSideEffect,
+proc Perform*(this: var Geom2dHatch_Classifier; F: var Geom2dHatch_Elements;
+             P: gp_Pnt2d; Tol: Standard_Real) {.importcpp: "Perform",
+    header: "Geom2dHatch_Classifier.hxx".}
+proc State*(this: Geom2dHatch_Classifier): TopAbs_State {.noSideEffect,
     importcpp: "State", header: "Geom2dHatch_Classifier.hxx".}
-proc rejected*(this: Geom2dHatchClassifier): StandardBoolean {.noSideEffect,
+proc Rejected*(this: Geom2dHatch_Classifier): Standard_Boolean {.noSideEffect,
     importcpp: "Rejected", header: "Geom2dHatch_Classifier.hxx".}
-proc noWires*(this: Geom2dHatchClassifier): StandardBoolean {.noSideEffect,
+proc NoWires*(this: Geom2dHatch_Classifier): Standard_Boolean {.noSideEffect,
     importcpp: "NoWires", header: "Geom2dHatch_Classifier.hxx".}
-proc edge*(this: Geom2dHatchClassifier): Geom2dAdaptorCurve {.noSideEffect,
+proc Edge*(this: Geom2dHatch_Classifier): Geom2dAdaptor_Curve {.noSideEffect,
     importcpp: "Edge", header: "Geom2dHatch_Classifier.hxx".}
-proc edgeParameter*(this: Geom2dHatchClassifier): StandardReal {.noSideEffect,
+proc EdgeParameter*(this: Geom2dHatch_Classifier): Standard_Real {.noSideEffect,
     importcpp: "EdgeParameter", header: "Geom2dHatch_Classifier.hxx".}
-proc position*(this: Geom2dHatchClassifier): IntRes2dPosition {.noSideEffect,
+proc Position*(this: Geom2dHatch_Classifier): IntRes2d_Position {.noSideEffect,
     importcpp: "Position", header: "Geom2dHatch_Classifier.hxx".}
-## !!!Ignored construct:  # TheFaceExplorer Geom2dHatch_Elements [NewLine] # TheFaceExplorer_hxx < Geom2dHatch_Elements . hxx > [NewLine] # TheEdge Geom2dAdaptor_Curve [NewLine] # TheEdge_hxx < Geom2dAdaptor_Curve . hxx > [NewLine] # TheIntersection2d Geom2dHatch_Intersector [NewLine] # TheIntersection2d_hxx < Geom2dHatch_Intersector . hxx > [NewLine] # TopClass_FClass2d Geom2dHatch_FClass2dOfClassifier [NewLine] # TopClass_FClass2d_hxx < Geom2dHatch_FClass2dOfClassifier . hxx > [NewLine] # TopClass_FaceClassifier Geom2dHatch_Classifier [NewLine] # TopClass_FaceClassifier_hxx < Geom2dHatch_Classifier . hxx > [NewLine] # < TopClass_FaceClassifier . lxx > [NewLine] # TheFaceExplorer [NewLine] # TheFaceExplorer_hxx [NewLine] # TheEdge [NewLine] # TheEdge_hxx [NewLine] # TheIntersection2d [NewLine] # TheIntersection2d_hxx [NewLine] # TopClass_FClass2d [NewLine] # TopClass_FClass2d_hxx [NewLine] # TopClass_FaceClassifier [NewLine] # TopClass_FaceClassifier_hxx [NewLine] #  _Geom2dHatch_Classifier_HeaderFile
+## !!!Ignored construct:  # TheFaceExplorer Geom2dHatch_Elements [NewLine] # TheFaceExplorer_hxx < Geom2dHatch_Elements . hxx > [NewLine] # TheEdge Geom2dAdaptor_Curve [NewLine] # TheEdge_hxx < Geom2dAdaptor_Curve . hxx > [NewLine] # TheIntersection2d Geom2dHatch_Intersector [NewLine] # TheIntersection2d_hxx < Geom2dHatch_Intersector . hxx > [NewLine] # TopClass_FClass2d Geom2dHatch_FClass2dOfClassifier [NewLine] # TopClass_FClass2d_hxx < Geom2dHatch_FClass2dOfClassifier . hxx > [NewLine] # TopClass_FaceClassifier Geom2dHatch_Classifier [NewLine] # TopClass_FaceClassifier_hxx < Geom2dHatch_Classifier . hxx > [NewLine] # < TopClass_FaceClassifier . lxx > [NewLine] # TheFaceExplorer [NewLine] # TheFaceExplorer_hxx [NewLine] # TheEdge [NewLine] # TheEdge_hxx [NewLine] # TheIntersection2d [NewLine] # TheIntersection2d_hxx [NewLine] # TopClass_FClass2d [NewLine] # TopClass_FClass2d_hxx [NewLine] # TopClass_FaceClassifier [NewLine] # TopClass_FaceClassifier_hxx [NewLine] #  _Geom2dHatch_Classifier_HeaderFile [NewLine]
 ## Error: did not expect <!!!
-
-

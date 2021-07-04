@@ -13,29 +13,33 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepRepr_ContinuosShapeAspect"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepReprRWContinuosShapeAspect* {.importcpp: "RWStepRepr_RWContinuosShapeAspect", header: "RWStepRepr_RWContinuosShapeAspect.hxx",
-                                     bycopy.} = object ## ! Empty constructor
+  RWStepRepr_RWContinuosShapeAspect* {.importcpp: "RWStepRepr_RWContinuosShapeAspect", header: "RWStepRepr_RWContinuosShapeAspect.hxx",
+                                      bycopy.} = object ## ! Empty constructor
 
 
-proc constructRWStepReprRWContinuosShapeAspect*(): RWStepReprRWContinuosShapeAspect {.
+proc constructRWStepRepr_RWContinuosShapeAspect*(): RWStepRepr_RWContinuosShapeAspect {.
     constructor, importcpp: "RWStepRepr_RWContinuosShapeAspect(@)",
     header: "RWStepRepr_RWContinuosShapeAspect.hxx".}
-proc readStep*(this: RWStepReprRWContinuosShapeAspect;
-              data: Handle[StepDataStepReaderData]; num: StandardInteger;
-              ach: var Handle[InterfaceCheck];
-              ent: Handle[StepReprContinuosShapeAspect]) {.noSideEffect,
+proc ReadStep*(this: RWStepRepr_RWContinuosShapeAspect;
+              data: handle[StepData_StepReaderData]; num: Standard_Integer;
+              ach: var handle[Interface_Check];
+              ent: handle[StepRepr_ContinuosShapeAspect]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepRepr_RWContinuosShapeAspect.hxx".}
-proc writeStep*(this: RWStepReprRWContinuosShapeAspect; sw: var StepDataStepWriter;
-               ent: Handle[StepReprContinuosShapeAspect]) {.noSideEffect,
+proc WriteStep*(this: RWStepRepr_RWContinuosShapeAspect;
+               SW: var StepData_StepWriter;
+               ent: handle[StepRepr_ContinuosShapeAspect]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepRepr_RWContinuosShapeAspect.hxx".}
-proc share*(this: RWStepReprRWContinuosShapeAspect;
-           ent: Handle[StepReprContinuosShapeAspect];
-           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
+proc Share*(this: RWStepRepr_RWContinuosShapeAspect;
+           ent: handle[StepRepr_ContinuosShapeAspect];
+           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepRepr_RWContinuosShapeAspect.hxx".}
-

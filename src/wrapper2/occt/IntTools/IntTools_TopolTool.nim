@@ -13,6 +13,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Integer,
+  ../Standard/Standard_Real, ../Adaptor3d/Adaptor3d_TopolTool
+
 discard "forward decl of Standard_DomainError"
 discard "forward decl of Adaptor3d_HSurface"
 discard "forward decl of gp_Pnt2d"
@@ -20,50 +24,50 @@ discard "forward decl of gp_Pnt"
 discard "forward decl of IntTools_TopolTool"
 discard "forward decl of IntTools_TopolTool"
 type
-  HandleIntToolsTopolTool* = Handle[IntToolsTopolTool]
+  Handle_IntTools_TopolTool* = handle[IntTools_TopolTool]
 
 ## ! Class redefine methods of TopolTool from Adaptor3d
 ## ! concerning sample points
 
 type
-  IntToolsTopolTool* {.importcpp: "IntTools_TopolTool",
-                      header: "IntTools_TopolTool.hxx", bycopy.} = object of Adaptor3dTopolTool ##
-                                                                                         ## !
-                                                                                         ## Empty
-                                                                                         ## constructor
+  IntTools_TopolTool* {.importcpp: "IntTools_TopolTool",
+                       header: "IntTools_TopolTool.hxx", bycopy.} = object of Adaptor3d_TopolTool ##
+                                                                                           ## !
+                                                                                           ## Empty
+                                                                                           ## constructor
 
 
-proc constructIntToolsTopolTool*(): IntToolsTopolTool {.constructor,
+proc constructIntTools_TopolTool*(): IntTools_TopolTool {.constructor,
     importcpp: "IntTools_TopolTool(@)", header: "IntTools_TopolTool.hxx".}
-proc constructIntToolsTopolTool*(theSurface: Handle[Adaptor3dHSurface]): IntToolsTopolTool {.
+proc constructIntTools_TopolTool*(theSurface: handle[Adaptor3d_HSurface]): IntTools_TopolTool {.
     constructor, importcpp: "IntTools_TopolTool(@)",
     header: "IntTools_TopolTool.hxx".}
-proc initialize*(this: var IntToolsTopolTool) {.importcpp: "Initialize",
+proc Initialize*(this: var IntTools_TopolTool) {.importcpp: "Initialize",
     header: "IntTools_TopolTool.hxx".}
-proc initialize*(this: var IntToolsTopolTool; theSurface: Handle[Adaptor3dHSurface]) {.
-    importcpp: "Initialize", header: "IntTools_TopolTool.hxx".}
-proc computeSamplePoints*(this: var IntToolsTopolTool) {.
+proc Initialize*(this: var IntTools_TopolTool;
+                theSurface: handle[Adaptor3d_HSurface]) {.importcpp: "Initialize",
+    header: "IntTools_TopolTool.hxx".}
+proc ComputeSamplePoints*(this: var IntTools_TopolTool) {.
     importcpp: "ComputeSamplePoints", header: "IntTools_TopolTool.hxx".}
-proc nbSamplesU*(this: var IntToolsTopolTool): StandardInteger {.
+proc NbSamplesU*(this: var IntTools_TopolTool): Standard_Integer {.
     importcpp: "NbSamplesU", header: "IntTools_TopolTool.hxx".}
-proc nbSamplesV*(this: var IntToolsTopolTool): StandardInteger {.
+proc NbSamplesV*(this: var IntTools_TopolTool): Standard_Integer {.
     importcpp: "NbSamplesV", header: "IntTools_TopolTool.hxx".}
-proc nbSamples*(this: var IntToolsTopolTool): StandardInteger {.
+proc NbSamples*(this: var IntTools_TopolTool): Standard_Integer {.
     importcpp: "NbSamples", header: "IntTools_TopolTool.hxx".}
-proc samplePoint*(this: var IntToolsTopolTool; index: StandardInteger;
-                 p2d: var GpPnt2d; p3d: var GpPnt) {.importcpp: "SamplePoint",
+proc SamplePoint*(this: var IntTools_TopolTool; Index: Standard_Integer;
+                 P2d: var gp_Pnt2d; P3d: var gp_Pnt) {.importcpp: "SamplePoint",
     header: "IntTools_TopolTool.hxx".}
-proc samplePnts*(this: var IntToolsTopolTool; theDefl: StandardReal;
-                theNUmin: StandardInteger; theNVmin: StandardInteger) {.
+proc SamplePnts*(this: var IntTools_TopolTool; theDefl: Standard_Real;
+                theNUmin: Standard_Integer; theNVmin: Standard_Integer) {.
     importcpp: "SamplePnts", header: "IntTools_TopolTool.hxx".}
 type
-  IntToolsTopolToolbaseType* = Adaptor3dTopolTool
+  IntTools_TopolToolbase_type* = Adaptor3d_TopolTool
 
-proc getTypeName*(): cstring {.importcpp: "IntTools_TopolTool::get_type_name(@)",
-                            header: "IntTools_TopolTool.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "IntTools_TopolTool::get_type_name(@)",
+                              header: "IntTools_TopolTool.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "IntTools_TopolTool::get_type_descriptor(@)",
     header: "IntTools_TopolTool.hxx".}
-proc dynamicType*(this: IntToolsTopolTool): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: IntTools_TopolTool): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "IntTools_TopolTool.hxx".}
-

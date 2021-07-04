@@ -11,7 +11,5 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _AIS_LengthDimension_HeaderFile [NewLine] # _AIS_LengthDimension_HeaderFile [NewLine] # < PrsDim_LengthDimension . hxx > [NewLine] Standard_DEPRECATED ( Deprecated alias to moved class ) typedef PrsDim_LengthDimension AIS_LengthDimension ;
+## !!!Ignored construct:  # _AIS_LengthDimension_HeaderFile [NewLine] # _AIS_LengthDimension_HeaderFile [NewLine] # ../PrsDim/PrsDim_LengthDimension.hxx [NewLine] Standard_DEPRECATED ( Deprecated alias to moved class ) typedef PrsDim_LengthDimension AIS_LengthDimension ;
 ## Error: expected ';'!!!
-
-

@@ -14,13 +14,17 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Integer,
+  ../gp/gp_XY, ../IGESData/IGESData_IGESEntity, ../Standard/Standard_Boolean
+
 discard "forward decl of gp_XY"
 discard "forward decl of gp_Pnt2d"
 discard "forward decl of gp_Vec2d"
 discard "forward decl of IGESGraph_UniformRectGrid"
 discard "forward decl of IGESGraph_UniformRectGrid"
 type
-  HandleIGESGraphUniformRectGrid* = Handle[IGESGraphUniformRectGrid]
+  Handle_IGESGraph_UniformRectGrid* = handle[IGESGraph_UniformRectGrid]
 
 ## ! defines IGESUniformRectGrid, Type <406> Form <22>
 ## ! in package IGESGraph
@@ -29,43 +33,42 @@ type
 ## ! a uniform rectangular grid within a drawing
 
 type
-  IGESGraphUniformRectGrid* {.importcpp: "IGESGraph_UniformRectGrid",
-                             header: "IGESGraph_UniformRectGrid.hxx", bycopy.} = object of IGESDataIGESEntity
+  IGESGraph_UniformRectGrid* {.importcpp: "IGESGraph_UniformRectGrid",
+                              header: "IGESGraph_UniformRectGrid.hxx", bycopy.} = object of IGESData_IGESEntity
 
 
-proc constructIGESGraphUniformRectGrid*(): IGESGraphUniformRectGrid {.constructor,
-    importcpp: "IGESGraph_UniformRectGrid(@)",
+proc constructIGESGraph_UniformRectGrid*(): IGESGraph_UniformRectGrid {.
+    constructor, importcpp: "IGESGraph_UniformRectGrid(@)",
     header: "IGESGraph_UniformRectGrid.hxx".}
-proc init*(this: var IGESGraphUniformRectGrid; nbProps: StandardInteger;
-          finite: StandardInteger; line: StandardInteger; weighted: StandardInteger;
-          aGridPoint: GpXY; aGridSpacing: GpXY; pointsX: StandardInteger;
-          pointsY: StandardInteger) {.importcpp: "Init",
-                                    header: "IGESGraph_UniformRectGrid.hxx".}
-proc nbPropertyValues*(this: IGESGraphUniformRectGrid): StandardInteger {.
+proc Init*(this: var IGESGraph_UniformRectGrid; nbProps: Standard_Integer;
+          finite: Standard_Integer; line: Standard_Integer;
+          weighted: Standard_Integer; aGridPoint: gp_XY; aGridSpacing: gp_XY;
+          pointsX: Standard_Integer; pointsY: Standard_Integer) {.importcpp: "Init",
+    header: "IGESGraph_UniformRectGrid.hxx".}
+proc NbPropertyValues*(this: IGESGraph_UniformRectGrid): Standard_Integer {.
     noSideEffect, importcpp: "NbPropertyValues",
     header: "IGESGraph_UniformRectGrid.hxx".}
-proc isFinite*(this: IGESGraphUniformRectGrid): StandardBoolean {.noSideEffect,
+proc IsFinite*(this: IGESGraph_UniformRectGrid): Standard_Boolean {.noSideEffect,
     importcpp: "IsFinite", header: "IGESGraph_UniformRectGrid.hxx".}
-proc isLine*(this: IGESGraphUniformRectGrid): StandardBoolean {.noSideEffect,
+proc IsLine*(this: IGESGraph_UniformRectGrid): Standard_Boolean {.noSideEffect,
     importcpp: "IsLine", header: "IGESGraph_UniformRectGrid.hxx".}
-proc isWeighted*(this: IGESGraphUniformRectGrid): StandardBoolean {.noSideEffect,
+proc IsWeighted*(this: IGESGraph_UniformRectGrid): Standard_Boolean {.noSideEffect,
     importcpp: "IsWeighted", header: "IGESGraph_UniformRectGrid.hxx".}
-proc gridPoint*(this: IGESGraphUniformRectGrid): GpPnt2d {.noSideEffect,
+proc GridPoint*(this: IGESGraph_UniformRectGrid): gp_Pnt2d {.noSideEffect,
     importcpp: "GridPoint", header: "IGESGraph_UniformRectGrid.hxx".}
-proc gridSpacing*(this: IGESGraphUniformRectGrid): GpVec2d {.noSideEffect,
+proc GridSpacing*(this: IGESGraph_UniformRectGrid): gp_Vec2d {.noSideEffect,
     importcpp: "GridSpacing", header: "IGESGraph_UniformRectGrid.hxx".}
-proc nbPointsX*(this: IGESGraphUniformRectGrid): StandardInteger {.noSideEffect,
+proc NbPointsX*(this: IGESGraph_UniformRectGrid): Standard_Integer {.noSideEffect,
     importcpp: "NbPointsX", header: "IGESGraph_UniformRectGrid.hxx".}
-proc nbPointsY*(this: IGESGraphUniformRectGrid): StandardInteger {.noSideEffect,
+proc NbPointsY*(this: IGESGraph_UniformRectGrid): Standard_Integer {.noSideEffect,
     importcpp: "NbPointsY", header: "IGESGraph_UniformRectGrid.hxx".}
 type
-  IGESGraphUniformRectGridbaseType* = IGESDataIGESEntity
+  IGESGraph_UniformRectGridbase_type* = IGESData_IGESEntity
 
-proc getTypeName*(): cstring {.importcpp: "IGESGraph_UniformRectGrid::get_type_name(@)",
-                            header: "IGESGraph_UniformRectGrid.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "IGESGraph_UniformRectGrid::get_type_name(@)",
+                              header: "IGESGraph_UniformRectGrid.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "IGESGraph_UniformRectGrid::get_type_descriptor(@)",
     header: "IGESGraph_UniformRectGrid.hxx".}
-proc dynamicType*(this: IGESGraphUniformRectGrid): Handle[StandardType] {.
+proc DynamicType*(this: IGESGraph_UniformRectGrid): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType", header: "IGESGraph_UniformRectGrid.hxx".}
-

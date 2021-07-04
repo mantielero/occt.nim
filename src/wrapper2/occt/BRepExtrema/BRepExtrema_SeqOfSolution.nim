@@ -11,7 +11,8 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../NCollection/NCollection_Sequence, BRepExtrema_SolutionElem
+
 type
-  BRepExtremaSeqOfSolution* = NCollectionSequence[BRepExtremaSolutionElem]
-
-
+  BRepExtrema_SeqOfSolution* = NCollection_Sequence[BRepExtrema_SolutionElem]

@@ -14,6 +14,14 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../gp/gp_Pnt2d, ../Standard/Standard_Address,
+  ../Standard/Standard_Real, ../TColStd/TColStd_SequenceOfReal,
+  ../TColStd/TColStd_SequenceOfInteger, Extrema_SequenceOfPOnCurv2d,
+  ../Standard/Standard_Boolean, ../Standard/Standard_Integer,
+  ../math/math_FunctionWithDerivative
+
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of Standard_TypeMismatch"
 discard "forward decl of Adaptor2d_Curve2d"
@@ -22,50 +30,51 @@ discard "forward decl of Extrema_POnCurv2d"
 discard "forward decl of gp_Pnt2d"
 discard "forward decl of gp_Vec2d"
 type
-  ExtremaPCLocFOfLocEPCOfLocateExtPC2d* {.
+  Extrema_PCLocFOfLocEPCOfLocateExtPC2d* {.
       importcpp: "Extrema_PCLocFOfLocEPCOfLocateExtPC2d",
-      header: "Extrema_PCLocFOfLocEPCOfLocateExtPC2d.hxx", bycopy.} = object of MathFunctionWithDerivative
+      header: "Extrema_PCLocFOfLocEPCOfLocateExtPC2d.hxx", bycopy.} = object of math_FunctionWithDerivative
 
 
-proc constructExtremaPCLocFOfLocEPCOfLocateExtPC2d*(): ExtremaPCLocFOfLocEPCOfLocateExtPC2d {.
+proc constructExtrema_PCLocFOfLocEPCOfLocateExtPC2d*(): Extrema_PCLocFOfLocEPCOfLocateExtPC2d {.
     constructor, importcpp: "Extrema_PCLocFOfLocEPCOfLocateExtPC2d(@)",
     header: "Extrema_PCLocFOfLocEPCOfLocateExtPC2d.hxx".}
-proc constructExtremaPCLocFOfLocEPCOfLocateExtPC2d*(p: GpPnt2d; c: Adaptor2dCurve2d): ExtremaPCLocFOfLocEPCOfLocateExtPC2d {.
-    constructor, importcpp: "Extrema_PCLocFOfLocEPCOfLocateExtPC2d(@)",
+proc constructExtrema_PCLocFOfLocEPCOfLocateExtPC2d*(P: gp_Pnt2d;
+    C: Adaptor2d_Curve2d): Extrema_PCLocFOfLocEPCOfLocateExtPC2d {.constructor,
+    importcpp: "Extrema_PCLocFOfLocEPCOfLocateExtPC2d(@)",
     header: "Extrema_PCLocFOfLocEPCOfLocateExtPC2d.hxx".}
-proc initialize*(this: var ExtremaPCLocFOfLocEPCOfLocateExtPC2d; c: Adaptor2dCurve2d) {.
-    importcpp: "Initialize", header: "Extrema_PCLocFOfLocEPCOfLocateExtPC2d.hxx".}
-proc setPoint*(this: var ExtremaPCLocFOfLocEPCOfLocateExtPC2d; p: GpPnt2d) {.
+proc Initialize*(this: var Extrema_PCLocFOfLocEPCOfLocateExtPC2d;
+                C: Adaptor2d_Curve2d) {.importcpp: "Initialize", header: "Extrema_PCLocFOfLocEPCOfLocateExtPC2d.hxx".}
+proc SetPoint*(this: var Extrema_PCLocFOfLocEPCOfLocateExtPC2d; P: gp_Pnt2d) {.
     importcpp: "SetPoint", header: "Extrema_PCLocFOfLocEPCOfLocateExtPC2d.hxx".}
-proc value*(this: var ExtremaPCLocFOfLocEPCOfLocateExtPC2d; u: StandardReal;
-           f: var StandardReal): StandardBoolean {.importcpp: "Value",
+proc Value*(this: var Extrema_PCLocFOfLocEPCOfLocateExtPC2d; U: Standard_Real;
+           F: var Standard_Real): Standard_Boolean {.importcpp: "Value",
     header: "Extrema_PCLocFOfLocEPCOfLocateExtPC2d.hxx".}
-proc derivative*(this: var ExtremaPCLocFOfLocEPCOfLocateExtPC2d; u: StandardReal;
-                df: var StandardReal): StandardBoolean {.importcpp: "Derivative",
+proc Derivative*(this: var Extrema_PCLocFOfLocEPCOfLocateExtPC2d; U: Standard_Real;
+                DF: var Standard_Real): Standard_Boolean {.importcpp: "Derivative",
     header: "Extrema_PCLocFOfLocEPCOfLocateExtPC2d.hxx".}
-proc values*(this: var ExtremaPCLocFOfLocEPCOfLocateExtPC2d; u: StandardReal;
-            f: var StandardReal; df: var StandardReal): StandardBoolean {.
+proc Values*(this: var Extrema_PCLocFOfLocEPCOfLocateExtPC2d; U: Standard_Real;
+            F: var Standard_Real; DF: var Standard_Real): Standard_Boolean {.
     importcpp: "Values", header: "Extrema_PCLocFOfLocEPCOfLocateExtPC2d.hxx".}
-proc getStateNumber*(this: var ExtremaPCLocFOfLocEPCOfLocateExtPC2d): StandardInteger {.
+proc GetStateNumber*(this: var Extrema_PCLocFOfLocEPCOfLocateExtPC2d): Standard_Integer {.
     importcpp: "GetStateNumber",
     header: "Extrema_PCLocFOfLocEPCOfLocateExtPC2d.hxx".}
-proc nbExt*(this: ExtremaPCLocFOfLocEPCOfLocateExtPC2d): StandardInteger {.
+proc NbExt*(this: Extrema_PCLocFOfLocEPCOfLocateExtPC2d): Standard_Integer {.
     noSideEffect, importcpp: "NbExt",
     header: "Extrema_PCLocFOfLocEPCOfLocateExtPC2d.hxx".}
-proc squareDistance*(this: ExtremaPCLocFOfLocEPCOfLocateExtPC2d; n: StandardInteger): StandardReal {.
-    noSideEffect, importcpp: "SquareDistance",
+proc SquareDistance*(this: Extrema_PCLocFOfLocEPCOfLocateExtPC2d;
+                    N: Standard_Integer): Standard_Real {.noSideEffect,
+    importcpp: "SquareDistance",
     header: "Extrema_PCLocFOfLocEPCOfLocateExtPC2d.hxx".}
-proc isMin*(this: ExtremaPCLocFOfLocEPCOfLocateExtPC2d; n: StandardInteger): StandardBoolean {.
+proc IsMin*(this: Extrema_PCLocFOfLocEPCOfLocateExtPC2d; N: Standard_Integer): Standard_Boolean {.
     noSideEffect, importcpp: "IsMin",
     header: "Extrema_PCLocFOfLocEPCOfLocateExtPC2d.hxx".}
-proc point*(this: ExtremaPCLocFOfLocEPCOfLocateExtPC2d; n: StandardInteger): ExtremaPOnCurv2d {.
+proc Point*(this: Extrema_PCLocFOfLocEPCOfLocateExtPC2d; N: Standard_Integer): Extrema_POnCurv2d {.
     noSideEffect, importcpp: "Point",
     header: "Extrema_PCLocFOfLocEPCOfLocateExtPC2d.hxx".}
-proc subIntervalInitialize*(this: var ExtremaPCLocFOfLocEPCOfLocateExtPC2d;
-                           theUfirst: StandardReal; theUlast: StandardReal) {.
+proc SubIntervalInitialize*(this: var Extrema_PCLocFOfLocEPCOfLocateExtPC2d;
+                           theUfirst: Standard_Real; theUlast: Standard_Real) {.
     importcpp: "SubIntervalInitialize",
     header: "Extrema_PCLocFOfLocEPCOfLocateExtPC2d.hxx".}
-proc searchOfTolerance*(this: var ExtremaPCLocFOfLocEPCOfLocateExtPC2d): StandardReal {.
+proc SearchOfTolerance*(this: var Extrema_PCLocFOfLocEPCOfLocateExtPC2d): Standard_Real {.
     importcpp: "SearchOfTolerance",
     header: "Extrema_PCLocFOfLocEPCOfLocateExtPC2d.hxx".}
-

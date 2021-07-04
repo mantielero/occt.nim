@@ -14,27 +14,32 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepGeom_Axis1Placement"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepGeomRWAxis1Placement* {.importcpp: "RWStepGeom_RWAxis1Placement",
-                               header: "RWStepGeom_RWAxis1Placement.hxx", bycopy.} = object
+  RWStepGeom_RWAxis1Placement* {.importcpp: "RWStepGeom_RWAxis1Placement",
+                                header: "RWStepGeom_RWAxis1Placement.hxx", bycopy.} = object
 
 
-proc constructRWStepGeomRWAxis1Placement*(): RWStepGeomRWAxis1Placement {.
+proc constructRWStepGeom_RWAxis1Placement*(): RWStepGeom_RWAxis1Placement {.
     constructor, importcpp: "RWStepGeom_RWAxis1Placement(@)",
     header: "RWStepGeom_RWAxis1Placement.hxx".}
-proc readStep*(this: RWStepGeomRWAxis1Placement;
-              data: Handle[StepDataStepReaderData]; num: StandardInteger;
-              ach: var Handle[InterfaceCheck]; ent: Handle[StepGeomAxis1Placement]) {.
-    noSideEffect, importcpp: "ReadStep", header: "RWStepGeom_RWAxis1Placement.hxx".}
-proc writeStep*(this: RWStepGeomRWAxis1Placement; sw: var StepDataStepWriter;
-               ent: Handle[StepGeomAxis1Placement]) {.noSideEffect,
+proc ReadStep*(this: RWStepGeom_RWAxis1Placement;
+              data: handle[StepData_StepReaderData]; num: Standard_Integer;
+              ach: var handle[Interface_Check];
+              ent: handle[StepGeom_Axis1Placement]) {.noSideEffect,
+    importcpp: "ReadStep", header: "RWStepGeom_RWAxis1Placement.hxx".}
+proc WriteStep*(this: RWStepGeom_RWAxis1Placement; SW: var StepData_StepWriter;
+               ent: handle[StepGeom_Axis1Placement]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepGeom_RWAxis1Placement.hxx".}
-proc share*(this: RWStepGeomRWAxis1Placement; ent: Handle[StepGeomAxis1Placement];
-           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
+proc Share*(this: RWStepGeom_RWAxis1Placement;
+           ent: handle[StepGeom_Axis1Placement];
+           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepGeom_RWAxis1Placement.hxx".}
-

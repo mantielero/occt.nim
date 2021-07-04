@@ -14,6 +14,14 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../TopoDS/TopoDS_Shape,
+  ../TopTools/TopTools_IndexedDataMapOfShapeShape,
+  ../TopTools/TopTools_MapOfShape, ../Standard/Standard_Boolean,
+  ../TopTools/TopTools_DataMapOfShapeShape, ../Standard/Standard_Integer,
+  ../Standard/Standard_Transient, ../Standard/Standard_Real,
+  ../TopTools/TopTools_SequenceOfShape
+
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of TopoDS_Wire"
 discard "forward decl of TopoDS_Face"
@@ -23,64 +31,63 @@ discard "forward decl of TopoDS_Vertex"
 discard "forward decl of LocOpe_WiresOnShape"
 discard "forward decl of LocOpe_WiresOnShape"
 type
-  HandleLocOpeWiresOnShape* = Handle[LocOpeWiresOnShape]
-  LocOpeWiresOnShape* {.importcpp: "LocOpe_WiresOnShape",
-                       header: "LocOpe_WiresOnShape.hxx", bycopy.} = object of StandardTransient
+  Handle_LocOpe_WiresOnShape* = handle[LocOpe_WiresOnShape]
+  LocOpe_WiresOnShape* {.importcpp: "LocOpe_WiresOnShape",
+                        header: "LocOpe_WiresOnShape.hxx", bycopy.} = object of Standard_Transient
 
 
-proc constructLocOpeWiresOnShape*(s: TopoDS_Shape): LocOpeWiresOnShape {.
+proc constructLocOpe_WiresOnShape*(S: TopoDS_Shape): LocOpe_WiresOnShape {.
     constructor, importcpp: "LocOpe_WiresOnShape(@)",
     header: "LocOpe_WiresOnShape.hxx".}
-proc init*(this: var LocOpeWiresOnShape; s: TopoDS_Shape) {.importcpp: "Init",
+proc Init*(this: var LocOpe_WiresOnShape; S: TopoDS_Shape) {.importcpp: "Init",
     header: "LocOpe_WiresOnShape.hxx".}
-proc add*(this: var LocOpeWiresOnShape; theEdges: TopToolsSequenceOfShape): StandardBoolean {.
+proc Add*(this: var LocOpe_WiresOnShape; theEdges: TopTools_SequenceOfShape): Standard_Boolean {.
     importcpp: "Add", header: "LocOpe_WiresOnShape.hxx".}
-proc setCheckInterior*(this: var LocOpeWiresOnShape;
-                      toCheckInterior: StandardBoolean) {.
+proc SetCheckInterior*(this: var LocOpe_WiresOnShape;
+                      ToCheckInterior: Standard_Boolean) {.
     importcpp: "SetCheckInterior", header: "LocOpe_WiresOnShape.hxx".}
-proc `bind`*(this: var LocOpeWiresOnShape; w: TopoDS_Wire; f: TopoDS_Face) {.
+proc Bind*(this: var LocOpe_WiresOnShape; W: TopoDS_Wire; F: TopoDS_Face) {.
     importcpp: "Bind", header: "LocOpe_WiresOnShape.hxx".}
-proc `bind`*(this: var LocOpeWiresOnShape; comp: TopoDS_Compound; f: TopoDS_Face) {.
+proc Bind*(this: var LocOpe_WiresOnShape; Comp: TopoDS_Compound; F: TopoDS_Face) {.
     importcpp: "Bind", header: "LocOpe_WiresOnShape.hxx".}
-proc `bind`*(this: var LocOpeWiresOnShape; e: TopoDS_Edge; f: TopoDS_Face) {.
+proc Bind*(this: var LocOpe_WiresOnShape; E: TopoDS_Edge; F: TopoDS_Face) {.
     importcpp: "Bind", header: "LocOpe_WiresOnShape.hxx".}
-proc `bind`*(this: var LocOpeWiresOnShape; efromW: TopoDS_Edge; eonFace: TopoDS_Edge) {.
+proc Bind*(this: var LocOpe_WiresOnShape; EfromW: TopoDS_Edge; EonFace: TopoDS_Edge) {.
     importcpp: "Bind", header: "LocOpe_WiresOnShape.hxx".}
-proc bindAll*(this: var LocOpeWiresOnShape) {.importcpp: "BindAll",
+proc BindAll*(this: var LocOpe_WiresOnShape) {.importcpp: "BindAll",
     header: "LocOpe_WiresOnShape.hxx".}
-proc isDone*(this: LocOpeWiresOnShape): StandardBoolean {.noSideEffect,
+proc IsDone*(this: LocOpe_WiresOnShape): Standard_Boolean {.noSideEffect,
     importcpp: "IsDone", header: "LocOpe_WiresOnShape.hxx".}
-proc initEdgeIterator*(this: var LocOpeWiresOnShape) {.
+proc InitEdgeIterator*(this: var LocOpe_WiresOnShape) {.
     importcpp: "InitEdgeIterator", header: "LocOpe_WiresOnShape.hxx".}
-proc moreEdge*(this: var LocOpeWiresOnShape): StandardBoolean {.
+proc MoreEdge*(this: var LocOpe_WiresOnShape): Standard_Boolean {.
     importcpp: "MoreEdge", header: "LocOpe_WiresOnShape.hxx".}
-proc edge*(this: var LocOpeWiresOnShape): TopoDS_Edge {.importcpp: "Edge",
+proc Edge*(this: var LocOpe_WiresOnShape): TopoDS_Edge {.importcpp: "Edge",
     header: "LocOpe_WiresOnShape.hxx".}
-proc onFace*(this: var LocOpeWiresOnShape): TopoDS_Face {.importcpp: "OnFace",
+proc OnFace*(this: var LocOpe_WiresOnShape): TopoDS_Face {.importcpp: "OnFace",
     header: "LocOpe_WiresOnShape.hxx".}
-proc onEdge*(this: var LocOpeWiresOnShape; e: var TopoDS_Edge): StandardBoolean {.
+proc OnEdge*(this: var LocOpe_WiresOnShape; E: var TopoDS_Edge): Standard_Boolean {.
     importcpp: "OnEdge", header: "LocOpe_WiresOnShape.hxx".}
-proc nextEdge*(this: var LocOpeWiresOnShape) {.importcpp: "NextEdge",
+proc NextEdge*(this: var LocOpe_WiresOnShape) {.importcpp: "NextEdge",
     header: "LocOpe_WiresOnShape.hxx".}
-proc onVertex*(this: var LocOpeWiresOnShape; vwire: TopoDS_Vertex;
-              vshape: var TopoDS_Vertex): StandardBoolean {.importcpp: "OnVertex",
+proc OnVertex*(this: var LocOpe_WiresOnShape; Vwire: TopoDS_Vertex;
+              Vshape: var TopoDS_Vertex): Standard_Boolean {.importcpp: "OnVertex",
     header: "LocOpe_WiresOnShape.hxx".}
-proc onEdge*(this: var LocOpeWiresOnShape; v: TopoDS_Vertex; e: var TopoDS_Edge;
-            p: var StandardReal): StandardBoolean {.importcpp: "OnEdge",
+proc OnEdge*(this: var LocOpe_WiresOnShape; V: TopoDS_Vertex; E: var TopoDS_Edge;
+            P: var Standard_Real): Standard_Boolean {.importcpp: "OnEdge",
     header: "LocOpe_WiresOnShape.hxx".}
-proc onEdge*(this: var LocOpeWiresOnShape; v: TopoDS_Vertex; edgeFrom: TopoDS_Edge;
-            e: var TopoDS_Edge; p: var StandardReal): StandardBoolean {.
+proc OnEdge*(this: var LocOpe_WiresOnShape; V: TopoDS_Vertex; EdgeFrom: TopoDS_Edge;
+            E: var TopoDS_Edge; P: var Standard_Real): Standard_Boolean {.
     importcpp: "OnEdge", header: "LocOpe_WiresOnShape.hxx".}
-proc isFaceWithSection*(this: LocOpeWiresOnShape; aFace: TopoDS_Shape): StandardBoolean {.
+proc IsFaceWithSection*(this: LocOpe_WiresOnShape; aFace: TopoDS_Shape): Standard_Boolean {.
     noSideEffect, importcpp: "IsFaceWithSection", header: "LocOpe_WiresOnShape.hxx".}
 type
-  LocOpeWiresOnShapebaseType* = StandardTransient
+  LocOpe_WiresOnShapebase_type* = Standard_Transient
 
-proc getTypeName*(): cstring {.importcpp: "LocOpe_WiresOnShape::get_type_name(@)",
-                            header: "LocOpe_WiresOnShape.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "LocOpe_WiresOnShape::get_type_name(@)",
+                              header: "LocOpe_WiresOnShape.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "LocOpe_WiresOnShape::get_type_descriptor(@)",
     header: "LocOpe_WiresOnShape.hxx".}
-proc dynamicType*(this: LocOpeWiresOnShape): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: LocOpe_WiresOnShape): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "LocOpe_WiresOnShape.hxx".}
-

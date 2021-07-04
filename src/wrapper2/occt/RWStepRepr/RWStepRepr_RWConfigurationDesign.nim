@@ -14,29 +14,33 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepRepr_ConfigurationDesign"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepReprRWConfigurationDesign* {.importcpp: "RWStepRepr_RWConfigurationDesign", header: "RWStepRepr_RWConfigurationDesign.hxx",
-                                    bycopy.} = object ## ! Empty constructor
+  RWStepRepr_RWConfigurationDesign* {.importcpp: "RWStepRepr_RWConfigurationDesign", header: "RWStepRepr_RWConfigurationDesign.hxx",
+                                     bycopy.} = object ## ! Empty constructor
 
 
-proc constructRWStepReprRWConfigurationDesign*(): RWStepReprRWConfigurationDesign {.
+proc constructRWStepRepr_RWConfigurationDesign*(): RWStepRepr_RWConfigurationDesign {.
     constructor, importcpp: "RWStepRepr_RWConfigurationDesign(@)",
     header: "RWStepRepr_RWConfigurationDesign.hxx".}
-proc readStep*(this: RWStepReprRWConfigurationDesign;
-              data: Handle[StepDataStepReaderData]; num: StandardInteger;
-              ach: var Handle[InterfaceCheck];
-              ent: Handle[StepReprConfigurationDesign]) {.noSideEffect,
+proc ReadStep*(this: RWStepRepr_RWConfigurationDesign;
+              data: handle[StepData_StepReaderData]; num: Standard_Integer;
+              ach: var handle[Interface_Check];
+              ent: handle[StepRepr_ConfigurationDesign]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepRepr_RWConfigurationDesign.hxx".}
-proc writeStep*(this: RWStepReprRWConfigurationDesign; sw: var StepDataStepWriter;
-               ent: Handle[StepReprConfigurationDesign]) {.noSideEffect,
+proc WriteStep*(this: RWStepRepr_RWConfigurationDesign;
+               SW: var StepData_StepWriter;
+               ent: handle[StepRepr_ConfigurationDesign]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepRepr_RWConfigurationDesign.hxx".}
-proc share*(this: RWStepReprRWConfigurationDesign;
-           ent: Handle[StepReprConfigurationDesign];
-           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
+proc Share*(this: RWStepRepr_RWConfigurationDesign;
+           ent: handle[StepRepr_ConfigurationDesign];
+           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepRepr_RWConfigurationDesign.hxx".}
-

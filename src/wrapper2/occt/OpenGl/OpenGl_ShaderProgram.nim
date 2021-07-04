@@ -13,429 +13,438 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../NCollection/NCollection_DataMap, ../NCollection/NCollection_Sequence,
+  ../TCollection/TCollection_AsciiString, ../Graphic3d/Graphic3d_ShaderObject,
+  ../Graphic3d/Graphic3d_ShaderProgram, ../Graphic3d/Graphic3d_TextureSetBits,
+  OpenGl_Vec, OpenGl_Matrix, OpenGl_NamedResource, OpenGl_ShaderObject
+
 discard "forward decl of OpenGl_ShaderProgram"
 discard "forward decl of OpenGl_ShaderProgram"
 type
-  HandleOpenGlShaderProgram* = Handle[OpenGlShaderProgram]
+  Handle_OpenGl_ShaderProgram* = handle[OpenGl_ShaderProgram]
 
 ## ! The enumeration of OCCT-specific OpenGL/GLSL variables.
 
 type
-  OpenGlStateVariable* {.size: sizeof(cint), importcpp: "OpenGl_StateVariable",
-                        header: "OpenGl_ShaderProgram.hxx".} = enum ##  OpenGL matrix state
-    OpenGlOCC_MODEL_WORLD_MATRIX, OpenGlOCC_WORLD_VIEW_MATRIX,
-    OpenGlOCC_PROJECTION_MATRIX, OpenGlOCC_MODEL_WORLD_MATRIX_INVERSE,
-    OpenGlOCC_WORLD_VIEW_MATRIX_INVERSE, OpenGlOCC_PROJECTION_MATRIX_INVERSE,
-    OpenGlOCC_MODEL_WORLD_MATRIX_TRANSPOSE,
-    OpenGlOCC_WORLD_VIEW_MATRIX_TRANSPOSE, OpenGlOCC_PROJECTION_MATRIX_TRANSPOSE,
-    OpenGlOCC_MODEL_WORLD_MATRIX_INVERSE_TRANSPOSE,
-    OpenGlOCC_WORLD_VIEW_MATRIX_INVERSE_TRANSPOSE, OpenGlOCC_PROJECTION_MATRIX_INVERSE_TRANSPOSE, ##  OpenGL clip planes state
-    OpenGlOCC_CLIP_PLANE_EQUATIONS, OpenGlOCC_CLIP_PLANE_CHAINS, OpenGlOCC_CLIP_PLANE_COUNT, ##  OpenGL light state
-    OpenGlOCC_LIGHT_SOURCE_COUNT, OpenGlOCC_LIGHT_SOURCE_TYPES,
-    OpenGlOCC_LIGHT_SOURCE_PARAMS, OpenGlOCC_LIGHT_AMBIENT, ##  Material state
-    OpenGlOCCT_TEXTURE_ENABLE, OpenGlOCCT_DISTINGUISH_MODE,
-    OpenGlOCCT_PBR_FRONT_MATERIAL, OpenGlOCCT_PBR_BACK_MATERIAL,
-    OpenGlOCCT_COMMON_FRONT_MATERIAL, OpenGlOCCT_COMMON_BACK_MATERIAL,
-    OpenGlOCCT_ALPHA_CUTOFF, OpenGlOCCT_COLOR, ##  Weighted, Blended Order-Independent Transparency rendering state
-    OpenGlOCCT_OIT_OUTPUT, OpenGlOCCT_OIT_DEPTH_FACTOR, ##  Context-dependent state
-    OpenGlOCCT_TEXTURE_TRSF2D, OpenGlOCCT_POINT_SIZE, ##  Wireframe state
-    OpenGlOCCT_VIEWPORT, OpenGlOCCT_LINE_WIDTH, OpenGlOCCT_LINE_FEATHER, OpenGlOCCT_LINE_STIPPLE_PATTERN, ##  occStipplePattern
-    OpenGlOCCT_LINE_STIPPLE_FACTOR, ##  occStippleFactor
-    OpenGlOCCT_WIREFRAME_COLOR, OpenGlOCCT_QUAD_MODE_STATE, ##  Parameters of outline (silhouette) shader
-    OpenGlOCCT_ORTHO_SCALE, OpenGlOCCT_SILHOUETTE_THICKNESS, ##  PBR state
-    OpenGlOCCT_NB_SPEC_IBL_LEVELS, ##  DON'T MODIFY THIS ITEM (insert new items before it)
-    OpenGlOCCT_NUMBER_OF_STATE_VARIABLES
+  OpenGl_StateVariable* {.size: sizeof(cint), importcpp: "OpenGl_StateVariable",
+                         header: "OpenGl_ShaderProgram.hxx".} = enum ##  OpenGL matrix state
+    OpenGl_OCC_MODEL_WORLD_MATRIX, OpenGl_OCC_WORLD_VIEW_MATRIX,
+    OpenGl_OCC_PROJECTION_MATRIX, OpenGl_OCC_MODEL_WORLD_MATRIX_INVERSE,
+    OpenGl_OCC_WORLD_VIEW_MATRIX_INVERSE, OpenGl_OCC_PROJECTION_MATRIX_INVERSE,
+    OpenGl_OCC_MODEL_WORLD_MATRIX_TRANSPOSE,
+    OpenGl_OCC_WORLD_VIEW_MATRIX_TRANSPOSE,
+    OpenGl_OCC_PROJECTION_MATRIX_TRANSPOSE,
+    OpenGl_OCC_MODEL_WORLD_MATRIX_INVERSE_TRANSPOSE,
+    OpenGl_OCC_WORLD_VIEW_MATRIX_INVERSE_TRANSPOSE, OpenGl_OCC_PROJECTION_MATRIX_INVERSE_TRANSPOSE, ##  OpenGL clip planes state
+    OpenGl_OCC_CLIP_PLANE_EQUATIONS, OpenGl_OCC_CLIP_PLANE_CHAINS, OpenGl_OCC_CLIP_PLANE_COUNT, ##  OpenGL light state
+    OpenGl_OCC_LIGHT_SOURCE_COUNT, OpenGl_OCC_LIGHT_SOURCE_TYPES,
+    OpenGl_OCC_LIGHT_SOURCE_PARAMS, OpenGl_OCC_LIGHT_AMBIENT, ##  Material state
+    OpenGl_OCCT_TEXTURE_ENABLE, OpenGl_OCCT_DISTINGUISH_MODE,
+    OpenGl_OCCT_PBR_FRONT_MATERIAL, OpenGl_OCCT_PBR_BACK_MATERIAL,
+    OpenGl_OCCT_COMMON_FRONT_MATERIAL, OpenGl_OCCT_COMMON_BACK_MATERIAL,
+    OpenGl_OCCT_ALPHA_CUTOFF, OpenGl_OCCT_COLOR, ##  Weighted, Blended Order-Independent Transparency rendering state
+    OpenGl_OCCT_OIT_OUTPUT, OpenGl_OCCT_OIT_DEPTH_FACTOR, ##  Context-dependent state
+    OpenGl_OCCT_TEXTURE_TRSF2D, OpenGl_OCCT_POINT_SIZE, ##  Wireframe state
+    OpenGl_OCCT_VIEWPORT, OpenGl_OCCT_LINE_WIDTH, OpenGl_OCCT_LINE_FEATHER, OpenGl_OCCT_LINE_STIPPLE_PATTERN, ##  occStipplePattern
+    OpenGl_OCCT_LINE_STIPPLE_FACTOR, ##  occStippleFactor
+    OpenGl_OCCT_WIREFRAME_COLOR, OpenGl_OCCT_QUAD_MODE_STATE, ##  Parameters of outline (silhouette) shader
+    OpenGl_OCCT_ORTHO_SCALE, OpenGl_OCCT_SILHOUETTE_THICKNESS, ##  PBR state
+    OpenGl_OCCT_NB_SPEC_IBL_LEVELS, ##  DON'T MODIFY THIS ITEM (insert new items before it)
+    OpenGl_OCCT_NUMBER_OF_STATE_VARIABLES
 
 
 ## ! Interface for generic setter of user-defined uniform variables.
 
 type
-  OpenGlSetterInterface* {.importcpp: "OpenGl_SetterInterface",
-                          header: "OpenGl_ShaderProgram.hxx", bycopy.} = object ## ! Sets
-                                                                           ## user-defined
-                                                                           ## uniform
-                                                                           ## variable to
-                                                                           ## specified
-                                                                           ## program.
+  OpenGl_SetterInterface* {.importcpp: "OpenGl_SetterInterface",
+                           header: "OpenGl_ShaderProgram.hxx", bycopy.} = object ## ! Sets
+                                                                            ## user-defined
+                                                                            ## uniform
+                                                                            ## variable to
+                                                                            ## specified
+                                                                            ## program.
 
 
-proc set*(this: var OpenGlSetterInterface; theCtx: Handle[OpenGlContext];
-         theVariable: Handle[Graphic3dShaderVariable];
-         theProgram: ptr OpenGlShaderProgram) {.importcpp: "Set",
+proc Set*(this: var OpenGl_SetterInterface; theCtx: handle[OpenGl_Context];
+         theVariable: handle[Graphic3d_ShaderVariable];
+         theProgram: ptr OpenGl_ShaderProgram) {.importcpp: "Set",
     header: "OpenGl_ShaderProgram.hxx".}
-proc destroyOpenGlSetterInterface*(this: var OpenGlSetterInterface) {.
+proc destroyOpenGl_SetterInterface*(this: var OpenGl_SetterInterface) {.
     importcpp: "#.~OpenGl_SetterInterface()", header: "OpenGl_ShaderProgram.hxx".}
 ## ! List of OpenGL shader objects.
 
 type
-  OpenGlShaderList* = NCollectionSequence[Handle[OpenGlShaderObject]]
+  OpenGl_ShaderList* = NCollection_Sequence[handle[OpenGl_ShaderObject]]
 
 ## ! List of shader variable setters.
 
 type
-  OpenGlSetterList* = NCollectionDataMap[csize_t, ptr OpenGlSetterInterface]
+  OpenGl_SetterList* = NCollection_DataMap[csize_t, ptr OpenGl_SetterInterface]
 
 ## ! Support tool for setting user-defined uniform variables.
 
 type
-  OpenGlVariableSetterSelector* {.importcpp: "OpenGl_VariableSetterSelector",
-                                 header: "OpenGl_ShaderProgram.hxx", bycopy.} = object ##
-                                                                                  ## !
-                                                                                  ## Creates
-                                                                                  ## new
-                                                                                  ## setter
-                                                                                  ## selector.
-                                                                                  ##
-                                                                                  ## !
-                                                                                  ## List
-                                                                                  ## of
-                                                                                  ## variable
-                                                                                  ## setters.
+  OpenGl_VariableSetterSelector* {.importcpp: "OpenGl_VariableSetterSelector",
+                                  header: "OpenGl_ShaderProgram.hxx", bycopy.} = object ##
+                                                                                   ## !
+                                                                                   ## Creates
+                                                                                   ## new
+                                                                                   ## setter
+                                                                                   ## selector.
+                                                                                   ##
+                                                                                   ## !
+                                                                                   ## List
+                                                                                   ## of
+                                                                                   ## variable
+                                                                                   ## setters.
 
 
-proc constructOpenGlVariableSetterSelector*(): OpenGlVariableSetterSelector {.
+proc constructOpenGl_VariableSetterSelector*(): OpenGl_VariableSetterSelector {.
     constructor, importcpp: "OpenGl_VariableSetterSelector(@)",
     header: "OpenGl_ShaderProgram.hxx".}
-proc destroyOpenGlVariableSetterSelector*(this: var OpenGlVariableSetterSelector) {.
+proc destroyOpenGl_VariableSetterSelector*(
+    this: var OpenGl_VariableSetterSelector) {.
     importcpp: "#.~OpenGl_VariableSetterSelector()",
     header: "OpenGl_ShaderProgram.hxx".}
-proc set*(this: OpenGlVariableSetterSelector; theCtx: Handle[OpenGlContext];
-         theVariable: Handle[Graphic3dShaderVariable];
-         theProgram: ptr OpenGlShaderProgram) {.noSideEffect, importcpp: "Set",
+proc Set*(this: OpenGl_VariableSetterSelector; theCtx: handle[OpenGl_Context];
+         theVariable: handle[Graphic3d_ShaderVariable];
+         theProgram: ptr OpenGl_ShaderProgram) {.noSideEffect, importcpp: "Set",
     header: "OpenGl_ShaderProgram.hxx".}
 ## ! Defines types of uniform state variables.
 
 type
-  OpenGlUniformStateType* {.size: sizeof(cint),
-                           importcpp: "OpenGl_UniformStateType",
-                           header: "OpenGl_ShaderProgram.hxx".} = enum
-    OpenGlLIGHT_SOURCES_STATE, OpenGlCLIP_PLANES_STATE, OpenGlMODEL_WORLD_STATE,
-    OpenGlWORLD_VIEW_STATE, OpenGlPROJECTION_STATE, OpenGlMATERIAL_STATE,
-    OpenGlSURF_DETAIL_STATE, OpenGL_OIT_STATE, OpenGlUniformStateTypeNB
+  OpenGl_UniformStateType* {.size: sizeof(cint),
+                            importcpp: "OpenGl_UniformStateType",
+                            header: "OpenGl_ShaderProgram.hxx".} = enum
+    OpenGl_LIGHT_SOURCES_STATE, OpenGl_CLIP_PLANES_STATE,
+    OpenGl_MODEL_WORLD_STATE, OpenGl_WORLD_VIEW_STATE, OpenGl_PROJECTION_STATE,
+    OpenGl_MATERIAL_STATE, OpenGl_SURF_DETAIL_STATE, OpenGL_OIT_STATE,
+    OpenGl_UniformStateType_NB
 
 
 ## ! Simple class represents GLSL program variable location.
 
 type
-  OpenGlShaderUniformLocation* {.importcpp: "OpenGl_ShaderUniformLocation",
-                                header: "OpenGl_ShaderProgram.hxx", bycopy.} = object ##
-                                                                                 ## !
-                                                                                 ## Invalid
-                                                                                 ## location
-                                                                                 ## of
-                                                                                 ## uniform/attribute
-                                                                                 ## variable.
-                                                                                 ##
-                                                                                 ## !
-                                                                                 ## Construct
-                                                                                 ## an
-                                                                                 ## invalid
-                                                                                 ## location.
+  OpenGl_ShaderUniformLocation* {.importcpp: "OpenGl_ShaderUniformLocation",
+                                 header: "OpenGl_ShaderProgram.hxx", bycopy.} = object ##
+                                                                                  ## !
+                                                                                  ## Invalid
+                                                                                  ## location
+                                                                                  ## of
+                                                                                  ## uniform/attribute
+                                                                                  ## variable.
+                                                                                  ##
+                                                                                  ## !
+                                                                                  ## Construct
+                                                                                  ## an
+                                                                                  ## invalid
+                                                                                  ## location.
 
 
-proc constructOpenGlShaderUniformLocation*(): OpenGlShaderUniformLocation {.
+proc constructOpenGl_ShaderUniformLocation*(): OpenGl_ShaderUniformLocation {.
     constructor, importcpp: "OpenGl_ShaderUniformLocation(@)",
     header: "OpenGl_ShaderProgram.hxx".}
-proc constructOpenGlShaderUniformLocation*(theLocation: GLint): OpenGlShaderUniformLocation {.
+proc constructOpenGl_ShaderUniformLocation*(theLocation: GLint): OpenGl_ShaderUniformLocation {.
     constructor, importcpp: "OpenGl_ShaderUniformLocation(@)",
     header: "OpenGl_ShaderProgram.hxx".}
-proc isValid*(this: OpenGlShaderUniformLocation): bool {.noSideEffect,
+proc IsValid*(this: OpenGl_ShaderUniformLocation): bool {.noSideEffect,
     importcpp: "IsValid", header: "OpenGl_ShaderProgram.hxx".}
-converter `bool`*(this: OpenGlShaderUniformLocation): bool {.noSideEffect,
+converter `bool`*(this: OpenGl_ShaderUniformLocation): bool {.noSideEffect,
     importcpp: "OpenGl_ShaderUniformLocation::operator bool",
     header: "OpenGl_ShaderProgram.hxx".}
-converter `gLint`*(this: OpenGlShaderUniformLocation): GLint {.noSideEffect,
+converter `GLint`*(this: OpenGl_ShaderUniformLocation): GLint {.noSideEffect,
     importcpp: "OpenGl_ShaderUniformLocation::operator GLint",
     header: "OpenGl_ShaderProgram.hxx".}
 ## ! Wrapper for OpenGL program object.
 
 type
-  OpenGlShaderProgram* {.importcpp: "OpenGl_ShaderProgram",
-                        header: "OpenGl_ShaderProgram.hxx", bycopy.} = object of OpenGlNamedResource ##
-                                                                                              ## !
-                                                                                              ## Non-valid
-                                                                                              ## shader
-                                                                                              ## name.
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ## Releases
-                                                                                              ## resources
-                                                                                              ## of
-                                                                                              ## shader
-                                                                                              ## program.
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ## Return
-                                                                                              ## TRUE
-                                                                                              ## if
-                                                                                              ## program
-                                                                                              ## defines
-                                                                                              ## tessellation
-                                                                                              ## stage.
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ## Returns
-                                                                                              ## index
-                                                                                              ## of
-                                                                                              ## last
-                                                                                              ## modification
-                                                                                              ## of
-                                                                                              ## variables
-                                                                                              ## of
-                                                                                              ## specified
-                                                                                              ## state
-                                                                                              ## type.
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ## Returns
-                                                                                              ## location
-                                                                                              ## of
-                                                                                              ## the
-                                                                                              ## specific
-                                                                                              ## uniform
-                                                                                              ## variable.
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ## Returns
-                                                                                              ## the
-                                                                                              ## value
-                                                                                              ## of
-                                                                                              ## the
-                                                                                              ## integer
-                                                                                              ## uniform
-                                                                                              ## variable.
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ## Returns
-                                                                                              ## the
-                                                                                              ## integer
-                                                                                              ## vertex
-                                                                                              ## attribute.
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ## Wrapper
-                                                                                              ## for
-                                                                                              ## glBindAttribLocation()
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ## Specifies
-                                                                                              ## the
-                                                                                              ## value
-                                                                                              ## of
-                                                                                              ## the
-                                                                                              ## integer
-                                                                                              ## uniform
-                                                                                              ## variable.
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ## Specifies
-                                                                                              ## the
-                                                                                              ## value
-                                                                                              ## of
-                                                                                              ## the
-                                                                                              ## unsigned
-                                                                                              ## integer
-                                                                                              ## uniform
-                                                                                              ## 2D
-                                                                                              ## vector
-                                                                                              ## (uvec2).
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ## Specifies
-                                                                                              ## the
-                                                                                              ## value
-                                                                                              ## of
-                                                                                              ## the
-                                                                                              ## float
-                                                                                              ## uniform
-                                                                                              ## variable.
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ## Specifies
-                                                                                              ## the
-                                                                                              ## value
-                                                                                              ## of
-                                                                                              ## the
-                                                                                              ## float
-                                                                                              ## uniform
-                                                                                              ## 4x4
-                                                                                              ## matrix.
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ## Specifies
-                                                                                              ## the
-                                                                                              ## value
-                                                                                              ## of
-                                                                                              ## the
-                                                                                              ## sampler
-                                                                                              ## uniform
-                                                                                              ## variable.
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ## Update
-                                                                                              ## the
-                                                                                              ## shader
-                                                                                              ## program
-                                                                                              ## from
-                                                                                              ## external
-                                                                                              ## files
-                                                                                              ## (per
-                                                                                              ## shader
-                                                                                              ## stage)
-                                                                                              ## in
-                                                                                              ## the
-                                                                                              ## following
-                                                                                              ## way:
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ## 1)
-                                                                                              ## If
-                                                                                              ## external
-                                                                                              ## file
-                                                                                              ## does
-                                                                                              ## not
-                                                                                              ## exist,
-                                                                                              ## then
-                                                                                              ## it
-                                                                                              ## will
-                                                                                              ## be
-                                                                                              ## created
-                                                                                              ## (current
-                                                                                              ## source
-                                                                                              ## code
-                                                                                              ## will
-                                                                                              ## be
-                                                                                              ## dumped,
-                                                                                              ## no
-                                                                                              ## recompilation)
-                                                                                              ## and
-                                                                                              ## FALSE
-                                                                                              ## will
-                                                                                              ## be
-                                                                                              ## returned.
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ## 2)
-                                                                                              ## If
-                                                                                              ## external
-                                                                                              ## file
-                                                                                              ## exists
-                                                                                              ## and
-                                                                                              ## it
-                                                                                              ## has
-                                                                                              ## the
-                                                                                              ## same
-                                                                                              ## timestamp
-                                                                                              ## as
-                                                                                              ## myDumpDate,
-                                                                                              ## nothing
-                                                                                              ## will
-                                                                                              ## be
-                                                                                              ## done
-                                                                                              ## and
-                                                                                              ## FALSE
-                                                                                              ## will
-                                                                                              ## be
-                                                                                              ## returned.
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ## 3)
-                                                                                              ## If
-                                                                                              ## external
-                                                                                              ## file
-                                                                                              ## exists
-                                                                                              ## and
-                                                                                              ## it
-                                                                                              ## has
-                                                                                              ## newer
-                                                                                              ## timestamp
-                                                                                              ## than
-                                                                                              ## myDumpDate,
-                                                                                              ## shader
-                                                                                              ## will
-                                                                                              ## be
-                                                                                              ## recompiled
-                                                                                              ## and
-                                                                                              ## relinked
-                                                                                              ## and
-                                                                                              ## TRUE
-                                                                                              ## will
-                                                                                              ## be
-                                                                                              ## returned.
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ## @param
-                                                                                              ## theCtx
-                                                                                              ## OpenGL
-                                                                                              ## context
-                                                                                              ## bound
-                                                                                              ## to
-                                                                                              ## this
-                                                                                              ## working
-                                                                                              ## thread
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ## @param
-                                                                                              ## theFolder
-                                                                                              ## folder
-                                                                                              ## to
-                                                                                              ## store
-                                                                                              ## files;
-                                                                                              ## when
-                                                                                              ## unspecified,
-                                                                                              ## $CSF_ShadersDirectoryDump
-                                                                                              ## or
-                                                                                              ## current
-                                                                                              ## folder
-                                                                                              ## will
-                                                                                              ## be
-                                                                                              ## used
-                                                                                              ## instead
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ## @param
-                                                                                              ## theToBeautify
-                                                                                              ## flag
-                                                                                              ## improving
-                                                                                              ## formatting
-                                                                                              ## (add
-                                                                                              ## extra
-                                                                                              ## newlines)
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ## @param
-                                                                                              ## theToReset
-                                                                                              ## when
-                                                                                              ## TRUE,
-                                                                                              ## existing
-                                                                                              ## dumps
-                                                                                              ## will
-                                                                                              ## be
-                                                                                              ## overridden
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ## Increments
-                                                                                              ## counter
-                                                                                              ## of
-                                                                                              ## users.
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ## Used
-                                                                                              ## by
-                                                                                              ## OpenGl_ShaderManager.
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ## @return
-                                                                                              ## true
-                                                                                              ## when
-                                                                                              ## resource
-                                                                                              ## has
-                                                                                              ## been
-                                                                                              ## restored
-                                                                                              ## from
-                                                                                              ## delayed
-                                                                                              ## release
-                                                                                              ## queue
+  OpenGl_ShaderProgram* {.importcpp: "OpenGl_ShaderProgram",
+                         header: "OpenGl_ShaderProgram.hxx", bycopy.} = object of OpenGl_NamedResource ##
+                                                                                                ## !
+                                                                                                ## Non-valid
+                                                                                                ## shader
+                                                                                                ## name.
+                                                                                                ##
+                                                                                                ## !
+                                                                                                ## Releases
+                                                                                                ## resources
+                                                                                                ## of
+                                                                                                ## shader
+                                                                                                ## program.
+                                                                                                ##
+                                                                                                ## !
+                                                                                                ## Return
+                                                                                                ## TRUE
+                                                                                                ## if
+                                                                                                ## program
+                                                                                                ## defines
+                                                                                                ## tessellation
+                                                                                                ## stage.
+                                                                                                ##
+                                                                                                ## !
+                                                                                                ## Returns
+                                                                                                ## index
+                                                                                                ## of
+                                                                                                ## last
+                                                                                                ## modification
+                                                                                                ## of
+                                                                                                ## variables
+                                                                                                ## of
+                                                                                                ## specified
+                                                                                                ## state
+                                                                                                ## type.
+                                                                                                ##
+                                                                                                ## !
+                                                                                                ## Returns
+                                                                                                ## location
+                                                                                                ## of
+                                                                                                ## the
+                                                                                                ## specific
+                                                                                                ## uniform
+                                                                                                ## variable.
+                                                                                                ##
+                                                                                                ## !
+                                                                                                ## Returns
+                                                                                                ## the
+                                                                                                ## value
+                                                                                                ## of
+                                                                                                ## the
+                                                                                                ## integer
+                                                                                                ## uniform
+                                                                                                ## variable.
+                                                                                                ##
+                                                                                                ## !
+                                                                                                ## Returns
+                                                                                                ## the
+                                                                                                ## integer
+                                                                                                ## vertex
+                                                                                                ## attribute.
+                                                                                                ##
+                                                                                                ## !
+                                                                                                ## Wrapper
+                                                                                                ## for
+                                                                                                ## glBindAttribLocation()
+                                                                                                ##
+                                                                                                ## !
+                                                                                                ## Specifies
+                                                                                                ## the
+                                                                                                ## value
+                                                                                                ## of
+                                                                                                ## the
+                                                                                                ## integer
+                                                                                                ## uniform
+                                                                                                ## variable.
+                                                                                                ##
+                                                                                                ## !
+                                                                                                ## Specifies
+                                                                                                ## the
+                                                                                                ## value
+                                                                                                ## of
+                                                                                                ## the
+                                                                                                ## unsigned
+                                                                                                ## integer
+                                                                                                ## uniform
+                                                                                                ## 2D
+                                                                                                ## vector
+                                                                                                ## (uvec2).
+                                                                                                ##
+                                                                                                ## !
+                                                                                                ## Specifies
+                                                                                                ## the
+                                                                                                ## value
+                                                                                                ## of
+                                                                                                ## the
+                                                                                                ## float
+                                                                                                ## uniform
+                                                                                                ## variable.
+                                                                                                ##
+                                                                                                ## !
+                                                                                                ## Specifies
+                                                                                                ## the
+                                                                                                ## value
+                                                                                                ## of
+                                                                                                ## the
+                                                                                                ## float
+                                                                                                ## uniform
+                                                                                                ## 4x4
+                                                                                                ## matrix.
+                                                                                                ##
+                                                                                                ## !
+                                                                                                ## Specifies
+                                                                                                ## the
+                                                                                                ## value
+                                                                                                ## of
+                                                                                                ## the
+                                                                                                ## sampler
+                                                                                                ## uniform
+                                                                                                ## variable.
+                                                                                                ##
+                                                                                                ## !
+                                                                                                ## Update
+                                                                                                ## the
+                                                                                                ## shader
+                                                                                                ## program
+                                                                                                ## from
+                                                                                                ## external
+                                                                                                ## files
+                                                                                                ## (per
+                                                                                                ## shader
+                                                                                                ## stage)
+                                                                                                ## in
+                                                                                                ## the
+                                                                                                ## following
+                                                                                                ## way:
+                                                                                                ##
+                                                                                                ## !
+                                                                                                ## 1)
+                                                                                                ## If
+                                                                                                ## external
+                                                                                                ## file
+                                                                                                ## does
+                                                                                                ## not
+                                                                                                ## exist,
+                                                                                                ## then
+                                                                                                ## it
+                                                                                                ## will
+                                                                                                ## be
+                                                                                                ## created
+                                                                                                ## (current
+                                                                                                ## source
+                                                                                                ## code
+                                                                                                ## will
+                                                                                                ## be
+                                                                                                ## dumped,
+                                                                                                ## no
+                                                                                                ## recompilation)
+                                                                                                ## and
+                                                                                                ## FALSE
+                                                                                                ## will
+                                                                                                ## be
+                                                                                                ## returned.
+                                                                                                ##
+                                                                                                ## !
+                                                                                                ## 2)
+                                                                                                ## If
+                                                                                                ## external
+                                                                                                ## file
+                                                                                                ## exists
+                                                                                                ## and
+                                                                                                ## it
+                                                                                                ## has
+                                                                                                ## the
+                                                                                                ## same
+                                                                                                ## timestamp
+                                                                                                ## as
+                                                                                                ## myDumpDate,
+                                                                                                ## nothing
+                                                                                                ## will
+                                                                                                ## be
+                                                                                                ## done
+                                                                                                ## and
+                                                                                                ## FALSE
+                                                                                                ## will
+                                                                                                ## be
+                                                                                                ## returned.
+                                                                                                ##
+                                                                                                ## !
+                                                                                                ## 3)
+                                                                                                ## If
+                                                                                                ## external
+                                                                                                ## file
+                                                                                                ## exists
+                                                                                                ## and
+                                                                                                ## it
+                                                                                                ## has
+                                                                                                ## newer
+                                                                                                ## timestamp
+                                                                                                ## than
+                                                                                                ## myDumpDate,
+                                                                                                ## shader
+                                                                                                ## will
+                                                                                                ## be
+                                                                                                ## recompiled
+                                                                                                ## and
+                                                                                                ## relinked
+                                                                                                ## and
+                                                                                                ## TRUE
+                                                                                                ## will
+                                                                                                ## be
+                                                                                                ## returned.
+                                                                                                ##
+                                                                                                ## !
+                                                                                                ## @param
+                                                                                                ## theCtx
+                                                                                                ## OpenGL
+                                                                                                ## context
+                                                                                                ## bound
+                                                                                                ## to
+                                                                                                ## this
+                                                                                                ## working
+                                                                                                ## thread
+                                                                                                ##
+                                                                                                ## !
+                                                                                                ## @param
+                                                                                                ## theFolder
+                                                                                                ## folder
+                                                                                                ## to
+                                                                                                ## store
+                                                                                                ## files;
+                                                                                                ## when
+                                                                                                ## unspecified,
+                                                                                                ## $CSF_ShadersDirectoryDump
+                                                                                                ## or
+                                                                                                ## current
+                                                                                                ## folder
+                                                                                                ## will
+                                                                                                ## be
+                                                                                                ## used
+                                                                                                ## instead
+                                                                                                ##
+                                                                                                ## !
+                                                                                                ## @param
+                                                                                                ## theToBeautify
+                                                                                                ## flag
+                                                                                                ## improving
+                                                                                                ## formatting
+                                                                                                ## (add
+                                                                                                ## extra
+                                                                                                ## newlines)
+                                                                                                ##
+                                                                                                ## !
+                                                                                                ## @param
+                                                                                                ## theToReset
+                                                                                                ## when
+                                                                                                ## TRUE,
+                                                                                                ## existing
+                                                                                                ## dumps
+                                                                                                ## will
+                                                                                                ## be
+                                                                                                ## overridden
+                                                                                                ##
+                                                                                                ## !
+                                                                                                ## Increments
+                                                                                                ## counter
+                                                                                                ## of
+                                                                                                ## users.
+                                                                                                ##
+                                                                                                ## !
+                                                                                                ## Used
+                                                                                                ## by
+                                                                                                ## OpenGl_ShaderManager.
+                                                                                                ##
+                                                                                                ## !
+                                                                                                ## @return
+                                                                                                ## true
+                                                                                                ## when
+                                                                                                ## resource
+                                                                                                ## has
+                                                                                                ## been
+                                                                                                ## restored
+                                                                                                ## from
+                                                                                                ## delayed
+                                                                                                ## release
+                                                                                                ## queue
     ## !< Handle of OpenGL shader program
     ## !< List of attached shader objects
     ## !< Proxy shader program (from application layer)
@@ -450,256 +459,262 @@ type
     ## !< defines last modification for variables of each state type
     ## ! Stores locations of OCCT state uniform variables.
 
-  OpenGlShaderProgrambaseType* = OpenGlNamedResource
+  OpenGl_ShaderProgrambase_type* = OpenGl_NamedResource
 
-proc getTypeName*(): cstring {.importcpp: "OpenGl_ShaderProgram::get_type_name(@)",
-                            header: "OpenGl_ShaderProgram.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "OpenGl_ShaderProgram::get_type_name(@)",
+                              header: "OpenGl_ShaderProgram.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "OpenGl_ShaderProgram::get_type_descriptor(@)",
     header: "OpenGl_ShaderProgram.hxx".}
-proc dynamicType*(this: OpenGlShaderProgram): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: OpenGl_ShaderProgram): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "OpenGl_ShaderProgram.hxx".}
-proc compileShaderVerbose*(theCtx: Handle[OpenGlContext];
-                          theShader: Handle[OpenGlShaderObject];
-                          theSource: TCollectionAsciiString;
+proc compileShaderVerbose*(theCtx: handle[OpenGl_Context];
+                          theShader: handle[OpenGl_ShaderObject];
+                          theSource: TCollection_AsciiString;
                           theToPrintSource: bool = true): bool {.
     importcpp: "OpenGl_ShaderProgram::compileShaderVerbose(@)",
     header: "OpenGl_ShaderProgram.hxx".}
-proc constructOpenGlShaderProgram*(theProxy: Handle[Graphic3dShaderProgram] = nil;
-                                  theId: TCollectionAsciiString = ""): OpenGlShaderProgram {.
+proc constructOpenGl_ShaderProgram*(theProxy: handle[Graphic3d_ShaderProgram] = nil;
+                                   theId: TCollection_AsciiString = ""): OpenGl_ShaderProgram {.
     constructor, importcpp: "OpenGl_ShaderProgram(@)",
     header: "OpenGl_ShaderProgram.hxx".}
-proc destroyOpenGlShaderProgram*(this: var OpenGlShaderProgram) {.
+proc destroyOpenGl_ShaderProgram*(this: var OpenGl_ShaderProgram) {.
     importcpp: "#.~OpenGl_ShaderProgram()", header: "OpenGl_ShaderProgram.hxx".}
-proc create*(this: var OpenGlShaderProgram; theCtx: Handle[OpenGlContext]): StandardBoolean {.
+proc Create*(this: var OpenGl_ShaderProgram; theCtx: handle[OpenGl_Context]): Standard_Boolean {.
     importcpp: "Create", header: "OpenGl_ShaderProgram.hxx".}
-proc release*(this: var OpenGlShaderProgram; theCtx: ptr OpenGlContext) {.
+proc Release*(this: var OpenGl_ShaderProgram; theCtx: ptr OpenGl_Context) {.
     importcpp: "Release", header: "OpenGl_ShaderProgram.hxx".}
-proc estimatedDataSize*(this: OpenGlShaderProgram): StandardSize {.noSideEffect,
+proc EstimatedDataSize*(this: OpenGl_ShaderProgram): Standard_Size {.noSideEffect,
     importcpp: "EstimatedDataSize", header: "OpenGl_ShaderProgram.hxx".}
-proc attachShader*(this: var OpenGlShaderProgram; theCtx: Handle[OpenGlContext];
-                  theShader: Handle[OpenGlShaderObject]): StandardBoolean {.
+proc AttachShader*(this: var OpenGl_ShaderProgram; theCtx: handle[OpenGl_Context];
+                  theShader: handle[OpenGl_ShaderObject]): Standard_Boolean {.
     importcpp: "AttachShader", header: "OpenGl_ShaderProgram.hxx".}
-proc detachShader*(this: var OpenGlShaderProgram; theCtx: Handle[OpenGlContext];
-                  theShader: Handle[OpenGlShaderObject]): StandardBoolean {.
+proc DetachShader*(this: var OpenGl_ShaderProgram; theCtx: handle[OpenGl_Context];
+                  theShader: handle[OpenGl_ShaderObject]): Standard_Boolean {.
     importcpp: "DetachShader", header: "OpenGl_ShaderProgram.hxx".}
-proc initialize*(this: var OpenGlShaderProgram; theCtx: Handle[OpenGlContext];
-                theShaders: Graphic3dShaderObjectList): StandardBoolean {.
+proc Initialize*(this: var OpenGl_ShaderProgram; theCtx: handle[OpenGl_Context];
+                theShaders: Graphic3d_ShaderObjectList): Standard_Boolean {.
     importcpp: "Initialize", header: "OpenGl_ShaderProgram.hxx".}
-proc link*(this: var OpenGlShaderProgram; theCtx: Handle[OpenGlContext];
-          theIsVerbose: bool = true): StandardBoolean {.importcpp: "Link",
+proc Link*(this: var OpenGl_ShaderProgram; theCtx: handle[OpenGl_Context];
+          theIsVerbose: bool = true): Standard_Boolean {.importcpp: "Link",
     header: "OpenGl_ShaderProgram.hxx".}
-proc fetchInfoLog*(this: var OpenGlShaderProgram; theCtx: Handle[OpenGlContext];
-                  theLog: var TCollectionAsciiString): StandardBoolean {.
+proc FetchInfoLog*(this: var OpenGl_ShaderProgram; theCtx: handle[OpenGl_Context];
+                  theLog: var TCollection_AsciiString): Standard_Boolean {.
     importcpp: "FetchInfoLog", header: "OpenGl_ShaderProgram.hxx".}
-proc applyVariables*(this: var OpenGlShaderProgram; theCtx: Handle[OpenGlContext]): StandardBoolean {.
+proc ApplyVariables*(this: var OpenGl_ShaderProgram; theCtx: handle[OpenGl_Context]): Standard_Boolean {.
     importcpp: "ApplyVariables", header: "OpenGl_ShaderProgram.hxx".}
-proc proxy*(this: OpenGlShaderProgram): Handle[Graphic3dShaderProgram] {.
+proc Proxy*(this: OpenGl_ShaderProgram): handle[Graphic3d_ShaderProgram] {.
     noSideEffect, importcpp: "Proxy", header: "OpenGl_ShaderProgram.hxx".}
-proc isValid*(this: OpenGlShaderProgram): bool {.noSideEffect, importcpp: "IsValid",
+proc IsValid*(this: OpenGl_ShaderProgram): bool {.noSideEffect, importcpp: "IsValid",
     header: "OpenGl_ShaderProgram.hxx".}
-proc programId*(this: OpenGlShaderProgram): GLuint {.noSideEffect,
+proc ProgramId*(this: OpenGl_ShaderProgram): GLuint {.noSideEffect,
     importcpp: "ProgramId", header: "OpenGl_ShaderProgram.hxx".}
-proc hasTessellationStage*(this: OpenGlShaderProgram): StandardBoolean {.
+proc HasTessellationStage*(this: OpenGl_ShaderProgram): Standard_Boolean {.
     noSideEffect, importcpp: "HasTessellationStage",
     header: "OpenGl_ShaderProgram.hxx".}
-proc nbLightsMax*(this: OpenGlShaderProgram): StandardInteger {.noSideEffect,
+proc NbLightsMax*(this: OpenGl_ShaderProgram): Standard_Integer {.noSideEffect,
     importcpp: "NbLightsMax", header: "OpenGl_ShaderProgram.hxx".}
-proc nbClipPlanesMax*(this: OpenGlShaderProgram): StandardInteger {.noSideEffect,
+proc NbClipPlanesMax*(this: OpenGl_ShaderProgram): Standard_Integer {.noSideEffect,
     importcpp: "NbClipPlanesMax", header: "OpenGl_ShaderProgram.hxx".}
-proc nbFragmentOutputs*(this: OpenGlShaderProgram): StandardInteger {.noSideEffect,
-    importcpp: "NbFragmentOutputs", header: "OpenGl_ShaderProgram.hxx".}
-proc hasAlphaTest*(this: OpenGlShaderProgram): StandardBoolean {.noSideEffect,
+proc NbFragmentOutputs*(this: OpenGl_ShaderProgram): Standard_Integer {.
+    noSideEffect, importcpp: "NbFragmentOutputs",
+    header: "OpenGl_ShaderProgram.hxx".}
+proc HasAlphaTest*(this: OpenGl_ShaderProgram): Standard_Boolean {.noSideEffect,
     importcpp: "HasAlphaTest", header: "OpenGl_ShaderProgram.hxx".}
-proc hasWeightOitOutput*(this: OpenGlShaderProgram): StandardBoolean {.noSideEffect,
-    importcpp: "HasWeightOitOutput", header: "OpenGl_ShaderProgram.hxx".}
-proc textureSetBits*(this: OpenGlShaderProgram): StandardInteger {.noSideEffect,
+proc HasWeightOitOutput*(this: OpenGl_ShaderProgram): Standard_Boolean {.
+    noSideEffect, importcpp: "HasWeightOitOutput",
+    header: "OpenGl_ShaderProgram.hxx".}
+proc TextureSetBits*(this: OpenGl_ShaderProgram): Standard_Integer {.noSideEffect,
     importcpp: "TextureSetBits", header: "OpenGl_ShaderProgram.hxx".}
-proc getUniformLocation*(this: OpenGlShaderProgram; theCtx: Handle[OpenGlContext];
-                        theName: ptr GLchar): OpenGlShaderUniformLocation {.
+proc GetUniformLocation*(this: OpenGl_ShaderProgram;
+                        theCtx: handle[OpenGl_Context]; theName: ptr GLchar): OpenGl_ShaderUniformLocation {.
     noSideEffect, importcpp: "GetUniformLocation",
     header: "OpenGl_ShaderProgram.hxx".}
-proc getAttributeLocation*(this: OpenGlShaderProgram;
-                          theCtx: Handle[OpenGlContext]; theName: ptr GLchar): GLint {.
+proc GetAttributeLocation*(this: OpenGl_ShaderProgram;
+                          theCtx: handle[OpenGl_Context]; theName: ptr GLchar): GLint {.
     noSideEffect, importcpp: "GetAttributeLocation",
     header: "OpenGl_ShaderProgram.hxx".}
-proc getStateLocation*(this: OpenGlShaderProgram; theVariable: OpenGlStateVariable): OpenGlShaderUniformLocation {.
+proc GetStateLocation*(this: OpenGl_ShaderProgram;
+                      theVariable: OpenGl_StateVariable): OpenGl_ShaderUniformLocation {.
     noSideEffect, importcpp: "GetStateLocation", header: "OpenGl_ShaderProgram.hxx".}
-proc getUniform*(this: OpenGlShaderProgram; theCtx: Handle[OpenGlContext];
-                theName: ptr GLchar; theValue: var OpenGlVec4i): StandardBoolean {.
+proc GetUniform*(this: OpenGl_ShaderProgram; theCtx: handle[OpenGl_Context];
+                theName: ptr GLchar; theValue: var OpenGl_Vec4i): Standard_Boolean {.
     noSideEffect, importcpp: "GetUniform", header: "OpenGl_ShaderProgram.hxx".}
-proc getUniform*(this: OpenGlShaderProgram; theCtx: Handle[OpenGlContext];
-                theLocation: GLint; theValue: var OpenGlVec4i): StandardBoolean {.
+proc GetUniform*(this: OpenGl_ShaderProgram; theCtx: handle[OpenGl_Context];
+                theLocation: GLint; theValue: var OpenGl_Vec4i): Standard_Boolean {.
     noSideEffect, importcpp: "GetUniform", header: "OpenGl_ShaderProgram.hxx".}
-proc getUniform*(this: OpenGlShaderProgram; theCtx: Handle[OpenGlContext];
-                theName: ptr GLchar; theValue: var OpenGlVec4): StandardBoolean {.
+proc GetUniform*(this: OpenGl_ShaderProgram; theCtx: handle[OpenGl_Context];
+                theName: ptr GLchar; theValue: var OpenGl_Vec4): Standard_Boolean {.
     noSideEffect, importcpp: "GetUniform", header: "OpenGl_ShaderProgram.hxx".}
-proc getUniform*(this: OpenGlShaderProgram; theCtx: Handle[OpenGlContext];
-                theLocation: GLint; theValue: var OpenGlVec4): StandardBoolean {.
+proc GetUniform*(this: OpenGl_ShaderProgram; theCtx: handle[OpenGl_Context];
+                theLocation: GLint; theValue: var OpenGl_Vec4): Standard_Boolean {.
     noSideEffect, importcpp: "GetUniform", header: "OpenGl_ShaderProgram.hxx".}
-proc getAttribute*(this: OpenGlShaderProgram; theCtx: Handle[OpenGlContext];
-                  theName: ptr GLchar; theValue: var OpenGlVec4i): StandardBoolean {.
+proc GetAttribute*(this: OpenGl_ShaderProgram; theCtx: handle[OpenGl_Context];
+                  theName: ptr GLchar; theValue: var OpenGl_Vec4i): Standard_Boolean {.
     noSideEffect, importcpp: "GetAttribute", header: "OpenGl_ShaderProgram.hxx".}
-proc getAttribute*(this: OpenGlShaderProgram; theCtx: Handle[OpenGlContext];
-                  theIndex: GLint; theValue: var OpenGlVec4i): StandardBoolean {.
+proc GetAttribute*(this: OpenGl_ShaderProgram; theCtx: handle[OpenGl_Context];
+                  theIndex: GLint; theValue: var OpenGl_Vec4i): Standard_Boolean {.
     noSideEffect, importcpp: "GetAttribute", header: "OpenGl_ShaderProgram.hxx".}
-proc getAttribute*(this: OpenGlShaderProgram; theCtx: Handle[OpenGlContext];
-                  theName: ptr GLchar; theValue: var OpenGlVec4): StandardBoolean {.
+proc GetAttribute*(this: OpenGl_ShaderProgram; theCtx: handle[OpenGl_Context];
+                  theName: ptr GLchar; theValue: var OpenGl_Vec4): Standard_Boolean {.
     noSideEffect, importcpp: "GetAttribute", header: "OpenGl_ShaderProgram.hxx".}
-proc getAttribute*(this: OpenGlShaderProgram; theCtx: Handle[OpenGlContext];
-                  theIndex: GLint; theValue: var OpenGlVec4): StandardBoolean {.
+proc GetAttribute*(this: OpenGl_ShaderProgram; theCtx: handle[OpenGl_Context];
+                  theIndex: GLint; theValue: var OpenGl_Vec4): Standard_Boolean {.
     noSideEffect, importcpp: "GetAttribute", header: "OpenGl_ShaderProgram.hxx".}
-proc setAttributeName*(this: var OpenGlShaderProgram; theCtx: Handle[OpenGlContext];
-                      theIndex: GLint; theName: ptr GLchar): StandardBoolean {.
+proc SetAttributeName*(this: var OpenGl_ShaderProgram;
+                      theCtx: handle[OpenGl_Context]; theIndex: GLint;
+                      theName: ptr GLchar): Standard_Boolean {.
     importcpp: "SetAttributeName", header: "OpenGl_ShaderProgram.hxx".}
-proc setAttribute*(this: var OpenGlShaderProgram; theCtx: Handle[OpenGlContext];
-                  theName: ptr GLchar; theValue: GLfloat): StandardBoolean {.
+proc SetAttribute*(this: var OpenGl_ShaderProgram; theCtx: handle[OpenGl_Context];
+                  theName: ptr GLchar; theValue: GLfloat): Standard_Boolean {.
     importcpp: "SetAttribute", header: "OpenGl_ShaderProgram.hxx".}
-proc setAttribute*(this: var OpenGlShaderProgram; theCtx: Handle[OpenGlContext];
-                  theIndex: GLint; theValue: GLfloat): StandardBoolean {.
+proc SetAttribute*(this: var OpenGl_ShaderProgram; theCtx: handle[OpenGl_Context];
+                  theIndex: GLint; theValue: GLfloat): Standard_Boolean {.
     importcpp: "SetAttribute", header: "OpenGl_ShaderProgram.hxx".}
-proc setAttribute*(this: var OpenGlShaderProgram; theCtx: Handle[OpenGlContext];
-                  theName: ptr GLchar; theValue: OpenGlVec2): StandardBoolean {.
+proc SetAttribute*(this: var OpenGl_ShaderProgram; theCtx: handle[OpenGl_Context];
+                  theName: ptr GLchar; theValue: OpenGl_Vec2): Standard_Boolean {.
     importcpp: "SetAttribute", header: "OpenGl_ShaderProgram.hxx".}
-proc setAttribute*(this: var OpenGlShaderProgram; theCtx: Handle[OpenGlContext];
-                  theIndex: GLint; theValue: OpenGlVec2): StandardBoolean {.
+proc SetAttribute*(this: var OpenGl_ShaderProgram; theCtx: handle[OpenGl_Context];
+                  theIndex: GLint; theValue: OpenGl_Vec2): Standard_Boolean {.
     importcpp: "SetAttribute", header: "OpenGl_ShaderProgram.hxx".}
-proc setAttribute*(this: var OpenGlShaderProgram; theCtx: Handle[OpenGlContext];
-                  theName: ptr GLchar; theValue: OpenGlVec3): StandardBoolean {.
+proc SetAttribute*(this: var OpenGl_ShaderProgram; theCtx: handle[OpenGl_Context];
+                  theName: ptr GLchar; theValue: OpenGl_Vec3): Standard_Boolean {.
     importcpp: "SetAttribute", header: "OpenGl_ShaderProgram.hxx".}
-proc setAttribute*(this: var OpenGlShaderProgram; theCtx: Handle[OpenGlContext];
-                  theIndex: GLint; theValue: OpenGlVec3): StandardBoolean {.
+proc SetAttribute*(this: var OpenGl_ShaderProgram; theCtx: handle[OpenGl_Context];
+                  theIndex: GLint; theValue: OpenGl_Vec3): Standard_Boolean {.
     importcpp: "SetAttribute", header: "OpenGl_ShaderProgram.hxx".}
-proc setAttribute*(this: var OpenGlShaderProgram; theCtx: Handle[OpenGlContext];
-                  theName: ptr GLchar; theValue: OpenGlVec4): StandardBoolean {.
+proc SetAttribute*(this: var OpenGl_ShaderProgram; theCtx: handle[OpenGl_Context];
+                  theName: ptr GLchar; theValue: OpenGl_Vec4): Standard_Boolean {.
     importcpp: "SetAttribute", header: "OpenGl_ShaderProgram.hxx".}
-proc setAttribute*(this: var OpenGlShaderProgram; theCtx: Handle[OpenGlContext];
-                  theIndex: GLint; theValue: OpenGlVec4): StandardBoolean {.
+proc SetAttribute*(this: var OpenGl_ShaderProgram; theCtx: handle[OpenGl_Context];
+                  theIndex: GLint; theValue: OpenGl_Vec4): Standard_Boolean {.
     importcpp: "SetAttribute", header: "OpenGl_ShaderProgram.hxx".}
-proc setUniform*(this: var OpenGlShaderProgram; theCtx: Handle[OpenGlContext];
-                theName: ptr GLchar; theValue: GLint): StandardBoolean {.
+proc SetUniform*(this: var OpenGl_ShaderProgram; theCtx: handle[OpenGl_Context];
+                theName: ptr GLchar; theValue: GLint): Standard_Boolean {.
     importcpp: "SetUniform", header: "OpenGl_ShaderProgram.hxx".}
-proc setUniform*(this: var OpenGlShaderProgram; theCtx: Handle[OpenGlContext];
-                theLocation: GLint; theValue: GLint): StandardBoolean {.
+proc SetUniform*(this: var OpenGl_ShaderProgram; theCtx: handle[OpenGl_Context];
+                theLocation: GLint; theValue: GLint): Standard_Boolean {.
     importcpp: "SetUniform", header: "OpenGl_ShaderProgram.hxx".}
-proc setUniform*(this: var OpenGlShaderProgram; theCtx: Handle[OpenGlContext];
-                theName: ptr GLchar; theValue: OpenGlVec2i): StandardBoolean {.
+proc SetUniform*(this: var OpenGl_ShaderProgram; theCtx: handle[OpenGl_Context];
+                theName: ptr GLchar; theValue: OpenGl_Vec2i): Standard_Boolean {.
     importcpp: "SetUniform", header: "OpenGl_ShaderProgram.hxx".}
-proc setUniform*(this: var OpenGlShaderProgram; theCtx: Handle[OpenGlContext];
-                theLocation: GLint; theValue: OpenGlVec2i): StandardBoolean {.
+proc SetUniform*(this: var OpenGl_ShaderProgram; theCtx: handle[OpenGl_Context];
+                theLocation: GLint; theValue: OpenGl_Vec2i): Standard_Boolean {.
     importcpp: "SetUniform", header: "OpenGl_ShaderProgram.hxx".}
-proc setUniform*(this: var OpenGlShaderProgram; theCtx: Handle[OpenGlContext];
-                theName: ptr GLchar; theValue: OpenGlVec3i): StandardBoolean {.
+proc SetUniform*(this: var OpenGl_ShaderProgram; theCtx: handle[OpenGl_Context];
+                theName: ptr GLchar; theValue: OpenGl_Vec3i): Standard_Boolean {.
     importcpp: "SetUniform", header: "OpenGl_ShaderProgram.hxx".}
-proc setUniform*(this: var OpenGlShaderProgram; theCtx: Handle[OpenGlContext];
-                theLocation: GLint; theValue: OpenGlVec3i): StandardBoolean {.
+proc SetUniform*(this: var OpenGl_ShaderProgram; theCtx: handle[OpenGl_Context];
+                theLocation: GLint; theValue: OpenGl_Vec3i): Standard_Boolean {.
     importcpp: "SetUniform", header: "OpenGl_ShaderProgram.hxx".}
-proc setUniform*(this: var OpenGlShaderProgram; theCtx: Handle[OpenGlContext];
-                theName: ptr GLchar; theValue: OpenGlVec4i): StandardBoolean {.
+proc SetUniform*(this: var OpenGl_ShaderProgram; theCtx: handle[OpenGl_Context];
+                theName: ptr GLchar; theValue: OpenGl_Vec4i): Standard_Boolean {.
     importcpp: "SetUniform", header: "OpenGl_ShaderProgram.hxx".}
-proc setUniform*(this: var OpenGlShaderProgram; theCtx: Handle[OpenGlContext];
-                theLocation: GLint; theValue: OpenGlVec4i): StandardBoolean {.
+proc SetUniform*(this: var OpenGl_ShaderProgram; theCtx: handle[OpenGl_Context];
+                theLocation: GLint; theValue: OpenGl_Vec4i): Standard_Boolean {.
     importcpp: "SetUniform", header: "OpenGl_ShaderProgram.hxx".}
-proc setUniform*(this: var OpenGlShaderProgram; theCtx: Handle[OpenGlContext];
-                theName: ptr GLchar; theValue: OpenGlVec2u): StandardBoolean {.
+proc SetUniform*(this: var OpenGl_ShaderProgram; theCtx: handle[OpenGl_Context];
+                theName: ptr GLchar; theValue: OpenGl_Vec2u): Standard_Boolean {.
     importcpp: "SetUniform", header: "OpenGl_ShaderProgram.hxx".}
-proc setUniform*(this: var OpenGlShaderProgram; theCtx: Handle[OpenGlContext];
-                theLocation: GLint; theValue: OpenGlVec2u): StandardBoolean {.
+proc SetUniform*(this: var OpenGl_ShaderProgram; theCtx: handle[OpenGl_Context];
+                theLocation: GLint; theValue: OpenGl_Vec2u): Standard_Boolean {.
     importcpp: "SetUniform", header: "OpenGl_ShaderProgram.hxx".}
-proc setUniform*(this: var OpenGlShaderProgram; theCtx: Handle[OpenGlContext];
-                theName: ptr GLchar; theCount: GLsizei; theValue: ptr OpenGlVec2u): StandardBoolean {.
+proc SetUniform*(this: var OpenGl_ShaderProgram; theCtx: handle[OpenGl_Context];
+                theName: ptr GLchar; theCount: GLsizei; theValue: ptr OpenGl_Vec2u): Standard_Boolean {.
     importcpp: "SetUniform", header: "OpenGl_ShaderProgram.hxx".}
-proc setUniform*(this: var OpenGlShaderProgram; theCtx: Handle[OpenGlContext];
-                theLocation: GLint; theCount: GLsizei; theValue: ptr OpenGlVec2u): StandardBoolean {.
+proc SetUniform*(this: var OpenGl_ShaderProgram; theCtx: handle[OpenGl_Context];
+                theLocation: GLint; theCount: GLsizei; theValue: ptr OpenGl_Vec2u): Standard_Boolean {.
     importcpp: "SetUniform", header: "OpenGl_ShaderProgram.hxx".}
-proc setUniform*(this: var OpenGlShaderProgram; theCtx: Handle[OpenGlContext];
-                theName: ptr GLchar; theValue: GLfloat): StandardBoolean {.
+proc SetUniform*(this: var OpenGl_ShaderProgram; theCtx: handle[OpenGl_Context];
+                theName: ptr GLchar; theValue: GLfloat): Standard_Boolean {.
     importcpp: "SetUniform", header: "OpenGl_ShaderProgram.hxx".}
-proc setUniform*(this: var OpenGlShaderProgram; theCtx: Handle[OpenGlContext];
-                theLocation: GLint; theValue: GLfloat): StandardBoolean {.
+proc SetUniform*(this: var OpenGl_ShaderProgram; theCtx: handle[OpenGl_Context];
+                theLocation: GLint; theValue: GLfloat): Standard_Boolean {.
     importcpp: "SetUniform", header: "OpenGl_ShaderProgram.hxx".}
-proc setUniform*(this: var OpenGlShaderProgram; theCtx: Handle[OpenGlContext];
-                theName: ptr GLchar; theValue: OpenGlVec2): StandardBoolean {.
+proc SetUniform*(this: var OpenGl_ShaderProgram; theCtx: handle[OpenGl_Context];
+                theName: ptr GLchar; theValue: OpenGl_Vec2): Standard_Boolean {.
     importcpp: "SetUniform", header: "OpenGl_ShaderProgram.hxx".}
-proc setUniform*(this: var OpenGlShaderProgram; theCtx: Handle[OpenGlContext];
-                theLocation: GLint; theValue: OpenGlVec2): StandardBoolean {.
+proc SetUniform*(this: var OpenGl_ShaderProgram; theCtx: handle[OpenGl_Context];
+                theLocation: GLint; theValue: OpenGl_Vec2): Standard_Boolean {.
     importcpp: "SetUniform", header: "OpenGl_ShaderProgram.hxx".}
-proc setUniform*(this: var OpenGlShaderProgram; theCtx: Handle[OpenGlContext];
-                theName: ptr GLchar; theValue: OpenGlVec3): StandardBoolean {.
+proc SetUniform*(this: var OpenGl_ShaderProgram; theCtx: handle[OpenGl_Context];
+                theName: ptr GLchar; theValue: OpenGl_Vec3): Standard_Boolean {.
     importcpp: "SetUniform", header: "OpenGl_ShaderProgram.hxx".}
-proc setUniform*(this: var OpenGlShaderProgram; theCtx: Handle[OpenGlContext];
-                theLocation: GLint; theValue: OpenGlVec3): StandardBoolean {.
+proc SetUniform*(this: var OpenGl_ShaderProgram; theCtx: handle[OpenGl_Context];
+                theLocation: GLint; theValue: OpenGl_Vec3): Standard_Boolean {.
     importcpp: "SetUniform", header: "OpenGl_ShaderProgram.hxx".}
-proc setUniform*(this: var OpenGlShaderProgram; theCtx: Handle[OpenGlContext];
-                theName: ptr GLchar; theValue: OpenGlVec4): StandardBoolean {.
+proc SetUniform*(this: var OpenGl_ShaderProgram; theCtx: handle[OpenGl_Context];
+                theName: ptr GLchar; theValue: OpenGl_Vec4): Standard_Boolean {.
     importcpp: "SetUniform", header: "OpenGl_ShaderProgram.hxx".}
-proc setUniform*(this: var OpenGlShaderProgram; theCtx: Handle[OpenGlContext];
-                theLocation: GLint; theValue: OpenGlVec4): StandardBoolean {.
+proc SetUniform*(this: var OpenGl_ShaderProgram; theCtx: handle[OpenGl_Context];
+                theLocation: GLint; theValue: OpenGl_Vec4): Standard_Boolean {.
     importcpp: "SetUniform", header: "OpenGl_ShaderProgram.hxx".}
-proc setUniform*(this: var OpenGlShaderProgram; theCtx: Handle[OpenGlContext];
-                theName: ptr GLchar; theValue: OpenGlMat4;
-                theTranspose: GLboolean = gl_False): StandardBoolean {.
+proc SetUniform*(this: var OpenGl_ShaderProgram; theCtx: handle[OpenGl_Context];
+                theName: ptr GLchar; theValue: OpenGl_Mat4;
+                theTranspose: GLboolean = GL_FALSE): Standard_Boolean {.
     importcpp: "SetUniform", header: "OpenGl_ShaderProgram.hxx".}
-proc setUniform*(this: var OpenGlShaderProgram; theCtx: Handle[OpenGlContext];
-                theLocation: GLint; theValue: OpenGlMat4;
-                theTranspose: GLboolean = gl_False): StandardBoolean {.
+proc SetUniform*(this: var OpenGl_ShaderProgram; theCtx: handle[OpenGl_Context];
+                theLocation: GLint; theValue: OpenGl_Mat4;
+                theTranspose: GLboolean = GL_FALSE): Standard_Boolean {.
     importcpp: "SetUniform", header: "OpenGl_ShaderProgram.hxx".}
-proc setUniform*(this: var OpenGlShaderProgram; theCtx: Handle[OpenGlContext];
-                theName: ptr GLchar; theValue: OpenGlMatrix;
-                theTranspose: GLboolean = gl_False): StandardBoolean {.
+proc SetUniform*(this: var OpenGl_ShaderProgram; theCtx: handle[OpenGl_Context];
+                theName: ptr GLchar; theValue: OpenGl_Matrix;
+                theTranspose: GLboolean = GL_FALSE): Standard_Boolean {.
     importcpp: "SetUniform", header: "OpenGl_ShaderProgram.hxx".}
-proc setUniform*(this: var OpenGlShaderProgram; theCtx: Handle[OpenGlContext];
-                theLocation: GLint; theValue: OpenGlMatrix;
-                theTranspose: GLboolean = gl_False): StandardBoolean {.
+proc SetUniform*(this: var OpenGl_ShaderProgram; theCtx: handle[OpenGl_Context];
+                theLocation: GLint; theValue: OpenGl_Matrix;
+                theTranspose: GLboolean = GL_FALSE): Standard_Boolean {.
     importcpp: "SetUniform", header: "OpenGl_ShaderProgram.hxx".}
-proc setUniform*(this: var OpenGlShaderProgram; theCtx: Handle[OpenGlContext];
-                theLocation: GLint; theCount: GLuint; theData: ptr StandardShortReal): StandardBoolean {.
+proc SetUniform*(this: var OpenGl_ShaderProgram; theCtx: handle[OpenGl_Context];
+                theLocation: GLint; theCount: GLuint;
+                theData: ptr Standard_ShortReal): Standard_Boolean {.
     importcpp: "SetUniform", header: "OpenGl_ShaderProgram.hxx".}
-proc setUniform*(this: var OpenGlShaderProgram; theCtx: Handle[OpenGlContext];
-                theLocation: GLint; theCount: GLuint; theData: ptr OpenGlVec2): StandardBoolean {.
+proc SetUniform*(this: var OpenGl_ShaderProgram; theCtx: handle[OpenGl_Context];
+                theLocation: GLint; theCount: GLuint; theData: ptr OpenGl_Vec2): Standard_Boolean {.
     importcpp: "SetUniform", header: "OpenGl_ShaderProgram.hxx".}
-proc setUniform*(this: var OpenGlShaderProgram; theCtx: Handle[OpenGlContext];
-                theLocation: GLint; theCount: GLuint; theData: ptr OpenGlVec3): StandardBoolean {.
+proc SetUniform*(this: var OpenGl_ShaderProgram; theCtx: handle[OpenGl_Context];
+                theLocation: GLint; theCount: GLuint; theData: ptr OpenGl_Vec3): Standard_Boolean {.
     importcpp: "SetUniform", header: "OpenGl_ShaderProgram.hxx".}
-proc setUniform*(this: var OpenGlShaderProgram; theCtx: Handle[OpenGlContext];
-                theLocation: GLint; theCount: GLuint; theData: ptr OpenGlVec4): StandardBoolean {.
+proc SetUniform*(this: var OpenGl_ShaderProgram; theCtx: handle[OpenGl_Context];
+                theLocation: GLint; theCount: GLuint; theData: ptr OpenGl_Vec4): Standard_Boolean {.
     importcpp: "SetUniform", header: "OpenGl_ShaderProgram.hxx".}
-proc setUniform*(this: var OpenGlShaderProgram; theCtx: Handle[OpenGlContext];
-                theLocation: GLint; theCount: GLuint; theData: ptr StandardInteger): StandardBoolean {.
+proc SetUniform*(this: var OpenGl_ShaderProgram; theCtx: handle[OpenGl_Context];
+                theLocation: GLint; theCount: GLuint; theData: ptr Standard_Integer): Standard_Boolean {.
     importcpp: "SetUniform", header: "OpenGl_ShaderProgram.hxx".}
-proc setUniform*(this: var OpenGlShaderProgram; theCtx: Handle[OpenGlContext];
-                theLocation: GLint; theCount: GLuint; theData: ptr OpenGlVec2i): StandardBoolean {.
+proc SetUniform*(this: var OpenGl_ShaderProgram; theCtx: handle[OpenGl_Context];
+                theLocation: GLint; theCount: GLuint; theData: ptr OpenGl_Vec2i): Standard_Boolean {.
     importcpp: "SetUniform", header: "OpenGl_ShaderProgram.hxx".}
-proc setUniform*(this: var OpenGlShaderProgram; theCtx: Handle[OpenGlContext];
-                theLocation: GLint; theCount: GLuint; theData: ptr OpenGlVec3i): StandardBoolean {.
+proc SetUniform*(this: var OpenGl_ShaderProgram; theCtx: handle[OpenGl_Context];
+                theLocation: GLint; theCount: GLuint; theData: ptr OpenGl_Vec3i): Standard_Boolean {.
     importcpp: "SetUniform", header: "OpenGl_ShaderProgram.hxx".}
-proc setUniform*(this: var OpenGlShaderProgram; theCtx: Handle[OpenGlContext];
-                theLocation: GLint; theCount: GLuint; theData: ptr OpenGlVec4i): StandardBoolean {.
+proc SetUniform*(this: var OpenGl_ShaderProgram; theCtx: handle[OpenGl_Context];
+                theLocation: GLint; theCount: GLuint; theData: ptr OpenGl_Vec4i): Standard_Boolean {.
     importcpp: "SetUniform", header: "OpenGl_ShaderProgram.hxx".}
-proc setSampler*(this: var OpenGlShaderProgram; theCtx: Handle[OpenGlContext];
-                theName: ptr GLchar; theTextureUnit: Graphic3dTextureUnit): StandardBoolean {.
+proc SetSampler*(this: var OpenGl_ShaderProgram; theCtx: handle[OpenGl_Context];
+                theName: ptr GLchar; theTextureUnit: Graphic3d_TextureUnit): Standard_Boolean {.
     importcpp: "SetSampler", header: "OpenGl_ShaderProgram.hxx".}
-proc setSampler*(this: var OpenGlShaderProgram; theCtx: Handle[OpenGlContext];
-                theLocation: GLint; theTextureUnit: Graphic3dTextureUnit): StandardBoolean {.
+proc SetSampler*(this: var OpenGl_ShaderProgram; theCtx: handle[OpenGl_Context];
+                theLocation: GLint; theTextureUnit: Graphic3d_TextureUnit): Standard_Boolean {.
     importcpp: "SetSampler", header: "OpenGl_ShaderProgram.hxx".}
-proc updateDebugDump*(this: var OpenGlShaderProgram; theCtx: Handle[OpenGlContext];
-                     theFolder: TCollectionAsciiString = "";
-                     theToBeautify: StandardBoolean = standardFalse;
-                     theToReset: StandardBoolean = standardFalse): StandardBoolean {.
+proc UpdateDebugDump*(this: var OpenGl_ShaderProgram;
+                     theCtx: handle[OpenGl_Context];
+                     theFolder: TCollection_AsciiString = "";
+                     theToBeautify: Standard_Boolean = Standard_False;
+                     theToReset: Standard_Boolean = Standard_False): Standard_Boolean {.
     importcpp: "UpdateDebugDump", header: "OpenGl_ShaderProgram.hxx".}
 type
-  OpenGlVariableSetter*[T] {.importcpp: "OpenGl_VariableSetter<\'0>",
-                            header: "OpenGl_ShaderProgram.hxx", bycopy.} = object of OpenGlSetterInterface
+  OpenGl_VariableSetter*[T] {.importcpp: "OpenGl_VariableSetter<\'0>",
+                             header: "OpenGl_ShaderProgram.hxx", bycopy.} = object of OpenGl_SetterInterface
 
 
-proc set*[T](this: var OpenGlVariableSetter[T]; theCtx: Handle[OpenGlContext];
-            theVariable: Handle[Graphic3dShaderVariable];
-            theProgram: ptr OpenGlShaderProgram) {.importcpp: "Set",
+proc Set*[T](this: var OpenGl_VariableSetter[T]; theCtx: handle[OpenGl_Context];
+            theVariable: handle[Graphic3d_ShaderVariable];
+            theProgram: ptr OpenGl_ShaderProgram) {.importcpp: "Set",
     header: "OpenGl_ShaderProgram.hxx".}
 type
   MapListOfType*[K; V] {.importcpp: "OpenGl_HashMapInitializer::MapListOfType<\'0,\'1>",
                        header: "OpenGl_ShaderProgram.hxx", bycopy.} = object
-    myDictionary* {.importc: "myDictionary".}: NCollectionDataMap[K, V]
+    myDictionary* {.importc: "myDictionary".}: NCollection_DataMap[K, V]
 
 
 proc constructMapListOfType*[K; V](theKey: K; theValue: V): MapListOfType[K, V] {.
@@ -708,11 +723,9 @@ proc constructMapListOfType*[K; V](theKey: K; theValue: V): MapListOfType[K, V] 
     header: "OpenGl_ShaderProgram.hxx".}
 proc `()`*[K; V](this: var MapListOfType[K, V]; theKey: K; theValue: V): var MapListOfType {.
     importcpp: "#(@)", header: "OpenGl_ShaderProgram.hxx".}
-converter `constNCollectionDataMap`*[K; V](this: MapListOfType[K, V]): NCollectionDataMap[
+converter `constNCollection_DataMap`*[K; V](this: MapListOfType[K, V]): NCollection_DataMap[
     K, V] {.noSideEffect,
           importcpp: "MapListOfType::operator constNCollection_DataMap",
           header: "OpenGl_ShaderProgram.hxx".}
-proc createListOf*[K; V](theKey: K; theValue: V): MapListOfType[K, V] =
+proc CreateListOf*[K; V](theKey: K; theValue: V): MapListOfType[K, V] =
   discard
-
-

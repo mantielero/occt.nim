@@ -11,35 +11,37 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Real
+
 ## ! Auxiliary functions for DCU <-> Pixels conversions.
 
-proc round*(theValue: StandardReal): StandardInteger =
+proc Round*(theValue: Standard_Real): Standard_Integer =
   discard
 
-proc convertCoordinates*(theParentPxSizeX: StandardInteger;
-                        theParentPxSizeY: StandardInteger;
-                        theQCenterX: StandardReal; theQCenterY: StandardReal;
-                        theQSizeX: StandardReal; theQSizeY: StandardReal;
-                        thePxLeft: var StandardInteger;
-                        thePxTop: var StandardInteger;
-                        thePxSizeX: var StandardInteger;
-                        thePxSizeY: var StandardInteger) =
+proc ConvertCoordinates*(theParentPxSizeX: Standard_Integer;
+                        theParentPxSizeY: Standard_Integer;
+                        theQCenterX: Standard_Real; theQCenterY: Standard_Real;
+                        theQSizeX: Standard_Real; theQSizeY: Standard_Real;
+                        thePxLeft: var Standard_Integer;
+                        thePxTop: var Standard_Integer;
+                        thePxSizeX: var Standard_Integer;
+                        thePxSizeY: var Standard_Integer) =
   discard
 
-proc convertCoordinates*(theParentPxSizeX: StandardInteger;
-                        theParentPxSizeY: StandardInteger;
-                        thePxLeft: StandardInteger; thePxTop: StandardInteger;
-                        thePxSizeX: StandardInteger; thePxSizeY: StandardInteger;
-                        theQCenterX: var StandardReal;
-                        theQCenterY: var StandardReal; theQSizeX: var StandardReal;
-                        theQSizeY: var StandardReal) =
+proc ConvertCoordinates*(theParentPxSizeX: Standard_Integer;
+                        theParentPxSizeY: Standard_Integer;
+                        thePxLeft: Standard_Integer; thePxTop: Standard_Integer;
+                        thePxSizeX: Standard_Integer;
+                        thePxSizeY: Standard_Integer;
+                        theQCenterX: var Standard_Real;
+                        theQCenterY: var Standard_Real;
+                        theQSizeX: var Standard_Real; theQSizeY: var Standard_Real) =
   discard
 
-proc fitIn*(theParentPxSizeX: StandardInteger; theParentPxSizeY: StandardInteger;
-           thePxLeft: var StandardInteger; thePxTop: var StandardInteger;
-           thePxSizeX: var StandardInteger; thePxSizeY: var StandardInteger) =
+proc FitIn*(theParentPxSizeX: Standard_Integer; theParentPxSizeY: Standard_Integer;
+           thePxLeft: var Standard_Integer; thePxTop: var Standard_Integer;
+           thePxSizeX: var Standard_Integer; thePxSizeY: var Standard_Integer) =
   discard
 
 ##  namespace Aspect_Convert
-
-

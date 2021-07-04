@@ -13,6 +13,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  LDOM_Attr, LDOM_NodeList
+
 discard "forward decl of LDOMParser"
 discard "forward decl of LDOM_BasicElement"
 type
@@ -38,12 +41,11 @@ proc setAttributeNode*(this: var LDOM_Element; aNewAttr: LDOM_Attr) {.
     importcpp: "setAttributeNode", header: "LDOM_Element.hxx".}
 proc removeAttribute*(this: var LDOM_Element; aName: LDOMString) {.
     importcpp: "removeAttribute", header: "LDOM_Element.hxx".}
-proc getChildByTagName*(this: LDOM_Element; aTagName: LDOMString): LDOM_Element {.
+proc GetChildByTagName*(this: LDOM_Element; aTagName: LDOMString): LDOM_Element {.
     noSideEffect, importcpp: "GetChildByTagName", header: "LDOM_Element.hxx".}
-proc getSiblingByTagName*(this: LDOM_Element): LDOM_Element {.noSideEffect,
+proc GetSiblingByTagName*(this: LDOM_Element): LDOM_Element {.noSideEffect,
     importcpp: "GetSiblingByTagName", header: "LDOM_Element.hxx".}
-proc replaceElement*(this: var LDOM_Element; anOther: LDOM_Element) {.
+proc ReplaceElement*(this: var LDOM_Element; anOther: LDOM_Element) {.
     importcpp: "ReplaceElement", header: "LDOM_Element.hxx".}
-proc getAttributesList*(this: LDOM_Element): LDOM_NodeList {.noSideEffect,
+proc GetAttributesList*(this: LDOM_Element): LDOM_NodeList {.noSideEffect,
     importcpp: "GetAttributesList", header: "LDOM_Element.hxx".}
-

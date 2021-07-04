@@ -14,29 +14,34 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  AppCont_Function, ../AppParCurves/AppParCurves_MultiCurve, ../math/math_Vector,
+  ../math/math_Matrix, ../NCollection/NCollection_Array1,
+  ../AppParCurves/AppParCurves_Constraint
+
 type
   PeriodicityInfo* {.importcpp: "PeriodicityInfo",
                     header: "AppCont_LeastSquare.hxx", bycopy.} = object
-    isPeriodic* {.importc: "isPeriodic".}: StandardBoolean
-    myPeriod* {.importc: "myPeriod".}: StandardReal
+    isPeriodic* {.importc: "isPeriodic".}: Standard_Boolean
+    myPeriod* {.importc: "myPeriod".}: Standard_Real
 
-  AppContLeastSquare* {.importcpp: "AppCont_LeastSquare",
-                       header: "AppCont_LeastSquare.hxx", bycopy.} = object ## ! Fix border point
-                                                                       ## evaluation.
+  AppCont_LeastSquare* {.importcpp: "AppCont_LeastSquare",
+                        header: "AppCont_LeastSquare.hxx", bycopy.} = object ## ! Fix border point
+                                                                        ## evaluation.
 
 
-proc constructAppContLeastSquare*(ssp: AppContFunction; u0: StandardReal;
-                                 u1: StandardReal;
-                                 firstCons: AppParCurvesConstraint;
-                                 lastCons: AppParCurvesConstraint;
-                                 deg: StandardInteger; nbPoints: StandardInteger): AppContLeastSquare {.
+proc constructAppCont_LeastSquare*(SSP: AppCont_Function; U0: Standard_Real;
+                                  U1: Standard_Real;
+                                  FirstCons: AppParCurves_Constraint;
+                                  LastCons: AppParCurves_Constraint;
+                                  Deg: Standard_Integer;
+                                  NbPoints: Standard_Integer): AppCont_LeastSquare {.
     constructor, importcpp: "AppCont_LeastSquare(@)",
     header: "AppCont_LeastSquare.hxx".}
-proc value*(this: var AppContLeastSquare): AppParCurvesMultiCurve {.
+proc Value*(this: var AppCont_LeastSquare): AppParCurves_MultiCurve {.
     importcpp: "Value", header: "AppCont_LeastSquare.hxx".}
-proc error*(this: AppContLeastSquare; f: var StandardReal; maxE3d: var StandardReal;
-           maxE2d: var StandardReal) {.noSideEffect, importcpp: "Error",
-                                    header: "AppCont_LeastSquare.hxx".}
-proc isDone*(this: AppContLeastSquare): StandardBoolean {.noSideEffect,
+proc Error*(this: AppCont_LeastSquare; F: var Standard_Real;
+           MaxE3d: var Standard_Real; MaxE2d: var Standard_Real) {.noSideEffect,
+    importcpp: "Error", header: "AppCont_LeastSquare.hxx".}
+proc IsDone*(this: AppCont_LeastSquare): Standard_Boolean {.noSideEffect,
     importcpp: "IsDone", header: "AppCont_LeastSquare.hxx".}
-

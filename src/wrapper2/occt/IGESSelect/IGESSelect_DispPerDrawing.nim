@@ -14,6 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../IFSelect/IFSelect_Dispatch,
+  ../Standard/Standard_Boolean
+
 discard "forward decl of IGESSelect_ViewSorter"
 discard "forward decl of TCollection_AsciiString"
 discard "forward decl of Interface_Graph"
@@ -22,7 +26,7 @@ discard "forward decl of Interface_EntityIterator"
 discard "forward decl of IGESSelect_DispPerDrawing"
 discard "forward decl of IGESSelect_DispPerDrawing"
 type
-  HandleIGESSelectDispPerDrawing* = Handle[IGESSelectDispPerDrawing]
+  Handle_IGESSelect_DispPerDrawing* = handle[IGESSelect_DispPerDrawing]
 
 ## ! This type of dispatch defines sets of entities attached to
 ## ! distinct drawings. This information is taken from attached
@@ -32,35 +36,34 @@ type
 ## ! Remaining data concern entities not attached to a drawing.
 
 type
-  IGESSelectDispPerDrawing* {.importcpp: "IGESSelect_DispPerDrawing",
-                             header: "IGESSelect_DispPerDrawing.hxx", bycopy.} = object of IFSelectDispatch ##
-                                                                                                     ## !
-                                                                                                     ## Creates
-                                                                                                     ## a
-                                                                                                     ## DispPerDrawing
+  IGESSelect_DispPerDrawing* {.importcpp: "IGESSelect_DispPerDrawing",
+                              header: "IGESSelect_DispPerDrawing.hxx", bycopy.} = object of IFSelect_Dispatch ##
+                                                                                                       ## !
+                                                                                                       ## Creates
+                                                                                                       ## a
+                                                                                                       ## DispPerDrawing
 
 
-proc constructIGESSelectDispPerDrawing*(): IGESSelectDispPerDrawing {.constructor,
-    importcpp: "IGESSelect_DispPerDrawing(@)",
+proc constructIGESSelect_DispPerDrawing*(): IGESSelect_DispPerDrawing {.
+    constructor, importcpp: "IGESSelect_DispPerDrawing(@)",
     header: "IGESSelect_DispPerDrawing.hxx".}
-proc label*(this: IGESSelectDispPerDrawing): TCollectionAsciiString {.noSideEffect,
-    importcpp: "Label", header: "IGESSelect_DispPerDrawing.hxx".}
-proc packets*(this: IGESSelectDispPerDrawing; g: InterfaceGraph;
-             packs: var IFGraphSubPartsIterator) {.noSideEffect,
+proc Label*(this: IGESSelect_DispPerDrawing): TCollection_AsciiString {.
+    noSideEffect, importcpp: "Label", header: "IGESSelect_DispPerDrawing.hxx".}
+proc Packets*(this: IGESSelect_DispPerDrawing; G: Interface_Graph;
+             packs: var IFGraph_SubPartsIterator) {.noSideEffect,
     importcpp: "Packets", header: "IGESSelect_DispPerDrawing.hxx".}
-proc canHaveRemainder*(this: IGESSelectDispPerDrawing): StandardBoolean {.
+proc CanHaveRemainder*(this: IGESSelect_DispPerDrawing): Standard_Boolean {.
     noSideEffect, importcpp: "CanHaveRemainder",
     header: "IGESSelect_DispPerDrawing.hxx".}
-proc remainder*(this: IGESSelectDispPerDrawing; g: InterfaceGraph): InterfaceEntityIterator {.
+proc Remainder*(this: IGESSelect_DispPerDrawing; G: Interface_Graph): Interface_EntityIterator {.
     noSideEffect, importcpp: "Remainder", header: "IGESSelect_DispPerDrawing.hxx".}
 type
-  IGESSelectDispPerDrawingbaseType* = IFSelectDispatch
+  IGESSelect_DispPerDrawingbase_type* = IFSelect_Dispatch
 
-proc getTypeName*(): cstring {.importcpp: "IGESSelect_DispPerDrawing::get_type_name(@)",
-                            header: "IGESSelect_DispPerDrawing.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "IGESSelect_DispPerDrawing::get_type_name(@)",
+                              header: "IGESSelect_DispPerDrawing.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "IGESSelect_DispPerDrawing::get_type_descriptor(@)",
     header: "IGESSelect_DispPerDrawing.hxx".}
-proc dynamicType*(this: IGESSelectDispPerDrawing): Handle[StandardType] {.
+proc DynamicType*(this: IGESSelect_DispPerDrawing): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType", header: "IGESSelect_DispPerDrawing.hxx".}
-

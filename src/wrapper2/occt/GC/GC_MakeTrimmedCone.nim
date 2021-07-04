@@ -14,6 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, GC_Root, ../Geom/Geom_RectangularTrimmedSurface
+
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of gp_Pnt"
 type
@@ -94,16 +98,15 @@ type
                                                                                ## <P1P2>.
 
 
-proc constructGC_MakeTrimmedCone*(p1: GpPnt; p2: GpPnt; p3: GpPnt; p4: GpPnt): GC_MakeTrimmedCone {.
+proc constructGC_MakeTrimmedCone*(P1: gp_Pnt; P2: gp_Pnt; P3: gp_Pnt; P4: gp_Pnt): GC_MakeTrimmedCone {.
     constructor, importcpp: "GC_MakeTrimmedCone(@)",
     header: "GC_MakeTrimmedCone.hxx".}
-proc constructGC_MakeTrimmedCone*(p1: GpPnt; p2: GpPnt; r1: StandardReal;
-                                 r2: StandardReal): GC_MakeTrimmedCone {.
+proc constructGC_MakeTrimmedCone*(P1: gp_Pnt; P2: gp_Pnt; R1: Standard_Real;
+                                 R2: Standard_Real): GC_MakeTrimmedCone {.
     constructor, importcpp: "GC_MakeTrimmedCone(@)",
     header: "GC_MakeTrimmedCone.hxx".}
-proc value*(this: GC_MakeTrimmedCone): Handle[GeomRectangularTrimmedSurface] {.
+proc Value*(this: GC_MakeTrimmedCone): handle[Geom_RectangularTrimmedSurface] {.
     noSideEffect, importcpp: "Value", header: "GC_MakeTrimmedCone.hxx".}
-converter `constopencascade`*(this: GC_MakeTrimmedCone): Handle[
-    GeomRectangularTrimmedSurface] {.noSideEffect, importcpp: "GC_MakeTrimmedCone::operator constopencascade",
-                                    header: "GC_MakeTrimmedCone.hxx".}
-
+converter `constopencascade`*(this: GC_MakeTrimmedCone): handle[
+    Geom_RectangularTrimmedSurface] {.noSideEffect, importcpp: "GC_MakeTrimmedCone::operator constopencascade",
+                                     header: "GC_MakeTrimmedCone.hxx".}

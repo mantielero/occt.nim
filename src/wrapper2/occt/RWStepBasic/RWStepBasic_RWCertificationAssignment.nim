@@ -14,32 +14,35 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepBasic_CertificationAssignment"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepBasicRWCertificationAssignment* {.
+  RWStepBasic_RWCertificationAssignment* {.
       importcpp: "RWStepBasic_RWCertificationAssignment",
       header: "RWStepBasic_RWCertificationAssignment.hxx", bycopy.} = object ## ! Empty
                                                                         ## constructor
 
 
-proc constructRWStepBasicRWCertificationAssignment*(): RWStepBasicRWCertificationAssignment {.
+proc constructRWStepBasic_RWCertificationAssignment*(): RWStepBasic_RWCertificationAssignment {.
     constructor, importcpp: "RWStepBasic_RWCertificationAssignment(@)",
     header: "RWStepBasic_RWCertificationAssignment.hxx".}
-proc readStep*(this: RWStepBasicRWCertificationAssignment;
-              data: Handle[StepDataStepReaderData]; num: StandardInteger;
-              ach: var Handle[InterfaceCheck];
-              ent: Handle[StepBasicCertificationAssignment]) {.noSideEffect,
+proc ReadStep*(this: RWStepBasic_RWCertificationAssignment;
+              data: handle[StepData_StepReaderData]; num: Standard_Integer;
+              ach: var handle[Interface_Check];
+              ent: handle[StepBasic_CertificationAssignment]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepBasic_RWCertificationAssignment.hxx".}
-proc writeStep*(this: RWStepBasicRWCertificationAssignment;
-               sw: var StepDataStepWriter;
-               ent: Handle[StepBasicCertificationAssignment]) {.noSideEffect,
+proc WriteStep*(this: RWStepBasic_RWCertificationAssignment;
+               SW: var StepData_StepWriter;
+               ent: handle[StepBasic_CertificationAssignment]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepBasic_RWCertificationAssignment.hxx".}
-proc share*(this: RWStepBasicRWCertificationAssignment;
-           ent: Handle[StepBasicCertificationAssignment];
-           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
+proc Share*(this: RWStepBasic_RWCertificationAssignment;
+           ent: handle[StepBasic_CertificationAssignment];
+           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepBasic_RWCertificationAssignment.hxx".}
-

@@ -14,17 +14,15 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _GccAna_NoSolution_HeaderFile [NewLine] # _GccAna_NoSolution_HeaderFile [NewLine] # < Standard_Type . hxx > [NewLine] # < Standard_DefineException . hxx > [NewLine] # < Standard_SStream . hxx > [NewLine] # < Standard_Failure . hxx > [NewLine] class GccAna_NoSolution ;
+## !!!Ignored construct:  # _GccAna_NoSolution_HeaderFile [NewLine] # _GccAna_NoSolution_HeaderFile [NewLine] # ../Standard/Standard_Type.hxx [NewLine] # ../Standard/Standard_DefineException.hxx [NewLine] # ../Standard/Standard_SStream.hxx [NewLine] # ../Standard/Standard_Failure.hxx [NewLine] class GccAna_NoSolution ;
 ## Error: expected ';'!!!
 
 discard "forward decl of GccAna_NoSolution"
 type
-  HandleGccAnaNoSolutionGccAnaNoSolution* = Handle[GccAnaNoSolution]
+  Handle_GccAna_NoSolutionGccAna_NoSolution* = handle[GccAna_NoSolution]
 
 ## !!!Ignored construct:  # ! defined No_Exception && ! defined No_GccAna_NoSolution [NewLine] # if ( CONDITION ) throw GccAna_NoSolution ( MESSAGE ) ;
 ## Error: did not expect [NewLine]!!!
 
-## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( GccAna_NoSolution , Standard_Failure ) #  _GccAna_NoSolution_HeaderFile
+## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( GccAna_NoSolution , Standard_Failure ) #  _GccAna_NoSolution_HeaderFile [NewLine]
 ## Error: did not expect [NewLine]!!!
-
-

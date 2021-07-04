@@ -14,6 +14,15 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../TopExp/TopExp_Explorer,
+  ../TopoDS/TopoDS_Face, ../Standard/Standard_Address,
+  ../TColStd/TColStd_ListOfTransient,
+  ../TColStd/TColStd_ListIteratorOfListOfTransient, ../Standard/Standard_Real,
+  ../Adaptor3d/Adaptor3d_TopolTool, ../Standard/Standard_Boolean,
+  ../TopAbs/TopAbs_State, ../TopAbs/TopAbs_Orientation,
+  ../Standard/Standard_Integer
+
 discard "forward decl of BRepAdaptor_HCurve2d"
 discard "forward decl of Standard_DomainError"
 discard "forward decl of Adaptor3d_HSurface"
@@ -24,85 +33,86 @@ discard "forward decl of gp_Pnt"
 discard "forward decl of BRepTopAdaptor_TopolTool"
 discard "forward decl of BRepTopAdaptor_TopolTool"
 type
-  HandleBRepTopAdaptorTopolTool* = Handle[BRepTopAdaptorTopolTool]
-  BRepTopAdaptorTopolTool* {.importcpp: "BRepTopAdaptor_TopolTool",
-                            header: "BRepTopAdaptor_TopolTool.hxx", bycopy.} = object of Adaptor3dTopolTool
+  Handle_BRepTopAdaptor_TopolTool* = handle[BRepTopAdaptor_TopolTool]
+  BRepTopAdaptor_TopolTool* {.importcpp: "BRepTopAdaptor_TopolTool",
+                             header: "BRepTopAdaptor_TopolTool.hxx", bycopy.} = object of Adaptor3d_TopolTool
 
 
-proc constructBRepTopAdaptorTopolTool*(): BRepTopAdaptorTopolTool {.constructor,
+proc constructBRepTopAdaptor_TopolTool*(): BRepTopAdaptor_TopolTool {.constructor,
     importcpp: "BRepTopAdaptor_TopolTool(@)",
     header: "BRepTopAdaptor_TopolTool.hxx".}
-proc constructBRepTopAdaptorTopolTool*(surface: Handle[Adaptor3dHSurface]): BRepTopAdaptorTopolTool {.
+proc constructBRepTopAdaptor_TopolTool*(Surface: handle[Adaptor3d_HSurface]): BRepTopAdaptor_TopolTool {.
     constructor, importcpp: "BRepTopAdaptor_TopolTool(@)",
     header: "BRepTopAdaptor_TopolTool.hxx".}
-proc initialize*(this: var BRepTopAdaptorTopolTool) {.importcpp: "Initialize",
+proc Initialize*(this: var BRepTopAdaptor_TopolTool) {.importcpp: "Initialize",
     header: "BRepTopAdaptor_TopolTool.hxx".}
-proc initialize*(this: var BRepTopAdaptorTopolTool; s: Handle[Adaptor3dHSurface]) {.
+proc Initialize*(this: var BRepTopAdaptor_TopolTool; S: handle[Adaptor3d_HSurface]) {.
     importcpp: "Initialize", header: "BRepTopAdaptor_TopolTool.hxx".}
-proc initialize*(this: var BRepTopAdaptorTopolTool; curve: Handle[Adaptor2dHCurve2d]) {.
-    importcpp: "Initialize", header: "BRepTopAdaptor_TopolTool.hxx".}
-proc init*(this: var BRepTopAdaptorTopolTool) {.importcpp: "Init",
+proc Initialize*(this: var BRepTopAdaptor_TopolTool;
+                Curve: handle[Adaptor2d_HCurve2d]) {.importcpp: "Initialize",
     header: "BRepTopAdaptor_TopolTool.hxx".}
-proc more*(this: var BRepTopAdaptorTopolTool): StandardBoolean {.importcpp: "More",
+proc Init*(this: var BRepTopAdaptor_TopolTool) {.importcpp: "Init",
     header: "BRepTopAdaptor_TopolTool.hxx".}
-proc value*(this: var BRepTopAdaptorTopolTool): Handle[Adaptor2dHCurve2d] {.
+proc More*(this: var BRepTopAdaptor_TopolTool): Standard_Boolean {.importcpp: "More",
+    header: "BRepTopAdaptor_TopolTool.hxx".}
+proc Value*(this: var BRepTopAdaptor_TopolTool): handle[Adaptor2d_HCurve2d] {.
     importcpp: "Value", header: "BRepTopAdaptor_TopolTool.hxx".}
-proc next*(this: var BRepTopAdaptorTopolTool) {.importcpp: "Next",
+proc Next*(this: var BRepTopAdaptor_TopolTool) {.importcpp: "Next",
     header: "BRepTopAdaptor_TopolTool.hxx".}
-proc edge*(this: BRepTopAdaptorTopolTool): StandardAddress {.noSideEffect,
+proc Edge*(this: BRepTopAdaptor_TopolTool): Standard_Address {.noSideEffect,
     importcpp: "Edge", header: "BRepTopAdaptor_TopolTool.hxx".}
-proc initVertexIterator*(this: var BRepTopAdaptorTopolTool) {.
+proc InitVertexIterator*(this: var BRepTopAdaptor_TopolTool) {.
     importcpp: "InitVertexIterator", header: "BRepTopAdaptor_TopolTool.hxx".}
-proc moreVertex*(this: var BRepTopAdaptorTopolTool): StandardBoolean {.
+proc MoreVertex*(this: var BRepTopAdaptor_TopolTool): Standard_Boolean {.
     importcpp: "MoreVertex", header: "BRepTopAdaptor_TopolTool.hxx".}
-proc vertex*(this: var BRepTopAdaptorTopolTool): Handle[Adaptor3dHVertex] {.
+proc Vertex*(this: var BRepTopAdaptor_TopolTool): handle[Adaptor3d_HVertex] {.
     importcpp: "Vertex", header: "BRepTopAdaptor_TopolTool.hxx".}
-proc nextVertex*(this: var BRepTopAdaptorTopolTool) {.importcpp: "NextVertex",
+proc NextVertex*(this: var BRepTopAdaptor_TopolTool) {.importcpp: "NextVertex",
     header: "BRepTopAdaptor_TopolTool.hxx".}
-proc classify*(this: var BRepTopAdaptorTopolTool; p2d: GpPnt2d; tol: StandardReal;
-              recadreOnPeriodic: StandardBoolean = standardTrue): TopAbsState {.
+proc Classify*(this: var BRepTopAdaptor_TopolTool; P2d: gp_Pnt2d; Tol: Standard_Real;
+              RecadreOnPeriodic: Standard_Boolean = Standard_True): TopAbs_State {.
     importcpp: "Classify", header: "BRepTopAdaptor_TopolTool.hxx".}
-proc isThePointOn*(this: var BRepTopAdaptorTopolTool; p2d: GpPnt2d; tol: StandardReal;
-                  recadreOnPeriodic: StandardBoolean = standardTrue): StandardBoolean {.
+proc IsThePointOn*(this: var BRepTopAdaptor_TopolTool; P2d: gp_Pnt2d;
+                  Tol: Standard_Real;
+                  RecadreOnPeriodic: Standard_Boolean = Standard_True): Standard_Boolean {.
     importcpp: "IsThePointOn", header: "BRepTopAdaptor_TopolTool.hxx".}
-proc orientation*(this: var BRepTopAdaptorTopolTool; c: Handle[Adaptor2dHCurve2d]): TopAbsOrientation {.
+proc Orientation*(this: var BRepTopAdaptor_TopolTool; C: handle[Adaptor2d_HCurve2d]): TopAbs_Orientation {.
     importcpp: "Orientation", header: "BRepTopAdaptor_TopolTool.hxx".}
-proc orientation*(this: var BRepTopAdaptorTopolTool; c: Handle[Adaptor3dHVertex]): TopAbsOrientation {.
+proc Orientation*(this: var BRepTopAdaptor_TopolTool; C: handle[Adaptor3d_HVertex]): TopAbs_Orientation {.
     importcpp: "Orientation", header: "BRepTopAdaptor_TopolTool.hxx".}
-proc destroy*(this: var BRepTopAdaptorTopolTool) {.importcpp: "Destroy",
+proc Destroy*(this: var BRepTopAdaptor_TopolTool) {.importcpp: "Destroy",
     header: "BRepTopAdaptor_TopolTool.hxx".}
-proc destroyBRepTopAdaptorTopolTool*(this: var BRepTopAdaptorTopolTool) {.
+proc destroyBRepTopAdaptor_TopolTool*(this: var BRepTopAdaptor_TopolTool) {.
     importcpp: "#.~BRepTopAdaptor_TopolTool()",
     header: "BRepTopAdaptor_TopolTool.hxx".}
-proc has3d*(this: BRepTopAdaptorTopolTool): StandardBoolean {.noSideEffect,
+proc Has3d*(this: BRepTopAdaptor_TopolTool): Standard_Boolean {.noSideEffect,
     importcpp: "Has3d", header: "BRepTopAdaptor_TopolTool.hxx".}
-proc tol3d*(this: BRepTopAdaptorTopolTool; c: Handle[Adaptor2dHCurve2d]): StandardReal {.
+proc Tol3d*(this: BRepTopAdaptor_TopolTool; C: handle[Adaptor2d_HCurve2d]): Standard_Real {.
     noSideEffect, importcpp: "Tol3d", header: "BRepTopAdaptor_TopolTool.hxx".}
-proc tol3d*(this: BRepTopAdaptorTopolTool; v: Handle[Adaptor3dHVertex]): StandardReal {.
+proc Tol3d*(this: BRepTopAdaptor_TopolTool; V: handle[Adaptor3d_HVertex]): Standard_Real {.
     noSideEffect, importcpp: "Tol3d", header: "BRepTopAdaptor_TopolTool.hxx".}
-proc pnt*(this: BRepTopAdaptorTopolTool; v: Handle[Adaptor3dHVertex]): GpPnt {.
+proc Pnt*(this: BRepTopAdaptor_TopolTool; V: handle[Adaptor3d_HVertex]): gp_Pnt {.
     noSideEffect, importcpp: "Pnt", header: "BRepTopAdaptor_TopolTool.hxx".}
-proc computeSamplePoints*(this: var BRepTopAdaptorTopolTool) {.
+proc ComputeSamplePoints*(this: var BRepTopAdaptor_TopolTool) {.
     importcpp: "ComputeSamplePoints", header: "BRepTopAdaptor_TopolTool.hxx".}
-proc nbSamplesU*(this: var BRepTopAdaptorTopolTool): StandardInteger {.
+proc NbSamplesU*(this: var BRepTopAdaptor_TopolTool): Standard_Integer {.
     importcpp: "NbSamplesU", header: "BRepTopAdaptor_TopolTool.hxx".}
-proc nbSamplesV*(this: var BRepTopAdaptorTopolTool): StandardInteger {.
+proc NbSamplesV*(this: var BRepTopAdaptor_TopolTool): Standard_Integer {.
     importcpp: "NbSamplesV", header: "BRepTopAdaptor_TopolTool.hxx".}
-proc nbSamples*(this: var BRepTopAdaptorTopolTool): StandardInteger {.
+proc NbSamples*(this: var BRepTopAdaptor_TopolTool): Standard_Integer {.
     importcpp: "NbSamples", header: "BRepTopAdaptor_TopolTool.hxx".}
-proc samplePoint*(this: var BRepTopAdaptorTopolTool; index: StandardInteger;
-                 p2d: var GpPnt2d; p3d: var GpPnt) {.importcpp: "SamplePoint",
+proc SamplePoint*(this: var BRepTopAdaptor_TopolTool; Index: Standard_Integer;
+                 P2d: var gp_Pnt2d; P3d: var gp_Pnt) {.importcpp: "SamplePoint",
     header: "BRepTopAdaptor_TopolTool.hxx".}
-proc domainIsInfinite*(this: var BRepTopAdaptorTopolTool): StandardBoolean {.
+proc DomainIsInfinite*(this: var BRepTopAdaptor_TopolTool): Standard_Boolean {.
     importcpp: "DomainIsInfinite", header: "BRepTopAdaptor_TopolTool.hxx".}
 type
-  BRepTopAdaptorTopolToolbaseType* = Adaptor3dTopolTool
+  BRepTopAdaptor_TopolToolbase_type* = Adaptor3d_TopolTool
 
-proc getTypeName*(): cstring {.importcpp: "BRepTopAdaptor_TopolTool::get_type_name(@)",
-                            header: "BRepTopAdaptor_TopolTool.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "BRepTopAdaptor_TopolTool::get_type_name(@)",
+                              header: "BRepTopAdaptor_TopolTool.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "BRepTopAdaptor_TopolTool::get_type_descriptor(@)",
     header: "BRepTopAdaptor_TopolTool.hxx".}
-proc dynamicType*(this: BRepTopAdaptorTopolTool): Handle[StandardType] {.
+proc DynamicType*(this: BRepTopAdaptor_TopolTool): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType", header: "BRepTopAdaptor_TopolTool.hxx".}
-

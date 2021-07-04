@@ -14,27 +14,31 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../gp/gp_XYZ, ../gp/gp_XY,
+  ../Standard/Standard_Integer
+
 discard "forward decl of gp_XY"
 discard "forward decl of gp_XYZ"
 type
-  PlatePinpointConstraint* {.importcpp: "Plate_PinpointConstraint",
-                            header: "Plate_PinpointConstraint.hxx", bycopy.} = object
+  Plate_PinpointConstraint* {.importcpp: "Plate_PinpointConstraint",
+                             header: "Plate_PinpointConstraint.hxx", bycopy.} = object
 
 
-proc constructPlatePinpointConstraint*(): PlatePinpointConstraint {.constructor,
+proc constructPlate_PinpointConstraint*(): Plate_PinpointConstraint {.constructor,
     importcpp: "Plate_PinpointConstraint(@)",
     header: "Plate_PinpointConstraint.hxx".}
-proc constructPlatePinpointConstraint*(point2d: GpXY; imposedValue: GpXYZ;
-                                      iu: StandardInteger = 0;
-                                      iv: StandardInteger = 0): PlatePinpointConstraint {.
+proc constructPlate_PinpointConstraint*(point2d: gp_XY; ImposedValue: gp_XYZ;
+                                       iu: Standard_Integer = 0;
+                                       iv: Standard_Integer = 0): Plate_PinpointConstraint {.
     constructor, importcpp: "Plate_PinpointConstraint(@)",
     header: "Plate_PinpointConstraint.hxx".}
-proc pnt2d*(this: PlatePinpointConstraint): GpXY {.noSideEffect, importcpp: "Pnt2d",
-    header: "Plate_PinpointConstraint.hxx".}
-proc idu*(this: PlatePinpointConstraint): StandardInteger {.noSideEffect,
+proc Pnt2d*(this: Plate_PinpointConstraint): gp_XY {.noSideEffect,
+    importcpp: "Pnt2d", header: "Plate_PinpointConstraint.hxx".}
+proc Idu*(this: Plate_PinpointConstraint): Standard_Integer {.noSideEffect,
     importcpp: "Idu", header: "Plate_PinpointConstraint.hxx".}
-proc idv*(this: PlatePinpointConstraint): StandardInteger {.noSideEffect,
+proc Idv*(this: Plate_PinpointConstraint): Standard_Integer {.noSideEffect,
     importcpp: "Idv", header: "Plate_PinpointConstraint.hxx".}
-proc value*(this: PlatePinpointConstraint): GpXYZ {.noSideEffect, importcpp: "Value",
-    header: "Plate_PinpointConstraint.hxx".}
-
+proc Value*(this: Plate_PinpointConstraint): gp_XYZ {.noSideEffect,
+    importcpp: "Value", header: "Plate_PinpointConstraint.hxx".}

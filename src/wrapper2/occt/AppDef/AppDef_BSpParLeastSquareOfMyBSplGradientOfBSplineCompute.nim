@@ -14,6 +14,15 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../AppParCurves/AppParCurves_Constraint,
+  ../AppParCurves/AppParCurves_MultiBSpCurve, ../TColStd/TColStd_HArray1OfReal,
+  ../TColStd/TColStd_HArray1OfInteger, ../math/math_Matrix, ../math/math_Vector,
+  ../math/math_IntegerVector, ../Standard/Standard_Real,
+  ../Standard/Standard_Integer, ../Standard/Standard_Boolean,
+  ../TColStd/TColStd_Array1OfReal, ../TColStd/TColStd_Array1OfInteger
+
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of Standard_DimensionError"
@@ -24,7 +33,7 @@ discard "forward decl of AppParCurves_MultiCurve"
 discard "forward decl of AppParCurves_MultiBSpCurve"
 discard "forward decl of math_Matrix"
 type
-  AppDefBSpParLeastSquareOfMyBSplGradientOfBSplineCompute* {.
+  AppDef_BSpParLeastSquareOfMyBSplGradientOfBSplineCompute* {.
       importcpp: "AppDef_BSpParLeastSquareOfMyBSplGradientOfBSplineCompute",
       header: "AppDef_BSpParLeastSquareOfMyBSplGradientOfBSplineCompute.hxx",
       bycopy.} = object ## ! given a MultiLine, this algorithm computes the least
@@ -46,91 +55,92 @@ type
                      ## ! is used by the constuctors above.
 
 
-proc constructAppDefBSpParLeastSquareOfMyBSplGradientOfBSplineCompute*(
-    ssp: AppDefMultiLine; firstPoint: StandardInteger; lastPoint: StandardInteger;
-    firstCons: AppParCurvesConstraint; lastCons: AppParCurvesConstraint;
-    parameters: MathVector; nbPol: StandardInteger): AppDefBSpParLeastSquareOfMyBSplGradientOfBSplineCompute {.
+proc constructAppDef_BSpParLeastSquareOfMyBSplGradientOfBSplineCompute*(
+    SSP: AppDef_MultiLine; FirstPoint: Standard_Integer;
+    LastPoint: Standard_Integer; FirstCons: AppParCurves_Constraint;
+    LastCons: AppParCurves_Constraint; Parameters: math_Vector;
+    NbPol: Standard_Integer): AppDef_BSpParLeastSquareOfMyBSplGradientOfBSplineCompute {.
     constructor,
     importcpp: "AppDef_BSpParLeastSquareOfMyBSplGradientOfBSplineCompute(@)",
     header: "AppDef_BSpParLeastSquareOfMyBSplGradientOfBSplineCompute.hxx".}
-proc constructAppDefBSpParLeastSquareOfMyBSplGradientOfBSplineCompute*(
-    ssp: AppDefMultiLine; firstPoint: StandardInteger; lastPoint: StandardInteger;
-    firstCons: AppParCurvesConstraint; lastCons: AppParCurvesConstraint;
-    nbPol: StandardInteger): AppDefBSpParLeastSquareOfMyBSplGradientOfBSplineCompute {.
+proc constructAppDef_BSpParLeastSquareOfMyBSplGradientOfBSplineCompute*(
+    SSP: AppDef_MultiLine; FirstPoint: Standard_Integer;
+    LastPoint: Standard_Integer; FirstCons: AppParCurves_Constraint;
+    LastCons: AppParCurves_Constraint; NbPol: Standard_Integer): AppDef_BSpParLeastSquareOfMyBSplGradientOfBSplineCompute {.
     constructor,
     importcpp: "AppDef_BSpParLeastSquareOfMyBSplGradientOfBSplineCompute(@)",
     header: "AppDef_BSpParLeastSquareOfMyBSplGradientOfBSplineCompute.hxx".}
-proc constructAppDefBSpParLeastSquareOfMyBSplGradientOfBSplineCompute*(
-    ssp: AppDefMultiLine; knots: TColStdArray1OfReal; mults: TColStdArray1OfInteger;
-    firstPoint: StandardInteger; lastPoint: StandardInteger;
-    firstCons: AppParCurvesConstraint; lastCons: AppParCurvesConstraint;
-    parameters: MathVector; nbPol: StandardInteger): AppDefBSpParLeastSquareOfMyBSplGradientOfBSplineCompute {.
+proc constructAppDef_BSpParLeastSquareOfMyBSplGradientOfBSplineCompute*(
+    SSP: AppDef_MultiLine; Knots: TColStd_Array1OfReal;
+    Mults: TColStd_Array1OfInteger; FirstPoint: Standard_Integer;
+    LastPoint: Standard_Integer; FirstCons: AppParCurves_Constraint;
+    LastCons: AppParCurves_Constraint; Parameters: math_Vector;
+    NbPol: Standard_Integer): AppDef_BSpParLeastSquareOfMyBSplGradientOfBSplineCompute {.
     constructor,
     importcpp: "AppDef_BSpParLeastSquareOfMyBSplGradientOfBSplineCompute(@)",
     header: "AppDef_BSpParLeastSquareOfMyBSplGradientOfBSplineCompute.hxx".}
-proc constructAppDefBSpParLeastSquareOfMyBSplGradientOfBSplineCompute*(
-    ssp: AppDefMultiLine; knots: TColStdArray1OfReal; mults: TColStdArray1OfInteger;
-    firstPoint: StandardInteger; lastPoint: StandardInteger;
-    firstCons: AppParCurvesConstraint; lastCons: AppParCurvesConstraint;
-    nbPol: StandardInteger): AppDefBSpParLeastSquareOfMyBSplGradientOfBSplineCompute {.
+proc constructAppDef_BSpParLeastSquareOfMyBSplGradientOfBSplineCompute*(
+    SSP: AppDef_MultiLine; Knots: TColStd_Array1OfReal;
+    Mults: TColStd_Array1OfInteger; FirstPoint: Standard_Integer;
+    LastPoint: Standard_Integer; FirstCons: AppParCurves_Constraint;
+    LastCons: AppParCurves_Constraint; NbPol: Standard_Integer): AppDef_BSpParLeastSquareOfMyBSplGradientOfBSplineCompute {.
     constructor,
     importcpp: "AppDef_BSpParLeastSquareOfMyBSplGradientOfBSplineCompute(@)",
     header: "AppDef_BSpParLeastSquareOfMyBSplGradientOfBSplineCompute.hxx".}
-proc perform*(this: var AppDefBSpParLeastSquareOfMyBSplGradientOfBSplineCompute;
-             parameters: MathVector) {.importcpp: "Perform", header: "AppDef_BSpParLeastSquareOfMyBSplGradientOfBSplineCompute.hxx".}
-proc perform*(this: var AppDefBSpParLeastSquareOfMyBSplGradientOfBSplineCompute;
-             parameters: MathVector; l1: StandardReal; l2: StandardReal) {.
+proc Perform*(this: var AppDef_BSpParLeastSquareOfMyBSplGradientOfBSplineCompute;
+             Parameters: math_Vector) {.importcpp: "Perform", header: "AppDef_BSpParLeastSquareOfMyBSplGradientOfBSplineCompute.hxx".}
+proc Perform*(this: var AppDef_BSpParLeastSquareOfMyBSplGradientOfBSplineCompute;
+             Parameters: math_Vector; l1: Standard_Real; l2: Standard_Real) {.
     importcpp: "Perform",
     header: "AppDef_BSpParLeastSquareOfMyBSplGradientOfBSplineCompute.hxx".}
-proc perform*(this: var AppDefBSpParLeastSquareOfMyBSplGradientOfBSplineCompute;
-             parameters: MathVector; v1t: MathVector; v2t: MathVector;
-             l1: StandardReal; l2: StandardReal) {.importcpp: "Perform",
+proc Perform*(this: var AppDef_BSpParLeastSquareOfMyBSplGradientOfBSplineCompute;
+             Parameters: math_Vector; V1t: math_Vector; V2t: math_Vector;
+             l1: Standard_Real; l2: Standard_Real) {.importcpp: "Perform",
     header: "AppDef_BSpParLeastSquareOfMyBSplGradientOfBSplineCompute.hxx".}
-proc perform*(this: var AppDefBSpParLeastSquareOfMyBSplGradientOfBSplineCompute;
-             parameters: MathVector; v1t: MathVector; v2t: MathVector;
-             v1c: MathVector; v2c: MathVector; l1: StandardReal; l2: StandardReal) {.
+proc Perform*(this: var AppDef_BSpParLeastSquareOfMyBSplGradientOfBSplineCompute;
+             Parameters: math_Vector; V1t: math_Vector; V2t: math_Vector;
+             V1c: math_Vector; V2c: math_Vector; l1: Standard_Real; l2: Standard_Real) {.
     importcpp: "Perform",
     header: "AppDef_BSpParLeastSquareOfMyBSplGradientOfBSplineCompute.hxx".}
-proc isDone*(this: AppDefBSpParLeastSquareOfMyBSplGradientOfBSplineCompute): StandardBoolean {.
+proc IsDone*(this: AppDef_BSpParLeastSquareOfMyBSplGradientOfBSplineCompute): Standard_Boolean {.
     noSideEffect, importcpp: "IsDone",
     header: "AppDef_BSpParLeastSquareOfMyBSplGradientOfBSplineCompute.hxx".}
-proc bezierValue*(this: var AppDefBSpParLeastSquareOfMyBSplGradientOfBSplineCompute): AppParCurvesMultiCurve {.
+proc BezierValue*(this: var AppDef_BSpParLeastSquareOfMyBSplGradientOfBSplineCompute): AppParCurves_MultiCurve {.
     importcpp: "BezierValue",
     header: "AppDef_BSpParLeastSquareOfMyBSplGradientOfBSplineCompute.hxx".}
-proc bSplineValue*(this: var AppDefBSpParLeastSquareOfMyBSplGradientOfBSplineCompute): AppParCurvesMultiBSpCurve {.
+proc BSplineValue*(this: var AppDef_BSpParLeastSquareOfMyBSplGradientOfBSplineCompute): AppParCurves_MultiBSpCurve {.
     importcpp: "BSplineValue",
     header: "AppDef_BSpParLeastSquareOfMyBSplGradientOfBSplineCompute.hxx".}
-proc functionMatrix*(this: AppDefBSpParLeastSquareOfMyBSplGradientOfBSplineCompute): MathMatrix {.
+proc FunctionMatrix*(this: AppDef_BSpParLeastSquareOfMyBSplGradientOfBSplineCompute): math_Matrix {.
     noSideEffect, importcpp: "FunctionMatrix",
     header: "AppDef_BSpParLeastSquareOfMyBSplGradientOfBSplineCompute.hxx".}
-proc derivativeFunctionMatrix*(this: AppDefBSpParLeastSquareOfMyBSplGradientOfBSplineCompute): MathMatrix {.
+proc DerivativeFunctionMatrix*(this: AppDef_BSpParLeastSquareOfMyBSplGradientOfBSplineCompute): math_Matrix {.
     noSideEffect, importcpp: "DerivativeFunctionMatrix",
     header: "AppDef_BSpParLeastSquareOfMyBSplGradientOfBSplineCompute.hxx".}
-proc errorGradient*(this: var AppDefBSpParLeastSquareOfMyBSplGradientOfBSplineCompute;
-                   grad: var MathVector; f: var StandardReal;
-                   maxE3d: var StandardReal; maxE2d: var StandardReal) {.
+proc ErrorGradient*(this: var AppDef_BSpParLeastSquareOfMyBSplGradientOfBSplineCompute;
+                   Grad: var math_Vector; F: var Standard_Real;
+                   MaxE3d: var Standard_Real; MaxE2d: var Standard_Real) {.
     importcpp: "ErrorGradient",
     header: "AppDef_BSpParLeastSquareOfMyBSplGradientOfBSplineCompute.hxx".}
-proc distance*(this: var AppDefBSpParLeastSquareOfMyBSplGradientOfBSplineCompute): MathMatrix {.
+proc Distance*(this: var AppDef_BSpParLeastSquareOfMyBSplGradientOfBSplineCompute): math_Matrix {.
     importcpp: "Distance",
     header: "AppDef_BSpParLeastSquareOfMyBSplGradientOfBSplineCompute.hxx".}
-proc error*(this: var AppDefBSpParLeastSquareOfMyBSplGradientOfBSplineCompute;
-           f: var StandardReal; maxE3d: var StandardReal; maxE2d: var StandardReal) {.
+proc Error*(this: var AppDef_BSpParLeastSquareOfMyBSplGradientOfBSplineCompute;
+           F: var Standard_Real; MaxE3d: var Standard_Real; MaxE2d: var Standard_Real) {.
     importcpp: "Error",
     header: "AppDef_BSpParLeastSquareOfMyBSplGradientOfBSplineCompute.hxx".}
-proc firstLambda*(this: AppDefBSpParLeastSquareOfMyBSplGradientOfBSplineCompute): StandardReal {.
+proc FirstLambda*(this: AppDef_BSpParLeastSquareOfMyBSplGradientOfBSplineCompute): Standard_Real {.
     noSideEffect, importcpp: "FirstLambda",
     header: "AppDef_BSpParLeastSquareOfMyBSplGradientOfBSplineCompute.hxx".}
-proc lastLambda*(this: AppDefBSpParLeastSquareOfMyBSplGradientOfBSplineCompute): StandardReal {.
+proc LastLambda*(this: AppDef_BSpParLeastSquareOfMyBSplGradientOfBSplineCompute): Standard_Real {.
     noSideEffect, importcpp: "LastLambda",
     header: "AppDef_BSpParLeastSquareOfMyBSplGradientOfBSplineCompute.hxx".}
-proc points*(this: AppDefBSpParLeastSquareOfMyBSplGradientOfBSplineCompute): MathMatrix {.
+proc Points*(this: AppDef_BSpParLeastSquareOfMyBSplGradientOfBSplineCompute): math_Matrix {.
     noSideEffect, importcpp: "Points",
     header: "AppDef_BSpParLeastSquareOfMyBSplGradientOfBSplineCompute.hxx".}
-proc poles*(this: AppDefBSpParLeastSquareOfMyBSplGradientOfBSplineCompute): MathMatrix {.
+proc Poles*(this: AppDef_BSpParLeastSquareOfMyBSplGradientOfBSplineCompute): math_Matrix {.
     noSideEffect, importcpp: "Poles",
     header: "AppDef_BSpParLeastSquareOfMyBSplGradientOfBSplineCompute.hxx".}
-proc kIndex*(this: AppDefBSpParLeastSquareOfMyBSplGradientOfBSplineCompute): MathIntegerVector {.
+proc KIndex*(this: AppDef_BSpParLeastSquareOfMyBSplGradientOfBSplineCompute): math_IntegerVector {.
     noSideEffect, importcpp: "KIndex",
     header: "AppDef_BSpParLeastSquareOfMyBSplGradientOfBSplineCompute.hxx".}
-

@@ -14,6 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, BRepAlgoAPI_BooleanOperation
+
 discard "forward decl of BOPAlgo_PaveFiller"
 discard "forward decl of TopoDS_Shape"
 type
@@ -28,14 +32,13 @@ proc constructBRepAlgoAPI_Common*(): BRepAlgoAPI_Common {.constructor,
     importcpp: "BRepAlgoAPI_Common(@)", header: "BRepAlgoAPI_Common.hxx".}
 proc destroyBRepAlgoAPI_Common*(this: var BRepAlgoAPI_Common) {.
     importcpp: "#.~BRepAlgoAPI_Common()", header: "BRepAlgoAPI_Common.hxx".}
-proc constructBRepAlgoAPI_Common*(pf: BOPAlgoPaveFiller): BRepAlgoAPI_Common {.
+proc constructBRepAlgoAPI_Common*(PF: BOPAlgo_PaveFiller): BRepAlgoAPI_Common {.
     constructor, importcpp: "BRepAlgoAPI_Common(@)",
     header: "BRepAlgoAPI_Common.hxx".}
-proc constructBRepAlgoAPI_Common*(s1: TopoDS_Shape; s2: TopoDS_Shape): BRepAlgoAPI_Common {.
+proc constructBRepAlgoAPI_Common*(S1: TopoDS_Shape; S2: TopoDS_Shape): BRepAlgoAPI_Common {.
     constructor, importcpp: "BRepAlgoAPI_Common(@)",
     header: "BRepAlgoAPI_Common.hxx".}
-proc constructBRepAlgoAPI_Common*(s1: TopoDS_Shape; s2: TopoDS_Shape;
-                                 pf: BOPAlgoPaveFiller): BRepAlgoAPI_Common {.
+proc constructBRepAlgoAPI_Common*(S1: TopoDS_Shape; S2: TopoDS_Shape;
+                                 PF: BOPAlgo_PaveFiller): BRepAlgoAPI_Common {.
     constructor, importcpp: "BRepAlgoAPI_Common(@)",
     header: "BRepAlgoAPI_Common.hxx".}
-

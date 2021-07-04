@@ -14,6 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Draw/Draw_Interpretor, ../TCollection/TCollection_AsciiString,
+  ../TopAbs/TopAbs_ShapeEnum, ../TopoDS/TopoDS_Shape
+
 ## ! Used to display BRep objects  using the DrawTrSurf
 ## ! package.
 ## ! The DrawableShape is a Display object build from a
@@ -32,31 +36,31 @@ type
                                                               ## ! @param theToComplain [in] when TRUE, prints a message on cout if the variable is not set
 
 
-proc set*(name: StandardCString; s: TopoDS_Shape) {.importcpp: "DBRep::Set(@)",
+proc Set*(Name: Standard_CString; S: TopoDS_Shape) {.importcpp: "DBRep::Set(@)",
     header: "DBRep.hxx".}
-proc get*(theName: var StandardCString; theType: TopAbsShapeEnum = topAbsSHAPE;
-         theToComplain: StandardBoolean = standardFalse): TopoDS_Shape {.
+proc Get*(theName: var Standard_CString; theType: TopAbs_ShapeEnum = TopAbs_SHAPE;
+         theToComplain: Standard_Boolean = Standard_False): TopoDS_Shape {.
     importcpp: "DBRep::Get(@)", header: "DBRep.hxx".}
-proc get*(theName: var TCollectionAsciiString;
-         theType: TopAbsShapeEnum = topAbsSHAPE;
-         theToComplain: StandardBoolean = standardFalse): TopoDS_Shape {.
+proc Get*(theName: var TCollection_AsciiString;
+         theType: TopAbs_ShapeEnum = TopAbs_SHAPE;
+         theToComplain: Standard_Boolean = Standard_False): TopoDS_Shape {.
     importcpp: "DBRep::Get(@)", header: "DBRep.hxx".}
-proc getExisting*(theName: TCollectionAsciiString;
-                 theType: TopAbsShapeEnum = topAbsSHAPE;
-                 theToComplain: StandardBoolean = standardFalse): TopoDS_Shape {.
+proc GetExisting*(theName: TCollection_AsciiString;
+                 theType: TopAbs_ShapeEnum = TopAbs_SHAPE;
+                 theToComplain: Standard_Boolean = Standard_False): TopoDS_Shape {.
     importcpp: "DBRep::GetExisting(@)", header: "DBRep.hxx".}
-proc basicCommands*(theCommands: var DrawInterpretor) {.
+proc BasicCommands*(theCommands: var Draw_Interpretor) {.
     importcpp: "DBRep::BasicCommands(@)", header: "DBRep.hxx".}
-proc hLRMode*(): StandardBoolean {.importcpp: "DBRep::HLRMode(@)",
-                                header: "DBRep.hxx".}
-proc rg1Mode*(): StandardBoolean {.importcpp: "DBRep::Rg1Mode(@)",
-                                header: "DBRep.hxx".}
-proc rgNMode*(): StandardBoolean {.importcpp: "DBRep::RgNMode(@)",
-                                header: "DBRep.hxx".}
-proc hidMode*(): StandardBoolean {.importcpp: "DBRep::HidMode(@)",
-                                header: "DBRep.hxx".}
-proc hLRAngle*(): StandardReal {.importcpp: "DBRep::HLRAngle(@)", header: "DBRep.hxx".}
-proc nbIsos*(): StandardInteger {.importcpp: "DBRep::NbIsos(@)", header: "DBRep.hxx".}
-proc discretisation*(): StandardInteger {.importcpp: "DBRep::Discretisation(@)",
-                                       header: "DBRep.hxx".}
-
+proc HLRMode*(): Standard_Boolean {.importcpp: "DBRep::HLRMode(@)",
+                                 header: "DBRep.hxx".}
+proc Rg1Mode*(): Standard_Boolean {.importcpp: "DBRep::Rg1Mode(@)",
+                                 header: "DBRep.hxx".}
+proc RgNMode*(): Standard_Boolean {.importcpp: "DBRep::RgNMode(@)",
+                                 header: "DBRep.hxx".}
+proc HidMode*(): Standard_Boolean {.importcpp: "DBRep::HidMode(@)",
+                                 header: "DBRep.hxx".}
+proc HLRAngle*(): Standard_Real {.importcpp: "DBRep::HLRAngle(@)",
+                               header: "DBRep.hxx".}
+proc NbIsos*(): Standard_Integer {.importcpp: "DBRep::NbIsos(@)", header: "DBRep.hxx".}
+proc Discretisation*(): Standard_Integer {.importcpp: "DBRep::Discretisation(@)",
+                                        header: "DBRep.hxx".}

@@ -14,6 +14,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../gp/gp_Dir,
+  ../Standard/Standard_Real, ../GeomAbs/GeomAbs_Shape, Geom_Curve,
+  ../Standard/Standard_Boolean, ../Standard/Standard_Integer,
+  ../GeomEvaluator/GeomEvaluator_OffsetCurve
+
 discard "forward decl of Geom_Curve"
 discard "forward decl of Standard_ConstructionError"
 discard "forward decl of Standard_RangeError"
@@ -28,7 +34,7 @@ discard "forward decl of Geom_Geometry"
 discard "forward decl of Geom_OffsetCurve"
 discard "forward decl of Geom_OffsetCurve"
 type
-  HandleGeomOffsetCurve* = Handle[GeomOffsetCurve]
+  Handle_Geom_OffsetCurve* = handle[Geom_OffsetCurve]
 
 ## ! This class implements the basis services for an offset curve
 ## ! in 3D space. The Offset curve in this package can be a self
@@ -73,93 +79,187 @@ type
 ## ! closed even if the basis curve is not closed.
 
 type
-  GeomOffsetCurve* {.importcpp: "Geom_OffsetCurve", header: "Geom_OffsetCurve.hxx",
-                    bycopy.} = object of GeomCurve ## ! C is the basis curve, Offset is the distance between <me> and
-                                              ## ! the basis curve at any point. V defines the fixed reference
-                                              ## ! direction (offset direction). If P is a point on the basis
-                                              ## ! curve and T the first derivative with non zero length
-                                              ## ! at this point, the corresponding point on the offset curve is
-                                              ## ! in the direction of the vector-product N = V ^ T   where
-                                              ## ! N is a unitary vector.
-                                              ## ! If isNotCheckC0 = TRUE checking if basis curve has C0-continuity
-                                              ## ! is not made.
-                                              ## ! Warnings :
-                                              ## ! In this package the entities are not shared. The OffsetCurve is
-                                              ## ! built with a copy of the curve C. So when C is modified the
-                                              ## ! OffsetCurve is not modified
-                                              ## !
-                                              ## ! Raised if the basis curve C is not at least C1.
-                                              ## ! Warnings :
-                                              ## ! No check is done to know if ||V^T|| != 0.0 at any point.
+  Geom_OffsetCurve* {.importcpp: "Geom_OffsetCurve",
+                     header: "Geom_OffsetCurve.hxx", bycopy.} = object of Geom_Curve ## ! C is
+                                                                              ## the
+                                                                              ## basis
+                                                                              ## curve,
+                                                                              ## Offset is
+                                                                              ## the
+                                                                              ## distance
+                                                                              ## between
+                                                                              ## <me>
+                                                                              ## and
+                                                                              ## !
+                                                                              ## the
+                                                                              ## basis
+                                                                              ## curve at
+                                                                              ## any
+                                                                              ## point. V
+                                                                              ## defines
+                                                                              ## the
+                                                                              ## fixed
+                                                                              ## reference
+                                                                              ## !
+                                                                              ## direction
+                                                                              ## (offset
+                                                                              ## direction). If P is a
+                                                                              ## point on
+                                                                              ## the
+                                                                              ## basis
+                                                                              ## !
+                                                                              ## curve
+                                                                              ## and T
+                                                                              ## the
+                                                                              ## first
+                                                                              ## derivative
+                                                                              ## with
+                                                                              ## non
+                                                                              ## zero
+                                                                              ## length
+                                                                              ## ! at
+                                                                              ## this
+                                                                              ## point,
+                                                                              ## the
+                                                                              ## corresponding
+                                                                              ## point on
+                                                                              ## the
+                                                                              ## offset
+                                                                              ## curve is
+                                                                              ## ! in
+                                                                              ## the
+                                                                              ## direction of
+                                                                              ## the
+                                                                              ## vector-product N = V ^ T
+                                                                              ## where
+                                                                              ## ! N is a
+                                                                              ## unitary
+                                                                              ## vector.
+                                                                              ## ! If
+                                                                              ## isNotCheckC0 =
+                                                                              ## TRUE
+                                                                              ## checking if
+                                                                              ## basis
+                                                                              ## curve
+                                                                              ## has
+                                                                              ## C0-continuity
+                                                                              ## ! is
+                                                                              ## not
+                                                                              ## made.
+                                                                              ## !
+                                                                              ## Warnings :
+                                                                              ## ! In
+                                                                              ## this
+                                                                              ## package
+                                                                              ## the
+                                                                              ## entities
+                                                                              ## are
+                                                                              ## not
+                                                                              ## shared.
+                                                                              ## The
+                                                                              ## OffsetCurve is
+                                                                              ## !
+                                                                              ## built
+                                                                              ## with a
+                                                                              ## copy of
+                                                                              ## the
+                                                                              ## curve C. So
+                                                                              ## when C is
+                                                                              ## modified
+                                                                              ## the
+                                                                              ## !
+                                                                              ## OffsetCurve is
+                                                                              ## not
+                                                                              ## modified
+                                                                              ## !
+                                                                              ## !
+                                                                              ## Raised if
+                                                                              ## the
+                                                                              ## basis
+                                                                              ## curve C is
+                                                                              ## not at
+                                                                              ## least
+                                                                              ## C1.
+                                                                              ## !
+                                                                              ## Warnings :
+                                                                              ## ! No
+                                                                              ## check is
+                                                                              ## done to
+                                                                              ## know if
+                                                                              ## ||V^T|| !=
+                                                                              ## 0.0 at
+                                                                              ## any
+                                                                              ## point.
 
 
-proc constructGeomOffsetCurve*(c: Handle[GeomCurve]; offset: StandardReal; v: GpDir;
-                              isNotCheckC0: StandardBoolean = standardFalse): GeomOffsetCurve {.
+proc constructGeom_OffsetCurve*(C: handle[Geom_Curve]; Offset: Standard_Real;
+                               V: gp_Dir;
+                               isNotCheckC0: Standard_Boolean = Standard_False): Geom_OffsetCurve {.
     constructor, importcpp: "Geom_OffsetCurve(@)", header: "Geom_OffsetCurve.hxx".}
-proc reverse*(this: var GeomOffsetCurve) {.importcpp: "Reverse",
-                                       header: "Geom_OffsetCurve.hxx".}
-proc reversedParameter*(this: GeomOffsetCurve; u: StandardReal): StandardReal {.
+proc Reverse*(this: var Geom_OffsetCurve) {.importcpp: "Reverse",
+                                        header: "Geom_OffsetCurve.hxx".}
+proc ReversedParameter*(this: Geom_OffsetCurve; U: Standard_Real): Standard_Real {.
     noSideEffect, importcpp: "ReversedParameter", header: "Geom_OffsetCurve.hxx".}
-proc setBasisCurve*(this: var GeomOffsetCurve; c: Handle[GeomCurve];
-                   isNotCheckC0: StandardBoolean = standardFalse) {.
+proc SetBasisCurve*(this: var Geom_OffsetCurve; C: handle[Geom_Curve];
+                   isNotCheckC0: Standard_Boolean = Standard_False) {.
     importcpp: "SetBasisCurve", header: "Geom_OffsetCurve.hxx".}
-proc setDirection*(this: var GeomOffsetCurve; v: GpDir) {.importcpp: "SetDirection",
+proc SetDirection*(this: var Geom_OffsetCurve; V: gp_Dir) {.importcpp: "SetDirection",
     header: "Geom_OffsetCurve.hxx".}
-proc setOffsetValue*(this: var GeomOffsetCurve; d: StandardReal) {.
+proc SetOffsetValue*(this: var Geom_OffsetCurve; D: Standard_Real) {.
     importcpp: "SetOffsetValue", header: "Geom_OffsetCurve.hxx".}
-proc basisCurve*(this: GeomOffsetCurve): Handle[GeomCurve] {.noSideEffect,
+proc BasisCurve*(this: Geom_OffsetCurve): handle[Geom_Curve] {.noSideEffect,
     importcpp: "BasisCurve", header: "Geom_OffsetCurve.hxx".}
-proc continuity*(this: GeomOffsetCurve): GeomAbsShape {.noSideEffect,
+proc Continuity*(this: Geom_OffsetCurve): GeomAbs_Shape {.noSideEffect,
     importcpp: "Continuity", header: "Geom_OffsetCurve.hxx".}
-proc direction*(this: GeomOffsetCurve): GpDir {.noSideEffect, importcpp: "Direction",
-    header: "Geom_OffsetCurve.hxx".}
-proc d0*(this: GeomOffsetCurve; u: StandardReal; p: var GpPnt) {.noSideEffect,
+proc Direction*(this: Geom_OffsetCurve): gp_Dir {.noSideEffect,
+    importcpp: "Direction", header: "Geom_OffsetCurve.hxx".}
+proc D0*(this: Geom_OffsetCurve; U: Standard_Real; P: var gp_Pnt) {.noSideEffect,
     importcpp: "D0", header: "Geom_OffsetCurve.hxx".}
-proc d1*(this: GeomOffsetCurve; u: StandardReal; p: var GpPnt; v1: var GpVec) {.
+proc D1*(this: Geom_OffsetCurve; U: Standard_Real; P: var gp_Pnt; V1: var gp_Vec) {.
     noSideEffect, importcpp: "D1", header: "Geom_OffsetCurve.hxx".}
-proc d2*(this: GeomOffsetCurve; u: StandardReal; p: var GpPnt; v1: var GpVec; v2: var GpVec) {.
-    noSideEffect, importcpp: "D2", header: "Geom_OffsetCurve.hxx".}
-proc d3*(this: GeomOffsetCurve; u: StandardReal; p: var GpPnt; v1: var GpVec;
-        v2: var GpVec; v3: var GpVec) {.noSideEffect, importcpp: "D3",
-                                  header: "Geom_OffsetCurve.hxx".}
-proc dn*(this: GeomOffsetCurve; u: StandardReal; n: StandardInteger): GpVec {.
+proc D2*(this: Geom_OffsetCurve; U: Standard_Real; P: var gp_Pnt; V1: var gp_Vec;
+        V2: var gp_Vec) {.noSideEffect, importcpp: "D2",
+                       header: "Geom_OffsetCurve.hxx".}
+proc D3*(this: Geom_OffsetCurve; U: Standard_Real; P: var gp_Pnt; V1: var gp_Vec;
+        V2: var gp_Vec; V3: var gp_Vec) {.noSideEffect, importcpp: "D3",
+                                    header: "Geom_OffsetCurve.hxx".}
+proc DN*(this: Geom_OffsetCurve; U: Standard_Real; N: Standard_Integer): gp_Vec {.
     noSideEffect, importcpp: "DN", header: "Geom_OffsetCurve.hxx".}
-proc firstParameter*(this: GeomOffsetCurve): StandardReal {.noSideEffect,
+proc FirstParameter*(this: Geom_OffsetCurve): Standard_Real {.noSideEffect,
     importcpp: "FirstParameter", header: "Geom_OffsetCurve.hxx".}
-proc lastParameter*(this: GeomOffsetCurve): StandardReal {.noSideEffect,
+proc LastParameter*(this: Geom_OffsetCurve): Standard_Real {.noSideEffect,
     importcpp: "LastParameter", header: "Geom_OffsetCurve.hxx".}
-proc offset*(this: GeomOffsetCurve): StandardReal {.noSideEffect,
+proc Offset*(this: Geom_OffsetCurve): Standard_Real {.noSideEffect,
     importcpp: "Offset", header: "Geom_OffsetCurve.hxx".}
-proc isClosed*(this: GeomOffsetCurve): StandardBoolean {.noSideEffect,
+proc IsClosed*(this: Geom_OffsetCurve): Standard_Boolean {.noSideEffect,
     importcpp: "IsClosed", header: "Geom_OffsetCurve.hxx".}
-proc isCN*(this: GeomOffsetCurve; n: StandardInteger): StandardBoolean {.noSideEffect,
-    importcpp: "IsCN", header: "Geom_OffsetCurve.hxx".}
-proc isPeriodic*(this: GeomOffsetCurve): StandardBoolean {.noSideEffect,
+proc IsCN*(this: Geom_OffsetCurve; N: Standard_Integer): Standard_Boolean {.
+    noSideEffect, importcpp: "IsCN", header: "Geom_OffsetCurve.hxx".}
+proc IsPeriodic*(this: Geom_OffsetCurve): Standard_Boolean {.noSideEffect,
     importcpp: "IsPeriodic", header: "Geom_OffsetCurve.hxx".}
-proc period*(this: GeomOffsetCurve): StandardReal {.noSideEffect,
+proc Period*(this: Geom_OffsetCurve): Standard_Real {.noSideEffect,
     importcpp: "Period", header: "Geom_OffsetCurve.hxx".}
-proc transform*(this: var GeomOffsetCurve; t: GpTrsf) {.importcpp: "Transform",
+proc Transform*(this: var Geom_OffsetCurve; T: gp_Trsf) {.importcpp: "Transform",
     header: "Geom_OffsetCurve.hxx".}
-proc transformedParameter*(this: GeomOffsetCurve; u: StandardReal; t: GpTrsf): StandardReal {.
+proc TransformedParameter*(this: Geom_OffsetCurve; U: Standard_Real; T: gp_Trsf): Standard_Real {.
     noSideEffect, importcpp: "TransformedParameter", header: "Geom_OffsetCurve.hxx".}
-proc parametricTransformation*(this: GeomOffsetCurve; t: GpTrsf): StandardReal {.
+proc ParametricTransformation*(this: Geom_OffsetCurve; T: gp_Trsf): Standard_Real {.
     noSideEffect, importcpp: "ParametricTransformation",
     header: "Geom_OffsetCurve.hxx".}
-proc copy*(this: GeomOffsetCurve): Handle[GeomGeometry] {.noSideEffect,
+proc Copy*(this: Geom_OffsetCurve): handle[Geom_Geometry] {.noSideEffect,
     importcpp: "Copy", header: "Geom_OffsetCurve.hxx".}
-proc getBasisCurveContinuity*(this: GeomOffsetCurve): GeomAbsShape {.noSideEffect,
+proc GetBasisCurveContinuity*(this: Geom_OffsetCurve): GeomAbs_Shape {.noSideEffect,
     importcpp: "GetBasisCurveContinuity", header: "Geom_OffsetCurve.hxx".}
-proc dumpJson*(this: GeomOffsetCurve; theOStream: var StandardOStream;
-              theDepth: StandardInteger = -1) {.noSideEffect, importcpp: "DumpJson",
+proc DumpJson*(this: Geom_OffsetCurve; theOStream: var Standard_OStream;
+              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
     header: "Geom_OffsetCurve.hxx".}
 type
-  GeomOffsetCurvebaseType* = GeomCurve
+  Geom_OffsetCurvebase_type* = Geom_Curve
 
-proc getTypeName*(): cstring {.importcpp: "Geom_OffsetCurve::get_type_name(@)",
-                            header: "Geom_OffsetCurve.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "Geom_OffsetCurve::get_type_name(@)",
+                              header: "Geom_OffsetCurve.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "Geom_OffsetCurve::get_type_descriptor(@)",
     header: "Geom_OffsetCurve.hxx".}
-proc dynamicType*(this: GeomOffsetCurve): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: Geom_OffsetCurve): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "Geom_OffsetCurve.hxx".}
-

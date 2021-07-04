@@ -14,6 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle
+
 discard "forward decl of Geom2d_Curve"
 discard "forward decl of Adaptor2d_Curve2d"
 discard "forward decl of Geom2dAdaptor_Curve"
@@ -51,6 +55,5 @@ type
                                                                                       ## OtherCurves.
 
 
-proc makeCurve*(hc: Adaptor2dCurve2d): Handle[Geom2dCurve] {.
+proc MakeCurve*(HC: Adaptor2d_Curve2d): handle[Geom2d_Curve] {.
     importcpp: "Geom2dAdaptor::MakeCurve(@)", header: "Geom2dAdaptor.hxx".}
-

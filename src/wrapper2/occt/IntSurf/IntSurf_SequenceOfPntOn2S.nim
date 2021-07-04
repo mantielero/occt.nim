@@ -11,7 +11,8 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  IntSurf_PntOn2S, ../NCollection/NCollection_Sequence
+
 type
-  IntSurfSequenceOfPntOn2S* = NCollectionSequence[IntSurfPntOn2S]
-
-
+  IntSurf_SequenceOfPntOn2S* = NCollection_Sequence[IntSurf_PntOn2S]

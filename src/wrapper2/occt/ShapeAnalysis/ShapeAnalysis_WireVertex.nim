@@ -14,11 +14,18 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../TColStd/TColStd_HArray1OfInteger,
+  ../TColgp/TColgp_HArray1OfXYZ, ../TColStd/TColStd_HArray1OfReal,
+  ../Standard/Standard_Real, ../Standard/Standard_Boolean,
+  ../Standard/Standard_Integer
+
 discard "forward decl of ShapeExtend_WireData"
 discard "forward decl of TopoDS_Wire"
 discard "forward decl of gp_XYZ"
-# when defined(Status):
-#   discard
+when defined(Status):
+  discard
 ## ! Analyzes and records status of vertices in a Wire
 ## !
 ## ! The Wire has formerly been loaded in a ShapeExtend_WireData
@@ -27,69 +34,68 @@ discard "forward decl of gp_XYZ"
 ## ! Then, these informations can be used to fix problems
 
 type
-  ShapeAnalysisWireVertex* {.importcpp: "ShapeAnalysis_WireVertex",
-                            header: "ShapeAnalysis_WireVertex.hxx", bycopy.} = object ##
-                                                                                 ## !
-                                                                                 ## Empty
-                                                                                 ## constructor
+  ShapeAnalysis_WireVertex* {.importcpp: "ShapeAnalysis_WireVertex",
+                             header: "ShapeAnalysis_WireVertex.hxx", bycopy.} = object ##
+                                                                                  ## !
+                                                                                  ## Empty
+                                                                                  ## constructor
 
 
-proc constructShapeAnalysisWireVertex*(): ShapeAnalysisWireVertex {.constructor,
+proc constructShapeAnalysis_WireVertex*(): ShapeAnalysis_WireVertex {.constructor,
     importcpp: "ShapeAnalysis_WireVertex(@)",
     header: "ShapeAnalysis_WireVertex.hxx".}
-proc init*(this: var ShapeAnalysisWireVertex; wire: TopoDS_Wire; preci: StandardReal) {.
+proc Init*(this: var ShapeAnalysis_WireVertex; wire: TopoDS_Wire; preci: Standard_Real) {.
     importcpp: "Init", header: "ShapeAnalysis_WireVertex.hxx".}
-proc init*(this: var ShapeAnalysisWireVertex; swbd: Handle[ShapeExtendWireData];
-          preci: StandardReal) {.importcpp: "Init",
-                               header: "ShapeAnalysis_WireVertex.hxx".}
-proc load*(this: var ShapeAnalysisWireVertex; wire: TopoDS_Wire) {.importcpp: "Load",
-    header: "ShapeAnalysis_WireVertex.hxx".}
-proc load*(this: var ShapeAnalysisWireVertex; sbwd: Handle[ShapeExtendWireData]) {.
-    importcpp: "Load", header: "ShapeAnalysis_WireVertex.hxx".}
-proc setPrecision*(this: var ShapeAnalysisWireVertex; preci: StandardReal) {.
-    importcpp: "SetPrecision", header: "ShapeAnalysis_WireVertex.hxx".}
-proc analyze*(this: var ShapeAnalysisWireVertex) {.importcpp: "Analyze",
-    header: "ShapeAnalysis_WireVertex.hxx".}
-proc setSameVertex*(this: var ShapeAnalysisWireVertex; num: StandardInteger) {.
-    importcpp: "SetSameVertex", header: "ShapeAnalysis_WireVertex.hxx".}
-proc setSameCoords*(this: var ShapeAnalysisWireVertex; num: StandardInteger) {.
-    importcpp: "SetSameCoords", header: "ShapeAnalysis_WireVertex.hxx".}
-proc setClose*(this: var ShapeAnalysisWireVertex; num: StandardInteger) {.
-    importcpp: "SetClose", header: "ShapeAnalysis_WireVertex.hxx".}
-proc setEnd*(this: var ShapeAnalysisWireVertex; num: StandardInteger; pos: GpXYZ;
-            ufol: StandardReal) {.importcpp: "SetEnd",
+proc Init*(this: var ShapeAnalysis_WireVertex; swbd: handle[ShapeExtend_WireData];
+          preci: Standard_Real) {.importcpp: "Init",
                                 header: "ShapeAnalysis_WireVertex.hxx".}
-proc setStart*(this: var ShapeAnalysisWireVertex; num: StandardInteger; pos: GpXYZ;
-              upre: StandardReal) {.importcpp: "SetStart",
-                                  header: "ShapeAnalysis_WireVertex.hxx".}
-proc setInters*(this: var ShapeAnalysisWireVertex; num: StandardInteger; pos: GpXYZ;
-               upre: StandardReal; ufol: StandardReal) {.importcpp: "SetInters",
+proc Load*(this: var ShapeAnalysis_WireVertex; wire: TopoDS_Wire) {.importcpp: "Load",
     header: "ShapeAnalysis_WireVertex.hxx".}
-proc setDisjoined*(this: var ShapeAnalysisWireVertex; num: StandardInteger) {.
+proc Load*(this: var ShapeAnalysis_WireVertex; sbwd: handle[ShapeExtend_WireData]) {.
+    importcpp: "Load", header: "ShapeAnalysis_WireVertex.hxx".}
+proc SetPrecision*(this: var ShapeAnalysis_WireVertex; preci: Standard_Real) {.
+    importcpp: "SetPrecision", header: "ShapeAnalysis_WireVertex.hxx".}
+proc Analyze*(this: var ShapeAnalysis_WireVertex) {.importcpp: "Analyze",
+    header: "ShapeAnalysis_WireVertex.hxx".}
+proc SetSameVertex*(this: var ShapeAnalysis_WireVertex; num: Standard_Integer) {.
+    importcpp: "SetSameVertex", header: "ShapeAnalysis_WireVertex.hxx".}
+proc SetSameCoords*(this: var ShapeAnalysis_WireVertex; num: Standard_Integer) {.
+    importcpp: "SetSameCoords", header: "ShapeAnalysis_WireVertex.hxx".}
+proc SetClose*(this: var ShapeAnalysis_WireVertex; num: Standard_Integer) {.
+    importcpp: "SetClose", header: "ShapeAnalysis_WireVertex.hxx".}
+proc SetEnd*(this: var ShapeAnalysis_WireVertex; num: Standard_Integer; pos: gp_XYZ;
+            ufol: Standard_Real) {.importcpp: "SetEnd",
+                                 header: "ShapeAnalysis_WireVertex.hxx".}
+proc SetStart*(this: var ShapeAnalysis_WireVertex; num: Standard_Integer; pos: gp_XYZ;
+              upre: Standard_Real) {.importcpp: "SetStart",
+                                   header: "ShapeAnalysis_WireVertex.hxx".}
+proc SetInters*(this: var ShapeAnalysis_WireVertex; num: Standard_Integer;
+               pos: gp_XYZ; upre: Standard_Real; ufol: Standard_Real) {.
+    importcpp: "SetInters", header: "ShapeAnalysis_WireVertex.hxx".}
+proc SetDisjoined*(this: var ShapeAnalysis_WireVertex; num: Standard_Integer) {.
     importcpp: "SetDisjoined", header: "ShapeAnalysis_WireVertex.hxx".}
-proc isDone*(this: ShapeAnalysisWireVertex): StandardBoolean {.noSideEffect,
+proc IsDone*(this: ShapeAnalysis_WireVertex): Standard_Boolean {.noSideEffect,
     importcpp: "IsDone", header: "ShapeAnalysis_WireVertex.hxx".}
-proc precision*(this: ShapeAnalysisWireVertex): StandardReal {.noSideEffect,
+proc Precision*(this: ShapeAnalysis_WireVertex): Standard_Real {.noSideEffect,
     importcpp: "Precision", header: "ShapeAnalysis_WireVertex.hxx".}
-proc nbEdges*(this: ShapeAnalysisWireVertex): StandardInteger {.noSideEffect,
+proc NbEdges*(this: ShapeAnalysis_WireVertex): Standard_Integer {.noSideEffect,
     importcpp: "NbEdges", header: "ShapeAnalysis_WireVertex.hxx".}
-proc wireData*(this: ShapeAnalysisWireVertex): Handle[ShapeExtendWireData] {.
+proc WireData*(this: ShapeAnalysis_WireVertex): handle[ShapeExtend_WireData] {.
     noSideEffect, importcpp: "WireData", header: "ShapeAnalysis_WireVertex.hxx".}
-proc status*(this: ShapeAnalysisWireVertex; num: StandardInteger): StandardInteger {.
+proc Status*(this: ShapeAnalysis_WireVertex; num: Standard_Integer): Standard_Integer {.
     noSideEffect, importcpp: "Status", header: "ShapeAnalysis_WireVertex.hxx".}
-proc position*(this: ShapeAnalysisWireVertex; num: StandardInteger): GpXYZ {.
+proc Position*(this: ShapeAnalysis_WireVertex; num: Standard_Integer): gp_XYZ {.
     noSideEffect, importcpp: "Position", header: "ShapeAnalysis_WireVertex.hxx".}
-proc uPrevious*(this: ShapeAnalysisWireVertex; num: StandardInteger): StandardReal {.
+proc UPrevious*(this: ShapeAnalysis_WireVertex; num: Standard_Integer): Standard_Real {.
     noSideEffect, importcpp: "UPrevious", header: "ShapeAnalysis_WireVertex.hxx".}
-proc uFollowing*(this: ShapeAnalysisWireVertex; num: StandardInteger): StandardReal {.
+proc UFollowing*(this: ShapeAnalysis_WireVertex; num: Standard_Integer): Standard_Real {.
     noSideEffect, importcpp: "UFollowing", header: "ShapeAnalysis_WireVertex.hxx".}
-proc data*(this: ShapeAnalysisWireVertex; num: StandardInteger; pos: var GpXYZ;
-          upre: var StandardReal; ufol: var StandardReal): StandardInteger {.
+proc Data*(this: ShapeAnalysis_WireVertex; num: Standard_Integer; pos: var gp_XYZ;
+          upre: var Standard_Real; ufol: var Standard_Real): Standard_Integer {.
     noSideEffect, importcpp: "Data", header: "ShapeAnalysis_WireVertex.hxx".}
-proc nextStatus*(this: ShapeAnalysisWireVertex; stat: StandardInteger;
-                num: StandardInteger = 0): StandardInteger {.noSideEffect,
+proc NextStatus*(this: ShapeAnalysis_WireVertex; stat: Standard_Integer;
+                num: Standard_Integer = 0): Standard_Integer {.noSideEffect,
     importcpp: "NextStatus", header: "ShapeAnalysis_WireVertex.hxx".}
-proc nextCriter*(this: ShapeAnalysisWireVertex; crit: StandardInteger;
-                num: StandardInteger = 0): StandardInteger {.noSideEffect,
+proc NextCriter*(this: ShapeAnalysis_WireVertex; crit: Standard_Integer;
+                num: Standard_Integer = 0): Standard_Integer {.noSideEffect,
     importcpp: "NextCriter", header: "ShapeAnalysis_WireVertex.hxx".}
-

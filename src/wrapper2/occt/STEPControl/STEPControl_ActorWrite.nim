@@ -14,6 +14,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Integer,
+  ../Standard/Standard_Real, ../STEPConstruct/STEPConstruct_ContextTool,
+  ../Transfer/Transfer_ActorOfFinderProcess, ../Standard/Standard_Boolean,
+  ../TopTools/TopTools_HSequenceOfShape, STEPControl_StepModelType
+
 discard "forward decl of Transfer_Finder"
 discard "forward decl of Transfer_Binder"
 discard "forward decl of Transfer_FinderProcess"
@@ -24,104 +30,104 @@ discard "forward decl of StepShape_NonManifoldSurfaceShapeRepresentation"
 discard "forward decl of STEPControl_ActorWrite"
 discard "forward decl of STEPControl_ActorWrite"
 type
-  HandleSTEPControlActorWrite* = Handle[STEPControlActorWrite]
+  Handle_STEPControl_ActorWrite* = handle[STEPControl_ActorWrite]
 
 ## ! This class performs the transfer of a Shape from TopoDS
 ## ! to AP203 or AP214 (CD2 or DIS)
 
 type
-  STEPControlActorWrite* {.importcpp: "STEPControl_ActorWrite",
-                          header: "STEPControl_ActorWrite.hxx", bycopy.} = object of TransferActorOfFinderProcess ##
-                                                                                                           ## !
-                                                                                                           ## Non-manifold
-                                                                                                           ## shapes
-                                                                                                           ## are
-                                                                                                           ## stored
-                                                                                                           ## in
-                                                                                                           ## NMSSR
-                                                                                                           ## group
-                                                                                                           ##
-                                                                                                           ## !
-                                                                                                           ## (NON_MANIFOLD_SURFACE_SHAPE_REPRESENTATION).
-                                                                                                           ##
-                                                                                                           ## !
-                                                                                                           ## Use
-                                                                                                           ## this
-                                                                                                           ## method
-                                                                                                           ## to
-                                                                                                           ## get
-                                                                                                           ## the
-                                                                                                           ## corresponding
-                                                                                                           ## NMSSR
-                                                                                                           ## (or
-                                                                                                           ##
-                                                                                                           ## !
-                                                                                                           ## to
-                                                                                                           ## create
-                                                                                                           ## a
-                                                                                                           ## new
-                                                                                                           ## one
-                                                                                                           ## if
-                                                                                                           ## doesn't
-                                                                                                           ## exist
-                                                                                                           ## yet)
-                                                                                                           ##
-                                                                                                           ## !
-                                                                                                           ## (ssv;
-                                                                                                           ## 13.11.2010)
+  STEPControl_ActorWrite* {.importcpp: "STEPControl_ActorWrite",
+                           header: "STEPControl_ActorWrite.hxx", bycopy.} = object of Transfer_ActorOfFinderProcess ##
+                                                                                                             ## !
+                                                                                                             ## Non-manifold
+                                                                                                             ## shapes
+                                                                                                             ## are
+                                                                                                             ## stored
+                                                                                                             ## in
+                                                                                                             ## NMSSR
+                                                                                                             ## group
+                                                                                                             ##
+                                                                                                             ## !
+                                                                                                             ## (NON_MANIFOLD_SURFACE_SHAPE_REPRESENTATION).
+                                                                                                             ##
+                                                                                                             ## !
+                                                                                                             ## Use
+                                                                                                             ## this
+                                                                                                             ## method
+                                                                                                             ## to
+                                                                                                             ## get
+                                                                                                             ## the
+                                                                                                             ## corresponding
+                                                                                                             ## NMSSR
+                                                                                                             ## (or
+                                                                                                             ##
+                                                                                                             ## !
+                                                                                                             ## to
+                                                                                                             ## create
+                                                                                                             ## a
+                                                                                                             ## new
+                                                                                                             ## one
+                                                                                                             ## if
+                                                                                                             ## doesn't
+                                                                                                             ## exist
+                                                                                                             ## yet)
+                                                                                                             ##
+                                                                                                             ## !
+                                                                                                             ## (ssv;
+                                                                                                             ## 13.11.2010)
 
 
-proc constructSTEPControlActorWrite*(): STEPControlActorWrite {.constructor,
+proc constructSTEPControl_ActorWrite*(): STEPControl_ActorWrite {.constructor,
     importcpp: "STEPControl_ActorWrite(@)", header: "STEPControl_ActorWrite.hxx".}
-proc recognize*(this: var STEPControlActorWrite; start: Handle[TransferFinder]): StandardBoolean {.
+proc Recognize*(this: var STEPControl_ActorWrite; start: handle[Transfer_Finder]): Standard_Boolean {.
     importcpp: "Recognize", header: "STEPControl_ActorWrite.hxx".}
-proc transfer*(this: var STEPControlActorWrite; start: Handle[TransferFinder];
-              fp: Handle[TransferFinderProcess];
-              theProgress: MessageProgressRange = messageProgressRange()): Handle[
-    TransferBinder] {.importcpp: "Transfer", header: "STEPControl_ActorWrite.hxx".}
-proc transferSubShape*(this: var STEPControlActorWrite;
-                      start: Handle[TransferFinder];
-                      sdr: Handle[StepShapeShapeDefinitionRepresentation];
-                      ax1: var Handle[StepGeomAxis2Placement3d];
-                      fp: Handle[TransferFinderProcess];
-                      shapeGroup: Handle[TopToolsHSequenceOfShape] = nil;
-                      isManifold: StandardBoolean = standardTrue; theProgress: MessageProgressRange = messageProgressRange()): Handle[
-    TransferBinder] {.importcpp: "TransferSubShape",
-                     header: "STEPControl_ActorWrite.hxx".}
-proc transferShape*(this: var STEPControlActorWrite; start: Handle[TransferFinder];
-                   sdr: Handle[StepShapeShapeDefinitionRepresentation];
-                   fp: Handle[TransferFinderProcess];
-                   shapeGroup: Handle[TopToolsHSequenceOfShape] = nil;
-                   isManifold: StandardBoolean = standardTrue;
-                   theProgress: MessageProgressRange = messageProgressRange()): Handle[
-    TransferBinder] {.importcpp: "TransferShape",
-                     header: "STEPControl_ActorWrite.hxx".}
-proc transferCompound*(this: var STEPControlActorWrite;
-                      start: Handle[TransferFinder];
-                      sdr: Handle[StepShapeShapeDefinitionRepresentation];
-                      fp: Handle[TransferFinderProcess]; theProgress: MessageProgressRange = messageProgressRange()): Handle[
-    TransferBinder] {.importcpp: "TransferCompound",
-                     header: "STEPControl_ActorWrite.hxx".}
-proc setMode*(this: var STEPControlActorWrite; m: STEPControlStepModelType) {.
+proc Transfer*(this: var STEPControl_ActorWrite; start: handle[Transfer_Finder];
+              FP: handle[Transfer_FinderProcess];
+              theProgress: Message_ProgressRange = Message_ProgressRange()): handle[
+    Transfer_Binder] {.importcpp: "Transfer", header: "STEPControl_ActorWrite.hxx".}
+proc TransferSubShape*(this: var STEPControl_ActorWrite;
+                      start: handle[Transfer_Finder];
+                      SDR: handle[StepShape_ShapeDefinitionRepresentation];
+                      AX1: var handle[StepGeom_Axis2Placement3d];
+                      FP: handle[Transfer_FinderProcess];
+                      shapeGroup: handle[TopTools_HSequenceOfShape] = nil;
+                      isManifold: Standard_Boolean = Standard_True; theProgress: Message_ProgressRange = Message_ProgressRange()): handle[
+    Transfer_Binder] {.importcpp: "TransferSubShape",
+                      header: "STEPControl_ActorWrite.hxx".}
+proc TransferShape*(this: var STEPControl_ActorWrite;
+                   start: handle[Transfer_Finder];
+                   SDR: handle[StepShape_ShapeDefinitionRepresentation];
+                   FP: handle[Transfer_FinderProcess];
+                   shapeGroup: handle[TopTools_HSequenceOfShape] = nil;
+                   isManifold: Standard_Boolean = Standard_True;
+                   theProgress: Message_ProgressRange = Message_ProgressRange()): handle[
+    Transfer_Binder] {.importcpp: "TransferShape",
+                      header: "STEPControl_ActorWrite.hxx".}
+proc TransferCompound*(this: var STEPControl_ActorWrite;
+                      start: handle[Transfer_Finder];
+                      SDR: handle[StepShape_ShapeDefinitionRepresentation];
+                      FP: handle[Transfer_FinderProcess]; theProgress: Message_ProgressRange = Message_ProgressRange()): handle[
+    Transfer_Binder] {.importcpp: "TransferCompound",
+                      header: "STEPControl_ActorWrite.hxx".}
+proc SetMode*(this: var STEPControl_ActorWrite; M: STEPControl_StepModelType) {.
     importcpp: "SetMode", header: "STEPControl_ActorWrite.hxx".}
-proc mode*(this: STEPControlActorWrite): STEPControlStepModelType {.noSideEffect,
+proc Mode*(this: STEPControl_ActorWrite): STEPControl_StepModelType {.noSideEffect,
     importcpp: "Mode", header: "STEPControl_ActorWrite.hxx".}
-proc setGroupMode*(this: var STEPControlActorWrite; mode: StandardInteger) {.
+proc SetGroupMode*(this: var STEPControl_ActorWrite; mode: Standard_Integer) {.
     importcpp: "SetGroupMode", header: "STEPControl_ActorWrite.hxx".}
-proc groupMode*(this: STEPControlActorWrite): StandardInteger {.noSideEffect,
+proc GroupMode*(this: STEPControl_ActorWrite): Standard_Integer {.noSideEffect,
     importcpp: "GroupMode", header: "STEPControl_ActorWrite.hxx".}
-proc setTolerance*(this: var STEPControlActorWrite; tol: StandardReal) {.
+proc SetTolerance*(this: var STEPControl_ActorWrite; Tol: Standard_Real) {.
     importcpp: "SetTolerance", header: "STEPControl_ActorWrite.hxx".}
-proc isAssembly*(this: STEPControlActorWrite; s: var TopoDS_Shape): StandardBoolean {.
+proc IsAssembly*(this: STEPControl_ActorWrite; S: var TopoDS_Shape): Standard_Boolean {.
     noSideEffect, importcpp: "IsAssembly", header: "STEPControl_ActorWrite.hxx".}
 type
-  STEPControlActorWritebaseType* = TransferActorOfFinderProcess
+  STEPControl_ActorWritebase_type* = Transfer_ActorOfFinderProcess
 
-proc getTypeName*(): cstring {.importcpp: "STEPControl_ActorWrite::get_type_name(@)",
-                            header: "STEPControl_ActorWrite.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "STEPControl_ActorWrite::get_type_name(@)",
+                              header: "STEPControl_ActorWrite.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "STEPControl_ActorWrite::get_type_descriptor(@)",
     header: "STEPControl_ActorWrite.hxx".}
-proc dynamicType*(this: STEPControlActorWrite): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "STEPControl_ActorWrite.hxx".}
-
+proc DynamicType*(this: STEPControl_ActorWrite): handle[Standard_Type] {.
+    noSideEffect, importcpp: "DynamicType", header: "STEPControl_ActorWrite.hxx".}

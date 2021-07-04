@@ -11,7 +11,8 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../TCollection/TCollection_HAsciiString
+
 type
-  InterfaceValueSatisfies* = proc (val: Handle[TCollectionHAsciiString]): StandardBoolean
-
-
+  Interface_ValueSatisfies* = proc (val: handle[TCollection_HAsciiString]): Standard_Boolean

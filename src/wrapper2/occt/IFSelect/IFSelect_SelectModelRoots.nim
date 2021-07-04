@@ -14,13 +14,16 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, IFSelect_SelectBase
+
 discard "forward decl of Interface_EntityIterator"
 discard "forward decl of Interface_Graph"
 discard "forward decl of TCollection_AsciiString"
 discard "forward decl of IFSelect_SelectModelRoots"
 discard "forward decl of IFSelect_SelectModelRoots"
 type
-  HandleIFSelectSelectModelRoots* = Handle[IFSelectSelectModelRoots]
+  Handle_IFSelect_SelectModelRoots* = handle[IFSelect_SelectModelRoots]
 
 ## ! A SelectModelRoots gets all the Root Entities of an
 ## ! InterfaceModel. Remember that a "Root Entity" is defined as
@@ -28,29 +31,28 @@ type
 ## ! none of them can be a "Root").
 
 type
-  IFSelectSelectModelRoots* {.importcpp: "IFSelect_SelectModelRoots",
-                             header: "IFSelect_SelectModelRoots.hxx", bycopy.} = object of IFSelectSelectBase ##
-                                                                                                       ## !
-                                                                                                       ## Creates
-                                                                                                       ## a
-                                                                                                       ## SelectModelRoot
+  IFSelect_SelectModelRoots* {.importcpp: "IFSelect_SelectModelRoots",
+                              header: "IFSelect_SelectModelRoots.hxx", bycopy.} = object of IFSelect_SelectBase ##
+                                                                                                         ## !
+                                                                                                         ## Creates
+                                                                                                         ## a
+                                                                                                         ## SelectModelRoot
 
 
-proc constructIFSelectSelectModelRoots*(): IFSelectSelectModelRoots {.constructor,
-    importcpp: "IFSelect_SelectModelRoots(@)",
+proc constructIFSelect_SelectModelRoots*(): IFSelect_SelectModelRoots {.
+    constructor, importcpp: "IFSelect_SelectModelRoots(@)",
     header: "IFSelect_SelectModelRoots.hxx".}
-proc rootResult*(this: IFSelectSelectModelRoots; g: InterfaceGraph): InterfaceEntityIterator {.
+proc RootResult*(this: IFSelect_SelectModelRoots; G: Interface_Graph): Interface_EntityIterator {.
     noSideEffect, importcpp: "RootResult", header: "IFSelect_SelectModelRoots.hxx".}
-proc label*(this: IFSelectSelectModelRoots): TCollectionAsciiString {.noSideEffect,
-    importcpp: "Label", header: "IFSelect_SelectModelRoots.hxx".}
+proc Label*(this: IFSelect_SelectModelRoots): TCollection_AsciiString {.
+    noSideEffect, importcpp: "Label", header: "IFSelect_SelectModelRoots.hxx".}
 type
-  IFSelectSelectModelRootsbaseType* = IFSelectSelectBase
+  IFSelect_SelectModelRootsbase_type* = IFSelect_SelectBase
 
-proc getTypeName*(): cstring {.importcpp: "IFSelect_SelectModelRoots::get_type_name(@)",
-                            header: "IFSelect_SelectModelRoots.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "IFSelect_SelectModelRoots::get_type_name(@)",
+                              header: "IFSelect_SelectModelRoots.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "IFSelect_SelectModelRoots::get_type_descriptor(@)",
     header: "IFSelect_SelectModelRoots.hxx".}
-proc dynamicType*(this: IFSelectSelectModelRoots): Handle[StandardType] {.
+proc DynamicType*(this: IFSelect_SelectModelRoots): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType", header: "IFSelect_SelectModelRoots.hxx".}
-

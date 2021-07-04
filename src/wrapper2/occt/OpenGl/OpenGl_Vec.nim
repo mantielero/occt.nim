@@ -13,27 +13,30 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Graphic3d/Graphic3d_Vec
+
 type
-  OpenGlVec2i* = Graphic3dVec2i
-  OpenGlVec3i* = Graphic3dVec3i
-  OpenGlVec4i* = Graphic3dVec4i
-  OpenGlVec2b* = Graphic3dVec2b
-  OpenGlVec3b* = Graphic3dVec3b
-  OpenGlVec4b* = Graphic3dVec4b
-  OpenGlVec2u* = Graphic3dVec2u
-  OpenGlVec3u* = Graphic3dVec3u
-  OpenGlVec4u* = Graphic3dVec4u
-  OpenGlVec2ub* = Graphic3dVec2ub
-  OpenGlVec3ub* = Graphic3dVec3ub
-  OpenGlVec4ub* = Graphic3dVec4ub
-  OpenGlVec2* = Graphic3dVec2
-  OpenGlVec3* = Graphic3dVec3
-  OpenGlVec4* = Graphic3dVec4
-  OpenGlVec2d* = Graphic3dVec2d
-  OpenGlVec3d* = Graphic3dVec3d
-  OpenGlVec4d* = Graphic3dVec4d
-  OpenGlMat4* = Graphic3dMat4
-  OpenGlMat4d* = Graphic3dMat4d
+  OpenGl_Vec2i* = Graphic3d_Vec2i
+  OpenGl_Vec3i* = Graphic3d_Vec3i
+  OpenGl_Vec4i* = Graphic3d_Vec4i
+  OpenGl_Vec2b* = Graphic3d_Vec2b
+  OpenGl_Vec3b* = Graphic3d_Vec3b
+  OpenGl_Vec4b* = Graphic3d_Vec4b
+  OpenGl_Vec2u* = Graphic3d_Vec2u
+  OpenGl_Vec3u* = Graphic3d_Vec3u
+  OpenGl_Vec4u* = Graphic3d_Vec4u
+  OpenGl_Vec2ub* = Graphic3d_Vec2ub
+  OpenGl_Vec3ub* = Graphic3d_Vec3ub
+  OpenGl_Vec4ub* = Graphic3d_Vec4ub
+  OpenGl_Vec2* = Graphic3d_Vec2
+  OpenGl_Vec3* = Graphic3d_Vec3
+  OpenGl_Vec4* = Graphic3d_Vec4
+  OpenGl_Vec2d* = Graphic3d_Vec2d
+  OpenGl_Vec3d* = Graphic3d_Vec3d
+  OpenGl_Vec4d* = Graphic3d_Vec4d
+  OpenGl_Mat4* = Graphic3d_Mat4
+  OpenGl_Mat4d* = Graphic3d_Mat4d
 
 ## ! Tool class for selecting appropriate vector type.
 ## ! \tparam T Numeric data type
@@ -62,5 +65,3 @@ type
 
 ## !!!Ignored construct:  template < > [end of template] struct MatrixType < Standard_ShortReal > { typedef OpenGl_Mat4 Mat4 ; } ;
 ## Error: identifier expected, but got: <!!!
-
-

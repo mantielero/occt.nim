@@ -14,6 +14,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, Expr_BinaryExpression,
+  ../Standard/Standard_Boolean, ../Standard/Standard_Real,
+  Expr_Array1OfNamedUnknown, ../TColStd/TColStd_Array1OfReal
+
 discard "forward decl of Expr_GeneralFunction"
 discard "forward decl of Expr_InvalidFunction"
 discard "forward decl of Standard_NumericError"
@@ -24,62 +29,61 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of Expr_BinaryFunction"
 discard "forward decl of Expr_BinaryFunction"
 type
-  HandleExprBinaryFunction* = Handle[ExprBinaryFunction]
+  Handle_Expr_BinaryFunction* = handle[Expr_BinaryFunction]
 
 ## ! Defines the use of a binary function in an expression
 ## ! with given arguments.
 
 type
-  ExprBinaryFunction* {.importcpp: "Expr_BinaryFunction",
-                       header: "Expr_BinaryFunction.hxx", bycopy.} = object of ExprBinaryExpression ##
-                                                                                             ## !
-                                                                                             ## Creates
-                                                                                             ## <me>
-                                                                                             ## as
-                                                                                             ## <func>
-                                                                                             ## (<exp1>,<exp2>).
-                                                                                             ##
-                                                                                             ## !
-                                                                                             ## Raises
-                                                                                             ## exception
-                                                                                             ## if
-                                                                                             ## <func>
-                                                                                             ## is
-                                                                                             ## not
-                                                                                             ## binary.
+  Expr_BinaryFunction* {.importcpp: "Expr_BinaryFunction",
+                        header: "Expr_BinaryFunction.hxx", bycopy.} = object of Expr_BinaryExpression ##
+                                                                                               ## !
+                                                                                               ## Creates
+                                                                                               ## <me>
+                                                                                               ## as
+                                                                                               ## <func>
+                                                                                               ## (<exp1>,<exp2>).
+                                                                                               ##
+                                                                                               ## !
+                                                                                               ## Raises
+                                                                                               ## exception
+                                                                                               ## if
+                                                                                               ## <func>
+                                                                                               ## is
+                                                                                               ## not
+                                                                                               ## binary.
 
 
-proc constructExprBinaryFunction*(`func`: Handle[ExprGeneralFunction];
-                                 exp1: Handle[ExprGeneralExpression];
-                                 exp2: Handle[ExprGeneralExpression]): ExprBinaryFunction {.
+proc constructExpr_BinaryFunction*(`func`: handle[Expr_GeneralFunction];
+                                  exp1: handle[Expr_GeneralExpression];
+                                  exp2: handle[Expr_GeneralExpression]): Expr_BinaryFunction {.
     constructor, importcpp: "Expr_BinaryFunction(@)",
     header: "Expr_BinaryFunction.hxx".}
-proc function*(this: ExprBinaryFunction): Handle[ExprGeneralFunction] {.
+proc Function*(this: Expr_BinaryFunction): handle[Expr_GeneralFunction] {.
     noSideEffect, importcpp: "Function", header: "Expr_BinaryFunction.hxx".}
-proc shallowSimplified*(this: ExprBinaryFunction): Handle[ExprGeneralExpression] {.
+proc ShallowSimplified*(this: Expr_BinaryFunction): handle[Expr_GeneralExpression] {.
     noSideEffect, importcpp: "ShallowSimplified", header: "Expr_BinaryFunction.hxx".}
-proc copy*(this: ExprBinaryFunction): Handle[ExprGeneralExpression] {.noSideEffect,
-    importcpp: "Copy", header: "Expr_BinaryFunction.hxx".}
-proc isIdentical*(this: ExprBinaryFunction; other: Handle[ExprGeneralExpression]): StandardBoolean {.
+proc Copy*(this: Expr_BinaryFunction): handle[Expr_GeneralExpression] {.
+    noSideEffect, importcpp: "Copy", header: "Expr_BinaryFunction.hxx".}
+proc IsIdentical*(this: Expr_BinaryFunction; Other: handle[Expr_GeneralExpression]): Standard_Boolean {.
     noSideEffect, importcpp: "IsIdentical", header: "Expr_BinaryFunction.hxx".}
-proc isLinear*(this: ExprBinaryFunction): StandardBoolean {.noSideEffect,
+proc IsLinear*(this: Expr_BinaryFunction): Standard_Boolean {.noSideEffect,
     importcpp: "IsLinear", header: "Expr_BinaryFunction.hxx".}
-proc derivative*(this: ExprBinaryFunction; x: Handle[ExprNamedUnknown]): Handle[
-    ExprGeneralExpression] {.noSideEffect, importcpp: "Derivative",
-                            header: "Expr_BinaryFunction.hxx".}
-proc evaluate*(this: ExprBinaryFunction; vars: ExprArray1OfNamedUnknown;
-              vals: TColStdArray1OfReal): StandardReal {.noSideEffect,
+proc Derivative*(this: Expr_BinaryFunction; X: handle[Expr_NamedUnknown]): handle[
+    Expr_GeneralExpression] {.noSideEffect, importcpp: "Derivative",
+                             header: "Expr_BinaryFunction.hxx".}
+proc Evaluate*(this: Expr_BinaryFunction; vars: Expr_Array1OfNamedUnknown;
+              vals: TColStd_Array1OfReal): Standard_Real {.noSideEffect,
     importcpp: "Evaluate", header: "Expr_BinaryFunction.hxx".}
-proc string*(this: ExprBinaryFunction): TCollectionAsciiString {.noSideEffect,
+proc String*(this: Expr_BinaryFunction): TCollection_AsciiString {.noSideEffect,
     importcpp: "String", header: "Expr_BinaryFunction.hxx".}
 type
-  ExprBinaryFunctionbaseType* = ExprBinaryExpression
+  Expr_BinaryFunctionbase_type* = Expr_BinaryExpression
 
-proc getTypeName*(): cstring {.importcpp: "Expr_BinaryFunction::get_type_name(@)",
-                            header: "Expr_BinaryFunction.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "Expr_BinaryFunction::get_type_name(@)",
+                              header: "Expr_BinaryFunction.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "Expr_BinaryFunction::get_type_descriptor(@)",
     header: "Expr_BinaryFunction.hxx".}
-proc dynamicType*(this: ExprBinaryFunction): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: Expr_BinaryFunction): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "Expr_BinaryFunction.hxx".}
-

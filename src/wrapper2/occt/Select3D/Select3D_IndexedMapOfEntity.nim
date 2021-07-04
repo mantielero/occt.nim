@@ -11,9 +11,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../NCollection/NCollection_IndexedMap
+
 discard "forward decl of Select3D_SensitiveEntity"
 type
-  Select3D_IndexedMapOfEntity* = NCollectionIndexedMap[
-      Handle[Select3D_SensitiveEntity]]
-
-
+  Select3D_IndexedMapOfEntity* = NCollection_IndexedMap[
+      handle[Select3D_SensitiveEntity]]

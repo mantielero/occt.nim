@@ -14,6 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, BRepToIGES_BREntity
+
 discard "forward decl of BRepToIGES_BREntity"
 discard "forward decl of IGESData_IGESEntity"
 discard "forward decl of TopoDS_Shape"
@@ -27,23 +31,22 @@ type
 
 proc constructBRepToIGES_BRSolid*(): BRepToIGES_BRSolid {.constructor,
     importcpp: "BRepToIGES_BRSolid(@)", header: "BRepToIGES_BRSolid.hxx".}
-proc constructBRepToIGES_BRSolid*(br: BRepToIGES_BREntity): BRepToIGES_BRSolid {.
+proc constructBRepToIGES_BRSolid*(BR: BRepToIGES_BREntity): BRepToIGES_BRSolid {.
     constructor, importcpp: "BRepToIGES_BRSolid(@)",
     header: "BRepToIGES_BRSolid.hxx".}
-proc transferSolid*(this: var BRepToIGES_BRSolid; start: TopoDS_Shape;
-                   theProgress: MessageProgressRange = messageProgressRange()): Handle[
-    IGESDataIGESEntity] {.importcpp: "TransferSolid",
-                         header: "BRepToIGES_BRSolid.hxx".}
-proc transferSolid*(this: var BRepToIGES_BRSolid; start: TopoDS_Solid;
-                   theProgress: MessageProgressRange = messageProgressRange()): Handle[
-    IGESDataIGESEntity] {.importcpp: "TransferSolid",
-                         header: "BRepToIGES_BRSolid.hxx".}
-proc transferCompSolid*(this: var BRepToIGES_BRSolid; start: TopoDS_CompSolid;
-    theProgress: MessageProgressRange = messageProgressRange()): Handle[
-    IGESDataIGESEntity] {.importcpp: "TransferCompSolid",
-                         header: "BRepToIGES_BRSolid.hxx".}
-proc transferCompound*(this: var BRepToIGES_BRSolid; start: TopoDS_Compound;
-    theProgress: MessageProgressRange = messageProgressRange()): Handle[
-    IGESDataIGESEntity] {.importcpp: "TransferCompound",
-                         header: "BRepToIGES_BRSolid.hxx".}
-
+proc TransferSolid*(this: var BRepToIGES_BRSolid; start: TopoDS_Shape;
+                   theProgress: Message_ProgressRange = Message_ProgressRange()): handle[
+    IGESData_IGESEntity] {.importcpp: "TransferSolid",
+                          header: "BRepToIGES_BRSolid.hxx".}
+proc TransferSolid*(this: var BRepToIGES_BRSolid; start: TopoDS_Solid;
+                   theProgress: Message_ProgressRange = Message_ProgressRange()): handle[
+    IGESData_IGESEntity] {.importcpp: "TransferSolid",
+                          header: "BRepToIGES_BRSolid.hxx".}
+proc TransferCompSolid*(this: var BRepToIGES_BRSolid; start: TopoDS_CompSolid;
+    theProgress: Message_ProgressRange = Message_ProgressRange()): handle[
+    IGESData_IGESEntity] {.importcpp: "TransferCompSolid",
+                          header: "BRepToIGES_BRSolid.hxx".}
+proc TransferCompound*(this: var BRepToIGES_BRSolid; start: TopoDS_Compound;
+    theProgress: Message_ProgressRange = Message_ProgressRange()): handle[
+    IGESData_IGESEntity] {.importcpp: "TransferCompound",
+                          header: "BRepToIGES_BRSolid.hxx".}

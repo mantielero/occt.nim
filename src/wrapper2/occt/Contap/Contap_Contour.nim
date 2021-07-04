@@ -14,6 +14,13 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
+  Contap_TheSequenceOfLine, Contap_TheSearch, Contap_TheSearchInside,
+  Contap_SurfFunction, Contap_ArcFunction, ../Standard/Standard_Real,
+  ../Standard/Standard_Integer
+
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of Standard_ConstructionError"
@@ -24,54 +31,54 @@ discard "forward decl of Adaptor3d_TopolTool"
 discard "forward decl of Contap_Line"
 discard "forward decl of Contap_SurfFunction"
 type
-  ContapContour* {.importcpp: "Contap_Contour", header: "Contap_Contour.hxx", bycopy.} = object
+  Contap_Contour* {.importcpp: "Contap_Contour", header: "Contap_Contour.hxx", bycopy.} = object
 
 
-proc constructContapContour*(): ContapContour {.constructor,
+proc constructContap_Contour*(): Contap_Contour {.constructor,
     importcpp: "Contap_Contour(@)", header: "Contap_Contour.hxx".}
-proc constructContapContour*(direction: GpVec): ContapContour {.constructor,
+proc constructContap_Contour*(Direction: gp_Vec): Contap_Contour {.constructor,
     importcpp: "Contap_Contour(@)", header: "Contap_Contour.hxx".}
-proc constructContapContour*(direction: GpVec; angle: StandardReal): ContapContour {.
+proc constructContap_Contour*(Direction: gp_Vec; Angle: Standard_Real): Contap_Contour {.
     constructor, importcpp: "Contap_Contour(@)", header: "Contap_Contour.hxx".}
-proc constructContapContour*(eye: GpPnt): ContapContour {.constructor,
+proc constructContap_Contour*(Eye: gp_Pnt): Contap_Contour {.constructor,
     importcpp: "Contap_Contour(@)", header: "Contap_Contour.hxx".}
-proc constructContapContour*(surf: Handle[Adaptor3dHSurface];
-                            domain: Handle[Adaptor3dTopolTool]; direction: GpVec): ContapContour {.
-    constructor, importcpp: "Contap_Contour(@)", header: "Contap_Contour.hxx".}
-proc constructContapContour*(surf: Handle[Adaptor3dHSurface];
-                            domain: Handle[Adaptor3dTopolTool]; direction: GpVec;
-                            angle: StandardReal): ContapContour {.constructor,
+proc constructContap_Contour*(Surf: handle[Adaptor3d_HSurface];
+                             Domain: handle[Adaptor3d_TopolTool];
+                             Direction: gp_Vec): Contap_Contour {.constructor,
     importcpp: "Contap_Contour(@)", header: "Contap_Contour.hxx".}
-proc constructContapContour*(surf: Handle[Adaptor3dHSurface];
-                            domain: Handle[Adaptor3dTopolTool]; eye: GpPnt): ContapContour {.
+proc constructContap_Contour*(Surf: handle[Adaptor3d_HSurface];
+                             Domain: handle[Adaptor3d_TopolTool];
+                             Direction: gp_Vec; Angle: Standard_Real): Contap_Contour {.
     constructor, importcpp: "Contap_Contour(@)", header: "Contap_Contour.hxx".}
-proc perform*(this: var ContapContour; surf: Handle[Adaptor3dHSurface];
-             domain: Handle[Adaptor3dTopolTool]) {.importcpp: "Perform",
+proc constructContap_Contour*(Surf: handle[Adaptor3d_HSurface];
+                             Domain: handle[Adaptor3d_TopolTool]; Eye: gp_Pnt): Contap_Contour {.
+    constructor, importcpp: "Contap_Contour(@)", header: "Contap_Contour.hxx".}
+proc Perform*(this: var Contap_Contour; Surf: handle[Adaptor3d_HSurface];
+             Domain: handle[Adaptor3d_TopolTool]) {.importcpp: "Perform",
     header: "Contap_Contour.hxx".}
-proc perform*(this: var ContapContour; surf: Handle[Adaptor3dHSurface];
-             domain: Handle[Adaptor3dTopolTool]; direction: GpVec) {.
+proc Perform*(this: var Contap_Contour; Surf: handle[Adaptor3d_HSurface];
+             Domain: handle[Adaptor3d_TopolTool]; Direction: gp_Vec) {.
     importcpp: "Perform", header: "Contap_Contour.hxx".}
-proc perform*(this: var ContapContour; surf: Handle[Adaptor3dHSurface];
-             domain: Handle[Adaptor3dTopolTool]; direction: GpVec;
-             angle: StandardReal) {.importcpp: "Perform",
-                                  header: "Contap_Contour.hxx".}
-proc perform*(this: var ContapContour; surf: Handle[Adaptor3dHSurface];
-             domain: Handle[Adaptor3dTopolTool]; eye: GpPnt) {.importcpp: "Perform",
+proc Perform*(this: var Contap_Contour; Surf: handle[Adaptor3d_HSurface];
+             Domain: handle[Adaptor3d_TopolTool]; Direction: gp_Vec;
+             Angle: Standard_Real) {.importcpp: "Perform",
+                                   header: "Contap_Contour.hxx".}
+proc Perform*(this: var Contap_Contour; Surf: handle[Adaptor3d_HSurface];
+             Domain: handle[Adaptor3d_TopolTool]; Eye: gp_Pnt) {.
+    importcpp: "Perform", header: "Contap_Contour.hxx".}
+proc Init*(this: var Contap_Contour; Direction: gp_Vec) {.importcpp: "Init",
     header: "Contap_Contour.hxx".}
-proc init*(this: var ContapContour; direction: GpVec) {.importcpp: "Init",
-    header: "Contap_Contour.hxx".}
-proc init*(this: var ContapContour; direction: GpVec; angle: StandardReal) {.
+proc Init*(this: var Contap_Contour; Direction: gp_Vec; Angle: Standard_Real) {.
     importcpp: "Init", header: "Contap_Contour.hxx".}
-proc init*(this: var ContapContour; eye: GpPnt) {.importcpp: "Init",
+proc Init*(this: var Contap_Contour; Eye: gp_Pnt) {.importcpp: "Init",
     header: "Contap_Contour.hxx".}
-proc isDone*(this: ContapContour): StandardBoolean {.noSideEffect,
+proc IsDone*(this: Contap_Contour): Standard_Boolean {.noSideEffect,
     importcpp: "IsDone", header: "Contap_Contour.hxx".}
-proc isEmpty*(this: ContapContour): StandardBoolean {.noSideEffect,
+proc IsEmpty*(this: Contap_Contour): Standard_Boolean {.noSideEffect,
     importcpp: "IsEmpty", header: "Contap_Contour.hxx".}
-proc nbLines*(this: ContapContour): StandardInteger {.noSideEffect,
+proc NbLines*(this: Contap_Contour): Standard_Integer {.noSideEffect,
     importcpp: "NbLines", header: "Contap_Contour.hxx".}
-proc line*(this: ContapContour; index: StandardInteger): ContapLine {.noSideEffect,
+proc Line*(this: Contap_Contour; Index: Standard_Integer): Contap_Line {.noSideEffect,
     importcpp: "Line", header: "Contap_Contour.hxx".}
-proc surfaceFunction*(this: var ContapContour): var ContapSurfFunction {.
+proc SurfaceFunction*(this: var Contap_Contour): var Contap_SurfFunction {.
     importcpp: "SurfaceFunction", header: "Contap_Contour.hxx".}
-

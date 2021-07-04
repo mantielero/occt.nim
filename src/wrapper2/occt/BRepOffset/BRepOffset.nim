@@ -14,6 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, BRepOffset_Status
+
 discard "forward decl of Geom_Surface"
 discard "forward decl of TopoDS_Face"
 type
@@ -66,11 +70,10 @@ type
                                                                              ## Geom_OffsetSurface.
 
 
-proc surface*(surface: Handle[GeomSurface]; offset: StandardReal;
-             theStatus: var BRepOffsetStatus;
-             allowC0: StandardBoolean = standardFalse): Handle[GeomSurface] {.
+proc Surface*(Surface: handle[Geom_Surface]; Offset: Standard_Real;
+             theStatus: var BRepOffset_Status;
+             allowC0: Standard_Boolean = Standard_False): handle[Geom_Surface] {.
     importcpp: "BRepOffset::Surface(@)", header: "BRepOffset.hxx".}
-proc collapseSingularities*(theSurface: Handle[GeomSurface]; theFace: TopoDS_Face;
-                           thePrecision: StandardReal): Handle[GeomSurface] {.
+proc CollapseSingularities*(theSurface: handle[Geom_Surface]; theFace: TopoDS_Face;
+                           thePrecision: Standard_Real): handle[Geom_Surface] {.
     importcpp: "BRepOffset::CollapseSingularities(@)", header: "BRepOffset.hxx".}
-

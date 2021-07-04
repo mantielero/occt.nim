@@ -14,9 +14,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _Quantity_Temperature_HeaderFile [NewLine] # _Quantity_Temperature_HeaderFile [NewLine] # < Standard_Real . hxx > [NewLine] ! Defined as a measure of the average kinetic energy
+## !!!Ignored construct:  # _Quantity_Temperature_HeaderFile [NewLine] # _Quantity_Temperature_HeaderFile [NewLine] # ../Standard/Standard_Real.hxx [NewLine] ! Defined as a measure of the average kinetic energy
 ## ! of the molecules in a body.
 ## ! It is measured in degrees kelvin. Standard_DEPRECATED ( This type is deprecated - Standard_Real should be used instead ) typedef Standard_Real Quantity_Temperature ;
 ## Error: expected ';'!!!
-
-

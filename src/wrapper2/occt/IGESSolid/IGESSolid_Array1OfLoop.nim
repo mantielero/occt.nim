@@ -14,7 +14,8 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  IGESSolid_Loop, ../NCollection/NCollection_Array1
+
 type
-  IGESSolidArray1OfLoop* = NCollectionArray1[Handle[IGESSolidLoop]]
-
-
+  IGESSolid_Array1OfLoop* = NCollection_Array1[handle[IGESSolid_Loop]]

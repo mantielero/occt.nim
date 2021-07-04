@@ -14,72 +14,78 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Real, Hatch_SequenceOfLine,
+  ../Standard/Standard_Boolean, Hatch_LineForm, ../Standard/Standard_Integer
+
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of gp_Lin2d"
 discard "forward decl of gp_Dir2d"
 discard "forward decl of gp_Pnt2d"
 type
-  HatchHatcher* {.importcpp: "Hatch_Hatcher", header: "Hatch_Hatcher.hxx", bycopy.} = object ##
-                                                                                     ## !
-                                                                                     ## Returns
-                                                                                     ## a
-                                                                                     ## empty
-                                                                                     ## hatcher.
-                                                                                     ## <Tol>
-                                                                                     ## is
-                                                                                     ## the
-                                                                                     ## tolerance
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## for
-                                                                                     ## intersections.
+  Hatch_Hatcher* {.importcpp: "Hatch_Hatcher", header: "Hatch_Hatcher.hxx", bycopy.} = object ##
+                                                                                      ## !
+                                                                                      ## Returns
+                                                                                      ## a
+                                                                                      ## empty
+                                                                                      ## hatcher.
+                                                                                      ## <Tol>
+                                                                                      ## is
+                                                                                      ## the
+                                                                                      ## tolerance
+                                                                                      ##
+                                                                                      ## !
+                                                                                      ## for
+                                                                                      ## intersections.
 
 
-proc constructHatchHatcher*(tol: StandardReal;
-                           oriented: StandardBoolean = standardTrue): HatchHatcher {.
+proc constructHatch_Hatcher*(Tol: Standard_Real;
+                            Oriented: Standard_Boolean = Standard_True): Hatch_Hatcher {.
     constructor, importcpp: "Hatch_Hatcher(@)", header: "Hatch_Hatcher.hxx".}
-proc tolerance*(this: var HatchHatcher; tol: StandardReal) {.importcpp: "Tolerance",
+proc Tolerance*(this: var Hatch_Hatcher; Tol: Standard_Real) {.importcpp: "Tolerance",
     header: "Hatch_Hatcher.hxx".}
-proc tolerance*(this: HatchHatcher): StandardReal {.noSideEffect,
+proc Tolerance*(this: Hatch_Hatcher): Standard_Real {.noSideEffect,
     importcpp: "Tolerance", header: "Hatch_Hatcher.hxx".}
-proc addLine*(this: var HatchHatcher; L: GpLin2d; t: HatchLineForm = hatchANYLINE) {.
+proc AddLine*(this: var Hatch_Hatcher; L: gp_Lin2d; T: Hatch_LineForm = Hatch_ANYLINE) {.
     importcpp: "AddLine", header: "Hatch_Hatcher.hxx".}
-proc addLine*(this: var HatchHatcher; d: GpDir2d; dist: StandardReal) {.
+proc AddLine*(this: var Hatch_Hatcher; D: gp_Dir2d; Dist: Standard_Real) {.
     importcpp: "AddLine", header: "Hatch_Hatcher.hxx".}
-proc addXLine*(this: var HatchHatcher; x: StandardReal) {.importcpp: "AddXLine",
+proc AddXLine*(this: var Hatch_Hatcher; X: Standard_Real) {.importcpp: "AddXLine",
     header: "Hatch_Hatcher.hxx".}
-proc addYLine*(this: var HatchHatcher; y: StandardReal) {.importcpp: "AddYLine",
+proc AddYLine*(this: var Hatch_Hatcher; Y: Standard_Real) {.importcpp: "AddYLine",
     header: "Hatch_Hatcher.hxx".}
-proc trim*(this: var HatchHatcher; L: GpLin2d; index: StandardInteger = 0) {.
+proc Trim*(this: var Hatch_Hatcher; L: gp_Lin2d; Index: Standard_Integer = 0) {.
     importcpp: "Trim", header: "Hatch_Hatcher.hxx".}
-proc trim*(this: var HatchHatcher; L: GpLin2d; start: StandardReal; `end`: StandardReal;
-          index: StandardInteger = 0) {.importcpp: "Trim", header: "Hatch_Hatcher.hxx".}
-proc trim*(this: var HatchHatcher; p1: GpPnt2d; p2: GpPnt2d; index: StandardInteger = 0) {.
-    importcpp: "Trim", header: "Hatch_Hatcher.hxx".}
-proc nbIntervals*(this: HatchHatcher): StandardInteger {.noSideEffect,
+proc Trim*(this: var Hatch_Hatcher; L: gp_Lin2d; Start: Standard_Real;
+          End: Standard_Real; Index: Standard_Integer = 0) {.importcpp: "Trim",
+    header: "Hatch_Hatcher.hxx".}
+proc Trim*(this: var Hatch_Hatcher; P1: gp_Pnt2d; P2: gp_Pnt2d;
+          Index: Standard_Integer = 0) {.importcpp: "Trim",
+                                     header: "Hatch_Hatcher.hxx".}
+proc NbIntervals*(this: Hatch_Hatcher): Standard_Integer {.noSideEffect,
     importcpp: "NbIntervals", header: "Hatch_Hatcher.hxx".}
-proc nbLines*(this: HatchHatcher): StandardInteger {.noSideEffect,
+proc NbLines*(this: Hatch_Hatcher): Standard_Integer {.noSideEffect,
     importcpp: "NbLines", header: "Hatch_Hatcher.hxx".}
-proc line*(this: HatchHatcher; i: StandardInteger): GpLin2d {.noSideEffect,
+proc Line*(this: Hatch_Hatcher; I: Standard_Integer): gp_Lin2d {.noSideEffect,
     importcpp: "Line", header: "Hatch_Hatcher.hxx".}
-proc lineForm*(this: HatchHatcher; i: StandardInteger): HatchLineForm {.noSideEffect,
-    importcpp: "LineForm", header: "Hatch_Hatcher.hxx".}
-proc isXLine*(this: HatchHatcher; i: StandardInteger): StandardBoolean {.noSideEffect,
-    importcpp: "IsXLine", header: "Hatch_Hatcher.hxx".}
-proc isYLine*(this: HatchHatcher; i: StandardInteger): StandardBoolean {.noSideEffect,
-    importcpp: "IsYLine", header: "Hatch_Hatcher.hxx".}
-proc coordinate*(this: HatchHatcher; i: StandardInteger): StandardReal {.noSideEffect,
-    importcpp: "Coordinate", header: "Hatch_Hatcher.hxx".}
-proc nbIntervals*(this: HatchHatcher; i: StandardInteger): StandardInteger {.
+proc LineForm*(this: Hatch_Hatcher; I: Standard_Integer): Hatch_LineForm {.
+    noSideEffect, importcpp: "LineForm", header: "Hatch_Hatcher.hxx".}
+proc IsXLine*(this: Hatch_Hatcher; I: Standard_Integer): Standard_Boolean {.
+    noSideEffect, importcpp: "IsXLine", header: "Hatch_Hatcher.hxx".}
+proc IsYLine*(this: Hatch_Hatcher; I: Standard_Integer): Standard_Boolean {.
+    noSideEffect, importcpp: "IsYLine", header: "Hatch_Hatcher.hxx".}
+proc Coordinate*(this: Hatch_Hatcher; I: Standard_Integer): Standard_Real {.
+    noSideEffect, importcpp: "Coordinate", header: "Hatch_Hatcher.hxx".}
+proc NbIntervals*(this: Hatch_Hatcher; I: Standard_Integer): Standard_Integer {.
     noSideEffect, importcpp: "NbIntervals", header: "Hatch_Hatcher.hxx".}
-proc start*(this: HatchHatcher; i: StandardInteger; j: StandardInteger): StandardReal {.
+proc Start*(this: Hatch_Hatcher; I: Standard_Integer; J: Standard_Integer): Standard_Real {.
     noSideEffect, importcpp: "Start", header: "Hatch_Hatcher.hxx".}
-proc startIndex*(this: HatchHatcher; i: StandardInteger; j: StandardInteger;
-                index: var StandardInteger; par2: var StandardReal) {.noSideEffect,
+proc StartIndex*(this: Hatch_Hatcher; I: Standard_Integer; J: Standard_Integer;
+                Index: var Standard_Integer; Par2: var Standard_Real) {.noSideEffect,
     importcpp: "StartIndex", header: "Hatch_Hatcher.hxx".}
-proc `end`*(this: HatchHatcher; i: StandardInteger; j: StandardInteger): StandardReal {.
+proc End*(this: Hatch_Hatcher; I: Standard_Integer; J: Standard_Integer): Standard_Real {.
     noSideEffect, importcpp: "End", header: "Hatch_Hatcher.hxx".}
-proc endIndex*(this: HatchHatcher; i: StandardInteger; j: StandardInteger;
-              index: var StandardInteger; par2: var StandardReal) {.noSideEffect,
+proc EndIndex*(this: Hatch_Hatcher; I: Standard_Integer; J: Standard_Integer;
+              Index: var Standard_Integer; Par2: var Standard_Real) {.noSideEffect,
     importcpp: "EndIndex", header: "Hatch_Hatcher.hxx".}
-

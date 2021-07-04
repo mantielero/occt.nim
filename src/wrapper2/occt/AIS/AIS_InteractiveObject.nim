@@ -14,6 +14,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  AIS_KindOfInteractive, AIS_DragAction, ../SelectMgr/SelectMgr_SelectableObject
+
 discard "forward decl of AIS_InteractiveContext"
 discard "forward decl of Graphic3d_MaterialAspect"
 discard "forward decl of Prs3d_BasicAspect"
@@ -21,106 +24,104 @@ discard "forward decl of Bnd_Box"
 discard "forward decl of V3d_View"
 type
   AIS_InteractiveObject* {.importcpp: "AIS_InteractiveObject",
-                          header: "AIS_InteractiveObject.hxx", bycopy.} = object of SelectMgrSelectableObject ##
-                                                                                                       ## !
-                                                                                                       ## Returns
-                                                                                                       ## the
-                                                                                                       ## kind
-                                                                                                       ## of
-                                                                                                       ## Interactive
-                                                                                                       ## Object;
-                                                                                                       ## AIS_KOI_None
-                                                                                                       ## by
-                                                                                                       ## default.
-                                                                                                       ##
-                                                                                                       ## !
-                                                                                                       ## Returns
-                                                                                                       ## the
-                                                                                                       ## context
-                                                                                                       ## pointer
-                                                                                                       ## to
-                                                                                                       ## the
-                                                                                                       ## interactive
-                                                                                                       ## context.
-                                                                                                       ##
-                                                                                                       ## !
-                                                                                                       ## The
-                                                                                                       ## TypeOfPresention3d
-                                                                                                       ## means
-                                                                                                       ## that
-                                                                                                       ## the
-                                                                                                       ## interactive
-                                                                                                       ## object
-                                                                                                       ##
-                                                                                                       ## !
-                                                                                                       ## may
-                                                                                                       ## have
-                                                                                                       ## a
-                                                                                                       ## presentation
-                                                                                                       ## dependant
-                                                                                                       ## of
-                                                                                                       ## the
-                                                                                                       ## view
-                                                                                                       ## of
-                                                                                                       ## Display.
+                          header: "AIS_InteractiveObject.hxx", bycopy.} = object of SelectMgr_SelectableObject ##
+                                                                                                        ## !
+                                                                                                        ## Returns
+                                                                                                        ## the
+                                                                                                        ## kind
+                                                                                                        ## of
+                                                                                                        ## Interactive
+                                                                                                        ## Object;
+                                                                                                        ## AIS_KOI_None
+                                                                                                        ## by
+                                                                                                        ## default.
+                                                                                                        ##
+                                                                                                        ## !
+                                                                                                        ## Returns
+                                                                                                        ## the
+                                                                                                        ## context
+                                                                                                        ## pointer
+                                                                                                        ## to
+                                                                                                        ## the
+                                                                                                        ## interactive
+                                                                                                        ## context.
+                                                                                                        ##
+                                                                                                        ## !
+                                                                                                        ## The
+                                                                                                        ## TypeOfPresention3d
+                                                                                                        ## means
+                                                                                                        ## that
+                                                                                                        ## the
+                                                                                                        ## interactive
+                                                                                                        ## object
+                                                                                                        ##
+                                                                                                        ## !
+                                                                                                        ## may
+                                                                                                        ## have
+                                                                                                        ## a
+                                                                                                        ## presentation
+                                                                                                        ## dependant
+                                                                                                        ## of
+                                                                                                        ## the
+                                                                                                        ## view
+                                                                                                        ## of
+                                                                                                        ## Display.
     ## !< pointer to Interactive Context, where object is currently displayed; @sa SetContext()
     ## !< application-specific owner object
 
-  AIS_InteractiveObjectbaseType* = SelectMgrSelectableObject
+  AIS_InteractiveObjectbase_type* = SelectMgr_SelectableObject
 
-proc getTypeName*(): cstring {.importcpp: "AIS_InteractiveObject::get_type_name(@)",
-                            header: "AIS_InteractiveObject.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "AIS_InteractiveObject::get_type_name(@)",
+                              header: "AIS_InteractiveObject.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "AIS_InteractiveObject::get_type_descriptor(@)",
     header: "AIS_InteractiveObject.hxx".}
-proc dynamicType*(this: AIS_InteractiveObject): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "AIS_InteractiveObject.hxx".}
-proc `type`*(this: AIS_InteractiveObject): AIS_KindOfInteractive {.noSideEffect,
+proc DynamicType*(this: AIS_InteractiveObject): handle[Standard_Type] {.
+    noSideEffect, importcpp: "DynamicType", header: "AIS_InteractiveObject.hxx".}
+proc Type*(this: AIS_InteractiveObject): AIS_KindOfInteractive {.noSideEffect,
     importcpp: "Type", header: "AIS_InteractiveObject.hxx".}
-proc signature*(this: AIS_InteractiveObject): StandardInteger {.noSideEffect,
+proc Signature*(this: AIS_InteractiveObject): Standard_Integer {.noSideEffect,
     importcpp: "Signature", header: "AIS_InteractiveObject.hxx".}
-proc redisplay*(this: var AIS_InteractiveObject;
-               allModes: StandardBoolean = standardFalse) {.importcpp: "Redisplay",
-    header: "AIS_InteractiveObject.hxx".}
-proc hasInteractiveContext*(this: AIS_InteractiveObject): StandardBoolean {.
+proc Redisplay*(this: var AIS_InteractiveObject;
+               AllModes: Standard_Boolean = Standard_False) {.
+    importcpp: "Redisplay", header: "AIS_InteractiveObject.hxx".}
+proc HasInteractiveContext*(this: AIS_InteractiveObject): Standard_Boolean {.
     noSideEffect, importcpp: "HasInteractiveContext",
     header: "AIS_InteractiveObject.hxx".}
-proc interactiveContext*(this: AIS_InteractiveObject): ptr AIS_InteractiveContext {.
+proc InteractiveContext*(this: AIS_InteractiveObject): ptr AIS_InteractiveContext {.
     noSideEffect, importcpp: "InteractiveContext",
     header: "AIS_InteractiveObject.hxx".}
-proc setContext*(this: var AIS_InteractiveObject;
-                aCtx: Handle[AIS_InteractiveContext]) {.importcpp: "SetContext",
+proc SetContext*(this: var AIS_InteractiveObject;
+                aCtx: handle[AIS_InteractiveContext]) {.importcpp: "SetContext",
     header: "AIS_InteractiveObject.hxx".}
-proc hasOwner*(this: AIS_InteractiveObject): StandardBoolean {.noSideEffect,
+proc HasOwner*(this: AIS_InteractiveObject): Standard_Boolean {.noSideEffect,
     importcpp: "HasOwner", header: "AIS_InteractiveObject.hxx".}
-proc getOwner*(this: AIS_InteractiveObject): Handle[StandardTransient] {.
+proc GetOwner*(this: AIS_InteractiveObject): handle[Standard_Transient] {.
     noSideEffect, importcpp: "GetOwner", header: "AIS_InteractiveObject.hxx".}
-proc setOwner*(this: var AIS_InteractiveObject;
-              theApplicativeEntity: Handle[StandardTransient]) {.
+proc SetOwner*(this: var AIS_InteractiveObject;
+              theApplicativeEntity: handle[Standard_Transient]) {.
     importcpp: "SetOwner", header: "AIS_InteractiveObject.hxx".}
-proc clearOwner*(this: var AIS_InteractiveObject) {.importcpp: "ClearOwner",
+proc ClearOwner*(this: var AIS_InteractiveObject) {.importcpp: "ClearOwner",
     header: "AIS_InteractiveObject.hxx".}
-proc processDragging*(this: var AIS_InteractiveObject;
-                     theCtx: Handle[AIS_InteractiveContext];
-                     theView: Handle[V3dView];
-                     theOwner: Handle[SelectMgrEntityOwner];
-                     theDragFrom: Graphic3dVec2i; theDragTo: Graphic3dVec2i;
-                     theAction: AIS_DragAction): StandardBoolean {.
+proc ProcessDragging*(this: var AIS_InteractiveObject;
+                     theCtx: handle[AIS_InteractiveContext];
+                     theView: handle[V3d_View];
+                     theOwner: handle[SelectMgr_EntityOwner];
+                     theDragFrom: Graphic3d_Vec2i; theDragTo: Graphic3d_Vec2i;
+                     theAction: AIS_DragAction): Standard_Boolean {.
     importcpp: "ProcessDragging", header: "AIS_InteractiveObject.hxx".}
-proc getContext*(this: AIS_InteractiveObject): Handle[AIS_InteractiveContext] {.
+proc GetContext*(this: AIS_InteractiveObject): handle[AIS_InteractiveContext] {.
     noSideEffect, importcpp: "GetContext", header: "AIS_InteractiveObject.hxx".}
-proc hasPresentation*(this: AIS_InteractiveObject): StandardBoolean {.noSideEffect,
+proc HasPresentation*(this: AIS_InteractiveObject): Standard_Boolean {.noSideEffect,
     importcpp: "HasPresentation", header: "AIS_InteractiveObject.hxx".}
-proc presentation*(this: AIS_InteractiveObject): Handle[Prs3dPresentation] {.
+proc Presentation*(this: AIS_InteractiveObject): handle[Prs3d_Presentation] {.
     noSideEffect, importcpp: "Presentation", header: "AIS_InteractiveObject.hxx".}
 ## !!!Ignored construct:  ! Sets the graphic basic aspect to the current presentation. Standard_DEPRECATED ( Deprecated method, results might be undefined ) void SetAspect ( const opencascade :: handle < Prs3d_BasicAspect > [end of template] & anAspect ) ;
 ## Error: identifier expected, but got: Deprecated method, results might be undefined!!!
 
-proc dumpJson*(this: AIS_InteractiveObject; theOStream: var StandardOStream;
-              theDepth: StandardInteger = -1) {.noSideEffect, importcpp: "DumpJson",
+proc DumpJson*(this: AIS_InteractiveObject; theOStream: var Standard_OStream;
+              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
     header: "AIS_InteractiveObject.hxx".}
 discard "forward decl of AIS_InteractiveObject"
 type
-  HandleAIS_InteractiveObject* = Handle[AIS_InteractiveObject]
-
-
+  Handle_AIS_InteractiveObject* = handle[AIS_InteractiveObject]

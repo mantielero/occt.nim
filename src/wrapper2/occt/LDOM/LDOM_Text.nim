@@ -13,6 +13,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  LDOM_CharacterData
+
 ##   Class LDOM_Text
 
 type
@@ -23,4 +26,3 @@ proc constructLDOM_Text*(): LDOM_Text {.constructor, importcpp: "LDOM_Text(@)",
                                      header: "LDOM_Text.hxx".}
 proc constructLDOM_Text*(anOther: LDOM_Text): LDOM_Text {.constructor,
     importcpp: "LDOM_Text(@)", header: "LDOM_Text.hxx".}
-

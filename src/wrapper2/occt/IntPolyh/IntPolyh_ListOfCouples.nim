@@ -13,8 +13,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../NCollection/NCollection_List, IntPolyh_Couple
+
 type
-  IntPolyhListOfCouples* = NCollectionList[IntPolyhCouple]
-  IntPolyhListIteratorOfListOfCouples* = Iterator
-
-
+  IntPolyh_ListOfCouples* = NCollection_List[IntPolyh_Couple]
+  IntPolyh_ListIteratorOfListOfCouples* = Iterator

@@ -14,6 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 discard "forward decl of Standard_DomainError"
 discard "forward decl of IGESGeom_SplineSurface"
 discard "forward decl of IGESData_IGESReaderData"
@@ -26,44 +30,45 @@ discard "forward decl of Interface_Check"
 discard "forward decl of Interface_CopyTool"
 discard "forward decl of IGESData_IGESDumper"
 type
-  IGESGeomToolSplineSurface* {.importcpp: "IGESGeom_ToolSplineSurface",
-                              header: "IGESGeom_ToolSplineSurface.hxx", bycopy.} = object ##
-                                                                                     ## !
-                                                                                     ## Returns
-                                                                                     ## a
-                                                                                     ## ToolSplineSurface,
-                                                                                     ## ready
-                                                                                     ## to
-                                                                                     ## work
+  IGESGeom_ToolSplineSurface* {.importcpp: "IGESGeom_ToolSplineSurface",
+                               header: "IGESGeom_ToolSplineSurface.hxx", bycopy.} = object ##
+                                                                                      ## !
+                                                                                      ## Returns
+                                                                                      ## a
+                                                                                      ## ToolSplineSurface,
+                                                                                      ## ready
+                                                                                      ## to
+                                                                                      ## work
 
 
-proc constructIGESGeomToolSplineSurface*(): IGESGeomToolSplineSurface {.
+proc constructIGESGeom_ToolSplineSurface*(): IGESGeom_ToolSplineSurface {.
     constructor, importcpp: "IGESGeom_ToolSplineSurface(@)",
     header: "IGESGeom_ToolSplineSurface.hxx".}
-proc readOwnParams*(this: IGESGeomToolSplineSurface;
-                   ent: Handle[IGESGeomSplineSurface];
-                   ir: Handle[IGESDataIGESReaderData]; pr: var IGESDataParamReader) {.
-    noSideEffect, importcpp: "ReadOwnParams",
-    header: "IGESGeom_ToolSplineSurface.hxx".}
-proc writeOwnParams*(this: IGESGeomToolSplineSurface;
-                    ent: Handle[IGESGeomSplineSurface]; iw: var IGESDataIGESWriter) {.
-    noSideEffect, importcpp: "WriteOwnParams",
-    header: "IGESGeom_ToolSplineSurface.hxx".}
-proc ownShared*(this: IGESGeomToolSplineSurface;
-               ent: Handle[IGESGeomSplineSurface];
-               iter: var InterfaceEntityIterator) {.noSideEffect,
+proc ReadOwnParams*(this: IGESGeom_ToolSplineSurface;
+                   ent: handle[IGESGeom_SplineSurface];
+                   IR: handle[IGESData_IGESReaderData];
+                   PR: var IGESData_ParamReader) {.noSideEffect,
+    importcpp: "ReadOwnParams", header: "IGESGeom_ToolSplineSurface.hxx".}
+proc WriteOwnParams*(this: IGESGeom_ToolSplineSurface;
+                    ent: handle[IGESGeom_SplineSurface];
+                    IW: var IGESData_IGESWriter) {.noSideEffect,
+    importcpp: "WriteOwnParams", header: "IGESGeom_ToolSplineSurface.hxx".}
+proc OwnShared*(this: IGESGeom_ToolSplineSurface;
+               ent: handle[IGESGeom_SplineSurface];
+               iter: var Interface_EntityIterator) {.noSideEffect,
     importcpp: "OwnShared", header: "IGESGeom_ToolSplineSurface.hxx".}
-proc dirChecker*(this: IGESGeomToolSplineSurface;
-                ent: Handle[IGESGeomSplineSurface]): IGESDataDirChecker {.
+proc DirChecker*(this: IGESGeom_ToolSplineSurface;
+                ent: handle[IGESGeom_SplineSurface]): IGESData_DirChecker {.
     noSideEffect, importcpp: "DirChecker", header: "IGESGeom_ToolSplineSurface.hxx".}
-proc ownCheck*(this: IGESGeomToolSplineSurface; ent: Handle[IGESGeomSplineSurface];
-              shares: InterfaceShareTool; ach: var Handle[InterfaceCheck]) {.
-    noSideEffect, importcpp: "OwnCheck", header: "IGESGeom_ToolSplineSurface.hxx".}
-proc ownCopy*(this: IGESGeomToolSplineSurface;
-             entfrom: Handle[IGESGeomSplineSurface];
-             entto: Handle[IGESGeomSplineSurface]; tc: var InterfaceCopyTool) {.
+proc OwnCheck*(this: IGESGeom_ToolSplineSurface;
+              ent: handle[IGESGeom_SplineSurface]; shares: Interface_ShareTool;
+              ach: var handle[Interface_Check]) {.noSideEffect,
+    importcpp: "OwnCheck", header: "IGESGeom_ToolSplineSurface.hxx".}
+proc OwnCopy*(this: IGESGeom_ToolSplineSurface;
+             entfrom: handle[IGESGeom_SplineSurface];
+             entto: handle[IGESGeom_SplineSurface]; TC: var Interface_CopyTool) {.
     noSideEffect, importcpp: "OwnCopy", header: "IGESGeom_ToolSplineSurface.hxx".}
-proc ownDump*(this: IGESGeomToolSplineSurface; ent: Handle[IGESGeomSplineSurface];
-             dumper: IGESDataIGESDumper; s: var StandardOStream; own: StandardInteger) {.
-    noSideEffect, importcpp: "OwnDump", header: "IGESGeom_ToolSplineSurface.hxx".}
-
+proc OwnDump*(this: IGESGeom_ToolSplineSurface;
+             ent: handle[IGESGeom_SplineSurface]; dumper: IGESData_IGESDumper;
+             S: var Standard_OStream; own: Standard_Integer) {.noSideEffect,
+    importcpp: "OwnDump", header: "IGESGeom_ToolSplineSurface.hxx".}

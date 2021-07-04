@@ -14,7 +14,8 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ChFiDS_CircSection, ../NCollection/NCollection_Array1
+
 type
-  ChFiDS_SecArray1* = NCollectionArray1[ChFiDS_CircSection]
-
-
+  ChFiDS_SecArray1* = NCollection_Array1[ChFiDS_CircSection]

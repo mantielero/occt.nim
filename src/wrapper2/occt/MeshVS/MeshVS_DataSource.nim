@@ -13,6 +13,15 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Transient,
+  ../Standard/Standard_Boolean, ../Standard/Standard_Integer,
+  ../TColStd/TColStd_Array1OfReal, MeshVS_EntityType,
+  MeshVS_HArray1OfSequenceOfInteger, ../Standard/Standard_Address,
+  ../TColStd/TColStd_Array1OfInteger, ../TColStd/TColStd_PackedMapOfInteger,
+  ../Standard/Standard_Real, ../TColStd/TColStd_HArray1OfReal,
+  ../TColgp/TColgp_Array1OfPnt2d
+
 discard "forward decl of Bnd_Box"
 discard "forward decl of MeshVS_Mesh"
 discard "forward decl of TColStd_HPackedMapOfInteger"
@@ -20,7 +29,7 @@ discard "forward decl of Bnd_Box2d"
 discard "forward decl of MeshVS_DataSource"
 discard "forward decl of MeshVS_DataSource"
 type
-  HandleMeshVS_DataSource* = Handle[MeshVS_DataSource]
+  Handle_MeshVS_DataSource* = handle[MeshVS_DataSource]
 
 ## ! The deferred class using for the following tasks:
 ## ! 1) Receiving geometry data about single element of node by its number;
@@ -36,226 +45,226 @@ type
 
 type
   MeshVS_DataSource* {.importcpp: "MeshVS_DataSource",
-                      header: "MeshVS_DataSource.hxx", bycopy.} = object of StandardTransient ##
-                                                                                       ## !
-                                                                                       ## Returns
-                                                                                       ## geometry
-                                                                                       ## information
-                                                                                       ## about
-                                                                                       ## node
-                                                                                       ## or
-                                                                                       ## element
-                                                                                       ##
-                                                                                       ## !
-                                                                                       ## ID
-                                                                                       ## is
-                                                                                       ## the
-                                                                                       ## numerical
-                                                                                       ## identificator
-                                                                                       ## of
-                                                                                       ## node
-                                                                                       ## or
-                                                                                       ## element
-                                                                                       ##
-                                                                                       ## !
-                                                                                       ## IsElement
-                                                                                       ## indicates
-                                                                                       ## this
-                                                                                       ## ID
-                                                                                       ## describe
-                                                                                       ## node
-                                                                                       ## (
-                                                                                       ## if
-                                                                                       ## Standard_False
-                                                                                       ## )
-                                                                                       ## or
-                                                                                       ## element
-                                                                                       ## (
-                                                                                       ## if
-                                                                                       ## Standard_True
-                                                                                       ## )
-                                                                                       ##
-                                                                                       ## !
-                                                                                       ## Coords
-                                                                                       ## is
-                                                                                       ## an
-                                                                                       ## array
-                                                                                       ## of
-                                                                                       ## co-ordinates
-                                                                                       ## of
-                                                                                       ## node(s).
-                                                                                       ##
-                                                                                       ## !
-                                                                                       ## For
-                                                                                       ## node
-                                                                                       ## it
-                                                                                       ## is
-                                                                                       ## only
-                                                                                       ## 3
-                                                                                       ## numbers:
-                                                                                       ## X,
-                                                                                       ## Y,
-                                                                                       ## Z
-                                                                                       ## in
-                                                                                       ## the
-                                                                                       ## strict
-                                                                                       ## order
-                                                                                       ##
-                                                                                       ## !
-                                                                                       ## For
-                                                                                       ## element
-                                                                                       ## it
-                                                                                       ## is
-                                                                                       ## 3*n
-                                                                                       ## numbers,
-                                                                                       ## where
-                                                                                       ## n
-                                                                                       ## is
-                                                                                       ## number
-                                                                                       ## of
-                                                                                       ## this
-                                                                                       ## element
-                                                                                       ## vertices
-                                                                                       ##
-                                                                                       ## !
-                                                                                       ## The
-                                                                                       ## order
-                                                                                       ## is
-                                                                                       ## strict
-                                                                                       ## also:
-                                                                                       ## X1,
-                                                                                       ## Y1,
-                                                                                       ## Z1,
-                                                                                       ## X2,....,
-                                                                                       ## where
-                                                                                       ## Xi,
-                                                                                       ## Yi,
-                                                                                       ## Zi
-                                                                                       ## are
-                                                                                       ## co-ordinates
-                                                                                       ## of
-                                                                                       ## vertices
-                                                                                       ##
-                                                                                       ## !
-                                                                                       ## NbNodes
-                                                                                       ## is
-                                                                                       ## number
-                                                                                       ## of
-                                                                                       ## nodes.
-                                                                                       ## It
-                                                                                       ## is
-                                                                                       ## recommended
-                                                                                       ## this
-                                                                                       ## parameter
-                                                                                       ## to
-                                                                                       ## be
-                                                                                       ## set
-                                                                                       ## to
-                                                                                       ## 1
-                                                                                       ## for
-                                                                                       ## node.
-                                                                                       ##
-                                                                                       ## !
-                                                                                       ## Type
-                                                                                       ## is
-                                                                                       ## type
-                                                                                       ## of
-                                                                                       ## node
-                                                                                       ## or
-                                                                                       ## element
-                                                                                       ## (from
-                                                                                       ## enumeration).
-                                                                                       ## It
-                                                                                       ## is
-                                                                                       ## recommended
-                                                                                       ## this
-                                                                                       ## parameter
-                                                                                       ## to
-                                                                                       ## be
-                                                                                       ## set
-                                                                                       ## to
-                                                                                       ##
-                                                                                       ## !
-                                                                                       ## MeshVS_ET_Node
-                                                                                       ## for
-                                                                                       ## node.
+                      header: "MeshVS_DataSource.hxx", bycopy.} = object of Standard_Transient ##
+                                                                                        ## !
+                                                                                        ## Returns
+                                                                                        ## geometry
+                                                                                        ## information
+                                                                                        ## about
+                                                                                        ## node
+                                                                                        ## or
+                                                                                        ## element
+                                                                                        ##
+                                                                                        ## !
+                                                                                        ## ID
+                                                                                        ## is
+                                                                                        ## the
+                                                                                        ## numerical
+                                                                                        ## identificator
+                                                                                        ## of
+                                                                                        ## node
+                                                                                        ## or
+                                                                                        ## element
+                                                                                        ##
+                                                                                        ## !
+                                                                                        ## IsElement
+                                                                                        ## indicates
+                                                                                        ## this
+                                                                                        ## ID
+                                                                                        ## describe
+                                                                                        ## node
+                                                                                        ## (
+                                                                                        ## if
+                                                                                        ## Standard_False
+                                                                                        ## )
+                                                                                        ## or
+                                                                                        ## element
+                                                                                        ## (
+                                                                                        ## if
+                                                                                        ## Standard_True
+                                                                                        ## )
+                                                                                        ##
+                                                                                        ## !
+                                                                                        ## Coords
+                                                                                        ## is
+                                                                                        ## an
+                                                                                        ## array
+                                                                                        ## of
+                                                                                        ## co-ordinates
+                                                                                        ## of
+                                                                                        ## node(s).
+                                                                                        ##
+                                                                                        ## !
+                                                                                        ## For
+                                                                                        ## node
+                                                                                        ## it
+                                                                                        ## is
+                                                                                        ## only
+                                                                                        ## 3
+                                                                                        ## numbers:
+                                                                                        ## X,
+                                                                                        ## Y,
+                                                                                        ## Z
+                                                                                        ## in
+                                                                                        ## the
+                                                                                        ## strict
+                                                                                        ## order
+                                                                                        ##
+                                                                                        ## !
+                                                                                        ## For
+                                                                                        ## element
+                                                                                        ## it
+                                                                                        ## is
+                                                                                        ## 3*n
+                                                                                        ## numbers,
+                                                                                        ## where
+                                                                                        ## n
+                                                                                        ## is
+                                                                                        ## number
+                                                                                        ## of
+                                                                                        ## this
+                                                                                        ## element
+                                                                                        ## vertices
+                                                                                        ##
+                                                                                        ## !
+                                                                                        ## The
+                                                                                        ## order
+                                                                                        ## is
+                                                                                        ## strict
+                                                                                        ## also:
+                                                                                        ## X1,
+                                                                                        ## Y1,
+                                                                                        ## Z1,
+                                                                                        ## X2,....,
+                                                                                        ## where
+                                                                                        ## Xi,
+                                                                                        ## Yi,
+                                                                                        ## Zi
+                                                                                        ## are
+                                                                                        ## co-ordinates
+                                                                                        ## of
+                                                                                        ## vertices
+                                                                                        ##
+                                                                                        ## !
+                                                                                        ## NbNodes
+                                                                                        ## is
+                                                                                        ## number
+                                                                                        ## of
+                                                                                        ## nodes.
+                                                                                        ## It
+                                                                                        ## is
+                                                                                        ## recommended
+                                                                                        ## this
+                                                                                        ## parameter
+                                                                                        ## to
+                                                                                        ## be
+                                                                                        ## set
+                                                                                        ## to
+                                                                                        ## 1
+                                                                                        ## for
+                                                                                        ## node.
+                                                                                        ##
+                                                                                        ## !
+                                                                                        ## Type
+                                                                                        ## is
+                                                                                        ## type
+                                                                                        ## of
+                                                                                        ## node
+                                                                                        ## or
+                                                                                        ## element
+                                                                                        ## (from
+                                                                                        ## enumeration).
+                                                                                        ## It
+                                                                                        ## is
+                                                                                        ## recommended
+                                                                                        ## this
+                                                                                        ## parameter
+                                                                                        ## to
+                                                                                        ## be
+                                                                                        ## set
+                                                                                        ## to
+                                                                                        ##
+                                                                                        ## !
+                                                                                        ## MeshVS_ET_Node
+                                                                                        ## for
+                                                                                        ## node.
 
 
-proc getGeom*(this: MeshVS_DataSource; id: StandardInteger;
-             isElement: StandardBoolean; coords: var TColStdArray1OfReal;
-             nbNodes: var StandardInteger; `type`: var MeshVS_EntityType): StandardBoolean {.
+proc GetGeom*(this: MeshVS_DataSource; ID: Standard_Integer;
+             IsElement: Standard_Boolean; Coords: var TColStd_Array1OfReal;
+             NbNodes: var Standard_Integer; Type: var MeshVS_EntityType): Standard_Boolean {.
     noSideEffect, importcpp: "GetGeom", header: "MeshVS_DataSource.hxx".}
-proc getGeomType*(this: MeshVS_DataSource; id: StandardInteger;
-                 isElement: StandardBoolean; `type`: var MeshVS_EntityType): StandardBoolean {.
+proc GetGeomType*(this: MeshVS_DataSource; ID: Standard_Integer;
+                 IsElement: Standard_Boolean; Type: var MeshVS_EntityType): Standard_Boolean {.
     noSideEffect, importcpp: "GetGeomType", header: "MeshVS_DataSource.hxx".}
-proc get3DGeom*(this: MeshVS_DataSource; id: StandardInteger;
-               nbNodes: var StandardInteger;
-               data: var Handle[MeshVS_HArray1OfSequenceOfInteger]): StandardBoolean {.
+proc Get3DGeom*(this: MeshVS_DataSource; ID: Standard_Integer;
+               NbNodes: var Standard_Integer;
+               Data: var handle[MeshVS_HArray1OfSequenceOfInteger]): Standard_Boolean {.
     noSideEffect, importcpp: "Get3DGeom", header: "MeshVS_DataSource.hxx".}
-proc getAddr*(this: MeshVS_DataSource; id: StandardInteger;
-             isElement: StandardBoolean): StandardAddress {.noSideEffect,
+proc GetAddr*(this: MeshVS_DataSource; ID: Standard_Integer;
+             IsElement: Standard_Boolean): Standard_Address {.noSideEffect,
     importcpp: "GetAddr", header: "MeshVS_DataSource.hxx".}
-proc getNodesByElement*(this: MeshVS_DataSource; id: StandardInteger;
-                       nodeIDs: var TColStdArray1OfInteger;
-                       nbNodes: var StandardInteger): StandardBoolean {.
+proc GetNodesByElement*(this: MeshVS_DataSource; ID: Standard_Integer;
+                       NodeIDs: var TColStd_Array1OfInteger;
+                       NbNodes: var Standard_Integer): Standard_Boolean {.
     noSideEffect, importcpp: "GetNodesByElement", header: "MeshVS_DataSource.hxx".}
-proc getAllNodes*(this: MeshVS_DataSource): TColStdPackedMapOfInteger {.
+proc GetAllNodes*(this: MeshVS_DataSource): TColStd_PackedMapOfInteger {.
     noSideEffect, importcpp: "GetAllNodes", header: "MeshVS_DataSource.hxx".}
-proc getAllElements*(this: MeshVS_DataSource): TColStdPackedMapOfInteger {.
+proc GetAllElements*(this: MeshVS_DataSource): TColStd_PackedMapOfInteger {.
     noSideEffect, importcpp: "GetAllElements", header: "MeshVS_DataSource.hxx".}
-proc getNormal*(this: MeshVS_DataSource; id: StandardInteger; max: StandardInteger;
-               nx: var StandardReal; ny: var StandardReal; nz: var StandardReal): StandardBoolean {.
+proc GetNormal*(this: MeshVS_DataSource; Id: Standard_Integer; Max: Standard_Integer;
+               nx: var Standard_Real; ny: var Standard_Real; nz: var Standard_Real): Standard_Boolean {.
     noSideEffect, importcpp: "GetNormal", header: "MeshVS_DataSource.hxx".}
-proc getNodeNormal*(this: MeshVS_DataSource; ranknode: StandardInteger;
-                   elementId: StandardInteger; nx: var StandardReal;
-                   ny: var StandardReal; nz: var StandardReal): StandardBoolean {.
+proc GetNodeNormal*(this: MeshVS_DataSource; ranknode: Standard_Integer;
+                   ElementId: Standard_Integer; nx: var Standard_Real;
+                   ny: var Standard_Real; nz: var Standard_Real): Standard_Boolean {.
     noSideEffect, importcpp: "GetNodeNormal", header: "MeshVS_DataSource.hxx".}
-proc getNormalsByElement*(this: MeshVS_DataSource; id: StandardInteger;
-                         isNodal: StandardBoolean; maxNodes: StandardInteger;
-                         normals: var Handle[TColStdHArray1OfReal]): StandardBoolean {.
+proc GetNormalsByElement*(this: MeshVS_DataSource; Id: Standard_Integer;
+                         IsNodal: Standard_Boolean; MaxNodes: Standard_Integer;
+                         Normals: var handle[TColStd_HArray1OfReal]): Standard_Boolean {.
     noSideEffect, importcpp: "GetNormalsByElement", header: "MeshVS_DataSource.hxx".}
-proc getAllGroups*(this: MeshVS_DataSource; ids: var TColStdPackedMapOfInteger) {.
+proc GetAllGroups*(this: MeshVS_DataSource; Ids: var TColStd_PackedMapOfInteger) {.
     noSideEffect, importcpp: "GetAllGroups", header: "MeshVS_DataSource.hxx".}
-proc getGroup*(this: MeshVS_DataSource; id: StandardInteger;
-              `type`: var MeshVS_EntityType; ids: var TColStdPackedMapOfInteger): StandardBoolean {.
+proc GetGroup*(this: MeshVS_DataSource; Id: Standard_Integer;
+              Type: var MeshVS_EntityType; Ids: var TColStd_PackedMapOfInteger): Standard_Boolean {.
     noSideEffect, importcpp: "GetGroup", header: "MeshVS_DataSource.hxx".}
-proc getGroupAddr*(this: MeshVS_DataSource; id: StandardInteger): StandardAddress {.
+proc GetGroupAddr*(this: MeshVS_DataSource; ID: Standard_Integer): Standard_Address {.
     noSideEffect, importcpp: "GetGroupAddr", header: "MeshVS_DataSource.hxx".}
-proc isAdvancedSelectionEnabled*(this: MeshVS_DataSource): StandardBoolean {.
+proc IsAdvancedSelectionEnabled*(this: MeshVS_DataSource): Standard_Boolean {.
     noSideEffect, importcpp: "IsAdvancedSelectionEnabled",
     header: "MeshVS_DataSource.hxx".}
-proc getBoundingBox*(this: MeshVS_DataSource): BndBox {.noSideEffect,
+proc GetBoundingBox*(this: MeshVS_DataSource): Bnd_Box {.noSideEffect,
     importcpp: "GetBoundingBox", header: "MeshVS_DataSource.hxx".}
-proc getDetectedEntities*(this: var MeshVS_DataSource; prs: Handle[MeshVS_Mesh];
-                         x: StandardReal; y: StandardReal; aTol: StandardReal;
-                         nodes: var Handle[TColStdHPackedMapOfInteger];
-                         elements: var Handle[TColStdHPackedMapOfInteger];
-                         dMin: var StandardReal): StandardBoolean {.
+proc GetDetectedEntities*(this: var MeshVS_DataSource; Prs: handle[MeshVS_Mesh];
+                         X: Standard_Real; Y: Standard_Real; aTol: Standard_Real;
+                         Nodes: var handle[TColStd_HPackedMapOfInteger];
+                         Elements: var handle[TColStd_HPackedMapOfInteger];
+                         DMin: var Standard_Real): Standard_Boolean {.
     importcpp: "GetDetectedEntities", header: "MeshVS_DataSource.hxx".}
-proc getDetectedEntities*(this: var MeshVS_DataSource; prs: Handle[MeshVS_Mesh];
-                         xMin: StandardReal; yMin: StandardReal; xMax: StandardReal;
-                         yMax: StandardReal; aTol: StandardReal;
-                         nodes: var Handle[TColStdHPackedMapOfInteger];
-                         elements: var Handle[TColStdHPackedMapOfInteger]): StandardBoolean {.
+proc GetDetectedEntities*(this: var MeshVS_DataSource; Prs: handle[MeshVS_Mesh];
+                         XMin: Standard_Real; YMin: Standard_Real;
+                         XMax: Standard_Real; YMax: Standard_Real;
+                         aTol: Standard_Real;
+                         Nodes: var handle[TColStd_HPackedMapOfInteger];
+                         Elements: var handle[TColStd_HPackedMapOfInteger]): Standard_Boolean {.
     importcpp: "GetDetectedEntities", header: "MeshVS_DataSource.hxx".}
-proc getDetectedEntities*(this: var MeshVS_DataSource; prs: Handle[MeshVS_Mesh];
-                         polyline: TColgpArray1OfPnt2d; aBox: BndBox2d;
-                         aTol: StandardReal;
-                         nodes: var Handle[TColStdHPackedMapOfInteger];
-                         elements: var Handle[TColStdHPackedMapOfInteger]): StandardBoolean {.
+proc GetDetectedEntities*(this: var MeshVS_DataSource; Prs: handle[MeshVS_Mesh];
+                         Polyline: TColgp_Array1OfPnt2d; aBox: Bnd_Box2d;
+                         aTol: Standard_Real;
+                         Nodes: var handle[TColStd_HPackedMapOfInteger];
+                         Elements: var handle[TColStd_HPackedMapOfInteger]): Standard_Boolean {.
     importcpp: "GetDetectedEntities", header: "MeshVS_DataSource.hxx".}
-proc getDetectedEntities*(this: var MeshVS_DataSource; prs: Handle[MeshVS_Mesh];
-                         nodes: var Handle[TColStdHPackedMapOfInteger];
-                         elements: var Handle[TColStdHPackedMapOfInteger]): StandardBoolean {.
+proc GetDetectedEntities*(this: var MeshVS_DataSource; Prs: handle[MeshVS_Mesh];
+                         Nodes: var handle[TColStd_HPackedMapOfInteger];
+                         Elements: var handle[TColStd_HPackedMapOfInteger]): Standard_Boolean {.
     importcpp: "GetDetectedEntities", header: "MeshVS_DataSource.hxx".}
 type
-  MeshVS_DataSourcebaseType* = StandardTransient
+  MeshVS_DataSourcebase_type* = Standard_Transient
 
-proc getTypeName*(): cstring {.importcpp: "MeshVS_DataSource::get_type_name(@)",
-                            header: "MeshVS_DataSource.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "MeshVS_DataSource::get_type_name(@)",
+                              header: "MeshVS_DataSource.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "MeshVS_DataSource::get_type_descriptor(@)",
     header: "MeshVS_DataSource.hxx".}
-proc dynamicType*(this: MeshVS_DataSource): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: MeshVS_DataSource): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "MeshVS_DataSource.hxx".}
-

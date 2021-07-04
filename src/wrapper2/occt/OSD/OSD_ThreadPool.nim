@@ -12,6 +12,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../NCollection/NCollection_Array1, OSD_Thread, ../Standard/Standard_Atomic,
+  ../Standard/Standard_Condition, ../Standard/Standard_Mutex
+
 ## ! Class defining a thread pool for executing algorithms in multi-threaded mode.
 ## ! Thread pool allocates requested amount of threads and keep them alive
 ## ! (in sleep mode when unused) during thread pool lifetime.
@@ -40,180 +44,180 @@
 ## !   throw Standard_Failure in a caller thread on completed execution.
 
 type
-  OSD_ThreadPool* {.importcpp: "OSD_ThreadPool", header: "OSD_ThreadPool.hxx", bycopy.} = object of StandardTransient ##
-                                                                                                            ## !
-                                                                                                            ## Return
-                                                                                                            ## (or
-                                                                                                            ## create)
-                                                                                                            ## a
-                                                                                                            ## default
-                                                                                                            ## thread
-                                                                                                            ## pool.
-                                                                                                            ##
-                                                                                                            ## !
-                                                                                                            ## Number
-                                                                                                            ## of
-                                                                                                            ## threads
-                                                                                                            ## argument
-                                                                                                            ## will
-                                                                                                            ## be
-                                                                                                            ## considered
-                                                                                                            ## only
-                                                                                                            ## when
-                                                                                                            ## called
-                                                                                                            ## first
-                                                                                                            ## time.
-                                                                                                            ##
-                                                                                                            ## !
-                                                                                                            ## Main
-                                                                                                            ## constructor.
-                                                                                                            ##
-                                                                                                            ## !
-                                                                                                            ## Application
-                                                                                                            ## may
-                                                                                                            ## consider
-                                                                                                            ## specifying
-                                                                                                            ## more
-                                                                                                            ## threads
-                                                                                                            ## than
-                                                                                                            ## actually
-                                                                                                            ##
-                                                                                                            ## !
-                                                                                                            ## available
-                                                                                                            ## (OSD_Parallel::NbLogicalProcessors())
-                                                                                                            ## and
-                                                                                                            ## set
-                                                                                                            ## up
-                                                                                                            ## NbDefaultThreadsToLaunch()
-                                                                                                            ## to
-                                                                                                            ## a
-                                                                                                            ## smaller
-                                                                                                            ## value
-                                                                                                            ##
-                                                                                                            ## !
-                                                                                                            ## so
-                                                                                                            ## that
-                                                                                                            ## concurrent
-                                                                                                            ## threads
-                                                                                                            ## will
-                                                                                                            ## be
-                                                                                                            ## able
-                                                                                                            ## using
-                                                                                                            ## single
-                                                                                                            ## Thread
-                                                                                                            ## Pool
-                                                                                                            ## instance
-                                                                                                            ## more
-                                                                                                            ## efficiently.
-                                                                                                            ##
-                                                                                                            ## !
-                                                                                                            ## @param
-                                                                                                            ## theNbThreads
-                                                                                                            ## threads
-                                                                                                            ## number
-                                                                                                            ## to
-                                                                                                            ## be
-                                                                                                            ## created
-                                                                                                            ## by
-                                                                                                            ## pool
-                                                                                                            ##
-                                                                                                            ## !
-                                                                                                            ## (if
-                                                                                                            ## -1
-                                                                                                            ## is
-                                                                                                            ## specified
-                                                                                                            ## then
-                                                                                                            ## OSD_Parallel::NbLogicalProcessors()
-                                                                                                            ## will
-                                                                                                            ## be
-                                                                                                            ## used)
-                                                                                                            ##
-                                                                                                            ## !
-                                                                                                            ## Thread
-                                                                                                            ## function
-                                                                                                            ## interface.
-                                                                                                            ##
-                                                                                                            ## !
-                                                                                                            ## Launcher
-                                                                                                            ## object
-                                                                                                            ## locking
-                                                                                                            ## a
-                                                                                                            ## subset
-                                                                                                            ## of
-                                                                                                            ## threads
-                                                                                                            ## (or
-                                                                                                            ## all
-                                                                                                            ## threads)
-                                                                                                            ##
-                                                                                                            ## !
-                                                                                                            ## in
-                                                                                                            ## a
-                                                                                                            ## thread
-                                                                                                            ## pool
-                                                                                                            ## to
-                                                                                                            ## perform
-                                                                                                            ## parallel
-                                                                                                            ## execution
-                                                                                                            ## of
-                                                                                                            ## the
-                                                                                                            ## job.
-                                                                                                            ##
-                                                                                                            ## !
-                                                                                                            ## Auxiliary
-                                                                                                            ## class
-                                                                                                            ## which
-                                                                                                            ## ensures
-                                                                                                            ## exclusive
-                                                                                                            ## access
-                                                                                                            ## to
-                                                                                                            ## iterators
-                                                                                                            ## of
-                                                                                                            ## processed
-                                                                                                            ## data
-                                                                                                            ## pool.
-                                                                                                            ##
-                                                                                                            ## !
-                                                                                                            ## This
-                                                                                                            ## method
-                                                                                                            ## should
-                                                                                                            ## not
-                                                                                                            ## be
-                                                                                                            ## called
-                                                                                                            ## (prohibited).
+  OSD_ThreadPool* {.importcpp: "OSD_ThreadPool", header: "OSD_ThreadPool.hxx", bycopy.} = object of Standard_Transient ##
+                                                                                                             ## !
+                                                                                                             ## Return
+                                                                                                             ## (or
+                                                                                                             ## create)
+                                                                                                             ## a
+                                                                                                             ## default
+                                                                                                             ## thread
+                                                                                                             ## pool.
+                                                                                                             ##
+                                                                                                             ## !
+                                                                                                             ## Number
+                                                                                                             ## of
+                                                                                                             ## threads
+                                                                                                             ## argument
+                                                                                                             ## will
+                                                                                                             ## be
+                                                                                                             ## considered
+                                                                                                             ## only
+                                                                                                             ## when
+                                                                                                             ## called
+                                                                                                             ## first
+                                                                                                             ## time.
+                                                                                                             ##
+                                                                                                             ## !
+                                                                                                             ## Main
+                                                                                                             ## constructor.
+                                                                                                             ##
+                                                                                                             ## !
+                                                                                                             ## Application
+                                                                                                             ## may
+                                                                                                             ## consider
+                                                                                                             ## specifying
+                                                                                                             ## more
+                                                                                                             ## threads
+                                                                                                             ## than
+                                                                                                             ## actually
+                                                                                                             ##
+                                                                                                             ## !
+                                                                                                             ## available
+                                                                                                             ## (OSD_Parallel::NbLogicalProcessors())
+                                                                                                             ## and
+                                                                                                             ## set
+                                                                                                             ## up
+                                                                                                             ## NbDefaultThreadsToLaunch()
+                                                                                                             ## to
+                                                                                                             ## a
+                                                                                                             ## smaller
+                                                                                                             ## value
+                                                                                                             ##
+                                                                                                             ## !
+                                                                                                             ## so
+                                                                                                             ## that
+                                                                                                             ## concurrent
+                                                                                                             ## threads
+                                                                                                             ## will
+                                                                                                             ## be
+                                                                                                             ## able
+                                                                                                             ## using
+                                                                                                             ## single
+                                                                                                             ## Thread
+                                                                                                             ## Pool
+                                                                                                             ## instance
+                                                                                                             ## more
+                                                                                                             ## efficiently.
+                                                                                                             ##
+                                                                                                             ## !
+                                                                                                             ## @param
+                                                                                                             ## theNbThreads
+                                                                                                             ## threads
+                                                                                                             ## number
+                                                                                                             ## to
+                                                                                                             ## be
+                                                                                                             ## created
+                                                                                                             ## by
+                                                                                                             ## pool
+                                                                                                             ##
+                                                                                                             ## !
+                                                                                                             ## (if
+                                                                                                             ## -1
+                                                                                                             ## is
+                                                                                                             ## specified
+                                                                                                             ## then
+                                                                                                             ## OSD_Parallel::NbLogicalProcessors()
+                                                                                                             ## will
+                                                                                                             ## be
+                                                                                                             ## used)
+                                                                                                             ##
+                                                                                                             ## !
+                                                                                                             ## Thread
+                                                                                                             ## function
+                                                                                                             ## interface.
+                                                                                                             ##
+                                                                                                             ## !
+                                                                                                             ## Launcher
+                                                                                                             ## object
+                                                                                                             ## locking
+                                                                                                             ## a
+                                                                                                             ## subset
+                                                                                                             ## of
+                                                                                                             ## threads
+                                                                                                             ## (or
+                                                                                                             ## all
+                                                                                                             ## threads)
+                                                                                                             ##
+                                                                                                             ## !
+                                                                                                             ## in
+                                                                                                             ## a
+                                                                                                             ## thread
+                                                                                                             ## pool
+                                                                                                             ## to
+                                                                                                             ## perform
+                                                                                                             ## parallel
+                                                                                                             ## execution
+                                                                                                             ## of
+                                                                                                             ## the
+                                                                                                             ## job.
+                                                                                                             ##
+                                                                                                             ## !
+                                                                                                             ## Auxiliary
+                                                                                                             ## class
+                                                                                                             ## which
+                                                                                                             ## ensures
+                                                                                                             ## exclusive
+                                                                                                             ## access
+                                                                                                             ## to
+                                                                                                             ## iterators
+                                                                                                             ## of
+                                                                                                             ## processed
+                                                                                                             ## data
+                                                                                                             ## pool.
+                                                                                                             ##
+                                                                                                             ## !
+                                                                                                             ## This
+                                                                                                             ## method
+                                                                                                             ## should
+                                                                                                             ## not
+                                                                                                             ## be
+                                                                                                             ## called
+                                                                                                             ## (prohibited).
     ## !< array of defined threads (excluding self-thread)
     ## !< maximum number of threads to be locked by a single Launcher by default
     ## !< flag to shut down (destroy) the thread pool
 
-  OSD_ThreadPoolbaseType* = StandardTransient
+  OSD_ThreadPoolbase_type* = Standard_Transient
 
-proc getTypeName*(): cstring {.importcpp: "OSD_ThreadPool::get_type_name(@)",
-                            header: "OSD_ThreadPool.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "OSD_ThreadPool::get_type_name(@)",
+                              header: "OSD_ThreadPool.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "OSD_ThreadPool::get_type_descriptor(@)",
     header: "OSD_ThreadPool.hxx".}
-proc dynamicType*(this: OSD_ThreadPool): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: OSD_ThreadPool): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "OSD_ThreadPool.hxx".}
-proc defaultPool*(theNbThreads: cint = -1): Handle[OSD_ThreadPool] {.
+proc DefaultPool*(theNbThreads: cint = -1): handle[OSD_ThreadPool] {.
     importcpp: "OSD_ThreadPool::DefaultPool(@)", header: "OSD_ThreadPool.hxx".}
 proc constructOSD_ThreadPool*(theNbThreads: cint = -1): OSD_ThreadPool {.constructor,
     importcpp: "OSD_ThreadPool(@)", header: "OSD_ThreadPool.hxx".}
 proc destroyOSD_ThreadPool*(this: var OSD_ThreadPool) {.
     importcpp: "#.~OSD_ThreadPool()", header: "OSD_ThreadPool.hxx".}
-proc hasThreads*(this: OSD_ThreadPool): bool {.noSideEffect, importcpp: "HasThreads",
+proc HasThreads*(this: OSD_ThreadPool): bool {.noSideEffect, importcpp: "HasThreads",
     header: "OSD_ThreadPool.hxx".}
-proc lowerThreadIndex*(this: OSD_ThreadPool): cint {.noSideEffect,
+proc LowerThreadIndex*(this: OSD_ThreadPool): cint {.noSideEffect,
     importcpp: "LowerThreadIndex", header: "OSD_ThreadPool.hxx".}
-proc upperThreadIndex*(this: OSD_ThreadPool): cint {.noSideEffect,
+proc UpperThreadIndex*(this: OSD_ThreadPool): cint {.noSideEffect,
     importcpp: "UpperThreadIndex", header: "OSD_ThreadPool.hxx".}
-proc nbThreads*(this: OSD_ThreadPool): cint {.noSideEffect, importcpp: "NbThreads",
+proc NbThreads*(this: OSD_ThreadPool): cint {.noSideEffect, importcpp: "NbThreads",
     header: "OSD_ThreadPool.hxx".}
-proc nbDefaultThreadsToLaunch*(this: OSD_ThreadPool): cint {.noSideEffect,
+proc NbDefaultThreadsToLaunch*(this: OSD_ThreadPool): cint {.noSideEffect,
     importcpp: "NbDefaultThreadsToLaunch", header: "OSD_ThreadPool.hxx".}
-proc setNbDefaultThreadsToLaunch*(this: var OSD_ThreadPool; theNbThreads: cint) {.
+proc SetNbDefaultThreadsToLaunch*(this: var OSD_ThreadPool; theNbThreads: cint) {.
     importcpp: "SetNbDefaultThreadsToLaunch", header: "OSD_ThreadPool.hxx".}
-proc isInUse*(this: var OSD_ThreadPool): bool {.importcpp: "IsInUse",
+proc IsInUse*(this: var OSD_ThreadPool): bool {.importcpp: "IsInUse",
     header: "OSD_ThreadPool.hxx".}
-proc init*(this: var OSD_ThreadPool; theNbThreads: cint) {.importcpp: "Init",
+proc Init*(this: var OSD_ThreadPool; theNbThreads: cint) {.importcpp: "Init",
     header: "OSD_ThreadPool.hxx".}
 type
   OSD_ThreadPoolLauncher* {.importcpp: "OSD_ThreadPool::Launcher",
@@ -238,17 +242,16 @@ proc constructOSD_ThreadPoolLauncher*(thePool: var OSD_ThreadPool;
     header: "OSD_ThreadPool.hxx".}
 proc destroyOSD_ThreadPoolLauncher*(this: var OSD_ThreadPoolLauncher) {.
     importcpp: "#.~Launcher()", header: "OSD_ThreadPool.hxx".}
-proc hasThreads*(this: OSD_ThreadPoolLauncher): bool {.noSideEffect,
+proc HasThreads*(this: OSD_ThreadPoolLauncher): bool {.noSideEffect,
     importcpp: "HasThreads", header: "OSD_ThreadPool.hxx".}
-proc nbThreads*(this: OSD_ThreadPoolLauncher): cint {.noSideEffect,
+proc NbThreads*(this: OSD_ThreadPoolLauncher): cint {.noSideEffect,
     importcpp: "NbThreads", header: "OSD_ThreadPool.hxx".}
-proc lowerThreadIndex*(this: OSD_ThreadPoolLauncher): cint {.noSideEffect,
+proc LowerThreadIndex*(this: OSD_ThreadPoolLauncher): cint {.noSideEffect,
     importcpp: "LowerThreadIndex", header: "OSD_ThreadPool.hxx".}
-proc upperThreadIndex*(this: OSD_ThreadPoolLauncher): cint {.noSideEffect,
+proc UpperThreadIndex*(this: OSD_ThreadPoolLauncher): cint {.noSideEffect,
     importcpp: "UpperThreadIndex", header: "OSD_ThreadPool.hxx".}
-proc perform*[Functor](this: var OSD_ThreadPoolLauncher; theBegin: cint; theEnd: cint;
+proc Perform*[Functor](this: var OSD_ThreadPoolLauncher; theBegin: cint; theEnd: cint;
                       theFunctor: Functor) {.importcpp: "Perform",
     header: "OSD_ThreadPool.hxx".}
-proc release*(this: var OSD_ThreadPoolLauncher) {.importcpp: "Release",
+proc Release*(this: var OSD_ThreadPoolLauncher) {.importcpp: "Release",
     header: "OSD_ThreadPool.hxx".}
-

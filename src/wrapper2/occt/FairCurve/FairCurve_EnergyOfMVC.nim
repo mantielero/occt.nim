@@ -14,54 +14,61 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Real, FairCurve_BattenLaw,
+  FairCurve_DistributionOfTension, FairCurve_DistributionOfSagging,
+  FairCurve_DistributionOfJerk, FairCurve_AnalysisCode, FairCurve_Energy,
+  ../Standard/Standard_Integer, ../TColStd/TColStd_HArray1OfReal,
+  ../TColgp/TColgp_HArray1OfPnt2d, ../Standard/Standard_Boolean,
+  ../math/math_Vector
+
 ##  resolve name collisions with X11 headers
 
-# when defined(Status):
-#   discard
+when defined(Status):
+  discard
 ## ! Energy Criterium to minimize in MinimalVariationCurve.
 
 type
-  FairCurveEnergyOfMVC* {.importcpp: "FairCurve_EnergyOfMVC",
-                         header: "FairCurve_EnergyOfMVC.hxx", bycopy.} = object of FairCurveEnergy ##
-                                                                                            ## !
-                                                                                            ## Angles
-                                                                                            ## corresspond
-                                                                                            ## to
-                                                                                            ## the
-                                                                                            ## Ox
-                                                                                            ## axis
-                                                                                            ##
-                                                                                            ## !
-                                                                                            ## compute
-                                                                                            ## the
-                                                                                            ## poles
-                                                                                            ## wich
-                                                                                            ## correspond
-                                                                                            ## with
-                                                                                            ## the
-                                                                                            ## variable
-                                                                                            ## X
+  FairCurve_EnergyOfMVC* {.importcpp: "FairCurve_EnergyOfMVC",
+                          header: "FairCurve_EnergyOfMVC.hxx", bycopy.} = object of FairCurve_Energy ##
+                                                                                              ## !
+                                                                                              ## Angles
+                                                                                              ## corresspond
+                                                                                              ## to
+                                                                                              ## the
+                                                                                              ## Ox
+                                                                                              ## axis
+                                                                                              ##
+                                                                                              ## !
+                                                                                              ## compute
+                                                                                              ## the
+                                                                                              ## poles
+                                                                                              ## wich
+                                                                                              ## correspond
+                                                                                              ## with
+                                                                                              ## the
+                                                                                              ## variable
+                                                                                              ## X
 
 
-proc constructFairCurveEnergyOfMVC*(bSplOrder: StandardInteger;
-                                   flatKnots: Handle[TColStdHArray1OfReal];
-                                   poles: Handle[TColgpHArray1OfPnt2d];
-                                   contrOrder1: StandardInteger;
-                                   contrOrder2: StandardInteger;
-                                   law: FairCurveBattenLaw;
-                                   physicalRatio: StandardReal;
-                                   lengthSliding: StandardReal;
-                                   freeSliding: StandardBoolean = standardTrue;
-                                   angle1: StandardReal = 0;
-                                   angle2: StandardReal = 0;
-                                   curvature1: StandardReal = 0;
-                                   curvature2: StandardReal = 0): FairCurveEnergyOfMVC {.
+proc constructFairCurve_EnergyOfMVC*(BSplOrder: Standard_Integer;
+                                    FlatKnots: handle[TColStd_HArray1OfReal];
+                                    Poles: handle[TColgp_HArray1OfPnt2d];
+                                    ContrOrder1: Standard_Integer;
+                                    ContrOrder2: Standard_Integer;
+                                    Law: FairCurve_BattenLaw;
+                                    PhysicalRatio: Standard_Real;
+                                    LengthSliding: Standard_Real; FreeSliding: Standard_Boolean = Standard_True;
+                                    Angle1: Standard_Real = 0;
+                                    Angle2: Standard_Real = 0;
+                                    Curvature1: Standard_Real = 0;
+                                    Curvature2: Standard_Real = 0): FairCurve_EnergyOfMVC {.
     constructor, importcpp: "FairCurve_EnergyOfMVC(@)",
     header: "FairCurve_EnergyOfMVC.hxx".}
-proc lengthSliding*(this: FairCurveEnergyOfMVC): StandardReal {.noSideEffect,
+proc LengthSliding*(this: FairCurve_EnergyOfMVC): Standard_Real {.noSideEffect,
     importcpp: "LengthSliding", header: "FairCurve_EnergyOfMVC.hxx".}
-proc status*(this: FairCurveEnergyOfMVC): FairCurveAnalysisCode {.noSideEffect,
+proc Status*(this: FairCurve_EnergyOfMVC): FairCurve_AnalysisCode {.noSideEffect,
     importcpp: "Status", header: "FairCurve_EnergyOfMVC.hxx".}
-proc variable*(this: FairCurveEnergyOfMVC; x: var MathVector): StandardBoolean {.
+proc Variable*(this: FairCurve_EnergyOfMVC; X: var math_Vector): Standard_Boolean {.
     noSideEffect, importcpp: "Variable", header: "FairCurve_EnergyOfMVC.hxx".}
-

@@ -14,6 +14,14 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../TColStd/TColStd_Array1OfReal,
+  ../TColStd/TColStd_Array2OfReal, ../TColgp/TColgp_Array1OfPnt,
+  ../TColgp/TColgp_Array1OfPnt2d, ../Standard/Standard_Real,
+  ../Standard/Standard_Integer, ../Standard/Standard_Boolean,
+  ../TColgp/TColgp_Array2OfPnt, ../GeomAbs/GeomAbs_Shape
+
 discard "forward decl of math_Matrix"
 discard "forward decl of PLib_Base"
 discard "forward decl of PLib_JacobiPolynomial"
@@ -23,136 +31,139 @@ type
   PLib* {.importcpp: "PLib", header: "PLib.hxx", bycopy.} = object ## ! Used as argument for a non rational functions
 
 
-proc noWeights*(): ptr TColStdArray1OfReal {.importcpp: "PLib::NoWeights(@)",
+proc NoWeights*(): ptr TColStd_Array1OfReal {.importcpp: "PLib::NoWeights(@)",
     header: "PLib.hxx".}
-proc noWeights2*(): ptr TColStdArray2OfReal {.importcpp: "PLib::NoWeights2(@)",
+proc NoWeights2*(): ptr TColStd_Array2OfReal {.importcpp: "PLib::NoWeights2(@)",
     header: "PLib.hxx".}
-proc setPoles*(poles: TColgpArray1OfPnt; fp: var TColStdArray1OfReal) {.
+proc SetPoles*(Poles: TColgp_Array1OfPnt; FP: var TColStd_Array1OfReal) {.
     importcpp: "PLib::SetPoles(@)", header: "PLib.hxx".}
-proc setPoles*(poles: TColgpArray1OfPnt; weights: TColStdArray1OfReal;
-              fp: var TColStdArray1OfReal) {.importcpp: "PLib::SetPoles(@)",
+proc SetPoles*(Poles: TColgp_Array1OfPnt; Weights: TColStd_Array1OfReal;
+              FP: var TColStd_Array1OfReal) {.importcpp: "PLib::SetPoles(@)",
     header: "PLib.hxx".}
-proc getPoles*(fp: TColStdArray1OfReal; poles: var TColgpArray1OfPnt) {.
+proc GetPoles*(FP: TColStd_Array1OfReal; Poles: var TColgp_Array1OfPnt) {.
     importcpp: "PLib::GetPoles(@)", header: "PLib.hxx".}
-proc getPoles*(fp: TColStdArray1OfReal; poles: var TColgpArray1OfPnt;
-              weights: var TColStdArray1OfReal) {.importcpp: "PLib::GetPoles(@)",
+proc GetPoles*(FP: TColStd_Array1OfReal; Poles: var TColgp_Array1OfPnt;
+              Weights: var TColStd_Array1OfReal) {.importcpp: "PLib::GetPoles(@)",
     header: "PLib.hxx".}
-proc setPoles*(poles: TColgpArray1OfPnt2d; fp: var TColStdArray1OfReal) {.
+proc SetPoles*(Poles: TColgp_Array1OfPnt2d; FP: var TColStd_Array1OfReal) {.
     importcpp: "PLib::SetPoles(@)", header: "PLib.hxx".}
-proc setPoles*(poles: TColgpArray1OfPnt2d; weights: TColStdArray1OfReal;
-              fp: var TColStdArray1OfReal) {.importcpp: "PLib::SetPoles(@)",
+proc SetPoles*(Poles: TColgp_Array1OfPnt2d; Weights: TColStd_Array1OfReal;
+              FP: var TColStd_Array1OfReal) {.importcpp: "PLib::SetPoles(@)",
     header: "PLib.hxx".}
-proc getPoles*(fp: TColStdArray1OfReal; poles: var TColgpArray1OfPnt2d) {.
+proc GetPoles*(FP: TColStd_Array1OfReal; Poles: var TColgp_Array1OfPnt2d) {.
     importcpp: "PLib::GetPoles(@)", header: "PLib.hxx".}
-proc getPoles*(fp: TColStdArray1OfReal; poles: var TColgpArray1OfPnt2d;
-              weights: var TColStdArray1OfReal) {.importcpp: "PLib::GetPoles(@)",
+proc GetPoles*(FP: TColStd_Array1OfReal; Poles: var TColgp_Array1OfPnt2d;
+              Weights: var TColStd_Array1OfReal) {.importcpp: "PLib::GetPoles(@)",
     header: "PLib.hxx".}
-proc bin*(n: StandardInteger; p: StandardInteger): StandardReal {.
+proc Bin*(N: Standard_Integer; P: Standard_Integer): Standard_Real {.
     importcpp: "PLib::Bin(@)", header: "PLib.hxx".}
-proc rationalDerivative*(degree: StandardInteger; n: StandardInteger;
-                        dimension: StandardInteger; ders: var StandardReal;
-                        rDers: var StandardReal;
-                        all: StandardBoolean = standardTrue) {.
+proc RationalDerivative*(Degree: Standard_Integer; N: Standard_Integer;
+                        Dimension: Standard_Integer; Ders: var Standard_Real;
+                        RDers: var Standard_Real;
+                        All: Standard_Boolean = Standard_True) {.
     importcpp: "PLib::RationalDerivative(@)", header: "PLib.hxx".}
-proc rationalDerivatives*(derivativesRequest: StandardInteger;
-                         dimension: StandardInteger;
-                         polesDerivatives: var StandardReal;
-                         weightsDerivatives: var StandardReal;
-                         rationalDerivates: var StandardReal) {.
+proc RationalDerivatives*(DerivativesRequest: Standard_Integer;
+                         Dimension: Standard_Integer;
+                         PolesDerivatives: var Standard_Real;
+                         WeightsDerivatives: var Standard_Real;
+                         RationalDerivates: var Standard_Real) {.
     importcpp: "PLib::RationalDerivatives(@)", header: "PLib.hxx".}
-proc evalPolynomial*(u: StandardReal; derivativeOrder: StandardInteger;
-                    degree: StandardInteger; dimension: StandardInteger;
-                    polynomialCoeff: var StandardReal; results: var StandardReal) {.
+proc EvalPolynomial*(U: Standard_Real; DerivativeOrder: Standard_Integer;
+                    Degree: Standard_Integer; Dimension: Standard_Integer;
+                    PolynomialCoeff: var Standard_Real; Results: var Standard_Real) {.
     importcpp: "PLib::EvalPolynomial(@)", header: "PLib.hxx".}
-proc noDerivativeEvalPolynomial*(u: StandardReal; degree: StandardInteger;
-                                dimension: StandardInteger;
-                                degreeDimension: StandardInteger;
-                                polynomialCoeff: var StandardReal;
-                                results: var StandardReal) {.
+proc NoDerivativeEvalPolynomial*(U: Standard_Real; Degree: Standard_Integer;
+                                Dimension: Standard_Integer;
+                                DegreeDimension: Standard_Integer;
+                                PolynomialCoeff: var Standard_Real;
+                                Results: var Standard_Real) {.
     importcpp: "PLib::NoDerivativeEvalPolynomial(@)", header: "PLib.hxx".}
-proc evalPoly2Var*(u: StandardReal; v: StandardReal;
-                  uDerivativeOrder: StandardInteger;
-                  vDerivativeOrder: StandardInteger; uDegree: StandardInteger;
-                  vDegree: StandardInteger; dimension: StandardInteger;
-                  polynomialCoeff: var StandardReal; results: var StandardReal) {.
+proc EvalPoly2Var*(U: Standard_Real; V: Standard_Real;
+                  UDerivativeOrder: Standard_Integer;
+                  VDerivativeOrder: Standard_Integer; UDegree: Standard_Integer;
+                  VDegree: Standard_Integer; Dimension: Standard_Integer;
+                  PolynomialCoeff: var Standard_Real; Results: var Standard_Real) {.
     importcpp: "PLib::EvalPoly2Var(@)", header: "PLib.hxx".}
-proc evalLagrange*(u: StandardReal; derivativeOrder: StandardInteger;
-                  degree: StandardInteger; dimension: StandardInteger;
-                  valueArray: var StandardReal; parameterArray: var StandardReal;
-                  results: var StandardReal): StandardInteger {.
+proc EvalLagrange*(U: Standard_Real; DerivativeOrder: Standard_Integer;
+                  Degree: Standard_Integer; Dimension: Standard_Integer;
+                  ValueArray: var Standard_Real; ParameterArray: var Standard_Real;
+                  Results: var Standard_Real): Standard_Integer {.
     importcpp: "PLib::EvalLagrange(@)", header: "PLib.hxx".}
-proc evalCubicHermite*(u: StandardReal; derivativeOrder: StandardInteger;
-                      dimension: StandardInteger; valueArray: var StandardReal;
-                      derivativeArray: var StandardReal;
-                      parameterArray: var StandardReal; results: var StandardReal): StandardInteger {.
+proc EvalCubicHermite*(U: Standard_Real; DerivativeOrder: Standard_Integer;
+                      Dimension: Standard_Integer; ValueArray: var Standard_Real;
+                      DerivativeArray: var Standard_Real;
+                      ParameterArray: var Standard_Real; Results: var Standard_Real): Standard_Integer {.
     importcpp: "PLib::EvalCubicHermite(@)", header: "PLib.hxx".}
-proc hermiteCoefficients*(firstParameter: StandardReal;
-                         lastParameter: StandardReal; firstOrder: StandardInteger;
-                         lastOrder: StandardInteger; matrixCoefs: var MathMatrix): StandardBoolean {.
+proc HermiteCoefficients*(FirstParameter: Standard_Real;
+                         LastParameter: Standard_Real;
+                         FirstOrder: Standard_Integer;
+                         LastOrder: Standard_Integer; MatrixCoefs: var math_Matrix): Standard_Boolean {.
     importcpp: "PLib::HermiteCoefficients(@)", header: "PLib.hxx".}
-proc coefficientsPoles*(coefs: TColgpArray1OfPnt; wCoefs: ptr TColStdArray1OfReal;
-                       poles: var TColgpArray1OfPnt;
-                       wPoles: ptr TColStdArray1OfReal) {.
+proc CoefficientsPoles*(Coefs: TColgp_Array1OfPnt;
+                       WCoefs: ptr TColStd_Array1OfReal;
+                       Poles: var TColgp_Array1OfPnt;
+                       WPoles: ptr TColStd_Array1OfReal) {.
     importcpp: "PLib::CoefficientsPoles(@)", header: "PLib.hxx".}
-proc coefficientsPoles*(coefs: TColgpArray1OfPnt2d;
-                       wCoefs: ptr TColStdArray1OfReal;
-                       poles: var TColgpArray1OfPnt2d;
-                       wPoles: ptr TColStdArray1OfReal) {.
+proc CoefficientsPoles*(Coefs: TColgp_Array1OfPnt2d;
+                       WCoefs: ptr TColStd_Array1OfReal;
+                       Poles: var TColgp_Array1OfPnt2d;
+                       WPoles: ptr TColStd_Array1OfReal) {.
     importcpp: "PLib::CoefficientsPoles(@)", header: "PLib.hxx".}
-proc coefficientsPoles*(coefs: TColStdArray1OfReal;
-                       wCoefs: ptr TColStdArray1OfReal;
-                       poles: var TColStdArray1OfReal;
-                       wPoles: ptr TColStdArray1OfReal) {.
+proc CoefficientsPoles*(Coefs: TColStd_Array1OfReal;
+                       WCoefs: ptr TColStd_Array1OfReal;
+                       Poles: var TColStd_Array1OfReal;
+                       WPoles: ptr TColStd_Array1OfReal) {.
     importcpp: "PLib::CoefficientsPoles(@)", header: "PLib.hxx".}
-proc coefficientsPoles*(dim: StandardInteger; coefs: TColStdArray1OfReal;
-                       wCoefs: ptr TColStdArray1OfReal;
-                       poles: var TColStdArray1OfReal;
-                       wPoles: ptr TColStdArray1OfReal) {.
+proc CoefficientsPoles*(dim: Standard_Integer; Coefs: TColStd_Array1OfReal;
+                       WCoefs: ptr TColStd_Array1OfReal;
+                       Poles: var TColStd_Array1OfReal;
+                       WPoles: ptr TColStd_Array1OfReal) {.
     importcpp: "PLib::CoefficientsPoles(@)", header: "PLib.hxx".}
-proc trimming*(u1: StandardReal; u2: StandardReal; coeffs: var TColgpArray1OfPnt;
-              wCoeffs: ptr TColStdArray1OfReal) {.importcpp: "PLib::Trimming(@)",
+proc Trimming*(U1: Standard_Real; U2: Standard_Real; Coeffs: var TColgp_Array1OfPnt;
+              WCoeffs: ptr TColStd_Array1OfReal) {.importcpp: "PLib::Trimming(@)",
     header: "PLib.hxx".}
-proc trimming*(u1: StandardReal; u2: StandardReal; coeffs: var TColgpArray1OfPnt2d;
-              wCoeffs: ptr TColStdArray1OfReal) {.importcpp: "PLib::Trimming(@)",
-    header: "PLib.hxx".}
-proc trimming*(u1: StandardReal; u2: StandardReal; coeffs: var TColStdArray1OfReal;
-              wCoeffs: ptr TColStdArray1OfReal) {.importcpp: "PLib::Trimming(@)",
-    header: "PLib.hxx".}
-proc trimming*(u1: StandardReal; u2: StandardReal; dim: StandardInteger;
-              coeffs: var TColStdArray1OfReal; wCoeffs: ptr TColStdArray1OfReal) {.
+proc Trimming*(U1: Standard_Real; U2: Standard_Real;
+              Coeffs: var TColgp_Array1OfPnt2d; WCoeffs: ptr TColStd_Array1OfReal) {.
     importcpp: "PLib::Trimming(@)", header: "PLib.hxx".}
-proc coefficientsPoles*(coefs: TColgpArray2OfPnt; wCoefs: ptr TColStdArray2OfReal;
-                       poles: var TColgpArray2OfPnt;
-                       wPoles: ptr TColStdArray2OfReal) {.
+proc Trimming*(U1: Standard_Real; U2: Standard_Real;
+              Coeffs: var TColStd_Array1OfReal; WCoeffs: ptr TColStd_Array1OfReal) {.
+    importcpp: "PLib::Trimming(@)", header: "PLib.hxx".}
+proc Trimming*(U1: Standard_Real; U2: Standard_Real; dim: Standard_Integer;
+              Coeffs: var TColStd_Array1OfReal; WCoeffs: ptr TColStd_Array1OfReal) {.
+    importcpp: "PLib::Trimming(@)", header: "PLib.hxx".}
+proc CoefficientsPoles*(Coefs: TColgp_Array2OfPnt;
+                       WCoefs: ptr TColStd_Array2OfReal;
+                       Poles: var TColgp_Array2OfPnt;
+                       WPoles: ptr TColStd_Array2OfReal) {.
     importcpp: "PLib::CoefficientsPoles(@)", header: "PLib.hxx".}
-proc uTrimming*(u1: StandardReal; u2: StandardReal; coeffs: var TColgpArray2OfPnt;
-               wCoeffs: ptr TColStdArray2OfReal) {.importcpp: "PLib::UTrimming(@)",
-    header: "PLib.hxx".}
-proc vTrimming*(v1: StandardReal; v2: StandardReal; coeffs: var TColgpArray2OfPnt;
-               wCoeffs: ptr TColStdArray2OfReal) {.importcpp: "PLib::VTrimming(@)",
-    header: "PLib.hxx".}
-proc hermiteInterpolate*(dimension: StandardInteger; firstParameter: StandardReal;
-                        lastParameter: StandardReal; firstOrder: StandardInteger;
-                        lastOrder: StandardInteger;
-                        firstConstr: TColStdArray2OfReal;
-                        lastConstr: TColStdArray2OfReal;
-                        coefficients: var TColStdArray1OfReal): StandardBoolean {.
+proc UTrimming*(U1: Standard_Real; U2: Standard_Real; Coeffs: var TColgp_Array2OfPnt;
+               WCoeffs: ptr TColStd_Array2OfReal) {.
+    importcpp: "PLib::UTrimming(@)", header: "PLib.hxx".}
+proc VTrimming*(V1: Standard_Real; V2: Standard_Real; Coeffs: var TColgp_Array2OfPnt;
+               WCoeffs: ptr TColStd_Array2OfReal) {.
+    importcpp: "PLib::VTrimming(@)", header: "PLib.hxx".}
+proc HermiteInterpolate*(Dimension: Standard_Integer;
+                        FirstParameter: Standard_Real;
+                        LastParameter: Standard_Real;
+                        FirstOrder: Standard_Integer; LastOrder: Standard_Integer;
+                        FirstConstr: TColStd_Array2OfReal;
+                        LastConstr: TColStd_Array2OfReal;
+                        Coefficients: var TColStd_Array1OfReal): Standard_Boolean {.
     importcpp: "PLib::HermiteInterpolate(@)", header: "PLib.hxx".}
-proc jacobiParameters*(constraintOrder: GeomAbsShape; maxDegree: StandardInteger;
-                      code: StandardInteger; nbGaussPoints: var StandardInteger;
-                      workDegree: var StandardInteger) {.
+proc JacobiParameters*(ConstraintOrder: GeomAbs_Shape; MaxDegree: Standard_Integer;
+                      Code: Standard_Integer; NbGaussPoints: var Standard_Integer;
+                      WorkDegree: var Standard_Integer) {.
     importcpp: "PLib::JacobiParameters(@)", header: "PLib.hxx".}
-proc nivConstr*(constraintOrder: GeomAbsShape): StandardInteger {.
+proc NivConstr*(ConstraintOrder: GeomAbs_Shape): Standard_Integer {.
     importcpp: "PLib::NivConstr(@)", header: "PLib.hxx".}
-proc constraintOrder*(nivConstr: StandardInteger): GeomAbsShape {.
+proc ConstraintOrder*(NivConstr: Standard_Integer): GeomAbs_Shape {.
     importcpp: "PLib::ConstraintOrder(@)", header: "PLib.hxx".}
-proc evalLength*(degree: StandardInteger; dimension: StandardInteger;
-                polynomialCoeff: var StandardReal; u1: StandardReal;
-                u2: StandardReal; length: var StandardReal) {.
+proc EvalLength*(Degree: Standard_Integer; Dimension: Standard_Integer;
+                PolynomialCoeff: var Standard_Real; U1: Standard_Real;
+                U2: Standard_Real; Length: var Standard_Real) {.
     importcpp: "PLib::EvalLength(@)", header: "PLib.hxx".}
-proc evalLength*(degree: StandardInteger; dimension: StandardInteger;
-                polynomialCoeff: var StandardReal; u1: StandardReal;
-                u2: StandardReal; tol: StandardReal; length: var StandardReal;
-                error: var StandardReal) {.importcpp: "PLib::EvalLength(@)",
-                                        header: "PLib.hxx".}
-
+proc EvalLength*(Degree: Standard_Integer; Dimension: Standard_Integer;
+                PolynomialCoeff: var Standard_Real; U1: Standard_Real;
+                U2: Standard_Real; Tol: Standard_Real; Length: var Standard_Real;
+                Error: var Standard_Real) {.importcpp: "PLib::EvalLength(@)",
+    header: "PLib.hxx".}

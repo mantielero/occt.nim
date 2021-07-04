@@ -14,75 +14,78 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Graphic3d/Graphic3d_SequenceOfStructure, SelectMgr_ViewerSelector,
+  SelectMgr_Selection, ../StdSelect/StdSelect_TypeOfSelectionImage
+
 discard "forward decl of Graphic3d_Structure"
 discard "forward decl of Graphic3d_TransformPers"
 discard "forward decl of V3d_View"
 type
-  SelectMgrViewerSelector3d* {.importcpp: "SelectMgr_ViewerSelector3d",
-                              header: "SelectMgr_ViewerSelector3d.hxx", bycopy.} = object of SelectMgrViewerSelector ##
-                                                                                                              ## !
-                                                                                                              ## Constructs
-                                                                                                              ## an
-                                                                                                              ## empty
-                                                                                                              ## 3D
-                                                                                                              ## selector
-                                                                                                              ## object.
-                                                                                                              ##
-                                                                                                              ## !
-                                                                                                              ## Displays
-                                                                                                              ## sensitives
-                                                                                                              ## in
-                                                                                                              ## view
-                                                                                                              ## <theView>.
-                                                                                                              ##
-                                                                                                              ## !
-                                                                                                              ## Update
-                                                                                                              ## z-layers
-                                                                                                              ## order
-                                                                                                              ## map.
+  SelectMgr_ViewerSelector3d* {.importcpp: "SelectMgr_ViewerSelector3d",
+                               header: "SelectMgr_ViewerSelector3d.hxx", bycopy.} = object of SelectMgr_ViewerSelector ##
+                                                                                                                ## !
+                                                                                                                ## Constructs
+                                                                                                                ## an
+                                                                                                                ## empty
+                                                                                                                ## 3D
+                                                                                                                ## selector
+                                                                                                                ## object.
+                                                                                                                ##
+                                                                                                                ## !
+                                                                                                                ## Displays
+                                                                                                                ## sensitives
+                                                                                                                ## in
+                                                                                                                ## view
+                                                                                                                ## <theView>.
+                                                                                                                ##
+                                                                                                                ## !
+                                                                                                                ## Update
+                                                                                                                ## z-layers
+                                                                                                                ## order
+                                                                                                                ## map.
     ## !< list of debug presentations
 
-  SelectMgrViewerSelector3dbaseType* = SelectMgrViewerSelector
+  SelectMgr_ViewerSelector3dbase_type* = SelectMgr_ViewerSelector
 
-proc getTypeName*(): cstring {.importcpp: "SelectMgr_ViewerSelector3d::get_type_name(@)",
-                            header: "SelectMgr_ViewerSelector3d.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "SelectMgr_ViewerSelector3d::get_type_name(@)",
+                              header: "SelectMgr_ViewerSelector3d.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "SelectMgr_ViewerSelector3d::get_type_descriptor(@)",
     header: "SelectMgr_ViewerSelector3d.hxx".}
-proc dynamicType*(this: SelectMgrViewerSelector3d): Handle[StandardType] {.
+proc DynamicType*(this: SelectMgr_ViewerSelector3d): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType",
     header: "SelectMgr_ViewerSelector3d.hxx".}
-proc constructSelectMgrViewerSelector3d*(): SelectMgrViewerSelector3d {.
+proc constructSelectMgr_ViewerSelector3d*(): SelectMgr_ViewerSelector3d {.
     constructor, importcpp: "SelectMgr_ViewerSelector3d(@)",
     header: "SelectMgr_ViewerSelector3d.hxx".}
-proc pick*(this: var SelectMgrViewerSelector3d; theXPix: StandardInteger;
-          theYPix: StandardInteger; theView: Handle[V3dView]) {.importcpp: "Pick",
+proc Pick*(this: var SelectMgr_ViewerSelector3d; theXPix: Standard_Integer;
+          theYPix: Standard_Integer; theView: handle[V3d_View]) {.importcpp: "Pick",
     header: "SelectMgr_ViewerSelector3d.hxx".}
-proc pick*(this: var SelectMgrViewerSelector3d; theXPMin: StandardInteger;
-          theYPMin: StandardInteger; theXPMax: StandardInteger;
-          theYPMax: StandardInteger; theView: Handle[V3dView]) {.importcpp: "Pick",
-    header: "SelectMgr_ViewerSelector3d.hxx".}
-proc pick*(this: var SelectMgrViewerSelector3d; thePolyline: TColgpArray1OfPnt2d;
-          theView: Handle[V3dView]) {.importcpp: "Pick",
-                                    header: "SelectMgr_ViewerSelector3d.hxx".}
-proc toPixMap*(this: var SelectMgrViewerSelector3d; theImage: var ImagePixMap;
-              theView: Handle[V3dView]; theType: StdSelectTypeOfSelectionImage;
-              thePickedIndex: StandardInteger = 1): StandardBoolean {.
+proc Pick*(this: var SelectMgr_ViewerSelector3d; theXPMin: Standard_Integer;
+          theYPMin: Standard_Integer; theXPMax: Standard_Integer;
+          theYPMax: Standard_Integer; theView: handle[V3d_View]) {.
+    importcpp: "Pick", header: "SelectMgr_ViewerSelector3d.hxx".}
+proc Pick*(this: var SelectMgr_ViewerSelector3d; thePolyline: TColgp_Array1OfPnt2d;
+          theView: handle[V3d_View]) {.importcpp: "Pick",
+                                     header: "SelectMgr_ViewerSelector3d.hxx".}
+proc ToPixMap*(this: var SelectMgr_ViewerSelector3d; theImage: var Image_PixMap;
+              theView: handle[V3d_View]; theType: StdSelect_TypeOfSelectionImage;
+              thePickedIndex: Standard_Integer = 1): Standard_Boolean {.
     importcpp: "ToPixMap", header: "SelectMgr_ViewerSelector3d.hxx".}
-proc displaySensitive*(this: var SelectMgrViewerSelector3d; theView: Handle[V3dView]) {.
-    importcpp: "DisplaySensitive", header: "SelectMgr_ViewerSelector3d.hxx".}
-proc clearSensitive*(this: var SelectMgrViewerSelector3d; theView: Handle[V3dView]) {.
+proc DisplaySensitive*(this: var SelectMgr_ViewerSelector3d;
+                      theView: handle[V3d_View]) {.importcpp: "DisplaySensitive",
+    header: "SelectMgr_ViewerSelector3d.hxx".}
+proc ClearSensitive*(this: var SelectMgr_ViewerSelector3d; theView: handle[V3d_View]) {.
     importcpp: "ClearSensitive", header: "SelectMgr_ViewerSelector3d.hxx".}
-proc displaySensitive*(this: var SelectMgrViewerSelector3d;
-                      theSel: Handle[SelectMgrSelection]; theTrsf: GpTrsf;
-                      theView: Handle[V3dView];
-                      theToClearOthers: StandardBoolean = standardTrue) {.
+proc DisplaySensitive*(this: var SelectMgr_ViewerSelector3d;
+                      theSel: handle[SelectMgr_Selection]; theTrsf: gp_Trsf;
+                      theView: handle[V3d_View];
+                      theToClearOthers: Standard_Boolean = Standard_True) {.
     importcpp: "DisplaySensitive", header: "SelectMgr_ViewerSelector3d.hxx".}
-proc dumpJson*(this: SelectMgrViewerSelector3d; theOStream: var StandardOStream;
-              theDepth: StandardInteger = -1) {.noSideEffect, importcpp: "DumpJson",
+proc DumpJson*(this: SelectMgr_ViewerSelector3d; theOStream: var Standard_OStream;
+              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
     header: "SelectMgr_ViewerSelector3d.hxx".}
 discard "forward decl of SelectMgr_ViewerSelector3d"
 type
-  HandleSelectMgrViewerSelector3d* = Handle[SelectMgrViewerSelector3d]
-
-
+  Handle_SelectMgr_ViewerSelector3d* = handle[SelectMgr_ViewerSelector3d]

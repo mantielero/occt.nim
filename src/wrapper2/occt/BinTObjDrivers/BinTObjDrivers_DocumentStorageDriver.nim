@@ -14,40 +14,43 @@
 ##  commercial license or contractual agreement.
 ##  The original implementation Copyright: (C) RINA S.p.A
 
+import
+  ../TObj/TObj_Common, ../BinLDrivers/BinLDrivers_DocumentStorageDriver,
+  ../BinMDF/BinMDF_ADriverTable
+
 ##   Block of comments describing class BinTObjDrivers_DocumentStorageDriver
 ##
 
 type
-  BinTObjDriversDocumentStorageDriver* {.importcpp: "BinTObjDrivers_DocumentStorageDriver", header: "BinTObjDrivers_DocumentStorageDriver.hxx",
-                                        bycopy.} = object of BinLDriversDocumentStorageDriver ##  ---------- PUBLIC METHODS ----------
-                                                                                         ##  Declaration of CASCADE RTTI
+  BinTObjDrivers_DocumentStorageDriver* {.
+      importcpp: "BinTObjDrivers_DocumentStorageDriver",
+      header: "BinTObjDrivers_DocumentStorageDriver.hxx", bycopy.} = object of BinLDrivers_DocumentStorageDriver ##  ---------- PUBLIC METHODS ----------
+                                                                                                          ##  Declaration of CASCADE RTTI
 
 
-proc constructBinTObjDriversDocumentStorageDriver*(): BinTObjDriversDocumentStorageDriver {.
+proc constructBinTObjDrivers_DocumentStorageDriver*(): BinTObjDrivers_DocumentStorageDriver {.
     constructor, importcpp: "BinTObjDrivers_DocumentStorageDriver(@)",
     header: "BinTObjDrivers_DocumentStorageDriver.hxx".}
-proc attributeDrivers*(this: var BinTObjDriversDocumentStorageDriver;
-                      theMsgDriver: Handle[MessageMessenger]): Handle[
+proc AttributeDrivers*(this: var BinTObjDrivers_DocumentStorageDriver;
+                      theMsgDriver: handle[Message_Messenger]): handle[
     BinMDF_ADriverTable] {.importcpp: "AttributeDrivers",
                           header: "BinTObjDrivers_DocumentStorageDriver.hxx".}
 type
-  BinTObjDriversDocumentStorageDriverbaseType* = BinLDriversDocumentStorageDriver
+  BinTObjDrivers_DocumentStorageDriverbase_type* = BinLDrivers_DocumentStorageDriver
 
-proc getTypeName*(): cstring {.importcpp: "BinTObjDrivers_DocumentStorageDriver::get_type_name(@)",
-                            header: "BinTObjDrivers_DocumentStorageDriver.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "BinTObjDrivers_DocumentStorageDriver::get_type_name(@)", header: "BinTObjDrivers_DocumentStorageDriver.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "BinTObjDrivers_DocumentStorageDriver::get_type_descriptor(@)",
     header: "BinTObjDrivers_DocumentStorageDriver.hxx".}
-proc dynamicType*(this: BinTObjDriversDocumentStorageDriver): Handle[StandardType] {.
+proc DynamicType*(this: BinTObjDrivers_DocumentStorageDriver): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType",
     header: "BinTObjDrivers_DocumentStorageDriver.hxx".}
 ##  Definition of HANDLE object using Standard_DefineHandle.hxx
 
 discard "forward decl of BinTObjDrivers_DocumentStorageDriver"
 type
-  HandleBinTObjDriversDocumentStorageDriver* = Handle[
-      BinTObjDriversDocumentStorageDriver]
+  Handle_BinTObjDrivers_DocumentStorageDriver* = handle[
+      BinTObjDrivers_DocumentStorageDriver]
 
-# when defined(_MSC_VER):
-#   discard
-
+when defined(_MSC_VER):
+  discard

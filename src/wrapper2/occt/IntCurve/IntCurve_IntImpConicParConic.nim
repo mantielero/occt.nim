@@ -14,6 +14,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../IntRes2d/IntRes2d_Intersection,
+  ../Standard/Standard_Real, ../Standard/Standard_Integer,
+  ../TColStd/TColStd_Array1OfReal
+
 discard "forward decl of Standard_ConstructionError"
 discard "forward decl of IntCurve_IConicTool"
 discard "forward decl of IntCurve_PConic"
@@ -23,45 +29,42 @@ discard "forward decl of IntCurve_MyImpParToolOfIntImpConicParConic"
 discard "forward decl of IntRes2d_Domain"
 discard "forward decl of gp_Pnt2d"
 type
-  IntCurveIntImpConicParConic* {.importcpp: "IntCurve_IntImpConicParConic",
-                                header: "IntCurve_IntImpConicParConic.hxx", bycopy.} = object of IntRes2dIntersection ##
-                                                                                                               ## !
-                                                                                                               ## Empty
-                                                                                                               ## constructor.
+  IntCurve_IntImpConicParConic* {.importcpp: "IntCurve_IntImpConicParConic",
+                                 header: "IntCurve_IntImpConicParConic.hxx",
+                                 bycopy.} = object of IntRes2d_Intersection ## ! Empty
+                                                                       ## constructor.
 
 
-proc constructIntCurveIntImpConicParConic*(): IntCurveIntImpConicParConic {.
+proc constructIntCurve_IntImpConicParConic*(): IntCurve_IntImpConicParConic {.
     constructor, importcpp: "IntCurve_IntImpConicParConic(@)",
     header: "IntCurve_IntImpConicParConic.hxx".}
-proc constructIntCurveIntImpConicParConic*(iTool: IntCurveIConicTool;
-    dom1: IntRes2dDomain; pCurve: IntCurvePConic; dom2: IntRes2dDomain;
-    tolConf: StandardReal; tol: StandardReal): IntCurveIntImpConicParConic {.
+proc constructIntCurve_IntImpConicParConic*(ITool: IntCurve_IConicTool;
+    Dom1: IntRes2d_Domain; PCurve: IntCurve_PConic; Dom2: IntRes2d_Domain;
+    TolConf: Standard_Real; Tol: Standard_Real): IntCurve_IntImpConicParConic {.
     constructor, importcpp: "IntCurve_IntImpConicParConic(@)",
     header: "IntCurve_IntImpConicParConic.hxx".}
-proc perform*(this: var IntCurveIntImpConicParConic; iTool: IntCurveIConicTool;
-             dom1: IntRes2dDomain; pCurve: IntCurvePConic; dom2: IntRes2dDomain;
-             tolConf: StandardReal; tol: StandardReal) {.importcpp: "Perform",
+proc Perform*(this: var IntCurve_IntImpConicParConic; ITool: IntCurve_IConicTool;
+             Dom1: IntRes2d_Domain; PCurve: IntCurve_PConic; Dom2: IntRes2d_Domain;
+             TolConf: Standard_Real; Tol: Standard_Real) {.importcpp: "Perform",
     header: "IntCurve_IntImpConicParConic.hxx".}
-proc findU*(this: IntCurveIntImpConicParConic; parameter: StandardReal;
-           point: var GpPnt2d; theParCurev: IntCurvePConic;
-           theImpTool: IntCurveIConicTool): StandardReal {.noSideEffect,
+proc FindU*(this: IntCurve_IntImpConicParConic; parameter: Standard_Real;
+           point: var gp_Pnt2d; TheParCurev: IntCurve_PConic;
+           TheImpTool: IntCurve_IConicTool): Standard_Real {.noSideEffect,
     importcpp: "FindU", header: "IntCurve_IntImpConicParConic.hxx".}
-proc findV*(this: IntCurveIntImpConicParConic; parameter: StandardReal;
-           point: var GpPnt2d; theImpTool: IntCurveIConicTool;
-           parCurve: IntCurvePConic; theParCurveDomain: IntRes2dDomain;
-           v0: StandardReal; v1: StandardReal; tolerance: StandardReal): StandardReal {.
+proc FindV*(this: IntCurve_IntImpConicParConic; parameter: Standard_Real;
+           point: var gp_Pnt2d; TheImpTool: IntCurve_IConicTool;
+           ParCurve: IntCurve_PConic; TheParCurveDomain: IntRes2d_Domain;
+           V0: Standard_Real; V1: Standard_Real; Tolerance: Standard_Real): Standard_Real {.
     noSideEffect, importcpp: "FindV", header: "IntCurve_IntImpConicParConic.hxx".}
-proc andDomaineObjet1Intersections*(this: IntCurveIntImpConicParConic;
-                                   theImpTool: IntCurveIConicTool;
-                                   theParCurve: IntCurvePConic;
-                                   theImpCurveDomain: IntRes2dDomain;
-                                   theParCurveDomain: IntRes2dDomain;
-                                   nbResultats: var StandardInteger;
-                                   inter2AndDomain2: var TColStdArray1OfReal;
-                                   inter1: var TColStdArray1OfReal;
-                                   resultat1: var TColStdArray1OfReal;
-                                   resultat2: var TColStdArray1OfReal;
-                                   epsNul: StandardReal) {.noSideEffect,
+proc And_Domaine_Objet1_Intersections*(this: IntCurve_IntImpConicParConic;
+                                      TheImpTool: IntCurve_IConicTool;
+                                      TheParCurve: IntCurve_PConic;
+                                      TheImpCurveDomain: IntRes2d_Domain;
+                                      TheParCurveDomain: IntRes2d_Domain;
+                                      NbResultats: var Standard_Integer;
+    Inter2_And_Domain2: var TColStd_Array1OfReal; Inter1: var TColStd_Array1OfReal;
+                                      Resultat1: var TColStd_Array1OfReal;
+                                      Resultat2: var TColStd_Array1OfReal;
+                                      EpsNul: Standard_Real) {.noSideEffect,
     importcpp: "And_Domaine_Objet1_Intersections",
     header: "IntCurve_IntImpConicParConic.hxx".}
-

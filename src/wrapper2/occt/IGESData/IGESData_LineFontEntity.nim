@@ -14,25 +14,27 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, IGESData_IGESEntity
+
 discard "forward decl of IGESData_LineFontEntity"
 discard "forward decl of IGESData_LineFontEntity"
 type
-  HandleIGESDataLineFontEntity* = Handle[IGESDataLineFontEntity]
+  Handle_IGESData_LineFontEntity* = handle[IGESData_LineFontEntity]
 
 ## ! defines required type for LineFont in directory part
 ## ! an effective LineFont entity must inherits it
 
 type
-  IGESDataLineFontEntity* {.importcpp: "IGESData_LineFontEntity",
-                           header: "IGESData_LineFontEntity.hxx", bycopy.} = object of IGESDataIGESEntity
+  IGESData_LineFontEntity* {.importcpp: "IGESData_LineFontEntity",
+                            header: "IGESData_LineFontEntity.hxx", bycopy.} = object of IGESData_IGESEntity
 
-  IGESDataLineFontEntitybaseType* = IGESDataIGESEntity
+  IGESData_LineFontEntitybase_type* = IGESData_IGESEntity
 
-proc getTypeName*(): cstring {.importcpp: "IGESData_LineFontEntity::get_type_name(@)",
-                            header: "IGESData_LineFontEntity.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "IGESData_LineFontEntity::get_type_name(@)",
+                              header: "IGESData_LineFontEntity.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "IGESData_LineFontEntity::get_type_descriptor(@)",
     header: "IGESData_LineFontEntity.hxx".}
-proc dynamicType*(this: IGESDataLineFontEntity): Handle[StandardType] {.
+proc DynamicType*(this: IGESData_LineFontEntity): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType", header: "IGESData_LineFontEntity.hxx".}
-

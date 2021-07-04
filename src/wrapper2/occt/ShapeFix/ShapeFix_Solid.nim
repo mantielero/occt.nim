@@ -14,70 +14,74 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../TopoDS/TopoDS_Shape,
+  ../Standard/Standard_Integer, ../Standard/Standard_Boolean, ShapeFix_Root,
+  ../ShapeExtend/ShapeExtend_Status, ../Standard/Standard_Real
+
 discard "forward decl of ShapeFix_Shell"
 discard "forward decl of TopoDS_Solid"
 discard "forward decl of Message_ProgressScope"
 discard "forward decl of TopoDS_Shell"
 discard "forward decl of ShapeExtend_BasicMsgRegistrator"
-# when defined(Status):
-#   discard
+when defined(Status):
+  discard
 discard "forward decl of ShapeFix_Solid"
 discard "forward decl of ShapeFix_Solid"
 type
-  HandleShapeFixSolid* = Handle[ShapeFixSolid]
+  Handle_ShapeFix_Solid* = handle[ShapeFix_Solid]
 
 ## ! Provides method to build a solid from a shells and
 ## ! orients them in order to have a valid solid with finite volume
 
 type
-  ShapeFixSolid* {.importcpp: "ShapeFix_Solid", header: "ShapeFix_Solid.hxx", bycopy.} = object of ShapeFixRoot ##
-                                                                                                      ## !
-                                                                                                      ## Empty
-                                                                                                      ## constructor;
+  ShapeFix_Solid* {.importcpp: "ShapeFix_Solid", header: "ShapeFix_Solid.hxx", bycopy.} = object of ShapeFix_Root ##
+                                                                                                        ## !
+                                                                                                        ## Empty
+                                                                                                        ## constructor;
 
 
-proc constructShapeFixSolid*(): ShapeFixSolid {.constructor,
+proc constructShapeFix_Solid*(): ShapeFix_Solid {.constructor,
     importcpp: "ShapeFix_Solid(@)", header: "ShapeFix_Solid.hxx".}
-proc constructShapeFixSolid*(solid: TopoDS_Solid): ShapeFixSolid {.constructor,
+proc constructShapeFix_Solid*(solid: TopoDS_Solid): ShapeFix_Solid {.constructor,
     importcpp: "ShapeFix_Solid(@)", header: "ShapeFix_Solid.hxx".}
-proc init*(this: var ShapeFixSolid; solid: TopoDS_Solid) {.importcpp: "Init",
+proc Init*(this: var ShapeFix_Solid; solid: TopoDS_Solid) {.importcpp: "Init",
     header: "ShapeFix_Solid.hxx".}
-proc perform*(this: var ShapeFixSolid;
-             theProgress: MessageProgressRange = messageProgressRange()): StandardBoolean {.
+proc Perform*(this: var ShapeFix_Solid;
+             theProgress: Message_ProgressRange = Message_ProgressRange()): Standard_Boolean {.
     importcpp: "Perform", header: "ShapeFix_Solid.hxx".}
-proc solidFromShell*(this: var ShapeFixSolid; shell: TopoDS_Shell): TopoDS_Solid {.
+proc SolidFromShell*(this: var ShapeFix_Solid; shell: TopoDS_Shell): TopoDS_Solid {.
     importcpp: "SolidFromShell", header: "ShapeFix_Solid.hxx".}
-proc status*(this: ShapeFixSolid; status: ShapeExtendStatus): StandardBoolean {.
+proc Status*(this: ShapeFix_Solid; status: ShapeExtend_Status): Standard_Boolean {.
     noSideEffect, importcpp: "Status", header: "ShapeFix_Solid.hxx".}
-proc solid*(this: ShapeFixSolid): TopoDS_Shape {.noSideEffect, importcpp: "Solid",
+proc Solid*(this: ShapeFix_Solid): TopoDS_Shape {.noSideEffect, importcpp: "Solid",
     header: "ShapeFix_Solid.hxx".}
-proc fixShellTool*(this: ShapeFixSolid): Handle[ShapeFixShell] {.noSideEffect,
+proc FixShellTool*(this: ShapeFix_Solid): handle[ShapeFix_Shell] {.noSideEffect,
     importcpp: "FixShellTool", header: "ShapeFix_Solid.hxx".}
-proc setMsgRegistrator*(this: var ShapeFixSolid;
-                       msgreg: Handle[ShapeExtendBasicMsgRegistrator]) {.
+proc SetMsgRegistrator*(this: var ShapeFix_Solid;
+                       msgreg: handle[ShapeExtend_BasicMsgRegistrator]) {.
     importcpp: "SetMsgRegistrator", header: "ShapeFix_Solid.hxx".}
-proc setPrecision*(this: var ShapeFixSolid; preci: StandardReal) {.
+proc SetPrecision*(this: var ShapeFix_Solid; preci: Standard_Real) {.
     importcpp: "SetPrecision", header: "ShapeFix_Solid.hxx".}
-proc setMinTolerance*(this: var ShapeFixSolid; mintol: StandardReal) {.
+proc SetMinTolerance*(this: var ShapeFix_Solid; mintol: Standard_Real) {.
     importcpp: "SetMinTolerance", header: "ShapeFix_Solid.hxx".}
-proc setMaxTolerance*(this: var ShapeFixSolid; maxtol: StandardReal) {.
+proc SetMaxTolerance*(this: var ShapeFix_Solid; maxtol: Standard_Real) {.
     importcpp: "SetMaxTolerance", header: "ShapeFix_Solid.hxx".}
-proc fixShellMode*(this: var ShapeFixSolid): var StandardInteger {.
+proc FixShellMode*(this: var ShapeFix_Solid): var Standard_Integer {.
     importcpp: "FixShellMode", header: "ShapeFix_Solid.hxx".}
-proc fixShellOrientationMode*(this: var ShapeFixSolid): var StandardInteger {.
+proc FixShellOrientationMode*(this: var ShapeFix_Solid): var Standard_Integer {.
     importcpp: "FixShellOrientationMode", header: "ShapeFix_Solid.hxx".}
-proc createOpenSolidMode*(this: var ShapeFixSolid): var StandardBoolean {.
+proc CreateOpenSolidMode*(this: var ShapeFix_Solid): var Standard_Boolean {.
     importcpp: "CreateOpenSolidMode", header: "ShapeFix_Solid.hxx".}
-proc shape*(this: var ShapeFixSolid): TopoDS_Shape {.importcpp: "Shape",
+proc Shape*(this: var ShapeFix_Solid): TopoDS_Shape {.importcpp: "Shape",
     header: "ShapeFix_Solid.hxx".}
 type
-  ShapeFixSolidbaseType* = ShapeFixRoot
+  ShapeFix_Solidbase_type* = ShapeFix_Root
 
-proc getTypeName*(): cstring {.importcpp: "ShapeFix_Solid::get_type_name(@)",
-                            header: "ShapeFix_Solid.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "ShapeFix_Solid::get_type_name(@)",
+                              header: "ShapeFix_Solid.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "ShapeFix_Solid::get_type_descriptor(@)",
     header: "ShapeFix_Solid.hxx".}
-proc dynamicType*(this: ShapeFixSolid): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: ShapeFix_Solid): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "ShapeFix_Solid.hxx".}
-

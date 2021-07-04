@@ -14,70 +14,76 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../TColStd/TColStd_HSequenceOfTransient,
+  ../Standard/Standard_Type, ../Standard/Standard_Boolean,
+  ../Standard/Standard_Integer
+
 discard "forward decl of Interface_IntVal"
 discard "forward decl of Standard_NoMoreObject"
 discard "forward decl of Standard_NoSuchObject"
 discard "forward decl of Standard_Transient"
 type
-  InterfaceEntityIterator* {.importcpp: "Interface_EntityIterator",
-                            header: "Interface_EntityIterator.hxx", bycopy.} = object ##
-                                                                                 ## !
-                                                                                 ## Defines
-                                                                                 ## an
-                                                                                 ## empty
-                                                                                 ## iterator
-                                                                                 ## (see
-                                                                                 ## AddList
-                                                                                 ## &
-                                                                                 ## AddItem)
-                                                                                 ##
-                                                                                 ## !
-                                                                                 ## Allows
-                                                                                 ## subclasses
-                                                                                 ## of
-                                                                                 ## EntityIterator
-                                                                                 ## to
-                                                                                 ## reevaluate
-                                                                                 ## an
-                                                                                 ## iteration
+  Interface_EntityIterator* {.importcpp: "Interface_EntityIterator",
+                             header: "Interface_EntityIterator.hxx", bycopy.} = object ##
+                                                                                  ## !
+                                                                                  ## Defines
+                                                                                  ## an
+                                                                                  ## empty
+                                                                                  ## iterator
+                                                                                  ## (see
+                                                                                  ## AddList
+                                                                                  ## &
+                                                                                  ## AddItem)
+                                                                                  ##
+                                                                                  ## !
+                                                                                  ## Allows
+                                                                                  ## subclasses
+                                                                                  ## of
+                                                                                  ## EntityIterator
+                                                                                  ## to
+                                                                                  ## reevaluate
+                                                                                  ## an
+                                                                                  ## iteration
 
 
-proc constructInterfaceEntityIterator*(): InterfaceEntityIterator {.constructor,
+proc constructInterface_EntityIterator*(): Interface_EntityIterator {.constructor,
     importcpp: "Interface_EntityIterator(@)",
     header: "Interface_EntityIterator.hxx".}
-proc constructInterfaceEntityIterator*(list: Handle[TColStdHSequenceOfTransient]): InterfaceEntityIterator {.
+proc constructInterface_EntityIterator*(list: handle[TColStd_HSequenceOfTransient]): Interface_EntityIterator {.
     constructor, importcpp: "Interface_EntityIterator(@)",
     header: "Interface_EntityIterator.hxx".}
-proc addList*(this: var InterfaceEntityIterator;
-             list: Handle[TColStdHSequenceOfTransient]) {.importcpp: "AddList",
+proc AddList*(this: var Interface_EntityIterator;
+             list: handle[TColStd_HSequenceOfTransient]) {.importcpp: "AddList",
     header: "Interface_EntityIterator.hxx".}
-proc addItem*(this: var InterfaceEntityIterator; anentity: Handle[StandardTransient]) {.
-    importcpp: "AddItem", header: "Interface_EntityIterator.hxx".}
-proc getOneItem*(this: var InterfaceEntityIterator;
-                anentity: Handle[StandardTransient]) {.importcpp: "GetOneItem",
+proc AddItem*(this: var Interface_EntityIterator;
+             anentity: handle[Standard_Transient]) {.importcpp: "AddItem",
     header: "Interface_EntityIterator.hxx".}
-proc selectType*(this: var InterfaceEntityIterator; atype: Handle[StandardType];
-                keep: StandardBoolean) {.importcpp: "SelectType",
-                                       header: "Interface_EntityIterator.hxx".}
-proc nbEntities*(this: InterfaceEntityIterator): StandardInteger {.noSideEffect,
+proc GetOneItem*(this: var Interface_EntityIterator;
+                anentity: handle[Standard_Transient]) {.importcpp: "GetOneItem",
+    header: "Interface_EntityIterator.hxx".}
+proc SelectType*(this: var Interface_EntityIterator; atype: handle[Standard_Type];
+                keep: Standard_Boolean) {.importcpp: "SelectType",
+                                        header: "Interface_EntityIterator.hxx".}
+proc NbEntities*(this: Interface_EntityIterator): Standard_Integer {.noSideEffect,
     importcpp: "NbEntities", header: "Interface_EntityIterator.hxx".}
-proc nbTyped*(this: InterfaceEntityIterator; `type`: Handle[StandardType]): StandardInteger {.
+proc NbTyped*(this: Interface_EntityIterator; `type`: handle[Standard_Type]): Standard_Integer {.
     noSideEffect, importcpp: "NbTyped", header: "Interface_EntityIterator.hxx".}
-proc typed*(this: InterfaceEntityIterator; `type`: Handle[StandardType]): InterfaceEntityIterator {.
+proc Typed*(this: Interface_EntityIterator; `type`: handle[Standard_Type]): Interface_EntityIterator {.
     noSideEffect, importcpp: "Typed", header: "Interface_EntityIterator.hxx".}
-proc start*(this: InterfaceEntityIterator) {.noSideEffect, importcpp: "Start",
+proc Start*(this: Interface_EntityIterator) {.noSideEffect, importcpp: "Start",
     header: "Interface_EntityIterator.hxx".}
-proc more*(this: InterfaceEntityIterator): StandardBoolean {.noSideEffect,
+proc More*(this: Interface_EntityIterator): Standard_Boolean {.noSideEffect,
     importcpp: "More", header: "Interface_EntityIterator.hxx".}
-proc next*(this: InterfaceEntityIterator) {.noSideEffect, importcpp: "Next",
+proc Next*(this: Interface_EntityIterator) {.noSideEffect, importcpp: "Next",
     header: "Interface_EntityIterator.hxx".}
-proc value*(this: InterfaceEntityIterator): Handle[StandardTransient] {.
+proc Value*(this: Interface_EntityIterator): handle[Standard_Transient] {.
     noSideEffect, importcpp: "Value", header: "Interface_EntityIterator.hxx".}
-proc content*(this: InterfaceEntityIterator): Handle[TColStdHSequenceOfTransient] {.
+proc Content*(this: Interface_EntityIterator): handle[TColStd_HSequenceOfTransient] {.
     noSideEffect, importcpp: "Content", header: "Interface_EntityIterator.hxx".}
-proc destroy*(this: var InterfaceEntityIterator) {.importcpp: "Destroy",
+proc Destroy*(this: var Interface_EntityIterator) {.importcpp: "Destroy",
     header: "Interface_EntityIterator.hxx".}
-proc destroyInterfaceEntityIterator*(this: var InterfaceEntityIterator) {.
+proc destroyInterface_EntityIterator*(this: var Interface_EntityIterator) {.
     importcpp: "#.~Interface_EntityIterator()",
     header: "Interface_EntityIterator.hxx".}
-

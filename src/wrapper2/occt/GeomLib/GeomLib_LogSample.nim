@@ -14,14 +14,19 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Real,
+  ../math/math_FunctionSample, ../Standard/Standard_Integer
+
 discard "forward decl of Standard_OutOfRange"
 type
-  GeomLibLogSample* {.importcpp: "GeomLib_LogSample",
-                     header: "GeomLib_LogSample.hxx", bycopy.} = object of MathFunctionSample
+  GeomLib_LogSample* {.importcpp: "GeomLib_LogSample",
+                      header: "GeomLib_LogSample.hxx", bycopy.} = object of math_FunctionSample
 
 
-proc constructGeomLibLogSample*(a: StandardReal; b: StandardReal; n: StandardInteger): GeomLibLogSample {.
+proc constructGeomLib_LogSample*(A: Standard_Real; B: Standard_Real;
+                                N: Standard_Integer): GeomLib_LogSample {.
     constructor, importcpp: "GeomLib_LogSample(@)", header: "GeomLib_LogSample.hxx".}
-proc getParameter*(this: GeomLibLogSample; index: StandardInteger): StandardReal {.
+proc GetParameter*(this: GeomLib_LogSample; Index: Standard_Integer): Standard_Real {.
     noSideEffect, importcpp: "GetParameter", header: "GeomLib_LogSample.hxx".}
-

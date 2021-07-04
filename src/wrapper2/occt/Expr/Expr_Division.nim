@@ -14,6 +14,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, Expr_BinaryExpression,
+  ../Standard/Standard_Boolean, ../Standard/Standard_Real,
+  Expr_Array1OfNamedUnknown, ../TColStd/TColStd_Array1OfReal
+
 discard "forward decl of Standard_NumericError"
 discard "forward decl of Expr_NotEvaluable"
 discard "forward decl of Expr_GeneralExpression"
@@ -22,42 +27,41 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of Expr_Division"
 discard "forward decl of Expr_Division"
 type
-  HandleExprDivision* = Handle[ExprDivision]
-  ExprDivision* {.importcpp: "Expr_Division", header: "Expr_Division.hxx", bycopy.} = object of ExprBinaryExpression ##
-                                                                                                           ## !
-                                                                                                           ## Creates
-                                                                                                           ## the
-                                                                                                           ## division
-                                                                                                           ## <exp1>/<exp2>
+  Handle_Expr_Division* = handle[Expr_Division]
+  Expr_Division* {.importcpp: "Expr_Division", header: "Expr_Division.hxx", bycopy.} = object of Expr_BinaryExpression ##
+                                                                                                             ## !
+                                                                                                             ## Creates
+                                                                                                             ## the
+                                                                                                             ## division
+                                                                                                             ## <exp1>/<exp2>
 
 
-proc constructExprDivision*(exp1: Handle[ExprGeneralExpression];
-                           exp2: Handle[ExprGeneralExpression]): ExprDivision {.
+proc constructExpr_Division*(exp1: handle[Expr_GeneralExpression];
+                            exp2: handle[Expr_GeneralExpression]): Expr_Division {.
     constructor, importcpp: "Expr_Division(@)", header: "Expr_Division.hxx".}
-proc shallowSimplified*(this: ExprDivision): Handle[ExprGeneralExpression] {.
+proc ShallowSimplified*(this: Expr_Division): handle[Expr_GeneralExpression] {.
     noSideEffect, importcpp: "ShallowSimplified", header: "Expr_Division.hxx".}
-proc copy*(this: ExprDivision): Handle[ExprGeneralExpression] {.noSideEffect,
+proc Copy*(this: Expr_Division): handle[Expr_GeneralExpression] {.noSideEffect,
     importcpp: "Copy", header: "Expr_Division.hxx".}
-proc isIdentical*(this: ExprDivision; other: Handle[ExprGeneralExpression]): StandardBoolean {.
+proc IsIdentical*(this: Expr_Division; Other: handle[Expr_GeneralExpression]): Standard_Boolean {.
     noSideEffect, importcpp: "IsIdentical", header: "Expr_Division.hxx".}
-proc isLinear*(this: ExprDivision): StandardBoolean {.noSideEffect,
+proc IsLinear*(this: Expr_Division): Standard_Boolean {.noSideEffect,
     importcpp: "IsLinear", header: "Expr_Division.hxx".}
-proc derivative*(this: ExprDivision; x: Handle[ExprNamedUnknown]): Handle[
-    ExprGeneralExpression] {.noSideEffect, importcpp: "Derivative",
-                            header: "Expr_Division.hxx".}
-proc evaluate*(this: ExprDivision; vars: ExprArray1OfNamedUnknown;
-              vals: TColStdArray1OfReal): StandardReal {.noSideEffect,
+proc Derivative*(this: Expr_Division; X: handle[Expr_NamedUnknown]): handle[
+    Expr_GeneralExpression] {.noSideEffect, importcpp: "Derivative",
+                             header: "Expr_Division.hxx".}
+proc Evaluate*(this: Expr_Division; vars: Expr_Array1OfNamedUnknown;
+              vals: TColStd_Array1OfReal): Standard_Real {.noSideEffect,
     importcpp: "Evaluate", header: "Expr_Division.hxx".}
-proc string*(this: ExprDivision): TCollectionAsciiString {.noSideEffect,
+proc String*(this: Expr_Division): TCollection_AsciiString {.noSideEffect,
     importcpp: "String", header: "Expr_Division.hxx".}
 type
-  ExprDivisionbaseType* = ExprBinaryExpression
+  Expr_Divisionbase_type* = Expr_BinaryExpression
 
-proc getTypeName*(): cstring {.importcpp: "Expr_Division::get_type_name(@)",
-                            header: "Expr_Division.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "Expr_Division::get_type_name(@)",
+                              header: "Expr_Division.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "Expr_Division::get_type_descriptor(@)",
     header: "Expr_Division.hxx".}
-proc dynamicType*(this: ExprDivision): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: Expr_Division): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "Expr_Division.hxx".}
-

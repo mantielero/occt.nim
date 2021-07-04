@@ -14,27 +14,31 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../AppParCurves/AppParCurves_MultiBSpCurve,
+  ../Standard/Standard_Boolean, ../AppParCurves/AppParCurves_SequenceOfMultiCurve
+
 discard "forward decl of AppParCurves_MultiCurve"
 discard "forward decl of AppParCurves_MultiBSpCurve"
 type
-  ApproxMCurvesToBSpCurve* {.importcpp: "Approx_MCurvesToBSpCurve",
-                            header: "Approx_MCurvesToBSpCurve.hxx", bycopy.} = object
+  Approx_MCurvesToBSpCurve* {.importcpp: "Approx_MCurvesToBSpCurve",
+                             header: "Approx_MCurvesToBSpCurve.hxx", bycopy.} = object
 
 
-proc constructApproxMCurvesToBSpCurve*(): ApproxMCurvesToBSpCurve {.constructor,
+proc constructApprox_MCurvesToBSpCurve*(): Approx_MCurvesToBSpCurve {.constructor,
     importcpp: "Approx_MCurvesToBSpCurve(@)",
     header: "Approx_MCurvesToBSpCurve.hxx".}
-proc reset*(this: var ApproxMCurvesToBSpCurve) {.importcpp: "Reset",
+proc Reset*(this: var Approx_MCurvesToBSpCurve) {.importcpp: "Reset",
     header: "Approx_MCurvesToBSpCurve.hxx".}
-proc append*(this: var ApproxMCurvesToBSpCurve; mc: AppParCurvesMultiCurve) {.
+proc Append*(this: var Approx_MCurvesToBSpCurve; MC: AppParCurves_MultiCurve) {.
     importcpp: "Append", header: "Approx_MCurvesToBSpCurve.hxx".}
-proc perform*(this: var ApproxMCurvesToBSpCurve) {.importcpp: "Perform",
+proc Perform*(this: var Approx_MCurvesToBSpCurve) {.importcpp: "Perform",
     header: "Approx_MCurvesToBSpCurve.hxx".}
-proc perform*(this: var ApproxMCurvesToBSpCurve;
-             theSeq: AppParCurvesSequenceOfMultiCurve) {.importcpp: "Perform",
+proc Perform*(this: var Approx_MCurvesToBSpCurve;
+             TheSeq: AppParCurves_SequenceOfMultiCurve) {.importcpp: "Perform",
     header: "Approx_MCurvesToBSpCurve.hxx".}
-proc value*(this: ApproxMCurvesToBSpCurve): AppParCurvesMultiBSpCurve {.
+proc Value*(this: Approx_MCurvesToBSpCurve): AppParCurves_MultiBSpCurve {.
     noSideEffect, importcpp: "Value", header: "Approx_MCurvesToBSpCurve.hxx".}
-proc changeValue*(this: var ApproxMCurvesToBSpCurve): AppParCurvesMultiBSpCurve {.
+proc ChangeValue*(this: var Approx_MCurvesToBSpCurve): AppParCurves_MultiBSpCurve {.
     importcpp: "ChangeValue", header: "Approx_MCurvesToBSpCurve.hxx".}
-

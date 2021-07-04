@@ -13,38 +13,42 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../BinMDF/BinMDF_ADriver,
+  ../Standard/Standard_Boolean, ../BinObjMgt/BinObjMgt_RRelocationTable,
+  ../BinObjMgt/BinObjMgt_SRelocationTable
+
 discard "forward decl of Message_Messenger"
 discard "forward decl of TDF_Attribute"
 discard "forward decl of BinObjMgt_Persistent"
 discard "forward decl of BinMXCAFDoc_DimTolDriver"
 discard "forward decl of BinMXCAFDoc_DimTolDriver"
 type
-  HandleBinMXCAFDocDimTolDriver* = Handle[BinMXCAFDocDimTolDriver]
-  BinMXCAFDocDimTolDriver* {.importcpp: "BinMXCAFDoc_DimTolDriver",
-                            header: "BinMXCAFDoc_DimTolDriver.hxx", bycopy.} = object of BinMDF_ADriver
+  Handle_BinMXCAFDoc_DimTolDriver* = handle[BinMXCAFDoc_DimTolDriver]
+  BinMXCAFDoc_DimTolDriver* {.importcpp: "BinMXCAFDoc_DimTolDriver",
+                             header: "BinMXCAFDoc_DimTolDriver.hxx", bycopy.} = object of BinMDF_ADriver
 
 
-proc constructBinMXCAFDocDimTolDriver*(theMsgDriver: Handle[MessageMessenger]): BinMXCAFDocDimTolDriver {.
+proc constructBinMXCAFDoc_DimTolDriver*(theMsgDriver: handle[Message_Messenger]): BinMXCAFDoc_DimTolDriver {.
     constructor, importcpp: "BinMXCAFDoc_DimTolDriver(@)",
     header: "BinMXCAFDoc_DimTolDriver.hxx".}
-proc newEmpty*(this: BinMXCAFDocDimTolDriver): Handle[TDF_Attribute] {.noSideEffect,
-    importcpp: "NewEmpty", header: "BinMXCAFDoc_DimTolDriver.hxx".}
-proc paste*(this: BinMXCAFDocDimTolDriver; theSource: BinObjMgtPersistent;
-           theTarget: Handle[TDF_Attribute];
-           theRelocTable: var BinObjMgtRRelocationTable): StandardBoolean {.
+proc NewEmpty*(this: BinMXCAFDoc_DimTolDriver): handle[TDF_Attribute] {.
+    noSideEffect, importcpp: "NewEmpty", header: "BinMXCAFDoc_DimTolDriver.hxx".}
+proc Paste*(this: BinMXCAFDoc_DimTolDriver; theSource: BinObjMgt_Persistent;
+           theTarget: handle[TDF_Attribute];
+           theRelocTable: var BinObjMgt_RRelocationTable): Standard_Boolean {.
     noSideEffect, importcpp: "Paste", header: "BinMXCAFDoc_DimTolDriver.hxx".}
-proc paste*(this: BinMXCAFDocDimTolDriver; theSource: Handle[TDF_Attribute];
-           theTarget: var BinObjMgtPersistent;
-           theRelocTable: var BinObjMgtSRelocationTable) {.noSideEffect,
+proc Paste*(this: BinMXCAFDoc_DimTolDriver; theSource: handle[TDF_Attribute];
+           theTarget: var BinObjMgt_Persistent;
+           theRelocTable: var BinObjMgt_SRelocationTable) {.noSideEffect,
     importcpp: "Paste", header: "BinMXCAFDoc_DimTolDriver.hxx".}
 type
-  BinMXCAFDocDimTolDriverbaseType* = BinMDF_ADriver
+  BinMXCAFDoc_DimTolDriverbase_type* = BinMDF_ADriver
 
-proc getTypeName*(): cstring {.importcpp: "BinMXCAFDoc_DimTolDriver::get_type_name(@)",
-                            header: "BinMXCAFDoc_DimTolDriver.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "BinMXCAFDoc_DimTolDriver::get_type_name(@)",
+                              header: "BinMXCAFDoc_DimTolDriver.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "BinMXCAFDoc_DimTolDriver::get_type_descriptor(@)",
     header: "BinMXCAFDoc_DimTolDriver.hxx".}
-proc dynamicType*(this: BinMXCAFDocDimTolDriver): Handle[StandardType] {.
+proc DynamicType*(this: BinMXCAFDoc_DimTolDriver): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType", header: "BinMXCAFDoc_DimTolDriver.hxx".}
-

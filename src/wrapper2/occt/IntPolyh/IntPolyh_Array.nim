@@ -13,6 +13,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../NCollection/NCollection_Vector
+
 ## *
 ##  Class IntPolyh_Array (dynamic array of objects)
 ##
@@ -50,38 +53,37 @@
 ## =======================================================================
 
 type
-  IntPolyhArray*[Type] {.importcpp: "IntPolyh_Array<\'0>",
-                        header: "IntPolyh_Array.hxx", bycopy.} = object
+  IntPolyh_Array*[Type] {.importcpp: "IntPolyh_Array<\'0>",
+                         header: "IntPolyh_Array.hxx", bycopy.} = object
 
-  IntPolyhArrayIntPolyhVectorOfType* = NCollectionVector[Type]
+  IntPolyh_ArrayIntPolyh_VectorOfType* = NCollection_Vector[Type]
 
-proc constructIntPolyhArray*[Type](aIncrement: StandardInteger = 256): IntPolyhArray[
+proc constructIntPolyh_Array*[Type](aIncrement: Standard_Integer = 256): IntPolyh_Array[
     Type] {.constructor, importcpp: "IntPolyh_Array<\'*0>(@)",
            header: "IntPolyh_Array.hxx".}
-proc constructIntPolyhArray*[Type](aN: StandardInteger;
-                                  aIncrement: StandardInteger = 256): IntPolyhArray[
+proc constructIntPolyh_Array*[Type](aN: Standard_Integer;
+                                   aIncrement: Standard_Integer = 256): IntPolyh_Array[
     Type] {.constructor, importcpp: "IntPolyh_Array<\'*0>(@)",
            header: "IntPolyh_Array.hxx".}
-proc copy*[Type](this: var IntPolyhArray[Type]; aOther: IntPolyhArray): var IntPolyhArray {.
+proc Copy*[Type](this: var IntPolyh_Array[Type]; aOther: IntPolyh_Array): var IntPolyh_Array {.
     importcpp: "Copy", header: "IntPolyh_Array.hxx".}
-proc init*[Type](this: var IntPolyhArray[Type]; aN: StandardInteger) {.
+proc Init*[Type](this: var IntPolyh_Array[Type]; aN: Standard_Integer) {.
     importcpp: "Init", header: "IntPolyh_Array.hxx".}
-proc incrementNbItems*[Type](this: var IntPolyhArray[Type]) {.
+proc IncrementNbItems*[Type](this: var IntPolyh_Array[Type]) {.
     importcpp: "IncrementNbItems", header: "IntPolyh_Array.hxx".}
-proc getN*[Type](this: IntPolyhArray[Type]): StandardInteger {.noSideEffect,
+proc GetN*[Type](this: IntPolyh_Array[Type]): Standard_Integer {.noSideEffect,
     importcpp: "GetN", header: "IntPolyh_Array.hxx".}
-proc nbItems*[Type](this: IntPolyhArray[Type]): StandardInteger {.noSideEffect,
+proc NbItems*[Type](this: IntPolyh_Array[Type]): Standard_Integer {.noSideEffect,
     importcpp: "NbItems", header: "IntPolyh_Array.hxx".}
-proc setNbItems*[Type](this: var IntPolyhArray[Type]; aNb: StandardInteger) {.
+proc SetNbItems*[Type](this: var IntPolyh_Array[Type]; aNb: Standard_Integer) {.
     importcpp: "SetNbItems", header: "IntPolyh_Array.hxx".}
-proc value*[Type](this: IntPolyhArray[Type]; aIndex: StandardInteger): Type {.
+proc Value*[Type](this: IntPolyh_Array[Type]; aIndex: Standard_Integer): Type {.
     noSideEffect, importcpp: "Value", header: "IntPolyh_Array.hxx".}
-proc `[]`*[Type](this: IntPolyhArray[Type]; aIndex: StandardInteger): Type {.
+proc `[]`*[Type](this: IntPolyh_Array[Type]; aIndex: Standard_Integer): Type {.
     noSideEffect, importcpp: "#[@]", header: "IntPolyh_Array.hxx".}
-proc changeValue*[Type](this: var IntPolyhArray[Type]; aIndex: StandardInteger): var Type {.
+proc ChangeValue*[Type](this: var IntPolyh_Array[Type]; aIndex: Standard_Integer): var Type {.
     importcpp: "ChangeValue", header: "IntPolyh_Array.hxx".}
-proc `[]`*[Type](this: var IntPolyhArray[Type]; aIndex: StandardInteger): var Type {.
+proc `[]`*[Type](this: var IntPolyh_Array[Type]; aIndex: Standard_Integer): var Type {.
     importcpp: "#[@]", header: "IntPolyh_Array.hxx".}
-proc dump*[Type](this: IntPolyhArray[Type]) {.noSideEffect, importcpp: "Dump",
+proc Dump*[Type](this: IntPolyh_Array[Type]) {.noSideEffect, importcpp: "Dump",
     header: "IntPolyh_Array.hxx".}
-

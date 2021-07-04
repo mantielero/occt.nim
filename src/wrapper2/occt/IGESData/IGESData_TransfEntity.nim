@@ -14,87 +14,89 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, IGESData_IGESEntity
+
 discard "forward decl of gp_GTrsf"
 discard "forward decl of IGESData_TransfEntity"
 discard "forward decl of IGESData_TransfEntity"
 type
-  HandleIGESDataTransfEntity* = Handle[IGESDataTransfEntity]
+  Handle_IGESData_TransfEntity* = handle[IGESData_TransfEntity]
 
 ## ! defines required type for Transf in directory part
 ## ! an effective Transf entity must inherits it
 
 type
-  IGESDataTransfEntity* {.importcpp: "IGESData_TransfEntity",
-                         header: "IGESData_TransfEntity.hxx", bycopy.} = object of IGESDataIGESEntity ##
-                                                                                               ## !
-                                                                                               ## gives
-                                                                                               ## value
-                                                                                               ## of
-                                                                                               ## the
-                                                                                               ## transformation,
-                                                                                               ## as
-                                                                                               ## a
-                                                                                               ## GTrsf
-                                                                                               ##
-                                                                                               ## !
-                                                                                               ## To
-                                                                                               ## be
-                                                                                               ## defined
-                                                                                               ## by
-                                                                                               ## an
-                                                                                               ## effective
-                                                                                               ## class
-                                                                                               ## of
-                                                                                               ## Transformation
-                                                                                               ## Entity
-                                                                                               ##
-                                                                                               ## !
-                                                                                               ## Warning
-                                                                                               ## :
-                                                                                               ## Must
-                                                                                               ## take
-                                                                                               ## in
-                                                                                               ## account
-                                                                                               ## Composition
-                                                                                               ## :
-                                                                                               ## if
-                                                                                               ## a
-                                                                                               ## TransfEntity
-                                                                                               ## has
-                                                                                               ## in
-                                                                                               ##
-                                                                                               ## !
-                                                                                               ## its
-                                                                                               ## Directory
-                                                                                               ## Part,
-                                                                                               ## a
-                                                                                               ## Transf,
-                                                                                               ## this
-                                                                                               ## means
-                                                                                               ## that
-                                                                                               ## it
-                                                                                               ## is
-                                                                                               ## Compound,
-                                                                                               ##
-                                                                                               ## !
-                                                                                               ## Value
-                                                                                               ## must
-                                                                                               ## return
-                                                                                               ## the
-                                                                                               ## global
-                                                                                               ## result
+  IGESData_TransfEntity* {.importcpp: "IGESData_TransfEntity",
+                          header: "IGESData_TransfEntity.hxx", bycopy.} = object of IGESData_IGESEntity ##
+                                                                                                 ## !
+                                                                                                 ## gives
+                                                                                                 ## value
+                                                                                                 ## of
+                                                                                                 ## the
+                                                                                                 ## transformation,
+                                                                                                 ## as
+                                                                                                 ## a
+                                                                                                 ## GTrsf
+                                                                                                 ##
+                                                                                                 ## !
+                                                                                                 ## To
+                                                                                                 ## be
+                                                                                                 ## defined
+                                                                                                 ## by
+                                                                                                 ## an
+                                                                                                 ## effective
+                                                                                                 ## class
+                                                                                                 ## of
+                                                                                                 ## Transformation
+                                                                                                 ## Entity
+                                                                                                 ##
+                                                                                                 ## !
+                                                                                                 ## Warning
+                                                                                                 ## :
+                                                                                                 ## Must
+                                                                                                 ## take
+                                                                                                 ## in
+                                                                                                 ## account
+                                                                                                 ## Composition
+                                                                                                 ## :
+                                                                                                 ## if
+                                                                                                 ## a
+                                                                                                 ## TransfEntity
+                                                                                                 ## has
+                                                                                                 ## in
+                                                                                                 ##
+                                                                                                 ## !
+                                                                                                 ## its
+                                                                                                 ## Directory
+                                                                                                 ## Part,
+                                                                                                 ## a
+                                                                                                 ## Transf,
+                                                                                                 ## this
+                                                                                                 ## means
+                                                                                                 ## that
+                                                                                                 ## it
+                                                                                                 ## is
+                                                                                                 ## Compound,
+                                                                                                 ##
+                                                                                                 ## !
+                                                                                                 ## Value
+                                                                                                 ## must
+                                                                                                 ## return
+                                                                                                 ## the
+                                                                                                 ## global
+                                                                                                 ## result
 
 
-proc value*(this: IGESDataTransfEntity): GpGTrsf {.noSideEffect, importcpp: "Value",
-    header: "IGESData_TransfEntity.hxx".}
+proc Value*(this: IGESData_TransfEntity): gp_GTrsf {.noSideEffect,
+    importcpp: "Value", header: "IGESData_TransfEntity.hxx".}
 type
-  IGESDataTransfEntitybaseType* = IGESDataIGESEntity
+  IGESData_TransfEntitybase_type* = IGESData_IGESEntity
 
-proc getTypeName*(): cstring {.importcpp: "IGESData_TransfEntity::get_type_name(@)",
-                            header: "IGESData_TransfEntity.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "IGESData_TransfEntity::get_type_name(@)",
+                              header: "IGESData_TransfEntity.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "IGESData_TransfEntity::get_type_descriptor(@)",
     header: "IGESData_TransfEntity.hxx".}
-proc dynamicType*(this: IGESDataTransfEntity): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "IGESData_TransfEntity.hxx".}
-
+proc DynamicType*(this: IGESData_TransfEntity): handle[Standard_Type] {.
+    noSideEffect, importcpp: "DynamicType", header: "IGESData_TransfEntity.hxx".}

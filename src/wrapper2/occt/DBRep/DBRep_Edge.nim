@@ -14,36 +14,39 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../TopoDS/TopoDS_Edge,
+  ../Draw/Draw_Color, ../Standard/Standard_Transient
+
 discard "forward decl of TopoDS_Edge"
 discard "forward decl of Draw_Color"
 discard "forward decl of DBRep_Edge"
 discard "forward decl of DBRep_Edge"
 type
-  HandleDBRepEdge* = Handle[DBRepEdge]
+  Handle_DBRep_Edge* = handle[DBRep_Edge]
 
 ## ! Display of an edge. Edge + color.
 
 type
-  DBRepEdge* {.importcpp: "DBRep_Edge", header: "DBRep_Edge.hxx", bycopy.} = object of StandardTransient
+  DBRep_Edge* {.importcpp: "DBRep_Edge", header: "DBRep_Edge.hxx", bycopy.} = object of Standard_Transient
 
 
-proc constructDBRepEdge*(e: TopoDS_Edge; c: DrawColor): DBRepEdge {.constructor,
+proc constructDBRep_Edge*(E: TopoDS_Edge; C: Draw_Color): DBRep_Edge {.constructor,
     importcpp: "DBRep_Edge(@)", header: "DBRep_Edge.hxx".}
-proc edge*(this: DBRepEdge): TopoDS_Edge {.noSideEffect, importcpp: "Edge",
-                                       header: "DBRep_Edge.hxx".}
-proc edge*(this: var DBRepEdge; e: TopoDS_Edge) {.importcpp: "Edge",
+proc Edge*(this: DBRep_Edge): TopoDS_Edge {.noSideEffect, importcpp: "Edge",
+                                        header: "DBRep_Edge.hxx".}
+proc Edge*(this: var DBRep_Edge; E: TopoDS_Edge) {.importcpp: "Edge",
     header: "DBRep_Edge.hxx".}
-proc color*(this: DBRepEdge): DrawColor {.noSideEffect, importcpp: "Color",
-                                      header: "DBRep_Edge.hxx".}
-proc color*(this: var DBRepEdge; c: DrawColor) {.importcpp: "Color",
+proc Color*(this: DBRep_Edge): Draw_Color {.noSideEffect, importcpp: "Color",
+                                        header: "DBRep_Edge.hxx".}
+proc Color*(this: var DBRep_Edge; C: Draw_Color) {.importcpp: "Color",
     header: "DBRep_Edge.hxx".}
 type
-  DBRepEdgebaseType* = StandardTransient
+  DBRep_Edgebase_type* = Standard_Transient
 
-proc getTypeName*(): cstring {.importcpp: "DBRep_Edge::get_type_name(@)",
-                            header: "DBRep_Edge.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "DBRep_Edge::get_type_name(@)",
+                              header: "DBRep_Edge.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "DBRep_Edge::get_type_descriptor(@)", header: "DBRep_Edge.hxx".}
-proc dynamicType*(this: DBRepEdge): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: DBRep_Edge): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "DBRep_Edge.hxx".}
-

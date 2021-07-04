@@ -14,6 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type,
+  ../IFSelect/IFSelect_SelectDeduct
+
 discard "forward decl of Interface_InterfaceError"
 discard "forward decl of Interface_EntityIterator"
 discard "forward decl of Interface_Graph"
@@ -21,7 +25,7 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of IGESSelect_SelectFromDrawing"
 discard "forward decl of IGESSelect_SelectFromDrawing"
 type
-  HandleIGESSelectSelectFromDrawing* = Handle[IGESSelectSelectFromDrawing]
+  Handle_IGESSelect_SelectFromDrawing* = handle[IGESSelect_SelectFromDrawing]
 
 ## ! This selection gets in all the model, the entities which are
 ## ! attached to the drawing(s) given as input. This includes :
@@ -29,31 +33,28 @@ type
 ## ! - Entities attached to the single Views referenced by Drawings
 
 type
-  IGESSelectSelectFromDrawing* {.importcpp: "IGESSelect_SelectFromDrawing",
-                                header: "IGESSelect_SelectFromDrawing.hxx", bycopy.} = object of IFSelectSelectDeduct ##
-                                                                                                               ## !
-                                                                                                               ## Creates
-                                                                                                               ## a
-                                                                                                               ## SelectFromDrawing
+  IGESSelect_SelectFromDrawing* {.importcpp: "IGESSelect_SelectFromDrawing",
+                                 header: "IGESSelect_SelectFromDrawing.hxx",
+                                 bycopy.} = object of IFSelect_SelectDeduct ## ! Creates a
+                                                                       ## SelectFromDrawing
 
 
-proc constructIGESSelectSelectFromDrawing*(): IGESSelectSelectFromDrawing {.
+proc constructIGESSelect_SelectFromDrawing*(): IGESSelect_SelectFromDrawing {.
     constructor, importcpp: "IGESSelect_SelectFromDrawing(@)",
     header: "IGESSelect_SelectFromDrawing.hxx".}
-proc rootResult*(this: IGESSelectSelectFromDrawing; g: InterfaceGraph): InterfaceEntityIterator {.
+proc RootResult*(this: IGESSelect_SelectFromDrawing; G: Interface_Graph): Interface_EntityIterator {.
     noSideEffect, importcpp: "RootResult",
     header: "IGESSelect_SelectFromDrawing.hxx".}
-proc label*(this: IGESSelectSelectFromDrawing): TCollectionAsciiString {.
+proc Label*(this: IGESSelect_SelectFromDrawing): TCollection_AsciiString {.
     noSideEffect, importcpp: "Label", header: "IGESSelect_SelectFromDrawing.hxx".}
 type
-  IGESSelectSelectFromDrawingbaseType* = IFSelectSelectDeduct
+  IGESSelect_SelectFromDrawingbase_type* = IFSelect_SelectDeduct
 
-proc getTypeName*(): cstring {.importcpp: "IGESSelect_SelectFromDrawing::get_type_name(@)",
-                            header: "IGESSelect_SelectFromDrawing.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "IGESSelect_SelectFromDrawing::get_type_name(@)",
+                              header: "IGESSelect_SelectFromDrawing.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "IGESSelect_SelectFromDrawing::get_type_descriptor(@)",
     header: "IGESSelect_SelectFromDrawing.hxx".}
-proc dynamicType*(this: IGESSelectSelectFromDrawing): Handle[StandardType] {.
+proc DynamicType*(this: IGESSelect_SelectFromDrawing): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType",
     header: "IGESSelect_SelectFromDrawing.hxx".}
-

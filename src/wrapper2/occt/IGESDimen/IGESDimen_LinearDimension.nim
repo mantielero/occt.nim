@@ -14,6 +14,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type,
+  ../IGESData/IGESData_IGESEntity, ../Standard/Standard_Integer,
+  ../Standard/Standard_Boolean
+
 discard "forward decl of IGESDimen_GeneralNote"
 discard "forward decl of IGESDimen_LeaderArrow"
 discard "forward decl of IGESDimen_WitnessLine"
@@ -21,55 +26,55 @@ discard "forward decl of Standard_OutOfRange"
 discard "forward decl of IGESDimen_LinearDimension"
 discard "forward decl of IGESDimen_LinearDimension"
 type
-  HandleIGESDimenLinearDimension* = Handle[IGESDimenLinearDimension]
+  Handle_IGESDimen_LinearDimension* = handle[IGESDimen_LinearDimension]
 
 ## ! defines LinearDimension, Type <216> Form <0>
 ## ! in package IGESDimen
 ## ! Used for linear dimensioning
 
 type
-  IGESDimenLinearDimension* {.importcpp: "IGESDimen_LinearDimension",
-                             header: "IGESDimen_LinearDimension.hxx", bycopy.} = object of IGESDataIGESEntity
+  IGESDimen_LinearDimension* {.importcpp: "IGESDimen_LinearDimension",
+                              header: "IGESDimen_LinearDimension.hxx", bycopy.} = object of IGESData_IGESEntity
 
 
-proc constructIGESDimenLinearDimension*(): IGESDimenLinearDimension {.constructor,
-    importcpp: "IGESDimen_LinearDimension(@)",
+proc constructIGESDimen_LinearDimension*(): IGESDimen_LinearDimension {.
+    constructor, importcpp: "IGESDimen_LinearDimension(@)",
     header: "IGESDimen_LinearDimension.hxx".}
-proc init*(this: var IGESDimenLinearDimension; aNote: Handle[IGESDimenGeneralNote];
-          aLeader: Handle[IGESDimenLeaderArrow];
-          anotherLeader: Handle[IGESDimenLeaderArrow];
-          aWitness: Handle[IGESDimenWitnessLine];
-          anotherWitness: Handle[IGESDimenWitnessLine]) {.importcpp: "Init",
+proc Init*(this: var IGESDimen_LinearDimension;
+          aNote: handle[IGESDimen_GeneralNote];
+          aLeader: handle[IGESDimen_LeaderArrow];
+          anotherLeader: handle[IGESDimen_LeaderArrow];
+          aWitness: handle[IGESDimen_WitnessLine];
+          anotherWitness: handle[IGESDimen_WitnessLine]) {.importcpp: "Init",
     header: "IGESDimen_LinearDimension.hxx".}
-proc setFormNumber*(this: var IGESDimenLinearDimension; form: StandardInteger) {.
+proc SetFormNumber*(this: var IGESDimen_LinearDimension; form: Standard_Integer) {.
     importcpp: "SetFormNumber", header: "IGESDimen_LinearDimension.hxx".}
-proc note*(this: IGESDimenLinearDimension): Handle[IGESDimenGeneralNote] {.
+proc Note*(this: IGESDimen_LinearDimension): handle[IGESDimen_GeneralNote] {.
     noSideEffect, importcpp: "Note", header: "IGESDimen_LinearDimension.hxx".}
-proc firstLeader*(this: IGESDimenLinearDimension): Handle[IGESDimenLeaderArrow] {.
+proc FirstLeader*(this: IGESDimen_LinearDimension): handle[IGESDimen_LeaderArrow] {.
     noSideEffect, importcpp: "FirstLeader", header: "IGESDimen_LinearDimension.hxx".}
-proc secondLeader*(this: IGESDimenLinearDimension): Handle[IGESDimenLeaderArrow] {.
+proc SecondLeader*(this: IGESDimen_LinearDimension): handle[IGESDimen_LeaderArrow] {.
     noSideEffect, importcpp: "SecondLeader",
     header: "IGESDimen_LinearDimension.hxx".}
-proc hasFirstWitness*(this: IGESDimenLinearDimension): StandardBoolean {.
+proc HasFirstWitness*(this: IGESDimen_LinearDimension): Standard_Boolean {.
     noSideEffect, importcpp: "HasFirstWitness",
     header: "IGESDimen_LinearDimension.hxx".}
-proc firstWitness*(this: IGESDimenLinearDimension): Handle[IGESDimenWitnessLine] {.
+proc FirstWitness*(this: IGESDimen_LinearDimension): handle[IGESDimen_WitnessLine] {.
     noSideEffect, importcpp: "FirstWitness",
     header: "IGESDimen_LinearDimension.hxx".}
-proc hasSecondWitness*(this: IGESDimenLinearDimension): StandardBoolean {.
+proc HasSecondWitness*(this: IGESDimen_LinearDimension): Standard_Boolean {.
     noSideEffect, importcpp: "HasSecondWitness",
     header: "IGESDimen_LinearDimension.hxx".}
-proc secondWitness*(this: IGESDimenLinearDimension): Handle[IGESDimenWitnessLine] {.
+proc SecondWitness*(this: IGESDimen_LinearDimension): handle[IGESDimen_WitnessLine] {.
     noSideEffect, importcpp: "SecondWitness",
     header: "IGESDimen_LinearDimension.hxx".}
 type
-  IGESDimenLinearDimensionbaseType* = IGESDataIGESEntity
+  IGESDimen_LinearDimensionbase_type* = IGESData_IGESEntity
 
-proc getTypeName*(): cstring {.importcpp: "IGESDimen_LinearDimension::get_type_name(@)",
-                            header: "IGESDimen_LinearDimension.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "IGESDimen_LinearDimension::get_type_name(@)",
+                              header: "IGESDimen_LinearDimension.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "IGESDimen_LinearDimension::get_type_descriptor(@)",
     header: "IGESDimen_LinearDimension.hxx".}
-proc dynamicType*(this: IGESDimenLinearDimension): Handle[StandardType] {.
+proc DynamicType*(this: IGESDimen_LinearDimension): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType", header: "IGESDimen_LinearDimension.hxx".}
-

@@ -14,8 +14,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  Contap_ThePathPointOfTheSearch, ../NCollection/NCollection_Sequence
+
 type
-  ContapSequenceOfPathPointOfTheSearch* = NCollectionSequence[
-      ContapThePathPointOfTheSearch]
-
-
+  Contap_SequenceOfPathPointOfTheSearch* = NCollection_Sequence[
+      Contap_ThePathPointOfTheSearch]

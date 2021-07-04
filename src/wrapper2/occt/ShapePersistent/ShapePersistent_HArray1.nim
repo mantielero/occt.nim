@@ -11,24 +11,32 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../StdLPersistent/StdLPersistent_HArray1, ../StdObject/StdObject_gp_Vectors,
+  ../StdObject/StdObject_gp_Curves, ../TColgp/TColgp_HArray1OfXYZ,
+  ../TColgp/TColgp_HArray1OfPnt, ../TColgp/TColgp_HArray1OfDir,
+  ../TColgp/TColgp_HArray1OfVec, ../TColgp/TColgp_HArray1OfXY,
+  ../TColgp/TColgp_HArray1OfPnt2d, ../TColgp/TColgp_HArray1OfDir2d,
+  ../TColgp/TColgp_HArray1OfVec2d, ../TColgp/TColgp_HArray1OfLin2d,
+  ../TColgp/TColgp_HArray1OfCirc2d, ../Poly/Poly_HArray1OfTriangle
+
 type
-  ShapePersistentHArray1* {.importcpp: "ShapePersistent_HArray1",
-                           header: "ShapePersistent_HArray1.hxx", bycopy.} = object of StdLPersistentHArray1
+  ShapePersistent_HArray1* {.importcpp: "ShapePersistent_HArray1",
+                            header: "ShapePersistent_HArray1.hxx", bycopy.} = object of StdLPersistent_HArray1
 
-  ShapePersistentHArray1XYZ* = Instance[TColgpHArray1OfXYZ]
-  ShapePersistentHArray1Pnt* = Instance[TColgpHArray1OfPnt]
-  ShapePersistentHArray1Dir* = Instance[TColgpHArray1OfDir]
-  ShapePersistentHArray1Vec* = Instance[TColgpHArray1OfVec]
-  ShapePersistentHArray1XY* = Instance[TColgpHArray1OfXY]
-  ShapePersistentHArray1Pnt2d* = Instance[TColgpHArray1OfPnt2d]
-  ShapePersistentHArray1Dir2d* = Instance[TColgpHArray1OfDir2d]
-  ShapePersistentHArray1Vec2d* = Instance[TColgpHArray1OfVec2d]
-  ShapePersistentHArray1Lin2d* = Instance[TColgpHArray1OfLin2d]
-  ShapePersistentHArray1Circ2d* = Instance[TColgpHArray1OfCirc2d]
-  ShapePersistentHArray1Triangle* = Instance[PolyHArray1OfTriangle]
+  ShapePersistent_HArray1XYZ* = instance[TColgp_HArray1OfXYZ]
+  ShapePersistent_HArray1Pnt* = instance[TColgp_HArray1OfPnt]
+  ShapePersistent_HArray1Dir* = instance[TColgp_HArray1OfDir]
+  ShapePersistent_HArray1Vec* = instance[TColgp_HArray1OfVec]
+  ShapePersistent_HArray1XY* = instance[TColgp_HArray1OfXY]
+  ShapePersistent_HArray1Pnt2d* = instance[TColgp_HArray1OfPnt2d]
+  ShapePersistent_HArray1Dir2d* = instance[TColgp_HArray1OfDir2d]
+  ShapePersistent_HArray1Vec2d* = instance[TColgp_HArray1OfVec2d]
+  ShapePersistent_HArray1Lin2d* = instance[TColgp_HArray1OfLin2d]
+  ShapePersistent_HArray1Circ2d* = instance[TColgp_HArray1OfCirc2d]
+  ShapePersistent_HArray1Triangle* = instance[Poly_HArray1OfTriangle]
 
-proc `>>`*(theReadData: var StdObjMgtReadData; theTriangle: var PolyTriangle): var StdObjMgtReadData {.
+proc `>>`*(theReadData: var StdObjMgt_ReadData; theTriangle: var Poly_Triangle): var StdObjMgt_ReadData {.
     importcpp: "(# >> #)", header: "ShapePersistent_HArray1.hxx".}
-proc `<<`*(theWriteData: var StdObjMgtWriteData; theTriangle: PolyTriangle): var StdObjMgtWriteData {.
+proc `<<`*(theWriteData: var StdObjMgt_WriteData; theTriangle: Poly_Triangle): var StdObjMgt_WriteData {.
     importcpp: "(# << #)", header: "ShapePersistent_HArray1.hxx".}
-

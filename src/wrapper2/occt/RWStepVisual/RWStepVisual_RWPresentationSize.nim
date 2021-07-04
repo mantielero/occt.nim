@@ -14,29 +14,32 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepVisual_PresentationSize"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepVisualRWPresentationSize* {.importcpp: "RWStepVisual_RWPresentationSize", header: "RWStepVisual_RWPresentationSize.hxx",
-                                   bycopy.} = object
+  RWStepVisual_RWPresentationSize* {.importcpp: "RWStepVisual_RWPresentationSize", header: "RWStepVisual_RWPresentationSize.hxx",
+                                    bycopy.} = object
 
 
-proc constructRWStepVisualRWPresentationSize*(): RWStepVisualRWPresentationSize {.
+proc constructRWStepVisual_RWPresentationSize*(): RWStepVisual_RWPresentationSize {.
     constructor, importcpp: "RWStepVisual_RWPresentationSize(@)",
     header: "RWStepVisual_RWPresentationSize.hxx".}
-proc readStep*(this: RWStepVisualRWPresentationSize;
-              data: Handle[StepDataStepReaderData]; num: StandardInteger;
-              ach: var Handle[InterfaceCheck];
-              ent: Handle[StepVisualPresentationSize]) {.noSideEffect,
+proc ReadStep*(this: RWStepVisual_RWPresentationSize;
+              data: handle[StepData_StepReaderData]; num: Standard_Integer;
+              ach: var handle[Interface_Check];
+              ent: handle[StepVisual_PresentationSize]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepVisual_RWPresentationSize.hxx".}
-proc writeStep*(this: RWStepVisualRWPresentationSize; sw: var StepDataStepWriter;
-               ent: Handle[StepVisualPresentationSize]) {.noSideEffect,
+proc WriteStep*(this: RWStepVisual_RWPresentationSize; SW: var StepData_StepWriter;
+               ent: handle[StepVisual_PresentationSize]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepVisual_RWPresentationSize.hxx".}
-proc share*(this: RWStepVisualRWPresentationSize;
-           ent: Handle[StepVisualPresentationSize];
-           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
+proc Share*(this: RWStepVisual_RWPresentationSize;
+           ent: handle[StepVisual_PresentationSize];
+           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepVisual_RWPresentationSize.hxx".}
-

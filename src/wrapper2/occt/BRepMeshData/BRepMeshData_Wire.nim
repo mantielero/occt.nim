@@ -13,37 +13,39 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../IMeshData/IMeshData_Wire, ../IMeshData/IMeshData_Types
+
 ## ! Default implementation of wire data model entity.
 
 type
-  BRepMeshDataWire* {.importcpp: "BRepMeshData_Wire",
-                     header: "BRepMeshData_Wire.hxx", bycopy.} = object of IMeshDataWire
+  BRepMeshData_Wire* {.importcpp: "BRepMeshData_Wire",
+                      header: "BRepMeshData_Wire.hxx", bycopy.} = object of IMeshData_Wire
 
 
-proc bRepMeshDataWire*(this: var BRepMeshDataWire; theWire: TopoDS_Wire;
-                      theEdgeNb: StandardInteger;
-                      theAllocator: Handle[NCollectionIncAllocator]): Define_Inc_Alloc {.
+proc BRepMeshData_Wire*(this: var BRepMeshData_Wire; theWire: TopoDS_Wire;
+                       theEdgeNb: Standard_Integer;
+                       theAllocator: handle[NCollection_IncAllocator]): DEFINE_INC_ALLOC {.
     importcpp: "BRepMeshData_Wire", header: "BRepMeshData_Wire.hxx".}
   ## ! Constructor.
-proc destroyBRepMeshDataWire*(this: var BRepMeshDataWire) {.
+proc destroyBRepMeshData_Wire*(this: var BRepMeshData_Wire) {.
     importcpp: "#.~BRepMeshData_Wire()", header: "BRepMeshData_Wire.hxx".}
-proc edgesNb*(this: BRepMeshDataWire): StandardInteger {.noSideEffect,
+proc EdgesNb*(this: BRepMeshData_Wire): Standard_Integer {.noSideEffect,
     importcpp: "EdgesNb", header: "BRepMeshData_Wire.hxx".}
-proc addEdge*(this: var BRepMeshDataWire; theDEdge: IEdgePtr;
-             theOrientation: TopAbsOrientation): StandardInteger {.
+proc AddEdge*(this: var BRepMeshData_Wire; theDEdge: IEdgePtr;
+             theOrientation: TopAbs_Orientation): Standard_Integer {.
     importcpp: "AddEdge", header: "BRepMeshData_Wire.hxx".}
-proc getEdge*(this: BRepMeshDataWire; theIndex: StandardInteger): IEdgePtr {.
+proc GetEdge*(this: BRepMeshData_Wire; theIndex: Standard_Integer): IEdgePtr {.
     noSideEffect, importcpp: "GetEdge", header: "BRepMeshData_Wire.hxx".}
-proc getEdgeOrientation*(this: BRepMeshDataWire; theIndex: StandardInteger): TopAbsOrientation {.
+proc GetEdgeOrientation*(this: BRepMeshData_Wire; theIndex: Standard_Integer): TopAbs_Orientation {.
     noSideEffect, importcpp: "GetEdgeOrientation", header: "BRepMeshData_Wire.hxx".}
 type
-  BRepMeshDataWirebaseType* = IMeshDataWire
+  BRepMeshData_Wirebase_type* = IMeshData_Wire
 
-proc getTypeName*(): cstring {.importcpp: "BRepMeshData_Wire::get_type_name(@)",
-                            header: "BRepMeshData_Wire.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "BRepMeshData_Wire::get_type_name(@)",
+                              header: "BRepMeshData_Wire.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "BRepMeshData_Wire::get_type_descriptor(@)",
     header: "BRepMeshData_Wire.hxx".}
-proc dynamicType*(this: BRepMeshDataWire): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: BRepMeshData_Wire): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "BRepMeshData_Wire.hxx".}
-

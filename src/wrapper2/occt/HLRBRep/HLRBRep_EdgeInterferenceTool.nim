@@ -14,55 +14,64 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../HLRAlgo/HLRAlgo_Intersection,
+  ../Standard/Standard_Integer, ../Standard/Standard_Boolean,
+  ../TopAbs/TopAbs_Orientation, ../Standard/Standard_Real
+
 discard "forward decl of HLRBRep_Data"
 discard "forward decl of HLRAlgo_Intersection"
 discard "forward decl of gp_Dir"
 discard "forward decl of HLRAlgo_Interference"
 type
-  HLRBRepEdgeInterferenceTool* {.importcpp: "HLRBRep_EdgeInterferenceTool",
-                                header: "HLRBRep_EdgeInterferenceTool.hxx", bycopy.} = object
+  HLRBRep_EdgeInterferenceTool* {.importcpp: "HLRBRep_EdgeInterferenceTool",
+                                 header: "HLRBRep_EdgeInterferenceTool.hxx",
+                                 bycopy.} = object
 
 
-proc constructHLRBRepEdgeInterferenceTool*(ds: Handle[HLRBRepData]): HLRBRepEdgeInterferenceTool {.
+proc constructHLRBRep_EdgeInterferenceTool*(DS: handle[HLRBRep_Data]): HLRBRep_EdgeInterferenceTool {.
     constructor, importcpp: "HLRBRep_EdgeInterferenceTool(@)",
     header: "HLRBRep_EdgeInterferenceTool.hxx".}
-proc loadEdge*(this: var HLRBRepEdgeInterferenceTool) {.importcpp: "LoadEdge",
+proc LoadEdge*(this: var HLRBRep_EdgeInterferenceTool) {.importcpp: "LoadEdge",
     header: "HLRBRep_EdgeInterferenceTool.hxx".}
-proc initVertices*(this: var HLRBRepEdgeInterferenceTool) {.
+proc InitVertices*(this: var HLRBRep_EdgeInterferenceTool) {.
     importcpp: "InitVertices", header: "HLRBRep_EdgeInterferenceTool.hxx".}
-proc moreVertices*(this: HLRBRepEdgeInterferenceTool): StandardBoolean {.
+proc MoreVertices*(this: HLRBRep_EdgeInterferenceTool): Standard_Boolean {.
     noSideEffect, importcpp: "MoreVertices",
     header: "HLRBRep_EdgeInterferenceTool.hxx".}
-proc nextVertex*(this: var HLRBRepEdgeInterferenceTool) {.importcpp: "NextVertex",
+proc NextVertex*(this: var HLRBRep_EdgeInterferenceTool) {.importcpp: "NextVertex",
     header: "HLRBRep_EdgeInterferenceTool.hxx".}
-proc currentVertex*(this: HLRBRepEdgeInterferenceTool): HLRAlgoIntersection {.
+proc CurrentVertex*(this: HLRBRep_EdgeInterferenceTool): HLRAlgo_Intersection {.
     noSideEffect, importcpp: "CurrentVertex",
     header: "HLRBRep_EdgeInterferenceTool.hxx".}
-proc currentOrientation*(this: HLRBRepEdgeInterferenceTool): TopAbsOrientation {.
+proc CurrentOrientation*(this: HLRBRep_EdgeInterferenceTool): TopAbs_Orientation {.
     noSideEffect, importcpp: "CurrentOrientation",
     header: "HLRBRep_EdgeInterferenceTool.hxx".}
-proc currentParameter*(this: HLRBRepEdgeInterferenceTool): StandardReal {.
+proc CurrentParameter*(this: HLRBRep_EdgeInterferenceTool): Standard_Real {.
     noSideEffect, importcpp: "CurrentParameter",
     header: "HLRBRep_EdgeInterferenceTool.hxx".}
-proc isPeriodic*(this: HLRBRepEdgeInterferenceTool): StandardBoolean {.noSideEffect,
-    importcpp: "IsPeriodic", header: "HLRBRep_EdgeInterferenceTool.hxx".}
-proc edgeGeometry*(this: HLRBRepEdgeInterferenceTool; param: StandardReal;
-                  tgt: var GpDir; nrm: var GpDir; curv: var StandardReal) {.noSideEffect,
-    importcpp: "EdgeGeometry", header: "HLRBRep_EdgeInterferenceTool.hxx".}
-proc parameterOfInterference*(this: HLRBRepEdgeInterferenceTool;
-                             i: HLRAlgoInterference): StandardReal {.noSideEffect,
-    importcpp: "ParameterOfInterference",
+proc IsPeriodic*(this: HLRBRep_EdgeInterferenceTool): Standard_Boolean {.
+    noSideEffect, importcpp: "IsPeriodic",
     header: "HLRBRep_EdgeInterferenceTool.hxx".}
-proc sameInterferences*(this: HLRBRepEdgeInterferenceTool; i1: HLRAlgoInterference;
-                       i2: HLRAlgoInterference): StandardBoolean {.noSideEffect,
-    importcpp: "SameInterferences", header: "HLRBRep_EdgeInterferenceTool.hxx".}
-proc sameVertexAndInterference*(this: HLRBRepEdgeInterferenceTool;
-                               i: HLRAlgoInterference): StandardBoolean {.
+proc EdgeGeometry*(this: HLRBRep_EdgeInterferenceTool; Param: Standard_Real;
+                  Tgt: var gp_Dir; Nrm: var gp_Dir; Curv: var Standard_Real) {.
+    noSideEffect, importcpp: "EdgeGeometry",
+    header: "HLRBRep_EdgeInterferenceTool.hxx".}
+proc ParameterOfInterference*(this: HLRBRep_EdgeInterferenceTool;
+                             I: HLRAlgo_Interference): Standard_Real {.
+    noSideEffect, importcpp: "ParameterOfInterference",
+    header: "HLRBRep_EdgeInterferenceTool.hxx".}
+proc SameInterferences*(this: HLRBRep_EdgeInterferenceTool;
+                       I1: HLRAlgo_Interference; I2: HLRAlgo_Interference): Standard_Boolean {.
+    noSideEffect, importcpp: "SameInterferences",
+    header: "HLRBRep_EdgeInterferenceTool.hxx".}
+proc SameVertexAndInterference*(this: HLRBRep_EdgeInterferenceTool;
+                               I: HLRAlgo_Interference): Standard_Boolean {.
     noSideEffect, importcpp: "SameVertexAndInterference",
     header: "HLRBRep_EdgeInterferenceTool.hxx".}
-proc interferenceBoundaryGeometry*(this: HLRBRepEdgeInterferenceTool;
-                                  i: HLRAlgoInterference; tang: var GpDir;
-                                  norm: var GpDir; curv: var StandardReal) {.
+proc InterferenceBoundaryGeometry*(this: HLRBRep_EdgeInterferenceTool;
+                                  I: HLRAlgo_Interference; Tang: var gp_Dir;
+                                  Norm: var gp_Dir; Curv: var Standard_Real) {.
     noSideEffect, importcpp: "InterferenceBoundaryGeometry",
     header: "HLRBRep_EdgeInterferenceTool.hxx".}
-

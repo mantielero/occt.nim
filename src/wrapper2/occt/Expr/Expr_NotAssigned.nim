@@ -14,17 +14,15 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _Expr_NotAssigned_HeaderFile [NewLine] # _Expr_NotAssigned_HeaderFile [NewLine] # < Standard_Type . hxx > [NewLine] # < Standard_DefineException . hxx > [NewLine] # < Standard_SStream . hxx > [NewLine] # < Expr_ExprFailure . hxx > [NewLine] class Expr_NotAssigned ;
+## !!!Ignored construct:  # _Expr_NotAssigned_HeaderFile [NewLine] # _Expr_NotAssigned_HeaderFile [NewLine] # ../Standard/Standard_Type.hxx [NewLine] # ../Standard/Standard_DefineException.hxx [NewLine] # ../Standard/Standard_SStream.hxx [NewLine] # Expr_ExprFailure.hxx [NewLine] class Expr_NotAssigned ;
 ## Error: expected ';'!!!
 
 discard "forward decl of Expr_NotAssigned"
 type
-  HandleExprNotAssignedExprNotAssigned* = Handle[ExprNotAssigned]
+  Handle_Expr_NotAssignedExpr_NotAssigned* = handle[Expr_NotAssigned]
 
 ## !!!Ignored construct:  # ! defined No_Exception && ! defined No_Expr_NotAssigned [NewLine] # if ( CONDITION ) throw Expr_NotAssigned ( MESSAGE ) ;
 ## Error: did not expect [NewLine]!!!
 
-## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( Expr_NotAssigned , Expr_ExprFailure ) #  _Expr_NotAssigned_HeaderFile
+## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( Expr_NotAssigned , Expr_ExprFailure ) #  _Expr_NotAssigned_HeaderFile [NewLine]
 ## Error: did not expect [NewLine]!!!
-
-

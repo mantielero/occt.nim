@@ -14,6 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, IFSelect_SelectExtract,
+  ../Standard/Standard_Boolean, ../Standard/Standard_Integer
+
 discard "forward decl of Interface_EntityIterator"
 discard "forward decl of Interface_Graph"
 discard "forward decl of Standard_Transient"
@@ -22,7 +26,7 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of IFSelect_SelectRootComps"
 discard "forward decl of IFSelect_SelectRootComps"
 type
-  HandleIFSelectSelectRootComps* = Handle[IFSelectSelectRootComps]
+  Handle_IFSelect_SelectRootComps* = handle[IFSelect_SelectRootComps]
 
 ## ! A SelectRootComps sorts the Entities which are part of Strong
 ## ! Componants, local roots of a set of Entities : they can be
@@ -35,39 +39,38 @@ type
 ## ! the input list which are not local roots are given
 
 type
-  IFSelectSelectRootComps* {.importcpp: "IFSelect_SelectRootComps",
-                            header: "IFSelect_SelectRootComps.hxx", bycopy.} = object of IFSelectSelectExtract ##
-                                                                                                        ## !
-                                                                                                        ## Creates
-                                                                                                        ## a
-                                                                                                        ## SelectRootComps
-                                                                                                        ##
-                                                                                                        ## !
-                                                                                                        ## Returns
-                                                                                                        ## True,
-                                                                                                        ## RootResult
-                                                                                                        ## assuring
-                                                                                                        ## uniqueness
+  IFSelect_SelectRootComps* {.importcpp: "IFSelect_SelectRootComps",
+                             header: "IFSelect_SelectRootComps.hxx", bycopy.} = object of IFSelect_SelectExtract ##
+                                                                                                          ## !
+                                                                                                          ## Creates
+                                                                                                          ## a
+                                                                                                          ## SelectRootComps
+                                                                                                          ##
+                                                                                                          ## !
+                                                                                                          ## Returns
+                                                                                                          ## True,
+                                                                                                          ## RootResult
+                                                                                                          ## assuring
+                                                                                                          ## uniqueness
 
 
-proc constructIFSelectSelectRootComps*(): IFSelectSelectRootComps {.constructor,
+proc constructIFSelect_SelectRootComps*(): IFSelect_SelectRootComps {.constructor,
     importcpp: "IFSelect_SelectRootComps(@)",
     header: "IFSelect_SelectRootComps.hxx".}
-proc rootResult*(this: IFSelectSelectRootComps; g: InterfaceGraph): InterfaceEntityIterator {.
+proc RootResult*(this: IFSelect_SelectRootComps; G: Interface_Graph): Interface_EntityIterator {.
     noSideEffect, importcpp: "RootResult", header: "IFSelect_SelectRootComps.hxx".}
-proc sort*(this: IFSelectSelectRootComps; rank: StandardInteger;
-          ent: Handle[StandardTransient]; model: Handle[InterfaceInterfaceModel]): StandardBoolean {.
+proc Sort*(this: IFSelect_SelectRootComps; rank: Standard_Integer;
+          ent: handle[Standard_Transient]; model: handle[Interface_InterfaceModel]): Standard_Boolean {.
     noSideEffect, importcpp: "Sort", header: "IFSelect_SelectRootComps.hxx".}
-proc extractLabel*(this: IFSelectSelectRootComps): TCollectionAsciiString {.
+proc ExtractLabel*(this: IFSelect_SelectRootComps): TCollection_AsciiString {.
     noSideEffect, importcpp: "ExtractLabel", header: "IFSelect_SelectRootComps.hxx".}
 type
-  IFSelectSelectRootCompsbaseType* = IFSelectSelectExtract
+  IFSelect_SelectRootCompsbase_type* = IFSelect_SelectExtract
 
-proc getTypeName*(): cstring {.importcpp: "IFSelect_SelectRootComps::get_type_name(@)",
-                            header: "IFSelect_SelectRootComps.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "IFSelect_SelectRootComps::get_type_name(@)",
+                              header: "IFSelect_SelectRootComps.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "IFSelect_SelectRootComps::get_type_descriptor(@)",
     header: "IFSelect_SelectRootComps.hxx".}
-proc dynamicType*(this: IFSelectSelectRootComps): Handle[StandardType] {.
+proc DynamicType*(this: IFSelect_SelectRootComps): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType", header: "IFSelect_SelectRootComps.hxx".}
-

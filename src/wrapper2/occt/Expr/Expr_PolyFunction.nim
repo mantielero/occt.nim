@@ -14,6 +14,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, Expr_PolyExpression,
+  Expr_Array1OfGeneralExpression, ../Standard/Standard_Boolean,
+  ../Standard/Standard_Real, Expr_Array1OfNamedUnknown,
+  ../TColStd/TColStd_Array1OfReal
+
 discard "forward decl of Expr_GeneralFunction"
 discard "forward decl of Standard_NumericError"
 discard "forward decl of Standard_OutOfRange"
@@ -24,50 +30,49 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of Expr_PolyFunction"
 discard "forward decl of Expr_PolyFunction"
 type
-  HandleExprPolyFunction* = Handle[ExprPolyFunction]
+  Handle_Expr_PolyFunction* = handle[Expr_PolyFunction]
 
 ## ! Defines the use of an n-ary function in an expression
 ## ! with given arguments.
 
 type
-  ExprPolyFunction* {.importcpp: "Expr_PolyFunction",
-                     header: "Expr_PolyFunction.hxx", bycopy.} = object of ExprPolyExpression ##
-                                                                                       ## !
-                                                                                       ## Creates
-                                                                                       ## <me>
-                                                                                       ## as
-                                                                                       ## <func>(<exps_1>,<exps_2>,...,<exps_n>)
+  Expr_PolyFunction* {.importcpp: "Expr_PolyFunction",
+                      header: "Expr_PolyFunction.hxx", bycopy.} = object of Expr_PolyExpression ##
+                                                                                         ## !
+                                                                                         ## Creates
+                                                                                         ## <me>
+                                                                                         ## as
+                                                                                         ## <func>(<exps_1>,<exps_2>,...,<exps_n>)
 
 
-proc constructExprPolyFunction*(`func`: Handle[ExprGeneralFunction];
-                               exps: ExprArray1OfGeneralExpression): ExprPolyFunction {.
+proc constructExpr_PolyFunction*(`func`: handle[Expr_GeneralFunction];
+                                exps: Expr_Array1OfGeneralExpression): Expr_PolyFunction {.
     constructor, importcpp: "Expr_PolyFunction(@)", header: "Expr_PolyFunction.hxx".}
-proc function*(this: ExprPolyFunction): Handle[ExprGeneralFunction] {.noSideEffect,
-    importcpp: "Function", header: "Expr_PolyFunction.hxx".}
-proc shallowSimplified*(this: ExprPolyFunction): Handle[ExprGeneralExpression] {.
+proc Function*(this: Expr_PolyFunction): handle[Expr_GeneralFunction] {.
+    noSideEffect, importcpp: "Function", header: "Expr_PolyFunction.hxx".}
+proc ShallowSimplified*(this: Expr_PolyFunction): handle[Expr_GeneralExpression] {.
     noSideEffect, importcpp: "ShallowSimplified", header: "Expr_PolyFunction.hxx".}
-proc copy*(this: ExprPolyFunction): Handle[ExprGeneralExpression] {.noSideEffect,
+proc Copy*(this: Expr_PolyFunction): handle[Expr_GeneralExpression] {.noSideEffect,
     importcpp: "Copy", header: "Expr_PolyFunction.hxx".}
-proc isIdentical*(this: ExprPolyFunction; other: Handle[ExprGeneralExpression]): StandardBoolean {.
+proc IsIdentical*(this: Expr_PolyFunction; Other: handle[Expr_GeneralExpression]): Standard_Boolean {.
     noSideEffect, importcpp: "IsIdentical", header: "Expr_PolyFunction.hxx".}
-proc isLinear*(this: ExprPolyFunction): StandardBoolean {.noSideEffect,
+proc IsLinear*(this: Expr_PolyFunction): Standard_Boolean {.noSideEffect,
     importcpp: "IsLinear", header: "Expr_PolyFunction.hxx".}
-proc derivative*(this: ExprPolyFunction; x: Handle[ExprNamedUnknown]): Handle[
-    ExprGeneralExpression] {.noSideEffect, importcpp: "Derivative",
-                            header: "Expr_PolyFunction.hxx".}
-proc evaluate*(this: ExprPolyFunction; vars: ExprArray1OfNamedUnknown;
-              vals: TColStdArray1OfReal): StandardReal {.noSideEffect,
+proc Derivative*(this: Expr_PolyFunction; X: handle[Expr_NamedUnknown]): handle[
+    Expr_GeneralExpression] {.noSideEffect, importcpp: "Derivative",
+                             header: "Expr_PolyFunction.hxx".}
+proc Evaluate*(this: Expr_PolyFunction; vars: Expr_Array1OfNamedUnknown;
+              vals: TColStd_Array1OfReal): Standard_Real {.noSideEffect,
     importcpp: "Evaluate", header: "Expr_PolyFunction.hxx".}
-proc string*(this: ExprPolyFunction): TCollectionAsciiString {.noSideEffect,
+proc String*(this: Expr_PolyFunction): TCollection_AsciiString {.noSideEffect,
     importcpp: "String", header: "Expr_PolyFunction.hxx".}
 type
-  ExprPolyFunctionbaseType* = ExprPolyExpression
+  Expr_PolyFunctionbase_type* = Expr_PolyExpression
 
-proc getTypeName*(): cstring {.importcpp: "Expr_PolyFunction::get_type_name(@)",
-                            header: "Expr_PolyFunction.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "Expr_PolyFunction::get_type_name(@)",
+                              header: "Expr_PolyFunction.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "Expr_PolyFunction::get_type_descriptor(@)",
     header: "Expr_PolyFunction.hxx".}
-proc dynamicType*(this: ExprPolyFunction): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: Expr_PolyFunction): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "Expr_PolyFunction.hxx".}
-

@@ -13,30 +13,33 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepDimTol_RunoutZoneDefinition"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepDimTolRWRunoutZoneDefinition* {.importcpp: "RWStepDimTol_RWRunoutZoneDefinition", header: "RWStepDimTol_RWRunoutZoneDefinition.hxx",
-                                       bycopy.} = object ## ! Empty constructor
+  RWStepDimTol_RWRunoutZoneDefinition* {.importcpp: "RWStepDimTol_RWRunoutZoneDefinition", header: "RWStepDimTol_RWRunoutZoneDefinition.hxx",
+                                        bycopy.} = object ## ! Empty constructor
 
 
-proc constructRWStepDimTolRWRunoutZoneDefinition*(): RWStepDimTolRWRunoutZoneDefinition {.
+proc constructRWStepDimTol_RWRunoutZoneDefinition*(): RWStepDimTol_RWRunoutZoneDefinition {.
     constructor, importcpp: "RWStepDimTol_RWRunoutZoneDefinition(@)",
     header: "RWStepDimTol_RWRunoutZoneDefinition.hxx".}
-proc readStep*(this: RWStepDimTolRWRunoutZoneDefinition;
-              data: Handle[StepDataStepReaderData]; num: StandardInteger;
-              ach: var Handle[InterfaceCheck];
-              ent: Handle[StepDimTolRunoutZoneDefinition]) {.noSideEffect,
+proc ReadStep*(this: RWStepDimTol_RWRunoutZoneDefinition;
+              data: handle[StepData_StepReaderData]; num: Standard_Integer;
+              ach: var handle[Interface_Check];
+              ent: handle[StepDimTol_RunoutZoneDefinition]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepDimTol_RWRunoutZoneDefinition.hxx".}
-proc writeStep*(this: RWStepDimTolRWRunoutZoneDefinition;
-               sw: var StepDataStepWriter;
-               ent: Handle[StepDimTolRunoutZoneDefinition]) {.noSideEffect,
+proc WriteStep*(this: RWStepDimTol_RWRunoutZoneDefinition;
+               SW: var StepData_StepWriter;
+               ent: handle[StepDimTol_RunoutZoneDefinition]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepDimTol_RWRunoutZoneDefinition.hxx".}
-proc share*(this: RWStepDimTolRWRunoutZoneDefinition;
-           ent: Handle[StepDimTolRunoutZoneDefinition];
-           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
+proc Share*(this: RWStepDimTol_RWRunoutZoneDefinition;
+           ent: handle[StepDimTol_RunoutZoneDefinition];
+           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepDimTol_RWRunoutZoneDefinition.hxx".}
-

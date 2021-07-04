@@ -12,81 +12,84 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../GeomLib/GeomLib_CheckCurveOnSurface
+
 ## ! Computes the max distance between edge and its
 ## ! 2d representation on the face.
 
 type
-  BRepLibCheckCurveOnSurface* {.importcpp: "BRepLib_CheckCurveOnSurface",
-                               header: "BRepLib_CheckCurveOnSurface.hxx", bycopy.} = object ##
-                                                                                       ## !
-                                                                                       ## Default
-                                                                                       ## contructor
-                                                                                       ##
-                                                                                       ## !
-                                                                                       ## Computes
-                                                                                       ## the
-                                                                                       ## max
-                                                                                       ## distance
-                                                                                       ## for
-                                                                                       ## the
-                                                                                       ## 3d
-                                                                                       ## curve
-                                                                                       ## of
-                                                                                       ## <myCOnSurfGeom>
-                                                                                       ##
-                                                                                       ## !
-                                                                                       ## and
-                                                                                       ## 2d
-                                                                                       ## curve
-                                                                                       ## <thePCurve>
-                                                                                       ##
-                                                                                       ## !
-                                                                                       ## If
-                                                                                       ## isTheMultyTheadDisabled
-                                                                                       ## ==
-                                                                                       ## TRUE
-                                                                                       ## then
-                                                                                       ## computation
-                                                                                       ## will
-                                                                                       ## be
-                                                                                       ## made
-                                                                                       ##
-                                                                                       ## !
-                                                                                       ## without
-                                                                                       ## any
-                                                                                       ## parallelization.
+  BRepLib_CheckCurveOnSurface* {.importcpp: "BRepLib_CheckCurveOnSurface",
+                                header: "BRepLib_CheckCurveOnSurface.hxx", bycopy.} = object ##
+                                                                                        ## !
+                                                                                        ## Default
+                                                                                        ## contructor
+                                                                                        ##
+                                                                                        ## !
+                                                                                        ## Computes
+                                                                                        ## the
+                                                                                        ## max
+                                                                                        ## distance
+                                                                                        ## for
+                                                                                        ## the
+                                                                                        ## 3d
+                                                                                        ## curve
+                                                                                        ## of
+                                                                                        ## <myCOnSurfGeom>
+                                                                                        ##
+                                                                                        ## !
+                                                                                        ## and
+                                                                                        ## 2d
+                                                                                        ## curve
+                                                                                        ## <thePCurve>
+                                                                                        ##
+                                                                                        ## !
+                                                                                        ## If
+                                                                                        ## isTheMultyTheadDisabled
+                                                                                        ## ==
+                                                                                        ## TRUE
+                                                                                        ## then
+                                                                                        ## computation
+                                                                                        ## will
+                                                                                        ## be
+                                                                                        ## made
+                                                                                        ##
+                                                                                        ## !
+                                                                                        ## without
+                                                                                        ## any
+                                                                                        ## parallelization.
 
 
-proc constructBRepLibCheckCurveOnSurface*(): BRepLibCheckCurveOnSurface {.
+proc constructBRepLib_CheckCurveOnSurface*(): BRepLib_CheckCurveOnSurface {.
     constructor, importcpp: "BRepLib_CheckCurveOnSurface(@)",
     header: "BRepLib_CheckCurveOnSurface.hxx".}
-proc constructBRepLibCheckCurveOnSurface*(theEdge: TopoDS_Edge;
-    theFace: TopoDS_Face): BRepLibCheckCurveOnSurface {.constructor,
+proc constructBRepLib_CheckCurveOnSurface*(theEdge: TopoDS_Edge;
+    theFace: TopoDS_Face): BRepLib_CheckCurveOnSurface {.constructor,
     importcpp: "BRepLib_CheckCurveOnSurface(@)",
     header: "BRepLib_CheckCurveOnSurface.hxx".}
-proc init*(this: var BRepLibCheckCurveOnSurface; theEdge: TopoDS_Edge;
+proc Init*(this: var BRepLib_CheckCurveOnSurface; theEdge: TopoDS_Edge;
           theFace: TopoDS_Face) {.importcpp: "Init",
                                 header: "BRepLib_CheckCurveOnSurface.hxx".}
-proc perform*(this: var BRepLibCheckCurveOnSurface;
-             isTheMultyTheradDisabled: StandardBoolean = standardFalse) {.
+proc Perform*(this: var BRepLib_CheckCurveOnSurface;
+             isTheMultyTheradDisabled: Standard_Boolean = Standard_False) {.
     importcpp: "Perform", header: "BRepLib_CheckCurveOnSurface.hxx".}
-proc curve*(this: BRepLibCheckCurveOnSurface): Handle[GeomCurve] {.noSideEffect,
+proc Curve*(this: BRepLib_CheckCurveOnSurface): handle[Geom_Curve] {.noSideEffect,
     importcpp: "Curve", header: "BRepLib_CheckCurveOnSurface.hxx".}
-proc pCurve*(this: BRepLibCheckCurveOnSurface): Handle[Geom2dCurve] {.noSideEffect,
-    importcpp: "PCurve", header: "BRepLib_CheckCurveOnSurface.hxx".}
-proc pCurve2*(this: BRepLibCheckCurveOnSurface): Handle[Geom2dCurve] {.noSideEffect,
-    importcpp: "PCurve2", header: "BRepLib_CheckCurveOnSurface.hxx".}
-proc surface*(this: BRepLibCheckCurveOnSurface): Handle[GeomSurface] {.noSideEffect,
-    importcpp: "Surface", header: "BRepLib_CheckCurveOnSurface.hxx".}
-proc range*(this: var BRepLibCheckCurveOnSurface; theFirst: var StandardReal;
-           theLast: var StandardReal) {.importcpp: "Range",
-                                     header: "BRepLib_CheckCurveOnSurface.hxx".}
-proc isDone*(this: BRepLibCheckCurveOnSurface): StandardBoolean {.noSideEffect,
+proc PCurve*(this: BRepLib_CheckCurveOnSurface): handle[Geom2d_Curve] {.
+    noSideEffect, importcpp: "PCurve", header: "BRepLib_CheckCurveOnSurface.hxx".}
+proc PCurve2*(this: BRepLib_CheckCurveOnSurface): handle[Geom2d_Curve] {.
+    noSideEffect, importcpp: "PCurve2", header: "BRepLib_CheckCurveOnSurface.hxx".}
+proc Surface*(this: BRepLib_CheckCurveOnSurface): handle[Geom_Surface] {.
+    noSideEffect, importcpp: "Surface", header: "BRepLib_CheckCurveOnSurface.hxx".}
+proc Range*(this: var BRepLib_CheckCurveOnSurface; theFirst: var Standard_Real;
+           theLast: var Standard_Real) {.importcpp: "Range",
+                                      header: "BRepLib_CheckCurveOnSurface.hxx".}
+proc IsDone*(this: BRepLib_CheckCurveOnSurface): Standard_Boolean {.noSideEffect,
     importcpp: "IsDone", header: "BRepLib_CheckCurveOnSurface.hxx".}
-proc errorStatus*(this: BRepLibCheckCurveOnSurface): StandardInteger {.noSideEffect,
-    importcpp: "ErrorStatus", header: "BRepLib_CheckCurveOnSurface.hxx".}
-proc maxDistance*(this: BRepLibCheckCurveOnSurface): StandardReal {.noSideEffect,
+proc ErrorStatus*(this: BRepLib_CheckCurveOnSurface): Standard_Integer {.
+    noSideEffect, importcpp: "ErrorStatus",
+    header: "BRepLib_CheckCurveOnSurface.hxx".}
+proc MaxDistance*(this: BRepLib_CheckCurveOnSurface): Standard_Real {.noSideEffect,
     importcpp: "MaxDistance", header: "BRepLib_CheckCurveOnSurface.hxx".}
-proc maxParameter*(this: BRepLibCheckCurveOnSurface): StandardReal {.noSideEffect,
+proc MaxParameter*(this: BRepLib_CheckCurveOnSurface): Standard_Real {.noSideEffect,
     importcpp: "MaxParameter", header: "BRepLib_CheckCurveOnSurface.hxx".}
-

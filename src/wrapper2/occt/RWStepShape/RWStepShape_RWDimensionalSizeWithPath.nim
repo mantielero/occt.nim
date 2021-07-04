@@ -13,32 +13,35 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepShape_DimensionalSizeWithPath"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepShapeRWDimensionalSizeWithPath* {.
+  RWStepShape_RWDimensionalSizeWithPath* {.
       importcpp: "RWStepShape_RWDimensionalSizeWithPath",
       header: "RWStepShape_RWDimensionalSizeWithPath.hxx", bycopy.} = object ## ! Empty
                                                                         ## constructor
 
 
-proc constructRWStepShapeRWDimensionalSizeWithPath*(): RWStepShapeRWDimensionalSizeWithPath {.
+proc constructRWStepShape_RWDimensionalSizeWithPath*(): RWStepShape_RWDimensionalSizeWithPath {.
     constructor, importcpp: "RWStepShape_RWDimensionalSizeWithPath(@)",
     header: "RWStepShape_RWDimensionalSizeWithPath.hxx".}
-proc readStep*(this: RWStepShapeRWDimensionalSizeWithPath;
-              data: Handle[StepDataStepReaderData]; num: StandardInteger;
-              ach: var Handle[InterfaceCheck];
-              ent: Handle[StepShapeDimensionalSizeWithPath]) {.noSideEffect,
+proc ReadStep*(this: RWStepShape_RWDimensionalSizeWithPath;
+              data: handle[StepData_StepReaderData]; num: Standard_Integer;
+              ach: var handle[Interface_Check];
+              ent: handle[StepShape_DimensionalSizeWithPath]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepShape_RWDimensionalSizeWithPath.hxx".}
-proc writeStep*(this: RWStepShapeRWDimensionalSizeWithPath;
-               sw: var StepDataStepWriter;
-               ent: Handle[StepShapeDimensionalSizeWithPath]) {.noSideEffect,
+proc WriteStep*(this: RWStepShape_RWDimensionalSizeWithPath;
+               SW: var StepData_StepWriter;
+               ent: handle[StepShape_DimensionalSizeWithPath]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepShape_RWDimensionalSizeWithPath.hxx".}
-proc share*(this: RWStepShapeRWDimensionalSizeWithPath;
-           ent: Handle[StepShapeDimensionalSizeWithPath];
-           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
+proc Share*(this: RWStepShape_RWDimensionalSizeWithPath;
+           ent: handle[StepShape_DimensionalSizeWithPath];
+           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepShape_RWDimensionalSizeWithPath.hxx".}
-

@@ -14,84 +14,91 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Integer,
+  ../Standard/Standard_Boolean, HLRAlgo_HArray1OfTData, HLRAlgo_HArray1OfPISeg,
+  HLRAlgo_HArray1OfPINod, ../Standard/Standard_Transient,
+  ../Standard/Standard_Real, HLRAlgo_Array1OfTData, HLRAlgo_Array1OfPISeg,
+  HLRAlgo_Array1OfPINod
+
 discard "forward decl of HLRAlgo_PolyInternalData"
 discard "forward decl of HLRAlgo_PolyInternalData"
 type
-  HandleHLRAlgoPolyInternalData* = Handle[HLRAlgoPolyInternalData]
+  Handle_HLRAlgo_PolyInternalData* = handle[HLRAlgo_PolyInternalData]
 
 ## ! to Update OutLines.
 
 type
-  HLRAlgoPolyInternalData* {.importcpp: "HLRAlgo_PolyInternalData",
-                            header: "HLRAlgo_PolyInternalData.hxx", bycopy.} = object of StandardTransient
+  HLRAlgo_PolyInternalData* {.importcpp: "HLRAlgo_PolyInternalData",
+                             header: "HLRAlgo_PolyInternalData.hxx", bycopy.} = object of Standard_Transient
 
 
-proc constructHLRAlgoPolyInternalData*(nbNod: StandardInteger;
-                                      nbTri: StandardInteger): HLRAlgoPolyInternalData {.
+proc constructHLRAlgo_PolyInternalData*(nbNod: Standard_Integer;
+                                       nbTri: Standard_Integer): HLRAlgo_PolyInternalData {.
     constructor, importcpp: "HLRAlgo_PolyInternalData(@)",
     header: "HLRAlgo_PolyInternalData.hxx".}
-proc updateLinks*(this: var HLRAlgoPolyInternalData;
-                 tData: ptr HLRAlgoArray1OfTData; pISeg: ptr HLRAlgoArray1OfPISeg;
-                 pINod: ptr HLRAlgoArray1OfPINod) {.importcpp: "UpdateLinks",
-    header: "HLRAlgo_PolyInternalData.hxx".}
-proc addNode*(this: var HLRAlgoPolyInternalData; nod1RValues: var NodeData;
-             nod2RValues: var NodeData; pINod1: ptr HLRAlgoArray1OfPINod;
-             pINod2: ptr HLRAlgoArray1OfPINod; coef1: StandardReal; x3: StandardReal;
-             y3: StandardReal; z3: StandardReal): StandardInteger {.
-    importcpp: "AddNode", header: "HLRAlgo_PolyInternalData.hxx".}
-proc updateLinks*(this: var HLRAlgoPolyInternalData; ip1: StandardInteger;
-                 ip2: StandardInteger; ip3: StandardInteger;
-                 tData1: ptr HLRAlgoArray1OfTData;
-                 tData2: ptr HLRAlgoArray1OfTData;
-                 pISeg1: ptr HLRAlgoArray1OfPISeg;
-                 pISeg2: ptr HLRAlgoArray1OfPISeg;
-                 pINod1: ptr HLRAlgoArray1OfPINod; pINod2: ptr HLRAlgoArray1OfPINod) {.
+proc UpdateLinks*(this: var HLRAlgo_PolyInternalData;
+                 TData: ptr HLRAlgo_Array1OfTData;
+                 PISeg: ptr HLRAlgo_Array1OfPISeg; PINod: ptr HLRAlgo_Array1OfPINod) {.
     importcpp: "UpdateLinks", header: "HLRAlgo_PolyInternalData.hxx".}
-proc dump*(this: HLRAlgoPolyInternalData) {.noSideEffect, importcpp: "Dump",
+proc AddNode*(this: var HLRAlgo_PolyInternalData; Nod1RValues: var NodeData;
+             Nod2RValues: var NodeData; PINod1: ptr HLRAlgo_Array1OfPINod;
+             PINod2: ptr HLRAlgo_Array1OfPINod; coef1: Standard_Real;
+             X3: Standard_Real; Y3: Standard_Real; Z3: Standard_Real): Standard_Integer {.
+    importcpp: "AddNode", header: "HLRAlgo_PolyInternalData.hxx".}
+proc UpdateLinks*(this: var HLRAlgo_PolyInternalData; ip1: Standard_Integer;
+                 ip2: Standard_Integer; ip3: Standard_Integer;
+                 TData1: ptr HLRAlgo_Array1OfTData;
+                 TData2: ptr HLRAlgo_Array1OfTData;
+                 PISeg1: ptr HLRAlgo_Array1OfPISeg;
+                 PISeg2: ptr HLRAlgo_Array1OfPISeg;
+                 PINod1: ptr HLRAlgo_Array1OfPINod;
+                 PINod2: ptr HLRAlgo_Array1OfPINod) {.importcpp: "UpdateLinks",
     header: "HLRAlgo_PolyInternalData.hxx".}
-proc incTData*(this: var HLRAlgoPolyInternalData; tData1: ptr HLRAlgoArray1OfTData;
-              tData2: ptr HLRAlgoArray1OfTData) {.importcpp: "IncTData",
+proc Dump*(this: HLRAlgo_PolyInternalData) {.noSideEffect, importcpp: "Dump",
     header: "HLRAlgo_PolyInternalData.hxx".}
-proc incPISeg*(this: var HLRAlgoPolyInternalData; pISeg1: ptr HLRAlgoArray1OfPISeg;
-              pISeg2: ptr HLRAlgoArray1OfPISeg) {.importcpp: "IncPISeg",
+proc IncTData*(this: var HLRAlgo_PolyInternalData;
+              TData1: ptr HLRAlgo_Array1OfTData; TData2: ptr HLRAlgo_Array1OfTData) {.
+    importcpp: "IncTData", header: "HLRAlgo_PolyInternalData.hxx".}
+proc IncPISeg*(this: var HLRAlgo_PolyInternalData;
+              PISeg1: ptr HLRAlgo_Array1OfPISeg; PISeg2: ptr HLRAlgo_Array1OfPISeg) {.
+    importcpp: "IncPISeg", header: "HLRAlgo_PolyInternalData.hxx".}
+proc IncPINod*(this: var HLRAlgo_PolyInternalData;
+              PINod1: ptr HLRAlgo_Array1OfPINod; PINod2: ptr HLRAlgo_Array1OfPINod) {.
+    importcpp: "IncPINod", header: "HLRAlgo_PolyInternalData.hxx".}
+proc DecTData*(this: var HLRAlgo_PolyInternalData) {.importcpp: "DecTData",
     header: "HLRAlgo_PolyInternalData.hxx".}
-proc incPINod*(this: var HLRAlgoPolyInternalData; pINod1: ptr HLRAlgoArray1OfPINod;
-              pINod2: ptr HLRAlgoArray1OfPINod) {.importcpp: "IncPINod",
+proc DecPISeg*(this: var HLRAlgo_PolyInternalData) {.importcpp: "DecPISeg",
     header: "HLRAlgo_PolyInternalData.hxx".}
-proc decTData*(this: var HLRAlgoPolyInternalData) {.importcpp: "DecTData",
+proc DecPINod*(this: var HLRAlgo_PolyInternalData) {.importcpp: "DecPINod",
     header: "HLRAlgo_PolyInternalData.hxx".}
-proc decPISeg*(this: var HLRAlgoPolyInternalData) {.importcpp: "DecPISeg",
-    header: "HLRAlgo_PolyInternalData.hxx".}
-proc decPINod*(this: var HLRAlgoPolyInternalData) {.importcpp: "DecPINod",
-    header: "HLRAlgo_PolyInternalData.hxx".}
-proc nbTData*(this: HLRAlgoPolyInternalData): StandardInteger {.noSideEffect,
+proc NbTData*(this: HLRAlgo_PolyInternalData): Standard_Integer {.noSideEffect,
     importcpp: "NbTData", header: "HLRAlgo_PolyInternalData.hxx".}
-proc nbPISeg*(this: HLRAlgoPolyInternalData): StandardInteger {.noSideEffect,
+proc NbPISeg*(this: HLRAlgo_PolyInternalData): Standard_Integer {.noSideEffect,
     importcpp: "NbPISeg", header: "HLRAlgo_PolyInternalData.hxx".}
-proc nbPINod*(this: HLRAlgoPolyInternalData): StandardInteger {.noSideEffect,
+proc NbPINod*(this: HLRAlgo_PolyInternalData): Standard_Integer {.noSideEffect,
     importcpp: "NbPINod", header: "HLRAlgo_PolyInternalData.hxx".}
-proc planar*(this: HLRAlgoPolyInternalData): StandardBoolean {.noSideEffect,
+proc Planar*(this: HLRAlgo_PolyInternalData): Standard_Boolean {.noSideEffect,
     importcpp: "Planar", header: "HLRAlgo_PolyInternalData.hxx".}
-proc planar*(this: var HLRAlgoPolyInternalData; b: StandardBoolean) {.
+proc Planar*(this: var HLRAlgo_PolyInternalData; B: Standard_Boolean) {.
     importcpp: "Planar", header: "HLRAlgo_PolyInternalData.hxx".}
-proc intOutL*(this: HLRAlgoPolyInternalData): StandardBoolean {.noSideEffect,
+proc IntOutL*(this: HLRAlgo_PolyInternalData): Standard_Boolean {.noSideEffect,
     importcpp: "IntOutL", header: "HLRAlgo_PolyInternalData.hxx".}
-proc intOutL*(this: var HLRAlgoPolyInternalData; b: StandardBoolean) {.
+proc IntOutL*(this: var HLRAlgo_PolyInternalData; B: Standard_Boolean) {.
     importcpp: "IntOutL", header: "HLRAlgo_PolyInternalData.hxx".}
-proc tData*(this: HLRAlgoPolyInternalData): var HLRAlgoArray1OfTData {.noSideEffect,
-    importcpp: "TData", header: "HLRAlgo_PolyInternalData.hxx".}
-proc pISeg*(this: HLRAlgoPolyInternalData): var HLRAlgoArray1OfPISeg {.noSideEffect,
-    importcpp: "PISeg", header: "HLRAlgo_PolyInternalData.hxx".}
-proc pINod*(this: HLRAlgoPolyInternalData): var HLRAlgoArray1OfPINod {.noSideEffect,
-    importcpp: "PINod", header: "HLRAlgo_PolyInternalData.hxx".}
+proc TData*(this: HLRAlgo_PolyInternalData): var HLRAlgo_Array1OfTData {.
+    noSideEffect, importcpp: "TData", header: "HLRAlgo_PolyInternalData.hxx".}
+proc PISeg*(this: HLRAlgo_PolyInternalData): var HLRAlgo_Array1OfPISeg {.
+    noSideEffect, importcpp: "PISeg", header: "HLRAlgo_PolyInternalData.hxx".}
+proc PINod*(this: HLRAlgo_PolyInternalData): var HLRAlgo_Array1OfPINod {.
+    noSideEffect, importcpp: "PINod", header: "HLRAlgo_PolyInternalData.hxx".}
 type
-  HLRAlgoPolyInternalDatabaseType* = StandardTransient
+  HLRAlgo_PolyInternalDatabase_type* = Standard_Transient
 
-proc getTypeName*(): cstring {.importcpp: "HLRAlgo_PolyInternalData::get_type_name(@)",
-                            header: "HLRAlgo_PolyInternalData.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "HLRAlgo_PolyInternalData::get_type_name(@)",
+                              header: "HLRAlgo_PolyInternalData.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "HLRAlgo_PolyInternalData::get_type_descriptor(@)",
     header: "HLRAlgo_PolyInternalData.hxx".}
-proc dynamicType*(this: HLRAlgoPolyInternalData): Handle[StandardType] {.
+proc DynamicType*(this: HLRAlgo_PolyInternalData): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType", header: "HLRAlgo_PolyInternalData.hxx".}
-

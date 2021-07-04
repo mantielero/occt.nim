@@ -14,6 +14,13 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer,
+  ../Standard/Standard_Boolean, ../TopAbs/TopAbs_ShapeEnum,
+  ../TopTools/TopTools_DataMapOfShapeShape, ../Standard/Standard_CString,
+  ../TopTools/TopTools_ListOfShape, ../Draw/Draw_Interpretor
+
 discard "forward decl of TDataStd_Real"
 discard "forward decl of TFunction_Function"
 discard "forward decl of TDataStd_Integer"
@@ -43,85 +50,85 @@ type
   DNaming* {.importcpp: "DNaming", header: "DNaming.hxx", bycopy.} = object
 
 
-proc getReal*(theFunction: Handle[TFunctionFunction]; thePosition: StandardInteger): Handle[
-    TDataStdReal] {.importcpp: "DNaming::GetReal(@)", header: "DNaming.hxx".}
-proc getInteger*(theFunction: Handle[TFunctionFunction];
-                thePosition: StandardInteger): Handle[TDataStdInteger] {.
+proc GetReal*(theFunction: handle[TFunction_Function];
+             thePosition: Standard_Integer): handle[TDataStd_Real] {.
+    importcpp: "DNaming::GetReal(@)", header: "DNaming.hxx".}
+proc GetInteger*(theFunction: handle[TFunction_Function];
+                thePosition: Standard_Integer): handle[TDataStd_Integer] {.
     importcpp: "DNaming::GetInteger(@)", header: "DNaming.hxx".}
-proc getString*(theFunction: Handle[TFunctionFunction];
-               thePosition: StandardInteger): Handle[TDataStdName] {.
+proc GetString*(theFunction: handle[TFunction_Function];
+               thePosition: Standard_Integer): handle[TDataStd_Name] {.
     importcpp: "DNaming::GetString(@)", header: "DNaming.hxx".}
-proc computeAxis*(theNS: Handle[TNamingNamedShape]; theAx1: var GpAx1): StandardBoolean {.
+proc ComputeAxis*(theNS: handle[TNaming_NamedShape]; theAx1: var gp_Ax1): Standard_Boolean {.
     importcpp: "DNaming::ComputeAxis(@)", header: "DNaming.hxx".}
-proc getFunctionResult*(theFunction: Handle[TFunctionFunction]): Handle[
-    TNamingNamedShape] {.importcpp: "DNaming::GetFunctionResult(@)",
-                        header: "DNaming.hxx".}
-proc getObjectArg*(theFunction: Handle[TFunctionFunction];
-                  thePosition: StandardInteger): Handle[TDataStdUAttribute] {.
-    importcpp: "DNaming::GetObjectArg(@)", header: "DNaming.hxx".}
-proc setObjectArg*(theFunction: Handle[TFunctionFunction];
-                  thePosition: StandardInteger;
-                  theNewValue: Handle[TDataStdUAttribute]) {.
-    importcpp: "DNaming::SetObjectArg(@)", header: "DNaming.hxx".}
-proc getObjectValue*(theObject: Handle[TDataStdUAttribute]): Handle[
-    TNamingNamedShape] {.importcpp: "DNaming::GetObjectValue(@)",
-                        header: "DNaming.hxx".}
-proc getLastFunction*(theObject: Handle[TDataStdUAttribute]): Handle[
-    TFunctionFunction] {.importcpp: "DNaming::GetLastFunction(@)",
-                        header: "DNaming.hxx".}
-proc getFirstFunction*(theObject: Handle[TDataStdUAttribute]): Handle[
-    TFunctionFunction] {.importcpp: "DNaming::GetFirstFunction(@)",
-                        header: "DNaming.hxx".}
-proc getPrevFunction*(theFunction: Handle[TFunctionFunction]): Handle[
-    TFunctionFunction] {.importcpp: "DNaming::GetPrevFunction(@)",
-                        header: "DNaming.hxx".}
-proc getObjectFromFunction*(theFunction: Handle[TFunctionFunction]): Handle[
-    TDataStdUAttribute] {.importcpp: "DNaming::GetObjectFromFunction(@)",
+proc GetFunctionResult*(theFunction: handle[TFunction_Function]): handle[
+    TNaming_NamedShape] {.importcpp: "DNaming::GetFunctionResult(@)",
                          header: "DNaming.hxx".}
-proc isAttachment*(theObject: Handle[TDataStdUAttribute]): StandardBoolean {.
+proc GetObjectArg*(theFunction: handle[TFunction_Function];
+                  thePosition: Standard_Integer): handle[TDataStd_UAttribute] {.
+    importcpp: "DNaming::GetObjectArg(@)", header: "DNaming.hxx".}
+proc SetObjectArg*(theFunction: handle[TFunction_Function];
+                  thePosition: Standard_Integer;
+                  theNewValue: handle[TDataStd_UAttribute]) {.
+    importcpp: "DNaming::SetObjectArg(@)", header: "DNaming.hxx".}
+proc GetObjectValue*(theObject: handle[TDataStd_UAttribute]): handle[
+    TNaming_NamedShape] {.importcpp: "DNaming::GetObjectValue(@)",
+                         header: "DNaming.hxx".}
+proc GetLastFunction*(theObject: handle[TDataStd_UAttribute]): handle[
+    TFunction_Function] {.importcpp: "DNaming::GetLastFunction(@)",
+                         header: "DNaming.hxx".}
+proc GetFirstFunction*(theObject: handle[TDataStd_UAttribute]): handle[
+    TFunction_Function] {.importcpp: "DNaming::GetFirstFunction(@)",
+                         header: "DNaming.hxx".}
+proc GetPrevFunction*(theFunction: handle[TFunction_Function]): handle[
+    TFunction_Function] {.importcpp: "DNaming::GetPrevFunction(@)",
+                         header: "DNaming.hxx".}
+proc GetObjectFromFunction*(theFunction: handle[TFunction_Function]): handle[
+    TDataStd_UAttribute] {.importcpp: "DNaming::GetObjectFromFunction(@)",
+                          header: "DNaming.hxx".}
+proc IsAttachment*(theObject: handle[TDataStd_UAttribute]): Standard_Boolean {.
     importcpp: "DNaming::IsAttachment(@)", header: "DNaming.hxx".}
-proc getAttachmentsContext*(theObject: Handle[TDataStdUAttribute]): Handle[
-    TNamingNamedShape] {.importcpp: "DNaming::GetAttachmentsContext(@)",
-                        header: "DNaming.hxx".}
-proc computeSweepDir*(theShape: TopoDS_Shape; theAxis: var GpAx1): StandardBoolean {.
+proc GetAttachmentsContext*(theObject: handle[TDataStd_UAttribute]): handle[
+    TNaming_NamedShape] {.importcpp: "DNaming::GetAttachmentsContext(@)",
+                         header: "DNaming.hxx".}
+proc ComputeSweepDir*(theShape: TopoDS_Shape; theAxis: var gp_Ax1): Standard_Boolean {.
     importcpp: "DNaming::ComputeSweepDir(@)", header: "DNaming.hxx".}
-proc loadAndOrientModifiedShapes*(makeShape: var BRepBuilderAPI_MakeShape;
-                                 shapeIn: TopoDS_Shape;
-                                 generatedFrom: TopAbsShapeEnum;
-                                 buider: var TNamingBuilder;
-                                 subShapesOfResult: TopToolsDataMapOfShapeShape) {.
+proc LoadAndOrientModifiedShapes*(MakeShape: var BRepBuilderAPI_MakeShape;
+                                 ShapeIn: TopoDS_Shape;
+                                 GeneratedFrom: TopAbs_ShapeEnum;
+                                 Buider: var TNaming_Builder; SubShapesOfResult: TopTools_DataMapOfShapeShape) {.
     importcpp: "DNaming::LoadAndOrientModifiedShapes(@)", header: "DNaming.hxx".}
-proc loadAndOrientGeneratedShapes*(makeShape: var BRepBuilderAPI_MakeShape;
-                                  shapeIn: TopoDS_Shape;
-                                  generatedFrom: TopAbsShapeEnum;
-                                  buider: var TNamingBuilder; subShapesOfResult: TopToolsDataMapOfShapeShape) {.
+proc LoadAndOrientGeneratedShapes*(MakeShape: var BRepBuilderAPI_MakeShape;
+                                  ShapeIn: TopoDS_Shape;
+                                  GeneratedFrom: TopAbs_ShapeEnum;
+                                  Buider: var TNaming_Builder; SubShapesOfResult: TopTools_DataMapOfShapeShape) {.
     importcpp: "DNaming::LoadAndOrientGeneratedShapes(@)", header: "DNaming.hxx".}
-proc loadDeletedShapes*(makeShape: var BRepBuilderAPI_MakeShape;
-                       shapeIn: TopoDS_Shape; kindOfDeletedShape: TopAbsShapeEnum;
-                       buider: var TNamingBuilder) {.
+proc LoadDeletedShapes*(MakeShape: var BRepBuilderAPI_MakeShape;
+                       ShapeIn: TopoDS_Shape;
+                       KindOfDeletedShape: TopAbs_ShapeEnum;
+                       Buider: var TNaming_Builder) {.
     importcpp: "DNaming::LoadDeletedShapes(@)", header: "DNaming.hxx".}
-proc loadResult*(theLabel: TDF_Label; ms: var BRepAlgoAPI_BooleanOperation) {.
+proc LoadResult*(theLabel: TDF_Label; MS: var BRepAlgoAPI_BooleanOperation) {.
     importcpp: "DNaming::LoadResult(@)", header: "DNaming.hxx".}
-proc currentShape*(shapeEntry: StandardCString; data: Handle[TDF_Data]): TopoDS_Shape {.
+proc CurrentShape*(ShapeEntry: Standard_CString; Data: handle[TDF_Data]): TopoDS_Shape {.
     importcpp: "DNaming::CurrentShape(@)", header: "DNaming.hxx".}
-proc getShape*(shapeEntry: StandardCString; data: Handle[TDF_Data];
-              shapes: var TopToolsListOfShape) {.importcpp: "DNaming::GetShape(@)",
-    header: "DNaming.hxx".}
-proc getEntry*(shape: TopoDS_Shape; data: Handle[TDF_Data];
-              theStatus: var StandardInteger): TCollectionAsciiString {.
+proc GetShape*(ShapeEntry: Standard_CString; Data: handle[TDF_Data];
+              Shapes: var TopTools_ListOfShape) {.
+    importcpp: "DNaming::GetShape(@)", header: "DNaming.hxx".}
+proc GetEntry*(Shape: TopoDS_Shape; Data: handle[TDF_Data];
+              theStatus: var Standard_Integer): TCollection_AsciiString {.
     importcpp: "DNaming::GetEntry(@)", header: "DNaming.hxx".}
-proc loadImportedShape*(theResultLabel: TDF_Label; theShape: TopoDS_Shape) {.
+proc LoadImportedShape*(theResultLabel: TDF_Label; theShape: TopoDS_Shape) {.
     importcpp: "DNaming::LoadImportedShape(@)", header: "DNaming.hxx".}
-proc loadPrime*(theResultLabel: TDF_Label; theShape: TopoDS_Shape) {.
+proc LoadPrime*(theResultLabel: TDF_Label; theShape: TopoDS_Shape) {.
     importcpp: "DNaming::LoadPrime(@)", header: "DNaming.hxx".}
-proc allCommands*(di: var DrawInterpretor) {.importcpp: "DNaming::AllCommands(@)",
+proc AllCommands*(DI: var Draw_Interpretor) {.importcpp: "DNaming::AllCommands(@)",
     header: "DNaming.hxx".}
-proc basicCommands*(di: var DrawInterpretor) {.
+proc BasicCommands*(DI: var Draw_Interpretor) {.
     importcpp: "DNaming::BasicCommands(@)", header: "DNaming.hxx".}
-proc toolsCommands*(di: var DrawInterpretor) {.
+proc ToolsCommands*(DI: var Draw_Interpretor) {.
     importcpp: "DNaming::ToolsCommands(@)", header: "DNaming.hxx".}
-proc selectionCommands*(di: var DrawInterpretor) {.
+proc SelectionCommands*(DI: var Draw_Interpretor) {.
     importcpp: "DNaming::SelectionCommands(@)", header: "DNaming.hxx".}
-proc modelingCommands*(di: var DrawInterpretor) {.
+proc ModelingCommands*(DI: var Draw_Interpretor) {.
     importcpp: "DNaming::ModelingCommands(@)", header: "DNaming.hxx".}
-

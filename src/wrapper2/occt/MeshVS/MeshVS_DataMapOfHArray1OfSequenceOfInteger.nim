@@ -13,12 +13,14 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard_Integer, MeshVS_HArray1OfSequenceOfInteger,
+  ../TColStd/TColStd_MapIntegerHasher, ../NCollection/NCollection_DataMap
+
 type
-  MeshVS_DataMapOfHArray1OfSequenceOfInteger* = NCollectionDataMap[
-      StandardInteger, Handle[MeshVS_HArray1OfSequenceOfInteger],
-      TColStdMapIntegerHasher]
+  MeshVS_DataMapOfHArray1OfSequenceOfInteger* = NCollection_DataMap[
+      Standard_Integer, handle[MeshVS_HArray1OfSequenceOfInteger],
+      TColStd_MapIntegerHasher]
   MeshVS_DataMapIteratorOfDataMapOfHArray1OfSequenceOfInteger* = Iterator[
-      StandardInteger, Handle[MeshVS_HArray1OfSequenceOfInteger],
-      TColStdMapIntegerHasher]
-
-
+      Standard_Integer, handle[MeshVS_HArray1OfSequenceOfInteger],
+      TColStd_MapIntegerHasher]

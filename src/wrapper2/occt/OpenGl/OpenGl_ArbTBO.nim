@@ -13,12 +13,13 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  OpenGl_GlFunctions
+
 ## ! TBO is available on OpenGL 3.0+ and OpenGL ES 3.2+ hardware
 
 type
-  OpenGlArbTBO* {.importcpp: "OpenGl_ArbTBO", header: "OpenGl_ArbTBO.hxx", bycopy.} = object of OpenGlGlFunctions
+  OpenGl_ArbTBO* {.importcpp: "OpenGl_ArbTBO", header: "OpenGl_ArbTBO.hxx", bycopy.} = object of OpenGl_GlFunctions
 
 
 ## using statement
-
-

@@ -14,7 +14,8 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  BRepBlend_PointOnRst, ../NCollection/NCollection_Sequence
+
 type
-  BRepBlendSequenceOfPointOnRst* = NCollectionSequence[BRepBlendPointOnRst]
-
-
+  BRepBlend_SequenceOfPointOnRst* = NCollection_Sequence[BRepBlend_PointOnRst]

@@ -13,28 +13,31 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepBasic_ProductDefinitionReferenceWithLocalRepresentation"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepBasicRWProductDefinitionReferenceWithLocalRepresentation* {.importcpp: "RWStepBasic_RWProductDefinitionReferenceWithLocalRepresentation", header: "RWStepBasic_RWProductDefinitionReferenceWithLocalRepresentation.hxx",
+  RWStepBasic_RWProductDefinitionReferenceWithLocalRepresentation* {.importcpp: "RWStepBasic_RWProductDefinitionReferenceWithLocalRepresentation", header: "RWStepBasic_RWProductDefinitionReferenceWithLocalRepresentation.hxx",
       bycopy.} = object
 
 
-proc constructRWStepBasicRWProductDefinitionReferenceWithLocalRepresentation*(): RWStepBasicRWProductDefinitionReferenceWithLocalRepresentation {.
+proc constructRWStepBasic_RWProductDefinitionReferenceWithLocalRepresentation*(): RWStepBasic_RWProductDefinitionReferenceWithLocalRepresentation {.
     constructor, importcpp: "RWStepBasic_RWProductDefinitionReferenceWithLocalRepresentation(@)", header: "RWStepBasic_RWProductDefinitionReferenceWithLocalRepresentation.hxx".}
-proc readStep*(this: RWStepBasicRWProductDefinitionReferenceWithLocalRepresentation;
-              data: Handle[StepDataStepReaderData]; num: StandardInteger;
-              ach: var Handle[InterfaceCheck]; ent: Handle[
-    StepBasicProductDefinitionReferenceWithLocalRepresentation]) {.noSideEffect,
+proc ReadStep*(this: RWStepBasic_RWProductDefinitionReferenceWithLocalRepresentation;
+              data: handle[StepData_StepReaderData]; num: Standard_Integer;
+              ach: var handle[Interface_Check]; ent: handle[
+    StepBasic_ProductDefinitionReferenceWithLocalRepresentation]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepBasic_RWProductDefinitionReferenceWithLocalRepresentation.hxx".}
-proc writeStep*(this: RWStepBasicRWProductDefinitionReferenceWithLocalRepresentation;
-               sw: var StepDataStepWriter; ent: Handle[
-    StepBasicProductDefinitionReferenceWithLocalRepresentation]) {.noSideEffect,
+proc WriteStep*(this: RWStepBasic_RWProductDefinitionReferenceWithLocalRepresentation;
+               SW: var StepData_StepWriter; ent: handle[
+    StepBasic_ProductDefinitionReferenceWithLocalRepresentation]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepBasic_RWProductDefinitionReferenceWithLocalRepresentation.hxx".}
-proc share*(this: RWStepBasicRWProductDefinitionReferenceWithLocalRepresentation;
-    ent: Handle[StepBasicProductDefinitionReferenceWithLocalRepresentation];
-           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share", header: "RWStepBasic_RWProductDefinitionReferenceWithLocalRepresentation.hxx".}
-
+proc Share*(this: RWStepBasic_RWProductDefinitionReferenceWithLocalRepresentation;
+    ent: handle[StepBasic_ProductDefinitionReferenceWithLocalRepresentation];
+           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share", header: "RWStepBasic_RWProductDefinitionReferenceWithLocalRepresentation.hxx".}

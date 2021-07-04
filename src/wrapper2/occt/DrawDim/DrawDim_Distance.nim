@@ -14,38 +14,41 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../TopoDS/TopoDS_Face,
+  DrawDim_Dimension
+
 discard "forward decl of TopoDS_Face"
 discard "forward decl of Draw_Display"
 discard "forward decl of DrawDim_Distance"
 discard "forward decl of DrawDim_Distance"
 type
-  HandleDrawDimDistance* = Handle[DrawDimDistance]
-  DrawDimDistance* {.importcpp: "DrawDim_Distance", header: "DrawDim_Distance.hxx",
-                    bycopy.} = object of DrawDimDimension
+  Handle_DrawDim_Distance* = handle[DrawDim_Distance]
+  DrawDim_Distance* {.importcpp: "DrawDim_Distance",
+                     header: "DrawDim_Distance.hxx", bycopy.} = object of DrawDim_Dimension
 
 
-proc constructDrawDimDistance*(plane1: TopoDS_Face; plane2: TopoDS_Face): DrawDimDistance {.
+proc constructDrawDim_Distance*(plane1: TopoDS_Face; plane2: TopoDS_Face): DrawDim_Distance {.
     constructor, importcpp: "DrawDim_Distance(@)", header: "DrawDim_Distance.hxx".}
-proc constructDrawDimDistance*(plane1: TopoDS_Face): DrawDimDistance {.constructor,
-    importcpp: "DrawDim_Distance(@)", header: "DrawDim_Distance.hxx".}
-proc plane1*(this: DrawDimDistance): TopoDS_Face {.noSideEffect, importcpp: "Plane1",
+proc constructDrawDim_Distance*(plane1: TopoDS_Face): DrawDim_Distance {.
+    constructor, importcpp: "DrawDim_Distance(@)", header: "DrawDim_Distance.hxx".}
+proc Plane1*(this: DrawDim_Distance): TopoDS_Face {.noSideEffect,
+    importcpp: "Plane1", header: "DrawDim_Distance.hxx".}
+proc Plane1*(this: var DrawDim_Distance; face: TopoDS_Face) {.importcpp: "Plane1",
     header: "DrawDim_Distance.hxx".}
-proc plane1*(this: var DrawDimDistance; face: TopoDS_Face) {.importcpp: "Plane1",
+proc Plane2*(this: DrawDim_Distance): TopoDS_Face {.noSideEffect,
+    importcpp: "Plane2", header: "DrawDim_Distance.hxx".}
+proc Plane2*(this: var DrawDim_Distance; face: TopoDS_Face) {.importcpp: "Plane2",
     header: "DrawDim_Distance.hxx".}
-proc plane2*(this: DrawDimDistance): TopoDS_Face {.noSideEffect, importcpp: "Plane2",
-    header: "DrawDim_Distance.hxx".}
-proc plane2*(this: var DrawDimDistance; face: TopoDS_Face) {.importcpp: "Plane2",
-    header: "DrawDim_Distance.hxx".}
-proc drawOn*(this: DrawDimDistance; dis: var DrawDisplay) {.noSideEffect,
+proc DrawOn*(this: DrawDim_Distance; dis: var Draw_Display) {.noSideEffect,
     importcpp: "DrawOn", header: "DrawDim_Distance.hxx".}
 type
-  DrawDimDistancebaseType* = DrawDimDimension
+  DrawDim_Distancebase_type* = DrawDim_Dimension
 
-proc getTypeName*(): cstring {.importcpp: "DrawDim_Distance::get_type_name(@)",
-                            header: "DrawDim_Distance.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "DrawDim_Distance::get_type_name(@)",
+                              header: "DrawDim_Distance.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "DrawDim_Distance::get_type_descriptor(@)",
     header: "DrawDim_Distance.hxx".}
-proc dynamicType*(this: DrawDimDistance): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: DrawDim_Distance): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "DrawDim_Distance.hxx".}
-

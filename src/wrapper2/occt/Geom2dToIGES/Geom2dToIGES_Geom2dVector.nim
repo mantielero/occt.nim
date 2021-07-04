@@ -14,6 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, Geom2dToIGES_Geom2dEntity
+
 discard "forward decl of Geom2dToIGES_Geom2dEntity"
 discard "forward decl of IGESGeom_Direction"
 discard "forward decl of Geom2d_Vector"
@@ -27,17 +31,16 @@ type
 proc constructGeom2dToIGES_Geom2dVector*(): Geom2dToIGES_Geom2dVector {.
     constructor, importcpp: "Geom2dToIGES_Geom2dVector(@)",
     header: "Geom2dToIGES_Geom2dVector.hxx".}
-proc constructGeom2dToIGES_Geom2dVector*(g2dE: Geom2dToIGES_Geom2dEntity): Geom2dToIGES_Geom2dVector {.
+proc constructGeom2dToIGES_Geom2dVector*(G2dE: Geom2dToIGES_Geom2dEntity): Geom2dToIGES_Geom2dVector {.
     constructor, importcpp: "Geom2dToIGES_Geom2dVector(@)",
     header: "Geom2dToIGES_Geom2dVector.hxx".}
-proc transfer2dVector*(this: var Geom2dToIGES_Geom2dVector;
-                      start: Handle[Geom2dVector]): Handle[IGESGeomDirection] {.
+proc Transfer2dVector*(this: var Geom2dToIGES_Geom2dVector;
+                      start: handle[Geom2d_Vector]): handle[IGESGeom_Direction] {.
     importcpp: "Transfer2dVector", header: "Geom2dToIGES_Geom2dVector.hxx".}
-proc transfer2dVector*(this: var Geom2dToIGES_Geom2dVector;
-                      start: Handle[Geom2dVectorWithMagnitude]): Handle[
-    IGESGeomDirection] {.importcpp: "Transfer2dVector",
-                        header: "Geom2dToIGES_Geom2dVector.hxx".}
-proc transfer2dVector*(this: var Geom2dToIGES_Geom2dVector;
-                      start: Handle[Geom2dDirection]): Handle[IGESGeomDirection] {.
+proc Transfer2dVector*(this: var Geom2dToIGES_Geom2dVector;
+                      start: handle[Geom2d_VectorWithMagnitude]): handle[
+    IGESGeom_Direction] {.importcpp: "Transfer2dVector",
+                         header: "Geom2dToIGES_Geom2dVector.hxx".}
+proc Transfer2dVector*(this: var Geom2dToIGES_Geom2dVector;
+                      start: handle[Geom2d_Direction]): handle[IGESGeom_Direction] {.
     importcpp: "Transfer2dVector", header: "Geom2dToIGES_Geom2dVector.hxx".}
-

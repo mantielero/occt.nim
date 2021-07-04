@@ -14,7 +14,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _GeomAdaptor_GHCurve_HeaderFile [NewLine] # _GeomAdaptor_GHCurve_HeaderFile [NewLine] # < Standard . hxx > [NewLine] # < Standard_Type . hxx > [NewLine] # < GeomAdaptor_Curve . hxx > [NewLine] # < Adaptor3d_HCurve . hxx > [NewLine] class Standard_OutOfRange ;
+## !!!Ignored construct:  # _GeomAdaptor_GHCurve_HeaderFile [NewLine] # _GeomAdaptor_GHCurve_HeaderFile [NewLine] # ../Standard/Standard.hxx [NewLine] # ../Standard/Standard_Type.hxx [NewLine] # GeomAdaptor_Curve.hxx [NewLine] # ../Adaptor3d/Adaptor3d_HCurve.hxx [NewLine] class Standard_OutOfRange ;
 ## Error: did not expect <!!!
 
 discard "forward decl of Standard_NoSuchObject"
@@ -24,40 +24,38 @@ discard "forward decl of Adaptor3d_Curve"
 discard "forward decl of GeomAdaptor_GHCurve"
 discard "forward decl of GeomAdaptor_GHCurve"
 type
-  HandleGeomAdaptorGHCurveGeomAdaptorGHCurve* = Handle[GeomAdaptorGHCurve]
-  GeomAdaptorGHCurve* {.importcpp: "GeomAdaptor_GHCurve",
-                       header: "GeomAdaptor_GHCurve.hxx", bycopy.} = object of Adaptor3dHCurve ##
-                                                                                        ## !
-                                                                                        ## Creates
-                                                                                        ## an
-                                                                                        ## empty
-                                                                                        ## GenHCurve.
+  Handle_GeomAdaptor_GHCurveGeomAdaptor_GHCurve* = handle[GeomAdaptor_GHCurve]
+  GeomAdaptor_GHCurve* {.importcpp: "GeomAdaptor_GHCurve",
+                        header: "GeomAdaptor_GHCurve.hxx", bycopy.} = object of Adaptor3d_HCurve ##
+                                                                                          ## !
+                                                                                          ## Creates
+                                                                                          ## an
+                                                                                          ## empty
+                                                                                          ## GenHCurve.
 
 
-proc constructGeomAdaptorGHCurve*(): GeomAdaptorGHCurve {.constructor,
+proc constructGeomAdaptor_GHCurve*(): GeomAdaptor_GHCurve {.constructor,
     importcpp: "GeomAdaptor_GHCurve(@)", header: "GeomAdaptor_GHCurve.hxx".}
-proc constructGeomAdaptorGHCurve*(c: GeomAdaptorCurve): GeomAdaptorGHCurve {.
+proc constructGeomAdaptor_GHCurve*(C: GeomAdaptor_Curve): GeomAdaptor_GHCurve {.
     constructor, importcpp: "GeomAdaptor_GHCurve(@)",
     header: "GeomAdaptor_GHCurve.hxx".}
-proc set*(this: var GeomAdaptorGHCurve; c: GeomAdaptorCurve) {.importcpp: "Set",
+proc Set*(this: var GeomAdaptor_GHCurve; C: GeomAdaptor_Curve) {.importcpp: "Set",
     header: "GeomAdaptor_GHCurve.hxx".}
-proc curve*(this: GeomAdaptorGHCurve): Adaptor3dCurve {.noSideEffect,
+proc Curve*(this: GeomAdaptor_GHCurve): Adaptor3d_Curve {.noSideEffect,
     importcpp: "Curve", header: "GeomAdaptor_GHCurve.hxx".}
-proc getCurve*(this: var GeomAdaptorGHCurve): var Adaptor3dCurve {.
+proc GetCurve*(this: var GeomAdaptor_GHCurve): var Adaptor3d_Curve {.
     importcpp: "GetCurve", header: "GeomAdaptor_GHCurve.hxx".}
-proc changeCurve*(this: var GeomAdaptorGHCurve): var GeomAdaptorCurve {.
+proc ChangeCurve*(this: var GeomAdaptor_GHCurve): var GeomAdaptor_Curve {.
     importcpp: "ChangeCurve", header: "GeomAdaptor_GHCurve.hxx".}
 type
-  GeomAdaptorGHCurvebaseType* = Adaptor3dHCurve
+  GeomAdaptor_GHCurvebase_type* = Adaptor3d_HCurve
 
-proc getTypeName*(): cstring {.importcpp: "GeomAdaptor_GHCurve::get_type_name(@)",
-                            header: "GeomAdaptor_GHCurve.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "GeomAdaptor_GHCurve::get_type_name(@)",
+                              header: "GeomAdaptor_GHCurve.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "GeomAdaptor_GHCurve::get_type_descriptor(@)",
     header: "GeomAdaptor_GHCurve.hxx".}
-proc dynamicType*(this: GeomAdaptorGHCurve): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: GeomAdaptor_GHCurve): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "GeomAdaptor_GHCurve.hxx".}
-## !!!Ignored construct:  # TheCurve GeomAdaptor_Curve [NewLine] # TheCurve_hxx < GeomAdaptor_Curve . hxx > [NewLine] # Adaptor3d_GenHCurve GeomAdaptor_GHCurve [NewLine] # Adaptor3d_GenHCurve_hxx < GeomAdaptor_GHCurve . hxx > [NewLine] # Handle_Adaptor3d_GenHCurve opencascade :: handle < GeomAdaptor_GHCurve > [end of template] [NewLine] # < Adaptor3d_GenHCurve . lxx > [NewLine] # TheCurve [NewLine] # TheCurve_hxx [NewLine] # Adaptor3d_GenHCurve [NewLine] # Adaptor3d_GenHCurve_hxx [NewLine] # Handle_Adaptor3d_GenHCurve [NewLine] #  _GeomAdaptor_GHCurve_HeaderFile
+## !!!Ignored construct:  # TheCurve GeomAdaptor_Curve [NewLine] # TheCurve_hxx < GeomAdaptor_Curve . hxx > [NewLine] # Adaptor3d_GenHCurve GeomAdaptor_GHCurve [NewLine] # Adaptor3d_GenHCurve_hxx < GeomAdaptor_GHCurve . hxx > [NewLine] # Handle_Adaptor3d_GenHCurve opencascade :: handle < GeomAdaptor_GHCurve > [end of template] [NewLine] # < Adaptor3d_GenHCurve . lxx > [NewLine] # TheCurve [NewLine] # TheCurve_hxx [NewLine] # Adaptor3d_GenHCurve [NewLine] # Adaptor3d_GenHCurve_hxx [NewLine] # Handle_Adaptor3d_GenHCurve [NewLine] #  _GeomAdaptor_GHCurve_HeaderFile [NewLine]
 ## Error: did not expect <!!!
-
-

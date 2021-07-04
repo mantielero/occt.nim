@@ -14,10 +14,13 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../gp/gp_Ax22d, Geom2d_Curve
+
 discard "forward decl of Geom2d_Conic"
 discard "forward decl of Geom2d_Conic"
 type
-  HandleGeom2dConic* = Handle[Geom2dConic]
+  Handle_Geom2d_Conic* = handle[Geom2d_Conic]
 
 ## ! The abstract class Conic describes the common
 ## ! behavior of conic curves in 2D space and, in
@@ -36,63 +39,62 @@ type
 ## ! the parameter of the conic.
 
 type
-  Geom2dConic* {.importcpp: "Geom2d_Conic", header: "Geom2d_Conic.hxx", bycopy.} = object of Geom2dCurve ##
-                                                                                               ## !
-                                                                                               ## Modifies
-                                                                                               ## this
-                                                                                               ## conic,
-                                                                                               ## redefining
-                                                                                               ## its
-                                                                                               ## local
-                                                                                               ## coordinate
-                                                                                               ## system
-                                                                                               ##
-                                                                                               ## !
-                                                                                               ## partially,
-                                                                                               ## by
-                                                                                               ## assigning
-                                                                                               ## theA
-                                                                                               ## as
-                                                                                               ## its
-                                                                                               ## axis
+  Geom2d_Conic* {.importcpp: "Geom2d_Conic", header: "Geom2d_Conic.hxx", bycopy.} = object of Geom2d_Curve ##
+                                                                                                 ## !
+                                                                                                 ## Modifies
+                                                                                                 ## this
+                                                                                                 ## conic,
+                                                                                                 ## redefining
+                                                                                                 ## its
+                                                                                                 ## local
+                                                                                                 ## coordinate
+                                                                                                 ## system
+                                                                                                 ##
+                                                                                                 ## !
+                                                                                                 ## partially,
+                                                                                                 ## by
+                                                                                                 ## assigning
+                                                                                                 ## theA
+                                                                                                 ## as
+                                                                                                 ## its
+                                                                                                 ## axis
 
 
-proc setAxis*(this: var Geom2dConic; theA: GpAx22d) {.importcpp: "SetAxis",
+proc SetAxis*(this: var Geom2d_Conic; theA: gp_Ax22d) {.importcpp: "SetAxis",
     header: "Geom2d_Conic.hxx".}
-proc setXAxis*(this: var Geom2dConic; theAX: GpAx2d) {.importcpp: "SetXAxis",
+proc SetXAxis*(this: var Geom2d_Conic; theAX: gp_Ax2d) {.importcpp: "SetXAxis",
     header: "Geom2d_Conic.hxx".}
-proc setYAxis*(this: var Geom2dConic; theAY: GpAx2d) {.importcpp: "SetYAxis",
+proc SetYAxis*(this: var Geom2d_Conic; theAY: gp_Ax2d) {.importcpp: "SetYAxis",
     header: "Geom2d_Conic.hxx".}
-proc setLocation*(this: var Geom2dConic; theP: GpPnt2d) {.importcpp: "SetLocation",
+proc SetLocation*(this: var Geom2d_Conic; theP: gp_Pnt2d) {.importcpp: "SetLocation",
     header: "Geom2d_Conic.hxx".}
-proc xAxis*(this: Geom2dConic): GpAx2d {.noSideEffect, importcpp: "XAxis",
-                                     header: "Geom2d_Conic.hxx".}
-proc yAxis*(this: Geom2dConic): GpAx2d {.noSideEffect, importcpp: "YAxis",
-                                     header: "Geom2d_Conic.hxx".}
-proc eccentricity*(this: Geom2dConic): StandardReal {.noSideEffect,
+proc XAxis*(this: Geom2d_Conic): gp_Ax2d {.noSideEffect, importcpp: "XAxis",
+                                       header: "Geom2d_Conic.hxx".}
+proc YAxis*(this: Geom2d_Conic): gp_Ax2d {.noSideEffect, importcpp: "YAxis",
+                                       header: "Geom2d_Conic.hxx".}
+proc Eccentricity*(this: Geom2d_Conic): Standard_Real {.noSideEffect,
     importcpp: "Eccentricity", header: "Geom2d_Conic.hxx".}
-proc location*(this: Geom2dConic): GpPnt2d {.noSideEffect, importcpp: "Location",
+proc Location*(this: Geom2d_Conic): gp_Pnt2d {.noSideEffect, importcpp: "Location",
     header: "Geom2d_Conic.hxx".}
-proc position*(this: Geom2dConic): GpAx22d {.noSideEffect, importcpp: "Position",
+proc Position*(this: Geom2d_Conic): gp_Ax22d {.noSideEffect, importcpp: "Position",
     header: "Geom2d_Conic.hxx".}
-proc reverse*(this: var Geom2dConic) {.importcpp: "Reverse",
-                                   header: "Geom2d_Conic.hxx".}
-proc reversedParameter*(this: Geom2dConic; u: StandardReal): StandardReal {.
+proc Reverse*(this: var Geom2d_Conic) {.importcpp: "Reverse",
+                                    header: "Geom2d_Conic.hxx".}
+proc ReversedParameter*(this: Geom2d_Conic; U: Standard_Real): Standard_Real {.
     noSideEffect, importcpp: "ReversedParameter", header: "Geom2d_Conic.hxx".}
-proc continuity*(this: Geom2dConic): GeomAbsShape {.noSideEffect,
+proc Continuity*(this: Geom2d_Conic): GeomAbs_Shape {.noSideEffect,
     importcpp: "Continuity", header: "Geom2d_Conic.hxx".}
-proc isCN*(this: Geom2dConic; n: StandardInteger): StandardBoolean {.noSideEffect,
+proc IsCN*(this: Geom2d_Conic; N: Standard_Integer): Standard_Boolean {.noSideEffect,
     importcpp: "IsCN", header: "Geom2d_Conic.hxx".}
-proc dumpJson*(this: Geom2dConic; theOStream: var StandardOStream;
-              theDepth: StandardInteger = -1) {.noSideEffect, importcpp: "DumpJson",
+proc DumpJson*(this: Geom2d_Conic; theOStream: var Standard_OStream;
+              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
     header: "Geom2d_Conic.hxx".}
 type
-  Geom2dConicbaseType* = Geom2dCurve
+  Geom2d_Conicbase_type* = Geom2d_Curve
 
-proc getTypeName*(): cstring {.importcpp: "Geom2d_Conic::get_type_name(@)",
-                            header: "Geom2d_Conic.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "Geom2d_Conic::get_type_name(@)",
+                              header: "Geom2d_Conic.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "Geom2d_Conic::get_type_descriptor(@)", header: "Geom2d_Conic.hxx".}
-proc dynamicType*(this: Geom2dConic): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: Geom2d_Conic): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "Geom2d_Conic.hxx".}
-

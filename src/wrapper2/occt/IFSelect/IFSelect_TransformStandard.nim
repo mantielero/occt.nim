@@ -14,6 +14,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Boolean,
+  IFSelect_SequenceOfGeneralModifier, IFSelect_Transformer,
+  ../Standard/Standard_Integer
+
 discard "forward decl of IFSelect_Selection"
 discard "forward decl of Interface_CopyControl"
 discard "forward decl of IFSelect_Modifier"
@@ -27,7 +32,7 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of IFSelect_TransformStandard"
 discard "forward decl of IFSelect_TransformStandard"
 type
-  HandleIFSelectTransformStandard* = Handle[IFSelectTransformStandard]
+  Handle_IFSelect_TransformStandard* = handle[IFSelect_TransformStandard]
 
 ## ! This class runs transformations made by Modifiers, as
 ## ! the ModelCopier does when it produces files (the same set
@@ -56,82 +61,85 @@ type
 ## ! Moreover, the Protocol is not changed
 
 type
-  IFSelectTransformStandard* {.importcpp: "IFSelect_TransformStandard",
-                              header: "IFSelect_TransformStandard.hxx", bycopy.} = object of IFSelectTransformer ##
-                                                                                                          ## !
-                                                                                                          ## Creates
-                                                                                                          ## a
-                                                                                                          ## TransformStandard,
-                                                                                                          ## option
-                                                                                                          ## StandardCopy,
-                                                                                                          ## no
-                                                                                                          ## Modifier
+  IFSelect_TransformStandard* {.importcpp: "IFSelect_TransformStandard",
+                               header: "IFSelect_TransformStandard.hxx", bycopy.} = object of IFSelect_Transformer ##
+                                                                                                            ## !
+                                                                                                            ## Creates
+                                                                                                            ## a
+                                                                                                            ## TransformStandard,
+                                                                                                            ## option
+                                                                                                            ## StandardCopy,
+                                                                                                            ## no
+                                                                                                            ## Modifier
 
 
-proc constructIFSelectTransformStandard*(): IFSelectTransformStandard {.
+proc constructIFSelect_TransformStandard*(): IFSelect_TransformStandard {.
     constructor, importcpp: "IFSelect_TransformStandard(@)",
     header: "IFSelect_TransformStandard.hxx".}
-proc setCopyOption*(this: var IFSelectTransformStandard; option: StandardBoolean) {.
+proc SetCopyOption*(this: var IFSelect_TransformStandard; option: Standard_Boolean) {.
     importcpp: "SetCopyOption", header: "IFSelect_TransformStandard.hxx".}
-proc copyOption*(this: IFSelectTransformStandard): StandardBoolean {.noSideEffect,
+proc CopyOption*(this: IFSelect_TransformStandard): Standard_Boolean {.noSideEffect,
     importcpp: "CopyOption", header: "IFSelect_TransformStandard.hxx".}
-proc setSelection*(this: var IFSelectTransformStandard;
-                  sel: Handle[IFSelectSelection]) {.importcpp: "SetSelection",
+proc SetSelection*(this: var IFSelect_TransformStandard;
+                  sel: handle[IFSelect_Selection]) {.importcpp: "SetSelection",
     header: "IFSelect_TransformStandard.hxx".}
-proc selection*(this: IFSelectTransformStandard): Handle[IFSelectSelection] {.
+proc Selection*(this: IFSelect_TransformStandard): handle[IFSelect_Selection] {.
     noSideEffect, importcpp: "Selection", header: "IFSelect_TransformStandard.hxx".}
-proc nbModifiers*(this: IFSelectTransformStandard): StandardInteger {.noSideEffect,
-    importcpp: "NbModifiers", header: "IFSelect_TransformStandard.hxx".}
-proc modifier*(this: IFSelectTransformStandard; num: StandardInteger): Handle[
-    IFSelectModifier] {.noSideEffect, importcpp: "Modifier",
-                       header: "IFSelect_TransformStandard.hxx".}
-proc modifierRank*(this: IFSelectTransformStandard; modif: Handle[IFSelectModifier]): StandardInteger {.
+proc NbModifiers*(this: IFSelect_TransformStandard): Standard_Integer {.
+    noSideEffect, importcpp: "NbModifiers",
+    header: "IFSelect_TransformStandard.hxx".}
+proc Modifier*(this: IFSelect_TransformStandard; num: Standard_Integer): handle[
+    IFSelect_Modifier] {.noSideEffect, importcpp: "Modifier",
+                        header: "IFSelect_TransformStandard.hxx".}
+proc ModifierRank*(this: IFSelect_TransformStandard;
+                  modif: handle[IFSelect_Modifier]): Standard_Integer {.
     noSideEffect, importcpp: "ModifierRank",
     header: "IFSelect_TransformStandard.hxx".}
-proc addModifier*(this: var IFSelectTransformStandard;
-                 modif: Handle[IFSelectModifier]; atnum: StandardInteger = 0): StandardBoolean {.
+proc AddModifier*(this: var IFSelect_TransformStandard;
+                 modif: handle[IFSelect_Modifier]; atnum: Standard_Integer = 0): Standard_Boolean {.
     importcpp: "AddModifier", header: "IFSelect_TransformStandard.hxx".}
-proc removeModifier*(this: var IFSelectTransformStandard;
-                    modif: Handle[IFSelectModifier]): StandardBoolean {.
+proc RemoveModifier*(this: var IFSelect_TransformStandard;
+                    modif: handle[IFSelect_Modifier]): Standard_Boolean {.
     importcpp: "RemoveModifier", header: "IFSelect_TransformStandard.hxx".}
-proc removeModifier*(this: var IFSelectTransformStandard; num: StandardInteger): StandardBoolean {.
+proc RemoveModifier*(this: var IFSelect_TransformStandard; num: Standard_Integer): Standard_Boolean {.
     importcpp: "RemoveModifier", header: "IFSelect_TransformStandard.hxx".}
-proc perform*(this: var IFSelectTransformStandard; g: InterfaceGraph;
-             protocol: Handle[InterfaceProtocol];
-             checks: var InterfaceCheckIterator;
-             newmod: var Handle[InterfaceInterfaceModel]): StandardBoolean {.
+proc Perform*(this: var IFSelect_TransformStandard; G: Interface_Graph;
+             protocol: handle[Interface_Protocol];
+             checks: var Interface_CheckIterator;
+             newmod: var handle[Interface_InterfaceModel]): Standard_Boolean {.
     importcpp: "Perform", header: "IFSelect_TransformStandard.hxx".}
-proc copy*(this: IFSelectTransformStandard; g: InterfaceGraph;
-          tc: var InterfaceCopyTool; newmod: var Handle[InterfaceInterfaceModel]) {.
+proc Copy*(this: IFSelect_TransformStandard; G: Interface_Graph;
+          TC: var Interface_CopyTool; newmod: var handle[Interface_InterfaceModel]) {.
     noSideEffect, importcpp: "Copy", header: "IFSelect_TransformStandard.hxx".}
-proc standardCopy*(this: IFSelectTransformStandard; g: InterfaceGraph;
-                  tc: var InterfaceCopyTool;
-                  newmod: var Handle[InterfaceInterfaceModel]) {.noSideEffect,
+proc StandardCopy*(this: IFSelect_TransformStandard; G: Interface_Graph;
+                  TC: var Interface_CopyTool;
+                  newmod: var handle[Interface_InterfaceModel]) {.noSideEffect,
     importcpp: "StandardCopy", header: "IFSelect_TransformStandard.hxx".}
-proc onTheSpot*(this: IFSelectTransformStandard; g: InterfaceGraph;
-               tc: var InterfaceCopyTool;
-               newmod: var Handle[InterfaceInterfaceModel]) {.noSideEffect,
+proc OnTheSpot*(this: IFSelect_TransformStandard; G: Interface_Graph;
+               TC: var Interface_CopyTool;
+               newmod: var handle[Interface_InterfaceModel]) {.noSideEffect,
     importcpp: "OnTheSpot", header: "IFSelect_TransformStandard.hxx".}
-proc applyModifiers*(this: IFSelectTransformStandard; g: InterfaceGraph;
-                    protocol: Handle[InterfaceProtocol];
-                    tc: var InterfaceCopyTool; checks: var InterfaceCheckIterator;
-                    newmod: var Handle[InterfaceInterfaceModel]): StandardBoolean {.
+proc ApplyModifiers*(this: IFSelect_TransformStandard; G: Interface_Graph;
+                    protocol: handle[Interface_Protocol];
+                    TC: var Interface_CopyTool;
+                    checks: var Interface_CheckIterator;
+                    newmod: var handle[Interface_InterfaceModel]): Standard_Boolean {.
     noSideEffect, importcpp: "ApplyModifiers",
     header: "IFSelect_TransformStandard.hxx".}
-proc updated*(this: IFSelectTransformStandard; entfrom: Handle[StandardTransient];
-             entto: var Handle[StandardTransient]): StandardBoolean {.noSideEffect,
-    importcpp: "Updated", header: "IFSelect_TransformStandard.hxx".}
-proc label*(this: IFSelectTransformStandard): TCollectionAsciiString {.noSideEffect,
-    importcpp: "Label", header: "IFSelect_TransformStandard.hxx".}
+proc Updated*(this: IFSelect_TransformStandard;
+             entfrom: handle[Standard_Transient];
+             entto: var handle[Standard_Transient]): Standard_Boolean {.
+    noSideEffect, importcpp: "Updated", header: "IFSelect_TransformStandard.hxx".}
+proc Label*(this: IFSelect_TransformStandard): TCollection_AsciiString {.
+    noSideEffect, importcpp: "Label", header: "IFSelect_TransformStandard.hxx".}
 type
-  IFSelectTransformStandardbaseType* = IFSelectTransformer
+  IFSelect_TransformStandardbase_type* = IFSelect_Transformer
 
-proc getTypeName*(): cstring {.importcpp: "IFSelect_TransformStandard::get_type_name(@)",
-                            header: "IFSelect_TransformStandard.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "IFSelect_TransformStandard::get_type_name(@)",
+                              header: "IFSelect_TransformStandard.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "IFSelect_TransformStandard::get_type_descriptor(@)",
     header: "IFSelect_TransformStandard.hxx".}
-proc dynamicType*(this: IFSelectTransformStandard): Handle[StandardType] {.
+proc DynamicType*(this: IFSelect_TransformStandard): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType",
     header: "IFSelect_TransformStandard.hxx".}
-

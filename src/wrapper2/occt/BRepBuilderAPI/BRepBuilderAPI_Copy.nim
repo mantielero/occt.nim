@@ -14,6 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, BRepBuilderAPI_ModifyShape
+
 discard "forward decl of TopoDS_Shape"
 type
   BRepBuilderAPI_Copy* {.importcpp: "BRepBuilderAPI_Copy",
@@ -37,13 +41,12 @@ type
 
 proc constructBRepBuilderAPI_Copy*(): BRepBuilderAPI_Copy {.constructor,
     importcpp: "BRepBuilderAPI_Copy(@)", header: "BRepBuilderAPI_Copy.hxx".}
-proc constructBRepBuilderAPI_Copy*(s: TopoDS_Shape;
-                                  copyGeom: StandardBoolean = standardTrue;
-                                  copyMesh: StandardBoolean = standardFalse): BRepBuilderAPI_Copy {.
+proc constructBRepBuilderAPI_Copy*(S: TopoDS_Shape;
+                                  copyGeom: Standard_Boolean = Standard_True;
+                                  copyMesh: Standard_Boolean = Standard_False): BRepBuilderAPI_Copy {.
     constructor, importcpp: "BRepBuilderAPI_Copy(@)",
     header: "BRepBuilderAPI_Copy.hxx".}
-proc perform*(this: var BRepBuilderAPI_Copy; s: TopoDS_Shape;
-             copyGeom: StandardBoolean = standardTrue;
-             copyMesh: StandardBoolean = standardFalse) {.importcpp: "Perform",
+proc Perform*(this: var BRepBuilderAPI_Copy; S: TopoDS_Shape;
+             copyGeom: Standard_Boolean = Standard_True;
+             copyMesh: Standard_Boolean = Standard_False) {.importcpp: "Perform",
     header: "BRepBuilderAPI_Copy.hxx".}
-

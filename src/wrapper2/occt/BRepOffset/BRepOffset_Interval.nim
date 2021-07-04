@@ -14,27 +14,31 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Real,
+  ../ChFiDS/ChFiDS_TypeOfConcavity
+
 type
-  BRepOffsetInterval* {.importcpp: "BRepOffset_Interval",
-                       header: "BRepOffset_Interval.hxx", bycopy.} = object
+  BRepOffset_Interval* {.importcpp: "BRepOffset_Interval",
+                        header: "BRepOffset_Interval.hxx", bycopy.} = object
 
 
-proc constructBRepOffsetInterval*(): BRepOffsetInterval {.constructor,
+proc constructBRepOffset_Interval*(): BRepOffset_Interval {.constructor,
     importcpp: "BRepOffset_Interval(@)", header: "BRepOffset_Interval.hxx".}
-proc constructBRepOffsetInterval*(u1: StandardReal; u2: StandardReal;
-                                 `type`: ChFiDS_TypeOfConcavity): BRepOffsetInterval {.
+proc constructBRepOffset_Interval*(U1: Standard_Real; U2: Standard_Real;
+                                  Type: ChFiDS_TypeOfConcavity): BRepOffset_Interval {.
     constructor, importcpp: "BRepOffset_Interval(@)",
     header: "BRepOffset_Interval.hxx".}
-proc first*(this: var BRepOffsetInterval; u: StandardReal) {.importcpp: "First",
+proc First*(this: var BRepOffset_Interval; U: Standard_Real) {.importcpp: "First",
     header: "BRepOffset_Interval.hxx".}
-proc last*(this: var BRepOffsetInterval; u: StandardReal) {.importcpp: "Last",
+proc Last*(this: var BRepOffset_Interval; U: Standard_Real) {.importcpp: "Last",
     header: "BRepOffset_Interval.hxx".}
-proc `type`*(this: var BRepOffsetInterval; t: ChFiDS_TypeOfConcavity) {.
+proc Type*(this: var BRepOffset_Interval; T: ChFiDS_TypeOfConcavity) {.
     importcpp: "Type", header: "BRepOffset_Interval.hxx".}
-proc first*(this: BRepOffsetInterval): StandardReal {.noSideEffect,
+proc First*(this: BRepOffset_Interval): Standard_Real {.noSideEffect,
     importcpp: "First", header: "BRepOffset_Interval.hxx".}
-proc last*(this: BRepOffsetInterval): StandardReal {.noSideEffect, importcpp: "Last",
-    header: "BRepOffset_Interval.hxx".}
-proc `type`*(this: BRepOffsetInterval): ChFiDS_TypeOfConcavity {.noSideEffect,
+proc Last*(this: BRepOffset_Interval): Standard_Real {.noSideEffect,
+    importcpp: "Last", header: "BRepOffset_Interval.hxx".}
+proc Type*(this: BRepOffset_Interval): ChFiDS_TypeOfConcavity {.noSideEffect,
     importcpp: "Type", header: "BRepOffset_Interval.hxx".}
-

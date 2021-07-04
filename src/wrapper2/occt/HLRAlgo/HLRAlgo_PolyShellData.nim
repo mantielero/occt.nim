@@ -14,48 +14,53 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Integer,
+  ../TColStd/TColStd_Array1OfTransient, ../TColStd/TColStd_HArray1OfTransient,
+  HLRAlgo_ListOfBPoint, ../Standard/Standard_Transient,
+  ../Standard/Standard_Boolean
+
 discard "forward decl of HLRAlgo_PolyShellData"
 discard "forward decl of HLRAlgo_PolyShellData"
 type
-  HandleHLRAlgoPolyShellData* = Handle[HLRAlgoPolyShellData]
+  Handle_HLRAlgo_PolyShellData* = handle[HLRAlgo_PolyShellData]
 
 ## ! All the PolyData of a Shell
 
 type
-  HLRAlgoPolyShellData* {.importcpp: "HLRAlgo_PolyShellData",
-                         header: "HLRAlgo_PolyShellData.hxx", bycopy.} = object of StandardTransient
+  HLRAlgo_PolyShellData* {.importcpp: "HLRAlgo_PolyShellData",
+                          header: "HLRAlgo_PolyShellData.hxx", bycopy.} = object of Standard_Transient
 
-  HLRAlgoPolyShellDataShellIndices* {.importcpp: "HLRAlgo_PolyShellData::ShellIndices",
-                                     header: "HLRAlgo_PolyShellData.hxx", bycopy.} = object
-    min* {.importc: "Min".}: StandardInteger
-    max* {.importc: "Max".}: StandardInteger
+  HLRAlgo_PolyShellDataShellIndices* {.importcpp: "HLRAlgo_PolyShellData::ShellIndices",
+                                      header: "HLRAlgo_PolyShellData.hxx", bycopy.} = object
+    Min* {.importc: "Min".}: Standard_Integer
+    Max* {.importc: "Max".}: Standard_Integer
 
 
-proc constructHLRAlgoPolyShellData*(nbFace: StandardInteger): HLRAlgoPolyShellData {.
+proc constructHLRAlgo_PolyShellData*(nbFace: Standard_Integer): HLRAlgo_PolyShellData {.
     constructor, importcpp: "HLRAlgo_PolyShellData(@)",
     header: "HLRAlgo_PolyShellData.hxx".}
-proc updateGlobalMinMax*(this: var HLRAlgoPolyShellData; theBox: var Box) {.
+proc UpdateGlobalMinMax*(this: var HLRAlgo_PolyShellData; theBox: var Box) {.
     importcpp: "UpdateGlobalMinMax", header: "HLRAlgo_PolyShellData.hxx".}
-proc updateHiding*(this: var HLRAlgoPolyShellData; nbHiding: StandardInteger) {.
+proc UpdateHiding*(this: var HLRAlgo_PolyShellData; nbHiding: Standard_Integer) {.
     importcpp: "UpdateHiding", header: "HLRAlgo_PolyShellData.hxx".}
-proc hiding*(this: HLRAlgoPolyShellData): StandardBoolean {.noSideEffect,
+proc Hiding*(this: HLRAlgo_PolyShellData): Standard_Boolean {.noSideEffect,
     importcpp: "Hiding", header: "HLRAlgo_PolyShellData.hxx".}
-proc polyData*(this: var HLRAlgoPolyShellData): var TColStdArray1OfTransient {.
+proc PolyData*(this: var HLRAlgo_PolyShellData): var TColStd_Array1OfTransient {.
     importcpp: "PolyData", header: "HLRAlgo_PolyShellData.hxx".}
-proc hidingPolyData*(this: var HLRAlgoPolyShellData): var TColStdArray1OfTransient {.
+proc HidingPolyData*(this: var HLRAlgo_PolyShellData): var TColStd_Array1OfTransient {.
     importcpp: "HidingPolyData", header: "HLRAlgo_PolyShellData.hxx".}
-proc edges*(this: var HLRAlgoPolyShellData): var HLRAlgoListOfBPoint {.
+proc Edges*(this: var HLRAlgo_PolyShellData): var HLRAlgo_ListOfBPoint {.
     importcpp: "Edges", header: "HLRAlgo_PolyShellData.hxx".}
-proc indices*(this: var HLRAlgoPolyShellData): var HLRAlgoPolyShellDataShellIndices {.
+proc Indices*(this: var HLRAlgo_PolyShellData): var HLRAlgo_PolyShellDataShellIndices {.
     importcpp: "Indices", header: "HLRAlgo_PolyShellData.hxx".}
 type
-  HLRAlgoPolyShellDatabaseType* = StandardTransient
+  HLRAlgo_PolyShellDatabase_type* = Standard_Transient
 
-proc getTypeName*(): cstring {.importcpp: "HLRAlgo_PolyShellData::get_type_name(@)",
-                            header: "HLRAlgo_PolyShellData.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "HLRAlgo_PolyShellData::get_type_name(@)",
+                              header: "HLRAlgo_PolyShellData.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "HLRAlgo_PolyShellData::get_type_descriptor(@)",
     header: "HLRAlgo_PolyShellData.hxx".}
-proc dynamicType*(this: HLRAlgoPolyShellData): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "HLRAlgo_PolyShellData.hxx".}
-
+proc DynamicType*(this: HLRAlgo_PolyShellData): handle[Standard_Type] {.
+    noSideEffect, importcpp: "DynamicType", header: "HLRAlgo_PolyShellData.hxx".}

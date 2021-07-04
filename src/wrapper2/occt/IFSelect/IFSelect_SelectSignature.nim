@@ -14,6 +14,13 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type,
+  ../TCollection/TCollection_AsciiString, ../Standard/Standard_Integer,
+  ../TColStd/TColStd_SequenceOfAsciiString, ../TColStd/TColStd_SequenceOfInteger,
+  IFSelect_SelectExtract, ../Standard/Standard_CString,
+  ../Standard/Standard_Boolean
+
 discard "forward decl of IFSelect_Signature"
 discard "forward decl of IFSelect_SignCounter"
 discard "forward decl of TCollection_AsciiString"
@@ -23,7 +30,7 @@ discard "forward decl of Interface_InterfaceModel"
 discard "forward decl of IFSelect_SelectSignature"
 discard "forward decl of IFSelect_SelectSignature"
 type
-  HandleIFSelectSelectSignature* = Handle[IFSelectSelectSignature]
+  Handle_IFSelect_SelectSignature* = handle[IFSelect_SelectSignature]
 
 ## ! A SelectSignature sorts the Entities on a Signature Matching.
 ## ! The signature to match is given at creation time. Also, the
@@ -41,92 +48,91 @@ type
 ## ! which then just gives its LastValue as SignatureValue
 
 type
-  IFSelectSelectSignature* {.importcpp: "IFSelect_SelectSignature",
-                            header: "IFSelect_SelectSignature.hxx", bycopy.} = object of IFSelectSelectExtract ##
-                                                                                                        ## !
-                                                                                                        ## Creates
-                                                                                                        ## a
-                                                                                                        ## SelectSignature
-                                                                                                        ## with
-                                                                                                        ## its
-                                                                                                        ## Signature
-                                                                                                        ## and
-                                                                                                        ## its
-                                                                                                        ## Text
-                                                                                                        ## to
-                                                                                                        ##
-                                                                                                        ## !
-                                                                                                        ## Match.
-                                                                                                        ##
-                                                                                                        ## !
-                                                                                                        ## <exact>
-                                                                                                        ## if
-                                                                                                        ## True
-                                                                                                        ## requires
-                                                                                                        ## exact
-                                                                                                        ## match,
-                                                                                                        ##
-                                                                                                        ## !
-                                                                                                        ## if
-                                                                                                        ## False
-                                                                                                        ## requires
-                                                                                                        ## <signtext>
-                                                                                                        ## to
-                                                                                                        ## be
-                                                                                                        ## contained
-                                                                                                        ## in
-                                                                                                        ## the
-                                                                                                        ## Signature
-                                                                                                        ##
-                                                                                                        ## !
-                                                                                                        ## of
-                                                                                                        ## the
-                                                                                                        ## entity
-                                                                                                        ## (default
-                                                                                                        ## is
-                                                                                                        ## "exact")
+  IFSelect_SelectSignature* {.importcpp: "IFSelect_SelectSignature",
+                             header: "IFSelect_SelectSignature.hxx", bycopy.} = object of IFSelect_SelectExtract ##
+                                                                                                          ## !
+                                                                                                          ## Creates
+                                                                                                          ## a
+                                                                                                          ## SelectSignature
+                                                                                                          ## with
+                                                                                                          ## its
+                                                                                                          ## Signature
+                                                                                                          ## and
+                                                                                                          ## its
+                                                                                                          ## Text
+                                                                                                          ## to
+                                                                                                          ##
+                                                                                                          ## !
+                                                                                                          ## Match.
+                                                                                                          ##
+                                                                                                          ## !
+                                                                                                          ## <exact>
+                                                                                                          ## if
+                                                                                                          ## True
+                                                                                                          ## requires
+                                                                                                          ## exact
+                                                                                                          ## match,
+                                                                                                          ##
+                                                                                                          ## !
+                                                                                                          ## if
+                                                                                                          ## False
+                                                                                                          ## requires
+                                                                                                          ## <signtext>
+                                                                                                          ## to
+                                                                                                          ## be
+                                                                                                          ## contained
+                                                                                                          ## in
+                                                                                                          ## the
+                                                                                                          ## Signature
+                                                                                                          ##
+                                                                                                          ## !
+                                                                                                          ## of
+                                                                                                          ## the
+                                                                                                          ## entity
+                                                                                                          ## (default
+                                                                                                          ## is
+                                                                                                          ## "exact")
 
 
-proc constructIFSelectSelectSignature*(matcher: Handle[IFSelectSignature];
-                                      signtext: StandardCString;
-                                      exact: StandardBoolean = standardTrue): IFSelectSelectSignature {.
+proc constructIFSelect_SelectSignature*(matcher: handle[IFSelect_Signature];
+                                       signtext: Standard_CString;
+                                       exact: Standard_Boolean = Standard_True): IFSelect_SelectSignature {.
     constructor, importcpp: "IFSelect_SelectSignature(@)",
     header: "IFSelect_SelectSignature.hxx".}
-proc constructIFSelectSelectSignature*(matcher: Handle[IFSelectSignature];
-                                      signtext: TCollectionAsciiString;
-                                      exact: StandardBoolean = standardTrue): IFSelectSelectSignature {.
+proc constructIFSelect_SelectSignature*(matcher: handle[IFSelect_Signature];
+                                       signtext: TCollection_AsciiString;
+                                       exact: Standard_Boolean = Standard_True): IFSelect_SelectSignature {.
     constructor, importcpp: "IFSelect_SelectSignature(@)",
     header: "IFSelect_SelectSignature.hxx".}
-proc constructIFSelectSelectSignature*(matcher: Handle[IFSelectSignCounter];
-                                      signtext: StandardCString;
-                                      exact: StandardBoolean = standardTrue): IFSelectSelectSignature {.
+proc constructIFSelect_SelectSignature*(matcher: handle[IFSelect_SignCounter];
+                                       signtext: Standard_CString;
+                                       exact: Standard_Boolean = Standard_True): IFSelect_SelectSignature {.
     constructor, importcpp: "IFSelect_SelectSignature(@)",
     header: "IFSelect_SelectSignature.hxx".}
-proc signature*(this: IFSelectSelectSignature): Handle[IFSelectSignature] {.
+proc Signature*(this: IFSelect_SelectSignature): handle[IFSelect_Signature] {.
     noSideEffect, importcpp: "Signature", header: "IFSelect_SelectSignature.hxx".}
-proc counter*(this: IFSelectSelectSignature): Handle[IFSelectSignCounter] {.
+proc Counter*(this: IFSelect_SelectSignature): handle[IFSelect_SignCounter] {.
     noSideEffect, importcpp: "Counter", header: "IFSelect_SelectSignature.hxx".}
-proc sortInGraph*(this: IFSelectSelectSignature; rank: StandardInteger;
-                 ent: Handle[StandardTransient]; g: InterfaceGraph): StandardBoolean {.
+proc SortInGraph*(this: IFSelect_SelectSignature; rank: Standard_Integer;
+                 ent: handle[Standard_Transient]; G: Interface_Graph): Standard_Boolean {.
     noSideEffect, importcpp: "SortInGraph", header: "IFSelect_SelectSignature.hxx".}
-proc sort*(this: IFSelectSelectSignature; rank: StandardInteger;
-          ent: Handle[StandardTransient]; model: Handle[InterfaceInterfaceModel]): StandardBoolean {.
+proc Sort*(this: IFSelect_SelectSignature; rank: Standard_Integer;
+          ent: handle[Standard_Transient]; model: handle[Interface_InterfaceModel]): Standard_Boolean {.
     noSideEffect, importcpp: "Sort", header: "IFSelect_SelectSignature.hxx".}
-proc signatureText*(this: IFSelectSelectSignature): TCollectionAsciiString {.
+proc SignatureText*(this: IFSelect_SelectSignature): TCollection_AsciiString {.
     noSideEffect, importcpp: "SignatureText",
     header: "IFSelect_SelectSignature.hxx".}
-proc isExact*(this: IFSelectSelectSignature): StandardBoolean {.noSideEffect,
+proc IsExact*(this: IFSelect_SelectSignature): Standard_Boolean {.noSideEffect,
     importcpp: "IsExact", header: "IFSelect_SelectSignature.hxx".}
-proc extractLabel*(this: IFSelectSelectSignature): TCollectionAsciiString {.
+proc ExtractLabel*(this: IFSelect_SelectSignature): TCollection_AsciiString {.
     noSideEffect, importcpp: "ExtractLabel", header: "IFSelect_SelectSignature.hxx".}
 type
-  IFSelectSelectSignaturebaseType* = IFSelectSelectExtract
+  IFSelect_SelectSignaturebase_type* = IFSelect_SelectExtract
 
-proc getTypeName*(): cstring {.importcpp: "IFSelect_SelectSignature::get_type_name(@)",
-                            header: "IFSelect_SelectSignature.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "IFSelect_SelectSignature::get_type_name(@)",
+                              header: "IFSelect_SelectSignature.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "IFSelect_SelectSignature::get_type_descriptor(@)",
     header: "IFSelect_SelectSignature.hxx".}
-proc dynamicType*(this: IFSelectSelectSignature): Handle[StandardType] {.
+proc DynamicType*(this: IFSelect_SelectSignature): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType", header: "IFSelect_SelectSignature.hxx".}
-

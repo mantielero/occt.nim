@@ -14,6 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../Draw/Draw_Drawable3D,
+  ../Standard/Standard_OStream, ../Draw/Draw_Interpretor
+
 discard "forward decl of HLRTopoBRep_OutLiner"
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of Draw_Display"
@@ -21,31 +25,30 @@ discard "forward decl of Draw_Drawable3D"
 discard "forward decl of HLRTest_OutLiner"
 discard "forward decl of HLRTest_OutLiner"
 type
-  HandleHLRTestOutLiner* = Handle[HLRTestOutLiner]
-  HLRTestOutLiner* {.importcpp: "HLRTest_OutLiner", header: "HLRTest_OutLiner.hxx",
-                    bycopy.} = object of DrawDrawable3D
+  Handle_HLRTest_OutLiner* = handle[HLRTest_OutLiner]
+  HLRTest_OutLiner* {.importcpp: "HLRTest_OutLiner",
+                     header: "HLRTest_OutLiner.hxx", bycopy.} = object of Draw_Drawable3D
 
 
-proc constructHLRTestOutLiner*(s: TopoDS_Shape): HLRTestOutLiner {.constructor,
+proc constructHLRTest_OutLiner*(S: TopoDS_Shape): HLRTest_OutLiner {.constructor,
     importcpp: "HLRTest_OutLiner(@)", header: "HLRTest_OutLiner.hxx".}
-proc outLiner*(this: HLRTestOutLiner): Handle[HLRTopoBRepOutLiner] {.noSideEffect,
+proc OutLiner*(this: HLRTest_OutLiner): handle[HLRTopoBRep_OutLiner] {.noSideEffect,
     importcpp: "OutLiner", header: "HLRTest_OutLiner.hxx".}
-proc drawOn*(this: HLRTestOutLiner; dis: var DrawDisplay) {.noSideEffect,
+proc DrawOn*(this: HLRTest_OutLiner; dis: var Draw_Display) {.noSideEffect,
     importcpp: "DrawOn", header: "HLRTest_OutLiner.hxx".}
-proc copy*(this: HLRTestOutLiner): Handle[DrawDrawable3D] {.noSideEffect,
+proc Copy*(this: HLRTest_OutLiner): handle[Draw_Drawable3D] {.noSideEffect,
     importcpp: "Copy", header: "HLRTest_OutLiner.hxx".}
-proc dump*(this: HLRTestOutLiner; s: var StandardOStream) {.noSideEffect,
+proc Dump*(this: HLRTest_OutLiner; S: var Standard_OStream) {.noSideEffect,
     importcpp: "Dump", header: "HLRTest_OutLiner.hxx".}
-proc whatis*(this: HLRTestOutLiner; i: var DrawInterpretor) {.noSideEffect,
+proc Whatis*(this: HLRTest_OutLiner; I: var Draw_Interpretor) {.noSideEffect,
     importcpp: "Whatis", header: "HLRTest_OutLiner.hxx".}
 type
-  HLRTestOutLinerbaseType* = DrawDrawable3D
+  HLRTest_OutLinerbase_type* = Draw_Drawable3D
 
-proc getTypeName*(): cstring {.importcpp: "HLRTest_OutLiner::get_type_name(@)",
-                            header: "HLRTest_OutLiner.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "HLRTest_OutLiner::get_type_name(@)",
+                              header: "HLRTest_OutLiner.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "HLRTest_OutLiner::get_type_descriptor(@)",
     header: "HLRTest_OutLiner.hxx".}
-proc dynamicType*(this: HLRTestOutLiner): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: HLRTest_OutLiner): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "HLRTest_OutLiner.hxx".}
-

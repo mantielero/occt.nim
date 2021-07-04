@@ -14,52 +14,55 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../Bnd/Bnd_OBB, Draw_Color,
+  Draw_Drawable3D
+
 discard "forward decl of Draw_Color"
 discard "forward decl of Draw_Display"
 discard "forward decl of Draw_Box"
 discard "forward decl of Draw_Box"
 type
-  HandleDrawBox* = Handle[DrawBox]
+  Handle_Draw_Box* = handle[Draw_Box]
 
 ## ! a 3d box
 
 type
-  DrawBox* {.importcpp: "Draw_Box", header: "Draw_Box.hxx", bycopy.} = object of DrawDrawable3D ##
-                                                                                      ## !
-                                                                                      ## Constructor
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## Converts
-                                                                                      ## the
-                                                                                      ## point
-                                                                                      ## (theX,
-                                                                                      ## theY,
-                                                                                      ## theZ)
-                                                                                      ## in
-                                                                                      ## local
-                                                                                      ## coordinate
-                                                                                      ## system
-                                                                                      ## to
-                                                                                      ## WCS.
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## Oriented
-                                                                                      ## bounding
-                                                                                      ## box
+  Draw_Box* {.importcpp: "Draw_Box", header: "Draw_Box.hxx", bycopy.} = object of Draw_Drawable3D ##
+                                                                                        ## !
+                                                                                        ## Constructor
+                                                                                        ##
+                                                                                        ## !
+                                                                                        ## Converts
+                                                                                        ## the
+                                                                                        ## point
+                                                                                        ## (theX,
+                                                                                        ## theY,
+                                                                                        ## theZ)
+                                                                                        ## in
+                                                                                        ## local
+                                                                                        ## coordinate
+                                                                                        ## system
+                                                                                        ## to
+                                                                                        ## WCS.
+                                                                                        ##
+                                                                                        ## !
+                                                                                        ## Oriented
+                                                                                        ## bounding
+                                                                                        ## box
     ## ! Color value
 
 
-proc constructDrawBox*(theOBB: BndOBB; theColor: DrawColor): DrawBox {.constructor,
-    importcpp: "Draw_Box(@)", header: "Draw_Box.hxx".}
-proc drawOn*(this: DrawBox; theDis: var DrawDisplay) {.noSideEffect,
+proc constructDraw_Box*(theOBB: Bnd_OBB; theColor: Draw_Color): Draw_Box {.
+    constructor, importcpp: "Draw_Box(@)", header: "Draw_Box.hxx".}
+proc DrawOn*(this: Draw_Box; theDis: var Draw_Display) {.noSideEffect,
     importcpp: "DrawOn", header: "Draw_Box.hxx".}
 type
-  DrawBoxbaseType* = DrawDrawable3D
+  Draw_Boxbase_type* = Draw_Drawable3D
 
-proc getTypeName*(): cstring {.importcpp: "Draw_Box::get_type_name(@)",
-                            header: "Draw_Box.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "Draw_Box::get_type_name(@)",
+                              header: "Draw_Box.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "Draw_Box::get_type_descriptor(@)", header: "Draw_Box.hxx".}
-proc dynamicType*(this: DrawBox): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: Draw_Box): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "Draw_Box.hxx".}
-

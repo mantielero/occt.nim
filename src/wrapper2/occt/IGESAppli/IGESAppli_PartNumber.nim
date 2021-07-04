@@ -14,11 +14,15 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Integer,
+  ../IGESData/IGESData_IGESEntity
+
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of IGESAppli_PartNumber"
 discard "forward decl of IGESAppli_PartNumber"
 type
-  HandleIGESAppliPartNumber* = Handle[IGESAppliPartNumber]
+  Handle_IGESAppli_PartNumber* = handle[IGESAppli_PartNumber]
 
 ## ! defines PartNumber, Type <406> Form <9>
 ## ! in package IGESAppli
@@ -27,36 +31,35 @@ type
 ## ! physical component
 
 type
-  IGESAppliPartNumber* {.importcpp: "IGESAppli_PartNumber",
-                        header: "IGESAppli_PartNumber.hxx", bycopy.} = object of IGESDataIGESEntity
+  IGESAppli_PartNumber* {.importcpp: "IGESAppli_PartNumber",
+                         header: "IGESAppli_PartNumber.hxx", bycopy.} = object of IGESData_IGESEntity
 
 
-proc constructIGESAppliPartNumber*(): IGESAppliPartNumber {.constructor,
+proc constructIGESAppli_PartNumber*(): IGESAppli_PartNumber {.constructor,
     importcpp: "IGESAppli_PartNumber(@)", header: "IGESAppli_PartNumber.hxx".}
-proc init*(this: var IGESAppliPartNumber; nbPropVal: StandardInteger;
-          aGenName: Handle[TCollectionHAsciiString];
-          aMilName: Handle[TCollectionHAsciiString];
-          aVendName: Handle[TCollectionHAsciiString];
-          anIntName: Handle[TCollectionHAsciiString]) {.importcpp: "Init",
+proc Init*(this: var IGESAppli_PartNumber; nbPropVal: Standard_Integer;
+          aGenName: handle[TCollection_HAsciiString];
+          aMilName: handle[TCollection_HAsciiString];
+          aVendName: handle[TCollection_HAsciiString];
+          anIntName: handle[TCollection_HAsciiString]) {.importcpp: "Init",
     header: "IGESAppli_PartNumber.hxx".}
-proc nbPropertyValues*(this: IGESAppliPartNumber): StandardInteger {.noSideEffect,
+proc NbPropertyValues*(this: IGESAppli_PartNumber): Standard_Integer {.noSideEffect,
     importcpp: "NbPropertyValues", header: "IGESAppli_PartNumber.hxx".}
-proc genericNumber*(this: IGESAppliPartNumber): Handle[TCollectionHAsciiString] {.
+proc GenericNumber*(this: IGESAppli_PartNumber): handle[TCollection_HAsciiString] {.
     noSideEffect, importcpp: "GenericNumber", header: "IGESAppli_PartNumber.hxx".}
-proc militaryNumber*(this: IGESAppliPartNumber): Handle[TCollectionHAsciiString] {.
+proc MilitaryNumber*(this: IGESAppli_PartNumber): handle[TCollection_HAsciiString] {.
     noSideEffect, importcpp: "MilitaryNumber", header: "IGESAppli_PartNumber.hxx".}
-proc vendorNumber*(this: IGESAppliPartNumber): Handle[TCollectionHAsciiString] {.
+proc VendorNumber*(this: IGESAppli_PartNumber): handle[TCollection_HAsciiString] {.
     noSideEffect, importcpp: "VendorNumber", header: "IGESAppli_PartNumber.hxx".}
-proc internalNumber*(this: IGESAppliPartNumber): Handle[TCollectionHAsciiString] {.
+proc InternalNumber*(this: IGESAppli_PartNumber): handle[TCollection_HAsciiString] {.
     noSideEffect, importcpp: "InternalNumber", header: "IGESAppli_PartNumber.hxx".}
 type
-  IGESAppliPartNumberbaseType* = IGESDataIGESEntity
+  IGESAppli_PartNumberbase_type* = IGESData_IGESEntity
 
-proc getTypeName*(): cstring {.importcpp: "IGESAppli_PartNumber::get_type_name(@)",
-                            header: "IGESAppli_PartNumber.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "IGESAppli_PartNumber::get_type_name(@)",
+                              header: "IGESAppli_PartNumber.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "IGESAppli_PartNumber::get_type_descriptor(@)",
     header: "IGESAppli_PartNumber.hxx".}
-proc dynamicType*(this: IGESAppliPartNumber): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: IGESAppli_PartNumber): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "IGESAppli_PartNumber.hxx".}
-

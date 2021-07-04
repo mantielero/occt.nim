@@ -12,6 +12,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  OpenGl_VertexBuffer, OpenGl_Context, ../NCollection/NCollection_Array1
+
 ## ! Auxiliary class to iteratively modify data of existing VBO.
 ## ! It provides iteration interface with delayed CPU->GPU memory transfer to avoid slow per-element data transfer.
 ## ! User should explicitly call Flush() method to ensure that all data is transferred to VBO.
@@ -26,10 +29,9 @@
 ## ! In case of static data this is preferred to upload it within one call during VBO initialization.
 
 type
-  OpenGlVertexBufferEditor*[TheVecT] {.importcpp: "OpenGl_VertexBufferEditor<\'0>",
-                                      header: "OpenGl_VertexBufferEditor.hxx",
-                                      bycopy.} = object ## ! Creates empty editor
-                                                     ## ! theTmpBufferLength - temporary buffer length
+  OpenGl_VertexBufferEditor*[theVec_t] {.importcpp: "OpenGl_VertexBufferEditor<\'0>", header: "OpenGl_VertexBufferEditor.hxx",
+                                        bycopy.} = object ## ! Creates empty editor
+                                                       ## ! theTmpBufferLength - temporary buffer length
     ## !< handle to current OpenGL context
     ## !< edited VBO
     ## !< element in VBO to upload from
@@ -37,25 +39,24 @@ type
     ## !< temporary array
 
 
-proc constructOpenGlVertexBufferEditor*[TheVecT](
-    theTmpBufferLength: StandardInteger = 0): OpenGlVertexBufferEditor[TheVecT] {.
+proc constructOpenGl_VertexBufferEditor*[theVec_t](
+    theTmpBufferLength: Standard_Integer = 0): OpenGl_VertexBufferEditor[theVec_t] {.
     constructor, importcpp: "OpenGl_VertexBufferEditor<\'*0>(@)",
     header: "OpenGl_VertexBufferEditor.hxx".}
-proc constructOpenGlVertexBufferEditor*[TheVecT](theTmpBuffer: ptr TheVecT;
-    theTmpBufferLength: StandardInteger): OpenGlVertexBufferEditor[TheVecT] {.
+proc constructOpenGl_VertexBufferEditor*[theVec_t](theTmpBuffer: ptr theVec_t;
+    theTmpBufferLength: Standard_Integer): OpenGl_VertexBufferEditor[theVec_t] {.
     constructor, importcpp: "OpenGl_VertexBufferEditor<\'*0>(@)",
     header: "OpenGl_VertexBufferEditor.hxx".}
-proc init*[TheVecT](this: var OpenGlVertexBufferEditor[TheVecT];
-                   theGlCtx: Handle[OpenGlContext];
-                   theVbo: Handle[OpenGlVertexBuffer]): StandardBoolean {.
+proc Init*[theVec_t](this: var OpenGl_VertexBufferEditor[theVec_t];
+                    theGlCtx: handle[OpenGl_Context];
+                    theVbo: handle[OpenGl_VertexBuffer]): Standard_Boolean {.
     importcpp: "Init", header: "OpenGl_VertexBufferEditor.hxx".}
-proc value*[TheVecT](this: var OpenGlVertexBufferEditor[TheVecT]): var TheVecT {.
+proc Value*[theVec_t](this: var OpenGl_VertexBufferEditor[theVec_t]): var theVec_t {.
     importcpp: "Value", header: "OpenGl_VertexBufferEditor.hxx".}
-proc next*[TheVecT](this: var OpenGlVertexBufferEditor[TheVecT]): StandardBoolean {.
+proc Next*[theVec_t](this: var OpenGl_VertexBufferEditor[theVec_t]): Standard_Boolean {.
     importcpp: "Next", header: "OpenGl_VertexBufferEditor.hxx".}
-proc flush*[TheVecT](this: var OpenGlVertexBufferEditor[TheVecT]): StandardBoolean {.
+proc Flush*[theVec_t](this: var OpenGl_VertexBufferEditor[theVec_t]): Standard_Boolean {.
     importcpp: "Flush", header: "OpenGl_VertexBufferEditor.hxx".}
-proc getVBO*[TheVecT](this: OpenGlVertexBufferEditor[TheVecT]): Handle[
-    OpenGlVertexBuffer] {.noSideEffect, importcpp: "GetVBO",
-                         header: "OpenGl_VertexBufferEditor.hxx".}
-
+proc GetVBO*[theVec_t](this: OpenGl_VertexBufferEditor[theVec_t]): handle[
+    OpenGl_VertexBuffer] {.noSideEffect, importcpp: "GetVBO",
+                          header: "OpenGl_VertexBufferEditor.hxx".}

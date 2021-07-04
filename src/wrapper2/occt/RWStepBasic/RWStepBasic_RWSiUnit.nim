@@ -14,33 +14,38 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer,
+  ../Standard/Standard_Boolean, ../StepBasic/StepBasic_SiPrefix,
+  ../Standard/Standard_CString, ../StepBasic/StepBasic_SiUnitName
+
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepBasic_SiUnit"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of TCollection_AsciiString"
 type
-  RWStepBasicRWSiUnit* {.importcpp: "RWStepBasic_RWSiUnit",
-                        header: "RWStepBasic_RWSiUnit.hxx", bycopy.} = object
+  RWStepBasic_RWSiUnit* {.importcpp: "RWStepBasic_RWSiUnit",
+                         header: "RWStepBasic_RWSiUnit.hxx", bycopy.} = object
 
 
-proc constructRWStepBasicRWSiUnit*(): RWStepBasicRWSiUnit {.constructor,
+proc constructRWStepBasic_RWSiUnit*(): RWStepBasic_RWSiUnit {.constructor,
     importcpp: "RWStepBasic_RWSiUnit(@)", header: "RWStepBasic_RWSiUnit.hxx".}
-proc readStep*(this: RWStepBasicRWSiUnit; data: Handle[StepDataStepReaderData];
-              num: StandardInteger; ach: var Handle[InterfaceCheck];
-              ent: Handle[StepBasicSiUnit]) {.noSideEffect, importcpp: "ReadStep",
+proc ReadStep*(this: RWStepBasic_RWSiUnit; data: handle[StepData_StepReaderData];
+              num: Standard_Integer; ach: var handle[Interface_Check];
+              ent: handle[StepBasic_SiUnit]) {.noSideEffect, importcpp: "ReadStep",
     header: "RWStepBasic_RWSiUnit.hxx".}
-proc writeStep*(this: RWStepBasicRWSiUnit; sw: var StepDataStepWriter;
-               ent: Handle[StepBasicSiUnit]) {.noSideEffect,
+proc WriteStep*(this: RWStepBasic_RWSiUnit; SW: var StepData_StepWriter;
+               ent: handle[StepBasic_SiUnit]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepBasic_RWSiUnit.hxx".}
-proc decodePrefix*(this: RWStepBasicRWSiUnit; aPrefix: var StepBasicSiPrefix;
-                  text: StandardCString): StandardBoolean {.noSideEffect,
+proc DecodePrefix*(this: RWStepBasic_RWSiUnit; aPrefix: var StepBasic_SiPrefix;
+                  text: Standard_CString): Standard_Boolean {.noSideEffect,
     importcpp: "DecodePrefix", header: "RWStepBasic_RWSiUnit.hxx".}
-proc decodeName*(this: RWStepBasicRWSiUnit; aName: var StepBasicSiUnitName;
-                text: StandardCString): StandardBoolean {.noSideEffect,
+proc DecodeName*(this: RWStepBasic_RWSiUnit; aName: var StepBasic_SiUnitName;
+                text: Standard_CString): Standard_Boolean {.noSideEffect,
     importcpp: "DecodeName", header: "RWStepBasic_RWSiUnit.hxx".}
-proc encodePrefix*(this: RWStepBasicRWSiUnit; aPrefix: StepBasicSiPrefix): TCollectionAsciiString {.
+proc EncodePrefix*(this: RWStepBasic_RWSiUnit; aPrefix: StepBasic_SiPrefix): TCollection_AsciiString {.
     noSideEffect, importcpp: "EncodePrefix", header: "RWStepBasic_RWSiUnit.hxx".}
-proc encodeName*(this: RWStepBasicRWSiUnit; aName: StepBasicSiUnitName): TCollectionAsciiString {.
+proc EncodeName*(this: RWStepBasic_RWSiUnit; aName: StepBasic_SiUnitName): TCollection_AsciiString {.
     noSideEffect, importcpp: "EncodeName", header: "RWStepBasic_RWSiUnit.hxx".}
-

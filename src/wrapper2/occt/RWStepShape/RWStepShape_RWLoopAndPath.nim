@@ -14,27 +14,30 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepShape_LoopAndPath"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepShapeRWLoopAndPath* {.importcpp: "RWStepShape_RWLoopAndPath",
-                             header: "RWStepShape_RWLoopAndPath.hxx", bycopy.} = object
+  RWStepShape_RWLoopAndPath* {.importcpp: "RWStepShape_RWLoopAndPath",
+                              header: "RWStepShape_RWLoopAndPath.hxx", bycopy.} = object
 
 
-proc constructRWStepShapeRWLoopAndPath*(): RWStepShapeRWLoopAndPath {.constructor,
-    importcpp: "RWStepShape_RWLoopAndPath(@)",
+proc constructRWStepShape_RWLoopAndPath*(): RWStepShape_RWLoopAndPath {.
+    constructor, importcpp: "RWStepShape_RWLoopAndPath(@)",
     header: "RWStepShape_RWLoopAndPath.hxx".}
-proc readStep*(this: RWStepShapeRWLoopAndPath;
-              data: Handle[StepDataStepReaderData]; num: StandardInteger;
-              ach: var Handle[InterfaceCheck]; ent: Handle[StepShapeLoopAndPath]) {.
+proc ReadStep*(this: RWStepShape_RWLoopAndPath;
+              data: handle[StepData_StepReaderData]; num: Standard_Integer;
+              ach: var handle[Interface_Check]; ent: handle[StepShape_LoopAndPath]) {.
     noSideEffect, importcpp: "ReadStep", header: "RWStepShape_RWLoopAndPath.hxx".}
-proc writeStep*(this: RWStepShapeRWLoopAndPath; sw: var StepDataStepWriter;
-               ent: Handle[StepShapeLoopAndPath]) {.noSideEffect,
+proc WriteStep*(this: RWStepShape_RWLoopAndPath; SW: var StepData_StepWriter;
+               ent: handle[StepShape_LoopAndPath]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepShape_RWLoopAndPath.hxx".}
-proc share*(this: RWStepShapeRWLoopAndPath; ent: Handle[StepShapeLoopAndPath];
-           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
+proc Share*(this: RWStepShape_RWLoopAndPath; ent: handle[StepShape_LoopAndPath];
+           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepShape_RWLoopAndPath.hxx".}
-

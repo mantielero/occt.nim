@@ -13,46 +13,49 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../BinMDF/BinMDF_ADriver,
+  ../Standard/Standard_Boolean, ../BinObjMgt/BinObjMgt_RRelocationTable,
+  ../BinObjMgt/BinObjMgt_SRelocationTable
+
 discard "forward decl of Message_Messenger"
 discard "forward decl of TDF_Attribute"
 discard "forward decl of BinObjMgt_Persistent"
 discard "forward decl of BinMDataStd_IntPackedMapDriver"
 discard "forward decl of BinMDataStd_IntPackedMapDriver"
 type
-  HandleBinMDataStdIntPackedMapDriver* = Handle[BinMDataStdIntPackedMapDriver]
+  Handle_BinMDataStd_IntPackedMapDriver* = handle[BinMDataStd_IntPackedMapDriver]
 
 ## ! TDataStd_IntPackedMap attribute Driver.
 
 type
-  BinMDataStdIntPackedMapDriver* {.importcpp: "BinMDataStd_IntPackedMapDriver",
-                                  header: "BinMDataStd_IntPackedMapDriver.hxx",
-                                  bycopy.} = object of BinMDF_ADriver
+  BinMDataStd_IntPackedMapDriver* {.importcpp: "BinMDataStd_IntPackedMapDriver", header: "BinMDataStd_IntPackedMapDriver.hxx",
+                                   bycopy.} = object of BinMDF_ADriver
 
 
-proc constructBinMDataStdIntPackedMapDriver*(
-    theMessageDriver: Handle[MessageMessenger]): BinMDataStdIntPackedMapDriver {.
+proc constructBinMDataStd_IntPackedMapDriver*(
+    theMessageDriver: handle[Message_Messenger]): BinMDataStd_IntPackedMapDriver {.
     constructor, importcpp: "BinMDataStd_IntPackedMapDriver(@)",
     header: "BinMDataStd_IntPackedMapDriver.hxx".}
-proc newEmpty*(this: BinMDataStdIntPackedMapDriver): Handle[TDF_Attribute] {.
+proc NewEmpty*(this: BinMDataStd_IntPackedMapDriver): handle[TDF_Attribute] {.
     noSideEffect, importcpp: "NewEmpty",
     header: "BinMDataStd_IntPackedMapDriver.hxx".}
-proc paste*(this: BinMDataStdIntPackedMapDriver; source: BinObjMgtPersistent;
-           target: Handle[TDF_Attribute];
-           relocTable: var BinObjMgtRRelocationTable): StandardBoolean {.
+proc Paste*(this: BinMDataStd_IntPackedMapDriver; Source: BinObjMgt_Persistent;
+           Target: handle[TDF_Attribute];
+           RelocTable: var BinObjMgt_RRelocationTable): Standard_Boolean {.
     noSideEffect, importcpp: "Paste", header: "BinMDataStd_IntPackedMapDriver.hxx".}
-proc paste*(this: BinMDataStdIntPackedMapDriver; source: Handle[TDF_Attribute];
-           target: var BinObjMgtPersistent;
-           relocTable: var BinObjMgtSRelocationTable) {.noSideEffect,
+proc Paste*(this: BinMDataStd_IntPackedMapDriver; Source: handle[TDF_Attribute];
+           Target: var BinObjMgt_Persistent;
+           RelocTable: var BinObjMgt_SRelocationTable) {.noSideEffect,
     importcpp: "Paste", header: "BinMDataStd_IntPackedMapDriver.hxx".}
 type
-  BinMDataStdIntPackedMapDriverbaseType* = BinMDF_ADriver
+  BinMDataStd_IntPackedMapDriverbase_type* = BinMDF_ADriver
 
-proc getTypeName*(): cstring {.importcpp: "BinMDataStd_IntPackedMapDriver::get_type_name(@)",
-                            header: "BinMDataStd_IntPackedMapDriver.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "BinMDataStd_IntPackedMapDriver::get_type_name(@)",
+                              header: "BinMDataStd_IntPackedMapDriver.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "BinMDataStd_IntPackedMapDriver::get_type_descriptor(@)",
     header: "BinMDataStd_IntPackedMapDriver.hxx".}
-proc dynamicType*(this: BinMDataStdIntPackedMapDriver): Handle[StandardType] {.
+proc DynamicType*(this: BinMDataStd_IntPackedMapDriver): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType",
     header: "BinMDataStd_IntPackedMapDriver.hxx".}
-

@@ -13,30 +13,120 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  Prs3d_ToolQuadric
+
 ## ! Standard presentation algorithm that outputs graphical primitives for spherical surface.
 
 type
-  Prs3dToolSphere* {.importcpp: "Prs3d_ToolSphere", header: "Prs3d_ToolSphere.hxx",
-                    bycopy.} = object of Prs3dToolQuadric ## ! Generate primitives for 3D quadric surface.
-                                                     ## ! @param theRadius   [in] sphere radius
-                                                     ## ! @param theNbSlices [in] number of slices within U parameter
-                                                     ## ! @param theNbStacks [in] number of stacks within V parameter
-                                                     ## ! @param theTrsf     [in] optional transformation to apply
-                                                     ## ! @return generated triangulation
-                                                     ## ! Initializes the algorithm creating a sphere.
-                                                     ## ! @param theRadius   [in] sphere radius
-                                                     ## ! @param theNbSlices [in] number of slices within U parameter
-                                                     ## ! @param theNbStacks [in] number of stacks within V parameter
-                                                     ## ! Computes vertex at given parameter location of the surface.
+  Prs3d_ToolSphere* {.importcpp: "Prs3d_ToolSphere",
+                     header: "Prs3d_ToolSphere.hxx", bycopy.} = object of Prs3d_ToolQuadric ##
+                                                                                     ## !
+                                                                                     ## Generate
+                                                                                     ## primitives
+                                                                                     ## for
+                                                                                     ## 3D
+                                                                                     ## quadric
+                                                                                     ## surface.
+                                                                                     ##
+                                                                                     ## !
+                                                                                     ## @param
+                                                                                     ## theRadius
+                                                                                     ## [in]
+                                                                                     ## sphere
+                                                                                     ## radius
+                                                                                     ##
+                                                                                     ## !
+                                                                                     ## @param
+                                                                                     ## theNbSlices
+                                                                                     ## [in]
+                                                                                     ## number
+                                                                                     ## of
+                                                                                     ## slices
+                                                                                     ## within
+                                                                                     ## U
+                                                                                     ## parameter
+                                                                                     ##
+                                                                                     ## !
+                                                                                     ## @param
+                                                                                     ## theNbStacks
+                                                                                     ## [in]
+                                                                                     ## number
+                                                                                     ## of
+                                                                                     ## stacks
+                                                                                     ## within
+                                                                                     ## V
+                                                                                     ## parameter
+                                                                                     ##
+                                                                                     ## !
+                                                                                     ## @param
+                                                                                     ## theTrsf
+                                                                                     ## [in]
+                                                                                     ## optional
+                                                                                     ## transformation
+                                                                                     ## to
+                                                                                     ## apply
+                                                                                     ##
+                                                                                     ## !
+                                                                                     ## @return
+                                                                                     ## generated
+                                                                                     ## triangulation
+                                                                                     ##
+                                                                                     ## !
+                                                                                     ## Initializes
+                                                                                     ## the
+                                                                                     ## algorithm
+                                                                                     ## creating
+                                                                                     ## a
+                                                                                     ## sphere.
+                                                                                     ##
+                                                                                     ## !
+                                                                                     ## @param
+                                                                                     ## theRadius
+                                                                                     ## [in]
+                                                                                     ## sphere
+                                                                                     ## radius
+                                                                                     ##
+                                                                                     ## !
+                                                                                     ## @param
+                                                                                     ## theNbSlices
+                                                                                     ## [in]
+                                                                                     ## number
+                                                                                     ## of
+                                                                                     ## slices
+                                                                                     ## within
+                                                                                     ## U
+                                                                                     ## parameter
+                                                                                     ##
+                                                                                     ## !
+                                                                                     ## @param
+                                                                                     ## theNbStacks
+                                                                                     ## [in]
+                                                                                     ## number
+                                                                                     ## of
+                                                                                     ## stacks
+                                                                                     ## within
+                                                                                     ## V
+                                                                                     ## parameter
+                                                                                     ##
+                                                                                     ## !
+                                                                                     ## Computes
+                                                                                     ## vertex
+                                                                                     ## at
+                                                                                     ## given
+                                                                                     ## parameter
+                                                                                     ## location
+                                                                                     ## of
+                                                                                     ## the
+                                                                                     ## surface.
     ## !< sphere radius
 
 
-proc create*(theRadius: StandardReal; theNbSlices: StandardInteger;
-            theNbStacks: StandardInteger; theTrsf: GpTrsf): Handle[
-    Graphic3dArrayOfTriangles] {.importcpp: "Prs3d_ToolSphere::Create(@)",
-                                header: "Prs3d_ToolSphere.hxx".}
-proc constructPrs3dToolSphere*(theRadius: StandardReal;
-                              theNbSlices: StandardInteger;
-                              theNbStacks: StandardInteger): Prs3dToolSphere {.
+proc Create*(theRadius: Standard_Real; theNbSlices: Standard_Integer;
+            theNbStacks: Standard_Integer; theTrsf: gp_Trsf): handle[
+    Graphic3d_ArrayOfTriangles] {.importcpp: "Prs3d_ToolSphere::Create(@)",
+                                 header: "Prs3d_ToolSphere.hxx".}
+proc constructPrs3d_ToolSphere*(theRadius: Standard_Real;
+                               theNbSlices: Standard_Integer;
+                               theNbStacks: Standard_Integer): Prs3d_ToolSphere {.
     constructor, importcpp: "Prs3d_ToolSphere(@)", header: "Prs3d_ToolSphere.hxx".}
-

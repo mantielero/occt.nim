@@ -14,6 +14,14 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../ChFi3d/ChFi3d_ChBuilder,
+  ../TopTools/TopTools_MapOfShape, BRepFilletAPI_LocalOperation,
+  ../Standard/Standard_Real, ../Standard/Standard_Integer,
+  ../Standard/Standard_Boolean, ../TopTools/TopTools_ListOfShape,
+  ../ChFiDS/ChFiDS_SecHArray1
+
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of TopoDS_Edge"
@@ -51,92 +59,92 @@ type
                                                                                                                   ## function.
 
 
-proc constructBRepFilletAPI_MakeChamfer*(s: TopoDS_Shape): BRepFilletAPI_MakeChamfer {.
+proc constructBRepFilletAPI_MakeChamfer*(S: TopoDS_Shape): BRepFilletAPI_MakeChamfer {.
     constructor, importcpp: "BRepFilletAPI_MakeChamfer(@)",
     header: "BRepFilletAPI_MakeChamfer.hxx".}
-proc add*(this: var BRepFilletAPI_MakeChamfer; e: TopoDS_Edge) {.importcpp: "Add",
+proc Add*(this: var BRepFilletAPI_MakeChamfer; E: TopoDS_Edge) {.importcpp: "Add",
     header: "BRepFilletAPI_MakeChamfer.hxx".}
-proc add*(this: var BRepFilletAPI_MakeChamfer; dis: StandardReal; e: TopoDS_Edge) {.
+proc Add*(this: var BRepFilletAPI_MakeChamfer; Dis: Standard_Real; E: TopoDS_Edge) {.
     importcpp: "Add", header: "BRepFilletAPI_MakeChamfer.hxx".}
-proc setDist*(this: var BRepFilletAPI_MakeChamfer; dis: StandardReal;
-             ic: StandardInteger; f: TopoDS_Face) {.importcpp: "SetDist",
+proc SetDist*(this: var BRepFilletAPI_MakeChamfer; Dis: Standard_Real;
+             IC: Standard_Integer; F: TopoDS_Face) {.importcpp: "SetDist",
     header: "BRepFilletAPI_MakeChamfer.hxx".}
-proc getDist*(this: BRepFilletAPI_MakeChamfer; ic: StandardInteger;
-             dis: var StandardReal) {.noSideEffect, importcpp: "GetDist",
-                                   header: "BRepFilletAPI_MakeChamfer.hxx".}
-proc add*(this: var BRepFilletAPI_MakeChamfer; dis1: StandardReal; dis2: StandardReal;
-         e: TopoDS_Edge; f: TopoDS_Face) {.importcpp: "Add",
-                                       header: "BRepFilletAPI_MakeChamfer.hxx".}
-proc setDists*(this: var BRepFilletAPI_MakeChamfer; dis1: StandardReal;
-              dis2: StandardReal; ic: StandardInteger; f: TopoDS_Face) {.
+proc GetDist*(this: BRepFilletAPI_MakeChamfer; IC: Standard_Integer;
+             Dis: var Standard_Real) {.noSideEffect, importcpp: "GetDist",
+                                    header: "BRepFilletAPI_MakeChamfer.hxx".}
+proc Add*(this: var BRepFilletAPI_MakeChamfer; Dis1: Standard_Real;
+         Dis2: Standard_Real; E: TopoDS_Edge; F: TopoDS_Face) {.importcpp: "Add",
+    header: "BRepFilletAPI_MakeChamfer.hxx".}
+proc SetDists*(this: var BRepFilletAPI_MakeChamfer; Dis1: Standard_Real;
+              Dis2: Standard_Real; IC: Standard_Integer; F: TopoDS_Face) {.
     importcpp: "SetDists", header: "BRepFilletAPI_MakeChamfer.hxx".}
-proc dists*(this: BRepFilletAPI_MakeChamfer; ic: StandardInteger;
-           dis1: var StandardReal; dis2: var StandardReal) {.noSideEffect,
+proc Dists*(this: BRepFilletAPI_MakeChamfer; IC: Standard_Integer;
+           Dis1: var Standard_Real; Dis2: var Standard_Real) {.noSideEffect,
     importcpp: "Dists", header: "BRepFilletAPI_MakeChamfer.hxx".}
-proc addDA*(this: var BRepFilletAPI_MakeChamfer; dis: StandardReal;
-           angle: StandardReal; e: TopoDS_Edge; f: TopoDS_Face) {.importcpp: "AddDA",
+proc AddDA*(this: var BRepFilletAPI_MakeChamfer; Dis: Standard_Real;
+           Angle: Standard_Real; E: TopoDS_Edge; F: TopoDS_Face) {.importcpp: "AddDA",
     header: "BRepFilletAPI_MakeChamfer.hxx".}
-proc setDistAngle*(this: var BRepFilletAPI_MakeChamfer; dis: StandardReal;
-                  angle: StandardReal; ic: StandardInteger; f: TopoDS_Face) {.
+proc SetDistAngle*(this: var BRepFilletAPI_MakeChamfer; Dis: Standard_Real;
+                  Angle: Standard_Real; IC: Standard_Integer; F: TopoDS_Face) {.
     importcpp: "SetDistAngle", header: "BRepFilletAPI_MakeChamfer.hxx".}
-proc getDistAngle*(this: BRepFilletAPI_MakeChamfer; ic: StandardInteger;
-                  dis: var StandardReal; angle: var StandardReal) {.noSideEffect,
+proc GetDistAngle*(this: BRepFilletAPI_MakeChamfer; IC: Standard_Integer;
+                  Dis: var Standard_Real; Angle: var Standard_Real) {.noSideEffect,
     importcpp: "GetDistAngle", header: "BRepFilletAPI_MakeChamfer.hxx".}
-proc setMode*(this: var BRepFilletAPI_MakeChamfer; theMode: ChFiDS_ChamfMode) {.
+proc SetMode*(this: var BRepFilletAPI_MakeChamfer; theMode: ChFiDS_ChamfMode) {.
     importcpp: "SetMode", header: "BRepFilletAPI_MakeChamfer.hxx".}
-proc isSymetric*(this: BRepFilletAPI_MakeChamfer; ic: StandardInteger): StandardBoolean {.
+proc IsSymetric*(this: BRepFilletAPI_MakeChamfer; IC: Standard_Integer): Standard_Boolean {.
     noSideEffect, importcpp: "IsSymetric", header: "BRepFilletAPI_MakeChamfer.hxx".}
-proc isTwoDistances*(this: BRepFilletAPI_MakeChamfer; ic: StandardInteger): StandardBoolean {.
+proc IsTwoDistances*(this: BRepFilletAPI_MakeChamfer; IC: Standard_Integer): Standard_Boolean {.
     noSideEffect, importcpp: "IsTwoDistances",
     header: "BRepFilletAPI_MakeChamfer.hxx".}
-proc isDistanceAngle*(this: BRepFilletAPI_MakeChamfer; ic: StandardInteger): StandardBoolean {.
+proc IsDistanceAngle*(this: BRepFilletAPI_MakeChamfer; IC: Standard_Integer): Standard_Boolean {.
     noSideEffect, importcpp: "IsDistanceAngle",
     header: "BRepFilletAPI_MakeChamfer.hxx".}
-proc resetContour*(this: var BRepFilletAPI_MakeChamfer; ic: StandardInteger) {.
+proc ResetContour*(this: var BRepFilletAPI_MakeChamfer; IC: Standard_Integer) {.
     importcpp: "ResetContour", header: "BRepFilletAPI_MakeChamfer.hxx".}
-proc nbContours*(this: BRepFilletAPI_MakeChamfer): StandardInteger {.noSideEffect,
+proc NbContours*(this: BRepFilletAPI_MakeChamfer): Standard_Integer {.noSideEffect,
     importcpp: "NbContours", header: "BRepFilletAPI_MakeChamfer.hxx".}
-proc contour*(this: BRepFilletAPI_MakeChamfer; e: TopoDS_Edge): StandardInteger {.
+proc Contour*(this: BRepFilletAPI_MakeChamfer; E: TopoDS_Edge): Standard_Integer {.
     noSideEffect, importcpp: "Contour", header: "BRepFilletAPI_MakeChamfer.hxx".}
-proc nbEdges*(this: BRepFilletAPI_MakeChamfer; i: StandardInteger): StandardInteger {.
+proc NbEdges*(this: BRepFilletAPI_MakeChamfer; I: Standard_Integer): Standard_Integer {.
     noSideEffect, importcpp: "NbEdges", header: "BRepFilletAPI_MakeChamfer.hxx".}
-proc edge*(this: BRepFilletAPI_MakeChamfer; i: StandardInteger; j: StandardInteger): TopoDS_Edge {.
+proc Edge*(this: BRepFilletAPI_MakeChamfer; I: Standard_Integer; J: Standard_Integer): TopoDS_Edge {.
     noSideEffect, importcpp: "Edge", header: "BRepFilletAPI_MakeChamfer.hxx".}
-proc remove*(this: var BRepFilletAPI_MakeChamfer; e: TopoDS_Edge) {.
+proc Remove*(this: var BRepFilletAPI_MakeChamfer; E: TopoDS_Edge) {.
     importcpp: "Remove", header: "BRepFilletAPI_MakeChamfer.hxx".}
-proc length*(this: BRepFilletAPI_MakeChamfer; ic: StandardInteger): StandardReal {.
+proc Length*(this: BRepFilletAPI_MakeChamfer; IC: Standard_Integer): Standard_Real {.
     noSideEffect, importcpp: "Length", header: "BRepFilletAPI_MakeChamfer.hxx".}
-proc firstVertex*(this: BRepFilletAPI_MakeChamfer; ic: StandardInteger): TopoDS_Vertex {.
+proc FirstVertex*(this: BRepFilletAPI_MakeChamfer; IC: Standard_Integer): TopoDS_Vertex {.
     noSideEffect, importcpp: "FirstVertex", header: "BRepFilletAPI_MakeChamfer.hxx".}
-proc lastVertex*(this: BRepFilletAPI_MakeChamfer; ic: StandardInteger): TopoDS_Vertex {.
+proc LastVertex*(this: BRepFilletAPI_MakeChamfer; IC: Standard_Integer): TopoDS_Vertex {.
     noSideEffect, importcpp: "LastVertex", header: "BRepFilletAPI_MakeChamfer.hxx".}
-proc abscissa*(this: BRepFilletAPI_MakeChamfer; ic: StandardInteger; v: TopoDS_Vertex): StandardReal {.
-    noSideEffect, importcpp: "Abscissa", header: "BRepFilletAPI_MakeChamfer.hxx".}
-proc relativeAbscissa*(this: BRepFilletAPI_MakeChamfer; ic: StandardInteger;
-                      v: TopoDS_Vertex): StandardReal {.noSideEffect,
+proc Abscissa*(this: BRepFilletAPI_MakeChamfer; IC: Standard_Integer;
+              V: TopoDS_Vertex): Standard_Real {.noSideEffect,
+    importcpp: "Abscissa", header: "BRepFilletAPI_MakeChamfer.hxx".}
+proc RelativeAbscissa*(this: BRepFilletAPI_MakeChamfer; IC: Standard_Integer;
+                      V: TopoDS_Vertex): Standard_Real {.noSideEffect,
     importcpp: "RelativeAbscissa", header: "BRepFilletAPI_MakeChamfer.hxx".}
-proc closedAndTangent*(this: BRepFilletAPI_MakeChamfer; ic: StandardInteger): StandardBoolean {.
+proc ClosedAndTangent*(this: BRepFilletAPI_MakeChamfer; IC: Standard_Integer): Standard_Boolean {.
     noSideEffect, importcpp: "ClosedAndTangent",
     header: "BRepFilletAPI_MakeChamfer.hxx".}
-proc closed*(this: BRepFilletAPI_MakeChamfer; ic: StandardInteger): StandardBoolean {.
+proc Closed*(this: BRepFilletAPI_MakeChamfer; IC: Standard_Integer): Standard_Boolean {.
     noSideEffect, importcpp: "Closed", header: "BRepFilletAPI_MakeChamfer.hxx".}
-proc build*(this: var BRepFilletAPI_MakeChamfer) {.importcpp: "Build",
+proc Build*(this: var BRepFilletAPI_MakeChamfer) {.importcpp: "Build",
     header: "BRepFilletAPI_MakeChamfer.hxx".}
-proc reset*(this: var BRepFilletAPI_MakeChamfer) {.importcpp: "Reset",
+proc Reset*(this: var BRepFilletAPI_MakeChamfer) {.importcpp: "Reset",
     header: "BRepFilletAPI_MakeChamfer.hxx".}
-proc builder*(this: BRepFilletAPI_MakeChamfer): Handle[TopOpeBRepBuildHBuilder] {.
+proc Builder*(this: BRepFilletAPI_MakeChamfer): handle[TopOpeBRepBuild_HBuilder] {.
     noSideEffect, importcpp: "Builder", header: "BRepFilletAPI_MakeChamfer.hxx".}
-proc generated*(this: var BRepFilletAPI_MakeChamfer; eorV: TopoDS_Shape): TopToolsListOfShape {.
+proc Generated*(this: var BRepFilletAPI_MakeChamfer; EorV: TopoDS_Shape): TopTools_ListOfShape {.
     importcpp: "Generated", header: "BRepFilletAPI_MakeChamfer.hxx".}
-proc modified*(this: var BRepFilletAPI_MakeChamfer; f: TopoDS_Shape): TopToolsListOfShape {.
+proc Modified*(this: var BRepFilletAPI_MakeChamfer; F: TopoDS_Shape): TopTools_ListOfShape {.
     importcpp: "Modified", header: "BRepFilletAPI_MakeChamfer.hxx".}
-proc isDeleted*(this: var BRepFilletAPI_MakeChamfer; f: TopoDS_Shape): StandardBoolean {.
+proc IsDeleted*(this: var BRepFilletAPI_MakeChamfer; F: TopoDS_Shape): Standard_Boolean {.
     importcpp: "IsDeleted", header: "BRepFilletAPI_MakeChamfer.hxx".}
-proc simulate*(this: var BRepFilletAPI_MakeChamfer; ic: StandardInteger) {.
+proc Simulate*(this: var BRepFilletAPI_MakeChamfer; IC: Standard_Integer) {.
     importcpp: "Simulate", header: "BRepFilletAPI_MakeChamfer.hxx".}
-proc nbSurf*(this: BRepFilletAPI_MakeChamfer; ic: StandardInteger): StandardInteger {.
+proc NbSurf*(this: BRepFilletAPI_MakeChamfer; IC: Standard_Integer): Standard_Integer {.
     noSideEffect, importcpp: "NbSurf", header: "BRepFilletAPI_MakeChamfer.hxx".}
-proc sect*(this: BRepFilletAPI_MakeChamfer; ic: StandardInteger;
-          `is`: StandardInteger): Handle[ChFiDS_SecHArray1] {.noSideEffect,
+proc Sect*(this: BRepFilletAPI_MakeChamfer; IC: Standard_Integer;
+          IS: Standard_Integer): handle[ChFiDS_SecHArray1] {.noSideEffect,
     importcpp: "Sect", header: "BRepFilletAPI_MakeChamfer.hxx".}
-

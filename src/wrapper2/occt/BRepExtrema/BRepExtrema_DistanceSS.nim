@@ -11,56 +11,64 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  BRepExtrema_SeqOfSolution, ../Extrema/Extrema_ExtFlag,
+  ../Extrema/Extrema_ExtAlgo, ../Precision/Precision,
+  ../Standard/Standard_DefineAlloc
+
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of Bnd_Box"
 discard "forward decl of TopoDS_Vertex"
 discard "forward decl of TopoDS_Edge"
 discard "forward decl of TopoDS_Face"
 type
-  BRepExtremaDistanceSS* {.importcpp: "BRepExtrema_DistanceSS",
-                          header: "BRepExtrema_DistanceSS.hxx", bycopy.} = object ## !
-                                                                             ## computes the
-                                                                             ## distance
-                                                                             ## between two
-                                                                             ## Shapes (
-                                                                             ## face
-                                                                             ## edge
-                                                                             ## vertex).
-                                                                             ## <br>
-                                                                             ## !
-                                                                             ## computes the
-                                                                             ## distance
-                                                                             ## between two
-                                                                             ## Shapes (
-                                                                             ## face
-                                                                             ## edge
-                                                                             ## vertex)
-                                                                             ## <br>
+  BRepExtrema_DistanceSS* {.importcpp: "BRepExtrema_DistanceSS",
+                           header: "BRepExtrema_DistanceSS.hxx", bycopy.} = object ## !
+                                                                              ## computes
+                                                                              ## the
+                                                                              ## distance
+                                                                              ## between
+                                                                              ## two
+                                                                              ## Shapes (
+                                                                              ## face
+                                                                              ## edge
+                                                                              ## vertex).
+                                                                              ## <br>
+                                                                              ## !
+                                                                              ## computes
+                                                                              ## the
+                                                                              ## distance
+                                                                              ## between
+                                                                              ## two
+                                                                              ## Shapes (
+                                                                              ## face
+                                                                              ## edge
+                                                                              ## vertex)
+                                                                              ## <br>
 
 
-proc constructBRepExtremaDistanceSS*(s1: TopoDS_Shape; s2: TopoDS_Shape; b1: BndBox;
-                                    b2: BndBox; dstRef: StandardReal;
-                                    f: ExtremaExtFlag = extremaExtFlagMINMAX;
-                                    a: ExtremaExtAlgo = extremaExtAlgoGrad): BRepExtremaDistanceSS {.
+proc constructBRepExtrema_DistanceSS*(S1: TopoDS_Shape; S2: TopoDS_Shape;
+                                     B1: Bnd_Box; B2: Bnd_Box;
+                                     DstRef: Standard_Real; F: Extrema_ExtFlag = Extrema_ExtFlag_MINMAX;
+                                     A: Extrema_ExtAlgo = Extrema_ExtAlgo_Grad): BRepExtrema_DistanceSS {.
     constructor, importcpp: "BRepExtrema_DistanceSS(@)",
     header: "BRepExtrema_DistanceSS.hxx".}
-proc constructBRepExtremaDistanceSS*(s1: TopoDS_Shape; s2: TopoDS_Shape; b1: BndBox;
-                                    b2: BndBox; dstRef: StandardReal;
-                                    aDeflection: StandardReal;
-                                    f: ExtremaExtFlag = extremaExtFlagMINMAX;
-                                    a: ExtremaExtAlgo = extremaExtAlgoGrad): BRepExtremaDistanceSS {.
+proc constructBRepExtrema_DistanceSS*(S1: TopoDS_Shape; S2: TopoDS_Shape;
+                                     B1: Bnd_Box; B2: Bnd_Box;
+                                     DstRef: Standard_Real;
+                                     aDeflection: Standard_Real; F: Extrema_ExtFlag = Extrema_ExtFlag_MINMAX;
+                                     A: Extrema_ExtAlgo = Extrema_ExtAlgo_Grad): BRepExtrema_DistanceSS {.
     constructor, importcpp: "BRepExtrema_DistanceSS(@)",
     header: "BRepExtrema_DistanceSS.hxx".}
-proc isDone*(this: BRepExtremaDistanceSS): StandardBoolean {.noSideEffect,
+proc IsDone*(this: BRepExtrema_DistanceSS): Standard_Boolean {.noSideEffect,
     importcpp: "IsDone", header: "BRepExtrema_DistanceSS.hxx".}
-proc distValue*(this: BRepExtremaDistanceSS): StandardReal {.noSideEffect,
+proc DistValue*(this: BRepExtrema_DistanceSS): Standard_Real {.noSideEffect,
     importcpp: "DistValue", header: "BRepExtrema_DistanceSS.hxx".}
-proc seq1Value*(this: BRepExtremaDistanceSS): BRepExtremaSeqOfSolution {.
+proc Seq1Value*(this: BRepExtrema_DistanceSS): BRepExtrema_SeqOfSolution {.
     noSideEffect, importcpp: "Seq1Value", header: "BRepExtrema_DistanceSS.hxx".}
-proc seq2Value*(this: BRepExtremaDistanceSS): BRepExtremaSeqOfSolution {.
+proc Seq2Value*(this: BRepExtrema_DistanceSS): BRepExtrema_SeqOfSolution {.
     noSideEffect, importcpp: "Seq2Value", header: "BRepExtrema_DistanceSS.hxx".}
-proc setFlag*(this: var BRepExtremaDistanceSS; f: ExtremaExtFlag) {.
+proc SetFlag*(this: var BRepExtrema_DistanceSS; F: Extrema_ExtFlag) {.
     importcpp: "SetFlag", header: "BRepExtrema_DistanceSS.hxx".}
-proc setAlgo*(this: var BRepExtremaDistanceSS; a: ExtremaExtAlgo) {.
+proc SetAlgo*(this: var BRepExtrema_DistanceSS; A: Extrema_ExtAlgo) {.
     importcpp: "SetAlgo", header: "BRepExtrema_DistanceSS.hxx".}
-

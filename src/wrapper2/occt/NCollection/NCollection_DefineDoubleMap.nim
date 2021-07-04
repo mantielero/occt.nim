@@ -17,10 +17,11 @@
 ##               See Map from NCollection for a discussion about the number
 ##               of buckets
 
+import
+  NCollection_DoubleMap
+
 ##  *********************************************** Class DoubleMap ************
 
-template define_Doublemap*(className, baseCollection, theKey1Type, theKey2Type: untyped): void =
+template DEFINE_DOUBLEMAP*(_ClassName_, _BaseCollection_, TheKey1Type, TheKey2Type: untyped): void =
   type
-    ClassName* = NCollectionDoubleMap[TheKey1Type, TheKey2Type]
-
-
+    _ClassName_* = NCollection_DoubleMap[TheKey1Type, TheKey2Type]

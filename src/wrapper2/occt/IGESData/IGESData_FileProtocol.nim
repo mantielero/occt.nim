@@ -14,12 +14,16 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, IGESData_Protocol,
+  ../Standard/Standard_Integer
+
 discard "forward decl of IGESData_Protocol"
 discard "forward decl of Interface_Protocol"
 discard "forward decl of IGESData_FileProtocol"
 discard "forward decl of IGESData_FileProtocol"
 type
-  HandleIGESDataFileProtocol* = Handle[IGESDataFileProtocol]
+  Handle_IGESData_FileProtocol* = handle[IGESData_FileProtocol]
 
 ## ! This class allows to define complex protocols, in order to
 ## ! treat various sub-sets (or the complete set) of the IGES Norm,
@@ -28,32 +32,31 @@ type
 ## ! UndefinedEntity too
 
 type
-  IGESDataFileProtocol* {.importcpp: "IGESData_FileProtocol",
-                         header: "IGESData_FileProtocol.hxx", bycopy.} = object of IGESDataProtocol ##
-                                                                                             ## !
-                                                                                             ## Returns
-                                                                                             ## an
-                                                                                             ## empty
-                                                                                             ## FileProtocol
+  IGESData_FileProtocol* {.importcpp: "IGESData_FileProtocol",
+                          header: "IGESData_FileProtocol.hxx", bycopy.} = object of IGESData_Protocol ##
+                                                                                               ## !
+                                                                                               ## Returns
+                                                                                               ## an
+                                                                                               ## empty
+                                                                                               ## FileProtocol
 
 
-proc constructIGESDataFileProtocol*(): IGESDataFileProtocol {.constructor,
+proc constructIGESData_FileProtocol*(): IGESData_FileProtocol {.constructor,
     importcpp: "IGESData_FileProtocol(@)", header: "IGESData_FileProtocol.hxx".}
-proc add*(this: var IGESDataFileProtocol; protocol: Handle[IGESDataProtocol]) {.
+proc Add*(this: var IGESData_FileProtocol; protocol: handle[IGESData_Protocol]) {.
     importcpp: "Add", header: "IGESData_FileProtocol.hxx".}
-proc nbResources*(this: IGESDataFileProtocol): StandardInteger {.noSideEffect,
+proc NbResources*(this: IGESData_FileProtocol): Standard_Integer {.noSideEffect,
     importcpp: "NbResources", header: "IGESData_FileProtocol.hxx".}
-proc resource*(this: IGESDataFileProtocol; num: StandardInteger): Handle[
-    InterfaceProtocol] {.noSideEffect, importcpp: "Resource",
-                        header: "IGESData_FileProtocol.hxx".}
+proc Resource*(this: IGESData_FileProtocol; num: Standard_Integer): handle[
+    Interface_Protocol] {.noSideEffect, importcpp: "Resource",
+                         header: "IGESData_FileProtocol.hxx".}
 type
-  IGESDataFileProtocolbaseType* = IGESDataProtocol
+  IGESData_FileProtocolbase_type* = IGESData_Protocol
 
-proc getTypeName*(): cstring {.importcpp: "IGESData_FileProtocol::get_type_name(@)",
-                            header: "IGESData_FileProtocol.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "IGESData_FileProtocol::get_type_name(@)",
+                              header: "IGESData_FileProtocol.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "IGESData_FileProtocol::get_type_descriptor(@)",
     header: "IGESData_FileProtocol.hxx".}
-proc dynamicType*(this: IGESDataFileProtocol): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "IGESData_FileProtocol.hxx".}
-
+proc DynamicType*(this: IGESData_FileProtocol): handle[Standard_Type] {.
+    noSideEffect, importcpp: "DynamicType", header: "IGESData_FileProtocol.hxx".}

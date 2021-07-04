@@ -13,70 +13,76 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  Graphic3d_ShaderAttribute, Graphic3d_ShaderObject, Graphic3d_ShaderVariable,
+  Graphic3d_TextureParams, Graphic3d_TextureSetBits,
+  ../NCollection/NCollection_Sequence
+
 ## ! List of shader objects.
 
 type
-  Graphic3dShaderObjectList* = NCollectionSequence[Handle[Graphic3dShaderObject]]
+  Graphic3d_ShaderObjectList* = NCollection_Sequence[
+      handle[Graphic3d_ShaderObject]]
 
 ## ! List of custom uniform shader variables.
 
 type
-  Graphic3dShaderVariableList* = NCollectionSequence[
-      Handle[Graphic3dShaderVariable]]
+  Graphic3d_ShaderVariableList* = NCollection_Sequence[
+      handle[Graphic3d_ShaderVariable]]
 
 ## ! List of custom vertex shader attrubures
 
 type
-  Graphic3dShaderAttributeList* = NCollectionSequence[
-      Handle[Graphic3dShaderAttribute]]
+  Graphic3d_ShaderAttributeList* = NCollection_Sequence[
+      handle[Graphic3d_ShaderAttribute]]
 
 ## ! This class is responsible for managing shader programs.
 
 type
-  Graphic3dShaderProgram* {.importcpp: "Graphic3d_ShaderProgram",
-                           header: "Graphic3d_ShaderProgram.hxx", bycopy.} = object of StandardTransient ##
-                                                                                                  ## !
-                                                                                                  ## Default
-                                                                                                  ## value
-                                                                                                  ## of
-                                                                                                  ## THE_MAX_LIGHTS
-                                                                                                  ## macros
-                                                                                                  ## within
-                                                                                                  ## GLSL
-                                                                                                  ## program
-                                                                                                  ## (see
-                                                                                                  ## Declarations.glsl).
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## Creates
-                                                                                                  ## new
-                                                                                                  ## empty
-                                                                                                  ## program
-                                                                                                  ## object.
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## The
-                                                                                                  ## path
-                                                                                                  ## to
-                                                                                                  ## GLSL
-                                                                                                  ## programs
-                                                                                                  ## determined
-                                                                                                  ## from
-                                                                                                  ## CSF_ShadersDirectory
-                                                                                                  ## or
-                                                                                                  ## CASROOT
-                                                                                                  ## environment
-                                                                                                  ## variables.
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## @return
-                                                                                                  ## the
-                                                                                                  ## root
-                                                                                                  ## folder
-                                                                                                  ## with
-                                                                                                  ## default
-                                                                                                  ## GLSL
-                                                                                                  ## programs.
+  Graphic3d_ShaderProgram* {.importcpp: "Graphic3d_ShaderProgram",
+                            header: "Graphic3d_ShaderProgram.hxx", bycopy.} = object of Standard_Transient ##
+                                                                                                    ## !
+                                                                                                    ## Default
+                                                                                                    ## value
+                                                                                                    ## of
+                                                                                                    ## THE_MAX_LIGHTS
+                                                                                                    ## macros
+                                                                                                    ## within
+                                                                                                    ## GLSL
+                                                                                                    ## program
+                                                                                                    ## (see
+                                                                                                    ## Declarations.glsl).
+                                                                                                    ##
+                                                                                                    ## !
+                                                                                                    ## Creates
+                                                                                                    ## new
+                                                                                                    ## empty
+                                                                                                    ## program
+                                                                                                    ## object.
+                                                                                                    ##
+                                                                                                    ## !
+                                                                                                    ## The
+                                                                                                    ## path
+                                                                                                    ## to
+                                                                                                    ## GLSL
+                                                                                                    ## programs
+                                                                                                    ## determined
+                                                                                                    ## from
+                                                                                                    ## CSF_ShadersDirectory
+                                                                                                    ## or
+                                                                                                    ## CASROOT
+                                                                                                    ## environment
+                                                                                                    ## variables.
+                                                                                                    ##
+                                                                                                    ## !
+                                                                                                    ## @return
+                                                                                                    ## the
+                                                                                                    ## root
+                                                                                                    ## folder
+                                                                                                    ## with
+                                                                                                    ## default
+                                                                                                    ## GLSL
+                                                                                                    ## programs.
     ## !< the unique identifier of program object
     ## !< the list of attached shader objects
     ## !< the list of custom uniform variables
@@ -91,130 +97,133 @@ type
     ## !< flag indicating that Fragment Shader includes weighted OIT coverage
     ## !< flag indicating that program defines functions and variables used in PBR pipeline
 
-  Graphic3dShaderProgrambaseType* = StandardTransient
+  Graphic3d_ShaderProgrambase_type* = Standard_Transient
 
-proc getTypeName*(): cstring {.importcpp: "Graphic3d_ShaderProgram::get_type_name(@)",
-                            header: "Graphic3d_ShaderProgram.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "Graphic3d_ShaderProgram::get_type_name(@)",
+                              header: "Graphic3d_ShaderProgram.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "Graphic3d_ShaderProgram::get_type_descriptor(@)",
     header: "Graphic3d_ShaderProgram.hxx".}
-proc dynamicType*(this: Graphic3dShaderProgram): Handle[StandardType] {.
+proc DynamicType*(this: Graphic3d_ShaderProgram): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType", header: "Graphic3d_ShaderProgram.hxx".}
-proc constructGraphic3dShaderProgram*(): Graphic3dShaderProgram {.constructor,
+proc constructGraphic3d_ShaderProgram*(): Graphic3d_ShaderProgram {.constructor,
     importcpp: "Graphic3d_ShaderProgram(@)", header: "Graphic3d_ShaderProgram.hxx".}
-proc destroyGraphic3dShaderProgram*(this: var Graphic3dShaderProgram) {.
+proc destroyGraphic3d_ShaderProgram*(this: var Graphic3d_ShaderProgram) {.
     importcpp: "#.~Graphic3d_ShaderProgram()",
     header: "Graphic3d_ShaderProgram.hxx".}
-proc isDone*(this: Graphic3dShaderProgram): StandardBoolean {.noSideEffect,
+proc IsDone*(this: Graphic3d_ShaderProgram): Standard_Boolean {.noSideEffect,
     importcpp: "IsDone", header: "Graphic3d_ShaderProgram.hxx".}
-proc getId*(this: Graphic3dShaderProgram): TCollectionAsciiString {.noSideEffect,
+proc GetId*(this: Graphic3d_ShaderProgram): TCollection_AsciiString {.noSideEffect,
     importcpp: "GetId", header: "Graphic3d_ShaderProgram.hxx".}
-proc setId*(this: var Graphic3dShaderProgram; theId: TCollectionAsciiString) {.
+proc SetId*(this: var Graphic3d_ShaderProgram; theId: TCollection_AsciiString) {.
     importcpp: "SetId", header: "Graphic3d_ShaderProgram.hxx".}
-proc header*(this: Graphic3dShaderProgram): TCollectionAsciiString {.noSideEffect,
+proc Header*(this: Graphic3d_ShaderProgram): TCollection_AsciiString {.noSideEffect,
     importcpp: "Header", header: "Graphic3d_ShaderProgram.hxx".}
-proc setHeader*(this: var Graphic3dShaderProgram; theHeader: TCollectionAsciiString) {.
-    importcpp: "SetHeader", header: "Graphic3d_ShaderProgram.hxx".}
-proc appendToHeader*(this: var Graphic3dShaderProgram;
-                    theHeaderLine: TCollectionAsciiString) {.
+proc SetHeader*(this: var Graphic3d_ShaderProgram;
+               theHeader: TCollection_AsciiString) {.importcpp: "SetHeader",
+    header: "Graphic3d_ShaderProgram.hxx".}
+proc AppendToHeader*(this: var Graphic3d_ShaderProgram;
+                    theHeaderLine: TCollection_AsciiString) {.
     importcpp: "AppendToHeader", header: "Graphic3d_ShaderProgram.hxx".}
-proc nbLightsMax*(this: Graphic3dShaderProgram): StandardInteger {.noSideEffect,
+proc NbLightsMax*(this: Graphic3d_ShaderProgram): Standard_Integer {.noSideEffect,
     importcpp: "NbLightsMax", header: "Graphic3d_ShaderProgram.hxx".}
-proc setNbLightsMax*(this: var Graphic3dShaderProgram; theNbLights: StandardInteger) {.
-    importcpp: "SetNbLightsMax", header: "Graphic3d_ShaderProgram.hxx".}
-proc nbClipPlanesMax*(this: Graphic3dShaderProgram): StandardInteger {.noSideEffect,
-    importcpp: "NbClipPlanesMax", header: "Graphic3d_ShaderProgram.hxx".}
-proc setNbClipPlanesMax*(this: var Graphic3dShaderProgram;
-                        theNbPlanes: StandardInteger) {.
+proc SetNbLightsMax*(this: var Graphic3d_ShaderProgram;
+                    theNbLights: Standard_Integer) {.importcpp: "SetNbLightsMax",
+    header: "Graphic3d_ShaderProgram.hxx".}
+proc NbClipPlanesMax*(this: Graphic3d_ShaderProgram): Standard_Integer {.
+    noSideEffect, importcpp: "NbClipPlanesMax",
+    header: "Graphic3d_ShaderProgram.hxx".}
+proc SetNbClipPlanesMax*(this: var Graphic3d_ShaderProgram;
+                        theNbPlanes: Standard_Integer) {.
     importcpp: "SetNbClipPlanesMax", header: "Graphic3d_ShaderProgram.hxx".}
-proc attachShader*(this: var Graphic3dShaderProgram;
-                  theShader: Handle[Graphic3dShaderObject]): StandardBoolean {.
+proc AttachShader*(this: var Graphic3d_ShaderProgram;
+                  theShader: handle[Graphic3d_ShaderObject]): Standard_Boolean {.
     importcpp: "AttachShader", header: "Graphic3d_ShaderProgram.hxx".}
-proc detachShader*(this: var Graphic3dShaderProgram;
-                  theShader: Handle[Graphic3dShaderObject]): StandardBoolean {.
+proc DetachShader*(this: var Graphic3d_ShaderProgram;
+                  theShader: handle[Graphic3d_ShaderObject]): Standard_Boolean {.
     importcpp: "DetachShader", header: "Graphic3d_ShaderProgram.hxx".}
-proc shaderObjects*(this: Graphic3dShaderProgram): Graphic3dShaderObjectList {.
+proc ShaderObjects*(this: Graphic3d_ShaderProgram): Graphic3d_ShaderObjectList {.
     noSideEffect, importcpp: "ShaderObjects", header: "Graphic3d_ShaderProgram.hxx".}
-proc variables*(this: Graphic3dShaderProgram): Graphic3dShaderVariableList {.
+proc Variables*(this: Graphic3d_ShaderProgram): Graphic3d_ShaderVariableList {.
     noSideEffect, importcpp: "Variables", header: "Graphic3d_ShaderProgram.hxx".}
-proc vertexAttributes*(this: Graphic3dShaderProgram): Graphic3dShaderAttributeList {.
+proc VertexAttributes*(this: Graphic3d_ShaderProgram): Graphic3d_ShaderAttributeList {.
     noSideEffect, importcpp: "VertexAttributes",
     header: "Graphic3d_ShaderProgram.hxx".}
-proc setVertexAttributes*(this: var Graphic3dShaderProgram;
-                         theAttributes: Graphic3dShaderAttributeList) {.
+proc SetVertexAttributes*(this: var Graphic3d_ShaderProgram;
+                         theAttributes: Graphic3d_ShaderAttributeList) {.
     importcpp: "SetVertexAttributes", header: "Graphic3d_ShaderProgram.hxx".}
-proc nbFragmentOutputs*(this: Graphic3dShaderProgram): StandardInteger {.
+proc NbFragmentOutputs*(this: Graphic3d_ShaderProgram): Standard_Integer {.
     noSideEffect, importcpp: "NbFragmentOutputs",
     header: "Graphic3d_ShaderProgram.hxx".}
-proc setNbFragmentOutputs*(this: var Graphic3dShaderProgram;
-                          theNbOutputs: StandardInteger) {.
+proc SetNbFragmentOutputs*(this: var Graphic3d_ShaderProgram;
+                          theNbOutputs: Standard_Integer) {.
     importcpp: "SetNbFragmentOutputs", header: "Graphic3d_ShaderProgram.hxx".}
-proc hasAlphaTest*(this: Graphic3dShaderProgram): StandardBoolean {.noSideEffect,
+proc HasAlphaTest*(this: Graphic3d_ShaderProgram): Standard_Boolean {.noSideEffect,
     importcpp: "HasAlphaTest", header: "Graphic3d_ShaderProgram.hxx".}
-proc setAlphaTest*(this: var Graphic3dShaderProgram; theAlphaTest: StandardBoolean) {.
+proc SetAlphaTest*(this: var Graphic3d_ShaderProgram; theAlphaTest: Standard_Boolean) {.
     importcpp: "SetAlphaTest", header: "Graphic3d_ShaderProgram.hxx".}
-proc hasDefaultSampler*(this: Graphic3dShaderProgram): StandardBoolean {.
+proc HasDefaultSampler*(this: Graphic3d_ShaderProgram): Standard_Boolean {.
     noSideEffect, importcpp: "HasDefaultSampler",
     header: "Graphic3d_ShaderProgram.hxx".}
-proc setDefaultSampler*(this: var Graphic3dShaderProgram;
-                       theHasDefSampler: StandardBoolean) {.
+proc SetDefaultSampler*(this: var Graphic3d_ShaderProgram;
+                       theHasDefSampler: Standard_Boolean) {.
     importcpp: "SetDefaultSampler", header: "Graphic3d_ShaderProgram.hxx".}
-proc hasWeightOitOutput*(this: Graphic3dShaderProgram): StandardBoolean {.
+proc HasWeightOitOutput*(this: Graphic3d_ShaderProgram): Standard_Boolean {.
     noSideEffect, importcpp: "HasWeightOitOutput",
     header: "Graphic3d_ShaderProgram.hxx".}
-proc setWeightOitOutput*(this: var Graphic3dShaderProgram;
-                        theOutput: StandardBoolean) {.
+proc SetWeightOitOutput*(this: var Graphic3d_ShaderProgram;
+                        theOutput: Standard_Boolean) {.
     importcpp: "SetWeightOitOutput", header: "Graphic3d_ShaderProgram.hxx".}
-proc isPBR*(this: Graphic3dShaderProgram): StandardBoolean {.noSideEffect,
+proc IsPBR*(this: Graphic3d_ShaderProgram): Standard_Boolean {.noSideEffect,
     importcpp: "IsPBR", header: "Graphic3d_ShaderProgram.hxx".}
-proc setPBR*(this: var Graphic3dShaderProgram; theIsPBR: StandardBoolean) {.
+proc SetPBR*(this: var Graphic3d_ShaderProgram; theIsPBR: Standard_Boolean) {.
     importcpp: "SetPBR", header: "Graphic3d_ShaderProgram.hxx".}
-proc textureSetBits*(this: Graphic3dShaderProgram): StandardInteger {.noSideEffect,
-    importcpp: "TextureSetBits", header: "Graphic3d_ShaderProgram.hxx".}
-proc setTextureSetBits*(this: var Graphic3dShaderProgram; theBits: StandardInteger) {.
+proc TextureSetBits*(this: Graphic3d_ShaderProgram): Standard_Integer {.
+    noSideEffect, importcpp: "TextureSetBits",
+    header: "Graphic3d_ShaderProgram.hxx".}
+proc SetTextureSetBits*(this: var Graphic3d_ShaderProgram; theBits: Standard_Integer) {.
     importcpp: "SetTextureSetBits", header: "Graphic3d_ShaderProgram.hxx".}
-proc pushVariable*[T](this: var Graphic3dShaderProgram;
-                     theName: TCollectionAsciiString; theValue: T): StandardBoolean {.
+proc PushVariable*[T](this: var Graphic3d_ShaderProgram;
+                     theName: TCollection_AsciiString; theValue: T): Standard_Boolean {.
     importcpp: "PushVariable", header: "Graphic3d_ShaderProgram.hxx".}
-proc clearVariables*(this: var Graphic3dShaderProgram) {.
+proc ClearVariables*(this: var Graphic3d_ShaderProgram) {.
     importcpp: "ClearVariables", header: "Graphic3d_ShaderProgram.hxx".}
-proc pushVariableFloat*(this: var Graphic3dShaderProgram;
-                       theName: TCollectionAsciiString; theValue: cfloat): StandardBoolean {.
+proc PushVariableFloat*(this: var Graphic3d_ShaderProgram;
+                       theName: TCollection_AsciiString; theValue: cfloat): Standard_Boolean {.
     importcpp: "PushVariableFloat", header: "Graphic3d_ShaderProgram.hxx".}
-proc pushVariableVec2*(this: var Graphic3dShaderProgram;
-                      theName: TCollectionAsciiString; theValue: Graphic3dVec2): StandardBoolean {.
+proc PushVariableVec2*(this: var Graphic3d_ShaderProgram;
+                      theName: TCollection_AsciiString; theValue: Graphic3d_Vec2): Standard_Boolean {.
     importcpp: "PushVariableVec2", header: "Graphic3d_ShaderProgram.hxx".}
-proc pushVariableVec3*(this: var Graphic3dShaderProgram;
-                      theName: TCollectionAsciiString; theValue: Graphic3dVec3): StandardBoolean {.
+proc PushVariableVec3*(this: var Graphic3d_ShaderProgram;
+                      theName: TCollection_AsciiString; theValue: Graphic3d_Vec3): Standard_Boolean {.
     importcpp: "PushVariableVec3", header: "Graphic3d_ShaderProgram.hxx".}
-proc pushVariableVec4*(this: var Graphic3dShaderProgram;
-                      theName: TCollectionAsciiString; theValue: Graphic3dVec4): StandardBoolean {.
+proc PushVariableVec4*(this: var Graphic3d_ShaderProgram;
+                      theName: TCollection_AsciiString; theValue: Graphic3d_Vec4): Standard_Boolean {.
     importcpp: "PushVariableVec4", header: "Graphic3d_ShaderProgram.hxx".}
-proc pushVariableInt*(this: var Graphic3dShaderProgram;
-                     theName: TCollectionAsciiString; theValue: cint): StandardBoolean {.
+proc PushVariableInt*(this: var Graphic3d_ShaderProgram;
+                     theName: TCollection_AsciiString; theValue: cint): Standard_Boolean {.
     importcpp: "PushVariableInt", header: "Graphic3d_ShaderProgram.hxx".}
-proc pushVariableVec2i*(this: var Graphic3dShaderProgram;
-                       theName: TCollectionAsciiString; theValue: Graphic3dVec2i): StandardBoolean {.
+proc PushVariableVec2i*(this: var Graphic3d_ShaderProgram;
+                       theName: TCollection_AsciiString; theValue: Graphic3d_Vec2i): Standard_Boolean {.
     importcpp: "PushVariableVec2i", header: "Graphic3d_ShaderProgram.hxx".}
-proc pushVariableVec3i*(this: var Graphic3dShaderProgram;
-                       theName: TCollectionAsciiString; theValue: Graphic3dVec3i): StandardBoolean {.
+proc PushVariableVec3i*(this: var Graphic3d_ShaderProgram;
+                       theName: TCollection_AsciiString; theValue: Graphic3d_Vec3i): Standard_Boolean {.
     importcpp: "PushVariableVec3i", header: "Graphic3d_ShaderProgram.hxx".}
-proc pushVariableVec4i*(this: var Graphic3dShaderProgram;
-                       theName: TCollectionAsciiString; theValue: Graphic3dVec4i): StandardBoolean {.
+proc PushVariableVec4i*(this: var Graphic3d_ShaderProgram;
+                       theName: TCollection_AsciiString; theValue: Graphic3d_Vec4i): Standard_Boolean {.
     importcpp: "PushVariableVec4i", header: "Graphic3d_ShaderProgram.hxx".}
-proc shadersFolder*(): TCollectionAsciiString {.
+proc ShadersFolder*(): TCollection_AsciiString {.
     importcpp: "Graphic3d_ShaderProgram::ShadersFolder(@)",
     header: "Graphic3d_ShaderProgram.hxx".}
 discard "forward decl of Graphic3d_ShaderProgram"
 type
-  HandleGraphic3dShaderProgram* = Handle[Graphic3dShaderProgram]
+  Handle_Graphic3d_ShaderProgram* = handle[Graphic3d_ShaderProgram]
 
 ##  =======================================================================
 ##  function : PushVariable
 ##  purpose  : Pushes custom uniform variable to the program
 ##  =======================================================================
 
-proc pushVariable*(this: var Graphic3dShaderProgram;
-                  theName: TCollectionAsciiString; theValue: T): StandardBoolean {.
+proc PushVariable*(this: var Graphic3d_ShaderProgram;
+                  theName: TCollection_AsciiString; theValue: T): Standard_Boolean {.
     importcpp: "PushVariable", header: "Graphic3d_ShaderProgram.hxx".}
-

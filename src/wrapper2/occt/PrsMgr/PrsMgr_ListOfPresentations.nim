@@ -13,7 +13,8 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../NCollection/NCollection_List, ../Prs3d/Prs3d_Presentation
+
 type
-  PrsMgrListOfPresentations* = NCollectionList[Handle[Prs3dPresentation]]
-
-
+  PrsMgr_ListOfPresentations* = NCollection_List[handle[Prs3d_Presentation]]

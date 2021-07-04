@@ -14,6 +14,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
+  ../Standard/Standard_Integer
+
 discard "forward decl of Standard_DomainError"
 discard "forward decl of IGESDimen_WitnessLine"
 discard "forward decl of IGESData_IGESReaderData"
@@ -26,44 +31,47 @@ discard "forward decl of Interface_Check"
 discard "forward decl of Interface_CopyTool"
 discard "forward decl of IGESData_IGESDumper"
 type
-  IGESDimenToolWitnessLine* {.importcpp: "IGESDimen_ToolWitnessLine",
-                             header: "IGESDimen_ToolWitnessLine.hxx", bycopy.} = object ##
-                                                                                   ## !
-                                                                                   ## Returns
-                                                                                   ## a
-                                                                                   ## ToolWitnessLine,
-                                                                                   ## ready
-                                                                                   ## to
-                                                                                   ## work
+  IGESDimen_ToolWitnessLine* {.importcpp: "IGESDimen_ToolWitnessLine",
+                              header: "IGESDimen_ToolWitnessLine.hxx", bycopy.} = object ##
+                                                                                    ## !
+                                                                                    ## Returns
+                                                                                    ## a
+                                                                                    ## ToolWitnessLine,
+                                                                                    ## ready
+                                                                                    ## to
+                                                                                    ## work
 
 
-proc constructIGESDimenToolWitnessLine*(): IGESDimenToolWitnessLine {.constructor,
-    importcpp: "IGESDimen_ToolWitnessLine(@)",
+proc constructIGESDimen_ToolWitnessLine*(): IGESDimen_ToolWitnessLine {.
+    constructor, importcpp: "IGESDimen_ToolWitnessLine(@)",
     header: "IGESDimen_ToolWitnessLine.hxx".}
-proc readOwnParams*(this: IGESDimenToolWitnessLine;
-                   ent: Handle[IGESDimenWitnessLine];
-                   ir: Handle[IGESDataIGESReaderData]; pr: var IGESDataParamReader) {.
-    noSideEffect, importcpp: "ReadOwnParams",
-    header: "IGESDimen_ToolWitnessLine.hxx".}
-proc writeOwnParams*(this: IGESDimenToolWitnessLine;
-                    ent: Handle[IGESDimenWitnessLine]; iw: var IGESDataIGESWriter) {.
-    noSideEffect, importcpp: "WriteOwnParams",
-    header: "IGESDimen_ToolWitnessLine.hxx".}
-proc ownShared*(this: IGESDimenToolWitnessLine; ent: Handle[IGESDimenWitnessLine];
-               iter: var InterfaceEntityIterator) {.noSideEffect,
+proc ReadOwnParams*(this: IGESDimen_ToolWitnessLine;
+                   ent: handle[IGESDimen_WitnessLine];
+                   IR: handle[IGESData_IGESReaderData];
+                   PR: var IGESData_ParamReader) {.noSideEffect,
+    importcpp: "ReadOwnParams", header: "IGESDimen_ToolWitnessLine.hxx".}
+proc WriteOwnParams*(this: IGESDimen_ToolWitnessLine;
+                    ent: handle[IGESDimen_WitnessLine];
+                    IW: var IGESData_IGESWriter) {.noSideEffect,
+    importcpp: "WriteOwnParams", header: "IGESDimen_ToolWitnessLine.hxx".}
+proc OwnShared*(this: IGESDimen_ToolWitnessLine;
+               ent: handle[IGESDimen_WitnessLine];
+               iter: var Interface_EntityIterator) {.noSideEffect,
     importcpp: "OwnShared", header: "IGESDimen_ToolWitnessLine.hxx".}
-proc ownCorrect*(this: IGESDimenToolWitnessLine; ent: Handle[IGESDimenWitnessLine]): StandardBoolean {.
+proc OwnCorrect*(this: IGESDimen_ToolWitnessLine;
+                ent: handle[IGESDimen_WitnessLine]): Standard_Boolean {.
     noSideEffect, importcpp: "OwnCorrect", header: "IGESDimen_ToolWitnessLine.hxx".}
-proc dirChecker*(this: IGESDimenToolWitnessLine; ent: Handle[IGESDimenWitnessLine]): IGESDataDirChecker {.
+proc DirChecker*(this: IGESDimen_ToolWitnessLine;
+                ent: handle[IGESDimen_WitnessLine]): IGESData_DirChecker {.
     noSideEffect, importcpp: "DirChecker", header: "IGESDimen_ToolWitnessLine.hxx".}
-proc ownCheck*(this: IGESDimenToolWitnessLine; ent: Handle[IGESDimenWitnessLine];
-              shares: InterfaceShareTool; ach: var Handle[InterfaceCheck]) {.
+proc OwnCheck*(this: IGESDimen_ToolWitnessLine; ent: handle[IGESDimen_WitnessLine];
+              shares: Interface_ShareTool; ach: var handle[Interface_Check]) {.
     noSideEffect, importcpp: "OwnCheck", header: "IGESDimen_ToolWitnessLine.hxx".}
-proc ownCopy*(this: IGESDimenToolWitnessLine;
-             entfrom: Handle[IGESDimenWitnessLine];
-             entto: Handle[IGESDimenWitnessLine]; tc: var InterfaceCopyTool) {.
+proc OwnCopy*(this: IGESDimen_ToolWitnessLine;
+             entfrom: handle[IGESDimen_WitnessLine];
+             entto: handle[IGESDimen_WitnessLine]; TC: var Interface_CopyTool) {.
     noSideEffect, importcpp: "OwnCopy", header: "IGESDimen_ToolWitnessLine.hxx".}
-proc ownDump*(this: IGESDimenToolWitnessLine; ent: Handle[IGESDimenWitnessLine];
-             dumper: IGESDataIGESDumper; s: var StandardOStream; own: StandardInteger) {.
-    noSideEffect, importcpp: "OwnDump", header: "IGESDimen_ToolWitnessLine.hxx".}
-
+proc OwnDump*(this: IGESDimen_ToolWitnessLine; ent: handle[IGESDimen_WitnessLine];
+             dumper: IGESData_IGESDumper; S: var Standard_OStream;
+             own: Standard_Integer) {.noSideEffect, importcpp: "OwnDump",
+                                    header: "IGESDimen_ToolWitnessLine.hxx".}

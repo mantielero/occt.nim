@@ -14,6 +14,20 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Integer,
+  ../Standard/Standard_Boolean, ../Standard/Standard_Transient, Graphic3d_CView,
+  Graphic3d_CStructure, ../Aspect/Aspect_GradientFillMethod,
+  ../Standard/Standard_CString, ../Aspect/Aspect_FillMethod,
+  ../Standard/Standard_Size, ../Quantity/Quantity_NameOfColor,
+  ../Standard/Standard_Real, ../Aspect/Aspect_TypeOfTriedronPosition,
+  Graphic3d_GraduatedTrihedron, Graphic3d_Vec3, ../Standard/Standard_ShortReal,
+  ../Standard/Standard_Address, ../Image/Image_PixMap, Graphic3d_BufferType,
+  ../Aspect/Aspect_GenId, ../Aspect/Aspect_Handle, Graphic3d_ZLayerId,
+  Graphic3d_ZLayerSettings, Graphic3d_MapOfZLayerSettings, Graphic3d_CLight,
+  Graphic3d_TypeOfLimit, ../TColStd/TColStd_Array2OfReal,
+  ../TColStd/TColStd_MapOfInteger, ../TColStd/TColStd_SequenceOfInteger
+
 discard "forward decl of Aspect_DisplayConnection"
 discard "forward decl of Graphic3d_CView"
 discard "forward decl of Graphic3d_GraphicDriver"
@@ -26,114 +40,116 @@ discard "forward decl of Quantity_Color"
 discard "forward decl of TCollection_AsciiString"
 discard "forward decl of Graphic3d_GraphicDriver"
 type
-  HandleGraphic3dGraphicDriver* = Handle[Graphic3dGraphicDriver]
+  Handle_Graphic3d_GraphicDriver* = handle[Graphic3d_GraphicDriver]
 
 ## ! This class allows the definition of a graphic driver
 ## ! for 3d interface (currently only OpenGl driver is used).
 
 type
-  Graphic3dGraphicDriver* {.importcpp: "Graphic3d_GraphicDriver",
-                           header: "Graphic3d_GraphicDriver.hxx", bycopy.} = object of StandardTransient ##
-                                                                                                  ## !
-                                                                                                  ## Request
-                                                                                                  ## limit
-                                                                                                  ## of
-                                                                                                  ## graphic
-                                                                                                  ## resource
-                                                                                                  ## of
-                                                                                                  ## specific
-                                                                                                  ## type.
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## Creates
-                                                                                                  ## new
-                                                                                                  ## empty
-                                                                                                  ## graphic
-                                                                                                  ## structure
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## Initializes
-                                                                                                  ## the
-                                                                                                  ## Driver
+  Graphic3d_GraphicDriver* {.importcpp: "Graphic3d_GraphicDriver",
+                            header: "Graphic3d_GraphicDriver.hxx", bycopy.} = object of Standard_Transient ##
+                                                                                                    ## !
+                                                                                                    ## Request
+                                                                                                    ## limit
+                                                                                                    ## of
+                                                                                                    ## graphic
+                                                                                                    ## resource
+                                                                                                    ## of
+                                                                                                    ## specific
+                                                                                                    ## type.
+                                                                                                    ##
+                                                                                                    ## !
+                                                                                                    ## Creates
+                                                                                                    ## new
+                                                                                                    ## empty
+                                                                                                    ## graphic
+                                                                                                    ## structure
+                                                                                                    ##
+                                                                                                    ## !
+                                                                                                    ## Initializes
+                                                                                                    ## the
+                                                                                                    ## Driver
 
-  Graphic3dGraphicDriverbaseType* = StandardTransient
+  Graphic3d_GraphicDriverbase_type* = Standard_Transient
 
-proc getTypeName*(): cstring {.importcpp: "Graphic3d_GraphicDriver::get_type_name(@)",
-                            header: "Graphic3d_GraphicDriver.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "Graphic3d_GraphicDriver::get_type_name(@)",
+                              header: "Graphic3d_GraphicDriver.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "Graphic3d_GraphicDriver::get_type_descriptor(@)",
     header: "Graphic3d_GraphicDriver.hxx".}
-proc dynamicType*(this: Graphic3dGraphicDriver): Handle[StandardType] {.
+proc DynamicType*(this: Graphic3d_GraphicDriver): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType", header: "Graphic3d_GraphicDriver.hxx".}
-proc inquireLimit*(this: Graphic3dGraphicDriver; theType: Graphic3dTypeOfLimit): StandardInteger {.
+proc InquireLimit*(this: Graphic3d_GraphicDriver; theType: Graphic3d_TypeOfLimit): Standard_Integer {.
     noSideEffect, importcpp: "InquireLimit", header: "Graphic3d_GraphicDriver.hxx".}
-proc inquireLightLimit*(this: Graphic3dGraphicDriver): StandardInteger {.
+proc InquireLightLimit*(this: Graphic3d_GraphicDriver): Standard_Integer {.
     noSideEffect, importcpp: "InquireLightLimit",
     header: "Graphic3d_GraphicDriver.hxx".}
-proc inquirePlaneLimit*(this: Graphic3dGraphicDriver): StandardInteger {.
+proc InquirePlaneLimit*(this: Graphic3d_GraphicDriver): Standard_Integer {.
     noSideEffect, importcpp: "InquirePlaneLimit",
     header: "Graphic3d_GraphicDriver.hxx".}
-proc inquireViewLimit*(this: Graphic3dGraphicDriver): StandardInteger {.
+proc InquireViewLimit*(this: Graphic3d_GraphicDriver): Standard_Integer {.
     noSideEffect, importcpp: "InquireViewLimit",
     header: "Graphic3d_GraphicDriver.hxx".}
-proc createStructure*(this: var Graphic3dGraphicDriver;
-                     theManager: Handle[Graphic3dStructureManager]): Handle[
-    Graphic3dCStructure] {.importcpp: "CreateStructure",
-                          header: "Graphic3d_GraphicDriver.hxx".}
-proc removeStructure*(this: var Graphic3dGraphicDriver;
-                     theCStructure: var Handle[Graphic3dCStructure]) {.
+proc CreateStructure*(this: var Graphic3d_GraphicDriver;
+                     theManager: handle[Graphic3d_StructureManager]): handle[
+    Graphic3d_CStructure] {.importcpp: "CreateStructure",
+                           header: "Graphic3d_GraphicDriver.hxx".}
+proc RemoveStructure*(this: var Graphic3d_GraphicDriver;
+                     theCStructure: var handle[Graphic3d_CStructure]) {.
     importcpp: "RemoveStructure", header: "Graphic3d_GraphicDriver.hxx".}
-proc createView*(this: var Graphic3dGraphicDriver;
-                theMgr: Handle[Graphic3dStructureManager]): Handle[Graphic3dCView] {.
-    importcpp: "CreateView", header: "Graphic3d_GraphicDriver.hxx".}
-proc removeView*(this: var Graphic3dGraphicDriver; theView: Handle[Graphic3dCView]) {.
+proc CreateView*(this: var Graphic3d_GraphicDriver;
+                theMgr: handle[Graphic3d_StructureManager]): handle[
+    Graphic3d_CView] {.importcpp: "CreateView",
+                      header: "Graphic3d_GraphicDriver.hxx".}
+proc RemoveView*(this: var Graphic3d_GraphicDriver; theView: handle[Graphic3d_CView]) {.
     importcpp: "RemoveView", header: "Graphic3d_GraphicDriver.hxx".}
-proc enableVBO*(this: var Graphic3dGraphicDriver; status: StandardBoolean) {.
+proc EnableVBO*(this: var Graphic3d_GraphicDriver; status: Standard_Boolean) {.
     importcpp: "EnableVBO", header: "Graphic3d_GraphicDriver.hxx".}
-proc memoryInfo*(this: Graphic3dGraphicDriver; theFreeBytes: var StandardSize;
-                theInfo: var TCollectionAsciiString): StandardBoolean {.
+proc MemoryInfo*(this: Graphic3d_GraphicDriver; theFreeBytes: var Standard_Size;
+                theInfo: var TCollection_AsciiString): Standard_Boolean {.
     noSideEffect, importcpp: "MemoryInfo", header: "Graphic3d_GraphicDriver.hxx".}
-proc defaultTextHeight*(this: Graphic3dGraphicDriver): StandardShortReal {.
+proc DefaultTextHeight*(this: Graphic3d_GraphicDriver): Standard_ShortReal {.
     noSideEffect, importcpp: "DefaultTextHeight",
     header: "Graphic3d_GraphicDriver.hxx".}
-proc textSize*(this: Graphic3dGraphicDriver; theView: Handle[Graphic3dCView];
-              theText: StandardCString; theHeight: StandardShortReal;
-              theWidth: var StandardShortReal; theAscent: var StandardShortReal;
-              theDescent: var StandardShortReal) {.noSideEffect,
+proc TextSize*(this: Graphic3d_GraphicDriver; theView: handle[Graphic3d_CView];
+              theText: Standard_CString; theHeight: Standard_ShortReal;
+              theWidth: var Standard_ShortReal; theAscent: var Standard_ShortReal;
+              theDescent: var Standard_ShortReal) {.noSideEffect,
     importcpp: "TextSize", header: "Graphic3d_GraphicDriver.hxx".}
-proc insertLayerBefore*(this: var Graphic3dGraphicDriver;
-                       theNewLayerId: Graphic3dZLayerId;
-                       theSettings: Graphic3dZLayerSettings;
-                       theLayerAfter: Graphic3dZLayerId) {.
+proc InsertLayerBefore*(this: var Graphic3d_GraphicDriver;
+                       theNewLayerId: Graphic3d_ZLayerId;
+                       theSettings: Graphic3d_ZLayerSettings;
+                       theLayerAfter: Graphic3d_ZLayerId) {.
     importcpp: "InsertLayerBefore", header: "Graphic3d_GraphicDriver.hxx".}
-proc insertLayerAfter*(this: var Graphic3dGraphicDriver;
-                      theNewLayerId: Graphic3dZLayerId;
-                      theSettings: Graphic3dZLayerSettings;
-                      theLayerBefore: Graphic3dZLayerId) {.
+proc InsertLayerAfter*(this: var Graphic3d_GraphicDriver;
+                      theNewLayerId: Graphic3d_ZLayerId;
+                      theSettings: Graphic3d_ZLayerSettings;
+                      theLayerBefore: Graphic3d_ZLayerId) {.
     importcpp: "InsertLayerAfter", header: "Graphic3d_GraphicDriver.hxx".}
-proc removeZLayer*(this: var Graphic3dGraphicDriver; theLayerId: Graphic3dZLayerId) {.
+proc RemoveZLayer*(this: var Graphic3d_GraphicDriver; theLayerId: Graphic3d_ZLayerId) {.
     importcpp: "RemoveZLayer", header: "Graphic3d_GraphicDriver.hxx".}
-proc zLayers*(this: Graphic3dGraphicDriver;
-             theLayerSeq: var TColStdSequenceOfInteger) {.noSideEffect,
+proc ZLayers*(this: Graphic3d_GraphicDriver;
+             theLayerSeq: var TColStd_SequenceOfInteger) {.noSideEffect,
     importcpp: "ZLayers", header: "Graphic3d_GraphicDriver.hxx".}
-proc setZLayerSettings*(this: var Graphic3dGraphicDriver;
-                       theLayerId: Graphic3dZLayerId;
-                       theSettings: Graphic3dZLayerSettings) {.
+proc SetZLayerSettings*(this: var Graphic3d_GraphicDriver;
+                       theLayerId: Graphic3d_ZLayerId;
+                       theSettings: Graphic3d_ZLayerSettings) {.
     importcpp: "SetZLayerSettings", header: "Graphic3d_GraphicDriver.hxx".}
-proc zLayerSettings*(this: Graphic3dGraphicDriver; theLayerId: Graphic3dZLayerId): Graphic3dZLayerSettings {.
+proc ZLayerSettings*(this: Graphic3d_GraphicDriver; theLayerId: Graphic3d_ZLayerId): Graphic3d_ZLayerSettings {.
     noSideEffect, importcpp: "ZLayerSettings",
     header: "Graphic3d_GraphicDriver.hxx".}
-proc viewExists*(this: var Graphic3dGraphicDriver; theWindow: Handle[AspectWindow];
-                theView: var Handle[Graphic3dCView]): StandardBoolean {.
+proc ViewExists*(this: var Graphic3d_GraphicDriver;
+                theWindow: handle[Aspect_Window];
+                theView: var handle[Graphic3d_CView]): Standard_Boolean {.
     importcpp: "ViewExists", header: "Graphic3d_GraphicDriver.hxx".}
-proc getDisplayConnection*(this: Graphic3dGraphicDriver): Handle[
-    AspectDisplayConnection] {.noSideEffect, importcpp: "GetDisplayConnection",
-                              header: "Graphic3d_GraphicDriver.hxx".}
-proc newIdentification*(this: var Graphic3dGraphicDriver): StandardInteger {.
+proc GetDisplayConnection*(this: Graphic3d_GraphicDriver): handle[
+    Aspect_DisplayConnection] {.noSideEffect, importcpp: "GetDisplayConnection",
+                               header: "Graphic3d_GraphicDriver.hxx".}
+proc NewIdentification*(this: var Graphic3d_GraphicDriver): Standard_Integer {.
     importcpp: "NewIdentification", header: "Graphic3d_GraphicDriver.hxx".}
-proc removeIdentification*(this: var Graphic3dGraphicDriver; theId: StandardInteger) {.
+proc RemoveIdentification*(this: var Graphic3d_GraphicDriver;
+                          theId: Standard_Integer) {.
     importcpp: "RemoveIdentification", header: "Graphic3d_GraphicDriver.hxx".}
-proc dumpJson*(this: Graphic3dGraphicDriver; theOStream: var StandardOStream;
-              theDepth: StandardInteger = -1) {.noSideEffect, importcpp: "DumpJson",
+proc DumpJson*(this: Graphic3d_GraphicDriver; theOStream: var Standard_OStream;
+              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
     header: "Graphic3d_GraphicDriver.hxx".}
-

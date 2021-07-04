@@ -14,6 +14,15 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Real,
+  ../gp/gp_Mat, ../gp/gp_Vec, ../Approx/Approx_SweepFunction,
+  ../Standard/Standard_Boolean, ../TColgp/TColgp_Array1OfPnt,
+  ../TColgp/TColgp_Array1OfPnt2d, ../TColStd/TColStd_Array1OfReal,
+  ../TColgp/TColgp_Array1OfVec, ../TColgp/TColgp_Array1OfVec2d,
+  ../Standard/Standard_Integer, ../TColStd/TColStd_Array1OfInteger,
+  ../GeomAbs/GeomAbs_Shape
+
 discard "forward decl of GeomFill_LocationLaw"
 discard "forward decl of GeomFill_SectionLaw"
 discard "forward decl of Standard_OutOfRange"
@@ -21,84 +30,83 @@ discard "forward decl of gp_Pnt"
 discard "forward decl of GeomFill_SweepFunction"
 discard "forward decl of GeomFill_SweepFunction"
 type
-  HandleGeomFillSweepFunction* = Handle[GeomFillSweepFunction]
+  Handle_GeomFill_SweepFunction* = handle[GeomFill_SweepFunction]
 
 ## ! Function to approximate by SweepApproximation from
 ## ! Approx. To bulid general sweep Surface.
 
 type
-  GeomFillSweepFunction* {.importcpp: "GeomFill_SweepFunction",
-                          header: "GeomFill_SweepFunction.hxx", bycopy.} = object of ApproxSweepFunction
+  GeomFill_SweepFunction* {.importcpp: "GeomFill_SweepFunction",
+                           header: "GeomFill_SweepFunction.hxx", bycopy.} = object of Approx_SweepFunction
 
 
-proc constructGeomFillSweepFunction*(section: Handle[GeomFillSectionLaw];
-                                    location: Handle[GeomFillLocationLaw];
-                                    firstParameter: StandardReal;
-                                    firstParameterOnS: StandardReal;
-                                    ratioParameterOnS: StandardReal): GeomFillSweepFunction {.
+proc constructGeomFill_SweepFunction*(Section: handle[GeomFill_SectionLaw];
+                                     Location: handle[GeomFill_LocationLaw];
+                                     FirstParameter: Standard_Real;
+                                     FirstParameterOnS: Standard_Real;
+                                     RatioParameterOnS: Standard_Real): GeomFill_SweepFunction {.
     constructor, importcpp: "GeomFill_SweepFunction(@)",
     header: "GeomFill_SweepFunction.hxx".}
-proc d0*(this: var GeomFillSweepFunction; param: StandardReal; first: StandardReal;
-        last: StandardReal; poles: var TColgpArray1OfPnt;
-        poles2d: var TColgpArray1OfPnt2d; weigths: var TColStdArray1OfReal): StandardBoolean {.
+proc D0*(this: var GeomFill_SweepFunction; Param: Standard_Real; First: Standard_Real;
+        Last: Standard_Real; Poles: var TColgp_Array1OfPnt;
+        Poles2d: var TColgp_Array1OfPnt2d; Weigths: var TColStd_Array1OfReal): Standard_Boolean {.
     importcpp: "D0", header: "GeomFill_SweepFunction.hxx".}
-proc d1*(this: var GeomFillSweepFunction; param: StandardReal; first: StandardReal;
-        last: StandardReal; poles: var TColgpArray1OfPnt;
-        dPoles: var TColgpArray1OfVec; poles2d: var TColgpArray1OfPnt2d;
-        dPoles2d: var TColgpArray1OfVec2d; weigths: var TColStdArray1OfReal;
-        dWeigths: var TColStdArray1OfReal): StandardBoolean {.importcpp: "D1",
+proc D1*(this: var GeomFill_SweepFunction; Param: Standard_Real; First: Standard_Real;
+        Last: Standard_Real; Poles: var TColgp_Array1OfPnt;
+        DPoles: var TColgp_Array1OfVec; Poles2d: var TColgp_Array1OfPnt2d;
+        DPoles2d: var TColgp_Array1OfVec2d; Weigths: var TColStd_Array1OfReal;
+        DWeigths: var TColStd_Array1OfReal): Standard_Boolean {.importcpp: "D1",
     header: "GeomFill_SweepFunction.hxx".}
-proc d2*(this: var GeomFillSweepFunction; param: StandardReal; first: StandardReal;
-        last: StandardReal; poles: var TColgpArray1OfPnt;
-        dPoles: var TColgpArray1OfVec; d2Poles: var TColgpArray1OfVec;
-        poles2d: var TColgpArray1OfPnt2d; dPoles2d: var TColgpArray1OfVec2d;
-        d2Poles2d: var TColgpArray1OfVec2d; weigths: var TColStdArray1OfReal;
-        dWeigths: var TColStdArray1OfReal; d2Weigths: var TColStdArray1OfReal): StandardBoolean {.
+proc D2*(this: var GeomFill_SweepFunction; Param: Standard_Real; First: Standard_Real;
+        Last: Standard_Real; Poles: var TColgp_Array1OfPnt;
+        DPoles: var TColgp_Array1OfVec; D2Poles: var TColgp_Array1OfVec;
+        Poles2d: var TColgp_Array1OfPnt2d; DPoles2d: var TColgp_Array1OfVec2d;
+        D2Poles2d: var TColgp_Array1OfVec2d; Weigths: var TColStd_Array1OfReal;
+        DWeigths: var TColStd_Array1OfReal; D2Weigths: var TColStd_Array1OfReal): Standard_Boolean {.
     importcpp: "D2", header: "GeomFill_SweepFunction.hxx".}
-proc nb2dCurves*(this: GeomFillSweepFunction): StandardInteger {.noSideEffect,
+proc Nb2dCurves*(this: GeomFill_SweepFunction): Standard_Integer {.noSideEffect,
     importcpp: "Nb2dCurves", header: "GeomFill_SweepFunction.hxx".}
-proc sectionShape*(this: GeomFillSweepFunction; nbPoles: var StandardInteger;
-                  nbKnots: var StandardInteger; degree: var StandardInteger) {.
+proc SectionShape*(this: GeomFill_SweepFunction; NbPoles: var Standard_Integer;
+                  NbKnots: var Standard_Integer; Degree: var Standard_Integer) {.
     noSideEffect, importcpp: "SectionShape", header: "GeomFill_SweepFunction.hxx".}
-proc knots*(this: GeomFillSweepFunction; tKnots: var TColStdArray1OfReal) {.
+proc Knots*(this: GeomFill_SweepFunction; TKnots: var TColStd_Array1OfReal) {.
     noSideEffect, importcpp: "Knots", header: "GeomFill_SweepFunction.hxx".}
-proc mults*(this: GeomFillSweepFunction; tMults: var TColStdArray1OfInteger) {.
+proc Mults*(this: GeomFill_SweepFunction; TMults: var TColStd_Array1OfInteger) {.
     noSideEffect, importcpp: "Mults", header: "GeomFill_SweepFunction.hxx".}
-proc isRational*(this: GeomFillSweepFunction): StandardBoolean {.noSideEffect,
+proc IsRational*(this: GeomFill_SweepFunction): Standard_Boolean {.noSideEffect,
     importcpp: "IsRational", header: "GeomFill_SweepFunction.hxx".}
-proc nbIntervals*(this: GeomFillSweepFunction; s: GeomAbsShape): StandardInteger {.
+proc NbIntervals*(this: GeomFill_SweepFunction; S: GeomAbs_Shape): Standard_Integer {.
     noSideEffect, importcpp: "NbIntervals", header: "GeomFill_SweepFunction.hxx".}
-proc intervals*(this: GeomFillSweepFunction; t: var TColStdArray1OfReal;
-               s: GeomAbsShape) {.noSideEffect, importcpp: "Intervals",
-                                header: "GeomFill_SweepFunction.hxx".}
-proc setInterval*(this: var GeomFillSweepFunction; first: StandardReal;
-                 last: StandardReal) {.importcpp: "SetInterval",
-                                     header: "GeomFill_SweepFunction.hxx".}
-proc resolution*(this: GeomFillSweepFunction; index: StandardInteger;
-                tol: StandardReal; tolU: var StandardReal; tolV: var StandardReal) {.
+proc Intervals*(this: GeomFill_SweepFunction; T: var TColStd_Array1OfReal;
+               S: GeomAbs_Shape) {.noSideEffect, importcpp: "Intervals",
+                                 header: "GeomFill_SweepFunction.hxx".}
+proc SetInterval*(this: var GeomFill_SweepFunction; First: Standard_Real;
+                 Last: Standard_Real) {.importcpp: "SetInterval",
+                                      header: "GeomFill_SweepFunction.hxx".}
+proc Resolution*(this: GeomFill_SweepFunction; Index: Standard_Integer;
+                Tol: Standard_Real; TolU: var Standard_Real; TolV: var Standard_Real) {.
     noSideEffect, importcpp: "Resolution", header: "GeomFill_SweepFunction.hxx".}
-proc getTolerance*(this: GeomFillSweepFunction; boundTol: StandardReal;
-                  surfTol: StandardReal; angleTol: StandardReal;
-                  tol3d: var TColStdArray1OfReal) {.noSideEffect,
+proc GetTolerance*(this: GeomFill_SweepFunction; BoundTol: Standard_Real;
+                  SurfTol: Standard_Real; AngleTol: Standard_Real;
+                  Tol3d: var TColStd_Array1OfReal) {.noSideEffect,
     importcpp: "GetTolerance", header: "GeomFill_SweepFunction.hxx".}
-proc setTolerance*(this: var GeomFillSweepFunction; tol3d: StandardReal;
-                  tol2d: StandardReal) {.importcpp: "SetTolerance",
-                                       header: "GeomFill_SweepFunction.hxx".}
-proc barycentreOfSurf*(this: GeomFillSweepFunction): GpPnt {.noSideEffect,
+proc SetTolerance*(this: var GeomFill_SweepFunction; Tol3d: Standard_Real;
+                  Tol2d: Standard_Real) {.importcpp: "SetTolerance",
+                                        header: "GeomFill_SweepFunction.hxx".}
+proc BarycentreOfSurf*(this: GeomFill_SweepFunction): gp_Pnt {.noSideEffect,
     importcpp: "BarycentreOfSurf", header: "GeomFill_SweepFunction.hxx".}
-proc maximalSection*(this: GeomFillSweepFunction): StandardReal {.noSideEffect,
+proc MaximalSection*(this: GeomFill_SweepFunction): Standard_Real {.noSideEffect,
     importcpp: "MaximalSection", header: "GeomFill_SweepFunction.hxx".}
-proc getMinimalWeight*(this: GeomFillSweepFunction;
-                      weigths: var TColStdArray1OfReal) {.noSideEffect,
+proc GetMinimalWeight*(this: GeomFill_SweepFunction;
+                      Weigths: var TColStd_Array1OfReal) {.noSideEffect,
     importcpp: "GetMinimalWeight", header: "GeomFill_SweepFunction.hxx".}
 type
-  GeomFillSweepFunctionbaseType* = ApproxSweepFunction
+  GeomFill_SweepFunctionbase_type* = Approx_SweepFunction
 
-proc getTypeName*(): cstring {.importcpp: "GeomFill_SweepFunction::get_type_name(@)",
-                            header: "GeomFill_SweepFunction.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "GeomFill_SweepFunction::get_type_name(@)",
+                              header: "GeomFill_SweepFunction.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "GeomFill_SweepFunction::get_type_descriptor(@)",
     header: "GeomFill_SweepFunction.hxx".}
-proc dynamicType*(this: GeomFillSweepFunction): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "GeomFill_SweepFunction.hxx".}
-
+proc DynamicType*(this: GeomFill_SweepFunction): handle[Standard_Type] {.
+    noSideEffect, importcpp: "DynamicType", header: "GeomFill_SweepFunction.hxx".}

@@ -14,8 +14,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  IntRes2d_IntersectionSegment, ../NCollection/NCollection_Sequence
+
 type
-  IntRes2dSequenceOfIntersectionSegment* = NCollectionSequence[
-      IntRes2dIntersectionSegment]
-
-
+  IntRes2d_SequenceOfIntersectionSegment* = NCollection_Sequence[
+      IntRes2d_IntersectionSegment]

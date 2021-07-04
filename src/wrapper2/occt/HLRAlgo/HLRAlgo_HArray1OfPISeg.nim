@@ -14,34 +14,38 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  HLRAlgo_PolyInternalSegment, HLRAlgo_Array1OfPISeg,
+  ../NCollection/NCollection_DefineHArray1
+
 type
-  HLRAlgoHArray1OfPISeg* {.importcpp: "HLRAlgo_HArray1OfPISeg",
-                          header: "HLRAlgo_HArray1OfPISeg.hxx", bycopy.} = object of HLRAlgoArray1OfPISeg
+  HLRAlgo_HArray1OfPISeg* {.importcpp: "HLRAlgo_HArray1OfPISeg",
+                           header: "HLRAlgo_HArray1OfPISeg.hxx", bycopy.} = object of HLRAlgo_Array1OfPISeg
 
 
-proc constructHLRAlgoHArray1OfPISeg*(theLower: StandardInteger;
-                                    theUpper: StandardInteger): HLRAlgoHArray1OfPISeg {.
+proc constructHLRAlgo_HArray1OfPISeg*(theLower: Standard_Integer;
+                                     theUpper: Standard_Integer): HLRAlgo_HArray1OfPISeg {.
     constructor, importcpp: "HLRAlgo_HArray1OfPISeg(@)",
     header: "HLRAlgo_HArray1OfPISeg.hxx".}
-proc constructHLRAlgoHArray1OfPISeg*(theLower: StandardInteger;
-                                    theUpper: StandardInteger; theValue: ValueType): HLRAlgoHArray1OfPISeg {.
+proc constructHLRAlgo_HArray1OfPISeg*(theLower: Standard_Integer;
+                                     theUpper: Standard_Integer;
+                                     theValue: value_type): HLRAlgo_HArray1OfPISeg {.
     constructor, importcpp: "HLRAlgo_HArray1OfPISeg(@)",
     header: "HLRAlgo_HArray1OfPISeg.hxx".}
-proc constructHLRAlgoHArray1OfPISeg*(theOther: HLRAlgoArray1OfPISeg): HLRAlgoHArray1OfPISeg {.
+proc constructHLRAlgo_HArray1OfPISeg*(theOther: HLRAlgo_Array1OfPISeg): HLRAlgo_HArray1OfPISeg {.
     constructor, importcpp: "HLRAlgo_HArray1OfPISeg(@)",
     header: "HLRAlgo_HArray1OfPISeg.hxx".}
-proc array1*(this: HLRAlgoHArray1OfPISeg): HLRAlgoArray1OfPISeg {.noSideEffect,
+proc Array1*(this: HLRAlgo_HArray1OfPISeg): HLRAlgo_Array1OfPISeg {.noSideEffect,
     importcpp: "Array1", header: "HLRAlgo_HArray1OfPISeg.hxx".}
-proc changeArray1*(this: var HLRAlgoHArray1OfPISeg): var HLRAlgoArray1OfPISeg {.
+proc ChangeArray1*(this: var HLRAlgo_HArray1OfPISeg): var HLRAlgo_Array1OfPISeg {.
     importcpp: "ChangeArray1", header: "HLRAlgo_HArray1OfPISeg.hxx".}
 type
-  HLRAlgoHArray1OfPISegbaseType* = MMgtTShared
+  HLRAlgo_HArray1OfPISegbase_type* = MMgt_TShared
 
-proc getTypeName*(): cstring {.importcpp: "HLRAlgo_HArray1OfPISeg::get_type_name(@)",
-                            header: "HLRAlgo_HArray1OfPISeg.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "HLRAlgo_HArray1OfPISeg::get_type_name(@)",
+                              header: "HLRAlgo_HArray1OfPISeg.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "HLRAlgo_HArray1OfPISeg::get_type_descriptor(@)",
     header: "HLRAlgo_HArray1OfPISeg.hxx".}
-proc dynamicType*(this: HLRAlgoHArray1OfPISeg): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "HLRAlgo_HArray1OfPISeg.hxx".}
-
+proc DynamicType*(this: HLRAlgo_HArray1OfPISeg): handle[Standard_Type] {.
+    noSideEffect, importcpp: "DynamicType", header: "HLRAlgo_HArray1OfPISeg.hxx".}

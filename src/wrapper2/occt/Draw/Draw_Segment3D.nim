@@ -14,36 +14,39 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../gp/gp_Pnt, Draw_Color,
+  Draw_Drawable3D
+
 discard "forward decl of gp_Pnt"
 discard "forward decl of Draw_Color"
 discard "forward decl of Draw_Display"
 discard "forward decl of Draw_Segment3D"
 discard "forward decl of Draw_Segment3D"
 type
-  HandleDrawSegment3D* = Handle[DrawSegment3D]
-  DrawSegment3D* {.importcpp: "Draw_Segment3D", header: "Draw_Segment3D.hxx", bycopy.} = object of DrawDrawable3D
+  Handle_Draw_Segment3D* = handle[Draw_Segment3D]
+  Draw_Segment3D* {.importcpp: "Draw_Segment3D", header: "Draw_Segment3D.hxx", bycopy.} = object of Draw_Drawable3D
 
 
-proc constructDrawSegment3D*(p1: GpPnt; p2: GpPnt; col: DrawColor): DrawSegment3D {.
+proc constructDraw_Segment3D*(p1: gp_Pnt; p2: gp_Pnt; col: Draw_Color): Draw_Segment3D {.
     constructor, importcpp: "Draw_Segment3D(@)", header: "Draw_Segment3D.hxx".}
-proc drawOn*(this: DrawSegment3D; dis: var DrawDisplay) {.noSideEffect,
+proc DrawOn*(this: Draw_Segment3D; dis: var Draw_Display) {.noSideEffect,
     importcpp: "DrawOn", header: "Draw_Segment3D.hxx".}
-proc first*(this: DrawSegment3D): GpPnt {.noSideEffect, importcpp: "First",
-                                      header: "Draw_Segment3D.hxx".}
-proc first*(this: var DrawSegment3D; p: GpPnt) {.importcpp: "First",
+proc First*(this: Draw_Segment3D): gp_Pnt {.noSideEffect, importcpp: "First",
+                                        header: "Draw_Segment3D.hxx".}
+proc First*(this: var Draw_Segment3D; P: gp_Pnt) {.importcpp: "First",
     header: "Draw_Segment3D.hxx".}
-proc last*(this: DrawSegment3D): GpPnt {.noSideEffect, importcpp: "Last",
-                                     header: "Draw_Segment3D.hxx".}
-proc last*(this: var DrawSegment3D; p: GpPnt) {.importcpp: "Last",
+proc Last*(this: Draw_Segment3D): gp_Pnt {.noSideEffect, importcpp: "Last",
+                                       header: "Draw_Segment3D.hxx".}
+proc Last*(this: var Draw_Segment3D; P: gp_Pnt) {.importcpp: "Last",
     header: "Draw_Segment3D.hxx".}
 type
-  DrawSegment3DbaseType* = DrawDrawable3D
+  Draw_Segment3Dbase_type* = Draw_Drawable3D
 
-proc getTypeName*(): cstring {.importcpp: "Draw_Segment3D::get_type_name(@)",
-                            header: "Draw_Segment3D.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "Draw_Segment3D::get_type_name(@)",
+                              header: "Draw_Segment3D.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "Draw_Segment3D::get_type_descriptor(@)",
     header: "Draw_Segment3D.hxx".}
-proc dynamicType*(this: DrawSegment3D): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: Draw_Segment3D): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "Draw_Segment3D.hxx".}
-

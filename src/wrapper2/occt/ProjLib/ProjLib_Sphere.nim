@@ -14,6 +14,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../gp/gp_Sphere, ProjLib_Projector,
+  ../Standard/Standard_Real
+
 discard "forward decl of Standard_NoSuchObject"
 discard "forward decl of gp_Sphere"
 discard "forward decl of gp_Circ"
@@ -22,30 +27,29 @@ discard "forward decl of gp_Elips"
 discard "forward decl of gp_Parab"
 discard "forward decl of gp_Hypr"
 type
-  ProjLibSphere* {.importcpp: "ProjLib_Sphere", header: "ProjLib_Sphere.hxx", bycopy.} = object of ProjLibProjector ##
-                                                                                                          ## !
-                                                                                                          ## Undefined
-                                                                                                          ## projection.
+  ProjLib_Sphere* {.importcpp: "ProjLib_Sphere", header: "ProjLib_Sphere.hxx", bycopy.} = object of ProjLib_Projector ##
+                                                                                                            ## !
+                                                                                                            ## Undefined
+                                                                                                            ## projection.
 
 
-proc constructProjLibSphere*(): ProjLibSphere {.constructor,
+proc constructProjLib_Sphere*(): ProjLib_Sphere {.constructor,
     importcpp: "ProjLib_Sphere(@)", header: "ProjLib_Sphere.hxx".}
-proc constructProjLibSphere*(sp: GpSphere): ProjLibSphere {.constructor,
+proc constructProjLib_Sphere*(Sp: gp_Sphere): ProjLib_Sphere {.constructor,
     importcpp: "ProjLib_Sphere(@)", header: "ProjLib_Sphere.hxx".}
-proc constructProjLibSphere*(sp: GpSphere; c: GpCirc): ProjLibSphere {.constructor,
-    importcpp: "ProjLib_Sphere(@)", header: "ProjLib_Sphere.hxx".}
-proc init*(this: var ProjLibSphere; sp: GpSphere) {.importcpp: "Init",
+proc constructProjLib_Sphere*(Sp: gp_Sphere; C: gp_Circ): ProjLib_Sphere {.
+    constructor, importcpp: "ProjLib_Sphere(@)", header: "ProjLib_Sphere.hxx".}
+proc Init*(this: var ProjLib_Sphere; Sp: gp_Sphere) {.importcpp: "Init",
     header: "ProjLib_Sphere.hxx".}
-proc project*(this: var ProjLibSphere; L: GpLin) {.importcpp: "Project",
+proc Project*(this: var ProjLib_Sphere; L: gp_Lin) {.importcpp: "Project",
     header: "ProjLib_Sphere.hxx".}
-proc project*(this: var ProjLibSphere; c: GpCirc) {.importcpp: "Project",
+proc Project*(this: var ProjLib_Sphere; C: gp_Circ) {.importcpp: "Project",
     header: "ProjLib_Sphere.hxx".}
-proc project*(this: var ProjLibSphere; e: GpElips) {.importcpp: "Project",
+proc Project*(this: var ProjLib_Sphere; E: gp_Elips) {.importcpp: "Project",
     header: "ProjLib_Sphere.hxx".}
-proc project*(this: var ProjLibSphere; p: GpParab) {.importcpp: "Project",
+proc Project*(this: var ProjLib_Sphere; P: gp_Parab) {.importcpp: "Project",
     header: "ProjLib_Sphere.hxx".}
-proc project*(this: var ProjLibSphere; h: GpHypr) {.importcpp: "Project",
+proc Project*(this: var ProjLib_Sphere; H: gp_Hypr) {.importcpp: "Project",
     header: "ProjLib_Sphere.hxx".}
-proc setInBounds*(this: var ProjLibSphere; u: StandardReal) {.
+proc SetInBounds*(this: var ProjLib_Sphere; U: Standard_Real) {.
     importcpp: "SetInBounds", header: "ProjLib_Sphere.hxx".}
-

@@ -14,13 +14,18 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type,
+  ../IGESData/IGESData_HArray1OfIGESEntity, ../IGESData/IGESData_IGESEntity,
+  ../Standard/Standard_Integer, ../Standard/Standard_Boolean
+
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of IGESData_IGESEntity"
 discard "forward decl of Standard_Transient"
 discard "forward decl of IGESBasic_Group"
 discard "forward decl of IGESBasic_Group"
 type
-  HandleIGESBasicGroup* = Handle[IGESBasicGroup]
+  Handle_IGESBasic_Group* = handle[IGESBasic_Group]
 
 ## ! defines Group, Type <402> Form <1>
 ## ! in package IGESBasic
@@ -37,46 +42,48 @@ type
 ## ! Ordered,     WithoutBackP : form 15
 
 type
-  IGESBasicGroup* {.importcpp: "IGESBasic_Group", header: "IGESBasic_Group.hxx",
-                   bycopy.} = object of IGESDataIGESEntity
+  IGESBasic_Group* {.importcpp: "IGESBasic_Group", header: "IGESBasic_Group.hxx",
+                    bycopy.} = object of IGESData_IGESEntity
 
 
-proc constructIGESBasicGroup*(): IGESBasicGroup {.constructor,
+proc constructIGESBasic_Group*(): IGESBasic_Group {.constructor,
     importcpp: "IGESBasic_Group(@)", header: "IGESBasic_Group.hxx".}
-proc constructIGESBasicGroup*(nb: StandardInteger): IGESBasicGroup {.constructor,
+proc constructIGESBasic_Group*(nb: Standard_Integer): IGESBasic_Group {.constructor,
     importcpp: "IGESBasic_Group(@)", header: "IGESBasic_Group.hxx".}
-proc init*(this: var IGESBasicGroup;
-          allEntities: Handle[IGESDataHArray1OfIGESEntity]) {.importcpp: "Init",
+proc Init*(this: var IGESBasic_Group;
+          allEntities: handle[IGESData_HArray1OfIGESEntity]) {.importcpp: "Init",
     header: "IGESBasic_Group.hxx".}
-proc setOrdered*(this: var IGESBasicGroup; mode: StandardBoolean) {.
+proc SetOrdered*(this: var IGESBasic_Group; mode: Standard_Boolean) {.
     importcpp: "SetOrdered", header: "IGESBasic_Group.hxx".}
-proc setWithoutBackP*(this: var IGESBasicGroup; mode: StandardBoolean) {.
+proc SetWithoutBackP*(this: var IGESBasic_Group; mode: Standard_Boolean) {.
     importcpp: "SetWithoutBackP", header: "IGESBasic_Group.hxx".}
-proc isOrdered*(this: IGESBasicGroup): StandardBoolean {.noSideEffect,
+proc IsOrdered*(this: IGESBasic_Group): Standard_Boolean {.noSideEffect,
     importcpp: "IsOrdered", header: "IGESBasic_Group.hxx".}
-proc isWithoutBackP*(this: IGESBasicGroup): StandardBoolean {.noSideEffect,
+proc IsWithoutBackP*(this: IGESBasic_Group): Standard_Boolean {.noSideEffect,
     importcpp: "IsWithoutBackP", header: "IGESBasic_Group.hxx".}
-proc setUser*(this: var IGESBasicGroup; `type`: StandardInteger; form: StandardInteger) {.
-    importcpp: "SetUser", header: "IGESBasic_Group.hxx".}
-proc setNb*(this: var IGESBasicGroup; nb: StandardInteger) {.importcpp: "SetNb",
+proc SetUser*(this: var IGESBasic_Group; `type`: Standard_Integer;
+             form: Standard_Integer) {.importcpp: "SetUser",
+                                     header: "IGESBasic_Group.hxx".}
+proc SetNb*(this: var IGESBasic_Group; nb: Standard_Integer) {.importcpp: "SetNb",
     header: "IGESBasic_Group.hxx".}
-proc nbEntities*(this: IGESBasicGroup): StandardInteger {.noSideEffect,
+proc NbEntities*(this: IGESBasic_Group): Standard_Integer {.noSideEffect,
     importcpp: "NbEntities", header: "IGESBasic_Group.hxx".}
-proc entity*(this: IGESBasicGroup; index: StandardInteger): Handle[IGESDataIGESEntity] {.
-    noSideEffect, importcpp: "Entity", header: "IGESBasic_Group.hxx".}
-proc value*(this: IGESBasicGroup; index: StandardInteger): Handle[StandardTransient] {.
-    noSideEffect, importcpp: "Value", header: "IGESBasic_Group.hxx".}
-proc setValue*(this: var IGESBasicGroup; index: StandardInteger;
-              ent: Handle[IGESDataIGESEntity]) {.importcpp: "SetValue",
+proc Entity*(this: IGESBasic_Group; Index: Standard_Integer): handle[
+    IGESData_IGESEntity] {.noSideEffect, importcpp: "Entity",
+                          header: "IGESBasic_Group.hxx".}
+proc Value*(this: IGESBasic_Group; Index: Standard_Integer): handle[
+    Standard_Transient] {.noSideEffect, importcpp: "Value",
+                         header: "IGESBasic_Group.hxx".}
+proc SetValue*(this: var IGESBasic_Group; Index: Standard_Integer;
+              ent: handle[IGESData_IGESEntity]) {.importcpp: "SetValue",
     header: "IGESBasic_Group.hxx".}
 type
-  IGESBasicGroupbaseType* = IGESDataIGESEntity
+  IGESBasic_Groupbase_type* = IGESData_IGESEntity
 
-proc getTypeName*(): cstring {.importcpp: "IGESBasic_Group::get_type_name(@)",
-                            header: "IGESBasic_Group.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "IGESBasic_Group::get_type_name(@)",
+                              header: "IGESBasic_Group.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "IGESBasic_Group::get_type_descriptor(@)",
     header: "IGESBasic_Group.hxx".}
-proc dynamicType*(this: IGESBasicGroup): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: IGESBasic_Group): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "IGESBasic_Group.hxx".}
-

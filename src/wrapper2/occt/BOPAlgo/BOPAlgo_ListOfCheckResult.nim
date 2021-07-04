@@ -11,8 +11,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../NCollection/NCollection_List, BOPAlgo_CheckResult
+
 type
-  BOPAlgoListOfCheckResult* = NCollectionList[BOPAlgoCheckResult]
-  BOPAlgoListIteratorOfListOfCheckResult* = Iterator
-
-
+  BOPAlgo_ListOfCheckResult* = NCollection_List[BOPAlgo_CheckResult]
+  BOPAlgo_ListIteratorOfListOfCheckResult* = Iterator

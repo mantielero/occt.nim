@@ -12,6 +12,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  RWMesh_CoordinateSystem, ../gp/gp, ../gp/gp_Ax3, ../gp/gp_XYZ, ../gp/gp_Trsf,
+  ../Graphic3d/Graphic3d_Mat4, ../Graphic3d/Graphic3d_Vec
+
 ## ! Coordinate system converter defining the following tools:
 ## ! - Initialization for commonly used coordinate systems Z-up and Y-up.
 ## ! - Perform length unit conversion (scaling).
@@ -35,10 +39,10 @@
 ## ! while application specifies output length units, and conversion will be done only when both defined.
 
 type
-  RWMeshCoordinateSystemConverter* {.importcpp: "RWMesh_CoordinateSystemConverter", header: "RWMesh_CoordinateSystemConverter.hxx",
-                                    bycopy.} = object ## ! Return a standard coordinate system definition.
-                                                   ## ! Empty constructor.
-                                                   ## ! Transform transformation.
+  RWMesh_CoordinateSystemConverter* {.importcpp: "RWMesh_CoordinateSystemConverter", header: "RWMesh_CoordinateSystemConverter.hxx",
+                                     bycopy.} = object ## ! Return a standard coordinate system definition.
+                                                    ## ! Empty constructor.
+                                                    ## ! Transform transformation.
     ## !< source      coordinate system
     ## !< destination coordinate system
     ## !< source      length units, defined as scale factor to m (meters); -1.0 by default which means UNDEFINED
@@ -53,69 +57,68 @@ type
     ## !< flag indicating that transformation is empty
 
 
-proc standardCoordinateSystem*(theSys: RWMeshCoordinateSystem): GpAx3 {.
+proc StandardCoordinateSystem*(theSys: RWMesh_CoordinateSystem): gp_Ax3 {.
     importcpp: "RWMesh_CoordinateSystemConverter::StandardCoordinateSystem(@)",
     header: "RWMesh_CoordinateSystemConverter.hxx".}
-proc constructRWMeshCoordinateSystemConverter*(): RWMeshCoordinateSystemConverter {.
+proc constructRWMesh_CoordinateSystemConverter*(): RWMesh_CoordinateSystemConverter {.
     constructor, importcpp: "RWMesh_CoordinateSystemConverter(@)",
     header: "RWMesh_CoordinateSystemConverter.hxx".}
-proc isEmpty*(this: RWMeshCoordinateSystemConverter): StandardBoolean {.
+proc IsEmpty*(this: RWMesh_CoordinateSystemConverter): Standard_Boolean {.
     noSideEffect, importcpp: "IsEmpty",
     header: "RWMesh_CoordinateSystemConverter.hxx".}
-proc inputLengthUnit*(this: RWMeshCoordinateSystemConverter): StandardReal {.
+proc InputLengthUnit*(this: RWMesh_CoordinateSystemConverter): Standard_Real {.
     noSideEffect, importcpp: "InputLengthUnit",
     header: "RWMesh_CoordinateSystemConverter.hxx".}
-proc setInputLengthUnit*(this: var RWMeshCoordinateSystemConverter;
-                        theInputScale: StandardReal) {.
+proc SetInputLengthUnit*(this: var RWMesh_CoordinateSystemConverter;
+                        theInputScale: Standard_Real) {.
     importcpp: "SetInputLengthUnit",
     header: "RWMesh_CoordinateSystemConverter.hxx".}
-proc outputLengthUnit*(this: RWMeshCoordinateSystemConverter): StandardReal {.
+proc OutputLengthUnit*(this: RWMesh_CoordinateSystemConverter): Standard_Real {.
     noSideEffect, importcpp: "OutputLengthUnit",
     header: "RWMesh_CoordinateSystemConverter.hxx".}
-proc setOutputLengthUnit*(this: var RWMeshCoordinateSystemConverter;
-                         theOutputScale: StandardReal) {.
+proc SetOutputLengthUnit*(this: var RWMesh_CoordinateSystemConverter;
+                         theOutputScale: Standard_Real) {.
     importcpp: "SetOutputLengthUnit",
     header: "RWMesh_CoordinateSystemConverter.hxx".}
-proc hasInputCoordinateSystem*(this: RWMeshCoordinateSystemConverter): StandardBoolean {.
+proc HasInputCoordinateSystem*(this: RWMesh_CoordinateSystemConverter): Standard_Boolean {.
     noSideEffect, importcpp: "HasInputCoordinateSystem",
     header: "RWMesh_CoordinateSystemConverter.hxx".}
-proc inputCoordinateSystem*(this: RWMeshCoordinateSystemConverter): GpAx3 {.
+proc InputCoordinateSystem*(this: RWMesh_CoordinateSystemConverter): gp_Ax3 {.
     noSideEffect, importcpp: "InputCoordinateSystem",
     header: "RWMesh_CoordinateSystemConverter.hxx".}
-proc setInputCoordinateSystem*(this: var RWMeshCoordinateSystemConverter;
-                              theSysFrom: GpAx3) {.
+proc SetInputCoordinateSystem*(this: var RWMesh_CoordinateSystemConverter;
+                              theSysFrom: gp_Ax3) {.
     importcpp: "SetInputCoordinateSystem",
     header: "RWMesh_CoordinateSystemConverter.hxx".}
-proc setInputCoordinateSystem*(this: var RWMeshCoordinateSystemConverter;
-                              theSysFrom: RWMeshCoordinateSystem) {.
+proc SetInputCoordinateSystem*(this: var RWMesh_CoordinateSystemConverter;
+                              theSysFrom: RWMesh_CoordinateSystem) {.
     importcpp: "SetInputCoordinateSystem",
     header: "RWMesh_CoordinateSystemConverter.hxx".}
-proc hasOutputCoordinateSystem*(this: RWMeshCoordinateSystemConverter): StandardBoolean {.
+proc HasOutputCoordinateSystem*(this: RWMesh_CoordinateSystemConverter): Standard_Boolean {.
     noSideEffect, importcpp: "HasOutputCoordinateSystem",
     header: "RWMesh_CoordinateSystemConverter.hxx".}
-proc outputCoordinateSystem*(this: RWMeshCoordinateSystemConverter): GpAx3 {.
+proc OutputCoordinateSystem*(this: RWMesh_CoordinateSystemConverter): gp_Ax3 {.
     noSideEffect, importcpp: "OutputCoordinateSystem",
     header: "RWMesh_CoordinateSystemConverter.hxx".}
-proc setOutputCoordinateSystem*(this: var RWMeshCoordinateSystemConverter;
-                               theSysTo: GpAx3) {.
+proc SetOutputCoordinateSystem*(this: var RWMesh_CoordinateSystemConverter;
+                               theSysTo: gp_Ax3) {.
     importcpp: "SetOutputCoordinateSystem",
     header: "RWMesh_CoordinateSystemConverter.hxx".}
-proc setOutputCoordinateSystem*(this: var RWMeshCoordinateSystemConverter;
-                               theSysTo: RWMeshCoordinateSystem) {.
+proc SetOutputCoordinateSystem*(this: var RWMesh_CoordinateSystemConverter;
+                               theSysTo: RWMesh_CoordinateSystem) {.
     importcpp: "SetOutputCoordinateSystem",
     header: "RWMesh_CoordinateSystemConverter.hxx".}
-proc init*(this: var RWMeshCoordinateSystemConverter; theInputSystem: GpAx3;
-          theInputLengthUnit: StandardReal; theOutputSystem: GpAx3;
-          theOutputLengthUnit: StandardReal) {.importcpp: "Init",
+proc Init*(this: var RWMesh_CoordinateSystemConverter; theInputSystem: gp_Ax3;
+          theInputLengthUnit: Standard_Real; theOutputSystem: gp_Ax3;
+          theOutputLengthUnit: Standard_Real) {.importcpp: "Init",
     header: "RWMesh_CoordinateSystemConverter.hxx".}
-proc transformTransformation*(this: RWMeshCoordinateSystemConverter;
-                             theTrsf: var GpTrsf) {.noSideEffect,
+proc TransformTransformation*(this: RWMesh_CoordinateSystemConverter;
+                             theTrsf: var gp_Trsf) {.noSideEffect,
     importcpp: "TransformTransformation",
     header: "RWMesh_CoordinateSystemConverter.hxx".}
-proc transformPosition*(this: RWMeshCoordinateSystemConverter; thePos: var GpXYZ) {.
+proc TransformPosition*(this: RWMesh_CoordinateSystemConverter; thePos: var gp_XYZ) {.
     noSideEffect, importcpp: "TransformPosition",
     header: "RWMesh_CoordinateSystemConverter.hxx".}
-proc transformNormal*(this: RWMeshCoordinateSystemConverter;
-                     theNorm: var Graphic3dVec3) {.noSideEffect,
+proc TransformNormal*(this: RWMesh_CoordinateSystemConverter;
+                     theNorm: var Graphic3d_Vec3) {.noSideEffect,
     importcpp: "TransformNormal", header: "RWMesh_CoordinateSystemConverter.hxx".}
-

@@ -14,26 +14,29 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepBasic_NamedUnit"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepBasicRWNamedUnit* {.importcpp: "RWStepBasic_RWNamedUnit",
-                           header: "RWStepBasic_RWNamedUnit.hxx", bycopy.} = object
+  RWStepBasic_RWNamedUnit* {.importcpp: "RWStepBasic_RWNamedUnit",
+                            header: "RWStepBasic_RWNamedUnit.hxx", bycopy.} = object
 
 
-proc constructRWStepBasicRWNamedUnit*(): RWStepBasicRWNamedUnit {.constructor,
+proc constructRWStepBasic_RWNamedUnit*(): RWStepBasic_RWNamedUnit {.constructor,
     importcpp: "RWStepBasic_RWNamedUnit(@)", header: "RWStepBasic_RWNamedUnit.hxx".}
-proc readStep*(this: RWStepBasicRWNamedUnit; data: Handle[StepDataStepReaderData];
-              num: StandardInteger; ach: var Handle[InterfaceCheck];
-              ent: Handle[StepBasicNamedUnit]) {.noSideEffect,
-    importcpp: "ReadStep", header: "RWStepBasic_RWNamedUnit.hxx".}
-proc writeStep*(this: RWStepBasicRWNamedUnit; sw: var StepDataStepWriter;
-               ent: Handle[StepBasicNamedUnit]) {.noSideEffect,
+proc ReadStep*(this: RWStepBasic_RWNamedUnit;
+              data: handle[StepData_StepReaderData]; num: Standard_Integer;
+              ach: var handle[Interface_Check]; ent: handle[StepBasic_NamedUnit]) {.
+    noSideEffect, importcpp: "ReadStep", header: "RWStepBasic_RWNamedUnit.hxx".}
+proc WriteStep*(this: RWStepBasic_RWNamedUnit; SW: var StepData_StepWriter;
+               ent: handle[StepBasic_NamedUnit]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepBasic_RWNamedUnit.hxx".}
-proc share*(this: RWStepBasicRWNamedUnit; ent: Handle[StepBasicNamedUnit];
-           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
+proc Share*(this: RWStepBasic_RWNamedUnit; ent: handle[StepBasic_NamedUnit];
+           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepBasic_RWNamedUnit.hxx".}
-

@@ -14,14 +14,19 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../TopoDS/TopoDS_Face,
+  ../Standard/Standard_Boolean, ../Standard/Standard_Integer, ShapeUpgrade_Tool,
+  ../ShapeExtend/ShapeExtend_Status
+
 discard "forward decl of ShapeUpgrade_SplitSurface"
 discard "forward decl of ShapeUpgrade_WireDivide"
-# when defined(Status):
-#   discard
+when defined(Status):
+  discard
 discard "forward decl of ShapeUpgrade_FaceDivide"
 discard "forward decl of ShapeUpgrade_FaceDivide"
 type
-  HandleShapeUpgradeFaceDivide* = Handle[ShapeUpgradeFaceDivide]
+  Handle_ShapeUpgrade_FaceDivide* = handle[ShapeUpgrade_FaceDivide]
 
 ## ! Divides a Face (both edges in the wires, by splitting
 ## ! curves and pcurves, and the face itself, by splitting
@@ -39,54 +44,53 @@ type
 ## ! external context (ShapeBuild_ReShape).
 
 type
-  ShapeUpgradeFaceDivide* {.importcpp: "ShapeUpgrade_FaceDivide",
-                           header: "ShapeUpgrade_FaceDivide.hxx", bycopy.} = object of ShapeUpgradeTool ##
-                                                                                                 ## !
-                                                                                                 ## Creates
-                                                                                                 ## empty
-                                                                                                 ## constructor.
+  ShapeUpgrade_FaceDivide* {.importcpp: "ShapeUpgrade_FaceDivide",
+                            header: "ShapeUpgrade_FaceDivide.hxx", bycopy.} = object of ShapeUpgrade_Tool ##
+                                                                                                   ## !
+                                                                                                   ## Creates
+                                                                                                   ## empty
+                                                                                                   ## constructor.
 
 
-proc constructShapeUpgradeFaceDivide*(): ShapeUpgradeFaceDivide {.constructor,
+proc constructShapeUpgrade_FaceDivide*(): ShapeUpgrade_FaceDivide {.constructor,
     importcpp: "ShapeUpgrade_FaceDivide(@)", header: "ShapeUpgrade_FaceDivide.hxx".}
-proc constructShapeUpgradeFaceDivide*(f: TopoDS_Face): ShapeUpgradeFaceDivide {.
+proc constructShapeUpgrade_FaceDivide*(F: TopoDS_Face): ShapeUpgrade_FaceDivide {.
     constructor, importcpp: "ShapeUpgrade_FaceDivide(@)",
     header: "ShapeUpgrade_FaceDivide.hxx".}
-proc init*(this: var ShapeUpgradeFaceDivide; f: TopoDS_Face) {.importcpp: "Init",
+proc Init*(this: var ShapeUpgrade_FaceDivide; F: TopoDS_Face) {.importcpp: "Init",
     header: "ShapeUpgrade_FaceDivide.hxx".}
-proc setSurfaceSegmentMode*(this: var ShapeUpgradeFaceDivide;
-                           segment: StandardBoolean) {.
+proc SetSurfaceSegmentMode*(this: var ShapeUpgrade_FaceDivide;
+                           Segment: Standard_Boolean) {.
     importcpp: "SetSurfaceSegmentMode", header: "ShapeUpgrade_FaceDivide.hxx".}
-proc perform*(this: var ShapeUpgradeFaceDivide): StandardBoolean {.
+proc Perform*(this: var ShapeUpgrade_FaceDivide): Standard_Boolean {.
     importcpp: "Perform", header: "ShapeUpgrade_FaceDivide.hxx".}
-proc splitSurface*(this: var ShapeUpgradeFaceDivide): StandardBoolean {.
+proc SplitSurface*(this: var ShapeUpgrade_FaceDivide): Standard_Boolean {.
     importcpp: "SplitSurface", header: "ShapeUpgrade_FaceDivide.hxx".}
-proc splitCurves*(this: var ShapeUpgradeFaceDivide): StandardBoolean {.
+proc SplitCurves*(this: var ShapeUpgrade_FaceDivide): Standard_Boolean {.
     importcpp: "SplitCurves", header: "ShapeUpgrade_FaceDivide.hxx".}
-proc result*(this: ShapeUpgradeFaceDivide): TopoDS_Shape {.noSideEffect,
+proc Result*(this: ShapeUpgrade_FaceDivide): TopoDS_Shape {.noSideEffect,
     importcpp: "Result", header: "ShapeUpgrade_FaceDivide.hxx".}
-proc status*(this: ShapeUpgradeFaceDivide; status: ShapeExtendStatus): StandardBoolean {.
+proc Status*(this: ShapeUpgrade_FaceDivide; status: ShapeExtend_Status): Standard_Boolean {.
     noSideEffect, importcpp: "Status", header: "ShapeUpgrade_FaceDivide.hxx".}
-proc setSplitSurfaceTool*(this: var ShapeUpgradeFaceDivide;
-                         splitSurfaceTool: Handle[ShapeUpgradeSplitSurface]) {.
+proc SetSplitSurfaceTool*(this: var ShapeUpgrade_FaceDivide;
+                         splitSurfaceTool: handle[ShapeUpgrade_SplitSurface]) {.
     importcpp: "SetSplitSurfaceTool", header: "ShapeUpgrade_FaceDivide.hxx".}
-proc setWireDivideTool*(this: var ShapeUpgradeFaceDivide;
-                       wireDivideTool: Handle[ShapeUpgradeWireDivide]) {.
+proc SetWireDivideTool*(this: var ShapeUpgrade_FaceDivide;
+                       wireDivideTool: handle[ShapeUpgrade_WireDivide]) {.
     importcpp: "SetWireDivideTool", header: "ShapeUpgrade_FaceDivide.hxx".}
-proc getSplitSurfaceTool*(this: ShapeUpgradeFaceDivide): Handle[
-    ShapeUpgradeSplitSurface] {.noSideEffect, importcpp: "GetSplitSurfaceTool",
-                               header: "ShapeUpgrade_FaceDivide.hxx".}
-proc getWireDivideTool*(this: ShapeUpgradeFaceDivide): Handle[
-    ShapeUpgradeWireDivide] {.noSideEffect, importcpp: "GetWireDivideTool",
-                             header: "ShapeUpgrade_FaceDivide.hxx".}
+proc GetSplitSurfaceTool*(this: ShapeUpgrade_FaceDivide): handle[
+    ShapeUpgrade_SplitSurface] {.noSideEffect, importcpp: "GetSplitSurfaceTool",
+                                header: "ShapeUpgrade_FaceDivide.hxx".}
+proc GetWireDivideTool*(this: ShapeUpgrade_FaceDivide): handle[
+    ShapeUpgrade_WireDivide] {.noSideEffect, importcpp: "GetWireDivideTool",
+                              header: "ShapeUpgrade_FaceDivide.hxx".}
 type
-  ShapeUpgradeFaceDividebaseType* = ShapeUpgradeTool
+  ShapeUpgrade_FaceDividebase_type* = ShapeUpgrade_Tool
 
-proc getTypeName*(): cstring {.importcpp: "ShapeUpgrade_FaceDivide::get_type_name(@)",
-                            header: "ShapeUpgrade_FaceDivide.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "ShapeUpgrade_FaceDivide::get_type_name(@)",
+                              header: "ShapeUpgrade_FaceDivide.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "ShapeUpgrade_FaceDivide::get_type_descriptor(@)",
     header: "ShapeUpgrade_FaceDivide.hxx".}
-proc dynamicType*(this: ShapeUpgradeFaceDivide): Handle[StandardType] {.
+proc DynamicType*(this: ShapeUpgrade_FaceDivide): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType", header: "ShapeUpgrade_FaceDivide.hxx".}
-

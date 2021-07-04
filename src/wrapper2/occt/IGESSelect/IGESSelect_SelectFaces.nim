@@ -14,6 +14,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type,
+  ../IFSelect/IFSelect_SelectExplore, ../Standard/Standard_Boolean,
+  ../Standard/Standard_Integer
+
 discard "forward decl of Standard_Transient"
 discard "forward decl of Interface_Graph"
 discard "forward decl of Interface_EntityIterator"
@@ -21,7 +26,7 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of IGESSelect_SelectFaces"
 discard "forward decl of IGESSelect_SelectFaces"
 type
-  HandleIGESSelectSelectFaces* = Handle[IGESSelectSelectFaces]
+  Handle_IGESSelect_SelectFaces* = handle[IGESSelect_SelectFaces]
 
 ## ! This selection returns the faces contained in an IGES Entity
 ## ! or itself if it is a Face
@@ -35,26 +40,25 @@ type
 ## ! -> i.e. a Face for which Natural Bounds will be considered
 
 type
-  IGESSelectSelectFaces* {.importcpp: "IGESSelect_SelectFaces",
-                          header: "IGESSelect_SelectFaces.hxx", bycopy.} = object of IFSelectSelectExplore
+  IGESSelect_SelectFaces* {.importcpp: "IGESSelect_SelectFaces",
+                           header: "IGESSelect_SelectFaces.hxx", bycopy.} = object of IFSelect_SelectExplore
 
 
-proc constructIGESSelectSelectFaces*(): IGESSelectSelectFaces {.constructor,
+proc constructIGESSelect_SelectFaces*(): IGESSelect_SelectFaces {.constructor,
     importcpp: "IGESSelect_SelectFaces(@)", header: "IGESSelect_SelectFaces.hxx".}
-proc explore*(this: IGESSelectSelectFaces; level: StandardInteger;
-             ent: Handle[StandardTransient]; g: InterfaceGraph;
-             explored: var InterfaceEntityIterator): StandardBoolean {.noSideEffect,
-    importcpp: "Explore", header: "IGESSelect_SelectFaces.hxx".}
-proc exploreLabel*(this: IGESSelectSelectFaces): TCollectionAsciiString {.
+proc Explore*(this: IGESSelect_SelectFaces; level: Standard_Integer;
+             ent: handle[Standard_Transient]; G: Interface_Graph;
+             explored: var Interface_EntityIterator): Standard_Boolean {.
+    noSideEffect, importcpp: "Explore", header: "IGESSelect_SelectFaces.hxx".}
+proc ExploreLabel*(this: IGESSelect_SelectFaces): TCollection_AsciiString {.
     noSideEffect, importcpp: "ExploreLabel", header: "IGESSelect_SelectFaces.hxx".}
 type
-  IGESSelectSelectFacesbaseType* = IFSelectSelectExplore
+  IGESSelect_SelectFacesbase_type* = IFSelect_SelectExplore
 
-proc getTypeName*(): cstring {.importcpp: "IGESSelect_SelectFaces::get_type_name(@)",
-                            header: "IGESSelect_SelectFaces.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "IGESSelect_SelectFaces::get_type_name(@)",
+                              header: "IGESSelect_SelectFaces.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "IGESSelect_SelectFaces::get_type_descriptor(@)",
     header: "IGESSelect_SelectFaces.hxx".}
-proc dynamicType*(this: IGESSelectSelectFaces): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "IGESSelect_SelectFaces.hxx".}
-
+proc DynamicType*(this: IGESSelect_SelectFaces): handle[Standard_Type] {.
+    noSideEffect, importcpp: "DynamicType", header: "IGESSelect_SelectFaces.hxx".}

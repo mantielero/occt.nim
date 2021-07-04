@@ -13,6 +13,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../LDOMBasicString/LDOMBasicString
+
 discard "forward decl of LDOM_MemManager"
 type
   LDOMString* {.importcpp: "LDOMString", header: "LDOMString.hxx", bycopy.} = object of LDOMBasicString ##  ---------- PUBLIC METHODS ----------
@@ -23,10 +26,9 @@ proc constructLDOMString*(): LDOMString {.constructor, importcpp: "LDOMString(@)
                                        header: "LDOMString.hxx".}
 proc constructLDOMString*(anOther: LDOMString): LDOMString {.constructor,
     importcpp: "LDOMString(@)", header: "LDOMString.hxx".}
-proc constructLDOMString*(aValue: StandardInteger): LDOMString {.constructor,
+proc constructLDOMString*(aValue: Standard_Integer): LDOMString {.constructor,
     importcpp: "LDOMString(@)", header: "LDOMString.hxx".}
 proc constructLDOMString*(aValue: cstring): LDOMString {.constructor,
     importcpp: "LDOMString(@)", header: "LDOMString.hxx".}
 proc getOwnerDocument*(this: LDOMString): LDOM_MemManager {.noSideEffect,
     importcpp: "getOwnerDocument", header: "LDOMString.hxx".}
-

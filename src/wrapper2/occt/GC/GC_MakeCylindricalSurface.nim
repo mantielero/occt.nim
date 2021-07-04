@@ -14,6 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, GC_Root, ../Geom/Geom_CylindricalSurface
+
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of gp_Ax2"
 discard "forward decl of gp_Cylinder"
@@ -118,30 +122,29 @@ type
                                                                                              ## 0.0
 
 
-proc constructGC_MakeCylindricalSurface*(a2: GpAx2; radius: StandardReal): GC_MakeCylindricalSurface {.
+proc constructGC_MakeCylindricalSurface*(A2: gp_Ax2; Radius: Standard_Real): GC_MakeCylindricalSurface {.
     constructor, importcpp: "GC_MakeCylindricalSurface(@)",
     header: "GC_MakeCylindricalSurface.hxx".}
-proc constructGC_MakeCylindricalSurface*(c: GpCylinder): GC_MakeCylindricalSurface {.
+proc constructGC_MakeCylindricalSurface*(C: gp_Cylinder): GC_MakeCylindricalSurface {.
     constructor, importcpp: "GC_MakeCylindricalSurface(@)",
     header: "GC_MakeCylindricalSurface.hxx".}
-proc constructGC_MakeCylindricalSurface*(cyl: GpCylinder; point: GpPnt): GC_MakeCylindricalSurface {.
+proc constructGC_MakeCylindricalSurface*(Cyl: gp_Cylinder; Point: gp_Pnt): GC_MakeCylindricalSurface {.
     constructor, importcpp: "GC_MakeCylindricalSurface(@)",
     header: "GC_MakeCylindricalSurface.hxx".}
-proc constructGC_MakeCylindricalSurface*(cyl: GpCylinder; dist: StandardReal): GC_MakeCylindricalSurface {.
+proc constructGC_MakeCylindricalSurface*(Cyl: gp_Cylinder; Dist: Standard_Real): GC_MakeCylindricalSurface {.
     constructor, importcpp: "GC_MakeCylindricalSurface(@)",
     header: "GC_MakeCylindricalSurface.hxx".}
-proc constructGC_MakeCylindricalSurface*(p1: GpPnt; p2: GpPnt; p3: GpPnt): GC_MakeCylindricalSurface {.
+proc constructGC_MakeCylindricalSurface*(P1: gp_Pnt; P2: gp_Pnt; P3: gp_Pnt): GC_MakeCylindricalSurface {.
     constructor, importcpp: "GC_MakeCylindricalSurface(@)",
     header: "GC_MakeCylindricalSurface.hxx".}
-proc constructGC_MakeCylindricalSurface*(axis: GpAx1; radius: StandardReal): GC_MakeCylindricalSurface {.
+proc constructGC_MakeCylindricalSurface*(Axis: gp_Ax1; Radius: Standard_Real): GC_MakeCylindricalSurface {.
     constructor, importcpp: "GC_MakeCylindricalSurface(@)",
     header: "GC_MakeCylindricalSurface.hxx".}
-proc constructGC_MakeCylindricalSurface*(circ: GpCirc): GC_MakeCylindricalSurface {.
+proc constructGC_MakeCylindricalSurface*(Circ: gp_Circ): GC_MakeCylindricalSurface {.
     constructor, importcpp: "GC_MakeCylindricalSurface(@)",
     header: "GC_MakeCylindricalSurface.hxx".}
-proc value*(this: GC_MakeCylindricalSurface): Handle[GeomCylindricalSurface] {.
+proc Value*(this: GC_MakeCylindricalSurface): handle[Geom_CylindricalSurface] {.
     noSideEffect, importcpp: "Value", header: "GC_MakeCylindricalSurface.hxx".}
-converter `constopencascade`*(this: GC_MakeCylindricalSurface): Handle[
-    GeomCylindricalSurface] {.noSideEffect, importcpp: "GC_MakeCylindricalSurface::operator constopencascade",
-                             header: "GC_MakeCylindricalSurface.hxx".}
-
+converter `constopencascade`*(this: GC_MakeCylindricalSurface): handle[
+    Geom_CylindricalSurface] {.noSideEffect, importcpp: "GC_MakeCylindricalSurface::operator constopencascade",
+                              header: "GC_MakeCylindricalSurface.hxx".}

@@ -14,6 +14,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type,
+  ../StepData/StepData_ReadWriteModule, ../Standard/Standard_Integer,
+  ../TColStd/TColStd_SequenceOfAsciiString, ../Standard/Standard_Boolean
+
 discard "forward decl of TCollection_AsciiString"
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
@@ -22,48 +27,48 @@ discard "forward decl of StepData_StepWriter"
 discard "forward decl of RWHeaderSection_ReadWriteModule"
 discard "forward decl of RWHeaderSection_ReadWriteModule"
 type
-  HandleRWHeaderSectionReadWriteModule* = Handle[RWHeaderSectionReadWriteModule]
+  Handle_RWHeaderSection_ReadWriteModule* = handle[RWHeaderSection_ReadWriteModule]
 
 ## ! General module to read and write HeaderSection entities
 
 type
-  RWHeaderSectionReadWriteModule* {.importcpp: "RWHeaderSection_ReadWriteModule", header: "RWHeaderSection_ReadWriteModule.hxx",
-                                   bycopy.} = object of StepDataReadWriteModule
+  RWHeaderSection_ReadWriteModule* {.importcpp: "RWHeaderSection_ReadWriteModule", header: "RWHeaderSection_ReadWriteModule.hxx",
+                                    bycopy.} = object of StepData_ReadWriteModule
 
 
-proc constructRWHeaderSectionReadWriteModule*(): RWHeaderSectionReadWriteModule {.
+proc constructRWHeaderSection_ReadWriteModule*(): RWHeaderSection_ReadWriteModule {.
     constructor, importcpp: "RWHeaderSection_ReadWriteModule(@)",
     header: "RWHeaderSection_ReadWriteModule.hxx".}
-proc caseStep*(this: RWHeaderSectionReadWriteModule; atype: TCollectionAsciiString): StandardInteger {.
+proc CaseStep*(this: RWHeaderSection_ReadWriteModule;
+              atype: TCollection_AsciiString): Standard_Integer {.noSideEffect,
+    importcpp: "CaseStep", header: "RWHeaderSection_ReadWriteModule.hxx".}
+proc CaseStep*(this: RWHeaderSection_ReadWriteModule;
+              types: TColStd_SequenceOfAsciiString): Standard_Integer {.
     noSideEffect, importcpp: "CaseStep",
     header: "RWHeaderSection_ReadWriteModule.hxx".}
-proc caseStep*(this: RWHeaderSectionReadWriteModule;
-              types: TColStdSequenceOfAsciiString): StandardInteger {.noSideEffect,
-    importcpp: "CaseStep", header: "RWHeaderSection_ReadWriteModule.hxx".}
-proc isComplex*(this: RWHeaderSectionReadWriteModule; cn: StandardInteger): StandardBoolean {.
+proc IsComplex*(this: RWHeaderSection_ReadWriteModule; CN: Standard_Integer): Standard_Boolean {.
     noSideEffect, importcpp: "IsComplex",
     header: "RWHeaderSection_ReadWriteModule.hxx".}
-proc stepType*(this: RWHeaderSectionReadWriteModule; cn: StandardInteger): TCollectionAsciiString {.
+proc StepType*(this: RWHeaderSection_ReadWriteModule; CN: Standard_Integer): TCollection_AsciiString {.
     noSideEffect, importcpp: "StepType",
     header: "RWHeaderSection_ReadWriteModule.hxx".}
-proc readStep*(this: RWHeaderSectionReadWriteModule; cn: StandardInteger;
-              data: Handle[StepDataStepReaderData]; num: StandardInteger;
-              ach: var Handle[InterfaceCheck]; ent: Handle[StandardTransient]) {.
+proc ReadStep*(this: RWHeaderSection_ReadWriteModule; CN: Standard_Integer;
+              data: handle[StepData_StepReaderData]; num: Standard_Integer;
+              ach: var handle[Interface_Check]; ent: handle[Standard_Transient]) {.
     noSideEffect, importcpp: "ReadStep",
     header: "RWHeaderSection_ReadWriteModule.hxx".}
-proc writeStep*(this: RWHeaderSectionReadWriteModule; cn: StandardInteger;
-               sw: var StepDataStepWriter; ent: Handle[StandardTransient]) {.
+proc WriteStep*(this: RWHeaderSection_ReadWriteModule; CN: Standard_Integer;
+               SW: var StepData_StepWriter; ent: handle[Standard_Transient]) {.
     noSideEffect, importcpp: "WriteStep",
     header: "RWHeaderSection_ReadWriteModule.hxx".}
 type
-  RWHeaderSectionReadWriteModulebaseType* = StepDataReadWriteModule
+  RWHeaderSection_ReadWriteModulebase_type* = StepData_ReadWriteModule
 
-proc getTypeName*(): cstring {.importcpp: "RWHeaderSection_ReadWriteModule::get_type_name(@)",
-                            header: "RWHeaderSection_ReadWriteModule.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "RWHeaderSection_ReadWriteModule::get_type_name(@)",
+                              header: "RWHeaderSection_ReadWriteModule.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "RWHeaderSection_ReadWriteModule::get_type_descriptor(@)",
     header: "RWHeaderSection_ReadWriteModule.hxx".}
-proc dynamicType*(this: RWHeaderSectionReadWriteModule): Handle[StandardType] {.
+proc DynamicType*(this: RWHeaderSection_ReadWriteModule): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType",
     header: "RWHeaderSection_ReadWriteModule.hxx".}
-

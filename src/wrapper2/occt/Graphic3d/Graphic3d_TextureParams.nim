@@ -11,18 +11,25 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  Graphic3d_LevelOfTextureAnisotropy, Graphic3d_Vec2, Graphic3d_Vec4,
+  Graphic3d_TextureUnit, Graphic3d_TypeOfTextureFilter,
+  Graphic3d_TypeOfTextureMode, ../Standard/Standard, ../Standard/Standard_Boolean,
+  ../Standard/Standard_ShortReal, ../Standard/Standard_Type,
+  ../Standard/Standard_Transient
+
 ## ! This class describes texture parameters.
 
 type
-  Graphic3dTextureParams* {.importcpp: "Graphic3d_TextureParams",
-                           header: "Graphic3d_TextureParams.hxx", bycopy.} = object of StandardTransient ##
-                                                                                                  ## !
-                                                                                                  ## Default
-                                                                                                  ## constructor.
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## Increment
-                                                                                                  ## revision.
+  Graphic3d_TextureParams* {.importcpp: "Graphic3d_TextureParams",
+                            header: "Graphic3d_TextureParams.hxx", bycopy.} = object of Standard_Transient ##
+                                                                                                    ## !
+                                                                                                    ## Default
+                                                                                                    ## constructor.
+                                                                                                    ##
+                                                                                                    ## !
+                                                                                                    ## Increment
+                                                                                                    ## revision.
     ## !< texture coordinates generation plane S
     ## !< texture coordinates generation plane T
     ## !< texture coordinates scale factor vector; (1,1) by default
@@ -38,77 +45,76 @@ type
     ## !< flag to modulate texture with material color, FALSE by default
     ## !< flag to repeat (true) or wrap (false) texture coordinates out of [0,1] range
 
-  Graphic3dTextureParamsbaseType* = StandardTransient
+  Graphic3d_TextureParamsbase_type* = Standard_Transient
 
-proc getTypeName*(): cstring {.importcpp: "Graphic3d_TextureParams::get_type_name(@)",
-                            header: "Graphic3d_TextureParams.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "Graphic3d_TextureParams::get_type_name(@)",
+                              header: "Graphic3d_TextureParams.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "Graphic3d_TextureParams::get_type_descriptor(@)",
     header: "Graphic3d_TextureParams.hxx".}
-proc dynamicType*(this: Graphic3dTextureParams): Handle[StandardType] {.
+proc DynamicType*(this: Graphic3d_TextureParams): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType", header: "Graphic3d_TextureParams.hxx".}
-proc constructGraphic3dTextureParams*(): Graphic3dTextureParams {.constructor,
+proc constructGraphic3d_TextureParams*(): Graphic3d_TextureParams {.constructor,
     importcpp: "Graphic3d_TextureParams(@)", header: "Graphic3d_TextureParams.hxx".}
-proc destroyGraphic3dTextureParams*(this: var Graphic3dTextureParams) {.
+proc destroyGraphic3d_TextureParams*(this: var Graphic3d_TextureParams) {.
     importcpp: "#.~Graphic3d_TextureParams()",
     header: "Graphic3d_TextureParams.hxx".}
-proc textureUnit*(this: Graphic3dTextureParams): Graphic3dTextureUnit {.
+proc TextureUnit*(this: Graphic3d_TextureParams): Graphic3d_TextureUnit {.
     noSideEffect, importcpp: "TextureUnit", header: "Graphic3d_TextureParams.hxx".}
-proc setTextureUnit*(this: var Graphic3dTextureParams; theUnit: Graphic3dTextureUnit) {.
-    importcpp: "SetTextureUnit", header: "Graphic3d_TextureParams.hxx".}
-proc isModulate*(this: Graphic3dTextureParams): StandardBoolean {.noSideEffect,
+proc SetTextureUnit*(this: var Graphic3d_TextureParams;
+                    theUnit: Graphic3d_TextureUnit) {.importcpp: "SetTextureUnit",
+    header: "Graphic3d_TextureParams.hxx".}
+proc IsModulate*(this: Graphic3d_TextureParams): Standard_Boolean {.noSideEffect,
     importcpp: "IsModulate", header: "Graphic3d_TextureParams.hxx".}
-proc setModulate*(this: var Graphic3dTextureParams; theToModulate: StandardBoolean) {.
+proc SetModulate*(this: var Graphic3d_TextureParams; theToModulate: Standard_Boolean) {.
     importcpp: "SetModulate", header: "Graphic3d_TextureParams.hxx".}
-proc isRepeat*(this: Graphic3dTextureParams): StandardBoolean {.noSideEffect,
+proc IsRepeat*(this: Graphic3d_TextureParams): Standard_Boolean {.noSideEffect,
     importcpp: "IsRepeat", header: "Graphic3d_TextureParams.hxx".}
-proc setRepeat*(this: var Graphic3dTextureParams; theToRepeat: StandardBoolean) {.
+proc SetRepeat*(this: var Graphic3d_TextureParams; theToRepeat: Standard_Boolean) {.
     importcpp: "SetRepeat", header: "Graphic3d_TextureParams.hxx".}
-proc filter*(this: Graphic3dTextureParams): Graphic3dTypeOfTextureFilter {.
+proc Filter*(this: Graphic3d_TextureParams): Graphic3d_TypeOfTextureFilter {.
     noSideEffect, importcpp: "Filter", header: "Graphic3d_TextureParams.hxx".}
-proc setFilter*(this: var Graphic3dTextureParams;
-               theFilter: Graphic3dTypeOfTextureFilter) {.importcpp: "SetFilter",
+proc SetFilter*(this: var Graphic3d_TextureParams;
+               theFilter: Graphic3d_TypeOfTextureFilter) {.importcpp: "SetFilter",
     header: "Graphic3d_TextureParams.hxx".}
-proc anisoFilter*(this: Graphic3dTextureParams): Graphic3dLevelOfTextureAnisotropy {.
+proc AnisoFilter*(this: Graphic3d_TextureParams): Graphic3d_LevelOfTextureAnisotropy {.
     noSideEffect, importcpp: "AnisoFilter", header: "Graphic3d_TextureParams.hxx".}
-proc setAnisoFilter*(this: var Graphic3dTextureParams;
-                    theLevel: Graphic3dLevelOfTextureAnisotropy) {.
+proc SetAnisoFilter*(this: var Graphic3d_TextureParams;
+                    theLevel: Graphic3d_LevelOfTextureAnisotropy) {.
     importcpp: "SetAnisoFilter", header: "Graphic3d_TextureParams.hxx".}
-proc rotation*(this: Graphic3dTextureParams): StandardShortReal {.noSideEffect,
+proc Rotation*(this: Graphic3d_TextureParams): Standard_ShortReal {.noSideEffect,
     importcpp: "Rotation", header: "Graphic3d_TextureParams.hxx".}
-proc setRotation*(this: var Graphic3dTextureParams;
-                 theAngleDegrees: StandardShortReal) {.importcpp: "SetRotation",
+proc SetRotation*(this: var Graphic3d_TextureParams;
+                 theAngleDegrees: Standard_ShortReal) {.importcpp: "SetRotation",
     header: "Graphic3d_TextureParams.hxx".}
-proc scale*(this: Graphic3dTextureParams): Graphic3dVec2 {.noSideEffect,
+proc Scale*(this: Graphic3d_TextureParams): Graphic3d_Vec2 {.noSideEffect,
     importcpp: "Scale", header: "Graphic3d_TextureParams.hxx".}
-proc setScale*(this: var Graphic3dTextureParams; theScale: Graphic3dVec2) {.
+proc SetScale*(this: var Graphic3d_TextureParams; theScale: Graphic3d_Vec2) {.
     importcpp: "SetScale", header: "Graphic3d_TextureParams.hxx".}
-proc translation*(this: Graphic3dTextureParams): Graphic3dVec2 {.noSideEffect,
+proc Translation*(this: Graphic3d_TextureParams): Graphic3d_Vec2 {.noSideEffect,
     importcpp: "Translation", header: "Graphic3d_TextureParams.hxx".}
-proc setTranslation*(this: var Graphic3dTextureParams; theVec: Graphic3dVec2) {.
+proc SetTranslation*(this: var Graphic3d_TextureParams; theVec: Graphic3d_Vec2) {.
     importcpp: "SetTranslation", header: "Graphic3d_TextureParams.hxx".}
-proc genMode*(this: Graphic3dTextureParams): Graphic3dTypeOfTextureMode {.
+proc GenMode*(this: Graphic3d_TextureParams): Graphic3d_TypeOfTextureMode {.
     noSideEffect, importcpp: "GenMode", header: "Graphic3d_TextureParams.hxx".}
-proc genPlaneS*(this: Graphic3dTextureParams): Graphic3dVec4 {.noSideEffect,
+proc GenPlaneS*(this: Graphic3d_TextureParams): Graphic3d_Vec4 {.noSideEffect,
     importcpp: "GenPlaneS", header: "Graphic3d_TextureParams.hxx".}
-proc genPlaneT*(this: Graphic3dTextureParams): Graphic3dVec4 {.noSideEffect,
+proc GenPlaneT*(this: Graphic3d_TextureParams): Graphic3d_Vec4 {.noSideEffect,
     importcpp: "GenPlaneT", header: "Graphic3d_TextureParams.hxx".}
-proc setGenMode*(this: var Graphic3dTextureParams;
-                theMode: Graphic3dTypeOfTextureMode; thePlaneS: Graphic3dVec4;
-                thePlaneT: Graphic3dVec4) {.importcpp: "SetGenMode",
+proc SetGenMode*(this: var Graphic3d_TextureParams;
+                theMode: Graphic3d_TypeOfTextureMode; thePlaneS: Graphic3d_Vec4;
+                thePlaneT: Graphic3d_Vec4) {.importcpp: "SetGenMode",
     header: "Graphic3d_TextureParams.hxx".}
-proc baseLevel*(this: Graphic3dTextureParams): StandardInteger {.noSideEffect,
+proc BaseLevel*(this: Graphic3d_TextureParams): Standard_Integer {.noSideEffect,
     importcpp: "BaseLevel", header: "Graphic3d_TextureParams.hxx".}
-proc maxLevel*(this: Graphic3dTextureParams): StandardInteger {.noSideEffect,
+proc MaxLevel*(this: Graphic3d_TextureParams): Standard_Integer {.noSideEffect,
     importcpp: "MaxLevel", header: "Graphic3d_TextureParams.hxx".}
-proc setLevelsRange*(this: var Graphic3dTextureParams;
-                    theFirstLevel: StandardInteger;
-                    theSecondLevel: StandardInteger = 0) {.
+proc SetLevelsRange*(this: var Graphic3d_TextureParams;
+                    theFirstLevel: Standard_Integer;
+                    theSecondLevel: Standard_Integer = 0) {.
     importcpp: "SetLevelsRange", header: "Graphic3d_TextureParams.hxx".}
-proc samplerRevision*(this: Graphic3dTextureParams): cuint {.noSideEffect,
+proc SamplerRevision*(this: Graphic3d_TextureParams): cuint {.noSideEffect,
     importcpp: "SamplerRevision", header: "Graphic3d_TextureParams.hxx".}
 discard "forward decl of Graphic3d_TextureParams"
 type
-  HandleGraphic3dTextureParams* = Handle[Graphic3dTextureParams]
-
-
+  Handle_Graphic3d_TextureParams* = handle[Graphic3d_TextureParams]

@@ -14,6 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type,
+  ../IFSelect/IFSelect_SelectDeduct, ../Standard/Standard_Boolean
+
 discard "forward decl of Interface_InterfaceError"
 discard "forward decl of Interface_EntityIterator"
 discard "forward decl of Interface_Graph"
@@ -21,55 +25,38 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of IGESSelect_SelectDrawingFrom"
 discard "forward decl of IGESSelect_SelectDrawingFrom"
 type
-  HandleIGESSelectSelectDrawingFrom* = Handle[IGESSelectSelectDrawingFrom]
+  Handle_IGESSelect_SelectDrawingFrom* = handle[IGESSelect_SelectDrawingFrom]
 
 ## ! This selection gets the Drawings attached to its input IGES
 ## ! entities. They are read through thr Single Views, referenced
 ## ! in Directory Parts of the entities
 
 type
-  IGESSelectSelectDrawingFrom* {.importcpp: "IGESSelect_SelectDrawingFrom",
-                                header: "IGESSelect_SelectDrawingFrom.hxx", bycopy.} = object of IFSelectSelectDeduct ##
-                                                                                                               ## !
-                                                                                                               ## Creates
-                                                                                                               ## a
-                                                                                                               ## SelectDrawingFrom
-                                                                                                               ##
-                                                                                                               ## !
-                                                                                                               ## Returns
-                                                                                                               ## True,
-                                                                                                               ## because
-                                                                                                               ## selection
-                                                                                                               ## works
-                                                                                                               ## with
-                                                                                                               ## a
-                                                                                                               ## ViewSorter
-                                                                                                               ## which
-                                                                                                               ##
-                                                                                                               ## !
-                                                                                                               ## gives
-                                                                                                               ## a
-                                                                                                               ## unique
-                                                                                                               ## result
+  IGESSelect_SelectDrawingFrom* {.importcpp: "IGESSelect_SelectDrawingFrom",
+                                 header: "IGESSelect_SelectDrawingFrom.hxx",
+                                 bycopy.} = object of IFSelect_SelectDeduct ## ! Creates a
+                                                                       ## SelectDrawingFrom
+                                                                       ## ! Returns True, because selection works with a
+                                                                       ## ViewSorter which
+                                                                       ## ! gives a unique result
 
 
-proc constructIGESSelectSelectDrawingFrom*(): IGESSelectSelectDrawingFrom {.
+proc constructIGESSelect_SelectDrawingFrom*(): IGESSelect_SelectDrawingFrom {.
     constructor, importcpp: "IGESSelect_SelectDrawingFrom(@)",
     header: "IGESSelect_SelectDrawingFrom.hxx".}
-proc rootResult*(this: IGESSelectSelectDrawingFrom; g: InterfaceGraph): InterfaceEntityIterator {.
+proc RootResult*(this: IGESSelect_SelectDrawingFrom; G: Interface_Graph): Interface_EntityIterator {.
     noSideEffect, importcpp: "RootResult",
     header: "IGESSelect_SelectDrawingFrom.hxx".}
-proc label*(this: IGESSelectSelectDrawingFrom): TCollectionAsciiString {.
+proc Label*(this: IGESSelect_SelectDrawingFrom): TCollection_AsciiString {.
     noSideEffect, importcpp: "Label", header: "IGESSelect_SelectDrawingFrom.hxx".}
 type
-  IGESSelectSelectDrawingFrombaseType* = IFSelectSelectDeduct
+  IGESSelect_SelectDrawingFrombase_type* = IFSelect_SelectDeduct
 
-proc getTypeName*(): cstring {.importcpp: "IGESSelect_SelectDrawingFrom::get_type_name(@)",
-                            header: "IGESSelect_SelectDrawingFrom.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "IGESSelect_SelectDrawingFrom::get_type_name(@)",
+                              header: "IGESSelect_SelectDrawingFrom.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "IGESSelect_SelectDrawingFrom::get_type_descriptor(@)",
     header: "IGESSelect_SelectDrawingFrom.hxx".}
-proc dynamicType*(this: IGESSelectSelectDrawingFrom): Handle[StandardType] {.
+proc DynamicType*(this: IGESSelect_SelectDrawingFrom): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType",
     header: "IGESSelect_SelectDrawingFrom.hxx".}
-

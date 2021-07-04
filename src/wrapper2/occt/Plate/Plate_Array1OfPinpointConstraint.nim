@@ -14,7 +14,8 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  Plate_PinpointConstraint, ../NCollection/NCollection_Array1
+
 type
-  PlateArray1OfPinpointConstraint* = NCollectionArray1[PlatePinpointConstraint]
-
-
+  Plate_Array1OfPinpointConstraint* = NCollection_Array1[Plate_PinpointConstraint]

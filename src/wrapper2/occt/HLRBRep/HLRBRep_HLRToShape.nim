@@ -14,69 +14,74 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../TopoDS/TopoDS_Shape,
+  ../Standard/Standard_Integer, ../Standard/Standard_Boolean,
+  HLRBRep_TypeOfResultingEdge
+
 discard "forward decl of HLRBRep_Algo"
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of HLRBRep_Data"
 discard "forward decl of HLRBRep_EdgeData"
 type
-  HLRBRepHLRToShape* {.importcpp: "HLRBRep_HLRToShape",
-                      header: "HLRBRep_HLRToShape.hxx", bycopy.} = object ## ! Constructs a framework for filtering the
-                                                                     ## ! results of the
-                                                                     ## HLRBRep_Algo algorithm, A.
-                                                                     ## ! Use the extraction filters to obtain the results you want for A.
+  HLRBRep_HLRToShape* {.importcpp: "HLRBRep_HLRToShape",
+                       header: "HLRBRep_HLRToShape.hxx", bycopy.} = object ## ! Constructs a framework for filtering the
+                                                                      ## ! results of the
+                                                                      ## HLRBRep_Algo algorithm, A.
+                                                                      ## ! Use the extraction filters to obtain the results you want for A.
 
 
-proc constructHLRBRepHLRToShape*(a: Handle[HLRBRepAlgo]): HLRBRepHLRToShape {.
+proc constructHLRBRep_HLRToShape*(A: handle[HLRBRep_Algo]): HLRBRep_HLRToShape {.
     constructor, importcpp: "HLRBRep_HLRToShape(@)",
     header: "HLRBRep_HLRToShape.hxx".}
-proc vCompound*(this: var HLRBRepHLRToShape): TopoDS_Shape {.importcpp: "VCompound",
+proc VCompound*(this: var HLRBRep_HLRToShape): TopoDS_Shape {.importcpp: "VCompound",
     header: "HLRBRep_HLRToShape.hxx".}
-proc vCompound*(this: var HLRBRepHLRToShape; s: TopoDS_Shape): TopoDS_Shape {.
+proc VCompound*(this: var HLRBRep_HLRToShape; S: TopoDS_Shape): TopoDS_Shape {.
     importcpp: "VCompound", header: "HLRBRep_HLRToShape.hxx".}
-proc rg1LineVCompound*(this: var HLRBRepHLRToShape): TopoDS_Shape {.
+proc Rg1LineVCompound*(this: var HLRBRep_HLRToShape): TopoDS_Shape {.
     importcpp: "Rg1LineVCompound", header: "HLRBRep_HLRToShape.hxx".}
-proc rg1LineVCompound*(this: var HLRBRepHLRToShape; s: TopoDS_Shape): TopoDS_Shape {.
+proc Rg1LineVCompound*(this: var HLRBRep_HLRToShape; S: TopoDS_Shape): TopoDS_Shape {.
     importcpp: "Rg1LineVCompound", header: "HLRBRep_HLRToShape.hxx".}
-proc rgNLineVCompound*(this: var HLRBRepHLRToShape): TopoDS_Shape {.
+proc RgNLineVCompound*(this: var HLRBRep_HLRToShape): TopoDS_Shape {.
     importcpp: "RgNLineVCompound", header: "HLRBRep_HLRToShape.hxx".}
-proc rgNLineVCompound*(this: var HLRBRepHLRToShape; s: TopoDS_Shape): TopoDS_Shape {.
+proc RgNLineVCompound*(this: var HLRBRep_HLRToShape; S: TopoDS_Shape): TopoDS_Shape {.
     importcpp: "RgNLineVCompound", header: "HLRBRep_HLRToShape.hxx".}
-proc outLineVCompound*(this: var HLRBRepHLRToShape): TopoDS_Shape {.
+proc OutLineVCompound*(this: var HLRBRep_HLRToShape): TopoDS_Shape {.
     importcpp: "OutLineVCompound", header: "HLRBRep_HLRToShape.hxx".}
-proc outLineVCompound3d*(this: var HLRBRepHLRToShape): TopoDS_Shape {.
+proc OutLineVCompound3d*(this: var HLRBRep_HLRToShape): TopoDS_Shape {.
     importcpp: "OutLineVCompound3d", header: "HLRBRep_HLRToShape.hxx".}
-proc outLineVCompound*(this: var HLRBRepHLRToShape; s: TopoDS_Shape): TopoDS_Shape {.
+proc OutLineVCompound*(this: var HLRBRep_HLRToShape; S: TopoDS_Shape): TopoDS_Shape {.
     importcpp: "OutLineVCompound", header: "HLRBRep_HLRToShape.hxx".}
-proc isoLineVCompound*(this: var HLRBRepHLRToShape): TopoDS_Shape {.
+proc IsoLineVCompound*(this: var HLRBRep_HLRToShape): TopoDS_Shape {.
     importcpp: "IsoLineVCompound", header: "HLRBRep_HLRToShape.hxx".}
-proc isoLineVCompound*(this: var HLRBRepHLRToShape; s: TopoDS_Shape): TopoDS_Shape {.
+proc IsoLineVCompound*(this: var HLRBRep_HLRToShape; S: TopoDS_Shape): TopoDS_Shape {.
     importcpp: "IsoLineVCompound", header: "HLRBRep_HLRToShape.hxx".}
-proc hCompound*(this: var HLRBRepHLRToShape): TopoDS_Shape {.importcpp: "HCompound",
+proc HCompound*(this: var HLRBRep_HLRToShape): TopoDS_Shape {.importcpp: "HCompound",
     header: "HLRBRep_HLRToShape.hxx".}
-proc hCompound*(this: var HLRBRepHLRToShape; s: TopoDS_Shape): TopoDS_Shape {.
+proc HCompound*(this: var HLRBRep_HLRToShape; S: TopoDS_Shape): TopoDS_Shape {.
     importcpp: "HCompound", header: "HLRBRep_HLRToShape.hxx".}
-proc rg1LineHCompound*(this: var HLRBRepHLRToShape): TopoDS_Shape {.
+proc Rg1LineHCompound*(this: var HLRBRep_HLRToShape): TopoDS_Shape {.
     importcpp: "Rg1LineHCompound", header: "HLRBRep_HLRToShape.hxx".}
-proc rg1LineHCompound*(this: var HLRBRepHLRToShape; s: TopoDS_Shape): TopoDS_Shape {.
+proc Rg1LineHCompound*(this: var HLRBRep_HLRToShape; S: TopoDS_Shape): TopoDS_Shape {.
     importcpp: "Rg1LineHCompound", header: "HLRBRep_HLRToShape.hxx".}
-proc rgNLineHCompound*(this: var HLRBRepHLRToShape): TopoDS_Shape {.
+proc RgNLineHCompound*(this: var HLRBRep_HLRToShape): TopoDS_Shape {.
     importcpp: "RgNLineHCompound", header: "HLRBRep_HLRToShape.hxx".}
-proc rgNLineHCompound*(this: var HLRBRepHLRToShape; s: TopoDS_Shape): TopoDS_Shape {.
+proc RgNLineHCompound*(this: var HLRBRep_HLRToShape; S: TopoDS_Shape): TopoDS_Shape {.
     importcpp: "RgNLineHCompound", header: "HLRBRep_HLRToShape.hxx".}
-proc outLineHCompound*(this: var HLRBRepHLRToShape): TopoDS_Shape {.
+proc OutLineHCompound*(this: var HLRBRep_HLRToShape): TopoDS_Shape {.
     importcpp: "OutLineHCompound", header: "HLRBRep_HLRToShape.hxx".}
-proc outLineHCompound*(this: var HLRBRepHLRToShape; s: TopoDS_Shape): TopoDS_Shape {.
+proc OutLineHCompound*(this: var HLRBRep_HLRToShape; S: TopoDS_Shape): TopoDS_Shape {.
     importcpp: "OutLineHCompound", header: "HLRBRep_HLRToShape.hxx".}
-proc isoLineHCompound*(this: var HLRBRepHLRToShape): TopoDS_Shape {.
+proc IsoLineHCompound*(this: var HLRBRep_HLRToShape): TopoDS_Shape {.
     importcpp: "IsoLineHCompound", header: "HLRBRep_HLRToShape.hxx".}
-proc isoLineHCompound*(this: var HLRBRepHLRToShape; s: TopoDS_Shape): TopoDS_Shape {.
+proc IsoLineHCompound*(this: var HLRBRep_HLRToShape; S: TopoDS_Shape): TopoDS_Shape {.
     importcpp: "IsoLineHCompound", header: "HLRBRep_HLRToShape.hxx".}
-proc compoundOfEdges*(this: var HLRBRepHLRToShape;
-                     `type`: HLRBRepTypeOfResultingEdge; visible: StandardBoolean;
-                     in3d: StandardBoolean): TopoDS_Shape {.
+proc CompoundOfEdges*(this: var HLRBRep_HLRToShape;
+                     `type`: HLRBRep_TypeOfResultingEdge;
+                     visible: Standard_Boolean; In3d: Standard_Boolean): TopoDS_Shape {.
     importcpp: "CompoundOfEdges", header: "HLRBRep_HLRToShape.hxx".}
-proc compoundOfEdges*(this: var HLRBRepHLRToShape; s: TopoDS_Shape;
-                     `type`: HLRBRepTypeOfResultingEdge; visible: StandardBoolean;
-                     in3d: StandardBoolean): TopoDS_Shape {.
+proc CompoundOfEdges*(this: var HLRBRep_HLRToShape; S: TopoDS_Shape;
+                     `type`: HLRBRep_TypeOfResultingEdge;
+                     visible: Standard_Boolean; In3d: Standard_Boolean): TopoDS_Shape {.
     importcpp: "CompoundOfEdges", header: "HLRBRep_HLRToShape.hxx".}
-

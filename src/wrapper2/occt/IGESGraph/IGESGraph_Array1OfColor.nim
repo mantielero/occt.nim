@@ -14,7 +14,8 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  IGESGraph_Color, ../NCollection/NCollection_Array1
+
 type
-  IGESGraphArray1OfColor* = NCollectionArray1[Handle[IGESGraphColor]]
-
-
+  IGESGraph_Array1OfColor* = NCollection_Array1[handle[IGESGraph_Color]]

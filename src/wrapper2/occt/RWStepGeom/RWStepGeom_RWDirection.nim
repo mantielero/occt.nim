@@ -14,26 +14,29 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepGeom_Direction"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_ShareTool"
 type
-  RWStepGeomRWDirection* {.importcpp: "RWStepGeom_RWDirection",
-                          header: "RWStepGeom_RWDirection.hxx", bycopy.} = object
+  RWStepGeom_RWDirection* {.importcpp: "RWStepGeom_RWDirection",
+                           header: "RWStepGeom_RWDirection.hxx", bycopy.} = object
 
 
-proc constructRWStepGeomRWDirection*(): RWStepGeomRWDirection {.constructor,
+proc constructRWStepGeom_RWDirection*(): RWStepGeom_RWDirection {.constructor,
     importcpp: "RWStepGeom_RWDirection(@)", header: "RWStepGeom_RWDirection.hxx".}
-proc readStep*(this: RWStepGeomRWDirection; data: Handle[StepDataStepReaderData];
-              num: StandardInteger; ach: var Handle[InterfaceCheck];
-              ent: Handle[StepGeomDirection]) {.noSideEffect,
+proc ReadStep*(this: RWStepGeom_RWDirection; data: handle[StepData_StepReaderData];
+              num: Standard_Integer; ach: var handle[Interface_Check];
+              ent: handle[StepGeom_Direction]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepGeom_RWDirection.hxx".}
-proc writeStep*(this: RWStepGeomRWDirection; sw: var StepDataStepWriter;
-               ent: Handle[StepGeomDirection]) {.noSideEffect,
+proc WriteStep*(this: RWStepGeom_RWDirection; SW: var StepData_StepWriter;
+               ent: handle[StepGeom_Direction]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepGeom_RWDirection.hxx".}
-proc check*(this: RWStepGeomRWDirection; ent: Handle[StepGeomDirection];
-           shares: InterfaceShareTool; ach: var Handle[InterfaceCheck]) {.
+proc Check*(this: RWStepGeom_RWDirection; ent: handle[StepGeom_Direction];
+           shares: Interface_ShareTool; ach: var handle[Interface_Check]) {.
     noSideEffect, importcpp: "Check", header: "RWStepGeom_RWDirection.hxx".}
-

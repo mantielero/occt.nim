@@ -14,6 +14,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
+  ../Standard/Standard_Integer
+
 discard "forward decl of Standard_DomainError"
 discard "forward decl of IGESDimen_DimensionUnits"
 discard "forward decl of IGESData_IGESReaderData"
@@ -26,51 +31,44 @@ discard "forward decl of Interface_Check"
 discard "forward decl of Interface_CopyTool"
 discard "forward decl of IGESData_IGESDumper"
 type
-  IGESDimenToolDimensionUnits* {.importcpp: "IGESDimen_ToolDimensionUnits",
-                                header: "IGESDimen_ToolDimensionUnits.hxx", bycopy.} = object ##
-                                                                                         ## !
-                                                                                         ## Returns
-                                                                                         ## a
-                                                                                         ## ToolDimensionUnits,
-                                                                                         ## ready
-                                                                                         ## to
-                                                                                         ## work
+  IGESDimen_ToolDimensionUnits* {.importcpp: "IGESDimen_ToolDimensionUnits",
+                                 header: "IGESDimen_ToolDimensionUnits.hxx",
+                                 bycopy.} = object ## ! Returns a ToolDimensionUnits, ready to work
 
 
-proc constructIGESDimenToolDimensionUnits*(): IGESDimenToolDimensionUnits {.
+proc constructIGESDimen_ToolDimensionUnits*(): IGESDimen_ToolDimensionUnits {.
     constructor, importcpp: "IGESDimen_ToolDimensionUnits(@)",
     header: "IGESDimen_ToolDimensionUnits.hxx".}
-proc readOwnParams*(this: IGESDimenToolDimensionUnits;
-                   ent: Handle[IGESDimenDimensionUnits];
-                   ir: Handle[IGESDataIGESReaderData]; pr: var IGESDataParamReader) {.
-    noSideEffect, importcpp: "ReadOwnParams",
-    header: "IGESDimen_ToolDimensionUnits.hxx".}
-proc writeOwnParams*(this: IGESDimenToolDimensionUnits;
-                    ent: Handle[IGESDimenDimensionUnits];
-                    iw: var IGESDataIGESWriter) {.noSideEffect,
+proc ReadOwnParams*(this: IGESDimen_ToolDimensionUnits;
+                   ent: handle[IGESDimen_DimensionUnits];
+                   IR: handle[IGESData_IGESReaderData];
+                   PR: var IGESData_ParamReader) {.noSideEffect,
+    importcpp: "ReadOwnParams", header: "IGESDimen_ToolDimensionUnits.hxx".}
+proc WriteOwnParams*(this: IGESDimen_ToolDimensionUnits;
+                    ent: handle[IGESDimen_DimensionUnits];
+                    IW: var IGESData_IGESWriter) {.noSideEffect,
     importcpp: "WriteOwnParams", header: "IGESDimen_ToolDimensionUnits.hxx".}
-proc ownShared*(this: IGESDimenToolDimensionUnits;
-               ent: Handle[IGESDimenDimensionUnits];
-               iter: var InterfaceEntityIterator) {.noSideEffect,
+proc OwnShared*(this: IGESDimen_ToolDimensionUnits;
+               ent: handle[IGESDimen_DimensionUnits];
+               iter: var Interface_EntityIterator) {.noSideEffect,
     importcpp: "OwnShared", header: "IGESDimen_ToolDimensionUnits.hxx".}
-proc ownCorrect*(this: IGESDimenToolDimensionUnits;
-                ent: Handle[IGESDimenDimensionUnits]): StandardBoolean {.
+proc OwnCorrect*(this: IGESDimen_ToolDimensionUnits;
+                ent: handle[IGESDimen_DimensionUnits]): Standard_Boolean {.
     noSideEffect, importcpp: "OwnCorrect",
     header: "IGESDimen_ToolDimensionUnits.hxx".}
-proc dirChecker*(this: IGESDimenToolDimensionUnits;
-                ent: Handle[IGESDimenDimensionUnits]): IGESDataDirChecker {.
+proc DirChecker*(this: IGESDimen_ToolDimensionUnits;
+                ent: handle[IGESDimen_DimensionUnits]): IGESData_DirChecker {.
     noSideEffect, importcpp: "DirChecker",
     header: "IGESDimen_ToolDimensionUnits.hxx".}
-proc ownCheck*(this: IGESDimenToolDimensionUnits;
-              ent: Handle[IGESDimenDimensionUnits]; shares: InterfaceShareTool;
-              ach: var Handle[InterfaceCheck]) {.noSideEffect,
+proc OwnCheck*(this: IGESDimen_ToolDimensionUnits;
+              ent: handle[IGESDimen_DimensionUnits]; shares: Interface_ShareTool;
+              ach: var handle[Interface_Check]) {.noSideEffect,
     importcpp: "OwnCheck", header: "IGESDimen_ToolDimensionUnits.hxx".}
-proc ownCopy*(this: IGESDimenToolDimensionUnits;
-             entfrom: Handle[IGESDimenDimensionUnits];
-             entto: Handle[IGESDimenDimensionUnits]; tc: var InterfaceCopyTool) {.
+proc OwnCopy*(this: IGESDimen_ToolDimensionUnits;
+             entfrom: handle[IGESDimen_DimensionUnits];
+             entto: handle[IGESDimen_DimensionUnits]; TC: var Interface_CopyTool) {.
     noSideEffect, importcpp: "OwnCopy", header: "IGESDimen_ToolDimensionUnits.hxx".}
-proc ownDump*(this: IGESDimenToolDimensionUnits;
-             ent: Handle[IGESDimenDimensionUnits]; dumper: IGESDataIGESDumper;
-             s: var StandardOStream; own: StandardInteger) {.noSideEffect,
+proc OwnDump*(this: IGESDimen_ToolDimensionUnits;
+             ent: handle[IGESDimen_DimensionUnits]; dumper: IGESData_IGESDumper;
+             S: var Standard_OStream; own: Standard_Integer) {.noSideEffect,
     importcpp: "OwnDump", header: "IGESDimen_ToolDimensionUnits.hxx".}
-

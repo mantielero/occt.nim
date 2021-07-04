@@ -14,6 +14,9 @@
 ##  commercial license or contractual agreement.
 ##  The original implementation Copyright: (C) RINA S.p.A
 
+import
+  ../TObj/TObj_Common, ../Standard/Standard_GUID
+
 discard "forward decl of BinMDF_ADriverTable"
 discard "forward decl of Message_Messenger"
 discard "forward decl of TDocStd_Application"
@@ -21,17 +24,12 @@ type
   BinTObjDrivers* {.importcpp: "BinTObjDrivers", header: "BinTObjDrivers.hxx", bycopy.} = object ##  ---------- PUBLIC METHODS ----------
 
 
-proc factory*(aGUID: StandardGUID): Handle[StandardTransient] {.
+proc Factory*(aGUID: Standard_GUID): handle[Standard_Transient] {.
     importcpp: "BinTObjDrivers::Factory(@)", header: "BinTObjDrivers.hxx".}
-proc defineFormat*(theApp: Handle[TDocStdApplication]) {.
+proc DefineFormat*(theApp: handle[TDocStd_Application]) {.
     importcpp: "BinTObjDrivers::DefineFormat(@)", header: "BinTObjDrivers.hxx".}
-proc addDrivers*(aDriverTable: Handle[BinMDF_ADriverTable];
-                aMsgDrv: Handle[MessageMessenger]) {.
+proc AddDrivers*(aDriverTable: handle[BinMDF_ADriverTable];
+                aMsgDrv: handle[Message_Messenger]) {.
     importcpp: "BinTObjDrivers::AddDrivers(@)", header: "BinTObjDrivers.hxx".}
 # when defined(_MSC_VER):
 #   discard
-
-# # 
-# 
-
-

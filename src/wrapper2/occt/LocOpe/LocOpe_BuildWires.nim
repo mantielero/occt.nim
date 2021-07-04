@@ -14,23 +14,27 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
+  ../TopTools/TopTools_ListOfShape
+
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of LocOpe_WiresOnShape"
 type
-  LocOpeBuildWires* {.importcpp: "LocOpe_BuildWires",
-                     header: "LocOpe_BuildWires.hxx", bycopy.} = object
+  LocOpe_BuildWires* {.importcpp: "LocOpe_BuildWires",
+                      header: "LocOpe_BuildWires.hxx", bycopy.} = object
 
 
-proc constructLocOpeBuildWires*(): LocOpeBuildWires {.constructor,
+proc constructLocOpe_BuildWires*(): LocOpe_BuildWires {.constructor,
     importcpp: "LocOpe_BuildWires(@)", header: "LocOpe_BuildWires.hxx".}
-proc constructLocOpeBuildWires*(ledges: TopToolsListOfShape;
-                               pw: Handle[LocOpeWiresOnShape]): LocOpeBuildWires {.
+proc constructLocOpe_BuildWires*(Ledges: TopTools_ListOfShape;
+                                PW: handle[LocOpe_WiresOnShape]): LocOpe_BuildWires {.
     constructor, importcpp: "LocOpe_BuildWires(@)", header: "LocOpe_BuildWires.hxx".}
-proc perform*(this: var LocOpeBuildWires; ledges: TopToolsListOfShape;
-             pw: Handle[LocOpeWiresOnShape]) {.importcpp: "Perform",
+proc Perform*(this: var LocOpe_BuildWires; Ledges: TopTools_ListOfShape;
+             PW: handle[LocOpe_WiresOnShape]) {.importcpp: "Perform",
     header: "LocOpe_BuildWires.hxx".}
-proc isDone*(this: LocOpeBuildWires): StandardBoolean {.noSideEffect,
+proc IsDone*(this: LocOpe_BuildWires): Standard_Boolean {.noSideEffect,
     importcpp: "IsDone", header: "LocOpe_BuildWires.hxx".}
-proc result*(this: LocOpeBuildWires): TopToolsListOfShape {.noSideEffect,
+proc Result*(this: LocOpe_BuildWires): TopTools_ListOfShape {.noSideEffect,
     importcpp: "Result", header: "LocOpe_BuildWires.hxx".}
-

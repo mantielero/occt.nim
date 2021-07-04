@@ -14,48 +14,53 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Integer,
+  ../Standard/Standard_Address, ../Standard/Standard_Real,
+  ../Standard/Standard_Transient, MAT_SequenceOfArc, MAT_SequenceOfBasicElt,
+  ../Standard/Standard_Boolean
+
 discard "forward decl of MAT_Arc"
 discard "forward decl of MAT_Node"
 discard "forward decl of MAT_Node"
 type
-  HandleMAT_Node* = Handle[MAT_Node]
+  Handle_MAT_Node* = handle[MAT_Node]
 
 ## ! Node of Graph.
 
 type
-  MAT_Node* {.importcpp: "MAT_Node", header: "MAT_Node.hxx", bycopy.} = object of StandardTransient
+  MAT_Node* {.importcpp: "MAT_Node", header: "MAT_Node.hxx", bycopy.} = object of Standard_Transient
 
 
-proc constructMAT_Node*(geomIndex: StandardInteger; linkedArc: Handle[MAT_Arc];
-                       distance: StandardReal): MAT_Node {.constructor,
+proc constructMAT_Node*(GeomIndex: Standard_Integer; LinkedArc: handle[MAT_Arc];
+                       Distance: Standard_Real): MAT_Node {.constructor,
     importcpp: "MAT_Node(@)", header: "MAT_Node.hxx".}
-proc geomIndex*(this: MAT_Node): StandardInteger {.noSideEffect,
+proc GeomIndex*(this: MAT_Node): Standard_Integer {.noSideEffect,
     importcpp: "GeomIndex", header: "MAT_Node.hxx".}
-proc index*(this: MAT_Node): StandardInteger {.noSideEffect, importcpp: "Index",
+proc Index*(this: MAT_Node): Standard_Integer {.noSideEffect, importcpp: "Index",
     header: "MAT_Node.hxx".}
-proc linkedArcs*(this: MAT_Node; s: var MAT_SequenceOfArc) {.noSideEffect,
+proc LinkedArcs*(this: MAT_Node; S: var MAT_SequenceOfArc) {.noSideEffect,
     importcpp: "LinkedArcs", header: "MAT_Node.hxx".}
-proc nearElts*(this: MAT_Node; s: var MAT_SequenceOfBasicElt) {.noSideEffect,
+proc NearElts*(this: MAT_Node; S: var MAT_SequenceOfBasicElt) {.noSideEffect,
     importcpp: "NearElts", header: "MAT_Node.hxx".}
-proc distance*(this: MAT_Node): StandardReal {.noSideEffect, importcpp: "Distance",
+proc Distance*(this: MAT_Node): Standard_Real {.noSideEffect, importcpp: "Distance",
     header: "MAT_Node.hxx".}
-proc pendingNode*(this: MAT_Node): StandardBoolean {.noSideEffect,
+proc PendingNode*(this: MAT_Node): Standard_Boolean {.noSideEffect,
     importcpp: "PendingNode", header: "MAT_Node.hxx".}
-proc onBasicElt*(this: MAT_Node): StandardBoolean {.noSideEffect,
+proc OnBasicElt*(this: MAT_Node): Standard_Boolean {.noSideEffect,
     importcpp: "OnBasicElt", header: "MAT_Node.hxx".}
-proc infinite*(this: MAT_Node): StandardBoolean {.noSideEffect,
+proc Infinite*(this: MAT_Node): Standard_Boolean {.noSideEffect,
     importcpp: "Infinite", header: "MAT_Node.hxx".}
-proc setIndex*(this: var MAT_Node; anIndex: StandardInteger) {.importcpp: "SetIndex",
+proc SetIndex*(this: var MAT_Node; anIndex: Standard_Integer) {.importcpp: "SetIndex",
     header: "MAT_Node.hxx".}
-proc setLinkedArc*(this: var MAT_Node; anArc: Handle[MAT_Arc]) {.
+proc SetLinkedArc*(this: var MAT_Node; anArc: handle[MAT_Arc]) {.
     importcpp: "SetLinkedArc", header: "MAT_Node.hxx".}
 type
-  MAT_NodebaseType* = StandardTransient
+  MAT_Nodebase_type* = Standard_Transient
 
-proc getTypeName*(): cstring {.importcpp: "MAT_Node::get_type_name(@)",
-                            header: "MAT_Node.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "MAT_Node::get_type_name(@)",
+                              header: "MAT_Node.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "MAT_Node::get_type_descriptor(@)", header: "MAT_Node.hxx".}
-proc dynamicType*(this: MAT_Node): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: MAT_Node): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "MAT_Node.hxx".}
-

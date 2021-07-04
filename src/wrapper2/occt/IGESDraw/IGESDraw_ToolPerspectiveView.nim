@@ -14,6 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 discard "forward decl of Standard_DomainError"
 discard "forward decl of IGESDraw_PerspectiveView"
 discard "forward decl of IGESData_IGESReaderData"
@@ -26,47 +30,40 @@ discard "forward decl of Interface_Check"
 discard "forward decl of Interface_CopyTool"
 discard "forward decl of IGESData_IGESDumper"
 type
-  IGESDrawToolPerspectiveView* {.importcpp: "IGESDraw_ToolPerspectiveView",
-                                header: "IGESDraw_ToolPerspectiveView.hxx", bycopy.} = object ##
-                                                                                         ## !
-                                                                                         ## Returns
-                                                                                         ## a
-                                                                                         ## ToolPerspectiveView,
-                                                                                         ## ready
-                                                                                         ## to
-                                                                                         ## work
+  IGESDraw_ToolPerspectiveView* {.importcpp: "IGESDraw_ToolPerspectiveView",
+                                 header: "IGESDraw_ToolPerspectiveView.hxx",
+                                 bycopy.} = object ## ! Returns a ToolPerspectiveView, ready to work
 
 
-proc constructIGESDrawToolPerspectiveView*(): IGESDrawToolPerspectiveView {.
+proc constructIGESDraw_ToolPerspectiveView*(): IGESDraw_ToolPerspectiveView {.
     constructor, importcpp: "IGESDraw_ToolPerspectiveView(@)",
     header: "IGESDraw_ToolPerspectiveView.hxx".}
-proc readOwnParams*(this: IGESDrawToolPerspectiveView;
-                   ent: Handle[IGESDrawPerspectiveView];
-                   ir: Handle[IGESDataIGESReaderData]; pr: var IGESDataParamReader) {.
-    noSideEffect, importcpp: "ReadOwnParams",
-    header: "IGESDraw_ToolPerspectiveView.hxx".}
-proc writeOwnParams*(this: IGESDrawToolPerspectiveView;
-                    ent: Handle[IGESDrawPerspectiveView];
-                    iw: var IGESDataIGESWriter) {.noSideEffect,
+proc ReadOwnParams*(this: IGESDraw_ToolPerspectiveView;
+                   ent: handle[IGESDraw_PerspectiveView];
+                   IR: handle[IGESData_IGESReaderData];
+                   PR: var IGESData_ParamReader) {.noSideEffect,
+    importcpp: "ReadOwnParams", header: "IGESDraw_ToolPerspectiveView.hxx".}
+proc WriteOwnParams*(this: IGESDraw_ToolPerspectiveView;
+                    ent: handle[IGESDraw_PerspectiveView];
+                    IW: var IGESData_IGESWriter) {.noSideEffect,
     importcpp: "WriteOwnParams", header: "IGESDraw_ToolPerspectiveView.hxx".}
-proc ownShared*(this: IGESDrawToolPerspectiveView;
-               ent: Handle[IGESDrawPerspectiveView];
-               iter: var InterfaceEntityIterator) {.noSideEffect,
+proc OwnShared*(this: IGESDraw_ToolPerspectiveView;
+               ent: handle[IGESDraw_PerspectiveView];
+               iter: var Interface_EntityIterator) {.noSideEffect,
     importcpp: "OwnShared", header: "IGESDraw_ToolPerspectiveView.hxx".}
-proc dirChecker*(this: IGESDrawToolPerspectiveView;
-                ent: Handle[IGESDrawPerspectiveView]): IGESDataDirChecker {.
+proc DirChecker*(this: IGESDraw_ToolPerspectiveView;
+                ent: handle[IGESDraw_PerspectiveView]): IGESData_DirChecker {.
     noSideEffect, importcpp: "DirChecker",
     header: "IGESDraw_ToolPerspectiveView.hxx".}
-proc ownCheck*(this: IGESDrawToolPerspectiveView;
-              ent: Handle[IGESDrawPerspectiveView]; shares: InterfaceShareTool;
-              ach: var Handle[InterfaceCheck]) {.noSideEffect,
+proc OwnCheck*(this: IGESDraw_ToolPerspectiveView;
+              ent: handle[IGESDraw_PerspectiveView]; shares: Interface_ShareTool;
+              ach: var handle[Interface_Check]) {.noSideEffect,
     importcpp: "OwnCheck", header: "IGESDraw_ToolPerspectiveView.hxx".}
-proc ownCopy*(this: IGESDrawToolPerspectiveView;
-             entfrom: Handle[IGESDrawPerspectiveView];
-             entto: Handle[IGESDrawPerspectiveView]; tc: var InterfaceCopyTool) {.
+proc OwnCopy*(this: IGESDraw_ToolPerspectiveView;
+             entfrom: handle[IGESDraw_PerspectiveView];
+             entto: handle[IGESDraw_PerspectiveView]; TC: var Interface_CopyTool) {.
     noSideEffect, importcpp: "OwnCopy", header: "IGESDraw_ToolPerspectiveView.hxx".}
-proc ownDump*(this: IGESDrawToolPerspectiveView;
-             ent: Handle[IGESDrawPerspectiveView]; dumper: IGESDataIGESDumper;
-             s: var StandardOStream; own: StandardInteger) {.noSideEffect,
+proc OwnDump*(this: IGESDraw_ToolPerspectiveView;
+             ent: handle[IGESDraw_PerspectiveView]; dumper: IGESData_IGESDumper;
+             S: var Standard_OStream; own: Standard_Integer) {.noSideEffect,
     importcpp: "OwnDump", header: "IGESDraw_ToolPerspectiveView.hxx".}
-

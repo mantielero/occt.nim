@@ -14,6 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 discard "forward decl of Standard_DomainError"
 discard "forward decl of IGESDefs_AttributeDef"
 discard "forward decl of IGESData_IGESReaderData"
@@ -26,42 +30,44 @@ discard "forward decl of Interface_Check"
 discard "forward decl of Interface_CopyTool"
 discard "forward decl of IGESData_IGESDumper"
 type
-  IGESDefsToolAttributeDef* {.importcpp: "IGESDefs_ToolAttributeDef",
-                             header: "IGESDefs_ToolAttributeDef.hxx", bycopy.} = object ##
-                                                                                   ## !
-                                                                                   ## Returns
-                                                                                   ## a
-                                                                                   ## ToolAttributeDef,
-                                                                                   ## ready
-                                                                                   ## to
-                                                                                   ## work
+  IGESDefs_ToolAttributeDef* {.importcpp: "IGESDefs_ToolAttributeDef",
+                              header: "IGESDefs_ToolAttributeDef.hxx", bycopy.} = object ##
+                                                                                    ## !
+                                                                                    ## Returns
+                                                                                    ## a
+                                                                                    ## ToolAttributeDef,
+                                                                                    ## ready
+                                                                                    ## to
+                                                                                    ## work
 
 
-proc constructIGESDefsToolAttributeDef*(): IGESDefsToolAttributeDef {.constructor,
-    importcpp: "IGESDefs_ToolAttributeDef(@)",
+proc constructIGESDefs_ToolAttributeDef*(): IGESDefs_ToolAttributeDef {.
+    constructor, importcpp: "IGESDefs_ToolAttributeDef(@)",
     header: "IGESDefs_ToolAttributeDef.hxx".}
-proc readOwnParams*(this: IGESDefsToolAttributeDef;
-                   ent: Handle[IGESDefsAttributeDef];
-                   ir: Handle[IGESDataIGESReaderData]; pr: var IGESDataParamReader) {.
-    noSideEffect, importcpp: "ReadOwnParams",
-    header: "IGESDefs_ToolAttributeDef.hxx".}
-proc writeOwnParams*(this: IGESDefsToolAttributeDef;
-                    ent: Handle[IGESDefsAttributeDef]; iw: var IGESDataIGESWriter) {.
-    noSideEffect, importcpp: "WriteOwnParams",
-    header: "IGESDefs_ToolAttributeDef.hxx".}
-proc ownShared*(this: IGESDefsToolAttributeDef; ent: Handle[IGESDefsAttributeDef];
-               iter: var InterfaceEntityIterator) {.noSideEffect,
+proc ReadOwnParams*(this: IGESDefs_ToolAttributeDef;
+                   ent: handle[IGESDefs_AttributeDef];
+                   IR: handle[IGESData_IGESReaderData];
+                   PR: var IGESData_ParamReader) {.noSideEffect,
+    importcpp: "ReadOwnParams", header: "IGESDefs_ToolAttributeDef.hxx".}
+proc WriteOwnParams*(this: IGESDefs_ToolAttributeDef;
+                    ent: handle[IGESDefs_AttributeDef];
+                    IW: var IGESData_IGESWriter) {.noSideEffect,
+    importcpp: "WriteOwnParams", header: "IGESDefs_ToolAttributeDef.hxx".}
+proc OwnShared*(this: IGESDefs_ToolAttributeDef;
+               ent: handle[IGESDefs_AttributeDef];
+               iter: var Interface_EntityIterator) {.noSideEffect,
     importcpp: "OwnShared", header: "IGESDefs_ToolAttributeDef.hxx".}
-proc dirChecker*(this: IGESDefsToolAttributeDef; ent: Handle[IGESDefsAttributeDef]): IGESDataDirChecker {.
+proc DirChecker*(this: IGESDefs_ToolAttributeDef;
+                ent: handle[IGESDefs_AttributeDef]): IGESData_DirChecker {.
     noSideEffect, importcpp: "DirChecker", header: "IGESDefs_ToolAttributeDef.hxx".}
-proc ownCheck*(this: IGESDefsToolAttributeDef; ent: Handle[IGESDefsAttributeDef];
-              shares: InterfaceShareTool; ach: var Handle[InterfaceCheck]) {.
+proc OwnCheck*(this: IGESDefs_ToolAttributeDef; ent: handle[IGESDefs_AttributeDef];
+              shares: Interface_ShareTool; ach: var handle[Interface_Check]) {.
     noSideEffect, importcpp: "OwnCheck", header: "IGESDefs_ToolAttributeDef.hxx".}
-proc ownCopy*(this: IGESDefsToolAttributeDef;
-             entfrom: Handle[IGESDefsAttributeDef];
-             entto: Handle[IGESDefsAttributeDef]; tc: var InterfaceCopyTool) {.
+proc OwnCopy*(this: IGESDefs_ToolAttributeDef;
+             entfrom: handle[IGESDefs_AttributeDef];
+             entto: handle[IGESDefs_AttributeDef]; TC: var Interface_CopyTool) {.
     noSideEffect, importcpp: "OwnCopy", header: "IGESDefs_ToolAttributeDef.hxx".}
-proc ownDump*(this: IGESDefsToolAttributeDef; ent: Handle[IGESDefsAttributeDef];
-             dumper: IGESDataIGESDumper; s: var StandardOStream; own: StandardInteger) {.
-    noSideEffect, importcpp: "OwnDump", header: "IGESDefs_ToolAttributeDef.hxx".}
-
+proc OwnDump*(this: IGESDefs_ToolAttributeDef; ent: handle[IGESDefs_AttributeDef];
+             dumper: IGESData_IGESDumper; S: var Standard_OStream;
+             own: Standard_Integer) {.noSideEffect, importcpp: "OwnDump",
+                                    header: "IGESDefs_ToolAttributeDef.hxx".}

@@ -14,6 +14,13 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../Extrema/Extrema_ExtPS,
+  ../GeomAdaptor/GeomAdaptor_Surface, ../Standard/Standard_Boolean,
+  ../Standard/Standard_Integer, ../Standard/Standard_Real, ../gp/gp_Pnt,
+  ../gp/gp_Pnt2d, ../Bnd/Bnd_Box, ../Standard/Standard_Transient,
+  ../TColgp/TColgp_SequenceOfPnt, ../TColgp/TColgp_SequenceOfPnt2d
+
 discard "forward decl of Geom_Surface"
 discard "forward decl of GeomAdaptor_HSurface"
 discard "forward decl of Geom_Curve"
@@ -23,7 +30,7 @@ discard "forward decl of Bnd_Box"
 discard "forward decl of ShapeAnalysis_Surface"
 discard "forward decl of ShapeAnalysis_Surface"
 type
-  HandleShapeAnalysisSurface* = Handle[ShapeAnalysisSurface]
+  Handle_ShapeAnalysis_Surface* = handle[ShapeAnalysis_Surface]
 
 ## ! Complements standard tool Geom_Surface by providing additional
 ## ! functionality for detection surface singularities, checking
@@ -52,240 +59,241 @@ type
 ## ! This tool is optimised: computes most information only once
 
 type
-  ShapeAnalysisSurface* {.importcpp: "ShapeAnalysis_Surface",
-                         header: "ShapeAnalysis_Surface.hxx", bycopy.} = object of StandardTransient ##
-                                                                                              ## !
-                                                                                              ## Creates
-                                                                                              ## an
-                                                                                              ## analyzer
-                                                                                              ## object
-                                                                                              ## on
-                                                                                              ## the
-                                                                                              ## basis
-                                                                                              ## of
-                                                                                              ## existing
-                                                                                              ## surface
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ## Computes
-                                                                                              ## singularities
-                                                                                              ## on
-                                                                                              ## the
-                                                                                              ## surface.
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ## Computes
-                                                                                              ## the
-                                                                                              ## sizes
-                                                                                              ## of
-                                                                                              ## boundaries
-                                                                                              ## or
-                                                                                              ## singular
-                                                                                              ## ares
-                                                                                              ## of
-                                                                                              ## the
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ## surface.
-                                                                                              ## Then
-                                                                                              ## each
-                                                                                              ## boundary
-                                                                                              ## or
-                                                                                              ## area
-                                                                                              ## is
-                                                                                              ## considered
-                                                                                              ## as
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ## degenerated
-                                                                                              ## with
-                                                                                              ## precision
-                                                                                              ## not
-                                                                                              ## less
-                                                                                              ## than
-                                                                                              ## its
-                                                                                              ## size.
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ## The
-                                                                                              ## singularities
-                                                                                              ## and
-                                                                                              ## corresponding
-                                                                                              ## precisions
-                                                                                              ## are
-                                                                                              ## the
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ## following:
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ## -
-                                                                                              ## ConicalSurface
-                                                                                              ## -
-                                                                                              ## one
-                                                                                              ## degenerated
-                                                                                              ## point
-                                                                                              ## (apex
-                                                                                              ## of
-                                                                                              ## the
-                                                                                              ## cone),
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ## precision
-                                                                                              ## is
-                                                                                              ## 0.,
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ## -
-                                                                                              ## ToroidalSurface
-                                                                                              ## -
-                                                                                              ## two
-                                                                                              ## degenerated
-                                                                                              ## points,
-                                                                                              ## precision
-                                                                                              ## is
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ## Max
-                                                                                              ## (0,
-                                                                                              ## majorR-minorR),
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ## -
-                                                                                              ## SphericalSurface
-                                                                                              ## -
-                                                                                              ## two
-                                                                                              ## degenerated
-                                                                                              ## points
-                                                                                              ## (poles),
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ## precision
-                                                                                              ## is
-                                                                                              ## 0.
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ## -
-                                                                                              ## Bounded,
-                                                                                              ## Surface
-                                                                                              ## Of
-                                                                                              ## Revolution,
-                                                                                              ## Offset
-                                                                                              ## -
-                                                                                              ## four
-                                                                                              ## degenerated
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ## points,
-                                                                                              ## precisions
-                                                                                              ## are
-                                                                                              ## maximum
-                                                                                              ## distance
-                                                                                              ## between
-                                                                                              ## corners
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ## and
-                                                                                              ## middle
-                                                                                              ## point
-                                                                                              ## on
-                                                                                              ## the
-                                                                                              ## boundary
+  ShapeAnalysis_Surface* {.importcpp: "ShapeAnalysis_Surface",
+                          header: "ShapeAnalysis_Surface.hxx", bycopy.} = object of Standard_Transient ##
+                                                                                                ## !
+                                                                                                ## Creates
+                                                                                                ## an
+                                                                                                ## analyzer
+                                                                                                ## object
+                                                                                                ## on
+                                                                                                ## the
+                                                                                                ## basis
+                                                                                                ## of
+                                                                                                ## existing
+                                                                                                ## surface
+                                                                                                ##
+                                                                                                ## !
+                                                                                                ## Computes
+                                                                                                ## singularities
+                                                                                                ## on
+                                                                                                ## the
+                                                                                                ## surface.
+                                                                                                ##
+                                                                                                ## !
+                                                                                                ## Computes
+                                                                                                ## the
+                                                                                                ## sizes
+                                                                                                ## of
+                                                                                                ## boundaries
+                                                                                                ## or
+                                                                                                ## singular
+                                                                                                ## ares
+                                                                                                ## of
+                                                                                                ## the
+                                                                                                ##
+                                                                                                ## !
+                                                                                                ## surface.
+                                                                                                ## Then
+                                                                                                ## each
+                                                                                                ## boundary
+                                                                                                ## or
+                                                                                                ## area
+                                                                                                ## is
+                                                                                                ## considered
+                                                                                                ## as
+                                                                                                ##
+                                                                                                ## !
+                                                                                                ## degenerated
+                                                                                                ## with
+                                                                                                ## precision
+                                                                                                ## not
+                                                                                                ## less
+                                                                                                ## than
+                                                                                                ## its
+                                                                                                ## size.
+                                                                                                ##
+                                                                                                ## !
+                                                                                                ##
+                                                                                                ## !
+                                                                                                ## The
+                                                                                                ## singularities
+                                                                                                ## and
+                                                                                                ## corresponding
+                                                                                                ## precisions
+                                                                                                ## are
+                                                                                                ## the
+                                                                                                ##
+                                                                                                ## !
+                                                                                                ## following:
+                                                                                                ##
+                                                                                                ## !
+                                                                                                ## -
+                                                                                                ## ConicalSurface
+                                                                                                ## -
+                                                                                                ## one
+                                                                                                ## degenerated
+                                                                                                ## point
+                                                                                                ## (apex
+                                                                                                ## of
+                                                                                                ## the
+                                                                                                ## cone),
+                                                                                                ##
+                                                                                                ## !
+                                                                                                ## precision
+                                                                                                ## is
+                                                                                                ## 0.,
+                                                                                                ##
+                                                                                                ## !
+                                                                                                ## -
+                                                                                                ## ToroidalSurface
+                                                                                                ## -
+                                                                                                ## two
+                                                                                                ## degenerated
+                                                                                                ## points,
+                                                                                                ## precision
+                                                                                                ## is
+                                                                                                ##
+                                                                                                ## !
+                                                                                                ## Max
+                                                                                                ## (0,
+                                                                                                ## majorR-minorR),
+                                                                                                ##
+                                                                                                ## !
+                                                                                                ## -
+                                                                                                ## SphericalSurface
+                                                                                                ## -
+                                                                                                ## two
+                                                                                                ## degenerated
+                                                                                                ## points
+                                                                                                ## (poles),
+                                                                                                ##
+                                                                                                ## !
+                                                                                                ## precision
+                                                                                                ## is
+                                                                                                ## 0.
+                                                                                                ##
+                                                                                                ## !
+                                                                                                ## -
+                                                                                                ## Bounded,
+                                                                                                ## Surface
+                                                                                                ## Of
+                                                                                                ## Revolution,
+                                                                                                ## Offset
+                                                                                                ## -
+                                                                                                ## four
+                                                                                                ## degenerated
+                                                                                                ##
+                                                                                                ## !
+                                                                                                ## points,
+                                                                                                ## precisions
+                                                                                                ## are
+                                                                                                ## maximum
+                                                                                                ## distance
+                                                                                                ## between
+                                                                                                ## corners
+                                                                                                ##
+                                                                                                ## !
+                                                                                                ## and
+                                                                                                ## middle
+                                                                                                ## point
+                                                                                                ## on
+                                                                                                ## the
+                                                                                                ## boundary
 
 
-proc constructShapeAnalysisSurface*(s: Handle[GeomSurface]): ShapeAnalysisSurface {.
+proc constructShapeAnalysis_Surface*(S: handle[Geom_Surface]): ShapeAnalysis_Surface {.
     constructor, importcpp: "ShapeAnalysis_Surface(@)",
     header: "ShapeAnalysis_Surface.hxx".}
-proc init*(this: var ShapeAnalysisSurface; s: Handle[GeomSurface]) {.
+proc Init*(this: var ShapeAnalysis_Surface; S: handle[Geom_Surface]) {.
     importcpp: "Init", header: "ShapeAnalysis_Surface.hxx".}
-proc init*(this: var ShapeAnalysisSurface; other: Handle[ShapeAnalysisSurface]) {.
+proc Init*(this: var ShapeAnalysis_Surface; other: handle[ShapeAnalysis_Surface]) {.
     importcpp: "Init", header: "ShapeAnalysis_Surface.hxx".}
-proc setDomain*(this: var ShapeAnalysisSurface; u1: StandardReal; u2: StandardReal;
-               v1: StandardReal; v2: StandardReal) {.importcpp: "SetDomain",
+proc SetDomain*(this: var ShapeAnalysis_Surface; U1: Standard_Real; U2: Standard_Real;
+               V1: Standard_Real; V2: Standard_Real) {.importcpp: "SetDomain",
     header: "ShapeAnalysis_Surface.hxx".}
-proc surface*(this: ShapeAnalysisSurface): Handle[GeomSurface] {.noSideEffect,
+proc Surface*(this: ShapeAnalysis_Surface): handle[Geom_Surface] {.noSideEffect,
     importcpp: "Surface", header: "ShapeAnalysis_Surface.hxx".}
-proc adaptor3d*(this: var ShapeAnalysisSurface): Handle[GeomAdaptorHSurface] {.
+proc Adaptor3d*(this: var ShapeAnalysis_Surface): handle[GeomAdaptor_HSurface] {.
     importcpp: "Adaptor3d", header: "ShapeAnalysis_Surface.hxx".}
-proc trueAdaptor3d*(this: ShapeAnalysisSurface): Handle[GeomAdaptorHSurface] {.
+proc TrueAdaptor3d*(this: ShapeAnalysis_Surface): handle[GeomAdaptor_HSurface] {.
     noSideEffect, importcpp: "TrueAdaptor3d", header: "ShapeAnalysis_Surface.hxx".}
-proc gap*(this: ShapeAnalysisSurface): StandardReal {.noSideEffect, importcpp: "Gap",
-    header: "ShapeAnalysis_Surface.hxx".}
-proc value*(this: var ShapeAnalysisSurface; u: StandardReal; v: StandardReal): GpPnt {.
+proc Gap*(this: ShapeAnalysis_Surface): Standard_Real {.noSideEffect,
+    importcpp: "Gap", header: "ShapeAnalysis_Surface.hxx".}
+proc Value*(this: var ShapeAnalysis_Surface; u: Standard_Real; v: Standard_Real): gp_Pnt {.
     importcpp: "Value", header: "ShapeAnalysis_Surface.hxx".}
-proc value*(this: var ShapeAnalysisSurface; p2d: GpPnt2d): GpPnt {.importcpp: "Value",
-    header: "ShapeAnalysis_Surface.hxx".}
-proc hasSingularities*(this: var ShapeAnalysisSurface; preci: StandardReal): StandardBoolean {.
+proc Value*(this: var ShapeAnalysis_Surface; p2d: gp_Pnt2d): gp_Pnt {.
+    importcpp: "Value", header: "ShapeAnalysis_Surface.hxx".}
+proc HasSingularities*(this: var ShapeAnalysis_Surface; preci: Standard_Real): Standard_Boolean {.
     importcpp: "HasSingularities", header: "ShapeAnalysis_Surface.hxx".}
-proc nbSingularities*(this: var ShapeAnalysisSurface; preci: StandardReal): StandardInteger {.
+proc NbSingularities*(this: var ShapeAnalysis_Surface; preci: Standard_Real): Standard_Integer {.
     importcpp: "NbSingularities", header: "ShapeAnalysis_Surface.hxx".}
-proc singularity*(this: var ShapeAnalysisSurface; num: StandardInteger;
-                 preci: var StandardReal; p3d: var GpPnt; firstP2d: var GpPnt2d;
-                 lastP2d: var GpPnt2d; firstpar: var StandardReal;
-                 lastpar: var StandardReal; uisodeg: var StandardBoolean): StandardBoolean {.
+proc Singularity*(this: var ShapeAnalysis_Surface; num: Standard_Integer;
+                 preci: var Standard_Real; P3d: var gp_Pnt; firstP2d: var gp_Pnt2d;
+                 lastP2d: var gp_Pnt2d; firstpar: var Standard_Real;
+                 lastpar: var Standard_Real; uisodeg: var Standard_Boolean): Standard_Boolean {.
     importcpp: "Singularity", header: "ShapeAnalysis_Surface.hxx".}
-proc isDegenerated*(this: var ShapeAnalysisSurface; p3d: GpPnt; preci: StandardReal): StandardBoolean {.
+proc IsDegenerated*(this: var ShapeAnalysis_Surface; P3d: gp_Pnt; preci: Standard_Real): Standard_Boolean {.
     importcpp: "IsDegenerated", header: "ShapeAnalysis_Surface.hxx".}
-proc degeneratedValues*(this: var ShapeAnalysisSurface; p3d: GpPnt;
-                       preci: StandardReal; firstP2d: var GpPnt2d;
-                       lastP2d: var GpPnt2d; firstpar: var StandardReal;
-                       lastpar: var StandardReal;
-                       forward: StandardBoolean = standardTrue): StandardBoolean {.
+proc DegeneratedValues*(this: var ShapeAnalysis_Surface; P3d: gp_Pnt;
+                       preci: Standard_Real; firstP2d: var gp_Pnt2d;
+                       lastP2d: var gp_Pnt2d; firstpar: var Standard_Real;
+                       lastpar: var Standard_Real;
+                       forward: Standard_Boolean = Standard_True): Standard_Boolean {.
     importcpp: "DegeneratedValues", header: "ShapeAnalysis_Surface.hxx".}
-proc projectDegenerated*(this: var ShapeAnalysisSurface; p3d: GpPnt;
-                        preci: StandardReal; neighbour: GpPnt2d; result: var GpPnt2d): StandardBoolean {.
+proc ProjectDegenerated*(this: var ShapeAnalysis_Surface; P3d: gp_Pnt;
+                        preci: Standard_Real; neighbour: gp_Pnt2d;
+                        result: var gp_Pnt2d): Standard_Boolean {.
     importcpp: "ProjectDegenerated", header: "ShapeAnalysis_Surface.hxx".}
-proc projectDegenerated*(this: var ShapeAnalysisSurface; nbrPnt: StandardInteger;
-                        points: TColgpSequenceOfPnt;
-                        pnt2d: var TColgpSequenceOfPnt2d; preci: StandardReal;
-                        direct: StandardBoolean): StandardBoolean {.
+proc ProjectDegenerated*(this: var ShapeAnalysis_Surface; nbrPnt: Standard_Integer;
+                        points: TColgp_SequenceOfPnt;
+                        pnt2d: var TColgp_SequenceOfPnt2d; preci: Standard_Real;
+                        direct: Standard_Boolean): Standard_Boolean {.
     importcpp: "ProjectDegenerated", header: "ShapeAnalysis_Surface.hxx".}
-proc isDegenerated*(this: var ShapeAnalysisSurface; p2d1: GpPnt2d; p2d2: GpPnt2d;
-                   tol: StandardReal; ratio: StandardReal): StandardBoolean {.
+proc IsDegenerated*(this: var ShapeAnalysis_Surface; p2d1: gp_Pnt2d; p2d2: gp_Pnt2d;
+                   tol: Standard_Real; ratio: Standard_Real): Standard_Boolean {.
     importcpp: "IsDegenerated", header: "ShapeAnalysis_Surface.hxx".}
-proc bounds*(this: ShapeAnalysisSurface; ufirst: var StandardReal;
-            ulast: var StandardReal; vfirst: var StandardReal; vlast: var StandardReal) {.
-    noSideEffect, importcpp: "Bounds", header: "ShapeAnalysis_Surface.hxx".}
-proc computeBoundIsos*(this: var ShapeAnalysisSurface) {.
+proc Bounds*(this: ShapeAnalysis_Surface; ufirst: var Standard_Real;
+            ulast: var Standard_Real; vfirst: var Standard_Real;
+            vlast: var Standard_Real) {.noSideEffect, importcpp: "Bounds",
+                                     header: "ShapeAnalysis_Surface.hxx".}
+proc ComputeBoundIsos*(this: var ShapeAnalysis_Surface) {.
     importcpp: "ComputeBoundIsos", header: "ShapeAnalysis_Surface.hxx".}
-proc uIso*(this: var ShapeAnalysisSurface; u: StandardReal): Handle[GeomCurve] {.
+proc UIso*(this: var ShapeAnalysis_Surface; U: Standard_Real): handle[Geom_Curve] {.
     importcpp: "UIso", header: "ShapeAnalysis_Surface.hxx".}
-proc vIso*(this: var ShapeAnalysisSurface; v: StandardReal): Handle[GeomCurve] {.
+proc VIso*(this: var ShapeAnalysis_Surface; V: Standard_Real): handle[Geom_Curve] {.
     importcpp: "VIso", header: "ShapeAnalysis_Surface.hxx".}
-proc isUClosed*(this: var ShapeAnalysisSurface; preci: StandardReal = -1): StandardBoolean {.
+proc IsUClosed*(this: var ShapeAnalysis_Surface; preci: Standard_Real = -1): Standard_Boolean {.
     importcpp: "IsUClosed", header: "ShapeAnalysis_Surface.hxx".}
-proc isVClosed*(this: var ShapeAnalysisSurface; preci: StandardReal = -1): StandardBoolean {.
+proc IsVClosed*(this: var ShapeAnalysis_Surface; preci: Standard_Real = -1): Standard_Boolean {.
     importcpp: "IsVClosed", header: "ShapeAnalysis_Surface.hxx".}
-proc valueOfUV*(this: var ShapeAnalysisSurface; p3d: GpPnt; preci: StandardReal): GpPnt2d {.
+proc ValueOfUV*(this: var ShapeAnalysis_Surface; P3D: gp_Pnt; preci: Standard_Real): gp_Pnt2d {.
     importcpp: "ValueOfUV", header: "ShapeAnalysis_Surface.hxx".}
-proc nextValueOfUV*(this: var ShapeAnalysisSurface; p2dPrev: GpPnt2d; p3d: GpPnt;
-                   preci: StandardReal; maxpreci: StandardReal = -1.0): GpPnt2d {.
+proc NextValueOfUV*(this: var ShapeAnalysis_Surface; p2dPrev: gp_Pnt2d; P3D: gp_Pnt;
+                   preci: Standard_Real; maxpreci: Standard_Real = -1.0): gp_Pnt2d {.
     importcpp: "NextValueOfUV", header: "ShapeAnalysis_Surface.hxx".}
-proc uVFromIso*(this: var ShapeAnalysisSurface; p3d: GpPnt; preci: StandardReal;
-               u: var StandardReal; v: var StandardReal): StandardReal {.
+proc UVFromIso*(this: var ShapeAnalysis_Surface; P3D: gp_Pnt; preci: Standard_Real;
+               U: var Standard_Real; V: var Standard_Real): Standard_Real {.
     importcpp: "UVFromIso", header: "ShapeAnalysis_Surface.hxx".}
-proc uCloseVal*(this: ShapeAnalysisSurface): StandardReal {.noSideEffect,
+proc UCloseVal*(this: ShapeAnalysis_Surface): Standard_Real {.noSideEffect,
     importcpp: "UCloseVal", header: "ShapeAnalysis_Surface.hxx".}
-proc vCloseVal*(this: ShapeAnalysisSurface): StandardReal {.noSideEffect,
+proc VCloseVal*(this: ShapeAnalysis_Surface): Standard_Real {.noSideEffect,
     importcpp: "VCloseVal", header: "ShapeAnalysis_Surface.hxx".}
-proc getBoxUF*(this: var ShapeAnalysisSurface): BndBox {.importcpp: "GetBoxUF",
+proc GetBoxUF*(this: var ShapeAnalysis_Surface): Bnd_Box {.importcpp: "GetBoxUF",
     header: "ShapeAnalysis_Surface.hxx".}
-proc getBoxUL*(this: var ShapeAnalysisSurface): BndBox {.importcpp: "GetBoxUL",
+proc GetBoxUL*(this: var ShapeAnalysis_Surface): Bnd_Box {.importcpp: "GetBoxUL",
     header: "ShapeAnalysis_Surface.hxx".}
-proc getBoxVF*(this: var ShapeAnalysisSurface): BndBox {.importcpp: "GetBoxVF",
+proc GetBoxVF*(this: var ShapeAnalysis_Surface): Bnd_Box {.importcpp: "GetBoxVF",
     header: "ShapeAnalysis_Surface.hxx".}
-proc getBoxVL*(this: var ShapeAnalysisSurface): BndBox {.importcpp: "GetBoxVL",
+proc GetBoxVL*(this: var ShapeAnalysis_Surface): Bnd_Box {.importcpp: "GetBoxVL",
     header: "ShapeAnalysis_Surface.hxx".}
 type
-  ShapeAnalysisSurfacebaseType* = StandardTransient
+  ShapeAnalysis_Surfacebase_type* = Standard_Transient
 
-proc getTypeName*(): cstring {.importcpp: "ShapeAnalysis_Surface::get_type_name(@)",
-                            header: "ShapeAnalysis_Surface.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "ShapeAnalysis_Surface::get_type_name(@)",
+                              header: "ShapeAnalysis_Surface.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "ShapeAnalysis_Surface::get_type_descriptor(@)",
     header: "ShapeAnalysis_Surface.hxx".}
-proc dynamicType*(this: ShapeAnalysisSurface): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "ShapeAnalysis_Surface.hxx".}
-
+proc DynamicType*(this: ShapeAnalysis_Surface): handle[Standard_Type] {.
+    noSideEffect, importcpp: "DynamicType", header: "ShapeAnalysis_Surface.hxx".}

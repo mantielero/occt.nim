@@ -14,6 +14,14 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Address, ../gp/gp_Pnt2d,
+  Extrema_ExtPElC2d, Extrema_SequenceOfPOnCurv2d, ../Standard/Standard_Boolean,
+  ../Standard/Standard_Real, Extrema_EPCOfELPCOfLocateExtPC2d,
+  ../Standard/Standard_Integer, ../GeomAbs/GeomAbs_CurveType,
+  ../TColStd/TColStd_SequenceOfBoolean, ../TColStd/TColStd_SequenceOfReal
+
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of Standard_TypeMismatch"
@@ -26,39 +34,39 @@ discard "forward decl of Extrema_POnCurv2d"
 discard "forward decl of Extrema_EPCOfELPCOfLocateExtPC2d"
 discard "forward decl of Extrema_PCFOfEPCOfELPCOfLocateExtPC2d"
 type
-  ExtremaELPCOfLocateExtPC2d* {.importcpp: "Extrema_ELPCOfLocateExtPC2d",
-                               header: "Extrema_ELPCOfLocateExtPC2d.hxx", bycopy.} = object
+  Extrema_ELPCOfLocateExtPC2d* {.importcpp: "Extrema_ELPCOfLocateExtPC2d",
+                                header: "Extrema_ELPCOfLocateExtPC2d.hxx", bycopy.} = object
 
 
-proc constructExtremaELPCOfLocateExtPC2d*(): ExtremaELPCOfLocateExtPC2d {.
+proc constructExtrema_ELPCOfLocateExtPC2d*(): Extrema_ELPCOfLocateExtPC2d {.
     constructor, importcpp: "Extrema_ELPCOfLocateExtPC2d(@)",
     header: "Extrema_ELPCOfLocateExtPC2d.hxx".}
-proc constructExtremaELPCOfLocateExtPC2d*(p: GpPnt2d; c: Adaptor2dCurve2d;
-    uinf: StandardReal; usup: StandardReal; tolF: StandardReal = 1.0e-10): ExtremaELPCOfLocateExtPC2d {.
+proc constructExtrema_ELPCOfLocateExtPC2d*(P: gp_Pnt2d; C: Adaptor2d_Curve2d;
+    Uinf: Standard_Real; Usup: Standard_Real; TolF: Standard_Real = 1.0e-10): Extrema_ELPCOfLocateExtPC2d {.
     constructor, importcpp: "Extrema_ELPCOfLocateExtPC2d(@)",
     header: "Extrema_ELPCOfLocateExtPC2d.hxx".}
-proc constructExtremaELPCOfLocateExtPC2d*(p: GpPnt2d; c: Adaptor2dCurve2d;
-    tolF: StandardReal = 1.0e-10): ExtremaELPCOfLocateExtPC2d {.constructor,
+proc constructExtrema_ELPCOfLocateExtPC2d*(P: gp_Pnt2d; C: Adaptor2d_Curve2d;
+    TolF: Standard_Real = 1.0e-10): Extrema_ELPCOfLocateExtPC2d {.constructor,
     importcpp: "Extrema_ELPCOfLocateExtPC2d(@)",
     header: "Extrema_ELPCOfLocateExtPC2d.hxx".}
-proc initialize*(this: var ExtremaELPCOfLocateExtPC2d; c: Adaptor2dCurve2d;
-                uinf: StandardReal; usup: StandardReal; tolF: StandardReal = 1.0e-10) {.
-    importcpp: "Initialize", header: "Extrema_ELPCOfLocateExtPC2d.hxx".}
-proc perform*(this: var ExtremaELPCOfLocateExtPC2d; p: GpPnt2d) {.
+proc Initialize*(this: var Extrema_ELPCOfLocateExtPC2d; C: Adaptor2d_Curve2d;
+                Uinf: Standard_Real; Usup: Standard_Real;
+                TolF: Standard_Real = 1.0e-10) {.importcpp: "Initialize",
+    header: "Extrema_ELPCOfLocateExtPC2d.hxx".}
+proc Perform*(this: var Extrema_ELPCOfLocateExtPC2d; P: gp_Pnt2d) {.
     importcpp: "Perform", header: "Extrema_ELPCOfLocateExtPC2d.hxx".}
-proc isDone*(this: ExtremaELPCOfLocateExtPC2d): StandardBoolean {.noSideEffect,
+proc IsDone*(this: Extrema_ELPCOfLocateExtPC2d): Standard_Boolean {.noSideEffect,
     importcpp: "IsDone", header: "Extrema_ELPCOfLocateExtPC2d.hxx".}
-proc squareDistance*(this: ExtremaELPCOfLocateExtPC2d; n: StandardInteger): StandardReal {.
+proc SquareDistance*(this: Extrema_ELPCOfLocateExtPC2d; N: Standard_Integer): Standard_Real {.
     noSideEffect, importcpp: "SquareDistance",
     header: "Extrema_ELPCOfLocateExtPC2d.hxx".}
-proc nbExt*(this: ExtremaELPCOfLocateExtPC2d): StandardInteger {.noSideEffect,
+proc NbExt*(this: Extrema_ELPCOfLocateExtPC2d): Standard_Integer {.noSideEffect,
     importcpp: "NbExt", header: "Extrema_ELPCOfLocateExtPC2d.hxx".}
-proc isMin*(this: ExtremaELPCOfLocateExtPC2d; n: StandardInteger): StandardBoolean {.
+proc IsMin*(this: Extrema_ELPCOfLocateExtPC2d; N: Standard_Integer): Standard_Boolean {.
     noSideEffect, importcpp: "IsMin", header: "Extrema_ELPCOfLocateExtPC2d.hxx".}
-proc point*(this: ExtremaELPCOfLocateExtPC2d; n: StandardInteger): ExtremaPOnCurv2d {.
+proc Point*(this: Extrema_ELPCOfLocateExtPC2d; N: Standard_Integer): Extrema_POnCurv2d {.
     noSideEffect, importcpp: "Point", header: "Extrema_ELPCOfLocateExtPC2d.hxx".}
-proc trimmedSquareDistances*(this: ExtremaELPCOfLocateExtPC2d;
-                            dist1: var StandardReal; dist2: var StandardReal;
-                            p1: var GpPnt2d; p2: var GpPnt2d) {.noSideEffect,
+proc TrimmedSquareDistances*(this: Extrema_ELPCOfLocateExtPC2d;
+                            dist1: var Standard_Real; dist2: var Standard_Real;
+                            P1: var gp_Pnt2d; P2: var gp_Pnt2d) {.noSideEffect,
     importcpp: "TrimmedSquareDistances", header: "Extrema_ELPCOfLocateExtPC2d.hxx".}
-

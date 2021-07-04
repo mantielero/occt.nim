@@ -14,24 +14,27 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, Draw_Drawable3D,
+  ../Standard/Standard_Boolean
+
 discard "forward decl of Draw_Drawable2D"
 discard "forward decl of Draw_Drawable2D"
 type
-  HandleDrawDrawable2D* = Handle[DrawDrawable2D]
-  DrawDrawable2D* {.importcpp: "Draw_Drawable2D", header: "Draw_Drawable2D.hxx",
-                   bycopy.} = object of DrawDrawable3D ## ! Returns False.
+  Handle_Draw_Drawable2D* = handle[Draw_Drawable2D]
+  Draw_Drawable2D* {.importcpp: "Draw_Drawable2D", header: "Draw_Drawable2D.hxx",
+                    bycopy.} = object of Draw_Drawable3D ## ! Returns False.
 
 
-proc is3D*(this: DrawDrawable2D): StandardBoolean {.noSideEffect, importcpp: "Is3D",
-    header: "Draw_Drawable2D.hxx".}
+proc Is3D*(this: Draw_Drawable2D): Standard_Boolean {.noSideEffect,
+    importcpp: "Is3D", header: "Draw_Drawable2D.hxx".}
 type
-  DrawDrawable2DbaseType* = DrawDrawable3D
+  Draw_Drawable2Dbase_type* = Draw_Drawable3D
 
-proc getTypeName*(): cstring {.importcpp: "Draw_Drawable2D::get_type_name(@)",
-                            header: "Draw_Drawable2D.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "Draw_Drawable2D::get_type_name(@)",
+                              header: "Draw_Drawable2D.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "Draw_Drawable2D::get_type_descriptor(@)",
     header: "Draw_Drawable2D.hxx".}
-proc dynamicType*(this: DrawDrawable2D): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: Draw_Drawable2D): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "Draw_Drawable2D.hxx".}
-

@@ -14,6 +14,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Transient
+
 discard "forward decl of IGESData_ReadWriteModule"
 discard "forward decl of IGESData_Protocol"
 discard "forward decl of IGESData_IGESEntity"
@@ -22,35 +25,34 @@ discard "forward decl of IGESData_NodeOfWriterLib"
 discard "forward decl of IGESData_GlobalNodeOfWriterLib"
 discard "forward decl of IGESData_GlobalNodeOfWriterLib"
 type
-  HandleIGESDataGlobalNodeOfWriterLib* = Handle[IGESDataGlobalNodeOfWriterLib]
-  IGESDataGlobalNodeOfWriterLib* {.importcpp: "IGESData_GlobalNodeOfWriterLib",
-                                  header: "IGESData_GlobalNodeOfWriterLib.hxx",
-                                  bycopy.} = object of StandardTransient ## ! Creates an empty GlobalNode, with no Next
+  Handle_IGESData_GlobalNodeOfWriterLib* = handle[IGESData_GlobalNodeOfWriterLib]
+  IGESData_GlobalNodeOfWriterLib* {.importcpp: "IGESData_GlobalNodeOfWriterLib", header: "IGESData_GlobalNodeOfWriterLib.hxx",
+                                   bycopy.} = object of Standard_Transient ## ! Creates an empty
+                                                                      ## GlobalNode, with no Next
 
 
-proc constructIGESDataGlobalNodeOfWriterLib*(): IGESDataGlobalNodeOfWriterLib {.
+proc constructIGESData_GlobalNodeOfWriterLib*(): IGESData_GlobalNodeOfWriterLib {.
     constructor, importcpp: "IGESData_GlobalNodeOfWriterLib(@)",
     header: "IGESData_GlobalNodeOfWriterLib.hxx".}
-proc add*(this: var IGESDataGlobalNodeOfWriterLib;
-         amodule: Handle[IGESDataReadWriteModule];
-         aprotocol: Handle[IGESDataProtocol]) {.importcpp: "Add",
+proc Add*(this: var IGESData_GlobalNodeOfWriterLib;
+         amodule: handle[IGESData_ReadWriteModule];
+         aprotocol: handle[IGESData_Protocol]) {.importcpp: "Add",
     header: "IGESData_GlobalNodeOfWriterLib.hxx".}
-proc module*(this: IGESDataGlobalNodeOfWriterLib): Handle[IGESDataReadWriteModule] {.
+proc Module*(this: IGESData_GlobalNodeOfWriterLib): handle[IGESData_ReadWriteModule] {.
     noSideEffect, importcpp: "Module", header: "IGESData_GlobalNodeOfWriterLib.hxx".}
-proc protocol*(this: IGESDataGlobalNodeOfWriterLib): Handle[IGESDataProtocol] {.
+proc Protocol*(this: IGESData_GlobalNodeOfWriterLib): handle[IGESData_Protocol] {.
     noSideEffect, importcpp: "Protocol",
     header: "IGESData_GlobalNodeOfWriterLib.hxx".}
-proc next*(this: IGESDataGlobalNodeOfWriterLib): Handle[
-    IGESDataGlobalNodeOfWriterLib] {.noSideEffect, importcpp: "Next", header: "IGESData_GlobalNodeOfWriterLib.hxx".}
+proc Next*(this: IGESData_GlobalNodeOfWriterLib): handle[
+    IGESData_GlobalNodeOfWriterLib] {.noSideEffect, importcpp: "Next", header: "IGESData_GlobalNodeOfWriterLib.hxx".}
 type
-  IGESDataGlobalNodeOfWriterLibbaseType* = StandardTransient
+  IGESData_GlobalNodeOfWriterLibbase_type* = Standard_Transient
 
-proc getTypeName*(): cstring {.importcpp: "IGESData_GlobalNodeOfWriterLib::get_type_name(@)",
-                            header: "IGESData_GlobalNodeOfWriterLib.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "IGESData_GlobalNodeOfWriterLib::get_type_name(@)",
+                              header: "IGESData_GlobalNodeOfWriterLib.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "IGESData_GlobalNodeOfWriterLib::get_type_descriptor(@)",
     header: "IGESData_GlobalNodeOfWriterLib.hxx".}
-proc dynamicType*(this: IGESDataGlobalNodeOfWriterLib): Handle[StandardType] {.
+proc DynamicType*(this: IGESData_GlobalNodeOfWriterLib): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType",
     header: "IGESData_GlobalNodeOfWriterLib.hxx".}
-

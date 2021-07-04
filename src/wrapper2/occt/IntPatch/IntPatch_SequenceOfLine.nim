@@ -14,7 +14,8 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  IntPatch_Line, ../NCollection/NCollection_Sequence
+
 type
-  IntPatchSequenceOfLine* = NCollectionSequence[Handle[IntPatchLine]]
-
-
+  IntPatch_SequenceOfLine* = NCollection_Sequence[handle[IntPatch_Line]]

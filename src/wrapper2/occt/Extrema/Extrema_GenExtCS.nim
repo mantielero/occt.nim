@@ -14,6 +14,13 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
+  ../Standard/Standard_Real, ../Standard/Standard_Integer, Extrema_FuncExtCS,
+  ../Adaptor3d/Adaptor3d_SurfacePtr, ../TColgp/TColgp_HArray2OfPnt,
+  ../Adaptor3d/Adaptor3d_CurvePtr
+
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of Standard_TypeMismatch"
@@ -22,46 +29,46 @@ discard "forward decl of Adaptor3d_Surface"
 discard "forward decl of Extrema_POnCurv"
 discard "forward decl of Extrema_POnSurf"
 type
-  ExtremaGenExtCS* {.importcpp: "Extrema_GenExtCS", header: "Extrema_GenExtCS.hxx",
-                    bycopy.} = object
+  Extrema_GenExtCS* {.importcpp: "Extrema_GenExtCS",
+                     header: "Extrema_GenExtCS.hxx", bycopy.} = object
 
 
-proc constructExtremaGenExtCS*(): ExtremaGenExtCS {.constructor,
+proc constructExtrema_GenExtCS*(): Extrema_GenExtCS {.constructor,
     importcpp: "Extrema_GenExtCS(@)", header: "Extrema_GenExtCS.hxx".}
-proc constructExtremaGenExtCS*(c: Adaptor3dCurve; s: Adaptor3dSurface;
-                              nbT: StandardInteger; nbU: StandardInteger;
-                              nbV: StandardInteger; tol1: StandardReal;
-                              tol2: StandardReal): ExtremaGenExtCS {.constructor,
-    importcpp: "Extrema_GenExtCS(@)", header: "Extrema_GenExtCS.hxx".}
-proc constructExtremaGenExtCS*(c: Adaptor3dCurve; s: Adaptor3dSurface;
-                              nbT: StandardInteger; nbU: StandardInteger;
-                              nbV: StandardInteger; tmin: StandardReal;
-                              tsup: StandardReal; umin: StandardReal;
-                              usup: StandardReal; vmin: StandardReal;
-                              vsup: StandardReal; tol1: StandardReal;
-                              tol2: StandardReal): ExtremaGenExtCS {.constructor,
-    importcpp: "Extrema_GenExtCS(@)", header: "Extrema_GenExtCS.hxx".}
-proc initialize*(this: var ExtremaGenExtCS; s: Adaptor3dSurface; nbU: StandardInteger;
-                nbV: StandardInteger; tol2: StandardReal) {.importcpp: "Initialize",
-    header: "Extrema_GenExtCS.hxx".}
-proc initialize*(this: var ExtremaGenExtCS; s: Adaptor3dSurface; nbU: StandardInteger;
-                nbV: StandardInteger; umin: StandardReal; usup: StandardReal;
-                vmin: StandardReal; vsup: StandardReal; tol2: StandardReal) {.
+proc constructExtrema_GenExtCS*(C: Adaptor3d_Curve; S: Adaptor3d_Surface;
+                               NbT: Standard_Integer; NbU: Standard_Integer;
+                               NbV: Standard_Integer; Tol1: Standard_Real;
+                               Tol2: Standard_Real): Extrema_GenExtCS {.
+    constructor, importcpp: "Extrema_GenExtCS(@)", header: "Extrema_GenExtCS.hxx".}
+proc constructExtrema_GenExtCS*(C: Adaptor3d_Curve; S: Adaptor3d_Surface;
+                               NbT: Standard_Integer; NbU: Standard_Integer;
+                               NbV: Standard_Integer; tmin: Standard_Real;
+                               tsup: Standard_Real; Umin: Standard_Real;
+                               Usup: Standard_Real; Vmin: Standard_Real;
+                               Vsup: Standard_Real; Tol1: Standard_Real;
+                               Tol2: Standard_Real): Extrema_GenExtCS {.
+    constructor, importcpp: "Extrema_GenExtCS(@)", header: "Extrema_GenExtCS.hxx".}
+proc Initialize*(this: var Extrema_GenExtCS; S: Adaptor3d_Surface;
+                NbU: Standard_Integer; NbV: Standard_Integer; Tol2: Standard_Real) {.
     importcpp: "Initialize", header: "Extrema_GenExtCS.hxx".}
-proc perform*(this: var ExtremaGenExtCS; c: Adaptor3dCurve; nbT: StandardInteger;
-             tol1: StandardReal) {.importcpp: "Perform",
-                                 header: "Extrema_GenExtCS.hxx".}
-proc perform*(this: var ExtremaGenExtCS; c: Adaptor3dCurve; nbT: StandardInteger;
-             tmin: StandardReal; tsup: StandardReal; tol1: StandardReal) {.
+proc Initialize*(this: var Extrema_GenExtCS; S: Adaptor3d_Surface;
+                NbU: Standard_Integer; NbV: Standard_Integer; Umin: Standard_Real;
+                Usup: Standard_Real; Vmin: Standard_Real; Vsup: Standard_Real;
+                Tol2: Standard_Real) {.importcpp: "Initialize",
+                                     header: "Extrema_GenExtCS.hxx".}
+proc Perform*(this: var Extrema_GenExtCS; C: Adaptor3d_Curve; NbT: Standard_Integer;
+             Tol1: Standard_Real) {.importcpp: "Perform",
+                                  header: "Extrema_GenExtCS.hxx".}
+proc Perform*(this: var Extrema_GenExtCS; C: Adaptor3d_Curve; NbT: Standard_Integer;
+             tmin: Standard_Real; tsup: Standard_Real; Tol1: Standard_Real) {.
     importcpp: "Perform", header: "Extrema_GenExtCS.hxx".}
-proc isDone*(this: ExtremaGenExtCS): StandardBoolean {.noSideEffect,
+proc IsDone*(this: Extrema_GenExtCS): Standard_Boolean {.noSideEffect,
     importcpp: "IsDone", header: "Extrema_GenExtCS.hxx".}
-proc nbExt*(this: ExtremaGenExtCS): StandardInteger {.noSideEffect,
+proc NbExt*(this: Extrema_GenExtCS): Standard_Integer {.noSideEffect,
     importcpp: "NbExt", header: "Extrema_GenExtCS.hxx".}
-proc squareDistance*(this: ExtremaGenExtCS; n: StandardInteger): StandardReal {.
+proc SquareDistance*(this: Extrema_GenExtCS; N: Standard_Integer): Standard_Real {.
     noSideEffect, importcpp: "SquareDistance", header: "Extrema_GenExtCS.hxx".}
-proc pointOnCurve*(this: ExtremaGenExtCS; n: StandardInteger): ExtremaPOnCurv {.
+proc PointOnCurve*(this: Extrema_GenExtCS; N: Standard_Integer): Extrema_POnCurv {.
     noSideEffect, importcpp: "PointOnCurve", header: "Extrema_GenExtCS.hxx".}
-proc pointOnSurface*(this: ExtremaGenExtCS; n: StandardInteger): ExtremaPOnSurf {.
+proc PointOnSurface*(this: Extrema_GenExtCS; N: Standard_Integer): Extrema_POnSurf {.
     noSideEffect, importcpp: "PointOnSurface", header: "Extrema_GenExtCS.hxx".}
-

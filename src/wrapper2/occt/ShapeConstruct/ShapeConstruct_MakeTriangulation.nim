@@ -14,22 +14,28 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Real, ../TopoDS/TopoDS_Wire,
+  ../BRepBuilderAPI/BRepBuilderAPI_MakeShape, ../TColgp/TColgp_Array1OfPnt,
+  ../Standard/Standard_Boolean
+
 discard "forward decl of TopoDS_Wire"
 type
-  ShapeConstructMakeTriangulation* {.importcpp: "ShapeConstruct_MakeTriangulation", header: "ShapeConstruct_MakeTriangulation.hxx",
-                                    bycopy.} = object of BRepBuilderAPI_MakeShape
+  ShapeConstruct_MakeTriangulation* {.importcpp: "ShapeConstruct_MakeTriangulation", header: "ShapeConstruct_MakeTriangulation.hxx",
+                                     bycopy.} = object of BRepBuilderAPI_MakeShape
 
 
-proc constructShapeConstructMakeTriangulation*(pnts: TColgpArray1OfPnt;
-    prec: StandardReal = 0.0): ShapeConstructMakeTriangulation {.constructor,
+proc constructShapeConstruct_MakeTriangulation*(pnts: TColgp_Array1OfPnt;
+    prec: Standard_Real = 0.0): ShapeConstruct_MakeTriangulation {.constructor,
     importcpp: "ShapeConstruct_MakeTriangulation(@)",
     header: "ShapeConstruct_MakeTriangulation.hxx".}
-proc constructShapeConstructMakeTriangulation*(wire: TopoDS_Wire;
-    prec: StandardReal = 0.0): ShapeConstructMakeTriangulation {.constructor,
+proc constructShapeConstruct_MakeTriangulation*(wire: TopoDS_Wire;
+    prec: Standard_Real = 0.0): ShapeConstruct_MakeTriangulation {.constructor,
     importcpp: "ShapeConstruct_MakeTriangulation(@)",
     header: "ShapeConstruct_MakeTriangulation.hxx".}
-proc build*(this: var ShapeConstructMakeTriangulation) {.importcpp: "Build",
+proc Build*(this: var ShapeConstruct_MakeTriangulation) {.importcpp: "Build",
     header: "ShapeConstruct_MakeTriangulation.hxx".}
-proc isDone*(this: ShapeConstructMakeTriangulation): StandardBoolean {.noSideEffect,
-    importcpp: "IsDone", header: "ShapeConstruct_MakeTriangulation.hxx".}
-
+proc IsDone*(this: ShapeConstruct_MakeTriangulation): Standard_Boolean {.
+    noSideEffect, importcpp: "IsDone",
+    header: "ShapeConstruct_MakeTriangulation.hxx".}

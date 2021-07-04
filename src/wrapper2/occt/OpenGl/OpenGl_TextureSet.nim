@@ -11,112 +11,116 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Graphic3d/Graphic3d_TextureSet, ../Graphic3d/Graphic3d_TextureSetBits
+
 discard "forward decl of OpenGl_Texture"
 type
-  OpenGlTextureSet* {.importcpp: "OpenGl_TextureSet",
-                     header: "OpenGl_TextureSet.hxx", bycopy.} = object of StandardTransient ##
-                                                                                      ## !
-                                                                                      ## Texture
-                                                                                      ## slot
-                                                                                      ## -
-                                                                                      ## combination
-                                                                                      ## of
-                                                                                      ## Texture
-                                                                                      ## and
-                                                                                      ## binding
-                                                                                      ## Unit.
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## Empty
-                                                                                      ## constructor.
+  OpenGl_TextureSet* {.importcpp: "OpenGl_TextureSet",
+                      header: "OpenGl_TextureSet.hxx", bycopy.} = object of Standard_Transient ##
+                                                                                        ## !
+                                                                                        ## Texture
+                                                                                        ## slot
+                                                                                        ## -
+                                                                                        ## combination
+                                                                                        ## of
+                                                                                        ## Texture
+                                                                                        ## and
+                                                                                        ## binding
+                                                                                        ## Unit.
+                                                                                        ##
+                                                                                        ## !
+                                                                                        ## Empty
+                                                                                        ## constructor.
 
-  OpenGlTextureSetbaseType* = StandardTransient
+  OpenGl_TextureSetbase_type* = Standard_Transient
 
-proc getTypeName*(): cstring {.importcpp: "OpenGl_TextureSet::get_type_name(@)",
-                            header: "OpenGl_TextureSet.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "OpenGl_TextureSet::get_type_name(@)",
+                              header: "OpenGl_TextureSet.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "OpenGl_TextureSet::get_type_descriptor(@)",
     header: "OpenGl_TextureSet.hxx".}
-proc dynamicType*(this: OpenGlTextureSet): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: OpenGl_TextureSet): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "OpenGl_TextureSet.hxx".}
 type
-  OpenGlTextureSetTextureSlot* {.importcpp: "OpenGl_TextureSet::TextureSlot",
-                                header: "OpenGl_TextureSet.hxx", bycopy.} = object
-    texture* {.importc: "Texture".}: Handle[OpenGlTexture]
-    unit* {.importc: "Unit".}: Graphic3dTextureUnit
+  OpenGl_TextureSetTextureSlot* {.importcpp: "OpenGl_TextureSet::TextureSlot",
+                                 header: "OpenGl_TextureSet.hxx", bycopy.} = object
+    Texture* {.importc: "Texture".}: handle[OpenGl_Texture]
+    Unit* {.importc: "Unit".}: Graphic3d_TextureUnit
 
 
-converter `constopencascade`*(this: OpenGlTextureSetTextureSlot): Handle[
-    OpenGlTexture] {.noSideEffect,
-                    importcpp: "TextureSlot::operator constopencascade",
-                    header: "OpenGl_TextureSet.hxx".}
-converter `opencascade`*(this: var OpenGlTextureSetTextureSlot): var Handle[
-    OpenGlTexture] {.importcpp: "TextureSlot::operator opencascade",
-                    header: "OpenGl_TextureSet.hxx".}
-proc constructOpenGlTextureSetTextureSlot*(): OpenGlTextureSetTextureSlot {.
+converter `constopencascade`*(this: OpenGl_TextureSetTextureSlot): handle[
+    OpenGl_Texture] {.noSideEffect,
+                     importcpp: "TextureSlot::operator constopencascade",
+                     header: "OpenGl_TextureSet.hxx".}
+converter `opencascade`*(this: var OpenGl_TextureSetTextureSlot): var handle[
+    OpenGl_Texture] {.importcpp: "TextureSlot::operator opencascade",
+                     header: "OpenGl_TextureSet.hxx".}
+proc constructOpenGl_TextureSetTextureSlot*(): OpenGl_TextureSetTextureSlot {.
     constructor, importcpp: "OpenGl_TextureSet::TextureSlot(@)",
     header: "OpenGl_TextureSet.hxx".}
 type
-  OpenGlTextureSetIterator* {.importcpp: "OpenGl_TextureSet::Iterator",
-                             header: "OpenGl_TextureSet.hxx", bycopy.} = object of OpenGlTextureSetIterator[
-      OpenGlTextureSetTextureSlot] ## ! Empty constructor.
+  OpenGl_TextureSetIterator* {.importcpp: "OpenGl_TextureSet::Iterator",
+                              header: "OpenGl_TextureSet.hxx", bycopy.} = object of OpenGl_TextureSetIterator[
+      OpenGl_TextureSetTextureSlot] ## ! Empty constructor.
 
 
-proc constructOpenGlTextureSetIterator*(): OpenGlTextureSetIterator {.constructor,
-    importcpp: "OpenGl_TextureSet::Iterator(@)", header: "OpenGl_TextureSet.hxx".}
-proc constructOpenGlTextureSetIterator*(theSet: Handle[OpenGlTextureSet]): OpenGlTextureSetIterator {.
+proc constructOpenGl_TextureSetIterator*(): OpenGl_TextureSetIterator {.
     constructor, importcpp: "OpenGl_TextureSet::Iterator(@)",
     header: "OpenGl_TextureSet.hxx".}
-proc value*(this: OpenGlTextureSetIterator): Handle[OpenGlTexture] {.noSideEffect,
-    importcpp: "Value", header: "OpenGl_TextureSet.hxx".}
-proc changeValue*(this: var OpenGlTextureSetIterator): var Handle[OpenGlTexture] {.
-    importcpp: "ChangeValue", header: "OpenGl_TextureSet.hxx".}
-proc unit*(this: OpenGlTextureSetIterator): Graphic3dTextureUnit {.noSideEffect,
-    importcpp: "Unit", header: "OpenGl_TextureSet.hxx".}
-proc changeUnit*(this: var OpenGlTextureSetIterator): var Graphic3dTextureUnit {.
-    importcpp: "ChangeUnit", header: "OpenGl_TextureSet.hxx".}
-proc constructOpenGlTextureSet*(): OpenGlTextureSet {.constructor,
-    importcpp: "OpenGl_TextureSet(@)", header: "OpenGl_TextureSet.hxx".}
-proc constructOpenGlTextureSet*(theNbTextures: StandardInteger): OpenGlTextureSet {.
-    constructor, importcpp: "OpenGl_TextureSet(@)", header: "OpenGl_TextureSet.hxx".}
-proc constructOpenGlTextureSet*(theTexture: Handle[OpenGlTexture]): OpenGlTextureSet {.
-    constructor, importcpp: "OpenGl_TextureSet(@)", header: "OpenGl_TextureSet.hxx".}
-proc textureSetBits*(this: OpenGlTextureSet): StandardInteger {.noSideEffect,
-    importcpp: "TextureSetBits", header: "OpenGl_TextureSet.hxx".}
-proc changeTextureSetBits*(this: var OpenGlTextureSet): var StandardInteger {.
-    importcpp: "ChangeTextureSetBits", header: "OpenGl_TextureSet.hxx".}
-proc isEmpty*(this: OpenGlTextureSet): StandardBoolean {.noSideEffect,
-    importcpp: "IsEmpty", header: "OpenGl_TextureSet.hxx".}
-proc size*(this: OpenGlTextureSet): StandardInteger {.noSideEffect,
-    importcpp: "Size", header: "OpenGl_TextureSet.hxx".}
-proc lower*(this: OpenGlTextureSet): StandardInteger {.noSideEffect,
-    importcpp: "Lower", header: "OpenGl_TextureSet.hxx".}
-proc upper*(this: OpenGlTextureSet): StandardInteger {.noSideEffect,
-    importcpp: "Upper", header: "OpenGl_TextureSet.hxx".}
-proc first*(this: OpenGlTextureSet): Handle[OpenGlTexture] {.noSideEffect,
-    importcpp: "First", header: "OpenGl_TextureSet.hxx".}
-proc changeFirst*(this: var OpenGlTextureSet): var Handle[OpenGlTexture] {.
-    importcpp: "ChangeFirst", header: "OpenGl_TextureSet.hxx".}
-proc firstUnit*(this: OpenGlTextureSet): Graphic3dTextureUnit {.noSideEffect,
-    importcpp: "FirstUnit", header: "OpenGl_TextureSet.hxx".}
-proc last*(this: OpenGlTextureSet): Handle[OpenGlTexture] {.noSideEffect,
-    importcpp: "Last", header: "OpenGl_TextureSet.hxx".}
-proc changeLast*(this: var OpenGlTextureSet): var Handle[OpenGlTexture] {.
-    importcpp: "ChangeLast", header: "OpenGl_TextureSet.hxx".}
-proc lastUnit*(this: OpenGlTextureSet): Graphic3dTextureUnit {.noSideEffect,
-    importcpp: "LastUnit", header: "OpenGl_TextureSet.hxx".}
-proc changeLastUnit*(this: var OpenGlTextureSet): var Graphic3dTextureUnit {.
-    importcpp: "ChangeLastUnit", header: "OpenGl_TextureSet.hxx".}
-proc value*(this: OpenGlTextureSet; theIndex: StandardInteger): Handle[OpenGlTexture] {.
-    noSideEffect, importcpp: "Value", header: "OpenGl_TextureSet.hxx".}
-proc changeValue*(this: var OpenGlTextureSet; theIndex: StandardInteger): var Handle[
-    OpenGlTexture] {.importcpp: "ChangeValue", header: "OpenGl_TextureSet.hxx".}
-proc isModulate*(this: OpenGlTextureSet): bool {.noSideEffect,
-    importcpp: "IsModulate", header: "OpenGl_TextureSet.hxx".}
-proc hasNonPointSprite*(this: OpenGlTextureSet): bool {.noSideEffect,
-    importcpp: "HasNonPointSprite", header: "OpenGl_TextureSet.hxx".}
-proc hasPointSprite*(this: OpenGlTextureSet): bool {.noSideEffect,
-    importcpp: "HasPointSprite", header: "OpenGl_TextureSet.hxx".}
-proc initZero*(this: var OpenGlTextureSet) {.importcpp: "InitZero",
+proc constructOpenGl_TextureSetIterator*(theSet: handle[OpenGl_TextureSet]): OpenGl_TextureSetIterator {.
+    constructor, importcpp: "OpenGl_TextureSet::Iterator(@)",
     header: "OpenGl_TextureSet.hxx".}
-
+proc Value*(this: OpenGl_TextureSetIterator): handle[OpenGl_Texture] {.noSideEffect,
+    importcpp: "Value", header: "OpenGl_TextureSet.hxx".}
+proc ChangeValue*(this: var OpenGl_TextureSetIterator): var handle[OpenGl_Texture] {.
+    importcpp: "ChangeValue", header: "OpenGl_TextureSet.hxx".}
+proc Unit*(this: OpenGl_TextureSetIterator): Graphic3d_TextureUnit {.noSideEffect,
+    importcpp: "Unit", header: "OpenGl_TextureSet.hxx".}
+proc ChangeUnit*(this: var OpenGl_TextureSetIterator): var Graphic3d_TextureUnit {.
+    importcpp: "ChangeUnit", header: "OpenGl_TextureSet.hxx".}
+proc constructOpenGl_TextureSet*(): OpenGl_TextureSet {.constructor,
+    importcpp: "OpenGl_TextureSet(@)", header: "OpenGl_TextureSet.hxx".}
+proc constructOpenGl_TextureSet*(theNbTextures: Standard_Integer): OpenGl_TextureSet {.
+    constructor, importcpp: "OpenGl_TextureSet(@)", header: "OpenGl_TextureSet.hxx".}
+proc constructOpenGl_TextureSet*(theTexture: handle[OpenGl_Texture]): OpenGl_TextureSet {.
+    constructor, importcpp: "OpenGl_TextureSet(@)", header: "OpenGl_TextureSet.hxx".}
+proc TextureSetBits*(this: OpenGl_TextureSet): Standard_Integer {.noSideEffect,
+    importcpp: "TextureSetBits", header: "OpenGl_TextureSet.hxx".}
+proc ChangeTextureSetBits*(this: var OpenGl_TextureSet): var Standard_Integer {.
+    importcpp: "ChangeTextureSetBits", header: "OpenGl_TextureSet.hxx".}
+proc IsEmpty*(this: OpenGl_TextureSet): Standard_Boolean {.noSideEffect,
+    importcpp: "IsEmpty", header: "OpenGl_TextureSet.hxx".}
+proc Size*(this: OpenGl_TextureSet): Standard_Integer {.noSideEffect,
+    importcpp: "Size", header: "OpenGl_TextureSet.hxx".}
+proc Lower*(this: OpenGl_TextureSet): Standard_Integer {.noSideEffect,
+    importcpp: "Lower", header: "OpenGl_TextureSet.hxx".}
+proc Upper*(this: OpenGl_TextureSet): Standard_Integer {.noSideEffect,
+    importcpp: "Upper", header: "OpenGl_TextureSet.hxx".}
+proc First*(this: OpenGl_TextureSet): handle[OpenGl_Texture] {.noSideEffect,
+    importcpp: "First", header: "OpenGl_TextureSet.hxx".}
+proc ChangeFirst*(this: var OpenGl_TextureSet): var handle[OpenGl_Texture] {.
+    importcpp: "ChangeFirst", header: "OpenGl_TextureSet.hxx".}
+proc FirstUnit*(this: OpenGl_TextureSet): Graphic3d_TextureUnit {.noSideEffect,
+    importcpp: "FirstUnit", header: "OpenGl_TextureSet.hxx".}
+proc Last*(this: OpenGl_TextureSet): handle[OpenGl_Texture] {.noSideEffect,
+    importcpp: "Last", header: "OpenGl_TextureSet.hxx".}
+proc ChangeLast*(this: var OpenGl_TextureSet): var handle[OpenGl_Texture] {.
+    importcpp: "ChangeLast", header: "OpenGl_TextureSet.hxx".}
+proc LastUnit*(this: OpenGl_TextureSet): Graphic3d_TextureUnit {.noSideEffect,
+    importcpp: "LastUnit", header: "OpenGl_TextureSet.hxx".}
+proc ChangeLastUnit*(this: var OpenGl_TextureSet): var Graphic3d_TextureUnit {.
+    importcpp: "ChangeLastUnit", header: "OpenGl_TextureSet.hxx".}
+proc Value*(this: OpenGl_TextureSet; theIndex: Standard_Integer): handle[
+    OpenGl_Texture] {.noSideEffect, importcpp: "Value",
+                     header: "OpenGl_TextureSet.hxx".}
+proc ChangeValue*(this: var OpenGl_TextureSet; theIndex: Standard_Integer): var handle[
+    OpenGl_Texture] {.importcpp: "ChangeValue", header: "OpenGl_TextureSet.hxx".}
+proc IsModulate*(this: OpenGl_TextureSet): bool {.noSideEffect,
+    importcpp: "IsModulate", header: "OpenGl_TextureSet.hxx".}
+proc HasNonPointSprite*(this: OpenGl_TextureSet): bool {.noSideEffect,
+    importcpp: "HasNonPointSprite", header: "OpenGl_TextureSet.hxx".}
+proc HasPointSprite*(this: OpenGl_TextureSet): bool {.noSideEffect,
+    importcpp: "HasPointSprite", header: "OpenGl_TextureSet.hxx".}
+proc InitZero*(this: var OpenGl_TextureSet) {.importcpp: "InitZero",
+    header: "OpenGl_TextureSet.hxx".}

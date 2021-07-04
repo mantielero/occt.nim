@@ -14,6 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 discard "forward decl of Standard_DomainError"
 discard "forward decl of IGESBasic_ExternalRefFileIndex"
 discard "forward decl of IGESData_IGESReaderData"
@@ -26,42 +30,40 @@ discard "forward decl of Interface_Check"
 discard "forward decl of Interface_CopyTool"
 discard "forward decl of IGESData_IGESDumper"
 type
-  IGESBasicToolExternalRefFileIndex* {.importcpp: "IGESBasic_ToolExternalRefFileIndex", header: "IGESBasic_ToolExternalRefFileIndex.hxx",
-                                      bycopy.} = object ## ! Returns a ToolExternalRefFileIndex, ready to work
+  IGESBasic_ToolExternalRefFileIndex* {.importcpp: "IGESBasic_ToolExternalRefFileIndex", header: "IGESBasic_ToolExternalRefFileIndex.hxx",
+                                       bycopy.} = object ## ! Returns a ToolExternalRefFileIndex, ready to work
 
 
-proc constructIGESBasicToolExternalRefFileIndex*(): IGESBasicToolExternalRefFileIndex {.
+proc constructIGESBasic_ToolExternalRefFileIndex*(): IGESBasic_ToolExternalRefFileIndex {.
     constructor, importcpp: "IGESBasic_ToolExternalRefFileIndex(@)",
     header: "IGESBasic_ToolExternalRefFileIndex.hxx".}
-proc readOwnParams*(this: IGESBasicToolExternalRefFileIndex;
-                   ent: Handle[IGESBasicExternalRefFileIndex];
-                   ir: Handle[IGESDataIGESReaderData]; pr: var IGESDataParamReader) {.
-    noSideEffect, importcpp: "ReadOwnParams",
-    header: "IGESBasic_ToolExternalRefFileIndex.hxx".}
-proc writeOwnParams*(this: IGESBasicToolExternalRefFileIndex;
-                    ent: Handle[IGESBasicExternalRefFileIndex];
-                    iw: var IGESDataIGESWriter) {.noSideEffect,
+proc ReadOwnParams*(this: IGESBasic_ToolExternalRefFileIndex;
+                   ent: handle[IGESBasic_ExternalRefFileIndex];
+                   IR: handle[IGESData_IGESReaderData];
+                   PR: var IGESData_ParamReader) {.noSideEffect,
+    importcpp: "ReadOwnParams", header: "IGESBasic_ToolExternalRefFileIndex.hxx".}
+proc WriteOwnParams*(this: IGESBasic_ToolExternalRefFileIndex;
+                    ent: handle[IGESBasic_ExternalRefFileIndex];
+                    IW: var IGESData_IGESWriter) {.noSideEffect,
     importcpp: "WriteOwnParams", header: "IGESBasic_ToolExternalRefFileIndex.hxx".}
-proc ownShared*(this: IGESBasicToolExternalRefFileIndex;
-               ent: Handle[IGESBasicExternalRefFileIndex];
-               iter: var InterfaceEntityIterator) {.noSideEffect,
+proc OwnShared*(this: IGESBasic_ToolExternalRefFileIndex;
+               ent: handle[IGESBasic_ExternalRefFileIndex];
+               iter: var Interface_EntityIterator) {.noSideEffect,
     importcpp: "OwnShared", header: "IGESBasic_ToolExternalRefFileIndex.hxx".}
-proc dirChecker*(this: IGESBasicToolExternalRefFileIndex;
-                ent: Handle[IGESBasicExternalRefFileIndex]): IGESDataDirChecker {.
+proc DirChecker*(this: IGESBasic_ToolExternalRefFileIndex;
+                ent: handle[IGESBasic_ExternalRefFileIndex]): IGESData_DirChecker {.
     noSideEffect, importcpp: "DirChecker",
     header: "IGESBasic_ToolExternalRefFileIndex.hxx".}
-proc ownCheck*(this: IGESBasicToolExternalRefFileIndex;
-              ent: Handle[IGESBasicExternalRefFileIndex];
-              shares: InterfaceShareTool; ach: var Handle[InterfaceCheck]) {.
+proc OwnCheck*(this: IGESBasic_ToolExternalRefFileIndex;
+              ent: handle[IGESBasic_ExternalRefFileIndex];
+              shares: Interface_ShareTool; ach: var handle[Interface_Check]) {.
     noSideEffect, importcpp: "OwnCheck",
     header: "IGESBasic_ToolExternalRefFileIndex.hxx".}
-proc ownCopy*(this: IGESBasicToolExternalRefFileIndex;
-             entfrom: Handle[IGESBasicExternalRefFileIndex];
-             entto: Handle[IGESBasicExternalRefFileIndex];
-             tc: var InterfaceCopyTool) {.noSideEffect, importcpp: "OwnCopy", header: "IGESBasic_ToolExternalRefFileIndex.hxx".}
-proc ownDump*(this: IGESBasicToolExternalRefFileIndex;
-             ent: Handle[IGESBasicExternalRefFileIndex];
-             dumper: IGESDataIGESDumper; s: var StandardOStream; own: StandardInteger) {.
-    noSideEffect, importcpp: "OwnDump",
-    header: "IGESBasic_ToolExternalRefFileIndex.hxx".}
-
+proc OwnCopy*(this: IGESBasic_ToolExternalRefFileIndex;
+             entfrom: handle[IGESBasic_ExternalRefFileIndex];
+             entto: handle[IGESBasic_ExternalRefFileIndex];
+             TC: var Interface_CopyTool) {.noSideEffect, importcpp: "OwnCopy", header: "IGESBasic_ToolExternalRefFileIndex.hxx".}
+proc OwnDump*(this: IGESBasic_ToolExternalRefFileIndex;
+             ent: handle[IGESBasic_ExternalRefFileIndex];
+             dumper: IGESData_IGESDumper; S: var Standard_OStream;
+             own: Standard_Integer) {.noSideEffect, importcpp: "OwnDump", header: "IGESBasic_ToolExternalRefFileIndex.hxx".}

@@ -14,7 +14,8 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  Intf_SectionPoint, ../NCollection/NCollection_Sequence
+
 type
-  IntfSeqOfSectionPoint* = NCollectionSequence[IntfSectionPoint]
-
-
+  Intf_SeqOfSectionPoint* = NCollection_Sequence[Intf_SectionPoint]

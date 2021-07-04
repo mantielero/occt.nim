@@ -11,36 +11,39 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../NCollection/NCollection_DataMap, ../Precision/Precision
+
 ## ! An internal class for calculation of current largest tolerance value which will be applied for creation of selecting frustum by default.
 ## ! Each time the selection set is deactivated, maximum tolerance value will be recalculated.
 ## ! If a user enables custom precision using StdSelect_ViewerSelector3d::SetPixelTolerance, it will be applied to all sensitive entities without any checks.
 
 type
-  SelectMgrToleranceMap* {.importcpp: "SelectMgr_ToleranceMap",
-                          header: "SelectMgr_ToleranceMap.hxx", bycopy.} = object ## !
-                                                                             ## Sets
-                                                                             ## tolerance
-                                                                             ## values to
-                                                                             ## -1.0
+  SelectMgr_ToleranceMap* {.importcpp: "SelectMgr_ToleranceMap",
+                           header: "SelectMgr_ToleranceMap.hxx", bycopy.} = object ## !
+                                                                              ## Sets
+                                                                              ## tolerance
+                                                                              ## values to
+                                                                              ## -1.0
 
 
-proc constructSelectMgrToleranceMap*(): SelectMgrToleranceMap {.constructor,
+proc constructSelectMgr_ToleranceMap*(): SelectMgr_ToleranceMap {.constructor,
     importcpp: "SelectMgr_ToleranceMap(@)", header: "SelectMgr_ToleranceMap.hxx".}
-proc destroySelectMgrToleranceMap*(this: var SelectMgrToleranceMap) {.
+proc destroySelectMgr_ToleranceMap*(this: var SelectMgr_ToleranceMap) {.
     importcpp: "#.~SelectMgr_ToleranceMap()", header: "SelectMgr_ToleranceMap.hxx".}
-proc add*(this: var SelectMgrToleranceMap; theTolerance: StandardInteger) {.
+proc Add*(this: var SelectMgr_ToleranceMap; theTolerance: Standard_Integer) {.
     importcpp: "Add", header: "SelectMgr_ToleranceMap.hxx".}
-proc decrement*(this: var SelectMgrToleranceMap; theTolerance: StandardInteger) {.
+proc Decrement*(this: var SelectMgr_ToleranceMap; theTolerance: Standard_Integer) {.
     importcpp: "Decrement", header: "SelectMgr_ToleranceMap.hxx".}
-proc tolerance*(this: SelectMgrToleranceMap): StandardInteger {.noSideEffect,
+proc Tolerance*(this: SelectMgr_ToleranceMap): Standard_Integer {.noSideEffect,
     importcpp: "Tolerance", header: "SelectMgr_ToleranceMap.hxx".}
-proc setCustomTolerance*(this: var SelectMgrToleranceMap;
-                        theTolerance: StandardInteger) {.
+proc SetCustomTolerance*(this: var SelectMgr_ToleranceMap;
+                        theTolerance: Standard_Integer) {.
     importcpp: "SetCustomTolerance", header: "SelectMgr_ToleranceMap.hxx".}
-proc resetDefaults*(this: var SelectMgrToleranceMap) {.importcpp: "ResetDefaults",
+proc ResetDefaults*(this: var SelectMgr_ToleranceMap) {.importcpp: "ResetDefaults",
     header: "SelectMgr_ToleranceMap.hxx".}
-proc customTolerance*(this: SelectMgrToleranceMap): StandardInteger {.noSideEffect,
-    importcpp: "CustomTolerance", header: "SelectMgr_ToleranceMap.hxx".}
-proc isCustomTolSet*(this: SelectMgrToleranceMap): StandardBoolean {.noSideEffect,
+proc CustomTolerance*(this: SelectMgr_ToleranceMap): Standard_Integer {.
+    noSideEffect, importcpp: "CustomTolerance",
+    header: "SelectMgr_ToleranceMap.hxx".}
+proc IsCustomTolSet*(this: SelectMgr_ToleranceMap): Standard_Boolean {.noSideEffect,
     importcpp: "IsCustomTolSet", header: "SelectMgr_ToleranceMap.hxx".}
-

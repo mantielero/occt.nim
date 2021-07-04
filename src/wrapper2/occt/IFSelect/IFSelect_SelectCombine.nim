@@ -14,12 +14,16 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, IFSelect_TSeqOfSelection,
+  IFSelect_Selection, ../Standard/Standard_Integer, ../Standard/Standard_Boolean
+
 discard "forward decl of IFSelect_Selection"
 discard "forward decl of IFSelect_SelectionIterator"
 discard "forward decl of IFSelect_SelectCombine"
 discard "forward decl of IFSelect_SelectCombine"
 type
-  HandleIFSelectSelectCombine* = Handle[IFSelectSelectCombine]
+  Handle_IFSelect_SelectCombine* = handle[IFSelect_SelectCombine]
 
 ## ! A SelectCombine type Selection defines algebraic operations
 ## ! between results of several Selections
@@ -27,47 +31,47 @@ type
 ## ! precise what operator is to be applied
 
 type
-  IFSelectSelectCombine* {.importcpp: "IFSelect_SelectCombine",
-                          header: "IFSelect_SelectCombine.hxx", bycopy.} = object of IFSelectSelection ##
-                                                                                                ## !
-                                                                                                ## Returns
-                                                                                                ## the
-                                                                                                ## count
-                                                                                                ## of
-                                                                                                ## Input
-                                                                                                ## Selections
-                                                                                                ##
-                                                                                                ## !
-                                                                                                ## Defines
-                                                                                                ## an
-                                                                                                ## empty
-                                                                                                ## SelectCombine
+  IFSelect_SelectCombine* {.importcpp: "IFSelect_SelectCombine",
+                           header: "IFSelect_SelectCombine.hxx", bycopy.} = object of IFSelect_Selection ##
+                                                                                                  ## !
+                                                                                                  ## Returns
+                                                                                                  ## the
+                                                                                                  ## count
+                                                                                                  ## of
+                                                                                                  ## Input
+                                                                                                  ## Selections
+                                                                                                  ##
+                                                                                                  ## !
+                                                                                                  ## Defines
+                                                                                                  ## an
+                                                                                                  ## empty
+                                                                                                  ## SelectCombine
 
 
-proc nbInputs*(this: IFSelectSelectCombine): StandardInteger {.noSideEffect,
+proc NbInputs*(this: IFSelect_SelectCombine): Standard_Integer {.noSideEffect,
     importcpp: "NbInputs", header: "IFSelect_SelectCombine.hxx".}
-proc input*(this: IFSelectSelectCombine; num: StandardInteger): Handle[
-    IFSelectSelection] {.noSideEffect, importcpp: "Input",
-                        header: "IFSelect_SelectCombine.hxx".}
-proc inputRank*(this: IFSelectSelectCombine; sel: Handle[IFSelectSelection]): StandardInteger {.
+proc Input*(this: IFSelect_SelectCombine; num: Standard_Integer): handle[
+    IFSelect_Selection] {.noSideEffect, importcpp: "Input",
+                         header: "IFSelect_SelectCombine.hxx".}
+proc InputRank*(this: IFSelect_SelectCombine; sel: handle[IFSelect_Selection]): Standard_Integer {.
     noSideEffect, importcpp: "InputRank", header: "IFSelect_SelectCombine.hxx".}
-proc add*(this: var IFSelectSelectCombine; sel: Handle[IFSelectSelection];
-         atnum: StandardInteger = 0) {.importcpp: "Add",
-                                   header: "IFSelect_SelectCombine.hxx".}
-proc remove*(this: var IFSelectSelectCombine; sel: Handle[IFSelectSelection]): StandardBoolean {.
+proc Add*(this: var IFSelect_SelectCombine; sel: handle[IFSelect_Selection];
+         atnum: Standard_Integer = 0) {.importcpp: "Add",
+                                    header: "IFSelect_SelectCombine.hxx".}
+proc Remove*(this: var IFSelect_SelectCombine; sel: handle[IFSelect_Selection]): Standard_Boolean {.
     importcpp: "Remove", header: "IFSelect_SelectCombine.hxx".}
-proc remove*(this: var IFSelectSelectCombine; num: StandardInteger): StandardBoolean {.
+proc Remove*(this: var IFSelect_SelectCombine; num: Standard_Integer): Standard_Boolean {.
     importcpp: "Remove", header: "IFSelect_SelectCombine.hxx".}
-proc fillIterator*(this: IFSelectSelectCombine; iter: var IFSelectSelectionIterator) {.
-    noSideEffect, importcpp: "FillIterator", header: "IFSelect_SelectCombine.hxx".}
+proc FillIterator*(this: IFSelect_SelectCombine;
+                  iter: var IFSelect_SelectionIterator) {.noSideEffect,
+    importcpp: "FillIterator", header: "IFSelect_SelectCombine.hxx".}
 type
-  IFSelectSelectCombinebaseType* = IFSelectSelection
+  IFSelect_SelectCombinebase_type* = IFSelect_Selection
 
-proc getTypeName*(): cstring {.importcpp: "IFSelect_SelectCombine::get_type_name(@)",
-                            header: "IFSelect_SelectCombine.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "IFSelect_SelectCombine::get_type_name(@)",
+                              header: "IFSelect_SelectCombine.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "IFSelect_SelectCombine::get_type_descriptor(@)",
     header: "IFSelect_SelectCombine.hxx".}
-proc dynamicType*(this: IFSelectSelectCombine): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "IFSelect_SelectCombine.hxx".}
-
+proc DynamicType*(this: IFSelect_SelectCombine): handle[Standard_Type] {.
+    noSideEffect, importcpp: "DynamicType", header: "IFSelect_SelectCombine.hxx".}

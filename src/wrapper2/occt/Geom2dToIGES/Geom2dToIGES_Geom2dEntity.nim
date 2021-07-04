@@ -14,6 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Real
+
 discard "forward decl of IGESData_IGESModel"
 type
   Geom2dToIGES_Geom2dEntity* {.importcpp: "Geom2dToIGES_Geom2dEntity",
@@ -28,15 +32,15 @@ type
 proc constructGeom2dToIGES_Geom2dEntity*(): Geom2dToIGES_Geom2dEntity {.
     constructor, importcpp: "Geom2dToIGES_Geom2dEntity(@)",
     header: "Geom2dToIGES_Geom2dEntity.hxx".}
-proc constructGeom2dToIGES_Geom2dEntity*(ge: Geom2dToIGES_Geom2dEntity): Geom2dToIGES_Geom2dEntity {.
+proc constructGeom2dToIGES_Geom2dEntity*(GE: Geom2dToIGES_Geom2dEntity): Geom2dToIGES_Geom2dEntity {.
     constructor, importcpp: "Geom2dToIGES_Geom2dEntity(@)",
     header: "Geom2dToIGES_Geom2dEntity.hxx".}
-proc setModel*(this: var Geom2dToIGES_Geom2dEntity; model: Handle[IGESDataIGESModel]) {.
-    importcpp: "SetModel", header: "Geom2dToIGES_Geom2dEntity.hxx".}
-proc getModel*(this: Geom2dToIGES_Geom2dEntity): Handle[IGESDataIGESModel] {.
+proc SetModel*(this: var Geom2dToIGES_Geom2dEntity;
+              model: handle[IGESData_IGESModel]) {.importcpp: "SetModel",
+    header: "Geom2dToIGES_Geom2dEntity.hxx".}
+proc GetModel*(this: Geom2dToIGES_Geom2dEntity): handle[IGESData_IGESModel] {.
     noSideEffect, importcpp: "GetModel", header: "Geom2dToIGES_Geom2dEntity.hxx".}
-proc setUnit*(this: var Geom2dToIGES_Geom2dEntity; unit: StandardReal) {.
+proc SetUnit*(this: var Geom2dToIGES_Geom2dEntity; unit: Standard_Real) {.
     importcpp: "SetUnit", header: "Geom2dToIGES_Geom2dEntity.hxx".}
-proc getUnit*(this: Geom2dToIGES_Geom2dEntity): StandardReal {.noSideEffect,
+proc GetUnit*(this: Geom2dToIGES_Geom2dEntity): Standard_Real {.noSideEffect,
     importcpp: "GetUnit", header: "Geom2dToIGES_Geom2dEntity.hxx".}
-

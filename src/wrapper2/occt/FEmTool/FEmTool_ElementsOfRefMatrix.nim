@@ -14,21 +14,27 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer,
+  ../math/math_FunctionSet, ../Standard/Standard_Boolean, ../math/math_Vector
+
 discard "forward decl of PLib_Base"
 discard "forward decl of Standard_ConstructionError"
 type
-  FEmToolElementsOfRefMatrix* {.importcpp: "FEmTool_ElementsOfRefMatrix",
-                               header: "FEmTool_ElementsOfRefMatrix.hxx", bycopy.} = object of MathFunctionSet
+  FEmTool_ElementsOfRefMatrix* {.importcpp: "FEmTool_ElementsOfRefMatrix",
+                                header: "FEmTool_ElementsOfRefMatrix.hxx", bycopy.} = object of math_FunctionSet
 
 
-proc constructFEmToolElementsOfRefMatrix*(theBase: Handle[PLibBase];
-    derOrder: StandardInteger): FEmToolElementsOfRefMatrix {.constructor,
+proc constructFEmTool_ElementsOfRefMatrix*(TheBase: handle[PLib_Base];
+    DerOrder: Standard_Integer): FEmTool_ElementsOfRefMatrix {.constructor,
     importcpp: "FEmTool_ElementsOfRefMatrix(@)",
     header: "FEmTool_ElementsOfRefMatrix.hxx".}
-proc nbVariables*(this: FEmToolElementsOfRefMatrix): StandardInteger {.noSideEffect,
-    importcpp: "NbVariables", header: "FEmTool_ElementsOfRefMatrix.hxx".}
-proc nbEquations*(this: FEmToolElementsOfRefMatrix): StandardInteger {.noSideEffect,
-    importcpp: "NbEquations", header: "FEmTool_ElementsOfRefMatrix.hxx".}
-proc value*(this: var FEmToolElementsOfRefMatrix; x: MathVector; f: var MathVector): StandardBoolean {.
+proc NbVariables*(this: FEmTool_ElementsOfRefMatrix): Standard_Integer {.
+    noSideEffect, importcpp: "NbVariables",
+    header: "FEmTool_ElementsOfRefMatrix.hxx".}
+proc NbEquations*(this: FEmTool_ElementsOfRefMatrix): Standard_Integer {.
+    noSideEffect, importcpp: "NbEquations",
+    header: "FEmTool_ElementsOfRefMatrix.hxx".}
+proc Value*(this: var FEmTool_ElementsOfRefMatrix; X: math_Vector; F: var math_Vector): Standard_Boolean {.
     importcpp: "Value", header: "FEmTool_ElementsOfRefMatrix.hxx".}
-

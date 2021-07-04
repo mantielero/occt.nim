@@ -14,6 +14,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Real,
+  ../Standard/Standard_Boolean, ../Standard/Standard_CString,
+  ../Message/Message_ProgressRange
+
 discard "forward decl of IGESData_IGESModel"
 discard "forward decl of Transfer_FinderProcess"
 discard "forward decl of IGESData_IGESEntity"
@@ -26,58 +32,57 @@ type
 
 proc constructBRepToIGES_BREntity*(): BRepToIGES_BREntity {.constructor,
     importcpp: "BRepToIGES_BREntity(@)", header: "BRepToIGES_BREntity.hxx".}
-proc init*(this: var BRepToIGES_BREntity) {.importcpp: "Init",
+proc Init*(this: var BRepToIGES_BREntity) {.importcpp: "Init",
                                         header: "BRepToIGES_BREntity.hxx".}
-proc setModel*(this: var BRepToIGES_BREntity; model: Handle[IGESDataIGESModel]) {.
+proc SetModel*(this: var BRepToIGES_BREntity; model: handle[IGESData_IGESModel]) {.
     importcpp: "SetModel", header: "BRepToIGES_BREntity.hxx".}
-proc getModel*(this: BRepToIGES_BREntity): Handle[IGESDataIGESModel] {.noSideEffect,
-    importcpp: "GetModel", header: "BRepToIGES_BREntity.hxx".}
-proc getUnit*(this: BRepToIGES_BREntity): StandardReal {.noSideEffect,
+proc GetModel*(this: BRepToIGES_BREntity): handle[IGESData_IGESModel] {.
+    noSideEffect, importcpp: "GetModel", header: "BRepToIGES_BREntity.hxx".}
+proc GetUnit*(this: BRepToIGES_BREntity): Standard_Real {.noSideEffect,
     importcpp: "GetUnit", header: "BRepToIGES_BREntity.hxx".}
-proc setTransferProcess*(this: var BRepToIGES_BREntity;
-                        tp: Handle[TransferFinderProcess]) {.
+proc SetTransferProcess*(this: var BRepToIGES_BREntity;
+                        TP: handle[Transfer_FinderProcess]) {.
     importcpp: "SetTransferProcess", header: "BRepToIGES_BREntity.hxx".}
-proc getTransferProcess*(this: BRepToIGES_BREntity): Handle[TransferFinderProcess] {.
+proc GetTransferProcess*(this: BRepToIGES_BREntity): handle[Transfer_FinderProcess] {.
     noSideEffect, importcpp: "GetTransferProcess",
     header: "BRepToIGES_BREntity.hxx".}
-proc transferShape*(this: var BRepToIGES_BREntity; start: TopoDS_Shape;
-                   theProgress: MessageProgressRange = messageProgressRange()): Handle[
-    IGESDataIGESEntity] {.importcpp: "TransferShape",
+proc TransferShape*(this: var BRepToIGES_BREntity; start: TopoDS_Shape;
+                   theProgress: Message_ProgressRange = Message_ProgressRange()): handle[
+    IGESData_IGESEntity] {.importcpp: "TransferShape",
+                          header: "BRepToIGES_BREntity.hxx".}
+proc AddFail*(this: var BRepToIGES_BREntity; start: TopoDS_Shape;
+             amess: Standard_CString) {.importcpp: "AddFail",
+                                      header: "BRepToIGES_BREntity.hxx".}
+proc AddWarning*(this: var BRepToIGES_BREntity; start: TopoDS_Shape;
+                amess: Standard_CString) {.importcpp: "AddWarning",
+    header: "BRepToIGES_BREntity.hxx".}
+proc AddFail*(this: var BRepToIGES_BREntity; start: handle[Standard_Transient];
+             amess: Standard_CString) {.importcpp: "AddFail",
+                                      header: "BRepToIGES_BREntity.hxx".}
+proc AddWarning*(this: var BRepToIGES_BREntity; start: handle[Standard_Transient];
+                amess: Standard_CString) {.importcpp: "AddWarning",
+    header: "BRepToIGES_BREntity.hxx".}
+proc HasShapeResult*(this: BRepToIGES_BREntity; start: TopoDS_Shape): Standard_Boolean {.
+    noSideEffect, importcpp: "HasShapeResult", header: "BRepToIGES_BREntity.hxx".}
+proc GetShapeResult*(this: BRepToIGES_BREntity; start: TopoDS_Shape): handle[
+    Standard_Transient] {.noSideEffect, importcpp: "GetShapeResult",
                          header: "BRepToIGES_BREntity.hxx".}
-proc addFail*(this: var BRepToIGES_BREntity; start: TopoDS_Shape;
-             amess: StandardCString) {.importcpp: "AddFail",
-                                     header: "BRepToIGES_BREntity.hxx".}
-proc addWarning*(this: var BRepToIGES_BREntity; start: TopoDS_Shape;
-                amess: StandardCString) {.importcpp: "AddWarning",
-                                        header: "BRepToIGES_BREntity.hxx".}
-proc addFail*(this: var BRepToIGES_BREntity; start: Handle[StandardTransient];
-             amess: StandardCString) {.importcpp: "AddFail",
-                                     header: "BRepToIGES_BREntity.hxx".}
-proc addWarning*(this: var BRepToIGES_BREntity; start: Handle[StandardTransient];
-                amess: StandardCString) {.importcpp: "AddWarning",
-                                        header: "BRepToIGES_BREntity.hxx".}
-proc hasShapeResult*(this: BRepToIGES_BREntity; start: TopoDS_Shape): StandardBoolean {.
-    noSideEffect, importcpp: "HasShapeResult", header: "BRepToIGES_BREntity.hxx".}
-proc getShapeResult*(this: BRepToIGES_BREntity; start: TopoDS_Shape): Handle[
-    StandardTransient] {.noSideEffect, importcpp: "GetShapeResult",
-                        header: "BRepToIGES_BREntity.hxx".}
-proc setShapeResult*(this: var BRepToIGES_BREntity; start: TopoDS_Shape;
-                    result: Handle[StandardTransient]) {.
+proc SetShapeResult*(this: var BRepToIGES_BREntity; start: TopoDS_Shape;
+                    result: handle[Standard_Transient]) {.
     importcpp: "SetShapeResult", header: "BRepToIGES_BREntity.hxx".}
-proc hasShapeResult*(this: BRepToIGES_BREntity; start: Handle[StandardTransient]): StandardBoolean {.
+proc HasShapeResult*(this: BRepToIGES_BREntity; start: handle[Standard_Transient]): Standard_Boolean {.
     noSideEffect, importcpp: "HasShapeResult", header: "BRepToIGES_BREntity.hxx".}
-proc getShapeResult*(this: BRepToIGES_BREntity; start: Handle[StandardTransient]): Handle[
-    StandardTransient] {.noSideEffect, importcpp: "GetShapeResult",
-                        header: "BRepToIGES_BREntity.hxx".}
-proc setShapeResult*(this: var BRepToIGES_BREntity;
-                    start: Handle[StandardTransient];
-                    result: Handle[StandardTransient]) {.
+proc GetShapeResult*(this: BRepToIGES_BREntity; start: handle[Standard_Transient]): handle[
+    Standard_Transient] {.noSideEffect, importcpp: "GetShapeResult",
+                         header: "BRepToIGES_BREntity.hxx".}
+proc SetShapeResult*(this: var BRepToIGES_BREntity;
+                    start: handle[Standard_Transient];
+                    result: handle[Standard_Transient]) {.
     importcpp: "SetShapeResult", header: "BRepToIGES_BREntity.hxx".}
-proc getConvertSurfaceMode*(this: BRepToIGES_BREntity): StandardBoolean {.
+proc GetConvertSurfaceMode*(this: BRepToIGES_BREntity): Standard_Boolean {.
     noSideEffect, importcpp: "GetConvertSurfaceMode",
     header: "BRepToIGES_BREntity.hxx".}
-proc getPCurveMode*(this: BRepToIGES_BREntity): StandardBoolean {.noSideEffect,
+proc GetPCurveMode*(this: BRepToIGES_BREntity): Standard_Boolean {.noSideEffect,
     importcpp: "GetPCurveMode", header: "BRepToIGES_BREntity.hxx".}
 proc destroyBRepToIGES_BREntity*(this: var BRepToIGES_BREntity) {.
     importcpp: "#.~BRepToIGES_BREntity()", header: "BRepToIGES_BREntity.hxx".}
-

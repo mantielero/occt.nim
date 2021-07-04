@@ -12,70 +12,71 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  GeomEvaluator_Surface, ../Geom/Geom_OsculatingSurface, ../Geom/Geom_Surface
+
 discard "forward decl of GeomAdaptor_HSurface"
 type
-  GeomEvaluatorOffsetSurface* {.importcpp: "GeomEvaluator_OffsetSurface",
-                               header: "GeomEvaluator_OffsetSurface.hxx", bycopy.} = object of GeomEvaluatorSurface ##
-                                                                                                             ## !
-                                                                                                             ## Initialize
-                                                                                                             ## evaluator
-                                                                                                             ## by
-                                                                                                             ## surface
-                                                                                                             ##
-                                                                                                             ## !
-                                                                                                             ## Returns
-                                                                                                             ## bounds
-                                                                                                             ## of
-                                                                                                             ## a
-                                                                                                             ## base
-                                                                                                             ## surface
+  GeomEvaluator_OffsetSurface* {.importcpp: "GeomEvaluator_OffsetSurface",
+                                header: "GeomEvaluator_OffsetSurface.hxx", bycopy.} = object of GeomEvaluator_Surface ##
+                                                                                                               ## !
+                                                                                                               ## Initialize
+                                                                                                               ## evaluator
+                                                                                                               ## by
+                                                                                                               ## surface
+                                                                                                               ##
+                                                                                                               ## !
+                                                                                                               ## Returns
+                                                                                                               ## bounds
+                                                                                                               ## of
+                                                                                                               ## a
+                                                                                                               ## base
+                                                                                                               ## surface
     ## /< offset value
     ## /< auxiliary osculating surface
 
 
-proc constructGeomEvaluatorOffsetSurface*(theBase: Handle[GeomSurface];
-    theOffset: StandardReal;
-    theOscSurf: Handle[GeomOsculatingSurface] = handle[GeomOsculatingSurface]()): GeomEvaluatorOffsetSurface {.
-    constructor, importcpp: "GeomEvaluator_OffsetSurface(@)",
+proc constructGeomEvaluator_OffsetSurface*(theBase: handle[Geom_Surface];
+    theOffset: Standard_Real; theOscSurf: handle[Geom_OsculatingSurface] = handle[
+    Geom_OsculatingSurface]()): GeomEvaluator_OffsetSurface {.constructor,
+    importcpp: "GeomEvaluator_OffsetSurface(@)",
     header: "GeomEvaluator_OffsetSurface.hxx".}
-proc constructGeomEvaluatorOffsetSurface*(theBase: Handle[GeomAdaptorHSurface];
-    theOffset: StandardReal;
-    theOscSurf: Handle[GeomOsculatingSurface] = handle[GeomOsculatingSurface]()): GeomEvaluatorOffsetSurface {.
-    constructor, importcpp: "GeomEvaluator_OffsetSurface(@)",
+proc constructGeomEvaluator_OffsetSurface*(theBase: handle[GeomAdaptor_HSurface];
+    theOffset: Standard_Real; theOscSurf: handle[Geom_OsculatingSurface] = handle[
+    Geom_OsculatingSurface]()): GeomEvaluator_OffsetSurface {.constructor,
+    importcpp: "GeomEvaluator_OffsetSurface(@)",
     header: "GeomEvaluator_OffsetSurface.hxx".}
-proc setOffsetValue*(this: var GeomEvaluatorOffsetSurface; theOffset: StandardReal) {.
+proc SetOffsetValue*(this: var GeomEvaluator_OffsetSurface; theOffset: Standard_Real) {.
     importcpp: "SetOffsetValue", header: "GeomEvaluator_OffsetSurface.hxx".}
-proc d0*(this: GeomEvaluatorOffsetSurface; theU: StandardReal; theV: StandardReal;
-        theValue: var GpPnt) {.noSideEffect, importcpp: "D0",
-                            header: "GeomEvaluator_OffsetSurface.hxx".}
-proc d1*(this: GeomEvaluatorOffsetSurface; theU: StandardReal; theV: StandardReal;
-        theValue: var GpPnt; theD1U: var GpVec; theD1V: var GpVec) {.noSideEffect,
+proc D0*(this: GeomEvaluator_OffsetSurface; theU: Standard_Real; theV: Standard_Real;
+        theValue: var gp_Pnt) {.noSideEffect, importcpp: "D0",
+                             header: "GeomEvaluator_OffsetSurface.hxx".}
+proc D1*(this: GeomEvaluator_OffsetSurface; theU: Standard_Real; theV: Standard_Real;
+        theValue: var gp_Pnt; theD1U: var gp_Vec; theD1V: var gp_Vec) {.noSideEffect,
     importcpp: "D1", header: "GeomEvaluator_OffsetSurface.hxx".}
-proc d2*(this: GeomEvaluatorOffsetSurface; theU: StandardReal; theV: StandardReal;
-        theValue: var GpPnt; theD1U: var GpVec; theD1V: var GpVec; theD2U: var GpVec;
-        theD2V: var GpVec; theD2UV: var GpVec) {.noSideEffect, importcpp: "D2",
+proc D2*(this: GeomEvaluator_OffsetSurface; theU: Standard_Real; theV: Standard_Real;
+        theValue: var gp_Pnt; theD1U: var gp_Vec; theD1V: var gp_Vec; theD2U: var gp_Vec;
+        theD2V: var gp_Vec; theD2UV: var gp_Vec) {.noSideEffect, importcpp: "D2",
     header: "GeomEvaluator_OffsetSurface.hxx".}
-proc d3*(this: GeomEvaluatorOffsetSurface; theU: StandardReal; theV: StandardReal;
-        theValue: var GpPnt; theD1U: var GpVec; theD1V: var GpVec; theD2U: var GpVec;
-        theD2V: var GpVec; theD2UV: var GpVec; theD3U: var GpVec; theD3V: var GpVec;
-        theD3UUV: var GpVec; theD3UVV: var GpVec) {.noSideEffect, importcpp: "D3",
+proc D3*(this: GeomEvaluator_OffsetSurface; theU: Standard_Real; theV: Standard_Real;
+        theValue: var gp_Pnt; theD1U: var gp_Vec; theD1V: var gp_Vec; theD2U: var gp_Vec;
+        theD2V: var gp_Vec; theD2UV: var gp_Vec; theD3U: var gp_Vec; theD3V: var gp_Vec;
+        theD3UUV: var gp_Vec; theD3UVV: var gp_Vec) {.noSideEffect, importcpp: "D3",
     header: "GeomEvaluator_OffsetSurface.hxx".}
-proc dn*(this: GeomEvaluatorOffsetSurface; theU: StandardReal; theV: StandardReal;
-        theDerU: StandardInteger; theDerV: StandardInteger): GpVec {.noSideEffect,
+proc DN*(this: GeomEvaluator_OffsetSurface; theU: Standard_Real; theV: Standard_Real;
+        theDerU: Standard_Integer; theDerV: Standard_Integer): gp_Vec {.noSideEffect,
     importcpp: "DN", header: "GeomEvaluator_OffsetSurface.hxx".}
 type
-  GeomEvaluatorOffsetSurfacebaseType* = GeomEvaluatorSurface
+  GeomEvaluator_OffsetSurfacebase_type* = GeomEvaluator_Surface
 
-proc getTypeName*(): cstring {.importcpp: "GeomEvaluator_OffsetSurface::get_type_name(@)",
-                            header: "GeomEvaluator_OffsetSurface.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "GeomEvaluator_OffsetSurface::get_type_name(@)",
+                              header: "GeomEvaluator_OffsetSurface.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "GeomEvaluator_OffsetSurface::get_type_descriptor(@)",
     header: "GeomEvaluator_OffsetSurface.hxx".}
-proc dynamicType*(this: GeomEvaluatorOffsetSurface): Handle[StandardType] {.
+proc DynamicType*(this: GeomEvaluator_OffsetSurface): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType",
     header: "GeomEvaluator_OffsetSurface.hxx".}
 discard "forward decl of GeomEvaluator_OffsetSurface"
 type
-  HandleGeomEvaluatorOffsetSurface* = Handle[GeomEvaluatorOffsetSurface]
-
-
+  Handle_GeomEvaluator_OffsetSurface* = handle[GeomEvaluator_OffsetSurface]

@@ -14,6 +14,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, Geom_AxisPlacement
+
 discard "forward decl of gp_Ax1"
 discard "forward decl of gp_Pnt"
 discard "forward decl of gp_Dir"
@@ -22,7 +25,7 @@ discard "forward decl of Geom_Geometry"
 discard "forward decl of Geom_Axis1Placement"
 discard "forward decl of Geom_Axis1Placement"
 type
-  HandleGeomAxis1Placement* = Handle[GeomAxis1Placement]
+  Handle_Geom_Axis1Placement* = handle[Geom_Axis1Placement]
 
 ## ! Describes an axis in 3D space.
 ## ! An axis is defined by:
@@ -39,44 +42,43 @@ type
 ## ! contained inside a common data structure.
 
 type
-  GeomAxis1Placement* {.importcpp: "Geom_Axis1Placement",
-                       header: "Geom_Axis1Placement.hxx", bycopy.} = object of GeomAxisPlacement ##
-                                                                                          ## !
-                                                                                          ## Returns
-                                                                                          ## a
-                                                                                          ## transient
-                                                                                          ## copy
-                                                                                          ## of
-                                                                                          ## A1.
-    opencascade* {.importc: "opencascade".}: StandardNODISCARD
+  Geom_Axis1Placement* {.importcpp: "Geom_Axis1Placement",
+                        header: "Geom_Axis1Placement.hxx", bycopy.} = object of Geom_AxisPlacement ##
+                                                                                            ## !
+                                                                                            ## Returns
+                                                                                            ## a
+                                                                                            ## transient
+                                                                                            ## copy
+                                                                                            ## of
+                                                                                            ## A1.
+    opencascade* {.importc: "opencascade".}: Standard_NODISCARD
 
 
-proc constructGeomAxis1Placement*(a1: GpAx1): GeomAxis1Placement {.constructor,
+proc constructGeom_Axis1Placement*(A1: gp_Ax1): Geom_Axis1Placement {.constructor,
     importcpp: "Geom_Axis1Placement(@)", header: "Geom_Axis1Placement.hxx".}
-proc constructGeomAxis1Placement*(p: GpPnt; v: GpDir): GeomAxis1Placement {.
+proc constructGeom_Axis1Placement*(P: gp_Pnt; V: gp_Dir): Geom_Axis1Placement {.
     constructor, importcpp: "Geom_Axis1Placement(@)",
     header: "Geom_Axis1Placement.hxx".}
-proc ax1*(this: GeomAxis1Placement): GpAx1 {.noSideEffect, importcpp: "Ax1",
+proc Ax1*(this: Geom_Axis1Placement): gp_Ax1 {.noSideEffect, importcpp: "Ax1",
     header: "Geom_Axis1Placement.hxx".}
-proc reverse*(this: var GeomAxis1Placement) {.importcpp: "Reverse",
+proc Reverse*(this: var Geom_Axis1Placement) {.importcpp: "Reverse",
     header: "Geom_Axis1Placement.hxx".}
 ## !!!Ignored construct:  :: handle < Geom_Axis1Placement > [end of template] Reversed ( ) const ;
 ## Error: identifier expected, but got: ::!!!
 
-proc setDirection*(this: var GeomAxis1Placement; v: GpDir) {.
+proc SetDirection*(this: var Geom_Axis1Placement; V: gp_Dir) {.
     importcpp: "SetDirection", header: "Geom_Axis1Placement.hxx".}
-proc transform*(this: var GeomAxis1Placement; t: GpTrsf) {.importcpp: "Transform",
+proc Transform*(this: var Geom_Axis1Placement; T: gp_Trsf) {.importcpp: "Transform",
     header: "Geom_Axis1Placement.hxx".}
-proc copy*(this: GeomAxis1Placement): Handle[GeomGeometry] {.noSideEffect,
+proc Copy*(this: Geom_Axis1Placement): handle[Geom_Geometry] {.noSideEffect,
     importcpp: "Copy", header: "Geom_Axis1Placement.hxx".}
 type
-  GeomAxis1PlacementbaseType* = GeomAxisPlacement
+  Geom_Axis1Placementbase_type* = Geom_AxisPlacement
 
-proc getTypeName*(): cstring {.importcpp: "Geom_Axis1Placement::get_type_name(@)",
-                            header: "Geom_Axis1Placement.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "Geom_Axis1Placement::get_type_name(@)",
+                              header: "Geom_Axis1Placement.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "Geom_Axis1Placement::get_type_descriptor(@)",
     header: "Geom_Axis1Placement.hxx".}
-proc dynamicType*(this: GeomAxis1Placement): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: Geom_Axis1Placement): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "Geom_Axis1Placement.hxx".}
-

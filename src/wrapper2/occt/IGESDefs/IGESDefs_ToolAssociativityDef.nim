@@ -14,6 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 discard "forward decl of Standard_DomainError"
 discard "forward decl of IGESDefs_AssociativityDef"
 discard "forward decl of IGESData_IGESReaderData"
@@ -26,41 +30,40 @@ discard "forward decl of Interface_Check"
 discard "forward decl of Interface_CopyTool"
 discard "forward decl of IGESData_IGESDumper"
 type
-  IGESDefsToolAssociativityDef* {.importcpp: "IGESDefs_ToolAssociativityDef",
-                                 header: "IGESDefs_ToolAssociativityDef.hxx",
-                                 bycopy.} = object ## ! Returns a ToolAssociativityDef, ready to work
+  IGESDefs_ToolAssociativityDef* {.importcpp: "IGESDefs_ToolAssociativityDef",
+                                  header: "IGESDefs_ToolAssociativityDef.hxx",
+                                  bycopy.} = object ## ! Returns a ToolAssociativityDef, ready to work
 
 
-proc constructIGESDefsToolAssociativityDef*(): IGESDefsToolAssociativityDef {.
+proc constructIGESDefs_ToolAssociativityDef*(): IGESDefs_ToolAssociativityDef {.
     constructor, importcpp: "IGESDefs_ToolAssociativityDef(@)",
     header: "IGESDefs_ToolAssociativityDef.hxx".}
-proc readOwnParams*(this: IGESDefsToolAssociativityDef;
-                   ent: Handle[IGESDefsAssociativityDef];
-                   ir: Handle[IGESDataIGESReaderData]; pr: var IGESDataParamReader) {.
-    noSideEffect, importcpp: "ReadOwnParams",
-    header: "IGESDefs_ToolAssociativityDef.hxx".}
-proc writeOwnParams*(this: IGESDefsToolAssociativityDef;
-                    ent: Handle[IGESDefsAssociativityDef];
-                    iw: var IGESDataIGESWriter) {.noSideEffect,
+proc ReadOwnParams*(this: IGESDefs_ToolAssociativityDef;
+                   ent: handle[IGESDefs_AssociativityDef];
+                   IR: handle[IGESData_IGESReaderData];
+                   PR: var IGESData_ParamReader) {.noSideEffect,
+    importcpp: "ReadOwnParams", header: "IGESDefs_ToolAssociativityDef.hxx".}
+proc WriteOwnParams*(this: IGESDefs_ToolAssociativityDef;
+                    ent: handle[IGESDefs_AssociativityDef];
+                    IW: var IGESData_IGESWriter) {.noSideEffect,
     importcpp: "WriteOwnParams", header: "IGESDefs_ToolAssociativityDef.hxx".}
-proc ownShared*(this: IGESDefsToolAssociativityDef;
-               ent: Handle[IGESDefsAssociativityDef];
-               iter: var InterfaceEntityIterator) {.noSideEffect,
+proc OwnShared*(this: IGESDefs_ToolAssociativityDef;
+               ent: handle[IGESDefs_AssociativityDef];
+               iter: var Interface_EntityIterator) {.noSideEffect,
     importcpp: "OwnShared", header: "IGESDefs_ToolAssociativityDef.hxx".}
-proc dirChecker*(this: IGESDefsToolAssociativityDef;
-                ent: Handle[IGESDefsAssociativityDef]): IGESDataDirChecker {.
+proc DirChecker*(this: IGESDefs_ToolAssociativityDef;
+                ent: handle[IGESDefs_AssociativityDef]): IGESData_DirChecker {.
     noSideEffect, importcpp: "DirChecker",
     header: "IGESDefs_ToolAssociativityDef.hxx".}
-proc ownCheck*(this: IGESDefsToolAssociativityDef;
-              ent: Handle[IGESDefsAssociativityDef]; shares: InterfaceShareTool;
-              ach: var Handle[InterfaceCheck]) {.noSideEffect,
+proc OwnCheck*(this: IGESDefs_ToolAssociativityDef;
+              ent: handle[IGESDefs_AssociativityDef]; shares: Interface_ShareTool;
+              ach: var handle[Interface_Check]) {.noSideEffect,
     importcpp: "OwnCheck", header: "IGESDefs_ToolAssociativityDef.hxx".}
-proc ownCopy*(this: IGESDefsToolAssociativityDef;
-             entfrom: Handle[IGESDefsAssociativityDef];
-             entto: Handle[IGESDefsAssociativityDef]; tc: var InterfaceCopyTool) {.
+proc OwnCopy*(this: IGESDefs_ToolAssociativityDef;
+             entfrom: handle[IGESDefs_AssociativityDef];
+             entto: handle[IGESDefs_AssociativityDef]; TC: var Interface_CopyTool) {.
     noSideEffect, importcpp: "OwnCopy", header: "IGESDefs_ToolAssociativityDef.hxx".}
-proc ownDump*(this: IGESDefsToolAssociativityDef;
-             ent: Handle[IGESDefsAssociativityDef]; dumper: IGESDataIGESDumper;
-             s: var StandardOStream; own: StandardInteger) {.noSideEffect,
+proc OwnDump*(this: IGESDefs_ToolAssociativityDef;
+             ent: handle[IGESDefs_AssociativityDef]; dumper: IGESData_IGESDumper;
+             S: var Standard_OStream; own: Standard_Integer) {.noSideEffect,
     importcpp: "OwnDump", header: "IGESDefs_ToolAssociativityDef.hxx".}
-

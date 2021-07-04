@@ -13,94 +13,98 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard_Type, ../Standard/Standard_Handle,
+  ../Standard/Standard_Transient, ../IMeshData/IMeshData_Types
+
 discard "forward decl of Bnd_Box"
 discard "forward decl of TopoDS_Face"
 discard "forward decl of TopoDS_Edge"
 discard "forward decl of IMeshTools_Parameters"
 type
-  BRepMeshDeflection* {.importcpp: "BRepMesh_Deflection",
-                       header: "BRepMesh_Deflection.hxx", bycopy.} = object of StandardTransient ##
-                                                                                          ## !
-                                                                                          ## Returns
-                                                                                          ## absolute
-                                                                                          ## deflection
-                                                                                          ## for
-                                                                                          ## theShape
-                                                                                          ## with
-                                                                                          ## respect
-                                                                                          ## to
-                                                                                          ## the
-                                                                                          ##
-                                                                                          ## !
-                                                                                          ## relative
-                                                                                          ## deflection
-                                                                                          ## and
-                                                                                          ## theMaxShapeSize.
-                                                                                          ##
-                                                                                          ## !
-                                                                                          ## @param
-                                                                                          ## theShape
-                                                                                          ## shape
-                                                                                          ## for
-                                                                                          ## that
-                                                                                          ## the
-                                                                                          ## deflection
-                                                                                          ## should
-                                                                                          ## be
-                                                                                          ## computed.
-                                                                                          ##
-                                                                                          ## !
-                                                                                          ## @param
-                                                                                          ## theRelativeDeflection
-                                                                                          ## relative
-                                                                                          ## deflection.
-                                                                                          ##
-                                                                                          ## !
-                                                                                          ## @param
-                                                                                          ## theMaxShapeSize
-                                                                                          ## maximum
-                                                                                          ## size
-                                                                                          ## of
-                                                                                          ## the
-                                                                                          ## whole
-                                                                                          ## shape.
-                                                                                          ##
-                                                                                          ## !
-                                                                                          ## @return
-                                                                                          ## absolute
-                                                                                          ## deflection
-                                                                                          ## for
-                                                                                          ## the
-                                                                                          ## shape.
+  BRepMesh_Deflection* {.importcpp: "BRepMesh_Deflection",
+                        header: "BRepMesh_Deflection.hxx", bycopy.} = object of Standard_Transient ##
+                                                                                            ## !
+                                                                                            ## Returns
+                                                                                            ## absolute
+                                                                                            ## deflection
+                                                                                            ## for
+                                                                                            ## theShape
+                                                                                            ## with
+                                                                                            ## respect
+                                                                                            ## to
+                                                                                            ## the
+                                                                                            ##
+                                                                                            ## !
+                                                                                            ## relative
+                                                                                            ## deflection
+                                                                                            ## and
+                                                                                            ## theMaxShapeSize.
+                                                                                            ##
+                                                                                            ## !
+                                                                                            ## @param
+                                                                                            ## theShape
+                                                                                            ## shape
+                                                                                            ## for
+                                                                                            ## that
+                                                                                            ## the
+                                                                                            ## deflection
+                                                                                            ## should
+                                                                                            ## be
+                                                                                            ## computed.
+                                                                                            ##
+                                                                                            ## !
+                                                                                            ## @param
+                                                                                            ## theRelativeDeflection
+                                                                                            ## relative
+                                                                                            ## deflection.
+                                                                                            ##
+                                                                                            ## !
+                                                                                            ## @param
+                                                                                            ## theMaxShapeSize
+                                                                                            ## maximum
+                                                                                            ## size
+                                                                                            ## of
+                                                                                            ## the
+                                                                                            ## whole
+                                                                                            ## shape.
+                                                                                            ##
+                                                                                            ## !
+                                                                                            ## @return
+                                                                                            ## absolute
+                                                                                            ## deflection
+                                                                                            ## for
+                                                                                            ## the
+                                                                                            ## shape.
 
 
-proc computeAbsoluteDeflection*(theShape: TopoDS_Shape;
-                               theRelativeDeflection: StandardReal;
-                               theMaxShapeSize: StandardReal): StandardReal {.
+proc ComputeAbsoluteDeflection*(theShape: TopoDS_Shape;
+                               theRelativeDeflection: Standard_Real;
+                               theMaxShapeSize: Standard_Real): Standard_Real {.
     importcpp: "BRepMesh_Deflection::ComputeAbsoluteDeflection(@)",
     header: "BRepMesh_Deflection.hxx".}
-proc computeDeflection*(theDEdge: IEdgeHandle; theMaxShapeSize: StandardReal;
-                       theParameters: IMeshToolsParameters) {.
+proc ComputeDeflection*(theDEdge: IEdgeHandle; theMaxShapeSize: Standard_Real;
+                       theParameters: IMeshTools_Parameters) {.
     importcpp: "BRepMesh_Deflection::ComputeDeflection(@)",
     header: "BRepMesh_Deflection.hxx".}
-proc computeDeflection*(theDWire: IWireHandle; theParameters: IMeshToolsParameters) {.
+proc ComputeDeflection*(theDWire: IWireHandle; theParameters: IMeshTools_Parameters) {.
     importcpp: "BRepMesh_Deflection::ComputeDeflection(@)",
     header: "BRepMesh_Deflection.hxx".}
-proc computeDeflection*(theDFace: IFaceHandle; theParameters: IMeshToolsParameters) {.
+proc ComputeDeflection*(theDFace: IFaceHandle; theParameters: IMeshTools_Parameters) {.
     importcpp: "BRepMesh_Deflection::ComputeDeflection(@)",
     header: "BRepMesh_Deflection.hxx".}
-proc isConsistent*(theCurrent: StandardReal; theRequired: StandardReal;
-                  theAllowDecrease: StandardBoolean; theRatio: StandardReal = 0.1): StandardBoolean {.
+proc IsConsistent*(theCurrent: Standard_Real; theRequired: Standard_Real;
+                  theAllowDecrease: Standard_Boolean;
+                  theRatio: Standard_Real = 0.1): Standard_Boolean {.
     importcpp: "BRepMesh_Deflection::IsConsistent(@)",
     header: "BRepMesh_Deflection.hxx".}
 type
-  BRepMeshDeflectionbaseType* = StandardTransient
+  BRepMesh_Deflectionbase_type* = Standard_Transient
 
-proc getTypeName*(): cstring {.importcpp: "BRepMesh_Deflection::get_type_name(@)",
-                            header: "BRepMesh_Deflection.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "BRepMesh_Deflection::get_type_name(@)",
+                              header: "BRepMesh_Deflection.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "BRepMesh_Deflection::get_type_descriptor(@)",
     header: "BRepMesh_Deflection.hxx".}
-proc dynamicType*(this: BRepMeshDeflection): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: BRepMesh_Deflection): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "BRepMesh_Deflection.hxx".}
-

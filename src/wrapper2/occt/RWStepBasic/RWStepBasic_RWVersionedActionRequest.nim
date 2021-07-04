@@ -14,30 +14,35 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepBasic_VersionedActionRequest"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepBasicRWVersionedActionRequest* {.importcpp: "RWStepBasic_RWVersionedActionRequest", header: "RWStepBasic_RWVersionedActionRequest.hxx",
-                                        bycopy.} = object ## ! Empty constructor
+  RWStepBasic_RWVersionedActionRequest* {.
+      importcpp: "RWStepBasic_RWVersionedActionRequest",
+      header: "RWStepBasic_RWVersionedActionRequest.hxx", bycopy.} = object ## ! Empty
+                                                                       ## constructor
 
 
-proc constructRWStepBasicRWVersionedActionRequest*(): RWStepBasicRWVersionedActionRequest {.
+proc constructRWStepBasic_RWVersionedActionRequest*(): RWStepBasic_RWVersionedActionRequest {.
     constructor, importcpp: "RWStepBasic_RWVersionedActionRequest(@)",
     header: "RWStepBasic_RWVersionedActionRequest.hxx".}
-proc readStep*(this: RWStepBasicRWVersionedActionRequest;
-              data: Handle[StepDataStepReaderData]; num: StandardInteger;
-              ach: var Handle[InterfaceCheck];
-              ent: Handle[StepBasicVersionedActionRequest]) {.noSideEffect,
+proc ReadStep*(this: RWStepBasic_RWVersionedActionRequest;
+              data: handle[StepData_StepReaderData]; num: Standard_Integer;
+              ach: var handle[Interface_Check];
+              ent: handle[StepBasic_VersionedActionRequest]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepBasic_RWVersionedActionRequest.hxx".}
-proc writeStep*(this: RWStepBasicRWVersionedActionRequest;
-               sw: var StepDataStepWriter;
-               ent: Handle[StepBasicVersionedActionRequest]) {.noSideEffect,
+proc WriteStep*(this: RWStepBasic_RWVersionedActionRequest;
+               SW: var StepData_StepWriter;
+               ent: handle[StepBasic_VersionedActionRequest]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepBasic_RWVersionedActionRequest.hxx".}
-proc share*(this: RWStepBasicRWVersionedActionRequest;
-           ent: Handle[StepBasicVersionedActionRequest];
-           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
+proc Share*(this: RWStepBasic_RWVersionedActionRequest;
+           ent: handle[StepBasic_VersionedActionRequest];
+           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepBasic_RWVersionedActionRequest.hxx".}
-

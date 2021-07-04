@@ -14,31 +14,34 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../TopoDS/TopoDS_Face,
+  DrawDim_Dimension
+
 discard "forward decl of TopoDS_Face"
 discard "forward decl of Draw_Display"
 discard "forward decl of DrawDim_Radius"
 discard "forward decl of DrawDim_Radius"
 type
-  HandleDrawDimRadius* = Handle[DrawDimRadius]
-  DrawDimRadius* {.importcpp: "DrawDim_Radius", header: "DrawDim_Radius.hxx", bycopy.} = object of DrawDimDimension
+  Handle_DrawDim_Radius* = handle[DrawDim_Radius]
+  DrawDim_Radius* {.importcpp: "DrawDim_Radius", header: "DrawDim_Radius.hxx", bycopy.} = object of DrawDim_Dimension
 
 
-proc constructDrawDimRadius*(cylinder: TopoDS_Face): DrawDimRadius {.constructor,
+proc constructDrawDim_Radius*(cylinder: TopoDS_Face): DrawDim_Radius {.constructor,
     importcpp: "DrawDim_Radius(@)", header: "DrawDim_Radius.hxx".}
-proc cylinder*(this: DrawDimRadius): TopoDS_Face {.noSideEffect,
+proc Cylinder*(this: DrawDim_Radius): TopoDS_Face {.noSideEffect,
     importcpp: "Cylinder", header: "DrawDim_Radius.hxx".}
-proc cylinder*(this: var DrawDimRadius; face: TopoDS_Face) {.importcpp: "Cylinder",
+proc Cylinder*(this: var DrawDim_Radius; face: TopoDS_Face) {.importcpp: "Cylinder",
     header: "DrawDim_Radius.hxx".}
-proc drawOn*(this: DrawDimRadius; dis: var DrawDisplay) {.noSideEffect,
+proc DrawOn*(this: DrawDim_Radius; dis: var Draw_Display) {.noSideEffect,
     importcpp: "DrawOn", header: "DrawDim_Radius.hxx".}
 type
-  DrawDimRadiusbaseType* = DrawDimDimension
+  DrawDim_Radiusbase_type* = DrawDim_Dimension
 
-proc getTypeName*(): cstring {.importcpp: "DrawDim_Radius::get_type_name(@)",
-                            header: "DrawDim_Radius.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "DrawDim_Radius::get_type_name(@)",
+                              header: "DrawDim_Radius.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "DrawDim_Radius::get_type_descriptor(@)",
     header: "DrawDim_Radius.hxx".}
-proc dynamicType*(this: DrawDimRadius): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: DrawDim_Radius): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "DrawDim_Radius.hxx".}
-

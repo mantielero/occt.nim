@@ -14,20 +14,25 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../math/math_FunctionWithDerivative,
+  ../Standard/Standard_Boolean, ../Standard/Standard_Real
+
 discard "forward decl of Geom2d_Curve"
 type
-  Geom2dLPropFuncCurNul* {.importcpp: "Geom2dLProp_FuncCurNul",
-                          header: "Geom2dLProp_FuncCurNul.hxx", bycopy.} = object of MathFunctionWithDerivative
+  Geom2dLProp_FuncCurNul* {.importcpp: "Geom2dLProp_FuncCurNul",
+                           header: "Geom2dLProp_FuncCurNul.hxx", bycopy.} = object of math_FunctionWithDerivative
 
 
-proc constructGeom2dLPropFuncCurNul*(c: Handle[Geom2dCurve]): Geom2dLPropFuncCurNul {.
+proc constructGeom2dLProp_FuncCurNul*(C: handle[Geom2d_Curve]): Geom2dLProp_FuncCurNul {.
     constructor, importcpp: "Geom2dLProp_FuncCurNul(@)",
     header: "Geom2dLProp_FuncCurNul.hxx".}
-proc value*(this: var Geom2dLPropFuncCurNul; x: StandardReal; f: var StandardReal): StandardBoolean {.
+proc Value*(this: var Geom2dLProp_FuncCurNul; X: Standard_Real; F: var Standard_Real): Standard_Boolean {.
     importcpp: "Value", header: "Geom2dLProp_FuncCurNul.hxx".}
-proc derivative*(this: var Geom2dLPropFuncCurNul; x: StandardReal; d: var StandardReal): StandardBoolean {.
-    importcpp: "Derivative", header: "Geom2dLProp_FuncCurNul.hxx".}
-proc values*(this: var Geom2dLPropFuncCurNul; x: StandardReal; f: var StandardReal;
-            d: var StandardReal): StandardBoolean {.importcpp: "Values",
+proc Derivative*(this: var Geom2dLProp_FuncCurNul; X: Standard_Real;
+                D: var Standard_Real): Standard_Boolean {.importcpp: "Derivative",
     header: "Geom2dLProp_FuncCurNul.hxx".}
-
+proc Values*(this: var Geom2dLProp_FuncCurNul; X: Standard_Real; F: var Standard_Real;
+            D: var Standard_Real): Standard_Boolean {.importcpp: "Values",
+    header: "Geom2dLProp_FuncCurNul.hxx".}

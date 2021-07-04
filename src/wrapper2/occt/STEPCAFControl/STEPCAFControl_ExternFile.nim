@@ -13,66 +13,71 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type,
+  ../IFSelect/IFSelect_ReturnStatus, ../Standard/Standard_Boolean,
+  ../TDF/TDF_Label, ../Standard/Standard_Transient
+
 discard "forward decl of XSControl_WorkSession"
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of TDF_Label"
 discard "forward decl of STEPCAFControl_ExternFile"
 discard "forward decl of STEPCAFControl_ExternFile"
 type
-  HandleSTEPCAFControlExternFile* = Handle[STEPCAFControlExternFile]
+  Handle_STEPCAFControl_ExternFile* = handle[STEPCAFControl_ExternFile]
 
 ## ! Auxiliary class serving as container for data resulting
 ## ! from translation of external file
 
 type
-  STEPCAFControlExternFile* {.importcpp: "STEPCAFControl_ExternFile",
-                             header: "STEPCAFControl_ExternFile.hxx", bycopy.} = object of StandardTransient ##
-                                                                                                      ## !
-                                                                                                      ## Creates
-                                                                                                      ## an
-                                                                                                      ## empty
-                                                                                                      ## structure
+  STEPCAFControl_ExternFile* {.importcpp: "STEPCAFControl_ExternFile",
+                              header: "STEPCAFControl_ExternFile.hxx", bycopy.} = object of Standard_Transient ##
+                                                                                                        ## !
+                                                                                                        ## Creates
+                                                                                                        ## an
+                                                                                                        ## empty
+                                                                                                        ## structure
 
 
-proc constructSTEPCAFControlExternFile*(): STEPCAFControlExternFile {.constructor,
-    importcpp: "STEPCAFControl_ExternFile(@)",
+proc constructSTEPCAFControl_ExternFile*(): STEPCAFControl_ExternFile {.
+    constructor, importcpp: "STEPCAFControl_ExternFile(@)",
     header: "STEPCAFControl_ExternFile.hxx".}
-proc setWS*(this: var STEPCAFControlExternFile; ws: Handle[XSControlWorkSession]) {.
+proc SetWS*(this: var STEPCAFControl_ExternFile; WS: handle[XSControl_WorkSession]) {.
     importcpp: "SetWS", header: "STEPCAFControl_ExternFile.hxx".}
-proc getWS*(this: STEPCAFControlExternFile): Handle[XSControlWorkSession] {.
+proc GetWS*(this: STEPCAFControl_ExternFile): handle[XSControl_WorkSession] {.
     noSideEffect, importcpp: "GetWS", header: "STEPCAFControl_ExternFile.hxx".}
-proc setLoadStatus*(this: var STEPCAFControlExternFile; stat: IFSelectReturnStatus) {.
+proc SetLoadStatus*(this: var STEPCAFControl_ExternFile; stat: IFSelect_ReturnStatus) {.
     importcpp: "SetLoadStatus", header: "STEPCAFControl_ExternFile.hxx".}
-proc getLoadStatus*(this: STEPCAFControlExternFile): IFSelectReturnStatus {.
+proc GetLoadStatus*(this: STEPCAFControl_ExternFile): IFSelect_ReturnStatus {.
     noSideEffect, importcpp: "GetLoadStatus",
     header: "STEPCAFControl_ExternFile.hxx".}
-proc setTransferStatus*(this: var STEPCAFControlExternFile; isok: StandardBoolean) {.
+proc SetTransferStatus*(this: var STEPCAFControl_ExternFile; isok: Standard_Boolean) {.
     importcpp: "SetTransferStatus", header: "STEPCAFControl_ExternFile.hxx".}
-proc getTransferStatus*(this: STEPCAFControlExternFile): StandardBoolean {.
+proc GetTransferStatus*(this: STEPCAFControl_ExternFile): Standard_Boolean {.
     noSideEffect, importcpp: "GetTransferStatus",
     header: "STEPCAFControl_ExternFile.hxx".}
-proc setWriteStatus*(this: var STEPCAFControlExternFile; stat: IFSelectReturnStatus) {.
-    importcpp: "SetWriteStatus", header: "STEPCAFControl_ExternFile.hxx".}
-proc getWriteStatus*(this: STEPCAFControlExternFile): IFSelectReturnStatus {.
+proc SetWriteStatus*(this: var STEPCAFControl_ExternFile;
+                    stat: IFSelect_ReturnStatus) {.importcpp: "SetWriteStatus",
+    header: "STEPCAFControl_ExternFile.hxx".}
+proc GetWriteStatus*(this: STEPCAFControl_ExternFile): IFSelect_ReturnStatus {.
     noSideEffect, importcpp: "GetWriteStatus",
     header: "STEPCAFControl_ExternFile.hxx".}
-proc setName*(this: var STEPCAFControlExternFile;
-             name: Handle[TCollectionHAsciiString]) {.importcpp: "SetName",
+proc SetName*(this: var STEPCAFControl_ExternFile;
+             name: handle[TCollection_HAsciiString]) {.importcpp: "SetName",
     header: "STEPCAFControl_ExternFile.hxx".}
-proc getName*(this: STEPCAFControlExternFile): Handle[TCollectionHAsciiString] {.
+proc GetName*(this: STEPCAFControl_ExternFile): handle[TCollection_HAsciiString] {.
     noSideEffect, importcpp: "GetName", header: "STEPCAFControl_ExternFile.hxx".}
-proc setLabel*(this: var STEPCAFControlExternFile; L: TDF_Label) {.
+proc SetLabel*(this: var STEPCAFControl_ExternFile; L: TDF_Label) {.
     importcpp: "SetLabel", header: "STEPCAFControl_ExternFile.hxx".}
-proc getLabel*(this: STEPCAFControlExternFile): TDF_Label {.noSideEffect,
+proc GetLabel*(this: STEPCAFControl_ExternFile): TDF_Label {.noSideEffect,
     importcpp: "GetLabel", header: "STEPCAFControl_ExternFile.hxx".}
 type
-  STEPCAFControlExternFilebaseType* = StandardTransient
+  STEPCAFControl_ExternFilebase_type* = Standard_Transient
 
-proc getTypeName*(): cstring {.importcpp: "STEPCAFControl_ExternFile::get_type_name(@)",
-                            header: "STEPCAFControl_ExternFile.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "STEPCAFControl_ExternFile::get_type_name(@)",
+                              header: "STEPCAFControl_ExternFile.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "STEPCAFControl_ExternFile::get_type_descriptor(@)",
     header: "STEPCAFControl_ExternFile.hxx".}
-proc dynamicType*(this: STEPCAFControlExternFile): Handle[StandardType] {.
+proc DynamicType*(this: STEPCAFControl_ExternFile): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType", header: "STEPCAFControl_ExternFile.hxx".}
-

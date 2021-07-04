@@ -14,12 +14,17 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type,
+  ../Interface/Interface_HArray1OfHAsciiString, ../IGESData/IGESData_IGESEntity,
+  ../Standard/Standard_Integer
+
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of IGESAppli_FlowLineSpec"
 discard "forward decl of IGESAppli_FlowLineSpec"
 type
-  HandleIGESAppliFlowLineSpec* = Handle[IGESAppliFlowLineSpec]
+  Handle_IGESAppli_FlowLineSpec* = handle[IGESAppli_FlowLineSpec]
 
 ## ! defines FlowLineSpec, Type <406> Form <14>
 ## ! in package IGESAppli
@@ -27,30 +32,30 @@ type
 ## ! used to represent a flow line
 
 type
-  IGESAppliFlowLineSpec* {.importcpp: "IGESAppli_FlowLineSpec",
-                          header: "IGESAppli_FlowLineSpec.hxx", bycopy.} = object of IGESDataIGESEntity
+  IGESAppli_FlowLineSpec* {.importcpp: "IGESAppli_FlowLineSpec",
+                           header: "IGESAppli_FlowLineSpec.hxx", bycopy.} = object of IGESData_IGESEntity
 
 
-proc constructIGESAppliFlowLineSpec*(): IGESAppliFlowLineSpec {.constructor,
+proc constructIGESAppli_FlowLineSpec*(): IGESAppli_FlowLineSpec {.constructor,
     importcpp: "IGESAppli_FlowLineSpec(@)", header: "IGESAppli_FlowLineSpec.hxx".}
-proc init*(this: var IGESAppliFlowLineSpec;
-          allProperties: Handle[InterfaceHArray1OfHAsciiString]) {.
+proc Init*(this: var IGESAppli_FlowLineSpec;
+          allProperties: handle[Interface_HArray1OfHAsciiString]) {.
     importcpp: "Init", header: "IGESAppli_FlowLineSpec.hxx".}
-proc nbPropertyValues*(this: IGESAppliFlowLineSpec): StandardInteger {.noSideEffect,
-    importcpp: "NbPropertyValues", header: "IGESAppli_FlowLineSpec.hxx".}
-proc flowLineName*(this: IGESAppliFlowLineSpec): Handle[TCollectionHAsciiString] {.
+proc NbPropertyValues*(this: IGESAppli_FlowLineSpec): Standard_Integer {.
+    noSideEffect, importcpp: "NbPropertyValues",
+    header: "IGESAppli_FlowLineSpec.hxx".}
+proc FlowLineName*(this: IGESAppli_FlowLineSpec): handle[TCollection_HAsciiString] {.
     noSideEffect, importcpp: "FlowLineName", header: "IGESAppli_FlowLineSpec.hxx".}
-proc modifier*(this: IGESAppliFlowLineSpec; index: StandardInteger): Handle[
-    TCollectionHAsciiString] {.noSideEffect, importcpp: "Modifier",
-                              header: "IGESAppli_FlowLineSpec.hxx".}
+proc Modifier*(this: IGESAppli_FlowLineSpec; Index: Standard_Integer): handle[
+    TCollection_HAsciiString] {.noSideEffect, importcpp: "Modifier",
+                               header: "IGESAppli_FlowLineSpec.hxx".}
 type
-  IGESAppliFlowLineSpecbaseType* = IGESDataIGESEntity
+  IGESAppli_FlowLineSpecbase_type* = IGESData_IGESEntity
 
-proc getTypeName*(): cstring {.importcpp: "IGESAppli_FlowLineSpec::get_type_name(@)",
-                            header: "IGESAppli_FlowLineSpec.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "IGESAppli_FlowLineSpec::get_type_name(@)",
+                              header: "IGESAppli_FlowLineSpec.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "IGESAppli_FlowLineSpec::get_type_descriptor(@)",
     header: "IGESAppli_FlowLineSpec.hxx".}
-proc dynamicType*(this: IGESAppliFlowLineSpec): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "IGESAppli_FlowLineSpec.hxx".}
-
+proc DynamicType*(this: IGESAppli_FlowLineSpec): handle[Standard_Type] {.
+    noSideEffect, importcpp: "DynamicType", header: "IGESAppli_FlowLineSpec.hxx".}

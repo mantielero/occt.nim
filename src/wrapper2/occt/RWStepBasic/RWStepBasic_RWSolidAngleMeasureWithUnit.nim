@@ -14,31 +14,34 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepBasic_SolidAngleMeasureWithUnit"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepBasicRWSolidAngleMeasureWithUnit* {.
+  RWStepBasic_RWSolidAngleMeasureWithUnit* {.
       importcpp: "RWStepBasic_RWSolidAngleMeasureWithUnit",
       header: "RWStepBasic_RWSolidAngleMeasureWithUnit.hxx", bycopy.} = object
 
 
-proc constructRWStepBasicRWSolidAngleMeasureWithUnit*(): RWStepBasicRWSolidAngleMeasureWithUnit {.
+proc constructRWStepBasic_RWSolidAngleMeasureWithUnit*(): RWStepBasic_RWSolidAngleMeasureWithUnit {.
     constructor, importcpp: "RWStepBasic_RWSolidAngleMeasureWithUnit(@)",
     header: "RWStepBasic_RWSolidAngleMeasureWithUnit.hxx".}
-proc readStep*(this: RWStepBasicRWSolidAngleMeasureWithUnit;
-              data: Handle[StepDataStepReaderData]; num: StandardInteger;
-              ach: var Handle[InterfaceCheck];
-              ent: Handle[StepBasicSolidAngleMeasureWithUnit]) {.noSideEffect,
+proc ReadStep*(this: RWStepBasic_RWSolidAngleMeasureWithUnit;
+              data: handle[StepData_StepReaderData]; num: Standard_Integer;
+              ach: var handle[Interface_Check];
+              ent: handle[StepBasic_SolidAngleMeasureWithUnit]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepBasic_RWSolidAngleMeasureWithUnit.hxx".}
-proc writeStep*(this: RWStepBasicRWSolidAngleMeasureWithUnit;
-               sw: var StepDataStepWriter;
-               ent: Handle[StepBasicSolidAngleMeasureWithUnit]) {.noSideEffect,
+proc WriteStep*(this: RWStepBasic_RWSolidAngleMeasureWithUnit;
+               SW: var StepData_StepWriter;
+               ent: handle[StepBasic_SolidAngleMeasureWithUnit]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepBasic_RWSolidAngleMeasureWithUnit.hxx".}
-proc share*(this: RWStepBasicRWSolidAngleMeasureWithUnit;
-           ent: Handle[StepBasicSolidAngleMeasureWithUnit];
-           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
+proc Share*(this: RWStepBasic_RWSolidAngleMeasureWithUnit;
+           ent: handle[StepBasic_SolidAngleMeasureWithUnit];
+           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepBasic_RWSolidAngleMeasureWithUnit.hxx".}
-

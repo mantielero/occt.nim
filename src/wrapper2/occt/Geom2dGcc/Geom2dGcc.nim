@@ -14,6 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle
+
 discard "forward decl of Geom2dGcc_QualifiedCurve"
 discard "forward decl of Geom2dAdaptor_Curve"
 discard "forward decl of Geom2dGcc_CurveTool"
@@ -95,12 +99,11 @@ type
                                                                           ## Geom2dGcc::Unqualified(Obj);
 
 
-proc unqualified*(obj: Geom2dAdaptorCurve): Geom2dGccQualifiedCurve {.
+proc Unqualified*(Obj: Geom2dAdaptor_Curve): Geom2dGcc_QualifiedCurve {.
     importcpp: "Geom2dGcc::Unqualified(@)", header: "Geom2dGcc.hxx".}
-proc enclosing*(obj: Geom2dAdaptorCurve): Geom2dGccQualifiedCurve {.
+proc Enclosing*(Obj: Geom2dAdaptor_Curve): Geom2dGcc_QualifiedCurve {.
     importcpp: "Geom2dGcc::Enclosing(@)", header: "Geom2dGcc.hxx".}
-proc enclosed*(obj: Geom2dAdaptorCurve): Geom2dGccQualifiedCurve {.
+proc Enclosed*(Obj: Geom2dAdaptor_Curve): Geom2dGcc_QualifiedCurve {.
     importcpp: "Geom2dGcc::Enclosed(@)", header: "Geom2dGcc.hxx".}
-proc outside*(obj: Geom2dAdaptorCurve): Geom2dGccQualifiedCurve {.
+proc Outside*(Obj: Geom2dAdaptor_Curve): Geom2dGcc_QualifiedCurve {.
     importcpp: "Geom2dGcc::Outside(@)", header: "Geom2dGcc.hxx".}
-

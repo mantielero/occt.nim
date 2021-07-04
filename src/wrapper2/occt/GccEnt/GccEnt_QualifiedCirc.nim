@@ -14,56 +14,63 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../gp/gp_Circ2d, GccEnt_Position,
+  ../Standard/Standard_Boolean
+
 discard "forward decl of gp_Circ2d"
 type
-  GccEntQualifiedCirc* {.importcpp: "GccEnt_QualifiedCirc",
-                        header: "GccEnt_QualifiedCirc.hxx", bycopy.} = object ## !
-                                                                         ## Constructs a
-                                                                         ## qualified circle by
-                                                                         ## assigning the
-                                                                         ## qualifier
-                                                                         ## !
-                                                                         ## Qualifier to the circle
-                                                                         ## Qualified.
-                                                                         ## Qualifier may be:
-                                                                         ## ! -
-                                                                         ## GccEnt_enclosing if the
-                                                                         ## solution
-                                                                         ## computed by a
-                                                                         ## !
-                                                                         ## construction
-                                                                         ## algorithm using the
-                                                                         ## qualified circle
-                                                                         ## !
-                                                                         ## encloses the circle, or
-                                                                         ## ! -
-                                                                         ## GccEnt_enclosed if the
-                                                                         ## solution is
-                                                                         ## enclosed by the circle, or
-                                                                         ## ! -
-                                                                         ## GccEnt_outside if both the
-                                                                         ## solution and the circle
-                                                                         ## ! are
-                                                                         ## external to one
-                                                                         ## another, or
-                                                                         ## ! -
-                                                                         ## GccEnt_unqualified if all
-                                                                         ## solutions apply.
+  GccEnt_QualifiedCirc* {.importcpp: "GccEnt_QualifiedCirc",
+                         header: "GccEnt_QualifiedCirc.hxx", bycopy.} = object ## !
+                                                                          ## Constructs a
+                                                                          ## qualified circle by
+                                                                          ## assigning the
+                                                                          ## qualifier
+                                                                          ## !
+                                                                          ## Qualifier to the circle
+                                                                          ## Qualified.
+                                                                          ## Qualifier may be:
+                                                                          ## ! -
+                                                                          ## GccEnt_enclosing if the
+                                                                          ## solution
+                                                                          ## computed by a
+                                                                          ## !
+                                                                          ## construction
+                                                                          ## algorithm using the
+                                                                          ## qualified circle
+                                                                          ## !
+                                                                          ## encloses the
+                                                                          ## circle, or
+                                                                          ## ! -
+                                                                          ## GccEnt_enclosed if the
+                                                                          ## solution is
+                                                                          ## enclosed by the
+                                                                          ## circle, or
+                                                                          ## ! -
+                                                                          ## GccEnt_outside if both the
+                                                                          ## solution and the circle
+                                                                          ## ! are
+                                                                          ## external to one
+                                                                          ## another, or
+                                                                          ## ! -
+                                                                          ## GccEnt_unqualified if all
+                                                                          ## solutions apply.
 
 
-proc constructGccEntQualifiedCirc*(qualified: GpCirc2d; qualifier: GccEntPosition): GccEntQualifiedCirc {.
+proc constructGccEnt_QualifiedCirc*(Qualified: gp_Circ2d;
+                                   Qualifier: GccEnt_Position): GccEnt_QualifiedCirc {.
     constructor, importcpp: "GccEnt_QualifiedCirc(@)",
     header: "GccEnt_QualifiedCirc.hxx".}
-proc qualified*(this: GccEntQualifiedCirc): GpCirc2d {.noSideEffect,
+proc Qualified*(this: GccEnt_QualifiedCirc): gp_Circ2d {.noSideEffect,
     importcpp: "Qualified", header: "GccEnt_QualifiedCirc.hxx".}
-proc qualifier*(this: GccEntQualifiedCirc): GccEntPosition {.noSideEffect,
+proc Qualifier*(this: GccEnt_QualifiedCirc): GccEnt_Position {.noSideEffect,
     importcpp: "Qualifier", header: "GccEnt_QualifiedCirc.hxx".}
-proc isUnqualified*(this: GccEntQualifiedCirc): StandardBoolean {.noSideEffect,
+proc IsUnqualified*(this: GccEnt_QualifiedCirc): Standard_Boolean {.noSideEffect,
     importcpp: "IsUnqualified", header: "GccEnt_QualifiedCirc.hxx".}
-proc isEnclosing*(this: GccEntQualifiedCirc): StandardBoolean {.noSideEffect,
+proc IsEnclosing*(this: GccEnt_QualifiedCirc): Standard_Boolean {.noSideEffect,
     importcpp: "IsEnclosing", header: "GccEnt_QualifiedCirc.hxx".}
-proc isEnclosed*(this: GccEntQualifiedCirc): StandardBoolean {.noSideEffect,
+proc IsEnclosed*(this: GccEnt_QualifiedCirc): Standard_Boolean {.noSideEffect,
     importcpp: "IsEnclosed", header: "GccEnt_QualifiedCirc.hxx".}
-proc isOutside*(this: GccEntQualifiedCirc): StandardBoolean {.noSideEffect,
+proc IsOutside*(this: GccEnt_QualifiedCirc): Standard_Boolean {.noSideEffect,
     importcpp: "IsOutside", header: "GccEnt_QualifiedCirc.hxx".}
-

@@ -14,52 +14,55 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Address,
+  ../Standard/Standard_Integer, ../Standard/Standard_Transient
+
 discard "forward decl of MAT_Arc"
 discard "forward decl of MAT_BasicElt"
 discard "forward decl of MAT_BasicElt"
 type
-  HandleMAT_BasicElt* = Handle[MAT_BasicElt]
+  Handle_MAT_BasicElt* = handle[MAT_BasicElt]
 
 ## ! A    BasicELt  is  associated   to  each  elemtary
 ## ! constituant of  the figure.
 
 type
-  MAT_BasicElt* {.importcpp: "MAT_BasicElt", header: "MAT_BasicElt.hxx", bycopy.} = object of StandardTransient ##
-                                                                                                      ## !
-                                                                                                      ## Constructor,
-                                                                                                      ## <anInteger>
-                                                                                                      ## is
-                                                                                                      ## the
-                                                                                                      ## <index>
-                                                                                                      ## of
-                                                                                                      ## <me>.
+  MAT_BasicElt* {.importcpp: "MAT_BasicElt", header: "MAT_BasicElt.hxx", bycopy.} = object of Standard_Transient ##
+                                                                                                       ## !
+                                                                                                       ## Constructor,
+                                                                                                       ## <anInteger>
+                                                                                                       ## is
+                                                                                                       ## the
+                                                                                                       ## <index>
+                                                                                                       ## of
+                                                                                                       ## <me>.
 
 
-proc constructMAT_BasicElt*(anInteger: StandardInteger): MAT_BasicElt {.constructor,
-    importcpp: "MAT_BasicElt(@)", header: "MAT_BasicElt.hxx".}
-proc startArc*(this: MAT_BasicElt): Handle[MAT_Arc] {.noSideEffect,
+proc constructMAT_BasicElt*(anInteger: Standard_Integer): MAT_BasicElt {.
+    constructor, importcpp: "MAT_BasicElt(@)", header: "MAT_BasicElt.hxx".}
+proc StartArc*(this: MAT_BasicElt): handle[MAT_Arc] {.noSideEffect,
     importcpp: "StartArc", header: "MAT_BasicElt.hxx".}
-proc endArc*(this: MAT_BasicElt): Handle[MAT_Arc] {.noSideEffect,
+proc EndArc*(this: MAT_BasicElt): handle[MAT_Arc] {.noSideEffect,
     importcpp: "EndArc", header: "MAT_BasicElt.hxx".}
-proc index*(this: MAT_BasicElt): StandardInteger {.noSideEffect, importcpp: "Index",
+proc Index*(this: MAT_BasicElt): Standard_Integer {.noSideEffect, importcpp: "Index",
     header: "MAT_BasicElt.hxx".}
-proc geomIndex*(this: MAT_BasicElt): StandardInteger {.noSideEffect,
+proc GeomIndex*(this: MAT_BasicElt): Standard_Integer {.noSideEffect,
     importcpp: "GeomIndex", header: "MAT_BasicElt.hxx".}
-proc setStartArc*(this: var MAT_BasicElt; anArc: Handle[MAT_Arc]) {.
+proc SetStartArc*(this: var MAT_BasicElt; anArc: handle[MAT_Arc]) {.
     importcpp: "SetStartArc", header: "MAT_BasicElt.hxx".}
-proc setEndArc*(this: var MAT_BasicElt; anArc: Handle[MAT_Arc]) {.
+proc SetEndArc*(this: var MAT_BasicElt; anArc: handle[MAT_Arc]) {.
     importcpp: "SetEndArc", header: "MAT_BasicElt.hxx".}
-proc setIndex*(this: var MAT_BasicElt; anInteger: StandardInteger) {.
+proc SetIndex*(this: var MAT_BasicElt; anInteger: Standard_Integer) {.
     importcpp: "SetIndex", header: "MAT_BasicElt.hxx".}
-proc setGeomIndex*(this: var MAT_BasicElt; anInteger: StandardInteger) {.
+proc SetGeomIndex*(this: var MAT_BasicElt; anInteger: Standard_Integer) {.
     importcpp: "SetGeomIndex", header: "MAT_BasicElt.hxx".}
 type
-  MAT_BasicEltbaseType* = StandardTransient
+  MAT_BasicEltbase_type* = Standard_Transient
 
-proc getTypeName*(): cstring {.importcpp: "MAT_BasicElt::get_type_name(@)",
-                            header: "MAT_BasicElt.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "MAT_BasicElt::get_type_name(@)",
+                              header: "MAT_BasicElt.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "MAT_BasicElt::get_type_descriptor(@)", header: "MAT_BasicElt.hxx".}
-proc dynamicType*(this: MAT_BasicElt): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: MAT_BasicElt): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "MAT_BasicElt.hxx".}
-

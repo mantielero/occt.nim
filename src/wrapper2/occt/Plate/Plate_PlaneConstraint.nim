@@ -14,18 +14,23 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, Plate_LinearScalarConstraint,
+  ../Standard/Standard_Integer
+
 discard "forward decl of gp_XY"
 discard "forward decl of gp_Pln"
 discard "forward decl of Plate_LinearScalarConstraint"
 type
-  PlatePlaneConstraint* {.importcpp: "Plate_PlaneConstraint",
-                         header: "Plate_PlaneConstraint.hxx", bycopy.} = object
+  Plate_PlaneConstraint* {.importcpp: "Plate_PlaneConstraint",
+                          header: "Plate_PlaneConstraint.hxx", bycopy.} = object
 
 
-proc constructPlatePlaneConstraint*(point2d: GpXY; pln: GpPln;
-                                   iu: StandardInteger = 0; iv: StandardInteger = 0): PlatePlaneConstraint {.
+proc constructPlate_PlaneConstraint*(point2d: gp_XY; pln: gp_Pln;
+                                    iu: Standard_Integer = 0;
+                                    iv: Standard_Integer = 0): Plate_PlaneConstraint {.
     constructor, importcpp: "Plate_PlaneConstraint(@)",
     header: "Plate_PlaneConstraint.hxx".}
-proc lsc*(this: PlatePlaneConstraint): PlateLinearScalarConstraint {.noSideEffect,
+proc LSC*(this: Plate_PlaneConstraint): Plate_LinearScalarConstraint {.noSideEffect,
     importcpp: "LSC", header: "Plate_PlaneConstraint.hxx".}
-

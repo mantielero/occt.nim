@@ -14,6 +14,13 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Real, Contap_TFunction,
+  ../gp/gp_Dir, ../gp/gp_Pnt, ../gp/gp_Dir2d, ../gp/gp_Vec,
+  ../Standard/Standard_Boolean, ../math/math_FunctionSetWithDerivatives,
+  ../Standard/Standard_Integer, ../math/math_Vector
+
 discard "forward decl of Adaptor3d_HSurface"
 discard "forward decl of StdFail_UndefinedDerivative"
 discard "forward decl of gp_Pnt"
@@ -22,57 +29,56 @@ discard "forward decl of math_Matrix"
 discard "forward decl of gp_Vec"
 discard "forward decl of gp_Dir2d"
 type
-  ContapSurfFunction* {.importcpp: "Contap_SurfFunction",
-                       header: "Contap_SurfFunction.hxx", bycopy.} = object of MathFunctionSetWithDerivatives
+  Contap_SurfFunction* {.importcpp: "Contap_SurfFunction",
+                        header: "Contap_SurfFunction.hxx", bycopy.} = object of math_FunctionSetWithDerivatives
 
 
-proc constructContapSurfFunction*(): ContapSurfFunction {.constructor,
+proc constructContap_SurfFunction*(): Contap_SurfFunction {.constructor,
     importcpp: "Contap_SurfFunction(@)", header: "Contap_SurfFunction.hxx".}
-proc set*(this: var ContapSurfFunction; s: Handle[Adaptor3dHSurface]) {.
+proc Set*(this: var Contap_SurfFunction; S: handle[Adaptor3d_HSurface]) {.
     importcpp: "Set", header: "Contap_SurfFunction.hxx".}
-proc set*(this: var ContapSurfFunction; eye: GpPnt) {.importcpp: "Set",
+proc Set*(this: var Contap_SurfFunction; Eye: gp_Pnt) {.importcpp: "Set",
     header: "Contap_SurfFunction.hxx".}
-proc set*(this: var ContapSurfFunction; dir: GpDir) {.importcpp: "Set",
+proc Set*(this: var Contap_SurfFunction; Dir: gp_Dir) {.importcpp: "Set",
     header: "Contap_SurfFunction.hxx".}
-proc set*(this: var ContapSurfFunction; dir: GpDir; angle: StandardReal) {.
+proc Set*(this: var Contap_SurfFunction; Dir: gp_Dir; Angle: Standard_Real) {.
     importcpp: "Set", header: "Contap_SurfFunction.hxx".}
-proc set*(this: var ContapSurfFunction; eye: GpPnt; angle: StandardReal) {.
+proc Set*(this: var Contap_SurfFunction; Eye: gp_Pnt; Angle: Standard_Real) {.
     importcpp: "Set", header: "Contap_SurfFunction.hxx".}
-proc set*(this: var ContapSurfFunction; tolerance: StandardReal) {.importcpp: "Set",
+proc Set*(this: var Contap_SurfFunction; Tolerance: Standard_Real) {.importcpp: "Set",
     header: "Contap_SurfFunction.hxx".}
-proc nbVariables*(this: ContapSurfFunction): StandardInteger {.noSideEffect,
+proc NbVariables*(this: Contap_SurfFunction): Standard_Integer {.noSideEffect,
     importcpp: "NbVariables", header: "Contap_SurfFunction.hxx".}
-proc nbEquations*(this: ContapSurfFunction): StandardInteger {.noSideEffect,
+proc NbEquations*(this: Contap_SurfFunction): Standard_Integer {.noSideEffect,
     importcpp: "NbEquations", header: "Contap_SurfFunction.hxx".}
-proc value*(this: var ContapSurfFunction; x: MathVector; f: var MathVector): StandardBoolean {.
+proc Value*(this: var Contap_SurfFunction; X: math_Vector; F: var math_Vector): Standard_Boolean {.
     importcpp: "Value", header: "Contap_SurfFunction.hxx".}
-proc derivatives*(this: var ContapSurfFunction; x: MathVector; d: var MathMatrix): StandardBoolean {.
+proc Derivatives*(this: var Contap_SurfFunction; X: math_Vector; D: var math_Matrix): Standard_Boolean {.
     importcpp: "Derivatives", header: "Contap_SurfFunction.hxx".}
-proc values*(this: var ContapSurfFunction; x: MathVector; f: var MathVector;
-            d: var MathMatrix): StandardBoolean {.importcpp: "Values",
+proc Values*(this: var Contap_SurfFunction; X: math_Vector; F: var math_Vector;
+            D: var math_Matrix): Standard_Boolean {.importcpp: "Values",
     header: "Contap_SurfFunction.hxx".}
-proc root*(this: ContapSurfFunction): StandardReal {.noSideEffect, importcpp: "Root",
-    header: "Contap_SurfFunction.hxx".}
-proc tolerance*(this: ContapSurfFunction): StandardReal {.noSideEffect,
+proc Root*(this: Contap_SurfFunction): Standard_Real {.noSideEffect,
+    importcpp: "Root", header: "Contap_SurfFunction.hxx".}
+proc Tolerance*(this: Contap_SurfFunction): Standard_Real {.noSideEffect,
     importcpp: "Tolerance", header: "Contap_SurfFunction.hxx".}
-proc point*(this: ContapSurfFunction): GpPnt {.noSideEffect, importcpp: "Point",
+proc Point*(this: Contap_SurfFunction): gp_Pnt {.noSideEffect, importcpp: "Point",
     header: "Contap_SurfFunction.hxx".}
-proc isTangent*(this: var ContapSurfFunction): StandardBoolean {.
+proc IsTangent*(this: var Contap_SurfFunction): Standard_Boolean {.
     importcpp: "IsTangent", header: "Contap_SurfFunction.hxx".}
-proc direction3d*(this: var ContapSurfFunction): GpVec {.importcpp: "Direction3d",
+proc Direction3d*(this: var Contap_SurfFunction): gp_Vec {.importcpp: "Direction3d",
     header: "Contap_SurfFunction.hxx".}
-proc direction2d*(this: var ContapSurfFunction): GpDir2d {.importcpp: "Direction2d",
-    header: "Contap_SurfFunction.hxx".}
-proc functionType*(this: ContapSurfFunction): ContapTFunction {.noSideEffect,
+proc Direction2d*(this: var Contap_SurfFunction): gp_Dir2d {.
+    importcpp: "Direction2d", header: "Contap_SurfFunction.hxx".}
+proc FunctionType*(this: Contap_SurfFunction): Contap_TFunction {.noSideEffect,
     importcpp: "FunctionType", header: "Contap_SurfFunction.hxx".}
-proc eye*(this: ContapSurfFunction): GpPnt {.noSideEffect, importcpp: "Eye",
+proc Eye*(this: Contap_SurfFunction): gp_Pnt {.noSideEffect, importcpp: "Eye",
     header: "Contap_SurfFunction.hxx".}
-proc direction*(this: ContapSurfFunction): GpDir {.noSideEffect,
+proc Direction*(this: Contap_SurfFunction): gp_Dir {.noSideEffect,
     importcpp: "Direction", header: "Contap_SurfFunction.hxx".}
-proc angle*(this: ContapSurfFunction): StandardReal {.noSideEffect,
+proc Angle*(this: Contap_SurfFunction): Standard_Real {.noSideEffect,
     importcpp: "Angle", header: "Contap_SurfFunction.hxx".}
-proc surface*(this: ContapSurfFunction): Handle[Adaptor3dHSurface] {.noSideEffect,
+proc Surface*(this: Contap_SurfFunction): handle[Adaptor3d_HSurface] {.noSideEffect,
     importcpp: "Surface", header: "Contap_SurfFunction.hxx".}
-proc pSurface*(this: ContapSurfFunction): Handle[Adaptor3dHSurface] {.noSideEffect,
-    importcpp: "PSurface", header: "Contap_SurfFunction.hxx".}
-
+proc PSurface*(this: Contap_SurfFunction): handle[Adaptor3d_HSurface] {.
+    noSideEffect, importcpp: "PSurface", header: "Contap_SurfFunction.hxx".}

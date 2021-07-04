@@ -14,13 +14,17 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../gp/gp_XYZ,
+  ../IGESData/IGESData_IGESEntity, ../Standard/Standard_Real
+
 discard "forward decl of gp_XYZ"
 discard "forward decl of gp_Pnt"
 discard "forward decl of gp_Dir"
 discard "forward decl of IGESSolid_Block"
 discard "forward decl of IGESSolid_Block"
 type
-  HandleIGESSolidBlock* = Handle[IGESSolidBlock]
+  Handle_IGESSolid_Block* = handle[IGESSolid_Block]
 
 ## ! defines Block, Type <150> Form Number <0>
 ## ! in package IGESSolid
@@ -29,46 +33,45 @@ type
 ## ! the local +X, +Y, +Z axes.
 
 type
-  IGESSolidBlock* {.importcpp: "IGESSolid_Block", header: "IGESSolid_Block.hxx",
-                   bycopy.} = object of IGESDataIGESEntity
+  IGESSolid_Block* {.importcpp: "IGESSolid_Block", header: "IGESSolid_Block.hxx",
+                    bycopy.} = object of IGESData_IGESEntity
 
 
-proc constructIGESSolidBlock*(): IGESSolidBlock {.constructor,
+proc constructIGESSolid_Block*(): IGESSolid_Block {.constructor,
     importcpp: "IGESSolid_Block(@)", header: "IGESSolid_Block.hxx".}
-proc init*(this: var IGESSolidBlock; aSize: GpXYZ; aCorner: GpXYZ; aXAxis: GpXYZ;
-          aZAxis: GpXYZ) {.importcpp: "Init", header: "IGESSolid_Block.hxx".}
-proc size*(this: IGESSolidBlock): GpXYZ {.noSideEffect, importcpp: "Size",
-                                      header: "IGESSolid_Block.hxx".}
-proc xLength*(this: IGESSolidBlock): StandardReal {.noSideEffect,
-    importcpp: "XLength", header: "IGESSolid_Block.hxx".}
-proc yLength*(this: IGESSolidBlock): StandardReal {.noSideEffect,
-    importcpp: "YLength", header: "IGESSolid_Block.hxx".}
-proc zLength*(this: IGESSolidBlock): StandardReal {.noSideEffect,
-    importcpp: "ZLength", header: "IGESSolid_Block.hxx".}
-proc corner*(this: IGESSolidBlock): GpPnt {.noSideEffect, importcpp: "Corner",
+proc Init*(this: var IGESSolid_Block; aSize: gp_XYZ; aCorner: gp_XYZ; aXAxis: gp_XYZ;
+          aZAxis: gp_XYZ) {.importcpp: "Init", header: "IGESSolid_Block.hxx".}
+proc Size*(this: IGESSolid_Block): gp_XYZ {.noSideEffect, importcpp: "Size",
                                         header: "IGESSolid_Block.hxx".}
-proc transformedCorner*(this: IGESSolidBlock): GpPnt {.noSideEffect,
+proc XLength*(this: IGESSolid_Block): Standard_Real {.noSideEffect,
+    importcpp: "XLength", header: "IGESSolid_Block.hxx".}
+proc YLength*(this: IGESSolid_Block): Standard_Real {.noSideEffect,
+    importcpp: "YLength", header: "IGESSolid_Block.hxx".}
+proc ZLength*(this: IGESSolid_Block): Standard_Real {.noSideEffect,
+    importcpp: "ZLength", header: "IGESSolid_Block.hxx".}
+proc Corner*(this: IGESSolid_Block): gp_Pnt {.noSideEffect, importcpp: "Corner",
+    header: "IGESSolid_Block.hxx".}
+proc TransformedCorner*(this: IGESSolid_Block): gp_Pnt {.noSideEffect,
     importcpp: "TransformedCorner", header: "IGESSolid_Block.hxx".}
-proc xAxis*(this: IGESSolidBlock): GpDir {.noSideEffect, importcpp: "XAxis",
-                                       header: "IGESSolid_Block.hxx".}
-proc transformedXAxis*(this: IGESSolidBlock): GpDir {.noSideEffect,
+proc XAxis*(this: IGESSolid_Block): gp_Dir {.noSideEffect, importcpp: "XAxis",
+    header: "IGESSolid_Block.hxx".}
+proc TransformedXAxis*(this: IGESSolid_Block): gp_Dir {.noSideEffect,
     importcpp: "TransformedXAxis", header: "IGESSolid_Block.hxx".}
-proc yAxis*(this: IGESSolidBlock): GpDir {.noSideEffect, importcpp: "YAxis",
-                                       header: "IGESSolid_Block.hxx".}
-proc transformedYAxis*(this: IGESSolidBlock): GpDir {.noSideEffect,
+proc YAxis*(this: IGESSolid_Block): gp_Dir {.noSideEffect, importcpp: "YAxis",
+    header: "IGESSolid_Block.hxx".}
+proc TransformedYAxis*(this: IGESSolid_Block): gp_Dir {.noSideEffect,
     importcpp: "TransformedYAxis", header: "IGESSolid_Block.hxx".}
-proc zAxis*(this: IGESSolidBlock): GpDir {.noSideEffect, importcpp: "ZAxis",
-                                       header: "IGESSolid_Block.hxx".}
-proc transformedZAxis*(this: IGESSolidBlock): GpDir {.noSideEffect,
+proc ZAxis*(this: IGESSolid_Block): gp_Dir {.noSideEffect, importcpp: "ZAxis",
+    header: "IGESSolid_Block.hxx".}
+proc TransformedZAxis*(this: IGESSolid_Block): gp_Dir {.noSideEffect,
     importcpp: "TransformedZAxis", header: "IGESSolid_Block.hxx".}
 type
-  IGESSolidBlockbaseType* = IGESDataIGESEntity
+  IGESSolid_Blockbase_type* = IGESData_IGESEntity
 
-proc getTypeName*(): cstring {.importcpp: "IGESSolid_Block::get_type_name(@)",
-                            header: "IGESSolid_Block.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "IGESSolid_Block::get_type_name(@)",
+                              header: "IGESSolid_Block.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "IGESSolid_Block::get_type_descriptor(@)",
     header: "IGESSolid_Block.hxx".}
-proc dynamicType*(this: IGESSolidBlock): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: IGESSolid_Block): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "IGESSolid_Block.hxx".}
-

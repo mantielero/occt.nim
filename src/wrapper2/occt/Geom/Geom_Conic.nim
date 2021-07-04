@@ -14,10 +14,13 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../gp/gp_Ax2, Geom_Curve
+
 discard "forward decl of Geom_Conic"
 discard "forward decl of Geom_Conic"
 type
-  HandleGeomConic* = Handle[GeomConic]
+  Handle_Geom_Conic* = handle[Geom_Conic]
 
 ## ! The abstract class Conic describes the common
 ## ! behavior of conic curves in 3D space and, in
@@ -44,85 +47,84 @@ type
 ## ! also defines the origin of the parameter of the conic.
 
 type
-  GeomConic* {.importcpp: "Geom_Conic", header: "Geom_Conic.hxx", bycopy.} = object of GeomCurve ##
-                                                                                       ## !
-                                                                                       ## Changes
-                                                                                       ## the
-                                                                                       ## orientation
-                                                                                       ## of
-                                                                                       ## the
-                                                                                       ## conic's
-                                                                                       ## plane.
-                                                                                       ## The
-                                                                                       ## normal
-                                                                                       ##
-                                                                                       ## !
-                                                                                       ## axis
-                                                                                       ## to
-                                                                                       ## the
-                                                                                       ## plane
-                                                                                       ## is
-                                                                                       ## A1.
-                                                                                       ## The
-                                                                                       ## XAxis
-                                                                                       ## and
-                                                                                       ## the
-                                                                                       ## YAxis
-                                                                                       ## are
-                                                                                       ## recomputed.
-                                                                                       ##
-                                                                                       ## !
-                                                                                       ##
-                                                                                       ## !
-                                                                                       ## raised
-                                                                                       ## if
-                                                                                       ## the
-                                                                                       ## A1
-                                                                                       ## is
-                                                                                       ## parallel
-                                                                                       ## to
-                                                                                       ## the
-                                                                                       ## XAxis
-                                                                                       ## of
-                                                                                       ## the
-                                                                                       ## conic.
+  Geom_Conic* {.importcpp: "Geom_Conic", header: "Geom_Conic.hxx", bycopy.} = object of Geom_Curve ##
+                                                                                         ## !
+                                                                                         ## Changes
+                                                                                         ## the
+                                                                                         ## orientation
+                                                                                         ## of
+                                                                                         ## the
+                                                                                         ## conic's
+                                                                                         ## plane.
+                                                                                         ## The
+                                                                                         ## normal
+                                                                                         ##
+                                                                                         ## !
+                                                                                         ## axis
+                                                                                         ## to
+                                                                                         ## the
+                                                                                         ## plane
+                                                                                         ## is
+                                                                                         ## A1.
+                                                                                         ## The
+                                                                                         ## XAxis
+                                                                                         ## and
+                                                                                         ## the
+                                                                                         ## YAxis
+                                                                                         ## are
+                                                                                         ## recomputed.
+                                                                                         ##
+                                                                                         ## !
+                                                                                         ##
+                                                                                         ## !
+                                                                                         ## raised
+                                                                                         ## if
+                                                                                         ## the
+                                                                                         ## A1
+                                                                                         ## is
+                                                                                         ## parallel
+                                                                                         ## to
+                                                                                         ## the
+                                                                                         ## XAxis
+                                                                                         ## of
+                                                                                         ## the
+                                                                                         ## conic.
 
 
-proc setAxis*(this: var GeomConic; theA1: GpAx1) {.importcpp: "SetAxis",
+proc SetAxis*(this: var Geom_Conic; theA1: gp_Ax1) {.importcpp: "SetAxis",
     header: "Geom_Conic.hxx".}
-proc setLocation*(this: var GeomConic; theP: GpPnt) {.importcpp: "SetLocation",
+proc SetLocation*(this: var Geom_Conic; theP: gp_Pnt) {.importcpp: "SetLocation",
     header: "Geom_Conic.hxx".}
-proc setPosition*(this: var GeomConic; theA2: GpAx2) {.importcpp: "SetPosition",
+proc SetPosition*(this: var Geom_Conic; theA2: gp_Ax2) {.importcpp: "SetPosition",
     header: "Geom_Conic.hxx".}
-proc axis*(this: GeomConic): GpAx1 {.noSideEffect, importcpp: "Axis",
-                                 header: "Geom_Conic.hxx".}
-proc location*(this: GeomConic): GpPnt {.noSideEffect, importcpp: "Location",
-                                     header: "Geom_Conic.hxx".}
-proc position*(this: GeomConic): GpAx2 {.noSideEffect, importcpp: "Position",
-                                     header: "Geom_Conic.hxx".}
-proc eccentricity*(this: GeomConic): StandardReal {.noSideEffect,
+proc Axis*(this: Geom_Conic): gp_Ax1 {.noSideEffect, importcpp: "Axis",
+                                   header: "Geom_Conic.hxx".}
+proc Location*(this: Geom_Conic): gp_Pnt {.noSideEffect, importcpp: "Location",
+                                       header: "Geom_Conic.hxx".}
+proc Position*(this: Geom_Conic): gp_Ax2 {.noSideEffect, importcpp: "Position",
+                                       header: "Geom_Conic.hxx".}
+proc Eccentricity*(this: Geom_Conic): Standard_Real {.noSideEffect,
     importcpp: "Eccentricity", header: "Geom_Conic.hxx".}
-proc xAxis*(this: GeomConic): GpAx1 {.noSideEffect, importcpp: "XAxis",
-                                  header: "Geom_Conic.hxx".}
-proc yAxis*(this: GeomConic): GpAx1 {.noSideEffect, importcpp: "YAxis",
-                                  header: "Geom_Conic.hxx".}
-proc reverse*(this: var GeomConic) {.importcpp: "Reverse", header: "Geom_Conic.hxx".}
-proc reversedParameter*(this: GeomConic; u: StandardReal): StandardReal {.
+proc XAxis*(this: Geom_Conic): gp_Ax1 {.noSideEffect, importcpp: "XAxis",
+                                    header: "Geom_Conic.hxx".}
+proc YAxis*(this: Geom_Conic): gp_Ax1 {.noSideEffect, importcpp: "YAxis",
+                                    header: "Geom_Conic.hxx".}
+proc Reverse*(this: var Geom_Conic) {.importcpp: "Reverse", header: "Geom_Conic.hxx".}
+proc ReversedParameter*(this: Geom_Conic; U: Standard_Real): Standard_Real {.
     noSideEffect, importcpp: "ReversedParameter", header: "Geom_Conic.hxx".}
-proc continuity*(this: GeomConic): GeomAbsShape {.noSideEffect,
+proc Continuity*(this: Geom_Conic): GeomAbs_Shape {.noSideEffect,
     importcpp: "Continuity", header: "Geom_Conic.hxx".}
-proc isCN*(this: GeomConic; n: StandardInteger): StandardBoolean {.noSideEffect,
+proc IsCN*(this: Geom_Conic; N: Standard_Integer): Standard_Boolean {.noSideEffect,
     importcpp: "IsCN", header: "Geom_Conic.hxx".}
-proc dumpJson*(this: GeomConic; theOStream: var StandardOStream;
-              theDepth: StandardInteger = -1) {.noSideEffect, importcpp: "DumpJson",
+proc DumpJson*(this: Geom_Conic; theOStream: var Standard_OStream;
+              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
     header: "Geom_Conic.hxx".}
 type
-  GeomConicbaseType* = GeomCurve
+  Geom_Conicbase_type* = Geom_Curve
 
-proc getTypeName*(): cstring {.importcpp: "Geom_Conic::get_type_name(@)",
-                            header: "Geom_Conic.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "Geom_Conic::get_type_name(@)",
+                              header: "Geom_Conic.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "Geom_Conic::get_type_descriptor(@)", header: "Geom_Conic.hxx".}
-proc dynamicType*(this: GeomConic): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: Geom_Conic): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "Geom_Conic.hxx".}
-

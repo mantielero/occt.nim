@@ -14,26 +14,28 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, IGESData_IGESEntity
+
 discard "forward decl of IGESData_LabelDisplayEntity"
 discard "forward decl of IGESData_LabelDisplayEntity"
 type
-  HandleIGESDataLabelDisplayEntity* = Handle[IGESDataLabelDisplayEntity]
+  Handle_IGESData_LabelDisplayEntity* = handle[IGESData_LabelDisplayEntity]
 
 ## ! defines required type for LabelDisplay in directory part
 ## ! an effective LabelDisplay entity must inherits it
 
 type
-  IGESDataLabelDisplayEntity* {.importcpp: "IGESData_LabelDisplayEntity",
-                               header: "IGESData_LabelDisplayEntity.hxx", bycopy.} = object of IGESDataIGESEntity
+  IGESData_LabelDisplayEntity* {.importcpp: "IGESData_LabelDisplayEntity",
+                                header: "IGESData_LabelDisplayEntity.hxx", bycopy.} = object of IGESData_IGESEntity
 
-  IGESDataLabelDisplayEntitybaseType* = IGESDataIGESEntity
+  IGESData_LabelDisplayEntitybase_type* = IGESData_IGESEntity
 
-proc getTypeName*(): cstring {.importcpp: "IGESData_LabelDisplayEntity::get_type_name(@)",
-                            header: "IGESData_LabelDisplayEntity.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "IGESData_LabelDisplayEntity::get_type_name(@)",
+                              header: "IGESData_LabelDisplayEntity.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "IGESData_LabelDisplayEntity::get_type_descriptor(@)",
     header: "IGESData_LabelDisplayEntity.hxx".}
-proc dynamicType*(this: IGESDataLabelDisplayEntity): Handle[StandardType] {.
+proc DynamicType*(this: IGESData_LabelDisplayEntity): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType",
     header: "IGESData_LabelDisplayEntity.hxx".}
-

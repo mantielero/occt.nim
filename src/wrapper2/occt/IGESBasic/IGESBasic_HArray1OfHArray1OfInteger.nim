@@ -14,43 +14,46 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type,
+  ../TColStd/TColStd_Array1OfTransient, ../Standard/Standard_Transient,
+  ../TColStd/TColStd_HArray1OfInteger, ../Standard/Standard_Integer
+
 discard "forward decl of IGESBasic_HArray1OfHArray1OfInteger"
 discard "forward decl of IGESBasic_HArray1OfHArray1OfInteger"
 type
-  HandleIGESBasicHArray1OfHArray1OfInteger* = Handle[
-      IGESBasicHArray1OfHArray1OfInteger]
-  IGESBasicHArray1OfHArray1OfInteger* {.importcpp: "IGESBasic_HArray1OfHArray1OfInteger", header: "IGESBasic_HArray1OfHArray1OfInteger.hxx",
-                                       bycopy.} = object of StandardTransient
+  Handle_IGESBasic_HArray1OfHArray1OfInteger* = handle[
+      IGESBasic_HArray1OfHArray1OfInteger]
+  IGESBasic_HArray1OfHArray1OfInteger* {.importcpp: "IGESBasic_HArray1OfHArray1OfInteger", header: "IGESBasic_HArray1OfHArray1OfInteger.hxx",
+                                        bycopy.} = object of Standard_Transient
 
 
-proc constructIGESBasicHArray1OfHArray1OfInteger*(low: StandardInteger;
-    up: StandardInteger): IGESBasicHArray1OfHArray1OfInteger {.constructor,
+proc constructIGESBasic_HArray1OfHArray1OfInteger*(low: Standard_Integer;
+    up: Standard_Integer): IGESBasic_HArray1OfHArray1OfInteger {.constructor,
     importcpp: "IGESBasic_HArray1OfHArray1OfInteger(@)",
     header: "IGESBasic_HArray1OfHArray1OfInteger.hxx".}
-proc lower*(this: IGESBasicHArray1OfHArray1OfInteger): StandardInteger {.
+proc Lower*(this: IGESBasic_HArray1OfHArray1OfInteger): Standard_Integer {.
     noSideEffect, importcpp: "Lower",
     header: "IGESBasic_HArray1OfHArray1OfInteger.hxx".}
-proc upper*(this: IGESBasicHArray1OfHArray1OfInteger): StandardInteger {.
+proc Upper*(this: IGESBasic_HArray1OfHArray1OfInteger): Standard_Integer {.
     noSideEffect, importcpp: "Upper",
     header: "IGESBasic_HArray1OfHArray1OfInteger.hxx".}
-proc length*(this: IGESBasicHArray1OfHArray1OfInteger): StandardInteger {.
+proc Length*(this: IGESBasic_HArray1OfHArray1OfInteger): Standard_Integer {.
     noSideEffect, importcpp: "Length",
     header: "IGESBasic_HArray1OfHArray1OfInteger.hxx".}
-proc setValue*(this: var IGESBasicHArray1OfHArray1OfInteger; num: StandardInteger;
-              val: Handle[TColStdHArray1OfInteger]) {.importcpp: "SetValue",
+proc SetValue*(this: var IGESBasic_HArray1OfHArray1OfInteger; num: Standard_Integer;
+              val: handle[TColStd_HArray1OfInteger]) {.importcpp: "SetValue",
     header: "IGESBasic_HArray1OfHArray1OfInteger.hxx".}
-proc value*(this: IGESBasicHArray1OfHArray1OfInteger; num: StandardInteger): Handle[
-    TColStdHArray1OfInteger] {.noSideEffect, importcpp: "Value",
-                              header: "IGESBasic_HArray1OfHArray1OfInteger.hxx".}
+proc Value*(this: IGESBasic_HArray1OfHArray1OfInteger; num: Standard_Integer): handle[
+    TColStd_HArray1OfInteger] {.noSideEffect, importcpp: "Value", header: "IGESBasic_HArray1OfHArray1OfInteger.hxx".}
 type
-  IGESBasicHArray1OfHArray1OfIntegerbaseType* = StandardTransient
+  IGESBasic_HArray1OfHArray1OfIntegerbase_type* = Standard_Transient
 
-proc getTypeName*(): cstring {.importcpp: "IGESBasic_HArray1OfHArray1OfInteger::get_type_name(@)",
-                            header: "IGESBasic_HArray1OfHArray1OfInteger.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "IGESBasic_HArray1OfHArray1OfInteger::get_type_name(@)",
+                              header: "IGESBasic_HArray1OfHArray1OfInteger.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "IGESBasic_HArray1OfHArray1OfInteger::get_type_descriptor(@)",
     header: "IGESBasic_HArray1OfHArray1OfInteger.hxx".}
-proc dynamicType*(this: IGESBasicHArray1OfHArray1OfInteger): Handle[StandardType] {.
+proc DynamicType*(this: IGESBasic_HArray1OfHArray1OfInteger): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType",
     header: "IGESBasic_HArray1OfHArray1OfInteger.hxx".}
-

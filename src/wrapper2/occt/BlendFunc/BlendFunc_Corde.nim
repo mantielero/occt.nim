@@ -14,6 +14,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../gp/gp_Pnt, ../gp/gp_Pnt2d,
+  ../Standard/Standard_Real, ../gp/gp_Vec, ../gp/gp_Vec2d,
+  ../Standard/Standard_Boolean, ../math/math_Vector
+
 discard "forward decl of Adaptor3d_HSurface"
 discard "forward decl of Adaptor3d_HCurve"
 discard "forward decl of Standard_DomainError"
@@ -22,35 +28,34 @@ discard "forward decl of gp_Pnt"
 discard "forward decl of gp_Vec"
 discard "forward decl of gp_Vec2d"
 type
-  BlendFuncCorde* {.importcpp: "BlendFunc_Corde", header: "BlendFunc_Corde.hxx",
-                   bycopy.} = object
+  BlendFunc_Corde* {.importcpp: "BlendFunc_Corde", header: "BlendFunc_Corde.hxx",
+                    bycopy.} = object
 
 
-proc constructBlendFuncCorde*(s: Handle[Adaptor3dHSurface];
-                             cGuide: Handle[Adaptor3dHCurve]): BlendFuncCorde {.
+proc constructBlendFunc_Corde*(S: handle[Adaptor3d_HSurface];
+                              CGuide: handle[Adaptor3d_HCurve]): BlendFunc_Corde {.
     constructor, importcpp: "BlendFunc_Corde(@)", header: "BlendFunc_Corde.hxx".}
-proc setParam*(this: var BlendFuncCorde; param: StandardReal) {.importcpp: "SetParam",
+proc SetParam*(this: var BlendFunc_Corde; Param: Standard_Real) {.
+    importcpp: "SetParam", header: "BlendFunc_Corde.hxx".}
+proc SetDist*(this: var BlendFunc_Corde; Dist: Standard_Real) {.importcpp: "SetDist",
     header: "BlendFunc_Corde.hxx".}
-proc setDist*(this: var BlendFuncCorde; dist: StandardReal) {.importcpp: "SetDist",
-    header: "BlendFunc_Corde.hxx".}
-proc value*(this: var BlendFuncCorde; x: MathVector; f: var MathVector): StandardBoolean {.
+proc Value*(this: var BlendFunc_Corde; X: math_Vector; F: var math_Vector): Standard_Boolean {.
     importcpp: "Value", header: "BlendFunc_Corde.hxx".}
-proc derivatives*(this: var BlendFuncCorde; x: MathVector; d: var MathMatrix): StandardBoolean {.
+proc Derivatives*(this: var BlendFunc_Corde; X: math_Vector; D: var math_Matrix): Standard_Boolean {.
     importcpp: "Derivatives", header: "BlendFunc_Corde.hxx".}
-proc pointOnS*(this: BlendFuncCorde): GpPnt {.noSideEffect, importcpp: "PointOnS",
+proc PointOnS*(this: BlendFunc_Corde): gp_Pnt {.noSideEffect, importcpp: "PointOnS",
     header: "BlendFunc_Corde.hxx".}
-proc pointOnGuide*(this: BlendFuncCorde): GpPnt {.noSideEffect,
+proc PointOnGuide*(this: BlendFunc_Corde): gp_Pnt {.noSideEffect,
     importcpp: "PointOnGuide", header: "BlendFunc_Corde.hxx".}
-proc nPlan*(this: BlendFuncCorde): GpVec {.noSideEffect, importcpp: "NPlan",
-                                       header: "BlendFunc_Corde.hxx".}
-proc isTangencyPoint*(this: BlendFuncCorde): StandardBoolean {.noSideEffect,
+proc NPlan*(this: BlendFunc_Corde): gp_Vec {.noSideEffect, importcpp: "NPlan",
+    header: "BlendFunc_Corde.hxx".}
+proc IsTangencyPoint*(this: BlendFunc_Corde): Standard_Boolean {.noSideEffect,
     importcpp: "IsTangencyPoint", header: "BlendFunc_Corde.hxx".}
-proc tangentOnS*(this: BlendFuncCorde): GpVec {.noSideEffect,
+proc TangentOnS*(this: BlendFunc_Corde): gp_Vec {.noSideEffect,
     importcpp: "TangentOnS", header: "BlendFunc_Corde.hxx".}
-proc tangent2dOnS*(this: BlendFuncCorde): GpVec2d {.noSideEffect,
+proc Tangent2dOnS*(this: BlendFunc_Corde): gp_Vec2d {.noSideEffect,
     importcpp: "Tangent2dOnS", header: "BlendFunc_Corde.hxx".}
-proc derFguide*(this: var BlendFuncCorde; sol: MathVector; derF: var GpVec2d) {.
+proc DerFguide*(this: var BlendFunc_Corde; Sol: math_Vector; DerF: var gp_Vec2d) {.
     importcpp: "DerFguide", header: "BlendFunc_Corde.hxx".}
-proc isSolution*(this: var BlendFuncCorde; sol: MathVector; tol: StandardReal): StandardBoolean {.
+proc IsSolution*(this: var BlendFunc_Corde; Sol: math_Vector; Tol: Standard_Real): Standard_Boolean {.
     importcpp: "IsSolution", header: "BlendFunc_Corde.hxx".}
-

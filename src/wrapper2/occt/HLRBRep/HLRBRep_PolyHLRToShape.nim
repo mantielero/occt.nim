@@ -14,64 +14,76 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, HLRBRep_ListOfBPnt2D, ../Standard/Standard_Boolean,
+  ../TopoDS/TopoDS_Shape, ../Standard/Standard_Integer
+
 discard "forward decl of HLRBRep_PolyAlgo"
 discard "forward decl of TopoDS_Shape"
 type
-  HLRBRepPolyHLRToShape* {.importcpp: "HLRBRep_PolyHLRToShape",
-                          header: "HLRBRep_PolyHLRToShape.hxx", bycopy.} = object ## !
-                                                                             ## Constructs a
-                                                                             ## framework for
-                                                                             ## filtering the
-                                                                             ## results
-                                                                             ## ! of the
-                                                                             ## HLRBRep_Algo
-                                                                             ## algorithm, A.
-                                                                             ## ! Use the
-                                                                             ## extraction
-                                                                             ## filters to
-                                                                             ## obtain the
-                                                                             ## results you
-                                                                             ## want for A.
+  HLRBRep_PolyHLRToShape* {.importcpp: "HLRBRep_PolyHLRToShape",
+                           header: "HLRBRep_PolyHLRToShape.hxx", bycopy.} = object ## !
+                                                                              ## Constructs a
+                                                                              ## framework
+                                                                              ## for
+                                                                              ## filtering
+                                                                              ## the
+                                                                              ## results
+                                                                              ## ! of
+                                                                              ## the
+                                                                              ## HLRBRep_Algo
+                                                                              ## algorithm, A.
+                                                                              ## !
+                                                                              ## Use
+                                                                              ## the
+                                                                              ## extraction
+                                                                              ## filters to
+                                                                              ## obtain
+                                                                              ## the
+                                                                              ## results
+                                                                              ## you
+                                                                              ## want
+                                                                              ## for A.
 
 
-proc constructHLRBRepPolyHLRToShape*(): HLRBRepPolyHLRToShape {.constructor,
+proc constructHLRBRep_PolyHLRToShape*(): HLRBRep_PolyHLRToShape {.constructor,
     importcpp: "HLRBRep_PolyHLRToShape(@)", header: "HLRBRep_PolyHLRToShape.hxx".}
-proc update*(this: var HLRBRepPolyHLRToShape; a: Handle[HLRBRepPolyAlgo]) {.
+proc Update*(this: var HLRBRep_PolyHLRToShape; A: handle[HLRBRep_PolyAlgo]) {.
     importcpp: "Update", header: "HLRBRep_PolyHLRToShape.hxx".}
-proc show*(this: var HLRBRepPolyHLRToShape) {.importcpp: "Show",
+proc Show*(this: var HLRBRep_PolyHLRToShape) {.importcpp: "Show",
     header: "HLRBRep_PolyHLRToShape.hxx".}
-proc hide*(this: var HLRBRepPolyHLRToShape) {.importcpp: "Hide",
+proc Hide*(this: var HLRBRep_PolyHLRToShape) {.importcpp: "Hide",
     header: "HLRBRep_PolyHLRToShape.hxx".}
-proc vCompound*(this: var HLRBRepPolyHLRToShape): TopoDS_Shape {.
+proc VCompound*(this: var HLRBRep_PolyHLRToShape): TopoDS_Shape {.
     importcpp: "VCompound", header: "HLRBRep_PolyHLRToShape.hxx".}
-proc vCompound*(this: var HLRBRepPolyHLRToShape; s: TopoDS_Shape): TopoDS_Shape {.
+proc VCompound*(this: var HLRBRep_PolyHLRToShape; S: TopoDS_Shape): TopoDS_Shape {.
     importcpp: "VCompound", header: "HLRBRep_PolyHLRToShape.hxx".}
-proc rg1LineVCompound*(this: var HLRBRepPolyHLRToShape): TopoDS_Shape {.
+proc Rg1LineVCompound*(this: var HLRBRep_PolyHLRToShape): TopoDS_Shape {.
     importcpp: "Rg1LineVCompound", header: "HLRBRep_PolyHLRToShape.hxx".}
-proc rg1LineVCompound*(this: var HLRBRepPolyHLRToShape; s: TopoDS_Shape): TopoDS_Shape {.
+proc Rg1LineVCompound*(this: var HLRBRep_PolyHLRToShape; S: TopoDS_Shape): TopoDS_Shape {.
     importcpp: "Rg1LineVCompound", header: "HLRBRep_PolyHLRToShape.hxx".}
-proc rgNLineVCompound*(this: var HLRBRepPolyHLRToShape): TopoDS_Shape {.
+proc RgNLineVCompound*(this: var HLRBRep_PolyHLRToShape): TopoDS_Shape {.
     importcpp: "RgNLineVCompound", header: "HLRBRep_PolyHLRToShape.hxx".}
-proc rgNLineVCompound*(this: var HLRBRepPolyHLRToShape; s: TopoDS_Shape): TopoDS_Shape {.
+proc RgNLineVCompound*(this: var HLRBRep_PolyHLRToShape; S: TopoDS_Shape): TopoDS_Shape {.
     importcpp: "RgNLineVCompound", header: "HLRBRep_PolyHLRToShape.hxx".}
-proc outLineVCompound*(this: var HLRBRepPolyHLRToShape): TopoDS_Shape {.
+proc OutLineVCompound*(this: var HLRBRep_PolyHLRToShape): TopoDS_Shape {.
     importcpp: "OutLineVCompound", header: "HLRBRep_PolyHLRToShape.hxx".}
-proc outLineVCompound*(this: var HLRBRepPolyHLRToShape; s: TopoDS_Shape): TopoDS_Shape {.
+proc OutLineVCompound*(this: var HLRBRep_PolyHLRToShape; S: TopoDS_Shape): TopoDS_Shape {.
     importcpp: "OutLineVCompound", header: "HLRBRep_PolyHLRToShape.hxx".}
-proc hCompound*(this: var HLRBRepPolyHLRToShape): TopoDS_Shape {.
+proc HCompound*(this: var HLRBRep_PolyHLRToShape): TopoDS_Shape {.
     importcpp: "HCompound", header: "HLRBRep_PolyHLRToShape.hxx".}
-proc hCompound*(this: var HLRBRepPolyHLRToShape; s: TopoDS_Shape): TopoDS_Shape {.
+proc HCompound*(this: var HLRBRep_PolyHLRToShape; S: TopoDS_Shape): TopoDS_Shape {.
     importcpp: "HCompound", header: "HLRBRep_PolyHLRToShape.hxx".}
-proc rg1LineHCompound*(this: var HLRBRepPolyHLRToShape): TopoDS_Shape {.
+proc Rg1LineHCompound*(this: var HLRBRep_PolyHLRToShape): TopoDS_Shape {.
     importcpp: "Rg1LineHCompound", header: "HLRBRep_PolyHLRToShape.hxx".}
-proc rg1LineHCompound*(this: var HLRBRepPolyHLRToShape; s: TopoDS_Shape): TopoDS_Shape {.
+proc Rg1LineHCompound*(this: var HLRBRep_PolyHLRToShape; S: TopoDS_Shape): TopoDS_Shape {.
     importcpp: "Rg1LineHCompound", header: "HLRBRep_PolyHLRToShape.hxx".}
-proc rgNLineHCompound*(this: var HLRBRepPolyHLRToShape): TopoDS_Shape {.
+proc RgNLineHCompound*(this: var HLRBRep_PolyHLRToShape): TopoDS_Shape {.
     importcpp: "RgNLineHCompound", header: "HLRBRep_PolyHLRToShape.hxx".}
-proc rgNLineHCompound*(this: var HLRBRepPolyHLRToShape; s: TopoDS_Shape): TopoDS_Shape {.
+proc RgNLineHCompound*(this: var HLRBRep_PolyHLRToShape; S: TopoDS_Shape): TopoDS_Shape {.
     importcpp: "RgNLineHCompound", header: "HLRBRep_PolyHLRToShape.hxx".}
-proc outLineHCompound*(this: var HLRBRepPolyHLRToShape): TopoDS_Shape {.
+proc OutLineHCompound*(this: var HLRBRep_PolyHLRToShape): TopoDS_Shape {.
     importcpp: "OutLineHCompound", header: "HLRBRep_PolyHLRToShape.hxx".}
-proc outLineHCompound*(this: var HLRBRepPolyHLRToShape; s: TopoDS_Shape): TopoDS_Shape {.
+proc OutLineHCompound*(this: var HLRBRep_PolyHLRToShape; S: TopoDS_Shape): TopoDS_Shape {.
     importcpp: "OutLineHCompound", header: "HLRBRep_PolyHLRToShape.hxx".}
-

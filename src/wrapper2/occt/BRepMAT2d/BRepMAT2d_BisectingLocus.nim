@@ -14,6 +14,13 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../MAT2d/MAT2d_Tool2d,
+  ../Standard/Standard_Boolean, ../MAT2d/MAT2d_DataMapOfBiIntInteger,
+  ../Standard/Standard_Integer, ../MAT/MAT_Side, ../GeomAbs/GeomAbs_JoinType,
+  ../MAT/MAT_DataMapOfIntegerBasicElt
+
 discard "forward decl of MAT_Graph"
 discard "forward decl of BRepMAT2d_Explorer"
 discard "forward decl of MAT_BasicElt"
@@ -23,39 +30,38 @@ discard "forward decl of MAT_Node"
 discard "forward decl of Bisector_Bisec"
 discard "forward decl of MAT_Arc"
 type
-  BRepMAT2dBisectingLocus* {.importcpp: "BRepMAT2d_BisectingLocus",
-                            header: "BRepMAT2d_BisectingLocus.hxx", bycopy.} = object
+  BRepMAT2d_BisectingLocus* {.importcpp: "BRepMAT2d_BisectingLocus",
+                             header: "BRepMAT2d_BisectingLocus.hxx", bycopy.} = object
 
 
-proc constructBRepMAT2dBisectingLocus*(): BRepMAT2dBisectingLocus {.constructor,
+proc constructBRepMAT2d_BisectingLocus*(): BRepMAT2d_BisectingLocus {.constructor,
     importcpp: "BRepMAT2d_BisectingLocus(@)",
     header: "BRepMAT2d_BisectingLocus.hxx".}
-proc compute*(this: var BRepMAT2dBisectingLocus; anExplo: var BRepMAT2dExplorer;
-             lineIndex: StandardInteger = 1; aSide: MAT_Side = mAT_Left;
-             aJoinType: GeomAbsJoinType = geomAbsArc;
-             isOpenResult: StandardBoolean = standardFalse) {.importcpp: "Compute",
-    header: "BRepMAT2d_BisectingLocus.hxx".}
-proc isDone*(this: BRepMAT2dBisectingLocus): StandardBoolean {.noSideEffect,
+proc Compute*(this: var BRepMAT2d_BisectingLocus; anExplo: var BRepMAT2d_Explorer;
+             LineIndex: Standard_Integer = 1; aSide: MAT_Side = MAT_Left;
+             aJoinType: GeomAbs_JoinType = GeomAbs_Arc;
+             IsOpenResult: Standard_Boolean = Standard_False) {.
+    importcpp: "Compute", header: "BRepMAT2d_BisectingLocus.hxx".}
+proc IsDone*(this: BRepMAT2d_BisectingLocus): Standard_Boolean {.noSideEffect,
     importcpp: "IsDone", header: "BRepMAT2d_BisectingLocus.hxx".}
-proc graph*(this: BRepMAT2dBisectingLocus): Handle[MAT_Graph] {.noSideEffect,
+proc Graph*(this: BRepMAT2d_BisectingLocus): handle[MAT_Graph] {.noSideEffect,
     importcpp: "Graph", header: "BRepMAT2d_BisectingLocus.hxx".}
-proc numberOfContours*(this: BRepMAT2dBisectingLocus): StandardInteger {.
+proc NumberOfContours*(this: BRepMAT2d_BisectingLocus): Standard_Integer {.
     noSideEffect, importcpp: "NumberOfContours",
     header: "BRepMAT2d_BisectingLocus.hxx".}
-proc numberOfElts*(this: BRepMAT2dBisectingLocus; indLine: StandardInteger): StandardInteger {.
+proc NumberOfElts*(this: BRepMAT2d_BisectingLocus; IndLine: Standard_Integer): Standard_Integer {.
     noSideEffect, importcpp: "NumberOfElts", header: "BRepMAT2d_BisectingLocus.hxx".}
-proc numberOfSections*(this: BRepMAT2dBisectingLocus; indLine: StandardInteger;
-                      index: StandardInteger): StandardInteger {.noSideEffect,
+proc NumberOfSections*(this: BRepMAT2d_BisectingLocus; IndLine: Standard_Integer;
+                      Index: Standard_Integer): Standard_Integer {.noSideEffect,
     importcpp: "NumberOfSections", header: "BRepMAT2d_BisectingLocus.hxx".}
-proc basicElt*(this: BRepMAT2dBisectingLocus; indLine: StandardInteger;
-              index: StandardInteger): Handle[MAT_BasicElt] {.noSideEffect,
+proc BasicElt*(this: BRepMAT2d_BisectingLocus; IndLine: Standard_Integer;
+              Index: Standard_Integer): handle[MAT_BasicElt] {.noSideEffect,
     importcpp: "BasicElt", header: "BRepMAT2d_BisectingLocus.hxx".}
-proc geomElt*(this: BRepMAT2dBisectingLocus; aBasicElt: Handle[MAT_BasicElt]): Handle[
-    Geom2dGeometry] {.noSideEffect, importcpp: "GeomElt",
-                     header: "BRepMAT2d_BisectingLocus.hxx".}
-proc geomElt*(this: BRepMAT2dBisectingLocus; aNode: Handle[MAT_Node]): GpPnt2d {.
+proc GeomElt*(this: BRepMAT2d_BisectingLocus; aBasicElt: handle[MAT_BasicElt]): handle[
+    Geom2d_Geometry] {.noSideEffect, importcpp: "GeomElt",
+                      header: "BRepMAT2d_BisectingLocus.hxx".}
+proc GeomElt*(this: BRepMAT2d_BisectingLocus; aNode: handle[MAT_Node]): gp_Pnt2d {.
     noSideEffect, importcpp: "GeomElt", header: "BRepMAT2d_BisectingLocus.hxx".}
-proc geomBis*(this: BRepMAT2dBisectingLocus; anArc: Handle[MAT_Arc];
-             reverse: var StandardBoolean): BisectorBisec {.noSideEffect,
+proc GeomBis*(this: BRepMAT2d_BisectingLocus; anArc: handle[MAT_Arc];
+             Reverse: var Standard_Boolean): Bisector_Bisec {.noSideEffect,
     importcpp: "GeomBis", header: "BRepMAT2d_BisectingLocus.hxx".}
-

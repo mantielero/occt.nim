@@ -14,45 +14,48 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../gp/gp_Elips2d, GccInt_Bisec,
+  GccInt_IType
+
 discard "forward decl of gp_Elips2d"
 discard "forward decl of GccInt_BElips"
 discard "forward decl of GccInt_BElips"
 type
-  HandleGccIntBElips* = Handle[GccIntBElips]
+  Handle_GccInt_BElips* = handle[GccInt_BElips]
 
 ## ! Describes an ellipse as a bisecting curve between two
 ## ! 2D geometric objects (such as circles or points).
 
 type
-  GccIntBElips* {.importcpp: "GccInt_BElips", header: "GccInt_BElips.hxx", bycopy.} = object of GccIntBisec ##
-                                                                                                  ## !
-                                                                                                  ## Constructs
-                                                                                                  ## a
-                                                                                                  ## bisecting
-                                                                                                  ## curve
-                                                                                                  ## whose
-                                                                                                  ## geometry
-                                                                                                  ## is
-                                                                                                  ## the
-                                                                                                  ## 2D
-                                                                                                  ## ellipse
-                                                                                                  ## Ellipse.
+  GccInt_BElips* {.importcpp: "GccInt_BElips", header: "GccInt_BElips.hxx", bycopy.} = object of GccInt_Bisec ##
+                                                                                                    ## !
+                                                                                                    ## Constructs
+                                                                                                    ## a
+                                                                                                    ## bisecting
+                                                                                                    ## curve
+                                                                                                    ## whose
+                                                                                                    ## geometry
+                                                                                                    ## is
+                                                                                                    ## the
+                                                                                                    ## 2D
+                                                                                                    ## ellipse
+                                                                                                    ## Ellipse.
 
 
-proc constructGccIntBElips*(ellipse: GpElips2d): GccIntBElips {.constructor,
+proc constructGccInt_BElips*(Ellipse: gp_Elips2d): GccInt_BElips {.constructor,
     importcpp: "GccInt_BElips(@)", header: "GccInt_BElips.hxx".}
-proc ellipse*(this: GccIntBElips): GpElips2d {.noSideEffect, importcpp: "Ellipse",
+proc Ellipse*(this: GccInt_BElips): gp_Elips2d {.noSideEffect, importcpp: "Ellipse",
     header: "GccInt_BElips.hxx".}
-proc arcType*(this: GccIntBElips): GccIntIType {.noSideEffect, importcpp: "ArcType",
-    header: "GccInt_BElips.hxx".}
+proc ArcType*(this: GccInt_BElips): GccInt_IType {.noSideEffect,
+    importcpp: "ArcType", header: "GccInt_BElips.hxx".}
 type
-  GccIntBElipsbaseType* = GccIntBisec
+  GccInt_BElipsbase_type* = GccInt_Bisec
 
-proc getTypeName*(): cstring {.importcpp: "GccInt_BElips::get_type_name(@)",
-                            header: "GccInt_BElips.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "GccInt_BElips::get_type_name(@)",
+                              header: "GccInt_BElips.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "GccInt_BElips::get_type_descriptor(@)",
     header: "GccInt_BElips.hxx".}
-proc dynamicType*(this: GccIntBElips): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: GccInt_BElips): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "GccInt_BElips.hxx".}
-

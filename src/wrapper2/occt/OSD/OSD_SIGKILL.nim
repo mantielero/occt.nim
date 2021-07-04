@@ -12,17 +12,15 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _OSD_SIGKILL_HeaderFile [NewLine] # _OSD_SIGKILL_HeaderFile [NewLine] # < Standard_Type . hxx > [NewLine] # < Standard_DefineException . hxx > [NewLine] # < Standard_SStream . hxx > [NewLine] # < OSD_Signal . hxx > [NewLine] class OSD_SIGKILL ;
+## !!!Ignored construct:  # _OSD_SIGKILL_HeaderFile [NewLine] # _OSD_SIGKILL_HeaderFile [NewLine] # ../Standard/Standard_Type.hxx [NewLine] # ../Standard/Standard_DefineException.hxx [NewLine] # ../Standard/Standard_SStream.hxx [NewLine] # OSD_Signal.hxx [NewLine] class OSD_SIGKILL ;
 ## Error: expected ';'!!!
 
 discard "forward decl of OSD_SIGKILL"
 type
-  HandleOSD_SIGKILLOSD_SIGKILL* = Handle[Osd_Sigkill]
+  Handle_OSD_SIGKILLOSD_SIGKILL* = handle[OSD_SIGKILL]
 
 ## !!!Ignored construct:  # ! defined No_Exception && ! defined No_OSD_SIGKILL [NewLine] # if ( CONDITION ) throw OSD_SIGKILL ( MESSAGE ) ;
 ## Error: did not expect [NewLine]!!!
 
-## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( OSD_SIGKILL , OSD_Signal ) #  _OSD_SIGKILL_HeaderFile
+## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( OSD_SIGKILL , OSD_Signal ) #  _OSD_SIGKILL_HeaderFile [NewLine]
 ## Error: did not expect [NewLine]!!!
-
-

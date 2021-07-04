@@ -14,36 +14,40 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Real,
+  ../Standard/Standard_Boolean
+
 ## ! Class  (should    be  a  structure)   storing  the
 ## ! informations         about     continuity, normals
 ## ! parallelism,  coons conditions and bounds tangents
 ## ! angle on the corner of contour to be filled.
 
 type
-  GeomFillCornerState* {.importcpp: "GeomFill_CornerState",
-                        header: "GeomFill_CornerState.hxx", bycopy.} = object
+  GeomFill_CornerState* {.importcpp: "GeomFill_CornerState",
+                         header: "GeomFill_CornerState.hxx", bycopy.} = object
 
 
-proc constructGeomFillCornerState*(): GeomFillCornerState {.constructor,
+proc constructGeomFill_CornerState*(): GeomFill_CornerState {.constructor,
     importcpp: "GeomFill_CornerState(@)", header: "GeomFill_CornerState.hxx".}
-proc gap*(this: GeomFillCornerState): StandardReal {.noSideEffect, importcpp: "Gap",
+proc Gap*(this: GeomFill_CornerState): Standard_Real {.noSideEffect,
+    importcpp: "Gap", header: "GeomFill_CornerState.hxx".}
+proc Gap*(this: var GeomFill_CornerState; G: Standard_Real) {.importcpp: "Gap",
     header: "GeomFill_CornerState.hxx".}
-proc gap*(this: var GeomFillCornerState; g: StandardReal) {.importcpp: "Gap",
-    header: "GeomFill_CornerState.hxx".}
-proc tgtAng*(this: GeomFillCornerState): StandardReal {.noSideEffect,
+proc TgtAng*(this: GeomFill_CornerState): Standard_Real {.noSideEffect,
     importcpp: "TgtAng", header: "GeomFill_CornerState.hxx".}
-proc tgtAng*(this: var GeomFillCornerState; ang: StandardReal) {.importcpp: "TgtAng",
-    header: "GeomFill_CornerState.hxx".}
-proc hasConstraint*(this: GeomFillCornerState): StandardBoolean {.noSideEffect,
+proc TgtAng*(this: var GeomFill_CornerState; Ang: Standard_Real) {.
+    importcpp: "TgtAng", header: "GeomFill_CornerState.hxx".}
+proc HasConstraint*(this: GeomFill_CornerState): Standard_Boolean {.noSideEffect,
     importcpp: "HasConstraint", header: "GeomFill_CornerState.hxx".}
-proc constraint*(this: var GeomFillCornerState) {.importcpp: "Constraint",
+proc Constraint*(this: var GeomFill_CornerState) {.importcpp: "Constraint",
     header: "GeomFill_CornerState.hxx".}
-proc norAng*(this: GeomFillCornerState): StandardReal {.noSideEffect,
+proc NorAng*(this: GeomFill_CornerState): Standard_Real {.noSideEffect,
     importcpp: "NorAng", header: "GeomFill_CornerState.hxx".}
-proc norAng*(this: var GeomFillCornerState; ang: StandardReal) {.importcpp: "NorAng",
-    header: "GeomFill_CornerState.hxx".}
-proc isToKill*(this: GeomFillCornerState; scal: var StandardReal): StandardBoolean {.
+proc NorAng*(this: var GeomFill_CornerState; Ang: Standard_Real) {.
+    importcpp: "NorAng", header: "GeomFill_CornerState.hxx".}
+proc IsToKill*(this: GeomFill_CornerState; Scal: var Standard_Real): Standard_Boolean {.
     noSideEffect, importcpp: "IsToKill", header: "GeomFill_CornerState.hxx".}
-proc doKill*(this: var GeomFillCornerState; scal: StandardReal) {.importcpp: "DoKill",
-    header: "GeomFill_CornerState.hxx".}
-
+proc DoKill*(this: var GeomFill_CornerState; Scal: Standard_Real) {.
+    importcpp: "DoKill", header: "GeomFill_CornerState.hxx".}

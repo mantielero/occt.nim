@@ -14,6 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, BRepBlend_AppFuncRoot,
+  ../Standard/Standard_Real, ../math/math_Vector
+
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of BRepBlend_Line"
 discard "forward decl of Blend_SurfRstFunction"
@@ -22,33 +26,32 @@ discard "forward decl of Blend_Point"
 discard "forward decl of BRepBlend_AppFuncRst"
 discard "forward decl of BRepBlend_AppFuncRst"
 type
-  HandleBRepBlendAppFuncRst* = Handle[BRepBlendAppFuncRst]
+  Handle_BRepBlend_AppFuncRst* = handle[BRepBlend_AppFuncRst]
 
 ## ! Function  to approximate by AppSurface  for Curve/Surface contact.
 
 type
-  BRepBlendAppFuncRst* {.importcpp: "BRepBlend_AppFuncRst",
-                        header: "BRepBlend_AppFuncRst.hxx", bycopy.} = object of BRepBlendAppFuncRoot
+  BRepBlend_AppFuncRst* {.importcpp: "BRepBlend_AppFuncRst",
+                         header: "BRepBlend_AppFuncRst.hxx", bycopy.} = object of BRepBlend_AppFuncRoot
 
 
-proc constructBRepBlendAppFuncRst*(line: var Handle[BRepBlendLine];
-                                  `func`: var BlendSurfRstFunction;
-                                  tol3d: StandardReal; tol2d: StandardReal): BRepBlendAppFuncRst {.
+proc constructBRepBlend_AppFuncRst*(Line: var handle[BRepBlend_Line];
+                                   Func: var Blend_SurfRstFunction;
+                                   Tol3d: Standard_Real; Tol2d: Standard_Real): BRepBlend_AppFuncRst {.
     constructor, importcpp: "BRepBlend_AppFuncRst(@)",
     header: "BRepBlend_AppFuncRst.hxx".}
-proc point*(this: BRepBlendAppFuncRst; `func`: BlendAppFunction; param: StandardReal;
-           sol: MathVector; pnt: var BlendPoint) {.noSideEffect, importcpp: "Point",
-    header: "BRepBlend_AppFuncRst.hxx".}
-proc vec*(this: BRepBlendAppFuncRst; sol: var MathVector; pnt: BlendPoint) {.
+proc Point*(this: BRepBlend_AppFuncRst; Func: Blend_AppFunction;
+           Param: Standard_Real; Sol: math_Vector; Pnt: var Blend_Point) {.
+    noSideEffect, importcpp: "Point", header: "BRepBlend_AppFuncRst.hxx".}
+proc Vec*(this: BRepBlend_AppFuncRst; Sol: var math_Vector; Pnt: Blend_Point) {.
     noSideEffect, importcpp: "Vec", header: "BRepBlend_AppFuncRst.hxx".}
 type
-  BRepBlendAppFuncRstbaseType* = BRepBlendAppFuncRoot
+  BRepBlend_AppFuncRstbase_type* = BRepBlend_AppFuncRoot
 
-proc getTypeName*(): cstring {.importcpp: "BRepBlend_AppFuncRst::get_type_name(@)",
-                            header: "BRepBlend_AppFuncRst.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "BRepBlend_AppFuncRst::get_type_name(@)",
+                              header: "BRepBlend_AppFuncRst.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "BRepBlend_AppFuncRst::get_type_descriptor(@)",
     header: "BRepBlend_AppFuncRst.hxx".}
-proc dynamicType*(this: BRepBlendAppFuncRst): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: BRepBlend_AppFuncRst): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "BRepBlend_AppFuncRst.hxx".}
-

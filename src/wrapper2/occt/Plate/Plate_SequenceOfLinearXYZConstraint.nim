@@ -14,8 +14,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  Plate_LinearXYZConstraint, ../NCollection/NCollection_Sequence
+
 type
-  PlateSequenceOfLinearXYZConstraint* = NCollectionSequence[
-      PlateLinearXYZConstraint]
-
-
+  Plate_SequenceOfLinearXYZConstraint* = NCollection_Sequence[
+      Plate_LinearXYZConstraint]

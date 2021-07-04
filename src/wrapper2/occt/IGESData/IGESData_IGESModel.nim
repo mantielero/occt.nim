@@ -14,6 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../TColStd/TColStd_HSequenceOfHAsciiString, IGESData_GlobalSection,
+  ../Interface/Interface_InterfaceModel
+
 discard "forward decl of Interface_InterfaceError"
 discard "forward decl of IGESData_GlobalSection"
 discard "forward decl of IGESData_IGESEntity"
@@ -24,7 +28,7 @@ discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of IGESData_IGESModel"
 discard "forward decl of IGESData_IGESModel"
 type
-  HandleIGESDataIGESModel* = Handle[IGESDataIGESModel]
+  Handle_IGESData_IGESModel* = handle[IGESData_IGESModel]
 
 ## ! Defines the file header and
 ## ! entities for IGES files. These headers and entities result from
@@ -41,74 +45,74 @@ type
 ## ! -Terminate
 
 type
-  IGESDataIGESModel* {.importcpp: "IGESData_IGESModel",
-                      header: "IGESData_IGESModel.hxx", bycopy.} = object of InterfaceInterfaceModel
+  IGESData_IGESModel* {.importcpp: "IGESData_IGESModel",
+                       header: "IGESData_IGESModel.hxx", bycopy.} = object of Interface_InterfaceModel
 
 
-proc constructIGESDataIGESModel*(): IGESDataIGESModel {.constructor,
+proc constructIGESData_IGESModel*(): IGESData_IGESModel {.constructor,
     importcpp: "IGESData_IGESModel(@)", header: "IGESData_IGESModel.hxx".}
-proc clearHeader*(this: var IGESDataIGESModel) {.importcpp: "ClearHeader",
+proc ClearHeader*(this: var IGESData_IGESModel) {.importcpp: "ClearHeader",
     header: "IGESData_IGESModel.hxx".}
-proc dumpHeader*(this: IGESDataIGESModel; s: var StandardOStream;
-                level: StandardInteger = 0) {.noSideEffect, importcpp: "DumpHeader",
+proc DumpHeader*(this: IGESData_IGESModel; S: var Standard_OStream;
+                level: Standard_Integer = 0) {.noSideEffect, importcpp: "DumpHeader",
     header: "IGESData_IGESModel.hxx".}
-proc startSection*(this: IGESDataIGESModel): Handle[TColStdHSequenceOfHAsciiString] {.
-    noSideEffect, importcpp: "StartSection", header: "IGESData_IGESModel.hxx".}
-proc nbStartLines*(this: IGESDataIGESModel): StandardInteger {.noSideEffect,
-    importcpp: "NbStartLines", header: "IGESData_IGESModel.hxx".}
-proc startLine*(this: IGESDataIGESModel; num: StandardInteger): StandardCString {.
-    noSideEffect, importcpp: "StartLine", header: "IGESData_IGESModel.hxx".}
-proc clearStartSection*(this: var IGESDataIGESModel) {.
-    importcpp: "ClearStartSection", header: "IGESData_IGESModel.hxx".}
-proc setStartSection*(this: var IGESDataIGESModel;
-                     list: Handle[TColStdHSequenceOfHAsciiString];
-                     copy: StandardBoolean = standardTrue) {.
-    importcpp: "SetStartSection", header: "IGESData_IGESModel.hxx".}
-proc addStartLine*(this: var IGESDataIGESModel; line: StandardCString;
-                  atnum: StandardInteger = 0) {.importcpp: "AddStartLine",
-    header: "IGESData_IGESModel.hxx".}
-proc globalSection*(this: IGESDataIGESModel): IGESDataGlobalSection {.noSideEffect,
-    importcpp: "GlobalSection", header: "IGESData_IGESModel.hxx".}
-proc setGlobalSection*(this: var IGESDataIGESModel; header: IGESDataGlobalSection) {.
-    importcpp: "SetGlobalSection", header: "IGESData_IGESModel.hxx".}
-proc applyStatic*(this: var IGESDataIGESModel; param: StandardCString = ""): StandardBoolean {.
-    importcpp: "ApplyStatic", header: "IGESData_IGESModel.hxx".}
-proc entity*(this: IGESDataIGESModel; num: StandardInteger): Handle[
-    IGESDataIGESEntity] {.noSideEffect, importcpp: "Entity",
-                         header: "IGESData_IGESModel.hxx".}
-proc dNum*(this: IGESDataIGESModel; ent: Handle[IGESDataIGESEntity]): StandardInteger {.
-    noSideEffect, importcpp: "DNum", header: "IGESData_IGESModel.hxx".}
-proc getFromAnother*(this: var IGESDataIGESModel;
-                    other: Handle[InterfaceInterfaceModel]) {.
-    importcpp: "GetFromAnother", header: "IGESData_IGESModel.hxx".}
-proc newEmptyModel*(this: IGESDataIGESModel): Handle[InterfaceInterfaceModel] {.
-    noSideEffect, importcpp: "NewEmptyModel", header: "IGESData_IGESModel.hxx".}
-proc verifyCheck*(this: IGESDataIGESModel; ach: var Handle[InterfaceCheck]) {.
-    noSideEffect, importcpp: "VerifyCheck", header: "IGESData_IGESModel.hxx".}
-proc setLineWeights*(this: var IGESDataIGESModel; defw: StandardReal) {.
-    importcpp: "SetLineWeights", header: "IGESData_IGESModel.hxx".}
-proc clearLabels*(this: var IGESDataIGESModel) {.importcpp: "ClearLabels",
-    header: "IGESData_IGESModel.hxx".}
-proc printLabel*(this: IGESDataIGESModel; ent: Handle[StandardTransient];
-                s: var StandardOStream) {.noSideEffect, importcpp: "PrintLabel",
-                                       header: "IGESData_IGESModel.hxx".}
-proc printToLog*(this: IGESDataIGESModel; ent: Handle[StandardTransient];
-                s: var StandardOStream) {.noSideEffect, importcpp: "PrintToLog",
-                                       header: "IGESData_IGESModel.hxx".}
-proc printInfo*(this: IGESDataIGESModel; ent: Handle[StandardTransient];
-               s: var StandardOStream) {.noSideEffect, importcpp: "PrintInfo",
+proc StartSection*(this: IGESData_IGESModel): handle[
+    TColStd_HSequenceOfHAsciiString] {.noSideEffect, importcpp: "StartSection",
                                       header: "IGESData_IGESModel.hxx".}
-proc stringLabel*(this: IGESDataIGESModel; ent: Handle[StandardTransient]): Handle[
-    TCollectionHAsciiString] {.noSideEffect, importcpp: "StringLabel",
-                              header: "IGESData_IGESModel.hxx".}
+proc NbStartLines*(this: IGESData_IGESModel): Standard_Integer {.noSideEffect,
+    importcpp: "NbStartLines", header: "IGESData_IGESModel.hxx".}
+proc StartLine*(this: IGESData_IGESModel; num: Standard_Integer): Standard_CString {.
+    noSideEffect, importcpp: "StartLine", header: "IGESData_IGESModel.hxx".}
+proc ClearStartSection*(this: var IGESData_IGESModel) {.
+    importcpp: "ClearStartSection", header: "IGESData_IGESModel.hxx".}
+proc SetStartSection*(this: var IGESData_IGESModel;
+                     list: handle[TColStd_HSequenceOfHAsciiString];
+                     copy: Standard_Boolean = Standard_True) {.
+    importcpp: "SetStartSection", header: "IGESData_IGESModel.hxx".}
+proc AddStartLine*(this: var IGESData_IGESModel; line: Standard_CString;
+                  atnum: Standard_Integer = 0) {.importcpp: "AddStartLine",
+    header: "IGESData_IGESModel.hxx".}
+proc GlobalSection*(this: IGESData_IGESModel): IGESData_GlobalSection {.
+    noSideEffect, importcpp: "GlobalSection", header: "IGESData_IGESModel.hxx".}
+proc SetGlobalSection*(this: var IGESData_IGESModel; header: IGESData_GlobalSection) {.
+    importcpp: "SetGlobalSection", header: "IGESData_IGESModel.hxx".}
+proc ApplyStatic*(this: var IGESData_IGESModel; param: Standard_CString = ""): Standard_Boolean {.
+    importcpp: "ApplyStatic", header: "IGESData_IGESModel.hxx".}
+proc Entity*(this: IGESData_IGESModel; num: Standard_Integer): handle[
+    IGESData_IGESEntity] {.noSideEffect, importcpp: "Entity",
+                          header: "IGESData_IGESModel.hxx".}
+proc DNum*(this: IGESData_IGESModel; ent: handle[IGESData_IGESEntity]): Standard_Integer {.
+    noSideEffect, importcpp: "DNum", header: "IGESData_IGESModel.hxx".}
+proc GetFromAnother*(this: var IGESData_IGESModel;
+                    other: handle[Interface_InterfaceModel]) {.
+    importcpp: "GetFromAnother", header: "IGESData_IGESModel.hxx".}
+proc NewEmptyModel*(this: IGESData_IGESModel): handle[Interface_InterfaceModel] {.
+    noSideEffect, importcpp: "NewEmptyModel", header: "IGESData_IGESModel.hxx".}
+proc VerifyCheck*(this: IGESData_IGESModel; ach: var handle[Interface_Check]) {.
+    noSideEffect, importcpp: "VerifyCheck", header: "IGESData_IGESModel.hxx".}
+proc SetLineWeights*(this: var IGESData_IGESModel; defw: Standard_Real) {.
+    importcpp: "SetLineWeights", header: "IGESData_IGESModel.hxx".}
+proc ClearLabels*(this: var IGESData_IGESModel) {.importcpp: "ClearLabels",
+    header: "IGESData_IGESModel.hxx".}
+proc PrintLabel*(this: IGESData_IGESModel; ent: handle[Standard_Transient];
+                S: var Standard_OStream) {.noSideEffect, importcpp: "PrintLabel",
+                                        header: "IGESData_IGESModel.hxx".}
+proc PrintToLog*(this: IGESData_IGESModel; ent: handle[Standard_Transient];
+                S: var Standard_OStream) {.noSideEffect, importcpp: "PrintToLog",
+                                        header: "IGESData_IGESModel.hxx".}
+proc PrintInfo*(this: IGESData_IGESModel; ent: handle[Standard_Transient];
+               S: var Standard_OStream) {.noSideEffect, importcpp: "PrintInfo",
+                                       header: "IGESData_IGESModel.hxx".}
+proc StringLabel*(this: IGESData_IGESModel; ent: handle[Standard_Transient]): handle[
+    TCollection_HAsciiString] {.noSideEffect, importcpp: "StringLabel",
+                               header: "IGESData_IGESModel.hxx".}
 type
-  IGESDataIGESModelbaseType* = InterfaceInterfaceModel
+  IGESData_IGESModelbase_type* = Interface_InterfaceModel
 
-proc getTypeName*(): cstring {.importcpp: "IGESData_IGESModel::get_type_name(@)",
-                            header: "IGESData_IGESModel.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "IGESData_IGESModel::get_type_name(@)",
+                              header: "IGESData_IGESModel.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "IGESData_IGESModel::get_type_descriptor(@)",
     header: "IGESData_IGESModel.hxx".}
-proc dynamicType*(this: IGESDataIGESModel): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: IGESData_IGESModel): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "IGESData_IGESModel.hxx".}
-

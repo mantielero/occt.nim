@@ -14,35 +14,38 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../MoniTool/MoniTool_SignText,
+  ../Standard/Standard_CString
+
 discard "forward decl of TCollection_AsciiString"
 discard "forward decl of Standard_Transient"
 discard "forward decl of Interface_SignLabel"
 discard "forward decl of Interface_SignLabel"
 type
-  HandleInterfaceSignLabel* = Handle[InterfaceSignLabel]
+  Handle_Interface_SignLabel* = handle[Interface_SignLabel]
 
 ## ! Signature to give the Label from the Model
 
 type
-  InterfaceSignLabel* {.importcpp: "Interface_SignLabel",
-                       header: "Interface_SignLabel.hxx", bycopy.} = object of MoniToolSignText
+  Interface_SignLabel* {.importcpp: "Interface_SignLabel",
+                        header: "Interface_SignLabel.hxx", bycopy.} = object of MoniTool_SignText
 
 
-proc constructInterfaceSignLabel*(): InterfaceSignLabel {.constructor,
+proc constructInterface_SignLabel*(): Interface_SignLabel {.constructor,
     importcpp: "Interface_SignLabel(@)", header: "Interface_SignLabel.hxx".}
-proc name*(this: InterfaceSignLabel): StandardCString {.noSideEffect,
+proc Name*(this: Interface_SignLabel): Standard_CString {.noSideEffect,
     importcpp: "Name", header: "Interface_SignLabel.hxx".}
-proc text*(this: InterfaceSignLabel; ent: Handle[StandardTransient];
-          context: Handle[StandardTransient]): TCollectionAsciiString {.
+proc Text*(this: Interface_SignLabel; ent: handle[Standard_Transient];
+          context: handle[Standard_Transient]): TCollection_AsciiString {.
     noSideEffect, importcpp: "Text", header: "Interface_SignLabel.hxx".}
 type
-  InterfaceSignLabelbaseType* = MoniToolSignText
+  Interface_SignLabelbase_type* = MoniTool_SignText
 
-proc getTypeName*(): cstring {.importcpp: "Interface_SignLabel::get_type_name(@)",
-                            header: "Interface_SignLabel.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "Interface_SignLabel::get_type_name(@)",
+                              header: "Interface_SignLabel.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "Interface_SignLabel::get_type_descriptor(@)",
     header: "Interface_SignLabel.hxx".}
-proc dynamicType*(this: InterfaceSignLabel): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: Interface_SignLabel): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "Interface_SignLabel.hxx".}
-

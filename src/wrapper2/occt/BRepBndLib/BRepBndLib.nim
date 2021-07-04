@@ -14,6 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Boolean
+
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of Bnd_Box"
 discard "forward decl of Bnd_OBB"
@@ -120,18 +124,17 @@ type
                                                                              ## object.
 
 
-proc add*(s: TopoDS_Shape; b: var BndBox;
-         useTriangulation: StandardBoolean = standardTrue) {.
+proc Add*(S: TopoDS_Shape; B: var Bnd_Box;
+         useTriangulation: Standard_Boolean = Standard_True) {.
     importcpp: "BRepBndLib::Add(@)", header: "BRepBndLib.hxx".}
-proc addClose*(s: TopoDS_Shape; b: var BndBox) {.importcpp: "BRepBndLib::AddClose(@)",
-    header: "BRepBndLib.hxx".}
-proc addOptimal*(s: TopoDS_Shape; b: var BndBox;
-                useTriangulation: StandardBoolean = standardTrue;
-                useShapeTolerance: StandardBoolean = standardFalse) {.
+proc AddClose*(S: TopoDS_Shape; B: var Bnd_Box) {.
+    importcpp: "BRepBndLib::AddClose(@)", header: "BRepBndLib.hxx".}
+proc AddOptimal*(S: TopoDS_Shape; B: var Bnd_Box;
+                useTriangulation: Standard_Boolean = Standard_True;
+                useShapeTolerance: Standard_Boolean = Standard_False) {.
     importcpp: "BRepBndLib::AddOptimal(@)", header: "BRepBndLib.hxx".}
-proc addOBB*(theS: TopoDS_Shape; theOBB: var BndOBB;
-            theIsTriangulationUsed: StandardBoolean = standardTrue;
-            theIsOptimal: StandardBoolean = standardFalse;
-            theIsShapeToleranceUsed: StandardBoolean = standardTrue) {.
+proc AddOBB*(theS: TopoDS_Shape; theOBB: var Bnd_OBB;
+            theIsTriangulationUsed: Standard_Boolean = Standard_True;
+            theIsOptimal: Standard_Boolean = Standard_False;
+            theIsShapeToleranceUsed: Standard_Boolean = Standard_True) {.
     importcpp: "BRepBndLib::AddOBB(@)", header: "BRepBndLib.hxx".}
-

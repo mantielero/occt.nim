@@ -14,31 +14,37 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../BRepFill/BRepFill_Pipe,
+  ../TopTools/TopTools_DataMapOfShapeListOfShape, ../TopoDS/TopoDS_Shape,
+  ../TopTools/TopTools_ListOfShape, ../TColGeom/TColGeom_SequenceOfCurve,
+  ../TColgp/TColgp_SequenceOfPnt
+
 discard "forward decl of Standard_NoSuchObject"
 discard "forward decl of Standard_DomainError"
 discard "forward decl of TopoDS_Wire"
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of Geom_Curve"
 type
-  LocOpePipe* {.importcpp: "LocOpe_Pipe", header: "LocOpe_Pipe.hxx", bycopy.} = object
+  LocOpe_Pipe* {.importcpp: "LocOpe_Pipe", header: "LocOpe_Pipe.hxx", bycopy.} = object
 
 
-proc constructLocOpePipe*(spine: TopoDS_Wire; profile: TopoDS_Shape): LocOpePipe {.
+proc constructLocOpe_Pipe*(Spine: TopoDS_Wire; Profile: TopoDS_Shape): LocOpe_Pipe {.
     constructor, importcpp: "LocOpe_Pipe(@)", header: "LocOpe_Pipe.hxx".}
-proc spine*(this: LocOpePipe): TopoDS_Shape {.noSideEffect, importcpp: "Spine",
+proc Spine*(this: LocOpe_Pipe): TopoDS_Shape {.noSideEffect, importcpp: "Spine",
     header: "LocOpe_Pipe.hxx".}
-proc profile*(this: LocOpePipe): TopoDS_Shape {.noSideEffect, importcpp: "Profile",
+proc Profile*(this: LocOpe_Pipe): TopoDS_Shape {.noSideEffect, importcpp: "Profile",
     header: "LocOpe_Pipe.hxx".}
-proc firstShape*(this: LocOpePipe): TopoDS_Shape {.noSideEffect,
+proc FirstShape*(this: LocOpe_Pipe): TopoDS_Shape {.noSideEffect,
     importcpp: "FirstShape", header: "LocOpe_Pipe.hxx".}
-proc lastShape*(this: LocOpePipe): TopoDS_Shape {.noSideEffect,
+proc LastShape*(this: LocOpe_Pipe): TopoDS_Shape {.noSideEffect,
     importcpp: "LastShape", header: "LocOpe_Pipe.hxx".}
-proc shape*(this: LocOpePipe): TopoDS_Shape {.noSideEffect, importcpp: "Shape",
+proc Shape*(this: LocOpe_Pipe): TopoDS_Shape {.noSideEffect, importcpp: "Shape",
     header: "LocOpe_Pipe.hxx".}
-proc shapes*(this: var LocOpePipe; s: TopoDS_Shape): TopToolsListOfShape {.
+proc Shapes*(this: var LocOpe_Pipe; S: TopoDS_Shape): TopTools_ListOfShape {.
     importcpp: "Shapes", header: "LocOpe_Pipe.hxx".}
-proc curves*(this: var LocOpePipe; spt: TColgpSequenceOfPnt): TColGeomSequenceOfCurve {.
+proc Curves*(this: var LocOpe_Pipe; Spt: TColgp_SequenceOfPnt): TColGeom_SequenceOfCurve {.
     importcpp: "Curves", header: "LocOpe_Pipe.hxx".}
-proc barycCurve*(this: var LocOpePipe): Handle[GeomCurve] {.importcpp: "BarycCurve",
-    header: "LocOpe_Pipe.hxx".}
-
+proc BarycCurve*(this: var LocOpe_Pipe): handle[Geom_Curve] {.
+    importcpp: "BarycCurve", header: "LocOpe_Pipe.hxx".}

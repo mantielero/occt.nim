@@ -13,44 +13,47 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  OpenGl_Resource, ../Graphic3d/Graphic3d_HatchStyle,
+  ../NCollection/NCollection_DataMap
+
 type
-  OpenGlMapOfHatchStylesAndIds* = NCollectionDataMap[Handle[Graphic3dHatchStyle],
-      cuint]
+  OpenGl_MapOfHatchStylesAndIds* = NCollection_DataMap[
+      handle[Graphic3d_HatchStyle], cuint]
 
 discard "forward decl of OpenGl_Context"
 discard "forward decl of OpenGl_LineAttributes"
 type
-  HandleOpenGlLineAttributes* = Handle[OpenGlLineAttributes]
+  Handle_OpenGl_LineAttributes* = handle[OpenGl_LineAttributes]
 
 ## ! Utility class to manage OpenGL resources of polygon hatching styles.
 ## ! @note the implementation is not supported by Core Profile and by ES version.
 
 type
-  OpenGlLineAttributes* {.importcpp: "OpenGl_LineAttributes",
-                         header: "OpenGl_LineAttributes.hxx", bycopy.} = object of OpenGlResource ##
-                                                                                           ## !
-                                                                                           ## Default
-                                                                                           ## constructor.
+  OpenGl_LineAttributes* {.importcpp: "OpenGl_LineAttributes",
+                          header: "OpenGl_LineAttributes.hxx", bycopy.} = object of OpenGl_Resource ##
+                                                                                             ## !
+                                                                                             ## Default
+                                                                                             ## constructor.
     ## !< Hatch patterns
 
-  OpenGlLineAttributesbaseType* = OpenGlResource
+  OpenGl_LineAttributesbase_type* = OpenGl_Resource
 
-proc getTypeName*(): cstring {.importcpp: "OpenGl_LineAttributes::get_type_name(@)",
-                            header: "OpenGl_LineAttributes.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "OpenGl_LineAttributes::get_type_name(@)",
+                              header: "OpenGl_LineAttributes.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "OpenGl_LineAttributes::get_type_descriptor(@)",
     header: "OpenGl_LineAttributes.hxx".}
-proc dynamicType*(this: OpenGlLineAttributes): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "OpenGl_LineAttributes.hxx".}
-proc constructOpenGlLineAttributes*(): OpenGlLineAttributes {.constructor,
+proc DynamicType*(this: OpenGl_LineAttributes): handle[Standard_Type] {.
+    noSideEffect, importcpp: "DynamicType", header: "OpenGl_LineAttributes.hxx".}
+proc constructOpenGl_LineAttributes*(): OpenGl_LineAttributes {.constructor,
     importcpp: "OpenGl_LineAttributes(@)", header: "OpenGl_LineAttributes.hxx".}
-proc destroyOpenGlLineAttributes*(this: var OpenGlLineAttributes) {.
+proc destroyOpenGl_LineAttributes*(this: var OpenGl_LineAttributes) {.
     importcpp: "#.~OpenGl_LineAttributes()", header: "OpenGl_LineAttributes.hxx".}
-proc release*(this: var OpenGlLineAttributes; theGlCtx: ptr OpenGlContext) {.
+proc Release*(this: var OpenGl_LineAttributes; theGlCtx: ptr OpenGl_Context) {.
     importcpp: "Release", header: "OpenGl_LineAttributes.hxx".}
-proc estimatedDataSize*(this: OpenGlLineAttributes): StandardSize {.noSideEffect,
+proc EstimatedDataSize*(this: OpenGl_LineAttributes): Standard_Size {.noSideEffect,
     importcpp: "EstimatedDataSize", header: "OpenGl_LineAttributes.hxx".}
-proc setTypeOfHatch*(this: var OpenGlLineAttributes; theGlCtx: ptr OpenGlContext;
-                    theStyle: Handle[Graphic3dHatchStyle]): bool {.
+proc SetTypeOfHatch*(this: var OpenGl_LineAttributes; theGlCtx: ptr OpenGl_Context;
+                    theStyle: handle[Graphic3d_HatchStyle]): bool {.
     importcpp: "SetTypeOfHatch", header: "OpenGl_LineAttributes.hxx".}
-

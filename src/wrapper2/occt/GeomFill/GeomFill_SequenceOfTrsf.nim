@@ -14,7 +14,8 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../gp/gp_Trsf, ../NCollection/NCollection_Sequence
+
 type
-  GeomFillSequenceOfTrsf* = NCollectionSequence[GpTrsf]
-
-
+  GeomFill_SequenceOfTrsf* = NCollection_Sequence[gp_Trsf]

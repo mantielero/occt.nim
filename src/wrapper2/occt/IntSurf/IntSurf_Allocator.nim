@@ -11,7 +11,8 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../NCollection/NCollection_BaseAllocator
+
 type
-  IntSurfAllocator* = Handle[NCollectionBaseAllocator]
-
-
+  IntSurf_Allocator* = handle[NCollection_BaseAllocator]

@@ -13,45 +13,46 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  Prs3d_Presentation
+
 ## ! Defines a "shadow" of existing presentation object with custom aspects.
 
 type
-  Prs3dPresentationShadow* {.importcpp: "Prs3d_PresentationShadow",
-                            header: "Prs3d_PresentationShadow.hxx", bycopy.} = object of Graphic3dStructure ##
-                                                                                                     ## !
-                                                                                                     ## Constructs
-                                                                                                     ## a
-                                                                                                     ## shadow
-                                                                                                     ## of
-                                                                                                     ## existing
-                                                                                                     ## presentation
-                                                                                                     ## object.
+  Prs3d_PresentationShadow* {.importcpp: "Prs3d_PresentationShadow",
+                             header: "Prs3d_PresentationShadow.hxx", bycopy.} = object of Graphic3d_Structure ##
+                                                                                                       ## !
+                                                                                                       ## Constructs
+                                                                                                       ## a
+                                                                                                       ## shadow
+                                                                                                       ## of
+                                                                                                       ## existing
+                                                                                                       ## presentation
+                                                                                                       ## object.
 
-  Prs3dPresentationShadowbaseType* = Graphic3dStructure
+  Prs3d_PresentationShadowbase_type* = Graphic3d_Structure
 
-proc getTypeName*(): cstring {.importcpp: "Prs3d_PresentationShadow::get_type_name(@)",
-                            header: "Prs3d_PresentationShadow.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "Prs3d_PresentationShadow::get_type_name(@)",
+                              header: "Prs3d_PresentationShadow.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "Prs3d_PresentationShadow::get_type_descriptor(@)",
     header: "Prs3d_PresentationShadow.hxx".}
-proc dynamicType*(this: Prs3dPresentationShadow): Handle[StandardType] {.
+proc DynamicType*(this: Prs3d_PresentationShadow): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType", header: "Prs3d_PresentationShadow.hxx".}
-proc constructPrs3dPresentationShadow*(theViewer: Handle[Graphic3dStructureManager];
-                                      thePrs: Handle[Graphic3dStructure]): Prs3dPresentationShadow {.
+proc constructPrs3d_PresentationShadow*(theViewer: handle[
+    Graphic3d_StructureManager]; thePrs: handle[Graphic3d_Structure]): Prs3d_PresentationShadow {.
     constructor, importcpp: "Prs3d_PresentationShadow(@)",
     header: "Prs3d_PresentationShadow.hxx".}
-proc parentId*(this: Prs3dPresentationShadow): StandardInteger {.noSideEffect,
+proc ParentId*(this: Prs3d_PresentationShadow): Standard_Integer {.noSideEffect,
     importcpp: "ParentId", header: "Prs3d_PresentationShadow.hxx".}
-proc parentAffinity*(this: Prs3dPresentationShadow): Handle[Graphic3dViewAffinity] {.
+proc ParentAffinity*(this: Prs3d_PresentationShadow): handle[Graphic3d_ViewAffinity] {.
     noSideEffect, importcpp: "ParentAffinity",
     header: "Prs3d_PresentationShadow.hxx".}
-proc calculateBoundBox*(this: var Prs3dPresentationShadow) {.
+proc CalculateBoundBox*(this: var Prs3d_PresentationShadow) {.
     importcpp: "CalculateBoundBox", header: "Prs3d_PresentationShadow.hxx".}
-proc dumpJson*(this: Prs3dPresentationShadow; theOStream: var StandardOStream;
-              theDepth: StandardInteger = -1) {.noSideEffect, importcpp: "DumpJson",
+proc DumpJson*(this: Prs3d_PresentationShadow; theOStream: var Standard_OStream;
+              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
     header: "Prs3d_PresentationShadow.hxx".}
 discard "forward decl of Prs3d_PresentationShadow"
 type
-  HandlePrs3dPresentationShadow* = Handle[Prs3dPresentationShadow]
-
-
+  Handle_Prs3d_PresentationShadow* = handle[Prs3d_PresentationShadow]

@@ -14,46 +14,54 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer,
+  ../TColStd/TColStd_HArray1OfReal, ../TColStd/TColStd_HArray2OfReal,
+  ../Standard/Standard_Address, ../Standard/Standard_Boolean,
+  ../GeomAbs/GeomAbs_Shape, AdvApprox_EvaluatorFunction,
+  ../TColStd/TColStd_Array1OfInteger, ../TColStd/TColStd_Array1OfReal,
+  ../Standard/Standard_Real, ../Standard/Standard_OStream
+
 discard "forward decl of PLib_JacobiPolynomial"
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of Standard_ConstructionError"
 type
-  AdvApproxSimpleApprox* {.importcpp: "AdvApprox_SimpleApprox",
-                          header: "AdvApprox_SimpleApprox.hxx", bycopy.} = object
+  AdvApprox_SimpleApprox* {.importcpp: "AdvApprox_SimpleApprox",
+                           header: "AdvApprox_SimpleApprox.hxx", bycopy.} = object
 
 
-proc constructAdvApproxSimpleApprox*(totalDimension: StandardInteger;
-                                    totalNumSS: StandardInteger;
-                                    continuity: GeomAbsShape;
-                                    workDegree: StandardInteger;
-                                    nbGaussPoints: StandardInteger;
-                                    jacobiBase: Handle[PLibJacobiPolynomial];
-                                    `func`: AdvApproxEvaluatorFunction): AdvApproxSimpleApprox {.
+proc constructAdvApprox_SimpleApprox*(TotalDimension: Standard_Integer;
+                                     TotalNumSS: Standard_Integer;
+                                     Continuity: GeomAbs_Shape;
+                                     WorkDegree: Standard_Integer;
+                                     NbGaussPoints: Standard_Integer;
+                                     JacobiBase: handle[PLib_JacobiPolynomial];
+                                     Func: AdvApprox_EvaluatorFunction): AdvApprox_SimpleApprox {.
     constructor, importcpp: "AdvApprox_SimpleApprox(@)",
     header: "AdvApprox_SimpleApprox.hxx".}
-proc perform*(this: var AdvApproxSimpleApprox;
-             localDimension: TColStdArray1OfInteger;
-             localTolerancesArray: TColStdArray1OfReal; first: StandardReal;
-             last: StandardReal; maxDegree: StandardInteger) {.importcpp: "Perform",
-    header: "AdvApprox_SimpleApprox.hxx".}
-proc isDone*(this: AdvApproxSimpleApprox): StandardBoolean {.noSideEffect,
+proc Perform*(this: var AdvApprox_SimpleApprox;
+             LocalDimension: TColStd_Array1OfInteger;
+             LocalTolerancesArray: TColStd_Array1OfReal; First: Standard_Real;
+             Last: Standard_Real; MaxDegree: Standard_Integer) {.
+    importcpp: "Perform", header: "AdvApprox_SimpleApprox.hxx".}
+proc IsDone*(this: AdvApprox_SimpleApprox): Standard_Boolean {.noSideEffect,
     importcpp: "IsDone", header: "AdvApprox_SimpleApprox.hxx".}
-proc degree*(this: AdvApproxSimpleApprox): StandardInteger {.noSideEffect,
+proc Degree*(this: AdvApprox_SimpleApprox): Standard_Integer {.noSideEffect,
     importcpp: "Degree", header: "AdvApprox_SimpleApprox.hxx".}
-proc coefficients*(this: AdvApproxSimpleApprox): Handle[TColStdHArray1OfReal] {.
+proc Coefficients*(this: AdvApprox_SimpleApprox): handle[TColStd_HArray1OfReal] {.
     noSideEffect, importcpp: "Coefficients", header: "AdvApprox_SimpleApprox.hxx".}
-proc firstConstr*(this: AdvApproxSimpleApprox): Handle[TColStdHArray2OfReal] {.
+proc FirstConstr*(this: AdvApprox_SimpleApprox): handle[TColStd_HArray2OfReal] {.
     noSideEffect, importcpp: "FirstConstr", header: "AdvApprox_SimpleApprox.hxx".}
-proc lastConstr*(this: AdvApproxSimpleApprox): Handle[TColStdHArray2OfReal] {.
+proc LastConstr*(this: AdvApprox_SimpleApprox): handle[TColStd_HArray2OfReal] {.
     noSideEffect, importcpp: "LastConstr", header: "AdvApprox_SimpleApprox.hxx".}
-proc somTab*(this: AdvApproxSimpleApprox): Handle[TColStdHArray1OfReal] {.
+proc SomTab*(this: AdvApprox_SimpleApprox): handle[TColStd_HArray1OfReal] {.
     noSideEffect, importcpp: "SomTab", header: "AdvApprox_SimpleApprox.hxx".}
-proc difTab*(this: AdvApproxSimpleApprox): Handle[TColStdHArray1OfReal] {.
+proc DifTab*(this: AdvApprox_SimpleApprox): handle[TColStd_HArray1OfReal] {.
     noSideEffect, importcpp: "DifTab", header: "AdvApprox_SimpleApprox.hxx".}
-proc maxError*(this: AdvApproxSimpleApprox; index: StandardInteger): StandardReal {.
+proc MaxError*(this: AdvApprox_SimpleApprox; Index: Standard_Integer): Standard_Real {.
     noSideEffect, importcpp: "MaxError", header: "AdvApprox_SimpleApprox.hxx".}
-proc averageError*(this: AdvApproxSimpleApprox; index: StandardInteger): StandardReal {.
+proc AverageError*(this: AdvApprox_SimpleApprox; Index: Standard_Integer): Standard_Real {.
     noSideEffect, importcpp: "AverageError", header: "AdvApprox_SimpleApprox.hxx".}
-proc dump*(this: AdvApproxSimpleApprox; o: var StandardOStream) {.noSideEffect,
+proc Dump*(this: AdvApprox_SimpleApprox; o: var Standard_OStream) {.noSideEffect,
     importcpp: "Dump", header: "AdvApprox_SimpleApprox.hxx".}
-

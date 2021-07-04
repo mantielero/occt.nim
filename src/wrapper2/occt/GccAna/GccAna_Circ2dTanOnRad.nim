@@ -14,6 +14,14 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
+  ../Standard/Standard_Integer, ../TColgp/TColgp_Array1OfCirc2d,
+  ../GccEnt/GccEnt_Array1OfPosition, ../TColStd/TColStd_Array1OfInteger,
+  ../TColgp/TColgp_Array1OfPnt2d, ../TColStd/TColStd_Array1OfReal,
+  ../Standard/Standard_Real, ../GccEnt/GccEnt_Position
+
 discard "forward decl of Standard_NegativeValue"
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of StdFail_NotDone"
@@ -24,88 +32,97 @@ discard "forward decl of GccEnt_QualifiedLin"
 discard "forward decl of gp_Pnt2d"
 discard "forward decl of gp_Circ2d"
 type
-  GccAnaCirc2dTanOnRad* {.importcpp: "GccAna_Circ2dTanOnRad",
-                         header: "GccAna_Circ2dTanOnRad.hxx", bycopy.} = object ## ! This
-                                                                           ## methods
-                                                                           ## implements the
-                                                                           ## algorithms used to
-                                                                           ## create
-                                                                           ## ! 2d
-                                                                           ## Circles
-                                                                           ## tangent to a
-                                                                           ## circle and
-                                                                           ## centered on a 2d Line
-                                                                           ## ! with a given
-                                                                           ## radius.
-                                                                           ## !
-                                                                           ## Tolerance is used to find
-                                                                           ## solution in every limit
-                                                                           ## cases.
-                                                                           ## ! For
-                                                                           ## example
-                                                                           ## Tolerance is used in the case of
-                                                                           ## EnclosedCirc when
-                                                                           ## !
-                                                                           ## Radius-R1+dist is
-                                                                           ## greater
-                                                                           ## Tolerance (dist is the
-                                                                           ## distance
-                                                                           ## !
-                                                                           ## between the line and the
-                                                                           ## location of the circ, R1 is the
-                                                                           ## !
-                                                                           ## radius of the circ)
-                                                                           ## because there is no
-                                                                           ## solution.
-                                                                           ## !
-                                                                           ## raises
-                                                                           ## NegativeValue in case of
-                                                                           ## NegativeRadius.
+  GccAna_Circ2dTanOnRad* {.importcpp: "GccAna_Circ2dTanOnRad",
+                          header: "GccAna_Circ2dTanOnRad.hxx", bycopy.} = object ## ! This
+                                                                            ## methods
+                                                                            ## implements the
+                                                                            ## algorithms used to
+                                                                            ## create
+                                                                            ## ! 2d
+                                                                            ## Circles
+                                                                            ## tangent to a
+                                                                            ## circle and
+                                                                            ## centered on a 2d Line
+                                                                            ## ! with a
+                                                                            ## given
+                                                                            ## radius.
+                                                                            ## !
+                                                                            ## Tolerance is used to find
+                                                                            ## solution in
+                                                                            ## every
+                                                                            ## limit
+                                                                            ## cases.
+                                                                            ## ! For
+                                                                            ## example
+                                                                            ## Tolerance is used in the case of
+                                                                            ## EnclosedCirc when
+                                                                            ## !
+                                                                            ## Radius-R1+dist is
+                                                                            ## greater
+                                                                            ## Tolerance
+                                                                            ## (dist is the
+                                                                            ## distance
+                                                                            ## !
+                                                                            ## between the line and the
+                                                                            ## location of the
+                                                                            ## circ, R1 is the
+                                                                            ## !
+                                                                            ## radius of the
+                                                                            ## circ)
+                                                                            ## because
+                                                                            ## there is no
+                                                                            ## solution.
+                                                                            ## !
+                                                                            ## raises
+                                                                            ## NegativeValue in case of
+                                                                            ## NegativeRadius.
 
 
-proc constructGccAnaCirc2dTanOnRad*(qualified1: GccEntQualifiedCirc;
-                                   onLine: GpLin2d; radius: StandardReal;
-                                   tolerance: StandardReal): GccAnaCirc2dTanOnRad {.
+proc constructGccAna_Circ2dTanOnRad*(Qualified1: GccEnt_QualifiedCirc;
+                                    OnLine: gp_Lin2d; Radius: Standard_Real;
+                                    Tolerance: Standard_Real): GccAna_Circ2dTanOnRad {.
     constructor, importcpp: "GccAna_Circ2dTanOnRad(@)",
     header: "GccAna_Circ2dTanOnRad.hxx".}
-proc constructGccAnaCirc2dTanOnRad*(qualified1: GccEntQualifiedLin;
-                                   onLine: GpLin2d; radius: StandardReal;
-                                   tolerance: StandardReal): GccAnaCirc2dTanOnRad {.
+proc constructGccAna_Circ2dTanOnRad*(Qualified1: GccEnt_QualifiedLin;
+                                    OnLine: gp_Lin2d; Radius: Standard_Real;
+                                    Tolerance: Standard_Real): GccAna_Circ2dTanOnRad {.
     constructor, importcpp: "GccAna_Circ2dTanOnRad(@)",
     header: "GccAna_Circ2dTanOnRad.hxx".}
-proc constructGccAnaCirc2dTanOnRad*(point1: GpPnt2d; onLine: GpLin2d;
-                                   radius: StandardReal; tolerance: StandardReal): GccAnaCirc2dTanOnRad {.
+proc constructGccAna_Circ2dTanOnRad*(Point1: gp_Pnt2d; OnLine: gp_Lin2d;
+                                    Radius: Standard_Real;
+                                    Tolerance: Standard_Real): GccAna_Circ2dTanOnRad {.
     constructor, importcpp: "GccAna_Circ2dTanOnRad(@)",
     header: "GccAna_Circ2dTanOnRad.hxx".}
-proc constructGccAnaCirc2dTanOnRad*(qualified1: GccEntQualifiedCirc;
-                                   onCirc: GpCirc2d; radius: StandardReal;
-                                   tolerance: StandardReal): GccAnaCirc2dTanOnRad {.
+proc constructGccAna_Circ2dTanOnRad*(Qualified1: GccEnt_QualifiedCirc;
+                                    OnCirc: gp_Circ2d; Radius: Standard_Real;
+                                    Tolerance: Standard_Real): GccAna_Circ2dTanOnRad {.
     constructor, importcpp: "GccAna_Circ2dTanOnRad(@)",
     header: "GccAna_Circ2dTanOnRad.hxx".}
-proc constructGccAnaCirc2dTanOnRad*(qualified1: GccEntQualifiedLin;
-                                   onCirc: GpCirc2d; radius: StandardReal;
-                                   tolerance: StandardReal): GccAnaCirc2dTanOnRad {.
+proc constructGccAna_Circ2dTanOnRad*(Qualified1: GccEnt_QualifiedLin;
+                                    OnCirc: gp_Circ2d; Radius: Standard_Real;
+                                    Tolerance: Standard_Real): GccAna_Circ2dTanOnRad {.
     constructor, importcpp: "GccAna_Circ2dTanOnRad(@)",
     header: "GccAna_Circ2dTanOnRad.hxx".}
-proc constructGccAnaCirc2dTanOnRad*(point1: GpPnt2d; onCirc: GpCirc2d;
-                                   radius: StandardReal; tolerance: StandardReal): GccAnaCirc2dTanOnRad {.
+proc constructGccAna_Circ2dTanOnRad*(Point1: gp_Pnt2d; OnCirc: gp_Circ2d;
+                                    Radius: Standard_Real;
+                                    Tolerance: Standard_Real): GccAna_Circ2dTanOnRad {.
     constructor, importcpp: "GccAna_Circ2dTanOnRad(@)",
     header: "GccAna_Circ2dTanOnRad.hxx".}
-proc isDone*(this: GccAnaCirc2dTanOnRad): StandardBoolean {.noSideEffect,
+proc IsDone*(this: GccAna_Circ2dTanOnRad): Standard_Boolean {.noSideEffect,
     importcpp: "IsDone", header: "GccAna_Circ2dTanOnRad.hxx".}
-proc nbSolutions*(this: GccAnaCirc2dTanOnRad): StandardInteger {.noSideEffect,
+proc NbSolutions*(this: GccAna_Circ2dTanOnRad): Standard_Integer {.noSideEffect,
     importcpp: "NbSolutions", header: "GccAna_Circ2dTanOnRad.hxx".}
-proc thisSolution*(this: GccAnaCirc2dTanOnRad; index: StandardInteger): GpCirc2d {.
+proc ThisSolution*(this: GccAna_Circ2dTanOnRad; Index: Standard_Integer): gp_Circ2d {.
     noSideEffect, importcpp: "ThisSolution", header: "GccAna_Circ2dTanOnRad.hxx".}
-proc whichQualifier*(this: GccAnaCirc2dTanOnRad; index: StandardInteger;
-                    qualif1: var GccEntPosition) {.noSideEffect,
+proc WhichQualifier*(this: GccAna_Circ2dTanOnRad; Index: Standard_Integer;
+                    Qualif1: var GccEnt_Position) {.noSideEffect,
     importcpp: "WhichQualifier", header: "GccAna_Circ2dTanOnRad.hxx".}
-proc tangency1*(this: GccAnaCirc2dTanOnRad; index: StandardInteger;
-               parSol: var StandardReal; parArg: var StandardReal; pntSol: var GpPnt2d) {.
-    noSideEffect, importcpp: "Tangency1", header: "GccAna_Circ2dTanOnRad.hxx".}
-proc centerOn3*(this: GccAnaCirc2dTanOnRad; index: StandardInteger;
-               parArg: var StandardReal; pntSol: var GpPnt2d) {.noSideEffect,
+proc Tangency1*(this: GccAna_Circ2dTanOnRad; Index: Standard_Integer;
+               ParSol: var Standard_Real; ParArg: var Standard_Real;
+               PntSol: var gp_Pnt2d) {.noSideEffect, importcpp: "Tangency1",
+                                    header: "GccAna_Circ2dTanOnRad.hxx".}
+proc CenterOn3*(this: GccAna_Circ2dTanOnRad; Index: Standard_Integer;
+               ParArg: var Standard_Real; PntSol: var gp_Pnt2d) {.noSideEffect,
     importcpp: "CenterOn3", header: "GccAna_Circ2dTanOnRad.hxx".}
-proc isTheSame1*(this: GccAnaCirc2dTanOnRad; index: StandardInteger): StandardBoolean {.
+proc IsTheSame1*(this: GccAna_Circ2dTanOnRad; Index: Standard_Integer): Standard_Boolean {.
     noSideEffect, importcpp: "IsTheSame1", header: "GccAna_Circ2dTanOnRad.hxx".}
-

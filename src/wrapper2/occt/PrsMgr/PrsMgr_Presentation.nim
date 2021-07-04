@@ -14,6 +14,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Aspect/Aspect_TypeOfHighlightMethod, ../Prs3d/Prs3d_Presentation
+
 discard "forward decl of PrsMgr_PresentationManager"
 discard "forward decl of PrsMgr_PresentableObject"
 discard "forward decl of Quantity_Color"
@@ -23,44 +26,43 @@ discard "forward decl of Graphic3d_Structure"
 discard "forward decl of Graphic3d_DataStructureManager"
 discard "forward decl of PrsMgr_Presentation"
 type
-  HandlePrsMgrPresentation* = Handle[PrsMgrPresentation]
-  PrsMgrPresentation* {.importcpp: "PrsMgr_Presentation",
-                       header: "PrsMgr_Presentation.hxx", bycopy.} = object of Graphic3dStructure ##
-                                                                                           ## !
-                                                                                           ## Destructor
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## Main
-                                                                                           ## constructor.
+  Handle_PrsMgr_Presentation* = handle[PrsMgr_Presentation]
+  PrsMgr_Presentation* {.importcpp: "PrsMgr_Presentation",
+                        header: "PrsMgr_Presentation.hxx", bycopy.} = object of Graphic3d_Structure ##
+                                                                                             ## !
+                                                                                             ## Destructor
+                                                                                             ##
+                                                                                             ## !
+                                                                                             ## Main
+                                                                                             ## constructor.
 
-  PrsMgrPresentationbaseType* = Graphic3dStructure
+  PrsMgr_Presentationbase_type* = Graphic3d_Structure
 
-proc getTypeName*(): cstring {.importcpp: "PrsMgr_Presentation::get_type_name(@)",
-                            header: "PrsMgr_Presentation.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "PrsMgr_Presentation::get_type_name(@)",
+                              header: "PrsMgr_Presentation.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "PrsMgr_Presentation::get_type_descriptor(@)",
     header: "PrsMgr_Presentation.hxx".}
-proc dynamicType*(this: PrsMgrPresentation): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: PrsMgr_Presentation): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "PrsMgr_Presentation.hxx".}
-proc destroyPrsMgrPresentation*(this: var PrsMgrPresentation) {.
+proc destroyPrsMgr_Presentation*(this: var PrsMgr_Presentation) {.
     importcpp: "#.~PrsMgr_Presentation()", header: "PrsMgr_Presentation.hxx".}
 ## !!!Ignored construct:  Standard_DEPRECATED ( Dummy to simplify porting - returns self ) Prs3d_Presentation * Presentation ( ) { return this ; } ! returns the PresentationManager in which the presentation has been created. const opencascade :: handle < PrsMgr_PresentationManager > [end of template] & PresentationManager ( ) const { return myPresentationManager ; } void SetUpdateStatus ( const Standard_Boolean theUpdateStatus ) { myMustBeUpdated = theUpdateStatus ; } Standard_Boolean MustBeUpdated ( ) const { return myMustBeUpdated ; } ! Return display mode index. Standard_Integer Mode ( ) const { return myMode ; } ! Display structure. virtual void Display ( ) ;
 ## Error: identifier expected, but got: Dummy to simplify porting - returns self!!!
 
-proc erase*(this: var PrsMgrPresentation) {.importcpp: "Erase",
-                                        header: "PrsMgr_Presentation.hxx".}
-proc highlight*(this: var PrsMgrPresentation; theStyle: Handle[Prs3dDrawer]) {.
+proc Erase*(this: var PrsMgr_Presentation) {.importcpp: "Erase",
+    header: "PrsMgr_Presentation.hxx".}
+proc Highlight*(this: var PrsMgr_Presentation; theStyle: handle[Prs3d_Drawer]) {.
     importcpp: "Highlight", header: "PrsMgr_Presentation.hxx".}
-proc unhighlight*(this: var PrsMgrPresentation) {.importcpp: "Unhighlight",
+proc Unhighlight*(this: var PrsMgr_Presentation) {.importcpp: "Unhighlight",
     header: "PrsMgr_Presentation.hxx".}
-proc isDisplayed*(this: PrsMgrPresentation): StandardBoolean {.noSideEffect,
+proc IsDisplayed*(this: PrsMgr_Presentation): Standard_Boolean {.noSideEffect,
     importcpp: "IsDisplayed", header: "PrsMgr_Presentation.hxx".}
-proc clear*(this: var PrsMgrPresentation;
-           theWithDestruction: StandardBoolean = standardTrue) {.importcpp: "Clear",
+proc Clear*(this: var PrsMgr_Presentation;
+           theWithDestruction: Standard_Boolean = Standard_True) {.
+    importcpp: "Clear", header: "PrsMgr_Presentation.hxx".}
+proc Compute*(this: var PrsMgr_Presentation) {.importcpp: "Compute",
     header: "PrsMgr_Presentation.hxx".}
-proc compute*(this: var PrsMgrPresentation) {.importcpp: "Compute",
+proc DumpJson*(this: PrsMgr_Presentation; theOStream: var Standard_OStream;
+              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
     header: "PrsMgr_Presentation.hxx".}
-proc dumpJson*(this: PrsMgrPresentation; theOStream: var StandardOStream;
-              theDepth: StandardInteger = -1) {.noSideEffect, importcpp: "DumpJson",
-    header: "PrsMgr_Presentation.hxx".}
-

@@ -14,6 +14,16 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../Precision/Precision,
+  ../Standard/Standard_Boolean, ../GeomAbs/GeomAbs_BSplKnotDistribution,
+  ../GeomAbs/GeomAbs_Shape, ../Standard/Standard_Integer,
+  ../TColgp/TColgp_HArray2OfPnt, ../TColStd/TColStd_HArray2OfReal,
+  ../TColStd/TColStd_HArray1OfReal, ../TColStd/TColStd_HArray1OfInteger,
+  ../Standard/Standard_Real, Geom_BoundedSurface, ../TColgp/TColgp_Array2OfPnt,
+  ../TColStd/TColStd_Array1OfReal, ../TColStd/TColStd_Array1OfInteger,
+  ../TColStd/TColStd_Array2OfReal, ../TColgp/TColgp_Array1OfPnt
+
 discard "forward decl of Standard_ConstructionError"
 discard "forward decl of Standard_DimensionError"
 discard "forward decl of Standard_DomainError"
@@ -29,7 +39,7 @@ discard "forward decl of Geom_Geometry"
 discard "forward decl of Geom_BSplineSurface"
 discard "forward decl of Geom_BSplineSurface"
 type
-  HandleGeomBSplineSurface* = Handle[GeomBSplineSurface]
+  Handle_Geom_BSplineSurface* = handle[Geom_BSplineSurface]
 
 ## ! Describes a BSpline surface.
 ## ! In each parametric direction, a BSpline surface can be:
@@ -144,561 +154,569 @@ type
 ## ! a practical guide Gerald Farin
 
 type
-  GeomBSplineSurface* {.importcpp: "Geom_BSplineSurface",
-                       header: "Geom_BSplineSurface.hxx", bycopy.} = object of GeomBoundedSurface ##
-                                                                                           ## !
-                                                                                           ## Creates
-                                                                                           ## a
-                                                                                           ## non-rational
-                                                                                           ## b-spline
-                                                                                           ## surface
-                                                                                           ## (weights
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## default
-                                                                                           ## value
-                                                                                           ## is
-                                                                                           ## 1.).
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## The
-                                                                                           ## following
-                                                                                           ## conditions
-                                                                                           ## must
-                                                                                           ## be
-                                                                                           ## verified.
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## 0
-                                                                                           ## <
-                                                                                           ## UDegree
-                                                                                           ## <=
-                                                                                           ## MaxDegree.
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## UKnots.Length()
-                                                                                           ## ==
-                                                                                           ## UMults.Length()
-                                                                                           ## >=
-                                                                                           ## 2
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## UKnots(i)
-                                                                                           ## <
-                                                                                           ## UKnots(i+1)
-                                                                                           ## (Knots
-                                                                                           ## are
-                                                                                           ## increasing)
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## 1
-                                                                                           ## <=
-                                                                                           ## UMults(i)
-                                                                                           ## <=
-                                                                                           ## UDegree
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## On
-                                                                                           ## a
-                                                                                           ## non
-                                                                                           ## uperiodic
-                                                                                           ## surface
-                                                                                           ## the
-                                                                                           ## first
-                                                                                           ## and
-                                                                                           ## last
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## umultiplicities
-                                                                                           ## may
-                                                                                           ## be
-                                                                                           ## UDegree+1
-                                                                                           ## (this
-                                                                                           ## is
-                                                                                           ## even
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## recommanded
-                                                                                           ## if
-                                                                                           ## you
-                                                                                           ## want
-                                                                                           ## the
-                                                                                           ## curve
-                                                                                           ## to
-                                                                                           ## start
-                                                                                           ## and
-                                                                                           ## finish
-                                                                                           ## on
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## the
-                                                                                           ## first
-                                                                                           ## and
-                                                                                           ## last
-                                                                                           ## pole).
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## On
-                                                                                           ## a
-                                                                                           ## uperiodic
-                                                                                           ## surface
-                                                                                           ## the
-                                                                                           ## first
-                                                                                           ## and
-                                                                                           ## the
-                                                                                           ## last
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## umultiplicities
-                                                                                           ## must
-                                                                                           ## be
-                                                                                           ## the
-                                                                                           ## same.
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## on
-                                                                                           ## non-uperiodic
-                                                                                           ## surfaces
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## Poles.ColLength()
-                                                                                           ## ==
-                                                                                           ## Sum(UMults(i))
-                                                                                           ## -
-                                                                                           ## UDegree
-                                                                                           ## -
-                                                                                           ## 1
-                                                                                           ## >=
-                                                                                           ## 2
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## on
-                                                                                           ## uperiodic
-                                                                                           ## surfaces
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## Poles.ColLength()
-                                                                                           ## ==
-                                                                                           ## Sum(UMults(i))
-                                                                                           ## except
-                                                                                           ## the
-                                                                                           ## first
-                                                                                           ## or
-                                                                                           ## last
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## The
-                                                                                           ## previous
-                                                                                           ## conditions
-                                                                                           ## for
-                                                                                           ## U
-                                                                                           ## holds
-                                                                                           ## also
-                                                                                           ## for
-                                                                                           ## V,
-                                                                                           ## with
-                                                                                           ## the
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## RowLength
-                                                                                           ## of
-                                                                                           ## the
-                                                                                           ## poles.
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## Segments
-                                                                                           ## the
-                                                                                           ## surface
-                                                                                           ## between
-                                                                                           ## U1
-                                                                                           ## and
-                                                                                           ## U2
-                                                                                           ## in
-                                                                                           ## the
-                                                                                           ## U-Direction.
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## between
-                                                                                           ## V1
-                                                                                           ## and
-                                                                                           ## V2
-                                                                                           ## in
-                                                                                           ## the
-                                                                                           ## V-Direction.
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## The
-                                                                                           ## control
-                                                                                           ## points
-                                                                                           ## are
-                                                                                           ## modified,
-                                                                                           ## the
-                                                                                           ## first
-                                                                                           ## and
-                                                                                           ## the
-                                                                                           ## last
-                                                                                           ## point
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## are
-                                                                                           ## not
-                                                                                           ## the
-                                                                                           ## same.
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## Parameters
-                                                                                           ## EpsU,
-                                                                                           ## EpsV
-                                                                                           ## define
-                                                                                           ## the
-                                                                                           ## proximity
-                                                                                           ## along
-                                                                                           ## U-Direction
-                                                                                           ## and
-                                                                                           ## V-Direction
-                                                                                           ## respectively.
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## Recompute
-                                                                                           ## the
-                                                                                           ## flatknots,
-                                                                                           ## the
-                                                                                           ## knotsdistribution,
-                                                                                           ## the
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## continuity
-                                                                                           ## for
-                                                                                           ## U.
+  Geom_BSplineSurface* {.importcpp: "Geom_BSplineSurface",
+                        header: "Geom_BSplineSurface.hxx", bycopy.} = object of Geom_BoundedSurface ##
+                                                                                             ## !
+                                                                                             ## Creates
+                                                                                             ## a
+                                                                                             ## non-rational
+                                                                                             ## b-spline
+                                                                                             ## surface
+                                                                                             ## (weights
+                                                                                             ##
+                                                                                             ## !
+                                                                                             ## default
+                                                                                             ## value
+                                                                                             ## is
+                                                                                             ## 1.).
+                                                                                             ##
+                                                                                             ## !
+                                                                                             ## The
+                                                                                             ## following
+                                                                                             ## conditions
+                                                                                             ## must
+                                                                                             ## be
+                                                                                             ## verified.
+                                                                                             ##
+                                                                                             ## !
+                                                                                             ## 0
+                                                                                             ## <
+                                                                                             ## UDegree
+                                                                                             ## <=
+                                                                                             ## MaxDegree.
+                                                                                             ##
+                                                                                             ## !
+                                                                                             ## UKnots.Length()
+                                                                                             ## ==
+                                                                                             ## UMults.Length()
+                                                                                             ## >=
+                                                                                             ## 2
+                                                                                             ##
+                                                                                             ## !
+                                                                                             ## UKnots(i)
+                                                                                             ## <
+                                                                                             ## UKnots(i+1)
+                                                                                             ## (Knots
+                                                                                             ## are
+                                                                                             ## increasing)
+                                                                                             ##
+                                                                                             ## !
+                                                                                             ## 1
+                                                                                             ## <=
+                                                                                             ## UMults(i)
+                                                                                             ## <=
+                                                                                             ## UDegree
+                                                                                             ##
+                                                                                             ## !
+                                                                                             ## On
+                                                                                             ## a
+                                                                                             ## non
+                                                                                             ## uperiodic
+                                                                                             ## surface
+                                                                                             ## the
+                                                                                             ## first
+                                                                                             ## and
+                                                                                             ## last
+                                                                                             ##
+                                                                                             ## !
+                                                                                             ## umultiplicities
+                                                                                             ## may
+                                                                                             ## be
+                                                                                             ## UDegree+1
+                                                                                             ## (this
+                                                                                             ## is
+                                                                                             ## even
+                                                                                             ##
+                                                                                             ## !
+                                                                                             ## recommanded
+                                                                                             ## if
+                                                                                             ## you
+                                                                                             ## want
+                                                                                             ## the
+                                                                                             ## curve
+                                                                                             ## to
+                                                                                             ## start
+                                                                                             ## and
+                                                                                             ## finish
+                                                                                             ## on
+                                                                                             ##
+                                                                                             ## !
+                                                                                             ## the
+                                                                                             ## first
+                                                                                             ## and
+                                                                                             ## last
+                                                                                             ## pole).
+                                                                                             ##
+                                                                                             ## !
+                                                                                             ## On
+                                                                                             ## a
+                                                                                             ## uperiodic
+                                                                                             ## surface
+                                                                                             ## the
+                                                                                             ## first
+                                                                                             ## and
+                                                                                             ## the
+                                                                                             ## last
+                                                                                             ##
+                                                                                             ## !
+                                                                                             ## umultiplicities
+                                                                                             ## must
+                                                                                             ## be
+                                                                                             ## the
+                                                                                             ## same.
+                                                                                             ##
+                                                                                             ## !
+                                                                                             ## on
+                                                                                             ## non-uperiodic
+                                                                                             ## surfaces
+                                                                                             ##
+                                                                                             ## !
+                                                                                             ## Poles.ColLength()
+                                                                                             ## ==
+                                                                                             ## Sum(UMults(i))
+                                                                                             ## -
+                                                                                             ## UDegree
+                                                                                             ## -
+                                                                                             ## 1
+                                                                                             ## >=
+                                                                                             ## 2
+                                                                                             ##
+                                                                                             ## !
+                                                                                             ## on
+                                                                                             ## uperiodic
+                                                                                             ## surfaces
+                                                                                             ##
+                                                                                             ## !
+                                                                                             ## Poles.ColLength()
+                                                                                             ## ==
+                                                                                             ## Sum(UMults(i))
+                                                                                             ## except
+                                                                                             ## the
+                                                                                             ## first
+                                                                                             ## or
+                                                                                             ## last
+                                                                                             ##
+                                                                                             ## !
+                                                                                             ## The
+                                                                                             ## previous
+                                                                                             ## conditions
+                                                                                             ## for
+                                                                                             ## U
+                                                                                             ## holds
+                                                                                             ## also
+                                                                                             ## for
+                                                                                             ## V,
+                                                                                             ## with
+                                                                                             ## the
+                                                                                             ##
+                                                                                             ## !
+                                                                                             ## RowLength
+                                                                                             ## of
+                                                                                             ## the
+                                                                                             ## poles.
+                                                                                             ##
+                                                                                             ## !
+                                                                                             ## Segments
+                                                                                             ## the
+                                                                                             ## surface
+                                                                                             ## between
+                                                                                             ## U1
+                                                                                             ## and
+                                                                                             ## U2
+                                                                                             ## in
+                                                                                             ## the
+                                                                                             ## U-Direction.
+                                                                                             ##
+                                                                                             ## !
+                                                                                             ## between
+                                                                                             ## V1
+                                                                                             ## and
+                                                                                             ## V2
+                                                                                             ## in
+                                                                                             ## the
+                                                                                             ## V-Direction.
+                                                                                             ##
+                                                                                             ## !
+                                                                                             ## The
+                                                                                             ## control
+                                                                                             ## points
+                                                                                             ## are
+                                                                                             ## modified,
+                                                                                             ## the
+                                                                                             ## first
+                                                                                             ## and
+                                                                                             ## the
+                                                                                             ## last
+                                                                                             ## point
+                                                                                             ##
+                                                                                             ## !
+                                                                                             ## are
+                                                                                             ## not
+                                                                                             ## the
+                                                                                             ## same.
+                                                                                             ##
+                                                                                             ## !
+                                                                                             ##
+                                                                                             ## !
+                                                                                             ## Parameters
+                                                                                             ## EpsU,
+                                                                                             ## EpsV
+                                                                                             ## define
+                                                                                             ## the
+                                                                                             ## proximity
+                                                                                             ## along
+                                                                                             ## U-Direction
+                                                                                             ## and
+                                                                                             ## V-Direction
+                                                                                             ## respectively.
+                                                                                             ##
+                                                                                             ## !
+                                                                                             ## Recompute
+                                                                                             ## the
+                                                                                             ## flatknots,
+                                                                                             ## the
+                                                                                             ## knotsdistribution,
+                                                                                             ## the
+                                                                                             ##
+                                                                                             ## !
+                                                                                             ## continuity
+                                                                                             ## for
+                                                                                             ## U.
 
 
-proc constructGeomBSplineSurface*(poles: TColgpArray2OfPnt;
-                                 uKnots: TColStdArray1OfReal;
-                                 vKnots: TColStdArray1OfReal;
-                                 uMults: TColStdArray1OfInteger;
-                                 vMults: TColStdArray1OfInteger;
-                                 uDegree: StandardInteger;
-                                 vDegree: StandardInteger;
-                                 uPeriodic: StandardBoolean = standardFalse;
-                                 vPeriodic: StandardBoolean = standardFalse): GeomBSplineSurface {.
+proc constructGeom_BSplineSurface*(Poles: TColgp_Array2OfPnt;
+                                  UKnots: TColStd_Array1OfReal;
+                                  VKnots: TColStd_Array1OfReal;
+                                  UMults: TColStd_Array1OfInteger;
+                                  VMults: TColStd_Array1OfInteger;
+                                  UDegree: Standard_Integer;
+                                  VDegree: Standard_Integer;
+                                  UPeriodic: Standard_Boolean = Standard_False;
+                                  VPeriodic: Standard_Boolean = Standard_False): Geom_BSplineSurface {.
     constructor, importcpp: "Geom_BSplineSurface(@)",
     header: "Geom_BSplineSurface.hxx".}
-proc constructGeomBSplineSurface*(poles: TColgpArray2OfPnt;
-                                 weights: TColStdArray2OfReal;
-                                 uKnots: TColStdArray1OfReal;
-                                 vKnots: TColStdArray1OfReal;
-                                 uMults: TColStdArray1OfInteger;
-                                 vMults: TColStdArray1OfInteger;
-                                 uDegree: StandardInteger;
-                                 vDegree: StandardInteger;
-                                 uPeriodic: StandardBoolean = standardFalse;
-                                 vPeriodic: StandardBoolean = standardFalse): GeomBSplineSurface {.
+proc constructGeom_BSplineSurface*(Poles: TColgp_Array2OfPnt;
+                                  Weights: TColStd_Array2OfReal;
+                                  UKnots: TColStd_Array1OfReal;
+                                  VKnots: TColStd_Array1OfReal;
+                                  UMults: TColStd_Array1OfInteger;
+                                  VMults: TColStd_Array1OfInteger;
+                                  UDegree: Standard_Integer;
+                                  VDegree: Standard_Integer;
+                                  UPeriodic: Standard_Boolean = Standard_False;
+                                  VPeriodic: Standard_Boolean = Standard_False): Geom_BSplineSurface {.
     constructor, importcpp: "Geom_BSplineSurface(@)",
     header: "Geom_BSplineSurface.hxx".}
-proc exchangeUV*(this: var GeomBSplineSurface) {.importcpp: "ExchangeUV",
+proc ExchangeUV*(this: var Geom_BSplineSurface) {.importcpp: "ExchangeUV",
     header: "Geom_BSplineSurface.hxx".}
-proc setUPeriodic*(this: var GeomBSplineSurface) {.importcpp: "SetUPeriodic",
+proc SetUPeriodic*(this: var Geom_BSplineSurface) {.importcpp: "SetUPeriodic",
     header: "Geom_BSplineSurface.hxx".}
-proc setVPeriodic*(this: var GeomBSplineSurface) {.importcpp: "SetVPeriodic",
+proc SetVPeriodic*(this: var Geom_BSplineSurface) {.importcpp: "SetVPeriodic",
     header: "Geom_BSplineSurface.hxx".}
-proc periodicNormalization*(this: GeomBSplineSurface; u: var StandardReal;
-                           v: var StandardReal) {.noSideEffect,
+proc PeriodicNormalization*(this: Geom_BSplineSurface; U: var Standard_Real;
+                           V: var Standard_Real) {.noSideEffect,
     importcpp: "PeriodicNormalization", header: "Geom_BSplineSurface.hxx".}
-proc setUOrigin*(this: var GeomBSplineSurface; index: StandardInteger) {.
+proc SetUOrigin*(this: var Geom_BSplineSurface; Index: Standard_Integer) {.
     importcpp: "SetUOrigin", header: "Geom_BSplineSurface.hxx".}
-proc setVOrigin*(this: var GeomBSplineSurface; index: StandardInteger) {.
+proc SetVOrigin*(this: var Geom_BSplineSurface; Index: Standard_Integer) {.
     importcpp: "SetVOrigin", header: "Geom_BSplineSurface.hxx".}
-proc setUNotPeriodic*(this: var GeomBSplineSurface) {.importcpp: "SetUNotPeriodic",
+proc SetUNotPeriodic*(this: var Geom_BSplineSurface) {.importcpp: "SetUNotPeriodic",
     header: "Geom_BSplineSurface.hxx".}
-proc setVNotPeriodic*(this: var GeomBSplineSurface) {.importcpp: "SetVNotPeriodic",
+proc SetVNotPeriodic*(this: var Geom_BSplineSurface) {.importcpp: "SetVNotPeriodic",
     header: "Geom_BSplineSurface.hxx".}
-proc uReverse*(this: var GeomBSplineSurface) {.importcpp: "UReverse",
+proc UReverse*(this: var Geom_BSplineSurface) {.importcpp: "UReverse",
     header: "Geom_BSplineSurface.hxx".}
-proc vReverse*(this: var GeomBSplineSurface) {.importcpp: "VReverse",
+proc VReverse*(this: var Geom_BSplineSurface) {.importcpp: "VReverse",
     header: "Geom_BSplineSurface.hxx".}
-proc uReversedParameter*(this: GeomBSplineSurface; u: StandardReal): StandardReal {.
+proc UReversedParameter*(this: Geom_BSplineSurface; U: Standard_Real): Standard_Real {.
     noSideEffect, importcpp: "UReversedParameter",
     header: "Geom_BSplineSurface.hxx".}
-proc vReversedParameter*(this: GeomBSplineSurface; v: StandardReal): StandardReal {.
+proc VReversedParameter*(this: Geom_BSplineSurface; V: Standard_Real): Standard_Real {.
     noSideEffect, importcpp: "VReversedParameter",
     header: "Geom_BSplineSurface.hxx".}
-proc increaseDegree*(this: var GeomBSplineSurface; uDegree: StandardInteger;
-                    vDegree: StandardInteger) {.importcpp: "IncreaseDegree",
+proc IncreaseDegree*(this: var Geom_BSplineSurface; UDegree: Standard_Integer;
+                    VDegree: Standard_Integer) {.importcpp: "IncreaseDegree",
     header: "Geom_BSplineSurface.hxx".}
-proc insertUKnots*(this: var GeomBSplineSurface; knots: TColStdArray1OfReal;
-                  mults: TColStdArray1OfInteger;
-                  parametricTolerance: StandardReal = 0.0;
-                  add: StandardBoolean = standardTrue) {.importcpp: "InsertUKnots",
-    header: "Geom_BSplineSurface.hxx".}
-proc insertVKnots*(this: var GeomBSplineSurface; knots: TColStdArray1OfReal;
-                  mults: TColStdArray1OfInteger;
-                  parametricTolerance: StandardReal = 0.0;
-                  add: StandardBoolean = standardTrue) {.importcpp: "InsertVKnots",
-    header: "Geom_BSplineSurface.hxx".}
-proc removeUKnot*(this: var GeomBSplineSurface; index: StandardInteger;
-                 m: StandardInteger; tolerance: StandardReal): StandardBoolean {.
+proc InsertUKnots*(this: var Geom_BSplineSurface; Knots: TColStd_Array1OfReal;
+                  Mults: TColStd_Array1OfInteger;
+                  ParametricTolerance: Standard_Real = 0.0;
+                  Add: Standard_Boolean = Standard_True) {.
+    importcpp: "InsertUKnots", header: "Geom_BSplineSurface.hxx".}
+proc InsertVKnots*(this: var Geom_BSplineSurface; Knots: TColStd_Array1OfReal;
+                  Mults: TColStd_Array1OfInteger;
+                  ParametricTolerance: Standard_Real = 0.0;
+                  Add: Standard_Boolean = Standard_True) {.
+    importcpp: "InsertVKnots", header: "Geom_BSplineSurface.hxx".}
+proc RemoveUKnot*(this: var Geom_BSplineSurface; Index: Standard_Integer;
+                 M: Standard_Integer; Tolerance: Standard_Real): Standard_Boolean {.
     importcpp: "RemoveUKnot", header: "Geom_BSplineSurface.hxx".}
-proc removeVKnot*(this: var GeomBSplineSurface; index: StandardInteger;
-                 m: StandardInteger; tolerance: StandardReal): StandardBoolean {.
+proc RemoveVKnot*(this: var Geom_BSplineSurface; Index: Standard_Integer;
+                 M: Standard_Integer; Tolerance: Standard_Real): Standard_Boolean {.
     importcpp: "RemoveVKnot", header: "Geom_BSplineSurface.hxx".}
-proc increaseUMultiplicity*(this: var GeomBSplineSurface; uIndex: StandardInteger;
-                           m: StandardInteger) {.
+proc IncreaseUMultiplicity*(this: var Geom_BSplineSurface; UIndex: Standard_Integer;
+                           M: Standard_Integer) {.
     importcpp: "IncreaseUMultiplicity", header: "Geom_BSplineSurface.hxx".}
-proc increaseUMultiplicity*(this: var GeomBSplineSurface; fromI1: StandardInteger;
-                           toI2: StandardInteger; m: StandardInteger) {.
+proc IncreaseUMultiplicity*(this: var Geom_BSplineSurface; FromI1: Standard_Integer;
+                           ToI2: Standard_Integer; M: Standard_Integer) {.
     importcpp: "IncreaseUMultiplicity", header: "Geom_BSplineSurface.hxx".}
-proc incrementUMultiplicity*(this: var GeomBSplineSurface; fromI1: StandardInteger;
-                            toI2: StandardInteger; step: StandardInteger) {.
+proc IncrementUMultiplicity*(this: var Geom_BSplineSurface;
+                            FromI1: Standard_Integer; ToI2: Standard_Integer;
+                            Step: Standard_Integer) {.
     importcpp: "IncrementUMultiplicity", header: "Geom_BSplineSurface.hxx".}
-proc increaseVMultiplicity*(this: var GeomBSplineSurface; vIndex: StandardInteger;
-                           m: StandardInteger) {.
+proc IncreaseVMultiplicity*(this: var Geom_BSplineSurface; VIndex: Standard_Integer;
+                           M: Standard_Integer) {.
     importcpp: "IncreaseVMultiplicity", header: "Geom_BSplineSurface.hxx".}
-proc increaseVMultiplicity*(this: var GeomBSplineSurface; fromI1: StandardInteger;
-                           toI2: StandardInteger; m: StandardInteger) {.
+proc IncreaseVMultiplicity*(this: var Geom_BSplineSurface; FromI1: Standard_Integer;
+                           ToI2: Standard_Integer; M: Standard_Integer) {.
     importcpp: "IncreaseVMultiplicity", header: "Geom_BSplineSurface.hxx".}
-proc incrementVMultiplicity*(this: var GeomBSplineSurface; fromI1: StandardInteger;
-                            toI2: StandardInteger; step: StandardInteger) {.
+proc IncrementVMultiplicity*(this: var Geom_BSplineSurface;
+                            FromI1: Standard_Integer; ToI2: Standard_Integer;
+                            Step: Standard_Integer) {.
     importcpp: "IncrementVMultiplicity", header: "Geom_BSplineSurface.hxx".}
-proc insertUKnot*(this: var GeomBSplineSurface; u: StandardReal; m: StandardInteger;
-                 parametricTolerance: StandardReal;
-                 add: StandardBoolean = standardTrue) {.importcpp: "InsertUKnot",
+proc InsertUKnot*(this: var Geom_BSplineSurface; U: Standard_Real;
+                 M: Standard_Integer; ParametricTolerance: Standard_Real;
+                 Add: Standard_Boolean = Standard_True) {.importcpp: "InsertUKnot",
     header: "Geom_BSplineSurface.hxx".}
-proc insertVKnot*(this: var GeomBSplineSurface; v: StandardReal; m: StandardInteger;
-                 parametricTolerance: StandardReal;
-                 add: StandardBoolean = standardTrue) {.importcpp: "InsertVKnot",
+proc InsertVKnot*(this: var Geom_BSplineSurface; V: Standard_Real;
+                 M: Standard_Integer; ParametricTolerance: Standard_Real;
+                 Add: Standard_Boolean = Standard_True) {.importcpp: "InsertVKnot",
     header: "Geom_BSplineSurface.hxx".}
-proc segment*(this: var GeomBSplineSurface; u1: StandardReal; u2: StandardReal;
-             v1: StandardReal; v2: StandardReal;
-             theUTolerance: StandardReal = pConfusion();
-             theVTolerance: StandardReal = pConfusion()) {.importcpp: "Segment",
+proc Segment*(this: var Geom_BSplineSurface; U1: Standard_Real; U2: Standard_Real;
+             V1: Standard_Real; V2: Standard_Real;
+             theUTolerance: Standard_Real = PConfusion();
+             theVTolerance: Standard_Real = PConfusion()) {.importcpp: "Segment",
     header: "Geom_BSplineSurface.hxx".}
-proc checkAndSegment*(this: var GeomBSplineSurface; u1: StandardReal;
-                     u2: StandardReal; v1: StandardReal; v2: StandardReal;
-                     theUTolerance: StandardReal = pConfusion();
-                     theVTolerance: StandardReal = pConfusion()) {.
+proc CheckAndSegment*(this: var Geom_BSplineSurface; U1: Standard_Real;
+                     U2: Standard_Real; V1: Standard_Real; V2: Standard_Real;
+                     theUTolerance: Standard_Real = PConfusion();
+                     theVTolerance: Standard_Real = PConfusion()) {.
     importcpp: "CheckAndSegment", header: "Geom_BSplineSurface.hxx".}
-proc setUKnot*(this: var GeomBSplineSurface; uIndex: StandardInteger; k: StandardReal) {.
-    importcpp: "SetUKnot", header: "Geom_BSplineSurface.hxx".}
-proc setUKnots*(this: var GeomBSplineSurface; uk: TColStdArray1OfReal) {.
+proc SetUKnot*(this: var Geom_BSplineSurface; UIndex: Standard_Integer;
+              K: Standard_Real) {.importcpp: "SetUKnot",
+                                header: "Geom_BSplineSurface.hxx".}
+proc SetUKnots*(this: var Geom_BSplineSurface; UK: TColStd_Array1OfReal) {.
     importcpp: "SetUKnots", header: "Geom_BSplineSurface.hxx".}
-proc setUKnot*(this: var GeomBSplineSurface; uIndex: StandardInteger; k: StandardReal;
-              m: StandardInteger) {.importcpp: "SetUKnot",
-                                  header: "Geom_BSplineSurface.hxx".}
-proc setVKnot*(this: var GeomBSplineSurface; vIndex: StandardInteger; k: StandardReal) {.
-    importcpp: "SetVKnot", header: "Geom_BSplineSurface.hxx".}
-proc setVKnots*(this: var GeomBSplineSurface; vk: TColStdArray1OfReal) {.
+proc SetUKnot*(this: var Geom_BSplineSurface; UIndex: Standard_Integer;
+              K: Standard_Real; M: Standard_Integer) {.importcpp: "SetUKnot",
+    header: "Geom_BSplineSurface.hxx".}
+proc SetVKnot*(this: var Geom_BSplineSurface; VIndex: Standard_Integer;
+              K: Standard_Real) {.importcpp: "SetVKnot",
+                                header: "Geom_BSplineSurface.hxx".}
+proc SetVKnots*(this: var Geom_BSplineSurface; VK: TColStd_Array1OfReal) {.
     importcpp: "SetVKnots", header: "Geom_BSplineSurface.hxx".}
-proc setVKnot*(this: var GeomBSplineSurface; vIndex: StandardInteger; k: StandardReal;
-              m: StandardInteger) {.importcpp: "SetVKnot",
-                                  header: "Geom_BSplineSurface.hxx".}
-proc locateU*(this: GeomBSplineSurface; u: StandardReal;
-             parametricTolerance: StandardReal; i1: var StandardInteger;
-             i2: var StandardInteger;
-             withKnotRepetition: StandardBoolean = standardFalse) {.noSideEffect,
+proc SetVKnot*(this: var Geom_BSplineSurface; VIndex: Standard_Integer;
+              K: Standard_Real; M: Standard_Integer) {.importcpp: "SetVKnot",
+    header: "Geom_BSplineSurface.hxx".}
+proc LocateU*(this: Geom_BSplineSurface; U: Standard_Real;
+             ParametricTolerance: Standard_Real; I1: var Standard_Integer;
+             I2: var Standard_Integer;
+             WithKnotRepetition: Standard_Boolean = Standard_False) {.noSideEffect,
     importcpp: "LocateU", header: "Geom_BSplineSurface.hxx".}
-proc locateV*(this: GeomBSplineSurface; v: StandardReal;
-             parametricTolerance: StandardReal; i1: var StandardInteger;
-             i2: var StandardInteger;
-             withKnotRepetition: StandardBoolean = standardFalse) {.noSideEffect,
+proc LocateV*(this: Geom_BSplineSurface; V: Standard_Real;
+             ParametricTolerance: Standard_Real; I1: var Standard_Integer;
+             I2: var Standard_Integer;
+             WithKnotRepetition: Standard_Boolean = Standard_False) {.noSideEffect,
     importcpp: "LocateV", header: "Geom_BSplineSurface.hxx".}
-proc setPole*(this: var GeomBSplineSurface; uIndex: StandardInteger;
-             vIndex: StandardInteger; p: GpPnt) {.importcpp: "SetPole",
+proc SetPole*(this: var Geom_BSplineSurface; UIndex: Standard_Integer;
+             VIndex: Standard_Integer; P: gp_Pnt) {.importcpp: "SetPole",
     header: "Geom_BSplineSurface.hxx".}
-proc setPole*(this: var GeomBSplineSurface; uIndex: StandardInteger;
-             vIndex: StandardInteger; p: GpPnt; weight: StandardReal) {.
+proc SetPole*(this: var Geom_BSplineSurface; UIndex: Standard_Integer;
+             VIndex: Standard_Integer; P: gp_Pnt; Weight: Standard_Real) {.
     importcpp: "SetPole", header: "Geom_BSplineSurface.hxx".}
-proc setPoleCol*(this: var GeomBSplineSurface; vIndex: StandardInteger;
-                cPoles: TColgpArray1OfPnt) {.importcpp: "SetPoleCol",
+proc SetPoleCol*(this: var Geom_BSplineSurface; VIndex: Standard_Integer;
+                CPoles: TColgp_Array1OfPnt) {.importcpp: "SetPoleCol",
     header: "Geom_BSplineSurface.hxx".}
-proc setPoleCol*(this: var GeomBSplineSurface; vIndex: StandardInteger;
-                cPoles: TColgpArray1OfPnt; cPoleWeights: TColStdArray1OfReal) {.
+proc SetPoleCol*(this: var Geom_BSplineSurface; VIndex: Standard_Integer;
+                CPoles: TColgp_Array1OfPnt; CPoleWeights: TColStd_Array1OfReal) {.
     importcpp: "SetPoleCol", header: "Geom_BSplineSurface.hxx".}
-proc setPoleRow*(this: var GeomBSplineSurface; uIndex: StandardInteger;
-                cPoles: TColgpArray1OfPnt; cPoleWeights: TColStdArray1OfReal) {.
+proc SetPoleRow*(this: var Geom_BSplineSurface; UIndex: Standard_Integer;
+                CPoles: TColgp_Array1OfPnt; CPoleWeights: TColStd_Array1OfReal) {.
     importcpp: "SetPoleRow", header: "Geom_BSplineSurface.hxx".}
-proc setPoleRow*(this: var GeomBSplineSurface; uIndex: StandardInteger;
-                cPoles: TColgpArray1OfPnt) {.importcpp: "SetPoleRow",
+proc SetPoleRow*(this: var Geom_BSplineSurface; UIndex: Standard_Integer;
+                CPoles: TColgp_Array1OfPnt) {.importcpp: "SetPoleRow",
     header: "Geom_BSplineSurface.hxx".}
-proc setWeight*(this: var GeomBSplineSurface; uIndex: StandardInteger;
-               vIndex: StandardInteger; weight: StandardReal) {.
+proc SetWeight*(this: var Geom_BSplineSurface; UIndex: Standard_Integer;
+               VIndex: Standard_Integer; Weight: Standard_Real) {.
     importcpp: "SetWeight", header: "Geom_BSplineSurface.hxx".}
-proc setWeightCol*(this: var GeomBSplineSurface; vIndex: StandardInteger;
-                  cPoleWeights: TColStdArray1OfReal) {.importcpp: "SetWeightCol",
+proc SetWeightCol*(this: var Geom_BSplineSurface; VIndex: Standard_Integer;
+                  CPoleWeights: TColStd_Array1OfReal) {.importcpp: "SetWeightCol",
     header: "Geom_BSplineSurface.hxx".}
-proc setWeightRow*(this: var GeomBSplineSurface; uIndex: StandardInteger;
-                  cPoleWeights: TColStdArray1OfReal) {.importcpp: "SetWeightRow",
+proc SetWeightRow*(this: var Geom_BSplineSurface; UIndex: Standard_Integer;
+                  CPoleWeights: TColStd_Array1OfReal) {.importcpp: "SetWeightRow",
     header: "Geom_BSplineSurface.hxx".}
-proc movePoint*(this: var GeomBSplineSurface; u: StandardReal; v: StandardReal;
-               p: GpPnt; uIndex1: StandardInteger; uIndex2: StandardInteger;
-               vIndex1: StandardInteger; vIndex2: StandardInteger;
-               uFirstIndex: var StandardInteger; uLastIndex: var StandardInteger;
-               vFirstIndex: var StandardInteger; vLastIndex: var StandardInteger) {.
+proc MovePoint*(this: var Geom_BSplineSurface; U: Standard_Real; V: Standard_Real;
+               P: gp_Pnt; UIndex1: Standard_Integer; UIndex2: Standard_Integer;
+               VIndex1: Standard_Integer; VIndex2: Standard_Integer;
+               UFirstIndex: var Standard_Integer; ULastIndex: var Standard_Integer;
+               VFirstIndex: var Standard_Integer; VLastIndex: var Standard_Integer) {.
     importcpp: "MovePoint", header: "Geom_BSplineSurface.hxx".}
-proc isUClosed*(this: GeomBSplineSurface): StandardBoolean {.noSideEffect,
+proc IsUClosed*(this: Geom_BSplineSurface): Standard_Boolean {.noSideEffect,
     importcpp: "IsUClosed", header: "Geom_BSplineSurface.hxx".}
-proc isVClosed*(this: GeomBSplineSurface): StandardBoolean {.noSideEffect,
+proc IsVClosed*(this: Geom_BSplineSurface): Standard_Boolean {.noSideEffect,
     importcpp: "IsVClosed", header: "Geom_BSplineSurface.hxx".}
-proc isCNu*(this: GeomBSplineSurface; n: StandardInteger): StandardBoolean {.
+proc IsCNu*(this: Geom_BSplineSurface; N: Standard_Integer): Standard_Boolean {.
     noSideEffect, importcpp: "IsCNu", header: "Geom_BSplineSurface.hxx".}
-proc isCNv*(this: GeomBSplineSurface; n: StandardInteger): StandardBoolean {.
+proc IsCNv*(this: Geom_BSplineSurface; N: Standard_Integer): Standard_Boolean {.
     noSideEffect, importcpp: "IsCNv", header: "Geom_BSplineSurface.hxx".}
-proc isUPeriodic*(this: GeomBSplineSurface): StandardBoolean {.noSideEffect,
+proc IsUPeriodic*(this: Geom_BSplineSurface): Standard_Boolean {.noSideEffect,
     importcpp: "IsUPeriodic", header: "Geom_BSplineSurface.hxx".}
-proc isURational*(this: GeomBSplineSurface): StandardBoolean {.noSideEffect,
+proc IsURational*(this: Geom_BSplineSurface): Standard_Boolean {.noSideEffect,
     importcpp: "IsURational", header: "Geom_BSplineSurface.hxx".}
-proc isVPeriodic*(this: GeomBSplineSurface): StandardBoolean {.noSideEffect,
+proc IsVPeriodic*(this: Geom_BSplineSurface): Standard_Boolean {.noSideEffect,
     importcpp: "IsVPeriodic", header: "Geom_BSplineSurface.hxx".}
-proc isVRational*(this: GeomBSplineSurface): StandardBoolean {.noSideEffect,
+proc IsVRational*(this: Geom_BSplineSurface): Standard_Boolean {.noSideEffect,
     importcpp: "IsVRational", header: "Geom_BSplineSurface.hxx".}
-proc bounds*(this: GeomBSplineSurface; u1: var StandardReal; u2: var StandardReal;
-            v1: var StandardReal; v2: var StandardReal) {.noSideEffect,
+proc Bounds*(this: Geom_BSplineSurface; U1: var Standard_Real; U2: var Standard_Real;
+            V1: var Standard_Real; V2: var Standard_Real) {.noSideEffect,
     importcpp: "Bounds", header: "Geom_BSplineSurface.hxx".}
-proc continuity*(this: GeomBSplineSurface): GeomAbsShape {.noSideEffect,
+proc Continuity*(this: Geom_BSplineSurface): GeomAbs_Shape {.noSideEffect,
     importcpp: "Continuity", header: "Geom_BSplineSurface.hxx".}
-proc firstUKnotIndex*(this: GeomBSplineSurface): StandardInteger {.noSideEffect,
+proc FirstUKnotIndex*(this: Geom_BSplineSurface): Standard_Integer {.noSideEffect,
     importcpp: "FirstUKnotIndex", header: "Geom_BSplineSurface.hxx".}
-proc firstVKnotIndex*(this: GeomBSplineSurface): StandardInteger {.noSideEffect,
+proc FirstVKnotIndex*(this: Geom_BSplineSurface): Standard_Integer {.noSideEffect,
     importcpp: "FirstVKnotIndex", header: "Geom_BSplineSurface.hxx".}
-proc lastUKnotIndex*(this: GeomBSplineSurface): StandardInteger {.noSideEffect,
+proc LastUKnotIndex*(this: Geom_BSplineSurface): Standard_Integer {.noSideEffect,
     importcpp: "LastUKnotIndex", header: "Geom_BSplineSurface.hxx".}
-proc lastVKnotIndex*(this: GeomBSplineSurface): StandardInteger {.noSideEffect,
+proc LastVKnotIndex*(this: Geom_BSplineSurface): Standard_Integer {.noSideEffect,
     importcpp: "LastVKnotIndex", header: "Geom_BSplineSurface.hxx".}
-proc nbUKnots*(this: GeomBSplineSurface): StandardInteger {.noSideEffect,
+proc NbUKnots*(this: Geom_BSplineSurface): Standard_Integer {.noSideEffect,
     importcpp: "NbUKnots", header: "Geom_BSplineSurface.hxx".}
-proc nbUPoles*(this: GeomBSplineSurface): StandardInteger {.noSideEffect,
+proc NbUPoles*(this: Geom_BSplineSurface): Standard_Integer {.noSideEffect,
     importcpp: "NbUPoles", header: "Geom_BSplineSurface.hxx".}
-proc nbVKnots*(this: GeomBSplineSurface): StandardInteger {.noSideEffect,
+proc NbVKnots*(this: Geom_BSplineSurface): Standard_Integer {.noSideEffect,
     importcpp: "NbVKnots", header: "Geom_BSplineSurface.hxx".}
-proc nbVPoles*(this: GeomBSplineSurface): StandardInteger {.noSideEffect,
+proc NbVPoles*(this: Geom_BSplineSurface): Standard_Integer {.noSideEffect,
     importcpp: "NbVPoles", header: "Geom_BSplineSurface.hxx".}
-proc pole*(this: GeomBSplineSurface; uIndex: StandardInteger; vIndex: StandardInteger): GpPnt {.
-    noSideEffect, importcpp: "Pole", header: "Geom_BSplineSurface.hxx".}
-proc poles*(this: GeomBSplineSurface; p: var TColgpArray2OfPnt) {.noSideEffect,
+proc Pole*(this: Geom_BSplineSurface; UIndex: Standard_Integer;
+          VIndex: Standard_Integer): gp_Pnt {.noSideEffect, importcpp: "Pole",
+    header: "Geom_BSplineSurface.hxx".}
+proc Poles*(this: Geom_BSplineSurface; P: var TColgp_Array2OfPnt) {.noSideEffect,
     importcpp: "Poles", header: "Geom_BSplineSurface.hxx".}
-proc poles*(this: GeomBSplineSurface): TColgpArray2OfPnt {.noSideEffect,
+proc Poles*(this: Geom_BSplineSurface): TColgp_Array2OfPnt {.noSideEffect,
     importcpp: "Poles", header: "Geom_BSplineSurface.hxx".}
-proc uDegree*(this: GeomBSplineSurface): StandardInteger {.noSideEffect,
+proc UDegree*(this: Geom_BSplineSurface): Standard_Integer {.noSideEffect,
     importcpp: "UDegree", header: "Geom_BSplineSurface.hxx".}
-proc uKnot*(this: GeomBSplineSurface; uIndex: StandardInteger): StandardReal {.
+proc UKnot*(this: Geom_BSplineSurface; UIndex: Standard_Integer): Standard_Real {.
     noSideEffect, importcpp: "UKnot", header: "Geom_BSplineSurface.hxx".}
-proc uKnotDistribution*(this: GeomBSplineSurface): GeomAbsBSplKnotDistribution {.
+proc UKnotDistribution*(this: Geom_BSplineSurface): GeomAbs_BSplKnotDistribution {.
     noSideEffect, importcpp: "UKnotDistribution", header: "Geom_BSplineSurface.hxx".}
-proc uKnots*(this: GeomBSplineSurface; ku: var TColStdArray1OfReal) {.noSideEffect,
+proc UKnots*(this: Geom_BSplineSurface; Ku: var TColStd_Array1OfReal) {.noSideEffect,
     importcpp: "UKnots", header: "Geom_BSplineSurface.hxx".}
-proc uKnots*(this: GeomBSplineSurface): TColStdArray1OfReal {.noSideEffect,
+proc UKnots*(this: Geom_BSplineSurface): TColStd_Array1OfReal {.noSideEffect,
     importcpp: "UKnots", header: "Geom_BSplineSurface.hxx".}
-proc uKnotSequence*(this: GeomBSplineSurface; ku: var TColStdArray1OfReal) {.
+proc UKnotSequence*(this: Geom_BSplineSurface; Ku: var TColStd_Array1OfReal) {.
     noSideEffect, importcpp: "UKnotSequence", header: "Geom_BSplineSurface.hxx".}
-proc uKnotSequence*(this: GeomBSplineSurface): TColStdArray1OfReal {.noSideEffect,
+proc UKnotSequence*(this: Geom_BSplineSurface): TColStd_Array1OfReal {.noSideEffect,
     importcpp: "UKnotSequence", header: "Geom_BSplineSurface.hxx".}
-proc uMultiplicity*(this: GeomBSplineSurface; uIndex: StandardInteger): StandardInteger {.
+proc UMultiplicity*(this: Geom_BSplineSurface; UIndex: Standard_Integer): Standard_Integer {.
     noSideEffect, importcpp: "UMultiplicity", header: "Geom_BSplineSurface.hxx".}
-proc uMultiplicities*(this: GeomBSplineSurface; mu: var TColStdArray1OfInteger) {.
+proc UMultiplicities*(this: Geom_BSplineSurface; Mu: var TColStd_Array1OfInteger) {.
     noSideEffect, importcpp: "UMultiplicities", header: "Geom_BSplineSurface.hxx".}
-proc uMultiplicities*(this: GeomBSplineSurface): TColStdArray1OfInteger {.
+proc UMultiplicities*(this: Geom_BSplineSurface): TColStd_Array1OfInteger {.
     noSideEffect, importcpp: "UMultiplicities", header: "Geom_BSplineSurface.hxx".}
-proc vDegree*(this: GeomBSplineSurface): StandardInteger {.noSideEffect,
+proc VDegree*(this: Geom_BSplineSurface): Standard_Integer {.noSideEffect,
     importcpp: "VDegree", header: "Geom_BSplineSurface.hxx".}
-proc vKnot*(this: GeomBSplineSurface; vIndex: StandardInteger): StandardReal {.
+proc VKnot*(this: Geom_BSplineSurface; VIndex: Standard_Integer): Standard_Real {.
     noSideEffect, importcpp: "VKnot", header: "Geom_BSplineSurface.hxx".}
-proc vKnotDistribution*(this: GeomBSplineSurface): GeomAbsBSplKnotDistribution {.
+proc VKnotDistribution*(this: Geom_BSplineSurface): GeomAbs_BSplKnotDistribution {.
     noSideEffect, importcpp: "VKnotDistribution", header: "Geom_BSplineSurface.hxx".}
-proc vKnots*(this: GeomBSplineSurface; kv: var TColStdArray1OfReal) {.noSideEffect,
+proc VKnots*(this: Geom_BSplineSurface; Kv: var TColStd_Array1OfReal) {.noSideEffect,
     importcpp: "VKnots", header: "Geom_BSplineSurface.hxx".}
-proc vKnots*(this: GeomBSplineSurface): TColStdArray1OfReal {.noSideEffect,
+proc VKnots*(this: Geom_BSplineSurface): TColStd_Array1OfReal {.noSideEffect,
     importcpp: "VKnots", header: "Geom_BSplineSurface.hxx".}
-proc vKnotSequence*(this: GeomBSplineSurface; kv: var TColStdArray1OfReal) {.
+proc VKnotSequence*(this: Geom_BSplineSurface; Kv: var TColStd_Array1OfReal) {.
     noSideEffect, importcpp: "VKnotSequence", header: "Geom_BSplineSurface.hxx".}
-proc vKnotSequence*(this: GeomBSplineSurface): TColStdArray1OfReal {.noSideEffect,
+proc VKnotSequence*(this: Geom_BSplineSurface): TColStd_Array1OfReal {.noSideEffect,
     importcpp: "VKnotSequence", header: "Geom_BSplineSurface.hxx".}
-proc vMultiplicity*(this: GeomBSplineSurface; vIndex: StandardInteger): StandardInteger {.
+proc VMultiplicity*(this: Geom_BSplineSurface; VIndex: Standard_Integer): Standard_Integer {.
     noSideEffect, importcpp: "VMultiplicity", header: "Geom_BSplineSurface.hxx".}
-proc vMultiplicities*(this: GeomBSplineSurface; mv: var TColStdArray1OfInteger) {.
+proc VMultiplicities*(this: Geom_BSplineSurface; Mv: var TColStd_Array1OfInteger) {.
     noSideEffect, importcpp: "VMultiplicities", header: "Geom_BSplineSurface.hxx".}
-proc vMultiplicities*(this: GeomBSplineSurface): TColStdArray1OfInteger {.
+proc VMultiplicities*(this: Geom_BSplineSurface): TColStd_Array1OfInteger {.
     noSideEffect, importcpp: "VMultiplicities", header: "Geom_BSplineSurface.hxx".}
-proc weight*(this: GeomBSplineSurface; uIndex: StandardInteger;
-            vIndex: StandardInteger): StandardReal {.noSideEffect,
+proc Weight*(this: Geom_BSplineSurface; UIndex: Standard_Integer;
+            VIndex: Standard_Integer): Standard_Real {.noSideEffect,
     importcpp: "Weight", header: "Geom_BSplineSurface.hxx".}
-proc weights*(this: GeomBSplineSurface; w: var TColStdArray2OfReal) {.noSideEffect,
+proc Weights*(this: Geom_BSplineSurface; W: var TColStd_Array2OfReal) {.noSideEffect,
     importcpp: "Weights", header: "Geom_BSplineSurface.hxx".}
-proc weights*(this: GeomBSplineSurface): ptr TColStdArray2OfReal {.noSideEffect,
+proc Weights*(this: Geom_BSplineSurface): ptr TColStd_Array2OfReal {.noSideEffect,
     importcpp: "Weights", header: "Geom_BSplineSurface.hxx".}
-proc d0*(this: GeomBSplineSurface; u: StandardReal; v: StandardReal; p: var GpPnt) {.
+proc D0*(this: Geom_BSplineSurface; U: Standard_Real; V: Standard_Real; P: var gp_Pnt) {.
     noSideEffect, importcpp: "D0", header: "Geom_BSplineSurface.hxx".}
-proc d1*(this: GeomBSplineSurface; u: StandardReal; v: StandardReal; p: var GpPnt;
-        d1u: var GpVec; d1v: var GpVec) {.noSideEffect, importcpp: "D1",
-                                    header: "Geom_BSplineSurface.hxx".}
-proc d2*(this: GeomBSplineSurface; u: StandardReal; v: StandardReal; p: var GpPnt;
-        d1u: var GpVec; d1v: var GpVec; d2u: var GpVec; d2v: var GpVec; d2uv: var GpVec) {.
+proc D1*(this: Geom_BSplineSurface; U: Standard_Real; V: Standard_Real; P: var gp_Pnt;
+        D1U: var gp_Vec; D1V: var gp_Vec) {.noSideEffect, importcpp: "D1",
+                                      header: "Geom_BSplineSurface.hxx".}
+proc D2*(this: Geom_BSplineSurface; U: Standard_Real; V: Standard_Real; P: var gp_Pnt;
+        D1U: var gp_Vec; D1V: var gp_Vec; D2U: var gp_Vec; D2V: var gp_Vec; D2UV: var gp_Vec) {.
     noSideEffect, importcpp: "D2", header: "Geom_BSplineSurface.hxx".}
-proc d3*(this: GeomBSplineSurface; u: StandardReal; v: StandardReal; p: var GpPnt;
-        d1u: var GpVec; d1v: var GpVec; d2u: var GpVec; d2v: var GpVec; d2uv: var GpVec;
-        d3u: var GpVec; d3v: var GpVec; d3uuv: var GpVec; d3uvv: var GpVec) {.noSideEffect,
-    importcpp: "D3", header: "Geom_BSplineSurface.hxx".}
-proc dn*(this: GeomBSplineSurface; u: StandardReal; v: StandardReal;
-        nu: StandardInteger; nv: StandardInteger): GpVec {.noSideEffect,
+proc D3*(this: Geom_BSplineSurface; U: Standard_Real; V: Standard_Real; P: var gp_Pnt;
+        D1U: var gp_Vec; D1V: var gp_Vec; D2U: var gp_Vec; D2V: var gp_Vec;
+        D2UV: var gp_Vec; D3U: var gp_Vec; D3V: var gp_Vec; D3UUV: var gp_Vec;
+        D3UVV: var gp_Vec) {.noSideEffect, importcpp: "D3",
+                          header: "Geom_BSplineSurface.hxx".}
+proc DN*(this: Geom_BSplineSurface; U: Standard_Real; V: Standard_Real;
+        Nu: Standard_Integer; Nv: Standard_Integer): gp_Vec {.noSideEffect,
     importcpp: "DN", header: "Geom_BSplineSurface.hxx".}
-proc localD0*(this: GeomBSplineSurface; u: StandardReal; v: StandardReal;
-             fromUK1: StandardInteger; toUK2: StandardInteger;
-             fromVK1: StandardInteger; toVK2: StandardInteger; p: var GpPnt) {.
+proc LocalD0*(this: Geom_BSplineSurface; U: Standard_Real; V: Standard_Real;
+             FromUK1: Standard_Integer; ToUK2: Standard_Integer;
+             FromVK1: Standard_Integer; ToVK2: Standard_Integer; P: var gp_Pnt) {.
     noSideEffect, importcpp: "LocalD0", header: "Geom_BSplineSurface.hxx".}
-proc localD1*(this: GeomBSplineSurface; u: StandardReal; v: StandardReal;
-             fromUK1: StandardInteger; toUK2: StandardInteger;
-             fromVK1: StandardInteger; toVK2: StandardInteger; p: var GpPnt;
-             d1u: var GpVec; d1v: var GpVec) {.noSideEffect, importcpp: "LocalD1",
+proc LocalD1*(this: Geom_BSplineSurface; U: Standard_Real; V: Standard_Real;
+             FromUK1: Standard_Integer; ToUK2: Standard_Integer;
+             FromVK1: Standard_Integer; ToVK2: Standard_Integer; P: var gp_Pnt;
+             D1U: var gp_Vec; D1V: var gp_Vec) {.noSideEffect, importcpp: "LocalD1",
     header: "Geom_BSplineSurface.hxx".}
-proc localD2*(this: GeomBSplineSurface; u: StandardReal; v: StandardReal;
-             fromUK1: StandardInteger; toUK2: StandardInteger;
-             fromVK1: StandardInteger; toVK2: StandardInteger; p: var GpPnt;
-             d1u: var GpVec; d1v: var GpVec; d2u: var GpVec; d2v: var GpVec; d2uv: var GpVec) {.
-    noSideEffect, importcpp: "LocalD2", header: "Geom_BSplineSurface.hxx".}
-proc localD3*(this: GeomBSplineSurface; u: StandardReal; v: StandardReal;
-             fromUK1: StandardInteger; toUK2: StandardInteger;
-             fromVK1: StandardInteger; toVK2: StandardInteger; p: var GpPnt;
-             d1u: var GpVec; d1v: var GpVec; d2u: var GpVec; d2v: var GpVec;
-             d2uv: var GpVec; d3u: var GpVec; d3v: var GpVec; d3uuv: var GpVec;
-             d3uvv: var GpVec) {.noSideEffect, importcpp: "LocalD3",
+proc LocalD2*(this: Geom_BSplineSurface; U: Standard_Real; V: Standard_Real;
+             FromUK1: Standard_Integer; ToUK2: Standard_Integer;
+             FromVK1: Standard_Integer; ToVK2: Standard_Integer; P: var gp_Pnt;
+             D1U: var gp_Vec; D1V: var gp_Vec; D2U: var gp_Vec; D2V: var gp_Vec;
+             D2UV: var gp_Vec) {.noSideEffect, importcpp: "LocalD2",
                               header: "Geom_BSplineSurface.hxx".}
-proc localDN*(this: GeomBSplineSurface; u: StandardReal; v: StandardReal;
-             fromUK1: StandardInteger; toUK2: StandardInteger;
-             fromVK1: StandardInteger; toVK2: StandardInteger; nu: StandardInteger;
-             nv: StandardInteger): GpVec {.noSideEffect, importcpp: "LocalDN",
-                                        header: "Geom_BSplineSurface.hxx".}
-proc localValue*(this: GeomBSplineSurface; u: StandardReal; v: StandardReal;
-                fromUK1: StandardInteger; toUK2: StandardInteger;
-                fromVK1: StandardInteger; toVK2: StandardInteger): GpPnt {.
+proc LocalD3*(this: Geom_BSplineSurface; U: Standard_Real; V: Standard_Real;
+             FromUK1: Standard_Integer; ToUK2: Standard_Integer;
+             FromVK1: Standard_Integer; ToVK2: Standard_Integer; P: var gp_Pnt;
+             D1U: var gp_Vec; D1V: var gp_Vec; D2U: var gp_Vec; D2V: var gp_Vec;
+             D2UV: var gp_Vec; D3U: var gp_Vec; D3V: var gp_Vec; D3UUV: var gp_Vec;
+             D3UVV: var gp_Vec) {.noSideEffect, importcpp: "LocalD3",
+                               header: "Geom_BSplineSurface.hxx".}
+proc LocalDN*(this: Geom_BSplineSurface; U: Standard_Real; V: Standard_Real;
+             FromUK1: Standard_Integer; ToUK2: Standard_Integer;
+             FromVK1: Standard_Integer; ToVK2: Standard_Integer;
+             Nu: Standard_Integer; Nv: Standard_Integer): gp_Vec {.noSideEffect,
+    importcpp: "LocalDN", header: "Geom_BSplineSurface.hxx".}
+proc LocalValue*(this: Geom_BSplineSurface; U: Standard_Real; V: Standard_Real;
+                FromUK1: Standard_Integer; ToUK2: Standard_Integer;
+                FromVK1: Standard_Integer; ToVK2: Standard_Integer): gp_Pnt {.
     noSideEffect, importcpp: "LocalValue", header: "Geom_BSplineSurface.hxx".}
-proc uIso*(this: GeomBSplineSurface; u: StandardReal): Handle[GeomCurve] {.
+proc UIso*(this: Geom_BSplineSurface; U: Standard_Real): handle[Geom_Curve] {.
     noSideEffect, importcpp: "UIso", header: "Geom_BSplineSurface.hxx".}
-proc vIso*(this: GeomBSplineSurface; v: StandardReal): Handle[GeomCurve] {.
+proc VIso*(this: Geom_BSplineSurface; V: Standard_Real): handle[Geom_Curve] {.
     noSideEffect, importcpp: "VIso", header: "Geom_BSplineSurface.hxx".}
-proc uIso*(this: GeomBSplineSurface; u: StandardReal; checkRational: StandardBoolean): Handle[
-    GeomCurve] {.noSideEffect, importcpp: "UIso", header: "Geom_BSplineSurface.hxx".}
-proc vIso*(this: GeomBSplineSurface; v: StandardReal; checkRational: StandardBoolean): Handle[
-    GeomCurve] {.noSideEffect, importcpp: "VIso", header: "Geom_BSplineSurface.hxx".}
-proc transform*(this: var GeomBSplineSurface; t: GpTrsf) {.importcpp: "Transform",
+proc UIso*(this: Geom_BSplineSurface; U: Standard_Real;
+          CheckRational: Standard_Boolean): handle[Geom_Curve] {.noSideEffect,
+    importcpp: "UIso", header: "Geom_BSplineSurface.hxx".}
+proc VIso*(this: Geom_BSplineSurface; V: Standard_Real;
+          CheckRational: Standard_Boolean): handle[Geom_Curve] {.noSideEffect,
+    importcpp: "VIso", header: "Geom_BSplineSurface.hxx".}
+proc Transform*(this: var Geom_BSplineSurface; T: gp_Trsf) {.importcpp: "Transform",
     header: "Geom_BSplineSurface.hxx".}
-proc maxDegree*(): StandardInteger {.importcpp: "Geom_BSplineSurface::MaxDegree(@)",
-                                  header: "Geom_BSplineSurface.hxx".}
-proc resolution*(this: var GeomBSplineSurface; tolerance3D: StandardReal;
-                uTolerance: var StandardReal; vTolerance: var StandardReal) {.
+proc MaxDegree*(): Standard_Integer {.importcpp: "Geom_BSplineSurface::MaxDegree(@)",
+                                   header: "Geom_BSplineSurface.hxx".}
+proc Resolution*(this: var Geom_BSplineSurface; Tolerance3D: Standard_Real;
+                UTolerance: var Standard_Real; VTolerance: var Standard_Real) {.
     importcpp: "Resolution", header: "Geom_BSplineSurface.hxx".}
-proc copy*(this: GeomBSplineSurface): Handle[GeomGeometry] {.noSideEffect,
+proc Copy*(this: Geom_BSplineSurface): handle[Geom_Geometry] {.noSideEffect,
     importcpp: "Copy", header: "Geom_BSplineSurface.hxx".}
-proc dumpJson*(this: GeomBSplineSurface; theOStream: var StandardOStream;
-              theDepth: StandardInteger = -1) {.noSideEffect, importcpp: "DumpJson",
+proc DumpJson*(this: Geom_BSplineSurface; theOStream: var Standard_OStream;
+              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
     header: "Geom_BSplineSurface.hxx".}
 type
-  GeomBSplineSurfacebaseType* = GeomBoundedSurface
+  Geom_BSplineSurfacebase_type* = Geom_BoundedSurface
 
-proc getTypeName*(): cstring {.importcpp: "Geom_BSplineSurface::get_type_name(@)",
-                            header: "Geom_BSplineSurface.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "Geom_BSplineSurface::get_type_name(@)",
+                              header: "Geom_BSplineSurface.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "Geom_BSplineSurface::get_type_descriptor(@)",
     header: "Geom_BSplineSurface.hxx".}
-proc dynamicType*(this: GeomBSplineSurface): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: Geom_BSplineSurface): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "Geom_BSplineSurface.hxx".}
-

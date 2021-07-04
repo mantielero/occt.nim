@@ -14,6 +14,14 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer,
+  ../Standard/Standard_Boolean, ../Standard/Standard_Real,
+  ../Convert/Convert_ParameterisationType,
+  ../TColGeom/TColGeom_Array1OfBSplineCurve, ../TColStd/TColStd_Array1OfReal,
+  ../TColGeom/TColGeom_HArray1OfBSplineCurve, ../TColStd/TColStd_HArray1OfInteger
+
 discard "forward decl of Geom_BSplineCurve"
 discard "forward decl of Geom_BSplineSurface"
 discard "forward decl of Geom_Curve"
@@ -200,77 +208,77 @@ type
                                                                                 ## LastUKnotIndex]
 
 
-proc splitBSplineCurve*(c: Handle[GeomBSplineCurve]; fromK1: StandardInteger;
-                       toK2: StandardInteger;
-                       sameOrientation: StandardBoolean = standardTrue): Handle[
-    GeomBSplineCurve] {.importcpp: "GeomConvert::SplitBSplineCurve(@)",
-                       header: "GeomConvert.hxx".}
-proc splitBSplineCurve*(c: Handle[GeomBSplineCurve]; fromU1: StandardReal;
-                       toU2: StandardReal; parametricTolerance: StandardReal;
-                       sameOrientation: StandardBoolean = standardTrue): Handle[
-    GeomBSplineCurve] {.importcpp: "GeomConvert::SplitBSplineCurve(@)",
-                       header: "GeomConvert.hxx".}
-proc splitBSplineSurface*(s: Handle[GeomBSplineSurface]; fromUK1: StandardInteger;
-                         toUK2: StandardInteger; fromVK1: StandardInteger;
-                         toVK2: StandardInteger;
-                         sameUOrientation: StandardBoolean = standardTrue;
-                         sameVOrientation: StandardBoolean = standardTrue): Handle[
-    GeomBSplineSurface] {.importcpp: "GeomConvert::SplitBSplineSurface(@)",
-                         header: "GeomConvert.hxx".}
-proc splitBSplineSurface*(s: Handle[GeomBSplineSurface]; fromK1: StandardInteger;
-                         toK2: StandardInteger; uSplit: StandardBoolean;
-                         sameOrientation: StandardBoolean = standardTrue): Handle[
-    GeomBSplineSurface] {.importcpp: "GeomConvert::SplitBSplineSurface(@)",
-                         header: "GeomConvert.hxx".}
-proc splitBSplineSurface*(s: Handle[GeomBSplineSurface]; fromU1: StandardReal;
-                         toU2: StandardReal; fromV1: StandardReal;
-                         toV2: StandardReal; parametricTolerance: StandardReal;
-                         sameUOrientation: StandardBoolean = standardTrue;
-                         sameVOrientation: StandardBoolean = standardTrue): Handle[
-    GeomBSplineSurface] {.importcpp: "GeomConvert::SplitBSplineSurface(@)",
-                         header: "GeomConvert.hxx".}
-proc splitBSplineSurface*(s: Handle[GeomBSplineSurface]; fromParam1: StandardReal;
-                         toParam2: StandardReal; uSplit: StandardBoolean;
-                         parametricTolerance: StandardReal;
-                         sameOrientation: StandardBoolean = standardTrue): Handle[
-    GeomBSplineSurface] {.importcpp: "GeomConvert::SplitBSplineSurface(@)",
-                         header: "GeomConvert.hxx".}
-proc curveToBSplineCurve*(c: Handle[GeomCurve]; parameterisation: ConvertParameterisationType = convertTgtThetaOver2): Handle[
-    GeomBSplineCurve] {.importcpp: "GeomConvert::CurveToBSplineCurve(@)",
-                       header: "GeomConvert.hxx".}
-proc surfaceToBSplineSurface*(s: Handle[GeomSurface]): Handle[GeomBSplineSurface] {.
+proc SplitBSplineCurve*(C: handle[Geom_BSplineCurve]; FromK1: Standard_Integer;
+                       ToK2: Standard_Integer;
+                       SameOrientation: Standard_Boolean = Standard_True): handle[
+    Geom_BSplineCurve] {.importcpp: "GeomConvert::SplitBSplineCurve(@)",
+                        header: "GeomConvert.hxx".}
+proc SplitBSplineCurve*(C: handle[Geom_BSplineCurve]; FromU1: Standard_Real;
+                       ToU2: Standard_Real; ParametricTolerance: Standard_Real;
+                       SameOrientation: Standard_Boolean = Standard_True): handle[
+    Geom_BSplineCurve] {.importcpp: "GeomConvert::SplitBSplineCurve(@)",
+                        header: "GeomConvert.hxx".}
+proc SplitBSplineSurface*(S: handle[Geom_BSplineSurface];
+                         FromUK1: Standard_Integer; ToUK2: Standard_Integer;
+                         FromVK1: Standard_Integer; ToVK2: Standard_Integer;
+                         SameUOrientation: Standard_Boolean = Standard_True;
+                         SameVOrientation: Standard_Boolean = Standard_True): handle[
+    Geom_BSplineSurface] {.importcpp: "GeomConvert::SplitBSplineSurface(@)",
+                          header: "GeomConvert.hxx".}
+proc SplitBSplineSurface*(S: handle[Geom_BSplineSurface]; FromK1: Standard_Integer;
+                         ToK2: Standard_Integer; USplit: Standard_Boolean;
+                         SameOrientation: Standard_Boolean = Standard_True): handle[
+    Geom_BSplineSurface] {.importcpp: "GeomConvert::SplitBSplineSurface(@)",
+                          header: "GeomConvert.hxx".}
+proc SplitBSplineSurface*(S: handle[Geom_BSplineSurface]; FromU1: Standard_Real;
+                         ToU2: Standard_Real; FromV1: Standard_Real;
+                         ToV2: Standard_Real; ParametricTolerance: Standard_Real;
+                         SameUOrientation: Standard_Boolean = Standard_True;
+                         SameVOrientation: Standard_Boolean = Standard_True): handle[
+    Geom_BSplineSurface] {.importcpp: "GeomConvert::SplitBSplineSurface(@)",
+                          header: "GeomConvert.hxx".}
+proc SplitBSplineSurface*(S: handle[Geom_BSplineSurface];
+                         FromParam1: Standard_Real; ToParam2: Standard_Real;
+                         USplit: Standard_Boolean;
+                         ParametricTolerance: Standard_Real;
+                         SameOrientation: Standard_Boolean = Standard_True): handle[
+    Geom_BSplineSurface] {.importcpp: "GeomConvert::SplitBSplineSurface(@)",
+                          header: "GeomConvert.hxx".}
+proc CurveToBSplineCurve*(C: handle[Geom_Curve]; Parameterisation: Convert_ParameterisationType = Convert_TgtThetaOver2): handle[
+    Geom_BSplineCurve] {.importcpp: "GeomConvert::CurveToBSplineCurve(@)",
+                        header: "GeomConvert.hxx".}
+proc SurfaceToBSplineSurface*(S: handle[Geom_Surface]): handle[Geom_BSplineSurface] {.
     importcpp: "GeomConvert::SurfaceToBSplineSurface(@)",
     header: "GeomConvert.hxx".}
-proc concatG1*(arrayOfCurves: var TColGeomArray1OfBSplineCurve;
-              arrayOfToler: TColStdArray1OfReal;
-              arrayOfConcatenated: var Handle[TColGeomHArray1OfBSplineCurve];
-              closedFlag: var StandardBoolean; closedTolerance: StandardReal) {.
+proc ConcatG1*(ArrayOfCurves: var TColGeom_Array1OfBSplineCurve;
+              ArrayOfToler: TColStd_Array1OfReal;
+              ArrayOfConcatenated: var handle[TColGeom_HArray1OfBSplineCurve];
+              ClosedFlag: var Standard_Boolean; ClosedTolerance: Standard_Real) {.
     importcpp: "GeomConvert::ConcatG1(@)", header: "GeomConvert.hxx".}
-proc concatC1*(arrayOfCurves: var TColGeomArray1OfBSplineCurve;
-              arrayOfToler: TColStdArray1OfReal;
-              arrayOfIndices: var Handle[TColStdHArray1OfInteger];
-              arrayOfConcatenated: var Handle[TColGeomHArray1OfBSplineCurve];
-              closedFlag: var StandardBoolean; closedTolerance: StandardReal) {.
+proc ConcatC1*(ArrayOfCurves: var TColGeom_Array1OfBSplineCurve;
+              ArrayOfToler: TColStd_Array1OfReal;
+              ArrayOfIndices: var handle[TColStd_HArray1OfInteger];
+              ArrayOfConcatenated: var handle[TColGeom_HArray1OfBSplineCurve];
+              ClosedFlag: var Standard_Boolean; ClosedTolerance: Standard_Real) {.
     importcpp: "GeomConvert::ConcatC1(@)", header: "GeomConvert.hxx".}
-proc concatC1*(arrayOfCurves: var TColGeomArray1OfBSplineCurve;
-              arrayOfToler: TColStdArray1OfReal;
-              arrayOfIndices: var Handle[TColStdHArray1OfInteger];
-              arrayOfConcatenated: var Handle[TColGeomHArray1OfBSplineCurve];
-              closedFlag: var StandardBoolean; closedTolerance: StandardReal;
-              angularTolerance: StandardReal) {.
+proc ConcatC1*(ArrayOfCurves: var TColGeom_Array1OfBSplineCurve;
+              ArrayOfToler: TColStd_Array1OfReal;
+              ArrayOfIndices: var handle[TColStd_HArray1OfInteger];
+              ArrayOfConcatenated: var handle[TColGeom_HArray1OfBSplineCurve];
+              ClosedFlag: var Standard_Boolean; ClosedTolerance: Standard_Real;
+              AngularTolerance: Standard_Real) {.
     importcpp: "GeomConvert::ConcatC1(@)", header: "GeomConvert.hxx".}
-proc c0BSplineToC1BSplineCurve*(bs: var Handle[GeomBSplineCurve];
-                               tolerance: StandardReal;
-                               angularTolerance: StandardReal = 1.0e-7) {.
+proc C0BSplineToC1BSplineCurve*(BS: var handle[Geom_BSplineCurve];
+                               tolerance: Standard_Real;
+                               AngularTolerance: Standard_Real = 1.0e-7) {.
     importcpp: "GeomConvert::C0BSplineToC1BSplineCurve(@)",
     header: "GeomConvert.hxx".}
-proc c0BSplineToArrayOfC1BSplineCurve*(bs: Handle[GeomBSplineCurve]; tabBS: var Handle[
-    TColGeomHArray1OfBSplineCurve]; tolerance: StandardReal) {.
+proc C0BSplineToArrayOfC1BSplineCurve*(BS: handle[Geom_BSplineCurve]; tabBS: var handle[
+    TColGeom_HArray1OfBSplineCurve]; tolerance: Standard_Real) {.
     importcpp: "GeomConvert::C0BSplineToArrayOfC1BSplineCurve(@)",
     header: "GeomConvert.hxx".}
-proc c0BSplineToArrayOfC1BSplineCurve*(bs: Handle[GeomBSplineCurve]; tabBS: var Handle[
-    TColGeomHArray1OfBSplineCurve]; angularTolerance: StandardReal;
-                                      tolerance: StandardReal) {.
+proc C0BSplineToArrayOfC1BSplineCurve*(BS: handle[Geom_BSplineCurve]; tabBS: var handle[
+    TColGeom_HArray1OfBSplineCurve]; AngularTolerance: Standard_Real;
+                                      tolerance: Standard_Real) {.
     importcpp: "GeomConvert::C0BSplineToArrayOfC1BSplineCurve(@)",
     header: "GeomConvert.hxx".}
-

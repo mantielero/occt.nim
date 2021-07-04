@@ -14,6 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, Geom2d_Vector,
+  ../Standard/Standard_Real
+
 discard "forward decl of Standard_ConstructionError"
 discard "forward decl of gp_Dir2d"
 discard "forward decl of Geom2d_Vector"
@@ -22,52 +26,73 @@ discard "forward decl of Geom2d_Geometry"
 discard "forward decl of Geom2d_Direction"
 discard "forward decl of Geom2d_Direction"
 type
-  HandleGeom2dDirection* = Handle[Geom2dDirection]
+  Handle_Geom2d_Direction* = handle[Geom2d_Direction]
 
 ## ! The class Direction specifies a vector that is never null.
 ## ! It is a unit vector.
 
 type
-  Geom2dDirection* {.importcpp: "Geom2d_Direction", header: "Geom2d_Direction.hxx",
-                    bycopy.} = object of Geom2dVector ## ! Creates a unit vector with it 2 cartesian coordinates.
-                                                 ## !
-                                                 ## ! Raised if Sqrt( X*X + Y*Y) <= Resolution from gp.
+  Geom2d_Direction* {.importcpp: "Geom2d_Direction",
+                     header: "Geom2d_Direction.hxx", bycopy.} = object of Geom2d_Vector ##
+                                                                                 ## !
+                                                                                 ## Creates
+                                                                                 ## a
+                                                                                 ## unit
+                                                                                 ## vector
+                                                                                 ## with
+                                                                                 ## it
+                                                                                 ## 2
+                                                                                 ## cartesian
+                                                                                 ## coordinates.
+                                                                                 ##
+                                                                                 ## !
+                                                                                 ##
+                                                                                 ## !
+                                                                                 ## Raised
+                                                                                 ## if
+                                                                                 ## Sqrt(
+                                                                                 ## X*X
+                                                                                 ## +
+                                                                                 ## Y*Y)
+                                                                                 ## <=
+                                                                                 ## Resolution
+                                                                                 ## from
+                                                                                 ## gp.
 
 
-proc constructGeom2dDirection*(x: StandardReal; y: StandardReal): Geom2dDirection {.
+proc constructGeom2d_Direction*(X: Standard_Real; Y: Standard_Real): Geom2d_Direction {.
     constructor, importcpp: "Geom2d_Direction(@)", header: "Geom2d_Direction.hxx".}
-proc constructGeom2dDirection*(v: GpDir2d): Geom2dDirection {.constructor,
+proc constructGeom2d_Direction*(V: gp_Dir2d): Geom2d_Direction {.constructor,
     importcpp: "Geom2d_Direction(@)", header: "Geom2d_Direction.hxx".}
-proc setCoord*(this: var Geom2dDirection; x: StandardReal; y: StandardReal) {.
+proc SetCoord*(this: var Geom2d_Direction; X: Standard_Real; Y: Standard_Real) {.
     importcpp: "SetCoord", header: "Geom2d_Direction.hxx".}
-proc setDir2d*(this: var Geom2dDirection; v: GpDir2d) {.importcpp: "SetDir2d",
+proc SetDir2d*(this: var Geom2d_Direction; V: gp_Dir2d) {.importcpp: "SetDir2d",
     header: "Geom2d_Direction.hxx".}
-proc setX*(this: var Geom2dDirection; x: StandardReal) {.importcpp: "SetX",
+proc SetX*(this: var Geom2d_Direction; X: Standard_Real) {.importcpp: "SetX",
     header: "Geom2d_Direction.hxx".}
-proc setY*(this: var Geom2dDirection; y: StandardReal) {.importcpp: "SetY",
+proc SetY*(this: var Geom2d_Direction; Y: Standard_Real) {.importcpp: "SetY",
     header: "Geom2d_Direction.hxx".}
-proc dir2d*(this: Geom2dDirection): GpDir2d {.noSideEffect, importcpp: "Dir2d",
+proc Dir2d*(this: Geom2d_Direction): gp_Dir2d {.noSideEffect, importcpp: "Dir2d",
     header: "Geom2d_Direction.hxx".}
-proc magnitude*(this: Geom2dDirection): StandardReal {.noSideEffect,
+proc Magnitude*(this: Geom2d_Direction): Standard_Real {.noSideEffect,
     importcpp: "Magnitude", header: "Geom2d_Direction.hxx".}
-proc squareMagnitude*(this: Geom2dDirection): StandardReal {.noSideEffect,
+proc SquareMagnitude*(this: Geom2d_Direction): Standard_Real {.noSideEffect,
     importcpp: "SquareMagnitude", header: "Geom2d_Direction.hxx".}
-proc crossed*(this: Geom2dDirection; other: Handle[Geom2dVector]): StandardReal {.
+proc Crossed*(this: Geom2d_Direction; Other: handle[Geom2d_Vector]): Standard_Real {.
     noSideEffect, importcpp: "Crossed", header: "Geom2d_Direction.hxx".}
-proc `^`*(this: Geom2dDirection; other: Handle[Geom2dVector]): StandardReal {.
+proc `^`*(this: Geom2d_Direction; Other: handle[Geom2d_Vector]): Standard_Real {.
     noSideEffect, importcpp: "(# ^ #)", header: "Geom2d_Direction.hxx".}
-proc transform*(this: var Geom2dDirection; t: GpTrsf2d) {.importcpp: "Transform",
+proc Transform*(this: var Geom2d_Direction; T: gp_Trsf2d) {.importcpp: "Transform",
     header: "Geom2d_Direction.hxx".}
-proc copy*(this: Geom2dDirection): Handle[Geom2dGeometry] {.noSideEffect,
+proc Copy*(this: Geom2d_Direction): handle[Geom2d_Geometry] {.noSideEffect,
     importcpp: "Copy", header: "Geom2d_Direction.hxx".}
 type
-  Geom2dDirectionbaseType* = Geom2dVector
+  Geom2d_Directionbase_type* = Geom2d_Vector
 
-proc getTypeName*(): cstring {.importcpp: "Geom2d_Direction::get_type_name(@)",
-                            header: "Geom2d_Direction.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "Geom2d_Direction::get_type_name(@)",
+                              header: "Geom2d_Direction.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "Geom2d_Direction::get_type_descriptor(@)",
     header: "Geom2d_Direction.hxx".}
-proc dynamicType*(this: Geom2dDirection): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: Geom2d_Direction): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "Geom2d_Direction.hxx".}
-

@@ -14,19 +14,29 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard_Transient, ../NCollection/NCollection_DataMap,
+  ../OSD/OSD_Chronometer, ../TColStd/TColStd_SequenceOfInteger,
+  ../TColStd/TColStd_HArray1OfInteger, ../Select3D/Select3D_BVHBuilder3d,
+  SelectMgr_IndexedDataMapOfOwnerCriterion, SelectMgr_SelectingVolumeManager,
+  SelectMgr_Selection, SelectMgr_SelectableObject, SelectMgr_SelectableObjectSet,
+  SelectMgr_StateOfSelection, SelectMgr_ToleranceMap,
+  SelectMgr_TypeOfDepthTolerance, ../Standard/Standard_OStream,
+  SelectMgr_BVHThreadPool
+
 discard "forward decl of SelectMgr_SelectionManager"
 discard "forward decl of SelectMgr_SensitiveEntitySet"
 discard "forward decl of SelectMgr_EntityOwner"
 discard "forward decl of Select3D_SensitiveEntity"
-# when defined(Status):
-#   discard
+when defined(Status):
+  discard
 type
-  SelectMgrMapOfObjectSensitives* = NCollectionDataMap[
-      Handle[SelectMgrSelectableObject], Handle[SelectMgrSensitiveEntitySet]]
-  SelectMgrMapOfObjectSensitivesIterator* = Iterator[
-      Handle[SelectMgrSelectableObject], Handle[SelectMgrSensitiveEntitySet]]
-  SelectMgrFrustumCache* = NCollectionDataMap[StandardInteger,
-      SelectMgrSelectingVolumeManager]
+  SelectMgr_MapOfObjectSensitives* = NCollection_DataMap[
+      handle[SelectMgr_SelectableObject], handle[SelectMgr_SensitiveEntitySet]]
+  SelectMgr_MapOfObjectSensitivesIterator* = Iterator[
+      handle[SelectMgr_SelectableObject], handle[SelectMgr_SensitiveEntitySet]]
+  SelectMgr_FrustumCache* = NCollection_DataMap[Standard_Integer,
+      SelectMgr_SelectingVolumeManager]
 
 ## ! A framework to define finding, sorting the sensitive
 ## ! primitives in a view. Services are also provided to
@@ -60,191 +70,192 @@ type
 ## !    intersection detection will be resized according to its sensitivity.
 
 type
-  SelectMgrViewerSelector* {.importcpp: "SelectMgr_ViewerSelector",
-                            header: "SelectMgr_ViewerSelector.hxx", bycopy.} = object of StandardTransient ##
-                                                                                                    ## !
-                                                                                                    ## Empties
-                                                                                                    ## all
-                                                                                                    ## the
-                                                                                                    ## tables,
-                                                                                                    ## removes
-                                                                                                    ## all
-                                                                                                    ## selections...
-                                                                                                    ##
-                                                                                                    ## !
-                                                                                                    ## Begins
-                                                                                                    ## an
-                                                                                                    ## iteration
-                                                                                                    ## scanning
-                                                                                                    ## for
-                                                                                                    ## the
-                                                                                                    ## owners
-                                                                                                    ## detected
-                                                                                                    ## at
-                                                                                                    ## a
-                                                                                                    ## position
-                                                                                                    ## in
-                                                                                                    ## the
-                                                                                                    ## view.
-                                                                                                    ##
-                                                                                                    ## !
-                                                                                                    ## Enables/disables
-                                                                                                    ## building
-                                                                                                    ## BVH
-                                                                                                    ## for
-                                                                                                    ## sensitives
-                                                                                                    ## in
-                                                                                                    ## separate
-                                                                                                    ## threads
-                                                                                                    ##
-                                                                                                    ## !
-                                                                                                    ## Checks
-                                                                                                    ## if
-                                                                                                    ## the
-                                                                                                    ## entity
-                                                                                                    ## given
-                                                                                                    ## requires
-                                                                                                    ## to
-                                                                                                    ## scale
-                                                                                                    ## current
-                                                                                                    ## selecting
-                                                                                                    ## frustum
-                                                                                                    ##
-                                                                                                    ## implementation
-                                                                                                    ## of
-                                                                                                    ## deprecated
-                                                                                                    ## methods
-                                                                                                    ##
-                                                                                                    ## !
-                                                                                                    ## Initializes
-                                                                                                    ## internal
-                                                                                                    ## iterator
-                                                                                                    ## for
-                                                                                                    ## stored
-                                                                                                    ## detected
-                                                                                                    ## sensitive
-                                                                                                    ## entities
+  SelectMgr_ViewerSelector* {.importcpp: "SelectMgr_ViewerSelector",
+                             header: "SelectMgr_ViewerSelector.hxx", bycopy.} = object of Standard_Transient ##
+                                                                                                      ## !
+                                                                                                      ## Empties
+                                                                                                      ## all
+                                                                                                      ## the
+                                                                                                      ## tables,
+                                                                                                      ## removes
+                                                                                                      ## all
+                                                                                                      ## selections...
+                                                                                                      ##
+                                                                                                      ## !
+                                                                                                      ## Begins
+                                                                                                      ## an
+                                                                                                      ## iteration
+                                                                                                      ## scanning
+                                                                                                      ## for
+                                                                                                      ## the
+                                                                                                      ## owners
+                                                                                                      ## detected
+                                                                                                      ## at
+                                                                                                      ## a
+                                                                                                      ## position
+                                                                                                      ## in
+                                                                                                      ## the
+                                                                                                      ## view.
+                                                                                                      ##
+                                                                                                      ## !
+                                                                                                      ## Enables/disables
+                                                                                                      ## building
+                                                                                                      ## BVH
+                                                                                                      ## for
+                                                                                                      ## sensitives
+                                                                                                      ## in
+                                                                                                      ## separate
+                                                                                                      ## threads
+                                                                                                      ##
+                                                                                                      ## !
+                                                                                                      ## Checks
+                                                                                                      ## if
+                                                                                                      ## the
+                                                                                                      ## entity
+                                                                                                      ## given
+                                                                                                      ## requires
+                                                                                                      ## to
+                                                                                                      ## scale
+                                                                                                      ## current
+                                                                                                      ## selecting
+                                                                                                      ## frustum
+                                                                                                      ##
+                                                                                                      ## implementation
+                                                                                                      ## of
+                                                                                                      ## deprecated
+                                                                                                      ## methods
+                                                                                                      ##
+                                                                                                      ## !
+                                                                                                      ## Initializes
+                                                                                                      ## internal
+                                                                                                      ## iterator
+                                                                                                      ## for
+                                                                                                      ## stored
+                                                                                                      ## detected
+                                                                                                      ## sensitive
+                                                                                                      ## entities
 
-  SelectMgrViewerSelectorbaseType* = StandardTransient
+  SelectMgr_ViewerSelectorbase_type* = Standard_Transient
 
-proc getTypeName*(): cstring {.importcpp: "SelectMgr_ViewerSelector::get_type_name(@)",
-                            header: "SelectMgr_ViewerSelector.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "SelectMgr_ViewerSelector::get_type_name(@)",
+                              header: "SelectMgr_ViewerSelector.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "SelectMgr_ViewerSelector::get_type_descriptor(@)",
     header: "SelectMgr_ViewerSelector.hxx".}
-proc dynamicType*(this: SelectMgrViewerSelector): Handle[StandardType] {.
+proc DynamicType*(this: SelectMgr_ViewerSelector): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType", header: "SelectMgr_ViewerSelector.hxx".}
-proc clear*(this: var SelectMgrViewerSelector) {.importcpp: "Clear",
+proc Clear*(this: var SelectMgr_ViewerSelector) {.importcpp: "Clear",
     header: "SelectMgr_ViewerSelector.hxx".}
-proc customPixelTolerance*(this: SelectMgrViewerSelector): StandardInteger {.
+proc CustomPixelTolerance*(this: SelectMgr_ViewerSelector): Standard_Integer {.
     noSideEffect, importcpp: "CustomPixelTolerance",
     header: "SelectMgr_ViewerSelector.hxx".}
-proc setPixelTolerance*(this: var SelectMgrViewerSelector;
-                       theTolerance: StandardInteger) {.
+proc SetPixelTolerance*(this: var SelectMgr_ViewerSelector;
+                       theTolerance: Standard_Integer) {.
     importcpp: "SetPixelTolerance", header: "SelectMgr_ViewerSelector.hxx".}
-proc sensitivity*(this: SelectMgrViewerSelector): StandardReal {.noSideEffect,
+proc Sensitivity*(this: SelectMgr_ViewerSelector): Standard_Real {.noSideEffect,
     importcpp: "Sensitivity", header: "SelectMgr_ViewerSelector.hxx".}
-proc pixelTolerance*(this: SelectMgrViewerSelector): StandardInteger {.noSideEffect,
-    importcpp: "PixelTolerance", header: "SelectMgr_ViewerSelector.hxx".}
-proc sortResult*(this: var SelectMgrViewerSelector) {.importcpp: "SortResult",
+proc PixelTolerance*(this: SelectMgr_ViewerSelector): Standard_Integer {.
+    noSideEffect, importcpp: "PixelTolerance",
     header: "SelectMgr_ViewerSelector.hxx".}
-proc onePicked*(this: SelectMgrViewerSelector): Handle[SelectMgrEntityOwner] {.
+proc SortResult*(this: var SelectMgr_ViewerSelector) {.importcpp: "SortResult",
+    header: "SelectMgr_ViewerSelector.hxx".}
+proc OnePicked*(this: SelectMgr_ViewerSelector): handle[SelectMgr_EntityOwner] {.
     noSideEffect, importcpp: "OnePicked", header: "SelectMgr_ViewerSelector.hxx".}
-proc toPickClosest*(this: SelectMgrViewerSelector): bool {.noSideEffect,
+proc ToPickClosest*(this: SelectMgr_ViewerSelector): bool {.noSideEffect,
     importcpp: "ToPickClosest", header: "SelectMgr_ViewerSelector.hxx".}
-proc setPickClosest*(this: var SelectMgrViewerSelector; theToPreferClosest: bool) {.
+proc SetPickClosest*(this: var SelectMgr_ViewerSelector; theToPreferClosest: bool) {.
     importcpp: "SetPickClosest", header: "SelectMgr_ViewerSelector.hxx".}
-proc depthToleranceType*(this: SelectMgrViewerSelector): SelectMgrTypeOfDepthTolerance {.
+proc DepthToleranceType*(this: SelectMgr_ViewerSelector): SelectMgr_TypeOfDepthTolerance {.
     noSideEffect, importcpp: "DepthToleranceType",
     header: "SelectMgr_ViewerSelector.hxx".}
-proc depthTolerance*(this: SelectMgrViewerSelector): StandardReal {.noSideEffect,
+proc DepthTolerance*(this: SelectMgr_ViewerSelector): Standard_Real {.noSideEffect,
     importcpp: "DepthTolerance", header: "SelectMgr_ViewerSelector.hxx".}
-proc setDepthTolerance*(this: var SelectMgrViewerSelector;
-                       theType: SelectMgrTypeOfDepthTolerance;
-                       theTolerance: StandardReal) {.
+proc SetDepthTolerance*(this: var SelectMgr_ViewerSelector;
+                       theType: SelectMgr_TypeOfDepthTolerance;
+                       theTolerance: Standard_Real) {.
     importcpp: "SetDepthTolerance", header: "SelectMgr_ViewerSelector.hxx".}
-proc nbPicked*(this: SelectMgrViewerSelector): StandardInteger {.noSideEffect,
+proc NbPicked*(this: SelectMgr_ViewerSelector): Standard_Integer {.noSideEffect,
     importcpp: "NbPicked", header: "SelectMgr_ViewerSelector.hxx".}
-proc clearPicked*(this: var SelectMgrViewerSelector) {.importcpp: "ClearPicked",
+proc ClearPicked*(this: var SelectMgr_ViewerSelector) {.importcpp: "ClearPicked",
     header: "SelectMgr_ViewerSelector.hxx".}
-proc picked*(this: SelectMgrViewerSelector; theRank: StandardInteger): Handle[
-    SelectMgrEntityOwner] {.noSideEffect, importcpp: "Picked",
-                           header: "SelectMgr_ViewerSelector.hxx".}
-proc pickedData*(this: SelectMgrViewerSelector; theRank: StandardInteger): SelectMgrSortCriterion {.
+proc Picked*(this: SelectMgr_ViewerSelector; theRank: Standard_Integer): handle[
+    SelectMgr_EntityOwner] {.noSideEffect, importcpp: "Picked",
+                            header: "SelectMgr_ViewerSelector.hxx".}
+proc PickedData*(this: SelectMgr_ViewerSelector; theRank: Standard_Integer): SelectMgr_SortCriterion {.
     noSideEffect, importcpp: "PickedData", header: "SelectMgr_ViewerSelector.hxx".}
-proc pickedEntity*(this: SelectMgrViewerSelector; theRank: StandardInteger): Handle[
+proc PickedEntity*(this: SelectMgr_ViewerSelector; theRank: Standard_Integer): handle[
     Select3D_SensitiveEntity] {.noSideEffect, importcpp: "PickedEntity",
                                header: "SelectMgr_ViewerSelector.hxx".}
-proc pickedPoint*(this: SelectMgrViewerSelector; theRank: StandardInteger): GpPnt {.
+proc PickedPoint*(this: SelectMgr_ViewerSelector; theRank: Standard_Integer): gp_Pnt {.
     noSideEffect, importcpp: "PickedPoint", header: "SelectMgr_ViewerSelector.hxx".}
-proc contains*(this: SelectMgrViewerSelector;
-              theObject: Handle[SelectMgrSelectableObject]): StandardBoolean {.
+proc Contains*(this: SelectMgr_ViewerSelector;
+              theObject: handle[SelectMgr_SelectableObject]): Standard_Boolean {.
     noSideEffect, importcpp: "Contains", header: "SelectMgr_ViewerSelector.hxx".}
-proc entitySetBuilder*(this: var SelectMgrViewerSelector): Handle[
+proc EntitySetBuilder*(this: var SelectMgr_ViewerSelector): handle[
     Select3D_BVHBuilder3d] {.importcpp: "EntitySetBuilder",
                             header: "SelectMgr_ViewerSelector.hxx".}
-proc setEntitySetBuilder*(this: var SelectMgrViewerSelector;
-                         theBuilder: Handle[Select3D_BVHBuilder3d]) {.
+proc SetEntitySetBuilder*(this: var SelectMgr_ViewerSelector;
+                         theBuilder: handle[Select3D_BVHBuilder3d]) {.
     importcpp: "SetEntitySetBuilder", header: "SelectMgr_ViewerSelector.hxx".}
-proc modes*(this: SelectMgrViewerSelector;
-           theSelectableObject: Handle[SelectMgrSelectableObject];
-           theModeList: var TColStdListOfInteger;
-           theWantedState: SelectMgrStateOfSelection = selectMgrSOS_Any): StandardBoolean {.
+proc Modes*(this: SelectMgr_ViewerSelector;
+           theSelectableObject: handle[SelectMgr_SelectableObject];
+           theModeList: var TColStd_ListOfInteger;
+           theWantedState: SelectMgr_StateOfSelection = SelectMgr_SOS_Any): Standard_Boolean {.
     noSideEffect, importcpp: "Modes", header: "SelectMgr_ViewerSelector.hxx".}
-proc isActive*(this: SelectMgrViewerSelector;
-              theSelectableObject: Handle[SelectMgrSelectableObject];
-              theMode: StandardInteger): StandardBoolean {.noSideEffect,
+proc IsActive*(this: SelectMgr_ViewerSelector;
+              theSelectableObject: handle[SelectMgr_SelectableObject];
+              theMode: Standard_Integer): Standard_Boolean {.noSideEffect,
     importcpp: "IsActive", header: "SelectMgr_ViewerSelector.hxx".}
-proc isInside*(this: SelectMgrViewerSelector;
-              theSelectableObject: Handle[SelectMgrSelectableObject];
-              theMode: StandardInteger): StandardBoolean {.noSideEffect,
+proc IsInside*(this: SelectMgr_ViewerSelector;
+              theSelectableObject: handle[SelectMgr_SelectableObject];
+              theMode: Standard_Integer): Standard_Boolean {.noSideEffect,
     importcpp: "IsInside", header: "SelectMgr_ViewerSelector.hxx".}
-proc status*(this: SelectMgrViewerSelector;
-            theSelection: Handle[SelectMgrSelection]): SelectMgrStateOfSelection {.
+proc Status*(this: SelectMgr_ViewerSelector;
+            theSelection: handle[SelectMgr_Selection]): SelectMgr_StateOfSelection {.
     noSideEffect, importcpp: "Status", header: "SelectMgr_ViewerSelector.hxx".}
-proc status*(this: SelectMgrViewerSelector;
-            theSelectableObject: Handle[SelectMgrSelectableObject]): TCollectionAsciiString {.
+proc Status*(this: SelectMgr_ViewerSelector;
+            theSelectableObject: handle[SelectMgr_SelectableObject]): TCollection_AsciiString {.
     noSideEffect, importcpp: "Status", header: "SelectMgr_ViewerSelector.hxx".}
-proc activeOwners*(this: SelectMgrViewerSelector;
-                  theOwners: var NCollectionList[Handle[SelectMgrEntityOwner]]) {.
-    noSideEffect, importcpp: "ActiveOwners", header: "SelectMgr_ViewerSelector.hxx".}
-proc addSelectableObject*(this: var SelectMgrViewerSelector;
-                         theObject: Handle[SelectMgrSelectableObject]) {.
+proc ActiveOwners*(this: SelectMgr_ViewerSelector; theOwners: var NCollection_List[
+    handle[SelectMgr_EntityOwner]]) {.noSideEffect, importcpp: "ActiveOwners",
+                                     header: "SelectMgr_ViewerSelector.hxx".}
+proc AddSelectableObject*(this: var SelectMgr_ViewerSelector;
+                         theObject: handle[SelectMgr_SelectableObject]) {.
     importcpp: "AddSelectableObject", header: "SelectMgr_ViewerSelector.hxx".}
-proc addSelectionToObject*(this: var SelectMgrViewerSelector;
-                          theObject: Handle[SelectMgrSelectableObject];
-                          theSelection: Handle[SelectMgrSelection]) {.
+proc AddSelectionToObject*(this: var SelectMgr_ViewerSelector;
+                          theObject: handle[SelectMgr_SelectableObject];
+                          theSelection: handle[SelectMgr_Selection]) {.
     importcpp: "AddSelectionToObject", header: "SelectMgr_ViewerSelector.hxx".}
-proc moveSelectableObject*(this: var SelectMgrViewerSelector;
-                          theObject: Handle[SelectMgrSelectableObject]) {.
+proc MoveSelectableObject*(this: var SelectMgr_ViewerSelector;
+                          theObject: handle[SelectMgr_SelectableObject]) {.
     importcpp: "MoveSelectableObject", header: "SelectMgr_ViewerSelector.hxx".}
-proc removeSelectableObject*(this: var SelectMgrViewerSelector;
-                            theObject: Handle[SelectMgrSelectableObject]) {.
+proc RemoveSelectableObject*(this: var SelectMgr_ViewerSelector;
+                            theObject: handle[SelectMgr_SelectableObject]) {.
     importcpp: "RemoveSelectableObject", header: "SelectMgr_ViewerSelector.hxx".}
-proc removeSelectionOfObject*(this: var SelectMgrViewerSelector;
-                             theObject: Handle[SelectMgrSelectableObject];
-                             theSelection: Handle[SelectMgrSelection]) {.
+proc RemoveSelectionOfObject*(this: var SelectMgr_ViewerSelector;
+                             theObject: handle[SelectMgr_SelectableObject];
+                             theSelection: handle[SelectMgr_Selection]) {.
     importcpp: "RemoveSelectionOfObject", header: "SelectMgr_ViewerSelector.hxx".}
-proc rebuildObjectsTree*(this: var SelectMgrViewerSelector;
-                        theIsForce: StandardBoolean = standardFalse) {.
+proc RebuildObjectsTree*(this: var SelectMgr_ViewerSelector;
+                        theIsForce: Standard_Boolean = Standard_False) {.
     importcpp: "RebuildObjectsTree", header: "SelectMgr_ViewerSelector.hxx".}
-proc rebuildSensitivesTree*(this: var SelectMgrViewerSelector;
-                           theObject: Handle[SelectMgrSelectableObject];
-                           theIsForce: StandardBoolean = standardFalse) {.
+proc RebuildSensitivesTree*(this: var SelectMgr_ViewerSelector;
+                           theObject: handle[SelectMgr_SelectableObject];
+                           theIsForce: Standard_Boolean = Standard_False) {.
     importcpp: "RebuildSensitivesTree", header: "SelectMgr_ViewerSelector.hxx".}
-proc getManager*(this: var SelectMgrViewerSelector): var SelectMgrSelectingVolumeManager {.
+proc GetManager*(this: var SelectMgr_ViewerSelector): var SelectMgr_SelectingVolumeManager {.
     importcpp: "GetManager", header: "SelectMgr_ViewerSelector.hxx".}
-proc selectableObjects*(this: SelectMgrViewerSelector): SelectMgrSelectableObjectSet {.
+proc SelectableObjects*(this: SelectMgr_ViewerSelector): SelectMgr_SelectableObjectSet {.
     noSideEffect, importcpp: "SelectableObjects",
     header: "SelectMgr_ViewerSelector.hxx".}
-proc resetSelectionActivationStatus*(this: var SelectMgrViewerSelector) {.
+proc ResetSelectionActivationStatus*(this: var SelectMgr_ViewerSelector) {.
     importcpp: "ResetSelectionActivationStatus",
     header: "SelectMgr_ViewerSelector.hxx".}
-proc allowOverlapDetection*(this: var SelectMgrViewerSelector;
-                           theIsToAllow: StandardBoolean) {.
+proc AllowOverlapDetection*(this: var SelectMgr_ViewerSelector;
+                           theIsToAllow: Standard_Boolean) {.
     importcpp: "AllowOverlapDetection", header: "SelectMgr_ViewerSelector.hxx".}
-proc dumpJson*(this: SelectMgrViewerSelector; theOStream: var StandardOStream;
-              theDepth: StandardInteger = -1) {.noSideEffect, importcpp: "DumpJson",
+proc DumpJson*(this: SelectMgr_ViewerSelector; theOStream: var Standard_OStream;
+              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
     header: "SelectMgr_ViewerSelector.hxx".}
 ## !!!Ignored construct:  public : ! Begins an iteration scanning for the owners detected at a position in the view. Standard_DEPRECATED ( Deprecated method Init() ) void Init ( ) { initPicked ( ) ; } ! Continues the interation scanning for the owners detected at a position in the view,
 ## ! or continues the iteration scanning for the owner closest to the position in the view. Standard_DEPRECATED ( Deprecated method More() ) Standard_Boolean More ( ) { return morePicked ( ) ; } ! Returns the next owner found in the iteration. This is
@@ -254,19 +265,18 @@ proc dumpJson*(this: SelectMgrViewerSelector; theOStream: var StandardOStream;
 ## !!!Ignored construct:  ! Initializes internal iterator for stored detected sensitive entities Standard_DEPRECATED ( Deprecated method InitDetected() ) void InitDetected ( ) { initPicked ( ) ; } ! Makes a step along the map of detected sensitive entities and their owners Standard_DEPRECATED ( Deprecated method NextDetected() ) void NextDetected ( ) { nextPicked ( ) ; } ! Returns true if iterator of map of detected sensitive entities has reached its end Standard_DEPRECATED ( Deprecated method MoreDetected() ) Standard_Boolean MoreDetected ( ) { return morePicked ( ) ; } ! Returns sensitive entity that was detected during the previous run of selection algorithm Standard_DEPRECATED ( Deprecated method DetectedEntity() should be replaced by DetectedEntity(int) ) const opencascade :: handle < Select3D_SensitiveEntity > [end of template] & DetectedEntity ( ) const ;
 ## Error: identifier expected, but got: Deprecated method InitDetected()!!!
 
-proc setToPrebuildBVH*(this: var SelectMgrViewerSelector;
-                      theToPrebuild: StandardBoolean;
-                      theThreadsNum: StandardInteger = -1) {.
+proc SetToPrebuildBVH*(this: var SelectMgr_ViewerSelector;
+                      theToPrebuild: Standard_Boolean;
+                      theThreadsNum: Standard_Integer = -1) {.
     importcpp: "SetToPrebuildBVH", header: "SelectMgr_ViewerSelector.hxx".}
-proc queueBVHBuild*(this: var SelectMgrViewerSelector;
-                   theEntity: Handle[Select3D_SensitiveEntity]) {.
+proc QueueBVHBuild*(this: var SelectMgr_ViewerSelector;
+                   theEntity: handle[Select3D_SensitiveEntity]) {.
     importcpp: "QueueBVHBuild", header: "SelectMgr_ViewerSelector.hxx".}
-proc waitForBVHBuild*(this: var SelectMgrViewerSelector) {.
+proc WaitForBVHBuild*(this: var SelectMgr_ViewerSelector) {.
     importcpp: "WaitForBVHBuild", header: "SelectMgr_ViewerSelector.hxx".}
-proc toPrebuildBVH*(this: SelectMgrViewerSelector): StandardBoolean {.noSideEffect,
-    importcpp: "ToPrebuildBVH", header: "SelectMgr_ViewerSelector.hxx".}
+proc ToPrebuildBVH*(this: SelectMgr_ViewerSelector): Standard_Boolean {.
+    noSideEffect, importcpp: "ToPrebuildBVH",
+    header: "SelectMgr_ViewerSelector.hxx".}
 discard "forward decl of SelectMgr_ViewerSelector"
 type
-  HandleSelectMgrViewerSelector* = Handle[SelectMgrViewerSelector]
-
-
+  Handle_SelectMgr_ViewerSelector* = handle[SelectMgr_ViewerSelector]

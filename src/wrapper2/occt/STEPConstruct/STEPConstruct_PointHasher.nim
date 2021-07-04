@@ -13,71 +13,75 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer,
+  ../Standard/Standard_Boolean
+
 discard "forward decl of gp_Pnt"
 type
-  STEPConstructPointHasher* {.importcpp: "STEPConstruct_PointHasher",
-                             header: "STEPConstruct_PointHasher.hxx", bycopy.} = object ##
-                                                                                   ## !
-                                                                                   ## Computes
-                                                                                   ## a
-                                                                                   ## hash
-                                                                                   ## code
-                                                                                   ## for
-                                                                                   ## the
-                                                                                   ## point,
-                                                                                   ## in
-                                                                                   ## the
-                                                                                   ## range
-                                                                                   ## [1,
-                                                                                   ## theUpperBound]
-                                                                                   ##
-                                                                                   ## !
-                                                                                   ## @param
-                                                                                   ## thePoint
-                                                                                   ## the
-                                                                                   ## point
-                                                                                   ## which
-                                                                                   ## hash
-                                                                                   ## code
-                                                                                   ## is
-                                                                                   ## to
-                                                                                   ## be
-                                                                                   ## computed
-                                                                                   ##
-                                                                                   ## !
-                                                                                   ## @param
-                                                                                   ## theUpperBound
-                                                                                   ## the
-                                                                                   ## upper
-                                                                                   ## bound
-                                                                                   ## of
-                                                                                   ## the
-                                                                                   ## range
-                                                                                   ## a
-                                                                                   ## computing
-                                                                                   ## hash
-                                                                                   ## code
-                                                                                   ## must
-                                                                                   ## be
-                                                                                   ## within
-                                                                                   ##
-                                                                                   ## !
-                                                                                   ## @return
-                                                                                   ## a
-                                                                                   ## computed
-                                                                                   ## hash
-                                                                                   ## code,
-                                                                                   ## in
-                                                                                   ## the
-                                                                                   ## range
-                                                                                   ## [1,
-                                                                                   ## theUpperBound]
+  STEPConstruct_PointHasher* {.importcpp: "STEPConstruct_PointHasher",
+                              header: "STEPConstruct_PointHasher.hxx", bycopy.} = object ##
+                                                                                    ## !
+                                                                                    ## Computes
+                                                                                    ## a
+                                                                                    ## hash
+                                                                                    ## code
+                                                                                    ## for
+                                                                                    ## the
+                                                                                    ## point,
+                                                                                    ## in
+                                                                                    ## the
+                                                                                    ## range
+                                                                                    ## [1,
+                                                                                    ## theUpperBound]
+                                                                                    ##
+                                                                                    ## !
+                                                                                    ## @param
+                                                                                    ## thePoint
+                                                                                    ## the
+                                                                                    ## point
+                                                                                    ## which
+                                                                                    ## hash
+                                                                                    ## code
+                                                                                    ## is
+                                                                                    ## to
+                                                                                    ## be
+                                                                                    ## computed
+                                                                                    ##
+                                                                                    ## !
+                                                                                    ## @param
+                                                                                    ## theUpperBound
+                                                                                    ## the
+                                                                                    ## upper
+                                                                                    ## bound
+                                                                                    ## of
+                                                                                    ## the
+                                                                                    ## range
+                                                                                    ## a
+                                                                                    ## computing
+                                                                                    ## hash
+                                                                                    ## code
+                                                                                    ## must
+                                                                                    ## be
+                                                                                    ## within
+                                                                                    ##
+                                                                                    ## !
+                                                                                    ## @return
+                                                                                    ## a
+                                                                                    ## computed
+                                                                                    ## hash
+                                                                                    ## code,
+                                                                                    ## in
+                                                                                    ## the
+                                                                                    ## range
+                                                                                    ## [1,
+                                                                                    ## theUpperBound]
 
 
-proc hashCode*(thePoint: GpPnt; theUpperBound: StandardInteger): StandardInteger {.
+proc HashCode*(thePoint: gp_Pnt; theUpperBound: Standard_Integer): Standard_Integer {.
     importcpp: "STEPConstruct_PointHasher::HashCode(@)",
     header: "STEPConstruct_PointHasher.hxx".}
-proc isEqual*(point1: GpPnt; point2: GpPnt): StandardBoolean {.
+proc IsEqual*(Point1: gp_Pnt; Point2: gp_Pnt): Standard_Boolean {.
     importcpp: "STEPConstruct_PointHasher::IsEqual(@)",
     header: "STEPConstruct_PointHasher.hxx".}
-

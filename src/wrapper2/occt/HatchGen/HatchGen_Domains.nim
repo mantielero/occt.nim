@@ -14,7 +14,8 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  HatchGen_Domain, ../NCollection/NCollection_Sequence
+
 type
-  HatchGenDomains* = NCollectionSequence[HatchGenDomain]
-
-
+  HatchGen_Domains* = NCollection_Sequence[HatchGen_Domain]

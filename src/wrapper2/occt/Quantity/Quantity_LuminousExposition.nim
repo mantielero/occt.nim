@@ -14,8 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _Quantity_LuminousExposition_HeaderFile [NewLine] # _Quantity_LuminousExposition_HeaderFile [NewLine] # < Standard_Real . hxx > [NewLine] ! Defined as the quantity of illuminance with time.
+## !!!Ignored construct:  # _Quantity_LuminousExposition_HeaderFile [NewLine] # _Quantity_LuminousExposition_HeaderFile [NewLine] # ../Standard/Standard_Real.hxx [NewLine] ! Defined as the quantity of illuminance with time.
 ## ! It is measured in lux-seconds. Standard_DEPRECATED ( This type is deprecated - Standard_Real should be used instead ) typedef Standard_Real Quantity_LuminousExposition ;
 ## Error: expected ';'!!!
-
-

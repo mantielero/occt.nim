@@ -14,6 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type,
+  ../IGESData/IGESData_ReadWriteModule, ../Standard/Standard_Integer
+
 discard "forward decl of Standard_DomainError"
 discard "forward decl of IGESData_IGESEntity"
 discard "forward decl of IGESData_IGESReaderData"
@@ -22,51 +26,50 @@ discard "forward decl of IGESData_IGESWriter"
 discard "forward decl of IGESDimen_ReadWriteModule"
 discard "forward decl of IGESDimen_ReadWriteModule"
 type
-  HandleIGESDimenReadWriteModule* = Handle[IGESDimenReadWriteModule]
+  Handle_IGESDimen_ReadWriteModule* = handle[IGESDimen_ReadWriteModule]
 
 ## ! Defines Dimen File Access Module for IGESDimen (specific parts)
 ## ! Specific actions concern : Read and Write Own Parameters of
 ## ! an IGESEntity
 
 type
-  IGESDimenReadWriteModule* {.importcpp: "IGESDimen_ReadWriteModule",
-                             header: "IGESDimen_ReadWriteModule.hxx", bycopy.} = object of IGESDataReadWriteModule ##
-                                                                                                            ## !
-                                                                                                            ## Creates
-                                                                                                            ## a
-                                                                                                            ## ReadWriteModule
-                                                                                                            ## &
-                                                                                                            ## puts
-                                                                                                            ## it
-                                                                                                            ## into
-                                                                                                            ## ReaderLib
-                                                                                                            ## &
-                                                                                                            ## WriterLib
+  IGESDimen_ReadWriteModule* {.importcpp: "IGESDimen_ReadWriteModule",
+                              header: "IGESDimen_ReadWriteModule.hxx", bycopy.} = object of IGESData_ReadWriteModule ##
+                                                                                                              ## !
+                                                                                                              ## Creates
+                                                                                                              ## a
+                                                                                                              ## ReadWriteModule
+                                                                                                              ## &
+                                                                                                              ## puts
+                                                                                                              ## it
+                                                                                                              ## into
+                                                                                                              ## ReaderLib
+                                                                                                              ## &
+                                                                                                              ## WriterLib
 
 
-proc constructIGESDimenReadWriteModule*(): IGESDimenReadWriteModule {.constructor,
-    importcpp: "IGESDimen_ReadWriteModule(@)",
+proc constructIGESDimen_ReadWriteModule*(): IGESDimen_ReadWriteModule {.
+    constructor, importcpp: "IGESDimen_ReadWriteModule(@)",
     header: "IGESDimen_ReadWriteModule.hxx".}
-proc caseIGES*(this: IGESDimenReadWriteModule; typenum: StandardInteger;
-              formnum: StandardInteger): StandardInteger {.noSideEffect,
+proc CaseIGES*(this: IGESDimen_ReadWriteModule; typenum: Standard_Integer;
+              formnum: Standard_Integer): Standard_Integer {.noSideEffect,
     importcpp: "CaseIGES", header: "IGESDimen_ReadWriteModule.hxx".}
-proc readOwnParams*(this: IGESDimenReadWriteModule; cn: StandardInteger;
-                   ent: Handle[IGESDataIGESEntity];
-                   ir: Handle[IGESDataIGESReaderData]; pr: var IGESDataParamReader) {.
-    noSideEffect, importcpp: "ReadOwnParams",
-    header: "IGESDimen_ReadWriteModule.hxx".}
-proc writeOwnParams*(this: IGESDimenReadWriteModule; cn: StandardInteger;
-                    ent: Handle[IGESDataIGESEntity]; iw: var IGESDataIGESWriter) {.
+proc ReadOwnParams*(this: IGESDimen_ReadWriteModule; CN: Standard_Integer;
+                   ent: handle[IGESData_IGESEntity];
+                   IR: handle[IGESData_IGESReaderData];
+                   PR: var IGESData_ParamReader) {.noSideEffect,
+    importcpp: "ReadOwnParams", header: "IGESDimen_ReadWriteModule.hxx".}
+proc WriteOwnParams*(this: IGESDimen_ReadWriteModule; CN: Standard_Integer;
+                    ent: handle[IGESData_IGESEntity]; IW: var IGESData_IGESWriter) {.
     noSideEffect, importcpp: "WriteOwnParams",
     header: "IGESDimen_ReadWriteModule.hxx".}
 type
-  IGESDimenReadWriteModulebaseType* = IGESDataReadWriteModule
+  IGESDimen_ReadWriteModulebase_type* = IGESData_ReadWriteModule
 
-proc getTypeName*(): cstring {.importcpp: "IGESDimen_ReadWriteModule::get_type_name(@)",
-                            header: "IGESDimen_ReadWriteModule.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "IGESDimen_ReadWriteModule::get_type_name(@)",
+                              header: "IGESDimen_ReadWriteModule.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "IGESDimen_ReadWriteModule::get_type_descriptor(@)",
     header: "IGESDimen_ReadWriteModule.hxx".}
-proc dynamicType*(this: IGESDimenReadWriteModule): Handle[StandardType] {.
+proc DynamicType*(this: IGESDimen_ReadWriteModule): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType", header: "IGESDimen_ReadWriteModule.hxx".}
-

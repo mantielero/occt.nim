@@ -13,6 +13,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  NCollection_BaseList, NCollection_TListNode
+
 ## *
 ##  Purpose:     This Iterator class iterates on BaseList of TListNode and is
 ##               instantiated in List/Set/Queue/Stack
@@ -20,26 +23,26 @@
 ##
 
 type
-  NCollectionTListIterator*[TheItemType] {.
+  NCollection_TListIterator*[TheItemType] {.
       importcpp: "NCollection_TListIterator<\'0>",
       header: "NCollection_TListIterator.hxx", bycopy.} = object of Iterator ## ! Empty
                                                                       ## constructor - for later Init
 
 
-proc constructNCollectionTListIterator*[TheItemType](): NCollectionTListIterator[
+proc constructNCollection_TListIterator*[TheItemType](): NCollection_TListIterator[
     TheItemType] {.constructor, importcpp: "NCollection_TListIterator<\'*0>(@)",
                   header: "NCollection_TListIterator.hxx".}
-proc constructNCollectionTListIterator*[TheItemType](theList: NCollectionBaseList): NCollectionTListIterator[
-    TheItemType] {.constructor, importcpp: "NCollection_TListIterator<\'*0>(@)",
-                  header: "NCollection_TListIterator.hxx".}
-proc more*[TheItemType](this: NCollectionTListIterator[TheItemType]): StandardBoolean {.
+proc constructNCollection_TListIterator*[TheItemType](
+    theList: NCollection_BaseList): NCollection_TListIterator[TheItemType] {.
+    constructor, importcpp: "NCollection_TListIterator<\'*0>(@)",
+    header: "NCollection_TListIterator.hxx".}
+proc More*[TheItemType](this: NCollection_TListIterator[TheItemType]): Standard_Boolean {.
     noSideEffect, importcpp: "More", header: "NCollection_TListIterator.hxx".}
-proc next*[TheItemType](this: var NCollectionTListIterator[TheItemType]) {.
+proc Next*[TheItemType](this: var NCollection_TListIterator[TheItemType]) {.
     importcpp: "Next", header: "NCollection_TListIterator.hxx".}
-proc value*[TheItemType](this: NCollectionTListIterator[TheItemType]): TheItemType {.
+proc Value*[TheItemType](this: NCollection_TListIterator[TheItemType]): TheItemType {.
     noSideEffect, importcpp: "Value", header: "NCollection_TListIterator.hxx".}
-proc value*[TheItemType](this: var NCollectionTListIterator[TheItemType]): var TheItemType {.
+proc Value*[TheItemType](this: var NCollection_TListIterator[TheItemType]): var TheItemType {.
     importcpp: "Value", header: "NCollection_TListIterator.hxx".}
-proc changeValue*[TheItemType](this: NCollectionTListIterator[TheItemType]): var TheItemType {.
+proc ChangeValue*[TheItemType](this: NCollection_TListIterator[TheItemType]): var TheItemType {.
     noSideEffect, importcpp: "ChangeValue", header: "NCollection_TListIterator.hxx".}
-

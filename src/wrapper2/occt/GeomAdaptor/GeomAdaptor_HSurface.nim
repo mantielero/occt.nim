@@ -14,13 +14,17 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, GeomAdaptor_GHSurface,
+  ../Standard/Standard_Real
+
 discard "forward decl of Standard_ConstructionError"
 discard "forward decl of GeomAdaptor_Surface"
 discard "forward decl of Geom_Surface"
 discard "forward decl of GeomAdaptor_HSurface"
 discard "forward decl of GeomAdaptor_HSurface"
 type
-  HandleGeomAdaptorHSurface* = Handle[GeomAdaptorHSurface]
+  Handle_GeomAdaptor_HSurface* = handle[GeomAdaptor_HSurface]
 
 ## ! An interface between the services provided by any
 ## ! surface from the package Geom and those required
@@ -28,32 +32,32 @@ type
 ## ! Provides a  surface handled by reference.
 
 type
-  GeomAdaptorHSurface* {.importcpp: "GeomAdaptor_HSurface",
-                        header: "GeomAdaptor_HSurface.hxx", bycopy.} = object of GeomAdaptorGHSurface
+  GeomAdaptor_HSurface* {.importcpp: "GeomAdaptor_HSurface",
+                         header: "GeomAdaptor_HSurface.hxx", bycopy.} = object of GeomAdaptor_GHSurface
 
 
-proc constructGeomAdaptorHSurface*(): GeomAdaptorHSurface {.constructor,
+proc constructGeomAdaptor_HSurface*(): GeomAdaptor_HSurface {.constructor,
     importcpp: "GeomAdaptor_HSurface(@)", header: "GeomAdaptor_HSurface.hxx".}
-proc constructGeomAdaptorHSurface*(`as`: GeomAdaptorSurface): GeomAdaptorHSurface {.
+proc constructGeomAdaptor_HSurface*(AS: GeomAdaptor_Surface): GeomAdaptor_HSurface {.
     constructor, importcpp: "GeomAdaptor_HSurface(@)",
     header: "GeomAdaptor_HSurface.hxx".}
-proc constructGeomAdaptorHSurface*(s: Handle[GeomSurface]): GeomAdaptorHSurface {.
+proc constructGeomAdaptor_HSurface*(S: handle[Geom_Surface]): GeomAdaptor_HSurface {.
     constructor, importcpp: "GeomAdaptor_HSurface(@)",
     header: "GeomAdaptor_HSurface.hxx".}
-proc constructGeomAdaptorHSurface*(s: Handle[GeomSurface]; uFirst: StandardReal;
-                                  uLast: StandardReal; vFirst: StandardReal;
-                                  vLast: StandardReal; tolU: StandardReal = 0.0;
-                                  tolV: StandardReal = 0.0): GeomAdaptorHSurface {.
+proc constructGeomAdaptor_HSurface*(S: handle[Geom_Surface]; UFirst: Standard_Real;
+                                   ULast: Standard_Real; VFirst: Standard_Real;
+                                   VLast: Standard_Real;
+                                   TolU: Standard_Real = 0.0;
+                                   TolV: Standard_Real = 0.0): GeomAdaptor_HSurface {.
     constructor, importcpp: "GeomAdaptor_HSurface(@)",
     header: "GeomAdaptor_HSurface.hxx".}
 type
-  GeomAdaptorHSurfacebaseType* = GeomAdaptorGHSurface
+  GeomAdaptor_HSurfacebase_type* = GeomAdaptor_GHSurface
 
-proc getTypeName*(): cstring {.importcpp: "GeomAdaptor_HSurface::get_type_name(@)",
-                            header: "GeomAdaptor_HSurface.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "GeomAdaptor_HSurface::get_type_name(@)",
+                              header: "GeomAdaptor_HSurface.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "GeomAdaptor_HSurface::get_type_descriptor(@)",
     header: "GeomAdaptor_HSurface.hxx".}
-proc dynamicType*(this: GeomAdaptorHSurface): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: GeomAdaptor_HSurface): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "GeomAdaptor_HSurface.hxx".}
-

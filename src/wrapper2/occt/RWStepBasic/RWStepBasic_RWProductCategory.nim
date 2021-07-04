@@ -14,25 +14,28 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepBasic_ProductCategory"
 discard "forward decl of StepData_StepWriter"
 type
-  RWStepBasicRWProductCategory* {.importcpp: "RWStepBasic_RWProductCategory",
-                                 header: "RWStepBasic_RWProductCategory.hxx",
-                                 bycopy.} = object
+  RWStepBasic_RWProductCategory* {.importcpp: "RWStepBasic_RWProductCategory",
+                                  header: "RWStepBasic_RWProductCategory.hxx",
+                                  bycopy.} = object
 
 
-proc constructRWStepBasicRWProductCategory*(): RWStepBasicRWProductCategory {.
+proc constructRWStepBasic_RWProductCategory*(): RWStepBasic_RWProductCategory {.
     constructor, importcpp: "RWStepBasic_RWProductCategory(@)",
     header: "RWStepBasic_RWProductCategory.hxx".}
-proc readStep*(this: RWStepBasicRWProductCategory;
-              data: Handle[StepDataStepReaderData]; num: StandardInteger;
-              ach: var Handle[InterfaceCheck];
-              ent: Handle[StepBasicProductCategory]) {.noSideEffect,
+proc ReadStep*(this: RWStepBasic_RWProductCategory;
+              data: handle[StepData_StepReaderData]; num: Standard_Integer;
+              ach: var handle[Interface_Check];
+              ent: handle[StepBasic_ProductCategory]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepBasic_RWProductCategory.hxx".}
-proc writeStep*(this: RWStepBasicRWProductCategory; sw: var StepDataStepWriter;
-               ent: Handle[StepBasicProductCategory]) {.noSideEffect,
+proc WriteStep*(this: RWStepBasic_RWProductCategory; SW: var StepData_StepWriter;
+               ent: handle[StepBasic_ProductCategory]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepBasic_RWProductCategory.hxx".}
-

@@ -14,6 +14,14 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../NCollection/NCollection_Vector,
+  BRepApprox_TheComputeLineOfApprox, BRepApprox_TheComputeLineBezierOfApprox,
+  ../Approx/Approx_MCurvesToBSpCurve, ../Standard/Standard_Boolean,
+  ../Standard/Standard_Real, ../Standard/Standard_Integer,
+  ../Approx/Approx_ParametrizationType
+
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of BRepAdaptor_Surface"
@@ -34,42 +42,41 @@ discard "forward decl of BRepApprox_TheComputeLineBezierOfApprox"
 discard "forward decl of BRepApprox_MyGradientOfTheComputeLineBezierOfApprox"
 discard "forward decl of AppParCurves_MultiBSpCurve"
 type
-  BRepApproxApprox* {.importcpp: "BRepApprox_Approx",
-                     header: "BRepApprox_Approx.hxx", bycopy.} = object
+  BRepApprox_Approx* {.importcpp: "BRepApprox_Approx",
+                      header: "BRepApprox_Approx.hxx", bycopy.} = object
 
 
-proc constructBRepApproxApprox*(): BRepApproxApprox {.constructor,
+proc constructBRepApprox_Approx*(): BRepApprox_Approx {.constructor,
     importcpp: "BRepApprox_Approx(@)", header: "BRepApprox_Approx.hxx".}
-proc perform*(this: var BRepApproxApprox; surf1: BRepAdaptorSurface;
-             surf2: BRepAdaptorSurface; aLine: Handle[BRepApproxApproxLine];
-             approxXYZ: StandardBoolean = standardTrue;
-             approxU1V1: StandardBoolean = standardTrue;
-             approxU2V2: StandardBoolean = standardTrue;
-             indicemin: StandardInteger = 0; indicemax: StandardInteger = 0) {.
+proc Perform*(this: var BRepApprox_Approx; Surf1: BRepAdaptor_Surface;
+             Surf2: BRepAdaptor_Surface; aLine: handle[BRepApprox_ApproxLine];
+             ApproxXYZ: Standard_Boolean = Standard_True;
+             ApproxU1V1: Standard_Boolean = Standard_True;
+             ApproxU2V2: Standard_Boolean = Standard_True;
+             indicemin: Standard_Integer = 0; indicemax: Standard_Integer = 0) {.
     importcpp: "Perform", header: "BRepApprox_Approx.hxx".}
-proc perform*(this: var BRepApproxApprox; aLine: Handle[BRepApproxApproxLine];
-             approxXYZ: StandardBoolean = standardTrue;
-             approxU1V1: StandardBoolean = standardTrue;
-             approxU2V2: StandardBoolean = standardTrue;
-             indicemin: StandardInteger = 0; indicemax: StandardInteger = 0) {.
+proc Perform*(this: var BRepApprox_Approx; aLine: handle[BRepApprox_ApproxLine];
+             ApproxXYZ: Standard_Boolean = Standard_True;
+             ApproxU1V1: Standard_Boolean = Standard_True;
+             ApproxU2V2: Standard_Boolean = Standard_True;
+             indicemin: Standard_Integer = 0; indicemax: Standard_Integer = 0) {.
     importcpp: "Perform", header: "BRepApprox_Approx.hxx".}
-proc setParameters*(this: var BRepApproxApprox; tol3d: StandardReal;
-                   tol2d: StandardReal; degMin: StandardInteger;
-                   degMax: StandardInteger; nbIterMax: StandardInteger;
-                   nbPntMax: StandardInteger = 30;
-                   approxWithTangency: StandardBoolean = standardTrue;
-    parametrization: ApproxParametrizationType = approxChordLength) {.
+proc SetParameters*(this: var BRepApprox_Approx; Tol3d: Standard_Real;
+                   Tol2d: Standard_Real; DegMin: Standard_Integer;
+                   DegMax: Standard_Integer; NbIterMax: Standard_Integer;
+                   NbPntMax: Standard_Integer = 30;
+                   ApproxWithTangency: Standard_Boolean = Standard_True;
+    Parametrization: Approx_ParametrizationType = Approx_ChordLength) {.
     importcpp: "SetParameters", header: "BRepApprox_Approx.hxx".}
-proc perform*(this: var BRepApproxApprox) {.importcpp: "Perform",
-                                        header: "BRepApprox_Approx.hxx".}
-proc tolReached3d*(this: BRepApproxApprox): StandardReal {.noSideEffect,
+proc Perform*(this: var BRepApprox_Approx) {.importcpp: "Perform",
+    header: "BRepApprox_Approx.hxx".}
+proc TolReached3d*(this: BRepApprox_Approx): Standard_Real {.noSideEffect,
     importcpp: "TolReached3d", header: "BRepApprox_Approx.hxx".}
-proc tolReached2d*(this: BRepApproxApprox): StandardReal {.noSideEffect,
+proc TolReached2d*(this: BRepApprox_Approx): Standard_Real {.noSideEffect,
     importcpp: "TolReached2d", header: "BRepApprox_Approx.hxx".}
-proc isDone*(this: BRepApproxApprox): StandardBoolean {.noSideEffect,
+proc IsDone*(this: BRepApprox_Approx): Standard_Boolean {.noSideEffect,
     importcpp: "IsDone", header: "BRepApprox_Approx.hxx".}
-proc nbMultiCurves*(this: BRepApproxApprox): StandardInteger {.noSideEffect,
+proc NbMultiCurves*(this: BRepApprox_Approx): Standard_Integer {.noSideEffect,
     importcpp: "NbMultiCurves", header: "BRepApprox_Approx.hxx".}
-proc value*(this: BRepApproxApprox; index: StandardInteger): AppParCurvesMultiBSpCurve {.
+proc Value*(this: BRepApprox_Approx; Index: Standard_Integer): AppParCurves_MultiBSpCurve {.
     noSideEffect, importcpp: "Value", header: "BRepApprox_Approx.hxx".}
-

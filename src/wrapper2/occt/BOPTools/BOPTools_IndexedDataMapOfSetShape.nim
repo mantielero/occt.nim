@@ -12,8 +12,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  BOPTools_Set, BOPTools_SetMapHasher, ../NCollection/NCollection_IndexedDataMap,
+  ../TopoDS/TopoDS_Shape
+
 type
-  BOPToolsIndexedDataMapOfSetShape* = NCollectionIndexedDataMap[BOPToolsSet,
-      TopoDS_Shape, BOPToolsSetMapHasher]
-
-
+  BOPTools_IndexedDataMapOfSetShape* = NCollection_IndexedDataMap[BOPTools_Set,
+      TopoDS_Shape, BOPTools_SetMapHasher]

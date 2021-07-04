@@ -13,33 +13,39 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
+  ../Standard/Standard_Real, ../TopTools/TopTools_SequenceOfShape,
+  ../Standard/Standard_Integer
+
 discard "forward decl of TopoDS_Edge"
 discard "forward decl of TopoDS_Vertex"
 discard "forward decl of TopoDS_Face"
 discard "forward decl of ShapeBuild_ReShape"
 type
-  ShapeFixSplitTool* {.importcpp: "ShapeFix_SplitTool",
-                      header: "ShapeFix_SplitTool.hxx", bycopy.} = object ## ! Empty constructor
+  ShapeFix_SplitTool* {.importcpp: "ShapeFix_SplitTool",
+                       header: "ShapeFix_SplitTool.hxx", bycopy.} = object ## ! Empty
+                                                                      ## constructor
 
 
-proc constructShapeFixSplitTool*(): ShapeFixSplitTool {.constructor,
+proc constructShapeFix_SplitTool*(): ShapeFix_SplitTool {.constructor,
     importcpp: "ShapeFix_SplitTool(@)", header: "ShapeFix_SplitTool.hxx".}
-proc splitEdge*(this: ShapeFixSplitTool; edge: TopoDS_Edge; param: StandardReal;
+proc SplitEdge*(this: ShapeFix_SplitTool; edge: TopoDS_Edge; param: Standard_Real;
                vert: TopoDS_Vertex; face: TopoDS_Face; newE1: var TopoDS_Edge;
-               newE2: var TopoDS_Edge; tol3d: StandardReal; tol2d: StandardReal): StandardBoolean {.
+               newE2: var TopoDS_Edge; tol3d: Standard_Real; tol2d: Standard_Real): Standard_Boolean {.
     noSideEffect, importcpp: "SplitEdge", header: "ShapeFix_SplitTool.hxx".}
-proc splitEdge*(this: ShapeFixSplitTool; edge: TopoDS_Edge; param1: StandardReal;
-               param2: StandardReal; vert: TopoDS_Vertex; face: TopoDS_Face;
-               newE1: var TopoDS_Edge; newE2: var TopoDS_Edge; tol3d: StandardReal;
-               tol2d: StandardReal): StandardBoolean {.noSideEffect,
+proc SplitEdge*(this: ShapeFix_SplitTool; edge: TopoDS_Edge; param1: Standard_Real;
+               param2: Standard_Real; vert: TopoDS_Vertex; face: TopoDS_Face;
+               newE1: var TopoDS_Edge; newE2: var TopoDS_Edge; tol3d: Standard_Real;
+               tol2d: Standard_Real): Standard_Boolean {.noSideEffect,
     importcpp: "SplitEdge", header: "ShapeFix_SplitTool.hxx".}
-proc cutEdge*(this: ShapeFixSplitTool; edge: TopoDS_Edge; pend: StandardReal;
-             cut: StandardReal; face: TopoDS_Face; iscutline: var StandardBoolean): StandardBoolean {.
+proc CutEdge*(this: ShapeFix_SplitTool; edge: TopoDS_Edge; pend: Standard_Real;
+             cut: Standard_Real; face: TopoDS_Face; iscutline: var Standard_Boolean): Standard_Boolean {.
     noSideEffect, importcpp: "CutEdge", header: "ShapeFix_SplitTool.hxx".}
-proc splitEdge*(this: ShapeFixSplitTool; edge: TopoDS_Edge; fp: StandardReal;
-               v1: TopoDS_Vertex; lp: StandardReal; v2: TopoDS_Vertex;
-               face: TopoDS_Face; seqE: var TopToolsSequenceOfShape;
-               aNum: var StandardInteger; context: Handle[ShapeBuildReShape];
-               tol3d: StandardReal; tol2d: StandardReal): StandardBoolean {.
+proc SplitEdge*(this: ShapeFix_SplitTool; edge: TopoDS_Edge; fp: Standard_Real;
+               V1: TopoDS_Vertex; lp: Standard_Real; V2: TopoDS_Vertex;
+               face: TopoDS_Face; SeqE: var TopTools_SequenceOfShape;
+               aNum: var Standard_Integer; context: handle[ShapeBuild_ReShape];
+               tol3d: Standard_Real; tol2d: Standard_Real): Standard_Boolean {.
     noSideEffect, importcpp: "SplitEdge", header: "ShapeFix_SplitTool.hxx".}
-

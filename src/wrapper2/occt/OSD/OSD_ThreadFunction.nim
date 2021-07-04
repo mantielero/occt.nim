@@ -13,6 +13,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard_Address
+
 ##  Typedef for prototype of function to be used as main
 ##  function of a thread
 ##  Note: currently we use the same prototype for thread functions on all
@@ -30,8 +33,6 @@
 ## #else
 
 type
-  OSD_ThreadFunction* = proc (data: StandardAddress): StandardAddress
+  OSD_ThreadFunction* = proc (data: Standard_Address): Standard_Address
 
 ## #endif
-
-

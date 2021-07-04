@@ -14,112 +14,123 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  Graphic3d_BndBox4f, Graphic3d_AspectLine3d, Graphic3d_AspectFillArea3d,
+  Graphic3d_AspectText3d, Graphic3d_AspectMarker3d,
+  Graphic3d_MapOfAspectsToAspects, ../Standard/Standard_CString, Graphic3d_Vertex,
+  Graphic3d_TextPath, Graphic3d_HorizontalTextAlignment,
+  Graphic3d_VerticalTextAlignment, Graphic3d_TypeOfPrimitiveArray,
+  Graphic3d_IndexBuffer, Graphic3d_Buffer, Graphic3d_BoundBuffer, ../gp/gp_Ax2,
+  ../TCollection/TCollection_ExtendedString
+
 discard "forward decl of Graphic3d_Structure"
 discard "forward decl of Graphic3d_ArrayOfPrimitives"
 discard "forward decl of Graphic3d_Text"
 type
-  Graphic3dGroup* {.importcpp: "Graphic3d_Group", header: "Graphic3d_Group.hxx",
-                   bycopy.} = object of StandardTransient ## ! Supress all primitives and attributes of <me>.
-                                                     ## ! To clear group without update in Graphic3d_StructureManager
-                                                     ## ! pass Standard_False as <theUpdateStructureMgr>. This
-                                                     ## ! used on context and viewer destruction, when the pointer
-                                                     ## ! to structure manager in Graphic3d_Structure could be
-                                                     ## ! already released (pointers are used here to avoid handle
-                                                     ## ! cross-reference);
-                                                     ## ! Return fill area aspect.
-                                                     ## ! sets the stencil test to theIsEnabled state;
-                                                     ## ! Creates the string <AText> at position <APoint>.
-                                                     ## ! The 3D point of attachment is projected. The text is
-                                                     ## ! written in the plane of projection.
-                                                     ## ! The attributes are given with respect to the plane of
-                                                     ## ! projection.
-                                                     ## ! AHeight : Height of text.
-                                                     ## ! (Relative to the Normalized Projection
-                                                     ## ! Coordinates (NPC) Space).
-                                                     ## ! AAngle  : Orientation of the text
-                                                     ## ! (with respect to the horizontal).
-                                                     ## ! Creates a group in the structure <AStructure>.
+  Graphic3d_Group* {.importcpp: "Graphic3d_Group", header: "Graphic3d_Group.hxx",
+                    bycopy.} = object of Standard_Transient ## ! Supress all primitives and attributes of <me>.
+                                                       ## ! To clear group without update in
+                                                       ## Graphic3d_StructureManager
+                                                       ## ! pass Standard_False as <theUpdateStructureMgr>. This
+                                                       ## ! used on context and viewer destruction, when the pointer
+                                                       ## ! to structure manager in Graphic3d_Structure could be
+                                                       ## ! already released (pointers are used here to avoid handle
+                                                       ## ! cross-reference);
+                                                       ## ! Return fill area aspect.
+                                                       ## ! sets the stencil test to theIsEnabled state;
+                                                       ## ! Creates the string <AText> at position <APoint>.
+                                                       ## ! The 3D point of attachment is projected. The text is
+                                                       ## ! written in the plane of projection.
+                                                       ## ! The attributes are given with respect to the plane of
+                                                       ## ! projection.
+                                                       ## ! AHeight : Height of text.
+                                                       ## ! (Relative to the Normalized Projection
+                                                       ## ! Coordinates (NPC) Space).
+                                                       ## ! AAngle  : Orientation of the text
+                                                       ## ! (with respect to the horizontal).
+                                                       ## ! Creates a group in the structure <AStructure>.
     ## !< pointer to the parent structure
     ## !< bounding box
     ## !< flag indicating closed volume
     ## !< flag indicating that this group contains face primitives
 
-  Graphic3dGroupbaseType* = StandardTransient
+  Graphic3d_Groupbase_type* = Standard_Transient
 
-proc getTypeName*(): cstring {.importcpp: "Graphic3d_Group::get_type_name(@)",
-                            header: "Graphic3d_Group.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "Graphic3d_Group::get_type_name(@)",
+                              header: "Graphic3d_Group.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "Graphic3d_Group::get_type_descriptor(@)",
     header: "Graphic3d_Group.hxx".}
-proc dynamicType*(this: Graphic3dGroup): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: Graphic3d_Group): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "Graphic3d_Group.hxx".}
-proc clear*(this: var Graphic3dGroup;
-           theUpdateStructureMgr: StandardBoolean = standardTrue) {.
+proc Clear*(this: var Graphic3d_Group;
+           theUpdateStructureMgr: Standard_Boolean = Standard_True) {.
     importcpp: "Clear", header: "Graphic3d_Group.hxx".}
-proc destroyGraphic3dGroup*(this: var Graphic3dGroup) {.
+proc destroyGraphic3d_Group*(this: var Graphic3d_Group) {.
     importcpp: "#.~Graphic3d_Group()", header: "Graphic3d_Group.hxx".}
-proc remove*(this: var Graphic3dGroup) {.importcpp: "Remove",
-                                     header: "Graphic3d_Group.hxx".}
-proc aspects*(this: Graphic3dGroup): Handle[Graphic3dAspects] {.noSideEffect,
+proc Remove*(this: var Graphic3d_Group) {.importcpp: "Remove",
+                                      header: "Graphic3d_Group.hxx".}
+proc Aspects*(this: Graphic3d_Group): handle[Graphic3d_Aspects] {.noSideEffect,
     importcpp: "Aspects", header: "Graphic3d_Group.hxx".}
-proc setGroupPrimitivesAspect*(this: var Graphic3dGroup;
-                              theAspect: Handle[Graphic3dAspects]) {.
+proc SetGroupPrimitivesAspect*(this: var Graphic3d_Group;
+                              theAspect: handle[Graphic3d_Aspects]) {.
     importcpp: "SetGroupPrimitivesAspect", header: "Graphic3d_Group.hxx".}
-proc setPrimitivesAspect*(this: var Graphic3dGroup;
-                         theAspect: Handle[Graphic3dAspects]) {.
+proc SetPrimitivesAspect*(this: var Graphic3d_Group;
+                         theAspect: handle[Graphic3d_Aspects]) {.
     importcpp: "SetPrimitivesAspect", header: "Graphic3d_Group.hxx".}
-proc synchronizeAspects*(this: var Graphic3dGroup) {.
+proc SynchronizeAspects*(this: var Graphic3d_Group) {.
     importcpp: "SynchronizeAspects", header: "Graphic3d_Group.hxx".}
-proc replaceAspects*(this: var Graphic3dGroup;
-                    theMap: Graphic3dMapOfAspectsToAspects) {.
+proc ReplaceAspects*(this: var Graphic3d_Group;
+                    theMap: Graphic3d_MapOfAspectsToAspects) {.
     importcpp: "ReplaceAspects", header: "Graphic3d_Group.hxx".}
-proc addText*(this: var Graphic3dGroup; theTextParams: Handle[Graphic3dText];
-             theToEvalMinMax: StandardBoolean = standardTrue) {.
+proc AddText*(this: var Graphic3d_Group; theTextParams: handle[Graphic3d_Text];
+             theToEvalMinMax: Standard_Boolean = Standard_True) {.
     importcpp: "AddText", header: "Graphic3d_Group.hxx".}
-proc addPrimitiveArray*(this: var Graphic3dGroup;
-                       theType: Graphic3dTypeOfPrimitiveArray;
-                       theIndices: Handle[Graphic3dIndexBuffer];
-                       theAttribs: Handle[Graphic3dBuffer];
-                       theBounds: Handle[Graphic3dBoundBuffer];
-                       theToEvalMinMax: StandardBoolean = standardTrue) {.
+proc AddPrimitiveArray*(this: var Graphic3d_Group;
+                       theType: Graphic3d_TypeOfPrimitiveArray;
+                       theIndices: handle[Graphic3d_IndexBuffer];
+                       theAttribs: handle[Graphic3d_Buffer];
+                       theBounds: handle[Graphic3d_BoundBuffer];
+                       theToEvalMinMax: Standard_Boolean = Standard_True) {.
     importcpp: "AddPrimitiveArray", header: "Graphic3d_Group.hxx".}
-proc addPrimitiveArray*(this: var Graphic3dGroup;
-                       thePrim: Handle[Graphic3dArrayOfPrimitives];
-                       theToEvalMinMax: StandardBoolean = standardTrue) {.
+proc AddPrimitiveArray*(this: var Graphic3d_Group;
+                       thePrim: handle[Graphic3d_ArrayOfPrimitives];
+                       theToEvalMinMax: Standard_Boolean = Standard_True) {.
     importcpp: "AddPrimitiveArray", header: "Graphic3d_Group.hxx".}
-proc marker*(this: var Graphic3dGroup; thePoint: Graphic3dVertex;
-            theToEvalMinMax: StandardBoolean = standardTrue) {.importcpp: "Marker",
-    header: "Graphic3d_Group.hxx".}
-proc setStencilTestOptions*(this: var Graphic3dGroup; theIsEnabled: StandardBoolean) {.
+proc Marker*(this: var Graphic3d_Group; thePoint: Graphic3d_Vertex;
+            theToEvalMinMax: Standard_Boolean = Standard_True) {.
+    importcpp: "Marker", header: "Graphic3d_Group.hxx".}
+proc SetStencilTestOptions*(this: var Graphic3d_Group;
+                           theIsEnabled: Standard_Boolean) {.
     importcpp: "SetStencilTestOptions", header: "Graphic3d_Group.hxx".}
-proc setFlippingOptions*(this: var Graphic3dGroup; theIsEnabled: StandardBoolean;
-                        theRefPlane: GpAx2) {.importcpp: "SetFlippingOptions",
+proc SetFlippingOptions*(this: var Graphic3d_Group; theIsEnabled: Standard_Boolean;
+                        theRefPlane: gp_Ax2) {.importcpp: "SetFlippingOptions",
     header: "Graphic3d_Group.hxx".}
-proc containsFacet*(this: Graphic3dGroup): bool {.noSideEffect,
+proc ContainsFacet*(this: Graphic3d_Group): bool {.noSideEffect,
     importcpp: "ContainsFacet", header: "Graphic3d_Group.hxx".}
-proc isDeleted*(this: Graphic3dGroup): StandardBoolean {.noSideEffect,
+proc IsDeleted*(this: Graphic3d_Group): Standard_Boolean {.noSideEffect,
     importcpp: "IsDeleted", header: "Graphic3d_Group.hxx".}
-proc isEmpty*(this: Graphic3dGroup): StandardBoolean {.noSideEffect,
+proc IsEmpty*(this: Graphic3d_Group): Standard_Boolean {.noSideEffect,
     importcpp: "IsEmpty", header: "Graphic3d_Group.hxx".}
-proc minMaxValues*(this: Graphic3dGroup; theXMin: var StandardReal;
-                  theYMin: var StandardReal; theZMin: var StandardReal;
-                  theXMax: var StandardReal; theYMax: var StandardReal;
-                  theZMax: var StandardReal) {.noSideEffect,
+proc MinMaxValues*(this: Graphic3d_Group; theXMin: var Standard_Real;
+                  theYMin: var Standard_Real; theZMin: var Standard_Real;
+                  theXMax: var Standard_Real; theYMax: var Standard_Real;
+                  theZMax: var Standard_Real) {.noSideEffect,
     importcpp: "MinMaxValues", header: "Graphic3d_Group.hxx".}
-proc setMinMaxValues*(this: var Graphic3dGroup; theXMin: StandardReal;
-                     theYMin: StandardReal; theZMin: StandardReal;
-                     theXMax: StandardReal; theYMax: StandardReal;
-                     theZMax: StandardReal) {.importcpp: "SetMinMaxValues",
+proc SetMinMaxValues*(this: var Graphic3d_Group; theXMin: Standard_Real;
+                     theYMin: Standard_Real; theZMin: Standard_Real;
+                     theXMax: Standard_Real; theYMax: Standard_Real;
+                     theZMax: Standard_Real) {.importcpp: "SetMinMaxValues",
     header: "Graphic3d_Group.hxx".}
-proc boundingBox*(this: Graphic3dGroup): Graphic3dBndBox4f {.noSideEffect,
+proc BoundingBox*(this: Graphic3d_Group): Graphic3d_BndBox4f {.noSideEffect,
     importcpp: "BoundingBox", header: "Graphic3d_Group.hxx".}
-proc changeBoundingBox*(this: var Graphic3dGroup): var Graphic3dBndBox4f {.
+proc ChangeBoundingBox*(this: var Graphic3d_Group): var Graphic3d_BndBox4f {.
     importcpp: "ChangeBoundingBox", header: "Graphic3d_Group.hxx".}
-proc structure*(this: Graphic3dGroup): Handle[Graphic3dStructure] {.noSideEffect,
+proc Structure*(this: Graphic3d_Group): handle[Graphic3d_Structure] {.noSideEffect,
     importcpp: "Structure", header: "Graphic3d_Group.hxx".}
-proc setClosed*(this: var Graphic3dGroup; theIsClosed: bool) {.importcpp: "SetClosed",
-    header: "Graphic3d_Group.hxx".}
-proc isClosed*(this: Graphic3dGroup): bool {.noSideEffect, importcpp: "IsClosed",
+proc SetClosed*(this: var Graphic3d_Group; theIsClosed: bool) {.
+    importcpp: "SetClosed", header: "Graphic3d_Group.hxx".}
+proc IsClosed*(this: Graphic3d_Group): bool {.noSideEffect, importcpp: "IsClosed",
     header: "Graphic3d_Group.hxx".}
 ## !!!Ignored construct:  ! @name obsolete methods public : ! Creates the string <AText> at position <APoint>.
 ## ! The 3D point of attachment is projected. The text is
@@ -181,11 +192,9 @@ proc isClosed*(this: Graphic3dGroup): bool {.noSideEffect, importcpp: "IsClosed"
 ## !!!Ignored construct:  ! Creates the string <theText> at orientation <theOrientation> in 3D space. Standard_DEPRECATED ( Deprecated method Text() with obsolete arguments, use AddText() instead of it ) virtual void Text ( const TCollection_ExtendedString & theText , const gp_Ax2 & theOrientation , const Standard_Real theHeight , const Standard_Real theAngle , const Graphic3d_TextPath theTp , const Graphic3d_HorizontalTextAlignment theHTA , const Graphic3d_VerticalTextAlignment theVTA , const Standard_Boolean theToEvalMinMax = Standard_True , const Standard_Boolean theHasOwnAnchor = Standard_True ) ;
 ## Error: identifier expected, but got: Deprecated method Text() with obsolete arguments, use AddText() instead of it!!!
 
-proc dumpJson*(this: Graphic3dGroup; theOStream: var StandardOStream;
-              theDepth: StandardInteger = -1) {.noSideEffect, importcpp: "DumpJson",
+proc DumpJson*(this: Graphic3d_Group; theOStream: var Standard_OStream;
+              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
     header: "Graphic3d_Group.hxx".}
 discard "forward decl of Graphic3d_Group"
 type
-  HandleGraphic3dGroup* = Handle[Graphic3dGroup]
-
-
+  Handle_Graphic3d_Group* = handle[Graphic3d_Group]

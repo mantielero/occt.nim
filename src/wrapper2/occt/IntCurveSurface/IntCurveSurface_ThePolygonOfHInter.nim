@@ -14,7 +14,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _IntCurveSurface_ThePolygonOfHInter_HeaderFile [NewLine] # _IntCurveSurface_ThePolygonOfHInter_HeaderFile [NewLine] # < Standard . hxx > [NewLine] # < Standard_DefineAlloc . hxx > [NewLine] # < Standard_Handle . hxx > [NewLine] # < Bnd_Box . hxx > [NewLine] # < Standard_Real . hxx > [NewLine] # < Standard_Integer . hxx > [NewLine] # < TColgp_Array1OfPnt . hxx > [NewLine] # < Standard_Boolean . hxx > [NewLine] # < TColStd_HArray1OfReal . hxx > [NewLine] # < TColStd_Array1OfReal . hxx > [NewLine] class Standard_OutOfRange ;
+## !!!Ignored construct:  # _IntCurveSurface_ThePolygonOfHInter_HeaderFile [NewLine] # _IntCurveSurface_ThePolygonOfHInter_HeaderFile [NewLine] # ../Standard/Standard.hxx [NewLine] # ../Standard/Standard_DefineAlloc.hxx [NewLine] # ../Standard/Standard_Handle.hxx [NewLine] # ../Bnd/Bnd_Box.hxx [NewLine] # ../Standard/Standard_Real.hxx [NewLine] # ../Standard/Standard_Integer.hxx [NewLine] # ../TColgp/TColgp_Array1OfPnt.hxx [NewLine] # ../Standard/Standard_Boolean.hxx [NewLine] # ../TColStd/TColStd_HArray1OfReal.hxx [NewLine] # ../TColStd/TColStd_Array1OfReal.hxx [NewLine] class Standard_OutOfRange ;
 ## Error: did not expect <!!!
 
 discard "forward decl of Adaptor3d_HCurve"
@@ -22,58 +22,57 @@ discard "forward decl of IntCurveSurface_TheHCurveTool"
 discard "forward decl of Bnd_Box"
 discard "forward decl of gp_Pnt"
 type
-  IntCurveSurfaceThePolygonOfHInter* {.importcpp: "IntCurveSurface_ThePolygonOfHInter", header: "IntCurveSurface_ThePolygonOfHInter.hxx",
-                                      bycopy.} = object
+  IntCurveSurface_ThePolygonOfHInter* {.importcpp: "IntCurveSurface_ThePolygonOfHInter", header: "IntCurveSurface_ThePolygonOfHInter.hxx",
+                                       bycopy.} = object
 
 
-proc constructIntCurveSurfaceThePolygonOfHInter*(curve: Handle[Adaptor3dHCurve];
-    nbPnt: StandardInteger): IntCurveSurfaceThePolygonOfHInter {.constructor,
-    importcpp: "IntCurveSurface_ThePolygonOfHInter(@)",
-    header: "IntCurveSurface_ThePolygonOfHInter.hxx".}
-proc constructIntCurveSurfaceThePolygonOfHInter*(curve: Handle[Adaptor3dHCurve];
-    u1: StandardReal; u2: StandardReal; nbPnt: StandardInteger): IntCurveSurfaceThePolygonOfHInter {.
+proc constructIntCurveSurface_ThePolygonOfHInter*(
+    Curve: handle[Adaptor3d_HCurve]; NbPnt: Standard_Integer): IntCurveSurface_ThePolygonOfHInter {.
     constructor, importcpp: "IntCurveSurface_ThePolygonOfHInter(@)",
     header: "IntCurveSurface_ThePolygonOfHInter.hxx".}
-proc constructIntCurveSurfaceThePolygonOfHInter*(curve: Handle[Adaptor3dHCurve];
-    upars: TColStdArray1OfReal): IntCurveSurfaceThePolygonOfHInter {.constructor,
+proc constructIntCurveSurface_ThePolygonOfHInter*(
+    Curve: handle[Adaptor3d_HCurve]; U1: Standard_Real; U2: Standard_Real;
+    NbPnt: Standard_Integer): IntCurveSurface_ThePolygonOfHInter {.constructor,
     importcpp: "IntCurveSurface_ThePolygonOfHInter(@)",
     header: "IntCurveSurface_ThePolygonOfHInter.hxx".}
-proc bounding*(this: IntCurveSurfaceThePolygonOfHInter): BndBox {.noSideEffect,
+proc constructIntCurveSurface_ThePolygonOfHInter*(
+    Curve: handle[Adaptor3d_HCurve]; Upars: TColStd_Array1OfReal): IntCurveSurface_ThePolygonOfHInter {.
+    constructor, importcpp: "IntCurveSurface_ThePolygonOfHInter(@)",
+    header: "IntCurveSurface_ThePolygonOfHInter.hxx".}
+proc Bounding*(this: IntCurveSurface_ThePolygonOfHInter): Bnd_Box {.noSideEffect,
     importcpp: "Bounding", header: "IntCurveSurface_ThePolygonOfHInter.hxx".}
-proc deflectionOverEstimation*(this: IntCurveSurfaceThePolygonOfHInter): StandardReal {.
+proc DeflectionOverEstimation*(this: IntCurveSurface_ThePolygonOfHInter): Standard_Real {.
     noSideEffect, importcpp: "DeflectionOverEstimation",
     header: "IntCurveSurface_ThePolygonOfHInter.hxx".}
-proc setDeflectionOverEstimation*(this: var IntCurveSurfaceThePolygonOfHInter;
-                                 x: StandardReal) {.
+proc SetDeflectionOverEstimation*(this: var IntCurveSurface_ThePolygonOfHInter;
+                                 x: Standard_Real) {.
     importcpp: "SetDeflectionOverEstimation",
     header: "IntCurveSurface_ThePolygonOfHInter.hxx".}
-proc closed*(this: var IntCurveSurfaceThePolygonOfHInter; clos: StandardBoolean) {.
+proc Closed*(this: var IntCurveSurface_ThePolygonOfHInter; clos: Standard_Boolean) {.
     importcpp: "Closed", header: "IntCurveSurface_ThePolygonOfHInter.hxx".}
-proc closed*(this: IntCurveSurfaceThePolygonOfHInter): StandardBoolean {.
+proc Closed*(this: IntCurveSurface_ThePolygonOfHInter): Standard_Boolean {.
     noSideEffect, importcpp: "Closed",
     header: "IntCurveSurface_ThePolygonOfHInter.hxx".}
-proc nbSegments*(this: IntCurveSurfaceThePolygonOfHInter): StandardInteger {.
+proc NbSegments*(this: IntCurveSurface_ThePolygonOfHInter): Standard_Integer {.
     noSideEffect, importcpp: "NbSegments",
     header: "IntCurveSurface_ThePolygonOfHInter.hxx".}
-proc beginOfSeg*(this: IntCurveSurfaceThePolygonOfHInter; index: StandardInteger): GpPnt {.
+proc BeginOfSeg*(this: IntCurveSurface_ThePolygonOfHInter; Index: Standard_Integer): gp_Pnt {.
     noSideEffect, importcpp: "BeginOfSeg",
     header: "IntCurveSurface_ThePolygonOfHInter.hxx".}
-proc endOfSeg*(this: IntCurveSurfaceThePolygonOfHInter; index: StandardInteger): GpPnt {.
+proc EndOfSeg*(this: IntCurveSurface_ThePolygonOfHInter; Index: Standard_Integer): gp_Pnt {.
     noSideEffect, importcpp: "EndOfSeg",
     header: "IntCurveSurface_ThePolygonOfHInter.hxx".}
-proc infParameter*(this: IntCurveSurfaceThePolygonOfHInter): StandardReal {.
+proc InfParameter*(this: IntCurveSurface_ThePolygonOfHInter): Standard_Real {.
     noSideEffect, importcpp: "InfParameter",
     header: "IntCurveSurface_ThePolygonOfHInter.hxx".}
-proc supParameter*(this: IntCurveSurfaceThePolygonOfHInter): StandardReal {.
+proc SupParameter*(this: IntCurveSurface_ThePolygonOfHInter): Standard_Real {.
     noSideEffect, importcpp: "SupParameter",
     header: "IntCurveSurface_ThePolygonOfHInter.hxx".}
-proc approxParamOnCurve*(this: IntCurveSurfaceThePolygonOfHInter;
-                        index: StandardInteger; paramOnLine: StandardReal): StandardReal {.
+proc ApproxParamOnCurve*(this: IntCurveSurface_ThePolygonOfHInter;
+                        Index: Standard_Integer; ParamOnLine: Standard_Real): Standard_Real {.
     noSideEffect, importcpp: "ApproxParamOnCurve",
     header: "IntCurveSurface_ThePolygonOfHInter.hxx".}
-proc dump*(this: IntCurveSurfaceThePolygonOfHInter) {.noSideEffect,
+proc Dump*(this: IntCurveSurface_ThePolygonOfHInter) {.noSideEffect,
     importcpp: "Dump", header: "IntCurveSurface_ThePolygonOfHInter.hxx".}
-## !!!Ignored construct:  # TheCurve opencascade :: handle < Adaptor3d_HCurve > [end of template] [NewLine] # TheCurve_hxx < Adaptor3d_HCurve . hxx > [NewLine] # TheCurveTool IntCurveSurface_TheHCurveTool [NewLine] # TheCurveTool_hxx < IntCurveSurface_TheHCurveTool . hxx > [NewLine] # IntCurveSurface_Polygon IntCurveSurface_ThePolygonOfHInter [NewLine] # IntCurveSurface_Polygon_hxx < IntCurveSurface_ThePolygonOfHInter . hxx > [NewLine] # < IntCurveSurface_Polygon . lxx > [NewLine] # TheCurve [NewLine] # TheCurve_hxx [NewLine] # TheCurveTool [NewLine] # TheCurveTool_hxx [NewLine] # IntCurveSurface_Polygon [NewLine] # IntCurveSurface_Polygon_hxx [NewLine] #  _IntCurveSurface_ThePolygonOfHInter_HeaderFile
+## !!!Ignored construct:  # TheCurve opencascade :: handle < Adaptor3d_HCurve > [end of template] [NewLine] # TheCurve_hxx < Adaptor3d_HCurve . hxx > [NewLine] # TheCurveTool IntCurveSurface_TheHCurveTool [NewLine] # TheCurveTool_hxx < IntCurveSurface_TheHCurveTool . hxx > [NewLine] # IntCurveSurface_Polygon IntCurveSurface_ThePolygonOfHInter [NewLine] # IntCurveSurface_Polygon_hxx < IntCurveSurface_ThePolygonOfHInter . hxx > [NewLine] # < IntCurveSurface_Polygon . lxx > [NewLine] # TheCurve [NewLine] # TheCurve_hxx [NewLine] # TheCurveTool [NewLine] # TheCurveTool_hxx [NewLine] # IntCurveSurface_Polygon [NewLine] # IntCurveSurface_Polygon_hxx [NewLine] #  _IntCurveSurface_ThePolygonOfHInter_HeaderFile [NewLine]
 ## Error: did not expect <!!!
-
-

@@ -12,6 +12,14 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, BOPAlgo_BuilderShape,
+  ../BRepTools/BRepTools_History, ../TopoDS/TopoDS_Shape,
+  ../TopTools/TopTools_IndexedDataMapOfShapeListOfShape,
+  ../TopTools/TopTools_IndexedMapOfShape, ../TopTools/TopTools_ListOfShape,
+  ../TopTools/TopTools_MapOfShape
+
 ## ! The RemoveFeatures algorithm is intended for reconstruction of
 ## ! the shape by removal of the unwanted parts from it. These parts can
 ## ! be holes, protrusions, spikes, fillets etc.
@@ -131,180 +139,180 @@
 ## !
 
 type
-  BOPAlgoRemoveFeatures* {.importcpp: "BOPAlgo_RemoveFeatures",
-                          header: "BOPAlgo_RemoveFeatures.hxx", bycopy.} = object of BOPAlgoBuilderShape ##
-                                                                                                  ## !
-                                                                                                  ## @name
-                                                                                                  ## Constructors
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## Empty
-                                                                                                  ## constructor
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## @name
-                                                                                                  ## Setting
-                                                                                                  ## input
-                                                                                                  ## data
-                                                                                                  ## for
-                                                                                                  ## the
-                                                                                                  ## algorithm
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## Sets
-                                                                                                  ## the
-                                                                                                  ## shape
-                                                                                                  ## for
-                                                                                                  ## processing.
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## @param
-                                                                                                  ## theShape
-                                                                                                  ## [in]
-                                                                                                  ## The
-                                                                                                  ## shape
-                                                                                                  ## to
-                                                                                                  ## remove
-                                                                                                  ## the
-                                                                                                  ## faces
-                                                                                                  ## from.
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## It
-                                                                                                  ## should
-                                                                                                  ## either
-                                                                                                  ## be
-                                                                                                  ## the
-                                                                                                  ## SOLID,
-                                                                                                  ## COMPSOLID
-                                                                                                  ## or
-                                                                                                  ## COMPOUND
-                                                                                                  ## of
-                                                                                                  ## Solids.
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## @name
-                                                                                                  ## Performing
-                                                                                                  ## the
-                                                                                                  ## operation
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## Performs
-                                                                                                  ## the
-                                                                                                  ## operation
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## @name
-                                                                                                  ## Clearing
-                                                                                                  ## the
-                                                                                                  ## contents
-                                                                                                  ## of
-                                                                                                  ## the
-                                                                                                  ## algorithm
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## Clears
-                                                                                                  ## the
-                                                                                                  ## contents
-                                                                                                  ## of
-                                                                                                  ## the
-                                                                                                  ## algorithm
-                                                                                                  ## from
-                                                                                                  ## previous
-                                                                                                  ## run,
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## allowing
-                                                                                                  ## reusing
-                                                                                                  ## it
-                                                                                                  ## for
-                                                                                                  ## following
-                                                                                                  ## removals.
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## @name
-                                                                                                  ## Protected
-                                                                                                  ## methods
-                                                                                                  ## performing
-                                                                                                  ## the
-                                                                                                  ## removal
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## Checks
-                                                                                                  ## the
-                                                                                                  ## input
-                                                                                                  ## data
-                                                                                                  ## on
-                                                                                                  ## validity
-                                                                                                  ## for
-                                                                                                  ## the
-                                                                                                  ## algorithm:
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## -
-                                                                                                  ## The
-                                                                                                  ## input
-                                                                                                  ## shape
-                                                                                                  ## must
-                                                                                                  ## be
-                                                                                                  ## either
-                                                                                                  ## a
-                                                                                                  ## SOLID,
-                                                                                                  ## COMPSOLID
-                                                                                                  ## or
-                                                                                                  ## COMPOUND
-                                                                                                  ## of
-                                                                                                  ## Solids.
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## If
-                                                                                                  ## the
-                                                                                                  ## input
-                                                                                                  ## shape
-                                                                                                  ## is
-                                                                                                  ## not
-                                                                                                  ## a
-                                                                                                  ## solid,
-                                                                                                  ## the
-                                                                                                  ## method
-                                                                                                  ## looks
-                                                                                                  ## for
-                                                                                                  ## the
-                                                                                                  ## solids
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## in
-                                                                                                  ## <myInputShape>
-                                                                                                  ## and
-                                                                                                  ## uses
-                                                                                                  ## only
-                                                                                                  ## them.
-                                                                                                  ## All
-                                                                                                  ## other
-                                                                                                  ## shapes
-                                                                                                  ## are
-                                                                                                  ## simply
-                                                                                                  ## removed.
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## If
-                                                                                                  ## no
-                                                                                                  ## solids
-                                                                                                  ## were
-                                                                                                  ## found,
-                                                                                                  ## the
-                                                                                                  ## Error
-                                                                                                  ## of
-                                                                                                  ## unsupported
-                                                                                                  ## type
-                                                                                                  ## is
-                                                                                                  ## returned.
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## @name
-                                                                                                  ## Fields
-                                                                                                  ##
-                                                                                                  ## Inputs
+  BOPAlgo_RemoveFeatures* {.importcpp: "BOPAlgo_RemoveFeatures",
+                           header: "BOPAlgo_RemoveFeatures.hxx", bycopy.} = object of BOPAlgo_BuilderShape ##
+                                                                                                    ## !
+                                                                                                    ## @name
+                                                                                                    ## Constructors
+                                                                                                    ##
+                                                                                                    ## !
+                                                                                                    ## Empty
+                                                                                                    ## constructor
+                                                                                                    ##
+                                                                                                    ## !
+                                                                                                    ## @name
+                                                                                                    ## Setting
+                                                                                                    ## input
+                                                                                                    ## data
+                                                                                                    ## for
+                                                                                                    ## the
+                                                                                                    ## algorithm
+                                                                                                    ##
+                                                                                                    ## !
+                                                                                                    ## Sets
+                                                                                                    ## the
+                                                                                                    ## shape
+                                                                                                    ## for
+                                                                                                    ## processing.
+                                                                                                    ##
+                                                                                                    ## !
+                                                                                                    ## @param
+                                                                                                    ## theShape
+                                                                                                    ## [in]
+                                                                                                    ## The
+                                                                                                    ## shape
+                                                                                                    ## to
+                                                                                                    ## remove
+                                                                                                    ## the
+                                                                                                    ## faces
+                                                                                                    ## from.
+                                                                                                    ##
+                                                                                                    ## !
+                                                                                                    ## It
+                                                                                                    ## should
+                                                                                                    ## either
+                                                                                                    ## be
+                                                                                                    ## the
+                                                                                                    ## SOLID,
+                                                                                                    ## COMPSOLID
+                                                                                                    ## or
+                                                                                                    ## COMPOUND
+                                                                                                    ## of
+                                                                                                    ## Solids.
+                                                                                                    ##
+                                                                                                    ## !
+                                                                                                    ## @name
+                                                                                                    ## Performing
+                                                                                                    ## the
+                                                                                                    ## operation
+                                                                                                    ##
+                                                                                                    ## !
+                                                                                                    ## Performs
+                                                                                                    ## the
+                                                                                                    ## operation
+                                                                                                    ##
+                                                                                                    ## !
+                                                                                                    ## @name
+                                                                                                    ## Clearing
+                                                                                                    ## the
+                                                                                                    ## contents
+                                                                                                    ## of
+                                                                                                    ## the
+                                                                                                    ## algorithm
+                                                                                                    ##
+                                                                                                    ## !
+                                                                                                    ## Clears
+                                                                                                    ## the
+                                                                                                    ## contents
+                                                                                                    ## of
+                                                                                                    ## the
+                                                                                                    ## algorithm
+                                                                                                    ## from
+                                                                                                    ## previous
+                                                                                                    ## run,
+                                                                                                    ##
+                                                                                                    ## !
+                                                                                                    ## allowing
+                                                                                                    ## reusing
+                                                                                                    ## it
+                                                                                                    ## for
+                                                                                                    ## following
+                                                                                                    ## removals.
+                                                                                                    ##
+                                                                                                    ## !
+                                                                                                    ## @name
+                                                                                                    ## Protected
+                                                                                                    ## methods
+                                                                                                    ## performing
+                                                                                                    ## the
+                                                                                                    ## removal
+                                                                                                    ##
+                                                                                                    ## !
+                                                                                                    ## Checks
+                                                                                                    ## the
+                                                                                                    ## input
+                                                                                                    ## data
+                                                                                                    ## on
+                                                                                                    ## validity
+                                                                                                    ## for
+                                                                                                    ## the
+                                                                                                    ## algorithm:
+                                                                                                    ##
+                                                                                                    ## !
+                                                                                                    ## -
+                                                                                                    ## The
+                                                                                                    ## input
+                                                                                                    ## shape
+                                                                                                    ## must
+                                                                                                    ## be
+                                                                                                    ## either
+                                                                                                    ## a
+                                                                                                    ## SOLID,
+                                                                                                    ## COMPSOLID
+                                                                                                    ## or
+                                                                                                    ## COMPOUND
+                                                                                                    ## of
+                                                                                                    ## Solids.
+                                                                                                    ##
+                                                                                                    ## !
+                                                                                                    ## If
+                                                                                                    ## the
+                                                                                                    ## input
+                                                                                                    ## shape
+                                                                                                    ## is
+                                                                                                    ## not
+                                                                                                    ## a
+                                                                                                    ## solid,
+                                                                                                    ## the
+                                                                                                    ## method
+                                                                                                    ## looks
+                                                                                                    ## for
+                                                                                                    ## the
+                                                                                                    ## solids
+                                                                                                    ##
+                                                                                                    ## !
+                                                                                                    ## in
+                                                                                                    ## <myInputShape>
+                                                                                                    ## and
+                                                                                                    ## uses
+                                                                                                    ## only
+                                                                                                    ## them.
+                                                                                                    ## All
+                                                                                                    ## other
+                                                                                                    ## shapes
+                                                                                                    ## are
+                                                                                                    ## simply
+                                                                                                    ## removed.
+                                                                                                    ##
+                                                                                                    ## !
+                                                                                                    ## If
+                                                                                                    ## no
+                                                                                                    ## solids
+                                                                                                    ## were
+                                                                                                    ## found,
+                                                                                                    ## the
+                                                                                                    ## Error
+                                                                                                    ## of
+                                                                                                    ## unsupported
+                                                                                                    ## type
+                                                                                                    ## is
+                                                                                                    ## returned.
+                                                                                                    ##
+                                                                                                    ## !
+                                                                                                    ## @name
+                                                                                                    ## Fields
+                                                                                                    ##
+                                                                                                    ## Inputs
     ## !< Input shape
     ## !< Faces to remove
     ##  Intermediate
@@ -313,21 +321,20 @@ type
     ## !< Map of all sub-shapes of the input shape
 
 
-proc constructBOPAlgoRemoveFeatures*(): BOPAlgoRemoveFeatures {.constructor,
+proc constructBOPAlgo_RemoveFeatures*(): BOPAlgo_RemoveFeatures {.constructor,
     importcpp: "BOPAlgo_RemoveFeatures(@)", header: "BOPAlgo_RemoveFeatures.hxx".}
-proc setShape*(this: var BOPAlgoRemoveFeatures; theShape: TopoDS_Shape) {.
+proc SetShape*(this: var BOPAlgo_RemoveFeatures; theShape: TopoDS_Shape) {.
     importcpp: "SetShape", header: "BOPAlgo_RemoveFeatures.hxx".}
-proc inputShape*(this: BOPAlgoRemoveFeatures): TopoDS_Shape {.noSideEffect,
+proc InputShape*(this: BOPAlgo_RemoveFeatures): TopoDS_Shape {.noSideEffect,
     importcpp: "InputShape", header: "BOPAlgo_RemoveFeatures.hxx".}
-proc addFaceToRemove*(this: var BOPAlgoRemoveFeatures; theFace: TopoDS_Shape) {.
+proc AddFaceToRemove*(this: var BOPAlgo_RemoveFeatures; theFace: TopoDS_Shape) {.
     importcpp: "AddFaceToRemove", header: "BOPAlgo_RemoveFeatures.hxx".}
-proc addFacesToRemove*(this: var BOPAlgoRemoveFeatures;
-                      theFaces: TopToolsListOfShape) {.
+proc AddFacesToRemove*(this: var BOPAlgo_RemoveFeatures;
+                      theFaces: TopTools_ListOfShape) {.
     importcpp: "AddFacesToRemove", header: "BOPAlgo_RemoveFeatures.hxx".}
-proc facesToRemove*(this: BOPAlgoRemoveFeatures): TopToolsListOfShape {.
+proc FacesToRemove*(this: BOPAlgo_RemoveFeatures): TopTools_ListOfShape {.
     noSideEffect, importcpp: "FacesToRemove", header: "BOPAlgo_RemoveFeatures.hxx".}
-proc perform*(this: var BOPAlgoRemoveFeatures) {.importcpp: "Perform",
+proc Perform*(this: var BOPAlgo_RemoveFeatures) {.importcpp: "Perform",
     header: "BOPAlgo_RemoveFeatures.hxx".}
-proc clear*(this: var BOPAlgoRemoveFeatures) {.importcpp: "Clear",
+proc Clear*(this: var BOPAlgo_RemoveFeatures) {.importcpp: "Clear",
     header: "BOPAlgo_RemoveFeatures.hxx".}
-

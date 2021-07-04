@@ -14,6 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Draw/Draw_Interpretor
+
 ## ! commands for presentation based on AIS
 ## ! ======================================
 
@@ -24,14 +28,13 @@ type
                                                                     ## ! to load all sketch commands
 
 
-proc allCommands*(i: var DrawInterpretor) {.importcpp: "DPrsStd::AllCommands(@)",
-                                        header: "DPrsStd.hxx".}
-proc aISPresentationCommands*(i: var DrawInterpretor) {.
+proc AllCommands*(I: var Draw_Interpretor) {.importcpp: "DPrsStd::AllCommands(@)",
+    header: "DPrsStd.hxx".}
+proc AISPresentationCommands*(I: var Draw_Interpretor) {.
     importcpp: "DPrsStd::AISPresentationCommands(@)", header: "DPrsStd.hxx".}
-proc aISViewerCommands*(i: var DrawInterpretor) {.
+proc AISViewerCommands*(I: var Draw_Interpretor) {.
     importcpp: "DPrsStd::AISViewerCommands(@)", header: "DPrsStd.hxx".}
-proc basicCommands*(i: var DrawInterpretor) {.
+proc BasicCommands*(I: var Draw_Interpretor) {.
     importcpp: "DPrsStd::BasicCommands(@)", header: "DPrsStd.hxx".}
-proc factory*(theDI: var DrawInterpretor) {.importcpp: "DPrsStd::Factory(@)",
-                                        header: "DPrsStd.hxx".}
-
+proc Factory*(theDI: var Draw_Interpretor) {.importcpp: "DPrsStd::Factory(@)",
+    header: "DPrsStd.hxx".}

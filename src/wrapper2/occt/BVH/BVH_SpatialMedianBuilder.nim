@@ -13,6 +13,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  BVH_BinnedBuilder, BVH_Box
+
 ## ! Performs building of BVH tree using spatial median split algorithm.
 
 type
@@ -23,13 +26,12 @@ type
 
 
 proc constructBVH_SpatialMedianBuilder*[T; N: static[cint]](
-    theLeafNodeSize: StandardInteger = bVH_ConstantsLeafNodeSizeDefault;
-    theMaxTreeDepth: StandardInteger = bVH_ConstantsMaxTreeDepth;
-    theToUseMainAxis: StandardBoolean = standardFalse): BVH_SpatialMedianBuilder[T, N] {.
-    constructor, importcpp: "BVH_SpatialMedianBuilder<\'*0,\'*1>(@)",
-    header: "BVH_SpatialMedianBuilder.hxx".}
+    theLeafNodeSize: Standard_Integer = BVH_Constants_LeafNodeSizeDefault;
+    theMaxTreeDepth: Standard_Integer = BVH_Constants_MaxTreeDepth;
+    theToUseMainAxis: Standard_Boolean = Standard_False): BVH_SpatialMedianBuilder[
+    T, N] {.constructor, importcpp: "BVH_SpatialMedianBuilder<\'*0,\'*1>(@)",
+          header: "BVH_SpatialMedianBuilder.hxx".}
 proc destroyBVH_SpatialMedianBuilder*[T; N: static[cint]](
     this: var BVH_SpatialMedianBuilder[T, N]) {.
     importcpp: "#.~BVH_SpatialMedianBuilder()",
     header: "BVH_SpatialMedianBuilder.hxx".}
-

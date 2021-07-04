@@ -11,9 +11,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  Message_Printer, ../TCollection/TCollection_AsciiString
+
 discard "forward decl of Message_PrinterSystemLog"
 type
-  HandleMessagePrinterSystemLog* = Handle[MessagePrinterSystemLog]
+  Handle_Message_PrinterSystemLog* = handle[Message_PrinterSystemLog]
 
 ## ! Implementation of a message printer associated with system log.
 ## ! Implemented for the following systems:
@@ -22,37 +25,36 @@ type
 ## ! - UNIX/Linux, through syslog().
 
 type
-  MessagePrinterSystemLog* {.importcpp: "Message_PrinterSystemLog",
-                            header: "Message_PrinterSystemLog.hxx", bycopy.} = object of MessagePrinter ##
-                                                                                                 ## !
-                                                                                                 ## Main
-                                                                                                 ## constructor.
-                                                                                                 ##
-                                                                                                 ## !
-                                                                                                 ## Puts
-                                                                                                 ## a
-                                                                                                 ## message
-                                                                                                 ## to
-                                                                                                 ## the
-                                                                                                 ## system
-                                                                                                 ## log.
-#     when defined windows:
-#       discard
+  Message_PrinterSystemLog* {.importcpp: "Message_PrinterSystemLog",
+                             header: "Message_PrinterSystemLog.hxx", bycopy.} = object of Message_Printer ##
+                                                                                                   ## !
+                                                                                                   ## Main
+                                                                                                   ## constructor.
+                                                                                                   ##
+                                                                                                   ## !
+                                                                                                   ## Puts
+                                                                                                   ## a
+                                                                                                   ## message
+                                                                                                   ## to
+                                                                                                   ## the
+                                                                                                   ## system
+                                                                                                   ## log.
+    when defined(_WIN32):
+      discard
 
-  MessagePrinterSystemLogbaseType* = MessagePrinter
+  Message_PrinterSystemLogbase_type* = Message_Printer
 
-proc getTypeName*(): cstring {.importcpp: "Message_PrinterSystemLog::get_type_name(@)",
-                            header: "Message_PrinterSystemLog.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "Message_PrinterSystemLog::get_type_name(@)",
+                              header: "Message_PrinterSystemLog.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "Message_PrinterSystemLog::get_type_descriptor(@)",
     header: "Message_PrinterSystemLog.hxx".}
-proc dynamicType*(this: MessagePrinterSystemLog): Handle[StandardType] {.
+proc DynamicType*(this: Message_PrinterSystemLog): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType", header: "Message_PrinterSystemLog.hxx".}
-proc constructMessagePrinterSystemLog*(theEventSourceName: TCollectionAsciiString;
-    theTraceLevel: MessageGravity = messageInfo): MessagePrinterSystemLog {.
+proc constructMessage_PrinterSystemLog*(theEventSourceName: TCollection_AsciiString;
+    theTraceLevel: Message_Gravity = Message_Info): Message_PrinterSystemLog {.
     constructor, importcpp: "Message_PrinterSystemLog(@)",
     header: "Message_PrinterSystemLog.hxx".}
-proc destroyMessagePrinterSystemLog*(this: var MessagePrinterSystemLog) {.
+proc destroyMessage_PrinterSystemLog*(this: var Message_PrinterSystemLog) {.
     importcpp: "#.~Message_PrinterSystemLog()",
     header: "Message_PrinterSystemLog.hxx".}
-

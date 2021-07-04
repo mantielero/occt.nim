@@ -14,6 +14,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
+  ../Standard/Standard_Integer
+
 discard "forward decl of Standard_DomainError"
 discard "forward decl of IGESBasic_AssocGroupType"
 discard "forward decl of IGESData_IGESReaderData"
@@ -26,51 +31,44 @@ discard "forward decl of Interface_Check"
 discard "forward decl of Interface_CopyTool"
 discard "forward decl of IGESData_IGESDumper"
 type
-  IGESBasicToolAssocGroupType* {.importcpp: "IGESBasic_ToolAssocGroupType",
-                                header: "IGESBasic_ToolAssocGroupType.hxx", bycopy.} = object ##
-                                                                                         ## !
-                                                                                         ## Returns
-                                                                                         ## a
-                                                                                         ## ToolAssocGroupType,
-                                                                                         ## ready
-                                                                                         ## to
-                                                                                         ## work
+  IGESBasic_ToolAssocGroupType* {.importcpp: "IGESBasic_ToolAssocGroupType",
+                                 header: "IGESBasic_ToolAssocGroupType.hxx",
+                                 bycopy.} = object ## ! Returns a ToolAssocGroupType, ready to work
 
 
-proc constructIGESBasicToolAssocGroupType*(): IGESBasicToolAssocGroupType {.
+proc constructIGESBasic_ToolAssocGroupType*(): IGESBasic_ToolAssocGroupType {.
     constructor, importcpp: "IGESBasic_ToolAssocGroupType(@)",
     header: "IGESBasic_ToolAssocGroupType.hxx".}
-proc readOwnParams*(this: IGESBasicToolAssocGroupType;
-                   ent: Handle[IGESBasicAssocGroupType];
-                   ir: Handle[IGESDataIGESReaderData]; pr: var IGESDataParamReader) {.
-    noSideEffect, importcpp: "ReadOwnParams",
-    header: "IGESBasic_ToolAssocGroupType.hxx".}
-proc writeOwnParams*(this: IGESBasicToolAssocGroupType;
-                    ent: Handle[IGESBasicAssocGroupType];
-                    iw: var IGESDataIGESWriter) {.noSideEffect,
+proc ReadOwnParams*(this: IGESBasic_ToolAssocGroupType;
+                   ent: handle[IGESBasic_AssocGroupType];
+                   IR: handle[IGESData_IGESReaderData];
+                   PR: var IGESData_ParamReader) {.noSideEffect,
+    importcpp: "ReadOwnParams", header: "IGESBasic_ToolAssocGroupType.hxx".}
+proc WriteOwnParams*(this: IGESBasic_ToolAssocGroupType;
+                    ent: handle[IGESBasic_AssocGroupType];
+                    IW: var IGESData_IGESWriter) {.noSideEffect,
     importcpp: "WriteOwnParams", header: "IGESBasic_ToolAssocGroupType.hxx".}
-proc ownShared*(this: IGESBasicToolAssocGroupType;
-               ent: Handle[IGESBasicAssocGroupType];
-               iter: var InterfaceEntityIterator) {.noSideEffect,
+proc OwnShared*(this: IGESBasic_ToolAssocGroupType;
+               ent: handle[IGESBasic_AssocGroupType];
+               iter: var Interface_EntityIterator) {.noSideEffect,
     importcpp: "OwnShared", header: "IGESBasic_ToolAssocGroupType.hxx".}
-proc ownCorrect*(this: IGESBasicToolAssocGroupType;
-                ent: Handle[IGESBasicAssocGroupType]): StandardBoolean {.
+proc OwnCorrect*(this: IGESBasic_ToolAssocGroupType;
+                ent: handle[IGESBasic_AssocGroupType]): Standard_Boolean {.
     noSideEffect, importcpp: "OwnCorrect",
     header: "IGESBasic_ToolAssocGroupType.hxx".}
-proc dirChecker*(this: IGESBasicToolAssocGroupType;
-                ent: Handle[IGESBasicAssocGroupType]): IGESDataDirChecker {.
+proc DirChecker*(this: IGESBasic_ToolAssocGroupType;
+                ent: handle[IGESBasic_AssocGroupType]): IGESData_DirChecker {.
     noSideEffect, importcpp: "DirChecker",
     header: "IGESBasic_ToolAssocGroupType.hxx".}
-proc ownCheck*(this: IGESBasicToolAssocGroupType;
-              ent: Handle[IGESBasicAssocGroupType]; shares: InterfaceShareTool;
-              ach: var Handle[InterfaceCheck]) {.noSideEffect,
+proc OwnCheck*(this: IGESBasic_ToolAssocGroupType;
+              ent: handle[IGESBasic_AssocGroupType]; shares: Interface_ShareTool;
+              ach: var handle[Interface_Check]) {.noSideEffect,
     importcpp: "OwnCheck", header: "IGESBasic_ToolAssocGroupType.hxx".}
-proc ownCopy*(this: IGESBasicToolAssocGroupType;
-             entfrom: Handle[IGESBasicAssocGroupType];
-             entto: Handle[IGESBasicAssocGroupType]; tc: var InterfaceCopyTool) {.
+proc OwnCopy*(this: IGESBasic_ToolAssocGroupType;
+             entfrom: handle[IGESBasic_AssocGroupType];
+             entto: handle[IGESBasic_AssocGroupType]; TC: var Interface_CopyTool) {.
     noSideEffect, importcpp: "OwnCopy", header: "IGESBasic_ToolAssocGroupType.hxx".}
-proc ownDump*(this: IGESBasicToolAssocGroupType;
-             ent: Handle[IGESBasicAssocGroupType]; dumper: IGESDataIGESDumper;
-             s: var StandardOStream; own: StandardInteger) {.noSideEffect,
+proc OwnDump*(this: IGESBasic_ToolAssocGroupType;
+             ent: handle[IGESBasic_AssocGroupType]; dumper: IGESData_IGESDumper;
+             S: var Standard_OStream; own: Standard_Integer) {.noSideEffect,
     importcpp: "OwnDump", header: "IGESBasic_ToolAssocGroupType.hxx".}
-

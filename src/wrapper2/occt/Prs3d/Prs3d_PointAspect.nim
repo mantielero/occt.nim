@@ -14,53 +14,56 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  Prs3d_BasicAspect, ../Graphic3d/Graphic3d_AspectMarker3d,
+  ../Graphic3d/Graphic3d_MarkerImage
+
 ## ! This  class  defines  attributes for the points
 ## ! The points are drawn using markers, whose size does not depend on
 ## ! the zoom value of the views.
 
 type
-  Prs3dPointAspect* {.importcpp: "Prs3d_PointAspect",
-                     header: "Prs3d_PointAspect.hxx", bycopy.} = object of Prs3dBasicAspect
+  Prs3d_PointAspect* {.importcpp: "Prs3d_PointAspect",
+                      header: "Prs3d_PointAspect.hxx", bycopy.} = object of Prs3d_BasicAspect
 
-  Prs3dPointAspectbaseType* = Prs3dBasicAspect
+  Prs3d_PointAspectbase_type* = Prs3d_BasicAspect
 
-proc getTypeName*(): cstring {.importcpp: "Prs3d_PointAspect::get_type_name(@)",
-                            header: "Prs3d_PointAspect.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "Prs3d_PointAspect::get_type_name(@)",
+                              header: "Prs3d_PointAspect.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "Prs3d_PointAspect::get_type_descriptor(@)",
     header: "Prs3d_PointAspect.hxx".}
-proc dynamicType*(this: Prs3dPointAspect): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: Prs3d_PointAspect): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "Prs3d_PointAspect.hxx".}
-proc constructPrs3dPointAspect*(theType: AspectTypeOfMarker;
-                               theColor: QuantityColor; theScale: StandardReal): Prs3dPointAspect {.
+proc constructPrs3d_PointAspect*(theType: Aspect_TypeOfMarker;
+                                theColor: Quantity_Color; theScale: Standard_Real): Prs3d_PointAspect {.
     constructor, importcpp: "Prs3d_PointAspect(@)", header: "Prs3d_PointAspect.hxx".}
-proc constructPrs3dPointAspect*(theColor: QuantityColor; theWidth: StandardInteger;
-                               theHeight: StandardInteger;
-                               theTexture: Handle[TColStdHArray1OfByte]): Prs3dPointAspect {.
+proc constructPrs3d_PointAspect*(theColor: Quantity_Color;
+                                theWidth: Standard_Integer;
+                                theHeight: Standard_Integer;
+                                theTexture: handle[TColStd_HArray1OfByte]): Prs3d_PointAspect {.
     constructor, importcpp: "Prs3d_PointAspect(@)", header: "Prs3d_PointAspect.hxx".}
-proc constructPrs3dPointAspect*(theAspect: Handle[Graphic3dAspectMarker3d]): Prs3dPointAspect {.
+proc constructPrs3d_PointAspect*(theAspect: handle[Graphic3d_AspectMarker3d]): Prs3d_PointAspect {.
     constructor, importcpp: "Prs3d_PointAspect(@)", header: "Prs3d_PointAspect.hxx".}
-proc setColor*(this: var Prs3dPointAspect; theColor: QuantityColor) {.
+proc SetColor*(this: var Prs3d_PointAspect; theColor: Quantity_Color) {.
     importcpp: "SetColor", header: "Prs3d_PointAspect.hxx".}
-proc setTypeOfMarker*(this: var Prs3dPointAspect; theType: AspectTypeOfMarker) {.
+proc SetTypeOfMarker*(this: var Prs3d_PointAspect; theType: Aspect_TypeOfMarker) {.
     importcpp: "SetTypeOfMarker", header: "Prs3d_PointAspect.hxx".}
-proc setScale*(this: var Prs3dPointAspect; theScale: StandardReal) {.
+proc SetScale*(this: var Prs3d_PointAspect; theScale: Standard_Real) {.
     importcpp: "SetScale", header: "Prs3d_PointAspect.hxx".}
-proc aspect*(this: Prs3dPointAspect): Handle[Graphic3dAspectMarker3d] {.
+proc Aspect*(this: Prs3d_PointAspect): handle[Graphic3d_AspectMarker3d] {.
     noSideEffect, importcpp: "Aspect", header: "Prs3d_PointAspect.hxx".}
-proc setAspect*(this: var Prs3dPointAspect;
-               theAspect: Handle[Graphic3dAspectMarker3d]) {.
+proc SetAspect*(this: var Prs3d_PointAspect;
+               theAspect: handle[Graphic3d_AspectMarker3d]) {.
     importcpp: "SetAspect", header: "Prs3d_PointAspect.hxx".}
-proc getTextureSize*(this: Prs3dPointAspect; theWidth: var StandardInteger;
-                    theHeight: var StandardInteger) {.noSideEffect,
+proc GetTextureSize*(this: Prs3d_PointAspect; theWidth: var Standard_Integer;
+                    theHeight: var Standard_Integer) {.noSideEffect,
     importcpp: "GetTextureSize", header: "Prs3d_PointAspect.hxx".}
-proc getTexture*(this: Prs3dPointAspect): Handle[Graphic3dMarkerImage] {.
+proc GetTexture*(this: Prs3d_PointAspect): handle[Graphic3d_MarkerImage] {.
     noSideEffect, importcpp: "GetTexture", header: "Prs3d_PointAspect.hxx".}
-proc dumpJson*(this: Prs3dPointAspect; theOStream: var StandardOStream;
-              theDepth: StandardInteger = -1) {.noSideEffect, importcpp: "DumpJson",
+proc DumpJson*(this: Prs3d_PointAspect; theOStream: var Standard_OStream;
+              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
     header: "Prs3d_PointAspect.hxx".}
 discard "forward decl of Prs3d_PointAspect"
 type
-  HandlePrs3dPointAspect* = Handle[Prs3dPointAspect]
-
-
+  Handle_Prs3d_PointAspect* = handle[Prs3d_PointAspect]

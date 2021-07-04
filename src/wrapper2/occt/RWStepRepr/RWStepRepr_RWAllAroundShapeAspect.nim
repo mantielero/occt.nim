@@ -13,29 +13,33 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepRepr_AllAroundShapeAspect"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepReprRWAllAroundShapeAspect* {.importcpp: "RWStepRepr_RWAllAroundShapeAspect", header: "RWStepRepr_RWAllAroundShapeAspect.hxx",
-                                     bycopy.} = object ## ! Empty constructor
+  RWStepRepr_RWAllAroundShapeAspect* {.importcpp: "RWStepRepr_RWAllAroundShapeAspect", header: "RWStepRepr_RWAllAroundShapeAspect.hxx",
+                                      bycopy.} = object ## ! Empty constructor
 
 
-proc constructRWStepReprRWAllAroundShapeAspect*(): RWStepReprRWAllAroundShapeAspect {.
+proc constructRWStepRepr_RWAllAroundShapeAspect*(): RWStepRepr_RWAllAroundShapeAspect {.
     constructor, importcpp: "RWStepRepr_RWAllAroundShapeAspect(@)",
     header: "RWStepRepr_RWAllAroundShapeAspect.hxx".}
-proc readStep*(this: RWStepReprRWAllAroundShapeAspect;
-              data: Handle[StepDataStepReaderData]; num: StandardInteger;
-              ach: var Handle[InterfaceCheck];
-              ent: Handle[StepReprAllAroundShapeAspect]) {.noSideEffect,
+proc ReadStep*(this: RWStepRepr_RWAllAroundShapeAspect;
+              data: handle[StepData_StepReaderData]; num: Standard_Integer;
+              ach: var handle[Interface_Check];
+              ent: handle[StepRepr_AllAroundShapeAspect]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepRepr_RWAllAroundShapeAspect.hxx".}
-proc writeStep*(this: RWStepReprRWAllAroundShapeAspect; sw: var StepDataStepWriter;
-               ent: Handle[StepReprAllAroundShapeAspect]) {.noSideEffect,
+proc WriteStep*(this: RWStepRepr_RWAllAroundShapeAspect;
+               SW: var StepData_StepWriter;
+               ent: handle[StepRepr_AllAroundShapeAspect]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepRepr_RWAllAroundShapeAspect.hxx".}
-proc share*(this: RWStepReprRWAllAroundShapeAspect;
-           ent: Handle[StepReprAllAroundShapeAspect];
-           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
+proc Share*(this: RWStepRepr_RWAllAroundShapeAspect;
+           ent: handle[StepRepr_AllAroundShapeAspect];
+           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepRepr_RWAllAroundShapeAspect.hxx".}
-

@@ -14,6 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, GC_Root, ../Geom/Geom_Ellipse
+
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of gp_Elips"
 discard "forward decl of gp_Ax2"
@@ -38,16 +42,15 @@ type
                                                                                                   ## conversion.
 
 
-proc constructGC_MakeEllipse*(e: GpElips): GC_MakeEllipse {.constructor,
+proc constructGC_MakeEllipse*(E: gp_Elips): GC_MakeEllipse {.constructor,
     importcpp: "GC_MakeEllipse(@)", header: "GC_MakeEllipse.hxx".}
-proc constructGC_MakeEllipse*(a2: GpAx2; majorRadius: StandardReal;
-                             minorRadius: StandardReal): GC_MakeEllipse {.
+proc constructGC_MakeEllipse*(A2: gp_Ax2; MajorRadius: Standard_Real;
+                             MinorRadius: Standard_Real): GC_MakeEllipse {.
     constructor, importcpp: "GC_MakeEllipse(@)", header: "GC_MakeEllipse.hxx".}
-proc constructGC_MakeEllipse*(s1: GpPnt; s2: GpPnt; center: GpPnt): GC_MakeEllipse {.
+proc constructGC_MakeEllipse*(S1: gp_Pnt; S2: gp_Pnt; Center: gp_Pnt): GC_MakeEllipse {.
     constructor, importcpp: "GC_MakeEllipse(@)", header: "GC_MakeEllipse.hxx".}
-proc value*(this: GC_MakeEllipse): Handle[GeomEllipse] {.noSideEffect,
+proc Value*(this: GC_MakeEllipse): handle[Geom_Ellipse] {.noSideEffect,
     importcpp: "Value", header: "GC_MakeEllipse.hxx".}
-converter `constopencascade`*(this: GC_MakeEllipse): Handle[GeomEllipse] {.
+converter `constopencascade`*(this: GC_MakeEllipse): handle[Geom_Ellipse] {.
     noSideEffect, importcpp: "GC_MakeEllipse::operator constopencascade",
     header: "GC_MakeEllipse.hxx".}
-

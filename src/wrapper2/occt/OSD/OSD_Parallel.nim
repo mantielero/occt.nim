@@ -11,6 +11,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  OSD_ThreadPool, ../Standard/Standard_Type
+
 ## ! @brief Simple tool for code parallelization.
 ## !
 ## ! OSD_Parallel class provides simple interface for parallel processing of
@@ -284,18 +287,17 @@ type
                                                                                    ## otherwise.
 
 
-proc toUseOcctThreads*(): StandardBoolean {.
+proc ToUseOcctThreads*(): Standard_Boolean {.
     importcpp: "OSD_Parallel::ToUseOcctThreads(@)", header: "OSD_Parallel.hxx".}
-proc setUseOcctThreads*(theToUseOcct: StandardBoolean) {.
+proc SetUseOcctThreads*(theToUseOcct: Standard_Boolean) {.
     importcpp: "OSD_Parallel::SetUseOcctThreads(@)", header: "OSD_Parallel.hxx".}
-proc nbLogicalProcessors*(): StandardInteger {.
+proc NbLogicalProcessors*(): Standard_Integer {.
     importcpp: "OSD_Parallel::NbLogicalProcessors(@)", header: "OSD_Parallel.hxx".}
-proc forEach*[InputIterator; Functor](theBegin: InputIterator;
+proc ForEach*[InputIterator; Functor](theBegin: InputIterator;
                                     theEnd: InputIterator; theFunctor: Functor;
-    isForceSingleThreadExecution: StandardBoolean = standardFalse;
-                                    theNbItems: StandardInteger = -1) {.
+    isForceSingleThreadExecution: Standard_Boolean = Standard_False;
+                                    theNbItems: Standard_Integer = -1) {.
     importcpp: "OSD_Parallel::ForEach(@)", header: "OSD_Parallel.hxx".}
-proc `for`*[Functor](theBegin: StandardInteger; theEnd: StandardInteger;
-                    theFunctor: Functor; isForceSingleThreadExecution: StandardBoolean = standardFalse) {.
+proc For*[Functor](theBegin: Standard_Integer; theEnd: Standard_Integer;
+                  theFunctor: Functor; isForceSingleThreadExecution: Standard_Boolean = Standard_False) {.
     importcpp: "OSD_Parallel::For(@)", header: "OSD_Parallel.hxx".}
-

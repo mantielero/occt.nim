@@ -14,6 +14,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, Expr_UnaryExpression,
+  ../Standard/Standard_Boolean, ../Standard/Standard_Real,
+  Expr_Array1OfNamedUnknown, ../TColStd/TColStd_Array1OfReal
+
 discard "forward decl of Standard_NumericError"
 discard "forward decl of Expr_NotEvaluable"
 discard "forward decl of Expr_GeneralExpression"
@@ -22,37 +27,42 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of Expr_Exponential"
 discard "forward decl of Expr_Exponential"
 type
-  HandleExprExponential* = Handle[ExprExponential]
-  ExprExponential* {.importcpp: "Expr_Exponential", header: "Expr_Exponential.hxx",
-                    bycopy.} = object of ExprUnaryExpression ## ! Creates the exponential of <exp>
+  Handle_Expr_Exponential* = handle[Expr_Exponential]
+  Expr_Exponential* {.importcpp: "Expr_Exponential",
+                     header: "Expr_Exponential.hxx", bycopy.} = object of Expr_UnaryExpression ##
+                                                                                        ## !
+                                                                                        ## Creates
+                                                                                        ## the
+                                                                                        ## exponential
+                                                                                        ## of
+                                                                                        ## <exp>
 
 
-proc constructExprExponential*(exp: Handle[ExprGeneralExpression]): ExprExponential {.
+proc constructExpr_Exponential*(exp: handle[Expr_GeneralExpression]): Expr_Exponential {.
     constructor, importcpp: "Expr_Exponential(@)", header: "Expr_Exponential.hxx".}
-proc shallowSimplified*(this: ExprExponential): Handle[ExprGeneralExpression] {.
+proc ShallowSimplified*(this: Expr_Exponential): handle[Expr_GeneralExpression] {.
     noSideEffect, importcpp: "ShallowSimplified", header: "Expr_Exponential.hxx".}
-proc copy*(this: ExprExponential): Handle[ExprGeneralExpression] {.noSideEffect,
+proc Copy*(this: Expr_Exponential): handle[Expr_GeneralExpression] {.noSideEffect,
     importcpp: "Copy", header: "Expr_Exponential.hxx".}
-proc isIdentical*(this: ExprExponential; other: Handle[ExprGeneralExpression]): StandardBoolean {.
+proc IsIdentical*(this: Expr_Exponential; Other: handle[Expr_GeneralExpression]): Standard_Boolean {.
     noSideEffect, importcpp: "IsIdentical", header: "Expr_Exponential.hxx".}
-proc isLinear*(this: ExprExponential): StandardBoolean {.noSideEffect,
+proc IsLinear*(this: Expr_Exponential): Standard_Boolean {.noSideEffect,
     importcpp: "IsLinear", header: "Expr_Exponential.hxx".}
-proc derivative*(this: ExprExponential; x: Handle[ExprNamedUnknown]): Handle[
-    ExprGeneralExpression] {.noSideEffect, importcpp: "Derivative",
-                            header: "Expr_Exponential.hxx".}
-proc evaluate*(this: ExprExponential; vars: ExprArray1OfNamedUnknown;
-              vals: TColStdArray1OfReal): StandardReal {.noSideEffect,
+proc Derivative*(this: Expr_Exponential; X: handle[Expr_NamedUnknown]): handle[
+    Expr_GeneralExpression] {.noSideEffect, importcpp: "Derivative",
+                             header: "Expr_Exponential.hxx".}
+proc Evaluate*(this: Expr_Exponential; vars: Expr_Array1OfNamedUnknown;
+              vals: TColStd_Array1OfReal): Standard_Real {.noSideEffect,
     importcpp: "Evaluate", header: "Expr_Exponential.hxx".}
-proc string*(this: ExprExponential): TCollectionAsciiString {.noSideEffect,
+proc String*(this: Expr_Exponential): TCollection_AsciiString {.noSideEffect,
     importcpp: "String", header: "Expr_Exponential.hxx".}
 type
-  ExprExponentialbaseType* = ExprUnaryExpression
+  Expr_Exponentialbase_type* = Expr_UnaryExpression
 
-proc getTypeName*(): cstring {.importcpp: "Expr_Exponential::get_type_name(@)",
-                            header: "Expr_Exponential.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "Expr_Exponential::get_type_name(@)",
+                              header: "Expr_Exponential.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "Expr_Exponential::get_type_descriptor(@)",
     header: "Expr_Exponential.hxx".}
-proc dynamicType*(this: ExprExponential): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: Expr_Exponential): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "Expr_Exponential.hxx".}
-

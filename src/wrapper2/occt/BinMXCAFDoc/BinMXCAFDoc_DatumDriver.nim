@@ -13,38 +13,42 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../BinMDF/BinMDF_ADriver,
+  ../Standard/Standard_Boolean, ../BinObjMgt/BinObjMgt_RRelocationTable,
+  ../BinObjMgt/BinObjMgt_SRelocationTable
+
 discard "forward decl of Message_Messenger"
 discard "forward decl of TDF_Attribute"
 discard "forward decl of BinObjMgt_Persistent"
 discard "forward decl of BinMXCAFDoc_DatumDriver"
 discard "forward decl of BinMXCAFDoc_DatumDriver"
 type
-  HandleBinMXCAFDocDatumDriver* = Handle[BinMXCAFDocDatumDriver]
-  BinMXCAFDocDatumDriver* {.importcpp: "BinMXCAFDoc_DatumDriver",
-                           header: "BinMXCAFDoc_DatumDriver.hxx", bycopy.} = object of BinMDF_ADriver
+  Handle_BinMXCAFDoc_DatumDriver* = handle[BinMXCAFDoc_DatumDriver]
+  BinMXCAFDoc_DatumDriver* {.importcpp: "BinMXCAFDoc_DatumDriver",
+                            header: "BinMXCAFDoc_DatumDriver.hxx", bycopy.} = object of BinMDF_ADriver
 
 
-proc constructBinMXCAFDocDatumDriver*(theMsgDriver: Handle[MessageMessenger]): BinMXCAFDocDatumDriver {.
+proc constructBinMXCAFDoc_DatumDriver*(theMsgDriver: handle[Message_Messenger]): BinMXCAFDoc_DatumDriver {.
     constructor, importcpp: "BinMXCAFDoc_DatumDriver(@)",
     header: "BinMXCAFDoc_DatumDriver.hxx".}
-proc newEmpty*(this: BinMXCAFDocDatumDriver): Handle[TDF_Attribute] {.noSideEffect,
+proc NewEmpty*(this: BinMXCAFDoc_DatumDriver): handle[TDF_Attribute] {.noSideEffect,
     importcpp: "NewEmpty", header: "BinMXCAFDoc_DatumDriver.hxx".}
-proc paste*(this: BinMXCAFDocDatumDriver; theSource: BinObjMgtPersistent;
-           theTarget: Handle[TDF_Attribute];
-           theRelocTable: var BinObjMgtRRelocationTable): StandardBoolean {.
+proc Paste*(this: BinMXCAFDoc_DatumDriver; theSource: BinObjMgt_Persistent;
+           theTarget: handle[TDF_Attribute];
+           theRelocTable: var BinObjMgt_RRelocationTable): Standard_Boolean {.
     noSideEffect, importcpp: "Paste", header: "BinMXCAFDoc_DatumDriver.hxx".}
-proc paste*(this: BinMXCAFDocDatumDriver; theSource: Handle[TDF_Attribute];
-           theTarget: var BinObjMgtPersistent;
-           theRelocTable: var BinObjMgtSRelocationTable) {.noSideEffect,
+proc Paste*(this: BinMXCAFDoc_DatumDriver; theSource: handle[TDF_Attribute];
+           theTarget: var BinObjMgt_Persistent;
+           theRelocTable: var BinObjMgt_SRelocationTable) {.noSideEffect,
     importcpp: "Paste", header: "BinMXCAFDoc_DatumDriver.hxx".}
 type
-  BinMXCAFDocDatumDriverbaseType* = BinMDF_ADriver
+  BinMXCAFDoc_DatumDriverbase_type* = BinMDF_ADriver
 
-proc getTypeName*(): cstring {.importcpp: "BinMXCAFDoc_DatumDriver::get_type_name(@)",
-                            header: "BinMXCAFDoc_DatumDriver.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "BinMXCAFDoc_DatumDriver::get_type_name(@)",
+                              header: "BinMXCAFDoc_DatumDriver.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "BinMXCAFDoc_DatumDriver::get_type_descriptor(@)",
     header: "BinMXCAFDoc_DatumDriver.hxx".}
-proc dynamicType*(this: BinMXCAFDocDatumDriver): Handle[StandardType] {.
+proc DynamicType*(this: BinMXCAFDoc_DatumDriver): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType", header: "BinMXCAFDoc_DatumDriver.hxx".}
-

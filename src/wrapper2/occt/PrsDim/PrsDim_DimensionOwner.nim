@@ -14,11 +14,17 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, PrsDim_DimensionSelectionMode,
+  ../SelectMgr/SelectMgr_EntityOwner, ../Standard/Standard_Integer,
+  ../PrsMgr/PrsMgr_PresentationManager3d, ../Quantity/Quantity_NameOfColor,
+  ../Standard/Standard_Boolean
+
 discard "forward decl of SelectMgr_SelectableObject"
 discard "forward decl of PrsMgr_PresentationManager"
 discard "forward decl of PrsDim_DimensionOwner"
 type
-  HandlePrsDimDimensionOwner* = Handle[PrsDimDimensionOwner]
+  Handle_PrsDim_DimensionOwner* = handle[PrsDim_DimensionOwner]
 
 ## ! The owner is the entity which makes it possible to link
 ## ! the sensitive primitives and the reference shapes that
@@ -33,49 +39,49 @@ type
 ## ! priority 4. The default priority is 5.
 
 type
-  PrsDimDimensionOwner* {.importcpp: "PrsDim_DimensionOwner",
-                         header: "PrsDim_DimensionOwner.hxx", bycopy.} = object of SelectMgrEntityOwner ##
-                                                                                                 ## !
-                                                                                                 ## Initializes
-                                                                                                 ## the
-                                                                                                 ## dimension
-                                                                                                 ## owner,
-                                                                                                 ## theSO,
-                                                                                                 ## and
-                                                                                                 ## attributes
-                                                                                                 ## it
-                                                                                                 ##
-                                                                                                 ## !
-                                                                                                 ## the
-                                                                                                 ## priority,
-                                                                                                 ## thePriority.
+  PrsDim_DimensionOwner* {.importcpp: "PrsDim_DimensionOwner",
+                          header: "PrsDim_DimensionOwner.hxx", bycopy.} = object of SelectMgr_EntityOwner ##
+                                                                                                   ## !
+                                                                                                   ## Initializes
+                                                                                                   ## the
+                                                                                                   ## dimension
+                                                                                                   ## owner,
+                                                                                                   ## theSO,
+                                                                                                   ## and
+                                                                                                   ## attributes
+                                                                                                   ## it
+                                                                                                   ##
+                                                                                                   ## !
+                                                                                                   ## the
+                                                                                                   ## priority,
+                                                                                                   ## thePriority.
 
-  PrsDimDimensionOwnerbaseType* = SelectMgrEntityOwner
+  PrsDim_DimensionOwnerbase_type* = SelectMgr_EntityOwner
 
-proc getTypeName*(): cstring {.importcpp: "PrsDim_DimensionOwner::get_type_name(@)",
-                            header: "PrsDim_DimensionOwner.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "PrsDim_DimensionOwner::get_type_name(@)",
+                              header: "PrsDim_DimensionOwner.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "PrsDim_DimensionOwner::get_type_descriptor(@)",
     header: "PrsDim_DimensionOwner.hxx".}
-proc dynamicType*(this: PrsDimDimensionOwner): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "PrsDim_DimensionOwner.hxx".}
-proc constructPrsDimDimensionOwner*(theSelObject: Handle[SelectMgrSelectableObject];
-                                   theSelMode: PrsDimDimensionSelectionMode;
-                                   thePriority: StandardInteger = 0): PrsDimDimensionOwner {.
+proc DynamicType*(this: PrsDim_DimensionOwner): handle[Standard_Type] {.
+    noSideEffect, importcpp: "DynamicType", header: "PrsDim_DimensionOwner.hxx".}
+proc constructPrsDim_DimensionOwner*(theSelObject: handle[
+    SelectMgr_SelectableObject]; theSelMode: PrsDim_DimensionSelectionMode;
+                                    thePriority: Standard_Integer = 0): PrsDim_DimensionOwner {.
     constructor, importcpp: "PrsDim_DimensionOwner(@)",
     header: "PrsDim_DimensionOwner.hxx".}
-proc selectionMode*(this: PrsDimDimensionOwner): PrsDimDimensionSelectionMode {.
+proc SelectionMode*(this: PrsDim_DimensionOwner): PrsDim_DimensionSelectionMode {.
     noSideEffect, importcpp: "SelectionMode", header: "PrsDim_DimensionOwner.hxx".}
-proc hilightWithColor*(this: var PrsDimDimensionOwner;
-                      thePM: Handle[PrsMgrPresentationManager3d];
-                      theStyle: Handle[Prs3dDrawer]; theMode: StandardInteger = 0) {.
+proc HilightWithColor*(this: var PrsDim_DimensionOwner;
+                      thePM: handle[PrsMgr_PresentationManager3d];
+                      theStyle: handle[Prs3d_Drawer];
+                      theMode: Standard_Integer = 0) {.
     importcpp: "HilightWithColor", header: "PrsDim_DimensionOwner.hxx".}
-proc isHilighted*(this: PrsDimDimensionOwner;
-                 thePM: Handle[PrsMgrPresentationManager];
-                 theMode: StandardInteger = 0): StandardBoolean {.noSideEffect,
+proc IsHilighted*(this: PrsDim_DimensionOwner;
+                 thePM: handle[PrsMgr_PresentationManager];
+                 theMode: Standard_Integer = 0): Standard_Boolean {.noSideEffect,
     importcpp: "IsHilighted", header: "PrsDim_DimensionOwner.hxx".}
-proc unhilight*(this: var PrsDimDimensionOwner;
-               thePM: Handle[PrsMgrPresentationManager];
-               theMode: StandardInteger = 0) {.importcpp: "Unhilight",
+proc Unhilight*(this: var PrsDim_DimensionOwner;
+               thePM: handle[PrsMgr_PresentationManager];
+               theMode: Standard_Integer = 0) {.importcpp: "Unhilight",
     header: "PrsDim_DimensionOwner.hxx".}
-

@@ -11,6 +11,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  AIS_InteractiveObject, ../Aspect/Aspect_XRTrackedDeviceRole
+
 discard "forward decl of Graphic3d_ArrayOfTriangles"
 discard "forward decl of Image_Texture"
 type
@@ -31,35 +34,34 @@ type
                                                                                                ## Texture
                                                                                                ## holder.
 
-  AIS_XRTrackedDevicebaseType* = AIS_InteractiveObject
+  AIS_XRTrackedDevicebase_type* = AIS_InteractiveObject
 
-proc getTypeName*(): cstring {.importcpp: "AIS_XRTrackedDevice::get_type_name(@)",
-                            header: "AIS_XRTrackedDevice.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "AIS_XRTrackedDevice::get_type_name(@)",
+                              header: "AIS_XRTrackedDevice.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "AIS_XRTrackedDevice::get_type_descriptor(@)",
     header: "AIS_XRTrackedDevice.hxx".}
-proc dynamicType*(this: AIS_XRTrackedDevice): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: AIS_XRTrackedDevice): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "AIS_XRTrackedDevice.hxx".}
-proc constructAIS_XRTrackedDevice*(theTris: Handle[Graphic3dArrayOfTriangles];
-                                  theTexture: Handle[ImageTexture]): AIS_XRTrackedDevice {.
+proc constructAIS_XRTrackedDevice*(theTris: handle[Graphic3d_ArrayOfTriangles];
+                                  theTexture: handle[Image_Texture]): AIS_XRTrackedDevice {.
     constructor, importcpp: "AIS_XRTrackedDevice(@)",
     header: "AIS_XRTrackedDevice.hxx".}
 proc constructAIS_XRTrackedDevice*(): AIS_XRTrackedDevice {.constructor,
     importcpp: "AIS_XRTrackedDevice(@)", header: "AIS_XRTrackedDevice.hxx".}
-proc role*(this: AIS_XRTrackedDevice): AspectXRTrackedDeviceRole {.noSideEffect,
+proc Role*(this: AIS_XRTrackedDevice): Aspect_XRTrackedDeviceRole {.noSideEffect,
     importcpp: "Role", header: "AIS_XRTrackedDevice.hxx".}
-proc setRole*(this: var AIS_XRTrackedDevice; theRole: AspectXRTrackedDeviceRole) {.
+proc SetRole*(this: var AIS_XRTrackedDevice; theRole: Aspect_XRTrackedDeviceRole) {.
     importcpp: "SetRole", header: "AIS_XRTrackedDevice.hxx".}
-proc laserColor*(this: AIS_XRTrackedDevice): QuantityColor {.noSideEffect,
+proc LaserColor*(this: AIS_XRTrackedDevice): Quantity_Color {.noSideEffect,
     importcpp: "LaserColor", header: "AIS_XRTrackedDevice.hxx".}
-proc setLaserColor*(this: var AIS_XRTrackedDevice; theColor: QuantityColor) {.
+proc SetLaserColor*(this: var AIS_XRTrackedDevice; theColor: Quantity_Color) {.
     importcpp: "SetLaserColor", header: "AIS_XRTrackedDevice.hxx".}
-proc laserLength*(this: AIS_XRTrackedDevice): StandardShortReal {.noSideEffect,
+proc LaserLength*(this: AIS_XRTrackedDevice): Standard_ShortReal {.noSideEffect,
     importcpp: "LaserLength", header: "AIS_XRTrackedDevice.hxx".}
-proc setLaserLength*(this: var AIS_XRTrackedDevice; theLength: StandardShortReal) {.
+proc SetLaserLength*(this: var AIS_XRTrackedDevice; theLength: Standard_ShortReal) {.
     importcpp: "SetLaserLength", header: "AIS_XRTrackedDevice.hxx".}
-proc unitFactor*(this: AIS_XRTrackedDevice): StandardShortReal {.noSideEffect,
+proc UnitFactor*(this: AIS_XRTrackedDevice): Standard_ShortReal {.noSideEffect,
     importcpp: "UnitFactor", header: "AIS_XRTrackedDevice.hxx".}
-proc setUnitFactor*(this: var AIS_XRTrackedDevice; theFactor: StandardShortReal) {.
+proc SetUnitFactor*(this: var AIS_XRTrackedDevice; theFactor: Standard_ShortReal) {.
     importcpp: "SetUnitFactor", header: "AIS_XRTrackedDevice.hxx".}
-

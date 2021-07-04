@@ -12,9 +12,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../NCollection/NCollection_DataMap, ../TColStd/TColStd_MapTransientHasher,
+  BOPDS_PaveBlock, BOPDS_ListOfPaveBlock
+
 type
-  BOPDS_DataMapOfPaveBlockListOfPaveBlock* = NCollectionDataMap[
-      Handle[BOPDS_PaveBlock], BOPDS_ListOfPaveBlock, TColStdMapTransientHasher]
+  BOPDS_DataMapOfPaveBlockListOfPaveBlock* = NCollection_DataMap[
+      handle[BOPDS_PaveBlock], BOPDS_ListOfPaveBlock, TColStd_MapTransientHasher]
   BOPDS_DataMapIteratorOfDataMapOfPaveBlockListOfPaveBlock* = Iterator
-
-

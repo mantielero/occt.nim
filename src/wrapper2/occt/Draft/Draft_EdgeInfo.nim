@@ -14,51 +14,55 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
+  ../TopoDS/TopoDS_Face, ../gp/gp_Pnt, ../Standard/Standard_Real
+
 discard "forward decl of Geom_Curve"
 discard "forward decl of Geom2d_Curve"
 discard "forward decl of Standard_DomainError"
 discard "forward decl of TopoDS_Face"
 discard "forward decl of gp_Pnt"
 type
-  DraftEdgeInfo* {.importcpp: "Draft_EdgeInfo", header: "Draft_EdgeInfo.hxx", bycopy.} = object
+  Draft_EdgeInfo* {.importcpp: "Draft_EdgeInfo", header: "Draft_EdgeInfo.hxx", bycopy.} = object
 
 
-proc constructDraftEdgeInfo*(): DraftEdgeInfo {.constructor,
+proc constructDraft_EdgeInfo*(): Draft_EdgeInfo {.constructor,
     importcpp: "Draft_EdgeInfo(@)", header: "Draft_EdgeInfo.hxx".}
-proc constructDraftEdgeInfo*(hasNewGeometry: StandardBoolean): DraftEdgeInfo {.
+proc constructDraft_EdgeInfo*(HasNewGeometry: Standard_Boolean): Draft_EdgeInfo {.
     constructor, importcpp: "Draft_EdgeInfo(@)", header: "Draft_EdgeInfo.hxx".}
-proc add*(this: var DraftEdgeInfo; f: TopoDS_Face) {.importcpp: "Add",
+proc Add*(this: var Draft_EdgeInfo; F: TopoDS_Face) {.importcpp: "Add",
     header: "Draft_EdgeInfo.hxx".}
-proc rootFace*(this: var DraftEdgeInfo; f: TopoDS_Face) {.importcpp: "RootFace",
+proc RootFace*(this: var Draft_EdgeInfo; F: TopoDS_Face) {.importcpp: "RootFace",
     header: "Draft_EdgeInfo.hxx".}
-proc tangent*(this: var DraftEdgeInfo; p: GpPnt) {.importcpp: "Tangent",
+proc Tangent*(this: var Draft_EdgeInfo; P: gp_Pnt) {.importcpp: "Tangent",
     header: "Draft_EdgeInfo.hxx".}
-proc isTangent*(this: DraftEdgeInfo; p: var GpPnt): StandardBoolean {.noSideEffect,
+proc IsTangent*(this: Draft_EdgeInfo; P: var gp_Pnt): Standard_Boolean {.noSideEffect,
     importcpp: "IsTangent", header: "Draft_EdgeInfo.hxx".}
-proc newGeometry*(this: DraftEdgeInfo): StandardBoolean {.noSideEffect,
+proc NewGeometry*(this: Draft_EdgeInfo): Standard_Boolean {.noSideEffect,
     importcpp: "NewGeometry", header: "Draft_EdgeInfo.hxx".}
-proc setNewGeometry*(this: var DraftEdgeInfo; newGeom: StandardBoolean) {.
+proc SetNewGeometry*(this: var Draft_EdgeInfo; NewGeom: Standard_Boolean) {.
     importcpp: "SetNewGeometry", header: "Draft_EdgeInfo.hxx".}
-proc geometry*(this: DraftEdgeInfo): Handle[GeomCurve] {.noSideEffect,
+proc Geometry*(this: Draft_EdgeInfo): handle[Geom_Curve] {.noSideEffect,
     importcpp: "Geometry", header: "Draft_EdgeInfo.hxx".}
-proc firstFace*(this: DraftEdgeInfo): TopoDS_Face {.noSideEffect,
+proc FirstFace*(this: Draft_EdgeInfo): TopoDS_Face {.noSideEffect,
     importcpp: "FirstFace", header: "Draft_EdgeInfo.hxx".}
-proc secondFace*(this: DraftEdgeInfo): TopoDS_Face {.noSideEffect,
+proc SecondFace*(this: Draft_EdgeInfo): TopoDS_Face {.noSideEffect,
     importcpp: "SecondFace", header: "Draft_EdgeInfo.hxx".}
-proc firstPC*(this: DraftEdgeInfo): Handle[Geom2dCurve] {.noSideEffect,
+proc FirstPC*(this: Draft_EdgeInfo): handle[Geom2d_Curve] {.noSideEffect,
     importcpp: "FirstPC", header: "Draft_EdgeInfo.hxx".}
-proc secondPC*(this: DraftEdgeInfo): Handle[Geom2dCurve] {.noSideEffect,
+proc SecondPC*(this: Draft_EdgeInfo): handle[Geom2d_Curve] {.noSideEffect,
     importcpp: "SecondPC", header: "Draft_EdgeInfo.hxx".}
-proc changeGeometry*(this: var DraftEdgeInfo): var Handle[GeomCurve] {.
+proc ChangeGeometry*(this: var Draft_EdgeInfo): var handle[Geom_Curve] {.
     importcpp: "ChangeGeometry", header: "Draft_EdgeInfo.hxx".}
-proc changeFirstPC*(this: var DraftEdgeInfo): var Handle[Geom2dCurve] {.
+proc ChangeFirstPC*(this: var Draft_EdgeInfo): var handle[Geom2d_Curve] {.
     importcpp: "ChangeFirstPC", header: "Draft_EdgeInfo.hxx".}
-proc changeSecondPC*(this: var DraftEdgeInfo): var Handle[Geom2dCurve] {.
+proc ChangeSecondPC*(this: var Draft_EdgeInfo): var handle[Geom2d_Curve] {.
     importcpp: "ChangeSecondPC", header: "Draft_EdgeInfo.hxx".}
-proc rootFace*(this: DraftEdgeInfo): TopoDS_Face {.noSideEffect,
+proc RootFace*(this: Draft_EdgeInfo): TopoDS_Face {.noSideEffect,
     importcpp: "RootFace", header: "Draft_EdgeInfo.hxx".}
-proc tolerance*(this: var DraftEdgeInfo; tol: StandardReal) {.importcpp: "Tolerance",
-    header: "Draft_EdgeInfo.hxx".}
-proc tolerance*(this: DraftEdgeInfo): StandardReal {.noSideEffect,
+proc Tolerance*(this: var Draft_EdgeInfo; tol: Standard_Real) {.
     importcpp: "Tolerance", header: "Draft_EdgeInfo.hxx".}
-
+proc Tolerance*(this: Draft_EdgeInfo): Standard_Real {.noSideEffect,
+    importcpp: "Tolerance", header: "Draft_EdgeInfo.hxx".}

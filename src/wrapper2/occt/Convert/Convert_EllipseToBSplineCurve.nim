@@ -14,27 +14,36 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, Convert_ConicToBSplineCurve,
+  Convert_ParameterisationType, ../Standard/Standard_Real
+
 discard "forward decl of Standard_DomainError"
 discard "forward decl of gp_Elips2d"
 type
-  ConvertEllipseToBSplineCurve* {.importcpp: "Convert_EllipseToBSplineCurve",
-                                 header: "Convert_EllipseToBSplineCurve.hxx",
-                                 bycopy.} = object of ConvertConicToBSplineCurve ## ! The
-                                                                            ## equivalent
-                                                                            ## B-spline
-                                                                            ## curve has the same
-                                                                            ## orientation
-                                                                            ## ! as the
-                                                                            ## ellipse E.
+  Convert_EllipseToBSplineCurve* {.importcpp: "Convert_EllipseToBSplineCurve",
+                                  header: "Convert_EllipseToBSplineCurve.hxx",
+                                  bycopy.} = object of Convert_ConicToBSplineCurve ## !
+                                                                              ## The
+                                                                              ## equivalent
+                                                                              ## B-spline
+                                                                              ## curve
+                                                                              ## has
+                                                                              ## the
+                                                                              ## same
+                                                                              ## orientation
+                                                                              ## ! as
+                                                                              ## the
+                                                                              ## ellipse E.
 
 
-proc constructConvertEllipseToBSplineCurve*(e: GpElips2d;
-    parameterisation: ConvertParameterisationType = convertTgtThetaOver2): ConvertEllipseToBSplineCurve {.
+proc constructConvert_EllipseToBSplineCurve*(E: gp_Elips2d;
+    Parameterisation: Convert_ParameterisationType = Convert_TgtThetaOver2): Convert_EllipseToBSplineCurve {.
     constructor, importcpp: "Convert_EllipseToBSplineCurve(@)",
     header: "Convert_EllipseToBSplineCurve.hxx".}
-proc constructConvertEllipseToBSplineCurve*(e: GpElips2d; u1: StandardReal;
-    u2: StandardReal;
-    parameterisation: ConvertParameterisationType = convertTgtThetaOver2): ConvertEllipseToBSplineCurve {.
+proc constructConvert_EllipseToBSplineCurve*(E: gp_Elips2d; U1: Standard_Real;
+    U2: Standard_Real;
+    Parameterisation: Convert_ParameterisationType = Convert_TgtThetaOver2): Convert_EllipseToBSplineCurve {.
     constructor, importcpp: "Convert_EllipseToBSplineCurve(@)",
     header: "Convert_EllipseToBSplineCurve.hxx".}
-

@@ -14,23 +14,26 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepBasic_ApprovalRole"
 discard "forward decl of StepData_StepWriter"
 type
-  RWStepBasicRWApprovalRole* {.importcpp: "RWStepBasic_RWApprovalRole",
-                              header: "RWStepBasic_RWApprovalRole.hxx", bycopy.} = object
+  RWStepBasic_RWApprovalRole* {.importcpp: "RWStepBasic_RWApprovalRole",
+                               header: "RWStepBasic_RWApprovalRole.hxx", bycopy.} = object
 
 
-proc constructRWStepBasicRWApprovalRole*(): RWStepBasicRWApprovalRole {.
+proc constructRWStepBasic_RWApprovalRole*(): RWStepBasic_RWApprovalRole {.
     constructor, importcpp: "RWStepBasic_RWApprovalRole(@)",
     header: "RWStepBasic_RWApprovalRole.hxx".}
-proc readStep*(this: RWStepBasicRWApprovalRole;
-              data: Handle[StepDataStepReaderData]; num: StandardInteger;
-              ach: var Handle[InterfaceCheck]; ent: Handle[StepBasicApprovalRole]) {.
+proc ReadStep*(this: RWStepBasic_RWApprovalRole;
+              data: handle[StepData_StepReaderData]; num: Standard_Integer;
+              ach: var handle[Interface_Check]; ent: handle[StepBasic_ApprovalRole]) {.
     noSideEffect, importcpp: "ReadStep", header: "RWStepBasic_RWApprovalRole.hxx".}
-proc writeStep*(this: RWStepBasicRWApprovalRole; sw: var StepDataStepWriter;
-               ent: Handle[StepBasicApprovalRole]) {.noSideEffect,
+proc WriteStep*(this: RWStepBasic_RWApprovalRole; SW: var StepData_StepWriter;
+               ent: handle[StepBasic_ApprovalRole]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepBasic_RWApprovalRole.hxx".}
-

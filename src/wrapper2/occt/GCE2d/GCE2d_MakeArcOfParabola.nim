@@ -14,51 +14,54 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, GCE2d_Root, ../Geom2d/Geom2d_TrimmedCurve
+
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of gp_Parab2d"
 discard "forward decl of gp_Pnt2d"
 type
-  GCE2dMakeArcOfParabola* {.importcpp: "GCE2d_MakeArcOfParabola",
-                           header: "GCE2d_MakeArcOfParabola.hxx", bycopy.} = object of GCE2dRoot ##
-                                                                                          ## !
-                                                                                          ## Make
-                                                                                          ## an
-                                                                                          ## arc
-                                                                                          ## of
-                                                                                          ## Parabola
-                                                                                          ## (TrimmedCurve
-                                                                                          ## from
-                                                                                          ## Geom2d)
-                                                                                          ## from
-                                                                                          ##
-                                                                                          ## !
-                                                                                          ## a
-                                                                                          ## Parabola
-                                                                                          ## between
-                                                                                          ## two
-                                                                                          ## parameters
-                                                                                          ## Alpha1
-                                                                                          ## and
-                                                                                          ## Alpha2.
+  GCE2d_MakeArcOfParabola* {.importcpp: "GCE2d_MakeArcOfParabola",
+                            header: "GCE2d_MakeArcOfParabola.hxx", bycopy.} = object of GCE2d_Root ##
+                                                                                            ## !
+                                                                                            ## Make
+                                                                                            ## an
+                                                                                            ## arc
+                                                                                            ## of
+                                                                                            ## Parabola
+                                                                                            ## (TrimmedCurve
+                                                                                            ## from
+                                                                                            ## Geom2d)
+                                                                                            ## from
+                                                                                            ##
+                                                                                            ## !
+                                                                                            ## a
+                                                                                            ## Parabola
+                                                                                            ## between
+                                                                                            ## two
+                                                                                            ## parameters
+                                                                                            ## Alpha1
+                                                                                            ## and
+                                                                                            ## Alpha2.
 
 
-proc constructGCE2dMakeArcOfParabola*(parab: GpParab2d; alpha1: StandardReal;
-                                     alpha2: StandardReal;
-                                     sense: StandardBoolean = standardTrue): GCE2dMakeArcOfParabola {.
+proc constructGCE2d_MakeArcOfParabola*(Parab: gp_Parab2d; Alpha1: Standard_Real;
+                                      Alpha2: Standard_Real;
+                                      Sense: Standard_Boolean = Standard_True): GCE2d_MakeArcOfParabola {.
     constructor, importcpp: "GCE2d_MakeArcOfParabola(@)",
     header: "GCE2d_MakeArcOfParabola.hxx".}
-proc constructGCE2dMakeArcOfParabola*(parab: GpParab2d; p: GpPnt2d;
-                                     alpha: StandardReal;
-                                     sense: StandardBoolean = standardTrue): GCE2dMakeArcOfParabola {.
+proc constructGCE2d_MakeArcOfParabola*(Parab: gp_Parab2d; P: gp_Pnt2d;
+                                      Alpha: Standard_Real;
+                                      Sense: Standard_Boolean = Standard_True): GCE2d_MakeArcOfParabola {.
     constructor, importcpp: "GCE2d_MakeArcOfParabola(@)",
     header: "GCE2d_MakeArcOfParabola.hxx".}
-proc constructGCE2dMakeArcOfParabola*(parab: GpParab2d; p1: GpPnt2d; p2: GpPnt2d;
-                                     sense: StandardBoolean = standardTrue): GCE2dMakeArcOfParabola {.
+proc constructGCE2d_MakeArcOfParabola*(Parab: gp_Parab2d; P1: gp_Pnt2d; P2: gp_Pnt2d;
+                                      Sense: Standard_Boolean = Standard_True): GCE2d_MakeArcOfParabola {.
     constructor, importcpp: "GCE2d_MakeArcOfParabola(@)",
     header: "GCE2d_MakeArcOfParabola.hxx".}
-proc value*(this: GCE2dMakeArcOfParabola): Handle[Geom2dTrimmedCurve] {.
+proc Value*(this: GCE2d_MakeArcOfParabola): handle[Geom2d_TrimmedCurve] {.
     noSideEffect, importcpp: "Value", header: "GCE2d_MakeArcOfParabola.hxx".}
-converter `constopencascade`*(this: GCE2dMakeArcOfParabola): Handle[
-    Geom2dTrimmedCurve] {.noSideEffect, importcpp: "GCE2d_MakeArcOfParabola::operator constopencascade",
-                         header: "GCE2d_MakeArcOfParabola.hxx".}
-
+converter `constopencascade`*(this: GCE2d_MakeArcOfParabola): handle[
+    Geom2d_TrimmedCurve] {.noSideEffect, importcpp: "GCE2d_MakeArcOfParabola::operator constopencascade",
+                          header: "GCE2d_MakeArcOfParabola.hxx".}

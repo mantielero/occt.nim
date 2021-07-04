@@ -13,81 +13,78 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-# # # # discard "forward decl of Poly_CoherentTriangle"
-# # # # when defined(_MSC_VER):
+import
+  ../NCollection/NCollection_BaseAllocator,
+  ../NCollection/NCollection_DefineAlloc
+
+discard "forward decl of Poly_CoherentTriangle"
+when defined(_MSC_VER):
 ## *
 ##  Implementation of both list node for Poly_CoherentTriangle type and
 ##  round double-linked list of these nodes.
 ##
 
 type
-  PolyCoherentTriPtr* {.importcpp: "Poly_CoherentTriPtr",
-                       header: "Poly_CoherentTriPtr.hxx", bycopy.} = object ## *
-                                                                       ##  Iterator class for this list of triangles. Because the list is round,
-                                                                       ##  an iteration can be started from any member and it finishes before taking
-                                                                       ##  this member again. The iteration sense is always forward (Next).
-                                                                       ##
-                                                                       ##  ---------- PROTECTED METHODS ----------
-                                                                       ## *
-                                                                       ##  Constructor.
-                                                                       ##
-                                                                       ##  ---------- PRIVATE FIELDS ----------
+  Poly_CoherentTriPtr* {.importcpp: "Poly_CoherentTriPtr",
+                        header: "Poly_CoherentTriPtr.hxx", bycopy.} = object ## *
+                                                                        ##  Iterator class for this list of triangles. Because the list is round,
+                                                                        ##  an iteration can be started from any member and it finishes before taking
+                                                                        ##  this member again. The iteration sense is always forward (Next).
+                                                                        ##
+                                                                        ##  ---------- PROTECTED METHODS ----------
+                                                                        ## *
+                                                                        ##  Constructor.
+                                                                        ##
+                                                                        ##  ---------- PRIVATE FIELDS ----------
 
-  PolyCoherentTriPtrIterator* {.importcpp: "Poly_CoherentTriPtr::Iterator",
-                               header: "Poly_CoherentTriPtr.hxx", bycopy.} = object ## !
-                                                                               ## Empty
-                                                                               ## constructor
+  Poly_CoherentTriPtrIterator* {.importcpp: "Poly_CoherentTriPtr::Iterator",
+                                header: "Poly_CoherentTriPtr.hxx", bycopy.} = object ##
+                                                                                ## !
+                                                                                ## Empty
+                                                                                ## constructor
 
 
-proc constructPolyCoherentTriPtrIterator*(): PolyCoherentTriPtrIterator {.
+proc constructPoly_CoherentTriPtrIterator*(): Poly_CoherentTriPtrIterator {.
     constructor, importcpp: "Poly_CoherentTriPtr::Iterator(@)",
     header: "Poly_CoherentTriPtr.hxx".}
-proc constructPolyCoherentTriPtrIterator*(thePtr: PolyCoherentTriPtr): PolyCoherentTriPtrIterator {.
+proc constructPoly_CoherentTriPtrIterator*(thePtr: Poly_CoherentTriPtr): Poly_CoherentTriPtrIterator {.
     constructor, importcpp: "Poly_CoherentTriPtr::Iterator(@)",
     header: "Poly_CoherentTriPtr.hxx".}
-proc first*(this: PolyCoherentTriPtrIterator): ptr PolyCoherentTriangle {.
+proc First*(this: Poly_CoherentTriPtrIterator): ptr Poly_CoherentTriangle {.
     noSideEffect, importcpp: "First", header: "Poly_CoherentTriPtr.hxx".}
-proc more*(this: PolyCoherentTriPtrIterator): StandardBoolean {.noSideEffect,
+proc More*(this: Poly_CoherentTriPtrIterator): Standard_Boolean {.noSideEffect,
     importcpp: "More", header: "Poly_CoherentTriPtr.hxx".}
-proc next*(this: var PolyCoherentTriPtrIterator) {.importcpp: "Next",
+proc Next*(this: var Poly_CoherentTriPtrIterator) {.importcpp: "Next",
     header: "Poly_CoherentTriPtr.hxx".}
-proc value*(this: PolyCoherentTriPtrIterator): PolyCoherentTriangle {.noSideEffect,
-    importcpp: "Value", header: "Poly_CoherentTriPtr.hxx".}
-proc changeValue*(this: PolyCoherentTriPtrIterator): var PolyCoherentTriangle {.
+proc Value*(this: Poly_CoherentTriPtrIterator): Poly_CoherentTriangle {.
+    noSideEffect, importcpp: "Value", header: "Poly_CoherentTriPtr.hxx".}
+proc ChangeValue*(this: Poly_CoherentTriPtrIterator): var Poly_CoherentTriangle {.
     noSideEffect, importcpp: "ChangeValue", header: "Poly_CoherentTriPtr.hxx".}
-proc ptrValue*(this: PolyCoherentTriPtrIterator): PolyCoherentTriPtr {.noSideEffect,
-    importcpp: "PtrValue", header: "Poly_CoherentTriPtr.hxx".}
-proc constructPolyCoherentTriPtr*(theTri: PolyCoherentTriangle): PolyCoherentTriPtr {.
+proc PtrValue*(this: Poly_CoherentTriPtrIterator): Poly_CoherentTriPtr {.
+    noSideEffect, importcpp: "PtrValue", header: "Poly_CoherentTriPtr.hxx".}
+proc constructPoly_CoherentTriPtr*(theTri: Poly_CoherentTriangle): Poly_CoherentTriPtr {.
     constructor, importcpp: "Poly_CoherentTriPtr(@)",
     header: "Poly_CoherentTriPtr.hxx".}
-proc getTriangle*(this: PolyCoherentTriPtr): PolyCoherentTriangle {.noSideEffect,
+proc GetTriangle*(this: Poly_CoherentTriPtr): Poly_CoherentTriangle {.noSideEffect,
     importcpp: "GetTriangle", header: "Poly_CoherentTriPtr.hxx".}
-proc setTriangle*(this: var PolyCoherentTriPtr; pTri: ptr PolyCoherentTriangle) {.
+proc SetTriangle*(this: var Poly_CoherentTriPtr; pTri: ptr Poly_CoherentTriangle) {.
     importcpp: "SetTriangle", header: "Poly_CoherentTriPtr.hxx".}
-proc next*(this: PolyCoherentTriPtr): var PolyCoherentTriPtr {.noSideEffect,
+proc Next*(this: Poly_CoherentTriPtr): var Poly_CoherentTriPtr {.noSideEffect,
     importcpp: "Next", header: "Poly_CoherentTriPtr.hxx".}
-proc previous*(this: PolyCoherentTriPtr): var PolyCoherentTriPtr {.noSideEffect,
+proc Previous*(this: Poly_CoherentTriPtr): var Poly_CoherentTriPtr {.noSideEffect,
     importcpp: "Previous", header: "Poly_CoherentTriPtr.hxx".}
-proc append*(this: var PolyCoherentTriPtr; pTri: ptr PolyCoherentTriangle;
-            theA: Handle[NCollectionBaseAllocator]) {.importcpp: "Append",
+proc Append*(this: var Poly_CoherentTriPtr; pTri: ptr Poly_CoherentTriangle;
+            theA: handle[NCollection_BaseAllocator]) {.importcpp: "Append",
     header: "Poly_CoherentTriPtr.hxx".}
-proc prepend*(this: var PolyCoherentTriPtr; pTri: ptr PolyCoherentTriangle;
-             theA: Handle[NCollectionBaseAllocator]) {.importcpp: "Prepend",
+proc Prepend*(this: var Poly_CoherentTriPtr; pTri: ptr Poly_CoherentTriangle;
+             theA: handle[NCollection_BaseAllocator]) {.importcpp: "Prepend",
     header: "Poly_CoherentTriPtr.hxx".}
-proc remove*(thePtr: ptr PolyCoherentTriPtr; theA: Handle[NCollectionBaseAllocator]) {.
+proc Remove*(thePtr: ptr Poly_CoherentTriPtr;
+            theA: handle[NCollection_BaseAllocator]) {.
     importcpp: "Poly_CoherentTriPtr::Remove(@)", header: "Poly_CoherentTriPtr.hxx".}
-proc removeList*(thePtr: ptr PolyCoherentTriPtr;
-                a2: Handle[NCollectionBaseAllocator]) {.
+proc RemoveList*(thePtr: ptr Poly_CoherentTriPtr;
+                a2: handle[NCollection_BaseAllocator]) {.
     importcpp: "Poly_CoherentTriPtr::RemoveList(@)",
     header: "Poly_CoherentTriPtr.hxx".}
-# when defined(_MSC_VER):
-#   discard
-
-
-
-
-
-
-
-
-
+when defined(_MSC_VER):
+  discard

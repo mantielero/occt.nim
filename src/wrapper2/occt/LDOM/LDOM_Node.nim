@@ -15,6 +15,10 @@
 ## AGV 120202: Replace myDocument for myPtrDocument for better
 ##                           consistency of data
 
+import
+  ../Standard/Standard_Macro, ../Standard/Standard_TypeDef,
+  ../LDOMString/LDOMString, LDOM_MemManager
+
 discard "forward decl of LDOM_BasicNode"
 type
   LDOM_Node* {.importcpp: "LDOM_Node", header: "LDOM_Node.hxx", bycopy.} = object ##  ---------- PROTECTED FIELDS ----------
@@ -35,11 +39,11 @@ proc constructLDOM_Node*(anOther: LDOM_Node): LDOM_Node {.constructor,
     importcpp: "LDOM_Node(@)", header: "LDOM_Node.hxx".}
 proc getOwnerDocument*(this: LDOM_Node): LDOM_MemManager {.noSideEffect,
     importcpp: "getOwnerDocument", header: "LDOM_Node.hxx".}
-proc `==`*(this: LDOM_Node; a2: ptr LDOM_NullPtr): StandardBoolean {.noSideEffect,
+proc `==`*(this: LDOM_Node; a2: ptr LDOM_NullPtr): Standard_Boolean {.noSideEffect,
     importcpp: "(# == #)", header: "LDOM_Node.hxx".}
-proc `==`*(this: LDOM_Node; anOther: LDOM_Node): StandardBoolean {.noSideEffect,
+proc `==`*(this: LDOM_Node; anOther: LDOM_Node): Standard_Boolean {.noSideEffect,
     importcpp: "(# == #)", header: "LDOM_Node.hxx".}
-proc isNull*(this: LDOM_Node): StandardBoolean {.noSideEffect, importcpp: "isNull",
+proc isNull*(this: LDOM_Node): Standard_Boolean {.noSideEffect, importcpp: "isNull",
     header: "LDOM_Node.hxx".}
 proc getNodeType*(this: LDOM_Node): LDOM_NodeNodeType {.noSideEffect,
     importcpp: "getNodeType", header: "LDOM_Node.hxx".}
@@ -57,8 +61,7 @@ proc removeChild*(this: var LDOM_Node; aChild: LDOM_Node) {.importcpp: "removeCh
     header: "LDOM_Node.hxx".}
 proc appendChild*(this: var LDOM_Node; aChild: LDOM_Node) {.importcpp: "appendChild",
     header: "LDOM_Node.hxx".}
-proc hasChildNodes*(this: LDOM_Node): StandardBoolean {.noSideEffect,
+proc hasChildNodes*(this: LDOM_Node): Standard_Boolean {.noSideEffect,
     importcpp: "hasChildNodes", header: "LDOM_Node.hxx".}
-proc setValueClear*(this: LDOM_Node) {.noSideEffect, importcpp: "SetValueClear",
+proc SetValueClear*(this: LDOM_Node) {.noSideEffect, importcpp: "SetValueClear",
                                     header: "LDOM_Node.hxx".}
-

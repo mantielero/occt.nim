@@ -14,7 +14,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _Adaptor3d_HCurveOnSurface_HeaderFile [NewLine] # _Adaptor3d_HCurveOnSurface_HeaderFile [NewLine] # < Standard . hxx > [NewLine] # < Standard_Type . hxx > [NewLine] # < Adaptor3d_CurveOnSurface . hxx > [NewLine] # < Adaptor3d_HCurve . hxx > [NewLine] class Standard_OutOfRange ;
+## !!!Ignored construct:  # _Adaptor3d_HCurveOnSurface_HeaderFile [NewLine] # _Adaptor3d_HCurveOnSurface_HeaderFile [NewLine] # ../Standard/Standard.hxx [NewLine] # ../Standard/Standard_Type.hxx [NewLine] # Adaptor3d_CurveOnSurface.hxx [NewLine] # Adaptor3d_HCurve.hxx [NewLine] class Standard_OutOfRange ;
 ## Error: did not expect <!!!
 
 discard "forward decl of Standard_NoSuchObject"
@@ -24,42 +24,40 @@ discard "forward decl of Adaptor3d_Curve"
 discard "forward decl of Adaptor3d_HCurveOnSurface"
 discard "forward decl of Adaptor3d_HCurveOnSurface"
 type
-  HandleAdaptor3dHCurveOnSurfaceAdaptor3dHCurveOnSurface* = Handle[
-      Adaptor3dHCurveOnSurface]
-  Adaptor3dHCurveOnSurface* {.importcpp: "Adaptor3d_HCurveOnSurface",
-                             header: "Adaptor3d_HCurveOnSurface.hxx", bycopy.} = object of Adaptor3dHCurve ##
-                                                                                                    ## !
-                                                                                                    ## Creates
-                                                                                                    ## an
-                                                                                                    ## empty
-                                                                                                    ## GenHCurve.
+  Handle_Adaptor3d_HCurveOnSurfaceAdaptor3d_HCurveOnSurface* = handle[
+      Adaptor3d_HCurveOnSurface]
+  Adaptor3d_HCurveOnSurface* {.importcpp: "Adaptor3d_HCurveOnSurface",
+                              header: "Adaptor3d_HCurveOnSurface.hxx", bycopy.} = object of Adaptor3d_HCurve ##
+                                                                                                      ## !
+                                                                                                      ## Creates
+                                                                                                      ## an
+                                                                                                      ## empty
+                                                                                                      ## GenHCurve.
 
 
-proc constructAdaptor3dHCurveOnSurface*(): Adaptor3dHCurveOnSurface {.constructor,
-    importcpp: "Adaptor3d_HCurveOnSurface(@)",
-    header: "Adaptor3d_HCurveOnSurface.hxx".}
-proc constructAdaptor3dHCurveOnSurface*(c: Adaptor3dCurveOnSurface): Adaptor3dHCurveOnSurface {.
+proc constructAdaptor3d_HCurveOnSurface*(): Adaptor3d_HCurveOnSurface {.
     constructor, importcpp: "Adaptor3d_HCurveOnSurface(@)",
     header: "Adaptor3d_HCurveOnSurface.hxx".}
-proc set*(this: var Adaptor3dHCurveOnSurface; c: Adaptor3dCurveOnSurface) {.
+proc constructAdaptor3d_HCurveOnSurface*(C: Adaptor3d_CurveOnSurface): Adaptor3d_HCurveOnSurface {.
+    constructor, importcpp: "Adaptor3d_HCurveOnSurface(@)",
+    header: "Adaptor3d_HCurveOnSurface.hxx".}
+proc Set*(this: var Adaptor3d_HCurveOnSurface; C: Adaptor3d_CurveOnSurface) {.
     importcpp: "Set", header: "Adaptor3d_HCurveOnSurface.hxx".}
-proc curve*(this: Adaptor3dHCurveOnSurface): Adaptor3dCurve {.noSideEffect,
+proc Curve*(this: Adaptor3d_HCurveOnSurface): Adaptor3d_Curve {.noSideEffect,
     importcpp: "Curve", header: "Adaptor3d_HCurveOnSurface.hxx".}
-proc getCurve*(this: var Adaptor3dHCurveOnSurface): var Adaptor3dCurve {.
+proc GetCurve*(this: var Adaptor3d_HCurveOnSurface): var Adaptor3d_Curve {.
     importcpp: "GetCurve", header: "Adaptor3d_HCurveOnSurface.hxx".}
-proc changeCurve*(this: var Adaptor3dHCurveOnSurface): var Adaptor3dCurveOnSurface {.
+proc ChangeCurve*(this: var Adaptor3d_HCurveOnSurface): var Adaptor3d_CurveOnSurface {.
     importcpp: "ChangeCurve", header: "Adaptor3d_HCurveOnSurface.hxx".}
 type
-  Adaptor3dHCurveOnSurfacebaseType* = Adaptor3dHCurve
+  Adaptor3d_HCurveOnSurfacebase_type* = Adaptor3d_HCurve
 
-proc getTypeName*(): cstring {.importcpp: "Adaptor3d_HCurveOnSurface::get_type_name(@)",
-                            header: "Adaptor3d_HCurveOnSurface.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "Adaptor3d_HCurveOnSurface::get_type_name(@)",
+                              header: "Adaptor3d_HCurveOnSurface.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "Adaptor3d_HCurveOnSurface::get_type_descriptor(@)",
     header: "Adaptor3d_HCurveOnSurface.hxx".}
-proc dynamicType*(this: Adaptor3dHCurveOnSurface): Handle[StandardType] {.
+proc DynamicType*(this: Adaptor3d_HCurveOnSurface): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType", header: "Adaptor3d_HCurveOnSurface.hxx".}
-## !!!Ignored construct:  # TheCurve Adaptor3d_CurveOnSurface [NewLine] # TheCurve_hxx < Adaptor3d_CurveOnSurface . hxx > [NewLine] # Adaptor3d_GenHCurve Adaptor3d_HCurveOnSurface [NewLine] # Adaptor3d_GenHCurve_hxx < Adaptor3d_HCurveOnSurface . hxx > [NewLine] # Handle_Adaptor3d_GenHCurve opencascade :: handle < Adaptor3d_HCurveOnSurface > [end of template] [NewLine] # < Adaptor3d_GenHCurve . lxx > [NewLine] # TheCurve [NewLine] # TheCurve_hxx [NewLine] # Adaptor3d_GenHCurve [NewLine] # Adaptor3d_GenHCurve_hxx [NewLine] # Handle_Adaptor3d_GenHCurve [NewLine] #  _Adaptor3d_HCurveOnSurface_HeaderFile
+## !!!Ignored construct:  # TheCurve Adaptor3d_CurveOnSurface [NewLine] # TheCurve_hxx < Adaptor3d_CurveOnSurface . hxx > [NewLine] # Adaptor3d_GenHCurve Adaptor3d_HCurveOnSurface [NewLine] # Adaptor3d_GenHCurve_hxx < Adaptor3d_HCurveOnSurface . hxx > [NewLine] # Handle_Adaptor3d_GenHCurve opencascade :: handle < Adaptor3d_HCurveOnSurface > [end of template] [NewLine] # < Adaptor3d_GenHCurve . lxx > [NewLine] # TheCurve [NewLine] # TheCurve_hxx [NewLine] # Adaptor3d_GenHCurve [NewLine] # Adaptor3d_GenHCurve_hxx [NewLine] # Handle_Adaptor3d_GenHCurve [NewLine] #  _Adaptor3d_HCurveOnSurface_HeaderFile [NewLine]
 ## Error: did not expect <!!!
-
-

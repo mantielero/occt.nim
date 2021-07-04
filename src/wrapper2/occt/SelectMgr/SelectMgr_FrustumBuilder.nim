@@ -13,84 +13,89 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard_Type, ../Graphic3d/Graphic3d_Camera,
+  ../Graphic3d/Graphic3d_WorldViewProjState, ../Precision/Precision,
+  SelectMgr_VectorTypes
+
 ## ! The purpose of this class is to provide unified interface for building
 ## ! selecting frustum depending on current camera projection and orientation
 ## ! matrices, window size and viewport parameters.
 
 type
-  SelectMgrFrustumBuilder* {.importcpp: "SelectMgr_FrustumBuilder",
-                            header: "SelectMgr_FrustumBuilder.hxx", bycopy.} = object of StandardTransient ##
-                                                                                                    ## !
-                                                                                                    ## Creates
-                                                                                                    ## new
-                                                                                                    ## frustum
-                                                                                                    ## builder
-                                                                                                    ## with
-                                                                                                    ## empty
-                                                                                                    ## matrices
-                                                                                                    ##
-                                                                                                    ## !
-                                                                                                    ## Unprojects
-                                                                                                    ## point
-                                                                                                    ## from
-                                                                                                    ## NDC
-                                                                                                    ## coords
-                                                                                                    ## to
-                                                                                                    ## 3d
-                                                                                                    ## world
-                                                                                                    ## space
+  SelectMgr_FrustumBuilder* {.importcpp: "SelectMgr_FrustumBuilder",
+                             header: "SelectMgr_FrustumBuilder.hxx", bycopy.} = object of Standard_Transient ##
+                                                                                                      ## !
+                                                                                                      ## Creates
+                                                                                                      ## new
+                                                                                                      ## frustum
+                                                                                                      ## builder
+                                                                                                      ## with
+                                                                                                      ## empty
+                                                                                                      ## matrices
+                                                                                                      ##
+                                                                                                      ## !
+                                                                                                      ## Unprojects
+                                                                                                      ## point
+                                                                                                      ## from
+                                                                                                      ## NDC
+                                                                                                      ## coords
+                                                                                                      ## to
+                                                                                                      ## 3d
+                                                                                                      ## world
+                                                                                                      ## space
 
 
-proc constructSelectMgrFrustumBuilder*(): SelectMgrFrustumBuilder {.constructor,
+proc constructSelectMgr_FrustumBuilder*(): SelectMgr_FrustumBuilder {.constructor,
     importcpp: "SelectMgr_FrustumBuilder(@)",
     header: "SelectMgr_FrustumBuilder.hxx".}
-proc setWorldViewMatrix*(this: var SelectMgrFrustumBuilder;
-                        theWorldViewMatrix: Graphic3dMat4d) {.
+proc SetWorldViewMatrix*(this: var SelectMgr_FrustumBuilder;
+                        theWorldViewMatrix: Graphic3d_Mat4d) {.
     importcpp: "SetWorldViewMatrix", header: "SelectMgr_FrustumBuilder.hxx".}
-proc worldViewMatrix*(this: SelectMgrFrustumBuilder): Graphic3dMat4d {.noSideEffect,
-    importcpp: "WorldViewMatrix", header: "SelectMgr_FrustumBuilder.hxx".}
-proc setProjectionMatrix*(this: var SelectMgrFrustumBuilder;
-                         theProjection: Graphic3dMat4d) {.
+proc WorldViewMatrix*(this: SelectMgr_FrustumBuilder): Graphic3d_Mat4d {.
+    noSideEffect, importcpp: "WorldViewMatrix",
+    header: "SelectMgr_FrustumBuilder.hxx".}
+proc SetProjectionMatrix*(this: var SelectMgr_FrustumBuilder;
+                         theProjection: Graphic3d_Mat4d) {.
     importcpp: "SetProjectionMatrix", header: "SelectMgr_FrustumBuilder.hxx".}
-proc projectionMatrix*(this: SelectMgrFrustumBuilder): Graphic3dMat4d {.
+proc ProjectionMatrix*(this: SelectMgr_FrustumBuilder): Graphic3d_Mat4d {.
     noSideEffect, importcpp: "ProjectionMatrix",
     header: "SelectMgr_FrustumBuilder.hxx".}
-proc setWorldViewProjState*(this: var SelectMgrFrustumBuilder;
-                           theState: Graphic3dWorldViewProjState) {.
+proc SetWorldViewProjState*(this: var SelectMgr_FrustumBuilder;
+                           theState: Graphic3d_WorldViewProjState) {.
     importcpp: "SetWorldViewProjState", header: "SelectMgr_FrustumBuilder.hxx".}
-proc worldViewProjState*(this: SelectMgrFrustumBuilder): Graphic3dWorldViewProjState {.
+proc WorldViewProjState*(this: SelectMgr_FrustumBuilder): Graphic3d_WorldViewProjState {.
     noSideEffect, importcpp: "WorldViewProjState",
     header: "SelectMgr_FrustumBuilder.hxx".}
-proc setWindowSize*(this: var SelectMgrFrustumBuilder; theWidth: StandardInteger;
-                   theHeight: StandardInteger) {.importcpp: "SetWindowSize",
+proc SetWindowSize*(this: var SelectMgr_FrustumBuilder; theWidth: Standard_Integer;
+                   theHeight: Standard_Integer) {.importcpp: "SetWindowSize",
     header: "SelectMgr_FrustumBuilder.hxx".}
-proc setViewport*(this: var SelectMgrFrustumBuilder; theX: StandardReal;
-                 theY: StandardReal; theWidth: StandardReal; theHeight: StandardReal) {.
-    importcpp: "SetViewport", header: "SelectMgr_FrustumBuilder.hxx".}
-proc invalidateViewport*(this: var SelectMgrFrustumBuilder) {.
+proc SetViewport*(this: var SelectMgr_FrustumBuilder; theX: Standard_Real;
+                 theY: Standard_Real; theWidth: Standard_Real;
+                 theHeight: Standard_Real) {.importcpp: "SetViewport",
+    header: "SelectMgr_FrustumBuilder.hxx".}
+proc InvalidateViewport*(this: var SelectMgr_FrustumBuilder) {.
     importcpp: "InvalidateViewport", header: "SelectMgr_FrustumBuilder.hxx".}
-proc windowSize*(this: SelectMgrFrustumBuilder; theWidth: var StandardInteger;
-                theHeight: var StandardInteger) {.noSideEffect,
+proc WindowSize*(this: SelectMgr_FrustumBuilder; theWidth: var Standard_Integer;
+                theHeight: var Standard_Integer) {.noSideEffect,
     importcpp: "WindowSize", header: "SelectMgr_FrustumBuilder.hxx".}
-proc signedPlanePntDist*(this: SelectMgrFrustumBuilder; theEq: SelectMgrVec3;
-                        thePnt: SelectMgrVec3): StandardReal {.noSideEffect,
+proc SignedPlanePntDist*(this: SelectMgr_FrustumBuilder; theEq: SelectMgr_Vec3;
+                        thePnt: SelectMgr_Vec3): Standard_Real {.noSideEffect,
     importcpp: "SignedPlanePntDist", header: "SelectMgr_FrustumBuilder.hxx".}
-proc projectPntOnViewPlane*(this: SelectMgrFrustumBuilder; theX: StandardReal;
-                           theY: StandardReal; theZ: StandardReal): GpPnt {.
+proc ProjectPntOnViewPlane*(this: SelectMgr_FrustumBuilder; theX: Standard_Real;
+                           theY: Standard_Real; theZ: Standard_Real): gp_Pnt {.
     noSideEffect, importcpp: "ProjectPntOnViewPlane",
     header: "SelectMgr_FrustumBuilder.hxx".}
 type
-  SelectMgrFrustumBuilderbaseType* = StandardTransient
+  SelectMgr_FrustumBuilderbase_type* = Standard_Transient
 
-proc getTypeName*(): cstring {.importcpp: "SelectMgr_FrustumBuilder::get_type_name(@)",
-                            header: "SelectMgr_FrustumBuilder.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "SelectMgr_FrustumBuilder::get_type_name(@)",
+                              header: "SelectMgr_FrustumBuilder.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "SelectMgr_FrustumBuilder::get_type_descriptor(@)",
     header: "SelectMgr_FrustumBuilder.hxx".}
-proc dynamicType*(this: SelectMgrFrustumBuilder): Handle[StandardType] {.
+proc DynamicType*(this: SelectMgr_FrustumBuilder): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType", header: "SelectMgr_FrustumBuilder.hxx".}
 discard "forward decl of SelectMgr_FrustumBuilder"
 type
-  HandleSelectMgrFrustumBuilder* = Handle[SelectMgrFrustumBuilder]
-
-
+  Handle_SelectMgr_FrustumBuilder* = handle[SelectMgr_FrustumBuilder]

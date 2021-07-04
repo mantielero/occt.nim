@@ -14,6 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 discard "forward decl of Standard_DomainError"
 discard "forward decl of IGESDimen_CurveDimension"
 discard "forward decl of IGESData_IGESReaderData"
@@ -26,47 +30,40 @@ discard "forward decl of Interface_Check"
 discard "forward decl of Interface_CopyTool"
 discard "forward decl of IGESData_IGESDumper"
 type
-  IGESDimenToolCurveDimension* {.importcpp: "IGESDimen_ToolCurveDimension",
-                                header: "IGESDimen_ToolCurveDimension.hxx", bycopy.} = object ##
-                                                                                         ## !
-                                                                                         ## Returns
-                                                                                         ## a
-                                                                                         ## ToolCurveDimension,
-                                                                                         ## ready
-                                                                                         ## to
-                                                                                         ## work
+  IGESDimen_ToolCurveDimension* {.importcpp: "IGESDimen_ToolCurveDimension",
+                                 header: "IGESDimen_ToolCurveDimension.hxx",
+                                 bycopy.} = object ## ! Returns a ToolCurveDimension, ready to work
 
 
-proc constructIGESDimenToolCurveDimension*(): IGESDimenToolCurveDimension {.
+proc constructIGESDimen_ToolCurveDimension*(): IGESDimen_ToolCurveDimension {.
     constructor, importcpp: "IGESDimen_ToolCurveDimension(@)",
     header: "IGESDimen_ToolCurveDimension.hxx".}
-proc readOwnParams*(this: IGESDimenToolCurveDimension;
-                   ent: Handle[IGESDimenCurveDimension];
-                   ir: Handle[IGESDataIGESReaderData]; pr: var IGESDataParamReader) {.
-    noSideEffect, importcpp: "ReadOwnParams",
-    header: "IGESDimen_ToolCurveDimension.hxx".}
-proc writeOwnParams*(this: IGESDimenToolCurveDimension;
-                    ent: Handle[IGESDimenCurveDimension];
-                    iw: var IGESDataIGESWriter) {.noSideEffect,
+proc ReadOwnParams*(this: IGESDimen_ToolCurveDimension;
+                   ent: handle[IGESDimen_CurveDimension];
+                   IR: handle[IGESData_IGESReaderData];
+                   PR: var IGESData_ParamReader) {.noSideEffect,
+    importcpp: "ReadOwnParams", header: "IGESDimen_ToolCurveDimension.hxx".}
+proc WriteOwnParams*(this: IGESDimen_ToolCurveDimension;
+                    ent: handle[IGESDimen_CurveDimension];
+                    IW: var IGESData_IGESWriter) {.noSideEffect,
     importcpp: "WriteOwnParams", header: "IGESDimen_ToolCurveDimension.hxx".}
-proc ownShared*(this: IGESDimenToolCurveDimension;
-               ent: Handle[IGESDimenCurveDimension];
-               iter: var InterfaceEntityIterator) {.noSideEffect,
+proc OwnShared*(this: IGESDimen_ToolCurveDimension;
+               ent: handle[IGESDimen_CurveDimension];
+               iter: var Interface_EntityIterator) {.noSideEffect,
     importcpp: "OwnShared", header: "IGESDimen_ToolCurveDimension.hxx".}
-proc dirChecker*(this: IGESDimenToolCurveDimension;
-                ent: Handle[IGESDimenCurveDimension]): IGESDataDirChecker {.
+proc DirChecker*(this: IGESDimen_ToolCurveDimension;
+                ent: handle[IGESDimen_CurveDimension]): IGESData_DirChecker {.
     noSideEffect, importcpp: "DirChecker",
     header: "IGESDimen_ToolCurveDimension.hxx".}
-proc ownCheck*(this: IGESDimenToolCurveDimension;
-              ent: Handle[IGESDimenCurveDimension]; shares: InterfaceShareTool;
-              ach: var Handle[InterfaceCheck]) {.noSideEffect,
+proc OwnCheck*(this: IGESDimen_ToolCurveDimension;
+              ent: handle[IGESDimen_CurveDimension]; shares: Interface_ShareTool;
+              ach: var handle[Interface_Check]) {.noSideEffect,
     importcpp: "OwnCheck", header: "IGESDimen_ToolCurveDimension.hxx".}
-proc ownCopy*(this: IGESDimenToolCurveDimension;
-             entfrom: Handle[IGESDimenCurveDimension];
-             entto: Handle[IGESDimenCurveDimension]; tc: var InterfaceCopyTool) {.
+proc OwnCopy*(this: IGESDimen_ToolCurveDimension;
+             entfrom: handle[IGESDimen_CurveDimension];
+             entto: handle[IGESDimen_CurveDimension]; TC: var Interface_CopyTool) {.
     noSideEffect, importcpp: "OwnCopy", header: "IGESDimen_ToolCurveDimension.hxx".}
-proc ownDump*(this: IGESDimenToolCurveDimension;
-             ent: Handle[IGESDimenCurveDimension]; dumper: IGESDataIGESDumper;
-             s: var StandardOStream; own: StandardInteger) {.noSideEffect,
+proc OwnDump*(this: IGESDimen_ToolCurveDimension;
+             ent: handle[IGESDimen_CurveDimension]; dumper: IGESData_IGESDumper;
+             S: var Standard_OStream; own: Standard_Integer) {.noSideEffect,
     importcpp: "OwnDump", header: "IGESDimen_ToolCurveDimension.hxx".}
-

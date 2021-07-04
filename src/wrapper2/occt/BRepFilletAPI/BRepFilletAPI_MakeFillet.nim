@@ -14,6 +14,16 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../ChFi3d/ChFi3d_FilBuilder,
+  ../TopTools/TopTools_MapOfShape, BRepFilletAPI_LocalOperation,
+  ../ChFi3d/ChFi3d_FilletShape, ../Standard/Standard_Real,
+  ../GeomAbs/GeomAbs_Shape, ../TColgp/TColgp_Array1OfPnt2d,
+  ../Standard/Standard_Integer, ../Standard/Standard_Boolean,
+  ../TopTools/TopTools_ListOfShape, ../ChFiDS/ChFiDS_SecHArray1,
+  ../ChFiDS/ChFiDS_ErrorStatus
+
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of Standard_NoSuchObject"
 discard "forward decl of TopoDS_Shape"
@@ -87,139 +97,138 @@ type
                                                                                                                 ## circles.
 
 
-proc constructBRepFilletAPI_MakeFillet*(s: TopoDS_Shape; fShape: ChFi3dFilletShape = chFi3dRational): BRepFilletAPI_MakeFillet {.
+proc constructBRepFilletAPI_MakeFillet*(S: TopoDS_Shape; FShape: ChFi3d_FilletShape = ChFi3d_Rational): BRepFilletAPI_MakeFillet {.
     constructor, importcpp: "BRepFilletAPI_MakeFillet(@)",
     header: "BRepFilletAPI_MakeFillet.hxx".}
-proc setParams*(this: var BRepFilletAPI_MakeFillet; tang: StandardReal;
-               tesp: StandardReal; t2d: StandardReal; tApp3d: StandardReal;
-               tolApp2d: StandardReal; fleche: StandardReal) {.
+proc SetParams*(this: var BRepFilletAPI_MakeFillet; Tang: Standard_Real;
+               Tesp: Standard_Real; T2d: Standard_Real; TApp3d: Standard_Real;
+               TolApp2d: Standard_Real; Fleche: Standard_Real) {.
     importcpp: "SetParams", header: "BRepFilletAPI_MakeFillet.hxx".}
-proc setContinuity*(this: var BRepFilletAPI_MakeFillet;
-                   internalContinuity: GeomAbsShape;
-                   angularTolerance: StandardReal) {.importcpp: "SetContinuity",
+proc SetContinuity*(this: var BRepFilletAPI_MakeFillet;
+                   InternalContinuity: GeomAbs_Shape;
+                   AngularTolerance: Standard_Real) {.importcpp: "SetContinuity",
     header: "BRepFilletAPI_MakeFillet.hxx".}
-proc add*(this: var BRepFilletAPI_MakeFillet; e: TopoDS_Edge) {.importcpp: "Add",
+proc Add*(this: var BRepFilletAPI_MakeFillet; E: TopoDS_Edge) {.importcpp: "Add",
     header: "BRepFilletAPI_MakeFillet.hxx".}
-proc add*(this: var BRepFilletAPI_MakeFillet; radius: StandardReal; e: TopoDS_Edge) {.
+proc Add*(this: var BRepFilletAPI_MakeFillet; Radius: Standard_Real; E: TopoDS_Edge) {.
     importcpp: "Add", header: "BRepFilletAPI_MakeFillet.hxx".}
-proc add*(this: var BRepFilletAPI_MakeFillet; r1: StandardReal; r2: StandardReal;
-         e: TopoDS_Edge) {.importcpp: "Add", header: "BRepFilletAPI_MakeFillet.hxx".}
-proc add*(this: var BRepFilletAPI_MakeFillet; L: Handle[LawFunction]; e: TopoDS_Edge) {.
+proc Add*(this: var BRepFilletAPI_MakeFillet; R1: Standard_Real; R2: Standard_Real;
+         E: TopoDS_Edge) {.importcpp: "Add", header: "BRepFilletAPI_MakeFillet.hxx".}
+proc Add*(this: var BRepFilletAPI_MakeFillet; L: handle[Law_Function]; E: TopoDS_Edge) {.
     importcpp: "Add", header: "BRepFilletAPI_MakeFillet.hxx".}
-proc add*(this: var BRepFilletAPI_MakeFillet; uandR: TColgpArray1OfPnt2d;
-         e: TopoDS_Edge) {.importcpp: "Add", header: "BRepFilletAPI_MakeFillet.hxx".}
-proc setRadius*(this: var BRepFilletAPI_MakeFillet; radius: StandardReal;
-               ic: StandardInteger; iinC: StandardInteger) {.importcpp: "SetRadius",
-    header: "BRepFilletAPI_MakeFillet.hxx".}
-proc setRadius*(this: var BRepFilletAPI_MakeFillet; r1: StandardReal;
-               r2: StandardReal; ic: StandardInteger; iinC: StandardInteger) {.
+proc Add*(this: var BRepFilletAPI_MakeFillet; UandR: TColgp_Array1OfPnt2d;
+         E: TopoDS_Edge) {.importcpp: "Add", header: "BRepFilletAPI_MakeFillet.hxx".}
+proc SetRadius*(this: var BRepFilletAPI_MakeFillet; Radius: Standard_Real;
+               IC: Standard_Integer; IinC: Standard_Integer) {.
     importcpp: "SetRadius", header: "BRepFilletAPI_MakeFillet.hxx".}
-proc setRadius*(this: var BRepFilletAPI_MakeFillet; L: Handle[LawFunction];
-               ic: StandardInteger; iinC: StandardInteger) {.importcpp: "SetRadius",
-    header: "BRepFilletAPI_MakeFillet.hxx".}
-proc setRadius*(this: var BRepFilletAPI_MakeFillet; uandR: TColgpArray1OfPnt2d;
-               ic: StandardInteger; iinC: StandardInteger) {.importcpp: "SetRadius",
-    header: "BRepFilletAPI_MakeFillet.hxx".}
-proc resetContour*(this: var BRepFilletAPI_MakeFillet; ic: StandardInteger) {.
+proc SetRadius*(this: var BRepFilletAPI_MakeFillet; R1: Standard_Real;
+               R2: Standard_Real; IC: Standard_Integer; IinC: Standard_Integer) {.
+    importcpp: "SetRadius", header: "BRepFilletAPI_MakeFillet.hxx".}
+proc SetRadius*(this: var BRepFilletAPI_MakeFillet; L: handle[Law_Function];
+               IC: Standard_Integer; IinC: Standard_Integer) {.
+    importcpp: "SetRadius", header: "BRepFilletAPI_MakeFillet.hxx".}
+proc SetRadius*(this: var BRepFilletAPI_MakeFillet; UandR: TColgp_Array1OfPnt2d;
+               IC: Standard_Integer; IinC: Standard_Integer) {.
+    importcpp: "SetRadius", header: "BRepFilletAPI_MakeFillet.hxx".}
+proc ResetContour*(this: var BRepFilletAPI_MakeFillet; IC: Standard_Integer) {.
     importcpp: "ResetContour", header: "BRepFilletAPI_MakeFillet.hxx".}
-proc isConstant*(this: var BRepFilletAPI_MakeFillet; ic: StandardInteger): StandardBoolean {.
+proc IsConstant*(this: var BRepFilletAPI_MakeFillet; IC: Standard_Integer): Standard_Boolean {.
     importcpp: "IsConstant", header: "BRepFilletAPI_MakeFillet.hxx".}
-proc radius*(this: var BRepFilletAPI_MakeFillet; ic: StandardInteger): StandardReal {.
+proc Radius*(this: var BRepFilletAPI_MakeFillet; IC: Standard_Integer): Standard_Real {.
     importcpp: "Radius", header: "BRepFilletAPI_MakeFillet.hxx".}
-proc isConstant*(this: var BRepFilletAPI_MakeFillet; ic: StandardInteger;
-                e: TopoDS_Edge): StandardBoolean {.importcpp: "IsConstant",
+proc IsConstant*(this: var BRepFilletAPI_MakeFillet; IC: Standard_Integer;
+                E: TopoDS_Edge): Standard_Boolean {.importcpp: "IsConstant",
     header: "BRepFilletAPI_MakeFillet.hxx".}
-proc radius*(this: var BRepFilletAPI_MakeFillet; ic: StandardInteger; e: TopoDS_Edge): StandardReal {.
+proc Radius*(this: var BRepFilletAPI_MakeFillet; IC: Standard_Integer; E: TopoDS_Edge): Standard_Real {.
     importcpp: "Radius", header: "BRepFilletAPI_MakeFillet.hxx".}
-proc setRadius*(this: var BRepFilletAPI_MakeFillet; radius: StandardReal;
-               ic: StandardInteger; e: TopoDS_Edge) {.importcpp: "SetRadius",
+proc SetRadius*(this: var BRepFilletAPI_MakeFillet; Radius: Standard_Real;
+               IC: Standard_Integer; E: TopoDS_Edge) {.importcpp: "SetRadius",
     header: "BRepFilletAPI_MakeFillet.hxx".}
-proc setRadius*(this: var BRepFilletAPI_MakeFillet; radius: StandardReal;
-               ic: StandardInteger; v: TopoDS_Vertex) {.importcpp: "SetRadius",
+proc SetRadius*(this: var BRepFilletAPI_MakeFillet; Radius: Standard_Real;
+               IC: Standard_Integer; V: TopoDS_Vertex) {.importcpp: "SetRadius",
     header: "BRepFilletAPI_MakeFillet.hxx".}
-proc getBounds*(this: var BRepFilletAPI_MakeFillet; ic: StandardInteger;
-               e: TopoDS_Edge; f: var StandardReal; L: var StandardReal): StandardBoolean {.
+proc GetBounds*(this: var BRepFilletAPI_MakeFillet; IC: Standard_Integer;
+               E: TopoDS_Edge; F: var Standard_Real; L: var Standard_Real): Standard_Boolean {.
     importcpp: "GetBounds", header: "BRepFilletAPI_MakeFillet.hxx".}
-proc getLaw*(this: var BRepFilletAPI_MakeFillet; ic: StandardInteger; e: TopoDS_Edge): Handle[
-    LawFunction] {.importcpp: "GetLaw", header: "BRepFilletAPI_MakeFillet.hxx".}
-proc setLaw*(this: var BRepFilletAPI_MakeFillet; ic: StandardInteger; e: TopoDS_Edge;
-            L: Handle[LawFunction]) {.importcpp: "SetLaw",
-                                    header: "BRepFilletAPI_MakeFillet.hxx".}
-proc setFilletShape*(this: var BRepFilletAPI_MakeFillet; fShape: ChFi3dFilletShape) {.
+proc GetLaw*(this: var BRepFilletAPI_MakeFillet; IC: Standard_Integer; E: TopoDS_Edge): handle[
+    Law_Function] {.importcpp: "GetLaw", header: "BRepFilletAPI_MakeFillet.hxx".}
+proc SetLaw*(this: var BRepFilletAPI_MakeFillet; IC: Standard_Integer; E: TopoDS_Edge;
+            L: handle[Law_Function]) {.importcpp: "SetLaw",
+                                     header: "BRepFilletAPI_MakeFillet.hxx".}
+proc SetFilletShape*(this: var BRepFilletAPI_MakeFillet; FShape: ChFi3d_FilletShape) {.
     importcpp: "SetFilletShape", header: "BRepFilletAPI_MakeFillet.hxx".}
-proc getFilletShape*(this: BRepFilletAPI_MakeFillet): ChFi3dFilletShape {.
+proc GetFilletShape*(this: BRepFilletAPI_MakeFillet): ChFi3d_FilletShape {.
     noSideEffect, importcpp: "GetFilletShape",
     header: "BRepFilletAPI_MakeFillet.hxx".}
-proc nbContours*(this: BRepFilletAPI_MakeFillet): StandardInteger {.noSideEffect,
+proc NbContours*(this: BRepFilletAPI_MakeFillet): Standard_Integer {.noSideEffect,
     importcpp: "NbContours", header: "BRepFilletAPI_MakeFillet.hxx".}
-proc contour*(this: BRepFilletAPI_MakeFillet; e: TopoDS_Edge): StandardInteger {.
+proc Contour*(this: BRepFilletAPI_MakeFillet; E: TopoDS_Edge): Standard_Integer {.
     noSideEffect, importcpp: "Contour", header: "BRepFilletAPI_MakeFillet.hxx".}
-proc nbEdges*(this: BRepFilletAPI_MakeFillet; i: StandardInteger): StandardInteger {.
+proc NbEdges*(this: BRepFilletAPI_MakeFillet; I: Standard_Integer): Standard_Integer {.
     noSideEffect, importcpp: "NbEdges", header: "BRepFilletAPI_MakeFillet.hxx".}
-proc edge*(this: BRepFilletAPI_MakeFillet; i: StandardInteger; j: StandardInteger): TopoDS_Edge {.
+proc Edge*(this: BRepFilletAPI_MakeFillet; I: Standard_Integer; J: Standard_Integer): TopoDS_Edge {.
     noSideEffect, importcpp: "Edge", header: "BRepFilletAPI_MakeFillet.hxx".}
-proc remove*(this: var BRepFilletAPI_MakeFillet; e: TopoDS_Edge) {.
+proc Remove*(this: var BRepFilletAPI_MakeFillet; E: TopoDS_Edge) {.
     importcpp: "Remove", header: "BRepFilletAPI_MakeFillet.hxx".}
-proc length*(this: BRepFilletAPI_MakeFillet; ic: StandardInteger): StandardReal {.
+proc Length*(this: BRepFilletAPI_MakeFillet; IC: Standard_Integer): Standard_Real {.
     noSideEffect, importcpp: "Length", header: "BRepFilletAPI_MakeFillet.hxx".}
-proc firstVertex*(this: BRepFilletAPI_MakeFillet; ic: StandardInteger): TopoDS_Vertex {.
+proc FirstVertex*(this: BRepFilletAPI_MakeFillet; IC: Standard_Integer): TopoDS_Vertex {.
     noSideEffect, importcpp: "FirstVertex", header: "BRepFilletAPI_MakeFillet.hxx".}
-proc lastVertex*(this: BRepFilletAPI_MakeFillet; ic: StandardInteger): TopoDS_Vertex {.
+proc LastVertex*(this: BRepFilletAPI_MakeFillet; IC: Standard_Integer): TopoDS_Vertex {.
     noSideEffect, importcpp: "LastVertex", header: "BRepFilletAPI_MakeFillet.hxx".}
-proc abscissa*(this: BRepFilletAPI_MakeFillet; ic: StandardInteger; v: TopoDS_Vertex): StandardReal {.
+proc Abscissa*(this: BRepFilletAPI_MakeFillet; IC: Standard_Integer; V: TopoDS_Vertex): Standard_Real {.
     noSideEffect, importcpp: "Abscissa", header: "BRepFilletAPI_MakeFillet.hxx".}
-proc relativeAbscissa*(this: BRepFilletAPI_MakeFillet; ic: StandardInteger;
-                      v: TopoDS_Vertex): StandardReal {.noSideEffect,
+proc RelativeAbscissa*(this: BRepFilletAPI_MakeFillet; IC: Standard_Integer;
+                      V: TopoDS_Vertex): Standard_Real {.noSideEffect,
     importcpp: "RelativeAbscissa", header: "BRepFilletAPI_MakeFillet.hxx".}
-proc closedAndTangent*(this: BRepFilletAPI_MakeFillet; ic: StandardInteger): StandardBoolean {.
+proc ClosedAndTangent*(this: BRepFilletAPI_MakeFillet; IC: Standard_Integer): Standard_Boolean {.
     noSideEffect, importcpp: "ClosedAndTangent",
     header: "BRepFilletAPI_MakeFillet.hxx".}
-proc closed*(this: BRepFilletAPI_MakeFillet; ic: StandardInteger): StandardBoolean {.
+proc Closed*(this: BRepFilletAPI_MakeFillet; IC: Standard_Integer): Standard_Boolean {.
     noSideEffect, importcpp: "Closed", header: "BRepFilletAPI_MakeFillet.hxx".}
-proc build*(this: var BRepFilletAPI_MakeFillet) {.importcpp: "Build",
+proc Build*(this: var BRepFilletAPI_MakeFillet) {.importcpp: "Build",
     header: "BRepFilletAPI_MakeFillet.hxx".}
-proc reset*(this: var BRepFilletAPI_MakeFillet) {.importcpp: "Reset",
+proc Reset*(this: var BRepFilletAPI_MakeFillet) {.importcpp: "Reset",
     header: "BRepFilletAPI_MakeFillet.hxx".}
-proc builder*(this: BRepFilletAPI_MakeFillet): Handle[TopOpeBRepBuildHBuilder] {.
+proc Builder*(this: BRepFilletAPI_MakeFillet): handle[TopOpeBRepBuild_HBuilder] {.
     noSideEffect, importcpp: "Builder", header: "BRepFilletAPI_MakeFillet.hxx".}
-proc generated*(this: var BRepFilletAPI_MakeFillet; eorV: TopoDS_Shape): TopToolsListOfShape {.
+proc Generated*(this: var BRepFilletAPI_MakeFillet; EorV: TopoDS_Shape): TopTools_ListOfShape {.
     importcpp: "Generated", header: "BRepFilletAPI_MakeFillet.hxx".}
-proc modified*(this: var BRepFilletAPI_MakeFillet; f: TopoDS_Shape): TopToolsListOfShape {.
+proc Modified*(this: var BRepFilletAPI_MakeFillet; F: TopoDS_Shape): TopTools_ListOfShape {.
     importcpp: "Modified", header: "BRepFilletAPI_MakeFillet.hxx".}
-proc isDeleted*(this: var BRepFilletAPI_MakeFillet; f: TopoDS_Shape): StandardBoolean {.
+proc IsDeleted*(this: var BRepFilletAPI_MakeFillet; F: TopoDS_Shape): Standard_Boolean {.
     importcpp: "IsDeleted", header: "BRepFilletAPI_MakeFillet.hxx".}
-proc nbSurfaces*(this: BRepFilletAPI_MakeFillet): StandardInteger {.noSideEffect,
+proc NbSurfaces*(this: BRepFilletAPI_MakeFillet): Standard_Integer {.noSideEffect,
     importcpp: "NbSurfaces", header: "BRepFilletAPI_MakeFillet.hxx".}
-proc newFaces*(this: var BRepFilletAPI_MakeFillet; i: StandardInteger): TopToolsListOfShape {.
+proc NewFaces*(this: var BRepFilletAPI_MakeFillet; I: Standard_Integer): TopTools_ListOfShape {.
     importcpp: "NewFaces", header: "BRepFilletAPI_MakeFillet.hxx".}
-proc simulate*(this: var BRepFilletAPI_MakeFillet; ic: StandardInteger) {.
+proc Simulate*(this: var BRepFilletAPI_MakeFillet; IC: Standard_Integer) {.
     importcpp: "Simulate", header: "BRepFilletAPI_MakeFillet.hxx".}
-proc nbSurf*(this: BRepFilletAPI_MakeFillet; ic: StandardInteger): StandardInteger {.
+proc NbSurf*(this: BRepFilletAPI_MakeFillet; IC: Standard_Integer): Standard_Integer {.
     noSideEffect, importcpp: "NbSurf", header: "BRepFilletAPI_MakeFillet.hxx".}
-proc sect*(this: BRepFilletAPI_MakeFillet; ic: StandardInteger; `is`: StandardInteger): Handle[
+proc Sect*(this: BRepFilletAPI_MakeFillet; IC: Standard_Integer; IS: Standard_Integer): handle[
     ChFiDS_SecHArray1] {.noSideEffect, importcpp: "Sect",
                         header: "BRepFilletAPI_MakeFillet.hxx".}
-proc nbFaultyContours*(this: BRepFilletAPI_MakeFillet): StandardInteger {.
+proc NbFaultyContours*(this: BRepFilletAPI_MakeFillet): Standard_Integer {.
     noSideEffect, importcpp: "NbFaultyContours",
     header: "BRepFilletAPI_MakeFillet.hxx".}
-proc faultyContour*(this: BRepFilletAPI_MakeFillet; i: StandardInteger): StandardInteger {.
+proc FaultyContour*(this: BRepFilletAPI_MakeFillet; I: Standard_Integer): Standard_Integer {.
     noSideEffect, importcpp: "FaultyContour",
     header: "BRepFilletAPI_MakeFillet.hxx".}
-proc nbComputedSurfaces*(this: BRepFilletAPI_MakeFillet; ic: StandardInteger): StandardInteger {.
+proc NbComputedSurfaces*(this: BRepFilletAPI_MakeFillet; IC: Standard_Integer): Standard_Integer {.
     noSideEffect, importcpp: "NbComputedSurfaces",
     header: "BRepFilletAPI_MakeFillet.hxx".}
-proc computedSurface*(this: BRepFilletAPI_MakeFillet; ic: StandardInteger;
-                     `is`: StandardInteger): Handle[GeomSurface] {.noSideEffect,
+proc ComputedSurface*(this: BRepFilletAPI_MakeFillet; IC: Standard_Integer;
+                     IS: Standard_Integer): handle[Geom_Surface] {.noSideEffect,
     importcpp: "ComputedSurface", header: "BRepFilletAPI_MakeFillet.hxx".}
-proc nbFaultyVertices*(this: BRepFilletAPI_MakeFillet): StandardInteger {.
+proc NbFaultyVertices*(this: BRepFilletAPI_MakeFillet): Standard_Integer {.
     noSideEffect, importcpp: "NbFaultyVertices",
     header: "BRepFilletAPI_MakeFillet.hxx".}
-proc faultyVertex*(this: BRepFilletAPI_MakeFillet; iv: StandardInteger): TopoDS_Vertex {.
+proc FaultyVertex*(this: BRepFilletAPI_MakeFillet; IV: Standard_Integer): TopoDS_Vertex {.
     noSideEffect, importcpp: "FaultyVertex", header: "BRepFilletAPI_MakeFillet.hxx".}
-proc hasResult*(this: BRepFilletAPI_MakeFillet): StandardBoolean {.noSideEffect,
+proc HasResult*(this: BRepFilletAPI_MakeFillet): Standard_Boolean {.noSideEffect,
     importcpp: "HasResult", header: "BRepFilletAPI_MakeFillet.hxx".}
-proc badShape*(this: BRepFilletAPI_MakeFillet): TopoDS_Shape {.noSideEffect,
+proc BadShape*(this: BRepFilletAPI_MakeFillet): TopoDS_Shape {.noSideEffect,
     importcpp: "BadShape", header: "BRepFilletAPI_MakeFillet.hxx".}
-proc stripeStatus*(this: BRepFilletAPI_MakeFillet; ic: StandardInteger): ChFiDS_ErrorStatus {.
+proc StripeStatus*(this: BRepFilletAPI_MakeFillet; IC: Standard_Integer): ChFiDS_ErrorStatus {.
     noSideEffect, importcpp: "StripeStatus", header: "BRepFilletAPI_MakeFillet.hxx".}
-

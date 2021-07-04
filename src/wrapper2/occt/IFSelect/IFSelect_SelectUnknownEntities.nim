@@ -14,42 +14,45 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, IFSelect_SelectExtract,
+  ../Standard/Standard_Boolean, ../Standard/Standard_Integer
+
 discard "forward decl of Standard_Transient"
 discard "forward decl of Interface_InterfaceModel"
 discard "forward decl of TCollection_AsciiString"
 discard "forward decl of IFSelect_SelectUnknownEntities"
 discard "forward decl of IFSelect_SelectUnknownEntities"
 type
-  HandleIFSelectSelectUnknownEntities* = Handle[IFSelectSelectUnknownEntities]
+  Handle_IFSelect_SelectUnknownEntities* = handle[IFSelect_SelectUnknownEntities]
 
 ## ! A SelectUnknownEntities sorts the Entities which are qualified
 ## ! as "Unknown" (their Type has not been recognized)
 
 type
-  IFSelectSelectUnknownEntities* {.importcpp: "IFSelect_SelectUnknownEntities",
-                                  header: "IFSelect_SelectUnknownEntities.hxx",
-                                  bycopy.} = object of IFSelectSelectExtract ## ! Creates a
-                                                                        ## SelectUnknownEntities
+  IFSelect_SelectUnknownEntities* {.importcpp: "IFSelect_SelectUnknownEntities", header: "IFSelect_SelectUnknownEntities.hxx",
+                                   bycopy.} = object of IFSelect_SelectExtract ## !
+                                                                          ## Creates a
+                                                                          ## SelectUnknownEntities
 
 
-proc constructIFSelectSelectUnknownEntities*(): IFSelectSelectUnknownEntities {.
+proc constructIFSelect_SelectUnknownEntities*(): IFSelect_SelectUnknownEntities {.
     constructor, importcpp: "IFSelect_SelectUnknownEntities(@)",
     header: "IFSelect_SelectUnknownEntities.hxx".}
-proc sort*(this: IFSelectSelectUnknownEntities; rank: StandardInteger;
-          ent: Handle[StandardTransient]; model: Handle[InterfaceInterfaceModel]): StandardBoolean {.
+proc Sort*(this: IFSelect_SelectUnknownEntities; rank: Standard_Integer;
+          ent: handle[Standard_Transient]; model: handle[Interface_InterfaceModel]): Standard_Boolean {.
     noSideEffect, importcpp: "Sort", header: "IFSelect_SelectUnknownEntities.hxx".}
-proc extractLabel*(this: IFSelectSelectUnknownEntities): TCollectionAsciiString {.
+proc ExtractLabel*(this: IFSelect_SelectUnknownEntities): TCollection_AsciiString {.
     noSideEffect, importcpp: "ExtractLabel",
     header: "IFSelect_SelectUnknownEntities.hxx".}
 type
-  IFSelectSelectUnknownEntitiesbaseType* = IFSelectSelectExtract
+  IFSelect_SelectUnknownEntitiesbase_type* = IFSelect_SelectExtract
 
-proc getTypeName*(): cstring {.importcpp: "IFSelect_SelectUnknownEntities::get_type_name(@)",
-                            header: "IFSelect_SelectUnknownEntities.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "IFSelect_SelectUnknownEntities::get_type_name(@)",
+                              header: "IFSelect_SelectUnknownEntities.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "IFSelect_SelectUnknownEntities::get_type_descriptor(@)",
     header: "IFSelect_SelectUnknownEntities.hxx".}
-proc dynamicType*(this: IFSelectSelectUnknownEntities): Handle[StandardType] {.
+proc DynamicType*(this: IFSelect_SelectUnknownEntities): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType",
     header: "IFSelect_SelectUnknownEntities.hxx".}
-

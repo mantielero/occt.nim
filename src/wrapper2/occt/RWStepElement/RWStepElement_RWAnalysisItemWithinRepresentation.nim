@@ -13,13 +13,17 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepElement_AnalysisItemWithinRepresentation"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepElementRWAnalysisItemWithinRepresentation* {.
+  RWStepElement_RWAnalysisItemWithinRepresentation* {.
       importcpp: "RWStepElement_RWAnalysisItemWithinRepresentation",
       header: "RWStepElement_RWAnalysisItemWithinRepresentation.hxx", bycopy.} = object ##
                                                                                    ## !
@@ -27,23 +31,22 @@ type
                                                                                    ## constructor
 
 
-proc constructRWStepElementRWAnalysisItemWithinRepresentation*(): RWStepElementRWAnalysisItemWithinRepresentation {.
+proc constructRWStepElement_RWAnalysisItemWithinRepresentation*(): RWStepElement_RWAnalysisItemWithinRepresentation {.
     constructor,
     importcpp: "RWStepElement_RWAnalysisItemWithinRepresentation(@)",
     header: "RWStepElement_RWAnalysisItemWithinRepresentation.hxx".}
-proc readStep*(this: RWStepElementRWAnalysisItemWithinRepresentation;
-              data: Handle[StepDataStepReaderData]; num: StandardInteger;
-              ach: var Handle[InterfaceCheck];
-              ent: Handle[StepElementAnalysisItemWithinRepresentation]) {.
+proc ReadStep*(this: RWStepElement_RWAnalysisItemWithinRepresentation;
+              data: handle[StepData_StepReaderData]; num: Standard_Integer;
+              ach: var handle[Interface_Check];
+              ent: handle[StepElement_AnalysisItemWithinRepresentation]) {.
     noSideEffect, importcpp: "ReadStep",
     header: "RWStepElement_RWAnalysisItemWithinRepresentation.hxx".}
-proc writeStep*(this: RWStepElementRWAnalysisItemWithinRepresentation;
-               sw: var StepDataStepWriter;
-               ent: Handle[StepElementAnalysisItemWithinRepresentation]) {.
+proc WriteStep*(this: RWStepElement_RWAnalysisItemWithinRepresentation;
+               SW: var StepData_StepWriter;
+               ent: handle[StepElement_AnalysisItemWithinRepresentation]) {.
     noSideEffect, importcpp: "WriteStep",
     header: "RWStepElement_RWAnalysisItemWithinRepresentation.hxx".}
-proc share*(this: RWStepElementRWAnalysisItemWithinRepresentation;
-           ent: Handle[StepElementAnalysisItemWithinRepresentation];
-           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
+proc Share*(this: RWStepElement_RWAnalysisItemWithinRepresentation;
+           ent: handle[StepElement_AnalysisItemWithinRepresentation];
+           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepElement_RWAnalysisItemWithinRepresentation.hxx".}
-

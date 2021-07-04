@@ -14,6 +14,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, Interface_BitMap,
+  ../TColStd/TColStd_HSequenceOfTransient, ../Standard/Standard_Boolean,
+  ../Standard/Standard_Integer
+
 discard "forward decl of Interface_InterfaceModel"
 discard "forward decl of Standard_DomainError"
 discard "forward decl of Standard_OutOfRange"
@@ -24,55 +30,62 @@ discard "forward decl of Interface_Graph"
 discard "forward decl of Standard_Transient"
 discard "forward decl of Interface_EntityIterator"
 type
-  InterfaceShareFlags* {.importcpp: "Interface_ShareFlags",
-                        header: "Interface_ShareFlags.hxx", bycopy.} = object ## ! Creates a
-                                                                         ## ShareFlags from a Model and builds
-                                                                         ## required data
-                                                                         ## ! (flags) by calling the General Service Library given as
-                                                                         ## !
-                                                                         ## argument <lib>
-                                                                         ## !
-                                                                         ## Computes flags at
-                                                                         ## Creation time
-                                                                         ## !
-                                                                         ## !
-                                                                         ## Normally, gtool
-                                                                         ## suffices. But if a Graph is created from a
-                                                                         ## !
-                                                                         ## GeneralLib
-                                                                         ## directly, it cannot be used
-                                                                         ## ! If <gtool> is
-                                                                         ## defined, it has
-                                                                         ## priority
+  Interface_ShareFlags* {.importcpp: "Interface_ShareFlags",
+                         header: "Interface_ShareFlags.hxx", bycopy.} = object ## !
+                                                                          ## Creates a
+                                                                          ## ShareFlags from a Model and builds
+                                                                          ## required data
+                                                                          ## !
+                                                                          ## (flags) by
+                                                                          ## calling the
+                                                                          ## General
+                                                                          ## Service
+                                                                          ## Library given as
+                                                                          ## !
+                                                                          ## argument <lib>
+                                                                          ## !
+                                                                          ## Computes flags at
+                                                                          ## Creation time
+                                                                          ## !
+                                                                          ## !
+                                                                          ## Normally, gtool
+                                                                          ## suffices. But if a Graph is
+                                                                          ## created from a
+                                                                          ## !
+                                                                          ## GeneralLib
+                                                                          ## directly, it cannot be used
+                                                                          ## ! If
+                                                                          ## <gtool> is
+                                                                          ## defined, it has
+                                                                          ## priority
 
 
-proc constructInterfaceShareFlags*(amodel: Handle[InterfaceInterfaceModel];
-                                  lib: InterfaceGeneralLib): InterfaceShareFlags {.
+proc constructInterface_ShareFlags*(amodel: handle[Interface_InterfaceModel];
+                                   lib: Interface_GeneralLib): Interface_ShareFlags {.
     constructor, importcpp: "Interface_ShareFlags(@)",
     header: "Interface_ShareFlags.hxx".}
-proc constructInterfaceShareFlags*(amodel: Handle[InterfaceInterfaceModel];
-                                  gtool: Handle[InterfaceGTool]): InterfaceShareFlags {.
+proc constructInterface_ShareFlags*(amodel: handle[Interface_InterfaceModel];
+                                   gtool: handle[Interface_GTool]): Interface_ShareFlags {.
     constructor, importcpp: "Interface_ShareFlags(@)",
     header: "Interface_ShareFlags.hxx".}
-proc constructInterfaceShareFlags*(amodel: Handle[InterfaceInterfaceModel];
-                                  protocol: Handle[InterfaceProtocol]): InterfaceShareFlags {.
+proc constructInterface_ShareFlags*(amodel: handle[Interface_InterfaceModel];
+                                   protocol: handle[Interface_Protocol]): Interface_ShareFlags {.
     constructor, importcpp: "Interface_ShareFlags(@)",
     header: "Interface_ShareFlags.hxx".}
-proc constructInterfaceShareFlags*(amodel: Handle[InterfaceInterfaceModel]): InterfaceShareFlags {.
+proc constructInterface_ShareFlags*(amodel: handle[Interface_InterfaceModel]): Interface_ShareFlags {.
     constructor, importcpp: "Interface_ShareFlags(@)",
     header: "Interface_ShareFlags.hxx".}
-proc constructInterfaceShareFlags*(agraph: InterfaceGraph): InterfaceShareFlags {.
+proc constructInterface_ShareFlags*(agraph: Interface_Graph): Interface_ShareFlags {.
     constructor, importcpp: "Interface_ShareFlags(@)",
     header: "Interface_ShareFlags.hxx".}
-proc model*(this: InterfaceShareFlags): Handle[InterfaceInterfaceModel] {.
+proc Model*(this: Interface_ShareFlags): handle[Interface_InterfaceModel] {.
     noSideEffect, importcpp: "Model", header: "Interface_ShareFlags.hxx".}
-proc isShared*(this: InterfaceShareFlags; ent: Handle[StandardTransient]): StandardBoolean {.
+proc IsShared*(this: Interface_ShareFlags; ent: handle[Standard_Transient]): Standard_Boolean {.
     noSideEffect, importcpp: "IsShared", header: "Interface_ShareFlags.hxx".}
-proc rootEntities*(this: InterfaceShareFlags): InterfaceEntityIterator {.
+proc RootEntities*(this: Interface_ShareFlags): Interface_EntityIterator {.
     noSideEffect, importcpp: "RootEntities", header: "Interface_ShareFlags.hxx".}
-proc nbRoots*(this: InterfaceShareFlags): StandardInteger {.noSideEffect,
+proc NbRoots*(this: Interface_ShareFlags): Standard_Integer {.noSideEffect,
     importcpp: "NbRoots", header: "Interface_ShareFlags.hxx".}
-proc root*(this: InterfaceShareFlags; num: StandardInteger = 1): Handle[
-    StandardTransient] {.noSideEffect, importcpp: "Root",
-                        header: "Interface_ShareFlags.hxx".}
-
+proc Root*(this: Interface_ShareFlags; num: Standard_Integer = 1): handle[
+    Standard_Transient] {.noSideEffect, importcpp: "Root",
+                         header: "Interface_ShareFlags.hxx".}

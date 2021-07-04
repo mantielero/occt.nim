@@ -13,8 +13,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  DDF_Transaction, ../NCollection/NCollection_List
+
 type
-  DDF_TransactionStack* = NCollectionList[Handle[DDF_Transaction]]
-  DDF_ListIteratorOfTransactionStack* = Iterator[Handle[DDF_Transaction]]
-
-
+  DDF_TransactionStack* = NCollection_List[handle[DDF_Transaction]]
+  DDF_ListIteratorOfTransactionStack* = Iterator[handle[DDF_Transaction]]

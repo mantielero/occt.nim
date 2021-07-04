@@ -14,29 +14,33 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepBasic_ConversionBasedUnit"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepBasicRWConversionBasedUnit* {.importcpp: "RWStepBasic_RWConversionBasedUnit", header: "RWStepBasic_RWConversionBasedUnit.hxx",
-                                     bycopy.} = object
+  RWStepBasic_RWConversionBasedUnit* {.importcpp: "RWStepBasic_RWConversionBasedUnit", header: "RWStepBasic_RWConversionBasedUnit.hxx",
+                                      bycopy.} = object
 
 
-proc constructRWStepBasicRWConversionBasedUnit*(): RWStepBasicRWConversionBasedUnit {.
+proc constructRWStepBasic_RWConversionBasedUnit*(): RWStepBasic_RWConversionBasedUnit {.
     constructor, importcpp: "RWStepBasic_RWConversionBasedUnit(@)",
     header: "RWStepBasic_RWConversionBasedUnit.hxx".}
-proc readStep*(this: RWStepBasicRWConversionBasedUnit;
-              data: Handle[StepDataStepReaderData]; num: StandardInteger;
-              ach: var Handle[InterfaceCheck];
-              ent: Handle[StepBasicConversionBasedUnit]) {.noSideEffect,
+proc ReadStep*(this: RWStepBasic_RWConversionBasedUnit;
+              data: handle[StepData_StepReaderData]; num: Standard_Integer;
+              ach: var handle[Interface_Check];
+              ent: handle[StepBasic_ConversionBasedUnit]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepBasic_RWConversionBasedUnit.hxx".}
-proc writeStep*(this: RWStepBasicRWConversionBasedUnit; sw: var StepDataStepWriter;
-               ent: Handle[StepBasicConversionBasedUnit]) {.noSideEffect,
+proc WriteStep*(this: RWStepBasic_RWConversionBasedUnit;
+               SW: var StepData_StepWriter;
+               ent: handle[StepBasic_ConversionBasedUnit]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepBasic_RWConversionBasedUnit.hxx".}
-proc share*(this: RWStepBasicRWConversionBasedUnit;
-           ent: Handle[StepBasicConversionBasedUnit];
-           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
+proc Share*(this: RWStepBasic_RWConversionBasedUnit;
+           ent: handle[StepBasic_ConversionBasedUnit];
+           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepBasic_RWConversionBasedUnit.hxx".}
-

@@ -13,6 +13,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  MeshVS_DataSource, MeshVS_Mesh, MeshVS_MeshSelectionMethod,
+  ../Select3D/Select3D_SensitiveSet
+
 ## ! Sensitive entity covering entire mesh for global selection.
 
 type
@@ -29,46 +33,44 @@ type
     ## !< center of gravity
     ## !< bounding box
 
-  MeshVS_CommonSensitiveEntitybaseType* = Select3D_SensitiveSet
+  MeshVS_CommonSensitiveEntitybase_type* = Select3D_SensitiveSet
 
-proc getTypeName*(): cstring {.importcpp: "MeshVS_CommonSensitiveEntity::get_type_name(@)",
-                            header: "MeshVS_CommonSensitiveEntity.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "MeshVS_CommonSensitiveEntity::get_type_name(@)",
+                              header: "MeshVS_CommonSensitiveEntity.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "MeshVS_CommonSensitiveEntity::get_type_descriptor(@)",
     header: "MeshVS_CommonSensitiveEntity.hxx".}
-proc dynamicType*(this: MeshVS_CommonSensitiveEntity): Handle[StandardType] {.
+proc DynamicType*(this: MeshVS_CommonSensitiveEntity): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType",
     header: "MeshVS_CommonSensitiveEntity.hxx".}
 proc constructMeshVS_CommonSensitiveEntity*(
-    theOwner: Handle[SelectMgrEntityOwner]; theParentMesh: Handle[MeshVS_Mesh];
+    theOwner: handle[SelectMgr_EntityOwner]; theParentMesh: handle[MeshVS_Mesh];
     theSelMethod: MeshVS_MeshSelectionMethod): MeshVS_CommonSensitiveEntity {.
     constructor, importcpp: "MeshVS_CommonSensitiveEntity(@)",
     header: "MeshVS_CommonSensitiveEntity.hxx".}
 proc destroyMeshVS_CommonSensitiveEntity*(this: var MeshVS_CommonSensitiveEntity) {.
     importcpp: "#.~MeshVS_CommonSensitiveEntity()",
     header: "MeshVS_CommonSensitiveEntity.hxx".}
-proc nbSubElements*(this: MeshVS_CommonSensitiveEntity): StandardInteger {.
+proc NbSubElements*(this: MeshVS_CommonSensitiveEntity): Standard_Integer {.
     noSideEffect, importcpp: "NbSubElements",
     header: "MeshVS_CommonSensitiveEntity.hxx".}
-proc size*(this: MeshVS_CommonSensitiveEntity): StandardInteger {.noSideEffect,
+proc Size*(this: MeshVS_CommonSensitiveEntity): Standard_Integer {.noSideEffect,
     importcpp: "Size", header: "MeshVS_CommonSensitiveEntity.hxx".}
-proc box*(this: MeshVS_CommonSensitiveEntity; theIdx: StandardInteger): Select3D_BndBox3d {.
+proc Box*(this: MeshVS_CommonSensitiveEntity; theIdx: Standard_Integer): Select3D_BndBox3d {.
     noSideEffect, importcpp: "Box", header: "MeshVS_CommonSensitiveEntity.hxx".}
-proc center*(this: MeshVS_CommonSensitiveEntity; theIdx: StandardInteger;
-            theAxis: StandardInteger): StandardReal {.noSideEffect,
+proc Center*(this: MeshVS_CommonSensitiveEntity; theIdx: Standard_Integer;
+            theAxis: Standard_Integer): Standard_Real {.noSideEffect,
     importcpp: "Center", header: "MeshVS_CommonSensitiveEntity.hxx".}
-proc swap*(this: var MeshVS_CommonSensitiveEntity; theIdx1: StandardInteger;
-          theIdx2: StandardInteger) {.importcpp: "Swap",
-                                    header: "MeshVS_CommonSensitiveEntity.hxx".}
-proc boundingBox*(this: var MeshVS_CommonSensitiveEntity): Select3D_BndBox3d {.
+proc Swap*(this: var MeshVS_CommonSensitiveEntity; theIdx1: Standard_Integer;
+          theIdx2: Standard_Integer) {.importcpp: "Swap",
+                                     header: "MeshVS_CommonSensitiveEntity.hxx".}
+proc BoundingBox*(this: var MeshVS_CommonSensitiveEntity): Select3D_BndBox3d {.
     importcpp: "BoundingBox", header: "MeshVS_CommonSensitiveEntity.hxx".}
-proc centerOfGeometry*(this: MeshVS_CommonSensitiveEntity): GpPnt {.noSideEffect,
+proc CenterOfGeometry*(this: MeshVS_CommonSensitiveEntity): gp_Pnt {.noSideEffect,
     importcpp: "CenterOfGeometry", header: "MeshVS_CommonSensitiveEntity.hxx".}
-proc getConnected*(this: var MeshVS_CommonSensitiveEntity): Handle[
+proc GetConnected*(this: var MeshVS_CommonSensitiveEntity): handle[
     Select3D_SensitiveEntity] {.importcpp: "GetConnected",
                                header: "MeshVS_CommonSensitiveEntity.hxx".}
 discard "forward decl of MeshVS_CommonSensitiveEntity"
 type
-  HandleMeshVS_CommonSensitiveEntity* = Handle[MeshVS_CommonSensitiveEntity]
-
-
+  Handle_MeshVS_CommonSensitiveEntity* = handle[MeshVS_CommonSensitiveEntity]

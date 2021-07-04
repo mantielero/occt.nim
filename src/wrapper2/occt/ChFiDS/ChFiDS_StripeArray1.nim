@@ -14,7 +14,8 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ChFiDS_Stripe, ../NCollection/NCollection_Array1
+
 type
-  ChFiDS_StripeArray1* = NCollectionArray1[Handle[ChFiDS_Stripe]]
-
-
+  ChFiDS_StripeArray1* = NCollection_Array1[handle[ChFiDS_Stripe]]

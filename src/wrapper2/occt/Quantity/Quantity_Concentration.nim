@@ -14,11 +14,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _Quantity_Concentration_HeaderFile [NewLine] # _Quantity_Concentration_HeaderFile [NewLine] # < Standard_Real . hxx > [NewLine] ! Defined as the strength of a mixture or solution. It can
+## !!!Ignored construct:  # _Quantity_Concentration_HeaderFile [NewLine] # _Quantity_Concentration_HeaderFile [NewLine] # ../Standard/Standard_Real.hxx [NewLine] ! Defined as the strength of a mixture or solution. It can
 ## ! be measured as kilograms per litre of solvent or of
 ## ! solution. For certain purposes percentage by weight or
 ## ! volume can be used, and parts per million (ppm) is used
 ## ! for trace elements. Standard_DEPRECATED ( This type is deprecated - Standard_Real should be used instead ) typedef Standard_Real Quantity_Concentration ;
 ## Error: expected ';'!!!
-
-

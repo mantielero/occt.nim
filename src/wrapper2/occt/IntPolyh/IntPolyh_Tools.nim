@@ -12,43 +12,45 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../TColStd/TColStd_Array1OfReal, IntPolyh_ArrayOfPointNormal
+
 discard "forward decl of Adaptor3d_HSurface"
 type
-  IntPolyhTools* {.importcpp: "IntPolyh_Tools", header: "IntPolyh_Tools.hxx", bycopy.} = object ##
-                                                                                        ## !
-                                                                                        ## Checks
-                                                                                        ## if
-                                                                                        ## the
-                                                                                        ## surface
-                                                                                        ## can
-                                                                                        ## be
-                                                                                        ## enlarged
-                                                                                        ## in
-                                                                                        ## U
-                                                                                        ## or
-                                                                                        ## V
-                                                                                        ## direction.
+  IntPolyh_Tools* {.importcpp: "IntPolyh_Tools", header: "IntPolyh_Tools.hxx", bycopy.} = object ##
+                                                                                         ## !
+                                                                                         ## Checks
+                                                                                         ## if
+                                                                                         ## the
+                                                                                         ## surface
+                                                                                         ## can
+                                                                                         ## be
+                                                                                         ## enlarged
+                                                                                         ## in
+                                                                                         ## U
+                                                                                         ## or
+                                                                                         ## V
+                                                                                         ## direction.
 
 
-proc isEnlargePossible*(theSurf: Handle[Adaptor3dHSurface];
-                       theUEnlarge: var StandardBoolean;
-                       theVEnlarge: var StandardBoolean) {.
+proc IsEnlargePossible*(theSurf: handle[Adaptor3d_HSurface];
+                       theUEnlarge: var Standard_Boolean;
+                       theVEnlarge: var Standard_Boolean) {.
     importcpp: "IntPolyh_Tools::IsEnlargePossible(@)",
     header: "IntPolyh_Tools.hxx".}
-proc makeSampling*(theSurf: Handle[Adaptor3dHSurface]; theNbSU: StandardInteger;
-                  theNbSV: StandardInteger; theEnlargeZone: StandardBoolean;
-                  theUPars: var TColStdArray1OfReal;
-                  theVPars: var TColStdArray1OfReal) {.
+proc MakeSampling*(theSurf: handle[Adaptor3d_HSurface]; theNbSU: Standard_Integer;
+                  theNbSV: Standard_Integer; theEnlargeZone: Standard_Boolean;
+                  theUPars: var TColStd_Array1OfReal;
+                  theVPars: var TColStd_Array1OfReal) {.
     importcpp: "IntPolyh_Tools::MakeSampling(@)", header: "IntPolyh_Tools.hxx".}
-proc computeDeflection*(theSurf: Handle[Adaptor3dHSurface];
-                       theUPars: TColStdArray1OfReal;
-                       theVPars: TColStdArray1OfReal): StandardReal {.
+proc ComputeDeflection*(theSurf: handle[Adaptor3d_HSurface];
+                       theUPars: TColStd_Array1OfReal;
+                       theVPars: TColStd_Array1OfReal): Standard_Real {.
     importcpp: "IntPolyh_Tools::ComputeDeflection(@)",
     header: "IntPolyh_Tools.hxx".}
-proc fillArrayOfPointNormal*(theSurf: Handle[Adaptor3dHSurface];
-                            theUPars: TColStdArray1OfReal;
-                            theVPars: TColStdArray1OfReal;
-                            thePoints: var IntPolyhArrayOfPointNormal) {.
+proc FillArrayOfPointNormal*(theSurf: handle[Adaptor3d_HSurface];
+                            theUPars: TColStd_Array1OfReal;
+                            theVPars: TColStd_Array1OfReal;
+                            thePoints: var IntPolyh_ArrayOfPointNormal) {.
     importcpp: "IntPolyh_Tools::FillArrayOfPointNormal(@)",
     header: "IntPolyh_Tools.hxx".}
-

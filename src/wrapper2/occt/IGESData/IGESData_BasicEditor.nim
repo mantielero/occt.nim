@@ -14,63 +14,71 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
+  ../Interface/Interface_GeneralLib, IGESData_SpecificLib,
+  ../Standard/Standard_Integer, ../Standard/Standard_Real,
+  ../Standard/Standard_CString
+
 discard "forward decl of IGESData_Protocol"
 discard "forward decl of IGESData_IGESModel"
 discard "forward decl of IGESData_IGESEntity"
 type
-  IGESDataBasicEditor* {.importcpp: "IGESData_BasicEditor",
-                        header: "IGESData_BasicEditor.hxx", bycopy.} = object ## ! Creates an empty Basic Editor which should be
-                                                                         ## initialized via Init() method.
+  IGESData_BasicEditor* {.importcpp: "IGESData_BasicEditor",
+                         header: "IGESData_BasicEditor.hxx", bycopy.} = object ## !
+                                                                          ## Creates an empty Basic Editor which should be
+                                                                          ## initialized via Init()
+                                                                          ## method.
 
 
-proc constructIGESDataBasicEditor*(): IGESDataBasicEditor {.constructor,
+proc constructIGESData_BasicEditor*(): IGESData_BasicEditor {.constructor,
     importcpp: "IGESData_BasicEditor(@)", header: "IGESData_BasicEditor.hxx".}
-proc constructIGESDataBasicEditor*(protocol: Handle[IGESDataProtocol]): IGESDataBasicEditor {.
+proc constructIGESData_BasicEditor*(protocol: handle[IGESData_Protocol]): IGESData_BasicEditor {.
     constructor, importcpp: "IGESData_BasicEditor(@)",
     header: "IGESData_BasicEditor.hxx".}
-proc constructIGESDataBasicEditor*(model: Handle[IGESDataIGESModel];
-                                  protocol: Handle[IGESDataProtocol]): IGESDataBasicEditor {.
+proc constructIGESData_BasicEditor*(model: handle[IGESData_IGESModel];
+                                   protocol: handle[IGESData_Protocol]): IGESData_BasicEditor {.
     constructor, importcpp: "IGESData_BasicEditor(@)",
     header: "IGESData_BasicEditor.hxx".}
-proc init*(this: var IGESDataBasicEditor; protocol: Handle[IGESDataProtocol]) {.
+proc Init*(this: var IGESData_BasicEditor; protocol: handle[IGESData_Protocol]) {.
     importcpp: "Init", header: "IGESData_BasicEditor.hxx".}
-proc init*(this: var IGESDataBasicEditor; model: Handle[IGESDataIGESModel];
-          protocol: Handle[IGESDataProtocol]) {.importcpp: "Init",
+proc Init*(this: var IGESData_BasicEditor; model: handle[IGESData_IGESModel];
+          protocol: handle[IGESData_Protocol]) {.importcpp: "Init",
     header: "IGESData_BasicEditor.hxx".}
-proc model*(this: IGESDataBasicEditor): Handle[IGESDataIGESModel] {.noSideEffect,
+proc Model*(this: IGESData_BasicEditor): handle[IGESData_IGESModel] {.noSideEffect,
     importcpp: "Model", header: "IGESData_BasicEditor.hxx".}
-proc setUnitFlag*(this: var IGESDataBasicEditor; flag: StandardInteger): StandardBoolean {.
+proc SetUnitFlag*(this: var IGESData_BasicEditor; flag: Standard_Integer): Standard_Boolean {.
     importcpp: "SetUnitFlag", header: "IGESData_BasicEditor.hxx".}
-proc setUnitValue*(this: var IGESDataBasicEditor; val: StandardReal): StandardBoolean {.
+proc SetUnitValue*(this: var IGESData_BasicEditor; val: Standard_Real): Standard_Boolean {.
     importcpp: "SetUnitValue", header: "IGESData_BasicEditor.hxx".}
-proc setUnitName*(this: var IGESDataBasicEditor; name: StandardCString): StandardBoolean {.
+proc SetUnitName*(this: var IGESData_BasicEditor; name: Standard_CString): Standard_Boolean {.
     importcpp: "SetUnitName", header: "IGESData_BasicEditor.hxx".}
-proc applyUnit*(this: var IGESDataBasicEditor;
-               enforce: StandardBoolean = standardFalse) {.importcpp: "ApplyUnit",
+proc ApplyUnit*(this: var IGESData_BasicEditor;
+               enforce: Standard_Boolean = Standard_False) {.importcpp: "ApplyUnit",
     header: "IGESData_BasicEditor.hxx".}
-proc computeStatus*(this: var IGESDataBasicEditor) {.importcpp: "ComputeStatus",
+proc ComputeStatus*(this: var IGESData_BasicEditor) {.importcpp: "ComputeStatus",
     header: "IGESData_BasicEditor.hxx".}
-proc autoCorrect*(this: var IGESDataBasicEditor; ent: Handle[IGESDataIGESEntity]): StandardBoolean {.
+proc AutoCorrect*(this: var IGESData_BasicEditor; ent: handle[IGESData_IGESEntity]): Standard_Boolean {.
     importcpp: "AutoCorrect", header: "IGESData_BasicEditor.hxx".}
-proc autoCorrectModel*(this: var IGESDataBasicEditor): StandardInteger {.
+proc AutoCorrectModel*(this: var IGESData_BasicEditor): Standard_Integer {.
     importcpp: "AutoCorrectModel", header: "IGESData_BasicEditor.hxx".}
-proc unitNameFlag*(name: StandardCString): StandardInteger {.
+proc UnitNameFlag*(name: Standard_CString): Standard_Integer {.
     importcpp: "IGESData_BasicEditor::UnitNameFlag(@)",
     header: "IGESData_BasicEditor.hxx".}
-proc unitFlagValue*(flag: StandardInteger): StandardReal {.
+proc UnitFlagValue*(flag: Standard_Integer): Standard_Real {.
     importcpp: "IGESData_BasicEditor::UnitFlagValue(@)",
     header: "IGESData_BasicEditor.hxx".}
-proc unitFlagName*(flag: StandardInteger): StandardCString {.
+proc UnitFlagName*(flag: Standard_Integer): Standard_CString {.
     importcpp: "IGESData_BasicEditor::UnitFlagName(@)",
     header: "IGESData_BasicEditor.hxx".}
-proc iGESVersionName*(flag: StandardInteger): StandardCString {.
+proc IGESVersionName*(flag: Standard_Integer): Standard_CString {.
     importcpp: "IGESData_BasicEditor::IGESVersionName(@)",
     header: "IGESData_BasicEditor.hxx".}
-proc iGESVersionMax*(): StandardInteger {.importcpp: "IGESData_BasicEditor::IGESVersionMax(@)",
-                                       header: "IGESData_BasicEditor.hxx".}
-proc draftingName*(flag: StandardInteger): StandardCString {.
+proc IGESVersionMax*(): Standard_Integer {.importcpp: "IGESData_BasicEditor::IGESVersionMax(@)",
+                                        header: "IGESData_BasicEditor.hxx".}
+proc DraftingName*(flag: Standard_Integer): Standard_CString {.
     importcpp: "IGESData_BasicEditor::DraftingName(@)",
     header: "IGESData_BasicEditor.hxx".}
-proc draftingMax*(): StandardInteger {.importcpp: "IGESData_BasicEditor::DraftingMax(@)",
-                                    header: "IGESData_BasicEditor.hxx".}
-
+proc DraftingMax*(): Standard_Integer {.importcpp: "IGESData_BasicEditor::DraftingMax(@)",
+                                     header: "IGESData_BasicEditor.hxx".}

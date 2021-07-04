@@ -14,8 +14,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  IFSelect_AppliedModifiers, ../NCollection/NCollection_Sequence
+
 type
-  IFSelectSequenceOfAppliedModifiers* = NCollectionSequence[
-      Handle[IFSelectAppliedModifiers]]
-
-
+  IFSelect_SequenceOfAppliedModifiers* = NCollection_Sequence[
+      handle[IFSelect_AppliedModifiers]]

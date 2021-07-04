@@ -14,32 +14,34 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, BRepFill_LocationLaw
+
 discard "forward decl of TopoDS_Wire"
 discard "forward decl of GeomFill_LocationLaw"
 discard "forward decl of BRepFill_Edge3DLaw"
 discard "forward decl of BRepFill_Edge3DLaw"
 type
-  HandleBRepFillEdge3DLaw* = Handle[BRepFillEdge3DLaw]
+  Handle_BRepFill_Edge3DLaw* = handle[BRepFill_Edge3DLaw]
 
 ## ! Build Location Law, with a  Wire.
 
 type
-  BRepFillEdge3DLaw* {.importcpp: "BRepFill_Edge3DLaw",
-                      header: "BRepFill_Edge3DLaw.hxx", bycopy.} = object of BRepFillLocationLaw
+  BRepFill_Edge3DLaw* {.importcpp: "BRepFill_Edge3DLaw",
+                       header: "BRepFill_Edge3DLaw.hxx", bycopy.} = object of BRepFill_LocationLaw
 
 
-proc constructBRepFillEdge3DLaw*(path: TopoDS_Wire;
-                                law: Handle[GeomFillLocationLaw]): BRepFillEdge3DLaw {.
+proc constructBRepFill_Edge3DLaw*(Path: TopoDS_Wire;
+                                 Law: handle[GeomFill_LocationLaw]): BRepFill_Edge3DLaw {.
     constructor, importcpp: "BRepFill_Edge3DLaw(@)",
     header: "BRepFill_Edge3DLaw.hxx".}
 type
-  BRepFillEdge3DLawbaseType* = BRepFillLocationLaw
+  BRepFill_Edge3DLawbase_type* = BRepFill_LocationLaw
 
-proc getTypeName*(): cstring {.importcpp: "BRepFill_Edge3DLaw::get_type_name(@)",
-                            header: "BRepFill_Edge3DLaw.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "BRepFill_Edge3DLaw::get_type_name(@)",
+                              header: "BRepFill_Edge3DLaw.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "BRepFill_Edge3DLaw::get_type_descriptor(@)",
     header: "BRepFill_Edge3DLaw.hxx".}
-proc dynamicType*(this: BRepFillEdge3DLaw): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: BRepFill_Edge3DLaw): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "BRepFill_Edge3DLaw.hxx".}
-

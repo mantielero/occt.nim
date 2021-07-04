@@ -14,7 +14,5 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # GeomPlate_HSequenceOfPointConstraint_HeaderFile [NewLine] # GeomPlate_HSequenceOfPointConstraint_HeaderFile [NewLine] # < GeomPlate_PointConstraint . hxx > [NewLine] # < GeomPlate_SequenceOfPointConstraint . hxx > [NewLine] # < NCollection_DefineHSequence . hxx > [NewLine] DEFINE_HSEQUENCE ( GeomPlate_HSequenceOfPointConstraint , GeomPlate_SequenceOfPointConstraint ) # [NewLine]
+## !!!Ignored construct:  # GeomPlate_HSequenceOfPointConstraint_HeaderFile [NewLine] # GeomPlate_HSequenceOfPointConstraint_HeaderFile [NewLine] # GeomPlate_PointConstraint.hxx [NewLine] # GeomPlate_SequenceOfPointConstraint.hxx [NewLine] # ../NCollection/NCollection_DefineHSequence.hxx [NewLine] DEFINE_HSEQUENCE ( GeomPlate_HSequenceOfPointConstraint , GeomPlate_SequenceOfPointConstraint ) # [NewLine]
 ## Error: expected ';'!!!
-
-

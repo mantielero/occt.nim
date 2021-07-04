@@ -14,8 +14,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ChFiDS_HElSpine, ../NCollection/NCollection_List
+
 type
-  ChFiDS_ListOfHElSpine* = NCollectionList[Handle[ChFiDS_HElSpine]]
-  ChFiDS_ListIteratorOfListOfHElSpine* = Iterator[Handle[ChFiDS_HElSpine]]
-
-
+  ChFiDS_ListOfHElSpine* = NCollection_List[handle[ChFiDS_HElSpine]]
+  ChFiDS_ListIteratorOfListOfHElSpine* = Iterator[handle[ChFiDS_HElSpine]]

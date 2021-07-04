@@ -14,6 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Integer,
+  ../Standard/Standard_Boolean, IFSelect_SelectExtract
+
 discard "forward decl of Interface_EntityIterator"
 discard "forward decl of Interface_Graph"
 discard "forward decl of Standard_Transient"
@@ -22,7 +26,7 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of IFSelect_SelectSent"
 discard "forward decl of IFSelect_SelectSent"
 type
-  HandleIFSelectSelectSent* = Handle[IFSelectSelectSent]
+  Handle_IFSelect_SelectSent* = handle[IFSelect_SelectSent]
 
 ## ! This class returns entities according sending to a file
 ## ! Once a model has been loaded, further sendings are recorded
@@ -34,105 +38,104 @@ type
 ## ! This selection performs this query
 
 type
-  IFSelectSelectSent* {.importcpp: "IFSelect_SelectSent",
-                       header: "IFSelect_SelectSent.hxx", bycopy.} = object of IFSelectSelectExtract ##
-                                                                                              ## !
-                                                                                              ## Creates
-                                                                                              ## a
-                                                                                              ## SelectSent
-                                                                                              ## :
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ## sentcount
-                                                                                              ## =
-                                                                                              ## 0
-                                                                                              ## ->
-                                                                                              ## remaining
-                                                                                              ## (non-sent)
-                                                                                              ## entities
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ## sentcount
-                                                                                              ## =
-                                                                                              ## 1,
-                                                                                              ## atleast
-                                                                                              ## =
-                                                                                              ## True
-                                                                                              ## (D)
-                                                                                              ## ->
-                                                                                              ## sent
-                                                                                              ## (at
-                                                                                              ## least
-                                                                                              ## once)
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ## sentcount
-                                                                                              ## =
-                                                                                              ## 2,
-                                                                                              ## atleast
-                                                                                              ## =
-                                                                                              ## True
-                                                                                              ## ->
-                                                                                              ## duplicated
-                                                                                              ## (sent
-                                                                                              ## least
-                                                                                              ## twice)
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ## etc...
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ## sentcount
-                                                                                              ## =
-                                                                                              ## 1,
-                                                                                              ## atleast
-                                                                                              ## =
-                                                                                              ## False
-                                                                                              ## ->
-                                                                                              ## sent
-                                                                                              ## just
-                                                                                              ## once
-                                                                                              ## (non-dupl.d)
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ## sentcount
-                                                                                              ## =
-                                                                                              ## 2,
-                                                                                              ## atleast
-                                                                                              ## =
-                                                                                              ## False
-                                                                                              ## ->
-                                                                                              ## sent
-                                                                                              ## just
-                                                                                              ## twice
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ## etc...
+  IFSelect_SelectSent* {.importcpp: "IFSelect_SelectSent",
+                        header: "IFSelect_SelectSent.hxx", bycopy.} = object of IFSelect_SelectExtract ##
+                                                                                                ## !
+                                                                                                ## Creates
+                                                                                                ## a
+                                                                                                ## SelectSent
+                                                                                                ## :
+                                                                                                ##
+                                                                                                ## !
+                                                                                                ## sentcount
+                                                                                                ## =
+                                                                                                ## 0
+                                                                                                ## ->
+                                                                                                ## remaining
+                                                                                                ## (non-sent)
+                                                                                                ## entities
+                                                                                                ##
+                                                                                                ## !
+                                                                                                ## sentcount
+                                                                                                ## =
+                                                                                                ## 1,
+                                                                                                ## atleast
+                                                                                                ## =
+                                                                                                ## True
+                                                                                                ## (D)
+                                                                                                ## ->
+                                                                                                ## sent
+                                                                                                ## (at
+                                                                                                ## least
+                                                                                                ## once)
+                                                                                                ##
+                                                                                                ## !
+                                                                                                ## sentcount
+                                                                                                ## =
+                                                                                                ## 2,
+                                                                                                ## atleast
+                                                                                                ## =
+                                                                                                ## True
+                                                                                                ## ->
+                                                                                                ## duplicated
+                                                                                                ## (sent
+                                                                                                ## least
+                                                                                                ## twice)
+                                                                                                ##
+                                                                                                ## !
+                                                                                                ## etc...
+                                                                                                ##
+                                                                                                ## !
+                                                                                                ## sentcount
+                                                                                                ## =
+                                                                                                ## 1,
+                                                                                                ## atleast
+                                                                                                ## =
+                                                                                                ## False
+                                                                                                ## ->
+                                                                                                ## sent
+                                                                                                ## just
+                                                                                                ## once
+                                                                                                ## (non-dupl.d)
+                                                                                                ##
+                                                                                                ## !
+                                                                                                ## sentcount
+                                                                                                ## =
+                                                                                                ## 2,
+                                                                                                ## atleast
+                                                                                                ## =
+                                                                                                ## False
+                                                                                                ## ->
+                                                                                                ## sent
+                                                                                                ## just
+                                                                                                ## twice
+                                                                                                ##
+                                                                                                ## !
+                                                                                                ## etc...
 
 
-proc constructIFSelectSelectSent*(sentcount: StandardInteger = 1;
-                                 atleast: StandardBoolean = standardTrue): IFSelectSelectSent {.
+proc constructIFSelect_SelectSent*(sentcount: Standard_Integer = 1;
+                                  atleast: Standard_Boolean = Standard_True): IFSelect_SelectSent {.
     constructor, importcpp: "IFSelect_SelectSent(@)",
     header: "IFSelect_SelectSent.hxx".}
-proc sentCount*(this: IFSelectSelectSent): StandardInteger {.noSideEffect,
+proc SentCount*(this: IFSelect_SelectSent): Standard_Integer {.noSideEffect,
     importcpp: "SentCount", header: "IFSelect_SelectSent.hxx".}
-proc atLeast*(this: IFSelectSelectSent): StandardBoolean {.noSideEffect,
+proc AtLeast*(this: IFSelect_SelectSent): Standard_Boolean {.noSideEffect,
     importcpp: "AtLeast", header: "IFSelect_SelectSent.hxx".}
-proc rootResult*(this: IFSelectSelectSent; g: InterfaceGraph): InterfaceEntityIterator {.
+proc RootResult*(this: IFSelect_SelectSent; G: Interface_Graph): Interface_EntityIterator {.
     noSideEffect, importcpp: "RootResult", header: "IFSelect_SelectSent.hxx".}
-proc sort*(this: IFSelectSelectSent; rank: StandardInteger;
-          ent: Handle[StandardTransient]; model: Handle[InterfaceInterfaceModel]): StandardBoolean {.
+proc Sort*(this: IFSelect_SelectSent; rank: Standard_Integer;
+          ent: handle[Standard_Transient]; model: handle[Interface_InterfaceModel]): Standard_Boolean {.
     noSideEffect, importcpp: "Sort", header: "IFSelect_SelectSent.hxx".}
-proc extractLabel*(this: IFSelectSelectSent): TCollectionAsciiString {.noSideEffect,
-    importcpp: "ExtractLabel", header: "IFSelect_SelectSent.hxx".}
+proc ExtractLabel*(this: IFSelect_SelectSent): TCollection_AsciiString {.
+    noSideEffect, importcpp: "ExtractLabel", header: "IFSelect_SelectSent.hxx".}
 type
-  IFSelectSelectSentbaseType* = IFSelectSelectExtract
+  IFSelect_SelectSentbase_type* = IFSelect_SelectExtract
 
-proc getTypeName*(): cstring {.importcpp: "IFSelect_SelectSent::get_type_name(@)",
-                            header: "IFSelect_SelectSent.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "IFSelect_SelectSent::get_type_name(@)",
+                              header: "IFSelect_SelectSent.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "IFSelect_SelectSent::get_type_descriptor(@)",
     header: "IFSelect_SelectSent.hxx".}
-proc dynamicType*(this: IFSelectSelectSent): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: IFSelect_SelectSent): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "IFSelect_SelectSent.hxx".}
-

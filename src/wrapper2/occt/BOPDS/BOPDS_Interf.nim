@@ -12,6 +12,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../IntTools/IntTools_CommonPrt, ../NCollection/NCollection_BaseAllocator,
+  BOPDS_VectorOfCurve, BOPDS_VectorOfPoint
+
 ## *
 ##  The class BOPDS_Interf is is to store the information about
 ##  the interference between two shapes.
@@ -33,31 +37,31 @@ type
                                                                                    ##
 
 
-proc setIndices*(this: var BOPDS_Interf; theIndex1: StandardInteger;
-                theIndex2: StandardInteger) {.importcpp: "SetIndices",
+proc SetIndices*(this: var BOPDS_Interf; theIndex1: Standard_Integer;
+                theIndex2: Standard_Integer) {.importcpp: "SetIndices",
     header: "BOPDS_Interf.hxx".}
-proc indices*(this: BOPDS_Interf; theIndex1: var StandardInteger;
-             theIndex2: var StandardInteger) {.noSideEffect, importcpp: "Indices",
+proc Indices*(this: BOPDS_Interf; theIndex1: var Standard_Integer;
+             theIndex2: var Standard_Integer) {.noSideEffect, importcpp: "Indices",
     header: "BOPDS_Interf.hxx".}
-proc setIndex1*(this: var BOPDS_Interf; theIndex: StandardInteger) {.
+proc SetIndex1*(this: var BOPDS_Interf; theIndex: Standard_Integer) {.
     importcpp: "SetIndex1", header: "BOPDS_Interf.hxx".}
-proc setIndex2*(this: var BOPDS_Interf; theIndex: StandardInteger) {.
+proc SetIndex2*(this: var BOPDS_Interf; theIndex: Standard_Integer) {.
     importcpp: "SetIndex2", header: "BOPDS_Interf.hxx".}
-proc index1*(this: BOPDS_Interf): StandardInteger {.noSideEffect,
+proc Index1*(this: BOPDS_Interf): Standard_Integer {.noSideEffect,
     importcpp: "Index1", header: "BOPDS_Interf.hxx".}
-proc index2*(this: BOPDS_Interf): StandardInteger {.noSideEffect,
+proc Index2*(this: BOPDS_Interf): Standard_Integer {.noSideEffect,
     importcpp: "Index2", header: "BOPDS_Interf.hxx".}
-proc oppositeIndex*(this: BOPDS_Interf; theI: StandardInteger): StandardInteger {.
+proc OppositeIndex*(this: BOPDS_Interf; theI: Standard_Integer): Standard_Integer {.
     noSideEffect, importcpp: "OppositeIndex", header: "BOPDS_Interf.hxx".}
-proc contains*(this: BOPDS_Interf; theIndex: StandardInteger): StandardBoolean {.
+proc Contains*(this: BOPDS_Interf; theIndex: Standard_Integer): Standard_Boolean {.
     noSideEffect, importcpp: "Contains", header: "BOPDS_Interf.hxx".}
-proc setIndexNew*(this: var BOPDS_Interf; theIndex: StandardInteger) {.
+proc SetIndexNew*(this: var BOPDS_Interf; theIndex: Standard_Integer) {.
     importcpp: "SetIndexNew", header: "BOPDS_Interf.hxx".}
-proc indexNew*(this: BOPDS_Interf): StandardInteger {.noSideEffect,
+proc IndexNew*(this: BOPDS_Interf): Standard_Integer {.noSideEffect,
     importcpp: "IndexNew", header: "BOPDS_Interf.hxx".}
-proc hasIndexNew*(this: BOPDS_Interf; theIndex: var StandardInteger): StandardBoolean {.
+proc HasIndexNew*(this: BOPDS_Interf; theIndex: var Standard_Integer): Standard_Boolean {.
     noSideEffect, importcpp: "HasIndexNew", header: "BOPDS_Interf.hxx".}
-proc hasIndexNew*(this: BOPDS_Interf): StandardBoolean {.noSideEffect,
+proc HasIndexNew*(this: BOPDS_Interf): Standard_Boolean {.noSideEffect,
     importcpp: "HasIndexNew", header: "BOPDS_Interf.hxx".}
 ## *
 ##  The class BOPDS_InterfVV is is to store the information about
@@ -76,7 +80,7 @@ type
 
 proc constructBOPDS_InterfVV*(): BOPDS_InterfVV {.constructor,
     importcpp: "BOPDS_InterfVV(@)", header: "BOPDS_Interf.hxx".}
-proc constructBOPDS_InterfVV*(theAllocator: Handle[NCollectionBaseAllocator]): BOPDS_InterfVV {.
+proc constructBOPDS_InterfVV*(theAllocator: handle[NCollection_BaseAllocator]): BOPDS_InterfVV {.
     constructor, importcpp: "BOPDS_InterfVV(@)", header: "BOPDS_Interf.hxx".}
 proc destroyBOPDS_InterfVV*(this: var BOPDS_InterfVV) {.
     importcpp: "#.~BOPDS_InterfVV()", header: "BOPDS_Interf.hxx".}
@@ -97,13 +101,13 @@ type
 
 proc constructBOPDS_InterfVE*(): BOPDS_InterfVE {.constructor,
     importcpp: "BOPDS_InterfVE(@)", header: "BOPDS_Interf.hxx".}
-proc constructBOPDS_InterfVE*(theAllocator: Handle[NCollectionBaseAllocator]): BOPDS_InterfVE {.
+proc constructBOPDS_InterfVE*(theAllocator: handle[NCollection_BaseAllocator]): BOPDS_InterfVE {.
     constructor, importcpp: "BOPDS_InterfVE(@)", header: "BOPDS_Interf.hxx".}
 proc destroyBOPDS_InterfVE*(this: var BOPDS_InterfVE) {.
     importcpp: "#.~BOPDS_InterfVE()", header: "BOPDS_Interf.hxx".}
-proc setParameter*(this: var BOPDS_InterfVE; theT: StandardReal) {.
+proc SetParameter*(this: var BOPDS_InterfVE; theT: Standard_Real) {.
     importcpp: "SetParameter", header: "BOPDS_Interf.hxx".}
-proc parameter*(this: BOPDS_InterfVE): StandardReal {.noSideEffect,
+proc Parameter*(this: BOPDS_InterfVE): Standard_Real {.noSideEffect,
     importcpp: "Parameter", header: "BOPDS_Interf.hxx".}
 ## *
 ##  The class BOPDS_InterfVF is is to store the information about
@@ -122,13 +126,13 @@ type
 
 proc constructBOPDS_InterfVF*(): BOPDS_InterfVF {.constructor,
     importcpp: "BOPDS_InterfVF(@)", header: "BOPDS_Interf.hxx".}
-proc constructBOPDS_InterfVF*(theAllocator: Handle[NCollectionBaseAllocator]): BOPDS_InterfVF {.
+proc constructBOPDS_InterfVF*(theAllocator: handle[NCollection_BaseAllocator]): BOPDS_InterfVF {.
     constructor, importcpp: "BOPDS_InterfVF(@)", header: "BOPDS_Interf.hxx".}
 proc destroyBOPDS_InterfVF*(this: var BOPDS_InterfVF) {.
     importcpp: "#.~BOPDS_InterfVF()", header: "BOPDS_Interf.hxx".}
-proc setUV*(this: var BOPDS_InterfVF; theU: StandardReal; theV: StandardReal) {.
+proc SetUV*(this: var BOPDS_InterfVF; theU: Standard_Real; theV: Standard_Real) {.
     importcpp: "SetUV", header: "BOPDS_Interf.hxx".}
-proc uv*(this: BOPDS_InterfVF; theU: var StandardReal; theV: var StandardReal) {.
+proc UV*(this: BOPDS_InterfVF; theU: var Standard_Real; theV: var Standard_Real) {.
     noSideEffect, importcpp: "UV", header: "BOPDS_Interf.hxx".}
 ## *
 ##  The class BOPDS_InterfEE is is to store the information about
@@ -147,13 +151,13 @@ type
 
 proc constructBOPDS_InterfEE*(): BOPDS_InterfEE {.constructor,
     importcpp: "BOPDS_InterfEE(@)", header: "BOPDS_Interf.hxx".}
-proc constructBOPDS_InterfEE*(theAllocator: Handle[NCollectionBaseAllocator]): BOPDS_InterfEE {.
+proc constructBOPDS_InterfEE*(theAllocator: handle[NCollection_BaseAllocator]): BOPDS_InterfEE {.
     constructor, importcpp: "BOPDS_InterfEE(@)", header: "BOPDS_Interf.hxx".}
 proc destroyBOPDS_InterfEE*(this: var BOPDS_InterfEE) {.
     importcpp: "#.~BOPDS_InterfEE()", header: "BOPDS_Interf.hxx".}
-proc setCommonPart*(this: var BOPDS_InterfEE; theCP: IntToolsCommonPrt) {.
+proc SetCommonPart*(this: var BOPDS_InterfEE; theCP: IntTools_CommonPrt) {.
     importcpp: "SetCommonPart", header: "BOPDS_Interf.hxx".}
-proc commonPart*(this: BOPDS_InterfEE): IntToolsCommonPrt {.noSideEffect,
+proc CommonPart*(this: BOPDS_InterfEE): IntTools_CommonPrt {.noSideEffect,
     importcpp: "CommonPart", header: "BOPDS_Interf.hxx".}
 ## *
 ##  The class BOPDS_InterfEF is is to store the information about
@@ -176,13 +180,13 @@ type
 
 proc constructBOPDS_InterfEF*(): BOPDS_InterfEF {.constructor,
     importcpp: "BOPDS_InterfEF(@)", header: "BOPDS_Interf.hxx".}
-proc constructBOPDS_InterfEF*(theAllocator: Handle[NCollectionBaseAllocator]): BOPDS_InterfEF {.
+proc constructBOPDS_InterfEF*(theAllocator: handle[NCollection_BaseAllocator]): BOPDS_InterfEF {.
     constructor, importcpp: "BOPDS_InterfEF(@)", header: "BOPDS_Interf.hxx".}
 proc destroyBOPDS_InterfEF*(this: var BOPDS_InterfEF) {.
     importcpp: "#.~BOPDS_InterfEF()", header: "BOPDS_Interf.hxx".}
-proc setCommonPart*(this: var BOPDS_InterfEF; theCP: IntToolsCommonPrt) {.
+proc SetCommonPart*(this: var BOPDS_InterfEF; theCP: IntTools_CommonPrt) {.
     importcpp: "SetCommonPart", header: "BOPDS_Interf.hxx".}
-proc commonPart*(this: BOPDS_InterfEF): IntToolsCommonPrt {.noSideEffect,
+proc CommonPart*(this: BOPDS_InterfEF): IntTools_CommonPrt {.noSideEffect,
     importcpp: "CommonPart", header: "BOPDS_Interf.hxx".}
 ## =======================================================================
 ## function : BOPDS_InterfFF
@@ -199,20 +203,20 @@ proc constructBOPDS_InterfFF*(): BOPDS_InterfFF {.constructor,
     importcpp: "BOPDS_InterfFF(@)", header: "BOPDS_Interf.hxx".}
 proc destroyBOPDS_InterfFF*(this: var BOPDS_InterfFF) {.
     importcpp: "#.~BOPDS_InterfFF()", header: "BOPDS_Interf.hxx".}
-proc init*(this: var BOPDS_InterfFF; theNbCurves: StandardInteger;
-          theNbPoints: StandardInteger) {.importcpp: "Init",
-                                        header: "BOPDS_Interf.hxx".}
-proc setTangentFaces*(this: var BOPDS_InterfFF; theFlag: StandardBoolean) {.
+proc Init*(this: var BOPDS_InterfFF; theNbCurves: Standard_Integer;
+          theNbPoints: Standard_Integer) {.importcpp: "Init",
+    header: "BOPDS_Interf.hxx".}
+proc SetTangentFaces*(this: var BOPDS_InterfFF; theFlag: Standard_Boolean) {.
     importcpp: "SetTangentFaces", header: "BOPDS_Interf.hxx".}
-proc tangentFaces*(this: BOPDS_InterfFF): StandardBoolean {.noSideEffect,
+proc TangentFaces*(this: BOPDS_InterfFF): Standard_Boolean {.noSideEffect,
     importcpp: "TangentFaces", header: "BOPDS_Interf.hxx".}
-proc curves*(this: BOPDS_InterfFF): BOPDS_VectorOfCurve {.noSideEffect,
+proc Curves*(this: BOPDS_InterfFF): BOPDS_VectorOfCurve {.noSideEffect,
     importcpp: "Curves", header: "BOPDS_Interf.hxx".}
-proc changeCurves*(this: var BOPDS_InterfFF): var BOPDS_VectorOfCurve {.
+proc ChangeCurves*(this: var BOPDS_InterfFF): var BOPDS_VectorOfCurve {.
     importcpp: "ChangeCurves", header: "BOPDS_Interf.hxx".}
-proc points*(this: BOPDS_InterfFF): BOPDS_VectorOfPoint {.noSideEffect,
+proc Points*(this: BOPDS_InterfFF): BOPDS_VectorOfPoint {.noSideEffect,
     importcpp: "Points", header: "BOPDS_Interf.hxx".}
-proc changePoints*(this: var BOPDS_InterfFF): var BOPDS_VectorOfPoint {.
+proc ChangePoints*(this: var BOPDS_InterfFF): var BOPDS_VectorOfPoint {.
     importcpp: "ChangePoints", header: "BOPDS_Interf.hxx".}
 ## *
 ##  The class BOPDS_InterfVZ is is to store the information about
@@ -231,7 +235,7 @@ type
 
 proc constructBOPDS_InterfVZ*(): BOPDS_InterfVZ {.constructor,
     importcpp: "BOPDS_InterfVZ(@)", header: "BOPDS_Interf.hxx".}
-proc constructBOPDS_InterfVZ*(theAllocator: Handle[NCollectionBaseAllocator]): BOPDS_InterfVZ {.
+proc constructBOPDS_InterfVZ*(theAllocator: handle[NCollection_BaseAllocator]): BOPDS_InterfVZ {.
     constructor, importcpp: "BOPDS_InterfVZ(@)", header: "BOPDS_Interf.hxx".}
 proc destroyBOPDS_InterfVZ*(this: var BOPDS_InterfVZ) {.
     importcpp: "#.~BOPDS_InterfVZ()", header: "BOPDS_Interf.hxx".}
@@ -252,7 +256,7 @@ type
 
 proc constructBOPDS_InterfEZ*(): BOPDS_InterfEZ {.constructor,
     importcpp: "BOPDS_InterfEZ(@)", header: "BOPDS_Interf.hxx".}
-proc constructBOPDS_InterfEZ*(theAllocator: Handle[NCollectionBaseAllocator]): BOPDS_InterfEZ {.
+proc constructBOPDS_InterfEZ*(theAllocator: handle[NCollection_BaseAllocator]): BOPDS_InterfEZ {.
     constructor, importcpp: "BOPDS_InterfEZ(@)", header: "BOPDS_Interf.hxx".}
 proc destroyBOPDS_InterfEZ*(this: var BOPDS_InterfEZ) {.
     importcpp: "#.~BOPDS_InterfEZ()", header: "BOPDS_Interf.hxx".}
@@ -273,7 +277,7 @@ type
 
 proc constructBOPDS_InterfFZ*(): BOPDS_InterfFZ {.constructor,
     importcpp: "BOPDS_InterfFZ(@)", header: "BOPDS_Interf.hxx".}
-proc constructBOPDS_InterfFZ*(theAllocator: Handle[NCollectionBaseAllocator]): BOPDS_InterfFZ {.
+proc constructBOPDS_InterfFZ*(theAllocator: handle[NCollection_BaseAllocator]): BOPDS_InterfFZ {.
     constructor, importcpp: "BOPDS_InterfFZ(@)", header: "BOPDS_Interf.hxx".}
 proc destroyBOPDS_InterfFZ*(this: var BOPDS_InterfFZ) {.
     importcpp: "#.~BOPDS_InterfFZ()", header: "BOPDS_Interf.hxx".}
@@ -294,8 +298,7 @@ type
 
 proc constructBOPDS_InterfZZ*(): BOPDS_InterfZZ {.constructor,
     importcpp: "BOPDS_InterfZZ(@)", header: "BOPDS_Interf.hxx".}
-proc constructBOPDS_InterfZZ*(theAllocator: Handle[NCollectionBaseAllocator]): BOPDS_InterfZZ {.
+proc constructBOPDS_InterfZZ*(theAllocator: handle[NCollection_BaseAllocator]): BOPDS_InterfZZ {.
     constructor, importcpp: "BOPDS_InterfZZ(@)", header: "BOPDS_Interf.hxx".}
 proc destroyBOPDS_InterfZZ*(this: var BOPDS_InterfZZ) {.
     importcpp: "#.~BOPDS_InterfZZ()", header: "BOPDS_Interf.hxx".}
-

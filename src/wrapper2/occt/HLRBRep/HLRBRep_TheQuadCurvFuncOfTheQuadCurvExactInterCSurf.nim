@@ -14,34 +14,39 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../IntSurf/IntSurf_Quadric, ../gp/gp_Lin,
+  ../math/math_FunctionWithDerivative, ../Standard/Standard_Boolean,
+  ../Standard/Standard_Real
+
 discard "forward decl of IntSurf_Quadric"
 discard "forward decl of gp_Lin"
 discard "forward decl of HLRBRep_LineTool"
 type
-  HLRBRepTheQuadCurvFuncOfTheQuadCurvExactInterCSurf* {.
+  HLRBRep_TheQuadCurvFuncOfTheQuadCurvExactInterCSurf* {.
       importcpp: "HLRBRep_TheQuadCurvFuncOfTheQuadCurvExactInterCSurf",
-      header: "HLRBRep_TheQuadCurvFuncOfTheQuadCurvExactInterCSurf.hxx", bycopy.} = object of MathFunctionWithDerivative ##
-                                                                                                                  ## !
-                                                                                                                  ## Create
-                                                                                                                  ## the
-                                                                                                                  ## function.
+      header: "HLRBRep_TheQuadCurvFuncOfTheQuadCurvExactInterCSurf.hxx", bycopy.} = object of math_FunctionWithDerivative ##
+                                                                                                                   ## !
+                                                                                                                   ## Create
+                                                                                                                   ## the
+                                                                                                                   ## function.
 
 
-proc constructHLRBRepTheQuadCurvFuncOfTheQuadCurvExactInterCSurf*(
-    q: IntSurfQuadric; c: GpLin): HLRBRepTheQuadCurvFuncOfTheQuadCurvExactInterCSurf {.
+proc constructHLRBRep_TheQuadCurvFuncOfTheQuadCurvExactInterCSurf*(
+    Q: IntSurf_Quadric; C: gp_Lin): HLRBRep_TheQuadCurvFuncOfTheQuadCurvExactInterCSurf {.
     constructor,
     importcpp: "HLRBRep_TheQuadCurvFuncOfTheQuadCurvExactInterCSurf(@)",
     header: "HLRBRep_TheQuadCurvFuncOfTheQuadCurvExactInterCSurf.hxx".}
-proc value*(this: var HLRBRepTheQuadCurvFuncOfTheQuadCurvExactInterCSurf;
-           param: StandardReal; f: var StandardReal): StandardBoolean {.
+proc Value*(this: var HLRBRep_TheQuadCurvFuncOfTheQuadCurvExactInterCSurf;
+           Param: Standard_Real; F: var Standard_Real): Standard_Boolean {.
     importcpp: "Value",
     header: "HLRBRep_TheQuadCurvFuncOfTheQuadCurvExactInterCSurf.hxx".}
-proc derivative*(this: var HLRBRepTheQuadCurvFuncOfTheQuadCurvExactInterCSurf;
-                param: StandardReal; d: var StandardReal): StandardBoolean {.
+proc Derivative*(this: var HLRBRep_TheQuadCurvFuncOfTheQuadCurvExactInterCSurf;
+                Param: Standard_Real; D: var Standard_Real): Standard_Boolean {.
     importcpp: "Derivative",
     header: "HLRBRep_TheQuadCurvFuncOfTheQuadCurvExactInterCSurf.hxx".}
-proc values*(this: var HLRBRepTheQuadCurvFuncOfTheQuadCurvExactInterCSurf;
-            param: StandardReal; f: var StandardReal; d: var StandardReal): StandardBoolean {.
+proc Values*(this: var HLRBRep_TheQuadCurvFuncOfTheQuadCurvExactInterCSurf;
+            Param: Standard_Real; F: var Standard_Real; D: var Standard_Real): Standard_Boolean {.
     importcpp: "Values",
     header: "HLRBRep_TheQuadCurvFuncOfTheQuadCurvExactInterCSurf.hxx".}
-

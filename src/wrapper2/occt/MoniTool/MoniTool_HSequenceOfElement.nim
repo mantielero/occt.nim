@@ -14,7 +14,5 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # MoniTool_HSequenceOfElement_HeaderFile [NewLine] # MoniTool_HSequenceOfElement_HeaderFile [NewLine] # < MoniTool_Element . hxx > [NewLine] # < MoniTool_SequenceOfElement . hxx > [NewLine] # < NCollection_DefineHSequence . hxx > [NewLine] DEFINE_HSEQUENCE ( MoniTool_HSequenceOfElement , MoniTool_SequenceOfElement ) # [NewLine]
+## !!!Ignored construct:  # MoniTool_HSequenceOfElement_HeaderFile [NewLine] # MoniTool_HSequenceOfElement_HeaderFile [NewLine] # MoniTool_Element.hxx [NewLine] # MoniTool_SequenceOfElement.hxx [NewLine] # ../NCollection/NCollection_DefineHSequence.hxx [NewLine] DEFINE_HSEQUENCE ( MoniTool_HSequenceOfElement , MoniTool_SequenceOfElement ) # [NewLine]
 ## Error: expected ';'!!!
-
-

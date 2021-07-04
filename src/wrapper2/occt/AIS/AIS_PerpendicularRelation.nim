@@ -11,7 +11,5 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _AIS_PerpendicularRelation_HeaderFile [NewLine] # _AIS_PerpendicularRelation_HeaderFile [NewLine] # < PrsDim_PerpendicularRelation . hxx > [NewLine] Standard_DEPRECATED ( Deprecated alias to moved class ) typedef PrsDim_PerpendicularRelation AIS_PerpendicularRelation ;
+## !!!Ignored construct:  # _AIS_PerpendicularRelation_HeaderFile [NewLine] # _AIS_PerpendicularRelation_HeaderFile [NewLine] # ../PrsDim/PrsDim_PerpendicularRelation.hxx [NewLine] Standard_DEPRECATED ( Deprecated alias to moved class ) typedef PrsDim_PerpendicularRelation AIS_PerpendicularRelation ;
 ## Error: expected ';'!!!
-
-

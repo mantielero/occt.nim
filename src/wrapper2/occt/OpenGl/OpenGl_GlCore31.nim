@@ -13,36 +13,39 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  OpenGl_GlCore30
+
 ## ! OpenGL 3.1 definition.
 
 type
-  OpenGlTmplCore31*[TheBaseClassT] {.importcpp: "OpenGl_TmplCore31<\'0>",
-                                    header: "OpenGl_GlCore31.hxx", bycopy.} = object of TheBaseClassT ##
-                                                                                               ## !
-                                                                                               ## @name
-                                                                                               ## GL_ARB_uniform_buffer_object
-                                                                                               ## (added
-                                                                                               ## to
-                                                                                               ## OpenGL
-                                                                                               ## 3.1
-                                                                                               ## core)
-                                                                                               ##
-                                                                                               ## !
-                                                                                               ## @name
-                                                                                               ## GL_ARB_copy_buffer
-                                                                                               ## (added
-                                                                                               ## to
-                                                                                               ## OpenGL
-                                                                                               ## 3.1
-                                                                                               ## core)
-                                                                                               ##
-                                                                                               ## !
-                                                                                               ## @name
-                                                                                               ## OpenGL
-                                                                                               ## 3.1
-                                                                                               ## additives
-                                                                                               ## to
-                                                                                               ## 3.0
+  OpenGl_TmplCore31*[theBaseClass_t] {.importcpp: "OpenGl_TmplCore31<\'0>",
+                                      header: "OpenGl_GlCore31.hxx", bycopy.} = object of theBaseClass_t ##
+                                                                                                  ## !
+                                                                                                  ## @name
+                                                                                                  ## GL_ARB_uniform_buffer_object
+                                                                                                  ## (added
+                                                                                                  ## to
+                                                                                                  ## OpenGL
+                                                                                                  ## 3.1
+                                                                                                  ## core)
+                                                                                                  ##
+                                                                                                  ## !
+                                                                                                  ## @name
+                                                                                                  ## GL_ARB_copy_buffer
+                                                                                                  ## (added
+                                                                                                  ## to
+                                                                                                  ## OpenGL
+                                                                                                  ## 3.1
+                                                                                                  ## core)
+                                                                                                  ##
+                                                                                                  ## !
+                                                                                                  ## @name
+                                                                                                  ## OpenGL
+                                                                                                  ## 3.1
+                                                                                                  ## additives
+                                                                                                  ## to
+                                                                                                  ## 3.0
 
 
 ## using statement
@@ -74,12 +77,10 @@ type
 ## ! OpenGL 3.1 compatibility profile.
 
 type
-  OpenGlGlCore31Back* = OpenGlTmplCore31[OpenGlGlCore30]
+  OpenGl_GlCore31Back* = OpenGl_TmplCore31[OpenGl_GlCore30]
 
 ## ! OpenGL 3.1 core profile (without removed entry points marked as deprecated in 3.0).
 ## ! Notice that GLSL versions 1.10 and 1.20 also removed in 3.1!
 
 type
-  OpenGlGlCore31* = OpenGlTmplCore31[OpenGlGlCore30Fwd]
-
-
+  OpenGl_GlCore31* = OpenGl_TmplCore31[OpenGl_GlCore30Fwd]

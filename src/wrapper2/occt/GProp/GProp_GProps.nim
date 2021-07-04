@@ -14,55 +14,59 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../gp/gp_Pnt, ../Standard/Standard_Real,
+  ../gp/gp_Mat
+
 discard "forward decl of Standard_DomainError"
 discard "forward decl of gp_Pnt"
 discard "forward decl of gp_Mat"
 discard "forward decl of gp_Ax1"
 discard "forward decl of GProp_PrincipalProps"
 type
-  GPropGProps* {.importcpp: "GProp_GProps", header: "GProp_GProps.hxx", bycopy.} = object ##
-                                                                                  ## !
-                                                                                  ## The
-                                                                                  ## origin
-                                                                                  ## (0,
-                                                                                  ## 0,
-                                                                                  ## 0)
-                                                                                  ## of
-                                                                                  ## the
-                                                                                  ## absolute
-                                                                                  ## cartesian
-                                                                                  ## coordinate
-                                                                                  ## system
-                                                                                  ##
-                                                                                  ## !
-                                                                                  ## is
-                                                                                  ## used
-                                                                                  ## to
-                                                                                  ## compute
-                                                                                  ## the
-                                                                                  ## global
-                                                                                  ## properties.
+  GProp_GProps* {.importcpp: "GProp_GProps", header: "GProp_GProps.hxx", bycopy.} = object ##
+                                                                                   ## !
+                                                                                   ## The
+                                                                                   ## origin
+                                                                                   ## (0,
+                                                                                   ## 0,
+                                                                                   ## 0)
+                                                                                   ## of
+                                                                                   ## the
+                                                                                   ## absolute
+                                                                                   ## cartesian
+                                                                                   ## coordinate
+                                                                                   ## system
+                                                                                   ##
+                                                                                   ## !
+                                                                                   ## is
+                                                                                   ## used
+                                                                                   ## to
+                                                                                   ## compute
+                                                                                   ## the
+                                                                                   ## global
+                                                                                   ## properties.
 
 
-proc constructGPropGProps*(): GPropGProps {.constructor,
+proc constructGProp_GProps*(): GProp_GProps {.constructor,
     importcpp: "GProp_GProps(@)", header: "GProp_GProps.hxx".}
-proc constructGPropGProps*(systemLocation: GpPnt): GPropGProps {.constructor,
+proc constructGProp_GProps*(SystemLocation: gp_Pnt): GProp_GProps {.constructor,
     importcpp: "GProp_GProps(@)", header: "GProp_GProps.hxx".}
-proc add*(this: var GPropGProps; item: GPropGProps; density: StandardReal = 1.0) {.
+proc Add*(this: var GProp_GProps; Item: GProp_GProps; Density: Standard_Real = 1.0) {.
     importcpp: "Add", header: "GProp_GProps.hxx".}
-proc mass*(this: GPropGProps): StandardReal {.noSideEffect, importcpp: "Mass",
+proc Mass*(this: GProp_GProps): Standard_Real {.noSideEffect, importcpp: "Mass",
     header: "GProp_GProps.hxx".}
-proc centreOfMass*(this: GPropGProps): GpPnt {.noSideEffect,
+proc CentreOfMass*(this: GProp_GProps): gp_Pnt {.noSideEffect,
     importcpp: "CentreOfMass", header: "GProp_GProps.hxx".}
-proc matrixOfInertia*(this: GPropGProps): GpMat {.noSideEffect,
+proc MatrixOfInertia*(this: GProp_GProps): gp_Mat {.noSideEffect,
     importcpp: "MatrixOfInertia", header: "GProp_GProps.hxx".}
-proc staticMoments*(this: GPropGProps; ix: var StandardReal; iy: var StandardReal;
-                   iz: var StandardReal) {.noSideEffect, importcpp: "StaticMoments",
-                                        header: "GProp_GProps.hxx".}
-proc momentOfInertia*(this: GPropGProps; a: GpAx1): StandardReal {.noSideEffect,
+proc StaticMoments*(this: GProp_GProps; Ix: var Standard_Real; Iy: var Standard_Real;
+                   Iz: var Standard_Real) {.noSideEffect,
+    importcpp: "StaticMoments", header: "GProp_GProps.hxx".}
+proc MomentOfInertia*(this: GProp_GProps; A: gp_Ax1): Standard_Real {.noSideEffect,
     importcpp: "MomentOfInertia", header: "GProp_GProps.hxx".}
-proc principalProperties*(this: GPropGProps): GPropPrincipalProps {.noSideEffect,
+proc PrincipalProperties*(this: GProp_GProps): GProp_PrincipalProps {.noSideEffect,
     importcpp: "PrincipalProperties", header: "GProp_GProps.hxx".}
-proc radiusOfGyration*(this: GPropGProps; a: GpAx1): StandardReal {.noSideEffect,
+proc RadiusOfGyration*(this: GProp_GProps; A: gp_Ax1): Standard_Real {.noSideEffect,
     importcpp: "RadiusOfGyration", header: "GProp_GProps.hxx".}
-

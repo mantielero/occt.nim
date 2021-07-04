@@ -14,6 +14,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, Expr_PolyExpression,
+  Expr_SequenceOfGeneralExpression, ../Standard/Standard_Boolean,
+  ../Standard/Standard_Integer, ../Standard/Standard_Real,
+  Expr_Array1OfNamedUnknown, ../TColStd/TColStd_Array1OfReal
+
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of Standard_NumericError"
 discard "forward decl of Expr_NotEvaluable"
@@ -23,52 +29,51 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of Expr_Sum"
 discard "forward decl of Expr_Sum"
 type
-  HandleExprSum* = Handle[ExprSum]
-  ExprSum* {.importcpp: "Expr_Sum", header: "Expr_Sum.hxx", bycopy.} = object of ExprPolyExpression ##
-                                                                                          ## !
-                                                                                          ## Creates
-                                                                                          ## the
-                                                                                          ## sum
-                                                                                          ## of
-                                                                                          ## all
-                                                                                          ## the
-                                                                                          ## members
-                                                                                          ## of
-                                                                                          ## sequence
-                                                                                          ## <exps>.
+  Handle_Expr_Sum* = handle[Expr_Sum]
+  Expr_Sum* {.importcpp: "Expr_Sum", header: "Expr_Sum.hxx", bycopy.} = object of Expr_PolyExpression ##
+                                                                                            ## !
+                                                                                            ## Creates
+                                                                                            ## the
+                                                                                            ## sum
+                                                                                            ## of
+                                                                                            ## all
+                                                                                            ## the
+                                                                                            ## members
+                                                                                            ## of
+                                                                                            ## sequence
+                                                                                            ## <exps>.
 
 
-proc constructExprSum*(exps: ExprSequenceOfGeneralExpression): ExprSum {.
+proc constructExpr_Sum*(exps: Expr_SequenceOfGeneralExpression): Expr_Sum {.
     constructor, importcpp: "Expr_Sum(@)", header: "Expr_Sum.hxx".}
-proc constructExprSum*(exp1: Handle[ExprGeneralExpression];
-                      exp2: Handle[ExprGeneralExpression]): ExprSum {.constructor,
-    importcpp: "Expr_Sum(@)", header: "Expr_Sum.hxx".}
-proc shallowSimplified*(this: ExprSum): Handle[ExprGeneralExpression] {.
+proc constructExpr_Sum*(exp1: handle[Expr_GeneralExpression];
+                       exp2: handle[Expr_GeneralExpression]): Expr_Sum {.
+    constructor, importcpp: "Expr_Sum(@)", header: "Expr_Sum.hxx".}
+proc ShallowSimplified*(this: Expr_Sum): handle[Expr_GeneralExpression] {.
     noSideEffect, importcpp: "ShallowSimplified", header: "Expr_Sum.hxx".}
-proc copy*(this: ExprSum): Handle[ExprGeneralExpression] {.noSideEffect,
+proc Copy*(this: Expr_Sum): handle[Expr_GeneralExpression] {.noSideEffect,
     importcpp: "Copy", header: "Expr_Sum.hxx".}
-proc isIdentical*(this: ExprSum; other: Handle[ExprGeneralExpression]): StandardBoolean {.
+proc IsIdentical*(this: Expr_Sum; Other: handle[Expr_GeneralExpression]): Standard_Boolean {.
     noSideEffect, importcpp: "IsIdentical", header: "Expr_Sum.hxx".}
-proc isLinear*(this: ExprSum): StandardBoolean {.noSideEffect, importcpp: "IsLinear",
-    header: "Expr_Sum.hxx".}
-proc derivative*(this: ExprSum; x: Handle[ExprNamedUnknown]): Handle[
-    ExprGeneralExpression] {.noSideEffect, importcpp: "Derivative",
-                            header: "Expr_Sum.hxx".}
-proc nDerivative*(this: ExprSum; x: Handle[ExprNamedUnknown]; n: StandardInteger): Handle[
-    ExprGeneralExpression] {.noSideEffect, importcpp: "NDerivative",
-                            header: "Expr_Sum.hxx".}
-proc evaluate*(this: ExprSum; vars: ExprArray1OfNamedUnknown;
-              vals: TColStdArray1OfReal): StandardReal {.noSideEffect,
+proc IsLinear*(this: Expr_Sum): Standard_Boolean {.noSideEffect,
+    importcpp: "IsLinear", header: "Expr_Sum.hxx".}
+proc Derivative*(this: Expr_Sum; X: handle[Expr_NamedUnknown]): handle[
+    Expr_GeneralExpression] {.noSideEffect, importcpp: "Derivative",
+                             header: "Expr_Sum.hxx".}
+proc NDerivative*(this: Expr_Sum; X: handle[Expr_NamedUnknown]; N: Standard_Integer): handle[
+    Expr_GeneralExpression] {.noSideEffect, importcpp: "NDerivative",
+                             header: "Expr_Sum.hxx".}
+proc Evaluate*(this: Expr_Sum; vars: Expr_Array1OfNamedUnknown;
+              vals: TColStd_Array1OfReal): Standard_Real {.noSideEffect,
     importcpp: "Evaluate", header: "Expr_Sum.hxx".}
-proc string*(this: ExprSum): TCollectionAsciiString {.noSideEffect,
+proc String*(this: Expr_Sum): TCollection_AsciiString {.noSideEffect,
     importcpp: "String", header: "Expr_Sum.hxx".}
 type
-  ExprSumbaseType* = ExprPolyExpression
+  Expr_Sumbase_type* = Expr_PolyExpression
 
-proc getTypeName*(): cstring {.importcpp: "Expr_Sum::get_type_name(@)",
-                            header: "Expr_Sum.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "Expr_Sum::get_type_name(@)",
+                              header: "Expr_Sum.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "Expr_Sum::get_type_descriptor(@)", header: "Expr_Sum.hxx".}
-proc dynamicType*(this: ExprSum): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: Expr_Sum): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "Expr_Sum.hxx".}
-

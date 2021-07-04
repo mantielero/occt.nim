@@ -13,34 +13,38 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Real, Extrema_ElementType,
+  ../Standard/Standard_Integer, Extrema_POnSurf
+
 discard "forward decl of gp_Pnt"
 type
-  ExtremaPOnSurfParams* {.importcpp: "Extrema_POnSurfParams",
-                         header: "Extrema_POnSurfParams.hxx", bycopy.} = object of ExtremaPOnSurf ##
-                                                                                           ## !
-                                                                                           ## empty
-                                                                                           ## constructor
+  Extrema_POnSurfParams* {.importcpp: "Extrema_POnSurfParams",
+                          header: "Extrema_POnSurfParams.hxx", bycopy.} = object of Extrema_POnSurf ##
+                                                                                             ## !
+                                                                                             ## empty
+                                                                                             ## constructor
 
 
-proc constructExtremaPOnSurfParams*(): ExtremaPOnSurfParams {.constructor,
+proc constructExtrema_POnSurfParams*(): Extrema_POnSurfParams {.constructor,
     importcpp: "Extrema_POnSurfParams(@)", header: "Extrema_POnSurfParams.hxx".}
-proc constructExtremaPOnSurfParams*(theU: StandardReal; theV: StandardReal;
-                                   thePnt: GpPnt): ExtremaPOnSurfParams {.
+proc constructExtrema_POnSurfParams*(theU: Standard_Real; theV: Standard_Real;
+                                    thePnt: gp_Pnt): Extrema_POnSurfParams {.
     constructor, importcpp: "Extrema_POnSurfParams(@)",
     header: "Extrema_POnSurfParams.hxx".}
-proc setSqrDistance*(this: var ExtremaPOnSurfParams; theSqrDistance: StandardReal) {.
+proc SetSqrDistance*(this: var Extrema_POnSurfParams; theSqrDistance: Standard_Real) {.
     importcpp: "SetSqrDistance", header: "Extrema_POnSurfParams.hxx".}
-proc getSqrDistance*(this: ExtremaPOnSurfParams): StandardReal {.noSideEffect,
+proc GetSqrDistance*(this: Extrema_POnSurfParams): Standard_Real {.noSideEffect,
     importcpp: "GetSqrDistance", header: "Extrema_POnSurfParams.hxx".}
-proc setElementType*(this: var ExtremaPOnSurfParams;
-                    theElementType: ExtremaElementType) {.
+proc SetElementType*(this: var Extrema_POnSurfParams;
+                    theElementType: Extrema_ElementType) {.
     importcpp: "SetElementType", header: "Extrema_POnSurfParams.hxx".}
-proc getElementType*(this: ExtremaPOnSurfParams): ExtremaElementType {.noSideEffect,
-    importcpp: "GetElementType", header: "Extrema_POnSurfParams.hxx".}
-proc setIndices*(this: var ExtremaPOnSurfParams; theIndexU: StandardInteger;
-                theIndexV: StandardInteger) {.importcpp: "SetIndices",
+proc GetElementType*(this: Extrema_POnSurfParams): Extrema_ElementType {.
+    noSideEffect, importcpp: "GetElementType", header: "Extrema_POnSurfParams.hxx".}
+proc SetIndices*(this: var Extrema_POnSurfParams; theIndexU: Standard_Integer;
+                theIndexV: Standard_Integer) {.importcpp: "SetIndices",
     header: "Extrema_POnSurfParams.hxx".}
-proc getIndices*(this: ExtremaPOnSurfParams; theIndexU: var StandardInteger;
-                theIndexV: var StandardInteger) {.noSideEffect,
+proc GetIndices*(this: Extrema_POnSurfParams; theIndexU: var Standard_Integer;
+                theIndexV: var Standard_Integer) {.noSideEffect,
     importcpp: "GetIndices", header: "Extrema_POnSurfParams.hxx".}
-

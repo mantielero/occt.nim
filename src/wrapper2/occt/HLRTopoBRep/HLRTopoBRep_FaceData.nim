@@ -14,26 +14,29 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../TopTools/TopTools_ListOfShape
+
 ## ! Contains the  3 ListOfShape of  a Face  ( Internal
 ## ! OutLines, OutLines on restriction and IsoLines ).
 
 type
-  HLRTopoBRepFaceData* {.importcpp: "HLRTopoBRep_FaceData",
-                        header: "HLRTopoBRep_FaceData.hxx", bycopy.} = object
+  HLRTopoBRep_FaceData* {.importcpp: "HLRTopoBRep_FaceData",
+                         header: "HLRTopoBRep_FaceData.hxx", bycopy.} = object
 
 
-proc constructHLRTopoBRepFaceData*(): HLRTopoBRepFaceData {.constructor,
+proc constructHLRTopoBRep_FaceData*(): HLRTopoBRep_FaceData {.constructor,
     importcpp: "HLRTopoBRep_FaceData(@)", header: "HLRTopoBRep_FaceData.hxx".}
-proc faceIntL*(this: HLRTopoBRepFaceData): TopToolsListOfShape {.noSideEffect,
+proc FaceIntL*(this: HLRTopoBRep_FaceData): TopTools_ListOfShape {.noSideEffect,
     importcpp: "FaceIntL", header: "HLRTopoBRep_FaceData.hxx".}
-proc faceOutL*(this: HLRTopoBRepFaceData): TopToolsListOfShape {.noSideEffect,
+proc FaceOutL*(this: HLRTopoBRep_FaceData): TopTools_ListOfShape {.noSideEffect,
     importcpp: "FaceOutL", header: "HLRTopoBRep_FaceData.hxx".}
-proc faceIsoL*(this: HLRTopoBRepFaceData): TopToolsListOfShape {.noSideEffect,
+proc FaceIsoL*(this: HLRTopoBRep_FaceData): TopTools_ListOfShape {.noSideEffect,
     importcpp: "FaceIsoL", header: "HLRTopoBRep_FaceData.hxx".}
-proc addIntL*(this: var HLRTopoBRepFaceData): var TopToolsListOfShape {.
+proc AddIntL*(this: var HLRTopoBRep_FaceData): var TopTools_ListOfShape {.
     importcpp: "AddIntL", header: "HLRTopoBRep_FaceData.hxx".}
-proc addOutL*(this: var HLRTopoBRepFaceData): var TopToolsListOfShape {.
+proc AddOutL*(this: var HLRTopoBRep_FaceData): var TopTools_ListOfShape {.
     importcpp: "AddOutL", header: "HLRTopoBRep_FaceData.hxx".}
-proc addIsoL*(this: var HLRTopoBRepFaceData): var TopToolsListOfShape {.
+proc AddIsoL*(this: var HLRTopoBRep_FaceData): var TopTools_ListOfShape {.
     importcpp: "AddIsoL", header: "HLRTopoBRep_FaceData.hxx".}
-

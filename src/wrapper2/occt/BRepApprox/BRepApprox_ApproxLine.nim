@@ -14,6 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Transient,
+  ../Standard/Standard_Boolean, ../Standard/Standard_Integer
+
 discard "forward decl of Geom_BSplineCurve"
 discard "forward decl of Geom2d_BSplineCurve"
 discard "forward decl of IntSurf_LineOn2S"
@@ -21,32 +25,31 @@ discard "forward decl of IntSurf_PntOn2S"
 discard "forward decl of BRepApprox_ApproxLine"
 discard "forward decl of BRepApprox_ApproxLine"
 type
-  HandleBRepApproxApproxLine* = Handle[BRepApproxApproxLine]
-  BRepApproxApproxLine* {.importcpp: "BRepApprox_ApproxLine",
-                         header: "BRepApprox_ApproxLine.hxx", bycopy.} = object of StandardTransient
+  Handle_BRepApprox_ApproxLine* = handle[BRepApprox_ApproxLine]
+  BRepApprox_ApproxLine* {.importcpp: "BRepApprox_ApproxLine",
+                          header: "BRepApprox_ApproxLine.hxx", bycopy.} = object of Standard_Transient
 
 
-proc constructBRepApproxApproxLine*(curveXYZ: Handle[GeomBSplineCurve];
-                                   curveUV1: Handle[Geom2dBSplineCurve];
-                                   curveUV2: Handle[Geom2dBSplineCurve]): BRepApproxApproxLine {.
+proc constructBRepApprox_ApproxLine*(CurveXYZ: handle[Geom_BSplineCurve];
+                                    CurveUV1: handle[Geom2d_BSplineCurve];
+                                    CurveUV2: handle[Geom2d_BSplineCurve]): BRepApprox_ApproxLine {.
     constructor, importcpp: "BRepApprox_ApproxLine(@)",
     header: "BRepApprox_ApproxLine.hxx".}
-proc constructBRepApproxApproxLine*(lin: Handle[IntSurfLineOn2S];
-                                   theTang: StandardBoolean = standardFalse): BRepApproxApproxLine {.
+proc constructBRepApprox_ApproxLine*(lin: handle[IntSurf_LineOn2S];
+                                    theTang: Standard_Boolean = Standard_False): BRepApprox_ApproxLine {.
     constructor, importcpp: "BRepApprox_ApproxLine(@)",
     header: "BRepApprox_ApproxLine.hxx".}
-proc nbPnts*(this: BRepApproxApproxLine): StandardInteger {.noSideEffect,
+proc NbPnts*(this: BRepApprox_ApproxLine): Standard_Integer {.noSideEffect,
     importcpp: "NbPnts", header: "BRepApprox_ApproxLine.hxx".}
-proc point*(this: var BRepApproxApproxLine; index: StandardInteger): IntSurfPntOn2S {.
+proc Point*(this: var BRepApprox_ApproxLine; Index: Standard_Integer): IntSurf_PntOn2S {.
     importcpp: "Point", header: "BRepApprox_ApproxLine.hxx".}
 type
-  BRepApproxApproxLinebaseType* = StandardTransient
+  BRepApprox_ApproxLinebase_type* = Standard_Transient
 
-proc getTypeName*(): cstring {.importcpp: "BRepApprox_ApproxLine::get_type_name(@)",
-                            header: "BRepApprox_ApproxLine.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "BRepApprox_ApproxLine::get_type_name(@)",
+                              header: "BRepApprox_ApproxLine.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "BRepApprox_ApproxLine::get_type_descriptor(@)",
     header: "BRepApprox_ApproxLine.hxx".}
-proc dynamicType*(this: BRepApproxApproxLine): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "BRepApprox_ApproxLine.hxx".}
-
+proc DynamicType*(this: BRepApprox_ApproxLine): handle[Standard_Type] {.
+    noSideEffect, importcpp: "DynamicType", header: "BRepApprox_ApproxLine.hxx".}

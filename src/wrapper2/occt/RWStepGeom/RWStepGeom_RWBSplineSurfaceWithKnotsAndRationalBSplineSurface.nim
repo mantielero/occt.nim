@@ -14,6 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepGeom_BSplineSurfaceWithKnotsAndRationalBSplineSurface"
@@ -21,31 +25,30 @@ discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 discard "forward decl of Interface_ShareTool"
 type
-  RWStepGeomRWBSplineSurfaceWithKnotsAndRationalBSplineSurface* {.importcpp: "RWStepGeom_RWBSplineSurfaceWithKnotsAndRationalBSplineSurface", header: "RWStepGeom_RWBSplineSurfaceWithKnotsAndRationalBSplineSurface.hxx",
+  RWStepGeom_RWBSplineSurfaceWithKnotsAndRationalBSplineSurface* {.importcpp: "RWStepGeom_RWBSplineSurfaceWithKnotsAndRationalBSplineSurface", header: "RWStepGeom_RWBSplineSurfaceWithKnotsAndRationalBSplineSurface.hxx",
       bycopy.} = object
 
 
-proc constructRWStepGeomRWBSplineSurfaceWithKnotsAndRationalBSplineSurface*(): RWStepGeomRWBSplineSurfaceWithKnotsAndRationalBSplineSurface {.
+proc constructRWStepGeom_RWBSplineSurfaceWithKnotsAndRationalBSplineSurface*(): RWStepGeom_RWBSplineSurfaceWithKnotsAndRationalBSplineSurface {.
     constructor, importcpp: "RWStepGeom_RWBSplineSurfaceWithKnotsAndRationalBSplineSurface(@)",
     header: "RWStepGeom_RWBSplineSurfaceWithKnotsAndRationalBSplineSurface.hxx".}
-proc readStep*(this: RWStepGeomRWBSplineSurfaceWithKnotsAndRationalBSplineSurface;
-              data: Handle[StepDataStepReaderData]; num: StandardInteger;
-              ach: var Handle[InterfaceCheck]; ent: Handle[
-    StepGeomBSplineSurfaceWithKnotsAndRationalBSplineSurface]) {.noSideEffect,
+proc ReadStep*(this: RWStepGeom_RWBSplineSurfaceWithKnotsAndRationalBSplineSurface;
+              data: handle[StepData_StepReaderData]; num: Standard_Integer;
+              ach: var handle[Interface_Check]; ent: handle[
+    StepGeom_BSplineSurfaceWithKnotsAndRationalBSplineSurface]) {.noSideEffect,
     importcpp: "ReadStep",
     header: "RWStepGeom_RWBSplineSurfaceWithKnotsAndRationalBSplineSurface.hxx".}
-proc writeStep*(this: RWStepGeomRWBSplineSurfaceWithKnotsAndRationalBSplineSurface;
-               sw: var StepDataStepWriter; ent: Handle[
-    StepGeomBSplineSurfaceWithKnotsAndRationalBSplineSurface]) {.noSideEffect,
+proc WriteStep*(this: RWStepGeom_RWBSplineSurfaceWithKnotsAndRationalBSplineSurface;
+               SW: var StepData_StepWriter; ent: handle[
+    StepGeom_BSplineSurfaceWithKnotsAndRationalBSplineSurface]) {.noSideEffect,
     importcpp: "WriteStep",
     header: "RWStepGeom_RWBSplineSurfaceWithKnotsAndRationalBSplineSurface.hxx".}
-proc share*(this: RWStepGeomRWBSplineSurfaceWithKnotsAndRationalBSplineSurface; ent: Handle[
-    StepGeomBSplineSurfaceWithKnotsAndRationalBSplineSurface];
-           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
+proc Share*(this: RWStepGeom_RWBSplineSurfaceWithKnotsAndRationalBSplineSurface;
+    ent: handle[StepGeom_BSplineSurfaceWithKnotsAndRationalBSplineSurface];
+           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepGeom_RWBSplineSurfaceWithKnotsAndRationalBSplineSurface.hxx".}
-proc check*(this: RWStepGeomRWBSplineSurfaceWithKnotsAndRationalBSplineSurface; ent: Handle[
-    StepGeomBSplineSurfaceWithKnotsAndRationalBSplineSurface];
-           shares: InterfaceShareTool; ach: var Handle[InterfaceCheck]) {.
+proc Check*(this: RWStepGeom_RWBSplineSurfaceWithKnotsAndRationalBSplineSurface;
+    ent: handle[StepGeom_BSplineSurfaceWithKnotsAndRationalBSplineSurface];
+           shares: Interface_ShareTool; ach: var handle[Interface_Check]) {.
     noSideEffect, importcpp: "Check",
     header: "RWStepGeom_RWBSplineSurfaceWithKnotsAndRationalBSplineSurface.hxx".}
-

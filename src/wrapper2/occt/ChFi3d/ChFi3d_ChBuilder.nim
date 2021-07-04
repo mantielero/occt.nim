@@ -14,6 +14,15 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ChFi3d_Builder, ../Standard/Standard_Real,
+  ../Standard/Standard_Integer, ../Standard/Standard_Boolean,
+  ../ChFiDS/ChFiDS_ChamfMethod, ../ChFiDS/ChFiDS_ChamfMode,
+  ../ChFiDS/ChFiDS_SecHArray1, ../math/math_Vector, ../TopAbs/TopAbs_Orientation,
+  ../TopAbs/TopAbs_State, ../ChFiDS/ChFiDS_SequenceOfSurfData,
+  ../ChFiDS/ChFiDS_ListOfStripe
+
 discard "forward decl of Standard_ConstructionError"
 discard "forward decl of Standard_DomainError"
 discard "forward decl of TopoDS_Shape"
@@ -28,158 +37,181 @@ discard "forward decl of BRepAdaptor_HCurve2d"
 discard "forward decl of TopoDS_Vertex"
 discard "forward decl of ChFiDS_Stripe"
 type
-  ChFi3dChBuilder* {.importcpp: "ChFi3d_ChBuilder", header: "ChFi3d_ChBuilder.hxx",
-                    bycopy.} = object of ChFi3dBuilder ## ! initializes the Builder with the Shape <S> for the
-                                                  ## ! computation of chamfers
+  ChFi3d_ChBuilder* {.importcpp: "ChFi3d_ChBuilder",
+                     header: "ChFi3d_ChBuilder.hxx", bycopy.} = object of ChFi3d_Builder ##
+                                                                                  ## !
+                                                                                  ## initializes
+                                                                                  ## the
+                                                                                  ## Builder
+                                                                                  ## with
+                                                                                  ## the
+                                                                                  ## Shape
+                                                                                  ## <S>
+                                                                                  ## for
+                                                                                  ## the
+                                                                                  ##
+                                                                                  ## !
+                                                                                  ## computation
+                                                                                  ## of
+                                                                                  ## chamfers
 
 
-proc constructChFi3dChBuilder*(s: TopoDS_Shape; ta: StandardReal = 1.0e-2): ChFi3dChBuilder {.
+proc constructChFi3d_ChBuilder*(S: TopoDS_Shape; Ta: Standard_Real = 1.0e-2): ChFi3d_ChBuilder {.
     constructor, importcpp: "ChFi3d_ChBuilder(@)", header: "ChFi3d_ChBuilder.hxx".}
-proc add*(this: var ChFi3dChBuilder; e: TopoDS_Edge) {.importcpp: "Add",
+proc Add*(this: var ChFi3d_ChBuilder; E: TopoDS_Edge) {.importcpp: "Add",
     header: "ChFi3d_ChBuilder.hxx".}
-proc add*(this: var ChFi3dChBuilder; dis: StandardReal; e: TopoDS_Edge) {.
+proc Add*(this: var ChFi3d_ChBuilder; Dis: Standard_Real; E: TopoDS_Edge) {.
     importcpp: "Add", header: "ChFi3d_ChBuilder.hxx".}
-proc setDist*(this: var ChFi3dChBuilder; dis: StandardReal; ic: StandardInteger;
-             f: TopoDS_Face) {.importcpp: "SetDist", header: "ChFi3d_ChBuilder.hxx".}
-proc getDist*(this: ChFi3dChBuilder; ic: StandardInteger; dis: var StandardReal) {.
+proc SetDist*(this: var ChFi3d_ChBuilder; Dis: Standard_Real; IC: Standard_Integer;
+             F: TopoDS_Face) {.importcpp: "SetDist", header: "ChFi3d_ChBuilder.hxx".}
+proc GetDist*(this: ChFi3d_ChBuilder; IC: Standard_Integer; Dis: var Standard_Real) {.
     noSideEffect, importcpp: "GetDist", header: "ChFi3d_ChBuilder.hxx".}
-proc add*(this: var ChFi3dChBuilder; dis1: StandardReal; dis2: StandardReal;
-         e: TopoDS_Edge; f: TopoDS_Face) {.importcpp: "Add",
+proc Add*(this: var ChFi3d_ChBuilder; Dis1: Standard_Real; Dis2: Standard_Real;
+         E: TopoDS_Edge; F: TopoDS_Face) {.importcpp: "Add",
                                        header: "ChFi3d_ChBuilder.hxx".}
-proc setDists*(this: var ChFi3dChBuilder; dis1: StandardReal; dis2: StandardReal;
-              ic: StandardInteger; f: TopoDS_Face) {.importcpp: "SetDists",
+proc SetDists*(this: var ChFi3d_ChBuilder; Dis1: Standard_Real; Dis2: Standard_Real;
+              IC: Standard_Integer; F: TopoDS_Face) {.importcpp: "SetDists",
     header: "ChFi3d_ChBuilder.hxx".}
-proc dists*(this: ChFi3dChBuilder; ic: StandardInteger; dis1: var StandardReal;
-           dis2: var StandardReal) {.noSideEffect, importcpp: "Dists",
-                                  header: "ChFi3d_ChBuilder.hxx".}
-proc addDA*(this: var ChFi3dChBuilder; dis: StandardReal; angle: StandardReal;
-           e: TopoDS_Edge; f: TopoDS_Face) {.importcpp: "AddDA",
+proc Dists*(this: ChFi3d_ChBuilder; IC: Standard_Integer; Dis1: var Standard_Real;
+           Dis2: var Standard_Real) {.noSideEffect, importcpp: "Dists",
+                                   header: "ChFi3d_ChBuilder.hxx".}
+proc AddDA*(this: var ChFi3d_ChBuilder; Dis: Standard_Real; Angle: Standard_Real;
+           E: TopoDS_Edge; F: TopoDS_Face) {.importcpp: "AddDA",
     header: "ChFi3d_ChBuilder.hxx".}
-proc setDistAngle*(this: var ChFi3dChBuilder; dis: StandardReal; angle: StandardReal;
-                  ic: StandardInteger; f: TopoDS_Face) {.importcpp: "SetDistAngle",
-    header: "ChFi3d_ChBuilder.hxx".}
-proc getDistAngle*(this: ChFi3dChBuilder; ic: StandardInteger; dis: var StandardReal;
-                  angle: var StandardReal) {.noSideEffect,
+proc SetDistAngle*(this: var ChFi3d_ChBuilder; Dis: Standard_Real;
+                  Angle: Standard_Real; IC: Standard_Integer; F: TopoDS_Face) {.
+    importcpp: "SetDistAngle", header: "ChFi3d_ChBuilder.hxx".}
+proc GetDistAngle*(this: ChFi3d_ChBuilder; IC: Standard_Integer;
+                  Dis: var Standard_Real; Angle: var Standard_Real) {.noSideEffect,
     importcpp: "GetDistAngle", header: "ChFi3d_ChBuilder.hxx".}
-proc setMode*(this: var ChFi3dChBuilder; theMode: ChFiDS_ChamfMode) {.
+proc SetMode*(this: var ChFi3d_ChBuilder; theMode: ChFiDS_ChamfMode) {.
     importcpp: "SetMode", header: "ChFi3d_ChBuilder.hxx".}
-proc isChamfer*(this: ChFi3dChBuilder; ic: StandardInteger): ChFiDS_ChamfMethod {.
+proc IsChamfer*(this: ChFi3d_ChBuilder; IC: Standard_Integer): ChFiDS_ChamfMethod {.
     noSideEffect, importcpp: "IsChamfer", header: "ChFi3d_ChBuilder.hxx".}
-proc mode*(this: ChFi3dChBuilder): ChFiDS_ChamfMode {.noSideEffect,
+proc Mode*(this: ChFi3d_ChBuilder): ChFiDS_ChamfMode {.noSideEffect,
     importcpp: "Mode", header: "ChFi3d_ChBuilder.hxx".}
-proc resetContour*(this: var ChFi3dChBuilder; ic: StandardInteger) {.
+proc ResetContour*(this: var ChFi3d_ChBuilder; IC: Standard_Integer) {.
     importcpp: "ResetContour", header: "ChFi3d_ChBuilder.hxx".}
-proc simulate*(this: var ChFi3dChBuilder; ic: StandardInteger) {.
+proc Simulate*(this: var ChFi3d_ChBuilder; IC: Standard_Integer) {.
     importcpp: "Simulate", header: "ChFi3d_ChBuilder.hxx".}
-proc nbSurf*(this: ChFi3dChBuilder; ic: StandardInteger): StandardInteger {.
+proc NbSurf*(this: ChFi3d_ChBuilder; IC: Standard_Integer): Standard_Integer {.
     noSideEffect, importcpp: "NbSurf", header: "ChFi3d_ChBuilder.hxx".}
-proc sect*(this: ChFi3dChBuilder; ic: StandardInteger; `is`: StandardInteger): Handle[
+proc Sect*(this: ChFi3d_ChBuilder; IC: Standard_Integer; IS: Standard_Integer): handle[
     ChFiDS_SecHArray1] {.noSideEffect, importcpp: "Sect",
                         header: "ChFi3d_ChBuilder.hxx".}
-proc simulSurf*(this: var ChFi3dChBuilder; data: var Handle[ChFiDS_SurfData];
-               guide: Handle[ChFiDS_HElSpine]; spine: Handle[ChFiDS_Spine];
-               choix: StandardInteger; s1: Handle[BRepAdaptorHSurface];
-               i1: Handle[Adaptor3dTopolTool]; pc1: Handle[BRepAdaptorHCurve2d];
-               sref1: Handle[BRepAdaptorHSurface];
-               pCref1: Handle[BRepAdaptorHCurve2d]; decroch1: var StandardBoolean;
-               s2: Handle[BRepAdaptorHSurface]; i2: Handle[Adaptor3dTopolTool];
-               or2: TopAbsOrientation; fleche: StandardReal; tolGuide: StandardReal;
-               first: var StandardReal; last: var StandardReal;
-               inside: StandardBoolean; appro: StandardBoolean;
-               forward: StandardBoolean; recP: StandardBoolean;
-               recS: StandardBoolean; recRst: StandardBoolean; soldep: MathVector) {.
+proc SimulSurf*(this: var ChFi3d_ChBuilder; Data: var handle[ChFiDS_SurfData];
+               Guide: handle[ChFiDS_HElSpine]; Spine: handle[ChFiDS_Spine];
+               Choix: Standard_Integer; S1: handle[BRepAdaptor_HSurface];
+               I1: handle[Adaptor3d_TopolTool]; PC1: handle[BRepAdaptor_HCurve2d];
+               Sref1: handle[BRepAdaptor_HSurface];
+               PCref1: handle[BRepAdaptor_HCurve2d];
+               Decroch1: var Standard_Boolean; S2: handle[BRepAdaptor_HSurface];
+               I2: handle[Adaptor3d_TopolTool]; Or2: TopAbs_Orientation;
+               Fleche: Standard_Real; TolGuide: Standard_Real;
+               First: var Standard_Real; Last: var Standard_Real;
+               Inside: Standard_Boolean; Appro: Standard_Boolean;
+               Forward: Standard_Boolean; RecP: Standard_Boolean;
+               RecS: Standard_Boolean; RecRst: Standard_Boolean; Soldep: math_Vector) {.
     importcpp: "SimulSurf", header: "ChFi3d_ChBuilder.hxx".}
-proc simulSurf*(this: var ChFi3dChBuilder; data: var Handle[ChFiDS_SurfData];
-               guide: Handle[ChFiDS_HElSpine]; spine: Handle[ChFiDS_Spine];
-               choix: StandardInteger; s1: Handle[BRepAdaptorHSurface];
-               i1: Handle[Adaptor3dTopolTool]; or1: TopAbsOrientation;
-               s2: Handle[BRepAdaptorHSurface]; i2: Handle[Adaptor3dTopolTool];
-               pc2: Handle[BRepAdaptorHCurve2d];
-               sref2: Handle[BRepAdaptorHSurface];
-               pCref2: Handle[BRepAdaptorHCurve2d]; decroch2: var StandardBoolean;
-               fleche: StandardReal; tolGuide: StandardReal;
-               first: var StandardReal; last: var StandardReal;
-               inside: StandardBoolean; appro: StandardBoolean;
-               forward: StandardBoolean; recP: StandardBoolean;
-               recS: StandardBoolean; recRst: StandardBoolean; soldep: MathVector) {.
+proc SimulSurf*(this: var ChFi3d_ChBuilder; Data: var handle[ChFiDS_SurfData];
+               Guide: handle[ChFiDS_HElSpine]; Spine: handle[ChFiDS_Spine];
+               Choix: Standard_Integer; S1: handle[BRepAdaptor_HSurface];
+               I1: handle[Adaptor3d_TopolTool]; Or1: TopAbs_Orientation;
+               S2: handle[BRepAdaptor_HSurface]; I2: handle[Adaptor3d_TopolTool];
+               PC2: handle[BRepAdaptor_HCurve2d];
+               Sref2: handle[BRepAdaptor_HSurface];
+               PCref2: handle[BRepAdaptor_HCurve2d];
+               Decroch2: var Standard_Boolean; Fleche: Standard_Real;
+               TolGuide: Standard_Real; First: var Standard_Real;
+               Last: var Standard_Real; Inside: Standard_Boolean;
+               Appro: Standard_Boolean; Forward: Standard_Boolean;
+               RecP: Standard_Boolean; RecS: Standard_Boolean;
+               RecRst: Standard_Boolean; Soldep: math_Vector) {.
     importcpp: "SimulSurf", header: "ChFi3d_ChBuilder.hxx".}
-proc simulSurf*(this: var ChFi3dChBuilder; data: var Handle[ChFiDS_SurfData];
-               guide: Handle[ChFiDS_HElSpine]; spine: Handle[ChFiDS_Spine];
-               choix: StandardInteger; s1: Handle[BRepAdaptorHSurface];
-               i1: Handle[Adaptor3dTopolTool]; pc1: Handle[BRepAdaptorHCurve2d];
-               sref1: Handle[BRepAdaptorHSurface];
-               pCref1: Handle[BRepAdaptorHCurve2d]; decroch1: var StandardBoolean;
-               or1: TopAbsOrientation; s2: Handle[BRepAdaptorHSurface];
-               i2: Handle[Adaptor3dTopolTool]; pc2: Handle[BRepAdaptorHCurve2d];
-               sref2: Handle[BRepAdaptorHSurface];
-               pCref2: Handle[BRepAdaptorHCurve2d]; decroch2: var StandardBoolean;
-               or2: TopAbsOrientation; fleche: StandardReal; tolGuide: StandardReal;
-               first: var StandardReal; last: var StandardReal;
-               inside: StandardBoolean; appro: StandardBoolean;
-               forward: StandardBoolean; recP1: StandardBoolean;
-               recRst1: StandardBoolean; recP2: StandardBoolean;
-               recRst2: StandardBoolean; soldep: MathVector) {.
+proc SimulSurf*(this: var ChFi3d_ChBuilder; Data: var handle[ChFiDS_SurfData];
+               Guide: handle[ChFiDS_HElSpine]; Spine: handle[ChFiDS_Spine];
+               Choix: Standard_Integer; S1: handle[BRepAdaptor_HSurface];
+               I1: handle[Adaptor3d_TopolTool]; PC1: handle[BRepAdaptor_HCurve2d];
+               Sref1: handle[BRepAdaptor_HSurface];
+               PCref1: handle[BRepAdaptor_HCurve2d];
+               Decroch1: var Standard_Boolean; Or1: TopAbs_Orientation;
+               S2: handle[BRepAdaptor_HSurface]; I2: handle[Adaptor3d_TopolTool];
+               PC2: handle[BRepAdaptor_HCurve2d];
+               Sref2: handle[BRepAdaptor_HSurface];
+               PCref2: handle[BRepAdaptor_HCurve2d];
+               Decroch2: var Standard_Boolean; Or2: TopAbs_Orientation;
+               Fleche: Standard_Real; TolGuide: Standard_Real;
+               First: var Standard_Real; Last: var Standard_Real;
+               Inside: Standard_Boolean; Appro: Standard_Boolean;
+               Forward: Standard_Boolean; RecP1: Standard_Boolean;
+               RecRst1: Standard_Boolean; RecP2: Standard_Boolean;
+               RecRst2: Standard_Boolean; Soldep: math_Vector) {.
     importcpp: "SimulSurf", header: "ChFi3d_ChBuilder.hxx".}
-proc performSurf*(this: var ChFi3dChBuilder; data: var ChFiDS_SequenceOfSurfData;
-                 guide: Handle[ChFiDS_HElSpine]; spine: Handle[ChFiDS_Spine];
-                 choix: StandardInteger; s1: Handle[BRepAdaptorHSurface];
-                 i1: Handle[Adaptor3dTopolTool]; s2: Handle[BRepAdaptorHSurface];
-                 i2: Handle[Adaptor3dTopolTool]; maxStep: StandardReal;
-                 fleche: StandardReal; tolGuide: StandardReal;
-                 first: var StandardReal; last: var StandardReal;
-                 inside: StandardBoolean; appro: StandardBoolean;
-                 forward: StandardBoolean; recOnS1: StandardBoolean;
-                 recOnS2: StandardBoolean; soldep: MathVector;
-                 intf: var StandardInteger; intl: var StandardInteger): StandardBoolean {.
+proc PerformSurf*(this: var ChFi3d_ChBuilder; Data: var ChFiDS_SequenceOfSurfData;
+                 Guide: handle[ChFiDS_HElSpine]; Spine: handle[ChFiDS_Spine];
+                 Choix: Standard_Integer; S1: handle[BRepAdaptor_HSurface];
+                 I1: handle[Adaptor3d_TopolTool];
+                 S2: handle[BRepAdaptor_HSurface];
+                 I2: handle[Adaptor3d_TopolTool]; MaxStep: Standard_Real;
+                 Fleche: Standard_Real; TolGuide: Standard_Real;
+                 First: var Standard_Real; Last: var Standard_Real;
+                 Inside: Standard_Boolean; Appro: Standard_Boolean;
+                 Forward: Standard_Boolean; RecOnS1: Standard_Boolean;
+                 RecOnS2: Standard_Boolean; Soldep: math_Vector;
+                 Intf: var Standard_Integer; Intl: var Standard_Integer): Standard_Boolean {.
     importcpp: "PerformSurf", header: "ChFi3d_ChBuilder.hxx".}
-proc performSurf*(this: var ChFi3dChBuilder; data: var ChFiDS_SequenceOfSurfData;
-                 guide: Handle[ChFiDS_HElSpine]; spine: Handle[ChFiDS_Spine];
-                 choix: StandardInteger; s1: Handle[BRepAdaptorHSurface];
-                 i1: Handle[Adaptor3dTopolTool]; pc1: Handle[BRepAdaptorHCurve2d];
-                 sref1: Handle[BRepAdaptorHSurface];
-                 pCref1: Handle[BRepAdaptorHCurve2d];
-                 decroch1: var StandardBoolean; s2: Handle[BRepAdaptorHSurface];
-                 i2: Handle[Adaptor3dTopolTool]; or2: TopAbsOrientation;
-                 maxStep: StandardReal; fleche: StandardReal;
-                 tolGuide: StandardReal; first: var StandardReal;
-                 last: var StandardReal; inside: StandardBoolean;
-                 appro: StandardBoolean; forward: StandardBoolean;
-                 recP: StandardBoolean; recS: StandardBoolean;
-                 recRst: StandardBoolean; soldep: MathVector) {.
+proc PerformSurf*(this: var ChFi3d_ChBuilder; Data: var ChFiDS_SequenceOfSurfData;
+                 Guide: handle[ChFiDS_HElSpine]; Spine: handle[ChFiDS_Spine];
+                 Choix: Standard_Integer; S1: handle[BRepAdaptor_HSurface];
+                 I1: handle[Adaptor3d_TopolTool];
+                 PC1: handle[BRepAdaptor_HCurve2d];
+                 Sref1: handle[BRepAdaptor_HSurface];
+                 PCref1: handle[BRepAdaptor_HCurve2d];
+                 Decroch1: var Standard_Boolean; S2: handle[BRepAdaptor_HSurface];
+                 I2: handle[Adaptor3d_TopolTool]; Or2: TopAbs_Orientation;
+                 MaxStep: Standard_Real; Fleche: Standard_Real;
+                 TolGuide: Standard_Real; First: var Standard_Real;
+                 Last: var Standard_Real; Inside: Standard_Boolean;
+                 Appro: Standard_Boolean; Forward: Standard_Boolean;
+                 RecP: Standard_Boolean; RecS: Standard_Boolean;
+                 RecRst: Standard_Boolean; Soldep: math_Vector) {.
     importcpp: "PerformSurf", header: "ChFi3d_ChBuilder.hxx".}
-proc performSurf*(this: var ChFi3dChBuilder; data: var ChFiDS_SequenceOfSurfData;
-                 guide: Handle[ChFiDS_HElSpine]; spine: Handle[ChFiDS_Spine];
-                 choix: StandardInteger; s1: Handle[BRepAdaptorHSurface];
-                 i1: Handle[Adaptor3dTopolTool]; or1: TopAbsOrientation;
-                 s2: Handle[BRepAdaptorHSurface]; i2: Handle[Adaptor3dTopolTool];
-                 pc2: Handle[BRepAdaptorHCurve2d];
-                 sref2: Handle[BRepAdaptorHSurface];
-                 pCref2: Handle[BRepAdaptorHCurve2d];
-                 decroch2: var StandardBoolean; maxStep: StandardReal;
-                 fleche: StandardReal; tolGuide: StandardReal;
-                 first: var StandardReal; last: var StandardReal;
-                 inside: StandardBoolean; appro: StandardBoolean;
-                 forward: StandardBoolean; recP: StandardBoolean;
-                 recS: StandardBoolean; recRst: StandardBoolean; soldep: MathVector) {.
-    importcpp: "PerformSurf", header: "ChFi3d_ChBuilder.hxx".}
-proc performSurf*(this: var ChFi3dChBuilder; data: var ChFiDS_SequenceOfSurfData;
-                 guide: Handle[ChFiDS_HElSpine]; spine: Handle[ChFiDS_Spine];
-                 choix: StandardInteger; s1: Handle[BRepAdaptorHSurface];
-                 i1: Handle[Adaptor3dTopolTool]; pc1: Handle[BRepAdaptorHCurve2d];
-                 sref1: Handle[BRepAdaptorHSurface];
-                 pCref1: Handle[BRepAdaptorHCurve2d];
-                 decroch1: var StandardBoolean; or1: TopAbsOrientation;
-                 s2: Handle[BRepAdaptorHSurface]; i2: Handle[Adaptor3dTopolTool];
-                 pc2: Handle[BRepAdaptorHCurve2d];
-                 sref2: Handle[BRepAdaptorHSurface];
-                 pCref2: Handle[BRepAdaptorHCurve2d];
-                 decroch2: var StandardBoolean; or2: TopAbsOrientation;
-                 maxStep: StandardReal; fleche: StandardReal;
-                 tolGuide: StandardReal; first: var StandardReal;
-                 last: var StandardReal; inside: StandardBoolean;
-                 appro: StandardBoolean; forward: StandardBoolean;
-                 recP1: StandardBoolean; recRst1: StandardBoolean;
-                 recP2: StandardBoolean; recRst2: StandardBoolean;
-                 soldep: MathVector) {.importcpp: "PerformSurf",
-                                     header: "ChFi3d_ChBuilder.hxx".}
-
+proc PerformSurf*(this: var ChFi3d_ChBuilder; Data: var ChFiDS_SequenceOfSurfData;
+                 Guide: handle[ChFiDS_HElSpine]; Spine: handle[ChFiDS_Spine];
+                 Choix: Standard_Integer; S1: handle[BRepAdaptor_HSurface];
+                 I1: handle[Adaptor3d_TopolTool]; Or1: TopAbs_Orientation;
+                 S2: handle[BRepAdaptor_HSurface];
+                 I2: handle[Adaptor3d_TopolTool];
+                 PC2: handle[BRepAdaptor_HCurve2d];
+                 Sref2: handle[BRepAdaptor_HSurface];
+                 PCref2: handle[BRepAdaptor_HCurve2d];
+                 Decroch2: var Standard_Boolean; MaxStep: Standard_Real;
+                 Fleche: Standard_Real; TolGuide: Standard_Real;
+                 First: var Standard_Real; Last: var Standard_Real;
+                 Inside: Standard_Boolean; Appro: Standard_Boolean;
+                 Forward: Standard_Boolean; RecP: Standard_Boolean;
+                 RecS: Standard_Boolean; RecRst: Standard_Boolean;
+                 Soldep: math_Vector) {.importcpp: "PerformSurf",
+                                      header: "ChFi3d_ChBuilder.hxx".}
+proc PerformSurf*(this: var ChFi3d_ChBuilder; Data: var ChFiDS_SequenceOfSurfData;
+                 Guide: handle[ChFiDS_HElSpine]; Spine: handle[ChFiDS_Spine];
+                 Choix: Standard_Integer; S1: handle[BRepAdaptor_HSurface];
+                 I1: handle[Adaptor3d_TopolTool];
+                 PC1: handle[BRepAdaptor_HCurve2d];
+                 Sref1: handle[BRepAdaptor_HSurface];
+                 PCref1: handle[BRepAdaptor_HCurve2d];
+                 Decroch1: var Standard_Boolean; Or1: TopAbs_Orientation;
+                 S2: handle[BRepAdaptor_HSurface];
+                 I2: handle[Adaptor3d_TopolTool];
+                 PC2: handle[BRepAdaptor_HCurve2d];
+                 Sref2: handle[BRepAdaptor_HSurface];
+                 PCref2: handle[BRepAdaptor_HCurve2d];
+                 Decroch2: var Standard_Boolean; Or2: TopAbs_Orientation;
+                 MaxStep: Standard_Real; Fleche: Standard_Real;
+                 TolGuide: Standard_Real; First: var Standard_Real;
+                 Last: var Standard_Real; Inside: Standard_Boolean;
+                 Appro: Standard_Boolean; Forward: Standard_Boolean;
+                 RecP1: Standard_Boolean; RecRst1: Standard_Boolean;
+                 RecP2: Standard_Boolean; RecRst2: Standard_Boolean;
+                 Soldep: math_Vector) {.importcpp: "PerformSurf",
+                                      header: "ChFi3d_ChBuilder.hxx".}

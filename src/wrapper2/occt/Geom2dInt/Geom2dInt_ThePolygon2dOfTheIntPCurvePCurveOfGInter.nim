@@ -14,7 +14,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _Geom2dInt_ThePolygon2dOfTheIntPCurvePCurveOfGInter_HeaderFile [NewLine] # _Geom2dInt_ThePolygon2dOfTheIntPCurvePCurveOfGInter_HeaderFile [NewLine] # < Standard . hxx > [NewLine] # < Standard_DefineAlloc . hxx > [NewLine] # < Standard_Handle . hxx > [NewLine] # < Standard_Real . hxx > [NewLine] # < Standard_Integer . hxx > [NewLine] # < TColgp_Array1OfPnt2d . hxx > [NewLine] # < TColStd_Array1OfReal . hxx > [NewLine] # < TColStd_Array1OfInteger . hxx > [NewLine] # < Standard_Boolean . hxx > [NewLine] # < Intf_Polygon2d . hxx > [NewLine] class Standard_OutOfRange ;
+## !!!Ignored construct:  # _Geom2dInt_ThePolygon2dOfTheIntPCurvePCurveOfGInter_HeaderFile [NewLine] # _Geom2dInt_ThePolygon2dOfTheIntPCurvePCurveOfGInter_HeaderFile [NewLine] # ../Standard/Standard.hxx [NewLine] # ../Standard/Standard_DefineAlloc.hxx [NewLine] # ../Standard/Standard_Handle.hxx [NewLine] # ../Standard/Standard_Real.hxx [NewLine] # ../Standard/Standard_Integer.hxx [NewLine] # ../TColgp/TColgp_Array1OfPnt2d.hxx [NewLine] # ../TColStd/TColStd_Array1OfReal.hxx [NewLine] # ../TColStd/TColStd_Array1OfInteger.hxx [NewLine] # ../Standard/Standard_Boolean.hxx [NewLine] # ../Intf/Intf_Polygon2d.hxx [NewLine] class Standard_OutOfRange ;
 ## Error: did not expect <!!!
 
 discard "forward decl of Adaptor2d_Curve2d"
@@ -23,72 +23,70 @@ discard "forward decl of IntRes2d_Domain"
 discard "forward decl of Bnd_Box2d"
 discard "forward decl of gp_Pnt2d"
 type
-  Geom2dIntThePolygon2dOfTheIntPCurvePCurveOfGInter* {.
+  Geom2dInt_ThePolygon2dOfTheIntPCurvePCurveOfGInter* {.
       importcpp: "Geom2dInt_ThePolygon2dOfTheIntPCurvePCurveOfGInter",
-      header: "Geom2dInt_ThePolygon2dOfTheIntPCurvePCurveOfGInter.hxx", bycopy.} = object of IntfPolygon2d ##
-                                                                                                    ## !
-                                                                                                    ## Compute
-                                                                                                    ## a
-                                                                                                    ## polygon
-                                                                                                    ## on
-                                                                                                    ## the
-                                                                                                    ## domain
-                                                                                                    ## of
-                                                                                                    ## the
-                                                                                                    ## curve.
+      header: "Geom2dInt_ThePolygon2dOfTheIntPCurvePCurveOfGInter.hxx", bycopy.} = object of Intf_Polygon2d ##
+                                                                                                     ## !
+                                                                                                     ## Compute
+                                                                                                     ## a
+                                                                                                     ## polygon
+                                                                                                     ## on
+                                                                                                     ## the
+                                                                                                     ## domain
+                                                                                                     ## of
+                                                                                                     ## the
+                                                                                                     ## curve.
 
 
-proc constructGeom2dIntThePolygon2dOfTheIntPCurvePCurveOfGInter*(
-    curve: Adaptor2dCurve2d; nbPnt: StandardInteger; domain: IntRes2dDomain;
-    tol: StandardReal): Geom2dIntThePolygon2dOfTheIntPCurvePCurveOfGInter {.
+proc constructGeom2dInt_ThePolygon2dOfTheIntPCurvePCurveOfGInter*(
+    Curve: Adaptor2d_Curve2d; NbPnt: Standard_Integer; Domain: IntRes2d_Domain;
+    Tol: Standard_Real): Geom2dInt_ThePolygon2dOfTheIntPCurvePCurveOfGInter {.
     constructor,
     importcpp: "Geom2dInt_ThePolygon2dOfTheIntPCurvePCurveOfGInter(@)",
     header: "Geom2dInt_ThePolygon2dOfTheIntPCurvePCurveOfGInter.hxx".}
-proc computeWithBox*(this: var Geom2dIntThePolygon2dOfTheIntPCurvePCurveOfGInter;
-                    curve: Adaptor2dCurve2d; otherBox: BndBox2d) {.
+proc ComputeWithBox*(this: var Geom2dInt_ThePolygon2dOfTheIntPCurvePCurveOfGInter;
+                    Curve: Adaptor2d_Curve2d; OtherBox: Bnd_Box2d) {.
     importcpp: "ComputeWithBox",
     header: "Geom2dInt_ThePolygon2dOfTheIntPCurvePCurveOfGInter.hxx".}
-proc deflectionOverEstimation*(this: Geom2dIntThePolygon2dOfTheIntPCurvePCurveOfGInter): StandardReal {.
+proc DeflectionOverEstimation*(this: Geom2dInt_ThePolygon2dOfTheIntPCurvePCurveOfGInter): Standard_Real {.
     noSideEffect, importcpp: "DeflectionOverEstimation",
     header: "Geom2dInt_ThePolygon2dOfTheIntPCurvePCurveOfGInter.hxx".}
-proc setDeflectionOverEstimation*(this: var Geom2dIntThePolygon2dOfTheIntPCurvePCurveOfGInter;
-                                 x: StandardReal) {.
+proc SetDeflectionOverEstimation*(this: var Geom2dInt_ThePolygon2dOfTheIntPCurvePCurveOfGInter;
+                                 x: Standard_Real) {.
     importcpp: "SetDeflectionOverEstimation",
     header: "Geom2dInt_ThePolygon2dOfTheIntPCurvePCurveOfGInter.hxx".}
-proc closed*(this: var Geom2dIntThePolygon2dOfTheIntPCurvePCurveOfGInter;
-            clos: StandardBoolean) {.importcpp: "Closed", header: "Geom2dInt_ThePolygon2dOfTheIntPCurvePCurveOfGInter.hxx".}
-proc closed*(this: Geom2dIntThePolygon2dOfTheIntPCurvePCurveOfGInter): StandardBoolean {.
+proc Closed*(this: var Geom2dInt_ThePolygon2dOfTheIntPCurvePCurveOfGInter;
+            clos: Standard_Boolean) {.importcpp: "Closed", header: "Geom2dInt_ThePolygon2dOfTheIntPCurvePCurveOfGInter.hxx".}
+proc Closed*(this: Geom2dInt_ThePolygon2dOfTheIntPCurvePCurveOfGInter): Standard_Boolean {.
     noSideEffect, importcpp: "Closed",
     header: "Geom2dInt_ThePolygon2dOfTheIntPCurvePCurveOfGInter.hxx".}
-proc nbSegments*(this: Geom2dIntThePolygon2dOfTheIntPCurvePCurveOfGInter): StandardInteger {.
+proc NbSegments*(this: Geom2dInt_ThePolygon2dOfTheIntPCurvePCurveOfGInter): Standard_Integer {.
     noSideEffect, importcpp: "NbSegments",
     header: "Geom2dInt_ThePolygon2dOfTheIntPCurvePCurveOfGInter.hxx".}
-proc segment*(this: Geom2dIntThePolygon2dOfTheIntPCurvePCurveOfGInter;
-             theIndex: StandardInteger; theBegin: var GpPnt2d; theEnd: var GpPnt2d) {.
+proc Segment*(this: Geom2dInt_ThePolygon2dOfTheIntPCurvePCurveOfGInter;
+             theIndex: Standard_Integer; theBegin: var gp_Pnt2d; theEnd: var gp_Pnt2d) {.
     noSideEffect, importcpp: "Segment",
     header: "Geom2dInt_ThePolygon2dOfTheIntPCurvePCurveOfGInter.hxx".}
-proc infParameter*(this: Geom2dIntThePolygon2dOfTheIntPCurvePCurveOfGInter): StandardReal {.
+proc InfParameter*(this: Geom2dInt_ThePolygon2dOfTheIntPCurvePCurveOfGInter): Standard_Real {.
     noSideEffect, importcpp: "InfParameter",
     header: "Geom2dInt_ThePolygon2dOfTheIntPCurvePCurveOfGInter.hxx".}
-proc supParameter*(this: Geom2dIntThePolygon2dOfTheIntPCurvePCurveOfGInter): StandardReal {.
+proc SupParameter*(this: Geom2dInt_ThePolygon2dOfTheIntPCurvePCurveOfGInter): Standard_Real {.
     noSideEffect, importcpp: "SupParameter",
     header: "Geom2dInt_ThePolygon2dOfTheIntPCurvePCurveOfGInter.hxx".}
-proc autoIntersectionIsPossible*(this: Geom2dIntThePolygon2dOfTheIntPCurvePCurveOfGInter): StandardBoolean {.
+proc AutoIntersectionIsPossible*(this: Geom2dInt_ThePolygon2dOfTheIntPCurvePCurveOfGInter): Standard_Boolean {.
     noSideEffect, importcpp: "AutoIntersectionIsPossible",
     header: "Geom2dInt_ThePolygon2dOfTheIntPCurvePCurveOfGInter.hxx".}
-proc approxParamOnCurve*(this: Geom2dIntThePolygon2dOfTheIntPCurvePCurveOfGInter;
-                        index: StandardInteger; paramOnLine: StandardReal): StandardReal {.
+proc ApproxParamOnCurve*(this: Geom2dInt_ThePolygon2dOfTheIntPCurvePCurveOfGInter;
+                        Index: Standard_Integer; ParamOnLine: Standard_Real): Standard_Real {.
     noSideEffect, importcpp: "ApproxParamOnCurve",
     header: "Geom2dInt_ThePolygon2dOfTheIntPCurvePCurveOfGInter.hxx".}
-proc calculRegion*(this: Geom2dIntThePolygon2dOfTheIntPCurvePCurveOfGInter;
-                  x: StandardReal; y: StandardReal; x1: StandardReal;
-                  x2: StandardReal; y1: StandardReal; y2: StandardReal): StandardInteger {.
+proc CalculRegion*(this: Geom2dInt_ThePolygon2dOfTheIntPCurvePCurveOfGInter;
+                  x: Standard_Real; y: Standard_Real; x1: Standard_Real;
+                  x2: Standard_Real; y1: Standard_Real; y2: Standard_Real): Standard_Integer {.
     noSideEffect, importcpp: "CalculRegion",
     header: "Geom2dInt_ThePolygon2dOfTheIntPCurvePCurveOfGInter.hxx".}
-proc dump*(this: Geom2dIntThePolygon2dOfTheIntPCurvePCurveOfGInter) {.noSideEffect,
-    importcpp: "Dump",
+proc Dump*(this: Geom2dInt_ThePolygon2dOfTheIntPCurvePCurveOfGInter) {.
+    noSideEffect, importcpp: "Dump",
     header: "Geom2dInt_ThePolygon2dOfTheIntPCurvePCurveOfGInter.hxx".}
-## !!!Ignored construct:  # TheCurve Adaptor2d_Curve2d [NewLine] # TheCurve_hxx < Adaptor2d_Curve2d . hxx > [NewLine] # TheCurveTool Geom2dInt_Geom2dCurveTool [NewLine] # TheCurveTool_hxx < Geom2dInt_Geom2dCurveTool . hxx > [NewLine] # IntCurve_Polygon2dGen Geom2dInt_ThePolygon2dOfTheIntPCurvePCurveOfGInter [NewLine] # IntCurve_Polygon2dGen_hxx < Geom2dInt_ThePolygon2dOfTheIntPCurvePCurveOfGInter . hxx > [NewLine] # < IntCurve_Polygon2dGen . lxx > [NewLine] # TheCurve [NewLine] # TheCurve_hxx [NewLine] # TheCurveTool [NewLine] # TheCurveTool_hxx [NewLine] # IntCurve_Polygon2dGen [NewLine] # IntCurve_Polygon2dGen_hxx [NewLine] #  _Geom2dInt_ThePolygon2dOfTheIntPCurvePCurveOfGInter_HeaderFile
+## !!!Ignored construct:  # TheCurve Adaptor2d_Curve2d [NewLine] # TheCurve_hxx < Adaptor2d_Curve2d . hxx > [NewLine] # TheCurveTool Geom2dInt_Geom2dCurveTool [NewLine] # TheCurveTool_hxx < Geom2dInt_Geom2dCurveTool . hxx > [NewLine] # IntCurve_Polygon2dGen Geom2dInt_ThePolygon2dOfTheIntPCurvePCurveOfGInter [NewLine] # IntCurve_Polygon2dGen_hxx < Geom2dInt_ThePolygon2dOfTheIntPCurvePCurveOfGInter . hxx > [NewLine] # < IntCurve_Polygon2dGen . lxx > [NewLine] # TheCurve [NewLine] # TheCurve_hxx [NewLine] # TheCurveTool [NewLine] # TheCurveTool_hxx [NewLine] # IntCurve_Polygon2dGen [NewLine] # IntCurve_Polygon2dGen_hxx [NewLine] #  _Geom2dInt_ThePolygon2dOfTheIntPCurvePCurveOfGInter_HeaderFile [NewLine]
 ## Error: did not expect <!!!
-
-

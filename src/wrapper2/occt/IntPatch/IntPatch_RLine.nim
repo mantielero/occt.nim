@@ -14,6 +14,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Boolean,
+  ../Standard/Standard_Real, ../Standard/Standard_Integer,
+  IntPatch_SequenceOfPoint, IntPatch_PointLine, ../IntSurf/IntSurf_LineOn2S,
+  ../IntSurf/IntSurf_Situation, ../IntSurf/IntSurf_TypeTrans
+
 discard "forward decl of Adaptor2d_HCurve2d"
 discard "forward decl of Standard_DomainError"
 discard "forward decl of Standard_OutOfRange"
@@ -22,119 +28,119 @@ discard "forward decl of IntSurf_PntOn2S"
 discard "forward decl of IntPatch_RLine"
 discard "forward decl of IntPatch_RLine"
 type
-  HandleIntPatchRLine* = Handle[IntPatchRLine]
+  Handle_IntPatch_RLine* = handle[IntPatch_RLine]
 
 ## ! Implementation of an intersection line described by a
 ## ! restriction line on one of the surfaces.
 
 type
-  IntPatchRLine* {.importcpp: "IntPatch_RLine", header: "IntPatch_RLine.hxx", bycopy.} = object of IntPatchPointLine ##
-                                                                                                           ## !
-                                                                                                           ## Creates
-                                                                                                           ## a
-                                                                                                           ## restriction
-                                                                                                           ## as
-                                                                                                           ## an
-                                                                                                           ## intersection
-                                                                                                           ## line
-                                                                                                           ##
-                                                                                                           ## !
-                                                                                                           ## when
-                                                                                                           ## the
-                                                                                                           ## transitions
-                                                                                                           ## are
-                                                                                                           ## In
-                                                                                                           ## or
-                                                                                                           ## Out.
+  IntPatch_RLine* {.importcpp: "IntPatch_RLine", header: "IntPatch_RLine.hxx", bycopy.} = object of IntPatch_PointLine ##
+                                                                                                             ## !
+                                                                                                             ## Creates
+                                                                                                             ## a
+                                                                                                             ## restriction
+                                                                                                             ## as
+                                                                                                             ## an
+                                                                                                             ## intersection
+                                                                                                             ## line
+                                                                                                             ##
+                                                                                                             ## !
+                                                                                                             ## when
+                                                                                                             ## the
+                                                                                                             ## transitions
+                                                                                                             ## are
+                                                                                                             ## In
+                                                                                                             ## or
+                                                                                                             ## Out.
 
 
-proc constructIntPatchRLine*(tang: StandardBoolean; trans1: IntSurfTypeTrans;
-                            trans2: IntSurfTypeTrans): IntPatchRLine {.constructor,
+proc constructIntPatch_RLine*(Tang: Standard_Boolean; Trans1: IntSurf_TypeTrans;
+                             Trans2: IntSurf_TypeTrans): IntPatch_RLine {.
+    constructor, importcpp: "IntPatch_RLine(@)", header: "IntPatch_RLine.hxx".}
+proc constructIntPatch_RLine*(Tang: Standard_Boolean; Situ1: IntSurf_Situation;
+                             Situ2: IntSurf_Situation): IntPatch_RLine {.
+    constructor, importcpp: "IntPatch_RLine(@)", header: "IntPatch_RLine.hxx".}
+proc constructIntPatch_RLine*(Tang: Standard_Boolean): IntPatch_RLine {.constructor,
     importcpp: "IntPatch_RLine(@)", header: "IntPatch_RLine.hxx".}
-proc constructIntPatchRLine*(tang: StandardBoolean; situ1: IntSurfSituation;
-                            situ2: IntSurfSituation): IntPatchRLine {.constructor,
-    importcpp: "IntPatch_RLine(@)", header: "IntPatch_RLine.hxx".}
-proc constructIntPatchRLine*(tang: StandardBoolean): IntPatchRLine {.constructor,
-    importcpp: "IntPatch_RLine(@)", header: "IntPatch_RLine.hxx".}
-proc addVertex*(this: var IntPatchRLine; pnt: IntPatchPoint;
-               theIsPrepend: StandardBoolean = standardFalse) {.
+proc AddVertex*(this: var IntPatch_RLine; Pnt: IntPatch_Point;
+               theIsPrepend: Standard_Boolean = Standard_False) {.
     importcpp: "AddVertex", header: "IntPatch_RLine.hxx".}
-proc replace*(this: var IntPatchRLine; index: StandardInteger; pnt: IntPatchPoint) {.
+proc Replace*(this: var IntPatch_RLine; Index: Standard_Integer; Pnt: IntPatch_Point) {.
     importcpp: "Replace", header: "IntPatch_RLine.hxx".}
-proc setFirstPoint*(this: var IntPatchRLine; indFirst: StandardInteger) {.
+proc SetFirstPoint*(this: var IntPatch_RLine; IndFirst: Standard_Integer) {.
     importcpp: "SetFirstPoint", header: "IntPatch_RLine.hxx".}
-proc setLastPoint*(this: var IntPatchRLine; indLast: StandardInteger) {.
+proc SetLastPoint*(this: var IntPatch_RLine; IndLast: Standard_Integer) {.
     importcpp: "SetLastPoint", header: "IntPatch_RLine.hxx".}
-proc add*(this: var IntPatchRLine; L: Handle[IntSurfLineOn2S]) {.importcpp: "Add",
+proc Add*(this: var IntPatch_RLine; L: handle[IntSurf_LineOn2S]) {.importcpp: "Add",
     header: "IntPatch_RLine.hxx".}
-proc isArcOnS1*(this: IntPatchRLine): StandardBoolean {.noSideEffect,
+proc IsArcOnS1*(this: IntPatch_RLine): Standard_Boolean {.noSideEffect,
     importcpp: "IsArcOnS1", header: "IntPatch_RLine.hxx".}
-proc isArcOnS2*(this: IntPatchRLine): StandardBoolean {.noSideEffect,
+proc IsArcOnS2*(this: IntPatch_RLine): Standard_Boolean {.noSideEffect,
     importcpp: "IsArcOnS2", header: "IntPatch_RLine.hxx".}
-proc setArcOnS1*(this: var IntPatchRLine; a: Handle[Adaptor2dHCurve2d]) {.
+proc SetArcOnS1*(this: var IntPatch_RLine; A: handle[Adaptor2d_HCurve2d]) {.
     importcpp: "SetArcOnS1", header: "IntPatch_RLine.hxx".}
-proc setArcOnS2*(this: var IntPatchRLine; a: Handle[Adaptor2dHCurve2d]) {.
+proc SetArcOnS2*(this: var IntPatch_RLine; A: handle[Adaptor2d_HCurve2d]) {.
     importcpp: "SetArcOnS2", header: "IntPatch_RLine.hxx".}
-proc setParamOnS1*(this: var IntPatchRLine; p1: StandardReal; p2: StandardReal) {.
+proc SetParamOnS1*(this: var IntPatch_RLine; p1: Standard_Real; p2: Standard_Real) {.
     importcpp: "SetParamOnS1", header: "IntPatch_RLine.hxx".}
-proc setParamOnS2*(this: var IntPatchRLine; p1: var StandardReal; p2: var StandardReal) {.
-    importcpp: "SetParamOnS2", header: "IntPatch_RLine.hxx".}
-proc arcOnS1*(this: IntPatchRLine): Handle[Adaptor2dHCurve2d] {.noSideEffect,
+proc SetParamOnS2*(this: var IntPatch_RLine; p1: var Standard_Real;
+                  p2: var Standard_Real) {.importcpp: "SetParamOnS2",
+                                        header: "IntPatch_RLine.hxx".}
+proc ArcOnS1*(this: IntPatch_RLine): handle[Adaptor2d_HCurve2d] {.noSideEffect,
     importcpp: "ArcOnS1", header: "IntPatch_RLine.hxx".}
-proc arcOnS2*(this: IntPatchRLine): Handle[Adaptor2dHCurve2d] {.noSideEffect,
+proc ArcOnS2*(this: IntPatch_RLine): handle[Adaptor2d_HCurve2d] {.noSideEffect,
     importcpp: "ArcOnS2", header: "IntPatch_RLine.hxx".}
-proc paramOnS1*(this: IntPatchRLine; p1: var StandardReal; p2: var StandardReal) {.
+proc ParamOnS1*(this: IntPatch_RLine; p1: var Standard_Real; p2: var Standard_Real) {.
     noSideEffect, importcpp: "ParamOnS1", header: "IntPatch_RLine.hxx".}
-proc paramOnS2*(this: IntPatchRLine; p1: var StandardReal; p2: var StandardReal) {.
+proc ParamOnS2*(this: IntPatch_RLine; p1: var Standard_Real; p2: var Standard_Real) {.
     noSideEffect, importcpp: "ParamOnS2", header: "IntPatch_RLine.hxx".}
-proc hasFirstPoint*(this: IntPatchRLine): StandardBoolean {.noSideEffect,
+proc HasFirstPoint*(this: IntPatch_RLine): Standard_Boolean {.noSideEffect,
     importcpp: "HasFirstPoint", header: "IntPatch_RLine.hxx".}
-proc hasLastPoint*(this: IntPatchRLine): StandardBoolean {.noSideEffect,
+proc HasLastPoint*(this: IntPatch_RLine): Standard_Boolean {.noSideEffect,
     importcpp: "HasLastPoint", header: "IntPatch_RLine.hxx".}
-proc firstPoint*(this: IntPatchRLine): IntPatchPoint {.noSideEffect,
+proc FirstPoint*(this: IntPatch_RLine): IntPatch_Point {.noSideEffect,
     importcpp: "FirstPoint", header: "IntPatch_RLine.hxx".}
-proc lastPoint*(this: IntPatchRLine): IntPatchPoint {.noSideEffect,
+proc LastPoint*(this: IntPatch_RLine): IntPatch_Point {.noSideEffect,
     importcpp: "LastPoint", header: "IntPatch_RLine.hxx".}
-proc nbVertex*(this: IntPatchRLine): StandardInteger {.noSideEffect,
+proc NbVertex*(this: IntPatch_RLine): Standard_Integer {.noSideEffect,
     importcpp: "NbVertex", header: "IntPatch_RLine.hxx".}
-proc vertex*(this: IntPatchRLine; index: StandardInteger): IntPatchPoint {.
+proc Vertex*(this: IntPatch_RLine; Index: Standard_Integer): IntPatch_Point {.
     noSideEffect, importcpp: "Vertex", header: "IntPatch_RLine.hxx".}
-proc changeVertex*(this: var IntPatchRLine; index: StandardInteger): var IntPatchPoint {.
+proc ChangeVertex*(this: var IntPatch_RLine; Index: Standard_Integer): var IntPatch_Point {.
     importcpp: "ChangeVertex", header: "IntPatch_RLine.hxx".}
-proc removeVertex*(this: var IntPatchRLine; theIndex: StandardInteger) {.
+proc RemoveVertex*(this: var IntPatch_RLine; theIndex: Standard_Integer) {.
     importcpp: "RemoveVertex", header: "IntPatch_RLine.hxx".}
-proc hasPolygon*(this: IntPatchRLine): StandardBoolean {.noSideEffect,
+proc HasPolygon*(this: IntPatch_RLine): Standard_Boolean {.noSideEffect,
     importcpp: "HasPolygon", header: "IntPatch_RLine.hxx".}
-proc nbPnts*(this: IntPatchRLine): StandardInteger {.noSideEffect,
+proc NbPnts*(this: IntPatch_RLine): Standard_Integer {.noSideEffect,
     importcpp: "NbPnts", header: "IntPatch_RLine.hxx".}
-proc point*(this: IntPatchRLine; index: StandardInteger): IntSurfPntOn2S {.
+proc Point*(this: IntPatch_RLine; Index: Standard_Integer): IntSurf_PntOn2S {.
     noSideEffect, importcpp: "Point", header: "IntPatch_RLine.hxx".}
-proc setPoint*(this: var IntPatchRLine; index: StandardInteger; pnt: IntPatchPoint) {.
+proc SetPoint*(this: var IntPatch_RLine; Index: Standard_Integer; Pnt: IntPatch_Point) {.
     importcpp: "SetPoint", header: "IntPatch_RLine.hxx".}
-proc computeVertexParameters*(this: var IntPatchRLine; tol: StandardReal) {.
+proc ComputeVertexParameters*(this: var IntPatch_RLine; Tol: Standard_Real) {.
     importcpp: "ComputeVertexParameters", header: "IntPatch_RLine.hxx".}
-proc curve*(this: IntPatchRLine): Handle[IntSurfLineOn2S] {.noSideEffect,
+proc Curve*(this: IntPatch_RLine): handle[IntSurf_LineOn2S] {.noSideEffect,
     importcpp: "Curve", header: "IntPatch_RLine.hxx".}
-proc isOutSurf1Box*(this: IntPatchRLine; theP: GpPnt2d): StandardBoolean {.
+proc IsOutSurf1Box*(this: IntPatch_RLine; theP: gp_Pnt2d): Standard_Boolean {.
     noSideEffect, importcpp: "IsOutSurf1Box", header: "IntPatch_RLine.hxx".}
-proc isOutSurf2Box*(this: IntPatchRLine; theP: GpPnt2d): StandardBoolean {.
+proc IsOutSurf2Box*(this: IntPatch_RLine; theP: gp_Pnt2d): Standard_Boolean {.
     noSideEffect, importcpp: "IsOutSurf2Box", header: "IntPatch_RLine.hxx".}
-proc isOutBox*(this: IntPatchRLine; theP: GpPnt): StandardBoolean {.noSideEffect,
+proc IsOutBox*(this: IntPatch_RLine; theP: gp_Pnt): Standard_Boolean {.noSideEffect,
     importcpp: "IsOutBox", header: "IntPatch_RLine.hxx".}
-proc clearVertexes*(this: var IntPatchRLine) {.importcpp: "ClearVertexes",
+proc ClearVertexes*(this: var IntPatch_RLine) {.importcpp: "ClearVertexes",
     header: "IntPatch_RLine.hxx".}
-proc setCurve*(this: var IntPatchRLine; theNewCurve: Handle[IntSurfLineOn2S]) {.
+proc SetCurve*(this: var IntPatch_RLine; theNewCurve: handle[IntSurf_LineOn2S]) {.
     importcpp: "SetCurve", header: "IntPatch_RLine.hxx".}
-proc dump*(this: IntPatchRLine; theMode: StandardInteger) {.noSideEffect,
+proc Dump*(this: IntPatch_RLine; theMode: Standard_Integer) {.noSideEffect,
     importcpp: "Dump", header: "IntPatch_RLine.hxx".}
 type
-  IntPatchRLinebaseType* = IntPatchPointLine
+  IntPatch_RLinebase_type* = IntPatch_PointLine
 
-proc getTypeName*(): cstring {.importcpp: "IntPatch_RLine::get_type_name(@)",
-                            header: "IntPatch_RLine.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "IntPatch_RLine::get_type_name(@)",
+                              header: "IntPatch_RLine.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "IntPatch_RLine::get_type_descriptor(@)",
     header: "IntPatch_RLine.hxx".}
-proc dynamicType*(this: IntPatchRLine): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: IntPatch_RLine): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "IntPatch_RLine.hxx".}
-

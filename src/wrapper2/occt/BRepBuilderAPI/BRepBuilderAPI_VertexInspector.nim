@@ -13,8 +13,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../TColStd/TColStd_ListOfInteger, ../NCollection/NCollection_Vector,
+  ../gp/gp_XY, ../gp/gp_XYZ, ../NCollection/NCollection_CellFilter
+
 type
-  VectorOfPoint* = NCollectionVector[GpXYZ]
+  VectorOfPoint* = NCollection_Vector[gp_XYZ]
 
 ## =======================================================================
 ## ! Class BRepBuilderAPI_VertexInspector
@@ -26,21 +30,20 @@ type
 
 type
   BRepBuilderAPI_VertexInspector* {.importcpp: "BRepBuilderAPI_VertexInspector", header: "BRepBuilderAPI_VertexInspector.hxx",
-                                   bycopy.} = object of NCollectionCellFilterInspectorXYZ
+                                   bycopy.} = object of NCollection_CellFilter_InspectorXYZ
 
-  BRepBuilderAPI_VertexInspectorTarget* = StandardInteger
+  BRepBuilderAPI_VertexInspectorTarget* = Standard_Integer
 
-proc constructBRepBuilderAPI_VertexInspector*(theTol: StandardReal): BRepBuilderAPI_VertexInspector {.
+proc constructBRepBuilderAPI_VertexInspector*(theTol: Standard_Real): BRepBuilderAPI_VertexInspector {.
     constructor, importcpp: "BRepBuilderAPI_VertexInspector(@)",
     header: "BRepBuilderAPI_VertexInspector.hxx".}
-proc add*(this: var BRepBuilderAPI_VertexInspector; thePnt: GpXYZ) {.importcpp: "Add",
-    header: "BRepBuilderAPI_VertexInspector.hxx".}
-proc clearResList*(this: var BRepBuilderAPI_VertexInspector) {.
+proc Add*(this: var BRepBuilderAPI_VertexInspector; thePnt: gp_XYZ) {.
+    importcpp: "Add", header: "BRepBuilderAPI_VertexInspector.hxx".}
+proc ClearResList*(this: var BRepBuilderAPI_VertexInspector) {.
     importcpp: "ClearResList", header: "BRepBuilderAPI_VertexInspector.hxx".}
-proc setCurrent*(this: var BRepBuilderAPI_VertexInspector; theCurPnt: GpXYZ) {.
+proc SetCurrent*(this: var BRepBuilderAPI_VertexInspector; theCurPnt: gp_XYZ) {.
     importcpp: "SetCurrent", header: "BRepBuilderAPI_VertexInspector.hxx".}
-proc resInd*(this: var BRepBuilderAPI_VertexInspector): TColStdListOfInteger {.
+proc ResInd*(this: var BRepBuilderAPI_VertexInspector): TColStd_ListOfInteger {.
     importcpp: "ResInd", header: "BRepBuilderAPI_VertexInspector.hxx".}
-proc inspect*(this: var BRepBuilderAPI_VertexInspector; theTarget: StandardInteger): NCollectionCellFilterAction {.
+proc Inspect*(this: var BRepBuilderAPI_VertexInspector; theTarget: Standard_Integer): NCollection_CellFilter_Action {.
     importcpp: "Inspect", header: "BRepBuilderAPI_VertexInspector.hxx".}
-

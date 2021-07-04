@@ -14,6 +14,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
+  ../Standard/Standard_Integer
+
 discard "forward decl of Standard_DomainError"
 discard "forward decl of IGESGeom_OffsetCurve"
 discard "forward decl of IGESData_IGESReaderData"
@@ -26,43 +31,44 @@ discard "forward decl of Interface_Check"
 discard "forward decl of Interface_CopyTool"
 discard "forward decl of IGESData_IGESDumper"
 type
-  IGESGeomToolOffsetCurve* {.importcpp: "IGESGeom_ToolOffsetCurve",
-                            header: "IGESGeom_ToolOffsetCurve.hxx", bycopy.} = object ##
-                                                                                 ## !
-                                                                                 ## Returns
-                                                                                 ## a
-                                                                                 ## ToolOffsetCurve,
-                                                                                 ## ready
-                                                                                 ## to
-                                                                                 ## work
+  IGESGeom_ToolOffsetCurve* {.importcpp: "IGESGeom_ToolOffsetCurve",
+                             header: "IGESGeom_ToolOffsetCurve.hxx", bycopy.} = object ##
+                                                                                  ## !
+                                                                                  ## Returns
+                                                                                  ## a
+                                                                                  ## ToolOffsetCurve,
+                                                                                  ## ready
+                                                                                  ## to
+                                                                                  ## work
 
 
-proc constructIGESGeomToolOffsetCurve*(): IGESGeomToolOffsetCurve {.constructor,
+proc constructIGESGeom_ToolOffsetCurve*(): IGESGeom_ToolOffsetCurve {.constructor,
     importcpp: "IGESGeom_ToolOffsetCurve(@)",
     header: "IGESGeom_ToolOffsetCurve.hxx".}
-proc readOwnParams*(this: IGESGeomToolOffsetCurve;
-                   ent: Handle[IGESGeomOffsetCurve];
-                   ir: Handle[IGESDataIGESReaderData]; pr: var IGESDataParamReader) {.
-    noSideEffect, importcpp: "ReadOwnParams",
-    header: "IGESGeom_ToolOffsetCurve.hxx".}
-proc writeOwnParams*(this: IGESGeomToolOffsetCurve;
-                    ent: Handle[IGESGeomOffsetCurve]; iw: var IGESDataIGESWriter) {.
+proc ReadOwnParams*(this: IGESGeom_ToolOffsetCurve;
+                   ent: handle[IGESGeom_OffsetCurve];
+                   IR: handle[IGESData_IGESReaderData];
+                   PR: var IGESData_ParamReader) {.noSideEffect,
+    importcpp: "ReadOwnParams", header: "IGESGeom_ToolOffsetCurve.hxx".}
+proc WriteOwnParams*(this: IGESGeom_ToolOffsetCurve;
+                    ent: handle[IGESGeom_OffsetCurve]; IW: var IGESData_IGESWriter) {.
     noSideEffect, importcpp: "WriteOwnParams",
     header: "IGESGeom_ToolOffsetCurve.hxx".}
-proc ownShared*(this: IGESGeomToolOffsetCurve; ent: Handle[IGESGeomOffsetCurve];
-               iter: var InterfaceEntityIterator) {.noSideEffect,
+proc OwnShared*(this: IGESGeom_ToolOffsetCurve; ent: handle[IGESGeom_OffsetCurve];
+               iter: var Interface_EntityIterator) {.noSideEffect,
     importcpp: "OwnShared", header: "IGESGeom_ToolOffsetCurve.hxx".}
-proc ownCorrect*(this: IGESGeomToolOffsetCurve; ent: Handle[IGESGeomOffsetCurve]): StandardBoolean {.
+proc OwnCorrect*(this: IGESGeom_ToolOffsetCurve; ent: handle[IGESGeom_OffsetCurve]): Standard_Boolean {.
     noSideEffect, importcpp: "OwnCorrect", header: "IGESGeom_ToolOffsetCurve.hxx".}
-proc dirChecker*(this: IGESGeomToolOffsetCurve; ent: Handle[IGESGeomOffsetCurve]): IGESDataDirChecker {.
+proc DirChecker*(this: IGESGeom_ToolOffsetCurve; ent: handle[IGESGeom_OffsetCurve]): IGESData_DirChecker {.
     noSideEffect, importcpp: "DirChecker", header: "IGESGeom_ToolOffsetCurve.hxx".}
-proc ownCheck*(this: IGESGeomToolOffsetCurve; ent: Handle[IGESGeomOffsetCurve];
-              shares: InterfaceShareTool; ach: var Handle[InterfaceCheck]) {.
+proc OwnCheck*(this: IGESGeom_ToolOffsetCurve; ent: handle[IGESGeom_OffsetCurve];
+              shares: Interface_ShareTool; ach: var handle[Interface_Check]) {.
     noSideEffect, importcpp: "OwnCheck", header: "IGESGeom_ToolOffsetCurve.hxx".}
-proc ownCopy*(this: IGESGeomToolOffsetCurve; entfrom: Handle[IGESGeomOffsetCurve];
-             entto: Handle[IGESGeomOffsetCurve]; tc: var InterfaceCopyTool) {.
+proc OwnCopy*(this: IGESGeom_ToolOffsetCurve;
+             entfrom: handle[IGESGeom_OffsetCurve];
+             entto: handle[IGESGeom_OffsetCurve]; TC: var Interface_CopyTool) {.
     noSideEffect, importcpp: "OwnCopy", header: "IGESGeom_ToolOffsetCurve.hxx".}
-proc ownDump*(this: IGESGeomToolOffsetCurve; ent: Handle[IGESGeomOffsetCurve];
-             dumper: IGESDataIGESDumper; s: var StandardOStream; own: StandardInteger) {.
-    noSideEffect, importcpp: "OwnDump", header: "IGESGeom_ToolOffsetCurve.hxx".}
-
+proc OwnDump*(this: IGESGeom_ToolOffsetCurve; ent: handle[IGESGeom_OffsetCurve];
+             dumper: IGESData_IGESDumper; S: var Standard_OStream;
+             own: Standard_Integer) {.noSideEffect, importcpp: "OwnDump",
+                                    header: "IGESGeom_ToolOffsetCurve.hxx".}

@@ -14,7 +14,5 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # ShapeAnalysis_HSequenceOfFreeBounds_HeaderFile [NewLine] # ShapeAnalysis_HSequenceOfFreeBounds_HeaderFile [NewLine] # < ShapeAnalysis_FreeBoundData . hxx > [NewLine] # < ShapeAnalysis_SequenceOfFreeBounds . hxx > [NewLine] # < NCollection_DefineHSequence . hxx > [NewLine] DEFINE_HSEQUENCE ( ShapeAnalysis_HSequenceOfFreeBounds , ShapeAnalysis_SequenceOfFreeBounds ) # [NewLine]
+## !!!Ignored construct:  # ShapeAnalysis_HSequenceOfFreeBounds_HeaderFile [NewLine] # ShapeAnalysis_HSequenceOfFreeBounds_HeaderFile [NewLine] # ShapeAnalysis_FreeBoundData.hxx [NewLine] # ShapeAnalysis_SequenceOfFreeBounds.hxx [NewLine] # ../NCollection/NCollection_DefineHSequence.hxx [NewLine] DEFINE_HSEQUENCE ( ShapeAnalysis_HSequenceOfFreeBounds , ShapeAnalysis_SequenceOfFreeBounds ) # [NewLine]
 ## Error: expected ';'!!!
-
-

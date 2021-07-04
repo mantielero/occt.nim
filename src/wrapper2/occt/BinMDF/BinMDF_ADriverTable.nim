@@ -13,11 +13,17 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, BinMDF_TypeADriverMap,
+  BinMDF_TypeIdMap, ../Standard/Standard_Transient, ../Standard/Standard_Type,
+  ../Standard/Standard_Integer, ../TColStd/TColStd_IndexedMapOfTransient,
+  ../TColStd/TColStd_SequenceOfAsciiString
+
 discard "forward decl of BinMDF_ADriver"
 discard "forward decl of BinMDF_ADriverTable"
 discard "forward decl of BinMDF_ADriverTable"
 type
-  HandleBinMDF_ADriverTable* = Handle[BinMDF_ADriverTable]
+  Handle_BinMDF_ADriverTable* = handle[BinMDF_ADriverTable]
 
 ## ! A driver table is an object building links between
 ## ! object types and object drivers. In the
@@ -27,51 +33,50 @@ type
 
 type
   BinMDF_ADriverTable* {.importcpp: "BinMDF_ADriverTable",
-                        header: "BinMDF_ADriverTable.hxx", bycopy.} = object of StandardTransient ##
-                                                                                           ## !
-                                                                                           ## Constructor
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## Assigns
-                                                                                           ## the
-                                                                                           ## ID
-                                                                                           ## to
-                                                                                           ## the
-                                                                                           ## driver
-                                                                                           ## of
-                                                                                           ## the
-                                                                                           ## Type
+                        header: "BinMDF_ADriverTable.hxx", bycopy.} = object of Standard_Transient ##
+                                                                                            ## !
+                                                                                            ## Constructor
+                                                                                            ##
+                                                                                            ## !
+                                                                                            ## Assigns
+                                                                                            ## the
+                                                                                            ## ID
+                                                                                            ## to
+                                                                                            ## the
+                                                                                            ## driver
+                                                                                            ## of
+                                                                                            ## the
+                                                                                            ## Type
 
 
 proc constructBinMDF_ADriverTable*(): BinMDF_ADriverTable {.constructor,
     importcpp: "BinMDF_ADriverTable(@)", header: "BinMDF_ADriverTable.hxx".}
-proc addDriver*(this: var BinMDF_ADriverTable; theDriver: Handle[BinMDF_ADriver]) {.
+proc AddDriver*(this: var BinMDF_ADriverTable; theDriver: handle[BinMDF_ADriver]) {.
     importcpp: "AddDriver", header: "BinMDF_ADriverTable.hxx".}
-proc addDerivedDriver*(this: var BinMDF_ADriverTable;
-                      theInstance: Handle[TDF_Attribute]) {.
+proc AddDerivedDriver*(this: var BinMDF_ADriverTable;
+                      theInstance: handle[TDF_Attribute]) {.
     importcpp: "AddDerivedDriver", header: "BinMDF_ADriverTable.hxx".}
-proc addDerivedDriver*(this: var BinMDF_ADriverTable;
-                      theDerivedType: StandardCString): Handle[StandardType] {.
+proc AddDerivedDriver*(this: var BinMDF_ADriverTable;
+                      theDerivedType: Standard_CString): handle[Standard_Type] {.
     importcpp: "AddDerivedDriver", header: "BinMDF_ADriverTable.hxx".}
-proc assignIds*(this: var BinMDF_ADriverTable;
-               theTypes: TColStdIndexedMapOfTransient) {.importcpp: "AssignIds",
+proc AssignIds*(this: var BinMDF_ADriverTable;
+               theTypes: TColStd_IndexedMapOfTransient) {.importcpp: "AssignIds",
     header: "BinMDF_ADriverTable.hxx".}
-proc assignIds*(this: var BinMDF_ADriverTable;
-               theTypeNames: TColStdSequenceOfAsciiString) {.
+proc AssignIds*(this: var BinMDF_ADriverTable;
+               theTypeNames: TColStd_SequenceOfAsciiString) {.
     importcpp: "AssignIds", header: "BinMDF_ADriverTable.hxx".}
-proc getDriver*(this: var BinMDF_ADriverTable; theType: Handle[StandardType];
-               theDriver: var Handle[BinMDF_ADriver]): StandardInteger {.
+proc GetDriver*(this: var BinMDF_ADriverTable; theType: handle[Standard_Type];
+               theDriver: var handle[BinMDF_ADriver]): Standard_Integer {.
     importcpp: "GetDriver", header: "BinMDF_ADriverTable.hxx".}
-proc getDriver*(this: var BinMDF_ADriverTable; theTypeId: StandardInteger): Handle[
+proc GetDriver*(this: var BinMDF_ADriverTable; theTypeId: Standard_Integer): handle[
     BinMDF_ADriver] {.importcpp: "GetDriver", header: "BinMDF_ADriverTable.hxx".}
 type
-  BinMDF_ADriverTablebaseType* = StandardTransient
+  BinMDF_ADriverTablebase_type* = Standard_Transient
 
-proc getTypeName*(): cstring {.importcpp: "BinMDF_ADriverTable::get_type_name(@)",
-                            header: "BinMDF_ADriverTable.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "BinMDF_ADriverTable::get_type_name(@)",
+                              header: "BinMDF_ADriverTable.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "BinMDF_ADriverTable::get_type_descriptor(@)",
     header: "BinMDF_ADriverTable.hxx".}
-proc dynamicType*(this: BinMDF_ADriverTable): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: BinMDF_ADriverTable): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "BinMDF_ADriverTable.hxx".}
-

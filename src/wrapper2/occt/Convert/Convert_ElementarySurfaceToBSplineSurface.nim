@@ -14,57 +14,63 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../TColgp/TColgp_Array2OfPnt,
+  ../TColStd/TColStd_Array2OfReal, ../TColStd/TColStd_Array1OfReal,
+  ../TColStd/TColStd_Array1OfInteger, ../Standard/Standard_Integer,
+  ../Standard/Standard_Boolean, ../Standard/Standard_Real
+
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of gp_Pnt"
 type
-  ConvertElementarySurfaceToBSplineSurface* {.
+  Convert_ElementarySurfaceToBSplineSurface* {.
       importcpp: "Convert_ElementarySurfaceToBSplineSurface",
       header: "Convert_ElementarySurfaceToBSplineSurface.hxx", bycopy.} = object
 
 
-proc uDegree*(this: ConvertElementarySurfaceToBSplineSurface): StandardInteger {.
+proc UDegree*(this: Convert_ElementarySurfaceToBSplineSurface): Standard_Integer {.
     noSideEffect, importcpp: "UDegree",
     header: "Convert_ElementarySurfaceToBSplineSurface.hxx".}
-proc vDegree*(this: ConvertElementarySurfaceToBSplineSurface): StandardInteger {.
+proc VDegree*(this: Convert_ElementarySurfaceToBSplineSurface): Standard_Integer {.
     noSideEffect, importcpp: "VDegree",
     header: "Convert_ElementarySurfaceToBSplineSurface.hxx".}
-proc nbUPoles*(this: ConvertElementarySurfaceToBSplineSurface): StandardInteger {.
+proc NbUPoles*(this: Convert_ElementarySurfaceToBSplineSurface): Standard_Integer {.
     noSideEffect, importcpp: "NbUPoles",
     header: "Convert_ElementarySurfaceToBSplineSurface.hxx".}
-proc nbVPoles*(this: ConvertElementarySurfaceToBSplineSurface): StandardInteger {.
+proc NbVPoles*(this: Convert_ElementarySurfaceToBSplineSurface): Standard_Integer {.
     noSideEffect, importcpp: "NbVPoles",
     header: "Convert_ElementarySurfaceToBSplineSurface.hxx".}
-proc nbUKnots*(this: ConvertElementarySurfaceToBSplineSurface): StandardInteger {.
+proc NbUKnots*(this: Convert_ElementarySurfaceToBSplineSurface): Standard_Integer {.
     noSideEffect, importcpp: "NbUKnots",
     header: "Convert_ElementarySurfaceToBSplineSurface.hxx".}
-proc nbVKnots*(this: ConvertElementarySurfaceToBSplineSurface): StandardInteger {.
+proc NbVKnots*(this: Convert_ElementarySurfaceToBSplineSurface): Standard_Integer {.
     noSideEffect, importcpp: "NbVKnots",
     header: "Convert_ElementarySurfaceToBSplineSurface.hxx".}
-proc isUPeriodic*(this: ConvertElementarySurfaceToBSplineSurface): StandardBoolean {.
+proc IsUPeriodic*(this: Convert_ElementarySurfaceToBSplineSurface): Standard_Boolean {.
     noSideEffect, importcpp: "IsUPeriodic",
     header: "Convert_ElementarySurfaceToBSplineSurface.hxx".}
-proc isVPeriodic*(this: ConvertElementarySurfaceToBSplineSurface): StandardBoolean {.
+proc IsVPeriodic*(this: Convert_ElementarySurfaceToBSplineSurface): Standard_Boolean {.
     noSideEffect, importcpp: "IsVPeriodic",
     header: "Convert_ElementarySurfaceToBSplineSurface.hxx".}
-proc pole*(this: ConvertElementarySurfaceToBSplineSurface; uIndex: StandardInteger;
-          vIndex: StandardInteger): GpPnt {.noSideEffect, importcpp: "Pole",
-    header: "Convert_ElementarySurfaceToBSplineSurface.hxx".}
-proc weight*(this: ConvertElementarySurfaceToBSplineSurface;
-            uIndex: StandardInteger; vIndex: StandardInteger): StandardReal {.
+proc Pole*(this: Convert_ElementarySurfaceToBSplineSurface;
+          UIndex: Standard_Integer; VIndex: Standard_Integer): gp_Pnt {.noSideEffect,
+    importcpp: "Pole", header: "Convert_ElementarySurfaceToBSplineSurface.hxx".}
+proc Weight*(this: Convert_ElementarySurfaceToBSplineSurface;
+            UIndex: Standard_Integer; VIndex: Standard_Integer): Standard_Real {.
     noSideEffect, importcpp: "Weight",
     header: "Convert_ElementarySurfaceToBSplineSurface.hxx".}
-proc uKnot*(this: ConvertElementarySurfaceToBSplineSurface; uIndex: StandardInteger): StandardReal {.
-    noSideEffect, importcpp: "UKnot",
-    header: "Convert_ElementarySurfaceToBSplineSurface.hxx".}
-proc vKnot*(this: ConvertElementarySurfaceToBSplineSurface; uIndex: StandardInteger): StandardReal {.
-    noSideEffect, importcpp: "VKnot",
-    header: "Convert_ElementarySurfaceToBSplineSurface.hxx".}
-proc uMultiplicity*(this: ConvertElementarySurfaceToBSplineSurface;
-                   uIndex: StandardInteger): StandardInteger {.noSideEffect,
+proc UKnot*(this: Convert_ElementarySurfaceToBSplineSurface;
+           UIndex: Standard_Integer): Standard_Real {.noSideEffect,
+    importcpp: "UKnot", header: "Convert_ElementarySurfaceToBSplineSurface.hxx".}
+proc VKnot*(this: Convert_ElementarySurfaceToBSplineSurface;
+           UIndex: Standard_Integer): Standard_Real {.noSideEffect,
+    importcpp: "VKnot", header: "Convert_ElementarySurfaceToBSplineSurface.hxx".}
+proc UMultiplicity*(this: Convert_ElementarySurfaceToBSplineSurface;
+                   UIndex: Standard_Integer): Standard_Integer {.noSideEffect,
     importcpp: "UMultiplicity",
     header: "Convert_ElementarySurfaceToBSplineSurface.hxx".}
-proc vMultiplicity*(this: ConvertElementarySurfaceToBSplineSurface;
-                   vIndex: StandardInteger): StandardInteger {.noSideEffect,
+proc VMultiplicity*(this: Convert_ElementarySurfaceToBSplineSurface;
+                   VIndex: Standard_Integer): Standard_Integer {.noSideEffect,
     importcpp: "VMultiplicity",
     header: "Convert_ElementarySurfaceToBSplineSurface.hxx".}
-

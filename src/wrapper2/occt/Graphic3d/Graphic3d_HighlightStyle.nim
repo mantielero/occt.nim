@@ -15,4 +15,5 @@
 
 ##  header file for deprecated type Graphic3d_HighlightStyle
 
-
+import
+  ../Prs3d/Prs3d_Drawer

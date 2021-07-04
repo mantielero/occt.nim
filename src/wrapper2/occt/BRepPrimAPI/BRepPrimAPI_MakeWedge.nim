@@ -14,6 +14,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../BRepPrim/BRepPrim_Wedge,
+  ../BRepBuilderAPI/BRepBuilderAPI_MakeShape, ../Standard/Standard_Real
+
 discard "forward decl of Standard_DomainError"
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of gp_Ax2"
@@ -35,38 +40,38 @@ type
                                                                                                       ## 0)
 
 
-proc constructBRepPrimAPI_MakeWedge*(dx: StandardReal; dy: StandardReal;
-                                    dz: StandardReal; ltx: StandardReal): BRepPrimAPI_MakeWedge {.
+proc constructBRepPrimAPI_MakeWedge*(dx: Standard_Real; dy: Standard_Real;
+                                    dz: Standard_Real; ltx: Standard_Real): BRepPrimAPI_MakeWedge {.
     constructor, importcpp: "BRepPrimAPI_MakeWedge(@)",
     header: "BRepPrimAPI_MakeWedge.hxx".}
-proc constructBRepPrimAPI_MakeWedge*(axes: GpAx2; dx: StandardReal; dy: StandardReal;
-                                    dz: StandardReal; ltx: StandardReal): BRepPrimAPI_MakeWedge {.
+proc constructBRepPrimAPI_MakeWedge*(Axes: gp_Ax2; dx: Standard_Real;
+                                    dy: Standard_Real; dz: Standard_Real;
+                                    ltx: Standard_Real): BRepPrimAPI_MakeWedge {.
     constructor, importcpp: "BRepPrimAPI_MakeWedge(@)",
     header: "BRepPrimAPI_MakeWedge.hxx".}
-proc constructBRepPrimAPI_MakeWedge*(dx: StandardReal; dy: StandardReal;
-                                    dz: StandardReal; xmin: StandardReal;
-                                    zmin: StandardReal; xmax: StandardReal;
-                                    zmax: StandardReal): BRepPrimAPI_MakeWedge {.
+proc constructBRepPrimAPI_MakeWedge*(dx: Standard_Real; dy: Standard_Real;
+                                    dz: Standard_Real; xmin: Standard_Real;
+                                    zmin: Standard_Real; xmax: Standard_Real;
+                                    zmax: Standard_Real): BRepPrimAPI_MakeWedge {.
     constructor, importcpp: "BRepPrimAPI_MakeWedge(@)",
     header: "BRepPrimAPI_MakeWedge.hxx".}
-proc constructBRepPrimAPI_MakeWedge*(axes: GpAx2; dx: StandardReal; dy: StandardReal;
-                                    dz: StandardReal; xmin: StandardReal;
-                                    zmin: StandardReal; xmax: StandardReal;
-                                    zmax: StandardReal): BRepPrimAPI_MakeWedge {.
+proc constructBRepPrimAPI_MakeWedge*(Axes: gp_Ax2; dx: Standard_Real;
+                                    dy: Standard_Real; dz: Standard_Real;
+                                    xmin: Standard_Real; zmin: Standard_Real;
+                                    xmax: Standard_Real; zmax: Standard_Real): BRepPrimAPI_MakeWedge {.
     constructor, importcpp: "BRepPrimAPI_MakeWedge(@)",
     header: "BRepPrimAPI_MakeWedge.hxx".}
-proc wedge*(this: var BRepPrimAPI_MakeWedge): var BRepPrimWedge {.importcpp: "Wedge",
+proc Wedge*(this: var BRepPrimAPI_MakeWedge): var BRepPrim_Wedge {.importcpp: "Wedge",
     header: "BRepPrimAPI_MakeWedge.hxx".}
-proc build*(this: var BRepPrimAPI_MakeWedge) {.importcpp: "Build",
+proc Build*(this: var BRepPrimAPI_MakeWedge) {.importcpp: "Build",
     header: "BRepPrimAPI_MakeWedge.hxx".}
-proc shell*(this: var BRepPrimAPI_MakeWedge): TopoDS_Shell {.importcpp: "Shell",
+proc Shell*(this: var BRepPrimAPI_MakeWedge): TopoDS_Shell {.importcpp: "Shell",
     header: "BRepPrimAPI_MakeWedge.hxx".}
-converter `topoDS_Shell`*(this: var BRepPrimAPI_MakeWedge): TopoDS_Shell {.
+converter `TopoDS_Shell`*(this: var BRepPrimAPI_MakeWedge): TopoDS_Shell {.
     importcpp: "BRepPrimAPI_MakeWedge::operator TopoDS_Shell",
     header: "BRepPrimAPI_MakeWedge.hxx".}
-proc solid*(this: var BRepPrimAPI_MakeWedge): TopoDS_Solid {.importcpp: "Solid",
+proc Solid*(this: var BRepPrimAPI_MakeWedge): TopoDS_Solid {.importcpp: "Solid",
     header: "BRepPrimAPI_MakeWedge.hxx".}
-converter `topoDS_Solid`*(this: var BRepPrimAPI_MakeWedge): TopoDS_Solid {.
+converter `TopoDS_Solid`*(this: var BRepPrimAPI_MakeWedge): TopoDS_Solid {.
     importcpp: "BRepPrimAPI_MakeWedge::operator TopoDS_Solid",
     header: "BRepPrimAPI_MakeWedge.hxx".}
-

@@ -13,27 +13,30 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepDimTol_Datum"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepDimTolRWDatum* {.importcpp: "RWStepDimTol_RWDatum",
-                        header: "RWStepDimTol_RWDatum.hxx", bycopy.} = object ## ! Empty
-                                                                         ## constructor
+  RWStepDimTol_RWDatum* {.importcpp: "RWStepDimTol_RWDatum",
+                         header: "RWStepDimTol_RWDatum.hxx", bycopy.} = object ## ! Empty
+                                                                          ## constructor
 
 
-proc constructRWStepDimTolRWDatum*(): RWStepDimTolRWDatum {.constructor,
+proc constructRWStepDimTol_RWDatum*(): RWStepDimTol_RWDatum {.constructor,
     importcpp: "RWStepDimTol_RWDatum(@)", header: "RWStepDimTol_RWDatum.hxx".}
-proc readStep*(this: RWStepDimTolRWDatum; data: Handle[StepDataStepReaderData];
-              num: StandardInteger; ach: var Handle[InterfaceCheck];
-              ent: Handle[StepDimTolDatum]) {.noSideEffect, importcpp: "ReadStep",
+proc ReadStep*(this: RWStepDimTol_RWDatum; data: handle[StepData_StepReaderData];
+              num: Standard_Integer; ach: var handle[Interface_Check];
+              ent: handle[StepDimTol_Datum]) {.noSideEffect, importcpp: "ReadStep",
     header: "RWStepDimTol_RWDatum.hxx".}
-proc writeStep*(this: RWStepDimTolRWDatum; sw: var StepDataStepWriter;
-               ent: Handle[StepDimTolDatum]) {.noSideEffect,
+proc WriteStep*(this: RWStepDimTol_RWDatum; SW: var StepData_StepWriter;
+               ent: handle[StepDimTol_Datum]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepDimTol_RWDatum.hxx".}
-proc share*(this: RWStepDimTolRWDatum; ent: Handle[StepDimTolDatum];
-           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
+proc Share*(this: RWStepDimTol_RWDatum; ent: handle[StepDimTol_Datum];
+           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepDimTol_RWDatum.hxx".}
-

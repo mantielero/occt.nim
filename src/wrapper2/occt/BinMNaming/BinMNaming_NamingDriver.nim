@@ -13,42 +13,46 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../BinMDF/BinMDF_ADriver,
+  ../Standard/Standard_Boolean, ../BinObjMgt/BinObjMgt_RRelocationTable,
+  ../BinObjMgt/BinObjMgt_SRelocationTable
+
 discard "forward decl of Message_Messenger"
 discard "forward decl of TDF_Attribute"
 discard "forward decl of BinObjMgt_Persistent"
 discard "forward decl of BinMNaming_NamingDriver"
 discard "forward decl of BinMNaming_NamingDriver"
 type
-  HandleBinMNamingNamingDriver* = Handle[BinMNamingNamingDriver]
+  Handle_BinMNaming_NamingDriver* = handle[BinMNaming_NamingDriver]
 
 ## ! Naming  Attribute Driver.
 
 type
-  BinMNamingNamingDriver* {.importcpp: "BinMNaming_NamingDriver",
-                           header: "BinMNaming_NamingDriver.hxx", bycopy.} = object of BinMDF_ADriver
+  BinMNaming_NamingDriver* {.importcpp: "BinMNaming_NamingDriver",
+                            header: "BinMNaming_NamingDriver.hxx", bycopy.} = object of BinMDF_ADriver
 
 
-proc constructBinMNamingNamingDriver*(theMessageDriver: Handle[MessageMessenger]): BinMNamingNamingDriver {.
+proc constructBinMNaming_NamingDriver*(theMessageDriver: handle[Message_Messenger]): BinMNaming_NamingDriver {.
     constructor, importcpp: "BinMNaming_NamingDriver(@)",
     header: "BinMNaming_NamingDriver.hxx".}
-proc newEmpty*(this: BinMNamingNamingDriver): Handle[TDF_Attribute] {.noSideEffect,
+proc NewEmpty*(this: BinMNaming_NamingDriver): handle[TDF_Attribute] {.noSideEffect,
     importcpp: "NewEmpty", header: "BinMNaming_NamingDriver.hxx".}
-proc paste*(this: BinMNamingNamingDriver; source: BinObjMgtPersistent;
-           target: Handle[TDF_Attribute];
-           relocTable: var BinObjMgtRRelocationTable): StandardBoolean {.
+proc Paste*(this: BinMNaming_NamingDriver; Source: BinObjMgt_Persistent;
+           Target: handle[TDF_Attribute];
+           RelocTable: var BinObjMgt_RRelocationTable): Standard_Boolean {.
     noSideEffect, importcpp: "Paste", header: "BinMNaming_NamingDriver.hxx".}
-proc paste*(this: BinMNamingNamingDriver; source: Handle[TDF_Attribute];
-           target: var BinObjMgtPersistent;
-           relocTable: var BinObjMgtSRelocationTable) {.noSideEffect,
+proc Paste*(this: BinMNaming_NamingDriver; Source: handle[TDF_Attribute];
+           Target: var BinObjMgt_Persistent;
+           RelocTable: var BinObjMgt_SRelocationTable) {.noSideEffect,
     importcpp: "Paste", header: "BinMNaming_NamingDriver.hxx".}
 type
-  BinMNamingNamingDriverbaseType* = BinMDF_ADriver
+  BinMNaming_NamingDriverbase_type* = BinMDF_ADriver
 
-proc getTypeName*(): cstring {.importcpp: "BinMNaming_NamingDriver::get_type_name(@)",
-                            header: "BinMNaming_NamingDriver.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "BinMNaming_NamingDriver::get_type_name(@)",
+                              header: "BinMNaming_NamingDriver.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "BinMNaming_NamingDriver::get_type_descriptor(@)",
     header: "BinMNaming_NamingDriver.hxx".}
-proc dynamicType*(this: BinMNamingNamingDriver): Handle[StandardType] {.
+proc DynamicType*(this: BinMNaming_NamingDriver): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType", header: "BinMNaming_NamingDriver.hxx".}
-

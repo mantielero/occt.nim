@@ -14,41 +14,46 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../gp/gp_Pnt, ../Standard/Standard_Real,
+  ../Standard/Standard_Boolean, ../gp/gp_Vec, ../gp/gp_Dir2d,
+  ../Standard/Standard_Integer
+
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of StdFail_UndefinedDerivative"
 discard "forward decl of IntSurf_PathPoint"
 type
-  IntSurfPathPointTool* {.importcpp: "IntSurf_PathPointTool",
-                         header: "IntSurf_PathPointTool.hxx", bycopy.} = object ## !
-                                                                           ## Returns the 3d
-                                                                           ## coordinates of the
-                                                                           ## starting
-                                                                           ## point.
+  IntSurf_PathPointTool* {.importcpp: "IntSurf_PathPointTool",
+                          header: "IntSurf_PathPointTool.hxx", bycopy.} = object ## !
+                                                                            ## Returns the 3d
+                                                                            ## coordinates of the
+                                                                            ## starting
+                                                                            ## point.
 
 
-proc value3d*(pStart: IntSurfPathPoint): GpPnt {.
+proc Value3d*(PStart: IntSurf_PathPoint): gp_Pnt {.
     importcpp: "IntSurf_PathPointTool::Value3d(@)",
     header: "IntSurf_PathPointTool.hxx".}
-proc value2d*(pStart: IntSurfPathPoint; u: var StandardReal; v: var StandardReal) {.
+proc Value2d*(PStart: IntSurf_PathPoint; U: var Standard_Real; V: var Standard_Real) {.
     importcpp: "IntSurf_PathPointTool::Value2d(@)",
     header: "IntSurf_PathPointTool.hxx".}
-proc isPassingPnt*(pStart: IntSurfPathPoint): StandardBoolean {.
+proc IsPassingPnt*(PStart: IntSurf_PathPoint): Standard_Boolean {.
     importcpp: "IntSurf_PathPointTool::IsPassingPnt(@)",
     header: "IntSurf_PathPointTool.hxx".}
-proc isTangent*(pStart: IntSurfPathPoint): StandardBoolean {.
+proc IsTangent*(PStart: IntSurf_PathPoint): Standard_Boolean {.
     importcpp: "IntSurf_PathPointTool::IsTangent(@)",
     header: "IntSurf_PathPointTool.hxx".}
-proc direction3d*(pStart: IntSurfPathPoint): GpVec {.
+proc Direction3d*(PStart: IntSurf_PathPoint): gp_Vec {.
     importcpp: "IntSurf_PathPointTool::Direction3d(@)",
     header: "IntSurf_PathPointTool.hxx".}
-proc direction2d*(pStart: IntSurfPathPoint): GpDir2d {.
+proc Direction2d*(PStart: IntSurf_PathPoint): gp_Dir2d {.
     importcpp: "IntSurf_PathPointTool::Direction2d(@)",
     header: "IntSurf_PathPointTool.hxx".}
-proc multiplicity*(pStart: IntSurfPathPoint): StandardInteger {.
+proc Multiplicity*(PStart: IntSurf_PathPoint): Standard_Integer {.
     importcpp: "IntSurf_PathPointTool::Multiplicity(@)",
     header: "IntSurf_PathPointTool.hxx".}
-proc parameters*(pStart: IntSurfPathPoint; mult: StandardInteger;
-                u: var StandardReal; v: var StandardReal) {.
+proc Parameters*(PStart: IntSurf_PathPoint; Mult: Standard_Integer;
+                U: var Standard_Real; V: var Standard_Real) {.
     importcpp: "IntSurf_PathPointTool::Parameters(@)",
     header: "IntSurf_PathPointTool.hxx".}
-

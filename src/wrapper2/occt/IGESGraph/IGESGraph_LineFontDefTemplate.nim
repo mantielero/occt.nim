@@ -14,11 +14,15 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Integer,
+  ../Standard/Standard_Real, ../IGESData/IGESData_LineFontEntity
+
 discard "forward decl of IGESBasic_SubfigureDef"
 discard "forward decl of IGESGraph_LineFontDefTemplate"
 discard "forward decl of IGESGraph_LineFontDefTemplate"
 type
-  HandleIGESGraphLineFontDefTemplate* = Handle[IGESGraphLineFontDefTemplate]
+  Handle_IGESGraph_LineFontDefTemplate* = handle[IGESGraph_LineFontDefTemplate]
 
 ## ! defines IGESLineFontDefTemplate, Type <304> Form <1>
 ## ! in package IGESGraph
@@ -29,37 +33,36 @@ type
 ## ! no visual purpose.
 
 type
-  IGESGraphLineFontDefTemplate* {.importcpp: "IGESGraph_LineFontDefTemplate",
-                                 header: "IGESGraph_LineFontDefTemplate.hxx",
-                                 bycopy.} = object of IGESDataLineFontEntity
+  IGESGraph_LineFontDefTemplate* {.importcpp: "IGESGraph_LineFontDefTemplate",
+                                  header: "IGESGraph_LineFontDefTemplate.hxx",
+                                  bycopy.} = object of IGESData_LineFontEntity
 
 
-proc constructIGESGraphLineFontDefTemplate*(): IGESGraphLineFontDefTemplate {.
+proc constructIGESGraph_LineFontDefTemplate*(): IGESGraph_LineFontDefTemplate {.
     constructor, importcpp: "IGESGraph_LineFontDefTemplate(@)",
     header: "IGESGraph_LineFontDefTemplate.hxx".}
-proc init*(this: var IGESGraphLineFontDefTemplate; anOrientation: StandardInteger;
-          aTemplate: Handle[IGESBasicSubfigureDef]; aDistance: StandardReal;
-          aScale: StandardReal) {.importcpp: "Init",
-                                header: "IGESGraph_LineFontDefTemplate.hxx".}
-proc orientation*(this: IGESGraphLineFontDefTemplate): StandardInteger {.
+proc Init*(this: var IGESGraph_LineFontDefTemplate; anOrientation: Standard_Integer;
+          aTemplate: handle[IGESBasic_SubfigureDef]; aDistance: Standard_Real;
+          aScale: Standard_Real) {.importcpp: "Init",
+                                 header: "IGESGraph_LineFontDefTemplate.hxx".}
+proc Orientation*(this: IGESGraph_LineFontDefTemplate): Standard_Integer {.
     noSideEffect, importcpp: "Orientation",
     header: "IGESGraph_LineFontDefTemplate.hxx".}
-proc templateEntity*(this: IGESGraphLineFontDefTemplate): Handle[
-    IGESBasicSubfigureDef] {.noSideEffect, importcpp: "TemplateEntity",
-                            header: "IGESGraph_LineFontDefTemplate.hxx".}
-proc distance*(this: IGESGraphLineFontDefTemplate): StandardReal {.noSideEffect,
+proc TemplateEntity*(this: IGESGraph_LineFontDefTemplate): handle[
+    IGESBasic_SubfigureDef] {.noSideEffect, importcpp: "TemplateEntity",
+                             header: "IGESGraph_LineFontDefTemplate.hxx".}
+proc Distance*(this: IGESGraph_LineFontDefTemplate): Standard_Real {.noSideEffect,
     importcpp: "Distance", header: "IGESGraph_LineFontDefTemplate.hxx".}
-proc scale*(this: IGESGraphLineFontDefTemplate): StandardReal {.noSideEffect,
+proc Scale*(this: IGESGraph_LineFontDefTemplate): Standard_Real {.noSideEffect,
     importcpp: "Scale", header: "IGESGraph_LineFontDefTemplate.hxx".}
 type
-  IGESGraphLineFontDefTemplatebaseType* = IGESDataLineFontEntity
+  IGESGraph_LineFontDefTemplatebase_type* = IGESData_LineFontEntity
 
-proc getTypeName*(): cstring {.importcpp: "IGESGraph_LineFontDefTemplate::get_type_name(@)",
-                            header: "IGESGraph_LineFontDefTemplate.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "IGESGraph_LineFontDefTemplate::get_type_name(@)",
+                              header: "IGESGraph_LineFontDefTemplate.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "IGESGraph_LineFontDefTemplate::get_type_descriptor(@)",
     header: "IGESGraph_LineFontDefTemplate.hxx".}
-proc dynamicType*(this: IGESGraphLineFontDefTemplate): Handle[StandardType] {.
+proc DynamicType*(this: IGESGraph_LineFontDefTemplate): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType",
     header: "IGESGraph_LineFontDefTemplate.hxx".}
-

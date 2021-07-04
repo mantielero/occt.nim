@@ -13,30 +13,33 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepRepr_ReprItemAndPlaneAngleMeasureWithUnitAndQRI"
 discard "forward decl of StepData_StepWriter"
 type
-  RWStepReprRWReprItemAndPlaneAngleMeasureWithUnitAndQRI* {.
+  RWStepRepr_RWReprItemAndPlaneAngleMeasureWithUnitAndQRI* {.
       importcpp: "RWStepRepr_RWReprItemAndPlaneAngleMeasureWithUnitAndQRI",
       header: "RWStepRepr_RWReprItemAndPlaneAngleMeasureWithUnitAndQRI.hxx",
       bycopy.} = object
 
 
-proc constructRWStepReprRWReprItemAndPlaneAngleMeasureWithUnitAndQRI*(): RWStepReprRWReprItemAndPlaneAngleMeasureWithUnitAndQRI {.
+proc constructRWStepRepr_RWReprItemAndPlaneAngleMeasureWithUnitAndQRI*(): RWStepRepr_RWReprItemAndPlaneAngleMeasureWithUnitAndQRI {.
     constructor,
     importcpp: "RWStepRepr_RWReprItemAndPlaneAngleMeasureWithUnitAndQRI(@)",
     header: "RWStepRepr_RWReprItemAndPlaneAngleMeasureWithUnitAndQRI.hxx".}
-proc readStep*(this: RWStepReprRWReprItemAndPlaneAngleMeasureWithUnitAndQRI;
-              data: Handle[StepDataStepReaderData]; num: StandardInteger;
-              ach: var Handle[InterfaceCheck];
-              ent: Handle[StepReprReprItemAndPlaneAngleMeasureWithUnitAndQRI]) {.
+proc ReadStep*(this: RWStepRepr_RWReprItemAndPlaneAngleMeasureWithUnitAndQRI;
+              data: handle[StepData_StepReaderData]; num: Standard_Integer;
+              ach: var handle[Interface_Check];
+              ent: handle[StepRepr_ReprItemAndPlaneAngleMeasureWithUnitAndQRI]) {.
     noSideEffect, importcpp: "ReadStep",
     header: "RWStepRepr_RWReprItemAndPlaneAngleMeasureWithUnitAndQRI.hxx".}
-proc writeStep*(this: RWStepReprRWReprItemAndPlaneAngleMeasureWithUnitAndQRI;
-               sw: var StepDataStepWriter;
-               ent: Handle[StepReprReprItemAndPlaneAngleMeasureWithUnitAndQRI]) {.
+proc WriteStep*(this: RWStepRepr_RWReprItemAndPlaneAngleMeasureWithUnitAndQRI;
+               SW: var StepData_StepWriter;
+               ent: handle[StepRepr_ReprItemAndPlaneAngleMeasureWithUnitAndQRI]) {.
     noSideEffect, importcpp: "WriteStep",
     header: "RWStepRepr_RWReprItemAndPlaneAngleMeasureWithUnitAndQRI.hxx".}
-

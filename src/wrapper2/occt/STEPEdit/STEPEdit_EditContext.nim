@@ -14,6 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../IFSelect/IFSelect_Editor,
+  ../Standard/Standard_Boolean, ../Standard/Standard_Integer
+
 discard "forward decl of TCollection_AsciiString"
 discard "forward decl of IFSelect_EditForm"
 discard "forward decl of TCollection_HAsciiString"
@@ -22,7 +26,7 @@ discard "forward decl of Interface_InterfaceModel"
 discard "forward decl of STEPEdit_EditContext"
 discard "forward decl of STEPEdit_EditContext"
 type
-  HandleSTEPEditEditContext* = Handle[STEPEditEditContext]
+  Handle_STEPEdit_EditContext* = handle[STEPEdit_EditContext]
 
 ## ! EditContext is an Editor fit for
 ## ! Product Definition Context (one per Model) , i.e. :
@@ -31,33 +35,33 @@ type
 ## ! - ProductRelatedProductCategory
 
 type
-  STEPEditEditContext* {.importcpp: "STEPEdit_EditContext",
-                        header: "STEPEdit_EditContext.hxx", bycopy.} = object of IFSelectEditor
+  STEPEdit_EditContext* {.importcpp: "STEPEdit_EditContext",
+                         header: "STEPEdit_EditContext.hxx", bycopy.} = object of IFSelect_Editor
 
 
-proc constructSTEPEditEditContext*(): STEPEditEditContext {.constructor,
+proc constructSTEPEdit_EditContext*(): STEPEdit_EditContext {.constructor,
     importcpp: "STEPEdit_EditContext(@)", header: "STEPEdit_EditContext.hxx".}
-proc label*(this: STEPEditEditContext): TCollectionAsciiString {.noSideEffect,
+proc Label*(this: STEPEdit_EditContext): TCollection_AsciiString {.noSideEffect,
     importcpp: "Label", header: "STEPEdit_EditContext.hxx".}
-proc recognize*(this: STEPEditEditContext; form: Handle[IFSelectEditForm]): StandardBoolean {.
+proc Recognize*(this: STEPEdit_EditContext; form: handle[IFSelect_EditForm]): Standard_Boolean {.
     noSideEffect, importcpp: "Recognize", header: "STEPEdit_EditContext.hxx".}
-proc stringValue*(this: STEPEditEditContext; form: Handle[IFSelectEditForm];
-                 num: StandardInteger): Handle[TCollectionHAsciiString] {.
+proc StringValue*(this: STEPEdit_EditContext; form: handle[IFSelect_EditForm];
+                 num: Standard_Integer): handle[TCollection_HAsciiString] {.
     noSideEffect, importcpp: "StringValue", header: "STEPEdit_EditContext.hxx".}
-proc apply*(this: STEPEditEditContext; form: Handle[IFSelectEditForm];
-           ent: Handle[StandardTransient]; model: Handle[InterfaceInterfaceModel]): StandardBoolean {.
+proc Apply*(this: STEPEdit_EditContext; form: handle[IFSelect_EditForm];
+           ent: handle[Standard_Transient];
+           model: handle[Interface_InterfaceModel]): Standard_Boolean {.
     noSideEffect, importcpp: "Apply", header: "STEPEdit_EditContext.hxx".}
-proc load*(this: STEPEditEditContext; form: Handle[IFSelectEditForm];
-          ent: Handle[StandardTransient]; model: Handle[InterfaceInterfaceModel]): StandardBoolean {.
+proc Load*(this: STEPEdit_EditContext; form: handle[IFSelect_EditForm];
+          ent: handle[Standard_Transient]; model: handle[Interface_InterfaceModel]): Standard_Boolean {.
     noSideEffect, importcpp: "Load", header: "STEPEdit_EditContext.hxx".}
 type
-  STEPEditEditContextbaseType* = IFSelectEditor
+  STEPEdit_EditContextbase_type* = IFSelect_Editor
 
-proc getTypeName*(): cstring {.importcpp: "STEPEdit_EditContext::get_type_name(@)",
-                            header: "STEPEdit_EditContext.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "STEPEdit_EditContext::get_type_name(@)",
+                              header: "STEPEdit_EditContext.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "STEPEdit_EditContext::get_type_descriptor(@)",
     header: "STEPEdit_EditContext.hxx".}
-proc dynamicType*(this: STEPEditEditContext): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: STEPEdit_EditContext): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "STEPEdit_EditContext.hxx".}
-

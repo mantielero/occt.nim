@@ -14,66 +14,70 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../gp/gp_Pnt2d, Geom2d_Point,
+  ../Standard/Standard_Real
+
 discard "forward decl of gp_Pnt2d"
 discard "forward decl of gp_Trsf2d"
 discard "forward decl of Geom2d_Geometry"
 discard "forward decl of Geom2d_CartesianPoint"
 discard "forward decl of Geom2d_CartesianPoint"
 type
-  HandleGeom2dCartesianPoint* = Handle[Geom2dCartesianPoint]
+  Handle_Geom2d_CartesianPoint* = handle[Geom2d_CartesianPoint]
 
 ## ! Describes a point in 2D space. A
 ## ! Geom2d_CartesianPoint is defined by a gp_Pnt2d
 ## ! point, with its two Cartesian coordinates X and Y.
 
 type
-  Geom2dCartesianPoint* {.importcpp: "Geom2d_CartesianPoint",
-                         header: "Geom2d_CartesianPoint.hxx", bycopy.} = object of Geom2dPoint ##
-                                                                                        ## !
-                                                                                        ## Returns
-                                                                                        ## a
-                                                                                        ## persistent
-                                                                                        ## copy
-                                                                                        ## of
-                                                                                        ## P.
+  Geom2d_CartesianPoint* {.importcpp: "Geom2d_CartesianPoint",
+                          header: "Geom2d_CartesianPoint.hxx", bycopy.} = object of Geom2d_Point ##
+                                                                                          ## !
+                                                                                          ## Returns
+                                                                                          ## a
+                                                                                          ## persistent
+                                                                                          ## copy
+                                                                                          ## of
+                                                                                          ## P.
 
 
-proc constructGeom2dCartesianPoint*(p: GpPnt2d): Geom2dCartesianPoint {.constructor,
-    importcpp: "Geom2d_CartesianPoint(@)", header: "Geom2d_CartesianPoint.hxx".}
-proc constructGeom2dCartesianPoint*(x: StandardReal; y: StandardReal): Geom2dCartesianPoint {.
+proc constructGeom2d_CartesianPoint*(P: gp_Pnt2d): Geom2d_CartesianPoint {.
     constructor, importcpp: "Geom2d_CartesianPoint(@)",
     header: "Geom2d_CartesianPoint.hxx".}
-proc setCoord*(this: var Geom2dCartesianPoint; x: StandardReal; y: StandardReal) {.
+proc constructGeom2d_CartesianPoint*(X: Standard_Real; Y: Standard_Real): Geom2d_CartesianPoint {.
+    constructor, importcpp: "Geom2d_CartesianPoint(@)",
+    header: "Geom2d_CartesianPoint.hxx".}
+proc SetCoord*(this: var Geom2d_CartesianPoint; X: Standard_Real; Y: Standard_Real) {.
     importcpp: "SetCoord", header: "Geom2d_CartesianPoint.hxx".}
-proc setPnt2d*(this: var Geom2dCartesianPoint; p: GpPnt2d) {.importcpp: "SetPnt2d",
+proc SetPnt2d*(this: var Geom2d_CartesianPoint; P: gp_Pnt2d) {.importcpp: "SetPnt2d",
     header: "Geom2d_CartesianPoint.hxx".}
-proc setX*(this: var Geom2dCartesianPoint; x: StandardReal) {.importcpp: "SetX",
+proc SetX*(this: var Geom2d_CartesianPoint; X: Standard_Real) {.importcpp: "SetX",
     header: "Geom2d_CartesianPoint.hxx".}
-proc setY*(this: var Geom2dCartesianPoint; y: StandardReal) {.importcpp: "SetY",
+proc SetY*(this: var Geom2d_CartesianPoint; Y: Standard_Real) {.importcpp: "SetY",
     header: "Geom2d_CartesianPoint.hxx".}
-proc coord*(this: Geom2dCartesianPoint; x: var StandardReal; y: var StandardReal) {.
+proc Coord*(this: Geom2d_CartesianPoint; X: var Standard_Real; Y: var Standard_Real) {.
     noSideEffect, importcpp: "Coord", header: "Geom2d_CartesianPoint.hxx".}
-proc pnt2d*(this: Geom2dCartesianPoint): GpPnt2d {.noSideEffect, importcpp: "Pnt2d",
+proc Pnt2d*(this: Geom2d_CartesianPoint): gp_Pnt2d {.noSideEffect,
+    importcpp: "Pnt2d", header: "Geom2d_CartesianPoint.hxx".}
+proc X*(this: Geom2d_CartesianPoint): Standard_Real {.noSideEffect, importcpp: "X",
     header: "Geom2d_CartesianPoint.hxx".}
-proc x*(this: Geom2dCartesianPoint): StandardReal {.noSideEffect, importcpp: "X",
+proc Y*(this: Geom2d_CartesianPoint): Standard_Real {.noSideEffect, importcpp: "Y",
     header: "Geom2d_CartesianPoint.hxx".}
-proc y*(this: Geom2dCartesianPoint): StandardReal {.noSideEffect, importcpp: "Y",
-    header: "Geom2d_CartesianPoint.hxx".}
-proc transform*(this: var Geom2dCartesianPoint; t: GpTrsf2d) {.importcpp: "Transform",
-    header: "Geom2d_CartesianPoint.hxx".}
-proc copy*(this: Geom2dCartesianPoint): Handle[Geom2dGeometry] {.noSideEffect,
+proc Transform*(this: var Geom2d_CartesianPoint; T: gp_Trsf2d) {.
+    importcpp: "Transform", header: "Geom2d_CartesianPoint.hxx".}
+proc Copy*(this: Geom2d_CartesianPoint): handle[Geom2d_Geometry] {.noSideEffect,
     importcpp: "Copy", header: "Geom2d_CartesianPoint.hxx".}
-proc dumpJson*(this: Geom2dCartesianPoint; theOStream: var StandardOStream;
-              theDepth: StandardInteger = -1) {.noSideEffect, importcpp: "DumpJson",
+proc DumpJson*(this: Geom2d_CartesianPoint; theOStream: var Standard_OStream;
+              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
     header: "Geom2d_CartesianPoint.hxx".}
 type
-  Geom2dCartesianPointbaseType* = Geom2dPoint
+  Geom2d_CartesianPointbase_type* = Geom2d_Point
 
-proc getTypeName*(): cstring {.importcpp: "Geom2d_CartesianPoint::get_type_name(@)",
-                            header: "Geom2d_CartesianPoint.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "Geom2d_CartesianPoint::get_type_name(@)",
+                              header: "Geom2d_CartesianPoint.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "Geom2d_CartesianPoint::get_type_descriptor(@)",
     header: "Geom2d_CartesianPoint.hxx".}
-proc dynamicType*(this: Geom2dCartesianPoint): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "Geom2d_CartesianPoint.hxx".}
-
+proc DynamicType*(this: Geom2d_CartesianPoint): handle[Standard_Type] {.
+    noSideEffect, importcpp: "DynamicType", header: "Geom2d_CartesianPoint.hxx".}

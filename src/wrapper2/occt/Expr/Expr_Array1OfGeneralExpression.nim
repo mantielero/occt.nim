@@ -14,7 +14,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  Expr_GeneralExpression, ../NCollection/NCollection_Array1
+
 type
-  ExprArray1OfGeneralExpression* = NCollectionArray1[Handle[ExprGeneralExpression]]
-
-
+  Expr_Array1OfGeneralExpression* = NCollection_Array1[
+      handle[Expr_GeneralExpression]]

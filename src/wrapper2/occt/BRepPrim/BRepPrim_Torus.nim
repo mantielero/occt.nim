@@ -14,54 +14,58 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Real, BRepPrim_Revolution
+
 discard "forward decl of Standard_DomainError"
 discard "forward decl of gp_Ax2"
 discard "forward decl of gp_Pnt"
 discard "forward decl of TopoDS_Face"
 type
-  BRepPrimTorus* {.importcpp: "BRepPrim_Torus", header: "BRepPrim_Torus.hxx", bycopy.} = object of BRepPrimRevolution ##
-                                                                                                            ## !
-                                                                                                            ## the
-                                                                                                            ## STEP
-                                                                                                            ## definition
-                                                                                                            ##
-                                                                                                            ## !
-                                                                                                            ## Position
-                                                                                                            ## :
-                                                                                                            ## center
-                                                                                                            ## and
-                                                                                                            ## axes
-                                                                                                            ##
-                                                                                                            ## !
-                                                                                                            ## Major,
-                                                                                                            ## Minor
-                                                                                                            ## :
-                                                                                                            ## Radii
-                                                                                                            ##
-                                                                                                            ## !
-                                                                                                            ##
-                                                                                                            ## !
-                                                                                                            ## Errors
-                                                                                                            ## :
-                                                                                                            ## Major
-                                                                                                            ## <
-                                                                                                            ## Resolution
-                                                                                                            ##
-                                                                                                            ## !
-                                                                                                            ## Minor
-                                                                                                            ## <
-                                                                                                            ## Resolution
+  BRepPrim_Torus* {.importcpp: "BRepPrim_Torus", header: "BRepPrim_Torus.hxx", bycopy.} = object of BRepPrim_Revolution ##
+                                                                                                              ## !
+                                                                                                              ## the
+                                                                                                              ## STEP
+                                                                                                              ## definition
+                                                                                                              ##
+                                                                                                              ## !
+                                                                                                              ## Position
+                                                                                                              ## :
+                                                                                                              ## center
+                                                                                                              ## and
+                                                                                                              ## axes
+                                                                                                              ##
+                                                                                                              ## !
+                                                                                                              ## Major,
+                                                                                                              ## Minor
+                                                                                                              ## :
+                                                                                                              ## Radii
+                                                                                                              ##
+                                                                                                              ## !
+                                                                                                              ##
+                                                                                                              ## !
+                                                                                                              ## Errors
+                                                                                                              ## :
+                                                                                                              ## Major
+                                                                                                              ## <
+                                                                                                              ## Resolution
+                                                                                                              ##
+                                                                                                              ## !
+                                                                                                              ## Minor
+                                                                                                              ## <
+                                                                                                              ## Resolution
     ## !< distance from the center of the pipe to the center of the torus
     ## !< radius of the pipe
 
 
-proc constructBRepPrimTorus*(position: GpAx2; major: StandardReal;
-                            minor: StandardReal): BRepPrimTorus {.constructor,
+proc constructBRepPrim_Torus*(Position: gp_Ax2; Major: Standard_Real;
+                             Minor: Standard_Real): BRepPrim_Torus {.constructor,
     importcpp: "BRepPrim_Torus(@)", header: "BRepPrim_Torus.hxx".}
-proc constructBRepPrimTorus*(major: StandardReal; minor: StandardReal): BRepPrimTorus {.
+proc constructBRepPrim_Torus*(Major: Standard_Real; Minor: Standard_Real): BRepPrim_Torus {.
     constructor, importcpp: "BRepPrim_Torus(@)", header: "BRepPrim_Torus.hxx".}
-proc constructBRepPrimTorus*(center: GpPnt; major: StandardReal; minor: StandardReal): BRepPrimTorus {.
-    constructor, importcpp: "BRepPrim_Torus(@)", header: "BRepPrim_Torus.hxx".}
-proc makeEmptyLateralFace*(this: BRepPrimTorus): TopoDS_Face {.noSideEffect,
+proc constructBRepPrim_Torus*(Center: gp_Pnt; Major: Standard_Real;
+                             Minor: Standard_Real): BRepPrim_Torus {.constructor,
+    importcpp: "BRepPrim_Torus(@)", header: "BRepPrim_Torus.hxx".}
+proc MakeEmptyLateralFace*(this: BRepPrim_Torus): TopoDS_Face {.noSideEffect,
     importcpp: "MakeEmptyLateralFace", header: "BRepPrim_Torus.hxx".}
-

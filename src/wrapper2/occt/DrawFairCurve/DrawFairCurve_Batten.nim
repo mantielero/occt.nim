@@ -14,53 +14,57 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Address,
+  ../DrawTrSurf/DrawTrSurf_BSplineCurve2d, ../Standard/Standard_Integer,
+  ../Standard/Standard_Real, ../Standard/Standard_OStream
+
 discard "forward decl of gp_Pnt2d"
 discard "forward decl of DrawFairCurve_Batten"
 discard "forward decl of DrawFairCurve_Batten"
 type
-  HandleDrawFairCurveBatten* = Handle[DrawFairCurveBatten]
+  Handle_DrawFairCurve_Batten* = handle[DrawFairCurve_Batten]
 
 ## ! Interactive Draw object of type "Batten"
 
 type
-  DrawFairCurveBatten* {.importcpp: "DrawFairCurve_Batten",
-                        header: "DrawFairCurve_Batten.hxx", bycopy.} = object of DrawTrSurfBSplineCurve2d
+  DrawFairCurve_Batten* {.importcpp: "DrawFairCurve_Batten",
+                         header: "DrawFairCurve_Batten.hxx", bycopy.} = object of DrawTrSurf_BSplineCurve2d
 
 
-proc constructDrawFairCurveBatten*(theBatten: StandardAddress): DrawFairCurveBatten {.
+proc constructDrawFairCurve_Batten*(TheBatten: Standard_Address): DrawFairCurve_Batten {.
     constructor, importcpp: "DrawFairCurve_Batten(@)",
     header: "DrawFairCurve_Batten.hxx".}
-proc compute*(this: var DrawFairCurveBatten) {.importcpp: "Compute",
+proc Compute*(this: var DrawFairCurve_Batten) {.importcpp: "Compute",
     header: "DrawFairCurve_Batten.hxx".}
-proc setPoint*(this: var DrawFairCurveBatten; side: StandardInteger; point: GpPnt2d) {.
+proc SetPoint*(this: var DrawFairCurve_Batten; Side: Standard_Integer; Point: gp_Pnt2d) {.
     importcpp: "SetPoint", header: "DrawFairCurve_Batten.hxx".}
-proc setAngle*(this: var DrawFairCurveBatten; side: StandardInteger;
-              angle: StandardReal) {.importcpp: "SetAngle",
-                                   header: "DrawFairCurve_Batten.hxx".}
-proc setSliding*(this: var DrawFairCurveBatten; length: StandardReal) {.
+proc SetAngle*(this: var DrawFairCurve_Batten; Side: Standard_Integer;
+              Angle: Standard_Real) {.importcpp: "SetAngle",
+                                    header: "DrawFairCurve_Batten.hxx".}
+proc SetSliding*(this: var DrawFairCurve_Batten; Length: Standard_Real) {.
     importcpp: "SetSliding", header: "DrawFairCurve_Batten.hxx".}
-proc setHeight*(this: var DrawFairCurveBatten; heigth: StandardReal) {.
+proc SetHeight*(this: var DrawFairCurve_Batten; Heigth: Standard_Real) {.
     importcpp: "SetHeight", header: "DrawFairCurve_Batten.hxx".}
-proc setSlope*(this: var DrawFairCurveBatten; slope: StandardReal) {.
+proc SetSlope*(this: var DrawFairCurve_Batten; Slope: Standard_Real) {.
     importcpp: "SetSlope", header: "DrawFairCurve_Batten.hxx".}
-proc getAngle*(this: DrawFairCurveBatten; side: StandardInteger): StandardReal {.
+proc GetAngle*(this: DrawFairCurve_Batten; Side: Standard_Integer): Standard_Real {.
     noSideEffect, importcpp: "GetAngle", header: "DrawFairCurve_Batten.hxx".}
-proc getSliding*(this: DrawFairCurveBatten): StandardReal {.noSideEffect,
+proc GetSliding*(this: DrawFairCurve_Batten): Standard_Real {.noSideEffect,
     importcpp: "GetSliding", header: "DrawFairCurve_Batten.hxx".}
-proc freeSliding*(this: var DrawFairCurveBatten) {.importcpp: "FreeSliding",
+proc FreeSliding*(this: var DrawFairCurve_Batten) {.importcpp: "FreeSliding",
     header: "DrawFairCurve_Batten.hxx".}
-proc freeAngle*(this: var DrawFairCurveBatten; side: StandardInteger) {.
+proc FreeAngle*(this: var DrawFairCurve_Batten; Side: Standard_Integer) {.
     importcpp: "FreeAngle", header: "DrawFairCurve_Batten.hxx".}
-proc dump*(this: DrawFairCurveBatten; s: var StandardOStream) {.noSideEffect,
+proc Dump*(this: DrawFairCurve_Batten; S: var Standard_OStream) {.noSideEffect,
     importcpp: "Dump", header: "DrawFairCurve_Batten.hxx".}
 type
-  DrawFairCurveBattenbaseType* = DrawTrSurfBSplineCurve2d
+  DrawFairCurve_Battenbase_type* = DrawTrSurf_BSplineCurve2d
 
-proc getTypeName*(): cstring {.importcpp: "DrawFairCurve_Batten::get_type_name(@)",
-                            header: "DrawFairCurve_Batten.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "DrawFairCurve_Batten::get_type_name(@)",
+                              header: "DrawFairCurve_Batten.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "DrawFairCurve_Batten::get_type_descriptor(@)",
     header: "DrawFairCurve_Batten.hxx".}
-proc dynamicType*(this: DrawFairCurveBatten): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: DrawFairCurve_Batten): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "DrawFairCurve_Batten.hxx".}
-

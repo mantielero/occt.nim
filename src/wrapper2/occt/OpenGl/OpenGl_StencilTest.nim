@@ -13,26 +13,28 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  OpenGl_Element
+
 type
-  OpenGlStencilTest* {.importcpp: "OpenGl_StencilTest",
-                      header: "OpenGl_StencilTest.hxx", bycopy.} = object of OpenGlElement ##
-                                                                                    ## !
-                                                                                    ## Default
-                                                                                    ## constructor
-                                                                                    ##
-                                                                                    ## !
-                                                                                    ## Destructor
+  OpenGl_StencilTest* {.importcpp: "OpenGl_StencilTest",
+                       header: "OpenGl_StencilTest.hxx", bycopy.} = object of OpenGl_Element ##
+                                                                                      ## !
+                                                                                      ## Default
+                                                                                      ## constructor
+                                                                                      ##
+                                                                                      ## !
+                                                                                      ## Destructor
 
 
-proc constructOpenGlStencilTest*(): OpenGlStencilTest {.constructor,
+proc constructOpenGl_StencilTest*(): OpenGl_StencilTest {.constructor,
     importcpp: "OpenGl_StencilTest(@)", header: "OpenGl_StencilTest.hxx".}
-proc render*(this: OpenGlStencilTest; theWorkspace: Handle[OpenGlWorkspace]) {.
+proc Render*(this: OpenGl_StencilTest; theWorkspace: handle[OpenGl_Workspace]) {.
     noSideEffect, importcpp: "Render", header: "OpenGl_StencilTest.hxx".}
-proc release*(this: var OpenGlStencilTest; theContext: ptr OpenGlContext) {.
+proc Release*(this: var OpenGl_StencilTest; theContext: ptr OpenGl_Context) {.
     importcpp: "Release", header: "OpenGl_StencilTest.hxx".}
-proc setOptions*(this: var OpenGlStencilTest; theIsEnabled: StandardBoolean) {.
+proc SetOptions*(this: var OpenGl_StencilTest; theIsEnabled: Standard_Boolean) {.
     importcpp: "SetOptions", header: "OpenGl_StencilTest.hxx".}
-proc dumpJson*(this: OpenGlStencilTest; theOStream: var StandardOStream;
-              theDepth: StandardInteger = -1) {.noSideEffect, importcpp: "DumpJson",
+proc DumpJson*(this: OpenGl_StencilTest; theOStream: var Standard_OStream;
+              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
     header: "OpenGl_StencilTest.hxx".}
-

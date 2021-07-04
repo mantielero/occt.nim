@@ -14,89 +14,95 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Boolean, HLRBRep_Surface,
+  ../Standard/Standard_Real, ../Standard/Standard_ShortReal,
+  ../TopAbs/TopAbs_Orientation, ../Standard/Standard_Integer
+
 discard "forward decl of HLRAlgo_WiresBlock"
 discard "forward decl of TopoDS_Face"
 discard "forward decl of HLRBRep_Surface"
 type
-  HLRBRepFaceData* {.importcpp: "HLRBRep_FaceData", header: "HLRBRep_FaceData.hxx",
-                    bycopy.} = object
+  HLRBRep_FaceData* {.importcpp: "HLRBRep_FaceData",
+                     header: "HLRBRep_FaceData.hxx", bycopy.} = object
 
 
-proc constructHLRBRepFaceData*(): HLRBRepFaceData {.constructor,
+proc constructHLRBRep_FaceData*(): HLRBRep_FaceData {.constructor,
     importcpp: "HLRBRep_FaceData(@)", header: "HLRBRep_FaceData.hxx".}
-proc set*(this: var HLRBRepFaceData; fg: TopoDS_Face; `or`: TopAbsOrientation;
-         cl: StandardBoolean; nw: StandardInteger) {.importcpp: "Set",
+proc Set*(this: var HLRBRep_FaceData; FG: TopoDS_Face; Or: TopAbs_Orientation;
+         Cl: Standard_Boolean; NW: Standard_Integer) {.importcpp: "Set",
     header: "HLRBRep_FaceData.hxx".}
-proc setWire*(this: var HLRBRepFaceData; wi: StandardInteger; ne: StandardInteger) {.
+proc SetWire*(this: var HLRBRep_FaceData; WI: Standard_Integer; NE: Standard_Integer) {.
     importcpp: "SetWire", header: "HLRBRep_FaceData.hxx".}
-proc setWEdge*(this: var HLRBRepFaceData; wi: StandardInteger; ewi: StandardInteger;
-              ei: StandardInteger; `or`: TopAbsOrientation; outL: StandardBoolean;
-              inte: StandardBoolean; dble: StandardBoolean; isoL: StandardBoolean) {.
+proc SetWEdge*(this: var HLRBRep_FaceData; WI: Standard_Integer;
+              EWI: Standard_Integer; EI: Standard_Integer; Or: TopAbs_Orientation;
+              OutL: Standard_Boolean; Inte: Standard_Boolean;
+              Dble: Standard_Boolean; IsoL: Standard_Boolean) {.
     importcpp: "SetWEdge", header: "HLRBRep_FaceData.hxx".}
-proc selected*(this: HLRBRepFaceData): StandardBoolean {.noSideEffect,
+proc Selected*(this: HLRBRep_FaceData): Standard_Boolean {.noSideEffect,
     importcpp: "Selected", header: "HLRBRep_FaceData.hxx".}
-proc selected*(this: var HLRBRepFaceData; b: StandardBoolean) {.importcpp: "Selected",
+proc Selected*(this: var HLRBRep_FaceData; B: Standard_Boolean) {.
+    importcpp: "Selected", header: "HLRBRep_FaceData.hxx".}
+proc Back*(this: HLRBRep_FaceData): Standard_Boolean {.noSideEffect,
+    importcpp: "Back", header: "HLRBRep_FaceData.hxx".}
+proc Back*(this: var HLRBRep_FaceData; B: Standard_Boolean) {.importcpp: "Back",
     header: "HLRBRep_FaceData.hxx".}
-proc back*(this: HLRBRepFaceData): StandardBoolean {.noSideEffect, importcpp: "Back",
+proc Side*(this: HLRBRep_FaceData): Standard_Boolean {.noSideEffect,
+    importcpp: "Side", header: "HLRBRep_FaceData.hxx".}
+proc Side*(this: var HLRBRep_FaceData; B: Standard_Boolean) {.importcpp: "Side",
     header: "HLRBRep_FaceData.hxx".}
-proc back*(this: var HLRBRepFaceData; b: StandardBoolean) {.importcpp: "Back",
-    header: "HLRBRep_FaceData.hxx".}
-proc side*(this: HLRBRepFaceData): StandardBoolean {.noSideEffect, importcpp: "Side",
-    header: "HLRBRep_FaceData.hxx".}
-proc side*(this: var HLRBRepFaceData; b: StandardBoolean) {.importcpp: "Side",
-    header: "HLRBRep_FaceData.hxx".}
-proc closed*(this: HLRBRepFaceData): StandardBoolean {.noSideEffect,
+proc Closed*(this: HLRBRep_FaceData): Standard_Boolean {.noSideEffect,
     importcpp: "Closed", header: "HLRBRep_FaceData.hxx".}
-proc closed*(this: var HLRBRepFaceData; b: StandardBoolean) {.importcpp: "Closed",
+proc Closed*(this: var HLRBRep_FaceData; B: Standard_Boolean) {.importcpp: "Closed",
     header: "HLRBRep_FaceData.hxx".}
-proc hiding*(this: HLRBRepFaceData): StandardBoolean {.noSideEffect,
+proc Hiding*(this: HLRBRep_FaceData): Standard_Boolean {.noSideEffect,
     importcpp: "Hiding", header: "HLRBRep_FaceData.hxx".}
-proc hiding*(this: var HLRBRepFaceData; b: StandardBoolean) {.importcpp: "Hiding",
+proc Hiding*(this: var HLRBRep_FaceData; B: Standard_Boolean) {.importcpp: "Hiding",
     header: "HLRBRep_FaceData.hxx".}
-proc simple*(this: HLRBRepFaceData): StandardBoolean {.noSideEffect,
+proc Simple*(this: HLRBRep_FaceData): Standard_Boolean {.noSideEffect,
     importcpp: "Simple", header: "HLRBRep_FaceData.hxx".}
-proc simple*(this: var HLRBRepFaceData; b: StandardBoolean) {.importcpp: "Simple",
+proc Simple*(this: var HLRBRep_FaceData; B: Standard_Boolean) {.importcpp: "Simple",
     header: "HLRBRep_FaceData.hxx".}
-proc cut*(this: HLRBRepFaceData): StandardBoolean {.noSideEffect, importcpp: "Cut",
+proc Cut*(this: HLRBRep_FaceData): Standard_Boolean {.noSideEffect, importcpp: "Cut",
     header: "HLRBRep_FaceData.hxx".}
-proc cut*(this: var HLRBRepFaceData; b: StandardBoolean) {.importcpp: "Cut",
+proc Cut*(this: var HLRBRep_FaceData; B: Standard_Boolean) {.importcpp: "Cut",
     header: "HLRBRep_FaceData.hxx".}
-proc withOutL*(this: HLRBRepFaceData): StandardBoolean {.noSideEffect,
+proc WithOutL*(this: HLRBRep_FaceData): Standard_Boolean {.noSideEffect,
     importcpp: "WithOutL", header: "HLRBRep_FaceData.hxx".}
-proc withOutL*(this: var HLRBRepFaceData; b: StandardBoolean) {.importcpp: "WithOutL",
-    header: "HLRBRep_FaceData.hxx".}
-proc plane*(this: HLRBRepFaceData): StandardBoolean {.noSideEffect,
+proc WithOutL*(this: var HLRBRep_FaceData; B: Standard_Boolean) {.
+    importcpp: "WithOutL", header: "HLRBRep_FaceData.hxx".}
+proc Plane*(this: HLRBRep_FaceData): Standard_Boolean {.noSideEffect,
     importcpp: "Plane", header: "HLRBRep_FaceData.hxx".}
-proc plane*(this: var HLRBRepFaceData; b: StandardBoolean) {.importcpp: "Plane",
+proc Plane*(this: var HLRBRep_FaceData; B: Standard_Boolean) {.importcpp: "Plane",
     header: "HLRBRep_FaceData.hxx".}
-proc cylinder*(this: HLRBRepFaceData): StandardBoolean {.noSideEffect,
+proc Cylinder*(this: HLRBRep_FaceData): Standard_Boolean {.noSideEffect,
     importcpp: "Cylinder", header: "HLRBRep_FaceData.hxx".}
-proc cylinder*(this: var HLRBRepFaceData; b: StandardBoolean) {.importcpp: "Cylinder",
+proc Cylinder*(this: var HLRBRep_FaceData; B: Standard_Boolean) {.
+    importcpp: "Cylinder", header: "HLRBRep_FaceData.hxx".}
+proc Cone*(this: HLRBRep_FaceData): Standard_Boolean {.noSideEffect,
+    importcpp: "Cone", header: "HLRBRep_FaceData.hxx".}
+proc Cone*(this: var HLRBRep_FaceData; B: Standard_Boolean) {.importcpp: "Cone",
     header: "HLRBRep_FaceData.hxx".}
-proc cone*(this: HLRBRepFaceData): StandardBoolean {.noSideEffect, importcpp: "Cone",
-    header: "HLRBRep_FaceData.hxx".}
-proc cone*(this: var HLRBRepFaceData; b: StandardBoolean) {.importcpp: "Cone",
-    header: "HLRBRep_FaceData.hxx".}
-proc sphere*(this: HLRBRepFaceData): StandardBoolean {.noSideEffect,
+proc Sphere*(this: HLRBRep_FaceData): Standard_Boolean {.noSideEffect,
     importcpp: "Sphere", header: "HLRBRep_FaceData.hxx".}
-proc sphere*(this: var HLRBRepFaceData; b: StandardBoolean) {.importcpp: "Sphere",
+proc Sphere*(this: var HLRBRep_FaceData; B: Standard_Boolean) {.importcpp: "Sphere",
     header: "HLRBRep_FaceData.hxx".}
-proc torus*(this: HLRBRepFaceData): StandardBoolean {.noSideEffect,
+proc Torus*(this: HLRBRep_FaceData): Standard_Boolean {.noSideEffect,
     importcpp: "Torus", header: "HLRBRep_FaceData.hxx".}
-proc torus*(this: var HLRBRepFaceData; b: StandardBoolean) {.importcpp: "Torus",
+proc Torus*(this: var HLRBRep_FaceData; B: Standard_Boolean) {.importcpp: "Torus",
     header: "HLRBRep_FaceData.hxx".}
-proc size*(this: HLRBRepFaceData): StandardReal {.noSideEffect, importcpp: "Size",
+proc Size*(this: HLRBRep_FaceData): Standard_Real {.noSideEffect, importcpp: "Size",
     header: "HLRBRep_FaceData.hxx".}
-proc size*(this: var HLRBRepFaceData; s: StandardReal) {.importcpp: "Size",
+proc Size*(this: var HLRBRep_FaceData; S: Standard_Real) {.importcpp: "Size",
     header: "HLRBRep_FaceData.hxx".}
-proc orientation*(this: HLRBRepFaceData): TopAbsOrientation {.noSideEffect,
+proc Orientation*(this: HLRBRep_FaceData): TopAbs_Orientation {.noSideEffect,
     importcpp: "Orientation", header: "HLRBRep_FaceData.hxx".}
-proc orientation*(this: var HLRBRepFaceData; o: TopAbsOrientation) {.
+proc Orientation*(this: var HLRBRep_FaceData; O: TopAbs_Orientation) {.
     importcpp: "Orientation", header: "HLRBRep_FaceData.hxx".}
-proc wires*(this: var HLRBRepFaceData): var Handle[HLRAlgoWiresBlock] {.
+proc Wires*(this: var HLRBRep_FaceData): var handle[HLRAlgo_WiresBlock] {.
     importcpp: "Wires", header: "HLRBRep_FaceData.hxx".}
-proc geometry*(this: var HLRBRepFaceData): var HLRBRepSurface {.importcpp: "Geometry",
-    header: "HLRBRep_FaceData.hxx".}
-proc tolerance*(this: HLRBRepFaceData): StandardShortReal {.noSideEffect,
+proc Geometry*(this: var HLRBRep_FaceData): var HLRBRep_Surface {.
+    importcpp: "Geometry", header: "HLRBRep_FaceData.hxx".}
+proc Tolerance*(this: HLRBRep_FaceData): Standard_ShortReal {.noSideEffect,
     importcpp: "Tolerance", header: "HLRBRep_FaceData.hxx".}
-

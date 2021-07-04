@@ -14,6 +14,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type,
+  ../TCollection/TCollection_AsciiString, IFSelect_Editor,
+  ../Standard/Standard_Integer, ../Standard/Standard_CString,
+  ../Standard/Standard_Boolean, ../TColStd/TColStd_HSequenceOfHAsciiString
+
 discard "forward decl of Interface_TypedValue"
 discard "forward decl of TCollection_AsciiString"
 discard "forward decl of IFSelect_EditForm"
@@ -23,7 +29,7 @@ discard "forward decl of Interface_InterfaceModel"
 discard "forward decl of IFSelect_ParamEditor"
 discard "forward decl of IFSelect_ParamEditor"
 type
-  HandleIFSelectParamEditor* = Handle[IFSelectParamEditor]
+  Handle_IFSelect_ParamEditor* = handle[IFSelect_ParamEditor]
 
 ## ! A ParamEditor gives access for edition to a list of TypedValue
 ## ! (i.e. of Static too)
@@ -35,74 +41,74 @@ type
 ## ! parameters as global
 
 type
-  IFSelectParamEditor* {.importcpp: "IFSelect_ParamEditor",
-                        header: "IFSelect_ParamEditor.hxx", bycopy.} = object of IFSelectEditor ##
-                                                                                         ## !
-                                                                                         ## Creates
-                                                                                         ## a
-                                                                                         ## ParamEditor,
-                                                                                         ## empty,
-                                                                                         ## with
-                                                                                         ## a
-                                                                                         ## maximum
-                                                                                         ## count
-                                                                                         ## of
-                                                                                         ## params
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## (default
-                                                                                         ## is
-                                                                                         ## 100)
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## And
-                                                                                         ## a
-                                                                                         ## label,
-                                                                                         ## by
-                                                                                         ## default
-                                                                                         ## it
-                                                                                         ## will
-                                                                                         ## be
-                                                                                         ## "Param
-                                                                                         ## Editor"
+  IFSelect_ParamEditor* {.importcpp: "IFSelect_ParamEditor",
+                         header: "IFSelect_ParamEditor.hxx", bycopy.} = object of IFSelect_Editor ##
+                                                                                           ## !
+                                                                                           ## Creates
+                                                                                           ## a
+                                                                                           ## ParamEditor,
+                                                                                           ## empty,
+                                                                                           ## with
+                                                                                           ## a
+                                                                                           ## maximum
+                                                                                           ## count
+                                                                                           ## of
+                                                                                           ## params
+                                                                                           ##
+                                                                                           ## !
+                                                                                           ## (default
+                                                                                           ## is
+                                                                                           ## 100)
+                                                                                           ##
+                                                                                           ## !
+                                                                                           ## And
+                                                                                           ## a
+                                                                                           ## label,
+                                                                                           ## by
+                                                                                           ## default
+                                                                                           ## it
+                                                                                           ## will
+                                                                                           ## be
+                                                                                           ## "Param
+                                                                                           ## Editor"
 
 
-proc constructIFSelectParamEditor*(nbmax: StandardInteger = 100;
-                                  label: StandardCString = ""): IFSelectParamEditor {.
+proc constructIFSelect_ParamEditor*(nbmax: Standard_Integer = 100;
+                                   label: Standard_CString = ""): IFSelect_ParamEditor {.
     constructor, importcpp: "IFSelect_ParamEditor(@)",
     header: "IFSelect_ParamEditor.hxx".}
-proc addValue*(this: var IFSelectParamEditor; val: Handle[InterfaceTypedValue];
-              shortname: StandardCString = "") {.importcpp: "AddValue",
+proc AddValue*(this: var IFSelect_ParamEditor; val: handle[Interface_TypedValue];
+              shortname: Standard_CString = "") {.importcpp: "AddValue",
     header: "IFSelect_ParamEditor.hxx".}
-proc addConstantText*(this: var IFSelectParamEditor; val: StandardCString;
-                     shortname: StandardCString;
-                     completename: StandardCString = "") {.
+proc AddConstantText*(this: var IFSelect_ParamEditor; val: Standard_CString;
+                     shortname: Standard_CString;
+                     completename: Standard_CString = "") {.
     importcpp: "AddConstantText", header: "IFSelect_ParamEditor.hxx".}
-proc label*(this: IFSelectParamEditor): TCollectionAsciiString {.noSideEffect,
+proc Label*(this: IFSelect_ParamEditor): TCollection_AsciiString {.noSideEffect,
     importcpp: "Label", header: "IFSelect_ParamEditor.hxx".}
-proc recognize*(this: IFSelectParamEditor; form: Handle[IFSelectEditForm]): StandardBoolean {.
+proc Recognize*(this: IFSelect_ParamEditor; form: handle[IFSelect_EditForm]): Standard_Boolean {.
     noSideEffect, importcpp: "Recognize", header: "IFSelect_ParamEditor.hxx".}
-proc stringValue*(this: IFSelectParamEditor; form: Handle[IFSelectEditForm];
-                 num: StandardInteger): Handle[TCollectionHAsciiString] {.
+proc StringValue*(this: IFSelect_ParamEditor; form: handle[IFSelect_EditForm];
+                 num: Standard_Integer): handle[TCollection_HAsciiString] {.
     noSideEffect, importcpp: "StringValue", header: "IFSelect_ParamEditor.hxx".}
-proc load*(this: IFSelectParamEditor; form: Handle[IFSelectEditForm];
-          ent: Handle[StandardTransient]; model: Handle[InterfaceInterfaceModel]): StandardBoolean {.
+proc Load*(this: IFSelect_ParamEditor; form: handle[IFSelect_EditForm];
+          ent: handle[Standard_Transient]; model: handle[Interface_InterfaceModel]): Standard_Boolean {.
     noSideEffect, importcpp: "Load", header: "IFSelect_ParamEditor.hxx".}
-proc apply*(this: IFSelectParamEditor; form: Handle[IFSelectEditForm];
-           ent: Handle[StandardTransient]; model: Handle[InterfaceInterfaceModel]): StandardBoolean {.
+proc Apply*(this: IFSelect_ParamEditor; form: handle[IFSelect_EditForm];
+           ent: handle[Standard_Transient];
+           model: handle[Interface_InterfaceModel]): Standard_Boolean {.
     noSideEffect, importcpp: "Apply", header: "IFSelect_ParamEditor.hxx".}
-proc staticEditor*(list: Handle[TColStdHSequenceOfHAsciiString];
-                  label: StandardCString = ""): Handle[IFSelectParamEditor] {.
+proc StaticEditor*(list: handle[TColStd_HSequenceOfHAsciiString];
+                  label: Standard_CString = ""): handle[IFSelect_ParamEditor] {.
     importcpp: "IFSelect_ParamEditor::StaticEditor(@)",
     header: "IFSelect_ParamEditor.hxx".}
 type
-  IFSelectParamEditorbaseType* = IFSelectEditor
+  IFSelect_ParamEditorbase_type* = IFSelect_Editor
 
-proc getTypeName*(): cstring {.importcpp: "IFSelect_ParamEditor::get_type_name(@)",
-                            header: "IFSelect_ParamEditor.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "IFSelect_ParamEditor::get_type_name(@)",
+                              header: "IFSelect_ParamEditor.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "IFSelect_ParamEditor::get_type_descriptor(@)",
     header: "IFSelect_ParamEditor.hxx".}
-proc dynamicType*(this: IFSelectParamEditor): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: IFSelect_ParamEditor): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "IFSelect_ParamEditor.hxx".}
-

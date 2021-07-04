@@ -13,31 +13,34 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepVisual_AnnotationCurveOccurrence"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepVisualRWAnnotationCurveOccurrence* {.
+  RWStepVisual_RWAnnotationCurveOccurrence* {.
       importcpp: "RWStepVisual_RWAnnotationCurveOccurrence",
       header: "RWStepVisual_RWAnnotationCurveOccurrence.hxx", bycopy.} = object
 
 
-proc constructRWStepVisualRWAnnotationCurveOccurrence*(): RWStepVisualRWAnnotationCurveOccurrence {.
+proc constructRWStepVisual_RWAnnotationCurveOccurrence*(): RWStepVisual_RWAnnotationCurveOccurrence {.
     constructor, importcpp: "RWStepVisual_RWAnnotationCurveOccurrence(@)",
     header: "RWStepVisual_RWAnnotationCurveOccurrence.hxx".}
-proc readStep*(this: RWStepVisualRWAnnotationCurveOccurrence;
-              data: Handle[StepDataStepReaderData]; num: StandardInteger;
-              ach: var Handle[InterfaceCheck];
-              ent: Handle[StepVisualAnnotationCurveOccurrence]) {.noSideEffect,
+proc ReadStep*(this: RWStepVisual_RWAnnotationCurveOccurrence;
+              data: handle[StepData_StepReaderData]; num: Standard_Integer;
+              ach: var handle[Interface_Check];
+              ent: handle[StepVisual_AnnotationCurveOccurrence]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepVisual_RWAnnotationCurveOccurrence.hxx".}
-proc writeStep*(this: RWStepVisualRWAnnotationCurveOccurrence;
-               sw: var StepDataStepWriter;
-               ent: Handle[StepVisualAnnotationCurveOccurrence]) {.noSideEffect,
+proc WriteStep*(this: RWStepVisual_RWAnnotationCurveOccurrence;
+               SW: var StepData_StepWriter;
+               ent: handle[StepVisual_AnnotationCurveOccurrence]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepVisual_RWAnnotationCurveOccurrence.hxx".}
-proc share*(this: RWStepVisualRWAnnotationCurveOccurrence;
-           ent: Handle[StepVisualAnnotationCurveOccurrence];
-           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
+proc Share*(this: RWStepVisual_RWAnnotationCurveOccurrence;
+           ent: handle[StepVisual_AnnotationCurveOccurrence];
+           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepVisual_RWAnnotationCurveOccurrence.hxx".}
-

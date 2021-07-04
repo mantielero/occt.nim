@@ -14,8 +14,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  IGESGraph_TextDisplayTemplate, ../NCollection/NCollection_Array1
+
 type
-  IGESGraphArray1OfTextDisplayTemplate* = NCollectionArray1[
-      Handle[IGESGraphTextDisplayTemplate]]
-
-
+  IGESGraph_Array1OfTextDisplayTemplate* = NCollection_Array1[
+      handle[IGESGraph_TextDisplayTemplate]]

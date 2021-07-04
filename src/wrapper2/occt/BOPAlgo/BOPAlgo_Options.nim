@@ -12,72 +12,76 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Message/Message_Report, ../Standard/Standard_OStream,
+  ../NCollection/NCollection_BaseAllocator
+
 discard "forward decl of Message_ProgressScope"
 type
-  BOPAlgoOptions* {.importcpp: "BOPAlgo_Options", header: "BOPAlgo_Options.hxx",
-                   bycopy.} = object ## ! Empty constructor
-                                  ## !@name Error reporting mechanism
-                                  ## ! Adds the alert as error (fail)
-                                  ## !@name Parallel processing mode
-                                  ## ! Gets the global parallel mode
-                                  ## !@name Fuzzy tolerance
-                                  ## ! Sets the additional tolerance
-                                  ## !@name Progress indicator
-                                  ## ! Set the Progress Indicator object.
-                                  ## !@name Usage of Oriented Bounding boxes
-                                  ## ! Enables/Disables the usage of OBB
-                                  ## ! Breaks the execution if the break signal
-                                  ## ! is indicated by myProgressIndicator.
+  BOPAlgo_Options* {.importcpp: "BOPAlgo_Options", header: "BOPAlgo_Options.hxx",
+                    bycopy.} = object ## ! Empty constructor
+                                   ## !@name Error reporting mechanism
+                                   ## ! Adds the alert as error (fail)
+                                   ## !@name Parallel processing mode
+                                   ## ! Gets the global parallel mode
+                                   ## !@name Fuzzy tolerance
+                                   ## ! Sets the additional tolerance
+                                   ## !@name Progress indicator
+                                   ## ! Set the Progress Indicator object.
+                                   ## !@name Usage of Oriented Bounding boxes
+                                   ## ! Enables/Disables the usage of OBB
+                                   ## ! Breaks the execution if the break signal
+                                   ## ! is indicated by myProgressIndicator.
 
 
-proc constructBOPAlgoOptions*(): BOPAlgoOptions {.constructor,
+proc constructBOPAlgo_Options*(): BOPAlgo_Options {.constructor,
     importcpp: "BOPAlgo_Options(@)", header: "BOPAlgo_Options.hxx".}
-proc constructBOPAlgoOptions*(theAllocator: Handle[NCollectionBaseAllocator]): BOPAlgoOptions {.
+proc constructBOPAlgo_Options*(theAllocator: handle[NCollection_BaseAllocator]): BOPAlgo_Options {.
     constructor, importcpp: "BOPAlgo_Options(@)", header: "BOPAlgo_Options.hxx".}
-proc destroyBOPAlgoOptions*(this: var BOPAlgoOptions) {.
+proc destroyBOPAlgo_Options*(this: var BOPAlgo_Options) {.
     importcpp: "#.~BOPAlgo_Options()", header: "BOPAlgo_Options.hxx".}
-proc allocator*(this: BOPAlgoOptions): Handle[NCollectionBaseAllocator] {.
+proc Allocator*(this: BOPAlgo_Options): handle[NCollection_BaseAllocator] {.
     noSideEffect, importcpp: "Allocator", header: "BOPAlgo_Options.hxx".}
-proc clear*(this: var BOPAlgoOptions) {.importcpp: "Clear",
-                                    header: "BOPAlgo_Options.hxx".}
-proc addError*(this: var BOPAlgoOptions; theAlert: Handle[MessageAlert]) {.
+proc Clear*(this: var BOPAlgo_Options) {.importcpp: "Clear",
+                                     header: "BOPAlgo_Options.hxx".}
+proc AddError*(this: var BOPAlgo_Options; theAlert: handle[Message_Alert]) {.
     importcpp: "AddError", header: "BOPAlgo_Options.hxx".}
-proc addWarning*(this: var BOPAlgoOptions; theAlert: Handle[MessageAlert]) {.
+proc AddWarning*(this: var BOPAlgo_Options; theAlert: handle[Message_Alert]) {.
     importcpp: "AddWarning", header: "BOPAlgo_Options.hxx".}
-proc hasErrors*(this: BOPAlgoOptions): StandardBoolean {.noSideEffect,
+proc HasErrors*(this: BOPAlgo_Options): Standard_Boolean {.noSideEffect,
     importcpp: "HasErrors", header: "BOPAlgo_Options.hxx".}
-proc hasError*(this: BOPAlgoOptions; theType: Handle[StandardType]): StandardBoolean {.
+proc HasError*(this: BOPAlgo_Options; theType: handle[Standard_Type]): Standard_Boolean {.
     noSideEffect, importcpp: "HasError", header: "BOPAlgo_Options.hxx".}
-proc hasWarnings*(this: BOPAlgoOptions): StandardBoolean {.noSideEffect,
+proc HasWarnings*(this: BOPAlgo_Options): Standard_Boolean {.noSideEffect,
     importcpp: "HasWarnings", header: "BOPAlgo_Options.hxx".}
-proc hasWarning*(this: BOPAlgoOptions; theType: Handle[StandardType]): StandardBoolean {.
+proc HasWarning*(this: BOPAlgo_Options; theType: handle[Standard_Type]): Standard_Boolean {.
     noSideEffect, importcpp: "HasWarning", header: "BOPAlgo_Options.hxx".}
-proc getReport*(this: BOPAlgoOptions): Handle[MessageReport] {.noSideEffect,
+proc GetReport*(this: BOPAlgo_Options): handle[Message_Report] {.noSideEffect,
     importcpp: "GetReport", header: "BOPAlgo_Options.hxx".}
-proc dumpErrors*(this: BOPAlgoOptions; theOS: var StandardOStream) {.noSideEffect,
+proc DumpErrors*(this: BOPAlgo_Options; theOS: var Standard_OStream) {.noSideEffect,
     importcpp: "DumpErrors", header: "BOPAlgo_Options.hxx".}
-proc dumpWarnings*(this: BOPAlgoOptions; theOS: var StandardOStream) {.noSideEffect,
+proc DumpWarnings*(this: BOPAlgo_Options; theOS: var Standard_OStream) {.noSideEffect,
     importcpp: "DumpWarnings", header: "BOPAlgo_Options.hxx".}
-proc clearWarnings*(this: var BOPAlgoOptions) {.importcpp: "ClearWarnings",
+proc ClearWarnings*(this: var BOPAlgo_Options) {.importcpp: "ClearWarnings",
     header: "BOPAlgo_Options.hxx".}
-proc getParallelMode*(): StandardBoolean {.importcpp: "BOPAlgo_Options::GetParallelMode(@)",
-                                        header: "BOPAlgo_Options.hxx".}
-proc setParallelMode*(theNewMode: StandardBoolean) {.
+proc GetParallelMode*(): Standard_Boolean {.
+    importcpp: "BOPAlgo_Options::GetParallelMode(@)",
+    header: "BOPAlgo_Options.hxx".}
+proc SetParallelMode*(theNewMode: Standard_Boolean) {.
     importcpp: "BOPAlgo_Options::SetParallelMode(@)",
     header: "BOPAlgo_Options.hxx".}
-proc setRunParallel*(this: var BOPAlgoOptions; theFlag: StandardBoolean) {.
+proc SetRunParallel*(this: var BOPAlgo_Options; theFlag: Standard_Boolean) {.
     importcpp: "SetRunParallel", header: "BOPAlgo_Options.hxx".}
-proc runParallel*(this: BOPAlgoOptions): StandardBoolean {.noSideEffect,
+proc RunParallel*(this: BOPAlgo_Options): Standard_Boolean {.noSideEffect,
     importcpp: "RunParallel", header: "BOPAlgo_Options.hxx".}
-proc setFuzzyValue*(this: var BOPAlgoOptions; theFuzz: StandardReal) {.
+proc SetFuzzyValue*(this: var BOPAlgo_Options; theFuzz: Standard_Real) {.
     importcpp: "SetFuzzyValue", header: "BOPAlgo_Options.hxx".}
-proc fuzzyValue*(this: BOPAlgoOptions): StandardReal {.noSideEffect,
+proc FuzzyValue*(this: BOPAlgo_Options): Standard_Real {.noSideEffect,
     importcpp: "FuzzyValue", header: "BOPAlgo_Options.hxx".}
-proc setProgressIndicator*(this: var BOPAlgoOptions;
-                          theProgress: MessageProgressScope) {.
+proc SetProgressIndicator*(this: var BOPAlgo_Options;
+                          theProgress: Message_ProgressScope) {.
     importcpp: "SetProgressIndicator", header: "BOPAlgo_Options.hxx".}
-proc setUseOBB*(this: var BOPAlgoOptions; theUseOBB: StandardBoolean) {.
+proc SetUseOBB*(this: var BOPAlgo_Options; theUseOBB: Standard_Boolean) {.
     importcpp: "SetUseOBB", header: "BOPAlgo_Options.hxx".}
-proc useOBB*(this: BOPAlgoOptions): StandardBoolean {.noSideEffect,
+proc UseOBB*(this: BOPAlgo_Options): Standard_Boolean {.noSideEffect,
     importcpp: "UseOBB", header: "BOPAlgo_Options.hxx".}
-

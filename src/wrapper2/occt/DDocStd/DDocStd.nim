@@ -13,6 +13,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
+  ../Standard/Standard_CString, ../Draw/Draw_Interpretor
+
 discard "forward decl of TDocStd_Application"
 discard "forward decl of TDocStd_Document"
 discard "forward decl of TDF_Label"
@@ -23,34 +28,33 @@ type
   DDocStd* {.importcpp: "DDocStd", header: "DDocStd.hxx", bycopy.} = object ## ! Returns the global instance of application.
 
 
-proc getApplication*(): Handle[TDocStdApplication] {.
+proc GetApplication*(): handle[TDocStd_Application] {.
     importcpp: "DDocStd::GetApplication(@)", header: "DDocStd.hxx".}
-proc getDocument*(name: var StandardCString; doc: var Handle[TDocStdDocument];
-                 complain: StandardBoolean = standardTrue): StandardBoolean {.
+proc GetDocument*(Name: var Standard_CString; Doc: var handle[TDocStd_Document];
+                 Complain: Standard_Boolean = Standard_True): Standard_Boolean {.
     importcpp: "DDocStd::GetDocument(@)", header: "DDocStd.hxx".}
-proc find*(document: Handle[TDocStdDocument]; entry: StandardCString;
-          label: var TDF_Label; complain: StandardBoolean = standardTrue): StandardBoolean {.
+proc Find*(Document: handle[TDocStd_Document]; Entry: Standard_CString;
+          Label: var TDF_Label; Complain: Standard_Boolean = Standard_True): Standard_Boolean {.
     importcpp: "DDocStd::Find(@)", header: "DDocStd.hxx".}
-proc find*(document: Handle[TDocStdDocument]; entry: StandardCString;
-          id: StandardGUID; a: var Handle[TDF_Attribute];
-          complain: StandardBoolean = standardTrue): StandardBoolean {.
+proc Find*(Document: handle[TDocStd_Document]; Entry: Standard_CString;
+          ID: Standard_GUID; A: var handle[TDF_Attribute];
+          Complain: Standard_Boolean = Standard_True): Standard_Boolean {.
     importcpp: "DDocStd::Find(@)", header: "DDocStd.hxx".}
-proc find*[T](document: Handle[TDocStdDocument]; entry: StandardCString;
-             id: StandardGUID; a: var Handle[T];
-             complain: StandardBoolean = standardTrue): StandardBoolean {.
+proc Find*[T](Document: handle[TDocStd_Document]; Entry: Standard_CString;
+             ID: Standard_GUID; A: var handle[T];
+             Complain: Standard_Boolean = Standard_True): Standard_Boolean {.
     importcpp: "DDocStd::Find(@)", header: "DDocStd.hxx".}
-proc returnLabel*(theCommands: var DrawInterpretor; L: TDF_Label): var DrawInterpretor {.
+proc ReturnLabel*(theCommands: var Draw_Interpretor; L: TDF_Label): var Draw_Interpretor {.
     importcpp: "DDocStd::ReturnLabel(@)", header: "DDocStd.hxx".}
-proc allCommands*(theCommands: var DrawInterpretor) {.
+proc AllCommands*(theCommands: var Draw_Interpretor) {.
     importcpp: "DDocStd::AllCommands(@)", header: "DDocStd.hxx".}
-proc applicationCommands*(theCommands: var DrawInterpretor) {.
+proc ApplicationCommands*(theCommands: var Draw_Interpretor) {.
     importcpp: "DDocStd::ApplicationCommands(@)", header: "DDocStd.hxx".}
-proc documentCommands*(theCommands: var DrawInterpretor) {.
+proc DocumentCommands*(theCommands: var Draw_Interpretor) {.
     importcpp: "DDocStd::DocumentCommands(@)", header: "DDocStd.hxx".}
-proc toolsCommands*(theCommands: var DrawInterpretor) {.
+proc ToolsCommands*(theCommands: var Draw_Interpretor) {.
     importcpp: "DDocStd::ToolsCommands(@)", header: "DDocStd.hxx".}
-proc mTMCommands*(theCommands: var DrawInterpretor) {.
+proc MTMCommands*(theCommands: var Draw_Interpretor) {.
     importcpp: "DDocStd::MTMCommands(@)", header: "DDocStd.hxx".}
-proc shapeSchemaCommands*(theCommands: var DrawInterpretor) {.
+proc ShapeSchemaCommands*(theCommands: var Draw_Interpretor) {.
     importcpp: "DDocStd::ShapeSchemaCommands(@)", header: "DDocStd.hxx".}
-

@@ -14,60 +14,67 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
+  ../Standard/Standard_Integer, ../Standard/Standard_Address,
+  ../BRepTopAdaptor/BRepTopAdaptor_SeqOfPtr,
+  ../TColStd/TColStd_SequenceOfInteger, ../TColStd/TColStd_SequenceOfReal,
+  ../Standard/Standard_Real,
+  ../IntCurveSurface/IntCurveSurface_TransitionOnCurve, ../TopAbs/TopAbs_State
+
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of gp_Lin"
 discard "forward decl of Adaptor3d_HCurve"
 discard "forward decl of gp_Pnt"
 discard "forward decl of TopoDS_Face"
 type
-  IntCurvesFaceShapeIntersector* {.importcpp: "IntCurvesFace_ShapeIntersector",
-                                  header: "IntCurvesFace_ShapeIntersector.hxx",
-                                  bycopy.} = object
+  IntCurvesFace_ShapeIntersector* {.importcpp: "IntCurvesFace_ShapeIntersector", header: "IntCurvesFace_ShapeIntersector.hxx",
+                                   bycopy.} = object
 
 
-proc constructIntCurvesFaceShapeIntersector*(): IntCurvesFaceShapeIntersector {.
+proc constructIntCurvesFace_ShapeIntersector*(): IntCurvesFace_ShapeIntersector {.
     constructor, importcpp: "IntCurvesFace_ShapeIntersector(@)",
     header: "IntCurvesFace_ShapeIntersector.hxx".}
-proc load*(this: var IntCurvesFaceShapeIntersector; sh: TopoDS_Shape;
-          tol: StandardReal) {.importcpp: "Load",
-                             header: "IntCurvesFace_ShapeIntersector.hxx".}
-proc perform*(this: var IntCurvesFaceShapeIntersector; L: GpLin; pInf: StandardReal;
-             pSup: StandardReal) {.importcpp: "Perform",
-                                 header: "IntCurvesFace_ShapeIntersector.hxx".}
-proc performNearest*(this: var IntCurvesFaceShapeIntersector; L: GpLin;
-                    pInf: StandardReal; pSup: StandardReal) {.
-    importcpp: "PerformNearest", header: "IntCurvesFace_ShapeIntersector.hxx".}
-proc perform*(this: var IntCurvesFaceShapeIntersector; hCu: Handle[Adaptor3dHCurve];
-             pInf: StandardReal; pSup: StandardReal) {.importcpp: "Perform",
+proc Load*(this: var IntCurvesFace_ShapeIntersector; Sh: TopoDS_Shape;
+          Tol: Standard_Real) {.importcpp: "Load",
+                              header: "IntCurvesFace_ShapeIntersector.hxx".}
+proc Perform*(this: var IntCurvesFace_ShapeIntersector; L: gp_Lin;
+             PInf: Standard_Real; PSup: Standard_Real) {.importcpp: "Perform",
     header: "IntCurvesFace_ShapeIntersector.hxx".}
-proc isDone*(this: IntCurvesFaceShapeIntersector): StandardBoolean {.noSideEffect,
+proc PerformNearest*(this: var IntCurvesFace_ShapeIntersector; L: gp_Lin;
+                    PInf: Standard_Real; PSup: Standard_Real) {.
+    importcpp: "PerformNearest", header: "IntCurvesFace_ShapeIntersector.hxx".}
+proc Perform*(this: var IntCurvesFace_ShapeIntersector;
+             HCu: handle[Adaptor3d_HCurve]; PInf: Standard_Real; PSup: Standard_Real) {.
+    importcpp: "Perform", header: "IntCurvesFace_ShapeIntersector.hxx".}
+proc IsDone*(this: IntCurvesFace_ShapeIntersector): Standard_Boolean {.noSideEffect,
     importcpp: "IsDone", header: "IntCurvesFace_ShapeIntersector.hxx".}
-proc nbPnt*(this: IntCurvesFaceShapeIntersector): StandardInteger {.noSideEffect,
+proc NbPnt*(this: IntCurvesFace_ShapeIntersector): Standard_Integer {.noSideEffect,
     importcpp: "NbPnt", header: "IntCurvesFace_ShapeIntersector.hxx".}
-proc uParameter*(this: IntCurvesFaceShapeIntersector; i: StandardInteger): StandardReal {.
+proc UParameter*(this: IntCurvesFace_ShapeIntersector; I: Standard_Integer): Standard_Real {.
     noSideEffect, importcpp: "UParameter",
     header: "IntCurvesFace_ShapeIntersector.hxx".}
-proc vParameter*(this: IntCurvesFaceShapeIntersector; i: StandardInteger): StandardReal {.
+proc VParameter*(this: IntCurvesFace_ShapeIntersector; I: Standard_Integer): Standard_Real {.
     noSideEffect, importcpp: "VParameter",
     header: "IntCurvesFace_ShapeIntersector.hxx".}
-proc wParameter*(this: IntCurvesFaceShapeIntersector; i: StandardInteger): StandardReal {.
+proc WParameter*(this: IntCurvesFace_ShapeIntersector; I: Standard_Integer): Standard_Real {.
     noSideEffect, importcpp: "WParameter",
     header: "IntCurvesFace_ShapeIntersector.hxx".}
-proc pnt*(this: IntCurvesFaceShapeIntersector; i: StandardInteger): GpPnt {.
+proc Pnt*(this: IntCurvesFace_ShapeIntersector; I: Standard_Integer): gp_Pnt {.
     noSideEffect, importcpp: "Pnt", header: "IntCurvesFace_ShapeIntersector.hxx".}
-proc transition*(this: IntCurvesFaceShapeIntersector; i: StandardInteger): IntCurveSurfaceTransitionOnCurve {.
+proc Transition*(this: IntCurvesFace_ShapeIntersector; I: Standard_Integer): IntCurveSurface_TransitionOnCurve {.
     noSideEffect, importcpp: "Transition",
     header: "IntCurvesFace_ShapeIntersector.hxx".}
-proc state*(this: IntCurvesFaceShapeIntersector; i: StandardInteger): TopAbsState {.
+proc State*(this: IntCurvesFace_ShapeIntersector; I: Standard_Integer): TopAbs_State {.
     noSideEffect, importcpp: "State", header: "IntCurvesFace_ShapeIntersector.hxx".}
-proc face*(this: IntCurvesFaceShapeIntersector; i: StandardInteger): TopoDS_Face {.
+proc Face*(this: IntCurvesFace_ShapeIntersector; I: Standard_Integer): TopoDS_Face {.
     noSideEffect, importcpp: "Face", header: "IntCurvesFace_ShapeIntersector.hxx".}
-proc sortResult*(this: var IntCurvesFaceShapeIntersector) {.importcpp: "SortResult",
+proc SortResult*(this: var IntCurvesFace_ShapeIntersector) {.
+    importcpp: "SortResult", header: "IntCurvesFace_ShapeIntersector.hxx".}
+proc Destroy*(this: var IntCurvesFace_ShapeIntersector) {.importcpp: "Destroy",
     header: "IntCurvesFace_ShapeIntersector.hxx".}
-proc destroy*(this: var IntCurvesFaceShapeIntersector) {.importcpp: "Destroy",
-    header: "IntCurvesFace_ShapeIntersector.hxx".}
-proc destroyIntCurvesFaceShapeIntersector*(
-    this: var IntCurvesFaceShapeIntersector) {.
+proc destroyIntCurvesFace_ShapeIntersector*(
+    this: var IntCurvesFace_ShapeIntersector) {.
     importcpp: "#.~IntCurvesFace_ShapeIntersector()",
     header: "IntCurvesFace_ShapeIntersector.hxx".}
-

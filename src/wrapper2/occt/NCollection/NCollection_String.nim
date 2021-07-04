@@ -13,7 +13,8 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  NCollection_UtfString
+
 type
-  NCollectionString* = NCollectionUtf8String
-
-
+  NCollection_String* = NCollection_Utf8String

@@ -13,33 +13,35 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  IMeshData_ParametersList, ../Standard/Standard_Type
+
 discard "forward decl of gp_Pnt"
 type
-  IMeshDataCurve* {.importcpp: "IMeshData_Curve", header: "IMeshData_Curve.hxx",
-                   bycopy.} = object of IMeshDataParametersList ## ! Destructor.
-                                                           ## ! Constructor.
+  IMeshData_Curve* {.importcpp: "IMeshData_Curve", header: "IMeshData_Curve.hxx",
+                    bycopy.} = object of IMeshData_ParametersList ## ! Destructor.
+                                                             ## ! Constructor.
 
 
-proc destroyIMeshDataCurve*(this: var IMeshDataCurve) {.
+proc destroyIMeshData_Curve*(this: var IMeshData_Curve) {.
     importcpp: "#.~IMeshData_Curve()", header: "IMeshData_Curve.hxx".}
-proc insertPoint*(this: var IMeshDataCurve; thePosition: StandardInteger;
-                 thePoint: GpPnt; theParamOnPCurve: StandardReal) {.
+proc InsertPoint*(this: var IMeshData_Curve; thePosition: Standard_Integer;
+                 thePoint: gp_Pnt; theParamOnPCurve: Standard_Real) {.
     importcpp: "InsertPoint", header: "IMeshData_Curve.hxx".}
-proc addPoint*(this: var IMeshDataCurve; thePoint: GpPnt;
-              theParamOnCurve: StandardReal) {.importcpp: "AddPoint",
+proc AddPoint*(this: var IMeshData_Curve; thePoint: gp_Pnt;
+              theParamOnCurve: Standard_Real) {.importcpp: "AddPoint",
     header: "IMeshData_Curve.hxx".}
-proc getPoint*(this: var IMeshDataCurve; theIndex: StandardInteger): var GpPnt {.
+proc GetPoint*(this: var IMeshData_Curve; theIndex: Standard_Integer): var gp_Pnt {.
     importcpp: "GetPoint", header: "IMeshData_Curve.hxx".}
-proc removePoint*(this: var IMeshDataCurve; theIndex: StandardInteger) {.
+proc RemovePoint*(this: var IMeshData_Curve; theIndex: Standard_Integer) {.
     importcpp: "RemovePoint", header: "IMeshData_Curve.hxx".}
 type
-  IMeshDataCurvebaseType* = IMeshDataParametersList
+  IMeshData_Curvebase_type* = IMeshData_ParametersList
 
-proc getTypeName*(): cstring {.importcpp: "IMeshData_Curve::get_type_name(@)",
-                            header: "IMeshData_Curve.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "IMeshData_Curve::get_type_name(@)",
+                              header: "IMeshData_Curve.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "IMeshData_Curve::get_type_descriptor(@)",
     header: "IMeshData_Curve.hxx".}
-proc dynamicType*(this: IMeshDataCurve): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: IMeshData_Curve): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "IMeshData_Curve.hxx".}
-

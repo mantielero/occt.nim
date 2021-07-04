@@ -14,51 +14,54 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Prs3d/Prs3d_Drawer, ../Prs3d/Prs3d_Presentation
+
 discard "forward decl of gp_Pnt"
 discard "forward decl of gp_Dir"
 type
-  DsgPrsTangentPresentation* {.importcpp: "DsgPrs_TangentPresentation",
-                              header: "DsgPrs_TangentPresentation.hxx", bycopy.} = object ##
-                                                                                     ## !
-                                                                                     ## Adds
-                                                                                     ## the
-                                                                                     ## point
-                                                                                     ## OffsetPoint,
-                                                                                     ## the
-                                                                                     ## direction
-                                                                                     ## aDirection
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## and
-                                                                                     ## the
-                                                                                     ## length
-                                                                                     ## aLength
-                                                                                     ## to
-                                                                                     ## the
-                                                                                     ## presentation
-                                                                                     ## object
-                                                                                     ## aPresentation.
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## The
-                                                                                     ## display
-                                                                                     ## attributes
-                                                                                     ## of
-                                                                                     ## the
-                                                                                     ## tangent
-                                                                                     ## are
-                                                                                     ## defined
-                                                                                     ## by
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## the
-                                                                                     ## attribute
-                                                                                     ## manager
-                                                                                     ## aDrawer.
+  DsgPrs_TangentPresentation* {.importcpp: "DsgPrs_TangentPresentation",
+                               header: "DsgPrs_TangentPresentation.hxx", bycopy.} = object ##
+                                                                                      ## !
+                                                                                      ## Adds
+                                                                                      ## the
+                                                                                      ## point
+                                                                                      ## OffsetPoint,
+                                                                                      ## the
+                                                                                      ## direction
+                                                                                      ## aDirection
+                                                                                      ##
+                                                                                      ## !
+                                                                                      ## and
+                                                                                      ## the
+                                                                                      ## length
+                                                                                      ## aLength
+                                                                                      ## to
+                                                                                      ## the
+                                                                                      ## presentation
+                                                                                      ## object
+                                                                                      ## aPresentation.
+                                                                                      ##
+                                                                                      ## !
+                                                                                      ## The
+                                                                                      ## display
+                                                                                      ## attributes
+                                                                                      ## of
+                                                                                      ## the
+                                                                                      ## tangent
+                                                                                      ## are
+                                                                                      ## defined
+                                                                                      ## by
+                                                                                      ##
+                                                                                      ## !
+                                                                                      ## the
+                                                                                      ## attribute
+                                                                                      ## manager
+                                                                                      ## aDrawer.
 
 
-proc add*(aPresentation: Handle[Prs3dPresentation]; aDrawer: Handle[Prs3dDrawer];
-         offsetPoint: GpPnt; aDirection: GpDir; aLength: StandardReal) {.
+proc Add*(aPresentation: handle[Prs3d_Presentation]; aDrawer: handle[Prs3d_Drawer];
+         OffsetPoint: gp_Pnt; aDirection: gp_Dir; aLength: Standard_Real) {.
     importcpp: "DsgPrs_TangentPresentation::Add(@)",
     header: "DsgPrs_TangentPresentation.hxx".}
-

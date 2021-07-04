@@ -14,18 +14,17 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-proc exprIntrpparse*(): cint {.importcpp: "ExprIntrpparse(@)",
+proc ExprIntrpparse*(): cint {.importcpp: "ExprIntrpparse(@)",
                             header: "ExprIntrp_yaccintrf.hxx".}
-proc exprIntrperror*(msg: cstring) {.importcpp: "ExprIntrperror(@)",
+proc ExprIntrperror*(msg: cstring) {.importcpp: "ExprIntrperror(@)",
                                   header: "ExprIntrp_yaccintrf.hxx".}
-proc exprIntrpStartString*(str: cstring) {.importcpp: "ExprIntrp_start_string(@)",
-                                        header: "ExprIntrp_yaccintrf.hxx".}
-proc exprIntrpStopString*() {.importcpp: "ExprIntrp_stop_string(@)",
+proc ExprIntrp_start_string*(str: cstring) {.
+    importcpp: "ExprIntrp_start_string(@)", header: "ExprIntrp_yaccintrf.hxx".}
+proc ExprIntrp_stop_string*() {.importcpp: "ExprIntrp_stop_string(@)",
+                              header: "ExprIntrp_yaccintrf.hxx".}
+proc ExprIntrp_SetResult*() {.importcpp: "ExprIntrp_SetResult(@)",
                             header: "ExprIntrp_yaccintrf.hxx".}
-proc exprIntrpSetResult*() {.importcpp: "ExprIntrp_SetResult(@)",
-                           header: "ExprIntrp_yaccintrf.hxx".}
-proc exprIntrpSetDegree*() {.importcpp: "ExprIntrp_SetDegree(@)",
-                           header: "ExprIntrp_yaccintrf.hxx".}
-proc exprIntrplex*(): cint {.importcpp: "ExprIntrplex(@)",
+proc ExprIntrp_SetDegree*() {.importcpp: "ExprIntrp_SetDegree(@)",
+                            header: "ExprIntrp_yaccintrf.hxx".}
+proc ExprIntrplex*(): cint {.importcpp: "ExprIntrplex(@)",
                           header: "ExprIntrp_yaccintrf.hxx".}
-

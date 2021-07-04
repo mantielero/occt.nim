@@ -14,30 +14,33 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepAP214_AppliedDateAssignment"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepAP214RWAppliedDateAssignment* {.importcpp: "RWStepAP214_RWAppliedDateAssignment", header: "RWStepAP214_RWAppliedDateAssignment.hxx",
-                                       bycopy.} = object
+  RWStepAP214_RWAppliedDateAssignment* {.importcpp: "RWStepAP214_RWAppliedDateAssignment", header: "RWStepAP214_RWAppliedDateAssignment.hxx",
+                                        bycopy.} = object
 
 
-proc constructRWStepAP214RWAppliedDateAssignment*(): RWStepAP214RWAppliedDateAssignment {.
+proc constructRWStepAP214_RWAppliedDateAssignment*(): RWStepAP214_RWAppliedDateAssignment {.
     constructor, importcpp: "RWStepAP214_RWAppliedDateAssignment(@)",
     header: "RWStepAP214_RWAppliedDateAssignment.hxx".}
-proc readStep*(this: RWStepAP214RWAppliedDateAssignment;
-              data: Handle[StepDataStepReaderData]; num: StandardInteger;
-              ach: var Handle[InterfaceCheck];
-              ent: Handle[StepAP214AppliedDateAssignment]) {.noSideEffect,
+proc ReadStep*(this: RWStepAP214_RWAppliedDateAssignment;
+              data: handle[StepData_StepReaderData]; num: Standard_Integer;
+              ach: var handle[Interface_Check];
+              ent: handle[StepAP214_AppliedDateAssignment]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepAP214_RWAppliedDateAssignment.hxx".}
-proc writeStep*(this: RWStepAP214RWAppliedDateAssignment;
-               sw: var StepDataStepWriter;
-               ent: Handle[StepAP214AppliedDateAssignment]) {.noSideEffect,
+proc WriteStep*(this: RWStepAP214_RWAppliedDateAssignment;
+               SW: var StepData_StepWriter;
+               ent: handle[StepAP214_AppliedDateAssignment]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepAP214_RWAppliedDateAssignment.hxx".}
-proc share*(this: RWStepAP214RWAppliedDateAssignment;
-           ent: Handle[StepAP214AppliedDateAssignment];
-           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
+proc Share*(this: RWStepAP214_RWAppliedDateAssignment;
+           ent: handle[StepAP214_AppliedDateAssignment];
+           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepAP214_RWAppliedDateAssignment.hxx".}
-

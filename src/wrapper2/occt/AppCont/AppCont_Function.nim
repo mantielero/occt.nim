@@ -12,38 +12,42 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../gp/gp_Pnt, ../gp/gp_Pnt2d, ../gp/gp_Vec, ../gp/gp_Vec2d,
+  ../NCollection/NCollection_Array1, ../Standard/Standard_Integer
+
 ## ! Class describing a continous 3d and/or function f(u).
 ## ! This class must be provided by the user to use the approximation algorithm FittingCurve.
 
 type
-  AppContFunction* {.importcpp: "AppCont_Function", header: "AppCont_Function.hxx",
-                    bycopy.} = object
+  AppCont_Function* {.importcpp: "AppCont_Function",
+                     header: "AppCont_Function.hxx", bycopy.} = object
 
 
-proc constructAppContFunction*(): AppContFunction {.constructor,
+proc constructAppCont_Function*(): AppCont_Function {.constructor,
     importcpp: "AppCont_Function(@)", header: "AppCont_Function.hxx".}
-proc getNumberOfPoints*(this: AppContFunction; theNbPnt: var StandardInteger;
-                       theNbPnt2d: var StandardInteger) {.noSideEffect,
+proc GetNumberOfPoints*(this: AppCont_Function; theNbPnt: var Standard_Integer;
+                       theNbPnt2d: var Standard_Integer) {.noSideEffect,
     importcpp: "GetNumberOfPoints", header: "AppCont_Function.hxx".}
-proc getNbOf3dPoints*(this: AppContFunction): StandardInteger {.noSideEffect,
+proc GetNbOf3dPoints*(this: AppCont_Function): Standard_Integer {.noSideEffect,
     importcpp: "GetNbOf3dPoints", header: "AppCont_Function.hxx".}
-proc getNbOf2dPoints*(this: AppContFunction): StandardInteger {.noSideEffect,
+proc GetNbOf2dPoints*(this: AppCont_Function): Standard_Integer {.noSideEffect,
     importcpp: "GetNbOf2dPoints", header: "AppCont_Function.hxx".}
-proc destroyAppContFunction*(this: var AppContFunction) {.
+proc destroyAppCont_Function*(this: var AppCont_Function) {.
     importcpp: "#.~AppCont_Function()", header: "AppCont_Function.hxx".}
-proc firstParameter*(this: AppContFunction): StandardReal {.noSideEffect,
+proc FirstParameter*(this: AppCont_Function): Standard_Real {.noSideEffect,
     importcpp: "FirstParameter", header: "AppCont_Function.hxx".}
-proc lastParameter*(this: AppContFunction): StandardReal {.noSideEffect,
+proc LastParameter*(this: AppCont_Function): Standard_Real {.noSideEffect,
     importcpp: "LastParameter", header: "AppCont_Function.hxx".}
-proc value*(this: AppContFunction; theU: StandardReal;
-           thePnt2d: var NCollectionArray1[GpPnt2d];
-           thePnt: var NCollectionArray1[GpPnt]): StandardBoolean {.noSideEffect,
+proc Value*(this: AppCont_Function; theU: Standard_Real;
+           thePnt2d: var NCollection_Array1[gp_Pnt2d];
+           thePnt: var NCollection_Array1[gp_Pnt]): Standard_Boolean {.noSideEffect,
     importcpp: "Value", header: "AppCont_Function.hxx".}
-proc d1*(this: AppContFunction; theU: StandardReal;
-        theVec2d: var NCollectionArray1[GpVec2d];
-        theVec: var NCollectionArray1[GpVec]): StandardBoolean {.noSideEffect,
+proc D1*(this: AppCont_Function; theU: Standard_Real;
+        theVec2d: var NCollection_Array1[gp_Vec2d];
+        theVec: var NCollection_Array1[gp_Vec]): Standard_Boolean {.noSideEffect,
     importcpp: "D1", header: "AppCont_Function.hxx".}
-proc periodInformation*(this: AppContFunction; a2: StandardInteger; ## theDimIdx
-                       isPeriodic: var StandardBoolean; thePeriod: var StandardReal) {.
-    noSideEffect, importcpp: "PeriodInformation", header: "AppCont_Function.hxx".}
-
+proc PeriodInformation*(this: AppCont_Function; a2: Standard_Integer; ## theDimIdx
+                       IsPeriodic: var Standard_Boolean;
+                       thePeriod: var Standard_Real) {.noSideEffect,
+    importcpp: "PeriodInformation", header: "AppCont_Function.hxx".}

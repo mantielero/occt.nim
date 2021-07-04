@@ -14,7 +14,8 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  BRepAdaptor_Curve, ../NCollection/NCollection_Array1
+
 type
-  BRepAdaptorArray1OfCurve* = NCollectionArray1[BRepAdaptorCurve]
-
-
+  BRepAdaptor_Array1OfCurve* = NCollection_Array1[BRepAdaptor_Curve]

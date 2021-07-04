@@ -13,40 +13,41 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  OpenGl_GlCore20
+
 ## ! OpenGL 2.1 core based on 2.0 version.
 
 type
-  OpenGlTmplCore21*[TheBaseClassT] {.importcpp: "OpenGl_TmplCore21<\'0>",
-                                    header: "OpenGl_GlCore21.hxx", bycopy.} = object of TheBaseClassT ##
-                                                                                               ## !
-                                                                                               ## @name
-                                                                                               ## OpenGL
-                                                                                               ## 2.1
-                                                                                               ## additives
-                                                                                               ## to
-                                                                                               ## 2.0
+  OpenGl_TmplCore21*[theBaseClass_t] {.importcpp: "OpenGl_TmplCore21<\'0>",
+                                      header: "OpenGl_GlCore21.hxx", bycopy.} = object of theBaseClass_t ##
+                                                                                                  ## !
+                                                                                                  ## @name
+                                                                                                  ## OpenGL
+                                                                                                  ## 2.1
+                                                                                                  ## additives
+                                                                                                  ## to
+                                                                                                  ## 2.0
 
 
-# when not defined(gl_Es_Version_20):
-#   discard
-# when not defined(gl_Es_Version_20):
-#   discard
-# when not defined(gl_Es_Version_20):
-#   discard
-# when not defined(gl_Es_Version_20):
-#   discard
-# when not defined(gl_Es_Version_20):
-#   discard
-# when not defined(gl_Es_Version_20):
-#   discard
+when not defined(GL_ES_VERSION_2_0):
+  discard
+when not defined(GL_ES_VERSION_2_0):
+  discard
+when not defined(GL_ES_VERSION_2_0):
+  discard
+when not defined(GL_ES_VERSION_2_0):
+  discard
+when not defined(GL_ES_VERSION_2_0):
+  discard
+when not defined(GL_ES_VERSION_2_0):
+  discard
 ## ! OpenGL 2.1 core based on 2.0 version.
 
 type
-  OpenGlGlCore21* = OpenGlTmplCore21[OpenGlGlCore20]
+  OpenGl_GlCore21* = OpenGl_TmplCore21[OpenGl_GlCore20]
 
 ## ! OpenGL 2.1 without deprecated entry points.
 
 type
-  OpenGlGlCore21Fwd* = OpenGlTmplCore21[OpenGlGlCore20Fwd]
-
-
+  OpenGl_GlCore21Fwd* = OpenGl_TmplCore21[OpenGl_GlCore20Fwd]

@@ -13,11 +13,17 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  BRepMesh_Classifier, ../IMeshData/IMeshData_Wire, ../IMeshData/IMeshData_Edge,
+  ../IMeshData/IMeshData_PCurve, BRepMesh_Vertex, ../TopExp/TopExp_Explorer,
+  ../TopoDS/TopoDS_Vertex, ../BRep/BRep_Tool, ../Standard/Standard_ErrorHandler,
+  BRepMesh_Delaun
+
 ## ! Extends base meshing algo in order to enable possibility
 ## ! of addition of free vertices into the mesh.
 
 type
-  BRepMeshNodeInsertionMeshAlgo*[RangeSplitter; BaseAlgo] {.
+  BRepMesh_NodeInsertionMeshAlgo*[RangeSplitter; BaseAlgo] {.
       importcpp: "BRepMesh_NodeInsertionMeshAlgo<\'0,\'1>",
       header: "BRepMesh_NodeInsertionMeshAlgo.hxx", bycopy.} = object of BaseAlgo ## !
                                                                            ## Constructor.
@@ -29,16 +35,15 @@ type
                                                                            ## discrete wire.
 
 
-proc constructBRepMeshNodeInsertionMeshAlgo*[RangeSplitter; BaseAlgo](): BRepMeshNodeInsertionMeshAlgo[
+proc constructBRepMesh_NodeInsertionMeshAlgo*[RangeSplitter; BaseAlgo](): BRepMesh_NodeInsertionMeshAlgo[
     RangeSplitter, BaseAlgo] {.constructor, importcpp: "BRepMesh_NodeInsertionMeshAlgo<\'*0,\'*1>(@)",
                              header: "BRepMesh_NodeInsertionMeshAlgo.hxx".}
-proc destroyBRepMeshNodeInsertionMeshAlgo*[RangeSplitter; BaseAlgo](
-    this: var BRepMeshNodeInsertionMeshAlgo[RangeSplitter, BaseAlgo]) {.
+proc destroyBRepMesh_NodeInsertionMeshAlgo*[RangeSplitter; BaseAlgo](
+    this: var BRepMesh_NodeInsertionMeshAlgo[RangeSplitter, BaseAlgo]) {.
     importcpp: "#.~BRepMesh_NodeInsertionMeshAlgo()",
     header: "BRepMesh_NodeInsertionMeshAlgo.hxx".}
-proc perform*[RangeSplitter; BaseAlgo](this: var BRepMeshNodeInsertionMeshAlgo[
+proc Perform*[RangeSplitter; BaseAlgo](this: var BRepMesh_NodeInsertionMeshAlgo[
     RangeSplitter, BaseAlgo]; theDFace: IFaceHandle;
-                                     theParameters: IMeshToolsParameters;
-                                     theRange: MessageProgressRange) {.
+                                     theParameters: IMeshTools_Parameters;
+                                     theRange: Message_ProgressRange) {.
     importcpp: "Perform", header: "BRepMesh_NodeInsertionMeshAlgo.hxx".}
-

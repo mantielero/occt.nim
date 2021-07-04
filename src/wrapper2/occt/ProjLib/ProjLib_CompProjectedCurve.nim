@@ -14,6 +14,15 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer,
+  ProjLib_HSequenceOfHSequenceOfPnt, ../Standard/Standard_Real,
+  ../TColStd/TColStd_HArray1OfBoolean, ../TColStd/TColStd_HArray1OfReal,
+  ../Adaptor2d/Adaptor2d_Curve2d, ../Standard/Standard_Boolean,
+  ../GeomAbs/GeomAbs_Shape, ../TColStd/TColStd_Array1OfReal,
+  ../GeomAbs/GeomAbs_CurveType
+
 discard "forward decl of Adaptor3d_HSurface"
 discard "forward decl of Adaptor3d_HCurve"
 discard "forward decl of Standard_OutOfRange"
@@ -24,106 +33,102 @@ discard "forward decl of gp_Pnt2d"
 discard "forward decl of gp_Vec2d"
 discard "forward decl of Adaptor2d_HCurve2d"
 type
-  ProjLibCompProjectedCurve* {.importcpp: "ProjLib_CompProjectedCurve",
-                              header: "ProjLib_CompProjectedCurve.hxx", bycopy.} = object of Adaptor2dCurve2d ##
-                                                                                                       ## !
-                                                                                                       ## This
-                                                                                                       ## method
-                                                                                                       ## performs
-                                                                                                       ## check
-                                                                                                       ## possibility
-                                                                                                       ## of
-                                                                                                       ## optimization
-                                                                                                       ## traps
-                                                                                                       ## and
-                                                                                                       ## tries
-                                                                                                       ## to
-                                                                                                       ## go
-                                                                                                       ## out
-                                                                                                       ## from
-                                                                                                       ## them.
-                                                                                                       ##
-                                                                                                       ## @return
-                                                                                                       ## thePoint
-                                                                                                       ## -
-                                                                                                       ## input
-                                                                                                       ## /
-                                                                                                       ## corrected
-                                                                                                       ## point.
+  ProjLib_CompProjectedCurve* {.importcpp: "ProjLib_CompProjectedCurve",
+                               header: "ProjLib_CompProjectedCurve.hxx", bycopy.} = object of Adaptor2d_Curve2d ##
+                                                                                                         ## !
+                                                                                                         ## This
+                                                                                                         ## method
+                                                                                                         ## performs
+                                                                                                         ## check
+                                                                                                         ## possibility
+                                                                                                         ## of
+                                                                                                         ## optimization
+                                                                                                         ## traps
+                                                                                                         ## and
+                                                                                                         ## tries
+                                                                                                         ## to
+                                                                                                         ## go
+                                                                                                         ## out
+                                                                                                         ## from
+                                                                                                         ## them.
+                                                                                                         ##
+                                                                                                         ## @return
+                                                                                                         ## thePoint
+                                                                                                         ## -
+                                                                                                         ## input
+                                                                                                         ## /
+                                                                                                         ## corrected
+                                                                                                         ## point.
 
 
-proc constructProjLibCompProjectedCurve*(): ProjLibCompProjectedCurve {.
+proc constructProjLib_CompProjectedCurve*(): ProjLib_CompProjectedCurve {.
     constructor, importcpp: "ProjLib_CompProjectedCurve(@)",
     header: "ProjLib_CompProjectedCurve.hxx".}
-proc constructProjLibCompProjectedCurve*(s: Handle[Adaptor3dHSurface];
-                                        c: Handle[Adaptor3dHCurve];
-                                        tolU: StandardReal; tolV: StandardReal): ProjLibCompProjectedCurve {.
+proc constructProjLib_CompProjectedCurve*(S: handle[Adaptor3d_HSurface];
+    C: handle[Adaptor3d_HCurve]; TolU: Standard_Real; TolV: Standard_Real): ProjLib_CompProjectedCurve {.
     constructor, importcpp: "ProjLib_CompProjectedCurve(@)",
     header: "ProjLib_CompProjectedCurve.hxx".}
-proc constructProjLibCompProjectedCurve*(s: Handle[Adaptor3dHSurface];
-                                        c: Handle[Adaptor3dHCurve];
-                                        tolU: StandardReal; tolV: StandardReal;
-                                        maxDist: StandardReal): ProjLibCompProjectedCurve {.
-    constructor, importcpp: "ProjLib_CompProjectedCurve(@)",
+proc constructProjLib_CompProjectedCurve*(S: handle[Adaptor3d_HSurface];
+    C: handle[Adaptor3d_HCurve]; TolU: Standard_Real; TolV: Standard_Real;
+    MaxDist: Standard_Real): ProjLib_CompProjectedCurve {.constructor,
+    importcpp: "ProjLib_CompProjectedCurve(@)",
     header: "ProjLib_CompProjectedCurve.hxx".}
-proc init*(this: var ProjLibCompProjectedCurve) {.importcpp: "Init",
+proc Init*(this: var ProjLib_CompProjectedCurve) {.importcpp: "Init",
     header: "ProjLib_CompProjectedCurve.hxx".}
-proc load*(this: var ProjLibCompProjectedCurve; s: Handle[Adaptor3dHSurface]) {.
+proc Load*(this: var ProjLib_CompProjectedCurve; S: handle[Adaptor3d_HSurface]) {.
     importcpp: "Load", header: "ProjLib_CompProjectedCurve.hxx".}
-proc load*(this: var ProjLibCompProjectedCurve; c: Handle[Adaptor3dHCurve]) {.
+proc Load*(this: var ProjLib_CompProjectedCurve; C: handle[Adaptor3d_HCurve]) {.
     importcpp: "Load", header: "ProjLib_CompProjectedCurve.hxx".}
-proc getSurface*(this: ProjLibCompProjectedCurve): Handle[Adaptor3dHSurface] {.
+proc GetSurface*(this: ProjLib_CompProjectedCurve): handle[Adaptor3d_HSurface] {.
     noSideEffect, importcpp: "GetSurface", header: "ProjLib_CompProjectedCurve.hxx".}
-proc getCurve*(this: ProjLibCompProjectedCurve): Handle[Adaptor3dHCurve] {.
+proc GetCurve*(this: ProjLib_CompProjectedCurve): handle[Adaptor3d_HCurve] {.
     noSideEffect, importcpp: "GetCurve", header: "ProjLib_CompProjectedCurve.hxx".}
-proc getTolerance*(this: ProjLibCompProjectedCurve; tolU: var StandardReal;
-                  tolV: var StandardReal) {.noSideEffect, importcpp: "GetTolerance",
-    header: "ProjLib_CompProjectedCurve.hxx".}
-proc nbCurves*(this: ProjLibCompProjectedCurve): StandardInteger {.noSideEffect,
+proc GetTolerance*(this: ProjLib_CompProjectedCurve; TolU: var Standard_Real;
+                  TolV: var Standard_Real) {.noSideEffect,
+    importcpp: "GetTolerance", header: "ProjLib_CompProjectedCurve.hxx".}
+proc NbCurves*(this: ProjLib_CompProjectedCurve): Standard_Integer {.noSideEffect,
     importcpp: "NbCurves", header: "ProjLib_CompProjectedCurve.hxx".}
-proc bounds*(this: ProjLibCompProjectedCurve; index: StandardInteger;
-            udeb: var StandardReal; ufin: var StandardReal) {.noSideEffect,
+proc Bounds*(this: ProjLib_CompProjectedCurve; Index: Standard_Integer;
+            Udeb: var Standard_Real; Ufin: var Standard_Real) {.noSideEffect,
     importcpp: "Bounds", header: "ProjLib_CompProjectedCurve.hxx".}
-proc isSinglePnt*(this: ProjLibCompProjectedCurve; index: StandardInteger;
-                 p: var GpPnt2d): StandardBoolean {.noSideEffect,
+proc IsSinglePnt*(this: ProjLib_CompProjectedCurve; Index: Standard_Integer;
+                 P: var gp_Pnt2d): Standard_Boolean {.noSideEffect,
     importcpp: "IsSinglePnt", header: "ProjLib_CompProjectedCurve.hxx".}
-proc isUIso*(this: ProjLibCompProjectedCurve; index: StandardInteger;
-            u: var StandardReal): StandardBoolean {.noSideEffect,
+proc IsUIso*(this: ProjLib_CompProjectedCurve; Index: Standard_Integer;
+            U: var Standard_Real): Standard_Boolean {.noSideEffect,
     importcpp: "IsUIso", header: "ProjLib_CompProjectedCurve.hxx".}
-proc isVIso*(this: ProjLibCompProjectedCurve; index: StandardInteger;
-            v: var StandardReal): StandardBoolean {.noSideEffect,
+proc IsVIso*(this: ProjLib_CompProjectedCurve; Index: Standard_Integer;
+            V: var Standard_Real): Standard_Boolean {.noSideEffect,
     importcpp: "IsVIso", header: "ProjLib_CompProjectedCurve.hxx".}
-proc value*(this: ProjLibCompProjectedCurve; u: StandardReal): GpPnt2d {.noSideEffect,
-    importcpp: "Value", header: "ProjLib_CompProjectedCurve.hxx".}
-proc d0*(this: ProjLibCompProjectedCurve; u: StandardReal; p: var GpPnt2d) {.
+proc Value*(this: ProjLib_CompProjectedCurve; U: Standard_Real): gp_Pnt2d {.
+    noSideEffect, importcpp: "Value", header: "ProjLib_CompProjectedCurve.hxx".}
+proc D0*(this: ProjLib_CompProjectedCurve; U: Standard_Real; P: var gp_Pnt2d) {.
     noSideEffect, importcpp: "D0", header: "ProjLib_CompProjectedCurve.hxx".}
-proc d1*(this: ProjLibCompProjectedCurve; u: StandardReal; p: var GpPnt2d;
-        v: var GpVec2d) {.noSideEffect, importcpp: "D1",
-                       header: "ProjLib_CompProjectedCurve.hxx".}
-proc d2*(this: ProjLibCompProjectedCurve; u: StandardReal; p: var GpPnt2d;
-        v1: var GpVec2d; v2: var GpVec2d) {.noSideEffect, importcpp: "D2",
-                                      header: "ProjLib_CompProjectedCurve.hxx".}
-proc dn*(this: ProjLibCompProjectedCurve; u: StandardReal; n: StandardInteger): GpVec2d {.
+proc D1*(this: ProjLib_CompProjectedCurve; U: Standard_Real; P: var gp_Pnt2d;
+        V: var gp_Vec2d) {.noSideEffect, importcpp: "D1",
+                        header: "ProjLib_CompProjectedCurve.hxx".}
+proc D2*(this: ProjLib_CompProjectedCurve; U: Standard_Real; P: var gp_Pnt2d;
+        V1: var gp_Vec2d; V2: var gp_Vec2d) {.noSideEffect, importcpp: "D2", header: "ProjLib_CompProjectedCurve.hxx".}
+proc DN*(this: ProjLib_CompProjectedCurve; U: Standard_Real; N: Standard_Integer): gp_Vec2d {.
     noSideEffect, importcpp: "DN", header: "ProjLib_CompProjectedCurve.hxx".}
-proc firstParameter*(this: ProjLibCompProjectedCurve): StandardReal {.noSideEffect,
-    importcpp: "FirstParameter", header: "ProjLib_CompProjectedCurve.hxx".}
-proc lastParameter*(this: ProjLibCompProjectedCurve): StandardReal {.noSideEffect,
+proc FirstParameter*(this: ProjLib_CompProjectedCurve): Standard_Real {.
+    noSideEffect, importcpp: "FirstParameter",
+    header: "ProjLib_CompProjectedCurve.hxx".}
+proc LastParameter*(this: ProjLib_CompProjectedCurve): Standard_Real {.noSideEffect,
     importcpp: "LastParameter", header: "ProjLib_CompProjectedCurve.hxx".}
-proc nbIntervals*(this: ProjLibCompProjectedCurve; s: GeomAbsShape): StandardInteger {.
+proc NbIntervals*(this: ProjLib_CompProjectedCurve; S: GeomAbs_Shape): Standard_Integer {.
     noSideEffect, importcpp: "NbIntervals",
     header: "ProjLib_CompProjectedCurve.hxx".}
-proc trim*(this: ProjLibCompProjectedCurve; firstParam: StandardReal;
-          lastParam: StandardReal; tol: StandardReal): Handle[Adaptor2dHCurve2d] {.
+proc Trim*(this: ProjLib_CompProjectedCurve; FirstParam: Standard_Real;
+          LastParam: Standard_Real; Tol: Standard_Real): handle[Adaptor2d_HCurve2d] {.
     noSideEffect, importcpp: "Trim", header: "ProjLib_CompProjectedCurve.hxx".}
-proc intervals*(this: ProjLibCompProjectedCurve; t: var TColStdArray1OfReal;
-               s: GeomAbsShape) {.noSideEffect, importcpp: "Intervals",
-                                header: "ProjLib_CompProjectedCurve.hxx".}
-proc maxDistance*(this: ProjLibCompProjectedCurve; index: StandardInteger): StandardReal {.
+proc Intervals*(this: ProjLib_CompProjectedCurve; T: var TColStd_Array1OfReal;
+               S: GeomAbs_Shape) {.noSideEffect, importcpp: "Intervals",
+                                 header: "ProjLib_CompProjectedCurve.hxx".}
+proc MaxDistance*(this: ProjLib_CompProjectedCurve; Index: Standard_Integer): Standard_Real {.
     noSideEffect, importcpp: "MaxDistance",
     header: "ProjLib_CompProjectedCurve.hxx".}
-proc getSequence*(this: ProjLibCompProjectedCurve): Handle[
-    ProjLibHSequenceOfHSequenceOfPnt] {.noSideEffect, importcpp: "GetSequence",
-                                       header: "ProjLib_CompProjectedCurve.hxx".}
-proc getType*(this: ProjLibCompProjectedCurve): GeomAbsCurveType {.noSideEffect,
+proc GetSequence*(this: ProjLib_CompProjectedCurve): handle[
+    ProjLib_HSequenceOfHSequenceOfPnt] {.noSideEffect, importcpp: "GetSequence", header: "ProjLib_CompProjectedCurve.hxx".}
+proc GetType*(this: ProjLib_CompProjectedCurve): GeomAbs_CurveType {.noSideEffect,
     importcpp: "GetType", header: "ProjLib_CompProjectedCurve.hxx".}
-

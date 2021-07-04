@@ -14,27 +14,30 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepGeom_OffsetCurve3d"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepGeomRWOffsetCurve3d* {.importcpp: "RWStepGeom_RWOffsetCurve3d",
-                              header: "RWStepGeom_RWOffsetCurve3d.hxx", bycopy.} = object
+  RWStepGeom_RWOffsetCurve3d* {.importcpp: "RWStepGeom_RWOffsetCurve3d",
+                               header: "RWStepGeom_RWOffsetCurve3d.hxx", bycopy.} = object
 
 
-proc constructRWStepGeomRWOffsetCurve3d*(): RWStepGeomRWOffsetCurve3d {.
+proc constructRWStepGeom_RWOffsetCurve3d*(): RWStepGeom_RWOffsetCurve3d {.
     constructor, importcpp: "RWStepGeom_RWOffsetCurve3d(@)",
     header: "RWStepGeom_RWOffsetCurve3d.hxx".}
-proc readStep*(this: RWStepGeomRWOffsetCurve3d;
-              data: Handle[StepDataStepReaderData]; num: StandardInteger;
-              ach: var Handle[InterfaceCheck]; ent: Handle[StepGeomOffsetCurve3d]) {.
+proc ReadStep*(this: RWStepGeom_RWOffsetCurve3d;
+              data: handle[StepData_StepReaderData]; num: Standard_Integer;
+              ach: var handle[Interface_Check]; ent: handle[StepGeom_OffsetCurve3d]) {.
     noSideEffect, importcpp: "ReadStep", header: "RWStepGeom_RWOffsetCurve3d.hxx".}
-proc writeStep*(this: RWStepGeomRWOffsetCurve3d; sw: var StepDataStepWriter;
-               ent: Handle[StepGeomOffsetCurve3d]) {.noSideEffect,
+proc WriteStep*(this: RWStepGeom_RWOffsetCurve3d; SW: var StepData_StepWriter;
+               ent: handle[StepGeom_OffsetCurve3d]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepGeom_RWOffsetCurve3d.hxx".}
-proc share*(this: RWStepGeomRWOffsetCurve3d; ent: Handle[StepGeomOffsetCurve3d];
-           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
+proc Share*(this: RWStepGeom_RWOffsetCurve3d; ent: handle[StepGeom_OffsetCurve3d];
+           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepGeom_RWOffsetCurve3d.hxx".}
-

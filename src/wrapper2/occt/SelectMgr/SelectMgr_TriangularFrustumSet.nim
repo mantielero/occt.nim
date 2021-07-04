@@ -13,9 +13,13 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../NCollection/NCollection_Handle, ../NCollection/NCollection_List,
+  SelectMgr_BaseFrustum, SelectMgr_TriangularFrustum
+
 type
-  SelectMgrTriangFrustums* = NCollectionList[Handle[SelectMgrTriangularFrustum]]
-  SelectMgrTriangFrustumsIter* = Iterator[Handle[SelectMgrTriangularFrustum]]
+  SelectMgr_TriangFrustums* = NCollection_List[handle[SelectMgr_TriangularFrustum]]
+  SelectMgr_TriangFrustumsIter* = Iterator[handle[SelectMgr_TriangularFrustum]]
 
 ## ! This class is used to handle polyline selection. The main principle of polyline selection
 ## ! algorithm is to split the polygon defined by polyline onto triangles. Than each of
@@ -27,67 +31,69 @@ type
 ## ! frustum.
 
 type
-  SelectMgrTriangularFrustumSet* {.importcpp: "SelectMgr_TriangularFrustumSet",
-                                  header: "SelectMgr_TriangularFrustumSet.hxx",
-                                  bycopy.} = object of SelectMgrBaseFrustum ## ! Checks whether the segment
-                                                                       ## intersects with the boundary of the current volume selection
+  SelectMgr_TriangularFrustumSet* {.importcpp: "SelectMgr_TriangularFrustumSet", header: "SelectMgr_TriangularFrustumSet.hxx",
+                                   bycopy.} = object of SelectMgr_BaseFrustum ## ! Checks whether the segment
+                                                                         ## intersects with the
+                                                                         ## boundary of the current volume
+                                                                         ## selection
 
 
-proc constructSelectMgrTriangularFrustumSet*(): SelectMgrTriangularFrustumSet {.
+proc constructSelectMgr_TriangularFrustumSet*(): SelectMgr_TriangularFrustumSet {.
     constructor, importcpp: "SelectMgr_TriangularFrustumSet(@)",
     header: "SelectMgr_TriangularFrustumSet.hxx".}
-proc destroySelectMgrTriangularFrustumSet*(
-    this: var SelectMgrTriangularFrustumSet) {.
+proc destroySelectMgr_TriangularFrustumSet*(
+    this: var SelectMgr_TriangularFrustumSet) {.
     importcpp: "#.~SelectMgr_TriangularFrustumSet()",
     header: "SelectMgr_TriangularFrustumSet.hxx".}
-proc build*(this: var SelectMgrTriangularFrustumSet; thePoints: TColgpArray1OfPnt2d) {.
-    importcpp: "Build", header: "SelectMgr_TriangularFrustumSet.hxx".}
-proc scaleAndTransform*(this: SelectMgrTriangularFrustumSet;
-                       theScale: StandardInteger; theTrsf: GpGTrsf): Handle[
-    SelectMgrBaseFrustum] {.noSideEffect, importcpp: "ScaleAndTransform",
-                           header: "SelectMgr_TriangularFrustumSet.hxx".}
-proc overlaps*(this: SelectMgrTriangularFrustumSet; theMinPnt: SelectMgrVec3;
-              theMaxPnt: SelectMgrVec3; theClipRange: SelectMgrViewClipRange;
-              thePickResult: var SelectBasicsPickResult): StandardBoolean {.
+proc Build*(this: var SelectMgr_TriangularFrustumSet;
+           thePoints: TColgp_Array1OfPnt2d) {.importcpp: "Build",
+    header: "SelectMgr_TriangularFrustumSet.hxx".}
+proc ScaleAndTransform*(this: SelectMgr_TriangularFrustumSet;
+                       theScale: Standard_Integer; theTrsf: gp_GTrsf): handle[
+    SelectMgr_BaseFrustum] {.noSideEffect, importcpp: "ScaleAndTransform",
+                            header: "SelectMgr_TriangularFrustumSet.hxx".}
+proc Overlaps*(this: SelectMgr_TriangularFrustumSet; theMinPnt: SelectMgr_Vec3;
+              theMaxPnt: SelectMgr_Vec3; theClipRange: SelectMgr_ViewClipRange;
+              thePickResult: var SelectBasics_PickResult): Standard_Boolean {.
     noSideEffect, importcpp: "Overlaps",
     header: "SelectMgr_TriangularFrustumSet.hxx".}
-proc overlaps*(this: SelectMgrTriangularFrustumSet; theMinPnt: SelectMgrVec3;
-              theMaxPnt: SelectMgrVec3; theInside: ptr StandardBoolean): StandardBoolean {.
+proc Overlaps*(this: SelectMgr_TriangularFrustumSet; theMinPnt: SelectMgr_Vec3;
+              theMaxPnt: SelectMgr_Vec3; theInside: ptr Standard_Boolean): Standard_Boolean {.
     noSideEffect, importcpp: "Overlaps",
     header: "SelectMgr_TriangularFrustumSet.hxx".}
-proc overlaps*(this: SelectMgrTriangularFrustumSet; thePnt: GpPnt;
-              theClipRange: SelectMgrViewClipRange;
-              thePickResult: var SelectBasicsPickResult): StandardBoolean {.
+proc Overlaps*(this: SelectMgr_TriangularFrustumSet; thePnt: gp_Pnt;
+              theClipRange: SelectMgr_ViewClipRange;
+              thePickResult: var SelectBasics_PickResult): Standard_Boolean {.
     noSideEffect, importcpp: "Overlaps",
     header: "SelectMgr_TriangularFrustumSet.hxx".}
-proc overlaps*(this: SelectMgrTriangularFrustumSet;
-              theArrayOfPnts: TColgpArray1OfPnt;
+proc Overlaps*(this: SelectMgr_TriangularFrustumSet;
+              theArrayOfPnts: TColgp_Array1OfPnt;
               theSensType: Select3D_TypeOfSensitivity;
-              theClipRange: SelectMgrViewClipRange;
-              thePickResult: var SelectBasicsPickResult): StandardBoolean {.
+              theClipRange: SelectMgr_ViewClipRange;
+              thePickResult: var SelectBasics_PickResult): Standard_Boolean {.
     noSideEffect, importcpp: "Overlaps",
     header: "SelectMgr_TriangularFrustumSet.hxx".}
-proc overlaps*(this: SelectMgrTriangularFrustumSet; thePnt1: GpPnt; thePnt2: GpPnt;
-              theClipRange: SelectMgrViewClipRange;
-              thePickResult: var SelectBasicsPickResult): StandardBoolean {.
+proc Overlaps*(this: SelectMgr_TriangularFrustumSet; thePnt1: gp_Pnt;
+              thePnt2: gp_Pnt; theClipRange: SelectMgr_ViewClipRange;
+              thePickResult: var SelectBasics_PickResult): Standard_Boolean {.
     noSideEffect, importcpp: "Overlaps",
     header: "SelectMgr_TriangularFrustumSet.hxx".}
-proc overlaps*(this: SelectMgrTriangularFrustumSet; thePnt1: GpPnt; thePnt2: GpPnt;
-              thePnt3: GpPnt; theSensType: Select3D_TypeOfSensitivity;
-              theClipRange: SelectMgrViewClipRange;
-              thePickResult: var SelectBasicsPickResult): StandardBoolean {.
+proc Overlaps*(this: SelectMgr_TriangularFrustumSet; thePnt1: gp_Pnt;
+              thePnt2: gp_Pnt; thePnt3: gp_Pnt;
+              theSensType: Select3D_TypeOfSensitivity;
+              theClipRange: SelectMgr_ViewClipRange;
+              thePickResult: var SelectBasics_PickResult): Standard_Boolean {.
     noSideEffect, importcpp: "Overlaps",
     header: "SelectMgr_TriangularFrustumSet.hxx".}
-proc getPlanes*(this: SelectMgrTriangularFrustumSet;
-               thePlaneEquations: var NCollectionVector[SelectMgrVec4]) {.
+proc GetPlanes*(this: SelectMgr_TriangularFrustumSet;
+               thePlaneEquations: var NCollection_Vector[SelectMgr_Vec4]) {.
     noSideEffect, importcpp: "GetPlanes",
     header: "SelectMgr_TriangularFrustumSet.hxx".}
-proc setAllowOverlapDetection*(this: var SelectMgrTriangularFrustumSet;
-                              theIsToAllow: StandardBoolean) {.
+proc SetAllowOverlapDetection*(this: var SelectMgr_TriangularFrustumSet;
+                              theIsToAllow: Standard_Boolean) {.
     importcpp: "SetAllowOverlapDetection",
     header: "SelectMgr_TriangularFrustumSet.hxx".}
-proc dumpJson*(this: SelectMgrTriangularFrustumSet;
-              theOStream: var StandardOStream; theDepth: StandardInteger = -1) {.
+proc DumpJson*(this: SelectMgr_TriangularFrustumSet;
+              theOStream: var Standard_OStream; theDepth: Standard_Integer = -1) {.
     noSideEffect, importcpp: "DumpJson",
     header: "SelectMgr_TriangularFrustumSet.hxx".}
-

@@ -14,6 +14,14 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../TopoDS/TopoDS_Shape,
+  ../TopTools/TopTools_DataMapOfShapeListOfShape, ../gp/gp_Ax1,
+  ../TColGeom/TColGeom_SequenceOfCurve, BRepFeat_StatusError, BRepFeat_Form,
+  ../Standard/Standard_Integer, ../Standard/Standard_Boolean,
+  ../Standard/Standard_Real
+
 discard "forward decl of Geom_Curve"
 discard "forward decl of Standard_ConstructionError"
 discard "forward decl of TopoDS_Shape"
@@ -21,42 +29,41 @@ discard "forward decl of TopoDS_Face"
 discard "forward decl of gp_Ax1"
 discard "forward decl of TopoDS_Edge"
 type
-  BRepFeatMakeRevol* {.importcpp: "BRepFeat_MakeRevol",
-                      header: "BRepFeat_MakeRevol.hxx", bycopy.} = object of BRepFeatForm ##
-                                                                                   ## !
-                                                                                   ## initializes
-                                                                                   ## the
-                                                                                   ## revolved
-                                                                                   ## shell
-                                                                                   ## class.
+  BRepFeat_MakeRevol* {.importcpp: "BRepFeat_MakeRevol",
+                       header: "BRepFeat_MakeRevol.hxx", bycopy.} = object of BRepFeat_Form ##
+                                                                                     ## !
+                                                                                     ## initializes
+                                                                                     ## the
+                                                                                     ## revolved
+                                                                                     ## shell
+                                                                                     ## class.
 
 
-proc constructBRepFeatMakeRevol*(): BRepFeatMakeRevol {.constructor,
+proc constructBRepFeat_MakeRevol*(): BRepFeat_MakeRevol {.constructor,
     importcpp: "BRepFeat_MakeRevol(@)", header: "BRepFeat_MakeRevol.hxx".}
-proc constructBRepFeatMakeRevol*(sbase: TopoDS_Shape; pbase: TopoDS_Shape;
-                                skface: TopoDS_Face; axis: GpAx1;
-                                fuse: StandardInteger; modify: StandardBoolean): BRepFeatMakeRevol {.
+proc constructBRepFeat_MakeRevol*(Sbase: TopoDS_Shape; Pbase: TopoDS_Shape;
+                                 Skface: TopoDS_Face; Axis: gp_Ax1;
+                                 Fuse: Standard_Integer; Modify: Standard_Boolean): BRepFeat_MakeRevol {.
     constructor, importcpp: "BRepFeat_MakeRevol(@)",
     header: "BRepFeat_MakeRevol.hxx".}
-proc init*(this: var BRepFeatMakeRevol; sbase: TopoDS_Shape; pbase: TopoDS_Shape;
-          skface: TopoDS_Face; axis: GpAx1; fuse: StandardInteger;
-          modify: StandardBoolean) {.importcpp: "Init",
-                                   header: "BRepFeat_MakeRevol.hxx".}
-proc add*(this: var BRepFeatMakeRevol; e: TopoDS_Edge; onFace: TopoDS_Face) {.
+proc Init*(this: var BRepFeat_MakeRevol; Sbase: TopoDS_Shape; Pbase: TopoDS_Shape;
+          Skface: TopoDS_Face; Axis: gp_Ax1; Fuse: Standard_Integer;
+          Modify: Standard_Boolean) {.importcpp: "Init",
+                                    header: "BRepFeat_MakeRevol.hxx".}
+proc Add*(this: var BRepFeat_MakeRevol; E: TopoDS_Edge; OnFace: TopoDS_Face) {.
     importcpp: "Add", header: "BRepFeat_MakeRevol.hxx".}
-proc perform*(this: var BRepFeatMakeRevol; angle: StandardReal) {.
+proc Perform*(this: var BRepFeat_MakeRevol; Angle: Standard_Real) {.
     importcpp: "Perform", header: "BRepFeat_MakeRevol.hxx".}
-proc perform*(this: var BRepFeatMakeRevol; until: TopoDS_Shape) {.
+proc Perform*(this: var BRepFeat_MakeRevol; Until: TopoDS_Shape) {.
     importcpp: "Perform", header: "BRepFeat_MakeRevol.hxx".}
-proc perform*(this: var BRepFeatMakeRevol; `from`: TopoDS_Shape; until: TopoDS_Shape) {.
+proc Perform*(this: var BRepFeat_MakeRevol; From: TopoDS_Shape; Until: TopoDS_Shape) {.
     importcpp: "Perform", header: "BRepFeat_MakeRevol.hxx".}
-proc performThruAll*(this: var BRepFeatMakeRevol) {.importcpp: "PerformThruAll",
+proc PerformThruAll*(this: var BRepFeat_MakeRevol) {.importcpp: "PerformThruAll",
     header: "BRepFeat_MakeRevol.hxx".}
-proc performUntilAngle*(this: var BRepFeatMakeRevol; until: TopoDS_Shape;
-                       angle: StandardReal) {.importcpp: "PerformUntilAngle",
+proc PerformUntilAngle*(this: var BRepFeat_MakeRevol; Until: TopoDS_Shape;
+                       Angle: Standard_Real) {.importcpp: "PerformUntilAngle",
     header: "BRepFeat_MakeRevol.hxx".}
-proc curves*(this: var BRepFeatMakeRevol; s: var TColGeomSequenceOfCurve) {.
+proc Curves*(this: var BRepFeat_MakeRevol; S: var TColGeom_SequenceOfCurve) {.
     importcpp: "Curves", header: "BRepFeat_MakeRevol.hxx".}
-proc barycCurve*(this: var BRepFeatMakeRevol): Handle[GeomCurve] {.
+proc BarycCurve*(this: var BRepFeat_MakeRevol): handle[Geom_Curve] {.
     importcpp: "BarycCurve", header: "BRepFeat_MakeRevol.hxx".}
-

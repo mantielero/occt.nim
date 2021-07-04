@@ -14,7 +14,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../TColGeom2d/TColGeom2d_SequenceOfCurve, ../NCollection/NCollection_Sequence
+
 type
-  MAT2dSequenceOfSequenceOfCurve* = NCollectionSequence[TColGeom2dSequenceOfCurve]
-
-
+  MAT2d_SequenceOfSequenceOfCurve* = NCollection_Sequence[
+      TColGeom2d_SequenceOfCurve]

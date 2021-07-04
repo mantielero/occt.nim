@@ -14,6 +14,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Integer,
+  ../Standard/Standard_Real, ../TColStd/TColStd_HArray1OfInteger,
+  IGESAppli_HArray1OfFiniteElement, ../IGESData/IGESData_IGESEntity,
+  ../TColStd/TColStd_HArray1OfReal
+
 discard "forward decl of IGESDimen_GeneralNote"
 discard "forward decl of IGESBasic_HArray1OfHArray1OfInteger"
 discard "forward decl of IGESBasic_HArray1OfHArray1OfReal"
@@ -23,89 +29,92 @@ discard "forward decl of IGESAppli_FiniteElement"
 discard "forward decl of IGESAppli_ElementResults"
 discard "forward decl of IGESAppli_ElementResults"
 type
-  HandleIGESAppliElementResults* = Handle[IGESAppliElementResults]
+  Handle_IGESAppli_ElementResults* = handle[IGESAppli_ElementResults]
 
 ## ! defines ElementResults, Type <148>
 ## ! in package IGESAppli
 ## ! Used to find the results of FEM analysis
 
 type
-  IGESAppliElementResults* {.importcpp: "IGESAppli_ElementResults",
-                            header: "IGESAppli_ElementResults.hxx", bycopy.} = object of IGESDataIGESEntity
+  IGESAppli_ElementResults* {.importcpp: "IGESAppli_ElementResults",
+                             header: "IGESAppli_ElementResults.hxx", bycopy.} = object of IGESData_IGESEntity
 
 
-proc constructIGESAppliElementResults*(): IGESAppliElementResults {.constructor,
+proc constructIGESAppli_ElementResults*(): IGESAppli_ElementResults {.constructor,
     importcpp: "IGESAppli_ElementResults(@)",
     header: "IGESAppli_ElementResults.hxx".}
-proc init*(this: var IGESAppliElementResults; aNote: Handle[IGESDimenGeneralNote];
-          aSubCase: StandardInteger; aTime: StandardReal;
-          nbResults: StandardInteger; aResRepFlag: StandardInteger;
-          allElementIdents: Handle[TColStdHArray1OfInteger];
-          allFiniteElems: Handle[IGESAppliHArray1OfFiniteElement];
-          allTopTypes: Handle[TColStdHArray1OfInteger];
-          nbLayers: Handle[TColStdHArray1OfInteger];
-          allDataLayerFlags: Handle[TColStdHArray1OfInteger];
-          allnbResDataLocs: Handle[TColStdHArray1OfInteger];
-          allResDataLocs: Handle[IGESBasicHArray1OfHArray1OfInteger];
-          allResults: Handle[IGESBasicHArray1OfHArray1OfReal]) {.
+proc Init*(this: var IGESAppli_ElementResults; aNote: handle[IGESDimen_GeneralNote];
+          aSubCase: Standard_Integer; aTime: Standard_Real;
+          nbResults: Standard_Integer; aResRepFlag: Standard_Integer;
+          allElementIdents: handle[TColStd_HArray1OfInteger];
+          allFiniteElems: handle[IGESAppli_HArray1OfFiniteElement];
+          allTopTypes: handle[TColStd_HArray1OfInteger];
+          nbLayers: handle[TColStd_HArray1OfInteger];
+          allDataLayerFlags: handle[TColStd_HArray1OfInteger];
+          allnbResDataLocs: handle[TColStd_HArray1OfInteger];
+          allResDataLocs: handle[IGESBasic_HArray1OfHArray1OfInteger];
+          allResults: handle[IGESBasic_HArray1OfHArray1OfReal]) {.
     importcpp: "Init", header: "IGESAppli_ElementResults.hxx".}
-proc setFormNumber*(this: var IGESAppliElementResults; form: StandardInteger) {.
+proc SetFormNumber*(this: var IGESAppli_ElementResults; form: Standard_Integer) {.
     importcpp: "SetFormNumber", header: "IGESAppli_ElementResults.hxx".}
-proc note*(this: IGESAppliElementResults): Handle[IGESDimenGeneralNote] {.
+proc Note*(this: IGESAppli_ElementResults): handle[IGESDimen_GeneralNote] {.
     noSideEffect, importcpp: "Note", header: "IGESAppli_ElementResults.hxx".}
-proc subCaseNumber*(this: IGESAppliElementResults): StandardInteger {.noSideEffect,
-    importcpp: "SubCaseNumber", header: "IGESAppli_ElementResults.hxx".}
-proc time*(this: IGESAppliElementResults): StandardReal {.noSideEffect,
+proc SubCaseNumber*(this: IGESAppli_ElementResults): Standard_Integer {.
+    noSideEffect, importcpp: "SubCaseNumber",
+    header: "IGESAppli_ElementResults.hxx".}
+proc Time*(this: IGESAppli_ElementResults): Standard_Real {.noSideEffect,
     importcpp: "Time", header: "IGESAppli_ElementResults.hxx".}
-proc nbResultValues*(this: IGESAppliElementResults): StandardInteger {.noSideEffect,
-    importcpp: "NbResultValues", header: "IGESAppli_ElementResults.hxx".}
-proc resultReportFlag*(this: IGESAppliElementResults): StandardInteger {.
+proc NbResultValues*(this: IGESAppli_ElementResults): Standard_Integer {.
+    noSideEffect, importcpp: "NbResultValues",
+    header: "IGESAppli_ElementResults.hxx".}
+proc ResultReportFlag*(this: IGESAppli_ElementResults): Standard_Integer {.
     noSideEffect, importcpp: "ResultReportFlag",
     header: "IGESAppli_ElementResults.hxx".}
-proc nbElements*(this: IGESAppliElementResults): StandardInteger {.noSideEffect,
+proc NbElements*(this: IGESAppli_ElementResults): Standard_Integer {.noSideEffect,
     importcpp: "NbElements", header: "IGESAppli_ElementResults.hxx".}
-proc elementIdentifier*(this: IGESAppliElementResults; index: StandardInteger): StandardInteger {.
+proc ElementIdentifier*(this: IGESAppli_ElementResults; Index: Standard_Integer): Standard_Integer {.
     noSideEffect, importcpp: "ElementIdentifier",
     header: "IGESAppli_ElementResults.hxx".}
-proc element*(this: IGESAppliElementResults; index: StandardInteger): Handle[
-    IGESAppliFiniteElement] {.noSideEffect, importcpp: "Element",
-                             header: "IGESAppli_ElementResults.hxx".}
-proc elementTopologyType*(this: IGESAppliElementResults; index: StandardInteger): StandardInteger {.
+proc Element*(this: IGESAppli_ElementResults; Index: Standard_Integer): handle[
+    IGESAppli_FiniteElement] {.noSideEffect, importcpp: "Element",
+                              header: "IGESAppli_ElementResults.hxx".}
+proc ElementTopologyType*(this: IGESAppli_ElementResults; Index: Standard_Integer): Standard_Integer {.
     noSideEffect, importcpp: "ElementTopologyType",
     header: "IGESAppli_ElementResults.hxx".}
-proc nbLayers*(this: IGESAppliElementResults; index: StandardInteger): StandardInteger {.
+proc NbLayers*(this: IGESAppli_ElementResults; Index: Standard_Integer): Standard_Integer {.
     noSideEffect, importcpp: "NbLayers", header: "IGESAppli_ElementResults.hxx".}
-proc dataLayerFlag*(this: IGESAppliElementResults; index: StandardInteger): StandardInteger {.
+proc DataLayerFlag*(this: IGESAppli_ElementResults; Index: Standard_Integer): Standard_Integer {.
     noSideEffect, importcpp: "DataLayerFlag",
     header: "IGESAppli_ElementResults.hxx".}
-proc nbResultDataLocs*(this: IGESAppliElementResults; index: StandardInteger): StandardInteger {.
+proc NbResultDataLocs*(this: IGESAppli_ElementResults; Index: Standard_Integer): Standard_Integer {.
     noSideEffect, importcpp: "NbResultDataLocs",
     header: "IGESAppli_ElementResults.hxx".}
-proc resultDataLoc*(this: IGESAppliElementResults; nElem: StandardInteger;
-                   nLoc: StandardInteger): StandardInteger {.noSideEffect,
+proc ResultDataLoc*(this: IGESAppli_ElementResults; NElem: Standard_Integer;
+                   NLoc: Standard_Integer): Standard_Integer {.noSideEffect,
     importcpp: "ResultDataLoc", header: "IGESAppli_ElementResults.hxx".}
-proc nbResults*(this: IGESAppliElementResults; index: StandardInteger): StandardInteger {.
+proc NbResults*(this: IGESAppli_ElementResults; Index: Standard_Integer): Standard_Integer {.
     noSideEffect, importcpp: "NbResults", header: "IGESAppli_ElementResults.hxx".}
-proc resultData*(this: IGESAppliElementResults; nElem: StandardInteger;
-                num: StandardInteger): StandardReal {.noSideEffect,
+proc ResultData*(this: IGESAppli_ElementResults; NElem: Standard_Integer;
+                num: Standard_Integer): Standard_Real {.noSideEffect,
     importcpp: "ResultData", header: "IGESAppli_ElementResults.hxx".}
-proc resultRank*(this: IGESAppliElementResults; nElem: StandardInteger;
-                nVal: StandardInteger; nLay: StandardInteger; nLoc: StandardInteger): StandardInteger {.
-    noSideEffect, importcpp: "ResultRank", header: "IGESAppli_ElementResults.hxx".}
-proc resultData*(this: IGESAppliElementResults; nElem: StandardInteger;
-                nVal: StandardInteger; nLay: StandardInteger; nLoc: StandardInteger): StandardReal {.
-    noSideEffect, importcpp: "ResultData", header: "IGESAppli_ElementResults.hxx".}
-proc resultList*(this: IGESAppliElementResults; nElem: StandardInteger): Handle[
-    TColStdHArray1OfReal] {.noSideEffect, importcpp: "ResultList",
-                           header: "IGESAppli_ElementResults.hxx".}
-type
-  IGESAppliElementResultsbaseType* = IGESDataIGESEntity
-
-proc getTypeName*(): cstring {.importcpp: "IGESAppli_ElementResults::get_type_name(@)",
+proc ResultRank*(this: IGESAppli_ElementResults; NElem: Standard_Integer;
+                NVal: Standard_Integer; NLay: Standard_Integer;
+                NLoc: Standard_Integer): Standard_Integer {.noSideEffect,
+    importcpp: "ResultRank", header: "IGESAppli_ElementResults.hxx".}
+proc ResultData*(this: IGESAppli_ElementResults; NElem: Standard_Integer;
+                NVal: Standard_Integer; NLay: Standard_Integer;
+                NLoc: Standard_Integer): Standard_Real {.noSideEffect,
+    importcpp: "ResultData", header: "IGESAppli_ElementResults.hxx".}
+proc ResultList*(this: IGESAppli_ElementResults; NElem: Standard_Integer): handle[
+    TColStd_HArray1OfReal] {.noSideEffect, importcpp: "ResultList",
                             header: "IGESAppli_ElementResults.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+type
+  IGESAppli_ElementResultsbase_type* = IGESData_IGESEntity
+
+proc get_type_name*(): cstring {.importcpp: "IGESAppli_ElementResults::get_type_name(@)",
+                              header: "IGESAppli_ElementResults.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "IGESAppli_ElementResults::get_type_descriptor(@)",
     header: "IGESAppli_ElementResults.hxx".}
-proc dynamicType*(this: IGESAppliElementResults): Handle[StandardType] {.
+proc DynamicType*(this: IGESAppli_ElementResults): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType", header: "IGESAppli_ElementResults.hxx".}
-

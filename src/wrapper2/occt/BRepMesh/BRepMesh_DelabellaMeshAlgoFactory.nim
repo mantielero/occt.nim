@@ -13,36 +13,40 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard_Transient, ../Standard/Standard_Type,
+  ../GeomAbs/GeomAbs_SurfaceType, ../IMeshTools/IMeshTools_MeshAlgoFactory
+
 ## ! Implementation of IMeshTools_MeshAlgoFactory providing Delabella-based
 ## ! algorithms of different complexity depending on type of target surface.
 
 type
-  BRepMeshDelabellaMeshAlgoFactory* {.importcpp: "BRepMesh_DelabellaMeshAlgoFactory", header: "BRepMesh_DelabellaMeshAlgoFactory.hxx",
-                                     bycopy.} = object of IMeshToolsMeshAlgoFactory ## !
-                                                                               ## Constructor.
+  BRepMesh_DelabellaMeshAlgoFactory* {.importcpp: "BRepMesh_DelabellaMeshAlgoFactory", header: "BRepMesh_DelabellaMeshAlgoFactory.hxx",
+                                      bycopy.} = object of IMeshTools_MeshAlgoFactory ##
+                                                                                 ## !
+                                                                                 ## Constructor.
 
 
-proc constructBRepMeshDelabellaMeshAlgoFactory*(): BRepMeshDelabellaMeshAlgoFactory {.
+proc constructBRepMesh_DelabellaMeshAlgoFactory*(): BRepMesh_DelabellaMeshAlgoFactory {.
     constructor, importcpp: "BRepMesh_DelabellaMeshAlgoFactory(@)",
     header: "BRepMesh_DelabellaMeshAlgoFactory.hxx".}
-proc destroyBRepMeshDelabellaMeshAlgoFactory*(
-    this: var BRepMeshDelabellaMeshAlgoFactory) {.
+proc destroyBRepMesh_DelabellaMeshAlgoFactory*(
+    this: var BRepMesh_DelabellaMeshAlgoFactory) {.
     importcpp: "#.~BRepMesh_DelabellaMeshAlgoFactory()",
     header: "BRepMesh_DelabellaMeshAlgoFactory.hxx".}
-proc getAlgo*(this: BRepMeshDelabellaMeshAlgoFactory;
-             theSurfaceType: GeomAbsSurfaceType;
-             theParameters: IMeshToolsParameters): Handle[IMeshToolsMeshAlgo] {.
+proc GetAlgo*(this: BRepMesh_DelabellaMeshAlgoFactory;
+             theSurfaceType: GeomAbs_SurfaceType;
+             theParameters: IMeshTools_Parameters): handle[IMeshTools_MeshAlgo] {.
     noSideEffect, importcpp: "GetAlgo",
     header: "BRepMesh_DelabellaMeshAlgoFactory.hxx".}
 type
-  BRepMeshDelabellaMeshAlgoFactorybaseType* = IMeshToolsMeshAlgoFactory
+  BRepMesh_DelabellaMeshAlgoFactorybase_type* = IMeshTools_MeshAlgoFactory
 
-proc getTypeName*(): cstring {.importcpp: "BRepMesh_DelabellaMeshAlgoFactory::get_type_name(@)",
-                            header: "BRepMesh_DelabellaMeshAlgoFactory.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "BRepMesh_DelabellaMeshAlgoFactory::get_type_name(@)",
+                              header: "BRepMesh_DelabellaMeshAlgoFactory.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "BRepMesh_DelabellaMeshAlgoFactory::get_type_descriptor(@)",
     header: "BRepMesh_DelabellaMeshAlgoFactory.hxx".}
-proc dynamicType*(this: BRepMeshDelabellaMeshAlgoFactory): Handle[StandardType] {.
+proc DynamicType*(this: BRepMesh_DelabellaMeshAlgoFactory): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType",
     header: "BRepMesh_DelabellaMeshAlgoFactory.hxx".}
-

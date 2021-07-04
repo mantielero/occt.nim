@@ -14,36 +14,39 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Real,
+  ../Standard/Standard_Integer, ../TopAbs/TopAbs_ShapeEnum,
+  ../TopTools/TopTools_HSequenceOfShape
+
 discard "forward decl of TopoDS_Shape"
 type
-  ShapeAnalysisShapeTolerance* {.importcpp: "ShapeAnalysis_ShapeTolerance",
-                                header: "ShapeAnalysis_ShapeTolerance.hxx", bycopy.} = object ##
-                                                                                         ## !
-                                                                                         ## Empty
-                                                                                         ## constructor
+  ShapeAnalysis_ShapeTolerance* {.importcpp: "ShapeAnalysis_ShapeTolerance",
+                                 header: "ShapeAnalysis_ShapeTolerance.hxx",
+                                 bycopy.} = object ## ! Empty constructor
 
 
-proc constructShapeAnalysisShapeTolerance*(): ShapeAnalysisShapeTolerance {.
+proc constructShapeAnalysis_ShapeTolerance*(): ShapeAnalysis_ShapeTolerance {.
     constructor, importcpp: "ShapeAnalysis_ShapeTolerance(@)",
     header: "ShapeAnalysis_ShapeTolerance.hxx".}
-proc tolerance*(this: var ShapeAnalysisShapeTolerance; shape: TopoDS_Shape;
-               mode: StandardInteger; `type`: TopAbsShapeEnum = topAbsSHAPE): StandardReal {.
+proc Tolerance*(this: var ShapeAnalysis_ShapeTolerance; shape: TopoDS_Shape;
+               mode: Standard_Integer; `type`: TopAbs_ShapeEnum = TopAbs_SHAPE): Standard_Real {.
     importcpp: "Tolerance", header: "ShapeAnalysis_ShapeTolerance.hxx".}
-proc overTolerance*(this: ShapeAnalysisShapeTolerance; shape: TopoDS_Shape;
-                   value: StandardReal; `type`: TopAbsShapeEnum = topAbsSHAPE): Handle[
-    TopToolsHSequenceOfShape] {.noSideEffect, importcpp: "OverTolerance",
-                               header: "ShapeAnalysis_ShapeTolerance.hxx".}
-proc inTolerance*(this: ShapeAnalysisShapeTolerance; shape: TopoDS_Shape;
-                 valmin: StandardReal; valmax: StandardReal;
-                 `type`: TopAbsShapeEnum = topAbsSHAPE): Handle[
-    TopToolsHSequenceOfShape] {.noSideEffect, importcpp: "InTolerance",
-                               header: "ShapeAnalysis_ShapeTolerance.hxx".}
-proc initTolerance*(this: var ShapeAnalysisShapeTolerance) {.
+proc OverTolerance*(this: ShapeAnalysis_ShapeTolerance; shape: TopoDS_Shape;
+                   value: Standard_Real; `type`: TopAbs_ShapeEnum = TopAbs_SHAPE): handle[
+    TopTools_HSequenceOfShape] {.noSideEffect, importcpp: "OverTolerance",
+                                header: "ShapeAnalysis_ShapeTolerance.hxx".}
+proc InTolerance*(this: ShapeAnalysis_ShapeTolerance; shape: TopoDS_Shape;
+                 valmin: Standard_Real; valmax: Standard_Real;
+                 `type`: TopAbs_ShapeEnum = TopAbs_SHAPE): handle[
+    TopTools_HSequenceOfShape] {.noSideEffect, importcpp: "InTolerance",
+                                header: "ShapeAnalysis_ShapeTolerance.hxx".}
+proc InitTolerance*(this: var ShapeAnalysis_ShapeTolerance) {.
     importcpp: "InitTolerance", header: "ShapeAnalysis_ShapeTolerance.hxx".}
-proc addTolerance*(this: var ShapeAnalysisShapeTolerance; shape: TopoDS_Shape;
-                  `type`: TopAbsShapeEnum = topAbsSHAPE) {.
+proc AddTolerance*(this: var ShapeAnalysis_ShapeTolerance; shape: TopoDS_Shape;
+                  `type`: TopAbs_ShapeEnum = TopAbs_SHAPE) {.
     importcpp: "AddTolerance", header: "ShapeAnalysis_ShapeTolerance.hxx".}
-proc globalTolerance*(this: ShapeAnalysisShapeTolerance; mode: StandardInteger): StandardReal {.
+proc GlobalTolerance*(this: ShapeAnalysis_ShapeTolerance; mode: Standard_Integer): Standard_Real {.
     noSideEffect, importcpp: "GlobalTolerance",
     header: "ShapeAnalysis_ShapeTolerance.hxx".}
-

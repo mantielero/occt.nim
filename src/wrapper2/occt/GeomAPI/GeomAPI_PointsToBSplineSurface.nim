@@ -14,6 +14,13 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
+  ../TColgp/TColgp_Array2OfPnt, ../Standard/Standard_Integer,
+  ../GeomAbs/GeomAbs_Shape, ../Standard/Standard_Real,
+  ../Approx/Approx_ParametrizationType, ../TColStd/TColStd_Array2OfReal
+
 discard "forward decl of Geom_BSplineSurface"
 discard "forward decl of StdFail_NotDone"
 type
@@ -30,65 +37,65 @@ type
 proc constructGeomAPI_PointsToBSplineSurface*(): GeomAPI_PointsToBSplineSurface {.
     constructor, importcpp: "GeomAPI_PointsToBSplineSurface(@)",
     header: "GeomAPI_PointsToBSplineSurface.hxx".}
-proc constructGeomAPI_PointsToBSplineSurface*(points: TColgpArray2OfPnt;
-    degMin: StandardInteger = 3; degMax: StandardInteger = 8;
-    continuity: GeomAbsShape = geomAbsC2; tol3D: StandardReal = 1.0e-3): GeomAPI_PointsToBSplineSurface {.
+proc constructGeomAPI_PointsToBSplineSurface*(Points: TColgp_Array2OfPnt;
+    DegMin: Standard_Integer = 3; DegMax: Standard_Integer = 8;
+    Continuity: GeomAbs_Shape = GeomAbs_C2; Tol3D: Standard_Real = 1.0e-3): GeomAPI_PointsToBSplineSurface {.
     constructor, importcpp: "GeomAPI_PointsToBSplineSurface(@)",
     header: "GeomAPI_PointsToBSplineSurface.hxx".}
-proc constructGeomAPI_PointsToBSplineSurface*(points: TColgpArray2OfPnt;
-    parType: ApproxParametrizationType; degMin: StandardInteger = 3;
-    degMax: StandardInteger = 8; continuity: GeomAbsShape = geomAbsC2;
-    tol3D: StandardReal = 1.0e-3): GeomAPI_PointsToBSplineSurface {.constructor,
+proc constructGeomAPI_PointsToBSplineSurface*(Points: TColgp_Array2OfPnt;
+    ParType: Approx_ParametrizationType; DegMin: Standard_Integer = 3;
+    DegMax: Standard_Integer = 8; Continuity: GeomAbs_Shape = GeomAbs_C2;
+    Tol3D: Standard_Real = 1.0e-3): GeomAPI_PointsToBSplineSurface {.constructor,
     importcpp: "GeomAPI_PointsToBSplineSurface(@)",
     header: "GeomAPI_PointsToBSplineSurface.hxx".}
-proc constructGeomAPI_PointsToBSplineSurface*(points: TColgpArray2OfPnt;
-    weight1: StandardReal; weight2: StandardReal; weight3: StandardReal;
-    degMax: StandardInteger = 8; continuity: GeomAbsShape = geomAbsC2;
-    tol3D: StandardReal = 1.0e-3): GeomAPI_PointsToBSplineSurface {.constructor,
+proc constructGeomAPI_PointsToBSplineSurface*(Points: TColgp_Array2OfPnt;
+    Weight1: Standard_Real; Weight2: Standard_Real; Weight3: Standard_Real;
+    DegMax: Standard_Integer = 8; Continuity: GeomAbs_Shape = GeomAbs_C2;
+    Tol3D: Standard_Real = 1.0e-3): GeomAPI_PointsToBSplineSurface {.constructor,
     importcpp: "GeomAPI_PointsToBSplineSurface(@)",
     header: "GeomAPI_PointsToBSplineSurface.hxx".}
-proc constructGeomAPI_PointsToBSplineSurface*(zPoints: TColStdArray2OfReal;
-    x0: StandardReal; dX: StandardReal; y0: StandardReal; dY: StandardReal;
-    degMin: StandardInteger = 3; degMax: StandardInteger = 8;
-    continuity: GeomAbsShape = geomAbsC2; tol3D: StandardReal = 1.0e-3): GeomAPI_PointsToBSplineSurface {.
+proc constructGeomAPI_PointsToBSplineSurface*(ZPoints: TColStd_Array2OfReal;
+    X0: Standard_Real; dX: Standard_Real; Y0: Standard_Real; dY: Standard_Real;
+    DegMin: Standard_Integer = 3; DegMax: Standard_Integer = 8;
+    Continuity: GeomAbs_Shape = GeomAbs_C2; Tol3D: Standard_Real = 1.0e-3): GeomAPI_PointsToBSplineSurface {.
     constructor, importcpp: "GeomAPI_PointsToBSplineSurface(@)",
     header: "GeomAPI_PointsToBSplineSurface.hxx".}
-proc init*(this: var GeomAPI_PointsToBSplineSurface; points: TColgpArray2OfPnt;
-          degMin: StandardInteger = 3; degMax: StandardInteger = 8;
-          continuity: GeomAbsShape = geomAbsC2; tol3D: StandardReal = 1.0e-3) {.
+proc Init*(this: var GeomAPI_PointsToBSplineSurface; Points: TColgp_Array2OfPnt;
+          DegMin: Standard_Integer = 3; DegMax: Standard_Integer = 8;
+          Continuity: GeomAbs_Shape = GeomAbs_C2; Tol3D: Standard_Real = 1.0e-3) {.
     importcpp: "Init", header: "GeomAPI_PointsToBSplineSurface.hxx".}
-proc interpolate*(this: var GeomAPI_PointsToBSplineSurface;
-                 points: TColgpArray2OfPnt;
-                 thePeriodic: StandardBoolean = standardFalse) {.
+proc Interpolate*(this: var GeomAPI_PointsToBSplineSurface;
+                 Points: TColgp_Array2OfPnt;
+                 thePeriodic: Standard_Boolean = Standard_False) {.
     importcpp: "Interpolate", header: "GeomAPI_PointsToBSplineSurface.hxx".}
-proc interpolate*(this: var GeomAPI_PointsToBSplineSurface;
-                 points: TColgpArray2OfPnt; parType: ApproxParametrizationType;
-                 thePeriodic: StandardBoolean = standardFalse) {.
+proc Interpolate*(this: var GeomAPI_PointsToBSplineSurface;
+                 Points: TColgp_Array2OfPnt; ParType: Approx_ParametrizationType;
+                 thePeriodic: Standard_Boolean = Standard_False) {.
     importcpp: "Interpolate", header: "GeomAPI_PointsToBSplineSurface.hxx".}
-proc init*(this: var GeomAPI_PointsToBSplineSurface; zPoints: TColStdArray2OfReal;
-          x0: StandardReal; dX: StandardReal; y0: StandardReal; dY: StandardReal;
-          degMin: StandardInteger = 3; degMax: StandardInteger = 8;
-          continuity: GeomAbsShape = geomAbsC2; tol3D: StandardReal = 1.0e-3) {.
+proc Init*(this: var GeomAPI_PointsToBSplineSurface; ZPoints: TColStd_Array2OfReal;
+          X0: Standard_Real; dX: Standard_Real; Y0: Standard_Real; dY: Standard_Real;
+          DegMin: Standard_Integer = 3; DegMax: Standard_Integer = 8;
+          Continuity: GeomAbs_Shape = GeomAbs_C2; Tol3D: Standard_Real = 1.0e-3) {.
     importcpp: "Init", header: "GeomAPI_PointsToBSplineSurface.hxx".}
-proc interpolate*(this: var GeomAPI_PointsToBSplineSurface;
-                 zPoints: TColStdArray2OfReal; x0: StandardReal; dX: StandardReal;
-                 y0: StandardReal; dY: StandardReal) {.importcpp: "Interpolate",
+proc Interpolate*(this: var GeomAPI_PointsToBSplineSurface;
+                 ZPoints: TColStd_Array2OfReal; X0: Standard_Real;
+                 dX: Standard_Real; Y0: Standard_Real; dY: Standard_Real) {.
+    importcpp: "Interpolate", header: "GeomAPI_PointsToBSplineSurface.hxx".}
+proc Init*(this: var GeomAPI_PointsToBSplineSurface; Points: TColgp_Array2OfPnt;
+          ParType: Approx_ParametrizationType; DegMin: Standard_Integer = 3;
+          DegMax: Standard_Integer = 8; Continuity: GeomAbs_Shape = GeomAbs_C2;
+          Tol3D: Standard_Real = 1.0e-3;
+          thePeriodic: Standard_Boolean = Standard_False) {.importcpp: "Init",
     header: "GeomAPI_PointsToBSplineSurface.hxx".}
-proc init*(this: var GeomAPI_PointsToBSplineSurface; points: TColgpArray2OfPnt;
-          parType: ApproxParametrizationType; degMin: StandardInteger = 3;
-          degMax: StandardInteger = 8; continuity: GeomAbsShape = geomAbsC2;
-          tol3D: StandardReal = 1.0e-3; thePeriodic: StandardBoolean = standardFalse) {.
-    importcpp: "Init", header: "GeomAPI_PointsToBSplineSurface.hxx".}
-proc init*(this: var GeomAPI_PointsToBSplineSurface; points: TColgpArray2OfPnt;
-          weight1: StandardReal; weight2: StandardReal; weight3: StandardReal;
-          degMax: StandardInteger = 8; continuity: GeomAbsShape = geomAbsC2;
-          tol3D: StandardReal = 1.0e-3) {.importcpp: "Init", header: "GeomAPI_PointsToBSplineSurface.hxx".}
-proc surface*(this: GeomAPI_PointsToBSplineSurface): Handle[GeomBSplineSurface] {.
+proc Init*(this: var GeomAPI_PointsToBSplineSurface; Points: TColgp_Array2OfPnt;
+          Weight1: Standard_Real; Weight2: Standard_Real; Weight3: Standard_Real;
+          DegMax: Standard_Integer = 8; Continuity: GeomAbs_Shape = GeomAbs_C2;
+          Tol3D: Standard_Real = 1.0e-3) {.importcpp: "Init", header: "GeomAPI_PointsToBSplineSurface.hxx".}
+proc Surface*(this: GeomAPI_PointsToBSplineSurface): handle[Geom_BSplineSurface] {.
     noSideEffect, importcpp: "Surface",
     header: "GeomAPI_PointsToBSplineSurface.hxx".}
-converter `opencascade`*(this: GeomAPI_PointsToBSplineSurface): Handle[
-    GeomBSplineSurface] {.noSideEffect, importcpp: "GeomAPI_PointsToBSplineSurface::operator opencascade",
-                         header: "GeomAPI_PointsToBSplineSurface.hxx".}
-proc isDone*(this: GeomAPI_PointsToBSplineSurface): StandardBoolean {.noSideEffect,
+converter `opencascade`*(this: GeomAPI_PointsToBSplineSurface): handle[
+    Geom_BSplineSurface] {.noSideEffect, importcpp: "GeomAPI_PointsToBSplineSurface::operator opencascade",
+                          header: "GeomAPI_PointsToBSplineSurface.hxx".}
+proc IsDone*(this: GeomAPI_PointsToBSplineSurface): Standard_Boolean {.noSideEffect,
     importcpp: "IsDone", header: "GeomAPI_PointsToBSplineSurface.hxx".}
-

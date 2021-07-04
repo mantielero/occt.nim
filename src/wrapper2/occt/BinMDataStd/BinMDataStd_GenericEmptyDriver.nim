@@ -11,49 +11,52 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../BinMDF/BinMDF_ADriver,
+  ../Standard/Standard_Boolean, ../BinObjMgt/BinObjMgt_RRelocationTable,
+  ../BinObjMgt/BinObjMgt_SRelocationTable
+
 discard "forward decl of Message_Messenger"
 discard "forward decl of TDF_Attribute"
 discard "forward decl of BinObjMgt_Persistent"
 discard "forward decl of BinMDataStd_GenericEmptyDriver"
 discard "forward decl of BinMDataStd_GenericEmptyDriver"
 type
-  HandleBinMDataStdGenericEmptyDriver* = Handle[BinMDataStdGenericEmptyDriver]
+  Handle_BinMDataStd_GenericEmptyDriver* = handle[BinMDataStd_GenericEmptyDriver]
 
 ## ! GenericEmpty attribute driver.
 
 type
-  BinMDataStdGenericEmptyDriver* {.importcpp: "BinMDataStd_GenericEmptyDriver",
-                                  header: "BinMDataStd_GenericEmptyDriver.hxx",
-                                  bycopy.} = object of BinMDF_ADriver
+  BinMDataStd_GenericEmptyDriver* {.importcpp: "BinMDataStd_GenericEmptyDriver", header: "BinMDataStd_GenericEmptyDriver.hxx",
+                                   bycopy.} = object of BinMDF_ADriver
 
 
-proc constructBinMDataStdGenericEmptyDriver*(
-    theMessageDriver: Handle[MessageMessenger]): BinMDataStdGenericEmptyDriver {.
+proc constructBinMDataStd_GenericEmptyDriver*(
+    theMessageDriver: handle[Message_Messenger]): BinMDataStd_GenericEmptyDriver {.
     constructor, importcpp: "BinMDataStd_GenericEmptyDriver(@)",
     header: "BinMDataStd_GenericEmptyDriver.hxx".}
-proc newEmpty*(this: BinMDataStdGenericEmptyDriver): Handle[TDF_Attribute] {.
+proc NewEmpty*(this: BinMDataStd_GenericEmptyDriver): handle[TDF_Attribute] {.
     noSideEffect, importcpp: "NewEmpty",
     header: "BinMDataStd_GenericEmptyDriver.hxx".}
-proc sourceType*(this: BinMDataStdGenericEmptyDriver): Handle[StandardType] {.
+proc SourceType*(this: BinMDataStd_GenericEmptyDriver): handle[Standard_Type] {.
     noSideEffect, importcpp: "SourceType",
     header: "BinMDataStd_GenericEmptyDriver.hxx".}
-proc paste*(this: BinMDataStdGenericEmptyDriver; source: BinObjMgtPersistent;
-           target: Handle[TDF_Attribute];
-           relocTable: var BinObjMgtRRelocationTable): StandardBoolean {.
+proc Paste*(this: BinMDataStd_GenericEmptyDriver; Source: BinObjMgt_Persistent;
+           Target: handle[TDF_Attribute];
+           RelocTable: var BinObjMgt_RRelocationTable): Standard_Boolean {.
     noSideEffect, importcpp: "Paste", header: "BinMDataStd_GenericEmptyDriver.hxx".}
-proc paste*(this: BinMDataStdGenericEmptyDriver; source: Handle[TDF_Attribute];
-           target: var BinObjMgtPersistent;
-           relocTable: var BinObjMgtSRelocationTable) {.noSideEffect,
+proc Paste*(this: BinMDataStd_GenericEmptyDriver; Source: handle[TDF_Attribute];
+           Target: var BinObjMgt_Persistent;
+           RelocTable: var BinObjMgt_SRelocationTable) {.noSideEffect,
     importcpp: "Paste", header: "BinMDataStd_GenericEmptyDriver.hxx".}
 type
-  BinMDataStdGenericEmptyDriverbaseType* = BinMDF_ADriver
+  BinMDataStd_GenericEmptyDriverbase_type* = BinMDF_ADriver
 
-proc getTypeName*(): cstring {.importcpp: "BinMDataStd_GenericEmptyDriver::get_type_name(@)",
-                            header: "BinMDataStd_GenericEmptyDriver.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "BinMDataStd_GenericEmptyDriver::get_type_name(@)",
+                              header: "BinMDataStd_GenericEmptyDriver.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "BinMDataStd_GenericEmptyDriver::get_type_descriptor(@)",
     header: "BinMDataStd_GenericEmptyDriver.hxx".}
-proc dynamicType*(this: BinMDataStdGenericEmptyDriver): Handle[StandardType] {.
+proc DynamicType*(this: BinMDataStd_GenericEmptyDriver): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType",
     header: "BinMDataStd_GenericEmptyDriver.hxx".}
-

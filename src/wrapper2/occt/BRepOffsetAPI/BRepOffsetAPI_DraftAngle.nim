@@ -14,12 +14,20 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../TopTools/TopTools_ListOfShape,
+  ../TopTools/TopTools_DataMapOfShapeShape,
+  ../BRepBuilderAPI/BRepBuilderAPI_ModifyShape, ../Standard/Standard_Real,
+  ../Standard/Standard_Boolean, ../Draft/Draft_ErrorStatus,
+  ../BRepTools/BRepTools_ReShape
+
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of TopoDS_Face"
 discard "forward decl of gp_Dir"
 discard "forward decl of gp_Pln"
-# when defined(Status):
-#   discard
+when defined(Status):
+  discard
 ## ! Taper-adding transformations on a shape.
 ## ! The resulting shape is constructed by defining one face
 ## ! to be tapered after another one, as well as the
@@ -81,40 +89,39 @@ type
 proc constructBRepOffsetAPI_DraftAngle*(): BRepOffsetAPI_DraftAngle {.constructor,
     importcpp: "BRepOffsetAPI_DraftAngle(@)",
     header: "BRepOffsetAPI_DraftAngle.hxx".}
-proc constructBRepOffsetAPI_DraftAngle*(s: TopoDS_Shape): BRepOffsetAPI_DraftAngle {.
+proc constructBRepOffsetAPI_DraftAngle*(S: TopoDS_Shape): BRepOffsetAPI_DraftAngle {.
     constructor, importcpp: "BRepOffsetAPI_DraftAngle(@)",
     header: "BRepOffsetAPI_DraftAngle.hxx".}
-proc clear*(this: var BRepOffsetAPI_DraftAngle) {.importcpp: "Clear",
+proc Clear*(this: var BRepOffsetAPI_DraftAngle) {.importcpp: "Clear",
     header: "BRepOffsetAPI_DraftAngle.hxx".}
-proc init*(this: var BRepOffsetAPI_DraftAngle; s: TopoDS_Shape) {.importcpp: "Init",
+proc Init*(this: var BRepOffsetAPI_DraftAngle; S: TopoDS_Shape) {.importcpp: "Init",
     header: "BRepOffsetAPI_DraftAngle.hxx".}
-proc add*(this: var BRepOffsetAPI_DraftAngle; f: TopoDS_Face; direction: GpDir;
-         angle: StandardReal; neutralPlane: GpPln;
-         flag: StandardBoolean = standardTrue) {.importcpp: "Add",
+proc Add*(this: var BRepOffsetAPI_DraftAngle; F: TopoDS_Face; Direction: gp_Dir;
+         Angle: Standard_Real; NeutralPlane: gp_Pln;
+         Flag: Standard_Boolean = Standard_True) {.importcpp: "Add",
     header: "BRepOffsetAPI_DraftAngle.hxx".}
-proc addDone*(this: BRepOffsetAPI_DraftAngle): StandardBoolean {.noSideEffect,
+proc AddDone*(this: BRepOffsetAPI_DraftAngle): Standard_Boolean {.noSideEffect,
     importcpp: "AddDone", header: "BRepOffsetAPI_DraftAngle.hxx".}
-proc remove*(this: var BRepOffsetAPI_DraftAngle; f: TopoDS_Face) {.
+proc Remove*(this: var BRepOffsetAPI_DraftAngle; F: TopoDS_Face) {.
     importcpp: "Remove", header: "BRepOffsetAPI_DraftAngle.hxx".}
-proc problematicShape*(this: BRepOffsetAPI_DraftAngle): TopoDS_Shape {.noSideEffect,
+proc ProblematicShape*(this: BRepOffsetAPI_DraftAngle): TopoDS_Shape {.noSideEffect,
     importcpp: "ProblematicShape", header: "BRepOffsetAPI_DraftAngle.hxx".}
-proc status*(this: BRepOffsetAPI_DraftAngle): DraftErrorStatus {.noSideEffect,
+proc Status*(this: BRepOffsetAPI_DraftAngle): Draft_ErrorStatus {.noSideEffect,
     importcpp: "Status", header: "BRepOffsetAPI_DraftAngle.hxx".}
-proc connectedFaces*(this: BRepOffsetAPI_DraftAngle; f: TopoDS_Face): TopToolsListOfShape {.
+proc ConnectedFaces*(this: BRepOffsetAPI_DraftAngle; F: TopoDS_Face): TopTools_ListOfShape {.
     noSideEffect, importcpp: "ConnectedFaces",
     header: "BRepOffsetAPI_DraftAngle.hxx".}
-proc modifiedFaces*(this: BRepOffsetAPI_DraftAngle): TopToolsListOfShape {.
+proc ModifiedFaces*(this: BRepOffsetAPI_DraftAngle): TopTools_ListOfShape {.
     noSideEffect, importcpp: "ModifiedFaces",
     header: "BRepOffsetAPI_DraftAngle.hxx".}
-proc build*(this: var BRepOffsetAPI_DraftAngle) {.importcpp: "Build",
+proc Build*(this: var BRepOffsetAPI_DraftAngle) {.importcpp: "Build",
     header: "BRepOffsetAPI_DraftAngle.hxx".}
-proc correctWires*(this: var BRepOffsetAPI_DraftAngle) {.importcpp: "CorrectWires",
+proc CorrectWires*(this: var BRepOffsetAPI_DraftAngle) {.importcpp: "CorrectWires",
     header: "BRepOffsetAPI_DraftAngle.hxx".}
-proc generated*(this: var BRepOffsetAPI_DraftAngle; s: TopoDS_Shape): TopToolsListOfShape {.
+proc Generated*(this: var BRepOffsetAPI_DraftAngle; S: TopoDS_Shape): TopTools_ListOfShape {.
     importcpp: "Generated", header: "BRepOffsetAPI_DraftAngle.hxx".}
-proc modified*(this: var BRepOffsetAPI_DraftAngle; s: TopoDS_Shape): TopToolsListOfShape {.
+proc Modified*(this: var BRepOffsetAPI_DraftAngle; S: TopoDS_Shape): TopTools_ListOfShape {.
     importcpp: "Modified", header: "BRepOffsetAPI_DraftAngle.hxx".}
-proc modifiedShape*(this: BRepOffsetAPI_DraftAngle; s: TopoDS_Shape): TopoDS_Shape {.
+proc ModifiedShape*(this: BRepOffsetAPI_DraftAngle; S: TopoDS_Shape): TopoDS_Shape {.
     noSideEffect, importcpp: "ModifiedShape",
     header: "BRepOffsetAPI_DraftAngle.hxx".}
-

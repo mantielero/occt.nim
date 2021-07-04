@@ -14,6 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Transient,
+  GccInt_IType
+
 discard "forward decl of Standard_DomainError"
 discard "forward decl of gp_Pnt2d"
 discard "forward decl of gp_Lin2d"
@@ -24,7 +28,7 @@ discard "forward decl of gp_Elips2d"
 discard "forward decl of GccInt_Bisec"
 discard "forward decl of GccInt_Bisec"
 type
-  HandleGccIntBisec* = Handle[GccIntBisec]
+  Handle_GccInt_Bisec* = handle[GccInt_Bisec]
 
 ## ! The deferred class GccInt_Bisec is the root class for
 ## ! elementary bisecting loci between two simple geometric
@@ -47,45 +51,44 @@ type
 ## ! points, whose solutions are these types of elementary bisecting locus.
 
 type
-  GccIntBisec* {.importcpp: "GccInt_Bisec", header: "GccInt_Bisec.hxx", bycopy.} = object of StandardTransient ##
-                                                                                                     ## !
-                                                                                                     ## Returns
-                                                                                                     ## the
-                                                                                                     ## type
-                                                                                                     ## of
-                                                                                                     ## bisecting
-                                                                                                     ## object
-                                                                                                     ## (line,
-                                                                                                     ## circle,
-                                                                                                     ##
-                                                                                                     ## !
-                                                                                                     ## parabola,
-                                                                                                     ## hyperbola,
-                                                                                                     ## ellipse,
-                                                                                                     ## point).
+  GccInt_Bisec* {.importcpp: "GccInt_Bisec", header: "GccInt_Bisec.hxx", bycopy.} = object of Standard_Transient ##
+                                                                                                       ## !
+                                                                                                       ## Returns
+                                                                                                       ## the
+                                                                                                       ## type
+                                                                                                       ## of
+                                                                                                       ## bisecting
+                                                                                                       ## object
+                                                                                                       ## (line,
+                                                                                                       ## circle,
+                                                                                                       ##
+                                                                                                       ## !
+                                                                                                       ## parabola,
+                                                                                                       ## hyperbola,
+                                                                                                       ## ellipse,
+                                                                                                       ## point).
 
 
-proc arcType*(this: GccIntBisec): GccIntIType {.noSideEffect, importcpp: "ArcType",
+proc ArcType*(this: GccInt_Bisec): GccInt_IType {.noSideEffect, importcpp: "ArcType",
     header: "GccInt_Bisec.hxx".}
-proc point*(this: GccIntBisec): GpPnt2d {.noSideEffect, importcpp: "Point",
-                                      header: "GccInt_Bisec.hxx".}
-proc line*(this: GccIntBisec): GpLin2d {.noSideEffect, importcpp: "Line",
-                                     header: "GccInt_Bisec.hxx".}
-proc circle*(this: GccIntBisec): GpCirc2d {.noSideEffect, importcpp: "Circle",
+proc Point*(this: GccInt_Bisec): gp_Pnt2d {.noSideEffect, importcpp: "Point",
                                         header: "GccInt_Bisec.hxx".}
-proc hyperbola*(this: GccIntBisec): GpHypr2d {.noSideEffect, importcpp: "Hyperbola",
+proc Line*(this: GccInt_Bisec): gp_Lin2d {.noSideEffect, importcpp: "Line",
+                                       header: "GccInt_Bisec.hxx".}
+proc Circle*(this: GccInt_Bisec): gp_Circ2d {.noSideEffect, importcpp: "Circle",
     header: "GccInt_Bisec.hxx".}
-proc parabola*(this: GccIntBisec): GpParab2d {.noSideEffect, importcpp: "Parabola",
+proc Hyperbola*(this: GccInt_Bisec): gp_Hypr2d {.noSideEffect,
+    importcpp: "Hyperbola", header: "GccInt_Bisec.hxx".}
+proc Parabola*(this: GccInt_Bisec): gp_Parab2d {.noSideEffect, importcpp: "Parabola",
     header: "GccInt_Bisec.hxx".}
-proc ellipse*(this: GccIntBisec): GpElips2d {.noSideEffect, importcpp: "Ellipse",
+proc Ellipse*(this: GccInt_Bisec): gp_Elips2d {.noSideEffect, importcpp: "Ellipse",
     header: "GccInt_Bisec.hxx".}
 type
-  GccIntBisecbaseType* = StandardTransient
+  GccInt_Bisecbase_type* = Standard_Transient
 
-proc getTypeName*(): cstring {.importcpp: "GccInt_Bisec::get_type_name(@)",
-                            header: "GccInt_Bisec.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "GccInt_Bisec::get_type_name(@)",
+                              header: "GccInt_Bisec.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "GccInt_Bisec::get_type_descriptor(@)", header: "GccInt_Bisec.hxx".}
-proc dynamicType*(this: GccIntBisec): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: GccInt_Bisec): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "GccInt_Bisec.hxx".}
-

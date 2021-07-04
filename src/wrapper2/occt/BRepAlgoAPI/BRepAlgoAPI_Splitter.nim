@@ -12,6 +12,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, BRepAlgoAPI_BuilderAlgo
+
 ## ! The class contains API level of the **Splitter** algorithm,
 ## ! which allows splitting a group of arbitrary shapes by the
 ## ! other group of arbitrary shapes.<br>
@@ -104,13 +108,12 @@ type
 
 proc constructBRepAlgoAPI_Splitter*(): BRepAlgoAPI_Splitter {.constructor,
     importcpp: "BRepAlgoAPI_Splitter(@)", header: "BRepAlgoAPI_Splitter.hxx".}
-proc constructBRepAlgoAPI_Splitter*(thePF: BOPAlgoPaveFiller): BRepAlgoAPI_Splitter {.
+proc constructBRepAlgoAPI_Splitter*(thePF: BOPAlgo_PaveFiller): BRepAlgoAPI_Splitter {.
     constructor, importcpp: "BRepAlgoAPI_Splitter(@)",
     header: "BRepAlgoAPI_Splitter.hxx".}
-proc setTools*(this: var BRepAlgoAPI_Splitter; theLS: TopToolsListOfShape) {.
+proc SetTools*(this: var BRepAlgoAPI_Splitter; theLS: TopTools_ListOfShape) {.
     importcpp: "SetTools", header: "BRepAlgoAPI_Splitter.hxx".}
-proc tools*(this: BRepAlgoAPI_Splitter): TopToolsListOfShape {.noSideEffect,
+proc Tools*(this: BRepAlgoAPI_Splitter): TopTools_ListOfShape {.noSideEffect,
     importcpp: "Tools", header: "BRepAlgoAPI_Splitter.hxx".}
-proc build*(this: var BRepAlgoAPI_Splitter) {.importcpp: "Build",
+proc Build*(this: var BRepAlgoAPI_Splitter) {.importcpp: "Build",
     header: "BRepAlgoAPI_Splitter.hxx".}
-

@@ -14,6 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 discard "forward decl of Standard_DomainError"
 discard "forward decl of IGESAppli_NodalResults"
 discard "forward decl of IGESData_IGESReaderData"
@@ -26,44 +30,45 @@ discard "forward decl of Interface_Check"
 discard "forward decl of Interface_CopyTool"
 discard "forward decl of IGESData_IGESDumper"
 type
-  IGESAppliToolNodalResults* {.importcpp: "IGESAppli_ToolNodalResults",
-                              header: "IGESAppli_ToolNodalResults.hxx", bycopy.} = object ##
-                                                                                     ## !
-                                                                                     ## Returns
-                                                                                     ## a
-                                                                                     ## ToolNodalResults,
-                                                                                     ## ready
-                                                                                     ## to
-                                                                                     ## work
+  IGESAppli_ToolNodalResults* {.importcpp: "IGESAppli_ToolNodalResults",
+                               header: "IGESAppli_ToolNodalResults.hxx", bycopy.} = object ##
+                                                                                      ## !
+                                                                                      ## Returns
+                                                                                      ## a
+                                                                                      ## ToolNodalResults,
+                                                                                      ## ready
+                                                                                      ## to
+                                                                                      ## work
 
 
-proc constructIGESAppliToolNodalResults*(): IGESAppliToolNodalResults {.
+proc constructIGESAppli_ToolNodalResults*(): IGESAppli_ToolNodalResults {.
     constructor, importcpp: "IGESAppli_ToolNodalResults(@)",
     header: "IGESAppli_ToolNodalResults.hxx".}
-proc readOwnParams*(this: IGESAppliToolNodalResults;
-                   ent: Handle[IGESAppliNodalResults];
-                   ir: Handle[IGESDataIGESReaderData]; pr: var IGESDataParamReader) {.
-    noSideEffect, importcpp: "ReadOwnParams",
-    header: "IGESAppli_ToolNodalResults.hxx".}
-proc writeOwnParams*(this: IGESAppliToolNodalResults;
-                    ent: Handle[IGESAppliNodalResults]; iw: var IGESDataIGESWriter) {.
-    noSideEffect, importcpp: "WriteOwnParams",
-    header: "IGESAppli_ToolNodalResults.hxx".}
-proc ownShared*(this: IGESAppliToolNodalResults;
-               ent: Handle[IGESAppliNodalResults];
-               iter: var InterfaceEntityIterator) {.noSideEffect,
+proc ReadOwnParams*(this: IGESAppli_ToolNodalResults;
+                   ent: handle[IGESAppli_NodalResults];
+                   IR: handle[IGESData_IGESReaderData];
+                   PR: var IGESData_ParamReader) {.noSideEffect,
+    importcpp: "ReadOwnParams", header: "IGESAppli_ToolNodalResults.hxx".}
+proc WriteOwnParams*(this: IGESAppli_ToolNodalResults;
+                    ent: handle[IGESAppli_NodalResults];
+                    IW: var IGESData_IGESWriter) {.noSideEffect,
+    importcpp: "WriteOwnParams", header: "IGESAppli_ToolNodalResults.hxx".}
+proc OwnShared*(this: IGESAppli_ToolNodalResults;
+               ent: handle[IGESAppli_NodalResults];
+               iter: var Interface_EntityIterator) {.noSideEffect,
     importcpp: "OwnShared", header: "IGESAppli_ToolNodalResults.hxx".}
-proc dirChecker*(this: IGESAppliToolNodalResults;
-                ent: Handle[IGESAppliNodalResults]): IGESDataDirChecker {.
+proc DirChecker*(this: IGESAppli_ToolNodalResults;
+                ent: handle[IGESAppli_NodalResults]): IGESData_DirChecker {.
     noSideEffect, importcpp: "DirChecker", header: "IGESAppli_ToolNodalResults.hxx".}
-proc ownCheck*(this: IGESAppliToolNodalResults; ent: Handle[IGESAppliNodalResults];
-              shares: InterfaceShareTool; ach: var Handle[InterfaceCheck]) {.
-    noSideEffect, importcpp: "OwnCheck", header: "IGESAppli_ToolNodalResults.hxx".}
-proc ownCopy*(this: IGESAppliToolNodalResults;
-             entfrom: Handle[IGESAppliNodalResults];
-             entto: Handle[IGESAppliNodalResults]; tc: var InterfaceCopyTool) {.
+proc OwnCheck*(this: IGESAppli_ToolNodalResults;
+              ent: handle[IGESAppli_NodalResults]; shares: Interface_ShareTool;
+              ach: var handle[Interface_Check]) {.noSideEffect,
+    importcpp: "OwnCheck", header: "IGESAppli_ToolNodalResults.hxx".}
+proc OwnCopy*(this: IGESAppli_ToolNodalResults;
+             entfrom: handle[IGESAppli_NodalResults];
+             entto: handle[IGESAppli_NodalResults]; TC: var Interface_CopyTool) {.
     noSideEffect, importcpp: "OwnCopy", header: "IGESAppli_ToolNodalResults.hxx".}
-proc ownDump*(this: IGESAppliToolNodalResults; ent: Handle[IGESAppliNodalResults];
-             dumper: IGESDataIGESDumper; s: var StandardOStream; own: StandardInteger) {.
-    noSideEffect, importcpp: "OwnDump", header: "IGESAppli_ToolNodalResults.hxx".}
-
+proc OwnDump*(this: IGESAppli_ToolNodalResults;
+             ent: handle[IGESAppli_NodalResults]; dumper: IGESData_IGESDumper;
+             S: var Standard_OStream; own: Standard_Integer) {.noSideEffect,
+    importcpp: "OwnDump", header: "IGESAppli_ToolNodalResults.hxx".}

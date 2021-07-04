@@ -14,6 +14,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, FilletSurf_InternalBuilder, FilletSurf_StatusDone,
+  FilletSurf_ErrorTypeStatus, ../TopTools/TopTools_ListOfShape,
+  ../Standard/Standard_Real, ../Standard/Standard_Integer, FilletSurf_StatusType
+
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of TopoDS_Shape"
@@ -23,71 +29,73 @@ discard "forward decl of Geom_Curve"
 discard "forward decl of Geom2d_Curve"
 discard "forward decl of Geom_TrimmedCurve"
 type
-  FilletSurfBuilder* {.importcpp: "FilletSurf_Builder",
-                      header: "FilletSurf_Builder.hxx", bycopy.} = object ## ! initialize  of the
-                                                                     ## informations necessary for  the
-                                                                     ## ! computation of  the fillet on the
-                                                                     ## ! Shape S from a list of edges E and a radius R.
-                                                                     ## !
-                                                                     ## ! Ta is the angular tolerance
-                                                                     ## ! Tapp3d is the 3d
-                                                                     ## approximation tolerance
-                                                                     ## ! Tapp2d is the 2d
-                                                                     ## approximation tolerance
+  FilletSurf_Builder* {.importcpp: "FilletSurf_Builder",
+                       header: "FilletSurf_Builder.hxx", bycopy.} = object ## ! initialize  of the
+                                                                      ## informations necessary for  the
+                                                                      ## !
+                                                                      ## computation of  the fillet on the
+                                                                      ## ! Shape S from a list of edges E and a radius R.
+                                                                      ## !
+                                                                      ## ! Ta is the angular tolerance
+                                                                      ## ! Tapp3d is the 3d
+                                                                      ## approximation tolerance
+                                                                      ## ! Tapp2d is the 2d
+                                                                      ## approximation tolerance
 
 
-proc constructFilletSurfBuilder*(s: TopoDS_Shape; e: TopToolsListOfShape;
-                                r: StandardReal; ta: StandardReal = 1.0e-2;
-                                tapp3d: StandardReal = 1.0e-4;
-                                tapp2d: StandardReal = 1.0e-5): FilletSurfBuilder {.
+proc constructFilletSurf_Builder*(S: TopoDS_Shape; E: TopTools_ListOfShape;
+                                 R: Standard_Real; Ta: Standard_Real = 1.0e-2;
+                                 Tapp3d: Standard_Real = 1.0e-4;
+                                 Tapp2d: Standard_Real = 1.0e-5): FilletSurf_Builder {.
     constructor, importcpp: "FilletSurf_Builder(@)",
     header: "FilletSurf_Builder.hxx".}
-proc perform*(this: var FilletSurfBuilder) {.importcpp: "Perform",
+proc Perform*(this: var FilletSurf_Builder) {.importcpp: "Perform",
     header: "FilletSurf_Builder.hxx".}
-proc simulate*(this: var FilletSurfBuilder) {.importcpp: "Simulate",
+proc Simulate*(this: var FilletSurf_Builder) {.importcpp: "Simulate",
     header: "FilletSurf_Builder.hxx".}
-proc isDone*(this: FilletSurfBuilder): FilletSurfStatusDone {.noSideEffect,
+proc IsDone*(this: FilletSurf_Builder): FilletSurf_StatusDone {.noSideEffect,
     importcpp: "IsDone", header: "FilletSurf_Builder.hxx".}
-proc statusError*(this: FilletSurfBuilder): FilletSurfErrorTypeStatus {.
+proc StatusError*(this: FilletSurf_Builder): FilletSurf_ErrorTypeStatus {.
     noSideEffect, importcpp: "StatusError", header: "FilletSurf_Builder.hxx".}
-proc nbSurface*(this: FilletSurfBuilder): StandardInteger {.noSideEffect,
+proc NbSurface*(this: FilletSurf_Builder): Standard_Integer {.noSideEffect,
     importcpp: "NbSurface", header: "FilletSurf_Builder.hxx".}
-proc surfaceFillet*(this: FilletSurfBuilder; index: StandardInteger): Handle[
-    GeomSurface] {.noSideEffect, importcpp: "SurfaceFillet",
-                  header: "FilletSurf_Builder.hxx".}
-proc tolApp3d*(this: FilletSurfBuilder; index: StandardInteger): StandardReal {.
+proc SurfaceFillet*(this: FilletSurf_Builder; Index: Standard_Integer): handle[
+    Geom_Surface] {.noSideEffect, importcpp: "SurfaceFillet",
+                   header: "FilletSurf_Builder.hxx".}
+proc TolApp3d*(this: FilletSurf_Builder; Index: Standard_Integer): Standard_Real {.
     noSideEffect, importcpp: "TolApp3d", header: "FilletSurf_Builder.hxx".}
-proc supportFace1*(this: FilletSurfBuilder; index: StandardInteger): TopoDS_Face {.
+proc SupportFace1*(this: FilletSurf_Builder; Index: Standard_Integer): TopoDS_Face {.
     noSideEffect, importcpp: "SupportFace1", header: "FilletSurf_Builder.hxx".}
-proc supportFace2*(this: FilletSurfBuilder; index: StandardInteger): TopoDS_Face {.
+proc SupportFace2*(this: FilletSurf_Builder; Index: Standard_Integer): TopoDS_Face {.
     noSideEffect, importcpp: "SupportFace2", header: "FilletSurf_Builder.hxx".}
-proc curveOnFace1*(this: FilletSurfBuilder; index: StandardInteger): Handle[GeomCurve] {.
-    noSideEffect, importcpp: "CurveOnFace1", header: "FilletSurf_Builder.hxx".}
-proc curveOnFace2*(this: FilletSurfBuilder; index: StandardInteger): Handle[GeomCurve] {.
-    noSideEffect, importcpp: "CurveOnFace2", header: "FilletSurf_Builder.hxx".}
-proc pCurveOnFace1*(this: FilletSurfBuilder; index: StandardInteger): Handle[
-    Geom2dCurve] {.noSideEffect, importcpp: "PCurveOnFace1",
-                  header: "FilletSurf_Builder.hxx".}
-proc pCurve1OnFillet*(this: FilletSurfBuilder; index: StandardInteger): Handle[
-    Geom2dCurve] {.noSideEffect, importcpp: "PCurve1OnFillet",
-                  header: "FilletSurf_Builder.hxx".}
-proc pCurveOnFace2*(this: FilletSurfBuilder; index: StandardInteger): Handle[
-    Geom2dCurve] {.noSideEffect, importcpp: "PCurveOnFace2",
-                  header: "FilletSurf_Builder.hxx".}
-proc pCurve2OnFillet*(this: FilletSurfBuilder; index: StandardInteger): Handle[
-    Geom2dCurve] {.noSideEffect, importcpp: "PCurve2OnFillet",
-                  header: "FilletSurf_Builder.hxx".}
-proc firstParameter*(this: FilletSurfBuilder): StandardReal {.noSideEffect,
+proc CurveOnFace1*(this: FilletSurf_Builder; Index: Standard_Integer): handle[
+    Geom_Curve] {.noSideEffect, importcpp: "CurveOnFace1",
+                 header: "FilletSurf_Builder.hxx".}
+proc CurveOnFace2*(this: FilletSurf_Builder; Index: Standard_Integer): handle[
+    Geom_Curve] {.noSideEffect, importcpp: "CurveOnFace2",
+                 header: "FilletSurf_Builder.hxx".}
+proc PCurveOnFace1*(this: FilletSurf_Builder; Index: Standard_Integer): handle[
+    Geom2d_Curve] {.noSideEffect, importcpp: "PCurveOnFace1",
+                   header: "FilletSurf_Builder.hxx".}
+proc PCurve1OnFillet*(this: FilletSurf_Builder; Index: Standard_Integer): handle[
+    Geom2d_Curve] {.noSideEffect, importcpp: "PCurve1OnFillet",
+                   header: "FilletSurf_Builder.hxx".}
+proc PCurveOnFace2*(this: FilletSurf_Builder; Index: Standard_Integer): handle[
+    Geom2d_Curve] {.noSideEffect, importcpp: "PCurveOnFace2",
+                   header: "FilletSurf_Builder.hxx".}
+proc PCurve2OnFillet*(this: FilletSurf_Builder; Index: Standard_Integer): handle[
+    Geom2d_Curve] {.noSideEffect, importcpp: "PCurve2OnFillet",
+                   header: "FilletSurf_Builder.hxx".}
+proc FirstParameter*(this: FilletSurf_Builder): Standard_Real {.noSideEffect,
     importcpp: "FirstParameter", header: "FilletSurf_Builder.hxx".}
-proc lastParameter*(this: FilletSurfBuilder): StandardReal {.noSideEffect,
+proc LastParameter*(this: FilletSurf_Builder): Standard_Real {.noSideEffect,
     importcpp: "LastParameter", header: "FilletSurf_Builder.hxx".}
-proc startSectionStatus*(this: FilletSurfBuilder): FilletSurfStatusType {.
+proc StartSectionStatus*(this: FilletSurf_Builder): FilletSurf_StatusType {.
     noSideEffect, importcpp: "StartSectionStatus", header: "FilletSurf_Builder.hxx".}
-proc endSectionStatus*(this: FilletSurfBuilder): FilletSurfStatusType {.
+proc EndSectionStatus*(this: FilletSurf_Builder): FilletSurf_StatusType {.
     noSideEffect, importcpp: "EndSectionStatus", header: "FilletSurf_Builder.hxx".}
-proc nbSection*(this: FilletSurfBuilder; indexSurf: StandardInteger): StandardInteger {.
+proc NbSection*(this: FilletSurf_Builder; IndexSurf: Standard_Integer): Standard_Integer {.
     noSideEffect, importcpp: "NbSection", header: "FilletSurf_Builder.hxx".}
-proc section*(this: FilletSurfBuilder; indexSurf: StandardInteger;
-             indexSec: StandardInteger; circ: var Handle[GeomTrimmedCurve]) {.
+proc Section*(this: FilletSurf_Builder; IndexSurf: Standard_Integer;
+             IndexSec: Standard_Integer; Circ: var handle[Geom_TrimmedCurve]) {.
     noSideEffect, importcpp: "Section", header: "FilletSurf_Builder.hxx".}
-

@@ -14,23 +14,26 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepBasic_CalendarDate"
 discard "forward decl of StepData_StepWriter"
 type
-  RWStepBasicRWCalendarDate* {.importcpp: "RWStepBasic_RWCalendarDate",
-                              header: "RWStepBasic_RWCalendarDate.hxx", bycopy.} = object
+  RWStepBasic_RWCalendarDate* {.importcpp: "RWStepBasic_RWCalendarDate",
+                               header: "RWStepBasic_RWCalendarDate.hxx", bycopy.} = object
 
 
-proc constructRWStepBasicRWCalendarDate*(): RWStepBasicRWCalendarDate {.
+proc constructRWStepBasic_RWCalendarDate*(): RWStepBasic_RWCalendarDate {.
     constructor, importcpp: "RWStepBasic_RWCalendarDate(@)",
     header: "RWStepBasic_RWCalendarDate.hxx".}
-proc readStep*(this: RWStepBasicRWCalendarDate;
-              data: Handle[StepDataStepReaderData]; num: StandardInteger;
-              ach: var Handle[InterfaceCheck]; ent: Handle[StepBasicCalendarDate]) {.
+proc ReadStep*(this: RWStepBasic_RWCalendarDate;
+              data: handle[StepData_StepReaderData]; num: Standard_Integer;
+              ach: var handle[Interface_Check]; ent: handle[StepBasic_CalendarDate]) {.
     noSideEffect, importcpp: "ReadStep", header: "RWStepBasic_RWCalendarDate.hxx".}
-proc writeStep*(this: RWStepBasicRWCalendarDate; sw: var StepDataStepWriter;
-               ent: Handle[StepBasicCalendarDate]) {.noSideEffect,
+proc WriteStep*(this: RWStepBasic_RWCalendarDate; SW: var StepData_StepWriter;
+               ent: handle[StepBasic_CalendarDate]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepBasic_RWCalendarDate.hxx".}
-

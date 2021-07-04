@@ -14,6 +14,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Real,
+  ../gp/gp_XY, ../TColgp/TColgp_HArray1OfXY, ../IGESData/IGESData_IGESEntity,
+  ../Standard/Standard_Integer
+
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of gp_XY"
 discard "forward decl of gp_Pnt2d"
@@ -21,7 +26,7 @@ discard "forward decl of gp_Pnt"
 discard "forward decl of IGESDimen_LeaderArrow"
 discard "forward decl of IGESDimen_LeaderArrow"
 type
-  HandleIGESDimenLeaderArrow* = Handle[IGESDimenLeaderArrow]
+  Handle_IGESDimen_LeaderArrow* = handle[IGESDimen_LeaderArrow]
 
 ## ! defines LeaderArrow, Type <214> Form <1-12>
 ## ! in package IGESDimen
@@ -30,42 +35,42 @@ type
 ## ! presumed text item
 
 type
-  IGESDimenLeaderArrow* {.importcpp: "IGESDimen_LeaderArrow",
-                         header: "IGESDimen_LeaderArrow.hxx", bycopy.} = object of IGESDataIGESEntity
+  IGESDimen_LeaderArrow* {.importcpp: "IGESDimen_LeaderArrow",
+                          header: "IGESDimen_LeaderArrow.hxx", bycopy.} = object of IGESData_IGESEntity
 
 
-proc constructIGESDimenLeaderArrow*(): IGESDimenLeaderArrow {.constructor,
+proc constructIGESDimen_LeaderArrow*(): IGESDimen_LeaderArrow {.constructor,
     importcpp: "IGESDimen_LeaderArrow(@)", header: "IGESDimen_LeaderArrow.hxx".}
-proc init*(this: var IGESDimenLeaderArrow; height: StandardReal; width: StandardReal;
-          depth: StandardReal; position: GpXY; segments: Handle[TColgpHArray1OfXY]) {.
-    importcpp: "Init", header: "IGESDimen_LeaderArrow.hxx".}
-proc setFormNumber*(this: var IGESDimenLeaderArrow; form: StandardInteger) {.
+proc Init*(this: var IGESDimen_LeaderArrow; height: Standard_Real;
+          width: Standard_Real; depth: Standard_Real; position: gp_XY;
+          segments: handle[TColgp_HArray1OfXY]) {.importcpp: "Init",
+    header: "IGESDimen_LeaderArrow.hxx".}
+proc SetFormNumber*(this: var IGESDimen_LeaderArrow; form: Standard_Integer) {.
     importcpp: "SetFormNumber", header: "IGESDimen_LeaderArrow.hxx".}
-proc nbSegments*(this: IGESDimenLeaderArrow): StandardInteger {.noSideEffect,
+proc NbSegments*(this: IGESDimen_LeaderArrow): Standard_Integer {.noSideEffect,
     importcpp: "NbSegments", header: "IGESDimen_LeaderArrow.hxx".}
-proc arrowHeadHeight*(this: IGESDimenLeaderArrow): StandardReal {.noSideEffect,
+proc ArrowHeadHeight*(this: IGESDimen_LeaderArrow): Standard_Real {.noSideEffect,
     importcpp: "ArrowHeadHeight", header: "IGESDimen_LeaderArrow.hxx".}
-proc arrowHeadWidth*(this: IGESDimenLeaderArrow): StandardReal {.noSideEffect,
+proc ArrowHeadWidth*(this: IGESDimen_LeaderArrow): Standard_Real {.noSideEffect,
     importcpp: "ArrowHeadWidth", header: "IGESDimen_LeaderArrow.hxx".}
-proc zDepth*(this: IGESDimenLeaderArrow): StandardReal {.noSideEffect,
+proc ZDepth*(this: IGESDimen_LeaderArrow): Standard_Real {.noSideEffect,
     importcpp: "ZDepth", header: "IGESDimen_LeaderArrow.hxx".}
-proc arrowHead*(this: IGESDimenLeaderArrow): GpPnt2d {.noSideEffect,
+proc ArrowHead*(this: IGESDimen_LeaderArrow): gp_Pnt2d {.noSideEffect,
     importcpp: "ArrowHead", header: "IGESDimen_LeaderArrow.hxx".}
-proc transformedArrowHead*(this: IGESDimenLeaderArrow): GpPnt {.noSideEffect,
+proc TransformedArrowHead*(this: IGESDimen_LeaderArrow): gp_Pnt {.noSideEffect,
     importcpp: "TransformedArrowHead", header: "IGESDimen_LeaderArrow.hxx".}
-proc segmentTail*(this: IGESDimenLeaderArrow; index: StandardInteger): GpPnt2d {.
+proc SegmentTail*(this: IGESDimen_LeaderArrow; Index: Standard_Integer): gp_Pnt2d {.
     noSideEffect, importcpp: "SegmentTail", header: "IGESDimen_LeaderArrow.hxx".}
-proc transformedSegmentTail*(this: IGESDimenLeaderArrow; index: StandardInteger): GpPnt {.
+proc TransformedSegmentTail*(this: IGESDimen_LeaderArrow; Index: Standard_Integer): gp_Pnt {.
     noSideEffect, importcpp: "TransformedSegmentTail",
     header: "IGESDimen_LeaderArrow.hxx".}
 type
-  IGESDimenLeaderArrowbaseType* = IGESDataIGESEntity
+  IGESDimen_LeaderArrowbase_type* = IGESData_IGESEntity
 
-proc getTypeName*(): cstring {.importcpp: "IGESDimen_LeaderArrow::get_type_name(@)",
-                            header: "IGESDimen_LeaderArrow.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "IGESDimen_LeaderArrow::get_type_name(@)",
+                              header: "IGESDimen_LeaderArrow.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "IGESDimen_LeaderArrow::get_type_descriptor(@)",
     header: "IGESDimen_LeaderArrow.hxx".}
-proc dynamicType*(this: IGESDimenLeaderArrow): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "IGESDimen_LeaderArrow.hxx".}
-
+proc DynamicType*(this: IGESDimen_LeaderArrow): handle[Standard_Type] {.
+    noSideEffect, importcpp: "DynamicType", header: "IGESDimen_LeaderArrow.hxx".}

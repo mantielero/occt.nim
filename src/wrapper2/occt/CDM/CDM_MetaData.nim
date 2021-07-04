@@ -14,6 +14,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Boolean,
+  CDM_DocumentPointer, ../TCollection/TCollection_ExtendedString,
+  ../Standard/Standard_Integer, ../Standard/Standard_Transient, CDM_Document,
+  CDM_Application, ../Standard/Standard_OStream, CDM_MetaDataLookUpTable
+
 discard "forward decl of Standard_NoSuchObject"
 discard "forward decl of CDM_Reference"
 discard "forward decl of CDM_Document"
@@ -22,60 +28,60 @@ discard "forward decl of CDM_Application"
 discard "forward decl of CDM_MetaData"
 discard "forward decl of CDM_MetaData"
 type
-  HandleCDM_MetaData* = Handle[CDM_MetaData]
-  CDM_MetaData* {.importcpp: "CDM_MetaData", header: "CDM_MetaData.hxx", bycopy.} = object of StandardTransient
+  Handle_CDM_MetaData* = handle[CDM_MetaData]
+  CDM_MetaData* {.importcpp: "CDM_MetaData", header: "CDM_MetaData.hxx", bycopy.} = object of Standard_Transient
 
 
-proc lookUp*(theLookUpTable: var CDM_MetaDataLookUpTable;
-            aFolder: TCollectionExtendedString; aName: TCollectionExtendedString;
-            aPath: TCollectionExtendedString;
-            aFileName: TCollectionExtendedString; readOnly: StandardBoolean): Handle[
+proc LookUp*(theLookUpTable: var CDM_MetaDataLookUpTable;
+            aFolder: TCollection_ExtendedString;
+            aName: TCollection_ExtendedString; aPath: TCollection_ExtendedString;
+            aFileName: TCollection_ExtendedString; ReadOnly: Standard_Boolean): handle[
     CDM_MetaData] {.importcpp: "CDM_MetaData::LookUp(@)",
                    header: "CDM_MetaData.hxx".}
-proc lookUp*(theLookUpTable: var CDM_MetaDataLookUpTable;
-            aFolder: TCollectionExtendedString; aName: TCollectionExtendedString;
-            aPath: TCollectionExtendedString; aVersion: TCollectionExtendedString;
-            aFileName: TCollectionExtendedString; readOnly: StandardBoolean): Handle[
+proc LookUp*(theLookUpTable: var CDM_MetaDataLookUpTable;
+            aFolder: TCollection_ExtendedString;
+            aName: TCollection_ExtendedString; aPath: TCollection_ExtendedString;
+            aVersion: TCollection_ExtendedString;
+            aFileName: TCollection_ExtendedString; ReadOnly: Standard_Boolean): handle[
     CDM_MetaData] {.importcpp: "CDM_MetaData::LookUp(@)",
                    header: "CDM_MetaData.hxx".}
-proc isRetrieved*(this: CDM_MetaData): StandardBoolean {.noSideEffect,
+proc IsRetrieved*(this: CDM_MetaData): Standard_Boolean {.noSideEffect,
     importcpp: "IsRetrieved", header: "CDM_MetaData.hxx".}
-proc document*(this: CDM_MetaData): Handle[CDM_Document] {.noSideEffect,
+proc Document*(this: CDM_MetaData): handle[CDM_Document] {.noSideEffect,
     importcpp: "Document", header: "CDM_MetaData.hxx".}
-proc folder*(this: CDM_MetaData): TCollectionExtendedString {.noSideEffect,
+proc Folder*(this: CDM_MetaData): TCollection_ExtendedString {.noSideEffect,
     importcpp: "Folder", header: "CDM_MetaData.hxx".}
-proc name*(this: CDM_MetaData): TCollectionExtendedString {.noSideEffect,
+proc Name*(this: CDM_MetaData): TCollection_ExtendedString {.noSideEffect,
     importcpp: "Name", header: "CDM_MetaData.hxx".}
-proc version*(this: CDM_MetaData): TCollectionExtendedString {.noSideEffect,
+proc Version*(this: CDM_MetaData): TCollection_ExtendedString {.noSideEffect,
     importcpp: "Version", header: "CDM_MetaData.hxx".}
-proc hasVersion*(this: CDM_MetaData): StandardBoolean {.noSideEffect,
+proc HasVersion*(this: CDM_MetaData): Standard_Boolean {.noSideEffect,
     importcpp: "HasVersion", header: "CDM_MetaData.hxx".}
-proc fileName*(this: CDM_MetaData): TCollectionExtendedString {.noSideEffect,
+proc FileName*(this: CDM_MetaData): TCollection_ExtendedString {.noSideEffect,
     importcpp: "FileName", header: "CDM_MetaData.hxx".}
-proc print*(this: CDM_MetaData; anOStream: var StandardOStream): var StandardOStream {.
+proc Print*(this: CDM_MetaData; anOStream: var Standard_OStream): var Standard_OStream {.
     noSideEffect, importcpp: "Print", header: "CDM_MetaData.hxx".}
-proc `<<`*(this: var CDM_MetaData; anOStream: var StandardOStream): var StandardOStream {.
+proc `<<`*(this: var CDM_MetaData; anOStream: var Standard_OStream): var Standard_OStream {.
     importcpp: "(# << #)", header: "CDM_MetaData.hxx".}
-proc path*(this: CDM_MetaData): TCollectionExtendedString {.noSideEffect,
+proc Path*(this: CDM_MetaData): TCollection_ExtendedString {.noSideEffect,
     importcpp: "Path", header: "CDM_MetaData.hxx".}
-proc unsetDocument*(this: var CDM_MetaData) {.importcpp: "UnsetDocument",
+proc UnsetDocument*(this: var CDM_MetaData) {.importcpp: "UnsetDocument",
     header: "CDM_MetaData.hxx".}
-proc isReadOnly*(this: CDM_MetaData): StandardBoolean {.noSideEffect,
+proc IsReadOnly*(this: CDM_MetaData): Standard_Boolean {.noSideEffect,
     importcpp: "IsReadOnly", header: "CDM_MetaData.hxx".}
-proc setIsReadOnly*(this: var CDM_MetaData) {.importcpp: "SetIsReadOnly",
+proc SetIsReadOnly*(this: var CDM_MetaData) {.importcpp: "SetIsReadOnly",
     header: "CDM_MetaData.hxx".}
-proc unsetIsReadOnly*(this: var CDM_MetaData) {.importcpp: "UnsetIsReadOnly",
+proc UnsetIsReadOnly*(this: var CDM_MetaData) {.importcpp: "UnsetIsReadOnly",
     header: "CDM_MetaData.hxx".}
-proc dumpJson*(this: CDM_MetaData; theOStream: var StandardOStream;
-              theDepth: StandardInteger = -1) {.noSideEffect, importcpp: "DumpJson",
+proc DumpJson*(this: CDM_MetaData; theOStream: var Standard_OStream;
+              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
     header: "CDM_MetaData.hxx".}
 type
-  CDM_MetaDatabaseType* = StandardTransient
+  CDM_MetaDatabase_type* = Standard_Transient
 
-proc getTypeName*(): cstring {.importcpp: "CDM_MetaData::get_type_name(@)",
-                            header: "CDM_MetaData.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "CDM_MetaData::get_type_name(@)",
+                              header: "CDM_MetaData.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "CDM_MetaData::get_type_descriptor(@)", header: "CDM_MetaData.hxx".}
-proc dynamicType*(this: CDM_MetaData): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: CDM_MetaData): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "CDM_MetaData.hxx".}
-

@@ -14,45 +14,48 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, IFSelect_Dispatch,
+  ../Standard/Standard_Boolean, ../Standard/Standard_Integer
+
 discard "forward decl of TCollection_AsciiString"
 discard "forward decl of Interface_Graph"
 discard "forward decl of IFGraph_SubPartsIterator"
 discard "forward decl of IFSelect_DispPerOne"
 discard "forward decl of IFSelect_DispPerOne"
 type
-  HandleIFSelectDispPerOne* = Handle[IFSelectDispPerOne]
+  Handle_IFSelect_DispPerOne* = handle[IFSelect_DispPerOne]
 
 ## ! A DispPerOne gathers all the input Entities into as many
 ## ! Packets as there Root Entities from the Final Selection,
 ## ! that is, one Packet per Entity
 
 type
-  IFSelectDispPerOne* {.importcpp: "IFSelect_DispPerOne",
-                       header: "IFSelect_DispPerOne.hxx", bycopy.} = object of IFSelectDispatch ##
-                                                                                         ## !
-                                                                                         ## Creates
-                                                                                         ## a
-                                                                                         ## DispPerOne
+  IFSelect_DispPerOne* {.importcpp: "IFSelect_DispPerOne",
+                        header: "IFSelect_DispPerOne.hxx", bycopy.} = object of IFSelect_Dispatch ##
+                                                                                           ## !
+                                                                                           ## Creates
+                                                                                           ## a
+                                                                                           ## DispPerOne
 
 
-proc constructIFSelectDispPerOne*(): IFSelectDispPerOne {.constructor,
+proc constructIFSelect_DispPerOne*(): IFSelect_DispPerOne {.constructor,
     importcpp: "IFSelect_DispPerOne(@)", header: "IFSelect_DispPerOne.hxx".}
-proc label*(this: IFSelectDispPerOne): TCollectionAsciiString {.noSideEffect,
+proc Label*(this: IFSelect_DispPerOne): TCollection_AsciiString {.noSideEffect,
     importcpp: "Label", header: "IFSelect_DispPerOne.hxx".}
-proc limitedMax*(this: IFSelectDispPerOne; nbent: StandardInteger;
-                max: var StandardInteger): StandardBoolean {.noSideEffect,
+proc LimitedMax*(this: IFSelect_DispPerOne; nbent: Standard_Integer;
+                max: var Standard_Integer): Standard_Boolean {.noSideEffect,
     importcpp: "LimitedMax", header: "IFSelect_DispPerOne.hxx".}
-proc packets*(this: IFSelectDispPerOne; g: InterfaceGraph;
-             packs: var IFGraphSubPartsIterator) {.noSideEffect,
+proc Packets*(this: IFSelect_DispPerOne; G: Interface_Graph;
+             packs: var IFGraph_SubPartsIterator) {.noSideEffect,
     importcpp: "Packets", header: "IFSelect_DispPerOne.hxx".}
 type
-  IFSelectDispPerOnebaseType* = IFSelectDispatch
+  IFSelect_DispPerOnebase_type* = IFSelect_Dispatch
 
-proc getTypeName*(): cstring {.importcpp: "IFSelect_DispPerOne::get_type_name(@)",
-                            header: "IFSelect_DispPerOne.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "IFSelect_DispPerOne::get_type_name(@)",
+                              header: "IFSelect_DispPerOne.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "IFSelect_DispPerOne::get_type_descriptor(@)",
     header: "IFSelect_DispPerOne.hxx".}
-proc dynamicType*(this: IFSelectDispPerOne): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: IFSelect_DispPerOne): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "IFSelect_DispPerOne.hxx".}
-

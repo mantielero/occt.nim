@@ -13,25 +13,28 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer,
+  ../StepData/StepData_StepReaderData
+
 discard "forward decl of Interface_Check"
 discard "forward decl of StepVisual_CoordinatesList"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepVisualRWCoordinatesList* {.importcpp: "RWStepVisual_RWCoordinatesList",
-                                  header: "RWStepVisual_RWCoordinatesList.hxx",
-                                  bycopy.} = object
+  RWStepVisual_RWCoordinatesList* {.importcpp: "RWStepVisual_RWCoordinatesList", header: "RWStepVisual_RWCoordinatesList.hxx",
+                                   bycopy.} = object
 
 
-proc constructRWStepVisualRWCoordinatesList*(): RWStepVisualRWCoordinatesList {.
+proc constructRWStepVisual_RWCoordinatesList*(): RWStepVisual_RWCoordinatesList {.
     constructor, importcpp: "RWStepVisual_RWCoordinatesList(@)",
     header: "RWStepVisual_RWCoordinatesList.hxx".}
-proc readStep*(this: RWStepVisualRWCoordinatesList;
-              data: Handle[StepDataStepReaderData]; num: StandardInteger;
-              ach: var Handle[InterfaceCheck];
-              ent: Handle[StepVisualCoordinatesList]) {.noSideEffect,
+proc ReadStep*(this: RWStepVisual_RWCoordinatesList;
+              data: handle[StepData_StepReaderData]; num: Standard_Integer;
+              ach: var handle[Interface_Check];
+              ent: handle[StepVisual_CoordinatesList]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepVisual_RWCoordinatesList.hxx".}
-proc writeStep*(this: RWStepVisualRWCoordinatesList; sw: var StepDataStepWriter;
-               ent: Handle[StepVisualCoordinatesList]) {.noSideEffect,
+proc WriteStep*(this: RWStepVisual_RWCoordinatesList; SW: var StepData_StepWriter;
+               ent: handle[StepVisual_CoordinatesList]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepVisual_RWCoordinatesList.hxx".}
-

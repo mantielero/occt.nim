@@ -14,12 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _Quantity_LuminousFlux_HeaderFile [NewLine] # _Quantity_LuminousFlux_HeaderFile [NewLine] # < Standard_Real . hxx > [NewLine] ! Defined as the rate of flow of radiant energy as evaluated
+## !!!Ignored construct:  # _Quantity_LuminousFlux_HeaderFile [NewLine] # _Quantity_LuminousFlux_HeaderFile [NewLine] # ../Standard/Standard_Real.hxx [NewLine] ! Defined as the rate of flow of radiant energy as evaluated
 ## ! by the luminous sensation it produces. This means it
 ## ! depends on the sensitivity of the receptor or observer. It
 ## ! is related to the radiant flux of the source by the
 ## ! spectral luminous efficiency.
 ## ! It is measured in lumens. Standard_DEPRECATED ( This type is deprecated - Standard_Real should be used instead ) typedef Standard_Real Quantity_LuminousFlux ;
 ## Error: expected ';'!!!
-
-

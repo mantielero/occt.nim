@@ -14,6 +14,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
+  ../Standard/Standard_Integer, ../Standard/Standard_Real, Extrema_PCFOfEPCOfExtPC
+
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of Standard_TypeMismatch"
@@ -24,44 +29,45 @@ discard "forward decl of gp_Pnt"
 discard "forward decl of gp_Vec"
 discard "forward decl of Extrema_PCFOfEPCOfExtPC"
 type
-  ExtremaEPCOfExtPC* {.importcpp: "Extrema_EPCOfExtPC",
-                      header: "Extrema_EPCOfExtPC.hxx", bycopy.} = object
+  Extrema_EPCOfExtPC* {.importcpp: "Extrema_EPCOfExtPC",
+                       header: "Extrema_EPCOfExtPC.hxx", bycopy.} = object
 
 
-proc constructExtremaEPCOfExtPC*(): ExtremaEPCOfExtPC {.constructor,
+proc constructExtrema_EPCOfExtPC*(): Extrema_EPCOfExtPC {.constructor,
     importcpp: "Extrema_EPCOfExtPC(@)", header: "Extrema_EPCOfExtPC.hxx".}
-proc constructExtremaEPCOfExtPC*(p: GpPnt; c: Adaptor3dCurve; nbU: StandardInteger;
-                                tolU: StandardReal; tolF: StandardReal): ExtremaEPCOfExtPC {.
+proc constructExtrema_EPCOfExtPC*(P: gp_Pnt; C: Adaptor3d_Curve;
+                                 NbU: Standard_Integer; TolU: Standard_Real;
+                                 TolF: Standard_Real): Extrema_EPCOfExtPC {.
     constructor, importcpp: "Extrema_EPCOfExtPC(@)",
     header: "Extrema_EPCOfExtPC.hxx".}
-proc constructExtremaEPCOfExtPC*(p: GpPnt; c: Adaptor3dCurve; nbU: StandardInteger;
-                                umin: StandardReal; usup: StandardReal;
-                                tolU: StandardReal; tolF: StandardReal): ExtremaEPCOfExtPC {.
+proc constructExtrema_EPCOfExtPC*(P: gp_Pnt; C: Adaptor3d_Curve;
+                                 NbU: Standard_Integer; Umin: Standard_Real;
+                                 Usup: Standard_Real; TolU: Standard_Real;
+                                 TolF: Standard_Real): Extrema_EPCOfExtPC {.
     constructor, importcpp: "Extrema_EPCOfExtPC(@)",
     header: "Extrema_EPCOfExtPC.hxx".}
-proc initialize*(this: var ExtremaEPCOfExtPC; c: Adaptor3dCurve; nbU: StandardInteger;
-                tolU: StandardReal; tolF: StandardReal) {.importcpp: "Initialize",
-    header: "Extrema_EPCOfExtPC.hxx".}
-proc initialize*(this: var ExtremaEPCOfExtPC; c: Adaptor3dCurve; nbU: StandardInteger;
-                umin: StandardReal; usup: StandardReal; tolU: StandardReal;
-                tolF: StandardReal) {.importcpp: "Initialize",
-                                    header: "Extrema_EPCOfExtPC.hxx".}
-proc initialize*(this: var ExtremaEPCOfExtPC; c: Adaptor3dCurve) {.
+proc Initialize*(this: var Extrema_EPCOfExtPC; C: Adaptor3d_Curve;
+                NbU: Standard_Integer; TolU: Standard_Real; TolF: Standard_Real) {.
     importcpp: "Initialize", header: "Extrema_EPCOfExtPC.hxx".}
-proc initialize*(this: var ExtremaEPCOfExtPC; nbU: StandardInteger;
-                umin: StandardReal; usup: StandardReal; tolU: StandardReal;
-                tolF: StandardReal) {.importcpp: "Initialize",
-                                    header: "Extrema_EPCOfExtPC.hxx".}
-proc perform*(this: var ExtremaEPCOfExtPC; p: GpPnt) {.importcpp: "Perform",
+proc Initialize*(this: var Extrema_EPCOfExtPC; C: Adaptor3d_Curve;
+                NbU: Standard_Integer; Umin: Standard_Real; Usup: Standard_Real;
+                TolU: Standard_Real; TolF: Standard_Real) {.importcpp: "Initialize",
     header: "Extrema_EPCOfExtPC.hxx".}
-proc isDone*(this: ExtremaEPCOfExtPC): StandardBoolean {.noSideEffect,
+proc Initialize*(this: var Extrema_EPCOfExtPC; C: Adaptor3d_Curve) {.
+    importcpp: "Initialize", header: "Extrema_EPCOfExtPC.hxx".}
+proc Initialize*(this: var Extrema_EPCOfExtPC; NbU: Standard_Integer;
+                Umin: Standard_Real; Usup: Standard_Real; TolU: Standard_Real;
+                TolF: Standard_Real) {.importcpp: "Initialize",
+                                     header: "Extrema_EPCOfExtPC.hxx".}
+proc Perform*(this: var Extrema_EPCOfExtPC; P: gp_Pnt) {.importcpp: "Perform",
+    header: "Extrema_EPCOfExtPC.hxx".}
+proc IsDone*(this: Extrema_EPCOfExtPC): Standard_Boolean {.noSideEffect,
     importcpp: "IsDone", header: "Extrema_EPCOfExtPC.hxx".}
-proc nbExt*(this: ExtremaEPCOfExtPC): StandardInteger {.noSideEffect,
+proc NbExt*(this: Extrema_EPCOfExtPC): Standard_Integer {.noSideEffect,
     importcpp: "NbExt", header: "Extrema_EPCOfExtPC.hxx".}
-proc squareDistance*(this: ExtremaEPCOfExtPC; n: StandardInteger): StandardReal {.
+proc SquareDistance*(this: Extrema_EPCOfExtPC; N: Standard_Integer): Standard_Real {.
     noSideEffect, importcpp: "SquareDistance", header: "Extrema_EPCOfExtPC.hxx".}
-proc isMin*(this: ExtremaEPCOfExtPC; n: StandardInteger): StandardBoolean {.
+proc IsMin*(this: Extrema_EPCOfExtPC; N: Standard_Integer): Standard_Boolean {.
     noSideEffect, importcpp: "IsMin", header: "Extrema_EPCOfExtPC.hxx".}
-proc point*(this: ExtremaEPCOfExtPC; n: StandardInteger): ExtremaPOnCurv {.
+proc Point*(this: Extrema_EPCOfExtPC; N: Standard_Integer): Extrema_POnCurv {.
     noSideEffect, importcpp: "Point", header: "Extrema_EPCOfExtPC.hxx".}
-

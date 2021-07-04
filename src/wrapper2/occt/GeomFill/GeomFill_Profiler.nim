@@ -14,39 +14,45 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../TColGeom/TColGeom_SequenceOfCurve,
+  ../Standard/Standard_Boolean, ../Standard/Standard_Real,
+  ../Standard/Standard_Integer, ../TColgp/TColgp_Array1OfPnt,
+  ../TColStd/TColStd_Array1OfReal, ../TColStd/TColStd_Array1OfInteger
+
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of Standard_DomainError"
 discard "forward decl of Geom_Curve"
 type
-  GeomFillProfiler* {.importcpp: "GeomFill_Profiler",
-                     header: "GeomFill_Profiler.hxx", bycopy.} = object
+  GeomFill_Profiler* {.importcpp: "GeomFill_Profiler",
+                      header: "GeomFill_Profiler.hxx", bycopy.} = object
 
 
-proc constructGeomFillProfiler*(): GeomFillProfiler {.constructor,
+proc constructGeomFill_Profiler*(): GeomFill_Profiler {.constructor,
     importcpp: "GeomFill_Profiler(@)", header: "GeomFill_Profiler.hxx".}
-proc destroyGeomFillProfiler*(this: var GeomFillProfiler) {.
+proc destroyGeomFill_Profiler*(this: var GeomFill_Profiler) {.
     importcpp: "#.~GeomFill_Profiler()", header: "GeomFill_Profiler.hxx".}
-proc addCurve*(this: var GeomFillProfiler; curve: Handle[GeomCurve]) {.
+proc AddCurve*(this: var GeomFill_Profiler; Curve: handle[Geom_Curve]) {.
     importcpp: "AddCurve", header: "GeomFill_Profiler.hxx".}
-proc perform*(this: var GeomFillProfiler; pTol: StandardReal) {.importcpp: "Perform",
-    header: "GeomFill_Profiler.hxx".}
-proc degree*(this: GeomFillProfiler): StandardInteger {.noSideEffect,
+proc Perform*(this: var GeomFill_Profiler; PTol: Standard_Real) {.
+    importcpp: "Perform", header: "GeomFill_Profiler.hxx".}
+proc Degree*(this: GeomFill_Profiler): Standard_Integer {.noSideEffect,
     importcpp: "Degree", header: "GeomFill_Profiler.hxx".}
-proc isPeriodic*(this: GeomFillProfiler): StandardBoolean {.noSideEffect,
+proc IsPeriodic*(this: GeomFill_Profiler): Standard_Boolean {.noSideEffect,
     importcpp: "IsPeriodic", header: "GeomFill_Profiler.hxx".}
-proc nbPoles*(this: GeomFillProfiler): StandardInteger {.noSideEffect,
+proc NbPoles*(this: GeomFill_Profiler): Standard_Integer {.noSideEffect,
     importcpp: "NbPoles", header: "GeomFill_Profiler.hxx".}
-proc poles*(this: GeomFillProfiler; index: StandardInteger;
-           poles: var TColgpArray1OfPnt) {.noSideEffect, importcpp: "Poles",
-                                        header: "GeomFill_Profiler.hxx".}
-proc weights*(this: GeomFillProfiler; index: StandardInteger;
-             weights: var TColStdArray1OfReal) {.noSideEffect, importcpp: "Weights",
+proc Poles*(this: GeomFill_Profiler; Index: Standard_Integer;
+           Poles: var TColgp_Array1OfPnt) {.noSideEffect, importcpp: "Poles",
     header: "GeomFill_Profiler.hxx".}
-proc nbKnots*(this: GeomFillProfiler): StandardInteger {.noSideEffect,
+proc Weights*(this: GeomFill_Profiler; Index: Standard_Integer;
+             Weights: var TColStd_Array1OfReal) {.noSideEffect,
+    importcpp: "Weights", header: "GeomFill_Profiler.hxx".}
+proc NbKnots*(this: GeomFill_Profiler): Standard_Integer {.noSideEffect,
     importcpp: "NbKnots", header: "GeomFill_Profiler.hxx".}
-proc knotsAndMults*(this: GeomFillProfiler; knots: var TColStdArray1OfReal;
-                   mults: var TColStdArray1OfInteger) {.noSideEffect,
+proc KnotsAndMults*(this: GeomFill_Profiler; Knots: var TColStd_Array1OfReal;
+                   Mults: var TColStd_Array1OfInteger) {.noSideEffect,
     importcpp: "KnotsAndMults", header: "GeomFill_Profiler.hxx".}
-proc curve*(this: GeomFillProfiler; index: StandardInteger): Handle[GeomCurve] {.
+proc Curve*(this: GeomFill_Profiler; Index: Standard_Integer): handle[Geom_Curve] {.
     noSideEffect, importcpp: "Curve", header: "GeomFill_Profiler.hxx".}
-

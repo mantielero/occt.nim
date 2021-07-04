@@ -14,6 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 discard "forward decl of Standard_DomainError"
 discard "forward decl of IGESSolid_PlaneSurface"
 discard "forward decl of IGESData_IGESReaderData"
@@ -26,44 +30,45 @@ discard "forward decl of Interface_Check"
 discard "forward decl of Interface_CopyTool"
 discard "forward decl of IGESData_IGESDumper"
 type
-  IGESSolidToolPlaneSurface* {.importcpp: "IGESSolid_ToolPlaneSurface",
-                              header: "IGESSolid_ToolPlaneSurface.hxx", bycopy.} = object ##
-                                                                                     ## !
-                                                                                     ## Returns
-                                                                                     ## a
-                                                                                     ## ToolPlaneSurface,
-                                                                                     ## ready
-                                                                                     ## to
-                                                                                     ## work
+  IGESSolid_ToolPlaneSurface* {.importcpp: "IGESSolid_ToolPlaneSurface",
+                               header: "IGESSolid_ToolPlaneSurface.hxx", bycopy.} = object ##
+                                                                                      ## !
+                                                                                      ## Returns
+                                                                                      ## a
+                                                                                      ## ToolPlaneSurface,
+                                                                                      ## ready
+                                                                                      ## to
+                                                                                      ## work
 
 
-proc constructIGESSolidToolPlaneSurface*(): IGESSolidToolPlaneSurface {.
+proc constructIGESSolid_ToolPlaneSurface*(): IGESSolid_ToolPlaneSurface {.
     constructor, importcpp: "IGESSolid_ToolPlaneSurface(@)",
     header: "IGESSolid_ToolPlaneSurface.hxx".}
-proc readOwnParams*(this: IGESSolidToolPlaneSurface;
-                   ent: Handle[IGESSolidPlaneSurface];
-                   ir: Handle[IGESDataIGESReaderData]; pr: var IGESDataParamReader) {.
-    noSideEffect, importcpp: "ReadOwnParams",
-    header: "IGESSolid_ToolPlaneSurface.hxx".}
-proc writeOwnParams*(this: IGESSolidToolPlaneSurface;
-                    ent: Handle[IGESSolidPlaneSurface]; iw: var IGESDataIGESWriter) {.
-    noSideEffect, importcpp: "WriteOwnParams",
-    header: "IGESSolid_ToolPlaneSurface.hxx".}
-proc ownShared*(this: IGESSolidToolPlaneSurface;
-               ent: Handle[IGESSolidPlaneSurface];
-               iter: var InterfaceEntityIterator) {.noSideEffect,
+proc ReadOwnParams*(this: IGESSolid_ToolPlaneSurface;
+                   ent: handle[IGESSolid_PlaneSurface];
+                   IR: handle[IGESData_IGESReaderData];
+                   PR: var IGESData_ParamReader) {.noSideEffect,
+    importcpp: "ReadOwnParams", header: "IGESSolid_ToolPlaneSurface.hxx".}
+proc WriteOwnParams*(this: IGESSolid_ToolPlaneSurface;
+                    ent: handle[IGESSolid_PlaneSurface];
+                    IW: var IGESData_IGESWriter) {.noSideEffect,
+    importcpp: "WriteOwnParams", header: "IGESSolid_ToolPlaneSurface.hxx".}
+proc OwnShared*(this: IGESSolid_ToolPlaneSurface;
+               ent: handle[IGESSolid_PlaneSurface];
+               iter: var Interface_EntityIterator) {.noSideEffect,
     importcpp: "OwnShared", header: "IGESSolid_ToolPlaneSurface.hxx".}
-proc dirChecker*(this: IGESSolidToolPlaneSurface;
-                ent: Handle[IGESSolidPlaneSurface]): IGESDataDirChecker {.
+proc DirChecker*(this: IGESSolid_ToolPlaneSurface;
+                ent: handle[IGESSolid_PlaneSurface]): IGESData_DirChecker {.
     noSideEffect, importcpp: "DirChecker", header: "IGESSolid_ToolPlaneSurface.hxx".}
-proc ownCheck*(this: IGESSolidToolPlaneSurface; ent: Handle[IGESSolidPlaneSurface];
-              shares: InterfaceShareTool; ach: var Handle[InterfaceCheck]) {.
-    noSideEffect, importcpp: "OwnCheck", header: "IGESSolid_ToolPlaneSurface.hxx".}
-proc ownCopy*(this: IGESSolidToolPlaneSurface;
-             entfrom: Handle[IGESSolidPlaneSurface];
-             entto: Handle[IGESSolidPlaneSurface]; tc: var InterfaceCopyTool) {.
+proc OwnCheck*(this: IGESSolid_ToolPlaneSurface;
+              ent: handle[IGESSolid_PlaneSurface]; shares: Interface_ShareTool;
+              ach: var handle[Interface_Check]) {.noSideEffect,
+    importcpp: "OwnCheck", header: "IGESSolid_ToolPlaneSurface.hxx".}
+proc OwnCopy*(this: IGESSolid_ToolPlaneSurface;
+             entfrom: handle[IGESSolid_PlaneSurface];
+             entto: handle[IGESSolid_PlaneSurface]; TC: var Interface_CopyTool) {.
     noSideEffect, importcpp: "OwnCopy", header: "IGESSolid_ToolPlaneSurface.hxx".}
-proc ownDump*(this: IGESSolidToolPlaneSurface; ent: Handle[IGESSolidPlaneSurface];
-             dumper: IGESDataIGESDumper; s: var StandardOStream; own: StandardInteger) {.
-    noSideEffect, importcpp: "OwnDump", header: "IGESSolid_ToolPlaneSurface.hxx".}
-
+proc OwnDump*(this: IGESSolid_ToolPlaneSurface;
+             ent: handle[IGESSolid_PlaneSurface]; dumper: IGESData_IGESDumper;
+             S: var Standard_OStream; own: Standard_Integer) {.noSideEffect,
+    importcpp: "OwnDump", header: "IGESSolid_ToolPlaneSurface.hxx".}

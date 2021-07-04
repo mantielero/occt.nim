@@ -13,42 +13,46 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../BinMDF/BinMDF_ADriver,
+  ../Standard/Standard_Boolean, ../BinObjMgt/BinObjMgt_RRelocationTable,
+  ../BinObjMgt/BinObjMgt_SRelocationTable
+
 discard "forward decl of Message_Messenger"
 discard "forward decl of TDF_Attribute"
 discard "forward decl of BinObjMgt_Persistent"
 discard "forward decl of BinMDataStd_BooleanListDriver"
 discard "forward decl of BinMDataStd_BooleanListDriver"
 type
-  HandleBinMDataStdBooleanListDriver* = Handle[BinMDataStdBooleanListDriver]
-  BinMDataStdBooleanListDriver* {.importcpp: "BinMDataStd_BooleanListDriver",
-                                 header: "BinMDataStd_BooleanListDriver.hxx",
-                                 bycopy.} = object of BinMDF_ADriver
+  Handle_BinMDataStd_BooleanListDriver* = handle[BinMDataStd_BooleanListDriver]
+  BinMDataStd_BooleanListDriver* {.importcpp: "BinMDataStd_BooleanListDriver",
+                                  header: "BinMDataStd_BooleanListDriver.hxx",
+                                  bycopy.} = object of BinMDF_ADriver
 
 
-proc constructBinMDataStdBooleanListDriver*(
-    theMessageDriver: Handle[MessageMessenger]): BinMDataStdBooleanListDriver {.
+proc constructBinMDataStd_BooleanListDriver*(
+    theMessageDriver: handle[Message_Messenger]): BinMDataStd_BooleanListDriver {.
     constructor, importcpp: "BinMDataStd_BooleanListDriver(@)",
     header: "BinMDataStd_BooleanListDriver.hxx".}
-proc newEmpty*(this: BinMDataStdBooleanListDriver): Handle[TDF_Attribute] {.
+proc NewEmpty*(this: BinMDataStd_BooleanListDriver): handle[TDF_Attribute] {.
     noSideEffect, importcpp: "NewEmpty",
     header: "BinMDataStd_BooleanListDriver.hxx".}
-proc paste*(this: BinMDataStdBooleanListDriver; source: BinObjMgtPersistent;
-           target: Handle[TDF_Attribute];
-           relocTable: var BinObjMgtRRelocationTable): StandardBoolean {.
+proc Paste*(this: BinMDataStd_BooleanListDriver; Source: BinObjMgt_Persistent;
+           Target: handle[TDF_Attribute];
+           RelocTable: var BinObjMgt_RRelocationTable): Standard_Boolean {.
     noSideEffect, importcpp: "Paste", header: "BinMDataStd_BooleanListDriver.hxx".}
-proc paste*(this: BinMDataStdBooleanListDriver; source: Handle[TDF_Attribute];
-           target: var BinObjMgtPersistent;
-           relocTable: var BinObjMgtSRelocationTable) {.noSideEffect,
+proc Paste*(this: BinMDataStd_BooleanListDriver; Source: handle[TDF_Attribute];
+           Target: var BinObjMgt_Persistent;
+           RelocTable: var BinObjMgt_SRelocationTable) {.noSideEffect,
     importcpp: "Paste", header: "BinMDataStd_BooleanListDriver.hxx".}
 type
-  BinMDataStdBooleanListDriverbaseType* = BinMDF_ADriver
+  BinMDataStd_BooleanListDriverbase_type* = BinMDF_ADriver
 
-proc getTypeName*(): cstring {.importcpp: "BinMDataStd_BooleanListDriver::get_type_name(@)",
-                            header: "BinMDataStd_BooleanListDriver.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "BinMDataStd_BooleanListDriver::get_type_name(@)",
+                              header: "BinMDataStd_BooleanListDriver.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "BinMDataStd_BooleanListDriver::get_type_descriptor(@)",
     header: "BinMDataStd_BooleanListDriver.hxx".}
-proc dynamicType*(this: BinMDataStdBooleanListDriver): Handle[StandardType] {.
+proc DynamicType*(this: BinMDataStd_BooleanListDriver): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType",
     header: "BinMDataStd_BooleanListDriver.hxx".}
-

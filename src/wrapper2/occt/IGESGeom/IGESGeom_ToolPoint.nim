@@ -14,6 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 discard "forward decl of Standard_DomainError"
 discard "forward decl of IGESGeom_Point"
 discard "forward decl of IGESData_IGESReaderData"
@@ -26,30 +30,31 @@ discard "forward decl of Interface_Check"
 discard "forward decl of Interface_CopyTool"
 discard "forward decl of IGESData_IGESDumper"
 type
-  IGESGeomToolPoint* {.importcpp: "IGESGeom_ToolPoint",
-                      header: "IGESGeom_ToolPoint.hxx", bycopy.} = object ## ! Returns a ToolPoint, ready to work
+  IGESGeom_ToolPoint* {.importcpp: "IGESGeom_ToolPoint",
+                       header: "IGESGeom_ToolPoint.hxx", bycopy.} = object ## ! Returns a ToolPoint, ready to work
 
 
-proc constructIGESGeomToolPoint*(): IGESGeomToolPoint {.constructor,
+proc constructIGESGeom_ToolPoint*(): IGESGeom_ToolPoint {.constructor,
     importcpp: "IGESGeom_ToolPoint(@)", header: "IGESGeom_ToolPoint.hxx".}
-proc readOwnParams*(this: IGESGeomToolPoint; ent: Handle[IGESGeomPoint];
-                   ir: Handle[IGESDataIGESReaderData]; pr: var IGESDataParamReader) {.
-    noSideEffect, importcpp: "ReadOwnParams", header: "IGESGeom_ToolPoint.hxx".}
-proc writeOwnParams*(this: IGESGeomToolPoint; ent: Handle[IGESGeomPoint];
-                    iw: var IGESDataIGESWriter) {.noSideEffect,
+proc ReadOwnParams*(this: IGESGeom_ToolPoint; ent: handle[IGESGeom_Point];
+                   IR: handle[IGESData_IGESReaderData];
+                   PR: var IGESData_ParamReader) {.noSideEffect,
+    importcpp: "ReadOwnParams", header: "IGESGeom_ToolPoint.hxx".}
+proc WriteOwnParams*(this: IGESGeom_ToolPoint; ent: handle[IGESGeom_Point];
+                    IW: var IGESData_IGESWriter) {.noSideEffect,
     importcpp: "WriteOwnParams", header: "IGESGeom_ToolPoint.hxx".}
-proc ownShared*(this: IGESGeomToolPoint; ent: Handle[IGESGeomPoint];
-               iter: var InterfaceEntityIterator) {.noSideEffect,
+proc OwnShared*(this: IGESGeom_ToolPoint; ent: handle[IGESGeom_Point];
+               iter: var Interface_EntityIterator) {.noSideEffect,
     importcpp: "OwnShared", header: "IGESGeom_ToolPoint.hxx".}
-proc dirChecker*(this: IGESGeomToolPoint; ent: Handle[IGESGeomPoint]): IGESDataDirChecker {.
+proc DirChecker*(this: IGESGeom_ToolPoint; ent: handle[IGESGeom_Point]): IGESData_DirChecker {.
     noSideEffect, importcpp: "DirChecker", header: "IGESGeom_ToolPoint.hxx".}
-proc ownCheck*(this: IGESGeomToolPoint; ent: Handle[IGESGeomPoint];
-              shares: InterfaceShareTool; ach: var Handle[InterfaceCheck]) {.
+proc OwnCheck*(this: IGESGeom_ToolPoint; ent: handle[IGESGeom_Point];
+              shares: Interface_ShareTool; ach: var handle[Interface_Check]) {.
     noSideEffect, importcpp: "OwnCheck", header: "IGESGeom_ToolPoint.hxx".}
-proc ownCopy*(this: IGESGeomToolPoint; entfrom: Handle[IGESGeomPoint];
-             entto: Handle[IGESGeomPoint]; tc: var InterfaceCopyTool) {.noSideEffect,
-    importcpp: "OwnCopy", header: "IGESGeom_ToolPoint.hxx".}
-proc ownDump*(this: IGESGeomToolPoint; ent: Handle[IGESGeomPoint];
-             dumper: IGESDataIGESDumper; s: var StandardOStream; own: StandardInteger) {.
-    noSideEffect, importcpp: "OwnDump", header: "IGESGeom_ToolPoint.hxx".}
-
+proc OwnCopy*(this: IGESGeom_ToolPoint; entfrom: handle[IGESGeom_Point];
+             entto: handle[IGESGeom_Point]; TC: var Interface_CopyTool) {.
+    noSideEffect, importcpp: "OwnCopy", header: "IGESGeom_ToolPoint.hxx".}
+proc OwnDump*(this: IGESGeom_ToolPoint; ent: handle[IGESGeom_Point];
+             dumper: IGESData_IGESDumper; S: var Standard_OStream;
+             own: Standard_Integer) {.noSideEffect, importcpp: "OwnDump",
+                                    header: "IGESGeom_ToolPoint.hxx".}

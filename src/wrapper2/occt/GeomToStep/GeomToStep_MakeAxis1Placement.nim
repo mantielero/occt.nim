@@ -14,6 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, GeomToStep_Root
+
 discard "forward decl of StepGeom_Axis1Placement"
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of gp_Ax1"
@@ -21,23 +25,22 @@ discard "forward decl of gp_Ax2d"
 discard "forward decl of Geom_Axis1Placement"
 discard "forward decl of Geom2d_AxisPlacement"
 type
-  GeomToStepMakeAxis1Placement* {.importcpp: "GeomToStep_MakeAxis1Placement",
-                                 header: "GeomToStep_MakeAxis1Placement.hxx",
-                                 bycopy.} = object of GeomToStepRoot
+  GeomToStep_MakeAxis1Placement* {.importcpp: "GeomToStep_MakeAxis1Placement",
+                                  header: "GeomToStep_MakeAxis1Placement.hxx",
+                                  bycopy.} = object of GeomToStep_Root
 
 
-proc constructGeomToStepMakeAxis1Placement*(a: GpAx1): GeomToStepMakeAxis1Placement {.
+proc constructGeomToStep_MakeAxis1Placement*(A: gp_Ax1): GeomToStep_MakeAxis1Placement {.
     constructor, importcpp: "GeomToStep_MakeAxis1Placement(@)",
     header: "GeomToStep_MakeAxis1Placement.hxx".}
-proc constructGeomToStepMakeAxis1Placement*(a: GpAx2d): GeomToStepMakeAxis1Placement {.
+proc constructGeomToStep_MakeAxis1Placement*(A: gp_Ax2d): GeomToStep_MakeAxis1Placement {.
     constructor, importcpp: "GeomToStep_MakeAxis1Placement(@)",
     header: "GeomToStep_MakeAxis1Placement.hxx".}
-proc constructGeomToStepMakeAxis1Placement*(a: Handle[GeomAxis1Placement]): GeomToStepMakeAxis1Placement {.
+proc constructGeomToStep_MakeAxis1Placement*(A: handle[Geom_Axis1Placement]): GeomToStep_MakeAxis1Placement {.
     constructor, importcpp: "GeomToStep_MakeAxis1Placement(@)",
     header: "GeomToStep_MakeAxis1Placement.hxx".}
-proc constructGeomToStepMakeAxis1Placement*(a: Handle[Geom2dAxisPlacement]): GeomToStepMakeAxis1Placement {.
+proc constructGeomToStep_MakeAxis1Placement*(A: handle[Geom2d_AxisPlacement]): GeomToStep_MakeAxis1Placement {.
     constructor, importcpp: "GeomToStep_MakeAxis1Placement(@)",
     header: "GeomToStep_MakeAxis1Placement.hxx".}
-proc value*(this: GeomToStepMakeAxis1Placement): Handle[StepGeomAxis1Placement] {.
+proc Value*(this: GeomToStep_MakeAxis1Placement): handle[StepGeom_Axis1Placement] {.
     noSideEffect, importcpp: "Value", header: "GeomToStep_MakeAxis1Placement.hxx".}
-

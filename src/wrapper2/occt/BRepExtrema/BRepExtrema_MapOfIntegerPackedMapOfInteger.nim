@@ -13,10 +13,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../NCollection/NCollection_DataMap, ../TColStd/TColStd_PackedMapOfInteger
+
 ## ! Set of overlapped sub-shapes.
 
 type
-  BRepExtremaMapOfIntegerPackedMapOfInteger* = NCollectionDataMap[StandardInteger,
-      TColStdPackedMapOfInteger]
-
-
+  BRepExtrema_MapOfIntegerPackedMapOfInteger* = NCollection_DataMap[
+      Standard_Integer, TColStd_PackedMapOfInteger]

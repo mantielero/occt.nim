@@ -13,10 +13,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard_Integer, MeshVS_TwoColors,
+  ../TColStd/TColStd_MapIntegerHasher, ../NCollection/NCollection_DataMap
+
 type
-  MeshVS_DataMapOfIntegerTwoColors* = NCollectionDataMap[StandardInteger,
-      MeshVS_TwoColors, TColStdMapIntegerHasher]
-  MeshVS_DataMapIteratorOfDataMapOfIntegerTwoColors* = Iterator[StandardInteger,
-      MeshVS_TwoColors, TColStdMapIntegerHasher]
-
-
+  MeshVS_DataMapOfIntegerTwoColors* = NCollection_DataMap[Standard_Integer,
+      MeshVS_TwoColors, TColStd_MapIntegerHasher]
+  MeshVS_DataMapIteratorOfDataMapOfIntegerTwoColors* = Iterator[Standard_Integer,
+      MeshVS_TwoColors, TColStd_MapIntegerHasher]

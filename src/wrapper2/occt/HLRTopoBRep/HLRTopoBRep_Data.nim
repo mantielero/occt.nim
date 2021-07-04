@@ -14,85 +14,94 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../TopTools/TopTools_DataMapOfShapeShape,
+  ../TopTools/TopTools_DataMapOfShapeListOfShape,
+  HLRTopoBRep_DataMapOfShapeFaceData, ../TopTools/TopTools_MapOfShape,
+  HLRTopoBRep_MapOfShapeListOfVData,
+  HLRTopoBRep_DataMapIteratorOfMapOfShapeListOfVData,
+  HLRTopoBRep_ListIteratorOfListOfVData, ../Standard/Standard_Boolean,
+  ../TopTools/TopTools_ListOfShape, ../Standard/Standard_Real
+
 discard "forward decl of TopoDS_Edge"
 discard "forward decl of TopoDS_Face"
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of TopoDS_Vertex"
 type
-  HLRTopoBRepData* {.importcpp: "HLRTopoBRep_Data", header: "HLRTopoBRep_Data.hxx",
-                    bycopy.} = object
+  HLRTopoBRep_Data* {.importcpp: "HLRTopoBRep_Data",
+                     header: "HLRTopoBRep_Data.hxx", bycopy.} = object
 
 
-proc constructHLRTopoBRepData*(): HLRTopoBRepData {.constructor,
+proc constructHLRTopoBRep_Data*(): HLRTopoBRep_Data {.constructor,
     importcpp: "HLRTopoBRep_Data(@)", header: "HLRTopoBRep_Data.hxx".}
-proc clear*(this: var HLRTopoBRepData) {.importcpp: "Clear",
-                                     header: "HLRTopoBRep_Data.hxx".}
-proc clean*(this: var HLRTopoBRepData) {.importcpp: "Clean",
-                                     header: "HLRTopoBRep_Data.hxx".}
-proc edgeHasSplE*(this: HLRTopoBRepData; e: TopoDS_Edge): StandardBoolean {.
+proc Clear*(this: var HLRTopoBRep_Data) {.importcpp: "Clear",
+                                      header: "HLRTopoBRep_Data.hxx".}
+proc Clean*(this: var HLRTopoBRep_Data) {.importcpp: "Clean",
+                                      header: "HLRTopoBRep_Data.hxx".}
+proc EdgeHasSplE*(this: HLRTopoBRep_Data; E: TopoDS_Edge): Standard_Boolean {.
     noSideEffect, importcpp: "EdgeHasSplE", header: "HLRTopoBRep_Data.hxx".}
-proc faceHasIntL*(this: HLRTopoBRepData; f: TopoDS_Face): StandardBoolean {.
+proc FaceHasIntL*(this: HLRTopoBRep_Data; F: TopoDS_Face): Standard_Boolean {.
     noSideEffect, importcpp: "FaceHasIntL", header: "HLRTopoBRep_Data.hxx".}
-proc faceHasOutL*(this: HLRTopoBRepData; f: TopoDS_Face): StandardBoolean {.
+proc FaceHasOutL*(this: HLRTopoBRep_Data; F: TopoDS_Face): Standard_Boolean {.
     noSideEffect, importcpp: "FaceHasOutL", header: "HLRTopoBRep_Data.hxx".}
-proc faceHasIsoL*(this: HLRTopoBRepData; f: TopoDS_Face): StandardBoolean {.
+proc FaceHasIsoL*(this: HLRTopoBRep_Data; F: TopoDS_Face): Standard_Boolean {.
     noSideEffect, importcpp: "FaceHasIsoL", header: "HLRTopoBRep_Data.hxx".}
-proc isSplEEdgeEdge*(this: HLRTopoBRepData; e1: TopoDS_Edge; e2: TopoDS_Edge): StandardBoolean {.
+proc IsSplEEdgeEdge*(this: HLRTopoBRep_Data; E1: TopoDS_Edge; E2: TopoDS_Edge): Standard_Boolean {.
     noSideEffect, importcpp: "IsSplEEdgeEdge", header: "HLRTopoBRep_Data.hxx".}
-proc isIntLFaceEdge*(this: HLRTopoBRepData; f: TopoDS_Face; e: TopoDS_Edge): StandardBoolean {.
+proc IsIntLFaceEdge*(this: HLRTopoBRep_Data; F: TopoDS_Face; E: TopoDS_Edge): Standard_Boolean {.
     noSideEffect, importcpp: "IsIntLFaceEdge", header: "HLRTopoBRep_Data.hxx".}
-proc isOutLFaceEdge*(this: HLRTopoBRepData; f: TopoDS_Face; e: TopoDS_Edge): StandardBoolean {.
+proc IsOutLFaceEdge*(this: HLRTopoBRep_Data; F: TopoDS_Face; E: TopoDS_Edge): Standard_Boolean {.
     noSideEffect, importcpp: "IsOutLFaceEdge", header: "HLRTopoBRep_Data.hxx".}
-proc isIsoLFaceEdge*(this: HLRTopoBRepData; f: TopoDS_Face; e: TopoDS_Edge): StandardBoolean {.
+proc IsIsoLFaceEdge*(this: HLRTopoBRep_Data; F: TopoDS_Face; E: TopoDS_Edge): Standard_Boolean {.
     noSideEffect, importcpp: "IsIsoLFaceEdge", header: "HLRTopoBRep_Data.hxx".}
-proc newSOldS*(this: HLRTopoBRepData; new: TopoDS_Shape): TopoDS_Shape {.noSideEffect,
-    importcpp: "NewSOldS", header: "HLRTopoBRep_Data.hxx".}
-proc edgeSplE*(this: HLRTopoBRepData; e: TopoDS_Edge): TopToolsListOfShape {.
+proc NewSOldS*(this: HLRTopoBRep_Data; New: TopoDS_Shape): TopoDS_Shape {.
+    noSideEffect, importcpp: "NewSOldS", header: "HLRTopoBRep_Data.hxx".}
+proc EdgeSplE*(this: HLRTopoBRep_Data; E: TopoDS_Edge): TopTools_ListOfShape {.
     noSideEffect, importcpp: "EdgeSplE", header: "HLRTopoBRep_Data.hxx".}
-proc faceIntL*(this: HLRTopoBRepData; f: TopoDS_Face): TopToolsListOfShape {.
+proc FaceIntL*(this: HLRTopoBRep_Data; F: TopoDS_Face): TopTools_ListOfShape {.
     noSideEffect, importcpp: "FaceIntL", header: "HLRTopoBRep_Data.hxx".}
-proc faceOutL*(this: HLRTopoBRepData; f: TopoDS_Face): TopToolsListOfShape {.
+proc FaceOutL*(this: HLRTopoBRep_Data; F: TopoDS_Face): TopTools_ListOfShape {.
     noSideEffect, importcpp: "FaceOutL", header: "HLRTopoBRep_Data.hxx".}
-proc faceIsoL*(this: HLRTopoBRepData; f: TopoDS_Face): TopToolsListOfShape {.
+proc FaceIsoL*(this: HLRTopoBRep_Data; F: TopoDS_Face): TopTools_ListOfShape {.
     noSideEffect, importcpp: "FaceIsoL", header: "HLRTopoBRep_Data.hxx".}
-proc isOutV*(this: HLRTopoBRepData; v: TopoDS_Vertex): StandardBoolean {.noSideEffect,
-    importcpp: "IsOutV", header: "HLRTopoBRep_Data.hxx".}
-proc isIntV*(this: HLRTopoBRepData; v: TopoDS_Vertex): StandardBoolean {.noSideEffect,
-    importcpp: "IsIntV", header: "HLRTopoBRep_Data.hxx".}
-proc addOldS*(this: var HLRTopoBRepData; newS: TopoDS_Shape; oldS: TopoDS_Shape) {.
+proc IsOutV*(this: HLRTopoBRep_Data; V: TopoDS_Vertex): Standard_Boolean {.
+    noSideEffect, importcpp: "IsOutV", header: "HLRTopoBRep_Data.hxx".}
+proc IsIntV*(this: HLRTopoBRep_Data; V: TopoDS_Vertex): Standard_Boolean {.
+    noSideEffect, importcpp: "IsIntV", header: "HLRTopoBRep_Data.hxx".}
+proc AddOldS*(this: var HLRTopoBRep_Data; NewS: TopoDS_Shape; OldS: TopoDS_Shape) {.
     importcpp: "AddOldS", header: "HLRTopoBRep_Data.hxx".}
-proc addSplE*(this: var HLRTopoBRepData; e: TopoDS_Edge): var TopToolsListOfShape {.
+proc AddSplE*(this: var HLRTopoBRep_Data; E: TopoDS_Edge): var TopTools_ListOfShape {.
     importcpp: "AddSplE", header: "HLRTopoBRep_Data.hxx".}
-proc addIntL*(this: var HLRTopoBRepData; f: TopoDS_Face): var TopToolsListOfShape {.
+proc AddIntL*(this: var HLRTopoBRep_Data; F: TopoDS_Face): var TopTools_ListOfShape {.
     importcpp: "AddIntL", header: "HLRTopoBRep_Data.hxx".}
-proc addOutL*(this: var HLRTopoBRepData; f: TopoDS_Face): var TopToolsListOfShape {.
+proc AddOutL*(this: var HLRTopoBRep_Data; F: TopoDS_Face): var TopTools_ListOfShape {.
     importcpp: "AddOutL", header: "HLRTopoBRep_Data.hxx".}
-proc addIsoL*(this: var HLRTopoBRepData; f: TopoDS_Face): var TopToolsListOfShape {.
+proc AddIsoL*(this: var HLRTopoBRep_Data; F: TopoDS_Face): var TopTools_ListOfShape {.
     importcpp: "AddIsoL", header: "HLRTopoBRep_Data.hxx".}
-proc addOutV*(this: var HLRTopoBRepData; v: TopoDS_Vertex) {.importcpp: "AddOutV",
+proc AddOutV*(this: var HLRTopoBRep_Data; V: TopoDS_Vertex) {.importcpp: "AddOutV",
     header: "HLRTopoBRep_Data.hxx".}
-proc addIntV*(this: var HLRTopoBRepData; v: TopoDS_Vertex) {.importcpp: "AddIntV",
+proc AddIntV*(this: var HLRTopoBRep_Data; V: TopoDS_Vertex) {.importcpp: "AddIntV",
     header: "HLRTopoBRep_Data.hxx".}
-proc initEdge*(this: var HLRTopoBRepData) {.importcpp: "InitEdge",
-                                        header: "HLRTopoBRep_Data.hxx".}
-proc moreEdge*(this: HLRTopoBRepData): StandardBoolean {.noSideEffect,
+proc InitEdge*(this: var HLRTopoBRep_Data) {.importcpp: "InitEdge",
+    header: "HLRTopoBRep_Data.hxx".}
+proc MoreEdge*(this: HLRTopoBRep_Data): Standard_Boolean {.noSideEffect,
     importcpp: "MoreEdge", header: "HLRTopoBRep_Data.hxx".}
-proc nextEdge*(this: var HLRTopoBRepData) {.importcpp: "NextEdge",
-                                        header: "HLRTopoBRep_Data.hxx".}
-proc edge*(this: HLRTopoBRepData): TopoDS_Edge {.noSideEffect, importcpp: "Edge",
+proc NextEdge*(this: var HLRTopoBRep_Data) {.importcpp: "NextEdge",
     header: "HLRTopoBRep_Data.hxx".}
-proc initVertex*(this: var HLRTopoBRepData; e: TopoDS_Edge) {.importcpp: "InitVertex",
+proc Edge*(this: HLRTopoBRep_Data): TopoDS_Edge {.noSideEffect, importcpp: "Edge",
     header: "HLRTopoBRep_Data.hxx".}
-proc moreVertex*(this: HLRTopoBRepData): StandardBoolean {.noSideEffect,
+proc InitVertex*(this: var HLRTopoBRep_Data; E: TopoDS_Edge) {.
+    importcpp: "InitVertex", header: "HLRTopoBRep_Data.hxx".}
+proc MoreVertex*(this: HLRTopoBRep_Data): Standard_Boolean {.noSideEffect,
     importcpp: "MoreVertex", header: "HLRTopoBRep_Data.hxx".}
-proc nextVertex*(this: var HLRTopoBRepData) {.importcpp: "NextVertex",
+proc NextVertex*(this: var HLRTopoBRep_Data) {.importcpp: "NextVertex",
     header: "HLRTopoBRep_Data.hxx".}
-proc vertex*(this: HLRTopoBRepData): TopoDS_Vertex {.noSideEffect,
+proc Vertex*(this: HLRTopoBRep_Data): TopoDS_Vertex {.noSideEffect,
     importcpp: "Vertex", header: "HLRTopoBRep_Data.hxx".}
-proc parameter*(this: HLRTopoBRepData): StandardReal {.noSideEffect,
+proc Parameter*(this: HLRTopoBRep_Data): Standard_Real {.noSideEffect,
     importcpp: "Parameter", header: "HLRTopoBRep_Data.hxx".}
-proc insertBefore*(this: var HLRTopoBRepData; v: TopoDS_Vertex; p: StandardReal) {.
+proc InsertBefore*(this: var HLRTopoBRep_Data; V: TopoDS_Vertex; P: Standard_Real) {.
     importcpp: "InsertBefore", header: "HLRTopoBRep_Data.hxx".}
-proc append*(this: var HLRTopoBRepData; v: TopoDS_Vertex; p: StandardReal) {.
+proc Append*(this: var HLRTopoBRep_Data; V: TopoDS_Vertex; P: Standard_Real) {.
     importcpp: "Append", header: "HLRTopoBRep_Data.hxx".}
-

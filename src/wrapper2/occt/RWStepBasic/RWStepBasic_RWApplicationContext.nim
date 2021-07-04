@@ -14,24 +14,28 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepBasic_ApplicationContext"
 discard "forward decl of StepData_StepWriter"
 type
-  RWStepBasicRWApplicationContext* {.importcpp: "RWStepBasic_RWApplicationContext", header: "RWStepBasic_RWApplicationContext.hxx",
-                                    bycopy.} = object
+  RWStepBasic_RWApplicationContext* {.importcpp: "RWStepBasic_RWApplicationContext", header: "RWStepBasic_RWApplicationContext.hxx",
+                                     bycopy.} = object
 
 
-proc constructRWStepBasicRWApplicationContext*(): RWStepBasicRWApplicationContext {.
+proc constructRWStepBasic_RWApplicationContext*(): RWStepBasic_RWApplicationContext {.
     constructor, importcpp: "RWStepBasic_RWApplicationContext(@)",
     header: "RWStepBasic_RWApplicationContext.hxx".}
-proc readStep*(this: RWStepBasicRWApplicationContext;
-              data: Handle[StepDataStepReaderData]; num: StandardInteger;
-              ach: var Handle[InterfaceCheck];
-              ent: Handle[StepBasicApplicationContext]) {.noSideEffect,
+proc ReadStep*(this: RWStepBasic_RWApplicationContext;
+              data: handle[StepData_StepReaderData]; num: Standard_Integer;
+              ach: var handle[Interface_Check];
+              ent: handle[StepBasic_ApplicationContext]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepBasic_RWApplicationContext.hxx".}
-proc writeStep*(this: RWStepBasicRWApplicationContext; sw: var StepDataStepWriter;
-               ent: Handle[StepBasicApplicationContext]) {.noSideEffect,
+proc WriteStep*(this: RWStepBasic_RWApplicationContext;
+               SW: var StepData_StepWriter;
+               ent: handle[StepBasic_ApplicationContext]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepBasic_RWApplicationContext.hxx".}
-

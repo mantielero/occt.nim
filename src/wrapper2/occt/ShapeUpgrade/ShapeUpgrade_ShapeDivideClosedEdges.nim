@@ -13,23 +13,28 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ShapeUpgrade_ShapeDivide,
+  ../Standard/Standard_Integer
+
 discard "forward decl of TopoDS_Shape"
 type
-  ShapeUpgradeShapeDivideClosedEdges* {.importcpp: "ShapeUpgrade_ShapeDivideClosedEdges", header: "ShapeUpgrade_ShapeDivideClosedEdges.hxx",
-                                       bycopy.} = object of ShapeUpgradeShapeDivide ## !
-                                                                               ## Initialises
-                                                                               ## tool
-                                                                               ## with
-                                                                               ## shape
-                                                                               ## and
-                                                                               ## default
-                                                                               ## parameter.
+  ShapeUpgrade_ShapeDivideClosedEdges* {.importcpp: "ShapeUpgrade_ShapeDivideClosedEdges", header: "ShapeUpgrade_ShapeDivideClosedEdges.hxx",
+                                        bycopy.} = object of ShapeUpgrade_ShapeDivide ##
+                                                                                 ## !
+                                                                                 ## Initialises
+                                                                                 ## tool
+                                                                                 ## with
+                                                                                 ## shape
+                                                                                 ## and
+                                                                                 ## default
+                                                                                 ## parameter.
 
 
-proc constructShapeUpgradeShapeDivideClosedEdges*(s: TopoDS_Shape): ShapeUpgradeShapeDivideClosedEdges {.
+proc constructShapeUpgrade_ShapeDivideClosedEdges*(S: TopoDS_Shape): ShapeUpgrade_ShapeDivideClosedEdges {.
     constructor, importcpp: "ShapeUpgrade_ShapeDivideClosedEdges(@)",
     header: "ShapeUpgrade_ShapeDivideClosedEdges.hxx".}
-proc setNbSplitPoints*(this: var ShapeUpgradeShapeDivideClosedEdges;
-                      num: StandardInteger) {.importcpp: "SetNbSplitPoints",
+proc SetNbSplitPoints*(this: var ShapeUpgrade_ShapeDivideClosedEdges;
+                      num: Standard_Integer) {.importcpp: "SetNbSplitPoints",
     header: "ShapeUpgrade_ShapeDivideClosedEdges.hxx".}
-

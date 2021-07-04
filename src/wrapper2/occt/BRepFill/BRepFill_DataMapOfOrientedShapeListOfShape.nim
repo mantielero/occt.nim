@@ -14,10 +14,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../TopoDS/TopoDS_Shape, ../TopTools/TopTools_ListOfShape,
+  ../TopTools/TopTools_OrientedShapeMapHasher, ../NCollection/NCollection_DataMap
+
 type
-  BRepFillDataMapOfOrientedShapeListOfShape* = NCollectionDataMap[TopoDS_Shape,
-      TopToolsListOfShape, TopToolsOrientedShapeMapHasher]
-  BRepFillDataMapIteratorOfDataMapOfOrientedShapeListOfShape* = Iterator[
-      TopoDS_Shape, TopToolsListOfShape, TopToolsOrientedShapeMapHasher]
-
-
+  BRepFill_DataMapOfOrientedShapeListOfShape* = NCollection_DataMap[TopoDS_Shape,
+      TopTools_ListOfShape, TopTools_OrientedShapeMapHasher]
+  BRepFill_DataMapIteratorOfDataMapOfOrientedShapeListOfShape* = Iterator[
+      TopoDS_Shape, TopTools_ListOfShape, TopTools_OrientedShapeMapHasher]

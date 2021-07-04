@@ -13,65 +13,68 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-# when defined windows:
-#   discard
-# # # # else:
-# # # #   discard
+import
+  ../Standard/Standard, ../Standard/Standard_Macro, ../Standard/Standard_Transient
+# 
+# when defined(_WIN32):
+  discard
+else:
+  discard
 ##  prevent disabling some MSVC warning messages by VTK headers
+
+import
+  ../Standard/Standard_WarningsDisable, ../Standard/Standard_WarningsRestore,
+  ../IVtkTools/IVtkTools_ShapePicker, IVtkDraw_HighlightAndSelectionPipeline,
+  ../Aspect/Aspect_Window
 
 discard "forward decl of vtkWin32RenderWindowInteractor"
 type
-  PSelector* = VtkSmartPointer[IVtkToolsShapePicker]
-  IVtkDrawInteractor* {.importcpp: "IVtkDraw_Interactor",
-                       header: "IVtkDraw_Interactor.hxx", bycopy.} = object of VtkRenderWindowInteractor ##  copying is prohibited
-#     when defined windows:
-#       discard
-#     when defined windows:
-#       discard
-#     when not defined windows:
-#       discard
-#     when not defined windows:
-#       discard
-#     when not defined windows:
-#       discard
+  PSelector* = vtkSmartPointer[IVtkTools_ShapePicker]
+  IVtkDraw_Interactor* {.importcpp: "IVtkDraw_Interactor",
+                        header: "IVtkDraw_Interactor.hxx", bycopy.} = object of vtkRenderWindowInteractor ##  copying is prohibited
+    when defined(_WIN32):
+      discard
+    when defined(_WIN32):
+      discard
+    when not defined(_WIN32):
+      discard
+    when not defined(_WIN32):
+      discard
+    when not defined(_WIN32):
+      discard
 
 
-proc new*(): ptr IVtkDrawInteractor {.importcpp: "IVtkDraw_Interactor::New(@)",
-                                  header: "IVtkDraw_Interactor.hxx".}
+proc New*(): ptr IVtkDraw_Interactor {.importcpp: "IVtkDraw_Interactor::New(@)",
+                                   header: "IVtkDraw_Interactor.hxx".}
 ## !!!Ignored construct:  vtkTypeMacro ( IVtkDraw_Interactor , vtkRenderWindowInteractor ) virtual void Initialize ( ) ;
 ## Error: token expected: ) but got: ,!!!
 
-proc enable*(this: var IVtkDrawInteractor) {.importcpp: "Enable",
+proc Enable*(this: var IVtkDraw_Interactor) {.importcpp: "Enable",
     header: "IVtkDraw_Interactor.hxx".}
-proc start*(this: var IVtkDrawInteractor) {.importcpp: "Start",
-                                        header: "IVtkDraw_Interactor.hxx".}
-proc selector*(this: IVtkDrawInteractor): PSelector {.noSideEffect,
+proc Start*(this: var IVtkDraw_Interactor) {.importcpp: "Start",
+    header: "IVtkDraw_Interactor.hxx".}
+proc Selector*(this: IVtkDraw_Interactor): PSelector {.noSideEffect,
     importcpp: "Selector", header: "IVtkDraw_Interactor.hxx".}
-proc setShapePicker*(this: var IVtkDrawInteractor; theSelector: PSelector) {.
+proc SetShapePicker*(this: var IVtkDraw_Interactor; theSelector: PSelector) {.
     importcpp: "SetShapePicker", header: "IVtkDraw_Interactor.hxx".}
-proc setPipelines*(this: var IVtkDrawInteractor;
-                  thePipelines: Handle[ShapePipelineMap]) {.
+proc SetPipelines*(this: var IVtkDraw_Interactor;
+                  thePipelines: handle[ShapePipelineMap]) {.
     importcpp: "SetPipelines", header: "IVtkDraw_Interactor.hxx".}
-proc setOCCWindow*(this: var IVtkDrawInteractor; theWindow: Handle[AspectWindow]) {.
+proc SetOCCWindow*(this: var IVtkDraw_Interactor; theWindow: handle[Aspect_Window]) {.
     importcpp: "SetOCCWindow", header: "IVtkDraw_Interactor.hxx".}
-proc getOCCWindow*(this: IVtkDrawInteractor): Handle[AspectWindow] {.noSideEffect,
+proc GetOCCWindow*(this: IVtkDraw_Interactor): handle[Aspect_Window] {.noSideEffect,
     importcpp: "GetOCCWindow", header: "IVtkDraw_Interactor.hxx".}
-proc moveTo*(this: var IVtkDrawInteractor; theX: StandardInteger;
-            theY: StandardInteger) {.importcpp: "MoveTo",
-                                   header: "IVtkDraw_Interactor.hxx".}
-proc onSelection*(this: var IVtkDrawInteractor) {.importcpp: "OnSelection",
+proc MoveTo*(this: var IVtkDraw_Interactor; theX: Standard_Integer;
+            theY: Standard_Integer) {.importcpp: "MoveTo",
+                                    header: "IVtkDraw_Interactor.hxx".}
+proc OnSelection*(this: var IVtkDraw_Interactor) {.importcpp: "OnSelection",
     header: "IVtkDraw_Interactor.hxx".}
-proc isEnabled*(this: IVtkDrawInteractor): StandardBoolean {.noSideEffect,
+proc IsEnabled*(this: IVtkDraw_Interactor): Standard_Boolean {.noSideEffect,
     importcpp: "IsEnabled", header: "IVtkDraw_Interactor.hxx".}
-when not defined windows:
-  proc getDisplayId*(this: IVtkDrawInteractor): ptr Display {.noSideEffect,
+when not defined(_WIN32):
+  proc GetDisplayId*(this: IVtkDraw_Interactor): ptr Display {.noSideEffect,
       importcpp: "GetDisplayId", header: "IVtkDraw_Interactor.hxx".}
-when not defined windows:
-  proc viewerMainLoop*(this: var IVtkDrawInteractor; theArgNum: StandardInteger;
-                      theArgs: cstringArray): StandardInteger {.
+when not defined(_WIN32):
+  proc ViewerMainLoop*(this: var IVtkDraw_Interactor; theArgNum: Standard_Integer;
+                      theArgs: cstringArray): Standard_Integer {.
       importcpp: "ViewerMainLoop", header: "IVtkDraw_Interactor.hxx".}
-
-
-
-
-

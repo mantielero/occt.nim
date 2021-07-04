@@ -14,6 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 discard "forward decl of Standard_DomainError"
 discard "forward decl of IGESDraw_NetworkSubfigureDef"
 discard "forward decl of IGESData_IGESReaderData"
@@ -26,42 +30,40 @@ discard "forward decl of Interface_Check"
 discard "forward decl of Interface_CopyTool"
 discard "forward decl of IGESData_IGESDumper"
 type
-  IGESDrawToolNetworkSubfigureDef* {.importcpp: "IGESDraw_ToolNetworkSubfigureDef", header: "IGESDraw_ToolNetworkSubfigureDef.hxx",
-                                    bycopy.} = object ## ! Returns a ToolNetworkSubfigureDef, ready to work
+  IGESDraw_ToolNetworkSubfigureDef* {.importcpp: "IGESDraw_ToolNetworkSubfigureDef", header: "IGESDraw_ToolNetworkSubfigureDef.hxx",
+                                     bycopy.} = object ## ! Returns a ToolNetworkSubfigureDef, ready to work
 
 
-proc constructIGESDrawToolNetworkSubfigureDef*(): IGESDrawToolNetworkSubfigureDef {.
+proc constructIGESDraw_ToolNetworkSubfigureDef*(): IGESDraw_ToolNetworkSubfigureDef {.
     constructor, importcpp: "IGESDraw_ToolNetworkSubfigureDef(@)",
     header: "IGESDraw_ToolNetworkSubfigureDef.hxx".}
-proc readOwnParams*(this: IGESDrawToolNetworkSubfigureDef;
-                   ent: Handle[IGESDrawNetworkSubfigureDef];
-                   ir: Handle[IGESDataIGESReaderData]; pr: var IGESDataParamReader) {.
-    noSideEffect, importcpp: "ReadOwnParams",
-    header: "IGESDraw_ToolNetworkSubfigureDef.hxx".}
-proc writeOwnParams*(this: IGESDrawToolNetworkSubfigureDef;
-                    ent: Handle[IGESDrawNetworkSubfigureDef];
-                    iw: var IGESDataIGESWriter) {.noSideEffect,
+proc ReadOwnParams*(this: IGESDraw_ToolNetworkSubfigureDef;
+                   ent: handle[IGESDraw_NetworkSubfigureDef];
+                   IR: handle[IGESData_IGESReaderData];
+                   PR: var IGESData_ParamReader) {.noSideEffect,
+    importcpp: "ReadOwnParams", header: "IGESDraw_ToolNetworkSubfigureDef.hxx".}
+proc WriteOwnParams*(this: IGESDraw_ToolNetworkSubfigureDef;
+                    ent: handle[IGESDraw_NetworkSubfigureDef];
+                    IW: var IGESData_IGESWriter) {.noSideEffect,
     importcpp: "WriteOwnParams", header: "IGESDraw_ToolNetworkSubfigureDef.hxx".}
-proc ownShared*(this: IGESDrawToolNetworkSubfigureDef;
-               ent: Handle[IGESDrawNetworkSubfigureDef];
-               iter: var InterfaceEntityIterator) {.noSideEffect,
+proc OwnShared*(this: IGESDraw_ToolNetworkSubfigureDef;
+               ent: handle[IGESDraw_NetworkSubfigureDef];
+               iter: var Interface_EntityIterator) {.noSideEffect,
     importcpp: "OwnShared", header: "IGESDraw_ToolNetworkSubfigureDef.hxx".}
-proc dirChecker*(this: IGESDrawToolNetworkSubfigureDef;
-                ent: Handle[IGESDrawNetworkSubfigureDef]): IGESDataDirChecker {.
+proc DirChecker*(this: IGESDraw_ToolNetworkSubfigureDef;
+                ent: handle[IGESDraw_NetworkSubfigureDef]): IGESData_DirChecker {.
     noSideEffect, importcpp: "DirChecker",
     header: "IGESDraw_ToolNetworkSubfigureDef.hxx".}
-proc ownCheck*(this: IGESDrawToolNetworkSubfigureDef;
-              ent: Handle[IGESDrawNetworkSubfigureDef];
-              shares: InterfaceShareTool; ach: var Handle[InterfaceCheck]) {.
+proc OwnCheck*(this: IGESDraw_ToolNetworkSubfigureDef;
+              ent: handle[IGESDraw_NetworkSubfigureDef];
+              shares: Interface_ShareTool; ach: var handle[Interface_Check]) {.
     noSideEffect, importcpp: "OwnCheck",
     header: "IGESDraw_ToolNetworkSubfigureDef.hxx".}
-proc ownCopy*(this: IGESDrawToolNetworkSubfigureDef;
-             entfrom: Handle[IGESDrawNetworkSubfigureDef];
-             entto: Handle[IGESDrawNetworkSubfigureDef]; tc: var InterfaceCopyTool) {.
-    noSideEffect, importcpp: "OwnCopy",
-    header: "IGESDraw_ToolNetworkSubfigureDef.hxx".}
-proc ownDump*(this: IGESDrawToolNetworkSubfigureDef;
-             ent: Handle[IGESDrawNetworkSubfigureDef]; dumper: IGESDataIGESDumper;
-             s: var StandardOStream; own: StandardInteger) {.noSideEffect,
-    importcpp: "OwnDump", header: "IGESDraw_ToolNetworkSubfigureDef.hxx".}
-
+proc OwnCopy*(this: IGESDraw_ToolNetworkSubfigureDef;
+             entfrom: handle[IGESDraw_NetworkSubfigureDef];
+             entto: handle[IGESDraw_NetworkSubfigureDef];
+             TC: var Interface_CopyTool) {.noSideEffect, importcpp: "OwnCopy", header: "IGESDraw_ToolNetworkSubfigureDef.hxx".}
+proc OwnDump*(this: IGESDraw_ToolNetworkSubfigureDef;
+             ent: handle[IGESDraw_NetworkSubfigureDef];
+             dumper: IGESData_IGESDumper; S: var Standard_OStream;
+             own: Standard_Integer) {.noSideEffect, importcpp: "OwnDump", header: "IGESDraw_ToolNetworkSubfigureDef.hxx".}

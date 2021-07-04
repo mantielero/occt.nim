@@ -12,6 +12,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  BOPDS_PaveBlock
+
 ## *
 ##  The Class BOPDS_CoupleOfPaveBlocks is to store
 ##  the information about two pave blocks
@@ -33,42 +36,40 @@ type
 proc constructBOPDS_CoupleOfPaveBlocks*(): BOPDS_CoupleOfPaveBlocks {.constructor,
     importcpp: "BOPDS_CoupleOfPaveBlocks(@)",
     header: "BOPDS_CoupleOfPaveBlocks.hxx".}
-proc constructBOPDS_CoupleOfPaveBlocks*(thePB1: Handle[BOPDS_PaveBlock];
-                                       thePB2: Handle[BOPDS_PaveBlock]): BOPDS_CoupleOfPaveBlocks {.
+proc constructBOPDS_CoupleOfPaveBlocks*(thePB1: handle[BOPDS_PaveBlock];
+                                       thePB2: handle[BOPDS_PaveBlock]): BOPDS_CoupleOfPaveBlocks {.
     constructor, importcpp: "BOPDS_CoupleOfPaveBlocks(@)",
     header: "BOPDS_CoupleOfPaveBlocks.hxx".}
 proc destroyBOPDS_CoupleOfPaveBlocks*(this: var BOPDS_CoupleOfPaveBlocks) {.
     importcpp: "#.~BOPDS_CoupleOfPaveBlocks()",
     header: "BOPDS_CoupleOfPaveBlocks.hxx".}
-proc setIndex*(this: var BOPDS_CoupleOfPaveBlocks; theIndex: StandardInteger) {.
+proc SetIndex*(this: var BOPDS_CoupleOfPaveBlocks; theIndex: Standard_Integer) {.
     importcpp: "SetIndex", header: "BOPDS_CoupleOfPaveBlocks.hxx".}
-proc index*(this: BOPDS_CoupleOfPaveBlocks): StandardInteger {.noSideEffect,
+proc Index*(this: BOPDS_CoupleOfPaveBlocks): Standard_Integer {.noSideEffect,
     importcpp: "Index", header: "BOPDS_CoupleOfPaveBlocks.hxx".}
-proc setIndexInterf*(this: var BOPDS_CoupleOfPaveBlocks; theIndex: StandardInteger) {.
+proc SetIndexInterf*(this: var BOPDS_CoupleOfPaveBlocks; theIndex: Standard_Integer) {.
     importcpp: "SetIndexInterf", header: "BOPDS_CoupleOfPaveBlocks.hxx".}
-proc indexInterf*(this: BOPDS_CoupleOfPaveBlocks): StandardInteger {.noSideEffect,
+proc IndexInterf*(this: BOPDS_CoupleOfPaveBlocks): Standard_Integer {.noSideEffect,
     importcpp: "IndexInterf", header: "BOPDS_CoupleOfPaveBlocks.hxx".}
-proc setPaveBlocks*(this: var BOPDS_CoupleOfPaveBlocks;
-                   thePB1: Handle[BOPDS_PaveBlock];
-                   thePB2: Handle[BOPDS_PaveBlock]) {.importcpp: "SetPaveBlocks",
+proc SetPaveBlocks*(this: var BOPDS_CoupleOfPaveBlocks;
+                   thePB1: handle[BOPDS_PaveBlock];
+                   thePB2: handle[BOPDS_PaveBlock]) {.importcpp: "SetPaveBlocks",
     header: "BOPDS_CoupleOfPaveBlocks.hxx".}
-proc paveBlocks*(this: BOPDS_CoupleOfPaveBlocks;
-                thePB1: var Handle[BOPDS_PaveBlock];
-                thePB2: var Handle[BOPDS_PaveBlock]) {.noSideEffect,
+proc PaveBlocks*(this: BOPDS_CoupleOfPaveBlocks;
+                thePB1: var handle[BOPDS_PaveBlock];
+                thePB2: var handle[BOPDS_PaveBlock]) {.noSideEffect,
     importcpp: "PaveBlocks", header: "BOPDS_CoupleOfPaveBlocks.hxx".}
-proc setPaveBlock1*(this: var BOPDS_CoupleOfPaveBlocks;
-                   thePB: Handle[BOPDS_PaveBlock]) {.importcpp: "SetPaveBlock1",
+proc SetPaveBlock1*(this: var BOPDS_CoupleOfPaveBlocks;
+                   thePB: handle[BOPDS_PaveBlock]) {.importcpp: "SetPaveBlock1",
     header: "BOPDS_CoupleOfPaveBlocks.hxx".}
-proc paveBlock1*(this: BOPDS_CoupleOfPaveBlocks): Handle[BOPDS_PaveBlock] {.
+proc PaveBlock1*(this: BOPDS_CoupleOfPaveBlocks): handle[BOPDS_PaveBlock] {.
     noSideEffect, importcpp: "PaveBlock1", header: "BOPDS_CoupleOfPaveBlocks.hxx".}
-proc setPaveBlock2*(this: var BOPDS_CoupleOfPaveBlocks;
-                   thePB: Handle[BOPDS_PaveBlock]) {.importcpp: "SetPaveBlock2",
+proc SetPaveBlock2*(this: var BOPDS_CoupleOfPaveBlocks;
+                   thePB: handle[BOPDS_PaveBlock]) {.importcpp: "SetPaveBlock2",
     header: "BOPDS_CoupleOfPaveBlocks.hxx".}
-proc paveBlock2*(this: BOPDS_CoupleOfPaveBlocks): Handle[BOPDS_PaveBlock] {.
+proc PaveBlock2*(this: BOPDS_CoupleOfPaveBlocks): handle[BOPDS_PaveBlock] {.
     noSideEffect, importcpp: "PaveBlock2", header: "BOPDS_CoupleOfPaveBlocks.hxx".}
-proc setTolerance*(this: var BOPDS_CoupleOfPaveBlocks; theTol: StandardReal) {.
+proc SetTolerance*(this: var BOPDS_CoupleOfPaveBlocks; theTol: Standard_Real) {.
     importcpp: "SetTolerance", header: "BOPDS_CoupleOfPaveBlocks.hxx".}
-proc tolerance*(this: BOPDS_CoupleOfPaveBlocks): StandardReal {.noSideEffect,
+proc Tolerance*(this: BOPDS_CoupleOfPaveBlocks): Standard_Real {.noSideEffect,
     importcpp: "Tolerance", header: "BOPDS_CoupleOfPaveBlocks.hxx".}
-
-

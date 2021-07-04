@@ -14,6 +14,13 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
+  ../GeomAbs/GeomAbs_JoinType, ../TopoDS/TopoDS_Face,
+  ../TopTools/TopTools_ListOfShape, ../BRepFill/BRepFill_ListOfOffsetWire,
+  ../BRepBuilderAPI/BRepBuilderAPI_MakeShape, ../Standard/Standard_Real
+
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of TopoDS_Face"
 discard "forward decl of TopoDS_Wire"
@@ -35,30 +42,29 @@ type
 proc constructBRepOffsetAPI_MakeOffset*(): BRepOffsetAPI_MakeOffset {.constructor,
     importcpp: "BRepOffsetAPI_MakeOffset(@)",
     header: "BRepOffsetAPI_MakeOffset.hxx".}
-proc constructBRepOffsetAPI_MakeOffset*(spine: TopoDS_Face;
-                                       join: GeomAbsJoinType = geomAbsArc;
-    isOpenResult: StandardBoolean = standardFalse): BRepOffsetAPI_MakeOffset {.
+proc constructBRepOffsetAPI_MakeOffset*(Spine: TopoDS_Face;
+                                       Join: GeomAbs_JoinType = GeomAbs_Arc;
+    IsOpenResult: Standard_Boolean = Standard_False): BRepOffsetAPI_MakeOffset {.
     constructor, importcpp: "BRepOffsetAPI_MakeOffset(@)",
     header: "BRepOffsetAPI_MakeOffset.hxx".}
-proc init*(this: var BRepOffsetAPI_MakeOffset; spine: TopoDS_Face;
-          join: GeomAbsJoinType = geomAbsArc;
-          isOpenResult: StandardBoolean = standardFalse) {.importcpp: "Init",
+proc Init*(this: var BRepOffsetAPI_MakeOffset; Spine: TopoDS_Face;
+          Join: GeomAbs_JoinType = GeomAbs_Arc;
+          IsOpenResult: Standard_Boolean = Standard_False) {.importcpp: "Init",
     header: "BRepOffsetAPI_MakeOffset.hxx".}
-proc constructBRepOffsetAPI_MakeOffset*(spine: TopoDS_Wire;
-                                       join: GeomAbsJoinType = geomAbsArc;
-    isOpenResult: StandardBoolean = standardFalse): BRepOffsetAPI_MakeOffset {.
+proc constructBRepOffsetAPI_MakeOffset*(Spine: TopoDS_Wire;
+                                       Join: GeomAbs_JoinType = GeomAbs_Arc;
+    IsOpenResult: Standard_Boolean = Standard_False): BRepOffsetAPI_MakeOffset {.
     constructor, importcpp: "BRepOffsetAPI_MakeOffset(@)",
     header: "BRepOffsetAPI_MakeOffset.hxx".}
-proc init*(this: var BRepOffsetAPI_MakeOffset; join: GeomAbsJoinType = geomAbsArc;
-          isOpenResult: StandardBoolean = standardFalse) {.importcpp: "Init",
+proc Init*(this: var BRepOffsetAPI_MakeOffset; Join: GeomAbs_JoinType = GeomAbs_Arc;
+          IsOpenResult: Standard_Boolean = Standard_False) {.importcpp: "Init",
     header: "BRepOffsetAPI_MakeOffset.hxx".}
-proc addWire*(this: var BRepOffsetAPI_MakeOffset; spine: TopoDS_Wire) {.
+proc AddWire*(this: var BRepOffsetAPI_MakeOffset; Spine: TopoDS_Wire) {.
     importcpp: "AddWire", header: "BRepOffsetAPI_MakeOffset.hxx".}
-proc perform*(this: var BRepOffsetAPI_MakeOffset; offset: StandardReal;
-             alt: StandardReal = 0.0) {.importcpp: "Perform",
-                                    header: "BRepOffsetAPI_MakeOffset.hxx".}
-proc build*(this: var BRepOffsetAPI_MakeOffset) {.importcpp: "Build",
+proc Perform*(this: var BRepOffsetAPI_MakeOffset; Offset: Standard_Real;
+             Alt: Standard_Real = 0.0) {.importcpp: "Perform",
+                                     header: "BRepOffsetAPI_MakeOffset.hxx".}
+proc Build*(this: var BRepOffsetAPI_MakeOffset) {.importcpp: "Build",
     header: "BRepOffsetAPI_MakeOffset.hxx".}
-proc generated*(this: var BRepOffsetAPI_MakeOffset; s: TopoDS_Shape): TopToolsListOfShape {.
+proc Generated*(this: var BRepOffsetAPI_MakeOffset; S: TopoDS_Shape): TopTools_ListOfShape {.
     importcpp: "Generated", header: "BRepOffsetAPI_MakeOffset.hxx".}
-

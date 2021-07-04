@@ -14,6 +14,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../TopoDS/TopoDS_Shape,
+  ../TopTools/TopTools_MapOfShape, ../TopTools/TopTools_DataMapOfShapeShape,
+  LocOpe_GeneratedShape, ../TopTools/TopTools_ListOfShape
+
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of TopoDS_Face"
 discard "forward decl of TopoDS_Edge"
@@ -21,35 +26,34 @@ discard "forward decl of TopoDS_Vertex"
 discard "forward decl of LocOpe_GluedShape"
 discard "forward decl of LocOpe_GluedShape"
 type
-  HandleLocOpeGluedShape* = Handle[LocOpeGluedShape]
-  LocOpeGluedShape* {.importcpp: "LocOpe_GluedShape",
-                     header: "LocOpe_GluedShape.hxx", bycopy.} = object of LocOpeGeneratedShape
+  Handle_LocOpe_GluedShape* = handle[LocOpe_GluedShape]
+  LocOpe_GluedShape* {.importcpp: "LocOpe_GluedShape",
+                      header: "LocOpe_GluedShape.hxx", bycopy.} = object of LocOpe_GeneratedShape
 
 
-proc constructLocOpeGluedShape*(): LocOpeGluedShape {.constructor,
+proc constructLocOpe_GluedShape*(): LocOpe_GluedShape {.constructor,
     importcpp: "LocOpe_GluedShape(@)", header: "LocOpe_GluedShape.hxx".}
-proc constructLocOpeGluedShape*(s: TopoDS_Shape): LocOpeGluedShape {.constructor,
+proc constructLocOpe_GluedShape*(S: TopoDS_Shape): LocOpe_GluedShape {.constructor,
     importcpp: "LocOpe_GluedShape(@)", header: "LocOpe_GluedShape.hxx".}
-proc init*(this: var LocOpeGluedShape; s: TopoDS_Shape) {.importcpp: "Init",
+proc Init*(this: var LocOpe_GluedShape; S: TopoDS_Shape) {.importcpp: "Init",
     header: "LocOpe_GluedShape.hxx".}
-proc glueOnFace*(this: var LocOpeGluedShape; f: TopoDS_Face) {.
+proc GlueOnFace*(this: var LocOpe_GluedShape; F: TopoDS_Face) {.
     importcpp: "GlueOnFace", header: "LocOpe_GluedShape.hxx".}
-proc generatingEdges*(this: var LocOpeGluedShape): TopToolsListOfShape {.
+proc GeneratingEdges*(this: var LocOpe_GluedShape): TopTools_ListOfShape {.
     importcpp: "GeneratingEdges", header: "LocOpe_GluedShape.hxx".}
-proc generated*(this: var LocOpeGluedShape; v: TopoDS_Vertex): TopoDS_Edge {.
+proc Generated*(this: var LocOpe_GluedShape; V: TopoDS_Vertex): TopoDS_Edge {.
     importcpp: "Generated", header: "LocOpe_GluedShape.hxx".}
-proc generated*(this: var LocOpeGluedShape; e: TopoDS_Edge): TopoDS_Face {.
+proc Generated*(this: var LocOpe_GluedShape; E: TopoDS_Edge): TopoDS_Face {.
     importcpp: "Generated", header: "LocOpe_GluedShape.hxx".}
-proc orientedFaces*(this: var LocOpeGluedShape): TopToolsListOfShape {.
+proc OrientedFaces*(this: var LocOpe_GluedShape): TopTools_ListOfShape {.
     importcpp: "OrientedFaces", header: "LocOpe_GluedShape.hxx".}
 type
-  LocOpeGluedShapebaseType* = LocOpeGeneratedShape
+  LocOpe_GluedShapebase_type* = LocOpe_GeneratedShape
 
-proc getTypeName*(): cstring {.importcpp: "LocOpe_GluedShape::get_type_name(@)",
-                            header: "LocOpe_GluedShape.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "LocOpe_GluedShape::get_type_name(@)",
+                              header: "LocOpe_GluedShape.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "LocOpe_GluedShape::get_type_descriptor(@)",
     header: "LocOpe_GluedShape.hxx".}
-proc dynamicType*(this: LocOpeGluedShape): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: LocOpe_GluedShape): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "LocOpe_GluedShape.hxx".}
-

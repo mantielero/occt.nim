@@ -14,6 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle
+
 discard "forward decl of IGESGeom_Protocol"
 discard "forward decl of IGESGeom_CircularArc"
 discard "forward decl of IGESGeom_CompositeCurve"
@@ -70,7 +74,6 @@ type
                                                                        ## (Protocol, Modules) for this package
 
 
-proc init*() {.importcpp: "IGESGeom::Init(@)", header: "IGESGeom.hxx".}
-proc protocol*(): Handle[IGESGeomProtocol] {.importcpp: "IGESGeom::Protocol(@)",
+proc Init*() {.importcpp: "IGESGeom::Init(@)", header: "IGESGeom.hxx".}
+proc Protocol*(): handle[IGESGeom_Protocol] {.importcpp: "IGESGeom::Protocol(@)",
     header: "IGESGeom.hxx".}
-

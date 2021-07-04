@@ -12,10 +12,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-# # # # when not defined(_INC_WINDOWS):
-# # # #   discard
+when not defined(_INC_WINDOWS):
+  discard
 type
-  Dir_Response* {.size: sizeof(cint), importcpp: "DIR_RESPONSE",
+  DIR_RESPONSE* {.size: sizeof(cint), importcpp: "DIR_RESPONSE",
                  header: "OSD_WNT.hxx".} = enum
     DIR_ABORT, DIR_RETRY, DIR_IGNORE
 
@@ -35,74 +35,69 @@ const
 ## #define LODWORD( a ) ( DWORD )(   ( ( DWORDLONG )( a ) ) & 0x00000000FFFFFFFF   )
 ## #define HIDWORD( a ) ( DWORD )(   ( ( DWORDLONG )( a ) ) >> 32                  )
 
-template lodword*(a: untyped): untyped =
-  (dword)(((int64)(a)) and 0x00000000FFFFFFFF'i64)
+template LODWORD*(a: untyped): untyped =
+  (DWORD)(((_int64)(a)) and 0x00000000FFFFFFFF'i64)
 
-template hidword*(a: untyped): untyped =
-  (dword)(((int64)(a)) shr 32)
+template HIDWORD*(a: untyped): untyped =
+  (DWORD)(((_int64)(a)) shr 32)
 
 type
-  File_Ace* {.importcpp: "FILE_ACE", header: "OSD_WNT.hxx", bycopy.} = object
-    header* {.importc: "header".}: Ace_Header
-    dwMask* {.importc: "dwMask".}: Dword
-    pSID* {.importc: "pSID".}: Psid
+  FILE_ACE* {.importcpp: "FILE_ACE", header: "OSD_WNT.hxx", bycopy.} = object
+    header* {.importc: "header".}: ACE_HEADER
+    dwMask* {.importc: "dwMask".}: DWORD
+    pSID* {.importc: "pSID".}: PSID
 
-  Pfile_Ace* = ptr File_Ace
-  Move_Dir_Proc* = proc (a1: Lpcwstr; a2: Lpcwstr)
-  Copy_Dir_Proc* = proc (a1: Lpcwstr; a2: Lpcwstr)
-  Delete_Dir_Proc* = proc (a1: Lpcwstr)
-  Response_Dir_Proc* = proc (a1: Lpcwstr): Dir_Response
+  PFILE_ACE* = ptr FILE_ACE
+  MOVE_DIR_PROC* = proc (a1: LPCWSTR; a2: LPCWSTR)
+  COPY_DIR_PROC* = proc (a1: LPCWSTR; a2: LPCWSTR)
+  DELETE_DIR_PROC* = proc (a1: LPCWSTR)
+  RESPONSE_DIR_PROC* = proc (a1: LPCWSTR): DIR_RESPONSE
 
-template get_Sid*(pACE: untyped): untyped =
-  ((psid)((cast[Pbyte](pACE)) + sizeof((ace_Header)) + sizeof((dword))))
+template GET_SID*(pACE: untyped): untyped =
+  ((PSID)((cast[PBYTE](pACE)) + sizeof((ACE_HEADER)) + sizeof((DWORD))))
 
-template get_Msk*(pACE: untyped): untyped =
-  ((pdword)((cast[Pbyte](pACE)) + sizeof((ace_Header))))
+template GET_MSK*(pACE: untyped): untyped =
+  ((PDWORD)((cast[PBYTE](pACE)) + sizeof((ACE_HEADER))))
 
-proc allocSD*(): Psecurity_Descriptor {.importcpp: "AllocSD(@)",
+proc AllocSD*(): PSECURITY_DESCRIPTOR {.importcpp: "AllocSD(@)",
                                      header: "OSD_WNT.hxx".}
-proc freeSD*(a1: Psecurity_Descriptor) {.importcpp: "FreeSD(@)",
+proc FreeSD*(a1: PSECURITY_DESCRIPTOR) {.importcpp: "FreeSD(@)",
                                       header: "OSD_WNT.hxx".}
-proc getTokenInformationEx*(a1: Handle; a2: Token_Information_Class): Lpvoid {.
+proc GetTokenInformationEx*(a1: HANDLE; a2: TOKEN_INFORMATION_CLASS): LPVOID {.
     importcpp: "GetTokenInformationEx(@)", header: "OSD_WNT.hxx".}
-proc freeTokenInformation*(a1: Lpvoid) {.importcpp: "FreeTokenInformation(@)",
+proc FreeTokenInformation*(a1: LPVOID) {.importcpp: "FreeTokenInformation(@)",
                                       header: "OSD_WNT.hxx".}
-proc getFileSecurityEx*(a1: Lpcwstr; a2: Security_Information): Psecurity_Descriptor {.
+proc GetFileSecurityEx*(a1: LPCWSTR; a2: SECURITY_INFORMATION): PSECURITY_DESCRIPTOR {.
     importcpp: "GetFileSecurityEx(@)", header: "OSD_WNT.hxx".}
-proc freeFileSecurity*(a1: Psecurity_Descriptor) {.
+proc FreeFileSecurity*(a1: PSECURITY_DESCRIPTOR) {.
     importcpp: "FreeFileSecurity(@)", header: "OSD_WNT.hxx".}
-proc createAcl*(a1: Dword): Pacl {.importcpp: "CreateAcl(@)", header: "OSD_WNT.hxx".}
-proc freeAcl*(a1: Pacl) {.importcpp: "FreeAcl(@)", header: "OSD_WNT.hxx".}
-proc predefinedSid*(a1: Psid): Bool {.importcpp: "PredefinedSid(@)",
+proc CreateAcl*(a1: DWORD): PACL {.importcpp: "CreateAcl(@)", header: "OSD_WNT.hxx".}
+proc FreeAcl*(a1: PACL) {.importcpp: "FreeAcl(@)", header: "OSD_WNT.hxx".}
+proc PredefinedSid*(a1: PSID): BOOL {.importcpp: "PredefinedSid(@)",
                                   header: "OSD_WNT.hxx".}
-proc ntPredefinedSid*(a1: Psid): Bool {.importcpp: "NtPredefinedSid(@)",
+proc NtPredefinedSid*(a1: PSID): BOOL {.importcpp: "NtPredefinedSid(@)",
                                     header: "OSD_WNT.hxx".}
-proc adminSid*(): Psid {.importcpp: "AdminSid(@)", header: "OSD_WNT.hxx".}
-proc worldSid*(): Psid {.importcpp: "WorldSid(@)", header: "OSD_WNT.hxx".}
-proc interactiveSid*(): Psid {.importcpp: "InteractiveSid(@)", header: "OSD_WNT.hxx".}
-proc networkSid*(): Psid {.importcpp: "NetworkSid(@)", header: "OSD_WNT.hxx".}
-proc localSid*(): Psid {.importcpp: "LocalSid(@)", header: "OSD_WNT.hxx".}
-proc dialupSid*(): Psid {.importcpp: "DialupSid(@)", header: "OSD_WNT.hxx".}
-proc batchSid*(): Psid {.importcpp: "BatchSid(@)", header: "OSD_WNT.hxx".}
-proc creatorOwnerSid*(): Psid {.importcpp: "CreatorOwnerSid(@)",
+proc AdminSid*(): PSID {.importcpp: "AdminSid(@)", header: "OSD_WNT.hxx".}
+proc WorldSid*(): PSID {.importcpp: "WorldSid(@)", header: "OSD_WNT.hxx".}
+proc InteractiveSid*(): PSID {.importcpp: "InteractiveSid(@)", header: "OSD_WNT.hxx".}
+proc NetworkSid*(): PSID {.importcpp: "NetworkSid(@)", header: "OSD_WNT.hxx".}
+proc LocalSid*(): PSID {.importcpp: "LocalSid(@)", header: "OSD_WNT.hxx".}
+proc DialupSid*(): PSID {.importcpp: "DialupSid(@)", header: "OSD_WNT.hxx".}
+proc BatchSid*(): PSID {.importcpp: "BatchSid(@)", header: "OSD_WNT.hxx".}
+proc CreatorOwnerSid*(): PSID {.importcpp: "CreatorOwnerSid(@)",
                              header: "OSD_WNT.hxx".}
-proc nullSid*(): Psid {.importcpp: "NullSid(@)", header: "OSD_WNT.hxx".}
-proc ntSid*(): Psid {.importcpp: "NtSid(@)", header: "OSD_WNT.hxx".}
-proc allocAccessAllowedAce*(a1: Dword; a2: Byte; a3: Psid): Pvoid {.
+proc NullSid*(): PSID {.importcpp: "NullSid(@)", header: "OSD_WNT.hxx".}
+proc NtSid*(): PSID {.importcpp: "NtSid(@)", header: "OSD_WNT.hxx".}
+proc AllocAccessAllowedAce*(a1: DWORD; a2: BYTE; a3: PSID): PVOID {.
     importcpp: "AllocAccessAllowedAce(@)", header: "OSD_WNT.hxx".}
-proc freeAce*(a1: Pvoid) {.importcpp: "FreeAce(@)", header: "OSD_WNT.hxx".}
-proc moveDirectory*(a1: Lpcwstr; a2: Lpcwstr): Bool {.importcpp: "MoveDirectory(@)",
+proc FreeAce*(a1: PVOID) {.importcpp: "FreeAce(@)", header: "OSD_WNT.hxx".}
+proc MoveDirectory*(a1: LPCWSTR; a2: LPCWSTR): BOOL {.importcpp: "MoveDirectory(@)",
     header: "OSD_WNT.hxx".}
-proc copyDirectory*(a1: Lpcwstr; a2: Lpcwstr): Bool {.importcpp: "CopyDirectory(@)",
+proc CopyDirectory*(a1: LPCWSTR; a2: LPCWSTR): BOOL {.importcpp: "CopyDirectory(@)",
     header: "OSD_WNT.hxx".}
-proc setMoveDirectoryProc*(a1: Move_Dir_Proc) {.
+proc SetMoveDirectoryProc*(a1: MOVE_DIR_PROC) {.
     importcpp: "SetMoveDirectoryProc(@)", header: "OSD_WNT.hxx".}
-proc setCopyDirectoryProc*(a1: Copy_Dir_Proc) {.
+proc SetCopyDirectoryProc*(a1: COPY_DIR_PROC) {.
     importcpp: "SetCopyDirectoryProc(@)", header: "OSD_WNT.hxx".}
-proc setResponseDirectoryProc*(a1: Response_Dir_Proc) {.
+proc SetResponseDirectoryProc*(a1: RESPONSE_DIR_PROC) {.
     importcpp: "SetResponseDirectoryProc(@)", header: "OSD_WNT.hxx".}
-
-
-
-
-

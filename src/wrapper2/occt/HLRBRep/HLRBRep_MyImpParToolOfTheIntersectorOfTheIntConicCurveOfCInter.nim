@@ -14,23 +14,28 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Address,
+  ../IntCurve/IntCurve_IConicTool, ../math/math_FunctionWithDerivative,
+  ../Standard/Standard_Boolean, ../Standard/Standard_Real
+
 discard "forward decl of IntCurve_IConicTool"
 discard "forward decl of HLRBRep_CurveTool"
 type
-  HLRBRepMyImpParToolOfTheIntersectorOfTheIntConicCurveOfCInter* {.importcpp: "HLRBRep_MyImpParToolOfTheIntersectorOfTheIntConicCurveOfCInter", header: "HLRBRep_MyImpParToolOfTheIntersectorOfTheIntConicCurveOfCInter.hxx",
-      bycopy.} = object of MathFunctionWithDerivative ## ! Constructor of the class.
+  HLRBRep_MyImpParToolOfTheIntersectorOfTheIntConicCurveOfCInter* {.importcpp: "HLRBRep_MyImpParToolOfTheIntersectorOfTheIntConicCurveOfCInter", header: "HLRBRep_MyImpParToolOfTheIntersectorOfTheIntConicCurveOfCInter.hxx",
+      bycopy.} = object of math_FunctionWithDerivative ## ! Constructor of the class.
 
 
-proc constructHLRBRepMyImpParToolOfTheIntersectorOfTheIntConicCurveOfCInter*(
-    it: IntCurveIConicTool; pc: StandardAddress): HLRBRepMyImpParToolOfTheIntersectorOfTheIntConicCurveOfCInter {.
+proc constructHLRBRep_MyImpParToolOfTheIntersectorOfTheIntConicCurveOfCInter*(
+    IT: IntCurve_IConicTool; PC: Standard_Address): HLRBRep_MyImpParToolOfTheIntersectorOfTheIntConicCurveOfCInter {.
     constructor, importcpp: "HLRBRep_MyImpParToolOfTheIntersectorOfTheIntConicCurveOfCInter(@)", header: "HLRBRep_MyImpParToolOfTheIntersectorOfTheIntConicCurveOfCInter.hxx".}
-proc value*(this: var HLRBRepMyImpParToolOfTheIntersectorOfTheIntConicCurveOfCInter;
-           param: StandardReal; f: var StandardReal): StandardBoolean {.
+proc Value*(this: var HLRBRep_MyImpParToolOfTheIntersectorOfTheIntConicCurveOfCInter;
+           Param: Standard_Real; F: var Standard_Real): Standard_Boolean {.
     importcpp: "Value", header: "HLRBRep_MyImpParToolOfTheIntersectorOfTheIntConicCurveOfCInter.hxx".}
-proc derivative*(this: var HLRBRepMyImpParToolOfTheIntersectorOfTheIntConicCurveOfCInter;
-                param: StandardReal; d: var StandardReal): StandardBoolean {.
+proc Derivative*(this: var HLRBRep_MyImpParToolOfTheIntersectorOfTheIntConicCurveOfCInter;
+                Param: Standard_Real; D: var Standard_Real): Standard_Boolean {.
     importcpp: "Derivative", header: "HLRBRep_MyImpParToolOfTheIntersectorOfTheIntConicCurveOfCInter.hxx".}
-proc values*(this: var HLRBRepMyImpParToolOfTheIntersectorOfTheIntConicCurveOfCInter;
-            param: StandardReal; f: var StandardReal; d: var StandardReal): StandardBoolean {.
+proc Values*(this: var HLRBRep_MyImpParToolOfTheIntersectorOfTheIntConicCurveOfCInter;
+            Param: Standard_Real; F: var Standard_Real; D: var Standard_Real): Standard_Boolean {.
     importcpp: "Values", header: "HLRBRep_MyImpParToolOfTheIntersectorOfTheIntConicCurveOfCInter.hxx".}
-

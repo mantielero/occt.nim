@@ -14,30 +14,33 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepGeom_DegeneratePcurve"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepGeomRWDegeneratePcurve* {.importcpp: "RWStepGeom_RWDegeneratePcurve",
-                                 header: "RWStepGeom_RWDegeneratePcurve.hxx",
-                                 bycopy.} = object
+  RWStepGeom_RWDegeneratePcurve* {.importcpp: "RWStepGeom_RWDegeneratePcurve",
+                                  header: "RWStepGeom_RWDegeneratePcurve.hxx",
+                                  bycopy.} = object
 
 
-proc constructRWStepGeomRWDegeneratePcurve*(): RWStepGeomRWDegeneratePcurve {.
+proc constructRWStepGeom_RWDegeneratePcurve*(): RWStepGeom_RWDegeneratePcurve {.
     constructor, importcpp: "RWStepGeom_RWDegeneratePcurve(@)",
     header: "RWStepGeom_RWDegeneratePcurve.hxx".}
-proc readStep*(this: RWStepGeomRWDegeneratePcurve;
-              data: Handle[StepDataStepReaderData]; num: StandardInteger;
-              ach: var Handle[InterfaceCheck];
-              ent: Handle[StepGeomDegeneratePcurve]) {.noSideEffect,
+proc ReadStep*(this: RWStepGeom_RWDegeneratePcurve;
+              data: handle[StepData_StepReaderData]; num: Standard_Integer;
+              ach: var handle[Interface_Check];
+              ent: handle[StepGeom_DegeneratePcurve]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepGeom_RWDegeneratePcurve.hxx".}
-proc writeStep*(this: RWStepGeomRWDegeneratePcurve; sw: var StepDataStepWriter;
-               ent: Handle[StepGeomDegeneratePcurve]) {.noSideEffect,
+proc WriteStep*(this: RWStepGeom_RWDegeneratePcurve; SW: var StepData_StepWriter;
+               ent: handle[StepGeom_DegeneratePcurve]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepGeom_RWDegeneratePcurve.hxx".}
-proc share*(this: RWStepGeomRWDegeneratePcurve;
-           ent: Handle[StepGeomDegeneratePcurve];
-           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
+proc Share*(this: RWStepGeom_RWDegeneratePcurve;
+           ent: handle[StepGeom_DegeneratePcurve];
+           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepGeom_RWDegeneratePcurve.hxx".}
-

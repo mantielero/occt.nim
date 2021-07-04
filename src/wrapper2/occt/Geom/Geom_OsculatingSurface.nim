@@ -14,54 +14,62 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Real,
+  Geom_HSequenceOfBSplineSurface, ../TColStd/TColStd_HSequenceOfInteger,
+  ../TColStd/TColStd_Array1OfBoolean, ../Standard/Standard_Boolean,
+  ../Standard/Standard_Integer, ../GeomAbs/GeomAbs_IsoType,
+  Geom_SequenceOfBSplineSurface
+
 discard "forward decl of Geom_Surface"
 discard "forward decl of Geom_BSplineSurface"
 discard "forward decl of Geom_OsculatingSurface"
 discard "forward decl of Geom_OsculatingSurface"
 type
-  HandleGeomOsculatingSurface* = Handle[GeomOsculatingSurface]
-  GeomOsculatingSurface* {.importcpp: "Geom_OsculatingSurface",
-                          header: "Geom_OsculatingSurface.hxx", bycopy.} = object of StandardTransient ##
-                                                                                                ## !
-                                                                                                ## returns
-                                                                                                ## False
-                                                                                                ## if
-                                                                                                ## the
-                                                                                                ## osculating
-                                                                                                ## surface
-                                                                                                ## can't
-                                                                                                ## be
-                                                                                                ## built
+  Handle_Geom_OsculatingSurface* = handle[Geom_OsculatingSurface]
+  Geom_OsculatingSurface* {.importcpp: "Geom_OsculatingSurface",
+                           header: "Geom_OsculatingSurface.hxx", bycopy.} = object of Standard_Transient ##
+                                                                                                  ## !
+                                                                                                  ## returns
+                                                                                                  ## False
+                                                                                                  ## if
+                                                                                                  ## the
+                                                                                                  ## osculating
+                                                                                                  ## surface
+                                                                                                  ## can't
+                                                                                                  ## be
+                                                                                                  ## built
 
 
-proc constructGeomOsculatingSurface*(): GeomOsculatingSurface {.constructor,
+proc constructGeom_OsculatingSurface*(): Geom_OsculatingSurface {.constructor,
     importcpp: "Geom_OsculatingSurface(@)", header: "Geom_OsculatingSurface.hxx".}
-proc constructGeomOsculatingSurface*(bs: Handle[GeomSurface]; tol: StandardReal): GeomOsculatingSurface {.
+proc constructGeom_OsculatingSurface*(BS: handle[Geom_Surface]; Tol: Standard_Real): Geom_OsculatingSurface {.
     constructor, importcpp: "Geom_OsculatingSurface(@)",
     header: "Geom_OsculatingSurface.hxx".}
-proc init*(this: var GeomOsculatingSurface; bs: Handle[GeomSurface]; tol: StandardReal) {.
-    importcpp: "Init", header: "Geom_OsculatingSurface.hxx".}
-proc basisSurface*(this: GeomOsculatingSurface): Handle[GeomSurface] {.noSideEffect,
-    importcpp: "BasisSurface", header: "Geom_OsculatingSurface.hxx".}
-proc tolerance*(this: GeomOsculatingSurface): StandardReal {.noSideEffect,
+proc Init*(this: var Geom_OsculatingSurface; BS: handle[Geom_Surface];
+          Tol: Standard_Real) {.importcpp: "Init",
+                              header: "Geom_OsculatingSurface.hxx".}
+proc BasisSurface*(this: Geom_OsculatingSurface): handle[Geom_Surface] {.
+    noSideEffect, importcpp: "BasisSurface", header: "Geom_OsculatingSurface.hxx".}
+proc Tolerance*(this: Geom_OsculatingSurface): Standard_Real {.noSideEffect,
     importcpp: "Tolerance", header: "Geom_OsculatingSurface.hxx".}
-proc uOscSurf*(this: GeomOsculatingSurface; u: StandardReal; v: StandardReal;
-              t: var StandardBoolean; L: var Handle[GeomBSplineSurface]): StandardBoolean {.
+proc UOscSurf*(this: Geom_OsculatingSurface; U: Standard_Real; V: Standard_Real;
+              t: var Standard_Boolean; L: var handle[Geom_BSplineSurface]): Standard_Boolean {.
     noSideEffect, importcpp: "UOscSurf", header: "Geom_OsculatingSurface.hxx".}
-proc vOscSurf*(this: GeomOsculatingSurface; u: StandardReal; v: StandardReal;
-              t: var StandardBoolean; L: var Handle[GeomBSplineSurface]): StandardBoolean {.
+proc VOscSurf*(this: Geom_OsculatingSurface; U: Standard_Real; V: Standard_Real;
+              t: var Standard_Boolean; L: var handle[Geom_BSplineSurface]): Standard_Boolean {.
     noSideEffect, importcpp: "VOscSurf", header: "Geom_OsculatingSurface.hxx".}
-proc dumpJson*(this: GeomOsculatingSurface; theOStream: var StandardOStream;
-              theDepth: StandardInteger = -1) {.noSideEffect, importcpp: "DumpJson",
+proc DumpJson*(this: Geom_OsculatingSurface; theOStream: var Standard_OStream;
+              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
     header: "Geom_OsculatingSurface.hxx".}
 type
-  GeomOsculatingSurfacebaseType* = StandardTransient
+  Geom_OsculatingSurfacebase_type* = Standard_Transient
 
-proc getTypeName*(): cstring {.importcpp: "Geom_OsculatingSurface::get_type_name(@)",
-                            header: "Geom_OsculatingSurface.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "Geom_OsculatingSurface::get_type_name(@)",
+                              header: "Geom_OsculatingSurface.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "Geom_OsculatingSurface::get_type_descriptor(@)",
     header: "Geom_OsculatingSurface.hxx".}
-proc dynamicType*(this: GeomOsculatingSurface): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "Geom_OsculatingSurface.hxx".}
-
+proc DynamicType*(this: Geom_OsculatingSurface): handle[Standard_Type] {.
+    noSideEffect, importcpp: "DynamicType", header: "Geom_OsculatingSurface.hxx".}

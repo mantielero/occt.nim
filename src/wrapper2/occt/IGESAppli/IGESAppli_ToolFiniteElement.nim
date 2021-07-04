@@ -14,6 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 discard "forward decl of Standard_DomainError"
 discard "forward decl of IGESAppli_FiniteElement"
 discard "forward decl of IGESData_IGESReaderData"
@@ -26,47 +30,46 @@ discard "forward decl of Interface_Check"
 discard "forward decl of Interface_CopyTool"
 discard "forward decl of IGESData_IGESDumper"
 type
-  IGESAppliToolFiniteElement* {.importcpp: "IGESAppli_ToolFiniteElement",
-                               header: "IGESAppli_ToolFiniteElement.hxx", bycopy.} = object ##
-                                                                                       ## !
-                                                                                       ## Returns
-                                                                                       ## a
-                                                                                       ## ToolFiniteElement,
-                                                                                       ## ready
-                                                                                       ## to
-                                                                                       ## work
+  IGESAppli_ToolFiniteElement* {.importcpp: "IGESAppli_ToolFiniteElement",
+                                header: "IGESAppli_ToolFiniteElement.hxx", bycopy.} = object ##
+                                                                                        ## !
+                                                                                        ## Returns
+                                                                                        ## a
+                                                                                        ## ToolFiniteElement,
+                                                                                        ## ready
+                                                                                        ## to
+                                                                                        ## work
 
 
-proc constructIGESAppliToolFiniteElement*(): IGESAppliToolFiniteElement {.
+proc constructIGESAppli_ToolFiniteElement*(): IGESAppli_ToolFiniteElement {.
     constructor, importcpp: "IGESAppli_ToolFiniteElement(@)",
     header: "IGESAppli_ToolFiniteElement.hxx".}
-proc readOwnParams*(this: IGESAppliToolFiniteElement;
-                   ent: Handle[IGESAppliFiniteElement];
-                   ir: Handle[IGESDataIGESReaderData]; pr: var IGESDataParamReader) {.
-    noSideEffect, importcpp: "ReadOwnParams",
-    header: "IGESAppli_ToolFiniteElement.hxx".}
-proc writeOwnParams*(this: IGESAppliToolFiniteElement;
-                    ent: Handle[IGESAppliFiniteElement];
-                    iw: var IGESDataIGESWriter) {.noSideEffect,
+proc ReadOwnParams*(this: IGESAppli_ToolFiniteElement;
+                   ent: handle[IGESAppli_FiniteElement];
+                   IR: handle[IGESData_IGESReaderData];
+                   PR: var IGESData_ParamReader) {.noSideEffect,
+    importcpp: "ReadOwnParams", header: "IGESAppli_ToolFiniteElement.hxx".}
+proc WriteOwnParams*(this: IGESAppli_ToolFiniteElement;
+                    ent: handle[IGESAppli_FiniteElement];
+                    IW: var IGESData_IGESWriter) {.noSideEffect,
     importcpp: "WriteOwnParams", header: "IGESAppli_ToolFiniteElement.hxx".}
-proc ownShared*(this: IGESAppliToolFiniteElement;
-               ent: Handle[IGESAppliFiniteElement];
-               iter: var InterfaceEntityIterator) {.noSideEffect,
+proc OwnShared*(this: IGESAppli_ToolFiniteElement;
+               ent: handle[IGESAppli_FiniteElement];
+               iter: var Interface_EntityIterator) {.noSideEffect,
     importcpp: "OwnShared", header: "IGESAppli_ToolFiniteElement.hxx".}
-proc dirChecker*(this: IGESAppliToolFiniteElement;
-                ent: Handle[IGESAppliFiniteElement]): IGESDataDirChecker {.
+proc DirChecker*(this: IGESAppli_ToolFiniteElement;
+                ent: handle[IGESAppli_FiniteElement]): IGESData_DirChecker {.
     noSideEffect, importcpp: "DirChecker",
     header: "IGESAppli_ToolFiniteElement.hxx".}
-proc ownCheck*(this: IGESAppliToolFiniteElement;
-              ent: Handle[IGESAppliFiniteElement]; shares: InterfaceShareTool;
-              ach: var Handle[InterfaceCheck]) {.noSideEffect,
+proc OwnCheck*(this: IGESAppli_ToolFiniteElement;
+              ent: handle[IGESAppli_FiniteElement]; shares: Interface_ShareTool;
+              ach: var handle[Interface_Check]) {.noSideEffect,
     importcpp: "OwnCheck", header: "IGESAppli_ToolFiniteElement.hxx".}
-proc ownCopy*(this: IGESAppliToolFiniteElement;
-             entfrom: Handle[IGESAppliFiniteElement];
-             entto: Handle[IGESAppliFiniteElement]; tc: var InterfaceCopyTool) {.
+proc OwnCopy*(this: IGESAppli_ToolFiniteElement;
+             entfrom: handle[IGESAppli_FiniteElement];
+             entto: handle[IGESAppli_FiniteElement]; TC: var Interface_CopyTool) {.
     noSideEffect, importcpp: "OwnCopy", header: "IGESAppli_ToolFiniteElement.hxx".}
-proc ownDump*(this: IGESAppliToolFiniteElement;
-             ent: Handle[IGESAppliFiniteElement]; dumper: IGESDataIGESDumper;
-             s: var StandardOStream; own: StandardInteger) {.noSideEffect,
+proc OwnDump*(this: IGESAppli_ToolFiniteElement;
+             ent: handle[IGESAppli_FiniteElement]; dumper: IGESData_IGESDumper;
+             S: var Standard_OStream; own: Standard_Integer) {.noSideEffect,
     importcpp: "OwnDump", header: "IGESAppli_ToolFiniteElement.hxx".}
-

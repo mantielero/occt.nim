@@ -14,6 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Real,
+  Geom2d_Conic, ../Standard/Standard_Boolean, ../Standard/Standard_Integer
+
 discard "forward decl of Standard_ConstructionError"
 discard "forward decl of Standard_RangeError"
 discard "forward decl of gp_Circ2d"
@@ -26,7 +30,7 @@ discard "forward decl of Geom2d_Geometry"
 discard "forward decl of Geom2d_Circle"
 discard "forward decl of Geom2d_Circle"
 type
-  HandleGeom2dCircle* = Handle[Geom2dCircle]
+  Handle_Geom2d_Circle* = handle[Geom2d_Circle]
 
 ## ! Describes a circle in the plane (2D space).
 ## ! A circle is defined by its radius and, as with any conic
@@ -57,73 +61,72 @@ type
 ## ! gp_Ax22d and  gp_Circ2d for an equivalent, non-parameterized data structure.
 
 type
-  Geom2dCircle* {.importcpp: "Geom2d_Circle", header: "Geom2d_Circle.hxx", bycopy.} = object of Geom2dConic ##
-                                                                                                  ## !
-                                                                                                  ## Constructs
-                                                                                                  ## a
-                                                                                                  ## circle
-                                                                                                  ## by
-                                                                                                  ## conversion
-                                                                                                  ## of
-                                                                                                  ## the
-                                                                                                  ## gp_Circ2d
-                                                                                                  ## circle
-                                                                                                  ## C.
+  Geom2d_Circle* {.importcpp: "Geom2d_Circle", header: "Geom2d_Circle.hxx", bycopy.} = object of Geom2d_Conic ##
+                                                                                                    ## !
+                                                                                                    ## Constructs
+                                                                                                    ## a
+                                                                                                    ## circle
+                                                                                                    ## by
+                                                                                                    ## conversion
+                                                                                                    ## of
+                                                                                                    ## the
+                                                                                                    ## gp_Circ2d
+                                                                                                    ## circle
+                                                                                                    ## C.
 
 
-proc constructGeom2dCircle*(c: GpCirc2d): Geom2dCircle {.constructor,
+proc constructGeom2d_Circle*(C: gp_Circ2d): Geom2d_Circle {.constructor,
     importcpp: "Geom2d_Circle(@)", header: "Geom2d_Circle.hxx".}
-proc constructGeom2dCircle*(a: GpAx2d; radius: StandardReal;
-                           sense: StandardBoolean = standardTrue): Geom2dCircle {.
+proc constructGeom2d_Circle*(A: gp_Ax2d; Radius: Standard_Real;
+                            Sense: Standard_Boolean = Standard_True): Geom2d_Circle {.
     constructor, importcpp: "Geom2d_Circle(@)", header: "Geom2d_Circle.hxx".}
-proc constructGeom2dCircle*(a: GpAx22d; radius: StandardReal): Geom2dCircle {.
+proc constructGeom2d_Circle*(A: gp_Ax22d; Radius: Standard_Real): Geom2d_Circle {.
     constructor, importcpp: "Geom2d_Circle(@)", header: "Geom2d_Circle.hxx".}
-proc setCirc2d*(this: var Geom2dCircle; c: GpCirc2d) {.importcpp: "SetCirc2d",
+proc SetCirc2d*(this: var Geom2d_Circle; C: gp_Circ2d) {.importcpp: "SetCirc2d",
     header: "Geom2d_Circle.hxx".}
-proc setRadius*(this: var Geom2dCircle; r: StandardReal) {.importcpp: "SetRadius",
+proc SetRadius*(this: var Geom2d_Circle; R: Standard_Real) {.importcpp: "SetRadius",
     header: "Geom2d_Circle.hxx".}
-proc circ2d*(this: Geom2dCircle): GpCirc2d {.noSideEffect, importcpp: "Circ2d",
+proc Circ2d*(this: Geom2d_Circle): gp_Circ2d {.noSideEffect, importcpp: "Circ2d",
     header: "Geom2d_Circle.hxx".}
-proc radius*(this: Geom2dCircle): StandardReal {.noSideEffect, importcpp: "Radius",
+proc Radius*(this: Geom2d_Circle): Standard_Real {.noSideEffect, importcpp: "Radius",
     header: "Geom2d_Circle.hxx".}
-proc reversedParameter*(this: Geom2dCircle; u: StandardReal): StandardReal {.
+proc ReversedParameter*(this: Geom2d_Circle; U: Standard_Real): Standard_Real {.
     noSideEffect, importcpp: "ReversedParameter", header: "Geom2d_Circle.hxx".}
-proc eccentricity*(this: Geom2dCircle): StandardReal {.noSideEffect,
+proc Eccentricity*(this: Geom2d_Circle): Standard_Real {.noSideEffect,
     importcpp: "Eccentricity", header: "Geom2d_Circle.hxx".}
-proc firstParameter*(this: Geom2dCircle): StandardReal {.noSideEffect,
+proc FirstParameter*(this: Geom2d_Circle): Standard_Real {.noSideEffect,
     importcpp: "FirstParameter", header: "Geom2d_Circle.hxx".}
-proc lastParameter*(this: Geom2dCircle): StandardReal {.noSideEffect,
+proc LastParameter*(this: Geom2d_Circle): Standard_Real {.noSideEffect,
     importcpp: "LastParameter", header: "Geom2d_Circle.hxx".}
-proc isClosed*(this: Geom2dCircle): StandardBoolean {.noSideEffect,
+proc IsClosed*(this: Geom2d_Circle): Standard_Boolean {.noSideEffect,
     importcpp: "IsClosed", header: "Geom2d_Circle.hxx".}
-proc isPeriodic*(this: Geom2dCircle): StandardBoolean {.noSideEffect,
+proc IsPeriodic*(this: Geom2d_Circle): Standard_Boolean {.noSideEffect,
     importcpp: "IsPeriodic", header: "Geom2d_Circle.hxx".}
-proc d0*(this: Geom2dCircle; u: StandardReal; p: var GpPnt2d) {.noSideEffect,
+proc D0*(this: Geom2d_Circle; U: Standard_Real; P: var gp_Pnt2d) {.noSideEffect,
     importcpp: "D0", header: "Geom2d_Circle.hxx".}
-proc d1*(this: Geom2dCircle; u: StandardReal; p: var GpPnt2d; v1: var GpVec2d) {.
+proc D1*(this: Geom2d_Circle; U: Standard_Real; P: var gp_Pnt2d; V1: var gp_Vec2d) {.
     noSideEffect, importcpp: "D1", header: "Geom2d_Circle.hxx".}
-proc d2*(this: Geom2dCircle; u: StandardReal; p: var GpPnt2d; v1: var GpVec2d;
-        v2: var GpVec2d) {.noSideEffect, importcpp: "D2", header: "Geom2d_Circle.hxx".}
-proc d3*(this: Geom2dCircle; u: StandardReal; p: var GpPnt2d; v1: var GpVec2d;
-        v2: var GpVec2d; v3: var GpVec2d) {.noSideEffect, importcpp: "D3",
-                                      header: "Geom2d_Circle.hxx".}
-proc dn*(this: Geom2dCircle; u: StandardReal; n: StandardInteger): GpVec2d {.
+proc D2*(this: Geom2d_Circle; U: Standard_Real; P: var gp_Pnt2d; V1: var gp_Vec2d;
+        V2: var gp_Vec2d) {.noSideEffect, importcpp: "D2", header: "Geom2d_Circle.hxx".}
+proc D3*(this: Geom2d_Circle; U: Standard_Real; P: var gp_Pnt2d; V1: var gp_Vec2d;
+        V2: var gp_Vec2d; V3: var gp_Vec2d) {.noSideEffect, importcpp: "D3",
+                                        header: "Geom2d_Circle.hxx".}
+proc DN*(this: Geom2d_Circle; U: Standard_Real; N: Standard_Integer): gp_Vec2d {.
     noSideEffect, importcpp: "DN", header: "Geom2d_Circle.hxx".}
-proc transform*(this: var Geom2dCircle; t: GpTrsf2d) {.importcpp: "Transform",
+proc Transform*(this: var Geom2d_Circle; T: gp_Trsf2d) {.importcpp: "Transform",
     header: "Geom2d_Circle.hxx".}
-proc copy*(this: Geom2dCircle): Handle[Geom2dGeometry] {.noSideEffect,
+proc Copy*(this: Geom2d_Circle): handle[Geom2d_Geometry] {.noSideEffect,
     importcpp: "Copy", header: "Geom2d_Circle.hxx".}
-proc dumpJson*(this: Geom2dCircle; theOStream: var StandardOStream;
-              theDepth: StandardInteger = -1) {.noSideEffect, importcpp: "DumpJson",
+proc DumpJson*(this: Geom2d_Circle; theOStream: var Standard_OStream;
+              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
     header: "Geom2d_Circle.hxx".}
 type
-  Geom2dCirclebaseType* = Geom2dConic
+  Geom2d_Circlebase_type* = Geom2d_Conic
 
-proc getTypeName*(): cstring {.importcpp: "Geom2d_Circle::get_type_name(@)",
-                            header: "Geom2d_Circle.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "Geom2d_Circle::get_type_name(@)",
+                              header: "Geom2d_Circle.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "Geom2d_Circle::get_type_descriptor(@)",
     header: "Geom2d_Circle.hxx".}
-proc dynamicType*(this: Geom2dCircle): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: Geom2d_Circle): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "Geom2d_Circle.hxx".}
-

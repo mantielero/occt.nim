@@ -14,6 +14,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
+  ../Standard/Standard_Integer
+
 discard "forward decl of Standard_DomainError"
 discard "forward decl of IGESAppli_PipingFlow"
 discard "forward decl of IGESData_IGESReaderData"
@@ -26,43 +31,44 @@ discard "forward decl of Interface_Check"
 discard "forward decl of Interface_CopyTool"
 discard "forward decl of IGESData_IGESDumper"
 type
-  IGESAppliToolPipingFlow* {.importcpp: "IGESAppli_ToolPipingFlow",
-                            header: "IGESAppli_ToolPipingFlow.hxx", bycopy.} = object ##
-                                                                                 ## !
-                                                                                 ## Returns
-                                                                                 ## a
-                                                                                 ## ToolPipingFlow,
-                                                                                 ## ready
-                                                                                 ## to
-                                                                                 ## work
+  IGESAppli_ToolPipingFlow* {.importcpp: "IGESAppli_ToolPipingFlow",
+                             header: "IGESAppli_ToolPipingFlow.hxx", bycopy.} = object ##
+                                                                                  ## !
+                                                                                  ## Returns
+                                                                                  ## a
+                                                                                  ## ToolPipingFlow,
+                                                                                  ## ready
+                                                                                  ## to
+                                                                                  ## work
 
 
-proc constructIGESAppliToolPipingFlow*(): IGESAppliToolPipingFlow {.constructor,
+proc constructIGESAppli_ToolPipingFlow*(): IGESAppli_ToolPipingFlow {.constructor,
     importcpp: "IGESAppli_ToolPipingFlow(@)",
     header: "IGESAppli_ToolPipingFlow.hxx".}
-proc readOwnParams*(this: IGESAppliToolPipingFlow;
-                   ent: Handle[IGESAppliPipingFlow];
-                   ir: Handle[IGESDataIGESReaderData]; pr: var IGESDataParamReader) {.
-    noSideEffect, importcpp: "ReadOwnParams",
-    header: "IGESAppli_ToolPipingFlow.hxx".}
-proc writeOwnParams*(this: IGESAppliToolPipingFlow;
-                    ent: Handle[IGESAppliPipingFlow]; iw: var IGESDataIGESWriter) {.
+proc ReadOwnParams*(this: IGESAppli_ToolPipingFlow;
+                   ent: handle[IGESAppli_PipingFlow];
+                   IR: handle[IGESData_IGESReaderData];
+                   PR: var IGESData_ParamReader) {.noSideEffect,
+    importcpp: "ReadOwnParams", header: "IGESAppli_ToolPipingFlow.hxx".}
+proc WriteOwnParams*(this: IGESAppli_ToolPipingFlow;
+                    ent: handle[IGESAppli_PipingFlow]; IW: var IGESData_IGESWriter) {.
     noSideEffect, importcpp: "WriteOwnParams",
     header: "IGESAppli_ToolPipingFlow.hxx".}
-proc ownShared*(this: IGESAppliToolPipingFlow; ent: Handle[IGESAppliPipingFlow];
-               iter: var InterfaceEntityIterator) {.noSideEffect,
+proc OwnShared*(this: IGESAppli_ToolPipingFlow; ent: handle[IGESAppli_PipingFlow];
+               iter: var Interface_EntityIterator) {.noSideEffect,
     importcpp: "OwnShared", header: "IGESAppli_ToolPipingFlow.hxx".}
-proc ownCorrect*(this: IGESAppliToolPipingFlow; ent: Handle[IGESAppliPipingFlow]): StandardBoolean {.
+proc OwnCorrect*(this: IGESAppli_ToolPipingFlow; ent: handle[IGESAppli_PipingFlow]): Standard_Boolean {.
     noSideEffect, importcpp: "OwnCorrect", header: "IGESAppli_ToolPipingFlow.hxx".}
-proc dirChecker*(this: IGESAppliToolPipingFlow; ent: Handle[IGESAppliPipingFlow]): IGESDataDirChecker {.
+proc DirChecker*(this: IGESAppli_ToolPipingFlow; ent: handle[IGESAppli_PipingFlow]): IGESData_DirChecker {.
     noSideEffect, importcpp: "DirChecker", header: "IGESAppli_ToolPipingFlow.hxx".}
-proc ownCheck*(this: IGESAppliToolPipingFlow; ent: Handle[IGESAppliPipingFlow];
-              shares: InterfaceShareTool; ach: var Handle[InterfaceCheck]) {.
+proc OwnCheck*(this: IGESAppli_ToolPipingFlow; ent: handle[IGESAppli_PipingFlow];
+              shares: Interface_ShareTool; ach: var handle[Interface_Check]) {.
     noSideEffect, importcpp: "OwnCheck", header: "IGESAppli_ToolPipingFlow.hxx".}
-proc ownCopy*(this: IGESAppliToolPipingFlow; entfrom: Handle[IGESAppliPipingFlow];
-             entto: Handle[IGESAppliPipingFlow]; tc: var InterfaceCopyTool) {.
+proc OwnCopy*(this: IGESAppli_ToolPipingFlow;
+             entfrom: handle[IGESAppli_PipingFlow];
+             entto: handle[IGESAppli_PipingFlow]; TC: var Interface_CopyTool) {.
     noSideEffect, importcpp: "OwnCopy", header: "IGESAppli_ToolPipingFlow.hxx".}
-proc ownDump*(this: IGESAppliToolPipingFlow; ent: Handle[IGESAppliPipingFlow];
-             dumper: IGESDataIGESDumper; s: var StandardOStream; own: StandardInteger) {.
-    noSideEffect, importcpp: "OwnDump", header: "IGESAppli_ToolPipingFlow.hxx".}
-
+proc OwnDump*(this: IGESAppli_ToolPipingFlow; ent: handle[IGESAppli_PipingFlow];
+             dumper: IGESData_IGESDumper; S: var Standard_OStream;
+             own: Standard_Integer) {.noSideEffect, importcpp: "OwnDump",
+                                    header: "IGESAppli_ToolPipingFlow.hxx".}

@@ -14,6 +14,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../TCollection/TCollection_AsciiString,
+  ../Interface/Interface_CheckIterator, ../Standard/Standard_Integer,
+  ../Standard/Standard_CString, ../Standard/Standard_Boolean
+
 discard "forward decl of Interface_InterfaceModel"
 discard "forward decl of Interface_Protocol"
 discard "forward decl of IFSelect_AppliedModifiers"
@@ -25,85 +31,88 @@ discard "forward decl of Standard_Transient"
 discard "forward decl of Interface_Check"
 discard "forward decl of Interface_CheckIterator"
 type
-  IFSelectContextWrite* {.importcpp: "IFSelect_ContextWrite",
-                         header: "IFSelect_ContextWrite.hxx", bycopy.} = object ## !
-                                                                           ## Prepares a
-                                                                           ## ContextWrite with these
-                                                                           ## informations :
-                                                                           ## ! - the model which is to be
-                                                                           ## written
-                                                                           ## ! - the
-                                                                           ## protocol to be used
-                                                                           ## ! - the
-                                                                           ## filename
-                                                                           ## ! - an
-                                                                           ## object
-                                                                           ## AppliedModifiers to work. It gives a list of
-                                                                           ## !
-                                                                           ## FileModifiers to be ran, and for each one it can give
-                                                                           ## ! a
-                                                                           ## restricted list of
-                                                                           ## entities (in the
-                                                                           ## model), else all
-                                                                           ## ! the model is
-                                                                           ## considered
+  IFSelect_ContextWrite* {.importcpp: "IFSelect_ContextWrite",
+                          header: "IFSelect_ContextWrite.hxx", bycopy.} = object ## !
+                                                                            ## Prepares a
+                                                                            ## ContextWrite with
+                                                                            ## these
+                                                                            ## informations :
+                                                                            ## ! - the
+                                                                            ## model
+                                                                            ## which is to be
+                                                                            ## written
+                                                                            ## ! - the
+                                                                            ## protocol to be used
+                                                                            ## ! - the
+                                                                            ## filename
+                                                                            ## ! - an
+                                                                            ## object
+                                                                            ## AppliedModifiers to
+                                                                            ## work. It
+                                                                            ## gives a list of
+                                                                            ## !
+                                                                            ## FileModifiers to be ran, and for each one it can give
+                                                                            ## ! a
+                                                                            ## restricted list of
+                                                                            ## entities (in the
+                                                                            ## model), else all
+                                                                            ## ! the
+                                                                            ## model is
+                                                                            ## considered
 
 
-proc constructIFSelectContextWrite*(model: Handle[InterfaceInterfaceModel];
-                                   proto: Handle[InterfaceProtocol];
-                                   applieds: Handle[IFSelectAppliedModifiers];
-                                   filename: StandardCString): IFSelectContextWrite {.
+proc constructIFSelect_ContextWrite*(model: handle[Interface_InterfaceModel];
+                                    proto: handle[Interface_Protocol]; applieds: handle[
+    IFSelect_AppliedModifiers]; filename: Standard_CString): IFSelect_ContextWrite {.
     constructor, importcpp: "IFSelect_ContextWrite(@)",
     header: "IFSelect_ContextWrite.hxx".}
-proc constructIFSelectContextWrite*(hgraph: Handle[InterfaceHGraph];
-                                   proto: Handle[InterfaceProtocol];
-                                   applieds: Handle[IFSelectAppliedModifiers];
-                                   filename: StandardCString): IFSelectContextWrite {.
+proc constructIFSelect_ContextWrite*(hgraph: handle[Interface_HGraph];
+                                    proto: handle[Interface_Protocol]; applieds: handle[
+    IFSelect_AppliedModifiers]; filename: Standard_CString): IFSelect_ContextWrite {.
     constructor, importcpp: "IFSelect_ContextWrite(@)",
     header: "IFSelect_ContextWrite.hxx".}
-proc model*(this: IFSelectContextWrite): Handle[InterfaceInterfaceModel] {.
+proc Model*(this: IFSelect_ContextWrite): handle[Interface_InterfaceModel] {.
     noSideEffect, importcpp: "Model", header: "IFSelect_ContextWrite.hxx".}
-proc protocol*(this: IFSelectContextWrite): Handle[InterfaceProtocol] {.
+proc Protocol*(this: IFSelect_ContextWrite): handle[Interface_Protocol] {.
     noSideEffect, importcpp: "Protocol", header: "IFSelect_ContextWrite.hxx".}
-proc fileName*(this: IFSelectContextWrite): StandardCString {.noSideEffect,
+proc FileName*(this: IFSelect_ContextWrite): Standard_CString {.noSideEffect,
     importcpp: "FileName", header: "IFSelect_ContextWrite.hxx".}
-proc appliedModifiers*(this: IFSelectContextWrite): Handle[IFSelectAppliedModifiers] {.
-    noSideEffect, importcpp: "AppliedModifiers",
+proc AppliedModifiers*(this: IFSelect_ContextWrite): handle[
+    IFSelect_AppliedModifiers] {.noSideEffect, importcpp: "AppliedModifiers",
+                                header: "IFSelect_ContextWrite.hxx".}
+proc Graph*(this: var IFSelect_ContextWrite): Interface_Graph {.importcpp: "Graph",
     header: "IFSelect_ContextWrite.hxx".}
-proc graph*(this: var IFSelectContextWrite): InterfaceGraph {.importcpp: "Graph",
-    header: "IFSelect_ContextWrite.hxx".}
-proc nbModifiers*(this: IFSelectContextWrite): StandardInteger {.noSideEffect,
+proc NbModifiers*(this: IFSelect_ContextWrite): Standard_Integer {.noSideEffect,
     importcpp: "NbModifiers", header: "IFSelect_ContextWrite.hxx".}
-proc setModifier*(this: var IFSelectContextWrite; numod: StandardInteger): StandardBoolean {.
+proc SetModifier*(this: var IFSelect_ContextWrite; numod: Standard_Integer): Standard_Boolean {.
     importcpp: "SetModifier", header: "IFSelect_ContextWrite.hxx".}
-proc fileModifier*(this: IFSelectContextWrite): Handle[IFSelectGeneralModifier] {.
+proc FileModifier*(this: IFSelect_ContextWrite): handle[IFSelect_GeneralModifier] {.
     noSideEffect, importcpp: "FileModifier", header: "IFSelect_ContextWrite.hxx".}
-proc isForNone*(this: IFSelectContextWrite): StandardBoolean {.noSideEffect,
+proc IsForNone*(this: IFSelect_ContextWrite): Standard_Boolean {.noSideEffect,
     importcpp: "IsForNone", header: "IFSelect_ContextWrite.hxx".}
-proc isForAll*(this: IFSelectContextWrite): StandardBoolean {.noSideEffect,
+proc IsForAll*(this: IFSelect_ContextWrite): Standard_Boolean {.noSideEffect,
     importcpp: "IsForAll", header: "IFSelect_ContextWrite.hxx".}
-proc nbEntities*(this: IFSelectContextWrite): StandardInteger {.noSideEffect,
+proc NbEntities*(this: IFSelect_ContextWrite): Standard_Integer {.noSideEffect,
     importcpp: "NbEntities", header: "IFSelect_ContextWrite.hxx".}
-proc start*(this: var IFSelectContextWrite) {.importcpp: "Start",
+proc Start*(this: var IFSelect_ContextWrite) {.importcpp: "Start",
     header: "IFSelect_ContextWrite.hxx".}
-proc more*(this: IFSelectContextWrite): StandardBoolean {.noSideEffect,
+proc More*(this: IFSelect_ContextWrite): Standard_Boolean {.noSideEffect,
     importcpp: "More", header: "IFSelect_ContextWrite.hxx".}
-proc next*(this: var IFSelectContextWrite) {.importcpp: "Next",
+proc Next*(this: var IFSelect_ContextWrite) {.importcpp: "Next",
     header: "IFSelect_ContextWrite.hxx".}
-proc value*(this: IFSelectContextWrite): Handle[StandardTransient] {.noSideEffect,
+proc Value*(this: IFSelect_ContextWrite): handle[Standard_Transient] {.noSideEffect,
     importcpp: "Value", header: "IFSelect_ContextWrite.hxx".}
-proc addCheck*(this: var IFSelectContextWrite; check: Handle[InterfaceCheck]) {.
+proc AddCheck*(this: var IFSelect_ContextWrite; check: handle[Interface_Check]) {.
     importcpp: "AddCheck", header: "IFSelect_ContextWrite.hxx".}
-proc addWarning*(this: var IFSelectContextWrite; start: Handle[StandardTransient];
-                mess: StandardCString; orig: StandardCString = "") {.
+proc AddWarning*(this: var IFSelect_ContextWrite; start: handle[Standard_Transient];
+                mess: Standard_CString; orig: Standard_CString = "") {.
     importcpp: "AddWarning", header: "IFSelect_ContextWrite.hxx".}
-proc addFail*(this: var IFSelectContextWrite; start: Handle[StandardTransient];
-             mess: StandardCString; orig: StandardCString = "") {.
+proc AddFail*(this: var IFSelect_ContextWrite; start: handle[Standard_Transient];
+             mess: Standard_CString; orig: Standard_CString = "") {.
     importcpp: "AddFail", header: "IFSelect_ContextWrite.hxx".}
-proc cCheck*(this: var IFSelectContextWrite; num: StandardInteger = 0): Handle[
-    InterfaceCheck] {.importcpp: "CCheck", header: "IFSelect_ContextWrite.hxx".}
-proc cCheck*(this: var IFSelectContextWrite; start: Handle[StandardTransient]): Handle[
-    InterfaceCheck] {.importcpp: "CCheck", header: "IFSelect_ContextWrite.hxx".}
-proc checkList*(this: IFSelectContextWrite): InterfaceCheckIterator {.noSideEffect,
-    importcpp: "CheckList", header: "IFSelect_ContextWrite.hxx".}
-
+proc CCheck*(this: var IFSelect_ContextWrite; num: Standard_Integer = 0): handle[
+    Interface_Check] {.importcpp: "CCheck", header: "IFSelect_ContextWrite.hxx".}
+proc CCheck*(this: var IFSelect_ContextWrite; start: handle[Standard_Transient]): handle[
+    Interface_Check] {.importcpp: "CCheck", header: "IFSelect_ContextWrite.hxx".}
+proc CheckList*(this: IFSelect_ContextWrite): Interface_CheckIterator {.
+    noSideEffect, importcpp: "CheckList", header: "IFSelect_ContextWrite.hxx".}

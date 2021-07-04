@@ -14,20 +14,23 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, GeomToStep_Root
+
 discard "forward decl of StepGeom_Plane"
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of gp_Pln"
 discard "forward decl of Geom_Plane"
 type
-  GeomToStepMakePlane* {.importcpp: "GeomToStep_MakePlane",
-                        header: "GeomToStep_MakePlane.hxx", bycopy.} = object of GeomToStepRoot
+  GeomToStep_MakePlane* {.importcpp: "GeomToStep_MakePlane",
+                         header: "GeomToStep_MakePlane.hxx", bycopy.} = object of GeomToStep_Root
 
 
-proc constructGeomToStepMakePlane*(p: GpPln): GeomToStepMakePlane {.constructor,
+proc constructGeomToStep_MakePlane*(P: gp_Pln): GeomToStep_MakePlane {.constructor,
     importcpp: "GeomToStep_MakePlane(@)", header: "GeomToStep_MakePlane.hxx".}
-proc constructGeomToStepMakePlane*(p: Handle[GeomPlane]): GeomToStepMakePlane {.
+proc constructGeomToStep_MakePlane*(P: handle[Geom_Plane]): GeomToStep_MakePlane {.
     constructor, importcpp: "GeomToStep_MakePlane(@)",
     header: "GeomToStep_MakePlane.hxx".}
-proc value*(this: GeomToStepMakePlane): Handle[StepGeomPlane] {.noSideEffect,
+proc Value*(this: GeomToStep_MakePlane): handle[StepGeom_Plane] {.noSideEffect,
     importcpp: "Value", header: "GeomToStep_MakePlane.hxx".}
-

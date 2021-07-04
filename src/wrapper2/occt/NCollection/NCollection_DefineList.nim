@@ -17,10 +17,11 @@
 ##                and the last one.
 ##                Inherits BaseList, adding the data item to each node.
 
+import
+  NCollection_List
+
 ##  **************************************** Template for  List   class ********
 
-template define_List*(className, baseCollection, theItemType: untyped): void =
+template DEFINE_LIST*(_ClassName_, _BaseCollection_, TheItemType: untyped): void =
   type
-    ClassName* = NCollectionList[TheItemType]
-
-
+    _ClassName_* = NCollection_List[TheItemType]

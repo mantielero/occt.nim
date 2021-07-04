@@ -13,9 +13,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  NCollection_DefineHSequence, NCollection_Sequence
+
 ##       Declaration of Sequence class managed by Handle
 
-template ncollection_Hsequence*(hClassName, `type`: untyped): untyped =
-  define_Hsequence(hClassName, nCollectionSequence[Type])
-
-
+template NCOLLECTION_HSEQUENCE*(HClassName, Type: untyped): untyped =
+  DEFINE_HSEQUENCE(HClassName, NCollection_Sequence[Type])

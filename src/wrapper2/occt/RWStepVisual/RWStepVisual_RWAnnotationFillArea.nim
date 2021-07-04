@@ -13,29 +13,33 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepVisual_AnnotationFillArea"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepVisualRWAnnotationFillArea* {.importcpp: "RWStepVisual_RWAnnotationFillArea", header: "RWStepVisual_RWAnnotationFillArea.hxx",
-                                     bycopy.} = object
+  RWStepVisual_RWAnnotationFillArea* {.importcpp: "RWStepVisual_RWAnnotationFillArea", header: "RWStepVisual_RWAnnotationFillArea.hxx",
+                                      bycopy.} = object
 
 
-proc constructRWStepVisualRWAnnotationFillArea*(): RWStepVisualRWAnnotationFillArea {.
+proc constructRWStepVisual_RWAnnotationFillArea*(): RWStepVisual_RWAnnotationFillArea {.
     constructor, importcpp: "RWStepVisual_RWAnnotationFillArea(@)",
     header: "RWStepVisual_RWAnnotationFillArea.hxx".}
-proc readStep*(this: RWStepVisualRWAnnotationFillArea;
-              data: Handle[StepDataStepReaderData]; num: StandardInteger;
-              ach: var Handle[InterfaceCheck];
-              ent: Handle[StepVisualAnnotationFillArea]) {.noSideEffect,
+proc ReadStep*(this: RWStepVisual_RWAnnotationFillArea;
+              data: handle[StepData_StepReaderData]; num: Standard_Integer;
+              ach: var handle[Interface_Check];
+              ent: handle[StepVisual_AnnotationFillArea]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepVisual_RWAnnotationFillArea.hxx".}
-proc writeStep*(this: RWStepVisualRWAnnotationFillArea; sw: var StepDataStepWriter;
-               ent: Handle[StepVisualAnnotationFillArea]) {.noSideEffect,
+proc WriteStep*(this: RWStepVisual_RWAnnotationFillArea;
+               SW: var StepData_StepWriter;
+               ent: handle[StepVisual_AnnotationFillArea]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepVisual_RWAnnotationFillArea.hxx".}
-proc share*(this: RWStepVisualRWAnnotationFillArea;
-           ent: Handle[StepVisualAnnotationFillArea];
-           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
+proc Share*(this: RWStepVisual_RWAnnotationFillArea;
+           ent: handle[StepVisual_AnnotationFillArea];
+           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepVisual_RWAnnotationFillArea.hxx".}
-

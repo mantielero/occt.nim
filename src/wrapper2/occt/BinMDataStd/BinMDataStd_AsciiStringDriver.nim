@@ -13,46 +13,50 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../BinMDF/BinMDF_ADriver,
+  ../Standard/Standard_Boolean, ../BinObjMgt/BinObjMgt_RRelocationTable,
+  ../BinObjMgt/BinObjMgt_SRelocationTable
+
 discard "forward decl of Message_Messenger"
 discard "forward decl of TDF_Attribute"
 discard "forward decl of BinObjMgt_Persistent"
 discard "forward decl of BinMDataStd_AsciiStringDriver"
 discard "forward decl of BinMDataStd_AsciiStringDriver"
 type
-  HandleBinMDataStdAsciiStringDriver* = Handle[BinMDataStdAsciiStringDriver]
+  Handle_BinMDataStd_AsciiStringDriver* = handle[BinMDataStd_AsciiStringDriver]
 
 ## ! TDataStd_AsciiString attribute Driver.
 
 type
-  BinMDataStdAsciiStringDriver* {.importcpp: "BinMDataStd_AsciiStringDriver",
-                                 header: "BinMDataStd_AsciiStringDriver.hxx",
-                                 bycopy.} = object of BinMDF_ADriver
+  BinMDataStd_AsciiStringDriver* {.importcpp: "BinMDataStd_AsciiStringDriver",
+                                  header: "BinMDataStd_AsciiStringDriver.hxx",
+                                  bycopy.} = object of BinMDF_ADriver
 
 
-proc constructBinMDataStdAsciiStringDriver*(
-    theMessageDriver: Handle[MessageMessenger]): BinMDataStdAsciiStringDriver {.
+proc constructBinMDataStd_AsciiStringDriver*(
+    theMessageDriver: handle[Message_Messenger]): BinMDataStd_AsciiStringDriver {.
     constructor, importcpp: "BinMDataStd_AsciiStringDriver(@)",
     header: "BinMDataStd_AsciiStringDriver.hxx".}
-proc newEmpty*(this: BinMDataStdAsciiStringDriver): Handle[TDF_Attribute] {.
+proc NewEmpty*(this: BinMDataStd_AsciiStringDriver): handle[TDF_Attribute] {.
     noSideEffect, importcpp: "NewEmpty",
     header: "BinMDataStd_AsciiStringDriver.hxx".}
-proc paste*(this: BinMDataStdAsciiStringDriver; source: BinObjMgtPersistent;
-           target: Handle[TDF_Attribute];
-           relocTable: var BinObjMgtRRelocationTable): StandardBoolean {.
+proc Paste*(this: BinMDataStd_AsciiStringDriver; Source: BinObjMgt_Persistent;
+           Target: handle[TDF_Attribute];
+           RelocTable: var BinObjMgt_RRelocationTable): Standard_Boolean {.
     noSideEffect, importcpp: "Paste", header: "BinMDataStd_AsciiStringDriver.hxx".}
-proc paste*(this: BinMDataStdAsciiStringDriver; source: Handle[TDF_Attribute];
-           target: var BinObjMgtPersistent;
-           relocTable: var BinObjMgtSRelocationTable) {.noSideEffect,
+proc Paste*(this: BinMDataStd_AsciiStringDriver; Source: handle[TDF_Attribute];
+           Target: var BinObjMgt_Persistent;
+           RelocTable: var BinObjMgt_SRelocationTable) {.noSideEffect,
     importcpp: "Paste", header: "BinMDataStd_AsciiStringDriver.hxx".}
 type
-  BinMDataStdAsciiStringDriverbaseType* = BinMDF_ADriver
+  BinMDataStd_AsciiStringDriverbase_type* = BinMDF_ADriver
 
-proc getTypeName*(): cstring {.importcpp: "BinMDataStd_AsciiStringDriver::get_type_name(@)",
-                            header: "BinMDataStd_AsciiStringDriver.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "BinMDataStd_AsciiStringDriver::get_type_name(@)",
+                              header: "BinMDataStd_AsciiStringDriver.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "BinMDataStd_AsciiStringDriver::get_type_descriptor(@)",
     header: "BinMDataStd_AsciiStringDriver.hxx".}
-proc dynamicType*(this: BinMDataStdAsciiStringDriver): Handle[StandardType] {.
+proc DynamicType*(this: BinMDataStd_AsciiStringDriver): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType",
     header: "BinMDataStd_AsciiStringDriver.hxx".}
-

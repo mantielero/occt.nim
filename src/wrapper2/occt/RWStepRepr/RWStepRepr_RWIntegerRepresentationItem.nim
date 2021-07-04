@@ -13,26 +13,29 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepRepr_IntegerRepresentationItem"
 discard "forward decl of StepData_StepWriter"
 type
-  RWStepReprRWIntegerRepresentationItem* {.
+  RWStepRepr_RWIntegerRepresentationItem* {.
       importcpp: "RWStepRepr_RWIntegerRepresentationItem",
       header: "RWStepRepr_RWIntegerRepresentationItem.hxx", bycopy.} = object
 
 
-proc constructRWStepReprRWIntegerRepresentationItem*(): RWStepReprRWIntegerRepresentationItem {.
+proc constructRWStepRepr_RWIntegerRepresentationItem*(): RWStepRepr_RWIntegerRepresentationItem {.
     constructor, importcpp: "RWStepRepr_RWIntegerRepresentationItem(@)",
     header: "RWStepRepr_RWIntegerRepresentationItem.hxx".}
-proc readStep*(this: RWStepReprRWIntegerRepresentationItem;
-              data: Handle[StepDataStepReaderData]; num: StandardInteger;
-              ach: var Handle[InterfaceCheck];
-              ent: Handle[StepReprIntegerRepresentationItem]) {.noSideEffect,
+proc ReadStep*(this: RWStepRepr_RWIntegerRepresentationItem;
+              data: handle[StepData_StepReaderData]; num: Standard_Integer;
+              ach: var handle[Interface_Check];
+              ent: handle[StepRepr_IntegerRepresentationItem]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepRepr_RWIntegerRepresentationItem.hxx".}
-proc writeStep*(this: RWStepReprRWIntegerRepresentationItem;
-               sw: var StepDataStepWriter;
-               ent: Handle[StepReprIntegerRepresentationItem]) {.noSideEffect,
+proc WriteStep*(this: RWStepRepr_RWIntegerRepresentationItem;
+               SW: var StepData_StepWriter;
+               ent: handle[StepRepr_IntegerRepresentationItem]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepRepr_RWIntegerRepresentationItem.hxx".}
-

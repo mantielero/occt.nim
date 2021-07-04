@@ -14,6 +14,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, IFSelect_Modifier
+
 discard "forward decl of IFSelect_EditForm"
 discard "forward decl of IFSelect_ContextModif"
 discard "forward decl of Interface_InterfaceModel"
@@ -23,44 +26,43 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of IFSelect_ModifEditForm"
 discard "forward decl of IFSelect_ModifEditForm"
 type
-  HandleIFSelectModifEditForm* = Handle[IFSelectModifEditForm]
+  Handle_IFSelect_ModifEditForm* = handle[IFSelect_ModifEditForm]
 
 ## ! This modifier applies an EditForm on the entities selected
 
 type
-  IFSelectModifEditForm* {.importcpp: "IFSelect_ModifEditForm",
-                          header: "IFSelect_ModifEditForm.hxx", bycopy.} = object of IFSelectModifier ##
-                                                                                               ## !
-                                                                                               ## Creates
-                                                                                               ## a
-                                                                                               ## ModifEditForm.
-                                                                                               ## It
-                                                                                               ## may
-                                                                                               ## not
-                                                                                               ## change
-                                                                                               ## the
-                                                                                               ## graph
+  IFSelect_ModifEditForm* {.importcpp: "IFSelect_ModifEditForm",
+                           header: "IFSelect_ModifEditForm.hxx", bycopy.} = object of IFSelect_Modifier ##
+                                                                                                 ## !
+                                                                                                 ## Creates
+                                                                                                 ## a
+                                                                                                 ## ModifEditForm.
+                                                                                                 ## It
+                                                                                                 ## may
+                                                                                                 ## not
+                                                                                                 ## change
+                                                                                                 ## the
+                                                                                                 ## graph
 
 
-proc constructIFSelectModifEditForm*(editform: Handle[IFSelectEditForm]): IFSelectModifEditForm {.
+proc constructIFSelect_ModifEditForm*(editform: handle[IFSelect_EditForm]): IFSelect_ModifEditForm {.
     constructor, importcpp: "IFSelect_ModifEditForm(@)",
     header: "IFSelect_ModifEditForm.hxx".}
-proc editForm*(this: IFSelectModifEditForm): Handle[IFSelectEditForm] {.
+proc EditForm*(this: IFSelect_ModifEditForm): handle[IFSelect_EditForm] {.
     noSideEffect, importcpp: "EditForm", header: "IFSelect_ModifEditForm.hxx".}
-proc perform*(this: IFSelectModifEditForm; ctx: var IFSelectContextModif;
-             target: Handle[InterfaceInterfaceModel];
-             protocol: Handle[InterfaceProtocol]; tc: var InterfaceCopyTool) {.
+proc Perform*(this: IFSelect_ModifEditForm; ctx: var IFSelect_ContextModif;
+             target: handle[Interface_InterfaceModel];
+             protocol: handle[Interface_Protocol]; TC: var Interface_CopyTool) {.
     noSideEffect, importcpp: "Perform", header: "IFSelect_ModifEditForm.hxx".}
-proc label*(this: IFSelectModifEditForm): TCollectionAsciiString {.noSideEffect,
+proc Label*(this: IFSelect_ModifEditForm): TCollection_AsciiString {.noSideEffect,
     importcpp: "Label", header: "IFSelect_ModifEditForm.hxx".}
 type
-  IFSelectModifEditFormbaseType* = IFSelectModifier
+  IFSelect_ModifEditFormbase_type* = IFSelect_Modifier
 
-proc getTypeName*(): cstring {.importcpp: "IFSelect_ModifEditForm::get_type_name(@)",
-                            header: "IFSelect_ModifEditForm.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "IFSelect_ModifEditForm::get_type_name(@)",
+                              header: "IFSelect_ModifEditForm.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "IFSelect_ModifEditForm::get_type_descriptor(@)",
     header: "IFSelect_ModifEditForm.hxx".}
-proc dynamicType*(this: IFSelectModifEditForm): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "IFSelect_ModifEditForm.hxx".}
-
+proc DynamicType*(this: IFSelect_ModifEditForm): handle[Standard_Type] {.
+    noSideEffect, importcpp: "DynamicType", header: "IFSelect_ModifEditForm.hxx".}

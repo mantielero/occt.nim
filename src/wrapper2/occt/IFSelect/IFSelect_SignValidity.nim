@@ -14,12 +14,16 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, IFSelect_Signature,
+  ../Standard/Standard_CString
+
 discard "forward decl of Standard_Transient"
 discard "forward decl of Interface_InterfaceModel"
 discard "forward decl of IFSelect_SignValidity"
 discard "forward decl of IFSelect_SignValidity"
 type
-  HandleIFSelectSignValidity* = Handle[IFSelectSignValidity]
+  Handle_IFSelect_SignValidity* = handle[IFSelect_SignValidity]
 
 ## ! This Signature returns the Validity Status of an entity, as
 ## ! deducted from data in the model : it can be
@@ -27,30 +31,29 @@ type
 ## ! "Syntactic Warning" "Semantic Fail" "Semantic Warning"
 
 type
-  IFSelectSignValidity* {.importcpp: "IFSelect_SignValidity",
-                         header: "IFSelect_SignValidity.hxx", bycopy.} = object of IFSelectSignature ##
-                                                                                              ## !
-                                                                                              ## Returns
-                                                                                              ## a
-                                                                                              ## SignValidity
+  IFSelect_SignValidity* {.importcpp: "IFSelect_SignValidity",
+                          header: "IFSelect_SignValidity.hxx", bycopy.} = object of IFSelect_Signature ##
+                                                                                                ## !
+                                                                                                ## Returns
+                                                                                                ## a
+                                                                                                ## SignValidity
 
 
-proc constructIFSelectSignValidity*(): IFSelectSignValidity {.constructor,
+proc constructIFSelect_SignValidity*(): IFSelect_SignValidity {.constructor,
     importcpp: "IFSelect_SignValidity(@)", header: "IFSelect_SignValidity.hxx".}
-proc cVal*(ent: Handle[StandardTransient]; model: Handle[InterfaceInterfaceModel]): StandardCString {.
+proc CVal*(ent: handle[Standard_Transient]; model: handle[Interface_InterfaceModel]): Standard_CString {.
     importcpp: "IFSelect_SignValidity::CVal(@)",
     header: "IFSelect_SignValidity.hxx".}
-proc value*(this: IFSelectSignValidity; ent: Handle[StandardTransient];
-           model: Handle[InterfaceInterfaceModel]): StandardCString {.noSideEffect,
-    importcpp: "Value", header: "IFSelect_SignValidity.hxx".}
+proc Value*(this: IFSelect_SignValidity; ent: handle[Standard_Transient];
+           model: handle[Interface_InterfaceModel]): Standard_CString {.
+    noSideEffect, importcpp: "Value", header: "IFSelect_SignValidity.hxx".}
 type
-  IFSelectSignValiditybaseType* = IFSelectSignature
+  IFSelect_SignValiditybase_type* = IFSelect_Signature
 
-proc getTypeName*(): cstring {.importcpp: "IFSelect_SignValidity::get_type_name(@)",
-                            header: "IFSelect_SignValidity.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "IFSelect_SignValidity::get_type_name(@)",
+                              header: "IFSelect_SignValidity.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "IFSelect_SignValidity::get_type_descriptor(@)",
     header: "IFSelect_SignValidity.hxx".}
-proc dynamicType*(this: IFSelectSignValidity): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "IFSelect_SignValidity.hxx".}
-
+proc DynamicType*(this: IFSelect_SignValidity): handle[Standard_Type] {.
+    noSideEffect, importcpp: "DynamicType", header: "IFSelect_SignValidity.hxx".}

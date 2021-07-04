@@ -13,9 +13,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ShapeProcess_Context
+
 discard "forward decl of Message_ProgressRange"
 type
-  ShapeProcessOperFunc* = proc (context: Handle[ShapeProcessContext];
-                             theProgress: MessageProgressRange): StandardBoolean
-
-
+  ShapeProcess_OperFunc* = proc (context: handle[ShapeProcess_Context];
+                              theProgress: Message_ProgressRange): Standard_Boolean

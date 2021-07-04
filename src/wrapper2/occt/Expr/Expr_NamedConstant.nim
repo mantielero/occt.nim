@@ -14,6 +14,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Real,
+  Expr_NamedExpression, ../Standard/Standard_Integer,
+  ../Standard/Standard_Boolean, Expr_Array1OfNamedUnknown,
+  ../TColStd/TColStd_Array1OfReal
+
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of TCollection_AsciiString"
 discard "forward decl of Expr_GeneralExpression"
@@ -21,69 +27,69 @@ discard "forward decl of Expr_NamedUnknown"
 discard "forward decl of Expr_NamedConstant"
 discard "forward decl of Expr_NamedConstant"
 type
-  HandleExprNamedConstant* = Handle[ExprNamedConstant]
+  Handle_Expr_NamedConstant* = handle[Expr_NamedConstant]
 
 ## ! Describes any numeric constant known by a special name
 ## ! (as PI, e,...).
 
 type
-  ExprNamedConstant* {.importcpp: "Expr_NamedConstant",
-                      header: "Expr_NamedConstant.hxx", bycopy.} = object of ExprNamedExpression ##
-                                                                                          ## !
-                                                                                          ## Creates
-                                                                                          ## a
-                                                                                          ## constant
-                                                                                          ## value
-                                                                                          ## of
-                                                                                          ## name
-                                                                                          ## <name>
-                                                                                          ## and
-                                                                                          ## value
-                                                                                          ## <value>.
+  Expr_NamedConstant* {.importcpp: "Expr_NamedConstant",
+                       header: "Expr_NamedConstant.hxx", bycopy.} = object of Expr_NamedExpression ##
+                                                                                            ## !
+                                                                                            ## Creates
+                                                                                            ## a
+                                                                                            ## constant
+                                                                                            ## value
+                                                                                            ## of
+                                                                                            ## name
+                                                                                            ## <name>
+                                                                                            ## and
+                                                                                            ## value
+                                                                                            ## <value>.
 
 
-proc constructExprNamedConstant*(name: TCollectionAsciiString; value: StandardReal): ExprNamedConstant {.
+proc constructExpr_NamedConstant*(name: TCollection_AsciiString;
+                                 value: Standard_Real): Expr_NamedConstant {.
     constructor, importcpp: "Expr_NamedConstant(@)",
     header: "Expr_NamedConstant.hxx".}
-proc getValue*(this: ExprNamedConstant): StandardReal {.noSideEffect,
+proc GetValue*(this: Expr_NamedConstant): Standard_Real {.noSideEffect,
     importcpp: "GetValue", header: "Expr_NamedConstant.hxx".}
-proc nbSubExpressions*(this: ExprNamedConstant): StandardInteger {.noSideEffect,
+proc NbSubExpressions*(this: Expr_NamedConstant): Standard_Integer {.noSideEffect,
     importcpp: "NbSubExpressions", header: "Expr_NamedConstant.hxx".}
-proc subExpression*(this: ExprNamedConstant; i: StandardInteger): Handle[
-    ExprGeneralExpression] {.noSideEffect, importcpp: "SubExpression",
-                            header: "Expr_NamedConstant.hxx".}
-proc simplified*(this: ExprNamedConstant): Handle[ExprGeneralExpression] {.
+proc SubExpression*(this: Expr_NamedConstant; I: Standard_Integer): handle[
+    Expr_GeneralExpression] {.noSideEffect, importcpp: "SubExpression",
+                             header: "Expr_NamedConstant.hxx".}
+proc Simplified*(this: Expr_NamedConstant): handle[Expr_GeneralExpression] {.
     noSideEffect, importcpp: "Simplified", header: "Expr_NamedConstant.hxx".}
-proc shallowSimplified*(this: ExprNamedConstant): Handle[ExprGeneralExpression] {.
+proc ShallowSimplified*(this: Expr_NamedConstant): handle[Expr_GeneralExpression] {.
     noSideEffect, importcpp: "ShallowSimplified", header: "Expr_NamedConstant.hxx".}
-proc copy*(this: ExprNamedConstant): Handle[ExprGeneralExpression] {.noSideEffect,
+proc Copy*(this: Expr_NamedConstant): handle[Expr_GeneralExpression] {.noSideEffect,
     importcpp: "Copy", header: "Expr_NamedConstant.hxx".}
-proc containsUnknowns*(this: ExprNamedConstant): StandardBoolean {.noSideEffect,
+proc ContainsUnknowns*(this: Expr_NamedConstant): Standard_Boolean {.noSideEffect,
     importcpp: "ContainsUnknowns", header: "Expr_NamedConstant.hxx".}
-proc contains*(this: ExprNamedConstant; exp: Handle[ExprGeneralExpression]): StandardBoolean {.
+proc Contains*(this: Expr_NamedConstant; exp: handle[Expr_GeneralExpression]): Standard_Boolean {.
     noSideEffect, importcpp: "Contains", header: "Expr_NamedConstant.hxx".}
-proc isLinear*(this: ExprNamedConstant): StandardBoolean {.noSideEffect,
+proc IsLinear*(this: Expr_NamedConstant): Standard_Boolean {.noSideEffect,
     importcpp: "IsLinear", header: "Expr_NamedConstant.hxx".}
-proc derivative*(this: ExprNamedConstant; x: Handle[ExprNamedUnknown]): Handle[
-    ExprGeneralExpression] {.noSideEffect, importcpp: "Derivative",
-                            header: "Expr_NamedConstant.hxx".}
-proc nDerivative*(this: ExprNamedConstant; x: Handle[ExprNamedUnknown];
-                 n: StandardInteger): Handle[ExprGeneralExpression] {.noSideEffect,
-    importcpp: "NDerivative", header: "Expr_NamedConstant.hxx".}
-proc replace*(this: var ExprNamedConstant; `var`: Handle[ExprNamedUnknown];
-             with: Handle[ExprGeneralExpression]) {.importcpp: "Replace",
+proc Derivative*(this: Expr_NamedConstant; X: handle[Expr_NamedUnknown]): handle[
+    Expr_GeneralExpression] {.noSideEffect, importcpp: "Derivative",
+                             header: "Expr_NamedConstant.hxx".}
+proc NDerivative*(this: Expr_NamedConstant; X: handle[Expr_NamedUnknown];
+                 N: Standard_Integer): handle[Expr_GeneralExpression] {.
+    noSideEffect, importcpp: "NDerivative", header: "Expr_NamedConstant.hxx".}
+proc Replace*(this: var Expr_NamedConstant; `var`: handle[Expr_NamedUnknown];
+             with: handle[Expr_GeneralExpression]) {.importcpp: "Replace",
     header: "Expr_NamedConstant.hxx".}
-proc evaluate*(this: ExprNamedConstant; vars: ExprArray1OfNamedUnknown;
-              vals: TColStdArray1OfReal): StandardReal {.noSideEffect,
+proc Evaluate*(this: Expr_NamedConstant; vars: Expr_Array1OfNamedUnknown;
+              vals: TColStd_Array1OfReal): Standard_Real {.noSideEffect,
     importcpp: "Evaluate", header: "Expr_NamedConstant.hxx".}
 type
-  ExprNamedConstantbaseType* = ExprNamedExpression
+  Expr_NamedConstantbase_type* = Expr_NamedExpression
 
-proc getTypeName*(): cstring {.importcpp: "Expr_NamedConstant::get_type_name(@)",
-                            header: "Expr_NamedConstant.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "Expr_NamedConstant::get_type_name(@)",
+                              header: "Expr_NamedConstant.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "Expr_NamedConstant::get_type_descriptor(@)",
     header: "Expr_NamedConstant.hxx".}
-proc dynamicType*(this: ExprNamedConstant): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: Expr_NamedConstant): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "Expr_NamedConstant.hxx".}
-

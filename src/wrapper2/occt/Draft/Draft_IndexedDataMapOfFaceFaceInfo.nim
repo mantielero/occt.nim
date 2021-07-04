@@ -14,8 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../TopoDS/TopoDS_Face, Draft_FaceInfo, ../TopTools/TopTools_ShapeMapHasher,
+  ../NCollection/NCollection_IndexedDataMap
+
 type
-  DraftIndexedDataMapOfFaceFaceInfo* = NCollectionIndexedDataMap[TopoDS_Face,
-      DraftFaceInfo, TopToolsShapeMapHasher]
-
-
+  Draft_IndexedDataMapOfFaceFaceInfo* = NCollection_IndexedDataMap[TopoDS_Face,
+      Draft_FaceInfo, TopTools_ShapeMapHasher]

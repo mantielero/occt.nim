@@ -14,11 +14,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _Quantity_KinematicViscosity_HeaderFile [NewLine] # _Quantity_KinematicViscosity_HeaderFile [NewLine] # < Standard_Real . hxx > [NewLine] ! Defined as the ratio of the dynamic viscosity
+## !!!Ignored construct:  # _Quantity_KinematicViscosity_HeaderFile [NewLine] # _Quantity_KinematicViscosity_HeaderFile [NewLine] # ../Standard/Standard_Real.hxx [NewLine] ! Defined as the ratio of the dynamic viscosity
 ## ! to the fluid density. Used in modifying the motion of a
 ## ! perfect fluid to include terms due to a real fluid.
 ## ! It is quantified as area per unit time.
 ## ! It is measured in square metres per second. Standard_DEPRECATED ( This type is deprecated - Standard_Real should be used instead ) typedef Standard_Real Quantity_KinematicViscosity ;
 ## Error: expected ';'!!!
-
-

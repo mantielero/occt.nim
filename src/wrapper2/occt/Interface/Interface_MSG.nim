@@ -14,122 +14,129 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_CString,
+  ../Standard/Standard_PCharacter, ../Standard/Standard_Integer,
+  ../Standard/Standard_Real, ../Standard/Standard_IStream,
+  ../Standard/Standard_OStream, ../Standard/Standard_Boolean
+
 discard "forward decl of Standard_DomainError"
 type
-  InterfaceMSG* {.importcpp: "Interface_MSG", header: "Interface_MSG.hxx", bycopy.} = object ##
-                                                                                     ## !
-                                                                                     ## A
-                                                                                     ## MSG
-                                                                                     ## is
-                                                                                     ## created
-                                                                                     ## to
-                                                                                     ## write
-                                                                                     ## a
-                                                                                     ## "functional
-                                                                                     ## code"
-                                                                                     ## in
-                                                                                     ## conjunction
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## with
-                                                                                     ## operator
-                                                                                     ## ()
-                                                                                     ## attached
-                                                                                     ## to
-                                                                                     ## Value
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## Then,
-                                                                                     ## to
-                                                                                     ## have
-                                                                                     ## a
-                                                                                     ## translated
-                                                                                     ## message,
-                                                                                     ## write
-                                                                                     ## in
-                                                                                     ## C++
-                                                                                     ## :
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## Interface_MSG("...mykey...")
-                                                                                     ## which
-                                                                                     ## returns
-                                                                                     ## a
-                                                                                     ## CString
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## See
-                                                                                     ## also
-                                                                                     ## some
-                                                                                     ## help
-                                                                                     ## which
-                                                                                     ## follow
+  Interface_MSG* {.importcpp: "Interface_MSG", header: "Interface_MSG.hxx", bycopy.} = object ##
+                                                                                      ## !
+                                                                                      ## A
+                                                                                      ## MSG
+                                                                                      ## is
+                                                                                      ## created
+                                                                                      ## to
+                                                                                      ## write
+                                                                                      ## a
+                                                                                      ## "functional
+                                                                                      ## code"
+                                                                                      ## in
+                                                                                      ## conjunction
+                                                                                      ##
+                                                                                      ## !
+                                                                                      ## with
+                                                                                      ## operator
+                                                                                      ## ()
+                                                                                      ## attached
+                                                                                      ## to
+                                                                                      ## Value
+                                                                                      ##
+                                                                                      ## !
+                                                                                      ## Then,
+                                                                                      ## to
+                                                                                      ## have
+                                                                                      ## a
+                                                                                      ## translated
+                                                                                      ## message,
+                                                                                      ## write
+                                                                                      ## in
+                                                                                      ## C++
+                                                                                      ## :
+                                                                                      ##
+                                                                                      ## !
+                                                                                      ##
+                                                                                      ## !
+                                                                                      ## Interface_MSG("...mykey...")
+                                                                                      ## which
+                                                                                      ## returns
+                                                                                      ## a
+                                                                                      ## CString
+                                                                                      ##
+                                                                                      ## !
+                                                                                      ## See
+                                                                                      ## also
+                                                                                      ## some
+                                                                                      ## help
+                                                                                      ## which
+                                                                                      ## follow
 
 
-proc constructInterfaceMSG*(key: StandardCString): InterfaceMSG {.constructor,
+proc constructInterface_MSG*(key: Standard_CString): Interface_MSG {.constructor,
     importcpp: "Interface_MSG(@)", header: "Interface_MSG.hxx".}
-proc constructInterfaceMSG*(key: StandardCString; i1: StandardInteger): InterfaceMSG {.
+proc constructInterface_MSG*(key: Standard_CString; i1: Standard_Integer): Interface_MSG {.
     constructor, importcpp: "Interface_MSG(@)", header: "Interface_MSG.hxx".}
-proc constructInterfaceMSG*(key: StandardCString; i1: StandardInteger;
-                           i2: StandardInteger): InterfaceMSG {.constructor,
+proc constructInterface_MSG*(key: Standard_CString; i1: Standard_Integer;
+                            i2: Standard_Integer): Interface_MSG {.constructor,
     importcpp: "Interface_MSG(@)", header: "Interface_MSG.hxx".}
-proc constructInterfaceMSG*(key: StandardCString; r1: StandardReal;
-                           intervals: StandardInteger = -1): InterfaceMSG {.
+proc constructInterface_MSG*(key: Standard_CString; r1: Standard_Real;
+                            intervals: Standard_Integer = -1): Interface_MSG {.
     constructor, importcpp: "Interface_MSG(@)", header: "Interface_MSG.hxx".}
-proc constructInterfaceMSG*(key: StandardCString; str: StandardCString): InterfaceMSG {.
+proc constructInterface_MSG*(key: Standard_CString; str: Standard_CString): Interface_MSG {.
     constructor, importcpp: "Interface_MSG(@)", header: "Interface_MSG.hxx".}
-proc constructInterfaceMSG*(key: StandardCString; ival: StandardInteger;
-                           str: StandardCString): InterfaceMSG {.constructor,
+proc constructInterface_MSG*(key: Standard_CString; ival: Standard_Integer;
+                            str: Standard_CString): Interface_MSG {.constructor,
     importcpp: "Interface_MSG(@)", header: "Interface_MSG.hxx".}
-proc destroy*(this: var InterfaceMSG) {.importcpp: "Destroy",
-                                    header: "Interface_MSG.hxx".}
-proc destroyInterfaceMSG*(this: var InterfaceMSG) {.importcpp: "#.~Interface_MSG()",
-    header: "Interface_MSG.hxx".}
-proc value*(this: InterfaceMSG): StandardCString {.noSideEffect, importcpp: "Value",
-    header: "Interface_MSG.hxx".}
-converter `standardCString`*(this: InterfaceMSG): StandardCString {.noSideEffect,
+proc Destroy*(this: var Interface_MSG) {.importcpp: "Destroy",
+                                     header: "Interface_MSG.hxx".}
+proc destroyInterface_MSG*(this: var Interface_MSG) {.
+    importcpp: "#.~Interface_MSG()", header: "Interface_MSG.hxx".}
+proc Value*(this: Interface_MSG): Standard_CString {.noSideEffect,
+    importcpp: "Value", header: "Interface_MSG.hxx".}
+converter `Standard_CString`*(this: Interface_MSG): Standard_CString {.noSideEffect,
     importcpp: "Interface_MSG::operator Standard_CString",
     header: "Interface_MSG.hxx".}
-proc read*(s: var StandardIStream): StandardInteger {.
+proc Read*(S: var Standard_IStream): Standard_Integer {.
     importcpp: "Interface_MSG::Read(@)", header: "Interface_MSG.hxx".}
-proc read*(file: StandardCString): StandardInteger {.
+proc Read*(file: Standard_CString): Standard_Integer {.
     importcpp: "Interface_MSG::Read(@)", header: "Interface_MSG.hxx".}
-proc write*(s: var StandardOStream; rootkey: StandardCString = ""): StandardInteger {.
+proc Write*(S: var Standard_OStream; rootkey: Standard_CString = ""): Standard_Integer {.
     importcpp: "Interface_MSG::Write(@)", header: "Interface_MSG.hxx".}
-proc isKey*(mess: StandardCString): StandardBoolean {.
+proc IsKey*(mess: Standard_CString): Standard_Boolean {.
     importcpp: "Interface_MSG::IsKey(@)", header: "Interface_MSG.hxx".}
-proc translated*(key: StandardCString): StandardCString {.
+proc Translated*(key: Standard_CString): Standard_CString {.
     importcpp: "Interface_MSG::Translated(@)", header: "Interface_MSG.hxx".}
-proc record*(key: StandardCString; item: StandardCString) {.
+proc Record*(key: Standard_CString; item: Standard_CString) {.
     importcpp: "Interface_MSG::Record(@)", header: "Interface_MSG.hxx".}
-proc setTrace*(toprint: StandardBoolean; torecord: StandardBoolean) {.
+proc SetTrace*(toprint: Standard_Boolean; torecord: Standard_Boolean) {.
     importcpp: "Interface_MSG::SetTrace(@)", header: "Interface_MSG.hxx".}
-proc setMode*(running: StandardBoolean; raising: StandardBoolean) {.
+proc SetMode*(running: Standard_Boolean; raising: Standard_Boolean) {.
     importcpp: "Interface_MSG::SetMode(@)", header: "Interface_MSG.hxx".}
-proc printTrace*(s: var StandardOStream) {.importcpp: "Interface_MSG::PrintTrace(@)",
-                                       header: "Interface_MSG.hxx".}
-proc intervalled*(val: StandardReal; order: StandardInteger = 3;
-                 upper: StandardBoolean = standardFalse): StandardReal {.
+proc PrintTrace*(S: var Standard_OStream) {.importcpp: "Interface_MSG::PrintTrace(@)",
+                                        header: "Interface_MSG.hxx".}
+proc Intervalled*(val: Standard_Real; order: Standard_Integer = 3;
+                 upper: Standard_Boolean = Standard_False): Standard_Real {.
     importcpp: "Interface_MSG::Intervalled(@)", header: "Interface_MSG.hxx".}
-proc tDate*(text: StandardCString; yy: StandardInteger; mm: StandardInteger;
-           dd: StandardInteger; hh: StandardInteger; mn: StandardInteger;
-           ss: StandardInteger; format: StandardCString = "") {.
+proc TDate*(text: Standard_CString; yy: Standard_Integer; mm: Standard_Integer;
+           dd: Standard_Integer; hh: Standard_Integer; mn: Standard_Integer;
+           ss: Standard_Integer; format: Standard_CString = "") {.
     importcpp: "Interface_MSG::TDate(@)", header: "Interface_MSG.hxx".}
-proc nDate*(text: StandardCString; yy: var StandardInteger; mm: var StandardInteger;
-           dd: var StandardInteger; hh: var StandardInteger; mn: var StandardInteger;
-           ss: var StandardInteger): StandardBoolean {.
+proc NDate*(text: Standard_CString; yy: var Standard_Integer;
+           mm: var Standard_Integer; dd: var Standard_Integer;
+           hh: var Standard_Integer; mn: var Standard_Integer;
+           ss: var Standard_Integer): Standard_Boolean {.
     importcpp: "Interface_MSG::NDate(@)", header: "Interface_MSG.hxx".}
-proc cDate*(text1: StandardCString; text2: StandardCString): StandardInteger {.
+proc CDate*(text1: Standard_CString; text2: Standard_CString): Standard_Integer {.
     importcpp: "Interface_MSG::CDate(@)", header: "Interface_MSG.hxx".}
-proc blanks*(val: StandardInteger; max: StandardInteger): StandardCString {.
+proc Blanks*(val: Standard_Integer; max: Standard_Integer): Standard_CString {.
     importcpp: "Interface_MSG::Blanks(@)", header: "Interface_MSG.hxx".}
-proc blanks*(val: StandardCString; max: StandardInteger): StandardCString {.
+proc Blanks*(val: Standard_CString; max: Standard_Integer): Standard_CString {.
     importcpp: "Interface_MSG::Blanks(@)", header: "Interface_MSG.hxx".}
-proc blanks*(count: StandardInteger): StandardCString {.
+proc Blanks*(count: Standard_Integer): Standard_CString {.
     importcpp: "Interface_MSG::Blanks(@)", header: "Interface_MSG.hxx".}
-proc print*(s: var StandardOStream; val: StandardCString; max: StandardInteger;
-           just: StandardInteger = -1) {.importcpp: "Interface_MSG::Print(@)",
-                                     header: "Interface_MSG.hxx".}
-
+proc Print*(S: var Standard_OStream; val: Standard_CString; max: Standard_Integer;
+           just: Standard_Integer = -1) {.importcpp: "Interface_MSG::Print(@)",
+                                      header: "Interface_MSG.hxx".}

@@ -14,6 +14,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../TCollection/TCollection_ExtendedString, ../PCDM/PCDM_ReaderStatus,
+  CDF_TypeOfActivation, CDF_MetaDataDriver, ../CDM/CDM_Application,
+  ../CDM/CDM_CanCloseStatus, ../TColStd/TColStd_SequenceOfExtendedString,
+  ../Standard/Standard_IStream, ../NCollection/NCollection_IndexedDataMap
+
 discard "forward decl of Standard_NoSuchObject"
 discard "forward decl of Standard_GUID"
 discard "forward decl of CDM_Document"
@@ -26,7 +32,7 @@ discard "forward decl of CDF_Directory"
 discard "forward decl of CDF_Application"
 discard "forward decl of CDF_Application"
 type
-  HandleCDF_Application* = Handle[CDF_Application]
+  Handle_CDF_Application* = handle[CDF_Application]
   CDF_Application* {.importcpp: "CDF_Application", header: "CDF_Application.hxx",
                     bycopy.} = object of CDM_Application ## ! plugs an application.
                                                     ## !
@@ -52,63 +58,64 @@ type
                                                     ## ! retrieved and modified since the previous retrieval.
                                                     ## ! You do not need to call <Activate>, but you should  redefine
                                                     ## ! this method to implement application specific behavior.
-    myMetaDataDriver* {.importc: "myMetaDataDriver".}: Handle[CDF_MetaDataDriver]
-    myDirectory* {.importc: "myDirectory".}: Handle[CDF_Directory]
+    myMetaDataDriver* {.importc: "myMetaDataDriver".}: handle[CDF_MetaDataDriver]
+    myDirectory* {.importc: "myDirectory".}: handle[CDF_Directory]
 
 
-proc load*(aGUID: StandardGUID): Handle[CDF_Application] {.
+proc Load*(aGUID: Standard_GUID): handle[CDF_Application] {.
     importcpp: "CDF_Application::Load(@)", header: "CDF_Application.hxx".}
-proc open*(this: var CDF_Application; aDocument: Handle[CDM_Document]) {.
+proc Open*(this: var CDF_Application; aDocument: handle[CDM_Document]) {.
     importcpp: "Open", header: "CDF_Application.hxx".}
-proc canClose*(this: var CDF_Application; aDocument: Handle[CDM_Document]): CDM_CanCloseStatus {.
+proc CanClose*(this: var CDF_Application; aDocument: handle[CDM_Document]): CDM_CanCloseStatus {.
     importcpp: "CanClose", header: "CDF_Application.hxx".}
-proc close*(this: var CDF_Application; aDocument: Handle[CDM_Document]) {.
+proc Close*(this: var CDF_Application; aDocument: handle[CDM_Document]) {.
     importcpp: "Close", header: "CDF_Application.hxx".}
-proc retrieve*(this: var CDF_Application; aFolder: TCollectionExtendedString;
-              aName: TCollectionExtendedString;
-              useStorageConfiguration: StandardBoolean = standardTrue;
-              theRange: MessageProgressRange = messageProgressRange()): Handle[
+proc Retrieve*(this: var CDF_Application; aFolder: TCollection_ExtendedString;
+              aName: TCollection_ExtendedString;
+              UseStorageConfiguration: Standard_Boolean = Standard_True;
+              theRange: Message_ProgressRange = Message_ProgressRange()): handle[
     CDM_Document] {.importcpp: "Retrieve", header: "CDF_Application.hxx".}
-proc retrieve*(this: var CDF_Application; aFolder: TCollectionExtendedString;
-              aName: TCollectionExtendedString;
-              aVersion: TCollectionExtendedString;
-              useStorageConfiguration: StandardBoolean = standardTrue;
-              theRange: MessageProgressRange = messageProgressRange()): Handle[
+proc Retrieve*(this: var CDF_Application; aFolder: TCollection_ExtendedString;
+              aName: TCollection_ExtendedString;
+              aVersion: TCollection_ExtendedString;
+              UseStorageConfiguration: Standard_Boolean = Standard_True;
+              theRange: Message_ProgressRange = Message_ProgressRange()): handle[
     CDM_Document] {.importcpp: "Retrieve", header: "CDF_Application.hxx".}
-proc canRetrieve*(this: var CDF_Application; aFolder: TCollectionExtendedString;
-                 aName: TCollectionExtendedString): PCDM_ReaderStatus {.
+proc CanRetrieve*(this: var CDF_Application; aFolder: TCollection_ExtendedString;
+                 aName: TCollection_ExtendedString): PCDM_ReaderStatus {.
     importcpp: "CanRetrieve", header: "CDF_Application.hxx".}
-proc canRetrieve*(this: var CDF_Application; aFolder: TCollectionExtendedString;
-                 aName: TCollectionExtendedString;
-                 aVersion: TCollectionExtendedString): PCDM_ReaderStatus {.
+proc CanRetrieve*(this: var CDF_Application; aFolder: TCollection_ExtendedString;
+                 aName: TCollection_ExtendedString;
+                 aVersion: TCollection_ExtendedString): PCDM_ReaderStatus {.
     importcpp: "CanRetrieve", header: "CDF_Application.hxx".}
-proc getRetrieveStatus*(this: CDF_Application): PCDM_ReaderStatus {.noSideEffect,
+proc GetRetrieveStatus*(this: CDF_Application): PCDM_ReaderStatus {.noSideEffect,
     importcpp: "GetRetrieveStatus", header: "CDF_Application.hxx".}
-proc read*(this: var CDF_Application; theIStream: var StandardIStream;
-          theRange: MessageProgressRange = messageProgressRange()): Handle[
+proc Read*(this: var CDF_Application; theIStream: var Standard_IStream;
+          theRange: Message_ProgressRange = Message_ProgressRange()): handle[
     CDM_Document] {.importcpp: "Read", header: "CDF_Application.hxx".}
-proc readerFromFormat*(this: var CDF_Application; aFormat: TCollectionExtendedString): Handle[
-    PCDM_Reader] {.importcpp: "ReaderFromFormat", header: "CDF_Application.hxx".}
-proc writerFromFormat*(this: var CDF_Application; aFormat: TCollectionExtendedString): Handle[
+proc ReaderFromFormat*(this: var CDF_Application;
+                      aFormat: TCollection_ExtendedString): handle[PCDM_Reader] {.
+    importcpp: "ReaderFromFormat", header: "CDF_Application.hxx".}
+proc WriterFromFormat*(this: var CDF_Application;
+                      aFormat: TCollection_ExtendedString): handle[
     PCDM_StorageDriver] {.importcpp: "WriterFromFormat",
                          header: "CDF_Application.hxx".}
-proc format*(this: var CDF_Application; aFileName: TCollectionExtendedString;
-            theFormat: var TCollectionExtendedString): StandardBoolean {.
+proc Format*(this: var CDF_Application; aFileName: TCollection_ExtendedString;
+            theFormat: var TCollection_ExtendedString): Standard_Boolean {.
     importcpp: "Format", header: "CDF_Application.hxx".}
-proc defaultFolder*(this: var CDF_Application): StandardExtString {.
+proc DefaultFolder*(this: var CDF_Application): Standard_ExtString {.
     importcpp: "DefaultFolder", header: "CDF_Application.hxx".}
-proc setDefaultFolder*(this: var CDF_Application; aFolder: StandardExtString): StandardBoolean {.
+proc SetDefaultFolder*(this: var CDF_Application; aFolder: Standard_ExtString): Standard_Boolean {.
     importcpp: "SetDefaultFolder", header: "CDF_Application.hxx".}
-proc metaDataDriver*(this: CDF_Application): Handle[CDF_MetaDataDriver] {.
+proc MetaDataDriver*(this: CDF_Application): handle[CDF_MetaDataDriver] {.
     noSideEffect, importcpp: "MetaDataDriver", header: "CDF_Application.hxx".}
 type
-  CDF_ApplicationbaseType* = CDM_Application
+  CDF_Applicationbase_type* = CDM_Application
 
-proc getTypeName*(): cstring {.importcpp: "CDF_Application::get_type_name(@)",
-                            header: "CDF_Application.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "CDF_Application::get_type_name(@)",
+                              header: "CDF_Application.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "CDF_Application::get_type_descriptor(@)",
     header: "CDF_Application.hxx".}
-proc dynamicType*(this: CDF_Application): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: CDF_Application): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "CDF_Application.hxx".}
-

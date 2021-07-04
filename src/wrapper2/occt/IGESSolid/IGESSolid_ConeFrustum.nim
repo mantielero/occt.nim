@@ -14,13 +14,17 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Real,
+  ../gp/gp_XYZ, ../IGESData/IGESData_IGESEntity
+
 discard "forward decl of gp_XYZ"
 discard "forward decl of gp_Pnt"
 discard "forward decl of gp_Dir"
 discard "forward decl of IGESSolid_ConeFrustum"
 discard "forward decl of IGESSolid_ConeFrustum"
 type
-  HandleIGESSolidConeFrustum* = Handle[IGESSolidConeFrustum]
+  Handle_IGESSolid_ConeFrustum* = handle[IGESSolid_ConeFrustum]
 
 ## ! defines ConeFrustum, Type <156> Form Number <0>
 ## ! in package IGESSolid
@@ -31,37 +35,36 @@ type
 ## ! than the first face.
 
 type
-  IGESSolidConeFrustum* {.importcpp: "IGESSolid_ConeFrustum",
-                         header: "IGESSolid_ConeFrustum.hxx", bycopy.} = object of IGESDataIGESEntity
+  IGESSolid_ConeFrustum* {.importcpp: "IGESSolid_ConeFrustum",
+                          header: "IGESSolid_ConeFrustum.hxx", bycopy.} = object of IGESData_IGESEntity
 
 
-proc constructIGESSolidConeFrustum*(): IGESSolidConeFrustum {.constructor,
+proc constructIGESSolid_ConeFrustum*(): IGESSolid_ConeFrustum {.constructor,
     importcpp: "IGESSolid_ConeFrustum(@)", header: "IGESSolid_ConeFrustum.hxx".}
-proc init*(this: var IGESSolidConeFrustum; ht: StandardReal; r1: StandardReal;
-          r2: StandardReal; center: GpXYZ; anAxis: GpXYZ) {.importcpp: "Init",
+proc Init*(this: var IGESSolid_ConeFrustum; Ht: Standard_Real; R1: Standard_Real;
+          R2: Standard_Real; Center: gp_XYZ; anAxis: gp_XYZ) {.importcpp: "Init",
     header: "IGESSolid_ConeFrustum.hxx".}
-proc height*(this: IGESSolidConeFrustum): StandardReal {.noSideEffect,
+proc Height*(this: IGESSolid_ConeFrustum): Standard_Real {.noSideEffect,
     importcpp: "Height", header: "IGESSolid_ConeFrustum.hxx".}
-proc largerRadius*(this: IGESSolidConeFrustum): StandardReal {.noSideEffect,
+proc LargerRadius*(this: IGESSolid_ConeFrustum): Standard_Real {.noSideEffect,
     importcpp: "LargerRadius", header: "IGESSolid_ConeFrustum.hxx".}
-proc smallerRadius*(this: IGESSolidConeFrustum): StandardReal {.noSideEffect,
+proc SmallerRadius*(this: IGESSolid_ConeFrustum): Standard_Real {.noSideEffect,
     importcpp: "SmallerRadius", header: "IGESSolid_ConeFrustum.hxx".}
-proc faceCenter*(this: IGESSolidConeFrustum): GpPnt {.noSideEffect,
+proc FaceCenter*(this: IGESSolid_ConeFrustum): gp_Pnt {.noSideEffect,
     importcpp: "FaceCenter", header: "IGESSolid_ConeFrustum.hxx".}
-proc transformedFaceCenter*(this: IGESSolidConeFrustum): GpPnt {.noSideEffect,
+proc TransformedFaceCenter*(this: IGESSolid_ConeFrustum): gp_Pnt {.noSideEffect,
     importcpp: "TransformedFaceCenter", header: "IGESSolid_ConeFrustum.hxx".}
-proc axis*(this: IGESSolidConeFrustum): GpDir {.noSideEffect, importcpp: "Axis",
+proc Axis*(this: IGESSolid_ConeFrustum): gp_Dir {.noSideEffect, importcpp: "Axis",
     header: "IGESSolid_ConeFrustum.hxx".}
-proc transformedAxis*(this: IGESSolidConeFrustum): GpDir {.noSideEffect,
+proc TransformedAxis*(this: IGESSolid_ConeFrustum): gp_Dir {.noSideEffect,
     importcpp: "TransformedAxis", header: "IGESSolid_ConeFrustum.hxx".}
 type
-  IGESSolidConeFrustumbaseType* = IGESDataIGESEntity
+  IGESSolid_ConeFrustumbase_type* = IGESData_IGESEntity
 
-proc getTypeName*(): cstring {.importcpp: "IGESSolid_ConeFrustum::get_type_name(@)",
-                            header: "IGESSolid_ConeFrustum.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "IGESSolid_ConeFrustum::get_type_name(@)",
+                              header: "IGESSolid_ConeFrustum.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "IGESSolid_ConeFrustum::get_type_descriptor(@)",
     header: "IGESSolid_ConeFrustum.hxx".}
-proc dynamicType*(this: IGESSolidConeFrustum): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "IGESSolid_ConeFrustum.hxx".}
-
+proc DynamicType*(this: IGESSolid_ConeFrustum): handle[Standard_Type] {.
+    noSideEffect, importcpp: "DynamicType", header: "IGESSolid_ConeFrustum.hxx".}

@@ -14,6 +14,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Adaptor3d/Adaptor3d_CurvePtr,
+  ../Adaptor3d/Adaptor3d_SurfacePtr, ../Standard/Standard_Boolean, ../gp/gp_Pnt2d,
+  ../Standard/Standard_Integer, ../Standard/Standard_Real
+
 discard "forward decl of Standard_DomainError"
 discard "forward decl of Standard_ConstructionError"
 discard "forward decl of StdFail_NotDone"
@@ -21,20 +27,20 @@ discard "forward decl of Adaptor3d_Curve"
 discard "forward decl of Adaptor3d_Surface"
 discard "forward decl of gp_Pnt2d"
 type
-  ProjLibPrjResolve* {.importcpp: "ProjLib_PrjResolve",
-                      header: "ProjLib_PrjResolve.hxx", bycopy.} = object
+  ProjLib_PrjResolve* {.importcpp: "ProjLib_PrjResolve",
+                       header: "ProjLib_PrjResolve.hxx", bycopy.} = object
 
 
-proc constructProjLibPrjResolve*(c: Adaptor3dCurve; s: Adaptor3dSurface;
-                                fix: StandardInteger): ProjLibPrjResolve {.
+proc constructProjLib_PrjResolve*(C: Adaptor3d_Curve; S: Adaptor3d_Surface;
+                                 Fix: Standard_Integer): ProjLib_PrjResolve {.
     constructor, importcpp: "ProjLib_PrjResolve(@)",
     header: "ProjLib_PrjResolve.hxx".}
-proc perform*(this: var ProjLibPrjResolve; t: StandardReal; u: StandardReal;
-             v: StandardReal; tol: GpPnt2d; inf: GpPnt2d; sup: GpPnt2d;
-             fTol: StandardReal = -1; strictInside: StandardBoolean = standardFalse) {.
+proc Perform*(this: var ProjLib_PrjResolve; t: Standard_Real; U: Standard_Real;
+             V: Standard_Real; Tol: gp_Pnt2d; Inf: gp_Pnt2d; Sup: gp_Pnt2d;
+             FTol: Standard_Real = -1;
+             StrictInside: Standard_Boolean = Standard_False) {.
     importcpp: "Perform", header: "ProjLib_PrjResolve.hxx".}
-proc isDone*(this: ProjLibPrjResolve): StandardBoolean {.noSideEffect,
+proc IsDone*(this: ProjLib_PrjResolve): Standard_Boolean {.noSideEffect,
     importcpp: "IsDone", header: "ProjLib_PrjResolve.hxx".}
-proc solution*(this: ProjLibPrjResolve): GpPnt2d {.noSideEffect,
+proc Solution*(this: ProjLib_PrjResolve): gp_Pnt2d {.noSideEffect,
     importcpp: "Solution", header: "ProjLib_PrjResolve.hxx".}
-

@@ -13,49 +13,54 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type,
+  ../BinLDrivers/BinLDrivers_DocumentRetrievalDriver,
+  ../Standard/Standard_IStream, ../Standard/Standard_Boolean,
+  ../Storage/Storage_Position, ../Standard/Standard_Integer
+
 discard "forward decl of BinMDF_ADriverTable"
 discard "forward decl of Message_Messenger"
 discard "forward decl of BinLDrivers_DocumentSection"
 discard "forward decl of BinDrivers_DocumentRetrievalDriver"
 discard "forward decl of BinDrivers_DocumentRetrievalDriver"
 type
-  HandleBinDriversDocumentRetrievalDriver* = Handle[
-      BinDriversDocumentRetrievalDriver]
-  BinDriversDocumentRetrievalDriver* {.importcpp: "BinDrivers_DocumentRetrievalDriver", header: "BinDrivers_DocumentRetrievalDriver.hxx",
-                                      bycopy.} = object of BinLDriversDocumentRetrievalDriver ##
-                                                                                         ## !
-                                                                                         ## Constructor
+  Handle_BinDrivers_DocumentRetrievalDriver* = handle[
+      BinDrivers_DocumentRetrievalDriver]
+  BinDrivers_DocumentRetrievalDriver* {.importcpp: "BinDrivers_DocumentRetrievalDriver", header: "BinDrivers_DocumentRetrievalDriver.hxx",
+                                       bycopy.} = object of BinLDrivers_DocumentRetrievalDriver ##
+                                                                                           ## !
+                                                                                           ## Constructor
 
 
-proc constructBinDriversDocumentRetrievalDriver*(): BinDriversDocumentRetrievalDriver {.
+proc constructBinDrivers_DocumentRetrievalDriver*(): BinDrivers_DocumentRetrievalDriver {.
     constructor, importcpp: "BinDrivers_DocumentRetrievalDriver(@)",
     header: "BinDrivers_DocumentRetrievalDriver.hxx".}
-proc attributeDrivers*(this: var BinDriversDocumentRetrievalDriver;
-                      theMsgDriver: Handle[MessageMessenger]): Handle[
+proc AttributeDrivers*(this: var BinDrivers_DocumentRetrievalDriver;
+                      theMsgDriver: handle[Message_Messenger]): handle[
     BinMDF_ADriverTable] {.importcpp: "AttributeDrivers",
                           header: "BinDrivers_DocumentRetrievalDriver.hxx".}
-proc readShapeSection*(this: var BinDriversDocumentRetrievalDriver;
-                      theSection: var BinLDriversDocumentSection;
-                      theIS: var StandardIStream;
-                      isMess: StandardBoolean = standardFalse;
-                      theRange: MessageProgressRange = messageProgressRange()) {.
+proc ReadShapeSection*(this: var BinDrivers_DocumentRetrievalDriver;
+                      theSection: var BinLDrivers_DocumentSection;
+                      theIS: var Standard_IStream;
+                      isMess: Standard_Boolean = Standard_False;
+                      theRange: Message_ProgressRange = Message_ProgressRange()) {.
     importcpp: "ReadShapeSection",
     header: "BinDrivers_DocumentRetrievalDriver.hxx".}
-proc checkShapeSection*(this: var BinDriversDocumentRetrievalDriver;
-                       thePos: StoragePosition; theIS: var StandardIStream) {.
+proc CheckShapeSection*(this: var BinDrivers_DocumentRetrievalDriver;
+                       thePos: Storage_Position; theIS: var Standard_IStream) {.
     importcpp: "CheckShapeSection",
     header: "BinDrivers_DocumentRetrievalDriver.hxx".}
-proc clear*(this: var BinDriversDocumentRetrievalDriver) {.importcpp: "Clear",
+proc Clear*(this: var BinDrivers_DocumentRetrievalDriver) {.importcpp: "Clear",
     header: "BinDrivers_DocumentRetrievalDriver.hxx".}
 type
-  BinDriversDocumentRetrievalDriverbaseType* = BinLDriversDocumentRetrievalDriver
+  BinDrivers_DocumentRetrievalDriverbase_type* = BinLDrivers_DocumentRetrievalDriver
 
-proc getTypeName*(): cstring {.importcpp: "BinDrivers_DocumentRetrievalDriver::get_type_name(@)",
-                            header: "BinDrivers_DocumentRetrievalDriver.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "BinDrivers_DocumentRetrievalDriver::get_type_name(@)",
+                              header: "BinDrivers_DocumentRetrievalDriver.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "BinDrivers_DocumentRetrievalDriver::get_type_descriptor(@)",
     header: "BinDrivers_DocumentRetrievalDriver.hxx".}
-proc dynamicType*(this: BinDriversDocumentRetrievalDriver): Handle[StandardType] {.
+proc DynamicType*(this: BinDrivers_DocumentRetrievalDriver): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType",
     header: "BinDrivers_DocumentRetrievalDriver.hxx".}
-

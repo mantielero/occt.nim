@@ -14,20 +14,25 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../math/math_Vector,
+  ../math/math_FunctionWithDerivative, ../Standard/Standard_Boolean,
+  ../Standard/Standard_Real
+
 ## ! Polynomial  Function
 
 type
-  GeomLibPolyFunc* {.importcpp: "GeomLib_PolyFunc", header: "GeomLib_PolyFunc.hxx",
-                    bycopy.} = object of MathFunctionWithDerivative
+  GeomLib_PolyFunc* {.importcpp: "GeomLib_PolyFunc",
+                     header: "GeomLib_PolyFunc.hxx", bycopy.} = object of math_FunctionWithDerivative
 
 
-proc constructGeomLibPolyFunc*(coeffs: MathVector): GeomLibPolyFunc {.constructor,
-    importcpp: "GeomLib_PolyFunc(@)", header: "GeomLib_PolyFunc.hxx".}
-proc value*(this: var GeomLibPolyFunc; x: StandardReal; f: var StandardReal): StandardBoolean {.
+proc constructGeomLib_PolyFunc*(Coeffs: math_Vector): GeomLib_PolyFunc {.
+    constructor, importcpp: "GeomLib_PolyFunc(@)", header: "GeomLib_PolyFunc.hxx".}
+proc Value*(this: var GeomLib_PolyFunc; X: Standard_Real; F: var Standard_Real): Standard_Boolean {.
     importcpp: "Value", header: "GeomLib_PolyFunc.hxx".}
-proc derivative*(this: var GeomLibPolyFunc; x: StandardReal; d: var StandardReal): StandardBoolean {.
+proc Derivative*(this: var GeomLib_PolyFunc; X: Standard_Real; D: var Standard_Real): Standard_Boolean {.
     importcpp: "Derivative", header: "GeomLib_PolyFunc.hxx".}
-proc values*(this: var GeomLibPolyFunc; x: StandardReal; f: var StandardReal;
-            d: var StandardReal): StandardBoolean {.importcpp: "Values",
+proc Values*(this: var GeomLib_PolyFunc; X: Standard_Real; F: var Standard_Real;
+            D: var Standard_Real): Standard_Boolean {.importcpp: "Values",
     header: "GeomLib_PolyFunc.hxx".}
-

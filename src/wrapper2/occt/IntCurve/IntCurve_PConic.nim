@@ -14,6 +14,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../gp/gp_Ax22d, ../Standard/Standard_Real,
+  ../Standard/Standard_Integer, ../GeomAbs/GeomAbs_CurveType
+
 discard "forward decl of gp_Elips2d"
 discard "forward decl of gp_Circ2d"
 discard "forward decl of gp_Parab2d"
@@ -21,36 +26,35 @@ discard "forward decl of gp_Hypr2d"
 discard "forward decl of gp_Lin2d"
 discard "forward decl of gp_Ax22d"
 type
-  IntCurvePConic* {.importcpp: "IntCurve_PConic", header: "IntCurve_PConic.hxx",
-                   bycopy.} = object
+  IntCurve_PConic* {.importcpp: "IntCurve_PConic", header: "IntCurve_PConic.hxx",
+                    bycopy.} = object
 
 
-proc constructIntCurvePConic*(pc: IntCurvePConic): IntCurvePConic {.constructor,
+proc constructIntCurve_PConic*(PC: IntCurve_PConic): IntCurve_PConic {.constructor,
     importcpp: "IntCurve_PConic(@)", header: "IntCurve_PConic.hxx".}
-proc constructIntCurvePConic*(e: GpElips2d): IntCurvePConic {.constructor,
+proc constructIntCurve_PConic*(E: gp_Elips2d): IntCurve_PConic {.constructor,
     importcpp: "IntCurve_PConic(@)", header: "IntCurve_PConic.hxx".}
-proc constructIntCurvePConic*(c: GpCirc2d): IntCurvePConic {.constructor,
+proc constructIntCurve_PConic*(C: gp_Circ2d): IntCurve_PConic {.constructor,
     importcpp: "IntCurve_PConic(@)", header: "IntCurve_PConic.hxx".}
-proc constructIntCurvePConic*(p: GpParab2d): IntCurvePConic {.constructor,
+proc constructIntCurve_PConic*(P: gp_Parab2d): IntCurve_PConic {.constructor,
     importcpp: "IntCurve_PConic(@)", header: "IntCurve_PConic.hxx".}
-proc constructIntCurvePConic*(h: GpHypr2d): IntCurvePConic {.constructor,
+proc constructIntCurve_PConic*(H: gp_Hypr2d): IntCurve_PConic {.constructor,
     importcpp: "IntCurve_PConic(@)", header: "IntCurve_PConic.hxx".}
-proc constructIntCurvePConic*(L: GpLin2d): IntCurvePConic {.constructor,
+proc constructIntCurve_PConic*(L: gp_Lin2d): IntCurve_PConic {.constructor,
     importcpp: "IntCurve_PConic(@)", header: "IntCurve_PConic.hxx".}
-proc setEpsX*(this: var IntCurvePConic; epsDist: StandardReal) {.importcpp: "SetEpsX",
-    header: "IntCurve_PConic.hxx".}
-proc setAccuracy*(this: var IntCurvePConic; nb: StandardInteger) {.
+proc SetEpsX*(this: var IntCurve_PConic; EpsDist: Standard_Real) {.
+    importcpp: "SetEpsX", header: "IntCurve_PConic.hxx".}
+proc SetAccuracy*(this: var IntCurve_PConic; Nb: Standard_Integer) {.
     importcpp: "SetAccuracy", header: "IntCurve_PConic.hxx".}
-proc accuracy*(this: IntCurvePConic): StandardInteger {.noSideEffect,
+proc Accuracy*(this: IntCurve_PConic): Standard_Integer {.noSideEffect,
     importcpp: "Accuracy", header: "IntCurve_PConic.hxx".}
-proc epsX*(this: IntCurvePConic): StandardReal {.noSideEffect, importcpp: "EpsX",
+proc EpsX*(this: IntCurve_PConic): Standard_Real {.noSideEffect, importcpp: "EpsX",
     header: "IntCurve_PConic.hxx".}
-proc typeCurve*(this: IntCurvePConic): GeomAbsCurveType {.noSideEffect,
+proc TypeCurve*(this: IntCurve_PConic): GeomAbs_CurveType {.noSideEffect,
     importcpp: "TypeCurve", header: "IntCurve_PConic.hxx".}
-proc axis2*(this: IntCurvePConic): GpAx22d {.noSideEffect, importcpp: "Axis2",
+proc Axis2*(this: IntCurve_PConic): gp_Ax22d {.noSideEffect, importcpp: "Axis2",
     header: "IntCurve_PConic.hxx".}
-proc param1*(this: IntCurvePConic): StandardReal {.noSideEffect, importcpp: "Param1",
-    header: "IntCurve_PConic.hxx".}
-proc param2*(this: IntCurvePConic): StandardReal {.noSideEffect, importcpp: "Param2",
-    header: "IntCurve_PConic.hxx".}
-
+proc Param1*(this: IntCurve_PConic): Standard_Real {.noSideEffect,
+    importcpp: "Param1", header: "IntCurve_PConic.hxx".}
+proc Param2*(this: IntCurve_PConic): Standard_Real {.noSideEffect,
+    importcpp: "Param2", header: "IntCurve_PConic.hxx".}

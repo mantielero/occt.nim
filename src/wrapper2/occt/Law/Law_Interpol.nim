@@ -14,59 +14,63 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, Law_BSpFunc,
+  ../TColgp/TColgp_Array1OfPnt2d, ../Standard/Standard_Boolean,
+  ../Standard/Standard_Real
+
 discard "forward decl of Law_Interpol"
 discard "forward decl of Law_Interpol"
 type
-  HandleLawInterpol* = Handle[LawInterpol]
+  Handle_Law_Interpol* = handle[Law_Interpol]
 
 ## ! Provides an evolution law that interpolates a set
 ## ! of parameter and value pairs (wi, radi)
 
 type
-  LawInterpol* {.importcpp: "Law_Interpol", header: "Law_Interpol.hxx", bycopy.} = object of LawBSpFunc ##
-                                                                                              ## !
-                                                                                              ## Constructs
-                                                                                              ## an
-                                                                                              ## empty
-                                                                                              ## interpolative
-                                                                                              ## evolution
-                                                                                              ## law.
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ## The
-                                                                                              ## function
-                                                                                              ## Set
-                                                                                              ## is
-                                                                                              ## used
-                                                                                              ## to
-                                                                                              ## define
-                                                                                              ## the
-                                                                                              ## law.
+  Law_Interpol* {.importcpp: "Law_Interpol", header: "Law_Interpol.hxx", bycopy.} = object of Law_BSpFunc ##
+                                                                                                ## !
+                                                                                                ## Constructs
+                                                                                                ## an
+                                                                                                ## empty
+                                                                                                ## interpolative
+                                                                                                ## evolution
+                                                                                                ## law.
+                                                                                                ##
+                                                                                                ## !
+                                                                                                ## The
+                                                                                                ## function
+                                                                                                ## Set
+                                                                                                ## is
+                                                                                                ## used
+                                                                                                ## to
+                                                                                                ## define
+                                                                                                ## the
+                                                                                                ## law.
 
 
-proc constructLawInterpol*(): LawInterpol {.constructor,
+proc constructLaw_Interpol*(): Law_Interpol {.constructor,
     importcpp: "Law_Interpol(@)", header: "Law_Interpol.hxx".}
-proc set*(this: var LawInterpol; parAndRad: TColgpArray1OfPnt2d;
-         periodic: StandardBoolean = standardFalse) {.importcpp: "Set",
+proc Set*(this: var Law_Interpol; ParAndRad: TColgp_Array1OfPnt2d;
+         Periodic: Standard_Boolean = Standard_False) {.importcpp: "Set",
     header: "Law_Interpol.hxx".}
-proc setInRelative*(this: var LawInterpol; parAndRad: TColgpArray1OfPnt2d;
-                   ud: StandardReal; uf: StandardReal;
-                   periodic: StandardBoolean = standardFalse) {.
+proc SetInRelative*(this: var Law_Interpol; ParAndRad: TColgp_Array1OfPnt2d;
+                   Ud: Standard_Real; Uf: Standard_Real;
+                   Periodic: Standard_Boolean = Standard_False) {.
     importcpp: "SetInRelative", header: "Law_Interpol.hxx".}
-proc set*(this: var LawInterpol; parAndRad: TColgpArray1OfPnt2d; dd: StandardReal;
-         df: StandardReal; periodic: StandardBoolean = standardFalse) {.
+proc Set*(this: var Law_Interpol; ParAndRad: TColgp_Array1OfPnt2d; Dd: Standard_Real;
+         Df: Standard_Real; Periodic: Standard_Boolean = Standard_False) {.
     importcpp: "Set", header: "Law_Interpol.hxx".}
-proc setInRelative*(this: var LawInterpol; parAndRad: TColgpArray1OfPnt2d;
-                   ud: StandardReal; uf: StandardReal; dd: StandardReal;
-                   df: StandardReal; periodic: StandardBoolean = standardFalse) {.
+proc SetInRelative*(this: var Law_Interpol; ParAndRad: TColgp_Array1OfPnt2d;
+                   Ud: Standard_Real; Uf: Standard_Real; Dd: Standard_Real;
+                   Df: Standard_Real; Periodic: Standard_Boolean = Standard_False) {.
     importcpp: "SetInRelative", header: "Law_Interpol.hxx".}
 type
-  LawInterpolbaseType* = LawBSpFunc
+  Law_Interpolbase_type* = Law_BSpFunc
 
-proc getTypeName*(): cstring {.importcpp: "Law_Interpol::get_type_name(@)",
-                            header: "Law_Interpol.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "Law_Interpol::get_type_name(@)",
+                              header: "Law_Interpol.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "Law_Interpol::get_type_descriptor(@)", header: "Law_Interpol.hxx".}
-proc dynamicType*(this: LawInterpol): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: Law_Interpol): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "Law_Interpol.hxx".}
-

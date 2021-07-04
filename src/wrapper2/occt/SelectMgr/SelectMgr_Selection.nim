@@ -14,92 +14,94 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../NCollection/NCollection_Vector, SelectMgr_SensitiveEntity,
+  SelectMgr_StateOfSelection, SelectMgr_TypeOfBVHUpdate, SelectMgr_TypeOfUpdate
+
 discard "forward decl of Select3D_SensitiveEntity"
 type
-  SelectMgrSelection* {.importcpp: "SelectMgr_Selection",
-                       header: "SelectMgr_Selection.hxx", bycopy.} = object of StandardTransient ##
-                                                                                          ## !
-                                                                                          ## Constructs
-                                                                                          ## a
-                                                                                          ## selection
-                                                                                          ## object
-                                                                                          ## defined
-                                                                                          ## by
-                                                                                          ## the
-                                                                                          ## selection
-                                                                                          ## mode
-                                                                                          ## IdMode.
-                                                                                          ##
-                                                                                          ## !
-                                                                                          ## The
-                                                                                          ## default
-                                                                                          ## setting
-                                                                                          ## 0
-                                                                                          ## is
-                                                                                          ## the
-                                                                                          ## selection
-                                                                                          ## mode
-                                                                                          ## for
-                                                                                          ## a
-                                                                                          ## shape
-                                                                                          ## in
-                                                                                          ## its
-                                                                                          ## entirety.
+  SelectMgr_Selection* {.importcpp: "SelectMgr_Selection",
+                        header: "SelectMgr_Selection.hxx", bycopy.} = object of Standard_Transient ##
+                                                                                            ## !
+                                                                                            ## Constructs
+                                                                                            ## a
+                                                                                            ## selection
+                                                                                            ## object
+                                                                                            ## defined
+                                                                                            ## by
+                                                                                            ## the
+                                                                                            ## selection
+                                                                                            ## mode
+                                                                                            ## IdMode.
+                                                                                            ##
+                                                                                            ## !
+                                                                                            ## The
+                                                                                            ## default
+                                                                                            ## setting
+                                                                                            ## 0
+                                                                                            ## is
+                                                                                            ## the
+                                                                                            ## selection
+                                                                                            ## mode
+                                                                                            ## for
+                                                                                            ## a
+                                                                                            ## shape
+                                                                                            ## in
+                                                                                            ## its
+                                                                                            ## entirety.
 
-  SelectMgrSelectionbaseType* = StandardTransient
+  SelectMgr_Selectionbase_type* = Standard_Transient
 
-proc getTypeName*(): cstring {.importcpp: "SelectMgr_Selection::get_type_name(@)",
-                            header: "SelectMgr_Selection.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "SelectMgr_Selection::get_type_name(@)",
+                              header: "SelectMgr_Selection.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "SelectMgr_Selection::get_type_descriptor(@)",
     header: "SelectMgr_Selection.hxx".}
-proc dynamicType*(this: SelectMgrSelection): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: SelectMgr_Selection): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "SelectMgr_Selection.hxx".}
-proc constructSelectMgrSelection*(theModeIdx: StandardInteger = 0): SelectMgrSelection {.
+proc constructSelectMgr_Selection*(theModeIdx: Standard_Integer = 0): SelectMgr_Selection {.
     constructor, importcpp: "SelectMgr_Selection(@)",
     header: "SelectMgr_Selection.hxx".}
-proc destroySelectMgrSelection*(this: var SelectMgrSelection) {.
+proc destroySelectMgr_Selection*(this: var SelectMgr_Selection) {.
     importcpp: "#.~SelectMgr_Selection()", header: "SelectMgr_Selection.hxx".}
-proc destroy*(this: var SelectMgrSelection) {.importcpp: "Destroy",
+proc Destroy*(this: var SelectMgr_Selection) {.importcpp: "Destroy",
     header: "SelectMgr_Selection.hxx".}
-proc add*(this: var SelectMgrSelection;
-         theSensitive: Handle[Select3D_SensitiveEntity]) {.importcpp: "Add",
+proc Add*(this: var SelectMgr_Selection;
+         theSensitive: handle[Select3D_SensitiveEntity]) {.importcpp: "Add",
     header: "SelectMgr_Selection.hxx".}
-proc clear*(this: var SelectMgrSelection) {.importcpp: "Clear",
-                                        header: "SelectMgr_Selection.hxx".}
-proc isEmpty*(this: SelectMgrSelection): StandardBoolean {.noSideEffect,
+proc Clear*(this: var SelectMgr_Selection) {.importcpp: "Clear",
+    header: "SelectMgr_Selection.hxx".}
+proc IsEmpty*(this: SelectMgr_Selection): Standard_Boolean {.noSideEffect,
     importcpp: "IsEmpty", header: "SelectMgr_Selection.hxx".}
-proc mode*(this: SelectMgrSelection): StandardInteger {.noSideEffect,
+proc Mode*(this: SelectMgr_Selection): Standard_Integer {.noSideEffect,
     importcpp: "Mode", header: "SelectMgr_Selection.hxx".}
-proc entities*(this: SelectMgrSelection): NCollectionVector[
-    Handle[SelectMgrSensitiveEntity]] {.noSideEffect, importcpp: "Entities",
-                                       header: "SelectMgr_Selection.hxx".}
-proc changeEntities*(this: var SelectMgrSelection): var NCollectionVector[
-    Handle[SelectMgrSensitiveEntity]] {.importcpp: "ChangeEntities",
-                                       header: "SelectMgr_Selection.hxx".}
-proc updateStatus*(this: SelectMgrSelection): SelectMgrTypeOfUpdate {.noSideEffect,
+proc Entities*(this: SelectMgr_Selection): NCollection_Vector[
+    handle[SelectMgr_SensitiveEntity]] {.noSideEffect, importcpp: "Entities",
+                                        header: "SelectMgr_Selection.hxx".}
+proc ChangeEntities*(this: var SelectMgr_Selection): var NCollection_Vector[
+    handle[SelectMgr_SensitiveEntity]] {.importcpp: "ChangeEntities",
+                                        header: "SelectMgr_Selection.hxx".}
+proc UpdateStatus*(this: SelectMgr_Selection): SelectMgr_TypeOfUpdate {.
+    noSideEffect, importcpp: "UpdateStatus", header: "SelectMgr_Selection.hxx".}
+proc UpdateStatus*(this: var SelectMgr_Selection; theStatus: SelectMgr_TypeOfUpdate) {.
     importcpp: "UpdateStatus", header: "SelectMgr_Selection.hxx".}
-proc updateStatus*(this: var SelectMgrSelection; theStatus: SelectMgrTypeOfUpdate) {.
-    importcpp: "UpdateStatus", header: "SelectMgr_Selection.hxx".}
-proc updateBVHStatus*(this: var SelectMgrSelection;
-                     theStatus: SelectMgrTypeOfBVHUpdate) {.
+proc UpdateBVHStatus*(this: var SelectMgr_Selection;
+                     theStatus: SelectMgr_TypeOfBVHUpdate) {.
     importcpp: "UpdateBVHStatus", header: "SelectMgr_Selection.hxx".}
-proc bVHUpdateStatus*(this: SelectMgrSelection): SelectMgrTypeOfBVHUpdate {.
+proc BVHUpdateStatus*(this: SelectMgr_Selection): SelectMgr_TypeOfBVHUpdate {.
     noSideEffect, importcpp: "BVHUpdateStatus", header: "SelectMgr_Selection.hxx".}
-proc getSelectionState*(this: SelectMgrSelection): SelectMgrStateOfSelection {.
+proc GetSelectionState*(this: SelectMgr_Selection): SelectMgr_StateOfSelection {.
     noSideEffect, importcpp: "GetSelectionState", header: "SelectMgr_Selection.hxx".}
-proc setSelectionState*(this: SelectMgrSelection;
-                       theState: SelectMgrStateOfSelection) {.noSideEffect,
+proc SetSelectionState*(this: SelectMgr_Selection;
+                       theState: SelectMgr_StateOfSelection) {.noSideEffect,
     importcpp: "SetSelectionState", header: "SelectMgr_Selection.hxx".}
-proc sensitivity*(this: SelectMgrSelection): StandardInteger {.noSideEffect,
+proc Sensitivity*(this: SelectMgr_Selection): Standard_Integer {.noSideEffect,
     importcpp: "Sensitivity", header: "SelectMgr_Selection.hxx".}
-proc setSensitivity*(this: var SelectMgrSelection; theNewSens: StandardInteger) {.
+proc SetSensitivity*(this: var SelectMgr_Selection; theNewSens: Standard_Integer) {.
     importcpp: "SetSensitivity", header: "SelectMgr_Selection.hxx".}
-proc dumpJson*(this: SelectMgrSelection; theOStream: var StandardOStream;
-              theDepth: StandardInteger = -1) {.noSideEffect, importcpp: "DumpJson",
+proc DumpJson*(this: SelectMgr_Selection; theOStream: var Standard_OStream;
+              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
     header: "SelectMgr_Selection.hxx".}
 discard "forward decl of SelectMgr_Selection"
 type
-  HandleSelectMgrSelection* = Handle[SelectMgrSelection]
-
-
+  Handle_SelectMgr_Selection* = handle[SelectMgr_Selection]

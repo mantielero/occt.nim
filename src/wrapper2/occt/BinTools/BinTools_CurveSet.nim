@@ -13,31 +13,36 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../TColStd/TColStd_IndexedMapOfTransient,
+  ../Standard/Standard_Integer, ../Standard/Standard_OStream,
+  ../Standard/Standard_IStream, ../Message/Message_ProgressRange
+
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of Geom_Curve"
 type
-  BinToolsCurveSet* {.importcpp: "BinTools_CurveSet",
-                     header: "BinTools_CurveSet.hxx", bycopy.} = object ## ! Returns an empty set of Curves.
+  BinTools_CurveSet* {.importcpp: "BinTools_CurveSet",
+                      header: "BinTools_CurveSet.hxx", bycopy.} = object ## ! Returns an empty set of Curves.
 
 
-proc constructBinToolsCurveSet*(): BinToolsCurveSet {.constructor,
+proc constructBinTools_CurveSet*(): BinTools_CurveSet {.constructor,
     importcpp: "BinTools_CurveSet(@)", header: "BinTools_CurveSet.hxx".}
-proc clear*(this: var BinToolsCurveSet) {.importcpp: "Clear",
-                                      header: "BinTools_CurveSet.hxx".}
-proc add*(this: var BinToolsCurveSet; c: Handle[GeomCurve]): StandardInteger {.
+proc Clear*(this: var BinTools_CurveSet) {.importcpp: "Clear",
+                                       header: "BinTools_CurveSet.hxx".}
+proc Add*(this: var BinTools_CurveSet; C: handle[Geom_Curve]): Standard_Integer {.
     importcpp: "Add", header: "BinTools_CurveSet.hxx".}
-proc curve*(this: BinToolsCurveSet; i: StandardInteger): Handle[GeomCurve] {.
+proc Curve*(this: BinTools_CurveSet; I: Standard_Integer): handle[Geom_Curve] {.
     noSideEffect, importcpp: "Curve", header: "BinTools_CurveSet.hxx".}
-proc index*(this: BinToolsCurveSet; c: Handle[GeomCurve]): StandardInteger {.
+proc Index*(this: BinTools_CurveSet; C: handle[Geom_Curve]): Standard_Integer {.
     noSideEffect, importcpp: "Index", header: "BinTools_CurveSet.hxx".}
-proc write*(this: BinToolsCurveSet; os: var StandardOStream;
-           theRange: MessageProgressRange = messageProgressRange()) {.noSideEffect,
-    importcpp: "Write", header: "BinTools_CurveSet.hxx".}
-proc read*(this: var BinToolsCurveSet; `is`: var StandardIStream;
-          theRange: MessageProgressRange = messageProgressRange()) {.
+proc Write*(this: BinTools_CurveSet; OS: var Standard_OStream;
+           theRange: Message_ProgressRange = Message_ProgressRange()) {.
+    noSideEffect, importcpp: "Write", header: "BinTools_CurveSet.hxx".}
+proc Read*(this: var BinTools_CurveSet; IS: var Standard_IStream;
+          theRange: Message_ProgressRange = Message_ProgressRange()) {.
     importcpp: "Read", header: "BinTools_CurveSet.hxx".}
-proc writeCurve*(c: Handle[GeomCurve]; os: var StandardOStream) {.
+proc WriteCurve*(C: handle[Geom_Curve]; OS: var Standard_OStream) {.
     importcpp: "BinTools_CurveSet::WriteCurve(@)", header: "BinTools_CurveSet.hxx".}
-proc readCurve*(`is`: var StandardIStream; c: var Handle[GeomCurve]): var StandardIStream {.
+proc ReadCurve*(IS: var Standard_IStream; C: var handle[Geom_Curve]): var Standard_IStream {.
     importcpp: "BinTools_CurveSet::ReadCurve(@)", header: "BinTools_CurveSet.hxx".}
-

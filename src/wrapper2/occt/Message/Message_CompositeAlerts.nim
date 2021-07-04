@@ -11,75 +11,77 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  Message_Alert, Message_Gravity, Message_ListOfAlert,
+  ../Standard/Standard_Transient
+
 ## ! Class providing container of alerts
 
 type
-  MessageCompositeAlerts* {.importcpp: "Message_CompositeAlerts",
-                           header: "Message_CompositeAlerts.hxx", bycopy.} = object of StandardTransient ##
-                                                                                                  ## !
-                                                                                                  ## Empty
-                                                                                                  ## constructor
-                                                                                                  ##
-                                                                                                  ## store
-                                                                                                  ## messages
-                                                                                                  ## in
-                                                                                                  ## a
-                                                                                                  ## lists
-                                                                                                  ## sorted
-                                                                                                  ## by
-                                                                                                  ## gravity;
-                                                                                                  ##
-                                                                                                  ## here
-                                                                                                  ## we
-                                                                                                  ## rely
-                                                                                                  ## on
-                                                                                                  ## knowledge
-                                                                                                  ## that
-                                                                                                  ## Message_Fail
-                                                                                                  ## is
-                                                                                                  ## the
-                                                                                                  ## last
-                                                                                                  ## element
-                                                                                                  ## of
-                                                                                                  ## the
-                                                                                                  ## enum
+  Message_CompositeAlerts* {.importcpp: "Message_CompositeAlerts",
+                            header: "Message_CompositeAlerts.hxx", bycopy.} = object of Standard_Transient ##
+                                                                                                    ## !
+                                                                                                    ## Empty
+                                                                                                    ## constructor
+                                                                                                    ##
+                                                                                                    ## store
+                                                                                                    ## messages
+                                                                                                    ## in
+                                                                                                    ## a
+                                                                                                    ## lists
+                                                                                                    ## sorted
+                                                                                                    ## by
+                                                                                                    ## gravity;
+                                                                                                    ##
+                                                                                                    ## here
+                                                                                                    ## we
+                                                                                                    ## rely
+                                                                                                    ## on
+                                                                                                    ## knowledge
+                                                                                                    ## that
+                                                                                                    ## Message_Fail
+                                                                                                    ## is
+                                                                                                    ## the
+                                                                                                    ## last
+                                                                                                    ## element
+                                                                                                    ## of
+                                                                                                    ## the
+                                                                                                    ## enum
     ## !< container of child alert for each type of gravity
 
-  MessageCompositeAlertsbaseType* = StandardTransient
+  Message_CompositeAlertsbase_type* = Standard_Transient
 
-proc getTypeName*(): cstring {.importcpp: "Message_CompositeAlerts::get_type_name(@)",
-                            header: "Message_CompositeAlerts.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "Message_CompositeAlerts::get_type_name(@)",
+                              header: "Message_CompositeAlerts.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "Message_CompositeAlerts::get_type_descriptor(@)",
     header: "Message_CompositeAlerts.hxx".}
-proc dynamicType*(this: MessageCompositeAlerts): Handle[StandardType] {.
+proc DynamicType*(this: Message_CompositeAlerts): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType", header: "Message_CompositeAlerts.hxx".}
-proc constructMessageCompositeAlerts*(): MessageCompositeAlerts {.constructor,
+proc constructMessage_CompositeAlerts*(): Message_CompositeAlerts {.constructor,
     importcpp: "Message_CompositeAlerts(@)", header: "Message_CompositeAlerts.hxx".}
-proc alerts*(this: MessageCompositeAlerts; theGravity: MessageGravity): MessageListOfAlert {.
+proc Alerts*(this: Message_CompositeAlerts; theGravity: Message_Gravity): Message_ListOfAlert {.
     noSideEffect, importcpp: "Alerts", header: "Message_CompositeAlerts.hxx".}
-proc addAlert*(this: var MessageCompositeAlerts; theGravity: MessageGravity;
-              theAlert: Handle[MessageAlert]): StandardBoolean {.
+proc AddAlert*(this: var Message_CompositeAlerts; theGravity: Message_Gravity;
+              theAlert: handle[Message_Alert]): Standard_Boolean {.
     importcpp: "AddAlert", header: "Message_CompositeAlerts.hxx".}
-proc removeAlert*(this: var MessageCompositeAlerts; theGravity: MessageGravity;
-                 theAlert: Handle[MessageAlert]): StandardBoolean {.
+proc RemoveAlert*(this: var Message_CompositeAlerts; theGravity: Message_Gravity;
+                 theAlert: handle[Message_Alert]): Standard_Boolean {.
     importcpp: "RemoveAlert", header: "Message_CompositeAlerts.hxx".}
-proc hasAlert*(this: var MessageCompositeAlerts; theAlert: Handle[MessageAlert]): StandardBoolean {.
+proc HasAlert*(this: var Message_CompositeAlerts; theAlert: handle[Message_Alert]): Standard_Boolean {.
     importcpp: "HasAlert", header: "Message_CompositeAlerts.hxx".}
-proc hasAlert*(this: var MessageCompositeAlerts; theType: Handle[StandardType];
-              theGravity: MessageGravity): StandardBoolean {.importcpp: "HasAlert",
+proc HasAlert*(this: var Message_CompositeAlerts; theType: handle[Standard_Type];
+              theGravity: Message_Gravity): Standard_Boolean {.
+    importcpp: "HasAlert", header: "Message_CompositeAlerts.hxx".}
+proc Clear*(this: var Message_CompositeAlerts) {.importcpp: "Clear",
     header: "Message_CompositeAlerts.hxx".}
-proc clear*(this: var MessageCompositeAlerts) {.importcpp: "Clear",
-    header: "Message_CompositeAlerts.hxx".}
-proc clear*(this: var MessageCompositeAlerts; theGravity: MessageGravity) {.
+proc Clear*(this: var Message_CompositeAlerts; theGravity: Message_Gravity) {.
     importcpp: "Clear", header: "Message_CompositeAlerts.hxx".}
-proc clear*(this: var MessageCompositeAlerts; theType: Handle[StandardType]) {.
+proc Clear*(this: var Message_CompositeAlerts; theType: handle[Standard_Type]) {.
     importcpp: "Clear", header: "Message_CompositeAlerts.hxx".}
-proc dumpJson*(this: MessageCompositeAlerts; theOStream: var StandardOStream;
-              theDepth: StandardInteger = -1) {.noSideEffect, importcpp: "DumpJson",
+proc DumpJson*(this: Message_CompositeAlerts; theOStream: var Standard_OStream;
+              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
     header: "Message_CompositeAlerts.hxx".}
 discard "forward decl of Message_CompositeAlerts"
 type
-  HandleMessageCompositeAlerts* = Handle[MessageCompositeAlerts]
-
-
+  Handle_Message_CompositeAlerts* = handle[Message_CompositeAlerts]

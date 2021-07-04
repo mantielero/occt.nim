@@ -14,7 +14,8 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  IFSelect_Dispatch, ../NCollection/NCollection_Sequence
+
 type
-  IFSelectTSeqOfDispatch* = NCollectionSequence[Handle[IFSelectDispatch]]
-
-
+  IFSelect_TSeqOfDispatch* = NCollection_Sequence[handle[IFSelect_Dispatch]]

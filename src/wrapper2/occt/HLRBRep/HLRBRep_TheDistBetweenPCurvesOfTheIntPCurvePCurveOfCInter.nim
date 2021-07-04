@@ -14,35 +14,40 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Address,
+  ../math/math_FunctionSetWithDerivatives, ../Standard/Standard_Integer,
+  ../Standard/Standard_Boolean, ../math/math_Vector
+
 discard "forward decl of HLRBRep_CurveTool"
 discard "forward decl of math_Matrix"
 type
-  HLRBRepTheDistBetweenPCurvesOfTheIntPCurvePCurveOfCInter* {.
+  HLRBRep_TheDistBetweenPCurvesOfTheIntPCurvePCurveOfCInter* {.
       importcpp: "HLRBRep_TheDistBetweenPCurvesOfTheIntPCurvePCurveOfCInter",
       header: "HLRBRep_TheDistBetweenPCurvesOfTheIntPCurvePCurveOfCInter.hxx",
-      bycopy.} = object of MathFunctionSetWithDerivatives
+      bycopy.} = object of math_FunctionSetWithDerivatives
 
 
-proc constructHLRBRepTheDistBetweenPCurvesOfTheIntPCurvePCurveOfCInter*(
-    curve1: StandardAddress; curve2: StandardAddress): HLRBRepTheDistBetweenPCurvesOfTheIntPCurvePCurveOfCInter {.
+proc constructHLRBRep_TheDistBetweenPCurvesOfTheIntPCurvePCurveOfCInter*(
+    curve1: Standard_Address; curve2: Standard_Address): HLRBRep_TheDistBetweenPCurvesOfTheIntPCurvePCurveOfCInter {.
     constructor,
     importcpp: "HLRBRep_TheDistBetweenPCurvesOfTheIntPCurvePCurveOfCInter(@)",
     header: "HLRBRep_TheDistBetweenPCurvesOfTheIntPCurvePCurveOfCInter.hxx".}
-proc nbVariables*(this: HLRBRepTheDistBetweenPCurvesOfTheIntPCurvePCurveOfCInter): StandardInteger {.
+proc NbVariables*(this: HLRBRep_TheDistBetweenPCurvesOfTheIntPCurvePCurveOfCInter): Standard_Integer {.
     noSideEffect, importcpp: "NbVariables",
     header: "HLRBRep_TheDistBetweenPCurvesOfTheIntPCurvePCurveOfCInter.hxx".}
-proc nbEquations*(this: HLRBRepTheDistBetweenPCurvesOfTheIntPCurvePCurveOfCInter): StandardInteger {.
+proc NbEquations*(this: HLRBRep_TheDistBetweenPCurvesOfTheIntPCurvePCurveOfCInter): Standard_Integer {.
     noSideEffect, importcpp: "NbEquations",
     header: "HLRBRep_TheDistBetweenPCurvesOfTheIntPCurvePCurveOfCInter.hxx".}
-proc value*(this: var HLRBRepTheDistBetweenPCurvesOfTheIntPCurvePCurveOfCInter;
-           x: MathVector; f: var MathVector): StandardBoolean {.importcpp: "Value",
+proc Value*(this: var HLRBRep_TheDistBetweenPCurvesOfTheIntPCurvePCurveOfCInter;
+           X: math_Vector; F: var math_Vector): Standard_Boolean {.importcpp: "Value",
     header: "HLRBRep_TheDistBetweenPCurvesOfTheIntPCurvePCurveOfCInter.hxx".}
-proc derivatives*(this: var HLRBRepTheDistBetweenPCurvesOfTheIntPCurvePCurveOfCInter;
-                 x: MathVector; d: var MathMatrix): StandardBoolean {.
+proc Derivatives*(this: var HLRBRep_TheDistBetweenPCurvesOfTheIntPCurvePCurveOfCInter;
+                 X: math_Vector; D: var math_Matrix): Standard_Boolean {.
     importcpp: "Derivatives",
     header: "HLRBRep_TheDistBetweenPCurvesOfTheIntPCurvePCurveOfCInter.hxx".}
-proc values*(this: var HLRBRepTheDistBetweenPCurvesOfTheIntPCurvePCurveOfCInter;
-            x: MathVector; f: var MathVector; d: var MathMatrix): StandardBoolean {.
+proc Values*(this: var HLRBRep_TheDistBetweenPCurvesOfTheIntPCurvePCurveOfCInter;
+            X: math_Vector; F: var math_Vector; D: var math_Matrix): Standard_Boolean {.
     importcpp: "Values",
     header: "HLRBRep_TheDistBetweenPCurvesOfTheIntPCurvePCurveOfCInter.hxx".}
-

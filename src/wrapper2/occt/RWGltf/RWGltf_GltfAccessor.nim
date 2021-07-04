@@ -12,21 +12,24 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Graphic3d/Graphic3d_BndBox3d, RWGltf_GltfAccessorCompType,
+  RWGltf_GltfAccessorLayout, ../Standard/Standard_TypeDef
+
 ## ! Low-level glTF data structure defining Accessor.
 
 type
-  RWGltfGltfAccessor* {.importcpp: "RWGltf_GltfAccessor",
-                       header: "RWGltf_GltfAccessor.hxx", bycopy.} = object
-    id* {.importc: "Id".}: cint  ## !< identifier
-    byteOffset* {.importc: "ByteOffset".}: int64T ## !< byte offset
-    count* {.importc: "Count".}: int64T ## !< size
-    byteStride* {.importc: "ByteStride".}: int32T ## !< [0, 255] for glTF 1.0
-    `type`* {.importc: "Type".}: RWGltfGltfAccessorLayout ## !< layout type
-    componentType* {.importc: "ComponentType".}: RWGltfGltfAccessorCompType ## !< component type
-    bndBox* {.importc: "BndBox".}: Graphic3dBndBox3d ## !< bounding box
-                                                 ## ! Empty constructor.
+  RWGltf_GltfAccessor* {.importcpp: "RWGltf_GltfAccessor",
+                        header: "RWGltf_GltfAccessor.hxx", bycopy.} = object
+    Id* {.importc: "Id".}: cint  ## !< identifier
+    ByteOffset* {.importc: "ByteOffset".}: int64_t ## !< byte offset
+    Count* {.importc: "Count".}: int64_t ## !< size
+    ByteStride* {.importc: "ByteStride".}: int32_t ## !< [0, 255] for glTF 1.0
+    Type* {.importc: "Type".}: RWGltf_GltfAccessorLayout ## !< layout type
+    ComponentType* {.importc: "ComponentType".}: RWGltf_GltfAccessorCompType ## !< component type
+    BndBox* {.importc: "BndBox".}: Graphic3d_BndBox3d ## !< bounding box
+                                                  ## ! Empty constructor.
 
 
-proc constructRWGltfGltfAccessor*(): RWGltfGltfAccessor {.constructor,
+proc constructRWGltf_GltfAccessor*(): RWGltf_GltfAccessor {.constructor,
     importcpp: "RWGltf_GltfAccessor(@)", header: "RWGltf_GltfAccessor.hxx".}
-

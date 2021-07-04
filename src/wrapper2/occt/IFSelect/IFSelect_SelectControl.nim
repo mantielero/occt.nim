@@ -14,12 +14,16 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, IFSelect_Selection,
+  ../Standard/Standard_Boolean
+
 discard "forward decl of IFSelect_Selection"
 discard "forward decl of IFSelect_SelectionIterator"
 discard "forward decl of IFSelect_SelectControl"
 discard "forward decl of IFSelect_SelectControl"
 type
-  HandleIFSelectSelectControl* = Handle[IFSelectSelectControl]
+  Handle_IFSelect_SelectControl* = handle[IFSelect_SelectControl]
 
 ## ! A SelectControl kind Selection works with two input Selections
 ## ! in a dissymmetric way : the Main Input which gives an input
@@ -36,36 +40,37 @@ type
 ## ! each sub-class
 
 type
-  IFSelectSelectControl* {.importcpp: "IFSelect_SelectControl",
-                          header: "IFSelect_SelectControl.hxx", bycopy.} = object of IFSelectSelection ##
-                                                                                                ## !
-                                                                                                ## Returns
-                                                                                                ## the
-                                                                                                ## Main
-                                                                                                ## Input
-                                                                                                ## Selection
+  IFSelect_SelectControl* {.importcpp: "IFSelect_SelectControl",
+                           header: "IFSelect_SelectControl.hxx", bycopy.} = object of IFSelect_Selection ##
+                                                                                                  ## !
+                                                                                                  ## Returns
+                                                                                                  ## the
+                                                                                                  ## Main
+                                                                                                  ## Input
+                                                                                                  ## Selection
 
 
-proc mainInput*(this: IFSelectSelectControl): Handle[IFSelectSelection] {.
+proc MainInput*(this: IFSelect_SelectControl): handle[IFSelect_Selection] {.
     noSideEffect, importcpp: "MainInput", header: "IFSelect_SelectControl.hxx".}
-proc hasSecondInput*(this: IFSelectSelectControl): StandardBoolean {.noSideEffect,
+proc HasSecondInput*(this: IFSelect_SelectControl): Standard_Boolean {.noSideEffect,
     importcpp: "HasSecondInput", header: "IFSelect_SelectControl.hxx".}
-proc secondInput*(this: IFSelectSelectControl): Handle[IFSelectSelection] {.
+proc SecondInput*(this: IFSelect_SelectControl): handle[IFSelect_Selection] {.
     noSideEffect, importcpp: "SecondInput", header: "IFSelect_SelectControl.hxx".}
-proc setMainInput*(this: var IFSelectSelectControl; sel: Handle[IFSelectSelection]) {.
+proc SetMainInput*(this: var IFSelect_SelectControl; sel: handle[IFSelect_Selection]) {.
     importcpp: "SetMainInput", header: "IFSelect_SelectControl.hxx".}
-proc setSecondInput*(this: var IFSelectSelectControl; sel: Handle[IFSelectSelection]) {.
+proc SetSecondInput*(this: var IFSelect_SelectControl;
+                    sel: handle[IFSelect_Selection]) {.
     importcpp: "SetSecondInput", header: "IFSelect_SelectControl.hxx".}
-proc fillIterator*(this: IFSelectSelectControl; iter: var IFSelectSelectionIterator) {.
-    noSideEffect, importcpp: "FillIterator", header: "IFSelect_SelectControl.hxx".}
+proc FillIterator*(this: IFSelect_SelectControl;
+                  iter: var IFSelect_SelectionIterator) {.noSideEffect,
+    importcpp: "FillIterator", header: "IFSelect_SelectControl.hxx".}
 type
-  IFSelectSelectControlbaseType* = IFSelectSelection
+  IFSelect_SelectControlbase_type* = IFSelect_Selection
 
-proc getTypeName*(): cstring {.importcpp: "IFSelect_SelectControl::get_type_name(@)",
-                            header: "IFSelect_SelectControl.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "IFSelect_SelectControl::get_type_name(@)",
+                              header: "IFSelect_SelectControl.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "IFSelect_SelectControl::get_type_descriptor(@)",
     header: "IFSelect_SelectControl.hxx".}
-proc dynamicType*(this: IFSelectSelectControl): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "IFSelect_SelectControl.hxx".}
-
+proc DynamicType*(this: IFSelect_SelectControl): handle[Standard_Type] {.
+    noSideEffect, importcpp: "DynamicType", header: "IFSelect_SelectControl.hxx".}

@@ -14,17 +14,15 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _Expr_InvalidFunction_HeaderFile [NewLine] # _Expr_InvalidFunction_HeaderFile [NewLine] # < Standard_Type . hxx > [NewLine] # < Standard_DefineException . hxx > [NewLine] # < Standard_SStream . hxx > [NewLine] # < Expr_ExprFailure . hxx > [NewLine] class Expr_InvalidFunction ;
+## !!!Ignored construct:  # _Expr_InvalidFunction_HeaderFile [NewLine] # _Expr_InvalidFunction_HeaderFile [NewLine] # ../Standard/Standard_Type.hxx [NewLine] # ../Standard/Standard_DefineException.hxx [NewLine] # ../Standard/Standard_SStream.hxx [NewLine] # Expr_ExprFailure.hxx [NewLine] class Expr_InvalidFunction ;
 ## Error: expected ';'!!!
 
 discard "forward decl of Expr_InvalidFunction"
 type
-  HandleExprInvalidFunctionExprInvalidFunction* = Handle[ExprInvalidFunction]
+  Handle_Expr_InvalidFunctionExpr_InvalidFunction* = handle[Expr_InvalidFunction]
 
 ## !!!Ignored construct:  # ! defined No_Exception && ! defined No_Expr_InvalidFunction [NewLine] # if ( CONDITION ) throw Expr_InvalidFunction ( MESSAGE ) ;
 ## Error: did not expect [NewLine]!!!
 
-## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( Expr_InvalidFunction , Expr_ExprFailure ) #  _Expr_InvalidFunction_HeaderFile
+## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( Expr_InvalidFunction , Expr_ExprFailure ) #  _Expr_InvalidFunction_HeaderFile [NewLine]
 ## Error: did not expect [NewLine]!!!
-
-

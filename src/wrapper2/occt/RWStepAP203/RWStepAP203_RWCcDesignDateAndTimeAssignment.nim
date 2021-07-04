@@ -14,35 +14,38 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepAP203_CcDesignDateAndTimeAssignment"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepAP203RWCcDesignDateAndTimeAssignment* {.
+  RWStepAP203_RWCcDesignDateAndTimeAssignment* {.
       importcpp: "RWStepAP203_RWCcDesignDateAndTimeAssignment",
       header: "RWStepAP203_RWCcDesignDateAndTimeAssignment.hxx", bycopy.} = object ## !
                                                                               ## Empty
                                                                               ## constructor
 
 
-proc constructRWStepAP203RWCcDesignDateAndTimeAssignment*(): RWStepAP203RWCcDesignDateAndTimeAssignment {.
+proc constructRWStepAP203_RWCcDesignDateAndTimeAssignment*(): RWStepAP203_RWCcDesignDateAndTimeAssignment {.
     constructor, importcpp: "RWStepAP203_RWCcDesignDateAndTimeAssignment(@)",
     header: "RWStepAP203_RWCcDesignDateAndTimeAssignment.hxx".}
-proc readStep*(this: RWStepAP203RWCcDesignDateAndTimeAssignment;
-              data: Handle[StepDataStepReaderData]; num: StandardInteger;
-              ach: var Handle[InterfaceCheck];
-              ent: Handle[StepAP203CcDesignDateAndTimeAssignment]) {.noSideEffect,
-    importcpp: "ReadStep",
+proc ReadStep*(this: RWStepAP203_RWCcDesignDateAndTimeAssignment;
+              data: handle[StepData_StepReaderData]; num: Standard_Integer;
+              ach: var handle[Interface_Check];
+              ent: handle[StepAP203_CcDesignDateAndTimeAssignment]) {.
+    noSideEffect, importcpp: "ReadStep",
     header: "RWStepAP203_RWCcDesignDateAndTimeAssignment.hxx".}
-proc writeStep*(this: RWStepAP203RWCcDesignDateAndTimeAssignment;
-               sw: var StepDataStepWriter;
-               ent: Handle[StepAP203CcDesignDateAndTimeAssignment]) {.
+proc WriteStep*(this: RWStepAP203_RWCcDesignDateAndTimeAssignment;
+               SW: var StepData_StepWriter;
+               ent: handle[StepAP203_CcDesignDateAndTimeAssignment]) {.
     noSideEffect, importcpp: "WriteStep",
     header: "RWStepAP203_RWCcDesignDateAndTimeAssignment.hxx".}
-proc share*(this: RWStepAP203RWCcDesignDateAndTimeAssignment;
-           ent: Handle[StepAP203CcDesignDateAndTimeAssignment];
-           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
+proc Share*(this: RWStepAP203_RWCcDesignDateAndTimeAssignment;
+           ent: handle[StepAP203_CcDesignDateAndTimeAssignment];
+           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepAP203_RWCcDesignDateAndTimeAssignment.hxx".}
-

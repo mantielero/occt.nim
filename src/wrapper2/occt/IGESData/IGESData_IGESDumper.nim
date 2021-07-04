@@ -14,38 +14,45 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, IGESData_SpecificLib, ../Standard/Standard_Integer
+
 discard "forward decl of IGESData_IGESModel"
 discard "forward decl of Interface_InterfaceError"
 discard "forward decl of IGESData_Protocol"
 discard "forward decl of IGESData_IGESEntity"
 type
-  IGESDataIGESDumper* {.importcpp: "IGESData_IGESDumper",
-                       header: "IGESData_IGESDumper.hxx", bycopy.} = object ## ! Returns an
-                                                                       ## IGESDumper ready to work. The IGESModel provides
-                                                                       ## ! the numbering of Entities : as for any
-                                                                       ## InterfaceModel, it
-                                                                       ## ! gives each Entity a number; but for
-                                                                       ## IGESEntities, the "Number
-                                                                       ## ! of Directory Entry" according to the
-                                                                       ## definition of IGES Files,
-                                                                       ## ! is also usefull
+  IGESData_IGESDumper* {.importcpp: "IGESData_IGESDumper",
+                        header: "IGESData_IGESDumper.hxx", bycopy.} = object ## ! Returns an
+                                                                        ## IGESDumper ready to work. The
+                                                                        ## IGESModel provides
+                                                                        ## ! the
+                                                                        ## numbering of Entities : as for any
+                                                                        ## InterfaceModel, it
+                                                                        ## ! gives each Entity a number; but for
+                                                                        ## IGESEntities, the "Number
+                                                                        ## ! of
+                                                                        ## Directory Entry"
+                                                                        ## according to the
+                                                                        ## definition of IGES Files,
+                                                                        ## ! is also usefull
 
 
-proc constructIGESDataIGESDumper*(model: Handle[IGESDataIGESModel];
-                                 protocol: Handle[IGESDataProtocol]): IGESDataIGESDumper {.
+proc constructIGESData_IGESDumper*(model: handle[IGESData_IGESModel];
+                                  protocol: handle[IGESData_Protocol]): IGESData_IGESDumper {.
     constructor, importcpp: "IGESData_IGESDumper(@)",
     header: "IGESData_IGESDumper.hxx".}
-proc printDNum*(this: IGESDataIGESDumper; ent: Handle[IGESDataIGESEntity];
-               s: var StandardOStream) {.noSideEffect, importcpp: "PrintDNum",
-                                      header: "IGESData_IGESDumper.hxx".}
-proc printShort*(this: IGESDataIGESDumper; ent: Handle[IGESDataIGESEntity];
-                s: var StandardOStream) {.noSideEffect, importcpp: "PrintShort",
+proc PrintDNum*(this: IGESData_IGESDumper; ent: handle[IGESData_IGESEntity];
+               S: var Standard_OStream) {.noSideEffect, importcpp: "PrintDNum",
                                        header: "IGESData_IGESDumper.hxx".}
-proc dump*(this: IGESDataIGESDumper; ent: Handle[IGESDataIGESEntity];
-          s: var StandardOStream; own: StandardInteger;
-          attached: StandardInteger = -1) {.noSideEffect, importcpp: "Dump",
+proc PrintShort*(this: IGESData_IGESDumper; ent: handle[IGESData_IGESEntity];
+                S: var Standard_OStream) {.noSideEffect, importcpp: "PrintShort",
                                         header: "IGESData_IGESDumper.hxx".}
-proc ownDump*(this: IGESDataIGESDumper; ent: Handle[IGESDataIGESEntity];
-             s: var StandardOStream; own: StandardInteger) {.noSideEffect,
+proc Dump*(this: IGESData_IGESDumper; ent: handle[IGESData_IGESEntity];
+          S: var Standard_OStream; own: Standard_Integer;
+          attached: Standard_Integer = -1) {.noSideEffect, importcpp: "Dump",
+    header: "IGESData_IGESDumper.hxx".}
+proc OwnDump*(this: IGESData_IGESDumper; ent: handle[IGESData_IGESEntity];
+             S: var Standard_OStream; own: Standard_Integer) {.noSideEffect,
     importcpp: "OwnDump", header: "IGESData_IGESDumper.hxx".}
-

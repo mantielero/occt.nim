@@ -13,6 +13,15 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, Blend_AppFunction, ../Standard/Standard_Integer,
+  ../Standard/Standard_Boolean, ../math/math_Vector, ../Standard/Standard_Real,
+  ../TColStd/TColStd_Array1OfReal, ../GeomAbs/GeomAbs_Shape,
+  ../TColStd/TColStd_Array1OfInteger, ../TColgp/TColgp_Array1OfPnt,
+  ../TColgp/TColgp_Array1OfVec, ../TColgp/TColgp_Array1OfPnt2d,
+  ../TColgp/TColgp_Array1OfVec2d
+
 discard "forward decl of Standard_DomainError"
 discard "forward decl of math_Matrix"
 discard "forward decl of gp_Pnt"
@@ -21,107 +30,108 @@ discard "forward decl of gp_Vec"
 discard "forward decl of gp_Vec2d"
 discard "forward decl of Blend_Point"
 type
-  BlendSurfRstFunction* {.importcpp: "Blend_SurfRstFunction",
-                         header: "Blend_SurfRstFunction.hxx", bycopy.} = object of BlendAppFunction ##
-                                                                                             ## !
-                                                                                             ## Returns
-                                                                                             ## 3
-                                                                                             ## (default
-                                                                                             ## value).
-                                                                                             ## Can
-                                                                                             ## be
-                                                                                             ## redefined.
+  Blend_SurfRstFunction* {.importcpp: "Blend_SurfRstFunction",
+                          header: "Blend_SurfRstFunction.hxx", bycopy.} = object of Blend_AppFunction ##
+                                                                                               ## !
+                                                                                               ## Returns
+                                                                                               ## 3
+                                                                                               ## (default
+                                                                                               ## value).
+                                                                                               ## Can
+                                                                                               ## be
+                                                                                               ## redefined.
 
 
-proc nbVariables*(this: BlendSurfRstFunction): StandardInteger {.noSideEffect,
+proc NbVariables*(this: Blend_SurfRstFunction): Standard_Integer {.noSideEffect,
     importcpp: "NbVariables", header: "Blend_SurfRstFunction.hxx".}
-proc nbEquations*(this: BlendSurfRstFunction): StandardInteger {.noSideEffect,
+proc NbEquations*(this: Blend_SurfRstFunction): Standard_Integer {.noSideEffect,
     importcpp: "NbEquations", header: "Blend_SurfRstFunction.hxx".}
-proc value*(this: var BlendSurfRstFunction; x: MathVector; f: var MathVector): StandardBoolean {.
+proc Value*(this: var Blend_SurfRstFunction; X: math_Vector; F: var math_Vector): Standard_Boolean {.
     importcpp: "Value", header: "Blend_SurfRstFunction.hxx".}
-proc derivatives*(this: var BlendSurfRstFunction; x: MathVector; d: var MathMatrix): StandardBoolean {.
+proc Derivatives*(this: var Blend_SurfRstFunction; X: math_Vector; D: var math_Matrix): Standard_Boolean {.
     importcpp: "Derivatives", header: "Blend_SurfRstFunction.hxx".}
-proc values*(this: var BlendSurfRstFunction; x: MathVector; f: var MathVector;
-            d: var MathMatrix): StandardBoolean {.importcpp: "Values",
+proc Values*(this: var Blend_SurfRstFunction; X: math_Vector; F: var math_Vector;
+            D: var math_Matrix): Standard_Boolean {.importcpp: "Values",
     header: "Blend_SurfRstFunction.hxx".}
-proc set*(this: var BlendSurfRstFunction; param: StandardReal) {.importcpp: "Set",
+proc Set*(this: var Blend_SurfRstFunction; Param: Standard_Real) {.importcpp: "Set",
     header: "Blend_SurfRstFunction.hxx".}
-proc set*(this: var BlendSurfRstFunction; first: StandardReal; last: StandardReal) {.
+proc Set*(this: var Blend_SurfRstFunction; First: Standard_Real; Last: Standard_Real) {.
     importcpp: "Set", header: "Blend_SurfRstFunction.hxx".}
-proc getTolerance*(this: BlendSurfRstFunction; tolerance: var MathVector;
-                  tol: StandardReal) {.noSideEffect, importcpp: "GetTolerance",
-                                     header: "Blend_SurfRstFunction.hxx".}
-proc getBounds*(this: BlendSurfRstFunction; infBound: var MathVector;
-               supBound: var MathVector) {.noSideEffect, importcpp: "GetBounds",
-                                        header: "Blend_SurfRstFunction.hxx".}
-proc isSolution*(this: var BlendSurfRstFunction; sol: MathVector; tol: StandardReal): StandardBoolean {.
+proc GetTolerance*(this: Blend_SurfRstFunction; Tolerance: var math_Vector;
+                  Tol: Standard_Real) {.noSideEffect, importcpp: "GetTolerance",
+                                      header: "Blend_SurfRstFunction.hxx".}
+proc GetBounds*(this: Blend_SurfRstFunction; InfBound: var math_Vector;
+               SupBound: var math_Vector) {.noSideEffect, importcpp: "GetBounds",
+    header: "Blend_SurfRstFunction.hxx".}
+proc IsSolution*(this: var Blend_SurfRstFunction; Sol: math_Vector; Tol: Standard_Real): Standard_Boolean {.
     importcpp: "IsSolution", header: "Blend_SurfRstFunction.hxx".}
-proc getMinimalDistance*(this: BlendSurfRstFunction): StandardReal {.noSideEffect,
+proc GetMinimalDistance*(this: Blend_SurfRstFunction): Standard_Real {.noSideEffect,
     importcpp: "GetMinimalDistance", header: "Blend_SurfRstFunction.hxx".}
-proc pnt1*(this: BlendSurfRstFunction): GpPnt {.noSideEffect, importcpp: "Pnt1",
+proc Pnt1*(this: Blend_SurfRstFunction): gp_Pnt {.noSideEffect, importcpp: "Pnt1",
     header: "Blend_SurfRstFunction.hxx".}
-proc pnt2*(this: BlendSurfRstFunction): GpPnt {.noSideEffect, importcpp: "Pnt2",
+proc Pnt2*(this: Blend_SurfRstFunction): gp_Pnt {.noSideEffect, importcpp: "Pnt2",
     header: "Blend_SurfRstFunction.hxx".}
-proc pointOnS*(this: BlendSurfRstFunction): GpPnt {.noSideEffect,
+proc PointOnS*(this: Blend_SurfRstFunction): gp_Pnt {.noSideEffect,
     importcpp: "PointOnS", header: "Blend_SurfRstFunction.hxx".}
-proc pointOnRst*(this: BlendSurfRstFunction): GpPnt {.noSideEffect,
+proc PointOnRst*(this: Blend_SurfRstFunction): gp_Pnt {.noSideEffect,
     importcpp: "PointOnRst", header: "Blend_SurfRstFunction.hxx".}
-proc pnt2dOnS*(this: BlendSurfRstFunction): GpPnt2d {.noSideEffect,
+proc Pnt2dOnS*(this: Blend_SurfRstFunction): gp_Pnt2d {.noSideEffect,
     importcpp: "Pnt2dOnS", header: "Blend_SurfRstFunction.hxx".}
-proc pnt2dOnRst*(this: BlendSurfRstFunction): GpPnt2d {.noSideEffect,
+proc Pnt2dOnRst*(this: Blend_SurfRstFunction): gp_Pnt2d {.noSideEffect,
     importcpp: "Pnt2dOnRst", header: "Blend_SurfRstFunction.hxx".}
-proc parameterOnRst*(this: BlendSurfRstFunction): StandardReal {.noSideEffect,
+proc ParameterOnRst*(this: Blend_SurfRstFunction): Standard_Real {.noSideEffect,
     importcpp: "ParameterOnRst", header: "Blend_SurfRstFunction.hxx".}
-proc isTangencyPoint*(this: BlendSurfRstFunction): StandardBoolean {.noSideEffect,
+proc IsTangencyPoint*(this: Blend_SurfRstFunction): Standard_Boolean {.noSideEffect,
     importcpp: "IsTangencyPoint", header: "Blend_SurfRstFunction.hxx".}
-proc tangentOnS*(this: BlendSurfRstFunction): GpVec {.noSideEffect,
+proc TangentOnS*(this: Blend_SurfRstFunction): gp_Vec {.noSideEffect,
     importcpp: "TangentOnS", header: "Blend_SurfRstFunction.hxx".}
-proc tangent2dOnS*(this: BlendSurfRstFunction): GpVec2d {.noSideEffect,
+proc Tangent2dOnS*(this: Blend_SurfRstFunction): gp_Vec2d {.noSideEffect,
     importcpp: "Tangent2dOnS", header: "Blend_SurfRstFunction.hxx".}
-proc tangentOnRst*(this: BlendSurfRstFunction): GpVec {.noSideEffect,
+proc TangentOnRst*(this: Blend_SurfRstFunction): gp_Vec {.noSideEffect,
     importcpp: "TangentOnRst", header: "Blend_SurfRstFunction.hxx".}
-proc tangent2dOnRst*(this: BlendSurfRstFunction): GpVec2d {.noSideEffect,
+proc Tangent2dOnRst*(this: Blend_SurfRstFunction): gp_Vec2d {.noSideEffect,
     importcpp: "Tangent2dOnRst", header: "Blend_SurfRstFunction.hxx".}
-proc decroch*(this: BlendSurfRstFunction; sol: MathVector; ns: var GpVec; tgS: var GpVec): StandardBoolean {.
-    noSideEffect, importcpp: "Decroch", header: "Blend_SurfRstFunction.hxx".}
-proc isRational*(this: BlendSurfRstFunction): StandardBoolean {.noSideEffect,
+proc Decroch*(this: Blend_SurfRstFunction; Sol: math_Vector; NS: var gp_Vec;
+             TgS: var gp_Vec): Standard_Boolean {.noSideEffect, importcpp: "Decroch",
+    header: "Blend_SurfRstFunction.hxx".}
+proc IsRational*(this: Blend_SurfRstFunction): Standard_Boolean {.noSideEffect,
     importcpp: "IsRational", header: "Blend_SurfRstFunction.hxx".}
-proc getSectionSize*(this: BlendSurfRstFunction): StandardReal {.noSideEffect,
+proc GetSectionSize*(this: Blend_SurfRstFunction): Standard_Real {.noSideEffect,
     importcpp: "GetSectionSize", header: "Blend_SurfRstFunction.hxx".}
-proc getMinimalWeight*(this: BlendSurfRstFunction; weigths: var TColStdArray1OfReal) {.
-    noSideEffect, importcpp: "GetMinimalWeight",
-    header: "Blend_SurfRstFunction.hxx".}
-proc nbIntervals*(this: BlendSurfRstFunction; s: GeomAbsShape): StandardInteger {.
+proc GetMinimalWeight*(this: Blend_SurfRstFunction;
+                      Weigths: var TColStd_Array1OfReal) {.noSideEffect,
+    importcpp: "GetMinimalWeight", header: "Blend_SurfRstFunction.hxx".}
+proc NbIntervals*(this: Blend_SurfRstFunction; S: GeomAbs_Shape): Standard_Integer {.
     noSideEffect, importcpp: "NbIntervals", header: "Blend_SurfRstFunction.hxx".}
-proc intervals*(this: BlendSurfRstFunction; t: var TColStdArray1OfReal;
-               s: GeomAbsShape) {.noSideEffect, importcpp: "Intervals",
-                                header: "Blend_SurfRstFunction.hxx".}
-proc getShape*(this: var BlendSurfRstFunction; nbPoles: var StandardInteger;
-              nbKnots: var StandardInteger; degree: var StandardInteger;
-              nbPoles2d: var StandardInteger) {.importcpp: "GetShape",
+proc Intervals*(this: Blend_SurfRstFunction; T: var TColStd_Array1OfReal;
+               S: GeomAbs_Shape) {.noSideEffect, importcpp: "Intervals",
+                                 header: "Blend_SurfRstFunction.hxx".}
+proc GetShape*(this: var Blend_SurfRstFunction; NbPoles: var Standard_Integer;
+              NbKnots: var Standard_Integer; Degree: var Standard_Integer;
+              NbPoles2d: var Standard_Integer) {.importcpp: "GetShape",
     header: "Blend_SurfRstFunction.hxx".}
-proc getTolerance*(this: BlendSurfRstFunction; boundTol: StandardReal;
-                  surfTol: StandardReal; angleTol: StandardReal;
-                  tol3d: var MathVector; tol1D: var MathVector) {.noSideEffect,
+proc GetTolerance*(this: Blend_SurfRstFunction; BoundTol: Standard_Real;
+                  SurfTol: Standard_Real; AngleTol: Standard_Real;
+                  Tol3d: var math_Vector; Tol1D: var math_Vector) {.noSideEffect,
     importcpp: "GetTolerance", header: "Blend_SurfRstFunction.hxx".}
-proc knots*(this: var BlendSurfRstFunction; tKnots: var TColStdArray1OfReal) {.
+proc Knots*(this: var Blend_SurfRstFunction; TKnots: var TColStd_Array1OfReal) {.
     importcpp: "Knots", header: "Blend_SurfRstFunction.hxx".}
-proc mults*(this: var BlendSurfRstFunction; tMults: var TColStdArray1OfInteger) {.
+proc Mults*(this: var Blend_SurfRstFunction; TMults: var TColStd_Array1OfInteger) {.
     importcpp: "Mults", header: "Blend_SurfRstFunction.hxx".}
-proc section*(this: var BlendSurfRstFunction; p: BlendPoint;
-             poles: var TColgpArray1OfPnt; dPoles: var TColgpArray1OfVec;
-             poles2d: var TColgpArray1OfPnt2d; dPoles2d: var TColgpArray1OfVec2d;
-             weigths: var TColStdArray1OfReal; dWeigths: var TColStdArray1OfReal): StandardBoolean {.
+proc Section*(this: var Blend_SurfRstFunction; P: Blend_Point;
+             Poles: var TColgp_Array1OfPnt; DPoles: var TColgp_Array1OfVec;
+             Poles2d: var TColgp_Array1OfPnt2d; DPoles2d: var TColgp_Array1OfVec2d;
+             Weigths: var TColStd_Array1OfReal; DWeigths: var TColStd_Array1OfReal): Standard_Boolean {.
     importcpp: "Section", header: "Blend_SurfRstFunction.hxx".}
-proc section*(this: var BlendSurfRstFunction; p: BlendPoint;
-             poles: var TColgpArray1OfPnt; dPoles: var TColgpArray1OfVec;
-             d2Poles: var TColgpArray1OfVec; poles2d: var TColgpArray1OfPnt2d;
-             dPoles2d: var TColgpArray1OfVec2d; d2Poles2d: var TColgpArray1OfVec2d;
-             weigths: var TColStdArray1OfReal; dWeigths: var TColStdArray1OfReal;
-             d2Weigths: var TColStdArray1OfReal): StandardBoolean {.
+proc Section*(this: var Blend_SurfRstFunction; P: Blend_Point;
+             Poles: var TColgp_Array1OfPnt; DPoles: var TColgp_Array1OfVec;
+             D2Poles: var TColgp_Array1OfVec; Poles2d: var TColgp_Array1OfPnt2d;
+             DPoles2d: var TColgp_Array1OfVec2d;
+             D2Poles2d: var TColgp_Array1OfVec2d;
+             Weigths: var TColStd_Array1OfReal; DWeigths: var TColStd_Array1OfReal;
+             D2Weigths: var TColStd_Array1OfReal): Standard_Boolean {.
     importcpp: "Section", header: "Blend_SurfRstFunction.hxx".}
-proc section*(this: var BlendSurfRstFunction; p: BlendPoint;
-             poles: var TColgpArray1OfPnt; poles2d: var TColgpArray1OfPnt2d;
-             weigths: var TColStdArray1OfReal) {.importcpp: "Section",
+proc Section*(this: var Blend_SurfRstFunction; P: Blend_Point;
+             Poles: var TColgp_Array1OfPnt; Poles2d: var TColgp_Array1OfPnt2d;
+             Weigths: var TColStd_Array1OfReal) {.importcpp: "Section",
     header: "Blend_SurfRstFunction.hxx".}
-

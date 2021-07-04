@@ -13,217 +13,221 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  NCollection_BaseSequence, NCollection_StlIterator,
+  ../Standard/Standard_OutOfRange, ../Standard/Standard_NoSuchObject
+
 ## *
 ##  Purpose:     Definition of a sequence of elements indexed by
 ##               an Integer in range of 1..n
 ##
 
 type
-  NCollectionSequence*[TheItemType] {.importcpp: "NCollection_Sequence<\'0>",
-                                     header: "NCollection_Sequence.hxx", bycopy.} = object of NCollectionBaseSequence ##
-                                                                                                               ## !
-                                                                                                               ## STL-compliant
-                                                                                                               ## typedef
-                                                                                                               ## for
-                                                                                                               ## value
-                                                                                                               ## type
-                                                                                                               ##
-                                                                                                               ## !
-                                                                                                               ## Class
-                                                                                                               ## defining
-                                                                                                               ## sequence
-                                                                                                               ## node
-                                                                                                               ## -
-                                                                                                               ## for
-                                                                                                               ## internal
-                                                                                                               ## use
-                                                                                                               ## by
-                                                                                                               ## Sequence
-                                                                                                               ##
-                                                                                                               ## !
-                                                                                                               ## Implementation
-                                                                                                               ## of
-                                                                                                               ## the
-                                                                                                               ## Iterator
-                                                                                                               ## interface.
-                                                                                                               ##
-                                                                                                               ## ----------
-                                                                                                               ## PUBLIC
-                                                                                                               ## METHODS
-                                                                                                               ## ------------
-                                                                                                               ##
-                                                                                                               ## !
-                                                                                                               ## Empty
-                                                                                                               ## constructor.
-                                                                                                               ##
-                                                                                                               ## ----------
-                                                                                                               ## FRIEND
-                                                                                                               ## CLASSES
-                                                                                                               ## ------------
+  NCollection_Sequence*[TheItemType] {.importcpp: "NCollection_Sequence<\'0>",
+                                      header: "NCollection_Sequence.hxx", bycopy.} = object of NCollection_BaseSequence ##
+                                                                                                                 ## !
+                                                                                                                 ## STL-compliant
+                                                                                                                 ## typedef
+                                                                                                                 ## for
+                                                                                                                 ## value
+                                                                                                                 ## type
+                                                                                                                 ##
+                                                                                                                 ## !
+                                                                                                                 ## Class
+                                                                                                                 ## defining
+                                                                                                                 ## sequence
+                                                                                                                 ## node
+                                                                                                                 ## -
+                                                                                                                 ## for
+                                                                                                                 ## internal
+                                                                                                                 ## use
+                                                                                                                 ## by
+                                                                                                                 ## Sequence
+                                                                                                                 ##
+                                                                                                                 ## !
+                                                                                                                 ## Implementation
+                                                                                                                 ## of
+                                                                                                                 ## the
+                                                                                                                 ## Iterator
+                                                                                                                 ## interface.
+                                                                                                                 ##
+                                                                                                                 ## ----------
+                                                                                                                 ## PUBLIC
+                                                                                                                 ## METHODS
+                                                                                                                 ## ------------
+                                                                                                                 ##
+                                                                                                                 ## !
+                                                                                                                 ## Empty
+                                                                                                                 ## constructor.
+                                                                                                                 ##
+                                                                                                                 ## ----------
+                                                                                                                 ## FRIEND
+                                                                                                                 ## CLASSES
+                                                                                                                 ## ------------
 
-  NCollectionSequencevalueType*[TheItemType] = TheItemType
-  NCollectionSequenceNode*[TheItemType] {.
+  NCollection_Sequencevalue_type*[TheItemType] = TheItemType
+  NCollection_SequenceNode*[TheItemType] {.
       importcpp: "NCollection_Sequence<\'0>::Node",
-      header: "NCollection_Sequence.hxx", bycopy.} = object of NCollectionSeqNode ## !
-                                                                           ## Constructor
+      header: "NCollection_Sequence.hxx", bycopy.} = object of NCollection_SeqNode ## !
+                                                                            ## Constructor
 
 
-proc constructNCollectionSequenceNode*[TheItemType](theItem: TheItemType): NCollectionSequenceNode[
+proc constructNCollection_SequenceNode*[TheItemType](theItem: TheItemType): NCollection_SequenceNode[
     TheItemType] {.constructor, importcpp: "NCollection_Sequence<\'*0>::Node(@)",
                   header: "NCollection_Sequence.hxx".}
-proc value*[TheItemType](this: NCollectionSequenceNode[TheItemType]): TheItemType {.
+proc Value*[TheItemType](this: NCollection_SequenceNode[TheItemType]): TheItemType {.
     noSideEffect, importcpp: "Value", header: "NCollection_Sequence.hxx".}
-proc changeValue*[TheItemType](this: var NCollectionSequenceNode[TheItemType]): var TheItemType {.
+proc ChangeValue*[TheItemType](this: var NCollection_SequenceNode[TheItemType]): var TheItemType {.
     importcpp: "ChangeValue", header: "NCollection_Sequence.hxx".}
 type
-  NCollectionSequenceIterator*[TheItemType] {.
+  NCollection_SequenceIterator*[TheItemType] {.
       importcpp: "NCollection_Sequence<\'0>::Iterator",
-      header: "NCollection_Sequence.hxx", bycopy.} = object of NCollectionSequenceIterator ##
-                                                                                    ## !
-                                                                                    ## Empty
-                                                                                    ## constructor
-                                                                                    ## -
-                                                                                    ## for
-                                                                                    ## later
-                                                                                    ## Init
+      header: "NCollection_Sequence.hxx", bycopy.} = object of NCollection_SequenceIterator ##
+                                                                                     ## !
+                                                                                     ## Empty
+                                                                                     ## constructor
+                                                                                     ## -
+                                                                                     ## for
+                                                                                     ## later
+                                                                                     ## Init
 
 
-proc constructNCollectionSequenceIterator*[TheItemType](): NCollectionSequenceIterator[
+proc constructNCollection_SequenceIterator*[TheItemType](): NCollection_SequenceIterator[
     TheItemType] {.constructor,
                   importcpp: "NCollection_Sequence<\'*0>::Iterator(@)",
                   header: "NCollection_Sequence.hxx".}
-proc constructNCollectionSequenceIterator*[TheItemType](
-    theSeq: NCollectionSequence; isStart: StandardBoolean = standardTrue): NCollectionSequenceIterator[
+proc constructNCollection_SequenceIterator*[TheItemType](
+    theSeq: NCollection_Sequence; isStart: Standard_Boolean = Standard_True): NCollection_SequenceIterator[
     TheItemType] {.constructor,
                   importcpp: "NCollection_Sequence<\'*0>::Iterator(@)",
                   header: "NCollection_Sequence.hxx".}
-proc more*[TheItemType](this: NCollectionSequenceIterator[TheItemType]): StandardBoolean {.
+proc More*[TheItemType](this: NCollection_SequenceIterator[TheItemType]): Standard_Boolean {.
     noSideEffect, importcpp: "More", header: "NCollection_Sequence.hxx".}
-proc next*[TheItemType](this: var NCollectionSequenceIterator[TheItemType]) {.
+proc Next*[TheItemType](this: var NCollection_SequenceIterator[TheItemType]) {.
     importcpp: "Next", header: "NCollection_Sequence.hxx".}
-proc value*[TheItemType](this: NCollectionSequenceIterator[TheItemType]): TheItemType {.
+proc Value*[TheItemType](this: NCollection_SequenceIterator[TheItemType]): TheItemType {.
     noSideEffect, importcpp: "Value", header: "NCollection_Sequence.hxx".}
-proc changeValue*[TheItemType](this: NCollectionSequenceIterator[TheItemType]): var TheItemType {.
+proc ChangeValue*[TheItemType](this: NCollection_SequenceIterator[TheItemType]): var TheItemType {.
     noSideEffect, importcpp: "ChangeValue", header: "NCollection_Sequence.hxx".}
-proc isEqual*[TheItemType](this: NCollectionSequenceIterator[TheItemType];
-                          theOther: NCollectionSequenceIterator): StandardBoolean {.
+proc IsEqual*[TheItemType](this: NCollection_SequenceIterator[TheItemType];
+                          theOther: NCollection_SequenceIterator): Standard_Boolean {.
     noSideEffect, importcpp: "IsEqual", header: "NCollection_Sequence.hxx".}
 type
-  NCollectionSequenceiterator* = NCollectionStlIterator[BidirectionalIteratorTag,
-      NCollectionSequenceIterator, TheItemType, False]
-  NCollectionSequenceconstIterator* = NCollectionStlIterator[
-      BidirectionalIteratorTag, NCollectionSequenceIterator, TheItemType, True]
+  NCollection_Sequenceiterator* = NCollection_StlIterator[
+      bidirectional_iterator_tag, NCollection_SequenceIterator, TheItemType, false]
+  NCollection_Sequenceconst_iterator* = NCollection_StlIterator[
+      bidirectional_iterator_tag, NCollection_SequenceIterator, TheItemType, true]
 
-proc begin*[TheItemType](this: NCollectionSequence[TheItemType]): NCollectionSequenceiterator {.
+proc begin*[TheItemType](this: NCollection_Sequence[TheItemType]): NCollection_Sequenceiterator {.
     noSideEffect, importcpp: "begin", header: "NCollection_Sequence.hxx".}
-proc `end`*[TheItemType](this: NCollectionSequence[TheItemType]): NCollectionSequenceiterator {.
+proc `end`*[TheItemType](this: NCollection_Sequence[TheItemType]): NCollection_Sequenceiterator {.
     noSideEffect, importcpp: "end", header: "NCollection_Sequence.hxx".}
-proc cbegin*[TheItemType](this: NCollectionSequence[TheItemType]): NCollectionSequenceconstIterator {.
+proc cbegin*[TheItemType](this: NCollection_Sequence[TheItemType]): NCollection_Sequenceconst_iterator {.
     noSideEffect, importcpp: "cbegin", header: "NCollection_Sequence.hxx".}
-proc cend*[TheItemType](this: NCollectionSequence[TheItemType]): NCollectionSequenceconstIterator {.
+proc cend*[TheItemType](this: NCollection_Sequence[TheItemType]): NCollection_Sequenceconst_iterator {.
     noSideEffect, importcpp: "cend", header: "NCollection_Sequence.hxx".}
-proc constructNCollectionSequence*[TheItemType](): NCollectionSequence[TheItemType] {.
-    constructor, importcpp: "NCollection_Sequence<\'*0>(@)",
-    header: "NCollection_Sequence.hxx".}
-proc constructNCollectionSequence*[TheItemType](
-    theAllocator: Handle[NCollectionBaseAllocator]): NCollectionSequence[
+proc constructNCollection_Sequence*[TheItemType](): NCollection_Sequence[
     TheItemType] {.constructor, importcpp: "NCollection_Sequence<\'*0>(@)",
                   header: "NCollection_Sequence.hxx".}
-proc constructNCollectionSequence*[TheItemType](theOther: NCollectionSequence): NCollectionSequence[
+proc constructNCollection_Sequence*[TheItemType](
+    theAllocator: handle[NCollection_BaseAllocator]): NCollection_Sequence[
     TheItemType] {.constructor, importcpp: "NCollection_Sequence<\'*0>(@)",
                   header: "NCollection_Sequence.hxx".}
-proc size*[TheItemType](this: NCollectionSequence[TheItemType]): StandardInteger {.
+proc constructNCollection_Sequence*[TheItemType](theOther: NCollection_Sequence): NCollection_Sequence[
+    TheItemType] {.constructor, importcpp: "NCollection_Sequence<\'*0>(@)",
+                  header: "NCollection_Sequence.hxx".}
+proc Size*[TheItemType](this: NCollection_Sequence[TheItemType]): Standard_Integer {.
     noSideEffect, importcpp: "Size", header: "NCollection_Sequence.hxx".}
-proc length*[TheItemType](this: NCollectionSequence[TheItemType]): StandardInteger {.
+proc Length*[TheItemType](this: NCollection_Sequence[TheItemType]): Standard_Integer {.
     noSideEffect, importcpp: "Length", header: "NCollection_Sequence.hxx".}
-proc lower*[TheItemType](this: NCollectionSequence[TheItemType]): StandardInteger {.
+proc Lower*[TheItemType](this: NCollection_Sequence[TheItemType]): Standard_Integer {.
     noSideEffect, importcpp: "Lower", header: "NCollection_Sequence.hxx".}
-proc upper*[TheItemType](this: NCollectionSequence[TheItemType]): StandardInteger {.
+proc Upper*[TheItemType](this: NCollection_Sequence[TheItemType]): Standard_Integer {.
     noSideEffect, importcpp: "Upper", header: "NCollection_Sequence.hxx".}
-proc isEmpty*[TheItemType](this: NCollectionSequence[TheItemType]): StandardBoolean {.
+proc IsEmpty*[TheItemType](this: NCollection_Sequence[TheItemType]): Standard_Boolean {.
     noSideEffect, importcpp: "IsEmpty", header: "NCollection_Sequence.hxx".}
-proc reverse*[TheItemType](this: var NCollectionSequence[TheItemType]) {.
+proc Reverse*[TheItemType](this: var NCollection_Sequence[TheItemType]) {.
     importcpp: "Reverse", header: "NCollection_Sequence.hxx".}
-proc exchange*[TheItemType](this: var NCollectionSequence[TheItemType];
-                           i: StandardInteger; j: StandardInteger) {.
+proc Exchange*[TheItemType](this: var NCollection_Sequence[TheItemType];
+                           I: Standard_Integer; J: Standard_Integer) {.
     importcpp: "Exchange", header: "NCollection_Sequence.hxx".}
-proc delNode*[TheItemType](theNode: ptr NCollectionSeqNode;
-                          theAl: var Handle[NCollectionBaseAllocator]) {.
+proc delNode*[TheItemType](theNode: ptr NCollection_SeqNode;
+                          theAl: var handle[NCollection_BaseAllocator]) {.
     importcpp: "NCollection_Sequence::delNode(@)",
     header: "NCollection_Sequence.hxx".}
-proc clear*[TheItemType](this: var NCollectionSequence[TheItemType];
-                        theAllocator: Handle[NCollectionBaseAllocator] = 0'i64) {.
-    importcpp: "Clear", header: "NCollection_Sequence.hxx".}
-proc assign*[TheItemType](this: var NCollectionSequence[TheItemType];
-                         theOther: NCollectionSequence): var NCollectionSequence {.
+proc Clear*[TheItemType](this: var NCollection_Sequence[TheItemType]; theAllocator: handle[
+    NCollection_BaseAllocator] = 0L'i64) {.importcpp: "Clear",
+                                        header: "NCollection_Sequence.hxx".}
+proc Assign*[TheItemType](this: var NCollection_Sequence[TheItemType];
+                         theOther: NCollection_Sequence): var NCollection_Sequence {.
     importcpp: "Assign", header: "NCollection_Sequence.hxx".}
-proc remove*[TheItemType](this: var NCollectionSequence[TheItemType];
-                         thePosition: var NCollectionSequenceIterator) {.
+proc Remove*[TheItemType](this: var NCollection_Sequence[TheItemType];
+                         thePosition: var NCollection_SequenceIterator) {.
     importcpp: "Remove", header: "NCollection_Sequence.hxx".}
-proc remove*[TheItemType](this: var NCollectionSequence[TheItemType];
-                         theIndex: StandardInteger) {.importcpp: "Remove",
+proc Remove*[TheItemType](this: var NCollection_Sequence[TheItemType];
+                         theIndex: Standard_Integer) {.importcpp: "Remove",
     header: "NCollection_Sequence.hxx".}
-proc remove*[TheItemType](this: var NCollectionSequence[TheItemType];
-                         theFromIndex: StandardInteger;
-                         theToIndex: StandardInteger) {.importcpp: "Remove",
+proc Remove*[TheItemType](this: var NCollection_Sequence[TheItemType];
+                         theFromIndex: Standard_Integer;
+                         theToIndex: Standard_Integer) {.importcpp: "Remove",
     header: "NCollection_Sequence.hxx".}
-proc append*[TheItemType](this: var NCollectionSequence[TheItemType];
+proc Append*[TheItemType](this: var NCollection_Sequence[TheItemType];
                          theItem: TheItemType) {.importcpp: "Append",
     header: "NCollection_Sequence.hxx".}
-proc append*[TheItemType](this: var NCollectionSequence[TheItemType];
-                         theSeq: var NCollectionSequence) {.importcpp: "Append",
+proc Append*[TheItemType](this: var NCollection_Sequence[TheItemType];
+                         theSeq: var NCollection_Sequence) {.importcpp: "Append",
     header: "NCollection_Sequence.hxx".}
-proc prepend*[TheItemType](this: var NCollectionSequence[TheItemType];
+proc Prepend*[TheItemType](this: var NCollection_Sequence[TheItemType];
                           theItem: TheItemType) {.importcpp: "Prepend",
     header: "NCollection_Sequence.hxx".}
-proc prepend*[TheItemType](this: var NCollectionSequence[TheItemType];
-                          theSeq: var NCollectionSequence) {.importcpp: "Prepend",
+proc Prepend*[TheItemType](this: var NCollection_Sequence[TheItemType];
+                          theSeq: var NCollection_Sequence) {.importcpp: "Prepend",
     header: "NCollection_Sequence.hxx".}
-proc insertBefore*[TheItemType](this: var NCollectionSequence[TheItemType];
-                               theIndex: StandardInteger; theItem: TheItemType) {.
+proc InsertBefore*[TheItemType](this: var NCollection_Sequence[TheItemType];
+                               theIndex: Standard_Integer; theItem: TheItemType) {.
     importcpp: "InsertBefore", header: "NCollection_Sequence.hxx".}
-proc insertBefore*[TheItemType](this: var NCollectionSequence[TheItemType];
-                               theIndex: StandardInteger;
-                               theSeq: var NCollectionSequence) {.
+proc InsertBefore*[TheItemType](this: var NCollection_Sequence[TheItemType];
+                               theIndex: Standard_Integer;
+                               theSeq: var NCollection_Sequence) {.
     importcpp: "InsertBefore", header: "NCollection_Sequence.hxx".}
-proc insertAfter*[TheItemType](this: var NCollectionSequence[TheItemType];
-                              thePosition: var NCollectionSequenceIterator;
+proc InsertAfter*[TheItemType](this: var NCollection_Sequence[TheItemType];
+                              thePosition: var NCollection_SequenceIterator;
                               theItem: TheItemType) {.importcpp: "InsertAfter",
     header: "NCollection_Sequence.hxx".}
-proc insertAfter*[TheItemType](this: var NCollectionSequence[TheItemType];
-                              theIndex: StandardInteger;
-                              theSeq: var NCollectionSequence) {.
+proc InsertAfter*[TheItemType](this: var NCollection_Sequence[TheItemType];
+                              theIndex: Standard_Integer;
+                              theSeq: var NCollection_Sequence) {.
     importcpp: "InsertAfter", header: "NCollection_Sequence.hxx".}
-proc insertAfter*[TheItemType](this: var NCollectionSequence[TheItemType];
-                              theIndex: StandardInteger; theItem: TheItemType) {.
+proc InsertAfter*[TheItemType](this: var NCollection_Sequence[TheItemType];
+                              theIndex: Standard_Integer; theItem: TheItemType) {.
     importcpp: "InsertAfter", header: "NCollection_Sequence.hxx".}
-proc split*[TheItemType](this: var NCollectionSequence[TheItemType];
-                        theIndex: StandardInteger; theSeq: var NCollectionSequence) {.
-    importcpp: "Split", header: "NCollection_Sequence.hxx".}
-proc first*[TheItemType](this: NCollectionSequence[TheItemType]): TheItemType {.
+proc Split*[TheItemType](this: var NCollection_Sequence[TheItemType];
+                        theIndex: Standard_Integer;
+                        theSeq: var NCollection_Sequence) {.importcpp: "Split",
+    header: "NCollection_Sequence.hxx".}
+proc First*[TheItemType](this: NCollection_Sequence[TheItemType]): TheItemType {.
     noSideEffect, importcpp: "First", header: "NCollection_Sequence.hxx".}
-proc changeFirst*[TheItemType](this: var NCollectionSequence[TheItemType]): var TheItemType {.
+proc ChangeFirst*[TheItemType](this: var NCollection_Sequence[TheItemType]): var TheItemType {.
     importcpp: "ChangeFirst", header: "NCollection_Sequence.hxx".}
-proc last*[TheItemType](this: NCollectionSequence[TheItemType]): TheItemType {.
+proc Last*[TheItemType](this: NCollection_Sequence[TheItemType]): TheItemType {.
     noSideEffect, importcpp: "Last", header: "NCollection_Sequence.hxx".}
-proc changeLast*[TheItemType](this: var NCollectionSequence[TheItemType]): var TheItemType {.
+proc ChangeLast*[TheItemType](this: var NCollection_Sequence[TheItemType]): var TheItemType {.
     importcpp: "ChangeLast", header: "NCollection_Sequence.hxx".}
-proc value*[TheItemType](this: NCollectionSequence[TheItemType];
-                        theIndex: StandardInteger): TheItemType {.noSideEffect,
+proc Value*[TheItemType](this: NCollection_Sequence[TheItemType];
+                        theIndex: Standard_Integer): TheItemType {.noSideEffect,
     importcpp: "Value", header: "NCollection_Sequence.hxx".}
-proc `()`*[TheItemType](this: NCollectionSequence[TheItemType];
-                       theIndex: StandardInteger): TheItemType {.noSideEffect,
+proc `()`*[TheItemType](this: NCollection_Sequence[TheItemType];
+                       theIndex: Standard_Integer): TheItemType {.noSideEffect,
     importcpp: "#(@)", header: "NCollection_Sequence.hxx".}
-proc changeValue*[TheItemType](this: var NCollectionSequence[TheItemType];
-                              theIndex: StandardInteger): var TheItemType {.
+proc ChangeValue*[TheItemType](this: var NCollection_Sequence[TheItemType];
+                              theIndex: Standard_Integer): var TheItemType {.
     importcpp: "ChangeValue", header: "NCollection_Sequence.hxx".}
-proc `()`*[TheItemType](this: var NCollectionSequence[TheItemType];
-                       theIndex: StandardInteger): var TheItemType {.
+proc `()`*[TheItemType](this: var NCollection_Sequence[TheItemType];
+                       theIndex: Standard_Integer): var TheItemType {.
     importcpp: "#(@)", header: "NCollection_Sequence.hxx".}
-proc setValue*[TheItemType](this: var NCollectionSequence[TheItemType];
-                           theIndex: StandardInteger; theItem: TheItemType) {.
+proc SetValue*[TheItemType](this: var NCollection_Sequence[TheItemType];
+                           theIndex: Standard_Integer; theItem: TheItemType) {.
     importcpp: "SetValue", header: "NCollection_Sequence.hxx".}
-proc destroyNCollectionSequence*[TheItemType](
-    this: var NCollectionSequence[TheItemType]) {.
+proc destroyNCollection_Sequence*[TheItemType](
+    this: var NCollection_Sequence[TheItemType]) {.
     importcpp: "#.~NCollection_Sequence()", header: "NCollection_Sequence.hxx".}
-

@@ -14,6 +14,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../TColStd/TColStd_SequenceOfInteger,
+  STEPConstruct_AP203Context, ../Standard/Standard_Boolean,
+  ../Standard/Standard_Integer, ../TColStd/TColStd_HSequenceOfTransient
+
 discard "forward decl of StepBasic_ApplicationProtocolDefinition"
 discard "forward decl of StepGeom_Axis2Placement3d"
 discard "forward decl of StepData_StepModel"
@@ -22,81 +28,82 @@ discard "forward decl of STEPConstruct_AP203Context"
 discard "forward decl of STEPConstruct_Part"
 discard "forward decl of STEPConstruct_Assembly"
 type
-  STEPConstructContextTool* {.importcpp: "STEPConstruct_ContextTool",
-                             header: "STEPConstruct_ContextTool.hxx", bycopy.} = object
+  STEPConstruct_ContextTool* {.importcpp: "STEPConstruct_ContextTool",
+                              header: "STEPConstruct_ContextTool.hxx", bycopy.} = object
 
 
-proc constructSTEPConstructContextTool*(): STEPConstructContextTool {.constructor,
-    importcpp: "STEPConstruct_ContextTool(@)",
-    header: "STEPConstruct_ContextTool.hxx".}
-proc constructSTEPConstructContextTool*(aStepModel: Handle[StepDataStepModel]): STEPConstructContextTool {.
+proc constructSTEPConstruct_ContextTool*(): STEPConstruct_ContextTool {.
     constructor, importcpp: "STEPConstruct_ContextTool(@)",
     header: "STEPConstruct_ContextTool.hxx".}
-proc setModel*(this: var STEPConstructContextTool;
-              aStepModel: Handle[StepDataStepModel]) {.importcpp: "SetModel",
+proc constructSTEPConstruct_ContextTool*(aStepModel: handle[StepData_StepModel]): STEPConstruct_ContextTool {.
+    constructor, importcpp: "STEPConstruct_ContextTool(@)",
     header: "STEPConstruct_ContextTool.hxx".}
-proc getAPD*(this: var STEPConstructContextTool): Handle[
-    StepBasicApplicationProtocolDefinition] {.importcpp: "GetAPD",
+proc SetModel*(this: var STEPConstruct_ContextTool;
+              aStepModel: handle[StepData_StepModel]) {.importcpp: "SetModel",
     header: "STEPConstruct_ContextTool.hxx".}
-proc addAPD*(this: var STEPConstructContextTool;
-            enforce: StandardBoolean = standardFalse) {.importcpp: "AddAPD",
+proc GetAPD*(this: var STEPConstruct_ContextTool): handle[
+    StepBasic_ApplicationProtocolDefinition] {.importcpp: "GetAPD",
     header: "STEPConstruct_ContextTool.hxx".}
-proc isAP203*(this: STEPConstructContextTool): StandardBoolean {.noSideEffect,
+proc AddAPD*(this: var STEPConstruct_ContextTool;
+            enforce: Standard_Boolean = Standard_False) {.importcpp: "AddAPD",
+    header: "STEPConstruct_ContextTool.hxx".}
+proc IsAP203*(this: STEPConstruct_ContextTool): Standard_Boolean {.noSideEffect,
     importcpp: "IsAP203", header: "STEPConstruct_ContextTool.hxx".}
-proc isAP214*(this: STEPConstructContextTool): StandardBoolean {.noSideEffect,
+proc IsAP214*(this: STEPConstruct_ContextTool): Standard_Boolean {.noSideEffect,
     importcpp: "IsAP214", header: "STEPConstruct_ContextTool.hxx".}
-proc isAP242*(this: STEPConstructContextTool): StandardBoolean {.noSideEffect,
+proc IsAP242*(this: STEPConstruct_ContextTool): Standard_Boolean {.noSideEffect,
     importcpp: "IsAP242", header: "STEPConstruct_ContextTool.hxx".}
-proc getACstatus*(this: var STEPConstructContextTool): Handle[
-    TCollectionHAsciiString] {.importcpp: "GetACstatus",
-                              header: "STEPConstruct_ContextTool.hxx".}
-proc getACschemaName*(this: var STEPConstructContextTool): Handle[
-    TCollectionHAsciiString] {.importcpp: "GetACschemaName",
-                              header: "STEPConstruct_ContextTool.hxx".}
-proc getACyear*(this: var STEPConstructContextTool): StandardInteger {.
-    importcpp: "GetACyear", header: "STEPConstruct_ContextTool.hxx".}
-proc getACname*(this: var STEPConstructContextTool): Handle[TCollectionHAsciiString] {.
-    importcpp: "GetACname", header: "STEPConstruct_ContextTool.hxx".}
-proc setACstatus*(this: var STEPConstructContextTool;
-                 status: Handle[TCollectionHAsciiString]) {.
-    importcpp: "SetACstatus", header: "STEPConstruct_ContextTool.hxx".}
-proc setACschemaName*(this: var STEPConstructContextTool;
-                     schemaName: Handle[TCollectionHAsciiString]) {.
-    importcpp: "SetACschemaName", header: "STEPConstruct_ContextTool.hxx".}
-proc setACyear*(this: var STEPConstructContextTool; year: StandardInteger) {.
-    importcpp: "SetACyear", header: "STEPConstruct_ContextTool.hxx".}
-proc setACname*(this: var STEPConstructContextTool;
-               name: Handle[TCollectionHAsciiString]) {.importcpp: "SetACname",
-    header: "STEPConstruct_ContextTool.hxx".}
-proc getDefaultAxis*(this: var STEPConstructContextTool): Handle[
-    StepGeomAxis2Placement3d] {.importcpp: "GetDefaultAxis",
+proc GetACstatus*(this: var STEPConstruct_ContextTool): handle[
+    TCollection_HAsciiString] {.importcpp: "GetACstatus",
                                header: "STEPConstruct_ContextTool.hxx".}
-proc aP203Context*(this: var STEPConstructContextTool): var STEPConstructAP203Context {.
+proc GetACschemaName*(this: var STEPConstruct_ContextTool): handle[
+    TCollection_HAsciiString] {.importcpp: "GetACschemaName",
+                               header: "STEPConstruct_ContextTool.hxx".}
+proc GetACyear*(this: var STEPConstruct_ContextTool): Standard_Integer {.
+    importcpp: "GetACyear", header: "STEPConstruct_ContextTool.hxx".}
+proc GetACname*(this: var STEPConstruct_ContextTool): handle[
+    TCollection_HAsciiString] {.importcpp: "GetACname",
+                               header: "STEPConstruct_ContextTool.hxx".}
+proc SetACstatus*(this: var STEPConstruct_ContextTool;
+                 status: handle[TCollection_HAsciiString]) {.
+    importcpp: "SetACstatus", header: "STEPConstruct_ContextTool.hxx".}
+proc SetACschemaName*(this: var STEPConstruct_ContextTool;
+                     schemaName: handle[TCollection_HAsciiString]) {.
+    importcpp: "SetACschemaName", header: "STEPConstruct_ContextTool.hxx".}
+proc SetACyear*(this: var STEPConstruct_ContextTool; year: Standard_Integer) {.
+    importcpp: "SetACyear", header: "STEPConstruct_ContextTool.hxx".}
+proc SetACname*(this: var STEPConstruct_ContextTool;
+               name: handle[TCollection_HAsciiString]) {.importcpp: "SetACname",
+    header: "STEPConstruct_ContextTool.hxx".}
+proc GetDefaultAxis*(this: var STEPConstruct_ContextTool): handle[
+    StepGeom_Axis2Placement3d] {.importcpp: "GetDefaultAxis",
+                                header: "STEPConstruct_ContextTool.hxx".}
+proc AP203Context*(this: var STEPConstruct_ContextTool): var STEPConstruct_AP203Context {.
     importcpp: "AP203Context", header: "STEPConstruct_ContextTool.hxx".}
-proc level*(this: STEPConstructContextTool): StandardInteger {.noSideEffect,
+proc Level*(this: STEPConstruct_ContextTool): Standard_Integer {.noSideEffect,
     importcpp: "Level", header: "STEPConstruct_ContextTool.hxx".}
-proc nextLevel*(this: var STEPConstructContextTool) {.importcpp: "NextLevel",
+proc NextLevel*(this: var STEPConstruct_ContextTool) {.importcpp: "NextLevel",
     header: "STEPConstruct_ContextTool.hxx".}
-proc prevLevel*(this: var STEPConstructContextTool) {.importcpp: "PrevLevel",
+proc PrevLevel*(this: var STEPConstruct_ContextTool) {.importcpp: "PrevLevel",
     header: "STEPConstruct_ContextTool.hxx".}
-proc setLevel*(this: var STEPConstructContextTool; lev: StandardInteger) {.
+proc SetLevel*(this: var STEPConstruct_ContextTool; lev: Standard_Integer) {.
     importcpp: "SetLevel", header: "STEPConstruct_ContextTool.hxx".}
-proc index*(this: STEPConstructContextTool): StandardInteger {.noSideEffect,
+proc Index*(this: STEPConstruct_ContextTool): Standard_Integer {.noSideEffect,
     importcpp: "Index", header: "STEPConstruct_ContextTool.hxx".}
-proc nextIndex*(this: var STEPConstructContextTool) {.importcpp: "NextIndex",
+proc NextIndex*(this: var STEPConstruct_ContextTool) {.importcpp: "NextIndex",
     header: "STEPConstruct_ContextTool.hxx".}
-proc prevIndex*(this: var STEPConstructContextTool) {.importcpp: "PrevIndex",
+proc PrevIndex*(this: var STEPConstruct_ContextTool) {.importcpp: "PrevIndex",
     header: "STEPConstruct_ContextTool.hxx".}
-proc setIndex*(this: var STEPConstructContextTool; ind: StandardInteger) {.
+proc SetIndex*(this: var STEPConstruct_ContextTool; ind: Standard_Integer) {.
     importcpp: "SetIndex", header: "STEPConstruct_ContextTool.hxx".}
-proc getProductName*(this: STEPConstructContextTool): Handle[
-    TCollectionHAsciiString] {.noSideEffect, importcpp: "GetProductName",
-                              header: "STEPConstruct_ContextTool.hxx".}
-proc getRootsForPart*(this: var STEPConstructContextTool; sDRTool: STEPConstructPart): Handle[
-    TColStdHSequenceOfTransient] {.importcpp: "GetRootsForPart",
-                                  header: "STEPConstruct_ContextTool.hxx".}
-proc getRootsForAssemblyLink*(this: var STEPConstructContextTool;
-                             assembly: STEPConstructAssembly): Handle[
-    TColStdHSequenceOfTransient] {.importcpp: "GetRootsForAssemblyLink",
-                                  header: "STEPConstruct_ContextTool.hxx".}
-
+proc GetProductName*(this: STEPConstruct_ContextTool): handle[
+    TCollection_HAsciiString] {.noSideEffect, importcpp: "GetProductName",
+                               header: "STEPConstruct_ContextTool.hxx".}
+proc GetRootsForPart*(this: var STEPConstruct_ContextTool;
+                     SDRTool: STEPConstruct_Part): handle[
+    TColStd_HSequenceOfTransient] {.importcpp: "GetRootsForPart",
+                                   header: "STEPConstruct_ContextTool.hxx".}
+proc GetRootsForAssemblyLink*(this: var STEPConstruct_ContextTool;
+                             assembly: STEPConstruct_Assembly): handle[
+    TColStd_HSequenceOfTransient] {.importcpp: "GetRootsForAssemblyLink",
+                                   header: "STEPConstruct_ContextTool.hxx".}

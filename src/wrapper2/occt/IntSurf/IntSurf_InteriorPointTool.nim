@@ -14,31 +14,35 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../gp/gp_Pnt, ../Standard/Standard_Real,
+  ../gp/gp_Vec, ../gp/gp_Dir2d
+
 discard "forward decl of IntSurf_InteriorPoint"
 type
-  IntSurfInteriorPointTool* {.importcpp: "IntSurf_InteriorPointTool",
-                             header: "IntSurf_InteriorPointTool.hxx", bycopy.} = object ##
-                                                                                   ## !
-                                                                                   ## Returns
-                                                                                   ## the
-                                                                                   ## 3d
-                                                                                   ## coordinates
-                                                                                   ## of
-                                                                                   ## the
-                                                                                   ## starting
-                                                                                   ## point.
+  IntSurf_InteriorPointTool* {.importcpp: "IntSurf_InteriorPointTool",
+                              header: "IntSurf_InteriorPointTool.hxx", bycopy.} = object ##
+                                                                                    ## !
+                                                                                    ## Returns
+                                                                                    ## the
+                                                                                    ## 3d
+                                                                                    ## coordinates
+                                                                                    ## of
+                                                                                    ## the
+                                                                                    ## starting
+                                                                                    ## point.
 
 
-proc value3d*(pStart: IntSurfInteriorPoint): GpPnt {.
+proc Value3d*(PStart: IntSurf_InteriorPoint): gp_Pnt {.
     importcpp: "IntSurf_InteriorPointTool::Value3d(@)",
     header: "IntSurf_InteriorPointTool.hxx".}
-proc value2d*(pStart: IntSurfInteriorPoint; u: var StandardReal; v: var StandardReal) {.
-    importcpp: "IntSurf_InteriorPointTool::Value2d(@)",
-    header: "IntSurf_InteriorPointTool.hxx".}
-proc direction3d*(pStart: IntSurfInteriorPoint): GpVec {.
+proc Value2d*(PStart: IntSurf_InteriorPoint; U: var Standard_Real;
+             V: var Standard_Real) {.importcpp: "IntSurf_InteriorPointTool::Value2d(@)",
+                                  header: "IntSurf_InteriorPointTool.hxx".}
+proc Direction3d*(PStart: IntSurf_InteriorPoint): gp_Vec {.
     importcpp: "IntSurf_InteriorPointTool::Direction3d(@)",
     header: "IntSurf_InteriorPointTool.hxx".}
-proc direction2d*(pStart: IntSurfInteriorPoint): GpDir2d {.
+proc Direction2d*(PStart: IntSurf_InteriorPoint): gp_Dir2d {.
     importcpp: "IntSurf_InteriorPointTool::Direction2d(@)",
     header: "IntSurf_InteriorPointTool.hxx".}
-

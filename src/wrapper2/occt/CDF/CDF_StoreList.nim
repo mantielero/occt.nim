@@ -14,6 +14,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../CDM/CDM_MapOfDocument,
+  ../CDM/CDM_ListOfDocument, ../CDM/CDM_MapIteratorOfMapOfDocument,
+  ../Standard/Standard_Transient, ../Standard/Standard_Boolean,
+  ../PCDM/PCDM_StoreStatus, ../Message/Message_ProgressIndicator
+
 discard "forward decl of CDM_Document"
 discard "forward decl of Standard_NoSuchObject"
 discard "forward decl of CDM_MetaData"
@@ -21,32 +27,31 @@ discard "forward decl of TCollection_ExtendedString"
 discard "forward decl of CDF_StoreList"
 discard "forward decl of CDF_StoreList"
 type
-  HandleCDF_StoreList* = Handle[CDF_StoreList]
-  CDF_StoreList* {.importcpp: "CDF_StoreList", header: "CDF_StoreList.hxx", bycopy.} = object of StandardTransient
+  Handle_CDF_StoreList* = handle[CDF_StoreList]
+  CDF_StoreList* {.importcpp: "CDF_StoreList", header: "CDF_StoreList.hxx", bycopy.} = object of Standard_Transient
 
 
-proc constructCDF_StoreList*(aDocument: Handle[CDM_Document]): CDF_StoreList {.
+proc constructCDF_StoreList*(aDocument: handle[CDM_Document]): CDF_StoreList {.
     constructor, importcpp: "CDF_StoreList(@)", header: "CDF_StoreList.hxx".}
-proc isConsistent*(this: CDF_StoreList): StandardBoolean {.noSideEffect,
+proc IsConsistent*(this: CDF_StoreList): Standard_Boolean {.noSideEffect,
     importcpp: "IsConsistent", header: "CDF_StoreList.hxx".}
-proc store*(this: var CDF_StoreList; aMetaData: var Handle[CDM_MetaData];
-           aStatusAssociatedText: var TCollectionExtendedString;
-           theRange: MessageProgressRange = messageProgressRange()): PCDM_StoreStatus {.
+proc Store*(this: var CDF_StoreList; aMetaData: var handle[CDM_MetaData];
+           aStatusAssociatedText: var TCollection_ExtendedString;
+           theRange: Message_ProgressRange = Message_ProgressRange()): PCDM_StoreStatus {.
     importcpp: "Store", header: "CDF_StoreList.hxx".}
-proc init*(this: var CDF_StoreList) {.importcpp: "Init", header: "CDF_StoreList.hxx".}
-proc more*(this: CDF_StoreList): StandardBoolean {.noSideEffect, importcpp: "More",
+proc Init*(this: var CDF_StoreList) {.importcpp: "Init", header: "CDF_StoreList.hxx".}
+proc More*(this: CDF_StoreList): Standard_Boolean {.noSideEffect, importcpp: "More",
     header: "CDF_StoreList.hxx".}
-proc next*(this: var CDF_StoreList) {.importcpp: "Next", header: "CDF_StoreList.hxx".}
-proc value*(this: CDF_StoreList): Handle[CDM_Document] {.noSideEffect,
+proc Next*(this: var CDF_StoreList) {.importcpp: "Next", header: "CDF_StoreList.hxx".}
+proc Value*(this: CDF_StoreList): handle[CDM_Document] {.noSideEffect,
     importcpp: "Value", header: "CDF_StoreList.hxx".}
 type
-  CDF_StoreListbaseType* = StandardTransient
+  CDF_StoreListbase_type* = Standard_Transient
 
-proc getTypeName*(): cstring {.importcpp: "CDF_StoreList::get_type_name(@)",
-                            header: "CDF_StoreList.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "CDF_StoreList::get_type_name(@)",
+                              header: "CDF_StoreList.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "CDF_StoreList::get_type_descriptor(@)",
     header: "CDF_StoreList.hxx".}
-proc dynamicType*(this: CDF_StoreList): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: CDF_StoreList): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "CDF_StoreList.hxx".}
-

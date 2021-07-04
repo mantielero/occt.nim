@@ -11,48 +11,54 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement
 
+import
+  ../Adaptor3d/Adaptor3d_Curve, ../Adaptor3d/Adaptor3d_Surface,
+  ../math/math_Matrix, ../math/math_Vector, ../math/math_MultipleVarFunction,
+  ../GeomAbs/GeomAbs_CurveType, ../gp/gp_Lin, ../gp/gp_Circ, ../gp/gp_Elips,
+  ../gp/gp_Hypr, ../gp/gp_Parab
+
 ## ! This class implements function which calculate square Eucluidean distance
 ## ! between point on surface and nearest point on Conic.
 
 type
-  ExtremaGlobOptFuncConicS* {.importcpp: "Extrema_GlobOptFuncConicS",
-                             header: "Extrema_GlobOptFuncConicS.hxx", bycopy.} = object of MathMultipleVarFunction ##
-                                                                                                            ## !
-                                                                                                            ## Curve
-                                                                                                            ## and
-                                                                                                            ## surface
-                                                                                                            ## should
-                                                                                                            ## exist
-                                                                                                            ## during
-                                                                                                            ## all
-                                                                                                            ## the
-                                                                                                            ## lifetime
-                                                                                                            ## of
-                                                                                                            ## Extrema_GlobOptFuncConicS.
+  Extrema_GlobOptFuncConicS* {.importcpp: "Extrema_GlobOptFuncConicS",
+                              header: "Extrema_GlobOptFuncConicS.hxx", bycopy.} = object of math_MultipleVarFunction ##
+                                                                                                              ## !
+                                                                                                              ## Curve
+                                                                                                              ## and
+                                                                                                              ## surface
+                                                                                                              ## should
+                                                                                                              ## exist
+                                                                                                              ## during
+                                                                                                              ## all
+                                                                                                              ## the
+                                                                                                              ## lifetime
+                                                                                                              ## of
+                                                                                                              ## Extrema_GlobOptFuncConicS.
     ## Boundaries
 
 
-proc constructExtremaGlobOptFuncConicS*(c: ptr Adaptor3dCurve;
-                                       s: ptr Adaptor3dSurface): ExtremaGlobOptFuncConicS {.
+proc constructExtrema_GlobOptFuncConicS*(C: ptr Adaptor3d_Curve;
+                                        S: ptr Adaptor3d_Surface): Extrema_GlobOptFuncConicS {.
     constructor, importcpp: "Extrema_GlobOptFuncConicS(@)",
     header: "Extrema_GlobOptFuncConicS.hxx".}
-proc constructExtremaGlobOptFuncConicS*(s: ptr Adaptor3dSurface): ExtremaGlobOptFuncConicS {.
+proc constructExtrema_GlobOptFuncConicS*(S: ptr Adaptor3d_Surface): Extrema_GlobOptFuncConicS {.
     constructor, importcpp: "Extrema_GlobOptFuncConicS(@)",
     header: "Extrema_GlobOptFuncConicS.hxx".}
-proc constructExtremaGlobOptFuncConicS*(s: ptr Adaptor3dSurface;
-                                       theUf: StandardReal; theUl: StandardReal;
-                                       theVf: StandardReal; theVl: StandardReal): ExtremaGlobOptFuncConicS {.
+proc constructExtrema_GlobOptFuncConicS*(S: ptr Adaptor3d_Surface;
+                                        theUf: Standard_Real;
+                                        theUl: Standard_Real;
+                                        theVf: Standard_Real; theVl: Standard_Real): Extrema_GlobOptFuncConicS {.
     constructor, importcpp: "Extrema_GlobOptFuncConicS(@)",
     header: "Extrema_GlobOptFuncConicS.hxx".}
-proc loadConic*(this: var ExtremaGlobOptFuncConicS; s: ptr Adaptor3dCurve;
-               theTf: StandardReal; theTl: StandardReal) {.importcpp: "LoadConic",
+proc LoadConic*(this: var Extrema_GlobOptFuncConicS; S: ptr Adaptor3d_Curve;
+               theTf: Standard_Real; theTl: Standard_Real) {.importcpp: "LoadConic",
     header: "Extrema_GlobOptFuncConicS.hxx".}
-proc nbVariables*(this: ExtremaGlobOptFuncConicS): StandardInteger {.noSideEffect,
+proc NbVariables*(this: Extrema_GlobOptFuncConicS): Standard_Integer {.noSideEffect,
     importcpp: "NbVariables", header: "Extrema_GlobOptFuncConicS.hxx".}
-proc value*(this: var ExtremaGlobOptFuncConicS; theX: MathVector;
-           theF: var StandardReal): StandardBoolean {.importcpp: "Value",
+proc Value*(this: var Extrema_GlobOptFuncConicS; theX: math_Vector;
+           theF: var Standard_Real): Standard_Boolean {.importcpp: "Value",
     header: "Extrema_GlobOptFuncConicS.hxx".}
-proc conicParameter*(this: ExtremaGlobOptFuncConicS; theUV: MathVector): StandardReal {.
+proc ConicParameter*(this: Extrema_GlobOptFuncConicS; theUV: math_Vector): Standard_Real {.
     noSideEffect, importcpp: "ConicParameter",
     header: "Extrema_GlobOptFuncConicS.hxx".}
-

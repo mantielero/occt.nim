@@ -12,7 +12,8 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../NCollection/NCollection_Vector, BOPDS_Pair
+
 type
-  BOPDS_VectorOfPair* = NCollectionVector[BOPDS_Pair]
-
-
+  BOPDS_VectorOfPair* = NCollection_Vector[BOPDS_Pair]

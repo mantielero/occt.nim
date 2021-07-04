@@ -11,14 +11,16 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard
+
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of gp_Pnt"
 type
-  BRepExtremaPoly* {.importcpp: "BRepExtrema_Poly", header: "BRepExtrema_Poly.hxx",
-                    bycopy.} = object ## ! returns Standard_True if OK.
+  BRepExtrema_Poly* {.importcpp: "BRepExtrema_Poly",
+                     header: "BRepExtrema_Poly.hxx", bycopy.} = object ## ! returns Standard_True if OK.
 
 
-proc distance*(s1: TopoDS_Shape; s2: TopoDS_Shape; p1: var GpPnt; p2: var GpPnt;
-              dist: var StandardReal): StandardBoolean {.
+proc Distance*(S1: TopoDS_Shape; S2: TopoDS_Shape; P1: var gp_Pnt; P2: var gp_Pnt;
+              dist: var Standard_Real): Standard_Boolean {.
     importcpp: "BRepExtrema_Poly::Distance(@)", header: "BRepExtrema_Poly.hxx".}
-

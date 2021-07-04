@@ -14,34 +14,39 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Address,
+  ../math/math_FunctionSetWithDerivatives, ../Standard/Standard_Integer,
+  ../Standard/Standard_Boolean, ../math/math_Vector
+
 discard "forward decl of Adaptor2d_Curve2d"
 discard "forward decl of Geom2dInt_Geom2dCurveTool"
 discard "forward decl of math_Matrix"
 type
-  Geom2dIntTheDistBetweenPCurvesOfTheIntPCurvePCurveOfGInter* {.
+  Geom2dInt_TheDistBetweenPCurvesOfTheIntPCurvePCurveOfGInter* {.
       importcpp: "Geom2dInt_TheDistBetweenPCurvesOfTheIntPCurvePCurveOfGInter", header: "Geom2dInt_TheDistBetweenPCurvesOfTheIntPCurvePCurveOfGInter.hxx",
-      bycopy.} = object of MathFunctionSetWithDerivatives
+      bycopy.} = object of math_FunctionSetWithDerivatives
 
 
-proc constructGeom2dIntTheDistBetweenPCurvesOfTheIntPCurvePCurveOfGInter*(
-    curve1: Adaptor2dCurve2d; curve2: Adaptor2dCurve2d): Geom2dIntTheDistBetweenPCurvesOfTheIntPCurvePCurveOfGInter {.
+proc constructGeom2dInt_TheDistBetweenPCurvesOfTheIntPCurvePCurveOfGInter*(
+    curve1: Adaptor2d_Curve2d; curve2: Adaptor2d_Curve2d): Geom2dInt_TheDistBetweenPCurvesOfTheIntPCurvePCurveOfGInter {.
     constructor, importcpp: "Geom2dInt_TheDistBetweenPCurvesOfTheIntPCurvePCurveOfGInter(@)",
     header: "Geom2dInt_TheDistBetweenPCurvesOfTheIntPCurvePCurveOfGInter.hxx".}
-proc nbVariables*(this: Geom2dIntTheDistBetweenPCurvesOfTheIntPCurvePCurveOfGInter): StandardInteger {.
+proc NbVariables*(this: Geom2dInt_TheDistBetweenPCurvesOfTheIntPCurvePCurveOfGInter): Standard_Integer {.
     noSideEffect, importcpp: "NbVariables",
     header: "Geom2dInt_TheDistBetweenPCurvesOfTheIntPCurvePCurveOfGInter.hxx".}
-proc nbEquations*(this: Geom2dIntTheDistBetweenPCurvesOfTheIntPCurvePCurveOfGInter): StandardInteger {.
+proc NbEquations*(this: Geom2dInt_TheDistBetweenPCurvesOfTheIntPCurvePCurveOfGInter): Standard_Integer {.
     noSideEffect, importcpp: "NbEquations",
     header: "Geom2dInt_TheDistBetweenPCurvesOfTheIntPCurvePCurveOfGInter.hxx".}
-proc value*(this: var Geom2dIntTheDistBetweenPCurvesOfTheIntPCurvePCurveOfGInter;
-           x: MathVector; f: var MathVector): StandardBoolean {.importcpp: "Value",
+proc Value*(this: var Geom2dInt_TheDistBetweenPCurvesOfTheIntPCurvePCurveOfGInter;
+           X: math_Vector; F: var math_Vector): Standard_Boolean {.importcpp: "Value",
     header: "Geom2dInt_TheDistBetweenPCurvesOfTheIntPCurvePCurveOfGInter.hxx".}
-proc derivatives*(this: var Geom2dIntTheDistBetweenPCurvesOfTheIntPCurvePCurveOfGInter;
-                 x: MathVector; d: var MathMatrix): StandardBoolean {.
+proc Derivatives*(this: var Geom2dInt_TheDistBetweenPCurvesOfTheIntPCurvePCurveOfGInter;
+                 X: math_Vector; D: var math_Matrix): Standard_Boolean {.
     importcpp: "Derivatives",
     header: "Geom2dInt_TheDistBetweenPCurvesOfTheIntPCurvePCurveOfGInter.hxx".}
-proc values*(this: var Geom2dIntTheDistBetweenPCurvesOfTheIntPCurvePCurveOfGInter;
-            x: MathVector; f: var MathVector; d: var MathMatrix): StandardBoolean {.
+proc Values*(this: var Geom2dInt_TheDistBetweenPCurvesOfTheIntPCurvePCurveOfGInter;
+            X: math_Vector; F: var math_Vector; D: var math_Matrix): Standard_Boolean {.
     importcpp: "Values",
     header: "Geom2dInt_TheDistBetweenPCurvesOfTheIntPCurvePCurveOfGInter.hxx".}
-

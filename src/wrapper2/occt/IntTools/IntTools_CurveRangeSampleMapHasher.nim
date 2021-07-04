@@ -13,19 +13,23 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer,
+  ../Standard/Standard_Boolean
+
 discard "forward decl of IntTools_CurveRangeSample"
 type
-  IntToolsCurveRangeSampleMapHasher* {.importcpp: "IntTools_CurveRangeSampleMapHasher", header: "IntTools_CurveRangeSampleMapHasher.hxx",
-                                      bycopy.} = object ## ! Computes a hash code for the given key, in the range [1, theUpperBound]
-                                                     ## ! @param theKey the key which hash code is to be computed
-                                                     ## ! @param theUpperBound the upper bound of the range a computing hash code must be within
-                                                     ## ! @return a computed hash code, in the range [1, theUpperBound]
+  IntTools_CurveRangeSampleMapHasher* {.importcpp: "IntTools_CurveRangeSampleMapHasher", header: "IntTools_CurveRangeSampleMapHasher.hxx",
+                                       bycopy.} = object ## ! Computes a hash code for the given key, in the range [1, theUpperBound]
+                                                      ## ! @param theKey the key which hash code is to be computed
+                                                      ## ! @param theUpperBound the upper bound of the range a computing hash code must be within
+                                                      ## ! @return a computed hash code, in the range [1, theUpperBound]
 
 
-proc hashCode*(theKey: IntToolsCurveRangeSample; theUpperBound: StandardInteger): StandardInteger {.
+proc HashCode*(theKey: IntTools_CurveRangeSample; theUpperBound: Standard_Integer): Standard_Integer {.
     importcpp: "IntTools_CurveRangeSampleMapHasher::HashCode(@)",
     header: "IntTools_CurveRangeSampleMapHasher.hxx".}
-proc isEqual*(s1: IntToolsCurveRangeSample; s2: IntToolsCurveRangeSample): StandardBoolean {.
+proc IsEqual*(S1: IntTools_CurveRangeSample; S2: IntTools_CurveRangeSample): Standard_Boolean {.
     importcpp: "IntTools_CurveRangeSampleMapHasher::IsEqual(@)",
     header: "IntTools_CurveRangeSampleMapHasher.hxx".}
-

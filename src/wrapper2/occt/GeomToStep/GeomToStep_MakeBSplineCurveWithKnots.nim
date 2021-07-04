@@ -14,23 +14,27 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, GeomToStep_Root
+
 discard "forward decl of StepGeom_BSplineCurveWithKnots"
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of Geom_BSplineCurve"
 discard "forward decl of Geom2d_BSplineCurve"
 type
-  GeomToStepMakeBSplineCurveWithKnots* {.importcpp: "GeomToStep_MakeBSplineCurveWithKnots", header: "GeomToStep_MakeBSplineCurveWithKnots.hxx",
-                                        bycopy.} = object of GeomToStepRoot
+  GeomToStep_MakeBSplineCurveWithKnots* {.
+      importcpp: "GeomToStep_MakeBSplineCurveWithKnots",
+      header: "GeomToStep_MakeBSplineCurveWithKnots.hxx", bycopy.} = object of GeomToStep_Root
 
 
-proc constructGeomToStepMakeBSplineCurveWithKnots*(
-    bsplin: Handle[GeomBSplineCurve]): GeomToStepMakeBSplineCurveWithKnots {.
+proc constructGeomToStep_MakeBSplineCurveWithKnots*(
+    Bsplin: handle[Geom_BSplineCurve]): GeomToStep_MakeBSplineCurveWithKnots {.
     constructor, importcpp: "GeomToStep_MakeBSplineCurveWithKnots(@)",
     header: "GeomToStep_MakeBSplineCurveWithKnots.hxx".}
-proc constructGeomToStepMakeBSplineCurveWithKnots*(
-    bsplin: Handle[Geom2dBSplineCurve]): GeomToStepMakeBSplineCurveWithKnots {.
+proc constructGeomToStep_MakeBSplineCurveWithKnots*(
+    Bsplin: handle[Geom2d_BSplineCurve]): GeomToStep_MakeBSplineCurveWithKnots {.
     constructor, importcpp: "GeomToStep_MakeBSplineCurveWithKnots(@)",
     header: "GeomToStep_MakeBSplineCurveWithKnots.hxx".}
-proc value*(this: GeomToStepMakeBSplineCurveWithKnots): Handle[
-    StepGeomBSplineCurveWithKnots] {.noSideEffect, importcpp: "Value", header: "GeomToStep_MakeBSplineCurveWithKnots.hxx".}
-
+proc Value*(this: GeomToStep_MakeBSplineCurveWithKnots): handle[
+    StepGeom_BSplineCurveWithKnots] {.noSideEffect, importcpp: "Value", header: "GeomToStep_MakeBSplineCurveWithKnots.hxx".}

@@ -14,7 +14,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _GeomAdaptor_HSurfaceOfLinearExtrusion_HeaderFile [NewLine] # _GeomAdaptor_HSurfaceOfLinearExtrusion_HeaderFile [NewLine] # < Standard . hxx > [NewLine] # < Standard_Type . hxx > [NewLine] # < GeomAdaptor_SurfaceOfLinearExtrusion . hxx > [NewLine] # < Adaptor3d_HSurface . hxx > [NewLine] class Standard_OutOfRange ;
+## !!!Ignored construct:  # _GeomAdaptor_HSurfaceOfLinearExtrusion_HeaderFile [NewLine] # _GeomAdaptor_HSurfaceOfLinearExtrusion_HeaderFile [NewLine] # ../Standard/Standard.hxx [NewLine] # ../Standard/Standard_Type.hxx [NewLine] # GeomAdaptor_SurfaceOfLinearExtrusion.hxx [NewLine] # ../Adaptor3d/Adaptor3d_HSurface.hxx [NewLine] class Standard_OutOfRange ;
 ## Error: did not expect <!!!
 
 discard "forward decl of Standard_NoSuchObject"
@@ -24,46 +24,43 @@ discard "forward decl of Adaptor3d_Surface"
 discard "forward decl of GeomAdaptor_HSurfaceOfLinearExtrusion"
 discard "forward decl of GeomAdaptor_HSurfaceOfLinearExtrusion"
 type
-  HandleGeomAdaptorHSurfaceOfLinearExtrusionGeomAdaptorHSurfaceOfLinearExtrusion* = Handle[
-      GeomAdaptorHSurfaceOfLinearExtrusion]
-  GeomAdaptorHSurfaceOfLinearExtrusion* {.
+  Handle_GeomAdaptor_HSurfaceOfLinearExtrusionGeomAdaptor_HSurfaceOfLinearExtrusion* = handle[
+      GeomAdaptor_HSurfaceOfLinearExtrusion]
+  GeomAdaptor_HSurfaceOfLinearExtrusion* {.
       importcpp: "GeomAdaptor_HSurfaceOfLinearExtrusion",
-      header: "GeomAdaptor_HSurfaceOfLinearExtrusion.hxx", bycopy.} = object of Adaptor3dHSurface ##
-                                                                                           ## !
-                                                                                           ## Creates
-                                                                                           ## an
-                                                                                           ## empty
-                                                                                           ## GenHSurface.
+      header: "GeomAdaptor_HSurfaceOfLinearExtrusion.hxx", bycopy.} = object of Adaptor3d_HSurface ##
+                                                                                            ## !
+                                                                                            ## Creates
+                                                                                            ## an
+                                                                                            ## empty
+                                                                                            ## GenHSurface.
 
 
-proc constructGeomAdaptorHSurfaceOfLinearExtrusion*(): GeomAdaptorHSurfaceOfLinearExtrusion {.
+proc constructGeomAdaptor_HSurfaceOfLinearExtrusion*(): GeomAdaptor_HSurfaceOfLinearExtrusion {.
     constructor, importcpp: "GeomAdaptor_HSurfaceOfLinearExtrusion(@)",
     header: "GeomAdaptor_HSurfaceOfLinearExtrusion.hxx".}
-proc constructGeomAdaptorHSurfaceOfLinearExtrusion*(
-    s: GeomAdaptorSurfaceOfLinearExtrusion): GeomAdaptorHSurfaceOfLinearExtrusion {.
+proc constructGeomAdaptor_HSurfaceOfLinearExtrusion*(
+    S: GeomAdaptor_SurfaceOfLinearExtrusion): GeomAdaptor_HSurfaceOfLinearExtrusion {.
     constructor, importcpp: "GeomAdaptor_HSurfaceOfLinearExtrusion(@)",
     header: "GeomAdaptor_HSurfaceOfLinearExtrusion.hxx".}
-proc set*(this: var GeomAdaptorHSurfaceOfLinearExtrusion;
-         s: GeomAdaptorSurfaceOfLinearExtrusion) {.importcpp: "Set",
+proc Set*(this: var GeomAdaptor_HSurfaceOfLinearExtrusion;
+         S: GeomAdaptor_SurfaceOfLinearExtrusion) {.importcpp: "Set",
     header: "GeomAdaptor_HSurfaceOfLinearExtrusion.hxx".}
-proc surface*(this: GeomAdaptorHSurfaceOfLinearExtrusion): Adaptor3dSurface {.
+proc Surface*(this: GeomAdaptor_HSurfaceOfLinearExtrusion): Adaptor3d_Surface {.
     noSideEffect, importcpp: "Surface",
     header: "GeomAdaptor_HSurfaceOfLinearExtrusion.hxx".}
-proc changeSurface*(this: var GeomAdaptorHSurfaceOfLinearExtrusion): var GeomAdaptorSurfaceOfLinearExtrusion {.
+proc ChangeSurface*(this: var GeomAdaptor_HSurfaceOfLinearExtrusion): var GeomAdaptor_SurfaceOfLinearExtrusion {.
     importcpp: "ChangeSurface",
     header: "GeomAdaptor_HSurfaceOfLinearExtrusion.hxx".}
 type
-  GeomAdaptorHSurfaceOfLinearExtrusionbaseType* = Adaptor3dHSurface
+  GeomAdaptor_HSurfaceOfLinearExtrusionbase_type* = Adaptor3d_HSurface
 
-proc getTypeName*(): cstring {.importcpp: "GeomAdaptor_HSurfaceOfLinearExtrusion::get_type_name(@)",
-                            header: "GeomAdaptor_HSurfaceOfLinearExtrusion.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "GeomAdaptor_HSurfaceOfLinearExtrusion::get_type_name(@)", header: "GeomAdaptor_HSurfaceOfLinearExtrusion.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "GeomAdaptor_HSurfaceOfLinearExtrusion::get_type_descriptor(@)",
     header: "GeomAdaptor_HSurfaceOfLinearExtrusion.hxx".}
-proc dynamicType*(this: GeomAdaptorHSurfaceOfLinearExtrusion): Handle[StandardType] {.
-    noSideEffect, importcpp: "DynamicType",
-    header: "GeomAdaptor_HSurfaceOfLinearExtrusion.hxx".}
-## !!!Ignored construct:  # TheSurface GeomAdaptor_SurfaceOfLinearExtrusion [NewLine] # TheSurface_hxx < GeomAdaptor_SurfaceOfLinearExtrusion . hxx > [NewLine] # Adaptor3d_GenHSurface GeomAdaptor_HSurfaceOfLinearExtrusion [NewLine] # Adaptor3d_GenHSurface_hxx < GeomAdaptor_HSurfaceOfLinearExtrusion . hxx > [NewLine] # Handle_Adaptor3d_GenHSurface opencascade :: handle < GeomAdaptor_HSurfaceOfLinearExtrusion > [end of template] [NewLine] # < Adaptor3d_GenHSurface . lxx > [NewLine] # TheSurface [NewLine] # TheSurface_hxx [NewLine] # Adaptor3d_GenHSurface [NewLine] # Adaptor3d_GenHSurface_hxx [NewLine] # Handle_Adaptor3d_GenHSurface [NewLine] #  _GeomAdaptor_HSurfaceOfLinearExtrusion_HeaderFile
+proc DynamicType*(this: GeomAdaptor_HSurfaceOfLinearExtrusion): handle[
+    Standard_Type] {.noSideEffect, importcpp: "DynamicType",
+                    header: "GeomAdaptor_HSurfaceOfLinearExtrusion.hxx".}
+## !!!Ignored construct:  # TheSurface GeomAdaptor_SurfaceOfLinearExtrusion [NewLine] # TheSurface_hxx < GeomAdaptor_SurfaceOfLinearExtrusion . hxx > [NewLine] # Adaptor3d_GenHSurface GeomAdaptor_HSurfaceOfLinearExtrusion [NewLine] # Adaptor3d_GenHSurface_hxx < GeomAdaptor_HSurfaceOfLinearExtrusion . hxx > [NewLine] # Handle_Adaptor3d_GenHSurface opencascade :: handle < GeomAdaptor_HSurfaceOfLinearExtrusion > [end of template] [NewLine] # < Adaptor3d_GenHSurface . lxx > [NewLine] # TheSurface [NewLine] # TheSurface_hxx [NewLine] # Adaptor3d_GenHSurface [NewLine] # Adaptor3d_GenHSurface_hxx [NewLine] # Handle_Adaptor3d_GenHSurface [NewLine] #  _GeomAdaptor_HSurfaceOfLinearExtrusion_HeaderFile [NewLine]
 ## Error: did not expect <!!!
-
-

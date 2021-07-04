@@ -11,14 +11,19 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard_TypeDef
+
 discard "forward decl of Message_ProgressScope"
 type
-  MessageProgressRange* {.importcpp: "Message_ProgressRange",
-                         header: "Message_ProgressRange.hxx", bycopy.} = object ## !
-                                                                           ## Constructor of the empty range
-                                                                           ## !
-                                                                           ## Constructor is
-                                                                           ## private
+  Message_ProgressRange* {.importcpp: "Message_ProgressRange",
+                          header: "Message_ProgressRange.hxx", bycopy.} = object ## !
+                                                                            ## Constructor of the
+                                                                            ## empty
+                                                                            ## range
+                                                                            ## !
+                                                                            ## Constructor is
+                                                                            ## private
     ## !< Pointer to parent scope
     ## !< Start point on the global scale
     ## !< Step of incrementation on the global scale
@@ -26,40 +31,42 @@ type
     ## !  was used to create a new scope
 
 
-proc constructMessageProgressRange*(): MessageProgressRange {.constructor,
+proc constructMessage_ProgressRange*(): Message_ProgressRange {.constructor,
     importcpp: "Message_ProgressRange(@)", header: "Message_ProgressRange.hxx".}
-proc constructMessageProgressRange*(theOther: MessageProgressRange): MessageProgressRange {.
+proc constructMessage_ProgressRange*(theOther: Message_ProgressRange): Message_ProgressRange {.
     constructor, importcpp: "Message_ProgressRange(@)",
     header: "Message_ProgressRange.hxx".}
-proc userBreak*(this: MessageProgressRange): StandardBoolean {.noSideEffect,
+proc UserBreak*(this: Message_ProgressRange): Standard_Boolean {.noSideEffect,
     importcpp: "UserBreak", header: "Message_ProgressRange.hxx".}
-proc more*(this: MessageProgressRange): StandardBoolean {.noSideEffect,
+proc More*(this: Message_ProgressRange): Standard_Boolean {.noSideEffect,
     importcpp: "More", header: "Message_ProgressRange.hxx".}
-proc isActive*(this: MessageProgressRange): StandardBoolean {.noSideEffect,
+proc IsActive*(this: Message_ProgressRange): Standard_Boolean {.noSideEffect,
     importcpp: "IsActive", header: "Message_ProgressRange.hxx".}
-proc close*(this: var MessageProgressRange) {.importcpp: "Close",
+proc Close*(this: var Message_ProgressRange) {.importcpp: "Close",
     header: "Message_ProgressRange.hxx".}
-proc destroyMessageProgressRange*(this: var MessageProgressRange) {.
+proc destroyMessage_ProgressRange*(this: var Message_ProgressRange) {.
     importcpp: "#.~Message_ProgressRange()", header: "Message_ProgressRange.hxx".}
+import
+  Message_ProgressIndicator
+
 ## =======================================================================
 ## function : IsActive
 ## purpose  :
 ## =======================================================================
 
-proc isActive*(this: MessageProgressRange): StandardBoolean {.noSideEffect,
+proc IsActive*(this: Message_ProgressRange): Standard_Boolean {.noSideEffect,
     importcpp: "IsActive", header: "Message_ProgressRange.hxx".}
 ## =======================================================================
 ## function : UserBreak
 ## purpose  :
 ## =======================================================================
 
-proc userBreak*(this: MessageProgressRange): StandardBoolean {.noSideEffect,
+proc UserBreak*(this: Message_ProgressRange): Standard_Boolean {.noSideEffect,
     importcpp: "UserBreak", header: "Message_ProgressRange.hxx".}
 ## =======================================================================
 ## function : Close
 ## purpose  :
 ## =======================================================================
 
-proc close*(this: var MessageProgressRange) {.importcpp: "Close",
+proc Close*(this: var Message_ProgressRange) {.importcpp: "Close",
     header: "Message_ProgressRange.hxx".}
-

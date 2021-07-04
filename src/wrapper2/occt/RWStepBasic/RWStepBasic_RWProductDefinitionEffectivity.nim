@@ -14,33 +14,36 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepBasic_ProductDefinitionEffectivity"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepBasicRWProductDefinitionEffectivity* {.
+  RWStepBasic_RWProductDefinitionEffectivity* {.
       importcpp: "RWStepBasic_RWProductDefinitionEffectivity",
       header: "RWStepBasic_RWProductDefinitionEffectivity.hxx", bycopy.} = object
 
 
-proc constructRWStepBasicRWProductDefinitionEffectivity*(): RWStepBasicRWProductDefinitionEffectivity {.
+proc constructRWStepBasic_RWProductDefinitionEffectivity*(): RWStepBasic_RWProductDefinitionEffectivity {.
     constructor, importcpp: "RWStepBasic_RWProductDefinitionEffectivity(@)",
     header: "RWStepBasic_RWProductDefinitionEffectivity.hxx".}
-proc readStep*(this: RWStepBasicRWProductDefinitionEffectivity;
-              data: Handle[StepDataStepReaderData]; num: StandardInteger;
-              ach: var Handle[InterfaceCheck];
-              ent: Handle[StepBasicProductDefinitionEffectivity]) {.noSideEffect,
+proc ReadStep*(this: RWStepBasic_RWProductDefinitionEffectivity;
+              data: handle[StepData_StepReaderData]; num: Standard_Integer;
+              ach: var handle[Interface_Check];
+              ent: handle[StepBasic_ProductDefinitionEffectivity]) {.noSideEffect,
     importcpp: "ReadStep",
     header: "RWStepBasic_RWProductDefinitionEffectivity.hxx".}
-proc writeStep*(this: RWStepBasicRWProductDefinitionEffectivity;
-               sw: var StepDataStepWriter;
-               ent: Handle[StepBasicProductDefinitionEffectivity]) {.noSideEffect,
-    importcpp: "WriteStep",
+proc WriteStep*(this: RWStepBasic_RWProductDefinitionEffectivity;
+               SW: var StepData_StepWriter;
+               ent: handle[StepBasic_ProductDefinitionEffectivity]) {.
+    noSideEffect, importcpp: "WriteStep",
     header: "RWStepBasic_RWProductDefinitionEffectivity.hxx".}
-proc share*(this: RWStepBasicRWProductDefinitionEffectivity;
-           ent: Handle[StepBasicProductDefinitionEffectivity];
-           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
+proc Share*(this: RWStepBasic_RWProductDefinitionEffectivity;
+           ent: handle[StepBasic_ProductDefinitionEffectivity];
+           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepBasic_RWProductDefinitionEffectivity.hxx".}
-

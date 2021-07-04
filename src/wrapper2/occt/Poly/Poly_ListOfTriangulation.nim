@@ -13,11 +13,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../NCollection/NCollection_List, Poly_Triangulation
+
 ## *
 ##  List of Poly_Triangulation instances.
 ##
 
 type
-  PolyListOfTriangulation* = NCollectionList[Handle[PolyTriangulation]]
-
-
+  Poly_ListOfTriangulation* = NCollection_List[handle[Poly_Triangulation]]

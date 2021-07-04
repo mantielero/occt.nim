@@ -23,6 +23,9 @@
 ##               CommonBaseAllocator.
 ##               Note that this object is managed by Handle.
 
+import
+  ../Standard/Standard_Transient, ../Standard/Standard_Type, NCollection_TypeDef
+
 ## *
 ##  Purpose:     Basic class for memory allocation wizards.
 ##               Defines  the  interface  for devising  different  allocators
@@ -37,38 +40,36 @@
 ##
 
 type
-  NCollectionBaseAllocator* {.importcpp: "NCollection_BaseAllocator",
-                             header: "NCollection_BaseAllocator.hxx", bycopy.} = object of StandardTransient ##  ---------- PUBLIC METHODS ------------
-                                                                                                      ## ! Constructor - prohibited
-                                                                                                      ## ! Copy constructor - prohibited
-                                                                                                      ##  ---------- CasCade RunTime Type Information
+  NCollection_BaseAllocator* {.importcpp: "NCollection_BaseAllocator",
+                              header: "NCollection_BaseAllocator.hxx", bycopy.} = object of Standard_Transient ##  ---------- PUBLIC METHODS ------------
+                                                                                                        ## ! Constructor - prohibited
+                                                                                                        ## ! Copy constructor - prohibited
+                                                                                                        ##  ---------- CasCade RunTime Type Information
 
 
-proc allocate*(this: var NCollectionBaseAllocator; size: csize_t): pointer {.
+proc Allocate*(this: var NCollection_BaseAllocator; size: csize_t): pointer {.
     importcpp: "Allocate", header: "NCollection_BaseAllocator.hxx".}
-proc free*(this: var NCollectionBaseAllocator; anAddress: pointer) {.
+proc Free*(this: var NCollection_BaseAllocator; anAddress: pointer) {.
     importcpp: "Free", header: "NCollection_BaseAllocator.hxx".}
-proc commonBaseAllocator*(): Handle[NCollectionBaseAllocator] {.
+proc CommonBaseAllocator*(): handle[NCollection_BaseAllocator] {.
     importcpp: "NCollection_BaseAllocator::CommonBaseAllocator(@)",
     header: "NCollection_BaseAllocator.hxx".}
-proc standardCallBack*(theIsAlloc: StandardBoolean; theStorage: StandardAddress;
-                      theRoundSize: StandardSize; theSize: StandardSize) {.
+proc StandardCallBack*(theIsAlloc: Standard_Boolean; theStorage: Standard_Address;
+                      theRoundSize: Standard_Size; theSize: Standard_Size) {.
     importcpp: "NCollection_BaseAllocator::StandardCallBack(@)",
     header: "NCollection_BaseAllocator.hxx".}
-proc printMemUsageStatistics*() {.importcpp: "NCollection_BaseAllocator::PrintMemUsageStatistics(@)",
+proc PrintMemUsageStatistics*() {.importcpp: "NCollection_BaseAllocator::PrintMemUsageStatistics(@)",
                                 header: "NCollection_BaseAllocator.hxx".}
 type
-  NCollectionBaseAllocatorbaseType* = StandardTransient
+  NCollection_BaseAllocatorbase_type* = Standard_Transient
 
-proc getTypeName*(): cstring {.importcpp: "NCollection_BaseAllocator::get_type_name(@)",
-                            header: "NCollection_BaseAllocator.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "NCollection_BaseAllocator::get_type_name(@)",
+                              header: "NCollection_BaseAllocator.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "NCollection_BaseAllocator::get_type_descriptor(@)",
     header: "NCollection_BaseAllocator.hxx".}
-proc dynamicType*(this: NCollectionBaseAllocator): Handle[StandardType] {.
+proc DynamicType*(this: NCollection_BaseAllocator): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType", header: "NCollection_BaseAllocator.hxx".}
 discard "forward decl of NCollection_BaseAllocator"
 type
-  HandleNCollectionBaseAllocator* = Handle[NCollectionBaseAllocator]
-
-
+  Handle_NCollection_BaseAllocator* = handle[NCollection_BaseAllocator]

@@ -14,6 +14,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Real,
+  GeomFill_TrihedronWithGuide, ../Standard/Standard_Boolean,
+  ../Standard/Standard_Integer, ../GeomAbs/GeomAbs_Shape,
+  ../TColStd/TColStd_Array1OfReal
+
 discard "forward decl of Approx_CurvlinFunc"
 discard "forward decl of Adaptor3d_HCurve"
 discard "forward decl of Standard_OutOfRange"
@@ -23,64 +29,63 @@ discard "forward decl of gp_Vec"
 discard "forward decl of GeomFill_GuideTrihedronAC"
 discard "forward decl of GeomFill_GuideTrihedronAC"
 type
-  HandleGeomFillGuideTrihedronAC* = Handle[GeomFillGuideTrihedronAC]
+  Handle_GeomFill_GuideTrihedronAC* = handle[GeomFill_GuideTrihedronAC]
 
 ## ! Trihedron in  the  case of a sweeping along a guide  curve.
 ## ! defined by curviline  absciss
 
 type
-  GeomFillGuideTrihedronAC* {.importcpp: "GeomFill_GuideTrihedronAC",
-                             header: "GeomFill_GuideTrihedronAC.hxx", bycopy.} = object of GeomFillTrihedronWithGuide
+  GeomFill_GuideTrihedronAC* {.importcpp: "GeomFill_GuideTrihedronAC",
+                              header: "GeomFill_GuideTrihedronAC.hxx", bycopy.} = object of GeomFill_TrihedronWithGuide
 
 
-proc constructGeomFillGuideTrihedronAC*(guide: Handle[Adaptor3dHCurve]): GeomFillGuideTrihedronAC {.
+proc constructGeomFill_GuideTrihedronAC*(guide: handle[Adaptor3d_HCurve]): GeomFill_GuideTrihedronAC {.
     constructor, importcpp: "GeomFill_GuideTrihedronAC(@)",
     header: "GeomFill_GuideTrihedronAC.hxx".}
-proc setCurve*(this: var GeomFillGuideTrihedronAC; c: Handle[Adaptor3dHCurve]) {.
+proc SetCurve*(this: var GeomFill_GuideTrihedronAC; C: handle[Adaptor3d_HCurve]) {.
     importcpp: "SetCurve", header: "GeomFill_GuideTrihedronAC.hxx".}
-proc copy*(this: GeomFillGuideTrihedronAC): Handle[GeomFillTrihedronLaw] {.
+proc Copy*(this: GeomFill_GuideTrihedronAC): handle[GeomFill_TrihedronLaw] {.
     noSideEffect, importcpp: "Copy", header: "GeomFill_GuideTrihedronAC.hxx".}
-proc guide*(this: GeomFillGuideTrihedronAC): Handle[Adaptor3dHCurve] {.noSideEffect,
-    importcpp: "Guide", header: "GeomFill_GuideTrihedronAC.hxx".}
-proc d0*(this: var GeomFillGuideTrihedronAC; param: StandardReal; tangent: var GpVec;
-        normal: var GpVec; biNormal: var GpVec): StandardBoolean {.importcpp: "D0",
-    header: "GeomFill_GuideTrihedronAC.hxx".}
-proc d1*(this: var GeomFillGuideTrihedronAC; param: StandardReal; tangent: var GpVec;
-        dTangent: var GpVec; normal: var GpVec; dNormal: var GpVec; biNormal: var GpVec;
-        dBiNormal: var GpVec): StandardBoolean {.importcpp: "D1",
-    header: "GeomFill_GuideTrihedronAC.hxx".}
-proc d2*(this: var GeomFillGuideTrihedronAC; param: StandardReal; tangent: var GpVec;
-        dTangent: var GpVec; d2Tangent: var GpVec; normal: var GpVec; dNormal: var GpVec;
-        d2Normal: var GpVec; biNormal: var GpVec; dBiNormal: var GpVec;
-        d2BiNormal: var GpVec): StandardBoolean {.importcpp: "D2",
-    header: "GeomFill_GuideTrihedronAC.hxx".}
-proc nbIntervals*(this: GeomFillGuideTrihedronAC; s: GeomAbsShape): StandardInteger {.
+proc Guide*(this: GeomFill_GuideTrihedronAC): handle[Adaptor3d_HCurve] {.
+    noSideEffect, importcpp: "Guide", header: "GeomFill_GuideTrihedronAC.hxx".}
+proc D0*(this: var GeomFill_GuideTrihedronAC; Param: Standard_Real;
+        Tangent: var gp_Vec; Normal: var gp_Vec; BiNormal: var gp_Vec): Standard_Boolean {.
+    importcpp: "D0", header: "GeomFill_GuideTrihedronAC.hxx".}
+proc D1*(this: var GeomFill_GuideTrihedronAC; Param: Standard_Real;
+        Tangent: var gp_Vec; DTangent: var gp_Vec; Normal: var gp_Vec;
+        DNormal: var gp_Vec; BiNormal: var gp_Vec; DBiNormal: var gp_Vec): Standard_Boolean {.
+    importcpp: "D1", header: "GeomFill_GuideTrihedronAC.hxx".}
+proc D2*(this: var GeomFill_GuideTrihedronAC; Param: Standard_Real;
+        Tangent: var gp_Vec; DTangent: var gp_Vec; D2Tangent: var gp_Vec;
+        Normal: var gp_Vec; DNormal: var gp_Vec; D2Normal: var gp_Vec;
+        BiNormal: var gp_Vec; DBiNormal: var gp_Vec; D2BiNormal: var gp_Vec): Standard_Boolean {.
+    importcpp: "D2", header: "GeomFill_GuideTrihedronAC.hxx".}
+proc NbIntervals*(this: GeomFill_GuideTrihedronAC; S: GeomAbs_Shape): Standard_Integer {.
     noSideEffect, importcpp: "NbIntervals", header: "GeomFill_GuideTrihedronAC.hxx".}
-proc intervals*(this: GeomFillGuideTrihedronAC; t: var TColStdArray1OfReal;
-               s: GeomAbsShape) {.noSideEffect, importcpp: "Intervals",
-                                header: "GeomFill_GuideTrihedronAC.hxx".}
-proc setInterval*(this: var GeomFillGuideTrihedronAC; first: StandardReal;
-                 last: StandardReal) {.importcpp: "SetInterval",
-                                     header: "GeomFill_GuideTrihedronAC.hxx".}
-proc getAverageLaw*(this: var GeomFillGuideTrihedronAC; aTangent: var GpVec;
-                   aNormal: var GpVec; aBiNormal: var GpVec) {.
+proc Intervals*(this: GeomFill_GuideTrihedronAC; T: var TColStd_Array1OfReal;
+               S: GeomAbs_Shape) {.noSideEffect, importcpp: "Intervals",
+                                 header: "GeomFill_GuideTrihedronAC.hxx".}
+proc SetInterval*(this: var GeomFill_GuideTrihedronAC; First: Standard_Real;
+                 Last: Standard_Real) {.importcpp: "SetInterval",
+                                      header: "GeomFill_GuideTrihedronAC.hxx".}
+proc GetAverageLaw*(this: var GeomFill_GuideTrihedronAC; ATangent: var gp_Vec;
+                   ANormal: var gp_Vec; ABiNormal: var gp_Vec) {.
     importcpp: "GetAverageLaw", header: "GeomFill_GuideTrihedronAC.hxx".}
-proc isConstant*(this: GeomFillGuideTrihedronAC): StandardBoolean {.noSideEffect,
+proc IsConstant*(this: GeomFill_GuideTrihedronAC): Standard_Boolean {.noSideEffect,
     importcpp: "IsConstant", header: "GeomFill_GuideTrihedronAC.hxx".}
-proc isOnlyBy3dCurve*(this: GeomFillGuideTrihedronAC): StandardBoolean {.
+proc IsOnlyBy3dCurve*(this: GeomFill_GuideTrihedronAC): Standard_Boolean {.
     noSideEffect, importcpp: "IsOnlyBy3dCurve",
     header: "GeomFill_GuideTrihedronAC.hxx".}
-proc origine*(this: var GeomFillGuideTrihedronAC; orACR1: StandardReal;
-             orACR2: StandardReal) {.importcpp: "Origine",
-                                   header: "GeomFill_GuideTrihedronAC.hxx".}
+proc Origine*(this: var GeomFill_GuideTrihedronAC; OrACR1: Standard_Real;
+             OrACR2: Standard_Real) {.importcpp: "Origine",
+                                    header: "GeomFill_GuideTrihedronAC.hxx".}
 type
-  GeomFillGuideTrihedronACbaseType* = GeomFillTrihedronWithGuide
+  GeomFill_GuideTrihedronACbase_type* = GeomFill_TrihedronWithGuide
 
-proc getTypeName*(): cstring {.importcpp: "GeomFill_GuideTrihedronAC::get_type_name(@)",
-                            header: "GeomFill_GuideTrihedronAC.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "GeomFill_GuideTrihedronAC::get_type_name(@)",
+                              header: "GeomFill_GuideTrihedronAC.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "GeomFill_GuideTrihedronAC::get_type_descriptor(@)",
     header: "GeomFill_GuideTrihedronAC.hxx".}
-proc dynamicType*(this: GeomFillGuideTrihedronAC): Handle[StandardType] {.
+proc DynamicType*(this: GeomFill_GuideTrihedronAC): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType", header: "GeomFill_GuideTrihedronAC.hxx".}
-

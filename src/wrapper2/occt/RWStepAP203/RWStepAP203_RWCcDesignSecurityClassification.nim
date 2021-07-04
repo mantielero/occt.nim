@@ -14,35 +14,38 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepAP203_CcDesignSecurityClassification"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepAP203RWCcDesignSecurityClassification* {.
+  RWStepAP203_RWCcDesignSecurityClassification* {.
       importcpp: "RWStepAP203_RWCcDesignSecurityClassification",
       header: "RWStepAP203_RWCcDesignSecurityClassification.hxx", bycopy.} = object ## !
                                                                                ## Empty
                                                                                ## constructor
 
 
-proc constructRWStepAP203RWCcDesignSecurityClassification*(): RWStepAP203RWCcDesignSecurityClassification {.
+proc constructRWStepAP203_RWCcDesignSecurityClassification*(): RWStepAP203_RWCcDesignSecurityClassification {.
     constructor, importcpp: "RWStepAP203_RWCcDesignSecurityClassification(@)",
     header: "RWStepAP203_RWCcDesignSecurityClassification.hxx".}
-proc readStep*(this: RWStepAP203RWCcDesignSecurityClassification;
-              data: Handle[StepDataStepReaderData]; num: StandardInteger;
-              ach: var Handle[InterfaceCheck];
-              ent: Handle[StepAP203CcDesignSecurityClassification]) {.
+proc ReadStep*(this: RWStepAP203_RWCcDesignSecurityClassification;
+              data: handle[StepData_StepReaderData]; num: Standard_Integer;
+              ach: var handle[Interface_Check];
+              ent: handle[StepAP203_CcDesignSecurityClassification]) {.
     noSideEffect, importcpp: "ReadStep",
     header: "RWStepAP203_RWCcDesignSecurityClassification.hxx".}
-proc writeStep*(this: RWStepAP203RWCcDesignSecurityClassification;
-               sw: var StepDataStepWriter;
-               ent: Handle[StepAP203CcDesignSecurityClassification]) {.
+proc WriteStep*(this: RWStepAP203_RWCcDesignSecurityClassification;
+               SW: var StepData_StepWriter;
+               ent: handle[StepAP203_CcDesignSecurityClassification]) {.
     noSideEffect, importcpp: "WriteStep",
     header: "RWStepAP203_RWCcDesignSecurityClassification.hxx".}
-proc share*(this: RWStepAP203RWCcDesignSecurityClassification;
-           ent: Handle[StepAP203CcDesignSecurityClassification];
-           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
+proc Share*(this: RWStepAP203_RWCcDesignSecurityClassification;
+           ent: handle[StepAP203_CcDesignSecurityClassification];
+           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepAP203_RWCcDesignSecurityClassification.hxx".}
-

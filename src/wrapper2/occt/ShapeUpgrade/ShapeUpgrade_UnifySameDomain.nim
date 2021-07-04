@@ -14,12 +14,19 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../BRepTools/BRepTools_History, ../Standard/Standard, ../Standard/Standard_Type,
+  ../TopoDS/TopoDS_Shape, ../Standard/Standard_Boolean,
+  ../Standard/Standard_Transient, ../TopTools/TopTools_DataMapOfShapeShape,
+  ../TopTools/TopTools_IndexedDataMapOfShapeListOfShape,
+  ../TopTools/TopTools_MapOfShape, ../Geom/Geom_Plane, ../Precision/Precision
+
 discard "forward decl of ShapeBuild_ReShape"
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of ShapeUpgrade_UnifySameDomain"
 discard "forward decl of ShapeUpgrade_UnifySameDomain"
 type
-  HandleShapeUpgradeUnifySameDomain* = Handle[ShapeUpgradeUnifySameDomain]
+  Handle_ShapeUpgrade_UnifySameDomain* = handle[ShapeUpgrade_UnifySameDomain]
 
 ## ! This tool tries to unify faces and edges of the shape which lie on the same geometry.
 ## ! Faces/edges are considering as 'same-domain' if a group of neighbouring faces/edges
@@ -51,81 +58,62 @@ type
 ## ! To avoid collecting of the history the place holder should be set to null handle.
 
 type
-  ShapeUpgradeUnifySameDomain* {.importcpp: "ShapeUpgrade_UnifySameDomain",
-                                header: "ShapeUpgrade_UnifySameDomain.hxx", bycopy.} = object of StandardTransient ##
-                                                                                                            ## !
-                                                                                                            ## This
-                                                                                                            ## method
-                                                                                                            ## makes
-                                                                                                            ## if
-                                                                                                            ## possible
-                                                                                                            ## a
-                                                                                                            ## common
-                                                                                                            ## face
-                                                                                                            ## from
-                                                                                                            ## each
-                                                                                                            ##
-                                                                                                            ## !
-                                                                                                            ## group
-                                                                                                            ## of
-                                                                                                            ## faces
-                                                                                                            ## lying
-                                                                                                            ## on
-                                                                                                            ## coincident
-                                                                                                            ## surfaces
+  ShapeUpgrade_UnifySameDomain* {.importcpp: "ShapeUpgrade_UnifySameDomain",
+                                 header: "ShapeUpgrade_UnifySameDomain.hxx",
+                                 bycopy.} = object of Standard_Transient ## ! This method makes if possible a common face from each
+                                                                    ## ! group of faces lying on coincident surfaces
     ## !< The history.
 
-  ShapeUpgradeUnifySameDomainDataMapOfFacePlane* = NCollectionDataMap[
-      TopoDS_Shape, Handle[GeomPlane], TopToolsShapeMapHasher]
+  ShapeUpgrade_UnifySameDomainDataMapOfFacePlane* = NCollection_DataMap[
+      TopoDS_Shape, handle[Geom_Plane], TopTools_ShapeMapHasher]
 
-proc constructShapeUpgradeUnifySameDomain*(): ShapeUpgradeUnifySameDomain {.
+proc constructShapeUpgrade_UnifySameDomain*(): ShapeUpgrade_UnifySameDomain {.
     constructor, importcpp: "ShapeUpgrade_UnifySameDomain(@)",
     header: "ShapeUpgrade_UnifySameDomain.hxx".}
-proc constructShapeUpgradeUnifySameDomain*(aShape: TopoDS_Shape;
-    unifyEdges: StandardBoolean = standardTrue;
-    unifyFaces: StandardBoolean = standardTrue;
-    concatBSplines: StandardBoolean = standardFalse): ShapeUpgradeUnifySameDomain {.
+proc constructShapeUpgrade_UnifySameDomain*(aShape: TopoDS_Shape;
+    UnifyEdges: Standard_Boolean = Standard_True;
+    UnifyFaces: Standard_Boolean = Standard_True;
+    ConcatBSplines: Standard_Boolean = Standard_False): ShapeUpgrade_UnifySameDomain {.
     constructor, importcpp: "ShapeUpgrade_UnifySameDomain(@)",
     header: "ShapeUpgrade_UnifySameDomain.hxx".}
-proc initialize*(this: var ShapeUpgradeUnifySameDomain; aShape: TopoDS_Shape;
-                unifyEdges: StandardBoolean = standardTrue;
-                unifyFaces: StandardBoolean = standardTrue;
-                concatBSplines: StandardBoolean = standardFalse) {.
+proc Initialize*(this: var ShapeUpgrade_UnifySameDomain; aShape: TopoDS_Shape;
+                UnifyEdges: Standard_Boolean = Standard_True;
+                UnifyFaces: Standard_Boolean = Standard_True;
+                ConcatBSplines: Standard_Boolean = Standard_False) {.
     importcpp: "Initialize", header: "ShapeUpgrade_UnifySameDomain.hxx".}
-proc allowInternalEdges*(this: var ShapeUpgradeUnifySameDomain;
-                        theValue: StandardBoolean) {.
+proc AllowInternalEdges*(this: var ShapeUpgrade_UnifySameDomain;
+                        theValue: Standard_Boolean) {.
     importcpp: "AllowInternalEdges", header: "ShapeUpgrade_UnifySameDomain.hxx".}
-proc keepShape*(this: var ShapeUpgradeUnifySameDomain; theShape: TopoDS_Shape) {.
+proc KeepShape*(this: var ShapeUpgrade_UnifySameDomain; theShape: TopoDS_Shape) {.
     importcpp: "KeepShape", header: "ShapeUpgrade_UnifySameDomain.hxx".}
-proc keepShapes*(this: var ShapeUpgradeUnifySameDomain;
-                theShapes: TopToolsMapOfShape) {.importcpp: "KeepShapes",
+proc KeepShapes*(this: var ShapeUpgrade_UnifySameDomain;
+                theShapes: TopTools_MapOfShape) {.importcpp: "KeepShapes",
     header: "ShapeUpgrade_UnifySameDomain.hxx".}
-proc setSafeInputMode*(this: var ShapeUpgradeUnifySameDomain;
-                      theValue: StandardBoolean) {.importcpp: "SetSafeInputMode",
+proc SetSafeInputMode*(this: var ShapeUpgrade_UnifySameDomain;
+                      theValue: Standard_Boolean) {.importcpp: "SetSafeInputMode",
     header: "ShapeUpgrade_UnifySameDomain.hxx".}
-proc setLinearTolerance*(this: var ShapeUpgradeUnifySameDomain;
-                        theValue: StandardReal) {.importcpp: "SetLinearTolerance",
-    header: "ShapeUpgrade_UnifySameDomain.hxx".}
-proc setAngularTolerance*(this: var ShapeUpgradeUnifySameDomain;
-                         theValue: StandardReal) {.
+proc SetLinearTolerance*(this: var ShapeUpgrade_UnifySameDomain;
+                        theValue: Standard_Real) {.
+    importcpp: "SetLinearTolerance", header: "ShapeUpgrade_UnifySameDomain.hxx".}
+proc SetAngularTolerance*(this: var ShapeUpgrade_UnifySameDomain;
+                         theValue: Standard_Real) {.
     importcpp: "SetAngularTolerance", header: "ShapeUpgrade_UnifySameDomain.hxx".}
-proc build*(this: var ShapeUpgradeUnifySameDomain) {.importcpp: "Build",
+proc Build*(this: var ShapeUpgrade_UnifySameDomain) {.importcpp: "Build",
     header: "ShapeUpgrade_UnifySameDomain.hxx".}
-proc shape*(this: ShapeUpgradeUnifySameDomain): TopoDS_Shape {.noSideEffect,
+proc Shape*(this: ShapeUpgrade_UnifySameDomain): TopoDS_Shape {.noSideEffect,
     importcpp: "Shape", header: "ShapeUpgrade_UnifySameDomain.hxx".}
-proc history*(this: ShapeUpgradeUnifySameDomain): Handle[BRepToolsHistory] {.
+proc History*(this: ShapeUpgrade_UnifySameDomain): handle[BRepTools_History] {.
     noSideEffect, importcpp: "History", header: "ShapeUpgrade_UnifySameDomain.hxx".}
-proc history*(this: var ShapeUpgradeUnifySameDomain): var Handle[BRepToolsHistory] {.
+proc History*(this: var ShapeUpgrade_UnifySameDomain): var handle[BRepTools_History] {.
     importcpp: "History", header: "ShapeUpgrade_UnifySameDomain.hxx".}
 type
-  ShapeUpgradeUnifySameDomainbaseType* = StandardTransient
+  ShapeUpgrade_UnifySameDomainbase_type* = Standard_Transient
 
-proc getTypeName*(): cstring {.importcpp: "ShapeUpgrade_UnifySameDomain::get_type_name(@)",
-                            header: "ShapeUpgrade_UnifySameDomain.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "ShapeUpgrade_UnifySameDomain::get_type_name(@)",
+                              header: "ShapeUpgrade_UnifySameDomain.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "ShapeUpgrade_UnifySameDomain::get_type_descriptor(@)",
     header: "ShapeUpgrade_UnifySameDomain.hxx".}
-proc dynamicType*(this: ShapeUpgradeUnifySameDomain): Handle[StandardType] {.
+proc DynamicType*(this: ShapeUpgrade_UnifySameDomain): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType",
     header: "ShapeUpgrade_UnifySameDomain.hxx".}
-

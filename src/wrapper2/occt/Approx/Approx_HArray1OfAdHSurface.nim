@@ -14,36 +14,38 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Adaptor3d/Adaptor3d_HSurface, Approx_Array1OfAdHSurface,
+  ../NCollection/NCollection_DefineHArray1
+
 type
-  ApproxHArray1OfAdHSurface* {.importcpp: "Approx_HArray1OfAdHSurface",
-                              header: "Approx_HArray1OfAdHSurface.hxx", bycopy.} = object of ApproxArray1OfAdHSurface
+  Approx_HArray1OfAdHSurface* {.importcpp: "Approx_HArray1OfAdHSurface",
+                               header: "Approx_HArray1OfAdHSurface.hxx", bycopy.} = object of Approx_Array1OfAdHSurface
 
 
-proc constructApproxHArray1OfAdHSurface*(theLower: StandardInteger;
-                                        theUpper: StandardInteger): ApproxHArray1OfAdHSurface {.
+proc constructApprox_HArray1OfAdHSurface*(theLower: Standard_Integer;
+    theUpper: Standard_Integer): Approx_HArray1OfAdHSurface {.constructor,
+    importcpp: "Approx_HArray1OfAdHSurface(@)",
+    header: "Approx_HArray1OfAdHSurface.hxx".}
+proc constructApprox_HArray1OfAdHSurface*(theLower: Standard_Integer;
+    theUpper: Standard_Integer; theValue: value_type): Approx_HArray1OfAdHSurface {.
     constructor, importcpp: "Approx_HArray1OfAdHSurface(@)",
     header: "Approx_HArray1OfAdHSurface.hxx".}
-proc constructApproxHArray1OfAdHSurface*(theLower: StandardInteger;
-                                        theUpper: StandardInteger;
-                                        theValue: ValueType): ApproxHArray1OfAdHSurface {.
+proc constructApprox_HArray1OfAdHSurface*(theOther: Approx_Array1OfAdHSurface): Approx_HArray1OfAdHSurface {.
     constructor, importcpp: "Approx_HArray1OfAdHSurface(@)",
     header: "Approx_HArray1OfAdHSurface.hxx".}
-proc constructApproxHArray1OfAdHSurface*(theOther: ApproxArray1OfAdHSurface): ApproxHArray1OfAdHSurface {.
-    constructor, importcpp: "Approx_HArray1OfAdHSurface(@)",
-    header: "Approx_HArray1OfAdHSurface.hxx".}
-proc array1*(this: ApproxHArray1OfAdHSurface): ApproxArray1OfAdHSurface {.
+proc Array1*(this: Approx_HArray1OfAdHSurface): Approx_Array1OfAdHSurface {.
     noSideEffect, importcpp: "Array1", header: "Approx_HArray1OfAdHSurface.hxx".}
-proc changeArray1*(this: var ApproxHArray1OfAdHSurface): var ApproxArray1OfAdHSurface {.
+proc ChangeArray1*(this: var Approx_HArray1OfAdHSurface): var Approx_Array1OfAdHSurface {.
     importcpp: "ChangeArray1", header: "Approx_HArray1OfAdHSurface.hxx".}
 type
-  ApproxHArray1OfAdHSurfacebaseType* = MMgtTShared
+  Approx_HArray1OfAdHSurfacebase_type* = MMgt_TShared
 
-proc getTypeName*(): cstring {.importcpp: "Approx_HArray1OfAdHSurface::get_type_name(@)",
-                            header: "Approx_HArray1OfAdHSurface.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "Approx_HArray1OfAdHSurface::get_type_name(@)",
+                              header: "Approx_HArray1OfAdHSurface.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "Approx_HArray1OfAdHSurface::get_type_descriptor(@)",
     header: "Approx_HArray1OfAdHSurface.hxx".}
-proc dynamicType*(this: ApproxHArray1OfAdHSurface): Handle[StandardType] {.
+proc DynamicType*(this: Approx_HArray1OfAdHSurface): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType",
     header: "Approx_HArray1OfAdHSurface.hxx".}
-

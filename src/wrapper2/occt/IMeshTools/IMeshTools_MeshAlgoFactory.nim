@@ -13,32 +13,36 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard_Transient, ../Standard/Standard_Type,
+  ../GeomAbs/GeomAbs_SurfaceType, IMeshTools_MeshAlgo
+
 discard "forward decl of IMeshTools_Parameters"
 type
-  IMeshToolsMeshAlgoFactory* {.importcpp: "IMeshTools_MeshAlgoFactory",
-                              header: "IMeshTools_MeshAlgoFactory.hxx", bycopy.} = object of StandardTransient ##
-                                                                                                        ## !
-                                                                                                        ## Destructor.
-                                                                                                        ##
-                                                                                                        ## !
-                                                                                                        ## Constructor.
+  IMeshTools_MeshAlgoFactory* {.importcpp: "IMeshTools_MeshAlgoFactory",
+                               header: "IMeshTools_MeshAlgoFactory.hxx", bycopy.} = object of Standard_Transient ##
+                                                                                                          ## !
+                                                                                                          ## Destructor.
+                                                                                                          ##
+                                                                                                          ## !
+                                                                                                          ## Constructor.
 
 
-proc destroyIMeshToolsMeshAlgoFactory*(this: var IMeshToolsMeshAlgoFactory) {.
+proc destroyIMeshTools_MeshAlgoFactory*(this: var IMeshTools_MeshAlgoFactory) {.
     importcpp: "#.~IMeshTools_MeshAlgoFactory()",
     header: "IMeshTools_MeshAlgoFactory.hxx".}
-proc getAlgo*(this: IMeshToolsMeshAlgoFactory; theSurfaceType: GeomAbsSurfaceType;
-             theParameters: IMeshToolsParameters): Handle[IMeshToolsMeshAlgo] {.
+proc GetAlgo*(this: IMeshTools_MeshAlgoFactory;
+             theSurfaceType: GeomAbs_SurfaceType;
+             theParameters: IMeshTools_Parameters): handle[IMeshTools_MeshAlgo] {.
     noSideEffect, importcpp: "GetAlgo", header: "IMeshTools_MeshAlgoFactory.hxx".}
 type
-  IMeshToolsMeshAlgoFactorybaseType* = StandardTransient
+  IMeshTools_MeshAlgoFactorybase_type* = Standard_Transient
 
-proc getTypeName*(): cstring {.importcpp: "IMeshTools_MeshAlgoFactory::get_type_name(@)",
-                            header: "IMeshTools_MeshAlgoFactory.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "IMeshTools_MeshAlgoFactory::get_type_name(@)",
+                              header: "IMeshTools_MeshAlgoFactory.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "IMeshTools_MeshAlgoFactory::get_type_descriptor(@)",
     header: "IMeshTools_MeshAlgoFactory.hxx".}
-proc dynamicType*(this: IMeshToolsMeshAlgoFactory): Handle[StandardType] {.
+proc DynamicType*(this: IMeshTools_MeshAlgoFactory): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType",
     header: "IMeshTools_MeshAlgoFactory.hxx".}
-

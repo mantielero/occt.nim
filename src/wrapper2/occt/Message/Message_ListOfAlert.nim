@@ -13,7 +13,8 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  Message_Alert, ../NCollection/NCollection_List
+
 type
-  MessageListOfAlert* = NCollectionList[Handle[MessageAlert]]
-
-
+  Message_ListOfAlert* = NCollection_List[handle[Message_Alert]]

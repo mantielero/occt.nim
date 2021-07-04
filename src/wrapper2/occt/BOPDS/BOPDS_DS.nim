@@ -12,6 +12,23 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, BOPDS_DataMapOfPaveBlockCommonBlock,
+  BOPDS_IndexedMapOfPaveBlock, BOPDS_ListOfPave, BOPDS_ListOfPaveBlock,
+  BOPDS_MapOfPair, BOPDS_MapOfPaveBlock, BOPDS_VectorOfFaceInfo,
+  BOPDS_VectorOfIndexRange, BOPDS_VectorOfInterfEE, BOPDS_VectorOfInterfEF,
+  BOPDS_VectorOfInterfEZ, BOPDS_VectorOfInterfFF, BOPDS_VectorOfInterfFZ,
+  BOPDS_VectorOfInterfVE, BOPDS_VectorOfInterfVF, BOPDS_VectorOfInterfVV,
+  BOPDS_VectorOfInterfVZ, BOPDS_VectorOfInterfZZ, BOPDS_VectorOfListOfPaveBlock,
+  BOPDS_VectorOfShapeInfo, ../NCollection/NCollection_BaseAllocator,
+  ../Precision/Precision, ../Standard/Standard_Boolean,
+  ../Standard/Standard_Integer, ../Standard/Standard_Real,
+  ../TColStd/TColStd_DataMapOfIntegerInteger,
+  ../TColStd/TColStd_DataMapOfIntegerListOfInteger,
+  ../TColStd/TColStd_ListOfInteger, ../TColStd/TColStd_MapOfInteger,
+  ../TopTools/TopTools_DataMapOfShapeInteger, ../TopTools/TopTools_ListOfShape
+
 discard "forward decl of BOPDS_IndexRange"
 discard "forward decl of BOPDS_ShapeInfo"
 discard "forward decl of TopoDS_Shape"
@@ -20,188 +37,187 @@ discard "forward decl of BOPDS_CommonBlock"
 discard "forward decl of BOPDS_FaceInfo"
 discard "forward decl of Bnd_Box"
 type
-  Bopds_Ds* {.importcpp: "BOPDS_DS", header: "BOPDS_DS.hxx", bycopy.} = object ## ! Empty
+  BOPDS_DS* {.importcpp: "BOPDS_DS", header: "BOPDS_DS.hxx", bycopy.} = object ## ! Empty
                                                                        ## contructor
                                                                        ## !
                                                                        ## Initializes the pave blocks for the shape with index theIndex
 
 
-proc constructBopdsDs*(): Bopds_Ds {.constructor, importcpp: "BOPDS_DS(@)",
-                                  header: "BOPDS_DS.hxx".}
-proc destroyBopdsDs*(this: var Bopds_Ds) {.importcpp: "#.~BOPDS_DS()",
-                                       header: "BOPDS_DS.hxx".}
-proc constructBopdsDs*(theAllocator: Handle[NCollectionBaseAllocator]): Bopds_Ds {.
+proc constructBOPDS_DS*(): BOPDS_DS {.constructor, importcpp: "BOPDS_DS(@)",
+                                   header: "BOPDS_DS.hxx".}
+proc destroyBOPDS_DS*(this: var BOPDS_DS) {.importcpp: "#.~BOPDS_DS()",
+                                        header: "BOPDS_DS.hxx".}
+proc constructBOPDS_DS*(theAllocator: handle[NCollection_BaseAllocator]): BOPDS_DS {.
     constructor, importcpp: "BOPDS_DS(@)", header: "BOPDS_DS.hxx".}
-proc clear*(this: var Bopds_Ds) {.importcpp: "Clear", header: "BOPDS_DS.hxx".}
-proc allocator*(this: Bopds_Ds): Handle[NCollectionBaseAllocator] {.noSideEffect,
+proc Clear*(this: var BOPDS_DS) {.importcpp: "Clear", header: "BOPDS_DS.hxx".}
+proc Allocator*(this: BOPDS_DS): handle[NCollection_BaseAllocator] {.noSideEffect,
     importcpp: "Allocator", header: "BOPDS_DS.hxx".}
-proc setArguments*(this: var Bopds_Ds; theLS: TopToolsListOfShape) {.
+proc SetArguments*(this: var BOPDS_DS; theLS: TopTools_ListOfShape) {.
     importcpp: "SetArguments", header: "BOPDS_DS.hxx".}
-proc arguments*(this: Bopds_Ds): TopToolsListOfShape {.noSideEffect,
+proc Arguments*(this: BOPDS_DS): TopTools_ListOfShape {.noSideEffect,
     importcpp: "Arguments", header: "BOPDS_DS.hxx".}
-proc init*(this: var Bopds_Ds; theFuzz: StandardReal = confusion()) {.importcpp: "Init",
-    header: "BOPDS_DS.hxx".}
-proc nbShapes*(this: Bopds_Ds): StandardInteger {.noSideEffect,
+proc Init*(this: var BOPDS_DS; theFuzz: Standard_Real = Confusion()) {.
+    importcpp: "Init", header: "BOPDS_DS.hxx".}
+proc NbShapes*(this: BOPDS_DS): Standard_Integer {.noSideEffect,
     importcpp: "NbShapes", header: "BOPDS_DS.hxx".}
-proc nbSourceShapes*(this: Bopds_Ds): StandardInteger {.noSideEffect,
+proc NbSourceShapes*(this: BOPDS_DS): Standard_Integer {.noSideEffect,
     importcpp: "NbSourceShapes", header: "BOPDS_DS.hxx".}
-proc nbRanges*(this: Bopds_Ds): StandardInteger {.noSideEffect,
+proc NbRanges*(this: BOPDS_DS): Standard_Integer {.noSideEffect,
     importcpp: "NbRanges", header: "BOPDS_DS.hxx".}
-proc range*(this: Bopds_Ds; theIndex: StandardInteger): BOPDS_IndexRange {.
+proc Range*(this: BOPDS_DS; theIndex: Standard_Integer): BOPDS_IndexRange {.
     noSideEffect, importcpp: "Range", header: "BOPDS_DS.hxx".}
-proc rank*(this: Bopds_Ds; theIndex: StandardInteger): StandardInteger {.noSideEffect,
-    importcpp: "Rank", header: "BOPDS_DS.hxx".}
-proc isNewShape*(this: Bopds_Ds; theIndex: StandardInteger): StandardBoolean {.
+proc Rank*(this: BOPDS_DS; theIndex: Standard_Integer): Standard_Integer {.
+    noSideEffect, importcpp: "Rank", header: "BOPDS_DS.hxx".}
+proc IsNewShape*(this: BOPDS_DS; theIndex: Standard_Integer): Standard_Boolean {.
     noSideEffect, importcpp: "IsNewShape", header: "BOPDS_DS.hxx".}
-proc append*(this: var Bopds_Ds; theSI: BOPDS_ShapeInfo): StandardInteger {.
+proc Append*(this: var BOPDS_DS; theSI: BOPDS_ShapeInfo): Standard_Integer {.
     importcpp: "Append", header: "BOPDS_DS.hxx".}
-proc append*(this: var Bopds_Ds; theS: TopoDS_Shape): StandardInteger {.
+proc Append*(this: var BOPDS_DS; theS: TopoDS_Shape): Standard_Integer {.
     importcpp: "Append", header: "BOPDS_DS.hxx".}
-proc shapeInfo*(this: Bopds_Ds; theIndex: StandardInteger): BOPDS_ShapeInfo {.
+proc ShapeInfo*(this: BOPDS_DS; theIndex: Standard_Integer): BOPDS_ShapeInfo {.
     noSideEffect, importcpp: "ShapeInfo", header: "BOPDS_DS.hxx".}
-proc changeShapeInfo*(this: var Bopds_Ds; theIndex: StandardInteger): var BOPDS_ShapeInfo {.
+proc ChangeShapeInfo*(this: var BOPDS_DS; theIndex: Standard_Integer): var BOPDS_ShapeInfo {.
     importcpp: "ChangeShapeInfo", header: "BOPDS_DS.hxx".}
-proc shape*(this: Bopds_Ds; theIndex: StandardInteger): TopoDS_Shape {.noSideEffect,
+proc Shape*(this: BOPDS_DS; theIndex: Standard_Integer): TopoDS_Shape {.noSideEffect,
     importcpp: "Shape", header: "BOPDS_DS.hxx".}
-proc index*(this: Bopds_Ds; theS: TopoDS_Shape): StandardInteger {.noSideEffect,
+proc Index*(this: BOPDS_DS; theS: TopoDS_Shape): Standard_Integer {.noSideEffect,
     importcpp: "Index", header: "BOPDS_DS.hxx".}
-proc paveBlocksPool*(this: Bopds_Ds): BOPDS_VectorOfListOfPaveBlock {.noSideEffect,
+proc PaveBlocksPool*(this: BOPDS_DS): BOPDS_VectorOfListOfPaveBlock {.noSideEffect,
     importcpp: "PaveBlocksPool", header: "BOPDS_DS.hxx".}
-proc changePaveBlocksPool*(this: var Bopds_Ds): var BOPDS_VectorOfListOfPaveBlock {.
+proc ChangePaveBlocksPool*(this: var BOPDS_DS): var BOPDS_VectorOfListOfPaveBlock {.
     importcpp: "ChangePaveBlocksPool", header: "BOPDS_DS.hxx".}
-proc hasPaveBlocks*(this: Bopds_Ds; theIndex: StandardInteger): StandardBoolean {.
+proc HasPaveBlocks*(this: BOPDS_DS; theIndex: Standard_Integer): Standard_Boolean {.
     noSideEffect, importcpp: "HasPaveBlocks", header: "BOPDS_DS.hxx".}
-proc paveBlocks*(this: Bopds_Ds; theIndex: StandardInteger): BOPDS_ListOfPaveBlock {.
+proc PaveBlocks*(this: BOPDS_DS; theIndex: Standard_Integer): BOPDS_ListOfPaveBlock {.
     noSideEffect, importcpp: "PaveBlocks", header: "BOPDS_DS.hxx".}
-proc changePaveBlocks*(this: var Bopds_Ds; theIndex: StandardInteger): var BOPDS_ListOfPaveBlock {.
+proc ChangePaveBlocks*(this: var BOPDS_DS; theIndex: Standard_Integer): var BOPDS_ListOfPaveBlock {.
     importcpp: "ChangePaveBlocks", header: "BOPDS_DS.hxx".}
-proc updatePaveBlocks*(this: var Bopds_Ds) {.importcpp: "UpdatePaveBlocks",
+proc UpdatePaveBlocks*(this: var BOPDS_DS) {.importcpp: "UpdatePaveBlocks",
     header: "BOPDS_DS.hxx".}
-proc updatePaveBlock*(this: var Bopds_Ds; thePB: Handle[BOPDS_PaveBlock]) {.
+proc UpdatePaveBlock*(this: var BOPDS_DS; thePB: handle[BOPDS_PaveBlock]) {.
     importcpp: "UpdatePaveBlock", header: "BOPDS_DS.hxx".}
-proc updateCommonBlock*(this: var Bopds_Ds; theCB: Handle[BOPDS_CommonBlock];
-                       theFuzz: StandardReal) {.importcpp: "UpdateCommonBlock",
+proc UpdateCommonBlock*(this: var BOPDS_DS; theCB: handle[BOPDS_CommonBlock];
+                       theFuzz: Standard_Real) {.importcpp: "UpdateCommonBlock",
     header: "BOPDS_DS.hxx".}
-proc isCommonBlock*(this: Bopds_Ds; thePB: Handle[BOPDS_PaveBlock]): StandardBoolean {.
+proc IsCommonBlock*(this: BOPDS_DS; thePB: handle[BOPDS_PaveBlock]): Standard_Boolean {.
     noSideEffect, importcpp: "IsCommonBlock", header: "BOPDS_DS.hxx".}
-proc commonBlock*(this: Bopds_Ds; thePB: Handle[BOPDS_PaveBlock]): Handle[
+proc CommonBlock*(this: BOPDS_DS; thePB: handle[BOPDS_PaveBlock]): handle[
     BOPDS_CommonBlock] {.noSideEffect, importcpp: "CommonBlock",
                         header: "BOPDS_DS.hxx".}
-proc setCommonBlock*(this: var Bopds_Ds; thePB: Handle[BOPDS_PaveBlock];
-                    theCB: Handle[BOPDS_CommonBlock]) {.
+proc SetCommonBlock*(this: var BOPDS_DS; thePB: handle[BOPDS_PaveBlock];
+                    theCB: handle[BOPDS_CommonBlock]) {.
     importcpp: "SetCommonBlock", header: "BOPDS_DS.hxx".}
-proc realPaveBlock*(this: Bopds_Ds; thePB: Handle[BOPDS_PaveBlock]): Handle[
+proc RealPaveBlock*(this: BOPDS_DS; thePB: handle[BOPDS_PaveBlock]): handle[
     BOPDS_PaveBlock] {.noSideEffect, importcpp: "RealPaveBlock",
                       header: "BOPDS_DS.hxx".}
-proc isCommonBlockOnEdge*(this: Bopds_Ds; thePB: Handle[BOPDS_PaveBlock]): StandardBoolean {.
+proc IsCommonBlockOnEdge*(this: BOPDS_DS; thePB: handle[BOPDS_PaveBlock]): Standard_Boolean {.
     noSideEffect, importcpp: "IsCommonBlockOnEdge", header: "BOPDS_DS.hxx".}
-proc faceInfoPool*(this: Bopds_Ds): BOPDS_VectorOfFaceInfo {.noSideEffect,
+proc FaceInfoPool*(this: BOPDS_DS): BOPDS_VectorOfFaceInfo {.noSideEffect,
     importcpp: "FaceInfoPool", header: "BOPDS_DS.hxx".}
-proc hasFaceInfo*(this: Bopds_Ds; theIndex: StandardInteger): StandardBoolean {.
+proc HasFaceInfo*(this: BOPDS_DS; theIndex: Standard_Integer): Standard_Boolean {.
     noSideEffect, importcpp: "HasFaceInfo", header: "BOPDS_DS.hxx".}
-proc faceInfo*(this: Bopds_Ds; theIndex: StandardInteger): BOPDS_FaceInfo {.
+proc FaceInfo*(this: BOPDS_DS; theIndex: Standard_Integer): BOPDS_FaceInfo {.
     noSideEffect, importcpp: "FaceInfo", header: "BOPDS_DS.hxx".}
-proc changeFaceInfo*(this: var Bopds_Ds; theIndex: StandardInteger): var BOPDS_FaceInfo {.
+proc ChangeFaceInfo*(this: var BOPDS_DS; theIndex: Standard_Integer): var BOPDS_FaceInfo {.
     importcpp: "ChangeFaceInfo", header: "BOPDS_DS.hxx".}
-proc updateFaceInfoIn*(this: var Bopds_Ds; theIndex: StandardInteger) {.
+proc UpdateFaceInfoIn*(this: var BOPDS_DS; theIndex: Standard_Integer) {.
     importcpp: "UpdateFaceInfoIn", header: "BOPDS_DS.hxx".}
-proc updateFaceInfoIn*(this: var Bopds_Ds; theFaces: TColStdMapOfInteger) {.
+proc UpdateFaceInfoIn*(this: var BOPDS_DS; theFaces: TColStd_MapOfInteger) {.
     importcpp: "UpdateFaceInfoIn", header: "BOPDS_DS.hxx".}
-proc updateFaceInfoOn*(this: var Bopds_Ds; theIndex: StandardInteger) {.
+proc UpdateFaceInfoOn*(this: var BOPDS_DS; theIndex: Standard_Integer) {.
     importcpp: "UpdateFaceInfoOn", header: "BOPDS_DS.hxx".}
-proc updateFaceInfoOn*(this: var Bopds_Ds; theFaces: TColStdMapOfInteger) {.
+proc UpdateFaceInfoOn*(this: var BOPDS_DS; theFaces: TColStd_MapOfInteger) {.
     importcpp: "UpdateFaceInfoOn", header: "BOPDS_DS.hxx".}
-proc faceInfoOn*(this: var Bopds_Ds; theIndex: StandardInteger;
+proc FaceInfoOn*(this: var BOPDS_DS; theIndex: Standard_Integer;
                 theMPB: var BOPDS_IndexedMapOfPaveBlock;
-                theMVP: var TColStdMapOfInteger) {.importcpp: "FaceInfoOn",
+                theMVP: var TColStd_MapOfInteger) {.importcpp: "FaceInfoOn",
     header: "BOPDS_DS.hxx".}
-proc faceInfoIn*(this: var Bopds_Ds; theIndex: StandardInteger;
+proc FaceInfoIn*(this: var BOPDS_DS; theIndex: Standard_Integer;
                 theMPB: var BOPDS_IndexedMapOfPaveBlock;
-                theMVP: var TColStdMapOfInteger) {.importcpp: "FaceInfoIn",
+                theMVP: var TColStd_MapOfInteger) {.importcpp: "FaceInfoIn",
     header: "BOPDS_DS.hxx".}
-proc aloneVertices*(this: Bopds_Ds; theF: StandardInteger;
-                   theLI: var TColStdListOfInteger) {.noSideEffect,
+proc AloneVertices*(this: BOPDS_DS; theF: Standard_Integer;
+                   theLI: var TColStd_ListOfInteger) {.noSideEffect,
     importcpp: "AloneVertices", header: "BOPDS_DS.hxx".}
-proc refineFaceInfoOn*(this: var Bopds_Ds) {.importcpp: "RefineFaceInfoOn",
+proc RefineFaceInfoOn*(this: var BOPDS_DS) {.importcpp: "RefineFaceInfoOn",
     header: "BOPDS_DS.hxx".}
-proc refineFaceInfoIn*(this: var Bopds_Ds) {.importcpp: "RefineFaceInfoIn",
+proc RefineFaceInfoIn*(this: var BOPDS_DS) {.importcpp: "RefineFaceInfoIn",
     header: "BOPDS_DS.hxx".}
-proc subShapesOnIn*(this: Bopds_Ds; theNF1: StandardInteger; theNF2: StandardInteger;
-                   theMVOnIn: var TColStdMapOfInteger;
-                   theMVCommon: var TColStdMapOfInteger;
+proc SubShapesOnIn*(this: BOPDS_DS; theNF1: Standard_Integer;
+                   theNF2: Standard_Integer; theMVOnIn: var TColStd_MapOfInteger;
+                   theMVCommon: var TColStd_MapOfInteger;
                    thePBOnIn: var BOPDS_IndexedMapOfPaveBlock;
                    theCommonPB: var BOPDS_MapOfPaveBlock) {.noSideEffect,
     importcpp: "SubShapesOnIn", header: "BOPDS_DS.hxx".}
-proc sharedEdges*(this: var Bopds_Ds; theF1: StandardInteger; theF2: StandardInteger;
-                 theLI: var TColStdListOfInteger;
-                 theAllocator: Handle[NCollectionBaseAllocator]) {.
+proc SharedEdges*(this: var BOPDS_DS; theF1: Standard_Integer;
+                 theF2: Standard_Integer; theLI: var TColStd_ListOfInteger;
+                 theAllocator: handle[NCollection_BaseAllocator]) {.
     importcpp: "SharedEdges", header: "BOPDS_DS.hxx".}
-proc shapesSD*(this: var Bopds_Ds): var TColStdDataMapOfIntegerInteger {.
+proc ShapesSD*(this: var BOPDS_DS): var TColStd_DataMapOfIntegerInteger {.
     importcpp: "ShapesSD", header: "BOPDS_DS.hxx".}
-proc addShapeSD*(this: var Bopds_Ds; theIndex: StandardInteger;
-                theIndexSD: StandardInteger) {.importcpp: "AddShapeSD",
+proc AddShapeSD*(this: var BOPDS_DS; theIndex: Standard_Integer;
+                theIndexSD: Standard_Integer) {.importcpp: "AddShapeSD",
     header: "BOPDS_DS.hxx".}
-proc hasShapeSD*(this: Bopds_Ds; theIndex: StandardInteger;
-                theIndexSD: var StandardInteger): StandardBoolean {.noSideEffect,
+proc HasShapeSD*(this: BOPDS_DS; theIndex: Standard_Integer;
+                theIndexSD: var Standard_Integer): Standard_Boolean {.noSideEffect,
     importcpp: "HasShapeSD", header: "BOPDS_DS.hxx".}
-proc interfVV*(this: var Bopds_Ds): var BOPDS_VectorOfInterfVV {.
+proc InterfVV*(this: var BOPDS_DS): var BOPDS_VectorOfInterfVV {.
     importcpp: "InterfVV", header: "BOPDS_DS.hxx".}
-proc interfVE*(this: var Bopds_Ds): var BOPDS_VectorOfInterfVE {.
+proc InterfVE*(this: var BOPDS_DS): var BOPDS_VectorOfInterfVE {.
     importcpp: "InterfVE", header: "BOPDS_DS.hxx".}
-proc interfVF*(this: var Bopds_Ds): var BOPDS_VectorOfInterfVF {.
+proc InterfVF*(this: var BOPDS_DS): var BOPDS_VectorOfInterfVF {.
     importcpp: "InterfVF", header: "BOPDS_DS.hxx".}
-proc interfEE*(this: var Bopds_Ds): var BOPDS_VectorOfInterfEE {.
+proc InterfEE*(this: var BOPDS_DS): var BOPDS_VectorOfInterfEE {.
     importcpp: "InterfEE", header: "BOPDS_DS.hxx".}
-proc interfEF*(this: var Bopds_Ds): var BOPDS_VectorOfInterfEF {.
+proc InterfEF*(this: var BOPDS_DS): var BOPDS_VectorOfInterfEF {.
     importcpp: "InterfEF", header: "BOPDS_DS.hxx".}
-proc interfFF*(this: var Bopds_Ds): var BOPDS_VectorOfInterfFF {.
+proc InterfFF*(this: var BOPDS_DS): var BOPDS_VectorOfInterfFF {.
     importcpp: "InterfFF", header: "BOPDS_DS.hxx".}
-proc interfVZ*(this: var Bopds_Ds): var BOPDS_VectorOfInterfVZ {.
+proc InterfVZ*(this: var BOPDS_DS): var BOPDS_VectorOfInterfVZ {.
     importcpp: "InterfVZ", header: "BOPDS_DS.hxx".}
-proc interfEZ*(this: var Bopds_Ds): var BOPDS_VectorOfInterfEZ {.
+proc InterfEZ*(this: var BOPDS_DS): var BOPDS_VectorOfInterfEZ {.
     importcpp: "InterfEZ", header: "BOPDS_DS.hxx".}
-proc interfFZ*(this: var Bopds_Ds): var BOPDS_VectorOfInterfFZ {.
+proc InterfFZ*(this: var BOPDS_DS): var BOPDS_VectorOfInterfFZ {.
     importcpp: "InterfFZ", header: "BOPDS_DS.hxx".}
-proc interfZZ*(this: var Bopds_Ds): var BOPDS_VectorOfInterfZZ {.
+proc InterfZZ*(this: var BOPDS_DS): var BOPDS_VectorOfInterfZZ {.
     importcpp: "InterfZZ", header: "BOPDS_DS.hxx".}
-proc nbInterfTypes*(): StandardInteger {.importcpp: "BOPDS_DS::NbInterfTypes(@)",
-                                      header: "BOPDS_DS.hxx".}
-proc addInterf*(this: var Bopds_Ds; theI1: StandardInteger; theI2: StandardInteger): StandardBoolean {.
+proc NbInterfTypes*(): Standard_Integer {.importcpp: "BOPDS_DS::NbInterfTypes(@)",
+                                       header: "BOPDS_DS.hxx".}
+proc AddInterf*(this: var BOPDS_DS; theI1: Standard_Integer; theI2: Standard_Integer): Standard_Boolean {.
     importcpp: "AddInterf", header: "BOPDS_DS.hxx".}
-proc hasInterf*(this: Bopds_Ds; theI: StandardInteger): StandardBoolean {.
+proc HasInterf*(this: BOPDS_DS; theI: Standard_Integer): Standard_Boolean {.
     noSideEffect, importcpp: "HasInterf", header: "BOPDS_DS.hxx".}
-proc hasInterf*(this: Bopds_Ds; theI1: StandardInteger; theI2: StandardInteger): StandardBoolean {.
+proc HasInterf*(this: BOPDS_DS; theI1: Standard_Integer; theI2: Standard_Integer): Standard_Boolean {.
     noSideEffect, importcpp: "HasInterf", header: "BOPDS_DS.hxx".}
-proc hasInterfShapeSubShapes*(this: Bopds_Ds; theI1: StandardInteger;
-                             theI2: StandardInteger;
-                             theFlag: StandardBoolean = standardTrue): StandardBoolean {.
+proc HasInterfShapeSubShapes*(this: BOPDS_DS; theI1: Standard_Integer;
+                             theI2: Standard_Integer;
+                             theFlag: Standard_Boolean = Standard_True): Standard_Boolean {.
     noSideEffect, importcpp: "HasInterfShapeSubShapes", header: "BOPDS_DS.hxx".}
-proc hasInterfSubShapes*(this: Bopds_Ds; theI1: StandardInteger;
-                        theI2: StandardInteger): StandardBoolean {.noSideEffect,
+proc HasInterfSubShapes*(this: BOPDS_DS; theI1: Standard_Integer;
+                        theI2: Standard_Integer): Standard_Boolean {.noSideEffect,
     importcpp: "HasInterfSubShapes", header: "BOPDS_DS.hxx".}
-proc interferences*(this: Bopds_Ds): BOPDS_MapOfPair {.noSideEffect,
+proc Interferences*(this: BOPDS_DS): BOPDS_MapOfPair {.noSideEffect,
     importcpp: "Interferences", header: "BOPDS_DS.hxx".}
-proc dump*(this: Bopds_Ds) {.noSideEffect, importcpp: "Dump", header: "BOPDS_DS.hxx".}
-proc isSubShape*(this: var Bopds_Ds; theI1: StandardInteger; theI2: StandardInteger): StandardBoolean {.
+proc Dump*(this: BOPDS_DS) {.noSideEffect, importcpp: "Dump", header: "BOPDS_DS.hxx".}
+proc IsSubShape*(this: var BOPDS_DS; theI1: Standard_Integer; theI2: Standard_Integer): Standard_Boolean {.
     importcpp: "IsSubShape", header: "BOPDS_DS.hxx".}
-proc paves*(this: var Bopds_Ds; theIndex: StandardInteger; theLP: var BOPDS_ListOfPave) {.
-    importcpp: "Paves", header: "BOPDS_DS.hxx".}
-proc updatePaveBlocksWithSDVertices*(this: var Bopds_Ds) {.
+proc Paves*(this: var BOPDS_DS; theIndex: Standard_Integer;
+           theLP: var BOPDS_ListOfPave) {.importcpp: "Paves", header: "BOPDS_DS.hxx".}
+proc UpdatePaveBlocksWithSDVertices*(this: var BOPDS_DS) {.
     importcpp: "UpdatePaveBlocksWithSDVertices", header: "BOPDS_DS.hxx".}
-proc updatePaveBlockWithSDVertices*(this: var Bopds_Ds;
-                                   thePB: Handle[BOPDS_PaveBlock]) {.
+proc UpdatePaveBlockWithSDVertices*(this: var BOPDS_DS;
+                                   thePB: handle[BOPDS_PaveBlock]) {.
     importcpp: "UpdatePaveBlockWithSDVertices", header: "BOPDS_DS.hxx".}
-proc updateCommonBlockWithSDVertices*(this: var Bopds_Ds;
-                                     theCB: Handle[BOPDS_CommonBlock]) {.
+proc UpdateCommonBlockWithSDVertices*(this: var BOPDS_DS;
+                                     theCB: handle[BOPDS_CommonBlock]) {.
     importcpp: "UpdateCommonBlockWithSDVertices", header: "BOPDS_DS.hxx".}
-proc initPaveBlocksForVertex*(this: var Bopds_Ds; theNV: StandardInteger) {.
+proc InitPaveBlocksForVertex*(this: var BOPDS_DS; theNV: Standard_Integer) {.
     importcpp: "InitPaveBlocksForVertex", header: "BOPDS_DS.hxx".}
-proc releasePaveBlocks*(this: var Bopds_Ds) {.importcpp: "ReleasePaveBlocks",
+proc ReleasePaveBlocks*(this: var BOPDS_DS) {.importcpp: "ReleasePaveBlocks",
     header: "BOPDS_DS.hxx".}
-proc isValidShrunkData*(this: var Bopds_Ds; thePB: Handle[BOPDS_PaveBlock]): StandardBoolean {.
+proc IsValidShrunkData*(this: var BOPDS_DS; thePB: handle[BOPDS_PaveBlock]): Standard_Boolean {.
     importcpp: "IsValidShrunkData", header: "BOPDS_DS.hxx".}
-proc buildBndBoxSolid*(this: var Bopds_Ds; theIndex: StandardInteger;
-                      theBox: var BndBox;
-                      theCheckInverted: StandardBoolean = standardTrue) {.
+proc BuildBndBoxSolid*(this: var BOPDS_DS; theIndex: Standard_Integer;
+                      theBox: var Bnd_Box;
+                      theCheckInverted: Standard_Boolean = Standard_True) {.
     importcpp: "BuildBndBoxSolid", header: "BOPDS_DS.hxx".}
-

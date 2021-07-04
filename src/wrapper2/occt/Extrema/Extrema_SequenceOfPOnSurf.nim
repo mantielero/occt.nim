@@ -14,7 +14,8 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  Extrema_POnSurf, ../NCollection/NCollection_Sequence
+
 type
-  ExtremaSequenceOfPOnSurf* = NCollectionSequence[ExtremaPOnSurf]
-
-
+  Extrema_SequenceOfPOnSurf* = NCollection_Sequence[Extrema_POnSurf]

@@ -14,36 +14,40 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../TopoDS/TopoDS_Wire, ../TopoDS/TopoDS_Vertex,
+  ../Standard/Standard_Boolean
+
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of TopoDS_Vertex"
 discard "forward decl of TopoDS_Wire"
 type
-  BRepFillSection* {.importcpp: "BRepFill_Section", header: "BRepFill_Section.hxx",
-                    bycopy.} = object
+  BRepFill_Section* {.importcpp: "BRepFill_Section",
+                     header: "BRepFill_Section.hxx", bycopy.} = object
 
 
-proc constructBRepFillSection*(): BRepFillSection {.constructor,
+proc constructBRepFill_Section*(): BRepFill_Section {.constructor,
     importcpp: "BRepFill_Section(@)", header: "BRepFill_Section.hxx".}
-proc constructBRepFillSection*(profile: TopoDS_Shape; v: TopoDS_Vertex;
-                              withContact: StandardBoolean;
-                              withCorrection: StandardBoolean): BRepFillSection {.
+proc constructBRepFill_Section*(Profile: TopoDS_Shape; V: TopoDS_Vertex;
+                               WithContact: Standard_Boolean;
+                               WithCorrection: Standard_Boolean): BRepFill_Section {.
     constructor, importcpp: "BRepFill_Section(@)", header: "BRepFill_Section.hxx".}
-proc set*(this: var BRepFillSection; isLaw: StandardBoolean) {.importcpp: "Set",
+proc Set*(this: var BRepFill_Section; IsLaw: Standard_Boolean) {.importcpp: "Set",
     header: "BRepFill_Section.hxx".}
-proc originalShape*(this: BRepFillSection): TopoDS_Shape {.noSideEffect,
+proc OriginalShape*(this: BRepFill_Section): TopoDS_Shape {.noSideEffect,
     importcpp: "OriginalShape", header: "BRepFill_Section.hxx".}
-proc wire*(this: BRepFillSection): TopoDS_Wire {.noSideEffect, importcpp: "Wire",
+proc Wire*(this: BRepFill_Section): TopoDS_Wire {.noSideEffect, importcpp: "Wire",
     header: "BRepFill_Section.hxx".}
-proc vertex*(this: BRepFillSection): TopoDS_Vertex {.noSideEffect,
+proc Vertex*(this: BRepFill_Section): TopoDS_Vertex {.noSideEffect,
     importcpp: "Vertex", header: "BRepFill_Section.hxx".}
-proc modifiedShape*(this: BRepFillSection; theShape: TopoDS_Shape): TopoDS_Shape {.
+proc ModifiedShape*(this: BRepFill_Section; theShape: TopoDS_Shape): TopoDS_Shape {.
     noSideEffect, importcpp: "ModifiedShape", header: "BRepFill_Section.hxx".}
-proc isLaw*(this: BRepFillSection): StandardBoolean {.noSideEffect,
+proc IsLaw*(this: BRepFill_Section): Standard_Boolean {.noSideEffect,
     importcpp: "IsLaw", header: "BRepFill_Section.hxx".}
-proc isPunctual*(this: BRepFillSection): StandardBoolean {.noSideEffect,
+proc IsPunctual*(this: BRepFill_Section): Standard_Boolean {.noSideEffect,
     importcpp: "IsPunctual", header: "BRepFill_Section.hxx".}
-proc withContact*(this: BRepFillSection): StandardBoolean {.noSideEffect,
+proc WithContact*(this: BRepFill_Section): Standard_Boolean {.noSideEffect,
     importcpp: "WithContact", header: "BRepFill_Section.hxx".}
-proc withCorrection*(this: BRepFillSection): StandardBoolean {.noSideEffect,
+proc WithCorrection*(this: BRepFill_Section): Standard_Boolean {.noSideEffect,
     importcpp: "WithCorrection", header: "BRepFill_Section.hxx".}
-

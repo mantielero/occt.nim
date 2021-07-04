@@ -14,38 +14,43 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../LocOpe/LocOpe_Gluer,
+  ../BRepBuilderAPI/BRepBuilderAPI_MakeShape, ../LocOpe/LocOpe_Operation,
+  ../Standard/Standard_Boolean, ../TopTools/TopTools_ListOfShape
+
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of TopoDS_Face"
 discard "forward decl of TopoDS_Edge"
 type
-  BRepFeatGluer* {.importcpp: "BRepFeat_Gluer", header: "BRepFeat_Gluer.hxx", bycopy.} = object of BRepBuilderAPI_MakeShape ##
-                                                                                                                  ## !
-                                                                                                                  ## Initializes
-                                                                                                                  ## an
-                                                                                                                  ## empty
-                                                                                                                  ## constructor
+  BRepFeat_Gluer* {.importcpp: "BRepFeat_Gluer", header: "BRepFeat_Gluer.hxx", bycopy.} = object of BRepBuilderAPI_MakeShape ##
+                                                                                                                   ## !
+                                                                                                                   ## Initializes
+                                                                                                                   ## an
+                                                                                                                   ## empty
+                                                                                                                   ## constructor
 
 
-proc constructBRepFeatGluer*(): BRepFeatGluer {.constructor,
+proc constructBRepFeat_Gluer*(): BRepFeat_Gluer {.constructor,
     importcpp: "BRepFeat_Gluer(@)", header: "BRepFeat_Gluer.hxx".}
-proc constructBRepFeatGluer*(snew: TopoDS_Shape; sbase: TopoDS_Shape): BRepFeatGluer {.
+proc constructBRepFeat_Gluer*(Snew: TopoDS_Shape; Sbase: TopoDS_Shape): BRepFeat_Gluer {.
     constructor, importcpp: "BRepFeat_Gluer(@)", header: "BRepFeat_Gluer.hxx".}
-proc init*(this: var BRepFeatGluer; snew: TopoDS_Shape; sbase: TopoDS_Shape) {.
+proc Init*(this: var BRepFeat_Gluer; Snew: TopoDS_Shape; Sbase: TopoDS_Shape) {.
     importcpp: "Init", header: "BRepFeat_Gluer.hxx".}
-proc `bind`*(this: var BRepFeatGluer; fnew: TopoDS_Face; fbase: TopoDS_Face) {.
+proc Bind*(this: var BRepFeat_Gluer; Fnew: TopoDS_Face; Fbase: TopoDS_Face) {.
     importcpp: "Bind", header: "BRepFeat_Gluer.hxx".}
-proc `bind`*(this: var BRepFeatGluer; enew: TopoDS_Edge; ebase: TopoDS_Edge) {.
+proc Bind*(this: var BRepFeat_Gluer; Enew: TopoDS_Edge; Ebase: TopoDS_Edge) {.
     importcpp: "Bind", header: "BRepFeat_Gluer.hxx".}
-proc opeType*(this: BRepFeatGluer): LocOpeOperation {.noSideEffect,
+proc OpeType*(this: BRepFeat_Gluer): LocOpe_Operation {.noSideEffect,
     importcpp: "OpeType", header: "BRepFeat_Gluer.hxx".}
-proc basisShape*(this: BRepFeatGluer): TopoDS_Shape {.noSideEffect,
+proc BasisShape*(this: BRepFeat_Gluer): TopoDS_Shape {.noSideEffect,
     importcpp: "BasisShape", header: "BRepFeat_Gluer.hxx".}
-proc gluedShape*(this: BRepFeatGluer): TopoDS_Shape {.noSideEffect,
+proc GluedShape*(this: BRepFeat_Gluer): TopoDS_Shape {.noSideEffect,
     importcpp: "GluedShape", header: "BRepFeat_Gluer.hxx".}
-proc build*(this: var BRepFeatGluer) {.importcpp: "Build",
-                                   header: "BRepFeat_Gluer.hxx".}
-proc isDeleted*(this: var BRepFeatGluer; f: TopoDS_Shape): StandardBoolean {.
+proc Build*(this: var BRepFeat_Gluer) {.importcpp: "Build",
+                                    header: "BRepFeat_Gluer.hxx".}
+proc IsDeleted*(this: var BRepFeat_Gluer; F: TopoDS_Shape): Standard_Boolean {.
     importcpp: "IsDeleted", header: "BRepFeat_Gluer.hxx".}
-proc modified*(this: var BRepFeatGluer; f: TopoDS_Shape): TopToolsListOfShape {.
+proc Modified*(this: var BRepFeat_Gluer; F: TopoDS_Shape): TopTools_ListOfShape {.
     importcpp: "Modified", header: "BRepFeat_Gluer.hxx".}
-

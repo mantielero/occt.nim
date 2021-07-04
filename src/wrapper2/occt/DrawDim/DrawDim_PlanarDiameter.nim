@@ -14,33 +14,36 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../TopoDS/TopoDS_Shape,
+  DrawDim_PlanarDimension
+
 discard "forward decl of TopoDS_Face"
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of Draw_Display"
 discard "forward decl of DrawDim_PlanarDiameter"
 discard "forward decl of DrawDim_PlanarDiameter"
 type
-  HandleDrawDimPlanarDiameter* = Handle[DrawDimPlanarDiameter]
-  DrawDimPlanarDiameter* {.importcpp: "DrawDim_PlanarDiameter",
-                          header: "DrawDim_PlanarDiameter.hxx", bycopy.} = object of DrawDimPlanarDimension
+  Handle_DrawDim_PlanarDiameter* = handle[DrawDim_PlanarDiameter]
+  DrawDim_PlanarDiameter* {.importcpp: "DrawDim_PlanarDiameter",
+                           header: "DrawDim_PlanarDiameter.hxx", bycopy.} = object of DrawDim_PlanarDimension
 
 
-proc constructDrawDimPlanarDiameter*(plane: TopoDS_Face; circle: TopoDS_Shape): DrawDimPlanarDiameter {.
+proc constructDrawDim_PlanarDiameter*(plane: TopoDS_Face; circle: TopoDS_Shape): DrawDim_PlanarDiameter {.
     constructor, importcpp: "DrawDim_PlanarDiameter(@)",
     header: "DrawDim_PlanarDiameter.hxx".}
-proc constructDrawDimPlanarDiameter*(circle: TopoDS_Shape): DrawDimPlanarDiameter {.
+proc constructDrawDim_PlanarDiameter*(circle: TopoDS_Shape): DrawDim_PlanarDiameter {.
     constructor, importcpp: "DrawDim_PlanarDiameter(@)",
     header: "DrawDim_PlanarDiameter.hxx".}
-proc drawOn*(this: DrawDimPlanarDiameter; dis: var DrawDisplay) {.noSideEffect,
+proc DrawOn*(this: DrawDim_PlanarDiameter; dis: var Draw_Display) {.noSideEffect,
     importcpp: "DrawOn", header: "DrawDim_PlanarDiameter.hxx".}
 type
-  DrawDimPlanarDiameterbaseType* = DrawDimPlanarDimension
+  DrawDim_PlanarDiameterbase_type* = DrawDim_PlanarDimension
 
-proc getTypeName*(): cstring {.importcpp: "DrawDim_PlanarDiameter::get_type_name(@)",
-                            header: "DrawDim_PlanarDiameter.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "DrawDim_PlanarDiameter::get_type_name(@)",
+                              header: "DrawDim_PlanarDiameter.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "DrawDim_PlanarDiameter::get_type_descriptor(@)",
     header: "DrawDim_PlanarDiameter.hxx".}
-proc dynamicType*(this: DrawDimPlanarDiameter): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "DrawDim_PlanarDiameter.hxx".}
-
+proc DynamicType*(this: DrawDim_PlanarDiameter): handle[Standard_Type] {.
+    noSideEffect, importcpp: "DynamicType", header: "DrawDim_PlanarDiameter.hxx".}

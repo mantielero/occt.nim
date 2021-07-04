@@ -13,6 +13,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../NCollection/NCollection_Map, ../TCollection/TCollection_AsciiString
+
 ## ! This class provide information about memory utilized by current process.
 ## ! This information includes:
 ## !  - Private Memory - synthetic value that tries to filter out the memory
@@ -90,28 +93,27 @@ type
     MemSwapUsage,             ## !< Space allocated for the pagefile
     MemSwapUsagePeak,         ## !< Peak space allocated for the pagefile
     MemHeapUsage,             ## !< Total space allocated from the heap
-    MemCounterNB              ## !< Indicates total counters number
+    MemCounter_NB             ## !< Indicates total counters number
 
 
-proc constructOSD_MemInfo*(theImmediateUpdate: StandardBoolean = standardTrue): OSD_MemInfo {.
+proc constructOSD_MemInfo*(theImmediateUpdate: Standard_Boolean = Standard_True): OSD_MemInfo {.
     constructor, importcpp: "OSD_MemInfo(@)", header: "OSD_MemInfo.hxx".}
-proc isActive*(this: OSD_MemInfo; theCounter: OSD_MemInfoCounter): StandardBoolean {.
+proc IsActive*(this: OSD_MemInfo; theCounter: OSD_MemInfoCounter): Standard_Boolean {.
     noSideEffect, importcpp: "IsActive", header: "OSD_MemInfo.hxx".}
-proc setActive*(this: var OSD_MemInfo; theActive: StandardBoolean) {.
+proc SetActive*(this: var OSD_MemInfo; theActive: Standard_Boolean) {.
     importcpp: "SetActive", header: "OSD_MemInfo.hxx".}
-proc setActive*(this: var OSD_MemInfo; theCounter: OSD_MemInfoCounter;
-               theActive: StandardBoolean) {.importcpp: "SetActive",
+proc SetActive*(this: var OSD_MemInfo; theCounter: OSD_MemInfoCounter;
+               theActive: Standard_Boolean) {.importcpp: "SetActive",
     header: "OSD_MemInfo.hxx".}
-proc clear*(this: var OSD_MemInfo) {.importcpp: "Clear", header: "OSD_MemInfo.hxx".}
-proc update*(this: var OSD_MemInfo) {.importcpp: "Update", header: "OSD_MemInfo.hxx".}
-proc toString*(this: OSD_MemInfo): TCollectionAsciiString {.noSideEffect,
+proc Clear*(this: var OSD_MemInfo) {.importcpp: "Clear", header: "OSD_MemInfo.hxx".}
+proc Update*(this: var OSD_MemInfo) {.importcpp: "Update", header: "OSD_MemInfo.hxx".}
+proc ToString*(this: OSD_MemInfo): TCollection_AsciiString {.noSideEffect,
     importcpp: "ToString", header: "OSD_MemInfo.hxx".}
-proc value*(this: OSD_MemInfo; theCounter: OSD_MemInfoCounter): StandardSize {.
+proc Value*(this: OSD_MemInfo; theCounter: OSD_MemInfoCounter): Standard_Size {.
     noSideEffect, importcpp: "Value", header: "OSD_MemInfo.hxx".}
-proc valueMiB*(this: OSD_MemInfo; theCounter: OSD_MemInfoCounter): StandardSize {.
+proc ValueMiB*(this: OSD_MemInfo; theCounter: OSD_MemInfoCounter): Standard_Size {.
     noSideEffect, importcpp: "ValueMiB", header: "OSD_MemInfo.hxx".}
-proc valuePreciseMiB*(this: OSD_MemInfo; theCounter: OSD_MemInfoCounter): StandardReal {.
+proc ValuePreciseMiB*(this: OSD_MemInfo; theCounter: OSD_MemInfoCounter): Standard_Real {.
     noSideEffect, importcpp: "ValuePreciseMiB", header: "OSD_MemInfo.hxx".}
-proc printInfo*(): TCollectionAsciiString {.importcpp: "OSD_MemInfo::PrintInfo(@)",
-    header: "OSD_MemInfo.hxx".}
-
+proc PrintInfo*(): TCollection_AsciiString {.
+    importcpp: "OSD_MemInfo::PrintInfo(@)", header: "OSD_MemInfo.hxx".}

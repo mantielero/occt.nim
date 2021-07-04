@@ -14,7 +14,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _Extrema_CCLocFOfLocECC_HeaderFile [NewLine] # _Extrema_CCLocFOfLocECC_HeaderFile [NewLine] # < Standard . hxx > [NewLine] # < Standard_DefineAlloc . hxx > [NewLine] # < Standard_Handle . hxx > [NewLine] # < Standard_Address . hxx > [NewLine] # < Standard_Real . hxx > [NewLine] # < gp_Pnt . hxx > [NewLine] # < gp_Vec . hxx > [NewLine] # < TColStd_SequenceOfReal . hxx > [NewLine] # < Extrema_SequenceOfPOnCurv . hxx > [NewLine] # < Standard_Integer . hxx > [NewLine] # < math_FunctionSetWithDerivatives . hxx > [NewLine] # < Standard_Boolean . hxx > [NewLine] # < math_Vector . hxx > [NewLine] class Standard_OutOfRange ;
+## !!!Ignored construct:  # _Extrema_CCLocFOfLocECC_HeaderFile [NewLine] # _Extrema_CCLocFOfLocECC_HeaderFile [NewLine] # ../Standard/Standard.hxx [NewLine] # ../Standard/Standard_DefineAlloc.hxx [NewLine] # ../Standard/Standard_Handle.hxx [NewLine] # ../Standard/Standard_Address.hxx [NewLine] # ../Standard/Standard_Real.hxx [NewLine] # ../gp/gp_Pnt.hxx [NewLine] # ../gp/gp_Vec.hxx [NewLine] # ../TColStd/TColStd_SequenceOfReal.hxx [NewLine] # Extrema_SequenceOfPOnCurv.hxx [NewLine] # ../Standard/Standard_Integer.hxx [NewLine] # ../math/math_FunctionSetWithDerivatives.hxx [NewLine] # ../Standard/Standard_Boolean.hxx [NewLine] # ../math/math_Vector.hxx [NewLine] class Standard_OutOfRange ;
 ## Error: did not expect <!!!
 
 discard "forward decl of Adaptor3d_Curve"
@@ -24,52 +24,51 @@ discard "forward decl of gp_Pnt"
 discard "forward decl of gp_Vec"
 discard "forward decl of math_Matrix"
 type
-  ExtremaCCLocFOfLocECC* {.importcpp: "Extrema_CCLocFOfLocECC",
-                          header: "Extrema_CCLocFOfLocECC.hxx", bycopy.} = object of MathFunctionSetWithDerivatives
+  Extrema_CCLocFOfLocECC* {.importcpp: "Extrema_CCLocFOfLocECC",
+                           header: "Extrema_CCLocFOfLocECC.hxx", bycopy.} = object of math_FunctionSetWithDerivatives
 
 
-proc constructExtremaCCLocFOfLocECC*(thetol: StandardReal = 1.0e-10): ExtremaCCLocFOfLocECC {.
+proc constructExtrema_CCLocFOfLocECC*(thetol: Standard_Real = 1.0e-10): Extrema_CCLocFOfLocECC {.
     constructor, importcpp: "Extrema_CCLocFOfLocECC(@)",
     header: "Extrema_CCLocFOfLocECC.hxx".}
-proc constructExtremaCCLocFOfLocECC*(c1: Adaptor3dCurve; c2: Adaptor3dCurve;
-                                    thetol: StandardReal = 1.0e-10): ExtremaCCLocFOfLocECC {.
+proc constructExtrema_CCLocFOfLocECC*(C1: Adaptor3d_Curve; C2: Adaptor3d_Curve;
+                                     thetol: Standard_Real = 1.0e-10): Extrema_CCLocFOfLocECC {.
     constructor, importcpp: "Extrema_CCLocFOfLocECC(@)",
     header: "Extrema_CCLocFOfLocECC.hxx".}
-proc setCurve*(this: var ExtremaCCLocFOfLocECC; theRank: StandardInteger;
-              c1: Adaptor3dCurve) {.importcpp: "SetCurve",
-                                  header: "Extrema_CCLocFOfLocECC.hxx".}
-proc setTolerance*(this: var ExtremaCCLocFOfLocECC; theTol: StandardReal) {.
-    importcpp: "SetTolerance", header: "Extrema_CCLocFOfLocECC.hxx".}
-proc nbVariables*(this: ExtremaCCLocFOfLocECC): StandardInteger {.noSideEffect,
-    importcpp: "NbVariables", header: "Extrema_CCLocFOfLocECC.hxx".}
-proc nbEquations*(this: ExtremaCCLocFOfLocECC): StandardInteger {.noSideEffect,
-    importcpp: "NbEquations", header: "Extrema_CCLocFOfLocECC.hxx".}
-proc value*(this: var ExtremaCCLocFOfLocECC; uv: MathVector; f: var MathVector): StandardBoolean {.
-    importcpp: "Value", header: "Extrema_CCLocFOfLocECC.hxx".}
-proc derivatives*(this: var ExtremaCCLocFOfLocECC; uv: MathVector; df: var MathMatrix): StandardBoolean {.
-    importcpp: "Derivatives", header: "Extrema_CCLocFOfLocECC.hxx".}
-proc values*(this: var ExtremaCCLocFOfLocECC; uv: MathVector; f: var MathVector;
-            df: var MathMatrix): StandardBoolean {.importcpp: "Values",
-    header: "Extrema_CCLocFOfLocECC.hxx".}
-proc getStateNumber*(this: var ExtremaCCLocFOfLocECC): StandardInteger {.
-    importcpp: "GetStateNumber", header: "Extrema_CCLocFOfLocECC.hxx".}
-proc nbExt*(this: ExtremaCCLocFOfLocECC): StandardInteger {.noSideEffect,
-    importcpp: "NbExt", header: "Extrema_CCLocFOfLocECC.hxx".}
-proc squareDistance*(this: ExtremaCCLocFOfLocECC; n: StandardInteger): StandardReal {.
-    noSideEffect, importcpp: "SquareDistance", header: "Extrema_CCLocFOfLocECC.hxx".}
-proc points*(this: ExtremaCCLocFOfLocECC; n: StandardInteger; p1: var ExtremaPOnCurv;
-            p2: var ExtremaPOnCurv) {.noSideEffect, importcpp: "Points",
+proc SetCurve*(this: var Extrema_CCLocFOfLocECC; theRank: Standard_Integer;
+              C1: Adaptor3d_Curve) {.importcpp: "SetCurve",
                                    header: "Extrema_CCLocFOfLocECC.hxx".}
-proc curvePtr*(this: ExtremaCCLocFOfLocECC; theRank: StandardInteger): StandardAddress {.
+proc SetTolerance*(this: var Extrema_CCLocFOfLocECC; theTol: Standard_Real) {.
+    importcpp: "SetTolerance", header: "Extrema_CCLocFOfLocECC.hxx".}
+proc NbVariables*(this: Extrema_CCLocFOfLocECC): Standard_Integer {.noSideEffect,
+    importcpp: "NbVariables", header: "Extrema_CCLocFOfLocECC.hxx".}
+proc NbEquations*(this: Extrema_CCLocFOfLocECC): Standard_Integer {.noSideEffect,
+    importcpp: "NbEquations", header: "Extrema_CCLocFOfLocECC.hxx".}
+proc Value*(this: var Extrema_CCLocFOfLocECC; UV: math_Vector; F: var math_Vector): Standard_Boolean {.
+    importcpp: "Value", header: "Extrema_CCLocFOfLocECC.hxx".}
+proc Derivatives*(this: var Extrema_CCLocFOfLocECC; UV: math_Vector;
+                 DF: var math_Matrix): Standard_Boolean {.importcpp: "Derivatives",
+    header: "Extrema_CCLocFOfLocECC.hxx".}
+proc Values*(this: var Extrema_CCLocFOfLocECC; UV: math_Vector; F: var math_Vector;
+            DF: var math_Matrix): Standard_Boolean {.importcpp: "Values",
+    header: "Extrema_CCLocFOfLocECC.hxx".}
+proc GetStateNumber*(this: var Extrema_CCLocFOfLocECC): Standard_Integer {.
+    importcpp: "GetStateNumber", header: "Extrema_CCLocFOfLocECC.hxx".}
+proc NbExt*(this: Extrema_CCLocFOfLocECC): Standard_Integer {.noSideEffect,
+    importcpp: "NbExt", header: "Extrema_CCLocFOfLocECC.hxx".}
+proc SquareDistance*(this: Extrema_CCLocFOfLocECC; N: Standard_Integer): Standard_Real {.
+    noSideEffect, importcpp: "SquareDistance", header: "Extrema_CCLocFOfLocECC.hxx".}
+proc Points*(this: Extrema_CCLocFOfLocECC; N: Standard_Integer;
+            P1: var Extrema_POnCurv; P2: var Extrema_POnCurv) {.noSideEffect,
+    importcpp: "Points", header: "Extrema_CCLocFOfLocECC.hxx".}
+proc CurvePtr*(this: Extrema_CCLocFOfLocECC; theRank: Standard_Integer): Standard_Address {.
     noSideEffect, importcpp: "CurvePtr", header: "Extrema_CCLocFOfLocECC.hxx".}
-proc tolerance*(this: ExtremaCCLocFOfLocECC): StandardReal {.noSideEffect,
+proc Tolerance*(this: Extrema_CCLocFOfLocECC): Standard_Real {.noSideEffect,
     importcpp: "Tolerance", header: "Extrema_CCLocFOfLocECC.hxx".}
-proc subIntervalInitialize*(this: var ExtremaCCLocFOfLocECC; theUfirst: MathVector;
-                           theUlast: MathVector) {.
+proc SubIntervalInitialize*(this: var Extrema_CCLocFOfLocECC;
+                           theUfirst: math_Vector; theUlast: math_Vector) {.
     importcpp: "SubIntervalInitialize", header: "Extrema_CCLocFOfLocECC.hxx".}
-proc searchOfTolerance*(this: var ExtremaCCLocFOfLocECC; c: StandardAddress): StandardReal {.
+proc SearchOfTolerance*(this: var Extrema_CCLocFOfLocECC; C: Standard_Address): Standard_Real {.
     importcpp: "SearchOfTolerance", header: "Extrema_CCLocFOfLocECC.hxx".}
-## !!!Ignored construct:  # Curve1 Adaptor3d_Curve [NewLine] # Curve1_hxx < Adaptor3d_Curve . hxx > [NewLine] # Tool1 Extrema_CurveTool [NewLine] # Tool1_hxx < Extrema_CurveTool . hxx > [NewLine] # Curve2 Adaptor3d_Curve [NewLine] # Curve2_hxx < Adaptor3d_Curve . hxx > [NewLine] # Tool2 Extrema_CurveTool [NewLine] # Tool2_hxx < Extrema_CurveTool . hxx > [NewLine] # POnC Extrema_POnCurv [NewLine] # POnC_hxx < Extrema_POnCurv . hxx > [NewLine] # Pnt gp_Pnt [NewLine] # Pnt_hxx < gp_Pnt . hxx > [NewLine] # Vec gp_Vec [NewLine] # Vec_hxx < gp_Vec . hxx > [NewLine] # Extrema_SeqPOnC Extrema_SequenceOfPOnCurv [NewLine] # Extrema_SeqPOnC_hxx < Extrema_SequenceOfPOnCurv . hxx > [NewLine] # Extrema_FuncExtCC Extrema_CCLocFOfLocECC [NewLine] # Extrema_FuncExtCC_hxx < Extrema_CCLocFOfLocECC . hxx > [NewLine] # < Extrema_FuncExtCC . lxx > [NewLine] # Curve1 [NewLine] # Curve1_hxx [NewLine] # Tool1 [NewLine] # Tool1_hxx [NewLine] # Curve2 [NewLine] # Curve2_hxx [NewLine] # Tool2 [NewLine] # Tool2_hxx [NewLine] # POnC [NewLine] # POnC_hxx [NewLine] # Pnt [NewLine] # Pnt_hxx [NewLine] # Vec [NewLine] # Vec_hxx [NewLine] # Extrema_SeqPOnC [NewLine] # Extrema_SeqPOnC_hxx [NewLine] # Extrema_FuncExtCC [NewLine] # Extrema_FuncExtCC_hxx [NewLine] #  _Extrema_CCLocFOfLocECC_HeaderFile
+## !!!Ignored construct:  # Curve1 Adaptor3d_Curve [NewLine] # Curve1_hxx < Adaptor3d_Curve . hxx > [NewLine] # Tool1 Extrema_CurveTool [NewLine] # Tool1_hxx < Extrema_CurveTool . hxx > [NewLine] # Curve2 Adaptor3d_Curve [NewLine] # Curve2_hxx < Adaptor3d_Curve . hxx > [NewLine] # Tool2 Extrema_CurveTool [NewLine] # Tool2_hxx < Extrema_CurveTool . hxx > [NewLine] # POnC Extrema_POnCurv [NewLine] # POnC_hxx < Extrema_POnCurv . hxx > [NewLine] # Pnt gp_Pnt [NewLine] # Pnt_hxx < gp_Pnt . hxx > [NewLine] # Vec gp_Vec [NewLine] # Vec_hxx < gp_Vec . hxx > [NewLine] # Extrema_SeqPOnC Extrema_SequenceOfPOnCurv [NewLine] # Extrema_SeqPOnC_hxx < Extrema_SequenceOfPOnCurv . hxx > [NewLine] # Extrema_FuncExtCC Extrema_CCLocFOfLocECC [NewLine] # Extrema_FuncExtCC_hxx < Extrema_CCLocFOfLocECC . hxx > [NewLine] # < Extrema_FuncExtCC . lxx > [NewLine] # Curve1 [NewLine] # Curve1_hxx [NewLine] # Tool1 [NewLine] # Tool1_hxx [NewLine] # Curve2 [NewLine] # Curve2_hxx [NewLine] # Tool2 [NewLine] # Tool2_hxx [NewLine] # POnC [NewLine] # POnC_hxx [NewLine] # Pnt [NewLine] # Pnt_hxx [NewLine] # Vec [NewLine] # Vec_hxx [NewLine] # Extrema_SeqPOnC [NewLine] # Extrema_SeqPOnC_hxx [NewLine] # Extrema_FuncExtCC [NewLine] # Extrema_FuncExtCC_hxx [NewLine] #  _Extrema_CCLocFOfLocECC_HeaderFile [NewLine]
 ## Error: did not expect <!!!
-
-

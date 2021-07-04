@@ -14,49 +14,56 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
+  ../Standard/Standard_Real, ../math/math_Matrix, ../math/math_Vector,
+  ../Standard/Standard_Integer, ../TColStd/TColStd_Array1OfInteger,
+  ../AppParCurves/AppParCurves_HArray1OfConstraintCouple
+
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of AppDef_MultiLine"
 discard "forward decl of AppDef_MyLineTool"
 discard "forward decl of AppParCurves_MultiCurve"
 discard "forward decl of math_Matrix"
 type
-  AppDefResConstraintOfTheGradient* {.importcpp: "AppDef_ResConstraintOfTheGradient", header: "AppDef_ResConstraintOfTheGradient.hxx",
-                                     bycopy.} = object ## ! Given a MultiLine SSP with constraints points, this
-                                                    ## ! algorithm finds the best curve solution to approximate it.
-                                                    ## ! The poles from SCurv issued for example from the least
-                                                    ## ! squares are used as a guess solution for the uzawa
-                                                    ## ! algorithm. The tolerance used in the Uzawa algorithms
-                                                    ## ! is Tolerance.
-                                                    ## ! A is the Bernstein matrix associated to the MultiLine
-                                                    ## ! and DA is the derivative bernstein matrix.(They can come
-                                                    ## ! from an approximation with ParLeastSquare.)
-                                                    ## ! The MultiCurve is modified. New MultiPoles are given.
-                                                    ## ! is used internally to create the fields.
+  AppDef_ResConstraintOfTheGradient* {.importcpp: "AppDef_ResConstraintOfTheGradient", header: "AppDef_ResConstraintOfTheGradient.hxx",
+                                      bycopy.} = object ## ! Given a MultiLine SSP with constraints points, this
+                                                     ## ! algorithm finds the best curve solution to approximate it.
+                                                     ## ! The poles from SCurv issued for example from the least
+                                                     ## ! squares are used as a guess solution for the uzawa
+                                                     ## ! algorithm. The tolerance used in the Uzawa algorithms
+                                                     ## ! is Tolerance.
+                                                     ## ! A is the Bernstein matrix associated to the MultiLine
+                                                     ## ! and DA is the derivative bernstein matrix.(They can come
+                                                     ## ! from an approximation with ParLeastSquare.)
+                                                     ## ! The MultiCurve is modified. New MultiPoles are given.
+                                                     ## ! is used internally to create the fields.
 
 
-proc constructAppDefResConstraintOfTheGradient*(ssp: AppDefMultiLine;
-    sCurv: var AppParCurvesMultiCurve; firstPoint: StandardInteger;
-    lastPoint: StandardInteger;
-    constraints: Handle[AppParCurvesHArray1OfConstraintCouple]; bern: MathMatrix;
-    derivativeBern: MathMatrix; tolerance: StandardReal = 1.0e-10): AppDefResConstraintOfTheGradient {.
+proc constructAppDef_ResConstraintOfTheGradient*(SSP: AppDef_MultiLine;
+    SCurv: var AppParCurves_MultiCurve; FirstPoint: Standard_Integer;
+    LastPoint: Standard_Integer;
+    Constraints: handle[AppParCurves_HArray1OfConstraintCouple];
+    Bern: math_Matrix; DerivativeBern: math_Matrix;
+    Tolerance: Standard_Real = 1.0e-10): AppDef_ResConstraintOfTheGradient {.
     constructor, importcpp: "AppDef_ResConstraintOfTheGradient(@)",
     header: "AppDef_ResConstraintOfTheGradient.hxx".}
-proc isDone*(this: AppDefResConstraintOfTheGradient): StandardBoolean {.
+proc IsDone*(this: AppDef_ResConstraintOfTheGradient): Standard_Boolean {.
     noSideEffect, importcpp: "IsDone",
     header: "AppDef_ResConstraintOfTheGradient.hxx".}
-proc error*(this: AppDefResConstraintOfTheGradient): StandardReal {.noSideEffect,
+proc Error*(this: AppDef_ResConstraintOfTheGradient): Standard_Real {.noSideEffect,
     importcpp: "Error", header: "AppDef_ResConstraintOfTheGradient.hxx".}
-proc constraintMatrix*(this: AppDefResConstraintOfTheGradient): MathMatrix {.
+proc ConstraintMatrix*(this: AppDef_ResConstraintOfTheGradient): math_Matrix {.
     noSideEffect, importcpp: "ConstraintMatrix",
     header: "AppDef_ResConstraintOfTheGradient.hxx".}
-proc duale*(this: AppDefResConstraintOfTheGradient): MathVector {.noSideEffect,
+proc Duale*(this: AppDef_ResConstraintOfTheGradient): math_Vector {.noSideEffect,
     importcpp: "Duale", header: "AppDef_ResConstraintOfTheGradient.hxx".}
-proc constraintDerivative*(this: var AppDefResConstraintOfTheGradient;
-                          ssp: AppDefMultiLine; parameters: MathVector;
-                          deg: StandardInteger; da: MathMatrix): MathMatrix {.
+proc ConstraintDerivative*(this: var AppDef_ResConstraintOfTheGradient;
+                          SSP: AppDef_MultiLine; Parameters: math_Vector;
+                          Deg: Standard_Integer; DA: math_Matrix): math_Matrix {.
     importcpp: "ConstraintDerivative",
     header: "AppDef_ResConstraintOfTheGradient.hxx".}
-proc inverseMatrix*(this: AppDefResConstraintOfTheGradient): MathMatrix {.
+proc InverseMatrix*(this: AppDef_ResConstraintOfTheGradient): math_Matrix {.
     noSideEffect, importcpp: "InverseMatrix",
     header: "AppDef_ResConstraintOfTheGradient.hxx".}
-

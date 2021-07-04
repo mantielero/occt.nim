@@ -14,24 +14,27 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepBasic_SiUnitAndAreaUnit"
 discard "forward decl of StepData_StepWriter"
 type
-  RWStepBasicRWSiUnitAndAreaUnit* {.importcpp: "RWStepBasic_RWSiUnitAndAreaUnit", header: "RWStepBasic_RWSiUnitAndAreaUnit.hxx",
-                                   bycopy.} = object
+  RWStepBasic_RWSiUnitAndAreaUnit* {.importcpp: "RWStepBasic_RWSiUnitAndAreaUnit", header: "RWStepBasic_RWSiUnitAndAreaUnit.hxx",
+                                    bycopy.} = object
 
 
-proc constructRWStepBasicRWSiUnitAndAreaUnit*(): RWStepBasicRWSiUnitAndAreaUnit {.
+proc constructRWStepBasic_RWSiUnitAndAreaUnit*(): RWStepBasic_RWSiUnitAndAreaUnit {.
     constructor, importcpp: "RWStepBasic_RWSiUnitAndAreaUnit(@)",
     header: "RWStepBasic_RWSiUnitAndAreaUnit.hxx".}
-proc readStep*(this: RWStepBasicRWSiUnitAndAreaUnit;
-              data: Handle[StepDataStepReaderData]; num: StandardInteger;
-              ach: var Handle[InterfaceCheck];
-              ent: Handle[StepBasicSiUnitAndAreaUnit]) {.noSideEffect,
+proc ReadStep*(this: RWStepBasic_RWSiUnitAndAreaUnit;
+              data: handle[StepData_StepReaderData]; num: Standard_Integer;
+              ach: var handle[Interface_Check];
+              ent: handle[StepBasic_SiUnitAndAreaUnit]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepBasic_RWSiUnitAndAreaUnit.hxx".}
-proc writeStep*(this: RWStepBasicRWSiUnitAndAreaUnit; sw: var StepDataStepWriter;
-               ent: Handle[StepBasicSiUnitAndAreaUnit]) {.noSideEffect,
+proc WriteStep*(this: RWStepBasic_RWSiUnitAndAreaUnit; SW: var StepData_StepWriter;
+               ent: handle[StepBasic_SiUnitAndAreaUnit]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepBasic_RWSiUnitAndAreaUnit.hxx".}
-

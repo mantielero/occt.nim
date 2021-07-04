@@ -14,6 +14,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../TopoDS/TopoDS_Shape,
+  ../TopTools/TopTools_MapOfShape, ../TopTools/TopTools_DataMapOfShapeListOfShape
+
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of BRepBuilderAPI_MakeShape"
 type
@@ -23,18 +28,17 @@ type
 
 proc constructBRepBuilderAPI_Collect*(): BRepBuilderAPI_Collect {.constructor,
     importcpp: "BRepBuilderAPI_Collect(@)", header: "BRepBuilderAPI_Collect.hxx".}
-proc add*(this: var BRepBuilderAPI_Collect; si: TopoDS_Shape;
-         mks: var BRepBuilderAPI_MakeShape) {.importcpp: "Add",
+proc Add*(this: var BRepBuilderAPI_Collect; SI: TopoDS_Shape;
+         MKS: var BRepBuilderAPI_MakeShape) {.importcpp: "Add",
     header: "BRepBuilderAPI_Collect.hxx".}
-proc addGenerated*(this: var BRepBuilderAPI_Collect; s: TopoDS_Shape;
-                  gen: TopoDS_Shape) {.importcpp: "AddGenerated",
+proc AddGenerated*(this: var BRepBuilderAPI_Collect; S: TopoDS_Shape;
+                  Gen: TopoDS_Shape) {.importcpp: "AddGenerated",
                                      header: "BRepBuilderAPI_Collect.hxx".}
-proc addModif*(this: var BRepBuilderAPI_Collect; s: TopoDS_Shape; `mod`: TopoDS_Shape) {.
+proc AddModif*(this: var BRepBuilderAPI_Collect; S: TopoDS_Shape; Mod: TopoDS_Shape) {.
     importcpp: "AddModif", header: "BRepBuilderAPI_Collect.hxx".}
-proc filter*(this: var BRepBuilderAPI_Collect; sf: TopoDS_Shape) {.
+proc Filter*(this: var BRepBuilderAPI_Collect; SF: TopoDS_Shape) {.
     importcpp: "Filter", header: "BRepBuilderAPI_Collect.hxx".}
-proc modification*(this: BRepBuilderAPI_Collect): TopToolsDataMapOfShapeListOfShape {.
+proc Modification*(this: BRepBuilderAPI_Collect): TopTools_DataMapOfShapeListOfShape {.
     noSideEffect, importcpp: "Modification", header: "BRepBuilderAPI_Collect.hxx".}
-proc generated*(this: BRepBuilderAPI_Collect): TopToolsDataMapOfShapeListOfShape {.
+proc Generated*(this: BRepBuilderAPI_Collect): TopTools_DataMapOfShapeListOfShape {.
     noSideEffect, importcpp: "Generated", header: "BRepBuilderAPI_Collect.hxx".}
-

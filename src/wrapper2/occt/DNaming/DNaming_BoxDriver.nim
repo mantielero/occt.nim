@@ -13,41 +13,44 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../TFunction/TFunction_Driver,
+  ../Standard/Standard_Boolean, ../Standard/Standard_Integer
+
 discard "forward decl of TFunction_Logbook"
 discard "forward decl of TDF_Label"
 discard "forward decl of BRepPrimAPI_MakeBox"
 discard "forward decl of DNaming_BoxDriver"
 discard "forward decl of DNaming_BoxDriver"
 type
-  HandleDNamingBoxDriver* = Handle[DNamingBoxDriver]
-  DNamingBoxDriver* {.importcpp: "DNaming_BoxDriver",
-                     header: "DNaming_BoxDriver.hxx", bycopy.} = object of TFunctionDriver ##
-                                                                                    ## !
-                                                                                    ## Constructor
-                                                                                    ##
-                                                                                    ## !
-                                                                                    ## validation
-                                                                                    ##
-                                                                                    ## !
-                                                                                    ## ==========
+  Handle_DNaming_BoxDriver* = handle[DNaming_BoxDriver]
+  DNaming_BoxDriver* {.importcpp: "DNaming_BoxDriver",
+                      header: "DNaming_BoxDriver.hxx", bycopy.} = object of TFunction_Driver ##
+                                                                                      ## !
+                                                                                      ## Constructor
+                                                                                      ##
+                                                                                      ## !
+                                                                                      ## validation
+                                                                                      ##
+                                                                                      ## !
+                                                                                      ## ==========
 
 
-proc constructDNamingBoxDriver*(): DNamingBoxDriver {.constructor,
+proc constructDNaming_BoxDriver*(): DNaming_BoxDriver {.constructor,
     importcpp: "DNaming_BoxDriver(@)", header: "DNaming_BoxDriver.hxx".}
-proc validate*(this: DNamingBoxDriver; theLog: var Handle[TFunctionLogbook]) {.
+proc Validate*(this: DNaming_BoxDriver; theLog: var handle[TFunction_Logbook]) {.
     noSideEffect, importcpp: "Validate", header: "DNaming_BoxDriver.hxx".}
-proc mustExecute*(this: DNamingBoxDriver; theLog: Handle[TFunctionLogbook]): StandardBoolean {.
+proc MustExecute*(this: DNaming_BoxDriver; theLog: handle[TFunction_Logbook]): Standard_Boolean {.
     noSideEffect, importcpp: "MustExecute", header: "DNaming_BoxDriver.hxx".}
-proc execute*(this: DNamingBoxDriver; theLog: var Handle[TFunctionLogbook]): StandardInteger {.
+proc Execute*(this: DNaming_BoxDriver; theLog: var handle[TFunction_Logbook]): Standard_Integer {.
     noSideEffect, importcpp: "Execute", header: "DNaming_BoxDriver.hxx".}
 type
-  DNamingBoxDriverbaseType* = TFunctionDriver
+  DNaming_BoxDriverbase_type* = TFunction_Driver
 
-proc getTypeName*(): cstring {.importcpp: "DNaming_BoxDriver::get_type_name(@)",
-                            header: "DNaming_BoxDriver.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "DNaming_BoxDriver::get_type_name(@)",
+                              header: "DNaming_BoxDriver.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "DNaming_BoxDriver::get_type_descriptor(@)",
     header: "DNaming_BoxDriver.hxx".}
-proc dynamicType*(this: DNamingBoxDriver): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: DNaming_BoxDriver): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "DNaming_BoxDriver.hxx".}
-

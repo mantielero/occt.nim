@@ -14,6 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  AIS_InteractiveObject, AIS_TypeOfPlane, ../gp/gp_Pnt,
+  ../Select3D/Select3D_TypeOfSensitivity
+
 discard "forward decl of Geom_Plane"
 discard "forward decl of Geom_Axis2Placement"
 discard "forward decl of gp_Pnt"
@@ -42,87 +46,86 @@ type
                                                                                                  ## not
                                                                                                  ## initialized.
 
-  AIS_PlanebaseType* = AIS_InteractiveObject
+  AIS_Planebase_type* = AIS_InteractiveObject
 
-proc getTypeName*(): cstring {.importcpp: "AIS_Plane::get_type_name(@)",
-                            header: "AIS_Plane.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "AIS_Plane::get_type_name(@)",
+                              header: "AIS_Plane.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "AIS_Plane::get_type_descriptor(@)", header: "AIS_Plane.hxx".}
-proc dynamicType*(this: AIS_Plane): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: AIS_Plane): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "AIS_Plane.hxx".}
-proc constructAIS_Plane*(aComponent: Handle[GeomPlane];
-                        aCurrentMode: StandardBoolean = standardFalse): AIS_Plane {.
+proc constructAIS_Plane*(aComponent: handle[Geom_Plane];
+                        aCurrentMode: Standard_Boolean = Standard_False): AIS_Plane {.
     constructor, importcpp: "AIS_Plane(@)", header: "AIS_Plane.hxx".}
-proc constructAIS_Plane*(aComponent: Handle[GeomPlane]; aCenter: GpPnt;
-                        aCurrentMode: StandardBoolean = standardFalse): AIS_Plane {.
+proc constructAIS_Plane*(aComponent: handle[Geom_Plane]; aCenter: gp_Pnt;
+                        aCurrentMode: Standard_Boolean = Standard_False): AIS_Plane {.
     constructor, importcpp: "AIS_Plane(@)", header: "AIS_Plane.hxx".}
-proc constructAIS_Plane*(aComponent: Handle[GeomPlane]; aCenter: GpPnt; aPmin: GpPnt;
-                        aPmax: GpPnt;
-                        aCurrentMode: StandardBoolean = standardFalse): AIS_Plane {.
+proc constructAIS_Plane*(aComponent: handle[Geom_Plane]; aCenter: gp_Pnt;
+                        aPmin: gp_Pnt; aPmax: gp_Pnt;
+                        aCurrentMode: Standard_Boolean = Standard_False): AIS_Plane {.
     constructor, importcpp: "AIS_Plane(@)", header: "AIS_Plane.hxx".}
-proc constructAIS_Plane*(aComponent: Handle[GeomAxis2Placement];
+proc constructAIS_Plane*(aComponent: handle[Geom_Axis2Placement];
                         aPlaneType: AIS_TypeOfPlane;
-                        aCurrentMode: StandardBoolean = standardFalse): AIS_Plane {.
+                        aCurrentMode: Standard_Boolean = Standard_False): AIS_Plane {.
     constructor, importcpp: "AIS_Plane(@)", header: "AIS_Plane.hxx".}
-proc setSize*(this: var AIS_Plane; aValue: StandardReal) {.importcpp: "SetSize",
+proc SetSize*(this: var AIS_Plane; aValue: Standard_Real) {.importcpp: "SetSize",
     header: "AIS_Plane.hxx".}
-proc setSize*(this: var AIS_Plane; xval: StandardReal; yVal: StandardReal) {.
+proc SetSize*(this: var AIS_Plane; Xval: Standard_Real; YVal: Standard_Real) {.
     importcpp: "SetSize", header: "AIS_Plane.hxx".}
-proc unsetSize*(this: var AIS_Plane) {.importcpp: "UnsetSize", header: "AIS_Plane.hxx".}
-proc size*(this: AIS_Plane; x: var StandardReal; y: var StandardReal): StandardBoolean {.
+proc UnsetSize*(this: var AIS_Plane) {.importcpp: "UnsetSize", header: "AIS_Plane.hxx".}
+proc Size*(this: AIS_Plane; X: var Standard_Real; Y: var Standard_Real): Standard_Boolean {.
     noSideEffect, importcpp: "Size", header: "AIS_Plane.hxx".}
-proc hasOwnSize*(this: AIS_Plane): StandardBoolean {.noSideEffect,
+proc HasOwnSize*(this: AIS_Plane): Standard_Boolean {.noSideEffect,
     importcpp: "HasOwnSize", header: "AIS_Plane.hxx".}
-proc signature*(this: AIS_Plane): StandardInteger {.noSideEffect,
+proc Signature*(this: AIS_Plane): Standard_Integer {.noSideEffect,
     importcpp: "Signature", header: "AIS_Plane.hxx".}
-proc `type`*(this: AIS_Plane): AIS_KindOfInteractive {.noSideEffect,
-    importcpp: "Type", header: "AIS_Plane.hxx".}
-proc component*(this: var AIS_Plane): Handle[GeomPlane] {.importcpp: "Component",
+proc Type*(this: AIS_Plane): AIS_KindOfInteractive {.noSideEffect, importcpp: "Type",
     header: "AIS_Plane.hxx".}
-proc setComponent*(this: var AIS_Plane; aComponent: Handle[GeomPlane]) {.
+proc Component*(this: var AIS_Plane): handle[Geom_Plane] {.importcpp: "Component",
+    header: "AIS_Plane.hxx".}
+proc SetComponent*(this: var AIS_Plane; aComponent: handle[Geom_Plane]) {.
     importcpp: "SetComponent", header: "AIS_Plane.hxx".}
-proc planeAttributes*(this: var AIS_Plane; aComponent: var Handle[GeomPlane];
-                     aCenter: var GpPnt; aPmin: var GpPnt; aPmax: var GpPnt): StandardBoolean {.
+proc PlaneAttributes*(this: var AIS_Plane; aComponent: var handle[Geom_Plane];
+                     aCenter: var gp_Pnt; aPmin: var gp_Pnt; aPmax: var gp_Pnt): Standard_Boolean {.
     importcpp: "PlaneAttributes", header: "AIS_Plane.hxx".}
-proc setPlaneAttributes*(this: var AIS_Plane; aComponent: Handle[GeomPlane];
-                        aCenter: GpPnt; aPmin: GpPnt; aPmax: GpPnt) {.
+proc SetPlaneAttributes*(this: var AIS_Plane; aComponent: handle[Geom_Plane];
+                        aCenter: gp_Pnt; aPmin: gp_Pnt; aPmax: gp_Pnt) {.
     importcpp: "SetPlaneAttributes", header: "AIS_Plane.hxx".}
-proc center*(this: AIS_Plane): GpPnt {.noSideEffect, importcpp: "Center",
-                                   header: "AIS_Plane.hxx".}
-proc setCenter*(this: var AIS_Plane; theCenter: GpPnt) {.importcpp: "SetCenter",
+proc Center*(this: AIS_Plane): gp_Pnt {.noSideEffect, importcpp: "Center",
+                                    header: "AIS_Plane.hxx".}
+proc SetCenter*(this: var AIS_Plane; theCenter: gp_Pnt) {.importcpp: "SetCenter",
     header: "AIS_Plane.hxx".}
-proc setAxis2Placement*(this: var AIS_Plane; aComponent: Handle[GeomAxis2Placement];
+proc SetAxis2Placement*(this: var AIS_Plane;
+                       aComponent: handle[Geom_Axis2Placement];
                        aPlaneType: AIS_TypeOfPlane) {.
     importcpp: "SetAxis2Placement", header: "AIS_Plane.hxx".}
-proc axis2Placement*(this: var AIS_Plane): Handle[GeomAxis2Placement] {.
+proc Axis2Placement*(this: var AIS_Plane): handle[Geom_Axis2Placement] {.
     importcpp: "Axis2Placement", header: "AIS_Plane.hxx".}
-proc typeOfPlane*(this: var AIS_Plane): AIS_TypeOfPlane {.importcpp: "TypeOfPlane",
+proc TypeOfPlane*(this: var AIS_Plane): AIS_TypeOfPlane {.importcpp: "TypeOfPlane",
     header: "AIS_Plane.hxx".}
-proc isXYZPlane*(this: var AIS_Plane): StandardBoolean {.importcpp: "IsXYZPlane",
+proc IsXYZPlane*(this: var AIS_Plane): Standard_Boolean {.importcpp: "IsXYZPlane",
     header: "AIS_Plane.hxx".}
-proc currentMode*(this: var AIS_Plane): StandardBoolean {.importcpp: "CurrentMode",
+proc CurrentMode*(this: var AIS_Plane): Standard_Boolean {.importcpp: "CurrentMode",
     header: "AIS_Plane.hxx".}
-proc setCurrentMode*(this: var AIS_Plane; theCurrentMode: StandardBoolean) {.
+proc SetCurrentMode*(this: var AIS_Plane; theCurrentMode: Standard_Boolean) {.
     importcpp: "SetCurrentMode", header: "AIS_Plane.hxx".}
-proc acceptDisplayMode*(this: AIS_Plane; aMode: StandardInteger): StandardBoolean {.
+proc AcceptDisplayMode*(this: AIS_Plane; aMode: Standard_Integer): Standard_Boolean {.
     noSideEffect, importcpp: "AcceptDisplayMode", header: "AIS_Plane.hxx".}
-proc setContext*(this: var AIS_Plane; aCtx: Handle[AIS_InteractiveContext]) {.
+proc SetContext*(this: var AIS_Plane; aCtx: handle[AIS_InteractiveContext]) {.
     importcpp: "SetContext", header: "AIS_Plane.hxx".}
-proc typeOfSensitivity*(this: AIS_Plane): Select3D_TypeOfSensitivity {.noSideEffect,
+proc TypeOfSensitivity*(this: AIS_Plane): Select3D_TypeOfSensitivity {.noSideEffect,
     importcpp: "TypeOfSensitivity", header: "AIS_Plane.hxx".}
-proc setTypeOfSensitivity*(this: var AIS_Plane;
+proc SetTypeOfSensitivity*(this: var AIS_Plane;
                           theTypeOfSensitivity: Select3D_TypeOfSensitivity) {.
     importcpp: "SetTypeOfSensitivity", header: "AIS_Plane.hxx".}
-proc computeSelection*(this: var AIS_Plane;
-                      theSelection: Handle[SelectMgrSelection];
-                      theMode: StandardInteger) {.importcpp: "ComputeSelection",
+proc ComputeSelection*(this: var AIS_Plane;
+                      theSelection: handle[SelectMgr_Selection];
+                      theMode: Standard_Integer) {.importcpp: "ComputeSelection",
     header: "AIS_Plane.hxx".}
-proc setColor*(this: var AIS_Plane; aColor: QuantityColor) {.importcpp: "SetColor",
+proc SetColor*(this: var AIS_Plane; aColor: Quantity_Color) {.importcpp: "SetColor",
     header: "AIS_Plane.hxx".}
-proc unsetColor*(this: var AIS_Plane) {.importcpp: "UnsetColor",
+proc UnsetColor*(this: var AIS_Plane) {.importcpp: "UnsetColor",
                                     header: "AIS_Plane.hxx".}
 discard "forward decl of AIS_Plane"
 type
-  HandleAIS_Plane* = Handle[AIS_Plane]
-
-
+  Handle_AIS_Plane* = handle[AIS_Plane]

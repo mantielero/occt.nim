@@ -13,87 +13,88 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  OpenGl_Context, OpenGl_Resource
+
 discard "forward decl of OpenGl_Texture"
 type
-  OpenGlSampler* {.importcpp: "OpenGl_Sampler", header: "OpenGl_Sampler.hxx", bycopy.} = object of OpenGlResource ##
-                                                                                                        ## !
-                                                                                                        ## Helpful
-                                                                                                        ## constant
-                                                                                                        ## defining
-                                                                                                        ## invalid
-                                                                                                        ## sampler
-                                                                                                        ## identifier
-                                                                                                        ##
-                                                                                                        ## !
-                                                                                                        ## Creates
-                                                                                                        ## new
-                                                                                                        ## sampler
-                                                                                                        ## object.
-                                                                                                        ##
-                                                                                                        ## !
-                                                                                                        ## Checks
-                                                                                                        ## if
-                                                                                                        ## sampler
-                                                                                                        ## object
-                                                                                                        ## is
-                                                                                                        ## valid.
+  OpenGl_Sampler* {.importcpp: "OpenGl_Sampler", header: "OpenGl_Sampler.hxx", bycopy.} = object of OpenGl_Resource ##
+                                                                                                          ## !
+                                                                                                          ## Helpful
+                                                                                                          ## constant
+                                                                                                          ## defining
+                                                                                                          ## invalid
+                                                                                                          ## sampler
+                                                                                                          ## identifier
+                                                                                                          ##
+                                                                                                          ## !
+                                                                                                          ## Creates
+                                                                                                          ## new
+                                                                                                          ## sampler
+                                                                                                          ## object.
+                                                                                                          ##
+                                                                                                          ## !
+                                                                                                          ## Checks
+                                                                                                          ## if
+                                                                                                          ## sampler
+                                                                                                          ## object
+                                                                                                          ## is
+                                                                                                          ## valid.
     ## !< texture parameters
     ## !< modification counter of parameters related to sampler state
     ## !< OpenGL sampler object ID
     ## !< immutable flag preventing further modifications of sampler parameters, FALSE by default
 
-  OpenGlSamplerbaseType* = OpenGlResource
+  OpenGl_Samplerbase_type* = OpenGl_Resource
 
-proc getTypeName*(): cstring {.importcpp: "OpenGl_Sampler::get_type_name(@)",
-                            header: "OpenGl_Sampler.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "OpenGl_Sampler::get_type_name(@)",
+                              header: "OpenGl_Sampler.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "OpenGl_Sampler::get_type_descriptor(@)",
     header: "OpenGl_Sampler.hxx".}
-proc dynamicType*(this: OpenGlSampler): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: OpenGl_Sampler): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "OpenGl_Sampler.hxx".}
-proc constructOpenGlSampler*(theParams: Handle[Graphic3dTextureParams]): OpenGlSampler {.
+proc constructOpenGl_Sampler*(theParams: handle[Graphic3d_TextureParams]): OpenGl_Sampler {.
     constructor, importcpp: "OpenGl_Sampler(@)", header: "OpenGl_Sampler.hxx".}
-proc destroyOpenGlSampler*(this: var OpenGlSampler) {.
+proc destroyOpenGl_Sampler*(this: var OpenGl_Sampler) {.
     importcpp: "#.~OpenGl_Sampler()", header: "OpenGl_Sampler.hxx".}
-proc release*(this: var OpenGlSampler; theContext: ptr OpenGlContext) {.
+proc Release*(this: var OpenGl_Sampler; theContext: ptr OpenGl_Context) {.
     importcpp: "Release", header: "OpenGl_Sampler.hxx".}
-proc estimatedDataSize*(this: OpenGlSampler): StandardSize {.noSideEffect,
+proc EstimatedDataSize*(this: OpenGl_Sampler): Standard_Size {.noSideEffect,
     importcpp: "EstimatedDataSize", header: "OpenGl_Sampler.hxx".}
-proc create*(this: var OpenGlSampler; theContext: Handle[OpenGlContext]): StandardBoolean {.
+proc Create*(this: var OpenGl_Sampler; theContext: handle[OpenGl_Context]): Standard_Boolean {.
     importcpp: "Create", header: "OpenGl_Sampler.hxx".}
-proc init*(this: var OpenGlSampler; theContext: Handle[OpenGlContext];
-          theTexture: OpenGlTexture): StandardBoolean {.importcpp: "Init",
+proc Init*(this: var OpenGl_Sampler; theContext: handle[OpenGl_Context];
+          theTexture: OpenGl_Texture): Standard_Boolean {.importcpp: "Init",
     header: "OpenGl_Sampler.hxx".}
-proc isValid*(this: OpenGlSampler): StandardBoolean {.noSideEffect,
+proc IsValid*(this: OpenGl_Sampler): Standard_Boolean {.noSideEffect,
     importcpp: "IsValid", header: "OpenGl_Sampler.hxx".}
-proc `bind`*(this: var OpenGlSampler; theCtx: Handle[OpenGlContext]) {.
+proc Bind*(this: var OpenGl_Sampler; theCtx: handle[OpenGl_Context]) {.
     importcpp: "Bind", header: "OpenGl_Sampler.hxx".}
-proc unbind*(this: var OpenGlSampler; theCtx: Handle[OpenGlContext]) {.
+proc Unbind*(this: var OpenGl_Sampler; theCtx: handle[OpenGl_Context]) {.
     importcpp: "Unbind", header: "OpenGl_Sampler.hxx".}
-proc `bind`*(this: var OpenGlSampler; theCtx: Handle[OpenGlContext];
-            theUnit: Graphic3dTextureUnit) {.importcpp: "Bind",
+proc Bind*(this: var OpenGl_Sampler; theCtx: handle[OpenGl_Context];
+          theUnit: Graphic3d_TextureUnit) {.importcpp: "Bind",
     header: "OpenGl_Sampler.hxx".}
-proc unbind*(this: var OpenGlSampler; theCtx: Handle[OpenGlContext];
-            theUnit: Graphic3dTextureUnit) {.importcpp: "Unbind",
+proc Unbind*(this: var OpenGl_Sampler; theCtx: handle[OpenGl_Context];
+            theUnit: Graphic3d_TextureUnit) {.importcpp: "Unbind",
     header: "OpenGl_Sampler.hxx".}
-proc setParameter*(this: var OpenGlSampler; theCtx: Handle[OpenGlContext];
+proc SetParameter*(this: var OpenGl_Sampler; theCtx: handle[OpenGl_Context];
                   theTarget: GLenum; theParam: GLenum; theValue: GLint) {.
     importcpp: "SetParameter", header: "OpenGl_Sampler.hxx".}
-proc samplerID*(this: OpenGlSampler): GLuint {.noSideEffect, importcpp: "SamplerID",
+proc SamplerID*(this: OpenGl_Sampler): GLuint {.noSideEffect, importcpp: "SamplerID",
     header: "OpenGl_Sampler.hxx".}
-proc isImmutable*(this: OpenGlSampler): bool {.noSideEffect,
+proc IsImmutable*(this: OpenGl_Sampler): bool {.noSideEffect,
     importcpp: "IsImmutable", header: "OpenGl_Sampler.hxx".}
-proc setImmutable*(this: var OpenGlSampler) {.importcpp: "SetImmutable",
+proc SetImmutable*(this: var OpenGl_Sampler) {.importcpp: "SetImmutable",
     header: "OpenGl_Sampler.hxx".}
-proc parameters*(this: var OpenGlSampler): Handle[Graphic3dTextureParams] {.
+proc Parameters*(this: var OpenGl_Sampler): handle[Graphic3d_TextureParams] {.
     importcpp: "Parameters", header: "OpenGl_Sampler.hxx".}
-proc setParameters*(this: var OpenGlSampler;
-                   theParams: Handle[Graphic3dTextureParams]) {.
+proc SetParameters*(this: var OpenGl_Sampler;
+                   theParams: handle[Graphic3d_TextureParams]) {.
     importcpp: "SetParameters", header: "OpenGl_Sampler.hxx".}
-proc toUpdateParameters*(this: OpenGlSampler): bool {.noSideEffect,
+proc ToUpdateParameters*(this: OpenGl_Sampler): bool {.noSideEffect,
     importcpp: "ToUpdateParameters", header: "OpenGl_Sampler.hxx".}
 discard "forward decl of OpenGl_Sampler"
 type
-  HandleOpenGlSampler* = Handle[OpenGlSampler]
-
-
+  Handle_OpenGl_Sampler* = handle[OpenGl_Sampler]

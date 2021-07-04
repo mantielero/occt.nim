@@ -14,60 +14,65 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../TColStd/TColStd_HArray1OfReal,
+  ../Standard/Standard_Real, ../Standard/Standard_Integer,
+  ../TColStd/TColStd_Array1OfReal
+
 discard "forward decl of PLib_JacobiPolynomial"
 type
-  PLibDoubleJacobiPolynomial* {.importcpp: "PLib_DoubleJacobiPolynomial",
-                               header: "PLib_DoubleJacobiPolynomial.hxx", bycopy.} = object
+  PLib_DoubleJacobiPolynomial* {.importcpp: "PLib_DoubleJacobiPolynomial",
+                                header: "PLib_DoubleJacobiPolynomial.hxx", bycopy.} = object
 
 
-proc constructPLibDoubleJacobiPolynomial*(): PLibDoubleJacobiPolynomial {.
+proc constructPLib_DoubleJacobiPolynomial*(): PLib_DoubleJacobiPolynomial {.
     constructor, importcpp: "PLib_DoubleJacobiPolynomial(@)",
     header: "PLib_DoubleJacobiPolynomial.hxx".}
-proc constructPLibDoubleJacobiPolynomial*(jacPolU: Handle[PLibJacobiPolynomial];
-    jacPolV: Handle[PLibJacobiPolynomial]): PLibDoubleJacobiPolynomial {.
+proc constructPLib_DoubleJacobiPolynomial*(
+    JacPolU: handle[PLib_JacobiPolynomial]; JacPolV: handle[PLib_JacobiPolynomial]): PLib_DoubleJacobiPolynomial {.
     constructor, importcpp: "PLib_DoubleJacobiPolynomial(@)",
     header: "PLib_DoubleJacobiPolynomial.hxx".}
-proc maxErrorU*(this: PLibDoubleJacobiPolynomial; dimension: StandardInteger;
-               degreeU: StandardInteger; degreeV: StandardInteger;
-               dJacCoeff: StandardInteger; jacCoeff: TColStdArray1OfReal): StandardReal {.
+proc MaxErrorU*(this: PLib_DoubleJacobiPolynomial; Dimension: Standard_Integer;
+               DegreeU: Standard_Integer; DegreeV: Standard_Integer;
+               dJacCoeff: Standard_Integer; JacCoeff: TColStd_Array1OfReal): Standard_Real {.
     noSideEffect, importcpp: "MaxErrorU", header: "PLib_DoubleJacobiPolynomial.hxx".}
-proc maxErrorV*(this: PLibDoubleJacobiPolynomial; dimension: StandardInteger;
-               degreeU: StandardInteger; degreeV: StandardInteger;
-               dJacCoeff: StandardInteger; jacCoeff: TColStdArray1OfReal): StandardReal {.
+proc MaxErrorV*(this: PLib_DoubleJacobiPolynomial; Dimension: Standard_Integer;
+               DegreeU: Standard_Integer; DegreeV: Standard_Integer;
+               dJacCoeff: Standard_Integer; JacCoeff: TColStd_Array1OfReal): Standard_Real {.
     noSideEffect, importcpp: "MaxErrorV", header: "PLib_DoubleJacobiPolynomial.hxx".}
-proc maxError*(this: PLibDoubleJacobiPolynomial; dimension: StandardInteger;
-              minDegreeU: StandardInteger; maxDegreeU: StandardInteger;
-              minDegreeV: StandardInteger; maxDegreeV: StandardInteger;
-              dJacCoeff: StandardInteger; jacCoeff: TColStdArray1OfReal;
-              error: StandardReal): StandardReal {.noSideEffect,
+proc MaxError*(this: PLib_DoubleJacobiPolynomial; Dimension: Standard_Integer;
+              MinDegreeU: Standard_Integer; MaxDegreeU: Standard_Integer;
+              MinDegreeV: Standard_Integer; MaxDegreeV: Standard_Integer;
+              dJacCoeff: Standard_Integer; JacCoeff: TColStd_Array1OfReal;
+              Error: Standard_Real): Standard_Real {.noSideEffect,
     importcpp: "MaxError", header: "PLib_DoubleJacobiPolynomial.hxx".}
-proc reduceDegree*(this: PLibDoubleJacobiPolynomial; dimension: StandardInteger;
-                  minDegreeU: StandardInteger; maxDegreeU: StandardInteger;
-                  minDegreeV: StandardInteger; maxDegreeV: StandardInteger;
-                  dJacCoeff: StandardInteger; jacCoeff: TColStdArray1OfReal;
-                  epmsCut: StandardReal; maxError: var StandardReal;
-                  newDegreeU: var StandardInteger; newDegreeV: var StandardInteger) {.
-    noSideEffect, importcpp: "ReduceDegree",
-    header: "PLib_DoubleJacobiPolynomial.hxx".}
-proc averageError*(this: PLibDoubleJacobiPolynomial; dimension: StandardInteger;
-                  degreeU: StandardInteger; degreeV: StandardInteger;
-                  dJacCoeff: StandardInteger; jacCoeff: TColStdArray1OfReal): StandardReal {.
+proc ReduceDegree*(this: PLib_DoubleJacobiPolynomial; Dimension: Standard_Integer;
+                  MinDegreeU: Standard_Integer; MaxDegreeU: Standard_Integer;
+                  MinDegreeV: Standard_Integer; MaxDegreeV: Standard_Integer;
+                  dJacCoeff: Standard_Integer; JacCoeff: TColStd_Array1OfReal;
+                  EpmsCut: Standard_Real; MaxError: var Standard_Real;
+                  NewDegreeU: var Standard_Integer;
+                  NewDegreeV: var Standard_Integer) {.noSideEffect,
+    importcpp: "ReduceDegree", header: "PLib_DoubleJacobiPolynomial.hxx".}
+proc AverageError*(this: PLib_DoubleJacobiPolynomial; Dimension: Standard_Integer;
+                  DegreeU: Standard_Integer; DegreeV: Standard_Integer;
+                  dJacCoeff: Standard_Integer; JacCoeff: TColStd_Array1OfReal): Standard_Real {.
     noSideEffect, importcpp: "AverageError",
     header: "PLib_DoubleJacobiPolynomial.hxx".}
-proc wDoubleJacobiToCoefficients*(this: PLibDoubleJacobiPolynomial;
-                                 dimension: StandardInteger;
-                                 degreeU: StandardInteger;
-                                 degreeV: StandardInteger;
-                                 jacCoeff: TColStdArray1OfReal;
-                                 coefficients: var TColStdArray1OfReal) {.
+proc WDoubleJacobiToCoefficients*(this: PLib_DoubleJacobiPolynomial;
+                                 Dimension: Standard_Integer;
+                                 DegreeU: Standard_Integer;
+                                 DegreeV: Standard_Integer;
+                                 JacCoeff: TColStd_Array1OfReal;
+                                 Coefficients: var TColStd_Array1OfReal) {.
     noSideEffect, importcpp: "WDoubleJacobiToCoefficients",
     header: "PLib_DoubleJacobiPolynomial.hxx".}
-proc u*(this: PLibDoubleJacobiPolynomial): Handle[PLibJacobiPolynomial] {.
+proc U*(this: PLib_DoubleJacobiPolynomial): handle[PLib_JacobiPolynomial] {.
     noSideEffect, importcpp: "U", header: "PLib_DoubleJacobiPolynomial.hxx".}
-proc v*(this: PLibDoubleJacobiPolynomial): Handle[PLibJacobiPolynomial] {.
+proc V*(this: PLib_DoubleJacobiPolynomial): handle[PLib_JacobiPolynomial] {.
     noSideEffect, importcpp: "V", header: "PLib_DoubleJacobiPolynomial.hxx".}
-proc tabMaxU*(this: PLibDoubleJacobiPolynomial): Handle[TColStdHArray1OfReal] {.
+proc TabMaxU*(this: PLib_DoubleJacobiPolynomial): handle[TColStd_HArray1OfReal] {.
     noSideEffect, importcpp: "TabMaxU", header: "PLib_DoubleJacobiPolynomial.hxx".}
-proc tabMaxV*(this: PLibDoubleJacobiPolynomial): Handle[TColStdHArray1OfReal] {.
+proc TabMaxV*(this: PLib_DoubleJacobiPolynomial): handle[TColStd_HArray1OfReal] {.
     noSideEffect, importcpp: "TabMaxV", header: "PLib_DoubleJacobiPolynomial.hxx".}
-

@@ -14,10 +14,14 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Integer,
+  ../Standard/Standard_Real, ../IGESData/IGESData_IGESEntity
+
 discard "forward decl of IGESAppli_LineWidening"
 discard "forward decl of IGESAppli_LineWidening"
 type
-  HandleIGESAppliLineWidening* = Handle[IGESAppliLineWidening]
+  Handle_IGESAppli_LineWidening* = handle[IGESAppli_LineWidening]
 
 ## ! defines LineWidening, Type <406> Form <5>
 ## ! in package IGESAppli
@@ -25,38 +29,39 @@ type
 ## ! used to define locations of items.
 
 type
-  IGESAppliLineWidening* {.importcpp: "IGESAppli_LineWidening",
-                          header: "IGESAppli_LineWidening.hxx", bycopy.} = object of IGESDataIGESEntity
+  IGESAppli_LineWidening* {.importcpp: "IGESAppli_LineWidening",
+                           header: "IGESAppli_LineWidening.hxx", bycopy.} = object of IGESData_IGESEntity
 
 
-proc constructIGESAppliLineWidening*(): IGESAppliLineWidening {.constructor,
+proc constructIGESAppli_LineWidening*(): IGESAppli_LineWidening {.constructor,
     importcpp: "IGESAppli_LineWidening(@)", header: "IGESAppli_LineWidening.hxx".}
-proc init*(this: var IGESAppliLineWidening; nbPropVal: StandardInteger;
-          aWidth: StandardReal; aCornering: StandardInteger;
-          aExtnFlag: StandardInteger; aJustifFlag: StandardInteger;
-          aExtnVal: StandardReal) {.importcpp: "Init",
-                                  header: "IGESAppli_LineWidening.hxx".}
-proc nbPropertyValues*(this: IGESAppliLineWidening): StandardInteger {.noSideEffect,
-    importcpp: "NbPropertyValues", header: "IGESAppli_LineWidening.hxx".}
-proc widthOfMetalization*(this: IGESAppliLineWidening): StandardReal {.noSideEffect,
-    importcpp: "WidthOfMetalization", header: "IGESAppli_LineWidening.hxx".}
-proc corneringCode*(this: IGESAppliLineWidening): StandardInteger {.noSideEffect,
+proc Init*(this: var IGESAppli_LineWidening; nbPropVal: Standard_Integer;
+          aWidth: Standard_Real; aCornering: Standard_Integer;
+          aExtnFlag: Standard_Integer; aJustifFlag: Standard_Integer;
+          aExtnVal: Standard_Real) {.importcpp: "Init",
+                                   header: "IGESAppli_LineWidening.hxx".}
+proc NbPropertyValues*(this: IGESAppli_LineWidening): Standard_Integer {.
+    noSideEffect, importcpp: "NbPropertyValues",
+    header: "IGESAppli_LineWidening.hxx".}
+proc WidthOfMetalization*(this: IGESAppli_LineWidening): Standard_Real {.
+    noSideEffect, importcpp: "WidthOfMetalization",
+    header: "IGESAppli_LineWidening.hxx".}
+proc CorneringCode*(this: IGESAppli_LineWidening): Standard_Integer {.noSideEffect,
     importcpp: "CorneringCode", header: "IGESAppli_LineWidening.hxx".}
-proc extensionFlag*(this: IGESAppliLineWidening): StandardInteger {.noSideEffect,
+proc ExtensionFlag*(this: IGESAppli_LineWidening): Standard_Integer {.noSideEffect,
     importcpp: "ExtensionFlag", header: "IGESAppli_LineWidening.hxx".}
-proc justificationFlag*(this: IGESAppliLineWidening): StandardInteger {.
+proc JustificationFlag*(this: IGESAppli_LineWidening): Standard_Integer {.
     noSideEffect, importcpp: "JustificationFlag",
     header: "IGESAppli_LineWidening.hxx".}
-proc extensionValue*(this: IGESAppliLineWidening): StandardReal {.noSideEffect,
+proc ExtensionValue*(this: IGESAppli_LineWidening): Standard_Real {.noSideEffect,
     importcpp: "ExtensionValue", header: "IGESAppli_LineWidening.hxx".}
 type
-  IGESAppliLineWideningbaseType* = IGESDataIGESEntity
+  IGESAppli_LineWideningbase_type* = IGESData_IGESEntity
 
-proc getTypeName*(): cstring {.importcpp: "IGESAppli_LineWidening::get_type_name(@)",
-                            header: "IGESAppli_LineWidening.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "IGESAppli_LineWidening::get_type_name(@)",
+                              header: "IGESAppli_LineWidening.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "IGESAppli_LineWidening::get_type_descriptor(@)",
     header: "IGESAppli_LineWidening.hxx".}
-proc dynamicType*(this: IGESAppliLineWidening): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "IGESAppli_LineWidening.hxx".}
-
+proc DynamicType*(this: IGESAppli_LineWidening): handle[Standard_Type] {.
+    noSideEffect, importcpp: "DynamicType", header: "IGESAppli_LineWidening.hxx".}

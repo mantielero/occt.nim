@@ -14,6 +14,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../TCollection/TCollection_AsciiString,
+  ../Standard/Standard_Integer, OSD_WhoAmI, ../Standard/Standard_Boolean
+
 discard "forward decl of OSD_OSDError"
 discard "forward decl of TCollection_AsciiString"
 type
@@ -26,13 +31,12 @@ type
 
 proc constructOSD_Error*(): OSD_Error {.constructor, importcpp: "OSD_Error(@)",
                                      header: "OSD_Error.hxx".}
-proc perror*(this: var OSD_Error) {.importcpp: "Perror", header: "OSD_Error.hxx".}
-proc setValue*(this: var OSD_Error; errcode: StandardInteger; `from`: StandardInteger;
-              message: TCollectionAsciiString) {.importcpp: "SetValue",
+proc Perror*(this: var OSD_Error) {.importcpp: "Perror", header: "OSD_Error.hxx".}
+proc SetValue*(this: var OSD_Error; Errcode: Standard_Integer; From: Standard_Integer;
+              Message: TCollection_AsciiString) {.importcpp: "SetValue",
     header: "OSD_Error.hxx".}
-proc error*(this: OSD_Error): StandardInteger {.noSideEffect, importcpp: "Error",
+proc Error*(this: OSD_Error): Standard_Integer {.noSideEffect, importcpp: "Error",
     header: "OSD_Error.hxx".}
-proc failed*(this: OSD_Error): StandardBoolean {.noSideEffect, importcpp: "Failed",
+proc Failed*(this: OSD_Error): Standard_Boolean {.noSideEffect, importcpp: "Failed",
     header: "OSD_Error.hxx".}
-proc reset*(this: var OSD_Error) {.importcpp: "Reset", header: "OSD_Error.hxx".}
-
+proc Reset*(this: var OSD_Error) {.importcpp: "Reset", header: "OSD_Error.hxx".}

@@ -14,33 +14,36 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepVisual_PresentationStyleAssignment"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepVisualRWPresentationStyleAssignment* {.
+  RWStepVisual_RWPresentationStyleAssignment* {.
       importcpp: "RWStepVisual_RWPresentationStyleAssignment",
       header: "RWStepVisual_RWPresentationStyleAssignment.hxx", bycopy.} = object
 
 
-proc constructRWStepVisualRWPresentationStyleAssignment*(): RWStepVisualRWPresentationStyleAssignment {.
+proc constructRWStepVisual_RWPresentationStyleAssignment*(): RWStepVisual_RWPresentationStyleAssignment {.
     constructor, importcpp: "RWStepVisual_RWPresentationStyleAssignment(@)",
     header: "RWStepVisual_RWPresentationStyleAssignment.hxx".}
-proc readStep*(this: RWStepVisualRWPresentationStyleAssignment;
-              data: Handle[StepDataStepReaderData]; num: StandardInteger;
-              ach: var Handle[InterfaceCheck];
-              ent: Handle[StepVisualPresentationStyleAssignment]) {.noSideEffect,
+proc ReadStep*(this: RWStepVisual_RWPresentationStyleAssignment;
+              data: handle[StepData_StepReaderData]; num: Standard_Integer;
+              ach: var handle[Interface_Check];
+              ent: handle[StepVisual_PresentationStyleAssignment]) {.noSideEffect,
     importcpp: "ReadStep",
     header: "RWStepVisual_RWPresentationStyleAssignment.hxx".}
-proc writeStep*(this: RWStepVisualRWPresentationStyleAssignment;
-               sw: var StepDataStepWriter;
-               ent: Handle[StepVisualPresentationStyleAssignment]) {.noSideEffect,
-    importcpp: "WriteStep",
+proc WriteStep*(this: RWStepVisual_RWPresentationStyleAssignment;
+               SW: var StepData_StepWriter;
+               ent: handle[StepVisual_PresentationStyleAssignment]) {.
+    noSideEffect, importcpp: "WriteStep",
     header: "RWStepVisual_RWPresentationStyleAssignment.hxx".}
-proc share*(this: RWStepVisualRWPresentationStyleAssignment;
-           ent: Handle[StepVisualPresentationStyleAssignment];
-           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
+proc Share*(this: RWStepVisual_RWPresentationStyleAssignment;
+           ent: handle[StepVisual_PresentationStyleAssignment];
+           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepVisual_RWPresentationStyleAssignment.hxx".}
-

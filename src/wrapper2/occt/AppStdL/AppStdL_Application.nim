@@ -13,42 +13,45 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../TDocStd/TDocStd_Application,
+  ../TColStd/TColStd_SequenceOfExtendedString, ../Standard/Standard_CString
+
 discard "forward decl of AppStdL_Application"
 discard "forward decl of AppStdL_Application"
 type
-  HandleAppStdL_Application* = Handle[AppStdL_Application]
+  Handle_AppStdL_Application* = handle[AppStdL_Application]
 
 ## ! Legacy class defining resources name for lite OCAF documents
 
 type
   AppStdL_Application* {.importcpp: "AppStdL_Application",
-                        header: "AppStdL_Application.hxx", bycopy.} = object of TDocStdApplication ##
-                                                                                            ## !
-                                                                                            ## returns
-                                                                                            ## the
-                                                                                            ## file
-                                                                                            ## name
-                                                                                            ## which
-                                                                                            ## contains
-                                                                                            ## application
-                                                                                            ##
-                                                                                            ## !
-                                                                                            ## resources
+                        header: "AppStdL_Application.hxx", bycopy.} = object of TDocStd_Application ##
+                                                                                             ## !
+                                                                                             ## returns
+                                                                                             ## the
+                                                                                             ## file
+                                                                                             ## name
+                                                                                             ## which
+                                                                                             ## contains
+                                                                                             ## application
+                                                                                             ##
+                                                                                             ## !
+                                                                                             ## resources
 
 
-proc resourcesName*(this: var AppStdL_Application): StandardCString {.
+proc ResourcesName*(this: var AppStdL_Application): Standard_CString {.
     importcpp: "ResourcesName", header: "AppStdL_Application.hxx".}
-proc dumpJson*(this: AppStdL_Application; theOStream: var StandardOStream;
-              theDepth: StandardInteger = -1) {.noSideEffect, importcpp: "DumpJson",
+proc DumpJson*(this: AppStdL_Application; theOStream: var Standard_OStream;
+              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
     header: "AppStdL_Application.hxx".}
 type
-  AppStdL_ApplicationbaseType* = TDocStdApplication
+  AppStdL_Applicationbase_type* = TDocStd_Application
 
-proc getTypeName*(): cstring {.importcpp: "AppStdL_Application::get_type_name(@)",
-                            header: "AppStdL_Application.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "AppStdL_Application::get_type_name(@)",
+                              header: "AppStdL_Application.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "AppStdL_Application::get_type_descriptor(@)",
     header: "AppStdL_Application.hxx".}
-proc dynamicType*(this: AppStdL_Application): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: AppStdL_Application): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "AppStdL_Application.hxx".}
-

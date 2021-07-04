@@ -12,41 +12,48 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../TCollection/TCollection_AsciiString,
+  ../Standard/Standard_Size, ../Standard/Standard_Boolean,
+  ../Standard/Standard_OStream, ../Standard/Standard_IStream,
+  ../Message/Message_ProgressIndicator
+
 discard "forward decl of TCollection_AsciiString"
 type
-  BinLDriversDocumentSection* {.importcpp: "BinLDrivers_DocumentSection",
-                               header: "BinLDrivers_DocumentSection.hxx", bycopy.} = object ##
-                                                                                       ## !
-                                                                                       ## Empty
-                                                                                       ## constructor
+  BinLDrivers_DocumentSection* {.importcpp: "BinLDrivers_DocumentSection",
+                                header: "BinLDrivers_DocumentSection.hxx", bycopy.} = object ##
+                                                                                        ## !
+                                                                                        ## Empty
+                                                                                        ## constructor
 
 
-proc constructBinLDriversDocumentSection*(): BinLDriversDocumentSection {.
+proc constructBinLDrivers_DocumentSection*(): BinLDrivers_DocumentSection {.
     constructor, importcpp: "BinLDrivers_DocumentSection(@)",
     header: "BinLDrivers_DocumentSection.hxx".}
-proc constructBinLDriversDocumentSection*(theName: TCollectionAsciiString;
-    isPostRead: StandardBoolean): BinLDriversDocumentSection {.constructor,
+proc constructBinLDrivers_DocumentSection*(theName: TCollection_AsciiString;
+    isPostRead: Standard_Boolean): BinLDrivers_DocumentSection {.constructor,
     importcpp: "BinLDrivers_DocumentSection(@)",
     header: "BinLDrivers_DocumentSection.hxx".}
-proc name*(this: BinLDriversDocumentSection): TCollectionAsciiString {.noSideEffect,
-    importcpp: "Name", header: "BinLDrivers_DocumentSection.hxx".}
-proc isPostRead*(this: BinLDriversDocumentSection): StandardBoolean {.noSideEffect,
-    importcpp: "IsPostRead", header: "BinLDrivers_DocumentSection.hxx".}
-proc offset*(this: BinLDriversDocumentSection): uint64T {.noSideEffect,
+proc Name*(this: BinLDrivers_DocumentSection): TCollection_AsciiString {.
+    noSideEffect, importcpp: "Name", header: "BinLDrivers_DocumentSection.hxx".}
+proc IsPostRead*(this: BinLDrivers_DocumentSection): Standard_Boolean {.
+    noSideEffect, importcpp: "IsPostRead",
+    header: "BinLDrivers_DocumentSection.hxx".}
+proc Offset*(this: BinLDrivers_DocumentSection): uint64_t {.noSideEffect,
     importcpp: "Offset", header: "BinLDrivers_DocumentSection.hxx".}
-proc setOffset*(this: var BinLDriversDocumentSection; theOffset: uint64T) {.
+proc SetOffset*(this: var BinLDrivers_DocumentSection; theOffset: uint64_t) {.
     importcpp: "SetOffset", header: "BinLDrivers_DocumentSection.hxx".}
-proc length*(this: BinLDriversDocumentSection): uint64T {.noSideEffect,
+proc Length*(this: BinLDrivers_DocumentSection): uint64_t {.noSideEffect,
     importcpp: "Length", header: "BinLDrivers_DocumentSection.hxx".}
-proc setLength*(this: var BinLDriversDocumentSection; theLength: uint64T) {.
+proc SetLength*(this: var BinLDrivers_DocumentSection; theLength: uint64_t) {.
     importcpp: "SetLength", header: "BinLDrivers_DocumentSection.hxx".}
-proc writeTOC*(this: var BinLDriversDocumentSection; theOS: var StandardOStream) {.
+proc WriteTOC*(this: var BinLDrivers_DocumentSection; theOS: var Standard_OStream) {.
     importcpp: "WriteTOC", header: "BinLDrivers_DocumentSection.hxx".}
-proc write*(this: var BinLDriversDocumentSection; theOS: var StandardOStream;
-           theOffset: uint64T) {.importcpp: "Write",
-                               header: "BinLDrivers_DocumentSection.hxx".}
-proc readTOC*(theSection: var BinLDriversDocumentSection;
-             theIS: var StandardIStream; theDocFormatVersion: StandardInteger) {.
+proc Write*(this: var BinLDrivers_DocumentSection; theOS: var Standard_OStream;
+           theOffset: uint64_t) {.importcpp: "Write",
+                                header: "BinLDrivers_DocumentSection.hxx".}
+proc ReadTOC*(theSection: var BinLDrivers_DocumentSection;
+             theIS: var Standard_IStream; theDocFormatVersion: Standard_Integer) {.
     importcpp: "BinLDrivers_DocumentSection::ReadTOC(@)",
     header: "BinLDrivers_DocumentSection.hxx".}
-

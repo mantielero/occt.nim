@@ -14,6 +14,9 @@
 ##  commercial license or contractual agreement.
 ## AGV 140202: Repl.(const char *) for (LDOMBasicString) => myTagName
 
+import
+  LDOM_BasicNode, ../LDOMBasicString/LDOMBasicString, LDOM_Node
+
 discard "forward decl of LDOM_XmlReader"
 discard "forward decl of LDOMParser"
 discard "forward decl of LDOM_NodeList"
@@ -31,17 +34,16 @@ type
 
 proc constructLDOM_BasicElement*(): LDOM_BasicElement {.constructor,
     importcpp: "LDOM_BasicElement(@)", header: "LDOM_BasicElement.hxx".}
-proc create*(aName: cstring; aLength: StandardInteger; aDoc: Handle[LDOM_MemManager]): var LDOM_BasicElement {.
+proc Create*(aName: cstring; aLength: Standard_Integer; aDoc: handle[LDOM_MemManager]): var LDOM_BasicElement {.
     importcpp: "LDOM_BasicElement::Create(@)", header: "LDOM_BasicElement.hxx".}
 proc destroyLDOM_BasicElement*(this: var LDOM_BasicElement) {.
     importcpp: "#.~LDOM_BasicElement()", header: "LDOM_BasicElement.hxx".}
-proc getTagName*(this: LDOM_BasicElement): cstring {.noSideEffect,
+proc GetTagName*(this: LDOM_BasicElement): cstring {.noSideEffect,
     importcpp: "GetTagName", header: "LDOM_BasicElement.hxx".}
-proc getFirstChild*(this: LDOM_BasicElement): ptr LDOM_BasicNode {.noSideEffect,
+proc GetFirstChild*(this: LDOM_BasicElement): ptr LDOM_BasicNode {.noSideEffect,
     importcpp: "GetFirstChild", header: "LDOM_BasicElement.hxx".}
-proc getLastChild*(this: LDOM_BasicElement): ptr LDOM_BasicNode {.noSideEffect,
+proc GetLastChild*(this: LDOM_BasicElement): ptr LDOM_BasicNode {.noSideEffect,
     importcpp: "GetLastChild", header: "LDOM_BasicElement.hxx".}
-proc getAttribute*(this: LDOM_BasicElement; aName: LDOMBasicString;
+proc GetAttribute*(this: LDOM_BasicElement; aName: LDOMBasicString;
                   aLastCh: ptr LDOM_BasicNode): LDOM_BasicAttribute {.noSideEffect,
     importcpp: "GetAttribute", header: "LDOM_BasicElement.hxx".}
-

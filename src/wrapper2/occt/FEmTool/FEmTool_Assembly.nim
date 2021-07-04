@@ -14,45 +14,51 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../TColStd/TColStd_Array2OfInteger,
+  FEmTool_HAssemblyTable, ../Standard/Standard_Boolean, ../math/math_Vector,
+  FEmTool_SeqOfLinConstr, ../TColStd/TColStd_SequenceOfReal,
+  ../Standard/Standard_Integer, ../Standard/Standard_Real
+
 discard "forward decl of FEmTool_ProfileMatrix"
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of Standard_DimensionError"
 discard "forward decl of Standard_DomainError"
 discard "forward decl of math_Matrix"
 type
-  FEmToolAssembly* {.importcpp: "FEmTool_Assembly", header: "FEmTool_Assembly.hxx",
-                    bycopy.} = object
+  FEmTool_Assembly* {.importcpp: "FEmTool_Assembly",
+                     header: "FEmTool_Assembly.hxx", bycopy.} = object
 
 
-proc constructFEmToolAssembly*(dependence: TColStdArray2OfInteger;
-                              table: Handle[FEmToolHAssemblyTable]): FEmToolAssembly {.
+proc constructFEmTool_Assembly*(Dependence: TColStd_Array2OfInteger;
+                               Table: handle[FEmTool_HAssemblyTable]): FEmTool_Assembly {.
     constructor, importcpp: "FEmTool_Assembly(@)", header: "FEmTool_Assembly.hxx".}
-proc nullifyMatrix*(this: var FEmToolAssembly) {.importcpp: "NullifyMatrix",
+proc NullifyMatrix*(this: var FEmTool_Assembly) {.importcpp: "NullifyMatrix",
     header: "FEmTool_Assembly.hxx".}
-proc addMatrix*(this: var FEmToolAssembly; element: StandardInteger;
-               dimension1: StandardInteger; dimension2: StandardInteger;
-               mat: MathMatrix) {.importcpp: "AddMatrix",
-                                header: "FEmTool_Assembly.hxx".}
-proc nullifyVector*(this: var FEmToolAssembly) {.importcpp: "NullifyVector",
+proc AddMatrix*(this: var FEmTool_Assembly; Element: Standard_Integer;
+               Dimension1: Standard_Integer; Dimension2: Standard_Integer;
+               Mat: math_Matrix) {.importcpp: "AddMatrix",
+                                 header: "FEmTool_Assembly.hxx".}
+proc NullifyVector*(this: var FEmTool_Assembly) {.importcpp: "NullifyVector",
     header: "FEmTool_Assembly.hxx".}
-proc addVector*(this: var FEmToolAssembly; element: StandardInteger;
-               dimension: StandardInteger; vec: MathVector) {.
+proc AddVector*(this: var FEmTool_Assembly; Element: Standard_Integer;
+               Dimension: Standard_Integer; Vec: math_Vector) {.
     importcpp: "AddVector", header: "FEmTool_Assembly.hxx".}
-proc resetConstraint*(this: var FEmToolAssembly) {.importcpp: "ResetConstraint",
+proc ResetConstraint*(this: var FEmTool_Assembly) {.importcpp: "ResetConstraint",
     header: "FEmTool_Assembly.hxx".}
-proc nullifyConstraint*(this: var FEmToolAssembly) {.importcpp: "NullifyConstraint",
-    header: "FEmTool_Assembly.hxx".}
-proc addConstraint*(this: var FEmToolAssembly; indexofConstraint: StandardInteger;
-                   element: StandardInteger; dimension: StandardInteger;
-                   linearForm: MathVector; value: StandardReal) {.
+proc NullifyConstraint*(this: var FEmTool_Assembly) {.
+    importcpp: "NullifyConstraint", header: "FEmTool_Assembly.hxx".}
+proc AddConstraint*(this: var FEmTool_Assembly; IndexofConstraint: Standard_Integer;
+                   Element: Standard_Integer; Dimension: Standard_Integer;
+                   LinearForm: math_Vector; Value: Standard_Real) {.
     importcpp: "AddConstraint", header: "FEmTool_Assembly.hxx".}
-proc solve*(this: var FEmToolAssembly): StandardBoolean {.importcpp: "Solve",
+proc Solve*(this: var FEmTool_Assembly): Standard_Boolean {.importcpp: "Solve",
     header: "FEmTool_Assembly.hxx".}
-proc solution*(this: FEmToolAssembly; solution: var MathVector) {.noSideEffect,
+proc Solution*(this: FEmTool_Assembly; Solution: var math_Vector) {.noSideEffect,
     importcpp: "Solution", header: "FEmTool_Assembly.hxx".}
-proc nbGlobVar*(this: FEmToolAssembly): StandardInteger {.noSideEffect,
+proc NbGlobVar*(this: FEmTool_Assembly): Standard_Integer {.noSideEffect,
     importcpp: "NbGlobVar", header: "FEmTool_Assembly.hxx".}
-proc getAssemblyTable*(this: FEmToolAssembly;
-                      assTable: var Handle[FEmToolHAssemblyTable]) {.noSideEffect,
+proc GetAssemblyTable*(this: FEmTool_Assembly;
+                      AssTable: var handle[FEmTool_HAssemblyTable]) {.noSideEffect,
     importcpp: "GetAssemblyTable", header: "FEmTool_Assembly.hxx".}
-

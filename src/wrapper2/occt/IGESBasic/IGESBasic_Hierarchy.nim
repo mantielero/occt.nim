@@ -14,10 +14,14 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Integer,
+  ../IGESData/IGESData_IGESEntity
+
 discard "forward decl of IGESBasic_Hierarchy"
 discard "forward decl of IGESBasic_Hierarchy"
 type
-  HandleIGESBasicHierarchy* = Handle[IGESBasicHierarchy]
+  Handle_IGESBasic_Hierarchy* = handle[IGESBasic_Hierarchy]
 
 ## ! defines Hierarchy, Type <406> Form <10>
 ## ! in package IGESBasic
@@ -25,39 +29,38 @@ type
 ## ! directory entry attribute.
 
 type
-  IGESBasicHierarchy* {.importcpp: "IGESBasic_Hierarchy",
-                       header: "IGESBasic_Hierarchy.hxx", bycopy.} = object of IGESDataIGESEntity
+  IGESBasic_Hierarchy* {.importcpp: "IGESBasic_Hierarchy",
+                        header: "IGESBasic_Hierarchy.hxx", bycopy.} = object of IGESData_IGESEntity
 
 
-proc constructIGESBasicHierarchy*(): IGESBasicHierarchy {.constructor,
+proc constructIGESBasic_Hierarchy*(): IGESBasic_Hierarchy {.constructor,
     importcpp: "IGESBasic_Hierarchy(@)", header: "IGESBasic_Hierarchy.hxx".}
-proc init*(this: var IGESBasicHierarchy; nbPropVal: StandardInteger;
-          aLineFont: StandardInteger; aView: StandardInteger;
-          anEntityLevel: StandardInteger; aBlankStatus: StandardInteger;
-          aLineWt: StandardInteger; aColorNum: StandardInteger) {.importcpp: "Init",
-    header: "IGESBasic_Hierarchy.hxx".}
-proc nbPropertyValues*(this: IGESBasicHierarchy): StandardInteger {.noSideEffect,
+proc Init*(this: var IGESBasic_Hierarchy; nbPropVal: Standard_Integer;
+          aLineFont: Standard_Integer; aView: Standard_Integer;
+          anEntityLevel: Standard_Integer; aBlankStatus: Standard_Integer;
+          aLineWt: Standard_Integer; aColorNum: Standard_Integer) {.
+    importcpp: "Init", header: "IGESBasic_Hierarchy.hxx".}
+proc NbPropertyValues*(this: IGESBasic_Hierarchy): Standard_Integer {.noSideEffect,
     importcpp: "NbPropertyValues", header: "IGESBasic_Hierarchy.hxx".}
-proc newLineFont*(this: IGESBasicHierarchy): StandardInteger {.noSideEffect,
+proc NewLineFont*(this: IGESBasic_Hierarchy): Standard_Integer {.noSideEffect,
     importcpp: "NewLineFont", header: "IGESBasic_Hierarchy.hxx".}
-proc newView*(this: IGESBasicHierarchy): StandardInteger {.noSideEffect,
+proc NewView*(this: IGESBasic_Hierarchy): Standard_Integer {.noSideEffect,
     importcpp: "NewView", header: "IGESBasic_Hierarchy.hxx".}
-proc newEntityLevel*(this: IGESBasicHierarchy): StandardInteger {.noSideEffect,
+proc NewEntityLevel*(this: IGESBasic_Hierarchy): Standard_Integer {.noSideEffect,
     importcpp: "NewEntityLevel", header: "IGESBasic_Hierarchy.hxx".}
-proc newBlankStatus*(this: IGESBasicHierarchy): StandardInteger {.noSideEffect,
+proc NewBlankStatus*(this: IGESBasic_Hierarchy): Standard_Integer {.noSideEffect,
     importcpp: "NewBlankStatus", header: "IGESBasic_Hierarchy.hxx".}
-proc newLineWeight*(this: IGESBasicHierarchy): StandardInteger {.noSideEffect,
+proc NewLineWeight*(this: IGESBasic_Hierarchy): Standard_Integer {.noSideEffect,
     importcpp: "NewLineWeight", header: "IGESBasic_Hierarchy.hxx".}
-proc newColorNum*(this: IGESBasicHierarchy): StandardInteger {.noSideEffect,
+proc NewColorNum*(this: IGESBasic_Hierarchy): Standard_Integer {.noSideEffect,
     importcpp: "NewColorNum", header: "IGESBasic_Hierarchy.hxx".}
 type
-  IGESBasicHierarchybaseType* = IGESDataIGESEntity
+  IGESBasic_Hierarchybase_type* = IGESData_IGESEntity
 
-proc getTypeName*(): cstring {.importcpp: "IGESBasic_Hierarchy::get_type_name(@)",
-                            header: "IGESBasic_Hierarchy.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "IGESBasic_Hierarchy::get_type_name(@)",
+                              header: "IGESBasic_Hierarchy.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "IGESBasic_Hierarchy::get_type_descriptor(@)",
     header: "IGESBasic_Hierarchy.hxx".}
-proc dynamicType*(this: IGESBasicHierarchy): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: IGESBasic_Hierarchy): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "IGESBasic_Hierarchy.hxx".}
-

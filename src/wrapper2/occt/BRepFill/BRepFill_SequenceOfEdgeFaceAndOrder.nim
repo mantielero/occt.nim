@@ -14,8 +14,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  BRepFill_EdgeFaceAndOrder, ../NCollection/NCollection_Sequence
+
 type
-  BRepFillSequenceOfEdgeFaceAndOrder* = NCollectionSequence[
-      BRepFillEdgeFaceAndOrder]
-
-
+  BRepFill_SequenceOfEdgeFaceAndOrder* = NCollection_Sequence[
+      BRepFill_EdgeFaceAndOrder]

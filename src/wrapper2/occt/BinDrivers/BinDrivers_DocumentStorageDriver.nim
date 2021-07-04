@@ -13,51 +13,54 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_OStream,
+  ../BinLDrivers/BinLDrivers_DocumentStorageDriver
+
 discard "forward decl of BinMDF_ADriverTable"
 discard "forward decl of Message_Messenger"
 discard "forward decl of BinLDrivers_DocumentSection"
 discard "forward decl of BinDrivers_DocumentStorageDriver"
 discard "forward decl of BinDrivers_DocumentStorageDriver"
 type
-  HandleBinDriversDocumentStorageDriver* = Handle[BinDriversDocumentStorageDriver]
+  Handle_BinDrivers_DocumentStorageDriver* = handle[
+      BinDrivers_DocumentStorageDriver]
 
 ## ! persistent implemention of storage a document in a binary file
 
 type
-  BinDriversDocumentStorageDriver* {.importcpp: "BinDrivers_DocumentStorageDriver", header: "BinDrivers_DocumentStorageDriver.hxx",
-                                    bycopy.} = object of BinLDriversDocumentStorageDriver ##
-                                                                                     ## !
-                                                                                     ## Constructor
+  BinDrivers_DocumentStorageDriver* {.importcpp: "BinDrivers_DocumentStorageDriver", header: "BinDrivers_DocumentStorageDriver.hxx",
+                                     bycopy.} = object of BinLDrivers_DocumentStorageDriver ##
+                                                                                       ## !
+                                                                                       ## Constructor
 
 
-proc constructBinDriversDocumentStorageDriver*(): BinDriversDocumentStorageDriver {.
+proc constructBinDrivers_DocumentStorageDriver*(): BinDrivers_DocumentStorageDriver {.
     constructor, importcpp: "BinDrivers_DocumentStorageDriver(@)",
     header: "BinDrivers_DocumentStorageDriver.hxx".}
-proc attributeDrivers*(this: var BinDriversDocumentStorageDriver;
-                      theMsgDriver: Handle[MessageMessenger]): Handle[
+proc AttributeDrivers*(this: var BinDrivers_DocumentStorageDriver;
+                      theMsgDriver: handle[Message_Messenger]): handle[
     BinMDF_ADriverTable] {.importcpp: "AttributeDrivers",
                           header: "BinDrivers_DocumentStorageDriver.hxx".}
-proc writeShapeSection*(this: var BinDriversDocumentStorageDriver;
-                       theDocSection: var BinLDriversDocumentSection;
-                       theOS: var StandardOStream;
-                       theRange: MessageProgressRange = messageProgressRange()) {.
+proc WriteShapeSection*(this: var BinDrivers_DocumentStorageDriver;
+                       theDocSection: var BinLDrivers_DocumentSection;
+                       theOS: var Standard_OStream; theRange: Message_ProgressRange = Message_ProgressRange()) {.
     importcpp: "WriteShapeSection", header: "BinDrivers_DocumentStorageDriver.hxx".}
-proc isWithTriangles*(this: BinDriversDocumentStorageDriver): StandardBoolean {.
+proc IsWithTriangles*(this: BinDrivers_DocumentStorageDriver): Standard_Boolean {.
     noSideEffect, importcpp: "IsWithTriangles",
     header: "BinDrivers_DocumentStorageDriver.hxx".}
-proc setWithTriangles*(this: var BinDriversDocumentStorageDriver;
-                      theMessageDriver: Handle[MessageMessenger];
-                      theWithTriangulation: StandardBoolean) {.
+proc SetWithTriangles*(this: var BinDrivers_DocumentStorageDriver;
+                      theMessageDriver: handle[Message_Messenger];
+                      theWithTriangulation: Standard_Boolean) {.
     importcpp: "SetWithTriangles", header: "BinDrivers_DocumentStorageDriver.hxx".}
 type
-  BinDriversDocumentStorageDriverbaseType* = BinLDriversDocumentStorageDriver
+  BinDrivers_DocumentStorageDriverbase_type* = BinLDrivers_DocumentStorageDriver
 
-proc getTypeName*(): cstring {.importcpp: "BinDrivers_DocumentStorageDriver::get_type_name(@)",
-                            header: "BinDrivers_DocumentStorageDriver.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "BinDrivers_DocumentStorageDriver::get_type_name(@)",
+                              header: "BinDrivers_DocumentStorageDriver.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "BinDrivers_DocumentStorageDriver::get_type_descriptor(@)",
     header: "BinDrivers_DocumentStorageDriver.hxx".}
-proc dynamicType*(this: BinDriversDocumentStorageDriver): Handle[StandardType] {.
+proc DynamicType*(this: BinDrivers_DocumentStorageDriver): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType",
     header: "BinDrivers_DocumentStorageDriver.hxx".}
-

@@ -14,6 +14,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../TopoDS/TopoDS_Shape,
+  ../TopTools/TopTools_DataMapOfShapeListOfShape, ../Standard/Standard_Real,
+  ../Standard/Standard_Boolean, ../TopTools/TopTools_ListOfShape
+
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of Standard_NoSuchObject"
 discard "forward decl of Standard_ConstructionError"
@@ -24,32 +30,32 @@ discard "forward decl of TopoDS_Wire"
 discard "forward decl of gp_Dir"
 discard "forward decl of gp_Pln"
 type
-  LocOpeSplitDrafts* {.importcpp: "LocOpe_SplitDrafts",
-                      header: "LocOpe_SplitDrafts.hxx", bycopy.} = object ## ! Empty
-                                                                     ## constructor.
+  LocOpe_SplitDrafts* {.importcpp: "LocOpe_SplitDrafts",
+                       header: "LocOpe_SplitDrafts.hxx", bycopy.} = object ## ! Empty
+                                                                      ## constructor.
 
 
-proc constructLocOpeSplitDrafts*(): LocOpeSplitDrafts {.constructor,
+proc constructLocOpe_SplitDrafts*(): LocOpe_SplitDrafts {.constructor,
     importcpp: "LocOpe_SplitDrafts(@)", header: "LocOpe_SplitDrafts.hxx".}
-proc constructLocOpeSplitDrafts*(s: TopoDS_Shape): LocOpeSplitDrafts {.constructor,
-    importcpp: "LocOpe_SplitDrafts(@)", header: "LocOpe_SplitDrafts.hxx".}
-proc init*(this: var LocOpeSplitDrafts; s: TopoDS_Shape) {.importcpp: "Init",
+proc constructLocOpe_SplitDrafts*(S: TopoDS_Shape): LocOpe_SplitDrafts {.
+    constructor, importcpp: "LocOpe_SplitDrafts(@)",
     header: "LocOpe_SplitDrafts.hxx".}
-proc perform*(this: var LocOpeSplitDrafts; f: TopoDS_Face; w: TopoDS_Wire;
-             extractg: GpDir; nPlg: GpPln; angleg: StandardReal; extractd: GpDir;
-             nPld: GpPln; angled: StandardReal;
-             modifyLeft: StandardBoolean = standardTrue;
-             modifyRight: StandardBoolean = standardTrue) {.importcpp: "Perform",
+proc Init*(this: var LocOpe_SplitDrafts; S: TopoDS_Shape) {.importcpp: "Init",
     header: "LocOpe_SplitDrafts.hxx".}
-proc perform*(this: var LocOpeSplitDrafts; f: TopoDS_Face; w: TopoDS_Wire;
-             extract: GpDir; nPl: GpPln; angle: StandardReal) {.importcpp: "Perform",
+proc Perform*(this: var LocOpe_SplitDrafts; F: TopoDS_Face; W: TopoDS_Wire;
+             Extractg: gp_Dir; NPlg: gp_Pln; Angleg: Standard_Real; Extractd: gp_Dir;
+             NPld: gp_Pln; Angled: Standard_Real;
+             ModifyLeft: Standard_Boolean = Standard_True;
+             ModifyRight: Standard_Boolean = Standard_True) {.importcpp: "Perform",
     header: "LocOpe_SplitDrafts.hxx".}
-proc isDone*(this: LocOpeSplitDrafts): StandardBoolean {.noSideEffect,
+proc Perform*(this: var LocOpe_SplitDrafts; F: TopoDS_Face; W: TopoDS_Wire;
+             Extract: gp_Dir; NPl: gp_Pln; Angle: Standard_Real) {.
+    importcpp: "Perform", header: "LocOpe_SplitDrafts.hxx".}
+proc IsDone*(this: LocOpe_SplitDrafts): Standard_Boolean {.noSideEffect,
     importcpp: "IsDone", header: "LocOpe_SplitDrafts.hxx".}
-proc originalShape*(this: LocOpeSplitDrafts): TopoDS_Shape {.noSideEffect,
+proc OriginalShape*(this: LocOpe_SplitDrafts): TopoDS_Shape {.noSideEffect,
     importcpp: "OriginalShape", header: "LocOpe_SplitDrafts.hxx".}
-proc shape*(this: LocOpeSplitDrafts): TopoDS_Shape {.noSideEffect,
+proc Shape*(this: LocOpe_SplitDrafts): TopoDS_Shape {.noSideEffect,
     importcpp: "Shape", header: "LocOpe_SplitDrafts.hxx".}
-proc shapesFromShape*(this: LocOpeSplitDrafts; s: TopoDS_Shape): TopToolsListOfShape {.
+proc ShapesFromShape*(this: LocOpe_SplitDrafts; S: TopoDS_Shape): TopTools_ListOfShape {.
     noSideEffect, importcpp: "ShapesFromShape", header: "LocOpe_SplitDrafts.hxx".}
-

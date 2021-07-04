@@ -11,35 +11,38 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  Message_Attribute
+
 discard "forward decl of Standard_Transient"
 type
-  MessageAttributeObject* {.importcpp: "Message_AttributeObject",
-                           header: "Message_AttributeObject.hxx", bycopy.} = object of MessageAttribute ##
-                                                                                                 ## !
-                                                                                                 ## Constructor
-                                                                                                 ## with
-                                                                                                 ## string
-                                                                                                 ## argument
+  Message_AttributeObject* {.importcpp: "Message_AttributeObject",
+                            header: "Message_AttributeObject.hxx", bycopy.} = object of Message_Attribute ##
+                                                                                                   ## !
+                                                                                                   ## Constructor
+                                                                                                   ## with
+                                                                                                   ## string
+                                                                                                   ## argument
     ## !< alert object
 
-  MessageAttributeObjectbaseType* = MessageAttribute
+  Message_AttributeObjectbase_type* = Message_Attribute
 
-proc getTypeName*(): cstring {.importcpp: "Message_AttributeObject::get_type_name(@)",
-                            header: "Message_AttributeObject.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "Message_AttributeObject::get_type_name(@)",
+                              header: "Message_AttributeObject.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "Message_AttributeObject::get_type_descriptor(@)",
     header: "Message_AttributeObject.hxx".}
-proc dynamicType*(this: MessageAttributeObject): Handle[StandardType] {.
+proc DynamicType*(this: Message_AttributeObject): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType", header: "Message_AttributeObject.hxx".}
-proc constructMessageAttributeObject*(theObject: Handle[StandardTransient]; theName: TCollectionAsciiString = tCollectionAsciiString()): MessageAttributeObject {.
+proc constructMessage_AttributeObject*(theObject: handle[Standard_Transient];
+    theName: TCollection_AsciiString = TCollection_AsciiString()): Message_AttributeObject {.
     constructor, importcpp: "Message_AttributeObject(@)",
     header: "Message_AttributeObject.hxx".}
-proc `object`*(this: MessageAttributeObject): Handle[StandardTransient] {.
+proc Object*(this: Message_AttributeObject): handle[Standard_Transient] {.
     noSideEffect, importcpp: "Object", header: "Message_AttributeObject.hxx".}
-proc setObject*(this: var MessageAttributeObject;
-               theObject: Handle[StandardTransient]) {.importcpp: "SetObject",
+proc SetObject*(this: var Message_AttributeObject;
+               theObject: handle[Standard_Transient]) {.importcpp: "SetObject",
     header: "Message_AttributeObject.hxx".}
-proc dumpJson*(this: MessageAttributeObject; theOStream: var StandardOStream;
-              theDepth: StandardInteger = -1) {.noSideEffect, importcpp: "DumpJson",
+proc DumpJson*(this: Message_AttributeObject; theOStream: var Standard_OStream;
+              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
     header: "Message_AttributeObject.hxx".}
-

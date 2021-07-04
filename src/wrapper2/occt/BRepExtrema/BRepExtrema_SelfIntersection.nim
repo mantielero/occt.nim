@@ -13,6 +13,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  BRepExtrema_OverlapTool
+
 ## ! Tool class for detection of self-sections in the given shape.
 ## ! This class is based on BRepExtrema_OverlapTool and thus uses
 ## ! shape tessellation to detect incorrect mesh fragments (pairs
@@ -26,68 +29,61 @@
 ## ! overlapped faces.
 
 type
-  BRepExtremaSelfIntersection* {.importcpp: "BRepExtrema_SelfIntersection",
-                                header: "BRepExtrema_SelfIntersection.hxx", bycopy.} = object of BRepExtremaElementFilter ##
-                                                                                                                   ## !
-                                                                                                                   ## Creates
-                                                                                                                   ## unitialized
-                                                                                                                   ## self-intersection
-                                                                                                                   ## tool.
-                                                                                                                   ##
-                                                                                                                   ## !
-                                                                                                                   ## Returns
-                                                                                                                   ## tolerance
-                                                                                                                   ## value
-                                                                                                                   ## used
-                                                                                                                   ## for
-                                                                                                                   ## self-intersection
-                                                                                                                   ## test.
-                                                                                                                   ##
-                                                                                                                   ## !
-                                                                                                                   ## Self-intersection
-                                                                                                                   ## tolerance.
+  BRepExtrema_SelfIntersection* {.importcpp: "BRepExtrema_SelfIntersection",
+                                 header: "BRepExtrema_SelfIntersection.hxx",
+                                 bycopy.} = object of BRepExtrema_ElementFilter ## !
+                                                                           ## Creates
+                                                                           ## unitialized
+                                                                           ## self-intersection tool.
+                                                                           ## !
+                                                                           ## Returns
+                                                                           ## tolerance value used for
+                                                                           ## self-intersection test.
+                                                                           ## !
+                                                                           ## Self-intersection
+                                                                           ## tolerance.
     ## ! Is the input shape inited?
     ## ! List of triangulated faces of the shape.
     ## ! Set of all the face triangles of the shape.
     ## ! Overlap tool used for self-intersection test.
 
 
-proc constructBRepExtremaSelfIntersection*(theTolerance: StandardReal = 0.0): BRepExtremaSelfIntersection {.
+proc constructBRepExtrema_SelfIntersection*(theTolerance: Standard_Real = 0.0): BRepExtrema_SelfIntersection {.
     constructor, importcpp: "BRepExtrema_SelfIntersection(@)",
     header: "BRepExtrema_SelfIntersection.hxx".}
-proc constructBRepExtremaSelfIntersection*(theShape: TopoDS_Shape;
-    theTolerance: StandardReal = 0.0): BRepExtremaSelfIntersection {.constructor,
+proc constructBRepExtrema_SelfIntersection*(theShape: TopoDS_Shape;
+    theTolerance: Standard_Real = 0.0): BRepExtrema_SelfIntersection {.constructor,
     importcpp: "BRepExtrema_SelfIntersection(@)",
     header: "BRepExtrema_SelfIntersection.hxx".}
-proc tolerance*(this: BRepExtremaSelfIntersection): StandardReal {.noSideEffect,
+proc Tolerance*(this: BRepExtrema_SelfIntersection): Standard_Real {.noSideEffect,
     importcpp: "Tolerance", header: "BRepExtrema_SelfIntersection.hxx".}
-proc setTolerance*(this: var BRepExtremaSelfIntersection; theTolerance: StandardReal) {.
-    importcpp: "SetTolerance", header: "BRepExtrema_SelfIntersection.hxx".}
-proc loadShape*(this: var BRepExtremaSelfIntersection; theShape: TopoDS_Shape): StandardBoolean {.
-    importcpp: "LoadShape", header: "BRepExtrema_SelfIntersection.hxx".}
-proc perform*(this: var BRepExtremaSelfIntersection) {.importcpp: "Perform",
+proc SetTolerance*(this: var BRepExtrema_SelfIntersection;
+                  theTolerance: Standard_Real) {.importcpp: "SetTolerance",
     header: "BRepExtrema_SelfIntersection.hxx".}
-proc isDone*(this: BRepExtremaSelfIntersection): StandardBoolean {.noSideEffect,
+proc LoadShape*(this: var BRepExtrema_SelfIntersection; theShape: TopoDS_Shape): Standard_Boolean {.
+    importcpp: "LoadShape", header: "BRepExtrema_SelfIntersection.hxx".}
+proc Perform*(this: var BRepExtrema_SelfIntersection) {.importcpp: "Perform",
+    header: "BRepExtrema_SelfIntersection.hxx".}
+proc IsDone*(this: BRepExtrema_SelfIntersection): Standard_Boolean {.noSideEffect,
     importcpp: "IsDone", header: "BRepExtrema_SelfIntersection.hxx".}
-proc overlapElements*(this: BRepExtremaSelfIntersection): BRepExtremaMapOfIntegerPackedMapOfInteger {.
+proc OverlapElements*(this: BRepExtrema_SelfIntersection): BRepExtrema_MapOfIntegerPackedMapOfInteger {.
     noSideEffect, importcpp: "OverlapElements",
     header: "BRepExtrema_SelfIntersection.hxx".}
-proc getSubShape*(this: BRepExtremaSelfIntersection; theID: StandardInteger): TopoDS_Face {.
+proc GetSubShape*(this: BRepExtrema_SelfIntersection; theID: Standard_Integer): TopoDS_Face {.
     noSideEffect, importcpp: "GetSubShape",
     header: "BRepExtrema_SelfIntersection.hxx".}
-proc elementSet*(this: BRepExtremaSelfIntersection): Handle[BRepExtremaTriangleSet] {.
-    noSideEffect, importcpp: "ElementSet",
-    header: "BRepExtrema_SelfIntersection.hxx".}
+proc ElementSet*(this: BRepExtrema_SelfIntersection): handle[
+    BRepExtrema_TriangleSet] {.noSideEffect, importcpp: "ElementSet",
+                              header: "BRepExtrema_SelfIntersection.hxx".}
 ## !!!Ignored construct:  # OVERLAP_TOOL_OUTPUT_TRIANGLES [NewLine] ! Returns set of overlapped mesh elements (only triangles). const TColStd_PackedMapOfInteger & OverlapTriangles ( ) const { return myOverlapTool . OverlapTriangles1 ( ) ; } # [NewLine] protected : ! Filter out correct adjacent mesh elements. virtual BRepExtrema_ElementFilter :: FilterResult PreCheckElements ( const Standard_Integer theIndex1 , const Standard_Integer theIndex2 ) ;
 ## Error: identifier expected, but got: ! Returns set of overlapped mesh elements (only triangles).!!!
 
-proc isRegularSharedVertex*(this: var BRepExtremaSelfIntersection;
+proc isRegularSharedVertex*(this: var BRepExtrema_SelfIntersection;
                            theSharedVert: BVH_Vec3d; theTrng1Vtxs1: BVH_Vec3d;
                            theTrng1Vtxs2: BVH_Vec3d; theTrng2Vtxs1: BVH_Vec3d;
                            theTrng2Vtxs2: BVH_Vec3d): FilterResult {.
     importcpp: "isRegularSharedVertex", header: "BRepExtrema_SelfIntersection.hxx".}
-proc isRegularSharedEdge*(this: var BRepExtremaSelfIntersection;
+proc isRegularSharedEdge*(this: var BRepExtrema_SelfIntersection;
                          theTrng1Vtxs0: BVH_Vec3d; theTrng1Vtxs1: BVH_Vec3d;
                          theTrng1Vtxs2: BVH_Vec3d; theTrng2Vtxs2: BVH_Vec3d): FilterResult {.
     importcpp: "isRegularSharedEdge", header: "BRepExtrema_SelfIntersection.hxx".}
-

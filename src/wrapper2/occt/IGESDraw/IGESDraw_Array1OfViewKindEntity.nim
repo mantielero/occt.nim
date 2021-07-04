@@ -14,8 +14,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../IGESData/IGESData_ViewKindEntity, ../NCollection/NCollection_Array1
+
 type
-  IGESDrawArray1OfViewKindEntity* = NCollectionArray1[
-      Handle[IGESDataViewKindEntity]]
-
-
+  IGESDraw_Array1OfViewKindEntity* = NCollection_Array1[
+      handle[IGESData_ViewKindEntity]]

@@ -14,50 +14,53 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Transient
+
 discard "forward decl of StepRepr_NextAssemblyUsageOccurrence"
 discard "forward decl of Standard_Transient"
 discard "forward decl of STEPSelections_AssemblyComponent"
 discard "forward decl of STEPSelections_AssemblyLink"
 discard "forward decl of STEPSelections_AssemblyLink"
 type
-  HandleSTEPSelectionsAssemblyLink* = Handle[STEPSelectionsAssemblyLink]
-  STEPSelectionsAssemblyLink* {.importcpp: "STEPSelections_AssemblyLink",
-                               header: "STEPSelections_AssemblyLink.hxx", bycopy.} = object of StandardTransient
+  Handle_STEPSelections_AssemblyLink* = handle[STEPSelections_AssemblyLink]
+  STEPSelections_AssemblyLink* {.importcpp: "STEPSelections_AssemblyLink",
+                                header: "STEPSelections_AssemblyLink.hxx", bycopy.} = object of Standard_Transient
 
 
-proc constructSTEPSelectionsAssemblyLink*(): STEPSelectionsAssemblyLink {.
+proc constructSTEPSelections_AssemblyLink*(): STEPSelections_AssemblyLink {.
     constructor, importcpp: "STEPSelections_AssemblyLink(@)",
     header: "STEPSelections_AssemblyLink.hxx".}
-proc constructSTEPSelectionsAssemblyLink*(
-    nauo: Handle[StepReprNextAssemblyUsageOccurrence];
-    item: Handle[StandardTransient]; part: Handle[STEPSelectionsAssemblyComponent]): STEPSelectionsAssemblyLink {.
+proc constructSTEPSelections_AssemblyLink*(
+    nauo: handle[StepRepr_NextAssemblyUsageOccurrence];
+    item: handle[Standard_Transient];
+    part: handle[STEPSelections_AssemblyComponent]): STEPSelections_AssemblyLink {.
     constructor, importcpp: "STEPSelections_AssemblyLink(@)",
     header: "STEPSelections_AssemblyLink.hxx".}
-proc getNAUO*(this: STEPSelectionsAssemblyLink): Handle[
-    StepReprNextAssemblyUsageOccurrence] {.noSideEffect, importcpp: "GetNAUO",
+proc GetNAUO*(this: STEPSelections_AssemblyLink): handle[
+    StepRepr_NextAssemblyUsageOccurrence] {.noSideEffect, importcpp: "GetNAUO",
     header: "STEPSelections_AssemblyLink.hxx".}
-proc getItem*(this: STEPSelectionsAssemblyLink): Handle[StandardTransient] {.
+proc GetItem*(this: STEPSelections_AssemblyLink): handle[Standard_Transient] {.
     noSideEffect, importcpp: "GetItem", header: "STEPSelections_AssemblyLink.hxx".}
-proc getComponent*(this: STEPSelectionsAssemblyLink): Handle[
-    STEPSelectionsAssemblyComponent] {.noSideEffect, importcpp: "GetComponent",
-                                      header: "STEPSelections_AssemblyLink.hxx".}
-proc setNAUO*(this: var STEPSelectionsAssemblyLink;
-             nauo: Handle[StepReprNextAssemblyUsageOccurrence]) {.
+proc GetComponent*(this: STEPSelections_AssemblyLink): handle[
+    STEPSelections_AssemblyComponent] {.noSideEffect, importcpp: "GetComponent", header: "STEPSelections_AssemblyLink.hxx".}
+proc SetNAUO*(this: var STEPSelections_AssemblyLink;
+             nauo: handle[StepRepr_NextAssemblyUsageOccurrence]) {.
     importcpp: "SetNAUO", header: "STEPSelections_AssemblyLink.hxx".}
-proc setItem*(this: var STEPSelectionsAssemblyLink; item: Handle[StandardTransient]) {.
-    importcpp: "SetItem", header: "STEPSelections_AssemblyLink.hxx".}
-proc setComponent*(this: var STEPSelectionsAssemblyLink;
-                  part: Handle[STEPSelectionsAssemblyComponent]) {.
+proc SetItem*(this: var STEPSelections_AssemblyLink;
+             item: handle[Standard_Transient]) {.importcpp: "SetItem",
+    header: "STEPSelections_AssemblyLink.hxx".}
+proc SetComponent*(this: var STEPSelections_AssemblyLink;
+                  part: handle[STEPSelections_AssemblyComponent]) {.
     importcpp: "SetComponent", header: "STEPSelections_AssemblyLink.hxx".}
 type
-  STEPSelectionsAssemblyLinkbaseType* = StandardTransient
+  STEPSelections_AssemblyLinkbase_type* = Standard_Transient
 
-proc getTypeName*(): cstring {.importcpp: "STEPSelections_AssemblyLink::get_type_name(@)",
-                            header: "STEPSelections_AssemblyLink.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "STEPSelections_AssemblyLink::get_type_name(@)",
+                              header: "STEPSelections_AssemblyLink.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "STEPSelections_AssemblyLink::get_type_descriptor(@)",
     header: "STEPSelections_AssemblyLink.hxx".}
-proc dynamicType*(this: STEPSelectionsAssemblyLink): Handle[StandardType] {.
+proc DynamicType*(this: STEPSelections_AssemblyLink): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType",
     header: "STEPSelections_AssemblyLink.hxx".}
-

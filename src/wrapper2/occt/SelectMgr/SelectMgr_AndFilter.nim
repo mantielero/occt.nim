@@ -14,48 +14,51 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, SelectMgr_CompositionFilter,
+  ../Standard/Standard_Boolean
+
 discard "forward decl of SelectMgr_EntityOwner"
 discard "forward decl of SelectMgr_AndFilter"
 discard "forward decl of SelectMgr_AndFilter"
 type
-  HandleSelectMgrAndFilter* = Handle[SelectMgrAndFilter]
+  Handle_SelectMgr_AndFilter* = handle[SelectMgr_AndFilter]
 
 ## ! A framework to define a selection filter for two or
 ## ! more types of entity.
 
 type
-  SelectMgrAndFilter* {.importcpp: "SelectMgr_AndFilter",
-                       header: "SelectMgr_AndFilter.hxx", bycopy.} = object of SelectMgrCompositionFilter ##
-                                                                                                   ## !
-                                                                                                   ## Constructs
-                                                                                                   ## an
-                                                                                                   ## empty
-                                                                                                   ## selection
-                                                                                                   ## filter
-                                                                                                   ## object
-                                                                                                   ## for
-                                                                                                   ## two
-                                                                                                   ## or
-                                                                                                   ##
-                                                                                                   ## !
-                                                                                                   ## more
-                                                                                                   ## types
-                                                                                                   ## of
-                                                                                                   ## entity.
+  SelectMgr_AndFilter* {.importcpp: "SelectMgr_AndFilter",
+                        header: "SelectMgr_AndFilter.hxx", bycopy.} = object of SelectMgr_CompositionFilter ##
+                                                                                                     ## !
+                                                                                                     ## Constructs
+                                                                                                     ## an
+                                                                                                     ## empty
+                                                                                                     ## selection
+                                                                                                     ## filter
+                                                                                                     ## object
+                                                                                                     ## for
+                                                                                                     ## two
+                                                                                                     ## or
+                                                                                                     ##
+                                                                                                     ## !
+                                                                                                     ## more
+                                                                                                     ## types
+                                                                                                     ## of
+                                                                                                     ## entity.
 
 
-proc constructSelectMgrAndFilter*(): SelectMgrAndFilter {.constructor,
+proc constructSelectMgr_AndFilter*(): SelectMgr_AndFilter {.constructor,
     importcpp: "SelectMgr_AndFilter(@)", header: "SelectMgr_AndFilter.hxx".}
-proc isOk*(this: SelectMgrAndFilter; anobj: Handle[SelectMgrEntityOwner]): StandardBoolean {.
+proc IsOk*(this: SelectMgr_AndFilter; anobj: handle[SelectMgr_EntityOwner]): Standard_Boolean {.
     noSideEffect, importcpp: "IsOk", header: "SelectMgr_AndFilter.hxx".}
 type
-  SelectMgrAndFilterbaseType* = SelectMgrCompositionFilter
+  SelectMgr_AndFilterbase_type* = SelectMgr_CompositionFilter
 
-proc getTypeName*(): cstring {.importcpp: "SelectMgr_AndFilter::get_type_name(@)",
-                            header: "SelectMgr_AndFilter.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "SelectMgr_AndFilter::get_type_name(@)",
+                              header: "SelectMgr_AndFilter.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "SelectMgr_AndFilter::get_type_descriptor(@)",
     header: "SelectMgr_AndFilter.hxx".}
-proc dynamicType*(this: SelectMgrAndFilter): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: SelectMgr_AndFilter): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "SelectMgr_AndFilter.hxx".}
-

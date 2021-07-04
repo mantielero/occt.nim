@@ -11,51 +11,55 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../gp/gp_Pnt, BRepExtrema_SupportType, ../TopoDS/TopoDS_Vertex,
+  ../TopoDS/TopoDS_Edge, ../TopoDS/TopoDS_Face
+
 ## ! This class is used to store information relative to the minimum distance between two shapes.
 
 type
-  BRepExtremaSolutionElem* {.importcpp: "BRepExtrema_SolutionElem",
-                            header: "BRepExtrema_SolutionElem.hxx", bycopy.} = object ##
-                                                                                 ## !
-                                                                                 ## Empty
-                                                                                 ## constructor
+  BRepExtrema_SolutionElem* {.importcpp: "BRepExtrema_SolutionElem",
+                             header: "BRepExtrema_SolutionElem.hxx", bycopy.} = object ##
+                                                                                  ## !
+                                                                                  ## Empty
+                                                                                  ## constructor
 
 
-proc constructBRepExtremaSolutionElem*(): BRepExtremaSolutionElem {.constructor,
+proc constructBRepExtrema_SolutionElem*(): BRepExtrema_SolutionElem {.constructor,
     importcpp: "BRepExtrema_SolutionElem(@)",
     header: "BRepExtrema_SolutionElem.hxx".}
-proc constructBRepExtremaSolutionElem*(theDist: StandardReal; thePoint: GpPnt;
-                                      theSolType: BRepExtremaSupportType;
-                                      theVertex: TopoDS_Vertex): BRepExtremaSolutionElem {.
+proc constructBRepExtrema_SolutionElem*(theDist: Standard_Real; thePoint: gp_Pnt;
+                                       theSolType: BRepExtrema_SupportType;
+                                       theVertex: TopoDS_Vertex): BRepExtrema_SolutionElem {.
     constructor, importcpp: "BRepExtrema_SolutionElem(@)",
     header: "BRepExtrema_SolutionElem.hxx".}
-proc constructBRepExtremaSolutionElem*(theDist: StandardReal; thePoint: GpPnt;
-                                      theSolType: BRepExtremaSupportType;
-                                      theEdge: TopoDS_Edge; theParam: StandardReal): BRepExtremaSolutionElem {.
+proc constructBRepExtrema_SolutionElem*(theDist: Standard_Real; thePoint: gp_Pnt;
+                                       theSolType: BRepExtrema_SupportType;
+                                       theEdge: TopoDS_Edge;
+                                       theParam: Standard_Real): BRepExtrema_SolutionElem {.
     constructor, importcpp: "BRepExtrema_SolutionElem(@)",
     header: "BRepExtrema_SolutionElem.hxx".}
-proc constructBRepExtremaSolutionElem*(theDist: StandardReal; thePoint: GpPnt;
-                                      theSolType: BRepExtremaSupportType;
-                                      theFace: TopoDS_Face; theU: StandardReal;
-                                      theV: StandardReal): BRepExtremaSolutionElem {.
+proc constructBRepExtrema_SolutionElem*(theDist: Standard_Real; thePoint: gp_Pnt;
+                                       theSolType: BRepExtrema_SupportType;
+                                       theFace: TopoDS_Face; theU: Standard_Real;
+                                       theV: Standard_Real): BRepExtrema_SolutionElem {.
     constructor, importcpp: "BRepExtrema_SolutionElem(@)",
     header: "BRepExtrema_SolutionElem.hxx".}
-proc dist*(this: BRepExtremaSolutionElem): StandardReal {.noSideEffect,
+proc Dist*(this: BRepExtrema_SolutionElem): Standard_Real {.noSideEffect,
     importcpp: "Dist", header: "BRepExtrema_SolutionElem.hxx".}
-proc point*(this: BRepExtremaSolutionElem): GpPnt {.noSideEffect, importcpp: "Point",
-    header: "BRepExtrema_SolutionElem.hxx".}
-proc supportKind*(this: BRepExtremaSolutionElem): BRepExtremaSupportType {.
+proc Point*(this: BRepExtrema_SolutionElem): gp_Pnt {.noSideEffect,
+    importcpp: "Point", header: "BRepExtrema_SolutionElem.hxx".}
+proc SupportKind*(this: BRepExtrema_SolutionElem): BRepExtrema_SupportType {.
     noSideEffect, importcpp: "SupportKind", header: "BRepExtrema_SolutionElem.hxx".}
-proc vertex*(this: BRepExtremaSolutionElem): TopoDS_Vertex {.noSideEffect,
+proc Vertex*(this: BRepExtrema_SolutionElem): TopoDS_Vertex {.noSideEffect,
     importcpp: "Vertex", header: "BRepExtrema_SolutionElem.hxx".}
-proc edge*(this: BRepExtremaSolutionElem): TopoDS_Edge {.noSideEffect,
+proc Edge*(this: BRepExtrema_SolutionElem): TopoDS_Edge {.noSideEffect,
     importcpp: "Edge", header: "BRepExtrema_SolutionElem.hxx".}
-proc face*(this: BRepExtremaSolutionElem): TopoDS_Face {.noSideEffect,
+proc Face*(this: BRepExtrema_SolutionElem): TopoDS_Face {.noSideEffect,
     importcpp: "Face", header: "BRepExtrema_SolutionElem.hxx".}
-proc edgeParameter*(this: BRepExtremaSolutionElem; theParam: var StandardReal) {.
+proc EdgeParameter*(this: BRepExtrema_SolutionElem; theParam: var Standard_Real) {.
     noSideEffect, importcpp: "EdgeParameter",
     header: "BRepExtrema_SolutionElem.hxx".}
-proc faceParameter*(this: BRepExtremaSolutionElem; theU: var StandardReal;
-                   theV: var StandardReal) {.noSideEffect,
+proc FaceParameter*(this: BRepExtrema_SolutionElem; theU: var Standard_Real;
+                   theV: var Standard_Real) {.noSideEffect,
     importcpp: "FaceParameter", header: "BRepExtrema_SolutionElem.hxx".}
-

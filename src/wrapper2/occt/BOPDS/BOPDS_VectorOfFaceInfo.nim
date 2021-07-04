@@ -12,7 +12,8 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../NCollection/NCollection_Vector, BOPDS_FaceInfo
+
 type
-  BOPDS_VectorOfFaceInfo* = NCollectionVector[BOPDS_FaceInfo]
-
-
+  BOPDS_VectorOfFaceInfo* = NCollection_Vector[BOPDS_FaceInfo]

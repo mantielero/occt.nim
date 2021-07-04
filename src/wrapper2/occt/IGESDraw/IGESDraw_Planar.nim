@@ -14,13 +14,18 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Integer,
+  ../IGESData/IGESData_HArray1OfIGESEntity, ../IGESData/IGESData_IGESEntity,
+  ../Standard/Standard_Boolean
+
 discard "forward decl of IGESGeom_TransformationMatrix"
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of IGESData_IGESEntity"
 discard "forward decl of IGESDraw_Planar"
 discard "forward decl of IGESDraw_Planar"
 type
-  HandleIGESDrawPlanar* = Handle[IGESDrawPlanar]
+  Handle_IGESDraw_Planar* = handle[IGESDraw_Planar]
 
 ## ! defines IGESPlanar, Type <402> Form <16>
 ## ! in package IGESDraw
@@ -29,35 +34,34 @@ type
 ## ! entities may be geometric, annotative, and/or structural.
 
 type
-  IGESDrawPlanar* {.importcpp: "IGESDraw_Planar", header: "IGESDraw_Planar.hxx",
-                   bycopy.} = object of IGESDataIGESEntity
+  IGESDraw_Planar* {.importcpp: "IGESDraw_Planar", header: "IGESDraw_Planar.hxx",
+                    bycopy.} = object of IGESData_IGESEntity
 
 
-proc constructIGESDrawPlanar*(): IGESDrawPlanar {.constructor,
+proc constructIGESDraw_Planar*(): IGESDraw_Planar {.constructor,
     importcpp: "IGESDraw_Planar(@)", header: "IGESDraw_Planar.hxx".}
-proc init*(this: var IGESDrawPlanar; nbMats: StandardInteger;
-          aTransformationMatrix: Handle[IGESGeomTransformationMatrix];
-          allEntities: Handle[IGESDataHArray1OfIGESEntity]) {.importcpp: "Init",
+proc Init*(this: var IGESDraw_Planar; nbMats: Standard_Integer;
+          aTransformationMatrix: handle[IGESGeom_TransformationMatrix];
+          allEntities: handle[IGESData_HArray1OfIGESEntity]) {.importcpp: "Init",
     header: "IGESDraw_Planar.hxx".}
-proc nbMatrices*(this: IGESDrawPlanar): StandardInteger {.noSideEffect,
+proc NbMatrices*(this: IGESDraw_Planar): Standard_Integer {.noSideEffect,
     importcpp: "NbMatrices", header: "IGESDraw_Planar.hxx".}
-proc nbEntities*(this: IGESDrawPlanar): StandardInteger {.noSideEffect,
+proc NbEntities*(this: IGESDraw_Planar): Standard_Integer {.noSideEffect,
     importcpp: "NbEntities", header: "IGESDraw_Planar.hxx".}
-proc isIdentityMatrix*(this: IGESDrawPlanar): StandardBoolean {.noSideEffect,
+proc IsIdentityMatrix*(this: IGESDraw_Planar): Standard_Boolean {.noSideEffect,
     importcpp: "IsIdentityMatrix", header: "IGESDraw_Planar.hxx".}
-proc transformMatrix*(this: IGESDrawPlanar): Handle[IGESGeomTransformationMatrix] {.
+proc TransformMatrix*(this: IGESDraw_Planar): handle[IGESGeom_TransformationMatrix] {.
     noSideEffect, importcpp: "TransformMatrix", header: "IGESDraw_Planar.hxx".}
-proc entity*(this: IGESDrawPlanar; entityIndex: StandardInteger): Handle[
-    IGESDataIGESEntity] {.noSideEffect, importcpp: "Entity",
-                         header: "IGESDraw_Planar.hxx".}
+proc Entity*(this: IGESDraw_Planar; EntityIndex: Standard_Integer): handle[
+    IGESData_IGESEntity] {.noSideEffect, importcpp: "Entity",
+                          header: "IGESDraw_Planar.hxx".}
 type
-  IGESDrawPlanarbaseType* = IGESDataIGESEntity
+  IGESDraw_Planarbase_type* = IGESData_IGESEntity
 
-proc getTypeName*(): cstring {.importcpp: "IGESDraw_Planar::get_type_name(@)",
-                            header: "IGESDraw_Planar.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "IGESDraw_Planar::get_type_name(@)",
+                              header: "IGESDraw_Planar.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "IGESDraw_Planar::get_type_descriptor(@)",
     header: "IGESDraw_Planar.hxx".}
-proc dynamicType*(this: IGESDrawPlanar): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: IGESDraw_Planar): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "IGESDraw_Planar.hxx".}
-

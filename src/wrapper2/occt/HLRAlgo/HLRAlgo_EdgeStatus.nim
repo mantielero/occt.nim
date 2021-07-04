@@ -14,47 +14,53 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Real,
+  ../Standard/Standard_ShortReal, ../Standard/Standard_Boolean,
+  ../Intrv/Intrv_Intervals, ../Standard/Standard_Integer
+
 discard "forward decl of Standard_OutOfRange"
 type
-  HLRAlgoEdgeStatus* {.importcpp: "HLRAlgo_EdgeStatus",
-                      header: "HLRAlgo_EdgeStatus.hxx", bycopy.} = object
+  HLRAlgo_EdgeStatus* {.importcpp: "HLRAlgo_EdgeStatus",
+                       header: "HLRAlgo_EdgeStatus.hxx", bycopy.} = object
 
 
-proc constructHLRAlgoEdgeStatus*(): HLRAlgoEdgeStatus {.constructor,
+proc constructHLRAlgo_EdgeStatus*(): HLRAlgo_EdgeStatus {.constructor,
     importcpp: "HLRAlgo_EdgeStatus(@)", header: "HLRAlgo_EdgeStatus.hxx".}
-proc constructHLRAlgoEdgeStatus*(start: StandardReal; tolStart: StandardShortReal;
-                                `end`: StandardReal; tolEnd: StandardShortReal): HLRAlgoEdgeStatus {.
+proc constructHLRAlgo_EdgeStatus*(Start: Standard_Real;
+                                 TolStart: Standard_ShortReal; End: Standard_Real;
+                                 TolEnd: Standard_ShortReal): HLRAlgo_EdgeStatus {.
     constructor, importcpp: "HLRAlgo_EdgeStatus(@)",
     header: "HLRAlgo_EdgeStatus.hxx".}
-proc initialize*(this: var HLRAlgoEdgeStatus; start: StandardReal;
-                tolStart: StandardShortReal; `end`: StandardReal;
-                tolEnd: StandardShortReal) {.importcpp: "Initialize",
+proc Initialize*(this: var HLRAlgo_EdgeStatus; Start: Standard_Real;
+                TolStart: Standard_ShortReal; End: Standard_Real;
+                TolEnd: Standard_ShortReal) {.importcpp: "Initialize",
     header: "HLRAlgo_EdgeStatus.hxx".}
-proc bounds*(this: HLRAlgoEdgeStatus; theStart: var StandardReal;
-            theTolStart: var StandardShortReal; theEnd: var StandardReal;
-            theTolEnd: var StandardShortReal) {.noSideEffect, importcpp: "Bounds",
+proc Bounds*(this: HLRAlgo_EdgeStatus; theStart: var Standard_Real;
+            theTolStart: var Standard_ShortReal; theEnd: var Standard_Real;
+            theTolEnd: var Standard_ShortReal) {.noSideEffect, importcpp: "Bounds",
     header: "HLRAlgo_EdgeStatus.hxx".}
-proc nbVisiblePart*(this: HLRAlgoEdgeStatus): StandardInteger {.noSideEffect,
+proc NbVisiblePart*(this: HLRAlgo_EdgeStatus): Standard_Integer {.noSideEffect,
     importcpp: "NbVisiblePart", header: "HLRAlgo_EdgeStatus.hxx".}
-proc visiblePart*(this: HLRAlgoEdgeStatus; index: StandardInteger;
-                 start: var StandardReal; tolStart: var StandardShortReal;
-                 `end`: var StandardReal; tolEnd: var StandardShortReal) {.
+proc VisiblePart*(this: HLRAlgo_EdgeStatus; Index: Standard_Integer;
+                 Start: var Standard_Real; TolStart: var Standard_ShortReal;
+                 End: var Standard_Real; TolEnd: var Standard_ShortReal) {.
     noSideEffect, importcpp: "VisiblePart", header: "HLRAlgo_EdgeStatus.hxx".}
-proc hide*(this: var HLRAlgoEdgeStatus; start: StandardReal;
-          tolStart: StandardShortReal; `end`: StandardReal;
-          tolEnd: StandardShortReal; onFace: StandardBoolean;
-          onBoundary: StandardBoolean) {.importcpp: "Hide",
-                                       header: "HLRAlgo_EdgeStatus.hxx".}
-proc hideAll*(this: var HLRAlgoEdgeStatus) {.importcpp: "HideAll",
+proc Hide*(this: var HLRAlgo_EdgeStatus; Start: Standard_Real;
+          TolStart: Standard_ShortReal; End: Standard_Real;
+          TolEnd: Standard_ShortReal; OnFace: Standard_Boolean;
+          OnBoundary: Standard_Boolean) {.importcpp: "Hide",
+                                        header: "HLRAlgo_EdgeStatus.hxx".}
+proc HideAll*(this: var HLRAlgo_EdgeStatus) {.importcpp: "HideAll",
     header: "HLRAlgo_EdgeStatus.hxx".}
-proc showAll*(this: var HLRAlgoEdgeStatus) {.importcpp: "ShowAll",
+proc ShowAll*(this: var HLRAlgo_EdgeStatus) {.importcpp: "ShowAll",
     header: "HLRAlgo_EdgeStatus.hxx".}
-proc allHidden*(this: HLRAlgoEdgeStatus): StandardBoolean {.noSideEffect,
+proc AllHidden*(this: HLRAlgo_EdgeStatus): Standard_Boolean {.noSideEffect,
     importcpp: "AllHidden", header: "HLRAlgo_EdgeStatus.hxx".}
-proc allHidden*(this: var HLRAlgoEdgeStatus; b: StandardBoolean) {.
+proc AllHidden*(this: var HLRAlgo_EdgeStatus; B: Standard_Boolean) {.
     importcpp: "AllHidden", header: "HLRAlgo_EdgeStatus.hxx".}
-proc allVisible*(this: HLRAlgoEdgeStatus): StandardBoolean {.noSideEffect,
+proc AllVisible*(this: HLRAlgo_EdgeStatus): Standard_Boolean {.noSideEffect,
     importcpp: "AllVisible", header: "HLRAlgo_EdgeStatus.hxx".}
-proc allVisible*(this: var HLRAlgoEdgeStatus; b: StandardBoolean) {.
+proc AllVisible*(this: var HLRAlgo_EdgeStatus; B: Standard_Boolean) {.
     importcpp: "AllVisible", header: "HLRAlgo_EdgeStatus.hxx".}
-

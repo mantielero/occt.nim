@@ -14,6 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../BRepBuilderAPI/BRepBuilderAPI_MakeShape
+
 discard "forward decl of TopoDS_Shape"
 type
   BRepPrimAPI_MakeSweep* {.importcpp: "BRepPrimAPI_MakeSweep",
@@ -31,8 +35,7 @@ type
                                                                                                       ## sweep.
 
 
-proc firstShape*(this: var BRepPrimAPI_MakeSweep): TopoDS_Shape {.
+proc FirstShape*(this: var BRepPrimAPI_MakeSweep): TopoDS_Shape {.
     importcpp: "FirstShape", header: "BRepPrimAPI_MakeSweep.hxx".}
-proc lastShape*(this: var BRepPrimAPI_MakeSweep): TopoDS_Shape {.
+proc LastShape*(this: var BRepPrimAPI_MakeSweep): TopoDS_Shape {.
     importcpp: "LastShape", header: "BRepPrimAPI_MakeSweep.hxx".}
-

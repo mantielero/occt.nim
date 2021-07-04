@@ -14,25 +14,29 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Real,
+  ../Standard/Standard_Boolean
+
 discard "forward decl of Geom_Surface"
 type
-  ShapeCustomSurface* {.importcpp: "ShapeCustom_Surface",
-                       header: "ShapeCustom_Surface.hxx", bycopy.} = object
+  ShapeCustom_Surface* {.importcpp: "ShapeCustom_Surface",
+                        header: "ShapeCustom_Surface.hxx", bycopy.} = object
 
 
-proc constructShapeCustomSurface*(): ShapeCustomSurface {.constructor,
+proc constructShapeCustom_Surface*(): ShapeCustom_Surface {.constructor,
     importcpp: "ShapeCustom_Surface(@)", header: "ShapeCustom_Surface.hxx".}
-proc constructShapeCustomSurface*(s: Handle[GeomSurface]): ShapeCustomSurface {.
+proc constructShapeCustom_Surface*(S: handle[Geom_Surface]): ShapeCustom_Surface {.
     constructor, importcpp: "ShapeCustom_Surface(@)",
     header: "ShapeCustom_Surface.hxx".}
-proc init*(this: var ShapeCustomSurface; s: Handle[GeomSurface]) {.importcpp: "Init",
+proc Init*(this: var ShapeCustom_Surface; S: handle[Geom_Surface]) {.
+    importcpp: "Init", header: "ShapeCustom_Surface.hxx".}
+proc Gap*(this: ShapeCustom_Surface): Standard_Real {.noSideEffect, importcpp: "Gap",
     header: "ShapeCustom_Surface.hxx".}
-proc gap*(this: ShapeCustomSurface): StandardReal {.noSideEffect, importcpp: "Gap",
-    header: "ShapeCustom_Surface.hxx".}
-proc convertToAnalytical*(this: var ShapeCustomSurface; tol: StandardReal;
-                         substitute: StandardBoolean): Handle[GeomSurface] {.
+proc ConvertToAnalytical*(this: var ShapeCustom_Surface; tol: Standard_Real;
+                         substitute: Standard_Boolean): handle[Geom_Surface] {.
     importcpp: "ConvertToAnalytical", header: "ShapeCustom_Surface.hxx".}
-proc convertToPeriodic*(this: var ShapeCustomSurface; substitute: StandardBoolean;
-                       preci: StandardReal = -1): Handle[GeomSurface] {.
+proc ConvertToPeriodic*(this: var ShapeCustom_Surface; substitute: Standard_Boolean;
+                       preci: Standard_Real = -1): handle[Geom_Surface] {.
     importcpp: "ConvertToPeriodic", header: "ShapeCustom_Surface.hxx".}
-

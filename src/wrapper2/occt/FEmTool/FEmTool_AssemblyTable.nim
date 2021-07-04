@@ -14,10 +14,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../TColStd/TColStd_HArray1OfInteger, ../NCollection/NCollection_Array2
+
 ## ! To define the  table  [Freedom's degree] [Dimension,Element]
 ## ! which gives Index  of Freedom's degree in the assembly problem.
 
 type
-  FEmToolAssemblyTable* = NCollectionArray2[Handle[TColStdHArray1OfInteger]]
-
-
+  FEmTool_AssemblyTable* = NCollection_Array2[handle[TColStd_HArray1OfInteger]]

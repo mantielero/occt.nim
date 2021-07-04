@@ -14,7 +14,8 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  IGESSolid_VertexList, ../NCollection/NCollection_Array1
+
 type
-  IGESSolidArray1OfVertexList* = NCollectionArray1[Handle[IGESSolidVertexList]]
-
-
+  IGESSolid_Array1OfVertexList* = NCollection_Array1[handle[IGESSolid_VertexList]]

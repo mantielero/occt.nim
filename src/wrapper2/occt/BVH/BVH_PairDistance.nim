@@ -13,6 +13,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  BVH_Traverse, BVH_Tools
+
 ## ! Abstract class for computation of the min distance between
 ## ! elements of two BVH trees.
 ## ! To use this class it is required to define only the method
@@ -69,30 +72,30 @@ type
 proc constructBVH_PairDistance*[NumType; Dimension: static[cint]; BVHSetType](): BVH_PairDistance[
     NumType, Dimension, BVHSetType] {.constructor, importcpp: "BVH_PairDistance<\'*0,\'*1,\'*2>(@)",
                                    header: "BVH_PairDistance.hxx".}
-proc computeDistance*[NumType; Dimension: static[cint]; BVHSetType](
+proc ComputeDistance*[NumType; Dimension: static[cint]; BVHSetType](
     this: var BVH_PairDistance[NumType, Dimension, BVHSetType]): NumType {.
     importcpp: "ComputeDistance", header: "BVH_PairDistance.hxx".}
-proc isDone*[NumType; Dimension: static[cint]; BVHSetType](
-    this: BVH_PairDistance[NumType, Dimension, BVHSetType]): StandardBoolean {.
+proc IsDone*[NumType; Dimension: static[cint]; BVHSetType](
+    this: BVH_PairDistance[NumType, Dimension, BVHSetType]): Standard_Boolean {.
     noSideEffect, importcpp: "IsDone", header: "BVH_PairDistance.hxx".}
-proc distance*[NumType; Dimension: static[cint]; BVHSetType](
+proc Distance*[NumType; Dimension: static[cint]; BVHSetType](
     this: BVH_PairDistance[NumType, Dimension, BVHSetType]): NumType {.noSideEffect,
     importcpp: "Distance", header: "BVH_PairDistance.hxx".}
-proc isMetricBetter*[NumType; Dimension: static[cint]; BVHSetType](
+proc IsMetricBetter*[NumType; Dimension: static[cint]; BVHSetType](
     this: BVH_PairDistance[NumType, Dimension, BVHSetType]; theLeft: NumType;
-    theRight: NumType): StandardBoolean {.noSideEffect, importcpp: "IsMetricBetter",
-                                       header: "BVH_PairDistance.hxx".}
-proc rejectNode*[NumType; Dimension: static[cint]; BVHSetType](
+    theRight: NumType): Standard_Boolean {.noSideEffect,
+                                        importcpp: "IsMetricBetter",
+                                        header: "BVH_PairDistance.hxx".}
+proc RejectNode*[NumType; Dimension: static[cint]; BVHSetType](
     this: BVH_PairDistance[NumType, Dimension, BVHSetType];
     theCornerMin1: BVH_PairDistanceBVH_VecNt;
     theCornerMax1: BVH_PairDistanceBVH_VecNt;
     theCornerMin2: BVH_PairDistanceBVH_VecNt;
-    theCornerMax2: BVH_PairDistanceBVH_VecNt; theMetric: var NumType): StandardBoolean {.
+    theCornerMax2: BVH_PairDistanceBVH_VecNt; theMetric: var NumType): Standard_Boolean {.
     noSideEffect, importcpp: "RejectNode", header: "BVH_PairDistance.hxx".}
-proc rejectMetric*[NumType; Dimension: static[cint]; BVHSetType](
-    this: BVH_PairDistance[NumType, Dimension, BVHSetType]; theMetric: NumType): StandardBoolean {.
+proc RejectMetric*[NumType; Dimension: static[cint]; BVHSetType](
+    this: BVH_PairDistance[NumType, Dimension, BVHSetType]; theMetric: NumType): Standard_Boolean {.
     noSideEffect, importcpp: "RejectMetric", header: "BVH_PairDistance.hxx".}
-proc stop*[NumType; Dimension: static[cint]; BVHSetType](
-    this: BVH_PairDistance[NumType, Dimension, BVHSetType]): StandardBoolean {.
+proc Stop*[NumType; Dimension: static[cint]; BVHSetType](
+    this: BVH_PairDistance[NumType, Dimension, BVHSetType]): Standard_Boolean {.
     noSideEffect, importcpp: "Stop", header: "BVH_PairDistance.hxx".}
-

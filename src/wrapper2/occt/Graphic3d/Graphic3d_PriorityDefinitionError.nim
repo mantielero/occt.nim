@@ -14,18 +14,16 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _Graphic3d_PriorityDefinitionError_HeaderFile [NewLine] # _Graphic3d_PriorityDefinitionError_HeaderFile [NewLine] # < Standard_Type . hxx > [NewLine] # < Standard_DefineException . hxx > [NewLine] # < Standard_SStream . hxx > [NewLine] # < Standard_OutOfRange . hxx > [NewLine] class Graphic3d_PriorityDefinitionError ;
+## !!!Ignored construct:  # _Graphic3d_PriorityDefinitionError_HeaderFile [NewLine] # _Graphic3d_PriorityDefinitionError_HeaderFile [NewLine] # ../Standard/Standard_Type.hxx [NewLine] # ../Standard/Standard_DefineException.hxx [NewLine] # ../Standard/Standard_SStream.hxx [NewLine] # ../Standard/Standard_OutOfRange.hxx [NewLine] class Graphic3d_PriorityDefinitionError ;
 ## Error: expected ';'!!!
 
 discard "forward decl of Graphic3d_PriorityDefinitionError"
 type
-  HandleGraphic3dPriorityDefinitionErrorGraphic3dPriorityDefinitionError* = Handle[
-      Graphic3dPriorityDefinitionError]
+  Handle_Graphic3d_PriorityDefinitionErrorGraphic3d_PriorityDefinitionError* = handle[
+      Graphic3d_PriorityDefinitionError]
 
 ## !!!Ignored construct:  # ! defined No_Exception && ! defined No_Graphic3d_PriorityDefinitionError [NewLine] # if ( CONDITION ) throw Graphic3d_PriorityDefinitionError ( MESSAGE ) ;
 ## Error: did not expect [NewLine]!!!
 
-## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( Graphic3d_PriorityDefinitionError , Standard_OutOfRange ) #  _Graphic3d_PriorityDefinitionError_HeaderFile
+## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( Graphic3d_PriorityDefinitionError , Standard_OutOfRange ) #  _Graphic3d_PriorityDefinitionError_HeaderFile [NewLine]
 ## Error: did not expect [NewLine]!!!
-
-

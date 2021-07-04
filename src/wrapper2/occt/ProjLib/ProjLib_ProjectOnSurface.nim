@@ -14,35 +14,39 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Real,
+  ../Standard/Standard_Boolean
+
 discard "forward decl of Adaptor3d_HCurve"
 discard "forward decl of Adaptor3d_HSurface"
 discard "forward decl of Geom_BSplineCurve"
 type
-  ProjLibProjectOnSurface* {.importcpp: "ProjLib_ProjectOnSurface",
-                            header: "ProjLib_ProjectOnSurface.hxx", bycopy.} = object ##
-                                                                                 ## !
-                                                                                 ## Create
-                                                                                 ## an
-                                                                                 ## empty
-                                                                                 ## projector.
+  ProjLib_ProjectOnSurface* {.importcpp: "ProjLib_ProjectOnSurface",
+                             header: "ProjLib_ProjectOnSurface.hxx", bycopy.} = object ##
+                                                                                  ## !
+                                                                                  ## Create
+                                                                                  ## an
+                                                                                  ## empty
+                                                                                  ## projector.
 
 
-proc constructProjLibProjectOnSurface*(): ProjLibProjectOnSurface {.constructor,
+proc constructProjLib_ProjectOnSurface*(): ProjLib_ProjectOnSurface {.constructor,
     importcpp: "ProjLib_ProjectOnSurface(@)",
     header: "ProjLib_ProjectOnSurface.hxx".}
-proc constructProjLibProjectOnSurface*(s: Handle[Adaptor3dHSurface]): ProjLibProjectOnSurface {.
+proc constructProjLib_ProjectOnSurface*(S: handle[Adaptor3d_HSurface]): ProjLib_ProjectOnSurface {.
     constructor, importcpp: "ProjLib_ProjectOnSurface(@)",
     header: "ProjLib_ProjectOnSurface.hxx".}
-proc destroyProjLibProjectOnSurface*(this: var ProjLibProjectOnSurface) {.
+proc destroyProjLib_ProjectOnSurface*(this: var ProjLib_ProjectOnSurface) {.
     importcpp: "#.~ProjLib_ProjectOnSurface()",
     header: "ProjLib_ProjectOnSurface.hxx".}
-proc load*(this: var ProjLibProjectOnSurface; s: Handle[Adaptor3dHSurface]) {.
+proc Load*(this: var ProjLib_ProjectOnSurface; S: handle[Adaptor3d_HSurface]) {.
     importcpp: "Load", header: "ProjLib_ProjectOnSurface.hxx".}
-proc load*(this: var ProjLibProjectOnSurface; c: Handle[Adaptor3dHCurve];
-          tolerance: StandardReal) {.importcpp: "Load",
-                                   header: "ProjLib_ProjectOnSurface.hxx".}
-proc isDone*(this: ProjLibProjectOnSurface): StandardBoolean {.noSideEffect,
+proc Load*(this: var ProjLib_ProjectOnSurface; C: handle[Adaptor3d_HCurve];
+          Tolerance: Standard_Real) {.importcpp: "Load",
+                                    header: "ProjLib_ProjectOnSurface.hxx".}
+proc IsDone*(this: ProjLib_ProjectOnSurface): Standard_Boolean {.noSideEffect,
     importcpp: "IsDone", header: "ProjLib_ProjectOnSurface.hxx".}
-proc bSpline*(this: ProjLibProjectOnSurface): Handle[GeomBSplineCurve] {.
+proc BSpline*(this: ProjLib_ProjectOnSurface): handle[Geom_BSplineCurve] {.
     noSideEffect, importcpp: "BSpline", header: "ProjLib_ProjectOnSurface.hxx".}
-

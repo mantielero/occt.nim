@@ -14,6 +14,13 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, IGESData_IGESType,
+  ../TColStd/TColStd_HSequenceOfHAsciiString, IGESData_GlobalSection,
+  IGESData_Array1OfDirPart, IGESData_ReadStage, ../Standard/Standard_Real,
+  ../Interface/Interface_FileReaderData, ../Standard/Standard_Integer,
+  ../Standard/Standard_CString, ../Interface/Interface_ParamType
+
 discard "forward decl of Interface_ParamSet"
 discard "forward decl of Interface_Check"
 discard "forward decl of IGESData_GlobalSection"
@@ -22,7 +29,7 @@ discard "forward decl of IGESData_IGESType"
 discard "forward decl of IGESData_IGESReaderData"
 discard "forward decl of IGESData_IGESReaderData"
 type
-  HandleIGESDataIGESReaderData* = Handle[IGESDataIGESReaderData]
+  Handle_IGESData_IGESReaderData* = handle[IGESData_IGESReaderData]
 
 ## ! specific FileReaderData for IGES
 ## ! contains header as GlobalSection, and for each Entity, its
@@ -32,99 +39,100 @@ type
 ## ! Parameters are accessed through specific objects, ParamReaders
 
 type
-  IGESDataIGESReaderData* {.importcpp: "IGESData_IGESReaderData",
-                           header: "IGESData_IGESReaderData.hxx", bycopy.} = object of InterfaceFileReaderData ##
-                                                                                                        ## !
-                                                                                                        ## creates
-                                                                                                        ## IGESReaderData
-                                                                                                        ## correctly
-                                                                                                        ## dimensionned
-                                                                                                        ## (for
-                                                                                                        ## arrays)
-                                                                                                        ##
-                                                                                                        ## !
-                                                                                                        ## <nbe>
-                                                                                                        ## count
-                                                                                                        ## of
-                                                                                                        ## entities,
-                                                                                                        ## that
-                                                                                                        ## is,
-                                                                                                        ## half
-                                                                                                        ## nb
-                                                                                                        ## of
-                                                                                                        ## directory
-                                                                                                        ## lines
-                                                                                                        ##
-                                                                                                        ## !
-                                                                                                        ## <nbp>
-                                                                                                        ## :
-                                                                                                        ## count
-                                                                                                        ## of
-                                                                                                        ## parameters
+  IGESData_IGESReaderData* {.importcpp: "IGESData_IGESReaderData",
+                            header: "IGESData_IGESReaderData.hxx", bycopy.} = object of Interface_FileReaderData ##
+                                                                                                          ## !
+                                                                                                          ## creates
+                                                                                                          ## IGESReaderData
+                                                                                                          ## correctly
+                                                                                                          ## dimensionned
+                                                                                                          ## (for
+                                                                                                          ## arrays)
+                                                                                                          ##
+                                                                                                          ## !
+                                                                                                          ## <nbe>
+                                                                                                          ## count
+                                                                                                          ## of
+                                                                                                          ## entities,
+                                                                                                          ## that
+                                                                                                          ## is,
+                                                                                                          ## half
+                                                                                                          ## nb
+                                                                                                          ## of
+                                                                                                          ## directory
+                                                                                                          ## lines
+                                                                                                          ##
+                                                                                                          ## !
+                                                                                                          ## <nbp>
+                                                                                                          ## :
+                                                                                                          ## count
+                                                                                                          ## of
+                                                                                                          ## parameters
 
 
-proc constructIGESDataIGESReaderData*(nbe: StandardInteger; nbp: StandardInteger): IGESDataIGESReaderData {.
+proc constructIGESData_IGESReaderData*(nbe: Standard_Integer; nbp: Standard_Integer): IGESData_IGESReaderData {.
     constructor, importcpp: "IGESData_IGESReaderData(@)",
     header: "IGESData_IGESReaderData.hxx".}
-proc addStartLine*(this: var IGESDataIGESReaderData; aval: StandardCString) {.
+proc AddStartLine*(this: var IGESData_IGESReaderData; aval: Standard_CString) {.
     importcpp: "AddStartLine", header: "IGESData_IGESReaderData.hxx".}
-proc startSection*(this: IGESDataIGESReaderData): Handle[
-    TColStdHSequenceOfHAsciiString] {.noSideEffect, importcpp: "StartSection",
-                                     header: "IGESData_IGESReaderData.hxx".}
-proc addGlobal*(this: var IGESDataIGESReaderData; atype: InterfaceParamType;
-               aval: StandardCString) {.importcpp: "AddGlobal",
+proc StartSection*(this: IGESData_IGESReaderData): handle[
+    TColStd_HSequenceOfHAsciiString] {.noSideEffect, importcpp: "StartSection",
                                       header: "IGESData_IGESReaderData.hxx".}
-proc setGlobalSection*(this: var IGESDataIGESReaderData) {.
+proc AddGlobal*(this: var IGESData_IGESReaderData; atype: Interface_ParamType;
+               aval: Standard_CString) {.importcpp: "AddGlobal",
+                                       header: "IGESData_IGESReaderData.hxx".}
+proc SetGlobalSection*(this: var IGESData_IGESReaderData) {.
     importcpp: "SetGlobalSection", header: "IGESData_IGESReaderData.hxx".}
-proc globalSection*(this: IGESDataIGESReaderData): IGESDataGlobalSection {.
+proc GlobalSection*(this: IGESData_IGESReaderData): IGESData_GlobalSection {.
     noSideEffect, importcpp: "GlobalSection", header: "IGESData_IGESReaderData.hxx".}
-proc setDirPart*(this: var IGESDataIGESReaderData; num: StandardInteger;
-                i1: StandardInteger; i2: StandardInteger; i3: StandardInteger;
-                i4: StandardInteger; i5: StandardInteger; i6: StandardInteger;
-                i7: StandardInteger; i8: StandardInteger; i9: StandardInteger;
-                i10: StandardInteger; i11: StandardInteger; i12: StandardInteger;
-                i13: StandardInteger; i14: StandardInteger; i15: StandardInteger;
-                i16: StandardInteger; i17: StandardInteger; res1: StandardCString;
-                res2: StandardCString; label: StandardCString; subs: StandardCString) {.
+proc SetDirPart*(this: var IGESData_IGESReaderData; num: Standard_Integer;
+                i1: Standard_Integer; i2: Standard_Integer; i3: Standard_Integer;
+                i4: Standard_Integer; i5: Standard_Integer; i6: Standard_Integer;
+                i7: Standard_Integer; i8: Standard_Integer; i9: Standard_Integer;
+                i10: Standard_Integer; i11: Standard_Integer; i12: Standard_Integer;
+                i13: Standard_Integer; i14: Standard_Integer; i15: Standard_Integer;
+                i16: Standard_Integer; i17: Standard_Integer;
+                res1: Standard_CString; res2: Standard_CString;
+                label: Standard_CString; subs: Standard_CString) {.
     importcpp: "SetDirPart", header: "IGESData_IGESReaderData.hxx".}
-proc dirPart*(this: IGESDataIGESReaderData; num: StandardInteger): IGESDataDirPart {.
+proc DirPart*(this: IGESData_IGESReaderData; num: Standard_Integer): IGESData_DirPart {.
     noSideEffect, importcpp: "DirPart", header: "IGESData_IGESReaderData.hxx".}
-proc dirValues*(this: IGESDataIGESReaderData; num: StandardInteger;
-               i1: var StandardInteger; i2: var StandardInteger;
-               i3: var StandardInteger; i4: var StandardInteger;
-               i5: var StandardInteger; i6: var StandardInteger;
-               i7: var StandardInteger; i8: var StandardInteger;
-               i9: var StandardInteger; i10: var StandardInteger;
-               i11: var StandardInteger; i12: var StandardInteger;
-               i13: var StandardInteger; i14: var StandardInteger;
-               i15: var StandardInteger; i16: var StandardInteger;
-               i17: var StandardInteger; res1: var StandardCString;
-               res2: var StandardCString; label: var StandardCString;
-               subs: var StandardCString) {.noSideEffect, importcpp: "DirValues",
+proc DirValues*(this: IGESData_IGESReaderData; num: Standard_Integer;
+               i1: var Standard_Integer; i2: var Standard_Integer;
+               i3: var Standard_Integer; i4: var Standard_Integer;
+               i5: var Standard_Integer; i6: var Standard_Integer;
+               i7: var Standard_Integer; i8: var Standard_Integer;
+               i9: var Standard_Integer; i10: var Standard_Integer;
+               i11: var Standard_Integer; i12: var Standard_Integer;
+               i13: var Standard_Integer; i14: var Standard_Integer;
+               i15: var Standard_Integer; i16: var Standard_Integer;
+               i17: var Standard_Integer; res1: var Standard_CString;
+               res2: var Standard_CString; label: var Standard_CString;
+               subs: var Standard_CString) {.noSideEffect, importcpp: "DirValues",
     header: "IGESData_IGESReaderData.hxx".}
-proc dirType*(this: IGESDataIGESReaderData; num: StandardInteger): IGESDataIGESType {.
+proc DirType*(this: IGESData_IGESReaderData; num: Standard_Integer): IGESData_IGESType {.
     noSideEffect, importcpp: "DirType", header: "IGESData_IGESReaderData.hxx".}
-proc nbEntities*(this: IGESDataIGESReaderData): StandardInteger {.noSideEffect,
+proc NbEntities*(this: IGESData_IGESReaderData): Standard_Integer {.noSideEffect,
     importcpp: "NbEntities", header: "IGESData_IGESReaderData.hxx".}
-proc findNextRecord*(this: IGESDataIGESReaderData; num: StandardInteger): StandardInteger {.
+proc FindNextRecord*(this: IGESData_IGESReaderData; num: Standard_Integer): Standard_Integer {.
     noSideEffect, importcpp: "FindNextRecord",
     header: "IGESData_IGESReaderData.hxx".}
-proc setEntityNumbers*(this: var IGESDataIGESReaderData) {.
+proc SetEntityNumbers*(this: var IGESData_IGESReaderData) {.
     importcpp: "SetEntityNumbers", header: "IGESData_IGESReaderData.hxx".}
-proc globalCheck*(this: IGESDataIGESReaderData): Handle[InterfaceCheck] {.
+proc GlobalCheck*(this: IGESData_IGESReaderData): handle[Interface_Check] {.
     noSideEffect, importcpp: "GlobalCheck", header: "IGESData_IGESReaderData.hxx".}
-proc setDefaultLineWeight*(this: var IGESDataIGESReaderData; defw: StandardReal) {.
+proc SetDefaultLineWeight*(this: var IGESData_IGESReaderData; defw: Standard_Real) {.
     importcpp: "SetDefaultLineWeight", header: "IGESData_IGESReaderData.hxx".}
-proc defaultLineWeight*(this: IGESDataIGESReaderData): StandardReal {.noSideEffect,
-    importcpp: "DefaultLineWeight", header: "IGESData_IGESReaderData.hxx".}
+proc DefaultLineWeight*(this: IGESData_IGESReaderData): Standard_Real {.
+    noSideEffect, importcpp: "DefaultLineWeight",
+    header: "IGESData_IGESReaderData.hxx".}
 type
-  IGESDataIGESReaderDatabaseType* = InterfaceFileReaderData
+  IGESData_IGESReaderDatabase_type* = Interface_FileReaderData
 
-proc getTypeName*(): cstring {.importcpp: "IGESData_IGESReaderData::get_type_name(@)",
-                            header: "IGESData_IGESReaderData.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "IGESData_IGESReaderData::get_type_name(@)",
+                              header: "IGESData_IGESReaderData.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "IGESData_IGESReaderData::get_type_descriptor(@)",
     header: "IGESData_IGESReaderData.hxx".}
-proc dynamicType*(this: IGESDataIGESReaderData): Handle[StandardType] {.
+proc DynamicType*(this: IGESData_IGESReaderData): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType", header: "IGESData_IGESReaderData.hxx".}
-

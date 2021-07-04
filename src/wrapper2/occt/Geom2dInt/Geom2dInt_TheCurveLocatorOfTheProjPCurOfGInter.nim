@@ -14,12 +14,17 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer,
+  ../Standard/Standard_Real
+
 discard "forward decl of Adaptor2d_Curve2d"
 discard "forward decl of Geom2dInt_Geom2dCurveTool"
 discard "forward decl of Extrema_POnCurv2d"
 discard "forward decl of gp_Pnt2d"
 type
-  Geom2dIntTheCurveLocatorOfTheProjPCurOfGInter* {.
+  Geom2dInt_TheCurveLocatorOfTheProjPCurOfGInter* {.
       importcpp: "Geom2dInt_TheCurveLocatorOfTheProjPCurOfGInter",
       header: "Geom2dInt_TheCurveLocatorOfTheProjPCurOfGInter.hxx", bycopy.} = object ##
                                                                                  ## !
@@ -44,13 +49,14 @@ type
                                                                                  ## Min{distance(P,C(ui))}
 
 
-proc locate*(p: GpPnt2d; c: Adaptor2dCurve2d; nbU: StandardInteger;
-            papp: var ExtremaPOnCurv2d) {.importcpp: "Geom2dInt_TheCurveLocatorOfTheProjPCurOfGInter::Locate(@)", header: "Geom2dInt_TheCurveLocatorOfTheProjPCurOfGInter.hxx".}
-proc locate*(p: GpPnt2d; c: Adaptor2dCurve2d; nbU: StandardInteger; umin: StandardReal;
-            usup: StandardReal; papp: var ExtremaPOnCurv2d) {.
+proc Locate*(P: gp_Pnt2d; C: Adaptor2d_Curve2d; NbU: Standard_Integer;
+            Papp: var Extrema_POnCurv2d) {.importcpp: "Geom2dInt_TheCurveLocatorOfTheProjPCurOfGInter::Locate(@)", header: "Geom2dInt_TheCurveLocatorOfTheProjPCurOfGInter.hxx".}
+proc Locate*(P: gp_Pnt2d; C: Adaptor2d_Curve2d; NbU: Standard_Integer;
+            Umin: Standard_Real; Usup: Standard_Real; Papp: var Extrema_POnCurv2d) {.
     importcpp: "Geom2dInt_TheCurveLocatorOfTheProjPCurOfGInter::Locate(@)",
     header: "Geom2dInt_TheCurveLocatorOfTheProjPCurOfGInter.hxx".}
-proc locate*(c1: Adaptor2dCurve2d; c2: Adaptor2dCurve2d; nbU: StandardInteger;
-            nbV: StandardInteger; papp1: var ExtremaPOnCurv2d;
-            papp2: var ExtremaPOnCurv2d) {.importcpp: "Geom2dInt_TheCurveLocatorOfTheProjPCurOfGInter::Locate(@)", header: "Geom2dInt_TheCurveLocatorOfTheProjPCurOfGInter.hxx".}
-
+proc Locate*(C1: Adaptor2d_Curve2d; C2: Adaptor2d_Curve2d; NbU: Standard_Integer;
+            NbV: Standard_Integer; Papp1: var Extrema_POnCurv2d;
+            Papp2: var Extrema_POnCurv2d) {.
+    importcpp: "Geom2dInt_TheCurveLocatorOfTheProjPCurOfGInter::Locate(@)",
+    header: "Geom2dInt_TheCurveLocatorOfTheProjPCurOfGInter.hxx".}

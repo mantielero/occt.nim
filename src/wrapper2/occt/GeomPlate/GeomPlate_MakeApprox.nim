@@ -14,47 +14,51 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Real,
+  ../Standard/Standard_Integer, ../GeomAbs/GeomAbs_Shape
+
 discard "forward decl of GeomPlate_Surface"
 discard "forward decl of Geom_BSplineSurface"
 discard "forward decl of AdvApp2Var_Criterion"
 type
-  GeomPlateMakeApprox* {.importcpp: "GeomPlate_MakeApprox",
-                        header: "GeomPlate_MakeApprox.hxx", bycopy.} = object ## !
-                                                                         ## Converts
-                                                                         ## SurfPlate into a
-                                                                         ## Geom_BSplineSurface with
-                                                                         ## ! n Bezier pieces
-                                                                         ## (n<=Nbmax) of degree <= dgmax
-                                                                         ## ! and an
-                                                                         ## approximation error < Tol3d if
-                                                                         ## possible
-                                                                         ## ! the
-                                                                         ## criterion
-                                                                         ## CritPlate is
-                                                                         ## satisfied if
-                                                                         ## possible
+  GeomPlate_MakeApprox* {.importcpp: "GeomPlate_MakeApprox",
+                         header: "GeomPlate_MakeApprox.hxx", bycopy.} = object ## !
+                                                                          ## Converts
+                                                                          ## SurfPlate into a
+                                                                          ## Geom_BSplineSurface with
+                                                                          ## ! n Bezier pieces
+                                                                          ## (n<=Nbmax) of degree <= dgmax
+                                                                          ## ! and an
+                                                                          ## approximation error < Tol3d if
+                                                                          ## possible
+                                                                          ## ! the
+                                                                          ## criterion
+                                                                          ## CritPlate is
+                                                                          ## satisfied if
+                                                                          ## possible
 
 
-proc constructGeomPlateMakeApprox*(surfPlate: Handle[GeomPlateSurface];
-                                  plateCrit: AdvApp2VarCriterion;
-                                  tol3d: StandardReal; nbmax: StandardInteger;
-                                  dgmax: StandardInteger;
-                                  continuity: GeomAbsShape = geomAbsC1;
-                                  enlargeCoeff: StandardReal = 1.1): GeomPlateMakeApprox {.
+proc constructGeomPlate_MakeApprox*(SurfPlate: handle[GeomPlate_Surface];
+                                   PlateCrit: AdvApp2Var_Criterion;
+                                   Tol3d: Standard_Real; Nbmax: Standard_Integer;
+                                   dgmax: Standard_Integer;
+                                   Continuity: GeomAbs_Shape = GeomAbs_C1;
+                                   EnlargeCoeff: Standard_Real = 1.1): GeomPlate_MakeApprox {.
     constructor, importcpp: "GeomPlate_MakeApprox(@)",
     header: "GeomPlate_MakeApprox.hxx".}
-proc constructGeomPlateMakeApprox*(surfPlate: Handle[GeomPlateSurface];
-                                  tol3d: StandardReal; nbmax: StandardInteger;
-                                  dgmax: StandardInteger; dmax: StandardReal;
-                                  critOrder: StandardInteger = 0;
-                                  continuity: GeomAbsShape = geomAbsC1;
-                                  enlargeCoeff: StandardReal = 1.1): GeomPlateMakeApprox {.
+proc constructGeomPlate_MakeApprox*(SurfPlate: handle[GeomPlate_Surface];
+                                   Tol3d: Standard_Real; Nbmax: Standard_Integer;
+                                   dgmax: Standard_Integer; dmax: Standard_Real;
+                                   CritOrder: Standard_Integer = 0;
+                                   Continuity: GeomAbs_Shape = GeomAbs_C1;
+                                   EnlargeCoeff: Standard_Real = 1.1): GeomPlate_MakeApprox {.
     constructor, importcpp: "GeomPlate_MakeApprox(@)",
     header: "GeomPlate_MakeApprox.hxx".}
-proc surface*(this: GeomPlateMakeApprox): Handle[GeomBSplineSurface] {.noSideEffect,
-    importcpp: "Surface", header: "GeomPlate_MakeApprox.hxx".}
-proc approxError*(this: GeomPlateMakeApprox): StandardReal {.noSideEffect,
+proc Surface*(this: GeomPlate_MakeApprox): handle[Geom_BSplineSurface] {.
+    noSideEffect, importcpp: "Surface", header: "GeomPlate_MakeApprox.hxx".}
+proc ApproxError*(this: GeomPlate_MakeApprox): Standard_Real {.noSideEffect,
     importcpp: "ApproxError", header: "GeomPlate_MakeApprox.hxx".}
-proc criterionError*(this: GeomPlateMakeApprox): StandardReal {.noSideEffect,
+proc CriterionError*(this: GeomPlate_MakeApprox): Standard_Real {.noSideEffect,
     importcpp: "CriterionError", header: "GeomPlate_MakeApprox.hxx".}
-

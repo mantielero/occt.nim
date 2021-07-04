@@ -14,6 +14,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard_Type
+
 discard "forward decl of Standard_NotImplemented"
 discard "forward decl of CDM_MetaData"
 discard "forward decl of TCollection_ExtendedString"
@@ -23,95 +26,94 @@ discard "forward decl of Message_Messenger"
 discard "forward decl of CDF_MetaDataDriver"
 discard "forward decl of CDF_MetaDataDriver"
 type
-  HandleCDF_MetaDataDriver* = Handle[CDF_MetaDataDriver]
+  Handle_CDF_MetaDataDriver* = handle[CDF_MetaDataDriver]
 
 ## ! this class list the method that must be available for
 ## ! a specific DBMS
 
 type
   CDF_MetaDataDriver* {.importcpp: "CDF_MetaDataDriver",
-                       header: "CDF_MetaDataDriver.hxx", bycopy.} = object of StandardTransient ##
-                                                                                         ## !
-                                                                                         ## returns
-                                                                                         ## true
-                                                                                         ## if
-                                                                                         ## the
-                                                                                         ## MetaDataDriver
-                                                                                         ## can
-                                                                                         ## manage
-                                                                                         ## different
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## versions
-                                                                                         ## of
-                                                                                         ## a
-                                                                                         ## Data.
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## By
-                                                                                         ## default,
-                                                                                         ## returns
-                                                                                         ## Standard_False.
+                       header: "CDF_MetaDataDriver.hxx", bycopy.} = object of Standard_Transient ##
+                                                                                          ## !
+                                                                                          ## returns
+                                                                                          ## true
+                                                                                          ## if
+                                                                                          ## the
+                                                                                          ## MetaDataDriver
+                                                                                          ## can
+                                                                                          ## manage
+                                                                                          ## different
+                                                                                          ##
+                                                                                          ## !
+                                                                                          ## versions
+                                                                                          ## of
+                                                                                          ## a
+                                                                                          ## Data.
+                                                                                          ##
+                                                                                          ## !
+                                                                                          ## By
+                                                                                          ## default,
+                                                                                          ## returns
+                                                                                          ## Standard_False.
 
 
-proc hasVersionCapability*(this: var CDF_MetaDataDriver): StandardBoolean {.
+proc HasVersionCapability*(this: var CDF_MetaDataDriver): Standard_Boolean {.
     importcpp: "HasVersionCapability", header: "CDF_MetaDataDriver.hxx".}
-proc createDependsOn*(this: var CDF_MetaDataDriver;
-                     aFirstData: Handle[CDM_MetaData];
-                     aSecondData: Handle[CDM_MetaData]) {.
+proc CreateDependsOn*(this: var CDF_MetaDataDriver;
+                     aFirstData: handle[CDM_MetaData];
+                     aSecondData: handle[CDM_MetaData]) {.
     importcpp: "CreateDependsOn", header: "CDF_MetaDataDriver.hxx".}
-proc createReference*(this: var CDF_MetaDataDriver; aFrom: Handle[CDM_MetaData];
-                     aTo: Handle[CDM_MetaData];
-                     aReferenceIdentifier: StandardInteger;
-                     aToDocumentVersion: StandardInteger) {.
+proc CreateReference*(this: var CDF_MetaDataDriver; aFrom: handle[CDM_MetaData];
+                     aTo: handle[CDM_MetaData];
+                     aReferenceIdentifier: Standard_Integer;
+                     aToDocumentVersion: Standard_Integer) {.
     importcpp: "CreateReference", header: "CDF_MetaDataDriver.hxx".}
-proc hasVersion*(this: var CDF_MetaDataDriver; aFolder: TCollectionExtendedString;
-                aName: TCollectionExtendedString): StandardBoolean {.
+proc HasVersion*(this: var CDF_MetaDataDriver; aFolder: TCollection_ExtendedString;
+                aName: TCollection_ExtendedString): Standard_Boolean {.
     importcpp: "HasVersion", header: "CDF_MetaDataDriver.hxx".}
-proc buildFileName*(this: var CDF_MetaDataDriver; aDocument: Handle[CDM_Document]): TCollectionExtendedString {.
+proc BuildFileName*(this: var CDF_MetaDataDriver; aDocument: handle[CDM_Document]): TCollection_ExtendedString {.
     importcpp: "BuildFileName", header: "CDF_MetaDataDriver.hxx".}
-proc setName*(this: var CDF_MetaDataDriver; aDocument: Handle[CDM_Document];
-             aName: TCollectionExtendedString): TCollectionExtendedString {.
+proc SetName*(this: var CDF_MetaDataDriver; aDocument: handle[CDM_Document];
+             aName: TCollection_ExtendedString): TCollection_ExtendedString {.
     importcpp: "SetName", header: "CDF_MetaDataDriver.hxx".}
-proc find*(this: var CDF_MetaDataDriver; aFolder: TCollectionExtendedString;
-          aName: TCollectionExtendedString; aVersion: TCollectionExtendedString): StandardBoolean {.
+proc Find*(this: var CDF_MetaDataDriver; aFolder: TCollection_ExtendedString;
+          aName: TCollection_ExtendedString; aVersion: TCollection_ExtendedString): Standard_Boolean {.
     importcpp: "Find", header: "CDF_MetaDataDriver.hxx".}
-proc hasReadPermission*(this: var CDF_MetaDataDriver;
-                       aFolder: TCollectionExtendedString;
-                       aName: TCollectionExtendedString;
-                       aVersion: TCollectionExtendedString): StandardBoolean {.
+proc HasReadPermission*(this: var CDF_MetaDataDriver;
+                       aFolder: TCollection_ExtendedString;
+                       aName: TCollection_ExtendedString;
+                       aVersion: TCollection_ExtendedString): Standard_Boolean {.
     importcpp: "HasReadPermission", header: "CDF_MetaDataDriver.hxx".}
-proc metaData*(this: var CDF_MetaDataDriver; aFolder: TCollectionExtendedString;
-              aName: TCollectionExtendedString;
-              aVersion: TCollectionExtendedString): Handle[CDM_MetaData] {.
+proc MetaData*(this: var CDF_MetaDataDriver; aFolder: TCollection_ExtendedString;
+              aName: TCollection_ExtendedString;
+              aVersion: TCollection_ExtendedString): handle[CDM_MetaData] {.
     importcpp: "MetaData", header: "CDF_MetaDataDriver.hxx".}
-proc lastVersion*(this: var CDF_MetaDataDriver; aMetaData: Handle[CDM_MetaData]): Handle[
+proc LastVersion*(this: var CDF_MetaDataDriver; aMetaData: handle[CDM_MetaData]): handle[
     CDM_MetaData] {.importcpp: "LastVersion", header: "CDF_MetaDataDriver.hxx".}
-proc createMetaData*(this: var CDF_MetaDataDriver; aDocument: Handle[CDM_Document];
-                    aFileName: TCollectionExtendedString): Handle[CDM_MetaData] {.
+proc CreateMetaData*(this: var CDF_MetaDataDriver; aDocument: handle[CDM_Document];
+                    aFileName: TCollection_ExtendedString): handle[CDM_MetaData] {.
     importcpp: "CreateMetaData", header: "CDF_MetaDataDriver.hxx".}
-proc findFolder*(this: var CDF_MetaDataDriver; aFolder: TCollectionExtendedString): StandardBoolean {.
+proc FindFolder*(this: var CDF_MetaDataDriver; aFolder: TCollection_ExtendedString): Standard_Boolean {.
     importcpp: "FindFolder", header: "CDF_MetaDataDriver.hxx".}
-proc defaultFolder*(this: var CDF_MetaDataDriver): TCollectionExtendedString {.
+proc DefaultFolder*(this: var CDF_MetaDataDriver): TCollection_ExtendedString {.
     importcpp: "DefaultFolder", header: "CDF_MetaDataDriver.hxx".}
-proc referenceIterator*(this: var CDF_MetaDataDriver;
-                       theMessageDriver: Handle[MessageMessenger]): Handle[
+proc ReferenceIterator*(this: var CDF_MetaDataDriver;
+                       theMessageDriver: handle[Message_Messenger]): handle[
     PCDM_ReferenceIterator] {.importcpp: "ReferenceIterator",
                              header: "CDF_MetaDataDriver.hxx".}
-proc find*(this: var CDF_MetaDataDriver; aFolder: TCollectionExtendedString;
-          aName: TCollectionExtendedString): StandardBoolean {.importcpp: "Find",
+proc Find*(this: var CDF_MetaDataDriver; aFolder: TCollection_ExtendedString;
+          aName: TCollection_ExtendedString): Standard_Boolean {.importcpp: "Find",
     header: "CDF_MetaDataDriver.hxx".}
-proc metaData*(this: var CDF_MetaDataDriver; aFolder: TCollectionExtendedString;
-              aName: TCollectionExtendedString): Handle[CDM_MetaData] {.
+proc MetaData*(this: var CDF_MetaDataDriver; aFolder: TCollection_ExtendedString;
+              aName: TCollection_ExtendedString): handle[CDM_MetaData] {.
     importcpp: "MetaData", header: "CDF_MetaDataDriver.hxx".}
 type
-  CDF_MetaDataDriverbaseType* = StandardTransient
+  CDF_MetaDataDriverbase_type* = Standard_Transient
 
-proc getTypeName*(): cstring {.importcpp: "CDF_MetaDataDriver::get_type_name(@)",
-                            header: "CDF_MetaDataDriver.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "CDF_MetaDataDriver::get_type_name(@)",
+                              header: "CDF_MetaDataDriver.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "CDF_MetaDataDriver::get_type_descriptor(@)",
     header: "CDF_MetaDataDriver.hxx".}
-proc dynamicType*(this: CDF_MetaDataDriver): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: CDF_MetaDataDriver): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "CDF_MetaDataDriver.hxx".}
-

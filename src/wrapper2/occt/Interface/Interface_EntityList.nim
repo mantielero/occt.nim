@@ -14,43 +14,48 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer,
+  ../Standard/Standard_Boolean, ../Standard/Standard_Type
+
 discard "forward decl of Standard_Transient"
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of Interface_InterfaceError"
 discard "forward decl of Standard_NullObject"
 discard "forward decl of Interface_EntityIterator"
 type
-  InterfaceEntityList* {.importcpp: "Interface_EntityList",
-                        header: "Interface_EntityList.hxx", bycopy.} = object ## ! Creates a List as beeing empty
+  Interface_EntityList* {.importcpp: "Interface_EntityList",
+                         header: "Interface_EntityList.hxx", bycopy.} = object ## !
+                                                                          ## Creates a List as beeing empty
 
 
-proc constructInterfaceEntityList*(): InterfaceEntityList {.constructor,
+proc constructInterface_EntityList*(): Interface_EntityList {.constructor,
     importcpp: "Interface_EntityList(@)", header: "Interface_EntityList.hxx".}
-proc clear*(this: var InterfaceEntityList) {.importcpp: "Clear",
+proc Clear*(this: var Interface_EntityList) {.importcpp: "Clear",
     header: "Interface_EntityList.hxx".}
-proc append*(this: var InterfaceEntityList; ent: Handle[StandardTransient]) {.
+proc Append*(this: var Interface_EntityList; ent: handle[Standard_Transient]) {.
     importcpp: "Append", header: "Interface_EntityList.hxx".}
-proc add*(this: var InterfaceEntityList; ent: Handle[StandardTransient]) {.
+proc Add*(this: var Interface_EntityList; ent: handle[Standard_Transient]) {.
     importcpp: "Add", header: "Interface_EntityList.hxx".}
-proc remove*(this: var InterfaceEntityList; ent: Handle[StandardTransient]) {.
+proc Remove*(this: var Interface_EntityList; ent: handle[Standard_Transient]) {.
     importcpp: "Remove", header: "Interface_EntityList.hxx".}
-proc remove*(this: var InterfaceEntityList; num: StandardInteger) {.
+proc Remove*(this: var Interface_EntityList; num: Standard_Integer) {.
     importcpp: "Remove", header: "Interface_EntityList.hxx".}
-proc isEmpty*(this: InterfaceEntityList): StandardBoolean {.noSideEffect,
+proc IsEmpty*(this: Interface_EntityList): Standard_Boolean {.noSideEffect,
     importcpp: "IsEmpty", header: "Interface_EntityList.hxx".}
-proc nbEntities*(this: InterfaceEntityList): StandardInteger {.noSideEffect,
+proc NbEntities*(this: Interface_EntityList): Standard_Integer {.noSideEffect,
     importcpp: "NbEntities", header: "Interface_EntityList.hxx".}
-proc value*(this: InterfaceEntityList; num: StandardInteger): Handle[
-    StandardTransient] {.noSideEffect, importcpp: "Value",
-                        header: "Interface_EntityList.hxx".}
-proc setValue*(this: var InterfaceEntityList; num: StandardInteger;
-              ent: Handle[StandardTransient]) {.importcpp: "SetValue",
+proc Value*(this: Interface_EntityList; num: Standard_Integer): handle[
+    Standard_Transient] {.noSideEffect, importcpp: "Value",
+                         header: "Interface_EntityList.hxx".}
+proc SetValue*(this: var Interface_EntityList; num: Standard_Integer;
+              ent: handle[Standard_Transient]) {.importcpp: "SetValue",
     header: "Interface_EntityList.hxx".}
-proc fillIterator*(this: InterfaceEntityList; iter: var InterfaceEntityIterator) {.
+proc FillIterator*(this: Interface_EntityList; iter: var Interface_EntityIterator) {.
     noSideEffect, importcpp: "FillIterator", header: "Interface_EntityList.hxx".}
-proc nbTypedEntities*(this: InterfaceEntityList; atype: Handle[StandardType]): StandardInteger {.
+proc NbTypedEntities*(this: Interface_EntityList; atype: handle[Standard_Type]): Standard_Integer {.
     noSideEffect, importcpp: "NbTypedEntities", header: "Interface_EntityList.hxx".}
-proc typedEntity*(this: InterfaceEntityList; atype: Handle[StandardType];
-                 num: StandardInteger = 0): Handle[StandardTransient] {.noSideEffect,
-    importcpp: "TypedEntity", header: "Interface_EntityList.hxx".}
-
+proc TypedEntity*(this: Interface_EntityList; atype: handle[Standard_Type];
+                 num: Standard_Integer = 0): handle[Standard_Transient] {.
+    noSideEffect, importcpp: "TypedEntity", header: "Interface_EntityList.hxx".}

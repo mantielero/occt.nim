@@ -15,45 +15,50 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../TopoDS/TopoDS_Face,
+  ../TopAbs/TopAbs_Orientation, BOPAlgo_BuilderArea,
+  ../NCollection/NCollection_BaseAllocator
+
 discard "forward decl of TopoDS_Face"
 type
-  BOPAlgoBuilderFace* {.importcpp: "BOPAlgo_BuilderFace",
-                       header: "BOPAlgo_BuilderFace.hxx", bycopy.} = object of BOPAlgoBuilderArea ##
-                                                                                           ## !
-                                                                                           ## Collect
-                                                                                           ## the
-                                                                                           ## edges
-                                                                                           ## that
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## a)
-                                                                                           ## are
-                                                                                           ## internal
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## b)
-                                                                                           ## are
-                                                                                           ## the
-                                                                                           ## same
-                                                                                           ## and
-                                                                                           ## have
-                                                                                           ## different
-                                                                                           ## orientation
+  BOPAlgo_BuilderFace* {.importcpp: "BOPAlgo_BuilderFace",
+                        header: "BOPAlgo_BuilderFace.hxx", bycopy.} = object of BOPAlgo_BuilderArea ##
+                                                                                             ## !
+                                                                                             ## Collect
+                                                                                             ## the
+                                                                                             ## edges
+                                                                                             ## that
+                                                                                             ##
+                                                                                             ## !
+                                                                                             ## a)
+                                                                                             ## are
+                                                                                             ## internal
+                                                                                             ##
+                                                                                             ## !
+                                                                                             ## b)
+                                                                                             ## are
+                                                                                             ## the
+                                                                                             ## same
+                                                                                             ## and
+                                                                                             ## have
+                                                                                             ## different
+                                                                                             ## orientation
 
 
-proc constructBOPAlgoBuilderFace*(): BOPAlgoBuilderFace {.constructor,
+proc constructBOPAlgo_BuilderFace*(): BOPAlgo_BuilderFace {.constructor,
     importcpp: "BOPAlgo_BuilderFace(@)", header: "BOPAlgo_BuilderFace.hxx".}
-proc destroyBOPAlgoBuilderFace*(this: var BOPAlgoBuilderFace) {.
+proc destroyBOPAlgo_BuilderFace*(this: var BOPAlgo_BuilderFace) {.
     importcpp: "#.~BOPAlgo_BuilderFace()", header: "BOPAlgo_BuilderFace.hxx".}
-proc constructBOPAlgoBuilderFace*(theAllocator: Handle[NCollectionBaseAllocator]): BOPAlgoBuilderFace {.
+proc constructBOPAlgo_BuilderFace*(theAllocator: handle[NCollection_BaseAllocator]): BOPAlgo_BuilderFace {.
     constructor, importcpp: "BOPAlgo_BuilderFace(@)",
     header: "BOPAlgo_BuilderFace.hxx".}
-proc setFace*(this: var BOPAlgoBuilderFace; theFace: TopoDS_Face) {.
+proc SetFace*(this: var BOPAlgo_BuilderFace; theFace: TopoDS_Face) {.
     importcpp: "SetFace", header: "BOPAlgo_BuilderFace.hxx".}
-proc face*(this: BOPAlgoBuilderFace): TopoDS_Face {.noSideEffect, importcpp: "Face",
+proc Face*(this: BOPAlgo_BuilderFace): TopoDS_Face {.noSideEffect, importcpp: "Face",
     header: "BOPAlgo_BuilderFace.hxx".}
-proc perform*(this: var BOPAlgoBuilderFace) {.importcpp: "Perform",
+proc Perform*(this: var BOPAlgo_BuilderFace) {.importcpp: "Perform",
     header: "BOPAlgo_BuilderFace.hxx".}
-proc orientation*(this: BOPAlgoBuilderFace): TopAbsOrientation {.noSideEffect,
+proc Orientation*(this: BOPAlgo_BuilderFace): TopAbs_Orientation {.noSideEffect,
     importcpp: "Orientation", header: "BOPAlgo_BuilderFace.hxx".}
-

@@ -13,9 +13,14 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Aspect/Aspect_TypeOfTriedronPosition, ../Bnd/Bnd_Box, ../BVH/BVH_Box,
+  Graphic3d_Camera, Graphic3d_TransformUtils, Graphic3d_TransModeFlags,
+  Graphic3d_Vec, ../NCollection/NCollection_Mat4
+
 discard "forward decl of Graphic3d_TransformPers"
 type
-  HandleGraphic3dTransformPers* = Handle[Graphic3dTransformPers]
+  Handle_Graphic3d_TransformPers* = handle[Graphic3d_TransformPers]
 
 ## ! Transformation Persistence definition.
 ## !
@@ -34,235 +39,241 @@ type
 ## ! WARNING: Graphic3d_TMF_None is not permitted for defining instance of this class - NULL handle should be used for this purpose!
 
 type
-  Graphic3dTransformPers* {.importcpp: "Graphic3d_TransformPers",
-                           header: "Graphic3d_TransformPers.hxx", bycopy.} = object of StandardTransient ##
-                                                                                                  ## !
-                                                                                                  ## Return
-                                                                                                  ## true
-                                                                                                  ## if
-                                                                                                  ## specified
-                                                                                                  ## mode
-                                                                                                  ## is
-                                                                                                  ## zoom/rotate
-                                                                                                  ## transformation
-                                                                                                  ## persistence.
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## Set
-                                                                                                  ## transformation
-                                                                                                  ## persistence.
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## Return
-                                                                                                  ## the
-                                                                                                  ## anchor
-                                                                                                  ## point
-                                                                                                  ## for
-                                                                                                  ## zoom/rotate
-                                                                                                  ## transformation
-                                                                                                  ## persistence.
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## Apply
-                                                                                                  ## transformation
-                                                                                                  ## to
-                                                                                                  ## bounding
-                                                                                                  ## box
-                                                                                                  ## of
-                                                                                                  ## presentation.
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## @param
-                                                                                                  ## theCamera
-                                                                                                  ## [in]
-                                                                                                  ## camera
-                                                                                                  ## definition
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## @param
-                                                                                                  ## theProjection
-                                                                                                  ## [in]
-                                                                                                  ## the
-                                                                                                  ## projection
-                                                                                                  ## transformation
-                                                                                                  ## matrix.
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## @param
-                                                                                                  ## theWorldView
-                                                                                                  ## [in]
-                                                                                                  ## the
-                                                                                                  ## world
-                                                                                                  ## view
-                                                                                                  ## transformation
-                                                                                                  ## matrix.
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## @param
-                                                                                                  ## theViewportWidth
-                                                                                                  ## [in]
-                                                                                                  ## the
-                                                                                                  ## width
-                                                                                                  ## of
-                                                                                                  ## viewport
-                                                                                                  ## (for
-                                                                                                  ## 2d
-                                                                                                  ## persistence).
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## @param
-                                                                                                  ## theViewportHeight
-                                                                                                  ## [in]
-                                                                                                  ## the
-                                                                                                  ## height
-                                                                                                  ## of
-                                                                                                  ## viewport
-                                                                                                  ## (for
-                                                                                                  ## 2d
-                                                                                                  ## persistence).
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## @param
-                                                                                                  ## theBoundingBox
-                                                                                                  ## [in/out]
-                                                                                                  ## the
-                                                                                                  ## bounding
-                                                                                                  ## box
-                                                                                                  ## to
-                                                                                                  ## transform.
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## 3D
-                                                                                                  ## anchor
-                                                                                                  ## point
-                                                                                                  ## for
-                                                                                                  ## zoom/rotate
-                                                                                                  ## transformation
-                                                                                                  ## persistence.
+  Graphic3d_TransformPers* {.importcpp: "Graphic3d_TransformPers",
+                            header: "Graphic3d_TransformPers.hxx", bycopy.} = object of Standard_Transient ##
+                                                                                                    ## !
+                                                                                                    ## Return
+                                                                                                    ## true
+                                                                                                    ## if
+                                                                                                    ## specified
+                                                                                                    ## mode
+                                                                                                    ## is
+                                                                                                    ## zoom/rotate
+                                                                                                    ## transformation
+                                                                                                    ## persistence.
+                                                                                                    ##
+                                                                                                    ## !
+                                                                                                    ## Set
+                                                                                                    ## transformation
+                                                                                                    ## persistence.
+                                                                                                    ##
+                                                                                                    ## !
+                                                                                                    ## Return
+                                                                                                    ## the
+                                                                                                    ## anchor
+                                                                                                    ## point
+                                                                                                    ## for
+                                                                                                    ## zoom/rotate
+                                                                                                    ## transformation
+                                                                                                    ## persistence.
+                                                                                                    ##
+                                                                                                    ## !
+                                                                                                    ## Apply
+                                                                                                    ## transformation
+                                                                                                    ## to
+                                                                                                    ## bounding
+                                                                                                    ## box
+                                                                                                    ## of
+                                                                                                    ## presentation.
+                                                                                                    ##
+                                                                                                    ## !
+                                                                                                    ## @param
+                                                                                                    ## theCamera
+                                                                                                    ## [in]
+                                                                                                    ## camera
+                                                                                                    ## definition
+                                                                                                    ##
+                                                                                                    ## !
+                                                                                                    ## @param
+                                                                                                    ## theProjection
+                                                                                                    ## [in]
+                                                                                                    ## the
+                                                                                                    ## projection
+                                                                                                    ## transformation
+                                                                                                    ## matrix.
+                                                                                                    ##
+                                                                                                    ## !
+                                                                                                    ## @param
+                                                                                                    ## theWorldView
+                                                                                                    ## [in]
+                                                                                                    ## the
+                                                                                                    ## world
+                                                                                                    ## view
+                                                                                                    ## transformation
+                                                                                                    ## matrix.
+                                                                                                    ##
+                                                                                                    ## !
+                                                                                                    ## @param
+                                                                                                    ## theViewportWidth
+                                                                                                    ## [in]
+                                                                                                    ## the
+                                                                                                    ## width
+                                                                                                    ## of
+                                                                                                    ## viewport
+                                                                                                    ## (for
+                                                                                                    ## 2d
+                                                                                                    ## persistence).
+                                                                                                    ##
+                                                                                                    ## !
+                                                                                                    ## @param
+                                                                                                    ## theViewportHeight
+                                                                                                    ## [in]
+                                                                                                    ## the
+                                                                                                    ## height
+                                                                                                    ## of
+                                                                                                    ## viewport
+                                                                                                    ## (for
+                                                                                                    ## 2d
+                                                                                                    ## persistence).
+                                                                                                    ##
+                                                                                                    ## !
+                                                                                                    ## @param
+                                                                                                    ## theBoundingBox
+                                                                                                    ## [in/out]
+                                                                                                    ## the
+                                                                                                    ## bounding
+                                                                                                    ## box
+                                                                                                    ## to
+                                                                                                    ## transform.
+                                                                                                    ##
+                                                                                                    ## !
+                                                                                                    ## 3D
+                                                                                                    ## anchor
+                                                                                                    ## point
+                                                                                                    ## for
+                                                                                                    ## zoom/rotate
+                                                                                                    ## transformation
+                                                                                                    ## persistence.
     ## !< Transformation persistence mode flags
 
-  Graphic3dTransformPersbaseType* = StandardTransient
+  Graphic3d_TransformPersbase_type* = Standard_Transient
 
-proc getTypeName*(): cstring {.importcpp: "Graphic3d_TransformPers::get_type_name(@)",
-                            header: "Graphic3d_TransformPers.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "Graphic3d_TransformPers::get_type_name(@)",
+                              header: "Graphic3d_TransformPers.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "Graphic3d_TransformPers::get_type_descriptor(@)",
     header: "Graphic3d_TransformPers.hxx".}
-proc dynamicType*(this: Graphic3dTransformPers): Handle[StandardType] {.
+proc DynamicType*(this: Graphic3d_TransformPers): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType", header: "Graphic3d_TransformPers.hxx".}
-proc isZoomOrRotate*(theMode: Graphic3dTransModeFlags): StandardBoolean {.
+proc IsZoomOrRotate*(theMode: Graphic3d_TransModeFlags): Standard_Boolean {.
     importcpp: "Graphic3d_TransformPers::IsZoomOrRotate(@)",
     header: "Graphic3d_TransformPers.hxx".}
-proc isTrihedronOr2d*(theMode: Graphic3dTransModeFlags): StandardBoolean {.
+proc IsTrihedronOr2d*(theMode: Graphic3d_TransModeFlags): Standard_Boolean {.
     importcpp: "Graphic3d_TransformPers::IsTrihedronOr2d(@)",
     header: "Graphic3d_TransformPers.hxx".}
-proc fromDeprecatedParams*(theFlag: Graphic3dTransModeFlags; thePoint: GpPnt): Handle[
-    Graphic3dTransformPers] {.importcpp: "Graphic3d_TransformPers::FromDeprecatedParams(@)",
-                             header: "Graphic3d_TransformPers.hxx".}
-proc constructGraphic3dTransformPers*(theMode: Graphic3dTransModeFlags): Graphic3dTransformPers {.
+proc FromDeprecatedParams*(theFlag: Graphic3d_TransModeFlags; thePoint: gp_Pnt): handle[
+    Graphic3d_TransformPers] {.importcpp: "Graphic3d_TransformPers::FromDeprecatedParams(@)",
+                              header: "Graphic3d_TransformPers.hxx".}
+proc constructGraphic3d_TransformPers*(theMode: Graphic3d_TransModeFlags): Graphic3d_TransformPers {.
     constructor, importcpp: "Graphic3d_TransformPers(@)",
     header: "Graphic3d_TransformPers.hxx".}
-proc constructGraphic3dTransformPers*(theMode: Graphic3dTransModeFlags;
-                                     thePnt: GpPnt): Graphic3dTransformPers {.
+proc constructGraphic3d_TransformPers*(theMode: Graphic3d_TransModeFlags;
+                                      thePnt: gp_Pnt): Graphic3d_TransformPers {.
     constructor, importcpp: "Graphic3d_TransformPers(@)",
     header: "Graphic3d_TransformPers.hxx".}
-proc constructGraphic3dTransformPers*(theMode: Graphic3dTransModeFlags;
-                                     theCorner: AspectTypeOfTriedronPosition;
-    theOffset: Graphic3dVec2i = graphic3dVec2i(0, 0)): Graphic3dTransformPers {.
+proc constructGraphic3d_TransformPers*(theMode: Graphic3d_TransModeFlags;
+                                      theCorner: Aspect_TypeOfTriedronPosition;
+    theOffset: Graphic3d_Vec2i = Graphic3d_Vec2i(0, 0)): Graphic3d_TransformPers {.
     constructor, importcpp: "Graphic3d_TransformPers(@)",
     header: "Graphic3d_TransformPers.hxx".}
-proc isZoomOrRotate*(this: Graphic3dTransformPers): StandardBoolean {.noSideEffect,
-    importcpp: "IsZoomOrRotate", header: "Graphic3d_TransformPers.hxx".}
-proc isTrihedronOr2d*(this: Graphic3dTransformPers): StandardBoolean {.noSideEffect,
-    importcpp: "IsTrihedronOr2d", header: "Graphic3d_TransformPers.hxx".}
-proc mode*(this: Graphic3dTransformPers): Graphic3dTransModeFlags {.noSideEffect,
+proc IsZoomOrRotate*(this: Graphic3d_TransformPers): Standard_Boolean {.
+    noSideEffect, importcpp: "IsZoomOrRotate",
+    header: "Graphic3d_TransformPers.hxx".}
+proc IsTrihedronOr2d*(this: Graphic3d_TransformPers): Standard_Boolean {.
+    noSideEffect, importcpp: "IsTrihedronOr2d",
+    header: "Graphic3d_TransformPers.hxx".}
+proc Mode*(this: Graphic3d_TransformPers): Graphic3d_TransModeFlags {.noSideEffect,
     importcpp: "Mode", header: "Graphic3d_TransformPers.hxx".}
-proc flags*(this: Graphic3dTransformPers): Graphic3dTransModeFlags {.noSideEffect,
+proc Flags*(this: Graphic3d_TransformPers): Graphic3d_TransModeFlags {.noSideEffect,
     importcpp: "Flags", header: "Graphic3d_TransformPers.hxx".}
-proc setPersistence*(this: var Graphic3dTransformPers;
-                    theMode: Graphic3dTransModeFlags; thePnt: GpPnt) {.
+proc SetPersistence*(this: var Graphic3d_TransformPers;
+                    theMode: Graphic3d_TransModeFlags; thePnt: gp_Pnt) {.
     importcpp: "SetPersistence", header: "Graphic3d_TransformPers.hxx".}
-proc setPersistence*(this: var Graphic3dTransformPers;
-                    theMode: Graphic3dTransModeFlags;
-                    theCorner: AspectTypeOfTriedronPosition;
-                    theOffset: Graphic3dVec2i) {.importcpp: "SetPersistence",
+proc SetPersistence*(this: var Graphic3d_TransformPers;
+                    theMode: Graphic3d_TransModeFlags;
+                    theCorner: Aspect_TypeOfTriedronPosition;
+                    theOffset: Graphic3d_Vec2i) {.importcpp: "SetPersistence",
     header: "Graphic3d_TransformPers.hxx".}
-proc anchorPoint*(this: Graphic3dTransformPers): GpPnt {.noSideEffect,
+proc AnchorPoint*(this: Graphic3d_TransformPers): gp_Pnt {.noSideEffect,
     importcpp: "AnchorPoint", header: "Graphic3d_TransformPers.hxx".}
-proc setAnchorPoint*(this: var Graphic3dTransformPers; thePnt: GpPnt) {.
+proc SetAnchorPoint*(this: var Graphic3d_TransformPers; thePnt: gp_Pnt) {.
     importcpp: "SetAnchorPoint", header: "Graphic3d_TransformPers.hxx".}
-proc corner2d*(this: Graphic3dTransformPers): AspectTypeOfTriedronPosition {.
+proc Corner2d*(this: Graphic3d_TransformPers): Aspect_TypeOfTriedronPosition {.
     noSideEffect, importcpp: "Corner2d", header: "Graphic3d_TransformPers.hxx".}
-proc setCorner2d*(this: var Graphic3dTransformPers;
-                 thePos: AspectTypeOfTriedronPosition) {.importcpp: "SetCorner2d",
-    header: "Graphic3d_TransformPers.hxx".}
-proc offset2d*(this: Graphic3dTransformPers): Graphic3dVec2i {.noSideEffect,
+proc SetCorner2d*(this: var Graphic3d_TransformPers;
+                 thePos: Aspect_TypeOfTriedronPosition) {.
+    importcpp: "SetCorner2d", header: "Graphic3d_TransformPers.hxx".}
+proc Offset2d*(this: Graphic3d_TransformPers): Graphic3d_Vec2i {.noSideEffect,
     importcpp: "Offset2d", header: "Graphic3d_TransformPers.hxx".}
-proc setOffset2d*(this: var Graphic3dTransformPers; theOffset: Graphic3dVec2i) {.
+proc SetOffset2d*(this: var Graphic3d_TransformPers; theOffset: Graphic3d_Vec2i) {.
     importcpp: "SetOffset2d", header: "Graphic3d_TransformPers.hxx".}
-proc apply*[T](this: Graphic3dTransformPers; theCamera: Handle[Graphic3dCamera];
-              theProjection: NCollectionMat4[T]; theWorldView: NCollectionMat4[T];
-              theViewportWidth: StandardInteger;
-              theViewportHeight: StandardInteger; theBoundingBox: var BndBox) {.
+proc Apply*[T](this: Graphic3d_TransformPers; theCamera: handle[Graphic3d_Camera];
+              theProjection: NCollection_Mat4[T];
+              theWorldView: NCollection_Mat4[T];
+              theViewportWidth: Standard_Integer;
+              theViewportHeight: Standard_Integer; theBoundingBox: var Bnd_Box) {.
     noSideEffect, importcpp: "Apply", header: "Graphic3d_TransformPers.hxx".}
-proc apply*[T](this: Graphic3dTransformPers; theCamera: Handle[Graphic3dCamera];
-              theProjection: NCollectionMat4[T]; theWorldView: NCollectionMat4[T];
-              theViewportWidth: StandardInteger;
-              theViewportHeight: StandardInteger;
+proc Apply*[T](this: Graphic3d_TransformPers; theCamera: handle[Graphic3d_Camera];
+              theProjection: NCollection_Mat4[T];
+              theWorldView: NCollection_Mat4[T];
+              theViewportWidth: Standard_Integer;
+              theViewportHeight: Standard_Integer;
               theBoundingBox: var BVH_Box[T, 3]) {.noSideEffect, importcpp: "Apply",
     header: "Graphic3d_TransformPers.hxx".}
-proc compute*[T](this: Graphic3dTransformPers; theCamera: Handle[Graphic3dCamera];
-                theProjection: NCollectionMat4[T];
-                theWorldView: NCollectionMat4[T];
-                theViewportWidth: StandardInteger;
-                theViewportHeight: StandardInteger): NCollectionMat4[T] {.
+proc Compute*[T](this: Graphic3d_TransformPers;
+                theCamera: handle[Graphic3d_Camera];
+                theProjection: NCollection_Mat4[T];
+                theWorldView: NCollection_Mat4[T];
+                theViewportWidth: Standard_Integer;
+                theViewportHeight: Standard_Integer): NCollection_Mat4[T] {.
     noSideEffect, importcpp: "Compute", header: "Graphic3d_TransformPers.hxx".}
-proc apply*[T](this: Graphic3dTransformPers; theCamera: Handle[Graphic3dCamera];
-              theProjection: NCollectionMat4[T];
-              theWorldView: var NCollectionMat4[T];
-              theViewportWidth: StandardInteger;
-              theViewportHeight: StandardInteger) {.noSideEffect,
+proc Apply*[T](this: Graphic3d_TransformPers; theCamera: handle[Graphic3d_Camera];
+              theProjection: NCollection_Mat4[T];
+              theWorldView: var NCollection_Mat4[T];
+              theViewportWidth: Standard_Integer;
+              theViewportHeight: Standard_Integer) {.noSideEffect,
     importcpp: "Apply", header: "Graphic3d_TransformPers.hxx".}
-proc dumpJson*(this: Graphic3dTransformPers; theOStream: var StandardOStream;
-              theDepth: StandardInteger = -1) {.noSideEffect, importcpp: "DumpJson",
+proc DumpJson*(this: Graphic3d_TransformPers; theOStream: var Standard_OStream;
+              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
     header: "Graphic3d_TransformPers.hxx".}
 ##  =======================================================================
 ##  function : Apply
 ##  purpose  : Apply transformation to world view and projection matrices.
 ##  =======================================================================
 
-proc apply*(this: Graphic3dTransformPers; theCamera: Handle[Graphic3dCamera];
-           theProjection: NCollectionMat4[T];
-           theWorldView: var NCollectionMat4[T]; theViewportWidth: StandardInteger;
-           theViewportHeight: StandardInteger) {.noSideEffect, importcpp: "Apply",
-    header: "Graphic3d_TransformPers.hxx".}
+proc Apply*(this: Graphic3d_TransformPers; theCamera: handle[Graphic3d_Camera];
+           theProjection: NCollection_Mat4[T];
+           theWorldView: var NCollection_Mat4[T];
+           theViewportWidth: Standard_Integer; theViewportHeight: Standard_Integer) {.
+    noSideEffect, importcpp: "Apply", header: "Graphic3d_TransformPers.hxx".}
 ##  =======================================================================
 ##  function : Apply
 ##  purpose  : Apply transformation to bounding box of presentation.
 ##  =======================================================================
 
-proc apply*(this: Graphic3dTransformPers; theCamera: Handle[Graphic3dCamera];
-           theProjection: NCollectionMat4[T]; theWorldView: NCollectionMat4[T];
-           theViewportWidth: StandardInteger; theViewportHeight: StandardInteger;
-           theBoundingBox: var BndBox) {.noSideEffect, importcpp: "Apply",
-                                      header: "Graphic3d_TransformPers.hxx".}
+proc Apply*(this: Graphic3d_TransformPers; theCamera: handle[Graphic3d_Camera];
+           theProjection: NCollection_Mat4[T]; theWorldView: NCollection_Mat4[T];
+           theViewportWidth: Standard_Integer;
+           theViewportHeight: Standard_Integer; theBoundingBox: var Bnd_Box) {.
+    noSideEffect, importcpp: "Apply", header: "Graphic3d_TransformPers.hxx".}
 ##  =======================================================================
 ##  function : Apply
 ##  purpose  : Apply transformation to bounding box of presentation.
 ##  =======================================================================
 
-proc apply*(this: Graphic3dTransformPers; theCamera: Handle[Graphic3dCamera];
-           theProjection: NCollectionMat4[T]; theWorldView: NCollectionMat4[T];
-           theViewportWidth: StandardInteger; theViewportHeight: StandardInteger;
-           theBoundingBox: var BVH_Box[T, 3]) {.noSideEffect, importcpp: "Apply",
-    header: "Graphic3d_TransformPers.hxx".}
+proc Apply*(this: Graphic3d_TransformPers; theCamera: handle[Graphic3d_Camera];
+           theProjection: NCollection_Mat4[T]; theWorldView: NCollection_Mat4[T];
+           theViewportWidth: Standard_Integer;
+           theViewportHeight: Standard_Integer; theBoundingBox: var BVH_Box[T, 3]) {.
+    noSideEffect, importcpp: "Apply", header: "Graphic3d_TransformPers.hxx".}
 ##  =======================================================================
 ##  function : Compute
 ##  purpose  : Compute transformation.
 ##  =======================================================================
 
-proc compute*(this: Graphic3dTransformPers; theCamera: Handle[Graphic3dCamera];
-             theProjection: NCollectionMat4[T]; theWorldView: NCollectionMat4[T];
-             theViewportWidth: StandardInteger; theViewportHeight: StandardInteger): NCollectionMat4[
-    T] {.noSideEffect, importcpp: "Compute", header: "Graphic3d_TransformPers.hxx".}
-
+proc Compute*(this: Graphic3d_TransformPers; theCamera: handle[Graphic3d_Camera];
+             theProjection: NCollection_Mat4[T];
+             theWorldView: NCollection_Mat4[T];
+             theViewportWidth: Standard_Integer;
+             theViewportHeight: Standard_Integer): NCollection_Mat4[T] {.
+    noSideEffect, importcpp: "Compute", header: "Graphic3d_TransformPers.hxx".}

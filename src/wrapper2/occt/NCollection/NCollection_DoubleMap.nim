@@ -13,7 +13,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # NCollection_DoubleMap_HeaderFile [NewLine] # NCollection_DoubleMap_HeaderFile [NewLine] # < NCollection_TypeDef . hxx > [NewLine] # < NCollection_BaseMap . hxx > [NewLine] # < NCollection_TListNode . hxx > [NewLine] # < Standard_TypeMismatch . hxx > [NewLine] # < Standard_MultiplyDefined . hxx > [NewLine] # < Standard_ImmutableObject . hxx > [NewLine] # < Standard_NoSuchObject . hxx > [NewLine] # < NCollection_DefaultHasher . hxx > [NewLine] *
+## !!!Ignored construct:  # NCollection_DoubleMap_HeaderFile [NewLine] # NCollection_DoubleMap_HeaderFile [NewLine] # NCollection_TypeDef.hxx [NewLine] # NCollection_BaseMap.hxx [NewLine] # NCollection_TListNode.hxx [NewLine] # ../Standard/Standard_TypeMismatch.hxx [NewLine] # ../Standard/Standard_MultiplyDefined.hxx [NewLine] # ../Standard/Standard_ImmutableObject.hxx [NewLine] # ../Standard/Standard_NoSuchObject.hxx [NewLine] # NCollection_DefaultHasher.hxx [NewLine] *
 ##  Purpose:     The DoubleMap  is used to  bind  pairs (Key1,Key2)
 ##               and retrieve them in linear time.
 ##
@@ -36,5 +36,3 @@
 ## ! @return pointer to Key1 if Key2 has been found const TheKey1Type * Seek2 ( const TheKey2Type & theKey2 ) const { for ( DoubleMapNode * aNode2 = ! IsEmpty ( ) ? ( DoubleMapNode * ) myData2 [ Hasher2 :: HashCode ( theKey2 , NbBuckets ( ) ) ] : NULL ; aNode2 != NULL ; aNode2 = ( DoubleMapNode * ) aNode2 -> Next2 ( ) ) { if ( Hasher2 :: IsEqual ( aNode2 -> Key2 ( ) , theKey2 ) ) { return & aNode2 -> Key1 ( ) ; } } return NULL ; } ! Clear data. If doReleaseMemory is false then the table of
 ## ! buckets is not released and will be reused. void Clear ( const Standard_Boolean doReleaseMemory = Standard_True ) { Destroy ( DoubleMapNode :: delNode , doReleaseMemory ) ; } ! Clear data and reset allocator void Clear ( const opencascade :: handle < NCollection_BaseAllocator > & theAllocator ) { Clear ( ) ; this -> myAllocator = ( ! theAllocator . IsNull ( ) ? theAllocator : NCollection_BaseAllocator :: CommonBaseAllocator ( ) ) ; } ! Destructor ~ NCollection_DoubleMap ( void ) { Clear ( ) ; } ! Size Standard_Integer Size ( void ) const { return Extent ( ) ; } } ;
 ## Error: token expected: > [end of template] but got: =!!!
-
-

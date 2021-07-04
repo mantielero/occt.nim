@@ -14,6 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, Expr_SingleRelation,
+  ../Standard/Standard_Boolean
+
 discard "forward decl of Standard_NumericError"
 discard "forward decl of Expr_GeneralExpression"
 discard "forward decl of Expr_GeneralRelation"
@@ -21,36 +25,35 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of Expr_Equal"
 discard "forward decl of Expr_Equal"
 type
-  HandleExprEqual* = Handle[ExprEqual]
-  ExprEqual* {.importcpp: "Expr_Equal", header: "Expr_Equal.hxx", bycopy.} = object of ExprSingleRelation ##
-                                                                                                ## !
-                                                                                                ## Creates
-                                                                                                ## the
-                                                                                                ## relation
-                                                                                                ## <exp1>
-                                                                                                ## =
-                                                                                                ## <exp2>.
+  Handle_Expr_Equal* = handle[Expr_Equal]
+  Expr_Equal* {.importcpp: "Expr_Equal", header: "Expr_Equal.hxx", bycopy.} = object of Expr_SingleRelation ##
+                                                                                                  ## !
+                                                                                                  ## Creates
+                                                                                                  ## the
+                                                                                                  ## relation
+                                                                                                  ## <exp1>
+                                                                                                  ## =
+                                                                                                  ## <exp2>.
 
 
-proc constructExprEqual*(exp1: Handle[ExprGeneralExpression];
-                        exp2: Handle[ExprGeneralExpression]): ExprEqual {.
+proc constructExpr_Equal*(exp1: handle[Expr_GeneralExpression];
+                         exp2: handle[Expr_GeneralExpression]): Expr_Equal {.
     constructor, importcpp: "Expr_Equal(@)", header: "Expr_Equal.hxx".}
-proc isSatisfied*(this: ExprEqual): StandardBoolean {.noSideEffect,
+proc IsSatisfied*(this: Expr_Equal): Standard_Boolean {.noSideEffect,
     importcpp: "IsSatisfied", header: "Expr_Equal.hxx".}
-proc simplified*(this: ExprEqual): Handle[ExprGeneralRelation] {.noSideEffect,
+proc Simplified*(this: Expr_Equal): handle[Expr_GeneralRelation] {.noSideEffect,
     importcpp: "Simplified", header: "Expr_Equal.hxx".}
-proc simplify*(this: var ExprEqual) {.importcpp: "Simplify", header: "Expr_Equal.hxx".}
-proc copy*(this: ExprEqual): Handle[ExprGeneralRelation] {.noSideEffect,
+proc Simplify*(this: var Expr_Equal) {.importcpp: "Simplify", header: "Expr_Equal.hxx".}
+proc Copy*(this: Expr_Equal): handle[Expr_GeneralRelation] {.noSideEffect,
     importcpp: "Copy", header: "Expr_Equal.hxx".}
-proc string*(this: ExprEqual): TCollectionAsciiString {.noSideEffect,
+proc String*(this: Expr_Equal): TCollection_AsciiString {.noSideEffect,
     importcpp: "String", header: "Expr_Equal.hxx".}
 type
-  ExprEqualbaseType* = ExprSingleRelation
+  Expr_Equalbase_type* = Expr_SingleRelation
 
-proc getTypeName*(): cstring {.importcpp: "Expr_Equal::get_type_name(@)",
-                            header: "Expr_Equal.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "Expr_Equal::get_type_name(@)",
+                              header: "Expr_Equal.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "Expr_Equal::get_type_descriptor(@)", header: "Expr_Equal.hxx".}
-proc dynamicType*(this: ExprEqual): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: Expr_Equal): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "Expr_Equal.hxx".}
-

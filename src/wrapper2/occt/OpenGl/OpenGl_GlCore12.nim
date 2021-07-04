@@ -13,40 +13,41 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  OpenGl_GlCore11
+
 ## ! OpenGL 1.2 core based on 1.1 version.
 
 type
-  OpenGlTmplCore12*[TheBaseClassT] {.importcpp: "OpenGl_TmplCore12<\'0>",
-                                    header: "OpenGl_GlCore12.hxx", bycopy.} = object of TheBaseClassT ##
-                                                                                               ## !
-                                                                                               ## @name
-                                                                                               ## OpenGL
-                                                                                               ## 1.2
-                                                                                               ## additives
-                                                                                               ## to
-                                                                                               ## 1.1
+  OpenGl_TmplCore12*[theBaseClass_t] {.importcpp: "OpenGl_TmplCore12<\'0>",
+                                      header: "OpenGl_GlCore12.hxx", bycopy.} = object of theBaseClass_t ##
+                                                                                                  ## !
+                                                                                                  ## @name
+                                                                                                  ## OpenGL
+                                                                                                  ## 1.2
+                                                                                                  ## additives
+                                                                                                  ## to
+                                                                                                  ## 1.1
 
 
 ## using statement
 
 ## using statement
 
-# when not defined(gl_Es_Version_20):
-#   discard
-# when not defined(gl_Es_Version_20):
-#   discard
-# when not defined(gl_Es_Version_20):
-#   discard
-# when not defined(gl_Es_Version_20):
-#   discard
+when not defined(GL_ES_VERSION_2_0):
+  discard
+when not defined(GL_ES_VERSION_2_0):
+  discard
+when not defined(GL_ES_VERSION_2_0):
+  discard
+when not defined(GL_ES_VERSION_2_0):
+  discard
 ## ! OpenGL 1.2 core based on 1.1 version.
 
 type
-  OpenGlGlCore12* = OpenGlTmplCore12[OpenGlGlCore11]
+  OpenGl_GlCore12* = OpenGl_TmplCore12[OpenGl_GlCore11]
 
 ## ! OpenGL 1.2 without deprecated entry points.
 
 type
-  OpenGlGlCore12Fwd* = OpenGlTmplCore12[OpenGlGlCore11Fwd]
-
-
+  OpenGl_GlCore12Fwd* = OpenGl_TmplCore12[OpenGl_GlCore11Fwd]

@@ -14,68 +14,72 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, Convert_ElementarySurfaceToBSplineSurface,
+  ../Standard/Standard_Real, ../Standard/Standard_Boolean
+
 discard "forward decl of Standard_DomainError"
 discard "forward decl of gp_Sphere"
 type
-  ConvertSphereToBSplineSurface* {.importcpp: "Convert_SphereToBSplineSurface",
-                                  header: "Convert_SphereToBSplineSurface.hxx",
-                                  bycopy.} = object of ConvertElementarySurfaceToBSplineSurface ##
-                                                                                           ## !
-                                                                                           ## The
-                                                                                           ## equivalent
-                                                                                           ## B-spline
-                                                                                           ## surface
-                                                                                           ## as
-                                                                                           ## the
-                                                                                           ## same
-                                                                                           ## orientation
-                                                                                           ## as
-                                                                                           ## the
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## sphere
-                                                                                           ## in
-                                                                                           ## the
-                                                                                           ## U
-                                                                                           ## and
-                                                                                           ## V
-                                                                                           ## parametric
-                                                                                           ## directions.
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## Raised
-                                                                                           ## if
-                                                                                           ## U1
-                                                                                           ## =
-                                                                                           ## U2
-                                                                                           ## or
-                                                                                           ## U1
-                                                                                           ## =
-                                                                                           ## U2
-                                                                                           ## +
-                                                                                           ## 2.0
-                                                                                           ## *
-                                                                                           ## Pi
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## Raised
-                                                                                           ## if
-                                                                                           ## V1
-                                                                                           ## =
-                                                                                           ## V2.
+  Convert_SphereToBSplineSurface* {.importcpp: "Convert_SphereToBSplineSurface", header: "Convert_SphereToBSplineSurface.hxx",
+                                   bycopy.} = object of Convert_ElementarySurfaceToBSplineSurface ##
+                                                                                             ## !
+                                                                                             ## The
+                                                                                             ## equivalent
+                                                                                             ## B-spline
+                                                                                             ## surface
+                                                                                             ## as
+                                                                                             ## the
+                                                                                             ## same
+                                                                                             ## orientation
+                                                                                             ## as
+                                                                                             ## the
+                                                                                             ##
+                                                                                             ## !
+                                                                                             ## sphere
+                                                                                             ## in
+                                                                                             ## the
+                                                                                             ## U
+                                                                                             ## and
+                                                                                             ## V
+                                                                                             ## parametric
+                                                                                             ## directions.
+                                                                                             ##
+                                                                                             ## !
+                                                                                             ##
+                                                                                             ## !
+                                                                                             ## Raised
+                                                                                             ## if
+                                                                                             ## U1
+                                                                                             ## =
+                                                                                             ## U2
+                                                                                             ## or
+                                                                                             ## U1
+                                                                                             ## =
+                                                                                             ## U2
+                                                                                             ## +
+                                                                                             ## 2.0
+                                                                                             ## *
+                                                                                             ## Pi
+                                                                                             ##
+                                                                                             ## !
+                                                                                             ## Raised
+                                                                                             ## if
+                                                                                             ## V1
+                                                                                             ## =
+                                                                                             ## V2.
 
 
-proc constructConvertSphereToBSplineSurface*(sph: GpSphere; u1: StandardReal;
-    u2: StandardReal; v1: StandardReal; v2: StandardReal): ConvertSphereToBSplineSurface {.
+proc constructConvert_SphereToBSplineSurface*(Sph: gp_Sphere; U1: Standard_Real;
+    U2: Standard_Real; V1: Standard_Real; V2: Standard_Real): Convert_SphereToBSplineSurface {.
     constructor, importcpp: "Convert_SphereToBSplineSurface(@)",
     header: "Convert_SphereToBSplineSurface.hxx".}
-proc constructConvertSphereToBSplineSurface*(sph: GpSphere; param1: StandardReal;
-    param2: StandardReal; uTrim: StandardBoolean = standardTrue): ConvertSphereToBSplineSurface {.
+proc constructConvert_SphereToBSplineSurface*(Sph: gp_Sphere;
+    Param1: Standard_Real; Param2: Standard_Real;
+    UTrim: Standard_Boolean = Standard_True): Convert_SphereToBSplineSurface {.
     constructor, importcpp: "Convert_SphereToBSplineSurface(@)",
     header: "Convert_SphereToBSplineSurface.hxx".}
-proc constructConvertSphereToBSplineSurface*(sph: GpSphere): ConvertSphereToBSplineSurface {.
+proc constructConvert_SphereToBSplineSurface*(Sph: gp_Sphere): Convert_SphereToBSplineSurface {.
     constructor, importcpp: "Convert_SphereToBSplineSurface(@)",
     header: "Convert_SphereToBSplineSurface.hxx".}
-

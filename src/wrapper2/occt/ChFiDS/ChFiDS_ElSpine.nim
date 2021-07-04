@@ -14,6 +14,14 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../GeomAdaptor/GeomAdaptor_Curve, ../gp/gp_Pnt,
+  ../gp/gp_Vec, ../TColgp/TColgp_SequenceOfAx1, ../Standard/Standard_Real,
+  ../Standard/Standard_Boolean, ../Adaptor3d/Adaptor3d_Curve,
+  ../GeomAbs/GeomAbs_Shape, ../Standard/Standard_Integer,
+  ../TColStd/TColStd_Array1OfReal, ../GeomAbs/GeomAbs_CurveType
+
 discard "forward decl of ChFiDS_SurfData"
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of Standard_NoSuchObject"
@@ -31,95 +39,94 @@ discard "forward decl of gp_Parab"
 discard "forward decl of Geom_BezierCurve"
 discard "forward decl of Geom_BSplineCurve"
 type
-  ChFiDS_ElSpine* {.importcpp: "ChFiDS_ElSpine", header: "ChFiDS_ElSpine.hxx", bycopy.} = object of Adaptor3dCurve
+  ChFiDS_ElSpine* {.importcpp: "ChFiDS_ElSpine", header: "ChFiDS_ElSpine.hxx", bycopy.} = object of Adaptor3d_Curve
 
 
 proc constructChFiDS_ElSpine*(): ChFiDS_ElSpine {.constructor,
     importcpp: "ChFiDS_ElSpine(@)", header: "ChFiDS_ElSpine.hxx".}
-proc firstParameter*(this: ChFiDS_ElSpine): StandardReal {.noSideEffect,
+proc FirstParameter*(this: ChFiDS_ElSpine): Standard_Real {.noSideEffect,
     importcpp: "FirstParameter", header: "ChFiDS_ElSpine.hxx".}
-proc lastParameter*(this: ChFiDS_ElSpine): StandardReal {.noSideEffect,
+proc LastParameter*(this: ChFiDS_ElSpine): Standard_Real {.noSideEffect,
     importcpp: "LastParameter", header: "ChFiDS_ElSpine.hxx".}
-proc getSavedFirstParameter*(this: ChFiDS_ElSpine): StandardReal {.noSideEffect,
+proc GetSavedFirstParameter*(this: ChFiDS_ElSpine): Standard_Real {.noSideEffect,
     importcpp: "GetSavedFirstParameter", header: "ChFiDS_ElSpine.hxx".}
-proc getSavedLastParameter*(this: ChFiDS_ElSpine): StandardReal {.noSideEffect,
+proc GetSavedLastParameter*(this: ChFiDS_ElSpine): Standard_Real {.noSideEffect,
     importcpp: "GetSavedLastParameter", header: "ChFiDS_ElSpine.hxx".}
-proc continuity*(this: ChFiDS_ElSpine): GeomAbsShape {.noSideEffect,
+proc Continuity*(this: ChFiDS_ElSpine): GeomAbs_Shape {.noSideEffect,
     importcpp: "Continuity", header: "ChFiDS_ElSpine.hxx".}
-proc nbIntervals*(this: ChFiDS_ElSpine; s: GeomAbsShape): StandardInteger {.
+proc NbIntervals*(this: ChFiDS_ElSpine; S: GeomAbs_Shape): Standard_Integer {.
     noSideEffect, importcpp: "NbIntervals", header: "ChFiDS_ElSpine.hxx".}
-proc intervals*(this: ChFiDS_ElSpine; t: var TColStdArray1OfReal; s: GeomAbsShape) {.
+proc Intervals*(this: ChFiDS_ElSpine; T: var TColStd_Array1OfReal; S: GeomAbs_Shape) {.
     noSideEffect, importcpp: "Intervals", header: "ChFiDS_ElSpine.hxx".}
-proc trim*(this: ChFiDS_ElSpine; first: StandardReal; last: StandardReal;
-          tol: StandardReal): Handle[Adaptor3dHCurve] {.noSideEffect,
+proc Trim*(this: ChFiDS_ElSpine; First: Standard_Real; Last: Standard_Real;
+          Tol: Standard_Real): handle[Adaptor3d_HCurve] {.noSideEffect,
     importcpp: "Trim", header: "ChFiDS_ElSpine.hxx".}
-proc resolution*(this: ChFiDS_ElSpine; r3d: StandardReal): StandardReal {.
+proc Resolution*(this: ChFiDS_ElSpine; R3d: Standard_Real): Standard_Real {.
     noSideEffect, importcpp: "Resolution", header: "ChFiDS_ElSpine.hxx".}
-proc getType*(this: ChFiDS_ElSpine): GeomAbsCurveType {.noSideEffect,
+proc GetType*(this: ChFiDS_ElSpine): GeomAbs_CurveType {.noSideEffect,
     importcpp: "GetType", header: "ChFiDS_ElSpine.hxx".}
-proc isPeriodic*(this: ChFiDS_ElSpine): StandardBoolean {.noSideEffect,
+proc IsPeriodic*(this: ChFiDS_ElSpine): Standard_Boolean {.noSideEffect,
     importcpp: "IsPeriodic", header: "ChFiDS_ElSpine.hxx".}
-proc setPeriodic*(this: var ChFiDS_ElSpine; i: StandardBoolean) {.
+proc SetPeriodic*(this: var ChFiDS_ElSpine; I: Standard_Boolean) {.
     importcpp: "SetPeriodic", header: "ChFiDS_ElSpine.hxx".}
-proc period*(this: ChFiDS_ElSpine): StandardReal {.noSideEffect, importcpp: "Period",
-    header: "ChFiDS_ElSpine.hxx".}
-proc value*(this: ChFiDS_ElSpine; absC: StandardReal): GpPnt {.noSideEffect,
+proc Period*(this: ChFiDS_ElSpine): Standard_Real {.noSideEffect,
+    importcpp: "Period", header: "ChFiDS_ElSpine.hxx".}
+proc Value*(this: ChFiDS_ElSpine; AbsC: Standard_Real): gp_Pnt {.noSideEffect,
     importcpp: "Value", header: "ChFiDS_ElSpine.hxx".}
-proc d0*(this: ChFiDS_ElSpine; absC: StandardReal; p: var GpPnt) {.noSideEffect,
+proc D0*(this: ChFiDS_ElSpine; AbsC: Standard_Real; P: var gp_Pnt) {.noSideEffect,
     importcpp: "D0", header: "ChFiDS_ElSpine.hxx".}
-proc d1*(this: ChFiDS_ElSpine; absC: StandardReal; p: var GpPnt; v1: var GpVec) {.
+proc D1*(this: ChFiDS_ElSpine; AbsC: Standard_Real; P: var gp_Pnt; V1: var gp_Vec) {.
     noSideEffect, importcpp: "D1", header: "ChFiDS_ElSpine.hxx".}
-proc d2*(this: ChFiDS_ElSpine; absC: StandardReal; p: var GpPnt; v1: var GpVec;
-        v2: var GpVec) {.noSideEffect, importcpp: "D2", header: "ChFiDS_ElSpine.hxx".}
-proc d3*(this: ChFiDS_ElSpine; absC: StandardReal; p: var GpPnt; v1: var GpVec;
-        v2: var GpVec; v3: var GpVec) {.noSideEffect, importcpp: "D3",
-                                  header: "ChFiDS_ElSpine.hxx".}
-proc firstParameter*(this: var ChFiDS_ElSpine; p: StandardReal) {.
+proc D2*(this: ChFiDS_ElSpine; AbsC: Standard_Real; P: var gp_Pnt; V1: var gp_Vec;
+        V2: var gp_Vec) {.noSideEffect, importcpp: "D2", header: "ChFiDS_ElSpine.hxx".}
+proc D3*(this: ChFiDS_ElSpine; AbsC: Standard_Real; P: var gp_Pnt; V1: var gp_Vec;
+        V2: var gp_Vec; V3: var gp_Vec) {.noSideEffect, importcpp: "D3",
+                                    header: "ChFiDS_ElSpine.hxx".}
+proc FirstParameter*(this: var ChFiDS_ElSpine; P: Standard_Real) {.
     importcpp: "FirstParameter", header: "ChFiDS_ElSpine.hxx".}
-proc lastParameter*(this: var ChFiDS_ElSpine; p: StandardReal) {.
+proc LastParameter*(this: var ChFiDS_ElSpine; P: Standard_Real) {.
     importcpp: "LastParameter", header: "ChFiDS_ElSpine.hxx".}
-proc saveFirstParameter*(this: var ChFiDS_ElSpine) {.
+proc SaveFirstParameter*(this: var ChFiDS_ElSpine) {.
     importcpp: "SaveFirstParameter", header: "ChFiDS_ElSpine.hxx".}
-proc saveLastParameter*(this: var ChFiDS_ElSpine) {.importcpp: "SaveLastParameter",
+proc SaveLastParameter*(this: var ChFiDS_ElSpine) {.importcpp: "SaveLastParameter",
     header: "ChFiDS_ElSpine.hxx".}
-proc setOrigin*(this: var ChFiDS_ElSpine; o: StandardReal) {.importcpp: "SetOrigin",
+proc SetOrigin*(this: var ChFiDS_ElSpine; O: Standard_Real) {.importcpp: "SetOrigin",
     header: "ChFiDS_ElSpine.hxx".}
-proc firstPointAndTgt*(this: ChFiDS_ElSpine; p: var GpPnt; t: var GpVec) {.noSideEffect,
-    importcpp: "FirstPointAndTgt", header: "ChFiDS_ElSpine.hxx".}
-proc lastPointAndTgt*(this: ChFiDS_ElSpine; p: var GpPnt; t: var GpVec) {.noSideEffect,
+proc FirstPointAndTgt*(this: ChFiDS_ElSpine; P: var gp_Pnt; T: var gp_Vec) {.
+    noSideEffect, importcpp: "FirstPointAndTgt", header: "ChFiDS_ElSpine.hxx".}
+proc LastPointAndTgt*(this: ChFiDS_ElSpine; P: var gp_Pnt; T: var gp_Vec) {.noSideEffect,
     importcpp: "LastPointAndTgt", header: "ChFiDS_ElSpine.hxx".}
-proc nbVertices*(this: ChFiDS_ElSpine): StandardInteger {.noSideEffect,
+proc NbVertices*(this: ChFiDS_ElSpine): Standard_Integer {.noSideEffect,
     importcpp: "NbVertices", header: "ChFiDS_ElSpine.hxx".}
-proc vertexWithTangent*(this: ChFiDS_ElSpine; index: StandardInteger): GpAx1 {.
+proc VertexWithTangent*(this: ChFiDS_ElSpine; Index: Standard_Integer): gp_Ax1 {.
     noSideEffect, importcpp: "VertexWithTangent", header: "ChFiDS_ElSpine.hxx".}
-proc setFirstPointAndTgt*(this: var ChFiDS_ElSpine; p: GpPnt; t: GpVec) {.
+proc SetFirstPointAndTgt*(this: var ChFiDS_ElSpine; P: gp_Pnt; T: gp_Vec) {.
     importcpp: "SetFirstPointAndTgt", header: "ChFiDS_ElSpine.hxx".}
-proc setLastPointAndTgt*(this: var ChFiDS_ElSpine; p: GpPnt; t: GpVec) {.
+proc SetLastPointAndTgt*(this: var ChFiDS_ElSpine; P: gp_Pnt; T: gp_Vec) {.
     importcpp: "SetLastPointAndTgt", header: "ChFiDS_ElSpine.hxx".}
-proc addVertexWithTangent*(this: var ChFiDS_ElSpine; anAx1: GpAx1) {.
+proc AddVertexWithTangent*(this: var ChFiDS_ElSpine; anAx1: gp_Ax1) {.
     importcpp: "AddVertexWithTangent", header: "ChFiDS_ElSpine.hxx".}
-proc setCurve*(this: var ChFiDS_ElSpine; c: Handle[GeomCurve]) {.
+proc SetCurve*(this: var ChFiDS_ElSpine; C: handle[Geom_Curve]) {.
     importcpp: "SetCurve", header: "ChFiDS_ElSpine.hxx".}
-proc previous*(this: ChFiDS_ElSpine): Handle[ChFiDS_SurfData] {.noSideEffect,
+proc Previous*(this: ChFiDS_ElSpine): handle[ChFiDS_SurfData] {.noSideEffect,
     importcpp: "Previous", header: "ChFiDS_ElSpine.hxx".}
-proc changePrevious*(this: var ChFiDS_ElSpine): var Handle[ChFiDS_SurfData] {.
+proc ChangePrevious*(this: var ChFiDS_ElSpine): var handle[ChFiDS_SurfData] {.
     importcpp: "ChangePrevious", header: "ChFiDS_ElSpine.hxx".}
-proc next*(this: ChFiDS_ElSpine): Handle[ChFiDS_SurfData] {.noSideEffect,
+proc Next*(this: ChFiDS_ElSpine): handle[ChFiDS_SurfData] {.noSideEffect,
     importcpp: "Next", header: "ChFiDS_ElSpine.hxx".}
-proc changeNext*(this: var ChFiDS_ElSpine): var Handle[ChFiDS_SurfData] {.
+proc ChangeNext*(this: var ChFiDS_ElSpine): var handle[ChFiDS_SurfData] {.
     importcpp: "ChangeNext", header: "ChFiDS_ElSpine.hxx".}
-proc line*(this: ChFiDS_ElSpine): GpLin {.noSideEffect, importcpp: "Line",
-                                      header: "ChFiDS_ElSpine.hxx".}
-proc circle*(this: ChFiDS_ElSpine): GpCirc {.noSideEffect, importcpp: "Circle",
+proc Line*(this: ChFiDS_ElSpine): gp_Lin {.noSideEffect, importcpp: "Line",
+                                       header: "ChFiDS_ElSpine.hxx".}
+proc Circle*(this: ChFiDS_ElSpine): gp_Circ {.noSideEffect, importcpp: "Circle",
     header: "ChFiDS_ElSpine.hxx".}
-proc ellipse*(this: ChFiDS_ElSpine): GpElips {.noSideEffect, importcpp: "Ellipse",
+proc Ellipse*(this: ChFiDS_ElSpine): gp_Elips {.noSideEffect, importcpp: "Ellipse",
     header: "ChFiDS_ElSpine.hxx".}
-proc hyperbola*(this: ChFiDS_ElSpine): GpHypr {.noSideEffect, importcpp: "Hyperbola",
+proc Hyperbola*(this: ChFiDS_ElSpine): gp_Hypr {.noSideEffect,
+    importcpp: "Hyperbola", header: "ChFiDS_ElSpine.hxx".}
+proc Parabola*(this: ChFiDS_ElSpine): gp_Parab {.noSideEffect, importcpp: "Parabola",
     header: "ChFiDS_ElSpine.hxx".}
-proc parabola*(this: ChFiDS_ElSpine): GpParab {.noSideEffect, importcpp: "Parabola",
-    header: "ChFiDS_ElSpine.hxx".}
-proc bezier*(this: ChFiDS_ElSpine): Handle[GeomBezierCurve] {.noSideEffect,
+proc Bezier*(this: ChFiDS_ElSpine): handle[Geom_BezierCurve] {.noSideEffect,
     importcpp: "Bezier", header: "ChFiDS_ElSpine.hxx".}
-proc bSpline*(this: ChFiDS_ElSpine): Handle[GeomBSplineCurve] {.noSideEffect,
+proc BSpline*(this: ChFiDS_ElSpine): handle[Geom_BSplineCurve] {.noSideEffect,
     importcpp: "BSpline", header: "ChFiDS_ElSpine.hxx".}
-

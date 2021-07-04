@@ -14,24 +14,28 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of HeaderSection_FileDescription"
 discard "forward decl of StepData_StepWriter"
 type
-  RWHeaderSectionRWFileDescription* {.importcpp: "RWHeaderSection_RWFileDescription", header: "RWHeaderSection_RWFileDescription.hxx",
-                                     bycopy.} = object
+  RWHeaderSection_RWFileDescription* {.importcpp: "RWHeaderSection_RWFileDescription", header: "RWHeaderSection_RWFileDescription.hxx",
+                                      bycopy.} = object
 
 
-proc constructRWHeaderSectionRWFileDescription*(): RWHeaderSectionRWFileDescription {.
+proc constructRWHeaderSection_RWFileDescription*(): RWHeaderSection_RWFileDescription {.
     constructor, importcpp: "RWHeaderSection_RWFileDescription(@)",
     header: "RWHeaderSection_RWFileDescription.hxx".}
-proc readStep*(this: RWHeaderSectionRWFileDescription;
-              data: Handle[StepDataStepReaderData]; num: StandardInteger;
-              ach: var Handle[InterfaceCheck];
-              ent: Handle[HeaderSectionFileDescription]) {.noSideEffect,
+proc ReadStep*(this: RWHeaderSection_RWFileDescription;
+              data: handle[StepData_StepReaderData]; num: Standard_Integer;
+              ach: var handle[Interface_Check];
+              ent: handle[HeaderSection_FileDescription]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWHeaderSection_RWFileDescription.hxx".}
-proc writeStep*(this: RWHeaderSectionRWFileDescription; sw: var StepDataStepWriter;
-               ent: Handle[HeaderSectionFileDescription]) {.noSideEffect,
+proc WriteStep*(this: RWHeaderSection_RWFileDescription;
+               SW: var StepData_StepWriter;
+               ent: handle[HeaderSection_FileDescription]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWHeaderSection_RWFileDescription.hxx".}
-

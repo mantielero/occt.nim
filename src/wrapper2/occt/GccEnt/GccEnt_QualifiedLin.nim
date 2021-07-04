@@ -14,36 +14,47 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, GccEnt_Position, ../gp/gp_Lin2d,
+  ../Standard/Standard_Boolean
+
 discard "forward decl of gp_Lin2d"
 type
-  GccEntQualifiedLin* {.importcpp: "GccEnt_QualifiedLin",
-                       header: "GccEnt_QualifiedLin.hxx", bycopy.} = object ## !
-                                                                       ## Constructs a qualified line by assigning the qualifier
-                                                                       ## ! Qualifier to the line
-                                                                       ## Qualified.
-                                                                       ## ! Qualifier may be:
-                                                                       ## ! -
-                                                                       ## GccEnt_enclosed if the solution is enclosed by the line, or
-                                                                       ## ! -
-                                                                       ## GccEnt_outside if both the solution and the line are external to one another, or
-                                                                       ## ! -
-                                                                       ## GccEnt_unqualified if all solutions apply.
-                                                                       ## ! Note : the interior of a line is defined as the left-hand
-                                                                       ## ! side of the line in relation to its
-                                                                       ## orientation.
+  GccEnt_QualifiedLin* {.importcpp: "GccEnt_QualifiedLin",
+                        header: "GccEnt_QualifiedLin.hxx", bycopy.} = object ## !
+                                                                        ## Constructs a
+                                                                        ## qualified line by
+                                                                        ## assigning the
+                                                                        ## qualifier
+                                                                        ## !
+                                                                        ## Qualifier to the line
+                                                                        ## Qualified.
+                                                                        ## !
+                                                                        ## Qualifier may be:
+                                                                        ## ! -
+                                                                        ## GccEnt_enclosed if the solution is enclosed by the line, or
+                                                                        ## ! -
+                                                                        ## GccEnt_outside if both the solution and the line are external to one another, or
+                                                                        ## ! -
+                                                                        ## GccEnt_unqualified if all
+                                                                        ## solutions apply.
+                                                                        ## ! Note : the interior of a line is defined as the
+                                                                        ## left-hand
+                                                                        ## ! side of the line in relation to its
+                                                                        ## orientation.
 
 
-proc constructGccEntQualifiedLin*(qualified: GpLin2d; qualifier: GccEntPosition): GccEntQualifiedLin {.
+proc constructGccEnt_QualifiedLin*(Qualified: gp_Lin2d; Qualifier: GccEnt_Position): GccEnt_QualifiedLin {.
     constructor, importcpp: "GccEnt_QualifiedLin(@)",
     header: "GccEnt_QualifiedLin.hxx".}
-proc qualified*(this: GccEntQualifiedLin): GpLin2d {.noSideEffect,
+proc Qualified*(this: GccEnt_QualifiedLin): gp_Lin2d {.noSideEffect,
     importcpp: "Qualified", header: "GccEnt_QualifiedLin.hxx".}
-proc qualifier*(this: GccEntQualifiedLin): GccEntPosition {.noSideEffect,
+proc Qualifier*(this: GccEnt_QualifiedLin): GccEnt_Position {.noSideEffect,
     importcpp: "Qualifier", header: "GccEnt_QualifiedLin.hxx".}
-proc isUnqualified*(this: GccEntQualifiedLin): StandardBoolean {.noSideEffect,
+proc IsUnqualified*(this: GccEnt_QualifiedLin): Standard_Boolean {.noSideEffect,
     importcpp: "IsUnqualified", header: "GccEnt_QualifiedLin.hxx".}
-proc isEnclosed*(this: GccEntQualifiedLin): StandardBoolean {.noSideEffect,
+proc IsEnclosed*(this: GccEnt_QualifiedLin): Standard_Boolean {.noSideEffect,
     importcpp: "IsEnclosed", header: "GccEnt_QualifiedLin.hxx".}
-proc isOutside*(this: GccEntQualifiedLin): StandardBoolean {.noSideEffect,
+proc IsOutside*(this: GccEnt_QualifiedLin): Standard_Boolean {.noSideEffect,
     importcpp: "IsOutside", header: "GccEnt_QualifiedLin.hxx".}
-

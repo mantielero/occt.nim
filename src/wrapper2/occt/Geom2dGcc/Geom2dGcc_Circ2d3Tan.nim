@@ -14,6 +14,14 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../TColgp/TColgp_Array1OfCirc2d,
+  ../Standard/Standard_Real, ../Standard/Standard_Boolean,
+  ../GccEnt/GccEnt_Array1OfPosition, ../TColStd/TColStd_Array1OfInteger,
+  ../TColgp/TColgp_Array1OfPnt2d, ../TColStd/TColStd_Array1OfReal,
+  ../Standard/Standard_Integer, ../GccEnt/GccEnt_Position
+
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of Geom2dGcc_QualifiedCurve"
@@ -22,91 +30,102 @@ discard "forward decl of GccAna_Circ2d3Tan"
 discard "forward decl of gp_Circ2d"
 discard "forward decl of gp_Pnt2d"
 type
-  Geom2dGccCirc2d3Tan* {.importcpp: "Geom2dGcc_Circ2d3Tan",
-                        header: "Geom2dGcc_Circ2d3Tan.hxx", bycopy.} = object ## !
-                                                                         ## Constructs one or more 2D circles
-                                                                         ## !
-                                                                         ## tangential to three curves
-                                                                         ## Qualified1,
-                                                                         ## Qualified2 and
-                                                                         ## !
-                                                                         ## Qualified3, where Param1, Param2 and Param3 are
-                                                                         ## ! used,
-                                                                         ## respectively, as the initial values of the
-                                                                         ## !
-                                                                         ## parameters on
-                                                                         ## Qualified1,
-                                                                         ## Qualified2 and
-                                                                         ## Qualified3
-                                                                         ## ! of the
-                                                                         ## tangency point between these
-                                                                         ## arguments and
-                                                                         ## ! the
-                                                                         ## solution sought, if the
-                                                                         ## algorithm chooses an
-                                                                         ## !
-                                                                         ## iterative method to find the
-                                                                         ## solution (i.e. if either
-                                                                         ## !
-                                                                         ## Qualified1,
-                                                                         ## Qualified2 or
-                                                                         ## Qualified3 is more complex
-                                                                         ## ! than a line or a
-                                                                         ## circle).
+  Geom2dGcc_Circ2d3Tan* {.importcpp: "Geom2dGcc_Circ2d3Tan",
+                         header: "Geom2dGcc_Circ2d3Tan.hxx", bycopy.} = object ## !
+                                                                          ## Constructs one or more 2D
+                                                                          ## circles
+                                                                          ## !
+                                                                          ## tangential to three curves
+                                                                          ## Qualified1,
+                                                                          ## Qualified2 and
+                                                                          ## !
+                                                                          ## Qualified3, where
+                                                                          ## Param1, Param2 and Param3 are
+                                                                          ## ! used,
+                                                                          ## respectively, as the
+                                                                          ## initial values of the
+                                                                          ## !
+                                                                          ## parameters on
+                                                                          ## Qualified1,
+                                                                          ## Qualified2 and
+                                                                          ## Qualified3
+                                                                          ## ! of the
+                                                                          ## tangency point
+                                                                          ## between these
+                                                                          ## arguments and
+                                                                          ## ! the
+                                                                          ## solution
+                                                                          ## sought, if the
+                                                                          ## algorithm
+                                                                          ## chooses an
+                                                                          ## !
+                                                                          ## iterative method to find the
+                                                                          ## solution (i.e. if either
+                                                                          ## !
+                                                                          ## Qualified1,
+                                                                          ## Qualified2 or
+                                                                          ## Qualified3 is more
+                                                                          ## complex
+                                                                          ## ! than a line or a
+                                                                          ## circle).
 
 
-proc constructGeom2dGccCirc2d3Tan*(qualified1: Geom2dGccQualifiedCurve;
-                                  qualified2: Geom2dGccQualifiedCurve;
-                                  qualified3: Geom2dGccQualifiedCurve;
-                                  tolerance: StandardReal; param1: StandardReal;
-                                  param2: StandardReal; param3: StandardReal): Geom2dGccCirc2d3Tan {.
+proc constructGeom2dGcc_Circ2d3Tan*(Qualified1: Geom2dGcc_QualifiedCurve;
+                                   Qualified2: Geom2dGcc_QualifiedCurve;
+                                   Qualified3: Geom2dGcc_QualifiedCurve;
+                                   Tolerance: Standard_Real;
+                                   Param1: Standard_Real; Param2: Standard_Real;
+                                   Param3: Standard_Real): Geom2dGcc_Circ2d3Tan {.
     constructor, importcpp: "Geom2dGcc_Circ2d3Tan(@)",
     header: "Geom2dGcc_Circ2d3Tan.hxx".}
-proc constructGeom2dGccCirc2d3Tan*(qualified1: Geom2dGccQualifiedCurve;
-                                  qualified2: Geom2dGccQualifiedCurve;
-                                  point: Handle[Geom2dPoint];
-                                  tolerance: StandardReal; param1: StandardReal;
-                                  param2: StandardReal): Geom2dGccCirc2d3Tan {.
+proc constructGeom2dGcc_Circ2d3Tan*(Qualified1: Geom2dGcc_QualifiedCurve;
+                                   Qualified2: Geom2dGcc_QualifiedCurve;
+                                   Point: handle[Geom2d_Point];
+                                   Tolerance: Standard_Real;
+                                   Param1: Standard_Real; Param2: Standard_Real): Geom2dGcc_Circ2d3Tan {.
     constructor, importcpp: "Geom2dGcc_Circ2d3Tan(@)",
     header: "Geom2dGcc_Circ2d3Tan.hxx".}
-proc constructGeom2dGccCirc2d3Tan*(qualified1: Geom2dGccQualifiedCurve;
-                                  point1: Handle[Geom2dPoint];
-                                  point2: Handle[Geom2dPoint];
-                                  tolerance: StandardReal; param1: StandardReal): Geom2dGccCirc2d3Tan {.
+proc constructGeom2dGcc_Circ2d3Tan*(Qualified1: Geom2dGcc_QualifiedCurve;
+                                   Point1: handle[Geom2d_Point];
+                                   Point2: handle[Geom2d_Point];
+                                   Tolerance: Standard_Real; Param1: Standard_Real): Geom2dGcc_Circ2d3Tan {.
     constructor, importcpp: "Geom2dGcc_Circ2d3Tan(@)",
     header: "Geom2dGcc_Circ2d3Tan.hxx".}
-proc constructGeom2dGccCirc2d3Tan*(point1: Handle[Geom2dPoint];
-                                  point2: Handle[Geom2dPoint];
-                                  point3: Handle[Geom2dPoint];
-                                  tolerance: StandardReal): Geom2dGccCirc2d3Tan {.
+proc constructGeom2dGcc_Circ2d3Tan*(Point1: handle[Geom2d_Point];
+                                   Point2: handle[Geom2d_Point];
+                                   Point3: handle[Geom2d_Point];
+                                   Tolerance: Standard_Real): Geom2dGcc_Circ2d3Tan {.
     constructor, importcpp: "Geom2dGcc_Circ2d3Tan(@)",
     header: "Geom2dGcc_Circ2d3Tan.hxx".}
-proc results*(this: var Geom2dGccCirc2d3Tan; circ: GccAnaCirc2d3Tan;
-             rank1: StandardInteger; rank2: StandardInteger; rank3: StandardInteger) {.
-    importcpp: "Results", header: "Geom2dGcc_Circ2d3Tan.hxx".}
-proc isDone*(this: Geom2dGccCirc2d3Tan): StandardBoolean {.noSideEffect,
+proc Results*(this: var Geom2dGcc_Circ2d3Tan; Circ: GccAna_Circ2d3Tan;
+             Rank1: Standard_Integer; Rank2: Standard_Integer;
+             Rank3: Standard_Integer) {.importcpp: "Results",
+                                      header: "Geom2dGcc_Circ2d3Tan.hxx".}
+proc IsDone*(this: Geom2dGcc_Circ2d3Tan): Standard_Boolean {.noSideEffect,
     importcpp: "IsDone", header: "Geom2dGcc_Circ2d3Tan.hxx".}
-proc nbSolutions*(this: Geom2dGccCirc2d3Tan): StandardInteger {.noSideEffect,
+proc NbSolutions*(this: Geom2dGcc_Circ2d3Tan): Standard_Integer {.noSideEffect,
     importcpp: "NbSolutions", header: "Geom2dGcc_Circ2d3Tan.hxx".}
-proc thisSolution*(this: Geom2dGccCirc2d3Tan; index: StandardInteger): GpCirc2d {.
+proc ThisSolution*(this: Geom2dGcc_Circ2d3Tan; Index: Standard_Integer): gp_Circ2d {.
     noSideEffect, importcpp: "ThisSolution", header: "Geom2dGcc_Circ2d3Tan.hxx".}
-proc whichQualifier*(this: Geom2dGccCirc2d3Tan; index: StandardInteger;
-                    qualif1: var GccEntPosition; qualif2: var GccEntPosition;
-                    qualif3: var GccEntPosition) {.noSideEffect,
+proc WhichQualifier*(this: Geom2dGcc_Circ2d3Tan; Index: Standard_Integer;
+                    Qualif1: var GccEnt_Position; Qualif2: var GccEnt_Position;
+                    Qualif3: var GccEnt_Position) {.noSideEffect,
     importcpp: "WhichQualifier", header: "Geom2dGcc_Circ2d3Tan.hxx".}
-proc tangency1*(this: Geom2dGccCirc2d3Tan; index: StandardInteger;
-               parSol: var StandardReal; parArg: var StandardReal; pntSol: var GpPnt2d) {.
-    noSideEffect, importcpp: "Tangency1", header: "Geom2dGcc_Circ2d3Tan.hxx".}
-proc tangency2*(this: Geom2dGccCirc2d3Tan; index: StandardInteger;
-               parSol: var StandardReal; parArg: var StandardReal; pntSol: var GpPnt2d) {.
-    noSideEffect, importcpp: "Tangency2", header: "Geom2dGcc_Circ2d3Tan.hxx".}
-proc tangency3*(this: Geom2dGccCirc2d3Tan; index: StandardInteger;
-               parSol: var StandardReal; parArg: var StandardReal; pntSol: var GpPnt2d) {.
-    noSideEffect, importcpp: "Tangency3", header: "Geom2dGcc_Circ2d3Tan.hxx".}
-proc isTheSame1*(this: Geom2dGccCirc2d3Tan; index: StandardInteger): StandardBoolean {.
+proc Tangency1*(this: Geom2dGcc_Circ2d3Tan; Index: Standard_Integer;
+               ParSol: var Standard_Real; ParArg: var Standard_Real;
+               PntSol: var gp_Pnt2d) {.noSideEffect, importcpp: "Tangency1",
+                                    header: "Geom2dGcc_Circ2d3Tan.hxx".}
+proc Tangency2*(this: Geom2dGcc_Circ2d3Tan; Index: Standard_Integer;
+               ParSol: var Standard_Real; ParArg: var Standard_Real;
+               PntSol: var gp_Pnt2d) {.noSideEffect, importcpp: "Tangency2",
+                                    header: "Geom2dGcc_Circ2d3Tan.hxx".}
+proc Tangency3*(this: Geom2dGcc_Circ2d3Tan; Index: Standard_Integer;
+               ParSol: var Standard_Real; ParArg: var Standard_Real;
+               PntSol: var gp_Pnt2d) {.noSideEffect, importcpp: "Tangency3",
+                                    header: "Geom2dGcc_Circ2d3Tan.hxx".}
+proc IsTheSame1*(this: Geom2dGcc_Circ2d3Tan; Index: Standard_Integer): Standard_Boolean {.
     noSideEffect, importcpp: "IsTheSame1", header: "Geom2dGcc_Circ2d3Tan.hxx".}
-proc isTheSame2*(this: Geom2dGccCirc2d3Tan; index: StandardInteger): StandardBoolean {.
+proc IsTheSame2*(this: Geom2dGcc_Circ2d3Tan; Index: Standard_Integer): Standard_Boolean {.
     noSideEffect, importcpp: "IsTheSame2", header: "Geom2dGcc_Circ2d3Tan.hxx".}
-proc isTheSame3*(this: Geom2dGccCirc2d3Tan; index: StandardInteger): StandardBoolean {.
+proc IsTheSame3*(this: Geom2dGcc_Circ2d3Tan; Index: Standard_Integer): Standard_Boolean {.
     noSideEffect, importcpp: "IsTheSame3", header: "Geom2dGcc_Circ2d3Tan.hxx".}
-

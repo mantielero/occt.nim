@@ -13,6 +13,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../gp/gp_Pnt,
+  ../Select3D/Select3D_SensitiveFace, ../Select3D/Select3D_TypeOfSensitivity
+
 ## ! This class provides custom sensitive face, which will be selected if it center is in rectangle.
 
 type
@@ -20,22 +24,20 @@ type
                          header: "MeshVS_SensitiveFace.hxx", bycopy.} = object of Select3D_SensitiveFace
 
 
-proc constructMeshVS_SensitiveFace*(theOwner: Handle[SelectMgrEntityOwner];
-                                   thePoints: TColgpArray1OfPnt; theSensType: Select3D_TypeOfSensitivity = select3D_TOS_INTERIOR): MeshVS_SensitiveFace {.
+proc constructMeshVS_SensitiveFace*(theOwner: handle[SelectMgr_EntityOwner];
+                                   thePoints: TColgp_Array1OfPnt; theSensType: Select3D_TypeOfSensitivity = Select3D_TOS_INTERIOR): MeshVS_SensitiveFace {.
     constructor, importcpp: "MeshVS_SensitiveFace(@)",
     header: "MeshVS_SensitiveFace.hxx".}
 type
-  MeshVS_SensitiveFacebaseType* = Select3D_SensitiveFace
+  MeshVS_SensitiveFacebase_type* = Select3D_SensitiveFace
 
-proc getTypeName*(): cstring {.importcpp: "MeshVS_SensitiveFace::get_type_name(@)",
-                            header: "MeshVS_SensitiveFace.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "MeshVS_SensitiveFace::get_type_name(@)",
+                              header: "MeshVS_SensitiveFace.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "MeshVS_SensitiveFace::get_type_descriptor(@)",
     header: "MeshVS_SensitiveFace.hxx".}
-proc dynamicType*(this: MeshVS_SensitiveFace): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: MeshVS_SensitiveFace): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "MeshVS_SensitiveFace.hxx".}
 discard "forward decl of MeshVS_SensitiveFace"
 type
-  HandleMeshVS_SensitiveFace* = Handle[MeshVS_SensitiveFace]
-
-
+  Handle_MeshVS_SensitiveFace* = handle[MeshVS_SensitiveFace]

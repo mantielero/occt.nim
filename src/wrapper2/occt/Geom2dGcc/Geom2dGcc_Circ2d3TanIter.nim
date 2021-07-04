@@ -14,6 +14,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Boolean, ../gp/gp_Circ2d,
+  ../GccEnt/GccEnt_Position, ../gp/gp_Pnt2d, ../Standard/Standard_Real
+
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of GccEnt_QualifiedCirc"
 discard "forward decl of Geom2dGcc_QCurve"
@@ -21,126 +26,131 @@ discard "forward decl of GccEnt_QualifiedLin"
 discard "forward decl of gp_Pnt2d"
 discard "forward decl of gp_Circ2d"
 type
-  Geom2dGccCirc2d3TanIter* {.importcpp: "Geom2dGcc_Circ2d3TanIter",
-                            header: "Geom2dGcc_Circ2d3TanIter.hxx", bycopy.} = object ##
-                                                                                 ## !
-                                                                                 ## This
-                                                                                 ## method
-                                                                                 ## implements
-                                                                                 ## the
-                                                                                 ## algorithms
-                                                                                 ## used
-                                                                                 ## to
-                                                                                 ##
-                                                                                 ## !
-                                                                                 ## create
-                                                                                 ## 2d
-                                                                                 ## circles
-                                                                                 ## tangent
-                                                                                 ## to
-                                                                                 ## 2
-                                                                                 ## circles
-                                                                                 ## and
-                                                                                 ## a
-                                                                                 ## curve.
+  Geom2dGcc_Circ2d3TanIter* {.importcpp: "Geom2dGcc_Circ2d3TanIter",
+                             header: "Geom2dGcc_Circ2d3TanIter.hxx", bycopy.} = object ##
+                                                                                  ## !
+                                                                                  ## This
+                                                                                  ## method
+                                                                                  ## implements
+                                                                                  ## the
+                                                                                  ## algorithms
+                                                                                  ## used
+                                                                                  ## to
+                                                                                  ##
+                                                                                  ## !
+                                                                                  ## create
+                                                                                  ## 2d
+                                                                                  ## circles
+                                                                                  ## tangent
+                                                                                  ## to
+                                                                                  ## 2
+                                                                                  ## circles
+                                                                                  ## and
+                                                                                  ## a
+                                                                                  ## curve.
 
 
-proc constructGeom2dGccCirc2d3TanIter*(qualified1: GccEntQualifiedCirc;
-                                      qualified2: GccEntQualifiedCirc;
-                                      qualified3: Geom2dGccQCurve;
-                                      param1: StandardReal; param2: StandardReal;
-                                      param3: StandardReal;
-                                      tolerance: StandardReal): Geom2dGccCirc2d3TanIter {.
+proc constructGeom2dGcc_Circ2d3TanIter*(Qualified1: GccEnt_QualifiedCirc;
+                                       Qualified2: GccEnt_QualifiedCirc;
+                                       Qualified3: Geom2dGcc_QCurve;
+                                       Param1: Standard_Real;
+                                       Param2: Standard_Real;
+                                       Param3: Standard_Real;
+                                       Tolerance: Standard_Real): Geom2dGcc_Circ2d3TanIter {.
     constructor, importcpp: "Geom2dGcc_Circ2d3TanIter(@)",
     header: "Geom2dGcc_Circ2d3TanIter.hxx".}
-proc constructGeom2dGccCirc2d3TanIter*(qualified1: GccEntQualifiedCirc;
-                                      qualified2: Geom2dGccQCurve;
-                                      qualified3: Geom2dGccQCurve;
-                                      param1: StandardReal; param2: StandardReal;
-                                      param3: StandardReal;
-                                      tolerance: StandardReal): Geom2dGccCirc2d3TanIter {.
+proc constructGeom2dGcc_Circ2d3TanIter*(Qualified1: GccEnt_QualifiedCirc;
+                                       Qualified2: Geom2dGcc_QCurve;
+                                       Qualified3: Geom2dGcc_QCurve;
+                                       Param1: Standard_Real;
+                                       Param2: Standard_Real;
+                                       Param3: Standard_Real;
+                                       Tolerance: Standard_Real): Geom2dGcc_Circ2d3TanIter {.
     constructor, importcpp: "Geom2dGcc_Circ2d3TanIter(@)",
     header: "Geom2dGcc_Circ2d3TanIter.hxx".}
-proc constructGeom2dGccCirc2d3TanIter*(qualified1: GccEntQualifiedCirc;
-                                      qualified2: GccEntQualifiedLin;
-                                      qualified3: Geom2dGccQCurve;
-                                      param1: StandardReal; param2: StandardReal;
-                                      param3: StandardReal;
-                                      tolerance: StandardReal): Geom2dGccCirc2d3TanIter {.
+proc constructGeom2dGcc_Circ2d3TanIter*(Qualified1: GccEnt_QualifiedCirc;
+                                       Qualified2: GccEnt_QualifiedLin;
+                                       Qualified3: Geom2dGcc_QCurve;
+                                       Param1: Standard_Real;
+                                       Param2: Standard_Real;
+                                       Param3: Standard_Real;
+                                       Tolerance: Standard_Real): Geom2dGcc_Circ2d3TanIter {.
     constructor, importcpp: "Geom2dGcc_Circ2d3TanIter(@)",
     header: "Geom2dGcc_Circ2d3TanIter.hxx".}
-proc constructGeom2dGccCirc2d3TanIter*(qualified1: GccEntQualifiedCirc;
-                                      qualified2: Geom2dGccQCurve;
-                                      point3: GpPnt2d; param1: StandardReal;
-                                      param2: StandardReal;
-                                      tolerance: StandardReal): Geom2dGccCirc2d3TanIter {.
+proc constructGeom2dGcc_Circ2d3TanIter*(Qualified1: GccEnt_QualifiedCirc;
+                                       Qualified2: Geom2dGcc_QCurve;
+                                       Point3: gp_Pnt2d; Param1: Standard_Real;
+                                       Param2: Standard_Real;
+                                       Tolerance: Standard_Real): Geom2dGcc_Circ2d3TanIter {.
     constructor, importcpp: "Geom2dGcc_Circ2d3TanIter(@)",
     header: "Geom2dGcc_Circ2d3TanIter.hxx".}
-proc constructGeom2dGccCirc2d3TanIter*(qualified1: GccEntQualifiedLin;
-                                      qualified2: GccEntQualifiedLin;
-                                      qualified3: Geom2dGccQCurve;
-                                      param1: StandardReal; param2: StandardReal;
-                                      param3: StandardReal;
-                                      tolerance: StandardReal): Geom2dGccCirc2d3TanIter {.
+proc constructGeom2dGcc_Circ2d3TanIter*(Qualified1: GccEnt_QualifiedLin;
+                                       Qualified2: GccEnt_QualifiedLin;
+                                       Qualified3: Geom2dGcc_QCurve;
+                                       Param1: Standard_Real;
+                                       Param2: Standard_Real;
+                                       Param3: Standard_Real;
+                                       Tolerance: Standard_Real): Geom2dGcc_Circ2d3TanIter {.
     constructor, importcpp: "Geom2dGcc_Circ2d3TanIter(@)",
     header: "Geom2dGcc_Circ2d3TanIter.hxx".}
-proc constructGeom2dGccCirc2d3TanIter*(qualified1: GccEntQualifiedLin;
-                                      qualified2: Geom2dGccQCurve;
-                                      qualified3: Geom2dGccQCurve;
-                                      param1: StandardReal; param2: StandardReal;
-                                      param3: StandardReal;
-                                      tolerance: StandardReal): Geom2dGccCirc2d3TanIter {.
+proc constructGeom2dGcc_Circ2d3TanIter*(Qualified1: GccEnt_QualifiedLin;
+                                       Qualified2: Geom2dGcc_QCurve;
+                                       Qualified3: Geom2dGcc_QCurve;
+                                       Param1: Standard_Real;
+                                       Param2: Standard_Real;
+                                       Param3: Standard_Real;
+                                       Tolerance: Standard_Real): Geom2dGcc_Circ2d3TanIter {.
     constructor, importcpp: "Geom2dGcc_Circ2d3TanIter(@)",
     header: "Geom2dGcc_Circ2d3TanIter.hxx".}
-proc constructGeom2dGccCirc2d3TanIter*(qualified1: GccEntQualifiedLin;
-                                      qualified2: Geom2dGccQCurve;
-                                      point3: GpPnt2d; param1: StandardReal;
-                                      param2: StandardReal;
-                                      tolerance: StandardReal): Geom2dGccCirc2d3TanIter {.
+proc constructGeom2dGcc_Circ2d3TanIter*(Qualified1: GccEnt_QualifiedLin;
+                                       Qualified2: Geom2dGcc_QCurve;
+                                       Point3: gp_Pnt2d; Param1: Standard_Real;
+                                       Param2: Standard_Real;
+                                       Tolerance: Standard_Real): Geom2dGcc_Circ2d3TanIter {.
     constructor, importcpp: "Geom2dGcc_Circ2d3TanIter(@)",
     header: "Geom2dGcc_Circ2d3TanIter.hxx".}
-proc constructGeom2dGccCirc2d3TanIter*(qualified1: Geom2dGccQCurve;
-                                      point1: GpPnt2d; point2: GpPnt2d;
-                                      param1: StandardReal;
-                                      tolerance: StandardReal): Geom2dGccCirc2d3TanIter {.
+proc constructGeom2dGcc_Circ2d3TanIter*(Qualified1: Geom2dGcc_QCurve;
+                                       Point1: gp_Pnt2d; Point2: gp_Pnt2d;
+                                       Param1: Standard_Real;
+                                       Tolerance: Standard_Real): Geom2dGcc_Circ2d3TanIter {.
     constructor, importcpp: "Geom2dGcc_Circ2d3TanIter(@)",
     header: "Geom2dGcc_Circ2d3TanIter.hxx".}
-proc constructGeom2dGccCirc2d3TanIter*(qualified1: Geom2dGccQCurve;
-                                      qualified2: Geom2dGccQCurve;
-                                      point2: GpPnt2d; param1: StandardReal;
-                                      param2: StandardReal;
-                                      tolerance: StandardReal): Geom2dGccCirc2d3TanIter {.
+proc constructGeom2dGcc_Circ2d3TanIter*(Qualified1: Geom2dGcc_QCurve;
+                                       Qualified2: Geom2dGcc_QCurve;
+                                       Point2: gp_Pnt2d; Param1: Standard_Real;
+                                       Param2: Standard_Real;
+                                       Tolerance: Standard_Real): Geom2dGcc_Circ2d3TanIter {.
     constructor, importcpp: "Geom2dGcc_Circ2d3TanIter(@)",
     header: "Geom2dGcc_Circ2d3TanIter.hxx".}
-proc constructGeom2dGccCirc2d3TanIter*(qualified1: Geom2dGccQCurve;
-                                      qualified2: Geom2dGccQCurve;
-                                      qualified3: Geom2dGccQCurve;
-                                      param1: StandardReal; param2: StandardReal;
-                                      param3: StandardReal;
-                                      tolerance: StandardReal): Geom2dGccCirc2d3TanIter {.
+proc constructGeom2dGcc_Circ2d3TanIter*(Qualified1: Geom2dGcc_QCurve;
+                                       Qualified2: Geom2dGcc_QCurve;
+                                       Qualified3: Geom2dGcc_QCurve;
+                                       Param1: Standard_Real;
+                                       Param2: Standard_Real;
+                                       Param3: Standard_Real;
+                                       Tolerance: Standard_Real): Geom2dGcc_Circ2d3TanIter {.
     constructor, importcpp: "Geom2dGcc_Circ2d3TanIter(@)",
     header: "Geom2dGcc_Circ2d3TanIter.hxx".}
-proc isDone*(this: Geom2dGccCirc2d3TanIter): StandardBoolean {.noSideEffect,
+proc IsDone*(this: Geom2dGcc_Circ2d3TanIter): Standard_Boolean {.noSideEffect,
     importcpp: "IsDone", header: "Geom2dGcc_Circ2d3TanIter.hxx".}
-proc thisSolution*(this: Geom2dGccCirc2d3TanIter): GpCirc2d {.noSideEffect,
+proc ThisSolution*(this: Geom2dGcc_Circ2d3TanIter): gp_Circ2d {.noSideEffect,
     importcpp: "ThisSolution", header: "Geom2dGcc_Circ2d3TanIter.hxx".}
-proc whichQualifier*(this: Geom2dGccCirc2d3TanIter; qualif1: var GccEntPosition;
-                    qualif2: var GccEntPosition; qualif3: var GccEntPosition) {.
+proc WhichQualifier*(this: Geom2dGcc_Circ2d3TanIter; Qualif1: var GccEnt_Position;
+                    Qualif2: var GccEnt_Position; Qualif3: var GccEnt_Position) {.
     noSideEffect, importcpp: "WhichQualifier",
     header: "Geom2dGcc_Circ2d3TanIter.hxx".}
-proc tangency1*(this: Geom2dGccCirc2d3TanIter; parSol: var StandardReal;
-               parArg: var StandardReal; pntSol: var GpPnt2d) {.noSideEffect,
+proc Tangency1*(this: Geom2dGcc_Circ2d3TanIter; ParSol: var Standard_Real;
+               ParArg: var Standard_Real; PntSol: var gp_Pnt2d) {.noSideEffect,
     importcpp: "Tangency1", header: "Geom2dGcc_Circ2d3TanIter.hxx".}
-proc tangency2*(this: Geom2dGccCirc2d3TanIter; parSol: var StandardReal;
-               parArg: var StandardReal; pntSol: var GpPnt2d) {.noSideEffect,
+proc Tangency2*(this: Geom2dGcc_Circ2d3TanIter; ParSol: var Standard_Real;
+               ParArg: var Standard_Real; PntSol: var gp_Pnt2d) {.noSideEffect,
     importcpp: "Tangency2", header: "Geom2dGcc_Circ2d3TanIter.hxx".}
-proc tangency3*(this: Geom2dGccCirc2d3TanIter; parSol: var StandardReal;
-               parArg: var StandardReal; pntSol: var GpPnt2d) {.noSideEffect,
+proc Tangency3*(this: Geom2dGcc_Circ2d3TanIter; ParSol: var Standard_Real;
+               ParArg: var Standard_Real; PntSol: var gp_Pnt2d) {.noSideEffect,
     importcpp: "Tangency3", header: "Geom2dGcc_Circ2d3TanIter.hxx".}
-proc isTheSame1*(this: Geom2dGccCirc2d3TanIter): StandardBoolean {.noSideEffect,
+proc IsTheSame1*(this: Geom2dGcc_Circ2d3TanIter): Standard_Boolean {.noSideEffect,
     importcpp: "IsTheSame1", header: "Geom2dGcc_Circ2d3TanIter.hxx".}
-proc isTheSame2*(this: Geom2dGccCirc2d3TanIter): StandardBoolean {.noSideEffect,
+proc IsTheSame2*(this: Geom2dGcc_Circ2d3TanIter): Standard_Boolean {.noSideEffect,
     importcpp: "IsTheSame2", header: "Geom2dGcc_Circ2d3TanIter.hxx".}
-proc isTheSame3*(this: Geom2dGccCirc2d3TanIter): StandardBoolean {.noSideEffect,
+proc IsTheSame3*(this: Geom2dGcc_Circ2d3TanIter): Standard_Boolean {.noSideEffect,
     importcpp: "IsTheSame3", header: "Geom2dGcc_Circ2d3TanIter.hxx".}
-

@@ -14,6 +14,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, Expr_UnaryExpression,
+  ../Standard/Standard_Boolean, ../Standard/Standard_Real,
+  Expr_Array1OfNamedUnknown, ../TColStd/TColStd_Array1OfReal
+
 discard "forward decl of Standard_NumericError"
 discard "forward decl of Expr_NotEvaluable"
 discard "forward decl of Expr_GeneralExpression"
@@ -22,37 +27,36 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of Expr_SquareRoot"
 discard "forward decl of Expr_SquareRoot"
 type
-  HandleExprSquareRoot* = Handle[ExprSquareRoot]
-  ExprSquareRoot* {.importcpp: "Expr_SquareRoot", header: "Expr_SquareRoot.hxx",
-                   bycopy.} = object of ExprUnaryExpression ## ! Creates the square root of <exp>
+  Handle_Expr_SquareRoot* = handle[Expr_SquareRoot]
+  Expr_SquareRoot* {.importcpp: "Expr_SquareRoot", header: "Expr_SquareRoot.hxx",
+                    bycopy.} = object of Expr_UnaryExpression ## ! Creates the square root of <exp>
 
 
-proc constructExprSquareRoot*(exp: Handle[ExprGeneralExpression]): ExprSquareRoot {.
+proc constructExpr_SquareRoot*(exp: handle[Expr_GeneralExpression]): Expr_SquareRoot {.
     constructor, importcpp: "Expr_SquareRoot(@)", header: "Expr_SquareRoot.hxx".}
-proc shallowSimplified*(this: ExprSquareRoot): Handle[ExprGeneralExpression] {.
+proc ShallowSimplified*(this: Expr_SquareRoot): handle[Expr_GeneralExpression] {.
     noSideEffect, importcpp: "ShallowSimplified", header: "Expr_SquareRoot.hxx".}
-proc copy*(this: ExprSquareRoot): Handle[ExprGeneralExpression] {.noSideEffect,
+proc Copy*(this: Expr_SquareRoot): handle[Expr_GeneralExpression] {.noSideEffect,
     importcpp: "Copy", header: "Expr_SquareRoot.hxx".}
-proc isIdentical*(this: ExprSquareRoot; other: Handle[ExprGeneralExpression]): StandardBoolean {.
+proc IsIdentical*(this: Expr_SquareRoot; Other: handle[Expr_GeneralExpression]): Standard_Boolean {.
     noSideEffect, importcpp: "IsIdentical", header: "Expr_SquareRoot.hxx".}
-proc isLinear*(this: ExprSquareRoot): StandardBoolean {.noSideEffect,
+proc IsLinear*(this: Expr_SquareRoot): Standard_Boolean {.noSideEffect,
     importcpp: "IsLinear", header: "Expr_SquareRoot.hxx".}
-proc derivative*(this: ExprSquareRoot; x: Handle[ExprNamedUnknown]): Handle[
-    ExprGeneralExpression] {.noSideEffect, importcpp: "Derivative",
-                            header: "Expr_SquareRoot.hxx".}
-proc evaluate*(this: ExprSquareRoot; vars: ExprArray1OfNamedUnknown;
-              vals: TColStdArray1OfReal): StandardReal {.noSideEffect,
+proc Derivative*(this: Expr_SquareRoot; X: handle[Expr_NamedUnknown]): handle[
+    Expr_GeneralExpression] {.noSideEffect, importcpp: "Derivative",
+                             header: "Expr_SquareRoot.hxx".}
+proc Evaluate*(this: Expr_SquareRoot; vars: Expr_Array1OfNamedUnknown;
+              vals: TColStd_Array1OfReal): Standard_Real {.noSideEffect,
     importcpp: "Evaluate", header: "Expr_SquareRoot.hxx".}
-proc string*(this: ExprSquareRoot): TCollectionAsciiString {.noSideEffect,
+proc String*(this: Expr_SquareRoot): TCollection_AsciiString {.noSideEffect,
     importcpp: "String", header: "Expr_SquareRoot.hxx".}
 type
-  ExprSquareRootbaseType* = ExprUnaryExpression
+  Expr_SquareRootbase_type* = Expr_UnaryExpression
 
-proc getTypeName*(): cstring {.importcpp: "Expr_SquareRoot::get_type_name(@)",
-                            header: "Expr_SquareRoot.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "Expr_SquareRoot::get_type_name(@)",
+                              header: "Expr_SquareRoot.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "Expr_SquareRoot::get_type_descriptor(@)",
     header: "Expr_SquareRoot.hxx".}
-proc dynamicType*(this: ExprSquareRoot): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: Expr_SquareRoot): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "Expr_SquareRoot.hxx".}
-

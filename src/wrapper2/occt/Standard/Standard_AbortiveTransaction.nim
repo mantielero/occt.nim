@@ -14,18 +14,16 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _Standard_AbortiveTransaction_HeaderFile [NewLine] # _Standard_AbortiveTransaction_HeaderFile [NewLine] # < Standard_Type . hxx > [NewLine] # < Standard_DefineException . hxx > [NewLine] # < Standard_SStream . hxx > [NewLine] # < Standard_Failure . hxx > [NewLine] class Standard_AbortiveTransaction ;
+## !!!Ignored construct:  # _Standard_AbortiveTransaction_HeaderFile [NewLine] # _Standard_AbortiveTransaction_HeaderFile [NewLine] # Standard_Type.hxx [NewLine] # Standard_DefineException.hxx [NewLine] # Standard_SStream.hxx [NewLine] # Standard_Failure.hxx [NewLine] class Standard_AbortiveTransaction ;
 ## Error: expected ';'!!!
 
 discard "forward decl of Standard_AbortiveTransaction"
 type
-  HandleStandardAbortiveTransactionStandardAbortiveTransaction* = Handle[
-      StandardAbortiveTransaction]
+  Handle_Standard_AbortiveTransactionStandard_AbortiveTransaction* = handle[
+      Standard_AbortiveTransaction]
 
 ## !!!Ignored construct:  # ! defined No_Exception && ! defined No_Standard_AbortiveTransaction [NewLine] # if ( CONDITION ) throw Standard_AbortiveTransaction ( MESSAGE ) ;
 ## Error: did not expect [NewLine]!!!
 
-## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( Standard_AbortiveTransaction , Standard_Failure ) #  _Standard_AbortiveTransaction_HeaderFile
+## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( Standard_AbortiveTransaction , Standard_Failure ) #  _Standard_AbortiveTransaction_HeaderFile [NewLine]
 ## Error: did not expect [NewLine]!!!
-
-

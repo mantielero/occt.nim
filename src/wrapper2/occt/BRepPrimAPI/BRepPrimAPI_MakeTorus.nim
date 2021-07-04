@@ -14,6 +14,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../BRepPrim/BRepPrim_Torus,
+  BRepPrimAPI_MakeOneAxis, ../Standard/Standard_Real, ../Standard/Standard_Address
+
 discard "forward decl of Standard_DomainError"
 discard "forward decl of gp_Ax2"
 discard "forward decl of BRepPrim_Torus"
@@ -53,40 +58,41 @@ type
                                                                                                      ## pipe
 
 
-proc constructBRepPrimAPI_MakeTorus*(r1: StandardReal; r2: StandardReal): BRepPrimAPI_MakeTorus {.
+proc constructBRepPrimAPI_MakeTorus*(R1: Standard_Real; R2: Standard_Real): BRepPrimAPI_MakeTorus {.
     constructor, importcpp: "BRepPrimAPI_MakeTorus(@)",
     header: "BRepPrimAPI_MakeTorus.hxx".}
-proc constructBRepPrimAPI_MakeTorus*(r1: StandardReal; r2: StandardReal;
-                                    angle: StandardReal): BRepPrimAPI_MakeTorus {.
+proc constructBRepPrimAPI_MakeTorus*(R1: Standard_Real; R2: Standard_Real;
+                                    angle: Standard_Real): BRepPrimAPI_MakeTorus {.
     constructor, importcpp: "BRepPrimAPI_MakeTorus(@)",
     header: "BRepPrimAPI_MakeTorus.hxx".}
-proc constructBRepPrimAPI_MakeTorus*(r1: StandardReal; r2: StandardReal;
-                                    angle1: StandardReal; angle2: StandardReal): BRepPrimAPI_MakeTorus {.
+proc constructBRepPrimAPI_MakeTorus*(R1: Standard_Real; R2: Standard_Real;
+                                    angle1: Standard_Real; angle2: Standard_Real): BRepPrimAPI_MakeTorus {.
     constructor, importcpp: "BRepPrimAPI_MakeTorus(@)",
     header: "BRepPrimAPI_MakeTorus.hxx".}
-proc constructBRepPrimAPI_MakeTorus*(r1: StandardReal; r2: StandardReal;
-                                    angle1: StandardReal; angle2: StandardReal;
-                                    angle: StandardReal): BRepPrimAPI_MakeTorus {.
+proc constructBRepPrimAPI_MakeTorus*(R1: Standard_Real; R2: Standard_Real;
+                                    angle1: Standard_Real; angle2: Standard_Real;
+                                    angle: Standard_Real): BRepPrimAPI_MakeTorus {.
     constructor, importcpp: "BRepPrimAPI_MakeTorus(@)",
     header: "BRepPrimAPI_MakeTorus.hxx".}
-proc constructBRepPrimAPI_MakeTorus*(axes: GpAx2; r1: StandardReal; r2: StandardReal): BRepPrimAPI_MakeTorus {.
+proc constructBRepPrimAPI_MakeTorus*(Axes: gp_Ax2; R1: Standard_Real;
+                                    R2: Standard_Real): BRepPrimAPI_MakeTorus {.
     constructor, importcpp: "BRepPrimAPI_MakeTorus(@)",
     header: "BRepPrimAPI_MakeTorus.hxx".}
-proc constructBRepPrimAPI_MakeTorus*(axes: GpAx2; r1: StandardReal; r2: StandardReal;
-                                    angle: StandardReal): BRepPrimAPI_MakeTorus {.
+proc constructBRepPrimAPI_MakeTorus*(Axes: gp_Ax2; R1: Standard_Real;
+                                    R2: Standard_Real; angle: Standard_Real): BRepPrimAPI_MakeTorus {.
     constructor, importcpp: "BRepPrimAPI_MakeTorus(@)",
     header: "BRepPrimAPI_MakeTorus.hxx".}
-proc constructBRepPrimAPI_MakeTorus*(axes: GpAx2; r1: StandardReal; r2: StandardReal;
-                                    angle1: StandardReal; angle2: StandardReal): BRepPrimAPI_MakeTorus {.
+proc constructBRepPrimAPI_MakeTorus*(Axes: gp_Ax2; R1: Standard_Real;
+                                    R2: Standard_Real; angle1: Standard_Real;
+                                    angle2: Standard_Real): BRepPrimAPI_MakeTorus {.
     constructor, importcpp: "BRepPrimAPI_MakeTorus(@)",
     header: "BRepPrimAPI_MakeTorus.hxx".}
-proc constructBRepPrimAPI_MakeTorus*(axes: GpAx2; r1: StandardReal; r2: StandardReal;
-                                    angle1: StandardReal; angle2: StandardReal;
-                                    angle: StandardReal): BRepPrimAPI_MakeTorus {.
+proc constructBRepPrimAPI_MakeTorus*(Axes: gp_Ax2; R1: Standard_Real;
+                                    R2: Standard_Real; angle1: Standard_Real;
+                                    angle2: Standard_Real; angle: Standard_Real): BRepPrimAPI_MakeTorus {.
     constructor, importcpp: "BRepPrimAPI_MakeTorus(@)",
     header: "BRepPrimAPI_MakeTorus.hxx".}
-proc oneAxis*(this: var BRepPrimAPI_MakeTorus): StandardAddress {.
+proc OneAxis*(this: var BRepPrimAPI_MakeTorus): Standard_Address {.
     importcpp: "OneAxis", header: "BRepPrimAPI_MakeTorus.hxx".}
-proc torus*(this: var BRepPrimAPI_MakeTorus): var BRepPrimTorus {.importcpp: "Torus",
+proc Torus*(this: var BRepPrimAPI_MakeTorus): var BRepPrim_Torus {.importcpp: "Torus",
     header: "BRepPrimAPI_MakeTorus.hxx".}
-

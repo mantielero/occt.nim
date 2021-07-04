@@ -14,46 +14,53 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, AdvApp2Var_SequenceOfPatch,
+  ../TColStd/TColStd_SequenceOfReal, ../Standard/Standard_Boolean,
+  ../Standard/Standard_Integer, ../Standard/Standard_Real
+
 discard "forward decl of Standard_NoSuchObject"
 discard "forward decl of AdvApp2Var_Patch"
 type
-  AdvApp2VarNetwork* {.importcpp: "AdvApp2Var_Network",
-                      header: "AdvApp2Var_Network.hxx", bycopy.} = object
+  AdvApp2Var_Network* {.importcpp: "AdvApp2Var_Network",
+                       header: "AdvApp2Var_Network.hxx", bycopy.} = object
 
 
-proc constructAdvApp2VarNetwork*(): AdvApp2VarNetwork {.constructor,
+proc constructAdvApp2Var_Network*(): AdvApp2Var_Network {.constructor,
     importcpp: "AdvApp2Var_Network(@)", header: "AdvApp2Var_Network.hxx".}
-proc constructAdvApp2VarNetwork*(net: AdvApp2VarSequenceOfPatch;
-                                theU: TColStdSequenceOfReal;
-                                theV: TColStdSequenceOfReal): AdvApp2VarNetwork {.
+proc constructAdvApp2Var_Network*(Net: AdvApp2Var_SequenceOfPatch;
+                                 TheU: TColStd_SequenceOfReal;
+                                 TheV: TColStd_SequenceOfReal): AdvApp2Var_Network {.
     constructor, importcpp: "AdvApp2Var_Network(@)",
     header: "AdvApp2Var_Network.hxx".}
-proc firstNotApprox*(this: AdvApp2VarNetwork; index: var StandardInteger): StandardBoolean {.
+proc FirstNotApprox*(this: AdvApp2Var_Network; Index: var Standard_Integer): Standard_Boolean {.
     noSideEffect, importcpp: "FirstNotApprox", header: "AdvApp2Var_Network.hxx".}
-proc changePatch*(this: var AdvApp2VarNetwork; index: StandardInteger): var AdvApp2VarPatch {.
+proc ChangePatch*(this: var AdvApp2Var_Network; Index: Standard_Integer): var AdvApp2Var_Patch {.
     importcpp: "ChangePatch", header: "AdvApp2Var_Network.hxx".}
-proc `()`*(this: var AdvApp2VarNetwork; index: StandardInteger): var AdvApp2VarPatch {.
+proc `()`*(this: var AdvApp2Var_Network; Index: Standard_Integer): var AdvApp2Var_Patch {.
     importcpp: "#(@)", header: "AdvApp2Var_Network.hxx".}
-proc updateInU*(this: var AdvApp2VarNetwork; cuttingValue: StandardReal) {.
+proc UpdateInU*(this: var AdvApp2Var_Network; CuttingValue: Standard_Real) {.
     importcpp: "UpdateInU", header: "AdvApp2Var_Network.hxx".}
-proc updateInV*(this: var AdvApp2VarNetwork; cuttingValue: StandardReal) {.
+proc UpdateInV*(this: var AdvApp2Var_Network; CuttingValue: Standard_Real) {.
     importcpp: "UpdateInV", header: "AdvApp2Var_Network.hxx".}
-proc sameDegree*(this: var AdvApp2VarNetwork; iu: StandardInteger;
-                iv: StandardInteger; ncfu: var StandardInteger;
-                ncfv: var StandardInteger) {.importcpp: "SameDegree",
+proc SameDegree*(this: var AdvApp2Var_Network; iu: Standard_Integer;
+                iv: Standard_Integer; ncfu: var Standard_Integer;
+                ncfv: var Standard_Integer) {.importcpp: "SameDegree",
     header: "AdvApp2Var_Network.hxx".}
-proc nbPatch*(this: AdvApp2VarNetwork): StandardInteger {.noSideEffect,
+proc NbPatch*(this: AdvApp2Var_Network): Standard_Integer {.noSideEffect,
     importcpp: "NbPatch", header: "AdvApp2Var_Network.hxx".}
-proc nbPatchInU*(this: AdvApp2VarNetwork): StandardInteger {.noSideEffect,
+proc NbPatchInU*(this: AdvApp2Var_Network): Standard_Integer {.noSideEffect,
     importcpp: "NbPatchInU", header: "AdvApp2Var_Network.hxx".}
-proc nbPatchInV*(this: AdvApp2VarNetwork): StandardInteger {.noSideEffect,
+proc NbPatchInV*(this: AdvApp2Var_Network): Standard_Integer {.noSideEffect,
     importcpp: "NbPatchInV", header: "AdvApp2Var_Network.hxx".}
-proc uParameter*(this: AdvApp2VarNetwork; index: StandardInteger): StandardReal {.
+proc UParameter*(this: AdvApp2Var_Network; Index: Standard_Integer): Standard_Real {.
     noSideEffect, importcpp: "UParameter", header: "AdvApp2Var_Network.hxx".}
-proc vParameter*(this: AdvApp2VarNetwork; index: StandardInteger): StandardReal {.
+proc VParameter*(this: AdvApp2Var_Network; Index: Standard_Integer): Standard_Real {.
     noSideEffect, importcpp: "VParameter", header: "AdvApp2Var_Network.hxx".}
-proc patch*(this: AdvApp2VarNetwork; uIndex: StandardInteger; vIndex: StandardInteger): AdvApp2VarPatch {.
-    noSideEffect, importcpp: "Patch", header: "AdvApp2Var_Network.hxx".}
-proc `()`*(this: AdvApp2VarNetwork; uIndex: StandardInteger; vIndex: StandardInteger): AdvApp2VarPatch {.
-    noSideEffect, importcpp: "#(@)", header: "AdvApp2Var_Network.hxx".}
-
+proc Patch*(this: AdvApp2Var_Network; UIndex: Standard_Integer;
+           VIndex: Standard_Integer): AdvApp2Var_Patch {.noSideEffect,
+    importcpp: "Patch", header: "AdvApp2Var_Network.hxx".}
+proc `()`*(this: AdvApp2Var_Network; UIndex: Standard_Integer;
+          VIndex: Standard_Integer): AdvApp2Var_Patch {.noSideEffect,
+    importcpp: "#(@)", header: "AdvApp2Var_Network.hxx".}

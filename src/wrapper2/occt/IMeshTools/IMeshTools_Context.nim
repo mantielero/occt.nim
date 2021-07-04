@@ -13,79 +13,83 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../IMeshData/IMeshData_Shape, ../Standard/Standard_Type,
+  IMeshTools_ModelBuilder, ../IMeshData/IMeshData_Model, IMeshTools_Parameters,
+  IMeshTools_ModelAlgo, ../Message/Message_ProgressRange
+
 ## ! Interface class representing context of BRepMesh algorithm.
 ## ! Intended to cache discrete model and instances of tools for
 ## ! its processing.
 
 type
-  IMeshToolsContext* {.importcpp: "IMeshTools_Context",
-                      header: "IMeshTools_Context.hxx", bycopy.} = object of IMeshDataShape ##
-                                                                                     ## !
-                                                                                     ## Constructor.
+  IMeshTools_Context* {.importcpp: "IMeshTools_Context",
+                       header: "IMeshTools_Context.hxx", bycopy.} = object of IMeshData_Shape ##
+                                                                                       ## !
+                                                                                       ## Constructor.
 
 
-proc constructIMeshToolsContext*(): IMeshToolsContext {.constructor,
+proc constructIMeshTools_Context*(): IMeshTools_Context {.constructor,
     importcpp: "IMeshTools_Context(@)", header: "IMeshTools_Context.hxx".}
-proc destroyIMeshToolsContext*(this: var IMeshToolsContext) {.
+proc destroyIMeshTools_Context*(this: var IMeshTools_Context) {.
     importcpp: "#.~IMeshTools_Context()", header: "IMeshTools_Context.hxx".}
-proc buildModel*(this: var IMeshToolsContext): StandardBoolean {.
+proc BuildModel*(this: var IMeshTools_Context): Standard_Boolean {.
     importcpp: "BuildModel", header: "IMeshTools_Context.hxx".}
-proc discretizeEdges*(this: var IMeshToolsContext): StandardBoolean {.
+proc DiscretizeEdges*(this: var IMeshTools_Context): Standard_Boolean {.
     importcpp: "DiscretizeEdges", header: "IMeshTools_Context.hxx".}
-proc healModel*(this: var IMeshToolsContext): StandardBoolean {.
+proc HealModel*(this: var IMeshTools_Context): Standard_Boolean {.
     importcpp: "HealModel", header: "IMeshTools_Context.hxx".}
-proc preProcessModel*(this: var IMeshToolsContext): StandardBoolean {.
+proc PreProcessModel*(this: var IMeshTools_Context): Standard_Boolean {.
     importcpp: "PreProcessModel", header: "IMeshTools_Context.hxx".}
-proc discretizeFaces*(this: var IMeshToolsContext; theRange: MessageProgressRange): StandardBoolean {.
+proc DiscretizeFaces*(this: var IMeshTools_Context; theRange: Message_ProgressRange): Standard_Boolean {.
     importcpp: "DiscretizeFaces", header: "IMeshTools_Context.hxx".}
-proc postProcessModel*(this: var IMeshToolsContext): StandardBoolean {.
+proc PostProcessModel*(this: var IMeshTools_Context): Standard_Boolean {.
     importcpp: "PostProcessModel", header: "IMeshTools_Context.hxx".}
-proc clean*(this: var IMeshToolsContext) {.importcpp: "Clean",
-                                       header: "IMeshTools_Context.hxx".}
-proc getModelBuilder*(this: IMeshToolsContext): Handle[IMeshToolsModelBuilder] {.
+proc Clean*(this: var IMeshTools_Context) {.importcpp: "Clean",
+                                        header: "IMeshTools_Context.hxx".}
+proc GetModelBuilder*(this: IMeshTools_Context): handle[IMeshTools_ModelBuilder] {.
     noSideEffect, importcpp: "GetModelBuilder", header: "IMeshTools_Context.hxx".}
-proc setModelBuilder*(this: var IMeshToolsContext;
-                     theBuilder: Handle[IMeshToolsModelBuilder]) {.
+proc SetModelBuilder*(this: var IMeshTools_Context;
+                     theBuilder: handle[IMeshTools_ModelBuilder]) {.
     importcpp: "SetModelBuilder", header: "IMeshTools_Context.hxx".}
-proc getEdgeDiscret*(this: IMeshToolsContext): Handle[IMeshToolsModelAlgo] {.
+proc GetEdgeDiscret*(this: IMeshTools_Context): handle[IMeshTools_ModelAlgo] {.
     noSideEffect, importcpp: "GetEdgeDiscret", header: "IMeshTools_Context.hxx".}
-proc setEdgeDiscret*(this: var IMeshToolsContext;
-                    theEdgeDiscret: Handle[IMeshToolsModelAlgo]) {.
+proc SetEdgeDiscret*(this: var IMeshTools_Context;
+                    theEdgeDiscret: handle[IMeshTools_ModelAlgo]) {.
     importcpp: "SetEdgeDiscret", header: "IMeshTools_Context.hxx".}
-proc getModelHealer*(this: IMeshToolsContext): Handle[IMeshToolsModelAlgo] {.
+proc GetModelHealer*(this: IMeshTools_Context): handle[IMeshTools_ModelAlgo] {.
     noSideEffect, importcpp: "GetModelHealer", header: "IMeshTools_Context.hxx".}
-proc setModelHealer*(this: var IMeshToolsContext;
-                    theModelHealer: Handle[IMeshToolsModelAlgo]) {.
+proc SetModelHealer*(this: var IMeshTools_Context;
+                    theModelHealer: handle[IMeshTools_ModelAlgo]) {.
     importcpp: "SetModelHealer", header: "IMeshTools_Context.hxx".}
-proc getPreProcessor*(this: IMeshToolsContext): Handle[IMeshToolsModelAlgo] {.
+proc GetPreProcessor*(this: IMeshTools_Context): handle[IMeshTools_ModelAlgo] {.
     noSideEffect, importcpp: "GetPreProcessor", header: "IMeshTools_Context.hxx".}
-proc setPreProcessor*(this: var IMeshToolsContext;
-                     thePreProcessor: Handle[IMeshToolsModelAlgo]) {.
+proc SetPreProcessor*(this: var IMeshTools_Context;
+                     thePreProcessor: handle[IMeshTools_ModelAlgo]) {.
     importcpp: "SetPreProcessor", header: "IMeshTools_Context.hxx".}
-proc getFaceDiscret*(this: IMeshToolsContext): Handle[IMeshToolsModelAlgo] {.
+proc GetFaceDiscret*(this: IMeshTools_Context): handle[IMeshTools_ModelAlgo] {.
     noSideEffect, importcpp: "GetFaceDiscret", header: "IMeshTools_Context.hxx".}
-proc setFaceDiscret*(this: var IMeshToolsContext;
-                    theFaceDiscret: Handle[IMeshToolsModelAlgo]) {.
+proc SetFaceDiscret*(this: var IMeshTools_Context;
+                    theFaceDiscret: handle[IMeshTools_ModelAlgo]) {.
     importcpp: "SetFaceDiscret", header: "IMeshTools_Context.hxx".}
-proc getPostProcessor*(this: IMeshToolsContext): Handle[IMeshToolsModelAlgo] {.
+proc GetPostProcessor*(this: IMeshTools_Context): handle[IMeshTools_ModelAlgo] {.
     noSideEffect, importcpp: "GetPostProcessor", header: "IMeshTools_Context.hxx".}
-proc setPostProcessor*(this: var IMeshToolsContext;
-                      thePostProcessor: Handle[IMeshToolsModelAlgo]) {.
+proc SetPostProcessor*(this: var IMeshTools_Context;
+                      thePostProcessor: handle[IMeshTools_ModelAlgo]) {.
     importcpp: "SetPostProcessor", header: "IMeshTools_Context.hxx".}
-proc getParameters*(this: IMeshToolsContext): IMeshToolsParameters {.noSideEffect,
+proc GetParameters*(this: IMeshTools_Context): IMeshTools_Parameters {.noSideEffect,
     importcpp: "GetParameters", header: "IMeshTools_Context.hxx".}
-proc changeParameters*(this: var IMeshToolsContext): var IMeshToolsParameters {.
+proc ChangeParameters*(this: var IMeshTools_Context): var IMeshTools_Parameters {.
     importcpp: "ChangeParameters", header: "IMeshTools_Context.hxx".}
-proc getModel*(this: IMeshToolsContext): Handle[IMeshDataModel] {.noSideEffect,
+proc GetModel*(this: IMeshTools_Context): handle[IMeshData_Model] {.noSideEffect,
     importcpp: "GetModel", header: "IMeshTools_Context.hxx".}
 type
-  IMeshToolsContextbaseType* = IMeshDataShape
+  IMeshTools_Contextbase_type* = IMeshData_Shape
 
-proc getTypeName*(): cstring {.importcpp: "IMeshTools_Context::get_type_name(@)",
-                            header: "IMeshTools_Context.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "IMeshTools_Context::get_type_name(@)",
+                              header: "IMeshTools_Context.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "IMeshTools_Context::get_type_descriptor(@)",
     header: "IMeshTools_Context.hxx".}
-proc dynamicType*(this: IMeshToolsContext): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: IMeshTools_Context): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "IMeshTools_Context.hxx".}
-

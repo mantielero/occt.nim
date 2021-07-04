@@ -12,7 +12,8 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../NCollection/NCollection_Vector, BOPDS_PaveBlock, BOPDS_ListOfPaveBlock
+
 type
-  BOPDS_VectorOfListOfPaveBlock* = NCollectionVector[BOPDS_ListOfPaveBlock]
-
-
+  BOPDS_VectorOfListOfPaveBlock* = NCollection_Vector[BOPDS_ListOfPaveBlock]

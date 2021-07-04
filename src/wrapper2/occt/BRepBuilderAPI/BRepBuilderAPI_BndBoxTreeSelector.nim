@@ -13,8 +13,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../TColStd/TColStd_ListOfInteger, ../Bnd/Bnd_Box,
+  ../NCollection/NCollection_UBTree
+
 type
-  BRepBuilderAPI_BndBoxTree* = NCollectionUBTree[StandardInteger, BndBox]
+  BRepBuilderAPI_BndBoxTree* = NCollection_UBTree[Standard_Integer, Bnd_Box]
 
 ## =======================================================================
 ## ! Class BRepBuilderAPI_BndBoxTreeSelector
@@ -32,15 +36,14 @@ type
 proc constructBRepBuilderAPI_BndBoxTreeSelector*(): BRepBuilderAPI_BndBoxTreeSelector {.
     constructor, importcpp: "BRepBuilderAPI_BndBoxTreeSelector(@)",
     header: "BRepBuilderAPI_BndBoxTreeSelector.hxx".}
-proc reject*(this: BRepBuilderAPI_BndBoxTreeSelector; theBox: BndBox): StandardBoolean {.
+proc Reject*(this: BRepBuilderAPI_BndBoxTreeSelector; theBox: Bnd_Box): Standard_Boolean {.
     noSideEffect, importcpp: "Reject",
     header: "BRepBuilderAPI_BndBoxTreeSelector.hxx".}
-proc accept*(this: var BRepBuilderAPI_BndBoxTreeSelector; theObj: StandardInteger): StandardBoolean {.
+proc Accept*(this: var BRepBuilderAPI_BndBoxTreeSelector; theObj: Standard_Integer): Standard_Boolean {.
     importcpp: "Accept", header: "BRepBuilderAPI_BndBoxTreeSelector.hxx".}
-proc clearResList*(this: var BRepBuilderAPI_BndBoxTreeSelector) {.
+proc ClearResList*(this: var BRepBuilderAPI_BndBoxTreeSelector) {.
     importcpp: "ClearResList", header: "BRepBuilderAPI_BndBoxTreeSelector.hxx".}
-proc setCurrent*(this: var BRepBuilderAPI_BndBoxTreeSelector; theBox: BndBox) {.
+proc SetCurrent*(this: var BRepBuilderAPI_BndBoxTreeSelector; theBox: Bnd_Box) {.
     importcpp: "SetCurrent", header: "BRepBuilderAPI_BndBoxTreeSelector.hxx".}
-proc resInd*(this: var BRepBuilderAPI_BndBoxTreeSelector): TColStdListOfInteger {.
+proc ResInd*(this: var BRepBuilderAPI_BndBoxTreeSelector): TColStd_ListOfInteger {.
     importcpp: "ResInd", header: "BRepBuilderAPI_BndBoxTreeSelector.hxx".}
-

@@ -14,10 +14,8 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _Quantity_Torque_HeaderFile [NewLine] # _Quantity_Torque_HeaderFile [NewLine] # < Standard_Real . hxx > [NewLine] ! Defined as the product of a force and the
+## !!!Ignored construct:  # _Quantity_Torque_HeaderFile [NewLine] # _Quantity_Torque_HeaderFile [NewLine] # ../Standard/Standard_Real.hxx [NewLine] ! Defined as the product of a force and the
 ## ! perpendicular distance to an axis or as the
 ## ! the product of a force couple.
 ## ! It is measured in newtons x metres. Standard_DEPRECATED ( This type is deprecated - Standard_Real should be used instead ) typedef Standard_Real Quantity_Torque ;
 ## Error: expected ';'!!!
-
-

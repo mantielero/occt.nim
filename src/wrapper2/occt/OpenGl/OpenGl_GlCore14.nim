@@ -13,42 +13,43 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  OpenGl_GlCore13
+
 ## ! OpenGL 1.4 core based on 1.3 version.
 
 type
-  OpenGlTmplCore14*[TheBaseClassT] {.importcpp: "OpenGl_TmplCore14<\'0>",
-                                    header: "OpenGl_GlCore14.hxx", bycopy.} = object of TheBaseClassT ##
-                                                                                               ## !
-                                                                                               ## @name
-                                                                                               ## OpenGL
-                                                                                               ## 1.4
-                                                                                               ## additives
-                                                                                               ## to
-                                                                                               ## 1.3
+  OpenGl_TmplCore14*[theBaseClass_t] {.importcpp: "OpenGl_TmplCore14<\'0>",
+                                      header: "OpenGl_GlCore14.hxx", bycopy.} = object of theBaseClass_t ##
+                                                                                                  ## !
+                                                                                                  ## @name
+                                                                                                  ## OpenGL
+                                                                                                  ## 1.4
+                                                                                                  ## additives
+                                                                                                  ## to
+                                                                                                  ## 1.3
 
 
 ## using statement
 
 ## using statement
 
-# when not defined(gl_Es_Version_20):
-#   discard
-# when not defined(gl_Es_Version_20):
-#   discard
-# when not defined(gl_Es_Version_20):
-#   discard
-# when not defined(gl_Es_Version_20):
-#   discard
-# when not defined(gl_Es_Version_20):
-#   discard
+when not defined(GL_ES_VERSION_2_0):
+  discard
+when not defined(GL_ES_VERSION_2_0):
+  discard
+when not defined(GL_ES_VERSION_2_0):
+  discard
+when not defined(GL_ES_VERSION_2_0):
+  discard
+when not defined(GL_ES_VERSION_2_0):
+  discard
 ## ! OpenGL 1.4 core based on 1.3 version.
 
 type
-  OpenGlGlCore14* = OpenGlTmplCore14[OpenGlGlCore13]
+  OpenGl_GlCore14* = OpenGl_TmplCore14[OpenGl_GlCore13]
 
 ## ! OpenGL 1.4 without deprecated entry points.
 
 type
-  OpenGlGlCore14Fwd* = OpenGlTmplCore14[OpenGlGlCore13Fwd]
-
-
+  OpenGl_GlCore14Fwd* = OpenGl_TmplCore14[OpenGl_GlCore13Fwd]

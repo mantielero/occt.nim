@@ -14,17 +14,22 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Real,
+  ../Standard/Standard_Address, ../Standard/Standard_Boolean
+
 discard "forward decl of gp_Dir"
 type
-  HLRBRepEdgeFaceTool* {.importcpp: "HLRBRep_EdgeFaceTool",
-                        header: "HLRBRep_EdgeFaceTool.hxx", bycopy.} = object
+  HLRBRep_EdgeFaceTool* {.importcpp: "HLRBRep_EdgeFaceTool",
+                         header: "HLRBRep_EdgeFaceTool.hxx", bycopy.} = object
 
 
-proc curvatureValue*(f: StandardAddress; u: StandardReal; v: StandardReal; tg: GpDir): StandardReal {.
+proc CurvatureValue*(F: Standard_Address; U: Standard_Real; V: Standard_Real;
+                    Tg: gp_Dir): Standard_Real {.
     importcpp: "HLRBRep_EdgeFaceTool::CurvatureValue(@)",
     header: "HLRBRep_EdgeFaceTool.hxx".}
-proc uVPoint*(par: StandardReal; e: StandardAddress; f: StandardAddress;
-             u: var StandardReal; v: var StandardReal): StandardBoolean {.
+proc UVPoint*(Par: Standard_Real; E: Standard_Address; F: Standard_Address;
+             U: var Standard_Real; V: var Standard_Real): Standard_Boolean {.
     importcpp: "HLRBRep_EdgeFaceTool::UVPoint(@)",
     header: "HLRBRep_EdgeFaceTool.hxx".}
-

@@ -14,10 +14,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard_Integer, MAT_BasicElt, ../TColStd/TColStd_MapIntegerHasher,
+  ../NCollection/NCollection_DataMap
+
 type
-  MAT_DataMapOfIntegerBasicElt* = NCollectionDataMap[StandardInteger,
-      Handle[MAT_BasicElt], TColStdMapIntegerHasher]
-  MAT_DataMapIteratorOfDataMapOfIntegerBasicElt* = Iterator[StandardInteger,
-      Handle[MAT_BasicElt], TColStdMapIntegerHasher]
-
-
+  MAT_DataMapOfIntegerBasicElt* = NCollection_DataMap[Standard_Integer,
+      handle[MAT_BasicElt], TColStd_MapIntegerHasher]
+  MAT_DataMapIteratorOfDataMapOfIntegerBasicElt* = Iterator[Standard_Integer,
+      handle[MAT_BasicElt], TColStd_MapIntegerHasher]

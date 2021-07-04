@@ -14,71 +14,82 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
+  ../Standard/Standard_Address, ../Standard/Standard_Real,
+  ../Standard/Standard_Integer, ../gp/gp_Pnt
+
 discard "forward decl of Standard_DomainError"
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of Adaptor3d_Curve"
 discard "forward decl of Adaptor2d_Curve2d"
 type
-  CPntsUniformDeflection* {.importcpp: "CPnts_UniformDeflection",
-                           header: "CPnts_UniformDeflection.hxx", bycopy.} = object ## !
-                                                                               ## creation
-                                                                               ## of a
-                                                                               ## indefinite
-                                                                               ## UniformDeflection
-                                                                               ## !
-                                                                               ## algorithm
+  CPnts_UniformDeflection* {.importcpp: "CPnts_UniformDeflection",
+                            header: "CPnts_UniformDeflection.hxx", bycopy.} = object ##
+                                                                                ## !
+                                                                                ## creation
+                                                                                ## of
+                                                                                ## a
+                                                                                ## indefinite
+                                                                                ## UniformDeflection
+                                                                                ##
+                                                                                ## !
+                                                                                ## algorithm
 
 
-proc constructCPntsUniformDeflection*(): CPntsUniformDeflection {.constructor,
+proc constructCPnts_UniformDeflection*(): CPnts_UniformDeflection {.constructor,
     importcpp: "CPnts_UniformDeflection(@)", header: "CPnts_UniformDeflection.hxx".}
-proc constructCPntsUniformDeflection*(c: Adaptor3dCurve; deflection: StandardReal;
-                                     resolution: StandardReal;
-                                     withControl: StandardBoolean): CPntsUniformDeflection {.
+proc constructCPnts_UniformDeflection*(C: Adaptor3d_Curve;
+                                      Deflection: Standard_Real;
+                                      Resolution: Standard_Real;
+                                      WithControl: Standard_Boolean): CPnts_UniformDeflection {.
     constructor, importcpp: "CPnts_UniformDeflection(@)",
     header: "CPnts_UniformDeflection.hxx".}
-proc constructCPntsUniformDeflection*(c: Adaptor2dCurve2d;
-                                     deflection: StandardReal;
-                                     resolution: StandardReal;
-                                     withControl: StandardBoolean): CPntsUniformDeflection {.
+proc constructCPnts_UniformDeflection*(C: Adaptor2d_Curve2d;
+                                      Deflection: Standard_Real;
+                                      Resolution: Standard_Real;
+                                      WithControl: Standard_Boolean): CPnts_UniformDeflection {.
     constructor, importcpp: "CPnts_UniformDeflection(@)",
     header: "CPnts_UniformDeflection.hxx".}
-proc constructCPntsUniformDeflection*(c: Adaptor3dCurve; deflection: StandardReal;
-                                     u1: StandardReal; u2: StandardReal;
-                                     resolution: StandardReal;
-                                     withControl: StandardBoolean): CPntsUniformDeflection {.
+proc constructCPnts_UniformDeflection*(C: Adaptor3d_Curve;
+                                      Deflection: Standard_Real;
+                                      U1: Standard_Real; U2: Standard_Real;
+                                      Resolution: Standard_Real;
+                                      WithControl: Standard_Boolean): CPnts_UniformDeflection {.
     constructor, importcpp: "CPnts_UniformDeflection(@)",
     header: "CPnts_UniformDeflection.hxx".}
-proc constructCPntsUniformDeflection*(c: Adaptor2dCurve2d;
-                                     deflection: StandardReal; u1: StandardReal;
-                                     u2: StandardReal; resolution: StandardReal;
-                                     withControl: StandardBoolean): CPntsUniformDeflection {.
+proc constructCPnts_UniformDeflection*(C: Adaptor2d_Curve2d;
+                                      Deflection: Standard_Real;
+                                      U1: Standard_Real; U2: Standard_Real;
+                                      Resolution: Standard_Real;
+                                      WithControl: Standard_Boolean): CPnts_UniformDeflection {.
     constructor, importcpp: "CPnts_UniformDeflection(@)",
     header: "CPnts_UniformDeflection.hxx".}
-proc initialize*(this: var CPntsUniformDeflection; c: Adaptor3dCurve;
-                deflection: StandardReal; resolution: StandardReal;
-                withControl: StandardBoolean) {.importcpp: "Initialize",
+proc Initialize*(this: var CPnts_UniformDeflection; C: Adaptor3d_Curve;
+                Deflection: Standard_Real; Resolution: Standard_Real;
+                WithControl: Standard_Boolean) {.importcpp: "Initialize",
     header: "CPnts_UniformDeflection.hxx".}
-proc initialize*(this: var CPntsUniformDeflection; c: Adaptor2dCurve2d;
-                deflection: StandardReal; resolution: StandardReal;
-                withControl: StandardBoolean) {.importcpp: "Initialize",
+proc Initialize*(this: var CPnts_UniformDeflection; C: Adaptor2d_Curve2d;
+                Deflection: Standard_Real; Resolution: Standard_Real;
+                WithControl: Standard_Boolean) {.importcpp: "Initialize",
     header: "CPnts_UniformDeflection.hxx".}
-proc initialize*(this: var CPntsUniformDeflection; c: Adaptor3dCurve;
-                deflection: StandardReal; u1: StandardReal; u2: StandardReal;
-                resolution: StandardReal; withControl: StandardBoolean) {.
+proc Initialize*(this: var CPnts_UniformDeflection; C: Adaptor3d_Curve;
+                Deflection: Standard_Real; U1: Standard_Real; U2: Standard_Real;
+                Resolution: Standard_Real; WithControl: Standard_Boolean) {.
     importcpp: "Initialize", header: "CPnts_UniformDeflection.hxx".}
-proc initialize*(this: var CPntsUniformDeflection; c: Adaptor2dCurve2d;
-                deflection: StandardReal; u1: StandardReal; u2: StandardReal;
-                resolution: StandardReal; withControl: StandardBoolean) {.
+proc Initialize*(this: var CPnts_UniformDeflection; C: Adaptor2d_Curve2d;
+                Deflection: Standard_Real; U1: Standard_Real; U2: Standard_Real;
+                Resolution: Standard_Real; WithControl: Standard_Boolean) {.
     importcpp: "Initialize", header: "CPnts_UniformDeflection.hxx".}
-proc isAllDone*(this: CPntsUniformDeflection): StandardBoolean {.noSideEffect,
+proc IsAllDone*(this: CPnts_UniformDeflection): Standard_Boolean {.noSideEffect,
     importcpp: "IsAllDone", header: "CPnts_UniformDeflection.hxx".}
-proc next*(this: var CPntsUniformDeflection) {.importcpp: "Next",
+proc Next*(this: var CPnts_UniformDeflection) {.importcpp: "Next",
     header: "CPnts_UniformDeflection.hxx".}
-proc more*(this: var CPntsUniformDeflection): StandardBoolean {.importcpp: "More",
+proc More*(this: var CPnts_UniformDeflection): Standard_Boolean {.importcpp: "More",
     header: "CPnts_UniformDeflection.hxx".}
-proc value*(this: CPntsUniformDeflection): StandardReal {.noSideEffect,
+proc Value*(this: CPnts_UniformDeflection): Standard_Real {.noSideEffect,
     importcpp: "Value", header: "CPnts_UniformDeflection.hxx".}
-proc point*(this: CPntsUniformDeflection): GpPnt {.noSideEffect, importcpp: "Point",
-    header: "CPnts_UniformDeflection.hxx".}
-
+proc Point*(this: CPnts_UniformDeflection): gp_Pnt {.noSideEffect,
+    importcpp: "Point", header: "CPnts_UniformDeflection.hxx".}

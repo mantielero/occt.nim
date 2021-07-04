@@ -14,6 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 discard "forward decl of Standard_DomainError"
 discard "forward decl of IGESDimen_FlagNote"
 discard "forward decl of IGESData_IGESReaderData"
@@ -26,34 +30,35 @@ discard "forward decl of Interface_Check"
 discard "forward decl of Interface_CopyTool"
 discard "forward decl of IGESData_IGESDumper"
 type
-  IGESDimenToolFlagNote* {.importcpp: "IGESDimen_ToolFlagNote",
-                          header: "IGESDimen_ToolFlagNote.hxx", bycopy.} = object ## !
-                                                                             ## Returns a
-                                                                             ## ToolFlagNote,
-                                                                             ## ready to
-                                                                             ## work
+  IGESDimen_ToolFlagNote* {.importcpp: "IGESDimen_ToolFlagNote",
+                           header: "IGESDimen_ToolFlagNote.hxx", bycopy.} = object ## !
+                                                                              ## Returns a
+                                                                              ## ToolFlagNote,
+                                                                              ## ready to
+                                                                              ## work
 
 
-proc constructIGESDimenToolFlagNote*(): IGESDimenToolFlagNote {.constructor,
+proc constructIGESDimen_ToolFlagNote*(): IGESDimen_ToolFlagNote {.constructor,
     importcpp: "IGESDimen_ToolFlagNote(@)", header: "IGESDimen_ToolFlagNote.hxx".}
-proc readOwnParams*(this: IGESDimenToolFlagNote; ent: Handle[IGESDimenFlagNote];
-                   ir: Handle[IGESDataIGESReaderData]; pr: var IGESDataParamReader) {.
-    noSideEffect, importcpp: "ReadOwnParams", header: "IGESDimen_ToolFlagNote.hxx".}
-proc writeOwnParams*(this: IGESDimenToolFlagNote; ent: Handle[IGESDimenFlagNote];
-                    iw: var IGESDataIGESWriter) {.noSideEffect,
+proc ReadOwnParams*(this: IGESDimen_ToolFlagNote; ent: handle[IGESDimen_FlagNote];
+                   IR: handle[IGESData_IGESReaderData];
+                   PR: var IGESData_ParamReader) {.noSideEffect,
+    importcpp: "ReadOwnParams", header: "IGESDimen_ToolFlagNote.hxx".}
+proc WriteOwnParams*(this: IGESDimen_ToolFlagNote; ent: handle[IGESDimen_FlagNote];
+                    IW: var IGESData_IGESWriter) {.noSideEffect,
     importcpp: "WriteOwnParams", header: "IGESDimen_ToolFlagNote.hxx".}
-proc ownShared*(this: IGESDimenToolFlagNote; ent: Handle[IGESDimenFlagNote];
-               iter: var InterfaceEntityIterator) {.noSideEffect,
+proc OwnShared*(this: IGESDimen_ToolFlagNote; ent: handle[IGESDimen_FlagNote];
+               iter: var Interface_EntityIterator) {.noSideEffect,
     importcpp: "OwnShared", header: "IGESDimen_ToolFlagNote.hxx".}
-proc dirChecker*(this: IGESDimenToolFlagNote; ent: Handle[IGESDimenFlagNote]): IGESDataDirChecker {.
+proc DirChecker*(this: IGESDimen_ToolFlagNote; ent: handle[IGESDimen_FlagNote]): IGESData_DirChecker {.
     noSideEffect, importcpp: "DirChecker", header: "IGESDimen_ToolFlagNote.hxx".}
-proc ownCheck*(this: IGESDimenToolFlagNote; ent: Handle[IGESDimenFlagNote];
-              shares: InterfaceShareTool; ach: var Handle[InterfaceCheck]) {.
+proc OwnCheck*(this: IGESDimen_ToolFlagNote; ent: handle[IGESDimen_FlagNote];
+              shares: Interface_ShareTool; ach: var handle[Interface_Check]) {.
     noSideEffect, importcpp: "OwnCheck", header: "IGESDimen_ToolFlagNote.hxx".}
-proc ownCopy*(this: IGESDimenToolFlagNote; entfrom: Handle[IGESDimenFlagNote];
-             entto: Handle[IGESDimenFlagNote]; tc: var InterfaceCopyTool) {.
+proc OwnCopy*(this: IGESDimen_ToolFlagNote; entfrom: handle[IGESDimen_FlagNote];
+             entto: handle[IGESDimen_FlagNote]; TC: var Interface_CopyTool) {.
     noSideEffect, importcpp: "OwnCopy", header: "IGESDimen_ToolFlagNote.hxx".}
-proc ownDump*(this: IGESDimenToolFlagNote; ent: Handle[IGESDimenFlagNote];
-             dumper: IGESDataIGESDumper; s: var StandardOStream; own: StandardInteger) {.
-    noSideEffect, importcpp: "OwnDump", header: "IGESDimen_ToolFlagNote.hxx".}
-
+proc OwnDump*(this: IGESDimen_ToolFlagNote; ent: handle[IGESDimen_FlagNote];
+             dumper: IGESData_IGESDumper; S: var Standard_OStream;
+             own: Standard_Integer) {.noSideEffect, importcpp: "OwnDump",
+                                    header: "IGESDimen_ToolFlagNote.hxx".}

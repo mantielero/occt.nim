@@ -14,14 +14,18 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-proc normalizeOnDomain*(a1: var StandardReal; a2: IntRes2dDomain): StandardReal {.
-    importcpp: "NormalizeOnDomain(@)", header: "IntImpParGen_Tool.hxx".}
-proc determinePosition*(a1: var IntRes2dPosition; a2: IntRes2dDomain; a3: GpPnt2d;
-                       a4: StandardReal) {.importcpp: "Determine_Position(@)",
-    header: "IntImpParGen_Tool.hxx".}
-proc determineTransition*(pos1: IntRes2dPosition; tan1: var GpVec2d; norm1: GpVec2d;
-                         trans1: var IntRes2dTransition; pos2: IntRes2dPosition;
-                         tan2: var GpVec2d; norm2: GpVec2d;
-                         trans2: var IntRes2dTransition; toleranceAng: StandardReal) {.
-    importcpp: "Determine_Transition(@)", header: "IntImpParGen_Tool.hxx".}
+import
+  ../IntRes2d/IntRes2d_Domain, ../IntRes2d/IntRes2d_Position,
+  ../IntRes2d/IntRes2d_Transition, ../gp/gp_Vec2d, ../gp/gp_Pnt2d
 
+proc NormalizeOnDomain*(a1: var Standard_Real; a2: IntRes2d_Domain): Standard_Real {.
+    importcpp: "NormalizeOnDomain(@)", header: "IntImpParGen_Tool.hxx".}
+proc Determine_Position*(a1: var IntRes2d_Position; a2: IntRes2d_Domain; a3: gp_Pnt2d;
+                        a4: Standard_Real) {.importcpp: "Determine_Position(@)",
+    header: "IntImpParGen_Tool.hxx".}
+proc Determine_Transition*(Pos1: IntRes2d_Position; Tan1: var gp_Vec2d;
+                          Norm1: gp_Vec2d; Trans1: var IntRes2d_Transition;
+                          Pos2: IntRes2d_Position; Tan2: var gp_Vec2d;
+                          Norm2: gp_Vec2d; Trans2: var IntRes2d_Transition;
+                          ToleranceAng: Standard_Real) {.
+    importcpp: "Determine_Transition(@)", header: "IntImpParGen_Tool.hxx".}

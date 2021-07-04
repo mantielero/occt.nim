@@ -13,6 +13,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  Image_PixMap, ../TCollection/TCollection_AsciiString,
+  ../TColStd/TColStd_HPackedMapOfInteger, ../NCollection/NCollection_List,
+  ../NCollection/NCollection_Vector
+
 ## ! This class compares two images pixel-by-pixel.
 ## ! It uses the following methods to ignore the difference between images:
 ## !  - Black/White comparison. It makes the images 2-colored before the comparison.
@@ -47,32 +52,32 @@
 ## !     4. http://www.worldscientific.com/worldscibooks/10.1142/2641#t=toc (there is a list of articles and books in PDF format)
 
 type
-  ImageDiff* {.importcpp: "Image_Diff", header: "Image_Diff.hxx", bycopy.} = object of StandardTransient ##
-                                                                                               ## !
-                                                                                               ## An
-                                                                                               ## empty
-                                                                                               ## constructor.
-                                                                                               ## Init()
-                                                                                               ## should
-                                                                                               ## be
-                                                                                               ## called
-                                                                                               ## for
-                                                                                               ## initialization.
-                                                                                               ##
-                                                                                               ## !
-                                                                                               ## Perform
-                                                                                               ## border
-                                                                                               ## filter
-                                                                                               ## algorithm.
-                                                                                               ##
-                                                                                               ## !
-                                                                                               ## Map
-                                                                                               ## two
-                                                                                               ## pixel
-                                                                                               ## coordinates
-                                                                                               ## to
-                                                                                               ## 32-bit
-                                                                                               ## integer
+  Image_Diff* {.importcpp: "Image_Diff", header: "Image_Diff.hxx", bycopy.} = object of Standard_Transient ##
+                                                                                                 ## !
+                                                                                                 ## An
+                                                                                                 ## empty
+                                                                                                 ## constructor.
+                                                                                                 ## Init()
+                                                                                                 ## should
+                                                                                                 ## be
+                                                                                                 ## called
+                                                                                                 ## for
+                                                                                                 ## initialization.
+                                                                                                 ##
+                                                                                                 ## !
+                                                                                                 ## Perform
+                                                                                                 ## border
+                                                                                                 ## filter
+                                                                                                 ## algorithm.
+                                                                                                 ##
+                                                                                                 ## !
+                                                                                                 ## Map
+                                                                                                 ## two
+                                                                                                 ## pixel
+                                                                                                 ## coordinates
+                                                                                                 ## to
+                                                                                                 ## 32-bit
+                                                                                                 ## integer
     ## !< reference image to compare (from)
     ## !< new       image to compare (to)
     ## !< tolerance for equality check (0..1, 0 - any not equal, 1 - opposite colors)
@@ -80,43 +85,41 @@ type
     ## ! coordinates of different pixels, packed in one int using 16-bit integers to save memory
 
 
-proc constructImageDiff*(): ImageDiff {.constructor, importcpp: "Image_Diff(@)",
-                                     header: "Image_Diff.hxx".}
-proc destroyImageDiff*(this: var ImageDiff) {.importcpp: "#.~Image_Diff()",
+proc constructImage_Diff*(): Image_Diff {.constructor, importcpp: "Image_Diff(@)",
+                                       header: "Image_Diff.hxx".}
+proc destroyImage_Diff*(this: var Image_Diff) {.importcpp: "#.~Image_Diff()",
     header: "Image_Diff.hxx".}
-proc init*(this: var ImageDiff; theImageRef: Handle[ImagePixMap];
-          theImageNew: Handle[ImagePixMap];
-          theToBlackWhite: StandardBoolean = standardFalse): StandardBoolean {.
+proc Init*(this: var Image_Diff; theImageRef: handle[Image_PixMap];
+          theImageNew: handle[Image_PixMap];
+          theToBlackWhite: Standard_Boolean = Standard_False): Standard_Boolean {.
     importcpp: "Init", header: "Image_Diff.hxx".}
-proc init*(this: var ImageDiff; theImgPathRef: TCollectionAsciiString;
-          theImgPathNew: TCollectionAsciiString;
-          theToBlackWhite: StandardBoolean = standardFalse): StandardBoolean {.
+proc Init*(this: var Image_Diff; theImgPathRef: TCollection_AsciiString;
+          theImgPathNew: TCollection_AsciiString;
+          theToBlackWhite: Standard_Boolean = Standard_False): Standard_Boolean {.
     importcpp: "Init", header: "Image_Diff.hxx".}
-proc setColorTolerance*(this: var ImageDiff; theTolerance: StandardReal) {.
+proc SetColorTolerance*(this: var Image_Diff; theTolerance: Standard_Real) {.
     importcpp: "SetColorTolerance", header: "Image_Diff.hxx".}
-proc colorTolerance*(this: ImageDiff): StandardReal {.noSideEffect,
+proc ColorTolerance*(this: Image_Diff): Standard_Real {.noSideEffect,
     importcpp: "ColorTolerance", header: "Image_Diff.hxx".}
-proc setBorderFilterOn*(this: var ImageDiff; theToIgnore: StandardBoolean) {.
+proc SetBorderFilterOn*(this: var Image_Diff; theToIgnore: Standard_Boolean) {.
     importcpp: "SetBorderFilterOn", header: "Image_Diff.hxx".}
-proc isBorderFilterOn*(this: ImageDiff): StandardBoolean {.noSideEffect,
+proc IsBorderFilterOn*(this: Image_Diff): Standard_Boolean {.noSideEffect,
     importcpp: "IsBorderFilterOn", header: "Image_Diff.hxx".}
-proc compare*(this: var ImageDiff): StandardInteger {.importcpp: "Compare",
+proc Compare*(this: var Image_Diff): Standard_Integer {.importcpp: "Compare",
     header: "Image_Diff.hxx".}
-proc saveDiffImage*(this: ImageDiff; theDiffImage: var ImagePixMap): StandardBoolean {.
+proc SaveDiffImage*(this: Image_Diff; theDiffImage: var Image_PixMap): Standard_Boolean {.
     noSideEffect, importcpp: "SaveDiffImage", header: "Image_Diff.hxx".}
-proc saveDiffImage*(this: ImageDiff; theDiffPath: TCollectionAsciiString): StandardBoolean {.
+proc SaveDiffImage*(this: Image_Diff; theDiffPath: TCollection_AsciiString): Standard_Boolean {.
     noSideEffect, importcpp: "SaveDiffImage", header: "Image_Diff.hxx".}
 type
-  ImageDiffbaseType* = StandardTransient
+  Image_Diffbase_type* = Standard_Transient
 
-proc getTypeName*(): cstring {.importcpp: "Image_Diff::get_type_name(@)",
-                            header: "Image_Diff.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "Image_Diff::get_type_name(@)",
+                              header: "Image_Diff.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "Image_Diff::get_type_descriptor(@)", header: "Image_Diff.hxx".}
-proc dynamicType*(this: ImageDiff): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: Image_Diff): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "Image_Diff.hxx".}
 discard "forward decl of Image_Diff"
 type
-  HandleImageDiff* = Handle[ImageDiff]
-
-
+  Handle_Image_Diff* = handle[Image_Diff]

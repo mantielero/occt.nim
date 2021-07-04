@@ -14,8 +14,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ChFiDS_Stripe, ../NCollection/NCollection_List
+
 type
-  ChFiDS_ListOfStripe* = NCollectionList[Handle[ChFiDS_Stripe]]
-  ChFiDS_ListIteratorOfListOfStripe* = Iterator[Handle[ChFiDS_Stripe]]
-
-
+  ChFiDS_ListOfStripe* = NCollection_List[handle[ChFiDS_Stripe]]
+  ChFiDS_ListIteratorOfListOfStripe* = Iterator[handle[ChFiDS_Stripe]]

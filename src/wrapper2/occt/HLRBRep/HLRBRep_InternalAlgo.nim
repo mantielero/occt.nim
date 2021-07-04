@@ -14,6 +14,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../HLRAlgo/HLRAlgo_Projector,
+  HLRBRep_SeqOfShapeBounds, ../BRepTopAdaptor/BRepTopAdaptor_MapOfShapeTool,
+  ../Standard/Standard_Boolean, ../Standard/Standard_Transient,
+  ../Standard/Standard_Integer
+
 discard "forward decl of HLRBRep_Data"
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of HLRAlgo_Projector"
@@ -22,104 +28,103 @@ discard "forward decl of HLRBRep_ShapeBounds"
 discard "forward decl of HLRBRep_InternalAlgo"
 discard "forward decl of HLRBRep_InternalAlgo"
 type
-  HandleHLRBRepInternalAlgo* = Handle[HLRBRepInternalAlgo]
-  HLRBRepInternalAlgo* {.importcpp: "HLRBRep_InternalAlgo",
-                        header: "HLRBRep_InternalAlgo.hxx", bycopy.} = object of StandardTransient ##
-                                                                                            ## !
-                                                                                            ## first
-                                                                                            ## if
-                                                                                            ## <SideFace>
-                                                                                            ## own
-                                                                                            ## hiding
-                                                                                            ## of
-                                                                                            ## the
-                                                                                            ## side
-                                                                                            ## faces.
-                                                                                            ##
-                                                                                            ## !
-                                                                                            ## After
-                                                                                            ## hiding
-                                                                                            ## of
-                                                                                            ## the
-                                                                                            ## selected
-                                                                                            ## parts
-                                                                                            ## of
-                                                                                            ## the
-                                                                                            ##
-                                                                                            ## !
-                                                                                            ## DataStructure.
+  Handle_HLRBRep_InternalAlgo* = handle[HLRBRep_InternalAlgo]
+  HLRBRep_InternalAlgo* {.importcpp: "HLRBRep_InternalAlgo",
+                         header: "HLRBRep_InternalAlgo.hxx", bycopy.} = object of Standard_Transient ##
+                                                                                              ## !
+                                                                                              ## first
+                                                                                              ## if
+                                                                                              ## <SideFace>
+                                                                                              ## own
+                                                                                              ## hiding
+                                                                                              ## of
+                                                                                              ## the
+                                                                                              ## side
+                                                                                              ## faces.
+                                                                                              ##
+                                                                                              ## !
+                                                                                              ## After
+                                                                                              ## hiding
+                                                                                              ## of
+                                                                                              ## the
+                                                                                              ## selected
+                                                                                              ## parts
+                                                                                              ## of
+                                                                                              ## the
+                                                                                              ##
+                                                                                              ## !
+                                                                                              ## DataStructure.
 
 
-proc constructHLRBRepInternalAlgo*(): HLRBRepInternalAlgo {.constructor,
+proc constructHLRBRep_InternalAlgo*(): HLRBRep_InternalAlgo {.constructor,
     importcpp: "HLRBRep_InternalAlgo(@)", header: "HLRBRep_InternalAlgo.hxx".}
-proc constructHLRBRepInternalAlgo*(a: Handle[HLRBRepInternalAlgo]): HLRBRepInternalAlgo {.
+proc constructHLRBRep_InternalAlgo*(A: handle[HLRBRep_InternalAlgo]): HLRBRep_InternalAlgo {.
     constructor, importcpp: "HLRBRep_InternalAlgo(@)",
     header: "HLRBRep_InternalAlgo.hxx".}
-proc projector*(this: var HLRBRepInternalAlgo; p: HLRAlgoProjector) {.
+proc Projector*(this: var HLRBRep_InternalAlgo; P: HLRAlgo_Projector) {.
     importcpp: "Projector", header: "HLRBRep_InternalAlgo.hxx".}
-proc projector*(this: var HLRBRepInternalAlgo): var HLRAlgoProjector {.
+proc Projector*(this: var HLRBRep_InternalAlgo): var HLRAlgo_Projector {.
     importcpp: "Projector", header: "HLRBRep_InternalAlgo.hxx".}
-proc update*(this: var HLRBRepInternalAlgo) {.importcpp: "Update",
+proc Update*(this: var HLRBRep_InternalAlgo) {.importcpp: "Update",
     header: "HLRBRep_InternalAlgo.hxx".}
-proc load*(this: var HLRBRepInternalAlgo; s: Handle[HLRTopoBRepOutLiner];
-          sData: Handle[StandardTransient]; nbIso: StandardInteger = 0) {.
+proc Load*(this: var HLRBRep_InternalAlgo; S: handle[HLRTopoBRep_OutLiner];
+          SData: handle[Standard_Transient]; nbIso: Standard_Integer = 0) {.
     importcpp: "Load", header: "HLRBRep_InternalAlgo.hxx".}
-proc load*(this: var HLRBRepInternalAlgo; s: Handle[HLRTopoBRepOutLiner];
-          nbIso: StandardInteger = 0) {.importcpp: "Load",
-                                    header: "HLRBRep_InternalAlgo.hxx".}
-proc index*(this: HLRBRepInternalAlgo; s: Handle[HLRTopoBRepOutLiner]): StandardInteger {.
+proc Load*(this: var HLRBRep_InternalAlgo; S: handle[HLRTopoBRep_OutLiner];
+          nbIso: Standard_Integer = 0) {.importcpp: "Load",
+                                     header: "HLRBRep_InternalAlgo.hxx".}
+proc Index*(this: HLRBRep_InternalAlgo; S: handle[HLRTopoBRep_OutLiner]): Standard_Integer {.
     noSideEffect, importcpp: "Index", header: "HLRBRep_InternalAlgo.hxx".}
-proc remove*(this: var HLRBRepInternalAlgo; i: StandardInteger) {.importcpp: "Remove",
+proc Remove*(this: var HLRBRep_InternalAlgo; I: Standard_Integer) {.
+    importcpp: "Remove", header: "HLRBRep_InternalAlgo.hxx".}
+proc ShapeData*(this: var HLRBRep_InternalAlgo; I: Standard_Integer;
+               SData: handle[Standard_Transient]) {.importcpp: "ShapeData",
     header: "HLRBRep_InternalAlgo.hxx".}
-proc shapeData*(this: var HLRBRepInternalAlgo; i: StandardInteger;
-               sData: Handle[StandardTransient]) {.importcpp: "ShapeData",
-    header: "HLRBRep_InternalAlgo.hxx".}
-proc seqOfShapeBounds*(this: var HLRBRepInternalAlgo): var HLRBRepSeqOfShapeBounds {.
+proc SeqOfShapeBounds*(this: var HLRBRep_InternalAlgo): var HLRBRep_SeqOfShapeBounds {.
     importcpp: "SeqOfShapeBounds", header: "HLRBRep_InternalAlgo.hxx".}
-proc nbShapes*(this: HLRBRepInternalAlgo): StandardInteger {.noSideEffect,
+proc NbShapes*(this: HLRBRep_InternalAlgo): Standard_Integer {.noSideEffect,
     importcpp: "NbShapes", header: "HLRBRep_InternalAlgo.hxx".}
-proc shapeBounds*(this: var HLRBRepInternalAlgo; i: StandardInteger): var HLRBRepShapeBounds {.
+proc ShapeBounds*(this: var HLRBRep_InternalAlgo; I: Standard_Integer): var HLRBRep_ShapeBounds {.
     importcpp: "ShapeBounds", header: "HLRBRep_InternalAlgo.hxx".}
-proc initEdgeStatus*(this: var HLRBRepInternalAlgo) {.importcpp: "InitEdgeStatus",
+proc InitEdgeStatus*(this: var HLRBRep_InternalAlgo) {.importcpp: "InitEdgeStatus",
     header: "HLRBRep_InternalAlgo.hxx".}
-proc select*(this: var HLRBRepInternalAlgo) {.importcpp: "Select",
+proc Select*(this: var HLRBRep_InternalAlgo) {.importcpp: "Select",
     header: "HLRBRep_InternalAlgo.hxx".}
-proc select*(this: var HLRBRepInternalAlgo; i: StandardInteger) {.importcpp: "Select",
-    header: "HLRBRep_InternalAlgo.hxx".}
-proc selectEdge*(this: var HLRBRepInternalAlgo; i: StandardInteger) {.
+proc Select*(this: var HLRBRep_InternalAlgo; I: Standard_Integer) {.
+    importcpp: "Select", header: "HLRBRep_InternalAlgo.hxx".}
+proc SelectEdge*(this: var HLRBRep_InternalAlgo; I: Standard_Integer) {.
     importcpp: "SelectEdge", header: "HLRBRep_InternalAlgo.hxx".}
-proc selectFace*(this: var HLRBRepInternalAlgo; i: StandardInteger) {.
+proc SelectFace*(this: var HLRBRep_InternalAlgo; I: Standard_Integer) {.
     importcpp: "SelectFace", header: "HLRBRep_InternalAlgo.hxx".}
-proc showAll*(this: var HLRBRepInternalAlgo) {.importcpp: "ShowAll",
+proc ShowAll*(this: var HLRBRep_InternalAlgo) {.importcpp: "ShowAll",
     header: "HLRBRep_InternalAlgo.hxx".}
-proc showAll*(this: var HLRBRepInternalAlgo; i: StandardInteger) {.
+proc ShowAll*(this: var HLRBRep_InternalAlgo; I: Standard_Integer) {.
     importcpp: "ShowAll", header: "HLRBRep_InternalAlgo.hxx".}
-proc hideAll*(this: var HLRBRepInternalAlgo) {.importcpp: "HideAll",
+proc HideAll*(this: var HLRBRep_InternalAlgo) {.importcpp: "HideAll",
     header: "HLRBRep_InternalAlgo.hxx".}
-proc hideAll*(this: var HLRBRepInternalAlgo; i: StandardInteger) {.
+proc HideAll*(this: var HLRBRep_InternalAlgo; I: Standard_Integer) {.
     importcpp: "HideAll", header: "HLRBRep_InternalAlgo.hxx".}
-proc partialHide*(this: var HLRBRepInternalAlgo) {.importcpp: "PartialHide",
+proc PartialHide*(this: var HLRBRep_InternalAlgo) {.importcpp: "PartialHide",
     header: "HLRBRep_InternalAlgo.hxx".}
-proc hide*(this: var HLRBRepInternalAlgo) {.importcpp: "Hide",
-                                        header: "HLRBRep_InternalAlgo.hxx".}
-proc hide*(this: var HLRBRepInternalAlgo; i: StandardInteger) {.importcpp: "Hide",
+proc Hide*(this: var HLRBRep_InternalAlgo) {.importcpp: "Hide",
     header: "HLRBRep_InternalAlgo.hxx".}
-proc hide*(this: var HLRBRepInternalAlgo; i: StandardInteger; j: StandardInteger) {.
+proc Hide*(this: var HLRBRep_InternalAlgo; I: Standard_Integer) {.importcpp: "Hide",
+    header: "HLRBRep_InternalAlgo.hxx".}
+proc Hide*(this: var HLRBRep_InternalAlgo; I: Standard_Integer; J: Standard_Integer) {.
     importcpp: "Hide", header: "HLRBRep_InternalAlgo.hxx".}
-proc debug*(this: var HLRBRepInternalAlgo; deb: StandardBoolean) {.importcpp: "Debug",
-    header: "HLRBRep_InternalAlgo.hxx".}
-proc debug*(this: HLRBRepInternalAlgo): StandardBoolean {.noSideEffect,
+proc Debug*(this: var HLRBRep_InternalAlgo; deb: Standard_Boolean) {.
     importcpp: "Debug", header: "HLRBRep_InternalAlgo.hxx".}
-proc dataStructure*(this: HLRBRepInternalAlgo): Handle[HLRBRepData] {.noSideEffect,
-    importcpp: "DataStructure", header: "HLRBRep_InternalAlgo.hxx".}
+proc Debug*(this: HLRBRep_InternalAlgo): Standard_Boolean {.noSideEffect,
+    importcpp: "Debug", header: "HLRBRep_InternalAlgo.hxx".}
+proc DataStructure*(this: HLRBRep_InternalAlgo): handle[HLRBRep_Data] {.
+    noSideEffect, importcpp: "DataStructure", header: "HLRBRep_InternalAlgo.hxx".}
 type
-  HLRBRepInternalAlgobaseType* = StandardTransient
+  HLRBRep_InternalAlgobase_type* = Standard_Transient
 
-proc getTypeName*(): cstring {.importcpp: "HLRBRep_InternalAlgo::get_type_name(@)",
-                            header: "HLRBRep_InternalAlgo.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "HLRBRep_InternalAlgo::get_type_name(@)",
+                              header: "HLRBRep_InternalAlgo.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "HLRBRep_InternalAlgo::get_type_descriptor(@)",
     header: "HLRBRep_InternalAlgo.hxx".}
-proc dynamicType*(this: HLRBRepInternalAlgo): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: HLRBRep_InternalAlgo): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "HLRBRep_InternalAlgo.hxx".}
-

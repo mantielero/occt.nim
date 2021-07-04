@@ -13,46 +13,49 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Integer,
+  ../Standard/Standard_Real, ShapeFix_Root, ../Standard/Standard_Boolean
+
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of ShapeBuild_ReShape"
 discard "forward decl of ShapeFix_FixSmallSolid"
 discard "forward decl of ShapeFix_FixSmallSolid"
 type
-  HandleShapeFixFixSmallSolid* = Handle[ShapeFixFixSmallSolid]
+  Handle_ShapeFix_FixSmallSolid* = handle[ShapeFix_FixSmallSolid]
 
 ## ! Fixing solids with small size
 
 type
-  ShapeFixFixSmallSolid* {.importcpp: "ShapeFix_FixSmallSolid",
-                          header: "ShapeFix_FixSmallSolid.hxx", bycopy.} = object of ShapeFixRoot ##
-                                                                                           ## !
-                                                                                           ## Construct
+  ShapeFix_FixSmallSolid* {.importcpp: "ShapeFix_FixSmallSolid",
+                           header: "ShapeFix_FixSmallSolid.hxx", bycopy.} = object of ShapeFix_Root ##
+                                                                                             ## !
+                                                                                             ## Construct
 
 
-proc constructShapeFixFixSmallSolid*(): ShapeFixFixSmallSolid {.constructor,
+proc constructShapeFix_FixSmallSolid*(): ShapeFix_FixSmallSolid {.constructor,
     importcpp: "ShapeFix_FixSmallSolid(@)", header: "ShapeFix_FixSmallSolid.hxx".}
-proc setFixMode*(this: var ShapeFixFixSmallSolid; theMode: StandardInteger) {.
+proc SetFixMode*(this: var ShapeFix_FixSmallSolid; theMode: Standard_Integer) {.
     importcpp: "SetFixMode", header: "ShapeFix_FixSmallSolid.hxx".}
-proc setVolumeThreshold*(this: var ShapeFixFixSmallSolid;
-                        theThreshold: StandardReal = -1.0) {.
+proc SetVolumeThreshold*(this: var ShapeFix_FixSmallSolid;
+                        theThreshold: Standard_Real = -1.0) {.
     importcpp: "SetVolumeThreshold", header: "ShapeFix_FixSmallSolid.hxx".}
-proc setWidthFactorThreshold*(this: var ShapeFixFixSmallSolid;
-                             theThreshold: StandardReal = -1.0) {.
+proc SetWidthFactorThreshold*(this: var ShapeFix_FixSmallSolid;
+                             theThreshold: Standard_Real = -1.0) {.
     importcpp: "SetWidthFactorThreshold", header: "ShapeFix_FixSmallSolid.hxx".}
-proc remove*(this: ShapeFixFixSmallSolid; theShape: TopoDS_Shape;
-            theContext: Handle[ShapeBuildReShape]): TopoDS_Shape {.noSideEffect,
+proc Remove*(this: ShapeFix_FixSmallSolid; theShape: TopoDS_Shape;
+            theContext: handle[ShapeBuild_ReShape]): TopoDS_Shape {.noSideEffect,
     importcpp: "Remove", header: "ShapeFix_FixSmallSolid.hxx".}
-proc merge*(this: ShapeFixFixSmallSolid; theShape: TopoDS_Shape;
-           theContext: Handle[ShapeBuildReShape]): TopoDS_Shape {.noSideEffect,
+proc Merge*(this: ShapeFix_FixSmallSolid; theShape: TopoDS_Shape;
+           theContext: handle[ShapeBuild_ReShape]): TopoDS_Shape {.noSideEffect,
     importcpp: "Merge", header: "ShapeFix_FixSmallSolid.hxx".}
 type
-  ShapeFixFixSmallSolidbaseType* = ShapeFixRoot
+  ShapeFix_FixSmallSolidbase_type* = ShapeFix_Root
 
-proc getTypeName*(): cstring {.importcpp: "ShapeFix_FixSmallSolid::get_type_name(@)",
-                            header: "ShapeFix_FixSmallSolid.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "ShapeFix_FixSmallSolid::get_type_name(@)",
+                              header: "ShapeFix_FixSmallSolid.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "ShapeFix_FixSmallSolid::get_type_descriptor(@)",
     header: "ShapeFix_FixSmallSolid.hxx".}
-proc dynamicType*(this: ShapeFixFixSmallSolid): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "ShapeFix_FixSmallSolid.hxx".}
-
+proc DynamicType*(this: ShapeFix_FixSmallSolid): handle[Standard_Type] {.
+    noSideEffect, importcpp: "DynamicType", header: "ShapeFix_FixSmallSolid.hxx".}

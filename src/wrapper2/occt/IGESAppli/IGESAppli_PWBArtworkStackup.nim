@@ -14,12 +14,16 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Integer,
+  ../TColStd/TColStd_HArray1OfInteger, ../IGESData/IGESData_IGESEntity
+
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of IGESAppli_PWBArtworkStackup"
 discard "forward decl of IGESAppli_PWBArtworkStackup"
 type
-  HandleIGESAppliPWBArtworkStackup* = Handle[IGESAppliPWBArtworkStackup]
+  Handle_IGESAppli_PWBArtworkStackup* = handle[IGESAppli_PWBArtworkStackup]
 
 ## ! defines PWBArtworkStackup, Type <406> Form <25>
 ## ! in package IGESAppli
@@ -31,38 +35,37 @@ type
 ## ! property should stand alone in the file.
 
 type
-  IGESAppliPWBArtworkStackup* {.importcpp: "IGESAppli_PWBArtworkStackup",
-                               header: "IGESAppli_PWBArtworkStackup.hxx", bycopy.} = object of IGESDataIGESEntity
+  IGESAppli_PWBArtworkStackup* {.importcpp: "IGESAppli_PWBArtworkStackup",
+                                header: "IGESAppli_PWBArtworkStackup.hxx", bycopy.} = object of IGESData_IGESEntity
 
 
-proc constructIGESAppliPWBArtworkStackup*(): IGESAppliPWBArtworkStackup {.
+proc constructIGESAppli_PWBArtworkStackup*(): IGESAppli_PWBArtworkStackup {.
     constructor, importcpp: "IGESAppli_PWBArtworkStackup(@)",
     header: "IGESAppli_PWBArtworkStackup.hxx".}
-proc init*(this: var IGESAppliPWBArtworkStackup; nbPropVal: StandardInteger;
-          anArtIdent: Handle[TCollectionHAsciiString];
-          allLevelNums: Handle[TColStdHArray1OfInteger]) {.importcpp: "Init",
+proc Init*(this: var IGESAppli_PWBArtworkStackup; nbPropVal: Standard_Integer;
+          anArtIdent: handle[TCollection_HAsciiString];
+          allLevelNums: handle[TColStd_HArray1OfInteger]) {.importcpp: "Init",
     header: "IGESAppli_PWBArtworkStackup.hxx".}
-proc nbPropertyValues*(this: IGESAppliPWBArtworkStackup): StandardInteger {.
+proc NbPropertyValues*(this: IGESAppli_PWBArtworkStackup): Standard_Integer {.
     noSideEffect, importcpp: "NbPropertyValues",
     header: "IGESAppli_PWBArtworkStackup.hxx".}
-proc identification*(this: IGESAppliPWBArtworkStackup): Handle[
-    TCollectionHAsciiString] {.noSideEffect, importcpp: "Identification",
-                              header: "IGESAppli_PWBArtworkStackup.hxx".}
-proc nbLevelNumbers*(this: IGESAppliPWBArtworkStackup): StandardInteger {.
+proc Identification*(this: IGESAppli_PWBArtworkStackup): handle[
+    TCollection_HAsciiString] {.noSideEffect, importcpp: "Identification",
+                               header: "IGESAppli_PWBArtworkStackup.hxx".}
+proc NbLevelNumbers*(this: IGESAppli_PWBArtworkStackup): Standard_Integer {.
     noSideEffect, importcpp: "NbLevelNumbers",
     header: "IGESAppli_PWBArtworkStackup.hxx".}
-proc levelNumber*(this: IGESAppliPWBArtworkStackup; index: StandardInteger): StandardInteger {.
+proc LevelNumber*(this: IGESAppli_PWBArtworkStackup; Index: Standard_Integer): Standard_Integer {.
     noSideEffect, importcpp: "LevelNumber",
     header: "IGESAppli_PWBArtworkStackup.hxx".}
 type
-  IGESAppliPWBArtworkStackupbaseType* = IGESDataIGESEntity
+  IGESAppli_PWBArtworkStackupbase_type* = IGESData_IGESEntity
 
-proc getTypeName*(): cstring {.importcpp: "IGESAppli_PWBArtworkStackup::get_type_name(@)",
-                            header: "IGESAppli_PWBArtworkStackup.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "IGESAppli_PWBArtworkStackup::get_type_name(@)",
+                              header: "IGESAppli_PWBArtworkStackup.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "IGESAppli_PWBArtworkStackup::get_type_descriptor(@)",
     header: "IGESAppli_PWBArtworkStackup.hxx".}
-proc dynamicType*(this: IGESAppliPWBArtworkStackup): Handle[StandardType] {.
+proc DynamicType*(this: IGESAppli_PWBArtworkStackup): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType",
     header: "IGESAppli_PWBArtworkStackup.hxx".}
-

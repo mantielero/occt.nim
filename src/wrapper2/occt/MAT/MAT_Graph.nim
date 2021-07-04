@@ -14,6 +14,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, MAT_DataMapOfIntegerArc,
+  MAT_DataMapOfIntegerBasicElt, MAT_DataMapOfIntegerNode,
+  ../Standard/Standard_Integer, ../Standard/Standard_Transient,
+  ../Standard/Standard_Boolean
+
 discard "forward decl of MAT_ListOfBisector"
 discard "forward decl of MAT_Arc"
 discard "forward decl of MAT_BasicElt"
@@ -21,96 +27,96 @@ discard "forward decl of MAT_Node"
 discard "forward decl of MAT_Graph"
 discard "forward decl of MAT_Graph"
 type
-  HandleMAT_Graph* = Handle[MAT_Graph]
+  Handle_MAT_Graph* = handle[MAT_Graph]
 
 ## ! The Class Graph permits the exploration of the
 ## ! Bisector Locus.
 
 type
-  MAT_Graph* {.importcpp: "MAT_Graph", header: "MAT_Graph.hxx", bycopy.} = object of StandardTransient ##
-                                                                                             ## !
-                                                                                             ## Empty
-                                                                                             ## constructor.
-                                                                                             ##
-                                                                                             ## !
-                                                                                             ## Merge
-                                                                                             ## two
-                                                                                             ## Arcs.
-                                                                                             ## the
-                                                                                             ## second
-                                                                                             ## node
-                                                                                             ## of
-                                                                                             ## <Arc2>
-                                                                                             ## becomes
-                                                                                             ##
-                                                                                             ## !
-                                                                                             ## the
-                                                                                             ## first
-                                                                                             ## node
-                                                                                             ## of
-                                                                                             ## <Arc1>.
-                                                                                             ## Update
-                                                                                             ## of
-                                                                                             ## the
-                                                                                             ## first
-                                                                                             ##
-                                                                                             ## !
-                                                                                             ## node
-                                                                                             ## and
-                                                                                             ## the
-                                                                                             ## neighbours
-                                                                                             ## of
-                                                                                             ## <Arc1>.
-                                                                                             ##
-                                                                                             ## !
-                                                                                             ## <Arc2>
-                                                                                             ## is
-                                                                                             ## eliminated.
+  MAT_Graph* {.importcpp: "MAT_Graph", header: "MAT_Graph.hxx", bycopy.} = object of Standard_Transient ##
+                                                                                              ## !
+                                                                                              ## Empty
+                                                                                              ## constructor.
+                                                                                              ##
+                                                                                              ## !
+                                                                                              ## Merge
+                                                                                              ## two
+                                                                                              ## Arcs.
+                                                                                              ## the
+                                                                                              ## second
+                                                                                              ## node
+                                                                                              ## of
+                                                                                              ## <Arc2>
+                                                                                              ## becomes
+                                                                                              ##
+                                                                                              ## !
+                                                                                              ## the
+                                                                                              ## first
+                                                                                              ## node
+                                                                                              ## of
+                                                                                              ## <Arc1>.
+                                                                                              ## Update
+                                                                                              ## of
+                                                                                              ## the
+                                                                                              ## first
+                                                                                              ##
+                                                                                              ## !
+                                                                                              ## node
+                                                                                              ## and
+                                                                                              ## the
+                                                                                              ## neighbours
+                                                                                              ## of
+                                                                                              ## <Arc1>.
+                                                                                              ##
+                                                                                              ## !
+                                                                                              ## <Arc2>
+                                                                                              ## is
+                                                                                              ## eliminated.
 
 
 proc constructMAT_Graph*(): MAT_Graph {.constructor, importcpp: "MAT_Graph(@)",
                                      header: "MAT_Graph.hxx".}
-proc perform*(this: var MAT_Graph; semiInfinite: StandardBoolean;
-             theRoots: Handle[MAT_ListOfBisector]; nbBasicElts: StandardInteger;
-             nbArcs: StandardInteger) {.importcpp: "Perform",
-                                      header: "MAT_Graph.hxx".}
-proc arc*(this: MAT_Graph; index: StandardInteger): Handle[MAT_Arc] {.noSideEffect,
+proc Perform*(this: var MAT_Graph; SemiInfinite: Standard_Boolean;
+             TheRoots: handle[MAT_ListOfBisector]; NbBasicElts: Standard_Integer;
+             NbArcs: Standard_Integer) {.importcpp: "Perform",
+                                       header: "MAT_Graph.hxx".}
+proc Arc*(this: MAT_Graph; Index: Standard_Integer): handle[MAT_Arc] {.noSideEffect,
     importcpp: "Arc", header: "MAT_Graph.hxx".}
-proc basicElt*(this: MAT_Graph; index: StandardInteger): Handle[MAT_BasicElt] {.
+proc BasicElt*(this: MAT_Graph; Index: Standard_Integer): handle[MAT_BasicElt] {.
     noSideEffect, importcpp: "BasicElt", header: "MAT_Graph.hxx".}
-proc node*(this: MAT_Graph; index: StandardInteger): Handle[MAT_Node] {.noSideEffect,
+proc Node*(this: MAT_Graph; Index: Standard_Integer): handle[MAT_Node] {.noSideEffect,
     importcpp: "Node", header: "MAT_Graph.hxx".}
-proc numberOfArcs*(this: MAT_Graph): StandardInteger {.noSideEffect,
+proc NumberOfArcs*(this: MAT_Graph): Standard_Integer {.noSideEffect,
     importcpp: "NumberOfArcs", header: "MAT_Graph.hxx".}
-proc numberOfNodes*(this: MAT_Graph): StandardInteger {.noSideEffect,
+proc NumberOfNodes*(this: MAT_Graph): Standard_Integer {.noSideEffect,
     importcpp: "NumberOfNodes", header: "MAT_Graph.hxx".}
-proc numberOfBasicElts*(this: MAT_Graph): StandardInteger {.noSideEffect,
+proc NumberOfBasicElts*(this: MAT_Graph): Standard_Integer {.noSideEffect,
     importcpp: "NumberOfBasicElts", header: "MAT_Graph.hxx".}
-proc numberOfInfiniteNodes*(this: MAT_Graph): StandardInteger {.noSideEffect,
+proc NumberOfInfiniteNodes*(this: MAT_Graph): Standard_Integer {.noSideEffect,
     importcpp: "NumberOfInfiniteNodes", header: "MAT_Graph.hxx".}
-proc fusionOfBasicElts*(this: var MAT_Graph; indexElt1: StandardInteger;
-                       indexElt2: StandardInteger; mergeArc1: var StandardBoolean;
-                       geomIndexArc1: var StandardInteger;
-                       geomIndexArc2: var StandardInteger;
-                       mergeArc2: var StandardBoolean;
-                       geomIndexArc3: var StandardInteger;
-                       geomIndexArc4: var StandardInteger) {.
+proc FusionOfBasicElts*(this: var MAT_Graph; IndexElt1: Standard_Integer;
+                       IndexElt2: Standard_Integer;
+                       MergeArc1: var Standard_Boolean;
+                       GeomIndexArc1: var Standard_Integer;
+                       GeomIndexArc2: var Standard_Integer;
+                       MergeArc2: var Standard_Boolean;
+                       GeomIndexArc3: var Standard_Integer;
+                       GeomIndexArc4: var Standard_Integer) {.
     importcpp: "FusionOfBasicElts", header: "MAT_Graph.hxx".}
-proc compactArcs*(this: var MAT_Graph) {.importcpp: "CompactArcs",
+proc CompactArcs*(this: var MAT_Graph) {.importcpp: "CompactArcs",
                                      header: "MAT_Graph.hxx".}
-proc compactNodes*(this: var MAT_Graph) {.importcpp: "CompactNodes",
+proc CompactNodes*(this: var MAT_Graph) {.importcpp: "CompactNodes",
                                       header: "MAT_Graph.hxx".}
-proc changeBasicElts*(this: var MAT_Graph; newMap: MAT_DataMapOfIntegerBasicElt) {.
+proc ChangeBasicElts*(this: var MAT_Graph; NewMap: MAT_DataMapOfIntegerBasicElt) {.
     importcpp: "ChangeBasicElts", header: "MAT_Graph.hxx".}
-proc changeBasicElt*(this: var MAT_Graph; index: StandardInteger): Handle[MAT_BasicElt] {.
-    importcpp: "ChangeBasicElt", header: "MAT_Graph.hxx".}
+proc ChangeBasicElt*(this: var MAT_Graph; Index: Standard_Integer): handle[
+    MAT_BasicElt] {.importcpp: "ChangeBasicElt", header: "MAT_Graph.hxx".}
 type
-  MAT_GraphbaseType* = StandardTransient
+  MAT_Graphbase_type* = Standard_Transient
 
-proc getTypeName*(): cstring {.importcpp: "MAT_Graph::get_type_name(@)",
-                            header: "MAT_Graph.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "MAT_Graph::get_type_name(@)",
+                              header: "MAT_Graph.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "MAT_Graph::get_type_descriptor(@)", header: "MAT_Graph.hxx".}
-proc dynamicType*(this: MAT_Graph): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: MAT_Graph): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "MAT_Graph.hxx".}
-

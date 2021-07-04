@@ -14,6 +14,14 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../gp/gp_Trsf, ../GeomAdaptor/GeomAdaptor_Curve,
+  ../TopoDS/TopoDS_Edge, ../Adaptor3d/Adaptor3d_Curve,
+  ../Standard/Standard_Boolean, ../Standard/Standard_Real,
+  ../GeomAbs/GeomAbs_Shape, ../Standard/Standard_Integer,
+  ../TColStd/TColStd_Array1OfReal, ../GeomAbs/GeomAbs_CurveType
+
 discard "forward decl of Adaptor3d_HCurveOnSurface"
 discard "forward decl of Standard_NullObject"
 discard "forward decl of Standard_DomainError"
@@ -36,104 +44,103 @@ discard "forward decl of Geom_BezierCurve"
 discard "forward decl of Geom_BSplineCurve"
 discard "forward decl of Geom_OffsetCurve"
 type
-  BRepAdaptorCurve* {.importcpp: "BRepAdaptor_Curve",
-                     header: "BRepAdaptor_Curve.hxx", bycopy.} = object of Adaptor3dCurve ##
-                                                                                   ## !
-                                                                                   ## Creates
-                                                                                   ## an
-                                                                                   ## undefined
-                                                                                   ## Curve
-                                                                                   ## with
-                                                                                   ## no
-                                                                                   ## Edge
-                                                                                   ## loaded.
+  BRepAdaptor_Curve* {.importcpp: "BRepAdaptor_Curve",
+                      header: "BRepAdaptor_Curve.hxx", bycopy.} = object of Adaptor3d_Curve ##
+                                                                                     ## !
+                                                                                     ## Creates
+                                                                                     ## an
+                                                                                     ## undefined
+                                                                                     ## Curve
+                                                                                     ## with
+                                                                                     ## no
+                                                                                     ## Edge
+                                                                                     ## loaded.
 
 
-proc constructBRepAdaptorCurve*(): BRepAdaptorCurve {.constructor,
+proc constructBRepAdaptor_Curve*(): BRepAdaptor_Curve {.constructor,
     importcpp: "BRepAdaptor_Curve(@)", header: "BRepAdaptor_Curve.hxx".}
-proc constructBRepAdaptorCurve*(e: TopoDS_Edge): BRepAdaptorCurve {.constructor,
+proc constructBRepAdaptor_Curve*(E: TopoDS_Edge): BRepAdaptor_Curve {.constructor,
     importcpp: "BRepAdaptor_Curve(@)", header: "BRepAdaptor_Curve.hxx".}
-proc constructBRepAdaptorCurve*(e: TopoDS_Edge; f: TopoDS_Face): BRepAdaptorCurve {.
+proc constructBRepAdaptor_Curve*(E: TopoDS_Edge; F: TopoDS_Face): BRepAdaptor_Curve {.
     constructor, importcpp: "BRepAdaptor_Curve(@)", header: "BRepAdaptor_Curve.hxx".}
-proc reset*(this: var BRepAdaptorCurve) {.importcpp: "Reset",
-                                      header: "BRepAdaptor_Curve.hxx".}
-proc initialize*(this: var BRepAdaptorCurve; e: TopoDS_Edge) {.
+proc Reset*(this: var BRepAdaptor_Curve) {.importcpp: "Reset",
+                                       header: "BRepAdaptor_Curve.hxx".}
+proc Initialize*(this: var BRepAdaptor_Curve; E: TopoDS_Edge) {.
     importcpp: "Initialize", header: "BRepAdaptor_Curve.hxx".}
-proc initialize*(this: var BRepAdaptorCurve; e: TopoDS_Edge; f: TopoDS_Face) {.
+proc Initialize*(this: var BRepAdaptor_Curve; E: TopoDS_Edge; F: TopoDS_Face) {.
     importcpp: "Initialize", header: "BRepAdaptor_Curve.hxx".}
-proc trsf*(this: BRepAdaptorCurve): GpTrsf {.noSideEffect, importcpp: "Trsf",
+proc Trsf*(this: BRepAdaptor_Curve): gp_Trsf {.noSideEffect, importcpp: "Trsf",
     header: "BRepAdaptor_Curve.hxx".}
-proc is3DCurve*(this: BRepAdaptorCurve): StandardBoolean {.noSideEffect,
+proc Is3DCurve*(this: BRepAdaptor_Curve): Standard_Boolean {.noSideEffect,
     importcpp: "Is3DCurve", header: "BRepAdaptor_Curve.hxx".}
-proc isCurveOnSurface*(this: BRepAdaptorCurve): StandardBoolean {.noSideEffect,
+proc IsCurveOnSurface*(this: BRepAdaptor_Curve): Standard_Boolean {.noSideEffect,
     importcpp: "IsCurveOnSurface", header: "BRepAdaptor_Curve.hxx".}
-proc curve*(this: BRepAdaptorCurve): GeomAdaptorCurve {.noSideEffect,
+proc Curve*(this: BRepAdaptor_Curve): GeomAdaptor_Curve {.noSideEffect,
     importcpp: "Curve", header: "BRepAdaptor_Curve.hxx".}
-proc curveOnSurface*(this: BRepAdaptorCurve): Adaptor3dCurveOnSurface {.
+proc CurveOnSurface*(this: BRepAdaptor_Curve): Adaptor3d_CurveOnSurface {.
     noSideEffect, importcpp: "CurveOnSurface", header: "BRepAdaptor_Curve.hxx".}
-proc edge*(this: BRepAdaptorCurve): TopoDS_Edge {.noSideEffect, importcpp: "Edge",
+proc Edge*(this: BRepAdaptor_Curve): TopoDS_Edge {.noSideEffect, importcpp: "Edge",
     header: "BRepAdaptor_Curve.hxx".}
-proc tolerance*(this: BRepAdaptorCurve): StandardReal {.noSideEffect,
+proc Tolerance*(this: BRepAdaptor_Curve): Standard_Real {.noSideEffect,
     importcpp: "Tolerance", header: "BRepAdaptor_Curve.hxx".}
-proc firstParameter*(this: BRepAdaptorCurve): StandardReal {.noSideEffect,
+proc FirstParameter*(this: BRepAdaptor_Curve): Standard_Real {.noSideEffect,
     importcpp: "FirstParameter", header: "BRepAdaptor_Curve.hxx".}
-proc lastParameter*(this: BRepAdaptorCurve): StandardReal {.noSideEffect,
+proc LastParameter*(this: BRepAdaptor_Curve): Standard_Real {.noSideEffect,
     importcpp: "LastParameter", header: "BRepAdaptor_Curve.hxx".}
-proc continuity*(this: BRepAdaptorCurve): GeomAbsShape {.noSideEffect,
+proc Continuity*(this: BRepAdaptor_Curve): GeomAbs_Shape {.noSideEffect,
     importcpp: "Continuity", header: "BRepAdaptor_Curve.hxx".}
-proc nbIntervals*(this: BRepAdaptorCurve; s: GeomAbsShape): StandardInteger {.
+proc NbIntervals*(this: BRepAdaptor_Curve; S: GeomAbs_Shape): Standard_Integer {.
     noSideEffect, importcpp: "NbIntervals", header: "BRepAdaptor_Curve.hxx".}
-proc intervals*(this: BRepAdaptorCurve; t: var TColStdArray1OfReal; s: GeomAbsShape) {.
+proc Intervals*(this: BRepAdaptor_Curve; T: var TColStd_Array1OfReal; S: GeomAbs_Shape) {.
     noSideEffect, importcpp: "Intervals", header: "BRepAdaptor_Curve.hxx".}
-proc trim*(this: BRepAdaptorCurve; first: StandardReal; last: StandardReal;
-          tol: StandardReal): Handle[Adaptor3dHCurve] {.noSideEffect,
+proc Trim*(this: BRepAdaptor_Curve; First: Standard_Real; Last: Standard_Real;
+          Tol: Standard_Real): handle[Adaptor3d_HCurve] {.noSideEffect,
     importcpp: "Trim", header: "BRepAdaptor_Curve.hxx".}
-proc isClosed*(this: BRepAdaptorCurve): StandardBoolean {.noSideEffect,
+proc IsClosed*(this: BRepAdaptor_Curve): Standard_Boolean {.noSideEffect,
     importcpp: "IsClosed", header: "BRepAdaptor_Curve.hxx".}
-proc isPeriodic*(this: BRepAdaptorCurve): StandardBoolean {.noSideEffect,
+proc IsPeriodic*(this: BRepAdaptor_Curve): Standard_Boolean {.noSideEffect,
     importcpp: "IsPeriodic", header: "BRepAdaptor_Curve.hxx".}
-proc period*(this: BRepAdaptorCurve): StandardReal {.noSideEffect,
+proc Period*(this: BRepAdaptor_Curve): Standard_Real {.noSideEffect,
     importcpp: "Period", header: "BRepAdaptor_Curve.hxx".}
-proc value*(this: BRepAdaptorCurve; u: StandardReal): GpPnt {.noSideEffect,
+proc Value*(this: BRepAdaptor_Curve; U: Standard_Real): gp_Pnt {.noSideEffect,
     importcpp: "Value", header: "BRepAdaptor_Curve.hxx".}
-proc d0*(this: BRepAdaptorCurve; u: StandardReal; p: var GpPnt) {.noSideEffect,
+proc D0*(this: BRepAdaptor_Curve; U: Standard_Real; P: var gp_Pnt) {.noSideEffect,
     importcpp: "D0", header: "BRepAdaptor_Curve.hxx".}
-proc d1*(this: BRepAdaptorCurve; u: StandardReal; p: var GpPnt; v: var GpVec) {.
+proc D1*(this: BRepAdaptor_Curve; U: Standard_Real; P: var gp_Pnt; V: var gp_Vec) {.
     noSideEffect, importcpp: "D1", header: "BRepAdaptor_Curve.hxx".}
-proc d2*(this: BRepAdaptorCurve; u: StandardReal; p: var GpPnt; v1: var GpVec;
-        v2: var GpVec) {.noSideEffect, importcpp: "D2",
-                      header: "BRepAdaptor_Curve.hxx".}
-proc d3*(this: BRepAdaptorCurve; u: StandardReal; p: var GpPnt; v1: var GpVec;
-        v2: var GpVec; v3: var GpVec) {.noSideEffect, importcpp: "D3",
-                                  header: "BRepAdaptor_Curve.hxx".}
-proc dn*(this: BRepAdaptorCurve; u: StandardReal; n: StandardInteger): GpVec {.
+proc D2*(this: BRepAdaptor_Curve; U: Standard_Real; P: var gp_Pnt; V1: var gp_Vec;
+        V2: var gp_Vec) {.noSideEffect, importcpp: "D2",
+                       header: "BRepAdaptor_Curve.hxx".}
+proc D3*(this: BRepAdaptor_Curve; U: Standard_Real; P: var gp_Pnt; V1: var gp_Vec;
+        V2: var gp_Vec; V3: var gp_Vec) {.noSideEffect, importcpp: "D3",
+                                    header: "BRepAdaptor_Curve.hxx".}
+proc DN*(this: BRepAdaptor_Curve; U: Standard_Real; N: Standard_Integer): gp_Vec {.
     noSideEffect, importcpp: "DN", header: "BRepAdaptor_Curve.hxx".}
-proc resolution*(this: BRepAdaptorCurve; r3d: StandardReal): StandardReal {.
+proc Resolution*(this: BRepAdaptor_Curve; R3d: Standard_Real): Standard_Real {.
     noSideEffect, importcpp: "Resolution", header: "BRepAdaptor_Curve.hxx".}
-proc getType*(this: BRepAdaptorCurve): GeomAbsCurveType {.noSideEffect,
+proc GetType*(this: BRepAdaptor_Curve): GeomAbs_CurveType {.noSideEffect,
     importcpp: "GetType", header: "BRepAdaptor_Curve.hxx".}
-proc line*(this: BRepAdaptorCurve): GpLin {.noSideEffect, importcpp: "Line",
-                                        header: "BRepAdaptor_Curve.hxx".}
-proc circle*(this: BRepAdaptorCurve): GpCirc {.noSideEffect, importcpp: "Circle",
+proc Line*(this: BRepAdaptor_Curve): gp_Lin {.noSideEffect, importcpp: "Line",
     header: "BRepAdaptor_Curve.hxx".}
-proc ellipse*(this: BRepAdaptorCurve): GpElips {.noSideEffect, importcpp: "Ellipse",
+proc Circle*(this: BRepAdaptor_Curve): gp_Circ {.noSideEffect, importcpp: "Circle",
     header: "BRepAdaptor_Curve.hxx".}
-proc hyperbola*(this: BRepAdaptorCurve): GpHypr {.noSideEffect,
+proc Ellipse*(this: BRepAdaptor_Curve): gp_Elips {.noSideEffect,
+    importcpp: "Ellipse", header: "BRepAdaptor_Curve.hxx".}
+proc Hyperbola*(this: BRepAdaptor_Curve): gp_Hypr {.noSideEffect,
     importcpp: "Hyperbola", header: "BRepAdaptor_Curve.hxx".}
-proc parabola*(this: BRepAdaptorCurve): GpParab {.noSideEffect,
+proc Parabola*(this: BRepAdaptor_Curve): gp_Parab {.noSideEffect,
     importcpp: "Parabola", header: "BRepAdaptor_Curve.hxx".}
-proc degree*(this: BRepAdaptorCurve): StandardInteger {.noSideEffect,
+proc Degree*(this: BRepAdaptor_Curve): Standard_Integer {.noSideEffect,
     importcpp: "Degree", header: "BRepAdaptor_Curve.hxx".}
-proc isRational*(this: BRepAdaptorCurve): StandardBoolean {.noSideEffect,
+proc IsRational*(this: BRepAdaptor_Curve): Standard_Boolean {.noSideEffect,
     importcpp: "IsRational", header: "BRepAdaptor_Curve.hxx".}
-proc nbPoles*(this: BRepAdaptorCurve): StandardInteger {.noSideEffect,
+proc NbPoles*(this: BRepAdaptor_Curve): Standard_Integer {.noSideEffect,
     importcpp: "NbPoles", header: "BRepAdaptor_Curve.hxx".}
-proc nbKnots*(this: BRepAdaptorCurve): StandardInteger {.noSideEffect,
+proc NbKnots*(this: BRepAdaptor_Curve): Standard_Integer {.noSideEffect,
     importcpp: "NbKnots", header: "BRepAdaptor_Curve.hxx".}
-proc bezier*(this: BRepAdaptorCurve): Handle[GeomBezierCurve] {.noSideEffect,
+proc Bezier*(this: BRepAdaptor_Curve): handle[Geom_BezierCurve] {.noSideEffect,
     importcpp: "Bezier", header: "BRepAdaptor_Curve.hxx".}
-proc bSpline*(this: BRepAdaptorCurve): Handle[GeomBSplineCurve] {.noSideEffect,
+proc BSpline*(this: BRepAdaptor_Curve): handle[Geom_BSplineCurve] {.noSideEffect,
     importcpp: "BSpline", header: "BRepAdaptor_Curve.hxx".}
-proc offsetCurve*(this: BRepAdaptorCurve): Handle[GeomOffsetCurve] {.noSideEffect,
+proc OffsetCurve*(this: BRepAdaptor_Curve): handle[Geom_OffsetCurve] {.noSideEffect,
     importcpp: "OffsetCurve", header: "BRepAdaptor_Curve.hxx".}
-

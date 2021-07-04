@@ -14,12 +14,17 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, IntPatch_IType,
+  ../Standard/Standard_Boolean, ../IntSurf/IntSurf_TypeTrans,
+  ../IntSurf/IntSurf_Situation, ../Standard/Standard_Transient
+
 discard "forward decl of Standard_DomainError"
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of IntPatch_Line"
 discard "forward decl of IntPatch_Line"
 type
-  HandleIntPatchLine* = Handle[IntPatchLine]
+  Handle_IntPatch_Line* = handle[IntPatch_Line]
 
 ## ! Definition of an intersection line between two
 ## ! surfaces.
@@ -30,70 +35,70 @@ type
 ## ! defined in the class WLine.
 
 type
-  IntPatchLine* {.importcpp: "IntPatch_Line", header: "IntPatch_Line.hxx", bycopy.} = object of StandardTransient ##
-                                                                                                        ## !
-                                                                                                        ## To
-                                                                                                        ## set
-                                                                                                        ## the
-                                                                                                        ## values
-                                                                                                        ## returned
-                                                                                                        ## by
-                                                                                                        ## IsUIsoS1,....
-                                                                                                        ##
-                                                                                                        ## !
-                                                                                                        ## The
-                                                                                                        ## default
-                                                                                                        ## values
-                                                                                                        ## are
-                                                                                                        ## False.
-                                                                                                        ##
-                                                                                                        ## !
-                                                                                                        ## To
-                                                                                                        ## initialize
-                                                                                                        ## the
-                                                                                                        ## fields,
-                                                                                                        ## when
-                                                                                                        ## the
-                                                                                                        ## transitions
-                                                                                                        ##
-                                                                                                        ## !
-                                                                                                        ## are
-                                                                                                        ## In
-                                                                                                        ## or
-                                                                                                        ## Out.
+  IntPatch_Line* {.importcpp: "IntPatch_Line", header: "IntPatch_Line.hxx", bycopy.} = object of Standard_Transient ##
+                                                                                                          ## !
+                                                                                                          ## To
+                                                                                                          ## set
+                                                                                                          ## the
+                                                                                                          ## values
+                                                                                                          ## returned
+                                                                                                          ## by
+                                                                                                          ## IsUIsoS1,....
+                                                                                                          ##
+                                                                                                          ## !
+                                                                                                          ## The
+                                                                                                          ## default
+                                                                                                          ## values
+                                                                                                          ## are
+                                                                                                          ## False.
+                                                                                                          ##
+                                                                                                          ## !
+                                                                                                          ## To
+                                                                                                          ## initialize
+                                                                                                          ## the
+                                                                                                          ## fields,
+                                                                                                          ## when
+                                                                                                          ## the
+                                                                                                          ## transitions
+                                                                                                          ##
+                                                                                                          ## !
+                                                                                                          ## are
+                                                                                                          ## In
+                                                                                                          ## or
+                                                                                                          ## Out.
 
 
-proc setValue*(this: var IntPatchLine; uiso1: StandardBoolean; viso1: StandardBoolean;
-              uiso2: StandardBoolean; viso2: StandardBoolean) {.
-    importcpp: "SetValue", header: "IntPatch_Line.hxx".}
-proc arcType*(this: IntPatchLine): IntPatchIType {.noSideEffect,
+proc SetValue*(this: var IntPatch_Line; Uiso1: Standard_Boolean;
+              Viso1: Standard_Boolean; Uiso2: Standard_Boolean;
+              Viso2: Standard_Boolean) {.importcpp: "SetValue",
+                                       header: "IntPatch_Line.hxx".}
+proc ArcType*(this: IntPatch_Line): IntPatch_IType {.noSideEffect,
     importcpp: "ArcType", header: "IntPatch_Line.hxx".}
-proc isTangent*(this: IntPatchLine): StandardBoolean {.noSideEffect,
+proc IsTangent*(this: IntPatch_Line): Standard_Boolean {.noSideEffect,
     importcpp: "IsTangent", header: "IntPatch_Line.hxx".}
-proc transitionOnS1*(this: IntPatchLine): IntSurfTypeTrans {.noSideEffect,
+proc TransitionOnS1*(this: IntPatch_Line): IntSurf_TypeTrans {.noSideEffect,
     importcpp: "TransitionOnS1", header: "IntPatch_Line.hxx".}
-proc transitionOnS2*(this: IntPatchLine): IntSurfTypeTrans {.noSideEffect,
+proc TransitionOnS2*(this: IntPatch_Line): IntSurf_TypeTrans {.noSideEffect,
     importcpp: "TransitionOnS2", header: "IntPatch_Line.hxx".}
-proc situationS1*(this: IntPatchLine): IntSurfSituation {.noSideEffect,
+proc SituationS1*(this: IntPatch_Line): IntSurf_Situation {.noSideEffect,
     importcpp: "SituationS1", header: "IntPatch_Line.hxx".}
-proc situationS2*(this: IntPatchLine): IntSurfSituation {.noSideEffect,
+proc SituationS2*(this: IntPatch_Line): IntSurf_Situation {.noSideEffect,
     importcpp: "SituationS2", header: "IntPatch_Line.hxx".}
-proc isUIsoOnS1*(this: IntPatchLine): StandardBoolean {.noSideEffect,
+proc IsUIsoOnS1*(this: IntPatch_Line): Standard_Boolean {.noSideEffect,
     importcpp: "IsUIsoOnS1", header: "IntPatch_Line.hxx".}
-proc isVIsoOnS1*(this: IntPatchLine): StandardBoolean {.noSideEffect,
+proc IsVIsoOnS1*(this: IntPatch_Line): Standard_Boolean {.noSideEffect,
     importcpp: "IsVIsoOnS1", header: "IntPatch_Line.hxx".}
-proc isUIsoOnS2*(this: IntPatchLine): StandardBoolean {.noSideEffect,
+proc IsUIsoOnS2*(this: IntPatch_Line): Standard_Boolean {.noSideEffect,
     importcpp: "IsUIsoOnS2", header: "IntPatch_Line.hxx".}
-proc isVIsoOnS2*(this: IntPatchLine): StandardBoolean {.noSideEffect,
+proc IsVIsoOnS2*(this: IntPatch_Line): Standard_Boolean {.noSideEffect,
     importcpp: "IsVIsoOnS2", header: "IntPatch_Line.hxx".}
 type
-  IntPatchLinebaseType* = StandardTransient
+  IntPatch_Linebase_type* = Standard_Transient
 
-proc getTypeName*(): cstring {.importcpp: "IntPatch_Line::get_type_name(@)",
-                            header: "IntPatch_Line.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "IntPatch_Line::get_type_name(@)",
+                              header: "IntPatch_Line.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "IntPatch_Line::get_type_descriptor(@)",
     header: "IntPatch_Line.hxx".}
-proc dynamicType*(this: IntPatchLine): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: IntPatch_Line): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "IntPatch_Line.hxx".}
-

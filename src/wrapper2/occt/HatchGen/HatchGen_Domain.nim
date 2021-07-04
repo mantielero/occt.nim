@@ -14,41 +14,45 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
+  HatchGen_PointOnHatching, ../Standard/Standard_Integer
+
 discard "forward decl of Standard_DomainError"
 discard "forward decl of HatchGen_PointOnHatching"
 type
-  HatchGenDomain* {.importcpp: "HatchGen_Domain", header: "HatchGen_Domain.hxx",
-                   bycopy.} = object ## ! Creates an infinite domain.
+  HatchGen_Domain* {.importcpp: "HatchGen_Domain", header: "HatchGen_Domain.hxx",
+                    bycopy.} = object ## ! Creates an infinite domain.
 
 
-proc constructHatchGenDomain*(): HatchGenDomain {.constructor,
+proc constructHatchGen_Domain*(): HatchGen_Domain {.constructor,
     importcpp: "HatchGen_Domain(@)", header: "HatchGen_Domain.hxx".}
-proc constructHatchGenDomain*(p1: HatchGenPointOnHatching;
-                             p2: HatchGenPointOnHatching): HatchGenDomain {.
+proc constructHatchGen_Domain*(P1: HatchGen_PointOnHatching;
+                              P2: HatchGen_PointOnHatching): HatchGen_Domain {.
     constructor, importcpp: "HatchGen_Domain(@)", header: "HatchGen_Domain.hxx".}
-proc constructHatchGenDomain*(p: HatchGenPointOnHatching; first: StandardBoolean): HatchGenDomain {.
+proc constructHatchGen_Domain*(P: HatchGen_PointOnHatching; First: Standard_Boolean): HatchGen_Domain {.
     constructor, importcpp: "HatchGen_Domain(@)", header: "HatchGen_Domain.hxx".}
-proc setPoints*(this: var HatchGenDomain; p1: HatchGenPointOnHatching;
-               p2: HatchGenPointOnHatching) {.importcpp: "SetPoints",
+proc SetPoints*(this: var HatchGen_Domain; P1: HatchGen_PointOnHatching;
+               P2: HatchGen_PointOnHatching) {.importcpp: "SetPoints",
     header: "HatchGen_Domain.hxx".}
-proc setPoints*(this: var HatchGenDomain) {.importcpp: "SetPoints",
-                                        header: "HatchGen_Domain.hxx".}
-proc setFirstPoint*(this: var HatchGenDomain; p: HatchGenPointOnHatching) {.
+proc SetPoints*(this: var HatchGen_Domain) {.importcpp: "SetPoints",
+    header: "HatchGen_Domain.hxx".}
+proc SetFirstPoint*(this: var HatchGen_Domain; P: HatchGen_PointOnHatching) {.
     importcpp: "SetFirstPoint", header: "HatchGen_Domain.hxx".}
-proc setFirstPoint*(this: var HatchGenDomain) {.importcpp: "SetFirstPoint",
+proc SetFirstPoint*(this: var HatchGen_Domain) {.importcpp: "SetFirstPoint",
     header: "HatchGen_Domain.hxx".}
-proc setSecondPoint*(this: var HatchGenDomain; p: HatchGenPointOnHatching) {.
+proc SetSecondPoint*(this: var HatchGen_Domain; P: HatchGen_PointOnHatching) {.
     importcpp: "SetSecondPoint", header: "HatchGen_Domain.hxx".}
-proc setSecondPoint*(this: var HatchGenDomain) {.importcpp: "SetSecondPoint",
+proc SetSecondPoint*(this: var HatchGen_Domain) {.importcpp: "SetSecondPoint",
     header: "HatchGen_Domain.hxx".}
-proc hasFirstPoint*(this: HatchGenDomain): StandardBoolean {.noSideEffect,
+proc HasFirstPoint*(this: HatchGen_Domain): Standard_Boolean {.noSideEffect,
     importcpp: "HasFirstPoint", header: "HatchGen_Domain.hxx".}
-proc firstPoint*(this: HatchGenDomain): HatchGenPointOnHatching {.noSideEffect,
+proc FirstPoint*(this: HatchGen_Domain): HatchGen_PointOnHatching {.noSideEffect,
     importcpp: "FirstPoint", header: "HatchGen_Domain.hxx".}
-proc hasSecondPoint*(this: HatchGenDomain): StandardBoolean {.noSideEffect,
+proc HasSecondPoint*(this: HatchGen_Domain): Standard_Boolean {.noSideEffect,
     importcpp: "HasSecondPoint", header: "HatchGen_Domain.hxx".}
-proc secondPoint*(this: HatchGenDomain): HatchGenPointOnHatching {.noSideEffect,
+proc SecondPoint*(this: HatchGen_Domain): HatchGen_PointOnHatching {.noSideEffect,
     importcpp: "SecondPoint", header: "HatchGen_Domain.hxx".}
-proc dump*(this: HatchGenDomain; index: StandardInteger = 0) {.noSideEffect,
+proc Dump*(this: HatchGen_Domain; Index: Standard_Integer = 0) {.noSideEffect,
     importcpp: "Dump", header: "HatchGen_Domain.hxx".}
-

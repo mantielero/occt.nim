@@ -13,6 +13,16 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, Message_ExecStatus,
+  ../TColStd/TColStd_HArray1OfTransient, ../Standard/Standard_Transient,
+  Message_Status, ../Standard/Standard_Integer, ../Standard/Standard_CString,
+  ../Standard/Standard_Boolean, Message_Gravity,
+  ../TCollection/TCollection_HAsciiString,
+  ../TCollection/TCollection_HExtendedString,
+  ../TColStd/TColStd_HSequenceOfHExtendedString,
+  ../TColStd/TColStd_SequenceOfHExtendedString, Message_HArrayOfMsg
+
 discard "forward decl of Message_Messenger"
 discard "forward decl of TCollection_AsciiString"
 discard "forward decl of TCollection_HAsciiString"
@@ -23,7 +33,7 @@ discard "forward decl of TColStd_HPackedMapOfInteger"
 discard "forward decl of Message_Algorithm"
 discard "forward decl of Message_Algorithm"
 type
-  HandleMessageAlgorithm* = Handle[MessageAlgorithm]
+  Handle_Message_Algorithm* = handle[Message_Algorithm]
 
 ## ! Class Message_Algorithm is intended to be the base class for
 ## ! classes implementing algorithms or any operations that need
@@ -68,88 +78,87 @@ type
 ## ! By default, Message::DefaultMessenger() is used.
 
 type
-  MessageAlgorithm* {.importcpp: "Message_Algorithm",
-                     header: "Message_Algorithm.hxx", bycopy.} = object of StandardTransient ##
-                                                                                      ## !
-                                                                                      ## Empty
-                                                                                      ## constructor
+  Message_Algorithm* {.importcpp: "Message_Algorithm",
+                      header: "Message_Algorithm.hxx", bycopy.} = object of Standard_Transient ##
+                                                                                        ## !
+                                                                                        ## Empty
+                                                                                        ## constructor
 
 
-proc constructMessageAlgorithm*(): MessageAlgorithm {.constructor,
+proc constructMessage_Algorithm*(): Message_Algorithm {.constructor,
     importcpp: "Message_Algorithm(@)", header: "Message_Algorithm.hxx".}
-proc setStatus*(this: var MessageAlgorithm; theStat: MessageStatus) {.
+proc SetStatus*(this: var Message_Algorithm; theStat: Message_Status) {.
     importcpp: "SetStatus", header: "Message_Algorithm.hxx".}
-proc setStatus*(this: var MessageAlgorithm; theStat: MessageStatus;
-               theInt: StandardInteger) {.importcpp: "SetStatus",
-                                        header: "Message_Algorithm.hxx".}
-proc setStatus*(this: var MessageAlgorithm; theStat: MessageStatus;
-               theStr: StandardCString;
-               noRepetitions: StandardBoolean = standardTrue) {.
+proc SetStatus*(this: var Message_Algorithm; theStat: Message_Status;
+               theInt: Standard_Integer) {.importcpp: "SetStatus",
+    header: "Message_Algorithm.hxx".}
+proc SetStatus*(this: var Message_Algorithm; theStat: Message_Status;
+               theStr: Standard_CString;
+               noRepetitions: Standard_Boolean = Standard_True) {.
     importcpp: "SetStatus", header: "Message_Algorithm.hxx".}
-proc setStatus*(this: var MessageAlgorithm; theStat: MessageStatus;
-               theStr: TCollectionAsciiString;
-               noRepetitions: StandardBoolean = standardTrue) {.
+proc SetStatus*(this: var Message_Algorithm; theStat: Message_Status;
+               theStr: TCollection_AsciiString;
+               noRepetitions: Standard_Boolean = Standard_True) {.
     importcpp: "SetStatus", header: "Message_Algorithm.hxx".}
-proc setStatus*(this: var MessageAlgorithm; theStat: MessageStatus;
-               theStr: Handle[TCollectionHAsciiString];
-               noRepetitions: StandardBoolean = standardTrue) {.
+proc SetStatus*(this: var Message_Algorithm; theStat: Message_Status;
+               theStr: handle[TCollection_HAsciiString];
+               noRepetitions: Standard_Boolean = Standard_True) {.
     importcpp: "SetStatus", header: "Message_Algorithm.hxx".}
-proc setStatus*(this: var MessageAlgorithm; theStat: MessageStatus;
-               theStr: TCollectionExtendedString;
-               noRepetitions: StandardBoolean = standardTrue) {.
+proc SetStatus*(this: var Message_Algorithm; theStat: Message_Status;
+               theStr: TCollection_ExtendedString;
+               noRepetitions: Standard_Boolean = Standard_True) {.
     importcpp: "SetStatus", header: "Message_Algorithm.hxx".}
-proc setStatus*(this: var MessageAlgorithm; theStat: MessageStatus;
-               theStr: Handle[TCollectionHExtendedString];
-               noRepetitions: StandardBoolean = standardTrue) {.
+proc SetStatus*(this: var Message_Algorithm; theStat: Message_Status;
+               theStr: handle[TCollection_HExtendedString];
+               noRepetitions: Standard_Boolean = Standard_True) {.
     importcpp: "SetStatus", header: "Message_Algorithm.hxx".}
-proc setStatus*(this: var MessageAlgorithm; theStat: MessageStatus; theMsg: MessageMsg) {.
-    importcpp: "SetStatus", header: "Message_Algorithm.hxx".}
-proc getStatus*(this: MessageAlgorithm): MessageExecStatus {.noSideEffect,
+proc SetStatus*(this: var Message_Algorithm; theStat: Message_Status;
+               theMsg: Message_Msg) {.importcpp: "SetStatus",
+                                    header: "Message_Algorithm.hxx".}
+proc GetStatus*(this: Message_Algorithm): Message_ExecStatus {.noSideEffect,
     importcpp: "GetStatus", header: "Message_Algorithm.hxx".}
-proc changeStatus*(this: var MessageAlgorithm): var MessageExecStatus {.
+proc ChangeStatus*(this: var Message_Algorithm): var Message_ExecStatus {.
     importcpp: "ChangeStatus", header: "Message_Algorithm.hxx".}
-proc clearStatus*(this: var MessageAlgorithm) {.importcpp: "ClearStatus",
+proc ClearStatus*(this: var Message_Algorithm) {.importcpp: "ClearStatus",
     header: "Message_Algorithm.hxx".}
-proc setMessenger*(this: var MessageAlgorithm; theMsgr: Handle[MessageMessenger]) {.
+proc SetMessenger*(this: var Message_Algorithm; theMsgr: handle[Message_Messenger]) {.
     importcpp: "SetMessenger", header: "Message_Algorithm.hxx".}
-proc getMessenger*(this: MessageAlgorithm): Handle[MessageMessenger] {.noSideEffect,
-    importcpp: "GetMessenger", header: "Message_Algorithm.hxx".}
-proc sendStatusMessages*(this: MessageAlgorithm; theFilter: MessageExecStatus;
-                        theTraceLevel: MessageGravity = messageWarning;
-                        theMaxCount: StandardInteger = 20) {.noSideEffect,
+proc GetMessenger*(this: Message_Algorithm): handle[Message_Messenger] {.
+    noSideEffect, importcpp: "GetMessenger", header: "Message_Algorithm.hxx".}
+proc SendStatusMessages*(this: Message_Algorithm; theFilter: Message_ExecStatus;
+                        theTraceLevel: Message_Gravity = Message_Warning;
+                        theMaxCount: Standard_Integer = 20) {.noSideEffect,
     importcpp: "SendStatusMessages", header: "Message_Algorithm.hxx".}
-proc sendMessages*(this: MessageAlgorithm;
-                  theTraceLevel: MessageGravity = messageWarning;
-                  theMaxCount: StandardInteger = 20) {.noSideEffect,
+proc SendMessages*(this: Message_Algorithm;
+                  theTraceLevel: Message_Gravity = Message_Warning;
+                  theMaxCount: Standard_Integer = 20) {.noSideEffect,
     importcpp: "SendMessages", header: "Message_Algorithm.hxx".}
-proc addStatus*(this: var MessageAlgorithm; theOther: Handle[MessageAlgorithm]) {.
+proc AddStatus*(this: var Message_Algorithm; theOther: handle[Message_Algorithm]) {.
     importcpp: "AddStatus", header: "Message_Algorithm.hxx".}
-proc addStatus*(this: var MessageAlgorithm; theStatus: MessageExecStatus;
-               theOther: Handle[MessageAlgorithm]) {.importcpp: "AddStatus",
+proc AddStatus*(this: var Message_Algorithm; theStatus: Message_ExecStatus;
+               theOther: handle[Message_Algorithm]) {.importcpp: "AddStatus",
     header: "Message_Algorithm.hxx".}
-proc getMessageNumbers*(this: MessageAlgorithm; theStatus: MessageStatus): Handle[
-    TColStdHPackedMapOfInteger] {.noSideEffect, importcpp: "GetMessageNumbers",
-                                 header: "Message_Algorithm.hxx".}
-proc getMessageStrings*(this: MessageAlgorithm; theStatus: MessageStatus): Handle[
-    TColStdHSequenceOfHExtendedString] {.noSideEffect,
-                                        importcpp: "GetMessageStrings",
-                                        header: "Message_Algorithm.hxx".}
-proc prepareReport*(theError: Handle[TColStdHPackedMapOfInteger];
-                   theMaxCount: StandardInteger): TCollectionExtendedString {.
+proc GetMessageNumbers*(this: Message_Algorithm; theStatus: Message_Status): handle[
+    TColStd_HPackedMapOfInteger] {.noSideEffect, importcpp: "GetMessageNumbers",
+                                  header: "Message_Algorithm.hxx".}
+proc GetMessageStrings*(this: Message_Algorithm; theStatus: Message_Status): handle[
+    TColStd_HSequenceOfHExtendedString] {.noSideEffect,
+    importcpp: "GetMessageStrings", header: "Message_Algorithm.hxx".}
+proc PrepareReport*(theError: handle[TColStd_HPackedMapOfInteger];
+                   theMaxCount: Standard_Integer): TCollection_ExtendedString {.
     importcpp: "Message_Algorithm::PrepareReport(@)",
     header: "Message_Algorithm.hxx".}
-proc prepareReport*(theReportSeq: TColStdSequenceOfHExtendedString;
-                   theMaxCount: StandardInteger): TCollectionExtendedString {.
+proc PrepareReport*(theReportSeq: TColStd_SequenceOfHExtendedString;
+                   theMaxCount: Standard_Integer): TCollection_ExtendedString {.
     importcpp: "Message_Algorithm::PrepareReport(@)",
     header: "Message_Algorithm.hxx".}
 type
-  MessageAlgorithmbaseType* = StandardTransient
+  Message_Algorithmbase_type* = Standard_Transient
 
-proc getTypeName*(): cstring {.importcpp: "Message_Algorithm::get_type_name(@)",
-                            header: "Message_Algorithm.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "Message_Algorithm::get_type_name(@)",
+                              header: "Message_Algorithm.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "Message_Algorithm::get_type_descriptor(@)",
     header: "Message_Algorithm.hxx".}
-proc dynamicType*(this: MessageAlgorithm): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: Message_Algorithm): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "Message_Algorithm.hxx".}
-

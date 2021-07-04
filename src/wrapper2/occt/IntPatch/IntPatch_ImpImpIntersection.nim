@@ -14,6 +14,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
+  IntPatch_SequenceOfPoint, IntPatch_SequenceOfLine, IntPatch_TheSOnBounds,
+  ../Standard/Standard_Real, ../Standard/Standard_Integer
+
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of Standard_DomainError"
@@ -23,58 +29,54 @@ discard "forward decl of Adaptor3d_TopolTool"
 discard "forward decl of IntPatch_Point"
 discard "forward decl of IntPatch_Line"
 type
-  IntPatchImpImpIntersection* {.importcpp: "IntPatch_ImpImpIntersection",
-                               header: "IntPatch_ImpImpIntersection.hxx", bycopy.} = object
+  IntPatch_ImpImpIntersection* {.importcpp: "IntPatch_ImpImpIntersection",
+                                header: "IntPatch_ImpImpIntersection.hxx", bycopy.} = object
 
-  IntPatchImpImpIntersectionIntStatus* {.size: sizeof(cint), importcpp: "IntPatch_ImpImpIntersection::IntStatus", header: "IntPatch_ImpImpIntersection.hxx".} = enum ##
-                                                                                                                                                            ## !
-                                                                                                                                                            ## OK.
-                                                                                                                                                            ## Good
-                                                                                                                                                            ## intersection
-                                                                                                                                                            ## result.
-    IntStatusOK, ## ! Intersection curve is too long (e.g. as in the bug #26894).
-                ## ! We cannot provide precise computation of value and
-                ## ! derivatives of this curve having used floating-point model
-                ## ! determined by IEEE 754 standard. As result, OCCT algorithms
-                ## ! cannot work with that curve correctly.
-    IntStatusInfiniteSectionCurve, ## ! Algorithm cannot finish correctly.
-    IntStatusFail
+  IntPatch_ImpImpIntersectionIntStatus* {.size: sizeof(cint),
+      importcpp: "IntPatch_ImpImpIntersection::IntStatus",
+      header: "IntPatch_ImpImpIntersection.hxx".} = enum ## ! OK. Good intersection result.
+    IntStatus_OK, ## ! Intersection curve is too long (e.g. as in the bug #26894).
+                 ## ! We cannot provide precise computation of value and
+                 ## ! derivatives of this curve having used floating-point model
+                 ## ! determined by IEEE 754 standard. As result, OCCT algorithms
+                 ## ! cannot work with that curve correctly.
+    IntStatus_InfiniteSectionCurve, ## ! Algorithm cannot finish correctly.
+    IntStatus_Fail
 
 
-proc constructIntPatchImpImpIntersection*(): IntPatchImpImpIntersection {.
+proc constructIntPatch_ImpImpIntersection*(): IntPatch_ImpImpIntersection {.
     constructor, importcpp: "IntPatch_ImpImpIntersection(@)",
     header: "IntPatch_ImpImpIntersection.hxx".}
-proc constructIntPatchImpImpIntersection*(s1: Handle[Adaptor3dHSurface];
-    d1: Handle[Adaptor3dTopolTool]; s2: Handle[Adaptor3dHSurface];
-    d2: Handle[Adaptor3dTopolTool]; tolArc: StandardReal; tolTang: StandardReal;
-    theIsReqToKeepRLine: StandardBoolean = standardFalse): IntPatchImpImpIntersection {.
+proc constructIntPatch_ImpImpIntersection*(S1: handle[Adaptor3d_HSurface];
+    D1: handle[Adaptor3d_TopolTool]; S2: handle[Adaptor3d_HSurface];
+    D2: handle[Adaptor3d_TopolTool]; TolArc: Standard_Real; TolTang: Standard_Real;
+    theIsReqToKeepRLine: Standard_Boolean = Standard_False): IntPatch_ImpImpIntersection {.
     constructor, importcpp: "IntPatch_ImpImpIntersection(@)",
     header: "IntPatch_ImpImpIntersection.hxx".}
-proc perform*(this: var IntPatchImpImpIntersection; s1: Handle[Adaptor3dHSurface];
-             d1: Handle[Adaptor3dTopolTool]; s2: Handle[Adaptor3dHSurface];
-             d2: Handle[Adaptor3dTopolTool]; tolArc: StandardReal;
-             tolTang: StandardReal;
-             theIsReqToKeepRLine: StandardBoolean = standardFalse) {.
+proc Perform*(this: var IntPatch_ImpImpIntersection; S1: handle[Adaptor3d_HSurface];
+             D1: handle[Adaptor3d_TopolTool]; S2: handle[Adaptor3d_HSurface];
+             D2: handle[Adaptor3d_TopolTool]; TolArc: Standard_Real;
+             TolTang: Standard_Real;
+             theIsReqToKeepRLine: Standard_Boolean = Standard_False) {.
     importcpp: "Perform", header: "IntPatch_ImpImpIntersection.hxx".}
-proc isDone*(this: IntPatchImpImpIntersection): StandardBoolean {.noSideEffect,
+proc IsDone*(this: IntPatch_ImpImpIntersection): Standard_Boolean {.noSideEffect,
     importcpp: "IsDone", header: "IntPatch_ImpImpIntersection.hxx".}
-proc getStatus*(this: IntPatchImpImpIntersection): IntPatchImpImpIntersectionIntStatus {.
+proc GetStatus*(this: IntPatch_ImpImpIntersection): IntPatch_ImpImpIntersectionIntStatus {.
     noSideEffect, importcpp: "GetStatus", header: "IntPatch_ImpImpIntersection.hxx".}
-proc isEmpty*(this: IntPatchImpImpIntersection): StandardBoolean {.noSideEffect,
+proc IsEmpty*(this: IntPatch_ImpImpIntersection): Standard_Boolean {.noSideEffect,
     importcpp: "IsEmpty", header: "IntPatch_ImpImpIntersection.hxx".}
-proc tangentFaces*(this: IntPatchImpImpIntersection): StandardBoolean {.
+proc TangentFaces*(this: IntPatch_ImpImpIntersection): Standard_Boolean {.
     noSideEffect, importcpp: "TangentFaces",
     header: "IntPatch_ImpImpIntersection.hxx".}
-proc oppositeFaces*(this: IntPatchImpImpIntersection): StandardBoolean {.
+proc OppositeFaces*(this: IntPatch_ImpImpIntersection): Standard_Boolean {.
     noSideEffect, importcpp: "OppositeFaces",
     header: "IntPatch_ImpImpIntersection.hxx".}
-proc nbPnts*(this: IntPatchImpImpIntersection): StandardInteger {.noSideEffect,
+proc NbPnts*(this: IntPatch_ImpImpIntersection): Standard_Integer {.noSideEffect,
     importcpp: "NbPnts", header: "IntPatch_ImpImpIntersection.hxx".}
-proc point*(this: IntPatchImpImpIntersection; index: StandardInteger): IntPatchPoint {.
+proc Point*(this: IntPatch_ImpImpIntersection; Index: Standard_Integer): IntPatch_Point {.
     noSideEffect, importcpp: "Point", header: "IntPatch_ImpImpIntersection.hxx".}
-proc nbLines*(this: IntPatchImpImpIntersection): StandardInteger {.noSideEffect,
+proc NbLines*(this: IntPatch_ImpImpIntersection): Standard_Integer {.noSideEffect,
     importcpp: "NbLines", header: "IntPatch_ImpImpIntersection.hxx".}
-proc line*(this: IntPatchImpImpIntersection; index: StandardInteger): Handle[
-    IntPatchLine] {.noSideEffect, importcpp: "Line",
-                   header: "IntPatch_ImpImpIntersection.hxx".}
-
+proc Line*(this: IntPatch_ImpImpIntersection; Index: Standard_Integer): handle[
+    IntPatch_Line] {.noSideEffect, importcpp: "Line",
+                    header: "IntPatch_ImpImpIntersection.hxx".}

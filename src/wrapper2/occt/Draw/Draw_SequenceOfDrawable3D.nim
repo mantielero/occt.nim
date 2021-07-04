@@ -14,7 +14,8 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  Draw_Drawable3D, ../NCollection/NCollection_Sequence
+
 type
-  DrawSequenceOfDrawable3D* = NCollectionSequence[Handle[DrawDrawable3D]]
-
-
+  Draw_SequenceOfDrawable3D* = NCollection_Sequence[handle[Draw_Drawable3D]]

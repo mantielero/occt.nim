@@ -14,6 +14,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../Draw/Draw_Color,
+  ../Standard/Standard_Integer, DrawTrSurf_Drawable, ../Standard/Standard_Real,
+  ../Standard/Standard_Boolean, ../Standard/Standard_OStream,
+  ../Draw/Draw_Interpretor
+
 discard "forward decl of Geom_Surface"
 discard "forward decl of Draw_Color"
 discard "forward decl of Draw_Display"
@@ -21,100 +27,101 @@ discard "forward decl of Draw_Drawable3D"
 discard "forward decl of DrawTrSurf_Surface"
 discard "forward decl of DrawTrSurf_Surface"
 type
-  HandleDrawTrSurfSurface* = Handle[DrawTrSurfSurface]
+  Handle_DrawTrSurf_Surface* = handle[DrawTrSurf_Surface]
 
 ## ! This class defines a drawable surface.
 ## ! With this class you can draw a general surface from
 ## ! package Geom.
 
 type
-  DrawTrSurfSurface* {.importcpp: "DrawTrSurf_Surface",
-                      header: "DrawTrSurf_Surface.hxx", bycopy.} = object of DrawTrSurfDrawable ##
-                                                                                         ## !
-                                                                                         ## default
-                                                                                         ## drawing
-                                                                                         ## mode
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## Just
-                                                                                         ## the
-                                                                                         ## middle
-                                                                                         ## isoparametric
-                                                                                         ## curves
-                                                                                         ## are
-                                                                                         ## drawn.
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## The
-                                                                                         ## boundaries
-                                                                                         ## are
-                                                                                         ## yellow,
-                                                                                         ## the
-                                                                                         ## isoparametric
-                                                                                         ## curves
-                                                                                         ## are
-                                                                                         ## blues.
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## For
-                                                                                         ## the
-                                                                                         ## discretisation
-                                                                                         ## 50
-                                                                                         ## points
-                                                                                         ## are
-                                                                                         ## computed
-                                                                                         ## in
-                                                                                         ## each
-                                                                                         ## parametric
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## direction.
+  DrawTrSurf_Surface* {.importcpp: "DrawTrSurf_Surface",
+                       header: "DrawTrSurf_Surface.hxx", bycopy.} = object of DrawTrSurf_Drawable ##
+                                                                                           ## !
+                                                                                           ## default
+                                                                                           ## drawing
+                                                                                           ## mode
+                                                                                           ##
+                                                                                           ## !
+                                                                                           ## Just
+                                                                                           ## the
+                                                                                           ## middle
+                                                                                           ## isoparametric
+                                                                                           ## curves
+                                                                                           ## are
+                                                                                           ## drawn.
+                                                                                           ##
+                                                                                           ## !
+                                                                                           ## The
+                                                                                           ## boundaries
+                                                                                           ## are
+                                                                                           ## yellow,
+                                                                                           ## the
+                                                                                           ## isoparametric
+                                                                                           ## curves
+                                                                                           ## are
+                                                                                           ## blues.
+                                                                                           ##
+                                                                                           ## !
+                                                                                           ## For
+                                                                                           ## the
+                                                                                           ## discretisation
+                                                                                           ## 50
+                                                                                           ## points
+                                                                                           ## are
+                                                                                           ## computed
+                                                                                           ## in
+                                                                                           ## each
+                                                                                           ## parametric
+                                                                                           ##
+                                                                                           ## !
+                                                                                           ## direction.
 
 
-proc constructDrawTrSurfSurface*(s: Handle[GeomSurface]): DrawTrSurfSurface {.
+proc constructDrawTrSurf_Surface*(S: handle[Geom_Surface]): DrawTrSurf_Surface {.
     constructor, importcpp: "DrawTrSurf_Surface(@)",
     header: "DrawTrSurf_Surface.hxx".}
-proc constructDrawTrSurfSurface*(s: Handle[GeomSurface]; nu: StandardInteger;
-                                nv: StandardInteger; boundsColor: DrawColor;
-                                isosColor: DrawColor; discret: StandardInteger;
-                                deflection: StandardReal;
-                                drawMode: StandardInteger): DrawTrSurfSurface {.
+proc constructDrawTrSurf_Surface*(S: handle[Geom_Surface]; Nu: Standard_Integer;
+                                 Nv: Standard_Integer; BoundsColor: Draw_Color;
+                                 IsosColor: Draw_Color; Discret: Standard_Integer;
+                                 Deflection: Standard_Real;
+                                 DrawMode: Standard_Integer): DrawTrSurf_Surface {.
     constructor, importcpp: "DrawTrSurf_Surface(@)",
     header: "DrawTrSurf_Surface.hxx".}
-proc boundsColor*(this: DrawTrSurfSurface): DrawColor {.noSideEffect,
+proc BoundsColor*(this: DrawTrSurf_Surface): Draw_Color {.noSideEffect,
     importcpp: "BoundsColor", header: "DrawTrSurf_Surface.hxx".}
-proc clearIsos*(this: var DrawTrSurfSurface) {.importcpp: "ClearIsos",
+proc ClearIsos*(this: var DrawTrSurf_Surface) {.importcpp: "ClearIsos",
     header: "DrawTrSurf_Surface.hxx".}
-proc drawOn*(this: DrawTrSurfSurface; dis: var DrawDisplay) {.noSideEffect,
+proc DrawOn*(this: DrawTrSurf_Surface; dis: var Draw_Display) {.noSideEffect,
     importcpp: "DrawOn", header: "DrawTrSurf_Surface.hxx".}
-proc drawOn*(this: DrawTrSurfSurface; dis: var DrawDisplay; iso: StandardBoolean) {.
+proc DrawOn*(this: DrawTrSurf_Surface; dis: var Draw_Display; Iso: Standard_Boolean) {.
     noSideEffect, importcpp: "DrawOn", header: "DrawTrSurf_Surface.hxx".}
-proc getSurface*(this: DrawTrSurfSurface): Handle[GeomSurface] {.noSideEffect,
+proc GetSurface*(this: DrawTrSurf_Surface): handle[Geom_Surface] {.noSideEffect,
     importcpp: "GetSurface", header: "DrawTrSurf_Surface.hxx".}
-proc isosColor*(this: DrawTrSurfSurface): DrawColor {.noSideEffect,
+proc IsosColor*(this: DrawTrSurf_Surface): Draw_Color {.noSideEffect,
     importcpp: "IsosColor", header: "DrawTrSurf_Surface.hxx".}
-proc nbIsos*(this: DrawTrSurfSurface; nu: var StandardInteger; nb: var StandardInteger) {.
-    noSideEffect, importcpp: "NbIsos", header: "DrawTrSurf_Surface.hxx".}
-proc setBoundsColor*(this: var DrawTrSurfSurface; aColor: DrawColor) {.
+proc NbIsos*(this: DrawTrSurf_Surface; Nu: var Standard_Integer;
+            Nb: var Standard_Integer) {.noSideEffect, importcpp: "NbIsos",
+                                     header: "DrawTrSurf_Surface.hxx".}
+proc SetBoundsColor*(this: var DrawTrSurf_Surface; aColor: Draw_Color) {.
     importcpp: "SetBoundsColor", header: "DrawTrSurf_Surface.hxx".}
-proc setIsosColor*(this: var DrawTrSurfSurface; aColor: DrawColor) {.
+proc SetIsosColor*(this: var DrawTrSurf_Surface; aColor: Draw_Color) {.
     importcpp: "SetIsosColor", header: "DrawTrSurf_Surface.hxx".}
-proc showIsos*(this: var DrawTrSurfSurface; nu: StandardInteger; nv: StandardInteger) {.
-    importcpp: "ShowIsos", header: "DrawTrSurf_Surface.hxx".}
-proc copy*(this: DrawTrSurfSurface): Handle[DrawDrawable3D] {.noSideEffect,
+proc ShowIsos*(this: var DrawTrSurf_Surface; Nu: Standard_Integer;
+              Nv: Standard_Integer) {.importcpp: "ShowIsos",
+                                    header: "DrawTrSurf_Surface.hxx".}
+proc Copy*(this: DrawTrSurf_Surface): handle[Draw_Drawable3D] {.noSideEffect,
     importcpp: "Copy", header: "DrawTrSurf_Surface.hxx".}
-proc dump*(this: DrawTrSurfSurface; s: var StandardOStream) {.noSideEffect,
+proc Dump*(this: DrawTrSurf_Surface; S: var Standard_OStream) {.noSideEffect,
     importcpp: "Dump", header: "DrawTrSurf_Surface.hxx".}
-proc whatis*(this: DrawTrSurfSurface; i: var DrawInterpretor) {.noSideEffect,
+proc Whatis*(this: DrawTrSurf_Surface; I: var Draw_Interpretor) {.noSideEffect,
     importcpp: "Whatis", header: "DrawTrSurf_Surface.hxx".}
 type
-  DrawTrSurfSurfacebaseType* = DrawTrSurfDrawable
+  DrawTrSurf_Surfacebase_type* = DrawTrSurf_Drawable
 
-proc getTypeName*(): cstring {.importcpp: "DrawTrSurf_Surface::get_type_name(@)",
-                            header: "DrawTrSurf_Surface.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "DrawTrSurf_Surface::get_type_name(@)",
+                              header: "DrawTrSurf_Surface.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "DrawTrSurf_Surface::get_type_descriptor(@)",
     header: "DrawTrSurf_Surface.hxx".}
-proc dynamicType*(this: DrawTrSurfSurface): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: DrawTrSurf_Surface): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "DrawTrSurf_Surface.hxx".}
-

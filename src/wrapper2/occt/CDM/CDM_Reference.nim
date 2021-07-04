@@ -14,37 +14,41 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, CDM_DocumentPointer,
+  ../Standard/Standard_Integer, ../Standard/Standard_Boolean,
+  ../Standard/Standard_Transient
+
 discard "forward decl of CDM_Document"
 discard "forward decl of CDM_Application"
 discard "forward decl of CDM_MetaData"
 discard "forward decl of CDM_Reference"
 discard "forward decl of CDM_Reference"
 type
-  HandleCDM_Reference* = Handle[CDM_Reference]
-  CDM_Reference* {.importcpp: "CDM_Reference", header: "CDM_Reference.hxx", bycopy.} = object of StandardTransient
+  Handle_CDM_Reference* = handle[CDM_Reference]
+  CDM_Reference* {.importcpp: "CDM_Reference", header: "CDM_Reference.hxx", bycopy.} = object of Standard_Transient
 
 
-proc fromDocument*(this: var CDM_Reference): Handle[CDM_Document] {.
+proc FromDocument*(this: var CDM_Reference): handle[CDM_Document] {.
     importcpp: "FromDocument", header: "CDM_Reference.hxx".}
-proc toDocument*(this: var CDM_Reference): Handle[CDM_Document] {.
+proc ToDocument*(this: var CDM_Reference): handle[CDM_Document] {.
     importcpp: "ToDocument", header: "CDM_Reference.hxx".}
-proc referenceIdentifier*(this: var CDM_Reference): StandardInteger {.
+proc ReferenceIdentifier*(this: var CDM_Reference): Standard_Integer {.
     importcpp: "ReferenceIdentifier", header: "CDM_Reference.hxx".}
-proc documentVersion*(this: CDM_Reference): StandardInteger {.noSideEffect,
+proc DocumentVersion*(this: CDM_Reference): Standard_Integer {.noSideEffect,
     importcpp: "DocumentVersion", header: "CDM_Reference.hxx".}
-proc isReadOnly*(this: CDM_Reference): StandardBoolean {.noSideEffect,
+proc IsReadOnly*(this: CDM_Reference): Standard_Boolean {.noSideEffect,
     importcpp: "IsReadOnly", header: "CDM_Reference.hxx".}
-proc dumpJson*(this: CDM_Reference; theOStream: var StandardOStream;
-              theDepth: StandardInteger = -1) {.noSideEffect, importcpp: "DumpJson",
+proc DumpJson*(this: CDM_Reference; theOStream: var Standard_OStream;
+              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
     header: "CDM_Reference.hxx".}
 type
-  CDM_ReferencebaseType* = StandardTransient
+  CDM_Referencebase_type* = Standard_Transient
 
-proc getTypeName*(): cstring {.importcpp: "CDM_Reference::get_type_name(@)",
-                            header: "CDM_Reference.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "CDM_Reference::get_type_name(@)",
+                              header: "CDM_Reference.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "CDM_Reference::get_type_descriptor(@)",
     header: "CDM_Reference.hxx".}
-proc dynamicType*(this: CDM_Reference): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: CDM_Reference): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "CDM_Reference.hxx".}
-

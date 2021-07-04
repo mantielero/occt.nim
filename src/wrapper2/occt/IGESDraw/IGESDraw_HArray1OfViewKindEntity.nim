@@ -14,37 +14,40 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../IGESData/IGESData_ViewKindEntity, IGESDraw_Array1OfViewKindEntity,
+  ../NCollection/NCollection_DefineHArray1
+
 type
-  IGESDrawHArray1OfViewKindEntity* {.importcpp: "IGESDraw_HArray1OfViewKindEntity", header: "IGESDraw_HArray1OfViewKindEntity.hxx",
-                                    bycopy.} = object of IGESDrawArray1OfViewKindEntity
+  IGESDraw_HArray1OfViewKindEntity* {.importcpp: "IGESDraw_HArray1OfViewKindEntity", header: "IGESDraw_HArray1OfViewKindEntity.hxx",
+                                     bycopy.} = object of IGESDraw_Array1OfViewKindEntity
 
 
-proc constructIGESDrawHArray1OfViewKindEntity*(theLower: StandardInteger;
-    theUpper: StandardInteger): IGESDrawHArray1OfViewKindEntity {.constructor,
+proc constructIGESDraw_HArray1OfViewKindEntity*(theLower: Standard_Integer;
+    theUpper: Standard_Integer): IGESDraw_HArray1OfViewKindEntity {.constructor,
     importcpp: "IGESDraw_HArray1OfViewKindEntity(@)",
     header: "IGESDraw_HArray1OfViewKindEntity.hxx".}
-proc constructIGESDrawHArray1OfViewKindEntity*(theLower: StandardInteger;
-    theUpper: StandardInteger; theValue: ValueType): IGESDrawHArray1OfViewKindEntity {.
+proc constructIGESDraw_HArray1OfViewKindEntity*(theLower: Standard_Integer;
+    theUpper: Standard_Integer; theValue: value_type): IGESDraw_HArray1OfViewKindEntity {.
     constructor, importcpp: "IGESDraw_HArray1OfViewKindEntity(@)",
     header: "IGESDraw_HArray1OfViewKindEntity.hxx".}
-proc constructIGESDrawHArray1OfViewKindEntity*(
-    theOther: IGESDrawArray1OfViewKindEntity): IGESDrawHArray1OfViewKindEntity {.
+proc constructIGESDraw_HArray1OfViewKindEntity*(
+    theOther: IGESDraw_Array1OfViewKindEntity): IGESDraw_HArray1OfViewKindEntity {.
     constructor, importcpp: "IGESDraw_HArray1OfViewKindEntity(@)",
     header: "IGESDraw_HArray1OfViewKindEntity.hxx".}
-proc array1*(this: IGESDrawHArray1OfViewKindEntity): IGESDrawArray1OfViewKindEntity {.
+proc Array1*(this: IGESDraw_HArray1OfViewKindEntity): IGESDraw_Array1OfViewKindEntity {.
     noSideEffect, importcpp: "Array1",
     header: "IGESDraw_HArray1OfViewKindEntity.hxx".}
-proc changeArray1*(this: var IGESDrawHArray1OfViewKindEntity): var IGESDrawArray1OfViewKindEntity {.
+proc ChangeArray1*(this: var IGESDraw_HArray1OfViewKindEntity): var IGESDraw_Array1OfViewKindEntity {.
     importcpp: "ChangeArray1", header: "IGESDraw_HArray1OfViewKindEntity.hxx".}
 type
-  IGESDrawHArray1OfViewKindEntitybaseType* = MMgtTShared
+  IGESDraw_HArray1OfViewKindEntitybase_type* = MMgt_TShared
 
-proc getTypeName*(): cstring {.importcpp: "IGESDraw_HArray1OfViewKindEntity::get_type_name(@)",
-                            header: "IGESDraw_HArray1OfViewKindEntity.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "IGESDraw_HArray1OfViewKindEntity::get_type_name(@)",
+                              header: "IGESDraw_HArray1OfViewKindEntity.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "IGESDraw_HArray1OfViewKindEntity::get_type_descriptor(@)",
     header: "IGESDraw_HArray1OfViewKindEntity.hxx".}
-proc dynamicType*(this: IGESDrawHArray1OfViewKindEntity): Handle[StandardType] {.
+proc DynamicType*(this: IGESDraw_HArray1OfViewKindEntity): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType",
     header: "IGESDraw_HArray1OfViewKindEntity.hxx".}
-

@@ -14,49 +14,53 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../TopoDS/TopoDS_Face,
+  ../TopoDS/TopoDS_Edge, ../Standard/Standard_Real, ../Standard/Standard_Boolean,
+  ../Standard/Standard_Transient
+
 discard "forward decl of TopoDS_Face"
 discard "forward decl of TopoDS_Edge"
 discard "forward decl of Geom2d_Curve"
 discard "forward decl of ShapeFix_EdgeProjAux"
 discard "forward decl of ShapeFix_EdgeProjAux"
 type
-  HandleShapeFixEdgeProjAux* = Handle[ShapeFixEdgeProjAux]
+  Handle_ShapeFix_EdgeProjAux* = handle[ShapeFix_EdgeProjAux]
 
 ## ! Project 3D point (vertex) on pcurves to find Vertex Parameter
 ## ! on parametric representation of an edge
 
 type
-  ShapeFixEdgeProjAux* {.importcpp: "ShapeFix_EdgeProjAux",
-                        header: "ShapeFix_EdgeProjAux.hxx", bycopy.} = object of StandardTransient
+  ShapeFix_EdgeProjAux* {.importcpp: "ShapeFix_EdgeProjAux",
+                         header: "ShapeFix_EdgeProjAux.hxx", bycopy.} = object of Standard_Transient
 
 
-proc constructShapeFixEdgeProjAux*(): ShapeFixEdgeProjAux {.constructor,
+proc constructShapeFix_EdgeProjAux*(): ShapeFix_EdgeProjAux {.constructor,
     importcpp: "ShapeFix_EdgeProjAux(@)", header: "ShapeFix_EdgeProjAux.hxx".}
-proc constructShapeFixEdgeProjAux*(f: TopoDS_Face; e: TopoDS_Edge): ShapeFixEdgeProjAux {.
+proc constructShapeFix_EdgeProjAux*(F: TopoDS_Face; E: TopoDS_Edge): ShapeFix_EdgeProjAux {.
     constructor, importcpp: "ShapeFix_EdgeProjAux(@)",
     header: "ShapeFix_EdgeProjAux.hxx".}
-proc init*(this: var ShapeFixEdgeProjAux; f: TopoDS_Face; e: TopoDS_Edge) {.
+proc Init*(this: var ShapeFix_EdgeProjAux; F: TopoDS_Face; E: TopoDS_Edge) {.
     importcpp: "Init", header: "ShapeFix_EdgeProjAux.hxx".}
-proc compute*(this: var ShapeFixEdgeProjAux; preci: StandardReal) {.
+proc Compute*(this: var ShapeFix_EdgeProjAux; preci: Standard_Real) {.
     importcpp: "Compute", header: "ShapeFix_EdgeProjAux.hxx".}
-proc isFirstDone*(this: ShapeFixEdgeProjAux): StandardBoolean {.noSideEffect,
+proc IsFirstDone*(this: ShapeFix_EdgeProjAux): Standard_Boolean {.noSideEffect,
     importcpp: "IsFirstDone", header: "ShapeFix_EdgeProjAux.hxx".}
-proc isLastDone*(this: ShapeFixEdgeProjAux): StandardBoolean {.noSideEffect,
+proc IsLastDone*(this: ShapeFix_EdgeProjAux): Standard_Boolean {.noSideEffect,
     importcpp: "IsLastDone", header: "ShapeFix_EdgeProjAux.hxx".}
-proc firstParam*(this: ShapeFixEdgeProjAux): StandardReal {.noSideEffect,
+proc FirstParam*(this: ShapeFix_EdgeProjAux): Standard_Real {.noSideEffect,
     importcpp: "FirstParam", header: "ShapeFix_EdgeProjAux.hxx".}
-proc lastParam*(this: ShapeFixEdgeProjAux): StandardReal {.noSideEffect,
+proc LastParam*(this: ShapeFix_EdgeProjAux): Standard_Real {.noSideEffect,
     importcpp: "LastParam", header: "ShapeFix_EdgeProjAux.hxx".}
-proc isIso*(this: var ShapeFixEdgeProjAux; c: Handle[Geom2dCurve]): StandardBoolean {.
+proc IsIso*(this: var ShapeFix_EdgeProjAux; C: handle[Geom2d_Curve]): Standard_Boolean {.
     importcpp: "IsIso", header: "ShapeFix_EdgeProjAux.hxx".}
 type
-  ShapeFixEdgeProjAuxbaseType* = StandardTransient
+  ShapeFix_EdgeProjAuxbase_type* = Standard_Transient
 
-proc getTypeName*(): cstring {.importcpp: "ShapeFix_EdgeProjAux::get_type_name(@)",
-                            header: "ShapeFix_EdgeProjAux.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "ShapeFix_EdgeProjAux::get_type_name(@)",
+                              header: "ShapeFix_EdgeProjAux.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "ShapeFix_EdgeProjAux::get_type_descriptor(@)",
     header: "ShapeFix_EdgeProjAux.hxx".}
-proc dynamicType*(this: ShapeFixEdgeProjAux): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: ShapeFix_EdgeProjAux): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "ShapeFix_EdgeProjAux.hxx".}
-

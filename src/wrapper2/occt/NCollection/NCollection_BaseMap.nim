@@ -13,9 +13,13 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, NCollection_BaseAllocator, NCollection_DefineAlloc,
+  NCollection_ListNode
+
 type
-  NCollectionDelMapNode* = proc (a1: ptr NCollectionListNode;
-                              theAl: var Handle[NCollectionBaseAllocator])
+  NCollection_DelMapNode* = proc (a1: ptr NCollection_ListNode;
+                               theAl: var handle[NCollection_BaseAllocator])
 
 ## *
 ##  Purpose:     This is a base class for all Maps:
@@ -28,61 +32,67 @@ type
 ##
 
 type
-  NCollectionBaseMap* {.importcpp: "NCollection_BaseMap",
-                       header: "NCollection_BaseMap.hxx", bycopy.} = object ## ! Memory
-                                                                       ## allocation
-                                                                       ##
-                                                                       ## **************************************** Class Iterator
-                                                                       ## ****************
-                                                                       ##
-                                                                       ## ---------- PUBLIC METHODS
-                                                                       ## ------------
-                                                                       ## ! NbBuckets
-                                                                       ##  -------- PROTECTED METHODS
-                                                                       ## -----------
-                                                                       ## !
-                                                                       ## Constructor
-                                                                       ##  --------- PROTECTED FIELDS
-                                                                       ## -----------
-                                                                       ##
-                                                                       ## ---------- PRIVATE FIELDS
-                                                                       ## ------------
+  NCollection_BaseMap* {.importcpp: "NCollection_BaseMap",
+                        header: "NCollection_BaseMap.hxx", bycopy.} = object ## ! Memory
+                                                                        ## allocation
+                                                                        ##
+                                                                        ## **************************************** Class Iterator
+                                                                        ## ****************
+                                                                        ##
+                                                                        ## ---------- PUBLIC METHODS
+                                                                        ## ------------
+                                                                        ## !
+                                                                        ## NbBuckets
+                                                                        ##  --------
+                                                                        ## PROTECTED METHODS
+                                                                        ## -----------
+                                                                        ## !
+                                                                        ## Constructor
+                                                                        ##
+                                                                        ## ---------
+                                                                        ## PROTECTED FIELDS
+                                                                        ## -----------
+                                                                        ##
+                                                                        ## ---------- PRIVATE FIELDS
+                                                                        ## ------------
     ##  ---------- FRIEND CLASSES ------------
 
-  NCollectionBaseMapIterator* {.importcpp: "NCollection_BaseMap::Iterator",
-                               header: "NCollection_BaseMap.hxx", bycopy.} = object ## !
-                                                                               ## Empty
-                                                                               ## constructor
-                                                                               ## !
-                                                                               ## Initialize
-                                                                               ## !
-                                                                               ## PMore
-                                                                               ##
-                                                                               ## ----------
-                                                                               ## PRIVATE
-                                                                               ## FIELDS
-                                                                               ## ------------
+  NCollection_BaseMapIterator* {.importcpp: "NCollection_BaseMap::Iterator",
+                                header: "NCollection_BaseMap.hxx", bycopy.} = object ##
+                                                                                ## !
+                                                                                ## Empty
+                                                                                ## constructor
+                                                                                ##
+                                                                                ## !
+                                                                                ## Initialize
+                                                                                ##
+                                                                                ## !
+                                                                                ## PMore
+                                                                                ##
+                                                                                ## ----------
+                                                                                ## PRIVATE
+                                                                                ## FIELDS
+                                                                                ## ------------
     ## !< Total buckets in the map
     ## !< Location in memory
     ## !< Current bucket
     ## !< Current node
 
 
-proc initialize*(this: var NCollectionBaseMapIterator; theMap: NCollectionBaseMap) {.
+proc Initialize*(this: var NCollection_BaseMapIterator; theMap: NCollection_BaseMap) {.
     importcpp: "Initialize", header: "NCollection_BaseMap.hxx".}
-proc reset*(this: var NCollectionBaseMapIterator) {.importcpp: "Reset",
+proc Reset*(this: var NCollection_BaseMapIterator) {.importcpp: "Reset",
     header: "NCollection_BaseMap.hxx".}
-proc isEqual*(this: NCollectionBaseMapIterator;
-             theOther: NCollectionBaseMapIterator): StandardBoolean {.noSideEffect,
-    importcpp: "IsEqual", header: "NCollection_BaseMap.hxx".}
-proc nbBuckets*(this: NCollectionBaseMap): StandardInteger {.noSideEffect,
+proc IsEqual*(this: NCollection_BaseMapIterator;
+             theOther: NCollection_BaseMapIterator): Standard_Boolean {.
+    noSideEffect, importcpp: "IsEqual", header: "NCollection_BaseMap.hxx".}
+proc NbBuckets*(this: NCollection_BaseMap): Standard_Integer {.noSideEffect,
     importcpp: "NbBuckets", header: "NCollection_BaseMap.hxx".}
-proc extent*(this: NCollectionBaseMap): StandardInteger {.noSideEffect,
+proc Extent*(this: NCollection_BaseMap): Standard_Integer {.noSideEffect,
     importcpp: "Extent", header: "NCollection_BaseMap.hxx".}
-proc isEmpty*(this: NCollectionBaseMap): StandardBoolean {.noSideEffect,
+proc IsEmpty*(this: NCollection_BaseMap): Standard_Boolean {.noSideEffect,
     importcpp: "IsEmpty", header: "NCollection_BaseMap.hxx".}
-proc statistics*(this: NCollectionBaseMap; s: var StandardOStream) {.noSideEffect,
+proc Statistics*(this: NCollection_BaseMap; S: var Standard_OStream) {.noSideEffect,
     importcpp: "Statistics", header: "NCollection_BaseMap.hxx".}
-proc allocator*(this: NCollectionBaseMap): Handle[NCollectionBaseAllocator] {.
+proc Allocator*(this: NCollection_BaseMap): handle[NCollection_BaseAllocator] {.
     noSideEffect, importcpp: "Allocator", header: "NCollection_BaseMap.hxx".}
-

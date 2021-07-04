@@ -14,18 +14,16 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _Geom_UndefinedDerivative_HeaderFile [NewLine] # _Geom_UndefinedDerivative_HeaderFile [NewLine] # < Standard_Type . hxx > [NewLine] # < Standard_DefineException . hxx > [NewLine] # < Standard_SStream . hxx > [NewLine] # < Standard_DomainError . hxx > [NewLine] class Geom_UndefinedDerivative ;
+## !!!Ignored construct:  # _Geom_UndefinedDerivative_HeaderFile [NewLine] # _Geom_UndefinedDerivative_HeaderFile [NewLine] # ../Standard/Standard_Type.hxx [NewLine] # ../Standard/Standard_DefineException.hxx [NewLine] # ../Standard/Standard_SStream.hxx [NewLine] # ../Standard/Standard_DomainError.hxx [NewLine] class Geom_UndefinedDerivative ;
 ## Error: expected ';'!!!
 
 discard "forward decl of Geom_UndefinedDerivative"
 type
-  HandleGeomUndefinedDerivativeGeomUndefinedDerivative* = Handle[
-      GeomUndefinedDerivative]
+  Handle_Geom_UndefinedDerivativeGeom_UndefinedDerivative* = handle[
+      Geom_UndefinedDerivative]
 
 ## !!!Ignored construct:  # ! defined No_Exception && ! defined No_Geom_UndefinedDerivative [NewLine] # if ( CONDITION ) throw Geom_UndefinedDerivative ( MESSAGE ) ;
 ## Error: did not expect [NewLine]!!!
 
-## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( Geom_UndefinedDerivative , Standard_DomainError ) #  _Geom_UndefinedDerivative_HeaderFile
+## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( Geom_UndefinedDerivative , Standard_DomainError ) #  _Geom_UndefinedDerivative_HeaderFile [NewLine]
 ## Error: did not expect [NewLine]!!!
-
-

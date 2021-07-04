@@ -14,87 +14,90 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../Quantity/Quantity_Color,
+  ../Standard/Standard_Boolean, Aspect_GridDrawMode,
+  ../Standard/Standard_Transient
+
 type
-  AspectGrid* {.importcpp: "Aspect_Grid", header: "Aspect_Grid.hxx", bycopy.} = object of StandardTransient ##
-                                                                                                  ## !
-                                                                                                  ## defines
-                                                                                                  ## the
-                                                                                                  ## x
-                                                                                                  ## Origin
-                                                                                                  ## of
-                                                                                                  ## the
-                                                                                                  ## grid.
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## Creates
-                                                                                                  ## a
-                                                                                                  ## new
-                                                                                                  ## grid.
-                                                                                                  ## By
-                                                                                                  ## default
-                                                                                                  ## this
-                                                                                                  ## grid
-                                                                                                  ## is
-                                                                                                  ## not
-                                                                                                  ## active.
+  Aspect_Grid* {.importcpp: "Aspect_Grid", header: "Aspect_Grid.hxx", bycopy.} = object of Standard_Transient ##
+                                                                                                    ## !
+                                                                                                    ## defines
+                                                                                                    ## the
+                                                                                                    ## x
+                                                                                                    ## Origin
+                                                                                                    ## of
+                                                                                                    ## the
+                                                                                                    ## grid.
+                                                                                                    ##
+                                                                                                    ## !
+                                                                                                    ## Creates
+                                                                                                    ## a
+                                                                                                    ## new
+                                                                                                    ## grid.
+                                                                                                    ## By
+                                                                                                    ## default
+                                                                                                    ## this
+                                                                                                    ## grid
+                                                                                                    ## is
+                                                                                                    ## not
+                                                                                                    ## active.
 
-  AspectGridbaseType* = StandardTransient
+  Aspect_Gridbase_type* = Standard_Transient
 
-proc getTypeName*(): cstring {.importcpp: "Aspect_Grid::get_type_name(@)",
-                            header: "Aspect_Grid.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "Aspect_Grid::get_type_name(@)",
+                              header: "Aspect_Grid.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "Aspect_Grid::get_type_descriptor(@)", header: "Aspect_Grid.hxx".}
-proc dynamicType*(this: AspectGrid): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: Aspect_Grid): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "Aspect_Grid.hxx".}
-proc setXOrigin*(this: var AspectGrid; anOrigin: StandardReal) {.
+proc SetXOrigin*(this: var Aspect_Grid; anOrigin: Standard_Real) {.
     importcpp: "SetXOrigin", header: "Aspect_Grid.hxx".}
-proc setYOrigin*(this: var AspectGrid; anOrigin: StandardReal) {.
+proc SetYOrigin*(this: var Aspect_Grid; anOrigin: Standard_Real) {.
     importcpp: "SetYOrigin", header: "Aspect_Grid.hxx".}
-proc setRotationAngle*(this: var AspectGrid; anAngle: StandardReal) {.
+proc SetRotationAngle*(this: var Aspect_Grid; anAngle: Standard_Real) {.
     importcpp: "SetRotationAngle", header: "Aspect_Grid.hxx".}
-proc rotate*(this: var AspectGrid; anAngle: StandardReal) {.importcpp: "Rotate",
+proc Rotate*(this: var Aspect_Grid; anAngle: Standard_Real) {.importcpp: "Rotate",
     header: "Aspect_Grid.hxx".}
-proc translate*(this: var AspectGrid; aDx: StandardReal; aDy: StandardReal) {.
+proc Translate*(this: var Aspect_Grid; aDx: Standard_Real; aDy: Standard_Real) {.
     importcpp: "Translate", header: "Aspect_Grid.hxx".}
-proc setColors*(this: var AspectGrid; aColor: QuantityColor;
-               aTenthColor: QuantityColor) {.importcpp: "SetColors",
+proc SetColors*(this: var Aspect_Grid; aColor: Quantity_Color;
+               aTenthColor: Quantity_Color) {.importcpp: "SetColors",
     header: "Aspect_Grid.hxx".}
-proc hit*(this: AspectGrid; x: StandardReal; y: StandardReal; gridX: var StandardReal;
-         gridY: var StandardReal) {.noSideEffect, importcpp: "Hit",
-                                 header: "Aspect_Grid.hxx".}
-proc compute*(this: AspectGrid; x: StandardReal; y: StandardReal;
-             gridX: var StandardReal; gridY: var StandardReal) {.noSideEffect,
+proc Hit*(this: Aspect_Grid; X: Standard_Real; Y: Standard_Real;
+         gridX: var Standard_Real; gridY: var Standard_Real) {.noSideEffect,
+    importcpp: "Hit", header: "Aspect_Grid.hxx".}
+proc Compute*(this: Aspect_Grid; X: Standard_Real; Y: Standard_Real;
+             gridX: var Standard_Real; gridY: var Standard_Real) {.noSideEffect,
     importcpp: "Compute", header: "Aspect_Grid.hxx".}
-proc activate*(this: var AspectGrid) {.importcpp: "Activate",
-                                   header: "Aspect_Grid.hxx".}
-proc deactivate*(this: var AspectGrid) {.importcpp: "Deactivate",
-                                     header: "Aspect_Grid.hxx".}
-proc xOrigin*(this: AspectGrid): StandardReal {.noSideEffect, importcpp: "XOrigin",
+proc Activate*(this: var Aspect_Grid) {.importcpp: "Activate",
+                                    header: "Aspect_Grid.hxx".}
+proc Deactivate*(this: var Aspect_Grid) {.importcpp: "Deactivate",
+                                      header: "Aspect_Grid.hxx".}
+proc XOrigin*(this: Aspect_Grid): Standard_Real {.noSideEffect, importcpp: "XOrigin",
     header: "Aspect_Grid.hxx".}
-proc yOrigin*(this: AspectGrid): StandardReal {.noSideEffect, importcpp: "YOrigin",
+proc YOrigin*(this: Aspect_Grid): Standard_Real {.noSideEffect, importcpp: "YOrigin",
     header: "Aspect_Grid.hxx".}
-proc rotationAngle*(this: AspectGrid): StandardReal {.noSideEffect,
+proc RotationAngle*(this: Aspect_Grid): Standard_Real {.noSideEffect,
     importcpp: "RotationAngle", header: "Aspect_Grid.hxx".}
-proc isActive*(this: AspectGrid): StandardBoolean {.noSideEffect,
+proc IsActive*(this: Aspect_Grid): Standard_Boolean {.noSideEffect,
     importcpp: "IsActive", header: "Aspect_Grid.hxx".}
-proc colors*(this: AspectGrid; aColor: var QuantityColor;
-            aTenthColor: var QuantityColor) {.noSideEffect, importcpp: "Colors",
+proc Colors*(this: Aspect_Grid; aColor: var Quantity_Color;
+            aTenthColor: var Quantity_Color) {.noSideEffect, importcpp: "Colors",
     header: "Aspect_Grid.hxx".}
-proc setDrawMode*(this: var AspectGrid; aDrawMode: AspectGridDrawMode) {.
+proc SetDrawMode*(this: var Aspect_Grid; aDrawMode: Aspect_GridDrawMode) {.
     importcpp: "SetDrawMode", header: "Aspect_Grid.hxx".}
-proc drawMode*(this: AspectGrid): AspectGridDrawMode {.noSideEffect,
+proc DrawMode*(this: Aspect_Grid): Aspect_GridDrawMode {.noSideEffect,
     importcpp: "DrawMode", header: "Aspect_Grid.hxx".}
-proc display*(this: var AspectGrid) {.importcpp: "Display", header: "Aspect_Grid.hxx".}
-proc erase*(this: AspectGrid) {.noSideEffect, importcpp: "Erase",
-                             header: "Aspect_Grid.hxx".}
-proc isDisplayed*(this: AspectGrid): StandardBoolean {.noSideEffect,
+proc Display*(this: var Aspect_Grid) {.importcpp: "Display", header: "Aspect_Grid.hxx".}
+proc Erase*(this: Aspect_Grid) {.noSideEffect, importcpp: "Erase",
+                              header: "Aspect_Grid.hxx".}
+proc IsDisplayed*(this: Aspect_Grid): Standard_Boolean {.noSideEffect,
     importcpp: "IsDisplayed", header: "Aspect_Grid.hxx".}
-proc init*(this: var AspectGrid) {.importcpp: "Init", header: "Aspect_Grid.hxx".}
-proc dumpJson*(this: AspectGrid; theOStream: var StandardOStream;
-              theDepth: StandardInteger = -1) {.noSideEffect, importcpp: "DumpJson",
+proc Init*(this: var Aspect_Grid) {.importcpp: "Init", header: "Aspect_Grid.hxx".}
+proc DumpJson*(this: Aspect_Grid; theOStream: var Standard_OStream;
+              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
     header: "Aspect_Grid.hxx".}
 discard "forward decl of Aspect_Grid"
 type
-  HandleAspectGrid* = Handle[AspectGrid]
-
-
+  Handle_Aspect_Grid* = handle[Aspect_Grid]

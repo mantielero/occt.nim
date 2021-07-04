@@ -14,36 +14,41 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, GeomFill_Filling, ../TColgp/TColgp_Array1OfPnt,
+  ../TColStd/TColStd_Array1OfReal
+
 type
-  GeomFillCurved* {.importcpp: "GeomFill_Curved", header: "GeomFill_Curved.hxx",
-                   bycopy.} = object of GeomFillFilling
+  GeomFill_Curved* {.importcpp: "GeomFill_Curved", header: "GeomFill_Curved.hxx",
+                    bycopy.} = object of GeomFill_Filling
 
 
-proc constructGeomFillCurved*(): GeomFillCurved {.constructor,
+proc constructGeomFill_Curved*(): GeomFill_Curved {.constructor,
     importcpp: "GeomFill_Curved(@)", header: "GeomFill_Curved.hxx".}
-proc constructGeomFillCurved*(p1: TColgpArray1OfPnt; p2: TColgpArray1OfPnt;
-                             p3: TColgpArray1OfPnt; p4: TColgpArray1OfPnt): GeomFillCurved {.
+proc constructGeomFill_Curved*(P1: TColgp_Array1OfPnt; P2: TColgp_Array1OfPnt;
+                              P3: TColgp_Array1OfPnt; P4: TColgp_Array1OfPnt): GeomFill_Curved {.
     constructor, importcpp: "GeomFill_Curved(@)", header: "GeomFill_Curved.hxx".}
-proc constructGeomFillCurved*(p1: TColgpArray1OfPnt; p2: TColgpArray1OfPnt;
-                             p3: TColgpArray1OfPnt; p4: TColgpArray1OfPnt;
-                             w1: TColStdArray1OfReal; w2: TColStdArray1OfReal;
-                             w3: TColStdArray1OfReal; w4: TColStdArray1OfReal): GeomFillCurved {.
+proc constructGeomFill_Curved*(P1: TColgp_Array1OfPnt; P2: TColgp_Array1OfPnt;
+                              P3: TColgp_Array1OfPnt; P4: TColgp_Array1OfPnt;
+                              W1: TColStd_Array1OfReal; W2: TColStd_Array1OfReal;
+                              W3: TColStd_Array1OfReal; W4: TColStd_Array1OfReal): GeomFill_Curved {.
     constructor, importcpp: "GeomFill_Curved(@)", header: "GeomFill_Curved.hxx".}
-proc constructGeomFillCurved*(p1: TColgpArray1OfPnt; p2: TColgpArray1OfPnt): GeomFillCurved {.
+proc constructGeomFill_Curved*(P1: TColgp_Array1OfPnt; P2: TColgp_Array1OfPnt): GeomFill_Curved {.
     constructor, importcpp: "GeomFill_Curved(@)", header: "GeomFill_Curved.hxx".}
-proc constructGeomFillCurved*(p1: TColgpArray1OfPnt; p2: TColgpArray1OfPnt;
-                             w1: TColStdArray1OfReal; w2: TColStdArray1OfReal): GeomFillCurved {.
+proc constructGeomFill_Curved*(P1: TColgp_Array1OfPnt; P2: TColgp_Array1OfPnt;
+                              W1: TColStd_Array1OfReal; W2: TColStd_Array1OfReal): GeomFill_Curved {.
     constructor, importcpp: "GeomFill_Curved(@)", header: "GeomFill_Curved.hxx".}
-proc init*(this: var GeomFillCurved; p1: TColgpArray1OfPnt; p2: TColgpArray1OfPnt;
-          p3: TColgpArray1OfPnt; p4: TColgpArray1OfPnt) {.importcpp: "Init",
+proc Init*(this: var GeomFill_Curved; P1: TColgp_Array1OfPnt; P2: TColgp_Array1OfPnt;
+          P3: TColgp_Array1OfPnt; P4: TColgp_Array1OfPnt) {.importcpp: "Init",
     header: "GeomFill_Curved.hxx".}
-proc init*(this: var GeomFillCurved; p1: TColgpArray1OfPnt; p2: TColgpArray1OfPnt;
-          p3: TColgpArray1OfPnt; p4: TColgpArray1OfPnt; w1: TColStdArray1OfReal;
-          w2: TColStdArray1OfReal; w3: TColStdArray1OfReal; w4: TColStdArray1OfReal) {.
+proc Init*(this: var GeomFill_Curved; P1: TColgp_Array1OfPnt; P2: TColgp_Array1OfPnt;
+          P3: TColgp_Array1OfPnt; P4: TColgp_Array1OfPnt; W1: TColStd_Array1OfReal;
+          W2: TColStd_Array1OfReal; W3: TColStd_Array1OfReal;
+          W4: TColStd_Array1OfReal) {.importcpp: "Init",
+                                    header: "GeomFill_Curved.hxx".}
+proc Init*(this: var GeomFill_Curved; P1: TColgp_Array1OfPnt; P2: TColgp_Array1OfPnt) {.
     importcpp: "Init", header: "GeomFill_Curved.hxx".}
-proc init*(this: var GeomFillCurved; p1: TColgpArray1OfPnt; p2: TColgpArray1OfPnt) {.
-    importcpp: "Init", header: "GeomFill_Curved.hxx".}
-proc init*(this: var GeomFillCurved; p1: TColgpArray1OfPnt; p2: TColgpArray1OfPnt;
-          w1: TColStdArray1OfReal; w2: TColStdArray1OfReal) {.importcpp: "Init",
+proc Init*(this: var GeomFill_Curved; P1: TColgp_Array1OfPnt; P2: TColgp_Array1OfPnt;
+          W1: TColStd_Array1OfReal; W2: TColStd_Array1OfReal) {.importcpp: "Init",
     header: "GeomFill_Curved.hxx".}
-

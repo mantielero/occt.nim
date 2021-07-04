@@ -14,12 +14,16 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../TColStd/TColStd_HArray1OfInteger, ../IFSelect/IFSelect_SignCounter,
+  ../TColStd/TColStd_HSequenceOfInteger
+
 discard "forward decl of Interface_InterfaceModel"
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of IGESSelect_CounterOfLevelNumber"
 discard "forward decl of IGESSelect_CounterOfLevelNumber"
 type
-  HandleIGESSelectCounterOfLevelNumber* = Handle[IGESSelectCounterOfLevelNumber]
+  Handle_IGESSelect_CounterOfLevelNumber* = handle[IGESSelect_CounterOfLevelNumber]
 
 ## ! This class gives information about Level Number. It counts
 ## ! entities according level number, considering also the
@@ -30,53 +34,54 @@ type
 ## ! counterparts ("LEVEL nnnnnnn", " NO LEVEL", " LEVEL LIST")
 
 type
-  IGESSelectCounterOfLevelNumber* {.importcpp: "IGESSelect_CounterOfLevelNumber", header: "IGESSelect_CounterOfLevelNumber.hxx",
-                                   bycopy.} = object of IFSelectSignCounter ## ! Creates a
-                                                                       ## CounterOfLevelNumber, clear, ready to work
-                                                                       ## ! <withmap> and
-                                                                       ## <withlist> are
-                                                                       ## transmitted to
-                                                                       ## SignCounter
+  IGESSelect_CounterOfLevelNumber* {.importcpp: "IGESSelect_CounterOfLevelNumber", header: "IGESSelect_CounterOfLevelNumber.hxx",
+                                    bycopy.} = object of IFSelect_SignCounter ## ! Creates a
+                                                                         ## CounterOfLevelNumber, clear, ready to work
+                                                                         ## !
+                                                                         ## <withmap> and
+                                                                         ## <withlist> are
+                                                                         ## transmitted to
+                                                                         ## SignCounter
 
 
-proc constructIGESSelectCounterOfLevelNumber*(
-    withmap: StandardBoolean = standardTrue;
-    withlist: StandardBoolean = standardFalse): IGESSelectCounterOfLevelNumber {.
+proc constructIGESSelect_CounterOfLevelNumber*(
+    withmap: Standard_Boolean = Standard_True;
+    withlist: Standard_Boolean = Standard_False): IGESSelect_CounterOfLevelNumber {.
     constructor, importcpp: "IGESSelect_CounterOfLevelNumber(@)",
     header: "IGESSelect_CounterOfLevelNumber.hxx".}
-proc clear*(this: var IGESSelectCounterOfLevelNumber) {.importcpp: "Clear",
+proc Clear*(this: var IGESSelect_CounterOfLevelNumber) {.importcpp: "Clear",
     header: "IGESSelect_CounterOfLevelNumber.hxx".}
-proc addSign*(this: var IGESSelectCounterOfLevelNumber;
-             ent: Handle[StandardTransient];
-             model: Handle[InterfaceInterfaceModel]) {.importcpp: "AddSign",
+proc AddSign*(this: var IGESSelect_CounterOfLevelNumber;
+             ent: handle[Standard_Transient];
+             model: handle[Interface_InterfaceModel]) {.importcpp: "AddSign",
     header: "IGESSelect_CounterOfLevelNumber.hxx".}
-proc addLevel*(this: var IGESSelectCounterOfLevelNumber;
-              ent: Handle[StandardTransient]; level: StandardInteger) {.
+proc AddLevel*(this: var IGESSelect_CounterOfLevelNumber;
+              ent: handle[Standard_Transient]; level: Standard_Integer) {.
     importcpp: "AddLevel", header: "IGESSelect_CounterOfLevelNumber.hxx".}
-proc highestLevel*(this: IGESSelectCounterOfLevelNumber): StandardInteger {.
+proc HighestLevel*(this: IGESSelect_CounterOfLevelNumber): Standard_Integer {.
     noSideEffect, importcpp: "HighestLevel",
     header: "IGESSelect_CounterOfLevelNumber.hxx".}
-proc nbTimesLevel*(this: IGESSelectCounterOfLevelNumber; level: StandardInteger): StandardInteger {.
+proc NbTimesLevel*(this: IGESSelect_CounterOfLevelNumber; level: Standard_Integer): Standard_Integer {.
     noSideEffect, importcpp: "NbTimesLevel",
     header: "IGESSelect_CounterOfLevelNumber.hxx".}
-proc levels*(this: IGESSelectCounterOfLevelNumber): Handle[
-    TColStdHSequenceOfInteger] {.noSideEffect, importcpp: "Levels",
-                                header: "IGESSelect_CounterOfLevelNumber.hxx".}
-proc sign*(this: IGESSelectCounterOfLevelNumber; ent: Handle[StandardTransient];
-          model: Handle[InterfaceInterfaceModel]): Handle[TCollectionHAsciiString] {.
-    noSideEffect, importcpp: "Sign", header: "IGESSelect_CounterOfLevelNumber.hxx".}
-proc printCount*(this: IGESSelectCounterOfLevelNumber; s: var StandardOStream) {.
+proc Levels*(this: IGESSelect_CounterOfLevelNumber): handle[
+    TColStd_HSequenceOfInteger] {.noSideEffect, importcpp: "Levels",
+                                 header: "IGESSelect_CounterOfLevelNumber.hxx".}
+proc Sign*(this: IGESSelect_CounterOfLevelNumber; ent: handle[Standard_Transient];
+          model: handle[Interface_InterfaceModel]): handle[
+    TCollection_HAsciiString] {.noSideEffect, importcpp: "Sign",
+                               header: "IGESSelect_CounterOfLevelNumber.hxx".}
+proc PrintCount*(this: IGESSelect_CounterOfLevelNumber; S: var Standard_OStream) {.
     noSideEffect, importcpp: "PrintCount",
     header: "IGESSelect_CounterOfLevelNumber.hxx".}
 type
-  IGESSelectCounterOfLevelNumberbaseType* = IFSelectSignCounter
+  IGESSelect_CounterOfLevelNumberbase_type* = IFSelect_SignCounter
 
-proc getTypeName*(): cstring {.importcpp: "IGESSelect_CounterOfLevelNumber::get_type_name(@)",
-                            header: "IGESSelect_CounterOfLevelNumber.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "IGESSelect_CounterOfLevelNumber::get_type_name(@)",
+                              header: "IGESSelect_CounterOfLevelNumber.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "IGESSelect_CounterOfLevelNumber::get_type_descriptor(@)",
     header: "IGESSelect_CounterOfLevelNumber.hxx".}
-proc dynamicType*(this: IGESSelectCounterOfLevelNumber): Handle[StandardType] {.
+proc DynamicType*(this: IGESSelect_CounterOfLevelNumber): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType",
     header: "IGESSelect_CounterOfLevelNumber.hxx".}
-

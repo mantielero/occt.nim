@@ -11,37 +11,41 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  Graphic3d_Vec2, ../Standard/Standard_Integer, ../Standard/Standard_OStream,
+  ../Standard/Standard_TypeDef
+
 ## ! Class defines the area (Tile) inside a view.
 
 type
-  Graphic3dCameraTile* {.importcpp: "Graphic3d_CameraTile",
-                        header: "Graphic3d_CameraTile.hxx", bycopy.} = object ## ! Default
-                                                                         ## constructor.
-                                                                         ## !
-                                                                         ## Initializes the empty Tile of zero size and
-                                                                         ## lower-left offset
-                                                                         ## orientation.
-                                                                         ## ! Such Tile is
-                                                                         ## considered
-                                                                         ## uninitialized
-                                                                         ## (invalid).
-    totalSize* {.importc: "TotalSize".}: Graphic3dVec2i ## !< total size of the View area, in pixels
-    tileSize* {.importc: "TileSize".}: Graphic3dVec2i ## !< size of the Tile, in pixels
-    offset* {.importc: "Offset".}: Graphic3dVec2i ## !< the lower-left corner of the Tile relative to the View area (or upper-left if IsTopDown is true), in pixels
-    isTopDown* {.importc: "IsTopDown".}: bool ## !< indicate the offset coordinate system - lower-left (default) or top-down
+  Graphic3d_CameraTile* {.importcpp: "Graphic3d_CameraTile",
+                         header: "Graphic3d_CameraTile.hxx", bycopy.} = object ## !
+                                                                          ## Default
+                                                                          ## constructor.
+                                                                          ## !
+                                                                          ## Initializes the empty Tile of zero size and
+                                                                          ## lower-left offset
+                                                                          ## orientation.
+                                                                          ## ! Such Tile is
+                                                                          ## considered
+                                                                          ## uninitialized
+                                                                          ## (invalid).
+    TotalSize* {.importc: "TotalSize".}: Graphic3d_Vec2i ## !< total size of the View area, in pixels
+    TileSize* {.importc: "TileSize".}: Graphic3d_Vec2i ## !< size of the Tile, in pixels
+    Offset* {.importc: "Offset".}: Graphic3d_Vec2i ## !< the lower-left corner of the Tile relative to the View area (or upper-left if IsTopDown is true), in pixels
+    IsTopDown* {.importc: "IsTopDown".}: bool ## !< indicate the offset coordinate system - lower-left (default) or top-down
 
 
-proc constructGraphic3dCameraTile*(): Graphic3dCameraTile {.constructor,
+proc constructGraphic3d_CameraTile*(): Graphic3d_CameraTile {.constructor,
     importcpp: "Graphic3d_CameraTile(@)", header: "Graphic3d_CameraTile.hxx".}
-proc isValid*(this: Graphic3dCameraTile): bool {.noSideEffect, importcpp: "IsValid",
+proc IsValid*(this: Graphic3d_CameraTile): bool {.noSideEffect, importcpp: "IsValid",
     header: "Graphic3d_CameraTile.hxx".}
-proc offsetLowerLeft*(this: Graphic3dCameraTile): Graphic3dVec2i {.noSideEffect,
+proc OffsetLowerLeft*(this: Graphic3d_CameraTile): Graphic3d_Vec2i {.noSideEffect,
     importcpp: "OffsetLowerLeft", header: "Graphic3d_CameraTile.hxx".}
-proc cropped*(this: Graphic3dCameraTile): Graphic3dCameraTile {.noSideEffect,
+proc Cropped*(this: Graphic3d_CameraTile): Graphic3d_CameraTile {.noSideEffect,
     importcpp: "Cropped", header: "Graphic3d_CameraTile.hxx".}
-proc `==`*(this: Graphic3dCameraTile; theOther: Graphic3dCameraTile): bool {.
+proc `==`*(this: Graphic3d_CameraTile; theOther: Graphic3d_CameraTile): bool {.
     noSideEffect, importcpp: "(# == #)", header: "Graphic3d_CameraTile.hxx".}
-proc dumpJson*(this: Graphic3dCameraTile; theOStream: var StandardOStream;
-              theDepth: StandardInteger = -1) {.noSideEffect, importcpp: "DumpJson",
+proc DumpJson*(this: Graphic3d_CameraTile; theOStream: var Standard_OStream;
+              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
     header: "Graphic3d_CameraTile.hxx".}
-

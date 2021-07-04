@@ -14,8 +14,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  Law_Function, ../NCollection/NCollection_List
+
 type
-  LawLaws* = NCollectionList[Handle[LawFunction]]
-  LawListIteratorOfLaws* = Iterator[Handle[LawFunction]]
-
-
+  Law_Laws* = NCollection_List[handle[Law_Function]]
+  Law_ListIteratorOfLaws* = Iterator[handle[Law_Function]]

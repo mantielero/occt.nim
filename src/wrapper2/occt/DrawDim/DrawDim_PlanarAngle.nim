@@ -14,39 +14,42 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../TopoDS/TopoDS_Shape,
+  ../Standard/Standard_Boolean, ../Standard/Standard_Real, DrawDim_PlanarDimension
+
 discard "forward decl of TopoDS_Face"
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of Draw_Display"
 discard "forward decl of DrawDim_PlanarAngle"
 discard "forward decl of DrawDim_PlanarAngle"
 type
-  HandleDrawDimPlanarAngle* = Handle[DrawDimPlanarAngle]
-  DrawDimPlanarAngle* {.importcpp: "DrawDim_PlanarAngle",
-                       header: "DrawDim_PlanarAngle.hxx", bycopy.} = object of DrawDimPlanarDimension
+  Handle_DrawDim_PlanarAngle* = handle[DrawDim_PlanarAngle]
+  DrawDim_PlanarAngle* {.importcpp: "DrawDim_PlanarAngle",
+                        header: "DrawDim_PlanarAngle.hxx", bycopy.} = object of DrawDim_PlanarDimension
 
 
-proc constructDrawDimPlanarAngle*(plane: TopoDS_Face; line1: TopoDS_Shape;
-                                 line2: TopoDS_Shape): DrawDimPlanarAngle {.
+proc constructDrawDim_PlanarAngle*(plane: TopoDS_Face; line1: TopoDS_Shape;
+                                  line2: TopoDS_Shape): DrawDim_PlanarAngle {.
     constructor, importcpp: "DrawDim_PlanarAngle(@)",
     header: "DrawDim_PlanarAngle.hxx".}
-proc constructDrawDimPlanarAngle*(line1: TopoDS_Shape; line2: TopoDS_Shape): DrawDimPlanarAngle {.
+proc constructDrawDim_PlanarAngle*(line1: TopoDS_Shape; line2: TopoDS_Shape): DrawDim_PlanarAngle {.
     constructor, importcpp: "DrawDim_PlanarAngle(@)",
     header: "DrawDim_PlanarAngle.hxx".}
-proc sector*(this: var DrawDimPlanarAngle; inverted: StandardBoolean;
-            reversed: StandardBoolean) {.importcpp: "Sector",
-                                       header: "DrawDim_PlanarAngle.hxx".}
-proc position*(this: var DrawDimPlanarAngle; value: StandardReal) {.
+proc Sector*(this: var DrawDim_PlanarAngle; inverted: Standard_Boolean;
+            reversed: Standard_Boolean) {.importcpp: "Sector",
+                                        header: "DrawDim_PlanarAngle.hxx".}
+proc Position*(this: var DrawDim_PlanarAngle; value: Standard_Real) {.
     importcpp: "Position", header: "DrawDim_PlanarAngle.hxx".}
-proc drawOn*(this: DrawDimPlanarAngle; dis: var DrawDisplay) {.noSideEffect,
+proc DrawOn*(this: DrawDim_PlanarAngle; dis: var Draw_Display) {.noSideEffect,
     importcpp: "DrawOn", header: "DrawDim_PlanarAngle.hxx".}
 type
-  DrawDimPlanarAnglebaseType* = DrawDimPlanarDimension
+  DrawDim_PlanarAnglebase_type* = DrawDim_PlanarDimension
 
-proc getTypeName*(): cstring {.importcpp: "DrawDim_PlanarAngle::get_type_name(@)",
-                            header: "DrawDim_PlanarAngle.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "DrawDim_PlanarAngle::get_type_name(@)",
+                              header: "DrawDim_PlanarAngle.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "DrawDim_PlanarAngle::get_type_descriptor(@)",
     header: "DrawDim_PlanarAngle.hxx".}
-proc dynamicType*(this: DrawDimPlanarAngle): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: DrawDim_PlanarAngle): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "DrawDim_PlanarAngle.hxx".}
-

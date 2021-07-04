@@ -13,75 +13,74 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-# # # # when defined(_MSC_VER):
+import
+  IVtkTools, ../Standard/Standard_WarningsDisable,
+  ../Standard/Standard_WarningsRestore
+
+when defined(_MSC_VER):
 ## ! @class IVtkTools_SubPolyDataFilter
 ## ! @brief Cells filter according to the given set of cells ids.
 
 type
-  IVtkToolsSubPolyDataFilter* {.importcpp: "IVtkTools_SubPolyDataFilter",
-                               header: "IVtkTools_SubPolyDataFilter.hxx", bycopy.} = object of VtkPolyDataAlgorithm ##
-                                                                                                             ## !
-                                                                                                             ## @brief
-                                                                                                             ## Filter
-                                                                                                             ## cells
-                                                                                                             ## according
-                                                                                                             ## to
-                                                                                                             ## the
-                                                                                                             ## given
-                                                                                                             ## set
-                                                                                                             ## of
-                                                                                                             ## ids.
-                                                                                                             ##
-                                                                                                             ## !
-                                                                                                             ## Note:
-                                                                                                             ## Data
-                                                                                                             ## arrays
-                                                                                                             ## are
-                                                                                                             ## not
-                                                                                                             ## passed
-                                                                                                             ## through
-                                                                                                             ## if
-                                                                                                             ## filtering
-                                                                                                             ## is
-                                                                                                             ## turned
-                                                                                                             ## on.
-                                                                                                             ##
-                                                                                                             ## !
-                                                                                                             ## Set
-                                                                                                             ## of
-                                                                                                             ## ids
-                                                                                                             ## to
-                                                                                                             ## be
-                                                                                                             ## passed
-                                                                                                             ## through
-                                                                                                             ## this
-                                                                                                             ## filter.
+  IVtkTools_SubPolyDataFilter* {.importcpp: "IVtkTools_SubPolyDataFilter",
+                                header: "IVtkTools_SubPolyDataFilter.hxx", bycopy.} = object of vtkPolyDataAlgorithm ##
+                                                                                                              ## !
+                                                                                                              ## @brief
+                                                                                                              ## Filter
+                                                                                                              ## cells
+                                                                                                              ## according
+                                                                                                              ## to
+                                                                                                              ## the
+                                                                                                              ## given
+                                                                                                              ## set
+                                                                                                              ## of
+                                                                                                              ## ids.
+                                                                                                              ##
+                                                                                                              ## !
+                                                                                                              ## Note:
+                                                                                                              ## Data
+                                                                                                              ## arrays
+                                                                                                              ## are
+                                                                                                              ## not
+                                                                                                              ## passed
+                                                                                                              ## through
+                                                                                                              ## if
+                                                                                                              ## filtering
+                                                                                                              ## is
+                                                                                                              ## turned
+                                                                                                              ## on.
+                                                                                                              ##
+                                                                                                              ## !
+                                                                                                              ## Set
+                                                                                                              ## of
+                                                                                                              ## ids
+                                                                                                              ## to
+                                                                                                              ## be
+                                                                                                              ## passed
+                                                                                                              ## through
+                                                                                                              ## this
+                                                                                                              ## filter.
 
 
 ## !!!Ignored construct:  public : vtkTypeMacro ( IVtkTools_SubPolyDataFilter , vtkPolyDataAlgorithm ) static IVtkTools_SubPolyDataFilter * New ( ) ;
 ## Error: token expected: ) but got: ,!!!
 
-proc printSelf*(this: var IVtkToolsSubPolyDataFilter; theOs: var Ostream;
-               theIndent: VtkIndent) {.importcpp: "PrintSelf",
+proc PrintSelf*(this: var IVtkTools_SubPolyDataFilter; theOs: var ostream;
+               theIndent: vtkIndent) {.importcpp: "PrintSelf",
                                      header: "IVtkTools_SubPolyDataFilter.hxx".}
-proc setData*(this: var IVtkToolsSubPolyDataFilter; theSet: IVtkIdTypeMap) {.
+proc SetData*(this: var IVtkTools_SubPolyDataFilter; theSet: IVtk_IdTypeMap) {.
     importcpp: "SetData", header: "IVtkTools_SubPolyDataFilter.hxx".}
-proc addData*(this: var IVtkToolsSubPolyDataFilter; theSet: IVtkIdTypeMap) {.
+proc AddData*(this: var IVtkTools_SubPolyDataFilter; theSet: IVtk_IdTypeMap) {.
     importcpp: "AddData", header: "IVtkTools_SubPolyDataFilter.hxx".}
-proc setData*(this: var IVtkToolsSubPolyDataFilter; theIds: IVtkShapeIdList) {.
+proc SetData*(this: var IVtkTools_SubPolyDataFilter; theIds: IVtk_ShapeIdList) {.
     importcpp: "SetData", header: "IVtkTools_SubPolyDataFilter.hxx".}
-proc addData*(this: var IVtkToolsSubPolyDataFilter; theIds: IVtkShapeIdList) {.
+proc AddData*(this: var IVtkTools_SubPolyDataFilter; theIds: IVtk_ShapeIdList) {.
     importcpp: "AddData", header: "IVtkTools_SubPolyDataFilter.hxx".}
-proc clear*(this: var IVtkToolsSubPolyDataFilter) {.importcpp: "Clear",
+proc Clear*(this: var IVtkTools_SubPolyDataFilter) {.importcpp: "Clear",
     header: "IVtkTools_SubPolyDataFilter.hxx".}
-proc setIdsArrayName*(this: var IVtkToolsSubPolyDataFilter; theArrayName: cstring) {.
+proc SetIdsArrayName*(this: var IVtkTools_SubPolyDataFilter; theArrayName: cstring) {.
     importcpp: "SetIdsArrayName", header: "IVtkTools_SubPolyDataFilter.hxx".}
-proc setDoFiltering*(this: var IVtkToolsSubPolyDataFilter; theDoFiltering: bool) {.
+proc SetDoFiltering*(this: var IVtkTools_SubPolyDataFilter; theDoFiltering: bool) {.
     importcpp: "SetDoFiltering", header: "IVtkTools_SubPolyDataFilter.hxx".}
-# # # # # # # # when defined(_MSC_VER):
-# # # #   discard
-
-
-
-
-
+when defined(_MSC_VER):
+  discard

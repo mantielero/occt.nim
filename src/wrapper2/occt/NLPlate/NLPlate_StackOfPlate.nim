@@ -14,8 +14,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Plate/Plate_Plate, ../NCollection/NCollection_List
+
 type
-  NLPlateStackOfPlate* = NCollectionList[PlatePlate]
-  NLPlateListIteratorOfStackOfPlate* = Iterator[PlatePlate]
-
-
+  NLPlate_StackOfPlate* = NCollection_List[Plate_Plate]
+  NLPlate_ListIteratorOfStackOfPlate* = Iterator[Plate_Plate]

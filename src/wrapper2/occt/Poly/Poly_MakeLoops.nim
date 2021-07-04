@@ -13,48 +13,54 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../NCollection/NCollection_Sequence, ../NCollection/NCollection_IndexedMap,
+  ../TColStd/TColStd_PackedMapOfInteger,
+  ../TColStd/TColStd_MapIteratorOfPackedMapOfInteger,
+  ../NCollection/NCollection_IncAllocator, ../NCollection/NCollection_List
+
 ## *
 ##  Make loops from a set of connected links. A link is represented by
 ##  a pair of integer indices of nodes.
 ##
 
 type
-  PolyMakeLoops* {.importcpp: "Poly_MakeLoops", header: "Poly_MakeLoops.hxx", bycopy.} = object ##
-                                                                                        ## !
-                                                                                        ## Orientation
-                                                                                        ## flags
-                                                                                        ## that
-                                                                                        ## can
-                                                                                        ## be
-                                                                                        ## attached
-                                                                                        ## to
-                                                                                        ## a
-                                                                                        ## link
-                                                                                        ##
-                                                                                        ## PUBLIC
-                                                                                        ## METHODS
-                                                                                        ##
-                                                                                        ## !
-                                                                                        ## Constructor.
-                                                                                        ## If
-                                                                                        ## helper
-                                                                                        ## is
-                                                                                        ## NULL
-                                                                                        ## then
-                                                                                        ## the
-                                                                                        ## algorithm
-                                                                                        ## will
-                                                                                        ##
-                                                                                        ## !
-                                                                                        ## probably
-                                                                                        ## return
-                                                                                        ## a
-                                                                                        ## wrong
-                                                                                        ## result
+  Poly_MakeLoops* {.importcpp: "Poly_MakeLoops", header: "Poly_MakeLoops.hxx", bycopy.} = object ##
+                                                                                         ## !
+                                                                                         ## Orientation
+                                                                                         ## flags
+                                                                                         ## that
+                                                                                         ## can
+                                                                                         ## be
+                                                                                         ## attached
+                                                                                         ## to
+                                                                                         ## a
+                                                                                         ## link
+                                                                                         ##
+                                                                                         ## PUBLIC
+                                                                                         ## METHODS
+                                                                                         ##
+                                                                                         ## !
+                                                                                         ## Constructor.
+                                                                                         ## If
+                                                                                         ## helper
+                                                                                         ## is
+                                                                                         ## NULL
+                                                                                         ## then
+                                                                                         ## the
+                                                                                         ## algorithm
+                                                                                         ## will
+                                                                                         ##
+                                                                                         ## !
+                                                                                         ## probably
+                                                                                         ## return
+                                                                                         ## a
+                                                                                         ## wrong
+                                                                                         ## result
 
-  PolyMakeLoopsLinkFlag* {.size: sizeof(cint),
-                          importcpp: "Poly_MakeLoops::LinkFlag",
-                          header: "Poly_MakeLoops.hxx".} = enum
+  Poly_MakeLoopsLinkFlag* {.size: sizeof(cint),
+                           importcpp: "Poly_MakeLoops::LinkFlag",
+                           header: "Poly_MakeLoops.hxx".} = enum
     LF_None = 0, LF_Fwd = 1,       ##  forward orientation
     LF_Rev = 2,                 ##  reversed orientation
     LF_Both = 3,                ##  both ways oriented
@@ -62,105 +68,106 @@ type
 
 
 type
-  PolyMakeLoopsLink* {.importcpp: "Poly_MakeLoops::Link",
-                      header: "Poly_MakeLoops.hxx", bycopy.} = object
-    node1* {.importc: "node1".}: StandardInteger
-    node2* {.importc: "node2".}: StandardInteger
-    flags* {.importc: "flags".}: StandardInteger
+  Poly_MakeLoopsLink* {.importcpp: "Poly_MakeLoops::Link",
+                       header: "Poly_MakeLoops.hxx", bycopy.} = object
+    node1* {.importc: "node1".}: Standard_Integer
+    node2* {.importc: "node2".}: Standard_Integer
+    flags* {.importc: "flags".}: Standard_Integer
 
 
-proc constructPolyMakeLoopsLink*(): PolyMakeLoopsLink {.constructor,
+proc constructPoly_MakeLoopsLink*(): Poly_MakeLoopsLink {.constructor,
     importcpp: "Poly_MakeLoops::Link(@)", header: "Poly_MakeLoops.hxx".}
-proc constructPolyMakeLoopsLink*(theNode1: StandardInteger;
-                                theNode2: StandardInteger): PolyMakeLoopsLink {.
+proc constructPoly_MakeLoopsLink*(theNode1: Standard_Integer;
+                                 theNode2: Standard_Integer): Poly_MakeLoopsLink {.
     constructor, importcpp: "Poly_MakeLoops::Link(@)", header: "Poly_MakeLoops.hxx".}
-proc reverse*(this: var PolyMakeLoopsLink) {.importcpp: "Reverse",
+proc Reverse*(this: var Poly_MakeLoopsLink) {.importcpp: "Reverse",
     header: "Poly_MakeLoops.hxx".}
-proc isReversed*(this: PolyMakeLoopsLink): StandardBoolean {.noSideEffect,
+proc IsReversed*(this: Poly_MakeLoopsLink): Standard_Boolean {.noSideEffect,
     importcpp: "IsReversed", header: "Poly_MakeLoops.hxx".}
-proc nullify*(this: var PolyMakeLoopsLink) {.importcpp: "Nullify",
+proc Nullify*(this: var Poly_MakeLoopsLink) {.importcpp: "Nullify",
     header: "Poly_MakeLoops.hxx".}
-proc isNull*(this: PolyMakeLoopsLink): StandardBoolean {.noSideEffect,
+proc IsNull*(this: Poly_MakeLoopsLink): Standard_Boolean {.noSideEffect,
     importcpp: "IsNull", header: "Poly_MakeLoops.hxx".}
 type
-  PolyMakeLoopsListOfLink* = NCollectionList[PolyMakeLoopsLink]
-  PolyMakeLoopsLoop* = PolyMakeLoopsListOfLink
-  PolyMakeLoopsHelper* {.importcpp: "Poly_MakeLoops::Helper",
-                        header: "Poly_MakeLoops.hxx", bycopy.} = object ## ! returns the links adjacent to the given node
+  Poly_MakeLoopsListOfLink* = NCollection_List[Poly_MakeLoopsLink]
+  Poly_MakeLoopsLoop* = Poly_MakeLoopsListOfLink
+  Poly_MakeLoopsHelper* {.importcpp: "Poly_MakeLoops::Helper",
+                         header: "Poly_MakeLoops.hxx", bycopy.} = object ## ! returns the links adjacent to the given node
 
 
-proc getAdjacentLinks*(this: PolyMakeLoopsHelper; theNode: StandardInteger): PolyMakeLoopsListOfLink {.
+proc GetAdjacentLinks*(this: Poly_MakeLoopsHelper; theNode: Standard_Integer): Poly_MakeLoopsListOfLink {.
     noSideEffect, importcpp: "GetAdjacentLinks", header: "Poly_MakeLoops.hxx".}
-proc onAddLink*(this: PolyMakeLoopsHelper; a2: StandardInteger; ## theNum
-               a3: PolyMakeLoopsLink) {.noSideEffect, importcpp: "OnAddLink",
-                                      header: "Poly_MakeLoops.hxx".}
+proc OnAddLink*(this: Poly_MakeLoopsHelper; a2: Standard_Integer; ## theNum
+               a3: Poly_MakeLoopsLink) {.noSideEffect, importcpp: "OnAddLink",
+                                       header: "Poly_MakeLoops.hxx".}
   ## theLink
 type
-  PolyMakeLoopsHeapOfInteger* {.importcpp: "Poly_MakeLoops::HeapOfInteger",
-                               header: "Poly_MakeLoops.hxx", bycopy.} = object
+  Poly_MakeLoopsHeapOfInteger* {.importcpp: "Poly_MakeLoops::HeapOfInteger",
+                                header: "Poly_MakeLoops.hxx", bycopy.} = object
 
 
-proc constructPolyMakeLoopsHeapOfInteger*(theNbPreAllocated: StandardInteger = 1): PolyMakeLoopsHeapOfInteger {.
+proc constructPoly_MakeLoopsHeapOfInteger*(
+    theNbPreAllocated: Standard_Integer = 1): Poly_MakeLoopsHeapOfInteger {.
     constructor, importcpp: "Poly_MakeLoops::HeapOfInteger(@)",
     header: "Poly_MakeLoops.hxx".}
-proc clear*(this: var PolyMakeLoopsHeapOfInteger) {.importcpp: "Clear",
+proc Clear*(this: var Poly_MakeLoopsHeapOfInteger) {.importcpp: "Clear",
     header: "Poly_MakeLoops.hxx".}
-proc add*(this: var PolyMakeLoopsHeapOfInteger; theValue: StandardInteger) {.
+proc Add*(this: var Poly_MakeLoopsHeapOfInteger; theValue: Standard_Integer) {.
     importcpp: "Add", header: "Poly_MakeLoops.hxx".}
-proc top*(this: var PolyMakeLoopsHeapOfInteger): StandardInteger {.importcpp: "Top",
-    header: "Poly_MakeLoops.hxx".}
-proc contains*(this: PolyMakeLoopsHeapOfInteger; theValue: StandardInteger): StandardBoolean {.
+proc Top*(this: var Poly_MakeLoopsHeapOfInteger): Standard_Integer {.
+    importcpp: "Top", header: "Poly_MakeLoops.hxx".}
+proc Contains*(this: Poly_MakeLoopsHeapOfInteger; theValue: Standard_Integer): Standard_Boolean {.
     noSideEffect, importcpp: "Contains", header: "Poly_MakeLoops.hxx".}
-proc remove*(this: var PolyMakeLoopsHeapOfInteger; theValue: StandardInteger) {.
+proc Remove*(this: var Poly_MakeLoopsHeapOfInteger; theValue: Standard_Integer) {.
     importcpp: "Remove", header: "Poly_MakeLoops.hxx".}
-proc isEmpty*(this: var PolyMakeLoopsHeapOfInteger): StandardBoolean {.
+proc IsEmpty*(this: var Poly_MakeLoopsHeapOfInteger): Standard_Boolean {.
     importcpp: "IsEmpty", header: "Poly_MakeLoops.hxx".}
-proc constructPolyMakeLoops*(theHelper: ptr PolyMakeLoopsHelper;
-                            theAlloc: Handle[NCollectionBaseAllocator] = 0'i64): PolyMakeLoops {.
-    constructor, importcpp: "Poly_MakeLoops(@)", header: "Poly_MakeLoops.hxx".}
-proc reset*(this: var PolyMakeLoops; theHelper: ptr PolyMakeLoopsHelper;
-           theAlloc: Handle[NCollectionBaseAllocator] = 0'i64) {.
+proc constructPoly_MakeLoops*(theHelper: ptr Poly_MakeLoopsHelper; theAlloc: handle[
+    NCollection_BaseAllocator] = 0L'i64): Poly_MakeLoops {.constructor,
+    importcpp: "Poly_MakeLoops(@)", header: "Poly_MakeLoops.hxx".}
+proc Reset*(this: var Poly_MakeLoops; theHelper: ptr Poly_MakeLoopsHelper;
+           theAlloc: handle[NCollection_BaseAllocator] = 0L'i64) {.
     importcpp: "Reset", header: "Poly_MakeLoops.hxx".}
-proc addLink*(this: var PolyMakeLoops; theLink: PolyMakeLoopsLink) {.
+proc AddLink*(this: var Poly_MakeLoops; theLink: Poly_MakeLoopsLink) {.
     importcpp: "AddLink", header: "Poly_MakeLoops.hxx".}
-proc replaceLink*(this: var PolyMakeLoops; theLink: PolyMakeLoopsLink;
-                 theNewLink: PolyMakeLoopsLink) {.importcpp: "ReplaceLink",
+proc ReplaceLink*(this: var Poly_MakeLoops; theLink: Poly_MakeLoopsLink;
+                 theNewLink: Poly_MakeLoopsLink) {.importcpp: "ReplaceLink",
     header: "Poly_MakeLoops.hxx".}
-proc setLinkOrientation*(this: var PolyMakeLoops; theLink: PolyMakeLoopsLink;
-                        theOrient: PolyMakeLoopsLinkFlag): PolyMakeLoopsLinkFlag {.
+proc SetLinkOrientation*(this: var Poly_MakeLoops; theLink: Poly_MakeLoopsLink;
+                        theOrient: Poly_MakeLoopsLinkFlag): Poly_MakeLoopsLinkFlag {.
     importcpp: "SetLinkOrientation", header: "Poly_MakeLoops.hxx".}
-proc findLink*(this: PolyMakeLoops; theLink: PolyMakeLoopsLink): PolyMakeLoopsLink {.
+proc FindLink*(this: Poly_MakeLoops; theLink: Poly_MakeLoopsLink): Poly_MakeLoopsLink {.
     noSideEffect, importcpp: "FindLink", header: "Poly_MakeLoops.hxx".}
 type
-  PolyMakeLoopsResultCode* {.size: sizeof(cint),
-                            importcpp: "Poly_MakeLoops::ResultCode",
-                            header: "Poly_MakeLoops.hxx".} = enum
+  Poly_MakeLoopsResultCode* {.size: sizeof(cint),
+                             importcpp: "Poly_MakeLoops::ResultCode",
+                             header: "Poly_MakeLoops.hxx".} = enum
     RC_LoopsDone = 1, RC_HangingLinks = 2, RC_Failure = 4
 
 
-proc perform*(this: var PolyMakeLoops): StandardInteger {.importcpp: "Perform",
+proc Perform*(this: var Poly_MakeLoops): Standard_Integer {.importcpp: "Perform",
     header: "Poly_MakeLoops.hxx".}
-proc getNbLoops*(this: PolyMakeLoops): StandardInteger {.noSideEffect,
+proc GetNbLoops*(this: Poly_MakeLoops): Standard_Integer {.noSideEffect,
     importcpp: "GetNbLoops", header: "Poly_MakeLoops.hxx".}
-proc getLoop*(this: PolyMakeLoops; theIndex: StandardInteger): PolyMakeLoopsLoop {.
+proc GetLoop*(this: Poly_MakeLoops; theIndex: Standard_Integer): Poly_MakeLoopsLoop {.
     noSideEffect, importcpp: "GetLoop", header: "Poly_MakeLoops.hxx".}
-proc getNbHanging*(this: PolyMakeLoops): StandardInteger {.noSideEffect,
+proc GetNbHanging*(this: Poly_MakeLoops): Standard_Integer {.noSideEffect,
     importcpp: "GetNbHanging", header: "Poly_MakeLoops.hxx".}
-proc getHangingLinks*(this: PolyMakeLoops; theLinks: var PolyMakeLoopsListOfLink) {.
+proc GetHangingLinks*(this: Poly_MakeLoops; theLinks: var Poly_MakeLoopsListOfLink) {.
     noSideEffect, importcpp: "GetHangingLinks", header: "Poly_MakeLoops.hxx".}
 ## ! Computes a hash code for the given link, in the range [1, theUpperBound]
 ## ! @param theLink the link which hash code is to be computed
 ## ! @param theUpperBound the upper bound of the range a computing hash code must be within
 ## ! @return a computed hash code, in the range [1, theUpperBound]
 
-proc hashCode*(theLink: PolyMakeLoopsLink; theUpperBound: StandardInteger): StandardInteger =
+proc HashCode*(theLink: Poly_MakeLoopsLink; theUpperBound: Standard_Integer): Standard_Integer =
   discard
 
 ## *
 ##  IsEqual method is needed for maps
 ##
 
-proc isEqual*(theKey1: PolyMakeLoopsLink; theKey2: PolyMakeLoopsLink): StandardBoolean =
+proc IsEqual*(theKey1: Poly_MakeLoopsLink; theKey2: Poly_MakeLoopsLink): Standard_Boolean =
   discard
 
 ## *
@@ -169,24 +176,24 @@ proc isEqual*(theKey1: PolyMakeLoopsLink; theKey2: PolyMakeLoopsLink): StandardB
 
 discard "forward decl of gp_Dir"
 type
-  PolyMakeLoops3D* {.importcpp: "Poly_MakeLoops3D", header: "Poly_MakeLoops.hxx",
-                    bycopy.} = object of PolyMakeLoops ## ! The abstract helper class
+  Poly_MakeLoops3D* {.importcpp: "Poly_MakeLoops3D", header: "Poly_MakeLoops.hxx",
+                     bycopy.} = object of Poly_MakeLoops ## ! The abstract helper class
 
-  PolyMakeLoops3DHelper* {.importcpp: "Poly_MakeLoops3D::Helper",
-                          header: "Poly_MakeLoops.hxx", bycopy.} = object of PolyMakeLoopsHelper ##  all the following methods should return False if
-                                                                                          ##  it is impossible to return a valid direction
-                                                                                          ## ! returns the tangent vector at the first node of a link
+  Poly_MakeLoops3DHelper* {.importcpp: "Poly_MakeLoops3D::Helper",
+                           header: "Poly_MakeLoops.hxx", bycopy.} = object of Poly_MakeLoopsHelper ##  all the following methods should return False if
+                                                                                            ##  it is impossible to return a valid direction
+                                                                                            ## ! returns the tangent vector at the first node of a link
 
 
-proc getFirstTangent*(this: PolyMakeLoops3DHelper; theLink: Link; theDir: var GpDir): StandardBoolean {.
+proc GetFirstTangent*(this: Poly_MakeLoops3DHelper; theLink: Link; theDir: var gp_Dir): Standard_Boolean {.
     noSideEffect, importcpp: "GetFirstTangent", header: "Poly_MakeLoops.hxx".}
-proc getLastTangent*(this: PolyMakeLoops3DHelper; theLink: Link; theDir: var GpDir): StandardBoolean {.
+proc GetLastTangent*(this: Poly_MakeLoops3DHelper; theLink: Link; theDir: var gp_Dir): Standard_Boolean {.
     noSideEffect, importcpp: "GetLastTangent", header: "Poly_MakeLoops.hxx".}
-proc getNormal*(this: PolyMakeLoops3DHelper; theNode: StandardInteger;
-               theDir: var GpDir): StandardBoolean {.noSideEffect,
+proc GetNormal*(this: Poly_MakeLoops3DHelper; theNode: Standard_Integer;
+               theDir: var gp_Dir): Standard_Boolean {.noSideEffect,
     importcpp: "GetNormal", header: "Poly_MakeLoops.hxx".}
-proc constructPolyMakeLoops3D*(theHelper: ptr PolyMakeLoops3DHelper;
-                              theAlloc: Handle[NCollectionBaseAllocator]): PolyMakeLoops3D {.
+proc constructPoly_MakeLoops3D*(theHelper: ptr Poly_MakeLoops3DHelper;
+                               theAlloc: handle[NCollection_BaseAllocator]): Poly_MakeLoops3D {.
     constructor, importcpp: "Poly_MakeLoops3D(@)", header: "Poly_MakeLoops.hxx".}
 ## *
 ##  Implementation for 2D space
@@ -194,22 +201,23 @@ proc constructPolyMakeLoops3D*(theHelper: ptr PolyMakeLoops3DHelper;
 
 discard "forward decl of gp_Dir2d"
 type
-  PolyMakeLoops2D* {.importcpp: "Poly_MakeLoops2D", header: "Poly_MakeLoops.hxx",
-                    bycopy.} = object of PolyMakeLoops ## ! The abstract helper class
-                                                  ## ! this flag says that chooseLeftWay must choose the right way instead
+  Poly_MakeLoops2D* {.importcpp: "Poly_MakeLoops2D", header: "Poly_MakeLoops.hxx",
+                     bycopy.} = object of Poly_MakeLoops ## ! The abstract helper class
+                                                    ## ! this flag says that chooseLeftWay must choose the right way instead
 
-  PolyMakeLoops2DHelper* {.importcpp: "Poly_MakeLoops2D::Helper",
-                          header: "Poly_MakeLoops.hxx", bycopy.} = object of PolyMakeLoopsHelper ##  all the following methods should return False if
-                                                                                          ##  it is impossible to return a valid direction
-                                                                                          ## ! returns the tangent vector at the first node of a link
+  Poly_MakeLoops2DHelper* {.importcpp: "Poly_MakeLoops2D::Helper",
+                           header: "Poly_MakeLoops.hxx", bycopy.} = object of Poly_MakeLoopsHelper ##  all the following methods should return False if
+                                                                                            ##  it is impossible to return a valid direction
+                                                                                            ## ! returns the tangent vector at the first node of a link
 
 
-proc getFirstTangent*(this: PolyMakeLoops2DHelper; theLink: Link; theDir: var GpDir2d): StandardBoolean {.
-    noSideEffect, importcpp: "GetFirstTangent", header: "Poly_MakeLoops.hxx".}
-proc getLastTangent*(this: PolyMakeLoops2DHelper; theLink: Link; theDir: var GpDir2d): StandardBoolean {.
-    noSideEffect, importcpp: "GetLastTangent", header: "Poly_MakeLoops.hxx".}
-proc constructPolyMakeLoops2D*(theLeftWay: StandardBoolean;
-                              theHelper: ptr PolyMakeLoops2DHelper;
-                              theAlloc: Handle[NCollectionBaseAllocator]): PolyMakeLoops2D {.
+proc GetFirstTangent*(this: Poly_MakeLoops2DHelper; theLink: Link;
+                     theDir: var gp_Dir2d): Standard_Boolean {.noSideEffect,
+    importcpp: "GetFirstTangent", header: "Poly_MakeLoops.hxx".}
+proc GetLastTangent*(this: Poly_MakeLoops2DHelper; theLink: Link;
+                    theDir: var gp_Dir2d): Standard_Boolean {.noSideEffect,
+    importcpp: "GetLastTangent", header: "Poly_MakeLoops.hxx".}
+proc constructPoly_MakeLoops2D*(theLeftWay: Standard_Boolean;
+                               theHelper: ptr Poly_MakeLoops2DHelper;
+                               theAlloc: handle[NCollection_BaseAllocator]): Poly_MakeLoops2D {.
     constructor, importcpp: "Poly_MakeLoops2D(@)", header: "Poly_MakeLoops.hxx".}
-

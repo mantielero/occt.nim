@@ -14,8 +14,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  Message_Msg, ../NCollection/NCollection_List
+
 type
-  MessageListOfMsg* = NCollectionList[MessageMsg]
-  MessageListIteratorOfListOfMsg* = Iterator[MessageMsg]
-
-
+  Message_ListOfMsg* = NCollection_List[Message_Msg]
+  Message_ListIteratorOfListOfMsg* = Iterator[Message_Msg]

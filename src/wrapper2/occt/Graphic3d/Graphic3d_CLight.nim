@@ -11,21 +11,103 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../gp/gp_Dir, Graphic3d_TypeOfLightSource, Graphic3d_Vec,
+  ../NCollection/NCollection_List, ../TCollection/TCollection_AsciiString,
+  ../Quantity/Quantity_ColorRGBA
+
 ## ! Generic light source definition.
 ## ! This class defines arbitrary light source - see Graphic3d_TypeOfLightSource enumeration.
 ## ! Some parameters are applicable only to particular light type;
 ## ! calling methods unrelated to current type will throw an exception.
 
 type
-  Graphic3dCLight* {.importcpp: "Graphic3d_CLight", header: "Graphic3d_CLight.hxx",
-                    bycopy.} = object of StandardTransient ## ! Empty constructor, which should be followed by light source properties configuration.
-                                                      ## ! Returns location of positional/spot light; (0, 0, 0) by default.
-                                                      ## ! Returns direction of directional/spot light.
-                                                      ## ! Returns an angle in radians of the cone created by the spot; 30 degrees by default.
-                                                      ## ! Returns the intensity of light source; 1.0 by default.
-                                                      ## ! @return light resource identifier string
-                                                      ## ! Access positional/spot light constant attenuation coefficient from packed vector.
-                                                      ## ! Generate unique object id.
+  Graphic3d_CLight* {.importcpp: "Graphic3d_CLight",
+                     header: "Graphic3d_CLight.hxx", bycopy.} = object of Standard_Transient ##
+                                                                                      ## !
+                                                                                      ## Empty
+                                                                                      ## constructor,
+                                                                                      ## which
+                                                                                      ## should
+                                                                                      ## be
+                                                                                      ## followed
+                                                                                      ## by
+                                                                                      ## light
+                                                                                      ## source
+                                                                                      ## properties
+                                                                                      ## configuration.
+                                                                                      ##
+                                                                                      ## !
+                                                                                      ## Returns
+                                                                                      ## location
+                                                                                      ## of
+                                                                                      ## positional/spot
+                                                                                      ## light;
+                                                                                      ## (0,
+                                                                                      ## 0,
+                                                                                      ## 0)
+                                                                                      ## by
+                                                                                      ## default.
+                                                                                      ##
+                                                                                      ## !
+                                                                                      ## Returns
+                                                                                      ## direction
+                                                                                      ## of
+                                                                                      ## directional/spot
+                                                                                      ## light.
+                                                                                      ##
+                                                                                      ## !
+                                                                                      ## Returns
+                                                                                      ## an
+                                                                                      ## angle
+                                                                                      ## in
+                                                                                      ## radians
+                                                                                      ## of
+                                                                                      ## the
+                                                                                      ## cone
+                                                                                      ## created
+                                                                                      ## by
+                                                                                      ## the
+                                                                                      ## spot;
+                                                                                      ## 30
+                                                                                      ## degrees
+                                                                                      ## by
+                                                                                      ## default.
+                                                                                      ##
+                                                                                      ## !
+                                                                                      ## Returns
+                                                                                      ## the
+                                                                                      ## intensity
+                                                                                      ## of
+                                                                                      ## light
+                                                                                      ## source;
+                                                                                      ## 1.0
+                                                                                      ## by
+                                                                                      ## default.
+                                                                                      ##
+                                                                                      ## !
+                                                                                      ## @return
+                                                                                      ## light
+                                                                                      ## resource
+                                                                                      ## identifier
+                                                                                      ## string
+                                                                                      ##
+                                                                                      ## !
+                                                                                      ## Access
+                                                                                      ## positional/spot
+                                                                                      ## light
+                                                                                      ## constant
+                                                                                      ## attenuation
+                                                                                      ## coefficient
+                                                                                      ## from
+                                                                                      ## packed
+                                                                                      ## vector.
+                                                                                      ##
+                                                                                      ## !
+                                                                                      ## Generate
+                                                                                      ## unique
+                                                                                      ## object
+                                                                                      ## id.
     ## !< resource id
     ## !< user given name
     ## !< light position
@@ -39,106 +121,104 @@ type
     ## !< flag to mark head light
     ## !< enabled state
 
-  Graphic3dCLightbaseType* = StandardTransient
+  Graphic3d_CLightbase_type* = Standard_Transient
 
-proc getTypeName*(): cstring {.importcpp: "Graphic3d_CLight::get_type_name(@)",
-                            header: "Graphic3d_CLight.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "Graphic3d_CLight::get_type_name(@)",
+                              header: "Graphic3d_CLight.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "Graphic3d_CLight::get_type_descriptor(@)",
     header: "Graphic3d_CLight.hxx".}
-proc dynamicType*(this: Graphic3dCLight): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: Graphic3d_CLight): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "Graphic3d_CLight.hxx".}
-proc constructGraphic3dCLight*(theType: Graphic3dTypeOfLightSource): Graphic3dCLight {.
+proc constructGraphic3d_CLight*(theType: Graphic3d_TypeOfLightSource): Graphic3d_CLight {.
     constructor, importcpp: "Graphic3d_CLight(@)", header: "Graphic3d_CLight.hxx".}
-proc `type`*(this: Graphic3dCLight): Graphic3dTypeOfLightSource {.noSideEffect,
+proc Type*(this: Graphic3d_CLight): Graphic3d_TypeOfLightSource {.noSideEffect,
     importcpp: "Type", header: "Graphic3d_CLight.hxx".}
-proc name*(this: Graphic3dCLight): TCollectionAsciiString {.noSideEffect,
+proc Name*(this: Graphic3d_CLight): TCollection_AsciiString {.noSideEffect,
     importcpp: "Name", header: "Graphic3d_CLight.hxx".}
-proc setName*(this: var Graphic3dCLight; theName: TCollectionAsciiString) {.
+proc SetName*(this: var Graphic3d_CLight; theName: TCollection_AsciiString) {.
     importcpp: "SetName", header: "Graphic3d_CLight.hxx".}
-proc color*(this: Graphic3dCLight): QuantityColor {.noSideEffect, importcpp: "Color",
-    header: "Graphic3d_CLight.hxx".}
-proc setColor*(this: var Graphic3dCLight; theColor: QuantityColor) {.
+proc Color*(this: Graphic3d_CLight): Quantity_Color {.noSideEffect,
+    importcpp: "Color", header: "Graphic3d_CLight.hxx".}
+proc SetColor*(this: var Graphic3d_CLight; theColor: Quantity_Color) {.
     importcpp: "SetColor", header: "Graphic3d_CLight.hxx".}
-proc isEnabled*(this: Graphic3dCLight): StandardBoolean {.noSideEffect,
+proc IsEnabled*(this: Graphic3d_CLight): Standard_Boolean {.noSideEffect,
     importcpp: "IsEnabled", header: "Graphic3d_CLight.hxx".}
-proc setEnabled*(this: var Graphic3dCLight; theIsOn: StandardBoolean) {.
+proc SetEnabled*(this: var Graphic3d_CLight; theIsOn: Standard_Boolean) {.
     importcpp: "SetEnabled", header: "Graphic3d_CLight.hxx".}
-proc isHeadlight*(this: Graphic3dCLight): StandardBoolean {.noSideEffect,
+proc IsHeadlight*(this: Graphic3d_CLight): Standard_Boolean {.noSideEffect,
     importcpp: "IsHeadlight", header: "Graphic3d_CLight.hxx".}
-proc headlight*(this: Graphic3dCLight): StandardBoolean {.noSideEffect,
+proc Headlight*(this: Graphic3d_CLight): Standard_Boolean {.noSideEffect,
     importcpp: "Headlight", header: "Graphic3d_CLight.hxx".}
-proc setHeadlight*(this: var Graphic3dCLight; theValue: StandardBoolean) {.
+proc SetHeadlight*(this: var Graphic3d_CLight; theValue: Standard_Boolean) {.
     importcpp: "SetHeadlight", header: "Graphic3d_CLight.hxx".}
-proc position*(this: Graphic3dCLight): GpPnt {.noSideEffect, importcpp: "Position",
+proc Position*(this: Graphic3d_CLight): gp_Pnt {.noSideEffect, importcpp: "Position",
     header: "Graphic3d_CLight.hxx".}
-proc setPosition*(this: var Graphic3dCLight; thePosition: GpPnt) {.
+proc SetPosition*(this: var Graphic3d_CLight; thePosition: gp_Pnt) {.
     importcpp: "SetPosition", header: "Graphic3d_CLight.hxx".}
-proc position*(this: Graphic3dCLight; theX: var StandardReal; theY: var StandardReal;
-              theZ: var StandardReal) {.noSideEffect, importcpp: "Position",
-                                     header: "Graphic3d_CLight.hxx".}
-proc setPosition*(this: var Graphic3dCLight; theX: StandardReal; theY: StandardReal;
-                 theZ: StandardReal) {.importcpp: "SetPosition",
-                                     header: "Graphic3d_CLight.hxx".}
-proc constAttenuation*(this: Graphic3dCLight): StandardShortReal {.noSideEffect,
+proc Position*(this: Graphic3d_CLight; theX: var Standard_Real;
+              theY: var Standard_Real; theZ: var Standard_Real) {.noSideEffect,
+    importcpp: "Position", header: "Graphic3d_CLight.hxx".}
+proc SetPosition*(this: var Graphic3d_CLight; theX: Standard_Real;
+                 theY: Standard_Real; theZ: Standard_Real) {.
+    importcpp: "SetPosition", header: "Graphic3d_CLight.hxx".}
+proc ConstAttenuation*(this: Graphic3d_CLight): Standard_ShortReal {.noSideEffect,
     importcpp: "ConstAttenuation", header: "Graphic3d_CLight.hxx".}
-proc linearAttenuation*(this: Graphic3dCLight): StandardShortReal {.noSideEffect,
+proc LinearAttenuation*(this: Graphic3d_CLight): Standard_ShortReal {.noSideEffect,
     importcpp: "LinearAttenuation", header: "Graphic3d_CLight.hxx".}
-proc attenuation*(this: Graphic3dCLight; theConstAttenuation: var StandardReal;
-                 theLinearAttenuation: var StandardReal) {.noSideEffect,
+proc Attenuation*(this: Graphic3d_CLight; theConstAttenuation: var Standard_Real;
+                 theLinearAttenuation: var Standard_Real) {.noSideEffect,
     importcpp: "Attenuation", header: "Graphic3d_CLight.hxx".}
-proc setAttenuation*(this: var Graphic3dCLight;
-                    theConstAttenuation: StandardShortReal;
-                    theLinearAttenuation: StandardShortReal) {.
+proc SetAttenuation*(this: var Graphic3d_CLight;
+                    theConstAttenuation: Standard_ShortReal;
+                    theLinearAttenuation: Standard_ShortReal) {.
     importcpp: "SetAttenuation", header: "Graphic3d_CLight.hxx".}
-proc direction*(this: Graphic3dCLight): GpDir {.noSideEffect, importcpp: "Direction",
-    header: "Graphic3d_CLight.hxx".}
-proc setDirection*(this: var Graphic3dCLight; theDir: GpDir) {.
-    importcpp: "SetDirection", header: "Graphic3d_CLight.hxx".}
-proc direction*(this: Graphic3dCLight; theVx: var StandardReal;
-               theVy: var StandardReal; theVz: var StandardReal) {.noSideEffect,
+proc Direction*(this: Graphic3d_CLight): gp_Dir {.noSideEffect,
     importcpp: "Direction", header: "Graphic3d_CLight.hxx".}
-proc setDirection*(this: var Graphic3dCLight; theVx: StandardReal;
-                  theVy: StandardReal; theVz: StandardReal) {.
+proc SetDirection*(this: var Graphic3d_CLight; theDir: gp_Dir) {.
     importcpp: "SetDirection", header: "Graphic3d_CLight.hxx".}
-proc angle*(this: Graphic3dCLight): StandardShortReal {.noSideEffect,
+proc Direction*(this: Graphic3d_CLight; theVx: var Standard_Real;
+               theVy: var Standard_Real; theVz: var Standard_Real) {.noSideEffect,
+    importcpp: "Direction", header: "Graphic3d_CLight.hxx".}
+proc SetDirection*(this: var Graphic3d_CLight; theVx: Standard_Real;
+                  theVy: Standard_Real; theVz: Standard_Real) {.
+    importcpp: "SetDirection", header: "Graphic3d_CLight.hxx".}
+proc Angle*(this: Graphic3d_CLight): Standard_ShortReal {.noSideEffect,
     importcpp: "Angle", header: "Graphic3d_CLight.hxx".}
-proc setAngle*(this: var Graphic3dCLight; theAngle: StandardShortReal) {.
+proc SetAngle*(this: var Graphic3d_CLight; theAngle: Standard_ShortReal) {.
     importcpp: "SetAngle", header: "Graphic3d_CLight.hxx".}
-proc concentration*(this: Graphic3dCLight): StandardShortReal {.noSideEffect,
+proc Concentration*(this: Graphic3d_CLight): Standard_ShortReal {.noSideEffect,
     importcpp: "Concentration", header: "Graphic3d_CLight.hxx".}
-proc setConcentration*(this: var Graphic3dCLight;
-                      theConcentration: StandardShortReal) {.
+proc SetConcentration*(this: var Graphic3d_CLight;
+                      theConcentration: Standard_ShortReal) {.
     importcpp: "SetConcentration", header: "Graphic3d_CLight.hxx".}
-proc intensity*(this: Graphic3dCLight): StandardShortReal {.noSideEffect,
+proc Intensity*(this: Graphic3d_CLight): Standard_ShortReal {.noSideEffect,
     importcpp: "Intensity", header: "Graphic3d_CLight.hxx".}
-proc setIntensity*(this: var Graphic3dCLight; theValue: StandardShortReal) {.
+proc SetIntensity*(this: var Graphic3d_CLight; theValue: Standard_ShortReal) {.
     importcpp: "SetIntensity", header: "Graphic3d_CLight.hxx".}
-proc smoothness*(this: Graphic3dCLight): StandardShortReal {.noSideEffect,
+proc Smoothness*(this: Graphic3d_CLight): Standard_ShortReal {.noSideEffect,
     importcpp: "Smoothness", header: "Graphic3d_CLight.hxx".}
-proc setSmoothRadius*(this: var Graphic3dCLight; theValue: StandardShortReal) {.
+proc SetSmoothRadius*(this: var Graphic3d_CLight; theValue: Standard_ShortReal) {.
     importcpp: "SetSmoothRadius", header: "Graphic3d_CLight.hxx".}
-proc setSmoothAngle*(this: var Graphic3dCLight; theValue: StandardShortReal) {.
+proc SetSmoothAngle*(this: var Graphic3d_CLight; theValue: Standard_ShortReal) {.
     importcpp: "SetSmoothAngle", header: "Graphic3d_CLight.hxx".}
-proc range*(this: Graphic3dCLight): StandardShortReal {.noSideEffect,
+proc Range*(this: Graphic3d_CLight): Standard_ShortReal {.noSideEffect,
     importcpp: "Range", header: "Graphic3d_CLight.hxx".}
-proc setRange*(this: var Graphic3dCLight; theValue: StandardShortReal) {.
+proc SetRange*(this: var Graphic3d_CLight; theValue: Standard_ShortReal) {.
     importcpp: "SetRange", header: "Graphic3d_CLight.hxx".}
-proc getId*(this: Graphic3dCLight): TCollectionAsciiString {.noSideEffect,
+proc GetId*(this: Graphic3d_CLight): TCollection_AsciiString {.noSideEffect,
     importcpp: "GetId", header: "Graphic3d_CLight.hxx".}
-proc packedParams*(this: Graphic3dCLight): Graphic3dVec4 {.noSideEffect,
+proc PackedParams*(this: Graphic3d_CLight): Graphic3d_Vec4 {.noSideEffect,
     importcpp: "PackedParams", header: "Graphic3d_CLight.hxx".}
-proc packedColor*(this: Graphic3dCLight): Graphic3dVec4 {.noSideEffect,
+proc PackedColor*(this: Graphic3d_CLight): Graphic3d_Vec4 {.noSideEffect,
     importcpp: "PackedColor", header: "Graphic3d_CLight.hxx".}
-proc packedDirectionRange*(this: Graphic3dCLight): Graphic3dVec4 {.noSideEffect,
+proc PackedDirectionRange*(this: Graphic3d_CLight): Graphic3d_Vec4 {.noSideEffect,
     importcpp: "PackedDirectionRange", header: "Graphic3d_CLight.hxx".}
-proc revision*(this: Graphic3dCLight): StandardSize {.noSideEffect,
+proc Revision*(this: Graphic3d_CLight): Standard_Size {.noSideEffect,
     importcpp: "Revision", header: "Graphic3d_CLight.hxx".}
-proc dumpJson*(this: Graphic3dCLight; theOStream: var StandardOStream;
-              theDepth: StandardInteger = -1) {.noSideEffect, importcpp: "DumpJson",
+proc DumpJson*(this: Graphic3d_CLight; theOStream: var Standard_OStream;
+              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
     header: "Graphic3d_CLight.hxx".}
 discard "forward decl of Graphic3d_CLight"
 type
-  HandleGraphic3dCLight* = Handle[Graphic3dCLight]
-
-
+  Handle_Graphic3d_CLight* = handle[Graphic3d_CLight]

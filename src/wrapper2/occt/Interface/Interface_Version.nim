@@ -11,10 +11,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard_Version
+
 const
   XSTEP_PROCESSOR_VERSION* = "Open CASCADE %s processor "
 
 ## !!!Ignored construct:  OCC_VERSION_STRING [NewLine] # XSTEP_SYSTEM_VERSION Open CASCADE  OCC_VERSION_STRING [NewLine] # XSTEP_Config OCC_VERSION_STRING [NewLine] # XSTEP_ULNames OCC_VERSION_STRING [NewLine]
 ## Error: expected ';'!!!
-
-

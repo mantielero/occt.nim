@@ -14,8 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _Quantity_Length_HeaderFile [NewLine] # _Quantity_Length_HeaderFile [NewLine] # < Standard_Real . hxx > [NewLine] ! Defined as spatial extension.
+## !!!Ignored construct:  # _Quantity_Length_HeaderFile [NewLine] # _Quantity_Length_HeaderFile [NewLine] # ../Standard/Standard_Real.hxx [NewLine] ! Defined as spatial extension.
 ## ! It is measured in metres. Standard_DEPRECATED ( This type is deprecated - Standard_Real should be used instead ) typedef Standard_Real Quantity_Length ;
 ## Error: expected ';'!!!
-
-

@@ -14,6 +14,13 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../BRepAlgo/BRepAlgo_NormalProjection,
+  ../BRepBuilderAPI/BRepBuilderAPI_MakeShape, ../Standard/Standard_Real,
+  ../GeomAbs/GeomAbs_Shape, ../Standard/Standard_Integer,
+  ../Standard/Standard_Boolean, ../TopTools/TopTools_ListOfShape
+
 discard "forward decl of Standard_ConstructionError"
 discard "forward decl of Standard_NoSuchObject"
 discard "forward decl of StdFail_NotDone"
@@ -40,39 +47,39 @@ type
 proc constructBRepOffsetAPI_NormalProjection*(): BRepOffsetAPI_NormalProjection {.
     constructor, importcpp: "BRepOffsetAPI_NormalProjection(@)",
     header: "BRepOffsetAPI_NormalProjection.hxx".}
-proc constructBRepOffsetAPI_NormalProjection*(s: TopoDS_Shape): BRepOffsetAPI_NormalProjection {.
+proc constructBRepOffsetAPI_NormalProjection*(S: TopoDS_Shape): BRepOffsetAPI_NormalProjection {.
     constructor, importcpp: "BRepOffsetAPI_NormalProjection(@)",
     header: "BRepOffsetAPI_NormalProjection.hxx".}
-proc init*(this: var BRepOffsetAPI_NormalProjection; s: TopoDS_Shape) {.
+proc Init*(this: var BRepOffsetAPI_NormalProjection; S: TopoDS_Shape) {.
     importcpp: "Init", header: "BRepOffsetAPI_NormalProjection.hxx".}
-proc add*(this: var BRepOffsetAPI_NormalProjection; toProj: TopoDS_Shape) {.
+proc Add*(this: var BRepOffsetAPI_NormalProjection; ToProj: TopoDS_Shape) {.
     importcpp: "Add", header: "BRepOffsetAPI_NormalProjection.hxx".}
-proc setParams*(this: var BRepOffsetAPI_NormalProjection; tol3D: StandardReal;
-               tol2D: StandardReal; internalContinuity: GeomAbsShape;
-               maxDegree: StandardInteger; maxSeg: StandardInteger) {.
+proc SetParams*(this: var BRepOffsetAPI_NormalProjection; Tol3D: Standard_Real;
+               Tol2D: Standard_Real; InternalContinuity: GeomAbs_Shape;
+               MaxDegree: Standard_Integer; MaxSeg: Standard_Integer) {.
     importcpp: "SetParams", header: "BRepOffsetAPI_NormalProjection.hxx".}
-proc setMaxDistance*(this: var BRepOffsetAPI_NormalProjection; maxDist: StandardReal) {.
-    importcpp: "SetMaxDistance", header: "BRepOffsetAPI_NormalProjection.hxx".}
-proc setLimit*(this: var BRepOffsetAPI_NormalProjection;
-              faceBoundaries: StandardBoolean = standardTrue) {.
+proc SetMaxDistance*(this: var BRepOffsetAPI_NormalProjection;
+                    MaxDist: Standard_Real) {.importcpp: "SetMaxDistance",
+    header: "BRepOffsetAPI_NormalProjection.hxx".}
+proc SetLimit*(this: var BRepOffsetAPI_NormalProjection;
+              FaceBoundaries: Standard_Boolean = Standard_True) {.
     importcpp: "SetLimit", header: "BRepOffsetAPI_NormalProjection.hxx".}
-proc compute3d*(this: var BRepOffsetAPI_NormalProjection;
-               with3d: StandardBoolean = standardTrue) {.importcpp: "Compute3d",
+proc Compute3d*(this: var BRepOffsetAPI_NormalProjection;
+               With3d: Standard_Boolean = Standard_True) {.importcpp: "Compute3d",
     header: "BRepOffsetAPI_NormalProjection.hxx".}
-proc build*(this: var BRepOffsetAPI_NormalProjection) {.importcpp: "Build",
+proc Build*(this: var BRepOffsetAPI_NormalProjection) {.importcpp: "Build",
     header: "BRepOffsetAPI_NormalProjection.hxx".}
-proc isDone*(this: BRepOffsetAPI_NormalProjection): StandardBoolean {.noSideEffect,
+proc IsDone*(this: BRepOffsetAPI_NormalProjection): Standard_Boolean {.noSideEffect,
     importcpp: "IsDone", header: "BRepOffsetAPI_NormalProjection.hxx".}
-proc projection*(this: BRepOffsetAPI_NormalProjection): TopoDS_Shape {.noSideEffect,
+proc Projection*(this: BRepOffsetAPI_NormalProjection): TopoDS_Shape {.noSideEffect,
     importcpp: "Projection", header: "BRepOffsetAPI_NormalProjection.hxx".}
-proc couple*(this: BRepOffsetAPI_NormalProjection; e: TopoDS_Edge): TopoDS_Shape {.
+proc Couple*(this: BRepOffsetAPI_NormalProjection; E: TopoDS_Edge): TopoDS_Shape {.
     noSideEffect, importcpp: "Couple", header: "BRepOffsetAPI_NormalProjection.hxx".}
-proc generated*(this: var BRepOffsetAPI_NormalProjection; s: TopoDS_Shape): TopToolsListOfShape {.
+proc Generated*(this: var BRepOffsetAPI_NormalProjection; S: TopoDS_Shape): TopTools_ListOfShape {.
     importcpp: "Generated", header: "BRepOffsetAPI_NormalProjection.hxx".}
-proc ancestor*(this: BRepOffsetAPI_NormalProjection; e: TopoDS_Edge): TopoDS_Shape {.
+proc Ancestor*(this: BRepOffsetAPI_NormalProjection; E: TopoDS_Edge): TopoDS_Shape {.
     noSideEffect, importcpp: "Ancestor",
     header: "BRepOffsetAPI_NormalProjection.hxx".}
-proc buildWire*(this: BRepOffsetAPI_NormalProjection;
-               liste: var TopToolsListOfShape): StandardBoolean {.noSideEffect,
+proc BuildWire*(this: BRepOffsetAPI_NormalProjection;
+               Liste: var TopTools_ListOfShape): Standard_Boolean {.noSideEffect,
     importcpp: "BuildWire", header: "BRepOffsetAPI_NormalProjection.hxx".}
-

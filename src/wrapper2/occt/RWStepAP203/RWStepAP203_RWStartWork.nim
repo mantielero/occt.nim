@@ -14,28 +14,32 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepAP203_StartWork"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepAP203RWStartWork* {.importcpp: "RWStepAP203_RWStartWork",
-                           header: "RWStepAP203_RWStartWork.hxx", bycopy.} = object ## !
-                                                                               ## Empty
-                                                                               ## constructor
+  RWStepAP203_RWStartWork* {.importcpp: "RWStepAP203_RWStartWork",
+                            header: "RWStepAP203_RWStartWork.hxx", bycopy.} = object ##
+                                                                                ## !
+                                                                                ## Empty
+                                                                                ## constructor
 
 
-proc constructRWStepAP203RWStartWork*(): RWStepAP203RWStartWork {.constructor,
+proc constructRWStepAP203_RWStartWork*(): RWStepAP203_RWStartWork {.constructor,
     importcpp: "RWStepAP203_RWStartWork(@)", header: "RWStepAP203_RWStartWork.hxx".}
-proc readStep*(this: RWStepAP203RWStartWork; data: Handle[StepDataStepReaderData];
-              num: StandardInteger; ach: var Handle[InterfaceCheck];
-              ent: Handle[StepAP203StartWork]) {.noSideEffect,
-    importcpp: "ReadStep", header: "RWStepAP203_RWStartWork.hxx".}
-proc writeStep*(this: RWStepAP203RWStartWork; sw: var StepDataStepWriter;
-               ent: Handle[StepAP203StartWork]) {.noSideEffect,
+proc ReadStep*(this: RWStepAP203_RWStartWork;
+              data: handle[StepData_StepReaderData]; num: Standard_Integer;
+              ach: var handle[Interface_Check]; ent: handle[StepAP203_StartWork]) {.
+    noSideEffect, importcpp: "ReadStep", header: "RWStepAP203_RWStartWork.hxx".}
+proc WriteStep*(this: RWStepAP203_RWStartWork; SW: var StepData_StepWriter;
+               ent: handle[StepAP203_StartWork]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepAP203_RWStartWork.hxx".}
-proc share*(this: RWStepAP203RWStartWork; ent: Handle[StepAP203StartWork];
-           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
+proc Share*(this: RWStepAP203_RWStartWork; ent: handle[StepAP203_StartWork];
+           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepAP203_RWStartWork.hxx".}
-

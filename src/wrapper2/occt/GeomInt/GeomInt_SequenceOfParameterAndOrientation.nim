@@ -14,8 +14,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  GeomInt_ParameterAndOrientation, ../NCollection/NCollection_Sequence
+
 type
-  GeomIntSequenceOfParameterAndOrientation* = NCollectionSequence[
-      GeomIntParameterAndOrientation]
-
-
+  GeomInt_SequenceOfParameterAndOrientation* = NCollection_Sequence[
+      GeomInt_ParameterAndOrientation]

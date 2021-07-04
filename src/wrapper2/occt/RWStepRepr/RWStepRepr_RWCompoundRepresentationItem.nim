@@ -14,31 +14,34 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepRepr_CompoundRepresentationItem"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepReprRWCompoundRepresentationItem* {.
+  RWStepRepr_RWCompoundRepresentationItem* {.
       importcpp: "RWStepRepr_RWCompoundRepresentationItem",
       header: "RWStepRepr_RWCompoundRepresentationItem.hxx", bycopy.} = object
 
 
-proc constructRWStepReprRWCompoundRepresentationItem*(): RWStepReprRWCompoundRepresentationItem {.
+proc constructRWStepRepr_RWCompoundRepresentationItem*(): RWStepRepr_RWCompoundRepresentationItem {.
     constructor, importcpp: "RWStepRepr_RWCompoundRepresentationItem(@)",
     header: "RWStepRepr_RWCompoundRepresentationItem.hxx".}
-proc readStep*(this: RWStepReprRWCompoundRepresentationItem;
-              data: Handle[StepDataStepReaderData]; num: StandardInteger;
-              ach: var Handle[InterfaceCheck];
-              ent: Handle[StepReprCompoundRepresentationItem]) {.noSideEffect,
+proc ReadStep*(this: RWStepRepr_RWCompoundRepresentationItem;
+              data: handle[StepData_StepReaderData]; num: Standard_Integer;
+              ach: var handle[Interface_Check];
+              ent: handle[StepRepr_CompoundRepresentationItem]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepRepr_RWCompoundRepresentationItem.hxx".}
-proc writeStep*(this: RWStepReprRWCompoundRepresentationItem;
-               sw: var StepDataStepWriter;
-               ent: Handle[StepReprCompoundRepresentationItem]) {.noSideEffect,
+proc WriteStep*(this: RWStepRepr_RWCompoundRepresentationItem;
+               SW: var StepData_StepWriter;
+               ent: handle[StepRepr_CompoundRepresentationItem]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepRepr_RWCompoundRepresentationItem.hxx".}
-proc share*(this: RWStepReprRWCompoundRepresentationItem;
-           ent: Handle[StepReprCompoundRepresentationItem];
-           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
+proc Share*(this: RWStepRepr_RWCompoundRepresentationItem;
+           ent: handle[StepRepr_CompoundRepresentationItem];
+           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepRepr_RWCompoundRepresentationItem.hxx".}
-

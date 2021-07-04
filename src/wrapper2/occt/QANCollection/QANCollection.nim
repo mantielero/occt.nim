@@ -13,20 +13,23 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Draw/Draw_Interpretor
+
 type
   QANCollection* {.importcpp: "QANCollection", header: "QANCollection.hxx", bycopy.} = object
 
 
-proc commands*(di: var DrawInterpretor) {.importcpp: "QANCollection::Commands(@)",
-                                      header: "QANCollection.hxx".}
-proc commandsTest*(di: var DrawInterpretor) {.
+proc Commands*(DI: var Draw_Interpretor) {.importcpp: "QANCollection::Commands(@)",
+                                       header: "QANCollection.hxx".}
+proc CommandsTest*(DI: var Draw_Interpretor) {.
     importcpp: "QANCollection::CommandsTest(@)", header: "QANCollection.hxx".}
-proc commandsPerf*(di: var DrawInterpretor) {.
+proc CommandsPerf*(DI: var Draw_Interpretor) {.
     importcpp: "QANCollection::CommandsPerf(@)", header: "QANCollection.hxx".}
-proc commandsAlloc*(di: var DrawInterpretor) {.
+proc CommandsAlloc*(DI: var Draw_Interpretor) {.
     importcpp: "QANCollection::CommandsAlloc(@)", header: "QANCollection.hxx".}
-proc commandsStl*(di: var DrawInterpretor) {.
+proc CommandsStl*(DI: var Draw_Interpretor) {.
     importcpp: "QANCollection::CommandsStl(@)", header: "QANCollection.hxx".}
-proc commandsHandle*(di: var DrawInterpretor) {.
+proc CommandsHandle*(DI: var Draw_Interpretor) {.
     importcpp: "QANCollection::CommandsHandle(@)", header: "QANCollection.hxx".}
-

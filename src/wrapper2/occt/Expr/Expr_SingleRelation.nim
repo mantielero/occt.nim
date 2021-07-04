@@ -14,6 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, Expr_GeneralRelation,
+  ../Standard/Standard_Boolean, ../Standard/Standard_Integer
+
 discard "forward decl of Expr_GeneralExpression"
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of Expr_GeneralRelation"
@@ -21,51 +25,51 @@ discard "forward decl of Expr_NamedUnknown"
 discard "forward decl of Expr_SingleRelation"
 discard "forward decl of Expr_SingleRelation"
 type
-  HandleExprSingleRelation* = Handle[ExprSingleRelation]
-  ExprSingleRelation* {.importcpp: "Expr_SingleRelation",
-                       header: "Expr_SingleRelation.hxx", bycopy.} = object of ExprGeneralRelation ##
-                                                                                            ## !
-                                                                                            ## Defines
-                                                                                            ## the
-                                                                                            ## first
-                                                                                            ## member
-                                                                                            ## of
-                                                                                            ## the
-                                                                                            ## relation
+  Handle_Expr_SingleRelation* = handle[Expr_SingleRelation]
+  Expr_SingleRelation* {.importcpp: "Expr_SingleRelation",
+                        header: "Expr_SingleRelation.hxx", bycopy.} = object of Expr_GeneralRelation ##
+                                                                                              ## !
+                                                                                              ## Defines
+                                                                                              ## the
+                                                                                              ## first
+                                                                                              ## member
+                                                                                              ## of
+                                                                                              ## the
+                                                                                              ## relation
 
 
-proc setFirstMember*(this: var ExprSingleRelation;
-                    exp: Handle[ExprGeneralExpression]) {.
+proc SetFirstMember*(this: var Expr_SingleRelation;
+                    exp: handle[Expr_GeneralExpression]) {.
     importcpp: "SetFirstMember", header: "Expr_SingleRelation.hxx".}
-proc setSecondMember*(this: var ExprSingleRelation;
-                     exp: Handle[ExprGeneralExpression]) {.
+proc SetSecondMember*(this: var Expr_SingleRelation;
+                     exp: handle[Expr_GeneralExpression]) {.
     importcpp: "SetSecondMember", header: "Expr_SingleRelation.hxx".}
-proc firstMember*(this: ExprSingleRelation): Handle[ExprGeneralExpression] {.
+proc FirstMember*(this: Expr_SingleRelation): handle[Expr_GeneralExpression] {.
     noSideEffect, importcpp: "FirstMember", header: "Expr_SingleRelation.hxx".}
-proc secondMember*(this: ExprSingleRelation): Handle[ExprGeneralExpression] {.
+proc SecondMember*(this: Expr_SingleRelation): handle[Expr_GeneralExpression] {.
     noSideEffect, importcpp: "SecondMember", header: "Expr_SingleRelation.hxx".}
-proc isLinear*(this: ExprSingleRelation): StandardBoolean {.noSideEffect,
+proc IsLinear*(this: Expr_SingleRelation): Standard_Boolean {.noSideEffect,
     importcpp: "IsLinear", header: "Expr_SingleRelation.hxx".}
-proc nbOfSubRelations*(this: ExprSingleRelation): StandardInteger {.noSideEffect,
+proc NbOfSubRelations*(this: Expr_SingleRelation): Standard_Integer {.noSideEffect,
     importcpp: "NbOfSubRelations", header: "Expr_SingleRelation.hxx".}
-proc nbOfSingleRelations*(this: ExprSingleRelation): StandardInteger {.noSideEffect,
-    importcpp: "NbOfSingleRelations", header: "Expr_SingleRelation.hxx".}
-proc subRelation*(this: ExprSingleRelation; index: StandardInteger): Handle[
-    ExprGeneralRelation] {.noSideEffect, importcpp: "SubRelation",
-                          header: "Expr_SingleRelation.hxx".}
-proc contains*(this: ExprSingleRelation; exp: Handle[ExprGeneralExpression]): StandardBoolean {.
+proc NbOfSingleRelations*(this: Expr_SingleRelation): Standard_Integer {.
+    noSideEffect, importcpp: "NbOfSingleRelations",
+    header: "Expr_SingleRelation.hxx".}
+proc SubRelation*(this: Expr_SingleRelation; index: Standard_Integer): handle[
+    Expr_GeneralRelation] {.noSideEffect, importcpp: "SubRelation",
+                           header: "Expr_SingleRelation.hxx".}
+proc Contains*(this: Expr_SingleRelation; exp: handle[Expr_GeneralExpression]): Standard_Boolean {.
     noSideEffect, importcpp: "Contains", header: "Expr_SingleRelation.hxx".}
-proc replace*(this: var ExprSingleRelation; `var`: Handle[ExprNamedUnknown];
-             with: Handle[ExprGeneralExpression]) {.importcpp: "Replace",
+proc Replace*(this: var Expr_SingleRelation; `var`: handle[Expr_NamedUnknown];
+             with: handle[Expr_GeneralExpression]) {.importcpp: "Replace",
     header: "Expr_SingleRelation.hxx".}
 type
-  ExprSingleRelationbaseType* = ExprGeneralRelation
+  Expr_SingleRelationbase_type* = Expr_GeneralRelation
 
-proc getTypeName*(): cstring {.importcpp: "Expr_SingleRelation::get_type_name(@)",
-                            header: "Expr_SingleRelation.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "Expr_SingleRelation::get_type_name(@)",
+                              header: "Expr_SingleRelation.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "Expr_SingleRelation::get_type_descriptor(@)",
     header: "Expr_SingleRelation.hxx".}
-proc dynamicType*(this: ExprSingleRelation): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: Expr_SingleRelation): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "Expr_SingleRelation.hxx".}
-

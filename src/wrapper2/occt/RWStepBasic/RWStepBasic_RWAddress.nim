@@ -14,22 +14,25 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepBasic_Address"
 discard "forward decl of StepData_StepWriter"
 type
-  RWStepBasicRWAddress* {.importcpp: "RWStepBasic_RWAddress",
-                         header: "RWStepBasic_RWAddress.hxx", bycopy.} = object
+  RWStepBasic_RWAddress* {.importcpp: "RWStepBasic_RWAddress",
+                          header: "RWStepBasic_RWAddress.hxx", bycopy.} = object
 
 
-proc constructRWStepBasicRWAddress*(): RWStepBasicRWAddress {.constructor,
+proc constructRWStepBasic_RWAddress*(): RWStepBasic_RWAddress {.constructor,
     importcpp: "RWStepBasic_RWAddress(@)", header: "RWStepBasic_RWAddress.hxx".}
-proc readStep*(this: RWStepBasicRWAddress; data: Handle[StepDataStepReaderData];
-              num: StandardInteger; ach: var Handle[InterfaceCheck];
-              ent: Handle[StepBasicAddress]) {.noSideEffect, importcpp: "ReadStep",
-    header: "RWStepBasic_RWAddress.hxx".}
-proc writeStep*(this: RWStepBasicRWAddress; sw: var StepDataStepWriter;
-               ent: Handle[StepBasicAddress]) {.noSideEffect,
+proc ReadStep*(this: RWStepBasic_RWAddress; data: handle[StepData_StepReaderData];
+              num: Standard_Integer; ach: var handle[Interface_Check];
+              ent: handle[StepBasic_Address]) {.noSideEffect,
+    importcpp: "ReadStep", header: "RWStepBasic_RWAddress.hxx".}
+proc WriteStep*(this: RWStepBasic_RWAddress; SW: var StepData_StepWriter;
+               ent: handle[StepBasic_Address]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepBasic_RWAddress.hxx".}
-

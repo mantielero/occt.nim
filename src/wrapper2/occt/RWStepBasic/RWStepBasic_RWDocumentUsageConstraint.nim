@@ -14,31 +14,34 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepBasic_DocumentUsageConstraint"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepBasicRWDocumentUsageConstraint* {.
+  RWStepBasic_RWDocumentUsageConstraint* {.
       importcpp: "RWStepBasic_RWDocumentUsageConstraint",
       header: "RWStepBasic_RWDocumentUsageConstraint.hxx", bycopy.} = object
 
 
-proc constructRWStepBasicRWDocumentUsageConstraint*(): RWStepBasicRWDocumentUsageConstraint {.
+proc constructRWStepBasic_RWDocumentUsageConstraint*(): RWStepBasic_RWDocumentUsageConstraint {.
     constructor, importcpp: "RWStepBasic_RWDocumentUsageConstraint(@)",
     header: "RWStepBasic_RWDocumentUsageConstraint.hxx".}
-proc readStep*(this: RWStepBasicRWDocumentUsageConstraint;
-              data: Handle[StepDataStepReaderData]; num: StandardInteger;
-              ach: var Handle[InterfaceCheck];
-              ent: Handle[StepBasicDocumentUsageConstraint]) {.noSideEffect,
+proc ReadStep*(this: RWStepBasic_RWDocumentUsageConstraint;
+              data: handle[StepData_StepReaderData]; num: Standard_Integer;
+              ach: var handle[Interface_Check];
+              ent: handle[StepBasic_DocumentUsageConstraint]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepBasic_RWDocumentUsageConstraint.hxx".}
-proc writeStep*(this: RWStepBasicRWDocumentUsageConstraint;
-               sw: var StepDataStepWriter;
-               ent: Handle[StepBasicDocumentUsageConstraint]) {.noSideEffect,
+proc WriteStep*(this: RWStepBasic_RWDocumentUsageConstraint;
+               SW: var StepData_StepWriter;
+               ent: handle[StepBasic_DocumentUsageConstraint]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepBasic_RWDocumentUsageConstraint.hxx".}
-proc share*(this: RWStepBasicRWDocumentUsageConstraint;
-           ent: Handle[StepBasicDocumentUsageConstraint];
-           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
+proc Share*(this: RWStepBasic_RWDocumentUsageConstraint;
+           ent: handle[StepBasic_DocumentUsageConstraint];
+           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepBasic_RWDocumentUsageConstraint.hxx".}
-

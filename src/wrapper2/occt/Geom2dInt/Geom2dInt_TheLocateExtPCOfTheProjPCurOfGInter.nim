@@ -14,6 +14,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
+  ../Standard/Standard_Real,
+  Geom2dInt_PCLocFOfTheLocateExtPCOfTheProjPCurOfGInter
+
 discard "forward decl of Standard_DomainError"
 discard "forward decl of Standard_TypeMismatch"
 discard "forward decl of StdFail_NotDone"
@@ -23,38 +29,37 @@ discard "forward decl of Extrema_POnCurv2d"
 discard "forward decl of gp_Pnt2d"
 discard "forward decl of gp_Vec2d"
 type
-  Geom2dIntTheLocateExtPCOfTheProjPCurOfGInter* {.
+  Geom2dInt_TheLocateExtPCOfTheProjPCurOfGInter* {.
       importcpp: "Geom2dInt_TheLocateExtPCOfTheProjPCurOfGInter",
       header: "Geom2dInt_TheLocateExtPCOfTheProjPCurOfGInter.hxx", bycopy.} = object
 
 
-proc constructGeom2dIntTheLocateExtPCOfTheProjPCurOfGInter*(): Geom2dIntTheLocateExtPCOfTheProjPCurOfGInter {.
+proc constructGeom2dInt_TheLocateExtPCOfTheProjPCurOfGInter*(): Geom2dInt_TheLocateExtPCOfTheProjPCurOfGInter {.
     constructor, importcpp: "Geom2dInt_TheLocateExtPCOfTheProjPCurOfGInter(@)",
     header: "Geom2dInt_TheLocateExtPCOfTheProjPCurOfGInter.hxx".}
-proc constructGeom2dIntTheLocateExtPCOfTheProjPCurOfGInter*(p: GpPnt2d;
-    c: Adaptor2dCurve2d; u0: StandardReal; tolU: StandardReal): Geom2dIntTheLocateExtPCOfTheProjPCurOfGInter {.
+proc constructGeom2dInt_TheLocateExtPCOfTheProjPCurOfGInter*(P: gp_Pnt2d;
+    C: Adaptor2d_Curve2d; U0: Standard_Real; TolU: Standard_Real): Geom2dInt_TheLocateExtPCOfTheProjPCurOfGInter {.
     constructor, importcpp: "Geom2dInt_TheLocateExtPCOfTheProjPCurOfGInter(@)",
     header: "Geom2dInt_TheLocateExtPCOfTheProjPCurOfGInter.hxx".}
-proc constructGeom2dIntTheLocateExtPCOfTheProjPCurOfGInter*(p: GpPnt2d;
-    c: Adaptor2dCurve2d; u0: StandardReal; umin: StandardReal; usup: StandardReal;
-    tolU: StandardReal): Geom2dIntTheLocateExtPCOfTheProjPCurOfGInter {.
+proc constructGeom2dInt_TheLocateExtPCOfTheProjPCurOfGInter*(P: gp_Pnt2d;
+    C: Adaptor2d_Curve2d; U0: Standard_Real; Umin: Standard_Real; Usup: Standard_Real;
+    TolU: Standard_Real): Geom2dInt_TheLocateExtPCOfTheProjPCurOfGInter {.
     constructor, importcpp: "Geom2dInt_TheLocateExtPCOfTheProjPCurOfGInter(@)",
     header: "Geom2dInt_TheLocateExtPCOfTheProjPCurOfGInter.hxx".}
-proc initialize*(this: var Geom2dIntTheLocateExtPCOfTheProjPCurOfGInter;
-                c: Adaptor2dCurve2d; umin: StandardReal; usup: StandardReal;
-                tolU: StandardReal) {.importcpp: "Initialize", header: "Geom2dInt_TheLocateExtPCOfTheProjPCurOfGInter.hxx".}
-proc perform*(this: var Geom2dIntTheLocateExtPCOfTheProjPCurOfGInter; p: GpPnt2d;
-             u0: StandardReal) {.importcpp: "Perform", header: "Geom2dInt_TheLocateExtPCOfTheProjPCurOfGInter.hxx".}
-proc isDone*(this: Geom2dIntTheLocateExtPCOfTheProjPCurOfGInter): StandardBoolean {.
+proc Initialize*(this: var Geom2dInt_TheLocateExtPCOfTheProjPCurOfGInter;
+                C: Adaptor2d_Curve2d; Umin: Standard_Real; Usup: Standard_Real;
+                TolU: Standard_Real) {.importcpp: "Initialize", header: "Geom2dInt_TheLocateExtPCOfTheProjPCurOfGInter.hxx".}
+proc Perform*(this: var Geom2dInt_TheLocateExtPCOfTheProjPCurOfGInter; P: gp_Pnt2d;
+             U0: Standard_Real) {.importcpp: "Perform", header: "Geom2dInt_TheLocateExtPCOfTheProjPCurOfGInter.hxx".}
+proc IsDone*(this: Geom2dInt_TheLocateExtPCOfTheProjPCurOfGInter): Standard_Boolean {.
     noSideEffect, importcpp: "IsDone",
     header: "Geom2dInt_TheLocateExtPCOfTheProjPCurOfGInter.hxx".}
-proc squareDistance*(this: Geom2dIntTheLocateExtPCOfTheProjPCurOfGInter): StandardReal {.
+proc SquareDistance*(this: Geom2dInt_TheLocateExtPCOfTheProjPCurOfGInter): Standard_Real {.
     noSideEffect, importcpp: "SquareDistance",
     header: "Geom2dInt_TheLocateExtPCOfTheProjPCurOfGInter.hxx".}
-proc isMin*(this: Geom2dIntTheLocateExtPCOfTheProjPCurOfGInter): StandardBoolean {.
+proc IsMin*(this: Geom2dInt_TheLocateExtPCOfTheProjPCurOfGInter): Standard_Boolean {.
     noSideEffect, importcpp: "IsMin",
     header: "Geom2dInt_TheLocateExtPCOfTheProjPCurOfGInter.hxx".}
-proc point*(this: Geom2dIntTheLocateExtPCOfTheProjPCurOfGInter): ExtremaPOnCurv2d {.
+proc Point*(this: Geom2dInt_TheLocateExtPCOfTheProjPCurOfGInter): Extrema_POnCurv2d {.
     noSideEffect, importcpp: "Point",
     header: "Geom2dInt_TheLocateExtPCOfTheProjPCurOfGInter.hxx".}
-

@@ -14,6 +14,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, BRepLib_EdgeError, ../TopoDS/TopoDS_Vertex,
+  BRepLib_MakeShape, ../Standard/Standard_Real
+
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of TopoDS_Vertex"
 discard "forward decl of gp_Pnt2d"
@@ -25,115 +30,116 @@ discard "forward decl of gp_Parab2d"
 discard "forward decl of Geom2d_Curve"
 discard "forward decl of TopoDS_Edge"
 type
-  BRepLibMakeEdge2d* {.importcpp: "BRepLib_MakeEdge2d",
-                      header: "BRepLib_MakeEdge2d.hxx", bycopy.} = object of BRepLibMakeShape
+  BRepLib_MakeEdge2d* {.importcpp: "BRepLib_MakeEdge2d",
+                       header: "BRepLib_MakeEdge2d.hxx", bycopy.} = object of BRepLib_MakeShape
 
 
-proc constructBRepLibMakeEdge2d*(v1: TopoDS_Vertex; v2: TopoDS_Vertex): BRepLibMakeEdge2d {.
+proc constructBRepLib_MakeEdge2d*(V1: TopoDS_Vertex; V2: TopoDS_Vertex): BRepLib_MakeEdge2d {.
     constructor, importcpp: "BRepLib_MakeEdge2d(@)",
     header: "BRepLib_MakeEdge2d.hxx".}
-proc constructBRepLibMakeEdge2d*(p1: GpPnt2d; p2: GpPnt2d): BRepLibMakeEdge2d {.
+proc constructBRepLib_MakeEdge2d*(P1: gp_Pnt2d; P2: gp_Pnt2d): BRepLib_MakeEdge2d {.
     constructor, importcpp: "BRepLib_MakeEdge2d(@)",
     header: "BRepLib_MakeEdge2d.hxx".}
-proc constructBRepLibMakeEdge2d*(L: GpLin2d): BRepLibMakeEdge2d {.constructor,
+proc constructBRepLib_MakeEdge2d*(L: gp_Lin2d): BRepLib_MakeEdge2d {.constructor,
     importcpp: "BRepLib_MakeEdge2d(@)", header: "BRepLib_MakeEdge2d.hxx".}
-proc constructBRepLibMakeEdge2d*(L: GpLin2d; p1: StandardReal; p2: StandardReal): BRepLibMakeEdge2d {.
+proc constructBRepLib_MakeEdge2d*(L: gp_Lin2d; p1: Standard_Real; p2: Standard_Real): BRepLib_MakeEdge2d {.
     constructor, importcpp: "BRepLib_MakeEdge2d(@)",
     header: "BRepLib_MakeEdge2d.hxx".}
-proc constructBRepLibMakeEdge2d*(L: GpLin2d; p1: GpPnt2d; p2: GpPnt2d): BRepLibMakeEdge2d {.
+proc constructBRepLib_MakeEdge2d*(L: gp_Lin2d; P1: gp_Pnt2d; P2: gp_Pnt2d): BRepLib_MakeEdge2d {.
     constructor, importcpp: "BRepLib_MakeEdge2d(@)",
     header: "BRepLib_MakeEdge2d.hxx".}
-proc constructBRepLibMakeEdge2d*(L: GpLin2d; v1: TopoDS_Vertex; v2: TopoDS_Vertex): BRepLibMakeEdge2d {.
+proc constructBRepLib_MakeEdge2d*(L: gp_Lin2d; V1: TopoDS_Vertex; V2: TopoDS_Vertex): BRepLib_MakeEdge2d {.
     constructor, importcpp: "BRepLib_MakeEdge2d(@)",
     header: "BRepLib_MakeEdge2d.hxx".}
-proc constructBRepLibMakeEdge2d*(L: GpCirc2d): BRepLibMakeEdge2d {.constructor,
+proc constructBRepLib_MakeEdge2d*(L: gp_Circ2d): BRepLib_MakeEdge2d {.constructor,
     importcpp: "BRepLib_MakeEdge2d(@)", header: "BRepLib_MakeEdge2d.hxx".}
-proc constructBRepLibMakeEdge2d*(L: GpCirc2d; p1: StandardReal; p2: StandardReal): BRepLibMakeEdge2d {.
+proc constructBRepLib_MakeEdge2d*(L: gp_Circ2d; p1: Standard_Real; p2: Standard_Real): BRepLib_MakeEdge2d {.
     constructor, importcpp: "BRepLib_MakeEdge2d(@)",
     header: "BRepLib_MakeEdge2d.hxx".}
-proc constructBRepLibMakeEdge2d*(L: GpCirc2d; p1: GpPnt2d; p2: GpPnt2d): BRepLibMakeEdge2d {.
+proc constructBRepLib_MakeEdge2d*(L: gp_Circ2d; P1: gp_Pnt2d; P2: gp_Pnt2d): BRepLib_MakeEdge2d {.
     constructor, importcpp: "BRepLib_MakeEdge2d(@)",
     header: "BRepLib_MakeEdge2d.hxx".}
-proc constructBRepLibMakeEdge2d*(L: GpCirc2d; v1: TopoDS_Vertex; v2: TopoDS_Vertex): BRepLibMakeEdge2d {.
+proc constructBRepLib_MakeEdge2d*(L: gp_Circ2d; V1: TopoDS_Vertex; V2: TopoDS_Vertex): BRepLib_MakeEdge2d {.
     constructor, importcpp: "BRepLib_MakeEdge2d(@)",
     header: "BRepLib_MakeEdge2d.hxx".}
-proc constructBRepLibMakeEdge2d*(L: GpElips2d): BRepLibMakeEdge2d {.constructor,
+proc constructBRepLib_MakeEdge2d*(L: gp_Elips2d): BRepLib_MakeEdge2d {.constructor,
     importcpp: "BRepLib_MakeEdge2d(@)", header: "BRepLib_MakeEdge2d.hxx".}
-proc constructBRepLibMakeEdge2d*(L: GpElips2d; p1: StandardReal; p2: StandardReal): BRepLibMakeEdge2d {.
+proc constructBRepLib_MakeEdge2d*(L: gp_Elips2d; p1: Standard_Real; p2: Standard_Real): BRepLib_MakeEdge2d {.
     constructor, importcpp: "BRepLib_MakeEdge2d(@)",
     header: "BRepLib_MakeEdge2d.hxx".}
-proc constructBRepLibMakeEdge2d*(L: GpElips2d; p1: GpPnt2d; p2: GpPnt2d): BRepLibMakeEdge2d {.
+proc constructBRepLib_MakeEdge2d*(L: gp_Elips2d; P1: gp_Pnt2d; P2: gp_Pnt2d): BRepLib_MakeEdge2d {.
     constructor, importcpp: "BRepLib_MakeEdge2d(@)",
     header: "BRepLib_MakeEdge2d.hxx".}
-proc constructBRepLibMakeEdge2d*(L: GpElips2d; v1: TopoDS_Vertex; v2: TopoDS_Vertex): BRepLibMakeEdge2d {.
+proc constructBRepLib_MakeEdge2d*(L: gp_Elips2d; V1: TopoDS_Vertex; V2: TopoDS_Vertex): BRepLib_MakeEdge2d {.
     constructor, importcpp: "BRepLib_MakeEdge2d(@)",
     header: "BRepLib_MakeEdge2d.hxx".}
-proc constructBRepLibMakeEdge2d*(L: GpHypr2d): BRepLibMakeEdge2d {.constructor,
+proc constructBRepLib_MakeEdge2d*(L: gp_Hypr2d): BRepLib_MakeEdge2d {.constructor,
     importcpp: "BRepLib_MakeEdge2d(@)", header: "BRepLib_MakeEdge2d.hxx".}
-proc constructBRepLibMakeEdge2d*(L: GpHypr2d; p1: StandardReal; p2: StandardReal): BRepLibMakeEdge2d {.
+proc constructBRepLib_MakeEdge2d*(L: gp_Hypr2d; p1: Standard_Real; p2: Standard_Real): BRepLib_MakeEdge2d {.
     constructor, importcpp: "BRepLib_MakeEdge2d(@)",
     header: "BRepLib_MakeEdge2d.hxx".}
-proc constructBRepLibMakeEdge2d*(L: GpHypr2d; p1: GpPnt2d; p2: GpPnt2d): BRepLibMakeEdge2d {.
+proc constructBRepLib_MakeEdge2d*(L: gp_Hypr2d; P1: gp_Pnt2d; P2: gp_Pnt2d): BRepLib_MakeEdge2d {.
     constructor, importcpp: "BRepLib_MakeEdge2d(@)",
     header: "BRepLib_MakeEdge2d.hxx".}
-proc constructBRepLibMakeEdge2d*(L: GpHypr2d; v1: TopoDS_Vertex; v2: TopoDS_Vertex): BRepLibMakeEdge2d {.
+proc constructBRepLib_MakeEdge2d*(L: gp_Hypr2d; V1: TopoDS_Vertex; V2: TopoDS_Vertex): BRepLib_MakeEdge2d {.
     constructor, importcpp: "BRepLib_MakeEdge2d(@)",
     header: "BRepLib_MakeEdge2d.hxx".}
-proc constructBRepLibMakeEdge2d*(L: GpParab2d): BRepLibMakeEdge2d {.constructor,
+proc constructBRepLib_MakeEdge2d*(L: gp_Parab2d): BRepLib_MakeEdge2d {.constructor,
     importcpp: "BRepLib_MakeEdge2d(@)", header: "BRepLib_MakeEdge2d.hxx".}
-proc constructBRepLibMakeEdge2d*(L: GpParab2d; p1: StandardReal; p2: StandardReal): BRepLibMakeEdge2d {.
+proc constructBRepLib_MakeEdge2d*(L: gp_Parab2d; p1: Standard_Real; p2: Standard_Real): BRepLib_MakeEdge2d {.
     constructor, importcpp: "BRepLib_MakeEdge2d(@)",
     header: "BRepLib_MakeEdge2d.hxx".}
-proc constructBRepLibMakeEdge2d*(L: GpParab2d; p1: GpPnt2d; p2: GpPnt2d): BRepLibMakeEdge2d {.
+proc constructBRepLib_MakeEdge2d*(L: gp_Parab2d; P1: gp_Pnt2d; P2: gp_Pnt2d): BRepLib_MakeEdge2d {.
     constructor, importcpp: "BRepLib_MakeEdge2d(@)",
     header: "BRepLib_MakeEdge2d.hxx".}
-proc constructBRepLibMakeEdge2d*(L: GpParab2d; v1: TopoDS_Vertex; v2: TopoDS_Vertex): BRepLibMakeEdge2d {.
+proc constructBRepLib_MakeEdge2d*(L: gp_Parab2d; V1: TopoDS_Vertex; V2: TopoDS_Vertex): BRepLib_MakeEdge2d {.
     constructor, importcpp: "BRepLib_MakeEdge2d(@)",
     header: "BRepLib_MakeEdge2d.hxx".}
-proc constructBRepLibMakeEdge2d*(L: Handle[Geom2dCurve]): BRepLibMakeEdge2d {.
+proc constructBRepLib_MakeEdge2d*(L: handle[Geom2d_Curve]): BRepLib_MakeEdge2d {.
     constructor, importcpp: "BRepLib_MakeEdge2d(@)",
     header: "BRepLib_MakeEdge2d.hxx".}
-proc constructBRepLibMakeEdge2d*(L: Handle[Geom2dCurve]; p1: StandardReal;
-                                p2: StandardReal): BRepLibMakeEdge2d {.constructor,
-    importcpp: "BRepLib_MakeEdge2d(@)", header: "BRepLib_MakeEdge2d.hxx".}
-proc constructBRepLibMakeEdge2d*(L: Handle[Geom2dCurve]; p1: GpPnt2d; p2: GpPnt2d): BRepLibMakeEdge2d {.
+proc constructBRepLib_MakeEdge2d*(L: handle[Geom2d_Curve]; p1: Standard_Real;
+                                 p2: Standard_Real): BRepLib_MakeEdge2d {.
     constructor, importcpp: "BRepLib_MakeEdge2d(@)",
     header: "BRepLib_MakeEdge2d.hxx".}
-proc constructBRepLibMakeEdge2d*(L: Handle[Geom2dCurve]; v1: TopoDS_Vertex;
-                                v2: TopoDS_Vertex): BRepLibMakeEdge2d {.
+proc constructBRepLib_MakeEdge2d*(L: handle[Geom2d_Curve]; P1: gp_Pnt2d; P2: gp_Pnt2d): BRepLib_MakeEdge2d {.
     constructor, importcpp: "BRepLib_MakeEdge2d(@)",
     header: "BRepLib_MakeEdge2d.hxx".}
-proc constructBRepLibMakeEdge2d*(L: Handle[Geom2dCurve]; p1: GpPnt2d; p2: GpPnt2d;
-                                p1: StandardReal; p2: StandardReal): BRepLibMakeEdge2d {.
+proc constructBRepLib_MakeEdge2d*(L: handle[Geom2d_Curve]; V1: TopoDS_Vertex;
+                                 V2: TopoDS_Vertex): BRepLib_MakeEdge2d {.
     constructor, importcpp: "BRepLib_MakeEdge2d(@)",
     header: "BRepLib_MakeEdge2d.hxx".}
-proc constructBRepLibMakeEdge2d*(L: Handle[Geom2dCurve]; v1: TopoDS_Vertex;
-                                v2: TopoDS_Vertex; p1: StandardReal;
-                                p2: StandardReal): BRepLibMakeEdge2d {.constructor,
-    importcpp: "BRepLib_MakeEdge2d(@)", header: "BRepLib_MakeEdge2d.hxx".}
-proc init*(this: var BRepLibMakeEdge2d; c: Handle[Geom2dCurve]) {.importcpp: "Init",
+proc constructBRepLib_MakeEdge2d*(L: handle[Geom2d_Curve]; P1: gp_Pnt2d;
+                                 P2: gp_Pnt2d; p1: Standard_Real; p2: Standard_Real): BRepLib_MakeEdge2d {.
+    constructor, importcpp: "BRepLib_MakeEdge2d(@)",
     header: "BRepLib_MakeEdge2d.hxx".}
-proc init*(this: var BRepLibMakeEdge2d; c: Handle[Geom2dCurve]; p1: StandardReal;
-          p2: StandardReal) {.importcpp: "Init", header: "BRepLib_MakeEdge2d.hxx".}
-proc init*(this: var BRepLibMakeEdge2d; c: Handle[Geom2dCurve]; p1: GpPnt2d; p2: GpPnt2d) {.
+proc constructBRepLib_MakeEdge2d*(L: handle[Geom2d_Curve]; V1: TopoDS_Vertex;
+                                 V2: TopoDS_Vertex; p1: Standard_Real;
+                                 p2: Standard_Real): BRepLib_MakeEdge2d {.
+    constructor, importcpp: "BRepLib_MakeEdge2d(@)",
+    header: "BRepLib_MakeEdge2d.hxx".}
+proc Init*(this: var BRepLib_MakeEdge2d; C: handle[Geom2d_Curve]) {.importcpp: "Init",
+    header: "BRepLib_MakeEdge2d.hxx".}
+proc Init*(this: var BRepLib_MakeEdge2d; C: handle[Geom2d_Curve]; p1: Standard_Real;
+          p2: Standard_Real) {.importcpp: "Init", header: "BRepLib_MakeEdge2d.hxx".}
+proc Init*(this: var BRepLib_MakeEdge2d; C: handle[Geom2d_Curve]; P1: gp_Pnt2d;
+          P2: gp_Pnt2d) {.importcpp: "Init", header: "BRepLib_MakeEdge2d.hxx".}
+proc Init*(this: var BRepLib_MakeEdge2d; C: handle[Geom2d_Curve]; V1: TopoDS_Vertex;
+          V2: TopoDS_Vertex) {.importcpp: "Init", header: "BRepLib_MakeEdge2d.hxx".}
+proc Init*(this: var BRepLib_MakeEdge2d; C: handle[Geom2d_Curve]; P1: gp_Pnt2d;
+          P2: gp_Pnt2d; p1: Standard_Real; p2: Standard_Real) {.importcpp: "Init",
+    header: "BRepLib_MakeEdge2d.hxx".}
+proc Init*(this: var BRepLib_MakeEdge2d; C: handle[Geom2d_Curve]; V1: TopoDS_Vertex;
+          V2: TopoDS_Vertex; p1: Standard_Real; p2: Standard_Real) {.
     importcpp: "Init", header: "BRepLib_MakeEdge2d.hxx".}
-proc init*(this: var BRepLibMakeEdge2d; c: Handle[Geom2dCurve]; v1: TopoDS_Vertex;
-          v2: TopoDS_Vertex) {.importcpp: "Init", header: "BRepLib_MakeEdge2d.hxx".}
-proc init*(this: var BRepLibMakeEdge2d; c: Handle[Geom2dCurve]; p1: GpPnt2d;
-          p2: GpPnt2d; p1: StandardReal; p2: StandardReal) {.importcpp: "Init",
-    header: "BRepLib_MakeEdge2d.hxx".}
-proc init*(this: var BRepLibMakeEdge2d; c: Handle[Geom2dCurve]; v1: TopoDS_Vertex;
-          v2: TopoDS_Vertex; p1: StandardReal; p2: StandardReal) {.importcpp: "Init",
-    header: "BRepLib_MakeEdge2d.hxx".}
-proc error*(this: BRepLibMakeEdge2d): BRepLibEdgeError {.noSideEffect,
+proc Error*(this: BRepLib_MakeEdge2d): BRepLib_EdgeError {.noSideEffect,
     importcpp: "Error", header: "BRepLib_MakeEdge2d.hxx".}
-proc edge*(this: var BRepLibMakeEdge2d): TopoDS_Edge {.importcpp: "Edge",
+proc Edge*(this: var BRepLib_MakeEdge2d): TopoDS_Edge {.importcpp: "Edge",
     header: "BRepLib_MakeEdge2d.hxx".}
-converter `topoDS_Edge`*(this: var BRepLibMakeEdge2d): TopoDS_Edge {.
+converter `TopoDS_Edge`*(this: var BRepLib_MakeEdge2d): TopoDS_Edge {.
     importcpp: "BRepLib_MakeEdge2d::operator TopoDS_Edge",
     header: "BRepLib_MakeEdge2d.hxx".}
-proc vertex1*(this: BRepLibMakeEdge2d): TopoDS_Vertex {.noSideEffect,
+proc Vertex1*(this: BRepLib_MakeEdge2d): TopoDS_Vertex {.noSideEffect,
     importcpp: "Vertex1", header: "BRepLib_MakeEdge2d.hxx".}
-proc vertex2*(this: BRepLibMakeEdge2d): TopoDS_Vertex {.noSideEffect,
+proc Vertex2*(this: BRepLib_MakeEdge2d): TopoDS_Vertex {.noSideEffect,
     importcpp: "Vertex2", header: "BRepLib_MakeEdge2d.hxx".}
-

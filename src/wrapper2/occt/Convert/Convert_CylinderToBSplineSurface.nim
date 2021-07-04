@@ -14,63 +14,67 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, Convert_ElementarySurfaceToBSplineSurface,
+  ../Standard/Standard_Real
+
 discard "forward decl of Standard_DomainError"
 discard "forward decl of gp_Cylinder"
 type
-  ConvertCylinderToBSplineSurface* {.importcpp: "Convert_CylinderToBSplineSurface", header: "Convert_CylinderToBSplineSurface.hxx",
-                                    bycopy.} = object of ConvertElementarySurfaceToBSplineSurface ##
-                                                                                             ## !
-                                                                                             ## The
-                                                                                             ## equivalent
-                                                                                             ## B-splineSurface
-                                                                                             ## as
-                                                                                             ## the
-                                                                                             ## same
-                                                                                             ## orientation
-                                                                                             ## as
-                                                                                             ## the
-                                                                                             ##
-                                                                                             ## !
-                                                                                             ## cylinder
-                                                                                             ## in
-                                                                                             ## the
-                                                                                             ## U
-                                                                                             ## and
-                                                                                             ## V
-                                                                                             ## parametric
-                                                                                             ## directions.
-                                                                                             ##
-                                                                                             ## !
-                                                                                             ##
-                                                                                             ## !
-                                                                                             ## Raised
-                                                                                             ## if
-                                                                                             ## U1
-                                                                                             ## =
-                                                                                             ## U2
-                                                                                             ## or
-                                                                                             ## U1
-                                                                                             ## =
-                                                                                             ## U2
-                                                                                             ## +
-                                                                                             ## 2.0
-                                                                                             ## *
-                                                                                             ## Pi
-                                                                                             ##
-                                                                                             ## !
-                                                                                             ## Raised
-                                                                                             ## if
-                                                                                             ## V1
-                                                                                             ## =
-                                                                                             ## V2.
+  Convert_CylinderToBSplineSurface* {.importcpp: "Convert_CylinderToBSplineSurface", header: "Convert_CylinderToBSplineSurface.hxx",
+                                     bycopy.} = object of Convert_ElementarySurfaceToBSplineSurface ##
+                                                                                               ## !
+                                                                                               ## The
+                                                                                               ## equivalent
+                                                                                               ## B-splineSurface
+                                                                                               ## as
+                                                                                               ## the
+                                                                                               ## same
+                                                                                               ## orientation
+                                                                                               ## as
+                                                                                               ## the
+                                                                                               ##
+                                                                                               ## !
+                                                                                               ## cylinder
+                                                                                               ## in
+                                                                                               ## the
+                                                                                               ## U
+                                                                                               ## and
+                                                                                               ## V
+                                                                                               ## parametric
+                                                                                               ## directions.
+                                                                                               ##
+                                                                                               ## !
+                                                                                               ##
+                                                                                               ## !
+                                                                                               ## Raised
+                                                                                               ## if
+                                                                                               ## U1
+                                                                                               ## =
+                                                                                               ## U2
+                                                                                               ## or
+                                                                                               ## U1
+                                                                                               ## =
+                                                                                               ## U2
+                                                                                               ## +
+                                                                                               ## 2.0
+                                                                                               ## *
+                                                                                               ## Pi
+                                                                                               ##
+                                                                                               ## !
+                                                                                               ## Raised
+                                                                                               ## if
+                                                                                               ## V1
+                                                                                               ## =
+                                                                                               ## V2.
 
 
-proc constructConvertCylinderToBSplineSurface*(cyl: GpCylinder; u1: StandardReal;
-    u2: StandardReal; v1: StandardReal; v2: StandardReal): ConvertCylinderToBSplineSurface {.
+proc constructConvert_CylinderToBSplineSurface*(Cyl: gp_Cylinder;
+    U1: Standard_Real; U2: Standard_Real; V1: Standard_Real; V2: Standard_Real): Convert_CylinderToBSplineSurface {.
     constructor, importcpp: "Convert_CylinderToBSplineSurface(@)",
     header: "Convert_CylinderToBSplineSurface.hxx".}
-proc constructConvertCylinderToBSplineSurface*(cyl: GpCylinder; v1: StandardReal;
-    v2: StandardReal): ConvertCylinderToBSplineSurface {.constructor,
-    importcpp: "Convert_CylinderToBSplineSurface(@)",
+proc constructConvert_CylinderToBSplineSurface*(Cyl: gp_Cylinder;
+    V1: Standard_Real; V2: Standard_Real): Convert_CylinderToBSplineSurface {.
+    constructor, importcpp: "Convert_CylinderToBSplineSurface(@)",
     header: "Convert_CylinderToBSplineSurface.hxx".}
-

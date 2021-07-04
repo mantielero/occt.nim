@@ -13,7 +13,8 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  Prs3d_NListOfSequenceOfPnt
+
 type
-  Prs3dNListIteratorOfListOfSequenceOfPnt* = Iterator
-
-
+  Prs3d_NListIteratorOfListOfSequenceOfPnt* = Iterator

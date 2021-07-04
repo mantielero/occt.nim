@@ -14,70 +14,75 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../TopoDS/TopoDS_Shape, ../Standard/Standard_Real,
+  ../Standard/Standard_Boolean, ../Standard/Standard_Integer,
+  ../Message/Message_Gravity, ../ShapeExtend/ShapeExtend_Status
+
 discard "forward decl of ShapeUpgrade_FaceDivide"
 discard "forward decl of ShapeBuild_ReShape"
 discard "forward decl of ShapeExtend_BasicMsgRegistrator"
 discard "forward decl of Message_Msg"
-# when defined(Status):
-#   discard
+when defined(Status):
+  discard
 ## ! Divides a all faces in shell with given criteria Shell.
 
 type
-  ShapeUpgradeShapeDivide* {.importcpp: "ShapeUpgrade_ShapeDivide",
-                            header: "ShapeUpgrade_ShapeDivide.hxx", bycopy.} = object ##
-                                                                                 ## !
-                                                                                 ## Returns
-                                                                                 ## the
-                                                                                 ## tool
-                                                                                 ## for
-                                                                                 ## splitting
-                                                                                 ## faces.
+  ShapeUpgrade_ShapeDivide* {.importcpp: "ShapeUpgrade_ShapeDivide",
+                             header: "ShapeUpgrade_ShapeDivide.hxx", bycopy.} = object ##
+                                                                                  ## !
+                                                                                  ## Returns
+                                                                                  ## the
+                                                                                  ## tool
+                                                                                  ## for
+                                                                                  ## splitting
+                                                                                  ## faces.
 
 
-proc constructShapeUpgradeShapeDivide*(): ShapeUpgradeShapeDivide {.constructor,
+proc constructShapeUpgrade_ShapeDivide*(): ShapeUpgrade_ShapeDivide {.constructor,
     importcpp: "ShapeUpgrade_ShapeDivide(@)",
     header: "ShapeUpgrade_ShapeDivide.hxx".}
-proc constructShapeUpgradeShapeDivide*(s: TopoDS_Shape): ShapeUpgradeShapeDivide {.
+proc constructShapeUpgrade_ShapeDivide*(S: TopoDS_Shape): ShapeUpgrade_ShapeDivide {.
     constructor, importcpp: "ShapeUpgrade_ShapeDivide(@)",
     header: "ShapeUpgrade_ShapeDivide.hxx".}
-proc init*(this: var ShapeUpgradeShapeDivide; s: TopoDS_Shape) {.importcpp: "Init",
+proc Init*(this: var ShapeUpgrade_ShapeDivide; S: TopoDS_Shape) {.importcpp: "Init",
     header: "ShapeUpgrade_ShapeDivide.hxx".}
-proc destroyShapeUpgradeShapeDivide*(this: var ShapeUpgradeShapeDivide) {.
+proc destroyShapeUpgrade_ShapeDivide*(this: var ShapeUpgrade_ShapeDivide) {.
     importcpp: "#.~ShapeUpgrade_ShapeDivide()",
     header: "ShapeUpgrade_ShapeDivide.hxx".}
-proc setPrecision*(this: var ShapeUpgradeShapeDivide; prec: StandardReal) {.
+proc SetPrecision*(this: var ShapeUpgrade_ShapeDivide; Prec: Standard_Real) {.
     importcpp: "SetPrecision", header: "ShapeUpgrade_ShapeDivide.hxx".}
-proc setMaxTolerance*(this: var ShapeUpgradeShapeDivide; maxtol: StandardReal) {.
+proc SetMaxTolerance*(this: var ShapeUpgrade_ShapeDivide; maxtol: Standard_Real) {.
     importcpp: "SetMaxTolerance", header: "ShapeUpgrade_ShapeDivide.hxx".}
-proc setMinTolerance*(this: var ShapeUpgradeShapeDivide; mintol: StandardReal) {.
+proc SetMinTolerance*(this: var ShapeUpgrade_ShapeDivide; mintol: Standard_Real) {.
     importcpp: "SetMinTolerance", header: "ShapeUpgrade_ShapeDivide.hxx".}
-proc setSurfaceSegmentMode*(this: var ShapeUpgradeShapeDivide;
-                           segment: StandardBoolean) {.
+proc SetSurfaceSegmentMode*(this: var ShapeUpgrade_ShapeDivide;
+                           Segment: Standard_Boolean) {.
     importcpp: "SetSurfaceSegmentMode", header: "ShapeUpgrade_ShapeDivide.hxx".}
-proc perform*(this: var ShapeUpgradeShapeDivide;
-             newContext: StandardBoolean = standardTrue): StandardBoolean {.
+proc Perform*(this: var ShapeUpgrade_ShapeDivide;
+             newContext: Standard_Boolean = Standard_True): Standard_Boolean {.
     importcpp: "Perform", header: "ShapeUpgrade_ShapeDivide.hxx".}
-proc result*(this: ShapeUpgradeShapeDivide): TopoDS_Shape {.noSideEffect,
+proc Result*(this: ShapeUpgrade_ShapeDivide): TopoDS_Shape {.noSideEffect,
     importcpp: "Result", header: "ShapeUpgrade_ShapeDivide.hxx".}
-proc getContext*(this: ShapeUpgradeShapeDivide): Handle[ShapeBuildReShape] {.
+proc GetContext*(this: ShapeUpgrade_ShapeDivide): handle[ShapeBuild_ReShape] {.
     noSideEffect, importcpp: "GetContext", header: "ShapeUpgrade_ShapeDivide.hxx".}
-proc setContext*(this: var ShapeUpgradeShapeDivide;
-                context: Handle[ShapeBuildReShape]) {.importcpp: "SetContext",
+proc SetContext*(this: var ShapeUpgrade_ShapeDivide;
+                context: handle[ShapeBuild_ReShape]) {.importcpp: "SetContext",
     header: "ShapeUpgrade_ShapeDivide.hxx".}
-proc setMsgRegistrator*(this: var ShapeUpgradeShapeDivide;
-                       msgreg: Handle[ShapeExtendBasicMsgRegistrator]) {.
+proc SetMsgRegistrator*(this: var ShapeUpgrade_ShapeDivide;
+                       msgreg: handle[ShapeExtend_BasicMsgRegistrator]) {.
     importcpp: "SetMsgRegistrator", header: "ShapeUpgrade_ShapeDivide.hxx".}
-proc msgRegistrator*(this: ShapeUpgradeShapeDivide): Handle[
-    ShapeExtendBasicMsgRegistrator] {.noSideEffect, importcpp: "MsgRegistrator",
-                                     header: "ShapeUpgrade_ShapeDivide.hxx".}
-proc sendMsg*(this: ShapeUpgradeShapeDivide; shape: TopoDS_Shape;
-             message: MessageMsg; gravity: MessageGravity = messageInfo) {.
+proc MsgRegistrator*(this: ShapeUpgrade_ShapeDivide): handle[
+    ShapeExtend_BasicMsgRegistrator] {.noSideEffect, importcpp: "MsgRegistrator",
+                                      header: "ShapeUpgrade_ShapeDivide.hxx".}
+proc SendMsg*(this: ShapeUpgrade_ShapeDivide; shape: TopoDS_Shape;
+             message: Message_Msg; gravity: Message_Gravity = Message_Info) {.
     noSideEffect, importcpp: "SendMsg", header: "ShapeUpgrade_ShapeDivide.hxx".}
-proc status*(this: ShapeUpgradeShapeDivide; status: ShapeExtendStatus): StandardBoolean {.
+proc Status*(this: ShapeUpgrade_ShapeDivide; status: ShapeExtend_Status): Standard_Boolean {.
     noSideEffect, importcpp: "Status", header: "ShapeUpgrade_ShapeDivide.hxx".}
-proc setSplitFaceTool*(this: var ShapeUpgradeShapeDivide;
-                      splitFaceTool: Handle[ShapeUpgradeFaceDivide]) {.
+proc SetSplitFaceTool*(this: var ShapeUpgrade_ShapeDivide;
+                      splitFaceTool: handle[ShapeUpgrade_FaceDivide]) {.
     importcpp: "SetSplitFaceTool", header: "ShapeUpgrade_ShapeDivide.hxx".}
-proc setEdgeMode*(this: var ShapeUpgradeShapeDivide; aEdgeMode: StandardInteger) {.
+proc SetEdgeMode*(this: var ShapeUpgrade_ShapeDivide; aEdgeMode: Standard_Integer) {.
     importcpp: "SetEdgeMode", header: "ShapeUpgrade_ShapeDivide.hxx".}
-

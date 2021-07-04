@@ -14,29 +14,33 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepRepr_MaterialDesignation"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepReprRWMaterialDesignation* {.importcpp: "RWStepRepr_RWMaterialDesignation", header: "RWStepRepr_RWMaterialDesignation.hxx",
-                                    bycopy.} = object
+  RWStepRepr_RWMaterialDesignation* {.importcpp: "RWStepRepr_RWMaterialDesignation", header: "RWStepRepr_RWMaterialDesignation.hxx",
+                                     bycopy.} = object
 
 
-proc constructRWStepReprRWMaterialDesignation*(): RWStepReprRWMaterialDesignation {.
+proc constructRWStepRepr_RWMaterialDesignation*(): RWStepRepr_RWMaterialDesignation {.
     constructor, importcpp: "RWStepRepr_RWMaterialDesignation(@)",
     header: "RWStepRepr_RWMaterialDesignation.hxx".}
-proc readStep*(this: RWStepReprRWMaterialDesignation;
-              data: Handle[StepDataStepReaderData]; num: StandardInteger;
-              ach: var Handle[InterfaceCheck];
-              ent: Handle[StepReprMaterialDesignation]) {.noSideEffect,
+proc ReadStep*(this: RWStepRepr_RWMaterialDesignation;
+              data: handle[StepData_StepReaderData]; num: Standard_Integer;
+              ach: var handle[Interface_Check];
+              ent: handle[StepRepr_MaterialDesignation]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepRepr_RWMaterialDesignation.hxx".}
-proc writeStep*(this: RWStepReprRWMaterialDesignation; sw: var StepDataStepWriter;
-               ent: Handle[StepReprMaterialDesignation]) {.noSideEffect,
+proc WriteStep*(this: RWStepRepr_RWMaterialDesignation;
+               SW: var StepData_StepWriter;
+               ent: handle[StepRepr_MaterialDesignation]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepRepr_RWMaterialDesignation.hxx".}
-proc share*(this: RWStepReprRWMaterialDesignation;
-           ent: Handle[StepReprMaterialDesignation];
-           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
+proc Share*(this: RWStepRepr_RWMaterialDesignation;
+           ent: handle[StepRepr_MaterialDesignation];
+           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepRepr_RWMaterialDesignation.hxx".}
-

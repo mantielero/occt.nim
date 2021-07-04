@@ -14,7 +14,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _Quantity_Energy_HeaderFile [NewLine] # _Quantity_Energy_HeaderFile [NewLine] # < Standard_Real . hxx > [NewLine] ! Defined as the capacity of a system to do work.
+## !!!Ignored construct:  # _Quantity_Energy_HeaderFile [NewLine] # _Quantity_Energy_HeaderFile [NewLine] # ../Standard/Standard_Real.hxx [NewLine] ! Defined as the capacity of a system to do work.
 ## ! In mechanical terms this can be quantified as the
 ## ! product of a force and a distance moved by its point of
 ## ! application.
@@ -33,5 +33,3 @@
 ## ! by the square of the speed of light.
 ## ! It is measured in joules (newton-metres). Standard_DEPRECATED ( This type is deprecated - Standard_Real should be used instead ) typedef Standard_Real Quantity_Energy ;
 ## Error: expected ';'!!!
-
-

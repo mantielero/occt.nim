@@ -14,29 +14,33 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepGeom_QuasiUniformSurface"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepGeomRWQuasiUniformSurface* {.importcpp: "RWStepGeom_RWQuasiUniformSurface", header: "RWStepGeom_RWQuasiUniformSurface.hxx",
-                                    bycopy.} = object
+  RWStepGeom_RWQuasiUniformSurface* {.importcpp: "RWStepGeom_RWQuasiUniformSurface", header: "RWStepGeom_RWQuasiUniformSurface.hxx",
+                                     bycopy.} = object
 
 
-proc constructRWStepGeomRWQuasiUniformSurface*(): RWStepGeomRWQuasiUniformSurface {.
+proc constructRWStepGeom_RWQuasiUniformSurface*(): RWStepGeom_RWQuasiUniformSurface {.
     constructor, importcpp: "RWStepGeom_RWQuasiUniformSurface(@)",
     header: "RWStepGeom_RWQuasiUniformSurface.hxx".}
-proc readStep*(this: RWStepGeomRWQuasiUniformSurface;
-              data: Handle[StepDataStepReaderData]; num: StandardInteger;
-              ach: var Handle[InterfaceCheck];
-              ent: Handle[StepGeomQuasiUniformSurface]) {.noSideEffect,
+proc ReadStep*(this: RWStepGeom_RWQuasiUniformSurface;
+              data: handle[StepData_StepReaderData]; num: Standard_Integer;
+              ach: var handle[Interface_Check];
+              ent: handle[StepGeom_QuasiUniformSurface]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepGeom_RWQuasiUniformSurface.hxx".}
-proc writeStep*(this: RWStepGeomRWQuasiUniformSurface; sw: var StepDataStepWriter;
-               ent: Handle[StepGeomQuasiUniformSurface]) {.noSideEffect,
+proc WriteStep*(this: RWStepGeom_RWQuasiUniformSurface;
+               SW: var StepData_StepWriter;
+               ent: handle[StepGeom_QuasiUniformSurface]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepGeom_RWQuasiUniformSurface.hxx".}
-proc share*(this: RWStepGeomRWQuasiUniformSurface;
-           ent: Handle[StepGeomQuasiUniformSurface];
-           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
+proc Share*(this: RWStepGeom_RWQuasiUniformSurface;
+           ent: handle[StepGeom_QuasiUniformSurface];
+           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepGeom_RWQuasiUniformSurface.hxx".}
-

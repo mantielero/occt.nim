@@ -14,144 +14,154 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-# when defined windows:
-#   discard
-var MAXVIEW* {.importcpp: "MAXVIEW", header: "Draw_Viewer.hxx".}: StandardInteger
+import
+  ../gp/gp_Pnt, ../gp/gp_Vec, ../gp/gp_Dir, ../gp/gp_Pnt2d, ../gp/gp_Vec2d,
+  ../gp/gp_Dir2d, ../gp/gp_Trsf, ../gp/gp_Ax1, Draw_Drawable3D,
+  Draw_SequenceOfDrawable3D, Draw_Color
+
+when defined(_WIN32):
+  discard
+var MAXVIEW* {.importcpp: "MAXVIEW", header: "Draw_Viewer.hxx".}: Standard_Integer
 
 discard "forward decl of Draw_View"
 type
-  DrawViewer* {.importcpp: "Draw_Viewer", header: "Draw_Viewer.hxx", bycopy.} = object
+  Draw_Viewer* {.importcpp: "Draw_Viewer", header: "Draw_Viewer.hxx", bycopy.} = object
 
 
-proc constructDrawViewer*(): DrawViewer {.constructor, importcpp: "Draw_Viewer(@)",
-                                       header: "Draw_Viewer.hxx".}
-proc defineColor*(this: var DrawViewer; i: StandardInteger; colname: cstring): StandardBoolean {.
+proc constructDraw_Viewer*(): Draw_Viewer {.constructor,
+    importcpp: "Draw_Viewer(@)", header: "Draw_Viewer.hxx".}
+proc DefineColor*(this: var Draw_Viewer; i: Standard_Integer; colname: cstring): Standard_Boolean {.
     importcpp: "DefineColor", header: "Draw_Viewer.hxx".}
-proc makeView*(this: var DrawViewer; id: StandardInteger; typ: cstring;
-              x: StandardInteger; y: StandardInteger; w: StandardInteger;
-              h: StandardInteger) {.importcpp: "MakeView", header: "Draw_Viewer.hxx".}
-when defined windows:
-  proc makeView*(this: var DrawViewer; id: StandardInteger; typ: cstring;
-                x: StandardInteger; y: StandardInteger; w: StandardInteger;
-                h: StandardInteger; win: Hwnd;
-                useBuffer: StandardBoolean = standardFalse) {.importcpp: "MakeView",
-      header: "Draw_Viewer.hxx".}
-proc makeView*(this: var DrawViewer; id: StandardInteger; typ: cstring; window: cstring) {.
-    importcpp: "MakeView", header: "Draw_Viewer.hxx".}
-proc setTitle*(this: var DrawViewer; id: StandardInteger; name: cstring) {.
-    importcpp: "SetTitle", header: "Draw_Viewer.hxx".}
-proc resetView*(this: var DrawViewer; id: StandardInteger) {.importcpp: "ResetView",
-    header: "Draw_Viewer.hxx".}
-proc setZoom*(this: var DrawViewer; id: StandardInteger; z: StandardReal) {.
-    importcpp: "SetZoom", header: "Draw_Viewer.hxx".}
-proc rotateView*(this: var DrawViewer; id: StandardInteger; a3: GpDir2d;
-                a4: StandardReal) {.importcpp: "RotateView",
-                                  header: "Draw_Viewer.hxx".}
-proc rotateView*(this: var DrawViewer; id: StandardInteger; a3: GpPnt; a4: GpDir;
-                a5: StandardReal) {.importcpp: "RotateView",
-                                  header: "Draw_Viewer.hxx".}
-proc setFocal*(this: var DrawViewer; id: StandardInteger; focalDist: StandardReal) {.
-    importcpp: "SetFocal", header: "Draw_Viewer.hxx".}
-proc getType*(this: DrawViewer; id: StandardInteger): cstring {.noSideEffect,
-    importcpp: "GetType", header: "Draw_Viewer.hxx".}
-proc zoom*(this: DrawViewer; id: StandardInteger): StandardReal {.noSideEffect,
-    importcpp: "Zoom", header: "Draw_Viewer.hxx".}
-proc focal*(this: DrawViewer; id: StandardInteger): StandardReal {.noSideEffect,
-    importcpp: "Focal", header: "Draw_Viewer.hxx".}
-proc setTrsf*(this: var DrawViewer; id: StandardInteger; t: var GpTrsf) {.
-    importcpp: "SetTrsf", header: "Draw_Viewer.hxx".}
-proc getTrsf*(this: DrawViewer; id: StandardInteger; t: var GpTrsf) {.noSideEffect,
-    importcpp: "GetTrsf", header: "Draw_Viewer.hxx".}
-proc getPosSize*(this: var DrawViewer; id: StandardInteger; x: var StandardInteger;
-                y: var StandardInteger; w: var StandardInteger; h: var StandardInteger) {.
-    importcpp: "GetPosSize", header: "Draw_Viewer.hxx".}
-proc is3D*(this: DrawViewer; id: StandardInteger): StandardBoolean {.noSideEffect,
-    importcpp: "Is3D", header: "Draw_Viewer.hxx".}
-proc getFrame*(this: var DrawViewer; id: StandardInteger; xmin: var StandardInteger;
-              ymin: var StandardInteger; xmax: var StandardInteger;
-              ymax: var StandardInteger) {.importcpp: "GetFrame",
-                                        header: "Draw_Viewer.hxx".}
-proc fitView*(this: var DrawViewer; id: StandardInteger; frame: StandardInteger) {.
-    importcpp: "FitView", header: "Draw_Viewer.hxx".}
-proc panView*(this: var DrawViewer; id: StandardInteger; dx: StandardInteger;
-             dy: StandardInteger) {.importcpp: "PanView", header: "Draw_Viewer.hxx".}
-proc setPan*(this: var DrawViewer; id: StandardInteger; dx: StandardInteger;
-            dy: StandardInteger) {.importcpp: "SetPan", header: "Draw_Viewer.hxx".}
-proc getPan*(this: var DrawViewer; id: StandardInteger; dx: var StandardInteger;
-            dy: var StandardInteger) {.importcpp: "GetPan", header: "Draw_Viewer.hxx".}
-proc hasView*(this: DrawViewer; id: StandardInteger): StandardBoolean {.noSideEffect,
-    importcpp: "HasView", header: "Draw_Viewer.hxx".}
-proc displayView*(this: DrawViewer; id: StandardInteger) {.noSideEffect,
-    importcpp: "DisplayView", header: "Draw_Viewer.hxx".}
-proc hideView*(this: DrawViewer; id: StandardInteger) {.noSideEffect,
-    importcpp: "HideView", header: "Draw_Viewer.hxx".}
-proc clearView*(this: DrawViewer; id: StandardInteger) {.noSideEffect,
-    importcpp: "ClearView", header: "Draw_Viewer.hxx".}
-proc removeView*(this: var DrawViewer; id: StandardInteger) {.importcpp: "RemoveView",
-    header: "Draw_Viewer.hxx".}
-proc repaintView*(this: DrawViewer; id: StandardInteger) {.noSideEffect,
-    importcpp: "RepaintView", header: "Draw_Viewer.hxx".}
-when defined windows:
-  proc resizeView*(this: DrawViewer; id: StandardInteger) {.noSideEffect,
-      importcpp: "ResizeView", header: "Draw_Viewer.hxx".}
-when defined windows:
-  proc updateView*(this: DrawViewer; id: StandardInteger;
-                  forced: StandardBoolean = standardFalse) {.noSideEffect,
-      importcpp: "UpdateView", header: "Draw_Viewer.hxx".}
-proc configView*(this: DrawViewer; id: StandardInteger) {.noSideEffect,
-    importcpp: "ConfigView", header: "Draw_Viewer.hxx".}
-proc postScriptView*(this: DrawViewer; id: StandardInteger; vXmin: StandardInteger;
-                    vYmin: StandardInteger; vXmax: StandardInteger;
-                    vYmax: StandardInteger; pXmin: StandardInteger;
-                    pYmin: StandardInteger; pXmax: StandardInteger;
-                    pYmax: StandardInteger; sortie: var Ostream) {.noSideEffect,
-    importcpp: "PostScriptView", header: "Draw_Viewer.hxx".}
-proc postColor*(this: var DrawViewer; icol: StandardInteger; width: StandardInteger;
-               gray: StandardReal) {.importcpp: "PostColor",
+proc MakeView*(this: var Draw_Viewer; id: Standard_Integer; typ: cstring;
+              X: Standard_Integer; Y: Standard_Integer; W: Standard_Integer;
+              H: Standard_Integer) {.importcpp: "MakeView",
                                    header: "Draw_Viewer.hxx".}
-proc saveView*(this: var DrawViewer; id: StandardInteger; filename: cstring): StandardBoolean {.
-    importcpp: "SaveView", header: "Draw_Viewer.hxx".}
-proc repaintAll*(this: DrawViewer) {.noSideEffect, importcpp: "RepaintAll",
-                                  header: "Draw_Viewer.hxx".}
-proc repaint2D*(this: DrawViewer) {.noSideEffect, importcpp: "Repaint2D",
-                                 header: "Draw_Viewer.hxx".}
-proc repaint3D*(this: DrawViewer) {.noSideEffect, importcpp: "Repaint3D",
-                                 header: "Draw_Viewer.hxx".}
-proc deleteView*(this: var DrawViewer; id: StandardInteger) {.importcpp: "DeleteView",
+when defined(_WIN32):
+  proc MakeView*(this: var Draw_Viewer; id: Standard_Integer; typ: cstring;
+                X: Standard_Integer; Y: Standard_Integer; W: Standard_Integer;
+                H: Standard_Integer; win: HWND;
+                useBuffer: Standard_Boolean = Standard_False) {.
+      importcpp: "MakeView", header: "Draw_Viewer.hxx".}
+proc MakeView*(this: var Draw_Viewer; id: Standard_Integer; typ: cstring;
+              window: cstring) {.importcpp: "MakeView", header: "Draw_Viewer.hxx".}
+proc SetTitle*(this: var Draw_Viewer; id: Standard_Integer; name: cstring) {.
+    importcpp: "SetTitle", header: "Draw_Viewer.hxx".}
+proc ResetView*(this: var Draw_Viewer; id: Standard_Integer) {.importcpp: "ResetView",
     header: "Draw_Viewer.hxx".}
-proc clear*(this: var DrawViewer) {.importcpp: "Clear", header: "Draw_Viewer.hxx".}
-proc clear2D*(this: var DrawViewer) {.importcpp: "Clear2D", header: "Draw_Viewer.hxx".}
-proc clear3D*(this: var DrawViewer) {.importcpp: "Clear3D", header: "Draw_Viewer.hxx".}
-proc flush*(this: var DrawViewer) {.importcpp: "Flush", header: "Draw_Viewer.hxx".}
-proc drawOnView*(this: DrawViewer; id: StandardInteger; d: Handle[DrawDrawable3D]) {.
+proc SetZoom*(this: var Draw_Viewer; id: Standard_Integer; z: Standard_Real) {.
+    importcpp: "SetZoom", header: "Draw_Viewer.hxx".}
+proc RotateView*(this: var Draw_Viewer; id: Standard_Integer; a3: gp_Dir2d;
+                a4: Standard_Real) {.importcpp: "RotateView",
+                                   header: "Draw_Viewer.hxx".}
+proc RotateView*(this: var Draw_Viewer; id: Standard_Integer; a3: gp_Pnt; a4: gp_Dir;
+                a5: Standard_Real) {.importcpp: "RotateView",
+                                   header: "Draw_Viewer.hxx".}
+proc SetFocal*(this: var Draw_Viewer; id: Standard_Integer; FocalDist: Standard_Real) {.
+    importcpp: "SetFocal", header: "Draw_Viewer.hxx".}
+proc GetType*(this: Draw_Viewer; id: Standard_Integer): cstring {.noSideEffect,
+    importcpp: "GetType", header: "Draw_Viewer.hxx".}
+proc Zoom*(this: Draw_Viewer; id: Standard_Integer): Standard_Real {.noSideEffect,
+    importcpp: "Zoom", header: "Draw_Viewer.hxx".}
+proc Focal*(this: Draw_Viewer; id: Standard_Integer): Standard_Real {.noSideEffect,
+    importcpp: "Focal", header: "Draw_Viewer.hxx".}
+proc SetTrsf*(this: var Draw_Viewer; id: Standard_Integer; T: var gp_Trsf) {.
+    importcpp: "SetTrsf", header: "Draw_Viewer.hxx".}
+proc GetTrsf*(this: Draw_Viewer; id: Standard_Integer; T: var gp_Trsf) {.noSideEffect,
+    importcpp: "GetTrsf", header: "Draw_Viewer.hxx".}
+proc GetPosSize*(this: var Draw_Viewer; id: Standard_Integer; X: var Standard_Integer;
+                Y: var Standard_Integer; W: var Standard_Integer;
+                H: var Standard_Integer) {.importcpp: "GetPosSize",
+                                        header: "Draw_Viewer.hxx".}
+proc Is3D*(this: Draw_Viewer; id: Standard_Integer): Standard_Boolean {.noSideEffect,
+    importcpp: "Is3D", header: "Draw_Viewer.hxx".}
+proc GetFrame*(this: var Draw_Viewer; id: Standard_Integer;
+              xmin: var Standard_Integer; ymin: var Standard_Integer;
+              xmax: var Standard_Integer; ymax: var Standard_Integer) {.
+    importcpp: "GetFrame", header: "Draw_Viewer.hxx".}
+proc FitView*(this: var Draw_Viewer; id: Standard_Integer; frame: Standard_Integer) {.
+    importcpp: "FitView", header: "Draw_Viewer.hxx".}
+proc PanView*(this: var Draw_Viewer; id: Standard_Integer; DX: Standard_Integer;
+             DY: Standard_Integer) {.importcpp: "PanView", header: "Draw_Viewer.hxx".}
+proc SetPan*(this: var Draw_Viewer; id: Standard_Integer; DX: Standard_Integer;
+            DY: Standard_Integer) {.importcpp: "SetPan", header: "Draw_Viewer.hxx".}
+proc GetPan*(this: var Draw_Viewer; id: Standard_Integer; DX: var Standard_Integer;
+            DY: var Standard_Integer) {.importcpp: "GetPan",
+                                     header: "Draw_Viewer.hxx".}
+proc HasView*(this: Draw_Viewer; id: Standard_Integer): Standard_Boolean {.
+    noSideEffect, importcpp: "HasView", header: "Draw_Viewer.hxx".}
+proc DisplayView*(this: Draw_Viewer; id: Standard_Integer) {.noSideEffect,
+    importcpp: "DisplayView", header: "Draw_Viewer.hxx".}
+proc HideView*(this: Draw_Viewer; id: Standard_Integer) {.noSideEffect,
+    importcpp: "HideView", header: "Draw_Viewer.hxx".}
+proc ClearView*(this: Draw_Viewer; id: Standard_Integer) {.noSideEffect,
+    importcpp: "ClearView", header: "Draw_Viewer.hxx".}
+proc RemoveView*(this: var Draw_Viewer; id: Standard_Integer) {.
+    importcpp: "RemoveView", header: "Draw_Viewer.hxx".}
+proc RepaintView*(this: Draw_Viewer; id: Standard_Integer) {.noSideEffect,
+    importcpp: "RepaintView", header: "Draw_Viewer.hxx".}
+when defined(_WIN32):
+  proc ResizeView*(this: Draw_Viewer; id: Standard_Integer) {.noSideEffect,
+      importcpp: "ResizeView", header: "Draw_Viewer.hxx".}
+when defined(_WIN32):
+  proc UpdateView*(this: Draw_Viewer; id: Standard_Integer;
+                  forced: Standard_Boolean = Standard_False) {.noSideEffect,
+      importcpp: "UpdateView", header: "Draw_Viewer.hxx".}
+proc ConfigView*(this: Draw_Viewer; id: Standard_Integer) {.noSideEffect,
+    importcpp: "ConfigView", header: "Draw_Viewer.hxx".}
+proc PostScriptView*(this: Draw_Viewer; id: Standard_Integer;
+                    VXmin: Standard_Integer; VYmin: Standard_Integer;
+                    VXmax: Standard_Integer; VYmax: Standard_Integer;
+                    PXmin: Standard_Integer; PYmin: Standard_Integer;
+                    PXmax: Standard_Integer; PYmax: Standard_Integer;
+                    sortie: var ostream) {.noSideEffect,
+                                        importcpp: "PostScriptView",
+                                        header: "Draw_Viewer.hxx".}
+proc PostColor*(this: var Draw_Viewer; icol: Standard_Integer;
+               width: Standard_Integer; gray: Standard_Real) {.
+    importcpp: "PostColor", header: "Draw_Viewer.hxx".}
+proc SaveView*(this: var Draw_Viewer; id: Standard_Integer; filename: cstring): Standard_Boolean {.
+    importcpp: "SaveView", header: "Draw_Viewer.hxx".}
+proc RepaintAll*(this: Draw_Viewer) {.noSideEffect, importcpp: "RepaintAll",
+                                   header: "Draw_Viewer.hxx".}
+proc Repaint2D*(this: Draw_Viewer) {.noSideEffect, importcpp: "Repaint2D",
+                                  header: "Draw_Viewer.hxx".}
+proc Repaint3D*(this: Draw_Viewer) {.noSideEffect, importcpp: "Repaint3D",
+                                  header: "Draw_Viewer.hxx".}
+proc DeleteView*(this: var Draw_Viewer; id: Standard_Integer) {.
+    importcpp: "DeleteView", header: "Draw_Viewer.hxx".}
+proc Clear*(this: var Draw_Viewer) {.importcpp: "Clear", header: "Draw_Viewer.hxx".}
+proc Clear2D*(this: var Draw_Viewer) {.importcpp: "Clear2D", header: "Draw_Viewer.hxx".}
+proc Clear3D*(this: var Draw_Viewer) {.importcpp: "Clear3D", header: "Draw_Viewer.hxx".}
+proc Flush*(this: var Draw_Viewer) {.importcpp: "Flush", header: "Draw_Viewer.hxx".}
+proc DrawOnView*(this: Draw_Viewer; id: Standard_Integer; D: handle[Draw_Drawable3D]) {.
     noSideEffect, importcpp: "DrawOnView", header: "Draw_Viewer.hxx".}
-proc highlightOnView*(this: DrawViewer; id: StandardInteger;
-                     d: Handle[DrawDrawable3D]; c: DrawColorKind = drawBlanc) {.
+proc HighlightOnView*(this: Draw_Viewer; id: Standard_Integer;
+                     D: handle[Draw_Drawable3D]; C: Draw_ColorKind = Draw_blanc) {.
     noSideEffect, importcpp: "HighlightOnView", header: "Draw_Viewer.hxx".}
-proc addDrawable*(this: var DrawViewer; d: Handle[DrawDrawable3D]) {.
+proc AddDrawable*(this: var Draw_Viewer; D: handle[Draw_Drawable3D]) {.
     importcpp: "AddDrawable", header: "Draw_Viewer.hxx".}
-proc removeDrawable*(this: var DrawViewer; d: Handle[DrawDrawable3D]) {.
+proc RemoveDrawable*(this: var Draw_Viewer; D: handle[Draw_Drawable3D]) {.
     importcpp: "RemoveDrawable", header: "Draw_Viewer.hxx".}
-proc makeDisplay*(this: DrawViewer; id: StandardInteger): DrawDisplay {.noSideEffect,
-    importcpp: "MakeDisplay", header: "Draw_Viewer.hxx".}
-proc select*(this: var DrawViewer; id: var StandardInteger; x: var StandardInteger;
-            y: var StandardInteger; button: var StandardInteger;
-            waitclick: StandardBoolean = standardTrue) {.importcpp: "Select",
+proc MakeDisplay*(this: Draw_Viewer; id: Standard_Integer): Draw_Display {.
+    noSideEffect, importcpp: "MakeDisplay", header: "Draw_Viewer.hxx".}
+proc Select*(this: var Draw_Viewer; id: var Standard_Integer; X: var Standard_Integer;
+            Y: var Standard_Integer; Button: var Standard_Integer;
+            waitclick: Standard_Boolean = Standard_True) {.importcpp: "Select",
     header: "Draw_Viewer.hxx".}
   ##  View, -1 if none
   ##  Pick coordinates
   ##  Button pressed, 0 if none
-proc pick*(this: DrawViewer; id: StandardInteger; x: StandardInteger;
-          y: StandardInteger; prec: StandardInteger; d: var Handle[DrawDrawable3D];
-          first: StandardInteger = 0): StandardInteger {.noSideEffect,
-    importcpp: "Pick", header: "Draw_Viewer.hxx".}
+proc Pick*(this: Draw_Viewer; id: Standard_Integer; X: Standard_Integer;
+          Y: Standard_Integer; Prec: Standard_Integer;
+          D: var handle[Draw_Drawable3D]; First: Standard_Integer = 0): Standard_Integer {.
+    noSideEffect, importcpp: "Pick", header: "Draw_Viewer.hxx".}
   ##  returns the index (or 0)
-proc lastPick*(this: var DrawViewer; p1: var GpPnt; p2: var GpPnt; param: var StandardReal) {.
-    importcpp: "LastPick", header: "Draw_Viewer.hxx".}
-proc destroyDrawViewer*(this: var DrawViewer) {.importcpp: "#.~Draw_Viewer()",
+proc LastPick*(this: var Draw_Viewer; P1: var gp_Pnt; P2: var gp_Pnt;
+              Param: var Standard_Real) {.importcpp: "LastPick",
+                                       header: "Draw_Viewer.hxx".}
+proc destroyDraw_Viewer*(this: var Draw_Viewer) {.importcpp: "#.~Draw_Viewer()",
     header: "Draw_Viewer.hxx".}
-proc `<<`*(this: var DrawViewer; a2: Handle[DrawDrawable3D]): var DrawViewer {.
+proc `<<`*(this: var Draw_Viewer; a2: handle[Draw_Drawable3D]): var Draw_Viewer {.
     importcpp: "(# << #)", header: "Draw_Viewer.hxx".}
-proc getDrawables*(this: var DrawViewer): DrawSequenceOfDrawable3D {.
+proc GetDrawables*(this: var Draw_Viewer): Draw_SequenceOfDrawable3D {.
     importcpp: "GetDrawables", header: "Draw_Viewer.hxx".}
-

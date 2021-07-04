@@ -14,7 +14,8 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  Interface_FileParameter, ../NCollection/NCollection_Array1
+
 type
-  InterfaceArray1OfFileParameter* = NCollectionArray1[InterfaceFileParameter]
-
-
+  Interface_Array1OfFileParameter* = NCollection_Array1[Interface_FileParameter]

@@ -11,6 +11,14 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Aspect/Aspect_VKeySet, ../Aspect/Aspect_TouchMap,
+  ../Aspect/Aspect_XRHapticActionData, ../Aspect/Aspect_XRTrackedDeviceRole,
+  AIS_DragAction, AIS_MouseGesture, AIS_NavigationMode, AIS_ViewInputBuffer,
+  AIS_RotationMode, AIS_WalkDelta, ../gp/gp_Pnt, ../Graphic3d/Graphic3d_Vec3,
+  ../NCollection/NCollection_Array1, ../OSD/OSD_Timer, ../Precision/Precision,
+  ../Quantity/Quantity_ColorRGBA, ../Standard/Standard_Mutex
+
 discard "forward decl of AIS_AnimationCamera"
 discard "forward decl of AIS_InteractiveObject"
 discard "forward decl of AIS_InteractiveContext"
@@ -164,218 +172,220 @@ proc constructAIS_ViewController*(): AIS_ViewController {.constructor,
     importcpp: "AIS_ViewController(@)", header: "AIS_ViewController.hxx".}
 proc destroyAIS_ViewController*(this: var AIS_ViewController) {.
     importcpp: "#.~AIS_ViewController()", header: "AIS_ViewController.hxx".}
-proc inputBuffer*(this: AIS_ViewController; theType: AIS_ViewInputBufferType): AIS_ViewInputBuffer {.
+proc InputBuffer*(this: AIS_ViewController; theType: AIS_ViewInputBufferType): AIS_ViewInputBuffer {.
     noSideEffect, importcpp: "InputBuffer", header: "AIS_ViewController.hxx".}
-proc changeInputBuffer*(this: var AIS_ViewController;
+proc ChangeInputBuffer*(this: var AIS_ViewController;
                        theType: AIS_ViewInputBufferType): var AIS_ViewInputBuffer {.
     importcpp: "ChangeInputBuffer", header: "AIS_ViewController.hxx".}
-proc viewAnimation*(this: AIS_ViewController): Handle[AIS_AnimationCamera] {.
+proc ViewAnimation*(this: AIS_ViewController): handle[AIS_AnimationCamera] {.
     noSideEffect, importcpp: "ViewAnimation", header: "AIS_ViewController.hxx".}
-proc setViewAnimation*(this: var AIS_ViewController;
-                      theAnimation: Handle[AIS_AnimationCamera]) {.
+proc SetViewAnimation*(this: var AIS_ViewController;
+                      theAnimation: handle[AIS_AnimationCamera]) {.
     importcpp: "SetViewAnimation", header: "AIS_ViewController.hxx".}
-proc abortViewAnimation*(this: var AIS_ViewController) {.
+proc AbortViewAnimation*(this: var AIS_ViewController) {.
     importcpp: "AbortViewAnimation", header: "AIS_ViewController.hxx".}
-proc rotationMode*(this: AIS_ViewController): AIS_RotationMode {.noSideEffect,
+proc RotationMode*(this: AIS_ViewController): AIS_RotationMode {.noSideEffect,
     importcpp: "RotationMode", header: "AIS_ViewController.hxx".}
-proc setRotationMode*(this: var AIS_ViewController; theMode: AIS_RotationMode) {.
+proc SetRotationMode*(this: var AIS_ViewController; theMode: AIS_RotationMode) {.
     importcpp: "SetRotationMode", header: "AIS_ViewController.hxx".}
-proc navigationMode*(this: AIS_ViewController): AIS_NavigationMode {.noSideEffect,
+proc NavigationMode*(this: AIS_ViewController): AIS_NavigationMode {.noSideEffect,
     importcpp: "NavigationMode", header: "AIS_ViewController.hxx".}
-proc setNavigationMode*(this: var AIS_ViewController; theMode: AIS_NavigationMode) {.
+proc SetNavigationMode*(this: var AIS_ViewController; theMode: AIS_NavigationMode) {.
     importcpp: "SetNavigationMode", header: "AIS_ViewController.hxx".}
-proc mouseAcceleration*(this: AIS_ViewController): cfloat {.noSideEffect,
+proc MouseAcceleration*(this: AIS_ViewController): cfloat {.noSideEffect,
     importcpp: "MouseAcceleration", header: "AIS_ViewController.hxx".}
-proc setMouseAcceleration*(this: var AIS_ViewController; theRatio: cfloat) {.
+proc SetMouseAcceleration*(this: var AIS_ViewController; theRatio: cfloat) {.
     importcpp: "SetMouseAcceleration", header: "AIS_ViewController.hxx".}
-proc orbitAcceleration*(this: AIS_ViewController): cfloat {.noSideEffect,
+proc OrbitAcceleration*(this: AIS_ViewController): cfloat {.noSideEffect,
     importcpp: "OrbitAcceleration", header: "AIS_ViewController.hxx".}
-proc setOrbitAcceleration*(this: var AIS_ViewController; theRatio: cfloat) {.
+proc SetOrbitAcceleration*(this: var AIS_ViewController; theRatio: cfloat) {.
     importcpp: "SetOrbitAcceleration", header: "AIS_ViewController.hxx".}
-proc toShowPanAnchorPoint*(this: AIS_ViewController): bool {.noSideEffect,
+proc ToShowPanAnchorPoint*(this: AIS_ViewController): bool {.noSideEffect,
     importcpp: "ToShowPanAnchorPoint", header: "AIS_ViewController.hxx".}
-proc setShowPanAnchorPoint*(this: var AIS_ViewController; theToShow: bool) {.
+proc SetShowPanAnchorPoint*(this: var AIS_ViewController; theToShow: bool) {.
     importcpp: "SetShowPanAnchorPoint", header: "AIS_ViewController.hxx".}
-proc toShowRotateCenter*(this: AIS_ViewController): bool {.noSideEffect,
+proc ToShowRotateCenter*(this: AIS_ViewController): bool {.noSideEffect,
     importcpp: "ToShowRotateCenter", header: "AIS_ViewController.hxx".}
-proc setShowRotateCenter*(this: var AIS_ViewController; theToShow: bool) {.
+proc SetShowRotateCenter*(this: var AIS_ViewController; theToShow: bool) {.
     importcpp: "SetShowRotateCenter", header: "AIS_ViewController.hxx".}
-proc toLockOrbitZUp*(this: AIS_ViewController): bool {.noSideEffect,
+proc ToLockOrbitZUp*(this: AIS_ViewController): bool {.noSideEffect,
     importcpp: "ToLockOrbitZUp", header: "AIS_ViewController.hxx".}
-proc setLockOrbitZUp*(this: var AIS_ViewController; theToForceUp: bool) {.
+proc SetLockOrbitZUp*(this: var AIS_ViewController; theToForceUp: bool) {.
     importcpp: "SetLockOrbitZUp", header: "AIS_ViewController.hxx".}
-proc toAllowTouchZRotation*(this: AIS_ViewController): bool {.noSideEffect,
+proc ToAllowTouchZRotation*(this: AIS_ViewController): bool {.noSideEffect,
     importcpp: "ToAllowTouchZRotation", header: "AIS_ViewController.hxx".}
-proc setAllowTouchZRotation*(this: var AIS_ViewController; theToEnable: bool) {.
+proc SetAllowTouchZRotation*(this: var AIS_ViewController; theToEnable: bool) {.
     importcpp: "SetAllowTouchZRotation", header: "AIS_ViewController.hxx".}
-proc toAllowRotation*(this: AIS_ViewController): bool {.noSideEffect,
+proc ToAllowRotation*(this: AIS_ViewController): bool {.noSideEffect,
     importcpp: "ToAllowRotation", header: "AIS_ViewController.hxx".}
-proc setAllowRotation*(this: var AIS_ViewController; theToEnable: bool) {.
+proc SetAllowRotation*(this: var AIS_ViewController; theToEnable: bool) {.
     importcpp: "SetAllowRotation", header: "AIS_ViewController.hxx".}
-proc toAllowPanning*(this: AIS_ViewController): bool {.noSideEffect,
+proc ToAllowPanning*(this: AIS_ViewController): bool {.noSideEffect,
     importcpp: "ToAllowPanning", header: "AIS_ViewController.hxx".}
-proc setAllowPanning*(this: var AIS_ViewController; theToEnable: bool) {.
+proc SetAllowPanning*(this: var AIS_ViewController; theToEnable: bool) {.
     importcpp: "SetAllowPanning", header: "AIS_ViewController.hxx".}
-proc toAllowZooming*(this: AIS_ViewController): bool {.noSideEffect,
+proc ToAllowZooming*(this: AIS_ViewController): bool {.noSideEffect,
     importcpp: "ToAllowZooming", header: "AIS_ViewController.hxx".}
-proc setAllowZooming*(this: var AIS_ViewController; theToEnable: bool) {.
+proc SetAllowZooming*(this: var AIS_ViewController; theToEnable: bool) {.
     importcpp: "SetAllowZooming", header: "AIS_ViewController.hxx".}
-proc toAllowZFocus*(this: AIS_ViewController): bool {.noSideEffect,
+proc ToAllowZFocus*(this: AIS_ViewController): bool {.noSideEffect,
     importcpp: "ToAllowZFocus", header: "AIS_ViewController.hxx".}
-proc setAllowZFocus*(this: var AIS_ViewController; theToEnable: bool) {.
+proc SetAllowZFocus*(this: var AIS_ViewController; theToEnable: bool) {.
     importcpp: "SetAllowZFocus", header: "AIS_ViewController.hxx".}
-proc toAllowHighlight*(this: AIS_ViewController): bool {.noSideEffect,
+proc ToAllowHighlight*(this: AIS_ViewController): bool {.noSideEffect,
     importcpp: "ToAllowHighlight", header: "AIS_ViewController.hxx".}
-proc setAllowHighlight*(this: var AIS_ViewController; theToEnable: bool) {.
+proc SetAllowHighlight*(this: var AIS_ViewController; theToEnable: bool) {.
     importcpp: "SetAllowHighlight", header: "AIS_ViewController.hxx".}
-proc toAllowDragging*(this: AIS_ViewController): bool {.noSideEffect,
+proc ToAllowDragging*(this: AIS_ViewController): bool {.noSideEffect,
     importcpp: "ToAllowDragging", header: "AIS_ViewController.hxx".}
-proc setAllowDragging*(this: var AIS_ViewController; theToEnable: bool) {.
+proc SetAllowDragging*(this: var AIS_ViewController; theToEnable: bool) {.
     importcpp: "SetAllowDragging", header: "AIS_ViewController.hxx".}
-proc toStickToRayOnZoom*(this: AIS_ViewController): bool {.noSideEffect,
+proc ToStickToRayOnZoom*(this: AIS_ViewController): bool {.noSideEffect,
     importcpp: "ToStickToRayOnZoom", header: "AIS_ViewController.hxx".}
-proc setStickToRayOnZoom*(this: var AIS_ViewController; theToEnable: bool) {.
+proc SetStickToRayOnZoom*(this: var AIS_ViewController; theToEnable: bool) {.
     importcpp: "SetStickToRayOnZoom", header: "AIS_ViewController.hxx".}
-proc toStickToRayOnRotation*(this: AIS_ViewController): bool {.noSideEffect,
+proc ToStickToRayOnRotation*(this: AIS_ViewController): bool {.noSideEffect,
     importcpp: "ToStickToRayOnRotation", header: "AIS_ViewController.hxx".}
-proc setStickToRayOnRotation*(this: var AIS_ViewController; theToEnable: bool) {.
+proc SetStickToRayOnRotation*(this: var AIS_ViewController; theToEnable: bool) {.
     importcpp: "SetStickToRayOnRotation", header: "AIS_ViewController.hxx".}
-proc toInvertPitch*(this: AIS_ViewController): bool {.noSideEffect,
+proc ToInvertPitch*(this: AIS_ViewController): bool {.noSideEffect,
     importcpp: "ToInvertPitch", header: "AIS_ViewController.hxx".}
-proc setInvertPitch*(this: var AIS_ViewController; theToInvert: bool) {.
+proc SetInvertPitch*(this: var AIS_ViewController; theToInvert: bool) {.
     importcpp: "SetInvertPitch", header: "AIS_ViewController.hxx".}
-proc walkSpeedAbsolute*(this: AIS_ViewController): cfloat {.noSideEffect,
+proc WalkSpeedAbsolute*(this: AIS_ViewController): cfloat {.noSideEffect,
     importcpp: "WalkSpeedAbsolute", header: "AIS_ViewController.hxx".}
-proc setWalkSpeedAbsolute*(this: var AIS_ViewController; theSpeed: cfloat) {.
+proc SetWalkSpeedAbsolute*(this: var AIS_ViewController; theSpeed: cfloat) {.
     importcpp: "SetWalkSpeedAbsolute", header: "AIS_ViewController.hxx".}
-proc walkSpeedRelative*(this: AIS_ViewController): cfloat {.noSideEffect,
+proc WalkSpeedRelative*(this: AIS_ViewController): cfloat {.noSideEffect,
     importcpp: "WalkSpeedRelative", header: "AIS_ViewController.hxx".}
-proc setWalkSpeedRelative*(this: var AIS_ViewController; theFactor: cfloat) {.
+proc SetWalkSpeedRelative*(this: var AIS_ViewController; theFactor: cfloat) {.
     importcpp: "SetWalkSpeedRelative", header: "AIS_ViewController.hxx".}
-proc thrustSpeed*(this: AIS_ViewController): cfloat {.noSideEffect,
+proc ThrustSpeed*(this: AIS_ViewController): cfloat {.noSideEffect,
     importcpp: "ThrustSpeed", header: "AIS_ViewController.hxx".}
-proc setThrustSpeed*(this: var AIS_ViewController; theSpeed: cfloat) {.
+proc SetThrustSpeed*(this: var AIS_ViewController; theSpeed: cfloat) {.
     importcpp: "SetThrustSpeed", header: "AIS_ViewController.hxx".}
-proc hasPreviousMoveTo*(this: AIS_ViewController): bool {.noSideEffect,
+proc HasPreviousMoveTo*(this: AIS_ViewController): bool {.noSideEffect,
     importcpp: "HasPreviousMoveTo", header: "AIS_ViewController.hxx".}
-proc previousMoveTo*(this: AIS_ViewController): Graphic3dVec2i {.noSideEffect,
+proc PreviousMoveTo*(this: AIS_ViewController): Graphic3d_Vec2i {.noSideEffect,
     importcpp: "PreviousMoveTo", header: "AIS_ViewController.hxx".}
-proc resetPreviousMoveTo*(this: var AIS_ViewController) {.
+proc ResetPreviousMoveTo*(this: var AIS_ViewController) {.
     importcpp: "ResetPreviousMoveTo", header: "AIS_ViewController.hxx".}
-proc toDisplayXRAuxDevices*(this: AIS_ViewController): bool {.noSideEffect,
+proc ToDisplayXRAuxDevices*(this: AIS_ViewController): bool {.noSideEffect,
     importcpp: "ToDisplayXRAuxDevices", header: "AIS_ViewController.hxx".}
-proc setDisplayXRAuxDevices*(this: var AIS_ViewController; theToDisplay: bool) {.
+proc SetDisplayXRAuxDevices*(this: var AIS_ViewController; theToDisplay: bool) {.
     importcpp: "SetDisplayXRAuxDevices", header: "AIS_ViewController.hxx".}
-proc toDisplayXRHands*(this: AIS_ViewController): bool {.noSideEffect,
+proc ToDisplayXRHands*(this: AIS_ViewController): bool {.noSideEffect,
     importcpp: "ToDisplayXRHands", header: "AIS_ViewController.hxx".}
-proc setDisplayXRHands*(this: var AIS_ViewController; theToDisplay: bool) {.
+proc SetDisplayXRHands*(this: var AIS_ViewController; theToDisplay: bool) {.
     importcpp: "SetDisplayXRHands", header: "AIS_ViewController.hxx".}
-proc keys*(this: AIS_ViewController): AspectVKeySet {.noSideEffect,
+proc Keys*(this: AIS_ViewController): Aspect_VKeySet {.noSideEffect,
     importcpp: "Keys", header: "AIS_ViewController.hxx".}
-proc changeKeys*(this: var AIS_ViewController): var AspectVKeySet {.
+proc ChangeKeys*(this: var AIS_ViewController): var Aspect_VKeySet {.
     importcpp: "ChangeKeys", header: "AIS_ViewController.hxx".}
-proc keyDown*(this: var AIS_ViewController; theKey: AspectVKey; theTime: cdouble;
+proc KeyDown*(this: var AIS_ViewController; theKey: Aspect_VKey; theTime: cdouble;
              thePressure: cdouble = 1.0) {.importcpp: "KeyDown",
                                        header: "AIS_ViewController.hxx".}
-proc keyUp*(this: var AIS_ViewController; theKey: AspectVKey; theTime: cdouble) {.
+proc KeyUp*(this: var AIS_ViewController; theKey: Aspect_VKey; theTime: cdouble) {.
     importcpp: "KeyUp", header: "AIS_ViewController.hxx".}
-proc keyFromAxis*(this: var AIS_ViewController; theNegative: AspectVKey;
-                 thePositive: AspectVKey; theTime: cdouble; thePressure: cdouble) {.
+proc KeyFromAxis*(this: var AIS_ViewController; theNegative: Aspect_VKey;
+                 thePositive: Aspect_VKey; theTime: cdouble; thePressure: cdouble) {.
     importcpp: "KeyFromAxis", header: "AIS_ViewController.hxx".}
-proc fetchNavigationKeys*(this: var AIS_ViewController;
-                         theCrouchRatio: StandardReal; theRunRatio: StandardReal): AIS_WalkDelta {.
+proc FetchNavigationKeys*(this: var AIS_ViewController;
+                         theCrouchRatio: Standard_Real; theRunRatio: Standard_Real): AIS_WalkDelta {.
     importcpp: "FetchNavigationKeys", header: "AIS_ViewController.hxx".}
-proc mouseGestureMap*(this: AIS_ViewController): AIS_MouseGestureMap {.noSideEffect,
+proc MouseGestureMap*(this: AIS_ViewController): AIS_MouseGestureMap {.noSideEffect,
     importcpp: "MouseGestureMap", header: "AIS_ViewController.hxx".}
-proc changeMouseGestureMap*(this: var AIS_ViewController): var AIS_MouseGestureMap {.
+proc ChangeMouseGestureMap*(this: var AIS_ViewController): var AIS_MouseGestureMap {.
     importcpp: "ChangeMouseGestureMap", header: "AIS_ViewController.hxx".}
-proc mouseDoubleClickInterval*(this: AIS_ViewController): cdouble {.noSideEffect,
+proc MouseDoubleClickInterval*(this: AIS_ViewController): cdouble {.noSideEffect,
     importcpp: "MouseDoubleClickInterval", header: "AIS_ViewController.hxx".}
-proc setMouseDoubleClickInterval*(this: var AIS_ViewController; theSeconds: cdouble) {.
+proc SetMouseDoubleClickInterval*(this: var AIS_ViewController; theSeconds: cdouble) {.
     importcpp: "SetMouseDoubleClickInterval", header: "AIS_ViewController.hxx".}
-proc selectInViewer*(this: var AIS_ViewController; thePnt: Graphic3dVec2i;
+proc SelectInViewer*(this: var AIS_ViewController; thePnt: Graphic3d_Vec2i;
                     theIsXOR: bool = false) {.importcpp: "SelectInViewer",
     header: "AIS_ViewController.hxx".}
-proc selectInViewer*(this: var AIS_ViewController;
-                    thePnts: NCollectionSequence[Graphic3dVec2i];
+proc SelectInViewer*(this: var AIS_ViewController;
+                    thePnts: NCollection_Sequence[Graphic3d_Vec2i];
                     theIsXOR: bool = false) {.importcpp: "SelectInViewer",
     header: "AIS_ViewController.hxx".}
-proc updateRubberBand*(this: var AIS_ViewController; thePntFrom: Graphic3dVec2i;
-                      thePntTo: Graphic3dVec2i; theIsXOR: bool = false) {.
+proc UpdateRubberBand*(this: var AIS_ViewController; thePntFrom: Graphic3d_Vec2i;
+                      thePntTo: Graphic3d_Vec2i; theIsXOR: bool = false) {.
     importcpp: "UpdateRubberBand", header: "AIS_ViewController.hxx".}
-proc updatePolySelection*(this: var AIS_ViewController; thePnt: Graphic3dVec2i;
+proc UpdatePolySelection*(this: var AIS_ViewController; thePnt: Graphic3d_Vec2i;
                          theToAppend: bool) {.importcpp: "UpdatePolySelection",
     header: "AIS_ViewController.hxx".}
-proc updateZoom*(this: var AIS_ViewController; theDelta: AspectScrollDelta): bool {.
+proc UpdateZoom*(this: var AIS_ViewController; theDelta: Aspect_ScrollDelta): bool {.
     importcpp: "UpdateZoom", header: "AIS_ViewController.hxx".}
-proc updateZRotation*(this: var AIS_ViewController; theAngle: cdouble): bool {.
+proc UpdateZRotation*(this: var AIS_ViewController; theAngle: cdouble): bool {.
     importcpp: "UpdateZRotation", header: "AIS_ViewController.hxx".}
-proc updateMouseScroll*(this: var AIS_ViewController; theDelta: AspectScrollDelta): bool {.
+proc UpdateMouseScroll*(this: var AIS_ViewController; theDelta: Aspect_ScrollDelta): bool {.
     importcpp: "UpdateMouseScroll", header: "AIS_ViewController.hxx".}
-proc updateMouseButtons*(this: var AIS_ViewController; thePoint: Graphic3dVec2i;
-                        theButtons: AspectVKeyMouse;
-                        theModifiers: AspectVKeyFlags; theIsEmulated: bool): bool {.
+proc UpdateMouseButtons*(this: var AIS_ViewController; thePoint: Graphic3d_Vec2i;
+                        theButtons: Aspect_VKeyMouse;
+                        theModifiers: Aspect_VKeyFlags; theIsEmulated: bool): bool {.
     importcpp: "UpdateMouseButtons", header: "AIS_ViewController.hxx".}
-proc updateMousePosition*(this: var AIS_ViewController; thePoint: Graphic3dVec2i;
-                         theButtons: AspectVKeyMouse;
-                         theModifiers: AspectVKeyFlags; theIsEmulated: bool): bool {.
+proc UpdateMousePosition*(this: var AIS_ViewController; thePoint: Graphic3d_Vec2i;
+                         theButtons: Aspect_VKeyMouse;
+                         theModifiers: Aspect_VKeyFlags; theIsEmulated: bool): bool {.
     importcpp: "UpdateMousePosition", header: "AIS_ViewController.hxx".}
-proc pressMouseButton*(this: var AIS_ViewController; thePoint: Graphic3dVec2i;
-                      theButton: AspectVKeyMouse; theModifiers: AspectVKeyFlags;
+proc PressMouseButton*(this: var AIS_ViewController; thePoint: Graphic3d_Vec2i;
+                      theButton: Aspect_VKeyMouse; theModifiers: Aspect_VKeyFlags;
                       theIsEmulated: bool): bool {.importcpp: "PressMouseButton",
     header: "AIS_ViewController.hxx".}
-proc releaseMouseButton*(this: var AIS_ViewController; thePoint: Graphic3dVec2i;
-                        theButton: AspectVKeyMouse; theModifiers: AspectVKeyFlags;
-                        theIsEmulated: bool): bool {.
+proc ReleaseMouseButton*(this: var AIS_ViewController; thePoint: Graphic3d_Vec2i;
+                        theButton: Aspect_VKeyMouse;
+                        theModifiers: Aspect_VKeyFlags; theIsEmulated: bool): bool {.
     importcpp: "ReleaseMouseButton", header: "AIS_ViewController.hxx".}
-proc updateMouseClick*(this: var AIS_ViewController; thePoint: Graphic3dVec2i;
-                      theButton: AspectVKeyMouse; theModifiers: AspectVKeyFlags;
+proc UpdateMouseClick*(this: var AIS_ViewController; thePoint: Graphic3d_Vec2i;
+                      theButton: Aspect_VKeyMouse; theModifiers: Aspect_VKeyFlags;
                       theIsDoubleClick: bool): bool {.
     importcpp: "UpdateMouseClick", header: "AIS_ViewController.hxx".}
-proc pressedMouseButtons*(this: AIS_ViewController): AspectVKeyMouse {.noSideEffect,
-    importcpp: "PressedMouseButtons", header: "AIS_ViewController.hxx".}
-proc lastMouseFlags*(this: AIS_ViewController): AspectVKeyFlags {.noSideEffect,
-    importcpp: "LastMouseFlags", header: "AIS_ViewController.hxx".}
-proc lastMousePosition*(this: AIS_ViewController): Graphic3dVec2i {.noSideEffect,
-    importcpp: "LastMousePosition", header: "AIS_ViewController.hxx".}
-proc touchToleranceScale*(this: AIS_ViewController): cfloat {.noSideEffect,
-    importcpp: "TouchToleranceScale", header: "AIS_ViewController.hxx".}
-proc setTouchToleranceScale*(this: var AIS_ViewController; theTolerance: cfloat) {.
-    importcpp: "SetTouchToleranceScale", header: "AIS_ViewController.hxx".}
-proc hasTouchPoints*(this: AIS_ViewController): bool {.noSideEffect,
-    importcpp: "HasTouchPoints", header: "AIS_ViewController.hxx".}
-proc addTouchPoint*(this: var AIS_ViewController; theId: StandardSize;
-                   thePnt: Graphic3dVec2d; theClearBefore: StandardBoolean = false) {.
-    importcpp: "AddTouchPoint", header: "AIS_ViewController.hxx".}
-proc removeTouchPoint*(this: var AIS_ViewController; theId: StandardSize;
-                      theClearSelectPnts: StandardBoolean = false): bool {.
-    importcpp: "RemoveTouchPoint", header: "AIS_ViewController.hxx".}
-proc updateTouchPoint*(this: var AIS_ViewController; theId: StandardSize;
-                      thePnt: Graphic3dVec2d) {.importcpp: "UpdateTouchPoint",
+proc PressedMouseButtons*(this: AIS_ViewController): Aspect_VKeyMouse {.
+    noSideEffect, importcpp: "PressedMouseButtons",
     header: "AIS_ViewController.hxx".}
-proc get3dMouseTranslationScale*(this: AIS_ViewController): cfloat {.noSideEffect,
+proc LastMouseFlags*(this: AIS_ViewController): Aspect_VKeyFlags {.noSideEffect,
+    importcpp: "LastMouseFlags", header: "AIS_ViewController.hxx".}
+proc LastMousePosition*(this: AIS_ViewController): Graphic3d_Vec2i {.noSideEffect,
+    importcpp: "LastMousePosition", header: "AIS_ViewController.hxx".}
+proc TouchToleranceScale*(this: AIS_ViewController): cfloat {.noSideEffect,
+    importcpp: "TouchToleranceScale", header: "AIS_ViewController.hxx".}
+proc SetTouchToleranceScale*(this: var AIS_ViewController; theTolerance: cfloat) {.
+    importcpp: "SetTouchToleranceScale", header: "AIS_ViewController.hxx".}
+proc HasTouchPoints*(this: AIS_ViewController): bool {.noSideEffect,
+    importcpp: "HasTouchPoints", header: "AIS_ViewController.hxx".}
+proc AddTouchPoint*(this: var AIS_ViewController; theId: Standard_Size;
+                   thePnt: Graphic3d_Vec2d;
+                   theClearBefore: Standard_Boolean = false) {.
+    importcpp: "AddTouchPoint", header: "AIS_ViewController.hxx".}
+proc RemoveTouchPoint*(this: var AIS_ViewController; theId: Standard_Size;
+                      theClearSelectPnts: Standard_Boolean = false): bool {.
+    importcpp: "RemoveTouchPoint", header: "AIS_ViewController.hxx".}
+proc UpdateTouchPoint*(this: var AIS_ViewController; theId: Standard_Size;
+                      thePnt: Graphic3d_Vec2d) {.importcpp: "UpdateTouchPoint",
+    header: "AIS_ViewController.hxx".}
+proc Get3dMouseTranslationScale*(this: AIS_ViewController): cfloat {.noSideEffect,
     importcpp: "Get3dMouseTranslationScale", header: "AIS_ViewController.hxx".}
-proc set3dMouseTranslationScale*(this: var AIS_ViewController; theScale: cfloat) {.
+proc Set3dMouseTranslationScale*(this: var AIS_ViewController; theScale: cfloat) {.
     importcpp: "Set3dMouseTranslationScale", header: "AIS_ViewController.hxx".}
-proc get3dMouseRotationScale*(this: AIS_ViewController): cfloat {.noSideEffect,
+proc Get3dMouseRotationScale*(this: AIS_ViewController): cfloat {.noSideEffect,
     importcpp: "Get3dMouseRotationScale", header: "AIS_ViewController.hxx".}
-proc set3dMouseRotationScale*(this: var AIS_ViewController; theScale: cfloat) {.
+proc Set3dMouseRotationScale*(this: var AIS_ViewController; theScale: cfloat) {.
     importcpp: "Set3dMouseRotationScale", header: "AIS_ViewController.hxx".}
-proc to3dMousePreciseInput*(this: AIS_ViewController): bool {.noSideEffect,
+proc To3dMousePreciseInput*(this: AIS_ViewController): bool {.noSideEffect,
     importcpp: "To3dMousePreciseInput", header: "AIS_ViewController.hxx".}
-proc set3dMousePreciseInput*(this: var AIS_ViewController; theIsQuadric: bool) {.
+proc Set3dMousePreciseInput*(this: var AIS_ViewController; theIsQuadric: bool) {.
     importcpp: "Set3dMousePreciseInput", header: "AIS_ViewController.hxx".}
-proc get3dMouseIsNoRotate*(this: AIS_ViewController): NCollectionVec3[bool] {.
+proc Get3dMouseIsNoRotate*(this: AIS_ViewController): NCollection_Vec3[bool] {.
     noSideEffect, importcpp: "Get3dMouseIsNoRotate",
     header: "AIS_ViewController.hxx".}
-proc change3dMouseIsNoRotate*(this: var AIS_ViewController): var NCollectionVec3[bool] {.
-    importcpp: "Change3dMouseIsNoRotate", header: "AIS_ViewController.hxx".}
-proc get3dMouseToReverse*(this: AIS_ViewController): NCollectionVec3[bool] {.
+proc Change3dMouseIsNoRotate*(this: var AIS_ViewController): var NCollection_Vec3[
+    bool] {.importcpp: "Change3dMouseIsNoRotate", header: "AIS_ViewController.hxx".}
+proc Get3dMouseToReverse*(this: AIS_ViewController): NCollection_Vec3[bool] {.
     noSideEffect, importcpp: "Get3dMouseToReverse",
     header: "AIS_ViewController.hxx".}
-proc change3dMouseToReverse*(this: var AIS_ViewController): var NCollectionVec3[bool] {.
+proc Change3dMouseToReverse*(this: var AIS_ViewController): var NCollection_Vec3[bool] {.
     importcpp: "Change3dMouseToReverse", header: "AIS_ViewController.hxx".}
-proc update3dMouse*(this: var AIS_ViewController; theEvent: WNT_HIDSpaceMouse): bool {.
+proc Update3dMouse*(this: var AIS_ViewController; theEvent: WNT_HIDSpaceMouse): bool {.
     importcpp: "Update3dMouse", header: "AIS_ViewController.hxx".}
 proc update3dMouseTranslation*(this: var AIS_ViewController;
                               theEvent: WNT_HIDSpaceMouse): bool {.
@@ -385,117 +395,119 @@ proc update3dMouseRotation*(this: var AIS_ViewController;
     importcpp: "update3dMouseRotation", header: "AIS_ViewController.hxx".}
 proc update3dMouseKeys*(this: var AIS_ViewController; theEvent: WNT_HIDSpaceMouse): bool {.
     importcpp: "update3dMouseKeys", header: "AIS_ViewController.hxx".}
-proc eventTime*(this: AIS_ViewController): cdouble {.noSideEffect,
+proc EventTime*(this: AIS_ViewController): cdouble {.noSideEffect,
     importcpp: "EventTime", header: "AIS_ViewController.hxx".}
-proc resetViewInput*(this: var AIS_ViewController) {.importcpp: "ResetViewInput",
+proc ResetViewInput*(this: var AIS_ViewController) {.importcpp: "ResetViewInput",
     header: "AIS_ViewController.hxx".}
-proc updateViewOrientation*(this: var AIS_ViewController;
-                           theOrientation: V3dTypeOfOrientation; theToFitAll: bool) {.
+proc UpdateViewOrientation*(this: var AIS_ViewController;
+                           theOrientation: V3d_TypeOfOrientation;
+                           theToFitAll: bool) {.
     importcpp: "UpdateViewOrientation", header: "AIS_ViewController.hxx".}
-proc flushViewEvents*(this: var AIS_ViewController;
-                     theCtx: Handle[AIS_InteractiveContext];
-                     theView: Handle[V3dView];
-                     theToHandle: StandardBoolean = standardFalse) {.
+proc FlushViewEvents*(this: var AIS_ViewController;
+                     theCtx: handle[AIS_InteractiveContext];
+                     theView: handle[V3d_View];
+                     theToHandle: Standard_Boolean = Standard_False) {.
     importcpp: "FlushViewEvents", header: "AIS_ViewController.hxx".}
-proc handleViewEvents*(this: var AIS_ViewController;
-                      theCtx: Handle[AIS_InteractiveContext];
-                      theView: Handle[V3dView]) {.importcpp: "HandleViewEvents",
+proc HandleViewEvents*(this: var AIS_ViewController;
+                      theCtx: handle[AIS_InteractiveContext];
+                      theView: handle[V3d_View]) {.importcpp: "HandleViewEvents",
     header: "AIS_ViewController.hxx".}
-proc onSelectionChanged*(this: var AIS_ViewController;
-                        theCtx: Handle[AIS_InteractiveContext];
-                        theView: Handle[V3dView]) {.
+proc OnSelectionChanged*(this: var AIS_ViewController;
+                        theCtx: handle[AIS_InteractiveContext];
+                        theView: handle[V3d_View]) {.
     importcpp: "OnSelectionChanged", header: "AIS_ViewController.hxx".}
-proc onObjectDragged*(this: var AIS_ViewController;
-                     theCtx: Handle[AIS_InteractiveContext];
-                     theView: Handle[V3dView]; theAction: AIS_DragAction) {.
+proc OnObjectDragged*(this: var AIS_ViewController;
+                     theCtx: handle[AIS_InteractiveContext];
+                     theView: handle[V3d_View]; theAction: AIS_DragAction) {.
     importcpp: "OnObjectDragged", header: "AIS_ViewController.hxx".}
-proc pickPoint*(this: var AIS_ViewController; thePnt: var GpPnt;
-               theCtx: Handle[AIS_InteractiveContext]; theView: Handle[V3dView];
-               theCursor: Graphic3dVec2i; theToStickToPickRay: bool): bool {.
+proc PickPoint*(this: var AIS_ViewController; thePnt: var gp_Pnt;
+               theCtx: handle[AIS_InteractiveContext]; theView: handle[V3d_View];
+               theCursor: Graphic3d_Vec2i; theToStickToPickRay: bool): bool {.
     importcpp: "PickPoint", header: "AIS_ViewController.hxx".}
-proc gravityPoint*(this: var AIS_ViewController;
-                  theCtx: Handle[AIS_InteractiveContext]; theView: Handle[V3dView]): GpPnt {.
-    importcpp: "GravityPoint", header: "AIS_ViewController.hxx".}
-proc fitAllAuto*(this: var AIS_ViewController;
-                theCtx: Handle[AIS_InteractiveContext]; theView: Handle[V3dView]) {.
+proc GravityPoint*(this: var AIS_ViewController;
+                  theCtx: handle[AIS_InteractiveContext];
+                  theView: handle[V3d_View]): gp_Pnt {.importcpp: "GravityPoint",
+    header: "AIS_ViewController.hxx".}
+proc FitAllAuto*(this: var AIS_ViewController;
+                theCtx: handle[AIS_InteractiveContext]; theView: handle[V3d_View]) {.
     importcpp: "FitAllAuto", header: "AIS_ViewController.hxx".}
 proc handleViewOrientationKeys*(this: var AIS_ViewController;
-                               theCtx: Handle[AIS_InteractiveContext];
-                               theView: Handle[V3dView]) {.
+                               theCtx: handle[AIS_InteractiveContext];
+                               theView: handle[V3d_View]) {.
     importcpp: "handleViewOrientationKeys", header: "AIS_ViewController.hxx".}
 proc handleNavigationKeys*(this: var AIS_ViewController;
-                          theCtx: Handle[AIS_InteractiveContext];
-                          theView: Handle[V3dView]): AIS_WalkDelta {.
+                          theCtx: handle[AIS_InteractiveContext];
+                          theView: handle[V3d_View]): AIS_WalkDelta {.
     importcpp: "handleNavigationKeys", header: "AIS_ViewController.hxx".}
 proc handleCameraActions*(this: var AIS_ViewController;
-                         theCtx: Handle[AIS_InteractiveContext];
-                         theView: Handle[V3dView]; theWalk: AIS_WalkDelta) {.
+                         theCtx: handle[AIS_InteractiveContext];
+                         theView: handle[V3d_View]; theWalk: AIS_WalkDelta) {.
     importcpp: "handleCameraActions", header: "AIS_ViewController.hxx".}
 proc handleMoveTo*(this: var AIS_ViewController;
-                  theCtx: Handle[AIS_InteractiveContext]; theView: Handle[V3dView]) {.
-    importcpp: "handleMoveTo", header: "AIS_ViewController.hxx".}
+                  theCtx: handle[AIS_InteractiveContext];
+                  theView: handle[V3d_View]) {.importcpp: "handleMoveTo",
+    header: "AIS_ViewController.hxx".}
 proc toAskNextFrame*(this: AIS_ViewController): bool {.noSideEffect,
     importcpp: "toAskNextFrame", header: "AIS_ViewController.hxx".}
 proc setAskNextFrame*(this: var AIS_ViewController; theToDraw: bool = true) {.
     importcpp: "setAskNextFrame", header: "AIS_ViewController.hxx".}
 proc hasPanningAnchorPoint*(this: AIS_ViewController): bool {.noSideEffect,
     importcpp: "hasPanningAnchorPoint", header: "AIS_ViewController.hxx".}
-proc panningAnchorPoint*(this: AIS_ViewController): GpPnt {.noSideEffect,
+proc panningAnchorPoint*(this: AIS_ViewController): gp_Pnt {.noSideEffect,
     importcpp: "panningAnchorPoint", header: "AIS_ViewController.hxx".}
-proc setPanningAnchorPoint*(this: var AIS_ViewController; thePnt: GpPnt) {.
+proc setPanningAnchorPoint*(this: var AIS_ViewController; thePnt: gp_Pnt) {.
     importcpp: "setPanningAnchorPoint", header: "AIS_ViewController.hxx".}
-proc handlePanning*(this: var AIS_ViewController; theView: Handle[V3dView]) {.
+proc handlePanning*(this: var AIS_ViewController; theView: handle[V3d_View]) {.
     importcpp: "handlePanning", header: "AIS_ViewController.hxx".}
-proc handleZRotate*(this: var AIS_ViewController; theView: Handle[V3dView]) {.
+proc handleZRotate*(this: var AIS_ViewController; theView: handle[V3d_View]) {.
     importcpp: "handleZRotate", header: "AIS_ViewController.hxx".}
-proc minZoomDistance*(this: AIS_ViewController): cdouble {.noSideEffect,
+proc MinZoomDistance*(this: AIS_ViewController): cdouble {.noSideEffect,
     importcpp: "MinZoomDistance", header: "AIS_ViewController.hxx".}
-proc setMinZoomDistance*(this: var AIS_ViewController; theDist: cdouble) {.
+proc SetMinZoomDistance*(this: var AIS_ViewController; theDist: cdouble) {.
     importcpp: "SetMinZoomDistance", header: "AIS_ViewController.hxx".}
-proc handleZoom*(this: var AIS_ViewController; theView: Handle[V3dView];
-                theParams: AspectScrollDelta; thePnt: ptr GpPnt) {.
+proc handleZoom*(this: var AIS_ViewController; theView: handle[V3d_View];
+                theParams: Aspect_ScrollDelta; thePnt: ptr gp_Pnt) {.
     importcpp: "handleZoom", header: "AIS_ViewController.hxx".}
-proc handleZFocusScroll*(this: var AIS_ViewController; theView: Handle[V3dView];
-                        theParams: AspectScrollDelta) {.
+proc handleZFocusScroll*(this: var AIS_ViewController; theView: handle[V3d_View];
+                        theParams: Aspect_ScrollDelta) {.
     importcpp: "handleZFocusScroll", header: "AIS_ViewController.hxx".}
-proc handleOrbitRotation*(this: var AIS_ViewController; theView: Handle[V3dView];
-                         thePnt: GpPnt; theToLockZUp: bool) {.
+proc handleOrbitRotation*(this: var AIS_ViewController; theView: handle[V3d_View];
+                         thePnt: gp_Pnt; theToLockZUp: bool) {.
     importcpp: "handleOrbitRotation", header: "AIS_ViewController.hxx".}
-proc handleViewRotation*(this: var AIS_ViewController; theView: Handle[V3dView];
+proc handleViewRotation*(this: var AIS_ViewController; theView: handle[V3d_View];
                         theYawExtra: cdouble; thePitchExtra: cdouble;
                         theRoll: cdouble; theToRestartOnIncrement: bool) {.
     importcpp: "handleViewRotation", header: "AIS_ViewController.hxx".}
 proc handleViewRedraw*(this: var AIS_ViewController;
-                      theCtx: Handle[AIS_InteractiveContext];
-                      theView: Handle[V3dView]) {.importcpp: "handleViewRedraw",
+                      theCtx: handle[AIS_InteractiveContext];
+                      theView: handle[V3d_View]) {.importcpp: "handleViewRedraw",
     header: "AIS_ViewController.hxx".}
 proc handleXRInput*(this: var AIS_ViewController;
-                   theCtx: Handle[AIS_InteractiveContext];
-                   theView: Handle[V3dView]; theWalk: AIS_WalkDelta) {.
+                   theCtx: handle[AIS_InteractiveContext];
+                   theView: handle[V3d_View]; theWalk: AIS_WalkDelta) {.
     importcpp: "handleXRInput", header: "AIS_ViewController.hxx".}
 proc handleXRTurnPad*(this: var AIS_ViewController;
-                     theCtx: Handle[AIS_InteractiveContext];
-                     theView: Handle[V3dView]) {.importcpp: "handleXRTurnPad",
+                     theCtx: handle[AIS_InteractiveContext];
+                     theView: handle[V3d_View]) {.importcpp: "handleXRTurnPad",
     header: "AIS_ViewController.hxx".}
 proc handleXRTeleport*(this: var AIS_ViewController;
-                      theCtx: Handle[AIS_InteractiveContext];
-                      theView: Handle[V3dView]) {.importcpp: "handleXRTeleport",
+                      theCtx: handle[AIS_InteractiveContext];
+                      theView: handle[V3d_View]) {.importcpp: "handleXRTeleport",
     header: "AIS_ViewController.hxx".}
 proc handleXRPicking*(this: var AIS_ViewController;
-                     theCtx: Handle[AIS_InteractiveContext];
-                     theView: Handle[V3dView]) {.importcpp: "handleXRPicking",
+                     theCtx: handle[AIS_InteractiveContext];
+                     theView: handle[V3d_View]) {.importcpp: "handleXRPicking",
     header: "AIS_ViewController.hxx".}
 proc handleXRHighlight*(this: var AIS_ViewController;
-                       theCtx: Handle[AIS_InteractiveContext];
-                       theView: Handle[V3dView]) {.importcpp: "handleXRHighlight",
-    header: "AIS_ViewController.hxx".}
+                       theCtx: handle[AIS_InteractiveContext];
+                       theView: handle[V3d_View]) {.
+    importcpp: "handleXRHighlight", header: "AIS_ViewController.hxx".}
 proc handleXRPresentations*(this: var AIS_ViewController;
-                           theCtx: Handle[AIS_InteractiveContext];
-                           theView: Handle[V3dView]) {.
+                           theCtx: handle[AIS_InteractiveContext];
+                           theView: handle[V3d_View]) {.
     importcpp: "handleXRPresentations", header: "AIS_ViewController.hxx".}
 proc handleXRMoveTo*(this: var AIS_ViewController;
-                    theCtx: Handle[AIS_InteractiveContext];
-                    theView: Handle[V3dView]; thePose: GpTrsf;
-                    theToHighlight: StandardBoolean): StandardInteger {.
+                    theCtx: handle[AIS_InteractiveContext];
+                    theView: handle[V3d_View]; thePose: gp_Trsf;
+                    theToHighlight: Standard_Boolean): Standard_Integer {.
     importcpp: "handleXRMoveTo", header: "AIS_ViewController.hxx".}
-

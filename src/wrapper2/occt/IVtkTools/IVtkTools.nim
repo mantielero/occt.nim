@@ -13,13 +13,16 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../IVtk/IVtk_Types
+
 discard "forward decl of vtkLookupTable"
 discard "forward decl of vtkMapper"
 ## ! Returns vtkLookupTable instance initialized by standrad OCCT colors used
 ## ! in wireframe mode for different kinds of sub-shapes (free/boundary/shared
 ## ! edges, isolines,...)
 
-proc initLookupTable*(): VtkSmartPointer[VtkLookupTable] {.
+proc InitLookupTable*(): vtkSmartPointer[vtkLookupTable] {.
     importcpp: "IVtkTools::InitLookupTable(@)", header: "IVtkTools.hxx".}
 ## ! Set a color for given type of sub-shapes.
 ## ! @param [in,out] theColorTable vtkLookupTable to set the color.
@@ -29,8 +32,8 @@ proc initLookupTable*(): VtkSmartPointer[VtkLookupTable] {.
 ## ! @param [in]  theB blue color component. Use [0,1] double values.
 ## ! @param [in]  theA the alpha value (the opacity) as a double between 0 and 1.
 
-proc setLookupTableColor*(theColorTable: ptr VtkLookupTable;
-                         theColorRole: IVtkMeshType; theR: cdouble; theG: cdouble;
+proc SetLookupTableColor*(theColorTable: ptr vtkLookupTable;
+                         theColorRole: IVtk_MeshType; theR: cdouble; theG: cdouble;
                          theB: cdouble; theA: cdouble = 1) {.
     importcpp: "IVtkTools::SetLookupTableColor(@)", header: "IVtkTools.hxx".}
 ## ! Get a color for given type of sub-shapes.
@@ -40,8 +43,8 @@ proc setLookupTableColor*(theColorTable: ptr VtkLookupTable;
 ## ! @param [out] theG green color component as a double between 0 and 1.
 ## ! @param [out] theB blue color component as a double between 0 and 1.
 
-proc getLookupTableColor*(theColorTable: ptr VtkLookupTable;
-                         theColorRole: IVtkMeshType; theR: var cdouble;
+proc GetLookupTableColor*(theColorTable: ptr vtkLookupTable;
+                         theColorRole: IVtk_MeshType; theR: var cdouble;
                          theG: var cdouble; theB: var cdouble) {.
     importcpp: "IVtkTools::GetLookupTableColor(@)", header: "IVtkTools.hxx".}
 ## ! Get a color for given type of sub-shapes.
@@ -52,18 +55,17 @@ proc getLookupTableColor*(theColorTable: ptr VtkLookupTable;
 ## ! @param [out] theB blue color component as a double between 0 and 1.
 ## ! @param [out] theA the alpha value (the opacity) as a double between 0 and 1.
 
-proc getLookupTableColor*(theColorTable: ptr VtkLookupTable;
-                         theColorRole: IVtkMeshType; theR: var cdouble;
+proc GetLookupTableColor*(theColorTable: ptr vtkLookupTable;
+                         theColorRole: IVtk_MeshType; theR: var cdouble;
                          theG: var cdouble; theB: var cdouble; theA: var cdouble) {.
     importcpp: "IVtkTools::GetLookupTableColor(@)", header: "IVtkTools.hxx".}
 ## ! Set up the initial shape mapper parameters with default OCC colors.
 
-proc initShapeMapper*(theMapper: ptr VtkMapper) {.
+proc InitShapeMapper*(theMapper: ptr vtkMapper) {.
     importcpp: "IVtkTools::InitShapeMapper(@)", header: "IVtkTools.hxx".}
 ## ! Set up the initial shape mapper parameters with user colors.
 ## ! @param [in,out] theMapper mapper to initialize
 ## ! @param [in] theColorTable a table with user's colors definition
 
-proc initShapeMapper*(theMapper: ptr VtkMapper; theColorTable: ptr VtkLookupTable) {.
+proc InitShapeMapper*(theMapper: ptr vtkMapper; theColorTable: ptr vtkLookupTable) {.
     importcpp: "IVtkTools::InitShapeMapper(@)", header: "IVtkTools.hxx".}
-

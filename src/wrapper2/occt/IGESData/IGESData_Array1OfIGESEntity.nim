@@ -14,7 +14,8 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  IGESData_IGESEntity, ../NCollection/NCollection_Array1
+
 type
-  IGESDataArray1OfIGESEntity* = NCollectionArray1[Handle[IGESDataIGESEntity]]
-
-
+  IGESData_Array1OfIGESEntity* = NCollection_Array1[handle[IGESData_IGESEntity]]

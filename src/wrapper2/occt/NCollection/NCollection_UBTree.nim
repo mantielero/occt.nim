@@ -13,7 +13,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # NCollection_UBTree_HeaderFile [NewLine] # NCollection_UBTree_HeaderFile [NewLine] # < NCollection_BaseAllocator . hxx > [NewLine] # < NCollection_DefineAlloc . hxx > [NewLine] *
+## !!!Ignored construct:  # NCollection_UBTree_HeaderFile [NewLine] # NCollection_UBTree_HeaderFile [NewLine] # NCollection_BaseAllocator.hxx [NewLine] # NCollection_DefineAlloc.hxx [NewLine] *
 ##  The algorithm of unbalanced binary tree of overlapped bounding boxes.
 ##
 ##  Once the tree of boxes  of geometric objects is constructed, the algorithm
@@ -167,9 +167,7 @@
 
 discard "forward decl of _HUBTREE"
 type
-  HandleHUBTREE* = Handle[Hubtree]
+  Handle__HUBTREE* = handle[_HUBTREE]
 
 ## !!!Ignored construct:  [NewLine] # IMPLEMENT_HUBTREE ( _HUBTREE , _HPARENT ) [NewLine] # [NewLine]
 ## Error: did not expect [NewLine]!!!
-
-

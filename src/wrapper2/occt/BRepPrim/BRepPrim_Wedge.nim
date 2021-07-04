@@ -14,27 +14,30 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, BRepPrim_GWedge, ../Standard/Standard_Real
+
 discard "forward decl of Standard_DomainError"
 discard "forward decl of gp_Ax2"
 type
-  BRepPrimWedge* {.importcpp: "BRepPrim_Wedge", header: "BRepPrim_Wedge.hxx", bycopy.} = object of BRepPrimGWedge ##
-                                                                                                        ## !
-                                                                                                        ## Default
-                                                                                                        ## constructor
+  BRepPrim_Wedge* {.importcpp: "BRepPrim_Wedge", header: "BRepPrim_Wedge.hxx", bycopy.} = object of BRepPrim_GWedge ##
+                                                                                                          ## !
+                                                                                                          ## Default
+                                                                                                          ## constructor
 
 
-proc constructBRepPrimWedge*(): BRepPrimWedge {.constructor,
+proc constructBRepPrim_Wedge*(): BRepPrim_Wedge {.constructor,
     importcpp: "BRepPrim_Wedge(@)", header: "BRepPrim_Wedge.hxx".}
-proc constructBRepPrimWedge*(axes: GpAx2; dx: StandardReal; dy: StandardReal;
-                            dz: StandardReal): BRepPrimWedge {.constructor,
+proc constructBRepPrim_Wedge*(Axes: gp_Ax2; dx: Standard_Real; dy: Standard_Real;
+                             dz: Standard_Real): BRepPrim_Wedge {.constructor,
     importcpp: "BRepPrim_Wedge(@)", header: "BRepPrim_Wedge.hxx".}
-proc constructBRepPrimWedge*(axes: GpAx2; dx: StandardReal; dy: StandardReal;
-                            dz: StandardReal; ltx: StandardReal): BRepPrimWedge {.
+proc constructBRepPrim_Wedge*(Axes: gp_Ax2; dx: Standard_Real; dy: Standard_Real;
+                             dz: Standard_Real; ltx: Standard_Real): BRepPrim_Wedge {.
     constructor, importcpp: "BRepPrim_Wedge(@)", header: "BRepPrim_Wedge.hxx".}
-proc constructBRepPrimWedge*(axes: GpAx2; xmin: StandardReal; ymin: StandardReal;
-                            zmin: StandardReal; z2min: StandardReal;
-                            x2min: StandardReal; xmax: StandardReal;
-                            ymax: StandardReal; zmax: StandardReal;
-                            z2max: StandardReal; x2max: StandardReal): BRepPrimWedge {.
+proc constructBRepPrim_Wedge*(Axes: gp_Ax2; xmin: Standard_Real; ymin: Standard_Real;
+                             zmin: Standard_Real; z2min: Standard_Real;
+                             x2min: Standard_Real; xmax: Standard_Real;
+                             ymax: Standard_Real; zmax: Standard_Real;
+                             z2max: Standard_Real; x2max: Standard_Real): BRepPrim_Wedge {.
     constructor, importcpp: "BRepPrim_Wedge(@)", header: "BRepPrim_Wedge.hxx".}
-

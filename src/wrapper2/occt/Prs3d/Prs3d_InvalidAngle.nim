@@ -14,17 +14,15 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _Prs3d_InvalidAngle_HeaderFile [NewLine] # _Prs3d_InvalidAngle_HeaderFile [NewLine] # < Standard_Type . hxx > [NewLine] # < Standard_DefineException . hxx > [NewLine] # < Standard_SStream . hxx > [NewLine] # < Standard_RangeError . hxx > [NewLine] class Prs3d_InvalidAngle ;
+## !!!Ignored construct:  # _Prs3d_InvalidAngle_HeaderFile [NewLine] # _Prs3d_InvalidAngle_HeaderFile [NewLine] # ../Standard/Standard_Type.hxx [NewLine] # ../Standard/Standard_DefineException.hxx [NewLine] # ../Standard/Standard_SStream.hxx [NewLine] # ../Standard/Standard_RangeError.hxx [NewLine] class Prs3d_InvalidAngle ;
 ## Error: expected ';'!!!
 
 discard "forward decl of Prs3d_InvalidAngle"
 type
-  HandlePrs3dInvalidAnglePrs3dInvalidAngle* = Handle[Prs3dInvalidAngle]
+  Handle_Prs3d_InvalidAnglePrs3d_InvalidAngle* = handle[Prs3d_InvalidAngle]
 
 ## !!!Ignored construct:  # ! defined No_Exception && ! defined No_Prs3d_InvalidAngle [NewLine] # if ( CONDITION ) throw Prs3d_InvalidAngle ( MESSAGE ) ;
 ## Error: did not expect [NewLine]!!!
 
-## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( Prs3d_InvalidAngle , Standard_RangeError ) #  _Prs3d_InvalidAngle_HeaderFile
+## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( Prs3d_InvalidAngle , Standard_RangeError ) #  _Prs3d_InvalidAngle_HeaderFile [NewLine]
 ## Error: did not expect [NewLine]!!!
-
-

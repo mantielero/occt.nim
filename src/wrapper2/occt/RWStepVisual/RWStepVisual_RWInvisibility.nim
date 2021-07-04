@@ -14,27 +14,32 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepVisual_Invisibility"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepVisualRWInvisibility* {.importcpp: "RWStepVisual_RWInvisibility",
-                               header: "RWStepVisual_RWInvisibility.hxx", bycopy.} = object
+  RWStepVisual_RWInvisibility* {.importcpp: "RWStepVisual_RWInvisibility",
+                                header: "RWStepVisual_RWInvisibility.hxx", bycopy.} = object
 
 
-proc constructRWStepVisualRWInvisibility*(): RWStepVisualRWInvisibility {.
+proc constructRWStepVisual_RWInvisibility*(): RWStepVisual_RWInvisibility {.
     constructor, importcpp: "RWStepVisual_RWInvisibility(@)",
     header: "RWStepVisual_RWInvisibility.hxx".}
-proc readStep*(this: RWStepVisualRWInvisibility;
-              data: Handle[StepDataStepReaderData]; num: StandardInteger;
-              ach: var Handle[InterfaceCheck]; ent: Handle[StepVisualInvisibility]) {.
-    noSideEffect, importcpp: "ReadStep", header: "RWStepVisual_RWInvisibility.hxx".}
-proc writeStep*(this: RWStepVisualRWInvisibility; sw: var StepDataStepWriter;
-               ent: Handle[StepVisualInvisibility]) {.noSideEffect,
+proc ReadStep*(this: RWStepVisual_RWInvisibility;
+              data: handle[StepData_StepReaderData]; num: Standard_Integer;
+              ach: var handle[Interface_Check];
+              ent: handle[StepVisual_Invisibility]) {.noSideEffect,
+    importcpp: "ReadStep", header: "RWStepVisual_RWInvisibility.hxx".}
+proc WriteStep*(this: RWStepVisual_RWInvisibility; SW: var StepData_StepWriter;
+               ent: handle[StepVisual_Invisibility]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepVisual_RWInvisibility.hxx".}
-proc share*(this: RWStepVisualRWInvisibility; ent: Handle[StepVisualInvisibility];
-           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
+proc Share*(this: RWStepVisual_RWInvisibility;
+           ent: handle[StepVisual_Invisibility];
+           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepVisual_RWInvisibility.hxx".}
-

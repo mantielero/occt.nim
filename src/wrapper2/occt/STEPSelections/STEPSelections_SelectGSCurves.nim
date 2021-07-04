@@ -14,6 +14,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type,
+  ../IFSelect/IFSelect_SelectExplore, ../Standard/Standard_Boolean,
+  ../Standard/Standard_Integer
+
 discard "forward decl of Standard_Transient"
 discard "forward decl of Interface_Graph"
 discard "forward decl of Interface_EntityIterator"
@@ -21,35 +26,34 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of STEPSelections_SelectGSCurves"
 discard "forward decl of STEPSelections_SelectGSCurves"
 type
-  HandleSTEPSelectionsSelectGSCurves* = Handle[STEPSelectionsSelectGSCurves]
+  Handle_STEPSelections_SelectGSCurves* = handle[STEPSelections_SelectGSCurves]
 
 ## ! This selection returns "curves in the geometric_set (except composite curves)"
 
 type
-  STEPSelectionsSelectGSCurves* {.importcpp: "STEPSelections_SelectGSCurves",
-                                 header: "STEPSelections_SelectGSCurves.hxx",
-                                 bycopy.} = object of IFSelectSelectExplore
+  STEPSelections_SelectGSCurves* {.importcpp: "STEPSelections_SelectGSCurves",
+                                  header: "STEPSelections_SelectGSCurves.hxx",
+                                  bycopy.} = object of IFSelect_SelectExplore
 
 
-proc constructSTEPSelectionsSelectGSCurves*(): STEPSelectionsSelectGSCurves {.
+proc constructSTEPSelections_SelectGSCurves*(): STEPSelections_SelectGSCurves {.
     constructor, importcpp: "STEPSelections_SelectGSCurves(@)",
     header: "STEPSelections_SelectGSCurves.hxx".}
-proc explore*(this: STEPSelectionsSelectGSCurves; level: StandardInteger;
-             ent: Handle[StandardTransient]; g: InterfaceGraph;
-             explored: var InterfaceEntityIterator): StandardBoolean {.noSideEffect,
-    importcpp: "Explore", header: "STEPSelections_SelectGSCurves.hxx".}
-proc exploreLabel*(this: STEPSelectionsSelectGSCurves): TCollectionAsciiString {.
+proc Explore*(this: STEPSelections_SelectGSCurves; level: Standard_Integer;
+             ent: handle[Standard_Transient]; G: Interface_Graph;
+             explored: var Interface_EntityIterator): Standard_Boolean {.
+    noSideEffect, importcpp: "Explore", header: "STEPSelections_SelectGSCurves.hxx".}
+proc ExploreLabel*(this: STEPSelections_SelectGSCurves): TCollection_AsciiString {.
     noSideEffect, importcpp: "ExploreLabel",
     header: "STEPSelections_SelectGSCurves.hxx".}
 type
-  STEPSelectionsSelectGSCurvesbaseType* = IFSelectSelectExplore
+  STEPSelections_SelectGSCurvesbase_type* = IFSelect_SelectExplore
 
-proc getTypeName*(): cstring {.importcpp: "STEPSelections_SelectGSCurves::get_type_name(@)",
-                            header: "STEPSelections_SelectGSCurves.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "STEPSelections_SelectGSCurves::get_type_name(@)",
+                              header: "STEPSelections_SelectGSCurves.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "STEPSelections_SelectGSCurves::get_type_descriptor(@)",
     header: "STEPSelections_SelectGSCurves.hxx".}
-proc dynamicType*(this: STEPSelectionsSelectGSCurves): Handle[StandardType] {.
+proc DynamicType*(this: STEPSelections_SelectGSCurves): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType",
     header: "STEPSelections_SelectGSCurves.hxx".}
-

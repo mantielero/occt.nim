@@ -12,46 +12,48 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  OpenGl_Texture
+
 discard "forward decl of OpenGl_PointSprite"
 discard "forward decl of OpenGl_PointSprite"
 type
-  HandleOpenGlPointSprite* = Handle[OpenGlPointSprite]
+  Handle_OpenGl_PointSprite* = handle[OpenGl_PointSprite]
 
 ## ! Point sprite resource. On modern hardware it will be texture with extra parameters.
 ## ! On ancient hardware sprites will be drawn using bitmaps.
 
 type
-  OpenGlPointSprite* {.importcpp: "OpenGl_PointSprite",
-                      header: "OpenGl_PointSprite.hxx", bycopy.} = object of OpenGlTexture ##
-                                                                                    ## !
-                                                                                    ## Create
-                                                                                    ## uninitialized
-                                                                                    ## resource.
+  OpenGl_PointSprite* {.importcpp: "OpenGl_PointSprite",
+                       header: "OpenGl_PointSprite.hxx", bycopy.} = object of OpenGl_Texture ##
+                                                                                      ## !
+                                                                                      ## Create
+                                                                                      ## uninitialized
+                                                                                      ## resource.
     ## !< if of display list to draw sprite using glBitmap (for backward compatibility)
 
-  OpenGlPointSpritebaseType* = OpenGlTexture
+  OpenGl_PointSpritebase_type* = OpenGl_Texture
 
-proc getTypeName*(): cstring {.importcpp: "OpenGl_PointSprite::get_type_name(@)",
-                            header: "OpenGl_PointSprite.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "OpenGl_PointSprite::get_type_name(@)",
+                              header: "OpenGl_PointSprite.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "OpenGl_PointSprite::get_type_descriptor(@)",
     header: "OpenGl_PointSprite.hxx".}
-proc dynamicType*(this: OpenGlPointSprite): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: OpenGl_PointSprite): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "OpenGl_PointSprite.hxx".}
-proc constructOpenGlPointSprite*(theResourceId: TCollectionAsciiString): OpenGlPointSprite {.
+proc constructOpenGl_PointSprite*(theResourceId: TCollection_AsciiString): OpenGl_PointSprite {.
     constructor, importcpp: "OpenGl_PointSprite(@)",
     header: "OpenGl_PointSprite.hxx".}
-proc destroyOpenGlPointSprite*(this: var OpenGlPointSprite) {.
+proc destroyOpenGl_PointSprite*(this: var OpenGl_PointSprite) {.
     importcpp: "#.~OpenGl_PointSprite()", header: "OpenGl_PointSprite.hxx".}
-proc release*(this: var OpenGlPointSprite; theCtx: ptr OpenGlContext) {.
+proc Release*(this: var OpenGl_PointSprite; theCtx: ptr OpenGl_Context) {.
     importcpp: "Release", header: "OpenGl_PointSprite.hxx".}
-proc isPointSprite*(this: OpenGlPointSprite): bool {.noSideEffect,
+proc IsPointSprite*(this: OpenGl_PointSprite): bool {.noSideEffect,
     importcpp: "IsPointSprite", header: "OpenGl_PointSprite.hxx".}
-proc isDisplayList*(this: OpenGlPointSprite): StandardBoolean {.noSideEffect,
+proc IsDisplayList*(this: OpenGl_PointSprite): Standard_Boolean {.noSideEffect,
     importcpp: "IsDisplayList", header: "OpenGl_PointSprite.hxx".}
-proc drawBitmap*(this: OpenGlPointSprite; theCtx: Handle[OpenGlContext]) {.
+proc DrawBitmap*(this: OpenGl_PointSprite; theCtx: handle[OpenGl_Context]) {.
     noSideEffect, importcpp: "DrawBitmap", header: "OpenGl_PointSprite.hxx".}
-proc setDisplayList*(this: var OpenGlPointSprite; theCtx: Handle[OpenGlContext];
+proc SetDisplayList*(this: var OpenGl_PointSprite; theCtx: handle[OpenGl_Context];
                     theBitmapList: GLuint) {.importcpp: "SetDisplayList",
     header: "OpenGl_PointSprite.hxx".}
-

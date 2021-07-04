@@ -13,19 +13,26 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  Poly_Triangulation, Poly_CoherentNode, Poly_CoherentTriangle, Poly_CoherentLink,
+  ../NCollection/NCollection_Vector
+
 discard "forward decl of Poly_CoherentTriangulation"
 discard "forward decl of NCollection_List"
 type
-  PolyBaseIteratorOfCoherentTriangle* = Iterator[PolyCoherentTriangle]
-  PolyBaseIteratorOfCoherentNode* = Iterator[PolyCoherentNode]
-  PolyBaseIteratorOfCoherentLink* = Iterator[PolyCoherentLink]
+  Poly_BaseIteratorOfCoherentTriangle* = Iterator[Poly_CoherentTriangle]
+  Poly_BaseIteratorOfCoherentNode* = Iterator[Poly_CoherentNode]
+  Poly_BaseIteratorOfCoherentLink* = Iterator[Poly_CoherentLink]
 
 ## ! Definition of HANDLE object using Standard_DefineHandle.hxx
+
+import
+  ../Standard/Standard_Type
 
 discard "forward decl of Poly_CoherentTriangulation"
 discard "forward decl of Poly_CoherentTriangulation"
 type
-  HandlePolyCoherentTriangulation* = Handle[PolyCoherentTriangulation]
+  Handle_Poly_CoherentTriangulation* = handle[Poly_CoherentTriangulation]
 
 ## *
 ##  Triangulation structure that allows to:
@@ -87,157 +94,162 @@ type
 ##
 
 type
-  PolyCoherentTriangulation* {.importcpp: "Poly_CoherentTriangulation",
-                              header: "Poly_CoherentTriangulation.hxx", bycopy.} = object of StandardTransient ## *
-                                                                                                        ##  Subclass Iterator - allows to iterate all triangles skipping those that
-                                                                                                        ##  have been removed.
-                                                                                                        ##
-                                                                                                        ##  ---------- PUBLIC METHODS ----------
-                                                                                                        ## *
-                                                                                                        ##  Empty constructor.
-                                                                                                        ##
-                                                                                                        ##  ---------- PROTECTED METHODS ----------
-                                                                                                        ##  ---------- PROTECTED FIELDS ----------
-                                                                                                        ##  Declaration of CASCADE RTTI
+  Poly_CoherentTriangulation* {.importcpp: "Poly_CoherentTriangulation",
+                               header: "Poly_CoherentTriangulation.hxx", bycopy.} = object of Standard_Transient ## *
+                                                                                                          ##  Subclass Iterator - allows to iterate all triangles skipping those that
+                                                                                                          ##  have been removed.
+                                                                                                          ##
+                                                                                                          ##  ---------- PUBLIC METHODS ----------
+                                                                                                          ## *
+                                                                                                          ##  Empty constructor.
+                                                                                                          ##
+                                                                                                          ##  ---------- PROTECTED METHODS ----------
+                                                                                                          ##  ---------- PROTECTED FIELDS ----------
+                                                                                                          ##  Declaration of CASCADE RTTI
 
-  PolyCoherentTriangulationIteratorOfTriangle* {.
+  Poly_CoherentTriangulationIteratorOfTriangle* {.
       importcpp: "Poly_CoherentTriangulation::IteratorOfTriangle",
-      header: "Poly_CoherentTriangulation.hxx", bycopy.} = object of PolyBaseIteratorOfCoherentTriangle ##
-                                                                                                 ## !
-                                                                                                 ## Constructor
+      header: "Poly_CoherentTriangulation.hxx", bycopy.} = object of Poly_BaseIteratorOfCoherentTriangle ##
+                                                                                                  ## !
+                                                                                                  ## Constructor
 
 
-proc constructPolyCoherentTriangulationIteratorOfTriangle*(
-    theTri: Handle[PolyCoherentTriangulation]): PolyCoherentTriangulationIteratorOfTriangle {.
+proc constructPoly_CoherentTriangulationIteratorOfTriangle*(
+    theTri: handle[Poly_CoherentTriangulation]): Poly_CoherentTriangulationIteratorOfTriangle {.
     constructor, importcpp: "Poly_CoherentTriangulation::IteratorOfTriangle(@)",
     header: "Poly_CoherentTriangulation.hxx".}
-proc next*(this: var PolyCoherentTriangulationIteratorOfTriangle) {.
+proc Next*(this: var Poly_CoherentTriangulationIteratorOfTriangle) {.
     importcpp: "Next", header: "Poly_CoherentTriangulation.hxx".}
 type
-  PolyCoherentTriangulationIteratorOfNode* {.
+  Poly_CoherentTriangulationIteratorOfNode* {.
       importcpp: "Poly_CoherentTriangulation::IteratorOfNode",
-      header: "Poly_CoherentTriangulation.hxx", bycopy.} = object of PolyBaseIteratorOfCoherentNode ##
-                                                                                             ## !
-                                                                                             ## Constructor
+      header: "Poly_CoherentTriangulation.hxx", bycopy.} = object of Poly_BaseIteratorOfCoherentNode ##
+                                                                                              ## !
+                                                                                              ## Constructor
 
 
-proc constructPolyCoherentTriangulationIteratorOfNode*(
-    theTri: Handle[PolyCoherentTriangulation]): PolyCoherentTriangulationIteratorOfNode {.
+proc constructPoly_CoherentTriangulationIteratorOfNode*(
+    theTri: handle[Poly_CoherentTriangulation]): Poly_CoherentTriangulationIteratorOfNode {.
     constructor, importcpp: "Poly_CoherentTriangulation::IteratorOfNode(@)",
     header: "Poly_CoherentTriangulation.hxx".}
-proc next*(this: var PolyCoherentTriangulationIteratorOfNode) {.importcpp: "Next",
+proc Next*(this: var Poly_CoherentTriangulationIteratorOfNode) {.importcpp: "Next",
     header: "Poly_CoherentTriangulation.hxx".}
 type
-  PolyCoherentTriangulationIteratorOfLink* {.
+  Poly_CoherentTriangulationIteratorOfLink* {.
       importcpp: "Poly_CoherentTriangulation::IteratorOfLink",
-      header: "Poly_CoherentTriangulation.hxx", bycopy.} = object of PolyBaseIteratorOfCoherentLink ##
-                                                                                             ## !
-                                                                                             ## Constructor
+      header: "Poly_CoherentTriangulation.hxx", bycopy.} = object of Poly_BaseIteratorOfCoherentLink ##
+                                                                                              ## !
+                                                                                              ## Constructor
 
 
-proc constructPolyCoherentTriangulationIteratorOfLink*(
-    theTri: Handle[PolyCoherentTriangulation]): PolyCoherentTriangulationIteratorOfLink {.
+proc constructPoly_CoherentTriangulationIteratorOfLink*(
+    theTri: handle[Poly_CoherentTriangulation]): Poly_CoherentTriangulationIteratorOfLink {.
     constructor, importcpp: "Poly_CoherentTriangulation::IteratorOfLink(@)",
     header: "Poly_CoherentTriangulation.hxx".}
-proc next*(this: var PolyCoherentTriangulationIteratorOfLink) {.importcpp: "Next",
+proc Next*(this: var Poly_CoherentTriangulationIteratorOfLink) {.importcpp: "Next",
     header: "Poly_CoherentTriangulation.hxx".}
 type
-  PolyCoherentTriangulationTwoIntegers* {.
+  Poly_CoherentTriangulationTwoIntegers* {.
       importcpp: "Poly_CoherentTriangulation::TwoIntegers",
       header: "Poly_CoherentTriangulation.hxx", bycopy.} = object
-    myValue* {.importc: "myValue".}: array[2, StandardInteger]
+    myValue* {.importc: "myValue".}: array[2, Standard_Integer]
 
 
-proc constructPolyCoherentTriangulationTwoIntegers*(): PolyCoherentTriangulationTwoIntegers {.
+proc constructPoly_CoherentTriangulationTwoIntegers*(): Poly_CoherentTriangulationTwoIntegers {.
     constructor, importcpp: "Poly_CoherentTriangulation::TwoIntegers(@)",
     header: "Poly_CoherentTriangulation.hxx".}
-proc constructPolyCoherentTriangulationTwoIntegers*(i0: StandardInteger;
-    i1: StandardInteger): PolyCoherentTriangulationTwoIntegers {.constructor,
+proc constructPoly_CoherentTriangulationTwoIntegers*(i0: Standard_Integer;
+    i1: Standard_Integer): Poly_CoherentTriangulationTwoIntegers {.constructor,
     importcpp: "Poly_CoherentTriangulation::TwoIntegers(@)",
     header: "Poly_CoherentTriangulation.hxx".}
-proc constructPolyCoherentTriangulation*(theAlloc: Handle[NCollectionBaseAllocator] = 0'i64): PolyCoherentTriangulation {.
+proc constructPoly_CoherentTriangulation*(
+    theAlloc: handle[NCollection_BaseAllocator] = 0L'i64): Poly_CoherentTriangulation {.
     constructor, importcpp: "Poly_CoherentTriangulation(@)",
     header: "Poly_CoherentTriangulation.hxx".}
-proc constructPolyCoherentTriangulation*(theTriangulation: Handle[
-    PolyTriangulation]; theAlloc: Handle[NCollectionBaseAllocator] = 0'i64): PolyCoherentTriangulation {.
+proc constructPoly_CoherentTriangulation*(
+    theTriangulation: handle[Poly_Triangulation];
+    theAlloc: handle[NCollection_BaseAllocator] = 0L'i64): Poly_CoherentTriangulation {.
     constructor, importcpp: "Poly_CoherentTriangulation(@)",
     header: "Poly_CoherentTriangulation.hxx".}
-proc destroyPolyCoherentTriangulation*(this: var PolyCoherentTriangulation) {.
+proc destroyPoly_CoherentTriangulation*(this: var Poly_CoherentTriangulation) {.
     importcpp: "#.~Poly_CoherentTriangulation()",
     header: "Poly_CoherentTriangulation.hxx".}
-proc getTriangulation*(this: PolyCoherentTriangulation): Handle[PolyTriangulation] {.
+proc GetTriangulation*(this: Poly_CoherentTriangulation): handle[Poly_Triangulation] {.
     noSideEffect, importcpp: "GetTriangulation",
     header: "Poly_CoherentTriangulation.hxx".}
-proc removeDegenerated*(this: var PolyCoherentTriangulation; theTol: StandardReal;
-    pLstRemovedNode: ptr NCollectionList[PolyCoherentTriangulationTwoIntegers] = 0'i64): StandardBoolean {.
+proc RemoveDegenerated*(this: var Poly_CoherentTriangulation; theTol: Standard_Real;
+    pLstRemovedNode: ptr NCollection_List[Poly_CoherentTriangulationTwoIntegers] = 0L'i64): Standard_Boolean {.
     importcpp: "RemoveDegenerated", header: "Poly_CoherentTriangulation.hxx".}
-proc getFreeNodes*(this: PolyCoherentTriangulation;
-                  lstNodes: var NCollectionList[StandardInteger]): StandardBoolean {.
+proc GetFreeNodes*(this: Poly_CoherentTriangulation;
+                  lstNodes: var NCollection_List[Standard_Integer]): Standard_Boolean {.
     noSideEffect, importcpp: "GetFreeNodes",
     header: "Poly_CoherentTriangulation.hxx".}
-proc maxNode*(this: PolyCoherentTriangulation): StandardInteger {.noSideEffect,
+proc MaxNode*(this: Poly_CoherentTriangulation): Standard_Integer {.noSideEffect,
     importcpp: "MaxNode", header: "Poly_CoherentTriangulation.hxx".}
-proc maxTriangle*(this: PolyCoherentTriangulation): StandardInteger {.noSideEffect,
-    importcpp: "MaxTriangle", header: "Poly_CoherentTriangulation.hxx".}
-proc setDeflection*(this: var PolyCoherentTriangulation; theDefl: StandardReal) {.
+proc MaxTriangle*(this: Poly_CoherentTriangulation): Standard_Integer {.
+    noSideEffect, importcpp: "MaxTriangle",
+    header: "Poly_CoherentTriangulation.hxx".}
+proc SetDeflection*(this: var Poly_CoherentTriangulation; theDefl: Standard_Real) {.
     importcpp: "SetDeflection", header: "Poly_CoherentTriangulation.hxx".}
-proc deflection*(this: PolyCoherentTriangulation): StandardReal {.noSideEffect,
+proc Deflection*(this: Poly_CoherentTriangulation): Standard_Real {.noSideEffect,
     importcpp: "Deflection", header: "Poly_CoherentTriangulation.hxx".}
-proc setNode*(this: var PolyCoherentTriangulation; thePnt: GpXYZ;
-             `iN`: StandardInteger = -1): StandardInteger {.importcpp: "SetNode",
+proc SetNode*(this: var Poly_CoherentTriangulation; thePnt: gp_XYZ;
+             `iN`: Standard_Integer = -1): Standard_Integer {.importcpp: "SetNode",
     header: "Poly_CoherentTriangulation.hxx".}
-proc node*(this: PolyCoherentTriangulation; i: StandardInteger): PolyCoherentNode {.
+proc Node*(this: Poly_CoherentTriangulation; i: Standard_Integer): Poly_CoherentNode {.
     noSideEffect, importcpp: "Node", header: "Poly_CoherentTriangulation.hxx".}
-proc changeNode*(this: var PolyCoherentTriangulation; i: StandardInteger): var PolyCoherentNode {.
+proc ChangeNode*(this: var Poly_CoherentTriangulation; i: Standard_Integer): var Poly_CoherentNode {.
     importcpp: "ChangeNode", header: "Poly_CoherentTriangulation.hxx".}
-proc nNodes*(this: PolyCoherentTriangulation): StandardInteger {.noSideEffect,
+proc NNodes*(this: Poly_CoherentTriangulation): Standard_Integer {.noSideEffect,
     importcpp: "NNodes", header: "Poly_CoherentTriangulation.hxx".}
-proc triangle*(this: PolyCoherentTriangulation; i: StandardInteger): PolyCoherentTriangle {.
+proc Triangle*(this: Poly_CoherentTriangulation; i: Standard_Integer): Poly_CoherentTriangle {.
     noSideEffect, importcpp: "Triangle", header: "Poly_CoherentTriangulation.hxx".}
-proc nTriangles*(this: PolyCoherentTriangulation): StandardInteger {.noSideEffect,
+proc NTriangles*(this: Poly_CoherentTriangulation): Standard_Integer {.noSideEffect,
     importcpp: "NTriangles", header: "Poly_CoherentTriangulation.hxx".}
-proc nLinks*(this: PolyCoherentTriangulation): StandardInteger {.noSideEffect,
+proc NLinks*(this: Poly_CoherentTriangulation): Standard_Integer {.noSideEffect,
     importcpp: "NLinks", header: "Poly_CoherentTriangulation.hxx".}
-proc removeTriangle*(this: var PolyCoherentTriangulation;
-                    theTr: var PolyCoherentTriangle): StandardBoolean {.
+proc RemoveTriangle*(this: var Poly_CoherentTriangulation;
+                    theTr: var Poly_CoherentTriangle): Standard_Boolean {.
     importcpp: "RemoveTriangle", header: "Poly_CoherentTriangulation.hxx".}
-proc removeLink*(this: var PolyCoherentTriangulation; theLink: var PolyCoherentLink) {.
-    importcpp: "RemoveLink", header: "Poly_CoherentTriangulation.hxx".}
-proc addTriangle*(this: var PolyCoherentTriangulation; iNode0: StandardInteger;
-                 iNode1: StandardInteger; iNode2: StandardInteger): ptr PolyCoherentTriangle {.
-    importcpp: "AddTriangle", header: "Poly_CoherentTriangulation.hxx".}
-proc replaceNodes*(this: var PolyCoherentTriangulation;
-                  theTriangle: var PolyCoherentTriangle; iNode0: StandardInteger;
-                  iNode1: StandardInteger; iNode2: StandardInteger): StandardBoolean {.
-    importcpp: "ReplaceNodes", header: "Poly_CoherentTriangulation.hxx".}
-proc addLink*(this: var PolyCoherentTriangulation; theTri: PolyCoherentTriangle;
-             theConn: StandardInteger): ptr PolyCoherentLink {.importcpp: "AddLink",
+proc RemoveLink*(this: var Poly_CoherentTriangulation;
+                theLink: var Poly_CoherentLink) {.importcpp: "RemoveLink",
     header: "Poly_CoherentTriangulation.hxx".}
-proc findTriangle*(this: PolyCoherentTriangulation; theLink: PolyCoherentLink;
-                  pTri: array[2, ptr PolyCoherentTriangle]): StandardBoolean {.
+proc AddTriangle*(this: var Poly_CoherentTriangulation; iNode0: Standard_Integer;
+                 iNode1: Standard_Integer; iNode2: Standard_Integer): ptr Poly_CoherentTriangle {.
+    importcpp: "AddTriangle", header: "Poly_CoherentTriangulation.hxx".}
+proc ReplaceNodes*(this: var Poly_CoherentTriangulation;
+                  theTriangle: var Poly_CoherentTriangle; iNode0: Standard_Integer;
+                  iNode1: Standard_Integer; iNode2: Standard_Integer): Standard_Boolean {.
+    importcpp: "ReplaceNodes", header: "Poly_CoherentTriangulation.hxx".}
+proc AddLink*(this: var Poly_CoherentTriangulation; theTri: Poly_CoherentTriangle;
+             theConn: Standard_Integer): ptr Poly_CoherentLink {.
+    importcpp: "AddLink", header: "Poly_CoherentTriangulation.hxx".}
+proc FindTriangle*(this: Poly_CoherentTriangulation; theLink: Poly_CoherentLink;
+                  pTri: array[2, ptr Poly_CoherentTriangle]): Standard_Boolean {.
     noSideEffect, importcpp: "FindTriangle",
     header: "Poly_CoherentTriangulation.hxx".}
-proc computeLinks*(this: var PolyCoherentTriangulation): StandardInteger {.
+proc ComputeLinks*(this: var Poly_CoherentTriangulation): Standard_Integer {.
     importcpp: "ComputeLinks", header: "Poly_CoherentTriangulation.hxx".}
-proc clearLinks*(this: var PolyCoherentTriangulation) {.importcpp: "ClearLinks",
+proc ClearLinks*(this: var Poly_CoherentTriangulation) {.importcpp: "ClearLinks",
     header: "Poly_CoherentTriangulation.hxx".}
-proc allocator*(this: PolyCoherentTriangulation): Handle[NCollectionBaseAllocator] {.
+proc Allocator*(this: Poly_CoherentTriangulation): handle[NCollection_BaseAllocator] {.
     noSideEffect, importcpp: "Allocator", header: "Poly_CoherentTriangulation.hxx".}
-proc clone*(this: PolyCoherentTriangulation;
-           theAlloc: Handle[NCollectionBaseAllocator]): Handle[
-    PolyCoherentTriangulation] {.noSideEffect, importcpp: "Clone",
-                                header: "Poly_CoherentTriangulation.hxx".}
-proc dump*(this: PolyCoherentTriangulation; a2: var StandardOStream) {.noSideEffect,
+proc Clone*(this: Poly_CoherentTriangulation;
+           theAlloc: handle[NCollection_BaseAllocator]): handle[
+    Poly_CoherentTriangulation] {.noSideEffect, importcpp: "Clone",
+                                 header: "Poly_CoherentTriangulation.hxx".}
+proc Dump*(this: Poly_CoherentTriangulation; a2: var Standard_OStream) {.noSideEffect,
     importcpp: "Dump", header: "Poly_CoherentTriangulation.hxx".}
 type
-  PolyCoherentTriangulationbaseType* = StandardTransient
+  Poly_CoherentTriangulationbase_type* = Standard_Transient
 
-proc getTypeName*(): cstring {.importcpp: "Poly_CoherentTriangulation::get_type_name(@)",
-                            header: "Poly_CoherentTriangulation.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "Poly_CoherentTriangulation::get_type_name(@)",
+                              header: "Poly_CoherentTriangulation.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "Poly_CoherentTriangulation::get_type_descriptor(@)",
     header: "Poly_CoherentTriangulation.hxx".}
-proc dynamicType*(this: PolyCoherentTriangulation): Handle[StandardType] {.
+proc DynamicType*(this: Poly_CoherentTriangulation): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType",
     header: "Poly_CoherentTriangulation.hxx".}
-
+import
+  Poly_CoherentTriangulation

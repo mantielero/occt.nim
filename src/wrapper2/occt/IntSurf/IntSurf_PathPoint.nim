@@ -14,45 +14,51 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../gp/gp_Pnt, ../Standard/Standard_Boolean,
+  ../gp/gp_Vec, ../gp/gp_Dir2d, ../TColgp/TColgp_HSequenceOfXY,
+  ../Standard/Standard_Real, ../Standard/Standard_Integer
+
 discard "forward decl of StdFail_UndefinedDerivative"
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of gp_Pnt"
 discard "forward decl of gp_Vec"
 discard "forward decl of gp_Dir2d"
 type
-  IntSurfPathPoint* {.importcpp: "IntSurf_PathPoint",
-                     header: "IntSurf_PathPoint.hxx", bycopy.} = object
+  IntSurf_PathPoint* {.importcpp: "IntSurf_PathPoint",
+                      header: "IntSurf_PathPoint.hxx", bycopy.} = object
 
 
-proc constructIntSurfPathPoint*(): IntSurfPathPoint {.constructor,
+proc constructIntSurf_PathPoint*(): IntSurf_PathPoint {.constructor,
     importcpp: "IntSurf_PathPoint(@)", header: "IntSurf_PathPoint.hxx".}
-proc constructIntSurfPathPoint*(p: GpPnt; u: StandardReal; v: StandardReal): IntSurfPathPoint {.
+proc constructIntSurf_PathPoint*(P: gp_Pnt; U: Standard_Real; V: Standard_Real): IntSurf_PathPoint {.
     constructor, importcpp: "IntSurf_PathPoint(@)", header: "IntSurf_PathPoint.hxx".}
-proc setValue*(this: var IntSurfPathPoint; p: GpPnt; u: StandardReal; v: StandardReal) {.
-    importcpp: "SetValue", header: "IntSurf_PathPoint.hxx".}
-proc addUV*(this: var IntSurfPathPoint; u: StandardReal; v: StandardReal) {.
+proc SetValue*(this: var IntSurf_PathPoint; P: gp_Pnt; U: Standard_Real;
+              V: Standard_Real) {.importcpp: "SetValue",
+                                header: "IntSurf_PathPoint.hxx".}
+proc AddUV*(this: var IntSurf_PathPoint; U: Standard_Real; V: Standard_Real) {.
     importcpp: "AddUV", header: "IntSurf_PathPoint.hxx".}
-proc setDirections*(this: var IntSurfPathPoint; v: GpVec; d: GpDir2d) {.
+proc SetDirections*(this: var IntSurf_PathPoint; V: gp_Vec; D: gp_Dir2d) {.
     importcpp: "SetDirections", header: "IntSurf_PathPoint.hxx".}
-proc setTangency*(this: var IntSurfPathPoint; tang: StandardBoolean) {.
+proc SetTangency*(this: var IntSurf_PathPoint; Tang: Standard_Boolean) {.
     importcpp: "SetTangency", header: "IntSurf_PathPoint.hxx".}
-proc setPassing*(this: var IntSurfPathPoint; pass: StandardBoolean) {.
+proc SetPassing*(this: var IntSurf_PathPoint; Pass: Standard_Boolean) {.
     importcpp: "SetPassing", header: "IntSurf_PathPoint.hxx".}
-proc value*(this: IntSurfPathPoint): GpPnt {.noSideEffect, importcpp: "Value",
+proc Value*(this: IntSurf_PathPoint): gp_Pnt {.noSideEffect, importcpp: "Value",
     header: "IntSurf_PathPoint.hxx".}
-proc value2d*(this: IntSurfPathPoint; u: var StandardReal; v: var StandardReal) {.
+proc Value2d*(this: IntSurf_PathPoint; U: var Standard_Real; V: var Standard_Real) {.
     noSideEffect, importcpp: "Value2d", header: "IntSurf_PathPoint.hxx".}
-proc isPassingPnt*(this: IntSurfPathPoint): StandardBoolean {.noSideEffect,
+proc IsPassingPnt*(this: IntSurf_PathPoint): Standard_Boolean {.noSideEffect,
     importcpp: "IsPassingPnt", header: "IntSurf_PathPoint.hxx".}
-proc isTangent*(this: IntSurfPathPoint): StandardBoolean {.noSideEffect,
+proc IsTangent*(this: IntSurf_PathPoint): Standard_Boolean {.noSideEffect,
     importcpp: "IsTangent", header: "IntSurf_PathPoint.hxx".}
-proc direction3d*(this: IntSurfPathPoint): GpVec {.noSideEffect,
+proc Direction3d*(this: IntSurf_PathPoint): gp_Vec {.noSideEffect,
     importcpp: "Direction3d", header: "IntSurf_PathPoint.hxx".}
-proc direction2d*(this: IntSurfPathPoint): GpDir2d {.noSideEffect,
+proc Direction2d*(this: IntSurf_PathPoint): gp_Dir2d {.noSideEffect,
     importcpp: "Direction2d", header: "IntSurf_PathPoint.hxx".}
-proc multiplicity*(this: IntSurfPathPoint): StandardInteger {.noSideEffect,
+proc Multiplicity*(this: IntSurf_PathPoint): Standard_Integer {.noSideEffect,
     importcpp: "Multiplicity", header: "IntSurf_PathPoint.hxx".}
-proc parameters*(this: IntSurfPathPoint; index: StandardInteger; u: var StandardReal;
-                v: var StandardReal) {.noSideEffect, importcpp: "Parameters",
-                                    header: "IntSurf_PathPoint.hxx".}
-
+proc Parameters*(this: IntSurf_PathPoint; Index: Standard_Integer;
+                U: var Standard_Real; V: var Standard_Real) {.noSideEffect,
+    importcpp: "Parameters", header: "IntSurf_PathPoint.hxx".}

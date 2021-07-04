@@ -13,89 +13,96 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, IntTools_CurveRangeSample,
+  ../Standard/Standard_Integer, ../Standard/Standard_Real,
+  ../Standard/Standard_Boolean
+
 discard "forward decl of IntTools_CurveRangeSample"
 discard "forward decl of IntTools_Range"
 type
-  IntToolsSurfaceRangeSample* {.importcpp: "IntTools_SurfaceRangeSample",
-                               header: "IntTools_SurfaceRangeSample.hxx", bycopy.} = object
+  IntTools_SurfaceRangeSample* {.importcpp: "IntTools_SurfaceRangeSample",
+                                header: "IntTools_SurfaceRangeSample.hxx", bycopy.} = object
 
 
-proc constructIntToolsSurfaceRangeSample*(): IntToolsSurfaceRangeSample {.
+proc constructIntTools_SurfaceRangeSample*(): IntTools_SurfaceRangeSample {.
     constructor, importcpp: "IntTools_SurfaceRangeSample(@)",
     header: "IntTools_SurfaceRangeSample.hxx".}
-proc constructIntToolsSurfaceRangeSample*(theIndexU: StandardInteger;
-    theDepthU: StandardInteger; theIndexV: StandardInteger;
-    theDepthV: StandardInteger): IntToolsSurfaceRangeSample {.constructor,
+proc constructIntTools_SurfaceRangeSample*(theIndexU: Standard_Integer;
+    theDepthU: Standard_Integer; theIndexV: Standard_Integer;
+    theDepthV: Standard_Integer): IntTools_SurfaceRangeSample {.constructor,
     importcpp: "IntTools_SurfaceRangeSample(@)",
     header: "IntTools_SurfaceRangeSample.hxx".}
-proc constructIntToolsSurfaceRangeSample*(theRangeU: IntToolsCurveRangeSample;
-    theRangeV: IntToolsCurveRangeSample): IntToolsSurfaceRangeSample {.constructor,
-    importcpp: "IntTools_SurfaceRangeSample(@)",
-    header: "IntTools_SurfaceRangeSample.hxx".}
-proc constructIntToolsSurfaceRangeSample*(other: IntToolsSurfaceRangeSample): IntToolsSurfaceRangeSample {.
+proc constructIntTools_SurfaceRangeSample*(theRangeU: IntTools_CurveRangeSample;
+    theRangeV: IntTools_CurveRangeSample): IntTools_SurfaceRangeSample {.
     constructor, importcpp: "IntTools_SurfaceRangeSample(@)",
     header: "IntTools_SurfaceRangeSample.hxx".}
-proc assign*(this: var IntToolsSurfaceRangeSample; other: IntToolsSurfaceRangeSample): var IntToolsSurfaceRangeSample {.
+proc constructIntTools_SurfaceRangeSample*(Other: IntTools_SurfaceRangeSample): IntTools_SurfaceRangeSample {.
+    constructor, importcpp: "IntTools_SurfaceRangeSample(@)",
+    header: "IntTools_SurfaceRangeSample.hxx".}
+proc Assign*(this: var IntTools_SurfaceRangeSample;
+            Other: IntTools_SurfaceRangeSample): var IntTools_SurfaceRangeSample {.
     importcpp: "Assign", header: "IntTools_SurfaceRangeSample.hxx".}
-proc setRanges*(this: var IntToolsSurfaceRangeSample;
-               theRangeU: IntToolsCurveRangeSample;
-               theRangeV: IntToolsCurveRangeSample) {.importcpp: "SetRanges",
+proc SetRanges*(this: var IntTools_SurfaceRangeSample;
+               theRangeU: IntTools_CurveRangeSample;
+               theRangeV: IntTools_CurveRangeSample) {.importcpp: "SetRanges",
     header: "IntTools_SurfaceRangeSample.hxx".}
-proc getRanges*(this: IntToolsSurfaceRangeSample;
-               theRangeU: var IntToolsCurveRangeSample;
-               theRangeV: var IntToolsCurveRangeSample) {.noSideEffect,
+proc GetRanges*(this: IntTools_SurfaceRangeSample;
+               theRangeU: var IntTools_CurveRangeSample;
+               theRangeV: var IntTools_CurveRangeSample) {.noSideEffect,
     importcpp: "GetRanges", header: "IntTools_SurfaceRangeSample.hxx".}
-proc setIndexes*(this: var IntToolsSurfaceRangeSample; theIndexU: StandardInteger;
-                theIndexV: StandardInteger) {.importcpp: "SetIndexes",
+proc SetIndexes*(this: var IntTools_SurfaceRangeSample; theIndexU: Standard_Integer;
+                theIndexV: Standard_Integer) {.importcpp: "SetIndexes",
     header: "IntTools_SurfaceRangeSample.hxx".}
-proc getIndexes*(this: IntToolsSurfaceRangeSample; theIndexU: var StandardInteger;
-                theIndexV: var StandardInteger) {.noSideEffect,
-    importcpp: "GetIndexes", header: "IntTools_SurfaceRangeSample.hxx".}
-proc getDepths*(this: IntToolsSurfaceRangeSample; theDepthU: var StandardInteger;
-               theDepthV: var StandardInteger) {.noSideEffect,
+proc GetIndexes*(this: IntTools_SurfaceRangeSample;
+                theIndexU: var Standard_Integer; theIndexV: var Standard_Integer) {.
+    noSideEffect, importcpp: "GetIndexes",
+    header: "IntTools_SurfaceRangeSample.hxx".}
+proc GetDepths*(this: IntTools_SurfaceRangeSample; theDepthU: var Standard_Integer;
+               theDepthV: var Standard_Integer) {.noSideEffect,
     importcpp: "GetDepths", header: "IntTools_SurfaceRangeSample.hxx".}
-proc setSampleRangeU*(this: var IntToolsSurfaceRangeSample;
-                     theRangeSampleU: IntToolsCurveRangeSample) {.
+proc SetSampleRangeU*(this: var IntTools_SurfaceRangeSample;
+                     theRangeSampleU: IntTools_CurveRangeSample) {.
     importcpp: "SetSampleRangeU", header: "IntTools_SurfaceRangeSample.hxx".}
-proc getSampleRangeU*(this: IntToolsSurfaceRangeSample): IntToolsCurveRangeSample {.
+proc GetSampleRangeU*(this: IntTools_SurfaceRangeSample): IntTools_CurveRangeSample {.
     noSideEffect, importcpp: "GetSampleRangeU",
     header: "IntTools_SurfaceRangeSample.hxx".}
-proc setSampleRangeV*(this: var IntToolsSurfaceRangeSample;
-                     theRangeSampleV: IntToolsCurveRangeSample) {.
+proc SetSampleRangeV*(this: var IntTools_SurfaceRangeSample;
+                     theRangeSampleV: IntTools_CurveRangeSample) {.
     importcpp: "SetSampleRangeV", header: "IntTools_SurfaceRangeSample.hxx".}
-proc getSampleRangeV*(this: IntToolsSurfaceRangeSample): IntToolsCurveRangeSample {.
+proc GetSampleRangeV*(this: IntTools_SurfaceRangeSample): IntTools_CurveRangeSample {.
     noSideEffect, importcpp: "GetSampleRangeV",
     header: "IntTools_SurfaceRangeSample.hxx".}
-proc setIndexU*(this: var IntToolsSurfaceRangeSample; theIndexU: StandardInteger) {.
+proc SetIndexU*(this: var IntTools_SurfaceRangeSample; theIndexU: Standard_Integer) {.
     importcpp: "SetIndexU", header: "IntTools_SurfaceRangeSample.hxx".}
-proc getIndexU*(this: IntToolsSurfaceRangeSample): StandardInteger {.noSideEffect,
+proc GetIndexU*(this: IntTools_SurfaceRangeSample): Standard_Integer {.noSideEffect,
     importcpp: "GetIndexU", header: "IntTools_SurfaceRangeSample.hxx".}
-proc setIndexV*(this: var IntToolsSurfaceRangeSample; theIndexV: StandardInteger) {.
+proc SetIndexV*(this: var IntTools_SurfaceRangeSample; theIndexV: Standard_Integer) {.
     importcpp: "SetIndexV", header: "IntTools_SurfaceRangeSample.hxx".}
-proc getIndexV*(this: IntToolsSurfaceRangeSample): StandardInteger {.noSideEffect,
+proc GetIndexV*(this: IntTools_SurfaceRangeSample): Standard_Integer {.noSideEffect,
     importcpp: "GetIndexV", header: "IntTools_SurfaceRangeSample.hxx".}
-proc setDepthU*(this: var IntToolsSurfaceRangeSample; theDepthU: StandardInteger) {.
+proc SetDepthU*(this: var IntTools_SurfaceRangeSample; theDepthU: Standard_Integer) {.
     importcpp: "SetDepthU", header: "IntTools_SurfaceRangeSample.hxx".}
-proc getDepthU*(this: IntToolsSurfaceRangeSample): StandardInteger {.noSideEffect,
+proc GetDepthU*(this: IntTools_SurfaceRangeSample): Standard_Integer {.noSideEffect,
     importcpp: "GetDepthU", header: "IntTools_SurfaceRangeSample.hxx".}
-proc setDepthV*(this: var IntToolsSurfaceRangeSample; theDepthV: StandardInteger) {.
+proc SetDepthV*(this: var IntTools_SurfaceRangeSample; theDepthV: Standard_Integer) {.
     importcpp: "SetDepthV", header: "IntTools_SurfaceRangeSample.hxx".}
-proc getDepthV*(this: IntToolsSurfaceRangeSample): StandardInteger {.noSideEffect,
+proc GetDepthV*(this: IntTools_SurfaceRangeSample): Standard_Integer {.noSideEffect,
     importcpp: "GetDepthV", header: "IntTools_SurfaceRangeSample.hxx".}
-proc getRangeU*(this: IntToolsSurfaceRangeSample; theFirstU: StandardReal;
-               theLastU: StandardReal; theNbSampleU: StandardInteger): IntToolsRange {.
+proc GetRangeU*(this: IntTools_SurfaceRangeSample; theFirstU: Standard_Real;
+               theLastU: Standard_Real; theNbSampleU: Standard_Integer): IntTools_Range {.
     noSideEffect, importcpp: "GetRangeU", header: "IntTools_SurfaceRangeSample.hxx".}
-proc getRangeV*(this: IntToolsSurfaceRangeSample; theFirstV: StandardReal;
-               theLastV: StandardReal; theNbSampleV: StandardInteger): IntToolsRange {.
+proc GetRangeV*(this: IntTools_SurfaceRangeSample; theFirstV: Standard_Real;
+               theLastV: Standard_Real; theNbSampleV: Standard_Integer): IntTools_Range {.
     noSideEffect, importcpp: "GetRangeV", header: "IntTools_SurfaceRangeSample.hxx".}
-proc isEqual*(this: IntToolsSurfaceRangeSample; other: IntToolsSurfaceRangeSample): StandardBoolean {.
+proc IsEqual*(this: IntTools_SurfaceRangeSample; Other: IntTools_SurfaceRangeSample): Standard_Boolean {.
     noSideEffect, importcpp: "IsEqual", header: "IntTools_SurfaceRangeSample.hxx".}
-proc getRangeIndexUDeeper*(this: IntToolsSurfaceRangeSample;
-                          theNbSampleU: StandardInteger): StandardInteger {.
+proc GetRangeIndexUDeeper*(this: IntTools_SurfaceRangeSample;
+                          theNbSampleU: Standard_Integer): Standard_Integer {.
     noSideEffect, importcpp: "GetRangeIndexUDeeper",
     header: "IntTools_SurfaceRangeSample.hxx".}
-proc getRangeIndexVDeeper*(this: IntToolsSurfaceRangeSample;
-                          theNbSampleV: StandardInteger): StandardInteger {.
+proc GetRangeIndexVDeeper*(this: IntTools_SurfaceRangeSample;
+                          theNbSampleV: Standard_Integer): Standard_Integer {.
     noSideEffect, importcpp: "GetRangeIndexVDeeper",
     header: "IntTools_SurfaceRangeSample.hxx".}
-

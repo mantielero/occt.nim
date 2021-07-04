@@ -14,45 +14,55 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, BRepLib_WireError, ../TopoDS/TopoDS_Edge,
+  ../TopoDS/TopoDS_Vertex, ../TopTools/TopTools_DataMapOfShapeShape,
+  ../TopTools/TopTools_IndexedMapOfShape, BRepLib_MakeShape,
+  ../TopTools/TopTools_ListOfShape, ../Bnd/Bnd_Box,
+  ../NCollection/NCollection_UBTree
+
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of TopoDS_Edge"
 discard "forward decl of TopoDS_Wire"
 discard "forward decl of TopoDS_Vertex"
 type
-  BRepLibMakeWire* {.importcpp: "BRepLib_MakeWire", header: "BRepLib_MakeWire.hxx",
-                    bycopy.} = object of BRepLibMakeShape ## ! NotDone MakeWire.
+  BRepLib_MakeWire* {.importcpp: "BRepLib_MakeWire",
+                     header: "BRepLib_MakeWire.hxx", bycopy.} = object of BRepLib_MakeShape ##
+                                                                                     ## !
+                                                                                     ## NotDone
+                                                                                     ## MakeWire.
 
 
-proc constructBRepLibMakeWire*(): BRepLibMakeWire {.constructor,
+proc constructBRepLib_MakeWire*(): BRepLib_MakeWire {.constructor,
     importcpp: "BRepLib_MakeWire(@)", header: "BRepLib_MakeWire.hxx".}
-proc constructBRepLibMakeWire*(e: TopoDS_Edge): BRepLibMakeWire {.constructor,
+proc constructBRepLib_MakeWire*(E: TopoDS_Edge): BRepLib_MakeWire {.constructor,
     importcpp: "BRepLib_MakeWire(@)", header: "BRepLib_MakeWire.hxx".}
-proc constructBRepLibMakeWire*(e1: TopoDS_Edge; e2: TopoDS_Edge): BRepLibMakeWire {.
+proc constructBRepLib_MakeWire*(E1: TopoDS_Edge; E2: TopoDS_Edge): BRepLib_MakeWire {.
     constructor, importcpp: "BRepLib_MakeWire(@)", header: "BRepLib_MakeWire.hxx".}
-proc constructBRepLibMakeWire*(e1: TopoDS_Edge; e2: TopoDS_Edge; e3: TopoDS_Edge): BRepLibMakeWire {.
+proc constructBRepLib_MakeWire*(E1: TopoDS_Edge; E2: TopoDS_Edge; E3: TopoDS_Edge): BRepLib_MakeWire {.
     constructor, importcpp: "BRepLib_MakeWire(@)", header: "BRepLib_MakeWire.hxx".}
-proc constructBRepLibMakeWire*(e1: TopoDS_Edge; e2: TopoDS_Edge; e3: TopoDS_Edge;
-                              e4: TopoDS_Edge): BRepLibMakeWire {.constructor,
+proc constructBRepLib_MakeWire*(E1: TopoDS_Edge; E2: TopoDS_Edge; E3: TopoDS_Edge;
+                               E4: TopoDS_Edge): BRepLib_MakeWire {.constructor,
     importcpp: "BRepLib_MakeWire(@)", header: "BRepLib_MakeWire.hxx".}
-proc constructBRepLibMakeWire*(w: TopoDS_Wire): BRepLibMakeWire {.constructor,
+proc constructBRepLib_MakeWire*(W: TopoDS_Wire): BRepLib_MakeWire {.constructor,
     importcpp: "BRepLib_MakeWire(@)", header: "BRepLib_MakeWire.hxx".}
-proc constructBRepLibMakeWire*(w: TopoDS_Wire; e: TopoDS_Edge): BRepLibMakeWire {.
+proc constructBRepLib_MakeWire*(W: TopoDS_Wire; E: TopoDS_Edge): BRepLib_MakeWire {.
     constructor, importcpp: "BRepLib_MakeWire(@)", header: "BRepLib_MakeWire.hxx".}
-proc add*(this: var BRepLibMakeWire; e: TopoDS_Edge) {.importcpp: "Add",
+proc Add*(this: var BRepLib_MakeWire; E: TopoDS_Edge) {.importcpp: "Add",
     header: "BRepLib_MakeWire.hxx".}
-proc add*(this: var BRepLibMakeWire; w: TopoDS_Wire) {.importcpp: "Add",
+proc Add*(this: var BRepLib_MakeWire; W: TopoDS_Wire) {.importcpp: "Add",
     header: "BRepLib_MakeWire.hxx".}
-proc add*(this: var BRepLibMakeWire; L: TopToolsListOfShape) {.importcpp: "Add",
+proc Add*(this: var BRepLib_MakeWire; L: TopTools_ListOfShape) {.importcpp: "Add",
     header: "BRepLib_MakeWire.hxx".}
-proc error*(this: BRepLibMakeWire): BRepLibWireError {.noSideEffect,
+proc Error*(this: BRepLib_MakeWire): BRepLib_WireError {.noSideEffect,
     importcpp: "Error", header: "BRepLib_MakeWire.hxx".}
-proc wire*(this: var BRepLibMakeWire): TopoDS_Wire {.importcpp: "Wire",
+proc Wire*(this: var BRepLib_MakeWire): TopoDS_Wire {.importcpp: "Wire",
     header: "BRepLib_MakeWire.hxx".}
-converter `topoDS_Wire`*(this: var BRepLibMakeWire): TopoDS_Wire {.
+converter `TopoDS_Wire`*(this: var BRepLib_MakeWire): TopoDS_Wire {.
     importcpp: "BRepLib_MakeWire::operator TopoDS_Wire",
     header: "BRepLib_MakeWire.hxx".}
-proc edge*(this: BRepLibMakeWire): TopoDS_Edge {.noSideEffect, importcpp: "Edge",
+proc Edge*(this: BRepLib_MakeWire): TopoDS_Edge {.noSideEffect, importcpp: "Edge",
     header: "BRepLib_MakeWire.hxx".}
-proc vertex*(this: BRepLibMakeWire): TopoDS_Vertex {.noSideEffect,
+proc Vertex*(this: BRepLib_MakeWire): TopoDS_Vertex {.noSideEffect,
     importcpp: "Vertex", header: "BRepLib_MakeWire.hxx".}
-

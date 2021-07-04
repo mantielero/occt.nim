@@ -14,30 +14,33 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepVisual_OverRidingStyledItem"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepVisualRWOverRidingStyledItem* {.importcpp: "RWStepVisual_RWOverRidingStyledItem", header: "RWStepVisual_RWOverRidingStyledItem.hxx",
-                                       bycopy.} = object
+  RWStepVisual_RWOverRidingStyledItem* {.importcpp: "RWStepVisual_RWOverRidingStyledItem", header: "RWStepVisual_RWOverRidingStyledItem.hxx",
+                                        bycopy.} = object
 
 
-proc constructRWStepVisualRWOverRidingStyledItem*(): RWStepVisualRWOverRidingStyledItem {.
+proc constructRWStepVisual_RWOverRidingStyledItem*(): RWStepVisual_RWOverRidingStyledItem {.
     constructor, importcpp: "RWStepVisual_RWOverRidingStyledItem(@)",
     header: "RWStepVisual_RWOverRidingStyledItem.hxx".}
-proc readStep*(this: RWStepVisualRWOverRidingStyledItem;
-              data: Handle[StepDataStepReaderData]; num: StandardInteger;
-              ach: var Handle[InterfaceCheck];
-              ent: Handle[StepVisualOverRidingStyledItem]) {.noSideEffect,
+proc ReadStep*(this: RWStepVisual_RWOverRidingStyledItem;
+              data: handle[StepData_StepReaderData]; num: Standard_Integer;
+              ach: var handle[Interface_Check];
+              ent: handle[StepVisual_OverRidingStyledItem]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepVisual_RWOverRidingStyledItem.hxx".}
-proc writeStep*(this: RWStepVisualRWOverRidingStyledItem;
-               sw: var StepDataStepWriter;
-               ent: Handle[StepVisualOverRidingStyledItem]) {.noSideEffect,
+proc WriteStep*(this: RWStepVisual_RWOverRidingStyledItem;
+               SW: var StepData_StepWriter;
+               ent: handle[StepVisual_OverRidingStyledItem]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepVisual_RWOverRidingStyledItem.hxx".}
-proc share*(this: RWStepVisualRWOverRidingStyledItem;
-           ent: Handle[StepVisualOverRidingStyledItem];
-           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
+proc Share*(this: RWStepVisual_RWOverRidingStyledItem;
+           ent: handle[StepVisual_OverRidingStyledItem];
+           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepVisual_RWOverRidingStyledItem.hxx".}
-

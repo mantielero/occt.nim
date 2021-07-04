@@ -11,7 +11,5 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _AIS_IdenticRelation_HeaderFile [NewLine] # _AIS_IdenticRelation_HeaderFile [NewLine] # < PrsDim_IdenticRelation . hxx > [NewLine] Standard_DEPRECATED ( Deprecated alias to moved class ) typedef PrsDim_IdenticRelation AIS_IdenticRelation ;
+## !!!Ignored construct:  # _AIS_IdenticRelation_HeaderFile [NewLine] # _AIS_IdenticRelation_HeaderFile [NewLine] # ../PrsDim/PrsDim_IdenticRelation.hxx [NewLine] Standard_DEPRECATED ( Deprecated alias to moved class ) typedef PrsDim_IdenticRelation AIS_IdenticRelation ;
 ## Error: expected ';'!!!
-
-

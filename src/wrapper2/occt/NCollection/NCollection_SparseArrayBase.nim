@@ -13,8 +13,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-# # # # type
-# # # #   StandardSize* = csize_t
+import
+  ../Standard/Standard, ../Standard/Standard_OutOfRange
+
+type
+  Standard_Size* = csize_t
 
 ## *
 ##  Base class for NCollection_SparseArray;
@@ -23,25 +26,25 @@
 ##
 
 type
-  NCollectionSparseArrayBase* {.importcpp: "NCollection_SparseArrayBase",
-                               header: "NCollection_SparseArrayBase.hxx", bycopy.} = object ## !@name Type-independent public interface
-                                                                                       ## !@{
-                                                                                       ## ! Clears all the data
-                                                                                       ## *
-                                                                                       ##  Iterator
-                                                                                       ##
-                                                                                       ##  Copy constructor and assignment operator are private thus not accessible
-                                                                                       ##  Object life
-                                                                                       ## ! Constructor; initialized by size of item and of block (in items)
-                                                                                       ##  Data access interface for descendants
-                                                                                       ## ! Creates Block structure for block pointed by theAddr
-                                                                                       ##  Methods to be provided by descendant
-                                                                                       ## ! Create new item at the specified address with default constructor
-                                                                                       ##   virtual void createItem (Standard_Address theAddress) = 0;
-                                                                                       ## ! Create new item at the specified address with copy constructor
-                                                                                       ## ! from existing item
-                                                                                       ##  Implementation of memory allocation/deallocation and access mechanics
-                                                                                       ## ! Allocate space for at least iBlock+1 blocks
+  NCollection_SparseArrayBase* {.importcpp: "NCollection_SparseArrayBase",
+                                header: "NCollection_SparseArrayBase.hxx", bycopy.} = object ## !@name Type-independent public interface
+                                                                                        ## !@{
+                                                                                        ## ! Clears all the data
+                                                                                        ## *
+                                                                                        ##  Iterator
+                                                                                        ##
+                                                                                        ##  Copy constructor and assignment operator are private thus not accessible
+                                                                                        ##  Object life
+                                                                                        ## ! Constructor; initialized by size of item and of block (in items)
+                                                                                        ##  Data access interface for descendants
+                                                                                        ## ! Creates Block structure for block pointed by theAddr
+                                                                                        ##  Methods to be provided by descendant
+                                                                                        ## ! Create new item at the specified address with default constructor
+                                                                                        ##   virtual void createItem (Standard_Address theAddress) = 0;
+                                                                                        ## ! Create new item at the specified address with copy constructor
+                                                                                        ## ! from existing item
+                                                                                        ##  Implementation of memory allocation/deallocation and access mechanics
+                                                                                        ## ! Allocate space for at least iBlock+1 blocks
     ## !< size of item
     ## !< block size (in items)
     ## !< allocated size of blocks table
@@ -49,13 +52,13 @@ type
     ## !< array of pointers to data blocks
 
 
-proc clear*(this: var NCollectionSparseArrayBase) {.importcpp: "Clear",
+proc Clear*(this: var NCollection_SparseArrayBase) {.importcpp: "Clear",
     header: "NCollection_SparseArrayBase.hxx".}
-proc size*(this: NCollectionSparseArrayBase): StandardSize {.noSideEffect,
+proc Size*(this: NCollection_SparseArrayBase): Standard_Size {.noSideEffect,
     importcpp: "Size", header: "NCollection_SparseArrayBase.hxx".}
-proc hasValue*(this: NCollectionSparseArrayBase; theIndex: StandardSize): StandardBoolean {.
+proc HasValue*(this: NCollection_SparseArrayBase; theIndex: Standard_Size): Standard_Boolean {.
     noSideEffect, importcpp: "HasValue", header: "NCollection_SparseArrayBase.hxx".}
-proc unsetValue*(this: var NCollectionSparseArrayBase; theIndex: StandardSize): StandardBoolean {.
+proc UnsetValue*(this: var NCollection_SparseArrayBase; theIndex: Standard_Size): Standard_Boolean {.
     importcpp: "UnsetValue", header: "NCollection_SparseArrayBase.hxx".}
 ## !!!Ignored construct:  !@} # defined ( __SUNPRO_CC ) && ( __SUNPRO_CC <= 0x530 ) [NewLine] public :  work-around against obsolete SUN WorkShop 5.3 compiler # [NewLine] private : # [NewLine] *
 ##  The block of data contains array of items, counter
@@ -73,23 +76,18 @@ proc unsetValue*(this: var NCollectionSparseArrayBase; theIndex: StandardSize): 
 ## Error: identifier expected, but got: :!!!
 
 type
-  NCollectionSparseArrayBaseIterator* {.importcpp: "NCollection_SparseArrayBase::Iterator", header: "NCollection_SparseArrayBase.hxx",
-                                       bycopy.} = object ##  Public interface
-                                                      ## ! Restart iterations on the same array
-                                                      ##  Methods for descendant
-                                                      ## ! Empty constructor
+  NCollection_SparseArrayBaseIterator* {.importcpp: "NCollection_SparseArrayBase::Iterator", header: "NCollection_SparseArrayBase.hxx",
+                                        bycopy.} = object ##  Public interface
+                                                       ## ! Restart iterations on the same array
+                                                       ##  Methods for descendant
+                                                       ## ! Empty constructor
 
 
-proc restart*(this: var NCollectionSparseArrayBaseIterator) {.importcpp: "Restart",
+proc Restart*(this: var NCollection_SparseArrayBaseIterator) {.importcpp: "Restart",
     header: "NCollection_SparseArrayBase.hxx".}
-proc more*(this: NCollectionSparseArrayBaseIterator): StandardBoolean {.
+proc More*(this: NCollection_SparseArrayBaseIterator): Standard_Boolean {.
     noSideEffect, importcpp: "More", header: "NCollection_SparseArrayBase.hxx".}
-proc next*(this: var NCollectionSparseArrayBaseIterator) {.importcpp: "Next",
+proc Next*(this: var NCollection_SparseArrayBaseIterator) {.importcpp: "Next",
     header: "NCollection_SparseArrayBase.hxx".}
-proc index*(this: NCollectionSparseArrayBaseIterator): StandardSize {.noSideEffect,
-    importcpp: "Index", header: "NCollection_SparseArrayBase.hxx".}
-
-
-
-
-
+proc Index*(this: NCollection_SparseArrayBaseIterator): Standard_Size {.
+    noSideEffect, importcpp: "Index", header: "NCollection_SparseArrayBase.hxx".}

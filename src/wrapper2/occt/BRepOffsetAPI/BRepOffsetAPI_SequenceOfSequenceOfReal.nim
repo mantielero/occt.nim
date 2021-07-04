@@ -14,8 +14,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../TColStd/TColStd_SequenceOfReal, ../NCollection/NCollection_Sequence
+
 type
-  BRepOffsetAPI_SequenceOfSequenceOfReal* = NCollectionSequence[
-      TColStdSequenceOfReal]
-
-
+  BRepOffsetAPI_SequenceOfSequenceOfReal* = NCollection_Sequence[
+      TColStd_SequenceOfReal]

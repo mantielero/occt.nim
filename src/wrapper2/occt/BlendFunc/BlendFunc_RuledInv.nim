@@ -14,38 +14,43 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
+  ../Blend/Blend_FuncInv, ../math/math_Vector, ../Standard/Standard_Real,
+  ../Standard/Standard_Integer
+
 discard "forward decl of Adaptor3d_HSurface"
 discard "forward decl of Adaptor3d_HCurve"
 discard "forward decl of Adaptor2d_HCurve2d"
 discard "forward decl of math_Matrix"
 type
-  BlendFuncRuledInv* {.importcpp: "BlendFunc_RuledInv",
-                      header: "BlendFunc_RuledInv.hxx", bycopy.} = object of BlendFuncInv
+  BlendFunc_RuledInv* {.importcpp: "BlendFunc_RuledInv",
+                       header: "BlendFunc_RuledInv.hxx", bycopy.} = object of Blend_FuncInv
 
 
-proc constructBlendFuncRuledInv*(s1: Handle[Adaptor3dHSurface];
-                                s2: Handle[Adaptor3dHSurface];
-                                c: Handle[Adaptor3dHCurve]): BlendFuncRuledInv {.
+proc constructBlendFunc_RuledInv*(S1: handle[Adaptor3d_HSurface];
+                                 S2: handle[Adaptor3d_HSurface];
+                                 C: handle[Adaptor3d_HCurve]): BlendFunc_RuledInv {.
     constructor, importcpp: "BlendFunc_RuledInv(@)",
     header: "BlendFunc_RuledInv.hxx".}
-proc set*(this: var BlendFuncRuledInv; onFirst: StandardBoolean;
-         cOnSurf: Handle[Adaptor2dHCurve2d]) {.importcpp: "Set",
+proc Set*(this: var BlendFunc_RuledInv; OnFirst: Standard_Boolean;
+         COnSurf: handle[Adaptor2d_HCurve2d]) {.importcpp: "Set",
     header: "BlendFunc_RuledInv.hxx".}
-proc getTolerance*(this: BlendFuncRuledInv; tolerance: var MathVector;
-                  tol: StandardReal) {.noSideEffect, importcpp: "GetTolerance",
-                                     header: "BlendFunc_RuledInv.hxx".}
-proc getBounds*(this: BlendFuncRuledInv; infBound: var MathVector;
-               supBound: var MathVector) {.noSideEffect, importcpp: "GetBounds",
-                                        header: "BlendFunc_RuledInv.hxx".}
-proc isSolution*(this: var BlendFuncRuledInv; sol: MathVector; tol: StandardReal): StandardBoolean {.
+proc GetTolerance*(this: BlendFunc_RuledInv; Tolerance: var math_Vector;
+                  Tol: Standard_Real) {.noSideEffect, importcpp: "GetTolerance",
+                                      header: "BlendFunc_RuledInv.hxx".}
+proc GetBounds*(this: BlendFunc_RuledInv; InfBound: var math_Vector;
+               SupBound: var math_Vector) {.noSideEffect, importcpp: "GetBounds",
+    header: "BlendFunc_RuledInv.hxx".}
+proc IsSolution*(this: var BlendFunc_RuledInv; Sol: math_Vector; Tol: Standard_Real): Standard_Boolean {.
     importcpp: "IsSolution", header: "BlendFunc_RuledInv.hxx".}
-proc nbEquations*(this: BlendFuncRuledInv): StandardInteger {.noSideEffect,
+proc NbEquations*(this: BlendFunc_RuledInv): Standard_Integer {.noSideEffect,
     importcpp: "NbEquations", header: "BlendFunc_RuledInv.hxx".}
-proc value*(this: var BlendFuncRuledInv; x: MathVector; f: var MathVector): StandardBoolean {.
+proc Value*(this: var BlendFunc_RuledInv; X: math_Vector; F: var math_Vector): Standard_Boolean {.
     importcpp: "Value", header: "BlendFunc_RuledInv.hxx".}
-proc derivatives*(this: var BlendFuncRuledInv; x: MathVector; d: var MathMatrix): StandardBoolean {.
+proc Derivatives*(this: var BlendFunc_RuledInv; X: math_Vector; D: var math_Matrix): Standard_Boolean {.
     importcpp: "Derivatives", header: "BlendFunc_RuledInv.hxx".}
-proc values*(this: var BlendFuncRuledInv; x: MathVector; f: var MathVector;
-            d: var MathMatrix): StandardBoolean {.importcpp: "Values",
+proc Values*(this: var BlendFunc_RuledInv; X: math_Vector; F: var math_Vector;
+            D: var math_Matrix): Standard_Boolean {.importcpp: "Values",
     header: "BlendFunc_RuledInv.hxx".}
-

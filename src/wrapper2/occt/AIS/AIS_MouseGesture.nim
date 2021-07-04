@@ -11,30 +11,31 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../NCollection/NCollection_DataMap
+
 ## ! Mouse gesture - only one can be active at one moment.
 
 type
   AIS_MouseGesture* {.size: sizeof(cint), importcpp: "AIS_MouseGesture",
                      header: "AIS_MouseGesture.hxx".} = enum
-    AIS_MouseGestureNONE,     ## !< no active gesture
-                         ##
-    AIS_MouseGestureSelectRectangle, ## !< rectangular selection;
-                                    ## !  press button to start, move mouse to define rectangle, release to finish
-    AIS_MouseGestureSelectLasso, ## !< polygonal selection;
-                                ## !  press button to start, move mouse to define polygonal path, release to finish
-                                ##
-    AIS_MouseGestureZoom,     ## !< view zoom gesture;
-                         ## !  move mouse left to zoom-out, and to the right to zoom-in
-    AIS_MouseGestureZoomWindow, ## !< view zoom by window gesture;
-                               ## !  press button to start, move mouse to define rectangle, release to finish
-    AIS_MouseGesturePan,      ## !< view panning gesture
-    AIS_MouseGestureRotateOrbit, ## !< orbit rotation gesture
-    AIS_MouseGestureRotateView ## !< view  rotation gesture
+    AIS_MouseGesture_NONE,    ## !< no active gesture
+                          ##
+    AIS_MouseGesture_SelectRectangle, ## !< rectangular selection;
+                                     ## !  press button to start, move mouse to define rectangle, release to finish
+    AIS_MouseGesture_SelectLasso, ## !< polygonal selection;
+                                 ## !  press button to start, move mouse to define polygonal path, release to finish
+                                 ##
+    AIS_MouseGesture_Zoom,    ## !< view zoom gesture;
+                          ## !  move mouse left to zoom-out, and to the right to zoom-in
+    AIS_MouseGesture_ZoomWindow, ## !< view zoom by window gesture;
+                                ## !  press button to start, move mouse to define rectangle, release to finish
+    AIS_MouseGesture_Pan,     ## !< view panning gesture
+    AIS_MouseGesture_RotateOrbit, ## !< orbit rotation gesture
+    AIS_MouseGesture_RotateView ## !< view  rotation gesture
 
 
 ## ! Map defining mouse gestures.
 
 type
-  AIS_MouseGestureMap* = NCollectionDataMap[cuint, AIS_MouseGesture]
-
-
+  AIS_MouseGestureMap* = NCollection_DataMap[cuint, AIS_MouseGesture]

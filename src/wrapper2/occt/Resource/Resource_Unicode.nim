@@ -14,73 +14,78 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_CString,
+  ../Standard/Standard_Boolean, ../Standard/Standard_PCharacter,
+  ../Standard/Standard_Integer, Resource_FormatType
+
 discard "forward decl of TCollection_ExtendedString"
 type
-  ResourceUnicode* {.importcpp: "Resource_Unicode", header: "Resource_Unicode.hxx",
-                    bycopy.} = object ## ! Converts non-ASCII CString <fromstr> in SJIS format
-                                   ## ! to Unicode ExtendedString <tostr>.
+  Resource_Unicode* {.importcpp: "Resource_Unicode",
+                     header: "Resource_Unicode.hxx", bycopy.} = object ## ! Converts non-ASCII CString <fromstr> in SJIS format
+                                                                  ## ! to Unicode ExtendedString <tostr>.
 
 
-proc convertSJISToUnicode*(fromstr: StandardCString;
-                          tostr: var TCollectionExtendedString) {.
+proc ConvertSJISToUnicode*(fromstr: Standard_CString;
+                          tostr: var TCollection_ExtendedString) {.
     importcpp: "Resource_Unicode::ConvertSJISToUnicode(@)",
     header: "Resource_Unicode.hxx".}
-proc convertEUCToUnicode*(fromstr: StandardCString;
-                         tostr: var TCollectionExtendedString) {.
+proc ConvertEUCToUnicode*(fromstr: Standard_CString;
+                         tostr: var TCollection_ExtendedString) {.
     importcpp: "Resource_Unicode::ConvertEUCToUnicode(@)",
     header: "Resource_Unicode.hxx".}
-proc convertGBToUnicode*(fromstr: StandardCString;
-                        tostr: var TCollectionExtendedString) {.
+proc ConvertGBToUnicode*(fromstr: Standard_CString;
+                        tostr: var TCollection_ExtendedString) {.
     importcpp: "Resource_Unicode::ConvertGBToUnicode(@)",
     header: "Resource_Unicode.hxx".}
-proc convertGBKToUnicode*(fromstr: StandardCString;
-                         tostr: var TCollectionExtendedString): StandardBoolean {.
+proc ConvertGBKToUnicode*(fromstr: Standard_CString;
+                         tostr: var TCollection_ExtendedString): Standard_Boolean {.
     importcpp: "Resource_Unicode::ConvertGBKToUnicode(@)",
     header: "Resource_Unicode.hxx".}
-proc convertBig5ToUnicode*(fromstr: StandardCString;
-                          tostr: var TCollectionExtendedString): StandardBoolean {.
+proc ConvertBig5ToUnicode*(fromstr: Standard_CString;
+                          tostr: var TCollection_ExtendedString): Standard_Boolean {.
     importcpp: "Resource_Unicode::ConvertBig5ToUnicode(@)",
     header: "Resource_Unicode.hxx".}
-proc convertUnicodeToSJIS*(fromstr: TCollectionExtendedString;
-                          tostr: var StandardPCharacter; maxsize: StandardInteger): StandardBoolean {.
+proc ConvertUnicodeToSJIS*(fromstr: TCollection_ExtendedString;
+                          tostr: var Standard_PCharacter; maxsize: Standard_Integer): Standard_Boolean {.
     importcpp: "Resource_Unicode::ConvertUnicodeToSJIS(@)",
     header: "Resource_Unicode.hxx".}
-proc convertUnicodeToEUC*(fromstr: TCollectionExtendedString;
-                         tostr: var StandardPCharacter; maxsize: StandardInteger): StandardBoolean {.
+proc ConvertUnicodeToEUC*(fromstr: TCollection_ExtendedString;
+                         tostr: var Standard_PCharacter; maxsize: Standard_Integer): Standard_Boolean {.
     importcpp: "Resource_Unicode::ConvertUnicodeToEUC(@)",
     header: "Resource_Unicode.hxx".}
-proc convertUnicodeToGB*(fromstr: TCollectionExtendedString;
-                        tostr: var StandardPCharacter; maxsize: StandardInteger): StandardBoolean {.
+proc ConvertUnicodeToGB*(fromstr: TCollection_ExtendedString;
+                        tostr: var Standard_PCharacter; maxsize: Standard_Integer): Standard_Boolean {.
     importcpp: "Resource_Unicode::ConvertUnicodeToGB(@)",
     header: "Resource_Unicode.hxx".}
-proc convertUnicodeToANSI*(fromstr: TCollectionExtendedString;
-                          tostr: var StandardPCharacter; maxsize: StandardInteger): StandardBoolean {.
+proc ConvertUnicodeToANSI*(fromstr: TCollection_ExtendedString;
+                          tostr: var Standard_PCharacter; maxsize: Standard_Integer): Standard_Boolean {.
     importcpp: "Resource_Unicode::ConvertUnicodeToANSI(@)",
     header: "Resource_Unicode.hxx".}
-proc setFormat*(typecode: ResourceFormatType) {.
+proc SetFormat*(typecode: Resource_FormatType) {.
     importcpp: "Resource_Unicode::SetFormat(@)", header: "Resource_Unicode.hxx".}
-proc getFormat*(): ResourceFormatType {.importcpp: "Resource_Unicode::GetFormat(@)",
-                                     header: "Resource_Unicode.hxx".}
-proc readFormat*() {.importcpp: "Resource_Unicode::ReadFormat(@)",
+proc GetFormat*(): Resource_FormatType {.importcpp: "Resource_Unicode::GetFormat(@)",
+                                      header: "Resource_Unicode.hxx".}
+proc ReadFormat*() {.importcpp: "Resource_Unicode::ReadFormat(@)",
                    header: "Resource_Unicode.hxx".}
-proc convertFormatToUnicode*(theFromStr: StandardCString;
-                            theToStr: var TCollectionExtendedString) {.
+proc ConvertFormatToUnicode*(theFromStr: Standard_CString;
+                            theToStr: var TCollection_ExtendedString) {.
     importcpp: "Resource_Unicode::ConvertFormatToUnicode(@)",
     header: "Resource_Unicode.hxx".}
-proc convertFormatToUnicode*(theFormat: ResourceFormatType;
-                            theFromStr: StandardCString;
-                            theToStr: var TCollectionExtendedString) {.
+proc ConvertFormatToUnicode*(theFormat: Resource_FormatType;
+                            theFromStr: Standard_CString;
+                            theToStr: var TCollection_ExtendedString) {.
     importcpp: "Resource_Unicode::ConvertFormatToUnicode(@)",
     header: "Resource_Unicode.hxx".}
-proc convertUnicodeToFormat*(theFormat: ResourceFormatType;
-                            theFromStr: TCollectionExtendedString;
-                            theToStr: var StandardPCharacter;
-                            theMaxSize: StandardInteger): StandardBoolean {.
+proc ConvertUnicodeToFormat*(theFormat: Resource_FormatType;
+                            theFromStr: TCollection_ExtendedString;
+                            theToStr: var Standard_PCharacter;
+                            theMaxSize: Standard_Integer): Standard_Boolean {.
     importcpp: "Resource_Unicode::ConvertUnicodeToFormat(@)",
     header: "Resource_Unicode.hxx".}
-proc convertUnicodeToFormat*(theFromStr: TCollectionExtendedString;
-                            theToStr: var StandardPCharacter;
-                            theMaxSize: StandardInteger): StandardBoolean {.
+proc ConvertUnicodeToFormat*(theFromStr: TCollection_ExtendedString;
+                            theToStr: var Standard_PCharacter;
+                            theMaxSize: Standard_Integer): Standard_Boolean {.
     importcpp: "Resource_Unicode::ConvertUnicodeToFormat(@)",
     header: "Resource_Unicode.hxx".}
-

@@ -14,6 +14,13 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Integer,
+  IGESData_DefSwitch, ../Standard/Standard_Real, ../Standard/Standard_Character,
+  ../Interface/Interface_EntityList, ../Standard/Standard_Transient,
+  ../Standard/Standard_Boolean, IGESData_DefType, IGESData_DefList,
+  ../Standard/Standard_CString, ../Standard/Standard_Type
+
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of Interface_InterfaceError"
 discard "forward decl of IGESData_ReadWriteModule"
@@ -33,197 +40,199 @@ discard "forward decl of Interface_EntityList"
 discard "forward decl of IGESData_IGESEntity"
 discard "forward decl of IGESData_IGESEntity"
 type
-  HandleIGESDataIGESEntity* = Handle[IGESDataIGESEntity]
+  Handle_IGESData_IGESEntity* = handle[IGESData_IGESEntity]
 
 ## ! defines root of IGES Entity definition, including Directory
 ## ! Part, lists of (optionnal) Properties and Associativities
 
 type
-  IGESDataIGESEntity* {.importcpp: "IGESData_IGESEntity",
-                       header: "IGESData_IGESEntity.hxx", bycopy.} = object of StandardTransient ##
-                                                                                          ## !
-                                                                                          ## gives
-                                                                                          ## IGES
-                                                                                          ## typing
-                                                                                          ## info
-                                                                                          ## (includes
-                                                                                          ## "Type"
-                                                                                          ## and
-                                                                                          ## "Form"
-                                                                                          ## data)
-                                                                                          ##
-                                                                                          ## !
-                                                                                          ## prepares
-                                                                                          ## lists
-                                                                                          ## of
-                                                                                          ## optionnal
-                                                                                          ## data,
-                                                                                          ## set
-                                                                                          ## values
-                                                                                          ## to
-                                                                                          ## defaults
-                                                                                          ##
-                                                                                          ## !
-                                                                                          ## Clears
-                                                                                          ## specific
-                                                                                          ## IGES
-                                                                                          ## data
+  IGESData_IGESEntity* {.importcpp: "IGESData_IGESEntity",
+                        header: "IGESData_IGESEntity.hxx", bycopy.} = object of Standard_Transient ##
+                                                                                            ## !
+                                                                                            ## gives
+                                                                                            ## IGES
+                                                                                            ## typing
+                                                                                            ## info
+                                                                                            ## (includes
+                                                                                            ## "Type"
+                                                                                            ## and
+                                                                                            ## "Form"
+                                                                                            ## data)
+                                                                                            ##
+                                                                                            ## !
+                                                                                            ## prepares
+                                                                                            ## lists
+                                                                                            ## of
+                                                                                            ## optionnal
+                                                                                            ## data,
+                                                                                            ## set
+                                                                                            ## values
+                                                                                            ## to
+                                                                                            ## defaults
+                                                                                            ##
+                                                                                            ## !
+                                                                                            ## Clears
+                                                                                            ## specific
+                                                                                            ## IGES
+                                                                                            ## data
 
 
-proc iGESType*(this: IGESDataIGESEntity): IGESDataIGESType {.noSideEffect,
+proc IGESType*(this: IGESData_IGESEntity): IGESData_IGESType {.noSideEffect,
     importcpp: "IGESType", header: "IGESData_IGESEntity.hxx".}
-proc typeNumber*(this: IGESDataIGESEntity): StandardInteger {.noSideEffect,
+proc TypeNumber*(this: IGESData_IGESEntity): Standard_Integer {.noSideEffect,
     importcpp: "TypeNumber", header: "IGESData_IGESEntity.hxx".}
-proc formNumber*(this: IGESDataIGESEntity): StandardInteger {.noSideEffect,
+proc FormNumber*(this: IGESData_IGESEntity): Standard_Integer {.noSideEffect,
     importcpp: "FormNumber", header: "IGESData_IGESEntity.hxx".}
-proc dirFieldEntity*(this: IGESDataIGESEntity; fieldnum: StandardInteger): Handle[
-    IGESDataIGESEntity] {.noSideEffect, importcpp: "DirFieldEntity",
-                         header: "IGESData_IGESEntity.hxx".}
-proc hasStructure*(this: IGESDataIGESEntity): StandardBoolean {.noSideEffect,
+proc DirFieldEntity*(this: IGESData_IGESEntity; fieldnum: Standard_Integer): handle[
+    IGESData_IGESEntity] {.noSideEffect, importcpp: "DirFieldEntity",
+                          header: "IGESData_IGESEntity.hxx".}
+proc HasStructure*(this: IGESData_IGESEntity): Standard_Boolean {.noSideEffect,
     importcpp: "HasStructure", header: "IGESData_IGESEntity.hxx".}
-proc structure*(this: IGESDataIGESEntity): Handle[IGESDataIGESEntity] {.
+proc Structure*(this: IGESData_IGESEntity): handle[IGESData_IGESEntity] {.
     noSideEffect, importcpp: "Structure", header: "IGESData_IGESEntity.hxx".}
-proc defLineFont*(this: IGESDataIGESEntity): IGESDataDefType {.noSideEffect,
+proc DefLineFont*(this: IGESData_IGESEntity): IGESData_DefType {.noSideEffect,
     importcpp: "DefLineFont", header: "IGESData_IGESEntity.hxx".}
-proc rankLineFont*(this: IGESDataIGESEntity): StandardInteger {.noSideEffect,
+proc RankLineFont*(this: IGESData_IGESEntity): Standard_Integer {.noSideEffect,
     importcpp: "RankLineFont", header: "IGESData_IGESEntity.hxx".}
-proc lineFont*(this: IGESDataIGESEntity): Handle[IGESDataLineFontEntity] {.
+proc LineFont*(this: IGESData_IGESEntity): handle[IGESData_LineFontEntity] {.
     noSideEffect, importcpp: "LineFont", header: "IGESData_IGESEntity.hxx".}
-proc defLevel*(this: IGESDataIGESEntity): IGESDataDefList {.noSideEffect,
+proc DefLevel*(this: IGESData_IGESEntity): IGESData_DefList {.noSideEffect,
     importcpp: "DefLevel", header: "IGESData_IGESEntity.hxx".}
-proc level*(this: IGESDataIGESEntity): StandardInteger {.noSideEffect,
+proc Level*(this: IGESData_IGESEntity): Standard_Integer {.noSideEffect,
     importcpp: "Level", header: "IGESData_IGESEntity.hxx".}
-proc levelList*(this: IGESDataIGESEntity): Handle[IGESDataLevelListEntity] {.
+proc LevelList*(this: IGESData_IGESEntity): handle[IGESData_LevelListEntity] {.
     noSideEffect, importcpp: "LevelList", header: "IGESData_IGESEntity.hxx".}
-proc defView*(this: IGESDataIGESEntity): IGESDataDefList {.noSideEffect,
+proc DefView*(this: IGESData_IGESEntity): IGESData_DefList {.noSideEffect,
     importcpp: "DefView", header: "IGESData_IGESEntity.hxx".}
-proc view*(this: IGESDataIGESEntity): Handle[IGESDataViewKindEntity] {.noSideEffect,
-    importcpp: "View", header: "IGESData_IGESEntity.hxx".}
-proc singleView*(this: IGESDataIGESEntity): Handle[IGESDataViewKindEntity] {.
+proc View*(this: IGESData_IGESEntity): handle[IGESData_ViewKindEntity] {.
+    noSideEffect, importcpp: "View", header: "IGESData_IGESEntity.hxx".}
+proc SingleView*(this: IGESData_IGESEntity): handle[IGESData_ViewKindEntity] {.
     noSideEffect, importcpp: "SingleView", header: "IGESData_IGESEntity.hxx".}
-proc viewList*(this: IGESDataIGESEntity): Handle[IGESDataViewKindEntity] {.
+proc ViewList*(this: IGESData_IGESEntity): handle[IGESData_ViewKindEntity] {.
     noSideEffect, importcpp: "ViewList", header: "IGESData_IGESEntity.hxx".}
-proc hasTransf*(this: IGESDataIGESEntity): StandardBoolean {.noSideEffect,
+proc HasTransf*(this: IGESData_IGESEntity): Standard_Boolean {.noSideEffect,
     importcpp: "HasTransf", header: "IGESData_IGESEntity.hxx".}
-proc transf*(this: IGESDataIGESEntity): Handle[IGESDataTransfEntity] {.noSideEffect,
-    importcpp: "Transf", header: "IGESData_IGESEntity.hxx".}
-proc hasLabelDisplay*(this: IGESDataIGESEntity): StandardBoolean {.noSideEffect,
+proc Transf*(this: IGESData_IGESEntity): handle[IGESData_TransfEntity] {.
+    noSideEffect, importcpp: "Transf", header: "IGESData_IGESEntity.hxx".}
+proc HasLabelDisplay*(this: IGESData_IGESEntity): Standard_Boolean {.noSideEffect,
     importcpp: "HasLabelDisplay", header: "IGESData_IGESEntity.hxx".}
-proc labelDisplay*(this: IGESDataIGESEntity): Handle[IGESDataLabelDisplayEntity] {.
+proc LabelDisplay*(this: IGESData_IGESEntity): handle[IGESData_LabelDisplayEntity] {.
     noSideEffect, importcpp: "LabelDisplay", header: "IGESData_IGESEntity.hxx".}
-proc blankStatus*(this: IGESDataIGESEntity): StandardInteger {.noSideEffect,
+proc BlankStatus*(this: IGESData_IGESEntity): Standard_Integer {.noSideEffect,
     importcpp: "BlankStatus", header: "IGESData_IGESEntity.hxx".}
-proc subordinateStatus*(this: IGESDataIGESEntity): StandardInteger {.noSideEffect,
+proc SubordinateStatus*(this: IGESData_IGESEntity): Standard_Integer {.noSideEffect,
     importcpp: "SubordinateStatus", header: "IGESData_IGESEntity.hxx".}
-proc useFlag*(this: IGESDataIGESEntity): StandardInteger {.noSideEffect,
+proc UseFlag*(this: IGESData_IGESEntity): Standard_Integer {.noSideEffect,
     importcpp: "UseFlag", header: "IGESData_IGESEntity.hxx".}
-proc hierarchyStatus*(this: IGESDataIGESEntity): StandardInteger {.noSideEffect,
+proc HierarchyStatus*(this: IGESData_IGESEntity): Standard_Integer {.noSideEffect,
     importcpp: "HierarchyStatus", header: "IGESData_IGESEntity.hxx".}
-proc lineWeightNumber*(this: IGESDataIGESEntity): StandardInteger {.noSideEffect,
+proc LineWeightNumber*(this: IGESData_IGESEntity): Standard_Integer {.noSideEffect,
     importcpp: "LineWeightNumber", header: "IGESData_IGESEntity.hxx".}
-proc lineWeight*(this: IGESDataIGESEntity): StandardReal {.noSideEffect,
+proc LineWeight*(this: IGESData_IGESEntity): Standard_Real {.noSideEffect,
     importcpp: "LineWeight", header: "IGESData_IGESEntity.hxx".}
-proc defColor*(this: IGESDataIGESEntity): IGESDataDefType {.noSideEffect,
+proc DefColor*(this: IGESData_IGESEntity): IGESData_DefType {.noSideEffect,
     importcpp: "DefColor", header: "IGESData_IGESEntity.hxx".}
-proc rankColor*(this: IGESDataIGESEntity): StandardInteger {.noSideEffect,
+proc RankColor*(this: IGESData_IGESEntity): Standard_Integer {.noSideEffect,
     importcpp: "RankColor", header: "IGESData_IGESEntity.hxx".}
-proc color*(this: IGESDataIGESEntity): Handle[IGESDataColorEntity] {.noSideEffect,
+proc Color*(this: IGESData_IGESEntity): handle[IGESData_ColorEntity] {.noSideEffect,
     importcpp: "Color", header: "IGESData_IGESEntity.hxx".}
-proc cResValues*(this: IGESDataIGESEntity; res1: StandardCString;
-                res2: StandardCString): StandardBoolean {.noSideEffect,
+proc CResValues*(this: IGESData_IGESEntity; res1: Standard_CString;
+                res2: Standard_CString): Standard_Boolean {.noSideEffect,
     importcpp: "CResValues", header: "IGESData_IGESEntity.hxx".}
-proc hasShortLabel*(this: IGESDataIGESEntity): StandardBoolean {.noSideEffect,
+proc HasShortLabel*(this: IGESData_IGESEntity): Standard_Boolean {.noSideEffect,
     importcpp: "HasShortLabel", header: "IGESData_IGESEntity.hxx".}
-proc shortLabel*(this: IGESDataIGESEntity): Handle[TCollectionHAsciiString] {.
+proc ShortLabel*(this: IGESData_IGESEntity): handle[TCollection_HAsciiString] {.
     noSideEffect, importcpp: "ShortLabel", header: "IGESData_IGESEntity.hxx".}
-proc hasSubScriptNumber*(this: IGESDataIGESEntity): StandardBoolean {.noSideEffect,
-    importcpp: "HasSubScriptNumber", header: "IGESData_IGESEntity.hxx".}
-proc subScriptNumber*(this: IGESDataIGESEntity): StandardInteger {.noSideEffect,
-    importcpp: "SubScriptNumber", header: "IGESData_IGESEntity.hxx".}
-proc initDirFieldEntity*(this: var IGESDataIGESEntity; fieldnum: StandardInteger;
-                        ent: Handle[IGESDataIGESEntity]) {.
-    importcpp: "InitDirFieldEntity", header: "IGESData_IGESEntity.hxx".}
-proc initTransf*(this: var IGESDataIGESEntity; ent: Handle[IGESDataTransfEntity]) {.
-    importcpp: "InitTransf", header: "IGESData_IGESEntity.hxx".}
-proc initView*(this: var IGESDataIGESEntity; ent: Handle[IGESDataViewKindEntity]) {.
-    importcpp: "InitView", header: "IGESData_IGESEntity.hxx".}
-proc initLineFont*(this: var IGESDataIGESEntity;
-                  ent: Handle[IGESDataLineFontEntity]; rank: StandardInteger = 0) {.
-    importcpp: "InitLineFont", header: "IGESData_IGESEntity.hxx".}
-proc initLevel*(this: var IGESDataIGESEntity; ent: Handle[IGESDataLevelListEntity];
-               val: StandardInteger = 0) {.importcpp: "InitLevel",
-                                       header: "IGESData_IGESEntity.hxx".}
-proc initColor*(this: var IGESDataIGESEntity; ent: Handle[IGESDataColorEntity];
-               rank: StandardInteger = 0) {.importcpp: "InitColor",
-                                        header: "IGESData_IGESEntity.hxx".}
-proc initStatus*(this: var IGESDataIGESEntity; blank: StandardInteger;
-                subordinate: StandardInteger; useflag: StandardInteger;
-                hierarchy: StandardInteger) {.importcpp: "InitStatus",
+proc HasSubScriptNumber*(this: IGESData_IGESEntity): Standard_Boolean {.
+    noSideEffect, importcpp: "HasSubScriptNumber",
     header: "IGESData_IGESEntity.hxx".}
-proc setLabel*(this: var IGESDataIGESEntity; label: Handle[TCollectionHAsciiString];
-              sub: StandardInteger = -1) {.importcpp: "SetLabel",
-                                       header: "IGESData_IGESEntity.hxx".}
-proc initMisc*(this: var IGESDataIGESEntity; str: Handle[IGESDataIGESEntity];
-              lab: Handle[IGESDataLabelDisplayEntity]; weightnum: StandardInteger) {.
-    importcpp: "InitMisc", header: "IGESData_IGESEntity.hxx".}
-proc hasOneParent*(this: IGESDataIGESEntity): StandardBoolean {.noSideEffect,
+proc SubScriptNumber*(this: IGESData_IGESEntity): Standard_Integer {.noSideEffect,
+    importcpp: "SubScriptNumber", header: "IGESData_IGESEntity.hxx".}
+proc InitDirFieldEntity*(this: var IGESData_IGESEntity; fieldnum: Standard_Integer;
+                        ent: handle[IGESData_IGESEntity]) {.
+    importcpp: "InitDirFieldEntity", header: "IGESData_IGESEntity.hxx".}
+proc InitTransf*(this: var IGESData_IGESEntity; ent: handle[IGESData_TransfEntity]) {.
+    importcpp: "InitTransf", header: "IGESData_IGESEntity.hxx".}
+proc InitView*(this: var IGESData_IGESEntity; ent: handle[IGESData_ViewKindEntity]) {.
+    importcpp: "InitView", header: "IGESData_IGESEntity.hxx".}
+proc InitLineFont*(this: var IGESData_IGESEntity;
+                  ent: handle[IGESData_LineFontEntity]; rank: Standard_Integer = 0) {.
+    importcpp: "InitLineFont", header: "IGESData_IGESEntity.hxx".}
+proc InitLevel*(this: var IGESData_IGESEntity;
+               ent: handle[IGESData_LevelListEntity]; val: Standard_Integer = 0) {.
+    importcpp: "InitLevel", header: "IGESData_IGESEntity.hxx".}
+proc InitColor*(this: var IGESData_IGESEntity; ent: handle[IGESData_ColorEntity];
+               rank: Standard_Integer = 0) {.importcpp: "InitColor",
+    header: "IGESData_IGESEntity.hxx".}
+proc InitStatus*(this: var IGESData_IGESEntity; blank: Standard_Integer;
+                subordinate: Standard_Integer; useflag: Standard_Integer;
+                hierarchy: Standard_Integer) {.importcpp: "InitStatus",
+    header: "IGESData_IGESEntity.hxx".}
+proc SetLabel*(this: var IGESData_IGESEntity;
+              label: handle[TCollection_HAsciiString]; sub: Standard_Integer = -1) {.
+    importcpp: "SetLabel", header: "IGESData_IGESEntity.hxx".}
+proc InitMisc*(this: var IGESData_IGESEntity; str: handle[IGESData_IGESEntity];
+              lab: handle[IGESData_LabelDisplayEntity];
+              weightnum: Standard_Integer) {.importcpp: "InitMisc",
+    header: "IGESData_IGESEntity.hxx".}
+proc HasOneParent*(this: IGESData_IGESEntity): Standard_Boolean {.noSideEffect,
     importcpp: "HasOneParent", header: "IGESData_IGESEntity.hxx".}
-proc uniqueParent*(this: IGESDataIGESEntity): Handle[IGESDataIGESEntity] {.
+proc UniqueParent*(this: IGESData_IGESEntity): handle[IGESData_IGESEntity] {.
     noSideEffect, importcpp: "UniqueParent", header: "IGESData_IGESEntity.hxx".}
-proc location*(this: IGESDataIGESEntity): GpGTrsf {.noSideEffect,
+proc Location*(this: IGESData_IGESEntity): gp_GTrsf {.noSideEffect,
     importcpp: "Location", header: "IGESData_IGESEntity.hxx".}
-proc vectorLocation*(this: IGESDataIGESEntity): GpGTrsf {.noSideEffect,
+proc VectorLocation*(this: IGESData_IGESEntity): gp_GTrsf {.noSideEffect,
     importcpp: "VectorLocation", header: "IGESData_IGESEntity.hxx".}
-proc compoundLocation*(this: IGESDataIGESEntity): GpGTrsf {.noSideEffect,
+proc CompoundLocation*(this: IGESData_IGESEntity): gp_GTrsf {.noSideEffect,
     importcpp: "CompoundLocation", header: "IGESData_IGESEntity.hxx".}
-proc hasName*(this: IGESDataIGESEntity): StandardBoolean {.noSideEffect,
+proc HasName*(this: IGESData_IGESEntity): Standard_Boolean {.noSideEffect,
     importcpp: "HasName", header: "IGESData_IGESEntity.hxx".}
-proc nameValue*(this: IGESDataIGESEntity): Handle[TCollectionHAsciiString] {.
+proc NameValue*(this: IGESData_IGESEntity): handle[TCollection_HAsciiString] {.
     noSideEffect, importcpp: "NameValue", header: "IGESData_IGESEntity.hxx".}
-proc arePresentAssociativities*(this: IGESDataIGESEntity): StandardBoolean {.
+proc ArePresentAssociativities*(this: IGESData_IGESEntity): Standard_Boolean {.
     noSideEffect, importcpp: "ArePresentAssociativities",
     header: "IGESData_IGESEntity.hxx".}
-proc nbAssociativities*(this: IGESDataIGESEntity): StandardInteger {.noSideEffect,
+proc NbAssociativities*(this: IGESData_IGESEntity): Standard_Integer {.noSideEffect,
     importcpp: "NbAssociativities", header: "IGESData_IGESEntity.hxx".}
-proc associativities*(this: IGESDataIGESEntity): InterfaceEntityIterator {.
+proc Associativities*(this: IGESData_IGESEntity): Interface_EntityIterator {.
     noSideEffect, importcpp: "Associativities", header: "IGESData_IGESEntity.hxx".}
-proc nbTypedAssociativities*(this: IGESDataIGESEntity; atype: Handle[StandardType]): StandardInteger {.
+proc NbTypedAssociativities*(this: IGESData_IGESEntity;
+                            atype: handle[Standard_Type]): Standard_Integer {.
     noSideEffect, importcpp: "NbTypedAssociativities",
     header: "IGESData_IGESEntity.hxx".}
-proc typedAssociativity*(this: IGESDataIGESEntity; atype: Handle[StandardType]): Handle[
-    IGESDataIGESEntity] {.noSideEffect, importcpp: "TypedAssociativity",
-                         header: "IGESData_IGESEntity.hxx".}
-proc associate*(this: IGESDataIGESEntity; ent: Handle[IGESDataIGESEntity]) {.
+proc TypedAssociativity*(this: IGESData_IGESEntity; atype: handle[Standard_Type]): handle[
+    IGESData_IGESEntity] {.noSideEffect, importcpp: "TypedAssociativity",
+                          header: "IGESData_IGESEntity.hxx".}
+proc Associate*(this: IGESData_IGESEntity; ent: handle[IGESData_IGESEntity]) {.
     noSideEffect, importcpp: "Associate", header: "IGESData_IGESEntity.hxx".}
-proc dissociate*(this: IGESDataIGESEntity; ent: Handle[IGESDataIGESEntity]) {.
+proc Dissociate*(this: IGESData_IGESEntity; ent: handle[IGESData_IGESEntity]) {.
     noSideEffect, importcpp: "Dissociate", header: "IGESData_IGESEntity.hxx".}
-proc arePresentProperties*(this: IGESDataIGESEntity): StandardBoolean {.
+proc ArePresentProperties*(this: IGESData_IGESEntity): Standard_Boolean {.
     noSideEffect, importcpp: "ArePresentProperties",
     header: "IGESData_IGESEntity.hxx".}
-proc nbProperties*(this: IGESDataIGESEntity): StandardInteger {.noSideEffect,
+proc NbProperties*(this: IGESData_IGESEntity): Standard_Integer {.noSideEffect,
     importcpp: "NbProperties", header: "IGESData_IGESEntity.hxx".}
-proc properties*(this: IGESDataIGESEntity): InterfaceEntityIterator {.noSideEffect,
-    importcpp: "Properties", header: "IGESData_IGESEntity.hxx".}
-proc nbTypedProperties*(this: IGESDataIGESEntity; atype: Handle[StandardType]): StandardInteger {.
+proc Properties*(this: IGESData_IGESEntity): Interface_EntityIterator {.
+    noSideEffect, importcpp: "Properties", header: "IGESData_IGESEntity.hxx".}
+proc NbTypedProperties*(this: IGESData_IGESEntity; atype: handle[Standard_Type]): Standard_Integer {.
     noSideEffect, importcpp: "NbTypedProperties", header: "IGESData_IGESEntity.hxx".}
-proc typedProperty*(this: IGESDataIGESEntity; atype: Handle[StandardType];
-                   anum: StandardInteger = 0): Handle[IGESDataIGESEntity] {.
+proc TypedProperty*(this: IGESData_IGESEntity; atype: handle[Standard_Type];
+                   anum: Standard_Integer = 0): handle[IGESData_IGESEntity] {.
     noSideEffect, importcpp: "TypedProperty", header: "IGESData_IGESEntity.hxx".}
-proc addProperty*(this: var IGESDataIGESEntity; ent: Handle[IGESDataIGESEntity]) {.
+proc AddProperty*(this: var IGESData_IGESEntity; ent: handle[IGESData_IGESEntity]) {.
     importcpp: "AddProperty", header: "IGESData_IGESEntity.hxx".}
-proc removeProperty*(this: var IGESDataIGESEntity; ent: Handle[IGESDataIGESEntity]) {.
+proc RemoveProperty*(this: var IGESData_IGESEntity; ent: handle[IGESData_IGESEntity]) {.
     importcpp: "RemoveProperty", header: "IGESData_IGESEntity.hxx".}
-proc setLineWeight*(this: var IGESDataIGESEntity; defw: StandardReal;
-                   maxw: StandardReal; gradw: StandardInteger) {.
+proc SetLineWeight*(this: var IGESData_IGESEntity; defw: Standard_Real;
+                   maxw: Standard_Real; gradw: Standard_Integer) {.
     importcpp: "SetLineWeight", header: "IGESData_IGESEntity.hxx".}
 type
-  IGESDataIGESEntitybaseType* = StandardTransient
+  IGESData_IGESEntitybase_type* = Standard_Transient
 
-proc getTypeName*(): cstring {.importcpp: "IGESData_IGESEntity::get_type_name(@)",
-                            header: "IGESData_IGESEntity.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "IGESData_IGESEntity::get_type_name(@)",
+                              header: "IGESData_IGESEntity.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "IGESData_IGESEntity::get_type_descriptor(@)",
     header: "IGESData_IGESEntity.hxx".}
-proc dynamicType*(this: IGESDataIGESEntity): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: IGESData_IGESEntity): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "IGESData_IGESEntity.hxx".}
-

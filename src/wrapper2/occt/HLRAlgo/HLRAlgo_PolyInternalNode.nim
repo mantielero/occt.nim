@@ -14,53 +14,58 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Integer,
+  ../Standard/Standard_Real, ../Standard/Standard_Transient, ../gp/gp_XYZ,
+  ../gp/gp_XY
+
 discard "forward decl of HLRAlgo_PolyInternalNode"
 discard "forward decl of HLRAlgo_PolyInternalNode"
 type
-  HandleHLRAlgoPolyInternalNode* = Handle[HLRAlgoPolyInternalNode]
+  Handle_HLRAlgo_PolyInternalNode* = handle[HLRAlgo_PolyInternalNode]
 
 ## ! to Update OutLines.
 
 type
-  HLRAlgoPolyInternalNode* {.importcpp: "HLRAlgo_PolyInternalNode",
-                            header: "HLRAlgo_PolyInternalNode.hxx", bycopy.} = object of StandardTransient
+  HLRAlgo_PolyInternalNode* {.importcpp: "HLRAlgo_PolyInternalNode",
+                             header: "HLRAlgo_PolyInternalNode.hxx", bycopy.} = object of Standard_Transient
 
-  HLRAlgoPolyInternalNodeNodeIndices* {.importcpp: "HLRAlgo_PolyInternalNode::NodeIndices",
-                                       header: "HLRAlgo_PolyInternalNode.hxx",
-                                       bycopy.} = object
-    ndSg* {.importc: "NdSg".}: StandardInteger
-    flag* {.importc: "Flag".}: StandardInteger
-    edg1* {.importc: "Edg1".}: StandardInteger
-    edg2* {.importc: "Edg2".}: StandardInteger
+  HLRAlgo_PolyInternalNodeNodeIndices* {.importcpp: "HLRAlgo_PolyInternalNode::NodeIndices",
+                                        header: "HLRAlgo_PolyInternalNode.hxx",
+                                        bycopy.} = object
+    NdSg* {.importc: "NdSg".}: Standard_Integer
+    Flag* {.importc: "Flag".}: Standard_Integer
+    Edg1* {.importc: "Edg1".}: Standard_Integer
+    Edg2* {.importc: "Edg2".}: Standard_Integer
 
-  HLRAlgoPolyInternalNodeNodeData* {.importcpp: "HLRAlgo_PolyInternalNode::NodeData",
-                                    header: "HLRAlgo_PolyInternalNode.hxx", bycopy.} = object
-    point* {.importc: "Point".}: GpXYZ
-    normal* {.importc: "Normal".}: GpXYZ
-    uv* {.importc: "UV".}: GpXY
-    pCu1* {.importc: "PCu1".}: StandardReal
-    pCu2* {.importc: "PCu2".}: StandardReal
-    scal* {.importc: "Scal".}: StandardReal
+  HLRAlgo_PolyInternalNodeNodeData* {.importcpp: "HLRAlgo_PolyInternalNode::NodeData",
+                                     header: "HLRAlgo_PolyInternalNode.hxx",
+                                     bycopy.} = object
+    Point* {.importc: "Point".}: gp_XYZ
+    Normal* {.importc: "Normal".}: gp_XYZ
+    UV* {.importc: "UV".}: gp_XY
+    PCu1* {.importc: "PCu1".}: Standard_Real
+    PCu2* {.importc: "PCu2".}: Standard_Real
+    Scal* {.importc: "Scal".}: Standard_Real
 
 
-proc constructHLRAlgoPolyInternalNodeNodeData*(): HLRAlgoPolyInternalNodeNodeData {.
+proc constructHLRAlgo_PolyInternalNodeNodeData*(): HLRAlgo_PolyInternalNodeNodeData {.
     constructor, importcpp: "HLRAlgo_PolyInternalNode::NodeData(@)",
     header: "HLRAlgo_PolyInternalNode.hxx".}
-proc constructHLRAlgoPolyInternalNode*(): HLRAlgoPolyInternalNode {.constructor,
+proc constructHLRAlgo_PolyInternalNode*(): HLRAlgo_PolyInternalNode {.constructor,
     importcpp: "HLRAlgo_PolyInternalNode(@)",
     header: "HLRAlgo_PolyInternalNode.hxx".}
-proc indices*(this: var HLRAlgoPolyInternalNode): var HLRAlgoPolyInternalNodeNodeIndices {.
+proc Indices*(this: var HLRAlgo_PolyInternalNode): var HLRAlgo_PolyInternalNodeNodeIndices {.
     importcpp: "Indices", header: "HLRAlgo_PolyInternalNode.hxx".}
-proc data*(this: var HLRAlgoPolyInternalNode): var HLRAlgoPolyInternalNodeNodeData {.
+proc Data*(this: var HLRAlgo_PolyInternalNode): var HLRAlgo_PolyInternalNodeNodeData {.
     importcpp: "Data", header: "HLRAlgo_PolyInternalNode.hxx".}
 type
-  HLRAlgoPolyInternalNodebaseType* = StandardTransient
+  HLRAlgo_PolyInternalNodebase_type* = Standard_Transient
 
-proc getTypeName*(): cstring {.importcpp: "HLRAlgo_PolyInternalNode::get_type_name(@)",
-                            header: "HLRAlgo_PolyInternalNode.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "HLRAlgo_PolyInternalNode::get_type_name(@)",
+                              header: "HLRAlgo_PolyInternalNode.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "HLRAlgo_PolyInternalNode::get_type_descriptor(@)",
     header: "HLRAlgo_PolyInternalNode.hxx".}
-proc dynamicType*(this: HLRAlgoPolyInternalNode): Handle[StandardType] {.
+proc DynamicType*(this: HLRAlgo_PolyInternalNode): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType", header: "HLRAlgo_PolyInternalNode.hxx".}
-

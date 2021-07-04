@@ -14,6 +14,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../gp/gp_XY,
+  ../Standard/Standard_Real, ../IGESData/IGESData_IGESEntity,
+  ../Standard/Standard_Integer, ../Standard/Standard_Boolean
+
 discard "forward decl of IGESData_IGESEntity"
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of gp_XY"
@@ -22,7 +27,7 @@ discard "forward decl of gp_Pnt"
 discard "forward decl of IGESGeom_Flash"
 discard "forward decl of IGESGeom_Flash"
 type
-  HandleIGESGeomFlash* = Handle[IGESGeomFlash]
+  Handle_IGESGeom_Flash* = handle[IGESGeom_Flash]
 
 ## ! defines IGESFlash, Type <125> Form <0 - 4>
 ## ! in package IGESGeom
@@ -35,39 +40,38 @@ type
 ## ! flash shapes.
 
 type
-  IGESGeomFlash* {.importcpp: "IGESGeom_Flash", header: "IGESGeom_Flash.hxx", bycopy.} = object of IGESDataIGESEntity
+  IGESGeom_Flash* {.importcpp: "IGESGeom_Flash", header: "IGESGeom_Flash.hxx", bycopy.} = object of IGESData_IGESEntity
 
 
-proc constructIGESGeomFlash*(): IGESGeomFlash {.constructor,
+proc constructIGESGeom_Flash*(): IGESGeom_Flash {.constructor,
     importcpp: "IGESGeom_Flash(@)", header: "IGESGeom_Flash.hxx".}
-proc init*(this: var IGESGeomFlash; aPoint: GpXY; aDim: StandardReal;
-          anotherDim: StandardReal; aRotation: StandardReal;
-          aReference: Handle[IGESDataIGESEntity]) {.importcpp: "Init",
+proc Init*(this: var IGESGeom_Flash; aPoint: gp_XY; aDim: Standard_Real;
+          anotherDim: Standard_Real; aRotation: Standard_Real;
+          aReference: handle[IGESData_IGESEntity]) {.importcpp: "Init",
     header: "IGESGeom_Flash.hxx".}
-proc setFormNumber*(this: var IGESGeomFlash; form: StandardInteger) {.
+proc SetFormNumber*(this: var IGESGeom_Flash; form: Standard_Integer) {.
     importcpp: "SetFormNumber", header: "IGESGeom_Flash.hxx".}
-proc referencePoint*(this: IGESGeomFlash): GpPnt2d {.noSideEffect,
+proc ReferencePoint*(this: IGESGeom_Flash): gp_Pnt2d {.noSideEffect,
     importcpp: "ReferencePoint", header: "IGESGeom_Flash.hxx".}
-proc transformedReferencePoint*(this: IGESGeomFlash): GpPnt {.noSideEffect,
+proc TransformedReferencePoint*(this: IGESGeom_Flash): gp_Pnt {.noSideEffect,
     importcpp: "TransformedReferencePoint", header: "IGESGeom_Flash.hxx".}
-proc dimension1*(this: IGESGeomFlash): StandardReal {.noSideEffect,
+proc Dimension1*(this: IGESGeom_Flash): Standard_Real {.noSideEffect,
     importcpp: "Dimension1", header: "IGESGeom_Flash.hxx".}
-proc dimension2*(this: IGESGeomFlash): StandardReal {.noSideEffect,
+proc Dimension2*(this: IGESGeom_Flash): Standard_Real {.noSideEffect,
     importcpp: "Dimension2", header: "IGESGeom_Flash.hxx".}
-proc rotation*(this: IGESGeomFlash): StandardReal {.noSideEffect,
+proc Rotation*(this: IGESGeom_Flash): Standard_Real {.noSideEffect,
     importcpp: "Rotation", header: "IGESGeom_Flash.hxx".}
-proc referenceEntity*(this: IGESGeomFlash): Handle[IGESDataIGESEntity] {.
+proc ReferenceEntity*(this: IGESGeom_Flash): handle[IGESData_IGESEntity] {.
     noSideEffect, importcpp: "ReferenceEntity", header: "IGESGeom_Flash.hxx".}
-proc hasReferenceEntity*(this: IGESGeomFlash): StandardBoolean {.noSideEffect,
+proc HasReferenceEntity*(this: IGESGeom_Flash): Standard_Boolean {.noSideEffect,
     importcpp: "HasReferenceEntity", header: "IGESGeom_Flash.hxx".}
 type
-  IGESGeomFlashbaseType* = IGESDataIGESEntity
+  IGESGeom_Flashbase_type* = IGESData_IGESEntity
 
-proc getTypeName*(): cstring {.importcpp: "IGESGeom_Flash::get_type_name(@)",
-                            header: "IGESGeom_Flash.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "IGESGeom_Flash::get_type_name(@)",
+                              header: "IGESGeom_Flash.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "IGESGeom_Flash::get_type_descriptor(@)",
     header: "IGESGeom_Flash.hxx".}
-proc dynamicType*(this: IGESGeomFlash): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: IGESGeom_Flash): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "IGESGeom_Flash.hxx".}
-

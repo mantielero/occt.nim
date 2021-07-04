@@ -14,30 +14,34 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer,
+  AppParCurves_Constraint
+
 ## ! associates an index and a constraint for an object.
 ## ! This couple is used by AppDef_TheVariational when performing approximations.
 
 type
-  AppParCurvesConstraintCouple* {.importcpp: "AppParCurves_ConstraintCouple",
-                                 header: "AppParCurves_ConstraintCouple.hxx",
-                                 bycopy.} = object ## ! returns an indefinite ConstraintCouple.
+  AppParCurves_ConstraintCouple* {.importcpp: "AppParCurves_ConstraintCouple",
+                                  header: "AppParCurves_ConstraintCouple.hxx",
+                                  bycopy.} = object ## ! returns an indefinite ConstraintCouple.
 
 
-proc constructAppParCurvesConstraintCouple*(): AppParCurvesConstraintCouple {.
+proc constructAppParCurves_ConstraintCouple*(): AppParCurves_ConstraintCouple {.
     constructor, importcpp: "AppParCurves_ConstraintCouple(@)",
     header: "AppParCurves_ConstraintCouple.hxx".}
-proc constructAppParCurvesConstraintCouple*(theIndex: StandardInteger;
-    cons: AppParCurvesConstraint): AppParCurvesConstraintCouple {.constructor,
+proc constructAppParCurves_ConstraintCouple*(TheIndex: Standard_Integer;
+    Cons: AppParCurves_Constraint): AppParCurves_ConstraintCouple {.constructor,
     importcpp: "AppParCurves_ConstraintCouple(@)",
     header: "AppParCurves_ConstraintCouple.hxx".}
-proc index*(this: AppParCurvesConstraintCouple): StandardInteger {.noSideEffect,
+proc Index*(this: AppParCurves_ConstraintCouple): Standard_Integer {.noSideEffect,
     importcpp: "Index", header: "AppParCurves_ConstraintCouple.hxx".}
-proc constraint*(this: AppParCurvesConstraintCouple): AppParCurvesConstraint {.
+proc Constraint*(this: AppParCurves_ConstraintCouple): AppParCurves_Constraint {.
     noSideEffect, importcpp: "Constraint",
     header: "AppParCurves_ConstraintCouple.hxx".}
-proc setIndex*(this: var AppParCurvesConstraintCouple; theIndex: StandardInteger) {.
+proc SetIndex*(this: var AppParCurves_ConstraintCouple; TheIndex: Standard_Integer) {.
     importcpp: "SetIndex", header: "AppParCurves_ConstraintCouple.hxx".}
-proc setConstraint*(this: var AppParCurvesConstraintCouple;
-                   cons: AppParCurvesConstraint) {.importcpp: "SetConstraint",
+proc SetConstraint*(this: var AppParCurves_ConstraintCouple;
+                   Cons: AppParCurves_Constraint) {.importcpp: "SetConstraint",
     header: "AppParCurves_ConstraintCouple.hxx".}
-

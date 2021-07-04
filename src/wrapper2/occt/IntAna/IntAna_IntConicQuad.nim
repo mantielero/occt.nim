@@ -14,6 +14,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
+  ../Standard/Standard_Integer, ../gp/gp_Pnt, ../Standard/Standard_Real
+
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of Standard_DomainError"
@@ -26,79 +31,80 @@ discard "forward decl of gp_Hypr"
 discard "forward decl of gp_Pln"
 discard "forward decl of gp_Pnt"
 type
-  IntAnaIntConicQuad* {.importcpp: "IntAna_IntConicQuad",
-                       header: "IntAna_IntConicQuad.hxx", bycopy.} = object ## ! Empty
-                                                                       ## constructor.
+  IntAna_IntConicQuad* {.importcpp: "IntAna_IntConicQuad",
+                        header: "IntAna_IntConicQuad.hxx", bycopy.} = object ## ! Empty
+                                                                        ## constructor.
 
 
-proc constructIntAnaIntConicQuad*(): IntAnaIntConicQuad {.constructor,
+proc constructIntAna_IntConicQuad*(): IntAna_IntConicQuad {.constructor,
     importcpp: "IntAna_IntConicQuad(@)", header: "IntAna_IntConicQuad.hxx".}
-proc constructIntAnaIntConicQuad*(L: GpLin; q: IntAnaQuadric): IntAnaIntConicQuad {.
+proc constructIntAna_IntConicQuad*(L: gp_Lin; Q: IntAna_Quadric): IntAna_IntConicQuad {.
     constructor, importcpp: "IntAna_IntConicQuad(@)",
     header: "IntAna_IntConicQuad.hxx".}
-proc perform*(this: var IntAnaIntConicQuad; L: GpLin; q: IntAnaQuadric) {.
+proc Perform*(this: var IntAna_IntConicQuad; L: gp_Lin; Q: IntAna_Quadric) {.
     importcpp: "Perform", header: "IntAna_IntConicQuad.hxx".}
-proc constructIntAnaIntConicQuad*(c: GpCirc; q: IntAnaQuadric): IntAnaIntConicQuad {.
+proc constructIntAna_IntConicQuad*(C: gp_Circ; Q: IntAna_Quadric): IntAna_IntConicQuad {.
     constructor, importcpp: "IntAna_IntConicQuad(@)",
     header: "IntAna_IntConicQuad.hxx".}
-proc perform*(this: var IntAnaIntConicQuad; c: GpCirc; q: IntAnaQuadric) {.
+proc Perform*(this: var IntAna_IntConicQuad; C: gp_Circ; Q: IntAna_Quadric) {.
     importcpp: "Perform", header: "IntAna_IntConicQuad.hxx".}
-proc constructIntAnaIntConicQuad*(e: GpElips; q: IntAnaQuadric): IntAnaIntConicQuad {.
+proc constructIntAna_IntConicQuad*(E: gp_Elips; Q: IntAna_Quadric): IntAna_IntConicQuad {.
     constructor, importcpp: "IntAna_IntConicQuad(@)",
     header: "IntAna_IntConicQuad.hxx".}
-proc perform*(this: var IntAnaIntConicQuad; e: GpElips; q: IntAnaQuadric) {.
+proc Perform*(this: var IntAna_IntConicQuad; E: gp_Elips; Q: IntAna_Quadric) {.
     importcpp: "Perform", header: "IntAna_IntConicQuad.hxx".}
-proc constructIntAnaIntConicQuad*(p: GpParab; q: IntAnaQuadric): IntAnaIntConicQuad {.
+proc constructIntAna_IntConicQuad*(P: gp_Parab; Q: IntAna_Quadric): IntAna_IntConicQuad {.
     constructor, importcpp: "IntAna_IntConicQuad(@)",
     header: "IntAna_IntConicQuad.hxx".}
-proc perform*(this: var IntAnaIntConicQuad; p: GpParab; q: IntAnaQuadric) {.
+proc Perform*(this: var IntAna_IntConicQuad; P: gp_Parab; Q: IntAna_Quadric) {.
     importcpp: "Perform", header: "IntAna_IntConicQuad.hxx".}
-proc constructIntAnaIntConicQuad*(h: GpHypr; q: IntAnaQuadric): IntAnaIntConicQuad {.
+proc constructIntAna_IntConicQuad*(H: gp_Hypr; Q: IntAna_Quadric): IntAna_IntConicQuad {.
     constructor, importcpp: "IntAna_IntConicQuad(@)",
     header: "IntAna_IntConicQuad.hxx".}
-proc perform*(this: var IntAnaIntConicQuad; h: GpHypr; q: IntAnaQuadric) {.
+proc Perform*(this: var IntAna_IntConicQuad; H: gp_Hypr; Q: IntAna_Quadric) {.
     importcpp: "Perform", header: "IntAna_IntConicQuad.hxx".}
-proc constructIntAnaIntConicQuad*(L: GpLin; p: GpPln; tolang: StandardReal;
-                                 tol: StandardReal = 0; len: StandardReal = 0): IntAnaIntConicQuad {.
+proc constructIntAna_IntConicQuad*(L: gp_Lin; P: gp_Pln; Tolang: Standard_Real;
+                                  Tol: Standard_Real = 0; Len: Standard_Real = 0): IntAna_IntConicQuad {.
     constructor, importcpp: "IntAna_IntConicQuad(@)",
     header: "IntAna_IntConicQuad.hxx".}
-proc perform*(this: var IntAnaIntConicQuad; L: GpLin; p: GpPln; tolang: StandardReal;
-             tol: StandardReal = 0; len: StandardReal = 0) {.importcpp: "Perform",
-    header: "IntAna_IntConicQuad.hxx".}
-proc constructIntAnaIntConicQuad*(c: GpCirc; p: GpPln; tolang: StandardReal;
-                                 tol: StandardReal): IntAnaIntConicQuad {.
-    constructor, importcpp: "IntAna_IntConicQuad(@)",
-    header: "IntAna_IntConicQuad.hxx".}
-proc perform*(this: var IntAnaIntConicQuad; c: GpCirc; p: GpPln; tolang: StandardReal;
-             tol: StandardReal) {.importcpp: "Perform",
-                                header: "IntAna_IntConicQuad.hxx".}
-proc constructIntAnaIntConicQuad*(e: GpElips; p: GpPln; tolang: StandardReal;
-                                 tol: StandardReal): IntAnaIntConicQuad {.
-    constructor, importcpp: "IntAna_IntConicQuad(@)",
-    header: "IntAna_IntConicQuad.hxx".}
-proc perform*(this: var IntAnaIntConicQuad; e: GpElips; p: GpPln; tolang: StandardReal;
-             tol: StandardReal) {.importcpp: "Perform",
-                                header: "IntAna_IntConicQuad.hxx".}
-proc constructIntAnaIntConicQuad*(pb: GpParab; p: GpPln; tolang: StandardReal): IntAnaIntConicQuad {.
-    constructor, importcpp: "IntAna_IntConicQuad(@)",
-    header: "IntAna_IntConicQuad.hxx".}
-proc perform*(this: var IntAnaIntConicQuad; pb: GpParab; p: GpPln; tolang: StandardReal) {.
+proc Perform*(this: var IntAna_IntConicQuad; L: gp_Lin; P: gp_Pln;
+             Tolang: Standard_Real; Tol: Standard_Real = 0; Len: Standard_Real = 0) {.
     importcpp: "Perform", header: "IntAna_IntConicQuad.hxx".}
-proc constructIntAnaIntConicQuad*(h: GpHypr; p: GpPln; tolang: StandardReal): IntAnaIntConicQuad {.
+proc constructIntAna_IntConicQuad*(C: gp_Circ; P: gp_Pln; Tolang: Standard_Real;
+                                  Tol: Standard_Real): IntAna_IntConicQuad {.
     constructor, importcpp: "IntAna_IntConicQuad(@)",
     header: "IntAna_IntConicQuad.hxx".}
-proc perform*(this: var IntAnaIntConicQuad; h: GpHypr; p: GpPln; tolang: StandardReal) {.
-    importcpp: "Perform", header: "IntAna_IntConicQuad.hxx".}
-proc isDone*(this: IntAnaIntConicQuad): StandardBoolean {.noSideEffect,
+proc Perform*(this: var IntAna_IntConicQuad; C: gp_Circ; P: gp_Pln;
+             Tolang: Standard_Real; Tol: Standard_Real) {.importcpp: "Perform",
+    header: "IntAna_IntConicQuad.hxx".}
+proc constructIntAna_IntConicQuad*(E: gp_Elips; P: gp_Pln; Tolang: Standard_Real;
+                                  Tol: Standard_Real): IntAna_IntConicQuad {.
+    constructor, importcpp: "IntAna_IntConicQuad(@)",
+    header: "IntAna_IntConicQuad.hxx".}
+proc Perform*(this: var IntAna_IntConicQuad; E: gp_Elips; P: gp_Pln;
+             Tolang: Standard_Real; Tol: Standard_Real) {.importcpp: "Perform",
+    header: "IntAna_IntConicQuad.hxx".}
+proc constructIntAna_IntConicQuad*(Pb: gp_Parab; P: gp_Pln; Tolang: Standard_Real): IntAna_IntConicQuad {.
+    constructor, importcpp: "IntAna_IntConicQuad(@)",
+    header: "IntAna_IntConicQuad.hxx".}
+proc Perform*(this: var IntAna_IntConicQuad; Pb: gp_Parab; P: gp_Pln;
+             Tolang: Standard_Real) {.importcpp: "Perform",
+                                    header: "IntAna_IntConicQuad.hxx".}
+proc constructIntAna_IntConicQuad*(H: gp_Hypr; P: gp_Pln; Tolang: Standard_Real): IntAna_IntConicQuad {.
+    constructor, importcpp: "IntAna_IntConicQuad(@)",
+    header: "IntAna_IntConicQuad.hxx".}
+proc Perform*(this: var IntAna_IntConicQuad; H: gp_Hypr; P: gp_Pln;
+             Tolang: Standard_Real) {.importcpp: "Perform",
+                                    header: "IntAna_IntConicQuad.hxx".}
+proc IsDone*(this: IntAna_IntConicQuad): Standard_Boolean {.noSideEffect,
     importcpp: "IsDone", header: "IntAna_IntConicQuad.hxx".}
-proc isInQuadric*(this: IntAnaIntConicQuad): StandardBoolean {.noSideEffect,
+proc IsInQuadric*(this: IntAna_IntConicQuad): Standard_Boolean {.noSideEffect,
     importcpp: "IsInQuadric", header: "IntAna_IntConicQuad.hxx".}
-proc isParallel*(this: IntAnaIntConicQuad): StandardBoolean {.noSideEffect,
+proc IsParallel*(this: IntAna_IntConicQuad): Standard_Boolean {.noSideEffect,
     importcpp: "IsParallel", header: "IntAna_IntConicQuad.hxx".}
-proc nbPoints*(this: IntAnaIntConicQuad): StandardInteger {.noSideEffect,
+proc NbPoints*(this: IntAna_IntConicQuad): Standard_Integer {.noSideEffect,
     importcpp: "NbPoints", header: "IntAna_IntConicQuad.hxx".}
-proc point*(this: IntAnaIntConicQuad; n: StandardInteger): GpPnt {.noSideEffect,
+proc Point*(this: IntAna_IntConicQuad; N: Standard_Integer): gp_Pnt {.noSideEffect,
     importcpp: "Point", header: "IntAna_IntConicQuad.hxx".}
-proc paramOnConic*(this: IntAnaIntConicQuad; n: StandardInteger): StandardReal {.
+proc ParamOnConic*(this: IntAna_IntConicQuad; N: Standard_Integer): Standard_Real {.
     noSideEffect, importcpp: "ParamOnConic", header: "IntAna_IntConicQuad.hxx".}
-

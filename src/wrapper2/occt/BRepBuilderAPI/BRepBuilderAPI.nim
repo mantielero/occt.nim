@@ -14,6 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Real
+
 discard "forward decl of Geom_Plane"
 discard "forward decl of BRepBuilderAPI_Command"
 discard "forward decl of BRepBuilderAPI_MakeShape"
@@ -42,12 +46,11 @@ type
                                                                                          ## plane.
 
 
-proc plane*(p: Handle[GeomPlane]) {.importcpp: "BRepBuilderAPI::Plane(@)",
+proc Plane*(P: handle[Geom_Plane]) {.importcpp: "BRepBuilderAPI::Plane(@)",
+                                  header: "BRepBuilderAPI.hxx".}
+proc Plane*(): handle[Geom_Plane] {.importcpp: "BRepBuilderAPI::Plane(@)",
                                  header: "BRepBuilderAPI.hxx".}
-proc plane*(): Handle[GeomPlane] {.importcpp: "BRepBuilderAPI::Plane(@)",
+proc Precision*(P: Standard_Real) {.importcpp: "BRepBuilderAPI::Precision(@)",
+                                 header: "BRepBuilderAPI.hxx".}
+proc Precision*(): Standard_Real {.importcpp: "BRepBuilderAPI::Precision(@)",
                                 header: "BRepBuilderAPI.hxx".}
-proc precision*(p: StandardReal) {.importcpp: "BRepBuilderAPI::Precision(@)",
-                                header: "BRepBuilderAPI.hxx".}
-proc precision*(): StandardReal {.importcpp: "BRepBuilderAPI::Precision(@)",
-                               header: "BRepBuilderAPI.hxx".}
-

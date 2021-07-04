@@ -14,23 +14,28 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of HeaderSection_FileSchema"
 discard "forward decl of StepData_StepWriter"
 type
-  RWHeaderSectionRWFileSchema* {.importcpp: "RWHeaderSection_RWFileSchema",
-                                header: "RWHeaderSection_RWFileSchema.hxx", bycopy.} = object
+  RWHeaderSection_RWFileSchema* {.importcpp: "RWHeaderSection_RWFileSchema",
+                                 header: "RWHeaderSection_RWFileSchema.hxx",
+                                 bycopy.} = object
 
 
-proc constructRWHeaderSectionRWFileSchema*(): RWHeaderSectionRWFileSchema {.
+proc constructRWHeaderSection_RWFileSchema*(): RWHeaderSection_RWFileSchema {.
     constructor, importcpp: "RWHeaderSection_RWFileSchema(@)",
     header: "RWHeaderSection_RWFileSchema.hxx".}
-proc readStep*(this: RWHeaderSectionRWFileSchema;
-              data: Handle[StepDataStepReaderData]; num: StandardInteger;
-              ach: var Handle[InterfaceCheck]; ent: Handle[HeaderSectionFileSchema]) {.
-    noSideEffect, importcpp: "ReadStep", header: "RWHeaderSection_RWFileSchema.hxx".}
-proc writeStep*(this: RWHeaderSectionRWFileSchema; sw: var StepDataStepWriter;
-               ent: Handle[HeaderSectionFileSchema]) {.noSideEffect,
+proc ReadStep*(this: RWHeaderSection_RWFileSchema;
+              data: handle[StepData_StepReaderData]; num: Standard_Integer;
+              ach: var handle[Interface_Check];
+              ent: handle[HeaderSection_FileSchema]) {.noSideEffect,
+    importcpp: "ReadStep", header: "RWHeaderSection_RWFileSchema.hxx".}
+proc WriteStep*(this: RWHeaderSection_RWFileSchema; SW: var StepData_StepWriter;
+               ent: handle[HeaderSection_FileSchema]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWHeaderSection_RWFileSchema.hxx".}
-

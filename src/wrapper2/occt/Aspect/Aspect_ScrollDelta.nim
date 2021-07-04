@@ -11,30 +11,30 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  Aspect_VKeyFlags, ../NCollection/NCollection_Vec2, ../Standard/Standard_Real
+
 ## ! Parameters for mouse scroll action.
 
 type
-  AspectScrollDelta* {.importcpp: "Aspect_ScrollDelta",
-                      header: "Aspect_ScrollDelta.hxx", bycopy.} = object
-    point* {.importc: "Point".}: NCollectionVec2[cint] ## !< scale position
-    delta* {.importc: "Delta".}: StandardReal ## !< delta in pixels
-    flags* {.importc: "Flags".}: AspectVKeyFlags ## !< key flags
-                                             ## ! Return true if action has point defined.
+  Aspect_ScrollDelta* {.importcpp: "Aspect_ScrollDelta",
+                       header: "Aspect_ScrollDelta.hxx", bycopy.} = object
+    Point* {.importc: "Point".}: NCollection_Vec2[cint] ## !< scale position
+    Delta* {.importc: "Delta".}: Standard_Real ## !< delta in pixels
+    Flags* {.importc: "Flags".}: Aspect_VKeyFlags ## !< key flags
+                                              ## ! Return true if action has point defined.
 
 
-proc hasPoint*(this: AspectScrollDelta): bool {.noSideEffect, importcpp: "HasPoint",
+proc HasPoint*(this: Aspect_ScrollDelta): bool {.noSideEffect, importcpp: "HasPoint",
     header: "Aspect_ScrollDelta.hxx".}
-proc resetPoint*(this: var AspectScrollDelta) {.importcpp: "ResetPoint",
+proc ResetPoint*(this: var Aspect_ScrollDelta) {.importcpp: "ResetPoint",
     header: "Aspect_ScrollDelta.hxx".}
-proc constructAspectScrollDelta*(): AspectScrollDelta {.constructor,
+proc constructAspect_ScrollDelta*(): Aspect_ScrollDelta {.constructor,
     importcpp: "Aspect_ScrollDelta(@)", header: "Aspect_ScrollDelta.hxx".}
-proc constructAspectScrollDelta*(thePnt: NCollectionVec2[cint];
-                                theValue: StandardReal;
-                                theFlags: AspectVKeyFlags = aspectVKeyFlagsNONE): AspectScrollDelta {.
+proc constructAspect_ScrollDelta*(thePnt: NCollection_Vec2[cint];
+                                 theValue: Standard_Real; theFlags: Aspect_VKeyFlags = Aspect_VKeyFlags_NONE): Aspect_ScrollDelta {.
     constructor, importcpp: "Aspect_ScrollDelta(@)",
     header: "Aspect_ScrollDelta.hxx".}
-proc constructAspectScrollDelta*(theValue: StandardReal;
-                                theFlags: AspectVKeyFlags = aspectVKeyFlagsNONE): AspectScrollDelta {.
+proc constructAspect_ScrollDelta*(theValue: Standard_Real; theFlags: Aspect_VKeyFlags = Aspect_VKeyFlags_NONE): Aspect_ScrollDelta {.
     constructor, importcpp: "Aspect_ScrollDelta(@)",
     header: "Aspect_ScrollDelta.hxx".}
-

@@ -12,57 +12,62 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Poly/Poly_Triangulation, ../RWMesh/RWMesh_CoordinateSystemConverter,
+  RWGltf_GltfAccessor, RWGltf_GltfArrayType, RWGltf_GltfPrimitiveMode,
+  ../TCollection/TCollection_AsciiString
+
 discard "forward decl of RWGltf_GltfLatePrimitiveArray"
 type
-  RWGltfGltfSharedIStream* {.importcpp: "RWGltf_GltfSharedIStream",
-                            header: "RWGltf_PrimitiveArrayReader.hxx", bycopy.} = object
-    stream* {.importc: "Stream".}: Ifstream ## !< shared file
-    path* {.importc: "Path".}: TCollectionAsciiString ## !< path to currently opened stream
+  RWGltf_GltfSharedIStream* {.importcpp: "RWGltf_GltfSharedIStream",
+                             header: "RWGltf_PrimitiveArrayReader.hxx", bycopy.} = object
+    Stream* {.importc: "Stream".}: ifstream ## !< shared file
+    Path* {.importc: "Path".}: TCollection_AsciiString ## !< path to currently opened stream
 
 
 ## ! Interface for reading primitive array from glTF buffer.
 
 type
-  RWGltfPrimitiveArrayReader* {.importcpp: "RWGltf_PrimitiveArrayReader",
-                               header: "RWGltf_PrimitiveArrayReader.hxx", bycopy.} = object of StandardTransient ##
-                                                                                                          ## !
-                                                                                                          ## Constructor.
-                                                                                                          ##
-                                                                                                          ## !
-                                                                                                          ## Reset
-                                                                                                          ## cache
-                                                                                                          ## before
-                                                                                                          ## loading
-                                                                                                          ## primitive
-                                                                                                          ## array.
+  RWGltf_PrimitiveArrayReader* {.importcpp: "RWGltf_PrimitiveArrayReader",
+                                header: "RWGltf_PrimitiveArrayReader.hxx", bycopy.} = object of Standard_Transient ##
+                                                                                                            ## !
+                                                                                                            ## Constructor.
+                                                                                                            ##
+                                                                                                            ## !
+                                                                                                            ## Reset
+                                                                                                            ## cache
+                                                                                                            ## before
+                                                                                                            ## loading
+                                                                                                            ## primitive
+                                                                                                            ## array.
 
-  RWGltfPrimitiveArrayReaderbaseType* = StandardTransient
+  RWGltf_PrimitiveArrayReaderbase_type* = Standard_Transient
 
-proc getTypeName*(): cstring {.importcpp: "RWGltf_PrimitiveArrayReader::get_type_name(@)",
-                            header: "RWGltf_PrimitiveArrayReader.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "RWGltf_PrimitiveArrayReader::get_type_name(@)",
+                              header: "RWGltf_PrimitiveArrayReader.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "RWGltf_PrimitiveArrayReader::get_type_descriptor(@)",
     header: "RWGltf_PrimitiveArrayReader.hxx".}
-proc dynamicType*(this: RWGltfPrimitiveArrayReader): Handle[StandardType] {.
+proc DynamicType*(this: RWGltf_PrimitiveArrayReader): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType",
     header: "RWGltf_PrimitiveArrayReader.hxx".}
-proc constructRWGltfPrimitiveArrayReader*(): RWGltfPrimitiveArrayReader {.
+proc constructRWGltf_PrimitiveArrayReader*(): RWGltf_PrimitiveArrayReader {.
     constructor, importcpp: "RWGltf_PrimitiveArrayReader(@)",
     header: "RWGltf_PrimitiveArrayReader.hxx".}
-proc errorPrefix*(this: RWGltfPrimitiveArrayReader): TCollectionAsciiString {.
+proc ErrorPrefix*(this: RWGltf_PrimitiveArrayReader): TCollection_AsciiString {.
     noSideEffect, importcpp: "ErrorPrefix",
     header: "RWGltf_PrimitiveArrayReader.hxx".}
-proc setErrorPrefix*(this: var RWGltfPrimitiveArrayReader;
-                    theErrPrefix: TCollectionAsciiString) {.
+proc SetErrorPrefix*(this: var RWGltf_PrimitiveArrayReader;
+                    theErrPrefix: TCollection_AsciiString) {.
     importcpp: "SetErrorPrefix", header: "RWGltf_PrimitiveArrayReader.hxx".}
-proc coordinateSystemConverter*(this: RWGltfPrimitiveArrayReader): RWMeshCoordinateSystemConverter {.
+proc CoordinateSystemConverter*(this: RWGltf_PrimitiveArrayReader): RWMesh_CoordinateSystemConverter {.
     noSideEffect, importcpp: "CoordinateSystemConverter",
     header: "RWGltf_PrimitiveArrayReader.hxx".}
-proc setCoordinateSystemConverter*(this: var RWGltfPrimitiveArrayReader;
-                                  theConverter: RWMeshCoordinateSystemConverter) {.
+proc SetCoordinateSystemConverter*(this: var RWGltf_PrimitiveArrayReader;
+    theConverter: RWMesh_CoordinateSystemConverter) {.
     importcpp: "SetCoordinateSystemConverter",
     header: "RWGltf_PrimitiveArrayReader.hxx".}
-proc load*(this: var RWGltfPrimitiveArrayReader;
-          theMesh: Handle[RWGltfGltfLatePrimitiveArray]): Handle[PolyTriangulation] {.
-    importcpp: "Load", header: "RWGltf_PrimitiveArrayReader.hxx".}
-
+proc Load*(this: var RWGltf_PrimitiveArrayReader;
+          theMesh: handle[RWGltf_GltfLatePrimitiveArray]): handle[
+    Poly_Triangulation] {.importcpp: "Load",
+                         header: "RWGltf_PrimitiveArrayReader.hxx".}

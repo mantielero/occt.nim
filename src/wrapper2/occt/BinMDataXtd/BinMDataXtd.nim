@@ -13,6 +13,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 discard "forward decl of BinMDF_ADriverTable"
 discard "forward decl of Message_Messenger"
 discard "forward decl of BinMDataXtd_GeometryDriver"
@@ -30,11 +34,10 @@ type
                                                                                 ## <theDriverTable>.
 
 
-proc addDrivers*(theDriverTable: Handle[BinMDF_ADriverTable];
-                aMsgDrv: Handle[MessageMessenger]) {.
+proc AddDrivers*(theDriverTable: handle[BinMDF_ADriverTable];
+                aMsgDrv: handle[Message_Messenger]) {.
     importcpp: "BinMDataXtd::AddDrivers(@)", header: "BinMDataXtd.hxx".}
-proc setDocumentVersion*(docVersion: StandardInteger) {.
+proc SetDocumentVersion*(DocVersion: Standard_Integer) {.
     importcpp: "BinMDataXtd::SetDocumentVersion(@)", header: "BinMDataXtd.hxx".}
-proc documentVersion*(): StandardInteger {.importcpp: "BinMDataXtd::DocumentVersion(@)",
-                                        header: "BinMDataXtd.hxx".}
-
+proc DocumentVersion*(): Standard_Integer {.
+    importcpp: "BinMDataXtd::DocumentVersion(@)", header: "BinMDataXtd.hxx".}

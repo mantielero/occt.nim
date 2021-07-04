@@ -14,38 +14,42 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../TopTools/TopTools_IndexedMapOfShape,
+  ../Standard/Standard_Boolean, ../Standard/Standard_Integer
+
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of TopoDS_Compound"
 type
-  ShapeAnalysisShell* {.importcpp: "ShapeAnalysis_Shell",
-                       header: "ShapeAnalysis_Shell.hxx", bycopy.} = object ## ! Empty
-                                                                       ## constructor
+  ShapeAnalysis_Shell* {.importcpp: "ShapeAnalysis_Shell",
+                        header: "ShapeAnalysis_Shell.hxx", bycopy.} = object ## ! Empty
+                                                                        ## constructor
 
 
-proc constructShapeAnalysisShell*(): ShapeAnalysisShell {.constructor,
+proc constructShapeAnalysis_Shell*(): ShapeAnalysis_Shell {.constructor,
     importcpp: "ShapeAnalysis_Shell(@)", header: "ShapeAnalysis_Shell.hxx".}
-proc clear*(this: var ShapeAnalysisShell) {.importcpp: "Clear",
-                                        header: "ShapeAnalysis_Shell.hxx".}
-proc loadShells*(this: var ShapeAnalysisShell; shape: TopoDS_Shape) {.
+proc Clear*(this: var ShapeAnalysis_Shell) {.importcpp: "Clear",
+    header: "ShapeAnalysis_Shell.hxx".}
+proc LoadShells*(this: var ShapeAnalysis_Shell; shape: TopoDS_Shape) {.
     importcpp: "LoadShells", header: "ShapeAnalysis_Shell.hxx".}
-proc checkOrientedShells*(this: var ShapeAnalysisShell; shape: TopoDS_Shape;
-                         alsofree: StandardBoolean = standardFalse;
-                         checkinternaledges: StandardBoolean = standardFalse): StandardBoolean {.
+proc CheckOrientedShells*(this: var ShapeAnalysis_Shell; shape: TopoDS_Shape;
+                         alsofree: Standard_Boolean = Standard_False;
+                         checkinternaledges: Standard_Boolean = Standard_False): Standard_Boolean {.
     importcpp: "CheckOrientedShells", header: "ShapeAnalysis_Shell.hxx".}
-proc isLoaded*(this: ShapeAnalysisShell; shape: TopoDS_Shape): StandardBoolean {.
+proc IsLoaded*(this: ShapeAnalysis_Shell; shape: TopoDS_Shape): Standard_Boolean {.
     noSideEffect, importcpp: "IsLoaded", header: "ShapeAnalysis_Shell.hxx".}
-proc nbLoaded*(this: ShapeAnalysisShell): StandardInteger {.noSideEffect,
+proc NbLoaded*(this: ShapeAnalysis_Shell): Standard_Integer {.noSideEffect,
     importcpp: "NbLoaded", header: "ShapeAnalysis_Shell.hxx".}
-proc loaded*(this: ShapeAnalysisShell; num: StandardInteger): TopoDS_Shape {.
+proc Loaded*(this: ShapeAnalysis_Shell; num: Standard_Integer): TopoDS_Shape {.
     noSideEffect, importcpp: "Loaded", header: "ShapeAnalysis_Shell.hxx".}
-proc hasBadEdges*(this: ShapeAnalysisShell): StandardBoolean {.noSideEffect,
+proc HasBadEdges*(this: ShapeAnalysis_Shell): Standard_Boolean {.noSideEffect,
     importcpp: "HasBadEdges", header: "ShapeAnalysis_Shell.hxx".}
-proc badEdges*(this: ShapeAnalysisShell): TopoDS_Compound {.noSideEffect,
+proc BadEdges*(this: ShapeAnalysis_Shell): TopoDS_Compound {.noSideEffect,
     importcpp: "BadEdges", header: "ShapeAnalysis_Shell.hxx".}
-proc hasFreeEdges*(this: ShapeAnalysisShell): StandardBoolean {.noSideEffect,
+proc HasFreeEdges*(this: ShapeAnalysis_Shell): Standard_Boolean {.noSideEffect,
     importcpp: "HasFreeEdges", header: "ShapeAnalysis_Shell.hxx".}
-proc freeEdges*(this: ShapeAnalysisShell): TopoDS_Compound {.noSideEffect,
+proc FreeEdges*(this: ShapeAnalysis_Shell): TopoDS_Compound {.noSideEffect,
     importcpp: "FreeEdges", header: "ShapeAnalysis_Shell.hxx".}
-proc hasConnectedEdges*(this: ShapeAnalysisShell): StandardBoolean {.noSideEffect,
+proc HasConnectedEdges*(this: ShapeAnalysis_Shell): Standard_Boolean {.noSideEffect,
     importcpp: "HasConnectedEdges", header: "ShapeAnalysis_Shell.hxx".}
-

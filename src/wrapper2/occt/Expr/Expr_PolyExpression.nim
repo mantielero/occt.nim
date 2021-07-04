@@ -14,6 +14,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type,
+  Expr_SequenceOfGeneralExpression, Expr_GeneralExpression,
+  ../Standard/Standard_Integer, ../Standard/Standard_Boolean
+
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of Standard_NumericError"
 discard "forward decl of Expr_InvalidOperand"
@@ -22,58 +27,57 @@ discard "forward decl of Expr_NamedUnknown"
 discard "forward decl of Expr_PolyExpression"
 discard "forward decl of Expr_PolyExpression"
 type
-  HandleExprPolyExpression* = Handle[ExprPolyExpression]
-  ExprPolyExpression* {.importcpp: "Expr_PolyExpression",
-                       header: "Expr_PolyExpression.hxx", bycopy.} = object of ExprGeneralExpression ##
-                                                                                              ## !
-                                                                                              ## returns
-                                                                                              ## the
-                                                                                              ## number
-                                                                                              ## of
-                                                                                              ## operands
-                                                                                              ## contained
-                                                                                              ## in
-                                                                                              ## <me>
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ## initialize
-                                                                                              ## an
-                                                                                              ## empty
-                                                                                              ## list
-                                                                                              ## of
-                                                                                              ## operands.
+  Handle_Expr_PolyExpression* = handle[Expr_PolyExpression]
+  Expr_PolyExpression* {.importcpp: "Expr_PolyExpression",
+                        header: "Expr_PolyExpression.hxx", bycopy.} = object of Expr_GeneralExpression ##
+                                                                                                ## !
+                                                                                                ## returns
+                                                                                                ## the
+                                                                                                ## number
+                                                                                                ## of
+                                                                                                ## operands
+                                                                                                ## contained
+                                                                                                ## in
+                                                                                                ## <me>
+                                                                                                ##
+                                                                                                ## !
+                                                                                                ## initialize
+                                                                                                ## an
+                                                                                                ## empty
+                                                                                                ## list
+                                                                                                ## of
+                                                                                                ## operands.
 
 
-proc nbOperands*(this: ExprPolyExpression): StandardInteger {.noSideEffect,
+proc NbOperands*(this: Expr_PolyExpression): Standard_Integer {.noSideEffect,
     importcpp: "NbOperands", header: "Expr_PolyExpression.hxx".}
-proc operand*(this: ExprPolyExpression; index: StandardInteger): Handle[
-    ExprGeneralExpression] {.noSideEffect, importcpp: "Operand",
-                            header: "Expr_PolyExpression.hxx".}
-proc setOperand*(this: var ExprPolyExpression; exp: Handle[ExprGeneralExpression];
-                index: StandardInteger) {.importcpp: "SetOperand",
-                                        header: "Expr_PolyExpression.hxx".}
-proc nbSubExpressions*(this: ExprPolyExpression): StandardInteger {.noSideEffect,
-    importcpp: "NbSubExpressions", header: "Expr_PolyExpression.hxx".}
-proc subExpression*(this: ExprPolyExpression; i: StandardInteger): Handle[
-    ExprGeneralExpression] {.noSideEffect, importcpp: "SubExpression",
-                            header: "Expr_PolyExpression.hxx".}
-proc containsUnknowns*(this: ExprPolyExpression): StandardBoolean {.noSideEffect,
-    importcpp: "ContainsUnknowns", header: "Expr_PolyExpression.hxx".}
-proc contains*(this: ExprPolyExpression; exp: Handle[ExprGeneralExpression]): StandardBoolean {.
-    noSideEffect, importcpp: "Contains", header: "Expr_PolyExpression.hxx".}
-proc replace*(this: var ExprPolyExpression; `var`: Handle[ExprNamedUnknown];
-             with: Handle[ExprGeneralExpression]) {.importcpp: "Replace",
+proc Operand*(this: Expr_PolyExpression; index: Standard_Integer): handle[
+    Expr_GeneralExpression] {.noSideEffect, importcpp: "Operand",
+                             header: "Expr_PolyExpression.hxx".}
+proc SetOperand*(this: var Expr_PolyExpression; exp: handle[Expr_GeneralExpression];
+                index: Standard_Integer) {.importcpp: "SetOperand",
     header: "Expr_PolyExpression.hxx".}
-proc simplified*(this: ExprPolyExpression): Handle[ExprGeneralExpression] {.
+proc NbSubExpressions*(this: Expr_PolyExpression): Standard_Integer {.noSideEffect,
+    importcpp: "NbSubExpressions", header: "Expr_PolyExpression.hxx".}
+proc SubExpression*(this: Expr_PolyExpression; I: Standard_Integer): handle[
+    Expr_GeneralExpression] {.noSideEffect, importcpp: "SubExpression",
+                             header: "Expr_PolyExpression.hxx".}
+proc ContainsUnknowns*(this: Expr_PolyExpression): Standard_Boolean {.noSideEffect,
+    importcpp: "ContainsUnknowns", header: "Expr_PolyExpression.hxx".}
+proc Contains*(this: Expr_PolyExpression; exp: handle[Expr_GeneralExpression]): Standard_Boolean {.
+    noSideEffect, importcpp: "Contains", header: "Expr_PolyExpression.hxx".}
+proc Replace*(this: var Expr_PolyExpression; `var`: handle[Expr_NamedUnknown];
+             with: handle[Expr_GeneralExpression]) {.importcpp: "Replace",
+    header: "Expr_PolyExpression.hxx".}
+proc Simplified*(this: Expr_PolyExpression): handle[Expr_GeneralExpression] {.
     noSideEffect, importcpp: "Simplified", header: "Expr_PolyExpression.hxx".}
 type
-  ExprPolyExpressionbaseType* = ExprGeneralExpression
+  Expr_PolyExpressionbase_type* = Expr_GeneralExpression
 
-proc getTypeName*(): cstring {.importcpp: "Expr_PolyExpression::get_type_name(@)",
-                            header: "Expr_PolyExpression.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "Expr_PolyExpression::get_type_name(@)",
+                              header: "Expr_PolyExpression.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "Expr_PolyExpression::get_type_descriptor(@)",
     header: "Expr_PolyExpression.hxx".}
-proc dynamicType*(this: ExprPolyExpression): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: Expr_PolyExpression): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "Expr_PolyExpression.hxx".}
-

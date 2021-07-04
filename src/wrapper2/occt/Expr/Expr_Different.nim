@@ -14,6 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, Expr_SingleRelation,
+  ../Standard/Standard_Boolean
+
 discard "forward decl of Standard_NumericError"
 discard "forward decl of Expr_GeneralExpression"
 discard "forward decl of Expr_GeneralRelation"
@@ -21,38 +25,37 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of Expr_Different"
 discard "forward decl of Expr_Different"
 type
-  HandleExprDifferent* = Handle[ExprDifferent]
-  ExprDifferent* {.importcpp: "Expr_Different", header: "Expr_Different.hxx", bycopy.} = object of ExprSingleRelation ##
-                                                                                                            ## !
-                                                                                                            ## Creates
-                                                                                                            ## the
-                                                                                                            ## relation
-                                                                                                            ## <exp1>
-                                                                                                            ## #
-                                                                                                            ## <exp2>.
+  Handle_Expr_Different* = handle[Expr_Different]
+  Expr_Different* {.importcpp: "Expr_Different", header: "Expr_Different.hxx", bycopy.} = object of Expr_SingleRelation ##
+                                                                                                              ## !
+                                                                                                              ## Creates
+                                                                                                              ## the
+                                                                                                              ## relation
+                                                                                                              ## <exp1>
+                                                                                                              ## #
+                                                                                                              ## <exp2>.
 
 
-proc constructExprDifferent*(exp1: Handle[ExprGeneralExpression];
-                            exp2: Handle[ExprGeneralExpression]): ExprDifferent {.
+proc constructExpr_Different*(exp1: handle[Expr_GeneralExpression];
+                             exp2: handle[Expr_GeneralExpression]): Expr_Different {.
     constructor, importcpp: "Expr_Different(@)", header: "Expr_Different.hxx".}
-proc isSatisfied*(this: ExprDifferent): StandardBoolean {.noSideEffect,
+proc IsSatisfied*(this: Expr_Different): Standard_Boolean {.noSideEffect,
     importcpp: "IsSatisfied", header: "Expr_Different.hxx".}
-proc simplified*(this: ExprDifferent): Handle[ExprGeneralRelation] {.noSideEffect,
+proc Simplified*(this: Expr_Different): handle[Expr_GeneralRelation] {.noSideEffect,
     importcpp: "Simplified", header: "Expr_Different.hxx".}
-proc simplify*(this: var ExprDifferent) {.importcpp: "Simplify",
-                                      header: "Expr_Different.hxx".}
-proc copy*(this: ExprDifferent): Handle[ExprGeneralRelation] {.noSideEffect,
+proc Simplify*(this: var Expr_Different) {.importcpp: "Simplify",
+                                       header: "Expr_Different.hxx".}
+proc Copy*(this: Expr_Different): handle[Expr_GeneralRelation] {.noSideEffect,
     importcpp: "Copy", header: "Expr_Different.hxx".}
-proc string*(this: ExprDifferent): TCollectionAsciiString {.noSideEffect,
+proc String*(this: Expr_Different): TCollection_AsciiString {.noSideEffect,
     importcpp: "String", header: "Expr_Different.hxx".}
 type
-  ExprDifferentbaseType* = ExprSingleRelation
+  Expr_Differentbase_type* = Expr_SingleRelation
 
-proc getTypeName*(): cstring {.importcpp: "Expr_Different::get_type_name(@)",
-                            header: "Expr_Different.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "Expr_Different::get_type_name(@)",
+                              header: "Expr_Different.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "Expr_Different::get_type_descriptor(@)",
     header: "Expr_Different.hxx".}
-proc dynamicType*(this: ExprDifferent): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: Expr_Different): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "Expr_Different.hxx".}
-

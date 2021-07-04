@@ -14,6 +14,13 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Real,
+  ../Standard/Standard_Boolean, ../GeomAbs/GeomAbs_Shape,
+  ../Standard/Standard_Integer, ../TopoDS/TopoDS, ../TopoDS/TopoDS_Edge,
+  ../TopTools/TopTools_ListOfShape, ../NCollection/NCollection_List
+
 discard "forward decl of Geom2d_Curve"
 discard "forward decl of Adaptor3d_Curve"
 discard "forward decl of Geom_Plane"
@@ -42,93 +49,94 @@ type
                                                                     ## ! is returned.
 
 
-proc precision*(p: StandardReal) {.importcpp: "BRepLib::Precision(@)",
-                                header: "BRepLib.hxx".}
-proc precision*(): StandardReal {.importcpp: "BRepLib::Precision(@)",
-                               header: "BRepLib.hxx".}
-proc plane*(p: Handle[GeomPlane]) {.importcpp: "BRepLib::Plane(@)",
+proc Precision*(P: Standard_Real) {.importcpp: "BRepLib::Precision(@)",
                                  header: "BRepLib.hxx".}
-proc plane*(): Handle[GeomPlane] {.importcpp: "BRepLib::Plane(@)",
+proc Precision*(): Standard_Real {.importcpp: "BRepLib::Precision(@)",
                                 header: "BRepLib.hxx".}
-proc checkSameRange*(e: TopoDS_Edge; confusion: StandardReal = 1.0e-12): StandardBoolean {.
+proc Plane*(P: handle[Geom_Plane]) {.importcpp: "BRepLib::Plane(@)",
+                                  header: "BRepLib.hxx".}
+proc Plane*(): handle[Geom_Plane] {.importcpp: "BRepLib::Plane(@)",
+                                 header: "BRepLib.hxx".}
+proc CheckSameRange*(E: TopoDS_Edge; Confusion: Standard_Real = 1.0e-12): Standard_Boolean {.
     importcpp: "BRepLib::CheckSameRange(@)", header: "BRepLib.hxx".}
-proc sameRange*(e: TopoDS_Edge; tolerance: StandardReal = 1.0e-5) {.
+proc SameRange*(E: TopoDS_Edge; Tolerance: Standard_Real = 1.0e-5) {.
     importcpp: "BRepLib::SameRange(@)", header: "BRepLib.hxx".}
-proc buildCurve3d*(e: TopoDS_Edge; tolerance: StandardReal = 1.0e-5;
-                  continuity: GeomAbsShape = geomAbsC1;
-                  maxDegree: StandardInteger = 14; maxSegment: StandardInteger = 0): StandardBoolean {.
+proc BuildCurve3d*(E: TopoDS_Edge; Tolerance: Standard_Real = 1.0e-5;
+                  Continuity: GeomAbs_Shape = GeomAbs_C1;
+                  MaxDegree: Standard_Integer = 14; MaxSegment: Standard_Integer = 0): Standard_Boolean {.
     importcpp: "BRepLib::BuildCurve3d(@)", header: "BRepLib.hxx".}
-proc buildCurves3d*(s: TopoDS_Shape; tolerance: StandardReal;
-                   continuity: GeomAbsShape = geomAbsC1;
-                   maxDegree: StandardInteger = 14; maxSegment: StandardInteger = 0): StandardBoolean {.
+proc BuildCurves3d*(S: TopoDS_Shape; Tolerance: Standard_Real;
+                   Continuity: GeomAbs_Shape = GeomAbs_C1;
+                   MaxDegree: Standard_Integer = 14;
+                   MaxSegment: Standard_Integer = 0): Standard_Boolean {.
     importcpp: "BRepLib::BuildCurves3d(@)", header: "BRepLib.hxx".}
-proc buildCurves3d*(s: TopoDS_Shape): StandardBoolean {.
+proc BuildCurves3d*(S: TopoDS_Shape): Standard_Boolean {.
     importcpp: "BRepLib::BuildCurves3d(@)", header: "BRepLib.hxx".}
-proc buildPCurveForEdgeOnPlane*(theE: TopoDS_Edge; theF: TopoDS_Face) {.
+proc BuildPCurveForEdgeOnPlane*(theE: TopoDS_Edge; theF: TopoDS_Face) {.
     importcpp: "BRepLib::BuildPCurveForEdgeOnPlane(@)", header: "BRepLib.hxx".}
-proc buildPCurveForEdgeOnPlane*(theE: TopoDS_Edge; theF: TopoDS_Face;
-                               aC2D: var Handle[Geom2dCurve];
-                               bToUpdate: var StandardBoolean) {.
+proc BuildPCurveForEdgeOnPlane*(theE: TopoDS_Edge; theF: TopoDS_Face;
+                               aC2D: var handle[Geom2d_Curve];
+                               bToUpdate: var Standard_Boolean) {.
     importcpp: "BRepLib::BuildPCurveForEdgeOnPlane(@)", header: "BRepLib.hxx".}
-proc buildPCurveForEdgesOnPlane*[TCont](theLE: TCont; theF: TopoDS_Face) {.
+proc BuildPCurveForEdgesOnPlane*[TCont](theLE: TCont; theF: TopoDS_Face) {.
     importcpp: "BRepLib::BuildPCurveForEdgesOnPlane(@)", header: "BRepLib.hxx".}
-proc updateEdgeTol*(e: TopoDS_Edge; minToleranceRequest: StandardReal;
-                   maxToleranceToCheck: StandardReal): StandardBoolean {.
+proc UpdateEdgeTol*(E: TopoDS_Edge; MinToleranceRequest: Standard_Real;
+                   MaxToleranceToCheck: Standard_Real): Standard_Boolean {.
     importcpp: "BRepLib::UpdateEdgeTol(@)", header: "BRepLib.hxx".}
-proc updateEdgeTolerance*(s: TopoDS_Shape; minToleranceRequest: StandardReal;
-                         maxToleranceToCheck: StandardReal): StandardBoolean {.
+proc UpdateEdgeTolerance*(S: TopoDS_Shape; MinToleranceRequest: Standard_Real;
+                         MaxToleranceToCheck: Standard_Real): Standard_Boolean {.
     importcpp: "BRepLib::UpdateEdgeTolerance(@)", header: "BRepLib.hxx".}
-proc sameParameter*(theEdge: TopoDS_Edge; tolerance: StandardReal = 1.0e-5) {.
+proc SameParameter*(theEdge: TopoDS_Edge; Tolerance: Standard_Real = 1.0e-5) {.
     importcpp: "BRepLib::SameParameter(@)", header: "BRepLib.hxx".}
-proc sameParameter*(theEdge: TopoDS_Edge; theTolerance: StandardReal;
-                   theNewTol: var StandardReal; isUseOldEdge: StandardBoolean): TopoDS_Edge {.
+proc SameParameter*(theEdge: TopoDS_Edge; theTolerance: Standard_Real;
+                   theNewTol: var Standard_Real; IsUseOldEdge: Standard_Boolean): TopoDS_Edge {.
     importcpp: "BRepLib::SameParameter(@)", header: "BRepLib.hxx".}
-proc sameParameter*(s: TopoDS_Shape; tolerance: StandardReal = 1.0e-5;
-                   forced: StandardBoolean = standardFalse) {.
+proc SameParameter*(S: TopoDS_Shape; Tolerance: Standard_Real = 1.0e-5;
+                   forced: Standard_Boolean = Standard_False) {.
     importcpp: "BRepLib::SameParameter(@)", header: "BRepLib.hxx".}
-proc sameParameter*(s: TopoDS_Shape; theReshaper: var BRepToolsReShape;
-                   tolerance: StandardReal = 1.0e-5;
-                   forced: StandardBoolean = standardFalse) {.
+proc SameParameter*(S: TopoDS_Shape; theReshaper: var BRepTools_ReShape;
+                   Tolerance: Standard_Real = 1.0e-5;
+                   forced: Standard_Boolean = Standard_False) {.
     importcpp: "BRepLib::SameParameter(@)", header: "BRepLib.hxx".}
-proc updateTolerances*(s: TopoDS_Shape;
-                      verifyFaceTolerance: StandardBoolean = standardFalse) {.
+proc UpdateTolerances*(S: TopoDS_Shape;
+                      verifyFaceTolerance: Standard_Boolean = Standard_False) {.
     importcpp: "BRepLib::UpdateTolerances(@)", header: "BRepLib.hxx".}
-proc updateTolerances*(s: TopoDS_Shape; theReshaper: var BRepToolsReShape;
-                      verifyFaceTolerance: StandardBoolean = standardFalse) {.
+proc UpdateTolerances*(S: TopoDS_Shape; theReshaper: var BRepTools_ReShape;
+                      verifyFaceTolerance: Standard_Boolean = Standard_False) {.
     importcpp: "BRepLib::UpdateTolerances(@)", header: "BRepLib.hxx".}
-proc updateInnerTolerances*(s: TopoDS_Shape) {.
+proc UpdateInnerTolerances*(S: TopoDS_Shape) {.
     importcpp: "BRepLib::UpdateInnerTolerances(@)", header: "BRepLib.hxx".}
-proc orientClosedSolid*(solid: var TopoDS_Solid): StandardBoolean {.
+proc OrientClosedSolid*(solid: var TopoDS_Solid): Standard_Boolean {.
     importcpp: "BRepLib::OrientClosedSolid(@)", header: "BRepLib.hxx".}
-proc encodeRegularity*(s: TopoDS_Shape; tolAng: StandardReal = 1.0e-10) {.
+proc EncodeRegularity*(S: TopoDS_Shape; TolAng: Standard_Real = 1.0e-10) {.
     importcpp: "BRepLib::EncodeRegularity(@)", header: "BRepLib.hxx".}
-proc encodeRegularity*(s: TopoDS_Shape; le: TopToolsListOfShape;
-                      tolAng: StandardReal = 1.0e-10) {.
+proc EncodeRegularity*(S: TopoDS_Shape; LE: TopTools_ListOfShape;
+                      TolAng: Standard_Real = 1.0e-10) {.
     importcpp: "BRepLib::EncodeRegularity(@)", header: "BRepLib.hxx".}
-proc encodeRegularity*(e: var TopoDS_Edge; f1: TopoDS_Face; f2: TopoDS_Face;
-                      tolAng: StandardReal = 1.0e-10) {.
+proc EncodeRegularity*(E: var TopoDS_Edge; F1: TopoDS_Face; F2: TopoDS_Face;
+                      TolAng: Standard_Real = 1.0e-10) {.
     importcpp: "BRepLib::EncodeRegularity(@)", header: "BRepLib.hxx".}
-proc sortFaces*(s: TopoDS_Shape; lf: var TopToolsListOfShape) {.
+proc SortFaces*(S: TopoDS_Shape; LF: var TopTools_ListOfShape) {.
     importcpp: "BRepLib::SortFaces(@)", header: "BRepLib.hxx".}
-proc reverseSortFaces*(s: TopoDS_Shape; lf: var TopToolsListOfShape) {.
+proc ReverseSortFaces*(S: TopoDS_Shape; LF: var TopTools_ListOfShape) {.
     importcpp: "BRepLib::ReverseSortFaces(@)", header: "BRepLib.hxx".}
-proc ensureNormalConsistency*(s: TopoDS_Shape; theAngTol: StandardReal = 0.001;
-    forceComputeNormals: StandardBoolean = standardFalse): StandardBoolean {.
+proc EnsureNormalConsistency*(S: TopoDS_Shape; theAngTol: Standard_Real = 0.001;
+    ForceComputeNormals: Standard_Boolean = Standard_False): Standard_Boolean {.
     importcpp: "BRepLib::EnsureNormalConsistency(@)", header: "BRepLib.hxx".}
-proc boundingVertex*(theLV: NCollectionList[TopoDS_Shape]; theNewCenter: var GpPnt;
-                    theNewTol: var StandardReal) {.
+proc BoundingVertex*(theLV: NCollection_List[TopoDS_Shape];
+                    theNewCenter: var gp_Pnt; theNewTol: var Standard_Real) {.
     importcpp: "BRepLib::BoundingVertex(@)", header: "BRepLib.hxx".}
-proc findValidRange*(theCurve: Adaptor3dCurve; theTolE: StandardReal;
-                    theParV1: StandardReal; thePntV1: GpPnt; theTolV1: StandardReal;
-                    theParV2: StandardReal; thePntV2: GpPnt; theTolV2: StandardReal;
-                    theFirst: var StandardReal; theLast: var StandardReal): StandardBoolean {.
+proc FindValidRange*(theCurve: Adaptor3d_Curve; theTolE: Standard_Real;
+                    theParV1: Standard_Real; thePntV1: gp_Pnt;
+                    theTolV1: Standard_Real; theParV2: Standard_Real;
+                    thePntV2: gp_Pnt; theTolV2: Standard_Real;
+                    theFirst: var Standard_Real; theLast: var Standard_Real): Standard_Boolean {.
     importcpp: "BRepLib::FindValidRange(@)", header: "BRepLib.hxx".}
-proc findValidRange*(theEdge: TopoDS_Edge; theFirst: var StandardReal;
-                    theLast: var StandardReal): StandardBoolean {.
+proc FindValidRange*(theEdge: TopoDS_Edge; theFirst: var Standard_Real;
+                    theLast: var Standard_Real): Standard_Boolean {.
     importcpp: "BRepLib::FindValidRange(@)", header: "BRepLib.hxx".}
-proc extendFace*(theF: TopoDS_Face; theExtVal: StandardReal;
-                theExtUMin: StandardBoolean; theExtUMax: StandardBoolean;
-                theExtVMin: StandardBoolean; theExtVMax: StandardBoolean;
+proc ExtendFace*(theF: TopoDS_Face; theExtVal: Standard_Real;
+                theExtUMin: Standard_Boolean; theExtUMax: Standard_Boolean;
+                theExtVMin: Standard_Boolean; theExtVMax: Standard_Boolean;
                 theFExtended: var TopoDS_Face) {.
     importcpp: "BRepLib::ExtendFace(@)", header: "BRepLib.hxx".}
-

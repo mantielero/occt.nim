@@ -14,44 +14,47 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, IGESData_SpecificModule,
+  ../Standard/Standard_Integer
+
 discard "forward decl of IGESData_IGESEntity"
 discard "forward decl of IGESData_IGESDumper"
 discard "forward decl of IGESData_DefaultSpecific"
 discard "forward decl of IGESData_DefaultSpecific"
 type
-  HandleIGESDataDefaultSpecific* = Handle[IGESDataDefaultSpecific]
+  Handle_IGESData_DefaultSpecific* = handle[IGESData_DefaultSpecific]
 
 ## ! Specific IGES Services for UndefinedEntity, FreeFormatEntity
 
 type
-  IGESDataDefaultSpecific* {.importcpp: "IGESData_DefaultSpecific",
-                            header: "IGESData_DefaultSpecific.hxx", bycopy.} = object of IGESDataSpecificModule ##
-                                                                                                         ## !
-                                                                                                         ## Creates
-                                                                                                         ## a
-                                                                                                         ## DefaultSpecific
-                                                                                                         ## and
-                                                                                                         ## puts
-                                                                                                         ## it
-                                                                                                         ## into
-                                                                                                         ## SpecificLib
+  IGESData_DefaultSpecific* {.importcpp: "IGESData_DefaultSpecific",
+                             header: "IGESData_DefaultSpecific.hxx", bycopy.} = object of IGESData_SpecificModule ##
+                                                                                                           ## !
+                                                                                                           ## Creates
+                                                                                                           ## a
+                                                                                                           ## DefaultSpecific
+                                                                                                           ## and
+                                                                                                           ## puts
+                                                                                                           ## it
+                                                                                                           ## into
+                                                                                                           ## SpecificLib
 
 
-proc constructIGESDataDefaultSpecific*(): IGESDataDefaultSpecific {.constructor,
+proc constructIGESData_DefaultSpecific*(): IGESData_DefaultSpecific {.constructor,
     importcpp: "IGESData_DefaultSpecific(@)",
     header: "IGESData_DefaultSpecific.hxx".}
-proc ownDump*(this: IGESDataDefaultSpecific; cn: StandardInteger;
-             ent: Handle[IGESDataIGESEntity]; dumper: IGESDataIGESDumper;
-             s: var StandardOStream; own: StandardInteger) {.noSideEffect,
+proc OwnDump*(this: IGESData_DefaultSpecific; CN: Standard_Integer;
+             ent: handle[IGESData_IGESEntity]; dumper: IGESData_IGESDumper;
+             S: var Standard_OStream; own: Standard_Integer) {.noSideEffect,
     importcpp: "OwnDump", header: "IGESData_DefaultSpecific.hxx".}
 type
-  IGESDataDefaultSpecificbaseType* = IGESDataSpecificModule
+  IGESData_DefaultSpecificbase_type* = IGESData_SpecificModule
 
-proc getTypeName*(): cstring {.importcpp: "IGESData_DefaultSpecific::get_type_name(@)",
-                            header: "IGESData_DefaultSpecific.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "IGESData_DefaultSpecific::get_type_name(@)",
+                              header: "IGESData_DefaultSpecific.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "IGESData_DefaultSpecific::get_type_descriptor(@)",
     header: "IGESData_DefaultSpecific.hxx".}
-proc dynamicType*(this: IGESDataDefaultSpecific): Handle[StandardType] {.
+proc DynamicType*(this: IGESData_DefaultSpecific): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType", header: "IGESData_DefaultSpecific.hxx".}
-

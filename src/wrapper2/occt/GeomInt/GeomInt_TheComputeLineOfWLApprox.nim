@@ -14,6 +14,16 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../AppParCurves/AppParCurves_MultiBSpCurve,
+  ../Standard/Standard_Boolean, ../Approx/Approx_ParametrizationType,
+  ../TColStd/TColStd_HArray1OfReal, ../TColStd/TColStd_HArray1OfInteger,
+  ../AppParCurves/AppParCurves_HArray1OfConstraintCouple,
+  ../Standard/Standard_Integer, ../Standard/Standard_Real,
+  ../AppParCurves/AppParCurves_Constraint, ../math/math_Vector,
+  ../TColStd/TColStd_Array1OfReal, ../TColStd/TColStd_Array1OfInteger
+
 discard "forward decl of GeomInt_TheMultiLineOfWLApprox"
 discard "forward decl of GeomInt_TheMultiLineToolOfWLApprox"
 discard "forward decl of GeomInt_MyBSplGradientOfTheComputeLineOfWLApprox"
@@ -28,102 +38,103 @@ discard "forward decl of GeomInt_Gradient_BFGSOfMyGradientbisOfTheComputeLineOfW
 discard "forward decl of AppParCurves_MultiBSpCurve"
 discard "forward decl of AppParCurves_MultiCurve"
 type
-  GeomIntTheComputeLineOfWLApprox* {.importcpp: "GeomInt_TheComputeLineOfWLApprox", header: "GeomInt_TheComputeLineOfWLApprox.hxx",
-                                    bycopy.} = object ## ! The MultiLine <Line> will be approximated until tolerances
-                                                   ## ! will be reached.
-                                                   ## ! The approximation will be done from degreemin to degreemax
-                                                   ## ! with a cutting if the corresponding boolean is True.
-                                                   ## ! If <Squares> is True, the computation will be done with
-                                                   ## ! no iteration at all.
-                                                   ## !
-                                                   ## ! The multiplicities of the internal knots is set by
-                                                   ## ! default.
-                                                   ## ! is internally used in the algorithm.
+  GeomInt_TheComputeLineOfWLApprox* {.importcpp: "GeomInt_TheComputeLineOfWLApprox", header: "GeomInt_TheComputeLineOfWLApprox.hxx",
+                                     bycopy.} = object ## ! The MultiLine <Line> will be approximated until tolerances
+                                                    ## ! will be reached.
+                                                    ## ! The approximation will be done from degreemin to degreemax
+                                                    ## ! with a cutting if the corresponding boolean is True.
+                                                    ## ! If <Squares> is True, the computation will be done with
+                                                    ## ! no iteration at all.
+                                                    ## !
+                                                    ## ! The multiplicities of the internal knots is set by
+                                                    ## ! default.
+                                                    ## ! is internally used in the algorithm.
 
 
-proc constructGeomIntTheComputeLineOfWLApprox*(
-    line: GeomIntTheMultiLineOfWLApprox; degreemin: StandardInteger = 4;
-    degreemax: StandardInteger = 8; tolerance3d: StandardReal = 1.0e-3;
-    tolerance2d: StandardReal = 1.0e-6; nbIterations: StandardInteger = 5;
-    cutting: StandardBoolean = standardTrue;
-    parametrization: ApproxParametrizationType = approxChordLength;
-    squares: StandardBoolean = standardFalse): GeomIntTheComputeLineOfWLApprox {.
+proc constructGeomInt_TheComputeLineOfWLApprox*(
+    Line: GeomInt_TheMultiLineOfWLApprox; degreemin: Standard_Integer = 4;
+    degreemax: Standard_Integer = 8; Tolerance3d: Standard_Real = 1.0e-3;
+    Tolerance2d: Standard_Real = 1.0e-6; NbIterations: Standard_Integer = 5;
+    cutting: Standard_Boolean = Standard_True;
+    parametrization: Approx_ParametrizationType = Approx_ChordLength;
+    Squares: Standard_Boolean = Standard_False): GeomInt_TheComputeLineOfWLApprox {.
     constructor, importcpp: "GeomInt_TheComputeLineOfWLApprox(@)",
     header: "GeomInt_TheComputeLineOfWLApprox.hxx".}
-proc constructGeomIntTheComputeLineOfWLApprox*(
-    line: GeomIntTheMultiLineOfWLApprox; parameters: MathVector;
-    degreemin: StandardInteger = 4; degreemax: StandardInteger = 8;
-    tolerance3d: StandardReal = 1.0e-03; tolerance2d: StandardReal = 1.0e-06;
-    nbIterations: StandardInteger = 5; cutting: StandardBoolean = standardTrue;
-    squares: StandardBoolean = standardFalse): GeomIntTheComputeLineOfWLApprox {.
+proc constructGeomInt_TheComputeLineOfWLApprox*(
+    Line: GeomInt_TheMultiLineOfWLApprox; Parameters: math_Vector;
+    degreemin: Standard_Integer = 4; degreemax: Standard_Integer = 8;
+    Tolerance3d: Standard_Real = 1.0e-03; Tolerance2d: Standard_Real = 1.0e-06;
+    NbIterations: Standard_Integer = 5; cutting: Standard_Boolean = Standard_True;
+    Squares: Standard_Boolean = Standard_False): GeomInt_TheComputeLineOfWLApprox {.
     constructor, importcpp: "GeomInt_TheComputeLineOfWLApprox(@)",
     header: "GeomInt_TheComputeLineOfWLApprox.hxx".}
-proc constructGeomIntTheComputeLineOfWLApprox*(parameters: MathVector;
-    degreemin: StandardInteger = 4; degreemax: StandardInteger = 8;
-    tolerance3d: StandardReal = 1.0e-03; tolerance2d: StandardReal = 1.0e-06;
-    nbIterations: StandardInteger = 5; cutting: StandardBoolean = standardTrue;
-    squares: StandardBoolean = standardFalse): GeomIntTheComputeLineOfWLApprox {.
+proc constructGeomInt_TheComputeLineOfWLApprox*(Parameters: math_Vector;
+    degreemin: Standard_Integer = 4; degreemax: Standard_Integer = 8;
+    Tolerance3d: Standard_Real = 1.0e-03; Tolerance2d: Standard_Real = 1.0e-06;
+    NbIterations: Standard_Integer = 5; cutting: Standard_Boolean = Standard_True;
+    Squares: Standard_Boolean = Standard_False): GeomInt_TheComputeLineOfWLApprox {.
     constructor, importcpp: "GeomInt_TheComputeLineOfWLApprox(@)",
     header: "GeomInt_TheComputeLineOfWLApprox.hxx".}
-proc constructGeomIntTheComputeLineOfWLApprox*(degreemin: StandardInteger = 4;
-    degreemax: StandardInteger = 8; tolerance3d: StandardReal = 1.0e-03;
-    tolerance2d: StandardReal = 1.0e-06; nbIterations: StandardInteger = 5;
-    cutting: StandardBoolean = standardTrue;
-    parametrization: ApproxParametrizationType = approxChordLength;
-    squares: StandardBoolean = standardFalse): GeomIntTheComputeLineOfWLApprox {.
+proc constructGeomInt_TheComputeLineOfWLApprox*(degreemin: Standard_Integer = 4;
+    degreemax: Standard_Integer = 8; Tolerance3d: Standard_Real = 1.0e-03;
+    Tolerance2d: Standard_Real = 1.0e-06; NbIterations: Standard_Integer = 5;
+    cutting: Standard_Boolean = Standard_True;
+    parametrization: Approx_ParametrizationType = Approx_ChordLength;
+    Squares: Standard_Boolean = Standard_False): GeomInt_TheComputeLineOfWLApprox {.
     constructor, importcpp: "GeomInt_TheComputeLineOfWLApprox(@)",
     header: "GeomInt_TheComputeLineOfWLApprox.hxx".}
-proc interpol*(this: var GeomIntTheComputeLineOfWLApprox;
-              line: GeomIntTheMultiLineOfWLApprox) {.importcpp: "Interpol",
+proc Interpol*(this: var GeomInt_TheComputeLineOfWLApprox;
+              Line: GeomInt_TheMultiLineOfWLApprox) {.importcpp: "Interpol",
     header: "GeomInt_TheComputeLineOfWLApprox.hxx".}
-proc init*(this: var GeomIntTheComputeLineOfWLApprox;
-          degreemin: StandardInteger = 4; degreemax: StandardInteger = 8;
-          tolerance3d: StandardReal = 1.0e-03; tolerance2d: StandardReal = 1.0e-06;
-          nbIterations: StandardInteger = 5;
-          cutting: StandardBoolean = standardTrue;
-          parametrization: ApproxParametrizationType = approxChordLength;
-          squares: StandardBoolean = standardFalse) {.importcpp: "Init",
+proc Init*(this: var GeomInt_TheComputeLineOfWLApprox;
+          degreemin: Standard_Integer = 4; degreemax: Standard_Integer = 8;
+          Tolerance3d: Standard_Real = 1.0e-03;
+          Tolerance2d: Standard_Real = 1.0e-06; NbIterations: Standard_Integer = 5;
+          cutting: Standard_Boolean = Standard_True;
+          parametrization: Approx_ParametrizationType = Approx_ChordLength;
+          Squares: Standard_Boolean = Standard_False) {.importcpp: "Init",
     header: "GeomInt_TheComputeLineOfWLApprox.hxx".}
-proc perform*(this: var GeomIntTheComputeLineOfWLApprox;
-             line: GeomIntTheMultiLineOfWLApprox) {.importcpp: "Perform",
+proc Perform*(this: var GeomInt_TheComputeLineOfWLApprox;
+             Line: GeomInt_TheMultiLineOfWLApprox) {.importcpp: "Perform",
     header: "GeomInt_TheComputeLineOfWLApprox.hxx".}
-proc setParameters*(this: var GeomIntTheComputeLineOfWLApprox; thePar: MathVector) {.
+proc SetParameters*(this: var GeomInt_TheComputeLineOfWLApprox; ThePar: math_Vector) {.
     importcpp: "SetParameters", header: "GeomInt_TheComputeLineOfWLApprox.hxx".}
-proc setKnots*(this: var GeomIntTheComputeLineOfWLApprox; knots: TColStdArray1OfReal) {.
-    importcpp: "SetKnots", header: "GeomInt_TheComputeLineOfWLApprox.hxx".}
-proc setKnotsAndMultiplicities*(this: var GeomIntTheComputeLineOfWLApprox;
-                               knots: TColStdArray1OfReal;
-                               mults: TColStdArray1OfInteger) {.
+proc SetKnots*(this: var GeomInt_TheComputeLineOfWLApprox;
+              Knots: TColStd_Array1OfReal) {.importcpp: "SetKnots",
+    header: "GeomInt_TheComputeLineOfWLApprox.hxx".}
+proc SetKnotsAndMultiplicities*(this: var GeomInt_TheComputeLineOfWLApprox;
+                               Knots: TColStd_Array1OfReal;
+                               Mults: TColStd_Array1OfInteger) {.
     importcpp: "SetKnotsAndMultiplicities",
     header: "GeomInt_TheComputeLineOfWLApprox.hxx".}
-proc setDegrees*(this: var GeomIntTheComputeLineOfWLApprox;
-                degreemin: StandardInteger; degreemax: StandardInteger) {.
+proc SetDegrees*(this: var GeomInt_TheComputeLineOfWLApprox;
+                degreemin: Standard_Integer; degreemax: Standard_Integer) {.
     importcpp: "SetDegrees", header: "GeomInt_TheComputeLineOfWLApprox.hxx".}
-proc setTolerances*(this: var GeomIntTheComputeLineOfWLApprox;
-                   tolerance3d: StandardReal; tolerance2d: StandardReal) {.
+proc SetTolerances*(this: var GeomInt_TheComputeLineOfWLApprox;
+                   Tolerance3d: Standard_Real; Tolerance2d: Standard_Real) {.
     importcpp: "SetTolerances", header: "GeomInt_TheComputeLineOfWLApprox.hxx".}
-proc setContinuity*(this: var GeomIntTheComputeLineOfWLApprox; c: StandardInteger) {.
+proc SetContinuity*(this: var GeomInt_TheComputeLineOfWLApprox; C: Standard_Integer) {.
     importcpp: "SetContinuity", header: "GeomInt_TheComputeLineOfWLApprox.hxx".}
-proc setConstraints*(this: var GeomIntTheComputeLineOfWLApprox;
-                    firstC: AppParCurvesConstraint; lastC: AppParCurvesConstraint) {.
-    importcpp: "SetConstraints", header: "GeomInt_TheComputeLineOfWLApprox.hxx".}
-proc setPeriodic*(this: var GeomIntTheComputeLineOfWLApprox;
-                 thePeriodic: StandardBoolean) {.importcpp: "SetPeriodic",
+proc SetConstraints*(this: var GeomInt_TheComputeLineOfWLApprox;
+                    firstC: AppParCurves_Constraint;
+                    lastC: AppParCurves_Constraint) {.importcpp: "SetConstraints",
     header: "GeomInt_TheComputeLineOfWLApprox.hxx".}
-proc isAllApproximated*(this: GeomIntTheComputeLineOfWLApprox): StandardBoolean {.
+proc SetPeriodic*(this: var GeomInt_TheComputeLineOfWLApprox;
+                 thePeriodic: Standard_Boolean) {.importcpp: "SetPeriodic",
+    header: "GeomInt_TheComputeLineOfWLApprox.hxx".}
+proc IsAllApproximated*(this: GeomInt_TheComputeLineOfWLApprox): Standard_Boolean {.
     noSideEffect, importcpp: "IsAllApproximated",
     header: "GeomInt_TheComputeLineOfWLApprox.hxx".}
-proc isToleranceReached*(this: GeomIntTheComputeLineOfWLApprox): StandardBoolean {.
+proc IsToleranceReached*(this: GeomInt_TheComputeLineOfWLApprox): Standard_Boolean {.
     noSideEffect, importcpp: "IsToleranceReached",
     header: "GeomInt_TheComputeLineOfWLApprox.hxx".}
-proc error*(this: GeomIntTheComputeLineOfWLApprox; tol3d: var StandardReal;
-           tol2d: var StandardReal) {.noSideEffect, importcpp: "Error", header: "GeomInt_TheComputeLineOfWLApprox.hxx".}
-proc value*(this: GeomIntTheComputeLineOfWLApprox): AppParCurvesMultiBSpCurve {.
+proc Error*(this: GeomInt_TheComputeLineOfWLApprox; tol3d: var Standard_Real;
+           tol2d: var Standard_Real) {.noSideEffect, importcpp: "Error", header: "GeomInt_TheComputeLineOfWLApprox.hxx".}
+proc Value*(this: GeomInt_TheComputeLineOfWLApprox): AppParCurves_MultiBSpCurve {.
     noSideEffect, importcpp: "Value",
     header: "GeomInt_TheComputeLineOfWLApprox.hxx".}
-proc changeValue*(this: var GeomIntTheComputeLineOfWLApprox): var AppParCurvesMultiBSpCurve {.
+proc ChangeValue*(this: var GeomInt_TheComputeLineOfWLApprox): var AppParCurves_MultiBSpCurve {.
     importcpp: "ChangeValue", header: "GeomInt_TheComputeLineOfWLApprox.hxx".}
-proc parameters*(this: GeomIntTheComputeLineOfWLApprox): TColStdArray1OfReal {.
+proc Parameters*(this: GeomInt_TheComputeLineOfWLApprox): TColStd_Array1OfReal {.
     noSideEffect, importcpp: "Parameters",
     header: "GeomInt_TheComputeLineOfWLApprox.hxx".}
-

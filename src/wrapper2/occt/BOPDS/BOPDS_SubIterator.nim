@@ -12,6 +12,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, BOPDS_PDS, BOPDS_Pair, BOPDS_VectorOfPair,
+  ../NCollection/NCollection_BaseAllocator, ../TColStd/TColStd_ListOfInteger,
+  ../Standard/Standard_Boolean, ../Standard/Standard_Integer
+
 discard "forward decl of BOPDS_DS"
 type
   BOPDS_SubIterator* {.importcpp: "BOPDS_SubIterator",
@@ -23,31 +29,30 @@ proc constructBOPDS_SubIterator*(): BOPDS_SubIterator {.constructor,
     importcpp: "BOPDS_SubIterator(@)", header: "BOPDS_SubIterator.hxx".}
 proc destroyBOPDS_SubIterator*(this: var BOPDS_SubIterator) {.
     importcpp: "#.~BOPDS_SubIterator()", header: "BOPDS_SubIterator.hxx".}
-proc constructBOPDS_SubIterator*(theAllocator: Handle[NCollectionBaseAllocator]): BOPDS_SubIterator {.
+proc constructBOPDS_SubIterator*(theAllocator: handle[NCollection_BaseAllocator]): BOPDS_SubIterator {.
     constructor, importcpp: "BOPDS_SubIterator(@)", header: "BOPDS_SubIterator.hxx".}
-proc setDS*(this: var BOPDS_SubIterator; pDS: Bopds_Pds) {.importcpp: "SetDS",
+proc SetDS*(this: var BOPDS_SubIterator; pDS: BOPDS_PDS) {.importcpp: "SetDS",
     header: "BOPDS_SubIterator.hxx".}
-proc ds*(this: BOPDS_SubIterator): Bopds_Ds {.noSideEffect, importcpp: "DS",
+proc DS*(this: BOPDS_SubIterator): BOPDS_DS {.noSideEffect, importcpp: "DS",
     header: "BOPDS_SubIterator.hxx".}
-proc setSubSet1*(this: var BOPDS_SubIterator; theLI: TColStdListOfInteger) {.
+proc SetSubSet1*(this: var BOPDS_SubIterator; theLI: TColStd_ListOfInteger) {.
     importcpp: "SetSubSet1", header: "BOPDS_SubIterator.hxx".}
-proc subSet1*(this: BOPDS_SubIterator): TColStdListOfInteger {.noSideEffect,
+proc SubSet1*(this: BOPDS_SubIterator): TColStd_ListOfInteger {.noSideEffect,
     importcpp: "SubSet1", header: "BOPDS_SubIterator.hxx".}
-proc setSubSet2*(this: var BOPDS_SubIterator; theLI: TColStdListOfInteger) {.
+proc SetSubSet2*(this: var BOPDS_SubIterator; theLI: TColStd_ListOfInteger) {.
     importcpp: "SetSubSet2", header: "BOPDS_SubIterator.hxx".}
-proc subSet2*(this: BOPDS_SubIterator): TColStdListOfInteger {.noSideEffect,
+proc SubSet2*(this: BOPDS_SubIterator): TColStd_ListOfInteger {.noSideEffect,
     importcpp: "SubSet2", header: "BOPDS_SubIterator.hxx".}
-proc initialize*(this: var BOPDS_SubIterator) {.importcpp: "Initialize",
+proc Initialize*(this: var BOPDS_SubIterator) {.importcpp: "Initialize",
     header: "BOPDS_SubIterator.hxx".}
-proc more*(this: BOPDS_SubIterator): StandardBoolean {.noSideEffect,
+proc More*(this: BOPDS_SubIterator): Standard_Boolean {.noSideEffect,
     importcpp: "More", header: "BOPDS_SubIterator.hxx".}
-proc next*(this: var BOPDS_SubIterator) {.importcpp: "Next",
+proc Next*(this: var BOPDS_SubIterator) {.importcpp: "Next",
                                       header: "BOPDS_SubIterator.hxx".}
-proc value*(this: BOPDS_SubIterator; theIndex1: var StandardInteger;
-           theIndex2: var StandardInteger) {.noSideEffect, importcpp: "Value",
+proc Value*(this: BOPDS_SubIterator; theIndex1: var Standard_Integer;
+           theIndex2: var Standard_Integer) {.noSideEffect, importcpp: "Value",
     header: "BOPDS_SubIterator.hxx".}
-proc prepare*(this: var BOPDS_SubIterator) {.importcpp: "Prepare",
+proc Prepare*(this: var BOPDS_SubIterator) {.importcpp: "Prepare",
     header: "BOPDS_SubIterator.hxx".}
-proc expectedLength*(this: BOPDS_SubIterator): StandardInteger {.noSideEffect,
+proc ExpectedLength*(this: BOPDS_SubIterator): Standard_Integer {.noSideEffect,
     importcpp: "ExpectedLength", header: "BOPDS_SubIterator.hxx".}
-

@@ -14,41 +14,49 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Real,
+  ../AppParCurves/AppParCurves_Constraint
+
 discard "forward decl of Geom2d_BSplineCurve"
 discard "forward decl of Geom2d_BezierCurve"
 discard "forward decl of Adaptor3d_HCurve"
 discard "forward decl of Adaptor3d_HSurface"
 type
-  ProjLibComputeApprox* {.importcpp: "ProjLib_ComputeApprox",
-                         header: "ProjLib_ComputeApprox.hxx", bycopy.} = object ## ! Empty
-                                                                           ## constructor, it only sets some
-                                                                           ## initial
-                                                                           ## values for class
-                                                                           ## fields.
+  ProjLib_ComputeApprox* {.importcpp: "ProjLib_ComputeApprox",
+                          header: "ProjLib_ComputeApprox.hxx", bycopy.} = object ## !
+                                                                            ## Empty
+                                                                            ## constructor, it only sets some
+                                                                            ## initial
+                                                                            ## values for
+                                                                            ## class
+                                                                            ## fields.
 
 
-proc constructProjLibComputeApprox*(): ProjLibComputeApprox {.constructor,
+proc constructProjLib_ComputeApprox*(): ProjLib_ComputeApprox {.constructor,
     importcpp: "ProjLib_ComputeApprox(@)", header: "ProjLib_ComputeApprox.hxx".}
-proc constructProjLibComputeApprox*(c: Handle[Adaptor3dHCurve];
-                                   s: Handle[Adaptor3dHSurface]; tol: StandardReal): ProjLibComputeApprox {.
+proc constructProjLib_ComputeApprox*(C: handle[Adaptor3d_HCurve];
+                                    S: handle[Adaptor3d_HSurface];
+                                    Tol: Standard_Real): ProjLib_ComputeApprox {.
     constructor, importcpp: "ProjLib_ComputeApprox(@)",
     header: "ProjLib_ComputeApprox.hxx".}
-proc perform*(this: var ProjLibComputeApprox; c: Handle[Adaptor3dHCurve];
-             s: Handle[Adaptor3dHSurface]) {.importcpp: "Perform",
+proc Perform*(this: var ProjLib_ComputeApprox; C: handle[Adaptor3d_HCurve];
+             S: handle[Adaptor3d_HSurface]) {.importcpp: "Perform",
     header: "ProjLib_ComputeApprox.hxx".}
-proc setTolerance*(this: var ProjLibComputeApprox; theTolerance: StandardReal) {.
+proc SetTolerance*(this: var ProjLib_ComputeApprox; theTolerance: Standard_Real) {.
     importcpp: "SetTolerance", header: "ProjLib_ComputeApprox.hxx".}
-proc setDegree*(this: var ProjLibComputeApprox; theDegMin: StandardInteger;
-               theDegMax: StandardInteger) {.importcpp: "SetDegree",
+proc SetDegree*(this: var ProjLib_ComputeApprox; theDegMin: Standard_Integer;
+               theDegMax: Standard_Integer) {.importcpp: "SetDegree",
     header: "ProjLib_ComputeApprox.hxx".}
-proc setMaxSegments*(this: var ProjLibComputeApprox; theMaxSegments: StandardInteger) {.
+proc SetMaxSegments*(this: var ProjLib_ComputeApprox;
+                    theMaxSegments: Standard_Integer) {.
     importcpp: "SetMaxSegments", header: "ProjLib_ComputeApprox.hxx".}
-proc setBndPnt*(this: var ProjLibComputeApprox; theBndPnt: AppParCurvesConstraint) {.
+proc SetBndPnt*(this: var ProjLib_ComputeApprox; theBndPnt: AppParCurves_Constraint) {.
     importcpp: "SetBndPnt", header: "ProjLib_ComputeApprox.hxx".}
-proc bSpline*(this: ProjLibComputeApprox): Handle[Geom2dBSplineCurve] {.
+proc BSpline*(this: ProjLib_ComputeApprox): handle[Geom2d_BSplineCurve] {.
     noSideEffect, importcpp: "BSpline", header: "ProjLib_ComputeApprox.hxx".}
-proc bezier*(this: ProjLibComputeApprox): Handle[Geom2dBezierCurve] {.noSideEffect,
-    importcpp: "Bezier", header: "ProjLib_ComputeApprox.hxx".}
-proc tolerance*(this: ProjLibComputeApprox): StandardReal {.noSideEffect,
+proc Bezier*(this: ProjLib_ComputeApprox): handle[Geom2d_BezierCurve] {.
+    noSideEffect, importcpp: "Bezier", header: "ProjLib_ComputeApprox.hxx".}
+proc Tolerance*(this: ProjLib_ComputeApprox): Standard_Real {.noSideEffect,
     importcpp: "Tolerance", header: "ProjLib_ComputeApprox.hxx".}
-

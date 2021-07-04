@@ -14,10 +14,14 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Integer,
+  ../IGESData/IGESData_IGESEntity, ../Standard/Standard_Boolean
+
 discard "forward decl of IGESGraph_Pick"
 discard "forward decl of IGESGraph_Pick"
 type
-  HandleIGESGraphPick* = Handle[IGESGraphPick]
+  Handle_IGESGraph_Pick* = handle[IGESGraph_Pick]
 
 ## ! defines IGESPick, Type <406> Form <21>
 ## ! in package IGESGraph
@@ -27,28 +31,27 @@ type
 ## ! system
 
 type
-  IGESGraphPick* {.importcpp: "IGESGraph_Pick", header: "IGESGraph_Pick.hxx", bycopy.} = object of IGESDataIGESEntity
+  IGESGraph_Pick* {.importcpp: "IGESGraph_Pick", header: "IGESGraph_Pick.hxx", bycopy.} = object of IGESData_IGESEntity
 
 
-proc constructIGESGraphPick*(): IGESGraphPick {.constructor,
+proc constructIGESGraph_Pick*(): IGESGraph_Pick {.constructor,
     importcpp: "IGESGraph_Pick(@)", header: "IGESGraph_Pick.hxx".}
-proc init*(this: var IGESGraphPick; nbProps: StandardInteger;
-          aPickStatus: StandardInteger) {.importcpp: "Init",
-                                        header: "IGESGraph_Pick.hxx".}
-proc nbPropertyValues*(this: IGESGraphPick): StandardInteger {.noSideEffect,
+proc Init*(this: var IGESGraph_Pick; nbProps: Standard_Integer;
+          aPickStatus: Standard_Integer) {.importcpp: "Init",
+    header: "IGESGraph_Pick.hxx".}
+proc NbPropertyValues*(this: IGESGraph_Pick): Standard_Integer {.noSideEffect,
     importcpp: "NbPropertyValues", header: "IGESGraph_Pick.hxx".}
-proc pickFlag*(this: IGESGraphPick): StandardInteger {.noSideEffect,
+proc PickFlag*(this: IGESGraph_Pick): Standard_Integer {.noSideEffect,
     importcpp: "PickFlag", header: "IGESGraph_Pick.hxx".}
-proc isPickable*(this: IGESGraphPick): StandardBoolean {.noSideEffect,
+proc IsPickable*(this: IGESGraph_Pick): Standard_Boolean {.noSideEffect,
     importcpp: "IsPickable", header: "IGESGraph_Pick.hxx".}
 type
-  IGESGraphPickbaseType* = IGESDataIGESEntity
+  IGESGraph_Pickbase_type* = IGESData_IGESEntity
 
-proc getTypeName*(): cstring {.importcpp: "IGESGraph_Pick::get_type_name(@)",
-                            header: "IGESGraph_Pick.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "IGESGraph_Pick::get_type_name(@)",
+                              header: "IGESGraph_Pick.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "IGESGraph_Pick::get_type_descriptor(@)",
     header: "IGESGraph_Pick.hxx".}
-proc dynamicType*(this: IGESGraphPick): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: IGESGraph_Pick): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "IGESGraph_Pick.hxx".}
-

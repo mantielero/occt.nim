@@ -14,7 +14,8 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  IntPatch_Point, ../NCollection/NCollection_Sequence
+
 type
-  IntPatchSequenceOfPoint* = NCollectionSequence[IntPatchPoint]
-
-
+  IntPatch_SequenceOfPoint* = NCollection_Sequence[IntPatch_Point]

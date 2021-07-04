@@ -13,23 +13,25 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  BRepMesh_DelaunayNodeInsertionMeshAlgo, BRepMesh_GeomTool, ../GeomLib/GeomLib
+
 ## ! Extends node insertion Delaunay meshing algo in order to control
 ## ! deflection of generated trianges. Splits triangles failing the check.
 
 type
-  BRepMeshDelaunayDeflectionControlMeshAlgo*[RangeSplitter; BaseAlgo] {.
+  BRepMesh_DelaunayDeflectionControlMeshAlgo*[RangeSplitter; BaseAlgo] {.
       importcpp: "BRepMesh_DelaunayDeflectionControlMeshAlgo<\'0,\'1>",
-      header: "BRepMesh_DelaunayDeflectionControlMeshAlgo.hxx", bycopy.} = object of BRepMeshDelaunayNodeInsertionMeshAlgo[
+      header: "BRepMesh_DelaunayDeflectionControlMeshAlgo.hxx", bycopy.} = object of BRepMesh_DelaunayNodeInsertionMeshAlgo[
       RangeSplitter, BaseAlgo] ##  Typedef for OCCT RTTI
                              ## ! Constructor.
                              ## ! Performs processing of generated mesh. Generates surface nodes and inserts them into structure.
                              ## ! Contains geometrical data related to node of triangle.
 
 
-proc constructBRepMeshDelaunayDeflectionControlMeshAlgo*[RangeSplitter; BaseAlgo](): BRepMeshDelaunayDeflectionControlMeshAlgo[
+proc constructBRepMesh_DelaunayDeflectionControlMeshAlgo*[RangeSplitter; BaseAlgo](): BRepMesh_DelaunayDeflectionControlMeshAlgo[
     RangeSplitter, BaseAlgo] {.constructor, importcpp: "BRepMesh_DelaunayDeflectionControlMeshAlgo<\'*0,\'*1>(@)", header: "BRepMesh_DelaunayDeflectionControlMeshAlgo.hxx".}
-proc destroyBRepMeshDelaunayDeflectionControlMeshAlgo*[RangeSplitter; BaseAlgo](
-    this: var BRepMeshDelaunayDeflectionControlMeshAlgo[RangeSplitter, BaseAlgo]) {.
+proc destroyBRepMesh_DelaunayDeflectionControlMeshAlgo*[RangeSplitter; BaseAlgo](
+    this: var BRepMesh_DelaunayDeflectionControlMeshAlgo[RangeSplitter, BaseAlgo]) {.
     importcpp: "#.~BRepMesh_DelaunayDeflectionControlMeshAlgo()",
     header: "BRepMesh_DelaunayDeflectionControlMeshAlgo.hxx".}
-

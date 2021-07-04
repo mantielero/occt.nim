@@ -14,33 +14,36 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle
+
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 discard "forward decl of StepVisual_SurfaceStyleReflectanceAmbient"
 type
-  RWStepVisualRWSurfaceStyleReflectanceAmbient* {.
+  RWStepVisual_RWSurfaceStyleReflectanceAmbient* {.
       importcpp: "RWStepVisual_RWSurfaceStyleReflectanceAmbient",
       header: "RWStepVisual_RWSurfaceStyleReflectanceAmbient.hxx", bycopy.} = object
 
 
-proc constructRWStepVisualRWSurfaceStyleReflectanceAmbient*(): RWStepVisualRWSurfaceStyleReflectanceAmbient {.
+proc constructRWStepVisual_RWSurfaceStyleReflectanceAmbient*(): RWStepVisual_RWSurfaceStyleReflectanceAmbient {.
     constructor, importcpp: "RWStepVisual_RWSurfaceStyleReflectanceAmbient(@)",
     header: "RWStepVisual_RWSurfaceStyleReflectanceAmbient.hxx".}
-proc readStep*(this: RWStepVisualRWSurfaceStyleReflectanceAmbient;
-              data: Handle[StepDataStepReaderData]; num: StandardInteger;
-              ach: var Handle[InterfaceCheck];
-              ent: Handle[StepVisualSurfaceStyleReflectanceAmbient]) {.
+proc ReadStep*(this: RWStepVisual_RWSurfaceStyleReflectanceAmbient;
+              data: handle[StepData_StepReaderData]; num: Standard_Integer;
+              ach: var handle[Interface_Check];
+              ent: handle[StepVisual_SurfaceStyleReflectanceAmbient]) {.
     noSideEffect, importcpp: "ReadStep",
     header: "RWStepVisual_RWSurfaceStyleReflectanceAmbient.hxx".}
-proc writeStep*(this: RWStepVisualRWSurfaceStyleReflectanceAmbient;
-               sw: var StepDataStepWriter;
-               ent: Handle[StepVisualSurfaceStyleReflectanceAmbient]) {.
+proc WriteStep*(this: RWStepVisual_RWSurfaceStyleReflectanceAmbient;
+               SW: var StepData_StepWriter;
+               ent: handle[StepVisual_SurfaceStyleReflectanceAmbient]) {.
     noSideEffect, importcpp: "WriteStep",
     header: "RWStepVisual_RWSurfaceStyleReflectanceAmbient.hxx".}
-proc share*(this: RWStepVisualRWSurfaceStyleReflectanceAmbient;
-           ent: Handle[StepVisualSurfaceStyleReflectanceAmbient];
-           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
+proc Share*(this: RWStepVisual_RWSurfaceStyleReflectanceAmbient;
+           ent: handle[StepVisual_SurfaceStyleReflectanceAmbient];
+           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepVisual_RWSurfaceStyleReflectanceAmbient.hxx".}
-

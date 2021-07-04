@@ -14,43 +14,47 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Boolean,
+  IGESSolid_HArray1OfLoop, ../IGESData/IGESData_IGESEntity,
+  ../Standard/Standard_Integer
+
 discard "forward decl of IGESData_IGESEntity"
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of IGESSolid_Loop"
 discard "forward decl of IGESSolid_Face"
 discard "forward decl of IGESSolid_Face"
 type
-  HandleIGESSolidFace* = Handle[IGESSolidFace]
+  Handle_IGESSolid_Face* = handle[IGESSolid_Face]
 
 ## ! defines Face, Type <510> Form Number <1>
 ## ! in package IGESSolid
 ## ! Face entity is a bound (partial) which has finite area
 
 type
-  IGESSolidFace* {.importcpp: "IGESSolid_Face", header: "IGESSolid_Face.hxx", bycopy.} = object of IGESDataIGESEntity
+  IGESSolid_Face* {.importcpp: "IGESSolid_Face", header: "IGESSolid_Face.hxx", bycopy.} = object of IGESData_IGESEntity
 
 
-proc constructIGESSolidFace*(): IGESSolidFace {.constructor,
+proc constructIGESSolid_Face*(): IGESSolid_Face {.constructor,
     importcpp: "IGESSolid_Face(@)", header: "IGESSolid_Face.hxx".}
-proc init*(this: var IGESSolidFace; aSurface: Handle[IGESDataIGESEntity];
-          outerLoopFlag: StandardBoolean; loops: Handle[IGESSolidHArray1OfLoop]) {.
+proc Init*(this: var IGESSolid_Face; aSurface: handle[IGESData_IGESEntity];
+          outerLoopFlag: Standard_Boolean; loops: handle[IGESSolid_HArray1OfLoop]) {.
     importcpp: "Init", header: "IGESSolid_Face.hxx".}
-proc surface*(this: IGESSolidFace): Handle[IGESDataIGESEntity] {.noSideEffect,
+proc Surface*(this: IGESSolid_Face): handle[IGESData_IGESEntity] {.noSideEffect,
     importcpp: "Surface", header: "IGESSolid_Face.hxx".}
-proc nbLoops*(this: IGESSolidFace): StandardInteger {.noSideEffect,
+proc NbLoops*(this: IGESSolid_Face): Standard_Integer {.noSideEffect,
     importcpp: "NbLoops", header: "IGESSolid_Face.hxx".}
-proc hasOuterLoop*(this: IGESSolidFace): StandardBoolean {.noSideEffect,
+proc HasOuterLoop*(this: IGESSolid_Face): Standard_Boolean {.noSideEffect,
     importcpp: "HasOuterLoop", header: "IGESSolid_Face.hxx".}
-proc loop*(this: IGESSolidFace; index: StandardInteger): Handle[IGESSolidLoop] {.
+proc Loop*(this: IGESSolid_Face; Index: Standard_Integer): handle[IGESSolid_Loop] {.
     noSideEffect, importcpp: "Loop", header: "IGESSolid_Face.hxx".}
 type
-  IGESSolidFacebaseType* = IGESDataIGESEntity
+  IGESSolid_Facebase_type* = IGESData_IGESEntity
 
-proc getTypeName*(): cstring {.importcpp: "IGESSolid_Face::get_type_name(@)",
-                            header: "IGESSolid_Face.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "IGESSolid_Face::get_type_name(@)",
+                              header: "IGESSolid_Face.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "IGESSolid_Face::get_type_descriptor(@)",
     header: "IGESSolid_Face.hxx".}
-proc dynamicType*(this: IGESSolidFace): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: IGESSolid_Face): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "IGESSolid_Face.hxx".}
-

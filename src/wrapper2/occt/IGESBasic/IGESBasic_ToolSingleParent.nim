@@ -14,6 +14,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
+  ../Standard/Standard_Integer
+
 discard "forward decl of Standard_DomainError"
 discard "forward decl of IGESBasic_SingleParent"
 discard "forward decl of IGESData_IGESReaderData"
@@ -26,47 +31,48 @@ discard "forward decl of Interface_Check"
 discard "forward decl of Interface_CopyTool"
 discard "forward decl of IGESData_IGESDumper"
 type
-  IGESBasicToolSingleParent* {.importcpp: "IGESBasic_ToolSingleParent",
-                              header: "IGESBasic_ToolSingleParent.hxx", bycopy.} = object ##
-                                                                                     ## !
-                                                                                     ## Returns
-                                                                                     ## a
-                                                                                     ## ToolSingleParent,
-                                                                                     ## ready
-                                                                                     ## to
-                                                                                     ## work
+  IGESBasic_ToolSingleParent* {.importcpp: "IGESBasic_ToolSingleParent",
+                               header: "IGESBasic_ToolSingleParent.hxx", bycopy.} = object ##
+                                                                                      ## !
+                                                                                      ## Returns
+                                                                                      ## a
+                                                                                      ## ToolSingleParent,
+                                                                                      ## ready
+                                                                                      ## to
+                                                                                      ## work
 
 
-proc constructIGESBasicToolSingleParent*(): IGESBasicToolSingleParent {.
+proc constructIGESBasic_ToolSingleParent*(): IGESBasic_ToolSingleParent {.
     constructor, importcpp: "IGESBasic_ToolSingleParent(@)",
     header: "IGESBasic_ToolSingleParent.hxx".}
-proc readOwnParams*(this: IGESBasicToolSingleParent;
-                   ent: Handle[IGESBasicSingleParent];
-                   ir: Handle[IGESDataIGESReaderData]; pr: var IGESDataParamReader) {.
-    noSideEffect, importcpp: "ReadOwnParams",
-    header: "IGESBasic_ToolSingleParent.hxx".}
-proc writeOwnParams*(this: IGESBasicToolSingleParent;
-                    ent: Handle[IGESBasicSingleParent]; iw: var IGESDataIGESWriter) {.
-    noSideEffect, importcpp: "WriteOwnParams",
-    header: "IGESBasic_ToolSingleParent.hxx".}
-proc ownShared*(this: IGESBasicToolSingleParent;
-               ent: Handle[IGESBasicSingleParent];
-               iter: var InterfaceEntityIterator) {.noSideEffect,
+proc ReadOwnParams*(this: IGESBasic_ToolSingleParent;
+                   ent: handle[IGESBasic_SingleParent];
+                   IR: handle[IGESData_IGESReaderData];
+                   PR: var IGESData_ParamReader) {.noSideEffect,
+    importcpp: "ReadOwnParams", header: "IGESBasic_ToolSingleParent.hxx".}
+proc WriteOwnParams*(this: IGESBasic_ToolSingleParent;
+                    ent: handle[IGESBasic_SingleParent];
+                    IW: var IGESData_IGESWriter) {.noSideEffect,
+    importcpp: "WriteOwnParams", header: "IGESBasic_ToolSingleParent.hxx".}
+proc OwnShared*(this: IGESBasic_ToolSingleParent;
+               ent: handle[IGESBasic_SingleParent];
+               iter: var Interface_EntityIterator) {.noSideEffect,
     importcpp: "OwnShared", header: "IGESBasic_ToolSingleParent.hxx".}
-proc ownCorrect*(this: IGESBasicToolSingleParent;
-                ent: Handle[IGESBasicSingleParent]): StandardBoolean {.
+proc OwnCorrect*(this: IGESBasic_ToolSingleParent;
+                ent: handle[IGESBasic_SingleParent]): Standard_Boolean {.
     noSideEffect, importcpp: "OwnCorrect", header: "IGESBasic_ToolSingleParent.hxx".}
-proc dirChecker*(this: IGESBasicToolSingleParent;
-                ent: Handle[IGESBasicSingleParent]): IGESDataDirChecker {.
+proc DirChecker*(this: IGESBasic_ToolSingleParent;
+                ent: handle[IGESBasic_SingleParent]): IGESData_DirChecker {.
     noSideEffect, importcpp: "DirChecker", header: "IGESBasic_ToolSingleParent.hxx".}
-proc ownCheck*(this: IGESBasicToolSingleParent; ent: Handle[IGESBasicSingleParent];
-              shares: InterfaceShareTool; ach: var Handle[InterfaceCheck]) {.
-    noSideEffect, importcpp: "OwnCheck", header: "IGESBasic_ToolSingleParent.hxx".}
-proc ownCopy*(this: IGESBasicToolSingleParent;
-             entfrom: Handle[IGESBasicSingleParent];
-             entto: Handle[IGESBasicSingleParent]; tc: var InterfaceCopyTool) {.
+proc OwnCheck*(this: IGESBasic_ToolSingleParent;
+              ent: handle[IGESBasic_SingleParent]; shares: Interface_ShareTool;
+              ach: var handle[Interface_Check]) {.noSideEffect,
+    importcpp: "OwnCheck", header: "IGESBasic_ToolSingleParent.hxx".}
+proc OwnCopy*(this: IGESBasic_ToolSingleParent;
+             entfrom: handle[IGESBasic_SingleParent];
+             entto: handle[IGESBasic_SingleParent]; TC: var Interface_CopyTool) {.
     noSideEffect, importcpp: "OwnCopy", header: "IGESBasic_ToolSingleParent.hxx".}
-proc ownDump*(this: IGESBasicToolSingleParent; ent: Handle[IGESBasicSingleParent];
-             dumper: IGESDataIGESDumper; s: var StandardOStream; own: StandardInteger) {.
-    noSideEffect, importcpp: "OwnDump", header: "IGESBasic_ToolSingleParent.hxx".}
-
+proc OwnDump*(this: IGESBasic_ToolSingleParent;
+             ent: handle[IGESBasic_SingleParent]; dumper: IGESData_IGESDumper;
+             S: var Standard_OStream; own: Standard_Integer) {.noSideEffect,
+    importcpp: "OwnDump", header: "IGESBasic_ToolSingleParent.hxx".}

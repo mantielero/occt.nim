@@ -13,6 +13,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  LDOM_Node
+
 discard "forward decl of LDOM_BasicText"
 type
   LDOM_CharacterData* {.importcpp: "LDOM_CharacterData",
@@ -30,6 +33,5 @@ proc getData*(this: LDOM_CharacterData): LDOMString {.noSideEffect,
     importcpp: "getData", header: "LDOM_CharacterData.hxx".}
 proc setData*(this: var LDOM_CharacterData; aValue: LDOMString) {.
     importcpp: "setData", header: "LDOM_CharacterData.hxx".}
-proc getLength*(this: LDOM_CharacterData): StandardInteger {.noSideEffect,
+proc getLength*(this: LDOM_CharacterData): Standard_Integer {.noSideEffect,
     importcpp: "getLength", header: "LDOM_CharacterData.hxx".}
-

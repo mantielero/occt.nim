@@ -14,37 +14,39 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  IGESDimen_GeneralNote, IGESDimen_Array1OfGeneralNote,
+  ../NCollection/NCollection_DefineHArray1
+
 type
-  IGESDimenHArray1OfGeneralNote* {.importcpp: "IGESDimen_HArray1OfGeneralNote",
-                                  header: "IGESDimen_HArray1OfGeneralNote.hxx",
-                                  bycopy.} = object of IGESDimenArray1OfGeneralNote
+  IGESDimen_HArray1OfGeneralNote* {.importcpp: "IGESDimen_HArray1OfGeneralNote", header: "IGESDimen_HArray1OfGeneralNote.hxx",
+                                   bycopy.} = object of IGESDimen_Array1OfGeneralNote
 
 
-proc constructIGESDimenHArray1OfGeneralNote*(theLower: StandardInteger;
-    theUpper: StandardInteger): IGESDimenHArray1OfGeneralNote {.constructor,
+proc constructIGESDimen_HArray1OfGeneralNote*(theLower: Standard_Integer;
+    theUpper: Standard_Integer): IGESDimen_HArray1OfGeneralNote {.constructor,
     importcpp: "IGESDimen_HArray1OfGeneralNote(@)",
     header: "IGESDimen_HArray1OfGeneralNote.hxx".}
-proc constructIGESDimenHArray1OfGeneralNote*(theLower: StandardInteger;
-    theUpper: StandardInteger; theValue: ValueType): IGESDimenHArray1OfGeneralNote {.
+proc constructIGESDimen_HArray1OfGeneralNote*(theLower: Standard_Integer;
+    theUpper: Standard_Integer; theValue: value_type): IGESDimen_HArray1OfGeneralNote {.
     constructor, importcpp: "IGESDimen_HArray1OfGeneralNote(@)",
     header: "IGESDimen_HArray1OfGeneralNote.hxx".}
-proc constructIGESDimenHArray1OfGeneralNote*(
-    theOther: IGESDimenArray1OfGeneralNote): IGESDimenHArray1OfGeneralNote {.
+proc constructIGESDimen_HArray1OfGeneralNote*(
+    theOther: IGESDimen_Array1OfGeneralNote): IGESDimen_HArray1OfGeneralNote {.
     constructor, importcpp: "IGESDimen_HArray1OfGeneralNote(@)",
     header: "IGESDimen_HArray1OfGeneralNote.hxx".}
-proc array1*(this: IGESDimenHArray1OfGeneralNote): IGESDimenArray1OfGeneralNote {.
+proc Array1*(this: IGESDimen_HArray1OfGeneralNote): IGESDimen_Array1OfGeneralNote {.
     noSideEffect, importcpp: "Array1", header: "IGESDimen_HArray1OfGeneralNote.hxx".}
-proc changeArray1*(this: var IGESDimenHArray1OfGeneralNote): var IGESDimenArray1OfGeneralNote {.
+proc ChangeArray1*(this: var IGESDimen_HArray1OfGeneralNote): var IGESDimen_Array1OfGeneralNote {.
     importcpp: "ChangeArray1", header: "IGESDimen_HArray1OfGeneralNote.hxx".}
 type
-  IGESDimenHArray1OfGeneralNotebaseType* = MMgtTShared
+  IGESDimen_HArray1OfGeneralNotebase_type* = MMgt_TShared
 
-proc getTypeName*(): cstring {.importcpp: "IGESDimen_HArray1OfGeneralNote::get_type_name(@)",
-                            header: "IGESDimen_HArray1OfGeneralNote.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "IGESDimen_HArray1OfGeneralNote::get_type_name(@)",
+                              header: "IGESDimen_HArray1OfGeneralNote.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "IGESDimen_HArray1OfGeneralNote::get_type_descriptor(@)",
     header: "IGESDimen_HArray1OfGeneralNote.hxx".}
-proc dynamicType*(this: IGESDimenHArray1OfGeneralNote): Handle[StandardType] {.
+proc DynamicType*(this: IGESDimen_HArray1OfGeneralNote): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType",
     header: "IGESDimen_HArray1OfGeneralNote.hxx".}
-

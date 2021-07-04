@@ -13,38 +13,43 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  BRepMesh_DefaultRangeSplitter, ../IMeshTools/IMeshTools_Parameters
+
 ## ! Auxiliary class extending default range splitter in
 ## ! order to generate internal nodes for cylindrical surface.
 
 type
-  BRepMeshCylinderRangeSplitter* {.importcpp: "BRepMesh_CylinderRangeSplitter",
-                                  header: "BRepMesh_CylinderRangeSplitter.hxx",
-                                  bycopy.} = object of BRepMeshDefaultRangeSplitter ## !
-                                                                               ## Constructor.
-                                                                               ## !
-                                                                               ## Computes
-                                                                               ## parametric
-                                                                               ## delta
-                                                                               ## taking
-                                                                               ## length
-                                                                               ## along U
-                                                                               ## and V
-                                                                               ## into
-                                                                               ## account.
+  BRepMesh_CylinderRangeSplitter* {.importcpp: "BRepMesh_CylinderRangeSplitter", header: "BRepMesh_CylinderRangeSplitter.hxx",
+                                   bycopy.} = object of BRepMesh_DefaultRangeSplitter ##
+                                                                                 ## !
+                                                                                 ## Constructor.
+                                                                                 ##
+                                                                                 ## !
+                                                                                 ## Computes
+                                                                                 ## parametric
+                                                                                 ## delta
+                                                                                 ## taking
+                                                                                 ## length
+                                                                                 ## along
+                                                                                 ## U
+                                                                                 ## and
+                                                                                 ## V
+                                                                                 ## into
+                                                                                 ## account.
 
 
-proc constructBRepMeshCylinderRangeSplitter*(): BRepMeshCylinderRangeSplitter {.
+proc constructBRepMesh_CylinderRangeSplitter*(): BRepMesh_CylinderRangeSplitter {.
     constructor, importcpp: "BRepMesh_CylinderRangeSplitter(@)",
     header: "BRepMesh_CylinderRangeSplitter.hxx".}
-proc destroyBRepMeshCylinderRangeSplitter*(
-    this: var BRepMeshCylinderRangeSplitter) {.
+proc destroyBRepMesh_CylinderRangeSplitter*(
+    this: var BRepMesh_CylinderRangeSplitter) {.
     importcpp: "#.~BRepMesh_CylinderRangeSplitter()",
     header: "BRepMesh_CylinderRangeSplitter.hxx".}
-proc reset*(this: var BRepMeshCylinderRangeSplitter; theDFace: IFaceHandle;
-           theParameters: IMeshToolsParameters) {.importcpp: "Reset",
+proc Reset*(this: var BRepMesh_CylinderRangeSplitter; theDFace: IFaceHandle;
+           theParameters: IMeshTools_Parameters) {.importcpp: "Reset",
     header: "BRepMesh_CylinderRangeSplitter.hxx".}
-proc generateSurfaceNodes*(this: BRepMeshCylinderRangeSplitter;
-                          theParameters: IMeshToolsParameters): Handle[ListOfPnt2d] {.
-    noSideEffect, importcpp: "GenerateSurfaceNodes",
-    header: "BRepMesh_CylinderRangeSplitter.hxx".}
-
+proc GenerateSurfaceNodes*(this: BRepMesh_CylinderRangeSplitter;
+                          theParameters: IMeshTools_Parameters): handle[
+    ListOfPnt2d] {.noSideEffect, importcpp: "GenerateSurfaceNodes",
+                  header: "BRepMesh_CylinderRangeSplitter.hxx".}

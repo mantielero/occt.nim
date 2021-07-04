@@ -13,6 +13,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepFEA_CurveElementIntervalLinearlyVarying"
@@ -30,19 +34,18 @@ type
 proc constructRWStepFEA_RWCurveElementIntervalLinearlyVarying*(): RWStepFEA_RWCurveElementIntervalLinearlyVarying {.
     constructor, importcpp: "RWStepFEA_RWCurveElementIntervalLinearlyVarying(@)",
     header: "RWStepFEA_RWCurveElementIntervalLinearlyVarying.hxx".}
-proc readStep*(this: RWStepFEA_RWCurveElementIntervalLinearlyVarying;
-              data: Handle[StepDataStepReaderData]; num: StandardInteger;
-              ach: var Handle[InterfaceCheck];
-              ent: Handle[StepFEA_CurveElementIntervalLinearlyVarying]) {.
+proc ReadStep*(this: RWStepFEA_RWCurveElementIntervalLinearlyVarying;
+              data: handle[StepData_StepReaderData]; num: Standard_Integer;
+              ach: var handle[Interface_Check];
+              ent: handle[StepFEA_CurveElementIntervalLinearlyVarying]) {.
     noSideEffect, importcpp: "ReadStep",
     header: "RWStepFEA_RWCurveElementIntervalLinearlyVarying.hxx".}
-proc writeStep*(this: RWStepFEA_RWCurveElementIntervalLinearlyVarying;
-               sw: var StepDataStepWriter;
-               ent: Handle[StepFEA_CurveElementIntervalLinearlyVarying]) {.
+proc WriteStep*(this: RWStepFEA_RWCurveElementIntervalLinearlyVarying;
+               SW: var StepData_StepWriter;
+               ent: handle[StepFEA_CurveElementIntervalLinearlyVarying]) {.
     noSideEffect, importcpp: "WriteStep",
     header: "RWStepFEA_RWCurveElementIntervalLinearlyVarying.hxx".}
-proc share*(this: RWStepFEA_RWCurveElementIntervalLinearlyVarying;
-           ent: Handle[StepFEA_CurveElementIntervalLinearlyVarying];
-           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
+proc Share*(this: RWStepFEA_RWCurveElementIntervalLinearlyVarying;
+           ent: handle[StepFEA_CurveElementIntervalLinearlyVarying];
+           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepFEA_RWCurveElementIntervalLinearlyVarying.hxx".}
-

@@ -14,27 +14,39 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
+  ../TopoDS/TopoDS_Shape, BRepOffset_DataMapOfShapeListOfInterval,
+  ../TopTools/TopTools_IndexedDataMapOfShapeListOfShape,
+  ../Standard/Standard_Real, BRepOffset_ListOfInterval,
+  ../ChFiDS/ChFiDS_TypeOfConcavity,
+  ../TopTools/TopTools_DataMapOfShapeListOfShape,
+  ../TopTools/TopTools_DataMapOfShapeReal,
+  ../TopTools/TopTools_DataMapOfShapeShape, ../TopTools/TopTools_ListOfShape,
+  ../TopTools/TopTools_MapOfShape
+
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of TopoDS_Edge"
 discard "forward decl of TopoDS_Vertex"
 discard "forward decl of TopoDS_Face"
 discard "forward decl of TopoDS_Compound"
 type
-  BRepOffsetAnalyse* {.importcpp: "BRepOffset_Analyse",
-                      header: "BRepOffset_Analyse.hxx", bycopy.} = object ## ! @name
-                                                                     ## Constructors
-                                                                     ## ! Empty c-tor
-                                                                     ## ! @name Performing analysis
-                                                                     ## ! Performs the analysis
-                                                                     ## ! @name Results
-                                                                     ## ! Returns status of the algorithm
-                                                                     ## ! @name Clearing the content
-                                                                     ## ! Clears the content of the algorithm
-                                                                     ## ! @name Treatment of tangential cases
-                                                                     ## ! Treatment of the tangential cases.
-                                                                     ## ! @param theEdges List of edges connecting tangent faces
-                                                                     ## ! @name Fields
-                                                                     ##  Inputs
+  BRepOffset_Analyse* {.importcpp: "BRepOffset_Analyse",
+                       header: "BRepOffset_Analyse.hxx", bycopy.} = object ## ! @name
+                                                                      ## Constructors
+                                                                      ## ! Empty c-tor
+                                                                      ## ! @name Performing analysis
+                                                                      ## ! Performs the analysis
+                                                                      ## ! @name Results
+                                                                      ## ! Returns status of the algorithm
+                                                                      ## ! @name Clearing the content
+                                                                      ## ! Clears the content of the algorithm
+                                                                      ## ! @name Treatment of tangential cases
+                                                                      ## ! Treatment of the tangential cases.
+                                                                      ## ! @param theEdges List of edges connecting tangent faces
+                                                                      ## ! @name Fields
+                                                                      ##  Inputs
     ## !< Input shape to analyze
     ## !< Criteria angle to check tangency
     ## !< Offset value
@@ -52,61 +64,61 @@ type
     ## !< Binding between edge and face generated from the edge
 
 
-proc constructBRepOffsetAnalyse*(): BRepOffsetAnalyse {.constructor,
+proc constructBRepOffset_Analyse*(): BRepOffset_Analyse {.constructor,
     importcpp: "BRepOffset_Analyse(@)", header: "BRepOffset_Analyse.hxx".}
-proc constructBRepOffsetAnalyse*(theS: TopoDS_Shape; theAngle: StandardReal): BRepOffsetAnalyse {.
+proc constructBRepOffset_Analyse*(theS: TopoDS_Shape; theAngle: Standard_Real): BRepOffset_Analyse {.
     constructor, importcpp: "BRepOffset_Analyse(@)",
     header: "BRepOffset_Analyse.hxx".}
-proc perform*(this: var BRepOffsetAnalyse; theS: TopoDS_Shape; theAngle: StandardReal) {.
-    importcpp: "Perform", header: "BRepOffset_Analyse.hxx".}
-proc isDone*(this: BRepOffsetAnalyse): StandardBoolean {.noSideEffect,
+proc Perform*(this: var BRepOffset_Analyse; theS: TopoDS_Shape;
+             theAngle: Standard_Real) {.importcpp: "Perform",
+                                      header: "BRepOffset_Analyse.hxx".}
+proc IsDone*(this: BRepOffset_Analyse): Standard_Boolean {.noSideEffect,
     importcpp: "IsDone", header: "BRepOffset_Analyse.hxx".}
-proc `type`*(this: BRepOffsetAnalyse; theE: TopoDS_Edge): BRepOffsetListOfInterval {.
+proc Type*(this: BRepOffset_Analyse; theE: TopoDS_Edge): BRepOffset_ListOfInterval {.
     noSideEffect, importcpp: "Type", header: "BRepOffset_Analyse.hxx".}
-proc edges*(this: BRepOffsetAnalyse; theV: TopoDS_Vertex;
-           theType: ChFiDS_TypeOfConcavity; theL: var TopToolsListOfShape) {.
+proc Edges*(this: BRepOffset_Analyse; theV: TopoDS_Vertex;
+           theType: ChFiDS_TypeOfConcavity; theL: var TopTools_ListOfShape) {.
     noSideEffect, importcpp: "Edges", header: "BRepOffset_Analyse.hxx".}
-proc edges*(this: BRepOffsetAnalyse; theF: TopoDS_Face;
-           theType: ChFiDS_TypeOfConcavity; theL: var TopToolsListOfShape) {.
+proc Edges*(this: BRepOffset_Analyse; theF: TopoDS_Face;
+           theType: ChFiDS_TypeOfConcavity; theL: var TopTools_ListOfShape) {.
     noSideEffect, importcpp: "Edges", header: "BRepOffset_Analyse.hxx".}
-proc tangentEdges*(this: BRepOffsetAnalyse; theEdge: TopoDS_Edge;
-                  theVertex: TopoDS_Vertex; theEdges: var TopToolsListOfShape) {.
+proc TangentEdges*(this: BRepOffset_Analyse; theEdge: TopoDS_Edge;
+                  theVertex: TopoDS_Vertex; theEdges: var TopTools_ListOfShape) {.
     noSideEffect, importcpp: "TangentEdges", header: "BRepOffset_Analyse.hxx".}
-proc hasAncestor*(this: BRepOffsetAnalyse; theS: TopoDS_Shape): StandardBoolean {.
+proc HasAncestor*(this: BRepOffset_Analyse; theS: TopoDS_Shape): Standard_Boolean {.
     noSideEffect, importcpp: "HasAncestor", header: "BRepOffset_Analyse.hxx".}
-proc ancestors*(this: BRepOffsetAnalyse; theS: TopoDS_Shape): TopToolsListOfShape {.
+proc Ancestors*(this: BRepOffset_Analyse; theS: TopoDS_Shape): TopTools_ListOfShape {.
     noSideEffect, importcpp: "Ancestors", header: "BRepOffset_Analyse.hxx".}
-proc explode*(this: BRepOffsetAnalyse; theL: var TopToolsListOfShape;
+proc Explode*(this: BRepOffset_Analyse; theL: var TopTools_ListOfShape;
              theType: ChFiDS_TypeOfConcavity) {.noSideEffect, importcpp: "Explode",
     header: "BRepOffset_Analyse.hxx".}
-proc explode*(this: BRepOffsetAnalyse; theL: var TopToolsListOfShape;
+proc Explode*(this: BRepOffset_Analyse; theL: var TopTools_ListOfShape;
              theType1: ChFiDS_TypeOfConcavity; theType2: ChFiDS_TypeOfConcavity) {.
     noSideEffect, importcpp: "Explode", header: "BRepOffset_Analyse.hxx".}
-proc addFaces*(this: BRepOffsetAnalyse; theFace: TopoDS_Face;
-              theCo: var TopoDS_Compound; theMap: var TopToolsMapOfShape;
+proc AddFaces*(this: BRepOffset_Analyse; theFace: TopoDS_Face;
+              theCo: var TopoDS_Compound; theMap: var TopTools_MapOfShape;
               theType: ChFiDS_TypeOfConcavity) {.noSideEffect,
     importcpp: "AddFaces", header: "BRepOffset_Analyse.hxx".}
-proc addFaces*(this: BRepOffsetAnalyse; theFace: TopoDS_Face;
-              theCo: var TopoDS_Compound; theMap: var TopToolsMapOfShape;
+proc AddFaces*(this: BRepOffset_Analyse; theFace: TopoDS_Face;
+              theCo: var TopoDS_Compound; theMap: var TopTools_MapOfShape;
               theType1: ChFiDS_TypeOfConcavity; theType2: ChFiDS_TypeOfConcavity) {.
     noSideEffect, importcpp: "AddFaces", header: "BRepOffset_Analyse.hxx".}
-proc setOffsetValue*(this: var BRepOffsetAnalyse; theOffset: StandardReal) {.
+proc SetOffsetValue*(this: var BRepOffset_Analyse; theOffset: Standard_Real) {.
     importcpp: "SetOffsetValue", header: "BRepOffset_Analyse.hxx".}
-proc setFaceOffsetMap*(this: var BRepOffsetAnalyse;
-                      theMap: TopToolsDataMapOfShapeReal) {.
+proc SetFaceOffsetMap*(this: var BRepOffset_Analyse;
+                      theMap: TopTools_DataMapOfShapeReal) {.
     importcpp: "SetFaceOffsetMap", header: "BRepOffset_Analyse.hxx".}
-proc newFaces*(this: BRepOffsetAnalyse): TopToolsListOfShape {.noSideEffect,
+proc NewFaces*(this: BRepOffset_Analyse): TopTools_ListOfShape {.noSideEffect,
     importcpp: "NewFaces", header: "BRepOffset_Analyse.hxx".}
-proc generated*(this: BRepOffsetAnalyse; theS: TopoDS_Shape): TopoDS_Shape {.
+proc Generated*(this: BRepOffset_Analyse; theS: TopoDS_Shape): TopoDS_Shape {.
     noSideEffect, importcpp: "Generated", header: "BRepOffset_Analyse.hxx".}
-proc hasGenerated*(this: BRepOffsetAnalyse; theS: TopoDS_Shape): StandardBoolean {.
+proc HasGenerated*(this: BRepOffset_Analyse; theS: TopoDS_Shape): Standard_Boolean {.
     noSideEffect, importcpp: "HasGenerated", header: "BRepOffset_Analyse.hxx".}
-proc edgeReplacement*(this: BRepOffsetAnalyse; theFace: TopoDS_Face;
+proc EdgeReplacement*(this: BRepOffset_Analyse; theFace: TopoDS_Face;
                      theEdge: TopoDS_Edge): TopoDS_Edge {.noSideEffect,
     importcpp: "EdgeReplacement", header: "BRepOffset_Analyse.hxx".}
-proc descendants*(this: BRepOffsetAnalyse; theS: TopoDS_Shape;
-                 theUpdate: StandardBoolean = standardFalse): ptr TopToolsListOfShape {.
+proc Descendants*(this: BRepOffset_Analyse; theS: TopoDS_Shape;
+                 theUpdate: Standard_Boolean = Standard_False): ptr TopTools_ListOfShape {.
     noSideEffect, importcpp: "Descendants", header: "BRepOffset_Analyse.hxx".}
-proc clear*(this: var BRepOffsetAnalyse) {.importcpp: "Clear",
-                                       header: "BRepOffset_Analyse.hxx".}
-
+proc Clear*(this: var BRepOffset_Analyse) {.importcpp: "Clear",
+                                        header: "BRepOffset_Analyse.hxx".}

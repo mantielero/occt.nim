@@ -14,13 +14,17 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Real,
+  ../IGESData/IGESData_IGESEntity, ../Standard/Standard_Boolean
+
 discard "forward decl of IGESGeom_Point"
 discard "forward decl of IGESGeom_Direction"
 discard "forward decl of gp_Pnt"
 discard "forward decl of IGESSolid_SphericalSurface"
 discard "forward decl of IGESSolid_SphericalSurface"
 type
-  HandleIGESSolidSphericalSurface* = Handle[IGESSolidSphericalSurface]
+  Handle_IGESSolid_SphericalSurface* = handle[IGESSolid_SphericalSurface]
 
 ## ! defines SphericalSurface, Type <196> Form Number <0,1>
 ## ! in package IGESSolid
@@ -29,40 +33,39 @@ type
 ## ! reference direction is provided.
 
 type
-  IGESSolidSphericalSurface* {.importcpp: "IGESSolid_SphericalSurface",
-                              header: "IGESSolid_SphericalSurface.hxx", bycopy.} = object of IGESDataIGESEntity
+  IGESSolid_SphericalSurface* {.importcpp: "IGESSolid_SphericalSurface",
+                               header: "IGESSolid_SphericalSurface.hxx", bycopy.} = object of IGESData_IGESEntity
 
 
-proc constructIGESSolidSphericalSurface*(): IGESSolidSphericalSurface {.
+proc constructIGESSolid_SphericalSurface*(): IGESSolid_SphericalSurface {.
     constructor, importcpp: "IGESSolid_SphericalSurface(@)",
     header: "IGESSolid_SphericalSurface.hxx".}
-proc init*(this: var IGESSolidSphericalSurface; aCenter: Handle[IGESGeomPoint];
-          aRadius: StandardReal; anAxis: Handle[IGESGeomDirection];
-          aRefdir: Handle[IGESGeomDirection]) {.importcpp: "Init",
+proc Init*(this: var IGESSolid_SphericalSurface; aCenter: handle[IGESGeom_Point];
+          aRadius: Standard_Real; anAxis: handle[IGESGeom_Direction];
+          aRefdir: handle[IGESGeom_Direction]) {.importcpp: "Init",
     header: "IGESSolid_SphericalSurface.hxx".}
-proc center*(this: IGESSolidSphericalSurface): Handle[IGESGeomPoint] {.noSideEffect,
-    importcpp: "Center", header: "IGESSolid_SphericalSurface.hxx".}
-proc transformedCenter*(this: IGESSolidSphericalSurface): GpPnt {.noSideEffect,
+proc Center*(this: IGESSolid_SphericalSurface): handle[IGESGeom_Point] {.
+    noSideEffect, importcpp: "Center", header: "IGESSolid_SphericalSurface.hxx".}
+proc TransformedCenter*(this: IGESSolid_SphericalSurface): gp_Pnt {.noSideEffect,
     importcpp: "TransformedCenter", header: "IGESSolid_SphericalSurface.hxx".}
-proc radius*(this: IGESSolidSphericalSurface): StandardReal {.noSideEffect,
+proc Radius*(this: IGESSolid_SphericalSurface): Standard_Real {.noSideEffect,
     importcpp: "Radius", header: "IGESSolid_SphericalSurface.hxx".}
-proc axis*(this: IGESSolidSphericalSurface): Handle[IGESGeomDirection] {.
+proc Axis*(this: IGESSolid_SphericalSurface): handle[IGESGeom_Direction] {.
     noSideEffect, importcpp: "Axis", header: "IGESSolid_SphericalSurface.hxx".}
-proc referenceDir*(this: IGESSolidSphericalSurface): Handle[IGESGeomDirection] {.
+proc ReferenceDir*(this: IGESSolid_SphericalSurface): handle[IGESGeom_Direction] {.
     noSideEffect, importcpp: "ReferenceDir",
     header: "IGESSolid_SphericalSurface.hxx".}
-proc isParametrised*(this: IGESSolidSphericalSurface): StandardBoolean {.
+proc IsParametrised*(this: IGESSolid_SphericalSurface): Standard_Boolean {.
     noSideEffect, importcpp: "IsParametrised",
     header: "IGESSolid_SphericalSurface.hxx".}
 type
-  IGESSolidSphericalSurfacebaseType* = IGESDataIGESEntity
+  IGESSolid_SphericalSurfacebase_type* = IGESData_IGESEntity
 
-proc getTypeName*(): cstring {.importcpp: "IGESSolid_SphericalSurface::get_type_name(@)",
-                            header: "IGESSolid_SphericalSurface.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "IGESSolid_SphericalSurface::get_type_name(@)",
+                              header: "IGESSolid_SphericalSurface.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "IGESSolid_SphericalSurface::get_type_descriptor(@)",
     header: "IGESSolid_SphericalSurface.hxx".}
-proc dynamicType*(this: IGESSolidSphericalSurface): Handle[StandardType] {.
+proc DynamicType*(this: IGESSolid_SphericalSurface): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType",
     header: "IGESSolid_SphericalSurface.hxx".}
-

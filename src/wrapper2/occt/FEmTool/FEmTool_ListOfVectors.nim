@@ -14,10 +14,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../TColStd/TColStd_HArray1OfReal, ../NCollection/NCollection_List
+
 ## ! To  define  list  of  segments with  non-zero  coefficients of constraint
 
 type
-  FEmToolListOfVectors* = NCollectionList[Handle[TColStdHArray1OfReal]]
-  FEmToolListIteratorOfListOfVectors* = Iterator[Handle[TColStdHArray1OfReal]]
-
-
+  FEmTool_ListOfVectors* = NCollection_List[handle[TColStd_HArray1OfReal]]
+  FEmTool_ListIteratorOfListOfVectors* = Iterator[handle[TColStd_HArray1OfReal]]

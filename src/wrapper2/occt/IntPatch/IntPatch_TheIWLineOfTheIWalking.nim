@@ -14,7 +14,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _IntPatch_TheIWLineOfTheIWalking_HeaderFile [NewLine] # _IntPatch_TheIWLineOfTheIWalking_HeaderFile [NewLine] # < Standard . hxx > [NewLine] # < Standard_Type . hxx > [NewLine] # < IntSurf_SequenceOfCouple . hxx > [NewLine] # < Standard_Boolean . hxx > [NewLine] # < Standard_Integer . hxx > [NewLine] # < IntSurf_PathPoint . hxx > [NewLine] # < gp_Vec . hxx > [NewLine] # < Standard_Transient . hxx > [NewLine] # < IntSurf_Allocator . hxx > [NewLine] class IntSurf_LineOn2S ;
+## !!!Ignored construct:  # _IntPatch_TheIWLineOfTheIWalking_HeaderFile [NewLine] # _IntPatch_TheIWLineOfTheIWalking_HeaderFile [NewLine] # ../Standard/Standard.hxx [NewLine] # ../Standard/Standard_Type.hxx [NewLine] # ../IntSurf/IntSurf_SequenceOfCouple.hxx [NewLine] # ../Standard/Standard_Boolean.hxx [NewLine] # ../Standard/Standard_Integer.hxx [NewLine] # ../IntSurf/IntSurf_PathPoint.hxx [NewLine] # ../gp/gp_Vec.hxx [NewLine] # ../Standard/Standard_Transient.hxx [NewLine] # ../IntSurf/IntSurf_Allocator.hxx [NewLine] class IntSurf_LineOn2S ;
 ## Error: did not expect <!!!
 
 discard "forward decl of Standard_OutOfRange"
@@ -25,107 +25,107 @@ discard "forward decl of gp_Vec"
 discard "forward decl of IntPatch_TheIWLineOfTheIWalking"
 discard "forward decl of IntPatch_TheIWLineOfTheIWalking"
 type
-  HandleIntPatchTheIWLineOfTheIWalkingIntPatchTheIWLineOfTheIWalking* = Handle[
-      IntPatchTheIWLineOfTheIWalking]
-  IntPatchTheIWLineOfTheIWalking* {.importcpp: "IntPatch_TheIWLineOfTheIWalking", header: "IntPatch_TheIWLineOfTheIWalking.hxx",
-                                   bycopy.} = object of StandardTransient
+  Handle_IntPatch_TheIWLineOfTheIWalkingIntPatch_TheIWLineOfTheIWalking* = handle[
+      IntPatch_TheIWLineOfTheIWalking]
+  IntPatch_TheIWLineOfTheIWalking* {.importcpp: "IntPatch_TheIWLineOfTheIWalking", header: "IntPatch_TheIWLineOfTheIWalking.hxx",
+                                    bycopy.} = object of Standard_Transient
 
 
-proc constructIntPatchTheIWLineOfTheIWalking*(theAllocator: IntSurfAllocator = 0): IntPatchTheIWLineOfTheIWalking {.
+proc constructIntPatch_TheIWLineOfTheIWalking*(
+    theAllocator: IntSurf_Allocator = 0): IntPatch_TheIWLineOfTheIWalking {.
     constructor, importcpp: "IntPatch_TheIWLineOfTheIWalking(@)",
     header: "IntPatch_TheIWLineOfTheIWalking.hxx".}
-proc reverse*(this: var IntPatchTheIWLineOfTheIWalking) {.importcpp: "Reverse",
+proc Reverse*(this: var IntPatch_TheIWLineOfTheIWalking) {.importcpp: "Reverse",
     header: "IntPatch_TheIWLineOfTheIWalking.hxx".}
-proc cut*(this: var IntPatchTheIWLineOfTheIWalking; index: StandardInteger) {.
+proc Cut*(this: var IntPatch_TheIWLineOfTheIWalking; Index: Standard_Integer) {.
     importcpp: "Cut", header: "IntPatch_TheIWLineOfTheIWalking.hxx".}
-proc addPoint*(this: var IntPatchTheIWLineOfTheIWalking; p: IntSurfPntOn2S) {.
+proc AddPoint*(this: var IntPatch_TheIWLineOfTheIWalking; P: IntSurf_PntOn2S) {.
     importcpp: "AddPoint", header: "IntPatch_TheIWLineOfTheIWalking.hxx".}
-proc addStatusFirst*(this: var IntPatchTheIWLineOfTheIWalking;
-                    closed: StandardBoolean; hasFirst: StandardBoolean) {.
+proc AddStatusFirst*(this: var IntPatch_TheIWLineOfTheIWalking;
+                    Closed: Standard_Boolean; HasFirst: Standard_Boolean) {.
     importcpp: "AddStatusFirst", header: "IntPatch_TheIWLineOfTheIWalking.hxx".}
-proc addStatusFirst*(this: var IntPatchTheIWLineOfTheIWalking;
-                    closed: StandardBoolean; hasLast: StandardBoolean;
-                    index: StandardInteger; p: IntSurfPathPoint) {.
+proc AddStatusFirst*(this: var IntPatch_TheIWLineOfTheIWalking;
+                    Closed: Standard_Boolean; HasLast: Standard_Boolean;
+                    Index: Standard_Integer; P: IntSurf_PathPoint) {.
     importcpp: "AddStatusFirst", header: "IntPatch_TheIWLineOfTheIWalking.hxx".}
-proc addStatusFirstLast*(this: var IntPatchTheIWLineOfTheIWalking;
-                        closed: StandardBoolean; hasFirst: StandardBoolean;
-                        hasLast: StandardBoolean) {.
+proc AddStatusFirstLast*(this: var IntPatch_TheIWLineOfTheIWalking;
+                        Closed: Standard_Boolean; HasFirst: Standard_Boolean;
+                        HasLast: Standard_Boolean) {.
     importcpp: "AddStatusFirstLast", header: "IntPatch_TheIWLineOfTheIWalking.hxx".}
-proc addStatusLast*(this: var IntPatchTheIWLineOfTheIWalking;
-                   hasLast: StandardBoolean) {.importcpp: "AddStatusLast",
+proc AddStatusLast*(this: var IntPatch_TheIWLineOfTheIWalking;
+                   HasLast: Standard_Boolean) {.importcpp: "AddStatusLast",
     header: "IntPatch_TheIWLineOfTheIWalking.hxx".}
-proc addStatusLast*(this: var IntPatchTheIWLineOfTheIWalking;
-                   hasLast: StandardBoolean; index: StandardInteger;
-                   p: IntSurfPathPoint) {.importcpp: "AddStatusLast", header: "IntPatch_TheIWLineOfTheIWalking.hxx".}
-proc addIndexPassing*(this: var IntPatchTheIWLineOfTheIWalking;
-                     index: StandardInteger) {.importcpp: "AddIndexPassing",
+proc AddStatusLast*(this: var IntPatch_TheIWLineOfTheIWalking;
+                   HasLast: Standard_Boolean; Index: Standard_Integer;
+                   P: IntSurf_PathPoint) {.importcpp: "AddStatusLast",
     header: "IntPatch_TheIWLineOfTheIWalking.hxx".}
-proc setTangentVector*(this: var IntPatchTheIWLineOfTheIWalking; v: GpVec;
-                      index: StandardInteger) {.importcpp: "SetTangentVector",
+proc AddIndexPassing*(this: var IntPatch_TheIWLineOfTheIWalking;
+                     Index: Standard_Integer) {.importcpp: "AddIndexPassing",
     header: "IntPatch_TheIWLineOfTheIWalking.hxx".}
-proc setTangencyAtBegining*(this: var IntPatchTheIWLineOfTheIWalking;
-                           isTangent: StandardBoolean) {.
+proc SetTangentVector*(this: var IntPatch_TheIWLineOfTheIWalking; V: gp_Vec;
+                      Index: Standard_Integer) {.importcpp: "SetTangentVector",
+    header: "IntPatch_TheIWLineOfTheIWalking.hxx".}
+proc SetTangencyAtBegining*(this: var IntPatch_TheIWLineOfTheIWalking;
+                           IsTangent: Standard_Boolean) {.
     importcpp: "SetTangencyAtBegining",
     header: "IntPatch_TheIWLineOfTheIWalking.hxx".}
-proc setTangencyAtEnd*(this: var IntPatchTheIWLineOfTheIWalking;
-                      isTangent: StandardBoolean) {.importcpp: "SetTangencyAtEnd",
-    header: "IntPatch_TheIWLineOfTheIWalking.hxx".}
-proc nbPoints*(this: IntPatchTheIWLineOfTheIWalking): StandardInteger {.
+proc SetTangencyAtEnd*(this: var IntPatch_TheIWLineOfTheIWalking;
+                      IsTangent: Standard_Boolean) {.
+    importcpp: "SetTangencyAtEnd", header: "IntPatch_TheIWLineOfTheIWalking.hxx".}
+proc NbPoints*(this: IntPatch_TheIWLineOfTheIWalking): Standard_Integer {.
     noSideEffect, importcpp: "NbPoints",
     header: "IntPatch_TheIWLineOfTheIWalking.hxx".}
-proc value*(this: IntPatchTheIWLineOfTheIWalking; index: StandardInteger): IntSurfPntOn2S {.
+proc Value*(this: IntPatch_TheIWLineOfTheIWalking; Index: Standard_Integer): IntSurf_PntOn2S {.
     noSideEffect, importcpp: "Value", header: "IntPatch_TheIWLineOfTheIWalking.hxx".}
-proc line*(this: IntPatchTheIWLineOfTheIWalking): Handle[IntSurfLineOn2S] {.
+proc Line*(this: IntPatch_TheIWLineOfTheIWalking): handle[IntSurf_LineOn2S] {.
     noSideEffect, importcpp: "Line", header: "IntPatch_TheIWLineOfTheIWalking.hxx".}
-proc isClosed*(this: IntPatchTheIWLineOfTheIWalking): StandardBoolean {.
+proc IsClosed*(this: IntPatch_TheIWLineOfTheIWalking): Standard_Boolean {.
     noSideEffect, importcpp: "IsClosed",
     header: "IntPatch_TheIWLineOfTheIWalking.hxx".}
-proc hasFirstPoint*(this: IntPatchTheIWLineOfTheIWalking): StandardBoolean {.
+proc HasFirstPoint*(this: IntPatch_TheIWLineOfTheIWalking): Standard_Boolean {.
     noSideEffect, importcpp: "HasFirstPoint",
     header: "IntPatch_TheIWLineOfTheIWalking.hxx".}
-proc hasLastPoint*(this: IntPatchTheIWLineOfTheIWalking): StandardBoolean {.
+proc HasLastPoint*(this: IntPatch_TheIWLineOfTheIWalking): Standard_Boolean {.
     noSideEffect, importcpp: "HasLastPoint",
     header: "IntPatch_TheIWLineOfTheIWalking.hxx".}
-proc firstPoint*(this: IntPatchTheIWLineOfTheIWalking): IntSurfPathPoint {.
+proc FirstPoint*(this: IntPatch_TheIWLineOfTheIWalking): IntSurf_PathPoint {.
     noSideEffect, importcpp: "FirstPoint",
     header: "IntPatch_TheIWLineOfTheIWalking.hxx".}
-proc firstPointIndex*(this: IntPatchTheIWLineOfTheIWalking): StandardInteger {.
+proc FirstPointIndex*(this: IntPatch_TheIWLineOfTheIWalking): Standard_Integer {.
     noSideEffect, importcpp: "FirstPointIndex",
     header: "IntPatch_TheIWLineOfTheIWalking.hxx".}
-proc lastPoint*(this: IntPatchTheIWLineOfTheIWalking): IntSurfPathPoint {.
+proc LastPoint*(this: IntPatch_TheIWLineOfTheIWalking): IntSurf_PathPoint {.
     noSideEffect, importcpp: "LastPoint",
     header: "IntPatch_TheIWLineOfTheIWalking.hxx".}
-proc lastPointIndex*(this: IntPatchTheIWLineOfTheIWalking): StandardInteger {.
+proc LastPointIndex*(this: IntPatch_TheIWLineOfTheIWalking): Standard_Integer {.
     noSideEffect, importcpp: "LastPointIndex",
     header: "IntPatch_TheIWLineOfTheIWalking.hxx".}
-proc nbPassingPoint*(this: IntPatchTheIWLineOfTheIWalking): StandardInteger {.
+proc NbPassingPoint*(this: IntPatch_TheIWLineOfTheIWalking): Standard_Integer {.
     noSideEffect, importcpp: "NbPassingPoint",
     header: "IntPatch_TheIWLineOfTheIWalking.hxx".}
-proc passingPoint*(this: IntPatchTheIWLineOfTheIWalking; index: StandardInteger;
-                  indexLine: var StandardInteger; indexPnts: var StandardInteger) {.
+proc PassingPoint*(this: IntPatch_TheIWLineOfTheIWalking; Index: Standard_Integer;
+                  IndexLine: var Standard_Integer; IndexPnts: var Standard_Integer) {.
     noSideEffect, importcpp: "PassingPoint",
     header: "IntPatch_TheIWLineOfTheIWalking.hxx".}
-proc tangentVector*(this: IntPatchTheIWLineOfTheIWalking;
-                   index: var StandardInteger): GpVec {.noSideEffect,
+proc TangentVector*(this: IntPatch_TheIWLineOfTheIWalking;
+                   Index: var Standard_Integer): gp_Vec {.noSideEffect,
     importcpp: "TangentVector", header: "IntPatch_TheIWLineOfTheIWalking.hxx".}
-proc isTangentAtBegining*(this: IntPatchTheIWLineOfTheIWalking): StandardBoolean {.
+proc IsTangentAtBegining*(this: IntPatch_TheIWLineOfTheIWalking): Standard_Boolean {.
     noSideEffect, importcpp: "IsTangentAtBegining",
     header: "IntPatch_TheIWLineOfTheIWalking.hxx".}
-proc isTangentAtEnd*(this: IntPatchTheIWLineOfTheIWalking): StandardBoolean {.
+proc IsTangentAtEnd*(this: IntPatch_TheIWLineOfTheIWalking): Standard_Boolean {.
     noSideEffect, importcpp: "IsTangentAtEnd",
     header: "IntPatch_TheIWLineOfTheIWalking.hxx".}
 type
-  IntPatchTheIWLineOfTheIWalkingbaseType* = StandardTransient
+  IntPatch_TheIWLineOfTheIWalkingbase_type* = Standard_Transient
 
-proc getTypeName*(): cstring {.importcpp: "IntPatch_TheIWLineOfTheIWalking::get_type_name(@)",
-                            header: "IntPatch_TheIWLineOfTheIWalking.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "IntPatch_TheIWLineOfTheIWalking::get_type_name(@)",
+                              header: "IntPatch_TheIWLineOfTheIWalking.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "IntPatch_TheIWLineOfTheIWalking::get_type_descriptor(@)",
     header: "IntPatch_TheIWLineOfTheIWalking.hxx".}
-proc dynamicType*(this: IntPatchTheIWLineOfTheIWalking): Handle[StandardType] {.
+proc DynamicType*(this: IntPatch_TheIWLineOfTheIWalking): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType",
     header: "IntPatch_TheIWLineOfTheIWalking.hxx".}
-## !!!Ignored construct:  # TheStartPoint IntSurf_PathPoint [NewLine] # TheStartPoint_hxx < IntSurf_PathPoint . hxx > [NewLine] # IntWalk_IWLine IntPatch_TheIWLineOfTheIWalking [NewLine] # IntWalk_IWLine_hxx < IntPatch_TheIWLineOfTheIWalking . hxx > [NewLine] # Handle_IntWalk_IWLine opencascade :: handle < IntPatch_TheIWLineOfTheIWalking > [end of template] [NewLine] # < IntWalk_IWLine . lxx > [NewLine] # TheStartPoint [NewLine] # TheStartPoint_hxx [NewLine] # IntWalk_IWLine [NewLine] # IntWalk_IWLine_hxx [NewLine] # Handle_IntWalk_IWLine [NewLine] #  _IntPatch_TheIWLineOfTheIWalking_HeaderFile
+## !!!Ignored construct:  # TheStartPoint IntSurf_PathPoint [NewLine] # TheStartPoint_hxx < IntSurf_PathPoint . hxx > [NewLine] # IntWalk_IWLine IntPatch_TheIWLineOfTheIWalking [NewLine] # IntWalk_IWLine_hxx < IntPatch_TheIWLineOfTheIWalking . hxx > [NewLine] # Handle_IntWalk_IWLine opencascade :: handle < IntPatch_TheIWLineOfTheIWalking > [end of template] [NewLine] # < IntWalk_IWLine . lxx > [NewLine] # TheStartPoint [NewLine] # TheStartPoint_hxx [NewLine] # IntWalk_IWLine [NewLine] # IntWalk_IWLine_hxx [NewLine] # Handle_IntWalk_IWLine [NewLine] #  _IntPatch_TheIWLineOfTheIWalking_HeaderFile [NewLine]
 ## Error: did not expect <!!!
-
-

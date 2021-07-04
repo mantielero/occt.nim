@@ -14,8 +14,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../TColStd/TColStd_HArray1OfReal, ../NCollection/NCollection_Sequence
+
 type
-  ApproxSequenceOfHArray1OfReal* = NCollectionSequence[
-      Handle[TColStdHArray1OfReal]]
-
-
+  Approx_SequenceOfHArray1OfReal* = NCollection_Sequence[
+      handle[TColStd_HArray1OfReal]]

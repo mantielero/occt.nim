@@ -14,6 +14,14 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../TopoDS/TopoDS_Edge,
+  ../GeomAbs/GeomAbs_CurveType, ../gp/gp_Circ, ../Adaptor3d/Adaptor3d_Curve,
+  ../Standard/Standard_Real, ../GeomAbs/GeomAbs_Shape,
+  ../Standard/Standard_Integer, ../TColStd/TColStd_Array1OfReal,
+  ../Standard/Standard_Boolean
+
 discard "forward decl of Geom_Curve"
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of Standard_NoSuchObject"
@@ -30,74 +38,74 @@ discard "forward decl of gp_Parab"
 discard "forward decl of Geom_BezierCurve"
 discard "forward decl of Geom_BSplineCurve"
 type
-  BiTgteCurveOnEdge* {.importcpp: "BiTgte_CurveOnEdge",
-                      header: "BiTgte_CurveOnEdge.hxx", bycopy.} = object of Adaptor3dCurve
+  BiTgte_CurveOnEdge* {.importcpp: "BiTgte_CurveOnEdge",
+                       header: "BiTgte_CurveOnEdge.hxx", bycopy.} = object of Adaptor3d_Curve
 
 
-proc constructBiTgteCurveOnEdge*(): BiTgteCurveOnEdge {.constructor,
+proc constructBiTgte_CurveOnEdge*(): BiTgte_CurveOnEdge {.constructor,
     importcpp: "BiTgte_CurveOnEdge(@)", header: "BiTgte_CurveOnEdge.hxx".}
-proc constructBiTgteCurveOnEdge*(eonF: TopoDS_Edge; edge: TopoDS_Edge): BiTgteCurveOnEdge {.
+proc constructBiTgte_CurveOnEdge*(EonF: TopoDS_Edge; Edge: TopoDS_Edge): BiTgte_CurveOnEdge {.
     constructor, importcpp: "BiTgte_CurveOnEdge(@)",
     header: "BiTgte_CurveOnEdge.hxx".}
-proc init*(this: var BiTgteCurveOnEdge; eonF: TopoDS_Edge; edge: TopoDS_Edge) {.
+proc Init*(this: var BiTgte_CurveOnEdge; EonF: TopoDS_Edge; Edge: TopoDS_Edge) {.
     importcpp: "Init", header: "BiTgte_CurveOnEdge.hxx".}
-proc firstParameter*(this: BiTgteCurveOnEdge): StandardReal {.noSideEffect,
+proc FirstParameter*(this: BiTgte_CurveOnEdge): Standard_Real {.noSideEffect,
     importcpp: "FirstParameter", header: "BiTgte_CurveOnEdge.hxx".}
-proc lastParameter*(this: BiTgteCurveOnEdge): StandardReal {.noSideEffect,
+proc LastParameter*(this: BiTgte_CurveOnEdge): Standard_Real {.noSideEffect,
     importcpp: "LastParameter", header: "BiTgte_CurveOnEdge.hxx".}
-proc continuity*(this: BiTgteCurveOnEdge): GeomAbsShape {.noSideEffect,
+proc Continuity*(this: BiTgte_CurveOnEdge): GeomAbs_Shape {.noSideEffect,
     importcpp: "Continuity", header: "BiTgte_CurveOnEdge.hxx".}
-proc nbIntervals*(this: BiTgteCurveOnEdge; s: GeomAbsShape): StandardInteger {.
+proc NbIntervals*(this: BiTgte_CurveOnEdge; S: GeomAbs_Shape): Standard_Integer {.
     noSideEffect, importcpp: "NbIntervals", header: "BiTgte_CurveOnEdge.hxx".}
-proc intervals*(this: BiTgteCurveOnEdge; t: var TColStdArray1OfReal; s: GeomAbsShape) {.
-    noSideEffect, importcpp: "Intervals", header: "BiTgte_CurveOnEdge.hxx".}
-proc trim*(this: BiTgteCurveOnEdge; first: StandardReal; last: StandardReal;
-          tol: StandardReal): Handle[Adaptor3dHCurve] {.noSideEffect,
+proc Intervals*(this: BiTgte_CurveOnEdge; T: var TColStd_Array1OfReal;
+               S: GeomAbs_Shape) {.noSideEffect, importcpp: "Intervals",
+                                 header: "BiTgte_CurveOnEdge.hxx".}
+proc Trim*(this: BiTgte_CurveOnEdge; First: Standard_Real; Last: Standard_Real;
+          Tol: Standard_Real): handle[Adaptor3d_HCurve] {.noSideEffect,
     importcpp: "Trim", header: "BiTgte_CurveOnEdge.hxx".}
-proc isClosed*(this: BiTgteCurveOnEdge): StandardBoolean {.noSideEffect,
+proc IsClosed*(this: BiTgte_CurveOnEdge): Standard_Boolean {.noSideEffect,
     importcpp: "IsClosed", header: "BiTgte_CurveOnEdge.hxx".}
-proc isPeriodic*(this: BiTgteCurveOnEdge): StandardBoolean {.noSideEffect,
+proc IsPeriodic*(this: BiTgte_CurveOnEdge): Standard_Boolean {.noSideEffect,
     importcpp: "IsPeriodic", header: "BiTgte_CurveOnEdge.hxx".}
-proc period*(this: BiTgteCurveOnEdge): StandardReal {.noSideEffect,
+proc Period*(this: BiTgte_CurveOnEdge): Standard_Real {.noSideEffect,
     importcpp: "Period", header: "BiTgte_CurveOnEdge.hxx".}
-proc value*(this: BiTgteCurveOnEdge; u: StandardReal): GpPnt {.noSideEffect,
+proc Value*(this: BiTgte_CurveOnEdge; U: Standard_Real): gp_Pnt {.noSideEffect,
     importcpp: "Value", header: "BiTgte_CurveOnEdge.hxx".}
-proc d0*(this: BiTgteCurveOnEdge; u: StandardReal; p: var GpPnt) {.noSideEffect,
+proc D0*(this: BiTgte_CurveOnEdge; U: Standard_Real; P: var gp_Pnt) {.noSideEffect,
     importcpp: "D0", header: "BiTgte_CurveOnEdge.hxx".}
-proc d1*(this: BiTgteCurveOnEdge; u: StandardReal; p: var GpPnt; v: var GpVec) {.
+proc D1*(this: BiTgte_CurveOnEdge; U: Standard_Real; P: var gp_Pnt; V: var gp_Vec) {.
     noSideEffect, importcpp: "D1", header: "BiTgte_CurveOnEdge.hxx".}
-proc d2*(this: BiTgteCurveOnEdge; u: StandardReal; p: var GpPnt; v1: var GpVec;
-        v2: var GpVec) {.noSideEffect, importcpp: "D2",
-                      header: "BiTgte_CurveOnEdge.hxx".}
-proc d3*(this: BiTgteCurveOnEdge; u: StandardReal; p: var GpPnt; v1: var GpVec;
-        v2: var GpVec; v3: var GpVec) {.noSideEffect, importcpp: "D3",
-                                  header: "BiTgte_CurveOnEdge.hxx".}
-proc dn*(this: BiTgteCurveOnEdge; u: StandardReal; n: StandardInteger): GpVec {.
+proc D2*(this: BiTgte_CurveOnEdge; U: Standard_Real; P: var gp_Pnt; V1: var gp_Vec;
+        V2: var gp_Vec) {.noSideEffect, importcpp: "D2",
+                       header: "BiTgte_CurveOnEdge.hxx".}
+proc D3*(this: BiTgte_CurveOnEdge; U: Standard_Real; P: var gp_Pnt; V1: var gp_Vec;
+        V2: var gp_Vec; V3: var gp_Vec) {.noSideEffect, importcpp: "D3",
+                                    header: "BiTgte_CurveOnEdge.hxx".}
+proc DN*(this: BiTgte_CurveOnEdge; U: Standard_Real; N: Standard_Integer): gp_Vec {.
     noSideEffect, importcpp: "DN", header: "BiTgte_CurveOnEdge.hxx".}
-proc resolution*(this: BiTgteCurveOnEdge; r3d: StandardReal): StandardReal {.
+proc Resolution*(this: BiTgte_CurveOnEdge; R3d: Standard_Real): Standard_Real {.
     noSideEffect, importcpp: "Resolution", header: "BiTgte_CurveOnEdge.hxx".}
-proc getType*(this: BiTgteCurveOnEdge): GeomAbsCurveType {.noSideEffect,
+proc GetType*(this: BiTgte_CurveOnEdge): GeomAbs_CurveType {.noSideEffect,
     importcpp: "GetType", header: "BiTgte_CurveOnEdge.hxx".}
-proc line*(this: BiTgteCurveOnEdge): GpLin {.noSideEffect, importcpp: "Line",
+proc Line*(this: BiTgte_CurveOnEdge): gp_Lin {.noSideEffect, importcpp: "Line",
     header: "BiTgte_CurveOnEdge.hxx".}
-proc circle*(this: BiTgteCurveOnEdge): GpCirc {.noSideEffect, importcpp: "Circle",
+proc Circle*(this: BiTgte_CurveOnEdge): gp_Circ {.noSideEffect, importcpp: "Circle",
     header: "BiTgte_CurveOnEdge.hxx".}
-proc ellipse*(this: BiTgteCurveOnEdge): GpElips {.noSideEffect, importcpp: "Ellipse",
-    header: "BiTgte_CurveOnEdge.hxx".}
-proc hyperbola*(this: BiTgteCurveOnEdge): GpHypr {.noSideEffect,
+proc Ellipse*(this: BiTgte_CurveOnEdge): gp_Elips {.noSideEffect,
+    importcpp: "Ellipse", header: "BiTgte_CurveOnEdge.hxx".}
+proc Hyperbola*(this: BiTgte_CurveOnEdge): gp_Hypr {.noSideEffect,
     importcpp: "Hyperbola", header: "BiTgte_CurveOnEdge.hxx".}
-proc parabola*(this: BiTgteCurveOnEdge): GpParab {.noSideEffect,
+proc Parabola*(this: BiTgte_CurveOnEdge): gp_Parab {.noSideEffect,
     importcpp: "Parabola", header: "BiTgte_CurveOnEdge.hxx".}
-proc degree*(this: BiTgteCurveOnEdge): StandardInteger {.noSideEffect,
+proc Degree*(this: BiTgte_CurveOnEdge): Standard_Integer {.noSideEffect,
     importcpp: "Degree", header: "BiTgte_CurveOnEdge.hxx".}
-proc isRational*(this: BiTgteCurveOnEdge): StandardBoolean {.noSideEffect,
+proc IsRational*(this: BiTgte_CurveOnEdge): Standard_Boolean {.noSideEffect,
     importcpp: "IsRational", header: "BiTgte_CurveOnEdge.hxx".}
-proc nbPoles*(this: BiTgteCurveOnEdge): StandardInteger {.noSideEffect,
+proc NbPoles*(this: BiTgte_CurveOnEdge): Standard_Integer {.noSideEffect,
     importcpp: "NbPoles", header: "BiTgte_CurveOnEdge.hxx".}
-proc nbKnots*(this: BiTgteCurveOnEdge): StandardInteger {.noSideEffect,
+proc NbKnots*(this: BiTgte_CurveOnEdge): Standard_Integer {.noSideEffect,
     importcpp: "NbKnots", header: "BiTgte_CurveOnEdge.hxx".}
-proc bezier*(this: BiTgteCurveOnEdge): Handle[GeomBezierCurve] {.noSideEffect,
+proc Bezier*(this: BiTgte_CurveOnEdge): handle[Geom_BezierCurve] {.noSideEffect,
     importcpp: "Bezier", header: "BiTgte_CurveOnEdge.hxx".}
-proc bSpline*(this: BiTgteCurveOnEdge): Handle[GeomBSplineCurve] {.noSideEffect,
+proc BSpline*(this: BiTgte_CurveOnEdge): handle[Geom_BSplineCurve] {.noSideEffect,
     importcpp: "BSpline", header: "BiTgte_CurveOnEdge.hxx".}
-

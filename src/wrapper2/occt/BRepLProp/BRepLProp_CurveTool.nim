@@ -14,30 +14,36 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Real,
+  ../Standard/Standard_Integer
+
 discard "forward decl of BRepAdaptor_Curve"
 discard "forward decl of gp_Pnt"
 discard "forward decl of gp_Vec"
 type
-  BRepLPropCurveTool* {.importcpp: "BRepLProp_CurveTool",
-                       header: "BRepLProp_CurveTool.hxx", bycopy.} = object ## ! Computes the point <P> of parameter <U> on the curve <C>.
+  BRepLProp_CurveTool* {.importcpp: "BRepLProp_CurveTool",
+                        header: "BRepLProp_CurveTool.hxx", bycopy.} = object ## ! Computes the point <P> of
+                                                                        ## parameter <U> on the curve <C>.
 
 
-proc value*(c: BRepAdaptorCurve; u: StandardReal; p: var GpPnt) {.
+proc Value*(C: BRepAdaptor_Curve; U: Standard_Real; P: var gp_Pnt) {.
     importcpp: "BRepLProp_CurveTool::Value(@)", header: "BRepLProp_CurveTool.hxx".}
-proc d1*(c: BRepAdaptorCurve; u: StandardReal; p: var GpPnt; v1: var GpVec) {.
+proc D1*(C: BRepAdaptor_Curve; U: Standard_Real; P: var gp_Pnt; V1: var gp_Vec) {.
     importcpp: "BRepLProp_CurveTool::D1(@)", header: "BRepLProp_CurveTool.hxx".}
-proc d2*(c: BRepAdaptorCurve; u: StandardReal; p: var GpPnt; v1: var GpVec; v2: var GpVec) {.
-    importcpp: "BRepLProp_CurveTool::D2(@)", header: "BRepLProp_CurveTool.hxx".}
-proc d3*(c: BRepAdaptorCurve; u: StandardReal; p: var GpPnt; v1: var GpVec; v2: var GpVec;
-        v3: var GpVec) {.importcpp: "BRepLProp_CurveTool::D3(@)",
-                      header: "BRepLProp_CurveTool.hxx".}
-proc continuity*(c: BRepAdaptorCurve): StandardInteger {.
+proc D2*(C: BRepAdaptor_Curve; U: Standard_Real; P: var gp_Pnt; V1: var gp_Vec;
+        V2: var gp_Vec) {.importcpp: "BRepLProp_CurveTool::D2(@)",
+                       header: "BRepLProp_CurveTool.hxx".}
+proc D3*(C: BRepAdaptor_Curve; U: Standard_Real; P: var gp_Pnt; V1: var gp_Vec;
+        V2: var gp_Vec; V3: var gp_Vec) {.importcpp: "BRepLProp_CurveTool::D3(@)",
+                                    header: "BRepLProp_CurveTool.hxx".}
+proc Continuity*(C: BRepAdaptor_Curve): Standard_Integer {.
     importcpp: "BRepLProp_CurveTool::Continuity(@)",
     header: "BRepLProp_CurveTool.hxx".}
-proc firstParameter*(c: BRepAdaptorCurve): StandardReal {.
+proc FirstParameter*(C: BRepAdaptor_Curve): Standard_Real {.
     importcpp: "BRepLProp_CurveTool::FirstParameter(@)",
     header: "BRepLProp_CurveTool.hxx".}
-proc lastParameter*(c: BRepAdaptorCurve): StandardReal {.
+proc LastParameter*(C: BRepAdaptor_Curve): Standard_Real {.
     importcpp: "BRepLProp_CurveTool::LastParameter(@)",
     header: "BRepLProp_CurveTool.hxx".}
-

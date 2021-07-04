@@ -14,6 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle
+
 discard "forward decl of IGESSolid_Protocol"
 discard "forward decl of IGESSolid_Block"
 discard "forward decl of IGESSolid_RightAngularWedge"
@@ -77,7 +81,6 @@ type
                                                                           ## package
 
 
-proc init*() {.importcpp: "IGESSolid::Init(@)", header: "IGESSolid.hxx".}
-proc protocol*(): Handle[IGESSolidProtocol] {.importcpp: "IGESSolid::Protocol(@)",
+proc Init*() {.importcpp: "IGESSolid::Init(@)", header: "IGESSolid.hxx".}
+proc Protocol*(): handle[IGESSolid_Protocol] {.importcpp: "IGESSolid::Protocol(@)",
     header: "IGESSolid.hxx".}
-

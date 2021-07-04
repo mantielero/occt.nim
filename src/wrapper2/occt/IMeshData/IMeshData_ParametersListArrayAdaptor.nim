@@ -13,38 +13,42 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard_Transient, ../Standard/Standard_Type,
+  IMeshData_ParametersList
+
 ## ! Auxiliary tool representing adaptor interface for child classes of
 ## ! IMeshData_ParametersList to be used in tools working on NCollection_Array structure.
 
 type
-  IMeshDataParametersListArrayAdaptor*[ParametersListPtrType] {.
+  IMeshData_ParametersListArrayAdaptor*[ParametersListPtrType] {.
       importcpp: "IMeshData_ParametersListArrayAdaptor<\'0>",
-      header: "IMeshData_ParametersListArrayAdaptor.hxx", bycopy.} = object of StandardTransient ##
-                                                                                          ## !
-                                                                                          ## Constructor.
-                                                                                          ## Initializes
-                                                                                          ## tool
-                                                                                          ## by
-                                                                                          ## the
-                                                                                          ## given
-                                                                                          ## parameters.
+      header: "IMeshData_ParametersListArrayAdaptor.hxx", bycopy.} = object of Standard_Transient ##
+                                                                                           ## !
+                                                                                           ## Constructor.
+                                                                                           ## Initializes
+                                                                                           ## tool
+                                                                                           ## by
+                                                                                           ## the
+                                                                                           ## given
+                                                                                           ## parameters.
 
 
-proc constructIMeshDataParametersListArrayAdaptor*[ParametersListPtrType](
-    theParameters: ParametersListPtrType): IMeshDataParametersListArrayAdaptor[
+proc constructIMeshData_ParametersListArrayAdaptor*[ParametersListPtrType](
+    theParameters: ParametersListPtrType): IMeshData_ParametersListArrayAdaptor[
     ParametersListPtrType] {.constructor, importcpp: "IMeshData_ParametersListArrayAdaptor<\'*0>(@)",
                             header: "IMeshData_ParametersListArrayAdaptor.hxx".}
-proc destroyIMeshDataParametersListArrayAdaptor*[ParametersListPtrType](
-    this: var IMeshDataParametersListArrayAdaptor[ParametersListPtrType]) {.
+proc destroyIMeshData_ParametersListArrayAdaptor*[ParametersListPtrType](
+    this: var IMeshData_ParametersListArrayAdaptor[ParametersListPtrType]) {.
     importcpp: "#.~IMeshData_ParametersListArrayAdaptor()",
     header: "IMeshData_ParametersListArrayAdaptor.hxx".}
-proc lower*[ParametersListPtrType](this: IMeshDataParametersListArrayAdaptor[
-    ParametersListPtrType]): StandardInteger {.noSideEffect, importcpp: "Lower",
+proc Lower*[ParametersListPtrType](this: IMeshData_ParametersListArrayAdaptor[
+    ParametersListPtrType]): Standard_Integer {.noSideEffect, importcpp: "Lower",
     header: "IMeshData_ParametersListArrayAdaptor.hxx".}
-proc upper*[ParametersListPtrType](this: IMeshDataParametersListArrayAdaptor[
-    ParametersListPtrType]): StandardInteger {.noSideEffect, importcpp: "Upper",
+proc Upper*[ParametersListPtrType](this: IMeshData_ParametersListArrayAdaptor[
+    ParametersListPtrType]): Standard_Integer {.noSideEffect, importcpp: "Upper",
     header: "IMeshData_ParametersListArrayAdaptor.hxx".}
-proc value*[ParametersListPtrType](this: IMeshDataParametersListArrayAdaptor[
-    ParametersListPtrType]; theIndex: StandardInteger): StandardReal {.noSideEffect,
-    importcpp: "Value", header: "IMeshData_ParametersListArrayAdaptor.hxx".}
-
+proc Value*[ParametersListPtrType](this: IMeshData_ParametersListArrayAdaptor[
+    ParametersListPtrType]; theIndex: Standard_Integer): Standard_Real {.
+    noSideEffect, importcpp: "Value",
+    header: "IMeshData_ParametersListArrayAdaptor.hxx".}

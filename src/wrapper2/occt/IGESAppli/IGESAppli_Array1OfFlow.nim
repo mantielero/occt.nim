@@ -14,7 +14,8 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  IGESAppli_Flow, ../NCollection/NCollection_Array1
+
 type
-  IGESAppliArray1OfFlow* = NCollectionArray1[Handle[IGESAppliFlow]]
-
-
+  IGESAppli_Array1OfFlow* = NCollection_Array1[handle[IGESAppli_Flow]]

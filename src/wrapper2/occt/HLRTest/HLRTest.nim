@@ -14,6 +14,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_CString,
+  ../Standard/Standard_Boolean, ../Draw/Draw_Interpretor
+
 discard "forward decl of HLRAlgo_Projector"
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of HLRTopoBRep_OutLiner"
@@ -27,14 +32,13 @@ type
                                                                     ## ! Set a Projector Variable
 
 
-proc set*(name: StandardCString; p: HLRAlgoProjector) {.importcpp: "HLRTest::Set(@)",
-    header: "HLRTest.hxx".}
-proc getProjector*(name: var StandardCString; p: var HLRAlgoProjector): StandardBoolean {.
+proc Set*(Name: Standard_CString; P: HLRAlgo_Projector) {.
+    importcpp: "HLRTest::Set(@)", header: "HLRTest.hxx".}
+proc GetProjector*(Name: var Standard_CString; P: var HLRAlgo_Projector): Standard_Boolean {.
     importcpp: "HLRTest::GetProjector(@)", header: "HLRTest.hxx".}
-proc set*(name: StandardCString; s: TopoDS_Shape) {.importcpp: "HLRTest::Set(@)",
+proc Set*(Name: Standard_CString; S: TopoDS_Shape) {.importcpp: "HLRTest::Set(@)",
     header: "HLRTest.hxx".}
-proc getOutLiner*(name: var StandardCString): Handle[HLRTopoBRepOutLiner] {.
+proc GetOutLiner*(Name: var Standard_CString): handle[HLRTopoBRep_OutLiner] {.
     importcpp: "HLRTest::GetOutLiner(@)", header: "HLRTest.hxx".}
-proc commands*(i: var DrawInterpretor) {.importcpp: "HLRTest::Commands(@)",
-                                     header: "HLRTest.hxx".}
-
+proc Commands*(I: var Draw_Interpretor) {.importcpp: "HLRTest::Commands(@)",
+                                      header: "HLRTest.hxx".}

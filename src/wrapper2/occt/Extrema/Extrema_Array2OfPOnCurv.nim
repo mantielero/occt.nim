@@ -14,7 +14,8 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  Extrema_POnCurv, ../NCollection/NCollection_Array2
+
 type
-  ExtremaArray2OfPOnCurv* = NCollectionArray2[ExtremaPOnCurv]
-
-
+  Extrema_Array2OfPOnCurv* = NCollection_Array2[Extrema_POnCurv]

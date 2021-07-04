@@ -14,6 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle
+
 discard "forward decl of StepBasic_Approval"
 discard "forward decl of StepBasic_DateAndTime"
 discard "forward decl of StepBasic_PersonAndOrganization"
@@ -32,131 +36,130 @@ discard "forward decl of StepShape_ShapeDefinitionRepresentation"
 discard "forward decl of STEPConstruct_Part"
 discard "forward decl of StepRepr_NextAssemblyUsageOccurrence"
 type
-  STEPConstructAP203Context* {.importcpp: "STEPConstruct_AP203Context",
-                              header: "STEPConstruct_AP203Context.hxx", bycopy.} = object ##
-                                                                                     ## !
-                                                                                     ## Creates
-                                                                                     ## tool
-                                                                                     ## and
-                                                                                     ## fills
-                                                                                     ## constant
-                                                                                     ## fields
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## Initializes
-                                                                                     ## all
-                                                                                     ## missing
-                                                                                     ## data
-                                                                                     ## which
-                                                                                     ## are
-                                                                                     ## required
-                                                                                     ## for
-                                                                                     ## part
+  STEPConstruct_AP203Context* {.importcpp: "STEPConstruct_AP203Context",
+                               header: "STEPConstruct_AP203Context.hxx", bycopy.} = object ##
+                                                                                      ## !
+                                                                                      ## Creates
+                                                                                      ## tool
+                                                                                      ## and
+                                                                                      ## fills
+                                                                                      ## constant
+                                                                                      ## fields
+                                                                                      ##
+                                                                                      ## !
+                                                                                      ## Initializes
+                                                                                      ## all
+                                                                                      ## missing
+                                                                                      ## data
+                                                                                      ## which
+                                                                                      ## are
+                                                                                      ## required
+                                                                                      ## for
+                                                                                      ## part
 
 
-proc constructSTEPConstructAP203Context*(): STEPConstructAP203Context {.
+proc constructSTEPConstruct_AP203Context*(): STEPConstruct_AP203Context {.
     constructor, importcpp: "STEPConstruct_AP203Context(@)",
     header: "STEPConstruct_AP203Context.hxx".}
-proc defaultApproval*(this: var STEPConstructAP203Context): Handle[StepBasicApproval] {.
-    importcpp: "DefaultApproval", header: "STEPConstruct_AP203Context.hxx".}
-proc setDefaultApproval*(this: var STEPConstructAP203Context;
-                        app: Handle[StepBasicApproval]) {.
+proc DefaultApproval*(this: var STEPConstruct_AP203Context): handle[
+    StepBasic_Approval] {.importcpp: "DefaultApproval",
+                         header: "STEPConstruct_AP203Context.hxx".}
+proc SetDefaultApproval*(this: var STEPConstruct_AP203Context;
+                        app: handle[StepBasic_Approval]) {.
     importcpp: "SetDefaultApproval", header: "STEPConstruct_AP203Context.hxx".}
-proc defaultDateAndTime*(this: var STEPConstructAP203Context): Handle[
-    StepBasicDateAndTime] {.importcpp: "DefaultDateAndTime",
-                           header: "STEPConstruct_AP203Context.hxx".}
-proc setDefaultDateAndTime*(this: var STEPConstructAP203Context;
-                           dt: Handle[StepBasicDateAndTime]) {.
+proc DefaultDateAndTime*(this: var STEPConstruct_AP203Context): handle[
+    StepBasic_DateAndTime] {.importcpp: "DefaultDateAndTime",
+                            header: "STEPConstruct_AP203Context.hxx".}
+proc SetDefaultDateAndTime*(this: var STEPConstruct_AP203Context;
+                           dt: handle[StepBasic_DateAndTime]) {.
     importcpp: "SetDefaultDateAndTime", header: "STEPConstruct_AP203Context.hxx".}
-proc defaultPersonAndOrganization*(this: var STEPConstructAP203Context): Handle[
-    StepBasicPersonAndOrganization] {.importcpp: "DefaultPersonAndOrganization",
-                                     header: "STEPConstruct_AP203Context.hxx".}
-proc setDefaultPersonAndOrganization*(this: var STEPConstructAP203Context;
-                                     po: Handle[StepBasicPersonAndOrganization]) {.
-    importcpp: "SetDefaultPersonAndOrganization",
-    header: "STEPConstruct_AP203Context.hxx".}
-proc defaultSecurityClassificationLevel*(this: var STEPConstructAP203Context): Handle[
-    StepBasicSecurityClassificationLevel] {.
+proc DefaultPersonAndOrganization*(this: var STEPConstruct_AP203Context): handle[
+    StepBasic_PersonAndOrganization] {.importcpp: "DefaultPersonAndOrganization",
+                                      header: "STEPConstruct_AP203Context.hxx".}
+proc SetDefaultPersonAndOrganization*(this: var STEPConstruct_AP203Context; po: handle[
+    StepBasic_PersonAndOrganization]) {.importcpp: "SetDefaultPersonAndOrganization",
+                                       header: "STEPConstruct_AP203Context.hxx".}
+proc DefaultSecurityClassificationLevel*(this: var STEPConstruct_AP203Context): handle[
+    StepBasic_SecurityClassificationLevel] {.
     importcpp: "DefaultSecurityClassificationLevel",
     header: "STEPConstruct_AP203Context.hxx".}
-proc setDefaultSecurityClassificationLevel*(this: var STEPConstructAP203Context;
-    sc: Handle[StepBasicSecurityClassificationLevel]) {.
+proc SetDefaultSecurityClassificationLevel*(this: var STEPConstruct_AP203Context;
+    sc: handle[StepBasic_SecurityClassificationLevel]) {.
     importcpp: "SetDefaultSecurityClassificationLevel",
     header: "STEPConstruct_AP203Context.hxx".}
-proc roleCreator*(this: STEPConstructAP203Context): Handle[
-    StepBasicPersonAndOrganizationRole] {.noSideEffect, importcpp: "RoleCreator",
+proc RoleCreator*(this: STEPConstruct_AP203Context): handle[
+    StepBasic_PersonAndOrganizationRole] {.noSideEffect, importcpp: "RoleCreator",
     header: "STEPConstruct_AP203Context.hxx".}
-proc roleDesignOwner*(this: STEPConstructAP203Context): Handle[
-    StepBasicPersonAndOrganizationRole] {.noSideEffect,
+proc RoleDesignOwner*(this: STEPConstruct_AP203Context): handle[
+    StepBasic_PersonAndOrganizationRole] {.noSideEffect,
     importcpp: "RoleDesignOwner", header: "STEPConstruct_AP203Context.hxx".}
-proc roleDesignSupplier*(this: STEPConstructAP203Context): Handle[
-    StepBasicPersonAndOrganizationRole] {.noSideEffect,
+proc RoleDesignSupplier*(this: STEPConstruct_AP203Context): handle[
+    StepBasic_PersonAndOrganizationRole] {.noSideEffect,
     importcpp: "RoleDesignSupplier", header: "STEPConstruct_AP203Context.hxx".}
-proc roleClassificationOfficer*(this: STEPConstructAP203Context): Handle[
-    StepBasicPersonAndOrganizationRole] {.noSideEffect,
+proc RoleClassificationOfficer*(this: STEPConstruct_AP203Context): handle[
+    StepBasic_PersonAndOrganizationRole] {.noSideEffect,
     importcpp: "RoleClassificationOfficer",
     header: "STEPConstruct_AP203Context.hxx".}
-proc roleCreationDate*(this: STEPConstructAP203Context): Handle[
-    StepBasicDateTimeRole] {.noSideEffect, importcpp: "RoleCreationDate",
-                            header: "STEPConstruct_AP203Context.hxx".}
-proc roleClassificationDate*(this: STEPConstructAP203Context): Handle[
-    StepBasicDateTimeRole] {.noSideEffect, importcpp: "RoleClassificationDate",
-                            header: "STEPConstruct_AP203Context.hxx".}
-proc roleApprover*(this: STEPConstructAP203Context): Handle[StepBasicApprovalRole] {.
+proc RoleCreationDate*(this: STEPConstruct_AP203Context): handle[
+    StepBasic_DateTimeRole] {.noSideEffect, importcpp: "RoleCreationDate",
+                             header: "STEPConstruct_AP203Context.hxx".}
+proc RoleClassificationDate*(this: STEPConstruct_AP203Context): handle[
+    StepBasic_DateTimeRole] {.noSideEffect, importcpp: "RoleClassificationDate",
+                             header: "STEPConstruct_AP203Context.hxx".}
+proc RoleApprover*(this: STEPConstruct_AP203Context): handle[StepBasic_ApprovalRole] {.
     noSideEffect, importcpp: "RoleApprover",
     header: "STEPConstruct_AP203Context.hxx".}
-proc init*(this: var STEPConstructAP203Context;
-          sdr: Handle[StepShapeShapeDefinitionRepresentation]) {.
+proc Init*(this: var STEPConstruct_AP203Context;
+          sdr: handle[StepShape_ShapeDefinitionRepresentation]) {.
     importcpp: "Init", header: "STEPConstruct_AP203Context.hxx".}
-proc init*(this: var STEPConstructAP203Context; sDRTool: STEPConstructPart) {.
+proc Init*(this: var STEPConstruct_AP203Context; SDRTool: STEPConstruct_Part) {.
     importcpp: "Init", header: "STEPConstruct_AP203Context.hxx".}
-proc init*(this: var STEPConstructAP203Context;
-          nauo: Handle[StepReprNextAssemblyUsageOccurrence]) {.importcpp: "Init",
+proc Init*(this: var STEPConstruct_AP203Context;
+          nauo: handle[StepRepr_NextAssemblyUsageOccurrence]) {.importcpp: "Init",
     header: "STEPConstruct_AP203Context.hxx".}
-proc getCreator*(this: STEPConstructAP203Context): Handle[
-    StepAP203CcDesignPersonAndOrganizationAssignment] {.noSideEffect,
+proc GetCreator*(this: STEPConstruct_AP203Context): handle[
+    StepAP203_CcDesignPersonAndOrganizationAssignment] {.noSideEffect,
     importcpp: "GetCreator", header: "STEPConstruct_AP203Context.hxx".}
-proc getDesignOwner*(this: STEPConstructAP203Context): Handle[
-    StepAP203CcDesignPersonAndOrganizationAssignment] {.noSideEffect,
+proc GetDesignOwner*(this: STEPConstruct_AP203Context): handle[
+    StepAP203_CcDesignPersonAndOrganizationAssignment] {.noSideEffect,
     importcpp: "GetDesignOwner", header: "STEPConstruct_AP203Context.hxx".}
-proc getDesignSupplier*(this: STEPConstructAP203Context): Handle[
-    StepAP203CcDesignPersonAndOrganizationAssignment] {.noSideEffect,
+proc GetDesignSupplier*(this: STEPConstruct_AP203Context): handle[
+    StepAP203_CcDesignPersonAndOrganizationAssignment] {.noSideEffect,
     importcpp: "GetDesignSupplier", header: "STEPConstruct_AP203Context.hxx".}
-proc getClassificationOfficer*(this: STEPConstructAP203Context): Handle[
-    StepAP203CcDesignPersonAndOrganizationAssignment] {.noSideEffect,
+proc GetClassificationOfficer*(this: STEPConstruct_AP203Context): handle[
+    StepAP203_CcDesignPersonAndOrganizationAssignment] {.noSideEffect,
     importcpp: "GetClassificationOfficer",
     header: "STEPConstruct_AP203Context.hxx".}
-proc getSecurity*(this: STEPConstructAP203Context): Handle[
-    StepAP203CcDesignSecurityClassification] {.noSideEffect,
+proc GetSecurity*(this: STEPConstruct_AP203Context): handle[
+    StepAP203_CcDesignSecurityClassification] {.noSideEffect,
     importcpp: "GetSecurity", header: "STEPConstruct_AP203Context.hxx".}
-proc getCreationDate*(this: STEPConstructAP203Context): Handle[
-    StepAP203CcDesignDateAndTimeAssignment] {.noSideEffect,
+proc GetCreationDate*(this: STEPConstruct_AP203Context): handle[
+    StepAP203_CcDesignDateAndTimeAssignment] {.noSideEffect,
     importcpp: "GetCreationDate", header: "STEPConstruct_AP203Context.hxx".}
-proc getClassificationDate*(this: STEPConstructAP203Context): Handle[
-    StepAP203CcDesignDateAndTimeAssignment] {.noSideEffect,
+proc GetClassificationDate*(this: STEPConstruct_AP203Context): handle[
+    StepAP203_CcDesignDateAndTimeAssignment] {.noSideEffect,
     importcpp: "GetClassificationDate", header: "STEPConstruct_AP203Context.hxx".}
-proc getApproval*(this: STEPConstructAP203Context): Handle[
-    StepAP203CcDesignApproval] {.noSideEffect, importcpp: "GetApproval",
-                                header: "STEPConstruct_AP203Context.hxx".}
-proc getApprover*(this: STEPConstructAP203Context): Handle[
-    StepBasicApprovalPersonOrganization] {.noSideEffect, importcpp: "GetApprover",
-    header: "STEPConstruct_AP203Context.hxx".}
-proc getApprovalDateTime*(this: STEPConstructAP203Context): Handle[
-    StepBasicApprovalDateTime] {.noSideEffect, importcpp: "GetApprovalDateTime",
-                                header: "STEPConstruct_AP203Context.hxx".}
-proc getProductCategoryRelationship*(this: STEPConstructAP203Context): Handle[
-    StepBasicProductCategoryRelationship] {.noSideEffect,
+proc GetApproval*(this: STEPConstruct_AP203Context): handle[
+    StepAP203_CcDesignApproval] {.noSideEffect, importcpp: "GetApproval",
+                                 header: "STEPConstruct_AP203Context.hxx".}
+proc GetApprover*(this: STEPConstruct_AP203Context): handle[
+    StepBasic_ApprovalPersonOrganization] {.noSideEffect,
+    importcpp: "GetApprover", header: "STEPConstruct_AP203Context.hxx".}
+proc GetApprovalDateTime*(this: STEPConstruct_AP203Context): handle[
+    StepBasic_ApprovalDateTime] {.noSideEffect, importcpp: "GetApprovalDateTime",
+                                 header: "STEPConstruct_AP203Context.hxx".}
+proc GetProductCategoryRelationship*(this: STEPConstruct_AP203Context): handle[
+    StepBasic_ProductCategoryRelationship] {.noSideEffect,
     importcpp: "GetProductCategoryRelationship",
     header: "STEPConstruct_AP203Context.hxx".}
-proc clear*(this: var STEPConstructAP203Context) {.importcpp: "Clear",
+proc Clear*(this: var STEPConstruct_AP203Context) {.importcpp: "Clear",
     header: "STEPConstruct_AP203Context.hxx".}
-proc initRoles*(this: var STEPConstructAP203Context) {.importcpp: "InitRoles",
+proc InitRoles*(this: var STEPConstruct_AP203Context) {.importcpp: "InitRoles",
     header: "STEPConstruct_AP203Context.hxx".}
-proc initAssembly*(this: var STEPConstructAP203Context;
-                  nauo: Handle[StepReprNextAssemblyUsageOccurrence]) {.
+proc InitAssembly*(this: var STEPConstruct_AP203Context;
+                  nauo: handle[StepRepr_NextAssemblyUsageOccurrence]) {.
     importcpp: "InitAssembly", header: "STEPConstruct_AP203Context.hxx".}
-proc initSecurityRequisites*(this: var STEPConstructAP203Context) {.
+proc InitSecurityRequisites*(this: var STEPConstruct_AP203Context) {.
     importcpp: "InitSecurityRequisites", header: "STEPConstruct_AP203Context.hxx".}
-proc initApprovalRequisites*(this: var STEPConstructAP203Context) {.
+proc InitApprovalRequisites*(this: var STEPConstruct_AP203Context) {.
     importcpp: "InitApprovalRequisites", header: "STEPConstruct_AP203Context.hxx".}
-

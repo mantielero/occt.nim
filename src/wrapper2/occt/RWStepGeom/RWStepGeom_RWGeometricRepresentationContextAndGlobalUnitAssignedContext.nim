@@ -14,28 +14,31 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepGeom_GeometricRepresentationContextAndGlobalUnitAssignedContext"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepGeomRWGeometricRepresentationContextAndGlobalUnitAssignedContext* {.importcpp: "RWStepGeom_RWGeometricRepresentationContextAndGlobalUnitAssignedContext", header: "RWStepGeom_RWGeometricRepresentationContextAndGlobalUnitAssignedContext.hxx",
+  RWStepGeom_RWGeometricRepresentationContextAndGlobalUnitAssignedContext* {.importcpp: "RWStepGeom_RWGeometricRepresentationContextAndGlobalUnitAssignedContext", header: "RWStepGeom_RWGeometricRepresentationContextAndGlobalUnitAssignedContext.hxx",
       bycopy.} = object
 
 
-proc constructRWStepGeomRWGeometricRepresentationContextAndGlobalUnitAssignedContext*(): RWStepGeomRWGeometricRepresentationContextAndGlobalUnitAssignedContext {.
+proc constructRWStepGeom_RWGeometricRepresentationContextAndGlobalUnitAssignedContext*(): RWStepGeom_RWGeometricRepresentationContextAndGlobalUnitAssignedContext {.
     constructor, importcpp: "RWStepGeom_RWGeometricRepresentationContextAndGlobalUnitAssignedContext(@)", header: "RWStepGeom_RWGeometricRepresentationContextAndGlobalUnitAssignedContext.hxx".}
-proc readStep*(this: RWStepGeomRWGeometricRepresentationContextAndGlobalUnitAssignedContext;
-              data: Handle[StepDataStepReaderData]; num: StandardInteger;
-              ach: var Handle[InterfaceCheck]; ent: Handle[
-    StepGeomGeometricRepresentationContextAndGlobalUnitAssignedContext]) {.
+proc ReadStep*(this: RWStepGeom_RWGeometricRepresentationContextAndGlobalUnitAssignedContext;
+              data: handle[StepData_StepReaderData]; num: Standard_Integer;
+              ach: var handle[Interface_Check]; ent: handle[
+    StepGeom_GeometricRepresentationContextAndGlobalUnitAssignedContext]) {.
     noSideEffect, importcpp: "ReadStep", header: "RWStepGeom_RWGeometricRepresentationContextAndGlobalUnitAssignedContext.hxx".}
-proc writeStep*(this: RWStepGeomRWGeometricRepresentationContextAndGlobalUnitAssignedContext;
-               sw: var StepDataStepWriter; ent: Handle[
-    StepGeomGeometricRepresentationContextAndGlobalUnitAssignedContext]) {.
+proc WriteStep*(this: RWStepGeom_RWGeometricRepresentationContextAndGlobalUnitAssignedContext;
+               SW: var StepData_StepWriter; ent: handle[
+    StepGeom_GeometricRepresentationContextAndGlobalUnitAssignedContext]) {.
     noSideEffect, importcpp: "WriteStep", header: "RWStepGeom_RWGeometricRepresentationContextAndGlobalUnitAssignedContext.hxx".}
-proc share*(this: RWStepGeomRWGeometricRepresentationContextAndGlobalUnitAssignedContext;
-    ent: Handle[StepGeomGeometricRepresentationContextAndGlobalUnitAssignedContext];
-           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share", header: "RWStepGeom_RWGeometricRepresentationContextAndGlobalUnitAssignedContext.hxx".}
-
+proc Share*(this: RWStepGeom_RWGeometricRepresentationContextAndGlobalUnitAssignedContext;
+    ent: handle[StepGeom_GeometricRepresentationContextAndGlobalUnitAssignedContext];
+           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share", header: "RWStepGeom_RWGeometricRepresentationContextAndGlobalUnitAssignedContext.hxx".}

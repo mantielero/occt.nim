@@ -14,6 +14,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
+  ../Standard/Standard_CString
+
 discard "forward decl of IFSelect_WorkSession"
 discard "forward decl of IFSelect_Signature"
 discard "forward decl of IFSelect_SignMultiple"
@@ -103,8 +108,7 @@ type
                                                                        ## SessionFile).
 
 
-proc saveSession*(ws: Handle[IFSelectWorkSession]; file: StandardCString): StandardBoolean {.
+proc SaveSession*(WS: handle[IFSelect_WorkSession]; file: Standard_CString): Standard_Boolean {.
     importcpp: "IFSelect::SaveSession(@)", header: "IFSelect.hxx".}
-proc restoreSession*(ws: Handle[IFSelectWorkSession]; file: StandardCString): StandardBoolean {.
+proc RestoreSession*(WS: handle[IFSelect_WorkSession]; file: Standard_CString): Standard_Boolean {.
     importcpp: "IFSelect::RestoreSession(@)", header: "IFSelect.hxx".}
-

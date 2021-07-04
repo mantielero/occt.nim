@@ -14,6 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../gp/gp_XYZ,
+  ../IGESData/IGESData_IGESEntity, ../Standard/Standard_Integer
+
 discard "forward decl of IGESGeom_TransformationMatrix"
 discard "forward decl of gp_XYZ"
 discard "forward decl of gp_Pnt"
@@ -21,37 +25,36 @@ discard "forward decl of IGESData_TransfEntity"
 discard "forward decl of IGESAppli_Node"
 discard "forward decl of IGESAppli_Node"
 type
-  HandleIGESAppliNode* = Handle[IGESAppliNode]
+  Handle_IGESAppli_Node* = handle[IGESAppli_Node]
 
 ## ! defines Node, Type <134> Form <0>
 ## ! in package IGESAppli
 ## ! Geometric point used in the definition of a finite element.
 
 type
-  IGESAppliNode* {.importcpp: "IGESAppli_Node", header: "IGESAppli_Node.hxx", bycopy.} = object of IGESDataIGESEntity
+  IGESAppli_Node* {.importcpp: "IGESAppli_Node", header: "IGESAppli_Node.hxx", bycopy.} = object of IGESData_IGESEntity
 
 
-proc constructIGESAppliNode*(): IGESAppliNode {.constructor,
+proc constructIGESAppli_Node*(): IGESAppli_Node {.constructor,
     importcpp: "IGESAppli_Node(@)", header: "IGESAppli_Node.hxx".}
-proc init*(this: var IGESAppliNode; aCoord: GpXYZ;
-          aCoordSystem: Handle[IGESGeomTransformationMatrix]) {.importcpp: "Init",
-    header: "IGESAppli_Node.hxx".}
-proc coord*(this: IGESAppliNode): GpPnt {.noSideEffect, importcpp: "Coord",
-                                      header: "IGESAppli_Node.hxx".}
-proc system*(this: IGESAppliNode): Handle[IGESDataTransfEntity] {.noSideEffect,
+proc Init*(this: var IGESAppli_Node; aCoord: gp_XYZ;
+          aCoordSystem: handle[IGESGeom_TransformationMatrix]) {.
+    importcpp: "Init", header: "IGESAppli_Node.hxx".}
+proc Coord*(this: IGESAppli_Node): gp_Pnt {.noSideEffect, importcpp: "Coord",
+                                        header: "IGESAppli_Node.hxx".}
+proc System*(this: IGESAppli_Node): handle[IGESData_TransfEntity] {.noSideEffect,
     importcpp: "System", header: "IGESAppli_Node.hxx".}
-proc systemType*(this: IGESAppliNode): StandardInteger {.noSideEffect,
+proc SystemType*(this: IGESAppli_Node): Standard_Integer {.noSideEffect,
     importcpp: "SystemType", header: "IGESAppli_Node.hxx".}
-proc transformedNodalCoord*(this: IGESAppliNode): GpPnt {.noSideEffect,
+proc TransformedNodalCoord*(this: IGESAppli_Node): gp_Pnt {.noSideEffect,
     importcpp: "TransformedNodalCoord", header: "IGESAppli_Node.hxx".}
 type
-  IGESAppliNodebaseType* = IGESDataIGESEntity
+  IGESAppli_Nodebase_type* = IGESData_IGESEntity
 
-proc getTypeName*(): cstring {.importcpp: "IGESAppli_Node::get_type_name(@)",
-                            header: "IGESAppli_Node.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "IGESAppli_Node::get_type_name(@)",
+                              header: "IGESAppli_Node.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "IGESAppli_Node::get_type_descriptor(@)",
     header: "IGESAppli_Node.hxx".}
-proc dynamicType*(this: IGESAppliNode): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: IGESAppli_Node): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "IGESAppli_Node.hxx".}
-

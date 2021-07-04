@@ -14,7 +14,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _BRepApprox_TheZerImpFuncOfTheImpPrmSvSurfacesOfApprox_HeaderFile [NewLine] # _BRepApprox_TheZerImpFuncOfTheImpPrmSvSurfacesOfApprox_HeaderFile [NewLine] # < Standard . hxx > [NewLine] # < Standard_DefineAlloc . hxx > [NewLine] # < Standard_Handle . hxx > [NewLine] # < Standard_Address . hxx > [NewLine] # < Standard_Real . hxx > [NewLine] # < gp_Pnt . hxx > [NewLine] # < Standard_Boolean . hxx > [NewLine] # < gp_Vec . hxx > [NewLine] # < gp_Dir2d . hxx > [NewLine] # < math_FunctionSetWithDerivatives . hxx > [NewLine] # < Standard_Integer . hxx > [NewLine] # < math_Vector . hxx > [NewLine] class StdFail_UndefinedDerivative ;
+## !!!Ignored construct:  # _BRepApprox_TheZerImpFuncOfTheImpPrmSvSurfacesOfApprox_HeaderFile [NewLine] # _BRepApprox_TheZerImpFuncOfTheImpPrmSvSurfacesOfApprox_HeaderFile [NewLine] # ../Standard/Standard.hxx [NewLine] # ../Standard/Standard_DefineAlloc.hxx [NewLine] # ../Standard/Standard_Handle.hxx [NewLine] # ../Standard/Standard_Address.hxx [NewLine] # ../Standard/Standard_Real.hxx [NewLine] # ../gp/gp_Pnt.hxx [NewLine] # ../Standard/Standard_Boolean.hxx [NewLine] # ../gp/gp_Vec.hxx [NewLine] # ../gp/gp_Dir2d.hxx [NewLine] # ../math/math_FunctionSetWithDerivatives.hxx [NewLine] # ../Standard/Standard_Integer.hxx [NewLine] # ../math/math_Vector.hxx [NewLine] class StdFail_UndefinedDerivative ;
 ## Error: did not expect <!!!
 
 discard "forward decl of BRepAdaptor_Surface"
@@ -26,74 +26,72 @@ discard "forward decl of gp_Pnt"
 discard "forward decl of gp_Vec"
 discard "forward decl of gp_Dir2d"
 type
-  BRepApproxTheZerImpFuncOfTheImpPrmSvSurfacesOfApprox* {.
+  BRepApprox_TheZerImpFuncOfTheImpPrmSvSurfacesOfApprox* {.
       importcpp: "BRepApprox_TheZerImpFuncOfTheImpPrmSvSurfacesOfApprox",
-      header: "BRepApprox_TheZerImpFuncOfTheImpPrmSvSurfacesOfApprox.hxx", bycopy.} = object of MathFunctionSetWithDerivatives
+      header: "BRepApprox_TheZerImpFuncOfTheImpPrmSvSurfacesOfApprox.hxx", bycopy.} = object of math_FunctionSetWithDerivatives
 
 
-proc constructBRepApproxTheZerImpFuncOfTheImpPrmSvSurfacesOfApprox*(): BRepApproxTheZerImpFuncOfTheImpPrmSvSurfacesOfApprox {.
+proc constructBRepApprox_TheZerImpFuncOfTheImpPrmSvSurfacesOfApprox*(): BRepApprox_TheZerImpFuncOfTheImpPrmSvSurfacesOfApprox {.
     constructor,
     importcpp: "BRepApprox_TheZerImpFuncOfTheImpPrmSvSurfacesOfApprox(@)",
     header: "BRepApprox_TheZerImpFuncOfTheImpPrmSvSurfacesOfApprox.hxx".}
-proc constructBRepApproxTheZerImpFuncOfTheImpPrmSvSurfacesOfApprox*(
-    ps: BRepAdaptorSurface; `is`: IntSurfQuadric): BRepApproxTheZerImpFuncOfTheImpPrmSvSurfacesOfApprox {.
+proc constructBRepApprox_TheZerImpFuncOfTheImpPrmSvSurfacesOfApprox*(
+    PS: BRepAdaptor_Surface; IS: IntSurf_Quadric): BRepApprox_TheZerImpFuncOfTheImpPrmSvSurfacesOfApprox {.
     constructor,
     importcpp: "BRepApprox_TheZerImpFuncOfTheImpPrmSvSurfacesOfApprox(@)",
     header: "BRepApprox_TheZerImpFuncOfTheImpPrmSvSurfacesOfApprox.hxx".}
-proc constructBRepApproxTheZerImpFuncOfTheImpPrmSvSurfacesOfApprox*(
-    `is`: IntSurfQuadric): BRepApproxTheZerImpFuncOfTheImpPrmSvSurfacesOfApprox {.
+proc constructBRepApprox_TheZerImpFuncOfTheImpPrmSvSurfacesOfApprox*(
+    IS: IntSurf_Quadric): BRepApprox_TheZerImpFuncOfTheImpPrmSvSurfacesOfApprox {.
     constructor,
     importcpp: "BRepApprox_TheZerImpFuncOfTheImpPrmSvSurfacesOfApprox(@)",
     header: "BRepApprox_TheZerImpFuncOfTheImpPrmSvSurfacesOfApprox.hxx".}
-proc set*(this: var BRepApproxTheZerImpFuncOfTheImpPrmSvSurfacesOfApprox;
-         ps: BRepAdaptorSurface) {.importcpp: "Set", header: "BRepApprox_TheZerImpFuncOfTheImpPrmSvSurfacesOfApprox.hxx".}
-proc setImplicitSurface*(this: var BRepApproxTheZerImpFuncOfTheImpPrmSvSurfacesOfApprox;
-                        `is`: IntSurfQuadric) {.importcpp: "SetImplicitSurface",
+proc Set*(this: var BRepApprox_TheZerImpFuncOfTheImpPrmSvSurfacesOfApprox;
+         PS: BRepAdaptor_Surface) {.importcpp: "Set", header: "BRepApprox_TheZerImpFuncOfTheImpPrmSvSurfacesOfApprox.hxx".}
+proc SetImplicitSurface*(this: var BRepApprox_TheZerImpFuncOfTheImpPrmSvSurfacesOfApprox;
+                        IS: IntSurf_Quadric) {.importcpp: "SetImplicitSurface",
     header: "BRepApprox_TheZerImpFuncOfTheImpPrmSvSurfacesOfApprox.hxx".}
-proc set*(this: var BRepApproxTheZerImpFuncOfTheImpPrmSvSurfacesOfApprox;
-         tolerance: StandardReal) {.importcpp: "Set", header: "BRepApprox_TheZerImpFuncOfTheImpPrmSvSurfacesOfApprox.hxx".}
-proc nbVariables*(this: BRepApproxTheZerImpFuncOfTheImpPrmSvSurfacesOfApprox): StandardInteger {.
+proc Set*(this: var BRepApprox_TheZerImpFuncOfTheImpPrmSvSurfacesOfApprox;
+         Tolerance: Standard_Real) {.importcpp: "Set", header: "BRepApprox_TheZerImpFuncOfTheImpPrmSvSurfacesOfApprox.hxx".}
+proc NbVariables*(this: BRepApprox_TheZerImpFuncOfTheImpPrmSvSurfacesOfApprox): Standard_Integer {.
     noSideEffect, importcpp: "NbVariables",
     header: "BRepApprox_TheZerImpFuncOfTheImpPrmSvSurfacesOfApprox.hxx".}
-proc nbEquations*(this: BRepApproxTheZerImpFuncOfTheImpPrmSvSurfacesOfApprox): StandardInteger {.
+proc NbEquations*(this: BRepApprox_TheZerImpFuncOfTheImpPrmSvSurfacesOfApprox): Standard_Integer {.
     noSideEffect, importcpp: "NbEquations",
     header: "BRepApprox_TheZerImpFuncOfTheImpPrmSvSurfacesOfApprox.hxx".}
-proc value*(this: var BRepApproxTheZerImpFuncOfTheImpPrmSvSurfacesOfApprox;
-           x: MathVector; f: var MathVector): StandardBoolean {.importcpp: "Value",
+proc Value*(this: var BRepApprox_TheZerImpFuncOfTheImpPrmSvSurfacesOfApprox;
+           X: math_Vector; F: var math_Vector): Standard_Boolean {.importcpp: "Value",
     header: "BRepApprox_TheZerImpFuncOfTheImpPrmSvSurfacesOfApprox.hxx".}
-proc derivatives*(this: var BRepApproxTheZerImpFuncOfTheImpPrmSvSurfacesOfApprox;
-                 x: MathVector; d: var MathMatrix): StandardBoolean {.
+proc Derivatives*(this: var BRepApprox_TheZerImpFuncOfTheImpPrmSvSurfacesOfApprox;
+                 X: math_Vector; D: var math_Matrix): Standard_Boolean {.
     importcpp: "Derivatives",
     header: "BRepApprox_TheZerImpFuncOfTheImpPrmSvSurfacesOfApprox.hxx".}
-proc values*(this: var BRepApproxTheZerImpFuncOfTheImpPrmSvSurfacesOfApprox;
-            x: MathVector; f: var MathVector; d: var MathMatrix): StandardBoolean {.
+proc Values*(this: var BRepApprox_TheZerImpFuncOfTheImpPrmSvSurfacesOfApprox;
+            X: math_Vector; F: var math_Vector; D: var math_Matrix): Standard_Boolean {.
     importcpp: "Values",
     header: "BRepApprox_TheZerImpFuncOfTheImpPrmSvSurfacesOfApprox.hxx".}
-proc root*(this: BRepApproxTheZerImpFuncOfTheImpPrmSvSurfacesOfApprox): StandardReal {.
+proc Root*(this: BRepApprox_TheZerImpFuncOfTheImpPrmSvSurfacesOfApprox): Standard_Real {.
     noSideEffect, importcpp: "Root",
     header: "BRepApprox_TheZerImpFuncOfTheImpPrmSvSurfacesOfApprox.hxx".}
-proc tolerance*(this: BRepApproxTheZerImpFuncOfTheImpPrmSvSurfacesOfApprox): StandardReal {.
+proc Tolerance*(this: BRepApprox_TheZerImpFuncOfTheImpPrmSvSurfacesOfApprox): Standard_Real {.
     noSideEffect, importcpp: "Tolerance",
     header: "BRepApprox_TheZerImpFuncOfTheImpPrmSvSurfacesOfApprox.hxx".}
-proc point*(this: BRepApproxTheZerImpFuncOfTheImpPrmSvSurfacesOfApprox): GpPnt {.
+proc Point*(this: BRepApprox_TheZerImpFuncOfTheImpPrmSvSurfacesOfApprox): gp_Pnt {.
     noSideEffect, importcpp: "Point",
     header: "BRepApprox_TheZerImpFuncOfTheImpPrmSvSurfacesOfApprox.hxx".}
-proc isTangent*(this: var BRepApproxTheZerImpFuncOfTheImpPrmSvSurfacesOfApprox): StandardBoolean {.
+proc IsTangent*(this: var BRepApprox_TheZerImpFuncOfTheImpPrmSvSurfacesOfApprox): Standard_Boolean {.
     importcpp: "IsTangent",
     header: "BRepApprox_TheZerImpFuncOfTheImpPrmSvSurfacesOfApprox.hxx".}
-proc direction3d*(this: var BRepApproxTheZerImpFuncOfTheImpPrmSvSurfacesOfApprox): GpVec {.
+proc Direction3d*(this: var BRepApprox_TheZerImpFuncOfTheImpPrmSvSurfacesOfApprox): gp_Vec {.
     importcpp: "Direction3d",
     header: "BRepApprox_TheZerImpFuncOfTheImpPrmSvSurfacesOfApprox.hxx".}
-proc direction2d*(this: var BRepApproxTheZerImpFuncOfTheImpPrmSvSurfacesOfApprox): GpDir2d {.
+proc Direction2d*(this: var BRepApprox_TheZerImpFuncOfTheImpPrmSvSurfacesOfApprox): gp_Dir2d {.
     importcpp: "Direction2d",
     header: "BRepApprox_TheZerImpFuncOfTheImpPrmSvSurfacesOfApprox.hxx".}
-proc pSurface*(this: BRepApproxTheZerImpFuncOfTheImpPrmSvSurfacesOfApprox): BRepAdaptorSurface {.
+proc PSurface*(this: BRepApprox_TheZerImpFuncOfTheImpPrmSvSurfacesOfApprox): BRepAdaptor_Surface {.
     noSideEffect, importcpp: "PSurface",
     header: "BRepApprox_TheZerImpFuncOfTheImpPrmSvSurfacesOfApprox.hxx".}
-proc iSurface*(this: BRepApproxTheZerImpFuncOfTheImpPrmSvSurfacesOfApprox): IntSurfQuadric {.
+proc ISurface*(this: BRepApprox_TheZerImpFuncOfTheImpPrmSvSurfacesOfApprox): IntSurf_Quadric {.
     noSideEffect, importcpp: "ISurface",
     header: "BRepApprox_TheZerImpFuncOfTheImpPrmSvSurfacesOfApprox.hxx".}
-## !!!Ignored construct:  # ThePSurface BRepAdaptor_Surface [NewLine] # ThePSurface_hxx < BRepAdaptor_Surface . hxx > [NewLine] # ThePSurfaceTool BRepApprox_SurfaceTool [NewLine] # ThePSurfaceTool_hxx < BRepApprox_SurfaceTool . hxx > [NewLine] # TheISurface IntSurf_Quadric [NewLine] # TheISurface_hxx < IntSurf_Quadric . hxx > [NewLine] # TheISurfaceTool IntSurf_QuadricTool [NewLine] # TheISurfaceTool_hxx < IntSurf_QuadricTool . hxx > [NewLine] # IntImp_ZerImpFunc BRepApprox_TheZerImpFuncOfTheImpPrmSvSurfacesOfApprox [NewLine] # IntImp_ZerImpFunc_hxx < BRepApprox_TheZerImpFuncOfTheImpPrmSvSurfacesOfApprox . hxx > [NewLine] # < IntImp_ZerImpFunc . lxx > [NewLine] # ThePSurface [NewLine] # ThePSurface_hxx [NewLine] # ThePSurfaceTool [NewLine] # ThePSurfaceTool_hxx [NewLine] # TheISurface [NewLine] # TheISurface_hxx [NewLine] # TheISurfaceTool [NewLine] # TheISurfaceTool_hxx [NewLine] # IntImp_ZerImpFunc [NewLine] # IntImp_ZerImpFunc_hxx [NewLine] #  _BRepApprox_TheZerImpFuncOfTheImpPrmSvSurfacesOfApprox_HeaderFile
+## !!!Ignored construct:  # ThePSurface BRepAdaptor_Surface [NewLine] # ThePSurface_hxx < BRepAdaptor_Surface . hxx > [NewLine] # ThePSurfaceTool BRepApprox_SurfaceTool [NewLine] # ThePSurfaceTool_hxx < BRepApprox_SurfaceTool . hxx > [NewLine] # TheISurface IntSurf_Quadric [NewLine] # TheISurface_hxx < IntSurf_Quadric . hxx > [NewLine] # TheISurfaceTool IntSurf_QuadricTool [NewLine] # TheISurfaceTool_hxx < IntSurf_QuadricTool . hxx > [NewLine] # IntImp_ZerImpFunc BRepApprox_TheZerImpFuncOfTheImpPrmSvSurfacesOfApprox [NewLine] # IntImp_ZerImpFunc_hxx < BRepApprox_TheZerImpFuncOfTheImpPrmSvSurfacesOfApprox . hxx > [NewLine] # < IntImp_ZerImpFunc . lxx > [NewLine] # ThePSurface [NewLine] # ThePSurface_hxx [NewLine] # ThePSurfaceTool [NewLine] # ThePSurfaceTool_hxx [NewLine] # TheISurface [NewLine] # TheISurface_hxx [NewLine] # TheISurfaceTool [NewLine] # TheISurfaceTool_hxx [NewLine] # IntImp_ZerImpFunc [NewLine] # IntImp_ZerImpFunc_hxx [NewLine] #  _BRepApprox_TheZerImpFuncOfTheImpPrmSvSurfacesOfApprox_HeaderFile [NewLine]
 ## Error: did not expect <!!!
-
-

@@ -13,30 +13,33 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepBasic_NameAssignment"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepBasicRWNameAssignment* {.importcpp: "RWStepBasic_RWNameAssignment",
-                                header: "RWStepBasic_RWNameAssignment.hxx", bycopy.} = object ##
-                                                                                         ## !
-                                                                                         ## Empty
-                                                                                         ## constructor
+  RWStepBasic_RWNameAssignment* {.importcpp: "RWStepBasic_RWNameAssignment",
+                                 header: "RWStepBasic_RWNameAssignment.hxx",
+                                 bycopy.} = object ## ! Empty constructor
 
 
-proc constructRWStepBasicRWNameAssignment*(): RWStepBasicRWNameAssignment {.
+proc constructRWStepBasic_RWNameAssignment*(): RWStepBasic_RWNameAssignment {.
     constructor, importcpp: "RWStepBasic_RWNameAssignment(@)",
     header: "RWStepBasic_RWNameAssignment.hxx".}
-proc readStep*(this: RWStepBasicRWNameAssignment;
-              data: Handle[StepDataStepReaderData]; num: StandardInteger;
-              ach: var Handle[InterfaceCheck]; ent: Handle[StepBasicNameAssignment]) {.
-    noSideEffect, importcpp: "ReadStep", header: "RWStepBasic_RWNameAssignment.hxx".}
-proc writeStep*(this: RWStepBasicRWNameAssignment; sw: var StepDataStepWriter;
-               ent: Handle[StepBasicNameAssignment]) {.noSideEffect,
+proc ReadStep*(this: RWStepBasic_RWNameAssignment;
+              data: handle[StepData_StepReaderData]; num: Standard_Integer;
+              ach: var handle[Interface_Check];
+              ent: handle[StepBasic_NameAssignment]) {.noSideEffect,
+    importcpp: "ReadStep", header: "RWStepBasic_RWNameAssignment.hxx".}
+proc WriteStep*(this: RWStepBasic_RWNameAssignment; SW: var StepData_StepWriter;
+               ent: handle[StepBasic_NameAssignment]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepBasic_RWNameAssignment.hxx".}
-proc share*(this: RWStepBasicRWNameAssignment;
-           ent: Handle[StepBasicNameAssignment]; iter: var InterfaceEntityIterator) {.
-    noSideEffect, importcpp: "Share", header: "RWStepBasic_RWNameAssignment.hxx".}
-
+proc Share*(this: RWStepBasic_RWNameAssignment;
+           ent: handle[StepBasic_NameAssignment];
+           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
+    header: "RWStepBasic_RWNameAssignment.hxx".}

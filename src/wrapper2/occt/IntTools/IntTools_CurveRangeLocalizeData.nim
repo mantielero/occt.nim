@@ -13,38 +13,44 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer,
+  ../Standard/Standard_Real, IntTools_MapOfCurveSample,
+  IntTools_DataMapOfCurveSampleBox, ../Standard/Standard_Boolean,
+  IntTools_ListOfCurveRangeSample
+
 discard "forward decl of IntTools_CurveRangeSample"
 discard "forward decl of Bnd_Box"
 type
-  IntToolsCurveRangeLocalizeData* {.importcpp: "IntTools_CurveRangeLocalizeData", header: "IntTools_CurveRangeLocalizeData.hxx",
-                                   bycopy.} = object
+  IntTools_CurveRangeLocalizeData* {.importcpp: "IntTools_CurveRangeLocalizeData", header: "IntTools_CurveRangeLocalizeData.hxx",
+                                    bycopy.} = object
 
 
-proc constructIntToolsCurveRangeLocalizeData*(theNbSample: StandardInteger;
-    theMinRange: StandardReal): IntToolsCurveRangeLocalizeData {.constructor,
+proc constructIntTools_CurveRangeLocalizeData*(theNbSample: Standard_Integer;
+    theMinRange: Standard_Real): IntTools_CurveRangeLocalizeData {.constructor,
     importcpp: "IntTools_CurveRangeLocalizeData(@)",
     header: "IntTools_CurveRangeLocalizeData.hxx".}
-proc getNbSample*(this: IntToolsCurveRangeLocalizeData): StandardInteger {.
+proc GetNbSample*(this: IntTools_CurveRangeLocalizeData): Standard_Integer {.
     noSideEffect, importcpp: "GetNbSample",
     header: "IntTools_CurveRangeLocalizeData.hxx".}
-proc getMinRange*(this: IntToolsCurveRangeLocalizeData): StandardReal {.
+proc GetMinRange*(this: IntTools_CurveRangeLocalizeData): Standard_Real {.
     noSideEffect, importcpp: "GetMinRange",
     header: "IntTools_CurveRangeLocalizeData.hxx".}
-proc addOutRange*(this: var IntToolsCurveRangeLocalizeData;
-                 theRange: IntToolsCurveRangeSample) {.importcpp: "AddOutRange",
+proc AddOutRange*(this: var IntTools_CurveRangeLocalizeData;
+                 theRange: IntTools_CurveRangeSample) {.importcpp: "AddOutRange",
     header: "IntTools_CurveRangeLocalizeData.hxx".}
-proc addBox*(this: var IntToolsCurveRangeLocalizeData;
-            theRange: IntToolsCurveRangeSample; theBox: BndBox) {.
+proc AddBox*(this: var IntTools_CurveRangeLocalizeData;
+            theRange: IntTools_CurveRangeSample; theBox: Bnd_Box) {.
     importcpp: "AddBox", header: "IntTools_CurveRangeLocalizeData.hxx".}
-proc findBox*(this: IntToolsCurveRangeLocalizeData;
-             theRange: IntToolsCurveRangeSample; theBox: var BndBox): StandardBoolean {.
+proc FindBox*(this: IntTools_CurveRangeLocalizeData;
+             theRange: IntTools_CurveRangeSample; theBox: var Bnd_Box): Standard_Boolean {.
     noSideEffect, importcpp: "FindBox",
     header: "IntTools_CurveRangeLocalizeData.hxx".}
-proc isRangeOut*(this: IntToolsCurveRangeLocalizeData;
-                theRange: IntToolsCurveRangeSample): StandardBoolean {.
+proc IsRangeOut*(this: IntTools_CurveRangeLocalizeData;
+                theRange: IntTools_CurveRangeSample): Standard_Boolean {.
     noSideEffect, importcpp: "IsRangeOut",
     header: "IntTools_CurveRangeLocalizeData.hxx".}
-proc listRangeOut*(this: IntToolsCurveRangeLocalizeData;
-                  theList: var IntToolsListOfCurveRangeSample) {.noSideEffect,
+proc ListRangeOut*(this: IntTools_CurveRangeLocalizeData;
+                  theList: var IntTools_ListOfCurveRangeSample) {.noSideEffect,
     importcpp: "ListRangeOut", header: "IntTools_CurveRangeLocalizeData.hxx".}
-

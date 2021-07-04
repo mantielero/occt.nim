@@ -14,34 +14,38 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../Geom2d/Geom2d_Curve,
+  ../Standard/Standard_Real, ../Standard/Standard_Boolean,
+  ../Standard/Standard_Integer
+
 discard "forward decl of gp_Pnt2d"
 discard "forward decl of Bisector_Curve"
 discard "forward decl of Bisector_Curve"
 type
-  HandleBisectorCurve* = Handle[BisectorCurve]
-  BisectorCurve* {.importcpp: "Bisector_Curve", header: "Bisector_Curve.hxx", bycopy.} = object of Geom2dCurve
+  Handle_Bisector_Curve* = handle[Bisector_Curve]
+  Bisector_Curve* {.importcpp: "Bisector_Curve", header: "Bisector_Curve.hxx", bycopy.} = object of Geom2d_Curve
 
 
-proc parameter*(this: BisectorCurve; p: GpPnt2d): StandardReal {.noSideEffect,
+proc Parameter*(this: Bisector_Curve; P: gp_Pnt2d): Standard_Real {.noSideEffect,
     importcpp: "Parameter", header: "Bisector_Curve.hxx".}
-proc isExtendAtStart*(this: BisectorCurve): StandardBoolean {.noSideEffect,
+proc IsExtendAtStart*(this: Bisector_Curve): Standard_Boolean {.noSideEffect,
     importcpp: "IsExtendAtStart", header: "Bisector_Curve.hxx".}
-proc isExtendAtEnd*(this: BisectorCurve): StandardBoolean {.noSideEffect,
+proc IsExtendAtEnd*(this: Bisector_Curve): Standard_Boolean {.noSideEffect,
     importcpp: "IsExtendAtEnd", header: "Bisector_Curve.hxx".}
-proc nbIntervals*(this: BisectorCurve): StandardInteger {.noSideEffect,
+proc NbIntervals*(this: Bisector_Curve): Standard_Integer {.noSideEffect,
     importcpp: "NbIntervals", header: "Bisector_Curve.hxx".}
-proc intervalFirst*(this: BisectorCurve; index: StandardInteger): StandardReal {.
+proc IntervalFirst*(this: Bisector_Curve; Index: Standard_Integer): Standard_Real {.
     noSideEffect, importcpp: "IntervalFirst", header: "Bisector_Curve.hxx".}
-proc intervalLast*(this: BisectorCurve; index: StandardInteger): StandardReal {.
+proc IntervalLast*(this: Bisector_Curve; Index: Standard_Integer): Standard_Real {.
     noSideEffect, importcpp: "IntervalLast", header: "Bisector_Curve.hxx".}
 type
-  BisectorCurvebaseType* = Geom2dCurve
+  Bisector_Curvebase_type* = Geom2d_Curve
 
-proc getTypeName*(): cstring {.importcpp: "Bisector_Curve::get_type_name(@)",
-                            header: "Bisector_Curve.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "Bisector_Curve::get_type_name(@)",
+                              header: "Bisector_Curve.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "Bisector_Curve::get_type_descriptor(@)",
     header: "Bisector_Curve.hxx".}
-proc dynamicType*(this: BisectorCurve): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: Bisector_Curve): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "Bisector_Curve.hxx".}
-

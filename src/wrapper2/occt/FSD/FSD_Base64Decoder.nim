@@ -12,6 +12,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../NCollection/NCollection_Buffer
+
 ## ! Tool decoding base64 stream.
 
 type
@@ -19,6 +22,6 @@ type
                       header: "FSD_Base64Decoder.hxx", bycopy.} = object ## ! Function decoding base64 stream.
 
 
-proc decode*(theStr: ptr StandardByte; theLen: StandardSize): Handle[NCollectionBuffer] {.
-    importcpp: "FSD_Base64Decoder::Decode(@)", header: "FSD_Base64Decoder.hxx".}
-
+proc Decode*(theStr: ptr Standard_Byte; theLen: Standard_Size): handle[
+    NCollection_Buffer] {.importcpp: "FSD_Base64Decoder::Decode(@)",
+                         header: "FSD_Base64Decoder.hxx".}

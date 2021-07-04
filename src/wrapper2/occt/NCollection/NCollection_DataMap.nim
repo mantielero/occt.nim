@@ -13,7 +13,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # NCollection_DataMap_HeaderFile [NewLine] # NCollection_DataMap_HeaderFile [NewLine] # < NCollection_BaseMap . hxx > [NewLine] # < NCollection_TListNode . hxx > [NewLine] # < NCollection_StlIterator . hxx > [NewLine] # < NCollection_DefaultHasher . hxx > [NewLine] # < Standard_TypeMismatch . hxx > [NewLine] # < Standard_NoSuchObject . hxx > [NewLine] *
+## !!!Ignored construct:  # NCollection_DataMap_HeaderFile [NewLine] # NCollection_DataMap_HeaderFile [NewLine] # NCollection_BaseMap.hxx [NewLine] # NCollection_TListNode.hxx [NewLine] # NCollection_StlIterator.hxx [NewLine] # NCollection_DefaultHasher.hxx [NewLine] # ../Standard/Standard_TypeMismatch.hxx [NewLine] # ../Standard/Standard_NoSuchObject.hxx [NewLine] *
 ##  Purpose:     The DataMap is a Map to store keys with associated
 ##               Items. See Map  from NCollection for  a discussion
 ##               about the number of buckets.
@@ -43,5 +43,3 @@
 ## ! thepNode points to binded node. Returns false if key is not found,
 ## ! thehNode value is this case is not usable. Standard_Boolean lookup ( const TheKeyType & theKey , DataMapNode * & thepNode ) const { if ( IsEmpty ( ) ) return Standard_False ;  Not found for ( thepNode = ( DataMapNode * ) myData1 [ Hasher :: HashCode ( theKey , NbBuckets ( ) ) ] ; thepNode ; thepNode = ( DataMapNode * ) thepNode -> Next ( ) ) { if ( Hasher :: IsEqual ( thepNode -> Key ( ) , theKey ) ) return Standard_True ; } return Standard_False ;  Not found } } ;
 ## Error: token expected: > [end of template] but got: =!!!
-
-

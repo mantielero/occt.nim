@@ -14,23 +14,28 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Boolean
+
 discard "forward decl of GccInt_Bisec"
 discard "forward decl of Standard_ConstructionError"
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of gp_Lin2d"
 discard "forward decl of gp_Pnt2d"
 type
-  GccAnaLinPnt2dBisec* {.importcpp: "GccAna_LinPnt2dBisec",
-                        header: "GccAna_LinPnt2dBisec.hxx", bycopy.} = object ## !
-                                                                         ## Constructs a
-                                                                         ## bisecting curve between the line Line1 and the point Point2.
+  GccAna_LinPnt2dBisec* {.importcpp: "GccAna_LinPnt2dBisec",
+                         header: "GccAna_LinPnt2dBisec.hxx", bycopy.} = object ## !
+                                                                          ## Constructs a
+                                                                          ## bisecting curve
+                                                                          ## between the line Line1 and the point
+                                                                          ## Point2.
 
 
-proc constructGccAnaLinPnt2dBisec*(line1: GpLin2d; point2: GpPnt2d): GccAnaLinPnt2dBisec {.
+proc constructGccAna_LinPnt2dBisec*(Line1: gp_Lin2d; Point2: gp_Pnt2d): GccAna_LinPnt2dBisec {.
     constructor, importcpp: "GccAna_LinPnt2dBisec(@)",
     header: "GccAna_LinPnt2dBisec.hxx".}
-proc isDone*(this: GccAnaLinPnt2dBisec): StandardBoolean {.noSideEffect,
+proc IsDone*(this: GccAna_LinPnt2dBisec): Standard_Boolean {.noSideEffect,
     importcpp: "IsDone", header: "GccAna_LinPnt2dBisec.hxx".}
-proc thisSolution*(this: GccAnaLinPnt2dBisec): Handle[GccIntBisec] {.noSideEffect,
+proc ThisSolution*(this: GccAna_LinPnt2dBisec): handle[GccInt_Bisec] {.noSideEffect,
     importcpp: "ThisSolution", header: "GccAna_LinPnt2dBisec.hxx".}
-

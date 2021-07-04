@@ -13,29 +13,31 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  IMeshData_Status, ../Standard/Standard_Transient, ../Standard/Standard_Type
+
 ## ! Extension interface class providing status functionality.
 
 type
-  IMeshDataStatusOwner* {.importcpp: "IMeshData_StatusOwner",
-                         header: "IMeshData_StatusOwner.hxx", bycopy.} = object ## !
-                                                                           ## Destructor.
-                                                                           ## !
-                                                                           ## Constructor.
-                                                                           ## Initializes
-                                                                           ## default
-                                                                           ## status.
+  IMeshData_StatusOwner* {.importcpp: "IMeshData_StatusOwner",
+                          header: "IMeshData_StatusOwner.hxx", bycopy.} = object ## !
+                                                                            ## Destructor.
+                                                                            ## !
+                                                                            ## Constructor.
+                                                                            ## Initializes
+                                                                            ## default
+                                                                            ## status.
 
 
-proc destroyIMeshDataStatusOwner*(this: var IMeshDataStatusOwner) {.
+proc destroyIMeshData_StatusOwner*(this: var IMeshData_StatusOwner) {.
     importcpp: "#.~IMeshData_StatusOwner()", header: "IMeshData_StatusOwner.hxx".}
-proc isEqual*(this: IMeshDataStatusOwner; theValue: IMeshDataStatus): StandardBoolean {.
+proc IsEqual*(this: IMeshData_StatusOwner; theValue: IMeshData_Status): Standard_Boolean {.
     noSideEffect, importcpp: "IsEqual", header: "IMeshData_StatusOwner.hxx".}
-proc isSet*(this: IMeshDataStatusOwner; theValue: IMeshDataStatus): StandardBoolean {.
+proc IsSet*(this: IMeshData_StatusOwner; theValue: IMeshData_Status): Standard_Boolean {.
     noSideEffect, importcpp: "IsSet", header: "IMeshData_StatusOwner.hxx".}
-proc setStatus*(this: var IMeshDataStatusOwner; theValue: IMeshDataStatus) {.
+proc SetStatus*(this: var IMeshData_StatusOwner; theValue: IMeshData_Status) {.
     importcpp: "SetStatus", header: "IMeshData_StatusOwner.hxx".}
-proc unsetStatus*(this: var IMeshDataStatusOwner; theValue: IMeshDataStatus) {.
+proc UnsetStatus*(this: var IMeshData_StatusOwner; theValue: IMeshData_Status) {.
     importcpp: "UnsetStatus", header: "IMeshData_StatusOwner.hxx".}
-proc getStatusMask*(this: IMeshDataStatusOwner): StandardInteger {.noSideEffect,
+proc GetStatusMask*(this: IMeshData_StatusOwner): Standard_Integer {.noSideEffect,
     importcpp: "GetStatusMask", header: "IMeshData_StatusOwner.hxx".}
-

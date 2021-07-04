@@ -14,6 +14,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../GeomAbs/GeomAbs_Shape,
+  ../Standard/Standard_Real, ../Standard/Standard_Boolean,
+  ../TopTools/TopTools_ListOfShape
+
 discard "forward decl of TopoDS_Wire"
 discard "forward decl of TopoDS_Edge"
 discard "forward decl of TopoDS_Shape"
@@ -35,17 +41,16 @@ type
                                                                        ## ! Option can be G1 or C1.
 
 
-proc concatenateWire*(wire: TopoDS_Wire; option: GeomAbsShape;
-                     angularTolerance: StandardReal = 1.0e-4): TopoDS_Wire {.
+proc ConcatenateWire*(Wire: TopoDS_Wire; Option: GeomAbs_Shape;
+                     AngularTolerance: Standard_Real = 1.0e-4): TopoDS_Wire {.
     importcpp: "BRepAlgo::ConcatenateWire(@)", header: "BRepAlgo.hxx".}
-proc concatenateWireC0*(wire: TopoDS_Wire): TopoDS_Edge {.
+proc ConcatenateWireC0*(Wire: TopoDS_Wire): TopoDS_Edge {.
     importcpp: "BRepAlgo::ConcatenateWireC0(@)", header: "BRepAlgo.hxx".}
-proc isValid*(s: TopoDS_Shape): StandardBoolean {.importcpp: "BRepAlgo::IsValid(@)",
-    header: "BRepAlgo.hxx".}
-proc isValid*(theArgs: TopToolsListOfShape; theResult: TopoDS_Shape;
-             closedSolid: StandardBoolean = standardFalse;
-             geomCtrl: StandardBoolean = standardTrue): StandardBoolean {.
+proc IsValid*(S: TopoDS_Shape): Standard_Boolean {.
     importcpp: "BRepAlgo::IsValid(@)", header: "BRepAlgo.hxx".}
-proc isTopologicallyValid*(s: TopoDS_Shape): StandardBoolean {.
+proc IsValid*(theArgs: TopTools_ListOfShape; theResult: TopoDS_Shape;
+             closedSolid: Standard_Boolean = Standard_False;
+             GeomCtrl: Standard_Boolean = Standard_True): Standard_Boolean {.
+    importcpp: "BRepAlgo::IsValid(@)", header: "BRepAlgo.hxx".}
+proc IsTopologicallyValid*(S: TopoDS_Shape): Standard_Boolean {.
     importcpp: "BRepAlgo::IsTopologicallyValid(@)", header: "BRepAlgo.hxx".}
-

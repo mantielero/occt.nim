@@ -14,11 +14,17 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Boolean,
+  ../TColStd/TColStd_DataMapOfIntegerListOfInteger,
+  ../SelectMgr/SelectMgr_Filter, AIS_KindOfInteractive,
+  ../Standard/Standard_Integer, ../TColStd/TColStd_ListOfInteger
+
 discard "forward decl of SelectMgr_EntityOwner"
 discard "forward decl of AIS_ExclusionFilter"
 discard "forward decl of AIS_ExclusionFilter"
 type
-  HandleAIS_ExclusionFilter* = Handle[AIS_ExclusionFilter]
+  Handle_AIS_ExclusionFilter* = handle[AIS_ExclusionFilter]
 
 ## ! A framework to reject or to accept only objects of
 ## ! given types and/or signatures.
@@ -37,80 +43,79 @@ type
 
 type
   AIS_ExclusionFilter* {.importcpp: "AIS_ExclusionFilter",
-                        header: "AIS_ExclusionFilter.hxx", bycopy.} = object of SelectMgrFilter ##
-                                                                                         ## !
-                                                                                         ## Constructs
-                                                                                         ## an
-                                                                                         ## empty
-                                                                                         ## exclusion
-                                                                                         ## filter
-                                                                                         ## object
-                                                                                         ## defined
-                                                                                         ## by
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## the
-                                                                                         ## flag
-                                                                                         ## setting
-                                                                                         ## ExclusionFlagOn.
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## By
-                                                                                         ## default,
-                                                                                         ## the
-                                                                                         ## flag
-                                                                                         ## is
-                                                                                         ## set
-                                                                                         ## to
-                                                                                         ## true.
+                        header: "AIS_ExclusionFilter.hxx", bycopy.} = object of SelectMgr_Filter ##
+                                                                                          ## !
+                                                                                          ## Constructs
+                                                                                          ## an
+                                                                                          ## empty
+                                                                                          ## exclusion
+                                                                                          ## filter
+                                                                                          ## object
+                                                                                          ## defined
+                                                                                          ## by
+                                                                                          ##
+                                                                                          ## !
+                                                                                          ## the
+                                                                                          ## flag
+                                                                                          ## setting
+                                                                                          ## ExclusionFlagOn.
+                                                                                          ##
+                                                                                          ## !
+                                                                                          ## By
+                                                                                          ## default,
+                                                                                          ## the
+                                                                                          ## flag
+                                                                                          ## is
+                                                                                          ## set
+                                                                                          ## to
+                                                                                          ## true.
 
 
-proc constructAIS_ExclusionFilter*(exclusionFlagOn: StandardBoolean = standardTrue): AIS_ExclusionFilter {.
+proc constructAIS_ExclusionFilter*(ExclusionFlagOn: Standard_Boolean = Standard_True): AIS_ExclusionFilter {.
     constructor, importcpp: "AIS_ExclusionFilter(@)",
     header: "AIS_ExclusionFilter.hxx".}
-proc constructAIS_ExclusionFilter*(typeToExclude: AIS_KindOfInteractive;
-    exclusionFlagOn: StandardBoolean = standardTrue): AIS_ExclusionFilter {.
+proc constructAIS_ExclusionFilter*(TypeToExclude: AIS_KindOfInteractive;
+    ExclusionFlagOn: Standard_Boolean = Standard_True): AIS_ExclusionFilter {.
     constructor, importcpp: "AIS_ExclusionFilter(@)",
     header: "AIS_ExclusionFilter.hxx".}
-proc constructAIS_ExclusionFilter*(typeToExclude: AIS_KindOfInteractive;
-                                  signatureInType: StandardInteger;
-    exclusionFlagOn: StandardBoolean = standardTrue): AIS_ExclusionFilter {.
+proc constructAIS_ExclusionFilter*(TypeToExclude: AIS_KindOfInteractive;
+                                  SignatureInType: Standard_Integer;
+    ExclusionFlagOn: Standard_Boolean = Standard_True): AIS_ExclusionFilter {.
     constructor, importcpp: "AIS_ExclusionFilter(@)",
     header: "AIS_ExclusionFilter.hxx".}
-proc isOk*(this: AIS_ExclusionFilter; anObj: Handle[SelectMgrEntityOwner]): StandardBoolean {.
+proc IsOk*(this: AIS_ExclusionFilter; anObj: handle[SelectMgr_EntityOwner]): Standard_Boolean {.
     noSideEffect, importcpp: "IsOk", header: "AIS_ExclusionFilter.hxx".}
-proc add*(this: var AIS_ExclusionFilter; typeToExclude: AIS_KindOfInteractive): StandardBoolean {.
+proc Add*(this: var AIS_ExclusionFilter; TypeToExclude: AIS_KindOfInteractive): Standard_Boolean {.
     importcpp: "Add", header: "AIS_ExclusionFilter.hxx".}
-proc add*(this: var AIS_ExclusionFilter; typeToExclude: AIS_KindOfInteractive;
-         signatureInType: StandardInteger): StandardBoolean {.importcpp: "Add",
+proc Add*(this: var AIS_ExclusionFilter; TypeToExclude: AIS_KindOfInteractive;
+         SignatureInType: Standard_Integer): Standard_Boolean {.importcpp: "Add",
     header: "AIS_ExclusionFilter.hxx".}
-proc remove*(this: var AIS_ExclusionFilter; typeToExclude: AIS_KindOfInteractive): StandardBoolean {.
+proc Remove*(this: var AIS_ExclusionFilter; TypeToExclude: AIS_KindOfInteractive): Standard_Boolean {.
     importcpp: "Remove", header: "AIS_ExclusionFilter.hxx".}
-proc remove*(this: var AIS_ExclusionFilter; typeToExclude: AIS_KindOfInteractive;
-            signatureInType: StandardInteger): StandardBoolean {.
+proc Remove*(this: var AIS_ExclusionFilter; TypeToExclude: AIS_KindOfInteractive;
+            SignatureInType: Standard_Integer): Standard_Boolean {.
     importcpp: "Remove", header: "AIS_ExclusionFilter.hxx".}
-proc clear*(this: var AIS_ExclusionFilter) {.importcpp: "Clear",
+proc Clear*(this: var AIS_ExclusionFilter) {.importcpp: "Clear",
     header: "AIS_ExclusionFilter.hxx".}
-proc isExclusionFlagOn*(this: AIS_ExclusionFilter): StandardBoolean {.noSideEffect,
+proc IsExclusionFlagOn*(this: AIS_ExclusionFilter): Standard_Boolean {.noSideEffect,
     importcpp: "IsExclusionFlagOn", header: "AIS_ExclusionFilter.hxx".}
-proc setExclusionFlag*(this: var AIS_ExclusionFilter; status: StandardBoolean) {.
+proc SetExclusionFlag*(this: var AIS_ExclusionFilter; Status: Standard_Boolean) {.
     importcpp: "SetExclusionFlag", header: "AIS_ExclusionFilter.hxx".}
-proc isStored*(this: AIS_ExclusionFilter; aType: AIS_KindOfInteractive): StandardBoolean {.
+proc IsStored*(this: AIS_ExclusionFilter; aType: AIS_KindOfInteractive): Standard_Boolean {.
     noSideEffect, importcpp: "IsStored", header: "AIS_ExclusionFilter.hxx".}
-proc listOfStoredTypes*(this: AIS_ExclusionFilter;
-                       theList: var TColStdListOfInteger) {.noSideEffect,
+proc ListOfStoredTypes*(this: AIS_ExclusionFilter;
+                       TheList: var TColStd_ListOfInteger) {.noSideEffect,
     importcpp: "ListOfStoredTypes", header: "AIS_ExclusionFilter.hxx".}
-proc listOfSignature*(this: AIS_ExclusionFilter; aType: AIS_KindOfInteractive;
-                     theStoredList: var TColStdListOfInteger) {.noSideEffect,
+proc ListOfSignature*(this: AIS_ExclusionFilter; aType: AIS_KindOfInteractive;
+                     TheStoredList: var TColStd_ListOfInteger) {.noSideEffect,
     importcpp: "ListOfSignature", header: "AIS_ExclusionFilter.hxx".}
 type
-  AIS_ExclusionFilterbaseType* = SelectMgrFilter
+  AIS_ExclusionFilterbase_type* = SelectMgr_Filter
 
-proc getTypeName*(): cstring {.importcpp: "AIS_ExclusionFilter::get_type_name(@)",
-                            header: "AIS_ExclusionFilter.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "AIS_ExclusionFilter::get_type_name(@)",
+                              header: "AIS_ExclusionFilter.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "AIS_ExclusionFilter::get_type_descriptor(@)",
     header: "AIS_ExclusionFilter.hxx".}
-proc dynamicType*(this: AIS_ExclusionFilter): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: AIS_ExclusionFilter): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "AIS_ExclusionFilter.hxx".}
-

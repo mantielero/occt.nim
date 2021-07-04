@@ -14,85 +14,88 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Transient,
+  ../Standard/Standard_Integer, ../Standard/Standard_Boolean
+
 discard "forward decl of IGESData_IGESEntity"
 discard "forward decl of IGESData_IGESDumper"
 discard "forward decl of IGESData_SpecificModule"
 discard "forward decl of IGESData_SpecificModule"
 type
-  HandleIGESDataSpecificModule* = Handle[IGESDataSpecificModule]
+  Handle_IGESData_SpecificModule* = handle[IGESData_SpecificModule]
 
 ## ! This class defines some Services which are specifically
 ## ! attached to IGES Entities : Dump
 
 type
-  IGESDataSpecificModule* {.importcpp: "IGESData_SpecificModule",
-                           header: "IGESData_SpecificModule.hxx", bycopy.} = object of StandardTransient ##
-                                                                                                  ## !
-                                                                                                  ## Specific
-                                                                                                  ## Dump
-                                                                                                  ## for
-                                                                                                  ## each
-                                                                                                  ## type
-                                                                                                  ## of
-                                                                                                  ## IGES
-                                                                                                  ## Entity
-                                                                                                  ## :
-                                                                                                  ## it
-                                                                                                  ## concerns
-                                                                                                  ## only
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## own
-                                                                                                  ## parameters,
-                                                                                                  ## the
-                                                                                                  ## general
-                                                                                                  ## data
-                                                                                                  ## (Directory
-                                                                                                  ## Part,
-                                                                                                  ## Lists)
-                                                                                                  ## are
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## taken
-                                                                                                  ## into
-                                                                                                  ## account
-                                                                                                  ## by
-                                                                                                  ## the
-                                                                                                  ## IGESDumper
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## See
-                                                                                                  ## class
-                                                                                                  ## IGESDumper
-                                                                                                  ## for
-                                                                                                  ## the
-                                                                                                  ## rules
-                                                                                                  ## to
-                                                                                                  ## follow
-                                                                                                  ## for
-                                                                                                  ## <own>
-                                                                                                  ## and
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## <attached>
-                                                                                                  ## level
+  IGESData_SpecificModule* {.importcpp: "IGESData_SpecificModule",
+                            header: "IGESData_SpecificModule.hxx", bycopy.} = object of Standard_Transient ##
+                                                                                                    ## !
+                                                                                                    ## Specific
+                                                                                                    ## Dump
+                                                                                                    ## for
+                                                                                                    ## each
+                                                                                                    ## type
+                                                                                                    ## of
+                                                                                                    ## IGES
+                                                                                                    ## Entity
+                                                                                                    ## :
+                                                                                                    ## it
+                                                                                                    ## concerns
+                                                                                                    ## only
+                                                                                                    ##
+                                                                                                    ## !
+                                                                                                    ## own
+                                                                                                    ## parameters,
+                                                                                                    ## the
+                                                                                                    ## general
+                                                                                                    ## data
+                                                                                                    ## (Directory
+                                                                                                    ## Part,
+                                                                                                    ## Lists)
+                                                                                                    ## are
+                                                                                                    ##
+                                                                                                    ## !
+                                                                                                    ## taken
+                                                                                                    ## into
+                                                                                                    ## account
+                                                                                                    ## by
+                                                                                                    ## the
+                                                                                                    ## IGESDumper
+                                                                                                    ##
+                                                                                                    ## !
+                                                                                                    ## See
+                                                                                                    ## class
+                                                                                                    ## IGESDumper
+                                                                                                    ## for
+                                                                                                    ## the
+                                                                                                    ## rules
+                                                                                                    ## to
+                                                                                                    ## follow
+                                                                                                    ## for
+                                                                                                    ## <own>
+                                                                                                    ## and
+                                                                                                    ##
+                                                                                                    ## !
+                                                                                                    ## <attached>
+                                                                                                    ## level
 
 
-proc ownDump*(this: IGESDataSpecificModule; cn: StandardInteger;
-             ent: Handle[IGESDataIGESEntity]; dumper: IGESDataIGESDumper;
-             s: var StandardOStream; own: StandardInteger) {.noSideEffect,
+proc OwnDump*(this: IGESData_SpecificModule; CN: Standard_Integer;
+             ent: handle[IGESData_IGESEntity]; dumper: IGESData_IGESDumper;
+             S: var Standard_OStream; own: Standard_Integer) {.noSideEffect,
     importcpp: "OwnDump", header: "IGESData_SpecificModule.hxx".}
-proc ownCorrect*(this: IGESDataSpecificModule; cn: StandardInteger;
-                ent: Handle[IGESDataIGESEntity]): StandardBoolean {.noSideEffect,
+proc OwnCorrect*(this: IGESData_SpecificModule; CN: Standard_Integer;
+                ent: handle[IGESData_IGESEntity]): Standard_Boolean {.noSideEffect,
     importcpp: "OwnCorrect", header: "IGESData_SpecificModule.hxx".}
 type
-  IGESDataSpecificModulebaseType* = StandardTransient
+  IGESData_SpecificModulebase_type* = Standard_Transient
 
-proc getTypeName*(): cstring {.importcpp: "IGESData_SpecificModule::get_type_name(@)",
-                            header: "IGESData_SpecificModule.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "IGESData_SpecificModule::get_type_name(@)",
+                              header: "IGESData_SpecificModule.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "IGESData_SpecificModule::get_type_descriptor(@)",
     header: "IGESData_SpecificModule.hxx".}
-proc dynamicType*(this: IGESDataSpecificModule): Handle[StandardType] {.
+proc DynamicType*(this: IGESData_SpecificModule): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType", header: "IGESData_SpecificModule.hxx".}
-

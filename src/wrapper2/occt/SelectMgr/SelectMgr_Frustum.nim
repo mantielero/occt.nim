@@ -13,6 +13,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../BVH/BVH_Box, ../gp/gp_Pnt, ../gp/gp_Vec, ../gp/gp_XYZ, SelectMgr_BaseFrustum,
+  ../TColgp/TColgp_HArray1OfPnt, ../TColgp/TColgp_Array1OfPnt2d
+
 ## ! This is an internal class containing representation of rectangular selecting frustum, created in case
 ## ! of point and box selection, and algorithms for overlap detection between selecting
 ## ! frustum and sensitive entities. The principle of frustum calculation:
@@ -42,11 +46,11 @@
 ## !                           V1_Near - V0_Near, V2_Near - V1_Near, V2_Near - V0_Near.
 
 type
-  SelectMgrFrustum*[N: static[cint]] {.importcpp: "SelectMgr_Frustum<\'0>",
-                                     header: "SelectMgr_Frustum.hxx", bycopy.} = object of SelectMgrBaseFrustum ##  SAT Tests for different objects
-                                                                                                         ## ! Returns true if selecting volume is overlapped by axis-aligned bounding box
-                                                                                                         ## ! with minimum corner at point theMinPt and maximum at point theMaxPt
-                                                                                                         ## ! Checks if AABB and frustum are separated along the given axis
+  SelectMgr_Frustum*[N: static[cint]] {.importcpp: "SelectMgr_Frustum<\'0>",
+                                      header: "SelectMgr_Frustum.hxx", bycopy.} = object of SelectMgr_BaseFrustum ##  SAT Tests for different objects
+                                                                                                           ## ! Returns true if selecting volume is overlapped by axis-aligned bounding box
+                                                                                                           ## ! with minimum corner at point theMinPt and maximum at point theMaxPt
+                                                                                                           ## ! Checks if AABB and frustum are separated along the given axis
     ## !< Plane equations
     ## !< Vertices coordinates
     ## !< Cached projections of vertices onto frustum plane directions
@@ -56,11 +60,10 @@ type
     ## !< Cached edge directions
 
 
-proc constructSelectMgrFrustum*[N: static[cint]](): SelectMgrFrustum[N] {.
+proc constructSelectMgr_Frustum*[N: static[cint]](): SelectMgr_Frustum[N] {.
     constructor, importcpp: "SelectMgr_Frustum<\'*0>(@)",
     header: "SelectMgr_Frustum.hxx".}
-proc dumpJson*[N: static[cint]](this: SelectMgrFrustum[N];
-                              theOStream: var StandardOStream;
-                              theDepth: StandardInteger = -1) {.noSideEffect,
+proc DumpJson*[N: static[cint]](this: SelectMgr_Frustum[N];
+                              theOStream: var Standard_OStream;
+                              theDepth: Standard_Integer = -1) {.noSideEffect,
     importcpp: "DumpJson", header: "SelectMgr_Frustum.hxx".}
-

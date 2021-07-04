@@ -13,39 +13,42 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../TFunction/TFunction_Driver,
+  ../Standard/Standard_Boolean, ../Standard/Standard_Integer
+
 discard "forward decl of TFunction_Logbook"
 discard "forward decl of DNaming_SelectionDriver"
 discard "forward decl of DNaming_SelectionDriver"
 type
-  HandleDNamingSelectionDriver* = Handle[DNamingSelectionDriver]
-  DNamingSelectionDriver* {.importcpp: "DNaming_SelectionDriver",
-                           header: "DNaming_SelectionDriver.hxx", bycopy.} = object of TFunctionDriver ##
-                                                                                                ## !
-                                                                                                ## Constructor
-                                                                                                ##
-                                                                                                ## !
-                                                                                                ## validation
-                                                                                                ##
-                                                                                                ## !
-                                                                                                ## ==========
+  Handle_DNaming_SelectionDriver* = handle[DNaming_SelectionDriver]
+  DNaming_SelectionDriver* {.importcpp: "DNaming_SelectionDriver",
+                            header: "DNaming_SelectionDriver.hxx", bycopy.} = object of TFunction_Driver ##
+                                                                                                  ## !
+                                                                                                  ## Constructor
+                                                                                                  ##
+                                                                                                  ## !
+                                                                                                  ## validation
+                                                                                                  ##
+                                                                                                  ## !
+                                                                                                  ## ==========
 
 
-proc constructDNamingSelectionDriver*(): DNamingSelectionDriver {.constructor,
+proc constructDNaming_SelectionDriver*(): DNaming_SelectionDriver {.constructor,
     importcpp: "DNaming_SelectionDriver(@)", header: "DNaming_SelectionDriver.hxx".}
-proc validate*(this: DNamingSelectionDriver; theLog: var Handle[TFunctionLogbook]) {.
+proc Validate*(this: DNaming_SelectionDriver; theLog: var handle[TFunction_Logbook]) {.
     noSideEffect, importcpp: "Validate", header: "DNaming_SelectionDriver.hxx".}
-proc mustExecute*(this: DNamingSelectionDriver; theLog: Handle[TFunctionLogbook]): StandardBoolean {.
+proc MustExecute*(this: DNaming_SelectionDriver; theLog: handle[TFunction_Logbook]): Standard_Boolean {.
     noSideEffect, importcpp: "MustExecute", header: "DNaming_SelectionDriver.hxx".}
-proc execute*(this: DNamingSelectionDriver; theLog: var Handle[TFunctionLogbook]): StandardInteger {.
+proc Execute*(this: DNaming_SelectionDriver; theLog: var handle[TFunction_Logbook]): Standard_Integer {.
     noSideEffect, importcpp: "Execute", header: "DNaming_SelectionDriver.hxx".}
 type
-  DNamingSelectionDriverbaseType* = TFunctionDriver
+  DNaming_SelectionDriverbase_type* = TFunction_Driver
 
-proc getTypeName*(): cstring {.importcpp: "DNaming_SelectionDriver::get_type_name(@)",
-                            header: "DNaming_SelectionDriver.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "DNaming_SelectionDriver::get_type_name(@)",
+                              header: "DNaming_SelectionDriver.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "DNaming_SelectionDriver::get_type_descriptor(@)",
     header: "DNaming_SelectionDriver.hxx".}
-proc dynamicType*(this: DNamingSelectionDriver): Handle[StandardType] {.
+proc DynamicType*(this: DNaming_SelectionDriver): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType", header: "DNaming_SelectionDriver.hxx".}
-

@@ -13,7 +13,8 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../SelectMgr/SelectMgr_EntityOwner, ../NCollection/NCollection_List
+
 type
-  AIS_NListOfEntityOwner* = NCollectionList[Handle[SelectMgrEntityOwner]]
-
-
+  AIS_NListOfEntityOwner* = NCollection_List[handle[SelectMgr_EntityOwner]]

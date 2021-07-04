@@ -14,54 +14,58 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../Draw/Draw_Color,
+  ../Standard/Standard_Transient
+
 discard "forward decl of Draw_Color"
 discard "forward decl of HLRTest_ShapeData"
 discard "forward decl of HLRTest_ShapeData"
 type
-  HandleHLRTestShapeData* = Handle[HLRTestShapeData]
+  Handle_HLRTest_ShapeData* = handle[HLRTest_ShapeData]
 
 ## ! Contains the colors of a shape.
 
 type
-  HLRTestShapeData* {.importcpp: "HLRTest_ShapeData",
-                     header: "HLRTest_ShapeData.hxx", bycopy.} = object of StandardTransient
+  HLRTest_ShapeData* {.importcpp: "HLRTest_ShapeData",
+                      header: "HLRTest_ShapeData.hxx", bycopy.} = object of Standard_Transient
 
 
-proc constructHLRTestShapeData*(cVis: DrawColor; cOVis: DrawColor; cIVis: DrawColor;
-                               cHid: DrawColor; cOHid: DrawColor; cIHid: DrawColor): HLRTestShapeData {.
+proc constructHLRTest_ShapeData*(CVis: Draw_Color; COVis: Draw_Color;
+                                CIVis: Draw_Color; CHid: Draw_Color;
+                                COHid: Draw_Color; CIHid: Draw_Color): HLRTest_ShapeData {.
     constructor, importcpp: "HLRTest_ShapeData(@)", header: "HLRTest_ShapeData.hxx".}
-proc visibleColor*(this: var HLRTestShapeData; cVis: DrawColor) {.
+proc VisibleColor*(this: var HLRTest_ShapeData; CVis: Draw_Color) {.
     importcpp: "VisibleColor", header: "HLRTest_ShapeData.hxx".}
-proc visibleOutLineColor*(this: var HLRTestShapeData; cOVis: DrawColor) {.
+proc VisibleOutLineColor*(this: var HLRTest_ShapeData; COVis: Draw_Color) {.
     importcpp: "VisibleOutLineColor", header: "HLRTest_ShapeData.hxx".}
-proc visibleIsoColor*(this: var HLRTestShapeData; cIVis: DrawColor) {.
+proc VisibleIsoColor*(this: var HLRTest_ShapeData; CIVis: Draw_Color) {.
     importcpp: "VisibleIsoColor", header: "HLRTest_ShapeData.hxx".}
-proc hiddenColor*(this: var HLRTestShapeData; cHid: DrawColor) {.
+proc HiddenColor*(this: var HLRTest_ShapeData; CHid: Draw_Color) {.
     importcpp: "HiddenColor", header: "HLRTest_ShapeData.hxx".}
-proc hiddenOutLineColor*(this: var HLRTestShapeData; cOHid: DrawColor) {.
+proc HiddenOutLineColor*(this: var HLRTest_ShapeData; COHid: Draw_Color) {.
     importcpp: "HiddenOutLineColor", header: "HLRTest_ShapeData.hxx".}
-proc hiddenIsoColor*(this: var HLRTestShapeData; cIHid: DrawColor) {.
+proc HiddenIsoColor*(this: var HLRTest_ShapeData; CIHid: Draw_Color) {.
     importcpp: "HiddenIsoColor", header: "HLRTest_ShapeData.hxx".}
-proc visibleColor*(this: HLRTestShapeData): DrawColor {.noSideEffect,
+proc VisibleColor*(this: HLRTest_ShapeData): Draw_Color {.noSideEffect,
     importcpp: "VisibleColor", header: "HLRTest_ShapeData.hxx".}
-proc visibleOutLineColor*(this: HLRTestShapeData): DrawColor {.noSideEffect,
+proc VisibleOutLineColor*(this: HLRTest_ShapeData): Draw_Color {.noSideEffect,
     importcpp: "VisibleOutLineColor", header: "HLRTest_ShapeData.hxx".}
-proc visibleIsoColor*(this: HLRTestShapeData): DrawColor {.noSideEffect,
+proc VisibleIsoColor*(this: HLRTest_ShapeData): Draw_Color {.noSideEffect,
     importcpp: "VisibleIsoColor", header: "HLRTest_ShapeData.hxx".}
-proc hiddenColor*(this: HLRTestShapeData): DrawColor {.noSideEffect,
+proc HiddenColor*(this: HLRTest_ShapeData): Draw_Color {.noSideEffect,
     importcpp: "HiddenColor", header: "HLRTest_ShapeData.hxx".}
-proc hiddenOutLineColor*(this: HLRTestShapeData): DrawColor {.noSideEffect,
+proc HiddenOutLineColor*(this: HLRTest_ShapeData): Draw_Color {.noSideEffect,
     importcpp: "HiddenOutLineColor", header: "HLRTest_ShapeData.hxx".}
-proc hiddenIsoColor*(this: HLRTestShapeData): DrawColor {.noSideEffect,
+proc HiddenIsoColor*(this: HLRTest_ShapeData): Draw_Color {.noSideEffect,
     importcpp: "HiddenIsoColor", header: "HLRTest_ShapeData.hxx".}
 type
-  HLRTestShapeDatabaseType* = StandardTransient
+  HLRTest_ShapeDatabase_type* = Standard_Transient
 
-proc getTypeName*(): cstring {.importcpp: "HLRTest_ShapeData::get_type_name(@)",
-                            header: "HLRTest_ShapeData.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "HLRTest_ShapeData::get_type_name(@)",
+                              header: "HLRTest_ShapeData.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "HLRTest_ShapeData::get_type_descriptor(@)",
     header: "HLRTest_ShapeData.hxx".}
-proc dynamicType*(this: HLRTestShapeData): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: HLRTest_ShapeData): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "HLRTest_ShapeData.hxx".}
-

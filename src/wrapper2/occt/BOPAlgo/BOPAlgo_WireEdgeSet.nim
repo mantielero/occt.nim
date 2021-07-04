@@ -15,32 +15,36 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../NCollection/NCollection_BaseAllocator,
+  ../TopoDS/TopoDS_Face, ../TopTools/TopTools_ListOfShape
+
 discard "forward decl of TopoDS_Face"
 discard "forward decl of TopoDS_Shape"
 type
-  BOPAlgoWireEdgeSet* {.importcpp: "BOPAlgo_WireEdgeSet",
-                       header: "BOPAlgo_WireEdgeSet.hxx", bycopy.} = object
+  BOPAlgo_WireEdgeSet* {.importcpp: "BOPAlgo_WireEdgeSet",
+                        header: "BOPAlgo_WireEdgeSet.hxx", bycopy.} = object
 
 
-proc constructBOPAlgoWireEdgeSet*(): BOPAlgoWireEdgeSet {.constructor,
+proc constructBOPAlgo_WireEdgeSet*(): BOPAlgo_WireEdgeSet {.constructor,
     importcpp: "BOPAlgo_WireEdgeSet(@)", header: "BOPAlgo_WireEdgeSet.hxx".}
-proc destroyBOPAlgoWireEdgeSet*(this: var BOPAlgoWireEdgeSet) {.
+proc destroyBOPAlgo_WireEdgeSet*(this: var BOPAlgo_WireEdgeSet) {.
     importcpp: "#.~BOPAlgo_WireEdgeSet()", header: "BOPAlgo_WireEdgeSet.hxx".}
-proc constructBOPAlgoWireEdgeSet*(theAllocator: Handle[NCollectionBaseAllocator]): BOPAlgoWireEdgeSet {.
+proc constructBOPAlgo_WireEdgeSet*(theAllocator: handle[NCollection_BaseAllocator]): BOPAlgo_WireEdgeSet {.
     constructor, importcpp: "BOPAlgo_WireEdgeSet(@)",
     header: "BOPAlgo_WireEdgeSet.hxx".}
-proc clear*(this: var BOPAlgoWireEdgeSet) {.importcpp: "Clear",
-                                        header: "BOPAlgo_WireEdgeSet.hxx".}
-proc setFace*(this: var BOPAlgoWireEdgeSet; aF: TopoDS_Face) {.importcpp: "SetFace",
+proc Clear*(this: var BOPAlgo_WireEdgeSet) {.importcpp: "Clear",
     header: "BOPAlgo_WireEdgeSet.hxx".}
-proc face*(this: BOPAlgoWireEdgeSet): TopoDS_Face {.noSideEffect, importcpp: "Face",
+proc SetFace*(this: var BOPAlgo_WireEdgeSet; aF: TopoDS_Face) {.importcpp: "SetFace",
     header: "BOPAlgo_WireEdgeSet.hxx".}
-proc addStartElement*(this: var BOPAlgoWireEdgeSet; sS: TopoDS_Shape) {.
+proc Face*(this: BOPAlgo_WireEdgeSet): TopoDS_Face {.noSideEffect, importcpp: "Face",
+    header: "BOPAlgo_WireEdgeSet.hxx".}
+proc AddStartElement*(this: var BOPAlgo_WireEdgeSet; sS: TopoDS_Shape) {.
     importcpp: "AddStartElement", header: "BOPAlgo_WireEdgeSet.hxx".}
-proc startElements*(this: BOPAlgoWireEdgeSet): TopToolsListOfShape {.noSideEffect,
+proc StartElements*(this: BOPAlgo_WireEdgeSet): TopTools_ListOfShape {.noSideEffect,
     importcpp: "StartElements", header: "BOPAlgo_WireEdgeSet.hxx".}
-proc addShape*(this: var BOPAlgoWireEdgeSet; sS: TopoDS_Shape) {.
+proc AddShape*(this: var BOPAlgo_WireEdgeSet; sS: TopoDS_Shape) {.
     importcpp: "AddShape", header: "BOPAlgo_WireEdgeSet.hxx".}
-proc shapes*(this: BOPAlgoWireEdgeSet): TopToolsListOfShape {.noSideEffect,
+proc Shapes*(this: BOPAlgo_WireEdgeSet): TopTools_ListOfShape {.noSideEffect,
     importcpp: "Shapes", header: "BOPAlgo_WireEdgeSet.hxx".}
-

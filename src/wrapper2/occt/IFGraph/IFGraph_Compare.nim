@@ -14,36 +14,40 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Interface/Interface_Graph,
+  ../Interface/Interface_GraphContent, ../Standard/Standard_Boolean
+
 discard "forward decl of Interface_Graph"
 discard "forward decl of Standard_Transient"
 discard "forward decl of Interface_EntityIterator"
 type
-  IFGraphCompare* {.importcpp: "IFGraph_Compare", header: "IFGraph_Compare.hxx",
-                   bycopy.} = object of InterfaceGraphContent ## ! creates empty Compare, ready to work
+  IFGraph_Compare* {.importcpp: "IFGraph_Compare", header: "IFGraph_Compare.hxx",
+                    bycopy.} = object of Interface_GraphContent ## ! creates empty Compare, ready to work
 
 
-proc constructIFGraphCompare*(agraph: InterfaceGraph): IFGraphCompare {.constructor,
-    importcpp: "IFGraph_Compare(@)", header: "IFGraph_Compare.hxx".}
-proc getFromEntity*(this: var IFGraphCompare; ent: Handle[StandardTransient];
-                   first: StandardBoolean) {.importcpp: "GetFromEntity",
+proc constructIFGraph_Compare*(agraph: Interface_Graph): IFGraph_Compare {.
+    constructor, importcpp: "IFGraph_Compare(@)", header: "IFGraph_Compare.hxx".}
+proc GetFromEntity*(this: var IFGraph_Compare; ent: handle[Standard_Transient];
+                   first: Standard_Boolean) {.importcpp: "GetFromEntity",
     header: "IFGraph_Compare.hxx".}
-proc getFromIter*(this: var IFGraphCompare; iter: InterfaceEntityIterator;
-                 first: StandardBoolean) {.importcpp: "GetFromIter",
+proc GetFromIter*(this: var IFGraph_Compare; iter: Interface_EntityIterator;
+                 first: Standard_Boolean) {.importcpp: "GetFromIter",
     header: "IFGraph_Compare.hxx".}
-proc merge*(this: var IFGraphCompare) {.importcpp: "Merge",
-                                    header: "IFGraph_Compare.hxx".}
-proc removeSecond*(this: var IFGraphCompare) {.importcpp: "RemoveSecond",
+proc Merge*(this: var IFGraph_Compare) {.importcpp: "Merge",
+                                     header: "IFGraph_Compare.hxx".}
+proc RemoveSecond*(this: var IFGraph_Compare) {.importcpp: "RemoveSecond",
     header: "IFGraph_Compare.hxx".}
-proc keepCommon*(this: var IFGraphCompare) {.importcpp: "KeepCommon",
+proc KeepCommon*(this: var IFGraph_Compare) {.importcpp: "KeepCommon",
     header: "IFGraph_Compare.hxx".}
-proc resetData*(this: var IFGraphCompare) {.importcpp: "ResetData",
+proc ResetData*(this: var IFGraph_Compare) {.importcpp: "ResetData",
+    header: "IFGraph_Compare.hxx".}
+proc Evaluate*(this: var IFGraph_Compare) {.importcpp: "Evaluate",
                                         header: "IFGraph_Compare.hxx".}
-proc evaluate*(this: var IFGraphCompare) {.importcpp: "Evaluate",
-                                       header: "IFGraph_Compare.hxx".}
-proc common*(this: IFGraphCompare): InterfaceEntityIterator {.noSideEffect,
+proc Common*(this: IFGraph_Compare): Interface_EntityIterator {.noSideEffect,
     importcpp: "Common", header: "IFGraph_Compare.hxx".}
-proc firstOnly*(this: IFGraphCompare): InterfaceEntityIterator {.noSideEffect,
+proc FirstOnly*(this: IFGraph_Compare): Interface_EntityIterator {.noSideEffect,
     importcpp: "FirstOnly", header: "IFGraph_Compare.hxx".}
-proc secondOnly*(this: IFGraphCompare): InterfaceEntityIterator {.noSideEffect,
+proc SecondOnly*(this: IFGraph_Compare): Interface_EntityIterator {.noSideEffect,
     importcpp: "SecondOnly", header: "IFGraph_Compare.hxx".}
-

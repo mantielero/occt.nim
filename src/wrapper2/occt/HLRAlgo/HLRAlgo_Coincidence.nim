@@ -14,6 +14,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer,
+  ../Standard/Standard_Real, ../TopAbs/TopAbs_State
+
 ## ! The Coincidence class is used in an Inteference to
 ## ! store informations on the "hiding" edge.
 ## !
@@ -28,19 +33,20 @@
 ## ! the face.
 
 type
-  HLRAlgoCoincidence* {.importcpp: "HLRAlgo_Coincidence",
-                       header: "HLRAlgo_Coincidence.hxx", bycopy.} = object
+  HLRAlgo_Coincidence* {.importcpp: "HLRAlgo_Coincidence",
+                        header: "HLRAlgo_Coincidence.hxx", bycopy.} = object
 
 
-proc constructHLRAlgoCoincidence*(): HLRAlgoCoincidence {.constructor,
+proc constructHLRAlgo_Coincidence*(): HLRAlgo_Coincidence {.constructor,
     importcpp: "HLRAlgo_Coincidence(@)", header: "HLRAlgo_Coincidence.hxx".}
-proc set2D*(this: var HLRAlgoCoincidence; fe: StandardInteger; param: StandardReal) {.
+proc Set2D*(this: var HLRAlgo_Coincidence; FE: Standard_Integer; Param: Standard_Real) {.
     importcpp: "Set2D", header: "HLRAlgo_Coincidence.hxx".}
-proc setState3D*(this: var HLRAlgoCoincidence; stbef: TopAbsState; staft: TopAbsState) {.
-    importcpp: "SetState3D", header: "HLRAlgo_Coincidence.hxx".}
-proc value2D*(this: HLRAlgoCoincidence; fe: var StandardInteger;
-             param: var StandardReal) {.noSideEffect, importcpp: "Value2D",
+proc SetState3D*(this: var HLRAlgo_Coincidence; stbef: TopAbs_State;
+                staft: TopAbs_State) {.importcpp: "SetState3D",
                                      header: "HLRAlgo_Coincidence.hxx".}
-proc state3D*(this: HLRAlgoCoincidence; stbef: var TopAbsState; staft: var TopAbsState) {.
-    noSideEffect, importcpp: "State3D", header: "HLRAlgo_Coincidence.hxx".}
-
+proc Value2D*(this: HLRAlgo_Coincidence; FE: var Standard_Integer;
+             Param: var Standard_Real) {.noSideEffect, importcpp: "Value2D",
+                                      header: "HLRAlgo_Coincidence.hxx".}
+proc State3D*(this: HLRAlgo_Coincidence; stbef: var TopAbs_State;
+             staft: var TopAbs_State) {.noSideEffect, importcpp: "State3D",
+                                     header: "HLRAlgo_Coincidence.hxx".}

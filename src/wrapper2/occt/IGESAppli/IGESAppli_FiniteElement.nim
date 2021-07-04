@@ -14,13 +14,17 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Integer,
+  IGESAppli_HArray1OfNode, ../IGESData/IGESData_IGESEntity
+
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of IGESAppli_Node"
 discard "forward decl of IGESAppli_FiniteElement"
 discard "forward decl of IGESAppli_FiniteElement"
 type
-  HandleIGESAppliFiniteElement* = Handle[IGESAppliFiniteElement]
+  Handle_IGESAppli_FiniteElement* = handle[IGESAppli_FiniteElement]
 
 ## ! defines FiniteElement, Type <136> Form <0>
 ## ! in package IGESAppli
@@ -28,33 +32,32 @@ type
 ## ! element topology.
 
 type
-  IGESAppliFiniteElement* {.importcpp: "IGESAppli_FiniteElement",
-                           header: "IGESAppli_FiniteElement.hxx", bycopy.} = object of IGESDataIGESEntity
+  IGESAppli_FiniteElement* {.importcpp: "IGESAppli_FiniteElement",
+                            header: "IGESAppli_FiniteElement.hxx", bycopy.} = object of IGESData_IGESEntity
 
 
-proc constructIGESAppliFiniteElement*(): IGESAppliFiniteElement {.constructor,
+proc constructIGESAppli_FiniteElement*(): IGESAppli_FiniteElement {.constructor,
     importcpp: "IGESAppli_FiniteElement(@)", header: "IGESAppli_FiniteElement.hxx".}
-proc init*(this: var IGESAppliFiniteElement; aType: StandardInteger;
-          allNodes: Handle[IGESAppliHArray1OfNode];
-          aName: Handle[TCollectionHAsciiString]) {.importcpp: "Init",
+proc Init*(this: var IGESAppli_FiniteElement; aType: Standard_Integer;
+          allNodes: handle[IGESAppli_HArray1OfNode];
+          aName: handle[TCollection_HAsciiString]) {.importcpp: "Init",
     header: "IGESAppli_FiniteElement.hxx".}
-proc topology*(this: IGESAppliFiniteElement): StandardInteger {.noSideEffect,
+proc Topology*(this: IGESAppli_FiniteElement): Standard_Integer {.noSideEffect,
     importcpp: "Topology", header: "IGESAppli_FiniteElement.hxx".}
-proc nbNodes*(this: IGESAppliFiniteElement): StandardInteger {.noSideEffect,
+proc NbNodes*(this: IGESAppli_FiniteElement): Standard_Integer {.noSideEffect,
     importcpp: "NbNodes", header: "IGESAppli_FiniteElement.hxx".}
-proc node*(this: IGESAppliFiniteElement; index: StandardInteger): Handle[
-    IGESAppliNode] {.noSideEffect, importcpp: "Node",
-                    header: "IGESAppli_FiniteElement.hxx".}
-proc name*(this: IGESAppliFiniteElement): Handle[TCollectionHAsciiString] {.
+proc Node*(this: IGESAppli_FiniteElement; Index: Standard_Integer): handle[
+    IGESAppli_Node] {.noSideEffect, importcpp: "Node",
+                     header: "IGESAppli_FiniteElement.hxx".}
+proc Name*(this: IGESAppli_FiniteElement): handle[TCollection_HAsciiString] {.
     noSideEffect, importcpp: "Name", header: "IGESAppli_FiniteElement.hxx".}
 type
-  IGESAppliFiniteElementbaseType* = IGESDataIGESEntity
+  IGESAppli_FiniteElementbase_type* = IGESData_IGESEntity
 
-proc getTypeName*(): cstring {.importcpp: "IGESAppli_FiniteElement::get_type_name(@)",
-                            header: "IGESAppli_FiniteElement.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "IGESAppli_FiniteElement::get_type_name(@)",
+                              header: "IGESAppli_FiniteElement.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "IGESAppli_FiniteElement::get_type_descriptor(@)",
     header: "IGESAppli_FiniteElement.hxx".}
-proc dynamicType*(this: IGESAppliFiniteElement): Handle[StandardType] {.
+proc DynamicType*(this: IGESAppli_FiniteElement): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType", header: "IGESAppli_FiniteElement.hxx".}
-

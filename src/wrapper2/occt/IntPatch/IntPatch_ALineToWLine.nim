@@ -14,69 +14,80 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  IntPatch_SequenceOfLine, ../IntSurf/IntSurf_Quadric,
+  ../Standard/Standard_DefineAlloc, ../Standard/Standard_Handle,
+  ../Standard/Standard_Macro
+
 discard "forward decl of Adaptor3d_HSurface"
 discard "forward decl of IntPatch_ALine"
 discard "forward decl of IntSurf_PntOn2S"
 type
-  IntPatchALineToWLine* {.importcpp: "IntPatch_ALineToWLine",
-                         header: "IntPatch_ALineToWLine.hxx", bycopy.} = object ## !
-                                                                           ## Constructor
-                                                                           ## !
-                                                                           ## Computes step value to
-                                                                           ## construct
-                                                                           ## point-line. The step
-                                                                           ## depends on
-                                                                           ## ! the local
-                                                                           ## curvature of the
-                                                                           ## intersection line
-                                                                           ## computed in
-                                                                           ## thePOn2S.
-                                                                           ## !
-                                                                           ## theTgMagnitude is the
-                                                                           ## magnitude of
-                                                                           ## tangent
-                                                                           ## vector to the
-                                                                           ## intersection
-                                                                           ## ! line (in the point
-                                                                           ## thePOn2S).
-                                                                           ## !
-                                                                           ## Computed step is
-                                                                           ## always in the range
-                                                                           ## [theStepMin,
-                                                                           ## theStepMax].
-                                                                           ## !
-                                                                           ## Returns FALSE if the step
-                                                                           ## cannot be
-                                                                           ## computed. In this case, its value
-                                                                           ## ! will not be
-                                                                           ## changed.
+  IntPatch_ALineToWLine* {.importcpp: "IntPatch_ALineToWLine",
+                          header: "IntPatch_ALineToWLine.hxx", bycopy.} = object ## !
+                                                                            ## Constructor
+                                                                            ## !
+                                                                            ## Computes step
+                                                                            ## value to
+                                                                            ## construct
+                                                                            ## point-line. The step
+                                                                            ## depends on
+                                                                            ## ! the
+                                                                            ## local
+                                                                            ## curvature of the
+                                                                            ## intersection line
+                                                                            ## computed in
+                                                                            ## thePOn2S.
+                                                                            ## !
+                                                                            ## theTgMagnitude is the
+                                                                            ## magnitude of
+                                                                            ## tangent
+                                                                            ## vector to the
+                                                                            ## intersection
+                                                                            ## ! line (in the
+                                                                            ## point
+                                                                            ## thePOn2S).
+                                                                            ## !
+                                                                            ## Computed step is
+                                                                            ## always in the
+                                                                            ## range
+                                                                            ## [theStepMin,
+                                                                            ## theStepMax].
+                                                                            ## !
+                                                                            ## Returns
+                                                                            ## FALSE if the step
+                                                                            ## cannot be
+                                                                            ## computed. In this
+                                                                            ## case, its
+                                                                            ## value
+                                                                            ## ! will not be
+                                                                            ## changed.
     ## ! Approximate number of points in resulting
     ## ! WLine (precise number of points is computed
     ## ! by the algorithms)
 
 
-proc constructIntPatchALineToWLine*(theS1: Handle[Adaptor3dHSurface];
-                                   theS2: Handle[Adaptor3dHSurface];
-                                   theNbPoints: StandardInteger = 200): IntPatchALineToWLine {.
+proc constructIntPatch_ALineToWLine*(theS1: handle[Adaptor3d_HSurface];
+                                    theS2: handle[Adaptor3d_HSurface];
+                                    theNbPoints: Standard_Integer = 200): IntPatch_ALineToWLine {.
     constructor, importcpp: "IntPatch_ALineToWLine(@)",
     header: "IntPatch_ALineToWLine.hxx".}
-proc setTolOpenDomain*(this: var IntPatchALineToWLine; aT: StandardReal) {.
+proc SetTolOpenDomain*(this: var IntPatch_ALineToWLine; aT: Standard_Real) {.
     importcpp: "SetTolOpenDomain", header: "IntPatch_ALineToWLine.hxx".}
-proc tolOpenDomain*(this: IntPatchALineToWLine): StandardReal {.noSideEffect,
+proc TolOpenDomain*(this: IntPatch_ALineToWLine): Standard_Real {.noSideEffect,
     importcpp: "TolOpenDomain", header: "IntPatch_ALineToWLine.hxx".}
-proc setTolTransition*(this: var IntPatchALineToWLine; aT: StandardReal) {.
+proc SetTolTransition*(this: var IntPatch_ALineToWLine; aT: Standard_Real) {.
     importcpp: "SetTolTransition", header: "IntPatch_ALineToWLine.hxx".}
-proc tolTransition*(this: IntPatchALineToWLine): StandardReal {.noSideEffect,
+proc TolTransition*(this: IntPatch_ALineToWLine): Standard_Real {.noSideEffect,
     importcpp: "TolTransition", header: "IntPatch_ALineToWLine.hxx".}
-proc setTol3D*(this: var IntPatchALineToWLine; aT: StandardReal) {.
+proc SetTol3D*(this: var IntPatch_ALineToWLine; aT: Standard_Real) {.
     importcpp: "SetTol3D", header: "IntPatch_ALineToWLine.hxx".}
-proc tol3D*(this: IntPatchALineToWLine): StandardReal {.noSideEffect,
+proc Tol3D*(this: IntPatch_ALineToWLine): Standard_Real {.noSideEffect,
     importcpp: "Tol3D", header: "IntPatch_ALineToWLine.hxx".}
-proc makeWLine*(this: IntPatchALineToWLine; aline: Handle[IntPatchALine];
-               theLines: var IntPatchSequenceOfLine) {.noSideEffect,
+proc MakeWLine*(this: IntPatch_ALineToWLine; aline: handle[IntPatch_ALine];
+               theLines: var IntPatch_SequenceOfLine) {.noSideEffect,
     importcpp: "MakeWLine", header: "IntPatch_ALineToWLine.hxx".}
-proc makeWLine*(this: IntPatchALineToWLine; aline: Handle[IntPatchALine];
-               paraminf: StandardReal; paramsup: StandardReal;
-               theLines: var IntPatchSequenceOfLine) {.noSideEffect,
+proc MakeWLine*(this: IntPatch_ALineToWLine; aline: handle[IntPatch_ALine];
+               paraminf: Standard_Real; paramsup: Standard_Real;
+               theLines: var IntPatch_SequenceOfLine) {.noSideEffect,
     importcpp: "MakeWLine", header: "IntPatch_ALineToWLine.hxx".}
-

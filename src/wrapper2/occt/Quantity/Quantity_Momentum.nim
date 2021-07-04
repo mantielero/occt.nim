@@ -14,9 +14,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _Quantity_Momentum_HeaderFile [NewLine] # _Quantity_Momentum_HeaderFile [NewLine] # < Standard_Real . hxx > [NewLine] ! Defined as the product of mass and velocity.
+## !!!Ignored construct:  # _Quantity_Momentum_HeaderFile [NewLine] # _Quantity_Momentum_HeaderFile [NewLine] # ../Standard/Standard_Real.hxx [NewLine] ! Defined as the product of mass and velocity.
 ## ! It is a vector quantity.
 ## ! It is measured in kilogram-metres per second. Standard_DEPRECATED ( This type is deprecated - Standard_Real should be used instead ) typedef Standard_Real Quantity_Momentum ;
 ## Error: expected ';'!!!
-
-

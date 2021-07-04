@@ -14,24 +14,28 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../TopTools/TopTools_DataMapOfShapeListOfShape,
+  ../TopTools/TopTools_ListOfShape, ../Standard/Standard_Boolean
+
 discard "forward decl of Standard_NoSuchObject"
 discard "forward decl of TopoDS_Shape"
 type
-  BRepToolsSubstitution* {.importcpp: "BRepTools_Substitution",
-                          header: "BRepTools_Substitution.hxx", bycopy.} = object
+  BRepTools_Substitution* {.importcpp: "BRepTools_Substitution",
+                           header: "BRepTools_Substitution.hxx", bycopy.} = object
 
 
-proc constructBRepToolsSubstitution*(): BRepToolsSubstitution {.constructor,
+proc constructBRepTools_Substitution*(): BRepTools_Substitution {.constructor,
     importcpp: "BRepTools_Substitution(@)", header: "BRepTools_Substitution.hxx".}
-proc clear*(this: var BRepToolsSubstitution) {.importcpp: "Clear",
+proc Clear*(this: var BRepTools_Substitution) {.importcpp: "Clear",
     header: "BRepTools_Substitution.hxx".}
-proc substitute*(this: var BRepToolsSubstitution; oldShape: TopoDS_Shape;
-                newShapes: TopToolsListOfShape) {.importcpp: "Substitute",
+proc Substitute*(this: var BRepTools_Substitution; OldShape: TopoDS_Shape;
+                NewShapes: TopTools_ListOfShape) {.importcpp: "Substitute",
     header: "BRepTools_Substitution.hxx".}
-proc build*(this: var BRepToolsSubstitution; s: TopoDS_Shape) {.importcpp: "Build",
+proc Build*(this: var BRepTools_Substitution; S: TopoDS_Shape) {.importcpp: "Build",
     header: "BRepTools_Substitution.hxx".}
-proc isCopied*(this: BRepToolsSubstitution; s: TopoDS_Shape): StandardBoolean {.
+proc IsCopied*(this: BRepTools_Substitution; S: TopoDS_Shape): Standard_Boolean {.
     noSideEffect, importcpp: "IsCopied", header: "BRepTools_Substitution.hxx".}
-proc copy*(this: BRepToolsSubstitution; s: TopoDS_Shape): TopToolsListOfShape {.
+proc Copy*(this: BRepTools_Substitution; S: TopoDS_Shape): TopTools_ListOfShape {.
     noSideEffect, importcpp: "Copy", header: "BRepTools_Substitution.hxx".}
-

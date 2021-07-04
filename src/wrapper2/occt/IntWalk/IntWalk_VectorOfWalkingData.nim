@@ -13,16 +13,17 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../NCollection/NCollection_StdAllocator
+
 ##  Defines a dynamic vector of work data.
 
 type
-  IntWalkWalkingData* {.importcpp: "IntWalk_WalkingData",
-                       header: "IntWalk_VectorOfWalkingData.hxx", bycopy.} = object
-    ustart* {.importc: "ustart".}: StandardReal
-    vstart* {.importc: "vstart".}: StandardReal
-    etat* {.importc: "etat".}: StandardInteger
+  IntWalk_WalkingData* {.importcpp: "IntWalk_WalkingData",
+                        header: "IntWalk_VectorOfWalkingData.hxx", bycopy.} = object
+    ustart* {.importc: "ustart".}: Standard_Real
+    vstart* {.importc: "vstart".}: Standard_Real
+    etat* {.importc: "etat".}: Standard_Integer
 
-  IntWalkVectorOfWalkingData* = Vector[IntWalkWalkingData, NCollectionStdAllocator[
-      IntWalkWalkingData]]
-
-
+  IntWalk_VectorOfWalkingData* = vector[IntWalk_WalkingData, NCollection_StdAllocator[
+      IntWalk_WalkingData]]

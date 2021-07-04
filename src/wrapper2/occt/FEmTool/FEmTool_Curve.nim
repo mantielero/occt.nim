@@ -14,65 +14,70 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Integer,
+  ../TColStd/TColStd_HArray1OfReal, ../TColStd/TColStd_Array1OfInteger,
+  ../TColStd/TColStd_Array1OfReal, ../Standard/Standard_Real,
+  ../Standard/Standard_Transient, ../TColStd/TColStd_Array2OfReal
+
 discard "forward decl of PLib_Base"
 discard "forward decl of Standard_DimensionError"
 discard "forward decl of FEmTool_Curve"
 discard "forward decl of FEmTool_Curve"
 type
-  HandleFEmToolCurve* = Handle[FEmToolCurve]
+  Handle_FEmTool_Curve* = handle[FEmTool_Curve]
 
 ## ! Curve defined by Polynomial Elements.
 
 type
-  FEmToolCurve* {.importcpp: "FEmTool_Curve", header: "FEmTool_Curve.hxx", bycopy.} = object of StandardTransient
+  FEmTool_Curve* {.importcpp: "FEmTool_Curve", header: "FEmTool_Curve.hxx", bycopy.} = object of Standard_Transient
 
 
-proc constructFEmToolCurve*(dimension: StandardInteger;
-                           nbElements: StandardInteger; theBase: Handle[PLibBase];
-                           tolerance: StandardReal): FEmToolCurve {.constructor,
-    importcpp: "FEmTool_Curve(@)", header: "FEmTool_Curve.hxx".}
-proc knots*(this: FEmToolCurve): var TColStdArray1OfReal {.noSideEffect,
+proc constructFEmTool_Curve*(Dimension: Standard_Integer;
+                            NbElements: Standard_Integer;
+                            TheBase: handle[PLib_Base]; Tolerance: Standard_Real): FEmTool_Curve {.
+    constructor, importcpp: "FEmTool_Curve(@)", header: "FEmTool_Curve.hxx".}
+proc Knots*(this: FEmTool_Curve): var TColStd_Array1OfReal {.noSideEffect,
     importcpp: "Knots", header: "FEmTool_Curve.hxx".}
-proc setElement*(this: var FEmToolCurve; indexOfElement: StandardInteger;
-                coeffs: TColStdArray2OfReal) {.importcpp: "SetElement",
+proc SetElement*(this: var FEmTool_Curve; IndexOfElement: Standard_Integer;
+                Coeffs: TColStd_Array2OfReal) {.importcpp: "SetElement",
     header: "FEmTool_Curve.hxx".}
-proc d0*(this: var FEmToolCurve; u: StandardReal; pnt: var TColStdArray1OfReal) {.
+proc D0*(this: var FEmTool_Curve; U: Standard_Real; Pnt: var TColStd_Array1OfReal) {.
     importcpp: "D0", header: "FEmTool_Curve.hxx".}
-proc d1*(this: var FEmToolCurve; u: StandardReal; vec: var TColStdArray1OfReal) {.
+proc D1*(this: var FEmTool_Curve; U: Standard_Real; Vec: var TColStd_Array1OfReal) {.
     importcpp: "D1", header: "FEmTool_Curve.hxx".}
-proc d2*(this: var FEmToolCurve; u: StandardReal; vec: var TColStdArray1OfReal) {.
+proc D2*(this: var FEmTool_Curve; U: Standard_Real; Vec: var TColStd_Array1OfReal) {.
     importcpp: "D2", header: "FEmTool_Curve.hxx".}
-proc length*(this: var FEmToolCurve; firstU: StandardReal; lastU: StandardReal;
-            length: var StandardReal) {.importcpp: "Length",
-                                     header: "FEmTool_Curve.hxx".}
-proc getElement*(this: var FEmToolCurve; indexOfElement: StandardInteger;
-                coeffs: var TColStdArray2OfReal) {.importcpp: "GetElement",
+proc Length*(this: var FEmTool_Curve; FirstU: Standard_Real; LastU: Standard_Real;
+            Length: var Standard_Real) {.importcpp: "Length",
+                                      header: "FEmTool_Curve.hxx".}
+proc GetElement*(this: var FEmTool_Curve; IndexOfElement: Standard_Integer;
+                Coeffs: var TColStd_Array2OfReal) {.importcpp: "GetElement",
     header: "FEmTool_Curve.hxx".}
-proc getPolynom*(this: var FEmToolCurve; coeffs: var TColStdArray1OfReal) {.
+proc GetPolynom*(this: var FEmTool_Curve; Coeffs: var TColStd_Array1OfReal) {.
     importcpp: "GetPolynom", header: "FEmTool_Curve.hxx".}
-proc nbElements*(this: FEmToolCurve): StandardInteger {.noSideEffect,
+proc NbElements*(this: FEmTool_Curve): Standard_Integer {.noSideEffect,
     importcpp: "NbElements", header: "FEmTool_Curve.hxx".}
-proc dimension*(this: FEmToolCurve): StandardInteger {.noSideEffect,
+proc Dimension*(this: FEmTool_Curve): Standard_Integer {.noSideEffect,
     importcpp: "Dimension", header: "FEmTool_Curve.hxx".}
-proc base*(this: FEmToolCurve): Handle[PLibBase] {.noSideEffect, importcpp: "Base",
+proc Base*(this: FEmTool_Curve): handle[PLib_Base] {.noSideEffect, importcpp: "Base",
     header: "FEmTool_Curve.hxx".}
-proc degree*(this: FEmToolCurve; indexOfElement: StandardInteger): StandardInteger {.
+proc Degree*(this: FEmTool_Curve; IndexOfElement: Standard_Integer): Standard_Integer {.
     noSideEffect, importcpp: "Degree", header: "FEmTool_Curve.hxx".}
-proc setDegree*(this: var FEmToolCurve; indexOfElement: StandardInteger;
-               degree: StandardInteger) {.importcpp: "SetDegree",
-                                        header: "FEmTool_Curve.hxx".}
-proc reduceDegree*(this: var FEmToolCurve; indexOfElement: StandardInteger;
-                  tol: StandardReal; newDegree: var StandardInteger;
-                  maxError: var StandardReal) {.importcpp: "ReduceDegree",
+proc SetDegree*(this: var FEmTool_Curve; IndexOfElement: Standard_Integer;
+               Degree: Standard_Integer) {.importcpp: "SetDegree",
+    header: "FEmTool_Curve.hxx".}
+proc ReduceDegree*(this: var FEmTool_Curve; IndexOfElement: Standard_Integer;
+                  Tol: Standard_Real; NewDegree: var Standard_Integer;
+                  MaxError: var Standard_Real) {.importcpp: "ReduceDegree",
     header: "FEmTool_Curve.hxx".}
 type
-  FEmToolCurvebaseType* = StandardTransient
+  FEmTool_Curvebase_type* = Standard_Transient
 
-proc getTypeName*(): cstring {.importcpp: "FEmTool_Curve::get_type_name(@)",
-                            header: "FEmTool_Curve.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "FEmTool_Curve::get_type_name(@)",
+                              header: "FEmTool_Curve.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "FEmTool_Curve::get_type_descriptor(@)",
     header: "FEmTool_Curve.hxx".}
-proc dynamicType*(this: FEmToolCurve): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: FEmTool_Curve): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "FEmTool_Curve.hxx".}
-

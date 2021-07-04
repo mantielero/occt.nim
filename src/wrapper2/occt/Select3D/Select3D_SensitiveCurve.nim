@@ -14,6 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Geom/Geom_Curve, Select3D_SensitivePoly, ../TColgp/TColgp_HArray1OfPnt,
+  ../SelectMgr/SelectMgr_SelectingVolumeManager
+
 discard "forward decl of Standard_ConstructionError"
 discard "forward decl of Standard_OutOfRange"
 type
@@ -48,33 +52,31 @@ type
                                                                                                         ## curve:
                                                                                                         ## theNbPnts.
 
-  Select3D_SensitiveCurvebaseType* = Select3D_SensitivePoly
+  Select3D_SensitiveCurvebase_type* = Select3D_SensitivePoly
 
-proc getTypeName*(): cstring {.importcpp: "Select3D_SensitiveCurve::get_type_name(@)",
-                            header: "Select3D_SensitiveCurve.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "Select3D_SensitiveCurve::get_type_name(@)",
+                              header: "Select3D_SensitiveCurve.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "Select3D_SensitiveCurve::get_type_descriptor(@)",
     header: "Select3D_SensitiveCurve.hxx".}
-proc dynamicType*(this: Select3D_SensitiveCurve): Handle[StandardType] {.
+proc DynamicType*(this: Select3D_SensitiveCurve): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType", header: "Select3D_SensitiveCurve.hxx".}
-proc constructSelect3D_SensitiveCurve*(theOwnerId: Handle[SelectMgrEntityOwner];
-                                      theCurve: Handle[GeomCurve];
-                                      theNbPnts: StandardInteger = 17): Select3D_SensitiveCurve {.
+proc constructSelect3D_SensitiveCurve*(theOwnerId: handle[SelectMgr_EntityOwner];
+                                      theCurve: handle[Geom_Curve];
+                                      theNbPnts: Standard_Integer = 17): Select3D_SensitiveCurve {.
     constructor, importcpp: "Select3D_SensitiveCurve(@)",
     header: "Select3D_SensitiveCurve.hxx".}
-proc constructSelect3D_SensitiveCurve*(theOwnerId: Handle[SelectMgrEntityOwner];
-                                      thePoints: Handle[TColgpHArray1OfPnt]): Select3D_SensitiveCurve {.
+proc constructSelect3D_SensitiveCurve*(theOwnerId: handle[SelectMgr_EntityOwner];
+                                      thePoints: handle[TColgp_HArray1OfPnt]): Select3D_SensitiveCurve {.
     constructor, importcpp: "Select3D_SensitiveCurve(@)",
     header: "Select3D_SensitiveCurve.hxx".}
-proc constructSelect3D_SensitiveCurve*(theOwnerId: Handle[SelectMgrEntityOwner];
-                                      thePoints: TColgpArray1OfPnt): Select3D_SensitiveCurve {.
+proc constructSelect3D_SensitiveCurve*(theOwnerId: handle[SelectMgr_EntityOwner];
+                                      thePoints: TColgp_Array1OfPnt): Select3D_SensitiveCurve {.
     constructor, importcpp: "Select3D_SensitiveCurve(@)",
     header: "Select3D_SensitiveCurve.hxx".}
-proc getConnected*(this: var Select3D_SensitiveCurve): Handle[
+proc GetConnected*(this: var Select3D_SensitiveCurve): handle[
     Select3D_SensitiveEntity] {.importcpp: "GetConnected",
                                header: "Select3D_SensitiveCurve.hxx".}
 discard "forward decl of Select3D_SensitiveCurve"
 type
-  HandleSelect3D_SensitiveCurve* = Handle[Select3D_SensitiveCurve]
-
-
+  Handle_Select3D_SensitiveCurve* = handle[Select3D_SensitiveCurve]

@@ -14,6 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer, IGESData_DefType
+
 ## ! description of a directory componant which can be either
 ## ! undefined (let Void), defined as a Reference to an entity,
 ## ! or as a Rank, integer value adressing a builtin table
@@ -21,20 +25,19 @@
 ## ! status is kept (because entity type must be adapted)
 
 type
-  IGESDataDefSwitch* {.importcpp: "IGESData_DefSwitch",
-                      header: "IGESData_DefSwitch.hxx", bycopy.} = object ## ! creates a DefSwitch as Void
+  IGESData_DefSwitch* {.importcpp: "IGESData_DefSwitch",
+                       header: "IGESData_DefSwitch.hxx", bycopy.} = object ## ! creates a DefSwitch as Void
 
 
-proc constructIGESDataDefSwitch*(): IGESDataDefSwitch {.constructor,
+proc constructIGESData_DefSwitch*(): IGESData_DefSwitch {.constructor,
     importcpp: "IGESData_DefSwitch(@)", header: "IGESData_DefSwitch.hxx".}
-proc setVoid*(this: var IGESDataDefSwitch) {.importcpp: "SetVoid",
+proc SetVoid*(this: var IGESData_DefSwitch) {.importcpp: "SetVoid",
     header: "IGESData_DefSwitch.hxx".}
-proc setReference*(this: var IGESDataDefSwitch) {.importcpp: "SetReference",
+proc SetReference*(this: var IGESData_DefSwitch) {.importcpp: "SetReference",
     header: "IGESData_DefSwitch.hxx".}
-proc setRank*(this: var IGESDataDefSwitch; val: StandardInteger) {.
+proc SetRank*(this: var IGESData_DefSwitch; val: Standard_Integer) {.
     importcpp: "SetRank", header: "IGESData_DefSwitch.hxx".}
-proc defType*(this: IGESDataDefSwitch): IGESDataDefType {.noSideEffect,
+proc DefType*(this: IGESData_DefSwitch): IGESData_DefType {.noSideEffect,
     importcpp: "DefType", header: "IGESData_DefSwitch.hxx".}
-proc value*(this: IGESDataDefSwitch): StandardInteger {.noSideEffect,
+proc Value*(this: IGESData_DefSwitch): Standard_Integer {.noSideEffect,
     importcpp: "Value", header: "IGESData_DefSwitch.hxx".}
-

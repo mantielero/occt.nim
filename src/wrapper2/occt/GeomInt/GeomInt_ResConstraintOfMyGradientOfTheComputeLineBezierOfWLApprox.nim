@@ -14,13 +14,20 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
+  ../Standard/Standard_Real, ../math/math_Matrix, ../math/math_Vector,
+  ../Standard/Standard_Integer, ../TColStd/TColStd_Array1OfInteger,
+  ../AppParCurves/AppParCurves_HArray1OfConstraintCouple
+
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of GeomInt_TheMultiLineOfWLApprox"
 discard "forward decl of GeomInt_TheMultiLineToolOfWLApprox"
 discard "forward decl of AppParCurves_MultiCurve"
 discard "forward decl of math_Matrix"
 type
-  GeomIntResConstraintOfMyGradientOfTheComputeLineBezierOfWLApprox* {.importcpp: "GeomInt_ResConstraintOfMyGradientOfTheComputeLineBezierOfWLApprox", header: "GeomInt_ResConstraintOfMyGradientOfTheComputeLineBezierOfWLApprox.hxx",
+  GeomInt_ResConstraintOfMyGradientOfTheComputeLineBezierOfWLApprox* {.importcpp: "GeomInt_ResConstraintOfMyGradientOfTheComputeLineBezierOfWLApprox", header: "GeomInt_ResConstraintOfMyGradientOfTheComputeLineBezierOfWLApprox.hxx",
       bycopy.} = object ## ! Given a MultiLine SSP with constraints points, this
                      ## ! algorithm finds the best curve solution to approximate it.
                      ## ! The poles from SCurv issued for example from the least
@@ -34,25 +41,25 @@ type
                      ## ! is used internally to create the fields.
 
 
-proc constructGeomIntResConstraintOfMyGradientOfTheComputeLineBezierOfWLApprox*(
-    ssp: GeomIntTheMultiLineOfWLApprox; sCurv: var AppParCurvesMultiCurve;
-    firstPoint: StandardInteger; lastPoint: StandardInteger;
-    constraints: Handle[AppParCurvesHArray1OfConstraintCouple]; bern: MathMatrix;
-    derivativeBern: MathMatrix; tolerance: StandardReal = 1.0e-10): GeomIntResConstraintOfMyGradientOfTheComputeLineBezierOfWLApprox {.
+proc constructGeomInt_ResConstraintOfMyGradientOfTheComputeLineBezierOfWLApprox*(
+    SSP: GeomInt_TheMultiLineOfWLApprox; SCurv: var AppParCurves_MultiCurve;
+    FirstPoint: Standard_Integer; LastPoint: Standard_Integer;
+    Constraints: handle[AppParCurves_HArray1OfConstraintCouple];
+    Bern: math_Matrix; DerivativeBern: math_Matrix;
+    Tolerance: Standard_Real = 1.0e-10): GeomInt_ResConstraintOfMyGradientOfTheComputeLineBezierOfWLApprox {.
     constructor, importcpp: "GeomInt_ResConstraintOfMyGradientOfTheComputeLineBezierOfWLApprox(@)", header: "GeomInt_ResConstraintOfMyGradientOfTheComputeLineBezierOfWLApprox.hxx".}
-proc isDone*(this: GeomIntResConstraintOfMyGradientOfTheComputeLineBezierOfWLApprox): StandardBoolean {.
+proc IsDone*(this: GeomInt_ResConstraintOfMyGradientOfTheComputeLineBezierOfWLApprox): Standard_Boolean {.
     noSideEffect, importcpp: "IsDone", header: "GeomInt_ResConstraintOfMyGradientOfTheComputeLineBezierOfWLApprox.hxx".}
-proc error*(this: GeomIntResConstraintOfMyGradientOfTheComputeLineBezierOfWLApprox): StandardReal {.
+proc Error*(this: GeomInt_ResConstraintOfMyGradientOfTheComputeLineBezierOfWLApprox): Standard_Real {.
     noSideEffect, importcpp: "Error", header: "GeomInt_ResConstraintOfMyGradientOfTheComputeLineBezierOfWLApprox.hxx".}
-proc constraintMatrix*(this: GeomIntResConstraintOfMyGradientOfTheComputeLineBezierOfWLApprox): MathMatrix {.
+proc ConstraintMatrix*(this: GeomInt_ResConstraintOfMyGradientOfTheComputeLineBezierOfWLApprox): math_Matrix {.
     noSideEffect, importcpp: "ConstraintMatrix", header: "GeomInt_ResConstraintOfMyGradientOfTheComputeLineBezierOfWLApprox.hxx".}
-proc duale*(this: GeomIntResConstraintOfMyGradientOfTheComputeLineBezierOfWLApprox): MathVector {.
+proc Duale*(this: GeomInt_ResConstraintOfMyGradientOfTheComputeLineBezierOfWLApprox): math_Vector {.
     noSideEffect, importcpp: "Duale", header: "GeomInt_ResConstraintOfMyGradientOfTheComputeLineBezierOfWLApprox.hxx".}
-proc constraintDerivative*(this: var GeomIntResConstraintOfMyGradientOfTheComputeLineBezierOfWLApprox;
-                          ssp: GeomIntTheMultiLineOfWLApprox;
-                          parameters: MathVector; deg: StandardInteger;
-                          da: MathMatrix): MathMatrix {.
+proc ConstraintDerivative*(this: var GeomInt_ResConstraintOfMyGradientOfTheComputeLineBezierOfWLApprox;
+                          SSP: GeomInt_TheMultiLineOfWLApprox;
+                          Parameters: math_Vector; Deg: Standard_Integer;
+                          DA: math_Matrix): math_Matrix {.
     importcpp: "ConstraintDerivative", header: "GeomInt_ResConstraintOfMyGradientOfTheComputeLineBezierOfWLApprox.hxx".}
-proc inverseMatrix*(this: GeomIntResConstraintOfMyGradientOfTheComputeLineBezierOfWLApprox): MathMatrix {.
+proc InverseMatrix*(this: GeomInt_ResConstraintOfMyGradientOfTheComputeLineBezierOfWLApprox): math_Matrix {.
     noSideEffect, importcpp: "InverseMatrix", header: "GeomInt_ResConstraintOfMyGradientOfTheComputeLineBezierOfWLApprox.hxx".}
-

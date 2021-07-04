@@ -14,12 +14,17 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Integer,
+  ../IGESData/IGESData_HArray1OfIGESEntity,
+  ../IGESData/IGESData_SingleParentEntity
+
 discard "forward decl of IGESData_IGESEntity"
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of IGESBasic_SingleParent"
 discard "forward decl of IGESBasic_SingleParent"
 type
-  HandleIGESBasicSingleParent* = Handle[IGESBasicSingleParent]
+  Handle_IGESBasic_SingleParent* = handle[IGESBasic_SingleParent]
 
 ## ! defines SingleParent, Type <402> Form <9>
 ## ! in package IGESBasic
@@ -28,33 +33,33 @@ type
 ## ! entities
 
 type
-  IGESBasicSingleParent* {.importcpp: "IGESBasic_SingleParent",
-                          header: "IGESBasic_SingleParent.hxx", bycopy.} = object of IGESDataSingleParentEntity
+  IGESBasic_SingleParent* {.importcpp: "IGESBasic_SingleParent",
+                           header: "IGESBasic_SingleParent.hxx", bycopy.} = object of IGESData_SingleParentEntity
 
 
-proc constructIGESBasicSingleParent*(): IGESBasicSingleParent {.constructor,
+proc constructIGESBasic_SingleParent*(): IGESBasic_SingleParent {.constructor,
     importcpp: "IGESBasic_SingleParent(@)", header: "IGESBasic_SingleParent.hxx".}
-proc init*(this: var IGESBasicSingleParent; nbParentEntities: StandardInteger;
-          aParentEntity: Handle[IGESDataIGESEntity];
-          allChildren: Handle[IGESDataHArray1OfIGESEntity]) {.importcpp: "Init",
+proc Init*(this: var IGESBasic_SingleParent; nbParentEntities: Standard_Integer;
+          aParentEntity: handle[IGESData_IGESEntity];
+          allChildren: handle[IGESData_HArray1OfIGESEntity]) {.importcpp: "Init",
     header: "IGESBasic_SingleParent.hxx".}
-proc nbParentEntities*(this: IGESBasicSingleParent): StandardInteger {.noSideEffect,
-    importcpp: "NbParentEntities", header: "IGESBasic_SingleParent.hxx".}
-proc singleParent*(this: IGESBasicSingleParent): Handle[IGESDataIGESEntity] {.
+proc NbParentEntities*(this: IGESBasic_SingleParent): Standard_Integer {.
+    noSideEffect, importcpp: "NbParentEntities",
+    header: "IGESBasic_SingleParent.hxx".}
+proc SingleParent*(this: IGESBasic_SingleParent): handle[IGESData_IGESEntity] {.
     noSideEffect, importcpp: "SingleParent", header: "IGESBasic_SingleParent.hxx".}
-proc nbChildren*(this: IGESBasicSingleParent): StandardInteger {.noSideEffect,
+proc NbChildren*(this: IGESBasic_SingleParent): Standard_Integer {.noSideEffect,
     importcpp: "NbChildren", header: "IGESBasic_SingleParent.hxx".}
-proc child*(this: IGESBasicSingleParent; index: StandardInteger): Handle[
-    IGESDataIGESEntity] {.noSideEffect, importcpp: "Child",
-                         header: "IGESBasic_SingleParent.hxx".}
+proc Child*(this: IGESBasic_SingleParent; Index: Standard_Integer): handle[
+    IGESData_IGESEntity] {.noSideEffect, importcpp: "Child",
+                          header: "IGESBasic_SingleParent.hxx".}
 type
-  IGESBasicSingleParentbaseType* = IGESDataSingleParentEntity
+  IGESBasic_SingleParentbase_type* = IGESData_SingleParentEntity
 
-proc getTypeName*(): cstring {.importcpp: "IGESBasic_SingleParent::get_type_name(@)",
-                            header: "IGESBasic_SingleParent.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "IGESBasic_SingleParent::get_type_name(@)",
+                              header: "IGESBasic_SingleParent.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "IGESBasic_SingleParent::get_type_descriptor(@)",
     header: "IGESBasic_SingleParent.hxx".}
-proc dynamicType*(this: IGESBasicSingleParent): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "IGESBasic_SingleParent.hxx".}
-
+proc DynamicType*(this: IGESBasic_SingleParent): handle[Standard_Type] {.
+    noSideEffect, importcpp: "DynamicType", header: "IGESBasic_SingleParent.hxx".}

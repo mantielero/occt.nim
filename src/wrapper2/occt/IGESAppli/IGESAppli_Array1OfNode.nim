@@ -14,7 +14,8 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  IGESAppli_Node, ../NCollection/NCollection_Array1
+
 type
-  IGESAppliArray1OfNode* = NCollectionArray1[Handle[IGESAppliNode]]
-
-
+  IGESAppli_Array1OfNode* = NCollection_Array1[handle[IGESAppli_Node]]

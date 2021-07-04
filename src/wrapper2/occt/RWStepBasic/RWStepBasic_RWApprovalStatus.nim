@@ -14,23 +14,28 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepBasic_ApprovalStatus"
 discard "forward decl of StepData_StepWriter"
 type
-  RWStepBasicRWApprovalStatus* {.importcpp: "RWStepBasic_RWApprovalStatus",
-                                header: "RWStepBasic_RWApprovalStatus.hxx", bycopy.} = object
+  RWStepBasic_RWApprovalStatus* {.importcpp: "RWStepBasic_RWApprovalStatus",
+                                 header: "RWStepBasic_RWApprovalStatus.hxx",
+                                 bycopy.} = object
 
 
-proc constructRWStepBasicRWApprovalStatus*(): RWStepBasicRWApprovalStatus {.
+proc constructRWStepBasic_RWApprovalStatus*(): RWStepBasic_RWApprovalStatus {.
     constructor, importcpp: "RWStepBasic_RWApprovalStatus(@)",
     header: "RWStepBasic_RWApprovalStatus.hxx".}
-proc readStep*(this: RWStepBasicRWApprovalStatus;
-              data: Handle[StepDataStepReaderData]; num: StandardInteger;
-              ach: var Handle[InterfaceCheck]; ent: Handle[StepBasicApprovalStatus]) {.
-    noSideEffect, importcpp: "ReadStep", header: "RWStepBasic_RWApprovalStatus.hxx".}
-proc writeStep*(this: RWStepBasicRWApprovalStatus; sw: var StepDataStepWriter;
-               ent: Handle[StepBasicApprovalStatus]) {.noSideEffect,
+proc ReadStep*(this: RWStepBasic_RWApprovalStatus;
+              data: handle[StepData_StepReaderData]; num: Standard_Integer;
+              ach: var handle[Interface_Check];
+              ent: handle[StepBasic_ApprovalStatus]) {.noSideEffect,
+    importcpp: "ReadStep", header: "RWStepBasic_RWApprovalStatus.hxx".}
+proc WriteStep*(this: RWStepBasic_RWApprovalStatus; SW: var StepData_StepWriter;
+               ent: handle[StepBasic_ApprovalStatus]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepBasic_RWApprovalStatus.hxx".}
-

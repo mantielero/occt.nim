@@ -14,6 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, PCDM_Reader,
+  PCDM_ReferenceIterator, PCDM_SequenceOfReference
+
 discard "forward decl of CDM_MetaData"
 discard "forward decl of Message_Messenger"
 discard "forward decl of TCollection_AsciiString"
@@ -21,31 +25,30 @@ discard "forward decl of TCollection_ExtendedString"
 discard "forward decl of PCDM_RetrievalDriver"
 discard "forward decl of PCDM_RetrievalDriver"
 type
-  HandlePCDM_RetrievalDriver* = Handle[PCDM_RetrievalDriver]
+  Handle_PCDM_RetrievalDriver* = handle[PCDM_RetrievalDriver]
   PCDM_RetrievalDriver* {.importcpp: "PCDM_RetrievalDriver",
                          header: "PCDM_RetrievalDriver.hxx", bycopy.} = object of PCDM_Reader
 
 
-proc documentVersion*(theFileName: TCollectionExtendedString;
-                     theMsgDriver: Handle[MessageMessenger]): StandardInteger {.
+proc DocumentVersion*(theFileName: TCollection_ExtendedString;
+                     theMsgDriver: handle[Message_Messenger]): Standard_Integer {.
     importcpp: "PCDM_RetrievalDriver::DocumentVersion(@)",
     header: "PCDM_RetrievalDriver.hxx".}
-proc referenceCounter*(theFileName: TCollectionExtendedString;
-                      theMsgDriver: Handle[MessageMessenger]): StandardInteger {.
+proc ReferenceCounter*(theFileName: TCollection_ExtendedString;
+                      theMsgDriver: handle[Message_Messenger]): Standard_Integer {.
     importcpp: "PCDM_RetrievalDriver::ReferenceCounter(@)",
     header: "PCDM_RetrievalDriver.hxx".}
-proc setFormat*(this: var PCDM_RetrievalDriver; aformat: TCollectionExtendedString) {.
+proc SetFormat*(this: var PCDM_RetrievalDriver; aformat: TCollection_ExtendedString) {.
     importcpp: "SetFormat", header: "PCDM_RetrievalDriver.hxx".}
-proc getFormat*(this: PCDM_RetrievalDriver): TCollectionExtendedString {.
+proc GetFormat*(this: PCDM_RetrievalDriver): TCollection_ExtendedString {.
     noSideEffect, importcpp: "GetFormat", header: "PCDM_RetrievalDriver.hxx".}
 type
-  PCDM_RetrievalDriverbaseType* = PCDM_Reader
+  PCDM_RetrievalDriverbase_type* = PCDM_Reader
 
-proc getTypeName*(): cstring {.importcpp: "PCDM_RetrievalDriver::get_type_name(@)",
-                            header: "PCDM_RetrievalDriver.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "PCDM_RetrievalDriver::get_type_name(@)",
+                              header: "PCDM_RetrievalDriver.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "PCDM_RetrievalDriver::get_type_descriptor(@)",
     header: "PCDM_RetrievalDriver.hxx".}
-proc dynamicType*(this: PCDM_RetrievalDriver): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: PCDM_RetrievalDriver): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "PCDM_RetrievalDriver.hxx".}
-

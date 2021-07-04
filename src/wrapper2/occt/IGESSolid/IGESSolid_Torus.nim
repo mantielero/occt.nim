@@ -14,13 +14,17 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Real,
+  ../gp/gp_XYZ, ../IGESData/IGESData_IGESEntity
+
 discard "forward decl of gp_XYZ"
 discard "forward decl of gp_Pnt"
 discard "forward decl of gp_Dir"
 discard "forward decl of IGESSolid_Torus"
 discard "forward decl of IGESSolid_Torus"
 type
-  HandleIGESSolidTorus* = Handle[IGESSolidTorus]
+  Handle_IGESSolid_Torus* = handle[IGESSolid_Torus]
 
 ## ! defines Torus, Type <160> Form Number <0>
 ## ! in package IGESSolid
@@ -28,34 +32,34 @@ type
 ## ! about a specified coplanar axis.
 
 type
-  IGESSolidTorus* {.importcpp: "IGESSolid_Torus", header: "IGESSolid_Torus.hxx",
-                   bycopy.} = object of IGESDataIGESEntity
+  IGESSolid_Torus* {.importcpp: "IGESSolid_Torus", header: "IGESSolid_Torus.hxx",
+                    bycopy.} = object of IGESData_IGESEntity
 
 
-proc constructIGESSolidTorus*(): IGESSolidTorus {.constructor,
+proc constructIGESSolid_Torus*(): IGESSolid_Torus {.constructor,
     importcpp: "IGESSolid_Torus(@)", header: "IGESSolid_Torus.hxx".}
-proc init*(this: var IGESSolidTorus; r1: StandardReal; r2: StandardReal; aPoint: GpXYZ;
-          anAxisdir: GpXYZ) {.importcpp: "Init", header: "IGESSolid_Torus.hxx".}
-proc majorRadius*(this: IGESSolidTorus): StandardReal {.noSideEffect,
-    importcpp: "MajorRadius", header: "IGESSolid_Torus.hxx".}
-proc discRadius*(this: IGESSolidTorus): StandardReal {.noSideEffect,
-    importcpp: "DiscRadius", header: "IGESSolid_Torus.hxx".}
-proc axisPoint*(this: IGESSolidTorus): GpPnt {.noSideEffect, importcpp: "AxisPoint",
+proc Init*(this: var IGESSolid_Torus; R1: Standard_Real; R2: Standard_Real;
+          aPoint: gp_XYZ; anAxisdir: gp_XYZ) {.importcpp: "Init",
     header: "IGESSolid_Torus.hxx".}
-proc transformedAxisPoint*(this: IGESSolidTorus): GpPnt {.noSideEffect,
+proc MajorRadius*(this: IGESSolid_Torus): Standard_Real {.noSideEffect,
+    importcpp: "MajorRadius", header: "IGESSolid_Torus.hxx".}
+proc DiscRadius*(this: IGESSolid_Torus): Standard_Real {.noSideEffect,
+    importcpp: "DiscRadius", header: "IGESSolid_Torus.hxx".}
+proc AxisPoint*(this: IGESSolid_Torus): gp_Pnt {.noSideEffect,
+    importcpp: "AxisPoint", header: "IGESSolid_Torus.hxx".}
+proc TransformedAxisPoint*(this: IGESSolid_Torus): gp_Pnt {.noSideEffect,
     importcpp: "TransformedAxisPoint", header: "IGESSolid_Torus.hxx".}
-proc axis*(this: IGESSolidTorus): GpDir {.noSideEffect, importcpp: "Axis",
-                                      header: "IGESSolid_Torus.hxx".}
-proc transformedAxis*(this: IGESSolidTorus): GpDir {.noSideEffect,
+proc Axis*(this: IGESSolid_Torus): gp_Dir {.noSideEffect, importcpp: "Axis",
+                                        header: "IGESSolid_Torus.hxx".}
+proc TransformedAxis*(this: IGESSolid_Torus): gp_Dir {.noSideEffect,
     importcpp: "TransformedAxis", header: "IGESSolid_Torus.hxx".}
 type
-  IGESSolidTorusbaseType* = IGESDataIGESEntity
+  IGESSolid_Torusbase_type* = IGESData_IGESEntity
 
-proc getTypeName*(): cstring {.importcpp: "IGESSolid_Torus::get_type_name(@)",
-                            header: "IGESSolid_Torus.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "IGESSolid_Torus::get_type_name(@)",
+                              header: "IGESSolid_Torus.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "IGESSolid_Torus::get_type_descriptor(@)",
     header: "IGESSolid_Torus.hxx".}
-proc dynamicType*(this: IGESSolidTorus): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: IGESSolid_Torus): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "IGESSolid_Torus.hxx".}
-

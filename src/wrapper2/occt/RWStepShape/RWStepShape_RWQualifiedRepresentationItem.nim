@@ -14,32 +14,35 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepShape_QualifiedRepresentationItem"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepShapeRWQualifiedRepresentationItem* {.
+  RWStepShape_RWQualifiedRepresentationItem* {.
       importcpp: "RWStepShape_RWQualifiedRepresentationItem",
       header: "RWStepShape_RWQualifiedRepresentationItem.hxx", bycopy.} = object
 
 
-proc constructRWStepShapeRWQualifiedRepresentationItem*(): RWStepShapeRWQualifiedRepresentationItem {.
+proc constructRWStepShape_RWQualifiedRepresentationItem*(): RWStepShape_RWQualifiedRepresentationItem {.
     constructor, importcpp: "RWStepShape_RWQualifiedRepresentationItem(@)",
     header: "RWStepShape_RWQualifiedRepresentationItem.hxx".}
-proc readStep*(this: RWStepShapeRWQualifiedRepresentationItem;
-              data: Handle[StepDataStepReaderData]; num: StandardInteger;
-              ach: var Handle[InterfaceCheck];
-              ent: Handle[StepShapeQualifiedRepresentationItem]) {.noSideEffect,
+proc ReadStep*(this: RWStepShape_RWQualifiedRepresentationItem;
+              data: handle[StepData_StepReaderData]; num: Standard_Integer;
+              ach: var handle[Interface_Check];
+              ent: handle[StepShape_QualifiedRepresentationItem]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepShape_RWQualifiedRepresentationItem.hxx".}
-proc writeStep*(this: RWStepShapeRWQualifiedRepresentationItem;
-               sw: var StepDataStepWriter;
-               ent: Handle[StepShapeQualifiedRepresentationItem]) {.noSideEffect,
+proc WriteStep*(this: RWStepShape_RWQualifiedRepresentationItem;
+               SW: var StepData_StepWriter;
+               ent: handle[StepShape_QualifiedRepresentationItem]) {.noSideEffect,
     importcpp: "WriteStep",
     header: "RWStepShape_RWQualifiedRepresentationItem.hxx".}
-proc share*(this: RWStepShapeRWQualifiedRepresentationItem;
-           ent: Handle[StepShapeQualifiedRepresentationItem];
-           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
+proc Share*(this: RWStepShape_RWQualifiedRepresentationItem;
+           ent: handle[StepShape_QualifiedRepresentationItem];
+           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepShape_RWQualifiedRepresentationItem.hxx".}
-

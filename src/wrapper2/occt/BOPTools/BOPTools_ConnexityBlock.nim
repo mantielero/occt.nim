@@ -12,31 +12,33 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../NCollection/NCollection_BaseAllocator, ../TopTools/TopTools_ListOfShape
+
 ## =======================================================================
 ## class : ConnexityBlock
 ## purpose  :
 ## =======================================================================
 
 type
-  BOPToolsConnexityBlock* {.importcpp: "BOPTools_ConnexityBlock",
-                           header: "BOPTools_ConnexityBlock.hxx", bycopy.} = object
+  BOPTools_ConnexityBlock* {.importcpp: "BOPTools_ConnexityBlock",
+                            header: "BOPTools_ConnexityBlock.hxx", bycopy.} = object
 
 
-proc constructBOPToolsConnexityBlock*(): BOPToolsConnexityBlock {.constructor,
+proc constructBOPTools_ConnexityBlock*(): BOPTools_ConnexityBlock {.constructor,
     importcpp: "BOPTools_ConnexityBlock(@)", header: "BOPTools_ConnexityBlock.hxx".}
-proc constructBOPToolsConnexityBlock*(theAllocator: Handle[
-    NCollectionBaseAllocator]): BOPToolsConnexityBlock {.constructor,
+proc constructBOPTools_ConnexityBlock*(theAllocator: handle[
+    NCollection_BaseAllocator]): BOPTools_ConnexityBlock {.constructor,
     importcpp: "BOPTools_ConnexityBlock(@)", header: "BOPTools_ConnexityBlock.hxx".}
-proc shapes*(this: BOPToolsConnexityBlock): TopToolsListOfShape {.noSideEffect,
+proc Shapes*(this: BOPTools_ConnexityBlock): TopTools_ListOfShape {.noSideEffect,
     importcpp: "Shapes", header: "BOPTools_ConnexityBlock.hxx".}
-proc changeShapes*(this: var BOPToolsConnexityBlock): var TopToolsListOfShape {.
+proc ChangeShapes*(this: var BOPTools_ConnexityBlock): var TopTools_ListOfShape {.
     importcpp: "ChangeShapes", header: "BOPTools_ConnexityBlock.hxx".}
-proc setRegular*(this: var BOPToolsConnexityBlock; theFlag: StandardBoolean) {.
+proc SetRegular*(this: var BOPTools_ConnexityBlock; theFlag: Standard_Boolean) {.
     importcpp: "SetRegular", header: "BOPTools_ConnexityBlock.hxx".}
-proc isRegular*(this: BOPToolsConnexityBlock): StandardBoolean {.noSideEffect,
+proc IsRegular*(this: BOPTools_ConnexityBlock): Standard_Boolean {.noSideEffect,
     importcpp: "IsRegular", header: "BOPTools_ConnexityBlock.hxx".}
-proc loops*(this: BOPToolsConnexityBlock): TopToolsListOfShape {.noSideEffect,
+proc Loops*(this: BOPTools_ConnexityBlock): TopTools_ListOfShape {.noSideEffect,
     importcpp: "Loops", header: "BOPTools_ConnexityBlock.hxx".}
-proc changeLoops*(this: var BOPToolsConnexityBlock): var TopToolsListOfShape {.
+proc ChangeLoops*(this: var BOPTools_ConnexityBlock): var TopTools_ListOfShape {.
     importcpp: "ChangeLoops", header: "BOPTools_ConnexityBlock.hxx".}
-

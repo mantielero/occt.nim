@@ -14,6 +14,15 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../TopoDS/TopoDS_Wire, ../TopoDS/TopoDS_Shape,
+  ../gp/gp_Trsf, ../TopTools/TopTools_HArray2OfShape,
+  ../TopTools/TopTools_MapOfShape, BRepFill_DataMapOfShapeHArray2OfShape,
+  ../TopTools/TopTools_DataMapOfShapeListOfShape, ../Standard/Standard_Integer,
+  ../GeomAbs/GeomAbs_Shape, ../GeomFill/GeomFill_Trihedron,
+  ../Standard/Standard_Boolean, ../Standard/Standard_Real
+
 discard "forward decl of BRepFill_LocationLaw"
 discard "forward decl of Standard_DomainError"
 discard "forward decl of StdFail_NotDone"
@@ -25,49 +34,48 @@ discard "forward decl of TopoDS_Vertex"
 discard "forward decl of gp_Pnt"
 discard "forward decl of BRepFill_Sweep"
 type
-  BRepFillPipe* {.importcpp: "BRepFill_Pipe", header: "BRepFill_Pipe.hxx", bycopy.} = object ##
-                                                                                     ## !
-                                                                                     ## Auxiliary
-                                                                                     ## recursive
-                                                                                     ## method
-                                                                                     ## used
-                                                                                     ## to
-                                                                                     ## build
-                                                                                     ## the
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## result.
+  BRepFill_Pipe* {.importcpp: "BRepFill_Pipe", header: "BRepFill_Pipe.hxx", bycopy.} = object ##
+                                                                                      ## !
+                                                                                      ## Auxiliary
+                                                                                      ## recursive
+                                                                                      ## method
+                                                                                      ## used
+                                                                                      ## to
+                                                                                      ## build
+                                                                                      ## the
+                                                                                      ##
+                                                                                      ## !
+                                                                                      ## result.
 
 
-proc constructBRepFillPipe*(): BRepFillPipe {.constructor,
+proc constructBRepFill_Pipe*(): BRepFill_Pipe {.constructor,
     importcpp: "BRepFill_Pipe(@)", header: "BRepFill_Pipe.hxx".}
-proc constructBRepFillPipe*(spine: TopoDS_Wire; profile: TopoDS_Shape; aMode: GeomFillTrihedron = geomFillIsCorrectedFrenet;
-                           forceApproxC1: StandardBoolean = standardFalse;
-                           generatePartCase: StandardBoolean = standardFalse): BRepFillPipe {.
+proc constructBRepFill_Pipe*(Spine: TopoDS_Wire; Profile: TopoDS_Shape; aMode: GeomFill_Trihedron = GeomFill_IsCorrectedFrenet;
+                            ForceApproxC1: Standard_Boolean = Standard_False;
+                            GeneratePartCase: Standard_Boolean = Standard_False): BRepFill_Pipe {.
     constructor, importcpp: "BRepFill_Pipe(@)", header: "BRepFill_Pipe.hxx".}
-proc perform*(this: var BRepFillPipe; spine: TopoDS_Wire; profile: TopoDS_Shape;
-             generatePartCase: StandardBoolean = standardFalse) {.
+proc Perform*(this: var BRepFill_Pipe; Spine: TopoDS_Wire; Profile: TopoDS_Shape;
+             GeneratePartCase: Standard_Boolean = Standard_False) {.
     importcpp: "Perform", header: "BRepFill_Pipe.hxx".}
-proc spine*(this: BRepFillPipe): TopoDS_Shape {.noSideEffect, importcpp: "Spine",
+proc Spine*(this: BRepFill_Pipe): TopoDS_Shape {.noSideEffect, importcpp: "Spine",
     header: "BRepFill_Pipe.hxx".}
-proc profile*(this: BRepFillPipe): TopoDS_Shape {.noSideEffect, importcpp: "Profile",
+proc Profile*(this: BRepFill_Pipe): TopoDS_Shape {.noSideEffect,
+    importcpp: "Profile", header: "BRepFill_Pipe.hxx".}
+proc Shape*(this: BRepFill_Pipe): TopoDS_Shape {.noSideEffect, importcpp: "Shape",
     header: "BRepFill_Pipe.hxx".}
-proc shape*(this: BRepFillPipe): TopoDS_Shape {.noSideEffect, importcpp: "Shape",
-    header: "BRepFill_Pipe.hxx".}
-proc errorOnSurface*(this: BRepFillPipe): StandardReal {.noSideEffect,
+proc ErrorOnSurface*(this: BRepFill_Pipe): Standard_Real {.noSideEffect,
     importcpp: "ErrorOnSurface", header: "BRepFill_Pipe.hxx".}
-proc firstShape*(this: BRepFillPipe): TopoDS_Shape {.noSideEffect,
+proc FirstShape*(this: BRepFill_Pipe): TopoDS_Shape {.noSideEffect,
     importcpp: "FirstShape", header: "BRepFill_Pipe.hxx".}
-proc lastShape*(this: BRepFillPipe): TopoDS_Shape {.noSideEffect,
+proc LastShape*(this: BRepFill_Pipe): TopoDS_Shape {.noSideEffect,
     importcpp: "LastShape", header: "BRepFill_Pipe.hxx".}
-proc generated*(this: var BRepFillPipe; s: TopoDS_Shape; L: var TopToolsListOfShape) {.
+proc Generated*(this: var BRepFill_Pipe; S: TopoDS_Shape; L: var TopTools_ListOfShape) {.
     importcpp: "Generated", header: "BRepFill_Pipe.hxx".}
-proc face*(this: var BRepFillPipe; eSpine: TopoDS_Edge; eProfile: TopoDS_Edge): TopoDS_Face {.
+proc Face*(this: var BRepFill_Pipe; ESpine: TopoDS_Edge; EProfile: TopoDS_Edge): TopoDS_Face {.
     importcpp: "Face", header: "BRepFill_Pipe.hxx".}
-proc edge*(this: var BRepFillPipe; eSpine: TopoDS_Edge; vProfile: TopoDS_Vertex): TopoDS_Edge {.
+proc Edge*(this: var BRepFill_Pipe; ESpine: TopoDS_Edge; VProfile: TopoDS_Vertex): TopoDS_Edge {.
     importcpp: "Edge", header: "BRepFill_Pipe.hxx".}
-proc section*(this: BRepFillPipe; vSpine: TopoDS_Vertex): TopoDS_Shape {.noSideEffect,
-    importcpp: "Section", header: "BRepFill_Pipe.hxx".}
-proc pipeLine*(this: var BRepFillPipe; point: GpPnt): TopoDS_Wire {.
+proc Section*(this: BRepFill_Pipe; VSpine: TopoDS_Vertex): TopoDS_Shape {.
+    noSideEffect, importcpp: "Section", header: "BRepFill_Pipe.hxx".}
+proc PipeLine*(this: var BRepFill_Pipe; Point: gp_Pnt): TopoDS_Wire {.
     importcpp: "PipeLine", header: "BRepFill_Pipe.hxx".}
-

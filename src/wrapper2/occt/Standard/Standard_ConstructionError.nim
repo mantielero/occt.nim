@@ -14,18 +14,16 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _Standard_ConstructionError_HeaderFile [NewLine] # _Standard_ConstructionError_HeaderFile [NewLine] # < Standard_Type . hxx > [NewLine] # < Standard_DefineException . hxx > [NewLine] # < Standard_SStream . hxx > [NewLine] # < Standard_DomainError . hxx > [NewLine] class Standard_ConstructionError ;
+## !!!Ignored construct:  # _Standard_ConstructionError_HeaderFile [NewLine] # _Standard_ConstructionError_HeaderFile [NewLine] # Standard_Type.hxx [NewLine] # Standard_DefineException.hxx [NewLine] # Standard_SStream.hxx [NewLine] # Standard_DomainError.hxx [NewLine] class Standard_ConstructionError ;
 ## Error: expected ';'!!!
 
 discard "forward decl of Standard_ConstructionError"
 type
-  HandleStandardConstructionErrorStandardConstructionError* = Handle[
-      StandardConstructionError]
+  Handle_Standard_ConstructionErrorStandard_ConstructionError* = handle[
+      Standard_ConstructionError]
 
 ## !!!Ignored construct:  # ! defined No_Exception && ! defined No_Standard_ConstructionError [NewLine] # if ( CONDITION ) throw Standard_ConstructionError ( MESSAGE ) ;
 ## Error: did not expect [NewLine]!!!
 
-## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( Standard_ConstructionError , Standard_DomainError ) #  _Standard_ConstructionError_HeaderFile
+## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( Standard_ConstructionError , Standard_DomainError ) #  _Standard_ConstructionError_HeaderFile [NewLine]
 ## Error: did not expect [NewLine]!!!
-
-

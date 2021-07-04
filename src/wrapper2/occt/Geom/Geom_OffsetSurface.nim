@@ -14,6 +14,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Real,
+  Geom_OsculatingSurface, ../GeomAbs/GeomAbs_Shape, Geom_Surface,
+  ../Standard/Standard_Boolean, ../Standard/Standard_Integer,
+  ../GeomEvaluator/GeomEvaluator_OffsetSurface
+
 discard "forward decl of Geom_Surface"
 discard "forward decl of Standard_ConstructionError"
 discard "forward decl of Standard_RangeError"
@@ -30,7 +36,7 @@ discard "forward decl of Geom_Geometry"
 discard "forward decl of Geom_OffsetSurface"
 discard "forward decl of Geom_OffsetSurface"
 type
-  HandleGeomOffsetSurface* = Handle[GeomOffsetSurface]
+  Handle_Geom_OffsetSurface* = handle[Geom_OffsetSurface]
 
 ## ! Describes an offset surface in 3D space.
 ## ! An offset surface is defined by:
@@ -56,352 +62,353 @@ type
 ## ! directions (for example, the top of a conical surface).
 
 type
-  GeomOffsetSurface* {.importcpp: "Geom_OffsetSurface",
-                      header: "Geom_OffsetSurface.hxx", bycopy.} = object of GeomSurface ##
-                                                                                  ## !
-                                                                                  ## Constructs
-                                                                                  ## a
-                                                                                  ## surface
-                                                                                  ## offset
-                                                                                  ## from
-                                                                                  ## the
-                                                                                  ## basis
-                                                                                  ## surface
-                                                                                  ##
-                                                                                  ## !
-                                                                                  ## S,
-                                                                                  ## where
-                                                                                  ## Offset
-                                                                                  ## is
-                                                                                  ## the
-                                                                                  ## distance
-                                                                                  ## between
-                                                                                  ## the
-                                                                                  ## offset
-                                                                                  ##
-                                                                                  ## !
-                                                                                  ## surface
-                                                                                  ## and
-                                                                                  ## the
-                                                                                  ## basis
-                                                                                  ## surface
-                                                                                  ## at
-                                                                                  ## any
-                                                                                  ## point.
-                                                                                  ##
-                                                                                  ## !
-                                                                                  ## A
-                                                                                  ## point
-                                                                                  ## on
-                                                                                  ## the
-                                                                                  ## offset
-                                                                                  ## surface
-                                                                                  ## is
-                                                                                  ## built
-                                                                                  ## by
-                                                                                  ## measuring
-                                                                                  ##
-                                                                                  ## !
-                                                                                  ## the
-                                                                                  ## offset
-                                                                                  ## value
-                                                                                  ## along
-                                                                                  ## a
-                                                                                  ## normal
-                                                                                  ## vector
-                                                                                  ## at
-                                                                                  ## a
-                                                                                  ## point
-                                                                                  ## on
-                                                                                  ##
-                                                                                  ## !
-                                                                                  ## S.
-                                                                                  ## This
-                                                                                  ## normal
-                                                                                  ## vector
-                                                                                  ## is
-                                                                                  ## given
-                                                                                  ## by
-                                                                                  ## the
-                                                                                  ## cross
-                                                                                  ## product
-                                                                                  ##
-                                                                                  ## !
-                                                                                  ## D1u^D1v,
-                                                                                  ## where
-                                                                                  ## D1u
-                                                                                  ## and
-                                                                                  ## D1v
-                                                                                  ## are
-                                                                                  ## the
-                                                                                  ## vectors
-                                                                                  ##
-                                                                                  ## !
-                                                                                  ## tangential
-                                                                                  ## to
-                                                                                  ## the
-                                                                                  ## basis
-                                                                                  ## surface
-                                                                                  ## in
-                                                                                  ## the
-                                                                                  ## u
-                                                                                  ## and
-                                                                                  ## v
-                                                                                  ##
-                                                                                  ## !
-                                                                                  ## parametric
-                                                                                  ## directions
-                                                                                  ## at
-                                                                                  ## this
-                                                                                  ## point.
-                                                                                  ## The
-                                                                                  ## side
-                                                                                  ## of
-                                                                                  ## S
-                                                                                  ## on
-                                                                                  ##
-                                                                                  ## !
-                                                                                  ## which
-                                                                                  ## the
-                                                                                  ## offset
-                                                                                  ## value
-                                                                                  ## is
-                                                                                  ## measured
-                                                                                  ## is
-                                                                                  ## indicated
-                                                                                  ## by
-                                                                                  ##
-                                                                                  ## !
-                                                                                  ## this
-                                                                                  ## normal
-                                                                                  ## vector
-                                                                                  ## if
-                                                                                  ## Offset
-                                                                                  ## is
-                                                                                  ## positive,
-                                                                                  ## or
-                                                                                  ## is
-                                                                                  ## the
-                                                                                  ##
-                                                                                  ## !
-                                                                                  ## inverse
-                                                                                  ## sense
-                                                                                  ## if
-                                                                                  ## Offset
-                                                                                  ## is
-                                                                                  ## negative.
-                                                                                  ##
-                                                                                  ## !
-                                                                                  ## If
-                                                                                  ## isNotCheckC0
-                                                                                  ## =
-                                                                                  ## TRUE
-                                                                                  ## checking
-                                                                                  ## if
-                                                                                  ## basis
-                                                                                  ## surface
-                                                                                  ## has
-                                                                                  ## C0-continuity
-                                                                                  ##
-                                                                                  ## !
-                                                                                  ## is
-                                                                                  ## not
-                                                                                  ## made.
-                                                                                  ##
-                                                                                  ## !
-                                                                                  ## Warnings
-                                                                                  ## :
-                                                                                  ##
-                                                                                  ## !
-                                                                                  ## -
-                                                                                  ## The
-                                                                                  ## offset
-                                                                                  ## surface
-                                                                                  ## is
-                                                                                  ## built
-                                                                                  ## with
-                                                                                  ## a
-                                                                                  ## copy
-                                                                                  ## of
-                                                                                  ## the
-                                                                                  ##
-                                                                                  ## !
-                                                                                  ## surface
-                                                                                  ## S.
-                                                                                  ## Therefore,
-                                                                                  ## when
-                                                                                  ## S
-                                                                                  ## is
-                                                                                  ## modified
-                                                                                  ## the
-                                                                                  ##
-                                                                                  ## !
-                                                                                  ## offset
-                                                                                  ## surface
-                                                                                  ## is
-                                                                                  ## not
-                                                                                  ## modified.
-                                                                                  ##
-                                                                                  ## !
-                                                                                  ## -
-                                                                                  ## No
-                                                                                  ## check
-                                                                                  ## is
-                                                                                  ## made
-                                                                                  ## at
-                                                                                  ## the
-                                                                                  ## time
-                                                                                  ## of
-                                                                                  ## construction
-                                                                                  ## to
-                                                                                  ##
-                                                                                  ## !
-                                                                                  ## detect
-                                                                                  ## points
-                                                                                  ## on
-                                                                                  ## S
-                                                                                  ## with
-                                                                                  ## multiple
-                                                                                  ## possible
-                                                                                  ## normal
-                                                                                  ## directions.
-                                                                                  ##
-                                                                                  ## !
-                                                                                  ## Raised
-                                                                                  ## if
-                                                                                  ## S
-                                                                                  ## is
-                                                                                  ## not
-                                                                                  ## at
-                                                                                  ## least
-                                                                                  ## C1.
-                                                                                  ##
-                                                                                  ## !
-                                                                                  ## Warnings
-                                                                                  ## :
-                                                                                  ##
-                                                                                  ## !
-                                                                                  ## No
-                                                                                  ## check
-                                                                                  ## is
-                                                                                  ## done
-                                                                                  ## to
-                                                                                  ## verify
-                                                                                  ## that
-                                                                                  ## a
-                                                                                  ## unique
-                                                                                  ## normal
-                                                                                  ## direction
-                                                                                  ## is
-                                                                                  ##
-                                                                                  ## !
-                                                                                  ## defined
-                                                                                  ## at
-                                                                                  ## any
-                                                                                  ## point
-                                                                                  ## of
-                                                                                  ## the
-                                                                                  ## basis
-                                                                                  ## surface
-                                                                                  ## S.
+  Geom_OffsetSurface* {.importcpp: "Geom_OffsetSurface",
+                       header: "Geom_OffsetSurface.hxx", bycopy.} = object of Geom_Surface ##
+                                                                                    ## !
+                                                                                    ## Constructs
+                                                                                    ## a
+                                                                                    ## surface
+                                                                                    ## offset
+                                                                                    ## from
+                                                                                    ## the
+                                                                                    ## basis
+                                                                                    ## surface
+                                                                                    ##
+                                                                                    ## !
+                                                                                    ## S,
+                                                                                    ## where
+                                                                                    ## Offset
+                                                                                    ## is
+                                                                                    ## the
+                                                                                    ## distance
+                                                                                    ## between
+                                                                                    ## the
+                                                                                    ## offset
+                                                                                    ##
+                                                                                    ## !
+                                                                                    ## surface
+                                                                                    ## and
+                                                                                    ## the
+                                                                                    ## basis
+                                                                                    ## surface
+                                                                                    ## at
+                                                                                    ## any
+                                                                                    ## point.
+                                                                                    ##
+                                                                                    ## !
+                                                                                    ## A
+                                                                                    ## point
+                                                                                    ## on
+                                                                                    ## the
+                                                                                    ## offset
+                                                                                    ## surface
+                                                                                    ## is
+                                                                                    ## built
+                                                                                    ## by
+                                                                                    ## measuring
+                                                                                    ##
+                                                                                    ## !
+                                                                                    ## the
+                                                                                    ## offset
+                                                                                    ## value
+                                                                                    ## along
+                                                                                    ## a
+                                                                                    ## normal
+                                                                                    ## vector
+                                                                                    ## at
+                                                                                    ## a
+                                                                                    ## point
+                                                                                    ## on
+                                                                                    ##
+                                                                                    ## !
+                                                                                    ## S.
+                                                                                    ## This
+                                                                                    ## normal
+                                                                                    ## vector
+                                                                                    ## is
+                                                                                    ## given
+                                                                                    ## by
+                                                                                    ## the
+                                                                                    ## cross
+                                                                                    ## product
+                                                                                    ##
+                                                                                    ## !
+                                                                                    ## D1u^D1v,
+                                                                                    ## where
+                                                                                    ## D1u
+                                                                                    ## and
+                                                                                    ## D1v
+                                                                                    ## are
+                                                                                    ## the
+                                                                                    ## vectors
+                                                                                    ##
+                                                                                    ## !
+                                                                                    ## tangential
+                                                                                    ## to
+                                                                                    ## the
+                                                                                    ## basis
+                                                                                    ## surface
+                                                                                    ## in
+                                                                                    ## the
+                                                                                    ## u
+                                                                                    ## and
+                                                                                    ## v
+                                                                                    ##
+                                                                                    ## !
+                                                                                    ## parametric
+                                                                                    ## directions
+                                                                                    ## at
+                                                                                    ## this
+                                                                                    ## point.
+                                                                                    ## The
+                                                                                    ## side
+                                                                                    ## of
+                                                                                    ## S
+                                                                                    ## on
+                                                                                    ##
+                                                                                    ## !
+                                                                                    ## which
+                                                                                    ## the
+                                                                                    ## offset
+                                                                                    ## value
+                                                                                    ## is
+                                                                                    ## measured
+                                                                                    ## is
+                                                                                    ## indicated
+                                                                                    ## by
+                                                                                    ##
+                                                                                    ## !
+                                                                                    ## this
+                                                                                    ## normal
+                                                                                    ## vector
+                                                                                    ## if
+                                                                                    ## Offset
+                                                                                    ## is
+                                                                                    ## positive,
+                                                                                    ## or
+                                                                                    ## is
+                                                                                    ## the
+                                                                                    ##
+                                                                                    ## !
+                                                                                    ## inverse
+                                                                                    ## sense
+                                                                                    ## if
+                                                                                    ## Offset
+                                                                                    ## is
+                                                                                    ## negative.
+                                                                                    ##
+                                                                                    ## !
+                                                                                    ## If
+                                                                                    ## isNotCheckC0
+                                                                                    ## =
+                                                                                    ## TRUE
+                                                                                    ## checking
+                                                                                    ## if
+                                                                                    ## basis
+                                                                                    ## surface
+                                                                                    ## has
+                                                                                    ## C0-continuity
+                                                                                    ##
+                                                                                    ## !
+                                                                                    ## is
+                                                                                    ## not
+                                                                                    ## made.
+                                                                                    ##
+                                                                                    ## !
+                                                                                    ## Warnings
+                                                                                    ## :
+                                                                                    ##
+                                                                                    ## !
+                                                                                    ## -
+                                                                                    ## The
+                                                                                    ## offset
+                                                                                    ## surface
+                                                                                    ## is
+                                                                                    ## built
+                                                                                    ## with
+                                                                                    ## a
+                                                                                    ## copy
+                                                                                    ## of
+                                                                                    ## the
+                                                                                    ##
+                                                                                    ## !
+                                                                                    ## surface
+                                                                                    ## S.
+                                                                                    ## Therefore,
+                                                                                    ## when
+                                                                                    ## S
+                                                                                    ## is
+                                                                                    ## modified
+                                                                                    ## the
+                                                                                    ##
+                                                                                    ## !
+                                                                                    ## offset
+                                                                                    ## surface
+                                                                                    ## is
+                                                                                    ## not
+                                                                                    ## modified.
+                                                                                    ##
+                                                                                    ## !
+                                                                                    ## -
+                                                                                    ## No
+                                                                                    ## check
+                                                                                    ## is
+                                                                                    ## made
+                                                                                    ## at
+                                                                                    ## the
+                                                                                    ## time
+                                                                                    ## of
+                                                                                    ## construction
+                                                                                    ## to
+                                                                                    ##
+                                                                                    ## !
+                                                                                    ## detect
+                                                                                    ## points
+                                                                                    ## on
+                                                                                    ## S
+                                                                                    ## with
+                                                                                    ## multiple
+                                                                                    ## possible
+                                                                                    ## normal
+                                                                                    ## directions.
+                                                                                    ##
+                                                                                    ## !
+                                                                                    ## Raised
+                                                                                    ## if
+                                                                                    ## S
+                                                                                    ## is
+                                                                                    ## not
+                                                                                    ## at
+                                                                                    ## least
+                                                                                    ## C1.
+                                                                                    ##
+                                                                                    ## !
+                                                                                    ## Warnings
+                                                                                    ## :
+                                                                                    ##
+                                                                                    ## !
+                                                                                    ## No
+                                                                                    ## check
+                                                                                    ## is
+                                                                                    ## done
+                                                                                    ## to
+                                                                                    ## verify
+                                                                                    ## that
+                                                                                    ## a
+                                                                                    ## unique
+                                                                                    ## normal
+                                                                                    ## direction
+                                                                                    ## is
+                                                                                    ##
+                                                                                    ## !
+                                                                                    ## defined
+                                                                                    ## at
+                                                                                    ## any
+                                                                                    ## point
+                                                                                    ## of
+                                                                                    ## the
+                                                                                    ## basis
+                                                                                    ## surface
+                                                                                    ## S.
 
 
-proc constructGeomOffsetSurface*(s: Handle[GeomSurface]; offset: StandardReal;
-                                isNotCheckC0: StandardBoolean = standardFalse): GeomOffsetSurface {.
+proc constructGeom_OffsetSurface*(S: handle[Geom_Surface]; Offset: Standard_Real;
+    isNotCheckC0: Standard_Boolean = Standard_False): Geom_OffsetSurface {.
     constructor, importcpp: "Geom_OffsetSurface(@)",
     header: "Geom_OffsetSurface.hxx".}
-proc setBasisSurface*(this: var GeomOffsetSurface; s: Handle[GeomSurface];
-                     isNotCheckC0: StandardBoolean = standardFalse) {.
+proc SetBasisSurface*(this: var Geom_OffsetSurface; S: handle[Geom_Surface];
+                     isNotCheckC0: Standard_Boolean = Standard_False) {.
     importcpp: "SetBasisSurface", header: "Geom_OffsetSurface.hxx".}
-proc setOffsetValue*(this: var GeomOffsetSurface; d: StandardReal) {.
+proc SetOffsetValue*(this: var Geom_OffsetSurface; D: Standard_Real) {.
     importcpp: "SetOffsetValue", header: "Geom_OffsetSurface.hxx".}
-proc offset*(this: GeomOffsetSurface): StandardReal {.noSideEffect,
+proc Offset*(this: Geom_OffsetSurface): Standard_Real {.noSideEffect,
     importcpp: "Offset", header: "Geom_OffsetSurface.hxx".}
-proc basisSurface*(this: GeomOffsetSurface): Handle[GeomSurface] {.noSideEffect,
+proc BasisSurface*(this: Geom_OffsetSurface): handle[Geom_Surface] {.noSideEffect,
     importcpp: "BasisSurface", header: "Geom_OffsetSurface.hxx".}
-proc osculatingSurface*(this: GeomOffsetSurface): Handle[GeomOsculatingSurface] {.
+proc OsculatingSurface*(this: Geom_OffsetSurface): handle[Geom_OsculatingSurface] {.
     noSideEffect, importcpp: "OsculatingSurface", header: "Geom_OffsetSurface.hxx".}
-proc uReverse*(this: var GeomOffsetSurface) {.importcpp: "UReverse",
+proc UReverse*(this: var Geom_OffsetSurface) {.importcpp: "UReverse",
     header: "Geom_OffsetSurface.hxx".}
-proc uReversedParameter*(this: GeomOffsetSurface; u: StandardReal): StandardReal {.
+proc UReversedParameter*(this: Geom_OffsetSurface; U: Standard_Real): Standard_Real {.
     noSideEffect, importcpp: "UReversedParameter", header: "Geom_OffsetSurface.hxx".}
-proc vReverse*(this: var GeomOffsetSurface) {.importcpp: "VReverse",
+proc VReverse*(this: var Geom_OffsetSurface) {.importcpp: "VReverse",
     header: "Geom_OffsetSurface.hxx".}
-proc vReversedParameter*(this: GeomOffsetSurface; v: StandardReal): StandardReal {.
+proc VReversedParameter*(this: Geom_OffsetSurface; V: Standard_Real): Standard_Real {.
     noSideEffect, importcpp: "VReversedParameter", header: "Geom_OffsetSurface.hxx".}
-proc bounds*(this: GeomOffsetSurface; u1: var StandardReal; u2: var StandardReal;
-            v1: var StandardReal; v2: var StandardReal) {.noSideEffect,
+proc Bounds*(this: Geom_OffsetSurface; U1: var Standard_Real; U2: var Standard_Real;
+            V1: var Standard_Real; V2: var Standard_Real) {.noSideEffect,
     importcpp: "Bounds", header: "Geom_OffsetSurface.hxx".}
-proc continuity*(this: GeomOffsetSurface): GeomAbsShape {.noSideEffect,
+proc Continuity*(this: Geom_OffsetSurface): GeomAbs_Shape {.noSideEffect,
     importcpp: "Continuity", header: "Geom_OffsetSurface.hxx".}
-proc isCNu*(this: GeomOffsetSurface; n: StandardInteger): StandardBoolean {.
+proc IsCNu*(this: Geom_OffsetSurface; N: Standard_Integer): Standard_Boolean {.
     noSideEffect, importcpp: "IsCNu", header: "Geom_OffsetSurface.hxx".}
-proc isCNv*(this: GeomOffsetSurface; n: StandardInteger): StandardBoolean {.
+proc IsCNv*(this: Geom_OffsetSurface; N: Standard_Integer): Standard_Boolean {.
     noSideEffect, importcpp: "IsCNv", header: "Geom_OffsetSurface.hxx".}
-proc isUClosed*(this: GeomOffsetSurface): StandardBoolean {.noSideEffect,
+proc IsUClosed*(this: Geom_OffsetSurface): Standard_Boolean {.noSideEffect,
     importcpp: "IsUClosed", header: "Geom_OffsetSurface.hxx".}
-proc isVClosed*(this: GeomOffsetSurface): StandardBoolean {.noSideEffect,
+proc IsVClosed*(this: Geom_OffsetSurface): Standard_Boolean {.noSideEffect,
     importcpp: "IsVClosed", header: "Geom_OffsetSurface.hxx".}
-proc isUPeriodic*(this: GeomOffsetSurface): StandardBoolean {.noSideEffect,
+proc IsUPeriodic*(this: Geom_OffsetSurface): Standard_Boolean {.noSideEffect,
     importcpp: "IsUPeriodic", header: "Geom_OffsetSurface.hxx".}
-proc uPeriod*(this: GeomOffsetSurface): StandardReal {.noSideEffect,
+proc UPeriod*(this: Geom_OffsetSurface): Standard_Real {.noSideEffect,
     importcpp: "UPeriod", header: "Geom_OffsetSurface.hxx".}
-proc isVPeriodic*(this: GeomOffsetSurface): StandardBoolean {.noSideEffect,
+proc IsVPeriodic*(this: Geom_OffsetSurface): Standard_Boolean {.noSideEffect,
     importcpp: "IsVPeriodic", header: "Geom_OffsetSurface.hxx".}
-proc vPeriod*(this: GeomOffsetSurface): StandardReal {.noSideEffect,
+proc VPeriod*(this: Geom_OffsetSurface): Standard_Real {.noSideEffect,
     importcpp: "VPeriod", header: "Geom_OffsetSurface.hxx".}
-proc uIso*(this: GeomOffsetSurface; u: StandardReal): Handle[GeomCurve] {.
+proc UIso*(this: Geom_OffsetSurface; U: Standard_Real): handle[Geom_Curve] {.
     noSideEffect, importcpp: "UIso", header: "Geom_OffsetSurface.hxx".}
-proc vIso*(this: GeomOffsetSurface; v: StandardReal): Handle[GeomCurve] {.
+proc VIso*(this: Geom_OffsetSurface; V: Standard_Real): handle[Geom_Curve] {.
     noSideEffect, importcpp: "VIso", header: "Geom_OffsetSurface.hxx".}
-proc d0*(this: GeomOffsetSurface; u: StandardReal; v: StandardReal; p: var GpPnt) {.
+proc D0*(this: Geom_OffsetSurface; U: Standard_Real; V: Standard_Real; P: var gp_Pnt) {.
     noSideEffect, importcpp: "D0", header: "Geom_OffsetSurface.hxx".}
-proc d1*(this: GeomOffsetSurface; u: StandardReal; v: StandardReal; p: var GpPnt;
-        d1u: var GpVec; d1v: var GpVec) {.noSideEffect, importcpp: "D1",
-                                    header: "Geom_OffsetSurface.hxx".}
-proc d2*(this: GeomOffsetSurface; u: StandardReal; v: StandardReal; p: var GpPnt;
-        d1u: var GpVec; d1v: var GpVec; d2u: var GpVec; d2v: var GpVec; d2uv: var GpVec) {.
+proc D1*(this: Geom_OffsetSurface; U: Standard_Real; V: Standard_Real; P: var gp_Pnt;
+        D1U: var gp_Vec; D1V: var gp_Vec) {.noSideEffect, importcpp: "D1",
+                                      header: "Geom_OffsetSurface.hxx".}
+proc D2*(this: Geom_OffsetSurface; U: Standard_Real; V: Standard_Real; P: var gp_Pnt;
+        D1U: var gp_Vec; D1V: var gp_Vec; D2U: var gp_Vec; D2V: var gp_Vec; D2UV: var gp_Vec) {.
     noSideEffect, importcpp: "D2", header: "Geom_OffsetSurface.hxx".}
-proc d3*(this: GeomOffsetSurface; u: StandardReal; v: StandardReal; p: var GpPnt;
-        d1u: var GpVec; d1v: var GpVec; d2u: var GpVec; d2v: var GpVec; d2uv: var GpVec;
-        d3u: var GpVec; d3v: var GpVec; d3uuv: var GpVec; d3uvv: var GpVec) {.noSideEffect,
-    importcpp: "D3", header: "Geom_OffsetSurface.hxx".}
-proc dn*(this: GeomOffsetSurface; u: StandardReal; v: StandardReal;
-        nu: StandardInteger; nv: StandardInteger): GpVec {.noSideEffect,
+proc D3*(this: Geom_OffsetSurface; U: Standard_Real; V: Standard_Real; P: var gp_Pnt;
+        D1U: var gp_Vec; D1V: var gp_Vec; D2U: var gp_Vec; D2V: var gp_Vec;
+        D2UV: var gp_Vec; D3U: var gp_Vec; D3V: var gp_Vec; D3UUV: var gp_Vec;
+        D3UVV: var gp_Vec) {.noSideEffect, importcpp: "D3",
+                          header: "Geom_OffsetSurface.hxx".}
+proc DN*(this: Geom_OffsetSurface; U: Standard_Real; V: Standard_Real;
+        Nu: Standard_Integer; Nv: Standard_Integer): gp_Vec {.noSideEffect,
     importcpp: "DN", header: "Geom_OffsetSurface.hxx".}
-proc transform*(this: var GeomOffsetSurface; t: GpTrsf) {.importcpp: "Transform",
+proc Transform*(this: var Geom_OffsetSurface; T: gp_Trsf) {.importcpp: "Transform",
     header: "Geom_OffsetSurface.hxx".}
-proc transformParameters*(this: GeomOffsetSurface; u: var StandardReal;
-                         v: var StandardReal; t: GpTrsf) {.noSideEffect,
+proc TransformParameters*(this: Geom_OffsetSurface; U: var Standard_Real;
+                         V: var Standard_Real; T: gp_Trsf) {.noSideEffect,
     importcpp: "TransformParameters", header: "Geom_OffsetSurface.hxx".}
-proc parametricTransformation*(this: GeomOffsetSurface; t: GpTrsf): GpGTrsf2d {.
+proc ParametricTransformation*(this: Geom_OffsetSurface; T: gp_Trsf): gp_GTrsf2d {.
     noSideEffect, importcpp: "ParametricTransformation",
     header: "Geom_OffsetSurface.hxx".}
-proc copy*(this: GeomOffsetSurface): Handle[GeomGeometry] {.noSideEffect,
+proc Copy*(this: Geom_OffsetSurface): handle[Geom_Geometry] {.noSideEffect,
     importcpp: "Copy", header: "Geom_OffsetSurface.hxx".}
-proc surface*(this: GeomOffsetSurface): Handle[GeomSurface] {.noSideEffect,
+proc Surface*(this: Geom_OffsetSurface): handle[Geom_Surface] {.noSideEffect,
     importcpp: "Surface", header: "Geom_OffsetSurface.hxx".}
-proc uOsculatingSurface*(this: GeomOffsetSurface; u: StandardReal; v: StandardReal;
-                        isOpposite: var StandardBoolean;
-                        uOsculSurf: var Handle[GeomBSplineSurface]): StandardBoolean {.
+proc UOsculatingSurface*(this: Geom_OffsetSurface; U: Standard_Real;
+                        V: Standard_Real; IsOpposite: var Standard_Boolean;
+                        UOsculSurf: var handle[Geom_BSplineSurface]): Standard_Boolean {.
     noSideEffect, importcpp: "UOsculatingSurface", header: "Geom_OffsetSurface.hxx".}
-proc vOsculatingSurface*(this: GeomOffsetSurface; u: StandardReal; v: StandardReal;
-                        isOpposite: var StandardBoolean;
-                        vOsculSurf: var Handle[GeomBSplineSurface]): StandardBoolean {.
+proc VOsculatingSurface*(this: Geom_OffsetSurface; U: Standard_Real;
+                        V: Standard_Real; IsOpposite: var Standard_Boolean;
+                        VOsculSurf: var handle[Geom_BSplineSurface]): Standard_Boolean {.
     noSideEffect, importcpp: "VOsculatingSurface", header: "Geom_OffsetSurface.hxx".}
-proc getBasisSurfContinuity*(this: GeomOffsetSurface): GeomAbsShape {.noSideEffect,
-    importcpp: "GetBasisSurfContinuity", header: "Geom_OffsetSurface.hxx".}
-proc dumpJson*(this: GeomOffsetSurface; theOStream: var StandardOStream;
-              theDepth: StandardInteger = -1) {.noSideEffect, importcpp: "DumpJson",
+proc GetBasisSurfContinuity*(this: Geom_OffsetSurface): GeomAbs_Shape {.
+    noSideEffect, importcpp: "GetBasisSurfContinuity",
+    header: "Geom_OffsetSurface.hxx".}
+proc DumpJson*(this: Geom_OffsetSurface; theOStream: var Standard_OStream;
+              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
     header: "Geom_OffsetSurface.hxx".}
 type
-  GeomOffsetSurfacebaseType* = GeomSurface
+  Geom_OffsetSurfacebase_type* = Geom_Surface
 
-proc getTypeName*(): cstring {.importcpp: "Geom_OffsetSurface::get_type_name(@)",
-                            header: "Geom_OffsetSurface.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "Geom_OffsetSurface::get_type_name(@)",
+                              header: "Geom_OffsetSurface.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "Geom_OffsetSurface::get_type_descriptor(@)",
     header: "Geom_OffsetSurface.hxx".}
-proc dynamicType*(this: GeomOffsetSurface): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: Geom_OffsetSurface): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "Geom_OffsetSurface.hxx".}
-

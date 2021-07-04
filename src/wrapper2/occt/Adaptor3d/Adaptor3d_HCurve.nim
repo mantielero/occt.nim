@@ -14,6 +14,14 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Transient,
+  ../Standard/Standard_Real, ../GeomAbs/GeomAbs_Shape,
+  ../Standard/Standard_Integer, ../TColStd/TColStd_Array1OfReal,
+  ../Standard/Standard_Boolean, ../gp/gp_Pnt, ../gp/gp_Vec,
+  ../GeomAbs/GeomAbs_CurveType, ../gp/gp_Lin, ../gp/gp_Circ, ../gp/gp_Elips,
+  ../gp/gp_Hypr, ../gp/gp_Parab
+
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of Standard_NoSuchObject"
 discard "forward decl of Standard_DomainError"
@@ -26,7 +34,7 @@ discard "forward decl of Geom_OffsetCurve"
 discard "forward decl of Adaptor3d_HCurve"
 discard "forward decl of Adaptor3d_HCurve"
 type
-  HandleAdaptor3dHCurve* = Handle[Adaptor3dHCurve]
+  Handle_Adaptor3d_HCurve* = handle[Adaptor3d_HCurve]
 
 ## ! Root class for 3D curves manipulated by handles, on
 ## ! which geometric algorithms work.
@@ -39,82 +47,92 @@ type
 ## ! on a surface from the Geom package.
 
 type
-  Adaptor3dHCurve* {.importcpp: "Adaptor3d_HCurve", header: "Adaptor3d_HCurve.hxx",
-                    bycopy.} = object of StandardTransient ## ! Returns a pointer to the Curve inside the HCurve.
+  Adaptor3d_HCurve* {.importcpp: "Adaptor3d_HCurve",
+                     header: "Adaptor3d_HCurve.hxx", bycopy.} = object of Standard_Transient ##
+                                                                                      ## !
+                                                                                      ## Returns
+                                                                                      ## a
+                                                                                      ## pointer
+                                                                                      ## to
+                                                                                      ## the
+                                                                                      ## Curve
+                                                                                      ## inside
+                                                                                      ## the
+                                                                                      ## HCurve.
 
 
-proc curve*(this: Adaptor3dHCurve): Adaptor3dCurve {.noSideEffect,
+proc Curve*(this: Adaptor3d_HCurve): Adaptor3d_Curve {.noSideEffect,
     importcpp: "Curve", header: "Adaptor3d_HCurve.hxx".}
-proc getCurve*(this: var Adaptor3dHCurve): var Adaptor3dCurve {.importcpp: "GetCurve",
-    header: "Adaptor3d_HCurve.hxx".}
-proc firstParameter*(this: Adaptor3dHCurve): StandardReal {.noSideEffect,
+proc GetCurve*(this: var Adaptor3d_HCurve): var Adaptor3d_Curve {.
+    importcpp: "GetCurve", header: "Adaptor3d_HCurve.hxx".}
+proc FirstParameter*(this: Adaptor3d_HCurve): Standard_Real {.noSideEffect,
     importcpp: "FirstParameter", header: "Adaptor3d_HCurve.hxx".}
-proc lastParameter*(this: Adaptor3dHCurve): StandardReal {.noSideEffect,
+proc LastParameter*(this: Adaptor3d_HCurve): Standard_Real {.noSideEffect,
     importcpp: "LastParameter", header: "Adaptor3d_HCurve.hxx".}
-proc continuity*(this: Adaptor3dHCurve): GeomAbsShape {.noSideEffect,
+proc Continuity*(this: Adaptor3d_HCurve): GeomAbs_Shape {.noSideEffect,
     importcpp: "Continuity", header: "Adaptor3d_HCurve.hxx".}
-proc nbIntervals*(this: Adaptor3dHCurve; s: GeomAbsShape): StandardInteger {.
+proc NbIntervals*(this: Adaptor3d_HCurve; S: GeomAbs_Shape): Standard_Integer {.
     noSideEffect, importcpp: "NbIntervals", header: "Adaptor3d_HCurve.hxx".}
-proc intervals*(this: Adaptor3dHCurve; t: var TColStdArray1OfReal; s: GeomAbsShape) {.
+proc Intervals*(this: Adaptor3d_HCurve; T: var TColStd_Array1OfReal; S: GeomAbs_Shape) {.
     noSideEffect, importcpp: "Intervals", header: "Adaptor3d_HCurve.hxx".}
-proc trim*(this: Adaptor3dHCurve; first: StandardReal; last: StandardReal;
-          tol: StandardReal): Handle[Adaptor3dHCurve] {.noSideEffect,
+proc Trim*(this: Adaptor3d_HCurve; First: Standard_Real; Last: Standard_Real;
+          Tol: Standard_Real): handle[Adaptor3d_HCurve] {.noSideEffect,
     importcpp: "Trim", header: "Adaptor3d_HCurve.hxx".}
-proc isClosed*(this: Adaptor3dHCurve): StandardBoolean {.noSideEffect,
+proc IsClosed*(this: Adaptor3d_HCurve): Standard_Boolean {.noSideEffect,
     importcpp: "IsClosed", header: "Adaptor3d_HCurve.hxx".}
-proc isPeriodic*(this: Adaptor3dHCurve): StandardBoolean {.noSideEffect,
+proc IsPeriodic*(this: Adaptor3d_HCurve): Standard_Boolean {.noSideEffect,
     importcpp: "IsPeriodic", header: "Adaptor3d_HCurve.hxx".}
-proc period*(this: Adaptor3dHCurve): StandardReal {.noSideEffect,
+proc Period*(this: Adaptor3d_HCurve): Standard_Real {.noSideEffect,
     importcpp: "Period", header: "Adaptor3d_HCurve.hxx".}
-proc value*(this: Adaptor3dHCurve; u: StandardReal): GpPnt {.noSideEffect,
+proc Value*(this: Adaptor3d_HCurve; U: Standard_Real): gp_Pnt {.noSideEffect,
     importcpp: "Value", header: "Adaptor3d_HCurve.hxx".}
-proc d0*(this: Adaptor3dHCurve; u: StandardReal; p: var GpPnt) {.noSideEffect,
+proc D0*(this: Adaptor3d_HCurve; U: Standard_Real; P: var gp_Pnt) {.noSideEffect,
     importcpp: "D0", header: "Adaptor3d_HCurve.hxx".}
-proc d1*(this: Adaptor3dHCurve; u: StandardReal; p: var GpPnt; v: var GpVec) {.
+proc D1*(this: Adaptor3d_HCurve; U: Standard_Real; P: var gp_Pnt; V: var gp_Vec) {.
     noSideEffect, importcpp: "D1", header: "Adaptor3d_HCurve.hxx".}
-proc d2*(this: Adaptor3dHCurve; u: StandardReal; p: var GpPnt; v1: var GpVec; v2: var GpVec) {.
-    noSideEffect, importcpp: "D2", header: "Adaptor3d_HCurve.hxx".}
-proc d3*(this: Adaptor3dHCurve; u: StandardReal; p: var GpPnt; v1: var GpVec;
-        v2: var GpVec; v3: var GpVec) {.noSideEffect, importcpp: "D3",
-                                  header: "Adaptor3d_HCurve.hxx".}
-proc dn*(this: Adaptor3dHCurve; u: StandardReal; n: StandardInteger): GpVec {.
+proc D2*(this: Adaptor3d_HCurve; U: Standard_Real; P: var gp_Pnt; V1: var gp_Vec;
+        V2: var gp_Vec) {.noSideEffect, importcpp: "D2",
+                       header: "Adaptor3d_HCurve.hxx".}
+proc D3*(this: Adaptor3d_HCurve; U: Standard_Real; P: var gp_Pnt; V1: var gp_Vec;
+        V2: var gp_Vec; V3: var gp_Vec) {.noSideEffect, importcpp: "D3",
+                                    header: "Adaptor3d_HCurve.hxx".}
+proc DN*(this: Adaptor3d_HCurve; U: Standard_Real; N: Standard_Integer): gp_Vec {.
     noSideEffect, importcpp: "DN", header: "Adaptor3d_HCurve.hxx".}
-proc resolution*(this: Adaptor3dHCurve; r3d: StandardReal): StandardReal {.
+proc Resolution*(this: Adaptor3d_HCurve; R3d: Standard_Real): Standard_Real {.
     noSideEffect, importcpp: "Resolution", header: "Adaptor3d_HCurve.hxx".}
-proc getType*(this: Adaptor3dHCurve): GeomAbsCurveType {.noSideEffect,
+proc GetType*(this: Adaptor3d_HCurve): GeomAbs_CurveType {.noSideEffect,
     importcpp: "GetType", header: "Adaptor3d_HCurve.hxx".}
-proc line*(this: Adaptor3dHCurve): GpLin {.noSideEffect, importcpp: "Line",
-                                       header: "Adaptor3d_HCurve.hxx".}
-proc circle*(this: Adaptor3dHCurve): GpCirc {.noSideEffect, importcpp: "Circle",
+proc Line*(this: Adaptor3d_HCurve): gp_Lin {.noSideEffect, importcpp: "Line",
     header: "Adaptor3d_HCurve.hxx".}
-proc ellipse*(this: Adaptor3dHCurve): GpElips {.noSideEffect, importcpp: "Ellipse",
+proc Circle*(this: Adaptor3d_HCurve): gp_Circ {.noSideEffect, importcpp: "Circle",
     header: "Adaptor3d_HCurve.hxx".}
-proc hyperbola*(this: Adaptor3dHCurve): GpHypr {.noSideEffect,
+proc Ellipse*(this: Adaptor3d_HCurve): gp_Elips {.noSideEffect, importcpp: "Ellipse",
+    header: "Adaptor3d_HCurve.hxx".}
+proc Hyperbola*(this: Adaptor3d_HCurve): gp_Hypr {.noSideEffect,
     importcpp: "Hyperbola", header: "Adaptor3d_HCurve.hxx".}
-proc parabola*(this: Adaptor3dHCurve): GpParab {.noSideEffect, importcpp: "Parabola",
-    header: "Adaptor3d_HCurve.hxx".}
-proc degree*(this: Adaptor3dHCurve): StandardInteger {.noSideEffect,
+proc Parabola*(this: Adaptor3d_HCurve): gp_Parab {.noSideEffect,
+    importcpp: "Parabola", header: "Adaptor3d_HCurve.hxx".}
+proc Degree*(this: Adaptor3d_HCurve): Standard_Integer {.noSideEffect,
     importcpp: "Degree", header: "Adaptor3d_HCurve.hxx".}
-proc isRational*(this: Adaptor3dHCurve): StandardBoolean {.noSideEffect,
+proc IsRational*(this: Adaptor3d_HCurve): Standard_Boolean {.noSideEffect,
     importcpp: "IsRational", header: "Adaptor3d_HCurve.hxx".}
-proc nbPoles*(this: Adaptor3dHCurve): StandardInteger {.noSideEffect,
+proc NbPoles*(this: Adaptor3d_HCurve): Standard_Integer {.noSideEffect,
     importcpp: "NbPoles", header: "Adaptor3d_HCurve.hxx".}
-proc nbKnots*(this: Adaptor3dHCurve): StandardInteger {.noSideEffect,
+proc NbKnots*(this: Adaptor3d_HCurve): Standard_Integer {.noSideEffect,
     importcpp: "NbKnots", header: "Adaptor3d_HCurve.hxx".}
-proc bezier*(this: Adaptor3dHCurve): Handle[GeomBezierCurve] {.noSideEffect,
+proc Bezier*(this: Adaptor3d_HCurve): handle[Geom_BezierCurve] {.noSideEffect,
     importcpp: "Bezier", header: "Adaptor3d_HCurve.hxx".}
-proc bSpline*(this: Adaptor3dHCurve): Handle[GeomBSplineCurve] {.noSideEffect,
+proc BSpline*(this: Adaptor3d_HCurve): handle[Geom_BSplineCurve] {.noSideEffect,
     importcpp: "BSpline", header: "Adaptor3d_HCurve.hxx".}
-proc offsetCurve*(this: Adaptor3dHCurve): Handle[GeomOffsetCurve] {.noSideEffect,
+proc OffsetCurve*(this: Adaptor3d_HCurve): handle[Geom_OffsetCurve] {.noSideEffect,
     importcpp: "OffsetCurve", header: "Adaptor3d_HCurve.hxx".}
 type
-  Adaptor3dHCurvebaseType* = StandardTransient
+  Adaptor3d_HCurvebase_type* = Standard_Transient
 
-proc getTypeName*(): cstring {.importcpp: "Adaptor3d_HCurve::get_type_name(@)",
-                            header: "Adaptor3d_HCurve.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "Adaptor3d_HCurve::get_type_name(@)",
+                              header: "Adaptor3d_HCurve.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "Adaptor3d_HCurve::get_type_descriptor(@)",
     header: "Adaptor3d_HCurve.hxx".}
-proc dynamicType*(this: Adaptor3dHCurve): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: Adaptor3d_HCurve): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "Adaptor3d_HCurve.hxx".}
-

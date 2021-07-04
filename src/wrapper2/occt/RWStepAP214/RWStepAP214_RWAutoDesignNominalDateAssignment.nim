@@ -14,33 +14,36 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepAP214_AutoDesignNominalDateAssignment"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepAP214RWAutoDesignNominalDateAssignment* {.
+  RWStepAP214_RWAutoDesignNominalDateAssignment* {.
       importcpp: "RWStepAP214_RWAutoDesignNominalDateAssignment",
       header: "RWStepAP214_RWAutoDesignNominalDateAssignment.hxx", bycopy.} = object
 
 
-proc constructRWStepAP214RWAutoDesignNominalDateAssignment*(): RWStepAP214RWAutoDesignNominalDateAssignment {.
+proc constructRWStepAP214_RWAutoDesignNominalDateAssignment*(): RWStepAP214_RWAutoDesignNominalDateAssignment {.
     constructor, importcpp: "RWStepAP214_RWAutoDesignNominalDateAssignment(@)",
     header: "RWStepAP214_RWAutoDesignNominalDateAssignment.hxx".}
-proc readStep*(this: RWStepAP214RWAutoDesignNominalDateAssignment;
-              data: Handle[StepDataStepReaderData]; num: StandardInteger;
-              ach: var Handle[InterfaceCheck];
-              ent: Handle[StepAP214AutoDesignNominalDateAssignment]) {.
+proc ReadStep*(this: RWStepAP214_RWAutoDesignNominalDateAssignment;
+              data: handle[StepData_StepReaderData]; num: Standard_Integer;
+              ach: var handle[Interface_Check];
+              ent: handle[StepAP214_AutoDesignNominalDateAssignment]) {.
     noSideEffect, importcpp: "ReadStep",
     header: "RWStepAP214_RWAutoDesignNominalDateAssignment.hxx".}
-proc writeStep*(this: RWStepAP214RWAutoDesignNominalDateAssignment;
-               sw: var StepDataStepWriter;
-               ent: Handle[StepAP214AutoDesignNominalDateAssignment]) {.
+proc WriteStep*(this: RWStepAP214_RWAutoDesignNominalDateAssignment;
+               SW: var StepData_StepWriter;
+               ent: handle[StepAP214_AutoDesignNominalDateAssignment]) {.
     noSideEffect, importcpp: "WriteStep",
     header: "RWStepAP214_RWAutoDesignNominalDateAssignment.hxx".}
-proc share*(this: RWStepAP214RWAutoDesignNominalDateAssignment;
-           ent: Handle[StepAP214AutoDesignNominalDateAssignment];
-           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
+proc Share*(this: RWStepAP214_RWAutoDesignNominalDateAssignment;
+           ent: handle[StepAP214_AutoDesignNominalDateAssignment];
+           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepAP214_RWAutoDesignNominalDateAssignment.hxx".}
-

@@ -14,6 +14,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  DsgPrs_ArrowSide, ../gp/gp_Dir, ../gp/gp_Pnt, ../Prs3d/Prs3d_Presentation
+
 discard "forward decl of Geom_Curve"
 discard "forward decl of Geom_Surface"
 discard "forward decl of Prs3d_DimensionAspect"
@@ -22,56 +25,61 @@ type
                                                                  ## ! at thebeginning and at the end of the dimension
 
 
-proc computeSymbol*(aPresentation: Handle[Prs3dPresentation];
-                   anAspect: Handle[Prs3dDimensionAspect]; pt1: GpPnt; pt2: GpPnt;
-                   dir1: GpDir; dir2: GpDir; arrowSide: DsgPrsArrowSide;
-                   drawFromCenter: StandardBoolean = standardTrue) {.
+proc ComputeSymbol*(aPresentation: handle[Prs3d_Presentation];
+                   anAspect: handle[Prs3d_DimensionAspect]; pt1: gp_Pnt;
+                   pt2: gp_Pnt; dir1: gp_Dir; dir2: gp_Dir;
+                   ArrowSide: DsgPrs_ArrowSide;
+                   drawFromCenter: Standard_Boolean = Standard_True) {.
     importcpp: "DsgPrs::ComputeSymbol(@)", header: "DsgPrs.hxx".}
-proc computePlanarFacesLengthPresentation*(firstArrowLength: StandardReal;
-    secondArrowLength: StandardReal; attachmentPoint1: GpPnt;
-    attachmentPoint2: GpPnt; dirAttach: GpDir; offsetPoint: GpPnt;
-    planeOfFaces: GpPln; endOfArrow1: var GpPnt; endOfArrow2: var GpPnt;
-    dirOfArrow1: var GpDir) {.importcpp: "DsgPrs::ComputePlanarFacesLengthPresentation(@)",
-                           header: "DsgPrs.hxx".}
-proc computeCurvilinearFacesLengthPresentation*(firstArrowLength: StandardReal;
-    secondArrowLength: StandardReal; secondSurf: Handle[GeomSurface];
-    attachmentPoint1: GpPnt; attachmentPoint2: GpPnt; dirAttach: GpDir;
-    endOfArrow2: var GpPnt; dirOfArrow1: var GpDir; vCurve: var Handle[GeomCurve];
-    uCurve: var Handle[GeomCurve]; firstU: var StandardReal; deltaU: var StandardReal;
-    firstV: var StandardReal; deltaV: var StandardReal) {.
+proc ComputePlanarFacesLengthPresentation*(FirstArrowLength: Standard_Real;
+    SecondArrowLength: Standard_Real; AttachmentPoint1: gp_Pnt;
+    AttachmentPoint2: gp_Pnt; DirAttach: gp_Dir; OffsetPoint: gp_Pnt;
+    PlaneOfFaces: gp_Pln; EndOfArrow1: var gp_Pnt; EndOfArrow2: var gp_Pnt;
+    DirOfArrow1: var gp_Dir) {.importcpp: "DsgPrs::ComputePlanarFacesLengthPresentation(@)",
+                            header: "DsgPrs.hxx".}
+proc ComputeCurvilinearFacesLengthPresentation*(FirstArrowLength: Standard_Real;
+    SecondArrowLength: Standard_Real; SecondSurf: handle[Geom_Surface];
+    AttachmentPoint1: gp_Pnt; AttachmentPoint2: gp_Pnt; DirAttach: gp_Dir;
+    EndOfArrow2: var gp_Pnt; DirOfArrow1: var gp_Dir; VCurve: var handle[Geom_Curve];
+    UCurve: var handle[Geom_Curve]; FirstU: var Standard_Real;
+    deltaU: var Standard_Real; FirstV: var Standard_Real; deltaV: var Standard_Real) {.
     importcpp: "DsgPrs::ComputeCurvilinearFacesLengthPresentation(@)",
     header: "DsgPrs.hxx".}
-proc computeFacesAnglePresentation*(arrowLength: StandardReal; value: StandardReal;
-                                   centerPoint: GpPnt; attachmentPoint1: GpPnt;
-                                   attachmentPoint2: GpPnt; dir1: GpDir;
-                                   dir2: GpDir; axisdir: GpDir;
-                                   isPlane: StandardBoolean; axisOfSurf: GpAx1;
-                                   offsetPoint: GpPnt; angleCirc: var GpCirc;
-                                   firstParAngleCirc: var StandardReal;
-                                   lastParAngleCirc: var StandardReal;
-                                   endOfArrow1: var GpPnt; endOfArrow2: var GpPnt;
-                                   dirOfArrow1: var GpDir; dirOfArrow2: var GpDir;
-                                   projAttachPoint2: var GpPnt;
-                                   attachCirc: var GpCirc;
-                                   firstParAttachCirc: var StandardReal;
-                                   lastParAttachCirc: var StandardReal) {.
+proc ComputeFacesAnglePresentation*(ArrowLength: Standard_Real;
+                                   Value: Standard_Real; CenterPoint: gp_Pnt;
+                                   AttachmentPoint1: gp_Pnt;
+                                   AttachmentPoint2: gp_Pnt; dir1: gp_Dir;
+                                   dir2: gp_Dir; axisdir: gp_Dir;
+                                   isPlane: Standard_Boolean; AxisOfSurf: gp_Ax1;
+                                   OffsetPoint: gp_Pnt; AngleCirc: var gp_Circ;
+                                   FirstParAngleCirc: var Standard_Real;
+                                   LastParAngleCirc: var Standard_Real;
+                                   EndOfArrow1: var gp_Pnt;
+                                   EndOfArrow2: var gp_Pnt;
+                                   DirOfArrow1: var gp_Dir;
+                                   DirOfArrow2: var gp_Dir;
+                                   ProjAttachPoint2: var gp_Pnt;
+                                   AttachCirc: var gp_Circ;
+                                   FirstParAttachCirc: var Standard_Real;
+                                   LastParAttachCirc: var Standard_Real) {.
     importcpp: "DsgPrs::ComputeFacesAnglePresentation(@)", header: "DsgPrs.hxx".}
-proc computeRadiusLine*(aCenter: GpPnt; anEndOfArrow: GpPnt; aPosition: GpPnt;
-                       drawFromCenter: StandardBoolean; aRadLineOrign: var GpPnt;
-                       aRadLineEnd: var GpPnt) {.
+proc ComputeRadiusLine*(aCenter: gp_Pnt; anEndOfArrow: gp_Pnt; aPosition: gp_Pnt;
+                       drawFromCenter: Standard_Boolean;
+                       aRadLineOrign: var gp_Pnt; aRadLineEnd: var gp_Pnt) {.
     importcpp: "DsgPrs::ComputeRadiusLine(@)", header: "DsgPrs.hxx".}
-proc computeFilletRadiusPresentation*(arrowLength: StandardReal;
-                                     value: StandardReal; position: GpPnt;
-                                     normalDir: GpDir; firstPoint: GpPnt;
-                                     secondPoint: GpPnt; center: GpPnt;
-                                     basePnt: GpPnt; drawRevers: StandardBoolean;
-                                     specCase: var StandardBoolean;
-                                     filletCirc: var GpCirc;
-                                     firstParCirc: var StandardReal;
-                                     lastParCirc: var StandardReal;
-                                     endOfArrow: var GpPnt; dirOfArrow: var GpDir;
-                                     drawPosition: var GpPnt) {.
+proc ComputeFilletRadiusPresentation*(ArrowLength: Standard_Real;
+                                     Value: Standard_Real; Position: gp_Pnt;
+                                     NormalDir: gp_Dir; FirstPoint: gp_Pnt;
+                                     SecondPoint: gp_Pnt; Center: gp_Pnt;
+                                     BasePnt: gp_Pnt;
+                                     drawRevers: Standard_Boolean;
+                                     SpecCase: var Standard_Boolean;
+                                     FilletCirc: var gp_Circ;
+                                     FirstParCirc: var Standard_Real;
+                                     LastParCirc: var Standard_Real;
+                                     EndOfArrow: var gp_Pnt;
+                                     DirOfArrow: var gp_Dir;
+                                     DrawPosition: var gp_Pnt) {.
     importcpp: "DsgPrs::ComputeFilletRadiusPresentation(@)", header: "DsgPrs.hxx".}
-proc distanceFromApex*(elips: GpElips; apex: GpPnt; par: StandardReal): StandardReal {.
+proc DistanceFromApex*(elips: gp_Elips; Apex: gp_Pnt; par: Standard_Real): Standard_Real {.
     importcpp: "DsgPrs::DistanceFromApex(@)", header: "DsgPrs.hxx".}
-

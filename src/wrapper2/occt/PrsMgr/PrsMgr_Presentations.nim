@@ -14,8 +14,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard_Type, ../NCollection/NCollection_Sequence
+
 discard "forward decl of PrsMgr_Presentation"
 type
-  PrsMgrPresentations* = NCollectionSequence[Handle[PrsMgrPresentation]]
-
-
+  PrsMgr_Presentations* = NCollection_Sequence[handle[PrsMgr_Presentation]]

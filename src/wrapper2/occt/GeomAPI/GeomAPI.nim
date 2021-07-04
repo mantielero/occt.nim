@@ -14,6 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Geom2d/Geom2d_Curve, ../Geom/Geom_Curve
+
 discard "forward decl of gp_Pln"
 discard "forward decl of GeomAPI_ProjectPointOnCurve"
 discard "forward decl of GeomAPI_ProjectPointOnSurf"
@@ -42,8 +46,7 @@ type
                                                                     ## Standard_NoSuchObject if C is not a defined type curve.
 
 
-proc to2d*(c: Handle[GeomCurve]; p: GpPln): Handle[Geom2dCurve] {.
+proc To2d*(C: handle[Geom_Curve]; P: gp_Pln): handle[Geom2d_Curve] {.
     importcpp: "GeomAPI::To2d(@)", header: "GeomAPI.hxx".}
-proc to3d*(c: Handle[Geom2dCurve]; p: GpPln): Handle[GeomCurve] {.
+proc To3d*(C: handle[Geom2d_Curve]; P: gp_Pln): handle[Geom_Curve] {.
     importcpp: "GeomAPI::To3d(@)", header: "GeomAPI.hxx".}
-

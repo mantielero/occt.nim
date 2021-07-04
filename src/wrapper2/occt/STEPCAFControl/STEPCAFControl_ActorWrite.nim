@@ -13,40 +13,43 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Boolean,
+  ../TopTools/TopTools_MapOfShape, ../STEPControl/STEPControl_ActorWrite
+
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of STEPCAFControl_ActorWrite"
 discard "forward decl of STEPCAFControl_ActorWrite"
 type
-  HandleSTEPCAFControlActorWrite* = Handle[STEPCAFControlActorWrite]
+  Handle_STEPCAFControl_ActorWrite* = handle[STEPCAFControl_ActorWrite]
 
 ## ! Extends ActorWrite from STEPControl by analysis of
 ## ! whether shape is assembly (based on information from DECAF)
 
 type
-  STEPCAFControlActorWrite* {.importcpp: "STEPCAFControl_ActorWrite",
-                             header: "STEPCAFControl_ActorWrite.hxx", bycopy.} = object of STEPControlActorWrite
+  STEPCAFControl_ActorWrite* {.importcpp: "STEPCAFControl_ActorWrite",
+                              header: "STEPCAFControl_ActorWrite.hxx", bycopy.} = object of STEPControl_ActorWrite
 
 
-proc constructSTEPCAFControlActorWrite*(): STEPCAFControlActorWrite {.constructor,
-    importcpp: "STEPCAFControl_ActorWrite(@)",
+proc constructSTEPCAFControl_ActorWrite*(): STEPCAFControl_ActorWrite {.
+    constructor, importcpp: "STEPCAFControl_ActorWrite(@)",
     header: "STEPCAFControl_ActorWrite.hxx".}
-proc isAssembly*(this: STEPCAFControlActorWrite; s: var TopoDS_Shape): StandardBoolean {.
+proc IsAssembly*(this: STEPCAFControl_ActorWrite; S: var TopoDS_Shape): Standard_Boolean {.
     noSideEffect, importcpp: "IsAssembly", header: "STEPCAFControl_ActorWrite.hxx".}
-proc setStdMode*(this: var STEPCAFControlActorWrite;
-                stdmode: StandardBoolean = standardTrue) {.importcpp: "SetStdMode",
+proc SetStdMode*(this: var STEPCAFControl_ActorWrite;
+                stdmode: Standard_Boolean = Standard_True) {.
+    importcpp: "SetStdMode", header: "STEPCAFControl_ActorWrite.hxx".}
+proc ClearMap*(this: var STEPCAFControl_ActorWrite) {.importcpp: "ClearMap",
     header: "STEPCAFControl_ActorWrite.hxx".}
-proc clearMap*(this: var STEPCAFControlActorWrite) {.importcpp: "ClearMap",
-    header: "STEPCAFControl_ActorWrite.hxx".}
-proc registerAssembly*(this: var STEPCAFControlActorWrite; s: TopoDS_Shape) {.
+proc RegisterAssembly*(this: var STEPCAFControl_ActorWrite; S: TopoDS_Shape) {.
     importcpp: "RegisterAssembly", header: "STEPCAFControl_ActorWrite.hxx".}
 type
-  STEPCAFControlActorWritebaseType* = STEPControlActorWrite
+  STEPCAFControl_ActorWritebase_type* = STEPControl_ActorWrite
 
-proc getTypeName*(): cstring {.importcpp: "STEPCAFControl_ActorWrite::get_type_name(@)",
-                            header: "STEPCAFControl_ActorWrite.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "STEPCAFControl_ActorWrite::get_type_name(@)",
+                              header: "STEPCAFControl_ActorWrite.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "STEPCAFControl_ActorWrite::get_type_descriptor(@)",
     header: "STEPCAFControl_ActorWrite.hxx".}
-proc dynamicType*(this: STEPCAFControlActorWrite): Handle[StandardType] {.
+proc DynamicType*(this: STEPCAFControl_ActorWrite): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType", header: "STEPCAFControl_ActorWrite.hxx".}
-

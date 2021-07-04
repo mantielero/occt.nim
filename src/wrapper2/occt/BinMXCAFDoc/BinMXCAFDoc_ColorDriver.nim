@@ -13,38 +13,42 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../BinMDF/BinMDF_ADriver,
+  ../Standard/Standard_Boolean, ../BinObjMgt/BinObjMgt_RRelocationTable,
+  ../BinObjMgt/BinObjMgt_SRelocationTable
+
 discard "forward decl of Message_Messenger"
 discard "forward decl of TDF_Attribute"
 discard "forward decl of BinObjMgt_Persistent"
 discard "forward decl of BinMXCAFDoc_ColorDriver"
 discard "forward decl of BinMXCAFDoc_ColorDriver"
 type
-  HandleBinMXCAFDocColorDriver* = Handle[BinMXCAFDocColorDriver]
-  BinMXCAFDocColorDriver* {.importcpp: "BinMXCAFDoc_ColorDriver",
-                           header: "BinMXCAFDoc_ColorDriver.hxx", bycopy.} = object of BinMDF_ADriver
+  Handle_BinMXCAFDoc_ColorDriver* = handle[BinMXCAFDoc_ColorDriver]
+  BinMXCAFDoc_ColorDriver* {.importcpp: "BinMXCAFDoc_ColorDriver",
+                            header: "BinMXCAFDoc_ColorDriver.hxx", bycopy.} = object of BinMDF_ADriver
 
 
-proc constructBinMXCAFDocColorDriver*(theMsgDriver: Handle[MessageMessenger]): BinMXCAFDocColorDriver {.
+proc constructBinMXCAFDoc_ColorDriver*(theMsgDriver: handle[Message_Messenger]): BinMXCAFDoc_ColorDriver {.
     constructor, importcpp: "BinMXCAFDoc_ColorDriver(@)",
     header: "BinMXCAFDoc_ColorDriver.hxx".}
-proc newEmpty*(this: BinMXCAFDocColorDriver): Handle[TDF_Attribute] {.noSideEffect,
+proc NewEmpty*(this: BinMXCAFDoc_ColorDriver): handle[TDF_Attribute] {.noSideEffect,
     importcpp: "NewEmpty", header: "BinMXCAFDoc_ColorDriver.hxx".}
-proc paste*(this: BinMXCAFDocColorDriver; theSource: BinObjMgtPersistent;
-           theTarget: Handle[TDF_Attribute];
-           theRelocTable: var BinObjMgtRRelocationTable): StandardBoolean {.
+proc Paste*(this: BinMXCAFDoc_ColorDriver; theSource: BinObjMgt_Persistent;
+           theTarget: handle[TDF_Attribute];
+           theRelocTable: var BinObjMgt_RRelocationTable): Standard_Boolean {.
     noSideEffect, importcpp: "Paste", header: "BinMXCAFDoc_ColorDriver.hxx".}
-proc paste*(this: BinMXCAFDocColorDriver; theSource: Handle[TDF_Attribute];
-           theTarget: var BinObjMgtPersistent;
-           theRelocTable: var BinObjMgtSRelocationTable) {.noSideEffect,
+proc Paste*(this: BinMXCAFDoc_ColorDriver; theSource: handle[TDF_Attribute];
+           theTarget: var BinObjMgt_Persistent;
+           theRelocTable: var BinObjMgt_SRelocationTable) {.noSideEffect,
     importcpp: "Paste", header: "BinMXCAFDoc_ColorDriver.hxx".}
 type
-  BinMXCAFDocColorDriverbaseType* = BinMDF_ADriver
+  BinMXCAFDoc_ColorDriverbase_type* = BinMDF_ADriver
 
-proc getTypeName*(): cstring {.importcpp: "BinMXCAFDoc_ColorDriver::get_type_name(@)",
-                            header: "BinMXCAFDoc_ColorDriver.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "BinMXCAFDoc_ColorDriver::get_type_name(@)",
+                              header: "BinMXCAFDoc_ColorDriver.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "BinMXCAFDoc_ColorDriver::get_type_descriptor(@)",
     header: "BinMXCAFDoc_ColorDriver.hxx".}
-proc dynamicType*(this: BinMXCAFDocColorDriver): Handle[StandardType] {.
+proc DynamicType*(this: BinMXCAFDoc_ColorDriver): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType", header: "BinMXCAFDoc_ColorDriver.hxx".}
-

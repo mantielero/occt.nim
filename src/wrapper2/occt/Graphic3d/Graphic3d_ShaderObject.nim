@@ -13,71 +13,72 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../OSD/OSD_Path, Graphic3d_TypeOfShaderObject
+
 ## ! Forward declaration
 ## ! This class is responsible for managing shader objects.
 
 type
-  Graphic3dShaderObject* {.importcpp: "Graphic3d_ShaderObject",
-                          header: "Graphic3d_ShaderObject.hxx", bycopy.} = object of StandardTransient ##
-                                                                                                ## !
-                                                                                                ## Creates
-                                                                                                ## new
-                                                                                                ## shader
-                                                                                                ## object
-                                                                                                ## of
-                                                                                                ## specified
-                                                                                                ## type.
-                                                                                                ##
-                                                                                                ## !
-                                                                                                ## Releases
-                                                                                                ## resources
-                                                                                                ## of
-                                                                                                ## shader
-                                                                                                ## object.
-                                                                                                ##
-                                                                                                ## !
-                                                                                                ## The
-                                                                                                ## type
-                                                                                                ## of
-                                                                                                ## shader
-                                                                                                ## object.
+  Graphic3d_ShaderObject* {.importcpp: "Graphic3d_ShaderObject",
+                           header: "Graphic3d_ShaderObject.hxx", bycopy.} = object of Standard_Transient ##
+                                                                                                  ## !
+                                                                                                  ## Creates
+                                                                                                  ## new
+                                                                                                  ## shader
+                                                                                                  ## object
+                                                                                                  ## of
+                                                                                                  ## specified
+                                                                                                  ## type.
+                                                                                                  ##
+                                                                                                  ## !
+                                                                                                  ## Releases
+                                                                                                  ## resources
+                                                                                                  ## of
+                                                                                                  ## shader
+                                                                                                  ## object.
+                                                                                                  ##
+                                                                                                  ## !
+                                                                                                  ## The
+                                                                                                  ## type
+                                                                                                  ## of
+                                                                                                  ## shader
+                                                                                                  ## object.
     ## !< the ID of shader object
     ## !< the source code of shader object
     ## !< the path to shader source (may be empty)
 
 
-proc destroyGraphic3dShaderObject*(this: var Graphic3dShaderObject) {.
+proc destroyGraphic3d_ShaderObject*(this: var Graphic3d_ShaderObject) {.
     importcpp: "#.~Graphic3d_ShaderObject()", header: "Graphic3d_ShaderObject.hxx".}
-proc isDone*(this: Graphic3dShaderObject): StandardBoolean {.noSideEffect,
+proc IsDone*(this: Graphic3d_ShaderObject): Standard_Boolean {.noSideEffect,
     importcpp: "IsDone", header: "Graphic3d_ShaderObject.hxx".}
-proc path*(this: Graphic3dShaderObject): OSD_Path {.noSideEffect, importcpp: "Path",
+proc Path*(this: Graphic3d_ShaderObject): OSD_Path {.noSideEffect, importcpp: "Path",
     header: "Graphic3d_ShaderObject.hxx".}
-proc source*(this: Graphic3dShaderObject): TCollectionAsciiString {.noSideEffect,
+proc Source*(this: Graphic3d_ShaderObject): TCollection_AsciiString {.noSideEffect,
     importcpp: "Source", header: "Graphic3d_ShaderObject.hxx".}
-proc `type`*(this: Graphic3dShaderObject): Graphic3dTypeOfShaderObject {.
+proc Type*(this: Graphic3d_ShaderObject): Graphic3d_TypeOfShaderObject {.
     noSideEffect, importcpp: "Type", header: "Graphic3d_ShaderObject.hxx".}
-proc getId*(this: Graphic3dShaderObject): TCollectionAsciiString {.noSideEffect,
+proc GetId*(this: Graphic3d_ShaderObject): TCollection_AsciiString {.noSideEffect,
     importcpp: "GetId", header: "Graphic3d_ShaderObject.hxx".}
-proc createFromFile*(theType: Graphic3dTypeOfShaderObject;
-                    thePath: TCollectionAsciiString): Handle[Graphic3dShaderObject] {.
-    importcpp: "Graphic3d_ShaderObject::CreateFromFile(@)",
-    header: "Graphic3d_ShaderObject.hxx".}
-proc createFromSource*(theType: Graphic3dTypeOfShaderObject;
-                      theSource: TCollectionAsciiString): Handle[
-    Graphic3dShaderObject] {.importcpp: "Graphic3d_ShaderObject::CreateFromSource(@)",
-                            header: "Graphic3d_ShaderObject.hxx".}
+proc CreateFromFile*(theType: Graphic3d_TypeOfShaderObject;
+                    thePath: TCollection_AsciiString): handle[
+    Graphic3d_ShaderObject] {.importcpp: "Graphic3d_ShaderObject::CreateFromFile(@)",
+                             header: "Graphic3d_ShaderObject.hxx".}
+proc CreateFromSource*(theType: Graphic3d_TypeOfShaderObject;
+                      theSource: TCollection_AsciiString): handle[
+    Graphic3d_ShaderObject] {.importcpp: "Graphic3d_ShaderObject::CreateFromSource(@)",
+                             header: "Graphic3d_ShaderObject.hxx".}
 type
-  Graphic3dShaderObjectbaseType* = StandardTransient
+  Graphic3d_ShaderObjectbase_type* = Standard_Transient
 
-proc getTypeName*(): cstring {.importcpp: "Graphic3d_ShaderObject::get_type_name(@)",
-                            header: "Graphic3d_ShaderObject.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "Graphic3d_ShaderObject::get_type_name(@)",
+                              header: "Graphic3d_ShaderObject.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "Graphic3d_ShaderObject::get_type_descriptor(@)",
     header: "Graphic3d_ShaderObject.hxx".}
-proc dynamicType*(this: Graphic3dShaderObject): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "Graphic3d_ShaderObject.hxx".}
+proc DynamicType*(this: Graphic3d_ShaderObject): handle[Standard_Type] {.
+    noSideEffect, importcpp: "DynamicType", header: "Graphic3d_ShaderObject.hxx".}
 discard "forward decl of Graphic3d_ShaderObject"
 type
-  HandleGraphic3dShaderObject* = Handle[Graphic3dShaderObject]
-
-
+  Handle_Graphic3d_ShaderObject* = handle[Graphic3d_ShaderObject]

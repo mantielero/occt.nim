@@ -11,16 +11,19 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Graphic3d/Graphic3d_ArrayOfPoints, ../Graphic3d/Graphic3d_Vertex,
+  ../Graphic3d/Graphic3d_Group, Prs3d_Drawer, Prs3d_PointAspect
+
 type
-  Prs3dPoint*[AnyPoint; PointTool] {.importcpp: "Prs3d_Point<\'0,\'1>",
-                                   header: "Prs3d_Point.hxx", bycopy.} = object
+  Prs3d_Point*[AnyPoint; PointTool] {.importcpp: "Prs3d_Point<\'0,\'1>",
+                                    header: "Prs3d_Point.hxx", bycopy.} = object
 
 
-proc add*[AnyPoint; PointTool](thePrs: Handle[Prs3dPresentation];
-                             thePoint: AnyPoint; theDrawer: Handle[Prs3dDrawer]) {.
+proc Add*[AnyPoint; PointTool](thePrs: handle[Prs3d_Presentation];
+                             thePoint: AnyPoint; theDrawer: handle[Prs3d_Drawer]) {.
     importcpp: "Prs3d_Point::Add(@)", header: "Prs3d_Point.hxx".}
-proc match*[AnyPoint; PointTool](thePoint: AnyPoint; theX: StandardReal;
-                               theY: StandardReal; theZ: StandardReal;
-                               theDistance: StandardReal): StandardBoolean {.
+proc Match*[AnyPoint; PointTool](thePoint: AnyPoint; theX: Standard_Real;
+                               theY: Standard_Real; theZ: Standard_Real;
+                               theDistance: Standard_Real): Standard_Boolean {.
     importcpp: "Prs3d_Point::Match(@)", header: "Prs3d_Point.hxx".}
-

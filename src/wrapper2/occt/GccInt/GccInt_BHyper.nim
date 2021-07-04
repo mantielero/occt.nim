@@ -14,45 +14,48 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../gp/gp_Hypr2d, GccInt_Bisec,
+  GccInt_IType
+
 discard "forward decl of gp_Hypr2d"
 discard "forward decl of GccInt_BHyper"
 discard "forward decl of GccInt_BHyper"
 type
-  HandleGccIntBHyper* = Handle[GccIntBHyper]
+  Handle_GccInt_BHyper* = handle[GccInt_BHyper]
 
 ## ! Describes a hyperbola as a bisecting curve between two
 ## ! 2D geometric objects (such as circles or points).
 
 type
-  GccIntBHyper* {.importcpp: "GccInt_BHyper", header: "GccInt_BHyper.hxx", bycopy.} = object of GccIntBisec ##
-                                                                                                  ## !
-                                                                                                  ## Constructs
-                                                                                                  ## a
-                                                                                                  ## bisecting
-                                                                                                  ## curve
-                                                                                                  ## whose
-                                                                                                  ## geometry
-                                                                                                  ## is
-                                                                                                  ## the
-                                                                                                  ## 2D
-                                                                                                  ## hyperbola
-                                                                                                  ## Hyper.
+  GccInt_BHyper* {.importcpp: "GccInt_BHyper", header: "GccInt_BHyper.hxx", bycopy.} = object of GccInt_Bisec ##
+                                                                                                    ## !
+                                                                                                    ## Constructs
+                                                                                                    ## a
+                                                                                                    ## bisecting
+                                                                                                    ## curve
+                                                                                                    ## whose
+                                                                                                    ## geometry
+                                                                                                    ## is
+                                                                                                    ## the
+                                                                                                    ## 2D
+                                                                                                    ## hyperbola
+                                                                                                    ## Hyper.
 
 
-proc constructGccIntBHyper*(hyper: GpHypr2d): GccIntBHyper {.constructor,
+proc constructGccInt_BHyper*(Hyper: gp_Hypr2d): GccInt_BHyper {.constructor,
     importcpp: "GccInt_BHyper(@)", header: "GccInt_BHyper.hxx".}
-proc hyperbola*(this: GccIntBHyper): GpHypr2d {.noSideEffect, importcpp: "Hyperbola",
-    header: "GccInt_BHyper.hxx".}
-proc arcType*(this: GccIntBHyper): GccIntIType {.noSideEffect, importcpp: "ArcType",
-    header: "GccInt_BHyper.hxx".}
+proc Hyperbola*(this: GccInt_BHyper): gp_Hypr2d {.noSideEffect,
+    importcpp: "Hyperbola", header: "GccInt_BHyper.hxx".}
+proc ArcType*(this: GccInt_BHyper): GccInt_IType {.noSideEffect,
+    importcpp: "ArcType", header: "GccInt_BHyper.hxx".}
 type
-  GccIntBHyperbaseType* = GccIntBisec
+  GccInt_BHyperbase_type* = GccInt_Bisec
 
-proc getTypeName*(): cstring {.importcpp: "GccInt_BHyper::get_type_name(@)",
-                            header: "GccInt_BHyper.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "GccInt_BHyper::get_type_name(@)",
+                              header: "GccInt_BHyper.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "GccInt_BHyper::get_type_descriptor(@)",
     header: "GccInt_BHyper.hxx".}
-proc dynamicType*(this: GccIntBHyper): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: GccInt_BHyper): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "GccInt_BHyper.hxx".}
-

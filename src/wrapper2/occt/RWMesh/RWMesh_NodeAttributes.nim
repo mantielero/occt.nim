@@ -12,16 +12,18 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../NCollection/NCollection_DataMap, ../TCollection/TCollection_AsciiString,
+  ../TopTools/TopTools_ShapeMapHasher, ../XCAFPrs/XCAFPrs_Style
+
 discard "forward decl of TDataStd_NamedData"
 type
-  RWMeshNodeAttributes* {.importcpp: "RWMesh_NodeAttributes",
-                         header: "RWMesh_NodeAttributes.hxx", bycopy.} = object
-    name* {.importc: "Name".}: TCollectionAsciiString ## !< name for the user
-    rawName* {.importc: "RawName".}: TCollectionAsciiString ## !< name within low-level format structure
-    namedData* {.importc: "NamedData".}: Handle[TDataStdNamedData] ## !< optional metadata
-    style* {.importc: "Style".}: XCAFPrsStyle ## !< presentation style
+  RWMesh_NodeAttributes* {.importcpp: "RWMesh_NodeAttributes",
+                          header: "RWMesh_NodeAttributes.hxx", bycopy.} = object
+    Name* {.importc: "Name".}: TCollection_AsciiString ## !< name for the user
+    RawName* {.importc: "RawName".}: TCollection_AsciiString ## !< name within low-level format structure
+    NamedData* {.importc: "NamedData".}: handle[TDataStd_NamedData] ## !< optional metadata
+    Style* {.importc: "Style".}: XCAFPrs_Style ## !< presentation style
 
-  RWMeshNodeAttributeMap* = NCollectionDataMap[TopoDS_Shape, RWMeshNodeAttributes,
-      TopToolsShapeMapHasher]
-
-
+  RWMesh_NodeAttributeMap* = NCollection_DataMap[TopoDS_Shape,
+      RWMesh_NodeAttributes, TopTools_ShapeMapHasher]

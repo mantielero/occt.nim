@@ -14,6 +14,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../gp/gp_Ax1, Geom_Curve,
+  ../Standard/Standard_Real, ../Standard/Standard_Boolean,
+  ../GeomAbs/GeomAbs_Shape, ../Standard/Standard_Integer
+
 discard "forward decl of Standard_RangeError"
 discard "forward decl of gp_Ax1"
 discard "forward decl of gp_Lin"
@@ -25,7 +30,7 @@ discard "forward decl of Geom_Geometry"
 discard "forward decl of Geom_Line"
 discard "forward decl of Geom_Line"
 type
-  HandleGeomLine* = Handle[GeomLine]
+  Handle_Geom_Line* = handle[Geom_Line]
 
 ## ! Describes an infinite line.
 ## ! A line is defined and positioned in space with an axis
@@ -39,95 +44,94 @@ type
 ## ! of its positioning axis.
 
 type
-  GeomLine* {.importcpp: "Geom_Line", header: "Geom_Line.hxx", bycopy.} = object of GeomCurve ##
-                                                                                    ## !
-                                                                                    ## Creates
-                                                                                    ## a
-                                                                                    ## line
-                                                                                    ## located
-                                                                                    ## in
-                                                                                    ## 3D
-                                                                                    ## space
-                                                                                    ## with
-                                                                                    ## the
-                                                                                    ## axis
-                                                                                    ## placement
-                                                                                    ## A1.
-                                                                                    ##
-                                                                                    ## !
-                                                                                    ## The
-                                                                                    ## Location
-                                                                                    ## of
-                                                                                    ## A1
-                                                                                    ## is
-                                                                                    ## the
-                                                                                    ## origin
-                                                                                    ## of
-                                                                                    ## the
-                                                                                    ## line.
+  Geom_Line* {.importcpp: "Geom_Line", header: "Geom_Line.hxx", bycopy.} = object of Geom_Curve ##
+                                                                                      ## !
+                                                                                      ## Creates
+                                                                                      ## a
+                                                                                      ## line
+                                                                                      ## located
+                                                                                      ## in
+                                                                                      ## 3D
+                                                                                      ## space
+                                                                                      ## with
+                                                                                      ## the
+                                                                                      ## axis
+                                                                                      ## placement
+                                                                                      ## A1.
+                                                                                      ##
+                                                                                      ## !
+                                                                                      ## The
+                                                                                      ## Location
+                                                                                      ## of
+                                                                                      ## A1
+                                                                                      ## is
+                                                                                      ## the
+                                                                                      ## origin
+                                                                                      ## of
+                                                                                      ## the
+                                                                                      ## line.
 
 
-proc constructGeomLine*(a1: GpAx1): GeomLine {.constructor,
+proc constructGeom_Line*(A1: gp_Ax1): Geom_Line {.constructor,
     importcpp: "Geom_Line(@)", header: "Geom_Line.hxx".}
-proc constructGeomLine*(L: GpLin): GeomLine {.constructor, importcpp: "Geom_Line(@)",
-    header: "Geom_Line.hxx".}
-proc constructGeomLine*(p: GpPnt; v: GpDir): GeomLine {.constructor,
+proc constructGeom_Line*(L: gp_Lin): Geom_Line {.constructor,
     importcpp: "Geom_Line(@)", header: "Geom_Line.hxx".}
-proc setLin*(this: var GeomLine; L: GpLin) {.importcpp: "SetLin",
-                                       header: "Geom_Line.hxx".}
-proc setDirection*(this: var GeomLine; v: GpDir) {.importcpp: "SetDirection",
+proc constructGeom_Line*(P: gp_Pnt; V: gp_Dir): Geom_Line {.constructor,
+    importcpp: "Geom_Line(@)", header: "Geom_Line.hxx".}
+proc SetLin*(this: var Geom_Line; L: gp_Lin) {.importcpp: "SetLin",
     header: "Geom_Line.hxx".}
-proc setLocation*(this: var GeomLine; p: GpPnt) {.importcpp: "SetLocation",
+proc SetDirection*(this: var Geom_Line; V: gp_Dir) {.importcpp: "SetDirection",
     header: "Geom_Line.hxx".}
-proc setPosition*(this: var GeomLine; a1: GpAx1) {.importcpp: "SetPosition",
+proc SetLocation*(this: var Geom_Line; P: gp_Pnt) {.importcpp: "SetLocation",
     header: "Geom_Line.hxx".}
-proc lin*(this: GeomLine): GpLin {.noSideEffect, importcpp: "Lin",
-                               header: "Geom_Line.hxx".}
-proc position*(this: GeomLine): GpAx1 {.noSideEffect, importcpp: "Position",
-                                    header: "Geom_Line.hxx".}
-proc reverse*(this: var GeomLine) {.importcpp: "Reverse", header: "Geom_Line.hxx".}
-proc reversedParameter*(this: GeomLine; u: StandardReal): StandardReal {.noSideEffect,
-    importcpp: "ReversedParameter", header: "Geom_Line.hxx".}
-proc firstParameter*(this: GeomLine): StandardReal {.noSideEffect,
+proc SetPosition*(this: var Geom_Line; A1: gp_Ax1) {.importcpp: "SetPosition",
+    header: "Geom_Line.hxx".}
+proc Lin*(this: Geom_Line): gp_Lin {.noSideEffect, importcpp: "Lin",
+                                 header: "Geom_Line.hxx".}
+proc Position*(this: Geom_Line): gp_Ax1 {.noSideEffect, importcpp: "Position",
+                                      header: "Geom_Line.hxx".}
+proc Reverse*(this: var Geom_Line) {.importcpp: "Reverse", header: "Geom_Line.hxx".}
+proc ReversedParameter*(this: Geom_Line; U: Standard_Real): Standard_Real {.
+    noSideEffect, importcpp: "ReversedParameter", header: "Geom_Line.hxx".}
+proc FirstParameter*(this: Geom_Line): Standard_Real {.noSideEffect,
     importcpp: "FirstParameter", header: "Geom_Line.hxx".}
-proc lastParameter*(this: GeomLine): StandardReal {.noSideEffect,
+proc LastParameter*(this: Geom_Line): Standard_Real {.noSideEffect,
     importcpp: "LastParameter", header: "Geom_Line.hxx".}
-proc isClosed*(this: GeomLine): StandardBoolean {.noSideEffect,
+proc IsClosed*(this: Geom_Line): Standard_Boolean {.noSideEffect,
     importcpp: "IsClosed", header: "Geom_Line.hxx".}
-proc isPeriodic*(this: GeomLine): StandardBoolean {.noSideEffect,
+proc IsPeriodic*(this: Geom_Line): Standard_Boolean {.noSideEffect,
     importcpp: "IsPeriodic", header: "Geom_Line.hxx".}
-proc continuity*(this: GeomLine): GeomAbsShape {.noSideEffect,
+proc Continuity*(this: Geom_Line): GeomAbs_Shape {.noSideEffect,
     importcpp: "Continuity", header: "Geom_Line.hxx".}
-proc isCN*(this: GeomLine; n: StandardInteger): StandardBoolean {.noSideEffect,
+proc IsCN*(this: Geom_Line; N: Standard_Integer): Standard_Boolean {.noSideEffect,
     importcpp: "IsCN", header: "Geom_Line.hxx".}
-proc d0*(this: GeomLine; u: StandardReal; p: var GpPnt) {.noSideEffect, importcpp: "D0",
-    header: "Geom_Line.hxx".}
-proc d1*(this: GeomLine; u: StandardReal; p: var GpPnt; v1: var GpVec) {.noSideEffect,
+proc D0*(this: Geom_Line; U: Standard_Real; P: var gp_Pnt) {.noSideEffect,
+    importcpp: "D0", header: "Geom_Line.hxx".}
+proc D1*(this: Geom_Line; U: Standard_Real; P: var gp_Pnt; V1: var gp_Vec) {.noSideEffect,
     importcpp: "D1", header: "Geom_Line.hxx".}
-proc d2*(this: GeomLine; u: StandardReal; p: var GpPnt; v1: var GpVec; v2: var GpVec) {.
+proc D2*(this: Geom_Line; U: Standard_Real; P: var gp_Pnt; V1: var gp_Vec; V2: var gp_Vec) {.
     noSideEffect, importcpp: "D2", header: "Geom_Line.hxx".}
-proc d3*(this: GeomLine; u: StandardReal; p: var GpPnt; v1: var GpVec; v2: var GpVec;
-        v3: var GpVec) {.noSideEffect, importcpp: "D3", header: "Geom_Line.hxx".}
-proc dn*(this: GeomLine; u: StandardReal; n: StandardInteger): GpVec {.noSideEffect,
+proc D3*(this: Geom_Line; U: Standard_Real; P: var gp_Pnt; V1: var gp_Vec; V2: var gp_Vec;
+        V3: var gp_Vec) {.noSideEffect, importcpp: "D3", header: "Geom_Line.hxx".}
+proc DN*(this: Geom_Line; U: Standard_Real; N: Standard_Integer): gp_Vec {.noSideEffect,
     importcpp: "DN", header: "Geom_Line.hxx".}
-proc transform*(this: var GeomLine; t: GpTrsf) {.importcpp: "Transform",
+proc Transform*(this: var Geom_Line; T: gp_Trsf) {.importcpp: "Transform",
     header: "Geom_Line.hxx".}
-proc transformedParameter*(this: GeomLine; u: StandardReal; t: GpTrsf): StandardReal {.
+proc TransformedParameter*(this: Geom_Line; U: Standard_Real; T: gp_Trsf): Standard_Real {.
     noSideEffect, importcpp: "TransformedParameter", header: "Geom_Line.hxx".}
-proc parametricTransformation*(this: GeomLine; t: GpTrsf): StandardReal {.
+proc ParametricTransformation*(this: Geom_Line; T: gp_Trsf): Standard_Real {.
     noSideEffect, importcpp: "ParametricTransformation", header: "Geom_Line.hxx".}
-proc copy*(this: GeomLine): Handle[GeomGeometry] {.noSideEffect, importcpp: "Copy",
+proc Copy*(this: Geom_Line): handle[Geom_Geometry] {.noSideEffect, importcpp: "Copy",
     header: "Geom_Line.hxx".}
-proc dumpJson*(this: GeomLine; theOStream: var StandardOStream;
-              theDepth: StandardInteger = -1) {.noSideEffect, importcpp: "DumpJson",
+proc DumpJson*(this: Geom_Line; theOStream: var Standard_OStream;
+              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
     header: "Geom_Line.hxx".}
 type
-  GeomLinebaseType* = GeomCurve
+  Geom_Linebase_type* = Geom_Curve
 
-proc getTypeName*(): cstring {.importcpp: "Geom_Line::get_type_name(@)",
-                            header: "Geom_Line.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "Geom_Line::get_type_name(@)",
+                              header: "Geom_Line.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "Geom_Line::get_type_descriptor(@)", header: "Geom_Line.hxx".}
-proc dynamicType*(this: GeomLine): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: Geom_Line): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "Geom_Line.hxx".}
-

@@ -14,6 +14,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, IGESSelect_ModelModifier
+
 discard "forward decl of IFSelect_ContextModif"
 discard "forward decl of IGESData_IGESModel"
 discard "forward decl of Interface_CopyTool"
@@ -21,7 +24,7 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of IGESSelect_AutoCorrect"
 discard "forward decl of IGESSelect_AutoCorrect"
 type
-  HandleIGESSelectAutoCorrect* = Handle[IGESSelectAutoCorrect]
+  Handle_IGESSelect_AutoCorrect* = handle[IGESSelect_AutoCorrect]
 
 ## ! Does the absolutely effective corrections on IGES Entity.
 ## ! That is to say : regarding the norm in details, some values
@@ -46,29 +49,28 @@ type
 ## ! model are corrected.
 
 type
-  IGESSelectAutoCorrect* {.importcpp: "IGESSelect_AutoCorrect",
-                          header: "IGESSelect_AutoCorrect.hxx", bycopy.} = object of IGESSelectModelModifier ##
-                                                                                                      ## !
-                                                                                                      ## Creates
-                                                                                                      ## an
-                                                                                                      ## AutoCorrect.
+  IGESSelect_AutoCorrect* {.importcpp: "IGESSelect_AutoCorrect",
+                           header: "IGESSelect_AutoCorrect.hxx", bycopy.} = object of IGESSelect_ModelModifier ##
+                                                                                                        ## !
+                                                                                                        ## Creates
+                                                                                                        ## an
+                                                                                                        ## AutoCorrect.
 
 
-proc constructIGESSelectAutoCorrect*(): IGESSelectAutoCorrect {.constructor,
+proc constructIGESSelect_AutoCorrect*(): IGESSelect_AutoCorrect {.constructor,
     importcpp: "IGESSelect_AutoCorrect(@)", header: "IGESSelect_AutoCorrect.hxx".}
-proc performing*(this: IGESSelectAutoCorrect; ctx: var IFSelectContextModif;
-                target: Handle[IGESDataIGESModel]; tc: var InterfaceCopyTool) {.
+proc Performing*(this: IGESSelect_AutoCorrect; ctx: var IFSelect_ContextModif;
+                target: handle[IGESData_IGESModel]; TC: var Interface_CopyTool) {.
     noSideEffect, importcpp: "Performing", header: "IGESSelect_AutoCorrect.hxx".}
-proc label*(this: IGESSelectAutoCorrect): TCollectionAsciiString {.noSideEffect,
+proc Label*(this: IGESSelect_AutoCorrect): TCollection_AsciiString {.noSideEffect,
     importcpp: "Label", header: "IGESSelect_AutoCorrect.hxx".}
 type
-  IGESSelectAutoCorrectbaseType* = IGESSelectModelModifier
+  IGESSelect_AutoCorrectbase_type* = IGESSelect_ModelModifier
 
-proc getTypeName*(): cstring {.importcpp: "IGESSelect_AutoCorrect::get_type_name(@)",
-                            header: "IGESSelect_AutoCorrect.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "IGESSelect_AutoCorrect::get_type_name(@)",
+                              header: "IGESSelect_AutoCorrect.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "IGESSelect_AutoCorrect::get_type_descriptor(@)",
     header: "IGESSelect_AutoCorrect.hxx".}
-proc dynamicType*(this: IGESSelectAutoCorrect): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "IGESSelect_AutoCorrect.hxx".}
-
+proc DynamicType*(this: IGESSelect_AutoCorrect): handle[Standard_Type] {.
+    noSideEffect, importcpp: "DynamicType", header: "IGESSelect_AutoCorrect.hxx".}

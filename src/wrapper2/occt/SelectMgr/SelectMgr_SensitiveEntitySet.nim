@@ -13,63 +13,66 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../BVH/BVH_PrimitiveSet3d, ../NCollection/NCollection_IndexedMap,
+  ../Select3D/Select3D_BndBox3d, ../Select3D/Select3D_BVHBuilder3d,
+  SelectMgr_SensitiveEntity, SelectMgr_Selection
+
 type
-  SelectMgrIndexedMapOfHSensitive* = NCollectionIndexedMap[
-      Handle[SelectMgrSensitiveEntity]]
+  SelectMgr_IndexedMapOfHSensitive* = NCollection_IndexedMap[
+      handle[SelectMgr_SensitiveEntity]]
 
 ## ! This class is used to store all calculated sensitive entites of one selectable
 ## ! object. It provides an interface for building BVH tree which is used to speed-up
 ## ! the performance of searching for overlap among sensitives of one selectable object
 
 type
-  SelectMgrSensitiveEntitySet* {.importcpp: "SelectMgr_SensitiveEntitySet",
-                                header: "SelectMgr_SensitiveEntitySet.hxx", bycopy.} = object of BVH_PrimitiveSet3d ##
-                                                                                                             ## !
-                                                                                                             ## Empty
-                                                                                                             ## constructor.
+  SelectMgr_SensitiveEntitySet* {.importcpp: "SelectMgr_SensitiveEntitySet",
+                                 header: "SelectMgr_SensitiveEntitySet.hxx",
+                                 bycopy.} = object of BVH_PrimitiveSet3d ## ! Empty constructor.
     ## !< Map of entities and its corresponding index in BVH
 
-  SelectMgrSensitiveEntitySetbaseType* = BVH_PrimitiveSet3d
+  SelectMgr_SensitiveEntitySetbase_type* = BVH_PrimitiveSet3d
 
-proc getTypeName*(): cstring {.importcpp: "SelectMgr_SensitiveEntitySet::get_type_name(@)",
-                            header: "SelectMgr_SensitiveEntitySet.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "SelectMgr_SensitiveEntitySet::get_type_name(@)",
+                              header: "SelectMgr_SensitiveEntitySet.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "SelectMgr_SensitiveEntitySet::get_type_descriptor(@)",
     header: "SelectMgr_SensitiveEntitySet.hxx".}
-proc dynamicType*(this: SelectMgrSensitiveEntitySet): Handle[StandardType] {.
+proc DynamicType*(this: SelectMgr_SensitiveEntitySet): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType",
     header: "SelectMgr_SensitiveEntitySet.hxx".}
-proc constructSelectMgrSensitiveEntitySet*(
-    theBuilder: Handle[Select3D_BVHBuilder3d]): SelectMgrSensitiveEntitySet {.
+proc constructSelectMgr_SensitiveEntitySet*(
+    theBuilder: handle[Select3D_BVHBuilder3d]): SelectMgr_SensitiveEntitySet {.
     constructor, importcpp: "SelectMgr_SensitiveEntitySet(@)",
     header: "SelectMgr_SensitiveEntitySet.hxx".}
-proc destroySelectMgrSensitiveEntitySet*(this: var SelectMgrSensitiveEntitySet) {.
+proc destroySelectMgr_SensitiveEntitySet*(this: var SelectMgr_SensitiveEntitySet) {.
     importcpp: "#.~SelectMgr_SensitiveEntitySet()",
     header: "SelectMgr_SensitiveEntitySet.hxx".}
-proc append*(this: var SelectMgrSensitiveEntitySet;
-            theEntity: Handle[SelectMgrSensitiveEntity]) {.importcpp: "Append",
+proc Append*(this: var SelectMgr_SensitiveEntitySet;
+            theEntity: handle[SelectMgr_SensitiveEntity]) {.importcpp: "Append",
     header: "SelectMgr_SensitiveEntitySet.hxx".}
-proc append*(this: var SelectMgrSensitiveEntitySet;
-            theSelection: Handle[SelectMgrSelection]) {.importcpp: "Append",
+proc Append*(this: var SelectMgr_SensitiveEntitySet;
+            theSelection: handle[SelectMgr_Selection]) {.importcpp: "Append",
     header: "SelectMgr_SensitiveEntitySet.hxx".}
-proc remove*(this: var SelectMgrSensitiveEntitySet;
-            theSelection: Handle[SelectMgrSelection]) {.importcpp: "Remove",
+proc Remove*(this: var SelectMgr_SensitiveEntitySet;
+            theSelection: handle[SelectMgr_Selection]) {.importcpp: "Remove",
     header: "SelectMgr_SensitiveEntitySet.hxx".}
-proc box*(this: SelectMgrSensitiveEntitySet; theIndex: StandardInteger): Select3D_BndBox3d {.
+proc Box*(this: SelectMgr_SensitiveEntitySet; theIndex: Standard_Integer): Select3D_BndBox3d {.
     noSideEffect, importcpp: "Box", header: "SelectMgr_SensitiveEntitySet.hxx".}
 ## using statement
 
-proc center*(this: SelectMgrSensitiveEntitySet; theIndex: StandardInteger;
-            theAxis: StandardInteger): StandardReal {.noSideEffect,
+proc Center*(this: SelectMgr_SensitiveEntitySet; theIndex: Standard_Integer;
+            theAxis: Standard_Integer): Standard_Real {.noSideEffect,
     importcpp: "Center", header: "SelectMgr_SensitiveEntitySet.hxx".}
-proc swap*(this: var SelectMgrSensitiveEntitySet; theIndex1: StandardInteger;
-          theIndex2: StandardInteger) {.importcpp: "Swap", header: "SelectMgr_SensitiveEntitySet.hxx".}
-proc size*(this: SelectMgrSensitiveEntitySet): StandardInteger {.noSideEffect,
+proc Swap*(this: var SelectMgr_SensitiveEntitySet; theIndex1: Standard_Integer;
+          theIndex2: Standard_Integer) {.importcpp: "Swap", header: "SelectMgr_SensitiveEntitySet.hxx".}
+proc Size*(this: SelectMgr_SensitiveEntitySet): Standard_Integer {.noSideEffect,
     importcpp: "Size", header: "SelectMgr_SensitiveEntitySet.hxx".}
-proc getSensitiveById*(this: SelectMgrSensitiveEntitySet; theIndex: StandardInteger): Handle[
-    SelectMgrSensitiveEntity] {.noSideEffect, importcpp: "GetSensitiveById",
-                               header: "SelectMgr_SensitiveEntitySet.hxx".}
-proc sensitives*(this: SelectMgrSensitiveEntitySet): SelectMgrIndexedMapOfHSensitive {.
+proc GetSensitiveById*(this: SelectMgr_SensitiveEntitySet;
+                      theIndex: Standard_Integer): handle[
+    SelectMgr_SensitiveEntity] {.noSideEffect, importcpp: "GetSensitiveById",
+                                header: "SelectMgr_SensitiveEntitySet.hxx".}
+proc Sensitives*(this: SelectMgr_SensitiveEntitySet): SelectMgr_IndexedMapOfHSensitive {.
     noSideEffect, importcpp: "Sensitives",
     header: "SelectMgr_SensitiveEntitySet.hxx".}
-

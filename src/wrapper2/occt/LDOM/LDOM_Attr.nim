@@ -13,6 +13,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  LDOM_Node
+
 discard "forward decl of LDOM_BasicAttribute"
 discard "forward decl of LDOM_Element"
 type
@@ -30,4 +33,3 @@ proc getValue*(this: LDOM_Attr): LDOMString {.noSideEffect, importcpp: "getValue
     header: "LDOM_Attr.hxx".}
 proc setValue*(this: var LDOM_Attr; aValue: LDOMString) {.importcpp: "setValue",
     header: "LDOM_Attr.hxx".}
-

@@ -14,52 +14,54 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, IFSelect_Selection
+
 discard "forward decl of IFSelect_SelectionIterator"
 discard "forward decl of IFSelect_SelectBase"
 discard "forward decl of IFSelect_SelectBase"
 type
-  HandleIFSelectSelectBase* = Handle[IFSelectSelectBase]
+  Handle_IFSelect_SelectBase* = handle[IFSelect_SelectBase]
 
 ## ! SelectBase works directly from an InterfaceModel : it is the
 ## ! first base for other Selections.
 
 type
-  IFSelectSelectBase* {.importcpp: "IFSelect_SelectBase",
-                       header: "IFSelect_SelectBase.hxx", bycopy.} = object of IFSelectSelection ##
-                                                                                          ## !
-                                                                                          ## Puts
-                                                                                          ## in
-                                                                                          ## an
-                                                                                          ## Iterator
-                                                                                          ## the
-                                                                                          ## Selections
-                                                                                          ## from
-                                                                                          ## which
-                                                                                          ## "me"
-                                                                                          ## depends
-                                                                                          ##
-                                                                                          ## !
-                                                                                          ## This
-                                                                                          ## list
-                                                                                          ## is
-                                                                                          ## empty
-                                                                                          ## for
-                                                                                          ## all
-                                                                                          ## SelectBase
-                                                                                          ## type
-                                                                                          ## Selections
+  IFSelect_SelectBase* {.importcpp: "IFSelect_SelectBase",
+                        header: "IFSelect_SelectBase.hxx", bycopy.} = object of IFSelect_Selection ##
+                                                                                            ## !
+                                                                                            ## Puts
+                                                                                            ## in
+                                                                                            ## an
+                                                                                            ## Iterator
+                                                                                            ## the
+                                                                                            ## Selections
+                                                                                            ## from
+                                                                                            ## which
+                                                                                            ## "me"
+                                                                                            ## depends
+                                                                                            ##
+                                                                                            ## !
+                                                                                            ## This
+                                                                                            ## list
+                                                                                            ## is
+                                                                                            ## empty
+                                                                                            ## for
+                                                                                            ## all
+                                                                                            ## SelectBase
+                                                                                            ## type
+                                                                                            ## Selections
 
 
-proc fillIterator*(this: IFSelectSelectBase; iter: var IFSelectSelectionIterator) {.
+proc FillIterator*(this: IFSelect_SelectBase; iter: var IFSelect_SelectionIterator) {.
     noSideEffect, importcpp: "FillIterator", header: "IFSelect_SelectBase.hxx".}
 type
-  IFSelectSelectBasebaseType* = IFSelectSelection
+  IFSelect_SelectBasebase_type* = IFSelect_Selection
 
-proc getTypeName*(): cstring {.importcpp: "IFSelect_SelectBase::get_type_name(@)",
-                            header: "IFSelect_SelectBase.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "IFSelect_SelectBase::get_type_name(@)",
+                              header: "IFSelect_SelectBase.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "IFSelect_SelectBase::get_type_descriptor(@)",
     header: "IFSelect_SelectBase.hxx".}
-proc dynamicType*(this: IFSelectSelectBase): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: IFSelect_SelectBase): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "IFSelect_SelectBase.hxx".}
-

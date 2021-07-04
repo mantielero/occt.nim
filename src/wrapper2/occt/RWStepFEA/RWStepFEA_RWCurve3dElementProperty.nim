@@ -13,6 +13,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepFEA_Curve3dElementProperty"
@@ -26,17 +30,16 @@ type
 proc constructRWStepFEA_RWCurve3dElementProperty*(): RWStepFEA_RWCurve3dElementProperty {.
     constructor, importcpp: "RWStepFEA_RWCurve3dElementProperty(@)",
     header: "RWStepFEA_RWCurve3dElementProperty.hxx".}
-proc readStep*(this: RWStepFEA_RWCurve3dElementProperty;
-              data: Handle[StepDataStepReaderData]; num: StandardInteger;
-              ach: var Handle[InterfaceCheck];
-              ent: Handle[StepFEA_Curve3dElementProperty]) {.noSideEffect,
+proc ReadStep*(this: RWStepFEA_RWCurve3dElementProperty;
+              data: handle[StepData_StepReaderData]; num: Standard_Integer;
+              ach: var handle[Interface_Check];
+              ent: handle[StepFEA_Curve3dElementProperty]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepFEA_RWCurve3dElementProperty.hxx".}
-proc writeStep*(this: RWStepFEA_RWCurve3dElementProperty;
-               sw: var StepDataStepWriter;
-               ent: Handle[StepFEA_Curve3dElementProperty]) {.noSideEffect,
+proc WriteStep*(this: RWStepFEA_RWCurve3dElementProperty;
+               SW: var StepData_StepWriter;
+               ent: handle[StepFEA_Curve3dElementProperty]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepFEA_RWCurve3dElementProperty.hxx".}
-proc share*(this: RWStepFEA_RWCurve3dElementProperty;
-           ent: Handle[StepFEA_Curve3dElementProperty];
-           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
+proc Share*(this: RWStepFEA_RWCurve3dElementProperty;
+           ent: handle[StepFEA_Curve3dElementProperty];
+           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepFEA_RWCurve3dElementProperty.hxx".}
-

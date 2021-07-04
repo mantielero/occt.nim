@@ -14,63 +14,76 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
+  GeomInt_TheMultiLineOfWLApprox, ../AppParCurves/AppParCurves_MultiBSpCurve,
+  ../Standard/Standard_Integer, ../math/math_Vector, ../Standard/Standard_Real,
+  ../math/math_Matrix,
+  GeomInt_BSpParLeastSquareOfMyBSplGradientOfTheComputeLineOfWLApprox,
+  ../TColStd/TColStd_HArray1OfInteger,
+  ../AppParCurves/AppParCurves_HArray1OfConstraintCouple,
+  ../math/math_MultipleVarFunctionWithGradient, ../TColStd/TColStd_Array1OfReal,
+  ../TColStd/TColStd_Array1OfInteger, ../math/math_IntegerVector,
+  ../AppParCurves/AppParCurves_Constraint
+
 discard "forward decl of GeomInt_TheMultiLineOfWLApprox"
 discard "forward decl of GeomInt_TheMultiLineToolOfWLApprox"
 discard "forward decl of GeomInt_BSpParLeastSquareOfMyBSplGradientOfTheComputeLineOfWLApprox"
 discard "forward decl of AppParCurves_MultiBSpCurve"
 discard "forward decl of math_Matrix"
 type
-  GeomIntBSpParFunctionOfMyBSplGradientOfTheComputeLineOfWLApprox* {.importcpp: "GeomInt_BSpParFunctionOfMyBSplGradientOfTheComputeLineOfWLApprox", header: "GeomInt_BSpParFunctionOfMyBSplGradientOfTheComputeLineOfWLApprox.hxx",
-      bycopy.} = object of MathMultipleVarFunctionWithGradient ## ! initializes the fields of the function. The approximating
-                                                          ## ! curve has <NbPol> control points.
-                                                          ## ! this method is used each time Value or Gradient is
-                                                          ## ! needed.
+  GeomInt_BSpParFunctionOfMyBSplGradientOfTheComputeLineOfWLApprox* {.importcpp: "GeomInt_BSpParFunctionOfMyBSplGradientOfTheComputeLineOfWLApprox", header: "GeomInt_BSpParFunctionOfMyBSplGradientOfTheComputeLineOfWLApprox.hxx",
+      bycopy.} = object of math_MultipleVarFunctionWithGradient ## ! initializes the fields of the function. The approximating
+                                                           ## ! curve has <NbPol> control points.
+                                                           ## ! this method is used each time Value or Gradient is
+                                                           ## ! needed.
 
 
-proc constructGeomIntBSpParFunctionOfMyBSplGradientOfTheComputeLineOfWLApprox*(
-    ssp: GeomIntTheMultiLineOfWLApprox; firstPoint: StandardInteger;
-    lastPoint: StandardInteger;
-    theConstraints: Handle[AppParCurvesHArray1OfConstraintCouple];
-    parameters: MathVector; knots: TColStdArray1OfReal;
-    mults: TColStdArray1OfInteger; nbPol: StandardInteger): GeomIntBSpParFunctionOfMyBSplGradientOfTheComputeLineOfWLApprox {.
+proc constructGeomInt_BSpParFunctionOfMyBSplGradientOfTheComputeLineOfWLApprox*(
+    SSP: GeomInt_TheMultiLineOfWLApprox; FirstPoint: Standard_Integer;
+    LastPoint: Standard_Integer;
+    TheConstraints: handle[AppParCurves_HArray1OfConstraintCouple];
+    Parameters: math_Vector; Knots: TColStd_Array1OfReal;
+    Mults: TColStd_Array1OfInteger; NbPol: Standard_Integer): GeomInt_BSpParFunctionOfMyBSplGradientOfTheComputeLineOfWLApprox {.
     constructor, importcpp: "GeomInt_BSpParFunctionOfMyBSplGradientOfTheComputeLineOfWLApprox(@)", header: "GeomInt_BSpParFunctionOfMyBSplGradientOfTheComputeLineOfWLApprox.hxx".}
-proc nbVariables*(this: GeomIntBSpParFunctionOfMyBSplGradientOfTheComputeLineOfWLApprox): StandardInteger {.
+proc NbVariables*(this: GeomInt_BSpParFunctionOfMyBSplGradientOfTheComputeLineOfWLApprox): Standard_Integer {.
     noSideEffect, importcpp: "NbVariables", header: "GeomInt_BSpParFunctionOfMyBSplGradientOfTheComputeLineOfWLApprox.hxx".}
-proc value*(this: var GeomIntBSpParFunctionOfMyBSplGradientOfTheComputeLineOfWLApprox;
-           x: MathVector; f: var StandardReal): StandardBoolean {.importcpp: "Value", header: "GeomInt_BSpParFunctionOfMyBSplGradientOfTheComputeLineOfWLApprox.hxx".}
-proc gradient*(this: var GeomIntBSpParFunctionOfMyBSplGradientOfTheComputeLineOfWLApprox;
-              x: MathVector; g: var MathVector): StandardBoolean {.
+proc Value*(this: var GeomInt_BSpParFunctionOfMyBSplGradientOfTheComputeLineOfWLApprox;
+           X: math_Vector; F: var Standard_Real): Standard_Boolean {.
+    importcpp: "Value", header: "GeomInt_BSpParFunctionOfMyBSplGradientOfTheComputeLineOfWLApprox.hxx".}
+proc Gradient*(this: var GeomInt_BSpParFunctionOfMyBSplGradientOfTheComputeLineOfWLApprox;
+              X: math_Vector; G: var math_Vector): Standard_Boolean {.
     importcpp: "Gradient", header: "GeomInt_BSpParFunctionOfMyBSplGradientOfTheComputeLineOfWLApprox.hxx".}
-proc values*(this: var GeomIntBSpParFunctionOfMyBSplGradientOfTheComputeLineOfWLApprox;
-            x: MathVector; f: var StandardReal; g: var MathVector): StandardBoolean {.
+proc Values*(this: var GeomInt_BSpParFunctionOfMyBSplGradientOfTheComputeLineOfWLApprox;
+            X: math_Vector; F: var Standard_Real; G: var math_Vector): Standard_Boolean {.
     importcpp: "Values", header: "GeomInt_BSpParFunctionOfMyBSplGradientOfTheComputeLineOfWLApprox.hxx".}
-proc newParameters*(this: GeomIntBSpParFunctionOfMyBSplGradientOfTheComputeLineOfWLApprox): MathVector {.
+proc NewParameters*(this: GeomInt_BSpParFunctionOfMyBSplGradientOfTheComputeLineOfWLApprox): math_Vector {.
     noSideEffect, importcpp: "NewParameters", header: "GeomInt_BSpParFunctionOfMyBSplGradientOfTheComputeLineOfWLApprox.hxx".}
-proc curveValue*(this: var GeomIntBSpParFunctionOfMyBSplGradientOfTheComputeLineOfWLApprox): AppParCurvesMultiBSpCurve {.
+proc CurveValue*(this: var GeomInt_BSpParFunctionOfMyBSplGradientOfTheComputeLineOfWLApprox): AppParCurves_MultiBSpCurve {.
     importcpp: "CurveValue", header: "GeomInt_BSpParFunctionOfMyBSplGradientOfTheComputeLineOfWLApprox.hxx".}
-proc error*(this: var GeomIntBSpParFunctionOfMyBSplGradientOfTheComputeLineOfWLApprox;
-           iPoint: StandardInteger; curveIndex: StandardInteger): StandardReal {.
+proc Error*(this: var GeomInt_BSpParFunctionOfMyBSplGradientOfTheComputeLineOfWLApprox;
+           IPoint: Standard_Integer; CurveIndex: Standard_Integer): Standard_Real {.
     importcpp: "Error", header: "GeomInt_BSpParFunctionOfMyBSplGradientOfTheComputeLineOfWLApprox.hxx".}
-proc maxError3d*(this: GeomIntBSpParFunctionOfMyBSplGradientOfTheComputeLineOfWLApprox): StandardReal {.
+proc MaxError3d*(this: GeomInt_BSpParFunctionOfMyBSplGradientOfTheComputeLineOfWLApprox): Standard_Real {.
     noSideEffect, importcpp: "MaxError3d", header: "GeomInt_BSpParFunctionOfMyBSplGradientOfTheComputeLineOfWLApprox.hxx".}
-proc maxError2d*(this: GeomIntBSpParFunctionOfMyBSplGradientOfTheComputeLineOfWLApprox): StandardReal {.
+proc MaxError2d*(this: GeomInt_BSpParFunctionOfMyBSplGradientOfTheComputeLineOfWLApprox): Standard_Real {.
     noSideEffect, importcpp: "MaxError2d", header: "GeomInt_BSpParFunctionOfMyBSplGradientOfTheComputeLineOfWLApprox.hxx".}
-proc functionMatrix*(this: GeomIntBSpParFunctionOfMyBSplGradientOfTheComputeLineOfWLApprox): MathMatrix {.
+proc FunctionMatrix*(this: GeomInt_BSpParFunctionOfMyBSplGradientOfTheComputeLineOfWLApprox): math_Matrix {.
     noSideEffect, importcpp: "FunctionMatrix", header: "GeomInt_BSpParFunctionOfMyBSplGradientOfTheComputeLineOfWLApprox.hxx".}
-proc derivativeFunctionMatrix*(this: GeomIntBSpParFunctionOfMyBSplGradientOfTheComputeLineOfWLApprox): MathMatrix {.
+proc DerivativeFunctionMatrix*(this: GeomInt_BSpParFunctionOfMyBSplGradientOfTheComputeLineOfWLApprox): math_Matrix {.
     noSideEffect, importcpp: "DerivativeFunctionMatrix", header: "GeomInt_BSpParFunctionOfMyBSplGradientOfTheComputeLineOfWLApprox.hxx".}
-proc index*(this: GeomIntBSpParFunctionOfMyBSplGradientOfTheComputeLineOfWLApprox): MathIntegerVector {.
+proc Index*(this: GeomInt_BSpParFunctionOfMyBSplGradientOfTheComputeLineOfWLApprox): math_IntegerVector {.
     noSideEffect, importcpp: "Index", header: "GeomInt_BSpParFunctionOfMyBSplGradientOfTheComputeLineOfWLApprox.hxx".}
-proc firstConstraint*(this: GeomIntBSpParFunctionOfMyBSplGradientOfTheComputeLineOfWLApprox;
-    theConstraints: Handle[AppParCurvesHArray1OfConstraintCouple];
-                     firstPoint: StandardInteger): AppParCurvesConstraint {.
+proc FirstConstraint*(this: GeomInt_BSpParFunctionOfMyBSplGradientOfTheComputeLineOfWLApprox;
+    TheConstraints: handle[AppParCurves_HArray1OfConstraintCouple];
+                     FirstPoint: Standard_Integer): AppParCurves_Constraint {.
     noSideEffect, importcpp: "FirstConstraint", header: "GeomInt_BSpParFunctionOfMyBSplGradientOfTheComputeLineOfWLApprox.hxx".}
-proc lastConstraint*(this: GeomIntBSpParFunctionOfMyBSplGradientOfTheComputeLineOfWLApprox;
-    theConstraints: Handle[AppParCurvesHArray1OfConstraintCouple];
-                    lastPoint: StandardInteger): AppParCurvesConstraint {.
+proc LastConstraint*(this: GeomInt_BSpParFunctionOfMyBSplGradientOfTheComputeLineOfWLApprox;
+    TheConstraints: handle[AppParCurves_HArray1OfConstraintCouple];
+                    LastPoint: Standard_Integer): AppParCurves_Constraint {.
     noSideEffect, importcpp: "LastConstraint", header: "GeomInt_BSpParFunctionOfMyBSplGradientOfTheComputeLineOfWLApprox.hxx".}
-proc setFirstLambda*(this: var GeomIntBSpParFunctionOfMyBSplGradientOfTheComputeLineOfWLApprox;
-                    l1: StandardReal) {.importcpp: "SetFirstLambda", header: "GeomInt_BSpParFunctionOfMyBSplGradientOfTheComputeLineOfWLApprox.hxx".}
-proc setLastLambda*(this: var GeomIntBSpParFunctionOfMyBSplGradientOfTheComputeLineOfWLApprox;
-                   l2: StandardReal) {.importcpp: "SetLastLambda", header: "GeomInt_BSpParFunctionOfMyBSplGradientOfTheComputeLineOfWLApprox.hxx".}
-
+proc SetFirstLambda*(this: var GeomInt_BSpParFunctionOfMyBSplGradientOfTheComputeLineOfWLApprox;
+                    l1: Standard_Real) {.importcpp: "SetFirstLambda", header: "GeomInt_BSpParFunctionOfMyBSplGradientOfTheComputeLineOfWLApprox.hxx".}
+proc SetLastLambda*(this: var GeomInt_BSpParFunctionOfMyBSplGradientOfTheComputeLineOfWLApprox;
+                   l2: Standard_Real) {.importcpp: "SetLastLambda", header: "GeomInt_BSpParFunctionOfMyBSplGradientOfTheComputeLineOfWLApprox.hxx".}

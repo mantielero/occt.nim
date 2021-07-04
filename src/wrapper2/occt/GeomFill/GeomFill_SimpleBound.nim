@@ -14,6 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, GeomFill_Boundary,
+  ../Standard/Standard_Real, ../Standard/Standard_Boolean
+
 discard "forward decl of Adaptor3d_HCurve"
 discard "forward decl of Law_Function"
 discard "forward decl of gp_Pnt"
@@ -21,7 +25,7 @@ discard "forward decl of gp_Vec"
 discard "forward decl of GeomFill_SimpleBound"
 discard "forward decl of GeomFill_SimpleBound"
 type
-  HandleGeomFillSimpleBound* = Handle[GeomFillSimpleBound]
+  Handle_GeomFill_SimpleBound* = handle[GeomFill_SimpleBound]
 
 ## ! Defines a 3d curve as a boundary for a
 ## ! GeomFill_ConstrainedFilling algorithm.
@@ -29,274 +33,273 @@ type
 ## ! Contains fields to allow a reparametrization of curve.
 
 type
-  GeomFillSimpleBound* {.importcpp: "GeomFill_SimpleBound",
-                        header: "GeomFill_SimpleBound.hxx", bycopy.} = object of GeomFillBoundary ##
-                                                                                           ## !
-                                                                                           ## Constructs
-                                                                                           ## the
-                                                                                           ## boundary
-                                                                                           ## object
-                                                                                           ## defined
-                                                                                           ## by
-                                                                                           ## the
-                                                                                           ## 3d
-                                                                                           ## curve.
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## The
-                                                                                           ## surface
-                                                                                           ## to
-                                                                                           ## be
-                                                                                           ## built
-                                                                                           ## along
-                                                                                           ## this
-                                                                                           ## boundary
-                                                                                           ## will
-                                                                                           ## be
-                                                                                           ## in
-                                                                                           ## the
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## tolerance
-                                                                                           ## range
-                                                                                           ## defined
-                                                                                           ## by
-                                                                                           ## Tol3d.
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## This
-                                                                                           ## object
-                                                                                           ## is
-                                                                                           ## to
-                                                                                           ## be
-                                                                                           ## used
-                                                                                           ## as
-                                                                                           ## a
-                                                                                           ## boundary
-                                                                                           ## for
-                                                                                           ## a
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## GeomFill_ConstrainedFilling
-                                                                                           ## framework.
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## Dummy
-                                                                                           ## is
-                                                                                           ## initialized
-                                                                                           ## but
-                                                                                           ## has
-                                                                                           ## no
-                                                                                           ## function
-                                                                                           ## in
-                                                                                           ## this
-                                                                                           ## class.
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## Warning
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## Curve
-                                                                                           ## is
-                                                                                           ## an
-                                                                                           ## adapted
-                                                                                           ## curve,
-                                                                                           ## that
-                                                                                           ## is,
-                                                                                           ## an
-                                                                                           ## object
-                                                                                           ## which
-                                                                                           ## is
-                                                                                           ## an
-                                                                                           ## interface
-                                                                                           ## between:
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## -
-                                                                                           ## the
-                                                                                           ## services
-                                                                                           ## provided
-                                                                                           ## by
-                                                                                           ## a
-                                                                                           ## 3D
-                                                                                           ## curve
-                                                                                           ## from
-                                                                                           ## the
-                                                                                           ## package
-                                                                                           ## Geom
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## -
-                                                                                           ## and
-                                                                                           ## those
-                                                                                           ## required
-                                                                                           ## of
-                                                                                           ## the
-                                                                                           ## curve
-                                                                                           ## by
-                                                                                           ## the
-                                                                                           ## computation
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## algorithm
-                                                                                           ## which
-                                                                                           ## uses
-                                                                                           ## it.
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## The
-                                                                                           ## adapted
-                                                                                           ## curve
-                                                                                           ## is
-                                                                                           ## created
-                                                                                           ## in
-                                                                                           ## one
-                                                                                           ## of
-                                                                                           ## the
-                                                                                           ## following
-                                                                                           ## ways:
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## -
-                                                                                           ## First
-                                                                                           ## sequence:
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## Handle(Geom_Curve)
-                                                                                           ## myCurve
-                                                                                           ## =
-                                                                                           ## ...
-                                                                                           ## ;
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## Handle(GeomAdaptor_HCurve)
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## Curve
-                                                                                           ## =
-                                                                                           ## new
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## GeomAdaptor_HCurve(myCurve);
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## -
-                                                                                           ## Second
-                                                                                           ## sequence:
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## //
-                                                                                           ## Step
-                                                                                           ## 1
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## Handle(Geom_Curve)
-                                                                                           ## myCurve
-                                                                                           ## =
-                                                                                           ## ...
-                                                                                           ## ;
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## GeomAdaptor_Curve
-                                                                                           ## Crv
-                                                                                           ## (myCurve);
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## //
-                                                                                           ## Step
-                                                                                           ## 2
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## Handle(GeomAdaptor_HCurve)
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## Curve
-                                                                                           ## =
-                                                                                           ## new
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## GeomAdaptor_HCurve(Crv);
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## You
-                                                                                           ## use
-                                                                                           ## the
-                                                                                           ## second
-                                                                                           ## part
-                                                                                           ## of
-                                                                                           ## this
-                                                                                           ## sequence
-                                                                                           ## if
-                                                                                           ## you
-                                                                                           ## already
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## have
-                                                                                           ## the
-                                                                                           ## adapted
-                                                                                           ## curve
-                                                                                           ## Crv.
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## The
-                                                                                           ## boundary
-                                                                                           ## is
-                                                                                           ## then
-                                                                                           ## constructed
-                                                                                           ## with
-                                                                                           ## the
-                                                                                           ## Curve
-                                                                                           ## object:
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## Standard_Real
-                                                                                           ## Tol
-                                                                                           ## =
-                                                                                           ## ...
-                                                                                           ## ;
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## Standard_Real
-                                                                                           ## dummy
-                                                                                           ## =
-                                                                                           ## 0.
-                                                                                           ## ;
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## myBoundary
-                                                                                           ## =
-                                                                                           ## GeomFill_SimpleBound
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## (Curve,Tol,dummy);
+  GeomFill_SimpleBound* {.importcpp: "GeomFill_SimpleBound",
+                         header: "GeomFill_SimpleBound.hxx", bycopy.} = object of GeomFill_Boundary ##
+                                                                                             ## !
+                                                                                             ## Constructs
+                                                                                             ## the
+                                                                                             ## boundary
+                                                                                             ## object
+                                                                                             ## defined
+                                                                                             ## by
+                                                                                             ## the
+                                                                                             ## 3d
+                                                                                             ## curve.
+                                                                                             ##
+                                                                                             ## !
+                                                                                             ## The
+                                                                                             ## surface
+                                                                                             ## to
+                                                                                             ## be
+                                                                                             ## built
+                                                                                             ## along
+                                                                                             ## this
+                                                                                             ## boundary
+                                                                                             ## will
+                                                                                             ## be
+                                                                                             ## in
+                                                                                             ## the
+                                                                                             ##
+                                                                                             ## !
+                                                                                             ## tolerance
+                                                                                             ## range
+                                                                                             ## defined
+                                                                                             ## by
+                                                                                             ## Tol3d.
+                                                                                             ##
+                                                                                             ## !
+                                                                                             ## This
+                                                                                             ## object
+                                                                                             ## is
+                                                                                             ## to
+                                                                                             ## be
+                                                                                             ## used
+                                                                                             ## as
+                                                                                             ## a
+                                                                                             ## boundary
+                                                                                             ## for
+                                                                                             ## a
+                                                                                             ##
+                                                                                             ## !
+                                                                                             ## GeomFill_ConstrainedFilling
+                                                                                             ## framework.
+                                                                                             ##
+                                                                                             ## !
+                                                                                             ## Dummy
+                                                                                             ## is
+                                                                                             ## initialized
+                                                                                             ## but
+                                                                                             ## has
+                                                                                             ## no
+                                                                                             ## function
+                                                                                             ## in
+                                                                                             ## this
+                                                                                             ## class.
+                                                                                             ##
+                                                                                             ## !
+                                                                                             ## Warning
+                                                                                             ##
+                                                                                             ## !
+                                                                                             ## Curve
+                                                                                             ## is
+                                                                                             ## an
+                                                                                             ## adapted
+                                                                                             ## curve,
+                                                                                             ## that
+                                                                                             ## is,
+                                                                                             ## an
+                                                                                             ## object
+                                                                                             ## which
+                                                                                             ## is
+                                                                                             ## an
+                                                                                             ## interface
+                                                                                             ## between:
+                                                                                             ##
+                                                                                             ## !
+                                                                                             ## -
+                                                                                             ## the
+                                                                                             ## services
+                                                                                             ## provided
+                                                                                             ## by
+                                                                                             ## a
+                                                                                             ## 3D
+                                                                                             ## curve
+                                                                                             ## from
+                                                                                             ## the
+                                                                                             ## package
+                                                                                             ## Geom
+                                                                                             ##
+                                                                                             ## !
+                                                                                             ## -
+                                                                                             ## and
+                                                                                             ## those
+                                                                                             ## required
+                                                                                             ## of
+                                                                                             ## the
+                                                                                             ## curve
+                                                                                             ## by
+                                                                                             ## the
+                                                                                             ## computation
+                                                                                             ##
+                                                                                             ## !
+                                                                                             ## algorithm
+                                                                                             ## which
+                                                                                             ## uses
+                                                                                             ## it.
+                                                                                             ##
+                                                                                             ## !
+                                                                                             ## The
+                                                                                             ## adapted
+                                                                                             ## curve
+                                                                                             ## is
+                                                                                             ## created
+                                                                                             ## in
+                                                                                             ## one
+                                                                                             ## of
+                                                                                             ## the
+                                                                                             ## following
+                                                                                             ## ways:
+                                                                                             ##
+                                                                                             ## !
+                                                                                             ## -
+                                                                                             ## First
+                                                                                             ## sequence:
+                                                                                             ##
+                                                                                             ## !
+                                                                                             ## Handle(Geom_Curve)
+                                                                                             ## myCurve
+                                                                                             ## =
+                                                                                             ## ...
+                                                                                             ## ;
+                                                                                             ##
+                                                                                             ## !
+                                                                                             ## Handle(GeomAdaptor_HCurve)
+                                                                                             ##
+                                                                                             ## !
+                                                                                             ## Curve
+                                                                                             ## =
+                                                                                             ## new
+                                                                                             ##
+                                                                                             ## !
+                                                                                             ## GeomAdaptor_HCurve(myCurve);
+                                                                                             ##
+                                                                                             ## !
+                                                                                             ## -
+                                                                                             ## Second
+                                                                                             ## sequence:
+                                                                                             ##
+                                                                                             ## !
+                                                                                             ## //
+                                                                                             ## Step
+                                                                                             ## 1
+                                                                                             ##
+                                                                                             ## !
+                                                                                             ## Handle(Geom_Curve)
+                                                                                             ## myCurve
+                                                                                             ## =
+                                                                                             ## ...
+                                                                                             ## ;
+                                                                                             ##
+                                                                                             ## !
+                                                                                             ## GeomAdaptor_Curve
+                                                                                             ## Crv
+                                                                                             ## (myCurve);
+                                                                                             ##
+                                                                                             ## !
+                                                                                             ## //
+                                                                                             ## Step
+                                                                                             ## 2
+                                                                                             ##
+                                                                                             ## !
+                                                                                             ## Handle(GeomAdaptor_HCurve)
+                                                                                             ##
+                                                                                             ## !
+                                                                                             ## Curve
+                                                                                             ## =
+                                                                                             ## new
+                                                                                             ##
+                                                                                             ## !
+                                                                                             ## GeomAdaptor_HCurve(Crv);
+                                                                                             ##
+                                                                                             ## !
+                                                                                             ## You
+                                                                                             ## use
+                                                                                             ## the
+                                                                                             ## second
+                                                                                             ## part
+                                                                                             ## of
+                                                                                             ## this
+                                                                                             ## sequence
+                                                                                             ## if
+                                                                                             ## you
+                                                                                             ## already
+                                                                                             ##
+                                                                                             ## !
+                                                                                             ## have
+                                                                                             ## the
+                                                                                             ## adapted
+                                                                                             ## curve
+                                                                                             ## Crv.
+                                                                                             ##
+                                                                                             ## !
+                                                                                             ## The
+                                                                                             ## boundary
+                                                                                             ## is
+                                                                                             ## then
+                                                                                             ## constructed
+                                                                                             ## with
+                                                                                             ## the
+                                                                                             ## Curve
+                                                                                             ## object:
+                                                                                             ##
+                                                                                             ## !
+                                                                                             ## Standard_Real
+                                                                                             ## Tol
+                                                                                             ## =
+                                                                                             ## ...
+                                                                                             ## ;
+                                                                                             ##
+                                                                                             ## !
+                                                                                             ## Standard_Real
+                                                                                             ## dummy
+                                                                                             ## =
+                                                                                             ## 0.
+                                                                                             ## ;
+                                                                                             ##
+                                                                                             ## !
+                                                                                             ## myBoundary
+                                                                                             ## =
+                                                                                             ## GeomFill_SimpleBound
+                                                                                             ##
+                                                                                             ## !
+                                                                                             ## (Curve,Tol,dummy);
 
 
-proc constructGeomFillSimpleBound*(curve: Handle[Adaptor3dHCurve];
-                                  tol3d: StandardReal; tolang: StandardReal): GeomFillSimpleBound {.
+proc constructGeomFill_SimpleBound*(Curve: handle[Adaptor3d_HCurve];
+                                   Tol3d: Standard_Real; Tolang: Standard_Real): GeomFill_SimpleBound {.
     constructor, importcpp: "GeomFill_SimpleBound(@)",
     header: "GeomFill_SimpleBound.hxx".}
-proc value*(this: GeomFillSimpleBound; u: StandardReal): GpPnt {.noSideEffect,
+proc Value*(this: GeomFill_SimpleBound; U: Standard_Real): gp_Pnt {.noSideEffect,
     importcpp: "Value", header: "GeomFill_SimpleBound.hxx".}
-proc d1*(this: GeomFillSimpleBound; u: StandardReal; p: var GpPnt; v: var GpVec) {.
+proc D1*(this: GeomFill_SimpleBound; U: Standard_Real; P: var gp_Pnt; V: var gp_Vec) {.
     noSideEffect, importcpp: "D1", header: "GeomFill_SimpleBound.hxx".}
-proc reparametrize*(this: var GeomFillSimpleBound; first: StandardReal;
-                   last: StandardReal; hasDF: StandardBoolean;
-                   hasDL: StandardBoolean; df: StandardReal; dl: StandardReal;
-                   rev: StandardBoolean) {.importcpp: "Reparametrize",
+proc Reparametrize*(this: var GeomFill_SimpleBound; First: Standard_Real;
+                   Last: Standard_Real; HasDF: Standard_Boolean;
+                   HasDL: Standard_Boolean; DF: Standard_Real; DL: Standard_Real;
+                   Rev: Standard_Boolean) {.importcpp: "Reparametrize",
     header: "GeomFill_SimpleBound.hxx".}
-proc bounds*(this: GeomFillSimpleBound; first: var StandardReal;
-            last: var StandardReal) {.noSideEffect, importcpp: "Bounds",
-                                   header: "GeomFill_SimpleBound.hxx".}
-proc isDegenerated*(this: GeomFillSimpleBound): StandardBoolean {.noSideEffect,
+proc Bounds*(this: GeomFill_SimpleBound; First: var Standard_Real;
+            Last: var Standard_Real) {.noSideEffect, importcpp: "Bounds",
+                                    header: "GeomFill_SimpleBound.hxx".}
+proc IsDegenerated*(this: GeomFill_SimpleBound): Standard_Boolean {.noSideEffect,
     importcpp: "IsDegenerated", header: "GeomFill_SimpleBound.hxx".}
 type
-  GeomFillSimpleBoundbaseType* = GeomFillBoundary
+  GeomFill_SimpleBoundbase_type* = GeomFill_Boundary
 
-proc getTypeName*(): cstring {.importcpp: "GeomFill_SimpleBound::get_type_name(@)",
-                            header: "GeomFill_SimpleBound.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "GeomFill_SimpleBound::get_type_name(@)",
+                              header: "GeomFill_SimpleBound.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "GeomFill_SimpleBound::get_type_descriptor(@)",
     header: "GeomFill_SimpleBound.hxx".}
-proc dynamicType*(this: GeomFillSimpleBound): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: GeomFill_SimpleBound): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "GeomFill_SimpleBound.hxx".}
-

@@ -14,6 +14,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Address,
+  ../Standard/Standard_PCharacter, ../Standard/Standard_CString,
+  ../Standard/Standard_Boolean, OSD_LoadMode, OSD_Function
+
 ## ! Interface to dynamic library loader.
 ## ! Provides tools to load a shared library
 ## ! and retrieve the address of an entry point.
@@ -26,22 +32,21 @@ type
 
 proc constructOSD_SharedLibrary*(): OSD_SharedLibrary {.constructor,
     importcpp: "OSD_SharedLibrary(@)", header: "OSD_SharedLibrary.hxx".}
-proc constructOSD_SharedLibrary*(aFilename: StandardCString): OSD_SharedLibrary {.
+proc constructOSD_SharedLibrary*(aFilename: Standard_CString): OSD_SharedLibrary {.
     constructor, importcpp: "OSD_SharedLibrary(@)", header: "OSD_SharedLibrary.hxx".}
-proc setName*(this: var OSD_SharedLibrary; aName: StandardCString) {.
+proc SetName*(this: var OSD_SharedLibrary; aName: Standard_CString) {.
     importcpp: "SetName", header: "OSD_SharedLibrary.hxx".}
-proc name*(this: OSD_SharedLibrary): StandardCString {.noSideEffect,
+proc Name*(this: OSD_SharedLibrary): Standard_CString {.noSideEffect,
     importcpp: "Name", header: "OSD_SharedLibrary.hxx".}
-proc dlOpen*(this: var OSD_SharedLibrary; mode: OSD_LoadMode): StandardBoolean {.
+proc DlOpen*(this: var OSD_SharedLibrary; Mode: OSD_LoadMode): Standard_Boolean {.
     importcpp: "DlOpen", header: "OSD_SharedLibrary.hxx".}
-proc dlSymb*(this: OSD_SharedLibrary; name: StandardCString): OSD_Function {.
+proc DlSymb*(this: OSD_SharedLibrary; Name: Standard_CString): OSD_Function {.
     noSideEffect, importcpp: "DlSymb", header: "OSD_SharedLibrary.hxx".}
-proc dlClose*(this: OSD_SharedLibrary) {.noSideEffect, importcpp: "DlClose",
+proc DlClose*(this: OSD_SharedLibrary) {.noSideEffect, importcpp: "DlClose",
                                       header: "OSD_SharedLibrary.hxx".}
-proc dlError*(this: OSD_SharedLibrary): StandardCString {.noSideEffect,
+proc DlError*(this: OSD_SharedLibrary): Standard_CString {.noSideEffect,
     importcpp: "DlError", header: "OSD_SharedLibrary.hxx".}
-proc destroy*(this: var OSD_SharedLibrary) {.importcpp: "Destroy",
+proc Destroy*(this: var OSD_SharedLibrary) {.importcpp: "Destroy",
     header: "OSD_SharedLibrary.hxx".}
 proc destroyOSD_SharedLibrary*(this: var OSD_SharedLibrary) {.
     importcpp: "#.~OSD_SharedLibrary()", header: "OSD_SharedLibrary.hxx".}
-

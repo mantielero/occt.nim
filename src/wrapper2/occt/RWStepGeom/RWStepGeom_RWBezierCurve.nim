@@ -14,27 +14,30 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepGeom_BezierCurve"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepGeomRWBezierCurve* {.importcpp: "RWStepGeom_RWBezierCurve",
-                            header: "RWStepGeom_RWBezierCurve.hxx", bycopy.} = object
+  RWStepGeom_RWBezierCurve* {.importcpp: "RWStepGeom_RWBezierCurve",
+                             header: "RWStepGeom_RWBezierCurve.hxx", bycopy.} = object
 
 
-proc constructRWStepGeomRWBezierCurve*(): RWStepGeomRWBezierCurve {.constructor,
+proc constructRWStepGeom_RWBezierCurve*(): RWStepGeom_RWBezierCurve {.constructor,
     importcpp: "RWStepGeom_RWBezierCurve(@)",
     header: "RWStepGeom_RWBezierCurve.hxx".}
-proc readStep*(this: RWStepGeomRWBezierCurve; data: Handle[StepDataStepReaderData];
-              num: StandardInteger; ach: var Handle[InterfaceCheck];
-              ent: Handle[StepGeomBezierCurve]) {.noSideEffect,
-    importcpp: "ReadStep", header: "RWStepGeom_RWBezierCurve.hxx".}
-proc writeStep*(this: RWStepGeomRWBezierCurve; sw: var StepDataStepWriter;
-               ent: Handle[StepGeomBezierCurve]) {.noSideEffect,
+proc ReadStep*(this: RWStepGeom_RWBezierCurve;
+              data: handle[StepData_StepReaderData]; num: Standard_Integer;
+              ach: var handle[Interface_Check]; ent: handle[StepGeom_BezierCurve]) {.
+    noSideEffect, importcpp: "ReadStep", header: "RWStepGeom_RWBezierCurve.hxx".}
+proc WriteStep*(this: RWStepGeom_RWBezierCurve; SW: var StepData_StepWriter;
+               ent: handle[StepGeom_BezierCurve]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepGeom_RWBezierCurve.hxx".}
-proc share*(this: RWStepGeomRWBezierCurve; ent: Handle[StepGeomBezierCurve];
-           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
+proc Share*(this: RWStepGeom_RWBezierCurve; ent: handle[StepGeom_BezierCurve];
+           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepGeom_RWBezierCurve.hxx".}
-

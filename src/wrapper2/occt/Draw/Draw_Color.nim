@@ -14,14 +14,17 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, Draw_ColorKind
+
 type
-  DrawColor* {.importcpp: "Draw_Color", header: "Draw_Color.hxx", bycopy.} = object
+  Draw_Color* {.importcpp: "Draw_Color", header: "Draw_Color.hxx", bycopy.} = object
 
 
-proc constructDrawColor*(): DrawColor {.constructor, importcpp: "Draw_Color(@)",
-                                     header: "Draw_Color.hxx".}
-proc constructDrawColor*(c: DrawColorKind): DrawColor {.constructor,
-    importcpp: "Draw_Color(@)", header: "Draw_Color.hxx".}
-proc id*(this: DrawColor): DrawColorKind {.noSideEffect, importcpp: "ID",
+proc constructDraw_Color*(): Draw_Color {.constructor, importcpp: "Draw_Color(@)",
                                        header: "Draw_Color.hxx".}
-
+proc constructDraw_Color*(c: Draw_ColorKind): Draw_Color {.constructor,
+    importcpp: "Draw_Color(@)", header: "Draw_Color.hxx".}
+proc ID*(this: Draw_Color): Draw_ColorKind {.noSideEffect, importcpp: "ID",
+    header: "Draw_Color.hxx".}

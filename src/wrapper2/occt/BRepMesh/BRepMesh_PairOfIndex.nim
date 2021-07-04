@@ -13,37 +13,40 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard_OutOfRange
+
 ## ! This class represents a pair of integer indices to store
 ## ! element indices connected to link. It is restricted to
 ## ! store more than two indices in it.
 
 type
-  BRepMeshPairOfIndex* {.importcpp: "BRepMesh_PairOfIndex",
-                        header: "BRepMesh_PairOfIndex.hxx", bycopy.} = object ## ! Default
-                                                                         ## constructor
+  BRepMesh_PairOfIndex* {.importcpp: "BRepMesh_PairOfIndex",
+                         header: "BRepMesh_PairOfIndex.hxx", bycopy.} = object ## !
+                                                                          ## Default
+                                                                          ## constructor
 
 
-proc constructBRepMeshPairOfIndex*(): BRepMeshPairOfIndex {.constructor,
+proc constructBRepMesh_PairOfIndex*(): BRepMesh_PairOfIndex {.constructor,
     importcpp: "BRepMesh_PairOfIndex(@)", header: "BRepMesh_PairOfIndex.hxx".}
-proc clear*(this: var BRepMeshPairOfIndex) {.importcpp: "Clear",
+proc Clear*(this: var BRepMesh_PairOfIndex) {.importcpp: "Clear",
     header: "BRepMesh_PairOfIndex.hxx".}
-proc append*(this: var BRepMeshPairOfIndex; theIndex: StandardInteger) {.
+proc Append*(this: var BRepMesh_PairOfIndex; theIndex: Standard_Integer) {.
     importcpp: "Append", header: "BRepMesh_PairOfIndex.hxx".}
-proc prepend*(this: var BRepMeshPairOfIndex; theIndex: StandardInteger) {.
+proc Prepend*(this: var BRepMesh_PairOfIndex; theIndex: Standard_Integer) {.
     importcpp: "Prepend", header: "BRepMesh_PairOfIndex.hxx".}
-proc isEmpty*(this: BRepMeshPairOfIndex): StandardBoolean {.noSideEffect,
+proc IsEmpty*(this: BRepMesh_PairOfIndex): Standard_Boolean {.noSideEffect,
     importcpp: "IsEmpty", header: "BRepMesh_PairOfIndex.hxx".}
-proc extent*(this: BRepMeshPairOfIndex): StandardInteger {.noSideEffect,
+proc Extent*(this: BRepMesh_PairOfIndex): Standard_Integer {.noSideEffect,
     importcpp: "Extent", header: "BRepMesh_PairOfIndex.hxx".}
-proc firstIndex*(this: BRepMeshPairOfIndex): StandardInteger {.noSideEffect,
+proc FirstIndex*(this: BRepMesh_PairOfIndex): Standard_Integer {.noSideEffect,
     importcpp: "FirstIndex", header: "BRepMesh_PairOfIndex.hxx".}
-proc lastIndex*(this: BRepMeshPairOfIndex): StandardInteger {.noSideEffect,
+proc LastIndex*(this: BRepMesh_PairOfIndex): Standard_Integer {.noSideEffect,
     importcpp: "LastIndex", header: "BRepMesh_PairOfIndex.hxx".}
-proc index*(this: BRepMeshPairOfIndex; thePairPos: StandardInteger): StandardInteger {.
+proc Index*(this: BRepMesh_PairOfIndex; thePairPos: Standard_Integer): Standard_Integer {.
     noSideEffect, importcpp: "Index", header: "BRepMesh_PairOfIndex.hxx".}
-proc setIndex*(this: var BRepMeshPairOfIndex; thePairPos: StandardInteger;
-              theIndex: StandardInteger) {.importcpp: "SetIndex",
+proc SetIndex*(this: var BRepMesh_PairOfIndex; thePairPos: Standard_Integer;
+              theIndex: Standard_Integer) {.importcpp: "SetIndex",
     header: "BRepMesh_PairOfIndex.hxx".}
-proc removeIndex*(this: var BRepMeshPairOfIndex; thePairPos: StandardInteger) {.
+proc RemoveIndex*(this: var BRepMesh_PairOfIndex; thePairPos: Standard_Integer) {.
     importcpp: "RemoveIndex", header: "BRepMesh_PairOfIndex.hxx".}
-

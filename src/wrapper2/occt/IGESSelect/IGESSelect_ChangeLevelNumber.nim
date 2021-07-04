@@ -14,6 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, IGESSelect_ModelModifier,
+  ../Standard/Standard_Boolean
+
 discard "forward decl of IFSelect_IntParam"
 discard "forward decl of IFSelect_ContextModif"
 discard "forward decl of IGESData_IGESModel"
@@ -22,7 +26,7 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of IGESSelect_ChangeLevelNumber"
 discard "forward decl of IGESSelect_ChangeLevelNumber"
 type
-  HandleIGESSelectChangeLevelNumber* = Handle[IGESSelectChangeLevelNumber]
+  Handle_IGESSelect_ChangeLevelNumber* = handle[IGESSelect_ChangeLevelNumber]
 
 ## ! Changes Level Number (as null or single) to a new single value
 ## ! Entities attached to a LevelListEntity are ignored
@@ -34,56 +38,49 @@ type
 ## ! Entities themselves (their content) are not affected.
 
 type
-  IGESSelectChangeLevelNumber* {.importcpp: "IGESSelect_ChangeLevelNumber",
-                                header: "IGESSelect_ChangeLevelNumber.hxx", bycopy.} = object of IGESSelectModelModifier ##
-                                                                                                                  ## !
-                                                                                                                  ## Creates
-                                                                                                                  ## a
-                                                                                                                  ## ChangeLevelNumber,
-                                                                                                                  ## not
-                                                                                                                  ## yet
-                                                                                                                  ## defined
-                                                                                                                  ##
-                                                                                                                  ## !
-                                                                                                                  ## (see
-                                                                                                                  ## SetOldNumber
-                                                                                                                  ## and
-                                                                                                                  ## SetNewNumber)
+  IGESSelect_ChangeLevelNumber* {.importcpp: "IGESSelect_ChangeLevelNumber",
+                                 header: "IGESSelect_ChangeLevelNumber.hxx",
+                                 bycopy.} = object of IGESSelect_ModelModifier ## !
+                                                                          ## Creates a
+                                                                          ## ChangeLevelNumber, not yet
+                                                                          ## defined
+                                                                          ## ! (see
+                                                                          ## SetOldNumber and
+                                                                          ## SetNewNumber)
 
 
-proc constructIGESSelectChangeLevelNumber*(): IGESSelectChangeLevelNumber {.
+proc constructIGESSelect_ChangeLevelNumber*(): IGESSelect_ChangeLevelNumber {.
     constructor, importcpp: "IGESSelect_ChangeLevelNumber(@)",
     header: "IGESSelect_ChangeLevelNumber.hxx".}
-proc hasOldNumber*(this: IGESSelectChangeLevelNumber): StandardBoolean {.
+proc HasOldNumber*(this: IGESSelect_ChangeLevelNumber): Standard_Boolean {.
     noSideEffect, importcpp: "HasOldNumber",
     header: "IGESSelect_ChangeLevelNumber.hxx".}
-proc oldNumber*(this: IGESSelectChangeLevelNumber): Handle[IFSelectIntParam] {.
+proc OldNumber*(this: IGESSelect_ChangeLevelNumber): handle[IFSelect_IntParam] {.
     noSideEffect, importcpp: "OldNumber",
     header: "IGESSelect_ChangeLevelNumber.hxx".}
-proc setOldNumber*(this: var IGESSelectChangeLevelNumber;
-                  param: Handle[IFSelectIntParam]) {.importcpp: "SetOldNumber",
+proc SetOldNumber*(this: var IGESSelect_ChangeLevelNumber;
+                  param: handle[IFSelect_IntParam]) {.importcpp: "SetOldNumber",
     header: "IGESSelect_ChangeLevelNumber.hxx".}
-proc newNumber*(this: IGESSelectChangeLevelNumber): Handle[IFSelectIntParam] {.
+proc NewNumber*(this: IGESSelect_ChangeLevelNumber): handle[IFSelect_IntParam] {.
     noSideEffect, importcpp: "NewNumber",
     header: "IGESSelect_ChangeLevelNumber.hxx".}
-proc setNewNumber*(this: var IGESSelectChangeLevelNumber;
-                  param: Handle[IFSelectIntParam]) {.importcpp: "SetNewNumber",
+proc SetNewNumber*(this: var IGESSelect_ChangeLevelNumber;
+                  param: handle[IFSelect_IntParam]) {.importcpp: "SetNewNumber",
     header: "IGESSelect_ChangeLevelNumber.hxx".}
-proc performing*(this: IGESSelectChangeLevelNumber; ctx: var IFSelectContextModif;
-                target: Handle[IGESDataIGESModel]; tc: var InterfaceCopyTool) {.
-    noSideEffect, importcpp: "Performing",
+proc Performing*(this: IGESSelect_ChangeLevelNumber;
+                ctx: var IFSelect_ContextModif; target: handle[IGESData_IGESModel];
+                TC: var Interface_CopyTool) {.noSideEffect, importcpp: "Performing",
     header: "IGESSelect_ChangeLevelNumber.hxx".}
-proc label*(this: IGESSelectChangeLevelNumber): TCollectionAsciiString {.
+proc Label*(this: IGESSelect_ChangeLevelNumber): TCollection_AsciiString {.
     noSideEffect, importcpp: "Label", header: "IGESSelect_ChangeLevelNumber.hxx".}
 type
-  IGESSelectChangeLevelNumberbaseType* = IGESSelectModelModifier
+  IGESSelect_ChangeLevelNumberbase_type* = IGESSelect_ModelModifier
 
-proc getTypeName*(): cstring {.importcpp: "IGESSelect_ChangeLevelNumber::get_type_name(@)",
-                            header: "IGESSelect_ChangeLevelNumber.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "IGESSelect_ChangeLevelNumber::get_type_name(@)",
+                              header: "IGESSelect_ChangeLevelNumber.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "IGESSelect_ChangeLevelNumber::get_type_descriptor(@)",
     header: "IGESSelect_ChangeLevelNumber.hxx".}
-proc dynamicType*(this: IGESSelectChangeLevelNumber): Handle[StandardType] {.
+proc DynamicType*(this: IGESSelect_ChangeLevelNumber): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType",
     header: "IGESSelect_ChangeLevelNumber.hxx".}
-

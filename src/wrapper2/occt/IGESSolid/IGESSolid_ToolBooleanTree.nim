@@ -14,6 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 discard "forward decl of Standard_DomainError"
 discard "forward decl of IGESSolid_BooleanTree"
 discard "forward decl of IGESData_IGESReaderData"
@@ -26,42 +30,44 @@ discard "forward decl of Interface_Check"
 discard "forward decl of Interface_CopyTool"
 discard "forward decl of IGESData_IGESDumper"
 type
-  IGESSolidToolBooleanTree* {.importcpp: "IGESSolid_ToolBooleanTree",
-                             header: "IGESSolid_ToolBooleanTree.hxx", bycopy.} = object ##
-                                                                                   ## !
-                                                                                   ## Returns
-                                                                                   ## a
-                                                                                   ## ToolBooleanTree,
-                                                                                   ## ready
-                                                                                   ## to
-                                                                                   ## work
+  IGESSolid_ToolBooleanTree* {.importcpp: "IGESSolid_ToolBooleanTree",
+                              header: "IGESSolid_ToolBooleanTree.hxx", bycopy.} = object ##
+                                                                                    ## !
+                                                                                    ## Returns
+                                                                                    ## a
+                                                                                    ## ToolBooleanTree,
+                                                                                    ## ready
+                                                                                    ## to
+                                                                                    ## work
 
 
-proc constructIGESSolidToolBooleanTree*(): IGESSolidToolBooleanTree {.constructor,
-    importcpp: "IGESSolid_ToolBooleanTree(@)",
+proc constructIGESSolid_ToolBooleanTree*(): IGESSolid_ToolBooleanTree {.
+    constructor, importcpp: "IGESSolid_ToolBooleanTree(@)",
     header: "IGESSolid_ToolBooleanTree.hxx".}
-proc readOwnParams*(this: IGESSolidToolBooleanTree;
-                   ent: Handle[IGESSolidBooleanTree];
-                   ir: Handle[IGESDataIGESReaderData]; pr: var IGESDataParamReader) {.
-    noSideEffect, importcpp: "ReadOwnParams",
-    header: "IGESSolid_ToolBooleanTree.hxx".}
-proc writeOwnParams*(this: IGESSolidToolBooleanTree;
-                    ent: Handle[IGESSolidBooleanTree]; iw: var IGESDataIGESWriter) {.
-    noSideEffect, importcpp: "WriteOwnParams",
-    header: "IGESSolid_ToolBooleanTree.hxx".}
-proc ownShared*(this: IGESSolidToolBooleanTree; ent: Handle[IGESSolidBooleanTree];
-               iter: var InterfaceEntityIterator) {.noSideEffect,
+proc ReadOwnParams*(this: IGESSolid_ToolBooleanTree;
+                   ent: handle[IGESSolid_BooleanTree];
+                   IR: handle[IGESData_IGESReaderData];
+                   PR: var IGESData_ParamReader) {.noSideEffect,
+    importcpp: "ReadOwnParams", header: "IGESSolid_ToolBooleanTree.hxx".}
+proc WriteOwnParams*(this: IGESSolid_ToolBooleanTree;
+                    ent: handle[IGESSolid_BooleanTree];
+                    IW: var IGESData_IGESWriter) {.noSideEffect,
+    importcpp: "WriteOwnParams", header: "IGESSolid_ToolBooleanTree.hxx".}
+proc OwnShared*(this: IGESSolid_ToolBooleanTree;
+               ent: handle[IGESSolid_BooleanTree];
+               iter: var Interface_EntityIterator) {.noSideEffect,
     importcpp: "OwnShared", header: "IGESSolid_ToolBooleanTree.hxx".}
-proc dirChecker*(this: IGESSolidToolBooleanTree; ent: Handle[IGESSolidBooleanTree]): IGESDataDirChecker {.
+proc DirChecker*(this: IGESSolid_ToolBooleanTree;
+                ent: handle[IGESSolid_BooleanTree]): IGESData_DirChecker {.
     noSideEffect, importcpp: "DirChecker", header: "IGESSolid_ToolBooleanTree.hxx".}
-proc ownCheck*(this: IGESSolidToolBooleanTree; ent: Handle[IGESSolidBooleanTree];
-              shares: InterfaceShareTool; ach: var Handle[InterfaceCheck]) {.
+proc OwnCheck*(this: IGESSolid_ToolBooleanTree; ent: handle[IGESSolid_BooleanTree];
+              shares: Interface_ShareTool; ach: var handle[Interface_Check]) {.
     noSideEffect, importcpp: "OwnCheck", header: "IGESSolid_ToolBooleanTree.hxx".}
-proc ownCopy*(this: IGESSolidToolBooleanTree;
-             entfrom: Handle[IGESSolidBooleanTree];
-             entto: Handle[IGESSolidBooleanTree]; tc: var InterfaceCopyTool) {.
+proc OwnCopy*(this: IGESSolid_ToolBooleanTree;
+             entfrom: handle[IGESSolid_BooleanTree];
+             entto: handle[IGESSolid_BooleanTree]; TC: var Interface_CopyTool) {.
     noSideEffect, importcpp: "OwnCopy", header: "IGESSolid_ToolBooleanTree.hxx".}
-proc ownDump*(this: IGESSolidToolBooleanTree; ent: Handle[IGESSolidBooleanTree];
-             dumper: IGESDataIGESDumper; s: var StandardOStream; own: StandardInteger) {.
-    noSideEffect, importcpp: "OwnDump", header: "IGESSolid_ToolBooleanTree.hxx".}
-
+proc OwnDump*(this: IGESSolid_ToolBooleanTree; ent: handle[IGESSolid_BooleanTree];
+             dumper: IGESData_IGESDumper; S: var Standard_OStream;
+             own: Standard_Integer) {.noSideEffect, importcpp: "OwnDump",
+                                    header: "IGESSolid_ToolBooleanTree.hxx".}

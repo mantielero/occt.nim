@@ -11,9 +11,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../NCollection/NCollection_Sequence
+
 discard "forward decl of Select3D_SensitiveEntity"
 type
-  Select3D_EntitySequence* = NCollectionSequence[Handle[Select3D_SensitiveEntity]]
-  Select3D_EntitySequenceIter* = Iterator[Handle[Select3D_SensitiveEntity]]
-
-
+  Select3D_EntitySequence* = NCollection_Sequence[handle[Select3D_SensitiveEntity]]
+  Select3D_EntitySequenceIter* = Iterator[handle[Select3D_SensitiveEntity]]

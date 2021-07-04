@@ -14,36 +14,41 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Real, ../gp/gp_Vec,
+  ../gp/gp_Pnt, GProp_GProps, ../Standard/Standard_Boolean
+
 discard "forward decl of GProp_UndefinedAxis"
 discard "forward decl of gp_Vec"
 discard "forward decl of gp_Pnt"
 type
-  GPropPrincipalProps* {.importcpp: "GProp_PrincipalProps",
-                        header: "GProp_PrincipalProps.hxx", bycopy.} = object ## ! creates an
-                                                                         ## undefined
-                                                                         ## PrincipalProps.
+  GProp_PrincipalProps* {.importcpp: "GProp_PrincipalProps",
+                         header: "GProp_PrincipalProps.hxx", bycopy.} = object ## !
+                                                                          ## creates an
+                                                                          ## undefined
+                                                                          ## PrincipalProps.
 
 
-proc constructGPropPrincipalProps*(): GPropPrincipalProps {.constructor,
+proc constructGProp_PrincipalProps*(): GProp_PrincipalProps {.constructor,
     importcpp: "GProp_PrincipalProps(@)", header: "GProp_PrincipalProps.hxx".}
-proc hasSymmetryAxis*(this: GPropPrincipalProps): StandardBoolean {.noSideEffect,
+proc HasSymmetryAxis*(this: GProp_PrincipalProps): Standard_Boolean {.noSideEffect,
     importcpp: "HasSymmetryAxis", header: "GProp_PrincipalProps.hxx".}
-proc hasSymmetryAxis*(this: GPropPrincipalProps; aTol: StandardReal): StandardBoolean {.
+proc HasSymmetryAxis*(this: GProp_PrincipalProps; aTol: Standard_Real): Standard_Boolean {.
     noSideEffect, importcpp: "HasSymmetryAxis", header: "GProp_PrincipalProps.hxx".}
-proc hasSymmetryPoint*(this: GPropPrincipalProps): StandardBoolean {.noSideEffect,
+proc HasSymmetryPoint*(this: GProp_PrincipalProps): Standard_Boolean {.noSideEffect,
     importcpp: "HasSymmetryPoint", header: "GProp_PrincipalProps.hxx".}
-proc hasSymmetryPoint*(this: GPropPrincipalProps; aTol: StandardReal): StandardBoolean {.
+proc HasSymmetryPoint*(this: GProp_PrincipalProps; aTol: Standard_Real): Standard_Boolean {.
     noSideEffect, importcpp: "HasSymmetryPoint", header: "GProp_PrincipalProps.hxx".}
-proc moments*(this: GPropPrincipalProps; ixx: var StandardReal; iyy: var StandardReal;
-             izz: var StandardReal) {.noSideEffect, importcpp: "Moments",
-                                   header: "GProp_PrincipalProps.hxx".}
-proc firstAxisOfInertia*(this: GPropPrincipalProps): GpVec {.noSideEffect,
+proc Moments*(this: GProp_PrincipalProps; Ixx: var Standard_Real;
+             Iyy: var Standard_Real; Izz: var Standard_Real) {.noSideEffect,
+    importcpp: "Moments", header: "GProp_PrincipalProps.hxx".}
+proc FirstAxisOfInertia*(this: GProp_PrincipalProps): gp_Vec {.noSideEffect,
     importcpp: "FirstAxisOfInertia", header: "GProp_PrincipalProps.hxx".}
-proc secondAxisOfInertia*(this: GPropPrincipalProps): GpVec {.noSideEffect,
+proc SecondAxisOfInertia*(this: GProp_PrincipalProps): gp_Vec {.noSideEffect,
     importcpp: "SecondAxisOfInertia", header: "GProp_PrincipalProps.hxx".}
-proc thirdAxisOfInertia*(this: GPropPrincipalProps): GpVec {.noSideEffect,
+proc ThirdAxisOfInertia*(this: GProp_PrincipalProps): gp_Vec {.noSideEffect,
     importcpp: "ThirdAxisOfInertia", header: "GProp_PrincipalProps.hxx".}
-proc radiusOfGyration*(this: GPropPrincipalProps; rxx: var StandardReal;
-                      ryy: var StandardReal; rzz: var StandardReal) {.noSideEffect,
+proc RadiusOfGyration*(this: GProp_PrincipalProps; Rxx: var Standard_Real;
+                      Ryy: var Standard_Real; Rzz: var Standard_Real) {.noSideEffect,
     importcpp: "RadiusOfGyration", header: "GProp_PrincipalProps.hxx".}
-

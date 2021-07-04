@@ -14,6 +14,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../gp/gp_Pnt,
+  ../TColStd/TColStd_HArray1OfReal, ../Standard/Standard_Boolean,
+  GeomFill_TrihedronLaw, ../Standard/Standard_Real, ../Standard/Standard_Integer,
+  ../GeomAbs/GeomAbs_Shape, ../TColStd/TColStd_Array1OfReal
+
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of Standard_ConstructionError"
 discard "forward decl of GeomFill_TrihedronLaw"
@@ -22,54 +28,53 @@ discard "forward decl of gp_Vec"
 discard "forward decl of GeomFill_Frenet"
 discard "forward decl of GeomFill_Frenet"
 type
-  HandleGeomFillFrenet* = Handle[GeomFillFrenet]
+  Handle_GeomFill_Frenet* = handle[GeomFill_Frenet]
 
 ## ! Defined Frenet Trihedron  Law
 
 type
-  GeomFillFrenet* {.importcpp: "GeomFill_Frenet", header: "GeomFill_Frenet.hxx",
-                   bycopy.} = object of GeomFillTrihedronLaw
+  GeomFill_Frenet* {.importcpp: "GeomFill_Frenet", header: "GeomFill_Frenet.hxx",
+                    bycopy.} = object of GeomFill_TrihedronLaw
 
 
-proc constructGeomFillFrenet*(): GeomFillFrenet {.constructor,
+proc constructGeomFill_Frenet*(): GeomFill_Frenet {.constructor,
     importcpp: "GeomFill_Frenet(@)", header: "GeomFill_Frenet.hxx".}
-proc copy*(this: GeomFillFrenet): Handle[GeomFillTrihedronLaw] {.noSideEffect,
+proc Copy*(this: GeomFill_Frenet): handle[GeomFill_TrihedronLaw] {.noSideEffect,
     importcpp: "Copy", header: "GeomFill_Frenet.hxx".}
-proc init*(this: var GeomFillFrenet) {.importcpp: "Init",
-                                   header: "GeomFill_Frenet.hxx".}
-proc setCurve*(this: var GeomFillFrenet; c: Handle[Adaptor3dHCurve]) {.
+proc Init*(this: var GeomFill_Frenet) {.importcpp: "Init",
+                                    header: "GeomFill_Frenet.hxx".}
+proc SetCurve*(this: var GeomFill_Frenet; C: handle[Adaptor3d_HCurve]) {.
     importcpp: "SetCurve", header: "GeomFill_Frenet.hxx".}
-proc d0*(this: var GeomFillFrenet; param: StandardReal; tangent: var GpVec;
-        normal: var GpVec; biNormal: var GpVec): StandardBoolean {.importcpp: "D0",
+proc D0*(this: var GeomFill_Frenet; Param: Standard_Real; Tangent: var gp_Vec;
+        Normal: var gp_Vec; BiNormal: var gp_Vec): Standard_Boolean {.importcpp: "D0",
     header: "GeomFill_Frenet.hxx".}
-proc d1*(this: var GeomFillFrenet; param: StandardReal; tangent: var GpVec;
-        dTangent: var GpVec; normal: var GpVec; dNormal: var GpVec; biNormal: var GpVec;
-        dBiNormal: var GpVec): StandardBoolean {.importcpp: "D1",
-    header: "GeomFill_Frenet.hxx".}
-proc d2*(this: var GeomFillFrenet; param: StandardReal; tangent: var GpVec;
-        dTangent: var GpVec; d2Tangent: var GpVec; normal: var GpVec; dNormal: var GpVec;
-        d2Normal: var GpVec; biNormal: var GpVec; dBiNormal: var GpVec;
-        d2BiNormal: var GpVec): StandardBoolean {.importcpp: "D2",
-    header: "GeomFill_Frenet.hxx".}
-proc nbIntervals*(this: GeomFillFrenet; s: GeomAbsShape): StandardInteger {.
+proc D1*(this: var GeomFill_Frenet; Param: Standard_Real; Tangent: var gp_Vec;
+        DTangent: var gp_Vec; Normal: var gp_Vec; DNormal: var gp_Vec;
+        BiNormal: var gp_Vec; DBiNormal: var gp_Vec): Standard_Boolean {.
+    importcpp: "D1", header: "GeomFill_Frenet.hxx".}
+proc D2*(this: var GeomFill_Frenet; Param: Standard_Real; Tangent: var gp_Vec;
+        DTangent: var gp_Vec; D2Tangent: var gp_Vec; Normal: var gp_Vec;
+        DNormal: var gp_Vec; D2Normal: var gp_Vec; BiNormal: var gp_Vec;
+        DBiNormal: var gp_Vec; D2BiNormal: var gp_Vec): Standard_Boolean {.
+    importcpp: "D2", header: "GeomFill_Frenet.hxx".}
+proc NbIntervals*(this: GeomFill_Frenet; S: GeomAbs_Shape): Standard_Integer {.
     noSideEffect, importcpp: "NbIntervals", header: "GeomFill_Frenet.hxx".}
-proc intervals*(this: GeomFillFrenet; t: var TColStdArray1OfReal; s: GeomAbsShape) {.
+proc Intervals*(this: GeomFill_Frenet; T: var TColStd_Array1OfReal; S: GeomAbs_Shape) {.
     noSideEffect, importcpp: "Intervals", header: "GeomFill_Frenet.hxx".}
-proc getAverageLaw*(this: var GeomFillFrenet; aTangent: var GpVec; aNormal: var GpVec;
-                   aBiNormal: var GpVec) {.importcpp: "GetAverageLaw",
-                                        header: "GeomFill_Frenet.hxx".}
-proc isConstant*(this: GeomFillFrenet): StandardBoolean {.noSideEffect,
+proc GetAverageLaw*(this: var GeomFill_Frenet; ATangent: var gp_Vec;
+                   ANormal: var gp_Vec; ABiNormal: var gp_Vec) {.
+    importcpp: "GetAverageLaw", header: "GeomFill_Frenet.hxx".}
+proc IsConstant*(this: GeomFill_Frenet): Standard_Boolean {.noSideEffect,
     importcpp: "IsConstant", header: "GeomFill_Frenet.hxx".}
-proc isOnlyBy3dCurve*(this: GeomFillFrenet): StandardBoolean {.noSideEffect,
+proc IsOnlyBy3dCurve*(this: GeomFill_Frenet): Standard_Boolean {.noSideEffect,
     importcpp: "IsOnlyBy3dCurve", header: "GeomFill_Frenet.hxx".}
 type
-  GeomFillFrenetbaseType* = GeomFillTrihedronLaw
+  GeomFill_Frenetbase_type* = GeomFill_TrihedronLaw
 
-proc getTypeName*(): cstring {.importcpp: "GeomFill_Frenet::get_type_name(@)",
-                            header: "GeomFill_Frenet.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "GeomFill_Frenet::get_type_name(@)",
+                              header: "GeomFill_Frenet.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "GeomFill_Frenet::get_type_descriptor(@)",
     header: "GeomFill_Frenet.hxx".}
-proc dynamicType*(this: GeomFillFrenet): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: GeomFill_Frenet): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "GeomFill_Frenet.hxx".}
-

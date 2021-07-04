@@ -14,84 +14,86 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard
+
 discard "forward decl of IntPolyh_Triangle"
 type
-  IntPolyhStartPoint* {.importcpp: "IntPolyh_StartPoint",
-                       header: "IntPolyh_StartPoint.hxx", bycopy.} = object
+  IntPolyh_StartPoint* {.importcpp: "IntPolyh_StartPoint",
+                        header: "IntPolyh_StartPoint.hxx", bycopy.} = object
 
 
-proc constructIntPolyhStartPoint*(): IntPolyhStartPoint {.constructor,
+proc constructIntPolyh_StartPoint*(): IntPolyh_StartPoint {.constructor,
     importcpp: "IntPolyh_StartPoint(@)", header: "IntPolyh_StartPoint.hxx".}
-proc constructIntPolyhStartPoint*(xx: StandardReal; yy: StandardReal;
-                                 zz: StandardReal; uu1: StandardReal;
-                                 vv1: StandardReal; uu2: StandardReal;
-                                 vv2: StandardReal; t1: StandardInteger;
-                                 e1: StandardInteger; lam1: StandardReal;
-                                 t2: StandardInteger; e2: StandardInteger;
-                                 lam2: StandardReal; list: StandardInteger): IntPolyhStartPoint {.
+proc constructIntPolyh_StartPoint*(xx: Standard_Real; yy: Standard_Real;
+                                  zz: Standard_Real; uu1: Standard_Real;
+                                  vv1: Standard_Real; uu2: Standard_Real;
+                                  vv2: Standard_Real; T1: Standard_Integer;
+                                  E1: Standard_Integer; LAM1: Standard_Real;
+                                  T2: Standard_Integer; E2: Standard_Integer;
+                                  LAM2: Standard_Real; List: Standard_Integer): IntPolyh_StartPoint {.
     constructor, importcpp: "IntPolyh_StartPoint(@)",
     header: "IntPolyh_StartPoint.hxx".}
-proc x*(this: IntPolyhStartPoint): StandardReal {.noSideEffect, importcpp: "X",
+proc X*(this: IntPolyh_StartPoint): Standard_Real {.noSideEffect, importcpp: "X",
     header: "IntPolyh_StartPoint.hxx".}
-proc y*(this: IntPolyhStartPoint): StandardReal {.noSideEffect, importcpp: "Y",
+proc Y*(this: IntPolyh_StartPoint): Standard_Real {.noSideEffect, importcpp: "Y",
     header: "IntPolyh_StartPoint.hxx".}
-proc z*(this: IntPolyhStartPoint): StandardReal {.noSideEffect, importcpp: "Z",
+proc Z*(this: IntPolyh_StartPoint): Standard_Real {.noSideEffect, importcpp: "Z",
     header: "IntPolyh_StartPoint.hxx".}
-proc u1*(this: IntPolyhStartPoint): StandardReal {.noSideEffect, importcpp: "U1",
+proc U1*(this: IntPolyh_StartPoint): Standard_Real {.noSideEffect, importcpp: "U1",
     header: "IntPolyh_StartPoint.hxx".}
-proc v1*(this: IntPolyhStartPoint): StandardReal {.noSideEffect, importcpp: "V1",
+proc V1*(this: IntPolyh_StartPoint): Standard_Real {.noSideEffect, importcpp: "V1",
     header: "IntPolyh_StartPoint.hxx".}
-proc u2*(this: IntPolyhStartPoint): StandardReal {.noSideEffect, importcpp: "U2",
+proc U2*(this: IntPolyh_StartPoint): Standard_Real {.noSideEffect, importcpp: "U2",
     header: "IntPolyh_StartPoint.hxx".}
-proc v2*(this: IntPolyhStartPoint): StandardReal {.noSideEffect, importcpp: "V2",
+proc V2*(this: IntPolyh_StartPoint): Standard_Real {.noSideEffect, importcpp: "V2",
     header: "IntPolyh_StartPoint.hxx".}
-proc t1*(this: IntPolyhStartPoint): StandardInteger {.noSideEffect, importcpp: "T1",
-    header: "IntPolyh_StartPoint.hxx".}
-proc e1*(this: IntPolyhStartPoint): StandardInteger {.noSideEffect, importcpp: "E1",
-    header: "IntPolyh_StartPoint.hxx".}
-proc lambda1*(this: IntPolyhStartPoint): StandardReal {.noSideEffect,
+proc T1*(this: IntPolyh_StartPoint): Standard_Integer {.noSideEffect,
+    importcpp: "T1", header: "IntPolyh_StartPoint.hxx".}
+proc E1*(this: IntPolyh_StartPoint): Standard_Integer {.noSideEffect,
+    importcpp: "E1", header: "IntPolyh_StartPoint.hxx".}
+proc Lambda1*(this: IntPolyh_StartPoint): Standard_Real {.noSideEffect,
     importcpp: "Lambda1", header: "IntPolyh_StartPoint.hxx".}
-proc t2*(this: IntPolyhStartPoint): StandardInteger {.noSideEffect, importcpp: "T2",
-    header: "IntPolyh_StartPoint.hxx".}
-proc e2*(this: IntPolyhStartPoint): StandardInteger {.noSideEffect, importcpp: "E2",
-    header: "IntPolyh_StartPoint.hxx".}
-proc lambda2*(this: IntPolyhStartPoint): StandardReal {.noSideEffect,
+proc T2*(this: IntPolyh_StartPoint): Standard_Integer {.noSideEffect,
+    importcpp: "T2", header: "IntPolyh_StartPoint.hxx".}
+proc E2*(this: IntPolyh_StartPoint): Standard_Integer {.noSideEffect,
+    importcpp: "E2", header: "IntPolyh_StartPoint.hxx".}
+proc Lambda2*(this: IntPolyh_StartPoint): Standard_Real {.noSideEffect,
     importcpp: "Lambda2", header: "IntPolyh_StartPoint.hxx".}
-proc getAngle*(this: IntPolyhStartPoint): StandardReal {.noSideEffect,
+proc GetAngle*(this: IntPolyh_StartPoint): Standard_Real {.noSideEffect,
     importcpp: "GetAngle", header: "IntPolyh_StartPoint.hxx".}
-proc chainList*(this: IntPolyhStartPoint): StandardInteger {.noSideEffect,
+proc ChainList*(this: IntPolyh_StartPoint): Standard_Integer {.noSideEffect,
     importcpp: "ChainList", header: "IntPolyh_StartPoint.hxx".}
-proc getEdgePoints*(this: IntPolyhStartPoint; triangle: IntPolyhTriangle;
-                   firstEdgePoint: var StandardInteger;
-                   secondEdgePoint: var StandardInteger;
-                   lastPoint: var StandardInteger): StandardInteger {.noSideEffect,
-    importcpp: "GetEdgePoints", header: "IntPolyh_StartPoint.hxx".}
-proc setXYZ*(this: var IntPolyhStartPoint; xx: StandardReal; yy: StandardReal;
-            zz: StandardReal) {.importcpp: "SetXYZ",
-                              header: "IntPolyh_StartPoint.hxx".}
-proc setUV1*(this: var IntPolyhStartPoint; uu1: StandardReal; vv1: StandardReal) {.
+proc GetEdgePoints*(this: IntPolyh_StartPoint; Triangle: IntPolyh_Triangle;
+                   FirstEdgePoint: var Standard_Integer;
+                   SecondEdgePoint: var Standard_Integer;
+                   LastPoint: var Standard_Integer): Standard_Integer {.
+    noSideEffect, importcpp: "GetEdgePoints", header: "IntPolyh_StartPoint.hxx".}
+proc SetXYZ*(this: var IntPolyh_StartPoint; XX: Standard_Real; YY: Standard_Real;
+            ZZ: Standard_Real) {.importcpp: "SetXYZ",
+                               header: "IntPolyh_StartPoint.hxx".}
+proc SetUV1*(this: var IntPolyh_StartPoint; UU1: Standard_Real; VV1: Standard_Real) {.
     importcpp: "SetUV1", header: "IntPolyh_StartPoint.hxx".}
-proc setUV2*(this: var IntPolyhStartPoint; uu2: StandardReal; vv2: StandardReal) {.
+proc SetUV2*(this: var IntPolyh_StartPoint; UU2: Standard_Real; VV2: Standard_Real) {.
     importcpp: "SetUV2", header: "IntPolyh_StartPoint.hxx".}
-proc setEdge1*(this: var IntPolyhStartPoint; ie1: StandardInteger) {.
+proc SetEdge1*(this: var IntPolyh_StartPoint; IE1: Standard_Integer) {.
     importcpp: "SetEdge1", header: "IntPolyh_StartPoint.hxx".}
-proc setLambda1*(this: var IntPolyhStartPoint; lam1: StandardReal) {.
+proc SetLambda1*(this: var IntPolyh_StartPoint; LAM1: Standard_Real) {.
     importcpp: "SetLambda1", header: "IntPolyh_StartPoint.hxx".}
-proc setEdge2*(this: var IntPolyhStartPoint; ie2: StandardInteger) {.
+proc SetEdge2*(this: var IntPolyh_StartPoint; IE2: Standard_Integer) {.
     importcpp: "SetEdge2", header: "IntPolyh_StartPoint.hxx".}
-proc setLambda2*(this: var IntPolyhStartPoint; lam2: StandardReal) {.
+proc SetLambda2*(this: var IntPolyh_StartPoint; LAM2: Standard_Real) {.
     importcpp: "SetLambda2", header: "IntPolyh_StartPoint.hxx".}
-proc setCoupleValue*(this: var IntPolyhStartPoint; it1: StandardInteger;
-                    it2: StandardInteger) {.importcpp: "SetCoupleValue",
+proc SetCoupleValue*(this: var IntPolyh_StartPoint; IT1: Standard_Integer;
+                    IT2: Standard_Integer) {.importcpp: "SetCoupleValue",
     header: "IntPolyh_StartPoint.hxx".}
-proc setAngle*(this: var IntPolyhStartPoint; ang: StandardReal) {.
+proc SetAngle*(this: var IntPolyh_StartPoint; ang: Standard_Real) {.
     importcpp: "SetAngle", header: "IntPolyh_StartPoint.hxx".}
-proc setChainList*(this: var IntPolyhStartPoint; chList: StandardInteger) {.
+proc SetChainList*(this: var IntPolyh_StartPoint; ChList: Standard_Integer) {.
     importcpp: "SetChainList", header: "IntPolyh_StartPoint.hxx".}
-proc checkSameSP*(this: IntPolyhStartPoint; sp: IntPolyhStartPoint): StandardInteger {.
+proc CheckSameSP*(this: IntPolyh_StartPoint; SP: IntPolyh_StartPoint): Standard_Integer {.
     noSideEffect, importcpp: "CheckSameSP", header: "IntPolyh_StartPoint.hxx".}
-proc dump*(this: IntPolyhStartPoint) {.noSideEffect, importcpp: "Dump",
-                                    header: "IntPolyh_StartPoint.hxx".}
-proc dump*(this: IntPolyhStartPoint; i: StandardInteger) {.noSideEffect,
+proc Dump*(this: IntPolyh_StartPoint) {.noSideEffect, importcpp: "Dump",
+                                     header: "IntPolyh_StartPoint.hxx".}
+proc Dump*(this: IntPolyh_StartPoint; i: Standard_Integer) {.noSideEffect,
     importcpp: "Dump", header: "IntPolyh_StartPoint.hxx".}
-

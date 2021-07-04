@@ -14,6 +14,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Quantity/Quantity_NameOfColor,
+  ../Prs3d/Prs3d_Drawer, AIS_TypeOfAttribute, ../Standard/Standard_Real,
+  ../Aspect/Aspect_TypeOfLine
+
 discard "forward decl of Quantity_Color"
 discard "forward decl of Graphic3d_MaterialAspect"
 type
@@ -21,30 +27,29 @@ type
                     bycopy.} = object
 
 
-proc getLineColor*(aDrawer: Handle[Prs3dDrawer];
-                  theTypeOfAttributes: AIS_TypeOfAttribute): QuantityNameOfColor {.
+proc GetLineColor*(aDrawer: handle[Prs3d_Drawer];
+                  TheTypeOfAttributes: AIS_TypeOfAttribute): Quantity_NameOfColor {.
     importcpp: "AIS_GraphicTool::GetLineColor(@)", header: "AIS_GraphicTool.hxx".}
-proc getLineColor*(aDrawer: Handle[Prs3dDrawer];
-                  theTypeOfAttributes: AIS_TypeOfAttribute;
-                  theLineColor: var QuantityColor) {.
+proc GetLineColor*(aDrawer: handle[Prs3d_Drawer];
+                  TheTypeOfAttributes: AIS_TypeOfAttribute;
+                  TheLineColor: var Quantity_Color) {.
     importcpp: "AIS_GraphicTool::GetLineColor(@)", header: "AIS_GraphicTool.hxx".}
-proc getLineWidth*(aDrawer: Handle[Prs3dDrawer];
-                  theTypeOfAttributes: AIS_TypeOfAttribute): StandardReal {.
+proc GetLineWidth*(aDrawer: handle[Prs3d_Drawer];
+                  TheTypeOfAttributes: AIS_TypeOfAttribute): Standard_Real {.
     importcpp: "AIS_GraphicTool::GetLineWidth(@)", header: "AIS_GraphicTool.hxx".}
-proc getLineType*(aDrawer: Handle[Prs3dDrawer];
-                 theTypeOfAttributes: AIS_TypeOfAttribute): AspectTypeOfLine {.
+proc GetLineType*(aDrawer: handle[Prs3d_Drawer];
+                 TheTypeOfAttributes: AIS_TypeOfAttribute): Aspect_TypeOfLine {.
     importcpp: "AIS_GraphicTool::GetLineType(@)", header: "AIS_GraphicTool.hxx".}
-proc getLineAtt*(aDrawer: Handle[Prs3dDrawer];
-                theTypeOfAttributes: AIS_TypeOfAttribute;
-                aCol: var QuantityNameOfColor; aWidth: var StandardReal;
-                aTyp: var AspectTypeOfLine) {.
+proc GetLineAtt*(aDrawer: handle[Prs3d_Drawer];
+                TheTypeOfAttributes: AIS_TypeOfAttribute;
+                aCol: var Quantity_NameOfColor; aWidth: var Standard_Real;
+                aTyp: var Aspect_TypeOfLine) {.
     importcpp: "AIS_GraphicTool::GetLineAtt(@)", header: "AIS_GraphicTool.hxx".}
-proc getInteriorColor*(aDrawer: Handle[Prs3dDrawer]): QuantityNameOfColor {.
+proc GetInteriorColor*(aDrawer: handle[Prs3d_Drawer]): Quantity_NameOfColor {.
     importcpp: "AIS_GraphicTool::GetInteriorColor(@)",
     header: "AIS_GraphicTool.hxx".}
-proc getInteriorColor*(aDrawer: Handle[Prs3dDrawer]; aColor: var QuantityColor) {.
+proc GetInteriorColor*(aDrawer: handle[Prs3d_Drawer]; aColor: var Quantity_Color) {.
     importcpp: "AIS_GraphicTool::GetInteriorColor(@)",
     header: "AIS_GraphicTool.hxx".}
-proc getMaterial*(aDrawer: Handle[Prs3dDrawer]): Graphic3dMaterialAspect {.
+proc GetMaterial*(aDrawer: handle[Prs3d_Drawer]): Graphic3d_MaterialAspect {.
     importcpp: "AIS_GraphicTool::GetMaterial(@)", header: "AIS_GraphicTool.hxx".}
-

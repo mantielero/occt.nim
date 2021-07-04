@@ -13,6 +13,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepFEA_FeaShellShearStiffness"
@@ -26,17 +30,16 @@ type
 proc constructRWStepFEA_RWFeaShellShearStiffness*(): RWStepFEA_RWFeaShellShearStiffness {.
     constructor, importcpp: "RWStepFEA_RWFeaShellShearStiffness(@)",
     header: "RWStepFEA_RWFeaShellShearStiffness.hxx".}
-proc readStep*(this: RWStepFEA_RWFeaShellShearStiffness;
-              data: Handle[StepDataStepReaderData]; num: StandardInteger;
-              ach: var Handle[InterfaceCheck];
-              ent: Handle[StepFEA_FeaShellShearStiffness]) {.noSideEffect,
+proc ReadStep*(this: RWStepFEA_RWFeaShellShearStiffness;
+              data: handle[StepData_StepReaderData]; num: Standard_Integer;
+              ach: var handle[Interface_Check];
+              ent: handle[StepFEA_FeaShellShearStiffness]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepFEA_RWFeaShellShearStiffness.hxx".}
-proc writeStep*(this: RWStepFEA_RWFeaShellShearStiffness;
-               sw: var StepDataStepWriter;
-               ent: Handle[StepFEA_FeaShellShearStiffness]) {.noSideEffect,
+proc WriteStep*(this: RWStepFEA_RWFeaShellShearStiffness;
+               SW: var StepData_StepWriter;
+               ent: handle[StepFEA_FeaShellShearStiffness]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepFEA_RWFeaShellShearStiffness.hxx".}
-proc share*(this: RWStepFEA_RWFeaShellShearStiffness;
-           ent: Handle[StepFEA_FeaShellShearStiffness];
-           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
+proc Share*(this: RWStepFEA_RWFeaShellShearStiffness;
+           ent: handle[StepFEA_FeaShellShearStiffness];
+           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepFEA_RWFeaShellShearStiffness.hxx".}
-

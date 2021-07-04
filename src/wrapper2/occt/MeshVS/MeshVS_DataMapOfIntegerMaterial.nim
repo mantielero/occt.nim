@@ -13,10 +13,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard_Integer, ../Graphic3d/Graphic3d_MaterialAspect,
+  ../TColStd/TColStd_MapIntegerHasher, ../NCollection/NCollection_DataMap
+
 type
-  MeshVS_DataMapOfIntegerMaterial* = NCollectionDataMap[StandardInteger,
-      Graphic3dMaterialAspect, TColStdMapIntegerHasher]
-  MeshVS_DataMapIteratorOfDataMapOfIntegerMaterial* = Iterator[StandardInteger,
-      Graphic3dMaterialAspect, TColStdMapIntegerHasher]
-
-
+  MeshVS_DataMapOfIntegerMaterial* = NCollection_DataMap[Standard_Integer,
+      Graphic3d_MaterialAspect, TColStd_MapIntegerHasher]
+  MeshVS_DataMapIteratorOfDataMapOfIntegerMaterial* = Iterator[Standard_Integer,
+      Graphic3d_MaterialAspect, TColStd_MapIntegerHasher]

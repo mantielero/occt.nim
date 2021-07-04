@@ -14,20 +14,24 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../TopTools/TopTools_DataMapOfShapeListOfShape,
+  ../Standard/Standard_Boolean, ../Standard/Standard_Real
+
 discard "forward decl of TopoDS_Face"
 discard "forward decl of TopoDS_Shell"
 type
-  ShapeFixFaceConnect* {.importcpp: "ShapeFix_FaceConnect",
-                        header: "ShapeFix_FaceConnect.hxx", bycopy.} = object
+  ShapeFix_FaceConnect* {.importcpp: "ShapeFix_FaceConnect",
+                         header: "ShapeFix_FaceConnect.hxx", bycopy.} = object
 
 
-proc constructShapeFixFaceConnect*(): ShapeFixFaceConnect {.constructor,
+proc constructShapeFix_FaceConnect*(): ShapeFix_FaceConnect {.constructor,
     importcpp: "ShapeFix_FaceConnect(@)", header: "ShapeFix_FaceConnect.hxx".}
-proc add*(this: var ShapeFixFaceConnect; aFirst: TopoDS_Face; aSecond: TopoDS_Face): StandardBoolean {.
+proc Add*(this: var ShapeFix_FaceConnect; aFirst: TopoDS_Face; aSecond: TopoDS_Face): Standard_Boolean {.
     importcpp: "Add", header: "ShapeFix_FaceConnect.hxx".}
-proc build*(this: var ShapeFixFaceConnect; shell: TopoDS_Shell;
-           sewtoler: StandardReal; fixtoler: StandardReal): TopoDS_Shell {.
+proc Build*(this: var ShapeFix_FaceConnect; shell: TopoDS_Shell;
+           sewtoler: Standard_Real; fixtoler: Standard_Real): TopoDS_Shell {.
     importcpp: "Build", header: "ShapeFix_FaceConnect.hxx".}
-proc clear*(this: var ShapeFixFaceConnect) {.importcpp: "Clear",
+proc Clear*(this: var ShapeFix_FaceConnect) {.importcpp: "Clear",
     header: "ShapeFix_FaceConnect.hxx".}
-

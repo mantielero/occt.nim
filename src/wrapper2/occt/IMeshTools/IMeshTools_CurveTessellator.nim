@@ -13,34 +13,36 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard_Transient, ../Standard/Standard_Type
+
 discard "forward decl of gp_Pnt"
 type
-  IMeshToolsCurveTessellator* {.importcpp: "IMeshTools_CurveTessellator",
-                               header: "IMeshTools_CurveTessellator.hxx", bycopy.} = object of StandardTransient ##
-                                                                                                          ## !
-                                                                                                          ## Destructor.
-                                                                                                          ##
-                                                                                                          ## !
-                                                                                                          ## Constructor.
+  IMeshTools_CurveTessellator* {.importcpp: "IMeshTools_CurveTessellator",
+                                header: "IMeshTools_CurveTessellator.hxx", bycopy.} = object of Standard_Transient ##
+                                                                                                            ## !
+                                                                                                            ## Destructor.
+                                                                                                            ##
+                                                                                                            ## !
+                                                                                                            ## Constructor.
 
 
-proc destroyIMeshToolsCurveTessellator*(this: var IMeshToolsCurveTessellator) {.
+proc destroyIMeshTools_CurveTessellator*(this: var IMeshTools_CurveTessellator) {.
     importcpp: "#.~IMeshTools_CurveTessellator()",
     header: "IMeshTools_CurveTessellator.hxx".}
-proc pointsNb*(this: IMeshToolsCurveTessellator): StandardInteger {.noSideEffect,
+proc PointsNb*(this: IMeshTools_CurveTessellator): Standard_Integer {.noSideEffect,
     importcpp: "PointsNb", header: "IMeshTools_CurveTessellator.hxx".}
-proc value*(this: IMeshToolsCurveTessellator; theIndex: StandardInteger;
-           thePoint: var GpPnt; theParameter: var StandardReal): StandardBoolean {.
+proc Value*(this: IMeshTools_CurveTessellator; theIndex: Standard_Integer;
+           thePoint: var gp_Pnt; theParameter: var Standard_Real): Standard_Boolean {.
     noSideEffect, importcpp: "Value", header: "IMeshTools_CurveTessellator.hxx".}
 type
-  IMeshToolsCurveTessellatorbaseType* = StandardTransient
+  IMeshTools_CurveTessellatorbase_type* = Standard_Transient
 
-proc getTypeName*(): cstring {.importcpp: "IMeshTools_CurveTessellator::get_type_name(@)",
-                            header: "IMeshTools_CurveTessellator.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "IMeshTools_CurveTessellator::get_type_name(@)",
+                              header: "IMeshTools_CurveTessellator.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "IMeshTools_CurveTessellator::get_type_descriptor(@)",
     header: "IMeshTools_CurveTessellator.hxx".}
-proc dynamicType*(this: IMeshToolsCurveTessellator): Handle[StandardType] {.
+proc DynamicType*(this: IMeshTools_CurveTessellator): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType",
     header: "IMeshTools_CurveTessellator.hxx".}
-

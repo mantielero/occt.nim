@@ -14,39 +14,43 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../gp/gp_Pnt2d,
+  ../Standard/Standard_Real, ../TopAbs/TopAbs_Orientation,
+  ../Standard/Standard_Transient, ../Standard/Standard_Boolean
+
 discard "forward decl of gp_Pnt2d"
 discard "forward decl of Adaptor2d_HCurve2d"
 discard "forward decl of Adaptor3d_HVertex"
 discard "forward decl of Adaptor3d_HVertex"
 type
-  HandleAdaptor3dHVertex* = Handle[Adaptor3dHVertex]
-  Adaptor3dHVertex* {.importcpp: "Adaptor3d_HVertex",
-                     header: "Adaptor3d_HVertex.hxx", bycopy.} = object of StandardTransient
+  Handle_Adaptor3d_HVertex* = handle[Adaptor3d_HVertex]
+  Adaptor3d_HVertex* {.importcpp: "Adaptor3d_HVertex",
+                      header: "Adaptor3d_HVertex.hxx", bycopy.} = object of Standard_Transient
 
 
-proc constructAdaptor3dHVertex*(): Adaptor3dHVertex {.constructor,
+proc constructAdaptor3d_HVertex*(): Adaptor3d_HVertex {.constructor,
     importcpp: "Adaptor3d_HVertex(@)", header: "Adaptor3d_HVertex.hxx".}
-proc constructAdaptor3dHVertex*(p: GpPnt2d; ori: TopAbsOrientation;
-                               resolution: StandardReal): Adaptor3dHVertex {.
+proc constructAdaptor3d_HVertex*(P: gp_Pnt2d; Ori: TopAbs_Orientation;
+                                Resolution: Standard_Real): Adaptor3d_HVertex {.
     constructor, importcpp: "Adaptor3d_HVertex(@)", header: "Adaptor3d_HVertex.hxx".}
-proc value*(this: var Adaptor3dHVertex): GpPnt2d {.importcpp: "Value",
+proc Value*(this: var Adaptor3d_HVertex): gp_Pnt2d {.importcpp: "Value",
     header: "Adaptor3d_HVertex.hxx".}
-proc parameter*(this: var Adaptor3dHVertex; c: Handle[Adaptor2dHCurve2d]): StandardReal {.
+proc Parameter*(this: var Adaptor3d_HVertex; C: handle[Adaptor2d_HCurve2d]): Standard_Real {.
     importcpp: "Parameter", header: "Adaptor3d_HVertex.hxx".}
-proc resolution*(this: var Adaptor3dHVertex; c: Handle[Adaptor2dHCurve2d]): StandardReal {.
+proc Resolution*(this: var Adaptor3d_HVertex; C: handle[Adaptor2d_HCurve2d]): Standard_Real {.
     importcpp: "Resolution", header: "Adaptor3d_HVertex.hxx".}
-proc orientation*(this: var Adaptor3dHVertex): TopAbsOrientation {.
+proc Orientation*(this: var Adaptor3d_HVertex): TopAbs_Orientation {.
     importcpp: "Orientation", header: "Adaptor3d_HVertex.hxx".}
-proc isSame*(this: var Adaptor3dHVertex; other: Handle[Adaptor3dHVertex]): StandardBoolean {.
+proc IsSame*(this: var Adaptor3d_HVertex; Other: handle[Adaptor3d_HVertex]): Standard_Boolean {.
     importcpp: "IsSame", header: "Adaptor3d_HVertex.hxx".}
 type
-  Adaptor3dHVertexbaseType* = StandardTransient
+  Adaptor3d_HVertexbase_type* = Standard_Transient
 
-proc getTypeName*(): cstring {.importcpp: "Adaptor3d_HVertex::get_type_name(@)",
-                            header: "Adaptor3d_HVertex.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "Adaptor3d_HVertex::get_type_name(@)",
+                              header: "Adaptor3d_HVertex.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "Adaptor3d_HVertex::get_type_descriptor(@)",
     header: "Adaptor3d_HVertex.hxx".}
-proc dynamicType*(this: Adaptor3dHVertex): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: Adaptor3d_HVertex): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "Adaptor3d_HVertex.hxx".}
-

@@ -11,40 +11,45 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard_DefineAlloc, ../Extrema/Extrema_ExtPS,
+  ../Standard/Standard_Integer, ../TColStd/TColStd_SequenceOfReal,
+  ../Extrema/Extrema_SequenceOfPOnSurf, ../BRepAdaptor/BRepAdaptor_Surface,
+  ../Extrema/Extrema_ExtFlag, ../Extrema/Extrema_ExtAlgo
+
 discard "forward decl of TopoDS_Vertex"
 discard "forward decl of TopoDS_Face"
 discard "forward decl of gp_Pnt"
 type
-  BRepExtremaExtPF* {.importcpp: "BRepExtrema_ExtPF",
-                     header: "BRepExtrema_ExtPF.hxx", bycopy.} = object
+  BRepExtrema_ExtPF* {.importcpp: "BRepExtrema_ExtPF",
+                      header: "BRepExtrema_ExtPF.hxx", bycopy.} = object
 
 
-proc constructBRepExtremaExtPF*(): BRepExtremaExtPF {.constructor,
+proc constructBRepExtrema_ExtPF*(): BRepExtrema_ExtPF {.constructor,
     importcpp: "BRepExtrema_ExtPF(@)", header: "BRepExtrema_ExtPF.hxx".}
-proc constructBRepExtremaExtPF*(theVertex: TopoDS_Vertex; theFace: TopoDS_Face;
-                               theFlag: ExtremaExtFlag = extremaExtFlagMINMAX;
-                               theAlgo: ExtremaExtAlgo = extremaExtAlgoGrad): BRepExtremaExtPF {.
+proc constructBRepExtrema_ExtPF*(TheVertex: TopoDS_Vertex; TheFace: TopoDS_Face;
+    TheFlag: Extrema_ExtFlag = Extrema_ExtFlag_MINMAX;
+                                TheAlgo: Extrema_ExtAlgo = Extrema_ExtAlgo_Grad): BRepExtrema_ExtPF {.
     constructor, importcpp: "BRepExtrema_ExtPF(@)", header: "BRepExtrema_ExtPF.hxx".}
-proc initialize*(this: var BRepExtremaExtPF; theFace: TopoDS_Face;
-                theFlag: ExtremaExtFlag = extremaExtFlagMINMAX;
-                theAlgo: ExtremaExtAlgo = extremaExtAlgoGrad) {.
+proc Initialize*(this: var BRepExtrema_ExtPF; TheFace: TopoDS_Face;
+                TheFlag: Extrema_ExtFlag = Extrema_ExtFlag_MINMAX;
+                TheAlgo: Extrema_ExtAlgo = Extrema_ExtAlgo_Grad) {.
     importcpp: "Initialize", header: "BRepExtrema_ExtPF.hxx".}
-proc perform*(this: var BRepExtremaExtPF; theVertex: TopoDS_Vertex;
-             theFace: TopoDS_Face) {.importcpp: "Perform",
+proc Perform*(this: var BRepExtrema_ExtPF; TheVertex: TopoDS_Vertex;
+             TheFace: TopoDS_Face) {.importcpp: "Perform",
                                    header: "BRepExtrema_ExtPF.hxx".}
-proc isDone*(this: BRepExtremaExtPF): StandardBoolean {.noSideEffect,
+proc IsDone*(this: BRepExtrema_ExtPF): Standard_Boolean {.noSideEffect,
     importcpp: "IsDone", header: "BRepExtrema_ExtPF.hxx".}
-proc nbExt*(this: BRepExtremaExtPF): StandardInteger {.noSideEffect,
+proc NbExt*(this: BRepExtrema_ExtPF): Standard_Integer {.noSideEffect,
     importcpp: "NbExt", header: "BRepExtrema_ExtPF.hxx".}
-proc squareDistance*(this: BRepExtremaExtPF; n: StandardInteger): StandardReal {.
+proc SquareDistance*(this: BRepExtrema_ExtPF; N: Standard_Integer): Standard_Real {.
     noSideEffect, importcpp: "SquareDistance", header: "BRepExtrema_ExtPF.hxx".}
-proc parameter*(this: BRepExtremaExtPF; n: StandardInteger; u: var StandardReal;
-               v: var StandardReal) {.noSideEffect, importcpp: "Parameter",
-                                   header: "BRepExtrema_ExtPF.hxx".}
-proc point*(this: BRepExtremaExtPF; n: StandardInteger): GpPnt {.noSideEffect,
+proc Parameter*(this: BRepExtrema_ExtPF; N: Standard_Integer; U: var Standard_Real;
+               V: var Standard_Real) {.noSideEffect, importcpp: "Parameter",
+                                    header: "BRepExtrema_ExtPF.hxx".}
+proc Point*(this: BRepExtrema_ExtPF; N: Standard_Integer): gp_Pnt {.noSideEffect,
     importcpp: "Point", header: "BRepExtrema_ExtPF.hxx".}
-proc setFlag*(this: var BRepExtremaExtPF; f: ExtremaExtFlag) {.importcpp: "SetFlag",
+proc SetFlag*(this: var BRepExtrema_ExtPF; F: Extrema_ExtFlag) {.importcpp: "SetFlag",
     header: "BRepExtrema_ExtPF.hxx".}
-proc setAlgo*(this: var BRepExtremaExtPF; a: ExtremaExtAlgo) {.importcpp: "SetAlgo",
+proc SetAlgo*(this: var BRepExtrema_ExtPF; A: Extrema_ExtAlgo) {.importcpp: "SetAlgo",
     header: "BRepExtrema_ExtPF.hxx".}
-

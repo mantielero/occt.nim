@@ -13,30 +13,33 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepRepr_PerpendicularTo"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepReprRWPerpendicularTo* {.importcpp: "RWStepRepr_RWPerpendicularTo",
-                                header: "RWStepRepr_RWPerpendicularTo.hxx", bycopy.} = object ##
-                                                                                         ## !
-                                                                                         ## Empty
-                                                                                         ## constructor
+  RWStepRepr_RWPerpendicularTo* {.importcpp: "RWStepRepr_RWPerpendicularTo",
+                                 header: "RWStepRepr_RWPerpendicularTo.hxx",
+                                 bycopy.} = object ## ! Empty constructor
 
 
-proc constructRWStepReprRWPerpendicularTo*(): RWStepReprRWPerpendicularTo {.
+proc constructRWStepRepr_RWPerpendicularTo*(): RWStepRepr_RWPerpendicularTo {.
     constructor, importcpp: "RWStepRepr_RWPerpendicularTo(@)",
     header: "RWStepRepr_RWPerpendicularTo.hxx".}
-proc readStep*(this: RWStepReprRWPerpendicularTo;
-              data: Handle[StepDataStepReaderData]; num: StandardInteger;
-              ach: var Handle[InterfaceCheck]; ent: Handle[StepReprPerpendicularTo]) {.
-    noSideEffect, importcpp: "ReadStep", header: "RWStepRepr_RWPerpendicularTo.hxx".}
-proc writeStep*(this: RWStepReprRWPerpendicularTo; sw: var StepDataStepWriter;
-               ent: Handle[StepReprPerpendicularTo]) {.noSideEffect,
+proc ReadStep*(this: RWStepRepr_RWPerpendicularTo;
+              data: handle[StepData_StepReaderData]; num: Standard_Integer;
+              ach: var handle[Interface_Check];
+              ent: handle[StepRepr_PerpendicularTo]) {.noSideEffect,
+    importcpp: "ReadStep", header: "RWStepRepr_RWPerpendicularTo.hxx".}
+proc WriteStep*(this: RWStepRepr_RWPerpendicularTo; SW: var StepData_StepWriter;
+               ent: handle[StepRepr_PerpendicularTo]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepRepr_RWPerpendicularTo.hxx".}
-proc share*(this: RWStepReprRWPerpendicularTo;
-           ent: Handle[StepReprPerpendicularTo]; iter: var InterfaceEntityIterator) {.
-    noSideEffect, importcpp: "Share", header: "RWStepRepr_RWPerpendicularTo.hxx".}
-
+proc Share*(this: RWStepRepr_RWPerpendicularTo;
+           ent: handle[StepRepr_PerpendicularTo];
+           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
+    header: "RWStepRepr_RWPerpendicularTo.hxx".}

@@ -14,15 +14,20 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../GeomAbs/GeomAbs_CurveType,
+  ../Standard/Standard_Real
+
 discard "forward decl of LProp_CurAndInf"
 type
-  LPropAnalyticCurInf* {.importcpp: "LProp_AnalyticCurInf",
-                        header: "LProp_AnalyticCurInf.hxx", bycopy.} = object
+  LProp_AnalyticCurInf* {.importcpp: "LProp_AnalyticCurInf",
+                         header: "LProp_AnalyticCurInf.hxx", bycopy.} = object
 
 
-proc constructLPropAnalyticCurInf*(): LPropAnalyticCurInf {.constructor,
+proc constructLProp_AnalyticCurInf*(): LProp_AnalyticCurInf {.constructor,
     importcpp: "LProp_AnalyticCurInf(@)", header: "LProp_AnalyticCurInf.hxx".}
-proc perform*(this: var LPropAnalyticCurInf; t: GeomAbsCurveType;
-             uFirst: StandardReal; uLast: StandardReal; result: var LPropCurAndInf) {.
-    importcpp: "Perform", header: "LProp_AnalyticCurInf.hxx".}
-
+proc Perform*(this: var LProp_AnalyticCurInf; T: GeomAbs_CurveType;
+             UFirst: Standard_Real; ULast: Standard_Real;
+             Result: var LProp_CurAndInf) {.importcpp: "Perform",
+    header: "LProp_AnalyticCurInf.hxx".}

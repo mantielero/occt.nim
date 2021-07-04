@@ -14,9 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  AdvApp2Var_Iso, ../NCollection/NCollection_Sequence
+
 ## ! Set of constraints along a same type of Iso on the same level
 
 type
-  AdvApp2VarStrip* = NCollectionSequence[Handle[AdvApp2VarIso]]
-
-
+  AdvApp2Var_Strip* = NCollection_Sequence[handle[AdvApp2Var_Iso]]

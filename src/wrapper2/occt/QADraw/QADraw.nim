@@ -13,14 +13,17 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Draw/Draw_Interpretor
+
 type
   QADraw* {.importcpp: "QADraw", header: "QADraw.hxx", bycopy.} = object ## ! Define specicial commands for AIS.
 
 
-proc commonCommands*(di: var DrawInterpretor) {.
+proc CommonCommands*(DI: var Draw_Interpretor) {.
     importcpp: "QADraw::CommonCommands(@)", header: "QADraw.hxx".}
-proc additionalCommands*(di: var DrawInterpretor) {.
+proc AdditionalCommands*(DI: var Draw_Interpretor) {.
     importcpp: "QADraw::AdditionalCommands(@)", header: "QADraw.hxx".}
-proc factory*(di: var DrawInterpretor) {.importcpp: "QADraw::Factory(@)",
-                                     header: "QADraw.hxx".}
-
+proc Factory*(DI: var Draw_Interpretor) {.importcpp: "QADraw::Factory(@)",
+                                      header: "QADraw.hxx".}

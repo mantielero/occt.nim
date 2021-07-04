@@ -14,39 +14,45 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
+  ../Standard/Standard_Real, ../IFSelect/IFSelect_ReturnStatus,
+  STEPControl_StepModelType, ../Standard/Standard_CString,
+  ../Standard/Standard_Integer, ../Message/Message_ProgressRange
+
 discard "forward decl of XSControl_WorkSession"
 discard "forward decl of StepData_StepModel"
 discard "forward decl of TopoDS_Shape"
 type
-  STEPControlWriter* {.importcpp: "STEPControl_Writer",
-                      header: "STEPControl_Writer.hxx", bycopy.} = object ## ! Creates a Writer from scratch
+  STEPControl_Writer* {.importcpp: "STEPControl_Writer",
+                       header: "STEPControl_Writer.hxx", bycopy.} = object ## ! Creates a Writer from scratch
 
 
-proc constructSTEPControlWriter*(): STEPControlWriter {.constructor,
+proc constructSTEPControl_Writer*(): STEPControl_Writer {.constructor,
     importcpp: "STEPControl_Writer(@)", header: "STEPControl_Writer.hxx".}
-proc constructSTEPControlWriter*(ws: Handle[XSControlWorkSession];
-                                scratch: StandardBoolean = standardTrue): STEPControlWriter {.
+proc constructSTEPControl_Writer*(WS: handle[XSControl_WorkSession];
+                                 scratch: Standard_Boolean = Standard_True): STEPControl_Writer {.
     constructor, importcpp: "STEPControl_Writer(@)",
     header: "STEPControl_Writer.hxx".}
-proc setTolerance*(this: var STEPControlWriter; tol: StandardReal) {.
+proc SetTolerance*(this: var STEPControl_Writer; Tol: Standard_Real) {.
     importcpp: "SetTolerance", header: "STEPControl_Writer.hxx".}
-proc unsetTolerance*(this: var STEPControlWriter) {.importcpp: "UnsetTolerance",
+proc UnsetTolerance*(this: var STEPControl_Writer) {.importcpp: "UnsetTolerance",
     header: "STEPControl_Writer.hxx".}
-proc setWS*(this: var STEPControlWriter; ws: Handle[XSControlWorkSession];
-           scratch: StandardBoolean = standardTrue) {.importcpp: "SetWS",
+proc SetWS*(this: var STEPControl_Writer; WS: handle[XSControl_WorkSession];
+           scratch: Standard_Boolean = Standard_True) {.importcpp: "SetWS",
     header: "STEPControl_Writer.hxx".}
-proc ws*(this: STEPControlWriter): Handle[XSControlWorkSession] {.noSideEffect,
+proc WS*(this: STEPControl_Writer): handle[XSControl_WorkSession] {.noSideEffect,
     importcpp: "WS", header: "STEPControl_Writer.hxx".}
-proc model*(this: var STEPControlWriter; newone: StandardBoolean = standardFalse): Handle[
-    StepDataStepModel] {.importcpp: "Model", header: "STEPControl_Writer.hxx".}
-proc transfer*(this: var STEPControlWriter; sh: TopoDS_Shape;
-              mode: STEPControlStepModelType;
-              compgraph: StandardBoolean = standardTrue;
-              theProgress: MessageProgressRange = messageProgressRange()): IFSelectReturnStatus {.
+proc Model*(this: var STEPControl_Writer; newone: Standard_Boolean = Standard_False): handle[
+    StepData_StepModel] {.importcpp: "Model", header: "STEPControl_Writer.hxx".}
+proc Transfer*(this: var STEPControl_Writer; sh: TopoDS_Shape;
+              mode: STEPControl_StepModelType;
+              compgraph: Standard_Boolean = Standard_True;
+              theProgress: Message_ProgressRange = Message_ProgressRange()): IFSelect_ReturnStatus {.
     importcpp: "Transfer", header: "STEPControl_Writer.hxx".}
-proc write*(this: var STEPControlWriter; filename: StandardCString): IFSelectReturnStatus {.
+proc Write*(this: var STEPControl_Writer; filename: Standard_CString): IFSelect_ReturnStatus {.
     importcpp: "Write", header: "STEPControl_Writer.hxx".}
-proc printStatsTransfer*(this: STEPControlWriter; what: StandardInteger;
-                        mode: StandardInteger = 0) {.noSideEffect,
+proc PrintStatsTransfer*(this: STEPControl_Writer; what: Standard_Integer;
+                        mode: Standard_Integer = 0) {.noSideEffect,
     importcpp: "PrintStatsTransfer", header: "STEPControl_Writer.hxx".}
-

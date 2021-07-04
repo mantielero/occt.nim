@@ -14,35 +14,38 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../TopoDS/TopoDS_Face,
+  DrawDim_Dimension
+
 discard "forward decl of TopoDS_Face"
 discard "forward decl of Draw_Display"
 discard "forward decl of DrawDim_Angle"
 discard "forward decl of DrawDim_Angle"
 type
-  HandleDrawDimAngle* = Handle[DrawDimAngle]
-  DrawDimAngle* {.importcpp: "DrawDim_Angle", header: "DrawDim_Angle.hxx", bycopy.} = object of DrawDimDimension
+  Handle_DrawDim_Angle* = handle[DrawDim_Angle]
+  DrawDim_Angle* {.importcpp: "DrawDim_Angle", header: "DrawDim_Angle.hxx", bycopy.} = object of DrawDim_Dimension
 
 
-proc constructDrawDimAngle*(plane1: TopoDS_Face; plane2: TopoDS_Face): DrawDimAngle {.
+proc constructDrawDim_Angle*(plane1: TopoDS_Face; plane2: TopoDS_Face): DrawDim_Angle {.
     constructor, importcpp: "DrawDim_Angle(@)", header: "DrawDim_Angle.hxx".}
-proc plane1*(this: DrawDimAngle): TopoDS_Face {.noSideEffect, importcpp: "Plane1",
+proc Plane1*(this: DrawDim_Angle): TopoDS_Face {.noSideEffect, importcpp: "Plane1",
     header: "DrawDim_Angle.hxx".}
-proc plane1*(this: var DrawDimAngle; plane: TopoDS_Face) {.importcpp: "Plane1",
+proc Plane1*(this: var DrawDim_Angle; plane: TopoDS_Face) {.importcpp: "Plane1",
     header: "DrawDim_Angle.hxx".}
-proc plane2*(this: DrawDimAngle): TopoDS_Face {.noSideEffect, importcpp: "Plane2",
+proc Plane2*(this: DrawDim_Angle): TopoDS_Face {.noSideEffect, importcpp: "Plane2",
     header: "DrawDim_Angle.hxx".}
-proc plane2*(this: var DrawDimAngle; plane: TopoDS_Face) {.importcpp: "Plane2",
+proc Plane2*(this: var DrawDim_Angle; plane: TopoDS_Face) {.importcpp: "Plane2",
     header: "DrawDim_Angle.hxx".}
-proc drawOn*(this: DrawDimAngle; dis: var DrawDisplay) {.noSideEffect,
+proc DrawOn*(this: DrawDim_Angle; dis: var Draw_Display) {.noSideEffect,
     importcpp: "DrawOn", header: "DrawDim_Angle.hxx".}
 type
-  DrawDimAnglebaseType* = DrawDimDimension
+  DrawDim_Anglebase_type* = DrawDim_Dimension
 
-proc getTypeName*(): cstring {.importcpp: "DrawDim_Angle::get_type_name(@)",
-                            header: "DrawDim_Angle.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "DrawDim_Angle::get_type_name(@)",
+                              header: "DrawDim_Angle.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "DrawDim_Angle::get_type_descriptor(@)",
     header: "DrawDim_Angle.hxx".}
-proc dynamicType*(this: DrawDimAngle): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: DrawDim_Angle): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "DrawDim_Angle.hxx".}
-

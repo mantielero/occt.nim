@@ -14,10 +14,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../TopoDS/TopoDS_Shape, ../gp/gp_Pnt, ../TopTools/TopTools_ShapeMapHasher,
+  ../NCollection/NCollection_DataMap
+
 type
-  LocOpeDataMapOfShapePnt* = NCollectionDataMap[TopoDS_Shape, GpPnt,
-      TopToolsShapeMapHasher]
-  LocOpeDataMapIteratorOfDataMapOfShapePnt* = Iterator[TopoDS_Shape, GpPnt,
-      TopToolsShapeMapHasher]
-
-
+  LocOpe_DataMapOfShapePnt* = NCollection_DataMap[TopoDS_Shape, gp_Pnt,
+      TopTools_ShapeMapHasher]
+  LocOpe_DataMapIteratorOfDataMapOfShapePnt* = Iterator[TopoDS_Shape, gp_Pnt,
+      TopTools_ShapeMapHasher]

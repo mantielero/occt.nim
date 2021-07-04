@@ -14,18 +14,21 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, GeomToStep_Root
+
 discard "forward decl of StepGeom_ToroidalSurface"
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of Geom_ToroidalSurface"
 type
-  GeomToStepMakeToroidalSurface* {.importcpp: "GeomToStep_MakeToroidalSurface",
-                                  header: "GeomToStep_MakeToroidalSurface.hxx",
-                                  bycopy.} = object of GeomToStepRoot
+  GeomToStep_MakeToroidalSurface* {.importcpp: "GeomToStep_MakeToroidalSurface", header: "GeomToStep_MakeToroidalSurface.hxx",
+                                   bycopy.} = object of GeomToStep_Root
 
 
-proc constructGeomToStepMakeToroidalSurface*(torSurf: Handle[GeomToroidalSurface]): GeomToStepMakeToroidalSurface {.
+proc constructGeomToStep_MakeToroidalSurface*(
+    TorSurf: handle[Geom_ToroidalSurface]): GeomToStep_MakeToroidalSurface {.
     constructor, importcpp: "GeomToStep_MakeToroidalSurface(@)",
     header: "GeomToStep_MakeToroidalSurface.hxx".}
-proc value*(this: GeomToStepMakeToroidalSurface): Handle[StepGeomToroidalSurface] {.
+proc Value*(this: GeomToStep_MakeToroidalSurface): handle[StepGeom_ToroidalSurface] {.
     noSideEffect, importcpp: "Value", header: "GeomToStep_MakeToroidalSurface.hxx".}
-

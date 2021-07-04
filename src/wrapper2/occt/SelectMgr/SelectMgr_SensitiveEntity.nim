@@ -13,61 +13,64 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../SelectBasics/SelectBasics_SensitiveEntity, ../Standard/Standard,
+  ../Standard/Standard_Type
+
 ## ! The purpose of this class is to mark sensitive entities selectable or not
 ## ! depending on current active selection of parent object for proper BVH traverse
 
 type
-  SelectMgrSensitiveEntity* {.importcpp: "SelectMgr_SensitiveEntity",
-                             header: "SelectMgr_SensitiveEntity.hxx", bycopy.} = object of StandardTransient ##
-                                                                                                      ## !
-                                                                                                      ## Creates
-                                                                                                      ## new
-                                                                                                      ## inactive
-                                                                                                      ## for
-                                                                                                      ## selection
-                                                                                                      ## object
-                                                                                                      ## with
-                                                                                                      ## base
-                                                                                                      ## entity
-                                                                                                      ## theEntity
+  SelectMgr_SensitiveEntity* {.importcpp: "SelectMgr_SensitiveEntity",
+                              header: "SelectMgr_SensitiveEntity.hxx", bycopy.} = object of Standard_Transient ##
+                                                                                                        ## !
+                                                                                                        ## Creates
+                                                                                                        ## new
+                                                                                                        ## inactive
+                                                                                                        ## for
+                                                                                                        ## selection
+                                                                                                        ## object
+                                                                                                        ## with
+                                                                                                        ## base
+                                                                                                        ## entity
+                                                                                                        ## theEntity
     ## !< Related SelectBasics entity
     ## !< Selection activity status
 
 
-proc constructSelectMgrSensitiveEntity*(theEntity: Handle[Select3D_SensitiveEntity]): SelectMgrSensitiveEntity {.
-    constructor, importcpp: "SelectMgr_SensitiveEntity(@)",
+proc constructSelectMgr_SensitiveEntity*(theEntity: handle[
+    Select3D_SensitiveEntity]): SelectMgr_SensitiveEntity {.constructor,
+    importcpp: "SelectMgr_SensitiveEntity(@)",
     header: "SelectMgr_SensitiveEntity.hxx".}
-proc destroySelectMgrSensitiveEntity*(this: var SelectMgrSensitiveEntity) {.
+proc destroySelectMgr_SensitiveEntity*(this: var SelectMgr_SensitiveEntity) {.
     importcpp: "#.~SelectMgr_SensitiveEntity()",
     header: "SelectMgr_SensitiveEntity.hxx".}
-proc clear*(this: var SelectMgrSensitiveEntity) {.importcpp: "Clear",
+proc Clear*(this: var SelectMgr_SensitiveEntity) {.importcpp: "Clear",
     header: "SelectMgr_SensitiveEntity.hxx".}
-proc baseSensitive*(this: SelectMgrSensitiveEntity): Handle[
+proc BaseSensitive*(this: SelectMgr_SensitiveEntity): handle[
     Select3D_SensitiveEntity] {.noSideEffect, importcpp: "BaseSensitive",
                                header: "SelectMgr_SensitiveEntity.hxx".}
-proc isActiveForSelection*(this: SelectMgrSensitiveEntity): StandardBoolean {.
+proc IsActiveForSelection*(this: SelectMgr_SensitiveEntity): Standard_Boolean {.
     noSideEffect, importcpp: "IsActiveForSelection",
     header: "SelectMgr_SensitiveEntity.hxx".}
-proc resetSelectionActiveStatus*(this: SelectMgrSensitiveEntity) {.noSideEffect,
+proc ResetSelectionActiveStatus*(this: SelectMgr_SensitiveEntity) {.noSideEffect,
     importcpp: "ResetSelectionActiveStatus",
     header: "SelectMgr_SensitiveEntity.hxx".}
-proc setActiveForSelection*(this: SelectMgrSensitiveEntity) {.noSideEffect,
+proc SetActiveForSelection*(this: SelectMgr_SensitiveEntity) {.noSideEffect,
     importcpp: "SetActiveForSelection", header: "SelectMgr_SensitiveEntity.hxx".}
-proc dumpJson*(this: SelectMgrSensitiveEntity; theOStream: var StandardOStream;
-              theDepth: StandardInteger = -1) {.noSideEffect, importcpp: "DumpJson",
+proc DumpJson*(this: SelectMgr_SensitiveEntity; theOStream: var Standard_OStream;
+              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
     header: "SelectMgr_SensitiveEntity.hxx".}
 type
-  SelectMgrSensitiveEntitybaseType* = StandardTransient
+  SelectMgr_SensitiveEntitybase_type* = Standard_Transient
 
-proc getTypeName*(): cstring {.importcpp: "SelectMgr_SensitiveEntity::get_type_name(@)",
-                            header: "SelectMgr_SensitiveEntity.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "SelectMgr_SensitiveEntity::get_type_name(@)",
+                              header: "SelectMgr_SensitiveEntity.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "SelectMgr_SensitiveEntity::get_type_descriptor(@)",
     header: "SelectMgr_SensitiveEntity.hxx".}
-proc dynamicType*(this: SelectMgrSensitiveEntity): Handle[StandardType] {.
+proc DynamicType*(this: SelectMgr_SensitiveEntity): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType", header: "SelectMgr_SensitiveEntity.hxx".}
 discard "forward decl of SelectMgr_SensitiveEntity"
 type
-  HandleSelectMgrSensitiveEntity* = Handle[SelectMgrSensitiveEntity]
-
-
+  Handle_SelectMgr_SensitiveEntity* = handle[SelectMgr_SensitiveEntity]

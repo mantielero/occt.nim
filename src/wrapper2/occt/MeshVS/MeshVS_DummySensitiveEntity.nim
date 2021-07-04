@@ -13,6 +13,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../Select3D/Select3D_BndBox3d,
+  ../Select3D/Select3D_SensitiveEntity,
+  ../SelectBasics/SelectBasics_SelectingVolumeManager
+
 ## ! This class allows to create owners to all elements or nodes,
 ## ! both hidden and shown, but these owners user cannot select "by hands"
 ## ! in viewer. They means for internal application tasks, for example, receiving
@@ -24,44 +29,43 @@ type
 
 
 proc constructMeshVS_DummySensitiveEntity*(
-    theOwnerId: Handle[SelectMgrEntityOwner]): MeshVS_DummySensitiveEntity {.
+    theOwnerId: handle[SelectMgr_EntityOwner]): MeshVS_DummySensitiveEntity {.
     constructor, importcpp: "MeshVS_DummySensitiveEntity(@)",
     header: "MeshVS_DummySensitiveEntity.hxx".}
-proc matches*(this: var MeshVS_DummySensitiveEntity;
-             theMgr: var SelectBasicsSelectingVolumeManager;
-             thePickResult: var SelectBasicsPickResult): StandardBoolean {.
+proc Matches*(this: var MeshVS_DummySensitiveEntity;
+             theMgr: var SelectBasics_SelectingVolumeManager;
+             thePickResult: var SelectBasics_PickResult): Standard_Boolean {.
     importcpp: "Matches", header: "MeshVS_DummySensitiveEntity.hxx".}
-proc nbSubElements*(this: MeshVS_DummySensitiveEntity): StandardInteger {.
+proc NbSubElements*(this: MeshVS_DummySensitiveEntity): Standard_Integer {.
     noSideEffect, importcpp: "NbSubElements",
     header: "MeshVS_DummySensitiveEntity.hxx".}
-proc boundingBox*(this: var MeshVS_DummySensitiveEntity): Select3D_BndBox3d {.
+proc BoundingBox*(this: var MeshVS_DummySensitiveEntity): Select3D_BndBox3d {.
     importcpp: "BoundingBox", header: "MeshVS_DummySensitiveEntity.hxx".}
-proc bvh*(this: var MeshVS_DummySensitiveEntity) {.importcpp: "BVH",
+proc BVH*(this: var MeshVS_DummySensitiveEntity) {.importcpp: "BVH",
     header: "MeshVS_DummySensitiveEntity.hxx".}
-proc toBuildBVH*(this: MeshVS_DummySensitiveEntity): StandardBoolean {.noSideEffect,
-    importcpp: "ToBuildBVH", header: "MeshVS_DummySensitiveEntity.hxx".}
-proc clear*(this: var MeshVS_DummySensitiveEntity) {.importcpp: "Clear",
+proc ToBuildBVH*(this: MeshVS_DummySensitiveEntity): Standard_Boolean {.
+    noSideEffect, importcpp: "ToBuildBVH",
     header: "MeshVS_DummySensitiveEntity.hxx".}
-proc hasInitLocation*(this: MeshVS_DummySensitiveEntity): StandardBoolean {.
+proc Clear*(this: var MeshVS_DummySensitiveEntity) {.importcpp: "Clear",
+    header: "MeshVS_DummySensitiveEntity.hxx".}
+proc HasInitLocation*(this: MeshVS_DummySensitiveEntity): Standard_Boolean {.
     noSideEffect, importcpp: "HasInitLocation",
     header: "MeshVS_DummySensitiveEntity.hxx".}
-proc invInitLocation*(this: MeshVS_DummySensitiveEntity): GpGTrsf {.noSideEffect,
+proc InvInitLocation*(this: MeshVS_DummySensitiveEntity): gp_GTrsf {.noSideEffect,
     importcpp: "InvInitLocation", header: "MeshVS_DummySensitiveEntity.hxx".}
-proc centerOfGeometry*(this: MeshVS_DummySensitiveEntity): GpPnt {.noSideEffect,
+proc CenterOfGeometry*(this: MeshVS_DummySensitiveEntity): gp_Pnt {.noSideEffect,
     importcpp: "CenterOfGeometry", header: "MeshVS_DummySensitiveEntity.hxx".}
 type
-  MeshVS_DummySensitiveEntitybaseType* = Select3D_SensitiveEntity
+  MeshVS_DummySensitiveEntitybase_type* = Select3D_SensitiveEntity
 
-proc getTypeName*(): cstring {.importcpp: "MeshVS_DummySensitiveEntity::get_type_name(@)",
-                            header: "MeshVS_DummySensitiveEntity.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "MeshVS_DummySensitiveEntity::get_type_name(@)",
+                              header: "MeshVS_DummySensitiveEntity.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "MeshVS_DummySensitiveEntity::get_type_descriptor(@)",
     header: "MeshVS_DummySensitiveEntity.hxx".}
-proc dynamicType*(this: MeshVS_DummySensitiveEntity): Handle[StandardType] {.
+proc DynamicType*(this: MeshVS_DummySensitiveEntity): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType",
     header: "MeshVS_DummySensitiveEntity.hxx".}
 discard "forward decl of MeshVS_DummySensitiveEntity"
 type
-  HandleMeshVS_DummySensitiveEntity* = Handle[MeshVS_DummySensitiveEntity]
-
-
+  Handle_MeshVS_DummySensitiveEntity* = handle[MeshVS_DummySensitiveEntity]

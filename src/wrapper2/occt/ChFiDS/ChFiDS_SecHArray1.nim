@@ -14,31 +14,33 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ChFiDS_CircSection, ChFiDS_SecArray1, ../NCollection/NCollection_DefineHArray1
+
 type
   ChFiDS_SecHArray1* {.importcpp: "ChFiDS_SecHArray1",
                       header: "ChFiDS_SecHArray1.hxx", bycopy.} = object of ChFiDS_SecArray1
 
 
-proc constructChFiDS_SecHArray1*(theLower: StandardInteger;
-                                theUpper: StandardInteger): ChFiDS_SecHArray1 {.
+proc constructChFiDS_SecHArray1*(theLower: Standard_Integer;
+                                theUpper: Standard_Integer): ChFiDS_SecHArray1 {.
     constructor, importcpp: "ChFiDS_SecHArray1(@)", header: "ChFiDS_SecHArray1.hxx".}
-proc constructChFiDS_SecHArray1*(theLower: StandardInteger;
-                                theUpper: StandardInteger; theValue: ValueType): ChFiDS_SecHArray1 {.
+proc constructChFiDS_SecHArray1*(theLower: Standard_Integer;
+                                theUpper: Standard_Integer; theValue: value_type): ChFiDS_SecHArray1 {.
     constructor, importcpp: "ChFiDS_SecHArray1(@)", header: "ChFiDS_SecHArray1.hxx".}
 proc constructChFiDS_SecHArray1*(theOther: ChFiDS_SecArray1): ChFiDS_SecHArray1 {.
     constructor, importcpp: "ChFiDS_SecHArray1(@)", header: "ChFiDS_SecHArray1.hxx".}
-proc array1*(this: ChFiDS_SecHArray1): ChFiDS_SecArray1 {.noSideEffect,
+proc Array1*(this: ChFiDS_SecHArray1): ChFiDS_SecArray1 {.noSideEffect,
     importcpp: "Array1", header: "ChFiDS_SecHArray1.hxx".}
-proc changeArray1*(this: var ChFiDS_SecHArray1): var ChFiDS_SecArray1 {.
+proc ChangeArray1*(this: var ChFiDS_SecHArray1): var ChFiDS_SecArray1 {.
     importcpp: "ChangeArray1", header: "ChFiDS_SecHArray1.hxx".}
 type
-  ChFiDS_SecHArray1baseType* = MMgtTShared
+  ChFiDS_SecHArray1base_type* = MMgt_TShared
 
-proc getTypeName*(): cstring {.importcpp: "ChFiDS_SecHArray1::get_type_name(@)",
-                            header: "ChFiDS_SecHArray1.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "ChFiDS_SecHArray1::get_type_name(@)",
+                              header: "ChFiDS_SecHArray1.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "ChFiDS_SecHArray1::get_type_descriptor(@)",
     header: "ChFiDS_SecHArray1.hxx".}
-proc dynamicType*(this: ChFiDS_SecHArray1): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: ChFiDS_SecHArray1): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "ChFiDS_SecHArray1.hxx".}
-

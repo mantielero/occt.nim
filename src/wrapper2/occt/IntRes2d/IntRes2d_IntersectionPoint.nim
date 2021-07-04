@@ -14,40 +14,42 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../gp/gp_Pnt2d, ../Standard/Standard_Real,
+  IntRes2d_Transition, ../Standard/Standard_Boolean
+
 discard "forward decl of gp_Pnt2d"
 discard "forward decl of IntRes2d_Transition"
 type
-  IntRes2dIntersectionPoint* {.importcpp: "IntRes2d_IntersectionPoint",
-                              header: "IntRes2d_IntersectionPoint.hxx", bycopy.} = object ##
-                                                                                     ## !
-                                                                                     ## Empty
-                                                                                     ## constructor.
+  IntRes2d_IntersectionPoint* {.importcpp: "IntRes2d_IntersectionPoint",
+                               header: "IntRes2d_IntersectionPoint.hxx", bycopy.} = object ##
+                                                                                      ## !
+                                                                                      ## Empty
+                                                                                      ## constructor.
 
 
-proc constructIntRes2dIntersectionPoint*(): IntRes2dIntersectionPoint {.
+proc constructIntRes2d_IntersectionPoint*(): IntRes2d_IntersectionPoint {.
     constructor, importcpp: "IntRes2d_IntersectionPoint(@)",
     header: "IntRes2d_IntersectionPoint.hxx".}
-proc constructIntRes2dIntersectionPoint*(p: GpPnt2d; uc1: StandardReal;
-                                        uc2: StandardReal;
-                                        trans1: IntRes2dTransition;
-                                        trans2: IntRes2dTransition;
-                                        reversedFlag: StandardBoolean): IntRes2dIntersectionPoint {.
-    constructor, importcpp: "IntRes2d_IntersectionPoint(@)",
+proc constructIntRes2d_IntersectionPoint*(P: gp_Pnt2d; Uc1: Standard_Real;
+    Uc2: Standard_Real; Trans1: IntRes2d_Transition; Trans2: IntRes2d_Transition;
+    ReversedFlag: Standard_Boolean): IntRes2d_IntersectionPoint {.constructor,
+    importcpp: "IntRes2d_IntersectionPoint(@)",
     header: "IntRes2d_IntersectionPoint.hxx".}
-proc setValues*(this: var IntRes2dIntersectionPoint; p: GpPnt2d; uc1: StandardReal;
-               uc2: StandardReal; trans1: IntRes2dTransition;
-               trans2: IntRes2dTransition; reversedFlag: StandardBoolean) {.
+proc SetValues*(this: var IntRes2d_IntersectionPoint; P: gp_Pnt2d; Uc1: Standard_Real;
+               Uc2: Standard_Real; Trans1: IntRes2d_Transition;
+               Trans2: IntRes2d_Transition; ReversedFlag: Standard_Boolean) {.
     importcpp: "SetValues", header: "IntRes2d_IntersectionPoint.hxx".}
-proc value*(this: IntRes2dIntersectionPoint): GpPnt2d {.noSideEffect,
+proc Value*(this: IntRes2d_IntersectionPoint): gp_Pnt2d {.noSideEffect,
     importcpp: "Value", header: "IntRes2d_IntersectionPoint.hxx".}
-proc paramOnFirst*(this: IntRes2dIntersectionPoint): StandardReal {.noSideEffect,
+proc ParamOnFirst*(this: IntRes2d_IntersectionPoint): Standard_Real {.noSideEffect,
     importcpp: "ParamOnFirst", header: "IntRes2d_IntersectionPoint.hxx".}
-proc paramOnSecond*(this: IntRes2dIntersectionPoint): StandardReal {.noSideEffect,
+proc ParamOnSecond*(this: IntRes2d_IntersectionPoint): Standard_Real {.noSideEffect,
     importcpp: "ParamOnSecond", header: "IntRes2d_IntersectionPoint.hxx".}
-proc transitionOfFirst*(this: IntRes2dIntersectionPoint): IntRes2dTransition {.
+proc TransitionOfFirst*(this: IntRes2d_IntersectionPoint): IntRes2d_Transition {.
     noSideEffect, importcpp: "TransitionOfFirst",
     header: "IntRes2d_IntersectionPoint.hxx".}
-proc transitionOfSecond*(this: IntRes2dIntersectionPoint): IntRes2dTransition {.
+proc TransitionOfSecond*(this: IntRes2d_IntersectionPoint): IntRes2d_Transition {.
     noSideEffect, importcpp: "TransitionOfSecond",
     header: "IntRes2d_IntersectionPoint.hxx".}
-

@@ -14,6 +14,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  HLRAlgo_WiresBlock
+
 ## ! In order to have the precision required in
 ## ! industrial design, drawings need to offer the
 ## ! possibility of removing lines, which are hidden
@@ -42,27 +45,26 @@ type
                                                                     ## ! EdgeStatus.
 
 
-proc updateMinMax*(x: StandardReal; y: StandardReal; z: StandardReal;
-                  min: array[16, StandardReal]; max: array[16, StandardReal]) {.
+proc UpdateMinMax*(x: Standard_Real; y: Standard_Real; z: Standard_Real;
+                  Min: array[16, Standard_Real]; Max: array[16, Standard_Real]) {.
     importcpp: "HLRAlgo::UpdateMinMax(@)", header: "HLRAlgo.hxx".}
-proc enlargeMinMax*(tol: StandardReal; min: array[16, StandardReal];
-                   max: array[16, StandardReal]) {.
+proc EnlargeMinMax*(tol: Standard_Real; Min: array[16, Standard_Real];
+                   Max: array[16, Standard_Real]) {.
     importcpp: "HLRAlgo::EnlargeMinMax(@)", header: "HLRAlgo.hxx".}
-proc initMinMax*(big: StandardReal; min: array[16, StandardReal];
-                max: array[16, StandardReal]) {.
+proc InitMinMax*(Big: Standard_Real; Min: array[16, Standard_Real];
+                Max: array[16, Standard_Real]) {.
     importcpp: "HLRAlgo::InitMinMax(@)", header: "HLRAlgo.hxx".}
-proc encodeMinMax*(min: var MinMaxIndices; max: var MinMaxIndices;
-                  minMax: var MinMaxIndices) {.
+proc EncodeMinMax*(Min: var MinMaxIndices; Max: var MinMaxIndices;
+                  MinMax: var MinMaxIndices) {.
     importcpp: "HLRAlgo::EncodeMinMax(@)", header: "HLRAlgo.hxx".}
-proc sizeBox*(min: var MinMaxIndices; max: var MinMaxIndices): StandardReal {.
+proc SizeBox*(Min: var MinMaxIndices; Max: var MinMaxIndices): Standard_Real {.
     importcpp: "HLRAlgo::SizeBox(@)", header: "HLRAlgo.hxx".}
-proc decodeMinMax*(minMax: MinMaxIndices; min: var MinMaxIndices;
-                  max: var MinMaxIndices) {.importcpp: "HLRAlgo::DecodeMinMax(@)",
+proc DecodeMinMax*(MinMax: MinMaxIndices; Min: var MinMaxIndices;
+                  Max: var MinMaxIndices) {.importcpp: "HLRAlgo::DecodeMinMax(@)",
     header: "HLRAlgo.hxx".}
-proc copyMinMax*(iMin: var MinMaxIndices; iMax: var MinMaxIndices;
-                oMin: var MinMaxIndices; oMax: var MinMaxIndices) {.
+proc CopyMinMax*(IMin: var MinMaxIndices; IMax: var MinMaxIndices;
+                OMin: var MinMaxIndices; OMax: var MinMaxIndices) {.
     importcpp: "HLRAlgo::CopyMinMax(@)", header: "HLRAlgo.hxx".}
-proc addMinMax*(iMin: var MinMaxIndices; iMax: var MinMaxIndices;
-               oMin: var MinMaxIndices; oMax: var MinMaxIndices) {.
+proc AddMinMax*(IMin: var MinMaxIndices; IMax: var MinMaxIndices;
+               OMin: var MinMaxIndices; OMax: var MinMaxIndices) {.
     importcpp: "HLRAlgo::AddMinMax(@)", header: "HLRAlgo.hxx".}
-

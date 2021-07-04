@@ -13,49 +13,53 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../TopoDS/TopoDS_Shape, BOPAlgo_CheckStatus,
+  ../TopTools/TopTools_ListOfShape, ../Standard/Standard_Real
+
 discard "forward decl of TopoDS_Shape"
 type
-  BOPAlgoCheckResult* {.importcpp: "BOPAlgo_CheckResult",
-                       header: "BOPAlgo_CheckResult.hxx", bycopy.} = object ## ! empty
-                                                                       ## constructor
+  BOPAlgo_CheckResult* {.importcpp: "BOPAlgo_CheckResult",
+                        header: "BOPAlgo_CheckResult.hxx", bycopy.} = object ## ! empty
+                                                                        ## constructor
 
 
-proc constructBOPAlgoCheckResult*(): BOPAlgoCheckResult {.constructor,
+proc constructBOPAlgo_CheckResult*(): BOPAlgo_CheckResult {.constructor,
     importcpp: "BOPAlgo_CheckResult(@)", header: "BOPAlgo_CheckResult.hxx".}
-proc setShape1*(this: var BOPAlgoCheckResult; theShape: TopoDS_Shape) {.
+proc SetShape1*(this: var BOPAlgo_CheckResult; TheShape: TopoDS_Shape) {.
     importcpp: "SetShape1", header: "BOPAlgo_CheckResult.hxx".}
-proc addFaultyShape1*(this: var BOPAlgoCheckResult; theShape: TopoDS_Shape) {.
+proc AddFaultyShape1*(this: var BOPAlgo_CheckResult; TheShape: TopoDS_Shape) {.
     importcpp: "AddFaultyShape1", header: "BOPAlgo_CheckResult.hxx".}
-proc setShape2*(this: var BOPAlgoCheckResult; theShape: TopoDS_Shape) {.
+proc SetShape2*(this: var BOPAlgo_CheckResult; TheShape: TopoDS_Shape) {.
     importcpp: "SetShape2", header: "BOPAlgo_CheckResult.hxx".}
-proc addFaultyShape2*(this: var BOPAlgoCheckResult; theShape: TopoDS_Shape) {.
+proc AddFaultyShape2*(this: var BOPAlgo_CheckResult; TheShape: TopoDS_Shape) {.
     importcpp: "AddFaultyShape2", header: "BOPAlgo_CheckResult.hxx".}
-proc getShape1*(this: BOPAlgoCheckResult): TopoDS_Shape {.noSideEffect,
+proc GetShape1*(this: BOPAlgo_CheckResult): TopoDS_Shape {.noSideEffect,
     importcpp: "GetShape1", header: "BOPAlgo_CheckResult.hxx".}
-proc getShape2*(this: BOPAlgoCheckResult): TopoDS_Shape {.noSideEffect,
+proc GetShape2*(this: BOPAlgo_CheckResult): TopoDS_Shape {.noSideEffect,
     importcpp: "GetShape2", header: "BOPAlgo_CheckResult.hxx".}
-proc getFaultyShapes1*(this: BOPAlgoCheckResult): TopToolsListOfShape {.
+proc GetFaultyShapes1*(this: BOPAlgo_CheckResult): TopTools_ListOfShape {.
     noSideEffect, importcpp: "GetFaultyShapes1", header: "BOPAlgo_CheckResult.hxx".}
-proc getFaultyShapes2*(this: BOPAlgoCheckResult): TopToolsListOfShape {.
+proc GetFaultyShapes2*(this: BOPAlgo_CheckResult): TopTools_ListOfShape {.
     noSideEffect, importcpp: "GetFaultyShapes2", header: "BOPAlgo_CheckResult.hxx".}
-proc setCheckStatus*(this: var BOPAlgoCheckResult; theStatus: BOPAlgoCheckStatus) {.
+proc SetCheckStatus*(this: var BOPAlgo_CheckResult; TheStatus: BOPAlgo_CheckStatus) {.
     importcpp: "SetCheckStatus", header: "BOPAlgo_CheckResult.hxx".}
-proc getCheckStatus*(this: BOPAlgoCheckResult): BOPAlgoCheckStatus {.noSideEffect,
+proc GetCheckStatus*(this: BOPAlgo_CheckResult): BOPAlgo_CheckStatus {.noSideEffect,
     importcpp: "GetCheckStatus", header: "BOPAlgo_CheckResult.hxx".}
-proc setMaxDistance1*(this: var BOPAlgoCheckResult; theDist: StandardReal) {.
+proc SetMaxDistance1*(this: var BOPAlgo_CheckResult; theDist: Standard_Real) {.
     importcpp: "SetMaxDistance1", header: "BOPAlgo_CheckResult.hxx".}
-proc setMaxDistance2*(this: var BOPAlgoCheckResult; theDist: StandardReal) {.
+proc SetMaxDistance2*(this: var BOPAlgo_CheckResult; theDist: Standard_Real) {.
     importcpp: "SetMaxDistance2", header: "BOPAlgo_CheckResult.hxx".}
-proc setMaxParameter1*(this: var BOPAlgoCheckResult; thePar: StandardReal) {.
+proc SetMaxParameter1*(this: var BOPAlgo_CheckResult; thePar: Standard_Real) {.
     importcpp: "SetMaxParameter1", header: "BOPAlgo_CheckResult.hxx".}
-proc setMaxParameter2*(this: var BOPAlgoCheckResult; thePar: StandardReal) {.
+proc SetMaxParameter2*(this: var BOPAlgo_CheckResult; thePar: Standard_Real) {.
     importcpp: "SetMaxParameter2", header: "BOPAlgo_CheckResult.hxx".}
-proc getMaxDistance1*(this: BOPAlgoCheckResult): StandardReal {.noSideEffect,
+proc GetMaxDistance1*(this: BOPAlgo_CheckResult): Standard_Real {.noSideEffect,
     importcpp: "GetMaxDistance1", header: "BOPAlgo_CheckResult.hxx".}
-proc getMaxDistance2*(this: BOPAlgoCheckResult): StandardReal {.noSideEffect,
+proc GetMaxDistance2*(this: BOPAlgo_CheckResult): Standard_Real {.noSideEffect,
     importcpp: "GetMaxDistance2", header: "BOPAlgo_CheckResult.hxx".}
-proc getMaxParameter1*(this: BOPAlgoCheckResult): StandardReal {.noSideEffect,
+proc GetMaxParameter1*(this: BOPAlgo_CheckResult): Standard_Real {.noSideEffect,
     importcpp: "GetMaxParameter1", header: "BOPAlgo_CheckResult.hxx".}
-proc getMaxParameter2*(this: BOPAlgoCheckResult): StandardReal {.noSideEffect,
+proc GetMaxParameter2*(this: BOPAlgo_CheckResult): Standard_Real {.noSideEffect,
     importcpp: "GetMaxParameter2", header: "BOPAlgo_CheckResult.hxx".}
-

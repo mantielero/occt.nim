@@ -11,138 +11,140 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  Aspect_XRSession
+
 ## ! OpenVR wrapper implementing Aspect_XRSession interface.
 
 type
-  AspectOpenVRSession* {.importcpp: "Aspect_OpenVRSession",
-                        header: "Aspect_OpenVRSession.hxx", bycopy.} = object of AspectXRSession ##
-                                                                                          ## !
-                                                                                          ## Return
-                                                                                          ## TRUE
-                                                                                          ## if
-                                                                                          ## an
-                                                                                          ## HMD
-                                                                                          ## may
-                                                                                          ## be
-                                                                                          ## presented
-                                                                                          ## on
-                                                                                          ## the
-                                                                                          ## system
-                                                                                          ## (e.g.
-                                                                                          ## to
-                                                                                          ## show
-                                                                                          ## VR
-                                                                                          ## checkbox
-                                                                                          ## in
-                                                                                          ## application
-                                                                                          ## GUI).
-                                                                                          ##
-                                                                                          ## !
-                                                                                          ## This
-                                                                                          ## is
-                                                                                          ## fast
-                                                                                          ## check,
-                                                                                          ## and
-                                                                                          ## even
-                                                                                          ## if
-                                                                                          ## it
-                                                                                          ## returns
-                                                                                          ## TRUE,
-                                                                                          ## opening
-                                                                                          ## session
-                                                                                          ## may
-                                                                                          ## fail.
-                                                                                          ##
-                                                                                          ## !
-                                                                                          ## Empty
-                                                                                          ## constructor.
-                                                                                          ##
-                                                                                          ## !
-                                                                                          ## Find
-                                                                                          ## location
-                                                                                          ## of
-                                                                                          ## default
-                                                                                          ## actions
-                                                                                          ## manifest
-                                                                                          ## file
-                                                                                          ## (based
-                                                                                          ## on
-                                                                                          ## CSF_OCCTResourcePath
-                                                                                          ## or
-                                                                                          ## CASROOT
-                                                                                          ## variables).
-                                                                                          ##
-                                                                                          ## !
-                                                                                          ## Access
-                                                                                          ## vr::IVRSystem*
-                                                                                          ## -
-                                                                                          ## OpenVR
-                                                                                          ## session
-                                                                                          ## object.
-                                                                                          ##
-                                                                                          ## !
-                                                                                          ## Internal
-                                                                                          ## fields
+  Aspect_OpenVRSession* {.importcpp: "Aspect_OpenVRSession",
+                         header: "Aspect_OpenVRSession.hxx", bycopy.} = object of Aspect_XRSession ##
+                                                                                            ## !
+                                                                                            ## Return
+                                                                                            ## TRUE
+                                                                                            ## if
+                                                                                            ## an
+                                                                                            ## HMD
+                                                                                            ## may
+                                                                                            ## be
+                                                                                            ## presented
+                                                                                            ## on
+                                                                                            ## the
+                                                                                            ## system
+                                                                                            ## (e.g.
+                                                                                            ## to
+                                                                                            ## show
+                                                                                            ## VR
+                                                                                            ## checkbox
+                                                                                            ## in
+                                                                                            ## application
+                                                                                            ## GUI).
+                                                                                            ##
+                                                                                            ## !
+                                                                                            ## This
+                                                                                            ## is
+                                                                                            ## fast
+                                                                                            ## check,
+                                                                                            ## and
+                                                                                            ## even
+                                                                                            ## if
+                                                                                            ## it
+                                                                                            ## returns
+                                                                                            ## TRUE,
+                                                                                            ## opening
+                                                                                            ## session
+                                                                                            ## may
+                                                                                            ## fail.
+                                                                                            ##
+                                                                                            ## !
+                                                                                            ## Empty
+                                                                                            ## constructor.
+                                                                                            ##
+                                                                                            ## !
+                                                                                            ## Find
+                                                                                            ## location
+                                                                                            ## of
+                                                                                            ## default
+                                                                                            ## actions
+                                                                                            ## manifest
+                                                                                            ## file
+                                                                                            ## (based
+                                                                                            ## on
+                                                                                            ## CSF_OCCTResourcePath
+                                                                                            ## or
+                                                                                            ## CASROOT
+                                                                                            ## variables).
+                                                                                            ##
+                                                                                            ## !
+                                                                                            ## Access
+                                                                                            ## vr::IVRSystem*
+                                                                                            ## -
+                                                                                            ## OpenVR
+                                                                                            ## session
+                                                                                            ## object.
+                                                                                            ##
+                                                                                            ## !
+                                                                                            ## Internal
+                                                                                            ## fields
 
-  AspectOpenVRSessionbaseType* = AspectXRSession
+  Aspect_OpenVRSessionbase_type* = Aspect_XRSession
 
-proc getTypeName*(): cstring {.importcpp: "Aspect_OpenVRSession::get_type_name(@)",
-                            header: "Aspect_OpenVRSession.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "Aspect_OpenVRSession::get_type_name(@)",
+                              header: "Aspect_OpenVRSession.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "Aspect_OpenVRSession::get_type_descriptor(@)",
     header: "Aspect_OpenVRSession.hxx".}
-proc dynamicType*(this: AspectOpenVRSession): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: Aspect_OpenVRSession): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "Aspect_OpenVRSession.hxx".}
-proc isHmdPresent*(): bool {.importcpp: "Aspect_OpenVRSession::IsHmdPresent(@)",
+proc IsHmdPresent*(): bool {.importcpp: "Aspect_OpenVRSession::IsHmdPresent(@)",
                           header: "Aspect_OpenVRSession.hxx".}
-proc constructAspectOpenVRSession*(): AspectOpenVRSession {.constructor,
+proc constructAspect_OpenVRSession*(): Aspect_OpenVRSession {.constructor,
     importcpp: "Aspect_OpenVRSession(@)", header: "Aspect_OpenVRSession.hxx".}
-proc destroyAspectOpenVRSession*(this: var AspectOpenVRSession) {.
+proc destroyAspect_OpenVRSession*(this: var Aspect_OpenVRSession) {.
     importcpp: "#.~Aspect_OpenVRSession()", header: "Aspect_OpenVRSession.hxx".}
-proc isOpen*(this: AspectOpenVRSession): bool {.noSideEffect, importcpp: "IsOpen",
+proc IsOpen*(this: Aspect_OpenVRSession): bool {.noSideEffect, importcpp: "IsOpen",
     header: "Aspect_OpenVRSession.hxx".}
-proc open*(this: var AspectOpenVRSession): bool {.importcpp: "Open",
+proc Open*(this: var Aspect_OpenVRSession): bool {.importcpp: "Open",
     header: "Aspect_OpenVRSession.hxx".}
-proc close*(this: var AspectOpenVRSession) {.importcpp: "Close",
+proc Close*(this: var Aspect_OpenVRSession) {.importcpp: "Close",
     header: "Aspect_OpenVRSession.hxx".}
-proc waitPoses*(this: var AspectOpenVRSession): bool {.importcpp: "WaitPoses",
+proc WaitPoses*(this: var Aspect_OpenVRSession): bool {.importcpp: "WaitPoses",
     header: "Aspect_OpenVRSession.hxx".}
-proc recommendedViewport*(this: AspectOpenVRSession): NCollectionVec2[cint] {.
+proc RecommendedViewport*(this: Aspect_OpenVRSession): NCollection_Vec2[cint] {.
     noSideEffect, importcpp: "RecommendedViewport",
     header: "Aspect_OpenVRSession.hxx".}
-proc eyeToHeadTransform*(this: AspectOpenVRSession; theEye: AspectEye): NCollectionMat4[
+proc EyeToHeadTransform*(this: Aspect_OpenVRSession; theEye: Aspect_Eye): NCollection_Mat4[
     cdouble] {.noSideEffect, importcpp: "EyeToHeadTransform",
               header: "Aspect_OpenVRSession.hxx".}
-proc projectionMatrix*(this: AspectOpenVRSession; theEye: AspectEye;
-                      theZNear: cdouble; theZFar: cdouble): NCollectionMat4[cdouble] {.
+proc ProjectionMatrix*(this: Aspect_OpenVRSession; theEye: Aspect_Eye;
+                      theZNear: cdouble; theZFar: cdouble): NCollection_Mat4[cdouble] {.
     noSideEffect, importcpp: "ProjectionMatrix", header: "Aspect_OpenVRSession.hxx".}
-proc hasProjectionFrustums*(this: AspectOpenVRSession): bool {.noSideEffect,
+proc HasProjectionFrustums*(this: Aspect_OpenVRSession): bool {.noSideEffect,
     importcpp: "HasProjectionFrustums", header: "Aspect_OpenVRSession.hxx".}
-proc processEvents*(this: var AspectOpenVRSession) {.importcpp: "ProcessEvents",
+proc ProcessEvents*(this: var Aspect_OpenVRSession) {.importcpp: "ProcessEvents",
     header: "Aspect_OpenVRSession.hxx".}
-proc submitEye*(this: var AspectOpenVRSession; theTexture: pointer;
-               theGraphicsLib: AspectGraphicsLibrary;
-               theColorSpace: AspectColorSpace; theEye: AspectEye): bool {.
+proc SubmitEye*(this: var Aspect_OpenVRSession; theTexture: pointer;
+               theGraphicsLib: Aspect_GraphicsLibrary;
+               theColorSpace: Aspect_ColorSpace; theEye: Aspect_Eye): bool {.
     importcpp: "SubmitEye", header: "Aspect_OpenVRSession.hxx".}
-proc getString*(this: AspectOpenVRSession; theInfo: InfoString): TCollectionAsciiString {.
+proc GetString*(this: Aspect_OpenVRSession; theInfo: InfoString): TCollection_AsciiString {.
     noSideEffect, importcpp: "GetString", header: "Aspect_OpenVRSession.hxx".}
-proc namedTrackedDevice*(this: AspectOpenVRSession;
-                        theDevice: AspectXRTrackedDeviceRole): StandardInteger {.
+proc NamedTrackedDevice*(this: Aspect_OpenVRSession;
+                        theDevice: Aspect_XRTrackedDeviceRole): Standard_Integer {.
     noSideEffect, importcpp: "NamedTrackedDevice",
     header: "Aspect_OpenVRSession.hxx".}
-proc getDigitalActionData*(this: AspectOpenVRSession;
-                          theAction: Handle[AspectXRAction]): AspectXRDigitalActionData {.
+proc GetDigitalActionData*(this: Aspect_OpenVRSession;
+                          theAction: handle[Aspect_XRAction]): Aspect_XRDigitalActionData {.
     noSideEffect, importcpp: "GetDigitalActionData",
     header: "Aspect_OpenVRSession.hxx".}
-proc getAnalogActionData*(this: AspectOpenVRSession;
-                         theAction: Handle[AspectXRAction]): AspectXRAnalogActionData {.
+proc GetAnalogActionData*(this: Aspect_OpenVRSession;
+                         theAction: handle[Aspect_XRAction]): Aspect_XRAnalogActionData {.
     noSideEffect, importcpp: "GetAnalogActionData",
     header: "Aspect_OpenVRSession.hxx".}
-proc getPoseActionDataForNextFrame*(this: AspectOpenVRSession;
-                                   theAction: Handle[AspectXRAction]): AspectXRPoseActionData {.
+proc GetPoseActionDataForNextFrame*(this: Aspect_OpenVRSession;
+                                   theAction: handle[Aspect_XRAction]): Aspect_XRPoseActionData {.
     noSideEffect, importcpp: "GetPoseActionDataForNextFrame",
     header: "Aspect_OpenVRSession.hxx".}
-proc setTrackingOrigin*(this: var AspectOpenVRSession;
+proc SetTrackingOrigin*(this: var Aspect_OpenVRSession;
                        theOrigin: TrackingUniverseOrigin) {.
     importcpp: "SetTrackingOrigin", header: "Aspect_OpenVRSession.hxx".}
-

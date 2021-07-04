@@ -1,6 +1,4 @@
-##  Created on: 2002-04-29
-##  Created by: Alexander KARTOMIN (akm)
-##  Copyright (c) 2002-2014 OPEN CASCADE SAS
+##  Copyright (c) 1999-2014 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.
 ##
@@ -12,23 +10,6 @@
 ##
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
-##             Automatically created from NCollection_HArray1.hxx by GAWK
 
-##       Declaration of Array1 class managed by Handle
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+## !!!Ignored construct:  # _Standard_JmpBuf_HeaderFile [NewLine] # _Standard_JmpBuf_HeaderFile [NewLine] # < stdlib . h > [NewLine] # < setjmp . h > [NewLine] typedef # SOLARIS [NewLine] sigjmp_buf # IRIX [NewLine] sigjmp_buf # [NewLine] jmp_buf # [NewLine] Standard_JmpBuf ;
+## Error: identifier expected, but got: #!!!

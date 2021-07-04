@@ -14,40 +14,44 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, BRepSweep_Rotation, ../Standard/Standard_Boolean,
+  ../Standard/Standard_Real
+
 discard "forward decl of Standard_ConstructionError"
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of gp_Ax1"
 discard "forward decl of Sweep_NumShape"
 discard "forward decl of TopLoc_Location"
 type
-  BRepSweepRevol* {.importcpp: "BRepSweep_Revol", header: "BRepSweep_Revol.hxx",
-                   bycopy.} = object ## ! Builds the Revol of meridian S axis A  and angle D. If
-                                  ## ! C is true S is copied.
-                                  ## ! builds the NumShape.
+  BRepSweep_Revol* {.importcpp: "BRepSweep_Revol", header: "BRepSweep_Revol.hxx",
+                    bycopy.} = object ## ! Builds the Revol of meridian S axis A  and angle D. If
+                                   ## ! C is true S is copied.
+                                   ## ! builds the NumShape.
 
 
-proc constructBRepSweepRevol*(s: TopoDS_Shape; a: GpAx1; d: StandardReal;
-                             c: StandardBoolean = standardFalse): BRepSweepRevol {.
+proc constructBRepSweep_Revol*(S: TopoDS_Shape; A: gp_Ax1; D: Standard_Real;
+                              C: Standard_Boolean = Standard_False): BRepSweep_Revol {.
     constructor, importcpp: "BRepSweep_Revol(@)", header: "BRepSweep_Revol.hxx".}
-proc constructBRepSweepRevol*(s: TopoDS_Shape; a: GpAx1;
-                             c: StandardBoolean = standardFalse): BRepSweepRevol {.
+proc constructBRepSweep_Revol*(S: TopoDS_Shape; A: gp_Ax1;
+                              C: Standard_Boolean = Standard_False): BRepSweep_Revol {.
     constructor, importcpp: "BRepSweep_Revol(@)", header: "BRepSweep_Revol.hxx".}
-proc shape*(this: var BRepSweepRevol): TopoDS_Shape {.importcpp: "Shape",
+proc Shape*(this: var BRepSweep_Revol): TopoDS_Shape {.importcpp: "Shape",
     header: "BRepSweep_Revol.hxx".}
-proc shape*(this: var BRepSweepRevol; aGenS: TopoDS_Shape): TopoDS_Shape {.
+proc Shape*(this: var BRepSweep_Revol; aGenS: TopoDS_Shape): TopoDS_Shape {.
     importcpp: "Shape", header: "BRepSweep_Revol.hxx".}
-proc firstShape*(this: var BRepSweepRevol): TopoDS_Shape {.importcpp: "FirstShape",
+proc FirstShape*(this: var BRepSweep_Revol): TopoDS_Shape {.importcpp: "FirstShape",
     header: "BRepSweep_Revol.hxx".}
-proc firstShape*(this: var BRepSweepRevol; aGenS: TopoDS_Shape): TopoDS_Shape {.
+proc FirstShape*(this: var BRepSweep_Revol; aGenS: TopoDS_Shape): TopoDS_Shape {.
     importcpp: "FirstShape", header: "BRepSweep_Revol.hxx".}
-proc lastShape*(this: var BRepSweepRevol): TopoDS_Shape {.importcpp: "LastShape",
+proc LastShape*(this: var BRepSweep_Revol): TopoDS_Shape {.importcpp: "LastShape",
     header: "BRepSweep_Revol.hxx".}
-proc lastShape*(this: var BRepSweepRevol; aGenS: TopoDS_Shape): TopoDS_Shape {.
+proc LastShape*(this: var BRepSweep_Revol; aGenS: TopoDS_Shape): TopoDS_Shape {.
     importcpp: "LastShape", header: "BRepSweep_Revol.hxx".}
-proc axe*(this: BRepSweepRevol): GpAx1 {.noSideEffect, importcpp: "Axe",
-                                     header: "BRepSweep_Revol.hxx".}
-proc angle*(this: BRepSweepRevol): StandardReal {.noSideEffect, importcpp: "Angle",
+proc Axe*(this: BRepSweep_Revol): gp_Ax1 {.noSideEffect, importcpp: "Axe",
+                                       header: "BRepSweep_Revol.hxx".}
+proc Angle*(this: BRepSweep_Revol): Standard_Real {.noSideEffect, importcpp: "Angle",
     header: "BRepSweep_Revol.hxx".}
-proc isUsed*(this: BRepSweepRevol; aGenS: TopoDS_Shape): StandardBoolean {.
+proc IsUsed*(this: BRepSweep_Revol; aGenS: TopoDS_Shape): Standard_Boolean {.
     noSideEffect, importcpp: "IsUsed", header: "BRepSweep_Revol.hxx".}
-

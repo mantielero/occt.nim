@@ -14,38 +14,46 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../TColStd/TColStd_HArray1OfReal,
+  GeomFill_Profiler, ../Standard/Standard_Integer,
+  ../TColStd/TColStd_Array1OfReal, ../TColStd/TColStd_Array1OfInteger,
+  ../Standard/Standard_Boolean, ../TColgp/TColgp_Array1OfPnt,
+  ../TColgp/TColgp_Array1OfVec, ../TColgp/TColgp_Array1OfPnt2d,
+  ../TColgp/TColgp_Array1OfVec2d, ../Standard/Standard_Real
+
 ## ! gives  the  functions  needed  for  instantiation from
 ## ! AppSurf in AppBlend.   Allow  to  evaluate  a  surface
 ## ! passing by all the curves if the Profiler.
 
 type
-  GeomFillSectionGenerator* {.importcpp: "GeomFill_SectionGenerator",
-                             header: "GeomFill_SectionGenerator.hxx", bycopy.} = object of GeomFillProfiler
+  GeomFill_SectionGenerator* {.importcpp: "GeomFill_SectionGenerator",
+                              header: "GeomFill_SectionGenerator.hxx", bycopy.} = object of GeomFill_Profiler
 
 
-proc constructGeomFillSectionGenerator*(): GeomFillSectionGenerator {.constructor,
-    importcpp: "GeomFill_SectionGenerator(@)",
+proc constructGeomFill_SectionGenerator*(): GeomFill_SectionGenerator {.
+    constructor, importcpp: "GeomFill_SectionGenerator(@)",
     header: "GeomFill_SectionGenerator.hxx".}
-proc setParam*(this: var GeomFillSectionGenerator;
-              params: Handle[TColStdHArray1OfReal]) {.importcpp: "SetParam",
+proc SetParam*(this: var GeomFill_SectionGenerator;
+              Params: handle[TColStd_HArray1OfReal]) {.importcpp: "SetParam",
     header: "GeomFill_SectionGenerator.hxx".}
-proc getShape*(this: GeomFillSectionGenerator; nbPoles: var StandardInteger;
-              nbKnots: var StandardInteger; degree: var StandardInteger;
-              nbPoles2d: var StandardInteger) {.noSideEffect, importcpp: "GetShape",
-    header: "GeomFill_SectionGenerator.hxx".}
-proc knots*(this: GeomFillSectionGenerator; tKnots: var TColStdArray1OfReal) {.
+proc GetShape*(this: GeomFill_SectionGenerator; NbPoles: var Standard_Integer;
+              NbKnots: var Standard_Integer; Degree: var Standard_Integer;
+              NbPoles2d: var Standard_Integer) {.noSideEffect,
+    importcpp: "GetShape", header: "GeomFill_SectionGenerator.hxx".}
+proc Knots*(this: GeomFill_SectionGenerator; TKnots: var TColStd_Array1OfReal) {.
     noSideEffect, importcpp: "Knots", header: "GeomFill_SectionGenerator.hxx".}
-proc mults*(this: GeomFillSectionGenerator; tMults: var TColStdArray1OfInteger) {.
+proc Mults*(this: GeomFill_SectionGenerator; TMults: var TColStd_Array1OfInteger) {.
     noSideEffect, importcpp: "Mults", header: "GeomFill_SectionGenerator.hxx".}
-proc section*(this: GeomFillSectionGenerator; p: StandardInteger;
-             poles: var TColgpArray1OfPnt; dPoles: var TColgpArray1OfVec;
-             poles2d: var TColgpArray1OfPnt2d; dPoles2d: var TColgpArray1OfVec2d;
-             weigths: var TColStdArray1OfReal; dWeigths: var TColStdArray1OfReal): StandardBoolean {.
+proc Section*(this: GeomFill_SectionGenerator; P: Standard_Integer;
+             Poles: var TColgp_Array1OfPnt; DPoles: var TColgp_Array1OfVec;
+             Poles2d: var TColgp_Array1OfPnt2d; DPoles2d: var TColgp_Array1OfVec2d;
+             Weigths: var TColStd_Array1OfReal; DWeigths: var TColStd_Array1OfReal): Standard_Boolean {.
     noSideEffect, importcpp: "Section", header: "GeomFill_SectionGenerator.hxx".}
-proc section*(this: GeomFillSectionGenerator; p: StandardInteger;
-             poles: var TColgpArray1OfPnt; poles2d: var TColgpArray1OfPnt2d;
-             weigths: var TColStdArray1OfReal) {.noSideEffect, importcpp: "Section",
-    header: "GeomFill_SectionGenerator.hxx".}
-proc parameter*(this: GeomFillSectionGenerator; p: StandardInteger): StandardReal {.
+proc Section*(this: GeomFill_SectionGenerator; P: Standard_Integer;
+             Poles: var TColgp_Array1OfPnt; Poles2d: var TColgp_Array1OfPnt2d;
+             Weigths: var TColStd_Array1OfReal) {.noSideEffect,
+    importcpp: "Section", header: "GeomFill_SectionGenerator.hxx".}
+proc Parameter*(this: GeomFill_SectionGenerator; P: Standard_Integer): Standard_Real {.
     noSideEffect, importcpp: "Parameter", header: "GeomFill_SectionGenerator.hxx".}
-

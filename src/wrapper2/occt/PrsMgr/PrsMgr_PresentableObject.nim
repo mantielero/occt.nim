@@ -14,9 +14,17 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Aspect/Aspect_TypeOfFacingModel, ../gp/gp_GTrsf,
+  ../Graphic3d/Graphic3d_ClipPlane, ../Graphic3d/Graphic3d_SequenceOfHClipPlane,
+  ../Graphic3d/Graphic3d_TransformPers, ../Graphic3d/Graphic3d_TransModeFlags,
+  ../Graphic3d/Graphic3d_ZLayerId, ../Prs3d/Prs3d_Drawer,
+  PrsMgr_ListOfPresentableObjects, PrsMgr_Presentation, PrsMgr_Presentations,
+  PrsMgr_TypeOfPresentation3d, ../TColStd/TColStd_ListOfInteger
+
 discard "forward decl of PrsMgr_PresentationManager"
 type
-  PrsMgrPresentationManager3d* = PrsMgrPresentationManager
+  PrsMgr_PresentationManager3d* = PrsMgr_PresentationManager
 
 ## ! A framework to supply the Graphic3d structure of the object to be presented.
 ## ! On the first display request, this structure is created by calling the appropriate algorithm and retaining this framework for further display.
@@ -33,180 +41,180 @@ type
 ## ! For more sophisticated configuring, Prs3d_Drawer should be modified directly, while short-cuts might be left unimplemented.
 
 type
-  PrsMgrPresentableObject* {.importcpp: "PrsMgr_PresentableObject",
-                            header: "PrsMgr_PresentableObject.hxx", bycopy.} = object of StandardTransient ##
-                                                                                                    ## !
-                                                                                                    ## Return
-                                                                                                    ## presentations.
-                                                                                                    ##
-                                                                                                    ## !
-                                                                                                    ## @name
-                                                                                                    ## presentation
-                                                                                                    ## attributes
-                                                                                                    ##
-                                                                                                    ## !
-                                                                                                    ## Returns
-                                                                                                    ## the
-                                                                                                    ## attributes
-                                                                                                    ## settings.
-                                                                                                    ##
-                                                                                                    ## !
-                                                                                                    ## @name
-                                                                                                    ## object
-                                                                                                    ## transformation
-                                                                                                    ##
-                                                                                                    ## !
-                                                                                                    ## Returns
-                                                                                                    ## Transformation
-                                                                                                    ## Persistence
-                                                                                                    ## defining
-                                                                                                    ## a
-                                                                                                    ## special
-                                                                                                    ## Local
-                                                                                                    ## Coordinate
-                                                                                                    ## system
-                                                                                                    ## where
-                                                                                                    ## this
-                                                                                                    ## presentable
-                                                                                                    ## object
-                                                                                                    ## is
-                                                                                                    ## located
-                                                                                                    ## or
-                                                                                                    ## NULL
-                                                                                                    ## handle
-                                                                                                    ## if
-                                                                                                    ## not
-                                                                                                    ## defined.
-                                                                                                    ##
-                                                                                                    ## !
-                                                                                                    ## Position
-                                                                                                    ## of
-                                                                                                    ## the
-                                                                                                    ## object
-                                                                                                    ## having
-                                                                                                    ## Transformation
-                                                                                                    ## Persistence
-                                                                                                    ## is
-                                                                                                    ## mutable
-                                                                                                    ## and
-                                                                                                    ## depends
-                                                                                                    ## on
-                                                                                                    ## camera
-                                                                                                    ## position.
-                                                                                                    ##
-                                                                                                    ## !
-                                                                                                    ## The
-                                                                                                    ## same
-                                                                                                    ## applies
-                                                                                                    ## to
-                                                                                                    ## a
-                                                                                                    ## bounding
-                                                                                                    ## box
-                                                                                                    ## of
-                                                                                                    ## the
-                                                                                                    ## object.
-                                                                                                    ##
-                                                                                                    ## !
-                                                                                                    ## @sa
-                                                                                                    ## Graphic3d_TransformPers
-                                                                                                    ## class
-                                                                                                    ## description
-                                                                                                    ##
-                                                                                                    ## !
-                                                                                                    ## @name
-                                                                                                    ## clipping
-                                                                                                    ## planes
-                                                                                                    ##
-                                                                                                    ## !
-                                                                                                    ## Get
-                                                                                                    ## clip
-                                                                                                    ## planes.
-                                                                                                    ##
-                                                                                                    ## !
-                                                                                                    ## @return
-                                                                                                    ## set
-                                                                                                    ## of
-                                                                                                    ## previously
-                                                                                                    ## added
-                                                                                                    ## clip
-                                                                                                    ## planes
-                                                                                                    ## for
-                                                                                                    ## all
-                                                                                                    ## display
-                                                                                                    ## mode
-                                                                                                    ## presentations.
-                                                                                                    ##
-                                                                                                    ## !
-                                                                                                    ## @name
-                                                                                                    ## parent/children
-                                                                                                    ## properties
-                                                                                                    ##
-                                                                                                    ## !
-                                                                                                    ## Returns
-                                                                                                    ## parent
-                                                                                                    ## of
-                                                                                                    ## current
-                                                                                                    ## object
-                                                                                                    ## in
-                                                                                                    ## scene
-                                                                                                    ## hierarchy.
-                                                                                                    ##
-                                                                                                    ## !
-                                                                                                    ## @name
-                                                                                                    ## interface
-                                                                                                    ## methods
-                                                                                                    ##
-                                                                                                    ## !
-                                                                                                    ## Protected
-                                                                                                    ## empty
-                                                                                                    ## constructor.
-                                                                                                    ##
-                                                                                                    ## !
-                                                                                                    ## @name
-                                                                                                    ## simplified
-                                                                                                    ## presentation
-                                                                                                    ## properties
-                                                                                                    ## API
-                                                                                                    ##
-                                                                                                    ## !
-                                                                                                    ## Enables
-                                                                                                    ## or
-                                                                                                    ## disables
-                                                                                                    ## on-triangulation
-                                                                                                    ## build
-                                                                                                    ## of
-                                                                                                    ## isolines
-                                                                                                    ## according
-                                                                                                    ## to
-                                                                                                    ## the
-                                                                                                    ## flag
-                                                                                                    ## given.
-                                                                                                    ##
-                                                                                                    ## !
-                                                                                                    ## @name
-                                                                                                    ## deprecated
-                                                                                                    ## methods
-                                                                                                    ##
-                                                                                                    ## !
-                                                                                                    ## gives
-                                                                                                    ## the
-                                                                                                    ## list
-                                                                                                    ## of
-                                                                                                    ## modes
-                                                                                                    ## which
-                                                                                                    ## are
-                                                                                                    ## flagged
-                                                                                                    ## "to
-                                                                                                    ## be
-                                                                                                    ## updated".
-                                                                                                    ##
-                                                                                                    ## !
-                                                                                                    ## Recomputes
-                                                                                                    ## all
-                                                                                                    ## presentations
-                                                                                                    ## of
-                                                                                                    ## the
-                                                                                                    ## object.
+  PrsMgr_PresentableObject* {.importcpp: "PrsMgr_PresentableObject",
+                             header: "PrsMgr_PresentableObject.hxx", bycopy.} = object of Standard_Transient ##
+                                                                                                      ## !
+                                                                                                      ## Return
+                                                                                                      ## presentations.
+                                                                                                      ##
+                                                                                                      ## !
+                                                                                                      ## @name
+                                                                                                      ## presentation
+                                                                                                      ## attributes
+                                                                                                      ##
+                                                                                                      ## !
+                                                                                                      ## Returns
+                                                                                                      ## the
+                                                                                                      ## attributes
+                                                                                                      ## settings.
+                                                                                                      ##
+                                                                                                      ## !
+                                                                                                      ## @name
+                                                                                                      ## object
+                                                                                                      ## transformation
+                                                                                                      ##
+                                                                                                      ## !
+                                                                                                      ## Returns
+                                                                                                      ## Transformation
+                                                                                                      ## Persistence
+                                                                                                      ## defining
+                                                                                                      ## a
+                                                                                                      ## special
+                                                                                                      ## Local
+                                                                                                      ## Coordinate
+                                                                                                      ## system
+                                                                                                      ## where
+                                                                                                      ## this
+                                                                                                      ## presentable
+                                                                                                      ## object
+                                                                                                      ## is
+                                                                                                      ## located
+                                                                                                      ## or
+                                                                                                      ## NULL
+                                                                                                      ## handle
+                                                                                                      ## if
+                                                                                                      ## not
+                                                                                                      ## defined.
+                                                                                                      ##
+                                                                                                      ## !
+                                                                                                      ## Position
+                                                                                                      ## of
+                                                                                                      ## the
+                                                                                                      ## object
+                                                                                                      ## having
+                                                                                                      ## Transformation
+                                                                                                      ## Persistence
+                                                                                                      ## is
+                                                                                                      ## mutable
+                                                                                                      ## and
+                                                                                                      ## depends
+                                                                                                      ## on
+                                                                                                      ## camera
+                                                                                                      ## position.
+                                                                                                      ##
+                                                                                                      ## !
+                                                                                                      ## The
+                                                                                                      ## same
+                                                                                                      ## applies
+                                                                                                      ## to
+                                                                                                      ## a
+                                                                                                      ## bounding
+                                                                                                      ## box
+                                                                                                      ## of
+                                                                                                      ## the
+                                                                                                      ## object.
+                                                                                                      ##
+                                                                                                      ## !
+                                                                                                      ## @sa
+                                                                                                      ## Graphic3d_TransformPers
+                                                                                                      ## class
+                                                                                                      ## description
+                                                                                                      ##
+                                                                                                      ## !
+                                                                                                      ## @name
+                                                                                                      ## clipping
+                                                                                                      ## planes
+                                                                                                      ##
+                                                                                                      ## !
+                                                                                                      ## Get
+                                                                                                      ## clip
+                                                                                                      ## planes.
+                                                                                                      ##
+                                                                                                      ## !
+                                                                                                      ## @return
+                                                                                                      ## set
+                                                                                                      ## of
+                                                                                                      ## previously
+                                                                                                      ## added
+                                                                                                      ## clip
+                                                                                                      ## planes
+                                                                                                      ## for
+                                                                                                      ## all
+                                                                                                      ## display
+                                                                                                      ## mode
+                                                                                                      ## presentations.
+                                                                                                      ##
+                                                                                                      ## !
+                                                                                                      ## @name
+                                                                                                      ## parent/children
+                                                                                                      ## properties
+                                                                                                      ##
+                                                                                                      ## !
+                                                                                                      ## Returns
+                                                                                                      ## parent
+                                                                                                      ## of
+                                                                                                      ## current
+                                                                                                      ## object
+                                                                                                      ## in
+                                                                                                      ## scene
+                                                                                                      ## hierarchy.
+                                                                                                      ##
+                                                                                                      ## !
+                                                                                                      ## @name
+                                                                                                      ## interface
+                                                                                                      ## methods
+                                                                                                      ##
+                                                                                                      ## !
+                                                                                                      ## Protected
+                                                                                                      ## empty
+                                                                                                      ## constructor.
+                                                                                                      ##
+                                                                                                      ## !
+                                                                                                      ## @name
+                                                                                                      ## simplified
+                                                                                                      ## presentation
+                                                                                                      ## properties
+                                                                                                      ## API
+                                                                                                      ##
+                                                                                                      ## !
+                                                                                                      ## Enables
+                                                                                                      ## or
+                                                                                                      ## disables
+                                                                                                      ## on-triangulation
+                                                                                                      ## build
+                                                                                                      ## of
+                                                                                                      ## isolines
+                                                                                                      ## according
+                                                                                                      ## to
+                                                                                                      ## the
+                                                                                                      ## flag
+                                                                                                      ## given.
+                                                                                                      ##
+                                                                                                      ## !
+                                                                                                      ## @name
+                                                                                                      ## deprecated
+                                                                                                      ## methods
+                                                                                                      ##
+                                                                                                      ## !
+                                                                                                      ## gives
+                                                                                                      ## the
+                                                                                                      ## list
+                                                                                                      ## of
+                                                                                                      ## modes
+                                                                                                      ## which
+                                                                                                      ## are
+                                                                                                      ## flagged
+                                                                                                      ## "to
+                                                                                                      ## be
+                                                                                                      ## updated".
+                                                                                                      ##
+                                                                                                      ## !
+                                                                                                      ## Recomputes
+                                                                                                      ## all
+                                                                                                      ## presentations
+                                                                                                      ## of
+                                                                                                      ## the
+                                                                                                      ## object.
     ## !< pointer to the parent object
     ## !< list of presentations
     ## !< sequence of object-specific clipping planes
@@ -229,209 +237,216 @@ type
     ## !< flag indicating if object should have own presentations
     ## !< flag indicating if visual state (display/erase/color) should be propagated to all children
 
-  PrsMgrPresentableObjectbaseType* = StandardTransient
+  PrsMgr_PresentableObjectbase_type* = Standard_Transient
 
-proc getTypeName*(): cstring {.importcpp: "PrsMgr_PresentableObject::get_type_name(@)",
-                            header: "PrsMgr_PresentableObject.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "PrsMgr_PresentableObject::get_type_name(@)",
+                              header: "PrsMgr_PresentableObject.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "PrsMgr_PresentableObject::get_type_descriptor(@)",
     header: "PrsMgr_PresentableObject.hxx".}
-proc dynamicType*(this: PrsMgrPresentableObject): Handle[StandardType] {.
+proc DynamicType*(this: PrsMgr_PresentableObject): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType", header: "PrsMgr_PresentableObject.hxx".}
-proc presentations*(this: var PrsMgrPresentableObject): var PrsMgrPresentations {.
+proc Presentations*(this: var PrsMgr_PresentableObject): var PrsMgr_Presentations {.
     importcpp: "Presentations", header: "PrsMgr_PresentableObject.hxx".}
-proc zLayer*(this: PrsMgrPresentableObject): Graphic3dZLayerId {.noSideEffect,
+proc ZLayer*(this: PrsMgr_PresentableObject): Graphic3d_ZLayerId {.noSideEffect,
     importcpp: "ZLayer", header: "PrsMgr_PresentableObject.hxx".}
-proc setZLayer*(this: var PrsMgrPresentableObject; theLayerId: Graphic3dZLayerId) {.
+proc SetZLayer*(this: var PrsMgr_PresentableObject; theLayerId: Graphic3d_ZLayerId) {.
     importcpp: "SetZLayer", header: "PrsMgr_PresentableObject.hxx".}
-proc isMutable*(this: PrsMgrPresentableObject): StandardBoolean {.noSideEffect,
+proc IsMutable*(this: PrsMgr_PresentableObject): Standard_Boolean {.noSideEffect,
     importcpp: "IsMutable", header: "PrsMgr_PresentableObject.hxx".}
-proc setMutable*(this: var PrsMgrPresentableObject; theIsMutable: StandardBoolean) {.
+proc SetMutable*(this: var PrsMgr_PresentableObject; theIsMutable: Standard_Boolean) {.
     importcpp: "SetMutable", header: "PrsMgr_PresentableObject.hxx".}
-proc hasDisplayMode*(this: PrsMgrPresentableObject): StandardBoolean {.noSideEffect,
-    importcpp: "HasDisplayMode", header: "PrsMgr_PresentableObject.hxx".}
-proc displayMode*(this: PrsMgrPresentableObject): StandardInteger {.noSideEffect,
+proc HasDisplayMode*(this: PrsMgr_PresentableObject): Standard_Boolean {.
+    noSideEffect, importcpp: "HasDisplayMode",
+    header: "PrsMgr_PresentableObject.hxx".}
+proc DisplayMode*(this: PrsMgr_PresentableObject): Standard_Integer {.noSideEffect,
     importcpp: "DisplayMode", header: "PrsMgr_PresentableObject.hxx".}
-proc setDisplayMode*(this: var PrsMgrPresentableObject; theMode: StandardInteger) {.
+proc SetDisplayMode*(this: var PrsMgr_PresentableObject; theMode: Standard_Integer) {.
     importcpp: "SetDisplayMode", header: "PrsMgr_PresentableObject.hxx".}
-proc unsetDisplayMode*(this: var PrsMgrPresentableObject) {.
+proc UnsetDisplayMode*(this: var PrsMgr_PresentableObject) {.
     importcpp: "UnsetDisplayMode", header: "PrsMgr_PresentableObject.hxx".}
-proc hasHilightMode*(this: PrsMgrPresentableObject): StandardBoolean {.noSideEffect,
-    importcpp: "HasHilightMode", header: "PrsMgr_PresentableObject.hxx".}
-proc hilightMode*(this: PrsMgrPresentableObject): StandardInteger {.noSideEffect,
+proc HasHilightMode*(this: PrsMgr_PresentableObject): Standard_Boolean {.
+    noSideEffect, importcpp: "HasHilightMode",
+    header: "PrsMgr_PresentableObject.hxx".}
+proc HilightMode*(this: PrsMgr_PresentableObject): Standard_Integer {.noSideEffect,
     importcpp: "HilightMode", header: "PrsMgr_PresentableObject.hxx".}
-proc setHilightMode*(this: var PrsMgrPresentableObject; theMode: StandardInteger) {.
+proc SetHilightMode*(this: var PrsMgr_PresentableObject; theMode: Standard_Integer) {.
     importcpp: "SetHilightMode", header: "PrsMgr_PresentableObject.hxx".}
-proc unsetHilightMode*(this: var PrsMgrPresentableObject) {.
+proc UnsetHilightMode*(this: var PrsMgr_PresentableObject) {.
     importcpp: "UnsetHilightMode", header: "PrsMgr_PresentableObject.hxx".}
-proc acceptDisplayMode*(this: PrsMgrPresentableObject; theMode: StandardInteger): StandardBoolean {.
+proc AcceptDisplayMode*(this: PrsMgr_PresentableObject; theMode: Standard_Integer): Standard_Boolean {.
     noSideEffect, importcpp: "AcceptDisplayMode",
     header: "PrsMgr_PresentableObject.hxx".}
-proc defaultDisplayMode*(this: PrsMgrPresentableObject): StandardInteger {.
+proc DefaultDisplayMode*(this: PrsMgr_PresentableObject): Standard_Integer {.
     noSideEffect, importcpp: "DefaultDisplayMode",
     header: "PrsMgr_PresentableObject.hxx".}
-proc toBeUpdated*(this: PrsMgrPresentableObject;
-                 theToIncludeHidden: StandardBoolean = standardFalse): StandardBoolean {.
+proc ToBeUpdated*(this: PrsMgr_PresentableObject;
+                 theToIncludeHidden: Standard_Boolean = Standard_False): Standard_Boolean {.
     noSideEffect, importcpp: "ToBeUpdated", header: "PrsMgr_PresentableObject.hxx".}
-proc setToUpdate*(this: var PrsMgrPresentableObject; theMode: StandardInteger) {.
+proc SetToUpdate*(this: var PrsMgr_PresentableObject; theMode: Standard_Integer) {.
     importcpp: "SetToUpdate", header: "PrsMgr_PresentableObject.hxx".}
-proc setToUpdate*(this: var PrsMgrPresentableObject) {.importcpp: "SetToUpdate",
+proc SetToUpdate*(this: var PrsMgr_PresentableObject) {.importcpp: "SetToUpdate",
     header: "PrsMgr_PresentableObject.hxx".}
-proc isInfinite*(this: PrsMgrPresentableObject): StandardBoolean {.noSideEffect,
+proc IsInfinite*(this: PrsMgr_PresentableObject): Standard_Boolean {.noSideEffect,
     importcpp: "IsInfinite", header: "PrsMgr_PresentableObject.hxx".}
-proc setInfiniteState*(this: var PrsMgrPresentableObject;
-                      theFlag: StandardBoolean = standardTrue) {.
+proc SetInfiniteState*(this: var PrsMgr_PresentableObject;
+                      theFlag: Standard_Boolean = Standard_True) {.
     importcpp: "SetInfiniteState", header: "PrsMgr_PresentableObject.hxx".}
-proc typeOfPresentation3d*(this: PrsMgrPresentableObject): PrsMgrTypeOfPresentation3d {.
+proc TypeOfPresentation3d*(this: PrsMgr_PresentableObject): PrsMgr_TypeOfPresentation3d {.
     noSideEffect, importcpp: "TypeOfPresentation3d",
     header: "PrsMgr_PresentableObject.hxx".}
-proc setTypeOfPresentation*(this: var PrsMgrPresentableObject;
-                           theType: PrsMgrTypeOfPresentation3d) {.
+proc SetTypeOfPresentation*(this: var PrsMgr_PresentableObject;
+                           theType: PrsMgr_TypeOfPresentation3d) {.
     importcpp: "SetTypeOfPresentation", header: "PrsMgr_PresentableObject.hxx".}
-proc attributes*(this: PrsMgrPresentableObject): Handle[Prs3dDrawer] {.noSideEffect,
-    importcpp: "Attributes", header: "PrsMgr_PresentableObject.hxx".}
-proc setAttributes*(this: var PrsMgrPresentableObject;
-                   theDrawer: Handle[Prs3dDrawer]) {.importcpp: "SetAttributes",
+proc Attributes*(this: PrsMgr_PresentableObject): handle[Prs3d_Drawer] {.
+    noSideEffect, importcpp: "Attributes", header: "PrsMgr_PresentableObject.hxx".}
+proc SetAttributes*(this: var PrsMgr_PresentableObject;
+                   theDrawer: handle[Prs3d_Drawer]) {.importcpp: "SetAttributes",
     header: "PrsMgr_PresentableObject.hxx".}
-proc hilightAttributes*(this: PrsMgrPresentableObject): Handle[Prs3dDrawer] {.
+proc HilightAttributes*(this: PrsMgr_PresentableObject): handle[Prs3d_Drawer] {.
     noSideEffect, importcpp: "HilightAttributes",
     header: "PrsMgr_PresentableObject.hxx".}
-proc setHilightAttributes*(this: var PrsMgrPresentableObject;
-                          theDrawer: Handle[Prs3dDrawer]) {.
+proc SetHilightAttributes*(this: var PrsMgr_PresentableObject;
+                          theDrawer: handle[Prs3d_Drawer]) {.
     importcpp: "SetHilightAttributes", header: "PrsMgr_PresentableObject.hxx".}
-proc dynamicHilightAttributes*(this: PrsMgrPresentableObject): Handle[Prs3dDrawer] {.
+proc DynamicHilightAttributes*(this: PrsMgr_PresentableObject): handle[Prs3d_Drawer] {.
     noSideEffect, importcpp: "DynamicHilightAttributes",
     header: "PrsMgr_PresentableObject.hxx".}
-proc setDynamicHilightAttributes*(this: var PrsMgrPresentableObject;
-                                 theDrawer: Handle[Prs3dDrawer]) {.
+proc SetDynamicHilightAttributes*(this: var PrsMgr_PresentableObject;
+                                 theDrawer: handle[Prs3d_Drawer]) {.
     importcpp: "SetDynamicHilightAttributes",
     header: "PrsMgr_PresentableObject.hxx".}
-proc unsetHilightAttributes*(this: var PrsMgrPresentableObject) {.
+proc UnsetHilightAttributes*(this: var PrsMgr_PresentableObject) {.
     importcpp: "UnsetHilightAttributes", header: "PrsMgr_PresentableObject.hxx".}
-proc synchronizeAspects*(this: var PrsMgrPresentableObject) {.
+proc SynchronizeAspects*(this: var PrsMgr_PresentableObject) {.
     importcpp: "SynchronizeAspects", header: "PrsMgr_PresentableObject.hxx".}
-proc transformPersistence*(this: PrsMgrPresentableObject): Handle[
-    Graphic3dTransformPers] {.noSideEffect, importcpp: "TransformPersistence",
-                             header: "PrsMgr_PresentableObject.hxx".}
-proc setTransformPersistence*(this: var PrsMgrPresentableObject;
-                             theTrsfPers: Handle[Graphic3dTransformPers]) {.
+proc TransformPersistence*(this: PrsMgr_PresentableObject): handle[
+    Graphic3d_TransformPers] {.noSideEffect, importcpp: "TransformPersistence",
+                              header: "PrsMgr_PresentableObject.hxx".}
+proc SetTransformPersistence*(this: var PrsMgr_PresentableObject;
+                             theTrsfPers: handle[Graphic3d_TransformPers]) {.
     importcpp: "SetTransformPersistence", header: "PrsMgr_PresentableObject.hxx".}
-proc localTransformationGeom*(this: PrsMgrPresentableObject): Handle[TopLocDatum3D] {.
-    noSideEffect, importcpp: "LocalTransformationGeom",
-    header: "PrsMgr_PresentableObject.hxx".}
-proc setLocalTransformation*(this: var PrsMgrPresentableObject; theTrsf: GpTrsf) {.
+proc LocalTransformationGeom*(this: PrsMgr_PresentableObject): handle[
+    TopLoc_Datum3D] {.noSideEffect, importcpp: "LocalTransformationGeom",
+                     header: "PrsMgr_PresentableObject.hxx".}
+proc SetLocalTransformation*(this: var PrsMgr_PresentableObject; theTrsf: gp_Trsf) {.
     importcpp: "SetLocalTransformation", header: "PrsMgr_PresentableObject.hxx".}
-proc setLocalTransformation*(this: var PrsMgrPresentableObject;
-                            theTrsf: Handle[TopLocDatum3D]) {.
+proc SetLocalTransformation*(this: var PrsMgr_PresentableObject;
+                            theTrsf: handle[TopLoc_Datum3D]) {.
     importcpp: "SetLocalTransformation", header: "PrsMgr_PresentableObject.hxx".}
-proc hasTransformation*(this: PrsMgrPresentableObject): StandardBoolean {.
+proc HasTransformation*(this: PrsMgr_PresentableObject): Standard_Boolean {.
     noSideEffect, importcpp: "HasTransformation",
     header: "PrsMgr_PresentableObject.hxx".}
-proc transformationGeom*(this: PrsMgrPresentableObject): Handle[TopLocDatum3D] {.
+proc TransformationGeom*(this: PrsMgr_PresentableObject): handle[TopLoc_Datum3D] {.
     noSideEffect, importcpp: "TransformationGeom",
     header: "PrsMgr_PresentableObject.hxx".}
-proc localTransformation*(this: PrsMgrPresentableObject): GpTrsf {.noSideEffect,
+proc LocalTransformation*(this: PrsMgr_PresentableObject): gp_Trsf {.noSideEffect,
     importcpp: "LocalTransformation", header: "PrsMgr_PresentableObject.hxx".}
-proc transformation*(this: PrsMgrPresentableObject): GpTrsf {.noSideEffect,
+proc Transformation*(this: PrsMgr_PresentableObject): gp_Trsf {.noSideEffect,
     importcpp: "Transformation", header: "PrsMgr_PresentableObject.hxx".}
-proc inversedTransformation*(this: PrsMgrPresentableObject): GpGTrsf {.noSideEffect,
-    importcpp: "InversedTransformation", header: "PrsMgr_PresentableObject.hxx".}
-proc combinedParentTransformation*(this: PrsMgrPresentableObject): Handle[
-    TopLocDatum3D] {.noSideEffect, importcpp: "CombinedParentTransformation",
-                    header: "PrsMgr_PresentableObject.hxx".}
-proc resetTransformation*(this: var PrsMgrPresentableObject) {.
-    importcpp: "ResetTransformation", header: "PrsMgr_PresentableObject.hxx".}
-proc updateTransformation*(this: var PrsMgrPresentableObject) {.
-    importcpp: "UpdateTransformation", header: "PrsMgr_PresentableObject.hxx".}
-proc clipPlanes*(this: PrsMgrPresentableObject): Handle[
-    Graphic3dSequenceOfHClipPlane] {.noSideEffect, importcpp: "ClipPlanes",
-                                    header: "PrsMgr_PresentableObject.hxx".}
-proc setClipPlanes*(this: var PrsMgrPresentableObject;
-                   thePlanes: Handle[Graphic3dSequenceOfHClipPlane]) {.
-    importcpp: "SetClipPlanes", header: "PrsMgr_PresentableObject.hxx".}
-proc addClipPlane*(this: var PrsMgrPresentableObject;
-                  thePlane: Handle[Graphic3dClipPlane]) {.
-    importcpp: "AddClipPlane", header: "PrsMgr_PresentableObject.hxx".}
-proc removeClipPlane*(this: var PrsMgrPresentableObject;
-                     thePlane: Handle[Graphic3dClipPlane]) {.
-    importcpp: "RemoveClipPlane", header: "PrsMgr_PresentableObject.hxx".}
-proc parent*(this: PrsMgrPresentableObject): ptr PrsMgrPresentableObject {.
-    noSideEffect, importcpp: "Parent", header: "PrsMgr_PresentableObject.hxx".}
-proc children*(this: PrsMgrPresentableObject): PrsMgrListOfPresentableObjects {.
-    noSideEffect, importcpp: "Children", header: "PrsMgr_PresentableObject.hxx".}
-proc addChild*(this: var PrsMgrPresentableObject;
-              theObject: Handle[PrsMgrPresentableObject]) {.importcpp: "AddChild",
+proc InversedTransformation*(this: PrsMgr_PresentableObject): gp_GTrsf {.
+    noSideEffect, importcpp: "InversedTransformation",
     header: "PrsMgr_PresentableObject.hxx".}
-proc addChildWithCurrentTransformation*(this: var PrsMgrPresentableObject; theObject: Handle[
-    PrsMgrPresentableObject]) {.importcpp: "AddChildWithCurrentTransformation",
-                               header: "PrsMgr_PresentableObject.hxx".}
-proc removeChild*(this: var PrsMgrPresentableObject;
-                 theObject: Handle[PrsMgrPresentableObject]) {.
+proc CombinedParentTransformation*(this: PrsMgr_PresentableObject): handle[
+    TopLoc_Datum3D] {.noSideEffect, importcpp: "CombinedParentTransformation",
+                     header: "PrsMgr_PresentableObject.hxx".}
+proc ResetTransformation*(this: var PrsMgr_PresentableObject) {.
+    importcpp: "ResetTransformation", header: "PrsMgr_PresentableObject.hxx".}
+proc UpdateTransformation*(this: var PrsMgr_PresentableObject) {.
+    importcpp: "UpdateTransformation", header: "PrsMgr_PresentableObject.hxx".}
+proc ClipPlanes*(this: PrsMgr_PresentableObject): handle[
+    Graphic3d_SequenceOfHClipPlane] {.noSideEffect, importcpp: "ClipPlanes",
+                                     header: "PrsMgr_PresentableObject.hxx".}
+proc SetClipPlanes*(this: var PrsMgr_PresentableObject;
+                   thePlanes: handle[Graphic3d_SequenceOfHClipPlane]) {.
+    importcpp: "SetClipPlanes", header: "PrsMgr_PresentableObject.hxx".}
+proc AddClipPlane*(this: var PrsMgr_PresentableObject;
+                  thePlane: handle[Graphic3d_ClipPlane]) {.
+    importcpp: "AddClipPlane", header: "PrsMgr_PresentableObject.hxx".}
+proc RemoveClipPlane*(this: var PrsMgr_PresentableObject;
+                     thePlane: handle[Graphic3d_ClipPlane]) {.
+    importcpp: "RemoveClipPlane", header: "PrsMgr_PresentableObject.hxx".}
+proc Parent*(this: PrsMgr_PresentableObject): ptr PrsMgr_PresentableObject {.
+    noSideEffect, importcpp: "Parent", header: "PrsMgr_PresentableObject.hxx".}
+proc Children*(this: PrsMgr_PresentableObject): PrsMgr_ListOfPresentableObjects {.
+    noSideEffect, importcpp: "Children", header: "PrsMgr_PresentableObject.hxx".}
+proc AddChild*(this: var PrsMgr_PresentableObject;
+              theObject: handle[PrsMgr_PresentableObject]) {.
+    importcpp: "AddChild", header: "PrsMgr_PresentableObject.hxx".}
+proc AddChildWithCurrentTransformation*(this: var PrsMgr_PresentableObject;
+    theObject: handle[PrsMgr_PresentableObject]) {.
+    importcpp: "AddChildWithCurrentTransformation",
+    header: "PrsMgr_PresentableObject.hxx".}
+proc RemoveChild*(this: var PrsMgr_PresentableObject;
+                 theObject: handle[PrsMgr_PresentableObject]) {.
     importcpp: "RemoveChild", header: "PrsMgr_PresentableObject.hxx".}
-proc removeChildWithRestoreTransformation*(this: var PrsMgrPresentableObject;
-    theObject: Handle[PrsMgrPresentableObject]) {.
+proc RemoveChildWithRestoreTransformation*(this: var PrsMgr_PresentableObject;
+    theObject: handle[PrsMgr_PresentableObject]) {.
     importcpp: "RemoveChildWithRestoreTransformation",
     header: "PrsMgr_PresentableObject.hxx".}
-proc hasOwnPresentations*(this: PrsMgrPresentableObject): StandardBoolean {.
+proc HasOwnPresentations*(this: PrsMgr_PresentableObject): Standard_Boolean {.
     noSideEffect, importcpp: "HasOwnPresentations",
     header: "PrsMgr_PresentableObject.hxx".}
-proc boundingBox*(this: var PrsMgrPresentableObject; theBndBox: var BndBox) {.
+proc BoundingBox*(this: var PrsMgr_PresentableObject; theBndBox: var Bnd_Box) {.
     importcpp: "BoundingBox", header: "PrsMgr_PresentableObject.hxx".}
-proc setIsoOnTriangulation*(this: var PrsMgrPresentableObject;
-                           theIsEnabled: StandardBoolean) {.
+proc SetIsoOnTriangulation*(this: var PrsMgr_PresentableObject;
+                           theIsEnabled: Standard_Boolean) {.
     importcpp: "SetIsoOnTriangulation", header: "PrsMgr_PresentableObject.hxx".}
-proc currentFacingModel*(this: PrsMgrPresentableObject): AspectTypeOfFacingModel {.
+proc CurrentFacingModel*(this: PrsMgr_PresentableObject): Aspect_TypeOfFacingModel {.
     noSideEffect, importcpp: "CurrentFacingModel",
     header: "PrsMgr_PresentableObject.hxx".}
-proc setCurrentFacingModel*(this: var PrsMgrPresentableObject; theModel: AspectTypeOfFacingModel = aspectTOFM_BOTH_SIDE) {.
+proc SetCurrentFacingModel*(this: var PrsMgr_PresentableObject; theModel: Aspect_TypeOfFacingModel = Aspect_TOFM_BOTH_SIDE) {.
     importcpp: "SetCurrentFacingModel", header: "PrsMgr_PresentableObject.hxx".}
-proc hasColor*(this: PrsMgrPresentableObject): StandardBoolean {.noSideEffect,
+proc HasColor*(this: PrsMgr_PresentableObject): Standard_Boolean {.noSideEffect,
     importcpp: "HasColor", header: "PrsMgr_PresentableObject.hxx".}
-proc color*(this: PrsMgrPresentableObject; theColor: var QuantityColor) {.
+proc Color*(this: PrsMgr_PresentableObject; theColor: var Quantity_Color) {.
     noSideEffect, importcpp: "Color", header: "PrsMgr_PresentableObject.hxx".}
-proc setColor*(this: var PrsMgrPresentableObject; theColor: QuantityColor) {.
+proc SetColor*(this: var PrsMgr_PresentableObject; theColor: Quantity_Color) {.
     importcpp: "SetColor", header: "PrsMgr_PresentableObject.hxx".}
-proc unsetColor*(this: var PrsMgrPresentableObject) {.importcpp: "UnsetColor",
+proc UnsetColor*(this: var PrsMgr_PresentableObject) {.importcpp: "UnsetColor",
     header: "PrsMgr_PresentableObject.hxx".}
-proc hasWidth*(this: PrsMgrPresentableObject): StandardBoolean {.noSideEffect,
+proc HasWidth*(this: PrsMgr_PresentableObject): Standard_Boolean {.noSideEffect,
     importcpp: "HasWidth", header: "PrsMgr_PresentableObject.hxx".}
-proc width*(this: PrsMgrPresentableObject): StandardReal {.noSideEffect,
+proc Width*(this: PrsMgr_PresentableObject): Standard_Real {.noSideEffect,
     importcpp: "Width", header: "PrsMgr_PresentableObject.hxx".}
-proc setWidth*(this: var PrsMgrPresentableObject; theWidth: StandardReal) {.
+proc SetWidth*(this: var PrsMgr_PresentableObject; theWidth: Standard_Real) {.
     importcpp: "SetWidth", header: "PrsMgr_PresentableObject.hxx".}
-proc unsetWidth*(this: var PrsMgrPresentableObject) {.importcpp: "UnsetWidth",
+proc UnsetWidth*(this: var PrsMgr_PresentableObject) {.importcpp: "UnsetWidth",
     header: "PrsMgr_PresentableObject.hxx".}
-proc hasMaterial*(this: PrsMgrPresentableObject): StandardBoolean {.noSideEffect,
+proc HasMaterial*(this: PrsMgr_PresentableObject): Standard_Boolean {.noSideEffect,
     importcpp: "HasMaterial", header: "PrsMgr_PresentableObject.hxx".}
-proc material*(this: PrsMgrPresentableObject): Graphic3dNameOfMaterial {.
+proc Material*(this: PrsMgr_PresentableObject): Graphic3d_NameOfMaterial {.
     noSideEffect, importcpp: "Material", header: "PrsMgr_PresentableObject.hxx".}
-proc setMaterial*(this: var PrsMgrPresentableObject; aName: Graphic3dMaterialAspect) {.
-    importcpp: "SetMaterial", header: "PrsMgr_PresentableObject.hxx".}
-proc unsetMaterial*(this: var PrsMgrPresentableObject) {.importcpp: "UnsetMaterial",
+proc SetMaterial*(this: var PrsMgr_PresentableObject;
+                 aName: Graphic3d_MaterialAspect) {.importcpp: "SetMaterial",
     header: "PrsMgr_PresentableObject.hxx".}
-proc isTransparent*(this: PrsMgrPresentableObject): StandardBoolean {.noSideEffect,
-    importcpp: "IsTransparent", header: "PrsMgr_PresentableObject.hxx".}
-proc transparency*(this: PrsMgrPresentableObject): StandardReal {.noSideEffect,
+proc UnsetMaterial*(this: var PrsMgr_PresentableObject) {.
+    importcpp: "UnsetMaterial", header: "PrsMgr_PresentableObject.hxx".}
+proc IsTransparent*(this: PrsMgr_PresentableObject): Standard_Boolean {.
+    noSideEffect, importcpp: "IsTransparent",
+    header: "PrsMgr_PresentableObject.hxx".}
+proc Transparency*(this: PrsMgr_PresentableObject): Standard_Real {.noSideEffect,
     importcpp: "Transparency", header: "PrsMgr_PresentableObject.hxx".}
-proc setTransparency*(this: var PrsMgrPresentableObject; aValue: StandardReal = 0.6) {.
-    importcpp: "SetTransparency", header: "PrsMgr_PresentableObject.hxx".}
-proc unsetTransparency*(this: var PrsMgrPresentableObject) {.
+proc SetTransparency*(this: var PrsMgr_PresentableObject;
+                     aValue: Standard_Real = 0.6) {.importcpp: "SetTransparency",
+    header: "PrsMgr_PresentableObject.hxx".}
+proc UnsetTransparency*(this: var PrsMgr_PresentableObject) {.
     importcpp: "UnsetTransparency", header: "PrsMgr_PresentableObject.hxx".}
-proc hasPolygonOffsets*(this: PrsMgrPresentableObject): StandardBoolean {.
+proc HasPolygonOffsets*(this: PrsMgr_PresentableObject): Standard_Boolean {.
     noSideEffect, importcpp: "HasPolygonOffsets",
     header: "PrsMgr_PresentableObject.hxx".}
-proc polygonOffsets*(this: PrsMgrPresentableObject; aMode: var StandardInteger;
-                    aFactor: var StandardShortReal; aUnits: var StandardShortReal) {.
+proc PolygonOffsets*(this: PrsMgr_PresentableObject; aMode: var Standard_Integer;
+                    aFactor: var Standard_ShortReal; aUnits: var Standard_ShortReal) {.
     noSideEffect, importcpp: "PolygonOffsets",
     header: "PrsMgr_PresentableObject.hxx".}
-proc setPolygonOffsets*(this: var PrsMgrPresentableObject; aMode: StandardInteger;
-                       aFactor: StandardShortReal = 1.0;
-                       aUnits: StandardShortReal = 0.0) {.
+proc SetPolygonOffsets*(this: var PrsMgr_PresentableObject; aMode: Standard_Integer;
+                       aFactor: Standard_ShortReal = 1.0;
+                       aUnits: Standard_ShortReal = 0.0) {.
     importcpp: "SetPolygonOffsets", header: "PrsMgr_PresentableObject.hxx".}
-proc unsetAttributes*(this: var PrsMgrPresentableObject) {.
+proc UnsetAttributes*(this: var PrsMgr_PresentableObject) {.
     importcpp: "UnsetAttributes", header: "PrsMgr_PresentableObject.hxx".}
-proc dumpJson*(this: PrsMgrPresentableObject; theOStream: var StandardOStream;
-              theDepth: StandardInteger = -1) {.noSideEffect, importcpp: "DumpJson",
+proc DumpJson*(this: PrsMgr_PresentableObject; theOStream: var Standard_OStream;
+              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
     header: "PrsMgr_PresentableObject.hxx".}
 ## !!!Ignored construct:  public : ! @name deprecated methods ! gives the list of modes which are flagged "to be updated". Standard_DEPRECATED ( This method is deprecated - UpdatePresentations() should be called instead ) void ToBeUpdated ( TColStd_ListOfInteger & ListOfMode ) const ;
 ## Error: identifier expected, but got: This method is deprecated - UpdatePresentations() should be called instead!!!
@@ -455,11 +470,11 @@ proc dumpJson*(this: PrsMgrPresentableObject; theOStream: var StandardOStream;
 ## ! And Z coordinate defines the gap from border of view window (except center position). Standard_DEPRECATED ( This method is deprecated - SetTransformPersistence() taking Graphic3d_TransformPers should be called instead ) void SetTransformPersistence ( const Graphic3d_TransModeFlags theMode , const gp_Pnt & thePoint = gp_Pnt ( 0.0 , 0.0 , 0.0 ) ) { SetTransformPersistence ( Graphic3d_TransformPers :: FromDeprecatedParams ( theMode , thePoint ) ) ; } ! Gets  Transform  Persistence Mode  for  this  object Standard_DEPRECATED ( This method is deprecated - TransformPersistence() should be called instead ) Graphic3d_TransModeFlags GetTransformPersistenceMode ( ) const { return myTransformPersistence . IsNull ( ) ? Graphic3d_TMF_None : myTransformPersistence -> Mode ( ) ; } ! Gets  point  of  transform  persistence for  this  object Standard_DEPRECATED ( This method is deprecated - TransformPersistence() should be called instead ) gp_Pnt GetTransformPersistencePoint ( ) const ;
 ## Error: identifier expected, but got: This method is deprecated - overload taking Handle should be used instead!!!
 
-proc toPropagateVisualState*(this: PrsMgrPresentableObject): StandardBoolean {.
+proc ToPropagateVisualState*(this: PrsMgr_PresentableObject): Standard_Boolean {.
     noSideEffect, importcpp: "ToPropagateVisualState",
     header: "PrsMgr_PresentableObject.hxx".}
-proc setPropagateVisualState*(this: var PrsMgrPresentableObject;
-                             theFlag: StandardBoolean) {.
+proc SetPropagateVisualState*(this: var PrsMgr_PresentableObject;
+                             theFlag: Standard_Boolean) {.
     importcpp: "SetPropagateVisualState", header: "PrsMgr_PresentableObject.hxx".}
 ## !!!Ignored construct:  protected : ! Recomputes all presentations of the object. Standard_DEPRECATED ( This method is deprecated - SetToUpdate() + UpdatePresentations() should be called instead ) void Update ( Standard_Boolean theToIncludeHidden = Standard_False ) { SetToUpdate ( ) ; UpdatePresentations ( theToIncludeHidden ) ; } ! Recomputes the presentation in the given mode.
 ## ! @param theMode presentation (display mode) to recompute
@@ -468,6 +483,4 @@ proc setPropagateVisualState*(this: var PrsMgrPresentableObject;
 
 discard "forward decl of PrsMgr_PresentableObject"
 type
-  HandlePrsMgrPresentableObject* = Handle[PrsMgrPresentableObject]
-
-
+  Handle_PrsMgr_PresentableObject* = handle[PrsMgr_PresentableObject]

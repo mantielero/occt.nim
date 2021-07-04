@@ -14,37 +14,40 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type,
+  ../Transfer/Transfer_ActorOfFinderProcess, ../Standard/Standard_Boolean
+
 discard "forward decl of Transfer_Finder"
 discard "forward decl of Transfer_Binder"
 discard "forward decl of Transfer_FinderProcess"
 discard "forward decl of IGESControl_ActorWrite"
 discard "forward decl of IGESControl_ActorWrite"
 type
-  HandleIGESControlActorWrite* = Handle[IGESControlActorWrite]
+  Handle_IGESControl_ActorWrite* = handle[IGESControl_ActorWrite]
 
 ## ! Actor to write Shape to IGES
 
 type
-  IGESControlActorWrite* {.importcpp: "IGESControl_ActorWrite",
-                          header: "IGESControl_ActorWrite.hxx", bycopy.} = object of TransferActorOfFinderProcess
+  IGESControl_ActorWrite* {.importcpp: "IGESControl_ActorWrite",
+                           header: "IGESControl_ActorWrite.hxx", bycopy.} = object of Transfer_ActorOfFinderProcess
 
 
-proc constructIGESControlActorWrite*(): IGESControlActorWrite {.constructor,
+proc constructIGESControl_ActorWrite*(): IGESControl_ActorWrite {.constructor,
     importcpp: "IGESControl_ActorWrite(@)", header: "IGESControl_ActorWrite.hxx".}
-proc recognize*(this: var IGESControlActorWrite; start: Handle[TransferFinder]): StandardBoolean {.
+proc Recognize*(this: var IGESControl_ActorWrite; start: handle[Transfer_Finder]): Standard_Boolean {.
     importcpp: "Recognize", header: "IGESControl_ActorWrite.hxx".}
-proc transfer*(this: var IGESControlActorWrite; start: Handle[TransferFinder];
-              fp: Handle[TransferFinderProcess];
-              theProgress: MessageProgressRange = messageProgressRange()): Handle[
-    TransferBinder] {.importcpp: "Transfer", header: "IGESControl_ActorWrite.hxx".}
+proc Transfer*(this: var IGESControl_ActorWrite; start: handle[Transfer_Finder];
+              FP: handle[Transfer_FinderProcess];
+              theProgress: Message_ProgressRange = Message_ProgressRange()): handle[
+    Transfer_Binder] {.importcpp: "Transfer", header: "IGESControl_ActorWrite.hxx".}
 type
-  IGESControlActorWritebaseType* = TransferActorOfFinderProcess
+  IGESControl_ActorWritebase_type* = Transfer_ActorOfFinderProcess
 
-proc getTypeName*(): cstring {.importcpp: "IGESControl_ActorWrite::get_type_name(@)",
-                            header: "IGESControl_ActorWrite.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "IGESControl_ActorWrite::get_type_name(@)",
+                              header: "IGESControl_ActorWrite.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "IGESControl_ActorWrite::get_type_descriptor(@)",
     header: "IGESControl_ActorWrite.hxx".}
-proc dynamicType*(this: IGESControlActorWrite): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "IGESControl_ActorWrite.hxx".}
-
+proc DynamicType*(this: IGESControl_ActorWrite): handle[Standard_Type] {.
+    noSideEffect, importcpp: "DynamicType", header: "IGESControl_ActorWrite.hxx".}

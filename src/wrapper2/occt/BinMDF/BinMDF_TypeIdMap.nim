@@ -13,10 +13,13 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard_Type, ../Standard/Standard_Integer,
+  ../TColStd/TColStd_MapTransientHasher, ../TColStd/TColStd_MapIntegerHasher,
+  ../NCollection/NCollection_DoubleMap
+
 type
-  BinMDF_TypeIdMap* = NCollectionDoubleMap[Handle[StandardType], StandardInteger,
-      TColStdMapTransientHasher, TColStdMapIntegerHasher]
-  BinMDF_DoubleMapIteratorOfTypeIdMap* = Iterator[Handle[StandardType],
-      StandardInteger, TColStdMapTransientHasher, TColStdMapIntegerHasher]
-
-
+  BinMDF_TypeIdMap* = NCollection_DoubleMap[handle[Standard_Type],
+      Standard_Integer, TColStd_MapTransientHasher, TColStd_MapIntegerHasher]
+  BinMDF_DoubleMapIteratorOfTypeIdMap* = Iterator[handle[Standard_Type],
+      Standard_Integer, TColStd_MapTransientHasher, TColStd_MapIntegerHasher]

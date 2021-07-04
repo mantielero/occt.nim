@@ -13,7 +13,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # NCollection_Vector_HeaderFile [NewLine] # NCollection_Vector_HeaderFile [NewLine] # < NCollection_BaseVector . hxx > [NewLine] # < NCollection_StlIterator . hxx > [NewLine] ! Class NCollection_Vector (dynamic array of objects)
+## !!!Ignored construct:  # NCollection_Vector_HeaderFile [NewLine] # NCollection_Vector_HeaderFile [NewLine] # NCollection_BaseVector.hxx [NewLine] # NCollection_StlIterator.hxx [NewLine] ! Class NCollection_Vector (dynamic array of objects)
 ## !
 ## ! This class is similar to NCollection_Array1  though the indices always start
 ## ! at 0 (in Array1 the first index must be specified)
@@ -45,7 +45,5 @@
 
 ## ! Assignment to the collection of the same type
 
-## !!!Ignored construct:  template < class TheItemType > [end of template] inline void NCollection_Vector < TheItemType > :: Assign ( const NCollection_Vector & theOther , const Standard_Boolean theOwnAllocator ) { if ( this == & theOther ) { return ; }  destroy current data using current allocator for ( Standard_Integer anItemIter = 0 ; anItemIter < myCapacity ; ++ anItemIter ) { initMemBlocks ( * this , myData [ anItemIter ] , 0 , 0 ) ; } this -> myAllocator -> Free ( myData ) ;  allocate memory blocks with new allocator if ( ! theOwnAllocator ) { this -> myAllocator = theOther . myAllocator ; } myIncrement = theOther . myIncrement ; myLength = theOther . myLength ; myNBlocks = ( myLength == 0 ) ? 0 : ( 1 + ( myLength - 1 ) / myIncrement ) ; myCapacity = GetCapacity ( myIncrement ) + myLength / myIncrement ; myData = allocMemBlocks ( myCapacity ) ;  copy data copyData ( theOther ) ; } #  NCollection_Vector_HeaderFile
+## !!!Ignored construct:  template < class TheItemType > [end of template] inline void NCollection_Vector < TheItemType > :: Assign ( const NCollection_Vector & theOther , const Standard_Boolean theOwnAllocator ) { if ( this == & theOther ) { return ; }  destroy current data using current allocator for ( Standard_Integer anItemIter = 0 ; anItemIter < myCapacity ; ++ anItemIter ) { initMemBlocks ( * this , myData [ anItemIter ] , 0 , 0 ) ; } this -> myAllocator -> Free ( myData ) ;  allocate memory blocks with new allocator if ( ! theOwnAllocator ) { this -> myAllocator = theOther . myAllocator ; } myIncrement = theOther . myIncrement ; myLength = theOther . myLength ; myNBlocks = ( myLength == 0 ) ? 0 : ( 1 + ( myLength - 1 ) / myIncrement ) ; myCapacity = GetCapacity ( myIncrement ) + myLength / myIncrement ; myData = allocMemBlocks ( myCapacity ) ;  copy data copyData ( theOther ) ; } #  NCollection_Vector_HeaderFile [NewLine]
 ## Error: token expected: ; but got: <!!!
-
-

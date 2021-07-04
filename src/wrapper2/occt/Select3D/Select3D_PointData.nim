@@ -11,6 +11,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  Select3D_Pnt
+
 ##  A framework for safe management of Select3D_SensitivePoly polygons of 3D points
 
 type
@@ -19,20 +22,20 @@ type
                                                                       ##  by number of points theNbPoints
 
 
-proc constructSelect3D_PointData*(theNbPoints: StandardInteger): Select3D_PointData {.
+proc constructSelect3D_PointData*(theNbPoints: Standard_Integer): Select3D_PointData {.
     constructor, importcpp: "Select3D_PointData(@)",
     header: "Select3D_PointData.hxx".}
 proc destroySelect3D_PointData*(this: var Select3D_PointData) {.
     importcpp: "#.~Select3D_PointData()", header: "Select3D_PointData.hxx".}
-proc setPnt*(this: var Select3D_PointData; theIndex: StandardInteger;
+proc SetPnt*(this: var Select3D_PointData; theIndex: Standard_Integer;
             theValue: Select3D_Pnt) {.importcpp: "SetPnt",
                                     header: "Select3D_PointData.hxx".}
-proc setPnt*(this: var Select3D_PointData; theIndex: StandardInteger; theValue: GpPnt) {.
-    importcpp: "SetPnt", header: "Select3D_PointData.hxx".}
-proc pnt*(this: Select3D_PointData; theIndex: StandardInteger): Select3D_Pnt {.
+proc SetPnt*(this: var Select3D_PointData; theIndex: Standard_Integer;
+            theValue: gp_Pnt) {.importcpp: "SetPnt",
+                              header: "Select3D_PointData.hxx".}
+proc Pnt*(this: Select3D_PointData; theIndex: Standard_Integer): Select3D_Pnt {.
     noSideEffect, importcpp: "Pnt", header: "Select3D_PointData.hxx".}
-proc pnt3d*(this: Select3D_PointData; theIndex: StandardInteger): GpPnt {.
+proc Pnt3d*(this: Select3D_PointData; theIndex: Standard_Integer): gp_Pnt {.
     noSideEffect, importcpp: "Pnt3d", header: "Select3D_PointData.hxx".}
-proc size*(this: Select3D_PointData): StandardInteger {.noSideEffect,
+proc Size*(this: Select3D_PointData): Standard_Integer {.noSideEffect,
     importcpp: "Size", header: "Select3D_PointData.hxx".}
-

@@ -13,6 +13,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard_Transient, ../Standard/Standard_Handle
+
 ## ! Purpose: This template class is used to define Handle adaptor
 ## ! for allocated dynamically objects of arbitrary type.
 ## !
@@ -22,31 +25,30 @@
 ## ! Handle(Standard_Transient) in OCCT components.
 
 type
-  NCollectionHandle*[T] {.importcpp: "NCollection_Handle<\'0>",
-                         header: "NCollection_Handle.hxx", bycopy.} = object of Handle[
-      StandardTransient] ## ! Internal adaptor class wrapping actual type
-                        ## ! and enhancing it by reference counter inherited from
-                        ## ! Standard_Transient
+  NCollection_Handle*[T] {.importcpp: "NCollection_Handle<\'0>",
+                          header: "NCollection_Handle.hxx", bycopy.} = object of handle[
+      Standard_Transient] ## ! Internal adaptor class wrapping actual type
+                         ## ! and enhancing it by reference counter inherited from
+                         ## ! Standard_Transient
 
-  NCollectionHandleelementType*[T] = T
+  NCollection_Handleelement_type*[T] = T
 
-proc constructNCollectionHandle*[T](): NCollectionHandle[T] {.constructor,
+proc constructNCollection_Handle*[T](): NCollection_Handle[T] {.constructor,
     importcpp: "NCollection_Handle<\'*0>(@)", header: "NCollection_Handle.hxx".}
-proc constructNCollectionHandle*[T](theObject: ptr T): NCollectionHandle[T] {.
+proc constructNCollection_Handle*[T](theObject: ptr T): NCollection_Handle[T] {.
     constructor, importcpp: "NCollection_Handle<\'*0>(@)",
     header: "NCollection_Handle.hxx".}
-proc get*[T](this: var NCollectionHandle[T]): ptr T {.importcpp: "get",
+proc get*[T](this: var NCollection_Handle[T]): ptr T {.importcpp: "get",
     header: "NCollection_Handle.hxx".}
-proc get*[T](this: NCollectionHandle[T]): ptr T {.noSideEffect, importcpp: "get",
+proc get*[T](this: NCollection_Handle[T]): ptr T {.noSideEffect, importcpp: "get",
     header: "NCollection_Handle.hxx".}
-proc `->`*[T](this: var NCollectionHandle[T]): ptr T {.importcpp: "(# -> #)",
+proc `->`*[T](this: var NCollection_Handle[T]): ptr T {.importcpp: "(# -> #)",
     header: "NCollection_Handle.hxx".}
-proc `->`*[T](this: NCollectionHandle[T]): ptr T {.noSideEffect,
+proc `->`*[T](this: NCollection_Handle[T]): ptr T {.noSideEffect,
     importcpp: "(# -> #)", header: "NCollection_Handle.hxx".}
-proc `*`*[T](this: var NCollectionHandle[T]): var T {.importcpp: "(* #)",
+proc `*`*[T](this: var NCollection_Handle[T]): var T {.importcpp: "(* #)",
     header: "NCollection_Handle.hxx".}
-proc `*`*[T](this: NCollectionHandle[T]): T {.noSideEffect, importcpp: "(* #)",
+proc `*`*[T](this: NCollection_Handle[T]): T {.noSideEffect, importcpp: "(* #)",
     header: "NCollection_Handle.hxx".}
-proc downCast*[T](theOther: Handle[StandardTransient]): NCollectionHandle[T] {.
+proc DownCast*[T](theOther: handle[Standard_Transient]): NCollection_Handle[T] {.
     importcpp: "NCollection_Handle::DownCast(@)", header: "NCollection_Handle.hxx".}
-

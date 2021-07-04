@@ -14,7 +14,8 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  Contap_Point, ../NCollection/NCollection_Sequence
+
 type
-  ContapTheSequenceOfPoint* = NCollectionSequence[ContapPoint]
-
-
+  Contap_TheSequenceOfPoint* = NCollection_Sequence[Contap_Point]

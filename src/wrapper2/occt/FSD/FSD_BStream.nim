@@ -13,6 +13,4 @@
 ##  commercial license or contractual agreement.
 
 type
-  FSD_BStream* = ptr File
-
-
+  FSD_BStream* = ptr FILE

@@ -14,9 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  Bnd_Box, ../NCollection/NCollection_Sequence
+
 ## ! This sequence used to store the bounding boxes of sub-Shapes.
 
 type
-  BndSeqOfBox* = NCollectionSequence[BndBox]
-
-
+  Bnd_SeqOfBox* = NCollection_Sequence[Bnd_Box]

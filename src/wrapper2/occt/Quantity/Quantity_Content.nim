@@ -14,7 +14,5 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _Quantity_Content_HeaderFile [NewLine] # _Quantity_Content_HeaderFile [NewLine] # < Standard_Real . hxx > [NewLine] Standard_DEPRECATED ( This type is deprecated - Standard_Real should be used instead ) typedef Standard_Real Quantity_Content ;
+## !!!Ignored construct:  # _Quantity_Content_HeaderFile [NewLine] # _Quantity_Content_HeaderFile [NewLine] # ../Standard/Standard_Real.hxx [NewLine] Standard_DEPRECATED ( This type is deprecated - Standard_Real should be used instead ) typedef Standard_Real Quantity_Content ;
 ## Error: expected ';'!!!
-
-

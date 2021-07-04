@@ -12,15 +12,23 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../TopoDS/TopoDS_Edge,
+  ../BRepAdaptor/BRepAdaptor_Curve, ../Standard/Standard_Real, IntTools_Range,
+  ../Standard/Standard_Boolean, ../Standard/Standard_Integer,
+  IntTools_SequenceOfCommonPrts, IntTools_SequenceOfRanges,
+  ../TopAbs/TopAbs_ShapeEnum
+
 discard "forward decl of Geom_Curve"
 discard "forward decl of TopoDS_Edge"
 discard "forward decl of IntTools_Range"
 discard "forward decl of Bnd_Box"
 discard "forward decl of BRepAdaptor_Curve"
 type
-  IntToolsEdgeEdge* {.importcpp: "IntTools_EdgeEdge",
-                     header: "IntTools_EdgeEdge.hxx", bycopy.} = object ## ! Empty contructor
-                                                                   ## ! Checks the data
+  IntTools_EdgeEdge* {.importcpp: "IntTools_EdgeEdge",
+                      header: "IntTools_EdgeEdge.hxx", bycopy.} = object ## ! Empty contructor
+                                                                    ## ! Checks the data
     ## ! Allows avoiding use Edge-Edge intersection
     ## ! algorithm (i.e. speeding up the Boolean algorithm)
     ## ! if the edges are coincided really.
@@ -29,46 +37,45 @@ type
     ## ! Boolean algorithm will be slower).
 
 
-proc constructIntToolsEdgeEdge*(): IntToolsEdgeEdge {.constructor,
+proc constructIntTools_EdgeEdge*(): IntTools_EdgeEdge {.constructor,
     importcpp: "IntTools_EdgeEdge(@)", header: "IntTools_EdgeEdge.hxx".}
-proc destroyIntToolsEdgeEdge*(this: var IntToolsEdgeEdge) {.
+proc destroyIntTools_EdgeEdge*(this: var IntTools_EdgeEdge) {.
     importcpp: "#.~IntTools_EdgeEdge()", header: "IntTools_EdgeEdge.hxx".}
-proc constructIntToolsEdgeEdge*(theEdge1: TopoDS_Edge; theEdge2: TopoDS_Edge): IntToolsEdgeEdge {.
+proc constructIntTools_EdgeEdge*(theEdge1: TopoDS_Edge; theEdge2: TopoDS_Edge): IntTools_EdgeEdge {.
     constructor, importcpp: "IntTools_EdgeEdge(@)", header: "IntTools_EdgeEdge.hxx".}
-proc constructIntToolsEdgeEdge*(theEdge1: TopoDS_Edge; aT11: StandardReal;
-                               aT12: StandardReal; theEdge2: TopoDS_Edge;
-                               aT21: StandardReal; aT22: StandardReal): IntToolsEdgeEdge {.
+proc constructIntTools_EdgeEdge*(theEdge1: TopoDS_Edge; aT11: Standard_Real;
+                                aT12: Standard_Real; theEdge2: TopoDS_Edge;
+                                aT21: Standard_Real; aT22: Standard_Real): IntTools_EdgeEdge {.
     constructor, importcpp: "IntTools_EdgeEdge(@)", header: "IntTools_EdgeEdge.hxx".}
-proc setEdge1*(this: var IntToolsEdgeEdge; theEdge: TopoDS_Edge) {.
+proc SetEdge1*(this: var IntTools_EdgeEdge; theEdge: TopoDS_Edge) {.
     importcpp: "SetEdge1", header: "IntTools_EdgeEdge.hxx".}
-proc setEdge1*(this: var IntToolsEdgeEdge; theEdge: TopoDS_Edge; aT1: StandardReal;
-              aT2: StandardReal) {.importcpp: "SetEdge1",
-                                 header: "IntTools_EdgeEdge.hxx".}
-proc setRange1*(this: var IntToolsEdgeEdge; theRange1: IntToolsRange) {.
+proc SetEdge1*(this: var IntTools_EdgeEdge; theEdge: TopoDS_Edge; aT1: Standard_Real;
+              aT2: Standard_Real) {.importcpp: "SetEdge1",
+                                  header: "IntTools_EdgeEdge.hxx".}
+proc SetRange1*(this: var IntTools_EdgeEdge; theRange1: IntTools_Range) {.
     importcpp: "SetRange1", header: "IntTools_EdgeEdge.hxx".}
-proc setRange1*(this: var IntToolsEdgeEdge; aT1: StandardReal; aT2: StandardReal) {.
+proc SetRange1*(this: var IntTools_EdgeEdge; aT1: Standard_Real; aT2: Standard_Real) {.
     importcpp: "SetRange1", header: "IntTools_EdgeEdge.hxx".}
-proc setEdge2*(this: var IntToolsEdgeEdge; theEdge: TopoDS_Edge) {.
+proc SetEdge2*(this: var IntTools_EdgeEdge; theEdge: TopoDS_Edge) {.
     importcpp: "SetEdge2", header: "IntTools_EdgeEdge.hxx".}
-proc setEdge2*(this: var IntToolsEdgeEdge; theEdge: TopoDS_Edge; aT1: StandardReal;
-              aT2: StandardReal) {.importcpp: "SetEdge2",
-                                 header: "IntTools_EdgeEdge.hxx".}
-proc setRange2*(this: var IntToolsEdgeEdge; theRange: IntToolsRange) {.
+proc SetEdge2*(this: var IntTools_EdgeEdge; theEdge: TopoDS_Edge; aT1: Standard_Real;
+              aT2: Standard_Real) {.importcpp: "SetEdge2",
+                                  header: "IntTools_EdgeEdge.hxx".}
+proc SetRange2*(this: var IntTools_EdgeEdge; theRange: IntTools_Range) {.
     importcpp: "SetRange2", header: "IntTools_EdgeEdge.hxx".}
-proc setRange2*(this: var IntToolsEdgeEdge; aT1: StandardReal; aT2: StandardReal) {.
+proc SetRange2*(this: var IntTools_EdgeEdge; aT1: Standard_Real; aT2: Standard_Real) {.
     importcpp: "SetRange2", header: "IntTools_EdgeEdge.hxx".}
-proc setFuzzyValue*(this: var IntToolsEdgeEdge; theFuzz: StandardReal) {.
+proc SetFuzzyValue*(this: var IntTools_EdgeEdge; theFuzz: Standard_Real) {.
     importcpp: "SetFuzzyValue", header: "IntTools_EdgeEdge.hxx".}
-proc perform*(this: var IntToolsEdgeEdge) {.importcpp: "Perform",
-                                        header: "IntTools_EdgeEdge.hxx".}
-proc isDone*(this: IntToolsEdgeEdge): StandardBoolean {.noSideEffect,
+proc Perform*(this: var IntTools_EdgeEdge) {.importcpp: "Perform",
+    header: "IntTools_EdgeEdge.hxx".}
+proc IsDone*(this: IntTools_EdgeEdge): Standard_Boolean {.noSideEffect,
     importcpp: "IsDone", header: "IntTools_EdgeEdge.hxx".}
-proc fuzzyValue*(this: IntToolsEdgeEdge): StandardReal {.noSideEffect,
+proc FuzzyValue*(this: IntTools_EdgeEdge): Standard_Real {.noSideEffect,
     importcpp: "FuzzyValue", header: "IntTools_EdgeEdge.hxx".}
-proc commonParts*(this: IntToolsEdgeEdge): IntToolsSequenceOfCommonPrts {.
+proc CommonParts*(this: IntTools_EdgeEdge): IntTools_SequenceOfCommonPrts {.
     noSideEffect, importcpp: "CommonParts", header: "IntTools_EdgeEdge.hxx".}
-proc useQuickCoincidenceCheck*(this: var IntToolsEdgeEdge; bFlag: StandardBoolean) {.
+proc UseQuickCoincidenceCheck*(this: var IntTools_EdgeEdge; bFlag: Standard_Boolean) {.
     importcpp: "UseQuickCoincidenceCheck", header: "IntTools_EdgeEdge.hxx".}
-proc isCoincidenceCheckedQuickly*(this: var IntToolsEdgeEdge): StandardBoolean {.
+proc IsCoincidenceCheckedQuickly*(this: var IntTools_EdgeEdge): Standard_Boolean {.
     importcpp: "IsCoincidenceCheckedQuickly", header: "IntTools_EdgeEdge.hxx".}
-

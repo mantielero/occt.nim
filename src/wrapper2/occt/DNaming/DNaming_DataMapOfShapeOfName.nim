@@ -14,10 +14,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../TopoDS/TopoDS_Shape, ../TCollection/TCollection_AsciiString,
+  ../TopTools/TopTools_ShapeMapHasher, ../NCollection/NCollection_DataMap
+
 type
-  DNamingDataMapOfShapeOfName* = NCollectionDataMap[TopoDS_Shape,
-      TCollectionAsciiString, TopToolsShapeMapHasher]
-  DNamingDataMapIteratorOfDataMapOfShapeOfName* = Iterator[TopoDS_Shape,
-      TCollectionAsciiString, TopToolsShapeMapHasher]
-
-
+  DNaming_DataMapOfShapeOfName* = NCollection_DataMap[TopoDS_Shape,
+      TCollection_AsciiString, TopTools_ShapeMapHasher]
+  DNaming_DataMapIteratorOfDataMapOfShapeOfName* = Iterator[TopoDS_Shape,
+      TCollection_AsciiString, TopTools_ShapeMapHasher]

@@ -14,54 +14,52 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _IntPatch_ThePathPointOfTheSOnBounds_HeaderFile [NewLine] # _IntPatch_ThePathPointOfTheSOnBounds_HeaderFile [NewLine] # < Standard . hxx > [NewLine] # < Standard_DefineAlloc . hxx > [NewLine] # < Standard_Handle . hxx > [NewLine] # < gp_Pnt . hxx > [NewLine] # < Standard_Real . hxx > [NewLine] # < Standard_Boolean . hxx > [NewLine] class Adaptor3d_HVertex ;
+## !!!Ignored construct:  # _IntPatch_ThePathPointOfTheSOnBounds_HeaderFile [NewLine] # _IntPatch_ThePathPointOfTheSOnBounds_HeaderFile [NewLine] # ../Standard/Standard.hxx [NewLine] # ../Standard/Standard_DefineAlloc.hxx [NewLine] # ../Standard/Standard_Handle.hxx [NewLine] # ../gp/gp_Pnt.hxx [NewLine] # ../Standard/Standard_Real.hxx [NewLine] # ../Standard/Standard_Boolean.hxx [NewLine] class Adaptor3d_HVertex ;
 ## Error: did not expect <!!!
 
 discard "forward decl of Adaptor2d_HCurve2d"
 discard "forward decl of Standard_DomainError"
 discard "forward decl of gp_Pnt"
 type
-  IntPatchThePathPointOfTheSOnBounds* {.importcpp: "IntPatch_ThePathPointOfTheSOnBounds", header: "IntPatch_ThePathPointOfTheSOnBounds.hxx",
-                                       bycopy.} = object
+  IntPatch_ThePathPointOfTheSOnBounds* {.importcpp: "IntPatch_ThePathPointOfTheSOnBounds", header: "IntPatch_ThePathPointOfTheSOnBounds.hxx",
+                                        bycopy.} = object
 
 
-proc constructIntPatchThePathPointOfTheSOnBounds*(): IntPatchThePathPointOfTheSOnBounds {.
+proc constructIntPatch_ThePathPointOfTheSOnBounds*(): IntPatch_ThePathPointOfTheSOnBounds {.
     constructor, importcpp: "IntPatch_ThePathPointOfTheSOnBounds(@)",
     header: "IntPatch_ThePathPointOfTheSOnBounds.hxx".}
-proc constructIntPatchThePathPointOfTheSOnBounds*(p: GpPnt; tol: StandardReal;
-    v: Handle[Adaptor3dHVertex]; a: Handle[Adaptor2dHCurve2d];
-    parameter: StandardReal): IntPatchThePathPointOfTheSOnBounds {.constructor,
+proc constructIntPatch_ThePathPointOfTheSOnBounds*(P: gp_Pnt; Tol: Standard_Real;
+    V: handle[Adaptor3d_HVertex]; A: handle[Adaptor2d_HCurve2d];
+    Parameter: Standard_Real): IntPatch_ThePathPointOfTheSOnBounds {.constructor,
     importcpp: "IntPatch_ThePathPointOfTheSOnBounds(@)",
     header: "IntPatch_ThePathPointOfTheSOnBounds.hxx".}
-proc constructIntPatchThePathPointOfTheSOnBounds*(p: GpPnt; tol: StandardReal;
-    a: Handle[Adaptor2dHCurve2d]; parameter: StandardReal): IntPatchThePathPointOfTheSOnBounds {.
+proc constructIntPatch_ThePathPointOfTheSOnBounds*(P: gp_Pnt; Tol: Standard_Real;
+    A: handle[Adaptor2d_HCurve2d]; Parameter: Standard_Real): IntPatch_ThePathPointOfTheSOnBounds {.
     constructor, importcpp: "IntPatch_ThePathPointOfTheSOnBounds(@)",
     header: "IntPatch_ThePathPointOfTheSOnBounds.hxx".}
-proc setValue*(this: var IntPatchThePathPointOfTheSOnBounds; p: GpPnt;
-              tol: StandardReal; v: Handle[Adaptor3dHVertex];
-              a: Handle[Adaptor2dHCurve2d]; parameter: StandardReal) {.
+proc SetValue*(this: var IntPatch_ThePathPointOfTheSOnBounds; P: gp_Pnt;
+              Tol: Standard_Real; V: handle[Adaptor3d_HVertex];
+              A: handle[Adaptor2d_HCurve2d]; Parameter: Standard_Real) {.
     importcpp: "SetValue", header: "IntPatch_ThePathPointOfTheSOnBounds.hxx".}
-proc setValue*(this: var IntPatchThePathPointOfTheSOnBounds; p: GpPnt;
-              tol: StandardReal; a: Handle[Adaptor2dHCurve2d];
-              parameter: StandardReal) {.importcpp: "SetValue", header: "IntPatch_ThePathPointOfTheSOnBounds.hxx".}
-proc value*(this: IntPatchThePathPointOfTheSOnBounds): GpPnt {.noSideEffect,
+proc SetValue*(this: var IntPatch_ThePathPointOfTheSOnBounds; P: gp_Pnt;
+              Tol: Standard_Real; A: handle[Adaptor2d_HCurve2d];
+              Parameter: Standard_Real) {.importcpp: "SetValue", header: "IntPatch_ThePathPointOfTheSOnBounds.hxx".}
+proc Value*(this: IntPatch_ThePathPointOfTheSOnBounds): gp_Pnt {.noSideEffect,
     importcpp: "Value", header: "IntPatch_ThePathPointOfTheSOnBounds.hxx".}
-proc tolerance*(this: IntPatchThePathPointOfTheSOnBounds): StandardReal {.
+proc Tolerance*(this: IntPatch_ThePathPointOfTheSOnBounds): Standard_Real {.
     noSideEffect, importcpp: "Tolerance",
     header: "IntPatch_ThePathPointOfTheSOnBounds.hxx".}
-proc isNew*(this: IntPatchThePathPointOfTheSOnBounds): StandardBoolean {.
+proc IsNew*(this: IntPatch_ThePathPointOfTheSOnBounds): Standard_Boolean {.
     noSideEffect, importcpp: "IsNew",
     header: "IntPatch_ThePathPointOfTheSOnBounds.hxx".}
-proc vertex*(this: IntPatchThePathPointOfTheSOnBounds): Handle[Adaptor3dHVertex] {.
+proc Vertex*(this: IntPatch_ThePathPointOfTheSOnBounds): handle[Adaptor3d_HVertex] {.
     noSideEffect, importcpp: "Vertex",
     header: "IntPatch_ThePathPointOfTheSOnBounds.hxx".}
-proc arc*(this: IntPatchThePathPointOfTheSOnBounds): Handle[Adaptor2dHCurve2d] {.
+proc Arc*(this: IntPatch_ThePathPointOfTheSOnBounds): handle[Adaptor2d_HCurve2d] {.
     noSideEffect, importcpp: "Arc",
     header: "IntPatch_ThePathPointOfTheSOnBounds.hxx".}
-proc parameter*(this: IntPatchThePathPointOfTheSOnBounds): StandardReal {.
+proc Parameter*(this: IntPatch_ThePathPointOfTheSOnBounds): Standard_Real {.
     noSideEffect, importcpp: "Parameter",
     header: "IntPatch_ThePathPointOfTheSOnBounds.hxx".}
-## !!!Ignored construct:  # TheVertex opencascade :: handle < Adaptor3d_HVertex > [end of template] [NewLine] # TheVertex_hxx < Adaptor3d_HVertex . hxx > [NewLine] # TheArc opencascade :: handle < Adaptor2d_HCurve2d > [end of template] [NewLine] # TheArc_hxx < Adaptor2d_HCurve2d . hxx > [NewLine] # IntStart_PathPoint IntPatch_ThePathPointOfTheSOnBounds [NewLine] # IntStart_PathPoint_hxx < IntPatch_ThePathPointOfTheSOnBounds . hxx > [NewLine] # < IntStart_PathPoint . lxx > [NewLine] # TheVertex [NewLine] # TheVertex_hxx [NewLine] # TheArc [NewLine] # TheArc_hxx [NewLine] # IntStart_PathPoint [NewLine] # IntStart_PathPoint_hxx [NewLine] #  _IntPatch_ThePathPointOfTheSOnBounds_HeaderFile
+## !!!Ignored construct:  # TheVertex opencascade :: handle < Adaptor3d_HVertex > [end of template] [NewLine] # TheVertex_hxx < Adaptor3d_HVertex . hxx > [NewLine] # TheArc opencascade :: handle < Adaptor2d_HCurve2d > [end of template] [NewLine] # TheArc_hxx < Adaptor2d_HCurve2d . hxx > [NewLine] # IntStart_PathPoint IntPatch_ThePathPointOfTheSOnBounds [NewLine] # IntStart_PathPoint_hxx < IntPatch_ThePathPointOfTheSOnBounds . hxx > [NewLine] # < IntStart_PathPoint . lxx > [NewLine] # TheVertex [NewLine] # TheVertex_hxx [NewLine] # TheArc [NewLine] # TheArc_hxx [NewLine] # IntStart_PathPoint [NewLine] # IntStart_PathPoint_hxx [NewLine] #  _IntPatch_ThePathPointOfTheSOnBounds_HeaderFile [NewLine]
 ## Error: did not expect <!!!
-
-

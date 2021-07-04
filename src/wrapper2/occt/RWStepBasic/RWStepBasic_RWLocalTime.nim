@@ -14,26 +14,29 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepBasic_LocalTime"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepBasicRWLocalTime* {.importcpp: "RWStepBasic_RWLocalTime",
-                           header: "RWStepBasic_RWLocalTime.hxx", bycopy.} = object
+  RWStepBasic_RWLocalTime* {.importcpp: "RWStepBasic_RWLocalTime",
+                            header: "RWStepBasic_RWLocalTime.hxx", bycopy.} = object
 
 
-proc constructRWStepBasicRWLocalTime*(): RWStepBasicRWLocalTime {.constructor,
+proc constructRWStepBasic_RWLocalTime*(): RWStepBasic_RWLocalTime {.constructor,
     importcpp: "RWStepBasic_RWLocalTime(@)", header: "RWStepBasic_RWLocalTime.hxx".}
-proc readStep*(this: RWStepBasicRWLocalTime; data: Handle[StepDataStepReaderData];
-              num: StandardInteger; ach: var Handle[InterfaceCheck];
-              ent: Handle[StepBasicLocalTime]) {.noSideEffect,
-    importcpp: "ReadStep", header: "RWStepBasic_RWLocalTime.hxx".}
-proc writeStep*(this: RWStepBasicRWLocalTime; sw: var StepDataStepWriter;
-               ent: Handle[StepBasicLocalTime]) {.noSideEffect,
+proc ReadStep*(this: RWStepBasic_RWLocalTime;
+              data: handle[StepData_StepReaderData]; num: Standard_Integer;
+              ach: var handle[Interface_Check]; ent: handle[StepBasic_LocalTime]) {.
+    noSideEffect, importcpp: "ReadStep", header: "RWStepBasic_RWLocalTime.hxx".}
+proc WriteStep*(this: RWStepBasic_RWLocalTime; SW: var StepData_StepWriter;
+               ent: handle[StepBasic_LocalTime]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepBasic_RWLocalTime.hxx".}
-proc share*(this: RWStepBasicRWLocalTime; ent: Handle[StepBasicLocalTime];
-           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
+proc Share*(this: RWStepBasic_RWLocalTime; ent: handle[StepBasic_LocalTime];
+           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepBasic_RWLocalTime.hxx".}
-

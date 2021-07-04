@@ -14,33 +14,37 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Prs3d/Prs3d_Drawer, DsgPrs_ArrowSide,
+  ../Prs3d/Prs3d_Presentation
+
 discard "forward decl of TCollection_ExtendedString"
 discard "forward decl of gp_Pnt"
 discard "forward decl of gp_Elips"
 discard "forward decl of Geom_OffsetCurve"
 type
-  DsgPrsEllipseRadiusPresentation* {.importcpp: "DsgPrs_EllipseRadiusPresentation", header: "DsgPrs_EllipseRadiusPresentation.hxx",
-                                    bycopy.} = object ## ! draws a  Radius  (Major  or  Minor)
-                                                   ## ! representation for whole ellipse  case
+  DsgPrs_EllipseRadiusPresentation* {.importcpp: "DsgPrs_EllipseRadiusPresentation", header: "DsgPrs_EllipseRadiusPresentation.hxx",
+                                     bycopy.} = object ## ! draws a  Radius  (Major  or  Minor)
+                                                    ## ! representation for whole ellipse  case
 
 
-proc add*(aPresentation: Handle[Prs3dPresentation]; aDrawer: Handle[Prs3dDrawer];
-         theval: StandardReal; aText: TCollectionExtendedString;
-         attachmentPoint: GpPnt; anEndOfArrow: GpPnt; aCenter: GpPnt;
-         isMaxRadius: StandardBoolean; arrowSide: DsgPrsArrowSide) {.
+proc Add*(aPresentation: handle[Prs3d_Presentation]; aDrawer: handle[Prs3d_Drawer];
+         theval: Standard_Real; aText: TCollection_ExtendedString;
+         AttachmentPoint: gp_Pnt; anEndOfArrow: gp_Pnt; aCenter: gp_Pnt;
+         IsMaxRadius: Standard_Boolean; ArrowSide: DsgPrs_ArrowSide) {.
     importcpp: "DsgPrs_EllipseRadiusPresentation::Add(@)",
     header: "DsgPrs_EllipseRadiusPresentation.hxx".}
-proc add*(aPresentation: Handle[Prs3dPresentation]; aDrawer: Handle[Prs3dDrawer];
-         theval: StandardReal; aText: TCollectionExtendedString; anEllipse: GpElips;
-         attachmentPoint: GpPnt; anEndOfArrow: GpPnt; aCenter: GpPnt;
-         uFirst: StandardReal; isInDomain: StandardBoolean;
-         isMaxRadius: StandardBoolean; arrowSide: DsgPrsArrowSide) {.
+proc Add*(aPresentation: handle[Prs3d_Presentation]; aDrawer: handle[Prs3d_Drawer];
+         theval: Standard_Real; aText: TCollection_ExtendedString;
+         anEllipse: gp_Elips; AttachmentPoint: gp_Pnt; anEndOfArrow: gp_Pnt;
+         aCenter: gp_Pnt; uFirst: Standard_Real; IsInDomain: Standard_Boolean;
+         IsMaxRadius: Standard_Boolean; ArrowSide: DsgPrs_ArrowSide) {.
     importcpp: "DsgPrs_EllipseRadiusPresentation::Add(@)",
     header: "DsgPrs_EllipseRadiusPresentation.hxx".}
-proc add*(aPresentation: Handle[Prs3dPresentation]; aDrawer: Handle[Prs3dDrawer];
-         theval: StandardReal; aText: TCollectionExtendedString;
-         aCurve: Handle[GeomOffsetCurve]; attachmentPoint: GpPnt;
-         anEndOfArrow: GpPnt; aCenter: GpPnt; uFirst: StandardReal;
-         isInDomain: StandardBoolean; isMaxRadius: StandardBoolean;
-         arrowSide: DsgPrsArrowSide) {.importcpp: "DsgPrs_EllipseRadiusPresentation::Add(@)", header: "DsgPrs_EllipseRadiusPresentation.hxx".}
-
+proc Add*(aPresentation: handle[Prs3d_Presentation]; aDrawer: handle[Prs3d_Drawer];
+         theval: Standard_Real; aText: TCollection_ExtendedString;
+         aCurve: handle[Geom_OffsetCurve]; AttachmentPoint: gp_Pnt;
+         anEndOfArrow: gp_Pnt; aCenter: gp_Pnt; uFirst: Standard_Real;
+         IsInDomain: Standard_Boolean; IsMaxRadius: Standard_Boolean;
+         ArrowSide: DsgPrs_ArrowSide) {.importcpp: "DsgPrs_EllipseRadiusPresentation::Add(@)", header: "DsgPrs_EllipseRadiusPresentation.hxx".}

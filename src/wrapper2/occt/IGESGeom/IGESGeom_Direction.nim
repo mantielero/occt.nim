@@ -14,12 +14,16 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../gp/gp_XYZ,
+  ../IGESData/IGESData_IGESEntity
+
 discard "forward decl of gp_XYZ"
 discard "forward decl of gp_Vec"
 discard "forward decl of IGESGeom_Direction"
 discard "forward decl of IGESGeom_Direction"
 type
-  HandleIGESGeomDirection* = Handle[IGESGeomDirection]
+  Handle_IGESGeom_Direction* = handle[IGESGeom_Direction]
 
 ## ! defines IGESDirection, Type <123> Form <0>
 ## ! in package IGESGeom
@@ -29,26 +33,25 @@ type
 ## ! direction ratios then (x^2 + y^2 + z^2) > 0
 
 type
-  IGESGeomDirection* {.importcpp: "IGESGeom_Direction",
-                      header: "IGESGeom_Direction.hxx", bycopy.} = object of IGESDataIGESEntity
+  IGESGeom_Direction* {.importcpp: "IGESGeom_Direction",
+                       header: "IGESGeom_Direction.hxx", bycopy.} = object of IGESData_IGESEntity
 
 
-proc constructIGESGeomDirection*(): IGESGeomDirection {.constructor,
+proc constructIGESGeom_Direction*(): IGESGeom_Direction {.constructor,
     importcpp: "IGESGeom_Direction(@)", header: "IGESGeom_Direction.hxx".}
-proc init*(this: var IGESGeomDirection; aDirection: GpXYZ) {.importcpp: "Init",
+proc Init*(this: var IGESGeom_Direction; aDirection: gp_XYZ) {.importcpp: "Init",
     header: "IGESGeom_Direction.hxx".}
-proc value*(this: IGESGeomDirection): GpVec {.noSideEffect, importcpp: "Value",
+proc Value*(this: IGESGeom_Direction): gp_Vec {.noSideEffect, importcpp: "Value",
     header: "IGESGeom_Direction.hxx".}
-proc transformedValue*(this: IGESGeomDirection): GpVec {.noSideEffect,
+proc TransformedValue*(this: IGESGeom_Direction): gp_Vec {.noSideEffect,
     importcpp: "TransformedValue", header: "IGESGeom_Direction.hxx".}
 type
-  IGESGeomDirectionbaseType* = IGESDataIGESEntity
+  IGESGeom_Directionbase_type* = IGESData_IGESEntity
 
-proc getTypeName*(): cstring {.importcpp: "IGESGeom_Direction::get_type_name(@)",
-                            header: "IGESGeom_Direction.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "IGESGeom_Direction::get_type_name(@)",
+                              header: "IGESGeom_Direction.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "IGESGeom_Direction::get_type_descriptor(@)",
     header: "IGESGeom_Direction.hxx".}
-proc dynamicType*(this: IGESGeomDirection): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: IGESGeom_Direction): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "IGESGeom_Direction.hxx".}
-

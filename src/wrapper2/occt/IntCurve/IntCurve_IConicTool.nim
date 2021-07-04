@@ -14,6 +14,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Real, ../gp/gp_Ax22d,
+  ../GeomAbs/GeomAbs_CurveType, ../gp/gp_Trsf2d
+
 discard "forward decl of gp_Elips2d"
 discard "forward decl of gp_Lin2d"
 discard "forward decl of gp_Circ2d"
@@ -22,36 +27,37 @@ discard "forward decl of gp_Hypr2d"
 discard "forward decl of gp_Pnt2d"
 discard "forward decl of gp_Vec2d"
 type
-  IntCurveIConicTool* {.importcpp: "IntCurve_IConicTool",
-                       header: "IntCurve_IConicTool.hxx", bycopy.} = object
+  IntCurve_IConicTool* {.importcpp: "IntCurve_IConicTool",
+                        header: "IntCurve_IConicTool.hxx", bycopy.} = object
 
 
-proc constructIntCurveIConicTool*(): IntCurveIConicTool {.constructor,
+proc constructIntCurve_IConicTool*(): IntCurve_IConicTool {.constructor,
     importcpp: "IntCurve_IConicTool(@)", header: "IntCurve_IConicTool.hxx".}
-proc constructIntCurveIConicTool*(it: IntCurveIConicTool): IntCurveIConicTool {.
+proc constructIntCurve_IConicTool*(IT: IntCurve_IConicTool): IntCurve_IConicTool {.
     constructor, importcpp: "IntCurve_IConicTool(@)",
     header: "IntCurve_IConicTool.hxx".}
-proc constructIntCurveIConicTool*(e: GpElips2d): IntCurveIConicTool {.constructor,
+proc constructIntCurve_IConicTool*(E: gp_Elips2d): IntCurve_IConicTool {.
+    constructor, importcpp: "IntCurve_IConicTool(@)",
+    header: "IntCurve_IConicTool.hxx".}
+proc constructIntCurve_IConicTool*(L: gp_Lin2d): IntCurve_IConicTool {.constructor,
     importcpp: "IntCurve_IConicTool(@)", header: "IntCurve_IConicTool.hxx".}
-proc constructIntCurveIConicTool*(L: GpLin2d): IntCurveIConicTool {.constructor,
+proc constructIntCurve_IConicTool*(C: gp_Circ2d): IntCurve_IConicTool {.constructor,
     importcpp: "IntCurve_IConicTool(@)", header: "IntCurve_IConicTool.hxx".}
-proc constructIntCurveIConicTool*(c: GpCirc2d): IntCurveIConicTool {.constructor,
+proc constructIntCurve_IConicTool*(P: gp_Parab2d): IntCurve_IConicTool {.
+    constructor, importcpp: "IntCurve_IConicTool(@)",
+    header: "IntCurve_IConicTool.hxx".}
+proc constructIntCurve_IConicTool*(H: gp_Hypr2d): IntCurve_IConicTool {.constructor,
     importcpp: "IntCurve_IConicTool(@)", header: "IntCurve_IConicTool.hxx".}
-proc constructIntCurveIConicTool*(p: GpParab2d): IntCurveIConicTool {.constructor,
-    importcpp: "IntCurve_IConicTool(@)", header: "IntCurve_IConicTool.hxx".}
-proc constructIntCurveIConicTool*(h: GpHypr2d): IntCurveIConicTool {.constructor,
-    importcpp: "IntCurve_IConicTool(@)", header: "IntCurve_IConicTool.hxx".}
-proc value*(this: IntCurveIConicTool; x: StandardReal): GpPnt2d {.noSideEffect,
+proc Value*(this: IntCurve_IConicTool; X: Standard_Real): gp_Pnt2d {.noSideEffect,
     importcpp: "Value", header: "IntCurve_IConicTool.hxx".}
-proc d1*(this: IntCurveIConicTool; u: StandardReal; p: var GpPnt2d; t: var GpVec2d) {.
+proc D1*(this: IntCurve_IConicTool; U: Standard_Real; P: var gp_Pnt2d; T: var gp_Vec2d) {.
     noSideEffect, importcpp: "D1", header: "IntCurve_IConicTool.hxx".}
-proc d2*(this: IntCurveIConicTool; u: StandardReal; p: var GpPnt2d; t: var GpVec2d;
-        n: var GpVec2d) {.noSideEffect, importcpp: "D2",
-                       header: "IntCurve_IConicTool.hxx".}
-proc distance*(this: IntCurveIConicTool; p: GpPnt2d): StandardReal {.noSideEffect,
+proc D2*(this: IntCurve_IConicTool; U: Standard_Real; P: var gp_Pnt2d; T: var gp_Vec2d;
+        N: var gp_Vec2d) {.noSideEffect, importcpp: "D2",
+                        header: "IntCurve_IConicTool.hxx".}
+proc Distance*(this: IntCurve_IConicTool; P: gp_Pnt2d): Standard_Real {.noSideEffect,
     importcpp: "Distance", header: "IntCurve_IConicTool.hxx".}
-proc gradDistance*(this: IntCurveIConicTool; p: GpPnt2d): GpVec2d {.noSideEffect,
+proc GradDistance*(this: IntCurve_IConicTool; P: gp_Pnt2d): gp_Vec2d {.noSideEffect,
     importcpp: "GradDistance", header: "IntCurve_IConicTool.hxx".}
-proc findParameter*(this: IntCurveIConicTool; p: GpPnt2d): StandardReal {.
+proc FindParameter*(this: IntCurve_IConicTool; P: gp_Pnt2d): Standard_Real {.
     noSideEffect, importcpp: "FindParameter", header: "IntCurve_IConicTool.hxx".}
-

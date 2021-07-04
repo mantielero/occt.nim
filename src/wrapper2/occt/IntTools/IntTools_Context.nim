@@ -12,6 +12,15 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type,
+  ../NCollection/NCollection_BaseAllocator, ../NCollection/NCollection_DataMap,
+  ../TopTools/TopTools_ShapeMapHasher, ../Standard/Standard_Integer,
+  ../Standard/Standard_Real, ../Precision/Precision,
+  ../Standard/Standard_Transient, ../TopAbs/TopAbs_State,
+  ../Standard/Standard_Boolean, ../BRepAdaptor/BRepAdaptor_Surface,
+  ../TColStd/TColStd_MapTransientHasher
+
 discard "forward decl of IntTools_FClass2d"
 discard "forward decl of TopoDS_Face"
 discard "forward decl of GeomAPI_ProjectPointOnSurf"
@@ -30,102 +39,108 @@ discard "forward decl of Bnd_Box"
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of Bnd_OBB"
 type
-  IntToolsContext* {.importcpp: "IntTools_Context", header: "IntTools_Context.hxx",
-                    bycopy.} = object of StandardTransient ## ! Clears map of already cached projectors.
+  IntTools_Context* {.importcpp: "IntTools_Context",
+                     header: "IntTools_Context.hxx", bycopy.} = object of Standard_Transient ##
+                                                                                      ## !
+                                                                                      ## Clears
+                                                                                      ## map
+                                                                                      ## of
+                                                                                      ## already
+                                                                                      ## cached
+                                                                                      ## projectors.
     ##  Map of oriented bounding boxes
 
 
-proc constructIntToolsContext*(): IntToolsContext {.constructor,
+proc constructIntTools_Context*(): IntTools_Context {.constructor,
     importcpp: "IntTools_Context(@)", header: "IntTools_Context.hxx".}
-proc destroyIntToolsContext*(this: var IntToolsContext) {.
+proc destroyIntTools_Context*(this: var IntTools_Context) {.
     importcpp: "#.~IntTools_Context()", header: "IntTools_Context.hxx".}
-proc constructIntToolsContext*(theAllocator: Handle[NCollectionBaseAllocator]): IntToolsContext {.
+proc constructIntTools_Context*(theAllocator: handle[NCollection_BaseAllocator]): IntTools_Context {.
     constructor, importcpp: "IntTools_Context(@)", header: "IntTools_Context.hxx".}
-proc fClass2d*(this: var IntToolsContext; aF: TopoDS_Face): var IntToolsFClass2d {.
+proc FClass2d*(this: var IntTools_Context; aF: TopoDS_Face): var IntTools_FClass2d {.
     importcpp: "FClass2d", header: "IntTools_Context.hxx".}
-proc projPS*(this: var IntToolsContext; aF: TopoDS_Face): var GeomAPI_ProjectPointOnSurf {.
+proc ProjPS*(this: var IntTools_Context; aF: TopoDS_Face): var GeomAPI_ProjectPointOnSurf {.
     importcpp: "ProjPS", header: "IntTools_Context.hxx".}
-proc projPC*(this: var IntToolsContext; aE: TopoDS_Edge): var GeomAPI_ProjectPointOnCurve {.
+proc ProjPC*(this: var IntTools_Context; aE: TopoDS_Edge): var GeomAPI_ProjectPointOnCurve {.
     importcpp: "ProjPC", header: "IntTools_Context.hxx".}
-proc projPT*(this: var IntToolsContext; aC: Handle[GeomCurve]): var GeomAPI_ProjectPointOnCurve {.
+proc ProjPT*(this: var IntTools_Context; aC: handle[Geom_Curve]): var GeomAPI_ProjectPointOnCurve {.
     importcpp: "ProjPT", header: "IntTools_Context.hxx".}
-proc surfaceData*(this: var IntToolsContext; aF: TopoDS_Face): var IntToolsSurfaceRangeLocalizeData {.
+proc SurfaceData*(this: var IntTools_Context; aF: TopoDS_Face): var IntTools_SurfaceRangeLocalizeData {.
     importcpp: "SurfaceData", header: "IntTools_Context.hxx".}
-proc solidClassifier*(this: var IntToolsContext; aSolid: TopoDS_Solid): var BRepClass3dSolidClassifier {.
+proc SolidClassifier*(this: var IntTools_Context; aSolid: TopoDS_Solid): var BRepClass3d_SolidClassifier {.
     importcpp: "SolidClassifier", header: "IntTools_Context.hxx".}
-proc hatcher*(this: var IntToolsContext; aF: TopoDS_Face): var Geom2dHatchHatcher {.
+proc Hatcher*(this: var IntTools_Context; aF: TopoDS_Face): var Geom2dHatch_Hatcher {.
     importcpp: "Hatcher", header: "IntTools_Context.hxx".}
-proc surfaceAdaptor*(this: var IntToolsContext; theFace: TopoDS_Face): var BRepAdaptorSurface {.
+proc SurfaceAdaptor*(this: var IntTools_Context; theFace: TopoDS_Face): var BRepAdaptor_Surface {.
     importcpp: "SurfaceAdaptor", header: "IntTools_Context.hxx".}
-proc obb*(this: var IntToolsContext; theShape: TopoDS_Shape;
-         theFuzzyValue: StandardReal = confusion()): var BndOBB {.importcpp: "OBB",
+proc OBB*(this: var IntTools_Context; theShape: TopoDS_Shape;
+         theFuzzyValue: Standard_Real = Confusion()): var Bnd_OBB {.importcpp: "OBB",
     header: "IntTools_Context.hxx".}
-proc uVBounds*(this: var IntToolsContext; theFace: TopoDS_Face;
-              uMin: var StandardReal; uMax: var StandardReal; vMin: var StandardReal;
-              vMax: var StandardReal) {.importcpp: "UVBounds",
-                                     header: "IntTools_Context.hxx".}
-proc computePE*(this: var IntToolsContext; theP: GpPnt; theTolP: StandardReal;
-               theE: TopoDS_Edge; theT: var StandardReal; theDist: var StandardReal): StandardInteger {.
+proc UVBounds*(this: var IntTools_Context; theFace: TopoDS_Face;
+              UMin: var Standard_Real; UMax: var Standard_Real;
+              VMin: var Standard_Real; VMax: var Standard_Real) {.
+    importcpp: "UVBounds", header: "IntTools_Context.hxx".}
+proc ComputePE*(this: var IntTools_Context; theP: gp_Pnt; theTolP: Standard_Real;
+               theE: TopoDS_Edge; theT: var Standard_Real; theDist: var Standard_Real): Standard_Integer {.
     importcpp: "ComputePE", header: "IntTools_Context.hxx".}
-proc computeVE*(this: var IntToolsContext; theV: TopoDS_Vertex; theE: TopoDS_Edge;
-               theT: var StandardReal; theTol: var StandardReal;
-               theFuzz: StandardReal = confusion()): StandardInteger {.
+proc ComputeVE*(this: var IntTools_Context; theV: TopoDS_Vertex; theE: TopoDS_Edge;
+               theT: var Standard_Real; theTol: var Standard_Real;
+               theFuzz: Standard_Real = Confusion()): Standard_Integer {.
     importcpp: "ComputeVE", header: "IntTools_Context.hxx".}
-proc computeVF*(this: var IntToolsContext; theVertex: TopoDS_Vertex;
-               theFace: TopoDS_Face; theU: var StandardReal; theV: var StandardReal;
-               theTol: var StandardReal; theFuzz: StandardReal = confusion()): StandardInteger {.
+proc ComputeVF*(this: var IntTools_Context; theVertex: TopoDS_Vertex;
+               theFace: TopoDS_Face; theU: var Standard_Real;
+               theV: var Standard_Real; theTol: var Standard_Real;
+               theFuzz: Standard_Real = Confusion()): Standard_Integer {.
     importcpp: "ComputeVF", header: "IntTools_Context.hxx".}
-proc statePointFace*(this: var IntToolsContext; aF: TopoDS_Face; aP2D: GpPnt2d): TopAbsState {.
+proc StatePointFace*(this: var IntTools_Context; aF: TopoDS_Face; aP2D: gp_Pnt2d): TopAbs_State {.
     importcpp: "StatePointFace", header: "IntTools_Context.hxx".}
-proc isPointInFace*(this: var IntToolsContext; aF: TopoDS_Face; aP2D: GpPnt2d): StandardBoolean {.
+proc IsPointInFace*(this: var IntTools_Context; aF: TopoDS_Face; aP2D: gp_Pnt2d): Standard_Boolean {.
     importcpp: "IsPointInFace", header: "IntTools_Context.hxx".}
-proc isPointInFace*(this: var IntToolsContext; aP3D: GpPnt; aF: TopoDS_Face;
-                   aTol: StandardReal): StandardBoolean {.
+proc IsPointInFace*(this: var IntTools_Context; aP3D: gp_Pnt; aF: TopoDS_Face;
+                   aTol: Standard_Real): Standard_Boolean {.
     importcpp: "IsPointInFace", header: "IntTools_Context.hxx".}
-proc isPointInOnFace*(this: var IntToolsContext; aF: TopoDS_Face; aP2D: GpPnt2d): StandardBoolean {.
+proc IsPointInOnFace*(this: var IntTools_Context; aF: TopoDS_Face; aP2D: gp_Pnt2d): Standard_Boolean {.
     importcpp: "IsPointInOnFace", header: "IntTools_Context.hxx".}
-proc isValidPointForFace*(this: var IntToolsContext; aP3D: GpPnt; aF: TopoDS_Face;
-                         aTol: StandardReal): StandardBoolean {.
+proc IsValidPointForFace*(this: var IntTools_Context; aP3D: gp_Pnt; aF: TopoDS_Face;
+                         aTol: Standard_Real): Standard_Boolean {.
     importcpp: "IsValidPointForFace", header: "IntTools_Context.hxx".}
-proc isValidPointForFaces*(this: var IntToolsContext; aP3D: GpPnt; aF1: TopoDS_Face;
-                          aF2: TopoDS_Face; aTol: StandardReal): StandardBoolean {.
+proc IsValidPointForFaces*(this: var IntTools_Context; aP3D: gp_Pnt; aF1: TopoDS_Face;
+                          aF2: TopoDS_Face; aTol: Standard_Real): Standard_Boolean {.
     importcpp: "IsValidPointForFaces", header: "IntTools_Context.hxx".}
-proc isValidBlockForFace*(this: var IntToolsContext; aT1: StandardReal;
-                         aT2: StandardReal; aIC: IntToolsCurve; aF: TopoDS_Face;
-                         aTol: StandardReal): StandardBoolean {.
+proc IsValidBlockForFace*(this: var IntTools_Context; aT1: Standard_Real;
+                         aT2: Standard_Real; aIC: IntTools_Curve; aF: TopoDS_Face;
+                         aTol: Standard_Real): Standard_Boolean {.
     importcpp: "IsValidBlockForFace", header: "IntTools_Context.hxx".}
-proc isValidBlockForFaces*(this: var IntToolsContext; aT1: StandardReal;
-                          aT2: StandardReal; aIC: IntToolsCurve; aF1: TopoDS_Face;
-                          aF2: TopoDS_Face; aTol: StandardReal): StandardBoolean {.
+proc IsValidBlockForFaces*(this: var IntTools_Context; aT1: Standard_Real;
+                          aT2: Standard_Real; aIC: IntTools_Curve; aF1: TopoDS_Face;
+                          aF2: TopoDS_Face; aTol: Standard_Real): Standard_Boolean {.
     importcpp: "IsValidBlockForFaces", header: "IntTools_Context.hxx".}
-proc isVertexOnLine*(this: var IntToolsContext; aV: TopoDS_Vertex; aIC: IntToolsCurve;
-                    aTolC: StandardReal; aT: var StandardReal): StandardBoolean {.
+proc IsVertexOnLine*(this: var IntTools_Context; aV: TopoDS_Vertex;
+                    aIC: IntTools_Curve; aTolC: Standard_Real; aT: var Standard_Real): Standard_Boolean {.
     importcpp: "IsVertexOnLine", header: "IntTools_Context.hxx".}
-proc isVertexOnLine*(this: var IntToolsContext; aV: TopoDS_Vertex;
-                    aTolV: StandardReal; aIC: IntToolsCurve; aTolC: StandardReal;
-                    aT: var StandardReal): StandardBoolean {.
+proc IsVertexOnLine*(this: var IntTools_Context; aV: TopoDS_Vertex;
+                    aTolV: Standard_Real; aIC: IntTools_Curve; aTolC: Standard_Real;
+                    aT: var Standard_Real): Standard_Boolean {.
     importcpp: "IsVertexOnLine", header: "IntTools_Context.hxx".}
-proc projectPointOnEdge*(this: var IntToolsContext; aP: GpPnt; aE: TopoDS_Edge;
-                        aT: var StandardReal): StandardBoolean {.
+proc ProjectPointOnEdge*(this: var IntTools_Context; aP: gp_Pnt; aE: TopoDS_Edge;
+                        aT: var Standard_Real): Standard_Boolean {.
     importcpp: "ProjectPointOnEdge", header: "IntTools_Context.hxx".}
-proc bndBox*(this: var IntToolsContext; theS: TopoDS_Shape): var BndBox {.
+proc BndBox*(this: var IntTools_Context; theS: TopoDS_Shape): var Bnd_Box {.
     importcpp: "BndBox", header: "IntTools_Context.hxx".}
-proc isInfiniteFace*(this: var IntToolsContext; theFace: TopoDS_Face): StandardBoolean {.
+proc IsInfiniteFace*(this: var IntTools_Context; theFace: TopoDS_Face): Standard_Boolean {.
     importcpp: "IsInfiniteFace", header: "IntTools_Context.hxx".}
-proc setPOnSProjectionTolerance*(this: var IntToolsContext; theValue: StandardReal) {.
+proc SetPOnSProjectionTolerance*(this: var IntTools_Context; theValue: Standard_Real) {.
     importcpp: "SetPOnSProjectionTolerance", header: "IntTools_Context.hxx".}
 type
-  IntToolsContextbaseType* = StandardTransient
+  IntTools_Contextbase_type* = Standard_Transient
 
-proc getTypeName*(): cstring {.importcpp: "IntTools_Context::get_type_name(@)",
-                            header: "IntTools_Context.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "IntTools_Context::get_type_name(@)",
+                              header: "IntTools_Context.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "IntTools_Context::get_type_descriptor(@)",
     header: "IntTools_Context.hxx".}
-proc dynamicType*(this: IntToolsContext): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: IntTools_Context): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "IntTools_Context.hxx".}
 discard "forward decl of IntTools_Context"
 type
-  HandleIntToolsContext* = Handle[IntToolsContext]
-
-
+  Handle_IntTools_Context* = handle[IntTools_Context]

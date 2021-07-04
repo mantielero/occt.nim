@@ -11,6 +11,13 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../TColStd/TColStd_IndexedDataMapOfStringString,
+  ../TColStd/TColStd_MapOfAsciiString, ../TDF/TDF_LabelSequence,
+  ../TopTools/TopTools_ShapeMapHasher, RWGltf_GltfBufferView, RWGltf_GltfFace,
+  RWGltf_WriterTrsfFormat, ../RWMesh/RWMesh_CoordinateSystemConverter,
+  ../XCAFPrs/XCAFPrs_Style
+
 discard "forward decl of Message_ProgressRange"
 discard "forward decl of RWMesh_FaceIterator"
 discard "forward decl of RWGltf_GltfOStreamWriter"
@@ -18,24 +25,149 @@ discard "forward decl of RWGltf_GltfMaterialMap"
 discard "forward decl of RWGltf_GltfSceneNodeMap"
 discard "forward decl of TDocStd_Document"
 type
-  RWGltfCafWriter* {.importcpp: "RWGltf_CafWriter", header: "RWGltf_CafWriter.hxx",
-                    bycopy.} = object of StandardTransient ## ! Main constructor.
-                                                      ## ! @param theFile     [in] path to output glTF file
-                                                      ## ! @param theIsBinary [in] flag to write into binary glTF format (.glb)
-                                                      ## ! Write binary data file with triangulation data.
-                                                      ## ! Triangulation data should be precomputed within shapes!
-                                                      ## ! @param theDocument    [in] input document
-                                                      ## ! @param theRootLabels  [in] list of root shapes to export
-                                                      ## ! @param theLabelFilter [in] optional filter with document nodes to export
-                                                      ## ! @param theProgress    [in] optional progress indicator
-                                                      ## ! @return FALSE on file writing failure
-                                                      ## ! Return TRUE if face mesh should be skipped (e.g. because it is invalid or empty).
-                                                      ## ! Write bufferView for vertex positions within
-                                                      ## RWGltf_GltfRootElement_Accessors section
-                                                      ## ! @param theGltfFace [in] face definition to write
-                                                      ## ! Write
-                                                      ## RWGltf_GltfRootElement_Accessors section.
-                                                      ## ! @param theSceneNodeMap [in] ordered map of scene nodes
+  RWGltf_CafWriter* {.importcpp: "RWGltf_CafWriter",
+                     header: "RWGltf_CafWriter.hxx", bycopy.} = object of Standard_Transient ##
+                                                                                      ## !
+                                                                                      ## Main
+                                                                                      ## constructor.
+                                                                                      ##
+                                                                                      ## !
+                                                                                      ## @param
+                                                                                      ## theFile
+                                                                                      ## [in]
+                                                                                      ## path
+                                                                                      ## to
+                                                                                      ## output
+                                                                                      ## glTF
+                                                                                      ## file
+                                                                                      ##
+                                                                                      ## !
+                                                                                      ## @param
+                                                                                      ## theIsBinary
+                                                                                      ## [in]
+                                                                                      ## flag
+                                                                                      ## to
+                                                                                      ## write
+                                                                                      ## into
+                                                                                      ## binary
+                                                                                      ## glTF
+                                                                                      ## format
+                                                                                      ## (.glb)
+                                                                                      ##
+                                                                                      ## !
+                                                                                      ## Write
+                                                                                      ## binary
+                                                                                      ## data
+                                                                                      ## file
+                                                                                      ## with
+                                                                                      ## triangulation
+                                                                                      ## data.
+                                                                                      ##
+                                                                                      ## !
+                                                                                      ## Triangulation
+                                                                                      ## data
+                                                                                      ## should
+                                                                                      ## be
+                                                                                      ## precomputed
+                                                                                      ## within
+                                                                                      ## shapes!
+                                                                                      ##
+                                                                                      ## !
+                                                                                      ## @param
+                                                                                      ## theDocument
+                                                                                      ## [in]
+                                                                                      ## input
+                                                                                      ## document
+                                                                                      ##
+                                                                                      ## !
+                                                                                      ## @param
+                                                                                      ## theRootLabels
+                                                                                      ## [in]
+                                                                                      ## list
+                                                                                      ## of
+                                                                                      ## root
+                                                                                      ## shapes
+                                                                                      ## to
+                                                                                      ## export
+                                                                                      ##
+                                                                                      ## !
+                                                                                      ## @param
+                                                                                      ## theLabelFilter
+                                                                                      ## [in]
+                                                                                      ## optional
+                                                                                      ## filter
+                                                                                      ## with
+                                                                                      ## document
+                                                                                      ## nodes
+                                                                                      ## to
+                                                                                      ## export
+                                                                                      ##
+                                                                                      ## !
+                                                                                      ## @param
+                                                                                      ## theProgress
+                                                                                      ## [in]
+                                                                                      ## optional
+                                                                                      ## progress
+                                                                                      ## indicator
+                                                                                      ##
+                                                                                      ## !
+                                                                                      ## @return
+                                                                                      ## FALSE
+                                                                                      ## on
+                                                                                      ## file
+                                                                                      ## writing
+                                                                                      ## failure
+                                                                                      ##
+                                                                                      ## !
+                                                                                      ## Return
+                                                                                      ## TRUE
+                                                                                      ## if
+                                                                                      ## face
+                                                                                      ## mesh
+                                                                                      ## should
+                                                                                      ## be
+                                                                                      ## skipped
+                                                                                      ## (e.g.
+                                                                                      ## because
+                                                                                      ## it
+                                                                                      ## is
+                                                                                      ## invalid
+                                                                                      ## or
+                                                                                      ## empty).
+                                                                                      ##
+                                                                                      ## !
+                                                                                      ## Write
+                                                                                      ## bufferView
+                                                                                      ## for
+                                                                                      ## vertex
+                                                                                      ## positions
+                                                                                      ## within
+                                                                                      ## RWGltf_GltfRootElement_Accessors
+                                                                                      ## section
+                                                                                      ##
+                                                                                      ## !
+                                                                                      ## @param
+                                                                                      ## theGltfFace
+                                                                                      ## [in]
+                                                                                      ## face
+                                                                                      ## definition
+                                                                                      ## to
+                                                                                      ## write
+                                                                                      ##
+                                                                                      ## !
+                                                                                      ## Write
+                                                                                      ## RWGltf_GltfRootElement_Accessors
+                                                                                      ## section.
+                                                                                      ##
+                                                                                      ## !
+                                                                                      ## @param
+                                                                                      ## theSceneNodeMap
+                                                                                      ## [in]
+                                                                                      ## ordered
+                                                                                      ## map
+                                                                                      ## of
+                                                                                      ## scene
+                                                                                      ## nodes
     ## !< output glTF file
     ## !< output file with binary data (full  path)
     ## !< output file with binary data (short path)
@@ -52,51 +184,49 @@ type
     ## !< map for TopoDS_Face to glTF face (merging duplicates)
     ## !< length of binary file
 
-  RWGltfCafWriterbaseType* = StandardTransient
+  RWGltf_CafWriterbase_type* = Standard_Transient
 
-proc getTypeName*(): cstring {.importcpp: "RWGltf_CafWriter::get_type_name(@)",
-                            header: "RWGltf_CafWriter.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "RWGltf_CafWriter::get_type_name(@)",
+                              header: "RWGltf_CafWriter.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "RWGltf_CafWriter::get_type_descriptor(@)",
     header: "RWGltf_CafWriter.hxx".}
-proc dynamicType*(this: RWGltfCafWriter): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: RWGltf_CafWriter): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "RWGltf_CafWriter.hxx".}
-proc constructRWGltfCafWriter*(theFile: TCollectionAsciiString;
-                              theIsBinary: StandardBoolean): RWGltfCafWriter {.
+proc constructRWGltf_CafWriter*(theFile: TCollection_AsciiString;
+                               theIsBinary: Standard_Boolean): RWGltf_CafWriter {.
     constructor, importcpp: "RWGltf_CafWriter(@)", header: "RWGltf_CafWriter.hxx".}
-proc destroyRWGltfCafWriter*(this: var RWGltfCafWriter) {.
+proc destroyRWGltf_CafWriter*(this: var RWGltf_CafWriter) {.
     importcpp: "#.~RWGltf_CafWriter()", header: "RWGltf_CafWriter.hxx".}
-proc coordinateSystemConverter*(this: RWGltfCafWriter): RWMeshCoordinateSystemConverter {.
+proc CoordinateSystemConverter*(this: RWGltf_CafWriter): RWMesh_CoordinateSystemConverter {.
     noSideEffect, importcpp: "CoordinateSystemConverter",
     header: "RWGltf_CafWriter.hxx".}
-proc changeCoordinateSystemConverter*(this: var RWGltfCafWriter): var RWMeshCoordinateSystemConverter {.
+proc ChangeCoordinateSystemConverter*(this: var RWGltf_CafWriter): var RWMesh_CoordinateSystemConverter {.
     importcpp: "ChangeCoordinateSystemConverter", header: "RWGltf_CafWriter.hxx".}
-proc setCoordinateSystemConverter*(this: var RWGltfCafWriter;
-                                  theConverter: RWMeshCoordinateSystemConverter) {.
+proc SetCoordinateSystemConverter*(this: var RWGltf_CafWriter; theConverter: RWMesh_CoordinateSystemConverter) {.
     importcpp: "SetCoordinateSystemConverter", header: "RWGltf_CafWriter.hxx".}
-proc isBinary*(this: RWGltfCafWriter): bool {.noSideEffect, importcpp: "IsBinary",
+proc IsBinary*(this: RWGltf_CafWriter): bool {.noSideEffect, importcpp: "IsBinary",
     header: "RWGltf_CafWriter.hxx".}
-proc transformationFormat*(this: RWGltfCafWriter): RWGltfWriterTrsfFormat {.
+proc TransformationFormat*(this: RWGltf_CafWriter): RWGltf_WriterTrsfFormat {.
     noSideEffect, importcpp: "TransformationFormat", header: "RWGltf_CafWriter.hxx".}
-proc setTransformationFormat*(this: var RWGltfCafWriter;
-                             theFormat: RWGltfWriterTrsfFormat) {.
+proc SetTransformationFormat*(this: var RWGltf_CafWriter;
+                             theFormat: RWGltf_WriterTrsfFormat) {.
     importcpp: "SetTransformationFormat", header: "RWGltf_CafWriter.hxx".}
-proc isForcedUVExport*(this: RWGltfCafWriter): bool {.noSideEffect,
+proc IsForcedUVExport*(this: RWGltf_CafWriter): bool {.noSideEffect,
     importcpp: "IsForcedUVExport", header: "RWGltf_CafWriter.hxx".}
-proc setForcedUVExport*(this: var RWGltfCafWriter; theToForce: bool) {.
+proc SetForcedUVExport*(this: var RWGltf_CafWriter; theToForce: bool) {.
     importcpp: "SetForcedUVExport", header: "RWGltf_CafWriter.hxx".}
-proc defaultStyle*(this: RWGltfCafWriter): XCAFPrsStyle {.noSideEffect,
+proc DefaultStyle*(this: RWGltf_CafWriter): XCAFPrs_Style {.noSideEffect,
     importcpp: "DefaultStyle", header: "RWGltf_CafWriter.hxx".}
-proc setDefaultStyle*(this: var RWGltfCafWriter; theStyle: XCAFPrsStyle) {.
+proc SetDefaultStyle*(this: var RWGltf_CafWriter; theStyle: XCAFPrs_Style) {.
     importcpp: "SetDefaultStyle", header: "RWGltf_CafWriter.hxx".}
-proc perform*(this: var RWGltfCafWriter; theDocument: Handle[TDocStdDocument];
+proc Perform*(this: var RWGltf_CafWriter; theDocument: handle[TDocStd_Document];
              theRootLabels: TDF_LabelSequence;
-             theLabelFilter: ptr TColStdMapOfAsciiString;
-             theFileInfo: TColStdIndexedDataMapOfStringString;
-             theProgress: MessageProgressRange): bool {.importcpp: "Perform",
+             theLabelFilter: ptr TColStd_MapOfAsciiString;
+             theFileInfo: TColStd_IndexedDataMapOfStringString;
+             theProgress: Message_ProgressRange): bool {.importcpp: "Perform",
     header: "RWGltf_CafWriter.hxx".}
-proc perform*(this: var RWGltfCafWriter; theDocument: Handle[TDocStdDocument];
-             theFileInfo: TColStdIndexedDataMapOfStringString;
-             theProgress: MessageProgressRange): bool {.importcpp: "Perform",
+proc Perform*(this: var RWGltf_CafWriter; theDocument: handle[TDocStd_Document];
+             theFileInfo: TColStd_IndexedDataMapOfStringString;
+             theProgress: Message_ProgressRange): bool {.importcpp: "Perform",
     header: "RWGltf_CafWriter.hxx".}
-

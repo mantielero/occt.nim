@@ -14,6 +14,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
+  ../Standard/Standard_Integer
+
 discard "forward decl of Standard_DomainError"
 discard "forward decl of IGESGraph_DrawingUnits"
 discard "forward decl of IGESData_IGESReaderData"
@@ -26,47 +31,48 @@ discard "forward decl of Interface_Check"
 discard "forward decl of Interface_CopyTool"
 discard "forward decl of IGESData_IGESDumper"
 type
-  IGESGraphToolDrawingUnits* {.importcpp: "IGESGraph_ToolDrawingUnits",
-                              header: "IGESGraph_ToolDrawingUnits.hxx", bycopy.} = object ##
-                                                                                     ## !
-                                                                                     ## Returns
-                                                                                     ## a
-                                                                                     ## ToolDrawingUnits,
-                                                                                     ## ready
-                                                                                     ## to
-                                                                                     ## work
+  IGESGraph_ToolDrawingUnits* {.importcpp: "IGESGraph_ToolDrawingUnits",
+                               header: "IGESGraph_ToolDrawingUnits.hxx", bycopy.} = object ##
+                                                                                      ## !
+                                                                                      ## Returns
+                                                                                      ## a
+                                                                                      ## ToolDrawingUnits,
+                                                                                      ## ready
+                                                                                      ## to
+                                                                                      ## work
 
 
-proc constructIGESGraphToolDrawingUnits*(): IGESGraphToolDrawingUnits {.
+proc constructIGESGraph_ToolDrawingUnits*(): IGESGraph_ToolDrawingUnits {.
     constructor, importcpp: "IGESGraph_ToolDrawingUnits(@)",
     header: "IGESGraph_ToolDrawingUnits.hxx".}
-proc readOwnParams*(this: IGESGraphToolDrawingUnits;
-                   ent: Handle[IGESGraphDrawingUnits];
-                   ir: Handle[IGESDataIGESReaderData]; pr: var IGESDataParamReader) {.
-    noSideEffect, importcpp: "ReadOwnParams",
-    header: "IGESGraph_ToolDrawingUnits.hxx".}
-proc writeOwnParams*(this: IGESGraphToolDrawingUnits;
-                    ent: Handle[IGESGraphDrawingUnits]; iw: var IGESDataIGESWriter) {.
-    noSideEffect, importcpp: "WriteOwnParams",
-    header: "IGESGraph_ToolDrawingUnits.hxx".}
-proc ownShared*(this: IGESGraphToolDrawingUnits;
-               ent: Handle[IGESGraphDrawingUnits];
-               iter: var InterfaceEntityIterator) {.noSideEffect,
+proc ReadOwnParams*(this: IGESGraph_ToolDrawingUnits;
+                   ent: handle[IGESGraph_DrawingUnits];
+                   IR: handle[IGESData_IGESReaderData];
+                   PR: var IGESData_ParamReader) {.noSideEffect,
+    importcpp: "ReadOwnParams", header: "IGESGraph_ToolDrawingUnits.hxx".}
+proc WriteOwnParams*(this: IGESGraph_ToolDrawingUnits;
+                    ent: handle[IGESGraph_DrawingUnits];
+                    IW: var IGESData_IGESWriter) {.noSideEffect,
+    importcpp: "WriteOwnParams", header: "IGESGraph_ToolDrawingUnits.hxx".}
+proc OwnShared*(this: IGESGraph_ToolDrawingUnits;
+               ent: handle[IGESGraph_DrawingUnits];
+               iter: var Interface_EntityIterator) {.noSideEffect,
     importcpp: "OwnShared", header: "IGESGraph_ToolDrawingUnits.hxx".}
-proc ownCorrect*(this: IGESGraphToolDrawingUnits;
-                ent: Handle[IGESGraphDrawingUnits]): StandardBoolean {.
+proc OwnCorrect*(this: IGESGraph_ToolDrawingUnits;
+                ent: handle[IGESGraph_DrawingUnits]): Standard_Boolean {.
     noSideEffect, importcpp: "OwnCorrect", header: "IGESGraph_ToolDrawingUnits.hxx".}
-proc dirChecker*(this: IGESGraphToolDrawingUnits;
-                ent: Handle[IGESGraphDrawingUnits]): IGESDataDirChecker {.
+proc DirChecker*(this: IGESGraph_ToolDrawingUnits;
+                ent: handle[IGESGraph_DrawingUnits]): IGESData_DirChecker {.
     noSideEffect, importcpp: "DirChecker", header: "IGESGraph_ToolDrawingUnits.hxx".}
-proc ownCheck*(this: IGESGraphToolDrawingUnits; ent: Handle[IGESGraphDrawingUnits];
-              shares: InterfaceShareTool; ach: var Handle[InterfaceCheck]) {.
-    noSideEffect, importcpp: "OwnCheck", header: "IGESGraph_ToolDrawingUnits.hxx".}
-proc ownCopy*(this: IGESGraphToolDrawingUnits;
-             entfrom: Handle[IGESGraphDrawingUnits];
-             entto: Handle[IGESGraphDrawingUnits]; tc: var InterfaceCopyTool) {.
+proc OwnCheck*(this: IGESGraph_ToolDrawingUnits;
+              ent: handle[IGESGraph_DrawingUnits]; shares: Interface_ShareTool;
+              ach: var handle[Interface_Check]) {.noSideEffect,
+    importcpp: "OwnCheck", header: "IGESGraph_ToolDrawingUnits.hxx".}
+proc OwnCopy*(this: IGESGraph_ToolDrawingUnits;
+             entfrom: handle[IGESGraph_DrawingUnits];
+             entto: handle[IGESGraph_DrawingUnits]; TC: var Interface_CopyTool) {.
     noSideEffect, importcpp: "OwnCopy", header: "IGESGraph_ToolDrawingUnits.hxx".}
-proc ownDump*(this: IGESGraphToolDrawingUnits; ent: Handle[IGESGraphDrawingUnits];
-             dumper: IGESDataIGESDumper; s: var StandardOStream; own: StandardInteger) {.
-    noSideEffect, importcpp: "OwnDump", header: "IGESGraph_ToolDrawingUnits.hxx".}
-
+proc OwnDump*(this: IGESGraph_ToolDrawingUnits;
+             ent: handle[IGESGraph_DrawingUnits]; dumper: IGESData_IGESDumper;
+             S: var Standard_OStream; own: Standard_Integer) {.noSideEffect,
+    importcpp: "OwnDump", header: "IGESGraph_ToolDrawingUnits.hxx".}

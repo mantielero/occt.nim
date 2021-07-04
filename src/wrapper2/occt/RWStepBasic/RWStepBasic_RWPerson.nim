@@ -14,22 +14,25 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepBasic_Person"
 discard "forward decl of StepData_StepWriter"
 type
-  RWStepBasicRWPerson* {.importcpp: "RWStepBasic_RWPerson",
-                        header: "RWStepBasic_RWPerson.hxx", bycopy.} = object
+  RWStepBasic_RWPerson* {.importcpp: "RWStepBasic_RWPerson",
+                         header: "RWStepBasic_RWPerson.hxx", bycopy.} = object
 
 
-proc constructRWStepBasicRWPerson*(): RWStepBasicRWPerson {.constructor,
+proc constructRWStepBasic_RWPerson*(): RWStepBasic_RWPerson {.constructor,
     importcpp: "RWStepBasic_RWPerson(@)", header: "RWStepBasic_RWPerson.hxx".}
-proc readStep*(this: RWStepBasicRWPerson; data: Handle[StepDataStepReaderData];
-              num: StandardInteger; ach: var Handle[InterfaceCheck];
-              ent: Handle[StepBasicPerson]) {.noSideEffect, importcpp: "ReadStep",
+proc ReadStep*(this: RWStepBasic_RWPerson; data: handle[StepData_StepReaderData];
+              num: Standard_Integer; ach: var handle[Interface_Check];
+              ent: handle[StepBasic_Person]) {.noSideEffect, importcpp: "ReadStep",
     header: "RWStepBasic_RWPerson.hxx".}
-proc writeStep*(this: RWStepBasicRWPerson; sw: var StepDataStepWriter;
-               ent: Handle[StepBasicPerson]) {.noSideEffect,
+proc WriteStep*(this: RWStepBasic_RWPerson; SW: var StepData_StepWriter;
+               ent: handle[StepBasic_Person]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepBasic_RWPerson.hxx".}
-

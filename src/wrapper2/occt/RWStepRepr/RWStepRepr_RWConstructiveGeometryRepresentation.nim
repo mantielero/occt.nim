@@ -14,33 +14,36 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepRepr_ConstructiveGeometryRepresentation"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepReprRWConstructiveGeometryRepresentation* {.
+  RWStepRepr_RWConstructiveGeometryRepresentation* {.
       importcpp: "RWStepRepr_RWConstructiveGeometryRepresentation",
       header: "RWStepRepr_RWConstructiveGeometryRepresentation.hxx", bycopy.} = object
 
 
-proc constructRWStepReprRWConstructiveGeometryRepresentation*(): RWStepReprRWConstructiveGeometryRepresentation {.
+proc constructRWStepRepr_RWConstructiveGeometryRepresentation*(): RWStepRepr_RWConstructiveGeometryRepresentation {.
     constructor, importcpp: "RWStepRepr_RWConstructiveGeometryRepresentation(@)",
     header: "RWStepRepr_RWConstructiveGeometryRepresentation.hxx".}
-proc readStep*(this: RWStepReprRWConstructiveGeometryRepresentation;
-              data: Handle[StepDataStepReaderData]; num: StandardInteger;
-              ach: var Handle[InterfaceCheck];
-              ent: Handle[StepReprConstructiveGeometryRepresentation]) {.
+proc ReadStep*(this: RWStepRepr_RWConstructiveGeometryRepresentation;
+              data: handle[StepData_StepReaderData]; num: Standard_Integer;
+              ach: var handle[Interface_Check];
+              ent: handle[StepRepr_ConstructiveGeometryRepresentation]) {.
     noSideEffect, importcpp: "ReadStep",
     header: "RWStepRepr_RWConstructiveGeometryRepresentation.hxx".}
-proc writeStep*(this: RWStepReprRWConstructiveGeometryRepresentation;
-               sw: var StepDataStepWriter;
-               ent: Handle[StepReprConstructiveGeometryRepresentation]) {.
+proc WriteStep*(this: RWStepRepr_RWConstructiveGeometryRepresentation;
+               SW: var StepData_StepWriter;
+               ent: handle[StepRepr_ConstructiveGeometryRepresentation]) {.
     noSideEffect, importcpp: "WriteStep",
     header: "RWStepRepr_RWConstructiveGeometryRepresentation.hxx".}
-proc share*(this: RWStepReprRWConstructiveGeometryRepresentation;
-           ent: Handle[StepReprConstructiveGeometryRepresentation];
-           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
+proc Share*(this: RWStepRepr_RWConstructiveGeometryRepresentation;
+           ent: handle[StepRepr_ConstructiveGeometryRepresentation];
+           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepRepr_RWConstructiveGeometryRepresentation.hxx".}
-

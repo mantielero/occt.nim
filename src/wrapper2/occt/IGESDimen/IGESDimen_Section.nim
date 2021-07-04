@@ -14,47 +14,51 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Integer,
+  ../Standard/Standard_Real, ../TColgp/TColgp_HArray1OfXY,
+  ../IGESData/IGESData_IGESEntity
+
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of gp_Pnt"
 discard "forward decl of IGESDimen_Section"
 discard "forward decl of IGESDimen_Section"
 type
-  HandleIGESDimenSection* = Handle[IGESDimenSection]
+  Handle_IGESDimen_Section* = handle[IGESDimen_Section]
 
 ## ! defines Section, Type <106> Form <31-38>
 ## ! in package IGESDimen
 ## ! Contains information to display sectioned sides
 
 type
-  IGESDimenSection* {.importcpp: "IGESDimen_Section",
-                     header: "IGESDimen_Section.hxx", bycopy.} = object of IGESDataIGESEntity
+  IGESDimen_Section* {.importcpp: "IGESDimen_Section",
+                      header: "IGESDimen_Section.hxx", bycopy.} = object of IGESData_IGESEntity
 
 
-proc constructIGESDimenSection*(): IGESDimenSection {.constructor,
+proc constructIGESDimen_Section*(): IGESDimen_Section {.constructor,
     importcpp: "IGESDimen_Section(@)", header: "IGESDimen_Section.hxx".}
-proc init*(this: var IGESDimenSection; dataType: StandardInteger; aDisp: StandardReal;
-          dataPoints: Handle[TColgpHArray1OfXY]) {.importcpp: "Init",
-    header: "IGESDimen_Section.hxx".}
-proc setFormNumber*(this: var IGESDimenSection; form: StandardInteger) {.
+proc Init*(this: var IGESDimen_Section; dataType: Standard_Integer;
+          aDisp: Standard_Real; dataPoints: handle[TColgp_HArray1OfXY]) {.
+    importcpp: "Init", header: "IGESDimen_Section.hxx".}
+proc SetFormNumber*(this: var IGESDimen_Section; form: Standard_Integer) {.
     importcpp: "SetFormNumber", header: "IGESDimen_Section.hxx".}
-proc datatype*(this: IGESDimenSection): StandardInteger {.noSideEffect,
+proc Datatype*(this: IGESDimen_Section): Standard_Integer {.noSideEffect,
     importcpp: "Datatype", header: "IGESDimen_Section.hxx".}
-proc nbPoints*(this: IGESDimenSection): StandardInteger {.noSideEffect,
+proc NbPoints*(this: IGESDimen_Section): Standard_Integer {.noSideEffect,
     importcpp: "NbPoints", header: "IGESDimen_Section.hxx".}
-proc zDisplacement*(this: IGESDimenSection): StandardReal {.noSideEffect,
+proc ZDisplacement*(this: IGESDimen_Section): Standard_Real {.noSideEffect,
     importcpp: "ZDisplacement", header: "IGESDimen_Section.hxx".}
-proc point*(this: IGESDimenSection; index: StandardInteger): GpPnt {.noSideEffect,
+proc Point*(this: IGESDimen_Section; Index: Standard_Integer): gp_Pnt {.noSideEffect,
     importcpp: "Point", header: "IGESDimen_Section.hxx".}
-proc transformedPoint*(this: IGESDimenSection; index: StandardInteger): GpPnt {.
+proc TransformedPoint*(this: IGESDimen_Section; Index: Standard_Integer): gp_Pnt {.
     noSideEffect, importcpp: "TransformedPoint", header: "IGESDimen_Section.hxx".}
 type
-  IGESDimenSectionbaseType* = IGESDataIGESEntity
+  IGESDimen_Sectionbase_type* = IGESData_IGESEntity
 
-proc getTypeName*(): cstring {.importcpp: "IGESDimen_Section::get_type_name(@)",
-                            header: "IGESDimen_Section.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "IGESDimen_Section::get_type_name(@)",
+                              header: "IGESDimen_Section.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "IGESDimen_Section::get_type_descriptor(@)",
     header: "IGESDimen_Section.hxx".}
-proc dynamicType*(this: IGESDimenSection): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: IGESDimen_Section): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "IGESDimen_Section.hxx".}
-

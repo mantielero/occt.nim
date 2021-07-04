@@ -14,41 +14,45 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type,
+  ../TColStd/TColStd_Array1OfTransient, ../Standard/Standard_Transient,
+  ../IGESData/IGESData_HArray1OfIGESEntity, ../Standard/Standard_Integer
+
 discard "forward decl of IGESBasic_HArray1OfHArray1OfIGESEntity"
 discard "forward decl of IGESBasic_HArray1OfHArray1OfIGESEntity"
 type
-  HandleIGESBasicHArray1OfHArray1OfIGESEntity* = Handle[
-      IGESBasicHArray1OfHArray1OfIGESEntity]
-  IGESBasicHArray1OfHArray1OfIGESEntity* {.
+  Handle_IGESBasic_HArray1OfHArray1OfIGESEntity* = handle[
+      IGESBasic_HArray1OfHArray1OfIGESEntity]
+  IGESBasic_HArray1OfHArray1OfIGESEntity* {.
       importcpp: "IGESBasic_HArray1OfHArray1OfIGESEntity",
-      header: "IGESBasic_HArray1OfHArray1OfIGESEntity.hxx", bycopy.} = object of StandardTransient
+      header: "IGESBasic_HArray1OfHArray1OfIGESEntity.hxx", bycopy.} = object of Standard_Transient
 
 
-proc constructIGESBasicHArray1OfHArray1OfIGESEntity*(low: StandardInteger;
-    up: StandardInteger): IGESBasicHArray1OfHArray1OfIGESEntity {.constructor,
+proc constructIGESBasic_HArray1OfHArray1OfIGESEntity*(low: Standard_Integer;
+    up: Standard_Integer): IGESBasic_HArray1OfHArray1OfIGESEntity {.constructor,
     importcpp: "IGESBasic_HArray1OfHArray1OfIGESEntity(@)",
     header: "IGESBasic_HArray1OfHArray1OfIGESEntity.hxx".}
-proc lower*(this: IGESBasicHArray1OfHArray1OfIGESEntity): StandardInteger {.
+proc Lower*(this: IGESBasic_HArray1OfHArray1OfIGESEntity): Standard_Integer {.
     noSideEffect, importcpp: "Lower",
     header: "IGESBasic_HArray1OfHArray1OfIGESEntity.hxx".}
-proc upper*(this: IGESBasicHArray1OfHArray1OfIGESEntity): StandardInteger {.
+proc Upper*(this: IGESBasic_HArray1OfHArray1OfIGESEntity): Standard_Integer {.
     noSideEffect, importcpp: "Upper",
     header: "IGESBasic_HArray1OfHArray1OfIGESEntity.hxx".}
-proc length*(this: IGESBasicHArray1OfHArray1OfIGESEntity): StandardInteger {.
+proc Length*(this: IGESBasic_HArray1OfHArray1OfIGESEntity): Standard_Integer {.
     noSideEffect, importcpp: "Length",
     header: "IGESBasic_HArray1OfHArray1OfIGESEntity.hxx".}
-proc setValue*(this: var IGESBasicHArray1OfHArray1OfIGESEntity;
-              num: StandardInteger; val: Handle[IGESDataHArray1OfIGESEntity]) {.
+proc SetValue*(this: var IGESBasic_HArray1OfHArray1OfIGESEntity;
+              num: Standard_Integer; val: handle[IGESData_HArray1OfIGESEntity]) {.
     importcpp: "SetValue", header: "IGESBasic_HArray1OfHArray1OfIGESEntity.hxx".}
-proc value*(this: IGESBasicHArray1OfHArray1OfIGESEntity; num: StandardInteger): Handle[
-    IGESDataHArray1OfIGESEntity] {.noSideEffect, importcpp: "Value", header: "IGESBasic_HArray1OfHArray1OfIGESEntity.hxx".}
+proc Value*(this: IGESBasic_HArray1OfHArray1OfIGESEntity; num: Standard_Integer): handle[
+    IGESData_HArray1OfIGESEntity] {.noSideEffect, importcpp: "Value", header: "IGESBasic_HArray1OfHArray1OfIGESEntity.hxx".}
 type
-  IGESBasicHArray1OfHArray1OfIGESEntitybaseType* = StandardTransient
+  IGESBasic_HArray1OfHArray1OfIGESEntitybase_type* = Standard_Transient
 
-proc getTypeName*(): cstring {.importcpp: "IGESBasic_HArray1OfHArray1OfIGESEntity::get_type_name(@)", header: "IGESBasic_HArray1OfHArray1OfIGESEntity.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "IGESBasic_HArray1OfHArray1OfIGESEntity::get_type_descriptor(@)",
+proc get_type_name*(): cstring {.importcpp: "IGESBasic_HArray1OfHArray1OfIGESEntity::get_type_name(@)", header: "IGESBasic_HArray1OfHArray1OfIGESEntity.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.importcpp: "IGESBasic_HArray1OfHArray1OfIGESEntity::get_type_descriptor(@)",
     header: "IGESBasic_HArray1OfHArray1OfIGESEntity.hxx".}
-proc dynamicType*(this: IGESBasicHArray1OfHArray1OfIGESEntity): Handle[StandardType] {.
-    noSideEffect, importcpp: "DynamicType",
-    header: "IGESBasic_HArray1OfHArray1OfIGESEntity.hxx".}
-
+proc DynamicType*(this: IGESBasic_HArray1OfHArray1OfIGESEntity): handle[
+    Standard_Type] {.noSideEffect, importcpp: "DynamicType",
+                    header: "IGESBasic_HArray1OfHArray1OfIGESEntity.hxx".}

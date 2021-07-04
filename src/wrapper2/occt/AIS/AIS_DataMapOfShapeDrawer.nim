@@ -11,8 +11,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  AIS_ColoredDrawer, ../NCollection/NCollection_DataMap, ../TopoDS/TopoDS_Shape,
+  ../TopTools/TopTools_ShapeMapHasher
+
 type
-  AIS_DataMapOfShapeDrawer* = NCollectionDataMap[TopoDS_Shape,
-      Handle[AIS_ColoredDrawer], TopToolsShapeMapHasher]
-
-
+  AIS_DataMapOfShapeDrawer* = NCollection_DataMap[TopoDS_Shape,
+      handle[AIS_ColoredDrawer], TopTools_ShapeMapHasher]

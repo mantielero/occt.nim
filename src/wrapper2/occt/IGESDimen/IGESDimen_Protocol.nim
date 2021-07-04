@@ -14,36 +14,39 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../IGESData/IGESData_Protocol,
+  ../Standard/Standard_Integer, ../Standard/Standard_Type
+
 discard "forward decl of Interface_Protocol"
 discard "forward decl of IGESDimen_Protocol"
 discard "forward decl of IGESDimen_Protocol"
 type
-  HandleIGESDimenProtocol* = Handle[IGESDimenProtocol]
+  Handle_IGESDimen_Protocol* = handle[IGESDimen_Protocol]
 
 ## ! Description of Protocol for IGESDimen
 
 type
-  IGESDimenProtocol* {.importcpp: "IGESDimen_Protocol",
-                      header: "IGESDimen_Protocol.hxx", bycopy.} = object of IGESDataProtocol
+  IGESDimen_Protocol* {.importcpp: "IGESDimen_Protocol",
+                       header: "IGESDimen_Protocol.hxx", bycopy.} = object of IGESData_Protocol
 
 
-proc constructIGESDimenProtocol*(): IGESDimenProtocol {.constructor,
+proc constructIGESDimen_Protocol*(): IGESDimen_Protocol {.constructor,
     importcpp: "IGESDimen_Protocol(@)", header: "IGESDimen_Protocol.hxx".}
-proc nbResources*(this: IGESDimenProtocol): StandardInteger {.noSideEffect,
+proc NbResources*(this: IGESDimen_Protocol): Standard_Integer {.noSideEffect,
     importcpp: "NbResources", header: "IGESDimen_Protocol.hxx".}
-proc resource*(this: IGESDimenProtocol; num: StandardInteger): Handle[
-    InterfaceProtocol] {.noSideEffect, importcpp: "Resource",
-                        header: "IGESDimen_Protocol.hxx".}
-proc typeNumber*(this: IGESDimenProtocol; atype: Handle[StandardType]): StandardInteger {.
+proc Resource*(this: IGESDimen_Protocol; num: Standard_Integer): handle[
+    Interface_Protocol] {.noSideEffect, importcpp: "Resource",
+                         header: "IGESDimen_Protocol.hxx".}
+proc TypeNumber*(this: IGESDimen_Protocol; atype: handle[Standard_Type]): Standard_Integer {.
     noSideEffect, importcpp: "TypeNumber", header: "IGESDimen_Protocol.hxx".}
 type
-  IGESDimenProtocolbaseType* = IGESDataProtocol
+  IGESDimen_Protocolbase_type* = IGESData_Protocol
 
-proc getTypeName*(): cstring {.importcpp: "IGESDimen_Protocol::get_type_name(@)",
-                            header: "IGESDimen_Protocol.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "IGESDimen_Protocol::get_type_name(@)",
+                              header: "IGESDimen_Protocol.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "IGESDimen_Protocol::get_type_descriptor(@)",
     header: "IGESDimen_Protocol.hxx".}
-proc dynamicType*(this: IGESDimenProtocol): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: IGESDimen_Protocol): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "IGESDimen_Protocol.hxx".}
-

@@ -11,14 +11,52 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  Aspect_ColorSpace, Aspect_Eye, Aspect_FrustumLRBT, Aspect_GraphicsLibrary,
+  Aspect_XRActionSet, Aspect_XRAnalogActionData, Aspect_XRDigitalActionData,
+  Aspect_XRGenericAction, Aspect_XRHapticActionData, Aspect_XRPoseActionData,
+  Aspect_XRTrackedDeviceRole, ../gp/gp_Trsf, ../NCollection/NCollection_Array1
+
 discard "forward decl of Graphic3d_ArrayOfTriangles"
 discard "forward decl of Image_Texture"
 type
-  AspectXRSession* {.importcpp: "Aspect_XRSession", header: "Aspect_XRSession.hxx",
-                    bycopy.} = object of StandardTransient ## ! Identifies which style of tracking origin the application wants to use for the poses it is requesting.
-                                                      ## ! Return TRUE if session is opened.
-                                                      ## ! Info string enumeration.
-                                                      ## ! Empty constructor.
+  Aspect_XRSession* {.importcpp: "Aspect_XRSession",
+                     header: "Aspect_XRSession.hxx", bycopy.} = object of Standard_Transient ##
+                                                                                      ## !
+                                                                                      ## Identifies
+                                                                                      ## which
+                                                                                      ## style
+                                                                                      ## of
+                                                                                      ## tracking
+                                                                                      ## origin
+                                                                                      ## the
+                                                                                      ## application
+                                                                                      ## wants
+                                                                                      ## to
+                                                                                      ## use
+                                                                                      ## for
+                                                                                      ## the
+                                                                                      ## poses
+                                                                                      ## it
+                                                                                      ## is
+                                                                                      ## requesting.
+                                                                                      ##
+                                                                                      ## !
+                                                                                      ## Return
+                                                                                      ## TRUE
+                                                                                      ## if
+                                                                                      ## session
+                                                                                      ## is
+                                                                                      ## opened.
+                                                                                      ##
+                                                                                      ## !
+                                                                                      ## Info
+                                                                                      ## string
+                                                                                      ## enumeration.
+                                                                                      ##
+                                                                                      ## !
+                                                                                      ## Empty
+                                                                                      ## constructor.
     ## !< generic actions
     ## !< actions sets
     ## !< tracking origin
@@ -33,117 +71,119 @@ type
     ## !< intra-ocular distance in meters
     ## !< display frequency
 
-  AspectXRSessionbaseType* = StandardTransient
+  Aspect_XRSessionbase_type* = Standard_Transient
 
-proc getTypeName*(): cstring {.importcpp: "Aspect_XRSession::get_type_name(@)",
-                            header: "Aspect_XRSession.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "Aspect_XRSession::get_type_name(@)",
+                              header: "Aspect_XRSession.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "Aspect_XRSession::get_type_descriptor(@)",
     header: "Aspect_XRSession.hxx".}
-proc dynamicType*(this: AspectXRSession): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: Aspect_XRSession): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "Aspect_XRSession.hxx".}
 type
-  AspectXRSessionTrackingUniverseOrigin* {.size: sizeof(cint),
+  Aspect_XRSessionTrackingUniverseOrigin* {.size: sizeof(cint),
       importcpp: "Aspect_XRSession::TrackingUniverseOrigin",
       header: "Aspect_XRSession.hxx".} = enum
-    TrackingUniverseOriginSeated, ## ! poses are provided relative to the seated zero pose
-    TrackingUniverseOriginStanding ## ! poses are provided relative to the safe bounds configured by the user
+    TrackingUniverseOrigin_Seated, ## ! poses are provided relative to the seated zero pose
+    TrackingUniverseOrigin_Standing ## ! poses are provided relative to the safe bounds configured by the user
 
 
-proc isOpen*(this: AspectXRSession): bool {.noSideEffect, importcpp: "IsOpen",
-                                        header: "Aspect_XRSession.hxx".}
-proc open*(this: var AspectXRSession): bool {.importcpp: "Open",
+proc IsOpen*(this: Aspect_XRSession): bool {.noSideEffect, importcpp: "IsOpen",
     header: "Aspect_XRSession.hxx".}
-proc close*(this: var AspectXRSession) {.importcpp: "Close",
-                                     header: "Aspect_XRSession.hxx".}
-proc waitPoses*(this: var AspectXRSession): bool {.importcpp: "WaitPoses",
+proc Open*(this: var Aspect_XRSession): bool {.importcpp: "Open",
     header: "Aspect_XRSession.hxx".}
-proc recommendedViewport*(this: AspectXRSession): NCollectionVec2[cint] {.
+proc Close*(this: var Aspect_XRSession) {.importcpp: "Close",
+                                      header: "Aspect_XRSession.hxx".}
+proc WaitPoses*(this: var Aspect_XRSession): bool {.importcpp: "WaitPoses",
+    header: "Aspect_XRSession.hxx".}
+proc RecommendedViewport*(this: Aspect_XRSession): NCollection_Vec2[cint] {.
     noSideEffect, importcpp: "RecommendedViewport", header: "Aspect_XRSession.hxx".}
-proc eyeToHeadTransform*(this: AspectXRSession; theEye: AspectEye): NCollectionMat4[
+proc EyeToHeadTransform*(this: Aspect_XRSession; theEye: Aspect_Eye): NCollection_Mat4[
     cdouble] {.noSideEffect, importcpp: "EyeToHeadTransform",
               header: "Aspect_XRSession.hxx".}
-proc headToEyeTransform*(this: AspectXRSession; theEye: AspectEye): NCollectionMat4[
+proc HeadToEyeTransform*(this: Aspect_XRSession; theEye: Aspect_Eye): NCollection_Mat4[
     cdouble] {.noSideEffect, importcpp: "HeadToEyeTransform",
               header: "Aspect_XRSession.hxx".}
-proc projectionMatrix*(this: AspectXRSession; theEye: AspectEye; theZNear: cdouble;
-                      theZFar: cdouble): NCollectionMat4[cdouble] {.noSideEffect,
+proc ProjectionMatrix*(this: Aspect_XRSession; theEye: Aspect_Eye; theZNear: cdouble;
+                      theZFar: cdouble): NCollection_Mat4[cdouble] {.noSideEffect,
     importcpp: "ProjectionMatrix", header: "Aspect_XRSession.hxx".}
-proc hasProjectionFrustums*(this: AspectXRSession): bool {.noSideEffect,
+proc HasProjectionFrustums*(this: Aspect_XRSession): bool {.noSideEffect,
     importcpp: "HasProjectionFrustums", header: "Aspect_XRSession.hxx".}
-proc processEvents*(this: var AspectXRSession) {.importcpp: "ProcessEvents",
+proc ProcessEvents*(this: var Aspect_XRSession) {.importcpp: "ProcessEvents",
     header: "Aspect_XRSession.hxx".}
-proc submitEye*(this: var AspectXRSession; theTexture: pointer;
-               theGraphicsLib: AspectGraphicsLibrary;
-               theColorSpace: AspectColorSpace; theEye: AspectEye): bool {.
+proc SubmitEye*(this: var Aspect_XRSession; theTexture: pointer;
+               theGraphicsLib: Aspect_GraphicsLibrary;
+               theColorSpace: Aspect_ColorSpace; theEye: Aspect_Eye): bool {.
     importcpp: "SubmitEye", header: "Aspect_XRSession.hxx".}
-proc unitFactor*(this: AspectXRSession): StandardReal {.noSideEffect,
+proc UnitFactor*(this: Aspect_XRSession): Standard_Real {.noSideEffect,
     importcpp: "UnitFactor", header: "Aspect_XRSession.hxx".}
-proc setUnitFactor*(this: var AspectXRSession; theFactor: StandardReal) {.
+proc SetUnitFactor*(this: var Aspect_XRSession; theFactor: Standard_Real) {.
     importcpp: "SetUnitFactor", header: "Aspect_XRSession.hxx".}
-proc aspect*(this: AspectXRSession): StandardReal {.noSideEffect,
+proc Aspect*(this: Aspect_XRSession): Standard_Real {.noSideEffect,
     importcpp: "Aspect", header: "Aspect_XRSession.hxx".}
-proc fieldOfView*(this: AspectXRSession): StandardReal {.noSideEffect,
+proc FieldOfView*(this: Aspect_XRSession): Standard_Real {.noSideEffect,
     importcpp: "FieldOfView", header: "Aspect_XRSession.hxx".}
-proc iod*(this: AspectXRSession): StandardReal {.noSideEffect, importcpp: "IOD",
+proc IOD*(this: Aspect_XRSession): Standard_Real {.noSideEffect, importcpp: "IOD",
     header: "Aspect_XRSession.hxx".}
-proc displayFrequency*(this: AspectXRSession): StandardShortReal {.noSideEffect,
+proc DisplayFrequency*(this: Aspect_XRSession): Standard_ShortReal {.noSideEffect,
     importcpp: "DisplayFrequency", header: "Aspect_XRSession.hxx".}
-proc projectionFrustum*(this: AspectXRSession; theEye: AspectEye): AspectFrustumLRBT[
+proc ProjectionFrustum*(this: Aspect_XRSession; theEye: Aspect_Eye): Aspect_FrustumLRBT[
     cdouble] {.noSideEffect, importcpp: "ProjectionFrustum",
               header: "Aspect_XRSession.hxx".}
-proc headPose*(this: AspectXRSession): GpTrsf {.noSideEffect, importcpp: "HeadPose",
-    header: "Aspect_XRSession.hxx".}
-proc leftHandPose*(this: AspectXRSession): GpTrsf {.noSideEffect,
+proc HeadPose*(this: Aspect_XRSession): gp_Trsf {.noSideEffect,
+    importcpp: "HeadPose", header: "Aspect_XRSession.hxx".}
+proc LeftHandPose*(this: Aspect_XRSession): gp_Trsf {.noSideEffect,
     importcpp: "LeftHandPose", header: "Aspect_XRSession.hxx".}
-proc rightHandPose*(this: AspectXRSession): GpTrsf {.noSideEffect,
+proc RightHandPose*(this: Aspect_XRSession): gp_Trsf {.noSideEffect,
     importcpp: "RightHandPose", header: "Aspect_XRSession.hxx".}
-proc trackedPoses*(this: AspectXRSession): AspectTrackedDevicePoseArray {.
+proc TrackedPoses*(this: Aspect_XRSession): Aspect_TrackedDevicePoseArray {.
     noSideEffect, importcpp: "TrackedPoses", header: "Aspect_XRSession.hxx".}
-proc hasTrackedPose*(this: AspectXRSession; theDevice: StandardInteger): bool {.
+proc HasTrackedPose*(this: Aspect_XRSession; theDevice: Standard_Integer): bool {.
     noSideEffect, importcpp: "HasTrackedPose", header: "Aspect_XRSession.hxx".}
-proc namedTrackedDevice*(this: AspectXRSession;
-                        theDevice: AspectXRTrackedDeviceRole): StandardInteger {.
+proc NamedTrackedDevice*(this: Aspect_XRSession;
+                        theDevice: Aspect_XRTrackedDeviceRole): Standard_Integer {.
     noSideEffect, importcpp: "NamedTrackedDevice", header: "Aspect_XRSession.hxx".}
-proc loadRenderModel*(this: var AspectXRSession; theDevice: StandardInteger;
-                     theTexture: var Handle[ImageTexture]): Handle[
-    Graphic3dArrayOfTriangles] {.importcpp: "LoadRenderModel",
-                                header: "Aspect_XRSession.hxx".}
-proc loadRenderModel*(this: var AspectXRSession; theDevice: StandardInteger;
-                     theToApplyUnitFactor: StandardBoolean;
-                     theTexture: var Handle[ImageTexture]): Handle[
-    Graphic3dArrayOfTriangles] {.importcpp: "LoadRenderModel",
-                                header: "Aspect_XRSession.hxx".}
-proc getDigitalActionData*(this: AspectXRSession; theAction: Handle[AspectXRAction]): AspectXRDigitalActionData {.
+proc LoadRenderModel*(this: var Aspect_XRSession; theDevice: Standard_Integer;
+                     theTexture: var handle[Image_Texture]): handle[
+    Graphic3d_ArrayOfTriangles] {.importcpp: "LoadRenderModel",
+                                 header: "Aspect_XRSession.hxx".}
+proc LoadRenderModel*(this: var Aspect_XRSession; theDevice: Standard_Integer;
+                     theToApplyUnitFactor: Standard_Boolean;
+                     theTexture: var handle[Image_Texture]): handle[
+    Graphic3d_ArrayOfTriangles] {.importcpp: "LoadRenderModel",
+                                 header: "Aspect_XRSession.hxx".}
+proc GetDigitalActionData*(this: Aspect_XRSession;
+                          theAction: handle[Aspect_XRAction]): Aspect_XRDigitalActionData {.
     noSideEffect, importcpp: "GetDigitalActionData", header: "Aspect_XRSession.hxx".}
-proc getAnalogActionData*(this: AspectXRSession; theAction: Handle[AspectXRAction]): AspectXRAnalogActionData {.
+proc GetAnalogActionData*(this: Aspect_XRSession;
+                         theAction: handle[Aspect_XRAction]): Aspect_XRAnalogActionData {.
     noSideEffect, importcpp: "GetAnalogActionData", header: "Aspect_XRSession.hxx".}
-proc getPoseActionDataForNextFrame*(this: AspectXRSession;
-                                   theAction: Handle[AspectXRAction]): AspectXRPoseActionData {.
+proc GetPoseActionDataForNextFrame*(this: Aspect_XRSession;
+                                   theAction: handle[Aspect_XRAction]): Aspect_XRPoseActionData {.
     noSideEffect, importcpp: "GetPoseActionDataForNextFrame",
     header: "Aspect_XRSession.hxx".}
-proc triggerHapticVibrationAction*(this: var AspectXRSession;
-                                  theAction: Handle[AspectXRAction];
-                                  theParams: AspectXRHapticActionData) {.
+proc TriggerHapticVibrationAction*(this: var Aspect_XRSession;
+                                  theAction: handle[Aspect_XRAction];
+                                  theParams: Aspect_XRHapticActionData) {.
     importcpp: "TriggerHapticVibrationAction", header: "Aspect_XRSession.hxx".}
-proc abortHapticVibrationAction*(this: var AspectXRSession;
-                                theAction: Handle[AspectXRAction]) {.
+proc AbortHapticVibrationAction*(this: var Aspect_XRSession;
+                                theAction: handle[Aspect_XRAction]) {.
     importcpp: "AbortHapticVibrationAction", header: "Aspect_XRSession.hxx".}
-proc trackingOrigin*(this: AspectXRSession): AspectXRSessionTrackingUniverseOrigin {.
+proc TrackingOrigin*(this: Aspect_XRSession): Aspect_XRSessionTrackingUniverseOrigin {.
     noSideEffect, importcpp: "TrackingOrigin", header: "Aspect_XRSession.hxx".}
-proc setTrackingOrigin*(this: var AspectXRSession;
-                       theOrigin: AspectXRSessionTrackingUniverseOrigin) {.
+proc SetTrackingOrigin*(this: var Aspect_XRSession;
+                       theOrigin: Aspect_XRSessionTrackingUniverseOrigin) {.
     importcpp: "SetTrackingOrigin", header: "Aspect_XRSession.hxx".}
-proc genericAction*(this: AspectXRSession; theDevice: AspectXRTrackedDeviceRole;
-                   theAction: AspectXRGenericAction): Handle[AspectXRAction] {.
+proc GenericAction*(this: Aspect_XRSession; theDevice: Aspect_XRTrackedDeviceRole;
+                   theAction: Aspect_XRGenericAction): handle[Aspect_XRAction] {.
     noSideEffect, importcpp: "GenericAction", header: "Aspect_XRSession.hxx".}
 type
-  AspectXRSessionInfoString* {.size: sizeof(cint),
-                              importcpp: "Aspect_XRSession::InfoString",
-                              header: "Aspect_XRSession.hxx".} = enum
-    InfoStringVendor, InfoStringDevice, InfoStringTracker, InfoStringSerialNumber
+  Aspect_XRSessionInfoString* {.size: sizeof(cint),
+                               importcpp: "Aspect_XRSession::InfoString",
+                               header: "Aspect_XRSession.hxx".} = enum
+    InfoString_Vendor, InfoString_Device, InfoString_Tracker,
+    InfoString_SerialNumber
 
 
-proc getString*(this: AspectXRSession; theInfo: AspectXRSessionInfoString): TCollectionAsciiString {.
+proc GetString*(this: Aspect_XRSession; theInfo: Aspect_XRSessionInfoString): TCollection_AsciiString {.
     noSideEffect, importcpp: "GetString", header: "Aspect_XRSession.hxx".}
-

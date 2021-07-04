@@ -14,6 +14,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Transient
+
 discard "forward decl of Interface_GeneralModule"
 discard "forward decl of Interface_Protocol"
 discard "forward decl of Standard_Transient"
@@ -22,36 +25,36 @@ discard "forward decl of Interface_NodeOfGeneralLib"
 discard "forward decl of Interface_GlobalNodeOfGeneralLib"
 discard "forward decl of Interface_GlobalNodeOfGeneralLib"
 type
-  HandleInterfaceGlobalNodeOfGeneralLib* = Handle[InterfaceGlobalNodeOfGeneralLib]
-  InterfaceGlobalNodeOfGeneralLib* {.importcpp: "Interface_GlobalNodeOfGeneralLib", header: "Interface_GlobalNodeOfGeneralLib.hxx",
-                                    bycopy.} = object of StandardTransient ## ! Creates an empty
-                                                                      ## GlobalNode, with no Next
+  Handle_Interface_GlobalNodeOfGeneralLib* = handle[
+      Interface_GlobalNodeOfGeneralLib]
+  Interface_GlobalNodeOfGeneralLib* {.importcpp: "Interface_GlobalNodeOfGeneralLib", header: "Interface_GlobalNodeOfGeneralLib.hxx",
+                                     bycopy.} = object of Standard_Transient ## ! Creates an empty
+                                                                        ## GlobalNode, with no Next
 
 
-proc constructInterfaceGlobalNodeOfGeneralLib*(): InterfaceGlobalNodeOfGeneralLib {.
+proc constructInterface_GlobalNodeOfGeneralLib*(): Interface_GlobalNodeOfGeneralLib {.
     constructor, importcpp: "Interface_GlobalNodeOfGeneralLib(@)",
     header: "Interface_GlobalNodeOfGeneralLib.hxx".}
-proc add*(this: var InterfaceGlobalNodeOfGeneralLib;
-         amodule: Handle[InterfaceGeneralModule];
-         aprotocol: Handle[InterfaceProtocol]) {.importcpp: "Add",
+proc Add*(this: var Interface_GlobalNodeOfGeneralLib;
+         amodule: handle[Interface_GeneralModule];
+         aprotocol: handle[Interface_Protocol]) {.importcpp: "Add",
     header: "Interface_GlobalNodeOfGeneralLib.hxx".}
-proc module*(this: InterfaceGlobalNodeOfGeneralLib): Handle[InterfaceGeneralModule] {.
-    noSideEffect, importcpp: "Module",
-    header: "Interface_GlobalNodeOfGeneralLib.hxx".}
-proc protocol*(this: InterfaceGlobalNodeOfGeneralLib): Handle[InterfaceProtocol] {.
+proc Module*(this: Interface_GlobalNodeOfGeneralLib): handle[
+    Interface_GeneralModule] {.noSideEffect, importcpp: "Module",
+                              header: "Interface_GlobalNodeOfGeneralLib.hxx".}
+proc Protocol*(this: Interface_GlobalNodeOfGeneralLib): handle[Interface_Protocol] {.
     noSideEffect, importcpp: "Protocol",
     header: "Interface_GlobalNodeOfGeneralLib.hxx".}
-proc next*(this: InterfaceGlobalNodeOfGeneralLib): Handle[
-    InterfaceGlobalNodeOfGeneralLib] {.noSideEffect, importcpp: "Next", header: "Interface_GlobalNodeOfGeneralLib.hxx".}
+proc Next*(this: Interface_GlobalNodeOfGeneralLib): handle[
+    Interface_GlobalNodeOfGeneralLib] {.noSideEffect, importcpp: "Next", header: "Interface_GlobalNodeOfGeneralLib.hxx".}
 type
-  InterfaceGlobalNodeOfGeneralLibbaseType* = StandardTransient
+  Interface_GlobalNodeOfGeneralLibbase_type* = Standard_Transient
 
-proc getTypeName*(): cstring {.importcpp: "Interface_GlobalNodeOfGeneralLib::get_type_name(@)",
-                            header: "Interface_GlobalNodeOfGeneralLib.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "Interface_GlobalNodeOfGeneralLib::get_type_name(@)",
+                              header: "Interface_GlobalNodeOfGeneralLib.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "Interface_GlobalNodeOfGeneralLib::get_type_descriptor(@)",
     header: "Interface_GlobalNodeOfGeneralLib.hxx".}
-proc dynamicType*(this: InterfaceGlobalNodeOfGeneralLib): Handle[StandardType] {.
+proc DynamicType*(this: Interface_GlobalNodeOfGeneralLib): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType",
     header: "Interface_GlobalNodeOfGeneralLib.hxx".}
-

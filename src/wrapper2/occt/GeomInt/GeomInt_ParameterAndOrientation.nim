@@ -14,30 +14,35 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Real,
+  ../TopAbs/TopAbs_Orientation
+
 type
-  GeomIntParameterAndOrientation* {.importcpp: "GeomInt_ParameterAndOrientation", header: "GeomInt_ParameterAndOrientation.hxx",
-                                   bycopy.} = object
+  GeomInt_ParameterAndOrientation* {.importcpp: "GeomInt_ParameterAndOrientation", header: "GeomInt_ParameterAndOrientation.hxx",
+                                    bycopy.} = object
 
 
-proc constructGeomIntParameterAndOrientation*(): GeomIntParameterAndOrientation {.
+proc constructGeomInt_ParameterAndOrientation*(): GeomInt_ParameterAndOrientation {.
     constructor, importcpp: "GeomInt_ParameterAndOrientation(@)",
     header: "GeomInt_ParameterAndOrientation.hxx".}
-proc constructGeomIntParameterAndOrientation*(p: StandardReal;
-    or1: TopAbsOrientation; or2: TopAbsOrientation): GeomIntParameterAndOrientation {.
+proc constructGeomInt_ParameterAndOrientation*(P: Standard_Real;
+    Or1: TopAbs_Orientation; Or2: TopAbs_Orientation): GeomInt_ParameterAndOrientation {.
     constructor, importcpp: "GeomInt_ParameterAndOrientation(@)",
     header: "GeomInt_ParameterAndOrientation.hxx".}
-proc setOrientation1*(this: var GeomIntParameterAndOrientation;
-                     `or`: TopAbsOrientation) {.importcpp: "SetOrientation1",
+proc SetOrientation1*(this: var GeomInt_ParameterAndOrientation;
+                     Or: TopAbs_Orientation) {.importcpp: "SetOrientation1",
     header: "GeomInt_ParameterAndOrientation.hxx".}
-proc setOrientation2*(this: var GeomIntParameterAndOrientation;
-                     `or`: TopAbsOrientation) {.importcpp: "SetOrientation2",
+proc SetOrientation2*(this: var GeomInt_ParameterAndOrientation;
+                     Or: TopAbs_Orientation) {.importcpp: "SetOrientation2",
     header: "GeomInt_ParameterAndOrientation.hxx".}
-proc parameter*(this: GeomIntParameterAndOrientation): StandardReal {.noSideEffect,
-    importcpp: "Parameter", header: "GeomInt_ParameterAndOrientation.hxx".}
-proc orientation1*(this: GeomIntParameterAndOrientation): TopAbsOrientation {.
+proc Parameter*(this: GeomInt_ParameterAndOrientation): Standard_Real {.
+    noSideEffect, importcpp: "Parameter",
+    header: "GeomInt_ParameterAndOrientation.hxx".}
+proc Orientation1*(this: GeomInt_ParameterAndOrientation): TopAbs_Orientation {.
     noSideEffect, importcpp: "Orientation1",
     header: "GeomInt_ParameterAndOrientation.hxx".}
-proc orientation2*(this: GeomIntParameterAndOrientation): TopAbsOrientation {.
+proc Orientation2*(this: GeomInt_ParameterAndOrientation): TopAbs_Orientation {.
     noSideEffect, importcpp: "Orientation2",
     header: "GeomInt_ParameterAndOrientation.hxx".}
-

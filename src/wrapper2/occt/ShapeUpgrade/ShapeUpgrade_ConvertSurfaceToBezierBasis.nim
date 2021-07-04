@@ -14,12 +14,16 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Boolean,
+  ShapeUpgrade_SplitSurface
+
 discard "forward decl of ShapeExtend_CompositeSurface"
 discard "forward decl of ShapeUpgrade_ConvertSurfaceToBezierBasis"
 discard "forward decl of ShapeUpgrade_ConvertSurfaceToBezierBasis"
 type
-  HandleShapeUpgradeConvertSurfaceToBezierBasis* = Handle[
-      ShapeUpgradeConvertSurfaceToBezierBasis]
+  Handle_ShapeUpgrade_ConvertSurfaceToBezierBasis* = handle[
+      ShapeUpgrade_ConvertSurfaceToBezierBasis]
 
 ## ! Converts a plane, bspline surface, surface of revolution, surface
 ## ! of extrusion, offset surface to grid of bezier basis surface (
@@ -28,54 +32,53 @@ type
 ## ! offset surface based on any previous type).
 
 type
-  ShapeUpgradeConvertSurfaceToBezierBasis* {.
+  ShapeUpgrade_ConvertSurfaceToBezierBasis* {.
       importcpp: "ShapeUpgrade_ConvertSurfaceToBezierBasis",
-      header: "ShapeUpgrade_ConvertSurfaceToBezierBasis.hxx", bycopy.} = object of ShapeUpgradeSplitSurface ##
-                                                                                                     ## !
-                                                                                                     ## Empty
-                                                                                                     ## constructor.
+      header: "ShapeUpgrade_ConvertSurfaceToBezierBasis.hxx", bycopy.} = object of ShapeUpgrade_SplitSurface ##
+                                                                                                      ## !
+                                                                                                      ## Empty
+                                                                                                      ## constructor.
 
 
-proc constructShapeUpgradeConvertSurfaceToBezierBasis*(): ShapeUpgradeConvertSurfaceToBezierBasis {.
+proc constructShapeUpgrade_ConvertSurfaceToBezierBasis*(): ShapeUpgrade_ConvertSurfaceToBezierBasis {.
     constructor, importcpp: "ShapeUpgrade_ConvertSurfaceToBezierBasis(@)",
     header: "ShapeUpgrade_ConvertSurfaceToBezierBasis.hxx".}
-proc build*(this: var ShapeUpgradeConvertSurfaceToBezierBasis;
-           segment: StandardBoolean) {.importcpp: "Build", header: "ShapeUpgrade_ConvertSurfaceToBezierBasis.hxx".}
-proc compute*(this: var ShapeUpgradeConvertSurfaceToBezierBasis;
-             segment: StandardBoolean) {.importcpp: "Compute", header: "ShapeUpgrade_ConvertSurfaceToBezierBasis.hxx".}
-proc segments*(this: ShapeUpgradeConvertSurfaceToBezierBasis): Handle[
-    ShapeExtendCompositeSurface] {.noSideEffect, importcpp: "Segments", header: "ShapeUpgrade_ConvertSurfaceToBezierBasis.hxx".}
-proc setPlaneMode*(this: var ShapeUpgradeConvertSurfaceToBezierBasis;
-                  mode: StandardBoolean) {.importcpp: "SetPlaneMode",
+proc Build*(this: var ShapeUpgrade_ConvertSurfaceToBezierBasis;
+           Segment: Standard_Boolean) {.importcpp: "Build", header: "ShapeUpgrade_ConvertSurfaceToBezierBasis.hxx".}
+proc Compute*(this: var ShapeUpgrade_ConvertSurfaceToBezierBasis;
+             Segment: Standard_Boolean) {.importcpp: "Compute", header: "ShapeUpgrade_ConvertSurfaceToBezierBasis.hxx".}
+proc Segments*(this: ShapeUpgrade_ConvertSurfaceToBezierBasis): handle[
+    ShapeExtend_CompositeSurface] {.noSideEffect, importcpp: "Segments", header: "ShapeUpgrade_ConvertSurfaceToBezierBasis.hxx".}
+proc SetPlaneMode*(this: var ShapeUpgrade_ConvertSurfaceToBezierBasis;
+                  mode: Standard_Boolean) {.importcpp: "SetPlaneMode",
     header: "ShapeUpgrade_ConvertSurfaceToBezierBasis.hxx".}
-proc getPlaneMode*(this: ShapeUpgradeConvertSurfaceToBezierBasis): StandardBoolean {.
+proc GetPlaneMode*(this: ShapeUpgrade_ConvertSurfaceToBezierBasis): Standard_Boolean {.
     noSideEffect, importcpp: "GetPlaneMode",
     header: "ShapeUpgrade_ConvertSurfaceToBezierBasis.hxx".}
-proc setRevolutionMode*(this: var ShapeUpgradeConvertSurfaceToBezierBasis;
-                       mode: StandardBoolean) {.importcpp: "SetRevolutionMode",
+proc SetRevolutionMode*(this: var ShapeUpgrade_ConvertSurfaceToBezierBasis;
+                       mode: Standard_Boolean) {.importcpp: "SetRevolutionMode",
     header: "ShapeUpgrade_ConvertSurfaceToBezierBasis.hxx".}
-proc getRevolutionMode*(this: ShapeUpgradeConvertSurfaceToBezierBasis): StandardBoolean {.
+proc GetRevolutionMode*(this: ShapeUpgrade_ConvertSurfaceToBezierBasis): Standard_Boolean {.
     noSideEffect, importcpp: "GetRevolutionMode",
     header: "ShapeUpgrade_ConvertSurfaceToBezierBasis.hxx".}
-proc setExtrusionMode*(this: var ShapeUpgradeConvertSurfaceToBezierBasis;
-                      mode: StandardBoolean) {.importcpp: "SetExtrusionMode",
+proc SetExtrusionMode*(this: var ShapeUpgrade_ConvertSurfaceToBezierBasis;
+                      mode: Standard_Boolean) {.importcpp: "SetExtrusionMode",
     header: "ShapeUpgrade_ConvertSurfaceToBezierBasis.hxx".}
-proc getExtrusionMode*(this: ShapeUpgradeConvertSurfaceToBezierBasis): StandardBoolean {.
+proc GetExtrusionMode*(this: ShapeUpgrade_ConvertSurfaceToBezierBasis): Standard_Boolean {.
     noSideEffect, importcpp: "GetExtrusionMode",
     header: "ShapeUpgrade_ConvertSurfaceToBezierBasis.hxx".}
-proc setBSplineMode*(this: var ShapeUpgradeConvertSurfaceToBezierBasis;
-                    mode: StandardBoolean) {.importcpp: "SetBSplineMode",
+proc SetBSplineMode*(this: var ShapeUpgrade_ConvertSurfaceToBezierBasis;
+                    mode: Standard_Boolean) {.importcpp: "SetBSplineMode",
     header: "ShapeUpgrade_ConvertSurfaceToBezierBasis.hxx".}
-proc getBSplineMode*(this: ShapeUpgradeConvertSurfaceToBezierBasis): StandardBoolean {.
+proc GetBSplineMode*(this: ShapeUpgrade_ConvertSurfaceToBezierBasis): Standard_Boolean {.
     noSideEffect, importcpp: "GetBSplineMode",
     header: "ShapeUpgrade_ConvertSurfaceToBezierBasis.hxx".}
 type
-  ShapeUpgradeConvertSurfaceToBezierBasisbaseType* = ShapeUpgradeSplitSurface
+  ShapeUpgrade_ConvertSurfaceToBezierBasisbase_type* = ShapeUpgrade_SplitSurface
 
-proc getTypeName*(): cstring {.importcpp: "ShapeUpgrade_ConvertSurfaceToBezierBasis::get_type_name(@)", header: "ShapeUpgrade_ConvertSurfaceToBezierBasis.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "ShapeUpgrade_ConvertSurfaceToBezierBasis::get_type_descriptor(@)",
+proc get_type_name*(): cstring {.importcpp: "ShapeUpgrade_ConvertSurfaceToBezierBasis::get_type_name(@)", header: "ShapeUpgrade_ConvertSurfaceToBezierBasis.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.importcpp: "ShapeUpgrade_ConvertSurfaceToBezierBasis::get_type_descriptor(@)",
     header: "ShapeUpgrade_ConvertSurfaceToBezierBasis.hxx".}
-proc dynamicType*(this: ShapeUpgradeConvertSurfaceToBezierBasis): Handle[
-    StandardType] {.noSideEffect, importcpp: "DynamicType",
-                   header: "ShapeUpgrade_ConvertSurfaceToBezierBasis.hxx".}
-
+proc DynamicType*(this: ShapeUpgrade_ConvertSurfaceToBezierBasis): handle[
+    Standard_Type] {.noSideEffect, importcpp: "DynamicType",
+                    header: "ShapeUpgrade_ConvertSurfaceToBezierBasis.hxx".}

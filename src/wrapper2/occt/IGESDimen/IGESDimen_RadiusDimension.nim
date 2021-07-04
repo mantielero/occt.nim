@@ -14,6 +14,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../gp/gp_XY,
+  ../IGESData/IGESData_IGESEntity, ../Standard/Standard_Integer,
+  ../Standard/Standard_Boolean
+
 discard "forward decl of IGESDimen_GeneralNote"
 discard "forward decl of IGESDimen_LeaderArrow"
 discard "forward decl of gp_XY"
@@ -22,7 +27,7 @@ discard "forward decl of gp_Pnt"
 discard "forward decl of IGESDimen_RadiusDimension"
 discard "forward decl of IGESDimen_RadiusDimension"
 type
-  HandleIGESDimenRadiusDimension* = Handle[IGESDimenRadiusDimension]
+  Handle_IGESDimen_RadiusDimension* = handle[IGESDimen_RadiusDimension]
 
 ## ! Defines IGES Radius Dimension, type <222> Form <0, 1>,
 ## ! in package IGESDimen.
@@ -32,39 +37,39 @@ type
 ## ! leader entities referenced.
 
 type
-  IGESDimenRadiusDimension* {.importcpp: "IGESDimen_RadiusDimension",
-                             header: "IGESDimen_RadiusDimension.hxx", bycopy.} = object of IGESDataIGESEntity
+  IGESDimen_RadiusDimension* {.importcpp: "IGESDimen_RadiusDimension",
+                              header: "IGESDimen_RadiusDimension.hxx", bycopy.} = object of IGESData_IGESEntity
 
 
-proc constructIGESDimenRadiusDimension*(): IGESDimenRadiusDimension {.constructor,
-    importcpp: "IGESDimen_RadiusDimension(@)",
+proc constructIGESDimen_RadiusDimension*(): IGESDimen_RadiusDimension {.
+    constructor, importcpp: "IGESDimen_RadiusDimension(@)",
     header: "IGESDimen_RadiusDimension.hxx".}
-proc init*(this: var IGESDimenRadiusDimension; aNote: Handle[IGESDimenGeneralNote];
-          anArrow: Handle[IGESDimenLeaderArrow]; arcCenter: GpXY;
-          anotherArrow: Handle[IGESDimenLeaderArrow]) {.importcpp: "Init",
+proc Init*(this: var IGESDimen_RadiusDimension;
+          aNote: handle[IGESDimen_GeneralNote];
+          anArrow: handle[IGESDimen_LeaderArrow]; arcCenter: gp_XY;
+          anotherArrow: handle[IGESDimen_LeaderArrow]) {.importcpp: "Init",
     header: "IGESDimen_RadiusDimension.hxx".}
-proc initForm*(this: var IGESDimenRadiusDimension; form: StandardInteger) {.
+proc InitForm*(this: var IGESDimen_RadiusDimension; form: Standard_Integer) {.
     importcpp: "InitForm", header: "IGESDimen_RadiusDimension.hxx".}
-proc note*(this: IGESDimenRadiusDimension): Handle[IGESDimenGeneralNote] {.
+proc Note*(this: IGESDimen_RadiusDimension): handle[IGESDimen_GeneralNote] {.
     noSideEffect, importcpp: "Note", header: "IGESDimen_RadiusDimension.hxx".}
-proc leader*(this: IGESDimenRadiusDimension): Handle[IGESDimenLeaderArrow] {.
+proc Leader*(this: IGESDimen_RadiusDimension): handle[IGESDimen_LeaderArrow] {.
     noSideEffect, importcpp: "Leader", header: "IGESDimen_RadiusDimension.hxx".}
-proc center*(this: IGESDimenRadiusDimension): GpPnt2d {.noSideEffect,
+proc Center*(this: IGESDimen_RadiusDimension): gp_Pnt2d {.noSideEffect,
     importcpp: "Center", header: "IGESDimen_RadiusDimension.hxx".}
-proc transformedCenter*(this: IGESDimenRadiusDimension): GpPnt {.noSideEffect,
+proc TransformedCenter*(this: IGESDimen_RadiusDimension): gp_Pnt {.noSideEffect,
     importcpp: "TransformedCenter", header: "IGESDimen_RadiusDimension.hxx".}
-proc hasLeader2*(this: IGESDimenRadiusDimension): StandardBoolean {.noSideEffect,
+proc HasLeader2*(this: IGESDimen_RadiusDimension): Standard_Boolean {.noSideEffect,
     importcpp: "HasLeader2", header: "IGESDimen_RadiusDimension.hxx".}
-proc leader2*(this: IGESDimenRadiusDimension): Handle[IGESDimenLeaderArrow] {.
+proc Leader2*(this: IGESDimen_RadiusDimension): handle[IGESDimen_LeaderArrow] {.
     noSideEffect, importcpp: "Leader2", header: "IGESDimen_RadiusDimension.hxx".}
 type
-  IGESDimenRadiusDimensionbaseType* = IGESDataIGESEntity
+  IGESDimen_RadiusDimensionbase_type* = IGESData_IGESEntity
 
-proc getTypeName*(): cstring {.importcpp: "IGESDimen_RadiusDimension::get_type_name(@)",
-                            header: "IGESDimen_RadiusDimension.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "IGESDimen_RadiusDimension::get_type_name(@)",
+                              header: "IGESDimen_RadiusDimension.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "IGESDimen_RadiusDimension::get_type_descriptor(@)",
     header: "IGESDimen_RadiusDimension.hxx".}
-proc dynamicType*(this: IGESDimenRadiusDimension): Handle[StandardType] {.
+proc DynamicType*(this: IGESDimen_RadiusDimension): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType", header: "IGESDimen_RadiusDimension.hxx".}
-

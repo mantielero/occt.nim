@@ -14,7 +14,8 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  IntSurf_Couple, ../NCollection/NCollection_Sequence
+
 type
-  IntSurfSequenceOfCouple* = NCollectionSequence[IntSurfCouple]
-
-
+  IntSurf_SequenceOfCouple* = NCollection_Sequence[IntSurf_Couple]

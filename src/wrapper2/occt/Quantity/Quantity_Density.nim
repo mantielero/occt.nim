@@ -14,8 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _Quantity_Density_HeaderFile [NewLine] # _Quantity_Density_HeaderFile [NewLine] # < Standard_Real . hxx > [NewLine] ! Defined as mass per unit volume.
+## !!!Ignored construct:  # _Quantity_Density_HeaderFile [NewLine] # _Quantity_Density_HeaderFile [NewLine] # ../Standard/Standard_Real.hxx [NewLine] ! Defined as mass per unit volume.
 ## ! It is measured in kilograms per cubic metre. Standard_DEPRECATED ( This type is deprecated - Standard_Real should be used instead ) typedef Standard_Real Quantity_Density ;
 ## Error: expected ';'!!!
-
-

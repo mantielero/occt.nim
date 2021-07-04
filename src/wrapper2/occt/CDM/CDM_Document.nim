@@ -14,6 +14,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, CDM_ListOfReferences,
+  CDM_CanCloseStatus, ../TColStd/TColStd_SequenceOfExtendedString,
+  ../TCollection/TCollection_ExtendedString, ../Standard/Standard_OStream,
+  CDM_ListOfDocument
+
 discard "forward decl of CDM_MetaData"
 discard "forward decl of CDM_Application"
 discard "forward decl of Standard_NoSuchObject"
@@ -26,7 +32,7 @@ discard "forward decl of Resource_Manager"
 discard "forward decl of CDM_Document"
 discard "forward decl of CDM_Document"
 type
-  HandleCDM_Document* = Handle[CDM_Document]
+  Handle_CDM_Document* = handle[CDM_Document]
 
 ## ! An applicative document is an instance of a class inheriting CDM_Document.
 ## ! These documents have the following properties:
@@ -61,232 +67,235 @@ type
 ## ! the retrieving of the referenced documents.
 
 type
-  CDM_Document* {.importcpp: "CDM_Document", header: "CDM_Document.hxx", bycopy.} = object of StandardTransient ##
-                                                                                                      ## !
-                                                                                                      ## The
-                                                                                                      ## Update
-                                                                                                      ## method
-                                                                                                      ## will
-                                                                                                      ## be
-                                                                                                      ## called
-                                                                                                      ## once
-                                                                                                      ## for
-                                                                                                      ## each
-                                                                                                      ##
-                                                                                                      ## !
-                                                                                                      ## reference,
-                                                                                                      ## but
-                                                                                                      ## it
-                                                                                                      ## should
-                                                                                                      ## not
-                                                                                                      ## perform
-                                                                                                      ## any
-                                                                                                      ## computation,
-                                                                                                      ##
-                                                                                                      ## !
-                                                                                                      ## to
-                                                                                                      ## avoid
-                                                                                                      ## multiple
-                                                                                                      ## computation
-                                                                                                      ## of
-                                                                                                      ## a
-                                                                                                      ## same
-                                                                                                      ## document.
-                                                                                                      ##
-                                                                                                      ## !
-                                                                                                      ## the
-                                                                                                      ## manager
-                                                                                                      ## returned
-                                                                                                      ## by
-                                                                                                      ## this
-                                                                                                      ## method
-                                                                                                      ## will
-                                                                                                      ## be
-                                                                                                      ##
-                                                                                                      ## !
-                                                                                                      ## used
-                                                                                                      ## to
-                                                                                                      ## search
-                                                                                                      ## for
-                                                                                                      ## the
-                                                                                                      ## following
-                                                                                                      ## resource
-                                                                                                      ## items.
+  CDM_Document* {.importcpp: "CDM_Document", header: "CDM_Document.hxx", bycopy.} = object of Standard_Transient ##
+                                                                                                       ## !
+                                                                                                       ## The
+                                                                                                       ## Update
+                                                                                                       ## method
+                                                                                                       ## will
+                                                                                                       ## be
+                                                                                                       ## called
+                                                                                                       ## once
+                                                                                                       ## for
+                                                                                                       ## each
+                                                                                                       ##
+                                                                                                       ## !
+                                                                                                       ## reference,
+                                                                                                       ## but
+                                                                                                       ## it
+                                                                                                       ## should
+                                                                                                       ## not
+                                                                                                       ## perform
+                                                                                                       ## any
+                                                                                                       ## computation,
+                                                                                                       ##
+                                                                                                       ## !
+                                                                                                       ## to
+                                                                                                       ## avoid
+                                                                                                       ## multiple
+                                                                                                       ## computation
+                                                                                                       ## of
+                                                                                                       ## a
+                                                                                                       ## same
+                                                                                                       ## document.
+                                                                                                       ##
+                                                                                                       ## !
+                                                                                                       ## the
+                                                                                                       ## manager
+                                                                                                       ## returned
+                                                                                                       ## by
+                                                                                                       ## this
+                                                                                                       ## method
+                                                                                                       ## will
+                                                                                                       ## be
+                                                                                                       ##
+                                                                                                       ## !
+                                                                                                       ## used
+                                                                                                       ## to
+                                                                                                       ## search
+                                                                                                       ## for
+                                                                                                       ## the
+                                                                                                       ## following
+                                                                                                       ## resource
+                                                                                                       ## items.
 
 
-proc update*(this: var CDM_Document; aToDocument: Handle[CDM_Document];
-            aReferenceIdentifier: StandardInteger; aModifContext: StandardAddress) {.
+proc Update*(this: var CDM_Document; aToDocument: handle[CDM_Document];
+            aReferenceIdentifier: Standard_Integer;
+            aModifContext: Standard_Address) {.importcpp: "Update",
+    header: "CDM_Document.hxx".}
+proc Update*(this: var CDM_Document; ErrorString: var TCollection_ExtendedString): Standard_Boolean {.
     importcpp: "Update", header: "CDM_Document.hxx".}
-proc update*(this: var CDM_Document; errorString: var TCollectionExtendedString): StandardBoolean {.
-    importcpp: "Update", header: "CDM_Document.hxx".}
-proc storageFormat*(this: CDM_Document): TCollectionExtendedString {.noSideEffect,
+proc StorageFormat*(this: CDM_Document): TCollection_ExtendedString {.noSideEffect,
     importcpp: "StorageFormat", header: "CDM_Document.hxx".}
-proc extensions*(this: CDM_Document;
-                extensions: var TColStdSequenceOfExtendedString) {.noSideEffect,
+proc Extensions*(this: CDM_Document;
+                Extensions: var TColStd_SequenceOfExtendedString) {.noSideEffect,
     importcpp: "Extensions", header: "CDM_Document.hxx".}
-proc getAlternativeDocument*(this: var CDM_Document;
-                            aFormat: TCollectionExtendedString;
-                            anAlternativeDocument: var Handle[CDM_Document]): StandardBoolean {.
+proc GetAlternativeDocument*(this: var CDM_Document;
+                            aFormat: TCollection_ExtendedString;
+                            anAlternativeDocument: var handle[CDM_Document]): Standard_Boolean {.
     importcpp: "GetAlternativeDocument", header: "CDM_Document.hxx".}
-proc createReference*(this: var CDM_Document; anOtherDocument: Handle[CDM_Document]): StandardInteger {.
+proc CreateReference*(this: var CDM_Document; anOtherDocument: handle[CDM_Document]): Standard_Integer {.
     importcpp: "CreateReference", header: "CDM_Document.hxx".}
-proc removeReference*(this: var CDM_Document; aReferenceIdentifier: StandardInteger) {.
+proc RemoveReference*(this: var CDM_Document; aReferenceIdentifier: Standard_Integer) {.
     importcpp: "RemoveReference", header: "CDM_Document.hxx".}
-proc removeAllReferences*(this: var CDM_Document) {.
+proc RemoveAllReferences*(this: var CDM_Document) {.
     importcpp: "RemoveAllReferences", header: "CDM_Document.hxx".}
-proc document*(this: CDM_Document; aReferenceIdentifier: StandardInteger): Handle[
+proc Document*(this: CDM_Document; aReferenceIdentifier: Standard_Integer): handle[
     CDM_Document] {.noSideEffect, importcpp: "Document", header: "CDM_Document.hxx".}
-proc isInSession*(this: CDM_Document; aReferenceIdentifier: StandardInteger): StandardBoolean {.
+proc IsInSession*(this: CDM_Document; aReferenceIdentifier: Standard_Integer): Standard_Boolean {.
     noSideEffect, importcpp: "IsInSession", header: "CDM_Document.hxx".}
-proc isStored*(this: CDM_Document; aReferenceIdentifier: StandardInteger): StandardBoolean {.
+proc IsStored*(this: CDM_Document; aReferenceIdentifier: Standard_Integer): Standard_Boolean {.
     noSideEffect, importcpp: "IsStored", header: "CDM_Document.hxx".}
-proc name*(this: CDM_Document; aReferenceIdentifier: StandardInteger): TCollectionExtendedString {.
+proc Name*(this: CDM_Document; aReferenceIdentifier: Standard_Integer): TCollection_ExtendedString {.
     noSideEffect, importcpp: "Name", header: "CDM_Document.hxx".}
-proc updateFromDocuments*(this: CDM_Document; aModifContext: StandardAddress) {.
+proc UpdateFromDocuments*(this: CDM_Document; aModifContext: Standard_Address) {.
     noSideEffect, importcpp: "UpdateFromDocuments", header: "CDM_Document.hxx".}
-proc toReferencesNumber*(this: CDM_Document): StandardInteger {.noSideEffect,
+proc ToReferencesNumber*(this: CDM_Document): Standard_Integer {.noSideEffect,
     importcpp: "ToReferencesNumber", header: "CDM_Document.hxx".}
-proc fromReferencesNumber*(this: CDM_Document): StandardInteger {.noSideEffect,
+proc FromReferencesNumber*(this: CDM_Document): Standard_Integer {.noSideEffect,
     importcpp: "FromReferencesNumber", header: "CDM_Document.hxx".}
-proc shallowReferences*(this: CDM_Document; aDocument: Handle[CDM_Document]): StandardBoolean {.
+proc ShallowReferences*(this: CDM_Document; aDocument: handle[CDM_Document]): Standard_Boolean {.
     noSideEffect, importcpp: "ShallowReferences", header: "CDM_Document.hxx".}
-proc deepReferences*(this: CDM_Document; aDocument: Handle[CDM_Document]): StandardBoolean {.
+proc DeepReferences*(this: CDM_Document; aDocument: handle[CDM_Document]): Standard_Boolean {.
     noSideEffect, importcpp: "DeepReferences", header: "CDM_Document.hxx".}
-proc copyReference*(this: var CDM_Document; aFromDocument: Handle[CDM_Document];
-                   aReferenceIdentifier: StandardInteger): StandardInteger {.
+proc CopyReference*(this: var CDM_Document; aFromDocument: handle[CDM_Document];
+                   aReferenceIdentifier: Standard_Integer): Standard_Integer {.
     importcpp: "CopyReference", header: "CDM_Document.hxx".}
-proc isReadOnly*(this: CDM_Document): StandardBoolean {.noSideEffect,
+proc IsReadOnly*(this: CDM_Document): Standard_Boolean {.noSideEffect,
     importcpp: "IsReadOnly", header: "CDM_Document.hxx".}
-proc isReadOnly*(this: CDM_Document; aReferenceIdentifier: StandardInteger): StandardBoolean {.
+proc IsReadOnly*(this: CDM_Document; aReferenceIdentifier: Standard_Integer): Standard_Boolean {.
     noSideEffect, importcpp: "IsReadOnly", header: "CDM_Document.hxx".}
-proc setIsReadOnly*(this: var CDM_Document) {.importcpp: "SetIsReadOnly",
+proc SetIsReadOnly*(this: var CDM_Document) {.importcpp: "SetIsReadOnly",
     header: "CDM_Document.hxx".}
-proc unsetIsReadOnly*(this: var CDM_Document) {.importcpp: "UnsetIsReadOnly",
+proc UnsetIsReadOnly*(this: var CDM_Document) {.importcpp: "UnsetIsReadOnly",
     header: "CDM_Document.hxx".}
-proc modify*(this: var CDM_Document) {.importcpp: "Modify", header: "CDM_Document.hxx".}
-proc modifications*(this: CDM_Document): StandardInteger {.noSideEffect,
+proc Modify*(this: var CDM_Document) {.importcpp: "Modify", header: "CDM_Document.hxx".}
+proc Modifications*(this: CDM_Document): Standard_Integer {.noSideEffect,
     importcpp: "Modifications", header: "CDM_Document.hxx".}
-proc unModify*(this: var CDM_Document) {.importcpp: "UnModify",
+proc UnModify*(this: var CDM_Document) {.importcpp: "UnModify",
                                      header: "CDM_Document.hxx".}
-proc isUpToDate*(this: CDM_Document; aReferenceIdentifier: StandardInteger): StandardBoolean {.
+proc IsUpToDate*(this: CDM_Document; aReferenceIdentifier: Standard_Integer): Standard_Boolean {.
     noSideEffect, importcpp: "IsUpToDate", header: "CDM_Document.hxx".}
-proc setIsUpToDate*(this: var CDM_Document; aReferenceIdentifier: StandardInteger) {.
+proc SetIsUpToDate*(this: var CDM_Document; aReferenceIdentifier: Standard_Integer) {.
     importcpp: "SetIsUpToDate", header: "CDM_Document.hxx".}
-proc setComment*(this: var CDM_Document; aComment: TCollectionExtendedString) {.
+proc SetComment*(this: var CDM_Document; aComment: TCollection_ExtendedString) {.
     importcpp: "SetComment", header: "CDM_Document.hxx".}
-proc addComment*(this: var CDM_Document; aComment: TCollectionExtendedString) {.
+proc AddComment*(this: var CDM_Document; aComment: TCollection_ExtendedString) {.
     importcpp: "AddComment", header: "CDM_Document.hxx".}
-proc setComments*(this: var CDM_Document; aComments: TColStdSequenceOfExtendedString) {.
+proc SetComments*(this: var CDM_Document;
+                 aComments: TColStd_SequenceOfExtendedString) {.
     importcpp: "SetComments", header: "CDM_Document.hxx".}
-proc comments*(this: CDM_Document; aComments: var TColStdSequenceOfExtendedString) {.
+proc Comments*(this: CDM_Document; aComments: var TColStd_SequenceOfExtendedString) {.
     noSideEffect, importcpp: "Comments", header: "CDM_Document.hxx".}
-proc comment*(this: CDM_Document): StandardExtString {.noSideEffect,
+proc Comment*(this: CDM_Document): Standard_ExtString {.noSideEffect,
     importcpp: "Comment", header: "CDM_Document.hxx".}
-proc isStored*(this: CDM_Document): StandardBoolean {.noSideEffect,
+proc IsStored*(this: CDM_Document): Standard_Boolean {.noSideEffect,
     importcpp: "IsStored", header: "CDM_Document.hxx".}
-proc storageVersion*(this: CDM_Document): StandardInteger {.noSideEffect,
+proc StorageVersion*(this: CDM_Document): Standard_Integer {.noSideEffect,
     importcpp: "StorageVersion", header: "CDM_Document.hxx".}
-proc setMetaData*(this: var CDM_Document; aMetaData: Handle[CDM_MetaData]) {.
+proc SetMetaData*(this: var CDM_Document; aMetaData: handle[CDM_MetaData]) {.
     importcpp: "SetMetaData", header: "CDM_Document.hxx".}
-proc unsetIsStored*(this: var CDM_Document) {.importcpp: "UnsetIsStored",
+proc UnsetIsStored*(this: var CDM_Document) {.importcpp: "UnsetIsStored",
     header: "CDM_Document.hxx".}
-proc metaData*(this: CDM_Document): Handle[CDM_MetaData] {.noSideEffect,
+proc MetaData*(this: CDM_Document): handle[CDM_MetaData] {.noSideEffect,
     importcpp: "MetaData", header: "CDM_Document.hxx".}
-proc folder*(this: CDM_Document): TCollectionExtendedString {.noSideEffect,
+proc Folder*(this: CDM_Document): TCollection_ExtendedString {.noSideEffect,
     importcpp: "Folder", header: "CDM_Document.hxx".}
-proc setRequestedFolder*(this: var CDM_Document; aFolder: TCollectionExtendedString) {.
+proc SetRequestedFolder*(this: var CDM_Document; aFolder: TCollection_ExtendedString) {.
     importcpp: "SetRequestedFolder", header: "CDM_Document.hxx".}
-proc requestedFolder*(this: CDM_Document): TCollectionExtendedString {.noSideEffect,
-    importcpp: "RequestedFolder", header: "CDM_Document.hxx".}
-proc hasRequestedFolder*(this: CDM_Document): StandardBoolean {.noSideEffect,
+proc RequestedFolder*(this: CDM_Document): TCollection_ExtendedString {.
+    noSideEffect, importcpp: "RequestedFolder", header: "CDM_Document.hxx".}
+proc HasRequestedFolder*(this: CDM_Document): Standard_Boolean {.noSideEffect,
     importcpp: "HasRequestedFolder", header: "CDM_Document.hxx".}
-proc setRequestedName*(this: var CDM_Document; aName: TCollectionExtendedString) {.
+proc SetRequestedName*(this: var CDM_Document; aName: TCollection_ExtendedString) {.
     importcpp: "SetRequestedName", header: "CDM_Document.hxx".}
-proc requestedName*(this: var CDM_Document): TCollectionExtendedString {.
+proc RequestedName*(this: var CDM_Document): TCollection_ExtendedString {.
     importcpp: "RequestedName", header: "CDM_Document.hxx".}
-proc setRequestedPreviousVersion*(this: var CDM_Document;
-                                 aPreviousVersion: TCollectionExtendedString) {.
+proc SetRequestedPreviousVersion*(this: var CDM_Document;
+                                 aPreviousVersion: TCollection_ExtendedString) {.
     importcpp: "SetRequestedPreviousVersion", header: "CDM_Document.hxx".}
-proc unsetRequestedPreviousVersion*(this: var CDM_Document) {.
+proc UnsetRequestedPreviousVersion*(this: var CDM_Document) {.
     importcpp: "UnsetRequestedPreviousVersion", header: "CDM_Document.hxx".}
-proc hasRequestedPreviousVersion*(this: CDM_Document): StandardBoolean {.
+proc HasRequestedPreviousVersion*(this: CDM_Document): Standard_Boolean {.
     noSideEffect, importcpp: "HasRequestedPreviousVersion",
     header: "CDM_Document.hxx".}
-proc requestedPreviousVersion*(this: CDM_Document): TCollectionExtendedString {.
+proc RequestedPreviousVersion*(this: CDM_Document): TCollection_ExtendedString {.
     noSideEffect, importcpp: "RequestedPreviousVersion", header: "CDM_Document.hxx".}
-proc setRequestedComment*(this: var CDM_Document;
-                         aComment: TCollectionExtendedString) {.
+proc SetRequestedComment*(this: var CDM_Document;
+                         aComment: TCollection_ExtendedString) {.
     importcpp: "SetRequestedComment", header: "CDM_Document.hxx".}
-proc requestedComment*(this: CDM_Document): TCollectionExtendedString {.
+proc RequestedComment*(this: CDM_Document): TCollection_ExtendedString {.
     noSideEffect, importcpp: "RequestedComment", header: "CDM_Document.hxx".}
-proc loadResources*(this: var CDM_Document) {.importcpp: "LoadResources",
+proc LoadResources*(this: var CDM_Document) {.importcpp: "LoadResources",
     header: "CDM_Document.hxx".}
-proc findFileExtension*(this: var CDM_Document): StandardBoolean {.
+proc FindFileExtension*(this: var CDM_Document): Standard_Boolean {.
     importcpp: "FindFileExtension", header: "CDM_Document.hxx".}
-proc fileExtension*(this: var CDM_Document): TCollectionExtendedString {.
+proc FileExtension*(this: var CDM_Document): TCollection_ExtendedString {.
     importcpp: "FileExtension", header: "CDM_Document.hxx".}
-proc findDescription*(this: var CDM_Document): StandardBoolean {.
+proc FindDescription*(this: var CDM_Document): Standard_Boolean {.
     importcpp: "FindDescription", header: "CDM_Document.hxx".}
-proc description*(this: var CDM_Document): TCollectionExtendedString {.
+proc Description*(this: var CDM_Document): TCollection_ExtendedString {.
     importcpp: "Description", header: "CDM_Document.hxx".}
-proc isModified*(this: CDM_Document): StandardBoolean {.noSideEffect,
+proc IsModified*(this: CDM_Document): Standard_Boolean {.noSideEffect,
     importcpp: "IsModified", header: "CDM_Document.hxx".}
-proc print*(this: CDM_Document; anOStream: var StandardOStream): var StandardOStream {.
+proc Print*(this: CDM_Document; anOStream: var Standard_OStream): var Standard_OStream {.
     noSideEffect, importcpp: "Print", header: "CDM_Document.hxx".}
-proc `<<`*(this: var CDM_Document; anOStream: var StandardOStream): var StandardOStream {.
+proc `<<`*(this: var CDM_Document; anOStream: var Standard_OStream): var Standard_OStream {.
     importcpp: "(# << #)", header: "CDM_Document.hxx".}
-proc isOpened*(this: CDM_Document): StandardBoolean {.noSideEffect,
+proc IsOpened*(this: CDM_Document): Standard_Boolean {.noSideEffect,
     importcpp: "IsOpened", header: "CDM_Document.hxx".}
-proc open*(this: var CDM_Document; anApplication: Handle[CDM_Application]) {.
+proc Open*(this: var CDM_Document; anApplication: handle[CDM_Application]) {.
     importcpp: "Open", header: "CDM_Document.hxx".}
-proc canClose*(this: CDM_Document): CDM_CanCloseStatus {.noSideEffect,
+proc CanClose*(this: CDM_Document): CDM_CanCloseStatus {.noSideEffect,
     importcpp: "CanClose", header: "CDM_Document.hxx".}
-proc close*(this: var CDM_Document) {.importcpp: "Close", header: "CDM_Document.hxx".}
-proc application*(this: CDM_Document): Handle[CDM_Application] {.noSideEffect,
+proc Close*(this: var CDM_Document) {.importcpp: "Close", header: "CDM_Document.hxx".}
+proc Application*(this: CDM_Document): handle[CDM_Application] {.noSideEffect,
     importcpp: "Application", header: "CDM_Document.hxx".}
-proc canCloseReference*(this: CDM_Document; aDocument: Handle[CDM_Document];
-                       aReferenceIdentifier: StandardInteger): StandardBoolean {.
+proc CanCloseReference*(this: CDM_Document; aDocument: handle[CDM_Document];
+                       aReferenceIdentifier: Standard_Integer): Standard_Boolean {.
     noSideEffect, importcpp: "CanCloseReference", header: "CDM_Document.hxx".}
-proc closeReference*(this: var CDM_Document; aDocument: Handle[CDM_Document];
-                    aReferenceIdentifier: StandardInteger) {.
+proc CloseReference*(this: var CDM_Document; aDocument: handle[CDM_Document];
+                    aReferenceIdentifier: Standard_Integer) {.
     importcpp: "CloseReference", header: "CDM_Document.hxx".}
-proc isOpened*(this: CDM_Document; aReferenceIdentifier: StandardInteger): StandardBoolean {.
+proc IsOpened*(this: CDM_Document; aReferenceIdentifier: Standard_Integer): Standard_Boolean {.
     noSideEffect, importcpp: "IsOpened", header: "CDM_Document.hxx".}
-proc createReference*(this: var CDM_Document; aMetaData: Handle[CDM_MetaData];
-                     aReferenceIdentifier: StandardInteger;
-                     anApplication: Handle[CDM_Application];
-                     aToDocumentVersion: StandardInteger;
-                     useStorageConfiguration: StandardBoolean) {.
+proc CreateReference*(this: var CDM_Document; aMetaData: handle[CDM_MetaData];
+                     aReferenceIdentifier: Standard_Integer;
+                     anApplication: handle[CDM_Application];
+                     aToDocumentVersion: Standard_Integer;
+                     UseStorageConfiguration: Standard_Boolean) {.
     importcpp: "CreateReference", header: "CDM_Document.hxx".}
-proc createReference*(this: var CDM_Document; aMetaData: Handle[CDM_MetaData];
-                     anApplication: Handle[CDM_Application];
-                     aDocumentVersion: StandardInteger;
-                     useStorageConfiguration: StandardBoolean): StandardInteger {.
+proc CreateReference*(this: var CDM_Document; aMetaData: handle[CDM_MetaData];
+                     anApplication: handle[CDM_Application];
+                     aDocumentVersion: Standard_Integer;
+                     UseStorageConfiguration: Standard_Boolean): Standard_Integer {.
     importcpp: "CreateReference", header: "CDM_Document.hxx".}
-proc referenceCounter*(this: CDM_Document): StandardInteger {.noSideEffect,
+proc ReferenceCounter*(this: CDM_Document): Standard_Integer {.noSideEffect,
     importcpp: "ReferenceCounter", header: "CDM_Document.hxx".}
-proc update*(this: var CDM_Document) {.importcpp: "Update", header: "CDM_Document.hxx".}
-proc reference*(this: CDM_Document; aReferenceIdentifier: StandardInteger): Handle[
+proc Update*(this: var CDM_Document) {.importcpp: "Update", header: "CDM_Document.hxx".}
+proc Reference*(this: CDM_Document; aReferenceIdentifier: Standard_Integer): handle[
     CDM_Reference] {.noSideEffect, importcpp: "Reference",
                     header: "CDM_Document.hxx".}
-proc setModifications*(this: var CDM_Document; modifications: StandardInteger) {.
+proc SetModifications*(this: var CDM_Document; Modifications: Standard_Integer) {.
     importcpp: "SetModifications", header: "CDM_Document.hxx".}
-proc setReferenceCounter*(this: var CDM_Document; aReferenceCounter: StandardInteger) {.
+proc SetReferenceCounter*(this: var CDM_Document;
+                         aReferenceCounter: Standard_Integer) {.
     importcpp: "SetReferenceCounter", header: "CDM_Document.hxx".}
-proc storageFormatVersion*(this: CDM_Document): StandardInteger {.noSideEffect,
+proc StorageFormatVersion*(this: CDM_Document): Standard_Integer {.noSideEffect,
     importcpp: "StorageFormatVersion", header: "CDM_Document.hxx".}
-proc changeStorageFormatVersion*(this: var CDM_Document; theVersion: StandardInteger) {.
+proc ChangeStorageFormatVersion*(this: var CDM_Document;
+                                theVersion: Standard_Integer) {.
     importcpp: "ChangeStorageFormatVersion", header: "CDM_Document.hxx".}
-proc dumpJson*(this: CDM_Document; theOStream: var StandardOStream;
-              theDepth: StandardInteger = -1) {.noSideEffect, importcpp: "DumpJson",
+proc DumpJson*(this: CDM_Document; theOStream: var Standard_OStream;
+              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
     header: "CDM_Document.hxx".}
 type
-  CDM_DocumentbaseType* = StandardTransient
+  CDM_Documentbase_type* = Standard_Transient
 
-proc getTypeName*(): cstring {.importcpp: "CDM_Document::get_type_name(@)",
-                            header: "CDM_Document.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "CDM_Document::get_type_name(@)",
+                              header: "CDM_Document.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "CDM_Document::get_type_descriptor(@)", header: "CDM_Document.hxx".}
-proc dynamicType*(this: CDM_Document): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: CDM_Document): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "CDM_Document.hxx".}
-

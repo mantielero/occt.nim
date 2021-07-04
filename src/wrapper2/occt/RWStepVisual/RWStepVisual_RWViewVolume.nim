@@ -14,27 +14,30 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepVisual_ViewVolume"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepVisualRWViewVolume* {.importcpp: "RWStepVisual_RWViewVolume",
-                             header: "RWStepVisual_RWViewVolume.hxx", bycopy.} = object
+  RWStepVisual_RWViewVolume* {.importcpp: "RWStepVisual_RWViewVolume",
+                              header: "RWStepVisual_RWViewVolume.hxx", bycopy.} = object
 
 
-proc constructRWStepVisualRWViewVolume*(): RWStepVisualRWViewVolume {.constructor,
-    importcpp: "RWStepVisual_RWViewVolume(@)",
+proc constructRWStepVisual_RWViewVolume*(): RWStepVisual_RWViewVolume {.
+    constructor, importcpp: "RWStepVisual_RWViewVolume(@)",
     header: "RWStepVisual_RWViewVolume.hxx".}
-proc readStep*(this: RWStepVisualRWViewVolume;
-              data: Handle[StepDataStepReaderData]; num: StandardInteger;
-              ach: var Handle[InterfaceCheck]; ent: Handle[StepVisualViewVolume]) {.
+proc ReadStep*(this: RWStepVisual_RWViewVolume;
+              data: handle[StepData_StepReaderData]; num: Standard_Integer;
+              ach: var handle[Interface_Check]; ent: handle[StepVisual_ViewVolume]) {.
     noSideEffect, importcpp: "ReadStep", header: "RWStepVisual_RWViewVolume.hxx".}
-proc writeStep*(this: RWStepVisualRWViewVolume; sw: var StepDataStepWriter;
-               ent: Handle[StepVisualViewVolume]) {.noSideEffect,
+proc WriteStep*(this: RWStepVisual_RWViewVolume; SW: var StepData_StepWriter;
+               ent: handle[StepVisual_ViewVolume]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepVisual_RWViewVolume.hxx".}
-proc share*(this: RWStepVisualRWViewVolume; ent: Handle[StepVisualViewVolume];
-           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
+proc Share*(this: RWStepVisual_RWViewVolume; ent: handle[StepVisual_ViewVolume];
+           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepVisual_RWViewVolume.hxx".}
-

@@ -14,6 +14,15 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type,
+  ../TCollection/TCollection_AsciiString,
+  Resource_DataMapOfAsciiStringAsciiString,
+  Resource_DataMapOfAsciiStringExtendedString, ../Standard/Standard_Boolean,
+  ../Standard/Standard_Transient, ../Standard/Standard_CString,
+  ../Standard/Standard_Integer, ../Standard/Standard_Real,
+  ../Standard/Standard_ExtString
+
 discard "forward decl of Standard_TypeMismatch"
 discard "forward decl of Resource_NoSuchResource"
 discard "forward decl of Standard_OutOfRange"
@@ -21,72 +30,145 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of Resource_Manager"
 discard "forward decl of Resource_Manager"
 type
-  HandleResourceManager* = Handle[ResourceManager]
+  Handle_Resource_Manager* = handle[Resource_Manager]
 
 ## ! Defines a resource structure and its management methods.
 
 type
-  ResourceManager* {.importcpp: "Resource_Manager", header: "Resource_Manager.hxx",
-                    bycopy.} = object of StandardTransient ## ! Create a Resource manager.
-                                                      ## ! Attempts to find the two following files:
-                                                      ## ! $CSF_`aName`Defaults/aName
-                                                      ## !
-                                                      ## $CSF_`aName`UserDefaults/aName
-                                                      ## ! and load them respectively into a reference and a user resource structure.
-                                                      ## !
-                                                      ## ! If CSF_ResourceVerbose defined, seeked files will be printed.
-                                                      ## !
-                                                      ## ! FILE SYNTAX
-                                                      ## ! The syntax of a resource file is a sequence of resource
-                                                      ## ! lines terminated by newline characters or end of file.  The
-                                                      ## ! syntax of an individual resource line is:
+  Resource_Manager* {.importcpp: "Resource_Manager",
+                     header: "Resource_Manager.hxx", bycopy.} = object of Standard_Transient ##
+                                                                                      ## !
+                                                                                      ## Create
+                                                                                      ## a
+                                                                                      ## Resource
+                                                                                      ## manager.
+                                                                                      ##
+                                                                                      ## !
+                                                                                      ## Attempts
+                                                                                      ## to
+                                                                                      ## find
+                                                                                      ## the
+                                                                                      ## two
+                                                                                      ## following
+                                                                                      ## files:
+                                                                                      ##
+                                                                                      ## !
+                                                                                      ## $CSF_`aName`Defaults/aName
+                                                                                      ##
+                                                                                      ## !
+                                                                                      ## $CSF_`aName`UserDefaults/aName
+                                                                                      ##
+                                                                                      ## !
+                                                                                      ## and
+                                                                                      ## load
+                                                                                      ## them
+                                                                                      ## respectively
+                                                                                      ## into
+                                                                                      ## a
+                                                                                      ## reference
+                                                                                      ## and
+                                                                                      ## a
+                                                                                      ## user
+                                                                                      ## resource
+                                                                                      ## structure.
+                                                                                      ##
+                                                                                      ## !
+                                                                                      ##
+                                                                                      ## !
+                                                                                      ## If
+                                                                                      ## CSF_ResourceVerbose
+                                                                                      ## defined,
+                                                                                      ## seeked
+                                                                                      ## files
+                                                                                      ## will
+                                                                                      ## be
+                                                                                      ## printed.
+                                                                                      ##
+                                                                                      ## !
+                                                                                      ##
+                                                                                      ## !
+                                                                                      ## FILE
+                                                                                      ## SYNTAX
+                                                                                      ##
+                                                                                      ## !
+                                                                                      ## The
+                                                                                      ## syntax
+                                                                                      ## of
+                                                                                      ## a
+                                                                                      ## resource
+                                                                                      ## file
+                                                                                      ## is
+                                                                                      ## a
+                                                                                      ## sequence
+                                                                                      ## of
+                                                                                      ## resource
+                                                                                      ##
+                                                                                      ## !
+                                                                                      ## lines
+                                                                                      ## terminated
+                                                                                      ## by
+                                                                                      ## newline
+                                                                                      ## characters
+                                                                                      ## or
+                                                                                      ## end
+                                                                                      ## of
+                                                                                      ## file.
+                                                                                      ## The
+                                                                                      ##
+                                                                                      ## !
+                                                                                      ## syntax
+                                                                                      ## of
+                                                                                      ## an
+                                                                                      ## individual
+                                                                                      ## resource
+                                                                                      ## line
+                                                                                      ## is:
 
-  ResourceManagerbaseType* = StandardTransient
+  Resource_Managerbase_type* = Standard_Transient
 
-proc getTypeName*(): cstring {.importcpp: "Resource_Manager::get_type_name(@)",
-                            header: "Resource_Manager.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "Resource_Manager::get_type_name(@)",
+                              header: "Resource_Manager.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "Resource_Manager::get_type_descriptor(@)",
     header: "Resource_Manager.hxx".}
-proc dynamicType*(this: ResourceManager): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: Resource_Manager): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "Resource_Manager.hxx".}
-proc constructResourceManager*(aName: StandardCString;
-                              verbose: StandardBoolean = standardFalse): ResourceManager {.
+proc constructResource_Manager*(aName: Standard_CString;
+                               Verbose: Standard_Boolean = Standard_False): Resource_Manager {.
     constructor, importcpp: "Resource_Manager(@)", header: "Resource_Manager.hxx".}
-proc constructResourceManager*(theName: TCollectionAsciiString;
-                              theDefaultsDirectory: TCollectionAsciiString;
-                              theUserDefaultsDirectory: TCollectionAsciiString;
-                              theIsVerbose: StandardBoolean = standardFalse): ResourceManager {.
+proc constructResource_Manager*(theName: TCollection_AsciiString;
+                               theDefaultsDirectory: TCollection_AsciiString;
+    theUserDefaultsDirectory: TCollection_AsciiString;
+                               theIsVerbose: Standard_Boolean = Standard_False): Resource_Manager {.
     constructor, importcpp: "Resource_Manager(@)", header: "Resource_Manager.hxx".}
-proc save*(this: ResourceManager): StandardBoolean {.noSideEffect, importcpp: "Save",
-    header: "Resource_Manager.hxx".}
-proc find*(this: ResourceManager; aResource: StandardCString): StandardBoolean {.
+proc Save*(this: Resource_Manager): Standard_Boolean {.noSideEffect,
+    importcpp: "Save", header: "Resource_Manager.hxx".}
+proc Find*(this: Resource_Manager; aResource: Standard_CString): Standard_Boolean {.
     noSideEffect, importcpp: "Find", header: "Resource_Manager.hxx".}
-proc find*(this: ResourceManager; theResource: TCollectionAsciiString;
-          theValue: var TCollectionAsciiString): StandardBoolean {.noSideEffect,
+proc Find*(this: Resource_Manager; theResource: TCollection_AsciiString;
+          theValue: var TCollection_AsciiString): Standard_Boolean {.noSideEffect,
     importcpp: "Find", header: "Resource_Manager.hxx".}
-proc integer*(this: ResourceManager; aResourceName: StandardCString): StandardInteger {.
+proc Integer*(this: Resource_Manager; aResourceName: Standard_CString): Standard_Integer {.
     noSideEffect, importcpp: "Integer", header: "Resource_Manager.hxx".}
-proc real*(this: ResourceManager; aResourceName: StandardCString): StandardReal {.
+proc Real*(this: Resource_Manager; aResourceName: Standard_CString): Standard_Real {.
     noSideEffect, importcpp: "Real", header: "Resource_Manager.hxx".}
-proc value*(this: ResourceManager; aResourceName: StandardCString): StandardCString {.
+proc Value*(this: Resource_Manager; aResourceName: Standard_CString): Standard_CString {.
     noSideEffect, importcpp: "Value", header: "Resource_Manager.hxx".}
-proc extValue*(this: var ResourceManager; aResourceName: StandardCString): StandardExtString {.
+proc ExtValue*(this: var Resource_Manager; aResourceName: Standard_CString): Standard_ExtString {.
     importcpp: "ExtValue", header: "Resource_Manager.hxx".}
-proc setResource*(this: var ResourceManager; aResourceName: StandardCString;
-                 aValue: StandardInteger) {.importcpp: "SetResource",
+proc SetResource*(this: var Resource_Manager; aResourceName: Standard_CString;
+                 aValue: Standard_Integer) {.importcpp: "SetResource",
     header: "Resource_Manager.hxx".}
-proc setResource*(this: var ResourceManager; aResourceName: StandardCString;
-                 aValue: StandardReal) {.importcpp: "SetResource",
-                                       header: "Resource_Manager.hxx".}
-proc setResource*(this: var ResourceManager; aResourceName: StandardCString;
-                 aValue: StandardCString) {.importcpp: "SetResource",
+proc SetResource*(this: var Resource_Manager; aResourceName: Standard_CString;
+                 aValue: Standard_Real) {.importcpp: "SetResource",
+                                        header: "Resource_Manager.hxx".}
+proc SetResource*(this: var Resource_Manager; aResourceName: Standard_CString;
+                 aValue: Standard_CString) {.importcpp: "SetResource",
     header: "Resource_Manager.hxx".}
-proc setResource*(this: var ResourceManager; aResourceName: StandardCString;
-                 aValue: StandardExtString) {.importcpp: "SetResource",
+proc SetResource*(this: var Resource_Manager; aResourceName: Standard_CString;
+                 aValue: Standard_ExtString) {.importcpp: "SetResource",
     header: "Resource_Manager.hxx".}
-proc getResourcePath*(aPath: var TCollectionAsciiString; aName: StandardCString;
-                     isUserDefaults: StandardBoolean) {.
+proc GetResourcePath*(aPath: var TCollection_AsciiString; aName: Standard_CString;
+                     isUserDefaults: Standard_Boolean) {.
     importcpp: "Resource_Manager::GetResourcePath(@)",
     header: "Resource_Manager.hxx".}
-

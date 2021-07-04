@@ -14,6 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../gp/gp_Vec, Geom_Geometry,
+  ../Standard/Standard_Real
+
 discard "forward decl of Standard_ConstructionError"
 discard "forward decl of Standard_DomainError"
 discard "forward decl of gp_VectorWithNullMagnitude"
@@ -21,7 +25,7 @@ discard "forward decl of gp_Vec"
 discard "forward decl of Geom_Vector"
 discard "forward decl of Geom_Vector"
 type
-  HandleGeomVector* = Handle[GeomVector]
+  Handle_Geom_Vector* = handle[Geom_Vector]
 
 ## ! The abstract class Vector describes the common
 ## ! behavior of vectors in 3D space.
@@ -29,58 +33,59 @@ type
 ## ! vectors: Geom_Direction (unit vector) and Geom_VectorWithMagnitude.
 
 type
-  GeomVector* {.importcpp: "Geom_Vector", header: "Geom_Vector.hxx", bycopy.} = object of GeomGeometry ##
-                                                                                             ## !
-                                                                                             ## Reverses
-                                                                                             ## the
-                                                                                             ## vector
-                                                                                             ## <me>.
-    opencascade* {.importc: "opencascade".}: StandardNODISCARD
+  Geom_Vector* {.importcpp: "Geom_Vector", header: "Geom_Vector.hxx", bycopy.} = object of Geom_Geometry ##
+                                                                                               ## !
+                                                                                               ## Reverses
+                                                                                               ## the
+                                                                                               ## vector
+                                                                                               ## <me>.
+    opencascade* {.importc: "opencascade".}: Standard_NODISCARD
 
 
-proc reverse*(this: var GeomVector) {.importcpp: "Reverse", header: "Geom_Vector.hxx".}
+proc Reverse*(this: var Geom_Vector) {.importcpp: "Reverse", header: "Geom_Vector.hxx".}
 ## !!!Ignored construct:  :: handle < Geom_Vector > [end of template] Reversed ( ) const ;
 ## Error: identifier expected, but got: ::!!!
 
-proc angle*(this: GeomVector; other: Handle[GeomVector]): StandardReal {.noSideEffect,
-    importcpp: "Angle", header: "Geom_Vector.hxx".}
-proc angleWithRef*(this: GeomVector; other: Handle[GeomVector];
-                  vRef: Handle[GeomVector]): StandardReal {.noSideEffect,
+proc Angle*(this: Geom_Vector; Other: handle[Geom_Vector]): Standard_Real {.
+    noSideEffect, importcpp: "Angle", header: "Geom_Vector.hxx".}
+proc AngleWithRef*(this: Geom_Vector; Other: handle[Geom_Vector];
+                  VRef: handle[Geom_Vector]): Standard_Real {.noSideEffect,
     importcpp: "AngleWithRef", header: "Geom_Vector.hxx".}
-proc coord*(this: GeomVector; x: var StandardReal; y: var StandardReal;
-           z: var StandardReal) {.noSideEffect, importcpp: "Coord",
-                               header: "Geom_Vector.hxx".}
-proc magnitude*(this: GeomVector): StandardReal {.noSideEffect,
+proc Coord*(this: Geom_Vector; X: var Standard_Real; Y: var Standard_Real;
+           Z: var Standard_Real) {.noSideEffect, importcpp: "Coord",
+                                header: "Geom_Vector.hxx".}
+proc Magnitude*(this: Geom_Vector): Standard_Real {.noSideEffect,
     importcpp: "Magnitude", header: "Geom_Vector.hxx".}
-proc squareMagnitude*(this: GeomVector): StandardReal {.noSideEffect,
+proc SquareMagnitude*(this: Geom_Vector): Standard_Real {.noSideEffect,
     importcpp: "SquareMagnitude", header: "Geom_Vector.hxx".}
-proc x*(this: GeomVector): StandardReal {.noSideEffect, importcpp: "X",
-                                      header: "Geom_Vector.hxx".}
-proc y*(this: GeomVector): StandardReal {.noSideEffect, importcpp: "Y",
-                                      header: "Geom_Vector.hxx".}
-proc z*(this: GeomVector): StandardReal {.noSideEffect, importcpp: "Z",
-                                      header: "Geom_Vector.hxx".}
-proc cross*(this: var GeomVector; other: Handle[GeomVector]) {.importcpp: "Cross",
+proc X*(this: Geom_Vector): Standard_Real {.noSideEffect, importcpp: "X",
+                                        header: "Geom_Vector.hxx".}
+proc Y*(this: Geom_Vector): Standard_Real {.noSideEffect, importcpp: "Y",
+                                        header: "Geom_Vector.hxx".}
+proc Z*(this: Geom_Vector): Standard_Real {.noSideEffect, importcpp: "Z",
+                                        header: "Geom_Vector.hxx".}
+proc Cross*(this: var Geom_Vector; Other: handle[Geom_Vector]) {.importcpp: "Cross",
     header: "Geom_Vector.hxx".}
-proc crossed*(this: GeomVector; other: Handle[GeomVector]): Handle[GeomVector] {.
+proc Crossed*(this: Geom_Vector; Other: handle[Geom_Vector]): handle[Geom_Vector] {.
     noSideEffect, importcpp: "Crossed", header: "Geom_Vector.hxx".}
-proc crossCross*(this: var GeomVector; v1: Handle[GeomVector]; v2: Handle[GeomVector]) {.
-    importcpp: "CrossCross", header: "Geom_Vector.hxx".}
-proc crossCrossed*(this: GeomVector; v1: Handle[GeomVector]; v2: Handle[GeomVector]): Handle[
-    GeomVector] {.noSideEffect, importcpp: "CrossCrossed", header: "Geom_Vector.hxx".}
-proc dot*(this: GeomVector; other: Handle[GeomVector]): StandardReal {.noSideEffect,
-    importcpp: "Dot", header: "Geom_Vector.hxx".}
-proc dotCross*(this: GeomVector; v1: Handle[GeomVector]; v2: Handle[GeomVector]): StandardReal {.
+proc CrossCross*(this: var Geom_Vector; V1: handle[Geom_Vector];
+                V2: handle[Geom_Vector]) {.importcpp: "CrossCross",
+    header: "Geom_Vector.hxx".}
+proc CrossCrossed*(this: Geom_Vector; V1: handle[Geom_Vector];
+                  V2: handle[Geom_Vector]): handle[Geom_Vector] {.noSideEffect,
+    importcpp: "CrossCrossed", header: "Geom_Vector.hxx".}
+proc Dot*(this: Geom_Vector; Other: handle[Geom_Vector]): Standard_Real {.
+    noSideEffect, importcpp: "Dot", header: "Geom_Vector.hxx".}
+proc DotCross*(this: Geom_Vector; V1: handle[Geom_Vector]; V2: handle[Geom_Vector]): Standard_Real {.
     noSideEffect, importcpp: "DotCross", header: "Geom_Vector.hxx".}
-proc vec*(this: GeomVector): GpVec {.noSideEffect, importcpp: "Vec",
-                                 header: "Geom_Vector.hxx".}
+proc Vec*(this: Geom_Vector): gp_Vec {.noSideEffect, importcpp: "Vec",
+                                   header: "Geom_Vector.hxx".}
 type
-  GeomVectorbaseType* = GeomGeometry
+  Geom_Vectorbase_type* = Geom_Geometry
 
-proc getTypeName*(): cstring {.importcpp: "Geom_Vector::get_type_name(@)",
-                            header: "Geom_Vector.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "Geom_Vector::get_type_name(@)",
+                              header: "Geom_Vector.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "Geom_Vector::get_type_descriptor(@)", header: "Geom_Vector.hxx".}
-proc dynamicType*(this: GeomVector): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: Geom_Vector): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "Geom_Vector.hxx".}
-

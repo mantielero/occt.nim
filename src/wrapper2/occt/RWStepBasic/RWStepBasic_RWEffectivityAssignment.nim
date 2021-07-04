@@ -13,30 +13,33 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepBasic_EffectivityAssignment"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepBasicRWEffectivityAssignment* {.importcpp: "RWStepBasic_RWEffectivityAssignment", header: "RWStepBasic_RWEffectivityAssignment.hxx",
-                                       bycopy.} = object ## ! Empty constructor
+  RWStepBasic_RWEffectivityAssignment* {.importcpp: "RWStepBasic_RWEffectivityAssignment", header: "RWStepBasic_RWEffectivityAssignment.hxx",
+                                        bycopy.} = object ## ! Empty constructor
 
 
-proc constructRWStepBasicRWEffectivityAssignment*(): RWStepBasicRWEffectivityAssignment {.
+proc constructRWStepBasic_RWEffectivityAssignment*(): RWStepBasic_RWEffectivityAssignment {.
     constructor, importcpp: "RWStepBasic_RWEffectivityAssignment(@)",
     header: "RWStepBasic_RWEffectivityAssignment.hxx".}
-proc readStep*(this: RWStepBasicRWEffectivityAssignment;
-              data: Handle[StepDataStepReaderData]; num: StandardInteger;
-              ach: var Handle[InterfaceCheck];
-              ent: Handle[StepBasicEffectivityAssignment]) {.noSideEffect,
+proc ReadStep*(this: RWStepBasic_RWEffectivityAssignment;
+              data: handle[StepData_StepReaderData]; num: Standard_Integer;
+              ach: var handle[Interface_Check];
+              ent: handle[StepBasic_EffectivityAssignment]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepBasic_RWEffectivityAssignment.hxx".}
-proc writeStep*(this: RWStepBasicRWEffectivityAssignment;
-               sw: var StepDataStepWriter;
-               ent: Handle[StepBasicEffectivityAssignment]) {.noSideEffect,
+proc WriteStep*(this: RWStepBasic_RWEffectivityAssignment;
+               SW: var StepData_StepWriter;
+               ent: handle[StepBasic_EffectivityAssignment]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepBasic_RWEffectivityAssignment.hxx".}
-proc share*(this: RWStepBasicRWEffectivityAssignment;
-           ent: Handle[StepBasicEffectivityAssignment];
-           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
+proc Share*(this: RWStepBasic_RWEffectivityAssignment;
+           ent: handle[StepBasic_EffectivityAssignment];
+           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepBasic_RWEffectivityAssignment.hxx".}
-

@@ -14,6 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 discard "forward decl of Standard_DomainError"
 discard "forward decl of IGESSolid_Ellipsoid"
 discard "forward decl of IGESData_IGESReaderData"
@@ -26,35 +30,40 @@ discard "forward decl of Interface_Check"
 discard "forward decl of Interface_CopyTool"
 discard "forward decl of IGESData_IGESDumper"
 type
-  IGESSolidToolEllipsoid* {.importcpp: "IGESSolid_ToolEllipsoid",
-                           header: "IGESSolid_ToolEllipsoid.hxx", bycopy.} = object ## !
-                                                                               ## Returns a
-                                                                               ## ToolEllipsoid,
-                                                                               ## ready
-                                                                               ## to
-                                                                               ## work
+  IGESSolid_ToolEllipsoid* {.importcpp: "IGESSolid_ToolEllipsoid",
+                            header: "IGESSolid_ToolEllipsoid.hxx", bycopy.} = object ##
+                                                                                ## !
+                                                                                ## Returns
+                                                                                ## a
+                                                                                ## ToolEllipsoid,
+                                                                                ## ready
+                                                                                ## to
+                                                                                ## work
 
 
-proc constructIGESSolidToolEllipsoid*(): IGESSolidToolEllipsoid {.constructor,
+proc constructIGESSolid_ToolEllipsoid*(): IGESSolid_ToolEllipsoid {.constructor,
     importcpp: "IGESSolid_ToolEllipsoid(@)", header: "IGESSolid_ToolEllipsoid.hxx".}
-proc readOwnParams*(this: IGESSolidToolEllipsoid; ent: Handle[IGESSolidEllipsoid];
-                   ir: Handle[IGESDataIGESReaderData]; pr: var IGESDataParamReader) {.
-    noSideEffect, importcpp: "ReadOwnParams", header: "IGESSolid_ToolEllipsoid.hxx".}
-proc writeOwnParams*(this: IGESSolidToolEllipsoid; ent: Handle[IGESSolidEllipsoid];
-                    iw: var IGESDataIGESWriter) {.noSideEffect,
-    importcpp: "WriteOwnParams", header: "IGESSolid_ToolEllipsoid.hxx".}
-proc ownShared*(this: IGESSolidToolEllipsoid; ent: Handle[IGESSolidEllipsoid];
-               iter: var InterfaceEntityIterator) {.noSideEffect,
+proc ReadOwnParams*(this: IGESSolid_ToolEllipsoid;
+                   ent: handle[IGESSolid_Ellipsoid];
+                   IR: handle[IGESData_IGESReaderData];
+                   PR: var IGESData_ParamReader) {.noSideEffect,
+    importcpp: "ReadOwnParams", header: "IGESSolid_ToolEllipsoid.hxx".}
+proc WriteOwnParams*(this: IGESSolid_ToolEllipsoid;
+                    ent: handle[IGESSolid_Ellipsoid]; IW: var IGESData_IGESWriter) {.
+    noSideEffect, importcpp: "WriteOwnParams",
+    header: "IGESSolid_ToolEllipsoid.hxx".}
+proc OwnShared*(this: IGESSolid_ToolEllipsoid; ent: handle[IGESSolid_Ellipsoid];
+               iter: var Interface_EntityIterator) {.noSideEffect,
     importcpp: "OwnShared", header: "IGESSolid_ToolEllipsoid.hxx".}
-proc dirChecker*(this: IGESSolidToolEllipsoid; ent: Handle[IGESSolidEllipsoid]): IGESDataDirChecker {.
+proc DirChecker*(this: IGESSolid_ToolEllipsoid; ent: handle[IGESSolid_Ellipsoid]): IGESData_DirChecker {.
     noSideEffect, importcpp: "DirChecker", header: "IGESSolid_ToolEllipsoid.hxx".}
-proc ownCheck*(this: IGESSolidToolEllipsoid; ent: Handle[IGESSolidEllipsoid];
-              shares: InterfaceShareTool; ach: var Handle[InterfaceCheck]) {.
+proc OwnCheck*(this: IGESSolid_ToolEllipsoid; ent: handle[IGESSolid_Ellipsoid];
+              shares: Interface_ShareTool; ach: var handle[Interface_Check]) {.
     noSideEffect, importcpp: "OwnCheck", header: "IGESSolid_ToolEllipsoid.hxx".}
-proc ownCopy*(this: IGESSolidToolEllipsoid; entfrom: Handle[IGESSolidEllipsoid];
-             entto: Handle[IGESSolidEllipsoid]; tc: var InterfaceCopyTool) {.
+proc OwnCopy*(this: IGESSolid_ToolEllipsoid; entfrom: handle[IGESSolid_Ellipsoid];
+             entto: handle[IGESSolid_Ellipsoid]; TC: var Interface_CopyTool) {.
     noSideEffect, importcpp: "OwnCopy", header: "IGESSolid_ToolEllipsoid.hxx".}
-proc ownDump*(this: IGESSolidToolEllipsoid; ent: Handle[IGESSolidEllipsoid];
-             dumper: IGESDataIGESDumper; s: var StandardOStream; own: StandardInteger) {.
-    noSideEffect, importcpp: "OwnDump", header: "IGESSolid_ToolEllipsoid.hxx".}
-
+proc OwnDump*(this: IGESSolid_ToolEllipsoid; ent: handle[IGESSolid_Ellipsoid];
+             dumper: IGESData_IGESDumper; S: var Standard_OStream;
+             own: Standard_Integer) {.noSideEffect, importcpp: "OwnDump",
+                                    header: "IGESSolid_ToolEllipsoid.hxx".}

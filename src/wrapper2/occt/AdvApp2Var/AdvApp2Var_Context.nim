@@ -14,63 +14,69 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer,
+  ../TColStd/TColStd_HArray1OfReal, ../TColStd/TColStd_HArray2OfReal
+
 ## ! contains  all the  parameters  for approximation
 ## ! ( tolerancy, computing option, ...)
 
 type
-  AdvApp2VarContext* {.importcpp: "AdvApp2Var_Context",
-                      header: "AdvApp2Var_Context.hxx", bycopy.} = object
+  AdvApp2Var_Context* {.importcpp: "AdvApp2Var_Context",
+                       header: "AdvApp2Var_Context.hxx", bycopy.} = object
 
 
-proc constructAdvApp2VarContext*(): AdvApp2VarContext {.constructor,
+proc constructAdvApp2Var_Context*(): AdvApp2Var_Context {.constructor,
     importcpp: "AdvApp2Var_Context(@)", header: "AdvApp2Var_Context.hxx".}
-proc constructAdvApp2VarContext*(ifav: StandardInteger; iu: StandardInteger;
-                                iv: StandardInteger; nlimu: StandardInteger;
-                                nlimv: StandardInteger; iprecis: StandardInteger;
-                                nb1Dss: StandardInteger; nb2Dss: StandardInteger;
-                                nb3Dss: StandardInteger;
-                                tol1D: Handle[TColStdHArray1OfReal];
-                                tol2D: Handle[TColStdHArray1OfReal];
-                                tol3D: Handle[TColStdHArray1OfReal];
-                                tof1D: Handle[TColStdHArray2OfReal];
-                                tof2D: Handle[TColStdHArray2OfReal];
-                                tof3D: Handle[TColStdHArray2OfReal]): AdvApp2VarContext {.
+proc constructAdvApp2Var_Context*(ifav: Standard_Integer; iu: Standard_Integer;
+                                 iv: Standard_Integer; nlimu: Standard_Integer;
+                                 nlimv: Standard_Integer;
+                                 iprecis: Standard_Integer;
+                                 nb1Dss: Standard_Integer;
+                                 nb2Dss: Standard_Integer;
+                                 nb3Dss: Standard_Integer;
+                                 tol1D: handle[TColStd_HArray1OfReal];
+                                 tol2D: handle[TColStd_HArray1OfReal];
+                                 tol3D: handle[TColStd_HArray1OfReal];
+                                 tof1D: handle[TColStd_HArray2OfReal];
+                                 tof2D: handle[TColStd_HArray2OfReal];
+                                 tof3D: handle[TColStd_HArray2OfReal]): AdvApp2Var_Context {.
     constructor, importcpp: "AdvApp2Var_Context(@)",
     header: "AdvApp2Var_Context.hxx".}
-proc totalDimension*(this: AdvApp2VarContext): StandardInteger {.noSideEffect,
+proc TotalDimension*(this: AdvApp2Var_Context): Standard_Integer {.noSideEffect,
     importcpp: "TotalDimension", header: "AdvApp2Var_Context.hxx".}
-proc totalNumberSSP*(this: AdvApp2VarContext): StandardInteger {.noSideEffect,
+proc TotalNumberSSP*(this: AdvApp2Var_Context): Standard_Integer {.noSideEffect,
     importcpp: "TotalNumberSSP", header: "AdvApp2Var_Context.hxx".}
-proc favorIso*(this: AdvApp2VarContext): StandardInteger {.noSideEffect,
+proc FavorIso*(this: AdvApp2Var_Context): Standard_Integer {.noSideEffect,
     importcpp: "FavorIso", header: "AdvApp2Var_Context.hxx".}
-proc uOrder*(this: AdvApp2VarContext): StandardInteger {.noSideEffect,
+proc UOrder*(this: AdvApp2Var_Context): Standard_Integer {.noSideEffect,
     importcpp: "UOrder", header: "AdvApp2Var_Context.hxx".}
-proc vOrder*(this: AdvApp2VarContext): StandardInteger {.noSideEffect,
+proc VOrder*(this: AdvApp2Var_Context): Standard_Integer {.noSideEffect,
     importcpp: "VOrder", header: "AdvApp2Var_Context.hxx".}
-proc uLimit*(this: AdvApp2VarContext): StandardInteger {.noSideEffect,
+proc ULimit*(this: AdvApp2Var_Context): Standard_Integer {.noSideEffect,
     importcpp: "ULimit", header: "AdvApp2Var_Context.hxx".}
-proc vLimit*(this: AdvApp2VarContext): StandardInteger {.noSideEffect,
+proc VLimit*(this: AdvApp2Var_Context): Standard_Integer {.noSideEffect,
     importcpp: "VLimit", header: "AdvApp2Var_Context.hxx".}
-proc uJacDeg*(this: AdvApp2VarContext): StandardInteger {.noSideEffect,
+proc UJacDeg*(this: AdvApp2Var_Context): Standard_Integer {.noSideEffect,
     importcpp: "UJacDeg", header: "AdvApp2Var_Context.hxx".}
-proc vJacDeg*(this: AdvApp2VarContext): StandardInteger {.noSideEffect,
+proc VJacDeg*(this: AdvApp2Var_Context): Standard_Integer {.noSideEffect,
     importcpp: "VJacDeg", header: "AdvApp2Var_Context.hxx".}
-proc uJacMax*(this: AdvApp2VarContext): Handle[TColStdHArray1OfReal] {.noSideEffect,
-    importcpp: "UJacMax", header: "AdvApp2Var_Context.hxx".}
-proc vJacMax*(this: AdvApp2VarContext): Handle[TColStdHArray1OfReal] {.noSideEffect,
-    importcpp: "VJacMax", header: "AdvApp2Var_Context.hxx".}
-proc uRoots*(this: AdvApp2VarContext): Handle[TColStdHArray1OfReal] {.noSideEffect,
-    importcpp: "URoots", header: "AdvApp2Var_Context.hxx".}
-proc vRoots*(this: AdvApp2VarContext): Handle[TColStdHArray1OfReal] {.noSideEffect,
-    importcpp: "VRoots", header: "AdvApp2Var_Context.hxx".}
-proc uGauss*(this: AdvApp2VarContext): Handle[TColStdHArray1OfReal] {.noSideEffect,
-    importcpp: "UGauss", header: "AdvApp2Var_Context.hxx".}
-proc vGauss*(this: AdvApp2VarContext): Handle[TColStdHArray1OfReal] {.noSideEffect,
-    importcpp: "VGauss", header: "AdvApp2Var_Context.hxx".}
-proc iToler*(this: AdvApp2VarContext): Handle[TColStdHArray1OfReal] {.noSideEffect,
-    importcpp: "IToler", header: "AdvApp2Var_Context.hxx".}
-proc fToler*(this: AdvApp2VarContext): Handle[TColStdHArray2OfReal] {.noSideEffect,
-    importcpp: "FToler", header: "AdvApp2Var_Context.hxx".}
-proc cToler*(this: AdvApp2VarContext): Handle[TColStdHArray2OfReal] {.noSideEffect,
-    importcpp: "CToler", header: "AdvApp2Var_Context.hxx".}
-
+proc UJacMax*(this: AdvApp2Var_Context): handle[TColStd_HArray1OfReal] {.
+    noSideEffect, importcpp: "UJacMax", header: "AdvApp2Var_Context.hxx".}
+proc VJacMax*(this: AdvApp2Var_Context): handle[TColStd_HArray1OfReal] {.
+    noSideEffect, importcpp: "VJacMax", header: "AdvApp2Var_Context.hxx".}
+proc URoots*(this: AdvApp2Var_Context): handle[TColStd_HArray1OfReal] {.
+    noSideEffect, importcpp: "URoots", header: "AdvApp2Var_Context.hxx".}
+proc VRoots*(this: AdvApp2Var_Context): handle[TColStd_HArray1OfReal] {.
+    noSideEffect, importcpp: "VRoots", header: "AdvApp2Var_Context.hxx".}
+proc UGauss*(this: AdvApp2Var_Context): handle[TColStd_HArray1OfReal] {.
+    noSideEffect, importcpp: "UGauss", header: "AdvApp2Var_Context.hxx".}
+proc VGauss*(this: AdvApp2Var_Context): handle[TColStd_HArray1OfReal] {.
+    noSideEffect, importcpp: "VGauss", header: "AdvApp2Var_Context.hxx".}
+proc IToler*(this: AdvApp2Var_Context): handle[TColStd_HArray1OfReal] {.
+    noSideEffect, importcpp: "IToler", header: "AdvApp2Var_Context.hxx".}
+proc FToler*(this: AdvApp2Var_Context): handle[TColStd_HArray2OfReal] {.
+    noSideEffect, importcpp: "FToler", header: "AdvApp2Var_Context.hxx".}
+proc CToler*(this: AdvApp2Var_Context): handle[TColStd_HArray2OfReal] {.
+    noSideEffect, importcpp: "CToler", header: "AdvApp2Var_Context.hxx".}

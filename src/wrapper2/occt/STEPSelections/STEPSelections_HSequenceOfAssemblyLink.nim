@@ -14,7 +14,5 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # STEPSelections_HSequenceOfAssemblyLink_HeaderFile [NewLine] # STEPSelections_HSequenceOfAssemblyLink_HeaderFile [NewLine] # < STEPSelections_AssemblyLink . hxx > [NewLine] # < STEPSelections_SequenceOfAssemblyLink . hxx > [NewLine] # < NCollection_DefineHSequence . hxx > [NewLine] DEFINE_HSEQUENCE ( STEPSelections_HSequenceOfAssemblyLink , STEPSelections_SequenceOfAssemblyLink ) # [NewLine]
+## !!!Ignored construct:  # STEPSelections_HSequenceOfAssemblyLink_HeaderFile [NewLine] # STEPSelections_HSequenceOfAssemblyLink_HeaderFile [NewLine] # STEPSelections_AssemblyLink.hxx [NewLine] # STEPSelections_SequenceOfAssemblyLink.hxx [NewLine] # ../NCollection/NCollection_DefineHSequence.hxx [NewLine] DEFINE_HSEQUENCE ( STEPSelections_HSequenceOfAssemblyLink , STEPSelections_SequenceOfAssemblyLink ) # [NewLine]
 ## Error: expected ';'!!!
-
-

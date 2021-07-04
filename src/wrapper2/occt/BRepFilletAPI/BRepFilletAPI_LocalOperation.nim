@@ -14,6 +14,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../BRepBuilderAPI/BRepBuilderAPI_MakeShape,
+  ../Standard/Standard_Integer, ../Standard/Standard_Real,
+  ../Standard/Standard_Boolean, ../ChFiDS/ChFiDS_SecHArray1
+
 discard "forward decl of TopoDS_Edge"
 discard "forward decl of TopoDS_Vertex"
 type
@@ -29,47 +35,47 @@ type
                                                                           ## edges).
 
 
-proc add*(this: var BRepFilletAPI_LocalOperation; e: TopoDS_Edge) {.importcpp: "Add",
+proc Add*(this: var BRepFilletAPI_LocalOperation; E: TopoDS_Edge) {.importcpp: "Add",
     header: "BRepFilletAPI_LocalOperation.hxx".}
-proc resetContour*(this: var BRepFilletAPI_LocalOperation; ic: StandardInteger) {.
+proc ResetContour*(this: var BRepFilletAPI_LocalOperation; IC: Standard_Integer) {.
     importcpp: "ResetContour", header: "BRepFilletAPI_LocalOperation.hxx".}
-proc nbContours*(this: BRepFilletAPI_LocalOperation): StandardInteger {.
+proc NbContours*(this: BRepFilletAPI_LocalOperation): Standard_Integer {.
     noSideEffect, importcpp: "NbContours",
     header: "BRepFilletAPI_LocalOperation.hxx".}
-proc contour*(this: BRepFilletAPI_LocalOperation; e: TopoDS_Edge): StandardInteger {.
+proc Contour*(this: BRepFilletAPI_LocalOperation; E: TopoDS_Edge): Standard_Integer {.
     noSideEffect, importcpp: "Contour", header: "BRepFilletAPI_LocalOperation.hxx".}
-proc nbEdges*(this: BRepFilletAPI_LocalOperation; i: StandardInteger): StandardInteger {.
+proc NbEdges*(this: BRepFilletAPI_LocalOperation; I: Standard_Integer): Standard_Integer {.
     noSideEffect, importcpp: "NbEdges", header: "BRepFilletAPI_LocalOperation.hxx".}
-proc edge*(this: BRepFilletAPI_LocalOperation; i: StandardInteger; j: StandardInteger): TopoDS_Edge {.
-    noSideEffect, importcpp: "Edge", header: "BRepFilletAPI_LocalOperation.hxx".}
-proc remove*(this: var BRepFilletAPI_LocalOperation; e: TopoDS_Edge) {.
+proc Edge*(this: BRepFilletAPI_LocalOperation; I: Standard_Integer;
+          J: Standard_Integer): TopoDS_Edge {.noSideEffect, importcpp: "Edge",
+    header: "BRepFilletAPI_LocalOperation.hxx".}
+proc Remove*(this: var BRepFilletAPI_LocalOperation; E: TopoDS_Edge) {.
     importcpp: "Remove", header: "BRepFilletAPI_LocalOperation.hxx".}
-proc length*(this: BRepFilletAPI_LocalOperation; ic: StandardInteger): StandardReal {.
+proc Length*(this: BRepFilletAPI_LocalOperation; IC: Standard_Integer): Standard_Real {.
     noSideEffect, importcpp: "Length", header: "BRepFilletAPI_LocalOperation.hxx".}
-proc firstVertex*(this: BRepFilletAPI_LocalOperation; ic: StandardInteger): TopoDS_Vertex {.
+proc FirstVertex*(this: BRepFilletAPI_LocalOperation; IC: Standard_Integer): TopoDS_Vertex {.
     noSideEffect, importcpp: "FirstVertex",
     header: "BRepFilletAPI_LocalOperation.hxx".}
-proc lastVertex*(this: BRepFilletAPI_LocalOperation; ic: StandardInteger): TopoDS_Vertex {.
+proc LastVertex*(this: BRepFilletAPI_LocalOperation; IC: Standard_Integer): TopoDS_Vertex {.
     noSideEffect, importcpp: "LastVertex",
     header: "BRepFilletAPI_LocalOperation.hxx".}
-proc abscissa*(this: BRepFilletAPI_LocalOperation; ic: StandardInteger;
-              v: TopoDS_Vertex): StandardReal {.noSideEffect, importcpp: "Abscissa",
-    header: "BRepFilletAPI_LocalOperation.hxx".}
-proc relativeAbscissa*(this: BRepFilletAPI_LocalOperation; ic: StandardInteger;
-                      v: TopoDS_Vertex): StandardReal {.noSideEffect,
+proc Abscissa*(this: BRepFilletAPI_LocalOperation; IC: Standard_Integer;
+              V: TopoDS_Vertex): Standard_Real {.noSideEffect,
+    importcpp: "Abscissa", header: "BRepFilletAPI_LocalOperation.hxx".}
+proc RelativeAbscissa*(this: BRepFilletAPI_LocalOperation; IC: Standard_Integer;
+                      V: TopoDS_Vertex): Standard_Real {.noSideEffect,
     importcpp: "RelativeAbscissa", header: "BRepFilletAPI_LocalOperation.hxx".}
-proc closedAndTangent*(this: BRepFilletAPI_LocalOperation; ic: StandardInteger): StandardBoolean {.
+proc ClosedAndTangent*(this: BRepFilletAPI_LocalOperation; IC: Standard_Integer): Standard_Boolean {.
     noSideEffect, importcpp: "ClosedAndTangent",
     header: "BRepFilletAPI_LocalOperation.hxx".}
-proc closed*(this: BRepFilletAPI_LocalOperation; ic: StandardInteger): StandardBoolean {.
+proc Closed*(this: BRepFilletAPI_LocalOperation; IC: Standard_Integer): Standard_Boolean {.
     noSideEffect, importcpp: "Closed", header: "BRepFilletAPI_LocalOperation.hxx".}
-proc reset*(this: var BRepFilletAPI_LocalOperation) {.importcpp: "Reset",
+proc Reset*(this: var BRepFilletAPI_LocalOperation) {.importcpp: "Reset",
     header: "BRepFilletAPI_LocalOperation.hxx".}
-proc simulate*(this: var BRepFilletAPI_LocalOperation; ic: StandardInteger) {.
+proc Simulate*(this: var BRepFilletAPI_LocalOperation; IC: Standard_Integer) {.
     importcpp: "Simulate", header: "BRepFilletAPI_LocalOperation.hxx".}
-proc nbSurf*(this: BRepFilletAPI_LocalOperation; ic: StandardInteger): StandardInteger {.
+proc NbSurf*(this: BRepFilletAPI_LocalOperation; IC: Standard_Integer): Standard_Integer {.
     noSideEffect, importcpp: "NbSurf", header: "BRepFilletAPI_LocalOperation.hxx".}
-proc sect*(this: BRepFilletAPI_LocalOperation; ic: StandardInteger;
-          `is`: StandardInteger): Handle[ChFiDS_SecHArray1] {.noSideEffect,
+proc Sect*(this: BRepFilletAPI_LocalOperation; IC: Standard_Integer;
+          IS: Standard_Integer): handle[ChFiDS_SecHArray1] {.noSideEffect,
     importcpp: "Sect", header: "BRepFilletAPI_LocalOperation.hxx".}
-

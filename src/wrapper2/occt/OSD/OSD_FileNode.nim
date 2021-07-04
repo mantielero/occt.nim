@@ -14,6 +14,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, OSD_Path, OSD_Error
+
 discard "forward decl of OSD_OSDError"
 discard "forward decl of Standard_ProgramError"
 discard "forward decl of OSD_Protection"
@@ -61,29 +64,28 @@ type
                                                                                    ## name.
 
 
-proc path*(this: OSD_FileNode; name: var OSD_Path) {.noSideEffect, importcpp: "Path",
+proc Path*(this: OSD_FileNode; Name: var OSD_Path) {.noSideEffect, importcpp: "Path",
     header: "OSD_FileNode.hxx".}
-proc setPath*(this: var OSD_FileNode; name: OSD_Path) {.importcpp: "SetPath",
+proc SetPath*(this: var OSD_FileNode; Name: OSD_Path) {.importcpp: "SetPath",
     header: "OSD_FileNode.hxx".}
-proc exists*(this: var OSD_FileNode): StandardBoolean {.importcpp: "Exists",
+proc Exists*(this: var OSD_FileNode): Standard_Boolean {.importcpp: "Exists",
     header: "OSD_FileNode.hxx".}
-proc remove*(this: var OSD_FileNode) {.importcpp: "Remove", header: "OSD_FileNode.hxx".}
-proc move*(this: var OSD_FileNode; newPath: OSD_Path) {.importcpp: "Move",
+proc Remove*(this: var OSD_FileNode) {.importcpp: "Remove", header: "OSD_FileNode.hxx".}
+proc Move*(this: var OSD_FileNode; NewPath: OSD_Path) {.importcpp: "Move",
     header: "OSD_FileNode.hxx".}
-proc copy*(this: var OSD_FileNode; toPath: OSD_Path) {.importcpp: "Copy",
+proc Copy*(this: var OSD_FileNode; ToPath: OSD_Path) {.importcpp: "Copy",
     header: "OSD_FileNode.hxx".}
-proc protection*(this: var OSD_FileNode): OSD_Protection {.importcpp: "Protection",
+proc Protection*(this: var OSD_FileNode): OSD_Protection {.importcpp: "Protection",
     header: "OSD_FileNode.hxx".}
-proc setProtection*(this: var OSD_FileNode; prot: OSD_Protection) {.
+proc SetProtection*(this: var OSD_FileNode; Prot: OSD_Protection) {.
     importcpp: "SetProtection", header: "OSD_FileNode.hxx".}
-proc accessMoment*(this: var OSD_FileNode): QuantityDate {.importcpp: "AccessMoment",
-    header: "OSD_FileNode.hxx".}
-proc creationMoment*(this: var OSD_FileNode): QuantityDate {.
+proc AccessMoment*(this: var OSD_FileNode): Quantity_Date {.
+    importcpp: "AccessMoment", header: "OSD_FileNode.hxx".}
+proc CreationMoment*(this: var OSD_FileNode): Quantity_Date {.
     importcpp: "CreationMoment", header: "OSD_FileNode.hxx".}
-proc failed*(this: OSD_FileNode): StandardBoolean {.noSideEffect,
+proc Failed*(this: OSD_FileNode): Standard_Boolean {.noSideEffect,
     importcpp: "Failed", header: "OSD_FileNode.hxx".}
-proc reset*(this: var OSD_FileNode) {.importcpp: "Reset", header: "OSD_FileNode.hxx".}
-proc perror*(this: var OSD_FileNode) {.importcpp: "Perror", header: "OSD_FileNode.hxx".}
-proc error*(this: OSD_FileNode): StandardInteger {.noSideEffect, importcpp: "Error",
+proc Reset*(this: var OSD_FileNode) {.importcpp: "Reset", header: "OSD_FileNode.hxx".}
+proc Perror*(this: var OSD_FileNode) {.importcpp: "Perror", header: "OSD_FileNode.hxx".}
+proc Error*(this: OSD_FileNode): Standard_Integer {.noSideEffect, importcpp: "Error",
     header: "OSD_FileNode.hxx".}
-

@@ -14,26 +14,29 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepShape_PolyLoop"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepShapeRWPolyLoop* {.importcpp: "RWStepShape_RWPolyLoop",
-                          header: "RWStepShape_RWPolyLoop.hxx", bycopy.} = object
+  RWStepShape_RWPolyLoop* {.importcpp: "RWStepShape_RWPolyLoop",
+                           header: "RWStepShape_RWPolyLoop.hxx", bycopy.} = object
 
 
-proc constructRWStepShapeRWPolyLoop*(): RWStepShapeRWPolyLoop {.constructor,
+proc constructRWStepShape_RWPolyLoop*(): RWStepShape_RWPolyLoop {.constructor,
     importcpp: "RWStepShape_RWPolyLoop(@)", header: "RWStepShape_RWPolyLoop.hxx".}
-proc readStep*(this: RWStepShapeRWPolyLoop; data: Handle[StepDataStepReaderData];
-              num: StandardInteger; ach: var Handle[InterfaceCheck];
-              ent: Handle[StepShapePolyLoop]) {.noSideEffect,
+proc ReadStep*(this: RWStepShape_RWPolyLoop; data: handle[StepData_StepReaderData];
+              num: Standard_Integer; ach: var handle[Interface_Check];
+              ent: handle[StepShape_PolyLoop]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepShape_RWPolyLoop.hxx".}
-proc writeStep*(this: RWStepShapeRWPolyLoop; sw: var StepDataStepWriter;
-               ent: Handle[StepShapePolyLoop]) {.noSideEffect,
+proc WriteStep*(this: RWStepShape_RWPolyLoop; SW: var StepData_StepWriter;
+               ent: handle[StepShape_PolyLoop]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepShape_RWPolyLoop.hxx".}
-proc share*(this: RWStepShapeRWPolyLoop; ent: Handle[StepShapePolyLoop];
-           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
+proc Share*(this: RWStepShape_RWPolyLoop; ent: handle[StepShape_PolyLoop];
+           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepShape_RWPolyLoop.hxx".}
-

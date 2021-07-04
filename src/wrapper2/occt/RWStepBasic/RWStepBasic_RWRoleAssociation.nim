@@ -13,30 +13,33 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepBasic_RoleAssociation"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepBasicRWRoleAssociation* {.importcpp: "RWStepBasic_RWRoleAssociation",
-                                 header: "RWStepBasic_RWRoleAssociation.hxx",
-                                 bycopy.} = object ## ! Empty constructor
+  RWStepBasic_RWRoleAssociation* {.importcpp: "RWStepBasic_RWRoleAssociation",
+                                  header: "RWStepBasic_RWRoleAssociation.hxx",
+                                  bycopy.} = object ## ! Empty constructor
 
 
-proc constructRWStepBasicRWRoleAssociation*(): RWStepBasicRWRoleAssociation {.
+proc constructRWStepBasic_RWRoleAssociation*(): RWStepBasic_RWRoleAssociation {.
     constructor, importcpp: "RWStepBasic_RWRoleAssociation(@)",
     header: "RWStepBasic_RWRoleAssociation.hxx".}
-proc readStep*(this: RWStepBasicRWRoleAssociation;
-              data: Handle[StepDataStepReaderData]; num: StandardInteger;
-              ach: var Handle[InterfaceCheck];
-              ent: Handle[StepBasicRoleAssociation]) {.noSideEffect,
+proc ReadStep*(this: RWStepBasic_RWRoleAssociation;
+              data: handle[StepData_StepReaderData]; num: Standard_Integer;
+              ach: var handle[Interface_Check];
+              ent: handle[StepBasic_RoleAssociation]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepBasic_RWRoleAssociation.hxx".}
-proc writeStep*(this: RWStepBasicRWRoleAssociation; sw: var StepDataStepWriter;
-               ent: Handle[StepBasicRoleAssociation]) {.noSideEffect,
+proc WriteStep*(this: RWStepBasic_RWRoleAssociation; SW: var StepData_StepWriter;
+               ent: handle[StepBasic_RoleAssociation]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepBasic_RWRoleAssociation.hxx".}
-proc share*(this: RWStepBasicRWRoleAssociation;
-           ent: Handle[StepBasicRoleAssociation];
-           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
+proc Share*(this: RWStepBasic_RWRoleAssociation;
+           ent: handle[StepBasic_RoleAssociation];
+           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepBasic_RWRoleAssociation.hxx".}
-

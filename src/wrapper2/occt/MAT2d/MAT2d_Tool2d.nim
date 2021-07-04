@@ -14,6 +14,14 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Real,
+  ../GeomAbs/GeomAbs_JoinType, ../Standard/Standard_Integer,
+  MAT2d_DataMapOfIntegerBisec, MAT2d_DataMapOfIntegerPnt2d,
+  MAT2d_DataMapOfIntegerVec2d, ../TColStd/TColStd_SequenceOfInteger,
+  ../MAT/MAT_Side, ../Standard/Standard_Boolean
+
 discard "forward decl of MAT2d_Circuit"
 discard "forward decl of MAT_Bisector"
 discard "forward decl of Bisector_Bisec"
@@ -21,104 +29,103 @@ discard "forward decl of Geom2d_Geometry"
 discard "forward decl of gp_Pnt2d"
 discard "forward decl of gp_Vec2d"
 type
-  MAT2dTool2d* {.importcpp: "MAT2d_Tool2d", header: "MAT2d_Tool2d.hxx", bycopy.} = object ##
-                                                                                  ## !
-                                                                                  ## Empty
-                                                                                  ## Constructor.
-                                                                                  ##
-                                                                                  ## !
-                                                                                  ## Returns
-                                                                                  ## True
-                                                                                  ## if
-                                                                                  ## the
-                                                                                  ## point
-                                                                                  ## <apoint>
-                                                                                  ## is
-                                                                                  ## equidistant
-                                                                                  ## to
-                                                                                  ##
-                                                                                  ## !
-                                                                                  ## the
-                                                                                  ## elements
-                                                                                  ## separated
-                                                                                  ## by
-                                                                                  ## bisectors
-                                                                                  ## <bisectorone>
-                                                                                  ## and
-                                                                                  ##
-                                                                                  ## !
-                                                                                  ## <bisectortwo>.
-                                                                                  ##
-                                                                                  ## !
-                                                                                  ## In
-                                                                                  ## this
-                                                                                  ## case
-                                                                                  ## <adistance>
-                                                                                  ## is
-                                                                                  ## the
-                                                                                  ## distance
-                                                                                  ## of
-                                                                                  ## the
-                                                                                  ## point
-                                                                                  ##
-                                                                                  ## !
-                                                                                  ## from
-                                                                                  ## the
-                                                                                  ## bisectors.
+  MAT2d_Tool2d* {.importcpp: "MAT2d_Tool2d", header: "MAT2d_Tool2d.hxx", bycopy.} = object ##
+                                                                                   ## !
+                                                                                   ## Empty
+                                                                                   ## Constructor.
+                                                                                   ##
+                                                                                   ## !
+                                                                                   ## Returns
+                                                                                   ## True
+                                                                                   ## if
+                                                                                   ## the
+                                                                                   ## point
+                                                                                   ## <apoint>
+                                                                                   ## is
+                                                                                   ## equidistant
+                                                                                   ## to
+                                                                                   ##
+                                                                                   ## !
+                                                                                   ## the
+                                                                                   ## elements
+                                                                                   ## separated
+                                                                                   ## by
+                                                                                   ## bisectors
+                                                                                   ## <bisectorone>
+                                                                                   ## and
+                                                                                   ##
+                                                                                   ## !
+                                                                                   ## <bisectortwo>.
+                                                                                   ##
+                                                                                   ## !
+                                                                                   ## In
+                                                                                   ## this
+                                                                                   ## case
+                                                                                   ## <adistance>
+                                                                                   ## is
+                                                                                   ## the
+                                                                                   ## distance
+                                                                                   ## of
+                                                                                   ## the
+                                                                                   ## point
+                                                                                   ##
+                                                                                   ## !
+                                                                                   ## from
+                                                                                   ## the
+                                                                                   ## bisectors.
 
 
-proc constructMAT2dTool2d*(): MAT2dTool2d {.constructor,
+proc constructMAT2d_Tool2d*(): MAT2d_Tool2d {.constructor,
     importcpp: "MAT2d_Tool2d(@)", header: "MAT2d_Tool2d.hxx".}
-proc sense*(this: var MAT2dTool2d; aside: MAT_Side) {.importcpp: "Sense",
+proc Sense*(this: var MAT2d_Tool2d; aside: MAT_Side) {.importcpp: "Sense",
     header: "MAT2d_Tool2d.hxx".}
-proc setJoinType*(this: var MAT2dTool2d; aJoinType: GeomAbsJoinType) {.
+proc SetJoinType*(this: var MAT2d_Tool2d; aJoinType: GeomAbs_JoinType) {.
     importcpp: "SetJoinType", header: "MAT2d_Tool2d.hxx".}
-proc initItems*(this: var MAT2dTool2d; aCircuit: Handle[MAT2dCircuit]) {.
+proc InitItems*(this: var MAT2d_Tool2d; aCircuit: handle[MAT2d_Circuit]) {.
     importcpp: "InitItems", header: "MAT2d_Tool2d.hxx".}
-proc numberOfItems*(this: MAT2dTool2d): StandardInteger {.noSideEffect,
+proc NumberOfItems*(this: MAT2d_Tool2d): Standard_Integer {.noSideEffect,
     importcpp: "NumberOfItems", header: "MAT2d_Tool2d.hxx".}
-proc toleranceOfConfusion*(this: MAT2dTool2d): StandardReal {.noSideEffect,
+proc ToleranceOfConfusion*(this: MAT2d_Tool2d): Standard_Real {.noSideEffect,
     importcpp: "ToleranceOfConfusion", header: "MAT2d_Tool2d.hxx".}
-proc firstPoint*(this: var MAT2dTool2d; anitem: StandardInteger;
-                dist: var StandardReal): StandardInteger {.importcpp: "FirstPoint",
-    header: "MAT2d_Tool2d.hxx".}
-proc tangentBefore*(this: var MAT2dTool2d; anitem: StandardInteger;
-                   isOpenResult: StandardBoolean): StandardInteger {.
+proc FirstPoint*(this: var MAT2d_Tool2d; anitem: Standard_Integer;
+                dist: var Standard_Real): Standard_Integer {.
+    importcpp: "FirstPoint", header: "MAT2d_Tool2d.hxx".}
+proc TangentBefore*(this: var MAT2d_Tool2d; anitem: Standard_Integer;
+                   IsOpenResult: Standard_Boolean): Standard_Integer {.
     importcpp: "TangentBefore", header: "MAT2d_Tool2d.hxx".}
-proc tangentAfter*(this: var MAT2dTool2d; anitem: StandardInteger;
-                  isOpenResult: StandardBoolean): StandardInteger {.
+proc TangentAfter*(this: var MAT2d_Tool2d; anitem: Standard_Integer;
+                  IsOpenResult: Standard_Boolean): Standard_Integer {.
     importcpp: "TangentAfter", header: "MAT2d_Tool2d.hxx".}
-proc tangent*(this: var MAT2dTool2d; bisector: StandardInteger): StandardInteger {.
+proc Tangent*(this: var MAT2d_Tool2d; bisector: Standard_Integer): Standard_Integer {.
     importcpp: "Tangent", header: "MAT2d_Tool2d.hxx".}
-proc createBisector*(this: var MAT2dTool2d; abisector: Handle[MAT_Bisector]) {.
+proc CreateBisector*(this: var MAT2d_Tool2d; abisector: handle[MAT_Bisector]) {.
     importcpp: "CreateBisector", header: "MAT2d_Tool2d.hxx".}
-proc trimBisector*(this: var MAT2dTool2d; abisector: Handle[MAT_Bisector]): StandardBoolean {.
+proc TrimBisector*(this: var MAT2d_Tool2d; abisector: handle[MAT_Bisector]): Standard_Boolean {.
     importcpp: "TrimBisector", header: "MAT2d_Tool2d.hxx".}
-proc trimBisector*(this: var MAT2dTool2d; abisector: Handle[MAT_Bisector];
-                  apoint: StandardInteger): StandardBoolean {.
+proc TrimBisector*(this: var MAT2d_Tool2d; abisector: handle[MAT_Bisector];
+                  apoint: Standard_Integer): Standard_Boolean {.
     importcpp: "TrimBisector", header: "MAT2d_Tool2d.hxx".}
-proc intersectBisector*(this: var MAT2dTool2d; bisectorone: Handle[MAT_Bisector];
-                       bisectortwo: Handle[MAT_Bisector];
-                       intpnt: var StandardInteger): StandardReal {.
+proc IntersectBisector*(this: var MAT2d_Tool2d; bisectorone: handle[MAT_Bisector];
+                       bisectortwo: handle[MAT_Bisector];
+                       intpnt: var Standard_Integer): Standard_Real {.
     importcpp: "IntersectBisector", header: "MAT2d_Tool2d.hxx".}
-proc distance*(this: MAT2dTool2d; abisector: Handle[MAT_Bisector];
-              param1: StandardReal; param2: StandardReal): StandardReal {.
+proc Distance*(this: MAT2d_Tool2d; abisector: handle[MAT_Bisector];
+              param1: Standard_Real; param2: Standard_Real): Standard_Real {.
     noSideEffect, importcpp: "Distance", header: "MAT2d_Tool2d.hxx".}
-proc dump*(this: MAT2dTool2d; bisector: StandardInteger; erease: StandardInteger) {.
+proc Dump*(this: MAT2d_Tool2d; bisector: Standard_Integer; erease: Standard_Integer) {.
     noSideEffect, importcpp: "Dump", header: "MAT2d_Tool2d.hxx".}
-proc geomBis*(this: MAT2dTool2d; index: StandardInteger): BisectorBisec {.
+proc GeomBis*(this: MAT2d_Tool2d; Index: Standard_Integer): Bisector_Bisec {.
     noSideEffect, importcpp: "GeomBis", header: "MAT2d_Tool2d.hxx".}
-proc geomElt*(this: MAT2dTool2d; index: StandardInteger): Handle[Geom2dGeometry] {.
+proc GeomElt*(this: MAT2d_Tool2d; Index: Standard_Integer): handle[Geom2d_Geometry] {.
     noSideEffect, importcpp: "GeomElt", header: "MAT2d_Tool2d.hxx".}
-proc geomPnt*(this: MAT2dTool2d; index: StandardInteger): GpPnt2d {.noSideEffect,
+proc GeomPnt*(this: MAT2d_Tool2d; Index: Standard_Integer): gp_Pnt2d {.noSideEffect,
     importcpp: "GeomPnt", header: "MAT2d_Tool2d.hxx".}
-proc geomVec*(this: MAT2dTool2d; index: StandardInteger): GpVec2d {.noSideEffect,
+proc GeomVec*(this: MAT2d_Tool2d; Index: Standard_Integer): gp_Vec2d {.noSideEffect,
     importcpp: "GeomVec", header: "MAT2d_Tool2d.hxx".}
-proc circuit*(this: MAT2dTool2d): Handle[MAT2dCircuit] {.noSideEffect,
+proc Circuit*(this: MAT2d_Tool2d): handle[MAT2d_Circuit] {.noSideEffect,
     importcpp: "Circuit", header: "MAT2d_Tool2d.hxx".}
-proc bisecFusion*(this: var MAT2dTool2d; index1: StandardInteger;
-                 index2: StandardInteger) {.importcpp: "BisecFusion",
+proc BisecFusion*(this: var MAT2d_Tool2d; Index1: Standard_Integer;
+                 Index2: Standard_Integer) {.importcpp: "BisecFusion",
     header: "MAT2d_Tool2d.hxx".}
-proc changeGeomBis*(this: var MAT2dTool2d; index: StandardInteger): var BisectorBisec {.
+proc ChangeGeomBis*(this: var MAT2d_Tool2d; Index: Standard_Integer): var Bisector_Bisec {.
     importcpp: "ChangeGeomBis", header: "MAT2d_Tool2d.hxx".}
-

@@ -14,6 +14,13 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../gp/gp_Pnt2d, ../gp/gp_Pnt, ../gp/gp_Vec2d,
+  ../gp/gp_Vec, ../Standard/Standard_Boolean,
+  GeomInt_TheInt2SOfThePrmPrmSvSurfacesOfWLApprox,
+  ../ApproxInt/ApproxInt_SvSurfaces, ../Standard/Standard_Real
+
 discard "forward decl of Adaptor3d_HSurface"
 discard "forward decl of Adaptor3d_HSurfaceTool"
 discard "forward decl of IntPatch_WLine"
@@ -23,37 +30,37 @@ discard "forward decl of gp_Pnt"
 discard "forward decl of gp_Vec"
 discard "forward decl of gp_Vec2d"
 type
-  GeomIntThePrmPrmSvSurfacesOfWLApprox* {.
+  GeomInt_ThePrmPrmSvSurfacesOfWLApprox* {.
       importcpp: "GeomInt_ThePrmPrmSvSurfacesOfWLApprox",
-      header: "GeomInt_ThePrmPrmSvSurfacesOfWLApprox.hxx", bycopy.} = object of ApproxIntSvSurfaces
+      header: "GeomInt_ThePrmPrmSvSurfacesOfWLApprox.hxx", bycopy.} = object of ApproxInt_SvSurfaces
 
 
-proc constructGeomIntThePrmPrmSvSurfacesOfWLApprox*(
-    surf1: Handle[Adaptor3dHSurface]; surf2: Handle[Adaptor3dHSurface]): GeomIntThePrmPrmSvSurfacesOfWLApprox {.
+proc constructGeomInt_ThePrmPrmSvSurfacesOfWLApprox*(
+    Surf1: handle[Adaptor3d_HSurface]; Surf2: handle[Adaptor3d_HSurface]): GeomInt_ThePrmPrmSvSurfacesOfWLApprox {.
     constructor, importcpp: "GeomInt_ThePrmPrmSvSurfacesOfWLApprox(@)",
     header: "GeomInt_ThePrmPrmSvSurfacesOfWLApprox.hxx".}
-proc compute*(this: var GeomIntThePrmPrmSvSurfacesOfWLApprox; u1: var StandardReal;
-             v1: var StandardReal; u2: var StandardReal; v2: var StandardReal;
-             pt: var GpPnt; tg: var GpVec; tguv1: var GpVec2d; tguv2: var GpVec2d): StandardBoolean {.
-    importcpp: "Compute", header: "GeomInt_ThePrmPrmSvSurfacesOfWLApprox.hxx".}
-proc pnt*(this: var GeomIntThePrmPrmSvSurfacesOfWLApprox; u1: StandardReal;
-         v1: StandardReal; u2: StandardReal; v2: StandardReal; p: var GpPnt) {.
-    importcpp: "Pnt", header: "GeomInt_ThePrmPrmSvSurfacesOfWLApprox.hxx".}
-proc seekPoint*(this: var GeomIntThePrmPrmSvSurfacesOfWLApprox; u1: StandardReal;
-               v1: StandardReal; u2: StandardReal; v2: StandardReal;
-               point: var IntSurfPntOn2S): StandardBoolean {.importcpp: "SeekPoint",
+proc Compute*(this: var GeomInt_ThePrmPrmSvSurfacesOfWLApprox;
+             u1: var Standard_Real; v1: var Standard_Real; u2: var Standard_Real;
+             v2: var Standard_Real; Pt: var gp_Pnt; Tg: var gp_Vec; Tguv1: var gp_Vec2d;
+             Tguv2: var gp_Vec2d): Standard_Boolean {.importcpp: "Compute",
     header: "GeomInt_ThePrmPrmSvSurfacesOfWLApprox.hxx".}
-proc tangency*(this: var GeomIntThePrmPrmSvSurfacesOfWLApprox; u1: StandardReal;
-              v1: StandardReal; u2: StandardReal; v2: StandardReal; tg: var GpVec): StandardBoolean {.
+proc Pnt*(this: var GeomInt_ThePrmPrmSvSurfacesOfWLApprox; u1: Standard_Real;
+         v1: Standard_Real; u2: Standard_Real; v2: Standard_Real; P: var gp_Pnt) {.
+    importcpp: "Pnt", header: "GeomInt_ThePrmPrmSvSurfacesOfWLApprox.hxx".}
+proc SeekPoint*(this: var GeomInt_ThePrmPrmSvSurfacesOfWLApprox; u1: Standard_Real;
+               v1: Standard_Real; u2: Standard_Real; v2: Standard_Real;
+               Point: var IntSurf_PntOn2S): Standard_Boolean {.
+    importcpp: "SeekPoint", header: "GeomInt_ThePrmPrmSvSurfacesOfWLApprox.hxx".}
+proc Tangency*(this: var GeomInt_ThePrmPrmSvSurfacesOfWLApprox; u1: Standard_Real;
+              v1: Standard_Real; u2: Standard_Real; v2: Standard_Real; Tg: var gp_Vec): Standard_Boolean {.
     importcpp: "Tangency", header: "GeomInt_ThePrmPrmSvSurfacesOfWLApprox.hxx".}
-proc tangencyOnSurf1*(this: var GeomIntThePrmPrmSvSurfacesOfWLApprox;
-                     u1: StandardReal; v1: StandardReal; u2: StandardReal;
-                     v2: StandardReal; tg: var GpVec2d): StandardBoolean {.
+proc TangencyOnSurf1*(this: var GeomInt_ThePrmPrmSvSurfacesOfWLApprox;
+                     u1: Standard_Real; v1: Standard_Real; u2: Standard_Real;
+                     v2: Standard_Real; Tg: var gp_Vec2d): Standard_Boolean {.
     importcpp: "TangencyOnSurf1",
     header: "GeomInt_ThePrmPrmSvSurfacesOfWLApprox.hxx".}
-proc tangencyOnSurf2*(this: var GeomIntThePrmPrmSvSurfacesOfWLApprox;
-                     u1: StandardReal; v1: StandardReal; u2: StandardReal;
-                     v2: StandardReal; tg: var GpVec2d): StandardBoolean {.
+proc TangencyOnSurf2*(this: var GeomInt_ThePrmPrmSvSurfacesOfWLApprox;
+                     u1: Standard_Real; v1: Standard_Real; u2: Standard_Real;
+                     v2: Standard_Real; Tg: var gp_Vec2d): Standard_Boolean {.
     importcpp: "TangencyOnSurf2",
     header: "GeomInt_ThePrmPrmSvSurfacesOfWLApprox.hxx".}
-

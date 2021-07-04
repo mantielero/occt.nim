@@ -14,155 +14,171 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../GeomAbs/GeomAbs_Shape, ../Geom/Geom_Surface,
+  ../Geom/Geom_Curve, ../Geom2d/Geom2d_Curve, ../gp/gp_Pnt2d, ../gp/gp_Pnt,
+  ../Poly/Poly_Triangulation, ../Poly/Poly_Polygon3D, ../Poly/Poly_Polygon2D,
+  ../Poly/Poly_PolygonOnTriangulation, ../TopAbs/TopAbs_ShapeEnum
+
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of TopoDS_Face"
 discard "forward decl of TopLoc_Location"
 discard "forward decl of TopoDS_Edge"
 discard "forward decl of TopoDS_Vertex"
 type
-  BRepTool* {.importcpp: "BRep_Tool", header: "BRep_Tool.hxx", bycopy.} = object ## ! If S is Shell, returns True if it has no free
-                                                                         ## boundaries
-                                                                         ## (edges).
-                                                                         ## ! If S is Wire, returns True if it has no free ends
-                                                                         ## (vertices).
-                                                                         ## !
-                                                                         ## (Internal and
-                                                                         ## External
-                                                                         ## sub-shepes are ignored in these checks)
-                                                                         ## ! If S is Edge, returns True if its
-                                                                         ## vertices are the same.
-                                                                         ## ! For other shape types returns
-                                                                         ## S.Closed().
+  BRep_Tool* {.importcpp: "BRep_Tool", header: "BRep_Tool.hxx", bycopy.} = object ## ! If S is Shell,
+                                                                          ## returns True if it has no free
+                                                                          ## boundaries
+                                                                          ## (edges).
+                                                                          ## ! If S is Wire,
+                                                                          ## returns True if it has no free ends
+                                                                          ## (vertices).
+                                                                          ## !
+                                                                          ## (Internal and
+                                                                          ## External
+                                                                          ## sub-shepes are
+                                                                          ## ignored in these
+                                                                          ## checks)
+                                                                          ## ! If S is Edge,
+                                                                          ## returns True if its
+                                                                          ## vertices are the same.
+                                                                          ## ! For other shape types
+                                                                          ## returns
+                                                                          ## S.Closed().
 
 
-proc isClosed*(s: TopoDS_Shape): StandardBoolean {.
+proc IsClosed*(S: TopoDS_Shape): Standard_Boolean {.
     importcpp: "BRep_Tool::IsClosed(@)", header: "BRep_Tool.hxx".}
-proc surface*(f: TopoDS_Face; L: var TopLocLocation): Handle[GeomSurface] {.
+proc Surface*(F: TopoDS_Face; L: var TopLoc_Location): handle[Geom_Surface] {.
     importcpp: "BRep_Tool::Surface(@)", header: "BRep_Tool.hxx".}
-proc surface*(f: TopoDS_Face): Handle[GeomSurface] {.
+proc Surface*(F: TopoDS_Face): handle[Geom_Surface] {.
     importcpp: "BRep_Tool::Surface(@)", header: "BRep_Tool.hxx".}
-proc triangulation*(f: TopoDS_Face; L: var TopLocLocation): Handle[PolyTriangulation] {.
+proc Triangulation*(F: TopoDS_Face; L: var TopLoc_Location): handle[Poly_Triangulation] {.
     importcpp: "BRep_Tool::Triangulation(@)", header: "BRep_Tool.hxx".}
-proc tolerance*(f: TopoDS_Face): StandardReal {.
+proc Tolerance*(F: TopoDS_Face): Standard_Real {.
     importcpp: "BRep_Tool::Tolerance(@)", header: "BRep_Tool.hxx".}
-proc naturalRestriction*(f: TopoDS_Face): StandardBoolean {.
+proc NaturalRestriction*(F: TopoDS_Face): Standard_Boolean {.
     importcpp: "BRep_Tool::NaturalRestriction(@)", header: "BRep_Tool.hxx".}
-proc isGeometric*(f: TopoDS_Face): StandardBoolean {.
+proc IsGeometric*(F: TopoDS_Face): Standard_Boolean {.
     importcpp: "BRep_Tool::IsGeometric(@)", header: "BRep_Tool.hxx".}
-proc isGeometric*(e: TopoDS_Edge): StandardBoolean {.
+proc IsGeometric*(E: TopoDS_Edge): Standard_Boolean {.
     importcpp: "BRep_Tool::IsGeometric(@)", header: "BRep_Tool.hxx".}
-proc curve*(e: TopoDS_Edge; L: var TopLocLocation; first: var StandardReal;
-           last: var StandardReal): Handle[GeomCurve] {.
+proc Curve*(E: TopoDS_Edge; L: var TopLoc_Location; First: var Standard_Real;
+           Last: var Standard_Real): handle[Geom_Curve] {.
     importcpp: "BRep_Tool::Curve(@)", header: "BRep_Tool.hxx".}
-proc curve*(e: TopoDS_Edge; first: var StandardReal; last: var StandardReal): Handle[
-    GeomCurve] {.importcpp: "BRep_Tool::Curve(@)", header: "BRep_Tool.hxx".}
-proc polygon3D*(e: TopoDS_Edge; L: var TopLocLocation): Handle[PolyPolygon3D] {.
+proc Curve*(E: TopoDS_Edge; First: var Standard_Real; Last: var Standard_Real): handle[
+    Geom_Curve] {.importcpp: "BRep_Tool::Curve(@)", header: "BRep_Tool.hxx".}
+proc Polygon3D*(E: TopoDS_Edge; L: var TopLoc_Location): handle[Poly_Polygon3D] {.
     importcpp: "BRep_Tool::Polygon3D(@)", header: "BRep_Tool.hxx".}
-proc curveOnSurface*(e: TopoDS_Edge; f: TopoDS_Face; first: var StandardReal;
-                    last: var StandardReal; theIsStored: ptr StandardBoolean = nil): Handle[
-    Geom2dCurve] {.importcpp: "BRep_Tool::CurveOnSurface(@)",
-                  header: "BRep_Tool.hxx".}
-proc curveOnSurface*(e: TopoDS_Edge; s: Handle[GeomSurface]; L: TopLocLocation;
-                    first: var StandardReal; last: var StandardReal;
-                    theIsStored: ptr StandardBoolean = nil): Handle[Geom2dCurve] {.
+proc CurveOnSurface*(E: TopoDS_Edge; F: TopoDS_Face; First: var Standard_Real;
+                    Last: var Standard_Real;
+                    theIsStored: ptr Standard_Boolean = nil): handle[Geom2d_Curve] {.
     importcpp: "BRep_Tool::CurveOnSurface(@)", header: "BRep_Tool.hxx".}
-proc curveOnPlane*(e: TopoDS_Edge; s: Handle[GeomSurface]; L: TopLocLocation;
-                  first: var StandardReal; last: var StandardReal): Handle[Geom2dCurve] {.
-    importcpp: "BRep_Tool::CurveOnPlane(@)", header: "BRep_Tool.hxx".}
-proc curveOnSurface*(e: TopoDS_Edge; c: var Handle[Geom2dCurve];
-                    s: var Handle[GeomSurface]; L: var TopLocLocation;
-                    first: var StandardReal; last: var StandardReal) {.
+proc CurveOnSurface*(E: TopoDS_Edge; S: handle[Geom_Surface]; L: TopLoc_Location;
+                    First: var Standard_Real; Last: var Standard_Real;
+                    theIsStored: ptr Standard_Boolean = nil): handle[Geom2d_Curve] {.
     importcpp: "BRep_Tool::CurveOnSurface(@)", header: "BRep_Tool.hxx".}
-proc curveOnSurface*(e: TopoDS_Edge; c: var Handle[Geom2dCurve];
-                    s: var Handle[GeomSurface]; L: var TopLocLocation;
-                    first: var StandardReal; last: var StandardReal;
-                    index: StandardInteger) {.
+proc CurveOnPlane*(E: TopoDS_Edge; S: handle[Geom_Surface]; L: TopLoc_Location;
+                  First: var Standard_Real; Last: var Standard_Real): handle[
+    Geom2d_Curve] {.importcpp: "BRep_Tool::CurveOnPlane(@)",
+                   header: "BRep_Tool.hxx".}
+proc CurveOnSurface*(E: TopoDS_Edge; C: var handle[Geom2d_Curve];
+                    S: var handle[Geom_Surface]; L: var TopLoc_Location;
+                    First: var Standard_Real; Last: var Standard_Real) {.
     importcpp: "BRep_Tool::CurveOnSurface(@)", header: "BRep_Tool.hxx".}
-proc polygonOnSurface*(e: TopoDS_Edge; f: TopoDS_Face): Handle[PolyPolygon2D] {.
+proc CurveOnSurface*(E: TopoDS_Edge; C: var handle[Geom2d_Curve];
+                    S: var handle[Geom_Surface]; L: var TopLoc_Location;
+                    First: var Standard_Real; Last: var Standard_Real;
+                    Index: Standard_Integer) {.
+    importcpp: "BRep_Tool::CurveOnSurface(@)", header: "BRep_Tool.hxx".}
+proc PolygonOnSurface*(E: TopoDS_Edge; F: TopoDS_Face): handle[Poly_Polygon2D] {.
     importcpp: "BRep_Tool::PolygonOnSurface(@)", header: "BRep_Tool.hxx".}
-proc polygonOnSurface*(e: TopoDS_Edge; s: Handle[GeomSurface]; L: TopLocLocation): Handle[
-    PolyPolygon2D] {.importcpp: "BRep_Tool::PolygonOnSurface(@)",
-                    header: "BRep_Tool.hxx".}
-proc polygonOnSurface*(e: TopoDS_Edge; c: var Handle[PolyPolygon2D];
-                      s: var Handle[GeomSurface]; L: var TopLocLocation) {.
+proc PolygonOnSurface*(E: TopoDS_Edge; S: handle[Geom_Surface]; L: TopLoc_Location): handle[
+    Poly_Polygon2D] {.importcpp: "BRep_Tool::PolygonOnSurface(@)",
+                     header: "BRep_Tool.hxx".}
+proc PolygonOnSurface*(E: TopoDS_Edge; C: var handle[Poly_Polygon2D];
+                      S: var handle[Geom_Surface]; L: var TopLoc_Location) {.
     importcpp: "BRep_Tool::PolygonOnSurface(@)", header: "BRep_Tool.hxx".}
-proc polygonOnSurface*(e: TopoDS_Edge; c: var Handle[PolyPolygon2D];
-                      s: var Handle[GeomSurface]; L: var TopLocLocation;
-                      index: StandardInteger) {.
+proc PolygonOnSurface*(E: TopoDS_Edge; C: var handle[Poly_Polygon2D];
+                      S: var handle[Geom_Surface]; L: var TopLoc_Location;
+                      Index: Standard_Integer) {.
     importcpp: "BRep_Tool::PolygonOnSurface(@)", header: "BRep_Tool.hxx".}
-proc polygonOnTriangulation*(e: TopoDS_Edge; t: Handle[PolyTriangulation];
-                            L: TopLocLocation): Handle[PolyPolygonOnTriangulation] {.
-    importcpp: "BRep_Tool::PolygonOnTriangulation(@)", header: "BRep_Tool.hxx".}
-proc polygonOnTriangulation*(e: TopoDS_Edge;
-                            p: var Handle[PolyPolygonOnTriangulation];
-                            t: var Handle[PolyTriangulation]; L: var TopLocLocation) {.
-    importcpp: "BRep_Tool::PolygonOnTriangulation(@)", header: "BRep_Tool.hxx".}
-proc polygonOnTriangulation*(e: TopoDS_Edge;
-                            p: var Handle[PolyPolygonOnTriangulation];
-                            t: var Handle[PolyTriangulation];
-                            L: var TopLocLocation; index: StandardInteger) {.
-    importcpp: "BRep_Tool::PolygonOnTriangulation(@)", header: "BRep_Tool.hxx".}
-proc isClosed*(e: TopoDS_Edge; f: TopoDS_Face): StandardBoolean {.
-    importcpp: "BRep_Tool::IsClosed(@)", header: "BRep_Tool.hxx".}
-proc isClosed*(e: TopoDS_Edge; s: Handle[GeomSurface]; L: TopLocLocation): StandardBoolean {.
-    importcpp: "BRep_Tool::IsClosed(@)", header: "BRep_Tool.hxx".}
-proc isClosed*(e: TopoDS_Edge; t: Handle[PolyTriangulation]; L: TopLocLocation): StandardBoolean {.
-    importcpp: "BRep_Tool::IsClosed(@)", header: "BRep_Tool.hxx".}
-proc tolerance*(e: TopoDS_Edge): StandardReal {.
-    importcpp: "BRep_Tool::Tolerance(@)", header: "BRep_Tool.hxx".}
-proc sameParameter*(e: TopoDS_Edge): StandardBoolean {.
-    importcpp: "BRep_Tool::SameParameter(@)", header: "BRep_Tool.hxx".}
-proc sameRange*(e: TopoDS_Edge): StandardBoolean {.
-    importcpp: "BRep_Tool::SameRange(@)", header: "BRep_Tool.hxx".}
-proc degenerated*(e: TopoDS_Edge): StandardBoolean {.
-    importcpp: "BRep_Tool::Degenerated(@)", header: "BRep_Tool.hxx".}
-proc range*(e: TopoDS_Edge; first: var StandardReal; last: var StandardReal) {.
-    importcpp: "BRep_Tool::Range(@)", header: "BRep_Tool.hxx".}
-proc range*(e: TopoDS_Edge; s: Handle[GeomSurface]; L: TopLocLocation;
-           first: var StandardReal; last: var StandardReal) {.
-    importcpp: "BRep_Tool::Range(@)", header: "BRep_Tool.hxx".}
-proc range*(e: TopoDS_Edge; f: TopoDS_Face; first: var StandardReal;
-           last: var StandardReal) {.importcpp: "BRep_Tool::Range(@)",
+proc PolygonOnTriangulation*(E: TopoDS_Edge; T: handle[Poly_Triangulation];
+                            L: TopLoc_Location): handle[
+    Poly_PolygonOnTriangulation] {.importcpp: "BRep_Tool::PolygonOnTriangulation(@)",
                                   header: "BRep_Tool.hxx".}
-proc uVPoints*(e: TopoDS_Edge; s: Handle[GeomSurface]; L: TopLocLocation;
-              pFirst: var GpPnt2d; pLast: var GpPnt2d) {.
-    importcpp: "BRep_Tool::UVPoints(@)", header: "BRep_Tool.hxx".}
-proc uVPoints*(e: TopoDS_Edge; f: TopoDS_Face; pFirst: var GpPnt2d; pLast: var GpPnt2d) {.
-    importcpp: "BRep_Tool::UVPoints(@)", header: "BRep_Tool.hxx".}
-proc setUVPoints*(e: TopoDS_Edge; s: Handle[GeomSurface]; L: TopLocLocation;
-                 pFirst: GpPnt2d; pLast: GpPnt2d) {.
-    importcpp: "BRep_Tool::SetUVPoints(@)", header: "BRep_Tool.hxx".}
-proc setUVPoints*(e: TopoDS_Edge; f: TopoDS_Face; pFirst: GpPnt2d; pLast: GpPnt2d) {.
-    importcpp: "BRep_Tool::SetUVPoints(@)", header: "BRep_Tool.hxx".}
-proc hasContinuity*(e: TopoDS_Edge; f1: TopoDS_Face; f2: TopoDS_Face): StandardBoolean {.
-    importcpp: "BRep_Tool::HasContinuity(@)", header: "BRep_Tool.hxx".}
-proc continuity*(e: TopoDS_Edge; f1: TopoDS_Face; f2: TopoDS_Face): GeomAbsShape {.
-    importcpp: "BRep_Tool::Continuity(@)", header: "BRep_Tool.hxx".}
-proc hasContinuity*(e: TopoDS_Edge; s1: Handle[GeomSurface]; s2: Handle[GeomSurface];
-                   l1: TopLocLocation; l2: TopLocLocation): StandardBoolean {.
-    importcpp: "BRep_Tool::HasContinuity(@)", header: "BRep_Tool.hxx".}
-proc continuity*(e: TopoDS_Edge; s1: Handle[GeomSurface]; s2: Handle[GeomSurface];
-                l1: TopLocLocation; l2: TopLocLocation): GeomAbsShape {.
-    importcpp: "BRep_Tool::Continuity(@)", header: "BRep_Tool.hxx".}
-proc hasContinuity*(e: TopoDS_Edge): StandardBoolean {.
-    importcpp: "BRep_Tool::HasContinuity(@)", header: "BRep_Tool.hxx".}
-proc maxContinuity*(theEdge: TopoDS_Edge): GeomAbsShape {.
-    importcpp: "BRep_Tool::MaxContinuity(@)", header: "BRep_Tool.hxx".}
-proc pnt*(v: TopoDS_Vertex): GpPnt {.importcpp: "BRep_Tool::Pnt(@)",
-                                 header: "BRep_Tool.hxx".}
-proc tolerance*(v: TopoDS_Vertex): StandardReal {.
+proc PolygonOnTriangulation*(E: TopoDS_Edge;
+                            P: var handle[Poly_PolygonOnTriangulation];
+                            T: var handle[Poly_Triangulation];
+                            L: var TopLoc_Location) {.
+    importcpp: "BRep_Tool::PolygonOnTriangulation(@)", header: "BRep_Tool.hxx".}
+proc PolygonOnTriangulation*(E: TopoDS_Edge;
+                            P: var handle[Poly_PolygonOnTriangulation];
+                            T: var handle[Poly_Triangulation];
+                            L: var TopLoc_Location; Index: Standard_Integer) {.
+    importcpp: "BRep_Tool::PolygonOnTriangulation(@)", header: "BRep_Tool.hxx".}
+proc IsClosed*(E: TopoDS_Edge; F: TopoDS_Face): Standard_Boolean {.
+    importcpp: "BRep_Tool::IsClosed(@)", header: "BRep_Tool.hxx".}
+proc IsClosed*(E: TopoDS_Edge; S: handle[Geom_Surface]; L: TopLoc_Location): Standard_Boolean {.
+    importcpp: "BRep_Tool::IsClosed(@)", header: "BRep_Tool.hxx".}
+proc IsClosed*(E: TopoDS_Edge; T: handle[Poly_Triangulation]; L: TopLoc_Location): Standard_Boolean {.
+    importcpp: "BRep_Tool::IsClosed(@)", header: "BRep_Tool.hxx".}
+proc Tolerance*(E: TopoDS_Edge): Standard_Real {.
     importcpp: "BRep_Tool::Tolerance(@)", header: "BRep_Tool.hxx".}
-proc parameter*(theV: TopoDS_Vertex; theE: TopoDS_Edge; theParam: var StandardReal): StandardBoolean {.
+proc SameParameter*(E: TopoDS_Edge): Standard_Boolean {.
+    importcpp: "BRep_Tool::SameParameter(@)", header: "BRep_Tool.hxx".}
+proc SameRange*(E: TopoDS_Edge): Standard_Boolean {.
+    importcpp: "BRep_Tool::SameRange(@)", header: "BRep_Tool.hxx".}
+proc Degenerated*(E: TopoDS_Edge): Standard_Boolean {.
+    importcpp: "BRep_Tool::Degenerated(@)", header: "BRep_Tool.hxx".}
+proc Range*(E: TopoDS_Edge; First: var Standard_Real; Last: var Standard_Real) {.
+    importcpp: "BRep_Tool::Range(@)", header: "BRep_Tool.hxx".}
+proc Range*(E: TopoDS_Edge; S: handle[Geom_Surface]; L: TopLoc_Location;
+           First: var Standard_Real; Last: var Standard_Real) {.
+    importcpp: "BRep_Tool::Range(@)", header: "BRep_Tool.hxx".}
+proc Range*(E: TopoDS_Edge; F: TopoDS_Face; First: var Standard_Real;
+           Last: var Standard_Real) {.importcpp: "BRep_Tool::Range(@)",
+                                   header: "BRep_Tool.hxx".}
+proc UVPoints*(E: TopoDS_Edge; S: handle[Geom_Surface]; L: TopLoc_Location;
+              PFirst: var gp_Pnt2d; PLast: var gp_Pnt2d) {.
+    importcpp: "BRep_Tool::UVPoints(@)", header: "BRep_Tool.hxx".}
+proc UVPoints*(E: TopoDS_Edge; F: TopoDS_Face; PFirst: var gp_Pnt2d; PLast: var gp_Pnt2d) {.
+    importcpp: "BRep_Tool::UVPoints(@)", header: "BRep_Tool.hxx".}
+proc SetUVPoints*(E: TopoDS_Edge; S: handle[Geom_Surface]; L: TopLoc_Location;
+                 PFirst: gp_Pnt2d; PLast: gp_Pnt2d) {.
+    importcpp: "BRep_Tool::SetUVPoints(@)", header: "BRep_Tool.hxx".}
+proc SetUVPoints*(E: TopoDS_Edge; F: TopoDS_Face; PFirst: gp_Pnt2d; PLast: gp_Pnt2d) {.
+    importcpp: "BRep_Tool::SetUVPoints(@)", header: "BRep_Tool.hxx".}
+proc HasContinuity*(E: TopoDS_Edge; F1: TopoDS_Face; F2: TopoDS_Face): Standard_Boolean {.
+    importcpp: "BRep_Tool::HasContinuity(@)", header: "BRep_Tool.hxx".}
+proc Continuity*(E: TopoDS_Edge; F1: TopoDS_Face; F2: TopoDS_Face): GeomAbs_Shape {.
+    importcpp: "BRep_Tool::Continuity(@)", header: "BRep_Tool.hxx".}
+proc HasContinuity*(E: TopoDS_Edge; S1: handle[Geom_Surface];
+                   S2: handle[Geom_Surface]; L1: TopLoc_Location;
+                   L2: TopLoc_Location): Standard_Boolean {.
+    importcpp: "BRep_Tool::HasContinuity(@)", header: "BRep_Tool.hxx".}
+proc Continuity*(E: TopoDS_Edge; S1: handle[Geom_Surface]; S2: handle[Geom_Surface];
+                L1: TopLoc_Location; L2: TopLoc_Location): GeomAbs_Shape {.
+    importcpp: "BRep_Tool::Continuity(@)", header: "BRep_Tool.hxx".}
+proc HasContinuity*(E: TopoDS_Edge): Standard_Boolean {.
+    importcpp: "BRep_Tool::HasContinuity(@)", header: "BRep_Tool.hxx".}
+proc MaxContinuity*(theEdge: TopoDS_Edge): GeomAbs_Shape {.
+    importcpp: "BRep_Tool::MaxContinuity(@)", header: "BRep_Tool.hxx".}
+proc Pnt*(V: TopoDS_Vertex): gp_Pnt {.importcpp: "BRep_Tool::Pnt(@)",
+                                  header: "BRep_Tool.hxx".}
+proc Tolerance*(V: TopoDS_Vertex): Standard_Real {.
+    importcpp: "BRep_Tool::Tolerance(@)", header: "BRep_Tool.hxx".}
+proc Parameter*(theV: TopoDS_Vertex; theE: TopoDS_Edge; theParam: var Standard_Real): Standard_Boolean {.
     importcpp: "BRep_Tool::Parameter(@)", header: "BRep_Tool.hxx".}
-proc parameter*(v: TopoDS_Vertex; e: TopoDS_Edge): StandardReal {.
+proc Parameter*(V: TopoDS_Vertex; E: TopoDS_Edge): Standard_Real {.
     importcpp: "BRep_Tool::Parameter(@)", header: "BRep_Tool.hxx".}
-proc parameter*(v: TopoDS_Vertex; e: TopoDS_Edge; f: TopoDS_Face): StandardReal {.
+proc Parameter*(V: TopoDS_Vertex; E: TopoDS_Edge; F: TopoDS_Face): Standard_Real {.
     importcpp: "BRep_Tool::Parameter(@)", header: "BRep_Tool.hxx".}
-proc parameter*(v: TopoDS_Vertex; e: TopoDS_Edge; s: Handle[GeomSurface];
-               L: TopLocLocation): StandardReal {.
+proc Parameter*(V: TopoDS_Vertex; E: TopoDS_Edge; S: handle[Geom_Surface];
+               L: TopLoc_Location): Standard_Real {.
     importcpp: "BRep_Tool::Parameter(@)", header: "BRep_Tool.hxx".}
-proc parameters*(v: TopoDS_Vertex; f: TopoDS_Face): GpPnt2d {.
+proc Parameters*(V: TopoDS_Vertex; F: TopoDS_Face): gp_Pnt2d {.
     importcpp: "BRep_Tool::Parameters(@)", header: "BRep_Tool.hxx".}
-proc maxTolerance*(theShape: TopoDS_Shape; theSubShape: TopAbsShapeEnum): StandardReal {.
+proc MaxTolerance*(theShape: TopoDS_Shape; theSubShape: TopAbs_ShapeEnum): Standard_Real {.
     importcpp: "BRep_Tool::MaxTolerance(@)", header: "BRep_Tool.hxx".}
-

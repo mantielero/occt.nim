@@ -14,43 +14,47 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../gp/gp_Pnt, ../TopoDS/TopoDS_Shape,
+  ../Standard/Standard_Boolean, ../Standard/Standard_Real
+
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of gp_Pnt"
 type
-  HLRBRepBiPoint* {.importcpp: "HLRBRep_BiPoint", header: "HLRBRep_BiPoint.hxx",
-                   bycopy.} = object
+  HLRBRep_BiPoint* {.importcpp: "HLRBRep_BiPoint", header: "HLRBRep_BiPoint.hxx",
+                    bycopy.} = object
 
 
-proc constructHLRBRepBiPoint*(): HLRBRepBiPoint {.constructor,
+proc constructHLRBRep_BiPoint*(): HLRBRep_BiPoint {.constructor,
     importcpp: "HLRBRep_BiPoint(@)", header: "HLRBRep_BiPoint.hxx".}
-proc constructHLRBRepBiPoint*(x1: StandardReal; y1: StandardReal; z1: StandardReal;
-                             x2: StandardReal; y2: StandardReal; z2: StandardReal;
-                             s: TopoDS_Shape; reg1: StandardBoolean;
-                             regn: StandardBoolean; outl: StandardBoolean;
-                             intl: StandardBoolean): HLRBRepBiPoint {.constructor,
-    importcpp: "HLRBRep_BiPoint(@)", header: "HLRBRep_BiPoint.hxx".}
-proc p1*(this: HLRBRepBiPoint): GpPnt {.noSideEffect, importcpp: "P1",
-                                    header: "HLRBRep_BiPoint.hxx".}
-proc p2*(this: HLRBRepBiPoint): GpPnt {.noSideEffect, importcpp: "P2",
-                                    header: "HLRBRep_BiPoint.hxx".}
-proc shape*(this: HLRBRepBiPoint): TopoDS_Shape {.noSideEffect, importcpp: "Shape",
+proc constructHLRBRep_BiPoint*(x1: Standard_Real; y1: Standard_Real;
+                              z1: Standard_Real; x2: Standard_Real;
+                              y2: Standard_Real; z2: Standard_Real; S: TopoDS_Shape;
+                              reg1: Standard_Boolean; regn: Standard_Boolean;
+                              outl: Standard_Boolean; intl: Standard_Boolean): HLRBRep_BiPoint {.
+    constructor, importcpp: "HLRBRep_BiPoint(@)", header: "HLRBRep_BiPoint.hxx".}
+proc P1*(this: HLRBRep_BiPoint): gp_Pnt {.noSideEffect, importcpp: "P1",
+                                      header: "HLRBRep_BiPoint.hxx".}
+proc P2*(this: HLRBRep_BiPoint): gp_Pnt {.noSideEffect, importcpp: "P2",
+                                      header: "HLRBRep_BiPoint.hxx".}
+proc Shape*(this: HLRBRep_BiPoint): TopoDS_Shape {.noSideEffect, importcpp: "Shape",
     header: "HLRBRep_BiPoint.hxx".}
-proc shape*(this: var HLRBRepBiPoint; s: TopoDS_Shape) {.importcpp: "Shape",
+proc Shape*(this: var HLRBRep_BiPoint; S: TopoDS_Shape) {.importcpp: "Shape",
     header: "HLRBRep_BiPoint.hxx".}
-proc rg1Line*(this: HLRBRepBiPoint): StandardBoolean {.noSideEffect,
+proc Rg1Line*(this: HLRBRep_BiPoint): Standard_Boolean {.noSideEffect,
     importcpp: "Rg1Line", header: "HLRBRep_BiPoint.hxx".}
-proc rg1Line*(this: var HLRBRepBiPoint; b: StandardBoolean) {.importcpp: "Rg1Line",
+proc Rg1Line*(this: var HLRBRep_BiPoint; B: Standard_Boolean) {.importcpp: "Rg1Line",
     header: "HLRBRep_BiPoint.hxx".}
-proc rgNLine*(this: HLRBRepBiPoint): StandardBoolean {.noSideEffect,
+proc RgNLine*(this: HLRBRep_BiPoint): Standard_Boolean {.noSideEffect,
     importcpp: "RgNLine", header: "HLRBRep_BiPoint.hxx".}
-proc rgNLine*(this: var HLRBRepBiPoint; b: StandardBoolean) {.importcpp: "RgNLine",
+proc RgNLine*(this: var HLRBRep_BiPoint; B: Standard_Boolean) {.importcpp: "RgNLine",
     header: "HLRBRep_BiPoint.hxx".}
-proc outLine*(this: HLRBRepBiPoint): StandardBoolean {.noSideEffect,
+proc OutLine*(this: HLRBRep_BiPoint): Standard_Boolean {.noSideEffect,
     importcpp: "OutLine", header: "HLRBRep_BiPoint.hxx".}
-proc outLine*(this: var HLRBRepBiPoint; b: StandardBoolean) {.importcpp: "OutLine",
+proc OutLine*(this: var HLRBRep_BiPoint; B: Standard_Boolean) {.importcpp: "OutLine",
     header: "HLRBRep_BiPoint.hxx".}
-proc intLine*(this: HLRBRepBiPoint): StandardBoolean {.noSideEffect,
+proc IntLine*(this: HLRBRep_BiPoint): Standard_Boolean {.noSideEffect,
     importcpp: "IntLine", header: "HLRBRep_BiPoint.hxx".}
-proc intLine*(this: var HLRBRepBiPoint; b: StandardBoolean) {.importcpp: "IntLine",
+proc IntLine*(this: var HLRBRep_BiPoint; B: Standard_Boolean) {.importcpp: "IntLine",
     header: "HLRBRep_BiPoint.hxx".}
-

@@ -11,94 +11,96 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Graphic3d/Graphic3d_FrameStats, ../NCollection/NCollection_IndexedMap
+
 discard "forward decl of Graphic3d_CStructure"
 type
-  OpenGlFrameStats* {.importcpp: "OpenGl_FrameStats",
-                     header: "OpenGl_FrameStats.hxx", bycopy.} = object of Graphic3dFrameStats ##
-                                                                                        ## !
-                                                                                        ## Default
-                                                                                        ## constructor.
-                                                                                        ##
-                                                                                        ## !
-                                                                                        ## Copy
-                                                                                        ## stats
-                                                                                        ## values
-                                                                                        ## into
-                                                                                        ## another
-                                                                                        ## instance
-                                                                                        ## (create
-                                                                                        ## new
-                                                                                        ## instance,
-                                                                                        ## if
-                                                                                        ## not
-                                                                                        ## exists).
-                                                                                        ##
-                                                                                        ## !
-                                                                                        ## The
-                                                                                        ## main
-                                                                                        ## use
-                                                                                        ## of
-                                                                                        ## this
-                                                                                        ## method
-                                                                                        ## is
-                                                                                        ## to
-                                                                                        ## track
-                                                                                        ## changes
-                                                                                        ## in
-                                                                                        ## statistics
-                                                                                        ## (e.g.
-                                                                                        ## in
-                                                                                        ## conjunction
-                                                                                        ## with
-                                                                                        ## IsEqual()
-                                                                                        ## method).
-                                                                                        ##
-                                                                                        ## !
-                                                                                        ## @return
-                                                                                        ## TRUE
-                                                                                        ## if
-                                                                                        ## frame
-                                                                                        ## data
-                                                                                        ## has
-                                                                                        ## been
-                                                                                        ## changed
-                                                                                        ## so
-                                                                                        ## that
-                                                                                        ## the
-                                                                                        ## presentation
-                                                                                        ## should
-                                                                                        ## be
-                                                                                        ## updated
-                                                                                        ##
-                                                                                        ## !
-                                                                                        ## Method
-                                                                                        ## to
-                                                                                        ## collect
-                                                                                        ## statistics
-                                                                                        ## from
-                                                                                        ## the
-                                                                                        ## View;
-                                                                                        ## called
-                                                                                        ## by
-                                                                                        ## FrameEnd().
+  OpenGl_FrameStats* {.importcpp: "OpenGl_FrameStats",
+                      header: "OpenGl_FrameStats.hxx", bycopy.} = object of Graphic3d_FrameStats ##
+                                                                                          ## !
+                                                                                          ## Default
+                                                                                          ## constructor.
+                                                                                          ##
+                                                                                          ## !
+                                                                                          ## Copy
+                                                                                          ## stats
+                                                                                          ## values
+                                                                                          ## into
+                                                                                          ## another
+                                                                                          ## instance
+                                                                                          ## (create
+                                                                                          ## new
+                                                                                          ## instance,
+                                                                                          ## if
+                                                                                          ## not
+                                                                                          ## exists).
+                                                                                          ##
+                                                                                          ## !
+                                                                                          ## The
+                                                                                          ## main
+                                                                                          ## use
+                                                                                          ## of
+                                                                                          ## this
+                                                                                          ## method
+                                                                                          ## is
+                                                                                          ## to
+                                                                                          ## track
+                                                                                          ## changes
+                                                                                          ## in
+                                                                                          ## statistics
+                                                                                          ## (e.g.
+                                                                                          ## in
+                                                                                          ## conjunction
+                                                                                          ## with
+                                                                                          ## IsEqual()
+                                                                                          ## method).
+                                                                                          ##
+                                                                                          ## !
+                                                                                          ## @return
+                                                                                          ## TRUE
+                                                                                          ## if
+                                                                                          ## frame
+                                                                                          ## data
+                                                                                          ## has
+                                                                                          ## been
+                                                                                          ## changed
+                                                                                          ## so
+                                                                                          ## that
+                                                                                          ## the
+                                                                                          ## presentation
+                                                                                          ## should
+                                                                                          ## be
+                                                                                          ## updated
+                                                                                          ##
+                                                                                          ## !
+                                                                                          ## Method
+                                                                                          ## to
+                                                                                          ## collect
+                                                                                          ## statistics
+                                                                                          ## from
+                                                                                          ## the
+                                                                                          ## View;
+                                                                                          ## called
+                                                                                          ## by
+                                                                                          ## FrameEnd().
 
-  OpenGlFrameStatsbaseType* = Graphic3dFrameStats
+  OpenGl_FrameStatsbase_type* = Graphic3d_FrameStats
 
-proc getTypeName*(): cstring {.importcpp: "OpenGl_FrameStats::get_type_name(@)",
-                            header: "OpenGl_FrameStats.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "OpenGl_FrameStats::get_type_name(@)",
+                              header: "OpenGl_FrameStats.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "OpenGl_FrameStats::get_type_descriptor(@)",
     header: "OpenGl_FrameStats.hxx".}
-proc dynamicType*(this: OpenGlFrameStats): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: OpenGl_FrameStats): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "OpenGl_FrameStats.hxx".}
-proc constructOpenGlFrameStats*(): OpenGlFrameStats {.constructor,
+proc constructOpenGl_FrameStats*(): OpenGl_FrameStats {.constructor,
     importcpp: "OpenGl_FrameStats(@)", header: "OpenGl_FrameStats.hxx".}
-proc destroyOpenGlFrameStats*(this: var OpenGlFrameStats) {.
+proc destroyOpenGl_FrameStats*(this: var OpenGl_FrameStats) {.
     importcpp: "#.~OpenGl_FrameStats()", header: "OpenGl_FrameStats.hxx".}
-proc isFrameUpdated*(this: OpenGlFrameStats; thePrev: var Handle[OpenGlFrameStats]): bool {.
-    noSideEffect, importcpp: "IsFrameUpdated", header: "OpenGl_FrameStats.hxx".}
+proc IsFrameUpdated*(this: OpenGl_FrameStats;
+                    thePrev: var handle[OpenGl_FrameStats]): bool {.noSideEffect,
+    importcpp: "IsFrameUpdated", header: "OpenGl_FrameStats.hxx".}
 discard "forward decl of OpenGl_FrameStats"
 type
-  HandleOpenGlFrameStats* = Handle[OpenGlFrameStats]
-
-
+  Handle_OpenGl_FrameStats* = handle[OpenGl_FrameStats]

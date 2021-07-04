@@ -13,43 +13,47 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Transient,
+  ../Standard/Standard_Boolean, ../Message/Message_ProgressRange
+
 discard "forward decl of ShapeProcess_Context"
 discard "forward decl of ShapeProcess_Operator"
 discard "forward decl of ShapeProcess_Operator"
 type
-  HandleShapeProcessOperator* = Handle[ShapeProcessOperator]
+  Handle_ShapeProcess_Operator* = handle[ShapeProcess_Operator]
 
 ## ! Abstract Operator class providing a tool to
 ## ! perform an operation on Context
 
 type
-  ShapeProcessOperator* {.importcpp: "ShapeProcess_Operator",
-                         header: "ShapeProcess_Operator.hxx", bycopy.} = object of StandardTransient ##
-                                                                                              ## !
-                                                                                              ## Performs
-                                                                                              ## operation
-                                                                                              ## and
-                                                                                              ## eventually
-                                                                                              ## records
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ## changes
-                                                                                              ## in
-                                                                                              ## the
-                                                                                              ## context
+  ShapeProcess_Operator* {.importcpp: "ShapeProcess_Operator",
+                          header: "ShapeProcess_Operator.hxx", bycopy.} = object of Standard_Transient ##
+                                                                                                ## !
+                                                                                                ## Performs
+                                                                                                ## operation
+                                                                                                ## and
+                                                                                                ## eventually
+                                                                                                ## records
+                                                                                                ##
+                                                                                                ## !
+                                                                                                ## changes
+                                                                                                ## in
+                                                                                                ## the
+                                                                                                ## context
 
 
-proc perform*(this: var ShapeProcessOperator; context: Handle[ShapeProcessContext];
-             theProgress: MessageProgressRange = messageProgressRange()): StandardBoolean {.
+proc Perform*(this: var ShapeProcess_Operator;
+             context: handle[ShapeProcess_Context];
+             theProgress: Message_ProgressRange = Message_ProgressRange()): Standard_Boolean {.
     importcpp: "Perform", header: "ShapeProcess_Operator.hxx".}
 type
-  ShapeProcessOperatorbaseType* = StandardTransient
+  ShapeProcess_Operatorbase_type* = Standard_Transient
 
-proc getTypeName*(): cstring {.importcpp: "ShapeProcess_Operator::get_type_name(@)",
-                            header: "ShapeProcess_Operator.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "ShapeProcess_Operator::get_type_name(@)",
+                              header: "ShapeProcess_Operator.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "ShapeProcess_Operator::get_type_descriptor(@)",
     header: "ShapeProcess_Operator.hxx".}
-proc dynamicType*(this: ShapeProcessOperator): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "ShapeProcess_Operator.hxx".}
-
+proc DynamicType*(this: ShapeProcess_Operator): handle[Standard_Type] {.
+    noSideEffect, importcpp: "DynamicType", header: "ShapeProcess_Operator.hxx".}

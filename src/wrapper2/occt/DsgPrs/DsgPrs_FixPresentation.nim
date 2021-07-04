@@ -14,40 +14,51 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Prs3d/Prs3d_Drawer, ../Prs3d/Prs3d_Presentation
+
 discard "forward decl of gp_Pnt"
 discard "forward decl of gp_Dir"
 type
-  DsgPrsFixPresentation* {.importcpp: "DsgPrs_FixPresentation",
-                          header: "DsgPrs_FixPresentation.hxx", bycopy.} = object ## !
-                                                                             ## draws the
-                                                                             ## presentation of
-                                                                             ## fixed
-                                                                             ## objects by
-                                                                             ## !
-                                                                             ## drawing the
-                                                                             ## 'fix'
-                                                                             ## symbol at
-                                                                             ## position
-                                                                             ## <aPntEnd>.
-                                                                             ## ! A
-                                                                             ## binding
-                                                                             ## segment is
-                                                                             ## drawn
-                                                                             ## between
-                                                                             ## <aPntAttach>
-                                                                             ## ! (
-                                                                             ## which
-                                                                             ## belongs the the fix
-                                                                             ## object) and
-                                                                             ## <aPntEnd>.
-                                                                             ## !
-                                                                             ## aSymbSize is the
-                                                                             ## size of the
-                                                                             ## 'fix'symbol
+  DsgPrs_FixPresentation* {.importcpp: "DsgPrs_FixPresentation",
+                           header: "DsgPrs_FixPresentation.hxx", bycopy.} = object ## !
+                                                                              ## draws
+                                                                              ## the
+                                                                              ## presentation of
+                                                                              ## fixed
+                                                                              ## objects by
+                                                                              ## !
+                                                                              ## drawing
+                                                                              ## the
+                                                                              ## 'fix'
+                                                                              ## symbol at
+                                                                              ## position
+                                                                              ## <aPntEnd>.
+                                                                              ## ! A
+                                                                              ## binding
+                                                                              ## segment is
+                                                                              ## drawn
+                                                                              ## between
+                                                                              ## <aPntAttach>
+                                                                              ## ! (
+                                                                              ## which
+                                                                              ## belongs
+                                                                              ## the
+                                                                              ## the
+                                                                              ## fix
+                                                                              ## object)
+                                                                              ## and
+                                                                              ## <aPntEnd>.
+                                                                              ## !
+                                                                              ## aSymbSize is
+                                                                              ## the
+                                                                              ## size of
+                                                                              ## the
+                                                                              ## 'fix'symbol
 
 
-proc add*(aPresentation: Handle[Prs3dPresentation]; aDrawer: Handle[Prs3dDrawer];
-         aPntAttach: GpPnt; aPntEnd: GpPnt; aNormPln: GpDir; aSymbSize: StandardReal) {.
-    importcpp: "DsgPrs_FixPresentation::Add(@)",
-    header: "DsgPrs_FixPresentation.hxx".}
-
+proc Add*(aPresentation: handle[Prs3d_Presentation]; aDrawer: handle[Prs3d_Drawer];
+         aPntAttach: gp_Pnt; aPntEnd: gp_Pnt; aNormPln: gp_Dir;
+         aSymbSize: Standard_Real) {.importcpp: "DsgPrs_FixPresentation::Add(@)",
+                                   header: "DsgPrs_FixPresentation.hxx".}

@@ -14,6 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, BRepPrim_OneAxis, ../Standard/Standard_Real
+
 discard "forward decl of Geom_Curve"
 discard "forward decl of Geom2d_Curve"
 discard "forward decl of gp_Ax2"
@@ -21,68 +25,68 @@ discard "forward decl of TopoDS_Face"
 discard "forward decl of TopoDS_Edge"
 discard "forward decl of gp_Pnt2d"
 type
-  BRepPrimRevolution* {.importcpp: "BRepPrim_Revolution",
-                       header: "BRepPrim_Revolution.hxx", bycopy.} = object of BRepPrimOneAxis ##
-                                                                                        ## !
-                                                                                        ## Create
-                                                                                        ## a
-                                                                                        ## revolution
-                                                                                        ## body
-                                                                                        ## <M>
-                                                                                        ## is
-                                                                                        ## the
-                                                                                        ## meridian
-                                                                                        ## nd
-                                                                                        ##
-                                                                                        ## !
-                                                                                        ## must
-                                                                                        ## be
-                                                                                        ## in
-                                                                                        ## the
-                                                                                        ## XZ
-                                                                                        ## plane
-                                                                                        ## of
-                                                                                        ## <A>.
-                                                                                        ## <PM>
-                                                                                        ## is
-                                                                                        ## the
-                                                                                        ##
-                                                                                        ## !
-                                                                                        ## meridian
-                                                                                        ## in
-                                                                                        ## the
-                                                                                        ## XZ
-                                                                                        ## plane.
-                                                                                        ##
-                                                                                        ## !
-                                                                                        ## Create
-                                                                                        ## a
-                                                                                        ## revolution
-                                                                                        ## body.
-                                                                                        ## The
-                                                                                        ## meridian
-                                                                                        ## is
-                                                                                        ## set
-                                                                                        ##
-                                                                                        ## !
-                                                                                        ## later.
-                                                                                        ## Reserved
-                                                                                        ## for
-                                                                                        ## derivated
-                                                                                        ## classes.
+  BRepPrim_Revolution* {.importcpp: "BRepPrim_Revolution",
+                        header: "BRepPrim_Revolution.hxx", bycopy.} = object of BRepPrim_OneAxis ##
+                                                                                          ## !
+                                                                                          ## Create
+                                                                                          ## a
+                                                                                          ## revolution
+                                                                                          ## body
+                                                                                          ## <M>
+                                                                                          ## is
+                                                                                          ## the
+                                                                                          ## meridian
+                                                                                          ## nd
+                                                                                          ##
+                                                                                          ## !
+                                                                                          ## must
+                                                                                          ## be
+                                                                                          ## in
+                                                                                          ## the
+                                                                                          ## XZ
+                                                                                          ## plane
+                                                                                          ## of
+                                                                                          ## <A>.
+                                                                                          ## <PM>
+                                                                                          ## is
+                                                                                          ## the
+                                                                                          ##
+                                                                                          ## !
+                                                                                          ## meridian
+                                                                                          ## in
+                                                                                          ## the
+                                                                                          ## XZ
+                                                                                          ## plane.
+                                                                                          ##
+                                                                                          ## !
+                                                                                          ## Create
+                                                                                          ## a
+                                                                                          ## revolution
+                                                                                          ## body.
+                                                                                          ## The
+                                                                                          ## meridian
+                                                                                          ## is
+                                                                                          ## set
+                                                                                          ##
+                                                                                          ## !
+                                                                                          ## later.
+                                                                                          ## Reserved
+                                                                                          ## for
+                                                                                          ## derivated
+                                                                                          ## classes.
 
 
-proc constructBRepPrimRevolution*(a: GpAx2; vMin: StandardReal; vMax: StandardReal;
-                                 m: Handle[GeomCurve]; pm: Handle[Geom2dCurve]): BRepPrimRevolution {.
+proc constructBRepPrim_Revolution*(A: gp_Ax2; VMin: Standard_Real;
+                                  VMax: Standard_Real; M: handle[Geom_Curve];
+                                  PM: handle[Geom2d_Curve]): BRepPrim_Revolution {.
     constructor, importcpp: "BRepPrim_Revolution(@)",
     header: "BRepPrim_Revolution.hxx".}
-proc makeEmptyLateralFace*(this: BRepPrimRevolution): TopoDS_Face {.noSideEffect,
+proc MakeEmptyLateralFace*(this: BRepPrim_Revolution): TopoDS_Face {.noSideEffect,
     importcpp: "MakeEmptyLateralFace", header: "BRepPrim_Revolution.hxx".}
-proc makeEmptyMeridianEdge*(this: BRepPrimRevolution; ang: StandardReal): TopoDS_Edge {.
+proc MakeEmptyMeridianEdge*(this: BRepPrim_Revolution; Ang: Standard_Real): TopoDS_Edge {.
     noSideEffect, importcpp: "MakeEmptyMeridianEdge",
     header: "BRepPrim_Revolution.hxx".}
-proc meridianValue*(this: BRepPrimRevolution; v: StandardReal): GpPnt2d {.
+proc MeridianValue*(this: BRepPrim_Revolution; V: Standard_Real): gp_Pnt2d {.
     noSideEffect, importcpp: "MeridianValue", header: "BRepPrim_Revolution.hxx".}
-proc setMeridianPCurve*(this: BRepPrimRevolution; e: var TopoDS_Edge; f: TopoDS_Face) {.
+proc SetMeridianPCurve*(this: BRepPrim_Revolution; E: var TopoDS_Edge; F: TopoDS_Face) {.
     noSideEffect, importcpp: "SetMeridianPCurve", header: "BRepPrim_Revolution.hxx".}
-

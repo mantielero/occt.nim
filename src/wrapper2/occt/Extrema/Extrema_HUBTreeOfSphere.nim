@@ -13,9 +13,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../NCollection/NCollection_UBTree, ../NCollection/NCollection_UBTreeFiller,
+  ../NCollection/NCollection_Handle, ../Bnd/Bnd_Sphere
+
 type
-  ExtremaUBTreeOfSphere* = NCollectionUBTree[StandardInteger, BndSphere]
-  ExtremaUBTreeFillerOfSphere* = NCollectionUBTreeFiller[StandardInteger, BndSphere]
-  ExtremaHUBTreeOfSphere* = NCollectionHandle[ExtremaUBTreeOfSphere]
-
-
+  Extrema_UBTreeOfSphere* = NCollection_UBTree[Standard_Integer, Bnd_Sphere]
+  Extrema_UBTreeFillerOfSphere* = NCollection_UBTreeFiller[Standard_Integer,
+      Bnd_Sphere]
+  Extrema_HUBTreeOfSphere* = NCollection_Handle[Extrema_UBTreeOfSphere]

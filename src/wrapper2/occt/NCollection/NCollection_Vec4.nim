@@ -12,7 +12,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _NCollection_Vec4_H__ [NewLine] # _NCollection_Vec4_H__ [NewLine] # < NCollection_Vec3 . hxx > [NewLine] ! Generic 4-components vector.
+## !!!Ignored construct:  # _NCollection_Vec4_H__ [NewLine] # _NCollection_Vec4_H__ [NewLine] # NCollection_Vec3.hxx [NewLine] ! Generic 4-components vector.
 ## ! To be used as RGBA color vector or XYZW 3D-point with special W-component
 ## ! for operations with projection / model view matrices.
 ## ! Use this class for 3D-points carefully because declared W-component may
@@ -25,7 +25,5 @@
 
 ## ! Optimized concretization for float type.
 
-## !!!Ignored construct:  template < > [end of template] inline NCollection_Vec4 < float > [end of template] & NCollection_Vec4 < float > :: operator /= ( const float theInvFactor ) { Multiply ( 1.0f / theInvFactor ) ; return * this ; } ! Optimized concretization for double type. template < > inline NCollection_Vec4 < double > & NCollection_Vec4 < double > :: operator /= ( const double theInvFactor ) { Multiply ( 1.0 / theInvFactor ) ; return * this ; } #  _NCollection_Vec4_H__
+## !!!Ignored construct:  template < > [end of template] inline NCollection_Vec4 < float > [end of template] & NCollection_Vec4 < float > :: operator /= ( const float theInvFactor ) { Multiply ( 1.0f / theInvFactor ) ; return * this ; } ! Optimized concretization for double type. template < > inline NCollection_Vec4 < double > & NCollection_Vec4 < double > :: operator /= ( const double theInvFactor ) { Multiply ( 1.0 / theInvFactor ) ; return * this ; } #  _NCollection_Vec4_H__ [NewLine]
 ## Error: token expected: ; but got: <!!!
-
-

@@ -14,6 +14,13 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type,
+  ../TColGeom/TColGeom_HArray2OfSurface, ../TColStd/TColStd_HArray1OfReal,
+  ../Standard/Standard_Boolean, ../Geom/Geom_Surface, ShapeExtend_Parametrisation,
+  ../TColStd/TColStd_Array1OfReal, ../Standard/Standard_Integer,
+  ../Standard/Standard_Real, ../GeomAbs/GeomAbs_Shape
+
 discard "forward decl of Geom_Surface"
 discard "forward decl of gp_Pnt2d"
 discard "forward decl of gp_Trsf2d"
@@ -25,7 +32,7 @@ discard "forward decl of gp_Vec"
 discard "forward decl of ShapeExtend_CompositeSurface"
 discard "forward decl of ShapeExtend_CompositeSurface"
 type
-  HandleShapeExtendCompositeSurface* = Handle[ShapeExtendCompositeSurface]
+  Handle_ShapeExtend_CompositeSurface* = handle[ShapeExtend_CompositeSurface]
 
 ## ! Composite surface is represented by a grid of surfaces
 ## ! (patches) connected geometrically. Patches may have different
@@ -60,176 +67,177 @@ type
 ## ! implemented not in the full form.
 
 type
-  ShapeExtendCompositeSurface* {.importcpp: "ShapeExtend_CompositeSurface",
-                                header: "ShapeExtend_CompositeSurface.hxx", bycopy.} = object of GeomSurface ##
-                                                                                                      ## !
-                                                                                                      ## Empty
-                                                                                                      ## constructor.
+  ShapeExtend_CompositeSurface* {.importcpp: "ShapeExtend_CompositeSurface",
+                                 header: "ShapeExtend_CompositeSurface.hxx",
+                                 bycopy.} = object of Geom_Surface ## ! Empty constructor.
 
 
-proc constructShapeExtendCompositeSurface*(): ShapeExtendCompositeSurface {.
+proc constructShapeExtend_CompositeSurface*(): ShapeExtend_CompositeSurface {.
     constructor, importcpp: "ShapeExtend_CompositeSurface(@)",
     header: "ShapeExtend_CompositeSurface.hxx".}
-proc constructShapeExtendCompositeSurface*(
-    gridSurf: Handle[TColGeomHArray2OfSurface];
-    param: ShapeExtendParametrisation = shapeExtendNatural): ShapeExtendCompositeSurface {.
+proc constructShapeExtend_CompositeSurface*(
+    GridSurf: handle[TColGeom_HArray2OfSurface];
+    param: ShapeExtend_Parametrisation = ShapeExtend_Natural): ShapeExtend_CompositeSurface {.
     constructor, importcpp: "ShapeExtend_CompositeSurface(@)",
     header: "ShapeExtend_CompositeSurface.hxx".}
-proc constructShapeExtendCompositeSurface*(
-    gridSurf: Handle[TColGeomHArray2OfSurface]; uJoints: TColStdArray1OfReal;
-    vJoints: TColStdArray1OfReal): ShapeExtendCompositeSurface {.constructor,
+proc constructShapeExtend_CompositeSurface*(
+    GridSurf: handle[TColGeom_HArray2OfSurface]; UJoints: TColStd_Array1OfReal;
+    VJoints: TColStd_Array1OfReal): ShapeExtend_CompositeSurface {.constructor,
     importcpp: "ShapeExtend_CompositeSurface(@)",
     header: "ShapeExtend_CompositeSurface.hxx".}
-proc init*(this: var ShapeExtendCompositeSurface;
-          gridSurf: Handle[TColGeomHArray2OfSurface];
-          param: ShapeExtendParametrisation = shapeExtendNatural): StandardBoolean {.
+proc Init*(this: var ShapeExtend_CompositeSurface;
+          GridSurf: handle[TColGeom_HArray2OfSurface];
+          param: ShapeExtend_Parametrisation = ShapeExtend_Natural): Standard_Boolean {.
     importcpp: "Init", header: "ShapeExtend_CompositeSurface.hxx".}
-proc init*(this: var ShapeExtendCompositeSurface;
-          gridSurf: Handle[TColGeomHArray2OfSurface];
-          uJoints: TColStdArray1OfReal; vJoints: TColStdArray1OfReal): StandardBoolean {.
+proc Init*(this: var ShapeExtend_CompositeSurface;
+          GridSurf: handle[TColGeom_HArray2OfSurface];
+          UJoints: TColStd_Array1OfReal; VJoints: TColStd_Array1OfReal): Standard_Boolean {.
     importcpp: "Init", header: "ShapeExtend_CompositeSurface.hxx".}
-proc nbUPatches*(this: ShapeExtendCompositeSurface): StandardInteger {.noSideEffect,
-    importcpp: "NbUPatches", header: "ShapeExtend_CompositeSurface.hxx".}
-proc nbVPatches*(this: ShapeExtendCompositeSurface): StandardInteger {.noSideEffect,
-    importcpp: "NbVPatches", header: "ShapeExtend_CompositeSurface.hxx".}
-proc patch*(this: ShapeExtendCompositeSurface; i: StandardInteger; j: StandardInteger): Handle[
-    GeomSurface] {.noSideEffect, importcpp: "Patch",
-                  header: "ShapeExtend_CompositeSurface.hxx".}
-proc patches*(this: ShapeExtendCompositeSurface): Handle[TColGeomHArray2OfSurface] {.
+proc NbUPatches*(this: ShapeExtend_CompositeSurface): Standard_Integer {.
+    noSideEffect, importcpp: "NbUPatches",
+    header: "ShapeExtend_CompositeSurface.hxx".}
+proc NbVPatches*(this: ShapeExtend_CompositeSurface): Standard_Integer {.
+    noSideEffect, importcpp: "NbVPatches",
+    header: "ShapeExtend_CompositeSurface.hxx".}
+proc Patch*(this: ShapeExtend_CompositeSurface; i: Standard_Integer;
+           j: Standard_Integer): handle[Geom_Surface] {.noSideEffect,
+    importcpp: "Patch", header: "ShapeExtend_CompositeSurface.hxx".}
+proc Patches*(this: ShapeExtend_CompositeSurface): handle[TColGeom_HArray2OfSurface] {.
     noSideEffect, importcpp: "Patches", header: "ShapeExtend_CompositeSurface.hxx".}
-proc uJointValues*(this: ShapeExtendCompositeSurface): Handle[TColStdHArray1OfReal] {.
-    noSideEffect, importcpp: "UJointValues",
-    header: "ShapeExtend_CompositeSurface.hxx".}
-proc vJointValues*(this: ShapeExtendCompositeSurface): Handle[TColStdHArray1OfReal] {.
-    noSideEffect, importcpp: "VJointValues",
-    header: "ShapeExtend_CompositeSurface.hxx".}
-proc uJointValue*(this: ShapeExtendCompositeSurface; i: StandardInteger): StandardReal {.
+proc UJointValues*(this: ShapeExtend_CompositeSurface): handle[
+    TColStd_HArray1OfReal] {.noSideEffect, importcpp: "UJointValues",
+                            header: "ShapeExtend_CompositeSurface.hxx".}
+proc VJointValues*(this: ShapeExtend_CompositeSurface): handle[
+    TColStd_HArray1OfReal] {.noSideEffect, importcpp: "VJointValues",
+                            header: "ShapeExtend_CompositeSurface.hxx".}
+proc UJointValue*(this: ShapeExtend_CompositeSurface; i: Standard_Integer): Standard_Real {.
     noSideEffect, importcpp: "UJointValue",
     header: "ShapeExtend_CompositeSurface.hxx".}
-proc vJointValue*(this: ShapeExtendCompositeSurface; j: StandardInteger): StandardReal {.
+proc VJointValue*(this: ShapeExtend_CompositeSurface; j: Standard_Integer): Standard_Real {.
     noSideEffect, importcpp: "VJointValue",
     header: "ShapeExtend_CompositeSurface.hxx".}
-proc setUJointValues*(this: var ShapeExtendCompositeSurface;
-                     uJoints: TColStdArray1OfReal): StandardBoolean {.
+proc SetUJointValues*(this: var ShapeExtend_CompositeSurface;
+                     UJoints: TColStd_Array1OfReal): Standard_Boolean {.
     importcpp: "SetUJointValues", header: "ShapeExtend_CompositeSurface.hxx".}
-proc setVJointValues*(this: var ShapeExtendCompositeSurface;
-                     vJoints: TColStdArray1OfReal): StandardBoolean {.
+proc SetVJointValues*(this: var ShapeExtend_CompositeSurface;
+                     VJoints: TColStd_Array1OfReal): Standard_Boolean {.
     importcpp: "SetVJointValues", header: "ShapeExtend_CompositeSurface.hxx".}
-proc setUFirstValue*(this: var ShapeExtendCompositeSurface; uFirst: StandardReal) {.
+proc SetUFirstValue*(this: var ShapeExtend_CompositeSurface; UFirst: Standard_Real) {.
     importcpp: "SetUFirstValue", header: "ShapeExtend_CompositeSurface.hxx".}
-proc setVFirstValue*(this: var ShapeExtendCompositeSurface; vFirst: StandardReal) {.
+proc SetVFirstValue*(this: var ShapeExtend_CompositeSurface; VFirst: Standard_Real) {.
     importcpp: "SetVFirstValue", header: "ShapeExtend_CompositeSurface.hxx".}
-proc locateUParameter*(this: ShapeExtendCompositeSurface; u: StandardReal): StandardInteger {.
+proc LocateUParameter*(this: ShapeExtend_CompositeSurface; U: Standard_Real): Standard_Integer {.
     noSideEffect, importcpp: "LocateUParameter",
     header: "ShapeExtend_CompositeSurface.hxx".}
-proc locateVParameter*(this: ShapeExtendCompositeSurface; v: StandardReal): StandardInteger {.
+proc LocateVParameter*(this: ShapeExtend_CompositeSurface; V: Standard_Real): Standard_Integer {.
     noSideEffect, importcpp: "LocateVParameter",
     header: "ShapeExtend_CompositeSurface.hxx".}
-proc locateUVPoint*(this: ShapeExtendCompositeSurface; pnt: GpPnt2d;
-                   i: var StandardInteger; j: var StandardInteger) {.noSideEffect,
+proc LocateUVPoint*(this: ShapeExtend_CompositeSurface; pnt: gp_Pnt2d;
+                   i: var Standard_Integer; j: var Standard_Integer) {.noSideEffect,
     importcpp: "LocateUVPoint", header: "ShapeExtend_CompositeSurface.hxx".}
-proc patch*(this: ShapeExtendCompositeSurface; u: StandardReal; v: StandardReal): Handle[
-    GeomSurface] {.noSideEffect, importcpp: "Patch",
-                  header: "ShapeExtend_CompositeSurface.hxx".}
-proc patch*(this: ShapeExtendCompositeSurface; pnt: GpPnt2d): Handle[GeomSurface] {.
+proc Patch*(this: ShapeExtend_CompositeSurface; U: Standard_Real; V: Standard_Real): handle[
+    Geom_Surface] {.noSideEffect, importcpp: "Patch",
+                   header: "ShapeExtend_CompositeSurface.hxx".}
+proc Patch*(this: ShapeExtend_CompositeSurface; pnt: gp_Pnt2d): handle[Geom_Surface] {.
     noSideEffect, importcpp: "Patch", header: "ShapeExtend_CompositeSurface.hxx".}
-proc uLocalToGlobal*(this: ShapeExtendCompositeSurface; i: StandardInteger;
-                    j: StandardInteger; u: StandardReal): StandardReal {.
+proc ULocalToGlobal*(this: ShapeExtend_CompositeSurface; i: Standard_Integer;
+                    j: Standard_Integer; u: Standard_Real): Standard_Real {.
     noSideEffect, importcpp: "ULocalToGlobal",
     header: "ShapeExtend_CompositeSurface.hxx".}
-proc vLocalToGlobal*(this: ShapeExtendCompositeSurface; i: StandardInteger;
-                    j: StandardInteger; v: StandardReal): StandardReal {.
+proc VLocalToGlobal*(this: ShapeExtend_CompositeSurface; i: Standard_Integer;
+                    j: Standard_Integer; v: Standard_Real): Standard_Real {.
     noSideEffect, importcpp: "VLocalToGlobal",
     header: "ShapeExtend_CompositeSurface.hxx".}
-proc localToGlobal*(this: ShapeExtendCompositeSurface; i: StandardInteger;
-                   j: StandardInteger; uv: GpPnt2d): GpPnt2d {.noSideEffect,
+proc LocalToGlobal*(this: ShapeExtend_CompositeSurface; i: Standard_Integer;
+                   j: Standard_Integer; uv: gp_Pnt2d): gp_Pnt2d {.noSideEffect,
     importcpp: "LocalToGlobal", header: "ShapeExtend_CompositeSurface.hxx".}
-proc uGlobalToLocal*(this: ShapeExtendCompositeSurface; i: StandardInteger;
-                    j: StandardInteger; u: StandardReal): StandardReal {.
+proc UGlobalToLocal*(this: ShapeExtend_CompositeSurface; i: Standard_Integer;
+                    j: Standard_Integer; U: Standard_Real): Standard_Real {.
     noSideEffect, importcpp: "UGlobalToLocal",
     header: "ShapeExtend_CompositeSurface.hxx".}
-proc vGlobalToLocal*(this: ShapeExtendCompositeSurface; i: StandardInteger;
-                    j: StandardInteger; v: StandardReal): StandardReal {.
+proc VGlobalToLocal*(this: ShapeExtend_CompositeSurface; i: Standard_Integer;
+                    j: Standard_Integer; V: Standard_Real): Standard_Real {.
     noSideEffect, importcpp: "VGlobalToLocal",
     header: "ShapeExtend_CompositeSurface.hxx".}
-proc globalToLocal*(this: ShapeExtendCompositeSurface; i: StandardInteger;
-                   j: StandardInteger; uv: GpPnt2d): GpPnt2d {.noSideEffect,
+proc GlobalToLocal*(this: ShapeExtend_CompositeSurface; i: Standard_Integer;
+                   j: Standard_Integer; UV: gp_Pnt2d): gp_Pnt2d {.noSideEffect,
     importcpp: "GlobalToLocal", header: "ShapeExtend_CompositeSurface.hxx".}
-proc globalToLocalTransformation*(this: ShapeExtendCompositeSurface;
-                                 i: StandardInteger; j: StandardInteger;
-                                 uFact: var StandardReal; trsf: var GpTrsf2d): StandardBoolean {.
+proc GlobalToLocalTransformation*(this: ShapeExtend_CompositeSurface;
+                                 i: Standard_Integer; j: Standard_Integer;
+                                 uFact: var Standard_Real; Trsf: var gp_Trsf2d): Standard_Boolean {.
     noSideEffect, importcpp: "GlobalToLocalTransformation",
     header: "ShapeExtend_CompositeSurface.hxx".}
-proc transform*(this: var ShapeExtendCompositeSurface; t: GpTrsf) {.
+proc Transform*(this: var ShapeExtend_CompositeSurface; T: gp_Trsf) {.
     importcpp: "Transform", header: "ShapeExtend_CompositeSurface.hxx".}
-proc copy*(this: ShapeExtendCompositeSurface): Handle[GeomGeometry] {.noSideEffect,
-    importcpp: "Copy", header: "ShapeExtend_CompositeSurface.hxx".}
-proc uReverse*(this: var ShapeExtendCompositeSurface) {.importcpp: "UReverse",
+proc Copy*(this: ShapeExtend_CompositeSurface): handle[Geom_Geometry] {.
+    noSideEffect, importcpp: "Copy", header: "ShapeExtend_CompositeSurface.hxx".}
+proc UReverse*(this: var ShapeExtend_CompositeSurface) {.importcpp: "UReverse",
     header: "ShapeExtend_CompositeSurface.hxx".}
-proc uReversedParameter*(this: ShapeExtendCompositeSurface; u: StandardReal): StandardReal {.
+proc UReversedParameter*(this: ShapeExtend_CompositeSurface; U: Standard_Real): Standard_Real {.
     noSideEffect, importcpp: "UReversedParameter",
     header: "ShapeExtend_CompositeSurface.hxx".}
-proc vReverse*(this: var ShapeExtendCompositeSurface) {.importcpp: "VReverse",
+proc VReverse*(this: var ShapeExtend_CompositeSurface) {.importcpp: "VReverse",
     header: "ShapeExtend_CompositeSurface.hxx".}
-proc vReversedParameter*(this: ShapeExtendCompositeSurface; v: StandardReal): StandardReal {.
+proc VReversedParameter*(this: ShapeExtend_CompositeSurface; V: Standard_Real): Standard_Real {.
     noSideEffect, importcpp: "VReversedParameter",
     header: "ShapeExtend_CompositeSurface.hxx".}
-proc bounds*(this: ShapeExtendCompositeSurface; u1: var StandardReal;
-            u2: var StandardReal; v1: var StandardReal; v2: var StandardReal) {.
+proc Bounds*(this: ShapeExtend_CompositeSurface; U1: var Standard_Real;
+            U2: var Standard_Real; V1: var Standard_Real; V2: var Standard_Real) {.
     noSideEffect, importcpp: "Bounds", header: "ShapeExtend_CompositeSurface.hxx".}
-proc isUClosed*(this: ShapeExtendCompositeSurface): StandardBoolean {.noSideEffect,
-    importcpp: "IsUClosed", header: "ShapeExtend_CompositeSurface.hxx".}
-proc isVClosed*(this: ShapeExtendCompositeSurface): StandardBoolean {.noSideEffect,
-    importcpp: "IsVClosed", header: "ShapeExtend_CompositeSurface.hxx".}
-proc isUPeriodic*(this: ShapeExtendCompositeSurface): StandardBoolean {.
+proc IsUClosed*(this: ShapeExtend_CompositeSurface): Standard_Boolean {.
+    noSideEffect, importcpp: "IsUClosed",
+    header: "ShapeExtend_CompositeSurface.hxx".}
+proc IsVClosed*(this: ShapeExtend_CompositeSurface): Standard_Boolean {.
+    noSideEffect, importcpp: "IsVClosed",
+    header: "ShapeExtend_CompositeSurface.hxx".}
+proc IsUPeriodic*(this: ShapeExtend_CompositeSurface): Standard_Boolean {.
     noSideEffect, importcpp: "IsUPeriodic",
     header: "ShapeExtend_CompositeSurface.hxx".}
-proc isVPeriodic*(this: ShapeExtendCompositeSurface): StandardBoolean {.
+proc IsVPeriodic*(this: ShapeExtend_CompositeSurface): Standard_Boolean {.
     noSideEffect, importcpp: "IsVPeriodic",
     header: "ShapeExtend_CompositeSurface.hxx".}
-proc uIso*(this: ShapeExtendCompositeSurface; u: StandardReal): Handle[GeomCurve] {.
+proc UIso*(this: ShapeExtend_CompositeSurface; U: Standard_Real): handle[Geom_Curve] {.
     noSideEffect, importcpp: "UIso", header: "ShapeExtend_CompositeSurface.hxx".}
-proc vIso*(this: ShapeExtendCompositeSurface; v: StandardReal): Handle[GeomCurve] {.
+proc VIso*(this: ShapeExtend_CompositeSurface; V: Standard_Real): handle[Geom_Curve] {.
     noSideEffect, importcpp: "VIso", header: "ShapeExtend_CompositeSurface.hxx".}
-proc continuity*(this: ShapeExtendCompositeSurface): GeomAbsShape {.noSideEffect,
+proc Continuity*(this: ShapeExtend_CompositeSurface): GeomAbs_Shape {.noSideEffect,
     importcpp: "Continuity", header: "ShapeExtend_CompositeSurface.hxx".}
-proc isCNu*(this: ShapeExtendCompositeSurface; n: StandardInteger): StandardBoolean {.
+proc IsCNu*(this: ShapeExtend_CompositeSurface; N: Standard_Integer): Standard_Boolean {.
     noSideEffect, importcpp: "IsCNu", header: "ShapeExtend_CompositeSurface.hxx".}
-proc isCNv*(this: ShapeExtendCompositeSurface; n: StandardInteger): StandardBoolean {.
+proc IsCNv*(this: ShapeExtend_CompositeSurface; N: Standard_Integer): Standard_Boolean {.
     noSideEffect, importcpp: "IsCNv", header: "ShapeExtend_CompositeSurface.hxx".}
-proc d0*(this: ShapeExtendCompositeSurface; u: StandardReal; v: StandardReal;
-        p: var GpPnt) {.noSideEffect, importcpp: "D0",
-                     header: "ShapeExtend_CompositeSurface.hxx".}
-proc d1*(this: ShapeExtendCompositeSurface; u: StandardReal; v: StandardReal;
-        p: var GpPnt; d1u: var GpVec; d1v: var GpVec) {.noSideEffect, importcpp: "D1",
+proc D0*(this: ShapeExtend_CompositeSurface; U: Standard_Real; V: Standard_Real;
+        P: var gp_Pnt) {.noSideEffect, importcpp: "D0",
+                      header: "ShapeExtend_CompositeSurface.hxx".}
+proc D1*(this: ShapeExtend_CompositeSurface; U: Standard_Real; V: Standard_Real;
+        P: var gp_Pnt; D1U: var gp_Vec; D1V: var gp_Vec) {.noSideEffect, importcpp: "D1",
     header: "ShapeExtend_CompositeSurface.hxx".}
-proc d2*(this: ShapeExtendCompositeSurface; u: StandardReal; v: StandardReal;
-        p: var GpPnt; d1u: var GpVec; d1v: var GpVec; d2u: var GpVec; d2v: var GpVec;
-        d2uv: var GpVec) {.noSideEffect, importcpp: "D2",
-                        header: "ShapeExtend_CompositeSurface.hxx".}
-proc d3*(this: ShapeExtendCompositeSurface; u: StandardReal; v: StandardReal;
-        p: var GpPnt; d1u: var GpVec; d1v: var GpVec; d2u: var GpVec; d2v: var GpVec;
-        d2uv: var GpVec; d3u: var GpVec; d3v: var GpVec; d3uuv: var GpVec; d3uvv: var GpVec) {.
-    noSideEffect, importcpp: "D3", header: "ShapeExtend_CompositeSurface.hxx".}
-proc dn*(this: ShapeExtendCompositeSurface; u: StandardReal; v: StandardReal;
-        nu: StandardInteger; nv: StandardInteger): GpVec {.noSideEffect,
+proc D2*(this: ShapeExtend_CompositeSurface; U: Standard_Real; V: Standard_Real;
+        P: var gp_Pnt; D1U: var gp_Vec; D1V: var gp_Vec; D2U: var gp_Vec; D2V: var gp_Vec;
+        D2UV: var gp_Vec) {.noSideEffect, importcpp: "D2",
+                         header: "ShapeExtend_CompositeSurface.hxx".}
+proc D3*(this: ShapeExtend_CompositeSurface; U: Standard_Real; V: Standard_Real;
+        P: var gp_Pnt; D1U: var gp_Vec; D1V: var gp_Vec; D2U: var gp_Vec; D2V: var gp_Vec;
+        D2UV: var gp_Vec; D3U: var gp_Vec; D3V: var gp_Vec; D3UUV: var gp_Vec;
+        D3UVV: var gp_Vec) {.noSideEffect, importcpp: "D3",
+                          header: "ShapeExtend_CompositeSurface.hxx".}
+proc DN*(this: ShapeExtend_CompositeSurface; U: Standard_Real; V: Standard_Real;
+        Nu: Standard_Integer; Nv: Standard_Integer): gp_Vec {.noSideEffect,
     importcpp: "DN", header: "ShapeExtend_CompositeSurface.hxx".}
-proc value*(this: ShapeExtendCompositeSurface; pnt: GpPnt2d): GpPnt {.noSideEffect,
+proc Value*(this: ShapeExtend_CompositeSurface; pnt: gp_Pnt2d): gp_Pnt {.noSideEffect,
     importcpp: "Value", header: "ShapeExtend_CompositeSurface.hxx".}
-proc computeJointValues*(this: var ShapeExtendCompositeSurface;
-                        param: ShapeExtendParametrisation = shapeExtendNatural) {.
+proc ComputeJointValues*(this: var ShapeExtend_CompositeSurface; param: ShapeExtend_Parametrisation = ShapeExtend_Natural) {.
     importcpp: "ComputeJointValues", header: "ShapeExtend_CompositeSurface.hxx".}
-proc checkConnectivity*(this: var ShapeExtendCompositeSurface; prec: StandardReal): StandardBoolean {.
+proc CheckConnectivity*(this: var ShapeExtend_CompositeSurface; prec: Standard_Real): Standard_Boolean {.
     importcpp: "CheckConnectivity", header: "ShapeExtend_CompositeSurface.hxx".}
 type
-  ShapeExtendCompositeSurfacebaseType* = GeomSurface
+  ShapeExtend_CompositeSurfacebase_type* = Geom_Surface
 
-proc getTypeName*(): cstring {.importcpp: "ShapeExtend_CompositeSurface::get_type_name(@)",
-                            header: "ShapeExtend_CompositeSurface.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "ShapeExtend_CompositeSurface::get_type_name(@)",
+                              header: "ShapeExtend_CompositeSurface.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "ShapeExtend_CompositeSurface::get_type_descriptor(@)",
     header: "ShapeExtend_CompositeSurface.hxx".}
-proc dynamicType*(this: ShapeExtendCompositeSurface): Handle[StandardType] {.
+proc DynamicType*(this: ShapeExtend_CompositeSurface): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType",
     header: "ShapeExtend_CompositeSurface.hxx".}
-

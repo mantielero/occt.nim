@@ -14,44 +14,49 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, Interface_EntityIterator,
+  ../Standard/Standard_Integer
+
 discard "forward decl of Interface_Graph"
 discard "forward decl of Standard_Transient"
 discard "forward decl of Interface_EntityIterator"
 type
-  InterfaceGraphContent* {.importcpp: "Interface_GraphContent",
-                          header: "Interface_GraphContent.hxx", bycopy.} = object of InterfaceEntityIterator ##
-                                                                                                      ## !
-                                                                                                      ## Creates
-                                                                                                      ## an
-                                                                                                      ## empty
-                                                                                                      ## GraphContent,
-                                                                                                      ## ready
-                                                                                                      ## to
-                                                                                                      ## be
-                                                                                                      ## filled
+  Interface_GraphContent* {.importcpp: "Interface_GraphContent",
+                           header: "Interface_GraphContent.hxx", bycopy.} = object of Interface_EntityIterator ##
+                                                                                                        ## !
+                                                                                                        ## Creates
+                                                                                                        ## an
+                                                                                                        ## empty
+                                                                                                        ## GraphContent,
+                                                                                                        ## ready
+                                                                                                        ## to
+                                                                                                        ## be
+                                                                                                        ## filled
 
 
-proc constructInterfaceGraphContent*(): InterfaceGraphContent {.constructor,
+proc constructInterface_GraphContent*(): Interface_GraphContent {.constructor,
     importcpp: "Interface_GraphContent(@)", header: "Interface_GraphContent.hxx".}
-proc constructInterfaceGraphContent*(agraph: InterfaceGraph): InterfaceGraphContent {.
+proc constructInterface_GraphContent*(agraph: Interface_Graph): Interface_GraphContent {.
     constructor, importcpp: "Interface_GraphContent(@)",
     header: "Interface_GraphContent.hxx".}
-proc constructInterfaceGraphContent*(agraph: InterfaceGraph; stat: StandardInteger): InterfaceGraphContent {.
+proc constructInterface_GraphContent*(agraph: Interface_Graph;
+                                     stat: Standard_Integer): Interface_GraphContent {.
     constructor, importcpp: "Interface_GraphContent(@)",
     header: "Interface_GraphContent.hxx".}
-proc constructInterfaceGraphContent*(agraph: InterfaceGraph;
-                                    ent: Handle[StandardTransient]): InterfaceGraphContent {.
+proc constructInterface_GraphContent*(agraph: Interface_Graph;
+                                     ent: handle[Standard_Transient]): Interface_GraphContent {.
     constructor, importcpp: "Interface_GraphContent(@)",
     header: "Interface_GraphContent.hxx".}
-proc getFromGraph*(this: var InterfaceGraphContent; agraph: InterfaceGraph) {.
+proc GetFromGraph*(this: var Interface_GraphContent; agraph: Interface_Graph) {.
     importcpp: "GetFromGraph", header: "Interface_GraphContent.hxx".}
-proc getFromGraph*(this: var InterfaceGraphContent; agraph: InterfaceGraph;
-                  stat: StandardInteger) {.importcpp: "GetFromGraph",
+proc GetFromGraph*(this: var Interface_GraphContent; agraph: Interface_Graph;
+                  stat: Standard_Integer) {.importcpp: "GetFromGraph",
     header: "Interface_GraphContent.hxx".}
-proc result*(this: var InterfaceGraphContent): InterfaceEntityIterator {.
+proc Result*(this: var Interface_GraphContent): Interface_EntityIterator {.
     importcpp: "Result", header: "Interface_GraphContent.hxx".}
-proc begin*(this: var InterfaceGraphContent) {.importcpp: "Begin",
+proc Begin*(this: var Interface_GraphContent) {.importcpp: "Begin",
     header: "Interface_GraphContent.hxx".}
-proc evaluate*(this: var InterfaceGraphContent) {.importcpp: "Evaluate",
+proc Evaluate*(this: var Interface_GraphContent) {.importcpp: "Evaluate",
     header: "Interface_GraphContent.hxx".}
-

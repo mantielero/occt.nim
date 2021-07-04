@@ -14,13 +14,18 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, IGESSolid_HArray1OfFace,
+  ../TColStd/TColStd_HArray1OfInteger, ../IGESData/IGESData_IGESEntity,
+  ../Standard/Standard_Boolean, ../Standard/Standard_Integer
+
 discard "forward decl of Standard_DimensionMismatch"
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of IGESSolid_Face"
 discard "forward decl of IGESSolid_Shell"
 discard "forward decl of IGESSolid_Shell"
 type
-  HandleIGESSolidShell* = Handle[IGESSolidShell]
+  Handle_IGESSolid_Shell* = handle[IGESSolid_Shell]
 
 ## ! defines Shell, Type <514> Form Number <1>
 ## ! in package IGESSolid
@@ -31,33 +36,32 @@ type
 ## ! From IGES-5.3, Form can be <1> for Closed or <2> for Open
 
 type
-  IGESSolidShell* {.importcpp: "IGESSolid_Shell", header: "IGESSolid_Shell.hxx",
-                   bycopy.} = object of IGESDataIGESEntity
+  IGESSolid_Shell* {.importcpp: "IGESSolid_Shell", header: "IGESSolid_Shell.hxx",
+                    bycopy.} = object of IGESData_IGESEntity
 
 
-proc constructIGESSolidShell*(): IGESSolidShell {.constructor,
+proc constructIGESSolid_Shell*(): IGESSolid_Shell {.constructor,
     importcpp: "IGESSolid_Shell(@)", header: "IGESSolid_Shell.hxx".}
-proc init*(this: var IGESSolidShell; allFaces: Handle[IGESSolidHArray1OfFace];
-          allOrient: Handle[TColStdHArray1OfInteger]) {.importcpp: "Init",
+proc Init*(this: var IGESSolid_Shell; allFaces: handle[IGESSolid_HArray1OfFace];
+          allOrient: handle[TColStd_HArray1OfInteger]) {.importcpp: "Init",
     header: "IGESSolid_Shell.hxx".}
-proc isClosed*(this: IGESSolidShell): StandardBoolean {.noSideEffect,
+proc IsClosed*(this: IGESSolid_Shell): Standard_Boolean {.noSideEffect,
     importcpp: "IsClosed", header: "IGESSolid_Shell.hxx".}
-proc setClosed*(this: var IGESSolidShell; closed: StandardBoolean) {.
+proc SetClosed*(this: var IGESSolid_Shell; closed: Standard_Boolean) {.
     importcpp: "SetClosed", header: "IGESSolid_Shell.hxx".}
-proc nbFaces*(this: IGESSolidShell): StandardInteger {.noSideEffect,
+proc NbFaces*(this: IGESSolid_Shell): Standard_Integer {.noSideEffect,
     importcpp: "NbFaces", header: "IGESSolid_Shell.hxx".}
-proc face*(this: IGESSolidShell; index: StandardInteger): Handle[IGESSolidFace] {.
+proc Face*(this: IGESSolid_Shell; Index: Standard_Integer): handle[IGESSolid_Face] {.
     noSideEffect, importcpp: "Face", header: "IGESSolid_Shell.hxx".}
-proc orientation*(this: IGESSolidShell; index: StandardInteger): StandardBoolean {.
+proc Orientation*(this: IGESSolid_Shell; Index: Standard_Integer): Standard_Boolean {.
     noSideEffect, importcpp: "Orientation", header: "IGESSolid_Shell.hxx".}
 type
-  IGESSolidShellbaseType* = IGESDataIGESEntity
+  IGESSolid_Shellbase_type* = IGESData_IGESEntity
 
-proc getTypeName*(): cstring {.importcpp: "IGESSolid_Shell::get_type_name(@)",
-                            header: "IGESSolid_Shell.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "IGESSolid_Shell::get_type_name(@)",
+                              header: "IGESSolid_Shell.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "IGESSolid_Shell::get_type_descriptor(@)",
     header: "IGESSolid_Shell.hxx".}
-proc dynamicType*(this: IGESSolidShell): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: IGESSolid_Shell): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "IGESSolid_Shell.hxx".}
-

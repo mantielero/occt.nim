@@ -12,6 +12,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  AIS_Animation, AIS_InteractiveContext, ../gp/gp_TrsfNLerp
+
 ## ! Animation defining object transformation.
 
 type
@@ -105,23 +108,21 @@ type
     ## !< presentation object to set location
     ## !< interpolation tool
 
-  AIS_AnimationObjectbaseType* = AIS_Animation
+  AIS_AnimationObjectbase_type* = AIS_Animation
 
-proc getTypeName*(): cstring {.importcpp: "AIS_AnimationObject::get_type_name(@)",
-                            header: "AIS_AnimationObject.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "AIS_AnimationObject::get_type_name(@)",
+                              header: "AIS_AnimationObject.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "AIS_AnimationObject::get_type_descriptor(@)",
     header: "AIS_AnimationObject.hxx".}
-proc dynamicType*(this: AIS_AnimationObject): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: AIS_AnimationObject): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "AIS_AnimationObject.hxx".}
-proc constructAIS_AnimationObject*(theAnimationName: TCollectionAsciiString;
-                                  theContext: Handle[AIS_InteractiveContext];
-                                  theObject: Handle[AIS_InteractiveObject];
-                                  theTrsfStart: GpTrsf; theTrsfEnd: GpTrsf): AIS_AnimationObject {.
+proc constructAIS_AnimationObject*(theAnimationName: TCollection_AsciiString;
+                                  theContext: handle[AIS_InteractiveContext];
+                                  theObject: handle[AIS_InteractiveObject];
+                                  theTrsfStart: gp_Trsf; theTrsfEnd: gp_Trsf): AIS_AnimationObject {.
     constructor, importcpp: "AIS_AnimationObject(@)",
     header: "AIS_AnimationObject.hxx".}
 discard "forward decl of AIS_AnimationObject"
 type
-  HandleAIS_AnimationObject* = Handle[AIS_AnimationObject]
-
-
+  Handle_AIS_AnimationObject* = handle[AIS_AnimationObject]

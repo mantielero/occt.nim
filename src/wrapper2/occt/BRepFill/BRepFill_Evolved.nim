@@ -14,6 +14,13 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../TopoDS/TopoDS_Face, ../TopoDS/TopoDS_Wire,
+  ../TopoDS/TopoDS_Shape, ../Standard/Standard_Boolean,
+  ../GeomAbs/GeomAbs_JoinType, BRepFill_DataMapOfShapeDataMapOfShapeListOfShape,
+  ../TopTools/TopTools_ListOfShape, ../TopTools/TopTools_DataMapOfShapeShape
+
 discard "forward decl of Standard_ConstructionError"
 discard "forward decl of Standard_NoSuchObject"
 discard "forward decl of TopoDS_Wire"
@@ -27,39 +34,40 @@ discard "forward decl of TopLoc_Location"
 discard "forward decl of TopoDS_Edge"
 discard "forward decl of TopoDS_Vertex"
 type
-  BRepFillEvolved* {.importcpp: "BRepFill_Evolved", header: "BRepFill_Evolved.hxx",
-                    bycopy.} = object
+  BRepFill_Evolved* {.importcpp: "BRepFill_Evolved",
+                     header: "BRepFill_Evolved.hxx", bycopy.} = object
 
 
-proc constructBRepFillEvolved*(): BRepFillEvolved {.constructor,
+proc constructBRepFill_Evolved*(): BRepFill_Evolved {.constructor,
     importcpp: "BRepFill_Evolved(@)", header: "BRepFill_Evolved.hxx".}
-proc constructBRepFillEvolved*(spine: TopoDS_Wire; profile: TopoDS_Wire;
-                              axeProf: GpAx3; join: GeomAbsJoinType = geomAbsArc;
-                              solid: StandardBoolean = standardFalse): BRepFillEvolved {.
+proc constructBRepFill_Evolved*(Spine: TopoDS_Wire; Profile: TopoDS_Wire;
+                               AxeProf: gp_Ax3;
+                               Join: GeomAbs_JoinType = GeomAbs_Arc;
+                               Solid: Standard_Boolean = Standard_False): BRepFill_Evolved {.
     constructor, importcpp: "BRepFill_Evolved(@)", header: "BRepFill_Evolved.hxx".}
-proc constructBRepFillEvolved*(spine: TopoDS_Face; profile: TopoDS_Wire;
-                              axeProf: GpAx3; join: GeomAbsJoinType = geomAbsArc;
-                              solid: StandardBoolean = standardFalse): BRepFillEvolved {.
+proc constructBRepFill_Evolved*(Spine: TopoDS_Face; Profile: TopoDS_Wire;
+                               AxeProf: gp_Ax3;
+                               Join: GeomAbs_JoinType = GeomAbs_Arc;
+                               Solid: Standard_Boolean = Standard_False): BRepFill_Evolved {.
     constructor, importcpp: "BRepFill_Evolved(@)", header: "BRepFill_Evolved.hxx".}
-proc perform*(this: var BRepFillEvolved; spine: TopoDS_Wire; profile: TopoDS_Wire;
-             axeProf: GpAx3; join: GeomAbsJoinType = geomAbsArc;
-             solid: StandardBoolean = standardFalse) {.importcpp: "Perform",
+proc Perform*(this: var BRepFill_Evolved; Spine: TopoDS_Wire; Profile: TopoDS_Wire;
+             AxeProf: gp_Ax3; Join: GeomAbs_JoinType = GeomAbs_Arc;
+             Solid: Standard_Boolean = Standard_False) {.importcpp: "Perform",
     header: "BRepFill_Evolved.hxx".}
-proc perform*(this: var BRepFillEvolved; spine: TopoDS_Face; profile: TopoDS_Wire;
-             axeProf: GpAx3; join: GeomAbsJoinType = geomAbsArc;
-             solid: StandardBoolean = standardFalse) {.importcpp: "Perform",
+proc Perform*(this: var BRepFill_Evolved; Spine: TopoDS_Face; Profile: TopoDS_Wire;
+             AxeProf: gp_Ax3; Join: GeomAbs_JoinType = GeomAbs_Arc;
+             Solid: Standard_Boolean = Standard_False) {.importcpp: "Perform",
     header: "BRepFill_Evolved.hxx".}
-proc isDone*(this: BRepFillEvolved): StandardBoolean {.noSideEffect,
+proc IsDone*(this: BRepFill_Evolved): Standard_Boolean {.noSideEffect,
     importcpp: "IsDone", header: "BRepFill_Evolved.hxx".}
-proc shape*(this: BRepFillEvolved): TopoDS_Shape {.noSideEffect, importcpp: "Shape",
+proc Shape*(this: BRepFill_Evolved): TopoDS_Shape {.noSideEffect, importcpp: "Shape",
     header: "BRepFill_Evolved.hxx".}
-proc generatedShapes*(this: BRepFillEvolved; spineShape: TopoDS_Shape;
-                     profShape: TopoDS_Shape): TopToolsListOfShape {.noSideEffect,
+proc GeneratedShapes*(this: BRepFill_Evolved; SpineShape: TopoDS_Shape;
+                     ProfShape: TopoDS_Shape): TopTools_ListOfShape {.noSideEffect,
     importcpp: "GeneratedShapes", header: "BRepFill_Evolved.hxx".}
-proc joinType*(this: BRepFillEvolved): GeomAbsJoinType {.noSideEffect,
+proc JoinType*(this: BRepFill_Evolved): GeomAbs_JoinType {.noSideEffect,
     importcpp: "JoinType", header: "BRepFill_Evolved.hxx".}
-proc top*(this: BRepFillEvolved): TopoDS_Shape {.noSideEffect, importcpp: "Top",
+proc Top*(this: BRepFill_Evolved): TopoDS_Shape {.noSideEffect, importcpp: "Top",
     header: "BRepFill_Evolved.hxx".}
-proc bottom*(this: BRepFillEvolved): TopoDS_Shape {.noSideEffect,
+proc Bottom*(this: BRepFill_Evolved): TopoDS_Shape {.noSideEffect,
     importcpp: "Bottom", header: "BRepFill_Evolved.hxx".}
-

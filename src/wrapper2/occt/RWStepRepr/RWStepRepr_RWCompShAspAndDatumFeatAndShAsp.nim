@@ -13,33 +13,36 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepRepr_CompShAspAndDatumFeatAndShAsp"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepReprRWCompShAspAndDatumFeatAndShAsp* {.
+  RWStepRepr_RWCompShAspAndDatumFeatAndShAsp* {.
       importcpp: "RWStepRepr_RWCompShAspAndDatumFeatAndShAsp",
       header: "RWStepRepr_RWCompShAspAndDatumFeatAndShAsp.hxx", bycopy.} = object
 
 
-proc constructRWStepReprRWCompShAspAndDatumFeatAndShAsp*(): RWStepReprRWCompShAspAndDatumFeatAndShAsp {.
+proc constructRWStepRepr_RWCompShAspAndDatumFeatAndShAsp*(): RWStepRepr_RWCompShAspAndDatumFeatAndShAsp {.
     constructor, importcpp: "RWStepRepr_RWCompShAspAndDatumFeatAndShAsp(@)",
     header: "RWStepRepr_RWCompShAspAndDatumFeatAndShAsp.hxx".}
-proc readStep*(this: RWStepReprRWCompShAspAndDatumFeatAndShAsp;
-              data: Handle[StepDataStepReaderData]; num: StandardInteger;
-              ach: var Handle[InterfaceCheck];
-              ent: Handle[StepReprCompShAspAndDatumFeatAndShAsp]) {.noSideEffect,
+proc ReadStep*(this: RWStepRepr_RWCompShAspAndDatumFeatAndShAsp;
+              data: handle[StepData_StepReaderData]; num: Standard_Integer;
+              ach: var handle[Interface_Check];
+              ent: handle[StepRepr_CompShAspAndDatumFeatAndShAsp]) {.noSideEffect,
     importcpp: "ReadStep",
     header: "RWStepRepr_RWCompShAspAndDatumFeatAndShAsp.hxx".}
-proc writeStep*(this: RWStepReprRWCompShAspAndDatumFeatAndShAsp;
-               sw: var StepDataStepWriter;
-               ent: Handle[StepReprCompShAspAndDatumFeatAndShAsp]) {.noSideEffect,
-    importcpp: "WriteStep",
+proc WriteStep*(this: RWStepRepr_RWCompShAspAndDatumFeatAndShAsp;
+               SW: var StepData_StepWriter;
+               ent: handle[StepRepr_CompShAspAndDatumFeatAndShAsp]) {.
+    noSideEffect, importcpp: "WriteStep",
     header: "RWStepRepr_RWCompShAspAndDatumFeatAndShAsp.hxx".}
-proc share*(this: RWStepReprRWCompShAspAndDatumFeatAndShAsp;
-           ent: Handle[StepReprCompShAspAndDatumFeatAndShAsp];
-           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
+proc Share*(this: RWStepRepr_RWCompShAspAndDatumFeatAndShAsp;
+           ent: handle[StepRepr_CompShAspAndDatumFeatAndShAsp];
+           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepRepr_RWCompShAspAndDatumFeatAndShAsp.hxx".}
-

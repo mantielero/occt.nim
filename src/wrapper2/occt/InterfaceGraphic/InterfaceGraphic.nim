@@ -12,14 +12,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-# # # # when defined(win32):
-# # # #   when defined(DrawText):
-# # # #     discard
-# # # # elif not defined(android) and not defined(qnx) and not defined(emscripten) and
-# # # #     (not defined(apple) or defined(macosx_Use_Glx)):
-# # # #   ##  exclude modern definitions and system-provided glext.h, should be defined before gl.h inclusion
-
-
-
-
-
+when defined(_WIN32):
+  when defined(DrawText):
+    discard
+elif not defined(__ANDROID__) and not defined(__QNX__) and
+    not defined(__EMSCRIPTEN__) and
+    (not defined(__APPLE__) or defined(MACOSX_USE_GLX)):
+  ##  exclude modern definitions and system-provided glext.h, should be defined before gl.h inclusion

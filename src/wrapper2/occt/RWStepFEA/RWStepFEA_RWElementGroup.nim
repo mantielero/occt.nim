@@ -13,6 +13,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepFEA_ElementGroup"
@@ -29,14 +33,13 @@ type
 proc constructRWStepFEA_RWElementGroup*(): RWStepFEA_RWElementGroup {.constructor,
     importcpp: "RWStepFEA_RWElementGroup(@)",
     header: "RWStepFEA_RWElementGroup.hxx".}
-proc readStep*(this: RWStepFEA_RWElementGroup;
-              data: Handle[StepDataStepReaderData]; num: StandardInteger;
-              ach: var Handle[InterfaceCheck]; ent: Handle[StepFEA_ElementGroup]) {.
+proc ReadStep*(this: RWStepFEA_RWElementGroup;
+              data: handle[StepData_StepReaderData]; num: Standard_Integer;
+              ach: var handle[Interface_Check]; ent: handle[StepFEA_ElementGroup]) {.
     noSideEffect, importcpp: "ReadStep", header: "RWStepFEA_RWElementGroup.hxx".}
-proc writeStep*(this: RWStepFEA_RWElementGroup; sw: var StepDataStepWriter;
-               ent: Handle[StepFEA_ElementGroup]) {.noSideEffect,
+proc WriteStep*(this: RWStepFEA_RWElementGroup; SW: var StepData_StepWriter;
+               ent: handle[StepFEA_ElementGroup]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepFEA_RWElementGroup.hxx".}
-proc share*(this: RWStepFEA_RWElementGroup; ent: Handle[StepFEA_ElementGroup];
-           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
+proc Share*(this: RWStepFEA_RWElementGroup; ent: handle[StepFEA_ElementGroup];
+           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepFEA_RWElementGroup.hxx".}
-

@@ -11,6 +11,13 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../gp/gp_Dir, ../Standard/Standard_Real,
+  ../TopTools/TopTools_HArray2OfShape, ../TopTools/TopTools_ListOfShape,
+  ../TopoDS/TopoDS_Shape, ../TopoDS/TopoDS_Shell, ../TopoDS/TopoDS_Wire,
+  ../GeomAbs/GeomAbs_Shape, BRepFill_TransitionStyle, ../Standard/Standard_Boolean
+
 discard "forward decl of BRepFill_DraftLaw"
 discard "forward decl of BRepFill_SectionLaw"
 discard "forward decl of StdFail_NotDone"
@@ -20,31 +27,31 @@ discard "forward decl of Geom_Surface"
 discard "forward decl of TopoDS_Shell"
 discard "forward decl of Bnd_Box"
 type
-  BRepFillDraft* {.importcpp: "BRepFill_Draft", header: "BRepFill_Draft.hxx", bycopy.} = object
+  BRepFill_Draft* {.importcpp: "BRepFill_Draft", header: "BRepFill_Draft.hxx", bycopy.} = object
 
 
-proc constructBRepFillDraft*(shape: TopoDS_Shape; dir: GpDir; angle: StandardReal): BRepFillDraft {.
+proc constructBRepFill_Draft*(Shape: TopoDS_Shape; Dir: gp_Dir; Angle: Standard_Real): BRepFill_Draft {.
     constructor, importcpp: "BRepFill_Draft(@)", header: "BRepFill_Draft.hxx".}
-proc setOptions*(this: var BRepFillDraft;
-                style: BRepFillTransitionStyle = bRepFillRight;
-                angleMin: StandardReal = 0.01; angleMax: StandardReal = 3.0) {.
+proc SetOptions*(this: var BRepFill_Draft;
+                Style: BRepFill_TransitionStyle = BRepFill_Right;
+                AngleMin: Standard_Real = 0.01; AngleMax: Standard_Real = 3.0) {.
     importcpp: "SetOptions", header: "BRepFill_Draft.hxx".}
-proc setDraft*(this: var BRepFillDraft; isInternal: StandardBoolean = standardFalse) {.
+proc SetDraft*(this: var BRepFill_Draft;
+              IsInternal: Standard_Boolean = Standard_False) {.
     importcpp: "SetDraft", header: "BRepFill_Draft.hxx".}
-proc perform*(this: var BRepFillDraft; lengthMax: StandardReal) {.
+proc Perform*(this: var BRepFill_Draft; LengthMax: Standard_Real) {.
     importcpp: "Perform", header: "BRepFill_Draft.hxx".}
-proc perform*(this: var BRepFillDraft; surface: Handle[GeomSurface];
-             keepInsideSurface: StandardBoolean = standardTrue) {.
+proc Perform*(this: var BRepFill_Draft; Surface: handle[Geom_Surface];
+             KeepInsideSurface: Standard_Boolean = Standard_True) {.
     importcpp: "Perform", header: "BRepFill_Draft.hxx".}
-proc perform*(this: var BRepFillDraft; stopShape: TopoDS_Shape;
-             keepOutSide: StandardBoolean = standardTrue) {.importcpp: "Perform",
+proc Perform*(this: var BRepFill_Draft; StopShape: TopoDS_Shape;
+             KeepOutSide: Standard_Boolean = Standard_True) {.importcpp: "Perform",
     header: "BRepFill_Draft.hxx".}
-proc isDone*(this: BRepFillDraft): StandardBoolean {.noSideEffect,
+proc IsDone*(this: BRepFill_Draft): Standard_Boolean {.noSideEffect,
     importcpp: "IsDone", header: "BRepFill_Draft.hxx".}
-proc shell*(this: BRepFillDraft): TopoDS_Shell {.noSideEffect, importcpp: "Shell",
+proc Shell*(this: BRepFill_Draft): TopoDS_Shell {.noSideEffect, importcpp: "Shell",
     header: "BRepFill_Draft.hxx".}
-proc generated*(this: var BRepFillDraft; s: TopoDS_Shape): TopToolsListOfShape {.
+proc Generated*(this: var BRepFill_Draft; S: TopoDS_Shape): TopTools_ListOfShape {.
     importcpp: "Generated", header: "BRepFill_Draft.hxx".}
-proc shape*(this: BRepFillDraft): TopoDS_Shape {.noSideEffect, importcpp: "Shape",
+proc Shape*(this: BRepFill_Draft): TopoDS_Shape {.noSideEffect, importcpp: "Shape",
     header: "BRepFill_Draft.hxx".}
-

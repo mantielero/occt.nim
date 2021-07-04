@@ -14,7 +14,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _IntPatch_TheIWalking_HeaderFile [NewLine] # _IntPatch_TheIWalking_HeaderFile [NewLine] # < Standard . hxx > [NewLine] # < Standard_DefineAlloc . hxx > [NewLine] # < Standard_Handle . hxx > [NewLine] # < Standard_Boolean . hxx > [NewLine] # < IntSurf_SequenceOfPathPoint . hxx > [NewLine] # < Standard_Real . hxx > [NewLine] # < math_Vector . hxx > [NewLine] # < IntWalk_VectorOfWalkingData . hxx > [NewLine] # < IntWalk_VectorOfInteger . hxx > [NewLine] # < IntSurf_PntOn2S . hxx > [NewLine] # < gp_Vec . hxx > [NewLine] # < gp_Dir2d . hxx > [NewLine] # < TColStd_SequenceOfInteger . hxx > [NewLine] # < TColStd_DataMapOfIntegerListOfInteger . hxx > [NewLine] # < IntPatch_SequenceOfIWLineOfTheIWalking . hxx > [NewLine] # < IntSurf_SequenceOfInteriorPoint . hxx > [NewLine] # < Standard_Integer . hxx > [NewLine] # < TColStd_SequenceOfReal . hxx > [NewLine] # < IntWalk_StatusDeflection . hxx > [NewLine] # < Bnd_Range . hxx > [NewLine] class StdFail_NotDone ;
+## !!!Ignored construct:  # _IntPatch_TheIWalking_HeaderFile [NewLine] # _IntPatch_TheIWalking_HeaderFile [NewLine] # ../Standard/Standard.hxx [NewLine] # ../Standard/Standard_DefineAlloc.hxx [NewLine] # ../Standard/Standard_Handle.hxx [NewLine] # ../Standard/Standard_Boolean.hxx [NewLine] # ../IntSurf/IntSurf_SequenceOfPathPoint.hxx [NewLine] # ../Standard/Standard_Real.hxx [NewLine] # ../math/math_Vector.hxx [NewLine] # ../IntWalk/IntWalk_VectorOfWalkingData.hxx [NewLine] # ../IntWalk/IntWalk_VectorOfInteger.hxx [NewLine] # ../IntSurf/IntSurf_PntOn2S.hxx [NewLine] # ../gp/gp_Vec.hxx [NewLine] # ../gp/gp_Dir2d.hxx [NewLine] # ../TColStd/TColStd_SequenceOfInteger.hxx [NewLine] # ../TColStd/TColStd_DataMapOfIntegerListOfInteger.hxx [NewLine] # IntPatch_SequenceOfIWLineOfTheIWalking.hxx [NewLine] # ../IntSurf/IntSurf_SequenceOfInteriorPoint.hxx [NewLine] # ../Standard/Standard_Integer.hxx [NewLine] # ../TColStd/TColStd_SequenceOfReal.hxx [NewLine] # ../IntWalk/IntWalk_StatusDeflection.hxx [NewLine] # ../Bnd/Bnd_Range.hxx [NewLine] class StdFail_NotDone ;
 ## Error: did not expect <!!!
 
 discard "forward decl of Standard_OutOfRange"
@@ -29,65 +29,73 @@ discard "forward decl of IntPatch_TheIWLineOfTheIWalking"
 discard "forward decl of IntSurf_PntOn2S"
 discard "forward decl of math_FunctionSetRoot"
 type
-  IntPatchTheIWalking* {.importcpp: "IntPatch_TheIWalking",
-                        header: "IntPatch_TheIWalking.hxx", bycopy.} = object ## !
-                                                                         ## Deflection is the maximum
-                                                                         ## deflection
-                                                                         ## admitted between two
-                                                                         ## !
-                                                                         ## consecutive points on a
-                                                                         ## resulting
-                                                                         ## polyline.
-                                                                         ## ! Step is the maximum
-                                                                         ## increment
-                                                                         ## admitted between two
-                                                                         ## !
-                                                                         ## consecutive points (in 2d space).
-                                                                         ## ! Epsilon is the
-                                                                         ## tolerance beyond which 2 points
-                                                                         ## ! are
-                                                                         ## confused.
-                                                                         ## !
-                                                                         ## theToFillHoles is the flag
-                                                                         ## defining whether
-                                                                         ## possible holes
-                                                                         ## ! between
-                                                                         ## resulting curves are filled or not
-                                                                         ## ! in case of
-                                                                         ## IntPatch walking
-                                                                         ## theToFillHoles is False
+  IntPatch_TheIWalking* {.importcpp: "IntPatch_TheIWalking",
+                         header: "IntPatch_TheIWalking.hxx", bycopy.} = object ## !
+                                                                          ## Deflection is the
+                                                                          ## maximum
+                                                                          ## deflection
+                                                                          ## admitted
+                                                                          ## between two
+                                                                          ## !
+                                                                          ## consecutive points on a
+                                                                          ## resulting
+                                                                          ## polyline.
+                                                                          ## ! Step is the
+                                                                          ## maximum
+                                                                          ## increment
+                                                                          ## admitted
+                                                                          ## between two
+                                                                          ## !
+                                                                          ## consecutive points (in 2d
+                                                                          ## space).
+                                                                          ## !
+                                                                          ## Epsilon is the
+                                                                          ## tolerance beyond which 2 points
+                                                                          ## ! are
+                                                                          ## confused.
+                                                                          ## !
+                                                                          ## theToFillHoles is the flag
+                                                                          ## defining
+                                                                          ## whether
+                                                                          ## possible holes
+                                                                          ## !
+                                                                          ## between
+                                                                          ## resulting curves are filled or not
+                                                                          ## ! in case of
+                                                                          ## IntPatch
+                                                                          ## walking
+                                                                          ## theToFillHoles is False
     ##  Estimated U-range for section curve
     ##  Estimated V-range for section curve
 
 
-proc constructIntPatchTheIWalking*(epsilon: StandardReal; deflection: StandardReal;
-                                  step: StandardReal; theToFillHoles: StandardBoolean = standardFalse): IntPatchTheIWalking {.
+proc constructIntPatch_TheIWalking*(Epsilon: Standard_Real;
+                                   Deflection: Standard_Real; Step: Standard_Real;
+    theToFillHoles: Standard_Boolean = Standard_False): IntPatch_TheIWalking {.
     constructor, importcpp: "IntPatch_TheIWalking(@)",
     header: "IntPatch_TheIWalking.hxx".}
-proc setTolerance*(this: var IntPatchTheIWalking; epsilon: StandardReal;
-                  deflection: StandardReal; step: StandardReal) {.
+proc SetTolerance*(this: var IntPatch_TheIWalking; Epsilon: Standard_Real;
+                  Deflection: Standard_Real; Step: Standard_Real) {.
     importcpp: "SetTolerance", header: "IntPatch_TheIWalking.hxx".}
-proc perform*(this: var IntPatchTheIWalking; pnts1: IntSurfSequenceOfPathPoint;
-             pnts2: IntSurfSequenceOfInteriorPoint;
-             `func`: var IntPatchTheSurfFunction; s: Handle[Adaptor3dHSurface];
-             reversed: StandardBoolean = standardFalse) {.importcpp: "Perform",
+proc Perform*(this: var IntPatch_TheIWalking; Pnts1: IntSurf_SequenceOfPathPoint;
+             Pnts2: IntSurf_SequenceOfInteriorPoint;
+             Func: var IntPatch_TheSurfFunction; S: handle[Adaptor3d_HSurface];
+             Reversed: Standard_Boolean = Standard_False) {.importcpp: "Perform",
     header: "IntPatch_TheIWalking.hxx".}
-proc perform*(this: var IntPatchTheIWalking; pnts1: IntSurfSequenceOfPathPoint;
-             `func`: var IntPatchTheSurfFunction; s: Handle[Adaptor3dHSurface];
-             reversed: StandardBoolean = standardFalse) {.importcpp: "Perform",
+proc Perform*(this: var IntPatch_TheIWalking; Pnts1: IntSurf_SequenceOfPathPoint;
+             Func: var IntPatch_TheSurfFunction; S: handle[Adaptor3d_HSurface];
+             Reversed: Standard_Boolean = Standard_False) {.importcpp: "Perform",
     header: "IntPatch_TheIWalking.hxx".}
-proc isDone*(this: IntPatchTheIWalking): StandardBoolean {.noSideEffect,
+proc IsDone*(this: IntPatch_TheIWalking): Standard_Boolean {.noSideEffect,
     importcpp: "IsDone", header: "IntPatch_TheIWalking.hxx".}
-proc nbLines*(this: IntPatchTheIWalking): StandardInteger {.noSideEffect,
+proc NbLines*(this: IntPatch_TheIWalking): Standard_Integer {.noSideEffect,
     importcpp: "NbLines", header: "IntPatch_TheIWalking.hxx".}
-proc value*(this: IntPatchTheIWalking; index: StandardInteger): Handle[
-    IntPatchTheIWLineOfTheIWalking] {.noSideEffect, importcpp: "Value",
-                                     header: "IntPatch_TheIWalking.hxx".}
-proc nbSinglePnts*(this: IntPatchTheIWalking): StandardInteger {.noSideEffect,
+proc Value*(this: IntPatch_TheIWalking; Index: Standard_Integer): handle[
+    IntPatch_TheIWLineOfTheIWalking] {.noSideEffect, importcpp: "Value",
+                                      header: "IntPatch_TheIWalking.hxx".}
+proc NbSinglePnts*(this: IntPatch_TheIWalking): Standard_Integer {.noSideEffect,
     importcpp: "NbSinglePnts", header: "IntPatch_TheIWalking.hxx".}
-proc singlePnt*(this: IntPatchTheIWalking; index: StandardInteger): IntSurfPathPoint {.
+proc SinglePnt*(this: IntPatch_TheIWalking; Index: Standard_Integer): IntSurf_PathPoint {.
     noSideEffect, importcpp: "SinglePnt", header: "IntPatch_TheIWalking.hxx".}
-## !!!Ignored construct:  # ThePointOfPath IntSurf_PathPoint [NewLine] # ThePointOfPath_hxx < IntSurf_PathPoint . hxx > [NewLine] # ThePointOfPathTool IntSurf_PathPointTool [NewLine] # ThePointOfPathTool_hxx < IntSurf_PathPointTool . hxx > [NewLine] # ThePOPIterator IntSurf_SequenceOfPathPoint [NewLine] # ThePOPIterator_hxx < IntSurf_SequenceOfPathPoint . hxx > [NewLine] # ThePointOfLoop IntSurf_InteriorPoint [NewLine] # ThePointOfLoop_hxx < IntSurf_InteriorPoint . hxx > [NewLine] # ThePointOfLoopTool IntSurf_InteriorPointTool [NewLine] # ThePointOfLoopTool_hxx < IntSurf_InteriorPointTool . hxx > [NewLine] # ThePOLIterator IntSurf_SequenceOfInteriorPoint [NewLine] # ThePOLIterator_hxx < IntSurf_SequenceOfInteriorPoint . hxx > [NewLine] # ThePSurface opencascade :: handle < Adaptor3d_HSurface > [end of template] [NewLine] # ThePSurface_hxx < Adaptor3d_HSurface . hxx > [NewLine] # ThePSurfaceTool Adaptor3d_HSurfaceTool [NewLine] # ThePSurfaceTool_hxx < Adaptor3d_HSurfaceTool . hxx > [NewLine] # TheIWFunction IntPatch_TheSurfFunction [NewLine] # TheIWFunction_hxx < IntPatch_TheSurfFunction . hxx > [NewLine] # IntWalk_TheIWLine IntPatch_TheIWLineOfTheIWalking [NewLine] # IntWalk_TheIWLine_hxx < IntPatch_TheIWLineOfTheIWalking . hxx > [NewLine] # IntWalk_SequenceOfIWLine IntPatch_SequenceOfIWLineOfTheIWalking [NewLine] # IntWalk_SequenceOfIWLine_hxx < IntPatch_SequenceOfIWLineOfTheIWalking . hxx > [NewLine] # Handle_IntWalk_TheIWLine opencascade :: handle < IntPatch_TheIWLineOfTheIWalking > [end of template] [NewLine] # IntWalk_IWalking IntPatch_TheIWalking [NewLine] # IntWalk_IWalking_hxx < IntPatch_TheIWalking . hxx > [NewLine] # < IntWalk_IWalking . lxx > [NewLine] # ThePointOfPath [NewLine] # ThePointOfPath_hxx [NewLine] # ThePointOfPathTool [NewLine] # ThePointOfPathTool_hxx [NewLine] # ThePOPIterator [NewLine] # ThePOPIterator_hxx [NewLine] # ThePointOfLoop [NewLine] # ThePointOfLoop_hxx [NewLine] # ThePointOfLoopTool [NewLine] # ThePointOfLoopTool_hxx [NewLine] # ThePOLIterator [NewLine] # ThePOLIterator_hxx [NewLine] # ThePSurface [NewLine] # ThePSurface_hxx [NewLine] # ThePSurfaceTool [NewLine] # ThePSurfaceTool_hxx [NewLine] # TheIWFunction [NewLine] # TheIWFunction_hxx [NewLine] # IntWalk_TheIWLine [NewLine] # IntWalk_TheIWLine_hxx [NewLine] # IntWalk_SequenceOfIWLine [NewLine] # IntWalk_SequenceOfIWLine_hxx [NewLine] # Handle_IntWalk_TheIWLine [NewLine] # IntWalk_IWalking [NewLine] # IntWalk_IWalking_hxx [NewLine] #  _IntPatch_TheIWalking_HeaderFile
+## !!!Ignored construct:  # ThePointOfPath IntSurf_PathPoint [NewLine] # ThePointOfPath_hxx < IntSurf_PathPoint . hxx > [NewLine] # ThePointOfPathTool IntSurf_PathPointTool [NewLine] # ThePointOfPathTool_hxx < IntSurf_PathPointTool . hxx > [NewLine] # ThePOPIterator IntSurf_SequenceOfPathPoint [NewLine] # ThePOPIterator_hxx < IntSurf_SequenceOfPathPoint . hxx > [NewLine] # ThePointOfLoop IntSurf_InteriorPoint [NewLine] # ThePointOfLoop_hxx < IntSurf_InteriorPoint . hxx > [NewLine] # ThePointOfLoopTool IntSurf_InteriorPointTool [NewLine] # ThePointOfLoopTool_hxx < IntSurf_InteriorPointTool . hxx > [NewLine] # ThePOLIterator IntSurf_SequenceOfInteriorPoint [NewLine] # ThePOLIterator_hxx < IntSurf_SequenceOfInteriorPoint . hxx > [NewLine] # ThePSurface opencascade :: handle < Adaptor3d_HSurface > [end of template] [NewLine] # ThePSurface_hxx < Adaptor3d_HSurface . hxx > [NewLine] # ThePSurfaceTool Adaptor3d_HSurfaceTool [NewLine] # ThePSurfaceTool_hxx < Adaptor3d_HSurfaceTool . hxx > [NewLine] # TheIWFunction IntPatch_TheSurfFunction [NewLine] # TheIWFunction_hxx < IntPatch_TheSurfFunction . hxx > [NewLine] # IntWalk_TheIWLine IntPatch_TheIWLineOfTheIWalking [NewLine] # IntWalk_TheIWLine_hxx < IntPatch_TheIWLineOfTheIWalking . hxx > [NewLine] # IntWalk_SequenceOfIWLine IntPatch_SequenceOfIWLineOfTheIWalking [NewLine] # IntWalk_SequenceOfIWLine_hxx < IntPatch_SequenceOfIWLineOfTheIWalking . hxx > [NewLine] # Handle_IntWalk_TheIWLine opencascade :: handle < IntPatch_TheIWLineOfTheIWalking > [end of template] [NewLine] # IntWalk_IWalking IntPatch_TheIWalking [NewLine] # IntWalk_IWalking_hxx < IntPatch_TheIWalking . hxx > [NewLine] # < IntWalk_IWalking . lxx > [NewLine] # ThePointOfPath [NewLine] # ThePointOfPath_hxx [NewLine] # ThePointOfPathTool [NewLine] # ThePointOfPathTool_hxx [NewLine] # ThePOPIterator [NewLine] # ThePOPIterator_hxx [NewLine] # ThePointOfLoop [NewLine] # ThePointOfLoop_hxx [NewLine] # ThePointOfLoopTool [NewLine] # ThePointOfLoopTool_hxx [NewLine] # ThePOLIterator [NewLine] # ThePOLIterator_hxx [NewLine] # ThePSurface [NewLine] # ThePSurface_hxx [NewLine] # ThePSurfaceTool [NewLine] # ThePSurfaceTool_hxx [NewLine] # TheIWFunction [NewLine] # TheIWFunction_hxx [NewLine] # IntWalk_TheIWLine [NewLine] # IntWalk_TheIWLine_hxx [NewLine] # IntWalk_SequenceOfIWLine [NewLine] # IntWalk_SequenceOfIWLine_hxx [NewLine] # Handle_IntWalk_TheIWLine [NewLine] # IntWalk_IWalking [NewLine] # IntWalk_IWalking_hxx [NewLine] #  _IntPatch_TheIWalking_HeaderFile [NewLine]
 ## Error: did not expect <!!!
-
-

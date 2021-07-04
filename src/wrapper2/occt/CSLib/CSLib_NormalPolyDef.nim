@@ -14,19 +14,24 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer,
+  ../TColStd/TColStd_Array1OfReal, ../math/math_FunctionWithDerivative,
+  ../Standard/Standard_Boolean, ../Standard/Standard_Real
+
 type
-  CSLibNormalPolyDef* {.importcpp: "CSLib_NormalPolyDef",
-                       header: "CSLib_NormalPolyDef.hxx", bycopy.} = object of MathFunctionWithDerivative
+  CSLib_NormalPolyDef* {.importcpp: "CSLib_NormalPolyDef",
+                        header: "CSLib_NormalPolyDef.hxx", bycopy.} = object of math_FunctionWithDerivative
 
 
-proc constructCSLibNormalPolyDef*(k0: StandardInteger; li: TColStdArray1OfReal): CSLibNormalPolyDef {.
+proc constructCSLib_NormalPolyDef*(k0: Standard_Integer; li: TColStd_Array1OfReal): CSLib_NormalPolyDef {.
     constructor, importcpp: "CSLib_NormalPolyDef(@)",
     header: "CSLib_NormalPolyDef.hxx".}
-proc value*(this: var CSLibNormalPolyDef; x: StandardReal; f: var StandardReal): StandardBoolean {.
+proc Value*(this: var CSLib_NormalPolyDef; X: Standard_Real; F: var Standard_Real): Standard_Boolean {.
     importcpp: "Value", header: "CSLib_NormalPolyDef.hxx".}
-proc derivative*(this: var CSLibNormalPolyDef; x: StandardReal; d: var StandardReal): StandardBoolean {.
+proc Derivative*(this: var CSLib_NormalPolyDef; X: Standard_Real; D: var Standard_Real): Standard_Boolean {.
     importcpp: "Derivative", header: "CSLib_NormalPolyDef.hxx".}
-proc values*(this: var CSLibNormalPolyDef; x: StandardReal; f: var StandardReal;
-            d: var StandardReal): StandardBoolean {.importcpp: "Values",
+proc Values*(this: var CSLib_NormalPolyDef; X: Standard_Real; F: var Standard_Real;
+            D: var Standard_Real): Standard_Boolean {.importcpp: "Values",
     header: "CSLib_NormalPolyDef.hxx".}
-

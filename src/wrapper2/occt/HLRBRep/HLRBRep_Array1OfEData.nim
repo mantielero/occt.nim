@@ -14,7 +14,8 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  HLRBRep_EdgeData, ../NCollection/NCollection_Array1
+
 type
-  HLRBRepArray1OfEData* = NCollectionArray1[HLRBRepEdgeData]
-
-
+  HLRBRep_Array1OfEData* = NCollection_Array1[HLRBRep_EdgeData]

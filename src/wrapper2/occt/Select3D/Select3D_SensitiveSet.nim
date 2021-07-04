@@ -13,6 +13,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../BVH/BVH_PrimitiveSet3d, Select3D_BndBox3d, Select3D_BVHBuilder3d,
+  Select3D_SensitiveEntity
+
 ## ! This class is base class for handling overlap detection of complex sensitive
 ## ! entities. It provides an interface for building BVH tree for some set of entities.
 ## ! Thereby, each iteration of overlap detection is a traverse of BVH tree in fact.
@@ -173,60 +177,58 @@ type
     ## !< A link between sensitive entity and BVH_PrimitiveSet
     ## !< Index of detected primitive in BVH sorted primitive array
 
-  Select3D_SensitiveSetbaseType* = Select3D_SensitiveEntity
+  Select3D_SensitiveSetbase_type* = Select3D_SensitiveEntity
 
-proc getTypeName*(): cstring {.importcpp: "Select3D_SensitiveSet::get_type_name(@)",
-                            header: "Select3D_SensitiveSet.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "Select3D_SensitiveSet::get_type_name(@)",
+                              header: "Select3D_SensitiveSet.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "Select3D_SensitiveSet::get_type_descriptor(@)",
     header: "Select3D_SensitiveSet.hxx".}
-proc dynamicType*(this: Select3D_SensitiveSet): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "Select3D_SensitiveSet.hxx".}
-proc defaultBVHBuilder*(): Handle[Select3D_BVHBuilder3d] {.
+proc DynamicType*(this: Select3D_SensitiveSet): handle[Standard_Type] {.
+    noSideEffect, importcpp: "DynamicType", header: "Select3D_SensitiveSet.hxx".}
+proc DefaultBVHBuilder*(): handle[Select3D_BVHBuilder3d] {.
     importcpp: "Select3D_SensitiveSet::DefaultBVHBuilder(@)",
     header: "Select3D_SensitiveSet.hxx".}
-proc setDefaultBVHBuilder*(theBuilder: Handle[Select3D_BVHBuilder3d]) {.
+proc SetDefaultBVHBuilder*(theBuilder: handle[Select3D_BVHBuilder3d]) {.
     importcpp: "Select3D_SensitiveSet::SetDefaultBVHBuilder(@)",
     header: "Select3D_SensitiveSet.hxx".}
-proc constructSelect3D_SensitiveSet*(theOwnerId: Handle[SelectMgrEntityOwner]): Select3D_SensitiveSet {.
+proc constructSelect3D_SensitiveSet*(theOwnerId: handle[SelectMgr_EntityOwner]): Select3D_SensitiveSet {.
     constructor, importcpp: "Select3D_SensitiveSet(@)",
     header: "Select3D_SensitiveSet.hxx".}
-proc size*(this: Select3D_SensitiveSet): StandardInteger {.noSideEffect,
+proc Size*(this: Select3D_SensitiveSet): Standard_Integer {.noSideEffect,
     importcpp: "Size", header: "Select3D_SensitiveSet.hxx".}
-proc box*(this: Select3D_SensitiveSet; theIdx: StandardInteger): Select3D_BndBox3d {.
+proc Box*(this: Select3D_SensitiveSet; theIdx: Standard_Integer): Select3D_BndBox3d {.
     noSideEffect, importcpp: "Box", header: "Select3D_SensitiveSet.hxx".}
-proc center*(this: Select3D_SensitiveSet; theIdx: StandardInteger;
-            theAxis: StandardInteger): StandardReal {.noSideEffect,
+proc Center*(this: Select3D_SensitiveSet; theIdx: Standard_Integer;
+            theAxis: Standard_Integer): Standard_Real {.noSideEffect,
     importcpp: "Center", header: "Select3D_SensitiveSet.hxx".}
-proc swap*(this: var Select3D_SensitiveSet; theIdx1: StandardInteger;
-          theIdx2: StandardInteger) {.importcpp: "Swap",
-                                    header: "Select3D_SensitiveSet.hxx".}
-proc matches*(this: var Select3D_SensitiveSet;
-             theMgr: var SelectBasicsSelectingVolumeManager;
-             thePickResult: var SelectBasicsPickResult): StandardBoolean {.
+proc Swap*(this: var Select3D_SensitiveSet; theIdx1: Standard_Integer;
+          theIdx2: Standard_Integer) {.importcpp: "Swap",
+                                     header: "Select3D_SensitiveSet.hxx".}
+proc Matches*(this: var Select3D_SensitiveSet;
+             theMgr: var SelectBasics_SelectingVolumeManager;
+             thePickResult: var SelectBasics_PickResult): Standard_Boolean {.
     importcpp: "Matches", header: "Select3D_SensitiveSet.hxx".}
-proc bvh*(this: var Select3D_SensitiveSet) {.importcpp: "BVH",
+proc BVH*(this: var Select3D_SensitiveSet) {.importcpp: "BVH",
     header: "Select3D_SensitiveSet.hxx".}
-proc toBuildBVH*(this: Select3D_SensitiveSet): StandardBoolean {.noSideEffect,
+proc ToBuildBVH*(this: Select3D_SensitiveSet): Standard_Boolean {.noSideEffect,
     importcpp: "ToBuildBVH", header: "Select3D_SensitiveSet.hxx".}
-proc setBuilder*(this: var Select3D_SensitiveSet;
-                theBuilder: Handle[Select3D_BVHBuilder3d]) {.
+proc SetBuilder*(this: var Select3D_SensitiveSet;
+                theBuilder: handle[Select3D_BVHBuilder3d]) {.
     importcpp: "SetBuilder", header: "Select3D_SensitiveSet.hxx".}
-proc markDirty*(this: var Select3D_SensitiveSet) {.importcpp: "MarkDirty",
+proc MarkDirty*(this: var Select3D_SensitiveSet) {.importcpp: "MarkDirty",
     header: "Select3D_SensitiveSet.hxx".}
-proc boundingBox*(this: var Select3D_SensitiveSet): Select3D_BndBox3d {.
+proc BoundingBox*(this: var Select3D_SensitiveSet): Select3D_BndBox3d {.
     importcpp: "BoundingBox", header: "Select3D_SensitiveSet.hxx".}
-proc centerOfGeometry*(this: Select3D_SensitiveSet): GpPnt {.noSideEffect,
+proc CenterOfGeometry*(this: Select3D_SensitiveSet): gp_Pnt {.noSideEffect,
     importcpp: "CenterOfGeometry", header: "Select3D_SensitiveSet.hxx".}
-proc clear*(this: var Select3D_SensitiveSet) {.importcpp: "Clear",
+proc Clear*(this: var Select3D_SensitiveSet) {.importcpp: "Clear",
     header: "Select3D_SensitiveSet.hxx".}
-proc getLeafNodeSize*(this: Select3D_SensitiveSet): StandardInteger {.noSideEffect,
+proc GetLeafNodeSize*(this: Select3D_SensitiveSet): Standard_Integer {.noSideEffect,
     importcpp: "GetLeafNodeSize", header: "Select3D_SensitiveSet.hxx".}
-proc dumpJson*(this: Select3D_SensitiveSet; theOStream: var StandardOStream;
-              theDepth: StandardInteger = -1) {.noSideEffect, importcpp: "DumpJson",
+proc DumpJson*(this: Select3D_SensitiveSet; theOStream: var Standard_OStream;
+              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
     header: "Select3D_SensitiveSet.hxx".}
 discard "forward decl of Select3D_SensitiveSet"
 type
-  HandleSelect3D_SensitiveSet* = Handle[Select3D_SensitiveSet]
-
-
+  Handle_Select3D_SensitiveSet* = handle[Select3D_SensitiveSet]

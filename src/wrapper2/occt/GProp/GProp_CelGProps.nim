@@ -14,28 +14,32 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, GProp_GProps, ../Standard/Standard_Real
+
 discard "forward decl of gp_Circ"
 discard "forward decl of gp_Pnt"
 discard "forward decl of gp_Lin"
 type
-  GPropCelGProps* {.importcpp: "GProp_CelGProps", header: "GProp_CelGProps.hxx",
-                   bycopy.} = object of GPropGProps
+  GProp_CelGProps* {.importcpp: "GProp_CelGProps", header: "GProp_CelGProps.hxx",
+                    bycopy.} = object of GProp_GProps
 
 
-proc constructGPropCelGProps*(): GPropCelGProps {.constructor,
+proc constructGProp_CelGProps*(): GProp_CelGProps {.constructor,
     importcpp: "GProp_CelGProps(@)", header: "GProp_CelGProps.hxx".}
-proc constructGPropCelGProps*(c: GpCirc; cLocation: GpPnt): GPropCelGProps {.
+proc constructGProp_CelGProps*(C: gp_Circ; CLocation: gp_Pnt): GProp_CelGProps {.
     constructor, importcpp: "GProp_CelGProps(@)", header: "GProp_CelGProps.hxx".}
-proc constructGPropCelGProps*(c: GpCirc; u1: StandardReal; u2: StandardReal;
-                             cLocation: GpPnt): GPropCelGProps {.constructor,
+proc constructGProp_CelGProps*(C: gp_Circ; U1: Standard_Real; U2: Standard_Real;
+                              CLocation: gp_Pnt): GProp_CelGProps {.constructor,
     importcpp: "GProp_CelGProps(@)", header: "GProp_CelGProps.hxx".}
-proc constructGPropCelGProps*(c: GpLin; u1: StandardReal; u2: StandardReal;
-                             cLocation: GpPnt): GPropCelGProps {.constructor,
+proc constructGProp_CelGProps*(C: gp_Lin; U1: Standard_Real; U2: Standard_Real;
+                              CLocation: gp_Pnt): GProp_CelGProps {.constructor,
     importcpp: "GProp_CelGProps(@)", header: "GProp_CelGProps.hxx".}
-proc setLocation*(this: var GPropCelGProps; cLocation: GpPnt) {.
+proc SetLocation*(this: var GProp_CelGProps; CLocation: gp_Pnt) {.
     importcpp: "SetLocation", header: "GProp_CelGProps.hxx".}
-proc perform*(this: var GPropCelGProps; c: GpCirc; u1: StandardReal; u2: StandardReal) {.
+proc Perform*(this: var GProp_CelGProps; C: gp_Circ; U1: Standard_Real;
+             U2: Standard_Real) {.importcpp: "Perform",
+                                header: "GProp_CelGProps.hxx".}
+proc Perform*(this: var GProp_CelGProps; C: gp_Lin; U1: Standard_Real; U2: Standard_Real) {.
     importcpp: "Perform", header: "GProp_CelGProps.hxx".}
-proc perform*(this: var GPropCelGProps; c: GpLin; u1: StandardReal; u2: StandardReal) {.
-    importcpp: "Perform", header: "GProp_CelGProps.hxx".}
-

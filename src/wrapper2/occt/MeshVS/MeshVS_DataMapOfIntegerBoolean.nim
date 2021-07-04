@@ -13,10 +13,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard_Integer, ../Standard/Standard_Boolean,
+  ../TColStd/TColStd_MapIntegerHasher, ../NCollection/NCollection_DataMap
+
 type
-  MeshVS_DataMapOfIntegerBoolean* = NCollectionDataMap[StandardInteger,
-      StandardBoolean, TColStdMapIntegerHasher]
-  MeshVS_DataMapIteratorOfDataMapOfIntegerBoolean* = Iterator[StandardInteger,
-      StandardBoolean, TColStdMapIntegerHasher]
-
-
+  MeshVS_DataMapOfIntegerBoolean* = NCollection_DataMap[Standard_Integer,
+      Standard_Boolean, TColStd_MapIntegerHasher]
+  MeshVS_DataMapIteratorOfDataMapOfIntegerBoolean* = Iterator[Standard_Integer,
+      Standard_Boolean, TColStd_MapIntegerHasher]

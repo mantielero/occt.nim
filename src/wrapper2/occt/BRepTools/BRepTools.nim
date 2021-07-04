@@ -14,6 +14,13 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Real,
+  ../Standard/Standard_Boolean, ../TopTools/TopTools_IndexedMapOfShape,
+  ../Standard/Standard_OStream, ../Standard/Standard_IStream,
+  ../Standard/Standard_CString, ../Message/Message_ProgressRange
+
 discard "forward decl of TopoDS_Face"
 discard "forward decl of TopoDS_Wire"
 discard "forward decl of TopoDS_Edge"
@@ -46,84 +53,85 @@ type
                                                                           ## parametric space of F.
 
 
-proc uVBounds*(f: TopoDS_Face; uMin: var StandardReal; uMax: var StandardReal;
-              vMin: var StandardReal; vMax: var StandardReal) {.
+proc UVBounds*(F: TopoDS_Face; UMin: var Standard_Real; UMax: var Standard_Real;
+              VMin: var Standard_Real; VMax: var Standard_Real) {.
     importcpp: "BRepTools::UVBounds(@)", header: "BRepTools.hxx".}
-proc uVBounds*(f: TopoDS_Face; w: TopoDS_Wire; uMin: var StandardReal;
-              uMax: var StandardReal; vMin: var StandardReal; vMax: var StandardReal) {.
-    importcpp: "BRepTools::UVBounds(@)", header: "BRepTools.hxx".}
-proc uVBounds*(f: TopoDS_Face; e: TopoDS_Edge; uMin: var StandardReal;
-              uMax: var StandardReal; vMin: var StandardReal; vMax: var StandardReal) {.
-    importcpp: "BRepTools::UVBounds(@)", header: "BRepTools.hxx".}
-proc addUVBounds*(f: TopoDS_Face; b: var BndBox2d) {.
+proc UVBounds*(F: TopoDS_Face; W: TopoDS_Wire; UMin: var Standard_Real;
+              UMax: var Standard_Real; VMin: var Standard_Real;
+              VMax: var Standard_Real) {.importcpp: "BRepTools::UVBounds(@)",
+                                      header: "BRepTools.hxx".}
+proc UVBounds*(F: TopoDS_Face; E: TopoDS_Edge; UMin: var Standard_Real;
+              UMax: var Standard_Real; VMin: var Standard_Real;
+              VMax: var Standard_Real) {.importcpp: "BRepTools::UVBounds(@)",
+                                      header: "BRepTools.hxx".}
+proc AddUVBounds*(F: TopoDS_Face; B: var Bnd_Box2d) {.
     importcpp: "BRepTools::AddUVBounds(@)", header: "BRepTools.hxx".}
-proc addUVBounds*(f: TopoDS_Face; w: TopoDS_Wire; b: var BndBox2d) {.
+proc AddUVBounds*(F: TopoDS_Face; W: TopoDS_Wire; B: var Bnd_Box2d) {.
     importcpp: "BRepTools::AddUVBounds(@)", header: "BRepTools.hxx".}
-proc addUVBounds*(f: TopoDS_Face; e: TopoDS_Edge; b: var BndBox2d) {.
+proc AddUVBounds*(F: TopoDS_Face; E: TopoDS_Edge; B: var Bnd_Box2d) {.
     importcpp: "BRepTools::AddUVBounds(@)", header: "BRepTools.hxx".}
-proc update*(v: TopoDS_Vertex) {.importcpp: "BRepTools::Update(@)",
+proc Update*(V: TopoDS_Vertex) {.importcpp: "BRepTools::Update(@)",
                               header: "BRepTools.hxx".}
-proc update*(e: TopoDS_Edge) {.importcpp: "BRepTools::Update(@)",
+proc Update*(E: TopoDS_Edge) {.importcpp: "BRepTools::Update(@)",
                             header: "BRepTools.hxx".}
-proc update*(w: TopoDS_Wire) {.importcpp: "BRepTools::Update(@)",
+proc Update*(W: TopoDS_Wire) {.importcpp: "BRepTools::Update(@)",
                             header: "BRepTools.hxx".}
-proc update*(f: TopoDS_Face) {.importcpp: "BRepTools::Update(@)",
+proc Update*(F: TopoDS_Face) {.importcpp: "BRepTools::Update(@)",
                             header: "BRepTools.hxx".}
-proc update*(s: TopoDS_Shell) {.importcpp: "BRepTools::Update(@)",
+proc Update*(S: TopoDS_Shell) {.importcpp: "BRepTools::Update(@)",
                              header: "BRepTools.hxx".}
-proc update*(s: TopoDS_Solid) {.importcpp: "BRepTools::Update(@)",
+proc Update*(S: TopoDS_Solid) {.importcpp: "BRepTools::Update(@)",
                              header: "BRepTools.hxx".}
-proc update*(c: TopoDS_CompSolid) {.importcpp: "BRepTools::Update(@)",
+proc Update*(C: TopoDS_CompSolid) {.importcpp: "BRepTools::Update(@)",
                                  header: "BRepTools.hxx".}
-proc update*(c: TopoDS_Compound) {.importcpp: "BRepTools::Update(@)",
+proc Update*(C: TopoDS_Compound) {.importcpp: "BRepTools::Update(@)",
                                 header: "BRepTools.hxx".}
-proc update*(s: TopoDS_Shape) {.importcpp: "BRepTools::Update(@)",
+proc Update*(S: TopoDS_Shape) {.importcpp: "BRepTools::Update(@)",
                              header: "BRepTools.hxx".}
-proc updateFaceUVPoints*(theF: TopoDS_Face) {.
+proc UpdateFaceUVPoints*(theF: TopoDS_Face) {.
     importcpp: "BRepTools::UpdateFaceUVPoints(@)", header: "BRepTools.hxx".}
-proc clean*(s: TopoDS_Shape) {.importcpp: "BRepTools::Clean(@)",
+proc Clean*(S: TopoDS_Shape) {.importcpp: "BRepTools::Clean(@)",
                             header: "BRepTools.hxx".}
-proc cleanGeometry*(theShape: TopoDS_Shape) {.
+proc CleanGeometry*(theShape: TopoDS_Shape) {.
     importcpp: "BRepTools::CleanGeometry(@)", header: "BRepTools.hxx".}
-proc removeUnusedPCurves*(s: TopoDS_Shape) {.
+proc RemoveUnusedPCurves*(S: TopoDS_Shape) {.
     importcpp: "BRepTools::RemoveUnusedPCurves(@)", header: "BRepTools.hxx".}
-proc triangulation*(theShape: TopoDS_Shape; theLinDefl: StandardReal;
-                   theToCheckFreeEdges: StandardBoolean = standardFalse): StandardBoolean {.
+proc Triangulation*(theShape: TopoDS_Shape; theLinDefl: Standard_Real;
+                   theToCheckFreeEdges: Standard_Boolean = Standard_False): Standard_Boolean {.
     importcpp: "BRepTools::Triangulation(@)", header: "BRepTools.hxx".}
-proc compare*(v1: TopoDS_Vertex; v2: TopoDS_Vertex): StandardBoolean {.
+proc Compare*(V1: TopoDS_Vertex; V2: TopoDS_Vertex): Standard_Boolean {.
     importcpp: "BRepTools::Compare(@)", header: "BRepTools.hxx".}
-proc compare*(e1: TopoDS_Edge; e2: TopoDS_Edge): StandardBoolean {.
+proc Compare*(E1: TopoDS_Edge; E2: TopoDS_Edge): Standard_Boolean {.
     importcpp: "BRepTools::Compare(@)", header: "BRepTools.hxx".}
-proc outerWire*(f: TopoDS_Face): TopoDS_Wire {.importcpp: "BRepTools::OuterWire(@)",
+proc OuterWire*(F: TopoDS_Face): TopoDS_Wire {.importcpp: "BRepTools::OuterWire(@)",
     header: "BRepTools.hxx".}
-proc map3DEdges*(s: TopoDS_Shape; m: var TopToolsIndexedMapOfShape) {.
+proc Map3DEdges*(S: TopoDS_Shape; M: var TopTools_IndexedMapOfShape) {.
     importcpp: "BRepTools::Map3DEdges(@)", header: "BRepTools.hxx".}
-proc isReallyClosed*(e: TopoDS_Edge; f: TopoDS_Face): StandardBoolean {.
+proc IsReallyClosed*(E: TopoDS_Edge; F: TopoDS_Face): Standard_Boolean {.
     importcpp: "BRepTools::IsReallyClosed(@)", header: "BRepTools.hxx".}
-proc detectClosedness*(theFace: TopoDS_Face; theUclosed: var StandardBoolean;
-                      theVclosed: var StandardBoolean) {.
+proc DetectClosedness*(theFace: TopoDS_Face; theUclosed: var Standard_Boolean;
+                      theVclosed: var Standard_Boolean) {.
     importcpp: "BRepTools::DetectClosedness(@)", header: "BRepTools.hxx".}
-proc dump*(sh: TopoDS_Shape; s: var StandardOStream) {.
+proc Dump*(Sh: TopoDS_Shape; S: var Standard_OStream) {.
     importcpp: "BRepTools::Dump(@)", header: "BRepTools.hxx".}
-proc write*(sh: TopoDS_Shape; s: var StandardOStream;
-           theProgress: MessageProgressRange = messageProgressRange()) {.
+proc Write*(Sh: TopoDS_Shape; S: var Standard_OStream;
+           theProgress: Message_ProgressRange = Message_ProgressRange()) {.
     importcpp: "BRepTools::Write(@)", header: "BRepTools.hxx".}
-proc read*(sh: var TopoDS_Shape; s: var StandardIStream; b: BRepBuilder;
-          theProgress: MessageProgressRange = messageProgressRange()) {.
+proc Read*(Sh: var TopoDS_Shape; S: var Standard_IStream; B: BRep_Builder;
+          theProgress: Message_ProgressRange = Message_ProgressRange()) {.
     importcpp: "BRepTools::Read(@)", header: "BRepTools.hxx".}
-proc write*(sh: TopoDS_Shape; file: StandardCString;
-           theProgress: MessageProgressRange = messageProgressRange()): StandardBoolean {.
+proc Write*(Sh: TopoDS_Shape; File: Standard_CString;
+           theProgress: Message_ProgressRange = Message_ProgressRange()): Standard_Boolean {.
     importcpp: "BRepTools::Write(@)", header: "BRepTools.hxx".}
-proc read*(sh: var TopoDS_Shape; file: StandardCString; b: BRepBuilder;
-          theProgress: MessageProgressRange = messageProgressRange()): StandardBoolean {.
+proc Read*(Sh: var TopoDS_Shape; File: Standard_CString; B: BRep_Builder;
+          theProgress: Message_ProgressRange = Message_ProgressRange()): Standard_Boolean {.
     importcpp: "BRepTools::Read(@)", header: "BRepTools.hxx".}
-proc evalAndUpdateTol*(theE: TopoDS_Edge; theC3d: Handle[GeomCurve];
-                      theC2d: Handle[Geom2dCurve]; theS: Handle[GeomSurface];
-                      theF: StandardReal; theL: StandardReal): StandardReal {.
+proc EvalAndUpdateTol*(theE: TopoDS_Edge; theC3d: handle[Geom_Curve];
+                      theC2d: handle[Geom2d_Curve]; theS: handle[Geom_Surface];
+                      theF: Standard_Real; theL: Standard_Real): Standard_Real {.
     importcpp: "BRepTools::EvalAndUpdateTol(@)", header: "BRepTools.hxx".}
-proc oriEdgeInFace*(theEdge: TopoDS_Edge; theFace: TopoDS_Face): TopAbsOrientation {.
+proc OriEdgeInFace*(theEdge: TopoDS_Edge; theFace: TopoDS_Face): TopAbs_Orientation {.
     importcpp: "BRepTools::OriEdgeInFace(@)", header: "BRepTools.hxx".}
-proc removeInternals*(theS: var TopoDS_Shape;
-                     theForce: StandardBoolean = standardFalse) {.
+proc RemoveInternals*(theS: var TopoDS_Shape;
+                     theForce: Standard_Boolean = Standard_False) {.
     importcpp: "BRepTools::RemoveInternals(@)", header: "BRepTools.hxx".}
-

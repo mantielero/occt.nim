@@ -14,6 +14,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
+  ../Standard/Standard_Real
+
 discard "forward decl of Geom2d_Curve"
 discard "forward decl of Bisector_Curve"
 discard "forward decl of Bisector_BisecAna"
@@ -29,6 +34,5 @@ type
   Bisector* {.importcpp: "Bisector", header: "Bisector.hxx", bycopy.} = object
 
 
-proc isConvex*(cu: Handle[Geom2dCurve]; sign: StandardReal): StandardBoolean {.
+proc IsConvex*(Cu: handle[Geom2d_Curve]; Sign: Standard_Real): Standard_Boolean {.
     importcpp: "Bisector::IsConvex(@)", header: "Bisector.hxx".}
-

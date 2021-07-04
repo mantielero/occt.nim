@@ -14,90 +14,97 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
+  ../Standard/Standard_Real, ../Standard/Standard_Integer,
+  ../Standard/Standard_CString, ../StepBasic/StepBasic_SiPrefix
+
 discard "forward decl of StepGeom_GeomRepContextAndGlobUnitAssCtxAndGlobUncertaintyAssCtx"
 discard "forward decl of StepRepr_GlobalUnitAssignedContext"
 discard "forward decl of StepBasic_NamedUnit"
 discard "forward decl of StepRepr_GlobalUncertaintyAssignedContext"
 discard "forward decl of StepBasic_SiUnit"
 type
-  STEPConstructUnitContext* {.importcpp: "STEPConstruct_UnitContext",
-                             header: "STEPConstruct_UnitContext.hxx", bycopy.} = object ##
-                                                                                   ## !
-                                                                                   ## Creates
-                                                                                   ## empty
-                                                                                   ## tool
-                                                                                   ##
-                                                                                   ## !
-                                                                                   ## Fills
-                                                                                   ## numerical
-                                                                                   ## equivalent
-                                                                                   ## of
-                                                                                   ## SiUnitName
-                                                                                   ## (in
-                                                                                   ## SI
-                                                                                   ## value)
-                                                                                   ##
-                                                                                   ## !
-                                                                                   ## Returns
-                                                                                   ## False
-                                                                                   ## if
-                                                                                   ## name
-                                                                                   ## SiUnit
-                                                                                   ## Name
-                                                                                   ## not
-                                                                                   ## recognized
+  STEPConstruct_UnitContext* {.importcpp: "STEPConstruct_UnitContext",
+                              header: "STEPConstruct_UnitContext.hxx", bycopy.} = object ##
+                                                                                    ## !
+                                                                                    ## Creates
+                                                                                    ## empty
+                                                                                    ## tool
+                                                                                    ##
+                                                                                    ## !
+                                                                                    ## Fills
+                                                                                    ## numerical
+                                                                                    ## equivalent
+                                                                                    ## of
+                                                                                    ## SiUnitName
+                                                                                    ## (in
+                                                                                    ## SI
+                                                                                    ## value)
+                                                                                    ##
+                                                                                    ## !
+                                                                                    ## Returns
+                                                                                    ## False
+                                                                                    ## if
+                                                                                    ## name
+                                                                                    ## SiUnit
+                                                                                    ## Name
+                                                                                    ## not
+                                                                                    ## recognized
 
 
-proc constructSTEPConstructUnitContext*(): STEPConstructUnitContext {.constructor,
-    importcpp: "STEPConstruct_UnitContext(@)",
+proc constructSTEPConstruct_UnitContext*(): STEPConstruct_UnitContext {.
+    constructor, importcpp: "STEPConstruct_UnitContext(@)",
     header: "STEPConstruct_UnitContext.hxx".}
-proc init*(this: var STEPConstructUnitContext; tol3d: StandardReal) {.
+proc Init*(this: var STEPConstruct_UnitContext; Tol3d: Standard_Real) {.
     importcpp: "Init", header: "STEPConstruct_UnitContext.hxx".}
-proc isDone*(this: STEPConstructUnitContext): StandardBoolean {.noSideEffect,
+proc IsDone*(this: STEPConstruct_UnitContext): Standard_Boolean {.noSideEffect,
     importcpp: "IsDone", header: "STEPConstruct_UnitContext.hxx".}
-proc value*(this: STEPConstructUnitContext): Handle[
-    StepGeomGeomRepContextAndGlobUnitAssCtxAndGlobUncertaintyAssCtx] {.
+proc Value*(this: STEPConstruct_UnitContext): handle[
+    StepGeom_GeomRepContextAndGlobUnitAssCtxAndGlobUncertaintyAssCtx] {.
     noSideEffect, importcpp: "Value", header: "STEPConstruct_UnitContext.hxx".}
-proc computeFactors*(this: var STEPConstructUnitContext;
-                    aContext: Handle[StepReprGlobalUnitAssignedContext]): StandardInteger {.
+proc ComputeFactors*(this: var STEPConstruct_UnitContext;
+                    aContext: handle[StepRepr_GlobalUnitAssignedContext]): Standard_Integer {.
     importcpp: "ComputeFactors", header: "STEPConstruct_UnitContext.hxx".}
-proc computeFactors*(this: var STEPConstructUnitContext;
-                    aUnit: Handle[StepBasicNamedUnit]): StandardInteger {.
+proc ComputeFactors*(this: var STEPConstruct_UnitContext;
+                    aUnit: handle[StepBasic_NamedUnit]): Standard_Integer {.
     importcpp: "ComputeFactors", header: "STEPConstruct_UnitContext.hxx".}
-proc computeTolerance*(this: var STEPConstructUnitContext; aContext: Handle[
-    StepReprGlobalUncertaintyAssignedContext]): StandardInteger {.
+proc ComputeTolerance*(this: var STEPConstruct_UnitContext; aContext: handle[
+    StepRepr_GlobalUncertaintyAssignedContext]): Standard_Integer {.
     importcpp: "ComputeTolerance", header: "STEPConstruct_UnitContext.hxx".}
-proc lengthFactor*(this: STEPConstructUnitContext): StandardReal {.noSideEffect,
+proc LengthFactor*(this: STEPConstruct_UnitContext): Standard_Real {.noSideEffect,
     importcpp: "LengthFactor", header: "STEPConstruct_UnitContext.hxx".}
-proc planeAngleFactor*(this: STEPConstructUnitContext): StandardReal {.noSideEffect,
-    importcpp: "PlaneAngleFactor", header: "STEPConstruct_UnitContext.hxx".}
-proc solidAngleFactor*(this: STEPConstructUnitContext): StandardReal {.noSideEffect,
-    importcpp: "SolidAngleFactor", header: "STEPConstruct_UnitContext.hxx".}
-proc uncertainty*(this: STEPConstructUnitContext): StandardReal {.noSideEffect,
+proc PlaneAngleFactor*(this: STEPConstruct_UnitContext): Standard_Real {.
+    noSideEffect, importcpp: "PlaneAngleFactor",
+    header: "STEPConstruct_UnitContext.hxx".}
+proc SolidAngleFactor*(this: STEPConstruct_UnitContext): Standard_Real {.
+    noSideEffect, importcpp: "SolidAngleFactor",
+    header: "STEPConstruct_UnitContext.hxx".}
+proc Uncertainty*(this: STEPConstruct_UnitContext): Standard_Real {.noSideEffect,
     importcpp: "Uncertainty", header: "STEPConstruct_UnitContext.hxx".}
-proc areaFactor*(this: STEPConstructUnitContext): StandardReal {.noSideEffect,
+proc AreaFactor*(this: STEPConstruct_UnitContext): Standard_Real {.noSideEffect,
     importcpp: "AreaFactor", header: "STEPConstruct_UnitContext.hxx".}
-proc volumeFactor*(this: STEPConstructUnitContext): StandardReal {.noSideEffect,
+proc VolumeFactor*(this: STEPConstruct_UnitContext): Standard_Real {.noSideEffect,
     importcpp: "VolumeFactor", header: "STEPConstruct_UnitContext.hxx".}
-proc hasUncertainty*(this: STEPConstructUnitContext): StandardBoolean {.
+proc HasUncertainty*(this: STEPConstruct_UnitContext): Standard_Boolean {.
     noSideEffect, importcpp: "HasUncertainty",
     header: "STEPConstruct_UnitContext.hxx".}
-proc lengthDone*(this: STEPConstructUnitContext): StandardBoolean {.noSideEffect,
+proc LengthDone*(this: STEPConstruct_UnitContext): Standard_Boolean {.noSideEffect,
     importcpp: "LengthDone", header: "STEPConstruct_UnitContext.hxx".}
-proc planeAngleDone*(this: STEPConstructUnitContext): StandardBoolean {.
+proc PlaneAngleDone*(this: STEPConstruct_UnitContext): Standard_Boolean {.
     noSideEffect, importcpp: "PlaneAngleDone",
     header: "STEPConstruct_UnitContext.hxx".}
-proc solidAngleDone*(this: STEPConstructUnitContext): StandardBoolean {.
+proc SolidAngleDone*(this: STEPConstruct_UnitContext): Standard_Boolean {.
     noSideEffect, importcpp: "SolidAngleDone",
     header: "STEPConstruct_UnitContext.hxx".}
-proc areaDone*(this: STEPConstructUnitContext): StandardBoolean {.noSideEffect,
+proc AreaDone*(this: STEPConstruct_UnitContext): Standard_Boolean {.noSideEffect,
     importcpp: "AreaDone", header: "STEPConstruct_UnitContext.hxx".}
-proc volumeDone*(this: STEPConstructUnitContext): StandardBoolean {.noSideEffect,
+proc VolumeDone*(this: STEPConstruct_UnitContext): Standard_Boolean {.noSideEffect,
     importcpp: "VolumeDone", header: "STEPConstruct_UnitContext.hxx".}
-proc statusMessage*(this: STEPConstructUnitContext; status: StandardInteger): StandardCString {.
+proc StatusMessage*(this: STEPConstruct_UnitContext; status: Standard_Integer): Standard_CString {.
     noSideEffect, importcpp: "StatusMessage",
     header: "STEPConstruct_UnitContext.hxx".}
-proc convertSiPrefix*(aPrefix: StepBasicSiPrefix): StandardReal {.
+proc ConvertSiPrefix*(aPrefix: StepBasic_SiPrefix): Standard_Real {.
     importcpp: "STEPConstruct_UnitContext::ConvertSiPrefix(@)",
     header: "STEPConstruct_UnitContext.hxx".}
-

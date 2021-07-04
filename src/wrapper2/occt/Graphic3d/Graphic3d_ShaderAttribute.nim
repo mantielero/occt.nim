@@ -13,42 +13,43 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard_Transient, ../TCollection/TCollection_AsciiString
+
 ## ! Describes custom vertex shader attribute.
 
 type
-  Graphic3dShaderAttribute* {.importcpp: "Graphic3d_ShaderAttribute",
-                             header: "Graphic3d_ShaderAttribute.hxx", bycopy.} = object of StandardTransient ##
-                                                                                                      ## !
-                                                                                                      ## Creates
-                                                                                                      ## new
-                                                                                                      ## attribute.
+  Graphic3d_ShaderAttribute* {.importcpp: "Graphic3d_ShaderAttribute",
+                              header: "Graphic3d_ShaderAttribute.hxx", bycopy.} = object of Standard_Transient ##
+                                                                                                        ## !
+                                                                                                        ## Creates
+                                                                                                        ## new
+                                                                                                        ## attribute.
     ## !< attribute name
     ## !< attribute location
 
 
-proc constructGraphic3dShaderAttribute*(theName: TCollectionAsciiString;
-                                       theLocation: cint): Graphic3dShaderAttribute {.
+proc constructGraphic3d_ShaderAttribute*(theName: TCollection_AsciiString;
+                                        theLocation: cint): Graphic3d_ShaderAttribute {.
     constructor, importcpp: "Graphic3d_ShaderAttribute(@)",
     header: "Graphic3d_ShaderAttribute.hxx".}
-proc destroyGraphic3dShaderAttribute*(this: var Graphic3dShaderAttribute) {.
+proc destroyGraphic3d_ShaderAttribute*(this: var Graphic3d_ShaderAttribute) {.
     importcpp: "#.~Graphic3d_ShaderAttribute()",
     header: "Graphic3d_ShaderAttribute.hxx".}
-proc name*(this: Graphic3dShaderAttribute): TCollectionAsciiString {.noSideEffect,
+proc Name*(this: Graphic3d_ShaderAttribute): TCollection_AsciiString {.noSideEffect,
     importcpp: "Name", header: "Graphic3d_ShaderAttribute.hxx".}
-proc location*(this: Graphic3dShaderAttribute): cint {.noSideEffect,
+proc Location*(this: Graphic3d_ShaderAttribute): cint {.noSideEffect,
     importcpp: "Location", header: "Graphic3d_ShaderAttribute.hxx".}
 type
-  Graphic3dShaderAttributebaseType* = StandardTransient
+  Graphic3d_ShaderAttributebase_type* = Standard_Transient
 
-proc getTypeName*(): cstring {.importcpp: "Graphic3d_ShaderAttribute::get_type_name(@)",
-                            header: "Graphic3d_ShaderAttribute.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "Graphic3d_ShaderAttribute::get_type_name(@)",
+                              header: "Graphic3d_ShaderAttribute.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "Graphic3d_ShaderAttribute::get_type_descriptor(@)",
     header: "Graphic3d_ShaderAttribute.hxx".}
-proc dynamicType*(this: Graphic3dShaderAttribute): Handle[StandardType] {.
+proc DynamicType*(this: Graphic3d_ShaderAttribute): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType", header: "Graphic3d_ShaderAttribute.hxx".}
 discard "forward decl of Graphic3d_ShaderAttribute"
 type
-  HandleGraphic3dShaderAttribute* = Handle[Graphic3dShaderAttribute]
-
-
+  Handle_Graphic3d_ShaderAttribute* = handle[Graphic3d_ShaderAttribute]

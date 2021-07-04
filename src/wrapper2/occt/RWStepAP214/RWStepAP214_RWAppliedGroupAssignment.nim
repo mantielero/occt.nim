@@ -13,30 +13,35 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepAP214_AppliedGroupAssignment"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepAP214RWAppliedGroupAssignment* {.importcpp: "RWStepAP214_RWAppliedGroupAssignment", header: "RWStepAP214_RWAppliedGroupAssignment.hxx",
-                                        bycopy.} = object ## ! Empty constructor
+  RWStepAP214_RWAppliedGroupAssignment* {.
+      importcpp: "RWStepAP214_RWAppliedGroupAssignment",
+      header: "RWStepAP214_RWAppliedGroupAssignment.hxx", bycopy.} = object ## ! Empty
+                                                                       ## constructor
 
 
-proc constructRWStepAP214RWAppliedGroupAssignment*(): RWStepAP214RWAppliedGroupAssignment {.
+proc constructRWStepAP214_RWAppliedGroupAssignment*(): RWStepAP214_RWAppliedGroupAssignment {.
     constructor, importcpp: "RWStepAP214_RWAppliedGroupAssignment(@)",
     header: "RWStepAP214_RWAppliedGroupAssignment.hxx".}
-proc readStep*(this: RWStepAP214RWAppliedGroupAssignment;
-              data: Handle[StepDataStepReaderData]; num: StandardInteger;
-              ach: var Handle[InterfaceCheck];
-              ent: Handle[StepAP214AppliedGroupAssignment]) {.noSideEffect,
+proc ReadStep*(this: RWStepAP214_RWAppliedGroupAssignment;
+              data: handle[StepData_StepReaderData]; num: Standard_Integer;
+              ach: var handle[Interface_Check];
+              ent: handle[StepAP214_AppliedGroupAssignment]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepAP214_RWAppliedGroupAssignment.hxx".}
-proc writeStep*(this: RWStepAP214RWAppliedGroupAssignment;
-               sw: var StepDataStepWriter;
-               ent: Handle[StepAP214AppliedGroupAssignment]) {.noSideEffect,
+proc WriteStep*(this: RWStepAP214_RWAppliedGroupAssignment;
+               SW: var StepData_StepWriter;
+               ent: handle[StepAP214_AppliedGroupAssignment]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepAP214_RWAppliedGroupAssignment.hxx".}
-proc share*(this: RWStepAP214RWAppliedGroupAssignment;
-           ent: Handle[StepAP214AppliedGroupAssignment];
-           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
+proc Share*(this: RWStepAP214_RWAppliedGroupAssignment;
+           ent: handle[StepAP214_AppliedGroupAssignment];
+           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepAP214_RWAppliedGroupAssignment.hxx".}
-

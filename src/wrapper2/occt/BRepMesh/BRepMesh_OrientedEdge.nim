@@ -11,38 +11,40 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Macro, BRepMesh_DegreeOfFreedom
+
 ## ! Light weighted structure representing simple link.
 
 type
-  BRepMeshOrientedEdge* {.importcpp: "BRepMesh_OrientedEdge",
-                         header: "BRepMesh_OrientedEdge.hxx", bycopy.} = object ## !
-                                                                           ## Default
-                                                                           ## constructor.
+  BRepMesh_OrientedEdge* {.importcpp: "BRepMesh_OrientedEdge",
+                          header: "BRepMesh_OrientedEdge.hxx", bycopy.} = object ## !
+                                                                            ## Default
+                                                                            ## constructor.
 
 
-proc constructBRepMeshOrientedEdge*(): BRepMeshOrientedEdge {.constructor,
+proc constructBRepMesh_OrientedEdge*(): BRepMesh_OrientedEdge {.constructor,
     importcpp: "BRepMesh_OrientedEdge(@)", header: "BRepMesh_OrientedEdge.hxx".}
-proc constructBRepMeshOrientedEdge*(theFirstNode: StandardInteger;
-                                   theLastNode: StandardInteger): BRepMeshOrientedEdge {.
+proc constructBRepMesh_OrientedEdge*(theFirstNode: Standard_Integer;
+                                    theLastNode: Standard_Integer): BRepMesh_OrientedEdge {.
     constructor, importcpp: "BRepMesh_OrientedEdge(@)",
     header: "BRepMesh_OrientedEdge.hxx".}
-proc firstNode*(this: BRepMeshOrientedEdge): StandardInteger {.noSideEffect,
+proc FirstNode*(this: BRepMesh_OrientedEdge): Standard_Integer {.noSideEffect,
     importcpp: "FirstNode", header: "BRepMesh_OrientedEdge.hxx".}
-proc lastNode*(this: BRepMeshOrientedEdge): StandardInteger {.noSideEffect,
+proc LastNode*(this: BRepMesh_OrientedEdge): Standard_Integer {.noSideEffect,
     importcpp: "LastNode", header: "BRepMesh_OrientedEdge.hxx".}
-proc hashCode*(this: BRepMeshOrientedEdge; theUpperBound: StandardInteger): StandardInteger {.
+proc HashCode*(this: BRepMesh_OrientedEdge; theUpperBound: Standard_Integer): Standard_Integer {.
     noSideEffect, importcpp: "HashCode", header: "BRepMesh_OrientedEdge.hxx".}
-proc isEqual*(this: BRepMeshOrientedEdge; theOther: BRepMeshOrientedEdge): StandardBoolean {.
+proc IsEqual*(this: BRepMesh_OrientedEdge; theOther: BRepMesh_OrientedEdge): Standard_Boolean {.
     noSideEffect, importcpp: "IsEqual", header: "BRepMesh_OrientedEdge.hxx".}
-proc `==`*(this: BRepMeshOrientedEdge; other: BRepMeshOrientedEdge): StandardBoolean {.
+proc `==`*(this: BRepMesh_OrientedEdge; Other: BRepMesh_OrientedEdge): Standard_Boolean {.
     noSideEffect, importcpp: "(# == #)", header: "BRepMesh_OrientedEdge.hxx".}
 ## ! Computes a hash code for the given oriented edge, in the range [1, theUpperBound]
 ## ! @param theOrientedEdge the oriented edge which hash code is to be computed
 ## ! @param theUpperBound the upper bound of the range a computing hash code must be within
 ## ! @return a computed hash code, in the range [1, theUpperBound]
 
-proc hashCode*(theOrientedEdge: BRepMeshOrientedEdge;
-              theUpperBound: StandardInteger): StandardInteger =
+proc HashCode*(theOrientedEdge: BRepMesh_OrientedEdge;
+              theUpperBound: Standard_Integer): Standard_Integer =
   discard
-
-

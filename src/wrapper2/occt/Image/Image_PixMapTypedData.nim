@@ -11,37 +11,40 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  Image_PixMapData
+
 ## ! Structure to manage image buffer with predefined pixel type.
 
 type
-  ImagePixMapTypedData*[PixelTypeT] {.importcpp: "Image_PixMapTypedData<\'0>",
-                                     header: "Image_PixMapTypedData.hxx", bycopy.} = object of ImagePixMapData ##
-                                                                                                        ## !
-                                                                                                        ## Empty
-                                                                                                        ## constructor.
+  Image_PixMapTypedData*[PixelType_t] {.importcpp: "Image_PixMapTypedData<\'0>",
+                                       header: "Image_PixMapTypedData.hxx", bycopy.} = object of Image_PixMapData ##
+                                                                                                           ## !
+                                                                                                           ## Empty
+                                                                                                           ## constructor.
 
 
-proc constructImagePixMapTypedData*[PixelTypeT](): ImagePixMapTypedData[PixelTypeT] {.
-    constructor, importcpp: "Image_PixMapTypedData<\'*0>(@)",
+proc constructImage_PixMapTypedData*[PixelType_t](): Image_PixMapTypedData[
+    PixelType_t] {.constructor, importcpp: "Image_PixMapTypedData<\'*0>(@)",
+                  header: "Image_PixMapTypedData.hxx".}
+proc Init*[PixelType_t](this: var Image_PixMapTypedData[PixelType_t];
+                       theAlloc: handle[NCollection_BaseAllocator];
+                       theSizeX: Standard_Size; theSizeY: Standard_Size;
+                       theSizeRowBytes: Standard_Size = 0;
+                       theDataPtr: ptr Standard_Byte = 0): bool {.importcpp: "Init",
     header: "Image_PixMapTypedData.hxx".}
-proc init*[PixelTypeT](this: var ImagePixMapTypedData[PixelTypeT];
-                      theAlloc: Handle[NCollectionBaseAllocator];
-                      theSizeX: StandardSize; theSizeY: StandardSize;
-                      theSizeRowBytes: StandardSize = 0;
-                      theDataPtr: ptr StandardByte = 0): bool {.importcpp: "Init",
+proc Init*[PixelType_t](this: var Image_PixMapTypedData[PixelType_t];
+                       theValue: PixelType_t) {.importcpp: "Init",
     header: "Image_PixMapTypedData.hxx".}
-proc init*[PixelTypeT](this: var ImagePixMapTypedData[PixelTypeT];
-                      theValue: PixelTypeT) {.importcpp: "Init",
-    header: "Image_PixMapTypedData.hxx".}
-proc row*[PixelTypeT](this: ImagePixMapTypedData[PixelTypeT]; theRow: StandardSize): ptr PixelTypeT {.
-    noSideEffect, importcpp: "Row", header: "Image_PixMapTypedData.hxx".}
-proc changeRow*[PixelTypeT](this: var ImagePixMapTypedData[PixelTypeT];
-                           theRow: StandardSize): ptr PixelTypeT {.
+proc Row*[PixelType_t](this: Image_PixMapTypedData[PixelType_t];
+                      theRow: Standard_Size): ptr PixelType_t {.noSideEffect,
+    importcpp: "Row", header: "Image_PixMapTypedData.hxx".}
+proc ChangeRow*[PixelType_t](this: var Image_PixMapTypedData[PixelType_t];
+                            theRow: Standard_Size): ptr PixelType_t {.
     importcpp: "ChangeRow", header: "Image_PixMapTypedData.hxx".}
-proc value*[PixelTypeT](this: ImagePixMapTypedData[PixelTypeT];
-                       theRow: StandardSize; theCol: StandardSize): PixelTypeT {.
+proc Value*[PixelType_t](this: Image_PixMapTypedData[PixelType_t];
+                        theRow: Standard_Size; theCol: Standard_Size): PixelType_t {.
     noSideEffect, importcpp: "Value", header: "Image_PixMapTypedData.hxx".}
-proc changeValue*[PixelTypeT](this: var ImagePixMapTypedData[PixelTypeT];
-                             theRow: StandardSize; theCol: StandardSize): var PixelTypeT {.
+proc ChangeValue*[PixelType_t](this: var Image_PixMapTypedData[PixelType_t];
+                              theRow: Standard_Size; theCol: Standard_Size): var PixelType_t {.
     importcpp: "ChangeValue", header: "Image_PixMapTypedData.hxx".}
-

@@ -14,23 +14,27 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepGeom_CartesianPoint"
 discard "forward decl of StepData_StepWriter"
 type
-  RWStepGeomRWCartesianPoint* {.importcpp: "RWStepGeom_RWCartesianPoint",
-                               header: "RWStepGeom_RWCartesianPoint.hxx", bycopy.} = object
+  RWStepGeom_RWCartesianPoint* {.importcpp: "RWStepGeom_RWCartesianPoint",
+                                header: "RWStepGeom_RWCartesianPoint.hxx", bycopy.} = object
 
 
-proc constructRWStepGeomRWCartesianPoint*(): RWStepGeomRWCartesianPoint {.
+proc constructRWStepGeom_RWCartesianPoint*(): RWStepGeom_RWCartesianPoint {.
     constructor, importcpp: "RWStepGeom_RWCartesianPoint(@)",
     header: "RWStepGeom_RWCartesianPoint.hxx".}
-proc readStep*(this: RWStepGeomRWCartesianPoint;
-              data: Handle[StepDataStepReaderData]; num: StandardInteger;
-              ach: var Handle[InterfaceCheck]; ent: Handle[StepGeomCartesianPoint]) {.
-    noSideEffect, importcpp: "ReadStep", header: "RWStepGeom_RWCartesianPoint.hxx".}
-proc writeStep*(this: RWStepGeomRWCartesianPoint; sw: var StepDataStepWriter;
-               ent: Handle[StepGeomCartesianPoint]) {.noSideEffect,
+proc ReadStep*(this: RWStepGeom_RWCartesianPoint;
+              data: handle[StepData_StepReaderData]; num: Standard_Integer;
+              ach: var handle[Interface_Check];
+              ent: handle[StepGeom_CartesianPoint]) {.noSideEffect,
+    importcpp: "ReadStep", header: "RWStepGeom_RWCartesianPoint.hxx".}
+proc WriteStep*(this: RWStepGeom_RWCartesianPoint; SW: var StepData_StepWriter;
+               ent: handle[StepGeom_CartesianPoint]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepGeom_RWCartesianPoint.hxx".}
-

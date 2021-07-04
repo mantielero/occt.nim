@@ -14,14 +14,20 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  BRepTools_History, ../TopTools/TopTools_DataMapOfShapeShape,
+  ../TopTools/TopTools_MapOfShape, ../Standard/Standard_Integer,
+  ../Standard/Standard_Boolean, ../Standard/Standard_Transient,
+  ../TopAbs/TopAbs_ShapeEnum
+
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of TopoDS_Vertex"
-# when defined(Status):
-#   discard
+when defined(Status):
+  discard
 discard "forward decl of BRepTools_ReShape"
 discard "forward decl of BRepTools_ReShape"
 type
-  HandleBRepToolsReShape* = Handle[BRepToolsReShape]
+  Handle_BRepTools_ReShape* = handle[BRepTools_ReShape]
 
 ## ! Rebuilds a Shape by making pre-defined substitutions on some
 ## ! of its components
@@ -39,103 +45,102 @@ type
 ## ! Supports the 'BRepTools_History' history by method 'History'.
 
 type
-  BRepToolsReShape* {.importcpp: "BRepTools_ReShape",
-                     header: "BRepTools_ReShape.hxx", bycopy.} = object of StandardTransient ##
-                                                                                      ## !
-                                                                                      ## Returns
-                                                                                      ## an
-                                                                                      ## empty
-                                                                                      ## Reshape
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## The
-                                                                                      ## kinds
-                                                                                      ## of
-                                                                                      ## the
-                                                                                      ## replacements.
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## Returns
-                                                                                      ## 'true'
-                                                                                      ## if
-                                                                                      ## the
-                                                                                      ## kind
-                                                                                      ## of
-                                                                                      ## a
-                                                                                      ## replacement
-                                                                                      ## is
-                                                                                      ## an
-                                                                                      ## ordinary
-                                                                                      ## merging.
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## Maps
-                                                                                      ## each
-                                                                                      ## shape
-                                                                                      ## to
-                                                                                      ## its
-                                                                                      ## replacement.
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## If
-                                                                                      ## a
-                                                                                      ## shape
-                                                                                      ## is
-                                                                                      ## not
-                                                                                      ## bound
-                                                                                      ## to
-                                                                                      ## the
-                                                                                      ## map
-                                                                                      ## then
-                                                                                      ## the
-                                                                                      ## shape
-                                                                                      ## is
-                                                                                      ## replaced
-                                                                                      ## by
-                                                                                      ## itself.
+  BRepTools_ReShape* {.importcpp: "BRepTools_ReShape",
+                      header: "BRepTools_ReShape.hxx", bycopy.} = object of Standard_Transient ##
+                                                                                        ## !
+                                                                                        ## Returns
+                                                                                        ## an
+                                                                                        ## empty
+                                                                                        ## Reshape
+                                                                                        ##
+                                                                                        ## !
+                                                                                        ## The
+                                                                                        ## kinds
+                                                                                        ## of
+                                                                                        ## the
+                                                                                        ## replacements.
+                                                                                        ##
+                                                                                        ## !
+                                                                                        ## Returns
+                                                                                        ## 'true'
+                                                                                        ## if
+                                                                                        ## the
+                                                                                        ## kind
+                                                                                        ## of
+                                                                                        ## a
+                                                                                        ## replacement
+                                                                                        ## is
+                                                                                        ## an
+                                                                                        ## ordinary
+                                                                                        ## merging.
+                                                                                        ##
+                                                                                        ## !
+                                                                                        ## Maps
+                                                                                        ## each
+                                                                                        ## shape
+                                                                                        ## to
+                                                                                        ## its
+                                                                                        ## replacement.
+                                                                                        ##
+                                                                                        ## !
+                                                                                        ## If
+                                                                                        ## a
+                                                                                        ## shape
+                                                                                        ## is
+                                                                                        ## not
+                                                                                        ## bound
+                                                                                        ## to
+                                                                                        ## the
+                                                                                        ## map
+                                                                                        ## then
+                                                                                        ## the
+                                                                                        ## shape
+                                                                                        ## is
+                                                                                        ## replaced
+                                                                                        ## by
+                                                                                        ## itself.
 
 
-proc constructBRepToolsReShape*(): BRepToolsReShape {.constructor,
+proc constructBRepTools_ReShape*(): BRepTools_ReShape {.constructor,
     importcpp: "BRepTools_ReShape(@)", header: "BRepTools_ReShape.hxx".}
-proc clear*(this: var BRepToolsReShape) {.importcpp: "Clear",
-                                      header: "BRepTools_ReShape.hxx".}
-proc remove*(this: var BRepToolsReShape; shape: TopoDS_Shape) {.importcpp: "Remove",
+proc Clear*(this: var BRepTools_ReShape) {.importcpp: "Clear",
+                                       header: "BRepTools_ReShape.hxx".}
+proc Remove*(this: var BRepTools_ReShape; shape: TopoDS_Shape) {.importcpp: "Remove",
     header: "BRepTools_ReShape.hxx".}
-proc replace*(this: var BRepToolsReShape; shape: TopoDS_Shape; newshape: TopoDS_Shape) {.
+proc Replace*(this: var BRepTools_ReShape; shape: TopoDS_Shape; newshape: TopoDS_Shape) {.
     importcpp: "Replace", header: "BRepTools_ReShape.hxx".}
-proc merge*[TCollection](this: var BRepToolsReShape; theParts: TCollection;
+proc Merge*[TCollection](this: var BRepTools_ReShape; theParts: TCollection;
                         theProduct: TopoDS_Shape) {.importcpp: "Merge",
     header: "BRepTools_ReShape.hxx".}
-proc isRecorded*(this: BRepToolsReShape; shape: TopoDS_Shape): StandardBoolean {.
+proc IsRecorded*(this: BRepTools_ReShape; shape: TopoDS_Shape): Standard_Boolean {.
     noSideEffect, importcpp: "IsRecorded", header: "BRepTools_ReShape.hxx".}
-proc value*(this: BRepToolsReShape; shape: TopoDS_Shape): TopoDS_Shape {.noSideEffect,
-    importcpp: "Value", header: "BRepTools_ReShape.hxx".}
-proc status*(this: var BRepToolsReShape; shape: TopoDS_Shape; newsh: var TopoDS_Shape;
-            last: StandardBoolean = standardFalse): StandardInteger {.
+proc Value*(this: BRepTools_ReShape; shape: TopoDS_Shape): TopoDS_Shape {.
+    noSideEffect, importcpp: "Value", header: "BRepTools_ReShape.hxx".}
+proc Status*(this: var BRepTools_ReShape; shape: TopoDS_Shape;
+            newsh: var TopoDS_Shape; last: Standard_Boolean = Standard_False): Standard_Integer {.
     importcpp: "Status", header: "BRepTools_ReShape.hxx".}
-proc apply*(this: var BRepToolsReShape; shape: TopoDS_Shape;
-           until: TopAbsShapeEnum = topAbsSHAPE): TopoDS_Shape {.importcpp: "Apply",
-    header: "BRepTools_ReShape.hxx".}
-proc modeConsiderLocation*(this: var BRepToolsReShape): var StandardBoolean {.
+proc Apply*(this: var BRepTools_ReShape; shape: TopoDS_Shape;
+           until: TopAbs_ShapeEnum = TopAbs_SHAPE): TopoDS_Shape {.
+    importcpp: "Apply", header: "BRepTools_ReShape.hxx".}
+proc ModeConsiderLocation*(this: var BRepTools_ReShape): var Standard_Boolean {.
     importcpp: "ModeConsiderLocation", header: "BRepTools_ReShape.hxx".}
-proc copyVertex*(this: var BRepToolsReShape; theV: TopoDS_Vertex;
-                theTol: StandardReal = -1.0): TopoDS_Vertex {.
+proc CopyVertex*(this: var BRepTools_ReShape; theV: TopoDS_Vertex;
+                theTol: Standard_Real = -1.0): TopoDS_Vertex {.
     importcpp: "CopyVertex", header: "BRepTools_ReShape.hxx".}
-proc copyVertex*(this: var BRepToolsReShape; theV: TopoDS_Vertex; theNewPos: GpPnt;
-                aTol: StandardReal): TopoDS_Vertex {.importcpp: "CopyVertex",
+proc CopyVertex*(this: var BRepTools_ReShape; theV: TopoDS_Vertex; theNewPos: gp_Pnt;
+                aTol: Standard_Real): TopoDS_Vertex {.importcpp: "CopyVertex",
     header: "BRepTools_ReShape.hxx".}
-proc isNewShape*(this: BRepToolsReShape; theShape: TopoDS_Shape): StandardBoolean {.
+proc IsNewShape*(this: BRepTools_ReShape; theShape: TopoDS_Shape): Standard_Boolean {.
     noSideEffect, importcpp: "IsNewShape", header: "BRepTools_ReShape.hxx".}
-proc history*(this: BRepToolsReShape): Handle[BRepToolsHistory] {.noSideEffect,
+proc History*(this: BRepTools_ReShape): handle[BRepTools_History] {.noSideEffect,
     importcpp: "History", header: "BRepTools_ReShape.hxx".}
 type
-  BRepToolsReShapebaseType* = StandardTransient
+  BRepTools_ReShapebase_type* = Standard_Transient
 
-proc getTypeName*(): cstring {.importcpp: "BRepTools_ReShape::get_type_name(@)",
-                            header: "BRepTools_ReShape.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "BRepTools_ReShape::get_type_name(@)",
+                              header: "BRepTools_ReShape.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "BRepTools_ReShape::get_type_descriptor(@)",
     header: "BRepTools_ReShape.hxx".}
-proc dynamicType*(this: BRepToolsReShape): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: BRepTools_ReShape): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "BRepTools_ReShape.hxx".}
-

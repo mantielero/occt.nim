@@ -13,35 +13,40 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../TColStd/TColStd_IndexedMapOfTransient,
+  ../Standard/Standard_Integer, ../Standard/Standard_OStream,
+  ../Standard/Standard_IStream, ../Message/Message_ProgressRange
+
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of Geom2d_Curve"
 type
-  BinToolsCurve2dSet* {.importcpp: "BinTools_Curve2dSet",
-                       header: "BinTools_Curve2dSet.hxx", bycopy.} = object ## ! Returns an empty set of Curves.
+  BinTools_Curve2dSet* {.importcpp: "BinTools_Curve2dSet",
+                        header: "BinTools_Curve2dSet.hxx", bycopy.} = object ## ! Returns an empty set of Curves.
 
 
-proc constructBinToolsCurve2dSet*(): BinToolsCurve2dSet {.constructor,
+proc constructBinTools_Curve2dSet*(): BinTools_Curve2dSet {.constructor,
     importcpp: "BinTools_Curve2dSet(@)", header: "BinTools_Curve2dSet.hxx".}
-proc clear*(this: var BinToolsCurve2dSet) {.importcpp: "Clear",
-                                        header: "BinTools_Curve2dSet.hxx".}
-proc add*(this: var BinToolsCurve2dSet; c: Handle[Geom2dCurve]): StandardInteger {.
+proc Clear*(this: var BinTools_Curve2dSet) {.importcpp: "Clear",
+    header: "BinTools_Curve2dSet.hxx".}
+proc Add*(this: var BinTools_Curve2dSet; C: handle[Geom2d_Curve]): Standard_Integer {.
     importcpp: "Add", header: "BinTools_Curve2dSet.hxx".}
-proc curve2d*(this: BinToolsCurve2dSet; i: StandardInteger): Handle[Geom2dCurve] {.
+proc Curve2d*(this: BinTools_Curve2dSet; I: Standard_Integer): handle[Geom2d_Curve] {.
     noSideEffect, importcpp: "Curve2d", header: "BinTools_Curve2dSet.hxx".}
-proc index*(this: BinToolsCurve2dSet; c: Handle[Geom2dCurve]): StandardInteger {.
+proc Index*(this: BinTools_Curve2dSet; C: handle[Geom2d_Curve]): Standard_Integer {.
     noSideEffect, importcpp: "Index", header: "BinTools_Curve2dSet.hxx".}
-proc dump*(this: BinToolsCurve2dSet; os: var StandardOStream) {.noSideEffect,
+proc Dump*(this: BinTools_Curve2dSet; OS: var Standard_OStream) {.noSideEffect,
     importcpp: "Dump", header: "BinTools_Curve2dSet.hxx".}
-proc write*(this: BinToolsCurve2dSet; os: var StandardOStream;
-           theRange: MessageProgressRange = messageProgressRange()) {.noSideEffect,
-    importcpp: "Write", header: "BinTools_Curve2dSet.hxx".}
-proc read*(this: var BinToolsCurve2dSet; `is`: var StandardIStream;
-          theRange: MessageProgressRange = messageProgressRange()) {.
+proc Write*(this: BinTools_Curve2dSet; OS: var Standard_OStream;
+           theRange: Message_ProgressRange = Message_ProgressRange()) {.
+    noSideEffect, importcpp: "Write", header: "BinTools_Curve2dSet.hxx".}
+proc Read*(this: var BinTools_Curve2dSet; IS: var Standard_IStream;
+          theRange: Message_ProgressRange = Message_ProgressRange()) {.
     importcpp: "Read", header: "BinTools_Curve2dSet.hxx".}
-proc writeCurve2d*(c: Handle[Geom2dCurve]; os: var StandardOStream) {.
+proc WriteCurve2d*(C: handle[Geom2d_Curve]; OS: var Standard_OStream) {.
     importcpp: "BinTools_Curve2dSet::WriteCurve2d(@)",
     header: "BinTools_Curve2dSet.hxx".}
-proc readCurve2d*(`is`: var StandardIStream; c: var Handle[Geom2dCurve]): var StandardIStream {.
+proc ReadCurve2d*(IS: var Standard_IStream; C: var handle[Geom2d_Curve]): var Standard_IStream {.
     importcpp: "BinTools_Curve2dSet::ReadCurve2d(@)",
     header: "BinTools_Curve2dSet.hxx".}
-

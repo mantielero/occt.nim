@@ -13,6 +13,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  LDOM_Text
+
 ##   Class LDOM_CDATASection
 
 type
@@ -24,4 +27,3 @@ proc constructLDOM_CDATASection*(): LDOM_CDATASection {.constructor,
     importcpp: "LDOM_CDATASection(@)", header: "LDOM_CDATASection.hxx".}
 proc constructLDOM_CDATASection*(theOther: LDOM_CDATASection): LDOM_CDATASection {.
     constructor, importcpp: "LDOM_CDATASection(@)", header: "LDOM_CDATASection.hxx".}
-

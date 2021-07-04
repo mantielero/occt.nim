@@ -14,6 +14,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Real,
+  ../Standard/Standard_ShortReal, ../Standard/Standard_Boolean, Intrv_Position
+
 ## ! **-----------****             Other
 ## ! ***---*                                   IsBefore
 ## ! ***----------*                            IsJustBefore
@@ -30,73 +35,73 @@
 ## ! ***---*   IsAfter
 
 type
-  IntrvInterval* {.importcpp: "Intrv_Interval", header: "Intrv_Interval.hxx", bycopy.} = object
+  Intrv_Interval* {.importcpp: "Intrv_Interval", header: "Intrv_Interval.hxx", bycopy.} = object
 
 
-proc constructIntrvInterval*(): IntrvInterval {.constructor,
+proc constructIntrv_Interval*(): Intrv_Interval {.constructor,
     importcpp: "Intrv_Interval(@)", header: "Intrv_Interval.hxx".}
-proc constructIntrvInterval*(start: StandardReal; `end`: StandardReal): IntrvInterval {.
+proc constructIntrv_Interval*(Start: Standard_Real; End: Standard_Real): Intrv_Interval {.
     constructor, importcpp: "Intrv_Interval(@)", header: "Intrv_Interval.hxx".}
-proc constructIntrvInterval*(start: StandardReal; tolStart: StandardShortReal;
-                            `end`: StandardReal; tolEnd: StandardShortReal): IntrvInterval {.
+proc constructIntrv_Interval*(Start: Standard_Real; TolStart: Standard_ShortReal;
+                             End: Standard_Real; TolEnd: Standard_ShortReal): Intrv_Interval {.
     constructor, importcpp: "Intrv_Interval(@)", header: "Intrv_Interval.hxx".}
-proc start*(this: IntrvInterval): StandardReal {.noSideEffect, importcpp: "Start",
+proc Start*(this: Intrv_Interval): Standard_Real {.noSideEffect, importcpp: "Start",
     header: "Intrv_Interval.hxx".}
-proc `end`*(this: IntrvInterval): StandardReal {.noSideEffect, importcpp: "End",
+proc End*(this: Intrv_Interval): Standard_Real {.noSideEffect, importcpp: "End",
     header: "Intrv_Interval.hxx".}
-proc tolStart*(this: IntrvInterval): StandardShortReal {.noSideEffect,
+proc TolStart*(this: Intrv_Interval): Standard_ShortReal {.noSideEffect,
     importcpp: "TolStart", header: "Intrv_Interval.hxx".}
-proc tolEnd*(this: IntrvInterval): StandardShortReal {.noSideEffect,
+proc TolEnd*(this: Intrv_Interval): Standard_ShortReal {.noSideEffect,
     importcpp: "TolEnd", header: "Intrv_Interval.hxx".}
-proc bounds*(this: IntrvInterval; start: var StandardReal;
-            tolStart: var StandardShortReal; `end`: var StandardReal;
-            tolEnd: var StandardShortReal) {.noSideEffect, importcpp: "Bounds",
+proc Bounds*(this: Intrv_Interval; Start: var Standard_Real;
+            TolStart: var Standard_ShortReal; End: var Standard_Real;
+            TolEnd: var Standard_ShortReal) {.noSideEffect, importcpp: "Bounds",
     header: "Intrv_Interval.hxx".}
-proc setStart*(this: var IntrvInterval; start: StandardReal;
-              tolStart: StandardShortReal) {.importcpp: "SetStart",
+proc SetStart*(this: var Intrv_Interval; Start: Standard_Real;
+              TolStart: Standard_ShortReal) {.importcpp: "SetStart",
     header: "Intrv_Interval.hxx".}
-proc fuseAtStart*(this: var IntrvInterval; start: StandardReal;
-                 tolStart: StandardShortReal) {.importcpp: "FuseAtStart",
+proc FuseAtStart*(this: var Intrv_Interval; Start: Standard_Real;
+                 TolStart: Standard_ShortReal) {.importcpp: "FuseAtStart",
     header: "Intrv_Interval.hxx".}
-proc cutAtStart*(this: var IntrvInterval; start: StandardReal;
-                tolStart: StandardShortReal) {.importcpp: "CutAtStart",
+proc CutAtStart*(this: var Intrv_Interval; Start: Standard_Real;
+                TolStart: Standard_ShortReal) {.importcpp: "CutAtStart",
     header: "Intrv_Interval.hxx".}
-proc setEnd*(this: var IntrvInterval; `end`: StandardReal; tolEnd: StandardShortReal) {.
+proc SetEnd*(this: var Intrv_Interval; End: Standard_Real; TolEnd: Standard_ShortReal) {.
     importcpp: "SetEnd", header: "Intrv_Interval.hxx".}
-proc fuseAtEnd*(this: var IntrvInterval; `end`: StandardReal;
-               tolEnd: StandardShortReal) {.importcpp: "FuseAtEnd",
+proc FuseAtEnd*(this: var Intrv_Interval; End: Standard_Real;
+               TolEnd: Standard_ShortReal) {.importcpp: "FuseAtEnd",
     header: "Intrv_Interval.hxx".}
-proc cutAtEnd*(this: var IntrvInterval; `end`: StandardReal; tolEnd: StandardShortReal) {.
-    importcpp: "CutAtEnd", header: "Intrv_Interval.hxx".}
-proc isProbablyEmpty*(this: IntrvInterval): StandardBoolean {.noSideEffect,
+proc CutAtEnd*(this: var Intrv_Interval; End: Standard_Real;
+              TolEnd: Standard_ShortReal) {.importcpp: "CutAtEnd",
+    header: "Intrv_Interval.hxx".}
+proc IsProbablyEmpty*(this: Intrv_Interval): Standard_Boolean {.noSideEffect,
     importcpp: "IsProbablyEmpty", header: "Intrv_Interval.hxx".}
-proc position*(this: IntrvInterval; other: IntrvInterval): IntrvPosition {.
+proc Position*(this: Intrv_Interval; Other: Intrv_Interval): Intrv_Position {.
     noSideEffect, importcpp: "Position", header: "Intrv_Interval.hxx".}
-proc isBefore*(this: IntrvInterval; other: IntrvInterval): StandardBoolean {.
+proc IsBefore*(this: Intrv_Interval; Other: Intrv_Interval): Standard_Boolean {.
     noSideEffect, importcpp: "IsBefore", header: "Intrv_Interval.hxx".}
-proc isAfter*(this: IntrvInterval; other: IntrvInterval): StandardBoolean {.
+proc IsAfter*(this: Intrv_Interval; Other: Intrv_Interval): Standard_Boolean {.
     noSideEffect, importcpp: "IsAfter", header: "Intrv_Interval.hxx".}
-proc isInside*(this: IntrvInterval; other: IntrvInterval): StandardBoolean {.
+proc IsInside*(this: Intrv_Interval; Other: Intrv_Interval): Standard_Boolean {.
     noSideEffect, importcpp: "IsInside", header: "Intrv_Interval.hxx".}
-proc isEnclosing*(this: IntrvInterval; other: IntrvInterval): StandardBoolean {.
+proc IsEnclosing*(this: Intrv_Interval; Other: Intrv_Interval): Standard_Boolean {.
     noSideEffect, importcpp: "IsEnclosing", header: "Intrv_Interval.hxx".}
-proc isJustEnclosingAtStart*(this: IntrvInterval; other: IntrvInterval): StandardBoolean {.
+proc IsJustEnclosingAtStart*(this: Intrv_Interval; Other: Intrv_Interval): Standard_Boolean {.
     noSideEffect, importcpp: "IsJustEnclosingAtStart", header: "Intrv_Interval.hxx".}
-proc isJustEnclosingAtEnd*(this: IntrvInterval; other: IntrvInterval): StandardBoolean {.
+proc IsJustEnclosingAtEnd*(this: Intrv_Interval; Other: Intrv_Interval): Standard_Boolean {.
     noSideEffect, importcpp: "IsJustEnclosingAtEnd", header: "Intrv_Interval.hxx".}
-proc isJustBefore*(this: IntrvInterval; other: IntrvInterval): StandardBoolean {.
+proc IsJustBefore*(this: Intrv_Interval; Other: Intrv_Interval): Standard_Boolean {.
     noSideEffect, importcpp: "IsJustBefore", header: "Intrv_Interval.hxx".}
-proc isJustAfter*(this: IntrvInterval; other: IntrvInterval): StandardBoolean {.
+proc IsJustAfter*(this: Intrv_Interval; Other: Intrv_Interval): Standard_Boolean {.
     noSideEffect, importcpp: "IsJustAfter", header: "Intrv_Interval.hxx".}
-proc isOverlappingAtStart*(this: IntrvInterval; other: IntrvInterval): StandardBoolean {.
+proc IsOverlappingAtStart*(this: Intrv_Interval; Other: Intrv_Interval): Standard_Boolean {.
     noSideEffect, importcpp: "IsOverlappingAtStart", header: "Intrv_Interval.hxx".}
-proc isOverlappingAtEnd*(this: IntrvInterval; other: IntrvInterval): StandardBoolean {.
+proc IsOverlappingAtEnd*(this: Intrv_Interval; Other: Intrv_Interval): Standard_Boolean {.
     noSideEffect, importcpp: "IsOverlappingAtEnd", header: "Intrv_Interval.hxx".}
-proc isJustOverlappingAtStart*(this: IntrvInterval; other: IntrvInterval): StandardBoolean {.
+proc IsJustOverlappingAtStart*(this: Intrv_Interval; Other: Intrv_Interval): Standard_Boolean {.
     noSideEffect, importcpp: "IsJustOverlappingAtStart",
     header: "Intrv_Interval.hxx".}
-proc isJustOverlappingAtEnd*(this: IntrvInterval; other: IntrvInterval): StandardBoolean {.
+proc IsJustOverlappingAtEnd*(this: Intrv_Interval; Other: Intrv_Interval): Standard_Boolean {.
     noSideEffect, importcpp: "IsJustOverlappingAtEnd", header: "Intrv_Interval.hxx".}
-proc isSimilar*(this: IntrvInterval; other: IntrvInterval): StandardBoolean {.
+proc IsSimilar*(this: Intrv_Interval; Other: Intrv_Interval): Standard_Boolean {.
     noSideEffect, importcpp: "IsSimilar", header: "Intrv_Interval.hxx".}
-

@@ -13,6 +13,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepFEA_ElementRepresentation"
@@ -26,17 +30,16 @@ type
 proc constructRWStepFEA_RWElementRepresentation*(): RWStepFEA_RWElementRepresentation {.
     constructor, importcpp: "RWStepFEA_RWElementRepresentation(@)",
     header: "RWStepFEA_RWElementRepresentation.hxx".}
-proc readStep*(this: RWStepFEA_RWElementRepresentation;
-              data: Handle[StepDataStepReaderData]; num: StandardInteger;
-              ach: var Handle[InterfaceCheck];
-              ent: Handle[StepFEA_ElementRepresentation]) {.noSideEffect,
+proc ReadStep*(this: RWStepFEA_RWElementRepresentation;
+              data: handle[StepData_StepReaderData]; num: Standard_Integer;
+              ach: var handle[Interface_Check];
+              ent: handle[StepFEA_ElementRepresentation]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepFEA_RWElementRepresentation.hxx".}
-proc writeStep*(this: RWStepFEA_RWElementRepresentation;
-               sw: var StepDataStepWriter;
-               ent: Handle[StepFEA_ElementRepresentation]) {.noSideEffect,
+proc WriteStep*(this: RWStepFEA_RWElementRepresentation;
+               SW: var StepData_StepWriter;
+               ent: handle[StepFEA_ElementRepresentation]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepFEA_RWElementRepresentation.hxx".}
-proc share*(this: RWStepFEA_RWElementRepresentation;
-           ent: Handle[StepFEA_ElementRepresentation];
-           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
+proc Share*(this: RWStepFEA_RWElementRepresentation;
+           ent: handle[StepFEA_ElementRepresentation];
+           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepFEA_RWElementRepresentation.hxx".}
-

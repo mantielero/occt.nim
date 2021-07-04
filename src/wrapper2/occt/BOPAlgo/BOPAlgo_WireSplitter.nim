@@ -12,36 +12,43 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, BOPAlgo_PWireEdgeSet,
+  ../BOPTools/BOPTools_ListOfConnexityBlock, BOPAlgo_Algo,
+  ../BOPTools/BOPTools_ConnexityBlock, ../IntTools/IntTools_Context,
+  ../NCollection/NCollection_BaseAllocator, ../TopTools/TopTools_ListOfShape
+
 discard "forward decl of BOPAlgo_WireEdgeSet"
 discard "forward decl of TopoDS_Wire"
 discard "forward decl of TopoDS_Face"
 type
-  BOPAlgoWireSplitter* {.importcpp: "BOPAlgo_WireSplitter",
-                        header: "BOPAlgo_WireSplitter.hxx", bycopy.} = object of BOPAlgoAlgo
+  BOPAlgo_WireSplitter* {.importcpp: "BOPAlgo_WireSplitter",
+                         header: "BOPAlgo_WireSplitter.hxx", bycopy.} = object of BOPAlgo_Algo
 
 
-proc constructBOPAlgoWireSplitter*(): BOPAlgoWireSplitter {.constructor,
+proc constructBOPAlgo_WireSplitter*(): BOPAlgo_WireSplitter {.constructor,
     importcpp: "BOPAlgo_WireSplitter(@)", header: "BOPAlgo_WireSplitter.hxx".}
-proc destroyBOPAlgoWireSplitter*(this: var BOPAlgoWireSplitter) {.
+proc destroyBOPAlgo_WireSplitter*(this: var BOPAlgo_WireSplitter) {.
     importcpp: "#.~BOPAlgo_WireSplitter()", header: "BOPAlgo_WireSplitter.hxx".}
-proc constructBOPAlgoWireSplitter*(theAllocator: Handle[NCollectionBaseAllocator]): BOPAlgoWireSplitter {.
+proc constructBOPAlgo_WireSplitter*(theAllocator: handle[NCollection_BaseAllocator]): BOPAlgo_WireSplitter {.
     constructor, importcpp: "BOPAlgo_WireSplitter(@)",
     header: "BOPAlgo_WireSplitter.hxx".}
-proc setWES*(this: var BOPAlgoWireSplitter; theWES: BOPAlgoWireEdgeSet) {.
+proc SetWES*(this: var BOPAlgo_WireSplitter; theWES: BOPAlgo_WireEdgeSet) {.
     importcpp: "SetWES", header: "BOPAlgo_WireSplitter.hxx".}
-proc wes*(this: var BOPAlgoWireSplitter): var BOPAlgoWireEdgeSet {.importcpp: "WES",
+proc WES*(this: var BOPAlgo_WireSplitter): var BOPAlgo_WireEdgeSet {.importcpp: "WES",
     header: "BOPAlgo_WireSplitter.hxx".}
-proc setContext*(this: var BOPAlgoWireSplitter; theContext: Handle[IntToolsContext]) {.
-    importcpp: "SetContext", header: "BOPAlgo_WireSplitter.hxx".}
-proc context*(this: var BOPAlgoWireSplitter): Handle[IntToolsContext] {.
+proc SetContext*(this: var BOPAlgo_WireSplitter;
+                theContext: handle[IntTools_Context]) {.importcpp: "SetContext",
+    header: "BOPAlgo_WireSplitter.hxx".}
+proc Context*(this: var BOPAlgo_WireSplitter): handle[IntTools_Context] {.
     importcpp: "Context", header: "BOPAlgo_WireSplitter.hxx".}
-proc perform*(this: var BOPAlgoWireSplitter) {.importcpp: "Perform",
+proc Perform*(this: var BOPAlgo_WireSplitter) {.importcpp: "Perform",
     header: "BOPAlgo_WireSplitter.hxx".}
-proc makeWire*(theLE: var TopToolsListOfShape; theW: var TopoDS_Wire) {.
+proc MakeWire*(theLE: var TopTools_ListOfShape; theW: var TopoDS_Wire) {.
     importcpp: "BOPAlgo_WireSplitter::MakeWire(@)",
     header: "BOPAlgo_WireSplitter.hxx".}
-proc splitBlock*(theF: TopoDS_Face; theCB: var BOPToolsConnexityBlock;
-                theContext: Handle[IntToolsContext]) {.
+proc SplitBlock*(theF: TopoDS_Face; theCB: var BOPTools_ConnexityBlock;
+                theContext: handle[IntTools_Context]) {.
     importcpp: "BOPAlgo_WireSplitter::SplitBlock(@)",
     header: "BOPAlgo_WireSplitter.hxx".}
-

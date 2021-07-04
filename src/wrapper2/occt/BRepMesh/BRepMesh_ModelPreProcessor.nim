@@ -13,42 +13,45 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../IMeshTools/IMeshTools_ModelAlgo, ../IMeshTools/IMeshTools_Parameters,
+  ../IMeshData/IMeshData_Types
+
 ## ! Class implements functionality of model pre-processing tool.
 ## ! Nullifies existing polygonal data in case if model elements
 ## ! have IMeshData_Outdated status.
 
 type
-  BRepMeshModelPreProcessor* {.importcpp: "BRepMesh_ModelPreProcessor",
-                              header: "BRepMesh_ModelPreProcessor.hxx", bycopy.} = object of IMeshToolsModelAlgo ##
-                                                                                                          ## !
-                                                                                                          ## Constructor.
-                                                                                                          ##
-                                                                                                          ## !
-                                                                                                          ## Performs
-                                                                                                          ## processing
-                                                                                                          ## of
-                                                                                                          ## edges
-                                                                                                          ## of
-                                                                                                          ## the
-                                                                                                          ## given
-                                                                                                          ## model.
+  BRepMesh_ModelPreProcessor* {.importcpp: "BRepMesh_ModelPreProcessor",
+                               header: "BRepMesh_ModelPreProcessor.hxx", bycopy.} = object of IMeshTools_ModelAlgo ##
+                                                                                                            ## !
+                                                                                                            ## Constructor.
+                                                                                                            ##
+                                                                                                            ## !
+                                                                                                            ## Performs
+                                                                                                            ## processing
+                                                                                                            ## of
+                                                                                                            ## edges
+                                                                                                            ## of
+                                                                                                            ## the
+                                                                                                            ## given
+                                                                                                            ## model.
 
 
-proc constructBRepMeshModelPreProcessor*(): BRepMeshModelPreProcessor {.
+proc constructBRepMesh_ModelPreProcessor*(): BRepMesh_ModelPreProcessor {.
     constructor, importcpp: "BRepMesh_ModelPreProcessor(@)",
     header: "BRepMesh_ModelPreProcessor.hxx".}
-proc destroyBRepMeshModelPreProcessor*(this: var BRepMeshModelPreProcessor) {.
+proc destroyBRepMesh_ModelPreProcessor*(this: var BRepMesh_ModelPreProcessor) {.
     importcpp: "#.~BRepMesh_ModelPreProcessor()",
     header: "BRepMesh_ModelPreProcessor.hxx".}
 type
-  BRepMeshModelPreProcessorbaseType* = IMeshToolsModelAlgo
+  BRepMesh_ModelPreProcessorbase_type* = IMeshTools_ModelAlgo
 
-proc getTypeName*(): cstring {.importcpp: "BRepMesh_ModelPreProcessor::get_type_name(@)",
-                            header: "BRepMesh_ModelPreProcessor.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "BRepMesh_ModelPreProcessor::get_type_name(@)",
+                              header: "BRepMesh_ModelPreProcessor.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "BRepMesh_ModelPreProcessor::get_type_descriptor(@)",
     header: "BRepMesh_ModelPreProcessor.hxx".}
-proc dynamicType*(this: BRepMeshModelPreProcessor): Handle[StandardType] {.
+proc DynamicType*(this: BRepMesh_ModelPreProcessor): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType",
     header: "BRepMesh_ModelPreProcessor.hxx".}
-

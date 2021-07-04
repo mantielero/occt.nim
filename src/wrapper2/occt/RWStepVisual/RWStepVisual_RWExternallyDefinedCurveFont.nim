@@ -13,34 +13,37 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepVisual_ExternallyDefinedCurveFont"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepVisualRWExternallyDefinedCurveFont* {.
+  RWStepVisual_RWExternallyDefinedCurveFont* {.
       importcpp: "RWStepVisual_RWExternallyDefinedCurveFont",
       header: "RWStepVisual_RWExternallyDefinedCurveFont.hxx", bycopy.} = object ## !
                                                                             ## Empty
                                                                             ## constructor
 
 
-proc constructRWStepVisualRWExternallyDefinedCurveFont*(): RWStepVisualRWExternallyDefinedCurveFont {.
+proc constructRWStepVisual_RWExternallyDefinedCurveFont*(): RWStepVisual_RWExternallyDefinedCurveFont {.
     constructor, importcpp: "RWStepVisual_RWExternallyDefinedCurveFont(@)",
     header: "RWStepVisual_RWExternallyDefinedCurveFont.hxx".}
-proc readStep*(this: RWStepVisualRWExternallyDefinedCurveFont;
-              data: Handle[StepDataStepReaderData]; num: StandardInteger;
-              ach: var Handle[InterfaceCheck];
-              ent: Handle[StepVisualExternallyDefinedCurveFont]) {.noSideEffect,
+proc ReadStep*(this: RWStepVisual_RWExternallyDefinedCurveFont;
+              data: handle[StepData_StepReaderData]; num: Standard_Integer;
+              ach: var handle[Interface_Check];
+              ent: handle[StepVisual_ExternallyDefinedCurveFont]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepVisual_RWExternallyDefinedCurveFont.hxx".}
-proc writeStep*(this: RWStepVisualRWExternallyDefinedCurveFont;
-               sw: var StepDataStepWriter;
-               ent: Handle[StepVisualExternallyDefinedCurveFont]) {.noSideEffect,
+proc WriteStep*(this: RWStepVisual_RWExternallyDefinedCurveFont;
+               SW: var StepData_StepWriter;
+               ent: handle[StepVisual_ExternallyDefinedCurveFont]) {.noSideEffect,
     importcpp: "WriteStep",
     header: "RWStepVisual_RWExternallyDefinedCurveFont.hxx".}
-proc share*(this: RWStepVisualRWExternallyDefinedCurveFont;
-           ent: Handle[StepVisualExternallyDefinedCurveFont];
-           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
+proc Share*(this: RWStepVisual_RWExternallyDefinedCurveFont;
+           ent: handle[StepVisual_ExternallyDefinedCurveFont];
+           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepVisual_RWExternallyDefinedCurveFont.hxx".}
-

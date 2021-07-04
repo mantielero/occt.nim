@@ -12,10 +12,16 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  Graphic3d_BoundBuffer, Graphic3d_ArrayFlags, Graphic3d_Buffer,
+  Graphic3d_IndexBuffer, Graphic3d_TypeOfPrimitiveArray, ../gp/gp_Dir,
+  ../gp/gp_Pnt, ../Standard/Standard_OutOfRange,
+  ../Standard/Standard_TypeMismatch, ../Quantity/Quantity_Color
+
 discard "forward decl of Graphic3d_ArrayOfPrimitives"
 discard "forward decl of Graphic3d_ArrayOfPrimitives"
 type
-  HandleGraphic3dArrayOfPrimitives* = Handle[Graphic3dArrayOfPrimitives]
+  Handle_Graphic3d_ArrayOfPrimitives* = handle[Graphic3d_ArrayOfPrimitives]
 
 ## ! This class furnish services to defined and fill an array of primitives
 ## ! which can be passed directly to graphics rendering API.
@@ -50,410 +56,420 @@ type
 ## !             affecting rendering performance negatively (increasing CPU load).
 
 type
-  Graphic3dArrayOfPrimitives* {.importcpp: "Graphic3d_ArrayOfPrimitives",
-                               header: "Graphic3d_ArrayOfPrimitives.hxx", bycopy.} = object of StandardTransient ##
-                                                                                                          ## !
-                                                                                                          ## Create
-                                                                                                          ## an
-                                                                                                          ## array
-                                                                                                          ## of
-                                                                                                          ## specified
-                                                                                                          ## type.
-                                                                                                          ##
-                                                                                                          ## !
-                                                                                                          ## Destructor.
-                                                                                                          ##
-                                                                                                          ## !
-                                                                                                          ## @name
-                                                                                                          ## optional
-                                                                                                          ## array
-                                                                                                          ## of
-                                                                                                          ## Indices/Edges
-                                                                                                          ## for
-                                                                                                          ## using
-                                                                                                          ## shared
-                                                                                                          ## Vertex
-                                                                                                          ## data
-                                                                                                          ##
-                                                                                                          ## !
-                                                                                                          ## Returns
-                                                                                                          ## optional
-                                                                                                          ## index
-                                                                                                          ## buffer.
-                                                                                                          ##
-                                                                                                          ## !
-                                                                                                          ## @name
-                                                                                                          ## optional
-                                                                                                          ## array
-                                                                                                          ## of
-                                                                                                          ## Bounds/Subgroups
-                                                                                                          ## within
-                                                                                                          ## primitive
-                                                                                                          ## array
-                                                                                                          ## (e.g.
-                                                                                                          ## restarting
-                                                                                                          ## primitives
-                                                                                                          ## /
-                                                                                                          ## assigning
-                                                                                                          ## colors)
-                                                                                                          ##
-                                                                                                          ## !
-                                                                                                          ## Returns
-                                                                                                          ## optional
-                                                                                                          ## bounds
-                                                                                                          ## buffer.
-                                                                                                          ##
-                                                                                                          ## !
-                                                                                                          ## @name
-                                                                                                          ## protected
-                                                                                                          ## constructors
-                                                                                                          ##
-                                                                                                          ## !
-                                                                                                          ## Main
-                                                                                                          ## constructor.
-                                                                                                          ##
-                                                                                                          ## !
-                                                                                                          ## @param
-                                                                                                          ## theType
-                                                                                                          ## type
-                                                                                                          ## of
-                                                                                                          ## primitive
-                                                                                                          ##
-                                                                                                          ## !
-                                                                                                          ## @param
-                                                                                                          ## theMaxVertexs
-                                                                                                          ## length
-                                                                                                          ## of
-                                                                                                          ## vertex
-                                                                                                          ## attributes
-                                                                                                          ## buffer
-                                                                                                          ## to
-                                                                                                          ## be
-                                                                                                          ## allocated
-                                                                                                          ## (maximum
-                                                                                                          ## number
-                                                                                                          ## of
-                                                                                                          ## vertexes,
-                                                                                                          ## @sa
-                                                                                                          ## ::AddVertex())
-                                                                                                          ##
-                                                                                                          ## !
-                                                                                                          ## @param
-                                                                                                          ## theMaxBounds
-                                                                                                          ## length
-                                                                                                          ## of
-                                                                                                          ## bounds
-                                                                                                          ## buffer
-                                                                                                          ## to
-                                                                                                          ## be
-                                                                                                          ## allocated
-                                                                                                          ## (maximum
-                                                                                                          ## number
-                                                                                                          ## of
-                                                                                                          ## bounds,
-                                                                                                          ## @sa
-                                                                                                          ## ::AddBound())
-                                                                                                          ##
-                                                                                                          ## !
-                                                                                                          ## @param
-                                                                                                          ## theMaxEdges
-                                                                                                          ## length
-                                                                                                          ## of
-                                                                                                          ## edges
-                                                                                                          ## (index)
-                                                                                                          ## buffer
-                                                                                                          ## to
-                                                                                                          ## be
-                                                                                                          ## allocated
-                                                                                                          ## (maximum
-                                                                                                          ## number
-                                                                                                          ## of
-                                                                                                          ## indexes
-                                                                                                          ## @sa
-                                                                                                          ## ::AddEdge())
-                                                                                                          ##
-                                                                                                          ## !
-                                                                                                          ## @param
-                                                                                                          ## theArrayFlags
-                                                                                                          ## array
-                                                                                                          ## flags
-                                                                                                          ##
-                                                                                                          ## !
-                                                                                                          ## @name
-                                                                                                          ## private
-                                                                                                          ## fields
+  Graphic3d_ArrayOfPrimitives* {.importcpp: "Graphic3d_ArrayOfPrimitives",
+                                header: "Graphic3d_ArrayOfPrimitives.hxx", bycopy.} = object of Standard_Transient ##
+                                                                                                            ## !
+                                                                                                            ## Create
+                                                                                                            ## an
+                                                                                                            ## array
+                                                                                                            ## of
+                                                                                                            ## specified
+                                                                                                            ## type.
+                                                                                                            ##
+                                                                                                            ## !
+                                                                                                            ## Destructor.
+                                                                                                            ##
+                                                                                                            ## !
+                                                                                                            ## @name
+                                                                                                            ## optional
+                                                                                                            ## array
+                                                                                                            ## of
+                                                                                                            ## Indices/Edges
+                                                                                                            ## for
+                                                                                                            ## using
+                                                                                                            ## shared
+                                                                                                            ## Vertex
+                                                                                                            ## data
+                                                                                                            ##
+                                                                                                            ## !
+                                                                                                            ## Returns
+                                                                                                            ## optional
+                                                                                                            ## index
+                                                                                                            ## buffer.
+                                                                                                            ##
+                                                                                                            ## !
+                                                                                                            ## @name
+                                                                                                            ## optional
+                                                                                                            ## array
+                                                                                                            ## of
+                                                                                                            ## Bounds/Subgroups
+                                                                                                            ## within
+                                                                                                            ## primitive
+                                                                                                            ## array
+                                                                                                            ## (e.g.
+                                                                                                            ## restarting
+                                                                                                            ## primitives
+                                                                                                            ## /
+                                                                                                            ## assigning
+                                                                                                            ## colors)
+                                                                                                            ##
+                                                                                                            ## !
+                                                                                                            ## Returns
+                                                                                                            ## optional
+                                                                                                            ## bounds
+                                                                                                            ## buffer.
+                                                                                                            ##
+                                                                                                            ## !
+                                                                                                            ## @name
+                                                                                                            ## protected
+                                                                                                            ## constructors
+                                                                                                            ##
+                                                                                                            ## !
+                                                                                                            ## Main
+                                                                                                            ## constructor.
+                                                                                                            ##
+                                                                                                            ## !
+                                                                                                            ## @param
+                                                                                                            ## theType
+                                                                                                            ## type
+                                                                                                            ## of
+                                                                                                            ## primitive
+                                                                                                            ##
+                                                                                                            ## !
+                                                                                                            ## @param
+                                                                                                            ## theMaxVertexs
+                                                                                                            ## length
+                                                                                                            ## of
+                                                                                                            ## vertex
+                                                                                                            ## attributes
+                                                                                                            ## buffer
+                                                                                                            ## to
+                                                                                                            ## be
+                                                                                                            ## allocated
+                                                                                                            ## (maximum
+                                                                                                            ## number
+                                                                                                            ## of
+                                                                                                            ## vertexes,
+                                                                                                            ## @sa
+                                                                                                            ## ::AddVertex())
+                                                                                                            ##
+                                                                                                            ## !
+                                                                                                            ## @param
+                                                                                                            ## theMaxBounds
+                                                                                                            ## length
+                                                                                                            ## of
+                                                                                                            ## bounds
+                                                                                                            ## buffer
+                                                                                                            ## to
+                                                                                                            ## be
+                                                                                                            ## allocated
+                                                                                                            ## (maximum
+                                                                                                            ## number
+                                                                                                            ## of
+                                                                                                            ## bounds,
+                                                                                                            ## @sa
+                                                                                                            ## ::AddBound())
+                                                                                                            ##
+                                                                                                            ## !
+                                                                                                            ## @param
+                                                                                                            ## theMaxEdges
+                                                                                                            ## length
+                                                                                                            ## of
+                                                                                                            ## edges
+                                                                                                            ## (index)
+                                                                                                            ## buffer
+                                                                                                            ## to
+                                                                                                            ## be
+                                                                                                            ## allocated
+                                                                                                            ## (maximum
+                                                                                                            ## number
+                                                                                                            ## of
+                                                                                                            ## indexes
+                                                                                                            ## @sa
+                                                                                                            ## ::AddEdge())
+                                                                                                            ##
+                                                                                                            ## !
+                                                                                                            ## @param
+                                                                                                            ## theArrayFlags
+                                                                                                            ## array
+                                                                                                            ## flags
+                                                                                                            ##
+                                                                                                            ## !
+                                                                                                            ## @name
+                                                                                                            ## private
+                                                                                                            ## fields
 
-  Graphic3dArrayOfPrimitivesbaseType* = StandardTransient
+  Graphic3d_ArrayOfPrimitivesbase_type* = Standard_Transient
 
-proc getTypeName*(): cstring {.importcpp: "Graphic3d_ArrayOfPrimitives::get_type_name(@)",
-                            header: "Graphic3d_ArrayOfPrimitives.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "Graphic3d_ArrayOfPrimitives::get_type_name(@)",
+                              header: "Graphic3d_ArrayOfPrimitives.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "Graphic3d_ArrayOfPrimitives::get_type_descriptor(@)",
     header: "Graphic3d_ArrayOfPrimitives.hxx".}
-proc dynamicType*(this: Graphic3dArrayOfPrimitives): Handle[StandardType] {.
+proc DynamicType*(this: Graphic3d_ArrayOfPrimitives): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType",
     header: "Graphic3d_ArrayOfPrimitives.hxx".}
-proc createArray*(theType: Graphic3dTypeOfPrimitiveArray;
-                 theMaxVertexs: StandardInteger; theMaxEdges: StandardInteger;
-                 theArrayFlags: Graphic3dArrayFlags): Handle[
-    Graphic3dArrayOfPrimitives] {.importcpp: "Graphic3d_ArrayOfPrimitives::CreateArray(@)",
-                                 header: "Graphic3d_ArrayOfPrimitives.hxx".}
-proc createArray*(theType: Graphic3dTypeOfPrimitiveArray;
-                 theMaxVertexs: StandardInteger; theMaxBounds: StandardInteger;
-                 theMaxEdges: StandardInteger; theArrayFlags: Graphic3dArrayFlags): Handle[
-    Graphic3dArrayOfPrimitives] {.importcpp: "Graphic3d_ArrayOfPrimitives::CreateArray(@)",
-                                 header: "Graphic3d_ArrayOfPrimitives.hxx".}
-proc destroyGraphic3dArrayOfPrimitives*(this: var Graphic3dArrayOfPrimitives) {.
+proc CreateArray*(theType: Graphic3d_TypeOfPrimitiveArray;
+                 theMaxVertexs: Standard_Integer; theMaxEdges: Standard_Integer;
+                 theArrayFlags: Graphic3d_ArrayFlags): handle[
+    Graphic3d_ArrayOfPrimitives] {.importcpp: "Graphic3d_ArrayOfPrimitives::CreateArray(@)",
+                                  header: "Graphic3d_ArrayOfPrimitives.hxx".}
+proc CreateArray*(theType: Graphic3d_TypeOfPrimitiveArray;
+                 theMaxVertexs: Standard_Integer; theMaxBounds: Standard_Integer;
+                 theMaxEdges: Standard_Integer;
+                 theArrayFlags: Graphic3d_ArrayFlags): handle[
+    Graphic3d_ArrayOfPrimitives] {.importcpp: "Graphic3d_ArrayOfPrimitives::CreateArray(@)",
+                                  header: "Graphic3d_ArrayOfPrimitives.hxx".}
+proc destroyGraphic3d_ArrayOfPrimitives*(this: var Graphic3d_ArrayOfPrimitives) {.
     importcpp: "#.~Graphic3d_ArrayOfPrimitives()",
     header: "Graphic3d_ArrayOfPrimitives.hxx".}
-proc attributes*(this: Graphic3dArrayOfPrimitives): Handle[Graphic3dBuffer] {.
+proc Attributes*(this: Graphic3d_ArrayOfPrimitives): handle[Graphic3d_Buffer] {.
     noSideEffect, importcpp: "Attributes",
     header: "Graphic3d_ArrayOfPrimitives.hxx".}
-proc `type`*(this: Graphic3dArrayOfPrimitives): Graphic3dTypeOfPrimitiveArray {.
+proc Type*(this: Graphic3d_ArrayOfPrimitives): Graphic3d_TypeOfPrimitiveArray {.
     noSideEffect, importcpp: "Type", header: "Graphic3d_ArrayOfPrimitives.hxx".}
-proc stringType*(this: Graphic3dArrayOfPrimitives): StandardCString {.noSideEffect,
-    importcpp: "StringType", header: "Graphic3d_ArrayOfPrimitives.hxx".}
-proc hasVertexNormals*(this: Graphic3dArrayOfPrimitives): StandardBoolean {.
+proc StringType*(this: Graphic3d_ArrayOfPrimitives): Standard_CString {.
+    noSideEffect, importcpp: "StringType",
+    header: "Graphic3d_ArrayOfPrimitives.hxx".}
+proc HasVertexNormals*(this: Graphic3d_ArrayOfPrimitives): Standard_Boolean {.
     noSideEffect, importcpp: "HasVertexNormals",
     header: "Graphic3d_ArrayOfPrimitives.hxx".}
-proc hasVertexColors*(this: Graphic3dArrayOfPrimitives): StandardBoolean {.
+proc HasVertexColors*(this: Graphic3d_ArrayOfPrimitives): Standard_Boolean {.
     noSideEffect, importcpp: "HasVertexColors",
     header: "Graphic3d_ArrayOfPrimitives.hxx".}
-proc hasVertexTexels*(this: Graphic3dArrayOfPrimitives): StandardBoolean {.
+proc HasVertexTexels*(this: Graphic3d_ArrayOfPrimitives): Standard_Boolean {.
     noSideEffect, importcpp: "HasVertexTexels",
     header: "Graphic3d_ArrayOfPrimitives.hxx".}
-proc vertexNumber*(this: Graphic3dArrayOfPrimitives): StandardInteger {.
+proc VertexNumber*(this: Graphic3d_ArrayOfPrimitives): Standard_Integer {.
     noSideEffect, importcpp: "VertexNumber",
     header: "Graphic3d_ArrayOfPrimitives.hxx".}
-proc vertexNumberAllocated*(this: Graphic3dArrayOfPrimitives): StandardInteger {.
+proc VertexNumberAllocated*(this: Graphic3d_ArrayOfPrimitives): Standard_Integer {.
     noSideEffect, importcpp: "VertexNumberAllocated",
     header: "Graphic3d_ArrayOfPrimitives.hxx".}
-proc itemNumber*(this: Graphic3dArrayOfPrimitives): StandardInteger {.noSideEffect,
-    importcpp: "ItemNumber", header: "Graphic3d_ArrayOfPrimitives.hxx".}
-proc isValid*(this: var Graphic3dArrayOfPrimitives): StandardBoolean {.
+proc ItemNumber*(this: Graphic3d_ArrayOfPrimitives): Standard_Integer {.
+    noSideEffect, importcpp: "ItemNumber",
+    header: "Graphic3d_ArrayOfPrimitives.hxx".}
+proc IsValid*(this: var Graphic3d_ArrayOfPrimitives): Standard_Boolean {.
     importcpp: "IsValid", header: "Graphic3d_ArrayOfPrimitives.hxx".}
-proc addVertex*(this: var Graphic3dArrayOfPrimitives; theVertex: GpPnt): StandardInteger {.
+proc AddVertex*(this: var Graphic3d_ArrayOfPrimitives; theVertex: gp_Pnt): Standard_Integer {.
     importcpp: "AddVertex", header: "Graphic3d_ArrayOfPrimitives.hxx".}
-proc addVertex*(this: var Graphic3dArrayOfPrimitives; theVertex: Graphic3dVec3): StandardInteger {.
+proc AddVertex*(this: var Graphic3d_ArrayOfPrimitives; theVertex: Graphic3d_Vec3): Standard_Integer {.
     importcpp: "AddVertex", header: "Graphic3d_ArrayOfPrimitives.hxx".}
-proc addVertex*(this: var Graphic3dArrayOfPrimitives; theX: StandardReal;
-               theY: StandardReal; theZ: StandardReal): StandardInteger {.
+proc AddVertex*(this: var Graphic3d_ArrayOfPrimitives; theX: Standard_Real;
+               theY: Standard_Real; theZ: Standard_Real): Standard_Integer {.
     importcpp: "AddVertex", header: "Graphic3d_ArrayOfPrimitives.hxx".}
-proc addVertex*(this: var Graphic3dArrayOfPrimitives; theX: StandardShortReal;
-               theY: StandardShortReal; theZ: StandardShortReal): StandardInteger {.
+proc AddVertex*(this: var Graphic3d_ArrayOfPrimitives; theX: Standard_ShortReal;
+               theY: Standard_ShortReal; theZ: Standard_ShortReal): Standard_Integer {.
     importcpp: "AddVertex", header: "Graphic3d_ArrayOfPrimitives.hxx".}
-proc addVertex*(this: var Graphic3dArrayOfPrimitives; theVertex: GpPnt;
-               theColor: QuantityColor): StandardInteger {.importcpp: "AddVertex",
+proc AddVertex*(this: var Graphic3d_ArrayOfPrimitives; theVertex: gp_Pnt;
+               theColor: Quantity_Color): Standard_Integer {.
+    importcpp: "AddVertex", header: "Graphic3d_ArrayOfPrimitives.hxx".}
+proc AddVertex*(this: var Graphic3d_ArrayOfPrimitives; theVertex: gp_Pnt;
+               theColor32: Standard_Integer): Standard_Integer {.
+    importcpp: "AddVertex", header: "Graphic3d_ArrayOfPrimitives.hxx".}
+proc AddVertex*(this: var Graphic3d_ArrayOfPrimitives; theVertex: gp_Pnt;
+               theColor: Graphic3d_Vec4ub): Standard_Integer {.
+    importcpp: "AddVertex", header: "Graphic3d_ArrayOfPrimitives.hxx".}
+proc AddVertex*(this: var Graphic3d_ArrayOfPrimitives; theVertex: gp_Pnt;
+               theNormal: gp_Dir): Standard_Integer {.importcpp: "AddVertex",
     header: "Graphic3d_ArrayOfPrimitives.hxx".}
-proc addVertex*(this: var Graphic3dArrayOfPrimitives; theVertex: GpPnt;
-               theColor32: StandardInteger): StandardInteger {.
+proc AddVertex*(this: var Graphic3d_ArrayOfPrimitives; theX: Standard_Real;
+               theY: Standard_Real; theZ: Standard_Real; theNX: Standard_Real;
+               theNY: Standard_Real; theNZ: Standard_Real): Standard_Integer {.
     importcpp: "AddVertex", header: "Graphic3d_ArrayOfPrimitives.hxx".}
-proc addVertex*(this: var Graphic3dArrayOfPrimitives; theVertex: GpPnt;
-               theColor: Graphic3dVec4ub): StandardInteger {.
+proc AddVertex*(this: var Graphic3d_ArrayOfPrimitives; theX: Standard_ShortReal;
+               theY: Standard_ShortReal; theZ: Standard_ShortReal;
+               theNX: Standard_ShortReal; theNY: Standard_ShortReal;
+               theNZ: Standard_ShortReal): Standard_Integer {.
     importcpp: "AddVertex", header: "Graphic3d_ArrayOfPrimitives.hxx".}
-proc addVertex*(this: var Graphic3dArrayOfPrimitives; theVertex: GpPnt;
-               theNormal: GpDir): StandardInteger {.importcpp: "AddVertex",
-    header: "Graphic3d_ArrayOfPrimitives.hxx".}
-proc addVertex*(this: var Graphic3dArrayOfPrimitives; theX: StandardReal;
-               theY: StandardReal; theZ: StandardReal; theNX: StandardReal;
-               theNY: StandardReal; theNZ: StandardReal): StandardInteger {.
+proc AddVertex*(this: var Graphic3d_ArrayOfPrimitives; theVertex: gp_Pnt;
+               theNormal: gp_Dir; theColor: Quantity_Color): Standard_Integer {.
     importcpp: "AddVertex", header: "Graphic3d_ArrayOfPrimitives.hxx".}
-proc addVertex*(this: var Graphic3dArrayOfPrimitives; theX: StandardShortReal;
-               theY: StandardShortReal; theZ: StandardShortReal;
-               theNX: StandardShortReal; theNY: StandardShortReal;
-               theNZ: StandardShortReal): StandardInteger {.importcpp: "AddVertex",
-    header: "Graphic3d_ArrayOfPrimitives.hxx".}
-proc addVertex*(this: var Graphic3dArrayOfPrimitives; theVertex: GpPnt;
-               theNormal: GpDir; theColor: QuantityColor): StandardInteger {.
+proc AddVertex*(this: var Graphic3d_ArrayOfPrimitives; theVertex: gp_Pnt;
+               theNormal: gp_Dir; theColor32: Standard_Integer): Standard_Integer {.
     importcpp: "AddVertex", header: "Graphic3d_ArrayOfPrimitives.hxx".}
-proc addVertex*(this: var Graphic3dArrayOfPrimitives; theVertex: GpPnt;
-               theNormal: GpDir; theColor32: StandardInteger): StandardInteger {.
+proc AddVertex*(this: var Graphic3d_ArrayOfPrimitives; theVertex: gp_Pnt;
+               theTexel: gp_Pnt2d): Standard_Integer {.importcpp: "AddVertex",
+    header: "Graphic3d_ArrayOfPrimitives.hxx".}
+proc AddVertex*(this: var Graphic3d_ArrayOfPrimitives; theX: Standard_Real;
+               theY: Standard_Real; theZ: Standard_Real; theTX: Standard_Real;
+               theTY: Standard_Real): Standard_Integer {.importcpp: "AddVertex",
+    header: "Graphic3d_ArrayOfPrimitives.hxx".}
+proc AddVertex*(this: var Graphic3d_ArrayOfPrimitives; theX: Standard_ShortReal;
+               theY: Standard_ShortReal; theZ: Standard_ShortReal;
+               theTX: Standard_ShortReal; theTY: Standard_ShortReal): Standard_Integer {.
     importcpp: "AddVertex", header: "Graphic3d_ArrayOfPrimitives.hxx".}
-proc addVertex*(this: var Graphic3dArrayOfPrimitives; theVertex: GpPnt;
-               theTexel: GpPnt2d): StandardInteger {.importcpp: "AddVertex",
-    header: "Graphic3d_ArrayOfPrimitives.hxx".}
-proc addVertex*(this: var Graphic3dArrayOfPrimitives; theX: StandardReal;
-               theY: StandardReal; theZ: StandardReal; theTX: StandardReal;
-               theTY: StandardReal): StandardInteger {.importcpp: "AddVertex",
-    header: "Graphic3d_ArrayOfPrimitives.hxx".}
-proc addVertex*(this: var Graphic3dArrayOfPrimitives; theX: StandardShortReal;
-               theY: StandardShortReal; theZ: StandardShortReal;
-               theTX: StandardShortReal; theTY: StandardShortReal): StandardInteger {.
+proc AddVertex*(this: var Graphic3d_ArrayOfPrimitives; theVertex: gp_Pnt;
+               theNormal: gp_Dir; theTexel: gp_Pnt2d): Standard_Integer {.
     importcpp: "AddVertex", header: "Graphic3d_ArrayOfPrimitives.hxx".}
-proc addVertex*(this: var Graphic3dArrayOfPrimitives; theVertex: GpPnt;
-               theNormal: GpDir; theTexel: GpPnt2d): StandardInteger {.
+proc AddVertex*(this: var Graphic3d_ArrayOfPrimitives; theX: Standard_Real;
+               theY: Standard_Real; theZ: Standard_Real; theNX: Standard_Real;
+               theNY: Standard_Real; theNZ: Standard_Real; theTX: Standard_Real;
+               theTY: Standard_Real): Standard_Integer {.importcpp: "AddVertex",
+    header: "Graphic3d_ArrayOfPrimitives.hxx".}
+proc AddVertex*(this: var Graphic3d_ArrayOfPrimitives; theX: Standard_ShortReal;
+               theY: Standard_ShortReal; theZ: Standard_ShortReal;
+               theNX: Standard_ShortReal; theNY: Standard_ShortReal;
+               theNZ: Standard_ShortReal; theTX: Standard_ShortReal;
+               theTY: Standard_ShortReal): Standard_Integer {.
     importcpp: "AddVertex", header: "Graphic3d_ArrayOfPrimitives.hxx".}
-proc addVertex*(this: var Graphic3dArrayOfPrimitives; theX: StandardReal;
-               theY: StandardReal; theZ: StandardReal; theNX: StandardReal;
-               theNY: StandardReal; theNZ: StandardReal; theTX: StandardReal;
-               theTY: StandardReal): StandardInteger {.importcpp: "AddVertex",
+proc SetVertice*(this: var Graphic3d_ArrayOfPrimitives; theIndex: Standard_Integer;
+                theVertex: gp_Pnt) {.importcpp: "SetVertice",
+                                   header: "Graphic3d_ArrayOfPrimitives.hxx".}
+proc SetVertice*(this: var Graphic3d_ArrayOfPrimitives; theIndex: Standard_Integer;
+                theX: Standard_ShortReal; theY: Standard_ShortReal;
+                theZ: Standard_ShortReal) {.importcpp: "SetVertice",
     header: "Graphic3d_ArrayOfPrimitives.hxx".}
-proc addVertex*(this: var Graphic3dArrayOfPrimitives; theX: StandardShortReal;
-               theY: StandardShortReal; theZ: StandardShortReal;
-               theNX: StandardShortReal; theNY: StandardShortReal;
-               theNZ: StandardShortReal; theTX: StandardShortReal;
-               theTY: StandardShortReal): StandardInteger {.importcpp: "AddVertex",
-    header: "Graphic3d_ArrayOfPrimitives.hxx".}
-proc setVertice*(this: var Graphic3dArrayOfPrimitives; theIndex: StandardInteger;
-                theVertex: GpPnt) {.importcpp: "SetVertice",
-                                  header: "Graphic3d_ArrayOfPrimitives.hxx".}
-proc setVertice*(this: var Graphic3dArrayOfPrimitives; theIndex: StandardInteger;
-                theX: StandardShortReal; theY: StandardShortReal;
-                theZ: StandardShortReal) {.importcpp: "SetVertice",
-    header: "Graphic3d_ArrayOfPrimitives.hxx".}
-proc setVertexColor*(this: var Graphic3dArrayOfPrimitives;
-                    theIndex: StandardInteger; theColor: QuantityColor) {.
+proc SetVertexColor*(this: var Graphic3d_ArrayOfPrimitives;
+                    theIndex: Standard_Integer; theColor: Quantity_Color) {.
     importcpp: "SetVertexColor", header: "Graphic3d_ArrayOfPrimitives.hxx".}
-proc setVertexColor*(this: var Graphic3dArrayOfPrimitives;
-                    theIndex: StandardInteger; theR: StandardReal;
-                    theG: StandardReal; theB: StandardReal) {.
+proc SetVertexColor*(this: var Graphic3d_ArrayOfPrimitives;
+                    theIndex: Standard_Integer; theR: Standard_Real;
+                    theG: Standard_Real; theB: Standard_Real) {.
     importcpp: "SetVertexColor", header: "Graphic3d_ArrayOfPrimitives.hxx".}
-proc setVertexColor*(this: var Graphic3dArrayOfPrimitives;
-                    theIndex: StandardInteger; theColor: Graphic3dVec4ub) {.
+proc SetVertexColor*(this: var Graphic3d_ArrayOfPrimitives;
+                    theIndex: Standard_Integer; theColor: Graphic3d_Vec4ub) {.
     importcpp: "SetVertexColor", header: "Graphic3d_ArrayOfPrimitives.hxx".}
-proc setVertexColor*(this: var Graphic3dArrayOfPrimitives;
-                    theIndex: StandardInteger; theColor32: StandardInteger) {.
+proc SetVertexColor*(this: var Graphic3d_ArrayOfPrimitives;
+                    theIndex: Standard_Integer; theColor32: Standard_Integer) {.
     importcpp: "SetVertexColor", header: "Graphic3d_ArrayOfPrimitives.hxx".}
-proc setVertexNormal*(this: var Graphic3dArrayOfPrimitives;
-                     theIndex: StandardInteger; theNormal: GpDir) {.
+proc SetVertexNormal*(this: var Graphic3d_ArrayOfPrimitives;
+                     theIndex: Standard_Integer; theNormal: gp_Dir) {.
     importcpp: "SetVertexNormal", header: "Graphic3d_ArrayOfPrimitives.hxx".}
-proc setVertexNormal*(this: var Graphic3dArrayOfPrimitives;
-                     theIndex: StandardInteger; theNX: StandardReal;
-                     theNY: StandardReal; theNZ: StandardReal) {.
+proc SetVertexNormal*(this: var Graphic3d_ArrayOfPrimitives;
+                     theIndex: Standard_Integer; theNX: Standard_Real;
+                     theNY: Standard_Real; theNZ: Standard_Real) {.
     importcpp: "SetVertexNormal", header: "Graphic3d_ArrayOfPrimitives.hxx".}
-proc setVertexTexel*(this: var Graphic3dArrayOfPrimitives;
-                    theIndex: StandardInteger; theTexel: GpPnt2d) {.
+proc SetVertexTexel*(this: var Graphic3d_ArrayOfPrimitives;
+                    theIndex: Standard_Integer; theTexel: gp_Pnt2d) {.
     importcpp: "SetVertexTexel", header: "Graphic3d_ArrayOfPrimitives.hxx".}
-proc setVertexTexel*(this: var Graphic3dArrayOfPrimitives;
-                    theIndex: StandardInteger; theTX: StandardReal;
-                    theTY: StandardReal) {.importcpp: "SetVertexTexel",
+proc SetVertexTexel*(this: var Graphic3d_ArrayOfPrimitives;
+                    theIndex: Standard_Integer; theTX: Standard_Real;
+                    theTY: Standard_Real) {.importcpp: "SetVertexTexel",
     header: "Graphic3d_ArrayOfPrimitives.hxx".}
-proc vertice*(this: Graphic3dArrayOfPrimitives; theRank: StandardInteger): GpPnt {.
+proc Vertice*(this: Graphic3d_ArrayOfPrimitives; theRank: Standard_Integer): gp_Pnt {.
     noSideEffect, importcpp: "Vertice", header: "Graphic3d_ArrayOfPrimitives.hxx".}
-proc vertice*(this: Graphic3dArrayOfPrimitives; theRank: StandardInteger;
-             theX: var StandardReal; theY: var StandardReal; theZ: var StandardReal) {.
+proc Vertice*(this: Graphic3d_ArrayOfPrimitives; theRank: Standard_Integer;
+             theX: var Standard_Real; theY: var Standard_Real; theZ: var Standard_Real) {.
     noSideEffect, importcpp: "Vertice", header: "Graphic3d_ArrayOfPrimitives.hxx".}
-proc vertexColor*(this: Graphic3dArrayOfPrimitives; theRank: StandardInteger): QuantityColor {.
+proc VertexColor*(this: Graphic3d_ArrayOfPrimitives; theRank: Standard_Integer): Quantity_Color {.
     noSideEffect, importcpp: "VertexColor",
     header: "Graphic3d_ArrayOfPrimitives.hxx".}
-proc vertexColor*(this: Graphic3dArrayOfPrimitives; theIndex: StandardInteger;
-                 theColor: var Graphic3dVec4ub) {.noSideEffect,
+proc VertexColor*(this: Graphic3d_ArrayOfPrimitives; theIndex: Standard_Integer;
+                 theColor: var Graphic3d_Vec4ub) {.noSideEffect,
     importcpp: "VertexColor", header: "Graphic3d_ArrayOfPrimitives.hxx".}
-proc vertexColor*(this: Graphic3dArrayOfPrimitives; theRank: StandardInteger;
-                 theR: var StandardReal; theG: var StandardReal;
-                 theB: var StandardReal) {.noSideEffect, importcpp: "VertexColor", header: "Graphic3d_ArrayOfPrimitives.hxx".}
-proc vertexColor*(this: Graphic3dArrayOfPrimitives; theRank: StandardInteger;
-                 theColor: var StandardInteger) {.noSideEffect,
+proc VertexColor*(this: Graphic3d_ArrayOfPrimitives; theRank: Standard_Integer;
+                 theR: var Standard_Real; theG: var Standard_Real;
+                 theB: var Standard_Real) {.noSideEffect, importcpp: "VertexColor",
+    header: "Graphic3d_ArrayOfPrimitives.hxx".}
+proc VertexColor*(this: Graphic3d_ArrayOfPrimitives; theRank: Standard_Integer;
+                 theColor: var Standard_Integer) {.noSideEffect,
     importcpp: "VertexColor", header: "Graphic3d_ArrayOfPrimitives.hxx".}
-proc vertexNormal*(this: Graphic3dArrayOfPrimitives; theRank: StandardInteger): GpDir {.
+proc VertexNormal*(this: Graphic3d_ArrayOfPrimitives; theRank: Standard_Integer): gp_Dir {.
     noSideEffect, importcpp: "VertexNormal",
     header: "Graphic3d_ArrayOfPrimitives.hxx".}
-proc vertexNormal*(this: Graphic3dArrayOfPrimitives; theRank: StandardInteger;
-                  theNX: var StandardReal; theNY: var StandardReal;
-                  theNZ: var StandardReal) {.noSideEffect,
+proc VertexNormal*(this: Graphic3d_ArrayOfPrimitives; theRank: Standard_Integer;
+                  theNX: var Standard_Real; theNY: var Standard_Real;
+                  theNZ: var Standard_Real) {.noSideEffect,
     importcpp: "VertexNormal", header: "Graphic3d_ArrayOfPrimitives.hxx".}
-proc vertexTexel*(this: Graphic3dArrayOfPrimitives; theRank: StandardInteger): GpPnt2d {.
+proc VertexTexel*(this: Graphic3d_ArrayOfPrimitives; theRank: Standard_Integer): gp_Pnt2d {.
     noSideEffect, importcpp: "VertexTexel",
     header: "Graphic3d_ArrayOfPrimitives.hxx".}
-proc vertexTexel*(this: Graphic3dArrayOfPrimitives; theRank: StandardInteger;
-                 theTX: var StandardReal; theTY: var StandardReal) {.noSideEffect,
+proc VertexTexel*(this: Graphic3d_ArrayOfPrimitives; theRank: Standard_Integer;
+                 theTX: var Standard_Real; theTY: var Standard_Real) {.noSideEffect,
     importcpp: "VertexTexel", header: "Graphic3d_ArrayOfPrimitives.hxx".}
-proc indices*(this: Graphic3dArrayOfPrimitives): Handle[Graphic3dIndexBuffer] {.
+proc Indices*(this: Graphic3d_ArrayOfPrimitives): handle[Graphic3d_IndexBuffer] {.
     noSideEffect, importcpp: "Indices", header: "Graphic3d_ArrayOfPrimitives.hxx".}
-proc edgeNumber*(this: Graphic3dArrayOfPrimitives): StandardInteger {.noSideEffect,
-    importcpp: "EdgeNumber", header: "Graphic3d_ArrayOfPrimitives.hxx".}
-proc edgeNumberAllocated*(this: Graphic3dArrayOfPrimitives): StandardInteger {.
+proc EdgeNumber*(this: Graphic3d_ArrayOfPrimitives): Standard_Integer {.
+    noSideEffect, importcpp: "EdgeNumber",
+    header: "Graphic3d_ArrayOfPrimitives.hxx".}
+proc EdgeNumberAllocated*(this: Graphic3d_ArrayOfPrimitives): Standard_Integer {.
     noSideEffect, importcpp: "EdgeNumberAllocated",
     header: "Graphic3d_ArrayOfPrimitives.hxx".}
-proc edge*(this: Graphic3dArrayOfPrimitives; theRank: StandardInteger): StandardInteger {.
+proc Edge*(this: Graphic3d_ArrayOfPrimitives; theRank: Standard_Integer): Standard_Integer {.
     noSideEffect, importcpp: "Edge", header: "Graphic3d_ArrayOfPrimitives.hxx".}
-proc addEdge*(this: var Graphic3dArrayOfPrimitives; theVertexIndex: StandardInteger): StandardInteger {.
+proc AddEdge*(this: var Graphic3d_ArrayOfPrimitives;
+             theVertexIndex: Standard_Integer): Standard_Integer {.
     importcpp: "AddEdge", header: "Graphic3d_ArrayOfPrimitives.hxx".}
-proc addEdges*(this: var Graphic3dArrayOfPrimitives;
-              theVertexIndex1: StandardInteger; theVertexIndex2: StandardInteger): StandardInteger {.
+proc AddEdges*(this: var Graphic3d_ArrayOfPrimitives;
+              theVertexIndex1: Standard_Integer; theVertexIndex2: Standard_Integer): Standard_Integer {.
     importcpp: "AddEdges", header: "Graphic3d_ArrayOfPrimitives.hxx".}
-proc addSegmentEdges*(this: var Graphic3dArrayOfPrimitives;
-                     theVertexIndex1: StandardInteger;
-                     theVertexIndex2: StandardInteger): StandardInteger {.
+proc AddSegmentEdges*(this: var Graphic3d_ArrayOfPrimitives;
+                     theVertexIndex1: Standard_Integer;
+                     theVertexIndex2: Standard_Integer): Standard_Integer {.
     importcpp: "AddSegmentEdges", header: "Graphic3d_ArrayOfPrimitives.hxx".}
-proc addEdges*(this: var Graphic3dArrayOfPrimitives;
-              theVertexIndex1: StandardInteger; theVertexIndex2: StandardInteger;
-              theVertexIndex3: StandardInteger): StandardInteger {.
+proc AddEdges*(this: var Graphic3d_ArrayOfPrimitives;
+              theVertexIndex1: Standard_Integer;
+              theVertexIndex2: Standard_Integer; theVertexIndex3: Standard_Integer): Standard_Integer {.
     importcpp: "AddEdges", header: "Graphic3d_ArrayOfPrimitives.hxx".}
-proc addTriangleEdges*(this: var Graphic3dArrayOfPrimitives;
-                      theVertexIndex1: StandardInteger;
-                      theVertexIndex2: StandardInteger;
-                      theVertexIndex3: StandardInteger): StandardInteger {.
+proc AddTriangleEdges*(this: var Graphic3d_ArrayOfPrimitives;
+                      theVertexIndex1: Standard_Integer;
+                      theVertexIndex2: Standard_Integer;
+                      theVertexIndex3: Standard_Integer): Standard_Integer {.
     importcpp: "AddTriangleEdges", header: "Graphic3d_ArrayOfPrimitives.hxx".}
-proc addTriangleEdges*(this: var Graphic3dArrayOfPrimitives;
-                      theIndexes: Graphic3dVec3i): StandardInteger {.
+proc AddTriangleEdges*(this: var Graphic3d_ArrayOfPrimitives;
+                      theIndexes: Graphic3d_Vec3i): Standard_Integer {.
     importcpp: "AddTriangleEdges", header: "Graphic3d_ArrayOfPrimitives.hxx".}
-proc addTriangleEdges*(this: var Graphic3dArrayOfPrimitives;
-                      theIndexes: Graphic3dVec4i): StandardInteger {.
+proc AddTriangleEdges*(this: var Graphic3d_ArrayOfPrimitives;
+                      theIndexes: Graphic3d_Vec4i): Standard_Integer {.
     importcpp: "AddTriangleEdges", header: "Graphic3d_ArrayOfPrimitives.hxx".}
-proc addEdges*(this: var Graphic3dArrayOfPrimitives;
-              theVertexIndex1: StandardInteger; theVertexIndex2: StandardInteger;
-              theVertexIndex3: StandardInteger; theVertexIndex4: StandardInteger): StandardInteger {.
+proc AddEdges*(this: var Graphic3d_ArrayOfPrimitives;
+              theVertexIndex1: Standard_Integer;
+              theVertexIndex2: Standard_Integer;
+              theVertexIndex3: Standard_Integer; theVertexIndex4: Standard_Integer): Standard_Integer {.
     importcpp: "AddEdges", header: "Graphic3d_ArrayOfPrimitives.hxx".}
-proc addQuadEdges*(this: var Graphic3dArrayOfPrimitives;
-                  theVertexIndex1: StandardInteger;
-                  theVertexIndex2: StandardInteger;
-                  theVertexIndex3: StandardInteger;
-                  theVertexIndex4: StandardInteger): StandardInteger {.
+proc AddQuadEdges*(this: var Graphic3d_ArrayOfPrimitives;
+                  theVertexIndex1: Standard_Integer;
+                  theVertexIndex2: Standard_Integer;
+                  theVertexIndex3: Standard_Integer;
+                  theVertexIndex4: Standard_Integer): Standard_Integer {.
     importcpp: "AddQuadEdges", header: "Graphic3d_ArrayOfPrimitives.hxx".}
-proc addQuadTriangleEdges*(this: var Graphic3dArrayOfPrimitives;
-                          theVertexIndex1: StandardInteger;
-                          theVertexIndex2: StandardInteger;
-                          theVertexIndex3: StandardInteger;
-                          theVertexIndex4: StandardInteger): StandardInteger {.
+proc AddQuadTriangleEdges*(this: var Graphic3d_ArrayOfPrimitives;
+                          theVertexIndex1: Standard_Integer;
+                          theVertexIndex2: Standard_Integer;
+                          theVertexIndex3: Standard_Integer;
+                          theVertexIndex4: Standard_Integer): Standard_Integer {.
     importcpp: "AddQuadTriangleEdges", header: "Graphic3d_ArrayOfPrimitives.hxx".}
-proc addQuadTriangleEdges*(this: var Graphic3dArrayOfPrimitives;
-                          theIndexes: Graphic3dVec4i): StandardInteger {.
+proc AddQuadTriangleEdges*(this: var Graphic3d_ArrayOfPrimitives;
+                          theIndexes: Graphic3d_Vec4i): Standard_Integer {.
     importcpp: "AddQuadTriangleEdges", header: "Graphic3d_ArrayOfPrimitives.hxx".}
-proc addTriangleStripEdges*(this: var Graphic3dArrayOfPrimitives;
-                           theVertexLower: StandardInteger;
-                           theVertexUpper: StandardInteger) {.
+proc AddTriangleStripEdges*(this: var Graphic3d_ArrayOfPrimitives;
+                           theVertexLower: Standard_Integer;
+                           theVertexUpper: Standard_Integer) {.
     importcpp: "AddTriangleStripEdges", header: "Graphic3d_ArrayOfPrimitives.hxx".}
-proc addTriangleFanEdges*(this: var Graphic3dArrayOfPrimitives;
-                         theVertexLower: StandardInteger;
-                         theVertexUpper: StandardInteger;
-                         theToClose: StandardBoolean) {.
+proc AddTriangleFanEdges*(this: var Graphic3d_ArrayOfPrimitives;
+                         theVertexLower: Standard_Integer;
+                         theVertexUpper: Standard_Integer;
+                         theToClose: Standard_Boolean) {.
     importcpp: "AddTriangleFanEdges", header: "Graphic3d_ArrayOfPrimitives.hxx".}
-proc addPolylineEdges*(this: var Graphic3dArrayOfPrimitives;
-                      theVertexLower: StandardInteger;
-                      theVertexUpper: StandardInteger; theToClose: StandardBoolean) {.
+proc AddPolylineEdges*(this: var Graphic3d_ArrayOfPrimitives;
+                      theVertexLower: Standard_Integer;
+                      theVertexUpper: Standard_Integer;
+                      theToClose: Standard_Boolean) {.
     importcpp: "AddPolylineEdges", header: "Graphic3d_ArrayOfPrimitives.hxx".}
-proc bounds*(this: Graphic3dArrayOfPrimitives): Handle[Graphic3dBoundBuffer] {.
+proc Bounds*(this: Graphic3d_ArrayOfPrimitives): handle[Graphic3d_BoundBuffer] {.
     noSideEffect, importcpp: "Bounds", header: "Graphic3d_ArrayOfPrimitives.hxx".}
-proc hasBoundColors*(this: Graphic3dArrayOfPrimitives): StandardBoolean {.
+proc HasBoundColors*(this: Graphic3d_ArrayOfPrimitives): Standard_Boolean {.
     noSideEffect, importcpp: "HasBoundColors",
     header: "Graphic3d_ArrayOfPrimitives.hxx".}
-proc boundNumber*(this: Graphic3dArrayOfPrimitives): StandardInteger {.noSideEffect,
-    importcpp: "BoundNumber", header: "Graphic3d_ArrayOfPrimitives.hxx".}
-proc boundNumberAllocated*(this: Graphic3dArrayOfPrimitives): StandardInteger {.
+proc BoundNumber*(this: Graphic3d_ArrayOfPrimitives): Standard_Integer {.
+    noSideEffect, importcpp: "BoundNumber",
+    header: "Graphic3d_ArrayOfPrimitives.hxx".}
+proc BoundNumberAllocated*(this: Graphic3d_ArrayOfPrimitives): Standard_Integer {.
     noSideEffect, importcpp: "BoundNumberAllocated",
     header: "Graphic3d_ArrayOfPrimitives.hxx".}
-proc bound*(this: Graphic3dArrayOfPrimitives; theRank: StandardInteger): StandardInteger {.
+proc Bound*(this: Graphic3d_ArrayOfPrimitives; theRank: Standard_Integer): Standard_Integer {.
     noSideEffect, importcpp: "Bound", header: "Graphic3d_ArrayOfPrimitives.hxx".}
-proc boundColor*(this: Graphic3dArrayOfPrimitives; theRank: StandardInteger): QuantityColor {.
+proc BoundColor*(this: Graphic3d_ArrayOfPrimitives; theRank: Standard_Integer): Quantity_Color {.
     noSideEffect, importcpp: "BoundColor",
     header: "Graphic3d_ArrayOfPrimitives.hxx".}
-proc boundColor*(this: Graphic3dArrayOfPrimitives; theRank: StandardInteger;
-                theR: var StandardReal; theG: var StandardReal; theB: var StandardReal) {.
-    noSideEffect, importcpp: "BoundColor",
-    header: "Graphic3d_ArrayOfPrimitives.hxx".}
-proc addBound*(this: var Graphic3dArrayOfPrimitives; theEdgeNumber: StandardInteger): StandardInteger {.
+proc BoundColor*(this: Graphic3d_ArrayOfPrimitives; theRank: Standard_Integer;
+                theR: var Standard_Real; theG: var Standard_Real;
+                theB: var Standard_Real) {.noSideEffect, importcpp: "BoundColor", header: "Graphic3d_ArrayOfPrimitives.hxx".}
+proc AddBound*(this: var Graphic3d_ArrayOfPrimitives;
+              theEdgeNumber: Standard_Integer): Standard_Integer {.
     importcpp: "AddBound", header: "Graphic3d_ArrayOfPrimitives.hxx".}
-proc addBound*(this: var Graphic3dArrayOfPrimitives; theEdgeNumber: StandardInteger;
-              theBColor: QuantityColor): StandardInteger {.importcpp: "AddBound",
-    header: "Graphic3d_ArrayOfPrimitives.hxx".}
-proc addBound*(this: var Graphic3dArrayOfPrimitives; theEdgeNumber: StandardInteger;
-              theR: StandardReal; theG: StandardReal; theB: StandardReal): StandardInteger {.
+proc AddBound*(this: var Graphic3d_ArrayOfPrimitives;
+              theEdgeNumber: Standard_Integer; theBColor: Quantity_Color): Standard_Integer {.
     importcpp: "AddBound", header: "Graphic3d_ArrayOfPrimitives.hxx".}
-proc setBoundColor*(this: var Graphic3dArrayOfPrimitives; theIndex: StandardInteger;
-                   theColor: QuantityColor) {.importcpp: "SetBoundColor",
-    header: "Graphic3d_ArrayOfPrimitives.hxx".}
-proc setBoundColor*(this: var Graphic3dArrayOfPrimitives; theIndex: StandardInteger;
-                   theR: StandardReal; theG: StandardReal; theB: StandardReal) {.
+proc AddBound*(this: var Graphic3d_ArrayOfPrimitives;
+              theEdgeNumber: Standard_Integer; theR: Standard_Real;
+              theG: Standard_Real; theB: Standard_Real): Standard_Integer {.
+    importcpp: "AddBound", header: "Graphic3d_ArrayOfPrimitives.hxx".}
+proc SetBoundColor*(this: var Graphic3d_ArrayOfPrimitives;
+                   theIndex: Standard_Integer; theColor: Quantity_Color) {.
     importcpp: "SetBoundColor", header: "Graphic3d_ArrayOfPrimitives.hxx".}
-
+proc SetBoundColor*(this: var Graphic3d_ArrayOfPrimitives;
+                   theIndex: Standard_Integer; theR: Standard_Real;
+                   theG: Standard_Real; theB: Standard_Real) {.
+    importcpp: "SetBoundColor", header: "Graphic3d_ArrayOfPrimitives.hxx".}

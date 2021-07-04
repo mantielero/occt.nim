@@ -13,86 +13,106 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Graphic3d/Graphic3d_CStructure, ../Graphic3d/Graphic3d_SequenceOfHClipPlane,
+  OpenGl_Aspects, OpenGl_GraphicDriver, OpenGl_Group, OpenGl_Matrix, OpenGl_Vec,
+  OpenGl_Workspace, ../NCollection/NCollection_List
+
 discard "forward decl of OpenGl_GraphicDriver"
 discard "forward decl of OpenGl_Structure"
 type
-  HandleOpenGlStructure* = Handle[OpenGlStructure]
-  OpenGlListOfStructure* = NCollectionList[ptr OpenGlStructure]
+  Handle_OpenGl_Structure* = handle[OpenGl_Structure]
+  OpenGl_ListOfStructure* = NCollection_List[ptr OpenGl_Structure]
 
 ## ! Implementation of low-level graphic structure.
 
 type
-  OpenGlStructure* {.importcpp: "OpenGl_Structure", header: "OpenGl_Structure.hxx",
-                    bycopy.} = object of Graphic3dCStructure ## ! Auxiliary wrapper to iterate OpenGl_Structure sequence.
-                                                        ## ! Create empty structure
-                                                        ## ! Access graphic driver
+  OpenGl_Structure* {.importcpp: "OpenGl_Structure",
+                     header: "OpenGl_Structure.hxx", bycopy.} = object of Graphic3d_CStructure ##
+                                                                                        ## !
+                                                                                        ## Auxiliary
+                                                                                        ## wrapper
+                                                                                        ## to
+                                                                                        ## iterate
+                                                                                        ## OpenGl_Structure
+                                                                                        ## sequence.
+                                                                                        ##
+                                                                                        ## !
+                                                                                        ## Create
+                                                                                        ## empty
+                                                                                        ## structure
+                                                                                        ##
+                                                                                        ## !
+                                                                                        ## Access
+                                                                                        ## graphic
+                                                                                        ## driver
     ## !< transformation, actually used for rendering (includes Local Origin shift)
     ## !< Used to tell OpenGl to interpret polygons in clockwise order.
 
-  OpenGlStructurebaseType* = Graphic3dCStructure
+  OpenGl_Structurebase_type* = Graphic3d_CStructure
 
-proc getTypeName*(): cstring {.importcpp: "OpenGl_Structure::get_type_name(@)",
-                            header: "OpenGl_Structure.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "OpenGl_Structure::get_type_name(@)",
+                              header: "OpenGl_Structure.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "OpenGl_Structure::get_type_descriptor(@)",
     header: "OpenGl_Structure.hxx".}
-proc dynamicType*(this: OpenGlStructure): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: OpenGl_Structure): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "OpenGl_Structure.hxx".}
 type
-  OpenGlStructureStructIterator* = SubclassStructIterator[OpenGlStructure]
-  OpenGlStructureGroupIterator* = SubclassGroupIterator[OpenGlGroup]
+  OpenGl_StructureStructIterator* = SubclassStructIterator[OpenGl_Structure]
+  OpenGl_StructureGroupIterator* = SubclassGroupIterator[OpenGl_Group]
 
-proc constructOpenGlStructure*(theManager: Handle[Graphic3dStructureManager]): OpenGlStructure {.
+proc constructOpenGl_Structure*(theManager: handle[Graphic3d_StructureManager]): OpenGl_Structure {.
     constructor, importcpp: "OpenGl_Structure(@)", header: "OpenGl_Structure.hxx".}
-proc onVisibilityChanged*(this: var OpenGlStructure) {.
+proc OnVisibilityChanged*(this: var OpenGl_Structure) {.
     importcpp: "OnVisibilityChanged", header: "OpenGl_Structure.hxx".}
-proc clear*(this: var OpenGlStructure) {.importcpp: "Clear",
-                                     header: "OpenGl_Structure.hxx".}
-proc connect*(this: var OpenGlStructure; theStructure: var Graphic3dCStructure) {.
+proc Clear*(this: var OpenGl_Structure) {.importcpp: "Clear",
+                                      header: "OpenGl_Structure.hxx".}
+proc Connect*(this: var OpenGl_Structure; theStructure: var Graphic3d_CStructure) {.
     importcpp: "Connect", header: "OpenGl_Structure.hxx".}
-proc disconnect*(this: var OpenGlStructure; theStructure: var Graphic3dCStructure) {.
+proc Disconnect*(this: var OpenGl_Structure; theStructure: var Graphic3d_CStructure) {.
     importcpp: "Disconnect", header: "OpenGl_Structure.hxx".}
-proc setTransformation*(this: var OpenGlStructure; theTrsf: Handle[TopLocDatum3D]) {.
+proc SetTransformation*(this: var OpenGl_Structure; theTrsf: handle[TopLoc_Datum3D]) {.
     importcpp: "SetTransformation", header: "OpenGl_Structure.hxx".}
-proc setTransformPersistence*(this: var OpenGlStructure;
-                             theTrsfPers: Handle[Graphic3dTransformPers]) {.
+proc SetTransformPersistence*(this: var OpenGl_Structure;
+                             theTrsfPers: handle[Graphic3d_TransformPers]) {.
     importcpp: "SetTransformPersistence", header: "OpenGl_Structure.hxx".}
-proc setZLayer*(this: var OpenGlStructure; theLayerIndex: Graphic3dZLayerId) {.
+proc SetZLayer*(this: var OpenGl_Structure; theLayerIndex: Graphic3d_ZLayerId) {.
     importcpp: "SetZLayer", header: "OpenGl_Structure.hxx".}
-proc graphicHighlight*(this: var OpenGlStructure;
-                      theStyle: Handle[Graphic3dPresentationAttributes]) {.
+proc GraphicHighlight*(this: var OpenGl_Structure;
+                      theStyle: handle[Graphic3d_PresentationAttributes]) {.
     importcpp: "GraphicHighlight", header: "OpenGl_Structure.hxx".}
-proc graphicUnhighlight*(this: var OpenGlStructure) {.
+proc GraphicUnhighlight*(this: var OpenGl_Structure) {.
     importcpp: "GraphicUnhighlight", header: "OpenGl_Structure.hxx".}
-proc shadowLink*(this: OpenGlStructure;
-                theManager: Handle[Graphic3dStructureManager]): Handle[
-    Graphic3dCStructure] {.noSideEffect, importcpp: "ShadowLink",
-                          header: "OpenGl_Structure.hxx".}
-proc newGroup*(this: var OpenGlStructure; theStruct: Handle[Graphic3dStructure]): Handle[
-    Graphic3dGroup] {.importcpp: "NewGroup", header: "OpenGl_Structure.hxx".}
-proc removeGroup*(this: var OpenGlStructure; theGroup: Handle[Graphic3dGroup]) {.
+proc ShadowLink*(this: OpenGl_Structure;
+                theManager: handle[Graphic3d_StructureManager]): handle[
+    Graphic3d_CStructure] {.noSideEffect, importcpp: "ShadowLink",
+                           header: "OpenGl_Structure.hxx".}
+proc NewGroup*(this: var OpenGl_Structure; theStruct: handle[Graphic3d_Structure]): handle[
+    Graphic3d_Group] {.importcpp: "NewGroup", header: "OpenGl_Structure.hxx".}
+proc RemoveGroup*(this: var OpenGl_Structure; theGroup: handle[Graphic3d_Group]) {.
     importcpp: "RemoveGroup", header: "OpenGl_Structure.hxx".}
-proc glDriver*(this: OpenGlStructure): ptr OpenGlGraphicDriver {.noSideEffect,
+proc GlDriver*(this: OpenGl_Structure): ptr OpenGl_GraphicDriver {.noSideEffect,
     importcpp: "GlDriver", header: "OpenGl_Structure.hxx".}
-proc clear*(this: var OpenGlStructure; theGlCtx: Handle[OpenGlContext]) {.
+proc Clear*(this: var OpenGl_Structure; theGlCtx: handle[OpenGl_Context]) {.
     importcpp: "Clear", header: "OpenGl_Structure.hxx".}
-proc render*(this: OpenGlStructure; theWorkspace: Handle[OpenGlWorkspace]) {.
+proc Render*(this: OpenGl_Structure; theWorkspace: handle[OpenGl_Workspace]) {.
     noSideEffect, importcpp: "Render", header: "OpenGl_Structure.hxx".}
-proc release*(this: var OpenGlStructure; theGlCtx: Handle[OpenGlContext]) {.
+proc Release*(this: var OpenGl_Structure; theGlCtx: handle[OpenGl_Context]) {.
     importcpp: "Release", header: "OpenGl_Structure.hxx".}
-proc releaseGlResources*(this: var OpenGlStructure; theGlCtx: Handle[OpenGlContext]) {.
+proc ReleaseGlResources*(this: var OpenGl_Structure;
+                        theGlCtx: handle[OpenGl_Context]) {.
     importcpp: "ReleaseGlResources", header: "OpenGl_Structure.hxx".}
-proc instancedStructure*(this: OpenGlStructure): ptr OpenGlStructure {.noSideEffect,
-    importcpp: "InstancedStructure", header: "OpenGl_Structure.hxx".}
-proc modificationState*(this: OpenGlStructure): StandardSize {.noSideEffect,
+proc InstancedStructure*(this: OpenGl_Structure): ptr OpenGl_Structure {.
+    noSideEffect, importcpp: "InstancedStructure", header: "OpenGl_Structure.hxx".}
+proc ModificationState*(this: OpenGl_Structure): Standard_Size {.noSideEffect,
     importcpp: "ModificationState", header: "OpenGl_Structure.hxx".}
-proc resetModificationState*(this: OpenGlStructure) {.noSideEffect,
+proc ResetModificationState*(this: OpenGl_Structure) {.noSideEffect,
     importcpp: "ResetModificationState", header: "OpenGl_Structure.hxx".}
-proc isRaytracable*(this: OpenGlStructure): StandardBoolean {.noSideEffect,
+proc IsRaytracable*(this: OpenGl_Structure): Standard_Boolean {.noSideEffect,
     importcpp: "IsRaytracable", header: "OpenGl_Structure.hxx".}
-proc updateLayerTransformation*(this: var OpenGlStructure) {.
+proc updateLayerTransformation*(this: var OpenGl_Structure) {.
     importcpp: "updateLayerTransformation", header: "OpenGl_Structure.hxx".}
-proc dumpJson*(this: OpenGlStructure; theOStream: var StandardOStream;
-              theDepth: StandardInteger = -1) {.noSideEffect, importcpp: "DumpJson",
+proc DumpJson*(this: OpenGl_Structure; theOStream: var Standard_OStream;
+              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
     header: "OpenGl_Structure.hxx".}
-

@@ -14,6 +14,13 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Real,
+  ../TopTools/TopTools_SequenceOfShape, ../GeomFill/GeomFill_SequenceOfTrsf,
+  ../TColStd/TColStd_SequenceOfReal, ../TopTools/TopTools_HArray2OfShape,
+  BRepFill_SectionLaw, ../Standard/Standard_Boolean, ../GeomAbs/GeomAbs_Shape,
+  ../Standard/Standard_Integer
+
 discard "forward decl of Geom_BSplineSurface"
 discard "forward decl of GeomFill_SectionLaw"
 discard "forward decl of TopoDS_Vertex"
@@ -21,51 +28,51 @@ discard "forward decl of TopoDS_Shape"
 discard "forward decl of BRepFill_NSections"
 discard "forward decl of BRepFill_NSections"
 type
-  HandleBRepFillNSections* = Handle[BRepFillNSections]
+  Handle_BRepFill_NSections* = handle[BRepFill_NSections]
 
 ## ! Build Section Law, with N Sections
 
 type
-  BRepFillNSections* {.importcpp: "BRepFill_NSections",
-                      header: "BRepFill_NSections.hxx", bycopy.} = object of BRepFillSectionLaw ##
-                                                                                         ## !
-                                                                                         ## Construct
+  BRepFill_NSections* {.importcpp: "BRepFill_NSections",
+                       header: "BRepFill_NSections.hxx", bycopy.} = object of BRepFill_SectionLaw ##
+                                                                                           ## !
+                                                                                           ## Construct
 
 
-proc constructBRepFillNSections*(s: TopToolsSequenceOfShape;
-                                build: StandardBoolean = standardTrue): BRepFillNSections {.
+proc constructBRepFill_NSections*(S: TopTools_SequenceOfShape;
+                                 Build: Standard_Boolean = Standard_True): BRepFill_NSections {.
     constructor, importcpp: "BRepFill_NSections(@)",
     header: "BRepFill_NSections.hxx".}
-proc constructBRepFillNSections*(s: TopToolsSequenceOfShape;
-                                trsfs: GeomFillSequenceOfTrsf;
-                                p: TColStdSequenceOfReal; vf: StandardReal;
-                                vl: StandardReal;
-                                build: StandardBoolean = standardTrue): BRepFillNSections {.
+proc constructBRepFill_NSections*(S: TopTools_SequenceOfShape;
+                                 Trsfs: GeomFill_SequenceOfTrsf;
+                                 P: TColStd_SequenceOfReal; VF: Standard_Real;
+                                 VL: Standard_Real;
+                                 Build: Standard_Boolean = Standard_True): BRepFill_NSections {.
     constructor, importcpp: "BRepFill_NSections(@)",
     header: "BRepFill_NSections.hxx".}
-proc isVertex*(this: BRepFillNSections): StandardBoolean {.noSideEffect,
+proc IsVertex*(this: BRepFill_NSections): Standard_Boolean {.noSideEffect,
     importcpp: "IsVertex", header: "BRepFill_NSections.hxx".}
-proc isConstant*(this: BRepFillNSections): StandardBoolean {.noSideEffect,
+proc IsConstant*(this: BRepFill_NSections): Standard_Boolean {.noSideEffect,
     importcpp: "IsConstant", header: "BRepFill_NSections.hxx".}
-proc concatenedLaw*(this: BRepFillNSections): Handle[GeomFillSectionLaw] {.
+proc ConcatenedLaw*(this: BRepFill_NSections): handle[GeomFill_SectionLaw] {.
     noSideEffect, importcpp: "ConcatenedLaw", header: "BRepFill_NSections.hxx".}
-proc continuity*(this: BRepFillNSections; index: StandardInteger;
-                tolAngular: StandardReal): GeomAbsShape {.noSideEffect,
+proc Continuity*(this: BRepFill_NSections; Index: Standard_Integer;
+                TolAngular: Standard_Real): GeomAbs_Shape {.noSideEffect,
     importcpp: "Continuity", header: "BRepFill_NSections.hxx".}
-proc vertexTol*(this: BRepFillNSections; index: StandardInteger; param: StandardReal): StandardReal {.
-    noSideEffect, importcpp: "VertexTol", header: "BRepFill_NSections.hxx".}
-proc vertex*(this: BRepFillNSections; index: StandardInteger; param: StandardReal): TopoDS_Vertex {.
+proc VertexTol*(this: BRepFill_NSections; Index: Standard_Integer;
+               Param: Standard_Real): Standard_Real {.noSideEffect,
+    importcpp: "VertexTol", header: "BRepFill_NSections.hxx".}
+proc Vertex*(this: BRepFill_NSections; Index: Standard_Integer; Param: Standard_Real): TopoDS_Vertex {.
     noSideEffect, importcpp: "Vertex", header: "BRepFill_NSections.hxx".}
-proc d0*(this: var BRepFillNSections; param: StandardReal; s: var TopoDS_Shape) {.
+proc D0*(this: var BRepFill_NSections; Param: Standard_Real; S: var TopoDS_Shape) {.
     importcpp: "D0", header: "BRepFill_NSections.hxx".}
 type
-  BRepFillNSectionsbaseType* = BRepFillSectionLaw
+  BRepFill_NSectionsbase_type* = BRepFill_SectionLaw
 
-proc getTypeName*(): cstring {.importcpp: "BRepFill_NSections::get_type_name(@)",
-                            header: "BRepFill_NSections.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "BRepFill_NSections::get_type_name(@)",
+                              header: "BRepFill_NSections.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "BRepFill_NSections::get_type_descriptor(@)",
     header: "BRepFill_NSections.hxx".}
-proc dynamicType*(this: BRepFillNSections): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: BRepFill_NSections): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "BRepFill_NSections.hxx".}
-

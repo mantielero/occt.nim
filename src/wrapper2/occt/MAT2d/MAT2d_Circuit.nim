@@ -14,6 +14,15 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Real,
+  ../TColGeom2d/TColGeom2d_SequenceOfGeometry, MAT2d_DataMapOfIntegerConnexion,
+  MAT2d_DataMapOfBiIntSequenceOfInteger, ../TColStd/TColStd_SequenceOfInteger,
+  ../GeomAbs/GeomAbs_JoinType, ../Standard/Standard_Boolean,
+  ../Standard/Standard_Transient, MAT2d_SequenceOfSequenceOfGeometry,
+  ../TColStd/TColStd_SequenceOfBoolean, ../Standard/Standard_Integer,
+  MAT2d_SequenceOfConnexion
+
 discard "forward decl of Geom2d_Geometry"
 discard "forward decl of MAT2d_Connexion"
 discard "forward decl of MAT2d_BiInt"
@@ -21,45 +30,44 @@ discard "forward decl of MAT2d_MiniPath"
 discard "forward decl of MAT2d_Circuit"
 discard "forward decl of MAT2d_Circuit"
 type
-  HandleMAT2dCircuit* = Handle[MAT2dCircuit]
+  Handle_MAT2d_Circuit* = handle[MAT2d_Circuit]
 
 ## ! Constructs a circuit on a set of lines.
 ## ! EquiCircuit gives a Circuit passing by all the lines
 ## ! in a set and all the connexions of the minipath associated.
 
 type
-  MAT2dCircuit* {.importcpp: "MAT2d_Circuit", header: "MAT2d_Circuit.hxx", bycopy.} = object of StandardTransient
+  MAT2d_Circuit* {.importcpp: "MAT2d_Circuit", header: "MAT2d_Circuit.hxx", bycopy.} = object of Standard_Transient
 
 
-proc constructMAT2dCircuit*(aJoinType: GeomAbsJoinType = geomAbsArc;
-                           isOpenResult: StandardBoolean = standardFalse): MAT2dCircuit {.
+proc constructMAT2d_Circuit*(aJoinType: GeomAbs_JoinType = GeomAbs_Arc;
+                            IsOpenResult: Standard_Boolean = Standard_False): MAT2d_Circuit {.
     constructor, importcpp: "MAT2d_Circuit(@)", header: "MAT2d_Circuit.hxx".}
-proc perform*(this: var MAT2dCircuit;
-             aFigure: var MAT2dSequenceOfSequenceOfGeometry;
-             isClosed: TColStdSequenceOfBoolean; indRefLine: StandardInteger;
-             trigo: StandardBoolean) {.importcpp: "Perform",
-                                     header: "MAT2d_Circuit.hxx".}
-proc numberOfItems*(this: MAT2dCircuit): StandardInteger {.noSideEffect,
+proc Perform*(this: var MAT2d_Circuit;
+             aFigure: var MAT2d_SequenceOfSequenceOfGeometry;
+             IsClosed: TColStd_SequenceOfBoolean; IndRefLine: Standard_Integer;
+             Trigo: Standard_Boolean) {.importcpp: "Perform",
+                                      header: "MAT2d_Circuit.hxx".}
+proc NumberOfItems*(this: MAT2d_Circuit): Standard_Integer {.noSideEffect,
     importcpp: "NumberOfItems", header: "MAT2d_Circuit.hxx".}
-proc value*(this: MAT2dCircuit; index: StandardInteger): Handle[Geom2dGeometry] {.
+proc Value*(this: MAT2d_Circuit; Index: Standard_Integer): handle[Geom2d_Geometry] {.
     noSideEffect, importcpp: "Value", header: "MAT2d_Circuit.hxx".}
-proc lineLength*(this: MAT2dCircuit; indexLine: StandardInteger): StandardInteger {.
+proc LineLength*(this: MAT2d_Circuit; IndexLine: Standard_Integer): Standard_Integer {.
     noSideEffect, importcpp: "LineLength", header: "MAT2d_Circuit.hxx".}
-proc refToEqui*(this: MAT2dCircuit; indLine: StandardInteger;
-               indCurve: StandardInteger): TColStdSequenceOfInteger {.noSideEffect,
-    importcpp: "RefToEqui", header: "MAT2d_Circuit.hxx".}
-proc connexion*(this: MAT2dCircuit; index: StandardInteger): Handle[MAT2dConnexion] {.
+proc RefToEqui*(this: MAT2d_Circuit; IndLine: Standard_Integer;
+               IndCurve: Standard_Integer): TColStd_SequenceOfInteger {.
+    noSideEffect, importcpp: "RefToEqui", header: "MAT2d_Circuit.hxx".}
+proc Connexion*(this: MAT2d_Circuit; Index: Standard_Integer): handle[MAT2d_Connexion] {.
     noSideEffect, importcpp: "Connexion", header: "MAT2d_Circuit.hxx".}
-proc connexionOn*(this: MAT2dCircuit; index: StandardInteger): StandardBoolean {.
+proc ConnexionOn*(this: MAT2d_Circuit; Index: Standard_Integer): Standard_Boolean {.
     noSideEffect, importcpp: "ConnexionOn", header: "MAT2d_Circuit.hxx".}
 type
-  MAT2dCircuitbaseType* = StandardTransient
+  MAT2d_Circuitbase_type* = Standard_Transient
 
-proc getTypeName*(): cstring {.importcpp: "MAT2d_Circuit::get_type_name(@)",
-                            header: "MAT2d_Circuit.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "MAT2d_Circuit::get_type_name(@)",
+                              header: "MAT2d_Circuit.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "MAT2d_Circuit::get_type_descriptor(@)",
     header: "MAT2d_Circuit.hxx".}
-proc dynamicType*(this: MAT2dCircuit): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: MAT2d_Circuit): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "MAT2d_Circuit.hxx".}
-

@@ -14,23 +14,27 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepShape_TypeQualifier"
 discard "forward decl of StepData_StepWriter"
 type
-  RWStepShapeRWTypeQualifier* {.importcpp: "RWStepShape_RWTypeQualifier",
-                               header: "RWStepShape_RWTypeQualifier.hxx", bycopy.} = object
+  RWStepShape_RWTypeQualifier* {.importcpp: "RWStepShape_RWTypeQualifier",
+                                header: "RWStepShape_RWTypeQualifier.hxx", bycopy.} = object
 
 
-proc constructRWStepShapeRWTypeQualifier*(): RWStepShapeRWTypeQualifier {.
+proc constructRWStepShape_RWTypeQualifier*(): RWStepShape_RWTypeQualifier {.
     constructor, importcpp: "RWStepShape_RWTypeQualifier(@)",
     header: "RWStepShape_RWTypeQualifier.hxx".}
-proc readStep*(this: RWStepShapeRWTypeQualifier;
-              data: Handle[StepDataStepReaderData]; num: StandardInteger;
-              ach: var Handle[InterfaceCheck]; ent: Handle[StepShapeTypeQualifier]) {.
-    noSideEffect, importcpp: "ReadStep", header: "RWStepShape_RWTypeQualifier.hxx".}
-proc writeStep*(this: RWStepShapeRWTypeQualifier; sw: var StepDataStepWriter;
-               ent: Handle[StepShapeTypeQualifier]) {.noSideEffect,
+proc ReadStep*(this: RWStepShape_RWTypeQualifier;
+              data: handle[StepData_StepReaderData]; num: Standard_Integer;
+              ach: var handle[Interface_Check];
+              ent: handle[StepShape_TypeQualifier]) {.noSideEffect,
+    importcpp: "ReadStep", header: "RWStepShape_RWTypeQualifier.hxx".}
+proc WriteStep*(this: RWStepShape_RWTypeQualifier; SW: var StepData_StepWriter;
+               ent: handle[StepShape_TypeQualifier]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepShape_RWTypeQualifier.hxx".}
-

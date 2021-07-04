@@ -14,9 +14,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _Quantity_ElectricCapacitance_HeaderFile [NewLine] # _Quantity_ElectricCapacitance_HeaderFile [NewLine] # < Standard_Real . hxx > [NewLine] ! Defined for a capacitor as the ratio of the charge on
+## !!!Ignored construct:  # _Quantity_ElectricCapacitance_HeaderFile [NewLine] # _Quantity_ElectricCapacitance_HeaderFile [NewLine] # ../Standard/Standard_Real.hxx [NewLine] ! Defined for a capacitor as the ratio of the charge on
 ## ! either conductor to the potential between them.
 ## ! It is measured in farads (coulomb per volt). Standard_DEPRECATED ( This type is deprecated - Standard_Real should be used instead ) typedef Standard_Real Quantity_ElectricCapacitance ;
 ## Error: expected ';'!!!
-
-

@@ -13,46 +13,58 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../BOPAlgo/BOPAlgo_BOP,
+  ../NCollection/NCollection_BaseAllocator, ../Standard/Standard_Boolean,
+  ../Standard/Standard_Integer, ../TopTools/TopTools_DataMapOfShapeListOfShape,
+  ../TopTools/TopTools_DataMapOfShapeShape, ../TopTools/TopTools_ListOfShape,
+  ../TopTools/TopTools_MapOfShape
+
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of TopoDS_Face"
 type
-  BRepFeatBuilder* {.importcpp: "BRepFeat_Builder", header: "BRepFeat_Builder.hxx",
-                    bycopy.} = object of BOPAlgoBOP ## ! Prepares builder of local operation.
+  BRepFeat_Builder* {.importcpp: "BRepFeat_Builder",
+                     header: "BRepFeat_Builder.hxx", bycopy.} = object of BOPAlgo_BOP ## !
+                                                                               ## Prepares
+                                                                               ## builder
+                                                                               ## of
+                                                                               ## local
+                                                                               ## operation.
 
 
-proc constructBRepFeatBuilder*(): BRepFeatBuilder {.constructor,
+proc constructBRepFeat_Builder*(): BRepFeat_Builder {.constructor,
     importcpp: "BRepFeat_Builder(@)", header: "BRepFeat_Builder.hxx".}
-proc destroyBRepFeatBuilder*(this: var BRepFeatBuilder) {.
+proc destroyBRepFeat_Builder*(this: var BRepFeat_Builder) {.
     importcpp: "#.~BRepFeat_Builder()", header: "BRepFeat_Builder.hxx".}
-proc clear*(this: var BRepFeatBuilder) {.importcpp: "Clear",
-                                     header: "BRepFeat_Builder.hxx".}
-proc init*(this: var BRepFeatBuilder; theShape: TopoDS_Shape) {.importcpp: "Init",
+proc Clear*(this: var BRepFeat_Builder) {.importcpp: "Clear",
+                                      header: "BRepFeat_Builder.hxx".}
+proc Init*(this: var BRepFeat_Builder; theShape: TopoDS_Shape) {.importcpp: "Init",
     header: "BRepFeat_Builder.hxx".}
-proc init*(this: var BRepFeatBuilder; theShape: TopoDS_Shape; theTool: TopoDS_Shape) {.
+proc Init*(this: var BRepFeat_Builder; theShape: TopoDS_Shape; theTool: TopoDS_Shape) {.
     importcpp: "Init", header: "BRepFeat_Builder.hxx".}
-proc setOperation*(this: var BRepFeatBuilder; theFuse: StandardInteger) {.
+proc SetOperation*(this: var BRepFeat_Builder; theFuse: Standard_Integer) {.
     importcpp: "SetOperation", header: "BRepFeat_Builder.hxx".}
-proc setOperation*(this: var BRepFeatBuilder; theFuse: StandardInteger;
-                  theFlag: StandardBoolean) {.importcpp: "SetOperation",
+proc SetOperation*(this: var BRepFeat_Builder; theFuse: Standard_Integer;
+                  theFlag: Standard_Boolean) {.importcpp: "SetOperation",
     header: "BRepFeat_Builder.hxx".}
-proc partsOfTool*(this: var BRepFeatBuilder; theLT: var TopToolsListOfShape) {.
+proc PartsOfTool*(this: var BRepFeat_Builder; theLT: var TopTools_ListOfShape) {.
     importcpp: "PartsOfTool", header: "BRepFeat_Builder.hxx".}
-proc keepParts*(this: var BRepFeatBuilder; theIm: TopToolsListOfShape) {.
+proc KeepParts*(this: var BRepFeat_Builder; theIm: TopTools_ListOfShape) {.
     importcpp: "KeepParts", header: "BRepFeat_Builder.hxx".}
-proc keepPart*(this: var BRepFeatBuilder; theS: TopoDS_Shape) {.importcpp: "KeepPart",
+proc KeepPart*(this: var BRepFeat_Builder; theS: TopoDS_Shape) {.
+    importcpp: "KeepPart", header: "BRepFeat_Builder.hxx".}
+proc PerformResult*(this: var BRepFeat_Builder) {.importcpp: "PerformResult",
     header: "BRepFeat_Builder.hxx".}
-proc performResult*(this: var BRepFeatBuilder) {.importcpp: "PerformResult",
+proc RebuildFaces*(this: var BRepFeat_Builder) {.importcpp: "RebuildFaces",
     header: "BRepFeat_Builder.hxx".}
-proc rebuildFaces*(this: var BRepFeatBuilder) {.importcpp: "RebuildFaces",
-    header: "BRepFeat_Builder.hxx".}
-proc rebuildEdge*(this: var BRepFeatBuilder; theE: TopoDS_Shape; theF: TopoDS_Face;
-                 theME: TopToolsMapOfShape; aLEIm: var TopToolsListOfShape) {.
+proc RebuildEdge*(this: var BRepFeat_Builder; theE: TopoDS_Shape; theF: TopoDS_Face;
+                 theME: TopTools_MapOfShape; aLEIm: var TopTools_ListOfShape) {.
     importcpp: "RebuildEdge", header: "BRepFeat_Builder.hxx".}
-proc checkSolidImages*(this: var BRepFeatBuilder) {.importcpp: "CheckSolidImages",
+proc CheckSolidImages*(this: var BRepFeat_Builder) {.importcpp: "CheckSolidImages",
     header: "BRepFeat_Builder.hxx".}
-proc fillRemoved*(this: var BRepFeatBuilder) {.importcpp: "FillRemoved",
+proc FillRemoved*(this: var BRepFeat_Builder) {.importcpp: "FillRemoved",
     header: "BRepFeat_Builder.hxx".}
-proc fillRemoved*(this: var BRepFeatBuilder; theS: TopoDS_Shape;
-                 theM: var TopToolsMapOfShape) {.importcpp: "FillRemoved",
+proc FillRemoved*(this: var BRepFeat_Builder; theS: TopoDS_Shape;
+                 theM: var TopTools_MapOfShape) {.importcpp: "FillRemoved",
     header: "BRepFeat_Builder.hxx".}
-

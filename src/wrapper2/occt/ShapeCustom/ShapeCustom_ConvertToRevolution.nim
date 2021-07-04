@@ -14,6 +14,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ShapeCustom_Modification,
+  ../Standard/Standard_Boolean, ../Standard/Standard_Real,
+  ../GeomAbs/GeomAbs_Shape
+
 discard "forward decl of TopoDS_Face"
 discard "forward decl of Geom_Surface"
 discard "forward decl of TopLoc_Location"
@@ -25,51 +30,51 @@ discard "forward decl of Geom2d_Curve"
 discard "forward decl of ShapeCustom_ConvertToRevolution"
 discard "forward decl of ShapeCustom_ConvertToRevolution"
 type
-  HandleShapeCustomConvertToRevolution* = Handle[ShapeCustomConvertToRevolution]
+  Handle_ShapeCustom_ConvertToRevolution* = handle[ShapeCustom_ConvertToRevolution]
 
 ## ! implements a modification for the BRepTools
 ## ! Modifier algortihm. Converts all elementary
 ## ! surfaces into surfaces of revolution.
 
 type
-  ShapeCustomConvertToRevolution* {.importcpp: "ShapeCustom_ConvertToRevolution", header: "ShapeCustom_ConvertToRevolution.hxx",
-                                   bycopy.} = object of ShapeCustomModification
+  ShapeCustom_ConvertToRevolution* {.importcpp: "ShapeCustom_ConvertToRevolution", header: "ShapeCustom_ConvertToRevolution.hxx",
+                                    bycopy.} = object of ShapeCustom_Modification
 
 
-proc constructShapeCustomConvertToRevolution*(): ShapeCustomConvertToRevolution {.
+proc constructShapeCustom_ConvertToRevolution*(): ShapeCustom_ConvertToRevolution {.
     constructor, importcpp: "ShapeCustom_ConvertToRevolution(@)",
     header: "ShapeCustom_ConvertToRevolution.hxx".}
-proc newSurface*(this: var ShapeCustomConvertToRevolution; f: TopoDS_Face;
-                s: var Handle[GeomSurface]; L: var TopLocLocation;
-                tol: var StandardReal; revWires: var StandardBoolean;
-                revFace: var StandardBoolean): StandardBoolean {.
+proc NewSurface*(this: var ShapeCustom_ConvertToRevolution; F: TopoDS_Face;
+                S: var handle[Geom_Surface]; L: var TopLoc_Location;
+                Tol: var Standard_Real; RevWires: var Standard_Boolean;
+                RevFace: var Standard_Boolean): Standard_Boolean {.
     importcpp: "NewSurface", header: "ShapeCustom_ConvertToRevolution.hxx".}
-proc newCurve*(this: var ShapeCustomConvertToRevolution; e: TopoDS_Edge;
-              c: var Handle[GeomCurve]; L: var TopLocLocation; tol: var StandardReal): StandardBoolean {.
-    importcpp: "NewCurve", header: "ShapeCustom_ConvertToRevolution.hxx".}
-proc newPoint*(this: var ShapeCustomConvertToRevolution; v: TopoDS_Vertex;
-              p: var GpPnt; tol: var StandardReal): StandardBoolean {.
+proc NewCurve*(this: var ShapeCustom_ConvertToRevolution; E: TopoDS_Edge;
+              C: var handle[Geom_Curve]; L: var TopLoc_Location;
+              Tol: var Standard_Real): Standard_Boolean {.importcpp: "NewCurve",
+    header: "ShapeCustom_ConvertToRevolution.hxx".}
+proc NewPoint*(this: var ShapeCustom_ConvertToRevolution; V: TopoDS_Vertex;
+              P: var gp_Pnt; Tol: var Standard_Real): Standard_Boolean {.
     importcpp: "NewPoint", header: "ShapeCustom_ConvertToRevolution.hxx".}
-proc newCurve2d*(this: var ShapeCustomConvertToRevolution; e: TopoDS_Edge;
-                f: TopoDS_Face; newE: TopoDS_Edge; newF: TopoDS_Face;
-                c: var Handle[Geom2dCurve]; tol: var StandardReal): StandardBoolean {.
+proc NewCurve2d*(this: var ShapeCustom_ConvertToRevolution; E: TopoDS_Edge;
+                F: TopoDS_Face; NewE: TopoDS_Edge; NewF: TopoDS_Face;
+                C: var handle[Geom2d_Curve]; Tol: var Standard_Real): Standard_Boolean {.
     importcpp: "NewCurve2d", header: "ShapeCustom_ConvertToRevolution.hxx".}
-proc newParameter*(this: var ShapeCustomConvertToRevolution; v: TopoDS_Vertex;
-                  e: TopoDS_Edge; p: var StandardReal; tol: var StandardReal): StandardBoolean {.
+proc NewParameter*(this: var ShapeCustom_ConvertToRevolution; V: TopoDS_Vertex;
+                  E: TopoDS_Edge; P: var Standard_Real; Tol: var Standard_Real): Standard_Boolean {.
     importcpp: "NewParameter", header: "ShapeCustom_ConvertToRevolution.hxx".}
-proc continuity*(this: var ShapeCustomConvertToRevolution; e: TopoDS_Edge;
-                f1: TopoDS_Face; f2: TopoDS_Face; newE: TopoDS_Edge;
-                newF1: TopoDS_Face; newF2: TopoDS_Face): GeomAbsShape {.
+proc Continuity*(this: var ShapeCustom_ConvertToRevolution; E: TopoDS_Edge;
+                F1: TopoDS_Face; F2: TopoDS_Face; NewE: TopoDS_Edge;
+                NewF1: TopoDS_Face; NewF2: TopoDS_Face): GeomAbs_Shape {.
     importcpp: "Continuity", header: "ShapeCustom_ConvertToRevolution.hxx".}
 type
-  ShapeCustomConvertToRevolutionbaseType* = ShapeCustomModification
+  ShapeCustom_ConvertToRevolutionbase_type* = ShapeCustom_Modification
 
-proc getTypeName*(): cstring {.importcpp: "ShapeCustom_ConvertToRevolution::get_type_name(@)",
-                            header: "ShapeCustom_ConvertToRevolution.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "ShapeCustom_ConvertToRevolution::get_type_name(@)",
+                              header: "ShapeCustom_ConvertToRevolution.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "ShapeCustom_ConvertToRevolution::get_type_descriptor(@)",
     header: "ShapeCustom_ConvertToRevolution.hxx".}
-proc dynamicType*(this: ShapeCustomConvertToRevolution): Handle[StandardType] {.
+proc DynamicType*(this: ShapeCustom_ConvertToRevolution): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType",
     header: "ShapeCustom_ConvertToRevolution.hxx".}
-

@@ -14,6 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, GC_Root, ../Geom/Geom_TrimmedCurve
+
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of gp_Hypr"
 discard "forward decl of gp_Pnt"
@@ -47,21 +51,20 @@ type
                                                                                      ## radians).
 
 
-proc constructGC_MakeArcOfHyperbola*(hypr: GpHypr; alpha1: StandardReal;
-                                    alpha2: StandardReal; sense: StandardBoolean): GC_MakeArcOfHyperbola {.
+proc constructGC_MakeArcOfHyperbola*(Hypr: gp_Hypr; Alpha1: Standard_Real;
+                                    Alpha2: Standard_Real; Sense: Standard_Boolean): GC_MakeArcOfHyperbola {.
     constructor, importcpp: "GC_MakeArcOfHyperbola(@)",
     header: "GC_MakeArcOfHyperbola.hxx".}
-proc constructGC_MakeArcOfHyperbola*(hypr: GpHypr; p: GpPnt; alpha: StandardReal;
-                                    sense: StandardBoolean): GC_MakeArcOfHyperbola {.
+proc constructGC_MakeArcOfHyperbola*(Hypr: gp_Hypr; P: gp_Pnt; Alpha: Standard_Real;
+                                    Sense: Standard_Boolean): GC_MakeArcOfHyperbola {.
     constructor, importcpp: "GC_MakeArcOfHyperbola(@)",
     header: "GC_MakeArcOfHyperbola.hxx".}
-proc constructGC_MakeArcOfHyperbola*(hypr: GpHypr; p1: GpPnt; p2: GpPnt;
-                                    sense: StandardBoolean): GC_MakeArcOfHyperbola {.
+proc constructGC_MakeArcOfHyperbola*(Hypr: gp_Hypr; P1: gp_Pnt; P2: gp_Pnt;
+                                    Sense: Standard_Boolean): GC_MakeArcOfHyperbola {.
     constructor, importcpp: "GC_MakeArcOfHyperbola(@)",
     header: "GC_MakeArcOfHyperbola.hxx".}
-proc value*(this: GC_MakeArcOfHyperbola): Handle[GeomTrimmedCurve] {.noSideEffect,
+proc Value*(this: GC_MakeArcOfHyperbola): handle[Geom_TrimmedCurve] {.noSideEffect,
     importcpp: "Value", header: "GC_MakeArcOfHyperbola.hxx".}
-converter `constopencascade`*(this: GC_MakeArcOfHyperbola): Handle[GeomTrimmedCurve] {.
-    noSideEffect, importcpp: "GC_MakeArcOfHyperbola::operator constopencascade",
-    header: "GC_MakeArcOfHyperbola.hxx".}
-
+converter `constopencascade`*(this: GC_MakeArcOfHyperbola): handle[
+    Geom_TrimmedCurve] {.noSideEffect, importcpp: "GC_MakeArcOfHyperbola::operator constopencascade",
+                        header: "GC_MakeArcOfHyperbola.hxx".}

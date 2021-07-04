@@ -14,6 +14,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, IGESSelect_ModelModifier
+
 discard "forward decl of IFSelect_ContextModif"
 discard "forward decl of IGESData_IGESModel"
 discard "forward decl of Interface_CopyTool"
@@ -21,7 +24,7 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of IGESSelect_SetVersion5"
 discard "forward decl of IGESSelect_SetVersion5"
 type
-  HandleIGESSelectSetVersion5* = Handle[IGESSelectSetVersion5]
+  Handle_IGESSelect_SetVersion5* = handle[IGESSelect_SetVersion5]
 
 ## ! Sets IGES Version (coded in global parameter 23) to be at least
 ## ! IGES 5.1 . If it is older, it is set to IGES 5.1, and
@@ -30,40 +33,39 @@ type
 ## ! LastChangeDate)
 
 type
-  IGESSelectSetVersion5* {.importcpp: "IGESSelect_SetVersion5",
-                          header: "IGESSelect_SetVersion5.hxx", bycopy.} = object of IGESSelectModelModifier ##
-                                                                                                      ## !
-                                                                                                      ## Creates
-                                                                                                      ## an
-                                                                                                      ## SetVersion5,
-                                                                                                      ## which
-                                                                                                      ## uses
-                                                                                                      ## the
-                                                                                                      ## system
-                                                                                                      ## Date
-                                                                                                      ## for
-                                                                                                      ## Last
-                                                                                                      ##
-                                                                                                      ## !
-                                                                                                      ## Change
-                                                                                                      ## Date
+  IGESSelect_SetVersion5* {.importcpp: "IGESSelect_SetVersion5",
+                           header: "IGESSelect_SetVersion5.hxx", bycopy.} = object of IGESSelect_ModelModifier ##
+                                                                                                        ## !
+                                                                                                        ## Creates
+                                                                                                        ## an
+                                                                                                        ## SetVersion5,
+                                                                                                        ## which
+                                                                                                        ## uses
+                                                                                                        ## the
+                                                                                                        ## system
+                                                                                                        ## Date
+                                                                                                        ## for
+                                                                                                        ## Last
+                                                                                                        ##
+                                                                                                        ## !
+                                                                                                        ## Change
+                                                                                                        ## Date
 
 
-proc constructIGESSelectSetVersion5*(): IGESSelectSetVersion5 {.constructor,
+proc constructIGESSelect_SetVersion5*(): IGESSelect_SetVersion5 {.constructor,
     importcpp: "IGESSelect_SetVersion5(@)", header: "IGESSelect_SetVersion5.hxx".}
-proc performing*(this: IGESSelectSetVersion5; ctx: var IFSelectContextModif;
-                target: Handle[IGESDataIGESModel]; tc: var InterfaceCopyTool) {.
+proc Performing*(this: IGESSelect_SetVersion5; ctx: var IFSelect_ContextModif;
+                target: handle[IGESData_IGESModel]; TC: var Interface_CopyTool) {.
     noSideEffect, importcpp: "Performing", header: "IGESSelect_SetVersion5.hxx".}
-proc label*(this: IGESSelectSetVersion5): TCollectionAsciiString {.noSideEffect,
+proc Label*(this: IGESSelect_SetVersion5): TCollection_AsciiString {.noSideEffect,
     importcpp: "Label", header: "IGESSelect_SetVersion5.hxx".}
 type
-  IGESSelectSetVersion5baseType* = IGESSelectModelModifier
+  IGESSelect_SetVersion5base_type* = IGESSelect_ModelModifier
 
-proc getTypeName*(): cstring {.importcpp: "IGESSelect_SetVersion5::get_type_name(@)",
-                            header: "IGESSelect_SetVersion5.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "IGESSelect_SetVersion5::get_type_name(@)",
+                              header: "IGESSelect_SetVersion5.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "IGESSelect_SetVersion5::get_type_descriptor(@)",
     header: "IGESSelect_SetVersion5.hxx".}
-proc dynamicType*(this: IGESSelectSetVersion5): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "IGESSelect_SetVersion5.hxx".}
-
+proc DynamicType*(this: IGESSelect_SetVersion5): handle[Standard_Type] {.
+    noSideEffect, importcpp: "DynamicType", header: "IGESSelect_SetVersion5.hxx".}

@@ -14,6 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 discard "forward decl of Standard_DomainError"
 discard "forward decl of IGESGraph_TextDisplayTemplate"
 discard "forward decl of IGESData_IGESReaderData"
@@ -26,42 +30,40 @@ discard "forward decl of Interface_Check"
 discard "forward decl of Interface_CopyTool"
 discard "forward decl of IGESData_IGESDumper"
 type
-  IGESGraphToolTextDisplayTemplate* {.importcpp: "IGESGraph_ToolTextDisplayTemplate", header: "IGESGraph_ToolTextDisplayTemplate.hxx",
-                                     bycopy.} = object ## ! Returns a ToolTextDisplayTemplate, ready to work
+  IGESGraph_ToolTextDisplayTemplate* {.importcpp: "IGESGraph_ToolTextDisplayTemplate", header: "IGESGraph_ToolTextDisplayTemplate.hxx",
+                                      bycopy.} = object ## ! Returns a ToolTextDisplayTemplate, ready to work
 
 
-proc constructIGESGraphToolTextDisplayTemplate*(): IGESGraphToolTextDisplayTemplate {.
+proc constructIGESGraph_ToolTextDisplayTemplate*(): IGESGraph_ToolTextDisplayTemplate {.
     constructor, importcpp: "IGESGraph_ToolTextDisplayTemplate(@)",
     header: "IGESGraph_ToolTextDisplayTemplate.hxx".}
-proc readOwnParams*(this: IGESGraphToolTextDisplayTemplate;
-                   ent: Handle[IGESGraphTextDisplayTemplate];
-                   ir: Handle[IGESDataIGESReaderData]; pr: var IGESDataParamReader) {.
-    noSideEffect, importcpp: "ReadOwnParams",
-    header: "IGESGraph_ToolTextDisplayTemplate.hxx".}
-proc writeOwnParams*(this: IGESGraphToolTextDisplayTemplate;
-                    ent: Handle[IGESGraphTextDisplayTemplate];
-                    iw: var IGESDataIGESWriter) {.noSideEffect,
+proc ReadOwnParams*(this: IGESGraph_ToolTextDisplayTemplate;
+                   ent: handle[IGESGraph_TextDisplayTemplate];
+                   IR: handle[IGESData_IGESReaderData];
+                   PR: var IGESData_ParamReader) {.noSideEffect,
+    importcpp: "ReadOwnParams", header: "IGESGraph_ToolTextDisplayTemplate.hxx".}
+proc WriteOwnParams*(this: IGESGraph_ToolTextDisplayTemplate;
+                    ent: handle[IGESGraph_TextDisplayTemplate];
+                    IW: var IGESData_IGESWriter) {.noSideEffect,
     importcpp: "WriteOwnParams", header: "IGESGraph_ToolTextDisplayTemplate.hxx".}
-proc ownShared*(this: IGESGraphToolTextDisplayTemplate;
-               ent: Handle[IGESGraphTextDisplayTemplate];
-               iter: var InterfaceEntityIterator) {.noSideEffect,
+proc OwnShared*(this: IGESGraph_ToolTextDisplayTemplate;
+               ent: handle[IGESGraph_TextDisplayTemplate];
+               iter: var Interface_EntityIterator) {.noSideEffect,
     importcpp: "OwnShared", header: "IGESGraph_ToolTextDisplayTemplate.hxx".}
-proc dirChecker*(this: IGESGraphToolTextDisplayTemplate;
-                ent: Handle[IGESGraphTextDisplayTemplate]): IGESDataDirChecker {.
+proc DirChecker*(this: IGESGraph_ToolTextDisplayTemplate;
+                ent: handle[IGESGraph_TextDisplayTemplate]): IGESData_DirChecker {.
     noSideEffect, importcpp: "DirChecker",
     header: "IGESGraph_ToolTextDisplayTemplate.hxx".}
-proc ownCheck*(this: IGESGraphToolTextDisplayTemplate;
-              ent: Handle[IGESGraphTextDisplayTemplate];
-              shares: InterfaceShareTool; ach: var Handle[InterfaceCheck]) {.
+proc OwnCheck*(this: IGESGraph_ToolTextDisplayTemplate;
+              ent: handle[IGESGraph_TextDisplayTemplate];
+              shares: Interface_ShareTool; ach: var handle[Interface_Check]) {.
     noSideEffect, importcpp: "OwnCheck",
     header: "IGESGraph_ToolTextDisplayTemplate.hxx".}
-proc ownCopy*(this: IGESGraphToolTextDisplayTemplate;
-             entfrom: Handle[IGESGraphTextDisplayTemplate];
-             entto: Handle[IGESGraphTextDisplayTemplate];
-             tc: var InterfaceCopyTool) {.noSideEffect, importcpp: "OwnCopy", header: "IGESGraph_ToolTextDisplayTemplate.hxx".}
-proc ownDump*(this: IGESGraphToolTextDisplayTemplate;
-             ent: Handle[IGESGraphTextDisplayTemplate];
-             dumper: IGESDataIGESDumper; s: var StandardOStream; own: StandardInteger) {.
-    noSideEffect, importcpp: "OwnDump",
-    header: "IGESGraph_ToolTextDisplayTemplate.hxx".}
-
+proc OwnCopy*(this: IGESGraph_ToolTextDisplayTemplate;
+             entfrom: handle[IGESGraph_TextDisplayTemplate];
+             entto: handle[IGESGraph_TextDisplayTemplate];
+             TC: var Interface_CopyTool) {.noSideEffect, importcpp: "OwnCopy", header: "IGESGraph_ToolTextDisplayTemplate.hxx".}
+proc OwnDump*(this: IGESGraph_ToolTextDisplayTemplate;
+             ent: handle[IGESGraph_TextDisplayTemplate];
+             dumper: IGESData_IGESDumper; S: var Standard_OStream;
+             own: Standard_Integer) {.noSideEffect, importcpp: "OwnDump", header: "IGESGraph_ToolTextDisplayTemplate.hxx".}

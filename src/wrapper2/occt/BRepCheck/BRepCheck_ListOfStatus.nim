@@ -14,8 +14,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  BRepCheck_Status, ../NCollection/NCollection_List
+
 type
-  BRepCheckListOfStatus* = NCollectionList[BRepCheckStatus]
-  BRepCheckListIteratorOfListOfStatus* = Iterator[BRepCheckStatus]
-
-
+  BRepCheck_ListOfStatus* = NCollection_List[BRepCheck_Status]
+  BRepCheck_ListIteratorOfListOfStatus* = Iterator[BRepCheck_Status]

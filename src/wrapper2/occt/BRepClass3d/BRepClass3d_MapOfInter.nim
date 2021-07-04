@@ -14,10 +14,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../TopoDS/TopoDS_Shape, ../Standard/Standard_Address,
+  ../TopTools/TopTools_ShapeMapHasher, ../NCollection/NCollection_DataMap
+
 type
-  BRepClass3dMapOfInter* = NCollectionDataMap[TopoDS_Shape, StandardAddress,
-      TopToolsShapeMapHasher]
-  BRepClass3dDataMapIteratorOfMapOfInter* = Iterator[TopoDS_Shape, StandardAddress,
-      TopToolsShapeMapHasher]
-
-
+  BRepClass3d_MapOfInter* = NCollection_DataMap[TopoDS_Shape, Standard_Address,
+      TopTools_ShapeMapHasher]
+  BRepClass3d_DataMapIteratorOfMapOfInter* = Iterator[TopoDS_Shape,
+      Standard_Address, TopTools_ShapeMapHasher]

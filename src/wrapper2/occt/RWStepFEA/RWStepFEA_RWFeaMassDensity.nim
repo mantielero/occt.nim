@@ -13,6 +13,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepFEA_FeaMassDensity"
@@ -29,14 +33,13 @@ type
 proc constructRWStepFEA_RWFeaMassDensity*(): RWStepFEA_RWFeaMassDensity {.
     constructor, importcpp: "RWStepFEA_RWFeaMassDensity(@)",
     header: "RWStepFEA_RWFeaMassDensity.hxx".}
-proc readStep*(this: RWStepFEA_RWFeaMassDensity;
-              data: Handle[StepDataStepReaderData]; num: StandardInteger;
-              ach: var Handle[InterfaceCheck]; ent: Handle[StepFEA_FeaMassDensity]) {.
+proc ReadStep*(this: RWStepFEA_RWFeaMassDensity;
+              data: handle[StepData_StepReaderData]; num: Standard_Integer;
+              ach: var handle[Interface_Check]; ent: handle[StepFEA_FeaMassDensity]) {.
     noSideEffect, importcpp: "ReadStep", header: "RWStepFEA_RWFeaMassDensity.hxx".}
-proc writeStep*(this: RWStepFEA_RWFeaMassDensity; sw: var StepDataStepWriter;
-               ent: Handle[StepFEA_FeaMassDensity]) {.noSideEffect,
+proc WriteStep*(this: RWStepFEA_RWFeaMassDensity; SW: var StepData_StepWriter;
+               ent: handle[StepFEA_FeaMassDensity]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepFEA_RWFeaMassDensity.hxx".}
-proc share*(this: RWStepFEA_RWFeaMassDensity; ent: Handle[StepFEA_FeaMassDensity];
-           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
+proc Share*(this: RWStepFEA_RWFeaMassDensity; ent: handle[StepFEA_FeaMassDensity];
+           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepFEA_RWFeaMassDensity.hxx".}
-

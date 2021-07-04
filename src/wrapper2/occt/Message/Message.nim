@@ -14,26 +14,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-type
-  StreamBuffer* = ref object
-  Counter* = ref object
+import
+  Message_Messenger, Message_Gravity, Message_MetricType,
+  ../NCollection/NCollection_Vector, ../OSD/OSD_MemInfo,
+  ../TCollection/TCollection_AsciiString
 
-  
-type
-  StreamBuffer* = ref object
-  Counter* = ref object
-
-  
-type
-  StreamBuffer* = ref object
-  Counter* = ref object
-
-  
-type
-  StreamBuffer* = ref object
-  Counter* = ref object
-
-  
 discard "forward decl of Message_Report"
 type
   Message* {.importcpp: "Message", header: "Message.hxx", bycopy.} = object ## ! Defines default messenger for OCCT
@@ -69,48 +54,44 @@ type
                                                                     ## automatically creates message report when not exist.
 
 
-proc defaultMessenger*(): Handle[MessageMessenger] {.
+proc DefaultMessenger*(): handle[Message_Messenger] {.
     importcpp: "Message::DefaultMessenger(@)", header: "Message.hxx".}
-proc send*(theGravity: MessageGravity): StreamBuffer {.
+proc Send*(theGravity: Message_Gravity): StreamBuffer {.
     importcpp: "Message::Send(@)", header: "Message.hxx".}
-proc send*(theMessage: TCollectionAsciiString; theGravity: MessageGravity) {.
+proc Send*(theMessage: TCollection_AsciiString; theGravity: Message_Gravity) {.
     importcpp: "Message::Send(@)", header: "Message.hxx".}
-proc sendFail*(): StreamBuffer {.importcpp: "Message::SendFail(@)",
+proc SendFail*(): StreamBuffer {.importcpp: "Message::SendFail(@)",
                               header: "Message.hxx".}
-proc sendAlarm*(): StreamBuffer {.importcpp: "Message::SendAlarm(@)",
+proc SendAlarm*(): StreamBuffer {.importcpp: "Message::SendAlarm(@)",
                                header: "Message.hxx".}
-proc sendWarning*(): StreamBuffer {.importcpp: "Message::SendWarning(@)",
+proc SendWarning*(): StreamBuffer {.importcpp: "Message::SendWarning(@)",
                                  header: "Message.hxx".}
-proc sendInfo*(): StreamBuffer {.importcpp: "Message::SendInfo(@)",
+proc SendInfo*(): StreamBuffer {.importcpp: "Message::SendInfo(@)",
                               header: "Message.hxx".}
-proc sendTrace*(): StreamBuffer {.importcpp: "Message::SendTrace(@)",
+proc SendTrace*(): StreamBuffer {.importcpp: "Message::SendTrace(@)",
                                header: "Message.hxx".}
-proc sendFail*(theMessage: TCollectionAsciiString) {.
+proc SendFail*(theMessage: TCollection_AsciiString) {.
     importcpp: "Message::SendFail(@)", header: "Message.hxx".}
-proc sendAlarm*(theMessage: TCollectionAsciiString) {.
+proc SendAlarm*(theMessage: TCollection_AsciiString) {.
     importcpp: "Message::SendAlarm(@)", header: "Message.hxx".}
-proc sendWarning*(theMessage: TCollectionAsciiString) {.
+proc SendWarning*(theMessage: TCollection_AsciiString) {.
     importcpp: "Message::SendWarning(@)", header: "Message.hxx".}
-proc sendInfo*(theMessage: TCollectionAsciiString) {.
+proc SendInfo*(theMessage: TCollection_AsciiString) {.
     importcpp: "Message::SendInfo(@)", header: "Message.hxx".}
-proc sendTrace*(theMessage: TCollectionAsciiString) {.
+proc SendTrace*(theMessage: TCollection_AsciiString) {.
     importcpp: "Message::SendTrace(@)", header: "Message.hxx".}
-proc fillTime*(hour: StandardInteger; minute: StandardInteger; second: StandardReal): TCollectionAsciiString {.
+proc FillTime*(Hour: Standard_Integer; Minute: Standard_Integer;
+              Second: Standard_Real): TCollection_AsciiString {.
     importcpp: "Message::FillTime(@)", header: "Message.hxx".}
-proc defaultReport*(theToCreate: StandardBoolean = standardFalse): Handle[
-    MessageReport] {.importcpp: "Message::DefaultReport(@)", header: "Message.hxx".}
-proc metricFromString*(theString: StandardCString; theType: var MessageMetricType): StandardBoolean {.
+proc DefaultReport*(theToCreate: Standard_Boolean = Standard_False): handle[
+    Message_Report] {.importcpp: "Message::DefaultReport(@)", header: "Message.hxx".}
+proc MetricFromString*(theString: Standard_CString; theType: var Message_MetricType): Standard_Boolean {.
     importcpp: "Message::MetricFromString(@)", header: "Message.hxx".}
-proc metricToString*(theType: MessageMetricType): StandardCString {.
+proc MetricToString*(theType: Message_MetricType): Standard_CString {.
     importcpp: "Message::MetricToString(@)", header: "Message.hxx".}
-proc metricFromString*(theString: StandardCString): MessageMetricType {.
+proc MetricFromString*(theString: Standard_CString): Message_MetricType {.
     importcpp: "Message::MetricFromString(@)", header: "Message.hxx".}
-proc toOSDMetric*(theMetric: MessageMetricType; theMemInfo: var Counter): StandardBoolean {.
+proc ToOSDMetric*(theMetric: Message_MetricType; theMemInfo: var Counter): Standard_Boolean {.
     importcpp: "Message::ToOSDMetric(@)", header: "Message.hxx".}
-proc toMessageMetric*(theMemInfo: Counter; theMetric: var MessageMetricType): StandardBoolean {.
+proc ToMessageMetric*(theMemInfo: Counter; theMetric: var Message_MetricType): Standard_Boolean {.
     importcpp: "Message::ToMessageMetric(@)", header: "Message.hxx".}
-
-
-
-
-

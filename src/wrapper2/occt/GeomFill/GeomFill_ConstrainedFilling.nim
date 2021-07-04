@@ -14,131 +14,139 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer,
+  ../Standard/Standard_Real, GeomFill_CornerState, ../gp/gp_Vec,
+  ../Standard/Standard_Boolean, ../TColgp/TColgp_HArray1OfPnt,
+  ../TColStd/TColStd_HArray1OfInteger, ../TColStd/TColStd_HArray1OfReal,
+  ../TColgp/TColgp_HArray2OfPnt
+
 discard "forward decl of GeomFill_CoonsAlgPatch"
 discard "forward decl of GeomFill_TgtField"
 discard "forward decl of Geom_BSplineSurface"
 discard "forward decl of GeomFill_Boundary"
 discard "forward decl of GeomFill_BoundWithSurf"
 type
-  GeomFillConstrainedFilling* {.importcpp: "GeomFill_ConstrainedFilling",
-                               header: "GeomFill_ConstrainedFilling.hxx", bycopy.} = object ##
-                                                                                       ## !
-                                                                                       ## Constructs
-                                                                                       ## an
-                                                                                       ## empty
-                                                                                       ## framework
-                                                                                       ## for
-                                                                                       ## filling
-                                                                                       ## a
-                                                                                       ## surface
-                                                                                       ## from
-                                                                                       ## boundaries.
-                                                                                       ##
-                                                                                       ## !
-                                                                                       ## The
-                                                                                       ## boundaries
-                                                                                       ## of
-                                                                                       ## the
-                                                                                       ## surface
-                                                                                       ## will
-                                                                                       ## be
-                                                                                       ## defined,
-                                                                                       ## and
-                                                                                       ## the
-                                                                                       ##
-                                                                                       ## !
-                                                                                       ## surface
-                                                                                       ## will
-                                                                                       ## be
-                                                                                       ## built
-                                                                                       ## by
-                                                                                       ## using
-                                                                                       ## the
-                                                                                       ## function
-                                                                                       ## Init.
-                                                                                       ##
-                                                                                       ## !
-                                                                                       ## The
-                                                                                       ## surface
-                                                                                       ## will
-                                                                                       ## respect
-                                                                                       ## the
-                                                                                       ## following
-                                                                                       ## constraints:
-                                                                                       ##
-                                                                                       ## !
-                                                                                       ## -
-                                                                                       ## its
-                                                                                       ## degree
-                                                                                       ## will
-                                                                                       ## not
-                                                                                       ## be
-                                                                                       ## greater
-                                                                                       ## than
-                                                                                       ## MaxDeg
-                                                                                       ##
-                                                                                       ## !
-                                                                                       ## -
-                                                                                       ## the
-                                                                                       ## maximum
-                                                                                       ## number
-                                                                                       ## of
-                                                                                       ## segments
-                                                                                       ## MaxSeg
-                                                                                       ## which
-                                                                                       ##
-                                                                                       ## !
-                                                                                       ## BSpline
-                                                                                       ## surfaces
-                                                                                       ## can
-                                                                                       ## have.
-                                                                                       ##
-                                                                                       ## !
-                                                                                       ## Performs
-                                                                                       ## the
-                                                                                       ## approximation
-                                                                                       ## an
-                                                                                       ## compute
-                                                                                       ## the
-                                                                                       ## poles
-                                                                                       ## of
-                                                                                       ## the
-                                                                                       ##
-                                                                                       ## !
-                                                                                       ## surface.
+  GeomFill_ConstrainedFilling* {.importcpp: "GeomFill_ConstrainedFilling",
+                                header: "GeomFill_ConstrainedFilling.hxx", bycopy.} = object ##
+                                                                                        ## !
+                                                                                        ## Constructs
+                                                                                        ## an
+                                                                                        ## empty
+                                                                                        ## framework
+                                                                                        ## for
+                                                                                        ## filling
+                                                                                        ## a
+                                                                                        ## surface
+                                                                                        ## from
+                                                                                        ## boundaries.
+                                                                                        ##
+                                                                                        ## !
+                                                                                        ## The
+                                                                                        ## boundaries
+                                                                                        ## of
+                                                                                        ## the
+                                                                                        ## surface
+                                                                                        ## will
+                                                                                        ## be
+                                                                                        ## defined,
+                                                                                        ## and
+                                                                                        ## the
+                                                                                        ##
+                                                                                        ## !
+                                                                                        ## surface
+                                                                                        ## will
+                                                                                        ## be
+                                                                                        ## built
+                                                                                        ## by
+                                                                                        ## using
+                                                                                        ## the
+                                                                                        ## function
+                                                                                        ## Init.
+                                                                                        ##
+                                                                                        ## !
+                                                                                        ## The
+                                                                                        ## surface
+                                                                                        ## will
+                                                                                        ## respect
+                                                                                        ## the
+                                                                                        ## following
+                                                                                        ## constraints:
+                                                                                        ##
+                                                                                        ## !
+                                                                                        ## -
+                                                                                        ## its
+                                                                                        ## degree
+                                                                                        ## will
+                                                                                        ## not
+                                                                                        ## be
+                                                                                        ## greater
+                                                                                        ## than
+                                                                                        ## MaxDeg
+                                                                                        ##
+                                                                                        ## !
+                                                                                        ## -
+                                                                                        ## the
+                                                                                        ## maximum
+                                                                                        ## number
+                                                                                        ## of
+                                                                                        ## segments
+                                                                                        ## MaxSeg
+                                                                                        ## which
+                                                                                        ##
+                                                                                        ## !
+                                                                                        ## BSpline
+                                                                                        ## surfaces
+                                                                                        ## can
+                                                                                        ## have.
+                                                                                        ##
+                                                                                        ## !
+                                                                                        ## Performs
+                                                                                        ## the
+                                                                                        ## approximation
+                                                                                        ## an
+                                                                                        ## compute
+                                                                                        ## the
+                                                                                        ## poles
+                                                                                        ## of
+                                                                                        ## the
+                                                                                        ##
+                                                                                        ## !
+                                                                                        ## surface.
 
 
-proc constructGeomFillConstrainedFilling*(maxDeg: StandardInteger;
-    maxSeg: StandardInteger): GeomFillConstrainedFilling {.constructor,
+proc constructGeomFill_ConstrainedFilling*(MaxDeg: Standard_Integer;
+    MaxSeg: Standard_Integer): GeomFill_ConstrainedFilling {.constructor,
     importcpp: "GeomFill_ConstrainedFilling(@)",
     header: "GeomFill_ConstrainedFilling.hxx".}
-proc init*(this: var GeomFillConstrainedFilling; b1: Handle[GeomFillBoundary];
-          b2: Handle[GeomFillBoundary]; b3: Handle[GeomFillBoundary];
-          noCheck: StandardBoolean = standardFalse) {.importcpp: "Init",
+proc Init*(this: var GeomFill_ConstrainedFilling; B1: handle[GeomFill_Boundary];
+          B2: handle[GeomFill_Boundary]; B3: handle[GeomFill_Boundary];
+          NoCheck: Standard_Boolean = Standard_False) {.importcpp: "Init",
     header: "GeomFill_ConstrainedFilling.hxx".}
-proc init*(this: var GeomFillConstrainedFilling; b1: Handle[GeomFillBoundary];
-          b2: Handle[GeomFillBoundary]; b3: Handle[GeomFillBoundary];
-          b4: Handle[GeomFillBoundary]; noCheck: StandardBoolean = standardFalse) {.
-    importcpp: "Init", header: "GeomFill_ConstrainedFilling.hxx".}
-proc setDomain*(this: var GeomFillConstrainedFilling; l: StandardReal;
-               b: Handle[GeomFillBoundWithSurf]) {.importcpp: "SetDomain",
+proc Init*(this: var GeomFill_ConstrainedFilling; B1: handle[GeomFill_Boundary];
+          B2: handle[GeomFill_Boundary]; B3: handle[GeomFill_Boundary];
+          B4: handle[GeomFill_Boundary];
+          NoCheck: Standard_Boolean = Standard_False) {.importcpp: "Init",
     header: "GeomFill_ConstrainedFilling.hxx".}
-proc reBuild*(this: var GeomFillConstrainedFilling) {.importcpp: "ReBuild",
+proc SetDomain*(this: var GeomFill_ConstrainedFilling; l: Standard_Real;
+               B: handle[GeomFill_BoundWithSurf]) {.importcpp: "SetDomain",
     header: "GeomFill_ConstrainedFilling.hxx".}
-proc boundary*(this: GeomFillConstrainedFilling; i: StandardInteger): Handle[
-    GeomFillBoundary] {.noSideEffect, importcpp: "Boundary",
-                       header: "GeomFill_ConstrainedFilling.hxx".}
-proc surface*(this: GeomFillConstrainedFilling): Handle[GeomBSplineSurface] {.
+proc ReBuild*(this: var GeomFill_ConstrainedFilling) {.importcpp: "ReBuild",
+    header: "GeomFill_ConstrainedFilling.hxx".}
+proc Boundary*(this: GeomFill_ConstrainedFilling; I: Standard_Integer): handle[
+    GeomFill_Boundary] {.noSideEffect, importcpp: "Boundary",
+                        header: "GeomFill_ConstrainedFilling.hxx".}
+proc Surface*(this: GeomFill_ConstrainedFilling): handle[Geom_BSplineSurface] {.
     noSideEffect, importcpp: "Surface", header: "GeomFill_ConstrainedFilling.hxx".}
-proc eval*(this: GeomFillConstrainedFilling; w: StandardReal; ord: StandardInteger;
-          result: var StandardReal): StandardInteger {.noSideEffect,
-    importcpp: "Eval", header: "GeomFill_ConstrainedFilling.hxx".}
-proc checkCoonsAlgPatch*(this: var GeomFillConstrainedFilling; i: StandardInteger) {.
+proc Eval*(this: GeomFill_ConstrainedFilling; W: Standard_Real;
+          Ord: Standard_Integer; Result: var Standard_Real): Standard_Integer {.
+    noSideEffect, importcpp: "Eval", header: "GeomFill_ConstrainedFilling.hxx".}
+proc CheckCoonsAlgPatch*(this: var GeomFill_ConstrainedFilling; I: Standard_Integer) {.
     importcpp: "CheckCoonsAlgPatch", header: "GeomFill_ConstrainedFilling.hxx".}
-proc checkTgteField*(this: var GeomFillConstrainedFilling; i: StandardInteger) {.
+proc CheckTgteField*(this: var GeomFill_ConstrainedFilling; I: Standard_Integer) {.
     importcpp: "CheckTgteField", header: "GeomFill_ConstrainedFilling.hxx".}
-proc checkApprox*(this: var GeomFillConstrainedFilling; i: StandardInteger) {.
+proc CheckApprox*(this: var GeomFill_ConstrainedFilling; I: Standard_Integer) {.
     importcpp: "CheckApprox", header: "GeomFill_ConstrainedFilling.hxx".}
-proc checkResult*(this: var GeomFillConstrainedFilling; i: StandardInteger) {.
+proc CheckResult*(this: var GeomFill_ConstrainedFilling; I: Standard_Integer) {.
     importcpp: "CheckResult", header: "GeomFill_ConstrainedFilling.hxx".}
-

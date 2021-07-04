@@ -13,60 +13,68 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../TColStd/TColStd_SequenceOfReal,
+  ../Standard/Standard_Integer, ../TColStd/TColStd_SequenceOfInteger,
+  ../Standard/Standard_Real, ../Standard/Standard_Boolean
+
 discard "forward decl of IntTools_CArray1OfReal"
 discard "forward decl of IntTools_Range"
 type
-  IntToolsMarkedRangeSet* {.importcpp: "IntTools_MarkedRangeSet",
-                           header: "IntTools_MarkedRangeSet.hxx", bycopy.} = object ## !
-                                                                               ## Empty
-                                                                               ## constructor
+  IntTools_MarkedRangeSet* {.importcpp: "IntTools_MarkedRangeSet",
+                            header: "IntTools_MarkedRangeSet.hxx", bycopy.} = object ##
+                                                                                ## !
+                                                                                ## Empty
+                                                                                ## constructor
 
 
-proc constructIntToolsMarkedRangeSet*(): IntToolsMarkedRangeSet {.constructor,
+proc constructIntTools_MarkedRangeSet*(): IntTools_MarkedRangeSet {.constructor,
     importcpp: "IntTools_MarkedRangeSet(@)", header: "IntTools_MarkedRangeSet.hxx".}
-proc constructIntToolsMarkedRangeSet*(theFirstBoundary: StandardReal;
-                                     theLastBoundary: StandardReal;
-                                     theInitFlag: StandardInteger): IntToolsMarkedRangeSet {.
+proc constructIntTools_MarkedRangeSet*(theFirstBoundary: Standard_Real;
+                                      theLastBoundary: Standard_Real;
+                                      theInitFlag: Standard_Integer): IntTools_MarkedRangeSet {.
     constructor, importcpp: "IntTools_MarkedRangeSet(@)",
     header: "IntTools_MarkedRangeSet.hxx".}
-proc constructIntToolsMarkedRangeSet*(theSortedArray: IntToolsCArray1OfReal;
-                                     theInitFlag: StandardInteger): IntToolsMarkedRangeSet {.
+proc constructIntTools_MarkedRangeSet*(theSortedArray: IntTools_CArray1OfReal;
+                                      theInitFlag: Standard_Integer): IntTools_MarkedRangeSet {.
     constructor, importcpp: "IntTools_MarkedRangeSet(@)",
     header: "IntTools_MarkedRangeSet.hxx".}
-proc setBoundaries*(this: var IntToolsMarkedRangeSet;
-                   theFirstBoundary: StandardReal; theLastBoundary: StandardReal;
-                   theInitFlag: StandardInteger) {.importcpp: "SetBoundaries",
+proc SetBoundaries*(this: var IntTools_MarkedRangeSet;
+                   theFirstBoundary: Standard_Real;
+                   theLastBoundary: Standard_Real; theInitFlag: Standard_Integer) {.
+    importcpp: "SetBoundaries", header: "IntTools_MarkedRangeSet.hxx".}
+proc SetRanges*(this: var IntTools_MarkedRangeSet;
+               theSortedArray: IntTools_CArray1OfReal;
+               theInitFlag: Standard_Integer) {.importcpp: "SetRanges",
     header: "IntTools_MarkedRangeSet.hxx".}
-proc setRanges*(this: var IntToolsMarkedRangeSet;
-               theSortedArray: IntToolsCArray1OfReal; theInitFlag: StandardInteger) {.
-    importcpp: "SetRanges", header: "IntTools_MarkedRangeSet.hxx".}
-proc insertRange*(this: var IntToolsMarkedRangeSet; theFirstBoundary: StandardReal;
-                 theLastBoundary: StandardReal; theFlag: StandardInteger): StandardBoolean {.
+proc InsertRange*(this: var IntTools_MarkedRangeSet;
+                 theFirstBoundary: Standard_Real; theLastBoundary: Standard_Real;
+                 theFlag: Standard_Integer): Standard_Boolean {.
     importcpp: "InsertRange", header: "IntTools_MarkedRangeSet.hxx".}
-proc insertRange*(this: var IntToolsMarkedRangeSet; theRange: IntToolsRange;
-                 theFlag: StandardInteger): StandardBoolean {.
+proc InsertRange*(this: var IntTools_MarkedRangeSet; theRange: IntTools_Range;
+                 theFlag: Standard_Integer): Standard_Boolean {.
     importcpp: "InsertRange", header: "IntTools_MarkedRangeSet.hxx".}
-proc insertRange*(this: var IntToolsMarkedRangeSet; theFirstBoundary: StandardReal;
-                 theLastBoundary: StandardReal; theFlag: StandardInteger;
-                 theIndex: StandardInteger): StandardBoolean {.
+proc InsertRange*(this: var IntTools_MarkedRangeSet;
+                 theFirstBoundary: Standard_Real; theLastBoundary: Standard_Real;
+                 theFlag: Standard_Integer; theIndex: Standard_Integer): Standard_Boolean {.
     importcpp: "InsertRange", header: "IntTools_MarkedRangeSet.hxx".}
-proc insertRange*(this: var IntToolsMarkedRangeSet; theRange: IntToolsRange;
-                 theFlag: StandardInteger; theIndex: StandardInteger): StandardBoolean {.
+proc InsertRange*(this: var IntTools_MarkedRangeSet; theRange: IntTools_Range;
+                 theFlag: Standard_Integer; theIndex: Standard_Integer): Standard_Boolean {.
     importcpp: "InsertRange", header: "IntTools_MarkedRangeSet.hxx".}
-proc setFlag*(this: var IntToolsMarkedRangeSet; theIndex: StandardInteger;
-             theFlag: StandardInteger) {.importcpp: "SetFlag",
-                                       header: "IntTools_MarkedRangeSet.hxx".}
-proc flag*(this: IntToolsMarkedRangeSet; theIndex: StandardInteger): StandardInteger {.
+proc SetFlag*(this: var IntTools_MarkedRangeSet; theIndex: Standard_Integer;
+             theFlag: Standard_Integer) {.importcpp: "SetFlag",
+                                        header: "IntTools_MarkedRangeSet.hxx".}
+proc Flag*(this: IntTools_MarkedRangeSet; theIndex: Standard_Integer): Standard_Integer {.
     noSideEffect, importcpp: "Flag", header: "IntTools_MarkedRangeSet.hxx".}
-proc getIndex*(this: IntToolsMarkedRangeSet; theValue: StandardReal): StandardInteger {.
+proc GetIndex*(this: IntTools_MarkedRangeSet; theValue: Standard_Real): Standard_Integer {.
     noSideEffect, importcpp: "GetIndex", header: "IntTools_MarkedRangeSet.hxx".}
-proc getIndices*(this: var IntToolsMarkedRangeSet; theValue: StandardReal): TColStdSequenceOfInteger {.
+proc GetIndices*(this: var IntTools_MarkedRangeSet; theValue: Standard_Real): TColStd_SequenceOfInteger {.
     importcpp: "GetIndices", header: "IntTools_MarkedRangeSet.hxx".}
-proc getIndex*(this: IntToolsMarkedRangeSet; theValue: StandardReal;
-              useLower: StandardBoolean): StandardInteger {.noSideEffect,
+proc GetIndex*(this: IntTools_MarkedRangeSet; theValue: Standard_Real;
+              UseLower: Standard_Boolean): Standard_Integer {.noSideEffect,
     importcpp: "GetIndex", header: "IntTools_MarkedRangeSet.hxx".}
-proc length*(this: IntToolsMarkedRangeSet): StandardInteger {.noSideEffect,
+proc Length*(this: IntTools_MarkedRangeSet): Standard_Integer {.noSideEffect,
     importcpp: "Length", header: "IntTools_MarkedRangeSet.hxx".}
-proc range*(this: IntToolsMarkedRangeSet; theIndex: StandardInteger): IntToolsRange {.
+proc Range*(this: IntTools_MarkedRangeSet; theIndex: Standard_Integer): IntTools_Range {.
     noSideEffect, importcpp: "Range", header: "IntTools_MarkedRangeSet.hxx".}
-

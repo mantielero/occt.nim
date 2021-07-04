@@ -12,26 +12,28 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../gp/gp_XYZ, ../Graphic3d/Graphic3d_Vec3,
+  ../TCollection/TCollection_AsciiString
+
 ## ! Auxiliary tools for OBJ format parser.
 
 ## ! Read 3 float values.
 
-proc readVec3*(thePos: cstring; theNext: cstring; theVec: var Graphic3dVec3): bool =
+proc ReadVec3*(thePos: cstring; theNext: cstring; theVec: var Graphic3d_Vec3): bool =
   discard
 
 ## ! Read 3 double values.
 
-proc readVec3*(thePos: cstring; theNext: cstring; theVec: var GpXYZ): bool =
+proc ReadVec3*(thePos: cstring; theNext: cstring; theVec: var gp_XYZ): bool =
   discard
 
 ## ! Read string.
 
-proc readName*(thePos: cstring; theName: var TCollectionAsciiString): bool =
+proc ReadName*(thePos: cstring; theName: var TCollection_AsciiString): bool =
   discard
 
 ## ! Return true if specified char is a white space.
 
 proc isSpaceChar*(theChar: char): bool =
   discard
-
-

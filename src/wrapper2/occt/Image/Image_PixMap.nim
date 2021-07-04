@@ -13,231 +13,235 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  Image_Format, Image_PixMapData, ../Standard/Standard_Transient,
+  ../Quantity/Quantity_ColorRGBA
+
 ## ! Class represents packed image plane.
 
 type
-  ImagePixMap* {.importcpp: "Image_PixMap", header: "Image_PixMap.hxx", bycopy.} = object of StandardTransient ##
-                                                                                                     ## !
-                                                                                                     ## Determine
-                                                                                                     ## Big-Endian
-                                                                                                     ## at
-                                                                                                     ## runtime
-                                                                                                     ##
-                                                                                                     ## high-level
-                                                                                                     ## API
-                                                                                                     ##
-                                                                                                     ## !
-                                                                                                     ## @name
-                                                                                                     ## low-level
-                                                                                                     ## API
-                                                                                                     ## for
-                                                                                                     ## batch-processing
-                                                                                                     ## (pixels
-                                                                                                     ## reading
-                                                                                                     ## /
-                                                                                                     ## comparison
-                                                                                                     ## /
-                                                                                                     ## modification)
-                                                                                                     ##
-                                                                                                     ## !
-                                                                                                     ## Returns
-                                                                                                     ## TRUE
-                                                                                                     ## if
-                                                                                                     ## image
-                                                                                                     ## data
-                                                                                                     ## is
-                                                                                                     ## stored
-                                                                                                     ## from
-                                                                                                     ## Top
-                                                                                                     ## to
-                                                                                                     ## the
-                                                                                                     ## Down.
-                                                                                                     ##
-                                                                                                     ## !
-                                                                                                     ## By
-                                                                                                     ## default
-                                                                                                     ## Bottom
-                                                                                                     ## Up
-                                                                                                     ## order
-                                                                                                     ## is
-                                                                                                     ## used
-                                                                                                     ## instead
-                                                                                                     ##
-                                                                                                     ## !
-                                                                                                     ## (topmost
-                                                                                                     ## scanlines
-                                                                                                     ## starts
-                                                                                                     ## from
-                                                                                                     ## the
-                                                                                                     ## bottom
-                                                                                                     ## in
-                                                                                                     ## memory).
-                                                                                                     ##
-                                                                                                     ## !
-                                                                                                     ## which
-                                                                                                     ## is
-                                                                                                     ## most
-                                                                                                     ## image
-                                                                                                     ## frameworks
-                                                                                                     ## naturally
-                                                                                                     ## support.
-                                                                                                     ##
-                                                                                                     ## !
-                                                                                                     ##
-                                                                                                     ## !
-                                                                                                     ## Notice
-                                                                                                     ## that
-                                                                                                     ## access
-                                                                                                     ## methods
-                                                                                                     ## within
-                                                                                                     ## this
-                                                                                                     ## class
-                                                                                                     ## automatically
-                                                                                                     ##
-                                                                                                     ## !
-                                                                                                     ## convert
-                                                                                                     ## input
-                                                                                                     ## row-index
-                                                                                                     ## to
-                                                                                                     ## apply
-                                                                                                     ## this
-                                                                                                     ## flag!
-                                                                                                     ##
-                                                                                                     ## !
-                                                                                                     ## You
-                                                                                                     ## should
-                                                                                                     ## use
-                                                                                                     ## this
-                                                                                                     ## flag
-                                                                                                     ## only
-                                                                                                     ## if
-                                                                                                     ## interconnect
-                                                                                                     ## with
-                                                                                                     ## alien
-                                                                                                     ## APIs
-                                                                                                     ## and
-                                                                                                     ## buffers.
-                                                                                                     ##
-                                                                                                     ## !
-                                                                                                     ## @return
-                                                                                                     ## true
-                                                                                                     ## if
-                                                                                                     ## image
-                                                                                                     ## data
-                                                                                                     ## is
-                                                                                                     ## top-down
-                                                                                                     ##
-                                                                                                     ## !
-                                                                                                     ## Copying
-                                                                                                     ## allowed
-                                                                                                     ## only
-                                                                                                     ## within
-                                                                                                     ## Handles
+  Image_PixMap* {.importcpp: "Image_PixMap", header: "Image_PixMap.hxx", bycopy.} = object of Standard_Transient ##
+                                                                                                       ## !
+                                                                                                       ## Determine
+                                                                                                       ## Big-Endian
+                                                                                                       ## at
+                                                                                                       ## runtime
+                                                                                                       ##
+                                                                                                       ## high-level
+                                                                                                       ## API
+                                                                                                       ##
+                                                                                                       ## !
+                                                                                                       ## @name
+                                                                                                       ## low-level
+                                                                                                       ## API
+                                                                                                       ## for
+                                                                                                       ## batch-processing
+                                                                                                       ## (pixels
+                                                                                                       ## reading
+                                                                                                       ## /
+                                                                                                       ## comparison
+                                                                                                       ## /
+                                                                                                       ## modification)
+                                                                                                       ##
+                                                                                                       ## !
+                                                                                                       ## Returns
+                                                                                                       ## TRUE
+                                                                                                       ## if
+                                                                                                       ## image
+                                                                                                       ## data
+                                                                                                       ## is
+                                                                                                       ## stored
+                                                                                                       ## from
+                                                                                                       ## Top
+                                                                                                       ## to
+                                                                                                       ## the
+                                                                                                       ## Down.
+                                                                                                       ##
+                                                                                                       ## !
+                                                                                                       ## By
+                                                                                                       ## default
+                                                                                                       ## Bottom
+                                                                                                       ## Up
+                                                                                                       ## order
+                                                                                                       ## is
+                                                                                                       ## used
+                                                                                                       ## instead
+                                                                                                       ##
+                                                                                                       ## !
+                                                                                                       ## (topmost
+                                                                                                       ## scanlines
+                                                                                                       ## starts
+                                                                                                       ## from
+                                                                                                       ## the
+                                                                                                       ## bottom
+                                                                                                       ## in
+                                                                                                       ## memory).
+                                                                                                       ##
+                                                                                                       ## !
+                                                                                                       ## which
+                                                                                                       ## is
+                                                                                                       ## most
+                                                                                                       ## image
+                                                                                                       ## frameworks
+                                                                                                       ## naturally
+                                                                                                       ## support.
+                                                                                                       ##
+                                                                                                       ## !
+                                                                                                       ##
+                                                                                                       ## !
+                                                                                                       ## Notice
+                                                                                                       ## that
+                                                                                                       ## access
+                                                                                                       ## methods
+                                                                                                       ## within
+                                                                                                       ## this
+                                                                                                       ## class
+                                                                                                       ## automatically
+                                                                                                       ##
+                                                                                                       ## !
+                                                                                                       ## convert
+                                                                                                       ## input
+                                                                                                       ## row-index
+                                                                                                       ## to
+                                                                                                       ## apply
+                                                                                                       ## this
+                                                                                                       ## flag!
+                                                                                                       ##
+                                                                                                       ## !
+                                                                                                       ## You
+                                                                                                       ## should
+                                                                                                       ## use
+                                                                                                       ## this
+                                                                                                       ## flag
+                                                                                                       ## only
+                                                                                                       ## if
+                                                                                                       ## interconnect
+                                                                                                       ## with
+                                                                                                       ## alien
+                                                                                                       ## APIs
+                                                                                                       ## and
+                                                                                                       ## buffers.
+                                                                                                       ##
+                                                                                                       ## !
+                                                                                                       ## @return
+                                                                                                       ## true
+                                                                                                       ## if
+                                                                                                       ## image
+                                                                                                       ## data
+                                                                                                       ## is
+                                                                                                       ## top-down
+                                                                                                       ##
+                                                                                                       ## !
+                                                                                                       ## Copying
+                                                                                                       ## allowed
+                                                                                                       ## only
+                                                                                                       ## within
+                                                                                                       ## Handles
     ## !< data buffer
     ## !< pixel format
 
-  ImagePixMapbaseType* = StandardTransient
+  Image_PixMapbase_type* = Standard_Transient
 
-proc getTypeName*(): cstring {.importcpp: "Image_PixMap::get_type_name(@)",
-                            header: "Image_PixMap.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "Image_PixMap::get_type_name(@)",
+                              header: "Image_PixMap.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "Image_PixMap::get_type_descriptor(@)", header: "Image_PixMap.hxx".}
-proc dynamicType*(this: ImagePixMap): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: Image_PixMap): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "Image_PixMap.hxx".}
-proc isBigEndianHost*(): bool {.importcpp: "Image_PixMap::IsBigEndianHost(@)",
+proc IsBigEndianHost*(): bool {.importcpp: "Image_PixMap::IsBigEndianHost(@)",
                              header: "Image_PixMap.hxx".}
-proc swapRgbaBgra*(theImage: var ImagePixMap): bool {.
+proc SwapRgbaBgra*(theImage: var Image_PixMap): bool {.
     importcpp: "Image_PixMap::SwapRgbaBgra(@)", header: "Image_PixMap.hxx".}
-proc toBlackWhite*(theImage: var ImagePixMap) {.
+proc ToBlackWhite*(theImage: var Image_PixMap) {.
     importcpp: "Image_PixMap::ToBlackWhite(@)", header: "Image_PixMap.hxx".}
-proc defaultAllocator*(): Handle[NCollectionBaseAllocator] {.
+proc DefaultAllocator*(): handle[NCollection_BaseAllocator] {.
     importcpp: "Image_PixMap::DefaultAllocator(@)", header: "Image_PixMap.hxx".}
-proc format*(this: ImagePixMap): ImageFormat {.noSideEffect, importcpp: "Format",
+proc Format*(this: Image_PixMap): Image_Format {.noSideEffect, importcpp: "Format",
     header: "Image_PixMap.hxx".}
-proc setFormat*(this: var ImagePixMap; thePixelFormat: ImageFormat) {.
+proc SetFormat*(this: var Image_PixMap; thePixelFormat: Image_Format) {.
     importcpp: "SetFormat", header: "Image_PixMap.hxx".}
-proc width*(this: ImagePixMap): StandardSize {.noSideEffect, importcpp: "Width",
+proc Width*(this: Image_PixMap): Standard_Size {.noSideEffect, importcpp: "Width",
     header: "Image_PixMap.hxx".}
-proc height*(this: ImagePixMap): StandardSize {.noSideEffect, importcpp: "Height",
+proc Height*(this: Image_PixMap): Standard_Size {.noSideEffect, importcpp: "Height",
     header: "Image_PixMap.hxx".}
-proc sizeX*(this: ImagePixMap): StandardSize {.noSideEffect, importcpp: "SizeX",
+proc SizeX*(this: Image_PixMap): Standard_Size {.noSideEffect, importcpp: "SizeX",
     header: "Image_PixMap.hxx".}
-proc sizeY*(this: ImagePixMap): StandardSize {.noSideEffect, importcpp: "SizeY",
+proc SizeY*(this: Image_PixMap): Standard_Size {.noSideEffect, importcpp: "SizeY",
     header: "Image_PixMap.hxx".}
-proc ratio*(this: ImagePixMap): StandardReal {.noSideEffect, importcpp: "Ratio",
+proc Ratio*(this: Image_PixMap): Standard_Real {.noSideEffect, importcpp: "Ratio",
     header: "Image_PixMap.hxx".}
-proc isEmpty*(this: ImagePixMap): bool {.noSideEffect, importcpp: "IsEmpty",
-                                     header: "Image_PixMap.hxx".}
-proc constructImagePixMap*(): ImagePixMap {.constructor,
+proc IsEmpty*(this: Image_PixMap): bool {.noSideEffect, importcpp: "IsEmpty",
+                                      header: "Image_PixMap.hxx".}
+proc constructImage_PixMap*(): Image_PixMap {.constructor,
     importcpp: "Image_PixMap(@)", header: "Image_PixMap.hxx".}
-proc destroyImagePixMap*(this: var ImagePixMap) {.importcpp: "#.~Image_PixMap()",
+proc destroyImage_PixMap*(this: var Image_PixMap) {.importcpp: "#.~Image_PixMap()",
     header: "Image_PixMap.hxx".}
-proc pixelColor*(this: ImagePixMap; theX: StandardInteger; theY: StandardInteger;
-                theToLinearize: StandardBoolean = standardFalse): QuantityColorRGBA {.
+proc PixelColor*(this: Image_PixMap; theX: Standard_Integer; theY: Standard_Integer;
+                theToLinearize: Standard_Boolean = Standard_False): Quantity_ColorRGBA {.
     noSideEffect, importcpp: "PixelColor", header: "Image_PixMap.hxx".}
-proc setPixelColor*(this: var ImagePixMap; theX: StandardInteger;
-                   theY: StandardInteger; theColor: QuantityColor;
-                   theToDeLinearize: StandardBoolean = standardFalse) {.
+proc SetPixelColor*(this: var Image_PixMap; theX: Standard_Integer;
+                   theY: Standard_Integer; theColor: Quantity_Color;
+                   theToDeLinearize: Standard_Boolean = Standard_False) {.
     importcpp: "SetPixelColor", header: "Image_PixMap.hxx".}
-proc setPixelColor*(this: var ImagePixMap; theX: StandardInteger;
-                   theY: StandardInteger; theColor: QuantityColorRGBA;
-                   theToDeLinearize: StandardBoolean = standardFalse) {.
+proc SetPixelColor*(this: var Image_PixMap; theX: Standard_Integer;
+                   theY: Standard_Integer; theColor: Quantity_ColorRGBA;
+                   theToDeLinearize: Standard_Boolean = Standard_False) {.
     importcpp: "SetPixelColor", header: "Image_PixMap.hxx".}
-proc initWrapper*(this: var ImagePixMap; thePixelFormat: ImageFormat;
-                 theDataPtr: ptr StandardByte; theSizeX: StandardSize;
-                 theSizeY: StandardSize; theSizeRowBytes: StandardSize = 0): bool {.
+proc InitWrapper*(this: var Image_PixMap; thePixelFormat: Image_Format;
+                 theDataPtr: ptr Standard_Byte; theSizeX: Standard_Size;
+                 theSizeY: Standard_Size; theSizeRowBytes: Standard_Size = 0): bool {.
     importcpp: "InitWrapper", header: "Image_PixMap.hxx".}
-proc initTrash*(this: var ImagePixMap; thePixelFormat: ImageFormat;
-               theSizeX: StandardSize; theSizeY: StandardSize;
-               theSizeRowBytes: StandardSize = 0): bool {.importcpp: "InitTrash",
+proc InitTrash*(this: var Image_PixMap; thePixelFormat: Image_Format;
+               theSizeX: Standard_Size; theSizeY: Standard_Size;
+               theSizeRowBytes: Standard_Size = 0): bool {.importcpp: "InitTrash",
     header: "Image_PixMap.hxx".}
-proc initCopy*(this: var ImagePixMap; theCopy: ImagePixMap): bool {.
+proc InitCopy*(this: var Image_PixMap; theCopy: Image_PixMap): bool {.
     importcpp: "InitCopy", header: "Image_PixMap.hxx".}
-proc initZero*(this: var ImagePixMap; thePixelFormat: ImageFormat;
-              theSizeX: StandardSize; theSizeY: StandardSize;
-              theSizeRowBytes: StandardSize = 0; theValue: StandardByte = 0): bool {.
+proc InitZero*(this: var Image_PixMap; thePixelFormat: Image_Format;
+              theSizeX: Standard_Size; theSizeY: Standard_Size;
+              theSizeRowBytes: Standard_Size = 0; theValue: Standard_Byte = 0): bool {.
     importcpp: "InitZero", header: "Image_PixMap.hxx".}
-proc clear*(this: var ImagePixMap) {.importcpp: "Clear", header: "Image_PixMap.hxx".}
-proc isTopDown*(this: ImagePixMap): bool {.noSideEffect, importcpp: "IsTopDown",
-                                       header: "Image_PixMap.hxx".}
-proc setTopDown*(this: var ImagePixMap; theIsTopDown: bool) {.importcpp: "SetTopDown",
-    header: "Image_PixMap.hxx".}
-proc topDownInc*(this: ImagePixMap): StandardSize {.noSideEffect,
+proc Clear*(this: var Image_PixMap) {.importcpp: "Clear", header: "Image_PixMap.hxx".}
+proc IsTopDown*(this: Image_PixMap): bool {.noSideEffect, importcpp: "IsTopDown",
+                                        header: "Image_PixMap.hxx".}
+proc SetTopDown*(this: var Image_PixMap; theIsTopDown: bool) {.
+    importcpp: "SetTopDown", header: "Image_PixMap.hxx".}
+proc TopDownInc*(this: Image_PixMap): Standard_Size {.noSideEffect,
     importcpp: "TopDownInc", header: "Image_PixMap.hxx".}
-proc data*(this: ImagePixMap): ptr StandardByte {.noSideEffect, importcpp: "Data",
+proc Data*(this: Image_PixMap): ptr Standard_Byte {.noSideEffect, importcpp: "Data",
     header: "Image_PixMap.hxx".}
-proc changeData*(this: var ImagePixMap): ptr StandardByte {.importcpp: "ChangeData",
+proc ChangeData*(this: var Image_PixMap): ptr Standard_Byte {.importcpp: "ChangeData",
     header: "Image_PixMap.hxx".}
-proc row*(this: ImagePixMap; theRow: StandardSize): ptr StandardByte {.noSideEffect,
+proc Row*(this: Image_PixMap; theRow: Standard_Size): ptr Standard_Byte {.noSideEffect,
     importcpp: "Row", header: "Image_PixMap.hxx".}
-proc changeRow*(this: var ImagePixMap; theRow: StandardSize): ptr StandardByte {.
+proc ChangeRow*(this: var Image_PixMap; theRow: Standard_Size): ptr Standard_Byte {.
     importcpp: "ChangeRow", header: "Image_PixMap.hxx".}
-proc sizePixelBytes*(this: ImagePixMap): StandardSize {.noSideEffect,
+proc SizePixelBytes*(this: Image_PixMap): Standard_Size {.noSideEffect,
     importcpp: "SizePixelBytes", header: "Image_PixMap.hxx".}
-proc sizePixelBytes*(thePixelFormat: ImageFormat): StandardSize {.
+proc SizePixelBytes*(thePixelFormat: Image_Format): Standard_Size {.
     importcpp: "Image_PixMap::SizePixelBytes(@)", header: "Image_PixMap.hxx".}
-proc sizeRowBytes*(this: ImagePixMap): StandardSize {.noSideEffect,
+proc SizeRowBytes*(this: Image_PixMap): Standard_Size {.noSideEffect,
     importcpp: "SizeRowBytes", header: "Image_PixMap.hxx".}
-proc rowExtraBytes*(this: ImagePixMap): StandardSize {.noSideEffect,
+proc RowExtraBytes*(this: Image_PixMap): Standard_Size {.noSideEffect,
     importcpp: "RowExtraBytes", header: "Image_PixMap.hxx".}
-proc maxRowAligmentBytes*(this: ImagePixMap): StandardSize {.noSideEffect,
+proc MaxRowAligmentBytes*(this: Image_PixMap): Standard_Size {.noSideEffect,
     importcpp: "MaxRowAligmentBytes", header: "Image_PixMap.hxx".}
-proc sizeBytes*(this: ImagePixMap): StandardSize {.noSideEffect,
+proc SizeBytes*(this: Image_PixMap): Standard_Size {.noSideEffect,
     importcpp: "SizeBytes", header: "Image_PixMap.hxx".}
-proc value*[ColorTypeT](this: ImagePixMap; theRow: StandardSize; theCol: StandardSize): ColorTypeT {.
-    noSideEffect, importcpp: "Value", header: "Image_PixMap.hxx".}
-proc changeValue*[ColorTypeT](this: var ImagePixMap; theRow: StandardSize;
-                             theCol: StandardSize): var ColorTypeT {.
+proc Value*[ColorType_t](this: Image_PixMap; theRow: Standard_Size;
+                        theCol: Standard_Size): ColorType_t {.noSideEffect,
+    importcpp: "Value", header: "Image_PixMap.hxx".}
+proc ChangeValue*[ColorType_t](this: var Image_PixMap; theRow: Standard_Size;
+                              theCol: Standard_Size): var ColorType_t {.
     importcpp: "ChangeValue", header: "Image_PixMap.hxx".}
-proc rawValue*(this: ImagePixMap; theRow: StandardSize; theCol: StandardSize): ptr StandardByte {.
+proc RawValue*(this: Image_PixMap; theRow: Standard_Size; theCol: Standard_Size): ptr Standard_Byte {.
     noSideEffect, importcpp: "RawValue", header: "Image_PixMap.hxx".}
-proc changeRawValue*(this: var ImagePixMap; theRow: StandardSize; theCol: StandardSize): ptr StandardByte {.
+proc ChangeRawValue*(this: var Image_PixMap; theRow: Standard_Size;
+                    theCol: Standard_Size): ptr Standard_Byte {.
     importcpp: "ChangeRawValue", header: "Image_PixMap.hxx".}
 ## !!!Ignored construct:  public : Standard_DEPRECATED ( This member is deprecated, use Image_Format enumeration instead ) typedef Image_Format ImgFormat ;
 ## Error: identifier expected, but got: This member is deprecated, use Image_Format enumeration instead!!!
 
 discard "forward decl of Image_PixMap"
 type
-  HandleImagePixMap* = Handle[ImagePixMap]
-
-
+  Handle_Image_PixMap* = handle[Image_PixMap]

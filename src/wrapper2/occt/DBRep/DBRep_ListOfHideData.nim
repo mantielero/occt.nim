@@ -14,8 +14,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  DBRep_HideData, ../NCollection/NCollection_List
+
 type
-  DBRepListOfHideData* = NCollectionList[DBRepHideData]
-  DBRepListIteratorOfListOfHideData* = Iterator[DBRepHideData]
-
-
+  DBRep_ListOfHideData* = NCollection_List[DBRep_HideData]
+  DBRep_ListIteratorOfListOfHideData* = Iterator[DBRep_HideData]

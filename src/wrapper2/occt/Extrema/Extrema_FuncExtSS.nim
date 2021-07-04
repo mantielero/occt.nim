@@ -14,41 +14,48 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Adaptor3d/Adaptor3d_SurfacePtr, ../gp/gp_Pnt,
+  ../Standard/Standard_Real, ../TColStd/TColStd_SequenceOfReal,
+  Extrema_SequenceOfPOnSurf, ../Standard/Standard_Boolean,
+  ../math/math_FunctionSetWithDerivatives, ../Standard/Standard_Integer,
+  ../math/math_Vector
+
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of Adaptor3d_Surface"
 discard "forward decl of math_Matrix"
 discard "forward decl of Extrema_POnSurf"
 type
-  ExtremaFuncExtSS* {.importcpp: "Extrema_FuncExtSS",
-                     header: "Extrema_FuncExtSS.hxx", bycopy.} = object of MathFunctionSetWithDerivatives
+  Extrema_FuncExtSS* {.importcpp: "Extrema_FuncExtSS",
+                      header: "Extrema_FuncExtSS.hxx", bycopy.} = object of math_FunctionSetWithDerivatives
 
 
-proc constructExtremaFuncExtSS*(): ExtremaFuncExtSS {.constructor,
+proc constructExtrema_FuncExtSS*(): Extrema_FuncExtSS {.constructor,
     importcpp: "Extrema_FuncExtSS(@)", header: "Extrema_FuncExtSS.hxx".}
-proc constructExtremaFuncExtSS*(s1: Adaptor3dSurface; s2: Adaptor3dSurface): ExtremaFuncExtSS {.
+proc constructExtrema_FuncExtSS*(S1: Adaptor3d_Surface; S2: Adaptor3d_Surface): Extrema_FuncExtSS {.
     constructor, importcpp: "Extrema_FuncExtSS(@)", header: "Extrema_FuncExtSS.hxx".}
-proc initialize*(this: var ExtremaFuncExtSS; s1: Adaptor3dSurface;
-                s2: Adaptor3dSurface) {.importcpp: "Initialize",
-                                      header: "Extrema_FuncExtSS.hxx".}
-proc nbVariables*(this: ExtremaFuncExtSS): StandardInteger {.noSideEffect,
+proc Initialize*(this: var Extrema_FuncExtSS; S1: Adaptor3d_Surface;
+                S2: Adaptor3d_Surface) {.importcpp: "Initialize",
+                                       header: "Extrema_FuncExtSS.hxx".}
+proc NbVariables*(this: Extrema_FuncExtSS): Standard_Integer {.noSideEffect,
     importcpp: "NbVariables", header: "Extrema_FuncExtSS.hxx".}
-proc nbEquations*(this: ExtremaFuncExtSS): StandardInteger {.noSideEffect,
+proc NbEquations*(this: Extrema_FuncExtSS): Standard_Integer {.noSideEffect,
     importcpp: "NbEquations", header: "Extrema_FuncExtSS.hxx".}
-proc value*(this: var ExtremaFuncExtSS; uv: MathVector; f: var MathVector): StandardBoolean {.
+proc Value*(this: var Extrema_FuncExtSS; UV: math_Vector; F: var math_Vector): Standard_Boolean {.
     importcpp: "Value", header: "Extrema_FuncExtSS.hxx".}
-proc derivatives*(this: var ExtremaFuncExtSS; uv: MathVector; df: var MathMatrix): StandardBoolean {.
+proc Derivatives*(this: var Extrema_FuncExtSS; UV: math_Vector; DF: var math_Matrix): Standard_Boolean {.
     importcpp: "Derivatives", header: "Extrema_FuncExtSS.hxx".}
-proc values*(this: var ExtremaFuncExtSS; uv: MathVector; f: var MathVector;
-            df: var MathMatrix): StandardBoolean {.importcpp: "Values",
+proc Values*(this: var Extrema_FuncExtSS; UV: math_Vector; F: var math_Vector;
+            DF: var math_Matrix): Standard_Boolean {.importcpp: "Values",
     header: "Extrema_FuncExtSS.hxx".}
-proc getStateNumber*(this: var ExtremaFuncExtSS): StandardInteger {.
+proc GetStateNumber*(this: var Extrema_FuncExtSS): Standard_Integer {.
     importcpp: "GetStateNumber", header: "Extrema_FuncExtSS.hxx".}
-proc nbExt*(this: ExtremaFuncExtSS): StandardInteger {.noSideEffect,
+proc NbExt*(this: Extrema_FuncExtSS): Standard_Integer {.noSideEffect,
     importcpp: "NbExt", header: "Extrema_FuncExtSS.hxx".}
-proc squareDistance*(this: ExtremaFuncExtSS; n: StandardInteger): StandardReal {.
+proc SquareDistance*(this: Extrema_FuncExtSS; N: Standard_Integer): Standard_Real {.
     noSideEffect, importcpp: "SquareDistance", header: "Extrema_FuncExtSS.hxx".}
-proc pointOnS1*(this: ExtremaFuncExtSS; n: StandardInteger): ExtremaPOnSurf {.
+proc PointOnS1*(this: Extrema_FuncExtSS; N: Standard_Integer): Extrema_POnSurf {.
     noSideEffect, importcpp: "PointOnS1", header: "Extrema_FuncExtSS.hxx".}
-proc pointOnS2*(this: ExtremaFuncExtSS; n: StandardInteger): ExtremaPOnSurf {.
+proc PointOnS2*(this: Extrema_FuncExtSS; N: Standard_Integer): Extrema_POnSurf {.
     noSideEffect, importcpp: "PointOnS2", header: "Extrema_FuncExtSS.hxx".}
-

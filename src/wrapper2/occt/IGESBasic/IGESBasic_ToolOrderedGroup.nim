@@ -14,6 +14,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
+  ../Standard/Standard_Integer
+
 discard "forward decl of Standard_DomainError"
 discard "forward decl of IGESBasic_OrderedGroup"
 discard "forward decl of IGESData_IGESReaderData"
@@ -26,47 +31,48 @@ discard "forward decl of Interface_Check"
 discard "forward decl of Interface_CopyTool"
 discard "forward decl of IGESData_IGESDumper"
 type
-  IGESBasicToolOrderedGroup* {.importcpp: "IGESBasic_ToolOrderedGroup",
-                              header: "IGESBasic_ToolOrderedGroup.hxx", bycopy.} = object ##
-                                                                                     ## !
-                                                                                     ## Returns
-                                                                                     ## a
-                                                                                     ## ToolOrderedGroup,
-                                                                                     ## ready
-                                                                                     ## to
-                                                                                     ## work
+  IGESBasic_ToolOrderedGroup* {.importcpp: "IGESBasic_ToolOrderedGroup",
+                               header: "IGESBasic_ToolOrderedGroup.hxx", bycopy.} = object ##
+                                                                                      ## !
+                                                                                      ## Returns
+                                                                                      ## a
+                                                                                      ## ToolOrderedGroup,
+                                                                                      ## ready
+                                                                                      ## to
+                                                                                      ## work
 
 
-proc constructIGESBasicToolOrderedGroup*(): IGESBasicToolOrderedGroup {.
+proc constructIGESBasic_ToolOrderedGroup*(): IGESBasic_ToolOrderedGroup {.
     constructor, importcpp: "IGESBasic_ToolOrderedGroup(@)",
     header: "IGESBasic_ToolOrderedGroup.hxx".}
-proc readOwnParams*(this: IGESBasicToolOrderedGroup;
-                   ent: Handle[IGESBasicOrderedGroup];
-                   ir: Handle[IGESDataIGESReaderData]; pr: var IGESDataParamReader) {.
-    noSideEffect, importcpp: "ReadOwnParams",
-    header: "IGESBasic_ToolOrderedGroup.hxx".}
-proc writeOwnParams*(this: IGESBasicToolOrderedGroup;
-                    ent: Handle[IGESBasicOrderedGroup]; iw: var IGESDataIGESWriter) {.
-    noSideEffect, importcpp: "WriteOwnParams",
-    header: "IGESBasic_ToolOrderedGroup.hxx".}
-proc ownShared*(this: IGESBasicToolOrderedGroup;
-               ent: Handle[IGESBasicOrderedGroup];
-               iter: var InterfaceEntityIterator) {.noSideEffect,
+proc ReadOwnParams*(this: IGESBasic_ToolOrderedGroup;
+                   ent: handle[IGESBasic_OrderedGroup];
+                   IR: handle[IGESData_IGESReaderData];
+                   PR: var IGESData_ParamReader) {.noSideEffect,
+    importcpp: "ReadOwnParams", header: "IGESBasic_ToolOrderedGroup.hxx".}
+proc WriteOwnParams*(this: IGESBasic_ToolOrderedGroup;
+                    ent: handle[IGESBasic_OrderedGroup];
+                    IW: var IGESData_IGESWriter) {.noSideEffect,
+    importcpp: "WriteOwnParams", header: "IGESBasic_ToolOrderedGroup.hxx".}
+proc OwnShared*(this: IGESBasic_ToolOrderedGroup;
+               ent: handle[IGESBasic_OrderedGroup];
+               iter: var Interface_EntityIterator) {.noSideEffect,
     importcpp: "OwnShared", header: "IGESBasic_ToolOrderedGroup.hxx".}
-proc ownCorrect*(this: IGESBasicToolOrderedGroup;
-                ent: Handle[IGESBasicOrderedGroup]): StandardBoolean {.
+proc OwnCorrect*(this: IGESBasic_ToolOrderedGroup;
+                ent: handle[IGESBasic_OrderedGroup]): Standard_Boolean {.
     noSideEffect, importcpp: "OwnCorrect", header: "IGESBasic_ToolOrderedGroup.hxx".}
-proc dirChecker*(this: IGESBasicToolOrderedGroup;
-                ent: Handle[IGESBasicOrderedGroup]): IGESDataDirChecker {.
+proc DirChecker*(this: IGESBasic_ToolOrderedGroup;
+                ent: handle[IGESBasic_OrderedGroup]): IGESData_DirChecker {.
     noSideEffect, importcpp: "DirChecker", header: "IGESBasic_ToolOrderedGroup.hxx".}
-proc ownCheck*(this: IGESBasicToolOrderedGroup; ent: Handle[IGESBasicOrderedGroup];
-              shares: InterfaceShareTool; ach: var Handle[InterfaceCheck]) {.
-    noSideEffect, importcpp: "OwnCheck", header: "IGESBasic_ToolOrderedGroup.hxx".}
-proc ownCopy*(this: IGESBasicToolOrderedGroup;
-             entfrom: Handle[IGESBasicOrderedGroup];
-             entto: Handle[IGESBasicOrderedGroup]; tc: var InterfaceCopyTool) {.
+proc OwnCheck*(this: IGESBasic_ToolOrderedGroup;
+              ent: handle[IGESBasic_OrderedGroup]; shares: Interface_ShareTool;
+              ach: var handle[Interface_Check]) {.noSideEffect,
+    importcpp: "OwnCheck", header: "IGESBasic_ToolOrderedGroup.hxx".}
+proc OwnCopy*(this: IGESBasic_ToolOrderedGroup;
+             entfrom: handle[IGESBasic_OrderedGroup];
+             entto: handle[IGESBasic_OrderedGroup]; TC: var Interface_CopyTool) {.
     noSideEffect, importcpp: "OwnCopy", header: "IGESBasic_ToolOrderedGroup.hxx".}
-proc ownDump*(this: IGESBasicToolOrderedGroup; ent: Handle[IGESBasicOrderedGroup];
-             dumper: IGESDataIGESDumper; s: var StandardOStream; own: StandardInteger) {.
-    noSideEffect, importcpp: "OwnDump", header: "IGESBasic_ToolOrderedGroup.hxx".}
-
+proc OwnDump*(this: IGESBasic_ToolOrderedGroup;
+             ent: handle[IGESBasic_OrderedGroup]; dumper: IGESData_IGESDumper;
+             S: var Standard_OStream; own: Standard_Integer) {.noSideEffect,
+    importcpp: "OwnDump", header: "IGESBasic_ToolOrderedGroup.hxx".}

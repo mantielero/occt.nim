@@ -14,48 +14,54 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, NLPlate_SequenceOfHGPPConstraint,
+  NLPlate_StackOfPlate, ../Standard/Standard_Boolean,
+  ../Standard/Standard_Integer, ../Standard/Standard_Real
+
 discard "forward decl of Geom_Surface"
 discard "forward decl of NLPlate_HGPPConstraint"
 discard "forward decl of gp_XYZ"
 discard "forward decl of gp_XY"
 type
-  NLPlateNLPlate* {.importcpp: "NLPlate_NLPlate", header: "NLPlate_NLPlate.hxx",
-                   bycopy.} = object
+  NLPlate_NLPlate* {.importcpp: "NLPlate_NLPlate", header: "NLPlate_NLPlate.hxx",
+                    bycopy.} = object
 
 
-proc constructNLPlateNLPlate*(initialSurface: Handle[GeomSurface]): NLPlateNLPlate {.
+proc constructNLPlate_NLPlate*(InitialSurface: handle[Geom_Surface]): NLPlate_NLPlate {.
     constructor, importcpp: "NLPlate_NLPlate(@)", header: "NLPlate_NLPlate.hxx".}
-proc load*(this: var NLPlateNLPlate; gConst: Handle[NLPlateHGPPConstraint]) {.
+proc Load*(this: var NLPlate_NLPlate; GConst: handle[NLPlate_HGPPConstraint]) {.
     importcpp: "Load", header: "NLPlate_NLPlate.hxx".}
-proc solve*(this: var NLPlateNLPlate; ord: StandardInteger = 2;
-           initialConsraintOrder: StandardInteger = 1) {.importcpp: "Solve",
+proc Solve*(this: var NLPlate_NLPlate; ord: Standard_Integer = 2;
+           InitialConsraintOrder: Standard_Integer = 1) {.importcpp: "Solve",
     header: "NLPlate_NLPlate.hxx".}
-proc solve2*(this: var NLPlateNLPlate; ord: StandardInteger = 2;
-            initialConsraintOrder: StandardInteger = 1) {.importcpp: "Solve2",
+proc Solve2*(this: var NLPlate_NLPlate; ord: Standard_Integer = 2;
+            InitialConsraintOrder: Standard_Integer = 1) {.importcpp: "Solve2",
     header: "NLPlate_NLPlate.hxx".}
-proc incrementalSolve*(this: var NLPlateNLPlate; ord: StandardInteger = 2;
-                      initialConsraintOrder: StandardInteger = 1;
-                      nbIncrements: StandardInteger = 4;
-                      uVSliding: StandardBoolean = standardFalse) {.
+proc IncrementalSolve*(this: var NLPlate_NLPlate; ord: Standard_Integer = 2;
+                      InitialConsraintOrder: Standard_Integer = 1;
+                      NbIncrements: Standard_Integer = 4;
+                      UVSliding: Standard_Boolean = Standard_False) {.
     importcpp: "IncrementalSolve", header: "NLPlate_NLPlate.hxx".}
-proc isDone*(this: NLPlateNLPlate): StandardBoolean {.noSideEffect,
+proc IsDone*(this: NLPlate_NLPlate): Standard_Boolean {.noSideEffect,
     importcpp: "IsDone", header: "NLPlate_NLPlate.hxx".}
-proc destroy*(this: var NLPlateNLPlate) {.importcpp: "destroy",
-                                      header: "NLPlate_NLPlate.hxx".}
-proc destroyNLPlateNLPlate*(this: var NLPlateNLPlate) {.
+proc destroy*(this: var NLPlate_NLPlate) {.importcpp: "destroy",
+                                       header: "NLPlate_NLPlate.hxx".}
+proc destroyNLPlate_NLPlate*(this: var NLPlate_NLPlate) {.
     importcpp: "#.~NLPlate_NLPlate()", header: "NLPlate_NLPlate.hxx".}
-proc init*(this: var NLPlateNLPlate) {.importcpp: "Init",
-                                   header: "NLPlate_NLPlate.hxx".}
-proc evaluate*(this: NLPlateNLPlate; point2d: GpXY): GpXYZ {.noSideEffect,
+proc Init*(this: var NLPlate_NLPlate) {.importcpp: "Init",
+                                    header: "NLPlate_NLPlate.hxx".}
+proc Evaluate*(this: NLPlate_NLPlate; point2d: gp_XY): gp_XYZ {.noSideEffect,
     importcpp: "Evaluate", header: "NLPlate_NLPlate.hxx".}
-proc evaluateDerivative*(this: NLPlateNLPlate; point2d: GpXY; iu: StandardInteger;
-                        iv: StandardInteger): GpXYZ {.noSideEffect,
+proc EvaluateDerivative*(this: NLPlate_NLPlate; point2d: gp_XY; iu: Standard_Integer;
+                        iv: Standard_Integer): gp_XYZ {.noSideEffect,
     importcpp: "EvaluateDerivative", header: "NLPlate_NLPlate.hxx".}
-proc continuity*(this: NLPlateNLPlate): StandardInteger {.noSideEffect,
+proc Continuity*(this: NLPlate_NLPlate): Standard_Integer {.noSideEffect,
     importcpp: "Continuity", header: "NLPlate_NLPlate.hxx".}
-proc constraintsSliding*(this: var NLPlateNLPlate; nbIterations: StandardInteger = 3) {.
+proc ConstraintsSliding*(this: var NLPlate_NLPlate;
+                        NbIterations: Standard_Integer = 3) {.
     importcpp: "ConstraintsSliding", header: "NLPlate_NLPlate.hxx".}
-proc maxActiveConstraintOrder*(this: NLPlateNLPlate): StandardInteger {.
+proc MaxActiveConstraintOrder*(this: NLPlate_NLPlate): Standard_Integer {.
     noSideEffect, importcpp: "MaxActiveConstraintOrder",
     header: "NLPlate_NLPlate.hxx".}
-

@@ -14,13 +14,22 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type,
+  ../TCollection/TCollection_AsciiString, Interface_ParamType,
+  ../Standard/Standard_Type, ../Standard/Standard_Integer,
+  ../Standard/Standard_Real, ../TColStd/TColStd_HArray1OfAsciiString,
+  Interface_StaticSatisfies, ../Standard/Standard_Boolean, Interface_TypedValue,
+  ../Standard/Standard_CString, ../Standard/Standard_Character,
+  ../TColStd/TColStd_HSequenceOfHAsciiString
+
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of Standard_Transient"
 discard "forward decl of Interface_InterfaceError"
 discard "forward decl of Interface_Static"
 discard "forward decl of Interface_Static"
 type
-  HandleInterfaceStatic* = Handle[InterfaceStatic]
+  Handle_Interface_Static* = handle[Interface_Static]
 
 ## ! This class gives a way to manage meaningfull static variables,
 ## ! used as "global" parameters in various procedures.
@@ -47,84 +56,176 @@ type
 ## ! dictionary
 
 type
-  InterfaceStatic* {.importcpp: "Interface_Static", header: "Interface_Static.hxx",
-                    bycopy.} = object of InterfaceTypedValue ## ! Creates and records a Static, with a family and a name
-                                                        ## ! family can report to a name of ressource or to a system or
-                                                        ## ! internal definition. The name must be unique.
-                                                        ## !
-                                                        ## ! type gives the type of the parameter, default is free text
-                                                        ## ! Also available : Integer, Real, Enum, Entity (i.e. Object)
-                                                        ## ! More precise specifications, titles, can be given to the
-                                                        ## ! Static once created
-                                                        ## !
-                                                        ## ! init gives an initial value. If it is not given, the Static
-                                                        ## ! begin as "not set", its value is empty
+  Interface_Static* {.importcpp: "Interface_Static",
+                     header: "Interface_Static.hxx", bycopy.} = object of Interface_TypedValue ##
+                                                                                        ## !
+                                                                                        ## Creates
+                                                                                        ## and
+                                                                                        ## records
+                                                                                        ## a
+                                                                                        ## Static,
+                                                                                        ## with
+                                                                                        ## a
+                                                                                        ## family
+                                                                                        ## and
+                                                                                        ## a
+                                                                                        ## name
+                                                                                        ##
+                                                                                        ## !
+                                                                                        ## family
+                                                                                        ## can
+                                                                                        ## report
+                                                                                        ## to
+                                                                                        ## a
+                                                                                        ## name
+                                                                                        ## of
+                                                                                        ## ressource
+                                                                                        ## or
+                                                                                        ## to
+                                                                                        ## a
+                                                                                        ## system
+                                                                                        ## or
+                                                                                        ##
+                                                                                        ## !
+                                                                                        ## internal
+                                                                                        ## definition.
+                                                                                        ## The
+                                                                                        ## name
+                                                                                        ## must
+                                                                                        ## be
+                                                                                        ## unique.
+                                                                                        ##
+                                                                                        ## !
+                                                                                        ##
+                                                                                        ## !
+                                                                                        ## type
+                                                                                        ## gives
+                                                                                        ## the
+                                                                                        ## type
+                                                                                        ## of
+                                                                                        ## the
+                                                                                        ## parameter,
+                                                                                        ## default
+                                                                                        ## is
+                                                                                        ## free
+                                                                                        ## text
+                                                                                        ##
+                                                                                        ## !
+                                                                                        ## Also
+                                                                                        ## available
+                                                                                        ## :
+                                                                                        ## Integer,
+                                                                                        ## Real,
+                                                                                        ## Enum,
+                                                                                        ## Entity
+                                                                                        ## (i.e.
+                                                                                        ## Object)
+                                                                                        ##
+                                                                                        ## !
+                                                                                        ## More
+                                                                                        ## precise
+                                                                                        ## specifications,
+                                                                                        ## titles,
+                                                                                        ## can
+                                                                                        ## be
+                                                                                        ## given
+                                                                                        ## to
+                                                                                        ## the
+                                                                                        ##
+                                                                                        ## !
+                                                                                        ## Static
+                                                                                        ## once
+                                                                                        ## created
+                                                                                        ##
+                                                                                        ## !
+                                                                                        ##
+                                                                                        ## !
+                                                                                        ## init
+                                                                                        ## gives
+                                                                                        ## an
+                                                                                        ## initial
+                                                                                        ## value.
+                                                                                        ## If
+                                                                                        ## it
+                                                                                        ## is
+                                                                                        ## not
+                                                                                        ## given,
+                                                                                        ## the
+                                                                                        ## Static
+                                                                                        ##
+                                                                                        ## !
+                                                                                        ## begin
+                                                                                        ## as
+                                                                                        ## "not
+                                                                                        ## set",
+                                                                                        ## its
+                                                                                        ## value
+                                                                                        ## is
+                                                                                        ## empty
 
 
-proc constructInterfaceStatic*(family: StandardCString; name: StandardCString;
-                              `type`: InterfaceParamType = interfaceParamText;
-                              init: StandardCString = ""): InterfaceStatic {.
+proc constructInterface_Static*(family: Standard_CString; name: Standard_CString;
+    `type`: Interface_ParamType = Interface_ParamText; init: Standard_CString = ""): Interface_Static {.
     constructor, importcpp: "Interface_Static(@)", header: "Interface_Static.hxx".}
-proc constructInterfaceStatic*(family: StandardCString; name: StandardCString;
-                              other: Handle[InterfaceStatic]): InterfaceStatic {.
+proc constructInterface_Static*(family: Standard_CString; name: Standard_CString;
+                               other: handle[Interface_Static]): Interface_Static {.
     constructor, importcpp: "Interface_Static(@)", header: "Interface_Static.hxx".}
-proc printStatic*(this: InterfaceStatic; s: var StandardOStream) {.noSideEffect,
+proc PrintStatic*(this: Interface_Static; S: var Standard_OStream) {.noSideEffect,
     importcpp: "PrintStatic", header: "Interface_Static.hxx".}
-proc family*(this: InterfaceStatic): StandardCString {.noSideEffect,
+proc Family*(this: Interface_Static): Standard_CString {.noSideEffect,
     importcpp: "Family", header: "Interface_Static.hxx".}
-proc setWild*(this: var InterfaceStatic; wildcard: Handle[InterfaceStatic]) {.
+proc SetWild*(this: var Interface_Static; wildcard: handle[Interface_Static]) {.
     importcpp: "SetWild", header: "Interface_Static.hxx".}
-proc wild*(this: InterfaceStatic): Handle[InterfaceStatic] {.noSideEffect,
+proc Wild*(this: Interface_Static): handle[Interface_Static] {.noSideEffect,
     importcpp: "Wild", header: "Interface_Static.hxx".}
-proc setUptodate*(this: var InterfaceStatic) {.importcpp: "SetUptodate",
+proc SetUptodate*(this: var Interface_Static) {.importcpp: "SetUptodate",
     header: "Interface_Static.hxx".}
-proc updatedStatus*(this: InterfaceStatic): StandardBoolean {.noSideEffect,
+proc UpdatedStatus*(this: Interface_Static): Standard_Boolean {.noSideEffect,
     importcpp: "UpdatedStatus", header: "Interface_Static.hxx".}
-proc init*(family: StandardCString; name: StandardCString;
-          `type`: InterfaceParamType; init: StandardCString = ""): StandardBoolean {.
+proc Init*(family: Standard_CString; name: Standard_CString;
+          `type`: Interface_ParamType; init: Standard_CString = ""): Standard_Boolean {.
     importcpp: "Interface_Static::Init(@)", header: "Interface_Static.hxx".}
-proc init*(family: StandardCString; name: StandardCString; `type`: StandardCharacter;
-          init: StandardCString = ""): StandardBoolean {.
+proc Init*(family: Standard_CString; name: Standard_CString;
+          `type`: Standard_Character; init: Standard_CString = ""): Standard_Boolean {.
     importcpp: "Interface_Static::Init(@)", header: "Interface_Static.hxx".}
-proc `static`*(name: StandardCString): Handle[InterfaceStatic] {.
+proc Static*(name: Standard_CString): handle[Interface_Static] {.
     importcpp: "Interface_Static::Static(@)", header: "Interface_Static.hxx".}
-proc isPresent*(name: StandardCString): StandardBoolean {.
+proc IsPresent*(name: Standard_CString): Standard_Boolean {.
     importcpp: "Interface_Static::IsPresent(@)", header: "Interface_Static.hxx".}
-proc cDef*(name: StandardCString; part: StandardCString): StandardCString {.
+proc CDef*(name: Standard_CString; part: Standard_CString): Standard_CString {.
     importcpp: "Interface_Static::CDef(@)", header: "Interface_Static.hxx".}
-proc iDef*(name: StandardCString; part: StandardCString): StandardInteger {.
+proc IDef*(name: Standard_CString; part: Standard_CString): Standard_Integer {.
     importcpp: "Interface_Static::IDef(@)", header: "Interface_Static.hxx".}
-proc isSet*(name: StandardCString; proper: StandardBoolean = standardTrue): StandardBoolean {.
+proc IsSet*(name: Standard_CString; proper: Standard_Boolean = Standard_True): Standard_Boolean {.
     importcpp: "Interface_Static::IsSet(@)", header: "Interface_Static.hxx".}
-proc cVal*(name: StandardCString): StandardCString {.
+proc CVal*(name: Standard_CString): Standard_CString {.
     importcpp: "Interface_Static::CVal(@)", header: "Interface_Static.hxx".}
-proc iVal*(name: StandardCString): StandardInteger {.
+proc IVal*(name: Standard_CString): Standard_Integer {.
     importcpp: "Interface_Static::IVal(@)", header: "Interface_Static.hxx".}
-proc rVal*(name: StandardCString): StandardReal {.
+proc RVal*(name: Standard_CString): Standard_Real {.
     importcpp: "Interface_Static::RVal(@)", header: "Interface_Static.hxx".}
-proc setCVal*(name: StandardCString; val: StandardCString): StandardBoolean {.
+proc SetCVal*(name: Standard_CString; val: Standard_CString): Standard_Boolean {.
     importcpp: "Interface_Static::SetCVal(@)", header: "Interface_Static.hxx".}
-proc setIVal*(name: StandardCString; val: StandardInteger): StandardBoolean {.
+proc SetIVal*(name: Standard_CString; val: Standard_Integer): Standard_Boolean {.
     importcpp: "Interface_Static::SetIVal(@)", header: "Interface_Static.hxx".}
-proc setRVal*(name: StandardCString; val: StandardReal): StandardBoolean {.
+proc SetRVal*(name: Standard_CString; val: Standard_Real): Standard_Boolean {.
     importcpp: "Interface_Static::SetRVal(@)", header: "Interface_Static.hxx".}
-proc update*(name: StandardCString): StandardBoolean {.
+proc Update*(name: Standard_CString): Standard_Boolean {.
     importcpp: "Interface_Static::Update(@)", header: "Interface_Static.hxx".}
-proc isUpdated*(name: StandardCString): StandardBoolean {.
+proc IsUpdated*(name: Standard_CString): Standard_Boolean {.
     importcpp: "Interface_Static::IsUpdated(@)", header: "Interface_Static.hxx".}
-proc items*(mode: StandardInteger = 0; criter: StandardCString = ""): Handle[
-    TColStdHSequenceOfHAsciiString] {.importcpp: "Interface_Static::Items(@)",
-                                     header: "Interface_Static.hxx".}
-proc standards*() {.importcpp: "Interface_Static::Standards(@)",
+proc Items*(mode: Standard_Integer = 0; criter: Standard_CString = ""): handle[
+    TColStd_HSequenceOfHAsciiString] {.importcpp: "Interface_Static::Items(@)",
+                                      header: "Interface_Static.hxx".}
+proc Standards*() {.importcpp: "Interface_Static::Standards(@)",
                   header: "Interface_Static.hxx".}
 type
-  InterfaceStaticbaseType* = InterfaceTypedValue
+  Interface_Staticbase_type* = Interface_TypedValue
 
-proc getTypeName*(): cstring {.importcpp: "Interface_Static::get_type_name(@)",
-                            header: "Interface_Static.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "Interface_Static::get_type_name(@)",
+                              header: "Interface_Static.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "Interface_Static::get_type_descriptor(@)",
     header: "Interface_Static.hxx".}
-proc dynamicType*(this: InterfaceStatic): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: Interface_Static): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "Interface_Static.hxx".}
-

@@ -14,33 +14,36 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepVisual_ContextDependentInvisibility"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepVisualRWContextDependentInvisibility* {.
+  RWStepVisual_RWContextDependentInvisibility* {.
       importcpp: "RWStepVisual_RWContextDependentInvisibility",
       header: "RWStepVisual_RWContextDependentInvisibility.hxx", bycopy.} = object
 
 
-proc constructRWStepVisualRWContextDependentInvisibility*(): RWStepVisualRWContextDependentInvisibility {.
+proc constructRWStepVisual_RWContextDependentInvisibility*(): RWStepVisual_RWContextDependentInvisibility {.
     constructor, importcpp: "RWStepVisual_RWContextDependentInvisibility(@)",
     header: "RWStepVisual_RWContextDependentInvisibility.hxx".}
-proc readStep*(this: RWStepVisualRWContextDependentInvisibility;
-              data: Handle[StepDataStepReaderData]; num: StandardInteger;
-              ach: var Handle[InterfaceCheck];
-              ent: Handle[StepVisualContextDependentInvisibility]) {.noSideEffect,
-    importcpp: "ReadStep",
+proc ReadStep*(this: RWStepVisual_RWContextDependentInvisibility;
+              data: handle[StepData_StepReaderData]; num: Standard_Integer;
+              ach: var handle[Interface_Check];
+              ent: handle[StepVisual_ContextDependentInvisibility]) {.
+    noSideEffect, importcpp: "ReadStep",
     header: "RWStepVisual_RWContextDependentInvisibility.hxx".}
-proc writeStep*(this: RWStepVisualRWContextDependentInvisibility;
-               sw: var StepDataStepWriter;
-               ent: Handle[StepVisualContextDependentInvisibility]) {.
+proc WriteStep*(this: RWStepVisual_RWContextDependentInvisibility;
+               SW: var StepData_StepWriter;
+               ent: handle[StepVisual_ContextDependentInvisibility]) {.
     noSideEffect, importcpp: "WriteStep",
     header: "RWStepVisual_RWContextDependentInvisibility.hxx".}
-proc share*(this: RWStepVisualRWContextDependentInvisibility;
-           ent: Handle[StepVisualContextDependentInvisibility];
-           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
+proc Share*(this: RWStepVisual_RWContextDependentInvisibility;
+           ent: handle[StepVisual_ContextDependentInvisibility];
+           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepVisual_RWContextDependentInvisibility.hxx".}
-

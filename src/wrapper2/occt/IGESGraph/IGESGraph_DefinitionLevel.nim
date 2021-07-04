@@ -14,11 +14,16 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type,
+  ../TColStd/TColStd_HArray1OfInteger, ../IGESData/IGESData_LevelListEntity,
+  ../Standard/Standard_Integer
+
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of IGESGraph_DefinitionLevel"
 discard "forward decl of IGESGraph_DefinitionLevel"
 type
-  HandleIGESGraphDefinitionLevel* = Handle[IGESGraphDefinitionLevel]
+  Handle_IGESGraph_DefinitionLevel* = handle[IGESGraph_DefinitionLevel]
 
 ## ! defines IGESDefinitionLevel, Type <406> Form <1>
 ## ! in package IGESGraph
@@ -27,32 +32,31 @@ type
 ## ! defined
 
 type
-  IGESGraphDefinitionLevel* {.importcpp: "IGESGraph_DefinitionLevel",
-                             header: "IGESGraph_DefinitionLevel.hxx", bycopy.} = object of IGESDataLevelListEntity
+  IGESGraph_DefinitionLevel* {.importcpp: "IGESGraph_DefinitionLevel",
+                              header: "IGESGraph_DefinitionLevel.hxx", bycopy.} = object of IGESData_LevelListEntity
 
 
-proc constructIGESGraphDefinitionLevel*(): IGESGraphDefinitionLevel {.constructor,
-    importcpp: "IGESGraph_DefinitionLevel(@)",
+proc constructIGESGraph_DefinitionLevel*(): IGESGraph_DefinitionLevel {.
+    constructor, importcpp: "IGESGraph_DefinitionLevel(@)",
     header: "IGESGraph_DefinitionLevel.hxx".}
-proc init*(this: var IGESGraphDefinitionLevel;
-          allLevelNumbers: Handle[TColStdHArray1OfInteger]) {.importcpp: "Init",
+proc Init*(this: var IGESGraph_DefinitionLevel;
+          allLevelNumbers: handle[TColStd_HArray1OfInteger]) {.importcpp: "Init",
     header: "IGESGraph_DefinitionLevel.hxx".}
-proc nbPropertyValues*(this: IGESGraphDefinitionLevel): StandardInteger {.
+proc NbPropertyValues*(this: IGESGraph_DefinitionLevel): Standard_Integer {.
     noSideEffect, importcpp: "NbPropertyValues",
     header: "IGESGraph_DefinitionLevel.hxx".}
-proc nbLevelNumbers*(this: IGESGraphDefinitionLevel): StandardInteger {.
+proc NbLevelNumbers*(this: IGESGraph_DefinitionLevel): Standard_Integer {.
     noSideEffect, importcpp: "NbLevelNumbers",
     header: "IGESGraph_DefinitionLevel.hxx".}
-proc levelNumber*(this: IGESGraphDefinitionLevel; levelIndex: StandardInteger): StandardInteger {.
+proc LevelNumber*(this: IGESGraph_DefinitionLevel; LevelIndex: Standard_Integer): Standard_Integer {.
     noSideEffect, importcpp: "LevelNumber", header: "IGESGraph_DefinitionLevel.hxx".}
 type
-  IGESGraphDefinitionLevelbaseType* = IGESDataLevelListEntity
+  IGESGraph_DefinitionLevelbase_type* = IGESData_LevelListEntity
 
-proc getTypeName*(): cstring {.importcpp: "IGESGraph_DefinitionLevel::get_type_name(@)",
-                            header: "IGESGraph_DefinitionLevel.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "IGESGraph_DefinitionLevel::get_type_name(@)",
+                              header: "IGESGraph_DefinitionLevel.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "IGESGraph_DefinitionLevel::get_type_descriptor(@)",
     header: "IGESGraph_DefinitionLevel.hxx".}
-proc dynamicType*(this: IGESGraphDefinitionLevel): Handle[StandardType] {.
+proc DynamicType*(this: IGESGraph_DefinitionLevel): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType", header: "IGESGraph_DefinitionLevel.hxx".}
-

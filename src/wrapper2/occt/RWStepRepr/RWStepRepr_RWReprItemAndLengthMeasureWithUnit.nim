@@ -13,28 +13,31 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepRepr_ReprItemAndLengthMeasureWithUnit"
 discard "forward decl of StepData_StepWriter"
 type
-  RWStepReprRWReprItemAndLengthMeasureWithUnit* {.
+  RWStepRepr_RWReprItemAndLengthMeasureWithUnit* {.
       importcpp: "RWStepRepr_RWReprItemAndLengthMeasureWithUnit",
       header: "RWStepRepr_RWReprItemAndLengthMeasureWithUnit.hxx", bycopy.} = object
 
 
-proc constructRWStepReprRWReprItemAndLengthMeasureWithUnit*(): RWStepReprRWReprItemAndLengthMeasureWithUnit {.
+proc constructRWStepRepr_RWReprItemAndLengthMeasureWithUnit*(): RWStepRepr_RWReprItemAndLengthMeasureWithUnit {.
     constructor, importcpp: "RWStepRepr_RWReprItemAndLengthMeasureWithUnit(@)",
     header: "RWStepRepr_RWReprItemAndLengthMeasureWithUnit.hxx".}
-proc readStep*(this: RWStepReprRWReprItemAndLengthMeasureWithUnit;
-              data: Handle[StepDataStepReaderData]; num: StandardInteger;
-              ach: var Handle[InterfaceCheck];
-              ent: Handle[StepReprReprItemAndLengthMeasureWithUnit]) {.
+proc ReadStep*(this: RWStepRepr_RWReprItemAndLengthMeasureWithUnit;
+              data: handle[StepData_StepReaderData]; num: Standard_Integer;
+              ach: var handle[Interface_Check];
+              ent: handle[StepRepr_ReprItemAndLengthMeasureWithUnit]) {.
     noSideEffect, importcpp: "ReadStep",
     header: "RWStepRepr_RWReprItemAndLengthMeasureWithUnit.hxx".}
-proc writeStep*(this: RWStepReprRWReprItemAndLengthMeasureWithUnit;
-               sw: var StepDataStepWriter;
-               ent: Handle[StepReprReprItemAndLengthMeasureWithUnit]) {.
+proc WriteStep*(this: RWStepRepr_RWReprItemAndLengthMeasureWithUnit;
+               SW: var StepData_StepWriter;
+               ent: handle[StepRepr_ReprItemAndLengthMeasureWithUnit]) {.
     noSideEffect, importcpp: "WriteStep",
     header: "RWStepRepr_RWReprItemAndLengthMeasureWithUnit.hxx".}
-

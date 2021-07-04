@@ -14,27 +14,33 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepVisual_CameraModelD2"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepVisualRWCameraModelD2* {.importcpp: "RWStepVisual_RWCameraModelD2",
-                                header: "RWStepVisual_RWCameraModelD2.hxx", bycopy.} = object
+  RWStepVisual_RWCameraModelD2* {.importcpp: "RWStepVisual_RWCameraModelD2",
+                                 header: "RWStepVisual_RWCameraModelD2.hxx",
+                                 bycopy.} = object
 
 
-proc constructRWStepVisualRWCameraModelD2*(): RWStepVisualRWCameraModelD2 {.
+proc constructRWStepVisual_RWCameraModelD2*(): RWStepVisual_RWCameraModelD2 {.
     constructor, importcpp: "RWStepVisual_RWCameraModelD2(@)",
     header: "RWStepVisual_RWCameraModelD2.hxx".}
-proc readStep*(this: RWStepVisualRWCameraModelD2;
-              data: Handle[StepDataStepReaderData]; num: StandardInteger;
-              ach: var Handle[InterfaceCheck]; ent: Handle[StepVisualCameraModelD2]) {.
-    noSideEffect, importcpp: "ReadStep", header: "RWStepVisual_RWCameraModelD2.hxx".}
-proc writeStep*(this: RWStepVisualRWCameraModelD2; sw: var StepDataStepWriter;
-               ent: Handle[StepVisualCameraModelD2]) {.noSideEffect,
+proc ReadStep*(this: RWStepVisual_RWCameraModelD2;
+              data: handle[StepData_StepReaderData]; num: Standard_Integer;
+              ach: var handle[Interface_Check];
+              ent: handle[StepVisual_CameraModelD2]) {.noSideEffect,
+    importcpp: "ReadStep", header: "RWStepVisual_RWCameraModelD2.hxx".}
+proc WriteStep*(this: RWStepVisual_RWCameraModelD2; SW: var StepData_StepWriter;
+               ent: handle[StepVisual_CameraModelD2]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepVisual_RWCameraModelD2.hxx".}
-proc share*(this: RWStepVisualRWCameraModelD2;
-           ent: Handle[StepVisualCameraModelD2]; iter: var InterfaceEntityIterator) {.
-    noSideEffect, importcpp: "Share", header: "RWStepVisual_RWCameraModelD2.hxx".}
-
+proc Share*(this: RWStepVisual_RWCameraModelD2;
+           ent: handle[StepVisual_CameraModelD2];
+           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
+    header: "RWStepVisual_RWCameraModelD2.hxx".}

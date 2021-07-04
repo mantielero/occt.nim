@@ -13,10 +13,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../TopoDS/TopoDS_Shape, ../StepShape/StepShape_ShapeDefinitionRepresentation,
+  ../TopTools/TopTools_ShapeMapHasher, ../NCollection/NCollection_DataMap
+
 type
-  STEPCAFControlDataMapOfShapeSDR* = NCollectionDataMap[TopoDS_Shape,
-      Handle[StepShapeShapeDefinitionRepresentation], TopToolsShapeMapHasher]
-  STEPCAFControlDataMapIteratorOfDataMapOfShapeSDR* = Iterator[TopoDS_Shape,
-      Handle[StepShapeShapeDefinitionRepresentation], TopToolsShapeMapHasher]
-
-
+  STEPCAFControl_DataMapOfShapeSDR* = NCollection_DataMap[TopoDS_Shape,
+      handle[StepShape_ShapeDefinitionRepresentation], TopTools_ShapeMapHasher]
+  STEPCAFControl_DataMapIteratorOfDataMapOfShapeSDR* = Iterator[TopoDS_Shape,
+      handle[StepShape_ShapeDefinitionRepresentation], TopTools_ShapeMapHasher]

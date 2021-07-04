@@ -14,6 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, Expr_SingleRelation,
+  ../Standard/Standard_Boolean
+
 discard "forward decl of Standard_NumericError"
 discard "forward decl of Expr_GeneralExpression"
 discard "forward decl of Expr_GeneralRelation"
@@ -21,32 +25,38 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of Expr_GreaterThan"
 discard "forward decl of Expr_GreaterThan"
 type
-  HandleExprGreaterThan* = Handle[ExprGreaterThan]
-  ExprGreaterThan* {.importcpp: "Expr_GreaterThan", header: "Expr_GreaterThan.hxx",
-                    bycopy.} = object of ExprSingleRelation ## ! Creates the relation <exp1> > <exp2>.
+  Handle_Expr_GreaterThan* = handle[Expr_GreaterThan]
+  Expr_GreaterThan* {.importcpp: "Expr_GreaterThan",
+                     header: "Expr_GreaterThan.hxx", bycopy.} = object of Expr_SingleRelation ##
+                                                                                       ## !
+                                                                                       ## Creates
+                                                                                       ## the
+                                                                                       ## relation
+                                                                                       ## <exp1>
+                                                                                       ## >
+                                                                                       ## <exp2>.
 
 
-proc constructExprGreaterThan*(exp1: Handle[ExprGeneralExpression];
-                              exp2: Handle[ExprGeneralExpression]): ExprGreaterThan {.
+proc constructExpr_GreaterThan*(exp1: handle[Expr_GeneralExpression];
+                               exp2: handle[Expr_GeneralExpression]): Expr_GreaterThan {.
     constructor, importcpp: "Expr_GreaterThan(@)", header: "Expr_GreaterThan.hxx".}
-proc isSatisfied*(this: ExprGreaterThan): StandardBoolean {.noSideEffect,
+proc IsSatisfied*(this: Expr_GreaterThan): Standard_Boolean {.noSideEffect,
     importcpp: "IsSatisfied", header: "Expr_GreaterThan.hxx".}
-proc simplified*(this: ExprGreaterThan): Handle[ExprGeneralRelation] {.noSideEffect,
-    importcpp: "Simplified", header: "Expr_GreaterThan.hxx".}
-proc simplify*(this: var ExprGreaterThan) {.importcpp: "Simplify",
-                                        header: "Expr_GreaterThan.hxx".}
-proc copy*(this: ExprGreaterThan): Handle[ExprGeneralRelation] {.noSideEffect,
+proc Simplified*(this: Expr_GreaterThan): handle[Expr_GeneralRelation] {.
+    noSideEffect, importcpp: "Simplified", header: "Expr_GreaterThan.hxx".}
+proc Simplify*(this: var Expr_GreaterThan) {.importcpp: "Simplify",
+    header: "Expr_GreaterThan.hxx".}
+proc Copy*(this: Expr_GreaterThan): handle[Expr_GeneralRelation] {.noSideEffect,
     importcpp: "Copy", header: "Expr_GreaterThan.hxx".}
-proc string*(this: ExprGreaterThan): TCollectionAsciiString {.noSideEffect,
+proc String*(this: Expr_GreaterThan): TCollection_AsciiString {.noSideEffect,
     importcpp: "String", header: "Expr_GreaterThan.hxx".}
 type
-  ExprGreaterThanbaseType* = ExprSingleRelation
+  Expr_GreaterThanbase_type* = Expr_SingleRelation
 
-proc getTypeName*(): cstring {.importcpp: "Expr_GreaterThan::get_type_name(@)",
-                            header: "Expr_GreaterThan.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "Expr_GreaterThan::get_type_name(@)",
+                              header: "Expr_GreaterThan.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "Expr_GreaterThan::get_type_descriptor(@)",
     header: "Expr_GreaterThan.hxx".}
-proc dynamicType*(this: ExprGreaterThan): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: Expr_GreaterThan): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "Expr_GreaterThan.hxx".}
-

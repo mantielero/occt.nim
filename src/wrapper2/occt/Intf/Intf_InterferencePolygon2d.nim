@@ -14,35 +14,40 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
+  ../Standard/Standard_Integer, Intf_Interference
+
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of Intf_Polygon2d"
 discard "forward decl of gp_Pnt2d"
 type
-  IntfInterferencePolygon2d* {.importcpp: "Intf_InterferencePolygon2d",
-                              header: "Intf_InterferencePolygon2d.hxx", bycopy.} = object of IntfInterference ##
-                                                                                                       ## !
-                                                                                                       ## Constructs
-                                                                                                       ## an
-                                                                                                       ## empty
-                                                                                                       ## interference
-                                                                                                       ## of
-                                                                                                       ## Polygon.
+  Intf_InterferencePolygon2d* {.importcpp: "Intf_InterferencePolygon2d",
+                               header: "Intf_InterferencePolygon2d.hxx", bycopy.} = object of Intf_Interference ##
+                                                                                                         ## !
+                                                                                                         ## Constructs
+                                                                                                         ## an
+                                                                                                         ## empty
+                                                                                                         ## interference
+                                                                                                         ## of
+                                                                                                         ## Polygon.
 
 
-proc constructIntfInterferencePolygon2d*(): IntfInterferencePolygon2d {.
+proc constructIntf_InterferencePolygon2d*(): Intf_InterferencePolygon2d {.
     constructor, importcpp: "Intf_InterferencePolygon2d(@)",
     header: "Intf_InterferencePolygon2d.hxx".}
-proc constructIntfInterferencePolygon2d*(obje1: IntfPolygon2d; obje2: IntfPolygon2d): IntfInterferencePolygon2d {.
+proc constructIntf_InterferencePolygon2d*(Obje1: Intf_Polygon2d;
+    Obje2: Intf_Polygon2d): Intf_InterferencePolygon2d {.constructor,
+    importcpp: "Intf_InterferencePolygon2d(@)",
+    header: "Intf_InterferencePolygon2d.hxx".}
+proc constructIntf_InterferencePolygon2d*(Obje: Intf_Polygon2d): Intf_InterferencePolygon2d {.
     constructor, importcpp: "Intf_InterferencePolygon2d(@)",
     header: "Intf_InterferencePolygon2d.hxx".}
-proc constructIntfInterferencePolygon2d*(obje: IntfPolygon2d): IntfInterferencePolygon2d {.
-    constructor, importcpp: "Intf_InterferencePolygon2d(@)",
-    header: "Intf_InterferencePolygon2d.hxx".}
-proc perform*(this: var IntfInterferencePolygon2d; obje1: IntfPolygon2d;
-             obje2: IntfPolygon2d) {.importcpp: "Perform",
-                                   header: "Intf_InterferencePolygon2d.hxx".}
-proc perform*(this: var IntfInterferencePolygon2d; obje: IntfPolygon2d) {.
+proc Perform*(this: var Intf_InterferencePolygon2d; Obje1: Intf_Polygon2d;
+             Obje2: Intf_Polygon2d) {.importcpp: "Perform",
+                                    header: "Intf_InterferencePolygon2d.hxx".}
+proc Perform*(this: var Intf_InterferencePolygon2d; Obje: Intf_Polygon2d) {.
     importcpp: "Perform", header: "Intf_InterferencePolygon2d.hxx".}
-proc pnt2dValue*(this: IntfInterferencePolygon2d; index: StandardInteger): GpPnt2d {.
+proc Pnt2dValue*(this: Intf_InterferencePolygon2d; Index: Standard_Integer): gp_Pnt2d {.
     noSideEffect, importcpp: "Pnt2dValue", header: "Intf_InterferencePolygon2d.hxx".}
-

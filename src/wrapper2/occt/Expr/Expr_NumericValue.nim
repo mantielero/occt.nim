@@ -14,6 +14,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Real,
+  Expr_GeneralExpression, ../Standard/Standard_Integer,
+  ../Standard/Standard_Boolean, Expr_Array1OfNamedUnknown,
+  ../TColStd/TColStd_Array1OfReal
+
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of Expr_GeneralExpression"
 discard "forward decl of Expr_NamedUnknown"
@@ -21,63 +27,62 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of Expr_NumericValue"
 discard "forward decl of Expr_NumericValue"
 type
-  HandleExprNumericValue* = Handle[ExprNumericValue]
+  Handle_Expr_NumericValue* = handle[Expr_NumericValue]
 
 ## ! This class describes any reel value defined in an
 ## ! expression.
 
 type
-  ExprNumericValue* {.importcpp: "Expr_NumericValue",
-                     header: "Expr_NumericValue.hxx", bycopy.} = object of ExprGeneralExpression
+  Expr_NumericValue* {.importcpp: "Expr_NumericValue",
+                      header: "Expr_NumericValue.hxx", bycopy.} = object of Expr_GeneralExpression
 
 
-proc constructExprNumericValue*(val: StandardReal): ExprNumericValue {.constructor,
-    importcpp: "Expr_NumericValue(@)", header: "Expr_NumericValue.hxx".}
-proc getValue*(this: ExprNumericValue): StandardReal {.noSideEffect,
+proc constructExpr_NumericValue*(val: Standard_Real): Expr_NumericValue {.
+    constructor, importcpp: "Expr_NumericValue(@)", header: "Expr_NumericValue.hxx".}
+proc GetValue*(this: Expr_NumericValue): Standard_Real {.noSideEffect,
     importcpp: "GetValue", header: "Expr_NumericValue.hxx".}
-proc setValue*(this: var ExprNumericValue; val: StandardReal) {.importcpp: "SetValue",
-    header: "Expr_NumericValue.hxx".}
-proc nbSubExpressions*(this: ExprNumericValue): StandardInteger {.noSideEffect,
+proc SetValue*(this: var Expr_NumericValue; val: Standard_Real) {.
+    importcpp: "SetValue", header: "Expr_NumericValue.hxx".}
+proc NbSubExpressions*(this: Expr_NumericValue): Standard_Integer {.noSideEffect,
     importcpp: "NbSubExpressions", header: "Expr_NumericValue.hxx".}
-proc subExpression*(this: ExprNumericValue; i: StandardInteger): Handle[
-    ExprGeneralExpression] {.noSideEffect, importcpp: "SubExpression",
-                            header: "Expr_NumericValue.hxx".}
-proc simplified*(this: ExprNumericValue): Handle[ExprGeneralExpression] {.
+proc SubExpression*(this: Expr_NumericValue; I: Standard_Integer): handle[
+    Expr_GeneralExpression] {.noSideEffect, importcpp: "SubExpression",
+                             header: "Expr_NumericValue.hxx".}
+proc Simplified*(this: Expr_NumericValue): handle[Expr_GeneralExpression] {.
     noSideEffect, importcpp: "Simplified", header: "Expr_NumericValue.hxx".}
-proc shallowSimplified*(this: ExprNumericValue): Handle[ExprGeneralExpression] {.
+proc ShallowSimplified*(this: Expr_NumericValue): handle[Expr_GeneralExpression] {.
     noSideEffect, importcpp: "ShallowSimplified", header: "Expr_NumericValue.hxx".}
-proc copy*(this: ExprNumericValue): Handle[ExprGeneralExpression] {.noSideEffect,
+proc Copy*(this: Expr_NumericValue): handle[Expr_GeneralExpression] {.noSideEffect,
     importcpp: "Copy", header: "Expr_NumericValue.hxx".}
-proc containsUnknowns*(this: ExprNumericValue): StandardBoolean {.noSideEffect,
+proc ContainsUnknowns*(this: Expr_NumericValue): Standard_Boolean {.noSideEffect,
     importcpp: "ContainsUnknowns", header: "Expr_NumericValue.hxx".}
-proc contains*(this: ExprNumericValue; exp: Handle[ExprGeneralExpression]): StandardBoolean {.
+proc Contains*(this: Expr_NumericValue; exp: handle[Expr_GeneralExpression]): Standard_Boolean {.
     noSideEffect, importcpp: "Contains", header: "Expr_NumericValue.hxx".}
-proc isIdentical*(this: ExprNumericValue; other: Handle[ExprGeneralExpression]): StandardBoolean {.
+proc IsIdentical*(this: Expr_NumericValue; Other: handle[Expr_GeneralExpression]): Standard_Boolean {.
     noSideEffect, importcpp: "IsIdentical", header: "Expr_NumericValue.hxx".}
-proc isLinear*(this: ExprNumericValue): StandardBoolean {.noSideEffect,
+proc IsLinear*(this: Expr_NumericValue): Standard_Boolean {.noSideEffect,
     importcpp: "IsLinear", header: "Expr_NumericValue.hxx".}
-proc derivative*(this: ExprNumericValue; x: Handle[ExprNamedUnknown]): Handle[
-    ExprGeneralExpression] {.noSideEffect, importcpp: "Derivative",
-                            header: "Expr_NumericValue.hxx".}
-proc nDerivative*(this: ExprNumericValue; x: Handle[ExprNamedUnknown];
-                 n: StandardInteger): Handle[ExprGeneralExpression] {.noSideEffect,
-    importcpp: "NDerivative", header: "Expr_NumericValue.hxx".}
-proc replace*(this: var ExprNumericValue; `var`: Handle[ExprNamedUnknown];
-             with: Handle[ExprGeneralExpression]) {.importcpp: "Replace",
+proc Derivative*(this: Expr_NumericValue; X: handle[Expr_NamedUnknown]): handle[
+    Expr_GeneralExpression] {.noSideEffect, importcpp: "Derivative",
+                             header: "Expr_NumericValue.hxx".}
+proc NDerivative*(this: Expr_NumericValue; X: handle[Expr_NamedUnknown];
+                 N: Standard_Integer): handle[Expr_GeneralExpression] {.
+    noSideEffect, importcpp: "NDerivative", header: "Expr_NumericValue.hxx".}
+proc Replace*(this: var Expr_NumericValue; `var`: handle[Expr_NamedUnknown];
+             with: handle[Expr_GeneralExpression]) {.importcpp: "Replace",
     header: "Expr_NumericValue.hxx".}
-proc evaluate*(this: ExprNumericValue; vars: ExprArray1OfNamedUnknown;
-              vals: TColStdArray1OfReal): StandardReal {.noSideEffect,
+proc Evaluate*(this: Expr_NumericValue; vars: Expr_Array1OfNamedUnknown;
+              vals: TColStd_Array1OfReal): Standard_Real {.noSideEffect,
     importcpp: "Evaluate", header: "Expr_NumericValue.hxx".}
-proc string*(this: ExprNumericValue): TCollectionAsciiString {.noSideEffect,
+proc String*(this: Expr_NumericValue): TCollection_AsciiString {.noSideEffect,
     importcpp: "String", header: "Expr_NumericValue.hxx".}
 type
-  ExprNumericValuebaseType* = ExprGeneralExpression
+  Expr_NumericValuebase_type* = Expr_GeneralExpression
 
-proc getTypeName*(): cstring {.importcpp: "Expr_NumericValue::get_type_name(@)",
-                            header: "Expr_NumericValue.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "Expr_NumericValue::get_type_name(@)",
+                              header: "Expr_NumericValue.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "Expr_NumericValue::get_type_descriptor(@)",
     header: "Expr_NumericValue.hxx".}
-proc dynamicType*(this: ExprNumericValue): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: Expr_NumericValue): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "Expr_NumericValue.hxx".}
-

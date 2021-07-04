@@ -13,58 +13,57 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _IntTools_CArray1OfReal_HeaderFile [NewLine] # _IntTools_CArray1OfReal_HeaderFile [NewLine] # < Standard . hxx > [NewLine] # < Standard_DefineAlloc . hxx > [NewLine] # < Standard_Handle . hxx > [NewLine] # < Standard_Address . hxx > [NewLine] # < Standard_Integer . hxx > [NewLine] # < Standard_Boolean . hxx > [NewLine] # < Standard_Real . hxx > [NewLine] class Standard_ConstructionError ;
+## !!!Ignored construct:  # _IntTools_CArray1OfReal_HeaderFile [NewLine] # _IntTools_CArray1OfReal_HeaderFile [NewLine] # ../Standard/Standard.hxx [NewLine] # ../Standard/Standard_DefineAlloc.hxx [NewLine] # ../Standard/Standard_Handle.hxx [NewLine] # ../Standard/Standard_Address.hxx [NewLine] # ../Standard/Standard_Integer.hxx [NewLine] # ../Standard/Standard_Boolean.hxx [NewLine] # ../Standard/Standard_Real.hxx [NewLine] class Standard_ConstructionError ;
 ## Error: did not expect <!!!
 
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of Standard_OutOfMemory"
 type
-  IntToolsCArray1OfReal* {.importcpp: "IntTools_CArray1OfReal",
-                          header: "IntTools_CArray1OfReal.hxx", bycopy.} = object ## !
-                                                                             ## Creates an
-                                                                             ## array  of
-                                                                             ## given
-                                                                             ## Length.
-                                                                             ## !
-                                                                             ## Prohibits the
-                                                                             ## creator by
-                                                                             ## copy
+  IntTools_CArray1OfReal* {.importcpp: "IntTools_CArray1OfReal",
+                           header: "IntTools_CArray1OfReal.hxx", bycopy.} = object ## !
+                                                                              ## Creates an
+                                                                              ## array  of
+                                                                              ## given
+                                                                              ## Length.
+                                                                              ## !
+                                                                              ## Prohibits
+                                                                              ## the
+                                                                              ## creator by
+                                                                              ## copy
 
 
-proc constructIntToolsCArray1OfReal*(length: StandardInteger = 0): IntToolsCArray1OfReal {.
+proc constructIntTools_CArray1OfReal*(Length: Standard_Integer = 0): IntTools_CArray1OfReal {.
     constructor, importcpp: "IntTools_CArray1OfReal(@)",
     header: "IntTools_CArray1OfReal.hxx".}
-proc constructIntToolsCArray1OfReal*(item: StandardReal; length: StandardInteger): IntToolsCArray1OfReal {.
+proc constructIntTools_CArray1OfReal*(Item: Standard_Real; Length: Standard_Integer): IntTools_CArray1OfReal {.
     constructor, importcpp: "IntTools_CArray1OfReal(@)",
     header: "IntTools_CArray1OfReal.hxx".}
-proc init*(this: var IntToolsCArray1OfReal; v: StandardReal) {.importcpp: "Init",
+proc Init*(this: var IntTools_CArray1OfReal; V: Standard_Real) {.importcpp: "Init",
     header: "IntTools_CArray1OfReal.hxx".}
-proc resize*(this: var IntToolsCArray1OfReal; theNewLength: StandardInteger) {.
+proc Resize*(this: var IntTools_CArray1OfReal; theNewLength: Standard_Integer) {.
     importcpp: "Resize", header: "IntTools_CArray1OfReal.hxx".}
-proc destroy*(this: var IntToolsCArray1OfReal) {.importcpp: "Destroy",
+proc Destroy*(this: var IntTools_CArray1OfReal) {.importcpp: "Destroy",
     header: "IntTools_CArray1OfReal.hxx".}
-proc destroyIntToolsCArray1OfReal*(this: var IntToolsCArray1OfReal) {.
+proc destroyIntTools_CArray1OfReal*(this: var IntTools_CArray1OfReal) {.
     importcpp: "#.~IntTools_CArray1OfReal()", header: "IntTools_CArray1OfReal.hxx".}
-proc length*(this: IntToolsCArray1OfReal): StandardInteger {.noSideEffect,
+proc Length*(this: IntTools_CArray1OfReal): Standard_Integer {.noSideEffect,
     importcpp: "Length", header: "IntTools_CArray1OfReal.hxx".}
-proc append*(this: var IntToolsCArray1OfReal; value: StandardReal) {.
+proc Append*(this: var IntTools_CArray1OfReal; Value: Standard_Real) {.
     importcpp: "Append", header: "IntTools_CArray1OfReal.hxx".}
-proc setValue*(this: var IntToolsCArray1OfReal; index: StandardInteger;
-              value: StandardReal) {.importcpp: "SetValue",
-                                   header: "IntTools_CArray1OfReal.hxx".}
-proc value*(this: IntToolsCArray1OfReal; index: StandardInteger): StandardReal {.
+proc SetValue*(this: var IntTools_CArray1OfReal; Index: Standard_Integer;
+              Value: Standard_Real) {.importcpp: "SetValue",
+                                    header: "IntTools_CArray1OfReal.hxx".}
+proc Value*(this: IntTools_CArray1OfReal; Index: Standard_Integer): Standard_Real {.
     noSideEffect, importcpp: "Value", header: "IntTools_CArray1OfReal.hxx".}
-proc `()`*(this: IntToolsCArray1OfReal; index: StandardInteger): StandardReal {.
+proc `()`*(this: IntTools_CArray1OfReal; Index: Standard_Integer): Standard_Real {.
     noSideEffect, importcpp: "#(@)", header: "IntTools_CArray1OfReal.hxx".}
-proc changeValue*(this: var IntToolsCArray1OfReal; index: StandardInteger): var StandardReal {.
+proc ChangeValue*(this: var IntTools_CArray1OfReal; Index: Standard_Integer): var Standard_Real {.
     importcpp: "ChangeValue", header: "IntTools_CArray1OfReal.hxx".}
-proc `()`*(this: var IntToolsCArray1OfReal; index: StandardInteger): var StandardReal {.
+proc `()`*(this: var IntTools_CArray1OfReal; Index: Standard_Integer): var Standard_Real {.
     importcpp: "#(@)", header: "IntTools_CArray1OfReal.hxx".}
-proc isEqual*(this: IntToolsCArray1OfReal; other: IntToolsCArray1OfReal): StandardBoolean {.
+proc IsEqual*(this: IntTools_CArray1OfReal; Other: IntTools_CArray1OfReal): Standard_Boolean {.
     noSideEffect, importcpp: "IsEqual", header: "IntTools_CArray1OfReal.hxx".}
-proc `==`*(this: IntToolsCArray1OfReal; other: IntToolsCArray1OfReal): StandardBoolean {.
+proc `==`*(this: IntTools_CArray1OfReal; Other: IntTools_CArray1OfReal): Standard_Boolean {.
     noSideEffect, importcpp: "(# == #)", header: "IntTools_CArray1OfReal.hxx".}
-## !!!Ignored construct:  # Array1Item Standard_Real [NewLine] # Array1Item_hxx < Standard_Real . hxx > [NewLine] # IntTools_CArray1 IntTools_CArray1OfReal [NewLine] # IntTools_CArray1_hxx < IntTools_CArray1OfReal . hxx > [NewLine] # < IntTools_CArray1 . lxx > [NewLine] # Array1Item [NewLine] # Array1Item_hxx [NewLine] # IntTools_CArray1 [NewLine] # IntTools_CArray1_hxx [NewLine] #  _IntTools_CArray1OfReal_HeaderFile
+## !!!Ignored construct:  # Array1Item Standard_Real [NewLine] # Array1Item_hxx < Standard_Real . hxx > [NewLine] # IntTools_CArray1 IntTools_CArray1OfReal [NewLine] # IntTools_CArray1_hxx < IntTools_CArray1OfReal . hxx > [NewLine] # < IntTools_CArray1 . lxx > [NewLine] # Array1Item [NewLine] # Array1Item_hxx [NewLine] # IntTools_CArray1 [NewLine] # IntTools_CArray1_hxx [NewLine] #  _IntTools_CArray1OfReal_HeaderFile [NewLine]
 ## Error: did not expect <!!!
-
-

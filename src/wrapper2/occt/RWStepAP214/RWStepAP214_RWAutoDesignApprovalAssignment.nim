@@ -14,33 +14,36 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepAP214_AutoDesignApprovalAssignment"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepAP214RWAutoDesignApprovalAssignment* {.
+  RWStepAP214_RWAutoDesignApprovalAssignment* {.
       importcpp: "RWStepAP214_RWAutoDesignApprovalAssignment",
       header: "RWStepAP214_RWAutoDesignApprovalAssignment.hxx", bycopy.} = object
 
 
-proc constructRWStepAP214RWAutoDesignApprovalAssignment*(): RWStepAP214RWAutoDesignApprovalAssignment {.
+proc constructRWStepAP214_RWAutoDesignApprovalAssignment*(): RWStepAP214_RWAutoDesignApprovalAssignment {.
     constructor, importcpp: "RWStepAP214_RWAutoDesignApprovalAssignment(@)",
     header: "RWStepAP214_RWAutoDesignApprovalAssignment.hxx".}
-proc readStep*(this: RWStepAP214RWAutoDesignApprovalAssignment;
-              data: Handle[StepDataStepReaderData]; num: StandardInteger;
-              ach: var Handle[InterfaceCheck];
-              ent: Handle[StepAP214AutoDesignApprovalAssignment]) {.noSideEffect,
+proc ReadStep*(this: RWStepAP214_RWAutoDesignApprovalAssignment;
+              data: handle[StepData_StepReaderData]; num: Standard_Integer;
+              ach: var handle[Interface_Check];
+              ent: handle[StepAP214_AutoDesignApprovalAssignment]) {.noSideEffect,
     importcpp: "ReadStep",
     header: "RWStepAP214_RWAutoDesignApprovalAssignment.hxx".}
-proc writeStep*(this: RWStepAP214RWAutoDesignApprovalAssignment;
-               sw: var StepDataStepWriter;
-               ent: Handle[StepAP214AutoDesignApprovalAssignment]) {.noSideEffect,
-    importcpp: "WriteStep",
+proc WriteStep*(this: RWStepAP214_RWAutoDesignApprovalAssignment;
+               SW: var StepData_StepWriter;
+               ent: handle[StepAP214_AutoDesignApprovalAssignment]) {.
+    noSideEffect, importcpp: "WriteStep",
     header: "RWStepAP214_RWAutoDesignApprovalAssignment.hxx".}
-proc share*(this: RWStepAP214RWAutoDesignApprovalAssignment;
-           ent: Handle[StepAP214AutoDesignApprovalAssignment];
-           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
+proc Share*(this: RWStepAP214_RWAutoDesignApprovalAssignment;
+           ent: handle[StepAP214_AutoDesignApprovalAssignment];
+           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepAP214_RWAutoDesignApprovalAssignment.hxx".}
-

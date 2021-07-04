@@ -14,25 +14,28 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepVisual_PreDefinedItem"
 discard "forward decl of StepData_StepWriter"
 type
-  RWStepVisualRWPreDefinedItem* {.importcpp: "RWStepVisual_RWPreDefinedItem",
-                                 header: "RWStepVisual_RWPreDefinedItem.hxx",
-                                 bycopy.} = object
+  RWStepVisual_RWPreDefinedItem* {.importcpp: "RWStepVisual_RWPreDefinedItem",
+                                  header: "RWStepVisual_RWPreDefinedItem.hxx",
+                                  bycopy.} = object
 
 
-proc constructRWStepVisualRWPreDefinedItem*(): RWStepVisualRWPreDefinedItem {.
+proc constructRWStepVisual_RWPreDefinedItem*(): RWStepVisual_RWPreDefinedItem {.
     constructor, importcpp: "RWStepVisual_RWPreDefinedItem(@)",
     header: "RWStepVisual_RWPreDefinedItem.hxx".}
-proc readStep*(this: RWStepVisualRWPreDefinedItem;
-              data: Handle[StepDataStepReaderData]; num: StandardInteger;
-              ach: var Handle[InterfaceCheck];
-              ent: Handle[StepVisualPreDefinedItem]) {.noSideEffect,
+proc ReadStep*(this: RWStepVisual_RWPreDefinedItem;
+              data: handle[StepData_StepReaderData]; num: Standard_Integer;
+              ach: var handle[Interface_Check];
+              ent: handle[StepVisual_PreDefinedItem]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepVisual_RWPreDefinedItem.hxx".}
-proc writeStep*(this: RWStepVisualRWPreDefinedItem; sw: var StepDataStepWriter;
-               ent: Handle[StepVisualPreDefinedItem]) {.noSideEffect,
+proc WriteStep*(this: RWStepVisual_RWPreDefinedItem; SW: var StepData_StepWriter;
+               ent: handle[StepVisual_PreDefinedItem]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepVisual_RWPreDefinedItem.hxx".}
-

@@ -12,85 +12,87 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  Graphic3d_CubeMap, ../NCollection/NCollection_Array1, ../OSD/OSD_Path
+
 ## ! Class is intended to process cubemap packed into single image plane.
 
 type
-  Graphic3dCubeMapPacked* {.importcpp: "Graphic3d_CubeMapPacked",
-                           header: "Graphic3d_CubeMapPacked.hxx", bycopy.} = object of Graphic3dCubeMap ##
-                                                                                                 ## !
-                                                                                                 ## Initialization
-                                                                                                 ## to
-                                                                                                 ## load
-                                                                                                 ## cubemap
-                                                                                                 ## from
-                                                                                                 ## file.
-                                                                                                 ##
-                                                                                                 ## !
-                                                                                                 ## @theFileName
-                                                                                                 ## -
-                                                                                                 ## path
-                                                                                                 ## to
-                                                                                                 ## the
-                                                                                                 ## cubemap
-                                                                                                 ## image
-                                                                                                 ##
-                                                                                                 ## !
-                                                                                                 ## @theOrder
-                                                                                                 ## -
-                                                                                                 ## array
-                                                                                                 ## containing
-                                                                                                 ## six
-                                                                                                 ## different
-                                                                                                 ## indexes
-                                                                                                 ## of
-                                                                                                 ## cubemap
-                                                                                                 ## sides
-                                                                                                 ## which
-                                                                                                 ## maps
-                                                                                                 ## tile
-                                                                                                 ## grid
-                                                                                                 ## to
-                                                                                                 ## cubemap
-                                                                                                 ## sides
-                                                                                                 ##
-                                                                                                 ## !
-                                                                                                 ## Checks
-                                                                                                 ## whether
-                                                                                                 ## given
-                                                                                                 ## tiles
-                                                                                                 ## order
-                                                                                                 ## is
-                                                                                                 ## valid.
+  Graphic3d_CubeMapPacked* {.importcpp: "Graphic3d_CubeMapPacked",
+                            header: "Graphic3d_CubeMapPacked.hxx", bycopy.} = object of Graphic3d_CubeMap ##
+                                                                                                   ## !
+                                                                                                   ## Initialization
+                                                                                                   ## to
+                                                                                                   ## load
+                                                                                                   ## cubemap
+                                                                                                   ## from
+                                                                                                   ## file.
+                                                                                                   ##
+                                                                                                   ## !
+                                                                                                   ## @theFileName
+                                                                                                   ## -
+                                                                                                   ## path
+                                                                                                   ## to
+                                                                                                   ## the
+                                                                                                   ## cubemap
+                                                                                                   ## image
+                                                                                                   ##
+                                                                                                   ## !
+                                                                                                   ## @theOrder
+                                                                                                   ## -
+                                                                                                   ## array
+                                                                                                   ## containing
+                                                                                                   ## six
+                                                                                                   ## different
+                                                                                                   ## indexes
+                                                                                                   ## of
+                                                                                                   ## cubemap
+                                                                                                   ## sides
+                                                                                                   ## which
+                                                                                                   ## maps
+                                                                                                   ## tile
+                                                                                                   ## grid
+                                                                                                   ## to
+                                                                                                   ## cubemap
+                                                                                                   ## sides
+                                                                                                   ##
+                                                                                                   ## !
+                                                                                                   ## Checks
+                                                                                                   ## whether
+                                                                                                   ## given
+                                                                                                   ## tiles
+                                                                                                   ## order
+                                                                                                   ## is
+                                                                                                   ## valid.
     ## !< order mapping tile grit to cubemap sides
     ## !< width of tile grid
 
-  Graphic3dCubeMapPackedbaseType* = Graphic3dCubeMap
+  Graphic3d_CubeMapPackedbase_type* = Graphic3d_CubeMap
 
-proc getTypeName*(): cstring {.importcpp: "Graphic3d_CubeMapPacked::get_type_name(@)",
-                            header: "Graphic3d_CubeMapPacked.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "Graphic3d_CubeMapPacked::get_type_name(@)",
+                              header: "Graphic3d_CubeMapPacked.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "Graphic3d_CubeMapPacked::get_type_descriptor(@)",
     header: "Graphic3d_CubeMapPacked.hxx".}
-proc dynamicType*(this: Graphic3dCubeMapPacked): Handle[StandardType] {.
+proc DynamicType*(this: Graphic3d_CubeMapPacked): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType", header: "Graphic3d_CubeMapPacked.hxx".}
-proc constructGraphic3dCubeMapPacked*(theFileName: TCollectionAsciiString; theOrder: Graphic3dValidatedCubeMapOrder = default()): Graphic3dCubeMapPacked {.
+proc constructGraphic3d_CubeMapPacked*(theFileName: TCollection_AsciiString;
+    theOrder: Graphic3d_ValidatedCubeMapOrder = Default()): Graphic3d_CubeMapPacked {.
     constructor, importcpp: "Graphic3d_CubeMapPacked(@)",
     header: "Graphic3d_CubeMapPacked.hxx".}
-proc constructGraphic3dCubeMapPacked*(theImage: Handle[ImagePixMap]; theOrder: Graphic3dValidatedCubeMapOrder = default()): Graphic3dCubeMapPacked {.
+proc constructGraphic3d_CubeMapPacked*(theImage: handle[Image_PixMap]; theOrder: Graphic3d_ValidatedCubeMapOrder = Default()): Graphic3d_CubeMapPacked {.
     constructor, importcpp: "Graphic3d_CubeMapPacked(@)",
     header: "Graphic3d_CubeMapPacked.hxx".}
-proc compressedValue*(this: var Graphic3dCubeMapPacked;
-                     theSupported: Handle[ImageSupportedFormats]): Handle[
-    ImageCompressedPixMap] {.importcpp: "CompressedValue",
-                            header: "Graphic3d_CubeMapPacked.hxx".}
-proc value*(this: var Graphic3dCubeMapPacked;
-           theSupported: Handle[ImageSupportedFormats]): Handle[ImagePixMap] {.
+proc CompressedValue*(this: var Graphic3d_CubeMapPacked;
+                     theSupported: handle[Image_SupportedFormats]): handle[
+    Image_CompressedPixMap] {.importcpp: "CompressedValue",
+                             header: "Graphic3d_CubeMapPacked.hxx".}
+proc Value*(this: var Graphic3d_CubeMapPacked;
+           theSupported: handle[Image_SupportedFormats]): handle[Image_PixMap] {.
     importcpp: "Value", header: "Graphic3d_CubeMapPacked.hxx".}
-proc destroyGraphic3dCubeMapPacked*(this: var Graphic3dCubeMapPacked) {.
+proc destroyGraphic3d_CubeMapPacked*(this: var Graphic3d_CubeMapPacked) {.
     importcpp: "#.~Graphic3d_CubeMapPacked()",
     header: "Graphic3d_CubeMapPacked.hxx".}
 discard "forward decl of Graphic3d_CubeMapPacked"
 type
-  HandleGraphic3dCubeMapPacked* = Handle[Graphic3dCubeMapPacked]
-
-
+  Handle_Graphic3d_CubeMapPacked* = handle[Graphic3d_CubeMapPacked]

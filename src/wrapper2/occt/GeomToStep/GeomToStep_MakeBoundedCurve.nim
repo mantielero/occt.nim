@@ -14,21 +14,24 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, GeomToStep_Root
+
 discard "forward decl of StepGeom_BoundedCurve"
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of Geom_BoundedCurve"
 discard "forward decl of Geom2d_BoundedCurve"
 type
-  GeomToStepMakeBoundedCurve* {.importcpp: "GeomToStep_MakeBoundedCurve",
-                               header: "GeomToStep_MakeBoundedCurve.hxx", bycopy.} = object of GeomToStepRoot
+  GeomToStep_MakeBoundedCurve* {.importcpp: "GeomToStep_MakeBoundedCurve",
+                                header: "GeomToStep_MakeBoundedCurve.hxx", bycopy.} = object of GeomToStep_Root
 
 
-proc constructGeomToStepMakeBoundedCurve*(c: Handle[GeomBoundedCurve]): GeomToStepMakeBoundedCurve {.
+proc constructGeomToStep_MakeBoundedCurve*(C: handle[Geom_BoundedCurve]): GeomToStep_MakeBoundedCurve {.
     constructor, importcpp: "GeomToStep_MakeBoundedCurve(@)",
     header: "GeomToStep_MakeBoundedCurve.hxx".}
-proc constructGeomToStepMakeBoundedCurve*(c: Handle[Geom2dBoundedCurve]): GeomToStepMakeBoundedCurve {.
+proc constructGeomToStep_MakeBoundedCurve*(C: handle[Geom2d_BoundedCurve]): GeomToStep_MakeBoundedCurve {.
     constructor, importcpp: "GeomToStep_MakeBoundedCurve(@)",
     header: "GeomToStep_MakeBoundedCurve.hxx".}
-proc value*(this: GeomToStepMakeBoundedCurve): Handle[StepGeomBoundedCurve] {.
+proc Value*(this: GeomToStep_MakeBoundedCurve): handle[StepGeom_BoundedCurve] {.
     noSideEffect, importcpp: "Value", header: "GeomToStep_MakeBoundedCurve.hxx".}
-

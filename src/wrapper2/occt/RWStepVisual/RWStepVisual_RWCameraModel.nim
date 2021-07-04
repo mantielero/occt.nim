@@ -14,23 +14,26 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepVisual_CameraModel"
 discard "forward decl of StepData_StepWriter"
 type
-  RWStepVisualRWCameraModel* {.importcpp: "RWStepVisual_RWCameraModel",
-                              header: "RWStepVisual_RWCameraModel.hxx", bycopy.} = object
+  RWStepVisual_RWCameraModel* {.importcpp: "RWStepVisual_RWCameraModel",
+                               header: "RWStepVisual_RWCameraModel.hxx", bycopy.} = object
 
 
-proc constructRWStepVisualRWCameraModel*(): RWStepVisualRWCameraModel {.
+proc constructRWStepVisual_RWCameraModel*(): RWStepVisual_RWCameraModel {.
     constructor, importcpp: "RWStepVisual_RWCameraModel(@)",
     header: "RWStepVisual_RWCameraModel.hxx".}
-proc readStep*(this: RWStepVisualRWCameraModel;
-              data: Handle[StepDataStepReaderData]; num: StandardInteger;
-              ach: var Handle[InterfaceCheck]; ent: Handle[StepVisualCameraModel]) {.
+proc ReadStep*(this: RWStepVisual_RWCameraModel;
+              data: handle[StepData_StepReaderData]; num: Standard_Integer;
+              ach: var handle[Interface_Check]; ent: handle[StepVisual_CameraModel]) {.
     noSideEffect, importcpp: "ReadStep", header: "RWStepVisual_RWCameraModel.hxx".}
-proc writeStep*(this: RWStepVisualRWCameraModel; sw: var StepDataStepWriter;
-               ent: Handle[StepVisualCameraModel]) {.noSideEffect,
+proc WriteStep*(this: RWStepVisual_RWCameraModel; SW: var StepData_StepWriter;
+               ent: handle[StepVisual_CameraModel]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepVisual_RWCameraModel.hxx".}
-

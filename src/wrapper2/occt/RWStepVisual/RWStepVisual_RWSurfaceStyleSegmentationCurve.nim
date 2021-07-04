@@ -14,33 +14,36 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepVisual_SurfaceStyleSegmentationCurve"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepVisualRWSurfaceStyleSegmentationCurve* {.
+  RWStepVisual_RWSurfaceStyleSegmentationCurve* {.
       importcpp: "RWStepVisual_RWSurfaceStyleSegmentationCurve",
       header: "RWStepVisual_RWSurfaceStyleSegmentationCurve.hxx", bycopy.} = object
 
 
-proc constructRWStepVisualRWSurfaceStyleSegmentationCurve*(): RWStepVisualRWSurfaceStyleSegmentationCurve {.
+proc constructRWStepVisual_RWSurfaceStyleSegmentationCurve*(): RWStepVisual_RWSurfaceStyleSegmentationCurve {.
     constructor, importcpp: "RWStepVisual_RWSurfaceStyleSegmentationCurve(@)",
     header: "RWStepVisual_RWSurfaceStyleSegmentationCurve.hxx".}
-proc readStep*(this: RWStepVisualRWSurfaceStyleSegmentationCurve;
-              data: Handle[StepDataStepReaderData]; num: StandardInteger;
-              ach: var Handle[InterfaceCheck];
-              ent: Handle[StepVisualSurfaceStyleSegmentationCurve]) {.
+proc ReadStep*(this: RWStepVisual_RWSurfaceStyleSegmentationCurve;
+              data: handle[StepData_StepReaderData]; num: Standard_Integer;
+              ach: var handle[Interface_Check];
+              ent: handle[StepVisual_SurfaceStyleSegmentationCurve]) {.
     noSideEffect, importcpp: "ReadStep",
     header: "RWStepVisual_RWSurfaceStyleSegmentationCurve.hxx".}
-proc writeStep*(this: RWStepVisualRWSurfaceStyleSegmentationCurve;
-               sw: var StepDataStepWriter;
-               ent: Handle[StepVisualSurfaceStyleSegmentationCurve]) {.
+proc WriteStep*(this: RWStepVisual_RWSurfaceStyleSegmentationCurve;
+               SW: var StepData_StepWriter;
+               ent: handle[StepVisual_SurfaceStyleSegmentationCurve]) {.
     noSideEffect, importcpp: "WriteStep",
     header: "RWStepVisual_RWSurfaceStyleSegmentationCurve.hxx".}
-proc share*(this: RWStepVisualRWSurfaceStyleSegmentationCurve;
-           ent: Handle[StepVisualSurfaceStyleSegmentationCurve];
-           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
+proc Share*(this: RWStepVisual_RWSurfaceStyleSegmentationCurve;
+           ent: handle[StepVisual_SurfaceStyleSegmentationCurve];
+           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepVisual_RWSurfaceStyleSegmentationCurve.hxx".}
-

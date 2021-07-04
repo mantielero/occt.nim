@@ -13,67 +13,71 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  IMeshData_TessellatedShape, IMeshData_StatusOwner, ../Standard/Standard_Type,
+  ../TopoDS/TopoDS_Edge, ../TopoDS/TopoDS, IMeshData_Curve, IMeshData_PCurve,
+  IMeshData_Types, ../BRep/BRep_Tool
+
 discard "forward decl of IMeshData_Face"
 type
-  IMeshDataEdge* {.importcpp: "IMeshData_Edge", header: "IMeshData_Edge.hxx", bycopy.} = object of IMeshDataTessellatedShape ##
-                                                                                                                   ## !
-                                                                                                                   ## Destructor.
-                                                                                                                   ##
-                                                                                                                   ## !
-                                                                                                                   ## Constructor.
-                                                                                                                   ##
-                                                                                                                   ## !
-                                                                                                                   ## Initializes
-                                                                                                                   ## empty
-                                                                                                                   ## model.
+  IMeshData_Edge* {.importcpp: "IMeshData_Edge", header: "IMeshData_Edge.hxx", bycopy.} = object of IMeshData_TessellatedShape ##
+                                                                                                                     ## !
+                                                                                                                     ## Destructor.
+                                                                                                                     ##
+                                                                                                                     ## !
+                                                                                                                     ## Constructor.
+                                                                                                                     ##
+                                                                                                                     ## !
+                                                                                                                     ## Initializes
+                                                                                                                     ## empty
+                                                                                                                     ## model.
 
 
-proc destroyIMeshDataEdge*(this: var IMeshDataEdge) {.
+proc destroyIMeshData_Edge*(this: var IMeshData_Edge) {.
     importcpp: "#.~IMeshData_Edge()", header: "IMeshData_Edge.hxx".}
-proc getEdge*(this: IMeshDataEdge): TopoDS_Edge {.noSideEffect, importcpp: "GetEdge",
-    header: "IMeshData_Edge.hxx".}
-proc pCurvesNb*(this: IMeshDataEdge): StandardInteger {.noSideEffect,
+proc GetEdge*(this: IMeshData_Edge): TopoDS_Edge {.noSideEffect,
+    importcpp: "GetEdge", header: "IMeshData_Edge.hxx".}
+proc PCurvesNb*(this: IMeshData_Edge): Standard_Integer {.noSideEffect,
     importcpp: "PCurvesNb", header: "IMeshData_Edge.hxx".}
-proc addPCurve*(this: var IMeshDataEdge; theDFace: IFacePtr;
-               theOrientation: TopAbsOrientation): IPCurveHandle {.
+proc AddPCurve*(this: var IMeshData_Edge; theDFace: IFacePtr;
+               theOrientation: TopAbs_Orientation): IPCurveHandle {.
     importcpp: "AddPCurve", header: "IMeshData_Edge.hxx".}
-proc getPCurve*(this: IMeshDataEdge; theDFace: IFacePtr;
-               theOrientation: TopAbsOrientation): IPCurveHandle {.noSideEffect,
+proc GetPCurve*(this: IMeshData_Edge; theDFace: IFacePtr;
+               theOrientation: TopAbs_Orientation): IPCurveHandle {.noSideEffect,
     importcpp: "GetPCurve", header: "IMeshData_Edge.hxx".}
-proc getPCurve*(this: IMeshDataEdge; theIndex: StandardInteger): IPCurveHandle {.
+proc GetPCurve*(this: IMeshData_Edge; theIndex: Standard_Integer): IPCurveHandle {.
     noSideEffect, importcpp: "GetPCurve", header: "IMeshData_Edge.hxx".}
-proc clear*(this: var IMeshDataEdge; isKeepEndPoints: StandardBoolean) {.
+proc Clear*(this: var IMeshData_Edge; isKeepEndPoints: Standard_Boolean) {.
     importcpp: "Clear", header: "IMeshData_Edge.hxx".}
-proc isFree*(this: IMeshDataEdge): StandardBoolean {.noSideEffect,
+proc IsFree*(this: IMeshData_Edge): Standard_Boolean {.noSideEffect,
     importcpp: "IsFree", header: "IMeshData_Edge.hxx".}
-proc setCurve*(this: var IMeshDataEdge; theCurve: ICurveHandle) {.
+proc SetCurve*(this: var IMeshData_Edge; theCurve: ICurveHandle) {.
     importcpp: "SetCurve", header: "IMeshData_Edge.hxx".}
-proc getCurve*(this: IMeshDataEdge): ICurveHandle {.noSideEffect,
+proc GetCurve*(this: IMeshData_Edge): ICurveHandle {.noSideEffect,
     importcpp: "GetCurve", header: "IMeshData_Edge.hxx".}
-proc getAngularDeflection*(this: IMeshDataEdge): StandardReal {.noSideEffect,
+proc GetAngularDeflection*(this: IMeshData_Edge): Standard_Real {.noSideEffect,
     importcpp: "GetAngularDeflection", header: "IMeshData_Edge.hxx".}
-proc setAngularDeflection*(this: var IMeshDataEdge; theValue: StandardReal) {.
+proc SetAngularDeflection*(this: var IMeshData_Edge; theValue: Standard_Real) {.
     importcpp: "SetAngularDeflection", header: "IMeshData_Edge.hxx".}
-proc getSameParam*(this: IMeshDataEdge): StandardBoolean {.noSideEffect,
+proc GetSameParam*(this: IMeshData_Edge): Standard_Boolean {.noSideEffect,
     importcpp: "GetSameParam", header: "IMeshData_Edge.hxx".}
-proc setSameParam*(this: var IMeshDataEdge; theValue: StandardBoolean) {.
+proc SetSameParam*(this: var IMeshData_Edge; theValue: Standard_Boolean) {.
     importcpp: "SetSameParam", header: "IMeshData_Edge.hxx".}
-proc getSameRange*(this: IMeshDataEdge): StandardBoolean {.noSideEffect,
+proc GetSameRange*(this: IMeshData_Edge): Standard_Boolean {.noSideEffect,
     importcpp: "GetSameRange", header: "IMeshData_Edge.hxx".}
-proc setSameRange*(this: var IMeshDataEdge; theValue: StandardBoolean) {.
+proc SetSameRange*(this: var IMeshData_Edge; theValue: Standard_Boolean) {.
     importcpp: "SetSameRange", header: "IMeshData_Edge.hxx".}
-proc getDegenerated*(this: IMeshDataEdge): StandardBoolean {.noSideEffect,
+proc GetDegenerated*(this: IMeshData_Edge): Standard_Boolean {.noSideEffect,
     importcpp: "GetDegenerated", header: "IMeshData_Edge.hxx".}
-proc setDegenerated*(this: var IMeshDataEdge; theValue: StandardBoolean) {.
+proc SetDegenerated*(this: var IMeshData_Edge; theValue: Standard_Boolean) {.
     importcpp: "SetDegenerated", header: "IMeshData_Edge.hxx".}
 type
-  IMeshDataEdgebaseType* = IMeshDataTessellatedShape
+  IMeshData_Edgebase_type* = IMeshData_TessellatedShape
 
-proc getTypeName*(): cstring {.importcpp: "IMeshData_Edge::get_type_name(@)",
-                            header: "IMeshData_Edge.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "IMeshData_Edge::get_type_name(@)",
+                              header: "IMeshData_Edge.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "IMeshData_Edge::get_type_descriptor(@)",
     header: "IMeshData_Edge.hxx".}
-proc dynamicType*(this: IMeshDataEdge): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: IMeshData_Edge): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "IMeshData_Edge.hxx".}
-

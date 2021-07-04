@@ -14,6 +14,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Real,
+  Extrema_FuncPSNorm, ../gp/gp_Vec, ../gp/gp_Ax2, Extrema_GenExtPS,
+  ../Standard/Standard_Boolean, ../Standard/Standard_Integer, Extrema_POnSurf,
+  ../Standard/Standard_Transient
+
 discard "forward decl of Adaptor3d_HCurve"
 discard "forward decl of GeomAdaptor_HSurfaceOfLinearExtrusion"
 discard "forward decl of StdFail_NotDone"
@@ -24,52 +30,51 @@ discard "forward decl of gp_Ax2"
 discard "forward decl of Extrema_ExtPExtS"
 discard "forward decl of Extrema_ExtPExtS"
 type
-  HandleExtremaExtPExtS* = Handle[ExtremaExtPExtS]
+  Handle_Extrema_ExtPExtS* = handle[Extrema_ExtPExtS]
 
 ## ! It calculates all the extremum (minimum and
 ## ! maximum) distances between a point and a linear
 ## ! extrusion surface.
 
 type
-  ExtremaExtPExtS* {.importcpp: "Extrema_ExtPExtS", header: "Extrema_ExtPExtS.hxx",
-                    bycopy.} = object of StandardTransient
+  Extrema_ExtPExtS* {.importcpp: "Extrema_ExtPExtS",
+                     header: "Extrema_ExtPExtS.hxx", bycopy.} = object of Standard_Transient
 
 
-proc constructExtremaExtPExtS*(): ExtremaExtPExtS {.constructor,
+proc constructExtrema_ExtPExtS*(): Extrema_ExtPExtS {.constructor,
     importcpp: "Extrema_ExtPExtS(@)", header: "Extrema_ExtPExtS.hxx".}
-proc constructExtremaExtPExtS*(p: GpPnt;
-                              s: Handle[GeomAdaptorHSurfaceOfLinearExtrusion];
-                              umin: StandardReal; usup: StandardReal;
-                              vmin: StandardReal; vsup: StandardReal;
-                              tolU: StandardReal; tolV: StandardReal): ExtremaExtPExtS {.
+proc constructExtrema_ExtPExtS*(P: gp_Pnt; S: handle[
+    GeomAdaptor_HSurfaceOfLinearExtrusion]; Umin: Standard_Real;
+                               Usup: Standard_Real; Vmin: Standard_Real;
+                               Vsup: Standard_Real; TolU: Standard_Real;
+                               TolV: Standard_Real): Extrema_ExtPExtS {.
     constructor, importcpp: "Extrema_ExtPExtS(@)", header: "Extrema_ExtPExtS.hxx".}
-proc constructExtremaExtPExtS*(p: GpPnt;
-                              s: Handle[GeomAdaptorHSurfaceOfLinearExtrusion];
-                              tolU: StandardReal; tolV: StandardReal): ExtremaExtPExtS {.
+proc constructExtrema_ExtPExtS*(P: gp_Pnt; S: handle[
+    GeomAdaptor_HSurfaceOfLinearExtrusion]; TolU: Standard_Real;
+                               TolV: Standard_Real): Extrema_ExtPExtS {.
     constructor, importcpp: "Extrema_ExtPExtS(@)", header: "Extrema_ExtPExtS.hxx".}
-proc initialize*(this: var ExtremaExtPExtS;
-                s: Handle[GeomAdaptorHSurfaceOfLinearExtrusion];
-                uinf: StandardReal; usup: StandardReal; vinf: StandardReal;
-                vsup: StandardReal; tolU: StandardReal; tolV: StandardReal) {.
+proc Initialize*(this: var Extrema_ExtPExtS;
+                S: handle[GeomAdaptor_HSurfaceOfLinearExtrusion];
+                Uinf: Standard_Real; Usup: Standard_Real; Vinf: Standard_Real;
+                Vsup: Standard_Real; TolU: Standard_Real; TolV: Standard_Real) {.
     importcpp: "Initialize", header: "Extrema_ExtPExtS.hxx".}
-proc perform*(this: var ExtremaExtPExtS; p: GpPnt) {.importcpp: "Perform",
+proc Perform*(this: var Extrema_ExtPExtS; P: gp_Pnt) {.importcpp: "Perform",
     header: "Extrema_ExtPExtS.hxx".}
-proc isDone*(this: ExtremaExtPExtS): StandardBoolean {.noSideEffect,
+proc IsDone*(this: Extrema_ExtPExtS): Standard_Boolean {.noSideEffect,
     importcpp: "IsDone", header: "Extrema_ExtPExtS.hxx".}
-proc nbExt*(this: ExtremaExtPExtS): StandardInteger {.noSideEffect,
+proc NbExt*(this: Extrema_ExtPExtS): Standard_Integer {.noSideEffect,
     importcpp: "NbExt", header: "Extrema_ExtPExtS.hxx".}
-proc squareDistance*(this: ExtremaExtPExtS; n: StandardInteger): StandardReal {.
+proc SquareDistance*(this: Extrema_ExtPExtS; N: Standard_Integer): Standard_Real {.
     noSideEffect, importcpp: "SquareDistance", header: "Extrema_ExtPExtS.hxx".}
-proc point*(this: ExtremaExtPExtS; n: StandardInteger): ExtremaPOnSurf {.noSideEffect,
-    importcpp: "Point", header: "Extrema_ExtPExtS.hxx".}
+proc Point*(this: Extrema_ExtPExtS; N: Standard_Integer): Extrema_POnSurf {.
+    noSideEffect, importcpp: "Point", header: "Extrema_ExtPExtS.hxx".}
 type
-  ExtremaExtPExtSbaseType* = StandardTransient
+  Extrema_ExtPExtSbase_type* = Standard_Transient
 
-proc getTypeName*(): cstring {.importcpp: "Extrema_ExtPExtS::get_type_name(@)",
-                            header: "Extrema_ExtPExtS.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "Extrema_ExtPExtS::get_type_name(@)",
+                              header: "Extrema_ExtPExtS.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "Extrema_ExtPExtS::get_type_descriptor(@)",
     header: "Extrema_ExtPExtS.hxx".}
-proc dynamicType*(this: ExtremaExtPExtS): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: Extrema_ExtPExtS): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "Extrema_ExtPExtS.hxx".}
-

@@ -14,6 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Geom2d/Geom2d_Curve
+
 discard "forward decl of gp_Pnt2d"
 discard "forward decl of gp_Pln"
 discard "forward decl of gp_Pnt"
@@ -52,40 +56,39 @@ type
   ProjLib* {.importcpp: "ProjLib", header: "ProjLib.hxx", bycopy.} = object
 
 
-proc project*(pl: GpPln; p: GpPnt): GpPnt2d {.importcpp: "ProjLib::Project(@)",
-                                        header: "ProjLib.hxx".}
-proc project*(pl: GpPln; L: GpLin): GpLin2d {.importcpp: "ProjLib::Project(@)",
-                                        header: "ProjLib.hxx".}
-proc project*(pl: GpPln; c: GpCirc): GpCirc2d {.importcpp: "ProjLib::Project(@)",
+proc Project*(Pl: gp_Pln; P: gp_Pnt): gp_Pnt2d {.importcpp: "ProjLib::Project(@)",
     header: "ProjLib.hxx".}
-proc project*(pl: GpPln; e: GpElips): GpElips2d {.importcpp: "ProjLib::Project(@)",
+proc Project*(Pl: gp_Pln; L: gp_Lin): gp_Lin2d {.importcpp: "ProjLib::Project(@)",
     header: "ProjLib.hxx".}
-proc project*(pl: GpPln; p: GpParab): GpParab2d {.importcpp: "ProjLib::Project(@)",
+proc Project*(Pl: gp_Pln; C: gp_Circ): gp_Circ2d {.importcpp: "ProjLib::Project(@)",
     header: "ProjLib.hxx".}
-proc project*(pl: GpPln; h: GpHypr): GpHypr2d {.importcpp: "ProjLib::Project(@)",
+proc Project*(Pl: gp_Pln; E: gp_Elips): gp_Elips2d {.importcpp: "ProjLib::Project(@)",
     header: "ProjLib.hxx".}
-proc project*(cy: GpCylinder; p: GpPnt): GpPnt2d {.importcpp: "ProjLib::Project(@)",
+proc Project*(Pl: gp_Pln; P: gp_Parab): gp_Parab2d {.importcpp: "ProjLib::Project(@)",
     header: "ProjLib.hxx".}
-proc project*(cy: GpCylinder; L: GpLin): GpLin2d {.importcpp: "ProjLib::Project(@)",
+proc Project*(Pl: gp_Pln; H: gp_Hypr): gp_Hypr2d {.importcpp: "ProjLib::Project(@)",
     header: "ProjLib.hxx".}
-proc project*(cy: GpCylinder; ci: GpCirc): GpLin2d {.importcpp: "ProjLib::Project(@)",
+proc Project*(Cy: gp_Cylinder; P: gp_Pnt): gp_Pnt2d {.
+    importcpp: "ProjLib::Project(@)", header: "ProjLib.hxx".}
+proc Project*(Cy: gp_Cylinder; L: gp_Lin): gp_Lin2d {.
+    importcpp: "ProjLib::Project(@)", header: "ProjLib.hxx".}
+proc Project*(Cy: gp_Cylinder; Ci: gp_Circ): gp_Lin2d {.
+    importcpp: "ProjLib::Project(@)", header: "ProjLib.hxx".}
+proc Project*(Co: gp_Cone; P: gp_Pnt): gp_Pnt2d {.importcpp: "ProjLib::Project(@)",
     header: "ProjLib.hxx".}
-proc project*(co: GpCone; p: GpPnt): GpPnt2d {.importcpp: "ProjLib::Project(@)",
+proc Project*(Co: gp_Cone; L: gp_Lin): gp_Lin2d {.importcpp: "ProjLib::Project(@)",
     header: "ProjLib.hxx".}
-proc project*(co: GpCone; L: GpLin): GpLin2d {.importcpp: "ProjLib::Project(@)",
+proc Project*(Co: gp_Cone; Ci: gp_Circ): gp_Lin2d {.importcpp: "ProjLib::Project(@)",
     header: "ProjLib.hxx".}
-proc project*(co: GpCone; ci: GpCirc): GpLin2d {.importcpp: "ProjLib::Project(@)",
+proc Project*(Sp: gp_Sphere; P: gp_Pnt): gp_Pnt2d {.importcpp: "ProjLib::Project(@)",
     header: "ProjLib.hxx".}
-proc project*(sp: GpSphere; p: GpPnt): GpPnt2d {.importcpp: "ProjLib::Project(@)",
+proc Project*(Sp: gp_Sphere; Ci: gp_Circ): gp_Lin2d {.
+    importcpp: "ProjLib::Project(@)", header: "ProjLib.hxx".}
+proc Project*(To: gp_Torus; P: gp_Pnt): gp_Pnt2d {.importcpp: "ProjLib::Project(@)",
     header: "ProjLib.hxx".}
-proc project*(sp: GpSphere; ci: GpCirc): GpLin2d {.importcpp: "ProjLib::Project(@)",
+proc Project*(To: gp_Torus; Ci: gp_Circ): gp_Lin2d {.importcpp: "ProjLib::Project(@)",
     header: "ProjLib.hxx".}
-proc project*(to: GpTorus; p: GpPnt): GpPnt2d {.importcpp: "ProjLib::Project(@)",
-    header: "ProjLib.hxx".}
-proc project*(to: GpTorus; ci: GpCirc): GpLin2d {.importcpp: "ProjLib::Project(@)",
-    header: "ProjLib.hxx".}
-proc makePCurveOfType*(pc: ProjLibProjectedCurve; aC: var Handle[Geom2dCurve]) {.
+proc MakePCurveOfType*(PC: ProjLib_ProjectedCurve; aC: var handle[Geom2d_Curve]) {.
     importcpp: "ProjLib::MakePCurveOfType(@)", header: "ProjLib.hxx".}
-proc isAnaSurf*(theAS: Handle[Adaptor3dHSurface]): StandardBoolean {.
+proc IsAnaSurf*(theAS: handle[Adaptor3d_HSurface]): Standard_Boolean {.
     importcpp: "ProjLib::IsAnaSurf(@)", header: "ProjLib.hxx".}
-

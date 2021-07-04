@@ -14,47 +14,52 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../TopoDS/TopoDS_Shape,
+  ../TopTools/TopTools_ListOfShape, BRepLib_Command, BRepLib_ShapeModification,
+  ../Standard/Standard_Boolean, ../Standard/Standard_Integer
+
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of TopoDS_Face"
 discard "forward decl of TopoDS_Edge"
 type
-  BRepLibMakeShape* {.importcpp: "BRepLib_MakeShape",
-                     header: "BRepLib_MakeShape.hxx", bycopy.} = object of BRepLibCommand ##
-                                                                                   ## !
-                                                                                   ## This
-                                                                                   ## is
-                                                                                   ## called
-                                                                                   ## by
-                                                                                   ## Shape().
-                                                                                   ## It
-                                                                                   ## does
-                                                                                   ## nothing
-                                                                                   ## but
-                                                                                   ##
-                                                                                   ## !
-                                                                                   ## may
-                                                                                   ## be
-                                                                                   ## redefined.
+  BRepLib_MakeShape* {.importcpp: "BRepLib_MakeShape",
+                      header: "BRepLib_MakeShape.hxx", bycopy.} = object of BRepLib_Command ##
+                                                                                     ## !
+                                                                                     ## This
+                                                                                     ## is
+                                                                                     ## called
+                                                                                     ## by
+                                                                                     ## Shape().
+                                                                                     ## It
+                                                                                     ## does
+                                                                                     ## nothing
+                                                                                     ## but
+                                                                                     ##
+                                                                                     ## !
+                                                                                     ## may
+                                                                                     ## be
+                                                                                     ## redefined.
 
 
-proc build*(this: var BRepLibMakeShape) {.importcpp: "Build",
-                                      header: "BRepLib_MakeShape.hxx".}
-proc shape*(this: var BRepLibMakeShape): TopoDS_Shape {.importcpp: "Shape",
+proc Build*(this: var BRepLib_MakeShape) {.importcpp: "Build",
+                                       header: "BRepLib_MakeShape.hxx".}
+proc Shape*(this: var BRepLib_MakeShape): TopoDS_Shape {.importcpp: "Shape",
     header: "BRepLib_MakeShape.hxx".}
-converter `topoDS_Shape`*(this: var BRepLibMakeShape): TopoDS_Shape {.
+converter `TopoDS_Shape`*(this: var BRepLib_MakeShape): TopoDS_Shape {.
     importcpp: "BRepLib_MakeShape::operator TopoDS_Shape",
     header: "BRepLib_MakeShape.hxx".}
-proc faceStatus*(this: BRepLibMakeShape; f: TopoDS_Face): BRepLibShapeModification {.
+proc FaceStatus*(this: BRepLib_MakeShape; F: TopoDS_Face): BRepLib_ShapeModification {.
     noSideEffect, importcpp: "FaceStatus", header: "BRepLib_MakeShape.hxx".}
-proc hasDescendants*(this: BRepLibMakeShape; f: TopoDS_Face): StandardBoolean {.
+proc HasDescendants*(this: BRepLib_MakeShape; F: TopoDS_Face): Standard_Boolean {.
     noSideEffect, importcpp: "HasDescendants", header: "BRepLib_MakeShape.hxx".}
-proc descendantFaces*(this: var BRepLibMakeShape; f: TopoDS_Face): TopToolsListOfShape {.
+proc DescendantFaces*(this: var BRepLib_MakeShape; F: TopoDS_Face): TopTools_ListOfShape {.
     importcpp: "DescendantFaces", header: "BRepLib_MakeShape.hxx".}
-proc nbSurfaces*(this: BRepLibMakeShape): StandardInteger {.noSideEffect,
+proc NbSurfaces*(this: BRepLib_MakeShape): Standard_Integer {.noSideEffect,
     importcpp: "NbSurfaces", header: "BRepLib_MakeShape.hxx".}
-proc newFaces*(this: var BRepLibMakeShape; i: StandardInteger): TopToolsListOfShape {.
+proc NewFaces*(this: var BRepLib_MakeShape; I: Standard_Integer): TopTools_ListOfShape {.
     importcpp: "NewFaces", header: "BRepLib_MakeShape.hxx".}
-proc facesFromEdges*(this: var BRepLibMakeShape; e: TopoDS_Edge): TopToolsListOfShape {.
+proc FacesFromEdges*(this: var BRepLib_MakeShape; E: TopoDS_Edge): TopTools_ListOfShape {.
     importcpp: "FacesFromEdges", header: "BRepLib_MakeShape.hxx".}
-

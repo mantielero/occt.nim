@@ -14,26 +14,31 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer,
+  ../Standard/Standard_Boolean
+
 discard "forward decl of MAT2d_BiInt"
 type
-  MAT2dMapBiIntHasher* {.importcpp: "MAT2d_MapBiIntHasher",
-                        header: "MAT2d_MapBiIntHasher.hxx", bycopy.} = object ## !
-                                                                         ## Computes a hash code for the given key, in the range [1,
-                                                                         ## theUpperBound]
-                                                                         ## ! @param theKey the key which hash code is to be
-                                                                         ## computed
-                                                                         ## ! @param
-                                                                         ## theUpperBound the upper bound of the range a
-                                                                         ## computing hash code must be within
-                                                                         ## ! @return a
-                                                                         ## computed hash code, in the range [1,
-                                                                         ## theUpperBound]
+  MAT2d_MapBiIntHasher* {.importcpp: "MAT2d_MapBiIntHasher",
+                         header: "MAT2d_MapBiIntHasher.hxx", bycopy.} = object ## !
+                                                                          ## Computes a hash code for the given key, in the range [1,
+                                                                          ## theUpperBound]
+                                                                          ## ! @param theKey the key which hash code is to be
+                                                                          ## computed
+                                                                          ## ! @param
+                                                                          ## theUpperBound the upper bound of the range a
+                                                                          ## computing hash code must be within
+                                                                          ## !
+                                                                          ## @return a
+                                                                          ## computed hash code, in the range [1,
+                                                                          ## theUpperBound]
 
 
-proc hashCode*(theKey: MAT2dBiInt; theUpperBound: StandardInteger): StandardInteger {.
+proc HashCode*(theKey: MAT2d_BiInt; theUpperBound: Standard_Integer): Standard_Integer {.
     importcpp: "MAT2d_MapBiIntHasher::HashCode(@)",
     header: "MAT2d_MapBiIntHasher.hxx".}
-proc isEqual*(key1: MAT2dBiInt; key2: MAT2dBiInt): StandardBoolean {.
+proc IsEqual*(Key1: MAT2d_BiInt; Key2: MAT2d_BiInt): Standard_Boolean {.
     importcpp: "MAT2d_MapBiIntHasher::IsEqual(@)",
     header: "MAT2d_MapBiIntHasher.hxx".}
-

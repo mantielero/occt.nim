@@ -20,7 +20,5 @@
 ## ! Declare variable with memory alignment.
 ## ! @code
 ## !   static const STANDARD_ALIGNED(8, char, THE_ARRAY)[] = {0xFF, 0xFE, 0xFA, 0xFB, 0xFF, 0x11, 0x22, 0x33};
-## ! @endcode # defined ( _MSC_VER ) [NewLine] # STANDARD_ALIGNED ( theAlignment , theType , theVar ) __declspec ( align ( theAlignment ) ) theType theVar [NewLine] # defined ( __GNUC__ ) [NewLine] # STANDARD_ALIGNED ( theAlignment , theType , theVar ) theType __attribute__ ( ( aligned ( theAlignment ) ) ) theVar [NewLine] # [NewLine] # STANDARD_ALIGNED ( theAlignment , theType , theVar ) theType theVar [NewLine] # [NewLine] #  _Standard_DefineAlloc_HeaderFile
+## ! @endcode # defined ( _MSC_VER ) [NewLine] # STANDARD_ALIGNED ( theAlignment , theType , theVar ) __declspec ( align ( theAlignment ) ) theType theVar [NewLine] # defined ( __GNUC__ ) [NewLine] # STANDARD_ALIGNED ( theAlignment , theType , theVar ) theType __attribute__ ( ( aligned ( theAlignment ) ) ) theVar [NewLine] # [NewLine] # STANDARD_ALIGNED ( theAlignment , theType , theVar ) theType theVar [NewLine] # [NewLine] #  _Standard_DefineAlloc_HeaderFile [NewLine]
 ## Error: token expected: ) but got: [identifier]!!!
-
-

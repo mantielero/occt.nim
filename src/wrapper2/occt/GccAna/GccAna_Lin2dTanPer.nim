@@ -14,6 +14,14 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
+  ../Standard/Standard_Integer, ../TColgp/TColgp_Array1OfLin2d,
+  ../GccEnt/GccEnt_Array1OfPosition, ../TColgp/TColgp_Array1OfPnt2d,
+  ../TColStd/TColStd_Array1OfReal, ../GccEnt/GccEnt_Position,
+  ../Standard/Standard_Real
+
 discard "forward decl of GccEnt_BadQualifier"
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of Standard_ConstructionError"
@@ -23,40 +31,40 @@ discard "forward decl of gp_Lin2d"
 discard "forward decl of gp_Circ2d"
 discard "forward decl of GccEnt_QualifiedCirc"
 type
-  GccAnaLin2dTanPer* {.importcpp: "GccAna_Lin2dTanPer",
-                      header: "GccAna_Lin2dTanPer.hxx", bycopy.} = object ## ! This method implements the algorithms used to
-                                                                     ## ! create 2d lines passing through a point and
-                                                                     ## !
-                                                                     ## perpendicular to a line.
+  GccAna_Lin2dTanPer* {.importcpp: "GccAna_Lin2dTanPer",
+                       header: "GccAna_Lin2dTanPer.hxx", bycopy.} = object ## ! This method implements the algorithms used to
+                                                                      ## ! create 2d lines passing through a point and
+                                                                      ## !
+                                                                      ## perpendicular to a line.
 
 
-proc constructGccAnaLin2dTanPer*(thePnt: GpPnt2d; theLin: GpLin2d): GccAnaLin2dTanPer {.
+proc constructGccAna_Lin2dTanPer*(ThePnt: gp_Pnt2d; TheLin: gp_Lin2d): GccAna_Lin2dTanPer {.
     constructor, importcpp: "GccAna_Lin2dTanPer(@)",
     header: "GccAna_Lin2dTanPer.hxx".}
-proc constructGccAnaLin2dTanPer*(thePnt: GpPnt2d; theCircle: GpCirc2d): GccAnaLin2dTanPer {.
+proc constructGccAna_Lin2dTanPer*(ThePnt: gp_Pnt2d; TheCircle: gp_Circ2d): GccAna_Lin2dTanPer {.
     constructor, importcpp: "GccAna_Lin2dTanPer(@)",
     header: "GccAna_Lin2dTanPer.hxx".}
-proc constructGccAnaLin2dTanPer*(qualified1: GccEntQualifiedCirc; theLin: GpLin2d): GccAnaLin2dTanPer {.
+proc constructGccAna_Lin2dTanPer*(Qualified1: GccEnt_QualifiedCirc;
+                                 TheLin: gp_Lin2d): GccAna_Lin2dTanPer {.
     constructor, importcpp: "GccAna_Lin2dTanPer(@)",
     header: "GccAna_Lin2dTanPer.hxx".}
-proc constructGccAnaLin2dTanPer*(qualified1: GccEntQualifiedCirc;
-                                theCircle: GpCirc2d): GccAnaLin2dTanPer {.
+proc constructGccAna_Lin2dTanPer*(Qualified1: GccEnt_QualifiedCirc;
+                                 TheCircle: gp_Circ2d): GccAna_Lin2dTanPer {.
     constructor, importcpp: "GccAna_Lin2dTanPer(@)",
     header: "GccAna_Lin2dTanPer.hxx".}
-proc isDone*(this: GccAnaLin2dTanPer): StandardBoolean {.noSideEffect,
+proc IsDone*(this: GccAna_Lin2dTanPer): Standard_Boolean {.noSideEffect,
     importcpp: "IsDone", header: "GccAna_Lin2dTanPer.hxx".}
-proc nbSolutions*(this: GccAnaLin2dTanPer): StandardInteger {.noSideEffect,
+proc NbSolutions*(this: GccAna_Lin2dTanPer): Standard_Integer {.noSideEffect,
     importcpp: "NbSolutions", header: "GccAna_Lin2dTanPer.hxx".}
-proc whichQualifier*(this: GccAnaLin2dTanPer; index: StandardInteger;
-                    qualif1: var GccEntPosition) {.noSideEffect,
+proc WhichQualifier*(this: GccAna_Lin2dTanPer; Index: Standard_Integer;
+                    Qualif1: var GccEnt_Position) {.noSideEffect,
     importcpp: "WhichQualifier", header: "GccAna_Lin2dTanPer.hxx".}
-proc thisSolution*(this: GccAnaLin2dTanPer; index: StandardInteger): GpLin2d {.
+proc ThisSolution*(this: GccAna_Lin2dTanPer; Index: Standard_Integer): gp_Lin2d {.
     noSideEffect, importcpp: "ThisSolution", header: "GccAna_Lin2dTanPer.hxx".}
-proc tangency1*(this: GccAnaLin2dTanPer; index: StandardInteger;
-               parSol: var StandardReal; parArg: var StandardReal; pnt: var GpPnt2d) {.
+proc Tangency1*(this: GccAna_Lin2dTanPer; Index: Standard_Integer;
+               ParSol: var Standard_Real; ParArg: var Standard_Real; Pnt: var gp_Pnt2d) {.
     noSideEffect, importcpp: "Tangency1", header: "GccAna_Lin2dTanPer.hxx".}
-proc intersection2*(this: GccAnaLin2dTanPer; index: StandardInteger;
-                   parSol: var StandardReal; parArg: var StandardReal;
-                   pntSol: var GpPnt2d) {.noSideEffect, importcpp: "Intersection2",
-                                       header: "GccAna_Lin2dTanPer.hxx".}
-
+proc Intersection2*(this: GccAna_Lin2dTanPer; Index: Standard_Integer;
+                   ParSol: var Standard_Real; ParArg: var Standard_Real;
+                   PntSol: var gp_Pnt2d) {.noSideEffect, importcpp: "Intersection2",
+                                        header: "GccAna_Lin2dTanPer.hxx".}

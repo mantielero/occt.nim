@@ -14,45 +14,47 @@
 ##  commercial license or contractual agreement.
 ##  The original implementation Copyright: (C) RINA S.p.A
 
+import
+  ../TObj/TObj_Common, ../BinMDF/BinMDF_ADriver
+
 type
-  BinTObjDriversIntSparseArrayDriver* {.importcpp: "BinTObjDrivers_IntSparseArrayDriver", header: "BinTObjDrivers_IntSparseArrayDriver.hxx",
-                                       bycopy.} = object of BinMDF_ADriver ##  CASCADE RTTI
+  BinTObjDrivers_IntSparseArrayDriver* {.importcpp: "BinTObjDrivers_IntSparseArrayDriver", header: "BinTObjDrivers_IntSparseArrayDriver.hxx",
+                                        bycopy.} = object of BinMDF_ADriver ##  CASCADE RTTI
 
 
-proc constructBinTObjDriversIntSparseArrayDriver*(
-    theMessageDriver: Handle[MessageMessenger]): BinTObjDriversIntSparseArrayDriver {.
+proc constructBinTObjDrivers_IntSparseArrayDriver*(
+    theMessageDriver: handle[Message_Messenger]): BinTObjDrivers_IntSparseArrayDriver {.
     constructor, importcpp: "BinTObjDrivers_IntSparseArrayDriver(@)",
     header: "BinTObjDrivers_IntSparseArrayDriver.hxx".}
-proc newEmpty*(this: BinTObjDriversIntSparseArrayDriver): Handle[TDF_Attribute] {.
+proc NewEmpty*(this: BinTObjDrivers_IntSparseArrayDriver): handle[TDF_Attribute] {.
     noSideEffect, importcpp: "NewEmpty",
     header: "BinTObjDrivers_IntSparseArrayDriver.hxx".}
-proc paste*(this: BinTObjDriversIntSparseArrayDriver;
-           theSource: BinObjMgtPersistent; theTarget: Handle[TDF_Attribute];
-           theRelocTable: var BinObjMgtRRelocationTable): StandardBoolean {.
+proc Paste*(this: BinTObjDrivers_IntSparseArrayDriver;
+           theSource: BinObjMgt_Persistent; theTarget: handle[TDF_Attribute];
+           theRelocTable: var BinObjMgt_RRelocationTable): Standard_Boolean {.
     noSideEffect, importcpp: "Paste",
     header: "BinTObjDrivers_IntSparseArrayDriver.hxx".}
-proc paste*(this: BinTObjDriversIntSparseArrayDriver;
-           theSource: Handle[TDF_Attribute]; theTarget: var BinObjMgtPersistent;
-           theRelocTable: var BinObjMgtSRelocationTable) {.noSideEffect,
+proc Paste*(this: BinTObjDrivers_IntSparseArrayDriver;
+           theSource: handle[TDF_Attribute]; theTarget: var BinObjMgt_Persistent;
+           theRelocTable: var BinObjMgt_SRelocationTable) {.noSideEffect,
     importcpp: "Paste", header: "BinTObjDrivers_IntSparseArrayDriver.hxx".}
 type
-  BinTObjDriversIntSparseArrayDriverbaseType* = BinMDF_ADriver
+  BinTObjDrivers_IntSparseArrayDriverbase_type* = BinMDF_ADriver
 
-proc getTypeName*(): cstring {.importcpp: "BinTObjDrivers_IntSparseArrayDriver::get_type_name(@)",
-                            header: "BinTObjDrivers_IntSparseArrayDriver.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "BinTObjDrivers_IntSparseArrayDriver::get_type_name(@)",
+                              header: "BinTObjDrivers_IntSparseArrayDriver.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "BinTObjDrivers_IntSparseArrayDriver::get_type_descriptor(@)",
     header: "BinTObjDrivers_IntSparseArrayDriver.hxx".}
-proc dynamicType*(this: BinTObjDriversIntSparseArrayDriver): Handle[StandardType] {.
+proc DynamicType*(this: BinTObjDrivers_IntSparseArrayDriver): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType",
     header: "BinTObjDrivers_IntSparseArrayDriver.hxx".}
 ##  Define handle class
 
 discard "forward decl of BinTObjDrivers_IntSparseArrayDriver"
 type
-  HandleBinTObjDriversIntSparseArrayDriver* = Handle[
-      BinTObjDriversIntSparseArrayDriver]
+  Handle_BinTObjDrivers_IntSparseArrayDriver* = handle[
+      BinTObjDrivers_IntSparseArrayDriver]
 
-# when defined(_MSC_VER):
-#   discard
-
+when defined(_MSC_VER):
+  discard

@@ -14,36 +14,40 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Real,
+  ../Standard/Standard_Boolean, ../TopLoc/TopLoc_Location
+
 discard "forward decl of Geom_Surface"
 discard "forward decl of Standard_NoSuchObject"
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of TopLoc_Location"
 type
-  BRepLibFindSurface* {.importcpp: "BRepLib_FindSurface",
-                       header: "BRepLib_FindSurface.hxx", bycopy.} = object
+  BRepLib_FindSurface* {.importcpp: "BRepLib_FindSurface",
+                        header: "BRepLib_FindSurface.hxx", bycopy.} = object
 
 
-proc constructBRepLibFindSurface*(): BRepLibFindSurface {.constructor,
+proc constructBRepLib_FindSurface*(): BRepLib_FindSurface {.constructor,
     importcpp: "BRepLib_FindSurface(@)", header: "BRepLib_FindSurface.hxx".}
-proc constructBRepLibFindSurface*(s: TopoDS_Shape; tol: StandardReal = -1;
-                                 onlyPlane: StandardBoolean = standardFalse;
-                                 onlyClosed: StandardBoolean = standardFalse): BRepLibFindSurface {.
+proc constructBRepLib_FindSurface*(S: TopoDS_Shape; Tol: Standard_Real = -1;
+                                  OnlyPlane: Standard_Boolean = Standard_False;
+                                  OnlyClosed: Standard_Boolean = Standard_False): BRepLib_FindSurface {.
     constructor, importcpp: "BRepLib_FindSurface(@)",
     header: "BRepLib_FindSurface.hxx".}
-proc init*(this: var BRepLibFindSurface; s: TopoDS_Shape; tol: StandardReal = -1;
-          onlyPlane: StandardBoolean = standardFalse;
-          onlyClosed: StandardBoolean = standardFalse) {.importcpp: "Init",
+proc Init*(this: var BRepLib_FindSurface; S: TopoDS_Shape; Tol: Standard_Real = -1;
+          OnlyPlane: Standard_Boolean = Standard_False;
+          OnlyClosed: Standard_Boolean = Standard_False) {.importcpp: "Init",
     header: "BRepLib_FindSurface.hxx".}
-proc found*(this: BRepLibFindSurface): StandardBoolean {.noSideEffect,
+proc Found*(this: BRepLib_FindSurface): Standard_Boolean {.noSideEffect,
     importcpp: "Found", header: "BRepLib_FindSurface.hxx".}
-proc surface*(this: BRepLibFindSurface): Handle[GeomSurface] {.noSideEffect,
+proc Surface*(this: BRepLib_FindSurface): handle[Geom_Surface] {.noSideEffect,
     importcpp: "Surface", header: "BRepLib_FindSurface.hxx".}
-proc tolerance*(this: BRepLibFindSurface): StandardReal {.noSideEffect,
+proc Tolerance*(this: BRepLib_FindSurface): Standard_Real {.noSideEffect,
     importcpp: "Tolerance", header: "BRepLib_FindSurface.hxx".}
-proc toleranceReached*(this: BRepLibFindSurface): StandardReal {.noSideEffect,
+proc ToleranceReached*(this: BRepLib_FindSurface): Standard_Real {.noSideEffect,
     importcpp: "ToleranceReached", header: "BRepLib_FindSurface.hxx".}
-proc existed*(this: BRepLibFindSurface): StandardBoolean {.noSideEffect,
+proc Existed*(this: BRepLib_FindSurface): Standard_Boolean {.noSideEffect,
     importcpp: "Existed", header: "BRepLib_FindSurface.hxx".}
-proc location*(this: BRepLibFindSurface): TopLocLocation {.noSideEffect,
+proc Location*(this: BRepLib_FindSurface): TopLoc_Location {.noSideEffect,
     importcpp: "Location", header: "BRepLib_FindSurface.hxx".}
-

@@ -13,12 +13,20 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type,
+  ../TColStd/TColStd_PackedMapOfInteger, MeshVS_DataMapOfIntegerVector,
+  ../Standard/Standard_Real, MeshVS_DataSource, ../Standard/Standard_Boolean,
+  ../Standard/Standard_Integer, ../TColStd/TColStd_Array1OfReal,
+  MeshVS_EntityType, MeshVS_HArray1OfSequenceOfInteger,
+  ../Standard/Standard_Address, ../TColStd/TColStd_Array1OfInteger
+
 discard "forward decl of MeshVS_DataSource"
 discard "forward decl of gp_Vec"
 discard "forward decl of MeshVS_DeformedDataSource"
 discard "forward decl of MeshVS_DeformedDataSource"
 type
-  HandleMeshVS_DeformedDataSource* = Handle[MeshVS_DeformedDataSource]
+  Handle_MeshVS_DeformedDataSource* = handle[MeshVS_DeformedDataSource]
 
 ## ! The class provides default class which helps to represent node displacements by deformed mesh
 ## ! This class has an internal handle to canonical non-deformed mesh data source and
@@ -60,61 +68,62 @@ type
                                                                                                        ## magnify
 
 
-proc constructMeshVS_DeformedDataSource*(theNonDeformDS: Handle[MeshVS_DataSource];
-                                        theMagnify: StandardReal): MeshVS_DeformedDataSource {.
+proc constructMeshVS_DeformedDataSource*(theNonDeformDS: handle[MeshVS_DataSource];
+                                        theMagnify: Standard_Real): MeshVS_DeformedDataSource {.
     constructor, importcpp: "MeshVS_DeformedDataSource(@)",
     header: "MeshVS_DeformedDataSource.hxx".}
-proc getGeom*(this: MeshVS_DeformedDataSource; id: StandardInteger;
-             isElement: StandardBoolean; coords: var TColStdArray1OfReal;
-             nbNodes: var StandardInteger; `type`: var MeshVS_EntityType): StandardBoolean {.
+proc GetGeom*(this: MeshVS_DeformedDataSource; ID: Standard_Integer;
+             IsElement: Standard_Boolean; Coords: var TColStd_Array1OfReal;
+             NbNodes: var Standard_Integer; Type: var MeshVS_EntityType): Standard_Boolean {.
     noSideEffect, importcpp: "GetGeom", header: "MeshVS_DeformedDataSource.hxx".}
-proc getGeomType*(this: MeshVS_DeformedDataSource; id: StandardInteger;
-                 isElement: StandardBoolean; `type`: var MeshVS_EntityType): StandardBoolean {.
+proc GetGeomType*(this: MeshVS_DeformedDataSource; ID: Standard_Integer;
+                 IsElement: Standard_Boolean; Type: var MeshVS_EntityType): Standard_Boolean {.
     noSideEffect, importcpp: "GetGeomType", header: "MeshVS_DeformedDataSource.hxx".}
-proc get3DGeom*(this: MeshVS_DeformedDataSource; id: StandardInteger;
-               nbNodes: var StandardInteger;
-               data: var Handle[MeshVS_HArray1OfSequenceOfInteger]): StandardBoolean {.
+proc Get3DGeom*(this: MeshVS_DeformedDataSource; ID: Standard_Integer;
+               NbNodes: var Standard_Integer;
+               Data: var handle[MeshVS_HArray1OfSequenceOfInteger]): Standard_Boolean {.
     noSideEffect, importcpp: "Get3DGeom", header: "MeshVS_DeformedDataSource.hxx".}
-proc getAddr*(this: MeshVS_DeformedDataSource; id: StandardInteger;
-             isElement: StandardBoolean): StandardAddress {.noSideEffect,
+proc GetAddr*(this: MeshVS_DeformedDataSource; ID: Standard_Integer;
+             IsElement: Standard_Boolean): Standard_Address {.noSideEffect,
     importcpp: "GetAddr", header: "MeshVS_DeformedDataSource.hxx".}
-proc getNodesByElement*(this: MeshVS_DeformedDataSource; id: StandardInteger;
-                       nodeIDs: var TColStdArray1OfInteger;
-                       nbNodes: var StandardInteger): StandardBoolean {.
+proc GetNodesByElement*(this: MeshVS_DeformedDataSource; ID: Standard_Integer;
+                       NodeIDs: var TColStd_Array1OfInteger;
+                       NbNodes: var Standard_Integer): Standard_Boolean {.
     noSideEffect, importcpp: "GetNodesByElement",
     header: "MeshVS_DeformedDataSource.hxx".}
-proc getAllNodes*(this: MeshVS_DeformedDataSource): TColStdPackedMapOfInteger {.
+proc GetAllNodes*(this: MeshVS_DeformedDataSource): TColStd_PackedMapOfInteger {.
     noSideEffect, importcpp: "GetAllNodes", header: "MeshVS_DeformedDataSource.hxx".}
-proc getAllElements*(this: MeshVS_DeformedDataSource): TColStdPackedMapOfInteger {.
+proc GetAllElements*(this: MeshVS_DeformedDataSource): TColStd_PackedMapOfInteger {.
     noSideEffect, importcpp: "GetAllElements",
     header: "MeshVS_DeformedDataSource.hxx".}
-proc getVectors*(this: MeshVS_DeformedDataSource): MeshVS_DataMapOfIntegerVector {.
+proc GetVectors*(this: MeshVS_DeformedDataSource): MeshVS_DataMapOfIntegerVector {.
     noSideEffect, importcpp: "GetVectors", header: "MeshVS_DeformedDataSource.hxx".}
-proc setVectors*(this: var MeshVS_DeformedDataSource;
-                map: MeshVS_DataMapOfIntegerVector) {.importcpp: "SetVectors",
+proc SetVectors*(this: var MeshVS_DeformedDataSource;
+                Map: MeshVS_DataMapOfIntegerVector) {.importcpp: "SetVectors",
     header: "MeshVS_DeformedDataSource.hxx".}
-proc getVector*(this: MeshVS_DeformedDataSource; id: StandardInteger; vect: var GpVec): StandardBoolean {.
-    noSideEffect, importcpp: "GetVector", header: "MeshVS_DeformedDataSource.hxx".}
-proc setVector*(this: var MeshVS_DeformedDataSource; id: StandardInteger; vect: GpVec) {.
-    importcpp: "SetVector", header: "MeshVS_DeformedDataSource.hxx".}
-proc setNonDeformedDataSource*(this: var MeshVS_DeformedDataSource;
-                              theDS: Handle[MeshVS_DataSource]) {.
+proc GetVector*(this: MeshVS_DeformedDataSource; ID: Standard_Integer;
+               Vect: var gp_Vec): Standard_Boolean {.noSideEffect,
+    importcpp: "GetVector", header: "MeshVS_DeformedDataSource.hxx".}
+proc SetVector*(this: var MeshVS_DeformedDataSource; ID: Standard_Integer;
+               Vect: gp_Vec) {.importcpp: "SetVector",
+                             header: "MeshVS_DeformedDataSource.hxx".}
+proc SetNonDeformedDataSource*(this: var MeshVS_DeformedDataSource;
+                              theDS: handle[MeshVS_DataSource]) {.
     importcpp: "SetNonDeformedDataSource", header: "MeshVS_DeformedDataSource.hxx".}
-proc getNonDeformedDataSource*(this: MeshVS_DeformedDataSource): Handle[
+proc GetNonDeformedDataSource*(this: MeshVS_DeformedDataSource): handle[
     MeshVS_DataSource] {.noSideEffect, importcpp: "GetNonDeformedDataSource",
                         header: "MeshVS_DeformedDataSource.hxx".}
-proc setMagnify*(this: var MeshVS_DeformedDataSource; theMagnify: StandardReal) {.
+proc SetMagnify*(this: var MeshVS_DeformedDataSource; theMagnify: Standard_Real) {.
     importcpp: "SetMagnify", header: "MeshVS_DeformedDataSource.hxx".}
-proc getMagnify*(this: MeshVS_DeformedDataSource): StandardReal {.noSideEffect,
+proc GetMagnify*(this: MeshVS_DeformedDataSource): Standard_Real {.noSideEffect,
     importcpp: "GetMagnify", header: "MeshVS_DeformedDataSource.hxx".}
 type
-  MeshVS_DeformedDataSourcebaseType* = MeshVS_DataSource
+  MeshVS_DeformedDataSourcebase_type* = MeshVS_DataSource
 
-proc getTypeName*(): cstring {.importcpp: "MeshVS_DeformedDataSource::get_type_name(@)",
-                            header: "MeshVS_DeformedDataSource.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "MeshVS_DeformedDataSource::get_type_name(@)",
+                              header: "MeshVS_DeformedDataSource.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "MeshVS_DeformedDataSource::get_type_descriptor(@)",
     header: "MeshVS_DeformedDataSource.hxx".}
-proc dynamicType*(this: MeshVS_DeformedDataSource): Handle[StandardType] {.
+proc DynamicType*(this: MeshVS_DeformedDataSource): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType", header: "MeshVS_DeformedDataSource.hxx".}
-

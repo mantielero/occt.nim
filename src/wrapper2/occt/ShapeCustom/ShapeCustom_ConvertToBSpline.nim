@@ -14,6 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Boolean,
+  ShapeCustom_Modification, ../Standard/Standard_Real, ../GeomAbs/GeomAbs_Shape
+
 discard "forward decl of TopoDS_Face"
 discard "forward decl of Geom_Surface"
 discard "forward decl of TopLoc_Location"
@@ -25,7 +29,7 @@ discard "forward decl of Geom2d_Curve"
 discard "forward decl of ShapeCustom_ConvertToBSpline"
 discard "forward decl of ShapeCustom_ConvertToBSpline"
 type
-  HandleShapeCustomConvertToBSpline* = Handle[ShapeCustomConvertToBSpline]
+  Handle_ShapeCustom_ConvertToBSpline* = handle[ShapeCustom_ConvertToBSpline]
 
 ## ! implement a modification for BRepTools
 ## ! Modifier algortihm. Converts Surface of
@@ -34,55 +38,57 @@ type
 ## ! flags.
 
 type
-  ShapeCustomConvertToBSpline* {.importcpp: "ShapeCustom_ConvertToBSpline",
-                                header: "ShapeCustom_ConvertToBSpline.hxx", bycopy.} = object of ShapeCustomModification
+  ShapeCustom_ConvertToBSpline* {.importcpp: "ShapeCustom_ConvertToBSpline",
+                                 header: "ShapeCustom_ConvertToBSpline.hxx",
+                                 bycopy.} = object of ShapeCustom_Modification
 
 
-proc constructShapeCustomConvertToBSpline*(): ShapeCustomConvertToBSpline {.
+proc constructShapeCustom_ConvertToBSpline*(): ShapeCustom_ConvertToBSpline {.
     constructor, importcpp: "ShapeCustom_ConvertToBSpline(@)",
     header: "ShapeCustom_ConvertToBSpline.hxx".}
-proc setExtrusionMode*(this: var ShapeCustomConvertToBSpline;
-                      extrMode: StandardBoolean) {.importcpp: "SetExtrusionMode",
+proc SetExtrusionMode*(this: var ShapeCustom_ConvertToBSpline;
+                      extrMode: Standard_Boolean) {.importcpp: "SetExtrusionMode",
     header: "ShapeCustom_ConvertToBSpline.hxx".}
-proc setRevolutionMode*(this: var ShapeCustomConvertToBSpline;
-                       revolMode: StandardBoolean) {.
+proc SetRevolutionMode*(this: var ShapeCustom_ConvertToBSpline;
+                       revolMode: Standard_Boolean) {.
     importcpp: "SetRevolutionMode", header: "ShapeCustom_ConvertToBSpline.hxx".}
-proc setOffsetMode*(this: var ShapeCustomConvertToBSpline;
-                   offsetMode: StandardBoolean) {.importcpp: "SetOffsetMode",
+proc SetOffsetMode*(this: var ShapeCustom_ConvertToBSpline;
+                   offsetMode: Standard_Boolean) {.importcpp: "SetOffsetMode",
     header: "ShapeCustom_ConvertToBSpline.hxx".}
-proc setPlaneMode*(this: var ShapeCustomConvertToBSpline; planeMode: StandardBoolean) {.
-    importcpp: "SetPlaneMode", header: "ShapeCustom_ConvertToBSpline.hxx".}
-proc newSurface*(this: var ShapeCustomConvertToBSpline; f: TopoDS_Face;
-                s: var Handle[GeomSurface]; L: var TopLocLocation;
-                tol: var StandardReal; revWires: var StandardBoolean;
-                revFace: var StandardBoolean): StandardBoolean {.
+proc SetPlaneMode*(this: var ShapeCustom_ConvertToBSpline;
+                  planeMode: Standard_Boolean) {.importcpp: "SetPlaneMode",
+    header: "ShapeCustom_ConvertToBSpline.hxx".}
+proc NewSurface*(this: var ShapeCustom_ConvertToBSpline; F: TopoDS_Face;
+                S: var handle[Geom_Surface]; L: var TopLoc_Location;
+                Tol: var Standard_Real; RevWires: var Standard_Boolean;
+                RevFace: var Standard_Boolean): Standard_Boolean {.
     importcpp: "NewSurface", header: "ShapeCustom_ConvertToBSpline.hxx".}
-proc newCurve*(this: var ShapeCustomConvertToBSpline; e: TopoDS_Edge;
-              c: var Handle[GeomCurve]; L: var TopLocLocation; tol: var StandardReal): StandardBoolean {.
-    importcpp: "NewCurve", header: "ShapeCustom_ConvertToBSpline.hxx".}
-proc newPoint*(this: var ShapeCustomConvertToBSpline; v: TopoDS_Vertex; p: var GpPnt;
-              tol: var StandardReal): StandardBoolean {.importcpp: "NewPoint",
+proc NewCurve*(this: var ShapeCustom_ConvertToBSpline; E: TopoDS_Edge;
+              C: var handle[Geom_Curve]; L: var TopLoc_Location;
+              Tol: var Standard_Real): Standard_Boolean {.importcpp: "NewCurve",
     header: "ShapeCustom_ConvertToBSpline.hxx".}
-proc newCurve2d*(this: var ShapeCustomConvertToBSpline; e: TopoDS_Edge;
-                f: TopoDS_Face; newE: TopoDS_Edge; newF: TopoDS_Face;
-                c: var Handle[Geom2dCurve]; tol: var StandardReal): StandardBoolean {.
+proc NewPoint*(this: var ShapeCustom_ConvertToBSpline; V: TopoDS_Vertex;
+              P: var gp_Pnt; Tol: var Standard_Real): Standard_Boolean {.
+    importcpp: "NewPoint", header: "ShapeCustom_ConvertToBSpline.hxx".}
+proc NewCurve2d*(this: var ShapeCustom_ConvertToBSpline; E: TopoDS_Edge;
+                F: TopoDS_Face; NewE: TopoDS_Edge; NewF: TopoDS_Face;
+                C: var handle[Geom2d_Curve]; Tol: var Standard_Real): Standard_Boolean {.
     importcpp: "NewCurve2d", header: "ShapeCustom_ConvertToBSpline.hxx".}
-proc newParameter*(this: var ShapeCustomConvertToBSpline; v: TopoDS_Vertex;
-                  e: TopoDS_Edge; p: var StandardReal; tol: var StandardReal): StandardBoolean {.
+proc NewParameter*(this: var ShapeCustom_ConvertToBSpline; V: TopoDS_Vertex;
+                  E: TopoDS_Edge; P: var Standard_Real; Tol: var Standard_Real): Standard_Boolean {.
     importcpp: "NewParameter", header: "ShapeCustom_ConvertToBSpline.hxx".}
-proc continuity*(this: var ShapeCustomConvertToBSpline; e: TopoDS_Edge;
-                f1: TopoDS_Face; f2: TopoDS_Face; newE: TopoDS_Edge;
-                newF1: TopoDS_Face; newF2: TopoDS_Face): GeomAbsShape {.
+proc Continuity*(this: var ShapeCustom_ConvertToBSpline; E: TopoDS_Edge;
+                F1: TopoDS_Face; F2: TopoDS_Face; NewE: TopoDS_Edge;
+                NewF1: TopoDS_Face; NewF2: TopoDS_Face): GeomAbs_Shape {.
     importcpp: "Continuity", header: "ShapeCustom_ConvertToBSpline.hxx".}
 type
-  ShapeCustomConvertToBSplinebaseType* = ShapeCustomModification
+  ShapeCustom_ConvertToBSplinebase_type* = ShapeCustom_Modification
 
-proc getTypeName*(): cstring {.importcpp: "ShapeCustom_ConvertToBSpline::get_type_name(@)",
-                            header: "ShapeCustom_ConvertToBSpline.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "ShapeCustom_ConvertToBSpline::get_type_name(@)",
+                              header: "ShapeCustom_ConvertToBSpline.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "ShapeCustom_ConvertToBSpline::get_type_descriptor(@)",
     header: "ShapeCustom_ConvertToBSpline.hxx".}
-proc dynamicType*(this: ShapeCustomConvertToBSpline): Handle[StandardType] {.
+proc DynamicType*(this: ShapeCustom_ConvertToBSpline): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType",
     header: "ShapeCustom_ConvertToBSpline.hxx".}
-

@@ -14,6 +14,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Real,
+  ../Standard/Standard_OStream
+
 ## ! This class measures CPU time (both user and system) consumed
 ## ! by current process or thread. The chronometer can be started
 ## ! and stopped multiple times, and measures cumulative time.
@@ -36,35 +41,34 @@ type
                                    ## ! and is platform-specific.
 
 
-proc constructOSD_Chronometer*(theThisThreadOnly: StandardBoolean = standardFalse): OSD_Chronometer {.
+proc constructOSD_Chronometer*(theThisThreadOnly: Standard_Boolean = Standard_False): OSD_Chronometer {.
     constructor, importcpp: "OSD_Chronometer(@)", header: "OSD_Chronometer.hxx".}
 proc destroyOSD_Chronometer*(this: var OSD_Chronometer) {.
     importcpp: "#.~OSD_Chronometer()", header: "OSD_Chronometer.hxx".}
-proc isStarted*(this: OSD_Chronometer): StandardBoolean {.noSideEffect,
+proc IsStarted*(this: OSD_Chronometer): Standard_Boolean {.noSideEffect,
     importcpp: "IsStarted", header: "OSD_Chronometer.hxx".}
-proc reset*(this: var OSD_Chronometer) {.importcpp: "Reset",
+proc Reset*(this: var OSD_Chronometer) {.importcpp: "Reset",
                                      header: "OSD_Chronometer.hxx".}
-proc restart*(this: var OSD_Chronometer) {.importcpp: "Restart",
+proc Restart*(this: var OSD_Chronometer) {.importcpp: "Restart",
                                        header: "OSD_Chronometer.hxx".}
-proc stop*(this: var OSD_Chronometer) {.importcpp: "Stop",
+proc Stop*(this: var OSD_Chronometer) {.importcpp: "Stop",
                                     header: "OSD_Chronometer.hxx".}
-proc start*(this: var OSD_Chronometer) {.importcpp: "Start",
+proc Start*(this: var OSD_Chronometer) {.importcpp: "Start",
                                      header: "OSD_Chronometer.hxx".}
-proc show*(this: OSD_Chronometer) {.noSideEffect, importcpp: "Show",
+proc Show*(this: OSD_Chronometer) {.noSideEffect, importcpp: "Show",
                                  header: "OSD_Chronometer.hxx".}
-proc show*(this: OSD_Chronometer; theOStream: var StandardOStream) {.noSideEffect,
+proc Show*(this: OSD_Chronometer; theOStream: var Standard_OStream) {.noSideEffect,
     importcpp: "Show", header: "OSD_Chronometer.hxx".}
-proc userTimeCPU*(this: OSD_Chronometer): StandardReal {.noSideEffect,
+proc UserTimeCPU*(this: OSD_Chronometer): Standard_Real {.noSideEffect,
     importcpp: "UserTimeCPU", header: "OSD_Chronometer.hxx".}
-proc systemTimeCPU*(this: OSD_Chronometer): StandardReal {.noSideEffect,
+proc SystemTimeCPU*(this: OSD_Chronometer): Standard_Real {.noSideEffect,
     importcpp: "SystemTimeCPU", header: "OSD_Chronometer.hxx".}
-proc show*(this: OSD_Chronometer; theUserSeconds: var StandardReal) {.noSideEffect,
+proc Show*(this: OSD_Chronometer; theUserSeconds: var Standard_Real) {.noSideEffect,
     importcpp: "Show", header: "OSD_Chronometer.hxx".}
-proc show*(this: OSD_Chronometer; theUserSec: var StandardReal;
-          theSystemSec: var StandardReal) {.noSideEffect, importcpp: "Show",
+proc Show*(this: OSD_Chronometer; theUserSec: var Standard_Real;
+          theSystemSec: var Standard_Real) {.noSideEffect, importcpp: "Show",
     header: "OSD_Chronometer.hxx".}
-proc getProcessCPU*(userSeconds: var StandardReal; systemSeconds: var StandardReal) {.
+proc GetProcessCPU*(UserSeconds: var Standard_Real; SystemSeconds: var Standard_Real) {.
     importcpp: "OSD_Chronometer::GetProcessCPU(@)", header: "OSD_Chronometer.hxx".}
-proc getThreadCPU*(userSeconds: var StandardReal; systemSeconds: var StandardReal) {.
+proc GetThreadCPU*(UserSeconds: var Standard_Real; SystemSeconds: var Standard_Real) {.
     importcpp: "OSD_Chronometer::GetThreadCPU(@)", header: "OSD_Chronometer.hxx".}
-

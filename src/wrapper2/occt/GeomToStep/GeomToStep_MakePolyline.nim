@@ -14,19 +14,23 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, GeomToStep_Root, ../TColgp/TColgp_Array1OfPnt,
+  ../TColgp/TColgp_Array1OfPnt2d
+
 discard "forward decl of StepGeom_Polyline"
 discard "forward decl of StdFail_NotDone"
 type
-  GeomToStepMakePolyline* {.importcpp: "GeomToStep_MakePolyline",
-                           header: "GeomToStep_MakePolyline.hxx", bycopy.} = object of GeomToStepRoot
+  GeomToStep_MakePolyline* {.importcpp: "GeomToStep_MakePolyline",
+                            header: "GeomToStep_MakePolyline.hxx", bycopy.} = object of GeomToStep_Root
 
 
-proc constructGeomToStepMakePolyline*(p: TColgpArray1OfPnt): GeomToStepMakePolyline {.
+proc constructGeomToStep_MakePolyline*(P: TColgp_Array1OfPnt): GeomToStep_MakePolyline {.
     constructor, importcpp: "GeomToStep_MakePolyline(@)",
     header: "GeomToStep_MakePolyline.hxx".}
-proc constructGeomToStepMakePolyline*(p: TColgpArray1OfPnt2d): GeomToStepMakePolyline {.
+proc constructGeomToStep_MakePolyline*(P: TColgp_Array1OfPnt2d): GeomToStep_MakePolyline {.
     constructor, importcpp: "GeomToStep_MakePolyline(@)",
     header: "GeomToStep_MakePolyline.hxx".}
-proc value*(this: GeomToStepMakePolyline): Handle[StepGeomPolyline] {.noSideEffect,
-    importcpp: "Value", header: "GeomToStep_MakePolyline.hxx".}
-
+proc Value*(this: GeomToStep_MakePolyline): handle[StepGeom_Polyline] {.
+    noSideEffect, importcpp: "Value", header: "GeomToStep_MakePolyline.hxx".}

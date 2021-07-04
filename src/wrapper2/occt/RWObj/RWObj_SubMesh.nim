@@ -12,14 +12,15 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Quantity/Quantity_Color, ../TCollection/TCollection_AsciiString
+
 ## ! Sub-mesh definition for OBJ reader.
 
 type
-  RWObjSubMesh* {.importcpp: "RWObj_SubMesh", header: "RWObj_SubMesh.hxx", bycopy.} = object
-    `object`* {.importc: "Object".}: TCollectionAsciiString ## !< name of active object
-    group* {.importc: "Group".}: TCollectionAsciiString ## !< name of active group
-    smoothGroup* {.importc: "SmoothGroup".}: TCollectionAsciiString ## !< name of active smoothing group
-    material* {.importc: "Material".}: TCollectionAsciiString ## !< name of active material
-
-
+  RWObj_SubMesh* {.importcpp: "RWObj_SubMesh", header: "RWObj_SubMesh.hxx", bycopy.} = object
+    Object* {.importc: "Object".}: TCollection_AsciiString ## !< name of active object
+    Group* {.importc: "Group".}: TCollection_AsciiString ## !< name of active group
+    SmoothGroup* {.importc: "SmoothGroup".}: TCollection_AsciiString ## !< name of active smoothing group
+    Material* {.importc: "Material".}: TCollection_AsciiString ## !< name of active material
 

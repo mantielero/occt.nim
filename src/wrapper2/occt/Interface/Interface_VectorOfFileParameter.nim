@@ -13,11 +13,13 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard_Transient, ../NCollection/NCollection_Vector,
+  Interface_FileParameter
+
 ## *
 ##  Block of comments describing class Interface_VectorOfFileParameter
 ##
 
 type
-  InterfaceVectorOfFileParameter* = NCollectionVector[InterfaceFileParameter]
-
-
+  Interface_VectorOfFileParameter* = NCollection_Vector[Interface_FileParameter]

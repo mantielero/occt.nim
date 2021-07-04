@@ -14,48 +14,53 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Real,
+  Law_Function, ../GeomAbs/GeomAbs_Shape, ../Standard/Standard_Integer,
+  ../TColStd/TColStd_Array1OfReal
+
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of Law_Function"
 discard "forward decl of Law_Constant"
 discard "forward decl of Law_Constant"
 type
-  HandleLawConstant* = Handle[LawConstant]
+  Handle_Law_Constant* = handle[Law_Constant]
 
 ## ! Loi constante
 
 type
-  LawConstant* {.importcpp: "Law_Constant", header: "Law_Constant.hxx", bycopy.} = object of LawFunction
+  Law_Constant* {.importcpp: "Law_Constant", header: "Law_Constant.hxx", bycopy.} = object of Law_Function
 
 
-proc constructLawConstant*(): LawConstant {.constructor,
+proc constructLaw_Constant*(): Law_Constant {.constructor,
     importcpp: "Law_Constant(@)", header: "Law_Constant.hxx".}
-proc set*(this: var LawConstant; radius: StandardReal; pFirst: StandardReal;
-         pLast: StandardReal) {.importcpp: "Set", header: "Law_Constant.hxx".}
-proc continuity*(this: LawConstant): GeomAbsShape {.noSideEffect,
+proc Set*(this: var Law_Constant; Radius: Standard_Real; PFirst: Standard_Real;
+         PLast: Standard_Real) {.importcpp: "Set", header: "Law_Constant.hxx".}
+proc Continuity*(this: Law_Constant): GeomAbs_Shape {.noSideEffect,
     importcpp: "Continuity", header: "Law_Constant.hxx".}
-proc nbIntervals*(this: LawConstant; s: GeomAbsShape): StandardInteger {.noSideEffect,
-    importcpp: "NbIntervals", header: "Law_Constant.hxx".}
-proc intervals*(this: LawConstant; t: var TColStdArray1OfReal; s: GeomAbsShape) {.
+proc NbIntervals*(this: Law_Constant; S: GeomAbs_Shape): Standard_Integer {.
+    noSideEffect, importcpp: "NbIntervals", header: "Law_Constant.hxx".}
+proc Intervals*(this: Law_Constant; T: var TColStd_Array1OfReal; S: GeomAbs_Shape) {.
     noSideEffect, importcpp: "Intervals", header: "Law_Constant.hxx".}
-proc value*(this: var LawConstant; x: StandardReal): StandardReal {.importcpp: "Value",
+proc Value*(this: var Law_Constant; X: Standard_Real): Standard_Real {.
+    importcpp: "Value", header: "Law_Constant.hxx".}
+proc D1*(this: var Law_Constant; X: Standard_Real; F: var Standard_Real;
+        D: var Standard_Real) {.importcpp: "D1", header: "Law_Constant.hxx".}
+proc D2*(this: var Law_Constant; X: Standard_Real; F: var Standard_Real;
+        D: var Standard_Real; D2: var Standard_Real) {.importcpp: "D2",
     header: "Law_Constant.hxx".}
-proc d1*(this: var LawConstant; x: StandardReal; f: var StandardReal; d: var StandardReal) {.
-    importcpp: "D1", header: "Law_Constant.hxx".}
-proc d2*(this: var LawConstant; x: StandardReal; f: var StandardReal;
-        d: var StandardReal; d2: var StandardReal) {.importcpp: "D2",
-    header: "Law_Constant.hxx".}
-proc trim*(this: LawConstant; pFirst: StandardReal; pLast: StandardReal;
-          tol: StandardReal): Handle[LawFunction] {.noSideEffect, importcpp: "Trim",
-    header: "Law_Constant.hxx".}
-proc bounds*(this: var LawConstant; pFirst: var StandardReal; pLast: var StandardReal) {.
-    importcpp: "Bounds", header: "Law_Constant.hxx".}
+proc Trim*(this: Law_Constant; PFirst: Standard_Real; PLast: Standard_Real;
+          Tol: Standard_Real): handle[Law_Function] {.noSideEffect,
+    importcpp: "Trim", header: "Law_Constant.hxx".}
+proc Bounds*(this: var Law_Constant; PFirst: var Standard_Real;
+            PLast: var Standard_Real) {.importcpp: "Bounds",
+                                     header: "Law_Constant.hxx".}
 type
-  LawConstantbaseType* = LawFunction
+  Law_Constantbase_type* = Law_Function
 
-proc getTypeName*(): cstring {.importcpp: "Law_Constant::get_type_name(@)",
-                            header: "Law_Constant.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "Law_Constant::get_type_name(@)",
+                              header: "Law_Constant.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "Law_Constant::get_type_descriptor(@)", header: "Law_Constant.hxx".}
-proc dynamicType*(this: LawConstant): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: Law_Constant): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "Law_Constant.hxx".}
-

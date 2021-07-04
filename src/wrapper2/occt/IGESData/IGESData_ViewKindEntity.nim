@@ -14,11 +14,15 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, IGESData_IGESEntity,
+  ../Standard/Standard_Boolean, ../Standard/Standard_Integer
+
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of IGESData_ViewKindEntity"
 discard "forward decl of IGESData_ViewKindEntity"
 type
-  HandleIGESDataViewKindEntity* = Handle[IGESDataViewKindEntity]
+  Handle_IGESData_ViewKindEntity* = handle[IGESData_ViewKindEntity]
 
 ## ! defines required type for ViewKind in directory part
 ## ! that is, Single view or Multiple view
@@ -27,40 +31,39 @@ type
 ## ! NbViews and ViewItem (especially for a List)
 
 type
-  IGESDataViewKindEntity* {.importcpp: "IGESData_ViewKindEntity",
-                           header: "IGESData_ViewKindEntity.hxx", bycopy.} = object of IGESDataIGESEntity ##
-                                                                                                   ## !
-                                                                                                   ## says
-                                                                                                   ## if
-                                                                                                   ## "me"
-                                                                                                   ## is
-                                                                                                   ## a
-                                                                                                   ## Single
-                                                                                                   ## View
-                                                                                                   ## (True)
-                                                                                                   ## or
-                                                                                                   ## a
-                                                                                                   ## List
-                                                                                                   ## of
-                                                                                                   ## Views
-                                                                                                   ## (False)
+  IGESData_ViewKindEntity* {.importcpp: "IGESData_ViewKindEntity",
+                            header: "IGESData_ViewKindEntity.hxx", bycopy.} = object of IGESData_IGESEntity ##
+                                                                                                     ## !
+                                                                                                     ## says
+                                                                                                     ## if
+                                                                                                     ## "me"
+                                                                                                     ## is
+                                                                                                     ## a
+                                                                                                     ## Single
+                                                                                                     ## View
+                                                                                                     ## (True)
+                                                                                                     ## or
+                                                                                                     ## a
+                                                                                                     ## List
+                                                                                                     ## of
+                                                                                                     ## Views
+                                                                                                     ## (False)
 
 
-proc isSingle*(this: IGESDataViewKindEntity): StandardBoolean {.noSideEffect,
+proc IsSingle*(this: IGESData_ViewKindEntity): Standard_Boolean {.noSideEffect,
     importcpp: "IsSingle", header: "IGESData_ViewKindEntity.hxx".}
-proc nbViews*(this: IGESDataViewKindEntity): StandardInteger {.noSideEffect,
+proc NbViews*(this: IGESData_ViewKindEntity): Standard_Integer {.noSideEffect,
     importcpp: "NbViews", header: "IGESData_ViewKindEntity.hxx".}
-proc viewItem*(this: IGESDataViewKindEntity; num: StandardInteger): Handle[
-    IGESDataViewKindEntity] {.noSideEffect, importcpp: "ViewItem",
-                             header: "IGESData_ViewKindEntity.hxx".}
+proc ViewItem*(this: IGESData_ViewKindEntity; num: Standard_Integer): handle[
+    IGESData_ViewKindEntity] {.noSideEffect, importcpp: "ViewItem",
+                              header: "IGESData_ViewKindEntity.hxx".}
 type
-  IGESDataViewKindEntitybaseType* = IGESDataIGESEntity
+  IGESData_ViewKindEntitybase_type* = IGESData_IGESEntity
 
-proc getTypeName*(): cstring {.importcpp: "IGESData_ViewKindEntity::get_type_name(@)",
-                            header: "IGESData_ViewKindEntity.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "IGESData_ViewKindEntity::get_type_name(@)",
+                              header: "IGESData_ViewKindEntity.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "IGESData_ViewKindEntity::get_type_descriptor(@)",
     header: "IGESData_ViewKindEntity.hxx".}
-proc dynamicType*(this: IGESDataViewKindEntity): Handle[StandardType] {.
+proc DynamicType*(this: IGESData_ViewKindEntity): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType", header: "IGESData_ViewKindEntity.hxx".}
-

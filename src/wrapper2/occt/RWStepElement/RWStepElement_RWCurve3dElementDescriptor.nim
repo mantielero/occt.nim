@@ -13,32 +13,35 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepElement_Curve3dElementDescriptor"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepElementRWCurve3dElementDescriptor* {.
+  RWStepElement_RWCurve3dElementDescriptor* {.
       importcpp: "RWStepElement_RWCurve3dElementDescriptor",
       header: "RWStepElement_RWCurve3dElementDescriptor.hxx", bycopy.} = object ## ! Empty
                                                                            ## constructor
 
 
-proc constructRWStepElementRWCurve3dElementDescriptor*(): RWStepElementRWCurve3dElementDescriptor {.
+proc constructRWStepElement_RWCurve3dElementDescriptor*(): RWStepElement_RWCurve3dElementDescriptor {.
     constructor, importcpp: "RWStepElement_RWCurve3dElementDescriptor(@)",
     header: "RWStepElement_RWCurve3dElementDescriptor.hxx".}
-proc readStep*(this: RWStepElementRWCurve3dElementDescriptor;
-              data: Handle[StepDataStepReaderData]; num: StandardInteger;
-              ach: var Handle[InterfaceCheck];
-              ent: Handle[StepElementCurve3dElementDescriptor]) {.noSideEffect,
+proc ReadStep*(this: RWStepElement_RWCurve3dElementDescriptor;
+              data: handle[StepData_StepReaderData]; num: Standard_Integer;
+              ach: var handle[Interface_Check];
+              ent: handle[StepElement_Curve3dElementDescriptor]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepElement_RWCurve3dElementDescriptor.hxx".}
-proc writeStep*(this: RWStepElementRWCurve3dElementDescriptor;
-               sw: var StepDataStepWriter;
-               ent: Handle[StepElementCurve3dElementDescriptor]) {.noSideEffect,
+proc WriteStep*(this: RWStepElement_RWCurve3dElementDescriptor;
+               SW: var StepData_StepWriter;
+               ent: handle[StepElement_Curve3dElementDescriptor]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepElement_RWCurve3dElementDescriptor.hxx".}
-proc share*(this: RWStepElementRWCurve3dElementDescriptor;
-           ent: Handle[StepElementCurve3dElementDescriptor];
-           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
+proc Share*(this: RWStepElement_RWCurve3dElementDescriptor;
+           ent: handle[StepElement_Curve3dElementDescriptor];
+           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepElement_RWCurve3dElementDescriptor.hxx".}
-

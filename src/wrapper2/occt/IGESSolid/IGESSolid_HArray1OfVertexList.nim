@@ -14,36 +14,40 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  IGESSolid_VertexList, IGESSolid_Array1OfVertexList,
+  ../NCollection/NCollection_DefineHArray1
+
 type
-  IGESSolidHArray1OfVertexList* {.importcpp: "IGESSolid_HArray1OfVertexList",
-                                 header: "IGESSolid_HArray1OfVertexList.hxx",
-                                 bycopy.} = object of IGESSolidArray1OfVertexList
+  IGESSolid_HArray1OfVertexList* {.importcpp: "IGESSolid_HArray1OfVertexList",
+                                  header: "IGESSolid_HArray1OfVertexList.hxx",
+                                  bycopy.} = object of IGESSolid_Array1OfVertexList
 
 
-proc constructIGESSolidHArray1OfVertexList*(theLower: StandardInteger;
-    theUpper: StandardInteger): IGESSolidHArray1OfVertexList {.constructor,
+proc constructIGESSolid_HArray1OfVertexList*(theLower: Standard_Integer;
+    theUpper: Standard_Integer): IGESSolid_HArray1OfVertexList {.constructor,
     importcpp: "IGESSolid_HArray1OfVertexList(@)",
     header: "IGESSolid_HArray1OfVertexList.hxx".}
-proc constructIGESSolidHArray1OfVertexList*(theLower: StandardInteger;
-    theUpper: StandardInteger; theValue: ValueType): IGESSolidHArray1OfVertexList {.
+proc constructIGESSolid_HArray1OfVertexList*(theLower: Standard_Integer;
+    theUpper: Standard_Integer; theValue: value_type): IGESSolid_HArray1OfVertexList {.
     constructor, importcpp: "IGESSolid_HArray1OfVertexList(@)",
     header: "IGESSolid_HArray1OfVertexList.hxx".}
-proc constructIGESSolidHArray1OfVertexList*(theOther: IGESSolidArray1OfVertexList): IGESSolidHArray1OfVertexList {.
+proc constructIGESSolid_HArray1OfVertexList*(
+    theOther: IGESSolid_Array1OfVertexList): IGESSolid_HArray1OfVertexList {.
     constructor, importcpp: "IGESSolid_HArray1OfVertexList(@)",
     header: "IGESSolid_HArray1OfVertexList.hxx".}
-proc array1*(this: IGESSolidHArray1OfVertexList): IGESSolidArray1OfVertexList {.
+proc Array1*(this: IGESSolid_HArray1OfVertexList): IGESSolid_Array1OfVertexList {.
     noSideEffect, importcpp: "Array1", header: "IGESSolid_HArray1OfVertexList.hxx".}
-proc changeArray1*(this: var IGESSolidHArray1OfVertexList): var IGESSolidArray1OfVertexList {.
+proc ChangeArray1*(this: var IGESSolid_HArray1OfVertexList): var IGESSolid_Array1OfVertexList {.
     importcpp: "ChangeArray1", header: "IGESSolid_HArray1OfVertexList.hxx".}
 type
-  IGESSolidHArray1OfVertexListbaseType* = MMgtTShared
+  IGESSolid_HArray1OfVertexListbase_type* = MMgt_TShared
 
-proc getTypeName*(): cstring {.importcpp: "IGESSolid_HArray1OfVertexList::get_type_name(@)",
-                            header: "IGESSolid_HArray1OfVertexList.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "IGESSolid_HArray1OfVertexList::get_type_name(@)",
+                              header: "IGESSolid_HArray1OfVertexList.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "IGESSolid_HArray1OfVertexList::get_type_descriptor(@)",
     header: "IGESSolid_HArray1OfVertexList.hxx".}
-proc dynamicType*(this: IGESSolidHArray1OfVertexList): Handle[StandardType] {.
+proc DynamicType*(this: IGESSolid_HArray1OfVertexList): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType",
     header: "IGESSolid_HArray1OfVertexList.hxx".}
-

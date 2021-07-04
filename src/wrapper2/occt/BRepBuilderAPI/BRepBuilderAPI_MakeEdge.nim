@@ -14,6 +14,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../BRepLib/BRepLib_MakeEdge,
+  BRepBuilderAPI_MakeShape, ../Standard/Standard_Real,
+  ../Standard/Standard_Boolean, BRepBuilderAPI_EdgeError
+
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of TopoDS_Vertex"
 discard "forward decl of gp_Pnt"
@@ -33,175 +39,182 @@ type
 
 proc constructBRepBuilderAPI_MakeEdge*(): BRepBuilderAPI_MakeEdge {.constructor,
     importcpp: "BRepBuilderAPI_MakeEdge(@)", header: "BRepBuilderAPI_MakeEdge.hxx".}
-proc constructBRepBuilderAPI_MakeEdge*(v1: TopoDS_Vertex; v2: TopoDS_Vertex): BRepBuilderAPI_MakeEdge {.
+proc constructBRepBuilderAPI_MakeEdge*(V1: TopoDS_Vertex; V2: TopoDS_Vertex): BRepBuilderAPI_MakeEdge {.
     constructor, importcpp: "BRepBuilderAPI_MakeEdge(@)",
     header: "BRepBuilderAPI_MakeEdge.hxx".}
-proc constructBRepBuilderAPI_MakeEdge*(p1: GpPnt; p2: GpPnt): BRepBuilderAPI_MakeEdge {.
+proc constructBRepBuilderAPI_MakeEdge*(P1: gp_Pnt; P2: gp_Pnt): BRepBuilderAPI_MakeEdge {.
     constructor, importcpp: "BRepBuilderAPI_MakeEdge(@)",
     header: "BRepBuilderAPI_MakeEdge.hxx".}
-proc constructBRepBuilderAPI_MakeEdge*(L: GpLin): BRepBuilderAPI_MakeEdge {.
+proc constructBRepBuilderAPI_MakeEdge*(L: gp_Lin): BRepBuilderAPI_MakeEdge {.
     constructor, importcpp: "BRepBuilderAPI_MakeEdge(@)",
     header: "BRepBuilderAPI_MakeEdge.hxx".}
-proc constructBRepBuilderAPI_MakeEdge*(L: GpLin; p1: StandardReal; p2: StandardReal): BRepBuilderAPI_MakeEdge {.
+proc constructBRepBuilderAPI_MakeEdge*(L: gp_Lin; p1: Standard_Real;
+                                      p2: Standard_Real): BRepBuilderAPI_MakeEdge {.
     constructor, importcpp: "BRepBuilderAPI_MakeEdge(@)",
     header: "BRepBuilderAPI_MakeEdge.hxx".}
-proc constructBRepBuilderAPI_MakeEdge*(L: GpLin; p1: GpPnt; p2: GpPnt): BRepBuilderAPI_MakeEdge {.
+proc constructBRepBuilderAPI_MakeEdge*(L: gp_Lin; P1: gp_Pnt; P2: gp_Pnt): BRepBuilderAPI_MakeEdge {.
     constructor, importcpp: "BRepBuilderAPI_MakeEdge(@)",
     header: "BRepBuilderAPI_MakeEdge.hxx".}
-proc constructBRepBuilderAPI_MakeEdge*(L: GpLin; v1: TopoDS_Vertex; v2: TopoDS_Vertex): BRepBuilderAPI_MakeEdge {.
+proc constructBRepBuilderAPI_MakeEdge*(L: gp_Lin; V1: TopoDS_Vertex;
+                                      V2: TopoDS_Vertex): BRepBuilderAPI_MakeEdge {.
     constructor, importcpp: "BRepBuilderAPI_MakeEdge(@)",
     header: "BRepBuilderAPI_MakeEdge.hxx".}
-proc constructBRepBuilderAPI_MakeEdge*(L: GpCirc): BRepBuilderAPI_MakeEdge {.
+proc constructBRepBuilderAPI_MakeEdge*(L: gp_Circ): BRepBuilderAPI_MakeEdge {.
     constructor, importcpp: "BRepBuilderAPI_MakeEdge(@)",
     header: "BRepBuilderAPI_MakeEdge.hxx".}
-proc constructBRepBuilderAPI_MakeEdge*(L: GpCirc; p1: StandardReal; p2: StandardReal): BRepBuilderAPI_MakeEdge {.
+proc constructBRepBuilderAPI_MakeEdge*(L: gp_Circ; p1: Standard_Real;
+                                      p2: Standard_Real): BRepBuilderAPI_MakeEdge {.
     constructor, importcpp: "BRepBuilderAPI_MakeEdge(@)",
     header: "BRepBuilderAPI_MakeEdge.hxx".}
-proc constructBRepBuilderAPI_MakeEdge*(L: GpCirc; p1: GpPnt; p2: GpPnt): BRepBuilderAPI_MakeEdge {.
+proc constructBRepBuilderAPI_MakeEdge*(L: gp_Circ; P1: gp_Pnt; P2: gp_Pnt): BRepBuilderAPI_MakeEdge {.
     constructor, importcpp: "BRepBuilderAPI_MakeEdge(@)",
     header: "BRepBuilderAPI_MakeEdge.hxx".}
-proc constructBRepBuilderAPI_MakeEdge*(L: GpCirc; v1: TopoDS_Vertex;
-                                      v2: TopoDS_Vertex): BRepBuilderAPI_MakeEdge {.
+proc constructBRepBuilderAPI_MakeEdge*(L: gp_Circ; V1: TopoDS_Vertex;
+                                      V2: TopoDS_Vertex): BRepBuilderAPI_MakeEdge {.
     constructor, importcpp: "BRepBuilderAPI_MakeEdge(@)",
     header: "BRepBuilderAPI_MakeEdge.hxx".}
-proc constructBRepBuilderAPI_MakeEdge*(L: GpElips): BRepBuilderAPI_MakeEdge {.
+proc constructBRepBuilderAPI_MakeEdge*(L: gp_Elips): BRepBuilderAPI_MakeEdge {.
     constructor, importcpp: "BRepBuilderAPI_MakeEdge(@)",
     header: "BRepBuilderAPI_MakeEdge.hxx".}
-proc constructBRepBuilderAPI_MakeEdge*(L: GpElips; p1: StandardReal; p2: StandardReal): BRepBuilderAPI_MakeEdge {.
+proc constructBRepBuilderAPI_MakeEdge*(L: gp_Elips; p1: Standard_Real;
+                                      p2: Standard_Real): BRepBuilderAPI_MakeEdge {.
     constructor, importcpp: "BRepBuilderAPI_MakeEdge(@)",
     header: "BRepBuilderAPI_MakeEdge.hxx".}
-proc constructBRepBuilderAPI_MakeEdge*(L: GpElips; p1: GpPnt; p2: GpPnt): BRepBuilderAPI_MakeEdge {.
+proc constructBRepBuilderAPI_MakeEdge*(L: gp_Elips; P1: gp_Pnt; P2: gp_Pnt): BRepBuilderAPI_MakeEdge {.
     constructor, importcpp: "BRepBuilderAPI_MakeEdge(@)",
     header: "BRepBuilderAPI_MakeEdge.hxx".}
-proc constructBRepBuilderAPI_MakeEdge*(L: GpElips; v1: TopoDS_Vertex;
-                                      v2: TopoDS_Vertex): BRepBuilderAPI_MakeEdge {.
+proc constructBRepBuilderAPI_MakeEdge*(L: gp_Elips; V1: TopoDS_Vertex;
+                                      V2: TopoDS_Vertex): BRepBuilderAPI_MakeEdge {.
     constructor, importcpp: "BRepBuilderAPI_MakeEdge(@)",
     header: "BRepBuilderAPI_MakeEdge.hxx".}
-proc constructBRepBuilderAPI_MakeEdge*(L: GpHypr): BRepBuilderAPI_MakeEdge {.
+proc constructBRepBuilderAPI_MakeEdge*(L: gp_Hypr): BRepBuilderAPI_MakeEdge {.
     constructor, importcpp: "BRepBuilderAPI_MakeEdge(@)",
     header: "BRepBuilderAPI_MakeEdge.hxx".}
-proc constructBRepBuilderAPI_MakeEdge*(L: GpHypr; p1: StandardReal; p2: StandardReal): BRepBuilderAPI_MakeEdge {.
+proc constructBRepBuilderAPI_MakeEdge*(L: gp_Hypr; p1: Standard_Real;
+                                      p2: Standard_Real): BRepBuilderAPI_MakeEdge {.
     constructor, importcpp: "BRepBuilderAPI_MakeEdge(@)",
     header: "BRepBuilderAPI_MakeEdge.hxx".}
-proc constructBRepBuilderAPI_MakeEdge*(L: GpHypr; p1: GpPnt; p2: GpPnt): BRepBuilderAPI_MakeEdge {.
+proc constructBRepBuilderAPI_MakeEdge*(L: gp_Hypr; P1: gp_Pnt; P2: gp_Pnt): BRepBuilderAPI_MakeEdge {.
     constructor, importcpp: "BRepBuilderAPI_MakeEdge(@)",
     header: "BRepBuilderAPI_MakeEdge.hxx".}
-proc constructBRepBuilderAPI_MakeEdge*(L: GpHypr; v1: TopoDS_Vertex;
-                                      v2: TopoDS_Vertex): BRepBuilderAPI_MakeEdge {.
+proc constructBRepBuilderAPI_MakeEdge*(L: gp_Hypr; V1: TopoDS_Vertex;
+                                      V2: TopoDS_Vertex): BRepBuilderAPI_MakeEdge {.
     constructor, importcpp: "BRepBuilderAPI_MakeEdge(@)",
     header: "BRepBuilderAPI_MakeEdge.hxx".}
-proc constructBRepBuilderAPI_MakeEdge*(L: GpParab): BRepBuilderAPI_MakeEdge {.
+proc constructBRepBuilderAPI_MakeEdge*(L: gp_Parab): BRepBuilderAPI_MakeEdge {.
     constructor, importcpp: "BRepBuilderAPI_MakeEdge(@)",
     header: "BRepBuilderAPI_MakeEdge.hxx".}
-proc constructBRepBuilderAPI_MakeEdge*(L: GpParab; p1: StandardReal; p2: StandardReal): BRepBuilderAPI_MakeEdge {.
+proc constructBRepBuilderAPI_MakeEdge*(L: gp_Parab; p1: Standard_Real;
+                                      p2: Standard_Real): BRepBuilderAPI_MakeEdge {.
     constructor, importcpp: "BRepBuilderAPI_MakeEdge(@)",
     header: "BRepBuilderAPI_MakeEdge.hxx".}
-proc constructBRepBuilderAPI_MakeEdge*(L: GpParab; p1: GpPnt; p2: GpPnt): BRepBuilderAPI_MakeEdge {.
+proc constructBRepBuilderAPI_MakeEdge*(L: gp_Parab; P1: gp_Pnt; P2: gp_Pnt): BRepBuilderAPI_MakeEdge {.
     constructor, importcpp: "BRepBuilderAPI_MakeEdge(@)",
     header: "BRepBuilderAPI_MakeEdge.hxx".}
-proc constructBRepBuilderAPI_MakeEdge*(L: GpParab; v1: TopoDS_Vertex;
-                                      v2: TopoDS_Vertex): BRepBuilderAPI_MakeEdge {.
+proc constructBRepBuilderAPI_MakeEdge*(L: gp_Parab; V1: TopoDS_Vertex;
+                                      V2: TopoDS_Vertex): BRepBuilderAPI_MakeEdge {.
     constructor, importcpp: "BRepBuilderAPI_MakeEdge(@)",
     header: "BRepBuilderAPI_MakeEdge.hxx".}
-proc constructBRepBuilderAPI_MakeEdge*(L: Handle[GeomCurve]): BRepBuilderAPI_MakeEdge {.
+proc constructBRepBuilderAPI_MakeEdge*(L: handle[Geom_Curve]): BRepBuilderAPI_MakeEdge {.
     constructor, importcpp: "BRepBuilderAPI_MakeEdge(@)",
     header: "BRepBuilderAPI_MakeEdge.hxx".}
-proc constructBRepBuilderAPI_MakeEdge*(L: Handle[GeomCurve]; p1: StandardReal;
-                                      p2: StandardReal): BRepBuilderAPI_MakeEdge {.
+proc constructBRepBuilderAPI_MakeEdge*(L: handle[Geom_Curve]; p1: Standard_Real;
+                                      p2: Standard_Real): BRepBuilderAPI_MakeEdge {.
     constructor, importcpp: "BRepBuilderAPI_MakeEdge(@)",
     header: "BRepBuilderAPI_MakeEdge.hxx".}
-proc constructBRepBuilderAPI_MakeEdge*(L: Handle[GeomCurve]; p1: GpPnt; p2: GpPnt): BRepBuilderAPI_MakeEdge {.
+proc constructBRepBuilderAPI_MakeEdge*(L: handle[Geom_Curve]; P1: gp_Pnt; P2: gp_Pnt): BRepBuilderAPI_MakeEdge {.
     constructor, importcpp: "BRepBuilderAPI_MakeEdge(@)",
     header: "BRepBuilderAPI_MakeEdge.hxx".}
-proc constructBRepBuilderAPI_MakeEdge*(L: Handle[GeomCurve]; v1: TopoDS_Vertex;
-                                      v2: TopoDS_Vertex): BRepBuilderAPI_MakeEdge {.
+proc constructBRepBuilderAPI_MakeEdge*(L: handle[Geom_Curve]; V1: TopoDS_Vertex;
+                                      V2: TopoDS_Vertex): BRepBuilderAPI_MakeEdge {.
     constructor, importcpp: "BRepBuilderAPI_MakeEdge(@)",
     header: "BRepBuilderAPI_MakeEdge.hxx".}
-proc constructBRepBuilderAPI_MakeEdge*(L: Handle[GeomCurve]; p1: GpPnt; p2: GpPnt;
-                                      p1: StandardReal; p2: StandardReal): BRepBuilderAPI_MakeEdge {.
+proc constructBRepBuilderAPI_MakeEdge*(L: handle[Geom_Curve]; P1: gp_Pnt; P2: gp_Pnt;
+                                      p1: Standard_Real; p2: Standard_Real): BRepBuilderAPI_MakeEdge {.
     constructor, importcpp: "BRepBuilderAPI_MakeEdge(@)",
     header: "BRepBuilderAPI_MakeEdge.hxx".}
-proc constructBRepBuilderAPI_MakeEdge*(L: Handle[GeomCurve]; v1: TopoDS_Vertex;
-                                      v2: TopoDS_Vertex; p1: StandardReal;
-                                      p2: StandardReal): BRepBuilderAPI_MakeEdge {.
+proc constructBRepBuilderAPI_MakeEdge*(L: handle[Geom_Curve]; V1: TopoDS_Vertex;
+                                      V2: TopoDS_Vertex; p1: Standard_Real;
+                                      p2: Standard_Real): BRepBuilderAPI_MakeEdge {.
     constructor, importcpp: "BRepBuilderAPI_MakeEdge(@)",
     header: "BRepBuilderAPI_MakeEdge.hxx".}
-proc constructBRepBuilderAPI_MakeEdge*(L: Handle[Geom2dCurve];
-                                      s: Handle[GeomSurface]): BRepBuilderAPI_MakeEdge {.
+proc constructBRepBuilderAPI_MakeEdge*(L: handle[Geom2d_Curve];
+                                      S: handle[Geom_Surface]): BRepBuilderAPI_MakeEdge {.
     constructor, importcpp: "BRepBuilderAPI_MakeEdge(@)",
     header: "BRepBuilderAPI_MakeEdge.hxx".}
-proc constructBRepBuilderAPI_MakeEdge*(L: Handle[Geom2dCurve];
-                                      s: Handle[GeomSurface]; p1: StandardReal;
-                                      p2: StandardReal): BRepBuilderAPI_MakeEdge {.
+proc constructBRepBuilderAPI_MakeEdge*(L: handle[Geom2d_Curve];
+                                      S: handle[Geom_Surface]; p1: Standard_Real;
+                                      p2: Standard_Real): BRepBuilderAPI_MakeEdge {.
     constructor, importcpp: "BRepBuilderAPI_MakeEdge(@)",
     header: "BRepBuilderAPI_MakeEdge.hxx".}
-proc constructBRepBuilderAPI_MakeEdge*(L: Handle[Geom2dCurve];
-                                      s: Handle[GeomSurface]; p1: GpPnt; p2: GpPnt): BRepBuilderAPI_MakeEdge {.
+proc constructBRepBuilderAPI_MakeEdge*(L: handle[Geom2d_Curve];
+                                      S: handle[Geom_Surface]; P1: gp_Pnt;
+                                      P2: gp_Pnt): BRepBuilderAPI_MakeEdge {.
     constructor, importcpp: "BRepBuilderAPI_MakeEdge(@)",
     header: "BRepBuilderAPI_MakeEdge.hxx".}
-proc constructBRepBuilderAPI_MakeEdge*(L: Handle[Geom2dCurve];
-                                      s: Handle[GeomSurface]; v1: TopoDS_Vertex;
-                                      v2: TopoDS_Vertex): BRepBuilderAPI_MakeEdge {.
+proc constructBRepBuilderAPI_MakeEdge*(L: handle[Geom2d_Curve];
+                                      S: handle[Geom_Surface]; V1: TopoDS_Vertex;
+                                      V2: TopoDS_Vertex): BRepBuilderAPI_MakeEdge {.
     constructor, importcpp: "BRepBuilderAPI_MakeEdge(@)",
     header: "BRepBuilderAPI_MakeEdge.hxx".}
-proc constructBRepBuilderAPI_MakeEdge*(L: Handle[Geom2dCurve];
-                                      s: Handle[GeomSurface]; p1: GpPnt; p2: GpPnt;
-                                      p1: StandardReal; p2: StandardReal): BRepBuilderAPI_MakeEdge {.
+proc constructBRepBuilderAPI_MakeEdge*(L: handle[Geom2d_Curve];
+                                      S: handle[Geom_Surface]; P1: gp_Pnt;
+                                      P2: gp_Pnt; p1: Standard_Real;
+                                      p2: Standard_Real): BRepBuilderAPI_MakeEdge {.
     constructor, importcpp: "BRepBuilderAPI_MakeEdge(@)",
     header: "BRepBuilderAPI_MakeEdge.hxx".}
-proc constructBRepBuilderAPI_MakeEdge*(L: Handle[Geom2dCurve];
-                                      s: Handle[GeomSurface]; v1: TopoDS_Vertex;
-                                      v2: TopoDS_Vertex; p1: StandardReal;
-                                      p2: StandardReal): BRepBuilderAPI_MakeEdge {.
+proc constructBRepBuilderAPI_MakeEdge*(L: handle[Geom2d_Curve];
+                                      S: handle[Geom_Surface]; V1: TopoDS_Vertex;
+                                      V2: TopoDS_Vertex; p1: Standard_Real;
+                                      p2: Standard_Real): BRepBuilderAPI_MakeEdge {.
     constructor, importcpp: "BRepBuilderAPI_MakeEdge(@)",
     header: "BRepBuilderAPI_MakeEdge.hxx".}
-proc init*(this: var BRepBuilderAPI_MakeEdge; c: Handle[GeomCurve]) {.
+proc Init*(this: var BRepBuilderAPI_MakeEdge; C: handle[Geom_Curve]) {.
     importcpp: "Init", header: "BRepBuilderAPI_MakeEdge.hxx".}
-proc init*(this: var BRepBuilderAPI_MakeEdge; c: Handle[GeomCurve]; p1: StandardReal;
-          p2: StandardReal) {.importcpp: "Init",
-                            header: "BRepBuilderAPI_MakeEdge.hxx".}
-proc init*(this: var BRepBuilderAPI_MakeEdge; c: Handle[GeomCurve]; p1: GpPnt; p2: GpPnt) {.
+proc Init*(this: var BRepBuilderAPI_MakeEdge; C: handle[Geom_Curve];
+          p1: Standard_Real; p2: Standard_Real) {.importcpp: "Init",
+    header: "BRepBuilderAPI_MakeEdge.hxx".}
+proc Init*(this: var BRepBuilderAPI_MakeEdge; C: handle[Geom_Curve]; P1: gp_Pnt;
+          P2: gp_Pnt) {.importcpp: "Init", header: "BRepBuilderAPI_MakeEdge.hxx".}
+proc Init*(this: var BRepBuilderAPI_MakeEdge; C: handle[Geom_Curve];
+          V1: TopoDS_Vertex; V2: TopoDS_Vertex) {.importcpp: "Init",
+    header: "BRepBuilderAPI_MakeEdge.hxx".}
+proc Init*(this: var BRepBuilderAPI_MakeEdge; C: handle[Geom_Curve]; P1: gp_Pnt;
+          P2: gp_Pnt; p1: Standard_Real; p2: Standard_Real) {.importcpp: "Init",
+    header: "BRepBuilderAPI_MakeEdge.hxx".}
+proc Init*(this: var BRepBuilderAPI_MakeEdge; C: handle[Geom_Curve];
+          V1: TopoDS_Vertex; V2: TopoDS_Vertex; p1: Standard_Real; p2: Standard_Real) {.
     importcpp: "Init", header: "BRepBuilderAPI_MakeEdge.hxx".}
-proc init*(this: var BRepBuilderAPI_MakeEdge; c: Handle[GeomCurve]; v1: TopoDS_Vertex;
-          v2: TopoDS_Vertex) {.importcpp: "Init",
+proc Init*(this: var BRepBuilderAPI_MakeEdge; C: handle[Geom2d_Curve];
+          S: handle[Geom_Surface]) {.importcpp: "Init",
+                                   header: "BRepBuilderAPI_MakeEdge.hxx".}
+proc Init*(this: var BRepBuilderAPI_MakeEdge; C: handle[Geom2d_Curve];
+          S: handle[Geom_Surface]; p1: Standard_Real; p2: Standard_Real) {.
+    importcpp: "Init", header: "BRepBuilderAPI_MakeEdge.hxx".}
+proc Init*(this: var BRepBuilderAPI_MakeEdge; C: handle[Geom2d_Curve];
+          S: handle[Geom_Surface]; P1: gp_Pnt; P2: gp_Pnt) {.importcpp: "Init",
+    header: "BRepBuilderAPI_MakeEdge.hxx".}
+proc Init*(this: var BRepBuilderAPI_MakeEdge; C: handle[Geom2d_Curve];
+          S: handle[Geom_Surface]; V1: TopoDS_Vertex; V2: TopoDS_Vertex) {.
+    importcpp: "Init", header: "BRepBuilderAPI_MakeEdge.hxx".}
+proc Init*(this: var BRepBuilderAPI_MakeEdge; C: handle[Geom2d_Curve];
+          S: handle[Geom_Surface]; P1: gp_Pnt; P2: gp_Pnt; p1: Standard_Real;
+          p2: Standard_Real) {.importcpp: "Init",
                              header: "BRepBuilderAPI_MakeEdge.hxx".}
-proc init*(this: var BRepBuilderAPI_MakeEdge; c: Handle[GeomCurve]; p1: GpPnt;
-          p2: GpPnt; p1: StandardReal; p2: StandardReal) {.importcpp: "Init",
+proc Init*(this: var BRepBuilderAPI_MakeEdge; C: handle[Geom2d_Curve];
+          S: handle[Geom_Surface]; V1: TopoDS_Vertex; V2: TopoDS_Vertex;
+          p1: Standard_Real; p2: Standard_Real) {.importcpp: "Init",
     header: "BRepBuilderAPI_MakeEdge.hxx".}
-proc init*(this: var BRepBuilderAPI_MakeEdge; c: Handle[GeomCurve]; v1: TopoDS_Vertex;
-          v2: TopoDS_Vertex; p1: StandardReal; p2: StandardReal) {.importcpp: "Init",
-    header: "BRepBuilderAPI_MakeEdge.hxx".}
-proc init*(this: var BRepBuilderAPI_MakeEdge; c: Handle[Geom2dCurve];
-          s: Handle[GeomSurface]) {.importcpp: "Init",
-                                  header: "BRepBuilderAPI_MakeEdge.hxx".}
-proc init*(this: var BRepBuilderAPI_MakeEdge; c: Handle[Geom2dCurve];
-          s: Handle[GeomSurface]; p1: StandardReal; p2: StandardReal) {.
-    importcpp: "Init", header: "BRepBuilderAPI_MakeEdge.hxx".}
-proc init*(this: var BRepBuilderAPI_MakeEdge; c: Handle[Geom2dCurve];
-          s: Handle[GeomSurface]; p1: GpPnt; p2: GpPnt) {.importcpp: "Init",
-    header: "BRepBuilderAPI_MakeEdge.hxx".}
-proc init*(this: var BRepBuilderAPI_MakeEdge; c: Handle[Geom2dCurve];
-          s: Handle[GeomSurface]; v1: TopoDS_Vertex; v2: TopoDS_Vertex) {.
-    importcpp: "Init", header: "BRepBuilderAPI_MakeEdge.hxx".}
-proc init*(this: var BRepBuilderAPI_MakeEdge; c: Handle[Geom2dCurve];
-          s: Handle[GeomSurface]; p1: GpPnt; p2: GpPnt; p1: StandardReal;
-          p2: StandardReal) {.importcpp: "Init",
-                            header: "BRepBuilderAPI_MakeEdge.hxx".}
-proc init*(this: var BRepBuilderAPI_MakeEdge; c: Handle[Geom2dCurve];
-          s: Handle[GeomSurface]; v1: TopoDS_Vertex; v2: TopoDS_Vertex;
-          p1: StandardReal; p2: StandardReal) {.importcpp: "Init",
-    header: "BRepBuilderAPI_MakeEdge.hxx".}
-proc isDone*(this: BRepBuilderAPI_MakeEdge): StandardBoolean {.noSideEffect,
+proc IsDone*(this: BRepBuilderAPI_MakeEdge): Standard_Boolean {.noSideEffect,
     importcpp: "IsDone", header: "BRepBuilderAPI_MakeEdge.hxx".}
-proc error*(this: BRepBuilderAPI_MakeEdge): BRepBuilderAPI_EdgeError {.noSideEffect,
+proc Error*(this: BRepBuilderAPI_MakeEdge): BRepBuilderAPI_EdgeError {.noSideEffect,
     importcpp: "Error", header: "BRepBuilderAPI_MakeEdge.hxx".}
-proc edge*(this: var BRepBuilderAPI_MakeEdge): TopoDS_Edge {.importcpp: "Edge",
+proc Edge*(this: var BRepBuilderAPI_MakeEdge): TopoDS_Edge {.importcpp: "Edge",
     header: "BRepBuilderAPI_MakeEdge.hxx".}
-converter `topoDS_Edge`*(this: var BRepBuilderAPI_MakeEdge): TopoDS_Edge {.
+converter `TopoDS_Edge`*(this: var BRepBuilderAPI_MakeEdge): TopoDS_Edge {.
     importcpp: "BRepBuilderAPI_MakeEdge::operator TopoDS_Edge",
     header: "BRepBuilderAPI_MakeEdge.hxx".}
-proc vertex1*(this: BRepBuilderAPI_MakeEdge): TopoDS_Vertex {.noSideEffect,
+proc Vertex1*(this: BRepBuilderAPI_MakeEdge): TopoDS_Vertex {.noSideEffect,
     importcpp: "Vertex1", header: "BRepBuilderAPI_MakeEdge.hxx".}
-proc vertex2*(this: BRepBuilderAPI_MakeEdge): TopoDS_Vertex {.noSideEffect,
+proc Vertex2*(this: BRepBuilderAPI_MakeEdge): TopoDS_Vertex {.noSideEffect,
     importcpp: "Vertex2", header: "BRepBuilderAPI_MakeEdge.hxx".}
-

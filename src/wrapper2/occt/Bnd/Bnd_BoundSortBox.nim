@@ -14,38 +14,44 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, Bnd_Box, Bnd_HArray1OfBox,
+  ../Standard/Standard_Real, ../Standard/Standard_Integer,
+  ../TColStd/TColStd_DataMapOfIntegerInteger, ../TColStd/TColStd_ListOfInteger,
+  ../Standard/Standard_Address
+
 discard "forward decl of Standard_NullValue"
 discard "forward decl of Standard_MultiplyDefined"
 discard "forward decl of Bnd_Box"
 discard "forward decl of gp_Pln"
 type
-  BndBoundSortBox* {.importcpp: "Bnd_BoundSortBox", header: "Bnd_BoundSortBox.hxx",
-                    bycopy.} = object ## ! Constructs an empty comparison algorithm for bounding boxes.
-                                   ## ! The bounding boxes are then defined using the Initialize function.
-                                   ## ! Prepares  BoundSortBox and  sorts   the  boxes of
-                                   ## ! <SetOfBox> .
+  Bnd_BoundSortBox* {.importcpp: "Bnd_BoundSortBox",
+                     header: "Bnd_BoundSortBox.hxx", bycopy.} = object ## ! Constructs an empty comparison algorithm for bounding boxes.
+                                                                  ## ! The bounding boxes are then defined using the Initialize function.
+                                                                  ## ! Prepares  BoundSortBox and  sorts   the  boxes of
+                                                                  ## ! <SetOfBox> .
 
 
-proc constructBndBoundSortBox*(): BndBoundSortBox {.constructor,
+proc constructBnd_BoundSortBox*(): Bnd_BoundSortBox {.constructor,
     importcpp: "Bnd_BoundSortBox(@)", header: "Bnd_BoundSortBox.hxx".}
-proc initialize*(this: var BndBoundSortBox; completeBox: BndBox;
-                setOfBox: Handle[BndHArray1OfBox]) {.importcpp: "Initialize",
+proc Initialize*(this: var Bnd_BoundSortBox; CompleteBox: Bnd_Box;
+                SetOfBox: handle[Bnd_HArray1OfBox]) {.importcpp: "Initialize",
     header: "Bnd_BoundSortBox.hxx".}
-proc initialize*(this: var BndBoundSortBox; setOfBox: Handle[BndHArray1OfBox]) {.
+proc Initialize*(this: var Bnd_BoundSortBox; SetOfBox: handle[Bnd_HArray1OfBox]) {.
     importcpp: "Initialize", header: "Bnd_BoundSortBox.hxx".}
-proc initialize*(this: var BndBoundSortBox; completeBox: BndBox;
-                nbComponents: StandardInteger) {.importcpp: "Initialize",
+proc Initialize*(this: var Bnd_BoundSortBox; CompleteBox: Bnd_Box;
+                nbComponents: Standard_Integer) {.importcpp: "Initialize",
     header: "Bnd_BoundSortBox.hxx".}
-proc add*(this: var BndBoundSortBox; theBox: BndBox; boxIndex: StandardInteger) {.
+proc Add*(this: var Bnd_BoundSortBox; theBox: Bnd_Box; boxIndex: Standard_Integer) {.
     importcpp: "Add", header: "Bnd_BoundSortBox.hxx".}
-proc compare*(this: var BndBoundSortBox; theBox: BndBox): TColStdListOfInteger {.
+proc Compare*(this: var Bnd_BoundSortBox; theBox: Bnd_Box): TColStd_ListOfInteger {.
     importcpp: "Compare", header: "Bnd_BoundSortBox.hxx".}
-proc compare*(this: var BndBoundSortBox; p: GpPln): TColStdListOfInteger {.
+proc Compare*(this: var Bnd_BoundSortBox; P: gp_Pln): TColStd_ListOfInteger {.
     importcpp: "Compare", header: "Bnd_BoundSortBox.hxx".}
-proc dump*(this: BndBoundSortBox) {.noSideEffect, importcpp: "Dump",
-                                 header: "Bnd_BoundSortBox.hxx".}
-proc destroy*(this: var BndBoundSortBox) {.importcpp: "Destroy",
-                                       header: "Bnd_BoundSortBox.hxx".}
-proc destroyBndBoundSortBox*(this: var BndBoundSortBox) {.
+proc Dump*(this: Bnd_BoundSortBox) {.noSideEffect, importcpp: "Dump",
+                                  header: "Bnd_BoundSortBox.hxx".}
+proc Destroy*(this: var Bnd_BoundSortBox) {.importcpp: "Destroy",
+                                        header: "Bnd_BoundSortBox.hxx".}
+proc destroyBnd_BoundSortBox*(this: var Bnd_BoundSortBox) {.
     importcpp: "#.~Bnd_BoundSortBox()", header: "Bnd_BoundSortBox.hxx".}
-

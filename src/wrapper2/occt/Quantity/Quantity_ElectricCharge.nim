@@ -14,10 +14,8 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _Quantity_ElectricCharge_HeaderFile [NewLine] # _Quantity_ElectricCharge_HeaderFile [NewLine] # < Standard_Real . hxx > [NewLine] ! Defined as a property of elementary particles. It is
+## !!!Ignored construct:  # _Quantity_ElectricCharge_HeaderFile [NewLine] # _Quantity_ElectricCharge_HeaderFile [NewLine] # ../Standard/Standard_Real.hxx [NewLine] ! Defined as a property of elementary particles. It is
 ## ! more commonly viewed as the product of electric current
 ## ! and time.
 ## ! It is measured in coulombs (ampere-second). Standard_DEPRECATED ( This type is deprecated - Standard_Real should be used instead ) typedef Standard_Real Quantity_ElectricCharge ;
 ## Error: expected ';'!!!
-
-

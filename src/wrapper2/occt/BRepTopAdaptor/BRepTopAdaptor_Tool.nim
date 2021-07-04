@@ -14,36 +14,41 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
+  ../Standard/Standard_Real
+
 discard "forward decl of BRepTopAdaptor_TopolTool"
 discard "forward decl of Adaptor3d_HSurface"
 discard "forward decl of TopoDS_Face"
 type
-  BRepTopAdaptorTool* {.importcpp: "BRepTopAdaptor_Tool",
-                       header: "BRepTopAdaptor_Tool.hxx", bycopy.} = object
+  BRepTopAdaptor_Tool* {.importcpp: "BRepTopAdaptor_Tool",
+                        header: "BRepTopAdaptor_Tool.hxx", bycopy.} = object
 
 
-proc constructBRepTopAdaptorTool*(): BRepTopAdaptorTool {.constructor,
+proc constructBRepTopAdaptor_Tool*(): BRepTopAdaptor_Tool {.constructor,
     importcpp: "BRepTopAdaptor_Tool(@)", header: "BRepTopAdaptor_Tool.hxx".}
-proc constructBRepTopAdaptorTool*(f: TopoDS_Face; tol2d: StandardReal): BRepTopAdaptorTool {.
+proc constructBRepTopAdaptor_Tool*(F: TopoDS_Face; Tol2d: Standard_Real): BRepTopAdaptor_Tool {.
     constructor, importcpp: "BRepTopAdaptor_Tool(@)",
     header: "BRepTopAdaptor_Tool.hxx".}
-proc constructBRepTopAdaptorTool*(surface: Handle[Adaptor3dHSurface];
-                                 tol2d: StandardReal): BRepTopAdaptorTool {.
+proc constructBRepTopAdaptor_Tool*(Surface: handle[Adaptor3d_HSurface];
+                                  Tol2d: Standard_Real): BRepTopAdaptor_Tool {.
     constructor, importcpp: "BRepTopAdaptor_Tool(@)",
     header: "BRepTopAdaptor_Tool.hxx".}
-proc init*(this: var BRepTopAdaptorTool; f: TopoDS_Face; tol2d: StandardReal) {.
+proc Init*(this: var BRepTopAdaptor_Tool; F: TopoDS_Face; Tol2d: Standard_Real) {.
     importcpp: "Init", header: "BRepTopAdaptor_Tool.hxx".}
-proc init*(this: var BRepTopAdaptorTool; surface: Handle[Adaptor3dHSurface];
-          tol2d: StandardReal) {.importcpp: "Init",
-                               header: "BRepTopAdaptor_Tool.hxx".}
-proc getTopolTool*(this: var BRepTopAdaptorTool): Handle[BRepTopAdaptorTopolTool] {.
+proc Init*(this: var BRepTopAdaptor_Tool; Surface: handle[Adaptor3d_HSurface];
+          Tol2d: Standard_Real) {.importcpp: "Init",
+                                header: "BRepTopAdaptor_Tool.hxx".}
+proc GetTopolTool*(this: var BRepTopAdaptor_Tool): handle[BRepTopAdaptor_TopolTool] {.
     importcpp: "GetTopolTool", header: "BRepTopAdaptor_Tool.hxx".}
-proc setTopolTool*(this: var BRepTopAdaptorTool; tt: Handle[BRepTopAdaptorTopolTool]) {.
+proc SetTopolTool*(this: var BRepTopAdaptor_Tool;
+                  TT: handle[BRepTopAdaptor_TopolTool]) {.
     importcpp: "SetTopolTool", header: "BRepTopAdaptor_Tool.hxx".}
-proc getSurface*(this: var BRepTopAdaptorTool): Handle[Adaptor3dHSurface] {.
+proc GetSurface*(this: var BRepTopAdaptor_Tool): handle[Adaptor3d_HSurface] {.
     importcpp: "GetSurface", header: "BRepTopAdaptor_Tool.hxx".}
-proc destroy*(this: var BRepTopAdaptorTool) {.importcpp: "Destroy",
+proc Destroy*(this: var BRepTopAdaptor_Tool) {.importcpp: "Destroy",
     header: "BRepTopAdaptor_Tool.hxx".}
-proc destroyBRepTopAdaptorTool*(this: var BRepTopAdaptorTool) {.
+proc destroyBRepTopAdaptor_Tool*(this: var BRepTopAdaptor_Tool) {.
     importcpp: "#.~BRepTopAdaptor_Tool()", header: "BRepTopAdaptor_Tool.hxx".}
-

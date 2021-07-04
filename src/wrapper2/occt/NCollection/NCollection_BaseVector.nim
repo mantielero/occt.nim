@@ -13,52 +13,59 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard_TypeDef, ../Standard/Standard_OutOfRange,
+  NCollection_BaseAllocator, NCollection_DefineAlloc
+
 ##  this value defines the number of blocks that are reserved
 ##  when the capacity of vector is increased
 
-proc getCapacity*(theIncrement: StandardInteger): StandardInteger =
+proc GetCapacity*(theIncrement: Standard_Integer): Standard_Integer =
   discard
 
 ## ! Class NCollection_BaseVector - base for NCollection_Vector template
 
 type
-  NCollectionBaseVector* {.importcpp: "NCollection_BaseVector",
-                          header: "NCollection_BaseVector.hxx", bycopy.} = object ## !
-                                                                             ## Memory
-                                                                             ## allocation
-                                                                             ##
-                                                                             ## Auxiliary
-                                                                             ## structure for
-                                                                             ## memory
-                                                                             ## blocks
-                                                                             ## !
-                                                                             ## @name
-                                                                             ## Block
-                                                                             ## initializer
-                                                                             ## !
-                                                                             ## @name
-                                                                             ## protected
-                                                                             ## methods
-                                                                             ## !
-                                                                             ## Empty
-                                                                             ## constructor
-                                                                             ## !
-                                                                             ## @name
-                                                                             ## public API
-                                                                             ## !
-                                                                             ## Empty the
-                                                                             ## vector of its
-                                                                             ## objects
-                                                                             ## !
-                                                                             ## @name
-                                                                             ## Protected
-                                                                             ## fields
+  NCollection_BaseVector* {.importcpp: "NCollection_BaseVector",
+                           header: "NCollection_BaseVector.hxx", bycopy.} = object ## !
+                                                                              ## Memory
+                                                                              ## allocation
+                                                                              ##
+                                                                              ## Auxiliary
+                                                                              ## structure
+                                                                              ## for
+                                                                              ## memory
+                                                                              ## blocks
+                                                                              ## !
+                                                                              ## @name
+                                                                              ## Block
+                                                                              ## initializer
+                                                                              ## !
+                                                                              ## @name
+                                                                              ## protected
+                                                                              ## methods
+                                                                              ## !
+                                                                              ## Empty
+                                                                              ## constructor
+                                                                              ## !
+                                                                              ## @name
+                                                                              ## public
+                                                                              ## API
+                                                                              ## !
+                                                                              ## Empty
+                                                                              ## the
+                                                                              ## vector of
+                                                                              ## its
+                                                                              ## objects
+                                                                              ## !
+                                                                              ## @name
+                                                                              ## Protected
+                                                                              ## fields
 
 
-proc clear*(this: var NCollectionBaseVector) {.importcpp: "Clear",
+proc Clear*(this: var NCollection_BaseVector) {.importcpp: "Clear",
     header: "NCollection_BaseVector.hxx".}
-proc setIncrement*(this: var NCollectionBaseVector; aIncrement: StandardInteger) {.
+proc SetIncrement*(this: var NCollection_BaseVector; aIncrement: Standard_Integer) {.
     importcpp: "SetIncrement", header: "NCollection_BaseVector.hxx".}
-proc allocator*(this: NCollectionBaseVector): Handle[NCollectionBaseAllocator] {.
+proc Allocator*(this: NCollection_BaseVector): handle[NCollection_BaseAllocator] {.
     noSideEffect, importcpp: "Allocator", header: "NCollection_BaseVector.hxx".}
-

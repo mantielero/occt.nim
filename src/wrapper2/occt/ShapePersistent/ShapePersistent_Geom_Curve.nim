@@ -11,74 +11,75 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _ShapePersistent_Geom_Curve_HeaderFile [NewLine] # _ShapePersistent_Geom_Curve_HeaderFile [NewLine] # < StdObjMgt_TransientPersistentMap . hxx > [NewLine] # < ShapePersistent_Geom . hxx > [NewLine] # < ShapePersistent_HArray1 . hxx > [NewLine] # < StdLPersistent_HArray1 . hxx > [NewLine] # < Geom_Line . hxx > [NewLine] # < Geom_Circle . hxx > [NewLine] # < Geom_Ellipse . hxx > [NewLine] # < Geom_Hyperbola . hxx > [NewLine] # < Geom_Parabola . hxx > [NewLine] # < Geom_BezierCurve . hxx > [NewLine] # < Geom_BSplineCurve . hxx > [NewLine] # < Geom_TrimmedCurve . hxx > [NewLine] # < Geom_OffsetCurve . hxx > [NewLine] # < gp_Circ . hxx > [NewLine] # < gp_Elips . hxx > [NewLine] # < gp_Hypr . hxx > [NewLine] # < gp_Parab . hxx > [NewLine] class gp_Dir ;
+## !!!Ignored construct:  # _ShapePersistent_Geom_Curve_HeaderFile [NewLine] # _ShapePersistent_Geom_Curve_HeaderFile [NewLine] # ../StdObjMgt/StdObjMgt_TransientPersistentMap.hxx [NewLine] # ShapePersistent_Geom.hxx [NewLine] # ShapePersistent_HArray1.hxx [NewLine] # ../StdLPersistent/StdLPersistent_HArray1.hxx [NewLine] # ../Geom/Geom_Line.hxx [NewLine] # ../Geom/Geom_Circle.hxx [NewLine] # ../Geom/Geom_Ellipse.hxx [NewLine] # ../Geom/Geom_Hyperbola.hxx [NewLine] # ../Geom/Geom_Parabola.hxx [NewLine] # ../Geom/Geom_BezierCurve.hxx [NewLine] # ../Geom/Geom_BSplineCurve.hxx [NewLine] # ../Geom/Geom_TrimmedCurve.hxx [NewLine] # ../Geom/Geom_OffsetCurve.hxx [NewLine] # ../gp/gp_Circ.hxx [NewLine] # ../gp/gp_Elips.hxx [NewLine] # ../gp/gp_Hypr.hxx [NewLine] # ../gp/gp_Parab.hxx [NewLine] class gp_Dir ;
 ## Error: token expected: ( but got: <!!!
 
 type
-  ShapePersistentGeomCurve* {.importcpp: "ShapePersistent_Geom_Curve",
-                             header: "ShapePersistent_Geom_Curve.hxx", bycopy.} = object of ShapePersistentGeom ##
-                                                                                                         ## !
-                                                                                                         ## Create
-                                                                                                         ## a
-                                                                                                         ## persistent
-                                                                                                         ## object
-                                                                                                         ## for
-                                                                                                         ## a
-                                                                                                         ## line
+  ShapePersistent_Geom_Curve* {.importcpp: "ShapePersistent_Geom_Curve",
+                               header: "ShapePersistent_Geom_Curve.hxx", bycopy.} = object of ShapePersistent_Geom ##
+                                                                                                            ## !
+                                                                                                            ## Create
+                                                                                                            ## a
+                                                                                                            ## persistent
+                                                                                                            ## object
+                                                                                                            ## for
+                                                                                                            ## a
+                                                                                                            ## line
 
-  ShapePersistentGeomCurveLine* = Instance[Curve, GeomLine, GpAx1]
-  ShapePersistentGeomCurveConic* = SubBaseGp[Curve, GpAx2]
-  ShapePersistentGeomCurveCircle* = Instance[ShapePersistentGeomCurveConic,
-      GeomCircle, GpCirc]
-  ShapePersistentGeomCurveEllipse* = Instance[ShapePersistentGeomCurveConic,
-      GeomEllipse, GpElips]
-  ShapePersistentGeomCurveHyperbola* = Instance[ShapePersistentGeomCurveConic,
-      GeomHyperbola, GpHypr]
-  ShapePersistentGeomCurveParabola* = Instance[ShapePersistentGeomCurveConic,
-      GeomParabola, GpParab]
-  ShapePersistentGeomCurveBounded* = SubBaseEmpty[Curve]
-  ShapePersistentGeomCurveBezier* = Delayed[ShapePersistentGeomCurveBounded,
-      ShapePersistentGeomCurvepBezier]
-  ShapePersistentGeomCurveBSpline* = Delayed[ShapePersistentGeomCurveBounded,
-      ShapePersistentGeomCurvepBSpline]
-  ShapePersistentGeomCurveTrimmed* = Delayed[ShapePersistentGeomCurveBounded,
-      ShapePersistentGeomCurvepTrimmed]
-  ShapePersistentGeomCurveOffset* = Delayed[Curve, ShapePersistentGeomCurvepOffset]
+  ShapePersistent_Geom_CurveLine* = instance[Curve, Geom_Line, gp_Ax1]
+  ShapePersistent_Geom_CurveConic* = subBase_gp[Curve, gp_Ax2]
+  ShapePersistent_Geom_CurveCircle* = instance[ShapePersistent_Geom_CurveConic,
+      Geom_Circle, gp_Circ]
+  ShapePersistent_Geom_CurveEllipse* = instance[ShapePersistent_Geom_CurveConic,
+      Geom_Ellipse, gp_Elips]
+  ShapePersistent_Geom_CurveHyperbola* = instance[ShapePersistent_Geom_CurveConic,
+      Geom_Hyperbola, gp_Hypr]
+  ShapePersistent_Geom_CurveParabola* = instance[ShapePersistent_Geom_CurveConic,
+      Geom_Parabola, gp_Parab]
+  ShapePersistent_Geom_CurveBounded* = subBase_empty[Curve]
+  ShapePersistent_Geom_CurveBezier* = Delayed[ShapePersistent_Geom_CurveBounded,
+      ShapePersistent_Geom_CurvepBezier]
+  ShapePersistent_Geom_CurveBSpline* = Delayed[ShapePersistent_Geom_CurveBounded,
+      ShapePersistent_Geom_CurvepBSpline]
+  ShapePersistent_Geom_CurveTrimmed* = Delayed[ShapePersistent_Geom_CurveBounded,
+      ShapePersistent_Geom_CurvepTrimmed]
+  ShapePersistent_Geom_CurveOffset* = Delayed[Curve,
+      ShapePersistent_Geom_CurvepOffset]
 
-proc translate*(theCurve: Handle[GeomLine];
-               theMap: var StdObjMgtTransientPersistentMap): Handle[Curve] {.
+proc Translate*(theCurve: handle[Geom_Line];
+               theMap: var StdObjMgt_TransientPersistentMap): handle[Curve] {.
     importcpp: "ShapePersistent_Geom_Curve::Translate(@)",
     header: "ShapePersistent_Geom_Curve.hxx".}
-proc translate*(theCurve: Handle[GeomCircle];
-               theMap: var StdObjMgtTransientPersistentMap): Handle[Curve] {.
+proc Translate*(theCurve: handle[Geom_Circle];
+               theMap: var StdObjMgt_TransientPersistentMap): handle[Curve] {.
     importcpp: "ShapePersistent_Geom_Curve::Translate(@)",
     header: "ShapePersistent_Geom_Curve.hxx".}
-proc translate*(theCurve: Handle[GeomEllipse];
-               theMap: var StdObjMgtTransientPersistentMap): Handle[Curve] {.
+proc Translate*(theCurve: handle[Geom_Ellipse];
+               theMap: var StdObjMgt_TransientPersistentMap): handle[Curve] {.
     importcpp: "ShapePersistent_Geom_Curve::Translate(@)",
     header: "ShapePersistent_Geom_Curve.hxx".}
-proc translate*(theCurve: Handle[GeomHyperbola];
-               theMap: var StdObjMgtTransientPersistentMap): Handle[Curve] {.
+proc Translate*(theCurve: handle[Geom_Hyperbola];
+               theMap: var StdObjMgt_TransientPersistentMap): handle[Curve] {.
     importcpp: "ShapePersistent_Geom_Curve::Translate(@)",
     header: "ShapePersistent_Geom_Curve.hxx".}
-proc translate*(theCurve: Handle[GeomParabola];
-               theMap: var StdObjMgtTransientPersistentMap): Handle[Curve] {.
+proc Translate*(theCurve: handle[Geom_Parabola];
+               theMap: var StdObjMgt_TransientPersistentMap): handle[Curve] {.
     importcpp: "ShapePersistent_Geom_Curve::Translate(@)",
     header: "ShapePersistent_Geom_Curve.hxx".}
-proc translate*(theCurve: Handle[GeomBezierCurve];
-               theMap: var StdObjMgtTransientPersistentMap): Handle[Curve] {.
+proc Translate*(theCurve: handle[Geom_BezierCurve];
+               theMap: var StdObjMgt_TransientPersistentMap): handle[Curve] {.
     importcpp: "ShapePersistent_Geom_Curve::Translate(@)",
     header: "ShapePersistent_Geom_Curve.hxx".}
-proc translate*(theCurve: Handle[GeomBSplineCurve];
-               theMap: var StdObjMgtTransientPersistentMap): Handle[Curve] {.
+proc Translate*(theCurve: handle[Geom_BSplineCurve];
+               theMap: var StdObjMgt_TransientPersistentMap): handle[Curve] {.
     importcpp: "ShapePersistent_Geom_Curve::Translate(@)",
     header: "ShapePersistent_Geom_Curve.hxx".}
-proc translate*(theCurve: Handle[GeomTrimmedCurve];
-               theMap: var StdObjMgtTransientPersistentMap): Handle[Curve] {.
+proc Translate*(theCurve: handle[Geom_TrimmedCurve];
+               theMap: var StdObjMgt_TransientPersistentMap): handle[Curve] {.
     importcpp: "ShapePersistent_Geom_Curve::Translate(@)",
     header: "ShapePersistent_Geom_Curve.hxx".}
-proc translate*(theCurve: Handle[GeomOffsetCurve];
-               theMap: var StdObjMgtTransientPersistentMap): Handle[Curve] {.
+proc Translate*(theCurve: handle[Geom_OffsetCurve];
+               theMap: var StdObjMgt_TransientPersistentMap): handle[Curve] {.
     importcpp: "ShapePersistent_Geom_Curve::Translate(@)",
     header: "ShapePersistent_Geom_Curve.hxx".}
 ## =======================================================================
@@ -137,5 +138,3 @@ proc translate*(theCurve: Handle[GeomOffsetCurve];
 
 ## !!!Ignored construct:  template < > [end of template] void ShapePersistent_Geom :: instance < ShapePersistent_Geom_Curve :: Conic , Geom_Parabola , gp_Parab > :: Write ( StdObjMgt_WriteData & theWriteData ) const ;
 ## Error: token expected: ( but got: <!!!
-
-

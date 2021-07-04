@@ -14,6 +14,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
+  ../Standard/Standard_Real, Extrema_POnCurv2d, Extrema_SequenceOfPOnCurv2d
+
 discard "forward decl of Standard_DomainError"
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of Adaptor2d_Curve2d"
@@ -23,23 +28,24 @@ discard "forward decl of gp_Pnt2d"
 discard "forward decl of gp_Vec2d"
 discard "forward decl of Extrema_CCLocFOfLocECC2d"
 type
-  ExtremaLocECC2d* {.importcpp: "Extrema_LocECC2d", header: "Extrema_LocECC2d.hxx",
-                    bycopy.} = object ## ! Calculates the distance with a close point. The
-                                   ## ! close point is defined by a parameter value on each
-                                   ## ! curve.
-                                   ## ! The function F(u,v)=distance(C1(u),C2(v)) has an
-                                   ## ! extremun when gradient(f)=0. The algorithm searchs
-                                   ## ! the zero near the close point.
+  Extrema_LocECC2d* {.importcpp: "Extrema_LocECC2d",
+                     header: "Extrema_LocECC2d.hxx", bycopy.} = object ## ! Calculates the distance with a close point. The
+                                                                  ## ! close point is defined by a parameter value on each
+                                                                  ## ! curve.
+                                                                  ## ! The function
+                                                                  ## F(u,v)=distance(C1(u),C2(v)) has an
+                                                                  ## ! extremun when gradient(f)=0. The algorithm searchs
+                                                                  ## ! the zero near the close point.
 
 
-proc constructExtremaLocECC2d*(c1: Adaptor2dCurve2d; c2: Adaptor2dCurve2d;
-                              u0: StandardReal; v0: StandardReal;
-                              tolU: StandardReal; tolV: StandardReal): ExtremaLocECC2d {.
+proc constructExtrema_LocECC2d*(C1: Adaptor2d_Curve2d; C2: Adaptor2d_Curve2d;
+                               U0: Standard_Real; V0: Standard_Real;
+                               TolU: Standard_Real; TolV: Standard_Real): Extrema_LocECC2d {.
     constructor, importcpp: "Extrema_LocECC2d(@)", header: "Extrema_LocECC2d.hxx".}
-proc isDone*(this: ExtremaLocECC2d): StandardBoolean {.noSideEffect,
+proc IsDone*(this: Extrema_LocECC2d): Standard_Boolean {.noSideEffect,
     importcpp: "IsDone", header: "Extrema_LocECC2d.hxx".}
-proc squareDistance*(this: ExtremaLocECC2d): StandardReal {.noSideEffect,
+proc SquareDistance*(this: Extrema_LocECC2d): Standard_Real {.noSideEffect,
     importcpp: "SquareDistance", header: "Extrema_LocECC2d.hxx".}
-proc point*(this: ExtremaLocECC2d; p1: var ExtremaPOnCurv2d; p2: var ExtremaPOnCurv2d) {.
-    noSideEffect, importcpp: "Point", header: "Extrema_LocECC2d.hxx".}
-
+proc Point*(this: Extrema_LocECC2d; P1: var Extrema_POnCurv2d;
+           P2: var Extrema_POnCurv2d) {.noSideEffect, importcpp: "Point",
+                                     header: "Extrema_LocECC2d.hxx".}

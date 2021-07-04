@@ -14,10 +14,15 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Integer,
+  ../Standard/Standard_Real, ../IGESData/IGESData_IGESEntity,
+  ../Standard/Standard_Boolean
+
 discard "forward decl of IGESAppli_DrilledHole"
 discard "forward decl of IGESAppli_DrilledHole"
 type
-  HandleIGESAppliDrilledHole* = Handle[IGESAppliDrilledHole]
+  Handle_IGESAppli_DrilledHole* = handle[IGESAppli_DrilledHole]
 
 ## ! defines DrilledHole, Type <406> Form <6>
 ## ! in package IGESAppli
@@ -25,36 +30,37 @@ type
 ## ! through a printed circuit board.
 
 type
-  IGESAppliDrilledHole* {.importcpp: "IGESAppli_DrilledHole",
-                         header: "IGESAppli_DrilledHole.hxx", bycopy.} = object of IGESDataIGESEntity
+  IGESAppli_DrilledHole* {.importcpp: "IGESAppli_DrilledHole",
+                          header: "IGESAppli_DrilledHole.hxx", bycopy.} = object of IGESData_IGESEntity
 
 
-proc constructIGESAppliDrilledHole*(): IGESAppliDrilledHole {.constructor,
+proc constructIGESAppli_DrilledHole*(): IGESAppli_DrilledHole {.constructor,
     importcpp: "IGESAppli_DrilledHole(@)", header: "IGESAppli_DrilledHole.hxx".}
-proc init*(this: var IGESAppliDrilledHole; nbPropVal: StandardInteger;
-          aSize: StandardReal; anotherSize: StandardReal; aPlating: StandardInteger;
-          aLayer: StandardInteger; anotherLayer: StandardInteger) {.
-    importcpp: "Init", header: "IGESAppli_DrilledHole.hxx".}
-proc nbPropertyValues*(this: IGESAppliDrilledHole): StandardInteger {.noSideEffect,
-    importcpp: "NbPropertyValues", header: "IGESAppli_DrilledHole.hxx".}
-proc drillDiaSize*(this: IGESAppliDrilledHole): StandardReal {.noSideEffect,
+proc Init*(this: var IGESAppli_DrilledHole; nbPropVal: Standard_Integer;
+          aSize: Standard_Real; anotherSize: Standard_Real;
+          aPlating: Standard_Integer; aLayer: Standard_Integer;
+          anotherLayer: Standard_Integer) {.importcpp: "Init",
+    header: "IGESAppli_DrilledHole.hxx".}
+proc NbPropertyValues*(this: IGESAppli_DrilledHole): Standard_Integer {.
+    noSideEffect, importcpp: "NbPropertyValues",
+    header: "IGESAppli_DrilledHole.hxx".}
+proc DrillDiaSize*(this: IGESAppli_DrilledHole): Standard_Real {.noSideEffect,
     importcpp: "DrillDiaSize", header: "IGESAppli_DrilledHole.hxx".}
-proc finishDiaSize*(this: IGESAppliDrilledHole): StandardReal {.noSideEffect,
+proc FinishDiaSize*(this: IGESAppli_DrilledHole): Standard_Real {.noSideEffect,
     importcpp: "FinishDiaSize", header: "IGESAppli_DrilledHole.hxx".}
-proc isPlating*(this: IGESAppliDrilledHole): StandardBoolean {.noSideEffect,
+proc IsPlating*(this: IGESAppli_DrilledHole): Standard_Boolean {.noSideEffect,
     importcpp: "IsPlating", header: "IGESAppli_DrilledHole.hxx".}
-proc nbLowerLayer*(this: IGESAppliDrilledHole): StandardInteger {.noSideEffect,
+proc NbLowerLayer*(this: IGESAppli_DrilledHole): Standard_Integer {.noSideEffect,
     importcpp: "NbLowerLayer", header: "IGESAppli_DrilledHole.hxx".}
-proc nbHigherLayer*(this: IGESAppliDrilledHole): StandardInteger {.noSideEffect,
+proc NbHigherLayer*(this: IGESAppli_DrilledHole): Standard_Integer {.noSideEffect,
     importcpp: "NbHigherLayer", header: "IGESAppli_DrilledHole.hxx".}
 type
-  IGESAppliDrilledHolebaseType* = IGESDataIGESEntity
+  IGESAppli_DrilledHolebase_type* = IGESData_IGESEntity
 
-proc getTypeName*(): cstring {.importcpp: "IGESAppli_DrilledHole::get_type_name(@)",
-                            header: "IGESAppli_DrilledHole.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "IGESAppli_DrilledHole::get_type_name(@)",
+                              header: "IGESAppli_DrilledHole.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "IGESAppli_DrilledHole::get_type_descriptor(@)",
     header: "IGESAppli_DrilledHole.hxx".}
-proc dynamicType*(this: IGESAppliDrilledHole): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "IGESAppli_DrilledHole.hxx".}
-
+proc DynamicType*(this: IGESAppli_DrilledHole): handle[Standard_Type] {.
+    noSideEffect, importcpp: "DynamicType", header: "IGESAppli_DrilledHole.hxx".}

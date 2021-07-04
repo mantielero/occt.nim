@@ -14,6 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Real,
+  Geom2d_Conic, ../Standard/Standard_Boolean, ../Standard/Standard_Integer
+
 discard "forward decl of Standard_ConstructionError"
 discard "forward decl of Standard_RangeError"
 discard "forward decl of gp_Elips2d"
@@ -26,7 +30,7 @@ discard "forward decl of Geom2d_Geometry"
 discard "forward decl of Geom2d_Ellipse"
 discard "forward decl of Geom2d_Ellipse"
 type
-  HandleGeom2dEllipse* = Handle[Geom2dEllipse]
+  Handle_Geom2d_Ellipse* = handle[Geom2d_Ellipse]
 
 ## ! Describes an ellipse in the plane (2D space).
 ## ! An ellipse is defined by its major and minor radii and,
@@ -59,91 +63,91 @@ type
 ## ! gp_Elips2d for an equivalent, non-parameterized data structure
 
 type
-  Geom2dEllipse* {.importcpp: "Geom2d_Ellipse", header: "Geom2d_Ellipse.hxx", bycopy.} = object of Geom2dConic ##
-                                                                                                     ## !
-                                                                                                     ## Creates
-                                                                                                     ## an
-                                                                                                     ## ellipse
-                                                                                                     ## by
-                                                                                                     ## conversion
-                                                                                                     ## of
-                                                                                                     ## the
-                                                                                                     ## gp_Elips2d
-                                                                                                     ## ellipse
-                                                                                                     ## E.
+  Geom2d_Ellipse* {.importcpp: "Geom2d_Ellipse", header: "Geom2d_Ellipse.hxx", bycopy.} = object of Geom2d_Conic ##
+                                                                                                       ## !
+                                                                                                       ## Creates
+                                                                                                       ## an
+                                                                                                       ## ellipse
+                                                                                                       ## by
+                                                                                                       ## conversion
+                                                                                                       ## of
+                                                                                                       ## the
+                                                                                                       ## gp_Elips2d
+                                                                                                       ## ellipse
+                                                                                                       ## E.
 
 
-proc constructGeom2dEllipse*(e: GpElips2d): Geom2dEllipse {.constructor,
+proc constructGeom2d_Ellipse*(E: gp_Elips2d): Geom2d_Ellipse {.constructor,
     importcpp: "Geom2d_Ellipse(@)", header: "Geom2d_Ellipse.hxx".}
-proc constructGeom2dEllipse*(majorAxis: GpAx2d; majorRadius: StandardReal;
-                            minorRadius: StandardReal;
-                            sense: StandardBoolean = standardTrue): Geom2dEllipse {.
+proc constructGeom2d_Ellipse*(MajorAxis: gp_Ax2d; MajorRadius: Standard_Real;
+                             MinorRadius: Standard_Real;
+                             Sense: Standard_Boolean = Standard_True): Geom2d_Ellipse {.
     constructor, importcpp: "Geom2d_Ellipse(@)", header: "Geom2d_Ellipse.hxx".}
-proc constructGeom2dEllipse*(axis: GpAx22d; majorRadius: StandardReal;
-                            minorRadius: StandardReal): Geom2dEllipse {.
+proc constructGeom2d_Ellipse*(Axis: gp_Ax22d; MajorRadius: Standard_Real;
+                             MinorRadius: Standard_Real): Geom2d_Ellipse {.
     constructor, importcpp: "Geom2d_Ellipse(@)", header: "Geom2d_Ellipse.hxx".}
-proc setElips2d*(this: var Geom2dEllipse; e: GpElips2d) {.importcpp: "SetElips2d",
+proc SetElips2d*(this: var Geom2d_Ellipse; E: gp_Elips2d) {.importcpp: "SetElips2d",
     header: "Geom2d_Ellipse.hxx".}
-proc setMajorRadius*(this: var Geom2dEllipse; majorRadius: StandardReal) {.
+proc SetMajorRadius*(this: var Geom2d_Ellipse; MajorRadius: Standard_Real) {.
     importcpp: "SetMajorRadius", header: "Geom2d_Ellipse.hxx".}
-proc setMinorRadius*(this: var Geom2dEllipse; minorRadius: StandardReal) {.
+proc SetMinorRadius*(this: var Geom2d_Ellipse; MinorRadius: Standard_Real) {.
     importcpp: "SetMinorRadius", header: "Geom2d_Ellipse.hxx".}
-proc elips2d*(this: Geom2dEllipse): GpElips2d {.noSideEffect, importcpp: "Elips2d",
+proc Elips2d*(this: Geom2d_Ellipse): gp_Elips2d {.noSideEffect, importcpp: "Elips2d",
     header: "Geom2d_Ellipse.hxx".}
-proc reversedParameter*(this: Geom2dEllipse; u: StandardReal): StandardReal {.
+proc ReversedParameter*(this: Geom2d_Ellipse; U: Standard_Real): Standard_Real {.
     noSideEffect, importcpp: "ReversedParameter", header: "Geom2d_Ellipse.hxx".}
-proc directrix1*(this: Geom2dEllipse): GpAx2d {.noSideEffect,
+proc Directrix1*(this: Geom2d_Ellipse): gp_Ax2d {.noSideEffect,
     importcpp: "Directrix1", header: "Geom2d_Ellipse.hxx".}
-proc directrix2*(this: Geom2dEllipse): GpAx2d {.noSideEffect,
+proc Directrix2*(this: Geom2d_Ellipse): gp_Ax2d {.noSideEffect,
     importcpp: "Directrix2", header: "Geom2d_Ellipse.hxx".}
-proc eccentricity*(this: Geom2dEllipse): StandardReal {.noSideEffect,
+proc Eccentricity*(this: Geom2d_Ellipse): Standard_Real {.noSideEffect,
     importcpp: "Eccentricity", header: "Geom2d_Ellipse.hxx".}
-proc focal*(this: Geom2dEllipse): StandardReal {.noSideEffect, importcpp: "Focal",
+proc Focal*(this: Geom2d_Ellipse): Standard_Real {.noSideEffect, importcpp: "Focal",
     header: "Geom2d_Ellipse.hxx".}
-proc focus1*(this: Geom2dEllipse): GpPnt2d {.noSideEffect, importcpp: "Focus1",
+proc Focus1*(this: Geom2d_Ellipse): gp_Pnt2d {.noSideEffect, importcpp: "Focus1",
     header: "Geom2d_Ellipse.hxx".}
-proc focus2*(this: Geom2dEllipse): GpPnt2d {.noSideEffect, importcpp: "Focus2",
+proc Focus2*(this: Geom2d_Ellipse): gp_Pnt2d {.noSideEffect, importcpp: "Focus2",
     header: "Geom2d_Ellipse.hxx".}
-proc majorRadius*(this: Geom2dEllipse): StandardReal {.noSideEffect,
+proc MajorRadius*(this: Geom2d_Ellipse): Standard_Real {.noSideEffect,
     importcpp: "MajorRadius", header: "Geom2d_Ellipse.hxx".}
-proc minorRadius*(this: Geom2dEllipse): StandardReal {.noSideEffect,
+proc MinorRadius*(this: Geom2d_Ellipse): Standard_Real {.noSideEffect,
     importcpp: "MinorRadius", header: "Geom2d_Ellipse.hxx".}
-proc parameter*(this: Geom2dEllipse): StandardReal {.noSideEffect,
+proc Parameter*(this: Geom2d_Ellipse): Standard_Real {.noSideEffect,
     importcpp: "Parameter", header: "Geom2d_Ellipse.hxx".}
-proc firstParameter*(this: Geom2dEllipse): StandardReal {.noSideEffect,
+proc FirstParameter*(this: Geom2d_Ellipse): Standard_Real {.noSideEffect,
     importcpp: "FirstParameter", header: "Geom2d_Ellipse.hxx".}
-proc lastParameter*(this: Geom2dEllipse): StandardReal {.noSideEffect,
+proc LastParameter*(this: Geom2d_Ellipse): Standard_Real {.noSideEffect,
     importcpp: "LastParameter", header: "Geom2d_Ellipse.hxx".}
-proc isClosed*(this: Geom2dEllipse): StandardBoolean {.noSideEffect,
+proc IsClosed*(this: Geom2d_Ellipse): Standard_Boolean {.noSideEffect,
     importcpp: "IsClosed", header: "Geom2d_Ellipse.hxx".}
-proc isPeriodic*(this: Geom2dEllipse): StandardBoolean {.noSideEffect,
+proc IsPeriodic*(this: Geom2d_Ellipse): Standard_Boolean {.noSideEffect,
     importcpp: "IsPeriodic", header: "Geom2d_Ellipse.hxx".}
-proc d0*(this: Geom2dEllipse; u: StandardReal; p: var GpPnt2d) {.noSideEffect,
+proc D0*(this: Geom2d_Ellipse; U: Standard_Real; P: var gp_Pnt2d) {.noSideEffect,
     importcpp: "D0", header: "Geom2d_Ellipse.hxx".}
-proc d1*(this: Geom2dEllipse; u: StandardReal; p: var GpPnt2d; v1: var GpVec2d) {.
+proc D1*(this: Geom2d_Ellipse; U: Standard_Real; P: var gp_Pnt2d; V1: var gp_Vec2d) {.
     noSideEffect, importcpp: "D1", header: "Geom2d_Ellipse.hxx".}
-proc d2*(this: Geom2dEllipse; u: StandardReal; p: var GpPnt2d; v1: var GpVec2d;
-        v2: var GpVec2d) {.noSideEffect, importcpp: "D2", header: "Geom2d_Ellipse.hxx".}
-proc d3*(this: Geom2dEllipse; u: StandardReal; p: var GpPnt2d; v1: var GpVec2d;
-        v2: var GpVec2d; v3: var GpVec2d) {.noSideEffect, importcpp: "D3",
-                                      header: "Geom2d_Ellipse.hxx".}
-proc dn*(this: Geom2dEllipse; u: StandardReal; n: StandardInteger): GpVec2d {.
+proc D2*(this: Geom2d_Ellipse; U: Standard_Real; P: var gp_Pnt2d; V1: var gp_Vec2d;
+        V2: var gp_Vec2d) {.noSideEffect, importcpp: "D2",
+                         header: "Geom2d_Ellipse.hxx".}
+proc D3*(this: Geom2d_Ellipse; U: Standard_Real; P: var gp_Pnt2d; V1: var gp_Vec2d;
+        V2: var gp_Vec2d; V3: var gp_Vec2d) {.noSideEffect, importcpp: "D3",
+                                        header: "Geom2d_Ellipse.hxx".}
+proc DN*(this: Geom2d_Ellipse; U: Standard_Real; N: Standard_Integer): gp_Vec2d {.
     noSideEffect, importcpp: "DN", header: "Geom2d_Ellipse.hxx".}
-proc transform*(this: var Geom2dEllipse; t: GpTrsf2d) {.importcpp: "Transform",
+proc Transform*(this: var Geom2d_Ellipse; T: gp_Trsf2d) {.importcpp: "Transform",
     header: "Geom2d_Ellipse.hxx".}
-proc copy*(this: Geom2dEllipse): Handle[Geom2dGeometry] {.noSideEffect,
+proc Copy*(this: Geom2d_Ellipse): handle[Geom2d_Geometry] {.noSideEffect,
     importcpp: "Copy", header: "Geom2d_Ellipse.hxx".}
-proc dumpJson*(this: Geom2dEllipse; theOStream: var StandardOStream;
-              theDepth: StandardInteger = -1) {.noSideEffect, importcpp: "DumpJson",
+proc DumpJson*(this: Geom2d_Ellipse; theOStream: var Standard_OStream;
+              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
     header: "Geom2d_Ellipse.hxx".}
 type
-  Geom2dEllipsebaseType* = Geom2dConic
+  Geom2d_Ellipsebase_type* = Geom2d_Conic
 
-proc getTypeName*(): cstring {.importcpp: "Geom2d_Ellipse::get_type_name(@)",
-                            header: "Geom2d_Ellipse.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "Geom2d_Ellipse::get_type_name(@)",
+                              header: "Geom2d_Ellipse.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "Geom2d_Ellipse::get_type_descriptor(@)",
     header: "Geom2d_Ellipse.hxx".}
-proc dynamicType*(this: Geom2dEllipse): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: Geom2d_Ellipse): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "Geom2d_Ellipse.hxx".}
-

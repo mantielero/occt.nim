@@ -1,22 +1,44 @@
-type
-  Graphic3dTextureUnit* {.size: sizeof(cint), importcpp: "Graphic3d_TextureUnit",
-                         header: "Graphic3d_TextureUnit.hxx".} = enum
-    Graphic3dTextureUnitPbrEnvironmentLUT = -3,
-    Graphic3dTextureUnitPbrIblDiffuseSH = -2,
-    Graphic3dTextureUnitPbrIblSpecular = -1, Graphic3dTextureUnit0,
-    Graphic3dTextureUnit1, Graphic3dTextureUnit2, Graphic3dTextureUnit3,
-    Graphic3dTextureUnit4, Graphic3dTextureUnit5, Graphic3dTextureUnit6,
-    Graphic3dTextureUnit7, Graphic3dTextureUnit8, Graphic3dTextureUnit9,
-    Graphic3dTextureUnit10, Graphic3dTextureUnit11, Graphic3dTextureUnit12,
-    Graphic3dTextureUnit13, Graphic3dTextureUnit14, Graphic3dTextureUnit15,
-    Graphic3dTextureUnitBaseColor = graphic3dTextureUnit0,
-    Graphic3dTextureUnitEmissive = graphic3dTextureUnit1,
-    Graphic3dTextureUnitOcclusion = graphic3dTextureUnit2,
-    Graphic3dTextureUnitNormal = graphic3dTextureUnit3,
-    Graphic3dTextureUnitMetallicRoughness = graphic3dTextureUnit4,
-    Graphic3dTextureUnitEnvMap = graphic3dTextureUnit0,
-    Graphic3dTextureUnitPointSprite = graphic3dTextureUnit1
+##  Copyright (c) 2017 OPEN CASCADE SAS
+##
+##  This file is part of Open CASCADE Technology software library.
+##
+##  This library is free software; you can redistribute it and/or modify it under
+##  the terms of the GNU Lesser General Public License version 2.1 as published
+##  by the Free Software Foundation, with special exception defined in the file
+##  OCCT_LGPL_EXCEPTION.txt. Consult the file LICENSE_LGPL_21.txt included in OCCT
+##  distribution for complete text of the license and disclaimer of any warranty.
+##
+##  Alternatively, this file may be used under the terms of Open CASCADE
+##  commercial license or contractual agreement.
 
+## ! Texture unit.
+
+type
+  Graphic3d_TextureUnit* {.size: sizeof(cint), importcpp: "Graphic3d_TextureUnit",
+                          header: "Graphic3d_TextureUnit.hxx".} = enum ##  value as index number
+    Graphic3d_TextureUnit_PbrEnvironmentLUT = -3, ## ! sampler2D occDiffIBLMapSHCoeffs.
+                                               ## ! Diffuse (irradiance) IBL map's spherical harmonics coefficients baked for PBR from environment cubemap image.
+                                               ## ! Configured as index at the end of available texture units - 2.
+    Graphic3d_TextureUnit_PbrIblDiffuseSH = -2, ## ! samplerCube occSpecIBLMap.
+                                             ## ! Specular IBL (Image-Based Lighting) environment map baked for PBR from environment cubemap image.
+                                             ## ! Configured as index at the end of available texture units - 1.
+    Graphic3d_TextureUnit_PbrIblSpecular = -1, Graphic3d_TextureUnit_0,
+    Graphic3d_TextureUnit_1, Graphic3d_TextureUnit_2, Graphic3d_TextureUnit_3,
+    Graphic3d_TextureUnit_4, Graphic3d_TextureUnit_5, Graphic3d_TextureUnit_6,
+    Graphic3d_TextureUnit_7, Graphic3d_TextureUnit_8, Graphic3d_TextureUnit_9,
+    Graphic3d_TextureUnit_10, Graphic3d_TextureUnit_11, Graphic3d_TextureUnit_12,
+    Graphic3d_TextureUnit_13, Graphic3d_TextureUnit_14, Graphic3d_TextureUnit_15 ##  aliases
+                                                                              ## ! sampler2D occSamplerBaseColor.
+                                                                              ## ! RGB(A) base color of the material and alpha mask/opacity.
 
 const
-  Graphic3dTextureUnitNB* = graphic3dTextureUnit15 + 1
+  Graphic3d_TextureUnit_BaseColor* = Graphic3d_TextureUnit_0
+  Graphic3d_TextureUnit_Emissive* = Graphic3d_TextureUnit_1
+  Graphic3d_TextureUnit_Occlusion* = Graphic3d_TextureUnit_2
+  Graphic3d_TextureUnit_Normal* = Graphic3d_TextureUnit_3
+  Graphic3d_TextureUnit_MetallicRoughness* = Graphic3d_TextureUnit_4
+  Graphic3d_TextureUnit_EnvMap* = Graphic3d_TextureUnit_0
+  Graphic3d_TextureUnit_PointSprite* = Graphic3d_TextureUnit_1
+
+const
+  Graphic3d_TextureUnit_NB* = Graphic3d_TextureUnit_15 + 1

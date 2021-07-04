@@ -11,8 +11,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard_Type
+
 type
-  MeshVS_NodePair* = Pair[StandardInteger, StandardInteger]
+  MeshVS_NodePair* = pair[Standard_Integer, Standard_Integer]
 
 ## ! Provides symmetric hash methods pair of integers.
 
@@ -78,10 +81,9 @@ type
                                                                                       ## theUpperBound]
 
 
-proc hashCode*(theNodePair: MeshVS_NodePair; theUpperBound: StandardInteger): StandardInteger {.
+proc HashCode*(theNodePair: MeshVS_NodePair; theUpperBound: Standard_Integer): Standard_Integer {.
     importcpp: "MeshVS_SymmetricPairHasher::HashCode(@)",
     header: "MeshVS_SymmetricPairHasher.hxx".}
-proc isEqual*(thePair1: MeshVS_NodePair; thePair2: MeshVS_NodePair): StandardBoolean {.
+proc IsEqual*(thePair1: MeshVS_NodePair; thePair2: MeshVS_NodePair): Standard_Boolean {.
     importcpp: "MeshVS_SymmetricPairHasher::IsEqual(@)",
     header: "MeshVS_SymmetricPairHasher.hxx".}
-

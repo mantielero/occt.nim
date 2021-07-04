@@ -14,162 +14,169 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../gp/gp_Pnt,
+  ../Standard/Standard_Real, ../Standard/Standard_Integer,
+  ../Convert/Convert_ParameterisationType, ../Standard/Standard_Boolean,
+  ../Approx/Approx_SweepFunction, ../TColgp/TColgp_Array1OfPnt,
+  ../TColgp/TColgp_Array1OfPnt2d, ../TColStd/TColStd_Array1OfReal,
+  ../TColgp/TColgp_Array1OfVec, ../TColgp/TColgp_Array1OfVec2d,
+  ../TColStd/TColStd_Array1OfInteger, ../GeomAbs/GeomAbs_Shape
+
 discard "forward decl of Adaptor3d_HCurve"
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of gp_Pnt"
 discard "forward decl of GeomFill_CircularBlendFunc"
 discard "forward decl of GeomFill_CircularBlendFunc"
 type
-  HandleGeomFillCircularBlendFunc* = Handle[GeomFillCircularBlendFunc]
+  Handle_GeomFill_CircularBlendFunc* = handle[GeomFill_CircularBlendFunc]
 
 ## ! Circular     Blend Function  to    approximate by
 ## ! SweepApproximation from Approx
 
 type
-  GeomFillCircularBlendFunc* {.importcpp: "GeomFill_CircularBlendFunc",
-                              header: "GeomFill_CircularBlendFunc.hxx", bycopy.} = object of ApproxSweepFunction ##
-                                                                                                          ## !
-                                                                                                          ## Create
-                                                                                                          ## a
-                                                                                                          ## Blend
-                                                                                                          ## with
-                                                                                                          ## a
-                                                                                                          ## constant
-                                                                                                          ## radius
-                                                                                                          ## with
-                                                                                                          ## 2
-                                                                                                          ##
-                                                                                                          ## !
-                                                                                                          ## guide-line.
-                                                                                                          ## <FShape>
-                                                                                                          ## sets
-                                                                                                          ## the
-                                                                                                          ## type
-                                                                                                          ## of
-                                                                                                          ## fillet
-                                                                                                          ##
-                                                                                                          ## !
-                                                                                                          ## surface.
-                                                                                                          ## The
-                                                                                                          ## --
-                                                                                                          ## default
-                                                                                                          ## value
-                                                                                                          ## is
-                                                                                                          ## Convert_TgtThetaOver2
-                                                                                                          ## (classical
-                                                                                                          ## --
-                                                                                                          ##
-                                                                                                          ## !
-                                                                                                          ## nurbs
-                                                                                                          ## --
-                                                                                                          ## representation
-                                                                                                          ## of
-                                                                                                          ## circles).
-                                                                                                          ##
-                                                                                                          ## !
-                                                                                                          ## ChFi3d_QuasiAngular
-                                                                                                          ## --
-                                                                                                          ## corresponds
-                                                                                                          ## to
-                                                                                                          ## a
-                                                                                                          ## nurbs
-                                                                                                          ##
-                                                                                                          ## !
-                                                                                                          ## representation
-                                                                                                          ## of
-                                                                                                          ## circles
-                                                                                                          ## --
-                                                                                                          ## which
-                                                                                                          ##
-                                                                                                          ## !
-                                                                                                          ## parameterisation
-                                                                                                          ## matches
-                                                                                                          ## the
-                                                                                                          ## circle
-                                                                                                          ## one.
-                                                                                                          ## --
-                                                                                                          ##
-                                                                                                          ## !
-                                                                                                          ## ChFi3d_Polynomial
-                                                                                                          ## corresponds
-                                                                                                          ## to
-                                                                                                          ## a
-                                                                                                          ## polynomial
-                                                                                                          ## --
-                                                                                                          ##
-                                                                                                          ## !
-                                                                                                          ## representation
-                                                                                                          ## of
-                                                                                                          ## circles.
+  GeomFill_CircularBlendFunc* {.importcpp: "GeomFill_CircularBlendFunc",
+                               header: "GeomFill_CircularBlendFunc.hxx", bycopy.} = object of Approx_SweepFunction ##
+                                                                                                            ## !
+                                                                                                            ## Create
+                                                                                                            ## a
+                                                                                                            ## Blend
+                                                                                                            ## with
+                                                                                                            ## a
+                                                                                                            ## constant
+                                                                                                            ## radius
+                                                                                                            ## with
+                                                                                                            ## 2
+                                                                                                            ##
+                                                                                                            ## !
+                                                                                                            ## guide-line.
+                                                                                                            ## <FShape>
+                                                                                                            ## sets
+                                                                                                            ## the
+                                                                                                            ## type
+                                                                                                            ## of
+                                                                                                            ## fillet
+                                                                                                            ##
+                                                                                                            ## !
+                                                                                                            ## surface.
+                                                                                                            ## The
+                                                                                                            ## --
+                                                                                                            ## default
+                                                                                                            ## value
+                                                                                                            ## is
+                                                                                                            ## Convert_TgtThetaOver2
+                                                                                                            ## (classical
+                                                                                                            ## --
+                                                                                                            ##
+                                                                                                            ## !
+                                                                                                            ## nurbs
+                                                                                                            ## --
+                                                                                                            ## representation
+                                                                                                            ## of
+                                                                                                            ## circles).
+                                                                                                            ##
+                                                                                                            ## !
+                                                                                                            ## ChFi3d_QuasiAngular
+                                                                                                            ## --
+                                                                                                            ## corresponds
+                                                                                                            ## to
+                                                                                                            ## a
+                                                                                                            ## nurbs
+                                                                                                            ##
+                                                                                                            ## !
+                                                                                                            ## representation
+                                                                                                            ## of
+                                                                                                            ## circles
+                                                                                                            ## --
+                                                                                                            ## which
+                                                                                                            ##
+                                                                                                            ## !
+                                                                                                            ## parameterisation
+                                                                                                            ## matches
+                                                                                                            ## the
+                                                                                                            ## circle
+                                                                                                            ## one.
+                                                                                                            ## --
+                                                                                                            ##
+                                                                                                            ## !
+                                                                                                            ## ChFi3d_Polynomial
+                                                                                                            ## corresponds
+                                                                                                            ## to
+                                                                                                            ## a
+                                                                                                            ## polynomial
+                                                                                                            ## --
+                                                                                                            ##
+                                                                                                            ## !
+                                                                                                            ## representation
+                                                                                                            ## of
+                                                                                                            ## circles.
 
 
-proc constructGeomFillCircularBlendFunc*(path: Handle[Adaptor3dHCurve];
-                                        curve1: Handle[Adaptor3dHCurve];
-                                        curve2: Handle[Adaptor3dHCurve];
-                                        radius: StandardReal; polynomial: StandardBoolean = standardFalse): GeomFillCircularBlendFunc {.
+proc constructGeomFill_CircularBlendFunc*(Path: handle[Adaptor3d_HCurve];
+    Curve1: handle[Adaptor3d_HCurve]; Curve2: handle[Adaptor3d_HCurve];
+    Radius: Standard_Real; Polynomial: Standard_Boolean = Standard_False): GeomFill_CircularBlendFunc {.
     constructor, importcpp: "GeomFill_CircularBlendFunc(@)",
     header: "GeomFill_CircularBlendFunc.hxx".}
-proc d0*(this: var GeomFillCircularBlendFunc; param: StandardReal;
-        first: StandardReal; last: StandardReal; poles: var TColgpArray1OfPnt;
-        poles2d: var TColgpArray1OfPnt2d; weigths: var TColStdArray1OfReal): StandardBoolean {.
+proc D0*(this: var GeomFill_CircularBlendFunc; Param: Standard_Real;
+        First: Standard_Real; Last: Standard_Real; Poles: var TColgp_Array1OfPnt;
+        Poles2d: var TColgp_Array1OfPnt2d; Weigths: var TColStd_Array1OfReal): Standard_Boolean {.
     importcpp: "D0", header: "GeomFill_CircularBlendFunc.hxx".}
-proc d1*(this: var GeomFillCircularBlendFunc; param: StandardReal;
-        first: StandardReal; last: StandardReal; poles: var TColgpArray1OfPnt;
-        dPoles: var TColgpArray1OfVec; poles2d: var TColgpArray1OfPnt2d;
-        dPoles2d: var TColgpArray1OfVec2d; weigths: var TColStdArray1OfReal;
-        dWeigths: var TColStdArray1OfReal): StandardBoolean {.importcpp: "D1",
+proc D1*(this: var GeomFill_CircularBlendFunc; Param: Standard_Real;
+        First: Standard_Real; Last: Standard_Real; Poles: var TColgp_Array1OfPnt;
+        DPoles: var TColgp_Array1OfVec; Poles2d: var TColgp_Array1OfPnt2d;
+        DPoles2d: var TColgp_Array1OfVec2d; Weigths: var TColStd_Array1OfReal;
+        DWeigths: var TColStd_Array1OfReal): Standard_Boolean {.importcpp: "D1",
     header: "GeomFill_CircularBlendFunc.hxx".}
-proc d2*(this: var GeomFillCircularBlendFunc; param: StandardReal;
-        first: StandardReal; last: StandardReal; poles: var TColgpArray1OfPnt;
-        dPoles: var TColgpArray1OfVec; d2Poles: var TColgpArray1OfVec;
-        poles2d: var TColgpArray1OfPnt2d; dPoles2d: var TColgpArray1OfVec2d;
-        d2Poles2d: var TColgpArray1OfVec2d; weigths: var TColStdArray1OfReal;
-        dWeigths: var TColStdArray1OfReal; d2Weigths: var TColStdArray1OfReal): StandardBoolean {.
+proc D2*(this: var GeomFill_CircularBlendFunc; Param: Standard_Real;
+        First: Standard_Real; Last: Standard_Real; Poles: var TColgp_Array1OfPnt;
+        DPoles: var TColgp_Array1OfVec; D2Poles: var TColgp_Array1OfVec;
+        Poles2d: var TColgp_Array1OfPnt2d; DPoles2d: var TColgp_Array1OfVec2d;
+        D2Poles2d: var TColgp_Array1OfVec2d; Weigths: var TColStd_Array1OfReal;
+        DWeigths: var TColStd_Array1OfReal; D2Weigths: var TColStd_Array1OfReal): Standard_Boolean {.
     importcpp: "D2", header: "GeomFill_CircularBlendFunc.hxx".}
-proc nb2dCurves*(this: GeomFillCircularBlendFunc): StandardInteger {.noSideEffect,
+proc Nb2dCurves*(this: GeomFill_CircularBlendFunc): Standard_Integer {.noSideEffect,
     importcpp: "Nb2dCurves", header: "GeomFill_CircularBlendFunc.hxx".}
-proc sectionShape*(this: GeomFillCircularBlendFunc; nbPoles: var StandardInteger;
-                  nbKnots: var StandardInteger; degree: var StandardInteger) {.
+proc SectionShape*(this: GeomFill_CircularBlendFunc; NbPoles: var Standard_Integer;
+                  NbKnots: var Standard_Integer; Degree: var Standard_Integer) {.
     noSideEffect, importcpp: "SectionShape",
     header: "GeomFill_CircularBlendFunc.hxx".}
-proc knots*(this: GeomFillCircularBlendFunc; tKnots: var TColStdArray1OfReal) {.
+proc Knots*(this: GeomFill_CircularBlendFunc; TKnots: var TColStd_Array1OfReal) {.
     noSideEffect, importcpp: "Knots", header: "GeomFill_CircularBlendFunc.hxx".}
-proc mults*(this: GeomFillCircularBlendFunc; tMults: var TColStdArray1OfInteger) {.
+proc Mults*(this: GeomFill_CircularBlendFunc; TMults: var TColStd_Array1OfInteger) {.
     noSideEffect, importcpp: "Mults", header: "GeomFill_CircularBlendFunc.hxx".}
-proc isRational*(this: GeomFillCircularBlendFunc): StandardBoolean {.noSideEffect,
+proc IsRational*(this: GeomFill_CircularBlendFunc): Standard_Boolean {.noSideEffect,
     importcpp: "IsRational", header: "GeomFill_CircularBlendFunc.hxx".}
-proc nbIntervals*(this: GeomFillCircularBlendFunc; s: GeomAbsShape): StandardInteger {.
+proc NbIntervals*(this: GeomFill_CircularBlendFunc; S: GeomAbs_Shape): Standard_Integer {.
     noSideEffect, importcpp: "NbIntervals",
     header: "GeomFill_CircularBlendFunc.hxx".}
-proc intervals*(this: GeomFillCircularBlendFunc; t: var TColStdArray1OfReal;
-               s: GeomAbsShape) {.noSideEffect, importcpp: "Intervals",
-                                header: "GeomFill_CircularBlendFunc.hxx".}
-proc setInterval*(this: var GeomFillCircularBlendFunc; first: StandardReal;
-                 last: StandardReal) {.importcpp: "SetInterval",
-                                     header: "GeomFill_CircularBlendFunc.hxx".}
-proc getTolerance*(this: GeomFillCircularBlendFunc; boundTol: StandardReal;
-                  surfTol: StandardReal; angleTol: StandardReal;
-                  tol3d: var TColStdArray1OfReal) {.noSideEffect,
+proc Intervals*(this: GeomFill_CircularBlendFunc; T: var TColStd_Array1OfReal;
+               S: GeomAbs_Shape) {.noSideEffect, importcpp: "Intervals",
+                                 header: "GeomFill_CircularBlendFunc.hxx".}
+proc SetInterval*(this: var GeomFill_CircularBlendFunc; First: Standard_Real;
+                 Last: Standard_Real) {.importcpp: "SetInterval",
+                                      header: "GeomFill_CircularBlendFunc.hxx".}
+proc GetTolerance*(this: GeomFill_CircularBlendFunc; BoundTol: Standard_Real;
+                  SurfTol: Standard_Real; AngleTol: Standard_Real;
+                  Tol3d: var TColStd_Array1OfReal) {.noSideEffect,
     importcpp: "GetTolerance", header: "GeomFill_CircularBlendFunc.hxx".}
-proc setTolerance*(this: var GeomFillCircularBlendFunc; tol3d: StandardReal;
-                  tol2d: StandardReal) {.importcpp: "SetTolerance",
-                                       header: "GeomFill_CircularBlendFunc.hxx".}
-proc barycentreOfSurf*(this: GeomFillCircularBlendFunc): GpPnt {.noSideEffect,
+proc SetTolerance*(this: var GeomFill_CircularBlendFunc; Tol3d: Standard_Real;
+                  Tol2d: Standard_Real) {.importcpp: "SetTolerance", header: "GeomFill_CircularBlendFunc.hxx".}
+proc BarycentreOfSurf*(this: GeomFill_CircularBlendFunc): gp_Pnt {.noSideEffect,
     importcpp: "BarycentreOfSurf", header: "GeomFill_CircularBlendFunc.hxx".}
-proc maximalSection*(this: GeomFillCircularBlendFunc): StandardReal {.noSideEffect,
-    importcpp: "MaximalSection", header: "GeomFill_CircularBlendFunc.hxx".}
-proc getMinimalWeight*(this: GeomFillCircularBlendFunc;
-                      weigths: var TColStdArray1OfReal) {.noSideEffect,
+proc MaximalSection*(this: GeomFill_CircularBlendFunc): Standard_Real {.
+    noSideEffect, importcpp: "MaximalSection",
+    header: "GeomFill_CircularBlendFunc.hxx".}
+proc GetMinimalWeight*(this: GeomFill_CircularBlendFunc;
+                      Weigths: var TColStd_Array1OfReal) {.noSideEffect,
     importcpp: "GetMinimalWeight", header: "GeomFill_CircularBlendFunc.hxx".}
 type
-  GeomFillCircularBlendFuncbaseType* = ApproxSweepFunction
+  GeomFill_CircularBlendFuncbase_type* = Approx_SweepFunction
 
-proc getTypeName*(): cstring {.importcpp: "GeomFill_CircularBlendFunc::get_type_name(@)",
-                            header: "GeomFill_CircularBlendFunc.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "GeomFill_CircularBlendFunc::get_type_name(@)",
+                              header: "GeomFill_CircularBlendFunc.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "GeomFill_CircularBlendFunc::get_type_descriptor(@)",
     header: "GeomFill_CircularBlendFunc.hxx".}
-proc dynamicType*(this: GeomFillCircularBlendFunc): Handle[StandardType] {.
+proc DynamicType*(this: GeomFill_CircularBlendFunc): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType",
     header: "GeomFill_CircularBlendFunc.hxx".}
-

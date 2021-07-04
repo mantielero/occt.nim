@@ -14,42 +14,47 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Real,
+  ../Standard/Standard_Integer, ../Standard/Standard_Boolean,
+  ../Blend/Blend_FuncInv, ../math/math_Vector
+
 discard "forward decl of Adaptor3d_HSurface"
 discard "forward decl of Adaptor3d_HCurve"
 discard "forward decl of Adaptor2d_HCurve2d"
 discard "forward decl of Law_Function"
 discard "forward decl of math_Matrix"
 type
-  BlendFuncEvolRadInv* {.importcpp: "BlendFunc_EvolRadInv",
-                        header: "BlendFunc_EvolRadInv.hxx", bycopy.} = object of BlendFuncInv
+  BlendFunc_EvolRadInv* {.importcpp: "BlendFunc_EvolRadInv",
+                         header: "BlendFunc_EvolRadInv.hxx", bycopy.} = object of Blend_FuncInv
 
 
-proc constructBlendFuncEvolRadInv*(s1: Handle[Adaptor3dHSurface];
-                                  s2: Handle[Adaptor3dHSurface];
-                                  c: Handle[Adaptor3dHCurve];
-                                  law: Handle[LawFunction]): BlendFuncEvolRadInv {.
+proc constructBlendFunc_EvolRadInv*(S1: handle[Adaptor3d_HSurface];
+                                   S2: handle[Adaptor3d_HSurface];
+                                   C: handle[Adaptor3d_HCurve];
+                                   Law: handle[Law_Function]): BlendFunc_EvolRadInv {.
     constructor, importcpp: "BlendFunc_EvolRadInv(@)",
     header: "BlendFunc_EvolRadInv.hxx".}
-proc set*(this: var BlendFuncEvolRadInv; onFirst: StandardBoolean;
-         cOnSurf: Handle[Adaptor2dHCurve2d]) {.importcpp: "Set",
+proc Set*(this: var BlendFunc_EvolRadInv; OnFirst: Standard_Boolean;
+         COnSurf: handle[Adaptor2d_HCurve2d]) {.importcpp: "Set",
     header: "BlendFunc_EvolRadInv.hxx".}
-proc getTolerance*(this: BlendFuncEvolRadInv; tolerance: var MathVector;
-                  tol: StandardReal) {.noSideEffect, importcpp: "GetTolerance",
-                                     header: "BlendFunc_EvolRadInv.hxx".}
-proc getBounds*(this: BlendFuncEvolRadInv; infBound: var MathVector;
-               supBound: var MathVector) {.noSideEffect, importcpp: "GetBounds",
-                                        header: "BlendFunc_EvolRadInv.hxx".}
-proc isSolution*(this: var BlendFuncEvolRadInv; sol: MathVector; tol: StandardReal): StandardBoolean {.
+proc GetTolerance*(this: BlendFunc_EvolRadInv; Tolerance: var math_Vector;
+                  Tol: Standard_Real) {.noSideEffect, importcpp: "GetTolerance",
+                                      header: "BlendFunc_EvolRadInv.hxx".}
+proc GetBounds*(this: BlendFunc_EvolRadInv; InfBound: var math_Vector;
+               SupBound: var math_Vector) {.noSideEffect, importcpp: "GetBounds",
+    header: "BlendFunc_EvolRadInv.hxx".}
+proc IsSolution*(this: var BlendFunc_EvolRadInv; Sol: math_Vector; Tol: Standard_Real): Standard_Boolean {.
     importcpp: "IsSolution", header: "BlendFunc_EvolRadInv.hxx".}
-proc nbEquations*(this: BlendFuncEvolRadInv): StandardInteger {.noSideEffect,
+proc NbEquations*(this: BlendFunc_EvolRadInv): Standard_Integer {.noSideEffect,
     importcpp: "NbEquations", header: "BlendFunc_EvolRadInv.hxx".}
-proc value*(this: var BlendFuncEvolRadInv; x: MathVector; f: var MathVector): StandardBoolean {.
+proc Value*(this: var BlendFunc_EvolRadInv; X: math_Vector; F: var math_Vector): Standard_Boolean {.
     importcpp: "Value", header: "BlendFunc_EvolRadInv.hxx".}
-proc derivatives*(this: var BlendFuncEvolRadInv; x: MathVector; d: var MathMatrix): StandardBoolean {.
+proc Derivatives*(this: var BlendFunc_EvolRadInv; X: math_Vector; D: var math_Matrix): Standard_Boolean {.
     importcpp: "Derivatives", header: "BlendFunc_EvolRadInv.hxx".}
-proc values*(this: var BlendFuncEvolRadInv; x: MathVector; f: var MathVector;
-            d: var MathMatrix): StandardBoolean {.importcpp: "Values",
+proc Values*(this: var BlendFunc_EvolRadInv; X: math_Vector; F: var math_Vector;
+            D: var math_Matrix): Standard_Boolean {.importcpp: "Values",
     header: "BlendFunc_EvolRadInv.hxx".}
-proc set*(this: var BlendFuncEvolRadInv; choix: StandardInteger) {.importcpp: "Set",
+proc Set*(this: var BlendFunc_EvolRadInv; Choix: Standard_Integer) {.importcpp: "Set",
     header: "BlendFunc_EvolRadInv.hxx".}
-

@@ -14,6 +14,13 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Interface/Interface_Graph,
+  ../TCollection/TCollection_AsciiString, ../Interface/Interface_CheckIterator,
+  ../Standard/Standard_Boolean, ../Standard/Standard_Integer,
+  ../Standard/Standard_CString
+
 discard "forward decl of Interface_Protocol"
 discard "forward decl of Interface_CopyControl"
 discard "forward decl of Standard_NoSuchObject"
@@ -26,113 +33,118 @@ discard "forward decl of IFSelect_GeneralModifier"
 discard "forward decl of Interface_Check"
 discard "forward decl of Interface_CheckIterator"
 type
-  IFSelectContextModif* {.importcpp: "IFSelect_ContextModif",
-                         header: "IFSelect_ContextModif.hxx", bycopy.} = object ## !
-                                                                           ## Prepares a
-                                                                           ## ContextModif with these
-                                                                           ## informations :
-                                                                           ## ! - the graph
-                                                                           ## established from
-                                                                           ## original model
-                                                                           ## (target
-                                                                           ## passed
-                                                                           ## !
-                                                                           ## directly to
-                                                                           ## Modifier)
-                                                                           ## ! - the
-                                                                           ## CopyTool which
-                                                                           ## detains the
-                                                                           ## CopyControl, which maps
-                                                                           ## !
-                                                                           ## starting (in
-                                                                           ## original) and
-                                                                           ## result (in
-                                                                           ## target)
-                                                                           ## entities
-                                                                           ## ! - an
-                                                                           ## optional file name (for file
-                                                                           ## output)
-                                                                           ## !
-                                                                           ## ! Such a
-                                                                           ## ContextModif is
-                                                                           ## considered to be
-                                                                           ## applied on all
-                                                                           ## !
-                                                                           ## transferred
-                                                                           ## entities (no
-                                                                           ## filter
-                                                                           ## active)
+  IFSelect_ContextModif* {.importcpp: "IFSelect_ContextModif",
+                          header: "IFSelect_ContextModif.hxx", bycopy.} = object ## !
+                                                                            ## Prepares a
+                                                                            ## ContextModif with
+                                                                            ## these
+                                                                            ## informations :
+                                                                            ## ! - the
+                                                                            ## graph
+                                                                            ## established from
+                                                                            ## original
+                                                                            ## model
+                                                                            ## (target
+                                                                            ## passed
+                                                                            ## !
+                                                                            ## directly to
+                                                                            ## Modifier)
+                                                                            ## ! - the
+                                                                            ## CopyTool
+                                                                            ## which
+                                                                            ## detains the
+                                                                            ## CopyControl,
+                                                                            ## which maps
+                                                                            ## !
+                                                                            ## starting (in
+                                                                            ## original) and
+                                                                            ## result (in
+                                                                            ## target)
+                                                                            ## entities
+                                                                            ## ! - an
+                                                                            ## optional file name (for file
+                                                                            ## output)
+                                                                            ## !
+                                                                            ## ! Such a
+                                                                            ## ContextModif is
+                                                                            ## considered to be
+                                                                            ## applied on all
+                                                                            ## !
+                                                                            ## transferred
+                                                                            ## entities (no
+                                                                            ## filter
+                                                                            ## active)
 
 
-proc constructIFSelectContextModif*(graph: InterfaceGraph; tc: InterfaceCopyTool;
-                                   filename: StandardCString = ""): IFSelectContextModif {.
+proc constructIFSelect_ContextModif*(graph: Interface_Graph;
+                                    TC: Interface_CopyTool;
+                                    filename: Standard_CString = ""): IFSelect_ContextModif {.
     constructor, importcpp: "IFSelect_ContextModif(@)",
     header: "IFSelect_ContextModif.hxx".}
-proc constructIFSelectContextModif*(graph: InterfaceGraph;
-                                   filename: StandardCString = ""): IFSelectContextModif {.
+proc constructIFSelect_ContextModif*(graph: Interface_Graph;
+                                    filename: Standard_CString = ""): IFSelect_ContextModif {.
     constructor, importcpp: "IFSelect_ContextModif(@)",
     header: "IFSelect_ContextModif.hxx".}
-proc select*(this: var IFSelectContextModif; list: var InterfaceEntityIterator) {.
+proc Select*(this: var IFSelect_ContextModif; list: var Interface_EntityIterator) {.
     importcpp: "Select", header: "IFSelect_ContextModif.hxx".}
-proc originalGraph*(this: IFSelectContextModif): InterfaceGraph {.noSideEffect,
+proc OriginalGraph*(this: IFSelect_ContextModif): Interface_Graph {.noSideEffect,
     importcpp: "OriginalGraph", header: "IFSelect_ContextModif.hxx".}
-proc originalModel*(this: IFSelectContextModif): Handle[InterfaceInterfaceModel] {.
+proc OriginalModel*(this: IFSelect_ContextModif): handle[Interface_InterfaceModel] {.
     noSideEffect, importcpp: "OriginalModel", header: "IFSelect_ContextModif.hxx".}
-proc setProtocol*(this: var IFSelectContextModif; proto: Handle[InterfaceProtocol]) {.
+proc SetProtocol*(this: var IFSelect_ContextModif; proto: handle[Interface_Protocol]) {.
     importcpp: "SetProtocol", header: "IFSelect_ContextModif.hxx".}
-proc protocol*(this: IFSelectContextModif): Handle[InterfaceProtocol] {.
+proc Protocol*(this: IFSelect_ContextModif): handle[Interface_Protocol] {.
     noSideEffect, importcpp: "Protocol", header: "IFSelect_ContextModif.hxx".}
-proc hasFileName*(this: IFSelectContextModif): StandardBoolean {.noSideEffect,
+proc HasFileName*(this: IFSelect_ContextModif): Standard_Boolean {.noSideEffect,
     importcpp: "HasFileName", header: "IFSelect_ContextModif.hxx".}
-proc fileName*(this: IFSelectContextModif): StandardCString {.noSideEffect,
+proc FileName*(this: IFSelect_ContextModif): Standard_CString {.noSideEffect,
     importcpp: "FileName", header: "IFSelect_ContextModif.hxx".}
-proc control*(this: IFSelectContextModif): Handle[InterfaceCopyControl] {.
+proc Control*(this: IFSelect_ContextModif): handle[Interface_CopyControl] {.
     noSideEffect, importcpp: "Control", header: "IFSelect_ContextModif.hxx".}
-proc isForNone*(this: IFSelectContextModif): StandardBoolean {.noSideEffect,
+proc IsForNone*(this: IFSelect_ContextModif): Standard_Boolean {.noSideEffect,
     importcpp: "IsForNone", header: "IFSelect_ContextModif.hxx".}
-proc isForAll*(this: IFSelectContextModif): StandardBoolean {.noSideEffect,
+proc IsForAll*(this: IFSelect_ContextModif): Standard_Boolean {.noSideEffect,
     importcpp: "IsForAll", header: "IFSelect_ContextModif.hxx".}
-proc isTransferred*(this: IFSelectContextModif; ent: Handle[StandardTransient]): StandardBoolean {.
+proc IsTransferred*(this: IFSelect_ContextModif; ent: handle[Standard_Transient]): Standard_Boolean {.
     noSideEffect, importcpp: "IsTransferred", header: "IFSelect_ContextModif.hxx".}
-proc isSelected*(this: IFSelectContextModif; ent: Handle[StandardTransient]): StandardBoolean {.
+proc IsSelected*(this: IFSelect_ContextModif; ent: handle[Standard_Transient]): Standard_Boolean {.
     noSideEffect, importcpp: "IsSelected", header: "IFSelect_ContextModif.hxx".}
-proc search*(this: IFSelectContextModif; ent: Handle[StandardTransient];
-            res: var Handle[StandardTransient]): StandardBoolean {.noSideEffect,
+proc Search*(this: IFSelect_ContextModif; ent: handle[Standard_Transient];
+            res: var handle[Standard_Transient]): Standard_Boolean {.noSideEffect,
     importcpp: "Search", header: "IFSelect_ContextModif.hxx".}
-proc selectedOriginal*(this: IFSelectContextModif): InterfaceEntityIterator {.
+proc SelectedOriginal*(this: IFSelect_ContextModif): Interface_EntityIterator {.
     noSideEffect, importcpp: "SelectedOriginal",
     header: "IFSelect_ContextModif.hxx".}
-proc selectedResult*(this: IFSelectContextModif): InterfaceEntityIterator {.
+proc SelectedResult*(this: IFSelect_ContextModif): Interface_EntityIterator {.
     noSideEffect, importcpp: "SelectedResult", header: "IFSelect_ContextModif.hxx".}
-proc selectedCount*(this: IFSelectContextModif): StandardInteger {.noSideEffect,
+proc SelectedCount*(this: IFSelect_ContextModif): Standard_Integer {.noSideEffect,
     importcpp: "SelectedCount", header: "IFSelect_ContextModif.hxx".}
-proc start*(this: var IFSelectContextModif) {.importcpp: "Start",
+proc Start*(this: var IFSelect_ContextModif) {.importcpp: "Start",
     header: "IFSelect_ContextModif.hxx".}
-proc more*(this: IFSelectContextModif): StandardBoolean {.noSideEffect,
+proc More*(this: IFSelect_ContextModif): Standard_Boolean {.noSideEffect,
     importcpp: "More", header: "IFSelect_ContextModif.hxx".}
-proc next*(this: var IFSelectContextModif) {.importcpp: "Next",
+proc Next*(this: var IFSelect_ContextModif) {.importcpp: "Next",
     header: "IFSelect_ContextModif.hxx".}
-proc valueOriginal*(this: IFSelectContextModif): Handle[StandardTransient] {.
+proc ValueOriginal*(this: IFSelect_ContextModif): handle[Standard_Transient] {.
     noSideEffect, importcpp: "ValueOriginal", header: "IFSelect_ContextModif.hxx".}
-proc valueResult*(this: IFSelectContextModif): Handle[StandardTransient] {.
+proc ValueResult*(this: IFSelect_ContextModif): handle[Standard_Transient] {.
     noSideEffect, importcpp: "ValueResult", header: "IFSelect_ContextModif.hxx".}
-proc traceModifier*(this: var IFSelectContextModif;
-                   modif: Handle[IFSelectGeneralModifier]) {.
+proc TraceModifier*(this: var IFSelect_ContextModif;
+                   modif: handle[IFSelect_GeneralModifier]) {.
     importcpp: "TraceModifier", header: "IFSelect_ContextModif.hxx".}
-proc trace*(this: var IFSelectContextModif; mess: StandardCString = "") {.
+proc Trace*(this: var IFSelect_ContextModif; mess: Standard_CString = "") {.
     importcpp: "Trace", header: "IFSelect_ContextModif.hxx".}
-proc addCheck*(this: var IFSelectContextModif; check: Handle[InterfaceCheck]) {.
+proc AddCheck*(this: var IFSelect_ContextModif; check: handle[Interface_Check]) {.
     importcpp: "AddCheck", header: "IFSelect_ContextModif.hxx".}
-proc addWarning*(this: var IFSelectContextModif; start: Handle[StandardTransient];
-                mess: StandardCString; orig: StandardCString = "") {.
+proc AddWarning*(this: var IFSelect_ContextModif; start: handle[Standard_Transient];
+                mess: Standard_CString; orig: Standard_CString = "") {.
     importcpp: "AddWarning", header: "IFSelect_ContextModif.hxx".}
-proc addFail*(this: var IFSelectContextModif; start: Handle[StandardTransient];
-             mess: StandardCString; orig: StandardCString = "") {.
+proc AddFail*(this: var IFSelect_ContextModif; start: handle[Standard_Transient];
+             mess: Standard_CString; orig: Standard_CString = "") {.
     importcpp: "AddFail", header: "IFSelect_ContextModif.hxx".}
-proc cCheck*(this: var IFSelectContextModif; num: StandardInteger = 0): Handle[
-    InterfaceCheck] {.importcpp: "CCheck", header: "IFSelect_ContextModif.hxx".}
-proc cCheck*(this: var IFSelectContextModif; start: Handle[StandardTransient]): Handle[
-    InterfaceCheck] {.importcpp: "CCheck", header: "IFSelect_ContextModif.hxx".}
-proc checkList*(this: IFSelectContextModif): InterfaceCheckIterator {.noSideEffect,
-    importcpp: "CheckList", header: "IFSelect_ContextModif.hxx".}
-
+proc CCheck*(this: var IFSelect_ContextModif; num: Standard_Integer = 0): handle[
+    Interface_Check] {.importcpp: "CCheck", header: "IFSelect_ContextModif.hxx".}
+proc CCheck*(this: var IFSelect_ContextModif; start: handle[Standard_Transient]): handle[
+    Interface_Check] {.importcpp: "CCheck", header: "IFSelect_ContextModif.hxx".}
+proc CheckList*(this: IFSelect_ContextModif): Interface_CheckIterator {.
+    noSideEffect, importcpp: "CheckList", header: "IFSelect_ContextModif.hxx".}

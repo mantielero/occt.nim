@@ -14,6 +14,14 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Address, ../gp/gp_Pnt2d,
+  Extrema_ExtPElC2d, Extrema_SequenceOfPOnCurv2d, ../Standard/Standard_Boolean,
+  ../Standard/Standard_Real, Extrema_EPCOfExtPC2d, ../Standard/Standard_Integer,
+  ../GeomAbs/GeomAbs_CurveType, ../TColStd/TColStd_SequenceOfBoolean,
+  ../TColStd/TColStd_SequenceOfReal
+
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of Standard_TypeMismatch"
@@ -26,35 +34,35 @@ discard "forward decl of Extrema_POnCurv2d"
 discard "forward decl of Extrema_EPCOfExtPC2d"
 discard "forward decl of Extrema_PCFOfEPCOfExtPC2d"
 type
-  ExtremaExtPC2d* {.importcpp: "Extrema_ExtPC2d", header: "Extrema_ExtPC2d.hxx",
-                   bycopy.} = object
+  Extrema_ExtPC2d* {.importcpp: "Extrema_ExtPC2d", header: "Extrema_ExtPC2d.hxx",
+                    bycopy.} = object
 
 
-proc constructExtremaExtPC2d*(): ExtremaExtPC2d {.constructor,
+proc constructExtrema_ExtPC2d*(): Extrema_ExtPC2d {.constructor,
     importcpp: "Extrema_ExtPC2d(@)", header: "Extrema_ExtPC2d.hxx".}
-proc constructExtremaExtPC2d*(p: GpPnt2d; c: Adaptor2dCurve2d; uinf: StandardReal;
-                             usup: StandardReal; tolF: StandardReal = 1.0e-10): ExtremaExtPC2d {.
+proc constructExtrema_ExtPC2d*(P: gp_Pnt2d; C: Adaptor2d_Curve2d;
+                              Uinf: Standard_Real; Usup: Standard_Real;
+                              TolF: Standard_Real = 1.0e-10): Extrema_ExtPC2d {.
     constructor, importcpp: "Extrema_ExtPC2d(@)", header: "Extrema_ExtPC2d.hxx".}
-proc constructExtremaExtPC2d*(p: GpPnt2d; c: Adaptor2dCurve2d;
-                             tolF: StandardReal = 1.0e-10): ExtremaExtPC2d {.
+proc constructExtrema_ExtPC2d*(P: gp_Pnt2d; C: Adaptor2d_Curve2d;
+                              TolF: Standard_Real = 1.0e-10): Extrema_ExtPC2d {.
     constructor, importcpp: "Extrema_ExtPC2d(@)", header: "Extrema_ExtPC2d.hxx".}
-proc initialize*(this: var ExtremaExtPC2d; c: Adaptor2dCurve2d; uinf: StandardReal;
-                usup: StandardReal; tolF: StandardReal = 1.0e-10) {.
+proc Initialize*(this: var Extrema_ExtPC2d; C: Adaptor2d_Curve2d; Uinf: Standard_Real;
+                Usup: Standard_Real; TolF: Standard_Real = 1.0e-10) {.
     importcpp: "Initialize", header: "Extrema_ExtPC2d.hxx".}
-proc perform*(this: var ExtremaExtPC2d; p: GpPnt2d) {.importcpp: "Perform",
+proc Perform*(this: var Extrema_ExtPC2d; P: gp_Pnt2d) {.importcpp: "Perform",
     header: "Extrema_ExtPC2d.hxx".}
-proc isDone*(this: ExtremaExtPC2d): StandardBoolean {.noSideEffect,
+proc IsDone*(this: Extrema_ExtPC2d): Standard_Boolean {.noSideEffect,
     importcpp: "IsDone", header: "Extrema_ExtPC2d.hxx".}
-proc squareDistance*(this: ExtremaExtPC2d; n: StandardInteger): StandardReal {.
+proc SquareDistance*(this: Extrema_ExtPC2d; N: Standard_Integer): Standard_Real {.
     noSideEffect, importcpp: "SquareDistance", header: "Extrema_ExtPC2d.hxx".}
-proc nbExt*(this: ExtremaExtPC2d): StandardInteger {.noSideEffect,
+proc NbExt*(this: Extrema_ExtPC2d): Standard_Integer {.noSideEffect,
     importcpp: "NbExt", header: "Extrema_ExtPC2d.hxx".}
-proc isMin*(this: ExtremaExtPC2d; n: StandardInteger): StandardBoolean {.noSideEffect,
-    importcpp: "IsMin", header: "Extrema_ExtPC2d.hxx".}
-proc point*(this: ExtremaExtPC2d; n: StandardInteger): ExtremaPOnCurv2d {.
+proc IsMin*(this: Extrema_ExtPC2d; N: Standard_Integer): Standard_Boolean {.
+    noSideEffect, importcpp: "IsMin", header: "Extrema_ExtPC2d.hxx".}
+proc Point*(this: Extrema_ExtPC2d; N: Standard_Integer): Extrema_POnCurv2d {.
     noSideEffect, importcpp: "Point", header: "Extrema_ExtPC2d.hxx".}
-proc trimmedSquareDistances*(this: ExtremaExtPC2d; dist1: var StandardReal;
-                            dist2: var StandardReal; p1: var GpPnt2d; p2: var GpPnt2d) {.
-    noSideEffect, importcpp: "TrimmedSquareDistances",
-    header: "Extrema_ExtPC2d.hxx".}
-
+proc TrimmedSquareDistances*(this: Extrema_ExtPC2d; dist1: var Standard_Real;
+                            dist2: var Standard_Real; P1: var gp_Pnt2d;
+                            P2: var gp_Pnt2d) {.noSideEffect,
+    importcpp: "TrimmedSquareDistances", header: "Extrema_ExtPC2d.hxx".}

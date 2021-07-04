@@ -13,42 +13,45 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  IMeshData_TessellatedShape, IMeshData_StatusOwner, ../Standard/Standard_Type,
+  ../TopoDS/TopoDS_Wire, ../TopoDS/TopoDS, IMeshData_Types
+
 discard "forward decl of IMeshData_Edge"
 type
-  IMeshDataWire* {.importcpp: "IMeshData_Wire", header: "IMeshData_Wire.hxx", bycopy.} = object of IMeshDataTessellatedShape ##
-                                                                                                                   ## !
-                                                                                                                   ## Destructor.
-                                                                                                                   ##
-                                                                                                                   ## !
-                                                                                                                   ## Constructor.
-                                                                                                                   ##
-                                                                                                                   ## !
-                                                                                                                   ## Initializes
-                                                                                                                   ## empty
-                                                                                                                   ## model.
+  IMeshData_Wire* {.importcpp: "IMeshData_Wire", header: "IMeshData_Wire.hxx", bycopy.} = object of IMeshData_TessellatedShape ##
+                                                                                                                     ## !
+                                                                                                                     ## Destructor.
+                                                                                                                     ##
+                                                                                                                     ## !
+                                                                                                                     ## Constructor.
+                                                                                                                     ##
+                                                                                                                     ## !
+                                                                                                                     ## Initializes
+                                                                                                                     ## empty
+                                                                                                                     ## model.
 
 
-proc destroyIMeshDataWire*(this: var IMeshDataWire) {.
+proc destroyIMeshData_Wire*(this: var IMeshData_Wire) {.
     importcpp: "#.~IMeshData_Wire()", header: "IMeshData_Wire.hxx".}
-proc getWire*(this: IMeshDataWire): TopoDS_Wire {.noSideEffect, importcpp: "GetWire",
-    header: "IMeshData_Wire.hxx".}
-proc edgesNb*(this: IMeshDataWire): StandardInteger {.noSideEffect,
+proc GetWire*(this: IMeshData_Wire): TopoDS_Wire {.noSideEffect,
+    importcpp: "GetWire", header: "IMeshData_Wire.hxx".}
+proc EdgesNb*(this: IMeshData_Wire): Standard_Integer {.noSideEffect,
     importcpp: "EdgesNb", header: "IMeshData_Wire.hxx".}
-proc addEdge*(this: var IMeshDataWire; theDEdge: IEdgePtr;
-             theOrientation: TopAbsOrientation): StandardInteger {.
+proc AddEdge*(this: var IMeshData_Wire; theDEdge: IEdgePtr;
+             theOrientation: TopAbs_Orientation): Standard_Integer {.
     importcpp: "AddEdge", header: "IMeshData_Wire.hxx".}
-proc getEdge*(this: IMeshDataWire; theIndex: StandardInteger): IEdgePtr {.
+proc GetEdge*(this: IMeshData_Wire; theIndex: Standard_Integer): IEdgePtr {.
     noSideEffect, importcpp: "GetEdge", header: "IMeshData_Wire.hxx".}
-proc getEdgeOrientation*(this: IMeshDataWire; theIndex: StandardInteger): TopAbsOrientation {.
+proc GetEdgeOrientation*(this: IMeshData_Wire; theIndex: Standard_Integer): TopAbs_Orientation {.
     noSideEffect, importcpp: "GetEdgeOrientation", header: "IMeshData_Wire.hxx".}
 type
-  IMeshDataWirebaseType* = IMeshDataTessellatedShape
+  IMeshData_Wirebase_type* = IMeshData_TessellatedShape
 
-proc getTypeName*(): cstring {.importcpp: "IMeshData_Wire::get_type_name(@)",
-                            header: "IMeshData_Wire.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "IMeshData_Wire::get_type_name(@)",
+                              header: "IMeshData_Wire.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "IMeshData_Wire::get_type_descriptor(@)",
     header: "IMeshData_Wire.hxx".}
-proc dynamicType*(this: IMeshDataWire): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: IMeshData_Wire): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "IMeshData_Wire.hxx".}
-

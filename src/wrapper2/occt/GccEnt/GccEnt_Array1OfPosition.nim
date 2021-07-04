@@ -14,7 +14,8 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  GccEnt_Position, ../NCollection/NCollection_Array1
+
 type
-  GccEntArray1OfPosition* = NCollectionArray1[GccEntPosition]
-
-
+  GccEnt_Array1OfPosition* = NCollection_Array1[GccEnt_Position]

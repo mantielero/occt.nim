@@ -14,6 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, BRep_CurveRepresentation,
+  ../Standard/Standard_Boolean
+
 discard "forward decl of Poly_Polygon2D"
 discard "forward decl of Geom_Surface"
 discard "forward decl of Standard_DomainError"
@@ -22,45 +26,44 @@ discard "forward decl of BRep_CurveRepresentation"
 discard "forward decl of BRep_PolygonOnSurface"
 discard "forward decl of BRep_PolygonOnSurface"
 type
-  HandleBRepPolygonOnSurface* = Handle[BRepPolygonOnSurface]
+  Handle_BRep_PolygonOnSurface* = handle[BRep_PolygonOnSurface]
 
 ## ! Representation of a 2D polygon in the parametric
 ## ! space of a surface.
 
 type
-  BRepPolygonOnSurface* {.importcpp: "BRep_PolygonOnSurface",
-                         header: "BRep_PolygonOnSurface.hxx", bycopy.} = object of BRepCurveRepresentation
+  BRep_PolygonOnSurface* {.importcpp: "BRep_PolygonOnSurface",
+                          header: "BRep_PolygonOnSurface.hxx", bycopy.} = object of BRep_CurveRepresentation
 
 
-proc constructBRepPolygonOnSurface*(p: Handle[PolyPolygon2D];
-                                   s: Handle[GeomSurface]; L: TopLocLocation): BRepPolygonOnSurface {.
+proc constructBRep_PolygonOnSurface*(P: handle[Poly_Polygon2D];
+                                    S: handle[Geom_Surface]; L: TopLoc_Location): BRep_PolygonOnSurface {.
     constructor, importcpp: "BRep_PolygonOnSurface(@)",
     header: "BRep_PolygonOnSurface.hxx".}
-proc isPolygonOnSurface*(this: BRepPolygonOnSurface): StandardBoolean {.
+proc IsPolygonOnSurface*(this: BRep_PolygonOnSurface): Standard_Boolean {.
     noSideEffect, importcpp: "IsPolygonOnSurface",
     header: "BRep_PolygonOnSurface.hxx".}
-proc isPolygonOnSurface*(this: BRepPolygonOnSurface; s: Handle[GeomSurface];
-                        L: TopLocLocation): StandardBoolean {.noSideEffect,
+proc IsPolygonOnSurface*(this: BRep_PolygonOnSurface; S: handle[Geom_Surface];
+                        L: TopLoc_Location): Standard_Boolean {.noSideEffect,
     importcpp: "IsPolygonOnSurface", header: "BRep_PolygonOnSurface.hxx".}
-proc surface*(this: BRepPolygonOnSurface): Handle[GeomSurface] {.noSideEffect,
+proc Surface*(this: BRep_PolygonOnSurface): handle[Geom_Surface] {.noSideEffect,
     importcpp: "Surface", header: "BRep_PolygonOnSurface.hxx".}
-proc polygon*(this: BRepPolygonOnSurface): Handle[PolyPolygon2D] {.noSideEffect,
+proc Polygon*(this: BRep_PolygonOnSurface): handle[Poly_Polygon2D] {.noSideEffect,
     importcpp: "Polygon", header: "BRep_PolygonOnSurface.hxx".}
-proc polygon*(this: var BRepPolygonOnSurface; p: Handle[PolyPolygon2D]) {.
+proc Polygon*(this: var BRep_PolygonOnSurface; P: handle[Poly_Polygon2D]) {.
     importcpp: "Polygon", header: "BRep_PolygonOnSurface.hxx".}
-proc copy*(this: BRepPolygonOnSurface): Handle[BRepCurveRepresentation] {.
+proc Copy*(this: BRep_PolygonOnSurface): handle[BRep_CurveRepresentation] {.
     noSideEffect, importcpp: "Copy", header: "BRep_PolygonOnSurface.hxx".}
-proc dumpJson*(this: BRepPolygonOnSurface; theOStream: var StandardOStream;
-              theDepth: StandardInteger = -1) {.noSideEffect, importcpp: "DumpJson",
+proc DumpJson*(this: BRep_PolygonOnSurface; theOStream: var Standard_OStream;
+              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
     header: "BRep_PolygonOnSurface.hxx".}
 type
-  BRepPolygonOnSurfacebaseType* = BRepCurveRepresentation
+  BRep_PolygonOnSurfacebase_type* = BRep_CurveRepresentation
 
-proc getTypeName*(): cstring {.importcpp: "BRep_PolygonOnSurface::get_type_name(@)",
-                            header: "BRep_PolygonOnSurface.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "BRep_PolygonOnSurface::get_type_name(@)",
+                              header: "BRep_PolygonOnSurface.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "BRep_PolygonOnSurface::get_type_descriptor(@)",
     header: "BRep_PolygonOnSurface.hxx".}
-proc dynamicType*(this: BRepPolygonOnSurface): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "BRep_PolygonOnSurface.hxx".}
-
+proc DynamicType*(this: BRep_PolygonOnSurface): handle[Standard_Type] {.
+    noSideEffect, importcpp: "DynamicType", header: "BRep_PolygonOnSurface.hxx".}

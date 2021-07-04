@@ -14,40 +14,45 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Real,
+  ../TColStd/TColStd_HArray1OfReal, ../Standard/Standard_Boolean,
+  ../TColStd/TColStd_HArray1OfBoolean, ../TColStd/TColStd_Array1OfReal
+
 discard "forward decl of Law_BSpline"
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of Standard_ConstructionError"
 type
-  LawInterpolate* {.importcpp: "Law_Interpolate", header: "Law_Interpolate.hxx",
-                   bycopy.} = object ## ! Tolerance is to check if  the points are not too close
-                                  ## ! to one an  other.  It is  also  used to check   if the
-                                  ## ! tangent vector  is not too small.   There should be at
-                                  ## ! least 2 points. If PeriodicFlag is True then the curve
-                                  ## ! will be periodic be periodic
-                                  ## ! Interpolates in a non periodic fashion.
+  Law_Interpolate* {.importcpp: "Law_Interpolate", header: "Law_Interpolate.hxx",
+                    bycopy.} = object ## ! Tolerance is to check if  the points are not too close
+                                   ## ! to one an  other.  It is  also  used to check   if the
+                                   ## ! tangent vector  is not too small.   There should be at
+                                   ## ! least 2 points. If PeriodicFlag is True then the curve
+                                   ## ! will be periodic be periodic
+                                   ## ! Interpolates in a non periodic fashion.
 
 
-proc constructLawInterpolate*(points: Handle[TColStdHArray1OfReal];
-                             periodicFlag: StandardBoolean;
-                             tolerance: StandardReal): LawInterpolate {.
+proc constructLaw_Interpolate*(Points: handle[TColStd_HArray1OfReal];
+                              PeriodicFlag: Standard_Boolean;
+                              Tolerance: Standard_Real): Law_Interpolate {.
     constructor, importcpp: "Law_Interpolate(@)", header: "Law_Interpolate.hxx".}
-proc constructLawInterpolate*(points: Handle[TColStdHArray1OfReal];
-                             parameters: Handle[TColStdHArray1OfReal];
-                             periodicFlag: StandardBoolean;
-                             tolerance: StandardReal): LawInterpolate {.
+proc constructLaw_Interpolate*(Points: handle[TColStd_HArray1OfReal];
+                              Parameters: handle[TColStd_HArray1OfReal];
+                              PeriodicFlag: Standard_Boolean;
+                              Tolerance: Standard_Real): Law_Interpolate {.
     constructor, importcpp: "Law_Interpolate(@)", header: "Law_Interpolate.hxx".}
-proc load*(this: var LawInterpolate; initialTangent: StandardReal;
-          finalTangent: StandardReal) {.importcpp: "Load",
-                                      header: "Law_Interpolate.hxx".}
-proc load*(this: var LawInterpolate; tangents: TColStdArray1OfReal;
-          tangentFlags: Handle[TColStdHArray1OfBoolean]) {.importcpp: "Load",
+proc Load*(this: var Law_Interpolate; InitialTangent: Standard_Real;
+          FinalTangent: Standard_Real) {.importcpp: "Load",
+                                       header: "Law_Interpolate.hxx".}
+proc Load*(this: var Law_Interpolate; Tangents: TColStd_Array1OfReal;
+          TangentFlags: handle[TColStd_HArray1OfBoolean]) {.importcpp: "Load",
     header: "Law_Interpolate.hxx".}
-proc clearTangents*(this: var LawInterpolate) {.importcpp: "ClearTangents",
+proc ClearTangents*(this: var Law_Interpolate) {.importcpp: "ClearTangents",
     header: "Law_Interpolate.hxx".}
-proc perform*(this: var LawInterpolate) {.importcpp: "Perform",
-                                      header: "Law_Interpolate.hxx".}
-proc curve*(this: LawInterpolate): Handle[LawBSpline] {.noSideEffect,
+proc Perform*(this: var Law_Interpolate) {.importcpp: "Perform",
+                                       header: "Law_Interpolate.hxx".}
+proc Curve*(this: Law_Interpolate): handle[Law_BSpline] {.noSideEffect,
     importcpp: "Curve", header: "Law_Interpolate.hxx".}
-proc isDone*(this: LawInterpolate): StandardBoolean {.noSideEffect,
+proc IsDone*(this: Law_Interpolate): Standard_Boolean {.noSideEffect,
     importcpp: "IsDone", header: "Law_Interpolate.hxx".}
-

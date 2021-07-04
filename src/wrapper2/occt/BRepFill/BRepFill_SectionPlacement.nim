@@ -14,30 +14,35 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../TopoDS/TopoDS_Shape, ../gp/gp_Trsf,
+  ../Standard/Standard_Real, ../Standard/Standard_Integer,
+  ../Standard/Standard_Boolean
+
 discard "forward decl of BRepFill_LocationLaw"
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of gp_Trsf"
 type
-  BRepFillSectionPlacement* {.importcpp: "BRepFill_SectionPlacement",
-                             header: "BRepFill_SectionPlacement.hxx", bycopy.} = object ##
-                                                                                   ## !
-                                                                                   ## Automatic
-                                                                                   ## placement
+  BRepFill_SectionPlacement* {.importcpp: "BRepFill_SectionPlacement",
+                              header: "BRepFill_SectionPlacement.hxx", bycopy.} = object ##
+                                                                                    ## !
+                                                                                    ## Automatic
+                                                                                    ## placement
 
 
-proc constructBRepFillSectionPlacement*(law: Handle[BRepFillLocationLaw];
-                                       section: TopoDS_Shape; withContact: StandardBoolean = standardFalse;
-    withCorrection: StandardBoolean = standardFalse): BRepFillSectionPlacement {.
+proc constructBRepFill_SectionPlacement*(Law: handle[BRepFill_LocationLaw];
+                                        Section: TopoDS_Shape; WithContact: Standard_Boolean = Standard_False;
+    WithCorrection: Standard_Boolean = Standard_False): BRepFill_SectionPlacement {.
     constructor, importcpp: "BRepFill_SectionPlacement(@)",
     header: "BRepFill_SectionPlacement.hxx".}
-proc constructBRepFillSectionPlacement*(law: Handle[BRepFillLocationLaw];
-                                       section: TopoDS_Shape;
-                                       vertex: TopoDS_Shape; withContact: StandardBoolean = standardFalse;
-    withCorrection: StandardBoolean = standardFalse): BRepFillSectionPlacement {.
+proc constructBRepFill_SectionPlacement*(Law: handle[BRepFill_LocationLaw];
+                                        Section: TopoDS_Shape;
+                                        Vertex: TopoDS_Shape; WithContact: Standard_Boolean = Standard_False;
+    WithCorrection: Standard_Boolean = Standard_False): BRepFill_SectionPlacement {.
     constructor, importcpp: "BRepFill_SectionPlacement(@)",
     header: "BRepFill_SectionPlacement.hxx".}
-proc transformation*(this: BRepFillSectionPlacement): GpTrsf {.noSideEffect,
+proc Transformation*(this: BRepFill_SectionPlacement): gp_Trsf {.noSideEffect,
     importcpp: "Transformation", header: "BRepFill_SectionPlacement.hxx".}
-proc abscissaOnPath*(this: var BRepFillSectionPlacement): StandardReal {.
+proc AbscissaOnPath*(this: var BRepFill_SectionPlacement): Standard_Real {.
     importcpp: "AbscissaOnPath", header: "BRepFill_SectionPlacement.hxx".}
-

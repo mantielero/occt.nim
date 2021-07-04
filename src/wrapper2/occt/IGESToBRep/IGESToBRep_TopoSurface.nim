@@ -14,6 +14,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Real,
+  IGESToBRep_CurveAndSurface, ../Standard/Standard_Boolean
+
 discard "forward decl of IGESToBRep_CurveAndSurface"
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of IGESData_IGESEntity"
@@ -30,82 +35,82 @@ discard "forward decl of gp_Pln"
 discard "forward decl of gp_Trsf"
 discard "forward decl of gp_Trsf2d"
 type
-  IGESToBRepTopoSurface* {.importcpp: "IGESToBRep_TopoSurface",
-                          header: "IGESToBRep_TopoSurface.hxx", bycopy.} = object of IGESToBRepCurveAndSurface ##
-                                                                                                        ## !
-                                                                                                        ## Creates
-                                                                                                        ## a
-                                                                                                        ## tool
-                                                                                                        ## TopoSurface
-                                                                                                        ## ready
-                                                                                                        ## to
-                                                                                                        ## run,
-                                                                                                        ## with
-                                                                                                        ##
-                                                                                                        ## !
-                                                                                                        ## epsilons
-                                                                                                        ## set
-                                                                                                        ## to
-                                                                                                        ## 1.E-04,
-                                                                                                        ## TheModeTopo
-                                                                                                        ## to
-                                                                                                        ## True,
-                                                                                                        ## the
-                                                                                                        ##
-                                                                                                        ## !
-                                                                                                        ## optimization
-                                                                                                        ## of
-                                                                                                        ## the
-                                                                                                        ## continuity
-                                                                                                        ## to
-                                                                                                        ## False.
+  IGESToBRep_TopoSurface* {.importcpp: "IGESToBRep_TopoSurface",
+                           header: "IGESToBRep_TopoSurface.hxx", bycopy.} = object of IGESToBRep_CurveAndSurface ##
+                                                                                                          ## !
+                                                                                                          ## Creates
+                                                                                                          ## a
+                                                                                                          ## tool
+                                                                                                          ## TopoSurface
+                                                                                                          ## ready
+                                                                                                          ## to
+                                                                                                          ## run,
+                                                                                                          ## with
+                                                                                                          ##
+                                                                                                          ## !
+                                                                                                          ## epsilons
+                                                                                                          ## set
+                                                                                                          ## to
+                                                                                                          ## 1.E-04,
+                                                                                                          ## TheModeTopo
+                                                                                                          ## to
+                                                                                                          ## True,
+                                                                                                          ## the
+                                                                                                          ##
+                                                                                                          ## !
+                                                                                                          ## optimization
+                                                                                                          ## of
+                                                                                                          ## the
+                                                                                                          ## continuity
+                                                                                                          ## to
+                                                                                                          ## False.
 
 
-proc constructIGESToBRepTopoSurface*(): IGESToBRepTopoSurface {.constructor,
+proc constructIGESToBRep_TopoSurface*(): IGESToBRep_TopoSurface {.constructor,
     importcpp: "IGESToBRep_TopoSurface(@)", header: "IGESToBRep_TopoSurface.hxx".}
-proc constructIGESToBRepTopoSurface*(cs: IGESToBRepCurveAndSurface): IGESToBRepTopoSurface {.
+proc constructIGESToBRep_TopoSurface*(CS: IGESToBRep_CurveAndSurface): IGESToBRep_TopoSurface {.
     constructor, importcpp: "IGESToBRep_TopoSurface(@)",
     header: "IGESToBRep_TopoSurface.hxx".}
-proc constructIGESToBRepTopoSurface*(eps: StandardReal; epsGeom: StandardReal;
-                                    epsCoeff: StandardReal; mode: StandardBoolean;
-                                    modeapprox: StandardBoolean;
-                                    optimized: StandardBoolean): IGESToBRepTopoSurface {.
+proc constructIGESToBRep_TopoSurface*(eps: Standard_Real; epsGeom: Standard_Real;
+                                     epsCoeff: Standard_Real;
+                                     mode: Standard_Boolean;
+                                     modeapprox: Standard_Boolean;
+                                     optimized: Standard_Boolean): IGESToBRep_TopoSurface {.
     constructor, importcpp: "IGESToBRep_TopoSurface(@)",
     header: "IGESToBRep_TopoSurface.hxx".}
-proc transferTopoSurface*(this: var IGESToBRepTopoSurface;
-                         start: Handle[IGESDataIGESEntity]): TopoDS_Shape {.
+proc TransferTopoSurface*(this: var IGESToBRep_TopoSurface;
+                         start: handle[IGESData_IGESEntity]): TopoDS_Shape {.
     importcpp: "TransferTopoSurface", header: "IGESToBRep_TopoSurface.hxx".}
-proc transferTopoBasicSurface*(this: var IGESToBRepTopoSurface;
-                              start: Handle[IGESDataIGESEntity]): TopoDS_Shape {.
+proc TransferTopoBasicSurface*(this: var IGESToBRep_TopoSurface;
+                              start: handle[IGESData_IGESEntity]): TopoDS_Shape {.
     importcpp: "TransferTopoBasicSurface", header: "IGESToBRep_TopoSurface.hxx".}
-proc transferRuledSurface*(this: var IGESToBRepTopoSurface;
-                          start: Handle[IGESGeomRuledSurface]): TopoDS_Shape {.
+proc TransferRuledSurface*(this: var IGESToBRep_TopoSurface;
+                          start: handle[IGESGeom_RuledSurface]): TopoDS_Shape {.
     importcpp: "TransferRuledSurface", header: "IGESToBRep_TopoSurface.hxx".}
-proc transferSurfaceOfRevolution*(this: var IGESToBRepTopoSurface;
-                                 start: Handle[IGESGeomSurfaceOfRevolution]): TopoDS_Shape {.
+proc TransferSurfaceOfRevolution*(this: var IGESToBRep_TopoSurface;
+                                 start: handle[IGESGeom_SurfaceOfRevolution]): TopoDS_Shape {.
     importcpp: "TransferSurfaceOfRevolution", header: "IGESToBRep_TopoSurface.hxx".}
-proc transferTabulatedCylinder*(this: var IGESToBRepTopoSurface;
-                               start: Handle[IGESGeomTabulatedCylinder]): TopoDS_Shape {.
+proc TransferTabulatedCylinder*(this: var IGESToBRep_TopoSurface;
+                               start: handle[IGESGeom_TabulatedCylinder]): TopoDS_Shape {.
     importcpp: "TransferTabulatedCylinder", header: "IGESToBRep_TopoSurface.hxx".}
-proc transferOffsetSurface*(this: var IGESToBRepTopoSurface;
-                           start: Handle[IGESGeomOffsetSurface]): TopoDS_Shape {.
+proc TransferOffsetSurface*(this: var IGESToBRep_TopoSurface;
+                           start: handle[IGESGeom_OffsetSurface]): TopoDS_Shape {.
     importcpp: "TransferOffsetSurface", header: "IGESToBRep_TopoSurface.hxx".}
-proc transferTrimmedSurface*(this: var IGESToBRepTopoSurface;
-                            start: Handle[IGESGeomTrimmedSurface]): TopoDS_Shape {.
+proc TransferTrimmedSurface*(this: var IGESToBRep_TopoSurface;
+                            start: handle[IGESGeom_TrimmedSurface]): TopoDS_Shape {.
     importcpp: "TransferTrimmedSurface", header: "IGESToBRep_TopoSurface.hxx".}
-proc transferBoundedSurface*(this: var IGESToBRepTopoSurface;
-                            start: Handle[IGESGeomBoundedSurface]): TopoDS_Shape {.
+proc TransferBoundedSurface*(this: var IGESToBRep_TopoSurface;
+                            start: handle[IGESGeom_BoundedSurface]): TopoDS_Shape {.
     importcpp: "TransferBoundedSurface", header: "IGESToBRep_TopoSurface.hxx".}
-proc transferPlane*(this: var IGESToBRepTopoSurface; start: Handle[IGESGeomPlane]): TopoDS_Shape {.
+proc TransferPlane*(this: var IGESToBRep_TopoSurface; start: handle[IGESGeom_Plane]): TopoDS_Shape {.
     importcpp: "TransferPlane", header: "IGESToBRep_TopoSurface.hxx".}
-proc transferPlaneSurface*(this: var IGESToBRepTopoSurface;
-                          start: Handle[IGESSolidPlaneSurface]): TopoDS_Shape {.
+proc TransferPlaneSurface*(this: var IGESToBRep_TopoSurface;
+                          start: handle[IGESSolid_PlaneSurface]): TopoDS_Shape {.
     importcpp: "TransferPlaneSurface", header: "IGESToBRep_TopoSurface.hxx".}
-proc transferPerforate*(this: var IGESToBRepTopoSurface;
-                       start: Handle[IGESBasicSingleParent]): TopoDS_Shape {.
+proc TransferPerforate*(this: var IGESToBRep_TopoSurface;
+                       start: handle[IGESBasic_SingleParent]): TopoDS_Shape {.
     importcpp: "TransferPerforate", header: "IGESToBRep_TopoSurface.hxx".}
-proc paramSurface*(this: var IGESToBRepTopoSurface;
-                  start: Handle[IGESDataIGESEntity]; trans: var GpTrsf2d;
-                  uFact: var StandardReal): TopoDS_Shape {.
+proc ParamSurface*(this: var IGESToBRep_TopoSurface;
+                  start: handle[IGESData_IGESEntity]; trans: var gp_Trsf2d;
+                  uFact: var Standard_Real): TopoDS_Shape {.
     importcpp: "ParamSurface", header: "IGESToBRep_TopoSurface.hxx".}
-

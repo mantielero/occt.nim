@@ -14,6 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Boolean
+
 discard "forward decl of StepShape_ShapeDefinitionRepresentation"
 discard "forward decl of StepBasic_ProductRelatedProductCategory"
 discard "forward decl of StepShape_ShapeRepresentation"
@@ -26,110 +30,112 @@ discard "forward decl of StepBasic_ProductDefinitionFormation"
 discard "forward decl of StepBasic_ProductDefinition"
 discard "forward decl of StepRepr_ProductDefinitionShape"
 type
-  STEPConstructPart* {.importcpp: "STEPConstruct_Part",
-                      header: "STEPConstruct_Part.hxx", bycopy.} = object
+  STEPConstruct_Part* {.importcpp: "STEPConstruct_Part",
+                       header: "STEPConstruct_Part.hxx", bycopy.} = object
 
 
-proc constructSTEPConstructPart*(): STEPConstructPart {.constructor,
+proc constructSTEPConstruct_Part*(): STEPConstruct_Part {.constructor,
     importcpp: "STEPConstruct_Part(@)", header: "STEPConstruct_Part.hxx".}
-proc makeSDR*(this: var STEPConstructPart;
-             aShape: Handle[StepShapeShapeRepresentation];
-             aName: Handle[TCollectionHAsciiString];
-             ac: Handle[StepBasicApplicationContext]) {.importcpp: "MakeSDR",
+proc MakeSDR*(this: var STEPConstruct_Part;
+             aShape: handle[StepShape_ShapeRepresentation];
+             aName: handle[TCollection_HAsciiString];
+             AC: handle[StepBasic_ApplicationContext]) {.importcpp: "MakeSDR",
     header: "STEPConstruct_Part.hxx".}
-proc readSDR*(this: var STEPConstructPart;
-             aShape: Handle[StepShapeShapeDefinitionRepresentation]) {.
+proc ReadSDR*(this: var STEPConstruct_Part;
+             aShape: handle[StepShape_ShapeDefinitionRepresentation]) {.
     importcpp: "ReadSDR", header: "STEPConstruct_Part.hxx".}
-proc isDone*(this: STEPConstructPart): StandardBoolean {.noSideEffect,
+proc IsDone*(this: STEPConstruct_Part): Standard_Boolean {.noSideEffect,
     importcpp: "IsDone", header: "STEPConstruct_Part.hxx".}
-proc sDRValue*(this: STEPConstructPart): Handle[
-    StepShapeShapeDefinitionRepresentation] {.noSideEffect, importcpp: "SDRValue",
-    header: "STEPConstruct_Part.hxx".}
-proc sRValue*(this: STEPConstructPart): Handle[StepShapeShapeRepresentation] {.
+proc SDRValue*(this: STEPConstruct_Part): handle[
+    StepShape_ShapeDefinitionRepresentation] {.noSideEffect,
+    importcpp: "SDRValue", header: "STEPConstruct_Part.hxx".}
+proc SRValue*(this: STEPConstruct_Part): handle[StepShape_ShapeRepresentation] {.
     noSideEffect, importcpp: "SRValue", header: "STEPConstruct_Part.hxx".}
-proc pc*(this: STEPConstructPart): Handle[StepBasicProductContext] {.noSideEffect,
+proc PC*(this: STEPConstruct_Part): handle[StepBasic_ProductContext] {.noSideEffect,
     importcpp: "PC", header: "STEPConstruct_Part.hxx".}
-proc pCname*(this: STEPConstructPart): Handle[TCollectionHAsciiString] {.
+proc PCname*(this: STEPConstruct_Part): handle[TCollection_HAsciiString] {.
     noSideEffect, importcpp: "PCname", header: "STEPConstruct_Part.hxx".}
-proc pCdisciplineType*(this: STEPConstructPart): Handle[TCollectionHAsciiString] {.
+proc PCdisciplineType*(this: STEPConstruct_Part): handle[TCollection_HAsciiString] {.
     noSideEffect, importcpp: "PCdisciplineType", header: "STEPConstruct_Part.hxx".}
-proc setPCname*(this: var STEPConstructPart; name: Handle[TCollectionHAsciiString]) {.
+proc SetPCname*(this: var STEPConstruct_Part; name: handle[TCollection_HAsciiString]) {.
     importcpp: "SetPCname", header: "STEPConstruct_Part.hxx".}
-proc setPCdisciplineType*(this: var STEPConstructPart;
-                         label: Handle[TCollectionHAsciiString]) {.
+proc SetPCdisciplineType*(this: var STEPConstruct_Part;
+                         label: handle[TCollection_HAsciiString]) {.
     importcpp: "SetPCdisciplineType", header: "STEPConstruct_Part.hxx".}
-proc ac*(this: STEPConstructPart): Handle[StepBasicApplicationContext] {.
+proc AC*(this: STEPConstruct_Part): handle[StepBasic_ApplicationContext] {.
     noSideEffect, importcpp: "AC", header: "STEPConstruct_Part.hxx".}
-proc aCapplication*(this: STEPConstructPart): Handle[TCollectionHAsciiString] {.
+proc ACapplication*(this: STEPConstruct_Part): handle[TCollection_HAsciiString] {.
     noSideEffect, importcpp: "ACapplication", header: "STEPConstruct_Part.hxx".}
-proc setACapplication*(this: var STEPConstructPart;
-                      text: Handle[TCollectionHAsciiString]) {.
+proc SetACapplication*(this: var STEPConstruct_Part;
+                      text: handle[TCollection_HAsciiString]) {.
     importcpp: "SetACapplication", header: "STEPConstruct_Part.hxx".}
-proc pdc*(this: STEPConstructPart): Handle[StepBasicProductDefinitionContext] {.
+proc PDC*(this: STEPConstruct_Part): handle[StepBasic_ProductDefinitionContext] {.
     noSideEffect, importcpp: "PDC", header: "STEPConstruct_Part.hxx".}
-proc pDCname*(this: STEPConstructPart): Handle[TCollectionHAsciiString] {.
+proc PDCname*(this: STEPConstruct_Part): handle[TCollection_HAsciiString] {.
     noSideEffect, importcpp: "PDCname", header: "STEPConstruct_Part.hxx".}
-proc pDCstage*(this: STEPConstructPart): Handle[TCollectionHAsciiString] {.
+proc PDCstage*(this: STEPConstruct_Part): handle[TCollection_HAsciiString] {.
     noSideEffect, importcpp: "PDCstage", header: "STEPConstruct_Part.hxx".}
-proc setPDCname*(this: var STEPConstructPart; label: Handle[TCollectionHAsciiString]) {.
+proc SetPDCname*(this: var STEPConstruct_Part;
+                label: handle[TCollection_HAsciiString]) {.
     importcpp: "SetPDCname", header: "STEPConstruct_Part.hxx".}
-proc setPDCstage*(this: var STEPConstructPart;
-                 label: Handle[TCollectionHAsciiString]) {.
+proc SetPDCstage*(this: var STEPConstruct_Part;
+                 label: handle[TCollection_HAsciiString]) {.
     importcpp: "SetPDCstage", header: "STEPConstruct_Part.hxx".}
-proc product*(this: STEPConstructPart): Handle[StepBasicProduct] {.noSideEffect,
+proc Product*(this: STEPConstruct_Part): handle[StepBasic_Product] {.noSideEffect,
     importcpp: "Product", header: "STEPConstruct_Part.hxx".}
-proc pid*(this: STEPConstructPart): Handle[TCollectionHAsciiString] {.noSideEffect,
-    importcpp: "Pid", header: "STEPConstruct_Part.hxx".}
-proc pname*(this: STEPConstructPart): Handle[TCollectionHAsciiString] {.
+proc Pid*(this: STEPConstruct_Part): handle[TCollection_HAsciiString] {.
+    noSideEffect, importcpp: "Pid", header: "STEPConstruct_Part.hxx".}
+proc Pname*(this: STEPConstruct_Part): handle[TCollection_HAsciiString] {.
     noSideEffect, importcpp: "Pname", header: "STEPConstruct_Part.hxx".}
-proc pdescription*(this: STEPConstructPart): Handle[TCollectionHAsciiString] {.
+proc Pdescription*(this: STEPConstruct_Part): handle[TCollection_HAsciiString] {.
     noSideEffect, importcpp: "Pdescription", header: "STEPConstruct_Part.hxx".}
-proc setPid*(this: var STEPConstructPart; id: Handle[TCollectionHAsciiString]) {.
+proc SetPid*(this: var STEPConstruct_Part; id: handle[TCollection_HAsciiString]) {.
     importcpp: "SetPid", header: "STEPConstruct_Part.hxx".}
-proc setPname*(this: var STEPConstructPart; label: Handle[TCollectionHAsciiString]) {.
+proc SetPname*(this: var STEPConstruct_Part; label: handle[TCollection_HAsciiString]) {.
     importcpp: "SetPname", header: "STEPConstruct_Part.hxx".}
-proc setPdescription*(this: var STEPConstructPart;
-                     text: Handle[TCollectionHAsciiString]) {.
+proc SetPdescription*(this: var STEPConstruct_Part;
+                     text: handle[TCollection_HAsciiString]) {.
     importcpp: "SetPdescription", header: "STEPConstruct_Part.hxx".}
-proc pdf*(this: STEPConstructPart): Handle[StepBasicProductDefinitionFormation] {.
+proc PDF*(this: STEPConstruct_Part): handle[StepBasic_ProductDefinitionFormation] {.
     noSideEffect, importcpp: "PDF", header: "STEPConstruct_Part.hxx".}
-proc pDFid*(this: STEPConstructPart): Handle[TCollectionHAsciiString] {.
+proc PDFid*(this: STEPConstruct_Part): handle[TCollection_HAsciiString] {.
     noSideEffect, importcpp: "PDFid", header: "STEPConstruct_Part.hxx".}
-proc pDFdescription*(this: STEPConstructPart): Handle[TCollectionHAsciiString] {.
+proc PDFdescription*(this: STEPConstruct_Part): handle[TCollection_HAsciiString] {.
     noSideEffect, importcpp: "PDFdescription", header: "STEPConstruct_Part.hxx".}
-proc setPDFid*(this: var STEPConstructPart; id: Handle[TCollectionHAsciiString]) {.
+proc SetPDFid*(this: var STEPConstruct_Part; id: handle[TCollection_HAsciiString]) {.
     importcpp: "SetPDFid", header: "STEPConstruct_Part.hxx".}
-proc setPDFdescription*(this: var STEPConstructPart;
-                       text: Handle[TCollectionHAsciiString]) {.
+proc SetPDFdescription*(this: var STEPConstruct_Part;
+                       text: handle[TCollection_HAsciiString]) {.
     importcpp: "SetPDFdescription", header: "STEPConstruct_Part.hxx".}
-proc pd*(this: STEPConstructPart): Handle[StepBasicProductDefinition] {.
+proc PD*(this: STEPConstruct_Part): handle[StepBasic_ProductDefinition] {.
     noSideEffect, importcpp: "PD", header: "STEPConstruct_Part.hxx".}
-proc pDdescription*(this: STEPConstructPart): Handle[TCollectionHAsciiString] {.
+proc PDdescription*(this: STEPConstruct_Part): handle[TCollection_HAsciiString] {.
     noSideEffect, importcpp: "PDdescription", header: "STEPConstruct_Part.hxx".}
-proc setPDdescription*(this: var STEPConstructPart;
-                      text: Handle[TCollectionHAsciiString]) {.
+proc SetPDdescription*(this: var STEPConstruct_Part;
+                      text: handle[TCollection_HAsciiString]) {.
     importcpp: "SetPDdescription", header: "STEPConstruct_Part.hxx".}
-proc pds*(this: STEPConstructPart): Handle[StepReprProductDefinitionShape] {.
+proc PDS*(this: STEPConstruct_Part): handle[StepRepr_ProductDefinitionShape] {.
     noSideEffect, importcpp: "PDS", header: "STEPConstruct_Part.hxx".}
-proc pDSname*(this: STEPConstructPart): Handle[TCollectionHAsciiString] {.
+proc PDSname*(this: STEPConstruct_Part): handle[TCollection_HAsciiString] {.
     noSideEffect, importcpp: "PDSname", header: "STEPConstruct_Part.hxx".}
-proc pDSdescription*(this: STEPConstructPart): Handle[TCollectionHAsciiString] {.
+proc PDSdescription*(this: STEPConstruct_Part): handle[TCollection_HAsciiString] {.
     noSideEffect, importcpp: "PDSdescription", header: "STEPConstruct_Part.hxx".}
-proc setPDSname*(this: var STEPConstructPart; label: Handle[TCollectionHAsciiString]) {.
+proc SetPDSname*(this: var STEPConstruct_Part;
+                label: handle[TCollection_HAsciiString]) {.
     importcpp: "SetPDSname", header: "STEPConstruct_Part.hxx".}
-proc setPDSdescription*(this: var STEPConstructPart;
-                       text: Handle[TCollectionHAsciiString]) {.
+proc SetPDSdescription*(this: var STEPConstruct_Part;
+                       text: handle[TCollection_HAsciiString]) {.
     importcpp: "SetPDSdescription", header: "STEPConstruct_Part.hxx".}
-proc prpc*(this: STEPConstructPart): Handle[StepBasicProductRelatedProductCategory] {.
-    noSideEffect, importcpp: "PRPC", header: "STEPConstruct_Part.hxx".}
-proc pRPCname*(this: STEPConstructPart): Handle[TCollectionHAsciiString] {.
+proc PRPC*(this: STEPConstruct_Part): handle[
+    StepBasic_ProductRelatedProductCategory] {.noSideEffect, importcpp: "PRPC",
+    header: "STEPConstruct_Part.hxx".}
+proc PRPCname*(this: STEPConstruct_Part): handle[TCollection_HAsciiString] {.
     noSideEffect, importcpp: "PRPCname", header: "STEPConstruct_Part.hxx".}
-proc pRPCdescription*(this: STEPConstructPart): Handle[TCollectionHAsciiString] {.
+proc PRPCdescription*(this: STEPConstruct_Part): handle[TCollection_HAsciiString] {.
     noSideEffect, importcpp: "PRPCdescription", header: "STEPConstruct_Part.hxx".}
-proc setPRPCname*(this: var STEPConstructPart;
-                 label: Handle[TCollectionHAsciiString]) {.
+proc SetPRPCname*(this: var STEPConstruct_Part;
+                 label: handle[TCollection_HAsciiString]) {.
     importcpp: "SetPRPCname", header: "STEPConstruct_Part.hxx".}
-proc setPRPCdescription*(this: var STEPConstructPart;
-                        text: Handle[TCollectionHAsciiString]) {.
+proc SetPRPCdescription*(this: var STEPConstruct_Part;
+                        text: handle[TCollection_HAsciiString]) {.
     importcpp: "SetPRPCdescription", header: "STEPConstruct_Part.hxx".}
-

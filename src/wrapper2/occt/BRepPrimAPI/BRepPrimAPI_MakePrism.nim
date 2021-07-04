@@ -14,6 +14,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../BRepSweep/BRepSweep_Prism,
+  BRepPrimAPI_MakeSweep, ../Standard/Standard_Boolean,
+  ../TopTools/TopTools_ListOfShape
+
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of gp_Vec"
 discard "forward decl of gp_Dir"
@@ -59,31 +65,30 @@ type
                                                                                                    ## types
 
 
-proc constructBRepPrimAPI_MakePrism*(s: TopoDS_Shape; v: GpVec;
-                                    copy: StandardBoolean = standardFalse;
-                                    canonize: StandardBoolean = standardTrue): BRepPrimAPI_MakePrism {.
+proc constructBRepPrimAPI_MakePrism*(S: TopoDS_Shape; V: gp_Vec;
+                                    Copy: Standard_Boolean = Standard_False;
+                                    Canonize: Standard_Boolean = Standard_True): BRepPrimAPI_MakePrism {.
     constructor, importcpp: "BRepPrimAPI_MakePrism(@)",
     header: "BRepPrimAPI_MakePrism.hxx".}
-proc constructBRepPrimAPI_MakePrism*(s: TopoDS_Shape; d: GpDir;
-                                    inf: StandardBoolean = standardTrue;
-                                    copy: StandardBoolean = standardFalse;
-                                    canonize: StandardBoolean = standardTrue): BRepPrimAPI_MakePrism {.
+proc constructBRepPrimAPI_MakePrism*(S: TopoDS_Shape; D: gp_Dir;
+                                    Inf: Standard_Boolean = Standard_True;
+                                    Copy: Standard_Boolean = Standard_False;
+                                    Canonize: Standard_Boolean = Standard_True): BRepPrimAPI_MakePrism {.
     constructor, importcpp: "BRepPrimAPI_MakePrism(@)",
     header: "BRepPrimAPI_MakePrism.hxx".}
-proc prism*(this: BRepPrimAPI_MakePrism): BRepSweepPrism {.noSideEffect,
+proc Prism*(this: BRepPrimAPI_MakePrism): BRepSweep_Prism {.noSideEffect,
     importcpp: "Prism", header: "BRepPrimAPI_MakePrism.hxx".}
-proc build*(this: var BRepPrimAPI_MakePrism) {.importcpp: "Build",
+proc Build*(this: var BRepPrimAPI_MakePrism) {.importcpp: "Build",
     header: "BRepPrimAPI_MakePrism.hxx".}
-proc firstShape*(this: var BRepPrimAPI_MakePrism): TopoDS_Shape {.
+proc FirstShape*(this: var BRepPrimAPI_MakePrism): TopoDS_Shape {.
     importcpp: "FirstShape", header: "BRepPrimAPI_MakePrism.hxx".}
-proc lastShape*(this: var BRepPrimAPI_MakePrism): TopoDS_Shape {.
+proc LastShape*(this: var BRepPrimAPI_MakePrism): TopoDS_Shape {.
     importcpp: "LastShape", header: "BRepPrimAPI_MakePrism.hxx".}
-proc generated*(this: var BRepPrimAPI_MakePrism; s: TopoDS_Shape): TopToolsListOfShape {.
+proc Generated*(this: var BRepPrimAPI_MakePrism; S: TopoDS_Shape): TopTools_ListOfShape {.
     importcpp: "Generated", header: "BRepPrimAPI_MakePrism.hxx".}
-proc isDeleted*(this: var BRepPrimAPI_MakePrism; s: TopoDS_Shape): StandardBoolean {.
+proc IsDeleted*(this: var BRepPrimAPI_MakePrism; S: TopoDS_Shape): Standard_Boolean {.
     importcpp: "IsDeleted", header: "BRepPrimAPI_MakePrism.hxx".}
-proc firstShape*(this: var BRepPrimAPI_MakePrism; theShape: TopoDS_Shape): TopoDS_Shape {.
+proc FirstShape*(this: var BRepPrimAPI_MakePrism; theShape: TopoDS_Shape): TopoDS_Shape {.
     importcpp: "FirstShape", header: "BRepPrimAPI_MakePrism.hxx".}
-proc lastShape*(this: var BRepPrimAPI_MakePrism; theShape: TopoDS_Shape): TopoDS_Shape {.
+proc LastShape*(this: var BRepPrimAPI_MakePrism; theShape: TopoDS_Shape): TopoDS_Shape {.
     importcpp: "LastShape", header: "BRepPrimAPI_MakePrism.hxx".}
-

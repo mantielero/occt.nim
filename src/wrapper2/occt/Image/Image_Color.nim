@@ -13,310 +13,304 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard
+
 ## ! POD structure for packed RGB color value (3 bytes)
 
 type
-  ImageColorRGB* {.importcpp: "Image_ColorRGB", header: "Image_Color.hxx", bycopy.} = object ##
-                                                                                     ## !
-                                                                                     ## Component
-                                                                                     ## type.
-                                                                                     ##
-                                                                                     ## access
-                                                                                     ## methods
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## Alias
-                                                                                     ## to
-                                                                                     ## 1st
-                                                                                     ## component
-                                                                                     ## (red
-                                                                                     ## intensity).
-    v* {.importc: "v".}: array[3, StandardByte]
+  Image_ColorRGB* {.importcpp: "Image_ColorRGB", header: "Image_Color.hxx", bycopy.} = object ##
+                                                                                      ## !
+                                                                                      ## Component
+                                                                                      ## type.
+                                                                                      ##
+                                                                                      ## access
+                                                                                      ## methods
+                                                                                      ##
+                                                                                      ## !
+                                                                                      ## Alias
+                                                                                      ## to
+                                                                                      ## 1st
+                                                                                      ## component
+                                                                                      ## (red
+                                                                                      ## intensity).
+    v* {.importc: "v".}: array[3, Standard_Byte]
 
-  ImageColorRGBComponentTypeT* = StandardByte
+  Image_ColorRGBComponentType_t* = Standard_Byte
 
-proc length*(): StandardInteger {.importcpp: "Image_ColorRGB::Length(@)",
-                               header: "Image_Color.hxx".}
-proc r*(this: ImageColorRGB): StandardByte {.noSideEffect, importcpp: "r",
+proc Length*(): Standard_Integer {.importcpp: "Image_ColorRGB::Length(@)",
+                                header: "Image_Color.hxx".}
+proc r*(this: Image_ColorRGB): Standard_Byte {.noSideEffect, importcpp: "r",
     header: "Image_Color.hxx".}
-proc g*(this: ImageColorRGB): StandardByte {.noSideEffect, importcpp: "g",
+proc g*(this: Image_ColorRGB): Standard_Byte {.noSideEffect, importcpp: "g",
     header: "Image_Color.hxx".}
-proc b*(this: ImageColorRGB): StandardByte {.noSideEffect, importcpp: "b",
+proc b*(this: Image_ColorRGB): Standard_Byte {.noSideEffect, importcpp: "b",
     header: "Image_Color.hxx".}
-proc r*(this: var ImageColorRGB): var StandardByte {.importcpp: "r",
+proc r*(this: var Image_ColorRGB): var Standard_Byte {.importcpp: "r",
     header: "Image_Color.hxx".}
-proc g*(this: var ImageColorRGB): var StandardByte {.importcpp: "g",
+proc g*(this: var Image_ColorRGB): var Standard_Byte {.importcpp: "g",
     header: "Image_Color.hxx".}
-proc b*(this: var ImageColorRGB): var StandardByte {.importcpp: "b",
+proc b*(this: var Image_ColorRGB): var Standard_Byte {.importcpp: "b",
     header: "Image_Color.hxx".}
 ## ! POD structure for packed RGB color value (4 bytes with extra byte for alignment)
 
 type
-  ImageColorRGB32* {.importcpp: "Image_ColorRGB32", header: "Image_Color.hxx", bycopy.} = object ##
-                                                                                         ## !
-                                                                                         ## Component
-                                                                                         ## type.
-    v* {.importc: "v".}: array[4, StandardByte]
+  Image_ColorRGB32* {.importcpp: "Image_ColorRGB32", header: "Image_Color.hxx",
+                     bycopy.} = object ## ! Component type.
+    v* {.importc: "v".}: array[4, Standard_Byte]
 
-  ImageColorRGB32ComponentTypeT* = StandardByte
+  Image_ColorRGB32ComponentType_t* = Standard_Byte
 
-proc length*(): StandardInteger {.importcpp: "Image_ColorRGB32::Length(@)",
-                               header: "Image_Color.hxx".}
-proc r*(this: ImageColorRGB32): StandardByte {.noSideEffect, importcpp: "r",
+proc Length*(): Standard_Integer {.importcpp: "Image_ColorRGB32::Length(@)",
+                                header: "Image_Color.hxx".}
+proc r*(this: Image_ColorRGB32): Standard_Byte {.noSideEffect, importcpp: "r",
     header: "Image_Color.hxx".}
-proc g*(this: ImageColorRGB32): StandardByte {.noSideEffect, importcpp: "g",
+proc g*(this: Image_ColorRGB32): Standard_Byte {.noSideEffect, importcpp: "g",
     header: "Image_Color.hxx".}
-proc b*(this: ImageColorRGB32): StandardByte {.noSideEffect, importcpp: "b",
+proc b*(this: Image_ColorRGB32): Standard_Byte {.noSideEffect, importcpp: "b",
     header: "Image_Color.hxx".}
-proc a*(this: ImageColorRGB32): StandardByte {.noSideEffect, importcpp: "a_",
+proc a_*(this: Image_ColorRGB32): Standard_Byte {.noSideEffect, importcpp: "a_",
     header: "Image_Color.hxx".}
-proc r*(this: var ImageColorRGB32): var StandardByte {.importcpp: "r",
+proc r*(this: var Image_ColorRGB32): var Standard_Byte {.importcpp: "r",
     header: "Image_Color.hxx".}
-proc g*(this: var ImageColorRGB32): var StandardByte {.importcpp: "g",
+proc g*(this: var Image_ColorRGB32): var Standard_Byte {.importcpp: "g",
     header: "Image_Color.hxx".}
-proc b*(this: var ImageColorRGB32): var StandardByte {.importcpp: "b",
+proc b*(this: var Image_ColorRGB32): var Standard_Byte {.importcpp: "b",
     header: "Image_Color.hxx".}
-proc a*(this: var ImageColorRGB32): var StandardByte {.importcpp: "a_",
+proc a_*(this: var Image_ColorRGB32): var Standard_Byte {.importcpp: "a_",
     header: "Image_Color.hxx".}
 ## ! POD structure for packed RGBA color value (4 bytes)
 
 type
-  ImageColorRGBA* {.importcpp: "Image_ColorRGBA", header: "Image_Color.hxx", bycopy.} = object ##
-                                                                                       ## !
-                                                                                       ## Component
-                                                                                       ## type.
-    v* {.importc: "v".}: array[4, StandardByte]
+  Image_ColorRGBA* {.importcpp: "Image_ColorRGBA", header: "Image_Color.hxx", bycopy.} = object ##
+                                                                                        ## !
+                                                                                        ## Component
+                                                                                        ## type.
+    v* {.importc: "v".}: array[4, Standard_Byte]
 
-  ImageColorRGBAComponentTypeT* = StandardByte
+  Image_ColorRGBAComponentType_t* = Standard_Byte
 
-proc length*(): StandardInteger {.importcpp: "Image_ColorRGBA::Length(@)",
-                               header: "Image_Color.hxx".}
-proc r*(this: ImageColorRGBA): StandardByte {.noSideEffect, importcpp: "r",
+proc Length*(): Standard_Integer {.importcpp: "Image_ColorRGBA::Length(@)",
+                                header: "Image_Color.hxx".}
+proc r*(this: Image_ColorRGBA): Standard_Byte {.noSideEffect, importcpp: "r",
     header: "Image_Color.hxx".}
-proc g*(this: ImageColorRGBA): StandardByte {.noSideEffect, importcpp: "g",
+proc g*(this: Image_ColorRGBA): Standard_Byte {.noSideEffect, importcpp: "g",
     header: "Image_Color.hxx".}
-proc b*(this: ImageColorRGBA): StandardByte {.noSideEffect, importcpp: "b",
+proc b*(this: Image_ColorRGBA): Standard_Byte {.noSideEffect, importcpp: "b",
     header: "Image_Color.hxx".}
-proc a*(this: ImageColorRGBA): StandardByte {.noSideEffect, importcpp: "a",
+proc a*(this: Image_ColorRGBA): Standard_Byte {.noSideEffect, importcpp: "a",
     header: "Image_Color.hxx".}
-proc r*(this: var ImageColorRGBA): var StandardByte {.importcpp: "r",
+proc r*(this: var Image_ColorRGBA): var Standard_Byte {.importcpp: "r",
     header: "Image_Color.hxx".}
-proc g*(this: var ImageColorRGBA): var StandardByte {.importcpp: "g",
+proc g*(this: var Image_ColorRGBA): var Standard_Byte {.importcpp: "g",
     header: "Image_Color.hxx".}
-proc b*(this: var ImageColorRGBA): var StandardByte {.importcpp: "b",
+proc b*(this: var Image_ColorRGBA): var Standard_Byte {.importcpp: "b",
     header: "Image_Color.hxx".}
-proc a*(this: var ImageColorRGBA): var StandardByte {.importcpp: "a",
+proc a*(this: var Image_ColorRGBA): var Standard_Byte {.importcpp: "a",
     header: "Image_Color.hxx".}
 ## ! POD structure for packed BGR color value (3 bytes)
 
 type
-  ImageColorBGR* {.importcpp: "Image_ColorBGR", header: "Image_Color.hxx", bycopy.} = object ##
-                                                                                     ## !
-                                                                                     ## Component
-                                                                                     ## type.
-    v* {.importc: "v".}: array[3, StandardByte]
+  Image_ColorBGR* {.importcpp: "Image_ColorBGR", header: "Image_Color.hxx", bycopy.} = object ##
+                                                                                      ## !
+                                                                                      ## Component
+                                                                                      ## type.
+    v* {.importc: "v".}: array[3, Standard_Byte]
 
-  ImageColorBGRComponentTypeT* = StandardByte
+  Image_ColorBGRComponentType_t* = Standard_Byte
 
-proc length*(): StandardInteger {.importcpp: "Image_ColorBGR::Length(@)",
-                               header: "Image_Color.hxx".}
-proc r*(this: ImageColorBGR): StandardByte {.noSideEffect, importcpp: "r",
+proc Length*(): Standard_Integer {.importcpp: "Image_ColorBGR::Length(@)",
+                                header: "Image_Color.hxx".}
+proc r*(this: Image_ColorBGR): Standard_Byte {.noSideEffect, importcpp: "r",
     header: "Image_Color.hxx".}
-proc g*(this: ImageColorBGR): StandardByte {.noSideEffect, importcpp: "g",
+proc g*(this: Image_ColorBGR): Standard_Byte {.noSideEffect, importcpp: "g",
     header: "Image_Color.hxx".}
-proc b*(this: ImageColorBGR): StandardByte {.noSideEffect, importcpp: "b",
+proc b*(this: Image_ColorBGR): Standard_Byte {.noSideEffect, importcpp: "b",
     header: "Image_Color.hxx".}
-proc r*(this: var ImageColorBGR): var StandardByte {.importcpp: "r",
+proc r*(this: var Image_ColorBGR): var Standard_Byte {.importcpp: "r",
     header: "Image_Color.hxx".}
-proc g*(this: var ImageColorBGR): var StandardByte {.importcpp: "g",
+proc g*(this: var Image_ColorBGR): var Standard_Byte {.importcpp: "g",
     header: "Image_Color.hxx".}
-proc b*(this: var ImageColorBGR): var StandardByte {.importcpp: "b",
+proc b*(this: var Image_ColorBGR): var Standard_Byte {.importcpp: "b",
     header: "Image_Color.hxx".}
 ## ! POD structure for packed BGR color value (4 bytes with extra byte for alignment)
 
 type
-  ImageColorBGR32* {.importcpp: "Image_ColorBGR32", header: "Image_Color.hxx", bycopy.} = object ##
-                                                                                         ## !
-                                                                                         ## Component
-                                                                                         ## type.
-    v* {.importc: "v".}: array[4, StandardByte]
+  Image_ColorBGR32* {.importcpp: "Image_ColorBGR32", header: "Image_Color.hxx",
+                     bycopy.} = object ## ! Component type.
+    v* {.importc: "v".}: array[4, Standard_Byte]
 
-  ImageColorBGR32ComponentTypeT* = StandardByte
+  Image_ColorBGR32ComponentType_t* = Standard_Byte
 
-proc length*(): StandardInteger {.importcpp: "Image_ColorBGR32::Length(@)",
-                               header: "Image_Color.hxx".}
-proc r*(this: ImageColorBGR32): StandardByte {.noSideEffect, importcpp: "r",
+proc Length*(): Standard_Integer {.importcpp: "Image_ColorBGR32::Length(@)",
+                                header: "Image_Color.hxx".}
+proc r*(this: Image_ColorBGR32): Standard_Byte {.noSideEffect, importcpp: "r",
     header: "Image_Color.hxx".}
-proc g*(this: ImageColorBGR32): StandardByte {.noSideEffect, importcpp: "g",
+proc g*(this: Image_ColorBGR32): Standard_Byte {.noSideEffect, importcpp: "g",
     header: "Image_Color.hxx".}
-proc b*(this: ImageColorBGR32): StandardByte {.noSideEffect, importcpp: "b",
+proc b*(this: Image_ColorBGR32): Standard_Byte {.noSideEffect, importcpp: "b",
     header: "Image_Color.hxx".}
-proc a*(this: ImageColorBGR32): StandardByte {.noSideEffect, importcpp: "a_",
+proc a_*(this: Image_ColorBGR32): Standard_Byte {.noSideEffect, importcpp: "a_",
     header: "Image_Color.hxx".}
-proc r*(this: var ImageColorBGR32): var StandardByte {.importcpp: "r",
+proc r*(this: var Image_ColorBGR32): var Standard_Byte {.importcpp: "r",
     header: "Image_Color.hxx".}
-proc g*(this: var ImageColorBGR32): var StandardByte {.importcpp: "g",
+proc g*(this: var Image_ColorBGR32): var Standard_Byte {.importcpp: "g",
     header: "Image_Color.hxx".}
-proc b*(this: var ImageColorBGR32): var StandardByte {.importcpp: "b",
+proc b*(this: var Image_ColorBGR32): var Standard_Byte {.importcpp: "b",
     header: "Image_Color.hxx".}
-proc a*(this: var ImageColorBGR32): var StandardByte {.importcpp: "a_",
+proc a_*(this: var Image_ColorBGR32): var Standard_Byte {.importcpp: "a_",
     header: "Image_Color.hxx".}
 ## ! POD structure for packed BGRA color value (4 bytes)
 
 type
-  ImageColorBGRA* {.importcpp: "Image_ColorBGRA", header: "Image_Color.hxx", bycopy.} = object ##
-                                                                                       ## !
-                                                                                       ## Component
-                                                                                       ## type.
-    v* {.importc: "v".}: array[4, StandardByte]
+  Image_ColorBGRA* {.importcpp: "Image_ColorBGRA", header: "Image_Color.hxx", bycopy.} = object ##
+                                                                                        ## !
+                                                                                        ## Component
+                                                                                        ## type.
+    v* {.importc: "v".}: array[4, Standard_Byte]
 
-  ImageColorBGRAComponentTypeT* = StandardByte
+  Image_ColorBGRAComponentType_t* = Standard_Byte
 
-proc length*(): StandardInteger {.importcpp: "Image_ColorBGRA::Length(@)",
-                               header: "Image_Color.hxx".}
-proc r*(this: ImageColorBGRA): StandardByte {.noSideEffect, importcpp: "r",
+proc Length*(): Standard_Integer {.importcpp: "Image_ColorBGRA::Length(@)",
+                                header: "Image_Color.hxx".}
+proc r*(this: Image_ColorBGRA): Standard_Byte {.noSideEffect, importcpp: "r",
     header: "Image_Color.hxx".}
-proc g*(this: ImageColorBGRA): StandardByte {.noSideEffect, importcpp: "g",
+proc g*(this: Image_ColorBGRA): Standard_Byte {.noSideEffect, importcpp: "g",
     header: "Image_Color.hxx".}
-proc b*(this: ImageColorBGRA): StandardByte {.noSideEffect, importcpp: "b",
+proc b*(this: Image_ColorBGRA): Standard_Byte {.noSideEffect, importcpp: "b",
     header: "Image_Color.hxx".}
-proc a*(this: ImageColorBGRA): StandardByte {.noSideEffect, importcpp: "a",
+proc a*(this: Image_ColorBGRA): Standard_Byte {.noSideEffect, importcpp: "a",
     header: "Image_Color.hxx".}
-proc r*(this: var ImageColorBGRA): var StandardByte {.importcpp: "r",
+proc r*(this: var Image_ColorBGRA): var Standard_Byte {.importcpp: "r",
     header: "Image_Color.hxx".}
-proc g*(this: var ImageColorBGRA): var StandardByte {.importcpp: "g",
+proc g*(this: var Image_ColorBGRA): var Standard_Byte {.importcpp: "g",
     header: "Image_Color.hxx".}
-proc b*(this: var ImageColorBGRA): var StandardByte {.importcpp: "b",
+proc b*(this: var Image_ColorBGRA): var Standard_Byte {.importcpp: "b",
     header: "Image_Color.hxx".}
-proc a*(this: var ImageColorBGRA): var StandardByte {.importcpp: "a",
+proc a*(this: var Image_ColorBGRA): var Standard_Byte {.importcpp: "a",
     header: "Image_Color.hxx".}
 ## ! POD structure for packed float RG color value (2 floats)
 
 type
-  ImageColorRGF* {.importcpp: "Image_ColorRGF", header: "Image_Color.hxx", bycopy.} = object ##
-                                                                                     ## !
-                                                                                     ## Component
-                                                                                     ## type.
-    v* {.importc: "v".}: array[2, StandardShortReal]
+  Image_ColorRGF* {.importcpp: "Image_ColorRGF", header: "Image_Color.hxx", bycopy.} = object ##
+                                                                                      ## !
+                                                                                      ## Component
+                                                                                      ## type.
+    v* {.importc: "v".}: array[2, Standard_ShortReal]
 
-  ImageColorRGFComponentTypeT* = StandardShortReal
+  Image_ColorRGFComponentType_t* = Standard_ShortReal
 
-proc length*(): StandardInteger {.importcpp: "Image_ColorRGF::Length(@)",
-                               header: "Image_Color.hxx".}
-proc r*(this: ImageColorRGF): StandardShortReal {.noSideEffect, importcpp: "r",
+proc Length*(): Standard_Integer {.importcpp: "Image_ColorRGF::Length(@)",
+                                header: "Image_Color.hxx".}
+proc r*(this: Image_ColorRGF): Standard_ShortReal {.noSideEffect, importcpp: "r",
     header: "Image_Color.hxx".}
-proc g*(this: ImageColorRGF): StandardShortReal {.noSideEffect, importcpp: "g",
+proc g*(this: Image_ColorRGF): Standard_ShortReal {.noSideEffect, importcpp: "g",
     header: "Image_Color.hxx".}
-proc r*(this: var ImageColorRGF): var StandardShortReal {.importcpp: "r",
+proc r*(this: var Image_ColorRGF): var Standard_ShortReal {.importcpp: "r",
     header: "Image_Color.hxx".}
-proc g*(this: var ImageColorRGF): var StandardShortReal {.importcpp: "g",
+proc g*(this: var Image_ColorRGF): var Standard_ShortReal {.importcpp: "g",
     header: "Image_Color.hxx".}
 ## ! POD structure for packed float RGB color value (3 floats)
 
 type
-  ImageColorRGBF* {.importcpp: "Image_ColorRGBF", header: "Image_Color.hxx", bycopy.} = object ##
-                                                                                       ## !
-                                                                                       ## Component
-                                                                                       ## type.
-    v* {.importc: "v".}: array[3, StandardShortReal]
+  Image_ColorRGBF* {.importcpp: "Image_ColorRGBF", header: "Image_Color.hxx", bycopy.} = object ##
+                                                                                        ## !
+                                                                                        ## Component
+                                                                                        ## type.
+    v* {.importc: "v".}: array[3, Standard_ShortReal]
 
-  ImageColorRGBFComponentTypeT* = StandardShortReal
+  Image_ColorRGBFComponentType_t* = Standard_ShortReal
 
-proc length*(): StandardInteger {.importcpp: "Image_ColorRGBF::Length(@)",
-                               header: "Image_Color.hxx".}
-proc r*(this: ImageColorRGBF): StandardShortReal {.noSideEffect, importcpp: "r",
+proc Length*(): Standard_Integer {.importcpp: "Image_ColorRGBF::Length(@)",
+                                header: "Image_Color.hxx".}
+proc r*(this: Image_ColorRGBF): Standard_ShortReal {.noSideEffect, importcpp: "r",
     header: "Image_Color.hxx".}
-proc g*(this: ImageColorRGBF): StandardShortReal {.noSideEffect, importcpp: "g",
+proc g*(this: Image_ColorRGBF): Standard_ShortReal {.noSideEffect, importcpp: "g",
     header: "Image_Color.hxx".}
-proc b*(this: ImageColorRGBF): StandardShortReal {.noSideEffect, importcpp: "b",
+proc b*(this: Image_ColorRGBF): Standard_ShortReal {.noSideEffect, importcpp: "b",
     header: "Image_Color.hxx".}
-proc r*(this: var ImageColorRGBF): var StandardShortReal {.importcpp: "r",
+proc r*(this: var Image_ColorRGBF): var Standard_ShortReal {.importcpp: "r",
     header: "Image_Color.hxx".}
-proc g*(this: var ImageColorRGBF): var StandardShortReal {.importcpp: "g",
+proc g*(this: var Image_ColorRGBF): var Standard_ShortReal {.importcpp: "g",
     header: "Image_Color.hxx".}
-proc b*(this: var ImageColorRGBF): var StandardShortReal {.importcpp: "b",
+proc b*(this: var Image_ColorRGBF): var Standard_ShortReal {.importcpp: "b",
     header: "Image_Color.hxx".}
 ## ! POD structure for packed BGR float color value (3 floats)
 
 type
-  ImageColorBGRF* {.importcpp: "Image_ColorBGRF", header: "Image_Color.hxx", bycopy.} = object ##
-                                                                                       ## !
-                                                                                       ## Component
-                                                                                       ## type.
-    v* {.importc: "v".}: array[3, StandardShortReal]
+  Image_ColorBGRF* {.importcpp: "Image_ColorBGRF", header: "Image_Color.hxx", bycopy.} = object ##
+                                                                                        ## !
+                                                                                        ## Component
+                                                                                        ## type.
+    v* {.importc: "v".}: array[3, Standard_ShortReal]
 
-  ImageColorBGRFComponentTypeT* = StandardShortReal
+  Image_ColorBGRFComponentType_t* = Standard_ShortReal
 
-proc length*(): StandardInteger {.importcpp: "Image_ColorBGRF::Length(@)",
-                               header: "Image_Color.hxx".}
-proc r*(this: ImageColorBGRF): StandardShortReal {.noSideEffect, importcpp: "r",
+proc Length*(): Standard_Integer {.importcpp: "Image_ColorBGRF::Length(@)",
+                                header: "Image_Color.hxx".}
+proc r*(this: Image_ColorBGRF): Standard_ShortReal {.noSideEffect, importcpp: "r",
     header: "Image_Color.hxx".}
-proc g*(this: ImageColorBGRF): StandardShortReal {.noSideEffect, importcpp: "g",
+proc g*(this: Image_ColorBGRF): Standard_ShortReal {.noSideEffect, importcpp: "g",
     header: "Image_Color.hxx".}
-proc b*(this: ImageColorBGRF): StandardShortReal {.noSideEffect, importcpp: "b",
+proc b*(this: Image_ColorBGRF): Standard_ShortReal {.noSideEffect, importcpp: "b",
     header: "Image_Color.hxx".}
-proc r*(this: var ImageColorBGRF): var StandardShortReal {.importcpp: "r",
+proc r*(this: var Image_ColorBGRF): var Standard_ShortReal {.importcpp: "r",
     header: "Image_Color.hxx".}
-proc g*(this: var ImageColorBGRF): var StandardShortReal {.importcpp: "g",
+proc g*(this: var Image_ColorBGRF): var Standard_ShortReal {.importcpp: "g",
     header: "Image_Color.hxx".}
-proc b*(this: var ImageColorBGRF): var StandardShortReal {.importcpp: "b",
+proc b*(this: var Image_ColorBGRF): var Standard_ShortReal {.importcpp: "b",
     header: "Image_Color.hxx".}
 ## ! POD structure for packed RGBA color value (4 floats)
 
 type
-  ImageColorRGBAF* {.importcpp: "Image_ColorRGBAF", header: "Image_Color.hxx", bycopy.} = object ##
-                                                                                         ## !
-                                                                                         ## Component
-                                                                                         ## type.
-    v* {.importc: "v".}: array[4, StandardShortReal]
+  Image_ColorRGBAF* {.importcpp: "Image_ColorRGBAF", header: "Image_Color.hxx",
+                     bycopy.} = object ## ! Component type.
+    v* {.importc: "v".}: array[4, Standard_ShortReal]
 
-  ImageColorRGBAFComponentTypeT* = StandardShortReal
+  Image_ColorRGBAFComponentType_t* = Standard_ShortReal
 
-proc length*(): StandardInteger {.importcpp: "Image_ColorRGBAF::Length(@)",
-                               header: "Image_Color.hxx".}
-proc r*(this: ImageColorRGBAF): StandardShortReal {.noSideEffect, importcpp: "r",
+proc Length*(): Standard_Integer {.importcpp: "Image_ColorRGBAF::Length(@)",
+                                header: "Image_Color.hxx".}
+proc r*(this: Image_ColorRGBAF): Standard_ShortReal {.noSideEffect, importcpp: "r",
     header: "Image_Color.hxx".}
-proc g*(this: ImageColorRGBAF): StandardShortReal {.noSideEffect, importcpp: "g",
+proc g*(this: Image_ColorRGBAF): Standard_ShortReal {.noSideEffect, importcpp: "g",
     header: "Image_Color.hxx".}
-proc b*(this: ImageColorRGBAF): StandardShortReal {.noSideEffect, importcpp: "b",
+proc b*(this: Image_ColorRGBAF): Standard_ShortReal {.noSideEffect, importcpp: "b",
     header: "Image_Color.hxx".}
-proc a*(this: ImageColorRGBAF): StandardShortReal {.noSideEffect, importcpp: "a",
+proc a*(this: Image_ColorRGBAF): Standard_ShortReal {.noSideEffect, importcpp: "a",
     header: "Image_Color.hxx".}
-proc r*(this: var ImageColorRGBAF): var StandardShortReal {.importcpp: "r",
+proc r*(this: var Image_ColorRGBAF): var Standard_ShortReal {.importcpp: "r",
     header: "Image_Color.hxx".}
-proc g*(this: var ImageColorRGBAF): var StandardShortReal {.importcpp: "g",
+proc g*(this: var Image_ColorRGBAF): var Standard_ShortReal {.importcpp: "g",
     header: "Image_Color.hxx".}
-proc b*(this: var ImageColorRGBAF): var StandardShortReal {.importcpp: "b",
+proc b*(this: var Image_ColorRGBAF): var Standard_ShortReal {.importcpp: "b",
     header: "Image_Color.hxx".}
-proc a*(this: var ImageColorRGBAF): var StandardShortReal {.importcpp: "a",
+proc a*(this: var Image_ColorRGBAF): var Standard_ShortReal {.importcpp: "a",
     header: "Image_Color.hxx".}
 ## ! POD structure for packed float BGRA color value (4 floats)
 
 type
-  ImageColorBGRAF* {.importcpp: "Image_ColorBGRAF", header: "Image_Color.hxx", bycopy.} = object ##
-                                                                                         ## !
-                                                                                         ## Component
-                                                                                         ## type.
-    v* {.importc: "v".}: array[4, StandardShortReal]
+  Image_ColorBGRAF* {.importcpp: "Image_ColorBGRAF", header: "Image_Color.hxx",
+                     bycopy.} = object ## ! Component type.
+    v* {.importc: "v".}: array[4, Standard_ShortReal]
 
-  ImageColorBGRAFComponentTypeT* = StandardShortReal
+  Image_ColorBGRAFComponentType_t* = Standard_ShortReal
 
-proc length*(): StandardInteger {.importcpp: "Image_ColorBGRAF::Length(@)",
-                               header: "Image_Color.hxx".}
-proc r*(this: ImageColorBGRAF): StandardShortReal {.noSideEffect, importcpp: "r",
+proc Length*(): Standard_Integer {.importcpp: "Image_ColorBGRAF::Length(@)",
+                                header: "Image_Color.hxx".}
+proc r*(this: Image_ColorBGRAF): Standard_ShortReal {.noSideEffect, importcpp: "r",
     header: "Image_Color.hxx".}
-proc g*(this: ImageColorBGRAF): StandardShortReal {.noSideEffect, importcpp: "g",
+proc g*(this: Image_ColorBGRAF): Standard_ShortReal {.noSideEffect, importcpp: "g",
     header: "Image_Color.hxx".}
-proc b*(this: ImageColorBGRAF): StandardShortReal {.noSideEffect, importcpp: "b",
+proc b*(this: Image_ColorBGRAF): Standard_ShortReal {.noSideEffect, importcpp: "b",
     header: "Image_Color.hxx".}
-proc a*(this: ImageColorBGRAF): StandardShortReal {.noSideEffect, importcpp: "a",
+proc a*(this: Image_ColorBGRAF): Standard_ShortReal {.noSideEffect, importcpp: "a",
     header: "Image_Color.hxx".}
-proc r*(this: var ImageColorBGRAF): var StandardShortReal {.importcpp: "r",
+proc r*(this: var Image_ColorBGRAF): var Standard_ShortReal {.importcpp: "r",
     header: "Image_Color.hxx".}
-proc g*(this: var ImageColorBGRAF): var StandardShortReal {.importcpp: "g",
+proc g*(this: var Image_ColorBGRAF): var Standard_ShortReal {.importcpp: "g",
     header: "Image_Color.hxx".}
-proc b*(this: var ImageColorBGRAF): var StandardShortReal {.importcpp: "b",
+proc b*(this: var Image_ColorBGRAF): var Standard_ShortReal {.importcpp: "b",
     header: "Image_Color.hxx".}
-proc a*(this: var ImageColorBGRAF): var StandardShortReal {.importcpp: "a",
+proc a*(this: var Image_ColorBGRAF): var Standard_ShortReal {.importcpp: "a",
     header: "Image_Color.hxx".}
-

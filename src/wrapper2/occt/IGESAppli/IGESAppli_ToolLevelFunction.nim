@@ -14,6 +14,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
+  ../Standard/Standard_Integer
+
 discard "forward decl of Standard_DomainError"
 discard "forward decl of IGESAppli_LevelFunction"
 discard "forward decl of IGESData_IGESReaderData"
@@ -26,51 +31,50 @@ discard "forward decl of Interface_Check"
 discard "forward decl of Interface_CopyTool"
 discard "forward decl of IGESData_IGESDumper"
 type
-  IGESAppliToolLevelFunction* {.importcpp: "IGESAppli_ToolLevelFunction",
-                               header: "IGESAppli_ToolLevelFunction.hxx", bycopy.} = object ##
-                                                                                       ## !
-                                                                                       ## Returns
-                                                                                       ## a
-                                                                                       ## ToolLevelFunction,
-                                                                                       ## ready
-                                                                                       ## to
-                                                                                       ## work
+  IGESAppli_ToolLevelFunction* {.importcpp: "IGESAppli_ToolLevelFunction",
+                                header: "IGESAppli_ToolLevelFunction.hxx", bycopy.} = object ##
+                                                                                        ## !
+                                                                                        ## Returns
+                                                                                        ## a
+                                                                                        ## ToolLevelFunction,
+                                                                                        ## ready
+                                                                                        ## to
+                                                                                        ## work
 
 
-proc constructIGESAppliToolLevelFunction*(): IGESAppliToolLevelFunction {.
+proc constructIGESAppli_ToolLevelFunction*(): IGESAppli_ToolLevelFunction {.
     constructor, importcpp: "IGESAppli_ToolLevelFunction(@)",
     header: "IGESAppli_ToolLevelFunction.hxx".}
-proc readOwnParams*(this: IGESAppliToolLevelFunction;
-                   ent: Handle[IGESAppliLevelFunction];
-                   ir: Handle[IGESDataIGESReaderData]; pr: var IGESDataParamReader) {.
-    noSideEffect, importcpp: "ReadOwnParams",
-    header: "IGESAppli_ToolLevelFunction.hxx".}
-proc writeOwnParams*(this: IGESAppliToolLevelFunction;
-                    ent: Handle[IGESAppliLevelFunction];
-                    iw: var IGESDataIGESWriter) {.noSideEffect,
+proc ReadOwnParams*(this: IGESAppli_ToolLevelFunction;
+                   ent: handle[IGESAppli_LevelFunction];
+                   IR: handle[IGESData_IGESReaderData];
+                   PR: var IGESData_ParamReader) {.noSideEffect,
+    importcpp: "ReadOwnParams", header: "IGESAppli_ToolLevelFunction.hxx".}
+proc WriteOwnParams*(this: IGESAppli_ToolLevelFunction;
+                    ent: handle[IGESAppli_LevelFunction];
+                    IW: var IGESData_IGESWriter) {.noSideEffect,
     importcpp: "WriteOwnParams", header: "IGESAppli_ToolLevelFunction.hxx".}
-proc ownShared*(this: IGESAppliToolLevelFunction;
-               ent: Handle[IGESAppliLevelFunction];
-               iter: var InterfaceEntityIterator) {.noSideEffect,
+proc OwnShared*(this: IGESAppli_ToolLevelFunction;
+               ent: handle[IGESAppli_LevelFunction];
+               iter: var Interface_EntityIterator) {.noSideEffect,
     importcpp: "OwnShared", header: "IGESAppli_ToolLevelFunction.hxx".}
-proc ownCorrect*(this: IGESAppliToolLevelFunction;
-                ent: Handle[IGESAppliLevelFunction]): StandardBoolean {.
+proc OwnCorrect*(this: IGESAppli_ToolLevelFunction;
+                ent: handle[IGESAppli_LevelFunction]): Standard_Boolean {.
     noSideEffect, importcpp: "OwnCorrect",
     header: "IGESAppli_ToolLevelFunction.hxx".}
-proc dirChecker*(this: IGESAppliToolLevelFunction;
-                ent: Handle[IGESAppliLevelFunction]): IGESDataDirChecker {.
+proc DirChecker*(this: IGESAppli_ToolLevelFunction;
+                ent: handle[IGESAppli_LevelFunction]): IGESData_DirChecker {.
     noSideEffect, importcpp: "DirChecker",
     header: "IGESAppli_ToolLevelFunction.hxx".}
-proc ownCheck*(this: IGESAppliToolLevelFunction;
-              ent: Handle[IGESAppliLevelFunction]; shares: InterfaceShareTool;
-              ach: var Handle[InterfaceCheck]) {.noSideEffect,
+proc OwnCheck*(this: IGESAppli_ToolLevelFunction;
+              ent: handle[IGESAppli_LevelFunction]; shares: Interface_ShareTool;
+              ach: var handle[Interface_Check]) {.noSideEffect,
     importcpp: "OwnCheck", header: "IGESAppli_ToolLevelFunction.hxx".}
-proc ownCopy*(this: IGESAppliToolLevelFunction;
-             entfrom: Handle[IGESAppliLevelFunction];
-             entto: Handle[IGESAppliLevelFunction]; tc: var InterfaceCopyTool) {.
+proc OwnCopy*(this: IGESAppli_ToolLevelFunction;
+             entfrom: handle[IGESAppli_LevelFunction];
+             entto: handle[IGESAppli_LevelFunction]; TC: var Interface_CopyTool) {.
     noSideEffect, importcpp: "OwnCopy", header: "IGESAppli_ToolLevelFunction.hxx".}
-proc ownDump*(this: IGESAppliToolLevelFunction;
-             ent: Handle[IGESAppliLevelFunction]; dumper: IGESDataIGESDumper;
-             s: var StandardOStream; own: StandardInteger) {.noSideEffect,
+proc OwnDump*(this: IGESAppli_ToolLevelFunction;
+             ent: handle[IGESAppli_LevelFunction]; dumper: IGESData_IGESDumper;
+             S: var Standard_OStream; own: Standard_Integer) {.noSideEffect,
     importcpp: "OwnDump", header: "IGESAppli_ToolLevelFunction.hxx".}
-

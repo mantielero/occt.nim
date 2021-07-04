@@ -14,6 +14,14 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Integer,
+  ../TColStd/TColStd_Array1OfTransient, ../TColStd/TColStd_Array1OfAsciiString,
+  ../TColStd/TColStd_Array1OfInteger, ../Standard/Standard_Transient,
+  ../Standard/Standard_CString, IFSelect_EditValue, ../Standard/Standard_Boolean,
+  ../TColStd/TColStd_HSequenceOfHAsciiString,
+  ../TCollection/TCollection_AsciiString, ../NCollection/NCollection_DataMap
+
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of Interface_TypedValue"
 discard "forward decl of IFSelect_EditForm"
@@ -24,7 +32,7 @@ discard "forward decl of Interface_InterfaceModel"
 discard "forward decl of IFSelect_Editor"
 discard "forward decl of IFSelect_Editor"
 type
-  HandleIFSelectEditor* = Handle[IFSelectEditor]
+  Handle_IFSelect_Editor* = handle[IFSelect_Editor]
 
 ## ! An Editor defines a set of values and a way to edit them, on
 ## ! an entity or on the model (e.g. on its header)
@@ -34,83 +42,84 @@ type
 ## ! and an edit mode
 
 type
-  IFSelectEditor* {.importcpp: "IFSelect_Editor", header: "IFSelect_Editor.hxx",
-                   bycopy.} = object of StandardTransient ## ! Sets a Typed Value for a given ident and short name, with an
-                                                     ## ! Edit Mode
-                                                     ## ! Prepares the list of Typed Values (gives its count)
-                                                     ## ! This count can be tuned later, to a LOWER value, this allows
-                                                     ## ! to initialize with a "maximum reservation" then cut the extra
+  IFSelect_Editor* {.importcpp: "IFSelect_Editor", header: "IFSelect_Editor.hxx",
+                    bycopy.} = object of Standard_Transient ## ! Sets a Typed Value for a given ident and short name, with an
+                                                       ## ! Edit Mode
+                                                       ## ! Prepares the list of Typed Values (gives its count)
+                                                       ## ! This count can be tuned later, to a LOWER value, this allows
+                                                       ## ! to initialize with a "maximum reservation" then cut the extra
 
 
-proc setValue*(this: var IFSelectEditor; num: StandardInteger;
-              typval: Handle[InterfaceTypedValue];
-              shortname: StandardCString = "";
-              accessmode: IFSelectEditValue = iFSelectEditable) {.
+proc SetValue*(this: var IFSelect_Editor; num: Standard_Integer;
+              typval: handle[Interface_TypedValue];
+              shortname: Standard_CString = "";
+              accessmode: IFSelect_EditValue = IFSelect_Editable) {.
     importcpp: "SetValue", header: "IFSelect_Editor.hxx".}
-proc setList*(this: var IFSelectEditor; num: StandardInteger; max: StandardInteger = 0) {.
-    importcpp: "SetList", header: "IFSelect_Editor.hxx".}
-proc nbValues*(this: IFSelectEditor): StandardInteger {.noSideEffect,
+proc SetList*(this: var IFSelect_Editor; num: Standard_Integer;
+             max: Standard_Integer = 0) {.importcpp: "SetList",
+                                      header: "IFSelect_Editor.hxx".}
+proc NbValues*(this: IFSelect_Editor): Standard_Integer {.noSideEffect,
     importcpp: "NbValues", header: "IFSelect_Editor.hxx".}
-proc typedValue*(this: IFSelectEditor; num: StandardInteger): Handle[
-    InterfaceTypedValue] {.noSideEffect, importcpp: "TypedValue",
-                          header: "IFSelect_Editor.hxx".}
-proc isList*(this: IFSelectEditor; num: StandardInteger): StandardBoolean {.
+proc TypedValue*(this: IFSelect_Editor; num: Standard_Integer): handle[
+    Interface_TypedValue] {.noSideEffect, importcpp: "TypedValue",
+                           header: "IFSelect_Editor.hxx".}
+proc IsList*(this: IFSelect_Editor; num: Standard_Integer): Standard_Boolean {.
     noSideEffect, importcpp: "IsList", header: "IFSelect_Editor.hxx".}
-proc maxList*(this: IFSelectEditor; num: StandardInteger): StandardInteger {.
+proc MaxList*(this: IFSelect_Editor; num: Standard_Integer): Standard_Integer {.
     noSideEffect, importcpp: "MaxList", header: "IFSelect_Editor.hxx".}
-proc name*(this: IFSelectEditor; num: StandardInteger;
-          isshort: StandardBoolean = standardFalse): StandardCString {.noSideEffect,
-    importcpp: "Name", header: "IFSelect_Editor.hxx".}
-proc editMode*(this: IFSelectEditor; num: StandardInteger): IFSelectEditValue {.
+proc Name*(this: IFSelect_Editor; num: Standard_Integer;
+          isshort: Standard_Boolean = Standard_False): Standard_CString {.
+    noSideEffect, importcpp: "Name", header: "IFSelect_Editor.hxx".}
+proc EditMode*(this: IFSelect_Editor; num: Standard_Integer): IFSelect_EditValue {.
     noSideEffect, importcpp: "EditMode", header: "IFSelect_Editor.hxx".}
-proc nameNumber*(this: IFSelectEditor; name: StandardCString): StandardInteger {.
+proc NameNumber*(this: IFSelect_Editor; name: Standard_CString): Standard_Integer {.
     noSideEffect, importcpp: "NameNumber", header: "IFSelect_Editor.hxx".}
-proc printNames*(this: IFSelectEditor; s: var StandardOStream) {.noSideEffect,
+proc PrintNames*(this: IFSelect_Editor; S: var Standard_OStream) {.noSideEffect,
     importcpp: "PrintNames", header: "IFSelect_Editor.hxx".}
-proc printDefs*(this: IFSelectEditor; s: var StandardOStream;
-               labels: StandardBoolean = standardFalse) {.noSideEffect,
+proc PrintDefs*(this: IFSelect_Editor; S: var Standard_OStream;
+               labels: Standard_Boolean = Standard_False) {.noSideEffect,
     importcpp: "PrintDefs", header: "IFSelect_Editor.hxx".}
-proc maxNameLength*(this: IFSelectEditor; what: StandardInteger): StandardInteger {.
+proc MaxNameLength*(this: IFSelect_Editor; what: Standard_Integer): Standard_Integer {.
     noSideEffect, importcpp: "MaxNameLength", header: "IFSelect_Editor.hxx".}
-proc label*(this: IFSelectEditor): TCollectionAsciiString {.noSideEffect,
+proc Label*(this: IFSelect_Editor): TCollection_AsciiString {.noSideEffect,
     importcpp: "Label", header: "IFSelect_Editor.hxx".}
-proc form*(this: IFSelectEditor; readonly: StandardBoolean;
-          undoable: StandardBoolean = standardTrue): Handle[IFSelectEditForm] {.
+proc Form*(this: IFSelect_Editor; readonly: Standard_Boolean;
+          undoable: Standard_Boolean = Standard_True): handle[IFSelect_EditForm] {.
     noSideEffect, importcpp: "Form", header: "IFSelect_Editor.hxx".}
-proc recognize*(this: IFSelectEditor; form: Handle[IFSelectEditForm]): StandardBoolean {.
+proc Recognize*(this: IFSelect_Editor; form: handle[IFSelect_EditForm]): Standard_Boolean {.
     noSideEffect, importcpp: "Recognize", header: "IFSelect_Editor.hxx".}
-proc stringValue*(this: IFSelectEditor; form: Handle[IFSelectEditForm];
-                 num: StandardInteger): Handle[TCollectionHAsciiString] {.
+proc StringValue*(this: IFSelect_Editor; form: handle[IFSelect_EditForm];
+                 num: Standard_Integer): handle[TCollection_HAsciiString] {.
     noSideEffect, importcpp: "StringValue", header: "IFSelect_Editor.hxx".}
-proc listEditor*(this: IFSelectEditor; num: StandardInteger): Handle[
-    IFSelectListEditor] {.noSideEffect, importcpp: "ListEditor",
-                         header: "IFSelect_Editor.hxx".}
-proc listValue*(this: IFSelectEditor; form: Handle[IFSelectEditForm];
-               num: StandardInteger): Handle[TColStdHSequenceOfHAsciiString] {.
+proc ListEditor*(this: IFSelect_Editor; num: Standard_Integer): handle[
+    IFSelect_ListEditor] {.noSideEffect, importcpp: "ListEditor",
+                          header: "IFSelect_Editor.hxx".}
+proc ListValue*(this: IFSelect_Editor; form: handle[IFSelect_EditForm];
+               num: Standard_Integer): handle[TColStd_HSequenceOfHAsciiString] {.
     noSideEffect, importcpp: "ListValue", header: "IFSelect_Editor.hxx".}
-proc load*(this: IFSelectEditor; form: Handle[IFSelectEditForm];
-          ent: Handle[StandardTransient]; model: Handle[InterfaceInterfaceModel]): StandardBoolean {.
+proc Load*(this: IFSelect_Editor; form: handle[IFSelect_EditForm];
+          ent: handle[Standard_Transient]; model: handle[Interface_InterfaceModel]): Standard_Boolean {.
     noSideEffect, importcpp: "Load", header: "IFSelect_Editor.hxx".}
-proc update*(this: IFSelectEditor; form: Handle[IFSelectEditForm];
-            num: StandardInteger; newval: Handle[TCollectionHAsciiString];
-            enforce: StandardBoolean): StandardBoolean {.noSideEffect,
+proc Update*(this: IFSelect_Editor; form: handle[IFSelect_EditForm];
+            num: Standard_Integer; newval: handle[TCollection_HAsciiString];
+            enforce: Standard_Boolean): Standard_Boolean {.noSideEffect,
     importcpp: "Update", header: "IFSelect_Editor.hxx".}
-proc updateList*(this: IFSelectEditor; form: Handle[IFSelectEditForm];
-                num: StandardInteger;
-                newlist: Handle[TColStdHSequenceOfHAsciiString];
-                enforce: StandardBoolean): StandardBoolean {.noSideEffect,
+proc UpdateList*(this: IFSelect_Editor; form: handle[IFSelect_EditForm];
+                num: Standard_Integer;
+                newlist: handle[TColStd_HSequenceOfHAsciiString];
+                enforce: Standard_Boolean): Standard_Boolean {.noSideEffect,
     importcpp: "UpdateList", header: "IFSelect_Editor.hxx".}
-proc apply*(this: IFSelectEditor; form: Handle[IFSelectEditForm];
-           ent: Handle[StandardTransient]; model: Handle[InterfaceInterfaceModel]): StandardBoolean {.
+proc Apply*(this: IFSelect_Editor; form: handle[IFSelect_EditForm];
+           ent: handle[Standard_Transient];
+           model: handle[Interface_InterfaceModel]): Standard_Boolean {.
     noSideEffect, importcpp: "Apply", header: "IFSelect_Editor.hxx".}
 type
-  IFSelectEditorbaseType* = StandardTransient
+  IFSelect_Editorbase_type* = Standard_Transient
 
-proc getTypeName*(): cstring {.importcpp: "IFSelect_Editor::get_type_name(@)",
-                            header: "IFSelect_Editor.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "IFSelect_Editor::get_type_name(@)",
+                              header: "IFSelect_Editor.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "IFSelect_Editor::get_type_descriptor(@)",
     header: "IFSelect_Editor.hxx".}
-proc dynamicType*(this: IFSelectEditor): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: IFSelect_Editor): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "IFSelect_Editor.hxx".}
-

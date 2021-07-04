@@ -11,17 +11,19 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  Aspect_TrackedDevicePose, ../Standard/Standard_TypeDef
+
 ## ! Pose input XR action data.
 
 type
-  AspectXRPoseActionData* {.importcpp: "Aspect_XRPoseActionData",
-                           header: "Aspect_XRPoseActionData.hxx", bycopy.} = object
-    pose* {.importc: "Pose".}: AspectTrackedDevicePose ## !< pose state
-    activeOrigin* {.importc: "ActiveOrigin".}: uint64T ## !< The origin that caused this action's current state
-    isActive* {.importc: "IsActive".}: bool ## !< whether or not this action is currently available to be bound in the active action set
+  Aspect_XRPoseActionData* {.importcpp: "Aspect_XRPoseActionData",
+                            header: "Aspect_XRPoseActionData.hxx", bycopy.} = object
+    Pose* {.importc: "Pose".}: Aspect_TrackedDevicePose ## !< pose state
+    ActiveOrigin* {.importc: "ActiveOrigin".}: uint64_t ## !< The origin that caused this action's current state
+    IsActive* {.importc: "IsActive".}: bool ## !< whether or not this action is currently available to be bound in the active action set
                                         ## ! Empty constructor.
 
 
-proc constructAspectXRPoseActionData*(): AspectXRPoseActionData {.constructor,
+proc constructAspect_XRPoseActionData*(): Aspect_XRPoseActionData {.constructor,
     importcpp: "Aspect_XRPoseActionData(@)", header: "Aspect_XRPoseActionData.hxx".}
-

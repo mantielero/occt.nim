@@ -14,50 +14,54 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type,
+  ../IGESData/IGESData_SpecificModule, ../Standard/Standard_Integer,
+  ../Standard/Standard_Boolean
+
 discard "forward decl of IGESData_IGESEntity"
 discard "forward decl of IGESData_IGESDumper"
 discard "forward decl of IGESAppli_SpecificModule"
 discard "forward decl of IGESAppli_SpecificModule"
 type
-  HandleIGESAppliSpecificModule* = Handle[IGESAppliSpecificModule]
+  Handle_IGESAppli_SpecificModule* = handle[IGESAppli_SpecificModule]
 
 ## ! Defines Services attached to IGES Entities :
 ## ! Dump & OwnCorrect, for IGESAppli
 
 type
-  IGESAppliSpecificModule* {.importcpp: "IGESAppli_SpecificModule",
-                            header: "IGESAppli_SpecificModule.hxx", bycopy.} = object of IGESDataSpecificModule ##
-                                                                                                         ## !
-                                                                                                         ## Creates
-                                                                                                         ## a
-                                                                                                         ## SpecificModule
-                                                                                                         ## from
-                                                                                                         ## IGESAppli
-                                                                                                         ## &
-                                                                                                         ## puts
-                                                                                                         ## it
-                                                                                                         ## into
-                                                                                                         ## SpecificLib
+  IGESAppli_SpecificModule* {.importcpp: "IGESAppli_SpecificModule",
+                             header: "IGESAppli_SpecificModule.hxx", bycopy.} = object of IGESData_SpecificModule ##
+                                                                                                           ## !
+                                                                                                           ## Creates
+                                                                                                           ## a
+                                                                                                           ## SpecificModule
+                                                                                                           ## from
+                                                                                                           ## IGESAppli
+                                                                                                           ## &
+                                                                                                           ## puts
+                                                                                                           ## it
+                                                                                                           ## into
+                                                                                                           ## SpecificLib
 
 
-proc constructIGESAppliSpecificModule*(): IGESAppliSpecificModule {.constructor,
+proc constructIGESAppli_SpecificModule*(): IGESAppli_SpecificModule {.constructor,
     importcpp: "IGESAppli_SpecificModule(@)",
     header: "IGESAppli_SpecificModule.hxx".}
-proc ownDump*(this: IGESAppliSpecificModule; cn: StandardInteger;
-             ent: Handle[IGESDataIGESEntity]; dumper: IGESDataIGESDumper;
-             s: var StandardOStream; own: StandardInteger) {.noSideEffect,
+proc OwnDump*(this: IGESAppli_SpecificModule; CN: Standard_Integer;
+             ent: handle[IGESData_IGESEntity]; dumper: IGESData_IGESDumper;
+             S: var Standard_OStream; own: Standard_Integer) {.noSideEffect,
     importcpp: "OwnDump", header: "IGESAppli_SpecificModule.hxx".}
-proc ownCorrect*(this: IGESAppliSpecificModule; cn: StandardInteger;
-                ent: Handle[IGESDataIGESEntity]): StandardBoolean {.noSideEffect,
+proc OwnCorrect*(this: IGESAppli_SpecificModule; CN: Standard_Integer;
+                ent: handle[IGESData_IGESEntity]): Standard_Boolean {.noSideEffect,
     importcpp: "OwnCorrect", header: "IGESAppli_SpecificModule.hxx".}
 type
-  IGESAppliSpecificModulebaseType* = IGESDataSpecificModule
+  IGESAppli_SpecificModulebase_type* = IGESData_SpecificModule
 
-proc getTypeName*(): cstring {.importcpp: "IGESAppli_SpecificModule::get_type_name(@)",
-                            header: "IGESAppli_SpecificModule.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "IGESAppli_SpecificModule::get_type_name(@)",
+                              header: "IGESAppli_SpecificModule.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "IGESAppli_SpecificModule::get_type_descriptor(@)",
     header: "IGESAppli_SpecificModule.hxx".}
-proc dynamicType*(this: IGESAppliSpecificModule): Handle[StandardType] {.
+proc DynamicType*(this: IGESAppli_SpecificModule): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType", header: "IGESAppli_SpecificModule.hxx".}
-

@@ -14,28 +14,31 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepShape_TopologicalRepresentationItem"
 discard "forward decl of StepData_StepWriter"
 type
-  RWStepShapeRWTopologicalRepresentationItem* {.
+  RWStepShape_RWTopologicalRepresentationItem* {.
       importcpp: "RWStepShape_RWTopologicalRepresentationItem",
       header: "RWStepShape_RWTopologicalRepresentationItem.hxx", bycopy.} = object
 
 
-proc constructRWStepShapeRWTopologicalRepresentationItem*(): RWStepShapeRWTopologicalRepresentationItem {.
+proc constructRWStepShape_RWTopologicalRepresentationItem*(): RWStepShape_RWTopologicalRepresentationItem {.
     constructor, importcpp: "RWStepShape_RWTopologicalRepresentationItem(@)",
     header: "RWStepShape_RWTopologicalRepresentationItem.hxx".}
-proc readStep*(this: RWStepShapeRWTopologicalRepresentationItem;
-              data: Handle[StepDataStepReaderData]; num: StandardInteger;
-              ach: var Handle[InterfaceCheck];
-              ent: Handle[StepShapeTopologicalRepresentationItem]) {.noSideEffect,
-    importcpp: "ReadStep",
+proc ReadStep*(this: RWStepShape_RWTopologicalRepresentationItem;
+              data: handle[StepData_StepReaderData]; num: Standard_Integer;
+              ach: var handle[Interface_Check];
+              ent: handle[StepShape_TopologicalRepresentationItem]) {.
+    noSideEffect, importcpp: "ReadStep",
     header: "RWStepShape_RWTopologicalRepresentationItem.hxx".}
-proc writeStep*(this: RWStepShapeRWTopologicalRepresentationItem;
-               sw: var StepDataStepWriter;
-               ent: Handle[StepShapeTopologicalRepresentationItem]) {.
+proc WriteStep*(this: RWStepShape_RWTopologicalRepresentationItem;
+               SW: var StepData_StepWriter;
+               ent: handle[StepShape_TopologicalRepresentationItem]) {.
     noSideEffect, importcpp: "WriteStep",
     header: "RWStepShape_RWTopologicalRepresentationItem.hxx".}
-

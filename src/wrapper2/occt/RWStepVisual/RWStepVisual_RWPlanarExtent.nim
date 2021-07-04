@@ -14,23 +14,27 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepVisual_PlanarExtent"
 discard "forward decl of StepData_StepWriter"
 type
-  RWStepVisualRWPlanarExtent* {.importcpp: "RWStepVisual_RWPlanarExtent",
-                               header: "RWStepVisual_RWPlanarExtent.hxx", bycopy.} = object
+  RWStepVisual_RWPlanarExtent* {.importcpp: "RWStepVisual_RWPlanarExtent",
+                                header: "RWStepVisual_RWPlanarExtent.hxx", bycopy.} = object
 
 
-proc constructRWStepVisualRWPlanarExtent*(): RWStepVisualRWPlanarExtent {.
+proc constructRWStepVisual_RWPlanarExtent*(): RWStepVisual_RWPlanarExtent {.
     constructor, importcpp: "RWStepVisual_RWPlanarExtent(@)",
     header: "RWStepVisual_RWPlanarExtent.hxx".}
-proc readStep*(this: RWStepVisualRWPlanarExtent;
-              data: Handle[StepDataStepReaderData]; num: StandardInteger;
-              ach: var Handle[InterfaceCheck]; ent: Handle[StepVisualPlanarExtent]) {.
-    noSideEffect, importcpp: "ReadStep", header: "RWStepVisual_RWPlanarExtent.hxx".}
-proc writeStep*(this: RWStepVisualRWPlanarExtent; sw: var StepDataStepWriter;
-               ent: Handle[StepVisualPlanarExtent]) {.noSideEffect,
+proc ReadStep*(this: RWStepVisual_RWPlanarExtent;
+              data: handle[StepData_StepReaderData]; num: Standard_Integer;
+              ach: var handle[Interface_Check];
+              ent: handle[StepVisual_PlanarExtent]) {.noSideEffect,
+    importcpp: "ReadStep", header: "RWStepVisual_RWPlanarExtent.hxx".}
+proc WriteStep*(this: RWStepVisual_RWPlanarExtent; SW: var StepData_StepWriter;
+               ent: handle[StepVisual_PlanarExtent]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepVisual_RWPlanarExtent.hxx".}
-

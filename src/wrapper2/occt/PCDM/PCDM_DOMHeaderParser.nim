@@ -13,6 +13,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../LDOMParser/LDOMParser
+
 ##   Block of comments describing class PCDM_DOMHeaderParser
 
 type
@@ -21,16 +24,15 @@ type
                                                                                       ##  ---------- PRIVATE FIELDS ----------
 
 
-proc setStartElementName*(this: var PCDM_DOMHeaderParser;
-                         aStartElementName: TCollectionAsciiString) {.
+proc SetStartElementName*(this: var PCDM_DOMHeaderParser;
+                         aStartElementName: TCollection_AsciiString) {.
     importcpp: "SetStartElementName", header: "PCDM_DOMHeaderParser.hxx".}
-proc setEndElementName*(this: var PCDM_DOMHeaderParser;
-                       anEndElementName: TCollectionAsciiString) {.
+proc SetEndElementName*(this: var PCDM_DOMHeaderParser;
+                       anEndElementName: TCollection_AsciiString) {.
     importcpp: "SetEndElementName", header: "PCDM_DOMHeaderParser.hxx".}
-proc startElement*(this: var PCDM_DOMHeaderParser): StandardBoolean {.
+proc startElement*(this: var PCDM_DOMHeaderParser): Standard_Boolean {.
     importcpp: "startElement", header: "PCDM_DOMHeaderParser.hxx".}
-proc endElement*(this: var PCDM_DOMHeaderParser): StandardBoolean {.
+proc endElement*(this: var PCDM_DOMHeaderParser): Standard_Boolean {.
     importcpp: "endElement", header: "PCDM_DOMHeaderParser.hxx".}
-proc getElement*(this: PCDM_DOMHeaderParser): LDOM_Element {.noSideEffect,
+proc GetElement*(this: PCDM_DOMHeaderParser): LDOM_Element {.noSideEffect,
     importcpp: "GetElement", header: "PCDM_DOMHeaderParser.hxx".}
-

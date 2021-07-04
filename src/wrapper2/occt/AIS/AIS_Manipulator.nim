@@ -13,11 +13,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _AIS_Manipulator_HeaderFile [NewLine] # _AIS_Manipulator_HeaderFile [NewLine] # < AIS_InteractiveObject . hxx > [NewLine] # < AIS_ManipulatorMode . hxx > [NewLine] # < gp . hxx > [NewLine] # < gp_Ax1 . hxx > [NewLine] # < gp_Dir . hxx > [NewLine] # < gp_Pnt . hxx > [NewLine] # < Graphic3d_ArrayOfQuadrangles . hxx > [NewLine] # < Graphic3d_ArrayOfTriangles . hxx > [NewLine] # < Graphic3d_Group . hxx > [NewLine] # < NCollection_HSequence . hxx > [NewLine] # < Poly_Triangulation . hxx > [NewLine] # < V3d_View . hxx > [NewLine] # < Standard_Version . hxx > [NewLine] # < Standard_DefineHandle . hxx > [NewLine] NCOLLECTION_HSEQUENCE ( AIS_ManipulatorObjectSequence , opencascade :: handle < AIS_InteractiveObject > [end of template] ) class AIS_Manipulator ;
+## !!!Ignored construct:  # _AIS_Manipulator_HeaderFile [NewLine] # _AIS_Manipulator_HeaderFile [NewLine] # AIS_InteractiveObject.hxx [NewLine] # AIS_ManipulatorMode.hxx [NewLine] # ../gp/gp.hxx [NewLine] # ../gp/gp_Ax1.hxx [NewLine] # ../gp/gp_Dir.hxx [NewLine] # ../gp/gp_Pnt.hxx [NewLine] # ../Graphic3d/Graphic3d_ArrayOfQuadrangles.hxx [NewLine] # ../Graphic3d/Graphic3d_ArrayOfTriangles.hxx [NewLine] # ../Graphic3d/Graphic3d_Group.hxx [NewLine] # ../NCollection/NCollection_HSequence.hxx [NewLine] # ../Poly/Poly_Triangulation.hxx [NewLine] # ../V3d/V3d_View.hxx [NewLine] # ../Standard/Standard_Version.hxx [NewLine] # ../Standard/Standard_DefineHandle.hxx [NewLine] NCOLLECTION_HSEQUENCE ( AIS_ManipulatorObjectSequence , opencascade :: handle < AIS_InteractiveObject > [end of template] ) class AIS_Manipulator ;
 ## Error: expected ';'!!!
 
 type
-  HandleAIS_ManipulatorAIS_Manipulator* = Handle[AIS_Manipulator]
+  Handle_AIS_ManipulatorAIS_Manipulator* = handle[AIS_Manipulator]
 
 ## ! Interactive object class to manipulate local transformation of another interactive
 ## ! object or a group of objects via mouse.
@@ -124,170 +124,169 @@ type
 
 proc constructAIS_Manipulator*(): AIS_Manipulator {.constructor,
     importcpp: "AIS_Manipulator(@)", header: "AIS_Manipulator.hxx".}
-proc constructAIS_Manipulator*(thePosition: GpAx2): AIS_Manipulator {.constructor,
+proc constructAIS_Manipulator*(thePosition: gp_Ax2): AIS_Manipulator {.constructor,
     importcpp: "AIS_Manipulator(@)", header: "AIS_Manipulator.hxx".}
-proc setPart*(this: var AIS_Manipulator; theAxisIndex: StandardInteger;
-             theMode: AIS_ManipulatorMode; theIsEnabled: StandardBoolean) {.
+proc SetPart*(this: var AIS_Manipulator; theAxisIndex: Standard_Integer;
+             theMode: AIS_ManipulatorMode; theIsEnabled: Standard_Boolean) {.
     importcpp: "SetPart", header: "AIS_Manipulator.hxx".}
-proc setPart*(this: var AIS_Manipulator; theMode: AIS_ManipulatorMode;
-             theIsEnabled: StandardBoolean) {.importcpp: "SetPart",
+proc SetPart*(this: var AIS_Manipulator; theMode: AIS_ManipulatorMode;
+             theIsEnabled: Standard_Boolean) {.importcpp: "SetPart",
     header: "AIS_Manipulator.hxx".}
 type
   AIS_ManipulatorOptionsForAttach* {.importcpp: "AIS_Manipulator::OptionsForAttach",
                                     header: "AIS_Manipulator.hxx", bycopy.} = object
-    adjustPosition* {.importc: "AdjustPosition".}: StandardBoolean
-    adjustSize* {.importc: "AdjustSize".}: StandardBoolean
-    enableModes* {.importc: "EnableModes".}: StandardBoolean
+    AdjustPosition* {.importc: "AdjustPosition".}: Standard_Boolean
+    AdjustSize* {.importc: "AdjustSize".}: Standard_Boolean
+    EnableModes* {.importc: "EnableModes".}: Standard_Boolean
 
 
 proc constructAIS_ManipulatorOptionsForAttach*(): AIS_ManipulatorOptionsForAttach {.
     constructor, importcpp: "AIS_Manipulator::OptionsForAttach(@)",
     header: "AIS_Manipulator.hxx".}
-proc setAdjustPosition*(this: var AIS_ManipulatorOptionsForAttach;
-                       theApply: StandardBoolean): var AIS_ManipulatorOptionsForAttach {.
+proc SetAdjustPosition*(this: var AIS_ManipulatorOptionsForAttach;
+                       theApply: Standard_Boolean): var AIS_ManipulatorOptionsForAttach {.
     importcpp: "SetAdjustPosition", header: "AIS_Manipulator.hxx".}
-proc setAdjustSize*(this: var AIS_ManipulatorOptionsForAttach;
-                   theApply: StandardBoolean): var AIS_ManipulatorOptionsForAttach {.
+proc SetAdjustSize*(this: var AIS_ManipulatorOptionsForAttach;
+                   theApply: Standard_Boolean): var AIS_ManipulatorOptionsForAttach {.
     importcpp: "SetAdjustSize", header: "AIS_Manipulator.hxx".}
-proc setEnableModes*(this: var AIS_ManipulatorOptionsForAttach;
-                    theApply: StandardBoolean): var AIS_ManipulatorOptionsForAttach {.
+proc SetEnableModes*(this: var AIS_ManipulatorOptionsForAttach;
+                    theApply: Standard_Boolean): var AIS_ManipulatorOptionsForAttach {.
     importcpp: "SetEnableModes", header: "AIS_Manipulator.hxx".}
-proc attach*(this: var AIS_Manipulator; theObject: Handle[AIS_InteractiveObject];
+proc Attach*(this: var AIS_Manipulator; theObject: handle[AIS_InteractiveObject];
     theOptions: AIS_ManipulatorOptionsForAttach = constructOptionsForAttach()) {.
     importcpp: "Attach", header: "AIS_Manipulator.hxx".}
-proc attach*(this: var AIS_Manipulator;
-            theObject: Handle[AIS_ManipulatorObjectSequence]; theOptions: AIS_ManipulatorOptionsForAttach = constructOptionsForAttach()) {.
+proc Attach*(this: var AIS_Manipulator;
+            theObject: handle[AIS_ManipulatorObjectSequence]; theOptions: AIS_ManipulatorOptionsForAttach = constructOptionsForAttach()) {.
     importcpp: "Attach", header: "AIS_Manipulator.hxx".}
-proc enableMode*(this: var AIS_Manipulator; theMode: AIS_ManipulatorMode) {.
+proc EnableMode*(this: var AIS_Manipulator; theMode: AIS_ManipulatorMode) {.
     importcpp: "EnableMode", header: "AIS_Manipulator.hxx".}
-proc setModeActivationOnDetection*(this: var AIS_Manipulator;
-                                  theToEnable: StandardBoolean) {.
+proc SetModeActivationOnDetection*(this: var AIS_Manipulator;
+                                  theToEnable: Standard_Boolean) {.
     importcpp: "SetModeActivationOnDetection", header: "AIS_Manipulator.hxx".}
-proc isModeActivationOnDetection*(this: AIS_Manipulator): StandardBoolean {.
+proc IsModeActivationOnDetection*(this: AIS_Manipulator): Standard_Boolean {.
     noSideEffect, importcpp: "IsModeActivationOnDetection",
     header: "AIS_Manipulator.hxx".}
-proc processDragging*(this: var AIS_Manipulator;
-                     theCtx: Handle[AIS_InteractiveContext];
-                     theView: Handle[V3dView];
-                     theOwner: Handle[SelectMgrEntityOwner];
-                     theDragFrom: Graphic3dVec2i; theDragTo: Graphic3dVec2i;
-                     theAction: AIS_DragAction): StandardBoolean {.
+proc ProcessDragging*(this: var AIS_Manipulator;
+                     theCtx: handle[AIS_InteractiveContext];
+                     theView: handle[V3d_View];
+                     theOwner: handle[SelectMgr_EntityOwner];
+                     theDragFrom: Graphic3d_Vec2i; theDragTo: Graphic3d_Vec2i;
+                     theAction: AIS_DragAction): Standard_Boolean {.
     importcpp: "ProcessDragging", header: "AIS_Manipulator.hxx".}
-proc startTransform*(this: var AIS_Manipulator; theX: StandardInteger;
-                    theY: StandardInteger; theView: Handle[V3dView]) {.
+proc StartTransform*(this: var AIS_Manipulator; theX: Standard_Integer;
+                    theY: Standard_Integer; theView: handle[V3d_View]) {.
     importcpp: "StartTransform", header: "AIS_Manipulator.hxx".}
-proc transform*(this: var AIS_Manipulator; aTrsf: GpTrsf) {.importcpp: "Transform",
+proc Transform*(this: var AIS_Manipulator; aTrsf: gp_Trsf) {.importcpp: "Transform",
     header: "AIS_Manipulator.hxx".}
-proc stopTransform*(this: var AIS_Manipulator;
-                   theToApply: StandardBoolean = standardTrue) {.
+proc StopTransform*(this: var AIS_Manipulator;
+                   theToApply: Standard_Boolean = Standard_True) {.
     importcpp: "StopTransform", header: "AIS_Manipulator.hxx".}
-proc transform*(this: var AIS_Manipulator; theX: StandardInteger;
-               theY: StandardInteger; theView: Handle[V3dView]): GpTrsf {.
+proc Transform*(this: var AIS_Manipulator; theX: Standard_Integer;
+               theY: Standard_Integer; theView: handle[V3d_View]): gp_Trsf {.
     importcpp: "Transform", header: "AIS_Manipulator.hxx".}
-proc objectTransformation*(this: var AIS_Manipulator; theX: StandardInteger;
-                          theY: StandardInteger; theView: Handle[V3dView];
-                          theTrsf: var GpTrsf): StandardBoolean {.
+proc ObjectTransformation*(this: var AIS_Manipulator; theX: Standard_Integer;
+                          theY: Standard_Integer; theView: handle[V3d_View];
+                          theTrsf: var gp_Trsf): Standard_Boolean {.
     importcpp: "ObjectTransformation", header: "AIS_Manipulator.hxx".}
-proc deactivateCurrentMode*(this: var AIS_Manipulator) {.
+proc DeactivateCurrentMode*(this: var AIS_Manipulator) {.
     importcpp: "DeactivateCurrentMode", header: "AIS_Manipulator.hxx".}
-proc detach*(this: var AIS_Manipulator) {.importcpp: "Detach",
+proc Detach*(this: var AIS_Manipulator) {.importcpp: "Detach",
                                       header: "AIS_Manipulator.hxx".}
-proc objects*(this: AIS_Manipulator): Handle[AIS_ManipulatorObjectSequence] {.
+proc Objects*(this: AIS_Manipulator): handle[AIS_ManipulatorObjectSequence] {.
     noSideEffect, importcpp: "Objects", header: "AIS_Manipulator.hxx".}
-proc `object`*(this: AIS_Manipulator): Handle[AIS_InteractiveObject] {.noSideEffect,
+proc Object*(this: AIS_Manipulator): handle[AIS_InteractiveObject] {.noSideEffect,
     importcpp: "Object", header: "AIS_Manipulator.hxx".}
-proc `object`*(this: AIS_Manipulator; theIndex: StandardInteger): Handle[
+proc Object*(this: AIS_Manipulator; theIndex: Standard_Integer): handle[
     AIS_InteractiveObject] {.noSideEffect, importcpp: "Object",
                             header: "AIS_Manipulator.hxx".}
-proc isAttached*(this: AIS_Manipulator): StandardBoolean {.noSideEffect,
+proc IsAttached*(this: AIS_Manipulator): Standard_Boolean {.noSideEffect,
     importcpp: "IsAttached", header: "AIS_Manipulator.hxx".}
-proc hasActiveMode*(this: AIS_Manipulator): StandardBoolean {.noSideEffect,
+proc HasActiveMode*(this: AIS_Manipulator): Standard_Boolean {.noSideEffect,
     importcpp: "HasActiveMode", header: "AIS_Manipulator.hxx".}
-proc hasActiveTransformation*(this: var AIS_Manipulator): StandardBoolean {.
+proc HasActiveTransformation*(this: var AIS_Manipulator): Standard_Boolean {.
     importcpp: "HasActiveTransformation", header: "AIS_Manipulator.hxx".}
-proc startTransformation*(this: AIS_Manipulator): GpTrsf {.noSideEffect,
+proc StartTransformation*(this: AIS_Manipulator): gp_Trsf {.noSideEffect,
     importcpp: "StartTransformation", header: "AIS_Manipulator.hxx".}
-proc startTransformation*(this: AIS_Manipulator; theIndex: StandardInteger): GpTrsf {.
+proc StartTransformation*(this: AIS_Manipulator; theIndex: Standard_Integer): gp_Trsf {.
     noSideEffect, importcpp: "StartTransformation", header: "AIS_Manipulator.hxx".}
-proc setZoomPersistence*(this: var AIS_Manipulator; theToEnable: StandardBoolean) {.
+proc SetZoomPersistence*(this: var AIS_Manipulator; theToEnable: Standard_Boolean) {.
     importcpp: "SetZoomPersistence", header: "AIS_Manipulator.hxx".}
-proc zoomPersistence*(this: AIS_Manipulator): StandardBoolean {.noSideEffect,
+proc ZoomPersistence*(this: AIS_Manipulator): Standard_Boolean {.noSideEffect,
     importcpp: "ZoomPersistence", header: "AIS_Manipulator.hxx".}
-proc setTransformPersistence*(this: var AIS_Manipulator;
-                             theTrsfPers: Handle[Graphic3dTransformPers]) {.
+proc SetTransformPersistence*(this: var AIS_Manipulator;
+                             theTrsfPers: handle[Graphic3d_TransformPers]) {.
     importcpp: "SetTransformPersistence", header: "AIS_Manipulator.hxx".}
-proc activeMode*(this: AIS_Manipulator): AIS_ManipulatorMode {.noSideEffect,
+proc ActiveMode*(this: AIS_Manipulator): AIS_ManipulatorMode {.noSideEffect,
     importcpp: "ActiveMode", header: "AIS_Manipulator.hxx".}
-proc activeAxisIndex*(this: AIS_Manipulator): StandardInteger {.noSideEffect,
+proc ActiveAxisIndex*(this: AIS_Manipulator): Standard_Integer {.noSideEffect,
     importcpp: "ActiveAxisIndex", header: "AIS_Manipulator.hxx".}
-proc position*(this: AIS_Manipulator): GpAx2 {.noSideEffect, importcpp: "Position",
+proc Position*(this: AIS_Manipulator): gp_Ax2 {.noSideEffect, importcpp: "Position",
     header: "AIS_Manipulator.hxx".}
-proc setPosition*(this: var AIS_Manipulator; thePosition: GpAx2) {.
+proc SetPosition*(this: var AIS_Manipulator; thePosition: gp_Ax2) {.
     importcpp: "SetPosition", header: "AIS_Manipulator.hxx".}
-proc size*(this: AIS_Manipulator): StandardShortReal {.noSideEffect,
+proc Size*(this: AIS_Manipulator): Standard_ShortReal {.noSideEffect,
     importcpp: "Size", header: "AIS_Manipulator.hxx".}
-proc setSize*(this: var AIS_Manipulator; theSideLength: StandardShortReal) {.
+proc SetSize*(this: var AIS_Manipulator; theSideLength: Standard_ShortReal) {.
     importcpp: "SetSize", header: "AIS_Manipulator.hxx".}
-proc setGap*(this: var AIS_Manipulator; theValue: StandardShortReal) {.
+proc SetGap*(this: var AIS_Manipulator; theValue: Standard_ShortReal) {.
     importcpp: "SetGap", header: "AIS_Manipulator.hxx".}
 type
   AIS_ManipulatorBehaviorOnTransform* {.importcpp: "AIS_Manipulator::BehaviorOnTransform",
                                        header: "AIS_Manipulator.hxx", bycopy.} = object
-    followTranslation* {.importc: "FollowTranslation".}: StandardBoolean
-    followRotation* {.importc: "FollowRotation".}: StandardBoolean
-    followDragging* {.importc: "FollowDragging".}: StandardBoolean
+    FollowTranslation* {.importc: "FollowTranslation".}: Standard_Boolean
+    FollowRotation* {.importc: "FollowRotation".}: Standard_Boolean
+    FollowDragging* {.importc: "FollowDragging".}: Standard_Boolean
 
 
 proc constructAIS_ManipulatorBehaviorOnTransform*(): AIS_ManipulatorBehaviorOnTransform {.
     constructor, importcpp: "AIS_Manipulator::BehaviorOnTransform(@)",
     header: "AIS_Manipulator.hxx".}
-proc setFollowTranslation*(this: var AIS_ManipulatorBehaviorOnTransform;
-                          theApply: StandardBoolean): var AIS_ManipulatorBehaviorOnTransform {.
+proc SetFollowTranslation*(this: var AIS_ManipulatorBehaviorOnTransform;
+                          theApply: Standard_Boolean): var AIS_ManipulatorBehaviorOnTransform {.
     importcpp: "SetFollowTranslation", header: "AIS_Manipulator.hxx".}
-proc setFollowRotation*(this: var AIS_ManipulatorBehaviorOnTransform;
-                       theApply: StandardBoolean): var AIS_ManipulatorBehaviorOnTransform {.
+proc SetFollowRotation*(this: var AIS_ManipulatorBehaviorOnTransform;
+                       theApply: Standard_Boolean): var AIS_ManipulatorBehaviorOnTransform {.
     importcpp: "SetFollowRotation", header: "AIS_Manipulator.hxx".}
-proc setFollowDragging*(this: var AIS_ManipulatorBehaviorOnTransform;
-                       theApply: StandardBoolean): var AIS_ManipulatorBehaviorOnTransform {.
+proc SetFollowDragging*(this: var AIS_ManipulatorBehaviorOnTransform;
+                       theApply: Standard_Boolean): var AIS_ManipulatorBehaviorOnTransform {.
     importcpp: "SetFollowDragging", header: "AIS_Manipulator.hxx".}
-proc setTransformBehavior*(this: var AIS_Manipulator;
+proc SetTransformBehavior*(this: var AIS_Manipulator;
                           theSettings: AIS_ManipulatorBehaviorOnTransform) {.
     importcpp: "SetTransformBehavior", header: "AIS_Manipulator.hxx".}
-proc changeTransformBehavior*(this: var AIS_Manipulator): var AIS_ManipulatorBehaviorOnTransform {.
+proc ChangeTransformBehavior*(this: var AIS_Manipulator): var AIS_ManipulatorBehaviorOnTransform {.
     importcpp: "ChangeTransformBehavior", header: "AIS_Manipulator.hxx".}
-proc transformBehavior*(this: AIS_Manipulator): AIS_ManipulatorBehaviorOnTransform {.
+proc TransformBehavior*(this: AIS_Manipulator): AIS_ManipulatorBehaviorOnTransform {.
     noSideEffect, importcpp: "TransformBehavior", header: "AIS_Manipulator.hxx".}
-proc compute*(this: var AIS_Manipulator;
-             thePrsMgr: Handle[PrsMgrPresentationManager3d];
-             thePrs: Handle[Prs3dPresentation]; theMode: StandardInteger = 0) {.
+proc Compute*(this: var AIS_Manipulator;
+             thePrsMgr: handle[PrsMgr_PresentationManager3d];
+             thePrs: handle[Prs3d_Presentation]; theMode: Standard_Integer = 0) {.
     importcpp: "Compute", header: "AIS_Manipulator.hxx".}
-proc computeSelection*(this: var AIS_Manipulator;
-                      theSelection: Handle[SelectMgrSelection];
-                      theMode: StandardInteger) {.importcpp: "ComputeSelection",
+proc ComputeSelection*(this: var AIS_Manipulator;
+                      theSelection: handle[SelectMgr_Selection];
+                      theMode: Standard_Integer) {.importcpp: "ComputeSelection",
     header: "AIS_Manipulator.hxx".}
-proc isAutoHilight*(this: AIS_Manipulator): StandardBoolean {.noSideEffect,
+proc IsAutoHilight*(this: AIS_Manipulator): Standard_Boolean {.noSideEffect,
     importcpp: "IsAutoHilight", header: "AIS_Manipulator.hxx".}
-proc clearSelected*(this: var AIS_Manipulator) {.importcpp: "ClearSelected",
+proc ClearSelected*(this: var AIS_Manipulator) {.importcpp: "ClearSelected",
     header: "AIS_Manipulator.hxx".}
-proc hilightSelected*(this: var AIS_Manipulator;
-                     thePM: Handle[PrsMgrPresentationManager3d];
-                     theSeq: SelectMgrSequenceOfOwner) {.
+proc HilightSelected*(this: var AIS_Manipulator;
+                     thePM: handle[PrsMgr_PresentationManager3d];
+                     theSeq: SelectMgr_SequenceOfOwner) {.
     importcpp: "HilightSelected", header: "AIS_Manipulator.hxx".}
-proc hilightOwnerWithColor*(this: var AIS_Manipulator;
-                           thePM: Handle[PrsMgrPresentationManager3d];
-                           theStyle: Handle[Prs3dDrawer];
-                           theOwner: Handle[SelectMgrEntityOwner]) {.
+proc HilightOwnerWithColor*(this: var AIS_Manipulator;
+                           thePM: handle[PrsMgr_PresentationManager3d];
+                           theStyle: handle[Prs3d_Drawer];
+                           theOwner: handle[SelectMgr_EntityOwner]) {.
     importcpp: "HilightOwnerWithColor", header: "AIS_Manipulator.hxx".}
 ## using statement
 
 type
-  AIS_ManipulatorbaseType* = AIS_InteractiveObject
+  AIS_Manipulatorbase_type* = AIS_InteractiveObject
 
-proc getTypeName*(): cstring {.importcpp: "AIS_Manipulator::get_type_name(@)",
-                            header: "AIS_Manipulator.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "AIS_Manipulator::get_type_name(@)",
+                              header: "AIS_Manipulator.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "AIS_Manipulator::get_type_descriptor(@)",
     header: "AIS_Manipulator.hxx".}
-proc dynamicType*(this: AIS_Manipulator): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: AIS_Manipulator): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "AIS_Manipulator.hxx".}
-

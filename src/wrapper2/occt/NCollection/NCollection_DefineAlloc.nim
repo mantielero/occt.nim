@@ -13,9 +13,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _NCollection_DefineAlloc_HeaderFile [NewLine] # _NCollection_DefineAlloc_HeaderFile [NewLine] # < NCollection_BaseAllocator . hxx > [NewLine]  Macro to overload placement new and delete operators for NCollection allocators.
+## !!!Ignored construct:  # _NCollection_DefineAlloc_HeaderFile [NewLine] # _NCollection_DefineAlloc_HeaderFile [NewLine] # NCollection_BaseAllocator.hxx [NewLine]  Macro to overload placement new and delete operators for NCollection allocators.
 ##  For Borland C and old SUN compilers do not define placement delete
 ##  as it is not supported. # defined ( __BORLANDC__ ) || ( defined ( __SUNPRO_CC ) && ( __SUNPRO_CC <= 0x530 ) ) [NewLine] # void * operator new ( size_t theSize , const opencascade :: handle < NCollection_BaseAllocator > & theAllocator ) { return theAllocator -> Allocate ( theSize ) ; } [NewLine] # [NewLine] # void * operator new ( size_t theSize , const opencascade :: handle < NCollection_BaseAllocator > & theAllocator ) { return theAllocator -> Allocate ( theSize ) ; } void operator delete ( void * theAddress , const opencascade :: handle < NCollection_BaseAllocator > & theAllocator ) { theAllocator -> Free ( theAddress ) ; } [NewLine] # [NewLine] # [NewLine]
 ## Error: token expected: ) but got: [identifier]!!!
-
-

@@ -14,11 +14,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _Quantity_SoundIntensity_HeaderFile [NewLine] # _Quantity_SoundIntensity_HeaderFile [NewLine] # < Standard_Real . hxx > [NewLine] ! Defined as the rate of flow of sound energy through
+## !!!Ignored construct:  # _Quantity_SoundIntensity_HeaderFile [NewLine] # _Quantity_SoundIntensity_HeaderFile [NewLine] # ../Standard/Standard_Real.hxx [NewLine] ! Defined as the rate of flow of sound energy through
 ## ! a unit area normal to the flow. It is quantified as the
 ## ! square of the root-mean-square sound pressure, divided by
 ## ! the density of the medium and by the speed of sound.
 ## ! It is measured in watts per square metre. Standard_DEPRECATED ( This type is deprecated - Standard_Real should be used instead ) typedef Standard_Real Quantity_SoundIntensity ;
 ## Error: expected ';'!!!
-
-

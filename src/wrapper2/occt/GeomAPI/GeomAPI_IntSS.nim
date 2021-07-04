@@ -14,6 +14,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../GeomInt/GeomInt_IntSS,
+  ../Standard/Standard_Real, ../Standard/Standard_Boolean,
+  ../Standard/Standard_Integer
+
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of Geom_Surface"
@@ -42,16 +48,15 @@ type
 
 proc constructGeomAPI_IntSS*(): GeomAPI_IntSS {.constructor,
     importcpp: "GeomAPI_IntSS(@)", header: "GeomAPI_IntSS.hxx".}
-proc constructGeomAPI_IntSS*(s1: Handle[GeomSurface]; s2: Handle[GeomSurface];
-                            tol: StandardReal): GeomAPI_IntSS {.constructor,
+proc constructGeomAPI_IntSS*(S1: handle[Geom_Surface]; S2: handle[Geom_Surface];
+                            Tol: Standard_Real): GeomAPI_IntSS {.constructor,
     importcpp: "GeomAPI_IntSS(@)", header: "GeomAPI_IntSS.hxx".}
-proc perform*(this: var GeomAPI_IntSS; s1: Handle[GeomSurface];
-             s2: Handle[GeomSurface]; tol: StandardReal) {.importcpp: "Perform",
+proc Perform*(this: var GeomAPI_IntSS; S1: handle[Geom_Surface];
+             S2: handle[Geom_Surface]; Tol: Standard_Real) {.importcpp: "Perform",
     header: "GeomAPI_IntSS.hxx".}
-proc isDone*(this: GeomAPI_IntSS): StandardBoolean {.noSideEffect,
+proc IsDone*(this: GeomAPI_IntSS): Standard_Boolean {.noSideEffect,
     importcpp: "IsDone", header: "GeomAPI_IntSS.hxx".}
-proc nbLines*(this: GeomAPI_IntSS): StandardInteger {.noSideEffect,
+proc NbLines*(this: GeomAPI_IntSS): Standard_Integer {.noSideEffect,
     importcpp: "NbLines", header: "GeomAPI_IntSS.hxx".}
-proc line*(this: GeomAPI_IntSS; index: StandardInteger): Handle[GeomCurve] {.
+proc Line*(this: GeomAPI_IntSS; Index: Standard_Integer): handle[Geom_Curve] {.
     noSideEffect, importcpp: "Line", header: "GeomAPI_IntSS.hxx".}
-

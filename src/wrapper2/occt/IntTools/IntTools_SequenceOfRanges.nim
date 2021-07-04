@@ -13,7 +13,8 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  IntTools_Range, ../NCollection/NCollection_Sequence
+
 type
-  IntToolsSequenceOfRanges* = NCollectionSequence[IntToolsRange]
-
-
+  IntTools_SequenceOfRanges* = NCollection_Sequence[IntTools_Range]

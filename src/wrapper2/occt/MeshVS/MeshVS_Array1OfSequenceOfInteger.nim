@@ -13,7 +13,8 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../TColStd/TColStd_SequenceOfInteger, ../NCollection/NCollection_Array1
+
 type
-  MeshVS_Array1OfSequenceOfInteger* = NCollectionArray1[TColStdSequenceOfInteger]
-
-
+  MeshVS_Array1OfSequenceOfInteger* = NCollection_Array1[TColStd_SequenceOfInteger]

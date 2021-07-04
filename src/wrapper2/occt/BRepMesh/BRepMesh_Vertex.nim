@@ -11,49 +11,53 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Macro, ../gp/gp_XY, BRepMesh_DegreeOfFreedom,
+  ../Precision/Precision
+
 ## ! Light weighted structure representing vertex
 ## ! of the mesh in parametric space. Vertex could be
 ## ! associated with 3d point stored in external map.
 
 type
-  BRepMeshVertex* {.importcpp: "BRepMesh_Vertex", header: "BRepMesh_Vertex.hxx",
-                   bycopy.} = object ## ! Default constructor
+  BRepMesh_Vertex* {.importcpp: "BRepMesh_Vertex", header: "BRepMesh_Vertex.hxx",
+                    bycopy.} = object ## ! Default constructor
 
 
-proc constructBRepMeshVertex*(): BRepMeshVertex {.constructor,
+proc constructBRepMesh_Vertex*(): BRepMesh_Vertex {.constructor,
     importcpp: "BRepMesh_Vertex(@)", header: "BRepMesh_Vertex.hxx".}
-proc constructBRepMeshVertex*(theUV: GpXY; theLocation3d: StandardInteger;
-                             theMovability: BRepMeshDegreeOfFreedom): BRepMeshVertex {.
+proc constructBRepMesh_Vertex*(theUV: gp_XY; theLocation3d: Standard_Integer;
+                              theMovability: BRepMesh_DegreeOfFreedom): BRepMesh_Vertex {.
     constructor, importcpp: "BRepMesh_Vertex(@)", header: "BRepMesh_Vertex.hxx".}
-proc constructBRepMeshVertex*(theU: StandardReal; theV: StandardReal;
-                             theMovability: BRepMeshDegreeOfFreedom): BRepMeshVertex {.
+proc constructBRepMesh_Vertex*(theU: Standard_Real; theV: Standard_Real;
+                              theMovability: BRepMesh_DegreeOfFreedom): BRepMesh_Vertex {.
     constructor, importcpp: "BRepMesh_Vertex(@)", header: "BRepMesh_Vertex.hxx".}
-proc initialize*(this: var BRepMeshVertex; theUV: GpXY;
-                theLocation3d: StandardInteger;
-                theMovability: BRepMeshDegreeOfFreedom) {.importcpp: "Initialize",
+proc Initialize*(this: var BRepMesh_Vertex; theUV: gp_XY;
+                theLocation3d: Standard_Integer;
+                theMovability: BRepMesh_DegreeOfFreedom) {.
+    importcpp: "Initialize", header: "BRepMesh_Vertex.hxx".}
+proc Coord*(this: BRepMesh_Vertex): gp_XY {.noSideEffect, importcpp: "Coord",
+                                        header: "BRepMesh_Vertex.hxx".}
+proc ChangeCoord*(this: var BRepMesh_Vertex): var gp_XY {.importcpp: "ChangeCoord",
     header: "BRepMesh_Vertex.hxx".}
-proc coord*(this: BRepMeshVertex): GpXY {.noSideEffect, importcpp: "Coord",
-                                      header: "BRepMesh_Vertex.hxx".}
-proc changeCoord*(this: var BRepMeshVertex): var GpXY {.importcpp: "ChangeCoord",
-    header: "BRepMesh_Vertex.hxx".}
-proc location3d*(this: BRepMeshVertex): StandardInteger {.noSideEffect,
+proc Location3d*(this: BRepMesh_Vertex): Standard_Integer {.noSideEffect,
     importcpp: "Location3d", header: "BRepMesh_Vertex.hxx".}
-proc movability*(this: BRepMeshVertex): BRepMeshDegreeOfFreedom {.noSideEffect,
+proc Movability*(this: BRepMesh_Vertex): BRepMesh_DegreeOfFreedom {.noSideEffect,
     importcpp: "Movability", header: "BRepMesh_Vertex.hxx".}
-proc setMovability*(this: var BRepMeshVertex; theMovability: BRepMeshDegreeOfFreedom) {.
+proc SetMovability*(this: var BRepMesh_Vertex;
+                   theMovability: BRepMesh_DegreeOfFreedom) {.
     importcpp: "SetMovability", header: "BRepMesh_Vertex.hxx".}
-proc hashCode*(this: BRepMeshVertex; theUpperBound: StandardInteger): StandardInteger {.
+proc HashCode*(this: BRepMesh_Vertex; theUpperBound: Standard_Integer): Standard_Integer {.
     noSideEffect, importcpp: "HashCode", header: "BRepMesh_Vertex.hxx".}
-proc isEqual*(this: BRepMeshVertex; theOther: BRepMeshVertex): StandardBoolean {.
+proc IsEqual*(this: BRepMesh_Vertex; theOther: BRepMesh_Vertex): Standard_Boolean {.
     noSideEffect, importcpp: "IsEqual", header: "BRepMesh_Vertex.hxx".}
-proc `==`*(this: BRepMeshVertex; other: BRepMeshVertex): StandardBoolean {.
+proc `==`*(this: BRepMesh_Vertex; Other: BRepMesh_Vertex): Standard_Boolean {.
     noSideEffect, importcpp: "(# == #)", header: "BRepMesh_Vertex.hxx".}
 ## ! Computes a hash code for the given vertex, in the range [1, theUpperBound]
 ## ! @param theVertex the vertex which hash code is to be computed
 ## ! @param theUpperBound the upper bound of the range a computing hash code must be within
 ## ! @return a computed hash code, in the range [1, theUpperBound]
 
-proc hashCode*(theVertex: BRepMeshVertex; theUpperBound: StandardInteger): StandardInteger =
+proc HashCode*(theVertex: BRepMesh_Vertex; theUpperBound: Standard_Integer): Standard_Integer =
   discard
-
-

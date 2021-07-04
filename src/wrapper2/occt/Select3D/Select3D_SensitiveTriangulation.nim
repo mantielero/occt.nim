@@ -14,6 +14,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../TopLoc/TopLoc_Location, ../gp/gp_Trsf, ../gp/gp_Pnt,
+  ../TColStd/TColStd_HArray1OfInteger, Select3D_SensitiveEntity,
+  ../SelectMgr/SelectMgr_SelectingVolumeManager, Select3D_SensitiveSet
+
 discard "forward decl of Poly_Triangulation"
 type
   Select3D_SensitiveTriangulation* {.importcpp: "Select3D_SensitiveTriangulation", header: "Select3D_SensitiveTriangulation.hxx",
@@ -49,64 +54,63 @@ type
     ## !< Indexes of edges or triangles for BVH build
     ## !< Bounding box of the whole triangulation
 
-  Select3D_SensitiveTriangulationbaseType* = Select3D_SensitiveSet
+  Select3D_SensitiveTriangulationbase_type* = Select3D_SensitiveSet
 
-proc getTypeName*(): cstring {.importcpp: "Select3D_SensitiveTriangulation::get_type_name(@)",
-                            header: "Select3D_SensitiveTriangulation.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "Select3D_SensitiveTriangulation::get_type_name(@)",
+                              header: "Select3D_SensitiveTriangulation.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "Select3D_SensitiveTriangulation::get_type_descriptor(@)",
     header: "Select3D_SensitiveTriangulation.hxx".}
-proc dynamicType*(this: Select3D_SensitiveTriangulation): Handle[StandardType] {.
+proc DynamicType*(this: Select3D_SensitiveTriangulation): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType",
     header: "Select3D_SensitiveTriangulation.hxx".}
 proc constructSelect3D_SensitiveTriangulation*(
-    theOwnerId: Handle[SelectMgrEntityOwner]; theTrg: Handle[PolyTriangulation];
-    theInitLoc: TopLocLocation; theIsInterior: StandardBoolean = standardTrue): Select3D_SensitiveTriangulation {.
+    theOwnerId: handle[SelectMgr_EntityOwner]; theTrg: handle[Poly_Triangulation];
+    theInitLoc: TopLoc_Location; theIsInterior: Standard_Boolean = Standard_True): Select3D_SensitiveTriangulation {.
     constructor, importcpp: "Select3D_SensitiveTriangulation(@)",
     header: "Select3D_SensitiveTriangulation.hxx".}
 proc constructSelect3D_SensitiveTriangulation*(
-    theOwnerId: Handle[SelectMgrEntityOwner]; theTrg: Handle[PolyTriangulation];
-    theInitLoc: TopLocLocation; theFreeEdges: Handle[TColStdHArray1OfInteger];
-    theCOG: GpPnt; theIsInterior: StandardBoolean): Select3D_SensitiveTriangulation {.
+    theOwnerId: handle[SelectMgr_EntityOwner]; theTrg: handle[Poly_Triangulation];
+    theInitLoc: TopLoc_Location; theFreeEdges: handle[TColStd_HArray1OfInteger];
+    theCOG: gp_Pnt; theIsInterior: Standard_Boolean): Select3D_SensitiveTriangulation {.
     constructor, importcpp: "Select3D_SensitiveTriangulation(@)",
     header: "Select3D_SensitiveTriangulation.hxx".}
-proc nbSubElements*(this: Select3D_SensitiveTriangulation): StandardInteger {.
+proc NbSubElements*(this: Select3D_SensitiveTriangulation): Standard_Integer {.
     noSideEffect, importcpp: "NbSubElements",
     header: "Select3D_SensitiveTriangulation.hxx".}
-proc getConnected*(this: var Select3D_SensitiveTriangulation): Handle[
+proc GetConnected*(this: var Select3D_SensitiveTriangulation): handle[
     Select3D_SensitiveEntity] {.importcpp: "GetConnected",
                                header: "Select3D_SensitiveTriangulation.hxx".}
-proc triangulation*(this: Select3D_SensitiveTriangulation): Handle[
-    PolyTriangulation] {.noSideEffect, importcpp: "Triangulation",
-                        header: "Select3D_SensitiveTriangulation.hxx".}
-proc size*(this: Select3D_SensitiveTriangulation): StandardInteger {.noSideEffect,
+proc Triangulation*(this: Select3D_SensitiveTriangulation): handle[
+    Poly_Triangulation] {.noSideEffect, importcpp: "Triangulation",
+                         header: "Select3D_SensitiveTriangulation.hxx".}
+proc Size*(this: Select3D_SensitiveTriangulation): Standard_Integer {.noSideEffect,
     importcpp: "Size", header: "Select3D_SensitiveTriangulation.hxx".}
-proc box*(this: Select3D_SensitiveTriangulation; theIdx: StandardInteger): Select3D_BndBox3d {.
+proc Box*(this: Select3D_SensitiveTriangulation; theIdx: Standard_Integer): Select3D_BndBox3d {.
     noSideEffect, importcpp: "Box", header: "Select3D_SensitiveTriangulation.hxx".}
-proc center*(this: Select3D_SensitiveTriangulation; theIdx: StandardInteger;
-            theAxis: StandardInteger): StandardReal {.noSideEffect,
+proc Center*(this: Select3D_SensitiveTriangulation; theIdx: Standard_Integer;
+            theAxis: Standard_Integer): Standard_Real {.noSideEffect,
     importcpp: "Center", header: "Select3D_SensitiveTriangulation.hxx".}
-proc swap*(this: var Select3D_SensitiveTriangulation; theIdx1: StandardInteger;
-          theIdx2: StandardInteger) {.importcpp: "Swap", header: "Select3D_SensitiveTriangulation.hxx".}
-proc boundingBox*(this: var Select3D_SensitiveTriangulation): Select3D_BndBox3d {.
+proc Swap*(this: var Select3D_SensitiveTriangulation; theIdx1: Standard_Integer;
+          theIdx2: Standard_Integer) {.importcpp: "Swap", header: "Select3D_SensitiveTriangulation.hxx".}
+proc BoundingBox*(this: var Select3D_SensitiveTriangulation): Select3D_BndBox3d {.
     importcpp: "BoundingBox", header: "Select3D_SensitiveTriangulation.hxx".}
-proc centerOfGeometry*(this: Select3D_SensitiveTriangulation): GpPnt {.noSideEffect,
-    importcpp: "CenterOfGeometry", header: "Select3D_SensitiveTriangulation.hxx".}
-proc hasInitLocation*(this: Select3D_SensitiveTriangulation): StandardBoolean {.
+proc CenterOfGeometry*(this: Select3D_SensitiveTriangulation): gp_Pnt {.
+    noSideEffect, importcpp: "CenterOfGeometry",
+    header: "Select3D_SensitiveTriangulation.hxx".}
+proc HasInitLocation*(this: Select3D_SensitiveTriangulation): Standard_Boolean {.
     noSideEffect, importcpp: "HasInitLocation",
     header: "Select3D_SensitiveTriangulation.hxx".}
-proc invInitLocation*(this: Select3D_SensitiveTriangulation): GpGTrsf {.
+proc InvInitLocation*(this: Select3D_SensitiveTriangulation): gp_GTrsf {.
     noSideEffect, importcpp: "InvInitLocation",
     header: "Select3D_SensitiveTriangulation.hxx".}
-proc getInitLocation*(this: Select3D_SensitiveTriangulation): TopLocLocation {.
+proc GetInitLocation*(this: Select3D_SensitiveTriangulation): TopLoc_Location {.
     noSideEffect, importcpp: "GetInitLocation",
     header: "Select3D_SensitiveTriangulation.hxx".}
-proc dumpJson*(this: Select3D_SensitiveTriangulation;
-              theOStream: var StandardOStream; theDepth: StandardInteger = -1) {.
+proc DumpJson*(this: Select3D_SensitiveTriangulation;
+              theOStream: var Standard_OStream; theDepth: Standard_Integer = -1) {.
     noSideEffect, importcpp: "DumpJson",
     header: "Select3D_SensitiveTriangulation.hxx".}
 discard "forward decl of Select3D_SensitiveTriangulation"
 type
-  HandleSelect3D_SensitiveTriangulation* = Handle[Select3D_SensitiveTriangulation]
-
-
+  Handle_Select3D_SensitiveTriangulation* = handle[Select3D_SensitiveTriangulation]

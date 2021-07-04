@@ -13,30 +13,32 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepShape_ConnectedEdgeSet"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepShapeRWConnectedEdgeSet* {.importcpp: "RWStepShape_RWConnectedEdgeSet",
-                                  header: "RWStepShape_RWConnectedEdgeSet.hxx",
-                                  bycopy.} = object ## ! Empty constructor
+  RWStepShape_RWConnectedEdgeSet* {.importcpp: "RWStepShape_RWConnectedEdgeSet", header: "RWStepShape_RWConnectedEdgeSet.hxx",
+                                   bycopy.} = object ## ! Empty constructor
 
 
-proc constructRWStepShapeRWConnectedEdgeSet*(): RWStepShapeRWConnectedEdgeSet {.
+proc constructRWStepShape_RWConnectedEdgeSet*(): RWStepShape_RWConnectedEdgeSet {.
     constructor, importcpp: "RWStepShape_RWConnectedEdgeSet(@)",
     header: "RWStepShape_RWConnectedEdgeSet.hxx".}
-proc readStep*(this: RWStepShapeRWConnectedEdgeSet;
-              data: Handle[StepDataStepReaderData]; num: StandardInteger;
-              ach: var Handle[InterfaceCheck];
-              ent: Handle[StepShapeConnectedEdgeSet]) {.noSideEffect,
+proc ReadStep*(this: RWStepShape_RWConnectedEdgeSet;
+              data: handle[StepData_StepReaderData]; num: Standard_Integer;
+              ach: var handle[Interface_Check];
+              ent: handle[StepShape_ConnectedEdgeSet]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepShape_RWConnectedEdgeSet.hxx".}
-proc writeStep*(this: RWStepShapeRWConnectedEdgeSet; sw: var StepDataStepWriter;
-               ent: Handle[StepShapeConnectedEdgeSet]) {.noSideEffect,
+proc WriteStep*(this: RWStepShape_RWConnectedEdgeSet; SW: var StepData_StepWriter;
+               ent: handle[StepShape_ConnectedEdgeSet]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepShape_RWConnectedEdgeSet.hxx".}
-proc share*(this: RWStepShapeRWConnectedEdgeSet;
-           ent: Handle[StepShapeConnectedEdgeSet];
-           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
+proc Share*(this: RWStepShape_RWConnectedEdgeSet;
+           ent: handle[StepShape_ConnectedEdgeSet];
+           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepShape_RWConnectedEdgeSet.hxx".}
-

@@ -14,6 +14,14 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../NCollection/NCollection_Vector,
+  GeomInt_TheComputeLineOfWLApprox, GeomInt_TheComputeLineBezierOfWLApprox,
+  ../Approx/Approx_MCurvesToBSpCurve, ../Standard/Standard_Boolean,
+  ../Standard/Standard_Real, ../Standard/Standard_Integer,
+  ../Approx/Approx_ParametrizationType
+
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of Adaptor3d_HSurface"
@@ -34,42 +42,41 @@ discard "forward decl of GeomInt_TheComputeLineBezierOfWLApprox"
 discard "forward decl of GeomInt_MyGradientOfTheComputeLineBezierOfWLApprox"
 discard "forward decl of AppParCurves_MultiBSpCurve"
 type
-  GeomIntWLApprox* {.importcpp: "GeomInt_WLApprox", header: "GeomInt_WLApprox.hxx",
-                    bycopy.} = object
+  GeomInt_WLApprox* {.importcpp: "GeomInt_WLApprox",
+                     header: "GeomInt_WLApprox.hxx", bycopy.} = object
 
 
-proc constructGeomIntWLApprox*(): GeomIntWLApprox {.constructor,
+proc constructGeomInt_WLApprox*(): GeomInt_WLApprox {.constructor,
     importcpp: "GeomInt_WLApprox(@)", header: "GeomInt_WLApprox.hxx".}
-proc perform*(this: var GeomIntWLApprox; surf1: Handle[Adaptor3dHSurface];
-             surf2: Handle[Adaptor3dHSurface]; aLine: Handle[IntPatchWLine];
-             approxXYZ: StandardBoolean = standardTrue;
-             approxU1V1: StandardBoolean = standardTrue;
-             approxU2V2: StandardBoolean = standardTrue;
-             indicemin: StandardInteger = 0; indicemax: StandardInteger = 0) {.
+proc Perform*(this: var GeomInt_WLApprox; Surf1: handle[Adaptor3d_HSurface];
+             Surf2: handle[Adaptor3d_HSurface]; aLine: handle[IntPatch_WLine];
+             ApproxXYZ: Standard_Boolean = Standard_True;
+             ApproxU1V1: Standard_Boolean = Standard_True;
+             ApproxU2V2: Standard_Boolean = Standard_True;
+             indicemin: Standard_Integer = 0; indicemax: Standard_Integer = 0) {.
     importcpp: "Perform", header: "GeomInt_WLApprox.hxx".}
-proc perform*(this: var GeomIntWLApprox; aLine: Handle[IntPatchWLine];
-             approxXYZ: StandardBoolean = standardTrue;
-             approxU1V1: StandardBoolean = standardTrue;
-             approxU2V2: StandardBoolean = standardTrue;
-             indicemin: StandardInteger = 0; indicemax: StandardInteger = 0) {.
+proc Perform*(this: var GeomInt_WLApprox; aLine: handle[IntPatch_WLine];
+             ApproxXYZ: Standard_Boolean = Standard_True;
+             ApproxU1V1: Standard_Boolean = Standard_True;
+             ApproxU2V2: Standard_Boolean = Standard_True;
+             indicemin: Standard_Integer = 0; indicemax: Standard_Integer = 0) {.
     importcpp: "Perform", header: "GeomInt_WLApprox.hxx".}
-proc setParameters*(this: var GeomIntWLApprox; tol3d: StandardReal;
-                   tol2d: StandardReal; degMin: StandardInteger;
-                   degMax: StandardInteger; nbIterMax: StandardInteger;
-                   nbPntMax: StandardInteger = 30;
-                   approxWithTangency: StandardBoolean = standardTrue;
-    parametrization: ApproxParametrizationType = approxChordLength) {.
+proc SetParameters*(this: var GeomInt_WLApprox; Tol3d: Standard_Real;
+                   Tol2d: Standard_Real; DegMin: Standard_Integer;
+                   DegMax: Standard_Integer; NbIterMax: Standard_Integer;
+                   NbPntMax: Standard_Integer = 30;
+                   ApproxWithTangency: Standard_Boolean = Standard_True;
+    Parametrization: Approx_ParametrizationType = Approx_ChordLength) {.
     importcpp: "SetParameters", header: "GeomInt_WLApprox.hxx".}
-proc perform*(this: var GeomIntWLApprox) {.importcpp: "Perform",
-                                       header: "GeomInt_WLApprox.hxx".}
-proc tolReached3d*(this: GeomIntWLApprox): StandardReal {.noSideEffect,
+proc Perform*(this: var GeomInt_WLApprox) {.importcpp: "Perform",
+                                        header: "GeomInt_WLApprox.hxx".}
+proc TolReached3d*(this: GeomInt_WLApprox): Standard_Real {.noSideEffect,
     importcpp: "TolReached3d", header: "GeomInt_WLApprox.hxx".}
-proc tolReached2d*(this: GeomIntWLApprox): StandardReal {.noSideEffect,
+proc TolReached2d*(this: GeomInt_WLApprox): Standard_Real {.noSideEffect,
     importcpp: "TolReached2d", header: "GeomInt_WLApprox.hxx".}
-proc isDone*(this: GeomIntWLApprox): StandardBoolean {.noSideEffect,
+proc IsDone*(this: GeomInt_WLApprox): Standard_Boolean {.noSideEffect,
     importcpp: "IsDone", header: "GeomInt_WLApprox.hxx".}
-proc nbMultiCurves*(this: GeomIntWLApprox): StandardInteger {.noSideEffect,
+proc NbMultiCurves*(this: GeomInt_WLApprox): Standard_Integer {.noSideEffect,
     importcpp: "NbMultiCurves", header: "GeomInt_WLApprox.hxx".}
-proc value*(this: GeomIntWLApprox; index: StandardInteger): AppParCurvesMultiBSpCurve {.
+proc Value*(this: GeomInt_WLApprox; Index: Standard_Integer): AppParCurves_MultiBSpCurve {.
     noSideEffect, importcpp: "Value", header: "GeomInt_WLApprox.hxx".}
-

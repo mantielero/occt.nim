@@ -14,11 +14,19 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer,
+  ../TColStd/TColStd_HArray1OfInteger, ../TColStd/TColStd_HArray1OfReal,
+  ../TColgp/TColgp_HArray2OfPnt, ../Standard/Standard_Boolean,
+  ../TColGeom/TColGeom_Array2OfBezierSurface, ../Standard/Standard_Real,
+  ../TColStd/TColStd_Array1OfReal, ../GeomAbs/GeomAbs_Shape
+
 discard "forward decl of Standard_DimensionError"
 discard "forward decl of Standard_NotImplemented"
 discard "forward decl of Standard_ConstructionError"
 type
-  GeomConvertCompBezierSurfacesToBSplineSurface* {.
+  GeomConvert_CompBezierSurfacesToBSplineSurface* {.
       importcpp: "GeomConvert_CompBezierSurfacesToBSplineSurface",
       header: "GeomConvert_CompBezierSurfacesToBSplineSurface.hxx", bycopy.} = object ##
                                                                                  ## !
@@ -545,50 +553,49 @@ type
                                                                                  ## constructors.
 
 
-proc constructGeomConvertCompBezierSurfacesToBSplineSurface*(
-    beziers: TColGeomArray2OfBezierSurface): GeomConvertCompBezierSurfacesToBSplineSurface {.
+proc constructGeomConvert_CompBezierSurfacesToBSplineSurface*(
+    Beziers: TColGeom_Array2OfBezierSurface): GeomConvert_CompBezierSurfacesToBSplineSurface {.
     constructor, importcpp: "GeomConvert_CompBezierSurfacesToBSplineSurface(@)",
     header: "GeomConvert_CompBezierSurfacesToBSplineSurface.hxx".}
-proc constructGeomConvertCompBezierSurfacesToBSplineSurface*(
-    beziers: TColGeomArray2OfBezierSurface; tolerance: StandardReal;
-    removeKnots: StandardBoolean = standardTrue): GeomConvertCompBezierSurfacesToBSplineSurface {.
+proc constructGeomConvert_CompBezierSurfacesToBSplineSurface*(
+    Beziers: TColGeom_Array2OfBezierSurface; Tolerance: Standard_Real;
+    RemoveKnots: Standard_Boolean = Standard_True): GeomConvert_CompBezierSurfacesToBSplineSurface {.
     constructor, importcpp: "GeomConvert_CompBezierSurfacesToBSplineSurface(@)",
     header: "GeomConvert_CompBezierSurfacesToBSplineSurface.hxx".}
-proc constructGeomConvertCompBezierSurfacesToBSplineSurface*(
-    beziers: TColGeomArray2OfBezierSurface; uKnots: TColStdArray1OfReal;
-    vKnots: TColStdArray1OfReal; uContinuity: GeomAbsShape = geomAbsC0;
-    vContinuity: GeomAbsShape = geomAbsC0; tolerance: StandardReal = 1.0e-4): GeomConvertCompBezierSurfacesToBSplineSurface {.
+proc constructGeomConvert_CompBezierSurfacesToBSplineSurface*(
+    Beziers: TColGeom_Array2OfBezierSurface; UKnots: TColStd_Array1OfReal;
+    VKnots: TColStd_Array1OfReal; UContinuity: GeomAbs_Shape = GeomAbs_C0;
+    VContinuity: GeomAbs_Shape = GeomAbs_C0; Tolerance: Standard_Real = 1.0e-4): GeomConvert_CompBezierSurfacesToBSplineSurface {.
     constructor, importcpp: "GeomConvert_CompBezierSurfacesToBSplineSurface(@)",
     header: "GeomConvert_CompBezierSurfacesToBSplineSurface.hxx".}
-proc nbUKnots*(this: GeomConvertCompBezierSurfacesToBSplineSurface): StandardInteger {.
+proc NbUKnots*(this: GeomConvert_CompBezierSurfacesToBSplineSurface): Standard_Integer {.
     noSideEffect, importcpp: "NbUKnots",
     header: "GeomConvert_CompBezierSurfacesToBSplineSurface.hxx".}
-proc nbUPoles*(this: GeomConvertCompBezierSurfacesToBSplineSurface): StandardInteger {.
+proc NbUPoles*(this: GeomConvert_CompBezierSurfacesToBSplineSurface): Standard_Integer {.
     noSideEffect, importcpp: "NbUPoles",
     header: "GeomConvert_CompBezierSurfacesToBSplineSurface.hxx".}
-proc nbVKnots*(this: GeomConvertCompBezierSurfacesToBSplineSurface): StandardInteger {.
+proc NbVKnots*(this: GeomConvert_CompBezierSurfacesToBSplineSurface): Standard_Integer {.
     noSideEffect, importcpp: "NbVKnots",
     header: "GeomConvert_CompBezierSurfacesToBSplineSurface.hxx".}
-proc nbVPoles*(this: GeomConvertCompBezierSurfacesToBSplineSurface): StandardInteger {.
+proc NbVPoles*(this: GeomConvert_CompBezierSurfacesToBSplineSurface): Standard_Integer {.
     noSideEffect, importcpp: "NbVPoles",
     header: "GeomConvert_CompBezierSurfacesToBSplineSurface.hxx".}
-proc poles*(this: GeomConvertCompBezierSurfacesToBSplineSurface): Handle[
-    TColgpHArray2OfPnt] {.noSideEffect, importcpp: "Poles", header: "GeomConvert_CompBezierSurfacesToBSplineSurface.hxx".}
-proc uKnots*(this: GeomConvertCompBezierSurfacesToBSplineSurface): Handle[
-    TColStdHArray1OfReal] {.noSideEffect, importcpp: "UKnots", header: "GeomConvert_CompBezierSurfacesToBSplineSurface.hxx".}
-proc uDegree*(this: GeomConvertCompBezierSurfacesToBSplineSurface): StandardInteger {.
+proc Poles*(this: GeomConvert_CompBezierSurfacesToBSplineSurface): handle[
+    TColgp_HArray2OfPnt] {.noSideEffect, importcpp: "Poles", header: "GeomConvert_CompBezierSurfacesToBSplineSurface.hxx".}
+proc UKnots*(this: GeomConvert_CompBezierSurfacesToBSplineSurface): handle[
+    TColStd_HArray1OfReal] {.noSideEffect, importcpp: "UKnots", header: "GeomConvert_CompBezierSurfacesToBSplineSurface.hxx".}
+proc UDegree*(this: GeomConvert_CompBezierSurfacesToBSplineSurface): Standard_Integer {.
     noSideEffect, importcpp: "UDegree",
     header: "GeomConvert_CompBezierSurfacesToBSplineSurface.hxx".}
-proc vKnots*(this: GeomConvertCompBezierSurfacesToBSplineSurface): Handle[
-    TColStdHArray1OfReal] {.noSideEffect, importcpp: "VKnots", header: "GeomConvert_CompBezierSurfacesToBSplineSurface.hxx".}
-proc vDegree*(this: GeomConvertCompBezierSurfacesToBSplineSurface): StandardInteger {.
+proc VKnots*(this: GeomConvert_CompBezierSurfacesToBSplineSurface): handle[
+    TColStd_HArray1OfReal] {.noSideEffect, importcpp: "VKnots", header: "GeomConvert_CompBezierSurfacesToBSplineSurface.hxx".}
+proc VDegree*(this: GeomConvert_CompBezierSurfacesToBSplineSurface): Standard_Integer {.
     noSideEffect, importcpp: "VDegree",
     header: "GeomConvert_CompBezierSurfacesToBSplineSurface.hxx".}
-proc uMultiplicities*(this: GeomConvertCompBezierSurfacesToBSplineSurface): Handle[
-    TColStdHArray1OfInteger] {.noSideEffect, importcpp: "UMultiplicities", header: "GeomConvert_CompBezierSurfacesToBSplineSurface.hxx".}
-proc vMultiplicities*(this: GeomConvertCompBezierSurfacesToBSplineSurface): Handle[
-    TColStdHArray1OfInteger] {.noSideEffect, importcpp: "VMultiplicities", header: "GeomConvert_CompBezierSurfacesToBSplineSurface.hxx".}
-proc isDone*(this: GeomConvertCompBezierSurfacesToBSplineSurface): StandardBoolean {.
+proc UMultiplicities*(this: GeomConvert_CompBezierSurfacesToBSplineSurface): handle[
+    TColStd_HArray1OfInteger] {.noSideEffect, importcpp: "UMultiplicities", header: "GeomConvert_CompBezierSurfacesToBSplineSurface.hxx".}
+proc VMultiplicities*(this: GeomConvert_CompBezierSurfacesToBSplineSurface): handle[
+    TColStd_HArray1OfInteger] {.noSideEffect, importcpp: "VMultiplicities", header: "GeomConvert_CompBezierSurfacesToBSplineSurface.hxx".}
+proc IsDone*(this: GeomConvert_CompBezierSurfacesToBSplineSurface): Standard_Boolean {.
     noSideEffect, importcpp: "IsDone",
     header: "GeomConvert_CompBezierSurfacesToBSplineSurface.hxx".}
-

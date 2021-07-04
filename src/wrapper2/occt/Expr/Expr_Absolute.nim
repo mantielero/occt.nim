@@ -14,6 +14,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, Expr_UnaryExpression,
+  ../Standard/Standard_Boolean, ../Standard/Standard_Real,
+  Expr_Array1OfNamedUnknown, ../TColStd/TColStd_Array1OfReal
+
 discard "forward decl of Standard_NumericError"
 discard "forward decl of Expr_NotEvaluable"
 discard "forward decl of Expr_GeneralExpression"
@@ -22,42 +27,41 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of Expr_Absolute"
 discard "forward decl of Expr_Absolute"
 type
-  HandleExprAbsolute* = Handle[ExprAbsolute]
-  ExprAbsolute* {.importcpp: "Expr_Absolute", header: "Expr_Absolute.hxx", bycopy.} = object of ExprUnaryExpression ##
-                                                                                                          ## !
-                                                                                                          ## Creates
-                                                                                                          ## the
-                                                                                                          ## Abs
-                                                                                                          ## of
-                                                                                                          ## <exp>
+  Handle_Expr_Absolute* = handle[Expr_Absolute]
+  Expr_Absolute* {.importcpp: "Expr_Absolute", header: "Expr_Absolute.hxx", bycopy.} = object of Expr_UnaryExpression ##
+                                                                                                            ## !
+                                                                                                            ## Creates
+                                                                                                            ## the
+                                                                                                            ## Abs
+                                                                                                            ## of
+                                                                                                            ## <exp>
 
 
-proc constructExprAbsolute*(exp: Handle[ExprGeneralExpression]): ExprAbsolute {.
+proc constructExpr_Absolute*(exp: handle[Expr_GeneralExpression]): Expr_Absolute {.
     constructor, importcpp: "Expr_Absolute(@)", header: "Expr_Absolute.hxx".}
-proc shallowSimplified*(this: ExprAbsolute): Handle[ExprGeneralExpression] {.
+proc ShallowSimplified*(this: Expr_Absolute): handle[Expr_GeneralExpression] {.
     noSideEffect, importcpp: "ShallowSimplified", header: "Expr_Absolute.hxx".}
-proc copy*(this: ExprAbsolute): Handle[ExprGeneralExpression] {.noSideEffect,
+proc Copy*(this: Expr_Absolute): handle[Expr_GeneralExpression] {.noSideEffect,
     importcpp: "Copy", header: "Expr_Absolute.hxx".}
-proc isIdentical*(this: ExprAbsolute; other: Handle[ExprGeneralExpression]): StandardBoolean {.
+proc IsIdentical*(this: Expr_Absolute; Other: handle[Expr_GeneralExpression]): Standard_Boolean {.
     noSideEffect, importcpp: "IsIdentical", header: "Expr_Absolute.hxx".}
-proc isLinear*(this: ExprAbsolute): StandardBoolean {.noSideEffect,
+proc IsLinear*(this: Expr_Absolute): Standard_Boolean {.noSideEffect,
     importcpp: "IsLinear", header: "Expr_Absolute.hxx".}
-proc derivative*(this: ExprAbsolute; x: Handle[ExprNamedUnknown]): Handle[
-    ExprGeneralExpression] {.noSideEffect, importcpp: "Derivative",
-                            header: "Expr_Absolute.hxx".}
-proc evaluate*(this: ExprAbsolute; vars: ExprArray1OfNamedUnknown;
-              vals: TColStdArray1OfReal): StandardReal {.noSideEffect,
+proc Derivative*(this: Expr_Absolute; X: handle[Expr_NamedUnknown]): handle[
+    Expr_GeneralExpression] {.noSideEffect, importcpp: "Derivative",
+                             header: "Expr_Absolute.hxx".}
+proc Evaluate*(this: Expr_Absolute; vars: Expr_Array1OfNamedUnknown;
+              vals: TColStd_Array1OfReal): Standard_Real {.noSideEffect,
     importcpp: "Evaluate", header: "Expr_Absolute.hxx".}
-proc string*(this: ExprAbsolute): TCollectionAsciiString {.noSideEffect,
+proc String*(this: Expr_Absolute): TCollection_AsciiString {.noSideEffect,
     importcpp: "String", header: "Expr_Absolute.hxx".}
 type
-  ExprAbsolutebaseType* = ExprUnaryExpression
+  Expr_Absolutebase_type* = Expr_UnaryExpression
 
-proc getTypeName*(): cstring {.importcpp: "Expr_Absolute::get_type_name(@)",
-                            header: "Expr_Absolute.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "Expr_Absolute::get_type_name(@)",
+                              header: "Expr_Absolute.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "Expr_Absolute::get_type_descriptor(@)",
     header: "Expr_Absolute.hxx".}
-proc dynamicType*(this: ExprAbsolute): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: Expr_Absolute): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "Expr_Absolute.hxx".}
-

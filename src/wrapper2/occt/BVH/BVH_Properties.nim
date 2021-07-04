@@ -13,7 +13,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _BVH_Properties_Header [NewLine] # _BVH_Properties_Header [NewLine] # < BVH_Box . hxx > [NewLine] # < Standard_Macro . hxx > [NewLine] ! Abstract properties of geometric object. class BVH_Properties : public Standard_Transient { public : typedef Standard_Transient base_type ; static const char * get_type_name ( ) { return BVH_Properties ; } static const opencascade :: handle < Standard_Type > [end of template] & get_type_descriptor ( ) ; virtual const opencascade :: handle < Standard_Type > [end of template] & DynamicType ( ) const ; public : ! Releases resources of object properties. virtual ~ BVH_Properties ( ) = 0 ; } ;
+## !!!Ignored construct:  # _BVH_Properties_Header [NewLine] # _BVH_Properties_Header [NewLine] # BVH_Box.hxx [NewLine] # ../Standard/Standard_Macro.hxx [NewLine] ! Abstract properties of geometric object. class BVH_Properties : public Standard_Transient { public : typedef Standard_Transient base_type ; static const char * get_type_name ( ) { return BVH_Properties ; } static const opencascade :: handle < Standard_Type > [end of template] & get_type_descriptor ( ) ; virtual const opencascade :: handle < Standard_Type > [end of template] & DynamicType ( ) const ; public : ! Releases resources of object properties. virtual ~ BVH_Properties ( ) = 0 ; } ;
 ## Error: token expected: ; but got: <!!!
 
 ## ! Stores transform properties of geometric object.
@@ -38,16 +38,16 @@ proc constructMatrixOpUnitVectorUnitVectorUnitVectorBVH_Transform*[T;
 proc destroyMatrixOpUnitVectorUnitVectorUnitVectorBVH_Transform*[T;
     N: static[cint]](this: var MatrixOpUnitVectorUnitVectorUnitVectorBVH_Transform[
     T, N]) {.importcpp: "#.~BVH_Transform()", header: "BVH_Properties.hxx".}
-proc transform*[T; N: static[cint]](this: MatrixOpUnitVectorUnitVectorUnitVectorBVH_Transform[
+proc Transform*[T; N: static[cint]](this: MatrixOpUnitVectorUnitVectorUnitVectorBVH_Transform[
     T, N]): MatrixOpUnitVectorUnitVectorUnitVectorBVH_TransformBVH_MatNt {.
     noSideEffect, importcpp: "Transform", header: "BVH_Properties.hxx".}
-proc setTransform*[T; N: static[cint]](this: var MatrixOpUnitVectorUnitVectorUnitVectorBVH_Transform[
+proc SetTransform*[T; N: static[cint]](this: var MatrixOpUnitVectorUnitVectorUnitVectorBVH_Transform[
     T, N]; theTransform: MatrixOpUnitVectorUnitVectorUnitVectorBVH_TransformBVH_MatNt) {.
     importcpp: "SetTransform", header: "BVH_Properties.hxx".}
-proc inversed*[T; N: static[cint]](this: MatrixOpUnitVectorUnitVectorUnitVectorBVH_Transform[
+proc Inversed*[T; N: static[cint]](this: MatrixOpUnitVectorUnitVectorUnitVectorBVH_Transform[
     T, N]): MatrixOpUnitVectorUnitVectorUnitVectorBVH_TransformBVH_MatNt {.
     noSideEffect, importcpp: "Inversed", header: "BVH_Properties.hxx".}
-proc apply*[T; N: static[cint]](this: MatrixOpUnitVectorUnitVectorUnitVectorBVH_Transform[
+proc Apply*[T; N: static[cint]](this: MatrixOpUnitVectorUnitVectorUnitVectorBVH_Transform[
     T, N]; theBox: BVH_Box[T, N]): BVH_Box[T, N] {.noSideEffect, importcpp: "Apply",
     header: "BVH_Properties.hxx".}
 type
@@ -80,7 +80,5 @@ type
 ## !!!Ignored construct:  template < class T , int N > [end of template] void BVH_Transform < T , N > :: SetTransform ( const BVH_MatNt & theTransform ) { myTransform = theTransform ; BVH :: MatrixOp < T , N > :: Inverse ( myTransform , myTransformInversed ) ; }  =======================================================================
 ##  function : Apply
 ##  purpose  :
-##  ======================================================================= template < class T , int N > BVH_Box < T , N > BVH_Transform < T , N > :: Apply ( const BVH_Box < T , N > & theBox ) const { typename BVH_Box < T , N > :: BVH_VecNt aSize = theBox . Size ( ) ; BVH_Box < T , N > aBox ; for ( Standard_Integer aX = 0 ; aX <= 1 ; ++ aX ) { for ( Standard_Integer aY = 0 ; aY <= 1 ; ++ aY ) { for ( Standard_Integer aZ = 0 ; aZ <= 1 ; ++ aZ ) { typename BVH_Box < T , N > :: BVH_VecNt aCorner = theBox . CornerMin ( ) + BVH :: UnitVector < T , N > :: DX ( ) * aSize * static_cast < T > ( aX ) + BVH :: UnitVector < T , N > :: DY ( ) * aSize * static_cast < T > ( aY ) + BVH :: UnitVector < T , N > :: DZ ( ) * aSize * static_cast < T > ( aZ ) ; aBox . Add ( BVH :: MatrixOp < T , N > :: Multiply ( myTransform , aCorner ) ) ; } } } return aBox ; } #  _BVH_Properties_Header
+##  ======================================================================= template < class T , int N > BVH_Box < T , N > BVH_Transform < T , N > :: Apply ( const BVH_Box < T , N > & theBox ) const { typename BVH_Box < T , N > :: BVH_VecNt aSize = theBox . Size ( ) ; BVH_Box < T , N > aBox ; for ( Standard_Integer aX = 0 ; aX <= 1 ; ++ aX ) { for ( Standard_Integer aY = 0 ; aY <= 1 ; ++ aY ) { for ( Standard_Integer aZ = 0 ; aZ <= 1 ; ++ aZ ) { typename BVH_Box < T , N > :: BVH_VecNt aCorner = theBox . CornerMin ( ) + BVH :: UnitVector < T , N > :: DX ( ) * aSize * static_cast < T > ( aX ) + BVH :: UnitVector < T , N > :: DY ( ) * aSize * static_cast < T > ( aY ) + BVH :: UnitVector < T , N > :: DZ ( ) * aSize * static_cast < T > ( aZ ) ; aBox . Add ( BVH :: MatrixOp < T , N > :: Multiply ( myTransform , aCorner ) ) ; } } } return aBox ; } #  _BVH_Properties_Header [NewLine]
 ## Error: token expected: ; but got: <!!!
-
-

@@ -14,6 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 discard "forward decl of Standard_DomainError"
 discard "forward decl of IGESGraph_TextFontDef"
 discard "forward decl of IGESData_IGESReaderData"
@@ -26,42 +30,44 @@ discard "forward decl of Interface_Check"
 discard "forward decl of Interface_CopyTool"
 discard "forward decl of IGESData_IGESDumper"
 type
-  IGESGraphToolTextFontDef* {.importcpp: "IGESGraph_ToolTextFontDef",
-                             header: "IGESGraph_ToolTextFontDef.hxx", bycopy.} = object ##
-                                                                                   ## !
-                                                                                   ## Returns
-                                                                                   ## a
-                                                                                   ## ToolTextFontDef,
-                                                                                   ## ready
-                                                                                   ## to
-                                                                                   ## work
+  IGESGraph_ToolTextFontDef* {.importcpp: "IGESGraph_ToolTextFontDef",
+                              header: "IGESGraph_ToolTextFontDef.hxx", bycopy.} = object ##
+                                                                                    ## !
+                                                                                    ## Returns
+                                                                                    ## a
+                                                                                    ## ToolTextFontDef,
+                                                                                    ## ready
+                                                                                    ## to
+                                                                                    ## work
 
 
-proc constructIGESGraphToolTextFontDef*(): IGESGraphToolTextFontDef {.constructor,
-    importcpp: "IGESGraph_ToolTextFontDef(@)",
+proc constructIGESGraph_ToolTextFontDef*(): IGESGraph_ToolTextFontDef {.
+    constructor, importcpp: "IGESGraph_ToolTextFontDef(@)",
     header: "IGESGraph_ToolTextFontDef.hxx".}
-proc readOwnParams*(this: IGESGraphToolTextFontDef;
-                   ent: Handle[IGESGraphTextFontDef];
-                   ir: Handle[IGESDataIGESReaderData]; pr: var IGESDataParamReader) {.
-    noSideEffect, importcpp: "ReadOwnParams",
-    header: "IGESGraph_ToolTextFontDef.hxx".}
-proc writeOwnParams*(this: IGESGraphToolTextFontDef;
-                    ent: Handle[IGESGraphTextFontDef]; iw: var IGESDataIGESWriter) {.
-    noSideEffect, importcpp: "WriteOwnParams",
-    header: "IGESGraph_ToolTextFontDef.hxx".}
-proc ownShared*(this: IGESGraphToolTextFontDef; ent: Handle[IGESGraphTextFontDef];
-               iter: var InterfaceEntityIterator) {.noSideEffect,
+proc ReadOwnParams*(this: IGESGraph_ToolTextFontDef;
+                   ent: handle[IGESGraph_TextFontDef];
+                   IR: handle[IGESData_IGESReaderData];
+                   PR: var IGESData_ParamReader) {.noSideEffect,
+    importcpp: "ReadOwnParams", header: "IGESGraph_ToolTextFontDef.hxx".}
+proc WriteOwnParams*(this: IGESGraph_ToolTextFontDef;
+                    ent: handle[IGESGraph_TextFontDef];
+                    IW: var IGESData_IGESWriter) {.noSideEffect,
+    importcpp: "WriteOwnParams", header: "IGESGraph_ToolTextFontDef.hxx".}
+proc OwnShared*(this: IGESGraph_ToolTextFontDef;
+               ent: handle[IGESGraph_TextFontDef];
+               iter: var Interface_EntityIterator) {.noSideEffect,
     importcpp: "OwnShared", header: "IGESGraph_ToolTextFontDef.hxx".}
-proc dirChecker*(this: IGESGraphToolTextFontDef; ent: Handle[IGESGraphTextFontDef]): IGESDataDirChecker {.
+proc DirChecker*(this: IGESGraph_ToolTextFontDef;
+                ent: handle[IGESGraph_TextFontDef]): IGESData_DirChecker {.
     noSideEffect, importcpp: "DirChecker", header: "IGESGraph_ToolTextFontDef.hxx".}
-proc ownCheck*(this: IGESGraphToolTextFontDef; ent: Handle[IGESGraphTextFontDef];
-              shares: InterfaceShareTool; ach: var Handle[InterfaceCheck]) {.
+proc OwnCheck*(this: IGESGraph_ToolTextFontDef; ent: handle[IGESGraph_TextFontDef];
+              shares: Interface_ShareTool; ach: var handle[Interface_Check]) {.
     noSideEffect, importcpp: "OwnCheck", header: "IGESGraph_ToolTextFontDef.hxx".}
-proc ownCopy*(this: IGESGraphToolTextFontDef;
-             entfrom: Handle[IGESGraphTextFontDef];
-             entto: Handle[IGESGraphTextFontDef]; tc: var InterfaceCopyTool) {.
+proc OwnCopy*(this: IGESGraph_ToolTextFontDef;
+             entfrom: handle[IGESGraph_TextFontDef];
+             entto: handle[IGESGraph_TextFontDef]; TC: var Interface_CopyTool) {.
     noSideEffect, importcpp: "OwnCopy", header: "IGESGraph_ToolTextFontDef.hxx".}
-proc ownDump*(this: IGESGraphToolTextFontDef; ent: Handle[IGESGraphTextFontDef];
-             dumper: IGESDataIGESDumper; s: var StandardOStream; own: StandardInteger) {.
-    noSideEffect, importcpp: "OwnDump", header: "IGESGraph_ToolTextFontDef.hxx".}
-
+proc OwnDump*(this: IGESGraph_ToolTextFontDef; ent: handle[IGESGraph_TextFontDef];
+             dumper: IGESData_IGESDumper; S: var Standard_OStream;
+             own: Standard_Integer) {.noSideEffect, importcpp: "OwnDump",
+                                    header: "IGESGraph_ToolTextFontDef.hxx".}

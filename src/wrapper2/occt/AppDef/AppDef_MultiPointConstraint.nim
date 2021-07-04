@@ -14,91 +14,96 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../AppParCurves/AppParCurves_MultiPoint,
+  ../TColgp/TColgp_Array1OfPnt, ../TColgp/TColgp_Array1OfPnt2d,
+  ../TColgp/TColgp_HArray1OfVec, ../TColgp/TColgp_HArray1OfVec2d
+
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of Standard_ConstructionError"
 discard "forward decl of Standard_DimensionError"
 discard "forward decl of gp_Vec"
 discard "forward decl of gp_Vec2d"
 type
-  AppDefMultiPointConstraint* {.importcpp: "AppDef_MultiPointConstraint",
-                               header: "AppDef_MultiPointConstraint.hxx", bycopy.} = object of AppParCurvesMultiPoint ##
-                                                                                                               ## !
-                                                                                                               ## creates
-                                                                                                               ## an
-                                                                                                               ## undefined
-                                                                                                               ## MultiPointConstraint.
+  AppDef_MultiPointConstraint* {.importcpp: "AppDef_MultiPointConstraint",
+                                header: "AppDef_MultiPointConstraint.hxx", bycopy.} = object of AppParCurves_MultiPoint ##
+                                                                                                                 ## !
+                                                                                                                 ## creates
+                                                                                                                 ## an
+                                                                                                                 ## undefined
+                                                                                                                 ## MultiPointConstraint.
 
 
-proc constructAppDefMultiPointConstraint*(): AppDefMultiPointConstraint {.
+proc constructAppDef_MultiPointConstraint*(): AppDef_MultiPointConstraint {.
     constructor, importcpp: "AppDef_MultiPointConstraint(@)",
     header: "AppDef_MultiPointConstraint.hxx".}
-proc constructAppDefMultiPointConstraint*(nbPoints: StandardInteger;
-    nbPoints2d: StandardInteger): AppDefMultiPointConstraint {.constructor,
+proc constructAppDef_MultiPointConstraint*(NbPoints: Standard_Integer;
+    NbPoints2d: Standard_Integer): AppDef_MultiPointConstraint {.constructor,
     importcpp: "AppDef_MultiPointConstraint(@)",
     header: "AppDef_MultiPointConstraint.hxx".}
-proc constructAppDefMultiPointConstraint*(tabP: TColgpArray1OfPnt): AppDefMultiPointConstraint {.
+proc constructAppDef_MultiPointConstraint*(tabP: TColgp_Array1OfPnt): AppDef_MultiPointConstraint {.
     constructor, importcpp: "AppDef_MultiPointConstraint(@)",
     header: "AppDef_MultiPointConstraint.hxx".}
-proc constructAppDefMultiPointConstraint*(tabP: TColgpArray1OfPnt2d): AppDefMultiPointConstraint {.
+proc constructAppDef_MultiPointConstraint*(tabP: TColgp_Array1OfPnt2d): AppDef_MultiPointConstraint {.
     constructor, importcpp: "AppDef_MultiPointConstraint(@)",
     header: "AppDef_MultiPointConstraint.hxx".}
-proc constructAppDefMultiPointConstraint*(tabP: TColgpArray1OfPnt;
-    tabP2d: TColgpArray1OfPnt2d): AppDefMultiPointConstraint {.constructor,
+proc constructAppDef_MultiPointConstraint*(tabP: TColgp_Array1OfPnt;
+    tabP2d: TColgp_Array1OfPnt2d): AppDef_MultiPointConstraint {.constructor,
     importcpp: "AppDef_MultiPointConstraint(@)",
     header: "AppDef_MultiPointConstraint.hxx".}
-proc constructAppDefMultiPointConstraint*(tabP: TColgpArray1OfPnt;
-    tabP2d: TColgpArray1OfPnt2d; tabVec: TColgpArray1OfVec;
-    tabVec2d: TColgpArray1OfVec2d; tabCur: TColgpArray1OfVec;
-    tabCur2d: TColgpArray1OfVec2d): AppDefMultiPointConstraint {.constructor,
+proc constructAppDef_MultiPointConstraint*(tabP: TColgp_Array1OfPnt;
+    tabP2d: TColgp_Array1OfPnt2d; tabVec: TColgp_Array1OfVec;
+    tabVec2d: TColgp_Array1OfVec2d; tabCur: TColgp_Array1OfVec;
+    tabCur2d: TColgp_Array1OfVec2d): AppDef_MultiPointConstraint {.constructor,
     importcpp: "AppDef_MultiPointConstraint(@)",
     header: "AppDef_MultiPointConstraint.hxx".}
-proc constructAppDefMultiPointConstraint*(tabP: TColgpArray1OfPnt;
-    tabP2d: TColgpArray1OfPnt2d; tabVec: TColgpArray1OfVec;
-    tabVec2d: TColgpArray1OfVec2d): AppDefMultiPointConstraint {.constructor,
+proc constructAppDef_MultiPointConstraint*(tabP: TColgp_Array1OfPnt;
+    tabP2d: TColgp_Array1OfPnt2d; tabVec: TColgp_Array1OfVec;
+    tabVec2d: TColgp_Array1OfVec2d): AppDef_MultiPointConstraint {.constructor,
     importcpp: "AppDef_MultiPointConstraint(@)",
     header: "AppDef_MultiPointConstraint.hxx".}
-proc constructAppDefMultiPointConstraint*(tabP: TColgpArray1OfPnt;
-    tabVec: TColgpArray1OfVec; tabCur: TColgpArray1OfVec): AppDefMultiPointConstraint {.
+proc constructAppDef_MultiPointConstraint*(tabP: TColgp_Array1OfPnt;
+    tabVec: TColgp_Array1OfVec; tabCur: TColgp_Array1OfVec): AppDef_MultiPointConstraint {.
     constructor, importcpp: "AppDef_MultiPointConstraint(@)",
     header: "AppDef_MultiPointConstraint.hxx".}
-proc constructAppDefMultiPointConstraint*(tabP: TColgpArray1OfPnt;
-    tabVec: TColgpArray1OfVec): AppDefMultiPointConstraint {.constructor,
+proc constructAppDef_MultiPointConstraint*(tabP: TColgp_Array1OfPnt;
+    tabVec: TColgp_Array1OfVec): AppDef_MultiPointConstraint {.constructor,
     importcpp: "AppDef_MultiPointConstraint(@)",
     header: "AppDef_MultiPointConstraint.hxx".}
-proc constructAppDefMultiPointConstraint*(tabP2d: TColgpArray1OfPnt2d;
-    tabVec2d: TColgpArray1OfVec2d): AppDefMultiPointConstraint {.constructor,
+proc constructAppDef_MultiPointConstraint*(tabP2d: TColgp_Array1OfPnt2d;
+    tabVec2d: TColgp_Array1OfVec2d): AppDef_MultiPointConstraint {.constructor,
     importcpp: "AppDef_MultiPointConstraint(@)",
     header: "AppDef_MultiPointConstraint.hxx".}
-proc constructAppDefMultiPointConstraint*(tabP2d: TColgpArray1OfPnt2d;
-    tabVec2d: TColgpArray1OfVec2d; tabCur2d: TColgpArray1OfVec2d): AppDefMultiPointConstraint {.
+proc constructAppDef_MultiPointConstraint*(tabP2d: TColgp_Array1OfPnt2d;
+    tabVec2d: TColgp_Array1OfVec2d; tabCur2d: TColgp_Array1OfVec2d): AppDef_MultiPointConstraint {.
     constructor, importcpp: "AppDef_MultiPointConstraint(@)",
     header: "AppDef_MultiPointConstraint.hxx".}
-proc setTang*(this: var AppDefMultiPointConstraint; index: StandardInteger;
-             tang: GpVec) {.importcpp: "SetTang",
-                          header: "AppDef_MultiPointConstraint.hxx".}
-proc tang*(this: AppDefMultiPointConstraint; index: StandardInteger): GpVec {.
+proc SetTang*(this: var AppDef_MultiPointConstraint; Index: Standard_Integer;
+             Tang: gp_Vec) {.importcpp: "SetTang",
+                           header: "AppDef_MultiPointConstraint.hxx".}
+proc Tang*(this: AppDef_MultiPointConstraint; Index: Standard_Integer): gp_Vec {.
     noSideEffect, importcpp: "Tang", header: "AppDef_MultiPointConstraint.hxx".}
-proc setTang2d*(this: var AppDefMultiPointConstraint; index: StandardInteger;
-               tang2d: GpVec2d) {.importcpp: "SetTang2d",
-                                header: "AppDef_MultiPointConstraint.hxx".}
-proc tang2d*(this: AppDefMultiPointConstraint; index: StandardInteger): GpVec2d {.
+proc SetTang2d*(this: var AppDef_MultiPointConstraint; Index: Standard_Integer;
+               Tang2d: gp_Vec2d) {.importcpp: "SetTang2d",
+                                 header: "AppDef_MultiPointConstraint.hxx".}
+proc Tang2d*(this: AppDef_MultiPointConstraint; Index: Standard_Integer): gp_Vec2d {.
     noSideEffect, importcpp: "Tang2d", header: "AppDef_MultiPointConstraint.hxx".}
-proc setCurv*(this: var AppDefMultiPointConstraint; index: StandardInteger;
-             curv: GpVec) {.importcpp: "SetCurv",
-                          header: "AppDef_MultiPointConstraint.hxx".}
-proc curv*(this: AppDefMultiPointConstraint; index: StandardInteger): GpVec {.
+proc SetCurv*(this: var AppDef_MultiPointConstraint; Index: Standard_Integer;
+             Curv: gp_Vec) {.importcpp: "SetCurv",
+                           header: "AppDef_MultiPointConstraint.hxx".}
+proc Curv*(this: AppDef_MultiPointConstraint; Index: Standard_Integer): gp_Vec {.
     noSideEffect, importcpp: "Curv", header: "AppDef_MultiPointConstraint.hxx".}
-proc setCurv2d*(this: var AppDefMultiPointConstraint; index: StandardInteger;
-               curv2d: GpVec2d) {.importcpp: "SetCurv2d",
-                                header: "AppDef_MultiPointConstraint.hxx".}
-proc curv2d*(this: AppDefMultiPointConstraint; index: StandardInteger): GpVec2d {.
+proc SetCurv2d*(this: var AppDef_MultiPointConstraint; Index: Standard_Integer;
+               Curv2d: gp_Vec2d) {.importcpp: "SetCurv2d",
+                                 header: "AppDef_MultiPointConstraint.hxx".}
+proc Curv2d*(this: AppDef_MultiPointConstraint; Index: Standard_Integer): gp_Vec2d {.
     noSideEffect, importcpp: "Curv2d", header: "AppDef_MultiPointConstraint.hxx".}
-proc isTangencyPoint*(this: AppDefMultiPointConstraint): StandardBoolean {.
+proc IsTangencyPoint*(this: AppDef_MultiPointConstraint): Standard_Boolean {.
     noSideEffect, importcpp: "IsTangencyPoint",
     header: "AppDef_MultiPointConstraint.hxx".}
-proc isCurvaturePoint*(this: AppDefMultiPointConstraint): StandardBoolean {.
+proc IsCurvaturePoint*(this: AppDef_MultiPointConstraint): Standard_Boolean {.
     noSideEffect, importcpp: "IsCurvaturePoint",
     header: "AppDef_MultiPointConstraint.hxx".}
-proc dump*(this: AppDefMultiPointConstraint; o: var StandardOStream) {.noSideEffect,
+proc Dump*(this: AppDef_MultiPointConstraint; o: var Standard_OStream) {.noSideEffect,
     importcpp: "Dump", header: "AppDef_MultiPointConstraint.hxx".}
-

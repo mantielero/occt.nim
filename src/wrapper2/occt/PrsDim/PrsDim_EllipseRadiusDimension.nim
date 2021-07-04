@@ -14,38 +14,41 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../gp/gp_Elips, PrsDim_Relation, PrsDim_KindOfSurface
+
 discard "forward decl of Geom_OffsetCurve"
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of TCollection_ExtendedString"
 discard "forward decl of Geom_Surface"
 discard "forward decl of PrsDim_EllipseRadiusDimension"
 type
-  HandlePrsDimEllipseRadiusDimension* = Handle[PrsDimEllipseRadiusDimension]
+  Handle_PrsDim_EllipseRadiusDimension* = handle[PrsDim_EllipseRadiusDimension]
 
 ## ! Computes  geometry  (  basis  curve  and  plane  of  dimension)
 ## ! for  input  shape  aShape  from  TopoDS
 ## ! Root  class  for MinRadiusDimension  and  MaxRadiusDimension
 
 type
-  PrsDimEllipseRadiusDimension* {.importcpp: "PrsDim_EllipseRadiusDimension",
-                                 header: "PrsDim_EllipseRadiusDimension.hxx",
-                                 bycopy.} = object of PrsDimRelation
+  PrsDim_EllipseRadiusDimension* {.importcpp: "PrsDim_EllipseRadiusDimension",
+                                  header: "PrsDim_EllipseRadiusDimension.hxx",
+                                  bycopy.} = object of PrsDim_Relation
 
-  PrsDimEllipseRadiusDimensionbaseType* = PrsDimRelation
+  PrsDim_EllipseRadiusDimensionbase_type* = PrsDim_Relation
 
-proc getTypeName*(): cstring {.importcpp: "PrsDim_EllipseRadiusDimension::get_type_name(@)",
-                            header: "PrsDim_EllipseRadiusDimension.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "PrsDim_EllipseRadiusDimension::get_type_name(@)",
+                              header: "PrsDim_EllipseRadiusDimension.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "PrsDim_EllipseRadiusDimension::get_type_descriptor(@)",
     header: "PrsDim_EllipseRadiusDimension.hxx".}
-proc dynamicType*(this: PrsDimEllipseRadiusDimension): Handle[StandardType] {.
+proc DynamicType*(this: PrsDim_EllipseRadiusDimension): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType",
     header: "PrsDim_EllipseRadiusDimension.hxx".}
-proc kindOfDimension*(this: PrsDimEllipseRadiusDimension): PrsDimKindOfDimension {.
+proc KindOfDimension*(this: PrsDim_EllipseRadiusDimension): PrsDim_KindOfDimension {.
     noSideEffect, importcpp: "KindOfDimension",
     header: "PrsDim_EllipseRadiusDimension.hxx".}
-proc isMovable*(this: PrsDimEllipseRadiusDimension): StandardBoolean {.noSideEffect,
-    importcpp: "IsMovable", header: "PrsDim_EllipseRadiusDimension.hxx".}
-proc computeGeometry*(this: var PrsDimEllipseRadiusDimension) {.
+proc IsMovable*(this: PrsDim_EllipseRadiusDimension): Standard_Boolean {.
+    noSideEffect, importcpp: "IsMovable",
+    header: "PrsDim_EllipseRadiusDimension.hxx".}
+proc ComputeGeometry*(this: var PrsDim_EllipseRadiusDimension) {.
     importcpp: "ComputeGeometry", header: "PrsDim_EllipseRadiusDimension.hxx".}
-

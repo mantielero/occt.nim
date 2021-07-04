@@ -11,113 +11,121 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Macro, ../Standard/Standard_Type,
+  ../Standard/Standard_Transient, ../gp/gp_Pnt, ../gp/gp_Vec,
+  ../TColgp/TColgp_Array2OfPnt, ../TColStd/TColStd_Array1OfInteger,
+  ../TColStd/TColStd_HArray2OfReal, ../TColStd/TColStd_HArray1OfReal,
+  ../TColStd/TColStd_Array1OfReal, ../TColStd/TColStd_Array2OfReal,
+  ../BSplCLib/BSplCLib_CacheParams
+
 ## ! \brief A cache class for Bezier and B-spline surfaces.
 ## !
 ## ! Defines all data, that can be cached on a span of the surface.
 ## ! The data should be recalculated in going from span to span.
 
 type
-  BSplSLibCache* {.importcpp: "BSplSLib_Cache", header: "BSplSLib_Cache.hxx", bycopy.} = object of StandardTransient ##
-                                                                                                           ## !
-                                                                                                           ## Constructor
-                                                                                                           ## for
-                                                                                                           ## caching
-                                                                                                           ## of
-                                                                                                           ## the
-                                                                                                           ## span
-                                                                                                           ## for
-                                                                                                           ## the
-                                                                                                           ## surface
-                                                                                                           ##
-                                                                                                           ## !
-                                                                                                           ## \param
-                                                                                                           ## theDegreeU
-                                                                                                           ## degree
-                                                                                                           ## along
-                                                                                                           ## the
-                                                                                                           ## first
-                                                                                                           ## parameter
-                                                                                                           ## (U)
-                                                                                                           ## of
-                                                                                                           ## the
-                                                                                                           ## surface
-                                                                                                           ##
-                                                                                                           ## !
-                                                                                                           ## \param
-                                                                                                           ## thePeriodicU
-                                                                                                           ## identify
-                                                                                                           ## the
-                                                                                                           ## surface
-                                                                                                           ## is
-                                                                                                           ## periodical
-                                                                                                           ## along
-                                                                                                           ## U
-                                                                                                           ## axis
-                                                                                                           ##
-                                                                                                           ## !
-                                                                                                           ## \param
-                                                                                                           ## theFlatKnotsU
-                                                                                                           ## knots
-                                                                                                           ## of
-                                                                                                           ## the
-                                                                                                           ## surface
-                                                                                                           ## (with
-                                                                                                           ## repetition)
-                                                                                                           ## along
-                                                                                                           ## U
-                                                                                                           ## axis
-                                                                                                           ##
-                                                                                                           ## !
-                                                                                                           ## \param
-                                                                                                           ## theDegreeV
-                                                                                                           ## degree
-                                                                                                           ## alogn
-                                                                                                           ## the
-                                                                                                           ## second
-                                                                                                           ## parameter
-                                                                                                           ## (V)
-                                                                                                           ## of
-                                                                                                           ## the
-                                                                                                           ## surface
-                                                                                                           ##
-                                                                                                           ## !
-                                                                                                           ## \param
-                                                                                                           ## thePeriodicV
-                                                                                                           ## identify
-                                                                                                           ## the
-                                                                                                           ## surface
-                                                                                                           ## is
-                                                                                                           ## periodical
-                                                                                                           ## along
-                                                                                                           ## V
-                                                                                                           ## axis
-                                                                                                           ##
-                                                                                                           ## !
-                                                                                                           ## \param
-                                                                                                           ## theFlatKnotsV
-                                                                                                           ## knots
-                                                                                                           ## of
-                                                                                                           ## the
-                                                                                                           ## surface
-                                                                                                           ## (with
-                                                                                                           ## repetition)
-                                                                                                           ## along
-                                                                                                           ## V
-                                                                                                           ## axis
-                                                                                                           ##
-                                                                                                           ## !
-                                                                                                           ## \param
-                                                                                                           ## theWeights
-                                                                                                           ## array
-                                                                                                           ## of
-                                                                                                           ## weights
-                                                                                                           ## of
-                                                                                                           ## corresponding
-                                                                                                           ## poles
-                                                                                                           ##
-                                                                                                           ## copying
-                                                                                                           ## is
-                                                                                                           ## prohibited
+  BSplSLib_Cache* {.importcpp: "BSplSLib_Cache", header: "BSplSLib_Cache.hxx", bycopy.} = object of Standard_Transient ##
+                                                                                                             ## !
+                                                                                                             ## Constructor
+                                                                                                             ## for
+                                                                                                             ## caching
+                                                                                                             ## of
+                                                                                                             ## the
+                                                                                                             ## span
+                                                                                                             ## for
+                                                                                                             ## the
+                                                                                                             ## surface
+                                                                                                             ##
+                                                                                                             ## !
+                                                                                                             ## \param
+                                                                                                             ## theDegreeU
+                                                                                                             ## degree
+                                                                                                             ## along
+                                                                                                             ## the
+                                                                                                             ## first
+                                                                                                             ## parameter
+                                                                                                             ## (U)
+                                                                                                             ## of
+                                                                                                             ## the
+                                                                                                             ## surface
+                                                                                                             ##
+                                                                                                             ## !
+                                                                                                             ## \param
+                                                                                                             ## thePeriodicU
+                                                                                                             ## identify
+                                                                                                             ## the
+                                                                                                             ## surface
+                                                                                                             ## is
+                                                                                                             ## periodical
+                                                                                                             ## along
+                                                                                                             ## U
+                                                                                                             ## axis
+                                                                                                             ##
+                                                                                                             ## !
+                                                                                                             ## \param
+                                                                                                             ## theFlatKnotsU
+                                                                                                             ## knots
+                                                                                                             ## of
+                                                                                                             ## the
+                                                                                                             ## surface
+                                                                                                             ## (with
+                                                                                                             ## repetition)
+                                                                                                             ## along
+                                                                                                             ## U
+                                                                                                             ## axis
+                                                                                                             ##
+                                                                                                             ## !
+                                                                                                             ## \param
+                                                                                                             ## theDegreeV
+                                                                                                             ## degree
+                                                                                                             ## alogn
+                                                                                                             ## the
+                                                                                                             ## second
+                                                                                                             ## parameter
+                                                                                                             ## (V)
+                                                                                                             ## of
+                                                                                                             ## the
+                                                                                                             ## surface
+                                                                                                             ##
+                                                                                                             ## !
+                                                                                                             ## \param
+                                                                                                             ## thePeriodicV
+                                                                                                             ## identify
+                                                                                                             ## the
+                                                                                                             ## surface
+                                                                                                             ## is
+                                                                                                             ## periodical
+                                                                                                             ## along
+                                                                                                             ## V
+                                                                                                             ## axis
+                                                                                                             ##
+                                                                                                             ## !
+                                                                                                             ## \param
+                                                                                                             ## theFlatKnotsV
+                                                                                                             ## knots
+                                                                                                             ## of
+                                                                                                             ## the
+                                                                                                             ## surface
+                                                                                                             ## (with
+                                                                                                             ## repetition)
+                                                                                                             ## along
+                                                                                                             ## V
+                                                                                                             ## axis
+                                                                                                             ##
+                                                                                                             ## !
+                                                                                                             ## \param
+                                                                                                             ## theWeights
+                                                                                                             ## array
+                                                                                                             ## of
+                                                                                                             ## weights
+                                                                                                             ## of
+                                                                                                             ## corresponding
+                                                                                                             ## poles
+                                                                                                             ##
+                                                                                                             ## copying
+                                                                                                             ## is
+                                                                                                             ## prohibited
     ## !< identifies the rationality of Bezier/B-spline surface
     ## !< cach parameters by U and V directions
     ## !< array of poles and weights of calculated cache
@@ -128,44 +136,43 @@ type
     ##  size of array: (max(myDegree)+1) * A*(min(myDegree)+1), where A = 4 or 3
 
 
-proc constructBSplSLibCache*(theDegreeU: StandardInteger;
-                            thePeriodicU: StandardBoolean;
-                            theFlatKnotsU: TColStdArray1OfReal;
-                            theDegreeV: StandardInteger;
-                            thePeriodicV: StandardBoolean;
-                            theFlatKnotsV: TColStdArray1OfReal;
-                            theWeights: ptr TColStdArray2OfReal = nil): BSplSLibCache {.
+proc constructBSplSLib_Cache*(theDegreeU: Standard_Integer;
+                             thePeriodicU: Standard_Boolean;
+                             theFlatKnotsU: TColStd_Array1OfReal;
+                             theDegreeV: Standard_Integer;
+                             thePeriodicV: Standard_Boolean;
+                             theFlatKnotsV: TColStd_Array1OfReal;
+                             theWeights: ptr TColStd_Array2OfReal = nil): BSplSLib_Cache {.
     constructor, importcpp: "BSplSLib_Cache(@)", header: "BSplSLib_Cache.hxx".}
-proc isCacheValid*(this: BSplSLibCache; theParameterU: StandardReal;
-                  theParameterV: StandardReal): StandardBoolean {.noSideEffect,
+proc IsCacheValid*(this: BSplSLib_Cache; theParameterU: Standard_Real;
+                  theParameterV: Standard_Real): Standard_Boolean {.noSideEffect,
     importcpp: "IsCacheValid", header: "BSplSLib_Cache.hxx".}
-proc buildCache*(this: var BSplSLibCache; theParameterU: StandardReal;
-                theParameterV: StandardReal; theFlatKnotsU: TColStdArray1OfReal;
-                theFlatKnotsV: TColStdArray1OfReal; thePoles: TColgpArray2OfPnt;
-                theWeights: ptr TColStdArray2OfReal = nil) {.importcpp: "BuildCache",
-    header: "BSplSLib_Cache.hxx".}
-proc d0*(this: BSplSLibCache; theU: StandardReal; theV: StandardReal;
-        thePoint: var GpPnt) {.noSideEffect, importcpp: "D0",
-                            header: "BSplSLib_Cache.hxx".}
-proc d1*(this: BSplSLibCache; theU: StandardReal; theV: StandardReal;
-        thePoint: var GpPnt; theTangentU: var GpVec; theTangentV: var GpVec) {.
+proc BuildCache*(this: var BSplSLib_Cache; theParameterU: Standard_Real;
+                theParameterV: Standard_Real; theFlatKnotsU: TColStd_Array1OfReal;
+                theFlatKnotsV: TColStd_Array1OfReal; thePoles: TColgp_Array2OfPnt;
+                theWeights: ptr TColStd_Array2OfReal = nil) {.
+    importcpp: "BuildCache", header: "BSplSLib_Cache.hxx".}
+proc D0*(this: BSplSLib_Cache; theU: Standard_Real; theV: Standard_Real;
+        thePoint: var gp_Pnt) {.noSideEffect, importcpp: "D0",
+                             header: "BSplSLib_Cache.hxx".}
+proc D1*(this: BSplSLib_Cache; theU: Standard_Real; theV: Standard_Real;
+        thePoint: var gp_Pnt; theTangentU: var gp_Vec; theTangentV: var gp_Vec) {.
     noSideEffect, importcpp: "D1", header: "BSplSLib_Cache.hxx".}
-proc d2*(this: BSplSLibCache; theU: StandardReal; theV: StandardReal;
-        thePoint: var GpPnt; theTangentU: var GpVec; theTangentV: var GpVec;
-        theCurvatureU: var GpVec; theCurvatureV: var GpVec; theCurvatureUV: var GpVec) {.
-    noSideEffect, importcpp: "D2", header: "BSplSLib_Cache.hxx".}
+proc D2*(this: BSplSLib_Cache; theU: Standard_Real; theV: Standard_Real;
+        thePoint: var gp_Pnt; theTangentU: var gp_Vec; theTangentV: var gp_Vec;
+        theCurvatureU: var gp_Vec; theCurvatureV: var gp_Vec;
+        theCurvatureUV: var gp_Vec) {.noSideEffect, importcpp: "D2",
+                                   header: "BSplSLib_Cache.hxx".}
 type
-  BSplSLibCachebaseType* = StandardTransient
+  BSplSLib_Cachebase_type* = Standard_Transient
 
-proc getTypeName*(): cstring {.importcpp: "BSplSLib_Cache::get_type_name(@)",
-                            header: "BSplSLib_Cache.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "BSplSLib_Cache::get_type_name(@)",
+                              header: "BSplSLib_Cache.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "BSplSLib_Cache::get_type_descriptor(@)",
     header: "BSplSLib_Cache.hxx".}
-proc dynamicType*(this: BSplSLibCache): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: BSplSLib_Cache): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "BSplSLib_Cache.hxx".}
 discard "forward decl of BSplSLib_Cache"
 type
-  HandleBSplSLibCache* = Handle[BSplSLibCache]
-
-
+  Handle_BSplSLib_Cache* = handle[BSplSLib_Cache]

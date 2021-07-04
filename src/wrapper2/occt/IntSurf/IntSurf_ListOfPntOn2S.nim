@@ -14,8 +14,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  IntSurf_PntOn2S, ../NCollection/NCollection_List
+
 type
-  IntSurfListOfPntOn2S* = NCollectionList[IntSurfPntOn2S]
-  IntSurfListIteratorOfListOfPntOn2S* = Iterator[IntSurfPntOn2S]
-
-
+  IntSurf_ListOfPntOn2S* = NCollection_List[IntSurf_PntOn2S]
+  IntSurf_ListIteratorOfListOfPntOn2S* = Iterator[IntSurf_PntOn2S]

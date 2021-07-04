@@ -14,28 +14,32 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../TopoDS/TopoDS_Edge, ../TopoDS/TopoDS_Face,
+  ../Geom2dAdaptor/Geom2dAdaptor_Curve
+
 discard "forward decl of Standard_NullObject"
 discard "forward decl of TopoDS_Edge"
 discard "forward decl of TopoDS_Face"
 type
-  BRepAdaptorCurve2d* {.importcpp: "BRepAdaptor_Curve2d",
-                       header: "BRepAdaptor_Curve2d.hxx", bycopy.} = object of Geom2dAdaptorCurve ##
-                                                                                           ## !
-                                                                                           ## Creates
-                                                                                           ## an
-                                                                                           ## uninitialized
-                                                                                           ## curve2d.
+  BRepAdaptor_Curve2d* {.importcpp: "BRepAdaptor_Curve2d",
+                        header: "BRepAdaptor_Curve2d.hxx", bycopy.} = object of Geom2dAdaptor_Curve ##
+                                                                                             ## !
+                                                                                             ## Creates
+                                                                                             ## an
+                                                                                             ## uninitialized
+                                                                                             ## curve2d.
 
 
-proc constructBRepAdaptorCurve2d*(): BRepAdaptorCurve2d {.constructor,
+proc constructBRepAdaptor_Curve2d*(): BRepAdaptor_Curve2d {.constructor,
     importcpp: "BRepAdaptor_Curve2d(@)", header: "BRepAdaptor_Curve2d.hxx".}
-proc constructBRepAdaptorCurve2d*(e: TopoDS_Edge; f: TopoDS_Face): BRepAdaptorCurve2d {.
+proc constructBRepAdaptor_Curve2d*(E: TopoDS_Edge; F: TopoDS_Face): BRepAdaptor_Curve2d {.
     constructor, importcpp: "BRepAdaptor_Curve2d(@)",
     header: "BRepAdaptor_Curve2d.hxx".}
-proc initialize*(this: var BRepAdaptorCurve2d; e: TopoDS_Edge; f: TopoDS_Face) {.
+proc Initialize*(this: var BRepAdaptor_Curve2d; E: TopoDS_Edge; F: TopoDS_Face) {.
     importcpp: "Initialize", header: "BRepAdaptor_Curve2d.hxx".}
-proc edge*(this: BRepAdaptorCurve2d): TopoDS_Edge {.noSideEffect, importcpp: "Edge",
+proc Edge*(this: BRepAdaptor_Curve2d): TopoDS_Edge {.noSideEffect, importcpp: "Edge",
     header: "BRepAdaptor_Curve2d.hxx".}
-proc face*(this: BRepAdaptorCurve2d): TopoDS_Face {.noSideEffect, importcpp: "Face",
+proc Face*(this: BRepAdaptor_Curve2d): TopoDS_Face {.noSideEffect, importcpp: "Face",
     header: "BRepAdaptor_Curve2d.hxx".}
-

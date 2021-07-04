@@ -14,27 +14,30 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepVisual_CurveStyle"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepVisualRWCurveStyle* {.importcpp: "RWStepVisual_RWCurveStyle",
-                             header: "RWStepVisual_RWCurveStyle.hxx", bycopy.} = object
+  RWStepVisual_RWCurveStyle* {.importcpp: "RWStepVisual_RWCurveStyle",
+                              header: "RWStepVisual_RWCurveStyle.hxx", bycopy.} = object
 
 
-proc constructRWStepVisualRWCurveStyle*(): RWStepVisualRWCurveStyle {.constructor,
-    importcpp: "RWStepVisual_RWCurveStyle(@)",
+proc constructRWStepVisual_RWCurveStyle*(): RWStepVisual_RWCurveStyle {.
+    constructor, importcpp: "RWStepVisual_RWCurveStyle(@)",
     header: "RWStepVisual_RWCurveStyle.hxx".}
-proc readStep*(this: RWStepVisualRWCurveStyle;
-              data: Handle[StepDataStepReaderData]; num: StandardInteger;
-              ach: var Handle[InterfaceCheck]; ent: Handle[StepVisualCurveStyle]) {.
+proc ReadStep*(this: RWStepVisual_RWCurveStyle;
+              data: handle[StepData_StepReaderData]; num: Standard_Integer;
+              ach: var handle[Interface_Check]; ent: handle[StepVisual_CurveStyle]) {.
     noSideEffect, importcpp: "ReadStep", header: "RWStepVisual_RWCurveStyle.hxx".}
-proc writeStep*(this: RWStepVisualRWCurveStyle; sw: var StepDataStepWriter;
-               ent: Handle[StepVisualCurveStyle]) {.noSideEffect,
+proc WriteStep*(this: RWStepVisual_RWCurveStyle; SW: var StepData_StepWriter;
+               ent: handle[StepVisual_CurveStyle]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepVisual_RWCurveStyle.hxx".}
-proc share*(this: RWStepVisualRWCurveStyle; ent: Handle[StepVisualCurveStyle];
-           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
+proc Share*(this: RWStepVisual_RWCurveStyle; ent: handle[StepVisual_CurveStyle];
+           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepVisual_RWCurveStyle.hxx".}
-

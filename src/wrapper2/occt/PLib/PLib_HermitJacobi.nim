@@ -14,12 +14,17 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../math/math_Matrix,
+  ../TColStd/TColStd_Array1OfReal, PLib_Base, ../Standard/Standard_Integer,
+  ../GeomAbs/GeomAbs_Shape, ../Standard/Standard_Real
+
 discard "forward decl of PLib_JacobiPolynomial"
 discard "forward decl of Standard_ConstructionError"
 discard "forward decl of PLib_HermitJacobi"
 discard "forward decl of PLib_HermitJacobi"
 type
-  HandlePLibHermitJacobi* = Handle[PLibHermitJacobi]
+  Handle_PLib_HermitJacobi* = handle[PLib_HermitJacobi]
 
 ## ! This class provides method  to work with Jacobi Polynomials
 ## ! relativly to an order of constraint
@@ -49,74 +54,88 @@ type
 ## ! Q(t) = c2*iordre+2  J0(t) + ...+ cDegree JDegree-2*iordre-2
 
 type
-  PLibHermitJacobi* {.importcpp: "PLib_HermitJacobi",
-                     header: "PLib_HermitJacobi.hxx", bycopy.} = object of PLibBase ## !
-                                                                             ## Initialize the
-                                                                             ## polynomial
-                                                                             ## class
-                                                                             ## !
-                                                                             ## Degree has to be <= 30
-                                                                             ## !
-                                                                             ## ConstraintOrder has to be
-                                                                             ## GeomAbs_C0
-                                                                             ## !
-                                                                             ## GeomAbs_C1
-                                                                             ## !
-                                                                             ## GeomAbs_C2
-                                                                             ## !
-                                                                             ## Compute the
-                                                                             ## values and the
-                                                                             ## derivatives
-                                                                             ## values of
-                                                                             ## ! the
-                                                                             ## basis
-                                                                             ## functions in u
+  PLib_HermitJacobi* {.importcpp: "PLib_HermitJacobi",
+                      header: "PLib_HermitJacobi.hxx", bycopy.} = object of PLib_Base ## !
+                                                                               ## Initialize
+                                                                               ## the
+                                                                               ## polynomial
+                                                                               ## class
+                                                                               ## !
+                                                                               ## Degree
+                                                                               ## has
+                                                                               ## to
+                                                                               ## be
+                                                                               ## <=
+                                                                               ## 30
+                                                                               ## !
+                                                                               ## ConstraintOrder
+                                                                               ## has
+                                                                               ## to
+                                                                               ## be
+                                                                               ## GeomAbs_C0
+                                                                               ## !
+                                                                               ## GeomAbs_C1
+                                                                               ## !
+                                                                               ## GeomAbs_C2
+                                                                               ## !
+                                                                               ## Compute
+                                                                               ## the
+                                                                               ## values
+                                                                               ## and
+                                                                               ## the
+                                                                               ## derivatives
+                                                                               ## values
+                                                                               ## of
+                                                                               ## !
+                                                                               ## the
+                                                                               ## basis
+                                                                               ## functions
+                                                                               ## in u
 
 
-proc constructPLibHermitJacobi*(workDegree: StandardInteger;
-                               constraintOrder: GeomAbsShape): PLibHermitJacobi {.
+proc constructPLib_HermitJacobi*(WorkDegree: Standard_Integer;
+                                ConstraintOrder: GeomAbs_Shape): PLib_HermitJacobi {.
     constructor, importcpp: "PLib_HermitJacobi(@)", header: "PLib_HermitJacobi.hxx".}
-proc maxError*(this: PLibHermitJacobi; dimension: StandardInteger;
-              hermJacCoeff: var StandardReal; newDegree: StandardInteger): StandardReal {.
+proc MaxError*(this: PLib_HermitJacobi; Dimension: Standard_Integer;
+              HermJacCoeff: var Standard_Real; NewDegree: Standard_Integer): Standard_Real {.
     noSideEffect, importcpp: "MaxError", header: "PLib_HermitJacobi.hxx".}
-proc reduceDegree*(this: PLibHermitJacobi; dimension: StandardInteger;
-                  maxDegree: StandardInteger; tol: StandardReal;
-                  hermJacCoeff: var StandardReal; newDegree: var StandardInteger;
-                  maxError: var StandardReal) {.noSideEffect,
+proc ReduceDegree*(this: PLib_HermitJacobi; Dimension: Standard_Integer;
+                  MaxDegree: Standard_Integer; Tol: Standard_Real;
+                  HermJacCoeff: var Standard_Real; NewDegree: var Standard_Integer;
+                  MaxError: var Standard_Real) {.noSideEffect,
     importcpp: "ReduceDegree", header: "PLib_HermitJacobi.hxx".}
-proc averageError*(this: PLibHermitJacobi; dimension: StandardInteger;
-                  hermJacCoeff: var StandardReal; newDegree: StandardInteger): StandardReal {.
+proc AverageError*(this: PLib_HermitJacobi; Dimension: Standard_Integer;
+                  HermJacCoeff: var Standard_Real; NewDegree: Standard_Integer): Standard_Real {.
     noSideEffect, importcpp: "AverageError", header: "PLib_HermitJacobi.hxx".}
-proc toCoefficients*(this: PLibHermitJacobi; dimension: StandardInteger;
-                    degree: StandardInteger; hermJacCoeff: TColStdArray1OfReal;
-                    coefficients: var TColStdArray1OfReal) {.noSideEffect,
+proc ToCoefficients*(this: PLib_HermitJacobi; Dimension: Standard_Integer;
+                    Degree: Standard_Integer; HermJacCoeff: TColStd_Array1OfReal;
+                    Coefficients: var TColStd_Array1OfReal) {.noSideEffect,
     importcpp: "ToCoefficients", header: "PLib_HermitJacobi.hxx".}
-proc d0*(this: var PLibHermitJacobi; u: StandardReal;
-        basisValue: var TColStdArray1OfReal) {.importcpp: "D0",
+proc D0*(this: var PLib_HermitJacobi; U: Standard_Real;
+        BasisValue: var TColStd_Array1OfReal) {.importcpp: "D0",
     header: "PLib_HermitJacobi.hxx".}
-proc d1*(this: var PLibHermitJacobi; u: StandardReal;
-        basisValue: var TColStdArray1OfReal; basisD1: var TColStdArray1OfReal) {.
+proc D1*(this: var PLib_HermitJacobi; U: Standard_Real;
+        BasisValue: var TColStd_Array1OfReal; BasisD1: var TColStd_Array1OfReal) {.
     importcpp: "D1", header: "PLib_HermitJacobi.hxx".}
-proc d2*(this: var PLibHermitJacobi; u: StandardReal;
-        basisValue: var TColStdArray1OfReal; basisD1: var TColStdArray1OfReal;
-        basisD2: var TColStdArray1OfReal) {.importcpp: "D2",
+proc D2*(this: var PLib_HermitJacobi; U: Standard_Real;
+        BasisValue: var TColStd_Array1OfReal; BasisD1: var TColStd_Array1OfReal;
+        BasisD2: var TColStd_Array1OfReal) {.importcpp: "D2",
     header: "PLib_HermitJacobi.hxx".}
-proc d3*(this: var PLibHermitJacobi; u: StandardReal;
-        basisValue: var TColStdArray1OfReal; basisD1: var TColStdArray1OfReal;
-        basisD2: var TColStdArray1OfReal; basisD3: var TColStdArray1OfReal) {.
+proc D3*(this: var PLib_HermitJacobi; U: Standard_Real;
+        BasisValue: var TColStd_Array1OfReal; BasisD1: var TColStd_Array1OfReal;
+        BasisD2: var TColStd_Array1OfReal; BasisD3: var TColStd_Array1OfReal) {.
     importcpp: "D3", header: "PLib_HermitJacobi.hxx".}
-proc workDegree*(this: PLibHermitJacobi): StandardInteger {.noSideEffect,
+proc WorkDegree*(this: PLib_HermitJacobi): Standard_Integer {.noSideEffect,
     importcpp: "WorkDegree", header: "PLib_HermitJacobi.hxx".}
-proc nivConstr*(this: PLibHermitJacobi): StandardInteger {.noSideEffect,
+proc NivConstr*(this: PLib_HermitJacobi): Standard_Integer {.noSideEffect,
     importcpp: "NivConstr", header: "PLib_HermitJacobi.hxx".}
 type
-  PLibHermitJacobibaseType* = PLibBase
+  PLib_HermitJacobibase_type* = PLib_Base
 
-proc getTypeName*(): cstring {.importcpp: "PLib_HermitJacobi::get_type_name(@)",
-                            header: "PLib_HermitJacobi.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "PLib_HermitJacobi::get_type_name(@)",
+                              header: "PLib_HermitJacobi.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "PLib_HermitJacobi::get_type_descriptor(@)",
     header: "PLib_HermitJacobi.hxx".}
-proc dynamicType*(this: PLibHermitJacobi): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: PLib_HermitJacobi): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "PLib_HermitJacobi.hxx".}
-

@@ -12,26 +12,29 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Media/Media_IFrameQueue, Graphic3d_MediaTexture, Graphic3d_TextureSet
+
 discard "forward decl of Graphic3d_ShaderProgram"
 discard "forward decl of Media_PlayerContext"
 type
-  Graphic3dMediaTextureSet* {.importcpp: "Graphic3d_MediaTextureSet",
-                             header: "Graphic3d_MediaTextureSet.hxx", bycopy.} = object of Graphic3dTextureSet ##
-                                                                                                        ## !
-                                                                                                        ## Callback
-                                                                                                        ## definition.
-                                                                                                        ##
-                                                                                                        ## !
-                                                                                                        ## Empty
-                                                                                                        ## constructor.
-                                                                                                        ##
-                                                                                                        ## !
-                                                                                                        ## Lock
-                                                                                                        ## the
-                                                                                                        ## frame
-                                                                                                        ## for
-                                                                                                        ## decoding
-                                                                                                        ## into.
+  Graphic3d_MediaTextureSet* {.importcpp: "Graphic3d_MediaTextureSet",
+                              header: "Graphic3d_MediaTextureSet.hxx", bycopy.} = object of Graphic3d_TextureSet ##
+                                                                                                          ## !
+                                                                                                          ## Callback
+                                                                                                          ## definition.
+                                                                                                          ##
+                                                                                                          ## !
+                                                                                                          ## Empty
+                                                                                                          ## constructor.
+                                                                                                          ##
+                                                                                                          ## !
+                                                                                                          ## Lock
+                                                                                                          ## the
+                                                                                                          ## frame
+                                                                                                          ## for
+                                                                                                          ## decoding
+                                                                                                          ## into.
     ## !< player context
     ## !< front/back frames pair
     ## !< shader program for YUV  texture set
@@ -48,48 +51,47 @@ type
     ## !< front frame contains planar YUV data or native texture format
     ## !< front frame defines full-range or reduced-range YUV
 
-  Graphic3dMediaTextureSetbaseType* = Graphic3dTextureSet
+  Graphic3d_MediaTextureSetbase_type* = Graphic3d_TextureSet
 
-proc getTypeName*(): cstring {.importcpp: "Graphic3d_MediaTextureSet::get_type_name(@)",
-                            header: "Graphic3d_MediaTextureSet.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "Graphic3d_MediaTextureSet::get_type_name(@)",
+                              header: "Graphic3d_MediaTextureSet.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "Graphic3d_MediaTextureSet::get_type_descriptor(@)",
     header: "Graphic3d_MediaTextureSet.hxx".}
-proc dynamicType*(this: Graphic3dMediaTextureSet): Handle[StandardType] {.
+proc DynamicType*(this: Graphic3d_MediaTextureSet): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType", header: "Graphic3d_MediaTextureSet.hxx".}
 type
-  Graphic3dMediaTextureSetCallbackOnUpdateT* = proc (theUserPtr: pointer)
+  Graphic3d_MediaTextureSetCallbackOnUpdate_t* = proc (theUserPtr: pointer)
 
-proc constructGraphic3dMediaTextureSet*(): Graphic3dMediaTextureSet {.constructor,
-    importcpp: "Graphic3d_MediaTextureSet(@)",
+proc constructGraphic3d_MediaTextureSet*(): Graphic3d_MediaTextureSet {.
+    constructor, importcpp: "Graphic3d_MediaTextureSet(@)",
     header: "Graphic3d_MediaTextureSet.hxx".}
-proc setCallback*(this: var Graphic3dMediaTextureSet; theCallbackFunction: Graphic3dMediaTextureSetCallbackOnUpdateT;
+proc SetCallback*(this: var Graphic3d_MediaTextureSet; theCallbackFunction: Graphic3d_MediaTextureSetCallbackOnUpdate_t;
                  theCallbackUserPtr: pointer) {.importcpp: "SetCallback",
     header: "Graphic3d_MediaTextureSet.hxx".}
-proc notify*(this: var Graphic3dMediaTextureSet) {.importcpp: "Notify",
+proc Notify*(this: var Graphic3d_MediaTextureSet) {.importcpp: "Notify",
     header: "Graphic3d_MediaTextureSet.hxx".}
-proc input*(this: Graphic3dMediaTextureSet): TCollectionAsciiString {.noSideEffect,
-    importcpp: "Input", header: "Graphic3d_MediaTextureSet.hxx".}
-proc openInput*(this: var Graphic3dMediaTextureSet; thePath: TCollectionAsciiString;
-               theToWait: StandardBoolean) {.importcpp: "OpenInput",
-    header: "Graphic3d_MediaTextureSet.hxx".}
-proc playerContext*(this: Graphic3dMediaTextureSet): Handle[MediaPlayerContext] {.
+proc Input*(this: Graphic3d_MediaTextureSet): TCollection_AsciiString {.
+    noSideEffect, importcpp: "Input", header: "Graphic3d_MediaTextureSet.hxx".}
+proc OpenInput*(this: var Graphic3d_MediaTextureSet;
+               thePath: TCollection_AsciiString; theToWait: Standard_Boolean) {.
+    importcpp: "OpenInput", header: "Graphic3d_MediaTextureSet.hxx".}
+proc PlayerContext*(this: Graphic3d_MediaTextureSet): handle[Media_PlayerContext] {.
     noSideEffect, importcpp: "PlayerContext",
     header: "Graphic3d_MediaTextureSet.hxx".}
-proc swapFrames*(this: var Graphic3dMediaTextureSet): StandardBoolean {.
+proc SwapFrames*(this: var Graphic3d_MediaTextureSet): Standard_Boolean {.
     importcpp: "SwapFrames", header: "Graphic3d_MediaTextureSet.hxx".}
-proc frameSize*(this: Graphic3dMediaTextureSet): Graphic3dVec2i {.noSideEffect,
+proc FrameSize*(this: Graphic3d_MediaTextureSet): Graphic3d_Vec2i {.noSideEffect,
     importcpp: "FrameSize", header: "Graphic3d_MediaTextureSet.hxx".}
-proc shaderProgram*(this: Graphic3dMediaTextureSet): Handle[Graphic3dShaderProgram] {.
-    noSideEffect, importcpp: "ShaderProgram",
-    header: "Graphic3d_MediaTextureSet.hxx".}
-proc isPlanarYUV*(this: Graphic3dMediaTextureSet): StandardBoolean {.noSideEffect,
+proc ShaderProgram*(this: Graphic3d_MediaTextureSet): handle[
+    Graphic3d_ShaderProgram] {.noSideEffect, importcpp: "ShaderProgram",
+                              header: "Graphic3d_MediaTextureSet.hxx".}
+proc IsPlanarYUV*(this: Graphic3d_MediaTextureSet): Standard_Boolean {.noSideEffect,
     importcpp: "IsPlanarYUV", header: "Graphic3d_MediaTextureSet.hxx".}
-proc isFullRangeYUV*(this: Graphic3dMediaTextureSet): StandardBoolean {.
+proc IsFullRangeYUV*(this: Graphic3d_MediaTextureSet): Standard_Boolean {.
     noSideEffect, importcpp: "IsFullRangeYUV",
     header: "Graphic3d_MediaTextureSet.hxx".}
-proc duration*(this: Graphic3dMediaTextureSet): cdouble {.noSideEffect,
+proc Duration*(this: Graphic3d_MediaTextureSet): cdouble {.noSideEffect,
     importcpp: "Duration", header: "Graphic3d_MediaTextureSet.hxx".}
-proc progress*(this: Graphic3dMediaTextureSet): cdouble {.noSideEffect,
+proc Progress*(this: Graphic3d_MediaTextureSet): cdouble {.noSideEffect,
     importcpp: "Progress", header: "Graphic3d_MediaTextureSet.hxx".}
-

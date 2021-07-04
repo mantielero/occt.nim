@@ -14,44 +14,49 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Real,
+  ../Standard/Standard_Integer
+
 discard "forward decl of Geom2d_Curve"
 discard "forward decl of gp_Pnt2d"
 discard "forward decl of gp_Vec2d"
 type
-  Geom2dLPropCurve2dTool* {.importcpp: "Geom2dLProp_Curve2dTool",
-                           header: "Geom2dLProp_Curve2dTool.hxx", bycopy.} = object ## !
-                                                                               ## Computes
-                                                                               ## the
-                                                                               ## point
-                                                                               ## <P>
-                                                                               ## of
-                                                                               ## parameter
-                                                                               ## <U>
-                                                                               ## on
-                                                                               ## the
-                                                                               ## curve
-                                                                               ## <C>.
+  Geom2dLProp_Curve2dTool* {.importcpp: "Geom2dLProp_Curve2dTool",
+                            header: "Geom2dLProp_Curve2dTool.hxx", bycopy.} = object ##
+                                                                                ## !
+                                                                                ## Computes
+                                                                                ## the
+                                                                                ## point
+                                                                                ## <P>
+                                                                                ## of
+                                                                                ## parameter
+                                                                                ## <U>
+                                                                                ## on
+                                                                                ## the
+                                                                                ## curve
+                                                                                ## <C>.
 
 
-proc value*(c: Handle[Geom2dCurve]; u: StandardReal; p: var GpPnt2d) {.
+proc Value*(C: handle[Geom2d_Curve]; U: Standard_Real; P: var gp_Pnt2d) {.
     importcpp: "Geom2dLProp_Curve2dTool::Value(@)",
     header: "Geom2dLProp_Curve2dTool.hxx".}
-proc d1*(c: Handle[Geom2dCurve]; u: StandardReal; p: var GpPnt2d; v1: var GpVec2d) {.
+proc D1*(C: handle[Geom2d_Curve]; U: Standard_Real; P: var gp_Pnt2d; V1: var gp_Vec2d) {.
     importcpp: "Geom2dLProp_Curve2dTool::D1(@)",
     header: "Geom2dLProp_Curve2dTool.hxx".}
-proc d2*(c: Handle[Geom2dCurve]; u: StandardReal; p: var GpPnt2d; v1: var GpVec2d;
-        v2: var GpVec2d) {.importcpp: "Geom2dLProp_Curve2dTool::D2(@)",
-                        header: "Geom2dLProp_Curve2dTool.hxx".}
-proc d3*(c: Handle[Geom2dCurve]; u: StandardReal; p: var GpPnt2d; v1: var GpVec2d;
-        v2: var GpVec2d; v3: var GpVec2d) {.importcpp: "Geom2dLProp_Curve2dTool::D3(@)",
-                                      header: "Geom2dLProp_Curve2dTool.hxx".}
-proc continuity*(c: Handle[Geom2dCurve]): StandardInteger {.
+proc D2*(C: handle[Geom2d_Curve]; U: Standard_Real; P: var gp_Pnt2d; V1: var gp_Vec2d;
+        V2: var gp_Vec2d) {.importcpp: "Geom2dLProp_Curve2dTool::D2(@)",
+                         header: "Geom2dLProp_Curve2dTool.hxx".}
+proc D3*(C: handle[Geom2d_Curve]; U: Standard_Real; P: var gp_Pnt2d; V1: var gp_Vec2d;
+        V2: var gp_Vec2d; V3: var gp_Vec2d) {.importcpp: "Geom2dLProp_Curve2dTool::D3(@)",
+                                        header: "Geom2dLProp_Curve2dTool.hxx".}
+proc Continuity*(C: handle[Geom2d_Curve]): Standard_Integer {.
     importcpp: "Geom2dLProp_Curve2dTool::Continuity(@)",
     header: "Geom2dLProp_Curve2dTool.hxx".}
-proc firstParameter*(c: Handle[Geom2dCurve]): StandardReal {.
+proc FirstParameter*(C: handle[Geom2d_Curve]): Standard_Real {.
     importcpp: "Geom2dLProp_Curve2dTool::FirstParameter(@)",
     header: "Geom2dLProp_Curve2dTool.hxx".}
-proc lastParameter*(c: Handle[Geom2dCurve]): StandardReal {.
+proc LastParameter*(C: handle[Geom2d_Curve]): Standard_Real {.
     importcpp: "Geom2dLProp_Curve2dTool::LastParameter(@)",
     header: "Geom2dLProp_Curve2dTool.hxx".}
-

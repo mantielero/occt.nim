@@ -14,26 +14,31 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle
+
 discard "forward decl of Geom2d_Transformation"
 discard "forward decl of gp_Vec2d"
 discard "forward decl of gp_Pnt2d"
 type
-  GCE2dMakeTranslation* {.importcpp: "GCE2d_MakeTranslation",
-                         header: "GCE2d_MakeTranslation.hxx", bycopy.} = object ## !
-                                                                           ## Constructs a
-                                                                           ## translation along the
-                                                                           ## vector Vect.
+  GCE2d_MakeTranslation* {.importcpp: "GCE2d_MakeTranslation",
+                          header: "GCE2d_MakeTranslation.hxx", bycopy.} = object ## !
+                                                                            ## Constructs a
+                                                                            ## translation
+                                                                            ## along the
+                                                                            ## vector
+                                                                            ## Vect.
 
 
-proc constructGCE2dMakeTranslation*(vect: GpVec2d): GCE2dMakeTranslation {.
+proc constructGCE2d_MakeTranslation*(Vect: gp_Vec2d): GCE2d_MakeTranslation {.
     constructor, importcpp: "GCE2d_MakeTranslation(@)",
     header: "GCE2d_MakeTranslation.hxx".}
-proc constructGCE2dMakeTranslation*(point1: GpPnt2d; point2: GpPnt2d): GCE2dMakeTranslation {.
+proc constructGCE2d_MakeTranslation*(Point1: gp_Pnt2d; Point2: gp_Pnt2d): GCE2d_MakeTranslation {.
     constructor, importcpp: "GCE2d_MakeTranslation(@)",
     header: "GCE2d_MakeTranslation.hxx".}
-proc value*(this: GCE2dMakeTranslation): Handle[Geom2dTransformation] {.
+proc Value*(this: GCE2d_MakeTranslation): handle[Geom2d_Transformation] {.
     noSideEffect, importcpp: "Value", header: "GCE2d_MakeTranslation.hxx".}
-converter `constopencascade`*(this: GCE2dMakeTranslation): Handle[
-    Geom2dTransformation] {.noSideEffect, importcpp: "GCE2d_MakeTranslation::operator constopencascade",
-                           header: "GCE2d_MakeTranslation.hxx".}
-
+converter `constopencascade`*(this: GCE2d_MakeTranslation): handle[
+    Geom2d_Transformation] {.noSideEffect, importcpp: "GCE2d_MakeTranslation::operator constopencascade",
+                            header: "GCE2d_MakeTranslation.hxx".}

@@ -14,37 +14,40 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Boolean, ../TopoDS/TopoDS_Face
+
 discard "forward decl of Geom_Surface"
 discard "forward decl of Geom_Curve"
 discard "forward decl of Standard_DomainError"
 discard "forward decl of TopoDS_Face"
 type
-  DraftFaceInfo* {.importcpp: "Draft_FaceInfo", header: "Draft_FaceInfo.hxx", bycopy.} = object
+  Draft_FaceInfo* {.importcpp: "Draft_FaceInfo", header: "Draft_FaceInfo.hxx", bycopy.} = object
 
 
-proc constructDraftFaceInfo*(): DraftFaceInfo {.constructor,
+proc constructDraft_FaceInfo*(): Draft_FaceInfo {.constructor,
     importcpp: "Draft_FaceInfo(@)", header: "Draft_FaceInfo.hxx".}
-proc constructDraftFaceInfo*(s: Handle[GeomSurface];
-                            hasNewGeometry: StandardBoolean): DraftFaceInfo {.
+proc constructDraft_FaceInfo*(S: handle[Geom_Surface];
+                             HasNewGeometry: Standard_Boolean): Draft_FaceInfo {.
     constructor, importcpp: "Draft_FaceInfo(@)", header: "Draft_FaceInfo.hxx".}
-proc rootFace*(this: var DraftFaceInfo; f: TopoDS_Face) {.importcpp: "RootFace",
+proc RootFace*(this: var Draft_FaceInfo; F: TopoDS_Face) {.importcpp: "RootFace",
     header: "Draft_FaceInfo.hxx".}
-proc newGeometry*(this: DraftFaceInfo): StandardBoolean {.noSideEffect,
+proc NewGeometry*(this: Draft_FaceInfo): Standard_Boolean {.noSideEffect,
     importcpp: "NewGeometry", header: "Draft_FaceInfo.hxx".}
-proc add*(this: var DraftFaceInfo; f: TopoDS_Face) {.importcpp: "Add",
+proc Add*(this: var Draft_FaceInfo; F: TopoDS_Face) {.importcpp: "Add",
     header: "Draft_FaceInfo.hxx".}
-proc firstFace*(this: DraftFaceInfo): TopoDS_Face {.noSideEffect,
+proc FirstFace*(this: Draft_FaceInfo): TopoDS_Face {.noSideEffect,
     importcpp: "FirstFace", header: "Draft_FaceInfo.hxx".}
-proc secondFace*(this: DraftFaceInfo): TopoDS_Face {.noSideEffect,
+proc SecondFace*(this: Draft_FaceInfo): TopoDS_Face {.noSideEffect,
     importcpp: "SecondFace", header: "Draft_FaceInfo.hxx".}
-proc geometry*(this: DraftFaceInfo): Handle[GeomSurface] {.noSideEffect,
+proc Geometry*(this: Draft_FaceInfo): handle[Geom_Surface] {.noSideEffect,
     importcpp: "Geometry", header: "Draft_FaceInfo.hxx".}
-proc changeGeometry*(this: var DraftFaceInfo): var Handle[GeomSurface] {.
+proc ChangeGeometry*(this: var Draft_FaceInfo): var handle[Geom_Surface] {.
     importcpp: "ChangeGeometry", header: "Draft_FaceInfo.hxx".}
-proc rootFace*(this: DraftFaceInfo): TopoDS_Face {.noSideEffect,
+proc RootFace*(this: Draft_FaceInfo): TopoDS_Face {.noSideEffect,
     importcpp: "RootFace", header: "Draft_FaceInfo.hxx".}
-proc changeCurve*(this: var DraftFaceInfo): var Handle[GeomCurve] {.
+proc ChangeCurve*(this: var Draft_FaceInfo): var handle[Geom_Curve] {.
     importcpp: "ChangeCurve", header: "Draft_FaceInfo.hxx".}
-proc curve*(this: DraftFaceInfo): Handle[GeomCurve] {.noSideEffect,
+proc Curve*(this: Draft_FaceInfo): handle[Geom_Curve] {.noSideEffect,
     importcpp: "Curve", header: "Draft_FaceInfo.hxx".}
-

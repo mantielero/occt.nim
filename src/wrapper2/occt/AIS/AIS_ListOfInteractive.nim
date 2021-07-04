@@ -14,8 +14,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  AIS_InteractiveObject, ../NCollection/NCollection_List
+
 type
-  AIS_ListOfInteractive* = NCollectionList[Handle[AIS_InteractiveObject]]
-  AIS_ListIteratorOfListOfInteractive* = Iterator[Handle[AIS_InteractiveObject]]
-
-
+  AIS_ListOfInteractive* = NCollection_List[handle[AIS_InteractiveObject]]
+  AIS_ListIteratorOfListOfInteractive* = Iterator[handle[AIS_InteractiveObject]]

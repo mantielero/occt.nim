@@ -13,9 +13,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  NCollection_Array2, NCollection_DefineHArray2
+
 ##       Declaration of Array2 class managed by Handle
 
-template ncollection_Harray2*(hClassName, `type`: untyped): untyped =
-  define_Harray2(hClassName, nCollectionArray2[Type])
-
-
+template NCOLLECTION_HARRAY2*(HClassName, Type: untyped): untyped =
+  DEFINE_HARRAY2(HClassName, NCollection_Array2[Type])

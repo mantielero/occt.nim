@@ -13,28 +13,32 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Boolean, IntTools_PntOnFace
+
 discard "forward decl of IntTools_PntOnFace"
 type
-  IntToolsPntOn2Faces* {.importcpp: "IntTools_PntOn2Faces",
-                        header: "IntTools_PntOn2Faces.hxx", bycopy.} = object ## ! Empty
-                                                                         ## constructor
+  IntTools_PntOn2Faces* {.importcpp: "IntTools_PntOn2Faces",
+                         header: "IntTools_PntOn2Faces.hxx", bycopy.} = object ## ! Empty
+                                                                          ## constructor
 
 
-proc constructIntToolsPntOn2Faces*(): IntToolsPntOn2Faces {.constructor,
+proc constructIntTools_PntOn2Faces*(): IntTools_PntOn2Faces {.constructor,
     importcpp: "IntTools_PntOn2Faces(@)", header: "IntTools_PntOn2Faces.hxx".}
-proc constructIntToolsPntOn2Faces*(aP1: IntToolsPntOnFace; aP2: IntToolsPntOnFace): IntToolsPntOn2Faces {.
+proc constructIntTools_PntOn2Faces*(aP1: IntTools_PntOnFace;
+                                   aP2: IntTools_PntOnFace): IntTools_PntOn2Faces {.
     constructor, importcpp: "IntTools_PntOn2Faces(@)",
     header: "IntTools_PntOn2Faces.hxx".}
-proc setP1*(this: var IntToolsPntOn2Faces; aP1: IntToolsPntOnFace) {.
+proc SetP1*(this: var IntTools_PntOn2Faces; aP1: IntTools_PntOnFace) {.
     importcpp: "SetP1", header: "IntTools_PntOn2Faces.hxx".}
-proc setP2*(this: var IntToolsPntOn2Faces; aP2: IntToolsPntOnFace) {.
+proc SetP2*(this: var IntTools_PntOn2Faces; aP2: IntTools_PntOnFace) {.
     importcpp: "SetP2", header: "IntTools_PntOn2Faces.hxx".}
-proc setValid*(this: var IntToolsPntOn2Faces; bF: StandardBoolean) {.
+proc SetValid*(this: var IntTools_PntOn2Faces; bF: Standard_Boolean) {.
     importcpp: "SetValid", header: "IntTools_PntOn2Faces.hxx".}
-proc p1*(this: IntToolsPntOn2Faces): IntToolsPntOnFace {.noSideEffect,
+proc P1*(this: IntTools_PntOn2Faces): IntTools_PntOnFace {.noSideEffect,
     importcpp: "P1", header: "IntTools_PntOn2Faces.hxx".}
-proc p2*(this: IntToolsPntOn2Faces): IntToolsPntOnFace {.noSideEffect,
+proc P2*(this: IntTools_PntOn2Faces): IntTools_PntOnFace {.noSideEffect,
     importcpp: "P2", header: "IntTools_PntOn2Faces.hxx".}
-proc isValid*(this: IntToolsPntOn2Faces): StandardBoolean {.noSideEffect,
+proc IsValid*(this: IntTools_PntOn2Faces): Standard_Boolean {.noSideEffect,
     importcpp: "IsValid", header: "IntTools_PntOn2Faces.hxx".}
-

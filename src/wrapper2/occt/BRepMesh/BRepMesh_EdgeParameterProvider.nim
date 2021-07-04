@@ -13,38 +13,46 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../IMeshData/IMeshData_Types, ../IMeshData/IMeshData_Edge,
+  ../IMeshData/IMeshData_Face, ../TopoDS/TopoDS, ../Standard/Standard,
+  ../Standard/Standard_DefineAlloc, ../Extrema/Extrema_LocateExtPC,
+  ../TColStd/TColStd_HArray1OfReal, ../BRepAdaptor/BRepAdaptor_Curve,
+  ../Adaptor3d/Adaptor3d_CurveOnSurface, ../TColStd/TColStd_HArray1OfReal,
+  ../Geom2dAdaptor/Geom2dAdaptor_HCurve, ../GeomAdaptor/GeomAdaptor_HSurface
+
 discard "forward decl of gp_Pnt"
 discard "forward decl of TopoDS_Edge"
 discard "forward decl of TopoDS_Face"
 type
-  BRepMeshEdgeParameterProvider*[ParametersCollection] {.
+  BRepMesh_EdgeParameterProvider*[ParametersCollection] {.
       importcpp: "BRepMesh_EdgeParameterProvider<\'0>",
-      header: "BRepMesh_EdgeParameterProvider.hxx", bycopy.} = object of StandardTransient ##
-                                                                                    ## !
-                                                                                    ## Constructor.
-                                                                                    ## Initializes
-                                                                                    ## empty
-                                                                                    ## provider.
+      header: "BRepMesh_EdgeParameterProvider.hxx", bycopy.} = object of Standard_Transient ##
+                                                                                     ## !
+                                                                                     ## Constructor.
+                                                                                     ## Initializes
+                                                                                     ## empty
+                                                                                     ## provider.
 
 
-proc constructBRepMeshEdgeParameterProvider*[ParametersCollection](): BRepMeshEdgeParameterProvider[
+proc constructBRepMesh_EdgeParameterProvider*[ParametersCollection](): BRepMesh_EdgeParameterProvider[
     ParametersCollection] {.constructor, importcpp: "BRepMesh_EdgeParameterProvider<\'*0>(@)",
                            header: "BRepMesh_EdgeParameterProvider.hxx".}
-proc constructBRepMeshEdgeParameterProvider*[ParametersCollection](
-    theEdge: IEdgeHandle; theOrientation: TopAbsOrientation; theFace: IFaceHandle;
-    theParameters: ParametersCollection): BRepMeshEdgeParameterProvider[
+proc constructBRepMesh_EdgeParameterProvider*[ParametersCollection](
+    theEdge: IEdgeHandle; theOrientation: TopAbs_Orientation; theFace: IFaceHandle;
+    theParameters: ParametersCollection): BRepMesh_EdgeParameterProvider[
     ParametersCollection] {.constructor, importcpp: "BRepMesh_EdgeParameterProvider<\'*0>(@)",
                            header: "BRepMesh_EdgeParameterProvider.hxx".}
-proc init*[ParametersCollection](this: var BRepMeshEdgeParameterProvider[
-    ParametersCollection]; theEdge: IEdgeHandle; theOrientation: TopAbsOrientation;
+proc Init*[ParametersCollection](this: var BRepMesh_EdgeParameterProvider[
+    ParametersCollection]; theEdge: IEdgeHandle;
+                                theOrientation: TopAbs_Orientation;
                                 theFace: IFaceHandle;
                                 theParameters: ParametersCollection) {.
     importcpp: "Init", header: "BRepMesh_EdgeParameterProvider.hxx".}
-proc parameter*[ParametersCollection](this: BRepMeshEdgeParameterProvider[
-    ParametersCollection]; theIndex: StandardInteger; thePoint3d: GpPnt): StandardReal {.
+proc Parameter*[ParametersCollection](this: BRepMesh_EdgeParameterProvider[
+    ParametersCollection]; theIndex: Standard_Integer; thePoint3d: gp_Pnt): Standard_Real {.
     noSideEffect, importcpp: "Parameter",
     header: "BRepMesh_EdgeParameterProvider.hxx".}
-proc getPCurve*[ParametersCollection](this: BRepMeshEdgeParameterProvider[
-    ParametersCollection]): Handle[Adaptor2dHCurve2d] {.noSideEffect,
+proc GetPCurve*[ParametersCollection](this: BRepMesh_EdgeParameterProvider[
+    ParametersCollection]): handle[Adaptor2d_HCurve2d] {.noSideEffect,
     importcpp: "GetPCurve", header: "BRepMesh_EdgeParameterProvider.hxx".}
-

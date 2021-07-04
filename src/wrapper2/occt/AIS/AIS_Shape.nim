@@ -14,6 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  AIS_InteractiveObject, ../Bnd/Bnd_Box, ../TopoDS/TopoDS_Shape,
+  ../Prs3d/Prs3d_Drawer, ../Prs3d/Prs3d_TypeOfHLR
+
 ## ! A framework to manage presentation and selection of shapes.
 ## ! AIS_Shape is the interactive object which is used the
 ## ! most by   applications. There are standard functions
@@ -104,103 +108,102 @@ type
     ## !< UV scale  vector for generating texture coordinates
     ## !< if TRUE, then bounding box should be recomputed
 
-  AIS_ShapebaseType* = AIS_InteractiveObject
+  AIS_Shapebase_type* = AIS_InteractiveObject
 
-proc getTypeName*(): cstring {.importcpp: "AIS_Shape::get_type_name(@)",
-                            header: "AIS_Shape.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "AIS_Shape::get_type_name(@)",
+                              header: "AIS_Shape.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "AIS_Shape::get_type_descriptor(@)", header: "AIS_Shape.hxx".}
-proc dynamicType*(this: AIS_Shape): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: AIS_Shape): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "AIS_Shape.hxx".}
 proc constructAIS_Shape*(shap: TopoDS_Shape): AIS_Shape {.constructor,
     importcpp: "AIS_Shape(@)", header: "AIS_Shape.hxx".}
-proc signature*(this: AIS_Shape): StandardInteger {.noSideEffect,
+proc Signature*(this: AIS_Shape): Standard_Integer {.noSideEffect,
     importcpp: "Signature", header: "AIS_Shape.hxx".}
-proc `type`*(this: AIS_Shape): AIS_KindOfInteractive {.noSideEffect,
-    importcpp: "Type", header: "AIS_Shape.hxx".}
-proc acceptShapeDecomposition*(this: AIS_Shape): StandardBoolean {.noSideEffect,
+proc Type*(this: AIS_Shape): AIS_KindOfInteractive {.noSideEffect, importcpp: "Type",
+    header: "AIS_Shape.hxx".}
+proc AcceptShapeDecomposition*(this: AIS_Shape): Standard_Boolean {.noSideEffect,
     importcpp: "AcceptShapeDecomposition", header: "AIS_Shape.hxx".}
-proc acceptDisplayMode*(this: AIS_Shape; theMode: StandardInteger): StandardBoolean {.
+proc AcceptDisplayMode*(this: AIS_Shape; theMode: Standard_Integer): Standard_Boolean {.
     noSideEffect, importcpp: "AcceptDisplayMode", header: "AIS_Shape.hxx".}
-proc shape*(this: AIS_Shape): TopoDS_Shape {.noSideEffect, importcpp: "Shape",
+proc Shape*(this: AIS_Shape): TopoDS_Shape {.noSideEffect, importcpp: "Shape",
     header: "AIS_Shape.hxx".}
-proc setShape*(this: var AIS_Shape; theShape: TopoDS_Shape) {.importcpp: "SetShape",
+proc SetShape*(this: var AIS_Shape; theShape: TopoDS_Shape) {.importcpp: "SetShape",
     header: "AIS_Shape.hxx".}
-proc set*(this: var AIS_Shape; theShape: TopoDS_Shape) {.importcpp: "Set",
+proc Set*(this: var AIS_Shape; theShape: TopoDS_Shape) {.importcpp: "Set",
     header: "AIS_Shape.hxx".}
-proc setOwnDeviationCoefficient*(this: var AIS_Shape): StandardBoolean {.
+proc SetOwnDeviationCoefficient*(this: var AIS_Shape): Standard_Boolean {.
     importcpp: "SetOwnDeviationCoefficient", header: "AIS_Shape.hxx".}
-proc setOwnDeviationAngle*(this: var AIS_Shape): StandardBoolean {.
+proc SetOwnDeviationAngle*(this: var AIS_Shape): Standard_Boolean {.
     importcpp: "SetOwnDeviationAngle", header: "AIS_Shape.hxx".}
-proc setOwnDeviationCoefficient*(this: var AIS_Shape; aCoefficient: StandardReal) {.
+proc SetOwnDeviationCoefficient*(this: var AIS_Shape; aCoefficient: Standard_Real) {.
     importcpp: "SetOwnDeviationCoefficient", header: "AIS_Shape.hxx".}
-proc setAngleAndDeviation*(this: var AIS_Shape; anAngle: StandardReal) {.
+proc SetAngleAndDeviation*(this: var AIS_Shape; anAngle: Standard_Real) {.
     importcpp: "SetAngleAndDeviation", header: "AIS_Shape.hxx".}
-proc userAngle*(this: AIS_Shape): StandardReal {.noSideEffect,
+proc UserAngle*(this: AIS_Shape): Standard_Real {.noSideEffect,
     importcpp: "UserAngle", header: "AIS_Shape.hxx".}
-proc setOwnDeviationAngle*(this: var AIS_Shape; anAngle: StandardReal) {.
+proc SetOwnDeviationAngle*(this: var AIS_Shape; anAngle: Standard_Real) {.
     importcpp: "SetOwnDeviationAngle", header: "AIS_Shape.hxx".}
-proc ownDeviationCoefficient*(this: AIS_Shape; aCoefficient: var StandardReal;
-                             aPreviousCoefficient: var StandardReal): StandardBoolean {.
+proc OwnDeviationCoefficient*(this: AIS_Shape; aCoefficient: var Standard_Real;
+                             aPreviousCoefficient: var Standard_Real): Standard_Boolean {.
     noSideEffect, importcpp: "OwnDeviationCoefficient", header: "AIS_Shape.hxx".}
-proc ownDeviationAngle*(this: AIS_Shape; anAngle: var StandardReal;
-                       aPreviousAngle: var StandardReal): StandardBoolean {.
+proc OwnDeviationAngle*(this: AIS_Shape; anAngle: var Standard_Real;
+                       aPreviousAngle: var Standard_Real): Standard_Boolean {.
     noSideEffect, importcpp: "OwnDeviationAngle", header: "AIS_Shape.hxx".}
-proc setTypeOfHLR*(this: var AIS_Shape; theTypeOfHLR: Prs3dTypeOfHLR) {.
+proc SetTypeOfHLR*(this: var AIS_Shape; theTypeOfHLR: Prs3d_TypeOfHLR) {.
     importcpp: "SetTypeOfHLR", header: "AIS_Shape.hxx".}
-proc typeOfHLR*(this: AIS_Shape): Prs3dTypeOfHLR {.noSideEffect,
+proc TypeOfHLR*(this: AIS_Shape): Prs3d_TypeOfHLR {.noSideEffect,
     importcpp: "TypeOfHLR", header: "AIS_Shape.hxx".}
-proc setColor*(this: var AIS_Shape; theColor: QuantityColor) {.importcpp: "SetColor",
+proc SetColor*(this: var AIS_Shape; theColor: Quantity_Color) {.importcpp: "SetColor",
     header: "AIS_Shape.hxx".}
-proc unsetColor*(this: var AIS_Shape) {.importcpp: "UnsetColor",
+proc UnsetColor*(this: var AIS_Shape) {.importcpp: "UnsetColor",
                                     header: "AIS_Shape.hxx".}
-proc setWidth*(this: var AIS_Shape; aValue: StandardReal) {.importcpp: "SetWidth",
+proc SetWidth*(this: var AIS_Shape; aValue: Standard_Real) {.importcpp: "SetWidth",
     header: "AIS_Shape.hxx".}
-proc unsetWidth*(this: var AIS_Shape) {.importcpp: "UnsetWidth",
+proc UnsetWidth*(this: var AIS_Shape) {.importcpp: "UnsetWidth",
                                     header: "AIS_Shape.hxx".}
-proc setMaterial*(this: var AIS_Shape; aName: Graphic3dMaterialAspect) {.
+proc SetMaterial*(this: var AIS_Shape; aName: Graphic3d_MaterialAspect) {.
     importcpp: "SetMaterial", header: "AIS_Shape.hxx".}
-proc unsetMaterial*(this: var AIS_Shape) {.importcpp: "UnsetMaterial",
+proc UnsetMaterial*(this: var AIS_Shape) {.importcpp: "UnsetMaterial",
                                        header: "AIS_Shape.hxx".}
-proc setTransparency*(this: var AIS_Shape; aValue: StandardReal = 0.6) {.
+proc SetTransparency*(this: var AIS_Shape; aValue: Standard_Real = 0.6) {.
     importcpp: "SetTransparency", header: "AIS_Shape.hxx".}
-proc unsetTransparency*(this: var AIS_Shape) {.importcpp: "UnsetTransparency",
+proc UnsetTransparency*(this: var AIS_Shape) {.importcpp: "UnsetTransparency",
     header: "AIS_Shape.hxx".}
-proc boundingBox*(this: var AIS_Shape): BndBox {.importcpp: "BoundingBox",
+proc BoundingBox*(this: var AIS_Shape): Bnd_Box {.importcpp: "BoundingBox",
     header: "AIS_Shape.hxx".}
 ## using statement
 
-proc color*(this: AIS_Shape; aColor: var QuantityColor) {.noSideEffect,
+proc Color*(this: AIS_Shape; aColor: var Quantity_Color) {.noSideEffect,
     importcpp: "Color", header: "AIS_Shape.hxx".}
-proc material*(this: AIS_Shape): Graphic3dNameOfMaterial {.noSideEffect,
+proc Material*(this: AIS_Shape): Graphic3d_NameOfMaterial {.noSideEffect,
     importcpp: "Material", header: "AIS_Shape.hxx".}
-proc transparency*(this: AIS_Shape): StandardReal {.noSideEffect,
+proc Transparency*(this: AIS_Shape): Standard_Real {.noSideEffect,
     importcpp: "Transparency", header: "AIS_Shape.hxx".}
-proc selectionType*(theSelMode: StandardInteger): TopAbsShapeEnum {.
+proc SelectionType*(theSelMode: Standard_Integer): TopAbs_ShapeEnum {.
     importcpp: "AIS_Shape::SelectionType(@)", header: "AIS_Shape.hxx".}
-proc selectionMode*(theShapeType: TopAbsShapeEnum): StandardInteger {.
+proc SelectionMode*(theShapeType: TopAbs_ShapeEnum): Standard_Integer {.
     importcpp: "AIS_Shape::SelectionMode(@)", header: "AIS_Shape.hxx".}
-proc textureRepeatUV*(this: AIS_Shape): GpPnt2d {.noSideEffect,
+proc TextureRepeatUV*(this: AIS_Shape): gp_Pnt2d {.noSideEffect,
     importcpp: "TextureRepeatUV", header: "AIS_Shape.hxx".}
-proc setTextureRepeatUV*(this: var AIS_Shape; theRepeatUV: GpPnt2d) {.
+proc SetTextureRepeatUV*(this: var AIS_Shape; theRepeatUV: gp_Pnt2d) {.
     importcpp: "SetTextureRepeatUV", header: "AIS_Shape.hxx".}
-proc textureOriginUV*(this: AIS_Shape): GpPnt2d {.noSideEffect,
+proc TextureOriginUV*(this: AIS_Shape): gp_Pnt2d {.noSideEffect,
     importcpp: "TextureOriginUV", header: "AIS_Shape.hxx".}
-proc setTextureOriginUV*(this: var AIS_Shape; theOriginUV: GpPnt2d) {.
+proc SetTextureOriginUV*(this: var AIS_Shape; theOriginUV: gp_Pnt2d) {.
     importcpp: "SetTextureOriginUV", header: "AIS_Shape.hxx".}
-proc textureScaleUV*(this: AIS_Shape): GpPnt2d {.noSideEffect,
+proc TextureScaleUV*(this: AIS_Shape): gp_Pnt2d {.noSideEffect,
     importcpp: "TextureScaleUV", header: "AIS_Shape.hxx".}
-proc setTextureScaleUV*(this: var AIS_Shape; theScaleUV: GpPnt2d) {.
+proc SetTextureScaleUV*(this: var AIS_Shape; theScaleUV: gp_Pnt2d) {.
     importcpp: "SetTextureScaleUV", header: "AIS_Shape.hxx".}
-proc computeHlrPresentation*(theProjector: Handle[Graphic3dCamera];
-                            thePrs: Handle[Prs3dPresentation];
-                            theShape: TopoDS_Shape; theDrawer: Handle[Prs3dDrawer]) {.
+proc computeHlrPresentation*(theProjector: handle[Graphic3d_Camera];
+                            thePrs: handle[Prs3d_Presentation];
+                            theShape: TopoDS_Shape;
+                            theDrawer: handle[Prs3d_Drawer]) {.
     importcpp: "AIS_Shape::computeHlrPresentation(@)", header: "AIS_Shape.hxx".}
-proc dumpJson*(this: AIS_Shape; theOStream: var StandardOStream;
-              theDepth: StandardInteger = -1) {.noSideEffect, importcpp: "DumpJson",
+proc DumpJson*(this: AIS_Shape; theOStream: var Standard_OStream;
+              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
     header: "AIS_Shape.hxx".}
 discard "forward decl of AIS_Shape"
 type
-  HandleAIS_Shape* = Handle[AIS_Shape]
-
-
+  Handle_AIS_Shape* = handle[AIS_Shape]

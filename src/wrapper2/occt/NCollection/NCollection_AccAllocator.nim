@@ -13,6 +13,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  NCollection_BaseAllocator, NCollection_DataMap
+
 ## !
 ## ! Class  NCollection_AccAllocator  -  accumulating  memory  allocator.  This
 ## ! class  allocates  memory on request returning the pointer to the allocated
@@ -33,39 +36,37 @@
 ## ! parameter of the constructor (measured in bytes).
 
 type
-  NCollectionAccAllocator* {.importcpp: "NCollection_AccAllocator",
-                            header: "NCollection_AccAllocator.hxx", bycopy.} = object of NCollectionBaseAllocator ##  --------- PUBLIC CONSTANTS ---------
-                                                                                                           ## ! Alignment of all allocated objects: 4 bytes
-                                                                                                           ## ! Constructor
-                                                                                                           ## ! Size value aligned to a 4 byte boundary
-                                                                                                           ## ! Calculate a key for the data map basing on the given address
+  NCollection_AccAllocator* {.importcpp: "NCollection_AccAllocator",
+                             header: "NCollection_AccAllocator.hxx", bycopy.} = object of NCollection_BaseAllocator ##  --------- PUBLIC CONSTANTS ---------
+                                                                                                             ## ! Alignment of all allocated objects: 4 bytes
+                                                                                                             ## ! Constructor
+                                                                                                             ## ! Size value aligned to a 4 byte boundary
+                                                                                                             ## ! Calculate a key for the data map basing on the given address
     ##  Declaration of CASCADE RTTI
 
 
-proc constructNCollectionAccAllocator*(theBlockSize: csize_t = defaultBlockSize): NCollectionAccAllocator {.
+proc constructNCollection_AccAllocator*(theBlockSize: csize_t = DefaultBlockSize): NCollection_AccAllocator {.
     constructor, importcpp: "NCollection_AccAllocator(@)",
     header: "NCollection_AccAllocator.hxx".}
-proc destroyNCollectionAccAllocator*(this: var NCollectionAccAllocator) {.
+proc destroyNCollection_AccAllocator*(this: var NCollection_AccAllocator) {.
     importcpp: "#.~NCollection_AccAllocator()",
     header: "NCollection_AccAllocator.hxx".}
-proc allocate*(this: var NCollectionAccAllocator; theSize: csize_t): pointer {.
+proc Allocate*(this: var NCollection_AccAllocator; theSize: csize_t): pointer {.
     importcpp: "Allocate", header: "NCollection_AccAllocator.hxx".}
-proc free*(this: var NCollectionAccAllocator; theAddress: pointer) {.
+proc Free*(this: var NCollection_AccAllocator; theAddress: pointer) {.
     importcpp: "Free", header: "NCollection_AccAllocator.hxx".}
 type
-  NCollectionAccAllocatorbaseType* = NCollectionBaseAllocator
+  NCollection_AccAllocatorbase_type* = NCollection_BaseAllocator
 
-proc getTypeName*(): cstring {.importcpp: "NCollection_AccAllocator::get_type_name(@)",
-                            header: "NCollection_AccAllocator.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "NCollection_AccAllocator::get_type_name(@)",
+                              header: "NCollection_AccAllocator.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "NCollection_AccAllocator::get_type_descriptor(@)",
     header: "NCollection_AccAllocator.hxx".}
-proc dynamicType*(this: NCollectionAccAllocator): Handle[StandardType] {.
+proc DynamicType*(this: NCollection_AccAllocator): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType", header: "NCollection_AccAllocator.hxx".}
 ##  Definition of HANDLE object using Standard_DefineHandle.hxx
 
 discard "forward decl of NCollection_AccAllocator"
 type
-  HandleNCollectionAccAllocator* = Handle[NCollectionAccAllocator]
-
-
+  Handle_NCollection_AccAllocator* = handle[NCollection_AccAllocator]

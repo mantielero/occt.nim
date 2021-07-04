@@ -14,6 +14,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../TopoDS/TopoDS_Face,
+  ../TopoDS/TopoDS_Wire, ../Standard/Standard_Integer, ShapeUpgrade_Tool,
+  ../Standard/Standard_Boolean, ../ShapeExtend/ShapeExtend_Status
+
 discard "forward decl of ShapeUpgrade_SplitCurve3d"
 discard "forward decl of ShapeUpgrade_SplitCurve2d"
 discard "forward decl of ShapeUpgrade_EdgeDivide"
@@ -22,12 +27,12 @@ discard "forward decl of ShapeUpgrade_FixSmallCurves"
 discard "forward decl of Geom_Surface"
 discard "forward decl of TopoDS_Edge"
 discard "forward decl of TopLoc_Location"
-# when defined(Status):
-#   discard
+when defined(Status):
+  discard
 discard "forward decl of ShapeUpgrade_WireDivide"
 discard "forward decl of ShapeUpgrade_WireDivide"
 type
-  HandleShapeUpgradeWireDivide* = Handle[ShapeUpgradeWireDivide]
+  Handle_ShapeUpgrade_WireDivide* = handle[ShapeUpgrade_WireDivide]
 
 ## ! Divides edges in the wire lying on the face or free wires or
 ## ! free edges with a criterion.
@@ -42,79 +47,79 @@ type
 ## ! before splitting them in order to keep sharing.
 
 type
-  ShapeUpgradeWireDivide* {.importcpp: "ShapeUpgrade_WireDivide",
-                           header: "ShapeUpgrade_WireDivide.hxx", bycopy.} = object of ShapeUpgradeTool ##
-                                                                                                 ## !
-                                                                                                 ## Empty
-                                                                                                 ## constructor
-                                                                                                 ##
-                                                                                                 ## !
-                                                                                                 ## Returns
-                                                                                                 ## the
-                                                                                                 ## tool
-                                                                                                 ## for
-                                                                                                 ## splitting
-                                                                                                 ## 3D
-                                                                                                 ## curves.
+  ShapeUpgrade_WireDivide* {.importcpp: "ShapeUpgrade_WireDivide",
+                            header: "ShapeUpgrade_WireDivide.hxx", bycopy.} = object of ShapeUpgrade_Tool ##
+                                                                                                   ## !
+                                                                                                   ## Empty
+                                                                                                   ## constructor
+                                                                                                   ##
+                                                                                                   ## !
+                                                                                                   ## Returns
+                                                                                                   ## the
+                                                                                                   ## tool
+                                                                                                   ## for
+                                                                                                   ## splitting
+                                                                                                   ## 3D
+                                                                                                   ## curves.
 
 
-proc constructShapeUpgradeWireDivide*(): ShapeUpgradeWireDivide {.constructor,
+proc constructShapeUpgrade_WireDivide*(): ShapeUpgrade_WireDivide {.constructor,
     importcpp: "ShapeUpgrade_WireDivide(@)", header: "ShapeUpgrade_WireDivide.hxx".}
-proc init*(this: var ShapeUpgradeWireDivide; w: TopoDS_Wire; f: TopoDS_Face) {.
+proc Init*(this: var ShapeUpgrade_WireDivide; W: TopoDS_Wire; F: TopoDS_Face) {.
     importcpp: "Init", header: "ShapeUpgrade_WireDivide.hxx".}
-proc init*(this: var ShapeUpgradeWireDivide; w: TopoDS_Wire; s: Handle[GeomSurface]) {.
+proc Init*(this: var ShapeUpgrade_WireDivide; W: TopoDS_Wire; S: handle[Geom_Surface]) {.
     importcpp: "Init", header: "ShapeUpgrade_WireDivide.hxx".}
-proc load*(this: var ShapeUpgradeWireDivide; w: TopoDS_Wire) {.importcpp: "Load",
+proc Load*(this: var ShapeUpgrade_WireDivide; W: TopoDS_Wire) {.importcpp: "Load",
     header: "ShapeUpgrade_WireDivide.hxx".}
-proc load*(this: var ShapeUpgradeWireDivide; e: TopoDS_Edge) {.importcpp: "Load",
+proc Load*(this: var ShapeUpgrade_WireDivide; E: TopoDS_Edge) {.importcpp: "Load",
     header: "ShapeUpgrade_WireDivide.hxx".}
-proc setFace*(this: var ShapeUpgradeWireDivide; f: TopoDS_Face) {.
+proc SetFace*(this: var ShapeUpgrade_WireDivide; F: TopoDS_Face) {.
     importcpp: "SetFace", header: "ShapeUpgrade_WireDivide.hxx".}
-proc setSurface*(this: var ShapeUpgradeWireDivide; s: Handle[GeomSurface]) {.
+proc SetSurface*(this: var ShapeUpgrade_WireDivide; S: handle[Geom_Surface]) {.
     importcpp: "SetSurface", header: "ShapeUpgrade_WireDivide.hxx".}
-proc setSurface*(this: var ShapeUpgradeWireDivide; s: Handle[GeomSurface];
-                L: TopLocLocation) {.importcpp: "SetSurface",
-                                   header: "ShapeUpgrade_WireDivide.hxx".}
-proc perform*(this: var ShapeUpgradeWireDivide) {.importcpp: "Perform",
+proc SetSurface*(this: var ShapeUpgrade_WireDivide; S: handle[Geom_Surface];
+                L: TopLoc_Location) {.importcpp: "SetSurface",
+                                    header: "ShapeUpgrade_WireDivide.hxx".}
+proc Perform*(this: var ShapeUpgrade_WireDivide) {.importcpp: "Perform",
     header: "ShapeUpgrade_WireDivide.hxx".}
-proc wire*(this: ShapeUpgradeWireDivide): TopoDS_Wire {.noSideEffect,
+proc Wire*(this: ShapeUpgrade_WireDivide): TopoDS_Wire {.noSideEffect,
     importcpp: "Wire", header: "ShapeUpgrade_WireDivide.hxx".}
-proc status*(this: ShapeUpgradeWireDivide; status: ShapeExtendStatus): StandardBoolean {.
+proc Status*(this: ShapeUpgrade_WireDivide; status: ShapeExtend_Status): Standard_Boolean {.
     noSideEffect, importcpp: "Status", header: "ShapeUpgrade_WireDivide.hxx".}
-proc setSplitCurve3dTool*(this: var ShapeUpgradeWireDivide;
-                         splitCurve3dTool: Handle[ShapeUpgradeSplitCurve3d]) {.
+proc SetSplitCurve3dTool*(this: var ShapeUpgrade_WireDivide;
+                         splitCurve3dTool: handle[ShapeUpgrade_SplitCurve3d]) {.
     importcpp: "SetSplitCurve3dTool", header: "ShapeUpgrade_WireDivide.hxx".}
-proc setSplitCurve2dTool*(this: var ShapeUpgradeWireDivide;
-                         splitCurve2dTool: Handle[ShapeUpgradeSplitCurve2d]) {.
+proc SetSplitCurve2dTool*(this: var ShapeUpgrade_WireDivide;
+                         splitCurve2dTool: handle[ShapeUpgrade_SplitCurve2d]) {.
     importcpp: "SetSplitCurve2dTool", header: "ShapeUpgrade_WireDivide.hxx".}
-proc setTransferParamTool*(this: var ShapeUpgradeWireDivide; transferParam: Handle[
-    ShapeAnalysisTransferParameters]) {.importcpp: "SetTransferParamTool",
-                                       header: "ShapeUpgrade_WireDivide.hxx".}
-proc setEdgeDivideTool*(this: var ShapeUpgradeWireDivide;
-                       edgeDivideTool: Handle[ShapeUpgradeEdgeDivide]) {.
+proc SetTransferParamTool*(this: var ShapeUpgrade_WireDivide; TransferParam: handle[
+    ShapeAnalysis_TransferParameters]) {.importcpp: "SetTransferParamTool",
+                                        header: "ShapeUpgrade_WireDivide.hxx".}
+proc SetEdgeDivideTool*(this: var ShapeUpgrade_WireDivide;
+                       edgeDivideTool: handle[ShapeUpgrade_EdgeDivide]) {.
     importcpp: "SetEdgeDivideTool", header: "ShapeUpgrade_WireDivide.hxx".}
-proc getEdgeDivideTool*(this: ShapeUpgradeWireDivide): Handle[
-    ShapeUpgradeEdgeDivide] {.noSideEffect, importcpp: "GetEdgeDivideTool",
-                             header: "ShapeUpgrade_WireDivide.hxx".}
-proc getTransferParamTool*(this: var ShapeUpgradeWireDivide): Handle[
-    ShapeAnalysisTransferParameters] {.importcpp: "GetTransferParamTool",
-                                      header: "ShapeUpgrade_WireDivide.hxx".}
-proc setEdgeMode*(this: var ShapeUpgradeWireDivide; edgeMode: StandardInteger) {.
+proc GetEdgeDivideTool*(this: ShapeUpgrade_WireDivide): handle[
+    ShapeUpgrade_EdgeDivide] {.noSideEffect, importcpp: "GetEdgeDivideTool",
+                              header: "ShapeUpgrade_WireDivide.hxx".}
+proc GetTransferParamTool*(this: var ShapeUpgrade_WireDivide): handle[
+    ShapeAnalysis_TransferParameters] {.importcpp: "GetTransferParamTool",
+                                       header: "ShapeUpgrade_WireDivide.hxx".}
+proc SetEdgeMode*(this: var ShapeUpgrade_WireDivide; EdgeMode: Standard_Integer) {.
     importcpp: "SetEdgeMode", header: "ShapeUpgrade_WireDivide.hxx".}
-proc setFixSmallCurveTool*(this: var ShapeUpgradeWireDivide; fixSmallCurvesTool: Handle[
-    ShapeUpgradeFixSmallCurves]) {.importcpp: "SetFixSmallCurveTool",
+proc SetFixSmallCurveTool*(this: var ShapeUpgrade_WireDivide; FixSmallCurvesTool: handle[
+    ShapeUpgrade_FixSmallCurves]) {.importcpp: "SetFixSmallCurveTool",
+                                   header: "ShapeUpgrade_WireDivide.hxx".}
+proc GetFixSmallCurveTool*(this: ShapeUpgrade_WireDivide): handle[
+    ShapeUpgrade_FixSmallCurves] {.noSideEffect,
+                                  importcpp: "GetFixSmallCurveTool",
                                   header: "ShapeUpgrade_WireDivide.hxx".}
-proc getFixSmallCurveTool*(this: ShapeUpgradeWireDivide): Handle[
-    ShapeUpgradeFixSmallCurves] {.noSideEffect, importcpp: "GetFixSmallCurveTool",
-                                 header: "ShapeUpgrade_WireDivide.hxx".}
 type
-  ShapeUpgradeWireDividebaseType* = ShapeUpgradeTool
+  ShapeUpgrade_WireDividebase_type* = ShapeUpgrade_Tool
 
-proc getTypeName*(): cstring {.importcpp: "ShapeUpgrade_WireDivide::get_type_name(@)",
-                            header: "ShapeUpgrade_WireDivide.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "ShapeUpgrade_WireDivide::get_type_name(@)",
+                              header: "ShapeUpgrade_WireDivide.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "ShapeUpgrade_WireDivide::get_type_descriptor(@)",
     header: "ShapeUpgrade_WireDivide.hxx".}
-proc dynamicType*(this: ShapeUpgradeWireDivide): Handle[StandardType] {.
+proc DynamicType*(this: ShapeUpgrade_WireDivide): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType", header: "ShapeUpgrade_WireDivide.hxx".}
-

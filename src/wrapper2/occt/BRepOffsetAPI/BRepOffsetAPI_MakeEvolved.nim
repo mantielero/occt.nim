@@ -14,6 +14,14 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../BRepFill/BRepFill_Evolved,
+  ../BRepFill/BRepFill_AdvancedEvolved,
+  ../BRepBuilderAPI/BRepBuilderAPI_MakeShape, ../GeomAbs/GeomAbs_JoinType,
+  ../Standard/Standard_Boolean, ../Standard/Standard_Real,
+  ../TopTools/TopTools_ListOfShape
+
 discard "forward decl of TopoDS_Wire"
 discard "forward decl of TopoDS_Face"
 discard "forward decl of BRepFill_Evolved"
@@ -27,22 +35,21 @@ proc constructBRepOffsetAPI_MakeEvolved*(): BRepOffsetAPI_MakeEvolved {.
     constructor, importcpp: "BRepOffsetAPI_MakeEvolved(@)",
     header: "BRepOffsetAPI_MakeEvolved.hxx".}
 proc constructBRepOffsetAPI_MakeEvolved*(theSpine: TopoDS_Shape;
-                                        theProfile: TopoDS_Wire; theJoinType: GeomAbsJoinType = geomAbsArc;
-    theIsAxeProf: StandardBoolean = standardTrue; theIsSolid: StandardBoolean = standardFalse;
-    theIsProfOnSpine: StandardBoolean = standardFalse;
-                                        theTol: StandardReal = 0.0000001;
-    theIsVolume: StandardBoolean = standardFalse; theRunInParallel: StandardBoolean = standardFalse): BRepOffsetAPI_MakeEvolved {.
+                                        theProfile: TopoDS_Wire; theJoinType: GeomAbs_JoinType = GeomAbs_Arc;
+    theIsAxeProf: Standard_Boolean = Standard_True; theIsSolid: Standard_Boolean = Standard_False;
+    theIsProfOnSpine: Standard_Boolean = Standard_False;
+                                        theTol: Standard_Real = 0.0000001;
+    theIsVolume: Standard_Boolean = Standard_False; theRunInParallel: Standard_Boolean = Standard_False): BRepOffsetAPI_MakeEvolved {.
     constructor, importcpp: "BRepOffsetAPI_MakeEvolved(@)",
     header: "BRepOffsetAPI_MakeEvolved.hxx".}
-proc evolved*(this: BRepOffsetAPI_MakeEvolved): BRepFillEvolved {.noSideEffect,
+proc Evolved*(this: BRepOffsetAPI_MakeEvolved): BRepFill_Evolved {.noSideEffect,
     importcpp: "Evolved", header: "BRepOffsetAPI_MakeEvolved.hxx".}
-proc build*(this: var BRepOffsetAPI_MakeEvolved) {.importcpp: "Build",
+proc Build*(this: var BRepOffsetAPI_MakeEvolved) {.importcpp: "Build",
     header: "BRepOffsetAPI_MakeEvolved.hxx".}
-proc generatedShapes*(this: BRepOffsetAPI_MakeEvolved; spineShape: TopoDS_Shape;
-                     profShape: TopoDS_Shape): TopToolsListOfShape {.noSideEffect,
+proc GeneratedShapes*(this: BRepOffsetAPI_MakeEvolved; SpineShape: TopoDS_Shape;
+                     ProfShape: TopoDS_Shape): TopTools_ListOfShape {.noSideEffect,
     importcpp: "GeneratedShapes", header: "BRepOffsetAPI_MakeEvolved.hxx".}
-proc top*(this: BRepOffsetAPI_MakeEvolved): TopoDS_Shape {.noSideEffect,
+proc Top*(this: BRepOffsetAPI_MakeEvolved): TopoDS_Shape {.noSideEffect,
     importcpp: "Top", header: "BRepOffsetAPI_MakeEvolved.hxx".}
-proc bottom*(this: BRepOffsetAPI_MakeEvolved): TopoDS_Shape {.noSideEffect,
+proc Bottom*(this: BRepOffsetAPI_MakeEvolved): TopoDS_Shape {.noSideEffect,
     importcpp: "Bottom", header: "BRepOffsetAPI_MakeEvolved.hxx".}
-

@@ -14,7 +14,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _Geom2dAdaptor_GHCurve_HeaderFile [NewLine] # _Geom2dAdaptor_GHCurve_HeaderFile [NewLine] # < Standard . hxx > [NewLine] # < Standard_Type . hxx > [NewLine] # < Geom2dAdaptor_Curve . hxx > [NewLine] # < Adaptor2d_HCurve2d . hxx > [NewLine] class Standard_OutOfRange ;
+## !!!Ignored construct:  # _Geom2dAdaptor_GHCurve_HeaderFile [NewLine] # _Geom2dAdaptor_GHCurve_HeaderFile [NewLine] # ../Standard/Standard.hxx [NewLine] # ../Standard/Standard_Type.hxx [NewLine] # Geom2dAdaptor_Curve.hxx [NewLine] # ../Adaptor2d/Adaptor2d_HCurve2d.hxx [NewLine] class Standard_OutOfRange ;
 ## Error: did not expect <!!!
 
 discard "forward decl of Standard_NoSuchObject"
@@ -24,38 +24,37 @@ discard "forward decl of Adaptor2d_Curve2d"
 discard "forward decl of Geom2dAdaptor_GHCurve"
 discard "forward decl of Geom2dAdaptor_GHCurve"
 type
-  HandleGeom2dAdaptorGHCurveGeom2dAdaptorGHCurve* = Handle[Geom2dAdaptorGHCurve]
-  Geom2dAdaptorGHCurve* {.importcpp: "Geom2dAdaptor_GHCurve",
-                         header: "Geom2dAdaptor_GHCurve.hxx", bycopy.} = object of Adaptor2dHCurve2d ##
-                                                                                              ## !
-                                                                                              ## Creates
-                                                                                              ## an
-                                                                                              ## empty
-                                                                                              ## GenHCurve2d.
+  Handle_Geom2dAdaptor_GHCurveGeom2dAdaptor_GHCurve* = handle[
+      Geom2dAdaptor_GHCurve]
+  Geom2dAdaptor_GHCurve* {.importcpp: "Geom2dAdaptor_GHCurve",
+                          header: "Geom2dAdaptor_GHCurve.hxx", bycopy.} = object of Adaptor2d_HCurve2d ##
+                                                                                                ## !
+                                                                                                ## Creates
+                                                                                                ## an
+                                                                                                ## empty
+                                                                                                ## GenHCurve2d.
 
 
-proc constructGeom2dAdaptorGHCurve*(): Geom2dAdaptorGHCurve {.constructor,
+proc constructGeom2dAdaptor_GHCurve*(): Geom2dAdaptor_GHCurve {.constructor,
     importcpp: "Geom2dAdaptor_GHCurve(@)", header: "Geom2dAdaptor_GHCurve.hxx".}
-proc constructGeom2dAdaptorGHCurve*(c: Geom2dAdaptorCurve): Geom2dAdaptorGHCurve {.
+proc constructGeom2dAdaptor_GHCurve*(C: Geom2dAdaptor_Curve): Geom2dAdaptor_GHCurve {.
     constructor, importcpp: "Geom2dAdaptor_GHCurve(@)",
     header: "Geom2dAdaptor_GHCurve.hxx".}
-proc set*(this: var Geom2dAdaptorGHCurve; c: Geom2dAdaptorCurve) {.importcpp: "Set",
+proc Set*(this: var Geom2dAdaptor_GHCurve; C: Geom2dAdaptor_Curve) {.importcpp: "Set",
     header: "Geom2dAdaptor_GHCurve.hxx".}
-proc curve2d*(this: Geom2dAdaptorGHCurve): Adaptor2dCurve2d {.noSideEffect,
+proc Curve2d*(this: Geom2dAdaptor_GHCurve): Adaptor2d_Curve2d {.noSideEffect,
     importcpp: "Curve2d", header: "Geom2dAdaptor_GHCurve.hxx".}
-proc changeCurve2d*(this: var Geom2dAdaptorGHCurve): var Geom2dAdaptorCurve {.
+proc ChangeCurve2d*(this: var Geom2dAdaptor_GHCurve): var Geom2dAdaptor_Curve {.
     importcpp: "ChangeCurve2d", header: "Geom2dAdaptor_GHCurve.hxx".}
 type
-  Geom2dAdaptorGHCurvebaseType* = Adaptor2dHCurve2d
+  Geom2dAdaptor_GHCurvebase_type* = Adaptor2d_HCurve2d
 
-proc getTypeName*(): cstring {.importcpp: "Geom2dAdaptor_GHCurve::get_type_name(@)",
-                            header: "Geom2dAdaptor_GHCurve.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "Geom2dAdaptor_GHCurve::get_type_name(@)",
+                              header: "Geom2dAdaptor_GHCurve.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "Geom2dAdaptor_GHCurve::get_type_descriptor(@)",
     header: "Geom2dAdaptor_GHCurve.hxx".}
-proc dynamicType*(this: Geom2dAdaptorGHCurve): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "Geom2dAdaptor_GHCurve.hxx".}
-## !!!Ignored construct:  # TheCurve Geom2dAdaptor_Curve [NewLine] # TheCurve_hxx < Geom2dAdaptor_Curve . hxx > [NewLine] # Adaptor2d_GenHCurve2d Geom2dAdaptor_GHCurve [NewLine] # Adaptor2d_GenHCurve2d_hxx < Geom2dAdaptor_GHCurve . hxx > [NewLine] # Handle_Adaptor2d_GenHCurve2d opencascade :: handle < Geom2dAdaptor_GHCurve > [end of template] [NewLine] # < Adaptor2d_GenHCurve2d . lxx > [NewLine] # TheCurve [NewLine] # TheCurve_hxx [NewLine] # Adaptor2d_GenHCurve2d [NewLine] # Adaptor2d_GenHCurve2d_hxx [NewLine] # Handle_Adaptor2d_GenHCurve2d [NewLine] #  _Geom2dAdaptor_GHCurve_HeaderFile
+proc DynamicType*(this: Geom2dAdaptor_GHCurve): handle[Standard_Type] {.
+    noSideEffect, importcpp: "DynamicType", header: "Geom2dAdaptor_GHCurve.hxx".}
+## !!!Ignored construct:  # TheCurve Geom2dAdaptor_Curve [NewLine] # TheCurve_hxx < Geom2dAdaptor_Curve . hxx > [NewLine] # Adaptor2d_GenHCurve2d Geom2dAdaptor_GHCurve [NewLine] # Adaptor2d_GenHCurve2d_hxx < Geom2dAdaptor_GHCurve . hxx > [NewLine] # Handle_Adaptor2d_GenHCurve2d opencascade :: handle < Geom2dAdaptor_GHCurve > [end of template] [NewLine] # < Adaptor2d_GenHCurve2d . lxx > [NewLine] # TheCurve [NewLine] # TheCurve_hxx [NewLine] # Adaptor2d_GenHCurve2d [NewLine] # Adaptor2d_GenHCurve2d_hxx [NewLine] # Handle_Adaptor2d_GenHCurve2d [NewLine] #  _Geom2dAdaptor_GHCurve_HeaderFile [NewLine]
 ## Error: did not expect <!!!
-
-

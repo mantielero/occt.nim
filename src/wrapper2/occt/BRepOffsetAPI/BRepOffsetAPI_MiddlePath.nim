@@ -13,6 +13,13 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../TopoDS/TopoDS_Shape, ../TopoDS/TopoDS_Wire,
+  ../Standard/Standard_Boolean, ../TopTools/TopTools_MapOfShape,
+  BRepOffsetAPI_SequenceOfSequenceOfShape,
+  ../BRepBuilderAPI/BRepBuilderAPI_MakeShape
+
 discard "forward decl of TopoDS_Shape"
 type
   BRepOffsetAPI_MiddlePath* {.importcpp: "BRepOffsetAPI_MiddlePath",
@@ -37,10 +44,9 @@ type
 
 
 proc constructBRepOffsetAPI_MiddlePath*(aShape: TopoDS_Shape;
-                                       startShape: TopoDS_Shape;
-                                       endShape: TopoDS_Shape): BRepOffsetAPI_MiddlePath {.
+                                       StartShape: TopoDS_Shape;
+                                       EndShape: TopoDS_Shape): BRepOffsetAPI_MiddlePath {.
     constructor, importcpp: "BRepOffsetAPI_MiddlePath(@)",
     header: "BRepOffsetAPI_MiddlePath.hxx".}
-proc build*(this: var BRepOffsetAPI_MiddlePath) {.importcpp: "Build",
+proc Build*(this: var BRepOffsetAPI_MiddlePath) {.importcpp: "Build",
     header: "BRepOffsetAPI_MiddlePath.hxx".}
-

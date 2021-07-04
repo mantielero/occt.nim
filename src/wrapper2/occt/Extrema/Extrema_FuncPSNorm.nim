@@ -14,42 +14,48 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc, ../gp/gp_Pnt,
+  ../Adaptor3d/Adaptor3d_SurfacePtr, ../Standard/Standard_Real,
+  ../TColStd/TColStd_SequenceOfReal, Extrema_SequenceOfPOnSurf,
+  ../Standard/Standard_Boolean, ../math/math_FunctionSetWithDerivatives,
+  ../Standard/Standard_Integer, ../math/math_Vector
+
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of gp_Pnt"
 discard "forward decl of Adaptor3d_Surface"
 discard "forward decl of math_Matrix"
 discard "forward decl of Extrema_POnSurf"
 type
-  ExtremaFuncPSNorm* {.importcpp: "Extrema_FuncPSNorm",
-                      header: "Extrema_FuncPSNorm.hxx", bycopy.} = object of MathFunctionSetWithDerivatives
+  Extrema_FuncPSNorm* {.importcpp: "Extrema_FuncPSNorm",
+                       header: "Extrema_FuncPSNorm.hxx", bycopy.} = object of math_FunctionSetWithDerivatives
 
 
-proc constructExtremaFuncPSNorm*(): ExtremaFuncPSNorm {.constructor,
+proc constructExtrema_FuncPSNorm*(): Extrema_FuncPSNorm {.constructor,
     importcpp: "Extrema_FuncPSNorm(@)", header: "Extrema_FuncPSNorm.hxx".}
-proc constructExtremaFuncPSNorm*(p: GpPnt; s: Adaptor3dSurface): ExtremaFuncPSNorm {.
+proc constructExtrema_FuncPSNorm*(P: gp_Pnt; S: Adaptor3d_Surface): Extrema_FuncPSNorm {.
     constructor, importcpp: "Extrema_FuncPSNorm(@)",
     header: "Extrema_FuncPSNorm.hxx".}
-proc initialize*(this: var ExtremaFuncPSNorm; s: Adaptor3dSurface) {.
+proc Initialize*(this: var Extrema_FuncPSNorm; S: Adaptor3d_Surface) {.
     importcpp: "Initialize", header: "Extrema_FuncPSNorm.hxx".}
-proc setPoint*(this: var ExtremaFuncPSNorm; p: GpPnt) {.importcpp: "SetPoint",
+proc SetPoint*(this: var Extrema_FuncPSNorm; P: gp_Pnt) {.importcpp: "SetPoint",
     header: "Extrema_FuncPSNorm.hxx".}
-proc nbVariables*(this: ExtremaFuncPSNorm): StandardInteger {.noSideEffect,
+proc NbVariables*(this: Extrema_FuncPSNorm): Standard_Integer {.noSideEffect,
     importcpp: "NbVariables", header: "Extrema_FuncPSNorm.hxx".}
-proc nbEquations*(this: ExtremaFuncPSNorm): StandardInteger {.noSideEffect,
+proc NbEquations*(this: Extrema_FuncPSNorm): Standard_Integer {.noSideEffect,
     importcpp: "NbEquations", header: "Extrema_FuncPSNorm.hxx".}
-proc value*(this: var ExtremaFuncPSNorm; uv: MathVector; f: var MathVector): StandardBoolean {.
+proc Value*(this: var Extrema_FuncPSNorm; UV: math_Vector; F: var math_Vector): Standard_Boolean {.
     importcpp: "Value", header: "Extrema_FuncPSNorm.hxx".}
-proc derivatives*(this: var ExtremaFuncPSNorm; uv: MathVector; df: var MathMatrix): StandardBoolean {.
+proc Derivatives*(this: var Extrema_FuncPSNorm; UV: math_Vector; DF: var math_Matrix): Standard_Boolean {.
     importcpp: "Derivatives", header: "Extrema_FuncPSNorm.hxx".}
-proc values*(this: var ExtremaFuncPSNorm; uv: MathVector; f: var MathVector;
-            df: var MathMatrix): StandardBoolean {.importcpp: "Values",
+proc Values*(this: var Extrema_FuncPSNorm; UV: math_Vector; F: var math_Vector;
+            DF: var math_Matrix): Standard_Boolean {.importcpp: "Values",
     header: "Extrema_FuncPSNorm.hxx".}
-proc getStateNumber*(this: var ExtremaFuncPSNorm): StandardInteger {.
+proc GetStateNumber*(this: var Extrema_FuncPSNorm): Standard_Integer {.
     importcpp: "GetStateNumber", header: "Extrema_FuncPSNorm.hxx".}
-proc nbExt*(this: ExtremaFuncPSNorm): StandardInteger {.noSideEffect,
+proc NbExt*(this: Extrema_FuncPSNorm): Standard_Integer {.noSideEffect,
     importcpp: "NbExt", header: "Extrema_FuncPSNorm.hxx".}
-proc squareDistance*(this: ExtremaFuncPSNorm; n: StandardInteger): StandardReal {.
+proc SquareDistance*(this: Extrema_FuncPSNorm; N: Standard_Integer): Standard_Real {.
     noSideEffect, importcpp: "SquareDistance", header: "Extrema_FuncPSNorm.hxx".}
-proc point*(this: ExtremaFuncPSNorm; n: StandardInteger): ExtremaPOnSurf {.
+proc Point*(this: Extrema_FuncPSNorm; N: Standard_Integer): Extrema_POnSurf {.
     noSideEffect, importcpp: "Point", header: "Extrema_FuncPSNorm.hxx".}
-

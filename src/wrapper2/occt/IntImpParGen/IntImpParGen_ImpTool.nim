@@ -14,24 +14,27 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Real
+
 discard "forward decl of gp_Pnt2d"
 discard "forward decl of gp_Vec2d"
 type
-  IntImpParGenImpTool* {.importcpp: "IntImpParGen_ImpTool",
-                        header: "IntImpParGen_ImpTool.hxx", bycopy.} = object
+  IntImpParGen_ImpTool* {.importcpp: "IntImpParGen_ImpTool",
+                         header: "IntImpParGen_ImpTool.hxx", bycopy.} = object
 
 
-proc value*(this: IntImpParGenImpTool; u: StandardReal): GpPnt2d {.noSideEffect,
+proc Value*(this: IntImpParGen_ImpTool; U: Standard_Real): gp_Pnt2d {.noSideEffect,
     importcpp: "Value", header: "IntImpParGen_ImpTool.hxx".}
-proc d1*(this: IntImpParGenImpTool; u: StandardReal; p: var GpPnt2d; t: var GpVec2d) {.
+proc D1*(this: IntImpParGen_ImpTool; U: Standard_Real; P: var gp_Pnt2d; T: var gp_Vec2d) {.
     noSideEffect, importcpp: "D1", header: "IntImpParGen_ImpTool.hxx".}
-proc d2*(this: IntImpParGenImpTool; u: StandardReal; p: var GpPnt2d; t: var GpVec2d;
-        n: var GpVec2d) {.noSideEffect, importcpp: "D2",
-                       header: "IntImpParGen_ImpTool.hxx".}
-proc distance*(this: IntImpParGenImpTool; p: GpPnt2d): StandardReal {.noSideEffect,
+proc D2*(this: IntImpParGen_ImpTool; U: Standard_Real; P: var gp_Pnt2d; T: var gp_Vec2d;
+        N: var gp_Vec2d) {.noSideEffect, importcpp: "D2",
+                        header: "IntImpParGen_ImpTool.hxx".}
+proc Distance*(this: IntImpParGen_ImpTool; P: gp_Pnt2d): Standard_Real {.noSideEffect,
     importcpp: "Distance", header: "IntImpParGen_ImpTool.hxx".}
-proc gradDistance*(this: IntImpParGenImpTool; p: GpPnt2d): GpVec2d {.noSideEffect,
+proc GradDistance*(this: IntImpParGen_ImpTool; P: gp_Pnt2d): gp_Vec2d {.noSideEffect,
     importcpp: "GradDistance", header: "IntImpParGen_ImpTool.hxx".}
-proc findParameter*(this: IntImpParGenImpTool; p: GpPnt2d): StandardReal {.
+proc FindParameter*(this: IntImpParGen_ImpTool; P: gp_Pnt2d): Standard_Real {.
     noSideEffect, importcpp: "FindParameter", header: "IntImpParGen_ImpTool.hxx".}
-

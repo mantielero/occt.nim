@@ -14,63 +14,68 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type,
+  ../TColStd/TColStd_HSequenceOfHAsciiString, IGESSelect_FileModifier,
+  ../Standard/Standard_CString, ../Standard/Standard_Integer
+
 discard "forward decl of IFSelect_ContextWrite"
 discard "forward decl of IGESData_IGESWriter"
 discard "forward decl of TCollection_AsciiString"
 discard "forward decl of IGESSelect_AddFileComment"
 discard "forward decl of IGESSelect_AddFileComment"
 type
-  HandleIGESSelectAddFileComment* = Handle[IGESSelectAddFileComment]
+  Handle_IGESSelect_AddFileComment* = handle[IGESSelect_AddFileComment]
 
 ## ! This class allows to add comment lines on writing an IGES File
 ## ! These lines are added to Start Section, instead of the only
 ## ! one blank line written by default.
 
 type
-  IGESSelectAddFileComment* {.importcpp: "IGESSelect_AddFileComment",
-                             header: "IGESSelect_AddFileComment.hxx", bycopy.} = object of IGESSelectFileModifier ##
-                                                                                                           ## !
-                                                                                                           ## Creates
-                                                                                                           ## a
-                                                                                                           ## new
-                                                                                                           ## emoty
-                                                                                                           ## AddFileComment.
-                                                                                                           ## Use
-                                                                                                           ## AddLine
-                                                                                                           ## to
-                                                                                                           ## complete
-                                                                                                           ## it
+  IGESSelect_AddFileComment* {.importcpp: "IGESSelect_AddFileComment",
+                              header: "IGESSelect_AddFileComment.hxx", bycopy.} = object of IGESSelect_FileModifier ##
+                                                                                                             ## !
+                                                                                                             ## Creates
+                                                                                                             ## a
+                                                                                                             ## new
+                                                                                                             ## emoty
+                                                                                                             ## AddFileComment.
+                                                                                                             ## Use
+                                                                                                             ## AddLine
+                                                                                                             ## to
+                                                                                                             ## complete
+                                                                                                             ## it
 
 
-proc constructIGESSelectAddFileComment*(): IGESSelectAddFileComment {.constructor,
-    importcpp: "IGESSelect_AddFileComment(@)",
+proc constructIGESSelect_AddFileComment*(): IGESSelect_AddFileComment {.
+    constructor, importcpp: "IGESSelect_AddFileComment(@)",
     header: "IGESSelect_AddFileComment.hxx".}
-proc clear*(this: var IGESSelectAddFileComment) {.importcpp: "Clear",
+proc Clear*(this: var IGESSelect_AddFileComment) {.importcpp: "Clear",
     header: "IGESSelect_AddFileComment.hxx".}
-proc addLine*(this: var IGESSelectAddFileComment; line: StandardCString) {.
+proc AddLine*(this: var IGESSelect_AddFileComment; line: Standard_CString) {.
     importcpp: "AddLine", header: "IGESSelect_AddFileComment.hxx".}
-proc addLines*(this: var IGESSelectAddFileComment;
-              lines: Handle[TColStdHSequenceOfHAsciiString]) {.
+proc AddLines*(this: var IGESSelect_AddFileComment;
+              lines: handle[TColStd_HSequenceOfHAsciiString]) {.
     importcpp: "AddLines", header: "IGESSelect_AddFileComment.hxx".}
-proc nbLines*(this: IGESSelectAddFileComment): StandardInteger {.noSideEffect,
+proc NbLines*(this: IGESSelect_AddFileComment): Standard_Integer {.noSideEffect,
     importcpp: "NbLines", header: "IGESSelect_AddFileComment.hxx".}
-proc line*(this: IGESSelectAddFileComment; num: StandardInteger): StandardCString {.
+proc Line*(this: IGESSelect_AddFileComment; num: Standard_Integer): Standard_CString {.
     noSideEffect, importcpp: "Line", header: "IGESSelect_AddFileComment.hxx".}
-proc lines*(this: IGESSelectAddFileComment): Handle[TColStdHSequenceOfHAsciiString] {.
-    noSideEffect, importcpp: "Lines", header: "IGESSelect_AddFileComment.hxx".}
-proc perform*(this: IGESSelectAddFileComment; ctx: var IFSelectContextWrite;
-             writer: var IGESDataIGESWriter) {.noSideEffect, importcpp: "Perform",
+proc Lines*(this: IGESSelect_AddFileComment): handle[
+    TColStd_HSequenceOfHAsciiString] {.noSideEffect, importcpp: "Lines",
+                                      header: "IGESSelect_AddFileComment.hxx".}
+proc Perform*(this: IGESSelect_AddFileComment; ctx: var IFSelect_ContextWrite;
+             writer: var IGESData_IGESWriter) {.noSideEffect, importcpp: "Perform",
     header: "IGESSelect_AddFileComment.hxx".}
-proc label*(this: IGESSelectAddFileComment): TCollectionAsciiString {.noSideEffect,
-    importcpp: "Label", header: "IGESSelect_AddFileComment.hxx".}
+proc Label*(this: IGESSelect_AddFileComment): TCollection_AsciiString {.
+    noSideEffect, importcpp: "Label", header: "IGESSelect_AddFileComment.hxx".}
 type
-  IGESSelectAddFileCommentbaseType* = IGESSelectFileModifier
+  IGESSelect_AddFileCommentbase_type* = IGESSelect_FileModifier
 
-proc getTypeName*(): cstring {.importcpp: "IGESSelect_AddFileComment::get_type_name(@)",
-                            header: "IGESSelect_AddFileComment.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "IGESSelect_AddFileComment::get_type_name(@)",
+                              header: "IGESSelect_AddFileComment.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "IGESSelect_AddFileComment::get_type_descriptor(@)",
     header: "IGESSelect_AddFileComment.hxx".}
-proc dynamicType*(this: IGESSelectAddFileComment): Handle[StandardType] {.
+proc DynamicType*(this: IGESSelect_AddFileComment): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType", header: "IGESSelect_AddFileComment.hxx".}
-

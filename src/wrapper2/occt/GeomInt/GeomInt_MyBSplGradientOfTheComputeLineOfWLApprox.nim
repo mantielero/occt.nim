@@ -14,6 +14,14 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../AppParCurves/AppParCurves_MultiBSpCurve,
+  ../math/math_Vector, ../Standard/Standard_Real, ../Standard/Standard_Boolean,
+  ../Standard/Standard_Integer,
+  ../AppParCurves/AppParCurves_HArray1OfConstraintCouple,
+  ../TColStd/TColStd_Array1OfReal, ../TColStd/TColStd_Array1OfInteger
+
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of GeomInt_TheMultiLineOfWLApprox"
@@ -23,7 +31,7 @@ discard "forward decl of GeomInt_BSpParFunctionOfMyBSplGradientOfTheComputeLineO
 discard "forward decl of GeomInt_BSpGradient_BFGSOfMyBSplGradientOfTheComputeLineOfWLApprox"
 discard "forward decl of AppParCurves_MultiBSpCurve"
 type
-  GeomIntMyBSplGradientOfTheComputeLineOfWLApprox* {.
+  GeomInt_MyBSplGradientOfTheComputeLineOfWLApprox* {.
       importcpp: "GeomInt_MyBSplGradientOfTheComputeLineOfWLApprox",
       header: "GeomInt_MyBSplGradientOfTheComputeLineOfWLApprox.hxx", bycopy.} = object ##
                                                                                    ## !
@@ -91,43 +99,43 @@ type
                                                                                    ## Deg.
 
 
-proc constructGeomIntMyBSplGradientOfTheComputeLineOfWLApprox*(
-    ssp: GeomIntTheMultiLineOfWLApprox; firstPoint: StandardInteger;
-    lastPoint: StandardInteger;
-    theConstraints: Handle[AppParCurvesHArray1OfConstraintCouple];
-    parameters: var MathVector; knots: TColStdArray1OfReal;
-    mults: TColStdArray1OfInteger; deg: StandardInteger; tol3d: StandardReal;
-    tol2d: StandardReal; nbIterations: StandardInteger = 1): GeomIntMyBSplGradientOfTheComputeLineOfWLApprox {.
+proc constructGeomInt_MyBSplGradientOfTheComputeLineOfWLApprox*(
+    SSP: GeomInt_TheMultiLineOfWLApprox; FirstPoint: Standard_Integer;
+    LastPoint: Standard_Integer;
+    TheConstraints: handle[AppParCurves_HArray1OfConstraintCouple];
+    Parameters: var math_Vector; Knots: TColStd_Array1OfReal;
+    Mults: TColStd_Array1OfInteger; Deg: Standard_Integer; Tol3d: Standard_Real;
+    Tol2d: Standard_Real; NbIterations: Standard_Integer = 1): GeomInt_MyBSplGradientOfTheComputeLineOfWLApprox {.
     constructor,
     importcpp: "GeomInt_MyBSplGradientOfTheComputeLineOfWLApprox(@)",
     header: "GeomInt_MyBSplGradientOfTheComputeLineOfWLApprox.hxx".}
-proc constructGeomIntMyBSplGradientOfTheComputeLineOfWLApprox*(
-    ssp: GeomIntTheMultiLineOfWLApprox; firstPoint: StandardInteger;
-    lastPoint: StandardInteger;
-    theConstraints: Handle[AppParCurvesHArray1OfConstraintCouple];
-    parameters: var MathVector; knots: TColStdArray1OfReal;
-    mults: TColStdArray1OfInteger; deg: StandardInteger; tol3d: StandardReal;
-    tol2d: StandardReal; nbIterations: StandardInteger; lambda1: StandardReal;
-    lambda2: StandardReal): GeomIntMyBSplGradientOfTheComputeLineOfWLApprox {.
+proc constructGeomInt_MyBSplGradientOfTheComputeLineOfWLApprox*(
+    SSP: GeomInt_TheMultiLineOfWLApprox; FirstPoint: Standard_Integer;
+    LastPoint: Standard_Integer;
+    TheConstraints: handle[AppParCurves_HArray1OfConstraintCouple];
+    Parameters: var math_Vector; Knots: TColStd_Array1OfReal;
+    Mults: TColStd_Array1OfInteger; Deg: Standard_Integer; Tol3d: Standard_Real;
+    Tol2d: Standard_Real; NbIterations: Standard_Integer; lambda1: Standard_Real;
+    lambda2: Standard_Real): GeomInt_MyBSplGradientOfTheComputeLineOfWLApprox {.
     constructor,
     importcpp: "GeomInt_MyBSplGradientOfTheComputeLineOfWLApprox(@)",
     header: "GeomInt_MyBSplGradientOfTheComputeLineOfWLApprox.hxx".}
-proc isDone*(this: GeomIntMyBSplGradientOfTheComputeLineOfWLApprox): StandardBoolean {.
+proc IsDone*(this: GeomInt_MyBSplGradientOfTheComputeLineOfWLApprox): Standard_Boolean {.
     noSideEffect, importcpp: "IsDone",
     header: "GeomInt_MyBSplGradientOfTheComputeLineOfWLApprox.hxx".}
-proc value*(this: GeomIntMyBSplGradientOfTheComputeLineOfWLApprox): AppParCurvesMultiBSpCurve {.
+proc Value*(this: GeomInt_MyBSplGradientOfTheComputeLineOfWLApprox): AppParCurves_MultiBSpCurve {.
     noSideEffect, importcpp: "Value",
     header: "GeomInt_MyBSplGradientOfTheComputeLineOfWLApprox.hxx".}
-proc error*(this: GeomIntMyBSplGradientOfTheComputeLineOfWLApprox;
-           index: StandardInteger): StandardReal {.noSideEffect, importcpp: "Error",
+proc Error*(this: GeomInt_MyBSplGradientOfTheComputeLineOfWLApprox;
+           Index: Standard_Integer): Standard_Real {.noSideEffect,
+    importcpp: "Error",
     header: "GeomInt_MyBSplGradientOfTheComputeLineOfWLApprox.hxx".}
-proc maxError3d*(this: GeomIntMyBSplGradientOfTheComputeLineOfWLApprox): StandardReal {.
+proc MaxError3d*(this: GeomInt_MyBSplGradientOfTheComputeLineOfWLApprox): Standard_Real {.
     noSideEffect, importcpp: "MaxError3d",
     header: "GeomInt_MyBSplGradientOfTheComputeLineOfWLApprox.hxx".}
-proc maxError2d*(this: GeomIntMyBSplGradientOfTheComputeLineOfWLApprox): StandardReal {.
+proc MaxError2d*(this: GeomInt_MyBSplGradientOfTheComputeLineOfWLApprox): Standard_Real {.
     noSideEffect, importcpp: "MaxError2d",
     header: "GeomInt_MyBSplGradientOfTheComputeLineOfWLApprox.hxx".}
-proc averageError*(this: GeomIntMyBSplGradientOfTheComputeLineOfWLApprox): StandardReal {.
+proc AverageError*(this: GeomInt_MyBSplGradientOfTheComputeLineOfWLApprox): Standard_Real {.
     noSideEffect, importcpp: "AverageError",
     header: "GeomInt_MyBSplGradientOfTheComputeLineOfWLApprox.hxx".}
-

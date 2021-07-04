@@ -14,6 +14,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../IntCurveSurface/IntCurveSurface_HInter,
+  ../Standard/Standard_Boolean, ../Standard/Standard_Integer
+
 discard "forward decl of Geom_Curve"
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of Standard_OutOfRange"
@@ -50,24 +55,23 @@ type
 
 proc constructGeomAPI_IntCS*(): GeomAPI_IntCS {.constructor,
     importcpp: "GeomAPI_IntCS(@)", header: "GeomAPI_IntCS.hxx".}
-proc constructGeomAPI_IntCS*(c: Handle[GeomCurve]; s: Handle[GeomSurface]): GeomAPI_IntCS {.
+proc constructGeomAPI_IntCS*(C: handle[Geom_Curve]; S: handle[Geom_Surface]): GeomAPI_IntCS {.
     constructor, importcpp: "GeomAPI_IntCS(@)", header: "GeomAPI_IntCS.hxx".}
-proc perform*(this: var GeomAPI_IntCS; c: Handle[GeomCurve]; s: Handle[GeomSurface]) {.
+proc Perform*(this: var GeomAPI_IntCS; C: handle[Geom_Curve]; S: handle[Geom_Surface]) {.
     importcpp: "Perform", header: "GeomAPI_IntCS.hxx".}
-proc isDone*(this: GeomAPI_IntCS): StandardBoolean {.noSideEffect,
+proc IsDone*(this: GeomAPI_IntCS): Standard_Boolean {.noSideEffect,
     importcpp: "IsDone", header: "GeomAPI_IntCS.hxx".}
-proc nbPoints*(this: GeomAPI_IntCS): StandardInteger {.noSideEffect,
+proc NbPoints*(this: GeomAPI_IntCS): Standard_Integer {.noSideEffect,
     importcpp: "NbPoints", header: "GeomAPI_IntCS.hxx".}
-proc point*(this: GeomAPI_IntCS; index: StandardInteger): GpPnt {.noSideEffect,
+proc Point*(this: GeomAPI_IntCS; Index: Standard_Integer): gp_Pnt {.noSideEffect,
     importcpp: "Point", header: "GeomAPI_IntCS.hxx".}
-proc parameters*(this: GeomAPI_IntCS; index: StandardInteger; u: var StandardReal;
-                v: var StandardReal; w: var StandardReal) {.noSideEffect,
+proc Parameters*(this: GeomAPI_IntCS; Index: Standard_Integer; U: var Standard_Real;
+                V: var Standard_Real; W: var Standard_Real) {.noSideEffect,
     importcpp: "Parameters", header: "GeomAPI_IntCS.hxx".}
-proc nbSegments*(this: GeomAPI_IntCS): StandardInteger {.noSideEffect,
+proc NbSegments*(this: GeomAPI_IntCS): Standard_Integer {.noSideEffect,
     importcpp: "NbSegments", header: "GeomAPI_IntCS.hxx".}
-proc segment*(this: GeomAPI_IntCS; index: StandardInteger): Handle[GeomCurve] {.
+proc Segment*(this: GeomAPI_IntCS; Index: Standard_Integer): handle[Geom_Curve] {.
     noSideEffect, importcpp: "Segment", header: "GeomAPI_IntCS.hxx".}
-proc parameters*(this: GeomAPI_IntCS; index: StandardInteger; u1: var StandardReal;
-                v1: var StandardReal; u2: var StandardReal; v2: var StandardReal) {.
+proc Parameters*(this: GeomAPI_IntCS; Index: Standard_Integer; U1: var Standard_Real;
+                V1: var Standard_Real; U2: var Standard_Real; V2: var Standard_Real) {.
     noSideEffect, importcpp: "Parameters", header: "GeomAPI_IntCS.hxx".}
-

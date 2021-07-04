@@ -14,45 +14,49 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, GProp_GProps, ../Standard/Standard_Real
+
 discard "forward decl of gp_Cylinder"
 discard "forward decl of gp_Pnt"
 discard "forward decl of gp_Cone"
 discard "forward decl of gp_Sphere"
 discard "forward decl of gp_Torus"
 type
-  GPropVelGProps* {.importcpp: "GProp_VelGProps", header: "GProp_VelGProps.hxx",
-                   bycopy.} = object of GPropGProps
+  GProp_VelGProps* {.importcpp: "GProp_VelGProps", header: "GProp_VelGProps.hxx",
+                    bycopy.} = object of GProp_GProps
 
 
-proc constructGPropVelGProps*(): GPropVelGProps {.constructor,
+proc constructGProp_VelGProps*(): GProp_VelGProps {.constructor,
     importcpp: "GProp_VelGProps(@)", header: "GProp_VelGProps.hxx".}
-proc constructGPropVelGProps*(s: GpCylinder; alpha1: StandardReal;
-                             alpha2: StandardReal; z1: StandardReal;
-                             z2: StandardReal; vLocation: GpPnt): GPropVelGProps {.
+proc constructGProp_VelGProps*(S: gp_Cylinder; Alpha1: Standard_Real;
+                              Alpha2: Standard_Real; Z1: Standard_Real;
+                              Z2: Standard_Real; VLocation: gp_Pnt): GProp_VelGProps {.
     constructor, importcpp: "GProp_VelGProps(@)", header: "GProp_VelGProps.hxx".}
-proc constructGPropVelGProps*(s: GpCone; alpha1: StandardReal; alpha2: StandardReal;
-                             z1: StandardReal; z2: StandardReal; vLocation: GpPnt): GPropVelGProps {.
+proc constructGProp_VelGProps*(S: gp_Cone; Alpha1: Standard_Real;
+                              Alpha2: Standard_Real; Z1: Standard_Real;
+                              Z2: Standard_Real; VLocation: gp_Pnt): GProp_VelGProps {.
     constructor, importcpp: "GProp_VelGProps(@)", header: "GProp_VelGProps.hxx".}
-proc constructGPropVelGProps*(s: GpSphere; teta1: StandardReal; teta2: StandardReal;
-                             alpha1: StandardReal; alpha2: StandardReal;
-                             vLocation: GpPnt): GPropVelGProps {.constructor,
-    importcpp: "GProp_VelGProps(@)", header: "GProp_VelGProps.hxx".}
-proc constructGPropVelGProps*(s: GpTorus; teta1: StandardReal; teta2: StandardReal;
-                             alpha1: StandardReal; alpha2: StandardReal;
-                             vLocation: GpPnt): GPropVelGProps {.constructor,
-    importcpp: "GProp_VelGProps(@)", header: "GProp_VelGProps.hxx".}
-proc setLocation*(this: var GPropVelGProps; vLocation: GpPnt) {.
+proc constructGProp_VelGProps*(S: gp_Sphere; Teta1: Standard_Real;
+                              Teta2: Standard_Real; Alpha1: Standard_Real;
+                              Alpha2: Standard_Real; VLocation: gp_Pnt): GProp_VelGProps {.
+    constructor, importcpp: "GProp_VelGProps(@)", header: "GProp_VelGProps.hxx".}
+proc constructGProp_VelGProps*(S: gp_Torus; Teta1: Standard_Real;
+                              Teta2: Standard_Real; Alpha1: Standard_Real;
+                              Alpha2: Standard_Real; VLocation: gp_Pnt): GProp_VelGProps {.
+    constructor, importcpp: "GProp_VelGProps(@)", header: "GProp_VelGProps.hxx".}
+proc SetLocation*(this: var GProp_VelGProps; VLocation: gp_Pnt) {.
     importcpp: "SetLocation", header: "GProp_VelGProps.hxx".}
-proc perform*(this: var GPropVelGProps; s: GpCylinder; alpha1: StandardReal;
-             alpha2: StandardReal; z1: StandardReal; z2: StandardReal) {.
+proc Perform*(this: var GProp_VelGProps; S: gp_Cylinder; Alpha1: Standard_Real;
+             Alpha2: Standard_Real; Z1: Standard_Real; Z2: Standard_Real) {.
     importcpp: "Perform", header: "GProp_VelGProps.hxx".}
-proc perform*(this: var GPropVelGProps; s: GpCone; alpha1: StandardReal;
-             alpha2: StandardReal; z1: StandardReal; z2: StandardReal) {.
+proc Perform*(this: var GProp_VelGProps; S: gp_Cone; Alpha1: Standard_Real;
+             Alpha2: Standard_Real; Z1: Standard_Real; Z2: Standard_Real) {.
     importcpp: "Perform", header: "GProp_VelGProps.hxx".}
-proc perform*(this: var GPropVelGProps; s: GpSphere; teta1: StandardReal;
-             teta2: StandardReal; alpha1: StandardReal; alpha2: StandardReal) {.
+proc Perform*(this: var GProp_VelGProps; S: gp_Sphere; Teta1: Standard_Real;
+             Teta2: Standard_Real; Alpha1: Standard_Real; Alpha2: Standard_Real) {.
     importcpp: "Perform", header: "GProp_VelGProps.hxx".}
-proc perform*(this: var GPropVelGProps; s: GpTorus; teta1: StandardReal;
-             teta2: StandardReal; alpha1: StandardReal; alpha2: StandardReal) {.
+proc Perform*(this: var GProp_VelGProps; S: gp_Torus; Teta1: Standard_Real;
+             Teta2: Standard_Real; Alpha1: Standard_Real; Alpha2: Standard_Real) {.
     importcpp: "Perform", header: "GProp_VelGProps.hxx".}
-

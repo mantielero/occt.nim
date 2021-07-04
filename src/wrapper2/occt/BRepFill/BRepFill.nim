@@ -14,6 +14,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
+  ../Standard/Standard_Real, ../TColStd/TColStd_Array1OfReal
+
 discard "forward decl of TopoDS_Face"
 discard "forward decl of TopoDS_Edge"
 discard "forward decl of TopoDS_Shell"
@@ -56,15 +61,14 @@ type
                                                                        ## orientation on a closed wire
 
 
-proc face*(edge1: TopoDS_Edge; edge2: TopoDS_Edge): TopoDS_Face {.
+proc Face*(Edge1: TopoDS_Edge; Edge2: TopoDS_Edge): TopoDS_Face {.
     importcpp: "BRepFill::Face(@)", header: "BRepFill.hxx".}
-proc shell*(wire1: TopoDS_Wire; wire2: TopoDS_Wire): TopoDS_Shell {.
+proc Shell*(Wire1: TopoDS_Wire; Wire2: TopoDS_Wire): TopoDS_Shell {.
     importcpp: "BRepFill::Shell(@)", header: "BRepFill.hxx".}
-proc axe*(spine: TopoDS_Shape; profile: TopoDS_Wire; axeProf: var GpAx3;
-         profOnSpine: var StandardBoolean; tol: StandardReal) {.
+proc Axe*(Spine: TopoDS_Shape; Profile: TopoDS_Wire; AxeProf: var gp_Ax3;
+         ProfOnSpine: var Standard_Boolean; Tol: Standard_Real) {.
     importcpp: "BRepFill::Axe(@)", header: "BRepFill.hxx".}
-proc computeACR*(wire: TopoDS_Wire; acr: var TColStdArray1OfReal) {.
+proc ComputeACR*(wire: TopoDS_Wire; ACR: var TColStd_Array1OfReal) {.
     importcpp: "BRepFill::ComputeACR(@)", header: "BRepFill.hxx".}
-proc insertACR*(wire: TopoDS_Wire; aCRcuts: TColStdArray1OfReal; prec: StandardReal): TopoDS_Wire {.
+proc InsertACR*(wire: TopoDS_Wire; ACRcuts: TColStd_Array1OfReal; prec: Standard_Real): TopoDS_Wire {.
     importcpp: "BRepFill::InsertACR(@)", header: "BRepFill.hxx".}
-

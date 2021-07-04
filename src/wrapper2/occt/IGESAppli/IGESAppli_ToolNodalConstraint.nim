@@ -14,6 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 discard "forward decl of Standard_DomainError"
 discard "forward decl of IGESAppli_NodalConstraint"
 discard "forward decl of IGESData_IGESReaderData"
@@ -26,41 +30,40 @@ discard "forward decl of Interface_Check"
 discard "forward decl of Interface_CopyTool"
 discard "forward decl of IGESData_IGESDumper"
 type
-  IGESAppliToolNodalConstraint* {.importcpp: "IGESAppli_ToolNodalConstraint",
-                                 header: "IGESAppli_ToolNodalConstraint.hxx",
-                                 bycopy.} = object ## ! Returns a ToolNodalConstraint, ready to work
+  IGESAppli_ToolNodalConstraint* {.importcpp: "IGESAppli_ToolNodalConstraint",
+                                  header: "IGESAppli_ToolNodalConstraint.hxx",
+                                  bycopy.} = object ## ! Returns a ToolNodalConstraint, ready to work
 
 
-proc constructIGESAppliToolNodalConstraint*(): IGESAppliToolNodalConstraint {.
+proc constructIGESAppli_ToolNodalConstraint*(): IGESAppli_ToolNodalConstraint {.
     constructor, importcpp: "IGESAppli_ToolNodalConstraint(@)",
     header: "IGESAppli_ToolNodalConstraint.hxx".}
-proc readOwnParams*(this: IGESAppliToolNodalConstraint;
-                   ent: Handle[IGESAppliNodalConstraint];
-                   ir: Handle[IGESDataIGESReaderData]; pr: var IGESDataParamReader) {.
-    noSideEffect, importcpp: "ReadOwnParams",
-    header: "IGESAppli_ToolNodalConstraint.hxx".}
-proc writeOwnParams*(this: IGESAppliToolNodalConstraint;
-                    ent: Handle[IGESAppliNodalConstraint];
-                    iw: var IGESDataIGESWriter) {.noSideEffect,
+proc ReadOwnParams*(this: IGESAppli_ToolNodalConstraint;
+                   ent: handle[IGESAppli_NodalConstraint];
+                   IR: handle[IGESData_IGESReaderData];
+                   PR: var IGESData_ParamReader) {.noSideEffect,
+    importcpp: "ReadOwnParams", header: "IGESAppli_ToolNodalConstraint.hxx".}
+proc WriteOwnParams*(this: IGESAppli_ToolNodalConstraint;
+                    ent: handle[IGESAppli_NodalConstraint];
+                    IW: var IGESData_IGESWriter) {.noSideEffect,
     importcpp: "WriteOwnParams", header: "IGESAppli_ToolNodalConstraint.hxx".}
-proc ownShared*(this: IGESAppliToolNodalConstraint;
-               ent: Handle[IGESAppliNodalConstraint];
-               iter: var InterfaceEntityIterator) {.noSideEffect,
+proc OwnShared*(this: IGESAppli_ToolNodalConstraint;
+               ent: handle[IGESAppli_NodalConstraint];
+               iter: var Interface_EntityIterator) {.noSideEffect,
     importcpp: "OwnShared", header: "IGESAppli_ToolNodalConstraint.hxx".}
-proc dirChecker*(this: IGESAppliToolNodalConstraint;
-                ent: Handle[IGESAppliNodalConstraint]): IGESDataDirChecker {.
+proc DirChecker*(this: IGESAppli_ToolNodalConstraint;
+                ent: handle[IGESAppli_NodalConstraint]): IGESData_DirChecker {.
     noSideEffect, importcpp: "DirChecker",
     header: "IGESAppli_ToolNodalConstraint.hxx".}
-proc ownCheck*(this: IGESAppliToolNodalConstraint;
-              ent: Handle[IGESAppliNodalConstraint]; shares: InterfaceShareTool;
-              ach: var Handle[InterfaceCheck]) {.noSideEffect,
+proc OwnCheck*(this: IGESAppli_ToolNodalConstraint;
+              ent: handle[IGESAppli_NodalConstraint]; shares: Interface_ShareTool;
+              ach: var handle[Interface_Check]) {.noSideEffect,
     importcpp: "OwnCheck", header: "IGESAppli_ToolNodalConstraint.hxx".}
-proc ownCopy*(this: IGESAppliToolNodalConstraint;
-             entfrom: Handle[IGESAppliNodalConstraint];
-             entto: Handle[IGESAppliNodalConstraint]; tc: var InterfaceCopyTool) {.
+proc OwnCopy*(this: IGESAppli_ToolNodalConstraint;
+             entfrom: handle[IGESAppli_NodalConstraint];
+             entto: handle[IGESAppli_NodalConstraint]; TC: var Interface_CopyTool) {.
     noSideEffect, importcpp: "OwnCopy", header: "IGESAppli_ToolNodalConstraint.hxx".}
-proc ownDump*(this: IGESAppliToolNodalConstraint;
-             ent: Handle[IGESAppliNodalConstraint]; dumper: IGESDataIGESDumper;
-             s: var StandardOStream; own: StandardInteger) {.noSideEffect,
+proc OwnDump*(this: IGESAppli_ToolNodalConstraint;
+             ent: handle[IGESAppli_NodalConstraint]; dumper: IGESData_IGESDumper;
+             S: var Standard_OStream; own: Standard_Integer) {.noSideEffect,
     importcpp: "OwnDump", header: "IGESAppli_ToolNodalConstraint.hxx".}
-

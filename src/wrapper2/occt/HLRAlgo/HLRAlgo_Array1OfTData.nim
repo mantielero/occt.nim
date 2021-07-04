@@ -14,7 +14,8 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  HLRAlgo_TriangleData, ../NCollection/NCollection_Array1
+
 type
-  HLRAlgoArray1OfTData* = NCollectionArray1[HLRAlgoTriangleData]
-
-
+  HLRAlgo_Array1OfTData* = NCollection_Array1[HLRAlgo_TriangleData]

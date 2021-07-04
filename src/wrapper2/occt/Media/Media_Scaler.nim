@@ -12,38 +12,41 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  Media_Frame, ../Standard/Standard_Transient, ../Standard/Standard_Type,
+  ../Graphic3d/Graphic3d_Vec2
+
 discard "forward decl of SwsContext"
 type
-  MediaScaler* {.importcpp: "Media_Scaler", header: "Media_Scaler.hxx", bycopy.} = object of StandardTransient ##
-                                                                                                     ## !
-                                                                                                     ## Empty
-                                                                                                     ## constructor.
+  Media_Scaler* {.importcpp: "Media_Scaler", header: "Media_Scaler.hxx", bycopy.} = object of Standard_Transient ##
+                                                                                                       ## !
+                                                                                                       ## Empty
+                                                                                                       ## constructor.
     ## !< conversion context
     ## !< dimensions of input frame
     ## !< pixel format (AVPixelFormat) of input frame
     ## !< dimensions of destination frame
     ## !< pixel format (AVPixelFormat) of destination frame
 
-  MediaScalerbaseType* = StandardTransient
+  Media_Scalerbase_type* = Standard_Transient
 
-proc getTypeName*(): cstring {.importcpp: "Media_Scaler::get_type_name(@)",
-                            header: "Media_Scaler.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "Media_Scaler::get_type_name(@)",
+                              header: "Media_Scaler.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "Media_Scaler::get_type_descriptor(@)", header: "Media_Scaler.hxx".}
-proc dynamicType*(this: MediaScaler): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: Media_Scaler): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "Media_Scaler.hxx".}
-proc constructMediaScaler*(): MediaScaler {.constructor,
+proc constructMedia_Scaler*(): Media_Scaler {.constructor,
     importcpp: "Media_Scaler(@)", header: "Media_Scaler.hxx".}
-proc destroyMediaScaler*(this: var MediaScaler) {.importcpp: "#.~Media_Scaler()",
+proc destroyMedia_Scaler*(this: var Media_Scaler) {.importcpp: "#.~Media_Scaler()",
     header: "Media_Scaler.hxx".}
-proc release*(this: var MediaScaler) {.importcpp: "Release",
-                                   header: "Media_Scaler.hxx".}
-proc init*(this: var MediaScaler; theSrcDims: Graphic3dVec2i; theSrcFormat: cint;
-          theResDims: Graphic3dVec2i; theResFormat: cint): bool {.importcpp: "Init",
+proc Release*(this: var Media_Scaler) {.importcpp: "Release",
+                                    header: "Media_Scaler.hxx".}
+proc Init*(this: var Media_Scaler; theSrcDims: Graphic3d_Vec2i; theSrcFormat: cint;
+          theResDims: Graphic3d_Vec2i; theResFormat: cint): bool {.importcpp: "Init",
     header: "Media_Scaler.hxx".}
-proc convert*(this: var MediaScaler; theSrc: Handle[MediaFrame];
-             theRes: Handle[MediaFrame]): bool {.importcpp: "Convert",
+proc Convert*(this: var Media_Scaler; theSrc: handle[Media_Frame];
+             theRes: handle[Media_Frame]): bool {.importcpp: "Convert",
     header: "Media_Scaler.hxx".}
-proc isValid*(this: MediaScaler): bool {.noSideEffect, importcpp: "IsValid",
-                                     header: "Media_Scaler.hxx".}
-
+proc IsValid*(this: Media_Scaler): bool {.noSideEffect, importcpp: "IsValid",
+                                      header: "Media_Scaler.hxx".}

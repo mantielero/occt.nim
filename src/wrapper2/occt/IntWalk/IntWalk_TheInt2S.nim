@@ -14,7 +14,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _IntWalk_TheInt2S_HeaderFile [NewLine] # _IntWalk_TheInt2S_HeaderFile [NewLine] # < Standard . hxx > [NewLine] # < Standard_DefineAlloc . hxx > [NewLine] # < Standard_Handle . hxx > [NewLine] # < Standard_Boolean . hxx > [NewLine] # < IntSurf_PntOn2S . hxx > [NewLine] # < gp_Dir . hxx > [NewLine] # < gp_Dir2d . hxx > [NewLine] # < IntWalk_TheFunctionOfTheInt2S . hxx > [NewLine] # < Standard_Real . hxx > [NewLine] # < TColStd_Array1OfReal . hxx > [NewLine] # < IntImp_ConstIsoparametric . hxx > [NewLine] class StdFail_NotDone ;
+## !!!Ignored construct:  # _IntWalk_TheInt2S_HeaderFile [NewLine] # _IntWalk_TheInt2S_HeaderFile [NewLine] # ../Standard/Standard.hxx [NewLine] # ../Standard/Standard_DefineAlloc.hxx [NewLine] # ../Standard/Standard_Handle.hxx [NewLine] # ../Standard/Standard_Boolean.hxx [NewLine] # ../IntSurf/IntSurf_PntOn2S.hxx [NewLine] # ../gp/gp_Dir.hxx [NewLine] # ../gp/gp_Dir2d.hxx [NewLine] # IntWalk_TheFunctionOfTheInt2S.hxx [NewLine] # ../Standard/Standard_Real.hxx [NewLine] # ../TColStd/TColStd_Array1OfReal.hxx [NewLine] # ../IntImp/IntImp_ConstIsoparametric.hxx [NewLine] class StdFail_NotDone ;
 ## Error: did not expect <!!!
 
 discard "forward decl of Standard_DomainError"
@@ -28,44 +28,42 @@ discard "forward decl of IntSurf_PntOn2S"
 discard "forward decl of gp_Dir"
 discard "forward decl of gp_Dir2d"
 type
-  IntWalkTheInt2S* {.importcpp: "IntWalk_TheInt2S", header: "IntWalk_TheInt2S.hxx",
-                    bycopy.} = object ## ! compute the solution point with the close point
+  IntWalk_TheInt2S* {.importcpp: "IntWalk_TheInt2S",
+                     header: "IntWalk_TheInt2S.hxx", bycopy.} = object ## ! compute the solution point with the close point
 
 
-proc constructIntWalkTheInt2S*(param: TColStdArray1OfReal;
-                              s1: Handle[Adaptor3dHSurface];
-                              s2: Handle[Adaptor3dHSurface];
-                              tolTangency: StandardReal): IntWalkTheInt2S {.
+proc constructIntWalk_TheInt2S*(Param: TColStd_Array1OfReal;
+                               S1: handle[Adaptor3d_HSurface];
+                               S2: handle[Adaptor3d_HSurface];
+                               TolTangency: Standard_Real): IntWalk_TheInt2S {.
     constructor, importcpp: "IntWalk_TheInt2S(@)", header: "IntWalk_TheInt2S.hxx".}
-proc constructIntWalkTheInt2S*(s1: Handle[Adaptor3dHSurface];
-                              s2: Handle[Adaptor3dHSurface];
-                              tolTangency: StandardReal): IntWalkTheInt2S {.
+proc constructIntWalk_TheInt2S*(S1: handle[Adaptor3d_HSurface];
+                               S2: handle[Adaptor3d_HSurface];
+                               TolTangency: Standard_Real): IntWalk_TheInt2S {.
     constructor, importcpp: "IntWalk_TheInt2S(@)", header: "IntWalk_TheInt2S.hxx".}
-proc perform*(this: var IntWalkTheInt2S; param: TColStdArray1OfReal;
-             rsnld: var MathFunctionSetRoot): IntImpConstIsoparametric {.
+proc Perform*(this: var IntWalk_TheInt2S; Param: TColStd_Array1OfReal;
+             Rsnld: var math_FunctionSetRoot): IntImp_ConstIsoparametric {.
     importcpp: "Perform", header: "IntWalk_TheInt2S.hxx".}
-proc perform*(this: var IntWalkTheInt2S; param: TColStdArray1OfReal;
-             rsnld: var MathFunctionSetRoot; choixIso: IntImpConstIsoparametric): IntImpConstIsoparametric {.
+proc Perform*(this: var IntWalk_TheInt2S; Param: TColStd_Array1OfReal;
+             Rsnld: var math_FunctionSetRoot; ChoixIso: IntImp_ConstIsoparametric): IntImp_ConstIsoparametric {.
     importcpp: "Perform", header: "IntWalk_TheInt2S.hxx".}
-proc isDone*(this: IntWalkTheInt2S): StandardBoolean {.noSideEffect,
+proc IsDone*(this: IntWalk_TheInt2S): Standard_Boolean {.noSideEffect,
     importcpp: "IsDone", header: "IntWalk_TheInt2S.hxx".}
-proc isEmpty*(this: IntWalkTheInt2S): StandardBoolean {.noSideEffect,
+proc IsEmpty*(this: IntWalk_TheInt2S): Standard_Boolean {.noSideEffect,
     importcpp: "IsEmpty", header: "IntWalk_TheInt2S.hxx".}
-proc point*(this: IntWalkTheInt2S): IntSurfPntOn2S {.noSideEffect,
+proc Point*(this: IntWalk_TheInt2S): IntSurf_PntOn2S {.noSideEffect,
     importcpp: "Point", header: "IntWalk_TheInt2S.hxx".}
-proc isTangent*(this: IntWalkTheInt2S): StandardBoolean {.noSideEffect,
+proc IsTangent*(this: IntWalk_TheInt2S): Standard_Boolean {.noSideEffect,
     importcpp: "IsTangent", header: "IntWalk_TheInt2S.hxx".}
-proc direction*(this: IntWalkTheInt2S): GpDir {.noSideEffect, importcpp: "Direction",
-    header: "IntWalk_TheInt2S.hxx".}
-proc directionOnS1*(this: IntWalkTheInt2S): GpDir2d {.noSideEffect,
+proc Direction*(this: IntWalk_TheInt2S): gp_Dir {.noSideEffect,
+    importcpp: "Direction", header: "IntWalk_TheInt2S.hxx".}
+proc DirectionOnS1*(this: IntWalk_TheInt2S): gp_Dir2d {.noSideEffect,
     importcpp: "DirectionOnS1", header: "IntWalk_TheInt2S.hxx".}
-proc directionOnS2*(this: IntWalkTheInt2S): GpDir2d {.noSideEffect,
+proc DirectionOnS2*(this: IntWalk_TheInt2S): gp_Dir2d {.noSideEffect,
     importcpp: "DirectionOnS2", header: "IntWalk_TheInt2S.hxx".}
-proc function*(this: var IntWalkTheInt2S): var IntWalkTheFunctionOfTheInt2S {.
+proc Function*(this: var IntWalk_TheInt2S): var IntWalk_TheFunctionOfTheInt2S {.
     importcpp: "Function", header: "IntWalk_TheInt2S.hxx".}
-proc changePoint*(this: var IntWalkTheInt2S): var IntSurfPntOn2S {.
+proc ChangePoint*(this: var IntWalk_TheInt2S): var IntSurf_PntOn2S {.
     importcpp: "ChangePoint", header: "IntWalk_TheInt2S.hxx".}
-## !!!Ignored construct:  # ThePSurface opencascade :: handle < Adaptor3d_HSurface > [end of template] [NewLine] # ThePSurface_hxx < Adaptor3d_HSurface . hxx > [NewLine] # ThePSurfaceTool Adaptor3d_HSurfaceTool [NewLine] # ThePSurfaceTool_hxx < Adaptor3d_HSurfaceTool . hxx > [NewLine] # IntImp_TheFunction IntWalk_TheFunctionOfTheInt2S [NewLine] # IntImp_TheFunction_hxx < IntWalk_TheFunctionOfTheInt2S . hxx > [NewLine] # IntImp_Int2S IntWalk_TheInt2S [NewLine] # IntImp_Int2S_hxx < IntWalk_TheInt2S . hxx > [NewLine] # < IntImp_Int2S . lxx > [NewLine] # ThePSurface [NewLine] # ThePSurface_hxx [NewLine] # ThePSurfaceTool [NewLine] # ThePSurfaceTool_hxx [NewLine] # IntImp_TheFunction [NewLine] # IntImp_TheFunction_hxx [NewLine] # IntImp_Int2S [NewLine] # IntImp_Int2S_hxx [NewLine] #  _IntWalk_TheInt2S_HeaderFile
+## !!!Ignored construct:  # ThePSurface opencascade :: handle < Adaptor3d_HSurface > [end of template] [NewLine] # ThePSurface_hxx < Adaptor3d_HSurface . hxx > [NewLine] # ThePSurfaceTool Adaptor3d_HSurfaceTool [NewLine] # ThePSurfaceTool_hxx < Adaptor3d_HSurfaceTool . hxx > [NewLine] # IntImp_TheFunction IntWalk_TheFunctionOfTheInt2S [NewLine] # IntImp_TheFunction_hxx < IntWalk_TheFunctionOfTheInt2S . hxx > [NewLine] # IntImp_Int2S IntWalk_TheInt2S [NewLine] # IntImp_Int2S_hxx < IntWalk_TheInt2S . hxx > [NewLine] # < IntImp_Int2S . lxx > [NewLine] # ThePSurface [NewLine] # ThePSurface_hxx [NewLine] # ThePSurfaceTool [NewLine] # ThePSurfaceTool_hxx [NewLine] # IntImp_TheFunction [NewLine] # IntImp_TheFunction_hxx [NewLine] # IntImp_Int2S [NewLine] # IntImp_Int2S_hxx [NewLine] #  _IntWalk_TheInt2S_HeaderFile [NewLine]
 ## Error: did not expect <!!!
-
-

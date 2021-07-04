@@ -14,6 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, GC_Root, ../Geom/Geom_TrimmedCurve
+
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of gp_Pnt"
 discard "forward decl of gp_Lin"
@@ -45,17 +49,16 @@ type
                                                                                                   ## confused.
 
 
-proc constructGC_MakeSegment*(p1: GpPnt; p2: GpPnt): GC_MakeSegment {.constructor,
+proc constructGC_MakeSegment*(P1: gp_Pnt; P2: gp_Pnt): GC_MakeSegment {.constructor,
     importcpp: "GC_MakeSegment(@)", header: "GC_MakeSegment.hxx".}
-proc constructGC_MakeSegment*(line: GpLin; u1: StandardReal; u2: StandardReal): GC_MakeSegment {.
+proc constructGC_MakeSegment*(Line: gp_Lin; U1: Standard_Real; U2: Standard_Real): GC_MakeSegment {.
     constructor, importcpp: "GC_MakeSegment(@)", header: "GC_MakeSegment.hxx".}
-proc constructGC_MakeSegment*(line: GpLin; point: GpPnt; ulast: StandardReal): GC_MakeSegment {.
+proc constructGC_MakeSegment*(Line: gp_Lin; Point: gp_Pnt; Ulast: Standard_Real): GC_MakeSegment {.
     constructor, importcpp: "GC_MakeSegment(@)", header: "GC_MakeSegment.hxx".}
-proc constructGC_MakeSegment*(line: GpLin; p1: GpPnt; p2: GpPnt): GC_MakeSegment {.
+proc constructGC_MakeSegment*(Line: gp_Lin; P1: gp_Pnt; P2: gp_Pnt): GC_MakeSegment {.
     constructor, importcpp: "GC_MakeSegment(@)", header: "GC_MakeSegment.hxx".}
-proc value*(this: GC_MakeSegment): Handle[GeomTrimmedCurve] {.noSideEffect,
+proc Value*(this: GC_MakeSegment): handle[Geom_TrimmedCurve] {.noSideEffect,
     importcpp: "Value", header: "GC_MakeSegment.hxx".}
-converter `constopencascade`*(this: GC_MakeSegment): Handle[GeomTrimmedCurve] {.
+converter `constopencascade`*(this: GC_MakeSegment): handle[Geom_TrimmedCurve] {.
     noSideEffect, importcpp: "GC_MakeSegment::operator constopencascade",
     header: "GC_MakeSegment.hxx".}
-

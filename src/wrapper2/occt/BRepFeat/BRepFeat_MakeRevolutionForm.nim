@@ -14,6 +14,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../gp/gp_Ax1, ../Standard/Standard_Real,
+  ../Standard/Standard_Boolean, ../TopTools/TopTools_DataMapOfShapeListOfShape,
+  ../TopTools/TopTools_ListOfShape, BRepFeat_RibSlot, ../Standard/Standard_Integer
+
 discard "forward decl of Geom_Plane"
 discard "forward decl of Standard_ConstructionError"
 discard "forward decl of TopoDS_Shape"
@@ -23,34 +29,33 @@ discard "forward decl of TopoDS_Edge"
 discard "forward decl of TopoDS_Face"
 discard "forward decl of gp_Pnt"
 type
-  BRepFeatMakeRevolutionForm* {.importcpp: "BRepFeat_MakeRevolutionForm",
-                               header: "BRepFeat_MakeRevolutionForm.hxx", bycopy.} = object of BRepFeatRibSlot ##
-                                                                                                        ## !
-                                                                                                        ## initializes
-                                                                                                        ## the
-                                                                                                        ## linear
-                                                                                                        ## form
-                                                                                                        ## class.
+  BRepFeat_MakeRevolutionForm* {.importcpp: "BRepFeat_MakeRevolutionForm",
+                                header: "BRepFeat_MakeRevolutionForm.hxx", bycopy.} = object of BRepFeat_RibSlot ##
+                                                                                                          ## !
+                                                                                                          ## initializes
+                                                                                                          ## the
+                                                                                                          ## linear
+                                                                                                          ## form
+                                                                                                          ## class.
 
 
-proc constructBRepFeatMakeRevolutionForm*(): BRepFeatMakeRevolutionForm {.
+proc constructBRepFeat_MakeRevolutionForm*(): BRepFeat_MakeRevolutionForm {.
     constructor, importcpp: "BRepFeat_MakeRevolutionForm(@)",
     header: "BRepFeat_MakeRevolutionForm.hxx".}
-proc constructBRepFeatMakeRevolutionForm*(sbase: TopoDS_Shape; w: TopoDS_Wire;
-    plane: Handle[GeomPlane]; axis: GpAx1; height1: StandardReal;
-    height2: StandardReal; fuse: StandardInteger; sliding: var StandardBoolean): BRepFeatMakeRevolutionForm {.
+proc constructBRepFeat_MakeRevolutionForm*(Sbase: TopoDS_Shape; W: TopoDS_Wire;
+    Plane: handle[Geom_Plane]; Axis: gp_Ax1; Height1: Standard_Real;
+    Height2: Standard_Real; Fuse: Standard_Integer; Sliding: var Standard_Boolean): BRepFeat_MakeRevolutionForm {.
     constructor, importcpp: "BRepFeat_MakeRevolutionForm(@)",
     header: "BRepFeat_MakeRevolutionForm.hxx".}
-proc init*(this: var BRepFeatMakeRevolutionForm; sbase: TopoDS_Shape; w: TopoDS_Wire;
-          plane: Handle[GeomPlane]; axis: GpAx1; height1: StandardReal;
-          height2: StandardReal; fuse: StandardInteger; sliding: var StandardBoolean) {.
-    importcpp: "Init", header: "BRepFeat_MakeRevolutionForm.hxx".}
-proc add*(this: var BRepFeatMakeRevolutionForm; e: TopoDS_Edge; onFace: TopoDS_Face) {.
+proc Init*(this: var BRepFeat_MakeRevolutionForm; Sbase: TopoDS_Shape; W: TopoDS_Wire;
+          Plane: handle[Geom_Plane]; Axis: gp_Ax1; Height1: Standard_Real;
+          Height2: Standard_Real; Fuse: Standard_Integer;
+          Sliding: var Standard_Boolean) {.importcpp: "Init", header: "BRepFeat_MakeRevolutionForm.hxx".}
+proc Add*(this: var BRepFeat_MakeRevolutionForm; E: TopoDS_Edge; OnFace: TopoDS_Face) {.
     importcpp: "Add", header: "BRepFeat_MakeRevolutionForm.hxx".}
-proc perform*(this: var BRepFeatMakeRevolutionForm) {.importcpp: "Perform",
+proc Perform*(this: var BRepFeat_MakeRevolutionForm) {.importcpp: "Perform",
     header: "BRepFeat_MakeRevolutionForm.hxx".}
-proc propagate*(this: var BRepFeatMakeRevolutionForm; L: var TopToolsListOfShape;
-               f: TopoDS_Face; fPoint: GpPnt; lPoint: GpPnt;
-               falseside: var StandardBoolean): StandardBoolean {.
+proc Propagate*(this: var BRepFeat_MakeRevolutionForm; L: var TopTools_ListOfShape;
+               F: TopoDS_Face; FPoint: gp_Pnt; LPoint: gp_Pnt;
+               falseside: var Standard_Boolean): Standard_Boolean {.
     importcpp: "Propagate", header: "BRepFeat_MakeRevolutionForm.hxx".}
-

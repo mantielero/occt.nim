@@ -14,7 +14,8 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Adaptor3d/Adaptor3d_HCurve, ../NCollection/NCollection_Array1
+
 type
-  GeomPlateArray1OfHCurve* = NCollectionArray1[Handle[Adaptor3dHCurve]]
-
-
+  GeomPlate_Array1OfHCurve* = NCollection_Array1[handle[Adaptor3d_HCurve]]

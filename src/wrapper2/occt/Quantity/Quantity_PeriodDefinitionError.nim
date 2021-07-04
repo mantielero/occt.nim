@@ -14,18 +14,16 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _Quantity_PeriodDefinitionError_HeaderFile [NewLine] # _Quantity_PeriodDefinitionError_HeaderFile [NewLine] # < Standard_Type . hxx > [NewLine] # < Standard_DefineException . hxx > [NewLine] # < Standard_SStream . hxx > [NewLine] # < Standard_DomainError . hxx > [NewLine] class Quantity_PeriodDefinitionError ;
+## !!!Ignored construct:  # _Quantity_PeriodDefinitionError_HeaderFile [NewLine] # _Quantity_PeriodDefinitionError_HeaderFile [NewLine] # ../Standard/Standard_Type.hxx [NewLine] # ../Standard/Standard_DefineException.hxx [NewLine] # ../Standard/Standard_SStream.hxx [NewLine] # ../Standard/Standard_DomainError.hxx [NewLine] class Quantity_PeriodDefinitionError ;
 ## Error: expected ';'!!!
 
 discard "forward decl of Quantity_PeriodDefinitionError"
 type
-  HandleQuantityPeriodDefinitionErrorQuantityPeriodDefinitionError* = Handle[
-      QuantityPeriodDefinitionError]
+  Handle_Quantity_PeriodDefinitionErrorQuantity_PeriodDefinitionError* = handle[
+      Quantity_PeriodDefinitionError]
 
 ## !!!Ignored construct:  # ! defined No_Exception && ! defined No_Quantity_PeriodDefinitionError [NewLine] # if ( CONDITION ) throw Quantity_PeriodDefinitionError ( MESSAGE ) ;
 ## Error: did not expect [NewLine]!!!
 
-## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( Quantity_PeriodDefinitionError , Standard_DomainError ) #  _Quantity_PeriodDefinitionError_HeaderFile
+## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( Quantity_PeriodDefinitionError , Standard_DomainError ) #  _Quantity_PeriodDefinitionError_HeaderFile [NewLine]
 ## Error: did not expect [NewLine]!!!
-
-

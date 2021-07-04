@@ -14,6 +14,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Adaptor3d/Adaptor3d_CurveOnSurface,
+  ../Standard/Standard_Boolean, ../Standard/Standard_Real
+
 discard "forward decl of Adaptor2d_HCurve2d"
 discard "forward decl of Adaptor3d_HCurve"
 discard "forward decl of Adaptor3d_HSurface"
@@ -21,44 +26,46 @@ discard "forward decl of Geom_Curve"
 discard "forward decl of Geom2d_Curve"
 discard "forward decl of Geom_Surface"
 type
-  ApproxSameParameter* {.importcpp: "Approx_SameParameter",
-                        header: "Approx_SameParameter.hxx", bycopy.} = object ## !
-                                                                         ## Warning: the C3D and C2D must have the same
-                                                                         ## parametric domain.
-                                                                         ## !
-                                                                         ## Internal data
-                                                                         ## structure to unify access to the most
-                                                                         ## actively used data.
-                                                                         ## ! This
-                                                                         ## structure is not
-                                                                         ## intended to be class field since
-                                                                         ## ! a lot of memory is used in
-                                                                         ## intermediate
-                                                                         ## computations.
+  Approx_SameParameter* {.importcpp: "Approx_SameParameter",
+                         header: "Approx_SameParameter.hxx", bycopy.} = object ## !
+                                                                          ## Warning: the C3D and C2D must have the same
+                                                                          ## parametric
+                                                                          ## domain.
+                                                                          ## !
+                                                                          ## Internal data
+                                                                          ## structure to unify access to the most
+                                                                          ## actively used data.
+                                                                          ## ! This
+                                                                          ## structure is not
+                                                                          ## intended to be class field since
+                                                                          ## ! a lot of memory is used in
+                                                                          ## intermediate
+                                                                          ## computations.
     ##  Initialization is allowed only for integral types.
 
 
-proc constructApproxSameParameter*(c3d: Handle[GeomCurve];
-                                  c2d: Handle[Geom2dCurve];
-                                  s: Handle[GeomSurface]; tol: StandardReal): ApproxSameParameter {.
+proc constructApprox_SameParameter*(C3D: handle[Geom_Curve];
+                                   C2D: handle[Geom2d_Curve];
+                                   S: handle[Geom_Surface]; Tol: Standard_Real): Approx_SameParameter {.
     constructor, importcpp: "Approx_SameParameter(@)",
     header: "Approx_SameParameter.hxx".}
-proc constructApproxSameParameter*(c3d: Handle[Adaptor3dHCurve];
-                                  c2d: Handle[Geom2dCurve];
-                                  s: Handle[Adaptor3dHSurface]; tol: StandardReal): ApproxSameParameter {.
+proc constructApprox_SameParameter*(C3D: handle[Adaptor3d_HCurve];
+                                   C2D: handle[Geom2d_Curve];
+                                   S: handle[Adaptor3d_HSurface];
+                                   Tol: Standard_Real): Approx_SameParameter {.
     constructor, importcpp: "Approx_SameParameter(@)",
     header: "Approx_SameParameter.hxx".}
-proc constructApproxSameParameter*(c3d: Handle[Adaptor3dHCurve];
-                                  c2d: Handle[Adaptor2dHCurve2d];
-                                  s: Handle[Adaptor3dHSurface]; tol: StandardReal): ApproxSameParameter {.
+proc constructApprox_SameParameter*(C3D: handle[Adaptor3d_HCurve];
+                                   C2D: handle[Adaptor2d_HCurve2d];
+                                   S: handle[Adaptor3d_HSurface];
+                                   Tol: Standard_Real): Approx_SameParameter {.
     constructor, importcpp: "Approx_SameParameter(@)",
     header: "Approx_SameParameter.hxx".}
-proc isDone*(this: ApproxSameParameter): StandardBoolean {.noSideEffect,
+proc IsDone*(this: Approx_SameParameter): Standard_Boolean {.noSideEffect,
     importcpp: "IsDone", header: "Approx_SameParameter.hxx".}
-proc tolReached*(this: ApproxSameParameter): StandardReal {.noSideEffect,
+proc TolReached*(this: Approx_SameParameter): Standard_Real {.noSideEffect,
     importcpp: "TolReached", header: "Approx_SameParameter.hxx".}
-proc isSameParameter*(this: ApproxSameParameter): StandardBoolean {.noSideEffect,
+proc IsSameParameter*(this: Approx_SameParameter): Standard_Boolean {.noSideEffect,
     importcpp: "IsSameParameter", header: "Approx_SameParameter.hxx".}
-proc curve2d*(this: ApproxSameParameter): Handle[Geom2dCurve] {.noSideEffect,
+proc Curve2d*(this: Approx_SameParameter): handle[Geom2d_Curve] {.noSideEffect,
     importcpp: "Curve2d", header: "Approx_SameParameter.hxx".}
-

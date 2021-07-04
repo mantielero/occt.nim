@@ -14,35 +14,32 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, Convert_ConicToBSplineCurve,
+  Convert_ParameterisationType, ../Standard/Standard_Real
+
 discard "forward decl of Standard_DomainError"
 discard "forward decl of gp_Circ2d"
 type
-  ConvertCircleToBSplineCurve* {.importcpp: "Convert_CircleToBSplineCurve",
-                                header: "Convert_CircleToBSplineCurve.hxx", bycopy.} = object of ConvertConicToBSplineCurve ##
-                                                                                                                     ## !
-                                                                                                                     ## The
-                                                                                                                     ## equivalent
-                                                                                                                     ## B-spline
-                                                                                                                     ## curve
-                                                                                                                     ## has
-                                                                                                                     ## the
-                                                                                                                     ## same
-                                                                                                                     ## orientation
-                                                                                                                     ##
-                                                                                                                     ## !
-                                                                                                                     ## as
-                                                                                                                     ## the
-                                                                                                                     ## circle
-                                                                                                                     ## C.
+  Convert_CircleToBSplineCurve* {.importcpp: "Convert_CircleToBSplineCurve",
+                                 header: "Convert_CircleToBSplineCurve.hxx",
+                                 bycopy.} = object of Convert_ConicToBSplineCurve ## ! The
+                                                                             ## equivalent
+                                                                             ## B-spline
+                                                                             ## curve has the
+                                                                             ## same
+                                                                             ## orientation
+                                                                             ## ! as the
+                                                                             ## circle C.
 
 
-proc constructConvertCircleToBSplineCurve*(c: GpCirc2d;
-    parameterisation: ConvertParameterisationType = convertTgtThetaOver2): ConvertCircleToBSplineCurve {.
+proc constructConvert_CircleToBSplineCurve*(C: gp_Circ2d;
+    Parameterisation: Convert_ParameterisationType = Convert_TgtThetaOver2): Convert_CircleToBSplineCurve {.
     constructor, importcpp: "Convert_CircleToBSplineCurve(@)",
     header: "Convert_CircleToBSplineCurve.hxx".}
-proc constructConvertCircleToBSplineCurve*(c: GpCirc2d; u1: StandardReal;
-    u2: StandardReal;
-    parameterisation: ConvertParameterisationType = convertTgtThetaOver2): ConvertCircleToBSplineCurve {.
+proc constructConvert_CircleToBSplineCurve*(C: gp_Circ2d; U1: Standard_Real;
+    U2: Standard_Real;
+    Parameterisation: Convert_ParameterisationType = Convert_TgtThetaOver2): Convert_CircleToBSplineCurve {.
     constructor, importcpp: "Convert_CircleToBSplineCurve(@)",
     header: "Convert_CircleToBSplineCurve.hxx".}
-

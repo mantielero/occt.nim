@@ -14,9 +14,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _Quantity_SurfaceTension_HeaderFile [NewLine] # _Quantity_SurfaceTension_HeaderFile [NewLine] # < Standard_Real . hxx > [NewLine] ! Defined as the force required to hold unit length
+## !!!Ignored construct:  # _Quantity_SurfaceTension_HeaderFile [NewLine] # _Quantity_SurfaceTension_HeaderFile [NewLine] # ../Standard/Standard_Real.hxx [NewLine] ! Defined as the force required to hold unit length
 ## ! of a plane liquid surface.
 ## ! It is measured in newtons per metre. Standard_DEPRECATED ( This type is deprecated - Standard_Real should be used instead ) typedef Standard_Real Quantity_SurfaceTension ;
 ## Error: expected ';'!!!
-
-

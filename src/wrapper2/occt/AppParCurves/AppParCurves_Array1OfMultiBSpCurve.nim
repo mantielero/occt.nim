@@ -14,7 +14,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  AppParCurves_MultiBSpCurve, ../NCollection/NCollection_Array1
+
 type
-  AppParCurvesArray1OfMultiBSpCurve* = NCollectionArray1[AppParCurvesMultiBSpCurve]
-
-
+  AppParCurves_Array1OfMultiBSpCurve* = NCollection_Array1[
+      AppParCurves_MultiBSpCurve]

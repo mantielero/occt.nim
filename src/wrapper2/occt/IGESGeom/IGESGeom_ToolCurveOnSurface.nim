@@ -14,6 +14,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
+  ../Standard/Standard_Integer
+
 discard "forward decl of Standard_DomainError"
 discard "forward decl of IGESGeom_CurveOnSurface"
 discard "forward decl of IGESData_IGESReaderData"
@@ -26,51 +31,50 @@ discard "forward decl of Interface_Check"
 discard "forward decl of Interface_CopyTool"
 discard "forward decl of IGESData_IGESDumper"
 type
-  IGESGeomToolCurveOnSurface* {.importcpp: "IGESGeom_ToolCurveOnSurface",
-                               header: "IGESGeom_ToolCurveOnSurface.hxx", bycopy.} = object ##
-                                                                                       ## !
-                                                                                       ## Returns
-                                                                                       ## a
-                                                                                       ## ToolCurveOnSurface,
-                                                                                       ## ready
-                                                                                       ## to
-                                                                                       ## work
+  IGESGeom_ToolCurveOnSurface* {.importcpp: "IGESGeom_ToolCurveOnSurface",
+                                header: "IGESGeom_ToolCurveOnSurface.hxx", bycopy.} = object ##
+                                                                                        ## !
+                                                                                        ## Returns
+                                                                                        ## a
+                                                                                        ## ToolCurveOnSurface,
+                                                                                        ## ready
+                                                                                        ## to
+                                                                                        ## work
 
 
-proc constructIGESGeomToolCurveOnSurface*(): IGESGeomToolCurveOnSurface {.
+proc constructIGESGeom_ToolCurveOnSurface*(): IGESGeom_ToolCurveOnSurface {.
     constructor, importcpp: "IGESGeom_ToolCurveOnSurface(@)",
     header: "IGESGeom_ToolCurveOnSurface.hxx".}
-proc readOwnParams*(this: IGESGeomToolCurveOnSurface;
-                   ent: Handle[IGESGeomCurveOnSurface];
-                   ir: Handle[IGESDataIGESReaderData]; pr: var IGESDataParamReader) {.
-    noSideEffect, importcpp: "ReadOwnParams",
-    header: "IGESGeom_ToolCurveOnSurface.hxx".}
-proc writeOwnParams*(this: IGESGeomToolCurveOnSurface;
-                    ent: Handle[IGESGeomCurveOnSurface];
-                    iw: var IGESDataIGESWriter) {.noSideEffect,
+proc ReadOwnParams*(this: IGESGeom_ToolCurveOnSurface;
+                   ent: handle[IGESGeom_CurveOnSurface];
+                   IR: handle[IGESData_IGESReaderData];
+                   PR: var IGESData_ParamReader) {.noSideEffect,
+    importcpp: "ReadOwnParams", header: "IGESGeom_ToolCurveOnSurface.hxx".}
+proc WriteOwnParams*(this: IGESGeom_ToolCurveOnSurface;
+                    ent: handle[IGESGeom_CurveOnSurface];
+                    IW: var IGESData_IGESWriter) {.noSideEffect,
     importcpp: "WriteOwnParams", header: "IGESGeom_ToolCurveOnSurface.hxx".}
-proc ownShared*(this: IGESGeomToolCurveOnSurface;
-               ent: Handle[IGESGeomCurveOnSurface];
-               iter: var InterfaceEntityIterator) {.noSideEffect,
+proc OwnShared*(this: IGESGeom_ToolCurveOnSurface;
+               ent: handle[IGESGeom_CurveOnSurface];
+               iter: var Interface_EntityIterator) {.noSideEffect,
     importcpp: "OwnShared", header: "IGESGeom_ToolCurveOnSurface.hxx".}
-proc ownCorrect*(this: IGESGeomToolCurveOnSurface;
-                ent: Handle[IGESGeomCurveOnSurface]): StandardBoolean {.
+proc OwnCorrect*(this: IGESGeom_ToolCurveOnSurface;
+                ent: handle[IGESGeom_CurveOnSurface]): Standard_Boolean {.
     noSideEffect, importcpp: "OwnCorrect",
     header: "IGESGeom_ToolCurveOnSurface.hxx".}
-proc dirChecker*(this: IGESGeomToolCurveOnSurface;
-                ent: Handle[IGESGeomCurveOnSurface]): IGESDataDirChecker {.
+proc DirChecker*(this: IGESGeom_ToolCurveOnSurface;
+                ent: handle[IGESGeom_CurveOnSurface]): IGESData_DirChecker {.
     noSideEffect, importcpp: "DirChecker",
     header: "IGESGeom_ToolCurveOnSurface.hxx".}
-proc ownCheck*(this: IGESGeomToolCurveOnSurface;
-              ent: Handle[IGESGeomCurveOnSurface]; shares: InterfaceShareTool;
-              ach: var Handle[InterfaceCheck]) {.noSideEffect,
+proc OwnCheck*(this: IGESGeom_ToolCurveOnSurface;
+              ent: handle[IGESGeom_CurveOnSurface]; shares: Interface_ShareTool;
+              ach: var handle[Interface_Check]) {.noSideEffect,
     importcpp: "OwnCheck", header: "IGESGeom_ToolCurveOnSurface.hxx".}
-proc ownCopy*(this: IGESGeomToolCurveOnSurface;
-             entfrom: Handle[IGESGeomCurveOnSurface];
-             entto: Handle[IGESGeomCurveOnSurface]; tc: var InterfaceCopyTool) {.
+proc OwnCopy*(this: IGESGeom_ToolCurveOnSurface;
+             entfrom: handle[IGESGeom_CurveOnSurface];
+             entto: handle[IGESGeom_CurveOnSurface]; TC: var Interface_CopyTool) {.
     noSideEffect, importcpp: "OwnCopy", header: "IGESGeom_ToolCurveOnSurface.hxx".}
-proc ownDump*(this: IGESGeomToolCurveOnSurface;
-             ent: Handle[IGESGeomCurveOnSurface]; dumper: IGESDataIGESDumper;
-             s: var StandardOStream; own: StandardInteger) {.noSideEffect,
+proc OwnDump*(this: IGESGeom_ToolCurveOnSurface;
+             ent: handle[IGESGeom_CurveOnSurface]; dumper: IGESData_IGESDumper;
+             S: var Standard_OStream; own: Standard_Integer) {.noSideEffect,
     importcpp: "OwnDump", header: "IGESGeom_ToolCurveOnSurface.hxx".}
-

@@ -14,40 +14,48 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Real,
+  ../Geom2dInt/Geom2dInt_GInter
+
 discard "forward decl of Geom2dAdaptor_Curve"
 discard "forward decl of gp_Lin2d"
 discard "forward decl of gp_Dir2d"
 type
-  Geom2dHatchIntersector* {.importcpp: "Geom2dHatch_Intersector",
-                           header: "Geom2dHatch_Intersector.hxx", bycopy.} = object of Geom2dIntGInter ##
-                                                                                                ## !
-                                                                                                ## Creates
-                                                                                                ## an
-                                                                                                ## intersector.
+  Geom2dHatch_Intersector* {.importcpp: "Geom2dHatch_Intersector",
+                            header: "Geom2dHatch_Intersector.hxx", bycopy.} = object of Geom2dInt_GInter ##
+                                                                                                  ## !
+                                                                                                  ## Creates
+                                                                                                  ## an
+                                                                                                  ## intersector.
 
 
-proc constructGeom2dHatchIntersector*(confusion: StandardReal;
-                                     tangency: StandardReal): Geom2dHatchIntersector {.
+proc constructGeom2dHatch_Intersector*(Confusion: Standard_Real;
+                                      Tangency: Standard_Real): Geom2dHatch_Intersector {.
     constructor, importcpp: "Geom2dHatch_Intersector(@)",
     header: "Geom2dHatch_Intersector.hxx".}
-proc confusionTolerance*(this: Geom2dHatchIntersector): StandardReal {.noSideEffect,
-    importcpp: "ConfusionTolerance", header: "Geom2dHatch_Intersector.hxx".}
-proc setConfusionTolerance*(this: var Geom2dHatchIntersector;
-                           confusion: StandardReal) {.
-    importcpp: "SetConfusionTolerance", header: "Geom2dHatch_Intersector.hxx".}
-proc tangencyTolerance*(this: Geom2dHatchIntersector): StandardReal {.noSideEffect,
-    importcpp: "TangencyTolerance", header: "Geom2dHatch_Intersector.hxx".}
-proc setTangencyTolerance*(this: var Geom2dHatchIntersector; tangency: StandardReal) {.
-    importcpp: "SetTangencyTolerance", header: "Geom2dHatch_Intersector.hxx".}
-proc intersect*(this: var Geom2dHatchIntersector; c1: Geom2dAdaptorCurve;
-               c2: Geom2dAdaptorCurve) {.importcpp: "Intersect",
-                                       header: "Geom2dHatch_Intersector.hxx".}
-proc constructGeom2dHatchIntersector*(): Geom2dHatchIntersector {.constructor,
-    importcpp: "Geom2dHatch_Intersector(@)", header: "Geom2dHatch_Intersector.hxx".}
-proc perform*(this: var Geom2dHatchIntersector; L: GpLin2d; p: StandardReal;
-             tol: StandardReal; e: Geom2dAdaptorCurve) {.importcpp: "Perform",
+proc ConfusionTolerance*(this: Geom2dHatch_Intersector): Standard_Real {.
+    noSideEffect, importcpp: "ConfusionTolerance",
     header: "Geom2dHatch_Intersector.hxx".}
-proc localGeometry*(this: Geom2dHatchIntersector; e: Geom2dAdaptorCurve;
-                   u: StandardReal; t: var GpDir2d; n: var GpDir2d; c: var StandardReal) {.
-    noSideEffect, importcpp: "LocalGeometry", header: "Geom2dHatch_Intersector.hxx".}
-
+proc SetConfusionTolerance*(this: var Geom2dHatch_Intersector;
+                           Confusion: Standard_Real) {.
+    importcpp: "SetConfusionTolerance", header: "Geom2dHatch_Intersector.hxx".}
+proc TangencyTolerance*(this: Geom2dHatch_Intersector): Standard_Real {.
+    noSideEffect, importcpp: "TangencyTolerance",
+    header: "Geom2dHatch_Intersector.hxx".}
+proc SetTangencyTolerance*(this: var Geom2dHatch_Intersector;
+                          Tangency: Standard_Real) {.
+    importcpp: "SetTangencyTolerance", header: "Geom2dHatch_Intersector.hxx".}
+proc Intersect*(this: var Geom2dHatch_Intersector; C1: Geom2dAdaptor_Curve;
+               C2: Geom2dAdaptor_Curve) {.importcpp: "Intersect",
+                                        header: "Geom2dHatch_Intersector.hxx".}
+proc constructGeom2dHatch_Intersector*(): Geom2dHatch_Intersector {.constructor,
+    importcpp: "Geom2dHatch_Intersector(@)", header: "Geom2dHatch_Intersector.hxx".}
+proc Perform*(this: var Geom2dHatch_Intersector; L: gp_Lin2d; P: Standard_Real;
+             Tol: Standard_Real; E: Geom2dAdaptor_Curve) {.importcpp: "Perform",
+    header: "Geom2dHatch_Intersector.hxx".}
+proc LocalGeometry*(this: Geom2dHatch_Intersector; E: Geom2dAdaptor_Curve;
+                   U: Standard_Real; T: var gp_Dir2d; N: var gp_Dir2d;
+                   C: var Standard_Real) {.noSideEffect, importcpp: "LocalGeometry",
+                                        header: "Geom2dHatch_Intersector.hxx".}

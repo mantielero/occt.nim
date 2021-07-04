@@ -67,5 +67,3 @@
 
 ## !!!Ignored construct:  [NewLine]
 ## Error: did not expect [NewLine]!!!
-
-

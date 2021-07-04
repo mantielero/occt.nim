@@ -14,6 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Boolean,
+  IGESSelect_ModelModifier
+
 discard "forward decl of IFSelect_ContextModif"
 discard "forward decl of IGESData_IGESModel"
 discard "forward decl of Interface_CopyTool"
@@ -21,56 +25,55 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of IGESSelect_RemoveCurves"
 discard "forward decl of IGESSelect_RemoveCurves"
 type
-  HandleIGESSelectRemoveCurves* = Handle[IGESSelectRemoveCurves]
+  Handle_IGESSelect_RemoveCurves* = handle[IGESSelect_RemoveCurves]
 
 ## ! Removes Curves UV or 3D (not both !) from Faces, those
 ## ! designated by the Selection. No Selection means all the file
 
 type
-  IGESSelectRemoveCurves* {.importcpp: "IGESSelect_RemoveCurves",
-                           header: "IGESSelect_RemoveCurves.hxx", bycopy.} = object of IGESSelectModelModifier ##
-                                                                                                        ## !
-                                                                                                        ## Creates
-                                                                                                        ## a
-                                                                                                        ## RemoveCurves
-                                                                                                        ## from
-                                                                                                        ## Faces
-                                                                                                        ## (141/142/143/144)
-                                                                                                        ##
-                                                                                                        ## !
-                                                                                                        ## UV
-                                                                                                        ## True
-                                                                                                        ## :
-                                                                                                        ## Removes
-                                                                                                        ## UV
-                                                                                                        ## Curves
-                                                                                                        ## (pcurves)
-                                                                                                        ##
-                                                                                                        ## !
-                                                                                                        ## UV
-                                                                                                        ## False
-                                                                                                        ## :
-                                                                                                        ## Removes
-                                                                                                        ## 3D
-                                                                                                        ## Curves
+  IGESSelect_RemoveCurves* {.importcpp: "IGESSelect_RemoveCurves",
+                            header: "IGESSelect_RemoveCurves.hxx", bycopy.} = object of IGESSelect_ModelModifier ##
+                                                                                                          ## !
+                                                                                                          ## Creates
+                                                                                                          ## a
+                                                                                                          ## RemoveCurves
+                                                                                                          ## from
+                                                                                                          ## Faces
+                                                                                                          ## (141/142/143/144)
+                                                                                                          ##
+                                                                                                          ## !
+                                                                                                          ## UV
+                                                                                                          ## True
+                                                                                                          ## :
+                                                                                                          ## Removes
+                                                                                                          ## UV
+                                                                                                          ## Curves
+                                                                                                          ## (pcurves)
+                                                                                                          ##
+                                                                                                          ## !
+                                                                                                          ## UV
+                                                                                                          ## False
+                                                                                                          ## :
+                                                                                                          ## Removes
+                                                                                                          ## 3D
+                                                                                                          ## Curves
 
 
-proc constructIGESSelectRemoveCurves*(uv: StandardBoolean): IGESSelectRemoveCurves {.
+proc constructIGESSelect_RemoveCurves*(UV: Standard_Boolean): IGESSelect_RemoveCurves {.
     constructor, importcpp: "IGESSelect_RemoveCurves(@)",
     header: "IGESSelect_RemoveCurves.hxx".}
-proc performing*(this: IGESSelectRemoveCurves; ctx: var IFSelectContextModif;
-                target: Handle[IGESDataIGESModel]; tc: var InterfaceCopyTool) {.
+proc Performing*(this: IGESSelect_RemoveCurves; ctx: var IFSelect_ContextModif;
+                target: handle[IGESData_IGESModel]; TC: var Interface_CopyTool) {.
     noSideEffect, importcpp: "Performing", header: "IGESSelect_RemoveCurves.hxx".}
-proc label*(this: IGESSelectRemoveCurves): TCollectionAsciiString {.noSideEffect,
+proc Label*(this: IGESSelect_RemoveCurves): TCollection_AsciiString {.noSideEffect,
     importcpp: "Label", header: "IGESSelect_RemoveCurves.hxx".}
 type
-  IGESSelectRemoveCurvesbaseType* = IGESSelectModelModifier
+  IGESSelect_RemoveCurvesbase_type* = IGESSelect_ModelModifier
 
-proc getTypeName*(): cstring {.importcpp: "IGESSelect_RemoveCurves::get_type_name(@)",
-                            header: "IGESSelect_RemoveCurves.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "IGESSelect_RemoveCurves::get_type_name(@)",
+                              header: "IGESSelect_RemoveCurves.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "IGESSelect_RemoveCurves::get_type_descriptor(@)",
     header: "IGESSelect_RemoveCurves.hxx".}
-proc dynamicType*(this: IGESSelectRemoveCurves): Handle[StandardType] {.
+proc DynamicType*(this: IGESSelect_RemoveCurves): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType", header: "IGESSelect_RemoveCurves.hxx".}
-

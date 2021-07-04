@@ -14,7 +14,8 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  HLRAlgo_PolyHidingData, ../NCollection/NCollection_Array1
+
 type
-  HLRAlgoArray1OfPHDat* = NCollectionArray1[HLRAlgoPolyHidingData]
-
-
+  HLRAlgo_Array1OfPHDat* = NCollection_Array1[HLRAlgo_PolyHidingData]

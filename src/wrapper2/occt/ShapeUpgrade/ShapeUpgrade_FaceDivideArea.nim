@@ -13,42 +13,45 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Real,
+  ShapeUpgrade_FaceDivide, ../Standard/Standard_Boolean
+
 discard "forward decl of TopoDS_Face"
 discard "forward decl of ShapeUpgrade_FaceDivideArea"
 discard "forward decl of ShapeUpgrade_FaceDivideArea"
 type
-  HandleShapeUpgradeFaceDivideArea* = Handle[ShapeUpgradeFaceDivideArea]
+  Handle_ShapeUpgrade_FaceDivideArea* = handle[ShapeUpgrade_FaceDivideArea]
 
 ## ! Divides face by max area criterium.
 
 type
-  ShapeUpgradeFaceDivideArea* {.importcpp: "ShapeUpgrade_FaceDivideArea",
-                               header: "ShapeUpgrade_FaceDivideArea.hxx", bycopy.} = object of ShapeUpgradeFaceDivide ##
-                                                                                                               ## !
-                                                                                                               ## Creates
-                                                                                                               ## empty
-                                                                                                               ## constructor.
+  ShapeUpgrade_FaceDivideArea* {.importcpp: "ShapeUpgrade_FaceDivideArea",
+                                header: "ShapeUpgrade_FaceDivideArea.hxx", bycopy.} = object of ShapeUpgrade_FaceDivide ##
+                                                                                                                 ## !
+                                                                                                                 ## Creates
+                                                                                                                 ## empty
+                                                                                                                 ## constructor.
 
 
-proc constructShapeUpgradeFaceDivideArea*(): ShapeUpgradeFaceDivideArea {.
+proc constructShapeUpgrade_FaceDivideArea*(): ShapeUpgrade_FaceDivideArea {.
     constructor, importcpp: "ShapeUpgrade_FaceDivideArea(@)",
     header: "ShapeUpgrade_FaceDivideArea.hxx".}
-proc constructShapeUpgradeFaceDivideArea*(f: TopoDS_Face): ShapeUpgradeFaceDivideArea {.
+proc constructShapeUpgrade_FaceDivideArea*(F: TopoDS_Face): ShapeUpgrade_FaceDivideArea {.
     constructor, importcpp: "ShapeUpgrade_FaceDivideArea(@)",
     header: "ShapeUpgrade_FaceDivideArea.hxx".}
-proc perform*(this: var ShapeUpgradeFaceDivideArea): StandardBoolean {.
+proc Perform*(this: var ShapeUpgrade_FaceDivideArea): Standard_Boolean {.
     importcpp: "Perform", header: "ShapeUpgrade_FaceDivideArea.hxx".}
-proc maxArea*(this: var ShapeUpgradeFaceDivideArea): var StandardReal {.
+proc MaxArea*(this: var ShapeUpgrade_FaceDivideArea): var Standard_Real {.
     importcpp: "MaxArea", header: "ShapeUpgrade_FaceDivideArea.hxx".}
 type
-  ShapeUpgradeFaceDivideAreabaseType* = ShapeUpgradeFaceDivide
+  ShapeUpgrade_FaceDivideAreabase_type* = ShapeUpgrade_FaceDivide
 
-proc getTypeName*(): cstring {.importcpp: "ShapeUpgrade_FaceDivideArea::get_type_name(@)",
-                            header: "ShapeUpgrade_FaceDivideArea.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "ShapeUpgrade_FaceDivideArea::get_type_name(@)",
+                              header: "ShapeUpgrade_FaceDivideArea.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "ShapeUpgrade_FaceDivideArea::get_type_descriptor(@)",
     header: "ShapeUpgrade_FaceDivideArea.hxx".}
-proc dynamicType*(this: ShapeUpgradeFaceDivideArea): Handle[StandardType] {.
+proc DynamicType*(this: ShapeUpgrade_FaceDivideArea): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType",
     header: "ShapeUpgrade_FaceDivideArea.hxx".}
-

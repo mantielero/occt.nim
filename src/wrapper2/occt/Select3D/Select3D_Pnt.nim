@@ -11,15 +11,17 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../gp/gp_Pnt
+
 type
   Select3D_Pnt* {.importcpp: "Select3D_Pnt", header: "Select3D_Pnt.hxx", bycopy.} = object
-    x* {.importc: "x".}: StandardShortReal
-    y* {.importc: "y".}: StandardShortReal
-    z* {.importc: "z".}: StandardShortReal
+    x* {.importc: "x".}: Standard_ShortReal
+    y* {.importc: "y".}: Standard_ShortReal
+    z* {.importc: "z".}: Standard_ShortReal
 
 
-converter `gpPnt`*(this: Select3D_Pnt): GpPnt {.noSideEffect,
+converter `gp_Pnt`*(this: Select3D_Pnt): gp_Pnt {.noSideEffect,
     importcpp: "Select3D_Pnt::operator gp_Pnt", header: "Select3D_Pnt.hxx".}
-converter `gpXYZ`*(this: Select3D_Pnt): GpXYZ {.noSideEffect,
+converter `gp_XYZ`*(this: Select3D_Pnt): gp_XYZ {.noSideEffect,
     importcpp: "Select3D_Pnt::operator gp_XYZ", header: "Select3D_Pnt.hxx".}
-

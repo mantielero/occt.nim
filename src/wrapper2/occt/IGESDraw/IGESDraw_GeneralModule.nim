@@ -14,6 +14,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type,
+  ../IGESData/IGESData_GeneralModule, ../Standard/Standard_Integer,
+  ../Standard/Standard_Boolean
+
 discard "forward decl of IGESData_IGESEntity"
 discard "forward decl of Interface_EntityIterator"
 discard "forward decl of IGESData_DirChecker"
@@ -24,69 +29,68 @@ discard "forward decl of Interface_CopyTool"
 discard "forward decl of IGESDraw_GeneralModule"
 discard "forward decl of IGESDraw_GeneralModule"
 type
-  HandleIGESDrawGeneralModule* = Handle[IGESDrawGeneralModule]
+  Handle_IGESDraw_GeneralModule* = handle[IGESDraw_GeneralModule]
 
 ## ! Definition of General Services for IGESDraw (specific part)
 ## ! This Services comprise : Shared & Implied Lists, Copy, Check
 
 type
-  IGESDrawGeneralModule* {.importcpp: "IGESDraw_GeneralModule",
-                          header: "IGESDraw_GeneralModule.hxx", bycopy.} = object of IGESDataGeneralModule ##
-                                                                                                    ## !
-                                                                                                    ## Creates
-                                                                                                    ## a
-                                                                                                    ## GeneralModule
-                                                                                                    ## from
-                                                                                                    ## IGESDraw
-                                                                                                    ## and
-                                                                                                    ## puts
-                                                                                                    ## it
-                                                                                                    ## into
-                                                                                                    ## GeneralLib
+  IGESDraw_GeneralModule* {.importcpp: "IGESDraw_GeneralModule",
+                           header: "IGESDraw_GeneralModule.hxx", bycopy.} = object of IGESData_GeneralModule ##
+                                                                                                      ## !
+                                                                                                      ## Creates
+                                                                                                      ## a
+                                                                                                      ## GeneralModule
+                                                                                                      ## from
+                                                                                                      ## IGESDraw
+                                                                                                      ## and
+                                                                                                      ## puts
+                                                                                                      ## it
+                                                                                                      ## into
+                                                                                                      ## GeneralLib
 
 
-proc constructIGESDrawGeneralModule*(): IGESDrawGeneralModule {.constructor,
+proc constructIGESDraw_GeneralModule*(): IGESDraw_GeneralModule {.constructor,
     importcpp: "IGESDraw_GeneralModule(@)", header: "IGESDraw_GeneralModule.hxx".}
-proc ownSharedCase*(this: IGESDrawGeneralModule; cn: StandardInteger;
-                   ent: Handle[IGESDataIGESEntity];
-                   iter: var InterfaceEntityIterator) {.noSideEffect,
+proc OwnSharedCase*(this: IGESDraw_GeneralModule; CN: Standard_Integer;
+                   ent: handle[IGESData_IGESEntity];
+                   iter: var Interface_EntityIterator) {.noSideEffect,
     importcpp: "OwnSharedCase", header: "IGESDraw_GeneralModule.hxx".}
-proc ownImpliedCase*(this: IGESDrawGeneralModule; cn: StandardInteger;
-                    ent: Handle[IGESDataIGESEntity];
-                    iter: var InterfaceEntityIterator) {.noSideEffect,
+proc OwnImpliedCase*(this: IGESDraw_GeneralModule; CN: Standard_Integer;
+                    ent: handle[IGESData_IGESEntity];
+                    iter: var Interface_EntityIterator) {.noSideEffect,
     importcpp: "OwnImpliedCase", header: "IGESDraw_GeneralModule.hxx".}
-proc dirChecker*(this: IGESDrawGeneralModule; cn: StandardInteger;
-                ent: Handle[IGESDataIGESEntity]): IGESDataDirChecker {.
+proc DirChecker*(this: IGESDraw_GeneralModule; CN: Standard_Integer;
+                ent: handle[IGESData_IGESEntity]): IGESData_DirChecker {.
     noSideEffect, importcpp: "DirChecker", header: "IGESDraw_GeneralModule.hxx".}
-proc ownCheckCase*(this: IGESDrawGeneralModule; cn: StandardInteger;
-                  ent: Handle[IGESDataIGESEntity]; shares: InterfaceShareTool;
-                  ach: var Handle[InterfaceCheck]) {.noSideEffect,
+proc OwnCheckCase*(this: IGESDraw_GeneralModule; CN: Standard_Integer;
+                  ent: handle[IGESData_IGESEntity]; shares: Interface_ShareTool;
+                  ach: var handle[Interface_Check]) {.noSideEffect,
     importcpp: "OwnCheckCase", header: "IGESDraw_GeneralModule.hxx".}
-proc newVoid*(this: IGESDrawGeneralModule; cn: StandardInteger;
-             entto: var Handle[StandardTransient]): StandardBoolean {.noSideEffect,
-    importcpp: "NewVoid", header: "IGESDraw_GeneralModule.hxx".}
-proc ownCopyCase*(this: IGESDrawGeneralModule; cn: StandardInteger;
-                 entfrom: Handle[IGESDataIGESEntity];
-                 entto: Handle[IGESDataIGESEntity]; tc: var InterfaceCopyTool) {.
+proc NewVoid*(this: IGESDraw_GeneralModule; CN: Standard_Integer;
+             entto: var handle[Standard_Transient]): Standard_Boolean {.
+    noSideEffect, importcpp: "NewVoid", header: "IGESDraw_GeneralModule.hxx".}
+proc OwnCopyCase*(this: IGESDraw_GeneralModule; CN: Standard_Integer;
+                 entfrom: handle[IGESData_IGESEntity];
+                 entto: handle[IGESData_IGESEntity]; TC: var Interface_CopyTool) {.
     noSideEffect, importcpp: "OwnCopyCase", header: "IGESDraw_GeneralModule.hxx".}
-proc ownRenewCase*(this: IGESDrawGeneralModule; cn: StandardInteger;
-                  entfrom: Handle[IGESDataIGESEntity];
-                  entto: Handle[IGESDataIGESEntity]; tc: InterfaceCopyTool) {.
+proc OwnRenewCase*(this: IGESDraw_GeneralModule; CN: Standard_Integer;
+                  entfrom: handle[IGESData_IGESEntity];
+                  entto: handle[IGESData_IGESEntity]; TC: Interface_CopyTool) {.
     noSideEffect, importcpp: "OwnRenewCase", header: "IGESDraw_GeneralModule.hxx".}
-proc ownDeleteCase*(this: IGESDrawGeneralModule; cn: StandardInteger;
-                   ent: Handle[IGESDataIGESEntity]) {.noSideEffect,
+proc OwnDeleteCase*(this: IGESDraw_GeneralModule; CN: Standard_Integer;
+                   ent: handle[IGESData_IGESEntity]) {.noSideEffect,
     importcpp: "OwnDeleteCase", header: "IGESDraw_GeneralModule.hxx".}
-proc categoryNumber*(this: IGESDrawGeneralModule; cn: StandardInteger;
-                    ent: Handle[StandardTransient]; shares: InterfaceShareTool): StandardInteger {.
+proc CategoryNumber*(this: IGESDraw_GeneralModule; CN: Standard_Integer;
+                    ent: handle[Standard_Transient]; shares: Interface_ShareTool): Standard_Integer {.
     noSideEffect, importcpp: "CategoryNumber", header: "IGESDraw_GeneralModule.hxx".}
 type
-  IGESDrawGeneralModulebaseType* = IGESDataGeneralModule
+  IGESDraw_GeneralModulebase_type* = IGESData_GeneralModule
 
-proc getTypeName*(): cstring {.importcpp: "IGESDraw_GeneralModule::get_type_name(@)",
-                            header: "IGESDraw_GeneralModule.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "IGESDraw_GeneralModule::get_type_name(@)",
+                              header: "IGESDraw_GeneralModule.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "IGESDraw_GeneralModule::get_type_descriptor(@)",
     header: "IGESDraw_GeneralModule.hxx".}
-proc dynamicType*(this: IGESDrawGeneralModule): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "IGESDraw_GeneralModule.hxx".}
-
+proc DynamicType*(this: IGESDraw_GeneralModule): handle[Standard_Type] {.
+    noSideEffect, importcpp: "DynamicType", header: "IGESDraw_GeneralModule.hxx".}

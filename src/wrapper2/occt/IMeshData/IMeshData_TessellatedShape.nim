@@ -13,34 +13,36 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  IMeshData_Shape, ../Standard/Standard_Type, ../TopoDS/TopoDS_Shape
+
 ## ! Interface class representing shaped model with deflection.
 
 type
-  IMeshDataTessellatedShape* {.importcpp: "IMeshData_TessellatedShape",
-                              header: "IMeshData_TessellatedShape.hxx", bycopy.} = object of IMeshDataShape ##
-                                                                                                     ## !
-                                                                                                     ## Destructor.
-                                                                                                     ##
-                                                                                                     ## !
-                                                                                                     ## Constructor.
+  IMeshData_TessellatedShape* {.importcpp: "IMeshData_TessellatedShape",
+                               header: "IMeshData_TessellatedShape.hxx", bycopy.} = object of IMeshData_Shape ##
+                                                                                                       ## !
+                                                                                                       ## Destructor.
+                                                                                                       ##
+                                                                                                       ## !
+                                                                                                       ## Constructor.
 
 
-proc destroyIMeshDataTessellatedShape*(this: var IMeshDataTessellatedShape) {.
+proc destroyIMeshData_TessellatedShape*(this: var IMeshData_TessellatedShape) {.
     importcpp: "#.~IMeshData_TessellatedShape()",
     header: "IMeshData_TessellatedShape.hxx".}
-proc getDeflection*(this: IMeshDataTessellatedShape): StandardReal {.noSideEffect,
+proc GetDeflection*(this: IMeshData_TessellatedShape): Standard_Real {.noSideEffect,
     importcpp: "GetDeflection", header: "IMeshData_TessellatedShape.hxx".}
-proc setDeflection*(this: var IMeshDataTessellatedShape; theValue: StandardReal) {.
+proc SetDeflection*(this: var IMeshData_TessellatedShape; theValue: Standard_Real) {.
     importcpp: "SetDeflection", header: "IMeshData_TessellatedShape.hxx".}
 type
-  IMeshDataTessellatedShapebaseType* = IMeshDataShape
+  IMeshData_TessellatedShapebase_type* = IMeshData_Shape
 
-proc getTypeName*(): cstring {.importcpp: "IMeshData_TessellatedShape::get_type_name(@)",
-                            header: "IMeshData_TessellatedShape.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "IMeshData_TessellatedShape::get_type_name(@)",
+                              header: "IMeshData_TessellatedShape.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "IMeshData_TessellatedShape::get_type_descriptor(@)",
     header: "IMeshData_TessellatedShape.hxx".}
-proc dynamicType*(this: IMeshDataTessellatedShape): Handle[StandardType] {.
+proc DynamicType*(this: IMeshData_TessellatedShape): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType",
     header: "IMeshData_TessellatedShape.hxx".}
-

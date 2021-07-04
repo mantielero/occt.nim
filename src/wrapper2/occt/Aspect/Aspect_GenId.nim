@@ -14,50 +14,54 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer,
+  ../TColStd/TColStd_ListOfInteger, ../Standard/Standard_Boolean
+
 discard "forward decl of Aspect_IdentDefinitionError"
 type
-  AspectGenId* {.importcpp: "Aspect_GenId", header: "Aspect_GenId.hxx", bycopy.} = object ##
-                                                                                  ## !
-                                                                                  ## Creates
-                                                                                  ## an
-                                                                                  ## available
-                                                                                  ## set
-                                                                                  ## of
-                                                                                  ## identifiers
-                                                                                  ## with
-                                                                                  ## the
-                                                                                  ## lower
-                                                                                  ## bound
-                                                                                  ## 0
-                                                                                  ## and
-                                                                                  ## the
-                                                                                  ## upper
-                                                                                  ## bound
-                                                                                  ## INT_MAX
-                                                                                  ## /
-                                                                                  ## 2.
+  Aspect_GenId* {.importcpp: "Aspect_GenId", header: "Aspect_GenId.hxx", bycopy.} = object ##
+                                                                                   ## !
+                                                                                   ## Creates
+                                                                                   ## an
+                                                                                   ## available
+                                                                                   ## set
+                                                                                   ## of
+                                                                                   ## identifiers
+                                                                                   ## with
+                                                                                   ## the
+                                                                                   ## lower
+                                                                                   ## bound
+                                                                                   ## 0
+                                                                                   ## and
+                                                                                   ## the
+                                                                                   ## upper
+                                                                                   ## bound
+                                                                                   ## INT_MAX
+                                                                                   ## /
+                                                                                   ## 2.
 
 
-proc constructAspectGenId*(): AspectGenId {.constructor,
+proc constructAspect_GenId*(): Aspect_GenId {.constructor,
     importcpp: "Aspect_GenId(@)", header: "Aspect_GenId.hxx".}
-proc constructAspectGenId*(theLow: StandardInteger; theUpper: StandardInteger): AspectGenId {.
+proc constructAspect_GenId*(theLow: Standard_Integer; theUpper: Standard_Integer): Aspect_GenId {.
     constructor, importcpp: "Aspect_GenId(@)", header: "Aspect_GenId.hxx".}
-proc free*(this: var AspectGenId) {.importcpp: "Free", header: "Aspect_GenId.hxx".}
-proc free*(this: var AspectGenId; theId: StandardInteger) {.importcpp: "Free",
+proc Free*(this: var Aspect_GenId) {.importcpp: "Free", header: "Aspect_GenId.hxx".}
+proc Free*(this: var Aspect_GenId; theId: Standard_Integer) {.importcpp: "Free",
     header: "Aspect_GenId.hxx".}
-proc hasFree*(this: AspectGenId): StandardBoolean {.noSideEffect,
+proc HasFree*(this: Aspect_GenId): Standard_Boolean {.noSideEffect,
     importcpp: "HasFree", header: "Aspect_GenId.hxx".}
-proc available*(this: AspectGenId): StandardInteger {.noSideEffect,
+proc Available*(this: Aspect_GenId): Standard_Integer {.noSideEffect,
     importcpp: "Available", header: "Aspect_GenId.hxx".}
-proc lower*(this: AspectGenId): StandardInteger {.noSideEffect, importcpp: "Lower",
+proc Lower*(this: Aspect_GenId): Standard_Integer {.noSideEffect, importcpp: "Lower",
     header: "Aspect_GenId.hxx".}
-proc next*(this: var AspectGenId): StandardInteger {.importcpp: "Next",
+proc Next*(this: var Aspect_GenId): Standard_Integer {.importcpp: "Next",
     header: "Aspect_GenId.hxx".}
-proc next*(this: var AspectGenId; theId: var StandardInteger): StandardBoolean {.
+proc Next*(this: var Aspect_GenId; theId: var Standard_Integer): Standard_Boolean {.
     importcpp: "Next", header: "Aspect_GenId.hxx".}
-proc upper*(this: AspectGenId): StandardInteger {.noSideEffect, importcpp: "Upper",
+proc Upper*(this: Aspect_GenId): Standard_Integer {.noSideEffect, importcpp: "Upper",
     header: "Aspect_GenId.hxx".}
-proc dumpJson*(this: AspectGenId; theOStream: var StandardOStream;
-              theDepth: StandardInteger = -1) {.noSideEffect, importcpp: "DumpJson",
+proc DumpJson*(this: Aspect_GenId; theOStream: var Standard_OStream;
+              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
     header: "Aspect_GenId.hxx".}
-

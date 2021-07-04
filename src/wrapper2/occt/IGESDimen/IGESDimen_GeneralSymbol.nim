@@ -14,6 +14,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type,
+  ../IGESData/IGESData_HArray1OfIGESEntity, IGESDimen_HArray1OfLeaderArrow,
+  ../IGESData/IGESData_IGESEntity, ../Standard/Standard_Integer,
+  ../Standard/Standard_Boolean
+
 discard "forward decl of IGESDimen_GeneralNote"
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of IGESData_IGESEntity"
@@ -21,7 +27,7 @@ discard "forward decl of IGESDimen_LeaderArrow"
 discard "forward decl of IGESDimen_GeneralSymbol"
 discard "forward decl of IGESDimen_GeneralSymbol"
 type
-  HandleIGESDimenGeneralSymbol* = Handle[IGESDimenGeneralSymbol]
+  Handle_IGESDimen_GeneralSymbol* = handle[IGESDimen_GeneralSymbol]
 
 ## ! defines General Symbol, Type <228>, Form <0-3,5001-9999>
 ## ! in package IGESDimen
@@ -30,40 +36,40 @@ type
 ## ! a symbol, and zero, one or more associated leaders.
 
 type
-  IGESDimenGeneralSymbol* {.importcpp: "IGESDimen_GeneralSymbol",
-                           header: "IGESDimen_GeneralSymbol.hxx", bycopy.} = object of IGESDataIGESEntity
+  IGESDimen_GeneralSymbol* {.importcpp: "IGESDimen_GeneralSymbol",
+                            header: "IGESDimen_GeneralSymbol.hxx", bycopy.} = object of IGESData_IGESEntity
 
 
-proc constructIGESDimenGeneralSymbol*(): IGESDimenGeneralSymbol {.constructor,
+proc constructIGESDimen_GeneralSymbol*(): IGESDimen_GeneralSymbol {.constructor,
     importcpp: "IGESDimen_GeneralSymbol(@)", header: "IGESDimen_GeneralSymbol.hxx".}
-proc init*(this: var IGESDimenGeneralSymbol; aNote: Handle[IGESDimenGeneralNote];
-          allGeoms: Handle[IGESDataHArray1OfIGESEntity];
-          allLeaders: Handle[IGESDimenHArray1OfLeaderArrow]) {.importcpp: "Init",
+proc Init*(this: var IGESDimen_GeneralSymbol; aNote: handle[IGESDimen_GeneralNote];
+          allGeoms: handle[IGESData_HArray1OfIGESEntity];
+          allLeaders: handle[IGESDimen_HArray1OfLeaderArrow]) {.importcpp: "Init",
     header: "IGESDimen_GeneralSymbol.hxx".}
-proc setFormNumber*(this: var IGESDimenGeneralSymbol; form: StandardInteger) {.
+proc SetFormNumber*(this: var IGESDimen_GeneralSymbol; form: Standard_Integer) {.
     importcpp: "SetFormNumber", header: "IGESDimen_GeneralSymbol.hxx".}
-proc hasNote*(this: IGESDimenGeneralSymbol): StandardBoolean {.noSideEffect,
+proc HasNote*(this: IGESDimen_GeneralSymbol): Standard_Boolean {.noSideEffect,
     importcpp: "HasNote", header: "IGESDimen_GeneralSymbol.hxx".}
-proc note*(this: IGESDimenGeneralSymbol): Handle[IGESDimenGeneralNote] {.
+proc Note*(this: IGESDimen_GeneralSymbol): handle[IGESDimen_GeneralNote] {.
     noSideEffect, importcpp: "Note", header: "IGESDimen_GeneralSymbol.hxx".}
-proc nbGeomEntities*(this: IGESDimenGeneralSymbol): StandardInteger {.noSideEffect,
-    importcpp: "NbGeomEntities", header: "IGESDimen_GeneralSymbol.hxx".}
-proc geomEntity*(this: IGESDimenGeneralSymbol; index: StandardInteger): Handle[
-    IGESDataIGESEntity] {.noSideEffect, importcpp: "GeomEntity",
-                         header: "IGESDimen_GeneralSymbol.hxx".}
-proc nbLeaders*(this: IGESDimenGeneralSymbol): StandardInteger {.noSideEffect,
+proc NbGeomEntities*(this: IGESDimen_GeneralSymbol): Standard_Integer {.
+    noSideEffect, importcpp: "NbGeomEntities",
+    header: "IGESDimen_GeneralSymbol.hxx".}
+proc GeomEntity*(this: IGESDimen_GeneralSymbol; Index: Standard_Integer): handle[
+    IGESData_IGESEntity] {.noSideEffect, importcpp: "GeomEntity",
+                          header: "IGESDimen_GeneralSymbol.hxx".}
+proc NbLeaders*(this: IGESDimen_GeneralSymbol): Standard_Integer {.noSideEffect,
     importcpp: "NbLeaders", header: "IGESDimen_GeneralSymbol.hxx".}
-proc leaderArrow*(this: IGESDimenGeneralSymbol; index: StandardInteger): Handle[
-    IGESDimenLeaderArrow] {.noSideEffect, importcpp: "LeaderArrow",
-                           header: "IGESDimen_GeneralSymbol.hxx".}
-type
-  IGESDimenGeneralSymbolbaseType* = IGESDataIGESEntity
-
-proc getTypeName*(): cstring {.importcpp: "IGESDimen_GeneralSymbol::get_type_name(@)",
+proc LeaderArrow*(this: IGESDimen_GeneralSymbol; Index: Standard_Integer): handle[
+    IGESDimen_LeaderArrow] {.noSideEffect, importcpp: "LeaderArrow",
                             header: "IGESDimen_GeneralSymbol.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+type
+  IGESDimen_GeneralSymbolbase_type* = IGESData_IGESEntity
+
+proc get_type_name*(): cstring {.importcpp: "IGESDimen_GeneralSymbol::get_type_name(@)",
+                              header: "IGESDimen_GeneralSymbol.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "IGESDimen_GeneralSymbol::get_type_descriptor(@)",
     header: "IGESDimen_GeneralSymbol.hxx".}
-proc dynamicType*(this: IGESDimenGeneralSymbol): Handle[StandardType] {.
+proc DynamicType*(this: IGESDimen_GeneralSymbol): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType", header: "IGESDimen_GeneralSymbol.hxx".}
-

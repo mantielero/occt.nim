@@ -14,6 +14,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  OSD_FileNode
+
 ## ! Management of directories (a set of directory oriented tools)
 
 type
@@ -52,12 +55,11 @@ type
                                                                                                     ## name.
 
 
-proc buildTemporary*(): OSD_Directory {.importcpp: "OSD_Directory::BuildTemporary(@)",
+proc BuildTemporary*(): OSD_Directory {.importcpp: "OSD_Directory::BuildTemporary(@)",
                                      header: "OSD_Directory.hxx".}
 proc constructOSD_Directory*(): OSD_Directory {.constructor,
     importcpp: "OSD_Directory(@)", header: "OSD_Directory.hxx".}
 proc constructOSD_Directory*(theName: OSD_Path): OSD_Directory {.constructor,
     importcpp: "OSD_Directory(@)", header: "OSD_Directory.hxx".}
-proc build*(this: var OSD_Directory; protect: OSD_Protection) {.importcpp: "Build",
+proc Build*(this: var OSD_Directory; Protect: OSD_Protection) {.importcpp: "Build",
     header: "OSD_Directory.hxx".}
-

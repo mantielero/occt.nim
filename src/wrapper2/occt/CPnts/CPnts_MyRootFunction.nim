@@ -14,29 +14,36 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, CPnts_MyGaussFunction, ../Standard/Standard_Real,
+  ../Standard/Standard_Integer, ../math/math_FunctionWithDerivative,
+  CPnts_RealFunction, ../Standard/Standard_Address, ../Standard/Standard_Boolean
+
 ## ! Implements a function for the Newton algorithm to find the
 ## ! solution of Integral(F) = L
 ## ! (compute Length  and Derivative of the curve for Newton)
 
 type
-  CPntsMyRootFunction* {.importcpp: "CPnts_MyRootFunction",
-                        header: "CPnts_MyRootFunction.hxx", bycopy.} = object of MathFunctionWithDerivative
+  CPnts_MyRootFunction* {.importcpp: "CPnts_MyRootFunction",
+                         header: "CPnts_MyRootFunction.hxx", bycopy.} = object of math_FunctionWithDerivative
 
 
-proc constructCPntsMyRootFunction*(): CPntsMyRootFunction {.constructor,
+proc constructCPnts_MyRootFunction*(): CPnts_MyRootFunction {.constructor,
     importcpp: "CPnts_MyRootFunction(@)", header: "CPnts_MyRootFunction.hxx".}
-proc init*(this: var CPntsMyRootFunction; f: CPntsRealFunction; d: StandardAddress;
-          order: StandardInteger) {.importcpp: "Init",
-                                  header: "CPnts_MyRootFunction.hxx".}
-proc init*(this: var CPntsMyRootFunction; x0: StandardReal; L: StandardReal) {.
+proc Init*(this: var CPnts_MyRootFunction; F: CPnts_RealFunction; D: Standard_Address;
+          Order: Standard_Integer) {.importcpp: "Init",
+                                   header: "CPnts_MyRootFunction.hxx".}
+proc Init*(this: var CPnts_MyRootFunction; X0: Standard_Real; L: Standard_Real) {.
     importcpp: "Init", header: "CPnts_MyRootFunction.hxx".}
-proc init*(this: var CPntsMyRootFunction; x0: StandardReal; L: StandardReal;
-          tol: StandardReal) {.importcpp: "Init", header: "CPnts_MyRootFunction.hxx".}
-proc value*(this: var CPntsMyRootFunction; x: StandardReal; f: var StandardReal): StandardBoolean {.
+proc Init*(this: var CPnts_MyRootFunction; X0: Standard_Real; L: Standard_Real;
+          Tol: Standard_Real) {.importcpp: "Init",
+                              header: "CPnts_MyRootFunction.hxx".}
+proc Value*(this: var CPnts_MyRootFunction; X: Standard_Real; F: var Standard_Real): Standard_Boolean {.
     importcpp: "Value", header: "CPnts_MyRootFunction.hxx".}
-proc derivative*(this: var CPntsMyRootFunction; x: StandardReal; df: var StandardReal): StandardBoolean {.
-    importcpp: "Derivative", header: "CPnts_MyRootFunction.hxx".}
-proc values*(this: var CPntsMyRootFunction; x: StandardReal; f: var StandardReal;
-            df: var StandardReal): StandardBoolean {.importcpp: "Values",
+proc Derivative*(this: var CPnts_MyRootFunction; X: Standard_Real;
+                Df: var Standard_Real): Standard_Boolean {.importcpp: "Derivative",
     header: "CPnts_MyRootFunction.hxx".}
-
+proc Values*(this: var CPnts_MyRootFunction; X: Standard_Real; F: var Standard_Real;
+            Df: var Standard_Real): Standard_Boolean {.importcpp: "Values",
+    header: "CPnts_MyRootFunction.hxx".}

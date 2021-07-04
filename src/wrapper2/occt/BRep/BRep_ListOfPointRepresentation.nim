@@ -14,9 +14,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  BRep_PointRepresentation, ../NCollection/NCollection_List
+
 type
-  BRepListOfPointRepresentation* = NCollectionList[Handle[BRepPointRepresentation]]
-  BRepListIteratorOfListOfPointRepresentation* = Iterator[
-      Handle[BRepPointRepresentation]]
-
-
+  BRep_ListOfPointRepresentation* = NCollection_List[
+      handle[BRep_PointRepresentation]]
+  BRep_ListIteratorOfListOfPointRepresentation* = Iterator[
+      handle[BRep_PointRepresentation]]

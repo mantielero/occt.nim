@@ -14,6 +14,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Real,
+  ../IntCurve/IntCurve_IntConicConic, Geom2dInt_TheIntConicCurveOfGInter,
+  ../IntRes2d/IntRes2d_Intersection, ../Standard/Standard_Boolean
+
 discard "forward decl of Standard_ConstructionError"
 discard "forward decl of IntCurve_IConicTool"
 discard "forward decl of Adaptor2d_Curve2d"
@@ -26,57 +32,56 @@ discard "forward decl of gp_Elips2d"
 discard "forward decl of gp_Parab2d"
 discard "forward decl of gp_Hypr2d"
 type
-  Geom2dIntIntConicCurveOfGInter* {.importcpp: "Geom2dInt_IntConicCurveOfGInter", header: "Geom2dInt_IntConicCurveOfGInter.hxx",
-                                   bycopy.} = object of IntRes2dIntersection ## ! Empty
-                                                                        ## constructor.
+  Geom2dInt_IntConicCurveOfGInter* {.importcpp: "Geom2dInt_IntConicCurveOfGInter", header: "Geom2dInt_IntConicCurveOfGInter.hxx",
+                                    bycopy.} = object of IntRes2d_Intersection ## ! Empty
+                                                                          ## constructor.
 
 
-proc constructGeom2dIntIntConicCurveOfGInter*(): Geom2dIntIntConicCurveOfGInter {.
+proc constructGeom2dInt_IntConicCurveOfGInter*(): Geom2dInt_IntConicCurveOfGInter {.
     constructor, importcpp: "Geom2dInt_IntConicCurveOfGInter(@)",
     header: "Geom2dInt_IntConicCurveOfGInter.hxx".}
-proc constructGeom2dIntIntConicCurveOfGInter*(L: GpLin2d; d1: IntRes2dDomain;
-    pCurve: Adaptor2dCurve2d; d2: IntRes2dDomain; tolConf: StandardReal;
-    tol: StandardReal): Geom2dIntIntConicCurveOfGInter {.constructor,
+proc constructGeom2dInt_IntConicCurveOfGInter*(L: gp_Lin2d; D1: IntRes2d_Domain;
+    PCurve: Adaptor2d_Curve2d; D2: IntRes2d_Domain; TolConf: Standard_Real;
+    Tol: Standard_Real): Geom2dInt_IntConicCurveOfGInter {.constructor,
     importcpp: "Geom2dInt_IntConicCurveOfGInter(@)",
     header: "Geom2dInt_IntConicCurveOfGInter.hxx".}
-proc constructGeom2dIntIntConicCurveOfGInter*(c: GpCirc2d; d1: IntRes2dDomain;
-    pCurve: Adaptor2dCurve2d; d2: IntRes2dDomain; tolConf: StandardReal;
-    tol: StandardReal): Geom2dIntIntConicCurveOfGInter {.constructor,
+proc constructGeom2dInt_IntConicCurveOfGInter*(C: gp_Circ2d; D1: IntRes2d_Domain;
+    PCurve: Adaptor2d_Curve2d; D2: IntRes2d_Domain; TolConf: Standard_Real;
+    Tol: Standard_Real): Geom2dInt_IntConicCurveOfGInter {.constructor,
     importcpp: "Geom2dInt_IntConicCurveOfGInter(@)",
     header: "Geom2dInt_IntConicCurveOfGInter.hxx".}
-proc constructGeom2dIntIntConicCurveOfGInter*(e: GpElips2d; d1: IntRes2dDomain;
-    pCurve: Adaptor2dCurve2d; d2: IntRes2dDomain; tolConf: StandardReal;
-    tol: StandardReal): Geom2dIntIntConicCurveOfGInter {.constructor,
+proc constructGeom2dInt_IntConicCurveOfGInter*(E: gp_Elips2d; D1: IntRes2d_Domain;
+    PCurve: Adaptor2d_Curve2d; D2: IntRes2d_Domain; TolConf: Standard_Real;
+    Tol: Standard_Real): Geom2dInt_IntConicCurveOfGInter {.constructor,
     importcpp: "Geom2dInt_IntConicCurveOfGInter(@)",
     header: "Geom2dInt_IntConicCurveOfGInter.hxx".}
-proc constructGeom2dIntIntConicCurveOfGInter*(prb: GpParab2d; d1: IntRes2dDomain;
-    pCurve: Adaptor2dCurve2d; d2: IntRes2dDomain; tolConf: StandardReal;
-    tol: StandardReal): Geom2dIntIntConicCurveOfGInter {.constructor,
+proc constructGeom2dInt_IntConicCurveOfGInter*(Prb: gp_Parab2d;
+    D1: IntRes2d_Domain; PCurve: Adaptor2d_Curve2d; D2: IntRes2d_Domain;
+    TolConf: Standard_Real; Tol: Standard_Real): Geom2dInt_IntConicCurveOfGInter {.
+    constructor, importcpp: "Geom2dInt_IntConicCurveOfGInter(@)",
+    header: "Geom2dInt_IntConicCurveOfGInter.hxx".}
+proc constructGeom2dInt_IntConicCurveOfGInter*(H: gp_Hypr2d; D1: IntRes2d_Domain;
+    PCurve: Adaptor2d_Curve2d; D2: IntRes2d_Domain; TolConf: Standard_Real;
+    Tol: Standard_Real): Geom2dInt_IntConicCurveOfGInter {.constructor,
     importcpp: "Geom2dInt_IntConicCurveOfGInter(@)",
     header: "Geom2dInt_IntConicCurveOfGInter.hxx".}
-proc constructGeom2dIntIntConicCurveOfGInter*(h: GpHypr2d; d1: IntRes2dDomain;
-    pCurve: Adaptor2dCurve2d; d2: IntRes2dDomain; tolConf: StandardReal;
-    tol: StandardReal): Geom2dIntIntConicCurveOfGInter {.constructor,
-    importcpp: "Geom2dInt_IntConicCurveOfGInter(@)",
+proc Perform*(this: var Geom2dInt_IntConicCurveOfGInter; L: gp_Lin2d;
+             D1: IntRes2d_Domain; PCurve: Adaptor2d_Curve2d; D2: IntRes2d_Domain;
+             TolConf: Standard_Real; Tol: Standard_Real) {.importcpp: "Perform",
     header: "Geom2dInt_IntConicCurveOfGInter.hxx".}
-proc perform*(this: var Geom2dIntIntConicCurveOfGInter; L: GpLin2d;
-             d1: IntRes2dDomain; pCurve: Adaptor2dCurve2d; d2: IntRes2dDomain;
-             tolConf: StandardReal; tol: StandardReal) {.importcpp: "Perform",
+proc Perform*(this: var Geom2dInt_IntConicCurveOfGInter; C: gp_Circ2d;
+             D1: IntRes2d_Domain; PCurve: Adaptor2d_Curve2d; D2: IntRes2d_Domain;
+             TolConf: Standard_Real; Tol: Standard_Real) {.importcpp: "Perform",
     header: "Geom2dInt_IntConicCurveOfGInter.hxx".}
-proc perform*(this: var Geom2dIntIntConicCurveOfGInter; c: GpCirc2d;
-             d1: IntRes2dDomain; pCurve: Adaptor2dCurve2d; d2: IntRes2dDomain;
-             tolConf: StandardReal; tol: StandardReal) {.importcpp: "Perform",
+proc Perform*(this: var Geom2dInt_IntConicCurveOfGInter; E: gp_Elips2d;
+             D1: IntRes2d_Domain; PCurve: Adaptor2d_Curve2d; D2: IntRes2d_Domain;
+             TolConf: Standard_Real; Tol: Standard_Real) {.importcpp: "Perform",
     header: "Geom2dInt_IntConicCurveOfGInter.hxx".}
-proc perform*(this: var Geom2dIntIntConicCurveOfGInter; e: GpElips2d;
-             d1: IntRes2dDomain; pCurve: Adaptor2dCurve2d; d2: IntRes2dDomain;
-             tolConf: StandardReal; tol: StandardReal) {.importcpp: "Perform",
+proc Perform*(this: var Geom2dInt_IntConicCurveOfGInter; Prb: gp_Parab2d;
+             D1: IntRes2d_Domain; PCurve: Adaptor2d_Curve2d; D2: IntRes2d_Domain;
+             TolConf: Standard_Real; Tol: Standard_Real) {.importcpp: "Perform",
     header: "Geom2dInt_IntConicCurveOfGInter.hxx".}
-proc perform*(this: var Geom2dIntIntConicCurveOfGInter; prb: GpParab2d;
-             d1: IntRes2dDomain; pCurve: Adaptor2dCurve2d; d2: IntRes2dDomain;
-             tolConf: StandardReal; tol: StandardReal) {.importcpp: "Perform",
+proc Perform*(this: var Geom2dInt_IntConicCurveOfGInter; H: gp_Hypr2d;
+             D1: IntRes2d_Domain; PCurve: Adaptor2d_Curve2d; D2: IntRes2d_Domain;
+             TolConf: Standard_Real; Tol: Standard_Real) {.importcpp: "Perform",
     header: "Geom2dInt_IntConicCurveOfGInter.hxx".}
-proc perform*(this: var Geom2dIntIntConicCurveOfGInter; h: GpHypr2d;
-             d1: IntRes2dDomain; pCurve: Adaptor2dCurve2d; d2: IntRes2dDomain;
-             tolConf: StandardReal; tol: StandardReal) {.importcpp: "Perform",
-    header: "Geom2dInt_IntConicCurveOfGInter.hxx".}
-

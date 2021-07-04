@@ -14,18 +14,20 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Prs3d/Prs3d_Drawer, ../Prs3d/Prs3d_Presentation
+
 discard "forward decl of gp_Pnt"
 type
-  DsgPrsShadedPlanePresentation* {.importcpp: "DsgPrs_ShadedPlanePresentation",
-                                  header: "DsgPrs_ShadedPlanePresentation.hxx",
-                                  bycopy.} = object ## ! Adds the points aPt1, aPt2 and aPt3 to the
-                                                 ## ! presentation object, aPresentation.
-                                                 ## ! The display attributes of the shaded plane are
-                                                 ## ! defined by the attribute manager aDrawer.
+  DsgPrs_ShadedPlanePresentation* {.importcpp: "DsgPrs_ShadedPlanePresentation", header: "DsgPrs_ShadedPlanePresentation.hxx",
+                                   bycopy.} = object ## ! Adds the points aPt1, aPt2 and aPt3 to the
+                                                  ## ! presentation object, aPresentation.
+                                                  ## ! The display attributes of the shaded plane are
+                                                  ## ! defined by the attribute manager aDrawer.
 
 
-proc add*(aPresentation: Handle[Prs3dPresentation]; aDrawer: Handle[Prs3dDrawer];
-         aPt1: GpPnt; aPt2: GpPnt; aPt3: GpPnt) {.
+proc Add*(aPresentation: handle[Prs3d_Presentation]; aDrawer: handle[Prs3d_Drawer];
+         aPt1: gp_Pnt; aPt2: gp_Pnt; aPt3: gp_Pnt) {.
     importcpp: "DsgPrs_ShadedPlanePresentation::Add(@)",
     header: "DsgPrs_ShadedPlanePresentation.hxx".}
-

@@ -13,46 +13,49 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  BVH_Box, BVH_Properties
+
 ## ! A non-template class for using as base for BVH_Object
 ## ! (just to have a named base class).
 
 type
   BVH_ObjectTransient* {.importcpp: "BVH_ObjectTransient",
-                        header: "BVH_Object.hxx", bycopy.} = object of StandardTransient ##
-                                                                                  ## !
-                                                                                  ## Returns
-                                                                                  ## properties
-                                                                                  ## of
-                                                                                  ## the
-                                                                                  ## geometric
-                                                                                  ## object.
-                                                                                  ##
-                                                                                  ## !
-                                                                                  ## Creates
-                                                                                  ## new
-                                                                                  ## abstract
-                                                                                  ## geometric
-                                                                                  ## object.
+                        header: "BVH_Object.hxx", bycopy.} = object of Standard_Transient ##
+                                                                                   ## !
+                                                                                   ## Returns
+                                                                                   ## properties
+                                                                                   ## of
+                                                                                   ## the
+                                                                                   ## geometric
+                                                                                   ## object.
+                                                                                   ##
+                                                                                   ## !
+                                                                                   ## Creates
+                                                                                   ## new
+                                                                                   ## abstract
+                                                                                   ## geometric
+                                                                                   ## object.
     ## !< Marks internal object state as outdated
     ## !< Generic properties assigned to the object
 
-  BVH_ObjectTransientbaseType* = StandardTransient
+  BVH_ObjectTransientbase_type* = Standard_Transient
 
-proc getTypeName*(): cstring {.importcpp: "BVH_ObjectTransient::get_type_name(@)",
-                            header: "BVH_Object.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "BVH_ObjectTransient::get_type_name(@)",
+                              header: "BVH_Object.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "BVH_ObjectTransient::get_type_descriptor(@)",
     header: "BVH_Object.hxx".}
-proc dynamicType*(this: BVH_ObjectTransient): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: BVH_ObjectTransient): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "BVH_Object.hxx".}
-proc properties*(this: BVH_ObjectTransient): Handle[BVH_Properties] {.noSideEffect,
+proc Properties*(this: BVH_ObjectTransient): handle[BVH_Properties] {.noSideEffect,
     importcpp: "Properties", header: "BVH_Object.hxx".}
-proc setProperties*(this: var BVH_ObjectTransient;
-                   theProperties: Handle[BVH_Properties]) {.
+proc SetProperties*(this: var BVH_ObjectTransient;
+                   theProperties: handle[BVH_Properties]) {.
     importcpp: "SetProperties", header: "BVH_Object.hxx".}
-proc isDirty*(this: BVH_ObjectTransient): StandardBoolean {.noSideEffect,
+proc IsDirty*(this: BVH_ObjectTransient): Standard_Boolean {.noSideEffect,
     importcpp: "IsDirty", header: "BVH_Object.hxx".}
-proc markDirty*(this: var BVH_ObjectTransient) {.importcpp: "MarkDirty",
+proc MarkDirty*(this: var BVH_ObjectTransient) {.importcpp: "MarkDirty",
     header: "BVH_Object.hxx".}
 ## ! Abstract geometric object bounded by BVH box.
 ## ! \tparam T Numeric data type
@@ -81,6 +84,5 @@ proc constructBVH_Object*[T; N: static[cint]](): BVH_Object[T, N] {.constructor,
     importcpp: "BVH_Object<\'*0,\'*1>(@)", header: "BVH_Object.hxx".}
 proc destroyBVH_Object*[T; N: static[cint]](this: var BVH_Object[T, N]) {.
     importcpp: "#.~BVH_Object()", header: "BVH_Object.hxx".}
-proc box*[T; N: static[cint]](this: BVH_Object[T, N]): BVH_Box[T, N] {.noSideEffect,
+proc Box*[T; N: static[cint]](this: BVH_Object[T, N]): BVH_Box[T, N] {.noSideEffect,
     importcpp: "Box", header: "BVH_Object.hxx".}
-

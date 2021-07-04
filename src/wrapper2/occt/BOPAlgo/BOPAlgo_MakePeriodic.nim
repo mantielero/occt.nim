@@ -13,6 +13,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, BOPAlgo_Options, ../BRepTools/BRepTools_History,
+  ../Standard/Standard_Boolean, ../TopoDS/TopoDS_Shape,
+  ../TopTools/TopTools_DataMapOfShapeShape
+
 ## ! BOPAlgo_MakePeriodic is the tool for making an arbitrary shape periodic
 ## ! in 3D space in specified directions.
 ## !
@@ -109,729 +115,729 @@
 ## !
 
 type
-  BOPAlgoMakePeriodic* {.importcpp: "BOPAlgo_MakePeriodic",
-                        header: "BOPAlgo_MakePeriodic.hxx", bycopy.} = object of BOPAlgoOptions ##
-                                                                                         ## !
-                                                                                         ## @name
-                                                                                         ## Constructor
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## Empty
-                                                                                         ## constructor
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## @name
-                                                                                         ## Setting
-                                                                                         ## the
-                                                                                         ## shape
-                                                                                         ## to
-                                                                                         ## make
-                                                                                         ## it
-                                                                                         ## periodic
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## Sets
-                                                                                         ## the
-                                                                                         ## shape
-                                                                                         ## to
-                                                                                         ## make
-                                                                                         ## it
-                                                                                         ## periodic.
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## @param
-                                                                                         ## theShape
-                                                                                         ## [in]
-                                                                                         ## The
-                                                                                         ## shape
-                                                                                         ## to
-                                                                                         ## make
-                                                                                         ## periodic.
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## @name
-                                                                                         ## Definition
-                                                                                         ## of
-                                                                                         ## the
-                                                                                         ## structure
-                                                                                         ## to
-                                                                                         ## keep
-                                                                                         ## all
-                                                                                         ## periodicity
-                                                                                         ## parameters
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## Structure
-                                                                                         ## to
-                                                                                         ## keep
-                                                                                         ## all
-                                                                                         ## periodicity
-                                                                                         ## parameters:
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## @name
-                                                                                         ## Setters/Getters
-                                                                                         ## for
-                                                                                         ## periodicity
-                                                                                         ## parameters
-                                                                                         ## structure
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## Sets
-                                                                                         ## the
-                                                                                         ## periodicity
-                                                                                         ## parameters.
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## @param
-                                                                                         ## theParams
-                                                                                         ## [in]
-                                                                                         ## Periodicity
-                                                                                         ## parameters
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## @name
-                                                                                         ## Methods
-                                                                                         ## for
-                                                                                         ## setting/getting
-                                                                                         ## periodicity
-                                                                                         ## info
-                                                                                         ## using
-                                                                                         ## ID
-                                                                                         ## as
-                                                                                         ## a
-                                                                                         ## direction
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## Sets
-                                                                                         ## the
-                                                                                         ## flag
-                                                                                         ## to
-                                                                                         ## make
-                                                                                         ## the
-                                                                                         ## shape
-                                                                                         ## periodic
-                                                                                         ## in
-                                                                                         ## specified
-                                                                                         ## direction:
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## -
-                                                                                         ## 0
-                                                                                         ## -
-                                                                                         ## X
-                                                                                         ## direction;
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## -
-                                                                                         ## 1
-                                                                                         ## -
-                                                                                         ## Y
-                                                                                         ## direction;
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## -
-                                                                                         ## 2
-                                                                                         ## -
-                                                                                         ## Z
-                                                                                         ## direction.
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## @param
-                                                                                         ## theDirectionID
-                                                                                         ## [in]
-                                                                                         ## The
-                                                                                         ## direction's
-                                                                                         ## ID;
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## @param
-                                                                                         ## theIsPeriodic
-                                                                                         ## [in]
-                                                                                         ## Flag
-                                                                                         ## defining
-                                                                                         ## periodicity
-                                                                                         ## in
-                                                                                         ## given
-                                                                                         ## direction;
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## @param
-                                                                                         ## thePeriod
-                                                                                         ## [in]
-                                                                                         ## Required
-                                                                                         ## period
-                                                                                         ## in
-                                                                                         ## given
-                                                                                         ## direction.
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## @name
-                                                                                         ## Named
-                                                                                         ## methods
-                                                                                         ## for
-                                                                                         ## setting/getting
-                                                                                         ## info
-                                                                                         ## about
-                                                                                         ## shape's
-                                                                                         ## periodicity
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## Sets
-                                                                                         ## the
-                                                                                         ## flag
-                                                                                         ## to
-                                                                                         ## make
-                                                                                         ## the
-                                                                                         ## shape
-                                                                                         ## periodic
-                                                                                         ## in
-                                                                                         ## X
-                                                                                         ## direction.
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## @param
-                                                                                         ## theIsPeriodic
-                                                                                         ## [in]
-                                                                                         ## Flag
-                                                                                         ## defining
-                                                                                         ## periodicity
-                                                                                         ## in
-                                                                                         ## X
-                                                                                         ## direction;
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## @param
-                                                                                         ## thePeriod
-                                                                                         ## [in]
-                                                                                         ## Required
-                                                                                         ## period
-                                                                                         ## in
-                                                                                         ## X
-                                                                                         ## direction.
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## @name
-                                                                                         ## Methods
-                                                                                         ## for
-                                                                                         ## setting/getting
-                                                                                         ## trimming
-                                                                                         ## info
-                                                                                         ## taking
-                                                                                         ## Direction
-                                                                                         ## ID
-                                                                                         ## as
-                                                                                         ## a
-                                                                                         ## parameter
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## Defines
-                                                                                         ## whether
-                                                                                         ## the
-                                                                                         ## input
-                                                                                         ## shape
-                                                                                         ## is
-                                                                                         ## already
-                                                                                         ## trimmed
-                                                                                         ## in
-                                                                                         ## specified
-                                                                                         ## direction
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## to
-                                                                                         ## fit
-                                                                                         ## the
-                                                                                         ## period
-                                                                                         ## in
-                                                                                         ## this
-                                                                                         ## direction.
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## Direction
-                                                                                         ## is
-                                                                                         ## defined
-                                                                                         ## by
-                                                                                         ## an
-                                                                                         ## ID:
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## -
-                                                                                         ## 0
-                                                                                         ## -
-                                                                                         ## X
-                                                                                         ## direction;
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## -
-                                                                                         ## 1
-                                                                                         ## -
-                                                                                         ## Y
-                                                                                         ## direction;
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## -
-                                                                                         ## 2
-                                                                                         ## -
-                                                                                         ## Z
-                                                                                         ## direction.
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## If
-                                                                                         ## the
-                                                                                         ## shape
-                                                                                         ## is
-                                                                                         ## not
-                                                                                         ## trimmed
-                                                                                         ## it
-                                                                                         ## is
-                                                                                         ## required
-                                                                                         ## to
-                                                                                         ## set
-                                                                                         ## the
-                                                                                         ## first
-                                                                                         ## parameter
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## of
-                                                                                         ## the
-                                                                                         ## period
-                                                                                         ## in
-                                                                                         ## that
-                                                                                         ## direction.
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## The
-                                                                                         ## algorithm
-                                                                                         ## will
-                                                                                         ## make
-                                                                                         ## the
-                                                                                         ## shape
-                                                                                         ## fit
-                                                                                         ## into
-                                                                                         ## the
-                                                                                         ## period.
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## Before
-                                                                                         ## calling
-                                                                                         ## this
-                                                                                         ## method,
-                                                                                         ## the
-                                                                                         ## shape
-                                                                                         ## has
-                                                                                         ## to
-                                                                                         ## be
-                                                                                         ## set
-                                                                                         ## to
-                                                                                         ## be
-                                                                                         ## periodic
-                                                                                         ## in
-                                                                                         ## this
-                                                                                         ## direction.
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## @param
-                                                                                         ## theDirectionID
-                                                                                         ## [in]
-                                                                                         ## The
-                                                                                         ## direction's
-                                                                                         ## ID;
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## @param
-                                                                                         ## theIsTrimmed
-                                                                                         ## [in]
-                                                                                         ## The
-                                                                                         ## flag
-                                                                                         ## defining
-                                                                                         ## trimming
-                                                                                         ## of
-                                                                                         ## the
-                                                                                         ## shape
-                                                                                         ## in
-                                                                                         ## given
-                                                                                         ## direction;
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## @param
-                                                                                         ## theFirst
-                                                                                         ## [in]
-                                                                                         ## The
-                                                                                         ## first
-                                                                                         ## periodic
-                                                                                         ## parameter
-                                                                                         ## in
-                                                                                         ## the
-                                                                                         ## given
-                                                                                         ## direction.
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## @name
-                                                                                         ## Named
-                                                                                         ## methods
-                                                                                         ## for
-                                                                                         ## setting/getting
-                                                                                         ## trimming
-                                                                                         ## info
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## Defines
-                                                                                         ## whether
-                                                                                         ## the
-                                                                                         ## input
-                                                                                         ## shape
-                                                                                         ## is
-                                                                                         ## already
-                                                                                         ## trimmed
-                                                                                         ## in
-                                                                                         ## X
-                                                                                         ## direction
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## to
-                                                                                         ## fit
-                                                                                         ## the
-                                                                                         ## X
-                                                                                         ## period.
-                                                                                         ## If
-                                                                                         ## the
-                                                                                         ## shape
-                                                                                         ## is
-                                                                                         ## not
-                                                                                         ## trimmed
-                                                                                         ## it
-                                                                                         ## is
-                                                                                         ## required
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## to
-                                                                                         ## set
-                                                                                         ## the
-                                                                                         ## first
-                                                                                         ## parameter
-                                                                                         ## for
-                                                                                         ## the
-                                                                                         ## X
-                                                                                         ## period.
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## The
-                                                                                         ## algorithm
-                                                                                         ## will
-                                                                                         ## make
-                                                                                         ## the
-                                                                                         ## shape
-                                                                                         ## fit
-                                                                                         ## into
-                                                                                         ## the
-                                                                                         ## period.
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## Before
-                                                                                         ## calling
-                                                                                         ## this
-                                                                                         ## method,
-                                                                                         ## the
-                                                                                         ## shape
-                                                                                         ## has
-                                                                                         ## to
-                                                                                         ## be
-                                                                                         ## set
-                                                                                         ## to
-                                                                                         ## be
-                                                                                         ## periodic
-                                                                                         ## in
-                                                                                         ## this
-                                                                                         ## direction.
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## @param
-                                                                                         ## theIsTrimmed
-                                                                                         ## [in]
-                                                                                         ## Flag
-                                                                                         ## defining
-                                                                                         ## whether
-                                                                                         ## the
-                                                                                         ## shape
-                                                                                         ## is
-                                                                                         ## already
-                                                                                         ## trimmed
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## in
-                                                                                         ## X
-                                                                                         ## direction
-                                                                                         ## to
-                                                                                         ## fit
-                                                                                         ## the
-                                                                                         ## X
-                                                                                         ## period;
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## @param
-                                                                                         ## theFirst
-                                                                                         ## [in]
-                                                                                         ## The
-                                                                                         ## first
-                                                                                         ## X
-                                                                                         ## periodic
-                                                                                         ## parameter.
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## @name
-                                                                                         ## Performing
-                                                                                         ## the
-                                                                                         ## operation
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## Makes
-                                                                                         ## the
-                                                                                         ## shape
-                                                                                         ## periodic
-                                                                                         ## in
-                                                                                         ## necessary
-                                                                                         ## directions
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## @name
-                                                                                         ## Using
-                                                                                         ## the
-                                                                                         ## algorithm
-                                                                                         ## to
-                                                                                         ## repeat
-                                                                                         ## the
-                                                                                         ## shape
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## Performs
-                                                                                         ## repetition
-                                                                                         ## of
-                                                                                         ## the
-                                                                                         ## shape
-                                                                                         ## in
-                                                                                         ## specified
-                                                                                         ## direction
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## required
-                                                                                         ## number
-                                                                                         ## of
-                                                                                         ## times.
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## Negative
-                                                                                         ## value
-                                                                                         ## of
-                                                                                         ## times
-                                                                                         ## means
-                                                                                         ## that
-                                                                                         ## the
-                                                                                         ## repetition
-                                                                                         ## should
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## be
-                                                                                         ## perform
-                                                                                         ## in
-                                                                                         ## negative
-                                                                                         ## direction.
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## Makes
-                                                                                         ## the
-                                                                                         ## repeated
-                                                                                         ## shape
-                                                                                         ## a
-                                                                                         ## base
-                                                                                         ## for
-                                                                                         ## following
-                                                                                         ## repetitions.
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## @param
-                                                                                         ## theDirectionID
-                                                                                         ## [in]
-                                                                                         ## The
-                                                                                         ## direction's
-                                                                                         ## ID;
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## @param
-                                                                                         ## theTimes
-                                                                                         ## [in]
-                                                                                         ## Requested
-                                                                                         ## number
-                                                                                         ## of
-                                                                                         ## repetitions.
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## @name
-                                                                                         ## Starting
-                                                                                         ## the
-                                                                                         ## repetitions
-                                                                                         ## over
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## Returns
-                                                                                         ## the
-                                                                                         ## repeated
-                                                                                         ## shape
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## @name
-                                                                                         ## Obtaining
-                                                                                         ## the
-                                                                                         ## result
-                                                                                         ## shape
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## Returns
-                                                                                         ## the
-                                                                                         ## resulting
-                                                                                         ## periodic
-                                                                                         ## shape
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## @name
-                                                                                         ## Getting
-                                                                                         ## the
-                                                                                         ## identical
-                                                                                         ## shapes
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## Returns
-                                                                                         ## the
-                                                                                         ## identical
-                                                                                         ## shapes
-                                                                                         ## for
-                                                                                         ## the
-                                                                                         ## given
-                                                                                         ## shape
-                                                                                         ## located
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## on
-                                                                                         ## the
-                                                                                         ## opposite
-                                                                                         ## periodic
-                                                                                         ## side.
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## Returns
-                                                                                         ## empty
-                                                                                         ## list
-                                                                                         ## in
-                                                                                         ## case
-                                                                                         ## the
-                                                                                         ## shape
-                                                                                         ## has
-                                                                                         ## no
-                                                                                         ## twin.
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## @param
-                                                                                         ## theS
-                                                                                         ## [in]
-                                                                                         ## Shape
-                                                                                         ## to
-                                                                                         ## get
-                                                                                         ## the
-                                                                                         ## twins
-                                                                                         ## for.
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## @name
-                                                                                         ## Getting
-                                                                                         ## the
-                                                                                         ## History
-                                                                                         ## of
-                                                                                         ## the
-                                                                                         ## algorithm
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## Returns
-                                                                                         ## the
-                                                                                         ## History
-                                                                                         ## of
-                                                                                         ## the
-                                                                                         ## algorithm
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## @name
-                                                                                         ## Clearing
-                                                                                         ## the
-                                                                                         ## algorithm
-                                                                                         ## from
-                                                                                         ## previous
-                                                                                         ## runs
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## Clears
-                                                                                         ## the
-                                                                                         ## algorithm
-                                                                                         ## from
-                                                                                         ## previous
-                                                                                         ## runs
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## @name
-                                                                                         ## Conversion
-                                                                                         ## of
-                                                                                         ## the
-                                                                                         ## integer
-                                                                                         ## to
-                                                                                         ## ID
-                                                                                         ## of
-                                                                                         ## periodic
-                                                                                         ## direction
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## Converts
-                                                                                         ## the
-                                                                                         ## integer
-                                                                                         ## to
-                                                                                         ## ID
-                                                                                         ## of
-                                                                                         ## periodic
-                                                                                         ## direction
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## @name
-                                                                                         ## Protected
-                                                                                         ## methods
-                                                                                         ## performing
-                                                                                         ## the
-                                                                                         ## operation
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## Checks
-                                                                                         ## the
-                                                                                         ## validity
-                                                                                         ## of
-                                                                                         ## input
-                                                                                         ## data
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## @name
-                                                                                         ## Fields
-                                                                                         ##
-                                                                                         ## Inputs
+  BOPAlgo_MakePeriodic* {.importcpp: "BOPAlgo_MakePeriodic",
+                         header: "BOPAlgo_MakePeriodic.hxx", bycopy.} = object of BOPAlgo_Options ##
+                                                                                           ## !
+                                                                                           ## @name
+                                                                                           ## Constructor
+                                                                                           ##
+                                                                                           ## !
+                                                                                           ## Empty
+                                                                                           ## constructor
+                                                                                           ##
+                                                                                           ## !
+                                                                                           ## @name
+                                                                                           ## Setting
+                                                                                           ## the
+                                                                                           ## shape
+                                                                                           ## to
+                                                                                           ## make
+                                                                                           ## it
+                                                                                           ## periodic
+                                                                                           ##
+                                                                                           ## !
+                                                                                           ## Sets
+                                                                                           ## the
+                                                                                           ## shape
+                                                                                           ## to
+                                                                                           ## make
+                                                                                           ## it
+                                                                                           ## periodic.
+                                                                                           ##
+                                                                                           ## !
+                                                                                           ## @param
+                                                                                           ## theShape
+                                                                                           ## [in]
+                                                                                           ## The
+                                                                                           ## shape
+                                                                                           ## to
+                                                                                           ## make
+                                                                                           ## periodic.
+                                                                                           ##
+                                                                                           ## !
+                                                                                           ## @name
+                                                                                           ## Definition
+                                                                                           ## of
+                                                                                           ## the
+                                                                                           ## structure
+                                                                                           ## to
+                                                                                           ## keep
+                                                                                           ## all
+                                                                                           ## periodicity
+                                                                                           ## parameters
+                                                                                           ##
+                                                                                           ## !
+                                                                                           ## Structure
+                                                                                           ## to
+                                                                                           ## keep
+                                                                                           ## all
+                                                                                           ## periodicity
+                                                                                           ## parameters:
+                                                                                           ##
+                                                                                           ## !
+                                                                                           ## @name
+                                                                                           ## Setters/Getters
+                                                                                           ## for
+                                                                                           ## periodicity
+                                                                                           ## parameters
+                                                                                           ## structure
+                                                                                           ##
+                                                                                           ## !
+                                                                                           ## Sets
+                                                                                           ## the
+                                                                                           ## periodicity
+                                                                                           ## parameters.
+                                                                                           ##
+                                                                                           ## !
+                                                                                           ## @param
+                                                                                           ## theParams
+                                                                                           ## [in]
+                                                                                           ## Periodicity
+                                                                                           ## parameters
+                                                                                           ##
+                                                                                           ## !
+                                                                                           ## @name
+                                                                                           ## Methods
+                                                                                           ## for
+                                                                                           ## setting/getting
+                                                                                           ## periodicity
+                                                                                           ## info
+                                                                                           ## using
+                                                                                           ## ID
+                                                                                           ## as
+                                                                                           ## a
+                                                                                           ## direction
+                                                                                           ##
+                                                                                           ## !
+                                                                                           ## Sets
+                                                                                           ## the
+                                                                                           ## flag
+                                                                                           ## to
+                                                                                           ## make
+                                                                                           ## the
+                                                                                           ## shape
+                                                                                           ## periodic
+                                                                                           ## in
+                                                                                           ## specified
+                                                                                           ## direction:
+                                                                                           ##
+                                                                                           ## !
+                                                                                           ## -
+                                                                                           ## 0
+                                                                                           ## -
+                                                                                           ## X
+                                                                                           ## direction;
+                                                                                           ##
+                                                                                           ## !
+                                                                                           ## -
+                                                                                           ## 1
+                                                                                           ## -
+                                                                                           ## Y
+                                                                                           ## direction;
+                                                                                           ##
+                                                                                           ## !
+                                                                                           ## -
+                                                                                           ## 2
+                                                                                           ## -
+                                                                                           ## Z
+                                                                                           ## direction.
+                                                                                           ##
+                                                                                           ## !
+                                                                                           ##
+                                                                                           ## !
+                                                                                           ## @param
+                                                                                           ## theDirectionID
+                                                                                           ## [in]
+                                                                                           ## The
+                                                                                           ## direction's
+                                                                                           ## ID;
+                                                                                           ##
+                                                                                           ## !
+                                                                                           ## @param
+                                                                                           ## theIsPeriodic
+                                                                                           ## [in]
+                                                                                           ## Flag
+                                                                                           ## defining
+                                                                                           ## periodicity
+                                                                                           ## in
+                                                                                           ## given
+                                                                                           ## direction;
+                                                                                           ##
+                                                                                           ## !
+                                                                                           ## @param
+                                                                                           ## thePeriod
+                                                                                           ## [in]
+                                                                                           ## Required
+                                                                                           ## period
+                                                                                           ## in
+                                                                                           ## given
+                                                                                           ## direction.
+                                                                                           ##
+                                                                                           ## !
+                                                                                           ## @name
+                                                                                           ## Named
+                                                                                           ## methods
+                                                                                           ## for
+                                                                                           ## setting/getting
+                                                                                           ## info
+                                                                                           ## about
+                                                                                           ## shape's
+                                                                                           ## periodicity
+                                                                                           ##
+                                                                                           ## !
+                                                                                           ## Sets
+                                                                                           ## the
+                                                                                           ## flag
+                                                                                           ## to
+                                                                                           ## make
+                                                                                           ## the
+                                                                                           ## shape
+                                                                                           ## periodic
+                                                                                           ## in
+                                                                                           ## X
+                                                                                           ## direction.
+                                                                                           ##
+                                                                                           ## !
+                                                                                           ## @param
+                                                                                           ## theIsPeriodic
+                                                                                           ## [in]
+                                                                                           ## Flag
+                                                                                           ## defining
+                                                                                           ## periodicity
+                                                                                           ## in
+                                                                                           ## X
+                                                                                           ## direction;
+                                                                                           ##
+                                                                                           ## !
+                                                                                           ## @param
+                                                                                           ## thePeriod
+                                                                                           ## [in]
+                                                                                           ## Required
+                                                                                           ## period
+                                                                                           ## in
+                                                                                           ## X
+                                                                                           ## direction.
+                                                                                           ##
+                                                                                           ## !
+                                                                                           ## @name
+                                                                                           ## Methods
+                                                                                           ## for
+                                                                                           ## setting/getting
+                                                                                           ## trimming
+                                                                                           ## info
+                                                                                           ## taking
+                                                                                           ## Direction
+                                                                                           ## ID
+                                                                                           ## as
+                                                                                           ## a
+                                                                                           ## parameter
+                                                                                           ##
+                                                                                           ## !
+                                                                                           ## Defines
+                                                                                           ## whether
+                                                                                           ## the
+                                                                                           ## input
+                                                                                           ## shape
+                                                                                           ## is
+                                                                                           ## already
+                                                                                           ## trimmed
+                                                                                           ## in
+                                                                                           ## specified
+                                                                                           ## direction
+                                                                                           ##
+                                                                                           ## !
+                                                                                           ## to
+                                                                                           ## fit
+                                                                                           ## the
+                                                                                           ## period
+                                                                                           ## in
+                                                                                           ## this
+                                                                                           ## direction.
+                                                                                           ##
+                                                                                           ## !
+                                                                                           ## Direction
+                                                                                           ## is
+                                                                                           ## defined
+                                                                                           ## by
+                                                                                           ## an
+                                                                                           ## ID:
+                                                                                           ##
+                                                                                           ## !
+                                                                                           ## -
+                                                                                           ## 0
+                                                                                           ## -
+                                                                                           ## X
+                                                                                           ## direction;
+                                                                                           ##
+                                                                                           ## !
+                                                                                           ## -
+                                                                                           ## 1
+                                                                                           ## -
+                                                                                           ## Y
+                                                                                           ## direction;
+                                                                                           ##
+                                                                                           ## !
+                                                                                           ## -
+                                                                                           ## 2
+                                                                                           ## -
+                                                                                           ## Z
+                                                                                           ## direction.
+                                                                                           ##
+                                                                                           ## !
+                                                                                           ##
+                                                                                           ## !
+                                                                                           ## If
+                                                                                           ## the
+                                                                                           ## shape
+                                                                                           ## is
+                                                                                           ## not
+                                                                                           ## trimmed
+                                                                                           ## it
+                                                                                           ## is
+                                                                                           ## required
+                                                                                           ## to
+                                                                                           ## set
+                                                                                           ## the
+                                                                                           ## first
+                                                                                           ## parameter
+                                                                                           ##
+                                                                                           ## !
+                                                                                           ## of
+                                                                                           ## the
+                                                                                           ## period
+                                                                                           ## in
+                                                                                           ## that
+                                                                                           ## direction.
+                                                                                           ##
+                                                                                           ## !
+                                                                                           ## The
+                                                                                           ## algorithm
+                                                                                           ## will
+                                                                                           ## make
+                                                                                           ## the
+                                                                                           ## shape
+                                                                                           ## fit
+                                                                                           ## into
+                                                                                           ## the
+                                                                                           ## period.
+                                                                                           ##
+                                                                                           ## !
+                                                                                           ##
+                                                                                           ## !
+                                                                                           ## Before
+                                                                                           ## calling
+                                                                                           ## this
+                                                                                           ## method,
+                                                                                           ## the
+                                                                                           ## shape
+                                                                                           ## has
+                                                                                           ## to
+                                                                                           ## be
+                                                                                           ## set
+                                                                                           ## to
+                                                                                           ## be
+                                                                                           ## periodic
+                                                                                           ## in
+                                                                                           ## this
+                                                                                           ## direction.
+                                                                                           ##
+                                                                                           ## !
+                                                                                           ##
+                                                                                           ## !
+                                                                                           ## @param
+                                                                                           ## theDirectionID
+                                                                                           ## [in]
+                                                                                           ## The
+                                                                                           ## direction's
+                                                                                           ## ID;
+                                                                                           ##
+                                                                                           ## !
+                                                                                           ## @param
+                                                                                           ## theIsTrimmed
+                                                                                           ## [in]
+                                                                                           ## The
+                                                                                           ## flag
+                                                                                           ## defining
+                                                                                           ## trimming
+                                                                                           ## of
+                                                                                           ## the
+                                                                                           ## shape
+                                                                                           ## in
+                                                                                           ## given
+                                                                                           ## direction;
+                                                                                           ##
+                                                                                           ## !
+                                                                                           ## @param
+                                                                                           ## theFirst
+                                                                                           ## [in]
+                                                                                           ## The
+                                                                                           ## first
+                                                                                           ## periodic
+                                                                                           ## parameter
+                                                                                           ## in
+                                                                                           ## the
+                                                                                           ## given
+                                                                                           ## direction.
+                                                                                           ##
+                                                                                           ## !
+                                                                                           ## @name
+                                                                                           ## Named
+                                                                                           ## methods
+                                                                                           ## for
+                                                                                           ## setting/getting
+                                                                                           ## trimming
+                                                                                           ## info
+                                                                                           ##
+                                                                                           ## !
+                                                                                           ## Defines
+                                                                                           ## whether
+                                                                                           ## the
+                                                                                           ## input
+                                                                                           ## shape
+                                                                                           ## is
+                                                                                           ## already
+                                                                                           ## trimmed
+                                                                                           ## in
+                                                                                           ## X
+                                                                                           ## direction
+                                                                                           ##
+                                                                                           ## !
+                                                                                           ## to
+                                                                                           ## fit
+                                                                                           ## the
+                                                                                           ## X
+                                                                                           ## period.
+                                                                                           ## If
+                                                                                           ## the
+                                                                                           ## shape
+                                                                                           ## is
+                                                                                           ## not
+                                                                                           ## trimmed
+                                                                                           ## it
+                                                                                           ## is
+                                                                                           ## required
+                                                                                           ##
+                                                                                           ## !
+                                                                                           ## to
+                                                                                           ## set
+                                                                                           ## the
+                                                                                           ## first
+                                                                                           ## parameter
+                                                                                           ## for
+                                                                                           ## the
+                                                                                           ## X
+                                                                                           ## period.
+                                                                                           ##
+                                                                                           ## !
+                                                                                           ## The
+                                                                                           ## algorithm
+                                                                                           ## will
+                                                                                           ## make
+                                                                                           ## the
+                                                                                           ## shape
+                                                                                           ## fit
+                                                                                           ## into
+                                                                                           ## the
+                                                                                           ## period.
+                                                                                           ##
+                                                                                           ## !
+                                                                                           ##
+                                                                                           ## !
+                                                                                           ## Before
+                                                                                           ## calling
+                                                                                           ## this
+                                                                                           ## method,
+                                                                                           ## the
+                                                                                           ## shape
+                                                                                           ## has
+                                                                                           ## to
+                                                                                           ## be
+                                                                                           ## set
+                                                                                           ## to
+                                                                                           ## be
+                                                                                           ## periodic
+                                                                                           ## in
+                                                                                           ## this
+                                                                                           ## direction.
+                                                                                           ##
+                                                                                           ## !
+                                                                                           ##
+                                                                                           ## !
+                                                                                           ## @param
+                                                                                           ## theIsTrimmed
+                                                                                           ## [in]
+                                                                                           ## Flag
+                                                                                           ## defining
+                                                                                           ## whether
+                                                                                           ## the
+                                                                                           ## shape
+                                                                                           ## is
+                                                                                           ## already
+                                                                                           ## trimmed
+                                                                                           ##
+                                                                                           ## !
+                                                                                           ## in
+                                                                                           ## X
+                                                                                           ## direction
+                                                                                           ## to
+                                                                                           ## fit
+                                                                                           ## the
+                                                                                           ## X
+                                                                                           ## period;
+                                                                                           ##
+                                                                                           ## !
+                                                                                           ## @param
+                                                                                           ## theFirst
+                                                                                           ## [in]
+                                                                                           ## The
+                                                                                           ## first
+                                                                                           ## X
+                                                                                           ## periodic
+                                                                                           ## parameter.
+                                                                                           ##
+                                                                                           ## !
+                                                                                           ## @name
+                                                                                           ## Performing
+                                                                                           ## the
+                                                                                           ## operation
+                                                                                           ##
+                                                                                           ## !
+                                                                                           ## Makes
+                                                                                           ## the
+                                                                                           ## shape
+                                                                                           ## periodic
+                                                                                           ## in
+                                                                                           ## necessary
+                                                                                           ## directions
+                                                                                           ##
+                                                                                           ## !
+                                                                                           ## @name
+                                                                                           ## Using
+                                                                                           ## the
+                                                                                           ## algorithm
+                                                                                           ## to
+                                                                                           ## repeat
+                                                                                           ## the
+                                                                                           ## shape
+                                                                                           ##
+                                                                                           ## !
+                                                                                           ## Performs
+                                                                                           ## repetition
+                                                                                           ## of
+                                                                                           ## the
+                                                                                           ## shape
+                                                                                           ## in
+                                                                                           ## specified
+                                                                                           ## direction
+                                                                                           ##
+                                                                                           ## !
+                                                                                           ## required
+                                                                                           ## number
+                                                                                           ## of
+                                                                                           ## times.
+                                                                                           ##
+                                                                                           ## !
+                                                                                           ## Negative
+                                                                                           ## value
+                                                                                           ## of
+                                                                                           ## times
+                                                                                           ## means
+                                                                                           ## that
+                                                                                           ## the
+                                                                                           ## repetition
+                                                                                           ## should
+                                                                                           ##
+                                                                                           ## !
+                                                                                           ## be
+                                                                                           ## perform
+                                                                                           ## in
+                                                                                           ## negative
+                                                                                           ## direction.
+                                                                                           ##
+                                                                                           ## !
+                                                                                           ## Makes
+                                                                                           ## the
+                                                                                           ## repeated
+                                                                                           ## shape
+                                                                                           ## a
+                                                                                           ## base
+                                                                                           ## for
+                                                                                           ## following
+                                                                                           ## repetitions.
+                                                                                           ##
+                                                                                           ## !
+                                                                                           ##
+                                                                                           ## !
+                                                                                           ## @param
+                                                                                           ## theDirectionID
+                                                                                           ## [in]
+                                                                                           ## The
+                                                                                           ## direction's
+                                                                                           ## ID;
+                                                                                           ##
+                                                                                           ## !
+                                                                                           ## @param
+                                                                                           ## theTimes
+                                                                                           ## [in]
+                                                                                           ## Requested
+                                                                                           ## number
+                                                                                           ## of
+                                                                                           ## repetitions.
+                                                                                           ##
+                                                                                           ## !
+                                                                                           ## @name
+                                                                                           ## Starting
+                                                                                           ## the
+                                                                                           ## repetitions
+                                                                                           ## over
+                                                                                           ##
+                                                                                           ## !
+                                                                                           ## Returns
+                                                                                           ## the
+                                                                                           ## repeated
+                                                                                           ## shape
+                                                                                           ##
+                                                                                           ## !
+                                                                                           ## @name
+                                                                                           ## Obtaining
+                                                                                           ## the
+                                                                                           ## result
+                                                                                           ## shape
+                                                                                           ##
+                                                                                           ## !
+                                                                                           ## Returns
+                                                                                           ## the
+                                                                                           ## resulting
+                                                                                           ## periodic
+                                                                                           ## shape
+                                                                                           ##
+                                                                                           ## !
+                                                                                           ## @name
+                                                                                           ## Getting
+                                                                                           ## the
+                                                                                           ## identical
+                                                                                           ## shapes
+                                                                                           ##
+                                                                                           ## !
+                                                                                           ## Returns
+                                                                                           ## the
+                                                                                           ## identical
+                                                                                           ## shapes
+                                                                                           ## for
+                                                                                           ## the
+                                                                                           ## given
+                                                                                           ## shape
+                                                                                           ## located
+                                                                                           ##
+                                                                                           ## !
+                                                                                           ## on
+                                                                                           ## the
+                                                                                           ## opposite
+                                                                                           ## periodic
+                                                                                           ## side.
+                                                                                           ##
+                                                                                           ## !
+                                                                                           ## Returns
+                                                                                           ## empty
+                                                                                           ## list
+                                                                                           ## in
+                                                                                           ## case
+                                                                                           ## the
+                                                                                           ## shape
+                                                                                           ## has
+                                                                                           ## no
+                                                                                           ## twin.
+                                                                                           ##
+                                                                                           ## !
+                                                                                           ##
+                                                                                           ## !
+                                                                                           ## @param
+                                                                                           ## theS
+                                                                                           ## [in]
+                                                                                           ## Shape
+                                                                                           ## to
+                                                                                           ## get
+                                                                                           ## the
+                                                                                           ## twins
+                                                                                           ## for.
+                                                                                           ##
+                                                                                           ## !
+                                                                                           ## @name
+                                                                                           ## Getting
+                                                                                           ## the
+                                                                                           ## History
+                                                                                           ## of
+                                                                                           ## the
+                                                                                           ## algorithm
+                                                                                           ##
+                                                                                           ## !
+                                                                                           ## Returns
+                                                                                           ## the
+                                                                                           ## History
+                                                                                           ## of
+                                                                                           ## the
+                                                                                           ## algorithm
+                                                                                           ##
+                                                                                           ## !
+                                                                                           ## @name
+                                                                                           ## Clearing
+                                                                                           ## the
+                                                                                           ## algorithm
+                                                                                           ## from
+                                                                                           ## previous
+                                                                                           ## runs
+                                                                                           ##
+                                                                                           ## !
+                                                                                           ## Clears
+                                                                                           ## the
+                                                                                           ## algorithm
+                                                                                           ## from
+                                                                                           ## previous
+                                                                                           ## runs
+                                                                                           ##
+                                                                                           ## !
+                                                                                           ## @name
+                                                                                           ## Conversion
+                                                                                           ## of
+                                                                                           ## the
+                                                                                           ## integer
+                                                                                           ## to
+                                                                                           ## ID
+                                                                                           ## of
+                                                                                           ## periodic
+                                                                                           ## direction
+                                                                                           ##
+                                                                                           ## !
+                                                                                           ## Converts
+                                                                                           ## the
+                                                                                           ## integer
+                                                                                           ## to
+                                                                                           ## ID
+                                                                                           ## of
+                                                                                           ## periodic
+                                                                                           ## direction
+                                                                                           ##
+                                                                                           ## !
+                                                                                           ## @name
+                                                                                           ## Protected
+                                                                                           ## methods
+                                                                                           ## performing
+                                                                                           ## the
+                                                                                           ## operation
+                                                                                           ##
+                                                                                           ## !
+                                                                                           ## Checks
+                                                                                           ## the
+                                                                                           ## validity
+                                                                                           ## of
+                                                                                           ## input
+                                                                                           ## data
+                                                                                           ##
+                                                                                           ## !
+                                                                                           ## @name
+                                                                                           ## Fields
+                                                                                           ##
+                                                                                           ## Inputs
     ## !< Input shape to make periodic
     ## !< Periodicity parameters
     ##  Results
@@ -850,115 +856,114 @@ type
     ## ! (to include the history of shape repetition)
 
 
-proc constructBOPAlgoMakePeriodic*(): BOPAlgoMakePeriodic {.constructor,
+proc constructBOPAlgo_MakePeriodic*(): BOPAlgo_MakePeriodic {.constructor,
     importcpp: "BOPAlgo_MakePeriodic(@)", header: "BOPAlgo_MakePeriodic.hxx".}
-proc setShape*(this: var BOPAlgoMakePeriodic; theShape: TopoDS_Shape) {.
+proc SetShape*(this: var BOPAlgo_MakePeriodic; theShape: TopoDS_Shape) {.
     importcpp: "SetShape", header: "BOPAlgo_MakePeriodic.hxx".}
 type
-  BOPAlgoMakePeriodicPeriodicityParams* {.
+  BOPAlgo_MakePeriodicPeriodicityParams* {.
       importcpp: "BOPAlgo_MakePeriodic::PeriodicityParams",
       header: "BOPAlgo_MakePeriodic.hxx", bycopy.} = object
-    myPeriodic* {.importc: "myPeriodic".}: array[3, StandardBoolean] ## !< Array of flags defining whether the shape should be
-                                                                ## ! periodic in XYZ directions
-    myPeriod* {.importc: "myPeriod".}: array[3, StandardReal] ## !< Array of XYZ period values. Defining the period for any
-                                                         ## ! direction the corresponding flag for that direction in
-                                                         ## ! myPeriodic should be set to true
-    myIsTrimmed* {.importc: "myIsTrimmed".}: array[3, StandardBoolean] ## !< Array of flags defining whether the input shape has to be
-                                                                  ## ! trimmed to fit the required period in the required direction
-    myPeriodFirst* {.importc: "myPeriodFirst".}: array[3, StandardReal] ## !< Array of start parameters of the XYZ periods: required for trimming
+    myPeriodic* {.importc: "myPeriodic".}: array[3, Standard_Boolean] ## !< Array of flags defining whether the shape should be
+                                                                 ## ! periodic in XYZ directions
+    myPeriod* {.importc: "myPeriod".}: array[3, Standard_Real] ## !< Array of XYZ period values. Defining the period for any
+                                                          ## ! direction the corresponding flag for that direction in
+                                                          ## ! myPeriodic should be set to true
+    myIsTrimmed* {.importc: "myIsTrimmed".}: array[3, Standard_Boolean] ## !< Array of flags defining whether the input shape has to be
+                                                                   ## ! trimmed to fit the required period in the required direction
+    myPeriodFirst* {.importc: "myPeriodFirst".}: array[3, Standard_Real] ## !< Array of start parameters of the XYZ periods: required for trimming
 
 
-proc constructBOPAlgoMakePeriodicPeriodicityParams*(): BOPAlgoMakePeriodicPeriodicityParams {.
+proc constructBOPAlgo_MakePeriodicPeriodicityParams*(): BOPAlgo_MakePeriodicPeriodicityParams {.
     constructor, importcpp: "BOPAlgo_MakePeriodic::PeriodicityParams(@)",
     header: "BOPAlgo_MakePeriodic.hxx".}
-proc clear*(this: var BOPAlgoMakePeriodicPeriodicityParams) {.importcpp: "Clear",
+proc Clear*(this: var BOPAlgo_MakePeriodicPeriodicityParams) {.importcpp: "Clear",
     header: "BOPAlgo_MakePeriodic.hxx".}
-proc setPeriodicityParameters*(this: var BOPAlgoMakePeriodic;
-                              theParams: BOPAlgoMakePeriodicPeriodicityParams) {.
+proc SetPeriodicityParameters*(this: var BOPAlgo_MakePeriodic;
+                              theParams: BOPAlgo_MakePeriodicPeriodicityParams) {.
     importcpp: "SetPeriodicityParameters", header: "BOPAlgo_MakePeriodic.hxx".}
-proc periodicityParameters*(this: BOPAlgoMakePeriodic): BOPAlgoMakePeriodicPeriodicityParams {.
+proc PeriodicityParameters*(this: BOPAlgo_MakePeriodic): BOPAlgo_MakePeriodicPeriodicityParams {.
     noSideEffect, importcpp: "PeriodicityParameters",
     header: "BOPAlgo_MakePeriodic.hxx".}
-proc makePeriodic*(this: var BOPAlgoMakePeriodic; theDirectionID: StandardInteger;
-                  theIsPeriodic: StandardBoolean; thePeriod: StandardReal = 0.0) {.
+proc MakePeriodic*(this: var BOPAlgo_MakePeriodic; theDirectionID: Standard_Integer;
+                  theIsPeriodic: Standard_Boolean; thePeriod: Standard_Real = 0.0) {.
     importcpp: "MakePeriodic", header: "BOPAlgo_MakePeriodic.hxx".}
-proc isPeriodic*(this: BOPAlgoMakePeriodic; theDirectionID: StandardInteger): StandardBoolean {.
+proc IsPeriodic*(this: BOPAlgo_MakePeriodic; theDirectionID: Standard_Integer): Standard_Boolean {.
     noSideEffect, importcpp: "IsPeriodic", header: "BOPAlgo_MakePeriodic.hxx".}
-proc period*(this: BOPAlgoMakePeriodic; theDirectionID: StandardInteger): StandardReal {.
+proc Period*(this: BOPAlgo_MakePeriodic; theDirectionID: Standard_Integer): Standard_Real {.
     noSideEffect, importcpp: "Period", header: "BOPAlgo_MakePeriodic.hxx".}
-proc makeXPeriodic*(this: var BOPAlgoMakePeriodic; theIsPeriodic: StandardBoolean;
-                   thePeriod: StandardReal = 0.0) {.importcpp: "MakeXPeriodic",
+proc MakeXPeriodic*(this: var BOPAlgo_MakePeriodic; theIsPeriodic: Standard_Boolean;
+                   thePeriod: Standard_Real = 0.0) {.importcpp: "MakeXPeriodic",
     header: "BOPAlgo_MakePeriodic.hxx".}
-proc isXPeriodic*(this: BOPAlgoMakePeriodic): StandardBoolean {.noSideEffect,
+proc IsXPeriodic*(this: BOPAlgo_MakePeriodic): Standard_Boolean {.noSideEffect,
     importcpp: "IsXPeriodic", header: "BOPAlgo_MakePeriodic.hxx".}
-proc xPeriod*(this: BOPAlgoMakePeriodic): StandardReal {.noSideEffect,
+proc XPeriod*(this: BOPAlgo_MakePeriodic): Standard_Real {.noSideEffect,
     importcpp: "XPeriod", header: "BOPAlgo_MakePeriodic.hxx".}
-proc makeYPeriodic*(this: var BOPAlgoMakePeriodic; theIsPeriodic: StandardBoolean;
-                   thePeriod: StandardReal = 0.0) {.importcpp: "MakeYPeriodic",
+proc MakeYPeriodic*(this: var BOPAlgo_MakePeriodic; theIsPeriodic: Standard_Boolean;
+                   thePeriod: Standard_Real = 0.0) {.importcpp: "MakeYPeriodic",
     header: "BOPAlgo_MakePeriodic.hxx".}
-proc isYPeriodic*(this: BOPAlgoMakePeriodic): StandardBoolean {.noSideEffect,
+proc IsYPeriodic*(this: BOPAlgo_MakePeriodic): Standard_Boolean {.noSideEffect,
     importcpp: "IsYPeriodic", header: "BOPAlgo_MakePeriodic.hxx".}
-proc yPeriod*(this: BOPAlgoMakePeriodic): StandardReal {.noSideEffect,
+proc YPeriod*(this: BOPAlgo_MakePeriodic): Standard_Real {.noSideEffect,
     importcpp: "YPeriod", header: "BOPAlgo_MakePeriodic.hxx".}
-proc makeZPeriodic*(this: var BOPAlgoMakePeriodic; theIsPeriodic: StandardBoolean;
-                   thePeriod: StandardReal = 0.0) {.importcpp: "MakeZPeriodic",
+proc MakeZPeriodic*(this: var BOPAlgo_MakePeriodic; theIsPeriodic: Standard_Boolean;
+                   thePeriod: Standard_Real = 0.0) {.importcpp: "MakeZPeriodic",
     header: "BOPAlgo_MakePeriodic.hxx".}
-proc isZPeriodic*(this: BOPAlgoMakePeriodic): StandardBoolean {.noSideEffect,
+proc IsZPeriodic*(this: BOPAlgo_MakePeriodic): Standard_Boolean {.noSideEffect,
     importcpp: "IsZPeriodic", header: "BOPAlgo_MakePeriodic.hxx".}
-proc zPeriod*(this: BOPAlgoMakePeriodic): StandardReal {.noSideEffect,
+proc ZPeriod*(this: BOPAlgo_MakePeriodic): Standard_Real {.noSideEffect,
     importcpp: "ZPeriod", header: "BOPAlgo_MakePeriodic.hxx".}
-proc setTrimmed*(this: var BOPAlgoMakePeriodic; theDirectionID: StandardInteger;
-                theIsTrimmed: StandardBoolean; theFirst: StandardReal = 0.0) {.
+proc SetTrimmed*(this: var BOPAlgo_MakePeriodic; theDirectionID: Standard_Integer;
+                theIsTrimmed: Standard_Boolean; theFirst: Standard_Real = 0.0) {.
     importcpp: "SetTrimmed", header: "BOPAlgo_MakePeriodic.hxx".}
-proc isInputTrimmed*(this: BOPAlgoMakePeriodic; theDirectionID: StandardInteger): StandardBoolean {.
+proc IsInputTrimmed*(this: BOPAlgo_MakePeriodic; theDirectionID: Standard_Integer): Standard_Boolean {.
     noSideEffect, importcpp: "IsInputTrimmed", header: "BOPAlgo_MakePeriodic.hxx".}
-proc periodFirst*(this: BOPAlgoMakePeriodic; theDirectionID: StandardInteger): StandardReal {.
+proc PeriodFirst*(this: BOPAlgo_MakePeriodic; theDirectionID: Standard_Integer): Standard_Real {.
     noSideEffect, importcpp: "PeriodFirst", header: "BOPAlgo_MakePeriodic.hxx".}
-proc setXTrimmed*(this: var BOPAlgoMakePeriodic; theIsTrimmed: StandardBoolean;
-                 theFirst: StandardBoolean = 0.0) {.importcpp: "SetXTrimmed",
+proc SetXTrimmed*(this: var BOPAlgo_MakePeriodic; theIsTrimmed: Standard_Boolean;
+                 theFirst: Standard_Boolean = 0.0) {.importcpp: "SetXTrimmed",
     header: "BOPAlgo_MakePeriodic.hxx".}
-proc isInputXTrimmed*(this: BOPAlgoMakePeriodic): StandardBoolean {.noSideEffect,
+proc IsInputXTrimmed*(this: BOPAlgo_MakePeriodic): Standard_Boolean {.noSideEffect,
     importcpp: "IsInputXTrimmed", header: "BOPAlgo_MakePeriodic.hxx".}
-proc xPeriodFirst*(this: BOPAlgoMakePeriodic): StandardReal {.noSideEffect,
+proc XPeriodFirst*(this: BOPAlgo_MakePeriodic): Standard_Real {.noSideEffect,
     importcpp: "XPeriodFirst", header: "BOPAlgo_MakePeriodic.hxx".}
-proc setYTrimmed*(this: var BOPAlgoMakePeriodic; theIsTrimmed: StandardBoolean;
-                 theFirst: StandardBoolean = 0.0) {.importcpp: "SetYTrimmed",
+proc SetYTrimmed*(this: var BOPAlgo_MakePeriodic; theIsTrimmed: Standard_Boolean;
+                 theFirst: Standard_Boolean = 0.0) {.importcpp: "SetYTrimmed",
     header: "BOPAlgo_MakePeriodic.hxx".}
-proc isInputYTrimmed*(this: BOPAlgoMakePeriodic): StandardBoolean {.noSideEffect,
+proc IsInputYTrimmed*(this: BOPAlgo_MakePeriodic): Standard_Boolean {.noSideEffect,
     importcpp: "IsInputYTrimmed", header: "BOPAlgo_MakePeriodic.hxx".}
-proc yPeriodFirst*(this: BOPAlgoMakePeriodic): StandardReal {.noSideEffect,
+proc YPeriodFirst*(this: BOPAlgo_MakePeriodic): Standard_Real {.noSideEffect,
     importcpp: "YPeriodFirst", header: "BOPAlgo_MakePeriodic.hxx".}
-proc setZTrimmed*(this: var BOPAlgoMakePeriodic; theIsTrimmed: StandardBoolean;
-                 theFirst: StandardBoolean = 0.0) {.importcpp: "SetZTrimmed",
+proc SetZTrimmed*(this: var BOPAlgo_MakePeriodic; theIsTrimmed: Standard_Boolean;
+                 theFirst: Standard_Boolean = 0.0) {.importcpp: "SetZTrimmed",
     header: "BOPAlgo_MakePeriodic.hxx".}
-proc isInputZTrimmed*(this: BOPAlgoMakePeriodic): StandardBoolean {.noSideEffect,
+proc IsInputZTrimmed*(this: BOPAlgo_MakePeriodic): Standard_Boolean {.noSideEffect,
     importcpp: "IsInputZTrimmed", header: "BOPAlgo_MakePeriodic.hxx".}
-proc zPeriodFirst*(this: BOPAlgoMakePeriodic): StandardReal {.noSideEffect,
+proc ZPeriodFirst*(this: BOPAlgo_MakePeriodic): Standard_Real {.noSideEffect,
     importcpp: "ZPeriodFirst", header: "BOPAlgo_MakePeriodic.hxx".}
-proc perform*(this: var BOPAlgoMakePeriodic) {.importcpp: "Perform",
+proc Perform*(this: var BOPAlgo_MakePeriodic) {.importcpp: "Perform",
     header: "BOPAlgo_MakePeriodic.hxx".}
-proc repeatShape*(this: var BOPAlgoMakePeriodic; theDirectionID: StandardInteger;
-                 theTimes: StandardInteger): TopoDS_Shape {.
+proc RepeatShape*(this: var BOPAlgo_MakePeriodic; theDirectionID: Standard_Integer;
+                 theTimes: Standard_Integer): TopoDS_Shape {.
     importcpp: "RepeatShape", header: "BOPAlgo_MakePeriodic.hxx".}
-proc xRepeat*(this: var BOPAlgoMakePeriodic; theTimes: StandardInteger): TopoDS_Shape {.
+proc XRepeat*(this: var BOPAlgo_MakePeriodic; theTimes: Standard_Integer): TopoDS_Shape {.
     importcpp: "XRepeat", header: "BOPAlgo_MakePeriodic.hxx".}
-proc yRepeat*(this: var BOPAlgoMakePeriodic; theTimes: StandardInteger): TopoDS_Shape {.
+proc YRepeat*(this: var BOPAlgo_MakePeriodic; theTimes: Standard_Integer): TopoDS_Shape {.
     importcpp: "YRepeat", header: "BOPAlgo_MakePeriodic.hxx".}
-proc zRepeat*(this: var BOPAlgoMakePeriodic; theTimes: StandardInteger): TopoDS_Shape {.
+proc ZRepeat*(this: var BOPAlgo_MakePeriodic; theTimes: Standard_Integer): TopoDS_Shape {.
     importcpp: "ZRepeat", header: "BOPAlgo_MakePeriodic.hxx".}
-proc repeatedShape*(this: BOPAlgoMakePeriodic): TopoDS_Shape {.noSideEffect,
+proc RepeatedShape*(this: BOPAlgo_MakePeriodic): TopoDS_Shape {.noSideEffect,
     importcpp: "RepeatedShape", header: "BOPAlgo_MakePeriodic.hxx".}
-proc clearRepetitions*(this: var BOPAlgoMakePeriodic) {.
+proc ClearRepetitions*(this: var BOPAlgo_MakePeriodic) {.
     importcpp: "ClearRepetitions", header: "BOPAlgo_MakePeriodic.hxx".}
-proc shape*(this: BOPAlgoMakePeriodic): TopoDS_Shape {.noSideEffect,
+proc Shape*(this: BOPAlgo_MakePeriodic): TopoDS_Shape {.noSideEffect,
     importcpp: "Shape", header: "BOPAlgo_MakePeriodic.hxx".}
-proc getTwins*(this: BOPAlgoMakePeriodic; theS: TopoDS_Shape): TopToolsListOfShape {.
+proc GetTwins*(this: BOPAlgo_MakePeriodic; theS: TopoDS_Shape): TopTools_ListOfShape {.
     noSideEffect, importcpp: "GetTwins", header: "BOPAlgo_MakePeriodic.hxx".}
-proc history*(this: BOPAlgoMakePeriodic): Handle[BRepToolsHistory] {.noSideEffect,
+proc History*(this: BOPAlgo_MakePeriodic): handle[BRepTools_History] {.noSideEffect,
     importcpp: "History", header: "BOPAlgo_MakePeriodic.hxx".}
-proc clear*(this: var BOPAlgoMakePeriodic) {.importcpp: "Clear",
+proc Clear*(this: var BOPAlgo_MakePeriodic) {.importcpp: "Clear",
     header: "BOPAlgo_MakePeriodic.hxx".}
-proc toDirectionID*(theDirectionID: StandardInteger): StandardInteger {.
+proc ToDirectionID*(theDirectionID: Standard_Integer): Standard_Integer {.
     importcpp: "BOPAlgo_MakePeriodic::ToDirectionID(@)",
     header: "BOPAlgo_MakePeriodic.hxx".}
-

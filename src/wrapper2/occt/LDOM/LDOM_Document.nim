@@ -13,6 +13,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  LDOM_Element, LDOM_Text, LDOM_CDATASection, LDOM_Comment
+
 discard "forward decl of LDOM_MemManager"
 type
   LDOM_Document* {.importcpp: "LDOM_Document", header: "LDOM_Document.hxx", bycopy.} = object ##  ---------- PUBLIC METHODS ----------
@@ -38,10 +41,9 @@ proc getDocumentElement*(this: LDOM_Document): LDOM_Element {.noSideEffect,
     importcpp: "getDocumentElement", header: "LDOM_Document.hxx".}
 proc getElementsByTagName*(this: LDOM_Document; theTagName: LDOMString): LDOM_NodeList {.
     noSideEffect, importcpp: "getElementsByTagName", header: "LDOM_Document.hxx".}
-proc `==`*(this: LDOM_Document; anOther: LDOM_Document): StandardBoolean {.
+proc `==`*(this: LDOM_Document; anOther: LDOM_Document): Standard_Boolean {.
     noSideEffect, importcpp: "(# == #)", header: "LDOM_Document.hxx".}
-proc `==`*(this: LDOM_Document; a2: ptr LDOM_NullPtr): StandardBoolean {.noSideEffect,
+proc `==`*(this: LDOM_Document; a2: ptr LDOM_NullPtr): Standard_Boolean {.noSideEffect,
     importcpp: "(# == #)", header: "LDOM_Document.hxx".}
-proc isNull*(this: LDOM_Document): StandardBoolean {.noSideEffect,
+proc isNull*(this: LDOM_Document): Standard_Boolean {.noSideEffect,
     importcpp: "isNull", header: "LDOM_Document.hxx".}
-

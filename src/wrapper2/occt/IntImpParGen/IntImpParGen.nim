@@ -14,6 +14,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../IntRes2d/IntRes2d_Position,
+  ../Standard/Standard_Real, ../Standard/Standard_Boolean
+
 discard "forward decl of gp_Vec2d"
 discard "forward decl of IntRes2d_Transition"
 discard "forward decl of IntRes2d_Domain"
@@ -51,19 +56,19 @@ type
                                                                                    ## IntImpParGen
 
 
-proc determineTransition*(pos1: IntRes2dPosition; tan1: var GpVec2d; norm1: GpVec2d;
-                         trans1: var IntRes2dTransition; pos2: IntRes2dPosition;
-                         tan2: var GpVec2d; norm2: GpVec2d;
-                         trans2: var IntRes2dTransition; tol: StandardReal) {.
+proc DetermineTransition*(Pos1: IntRes2d_Position; Tan1: var gp_Vec2d;
+                         Norm1: gp_Vec2d; Trans1: var IntRes2d_Transition;
+                         Pos2: IntRes2d_Position; Tan2: var gp_Vec2d;
+                         Norm2: gp_Vec2d; Trans2: var IntRes2d_Transition;
+                         Tol: Standard_Real) {.
     importcpp: "IntImpParGen::DetermineTransition(@)", header: "IntImpParGen.hxx".}
-proc determineTransition*(pos1: IntRes2dPosition; tan1: var GpVec2d;
-                         trans1: var IntRes2dTransition; pos2: IntRes2dPosition;
-                         tan2: var GpVec2d; trans2: var IntRes2dTransition;
-                         tol: StandardReal): StandardBoolean {.
+proc DetermineTransition*(Pos1: IntRes2d_Position; Tan1: var gp_Vec2d;
+                         Trans1: var IntRes2d_Transition; Pos2: IntRes2d_Position;
+                         Tan2: var gp_Vec2d; Trans2: var IntRes2d_Transition;
+                         Tol: Standard_Real): Standard_Boolean {.
     importcpp: "IntImpParGen::DetermineTransition(@)", header: "IntImpParGen.hxx".}
-proc determinePosition*(pos1: var IntRes2dPosition; dom1: IntRes2dDomain; p1: GpPnt2d;
-                       tol: StandardReal) {.
+proc DeterminePosition*(Pos1: var IntRes2d_Position; Dom1: IntRes2d_Domain;
+                       P1: gp_Pnt2d; Tol: Standard_Real) {.
     importcpp: "IntImpParGen::DeterminePosition(@)", header: "IntImpParGen.hxx".}
-proc normalizeOnDomain*(par1: var StandardReal; dom1: IntRes2dDomain): StandardReal {.
+proc NormalizeOnDomain*(Par1: var Standard_Real; Dom1: IntRes2d_Domain): Standard_Real {.
     importcpp: "IntImpParGen::NormalizeOnDomain(@)", header: "IntImpParGen.hxx".}
-

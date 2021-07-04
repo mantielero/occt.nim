@@ -14,44 +14,51 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Boolean, IntRes2d_Position,
+  IntRes2d_TypeTrans, IntRes2d_Situation
+
 discard "forward decl of Standard_DomainError"
 type
-  IntRes2dTransition* {.importcpp: "IntRes2d_Transition",
-                       header: "IntRes2d_Transition.hxx", bycopy.} = object ## ! Empty
-                                                                       ## constructor.
+  IntRes2d_Transition* {.importcpp: "IntRes2d_Transition",
+                        header: "IntRes2d_Transition.hxx", bycopy.} = object ## ! Empty
+                                                                        ## constructor.
 
 
-proc constructIntRes2dTransition*(): IntRes2dTransition {.constructor,
+proc constructIntRes2d_Transition*(): IntRes2d_Transition {.constructor,
     importcpp: "IntRes2d_Transition(@)", header: "IntRes2d_Transition.hxx".}
-proc constructIntRes2dTransition*(tangent: StandardBoolean; pos: IntRes2dPosition;
-                                 `type`: IntRes2dTypeTrans): IntRes2dTransition {.
+proc constructIntRes2d_Transition*(Tangent: Standard_Boolean;
+                                  Pos: IntRes2d_Position; Type: IntRes2d_TypeTrans): IntRes2d_Transition {.
     constructor, importcpp: "IntRes2d_Transition(@)",
     header: "IntRes2d_Transition.hxx".}
-proc constructIntRes2dTransition*(tangent: StandardBoolean; pos: IntRes2dPosition;
-                                 situ: IntRes2dSituation; oppos: StandardBoolean): IntRes2dTransition {.
+proc constructIntRes2d_Transition*(Tangent: Standard_Boolean;
+                                  Pos: IntRes2d_Position;
+                                  Situ: IntRes2d_Situation;
+                                  Oppos: Standard_Boolean): IntRes2d_Transition {.
     constructor, importcpp: "IntRes2d_Transition(@)",
     header: "IntRes2d_Transition.hxx".}
-proc constructIntRes2dTransition*(pos: IntRes2dPosition): IntRes2dTransition {.
+proc constructIntRes2d_Transition*(Pos: IntRes2d_Position): IntRes2d_Transition {.
     constructor, importcpp: "IntRes2d_Transition(@)",
     header: "IntRes2d_Transition.hxx".}
-proc setValue*(this: var IntRes2dTransition; tangent: StandardBoolean;
-              pos: IntRes2dPosition; `type`: IntRes2dTypeTrans) {.
+proc SetValue*(this: var IntRes2d_Transition; Tangent: Standard_Boolean;
+              Pos: IntRes2d_Position; Type: IntRes2d_TypeTrans) {.
     importcpp: "SetValue", header: "IntRes2d_Transition.hxx".}
-proc setValue*(this: var IntRes2dTransition; tangent: StandardBoolean;
-              pos: IntRes2dPosition; situ: IntRes2dSituation; oppos: StandardBoolean) {.
+proc SetValue*(this: var IntRes2d_Transition; Tangent: Standard_Boolean;
+              Pos: IntRes2d_Position; Situ: IntRes2d_Situation;
+              Oppos: Standard_Boolean) {.importcpp: "SetValue",
+                                       header: "IntRes2d_Transition.hxx".}
+proc SetValue*(this: var IntRes2d_Transition; Pos: IntRes2d_Position) {.
     importcpp: "SetValue", header: "IntRes2d_Transition.hxx".}
-proc setValue*(this: var IntRes2dTransition; pos: IntRes2dPosition) {.
-    importcpp: "SetValue", header: "IntRes2d_Transition.hxx".}
-proc setPosition*(this: var IntRes2dTransition; pos: IntRes2dPosition) {.
+proc SetPosition*(this: var IntRes2d_Transition; Pos: IntRes2d_Position) {.
     importcpp: "SetPosition", header: "IntRes2d_Transition.hxx".}
-proc positionOnCurve*(this: IntRes2dTransition): IntRes2dPosition {.noSideEffect,
+proc PositionOnCurve*(this: IntRes2d_Transition): IntRes2d_Position {.noSideEffect,
     importcpp: "PositionOnCurve", header: "IntRes2d_Transition.hxx".}
-proc transitionType*(this: IntRes2dTransition): IntRes2dTypeTrans {.noSideEffect,
+proc TransitionType*(this: IntRes2d_Transition): IntRes2d_TypeTrans {.noSideEffect,
     importcpp: "TransitionType", header: "IntRes2d_Transition.hxx".}
-proc isTangent*(this: IntRes2dTransition): StandardBoolean {.noSideEffect,
+proc IsTangent*(this: IntRes2d_Transition): Standard_Boolean {.noSideEffect,
     importcpp: "IsTangent", header: "IntRes2d_Transition.hxx".}
-proc situation*(this: IntRes2dTransition): IntRes2dSituation {.noSideEffect,
+proc Situation*(this: IntRes2d_Transition): IntRes2d_Situation {.noSideEffect,
     importcpp: "Situation", header: "IntRes2d_Transition.hxx".}
-proc isOpposite*(this: IntRes2dTransition): StandardBoolean {.noSideEffect,
+proc IsOpposite*(this: IntRes2d_Transition): Standard_Boolean {.noSideEffect,
     importcpp: "IsOpposite", header: "IntRes2d_Transition.hxx".}
-

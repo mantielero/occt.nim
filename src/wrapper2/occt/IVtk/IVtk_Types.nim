@@ -13,22 +13,28 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-# # # # when defined(VTK_USE_64BIT_IDS):
-# # # #   when defined(win32) and not defined(win64):
-# # # #     discard
-# # # # else:
-# # # #   when defined(_WIN64):
-# # # #     discard
+import
+  ../gp/gp_XY, ../NCollection/NCollection_List,
+  ../NCollection/NCollection_TListIterator, ../NCollection/NCollection_DataMap,
+  ../NCollection/NCollection_Map, ../Standard/Standard_Boolean,
+  ../Standard/Standard_Integer
+
+when defined(VTK_USE_64BIT_IDS):
+  when defined(_WIN32) and not defined(_WIN64):
+    discard
+else:
+  when defined(_WIN64):
+    discard
 type
-  IVtkIdType* = VtkIdType
-  IVtkPointId* = IVtkIdType
-  IVtkFaceId* = IVtkIdType
-  IVtkEdgeId* = IVtkIdType
-  IVtkShapeIdList* = NCollectionList[IVtkIdType]
-  IVtkPointIdList* = NCollectionList[IVtkPointId]
-  IVtkSubShapeMap* = NCollectionDataMap[IVtkIdType, IVtkShapeIdList]
-  IVtkIdTypeMap* = NCollectionMap[IVtkIdType]
-  IVtkPnt2dList* = NCollectionList[GpXY]
+  IVtk_IdType* = vtkIdType
+  IVtk_PointId* = IVtk_IdType
+  IVtk_FaceId* = IVtk_IdType
+  IVtk_EdgeId* = IVtk_IdType
+  IVtk_ShapeIdList* = NCollection_List[IVtk_IdType]
+  IVtk_PointIdList* = NCollection_List[IVtk_PointId]
+  IVtk_SubShapeMap* = NCollection_DataMap[IVtk_IdType, IVtk_ShapeIdList]
+  IVtk_IdTypeMap* = NCollection_Map[IVtk_IdType]
+  IVtk_Pnt2dList* = NCollection_List[gp_XY]
 
 ## ! @enum IVtk_SelectionMode Selection modes for 3D shapes
 ## !
@@ -38,8 +44,8 @@ type
 ## ! Other modes activate selection of sub-shapes of corresponding types.
 
 type
-  IVtkSelectionMode* {.size: sizeof(cint), importcpp: "IVtk_SelectionMode",
-                      header: "IVtk_Types.hxx".} = enum
+  IVtk_SelectionMode* {.size: sizeof(cint), importcpp: "IVtk_SelectionMode",
+                       header: "IVtk_Types.hxx".} = enum
     SM_None = -1,               ## !< No selection
     SM_Shape = 0,               ## !< Shape selection
     SM_Vertex = 1,              ## !< Vertex selection
@@ -50,7 +56,7 @@ type
     SM_Solid = 6,               ## !< Solid selection
     SM_CompSolid = 7,           ## !< CompSolid selection
     SM_Compound = 8             ## !< Compound selection
-  IVtkSelectionModeList* = NCollectionList[IVtkSelectionMode]
+  IVtk_SelectionModeList* = NCollection_List[IVtk_SelectionMode]
 
 
 ## ! @enum IVtk_MeshType Types of mesh parts for 3D shapes
@@ -58,8 +64,8 @@ type
 ## ! Enumeration that describes all supported types of mesh parts for 3D shapes.
 
 type
-  IVtkMeshType* {.size: sizeof(cint), importcpp: "IVtk_MeshType",
-                 header: "IVtk_Types.hxx".} = enum
+  IVtk_MeshType* {.size: sizeof(cint), importcpp: "IVtk_MeshType",
+                  header: "IVtk_Types.hxx".} = enum
     MT_Undefined = -1,          ## !< Undefined
     MT_IsoLine = 0,             ## !< Isoline
     MT_FreeVertex = 1,          ## !< Free vertex
@@ -77,14 +83,8 @@ type
 ## ! Enumeration that describes all supported display modes for 3D shapes.
 
 type
-  IVtkDisplayMode* {.size: sizeof(cint), importcpp: "IVtk_DisplayMode",
-                    header: "IVtk_Types.hxx".} = enum
+  IVtk_DisplayMode* {.size: sizeof(cint), importcpp: "IVtk_DisplayMode",
+                     header: "IVtk_Types.hxx".} = enum
     DM_Wireframe = 0,           ## !< Wireframe display mode
     DM_Shading = 1
-
-
-
-
-
-
 

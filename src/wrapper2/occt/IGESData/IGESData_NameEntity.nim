@@ -14,42 +14,44 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, IGESData_IGESEntity
+
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of IGESData_NameEntity"
 discard "forward decl of IGESData_NameEntity"
 type
-  HandleIGESDataNameEntity* = Handle[IGESDataNameEntity]
+  Handle_IGESData_NameEntity* = handle[IGESData_NameEntity]
 
 ## ! a NameEntity is a kind of IGESEntity which can provide a Name
 ## ! under alphanumeric (String) form, from Properties list
 ## ! an effective Name entity must inherit it
 
 type
-  IGESDataNameEntity* {.importcpp: "IGESData_NameEntity",
-                       header: "IGESData_NameEntity.hxx", bycopy.} = object of IGESDataIGESEntity ##
-                                                                                           ## !
-                                                                                           ## Retyrns
-                                                                                           ## the
-                                                                                           ## alphanumeric
-                                                                                           ## value
-                                                                                           ## of
-                                                                                           ## the
-                                                                                           ## Name,
-                                                                                           ## to
-                                                                                           ## be
-                                                                                           ## defined
+  IGESData_NameEntity* {.importcpp: "IGESData_NameEntity",
+                        header: "IGESData_NameEntity.hxx", bycopy.} = object of IGESData_IGESEntity ##
+                                                                                             ## !
+                                                                                             ## Retyrns
+                                                                                             ## the
+                                                                                             ## alphanumeric
+                                                                                             ## value
+                                                                                             ## of
+                                                                                             ## the
+                                                                                             ## Name,
+                                                                                             ## to
+                                                                                             ## be
+                                                                                             ## defined
 
 
-proc value*(this: IGESDataNameEntity): Handle[TCollectionHAsciiString] {.
+proc Value*(this: IGESData_NameEntity): handle[TCollection_HAsciiString] {.
     noSideEffect, importcpp: "Value", header: "IGESData_NameEntity.hxx".}
 type
-  IGESDataNameEntitybaseType* = IGESDataIGESEntity
+  IGESData_NameEntitybase_type* = IGESData_IGESEntity
 
-proc getTypeName*(): cstring {.importcpp: "IGESData_NameEntity::get_type_name(@)",
-                            header: "IGESData_NameEntity.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "IGESData_NameEntity::get_type_name(@)",
+                              header: "IGESData_NameEntity.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "IGESData_NameEntity::get_type_descriptor(@)",
     header: "IGESData_NameEntity.hxx".}
-proc dynamicType*(this: IGESDataNameEntity): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: IGESData_NameEntity): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "IGESData_NameEntity.hxx".}
-

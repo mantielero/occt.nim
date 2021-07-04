@@ -14,58 +14,64 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  HLRAlgo_PolyData, ../Standard/Standard, ../Standard/Standard_Type,
+  ../TColStd/TColStd_HArray1OfTransient, ../Standard/Standard_Real,
+  HLRAlgo_ListIteratorOfListOfBPoint, ../Standard/Standard_Integer,
+  ../Standard/Standard_Boolean, ../Standard/Standard_Transient,
+  ../TColStd/TColStd_Array1OfTransient
+
 discard "forward decl of HLRAlgo_EdgeStatus"
 discard "forward decl of HLRAlgo_PolyAlgo"
 discard "forward decl of HLRAlgo_PolyAlgo"
 type
-  HandleHLRAlgoPolyAlgo* = Handle[HLRAlgoPolyAlgo]
+  Handle_HLRAlgo_PolyAlgo* = handle[HLRAlgo_PolyAlgo]
 
 ## ! to remove Hidden lines on Triangulations.
 
 type
-  HLRAlgoPolyAlgo* {.importcpp: "HLRAlgo_PolyAlgo", header: "HLRAlgo_PolyAlgo.hxx",
-                    bycopy.} = object of StandardTransient
+  HLRAlgo_PolyAlgo* {.importcpp: "HLRAlgo_PolyAlgo",
+                     header: "HLRAlgo_PolyAlgo.hxx", bycopy.} = object of Standard_Transient
 
 
-proc constructHLRAlgoPolyAlgo*(): HLRAlgoPolyAlgo {.constructor,
+proc constructHLRAlgo_PolyAlgo*(): HLRAlgo_PolyAlgo {.constructor,
     importcpp: "HLRAlgo_PolyAlgo(@)", header: "HLRAlgo_PolyAlgo.hxx".}
-proc init*(this: var HLRAlgoPolyAlgo; hShell: Handle[TColStdHArray1OfTransient]) {.
+proc Init*(this: var HLRAlgo_PolyAlgo; HShell: handle[TColStd_HArray1OfTransient]) {.
     importcpp: "Init", header: "HLRAlgo_PolyAlgo.hxx".}
-proc polyShell*(this: HLRAlgoPolyAlgo): var TColStdArray1OfTransient {.noSideEffect,
-    importcpp: "PolyShell", header: "HLRAlgo_PolyAlgo.hxx".}
-proc clear*(this: var HLRAlgoPolyAlgo) {.importcpp: "Clear",
-                                     header: "HLRAlgo_PolyAlgo.hxx".}
-proc update*(this: var HLRAlgoPolyAlgo) {.importcpp: "Update",
+proc PolyShell*(this: HLRAlgo_PolyAlgo): var TColStd_Array1OfTransient {.
+    noSideEffect, importcpp: "PolyShell", header: "HLRAlgo_PolyAlgo.hxx".}
+proc Clear*(this: var HLRAlgo_PolyAlgo) {.importcpp: "Clear",
                                       header: "HLRAlgo_PolyAlgo.hxx".}
-proc initHide*(this: var HLRAlgoPolyAlgo) {.importcpp: "InitHide",
-                                        header: "HLRAlgo_PolyAlgo.hxx".}
-proc moreHide*(this: HLRAlgoPolyAlgo): StandardBoolean {.noSideEffect,
-    importcpp: "MoreHide", header: "HLRAlgo_PolyAlgo.hxx".}
-proc nextHide*(this: var HLRAlgoPolyAlgo) {.importcpp: "NextHide",
-                                        header: "HLRAlgo_PolyAlgo.hxx".}
-proc hide*(this: var HLRAlgoPolyAlgo; status: var HLRAlgoEdgeStatus;
-          index: var StandardInteger; reg1: var StandardBoolean;
-          regn: var StandardBoolean; outl: var StandardBoolean;
-          intl: var StandardBoolean): var PointsT {.importcpp: "Hide",
+proc Update*(this: var HLRAlgo_PolyAlgo) {.importcpp: "Update",
+                                       header: "HLRAlgo_PolyAlgo.hxx".}
+proc InitHide*(this: var HLRAlgo_PolyAlgo) {.importcpp: "InitHide",
     header: "HLRAlgo_PolyAlgo.hxx".}
-proc initShow*(this: var HLRAlgoPolyAlgo) {.importcpp: "InitShow",
-                                        header: "HLRAlgo_PolyAlgo.hxx".}
-proc moreShow*(this: HLRAlgoPolyAlgo): StandardBoolean {.noSideEffect,
+proc MoreHide*(this: HLRAlgo_PolyAlgo): Standard_Boolean {.noSideEffect,
+    importcpp: "MoreHide", header: "HLRAlgo_PolyAlgo.hxx".}
+proc NextHide*(this: var HLRAlgo_PolyAlgo) {.importcpp: "NextHide",
+    header: "HLRAlgo_PolyAlgo.hxx".}
+proc Hide*(this: var HLRAlgo_PolyAlgo; status: var HLRAlgo_EdgeStatus;
+          Index: var Standard_Integer; reg1: var Standard_Boolean;
+          regn: var Standard_Boolean; outl: var Standard_Boolean;
+          intl: var Standard_Boolean): var PointsT {.importcpp: "Hide",
+    header: "HLRAlgo_PolyAlgo.hxx".}
+proc InitShow*(this: var HLRAlgo_PolyAlgo) {.importcpp: "InitShow",
+    header: "HLRAlgo_PolyAlgo.hxx".}
+proc MoreShow*(this: HLRAlgo_PolyAlgo): Standard_Boolean {.noSideEffect,
     importcpp: "MoreShow", header: "HLRAlgo_PolyAlgo.hxx".}
-proc nextShow*(this: var HLRAlgoPolyAlgo) {.importcpp: "NextShow",
-                                        header: "HLRAlgo_PolyAlgo.hxx".}
-proc show*(this: var HLRAlgoPolyAlgo; index: var StandardInteger;
-          reg1: var StandardBoolean; regn: var StandardBoolean;
-          outl: var StandardBoolean; intl: var StandardBoolean): var PointsT {.
+proc NextShow*(this: var HLRAlgo_PolyAlgo) {.importcpp: "NextShow",
+    header: "HLRAlgo_PolyAlgo.hxx".}
+proc Show*(this: var HLRAlgo_PolyAlgo; Index: var Standard_Integer;
+          reg1: var Standard_Boolean; regn: var Standard_Boolean;
+          outl: var Standard_Boolean; intl: var Standard_Boolean): var PointsT {.
     importcpp: "Show", header: "HLRAlgo_PolyAlgo.hxx".}
 type
-  HLRAlgoPolyAlgobaseType* = StandardTransient
+  HLRAlgo_PolyAlgobase_type* = Standard_Transient
 
-proc getTypeName*(): cstring {.importcpp: "HLRAlgo_PolyAlgo::get_type_name(@)",
-                            header: "HLRAlgo_PolyAlgo.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "HLRAlgo_PolyAlgo::get_type_name(@)",
+                              header: "HLRAlgo_PolyAlgo.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "HLRAlgo_PolyAlgo::get_type_descriptor(@)",
     header: "HLRAlgo_PolyAlgo.hxx".}
-proc dynamicType*(this: HLRAlgoPolyAlgo): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: HLRAlgo_PolyAlgo): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "HLRAlgo_PolyAlgo.hxx".}
-

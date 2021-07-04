@@ -14,7 +14,8 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  Expr_SingleRelation, ../NCollection/NCollection_Array1
+
 type
-  ExprArray1OfSingleRelation* = NCollectionArray1[Handle[ExprSingleRelation]]
-
-
+  Expr_Array1OfSingleRelation* = NCollection_Array1[handle[Expr_SingleRelation]]

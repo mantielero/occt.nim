@@ -14,26 +14,29 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepShape_Sphere"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepShapeRWSphere* {.importcpp: "RWStepShape_RWSphere",
-                        header: "RWStepShape_RWSphere.hxx", bycopy.} = object
+  RWStepShape_RWSphere* {.importcpp: "RWStepShape_RWSphere",
+                         header: "RWStepShape_RWSphere.hxx", bycopy.} = object
 
 
-proc constructRWStepShapeRWSphere*(): RWStepShapeRWSphere {.constructor,
+proc constructRWStepShape_RWSphere*(): RWStepShape_RWSphere {.constructor,
     importcpp: "RWStepShape_RWSphere(@)", header: "RWStepShape_RWSphere.hxx".}
-proc readStep*(this: RWStepShapeRWSphere; data: Handle[StepDataStepReaderData];
-              num: StandardInteger; ach: var Handle[InterfaceCheck];
-              ent: Handle[StepShapeSphere]) {.noSideEffect, importcpp: "ReadStep",
+proc ReadStep*(this: RWStepShape_RWSphere; data: handle[StepData_StepReaderData];
+              num: Standard_Integer; ach: var handle[Interface_Check];
+              ent: handle[StepShape_Sphere]) {.noSideEffect, importcpp: "ReadStep",
     header: "RWStepShape_RWSphere.hxx".}
-proc writeStep*(this: RWStepShapeRWSphere; sw: var StepDataStepWriter;
-               ent: Handle[StepShapeSphere]) {.noSideEffect,
+proc WriteStep*(this: RWStepShape_RWSphere; SW: var StepData_StepWriter;
+               ent: handle[StepShape_Sphere]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepShape_RWSphere.hxx".}
-proc share*(this: RWStepShapeRWSphere; ent: Handle[StepShapeSphere];
-           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
+proc Share*(this: RWStepShape_RWSphere; ent: handle[StepShape_Sphere];
+           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepShape_RWSphere.hxx".}
-

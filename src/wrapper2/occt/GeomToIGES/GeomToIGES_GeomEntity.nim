@@ -14,6 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Real
+
 discard "forward decl of IGESData_IGESModel"
 type
   GeomToIGES_GeomEntity* {.importcpp: "GeomToIGES_GeomEntity",
@@ -24,15 +28,14 @@ type
 
 proc constructGeomToIGES_GeomEntity*(): GeomToIGES_GeomEntity {.constructor,
     importcpp: "GeomToIGES_GeomEntity(@)", header: "GeomToIGES_GeomEntity.hxx".}
-proc constructGeomToIGES_GeomEntity*(ge: GeomToIGES_GeomEntity): GeomToIGES_GeomEntity {.
+proc constructGeomToIGES_GeomEntity*(GE: GeomToIGES_GeomEntity): GeomToIGES_GeomEntity {.
     constructor, importcpp: "GeomToIGES_GeomEntity(@)",
     header: "GeomToIGES_GeomEntity.hxx".}
-proc setModel*(this: var GeomToIGES_GeomEntity; model: Handle[IGESDataIGESModel]) {.
+proc SetModel*(this: var GeomToIGES_GeomEntity; model: handle[IGESData_IGESModel]) {.
     importcpp: "SetModel", header: "GeomToIGES_GeomEntity.hxx".}
-proc getModel*(this: GeomToIGES_GeomEntity): Handle[IGESDataIGESModel] {.
+proc GetModel*(this: GeomToIGES_GeomEntity): handle[IGESData_IGESModel] {.
     noSideEffect, importcpp: "GetModel", header: "GeomToIGES_GeomEntity.hxx".}
-proc setUnit*(this: var GeomToIGES_GeomEntity; unit: StandardReal) {.
+proc SetUnit*(this: var GeomToIGES_GeomEntity; unit: Standard_Real) {.
     importcpp: "SetUnit", header: "GeomToIGES_GeomEntity.hxx".}
-proc getUnit*(this: GeomToIGES_GeomEntity): StandardReal {.noSideEffect,
+proc GetUnit*(this: GeomToIGES_GeomEntity): Standard_Real {.noSideEffect,
     importcpp: "GetUnit", header: "GeomToIGES_GeomEntity.hxx".}
-

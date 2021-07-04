@@ -13,30 +13,34 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Real,
+  ../Standard/Standard_Integer
+
 discard "forward decl of Adaptor3d_HCurve"
 discard "forward decl of gp_Pnt"
 discard "forward decl of gp_Vec"
 type
-  LProp3dCurveTool* {.importcpp: "LProp3d_CurveTool",
-                     header: "LProp3d_CurveTool.hxx", bycopy.} = object ## ! Computes the point <P> of parameter <U> on the HCurve <C>.
+  LProp3d_CurveTool* {.importcpp: "LProp3d_CurveTool",
+                      header: "LProp3d_CurveTool.hxx", bycopy.} = object ## ! Computes the point <P> of parameter <U> on the HCurve <C>.
 
 
-proc value*(c: Handle[Adaptor3dHCurve]; u: StandardReal; p: var GpPnt) {.
+proc Value*(C: handle[Adaptor3d_HCurve]; U: Standard_Real; P: var gp_Pnt) {.
     importcpp: "LProp3d_CurveTool::Value(@)", header: "LProp3d_CurveTool.hxx".}
-proc d1*(c: Handle[Adaptor3dHCurve]; u: StandardReal; p: var GpPnt; v1: var GpVec) {.
+proc D1*(C: handle[Adaptor3d_HCurve]; U: Standard_Real; P: var gp_Pnt; V1: var gp_Vec) {.
     importcpp: "LProp3d_CurveTool::D1(@)", header: "LProp3d_CurveTool.hxx".}
-proc d2*(c: Handle[Adaptor3dHCurve]; u: StandardReal; p: var GpPnt; v1: var GpVec;
-        v2: var GpVec) {.importcpp: "LProp3d_CurveTool::D2(@)",
-                      header: "LProp3d_CurveTool.hxx".}
-proc d3*(c: Handle[Adaptor3dHCurve]; u: StandardReal; p: var GpPnt; v1: var GpVec;
-        v2: var GpVec; v3: var GpVec) {.importcpp: "LProp3d_CurveTool::D3(@)",
-                                  header: "LProp3d_CurveTool.hxx".}
-proc continuity*(c: Handle[Adaptor3dHCurve]): StandardInteger {.
+proc D2*(C: handle[Adaptor3d_HCurve]; U: Standard_Real; P: var gp_Pnt; V1: var gp_Vec;
+        V2: var gp_Vec) {.importcpp: "LProp3d_CurveTool::D2(@)",
+                       header: "LProp3d_CurveTool.hxx".}
+proc D3*(C: handle[Adaptor3d_HCurve]; U: Standard_Real; P: var gp_Pnt; V1: var gp_Vec;
+        V2: var gp_Vec; V3: var gp_Vec) {.importcpp: "LProp3d_CurveTool::D3(@)",
+                                    header: "LProp3d_CurveTool.hxx".}
+proc Continuity*(C: handle[Adaptor3d_HCurve]): Standard_Integer {.
     importcpp: "LProp3d_CurveTool::Continuity(@)", header: "LProp3d_CurveTool.hxx".}
-proc firstParameter*(c: Handle[Adaptor3dHCurve]): StandardReal {.
+proc FirstParameter*(C: handle[Adaptor3d_HCurve]): Standard_Real {.
     importcpp: "LProp3d_CurveTool::FirstParameter(@)",
     header: "LProp3d_CurveTool.hxx".}
-proc lastParameter*(c: Handle[Adaptor3dHCurve]): StandardReal {.
+proc LastParameter*(C: handle[Adaptor3d_HCurve]): Standard_Real {.
     importcpp: "LProp3d_CurveTool::LastParameter(@)",
     header: "LProp3d_CurveTool.hxx".}
-

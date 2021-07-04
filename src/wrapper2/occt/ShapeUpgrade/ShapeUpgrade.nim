@@ -14,6 +14,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
+  ../TColGeom/TColGeom_HSequenceOfBoundedCurve,
+  ../TColGeom2d/TColGeom2d_HSequenceOfBoundedCurve
+
 discard "forward decl of Geom_BSplineCurve"
 discard "forward decl of Geom2d_BSplineCurve"
 discard "forward decl of ShapeUpgrade_Tool"
@@ -62,12 +68,11 @@ type
                                                                                    ## shape
 
 
-proc c0BSplineToSequenceOfC1BSplineCurve*(bs: Handle[GeomBSplineCurve];
-    seqBS: var Handle[TColGeomHSequenceOfBoundedCurve]): StandardBoolean {.
+proc C0BSplineToSequenceOfC1BSplineCurve*(BS: handle[Geom_BSplineCurve];
+    seqBS: var handle[TColGeom_HSequenceOfBoundedCurve]): Standard_Boolean {.
     importcpp: "ShapeUpgrade::C0BSplineToSequenceOfC1BSplineCurve(@)",
     header: "ShapeUpgrade.hxx".}
-proc c0BSplineToSequenceOfC1BSplineCurve*(bs: Handle[Geom2dBSplineCurve];
-    seqBS: var Handle[TColGeom2dHSequenceOfBoundedCurve]): StandardBoolean {.
+proc C0BSplineToSequenceOfC1BSplineCurve*(BS: handle[Geom2d_BSplineCurve];
+    seqBS: var handle[TColGeom2d_HSequenceOfBoundedCurve]): Standard_Boolean {.
     importcpp: "ShapeUpgrade::C0BSplineToSequenceOfC1BSplineCurve(@)",
     header: "ShapeUpgrade.hxx".}
-

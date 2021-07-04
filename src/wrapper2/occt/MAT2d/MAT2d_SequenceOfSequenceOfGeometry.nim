@@ -14,8 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../TColGeom2d/TColGeom2d_SequenceOfGeometry,
+  ../NCollection/NCollection_Sequence
+
 type
-  MAT2dSequenceOfSequenceOfGeometry* = NCollectionSequence[
-      TColGeom2dSequenceOfGeometry]
-
-
+  MAT2d_SequenceOfSequenceOfGeometry* = NCollection_Sequence[
+      TColGeom2d_SequenceOfGeometry]

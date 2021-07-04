@@ -13,31 +13,34 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  Prs3d_ToolQuadric
+
 ## ! Standard presentation algorithm that outputs graphical primitives for torus surface.
 
 type
-  Prs3dToolTorus* {.importcpp: "Prs3d_ToolTorus", header: "Prs3d_ToolTorus.hxx",
-                   bycopy.} = object of Prs3dToolQuadric ## ! Generate primitives for 3D quadric surface (complete torus).
-                                                    ## ! @param theMajorRad [in] distance from the center of the pipe to the center of the torus
-                                                    ## ! @param theMinorRad [in] radius of the pipe
-                                                    ## ! @param theNbSlices [in] number of slices within U parameter
-                                                    ## ! @param theNbStacks [in] number of stacks within V parameter
-                                                    ## ! @param theTrsf     [in] optional transformation to apply
-                                                    ## ! @return generated triangulation
-                                                    ## ! Initializes the algorithm creating a complete torus.
-                                                    ## ! @param theMajorRad [in] distance from the center of the pipe to the center of the torus
-                                                    ## ! @param theMinorRad [in] radius of the pipe
-                                                    ## ! @param theNbSlices [in] number of slices within U parameter
-                                                    ## ! @param theNbStacks [in] number of stacks within V parameter
-                                                    ## ! Initialisation
-                                                    ## ! @param theMajorRad [in] distance from the center of the pipe to the center of the torus
-                                                    ## ! @param theMinorRad [in] radius of the pipe
-                                                    ## ! @param theAngle1   [in] first  angle to create a torus ring segment
-                                                    ## ! @param theAngle2   [in] second angle to create a torus ring segment
-                                                    ## ! @param theAngle    [in] angle to create a torus pipe segment
-                                                    ## ! @param theNbSlices [in] number of slices within U parameter
-                                                    ## ! @param theNbStacks [in] number of stacks within V parameter
-                                                    ## ! Computes vertex at given parameter location of the surface.
+  Prs3d_ToolTorus* {.importcpp: "Prs3d_ToolTorus", header: "Prs3d_ToolTorus.hxx",
+                    bycopy.} = object of Prs3d_ToolQuadric ## ! Generate primitives for 3D quadric surface (complete torus).
+                                                      ## ! @param theMajorRad [in] distance from the center of the pipe to the center of the torus
+                                                      ## ! @param theMinorRad [in] radius of the pipe
+                                                      ## ! @param theNbSlices [in] number of slices within U parameter
+                                                      ## ! @param theNbStacks [in] number of stacks within V parameter
+                                                      ## ! @param theTrsf     [in] optional transformation to apply
+                                                      ## ! @return generated triangulation
+                                                      ## ! Initializes the algorithm creating a complete torus.
+                                                      ## ! @param theMajorRad [in] distance from the center of the pipe to the center of the torus
+                                                      ## ! @param theMinorRad [in] radius of the pipe
+                                                      ## ! @param theNbSlices [in] number of slices within U parameter
+                                                      ## ! @param theNbStacks [in] number of stacks within V parameter
+                                                      ## ! Initialisation
+                                                      ## ! @param theMajorRad [in] distance from the center of the pipe to the center of the torus
+                                                      ## ! @param theMinorRad [in] radius of the pipe
+                                                      ## ! @param theAngle1   [in] first  angle to create a torus ring segment
+                                                      ## ! @param theAngle2   [in] second angle to create a torus ring segment
+                                                      ## ! @param theAngle    [in] angle to create a torus pipe segment
+                                                      ## ! @param theNbSlices [in] number of slices within U parameter
+                                                      ## ! @param theNbStacks [in] number of stacks within V parameter
+                                                      ## ! Computes vertex at given parameter location of the surface.
     ## !< distance from the center of the pipe to the center of the torus
     ## !< radius of the pipe
     ## !< angle to create a torus pipe segment
@@ -45,42 +48,46 @@ type
     ## !< second angle to create a torus ring segment
 
 
-proc create*(theMajorRad: StandardReal; theMinorRad: StandardReal;
-            theNbSlices: StandardInteger; theNbStacks: StandardInteger;
-            theTrsf: GpTrsf): Handle[Graphic3dArrayOfTriangles] {.
+proc Create*(theMajorRad: Standard_Real; theMinorRad: Standard_Real;
+            theNbSlices: Standard_Integer; theNbStacks: Standard_Integer;
+            theTrsf: gp_Trsf): handle[Graphic3d_ArrayOfTriangles] {.
     importcpp: "Prs3d_ToolTorus::Create(@)", header: "Prs3d_ToolTorus.hxx".}
-proc create*(theMajorRad: StandardReal; theMinorRad: StandardReal;
-            theAngle: StandardReal; theNbSlices: StandardInteger;
-            theNbStacks: StandardInteger; theTrsf: GpTrsf): Handle[
-    Graphic3dArrayOfTriangles] {.importcpp: "Prs3d_ToolTorus::Create(@)",
-                                header: "Prs3d_ToolTorus.hxx".}
-proc create*(theMajorRad: StandardReal; theMinorRad: StandardReal;
-            theAngle1: StandardReal; theAngle2: StandardReal;
-            theNbSlices: StandardInteger; theNbStacks: StandardInteger;
-            theTrsf: GpTrsf): Handle[Graphic3dArrayOfTriangles] {.
+proc Create*(theMajorRad: Standard_Real; theMinorRad: Standard_Real;
+            theAngle: Standard_Real; theNbSlices: Standard_Integer;
+            theNbStacks: Standard_Integer; theTrsf: gp_Trsf): handle[
+    Graphic3d_ArrayOfTriangles] {.importcpp: "Prs3d_ToolTorus::Create(@)",
+                                 header: "Prs3d_ToolTorus.hxx".}
+proc Create*(theMajorRad: Standard_Real; theMinorRad: Standard_Real;
+            theAngle1: Standard_Real; theAngle2: Standard_Real;
+            theNbSlices: Standard_Integer; theNbStacks: Standard_Integer;
+            theTrsf: gp_Trsf): handle[Graphic3d_ArrayOfTriangles] {.
     importcpp: "Prs3d_ToolTorus::Create(@)", header: "Prs3d_ToolTorus.hxx".}
-proc create*(theMajorRad: StandardReal; theMinorRad: StandardReal;
-            theAngle1: StandardReal; theAngle2: StandardReal;
-            theAngle: StandardReal; theNbSlices: StandardInteger;
-            theNbStacks: StandardInteger; theTrsf: GpTrsf): Handle[
-    Graphic3dArrayOfTriangles] {.importcpp: "Prs3d_ToolTorus::Create(@)",
-                                header: "Prs3d_ToolTorus.hxx".}
-proc constructPrs3dToolTorus*(theMajorRad: StandardReal; theMinorRad: StandardReal;
-                             theNbSlices: StandardInteger;
-                             theNbStacks: StandardInteger): Prs3dToolTorus {.
+proc Create*(theMajorRad: Standard_Real; theMinorRad: Standard_Real;
+            theAngle1: Standard_Real; theAngle2: Standard_Real;
+            theAngle: Standard_Real; theNbSlices: Standard_Integer;
+            theNbStacks: Standard_Integer; theTrsf: gp_Trsf): handle[
+    Graphic3d_ArrayOfTriangles] {.importcpp: "Prs3d_ToolTorus::Create(@)",
+                                 header: "Prs3d_ToolTorus.hxx".}
+proc constructPrs3d_ToolTorus*(theMajorRad: Standard_Real;
+                              theMinorRad: Standard_Real;
+                              theNbSlices: Standard_Integer;
+                              theNbStacks: Standard_Integer): Prs3d_ToolTorus {.
     constructor, importcpp: "Prs3d_ToolTorus(@)", header: "Prs3d_ToolTorus.hxx".}
-proc constructPrs3dToolTorus*(theMajorRad: StandardReal; theMinorRad: StandardReal;
-                             theAngle: StandardReal; theNbSlices: StandardInteger;
-                             theNbStacks: StandardInteger): Prs3dToolTorus {.
+proc constructPrs3d_ToolTorus*(theMajorRad: Standard_Real;
+                              theMinorRad: Standard_Real; theAngle: Standard_Real;
+                              theNbSlices: Standard_Integer;
+                              theNbStacks: Standard_Integer): Prs3d_ToolTorus {.
     constructor, importcpp: "Prs3d_ToolTorus(@)", header: "Prs3d_ToolTorus.hxx".}
-proc constructPrs3dToolTorus*(theMajorRad: StandardReal; theMinorRad: StandardReal;
-                             theAngle1: StandardReal; theAngle2: StandardReal;
-                             theNbSlices: StandardInteger;
-                             theNbStacks: StandardInteger): Prs3dToolTorus {.
+proc constructPrs3d_ToolTorus*(theMajorRad: Standard_Real;
+                              theMinorRad: Standard_Real;
+                              theAngle1: Standard_Real; theAngle2: Standard_Real;
+                              theNbSlices: Standard_Integer;
+                              theNbStacks: Standard_Integer): Prs3d_ToolTorus {.
     constructor, importcpp: "Prs3d_ToolTorus(@)", header: "Prs3d_ToolTorus.hxx".}
-proc constructPrs3dToolTorus*(theMajorRad: StandardReal; theMinorRad: StandardReal;
-                             theAngle1: StandardReal; theAngle2: StandardReal;
-                             theAngle: StandardReal; theNbSlices: StandardInteger;
-                             theNbStacks: StandardInteger): Prs3dToolTorus {.
+proc constructPrs3d_ToolTorus*(theMajorRad: Standard_Real;
+                              theMinorRad: Standard_Real;
+                              theAngle1: Standard_Real; theAngle2: Standard_Real;
+                              theAngle: Standard_Real;
+                              theNbSlices: Standard_Integer;
+                              theNbStacks: Standard_Integer): Prs3d_ToolTorus {.
     constructor, importcpp: "Prs3d_ToolTorus(@)", header: "Prs3d_ToolTorus.hxx".}
-

@@ -14,10 +14,13 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard_Integer, ../Adaptor2d/Adaptor2d_HCurve2d,
+  ../TColStd/TColStd_MapIntegerHasher, ../NCollection/NCollection_DataMap
+
 type
-  ChFiKPartRstMap* = NCollectionDataMap[StandardInteger, Handle[Adaptor2dHCurve2d],
-                                      TColStdMapIntegerHasher]
-  ChFiKPartDataMapIteratorOfRstMap* = Iterator[StandardInteger,
-      Handle[Adaptor2dHCurve2d], TColStdMapIntegerHasher]
-
-
+  ChFiKPart_RstMap* = NCollection_DataMap[Standard_Integer,
+                                        handle[Adaptor2d_HCurve2d],
+                                        TColStd_MapIntegerHasher]
+  ChFiKPart_DataMapIteratorOfRstMap* = Iterator[Standard_Integer,
+      handle[Adaptor2d_HCurve2d], TColStd_MapIntegerHasher]

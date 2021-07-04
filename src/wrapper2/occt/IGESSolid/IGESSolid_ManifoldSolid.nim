@@ -14,13 +14,18 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Boolean,
+  IGESSolid_HArray1OfShell, ../TColStd/TColStd_HArray1OfInteger,
+  ../IGESData/IGESData_IGESEntity, ../Standard/Standard_Integer
+
 discard "forward decl of IGESSolid_Shell"
 discard "forward decl of Standard_DimensionMismatch"
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of IGESSolid_ManifoldSolid"
 discard "forward decl of IGESSolid_ManifoldSolid"
 type
-  HandleIGESSolidManifoldSolid* = Handle[IGESSolidManifoldSolid]
+  Handle_IGESSolid_ManifoldSolid* = handle[IGESSolid_ManifoldSolid]
 
 ## ! defines ManifoldSolid, Type <186> Form Number <0>
 ## ! in package IGESSolid
@@ -28,36 +33,37 @@ type
 ## ! in three dimensional Euclidean space
 
 type
-  IGESSolidManifoldSolid* {.importcpp: "IGESSolid_ManifoldSolid",
-                           header: "IGESSolid_ManifoldSolid.hxx", bycopy.} = object of IGESDataIGESEntity
+  IGESSolid_ManifoldSolid* {.importcpp: "IGESSolid_ManifoldSolid",
+                            header: "IGESSolid_ManifoldSolid.hxx", bycopy.} = object of IGESData_IGESEntity
 
 
-proc constructIGESSolidManifoldSolid*(): IGESSolidManifoldSolid {.constructor,
+proc constructIGESSolid_ManifoldSolid*(): IGESSolid_ManifoldSolid {.constructor,
     importcpp: "IGESSolid_ManifoldSolid(@)", header: "IGESSolid_ManifoldSolid.hxx".}
-proc init*(this: var IGESSolidManifoldSolid; aShell: Handle[IGESSolidShell];
-          shellflag: StandardBoolean; voidShells: Handle[IGESSolidHArray1OfShell];
-          voidShellFlags: Handle[TColStdHArray1OfInteger]) {.importcpp: "Init",
+proc Init*(this: var IGESSolid_ManifoldSolid; aShell: handle[IGESSolid_Shell];
+          shellflag: Standard_Boolean;
+          voidShells: handle[IGESSolid_HArray1OfShell];
+          voidShellFlags: handle[TColStd_HArray1OfInteger]) {.importcpp: "Init",
     header: "IGESSolid_ManifoldSolid.hxx".}
-proc shell*(this: IGESSolidManifoldSolid): Handle[IGESSolidShell] {.noSideEffect,
+proc Shell*(this: IGESSolid_ManifoldSolid): handle[IGESSolid_Shell] {.noSideEffect,
     importcpp: "Shell", header: "IGESSolid_ManifoldSolid.hxx".}
-proc orientationFlag*(this: IGESSolidManifoldSolid): StandardBoolean {.noSideEffect,
-    importcpp: "OrientationFlag", header: "IGESSolid_ManifoldSolid.hxx".}
-proc nbVoidShells*(this: IGESSolidManifoldSolid): StandardInteger {.noSideEffect,
+proc OrientationFlag*(this: IGESSolid_ManifoldSolid): Standard_Boolean {.
+    noSideEffect, importcpp: "OrientationFlag",
+    header: "IGESSolid_ManifoldSolid.hxx".}
+proc NbVoidShells*(this: IGESSolid_ManifoldSolid): Standard_Integer {.noSideEffect,
     importcpp: "NbVoidShells", header: "IGESSolid_ManifoldSolid.hxx".}
-proc voidShell*(this: IGESSolidManifoldSolid; index: StandardInteger): Handle[
-    IGESSolidShell] {.noSideEffect, importcpp: "VoidShell",
-                     header: "IGESSolid_ManifoldSolid.hxx".}
-proc voidOrientationFlag*(this: IGESSolidManifoldSolid; index: StandardInteger): StandardBoolean {.
+proc VoidShell*(this: IGESSolid_ManifoldSolid; Index: Standard_Integer): handle[
+    IGESSolid_Shell] {.noSideEffect, importcpp: "VoidShell",
+                      header: "IGESSolid_ManifoldSolid.hxx".}
+proc VoidOrientationFlag*(this: IGESSolid_ManifoldSolid; Index: Standard_Integer): Standard_Boolean {.
     noSideEffect, importcpp: "VoidOrientationFlag",
     header: "IGESSolid_ManifoldSolid.hxx".}
 type
-  IGESSolidManifoldSolidbaseType* = IGESDataIGESEntity
+  IGESSolid_ManifoldSolidbase_type* = IGESData_IGESEntity
 
-proc getTypeName*(): cstring {.importcpp: "IGESSolid_ManifoldSolid::get_type_name(@)",
-                            header: "IGESSolid_ManifoldSolid.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "IGESSolid_ManifoldSolid::get_type_name(@)",
+                              header: "IGESSolid_ManifoldSolid.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "IGESSolid_ManifoldSolid::get_type_descriptor(@)",
     header: "IGESSolid_ManifoldSolid.hxx".}
-proc dynamicType*(this: IGESSolidManifoldSolid): Handle[StandardType] {.
+proc DynamicType*(this: IGESSolid_ManifoldSolid): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType", header: "IGESSolid_ManifoldSolid.hxx".}
-

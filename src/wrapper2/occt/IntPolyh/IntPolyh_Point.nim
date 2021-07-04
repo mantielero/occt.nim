@@ -14,78 +14,82 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Real,
+  ../Standard/Standard_Integer, ../Standard/Standard_Boolean
+
 discard "forward decl of Adaptor3d_HSurface"
 type
-  IntPolyhPoint* {.importcpp: "IntPolyh_Point", header: "IntPolyh_Point.hxx", bycopy.} = object ##
-                                                                                        ## !
-                                                                                        ## Constructor
+  IntPolyh_Point* {.importcpp: "IntPolyh_Point", header: "IntPolyh_Point.hxx", bycopy.} = object ##
+                                                                                         ## !
+                                                                                         ## Constructor
 
 
-proc constructIntPolyhPoint*(): IntPolyhPoint {.constructor,
+proc constructIntPolyh_Point*(): IntPolyh_Point {.constructor,
     importcpp: "IntPolyh_Point(@)", header: "IntPolyh_Point.hxx".}
-proc constructIntPolyhPoint*(x: StandardReal; y: StandardReal; z: StandardReal;
-                            u: StandardReal; v: StandardReal): IntPolyhPoint {.
+proc constructIntPolyh_Point*(x: Standard_Real; y: Standard_Real; z: Standard_Real;
+                             u: Standard_Real; v: Standard_Real): IntPolyh_Point {.
     constructor, importcpp: "IntPolyh_Point(@)", header: "IntPolyh_Point.hxx".}
-proc x*(this: IntPolyhPoint): StandardReal {.noSideEffect, importcpp: "X",
+proc X*(this: IntPolyh_Point): Standard_Real {.noSideEffect, importcpp: "X",
     header: "IntPolyh_Point.hxx".}
-proc y*(this: IntPolyhPoint): StandardReal {.noSideEffect, importcpp: "Y",
+proc Y*(this: IntPolyh_Point): Standard_Real {.noSideEffect, importcpp: "Y",
     header: "IntPolyh_Point.hxx".}
-proc z*(this: IntPolyhPoint): StandardReal {.noSideEffect, importcpp: "Z",
+proc Z*(this: IntPolyh_Point): Standard_Real {.noSideEffect, importcpp: "Z",
     header: "IntPolyh_Point.hxx".}
-proc u*(this: IntPolyhPoint): StandardReal {.noSideEffect, importcpp: "U",
+proc U*(this: IntPolyh_Point): Standard_Real {.noSideEffect, importcpp: "U",
     header: "IntPolyh_Point.hxx".}
-proc v*(this: IntPolyhPoint): StandardReal {.noSideEffect, importcpp: "V",
+proc V*(this: IntPolyh_Point): Standard_Real {.noSideEffect, importcpp: "V",
     header: "IntPolyh_Point.hxx".}
-proc partOfCommon*(this: IntPolyhPoint): StandardInteger {.noSideEffect,
+proc PartOfCommon*(this: IntPolyh_Point): Standard_Integer {.noSideEffect,
     importcpp: "PartOfCommon", header: "IntPolyh_Point.hxx".}
-proc set*(this: var IntPolyhPoint; x: StandardReal; y: StandardReal; z: StandardReal;
-         u: StandardReal; v: StandardReal; ii: StandardInteger = 1) {.importcpp: "Set",
+proc Set*(this: var IntPolyh_Point; x: Standard_Real; y: Standard_Real;
+         z: Standard_Real; u: Standard_Real; v: Standard_Real;
+         II: Standard_Integer = 1) {.importcpp: "Set", header: "IntPolyh_Point.hxx".}
+proc SetX*(this: var IntPolyh_Point; x: Standard_Real) {.importcpp: "SetX",
     header: "IntPolyh_Point.hxx".}
-proc setX*(this: var IntPolyhPoint; x: StandardReal) {.importcpp: "SetX",
+proc SetY*(this: var IntPolyh_Point; y: Standard_Real) {.importcpp: "SetY",
     header: "IntPolyh_Point.hxx".}
-proc setY*(this: var IntPolyhPoint; y: StandardReal) {.importcpp: "SetY",
+proc SetZ*(this: var IntPolyh_Point; z: Standard_Real) {.importcpp: "SetZ",
     header: "IntPolyh_Point.hxx".}
-proc setZ*(this: var IntPolyhPoint; z: StandardReal) {.importcpp: "SetZ",
+proc SetU*(this: var IntPolyh_Point; u: Standard_Real) {.importcpp: "SetU",
     header: "IntPolyh_Point.hxx".}
-proc setU*(this: var IntPolyhPoint; u: StandardReal) {.importcpp: "SetU",
+proc SetV*(this: var IntPolyh_Point; v: Standard_Real) {.importcpp: "SetV",
     header: "IntPolyh_Point.hxx".}
-proc setV*(this: var IntPolyhPoint; v: StandardReal) {.importcpp: "SetV",
-    header: "IntPolyh_Point.hxx".}
-proc setPartOfCommon*(this: var IntPolyhPoint; ii: StandardInteger) {.
+proc SetPartOfCommon*(this: var IntPolyh_Point; ii: Standard_Integer) {.
     importcpp: "SetPartOfCommon", header: "IntPolyh_Point.hxx".}
-proc middle*(this: var IntPolyhPoint; mySurface: Handle[Adaptor3dHSurface];
-            p1: IntPolyhPoint; p2: IntPolyhPoint) {.importcpp: "Middle",
+proc Middle*(this: var IntPolyh_Point; MySurface: handle[Adaptor3d_HSurface];
+            P1: IntPolyh_Point; P2: IntPolyh_Point) {.importcpp: "Middle",
     header: "IntPolyh_Point.hxx".}
-proc add*(this: IntPolyhPoint; p1: IntPolyhPoint): IntPolyhPoint {.noSideEffect,
+proc Add*(this: IntPolyh_Point; P1: IntPolyh_Point): IntPolyh_Point {.noSideEffect,
     importcpp: "Add", header: "IntPolyh_Point.hxx".}
-proc `+`*(this: IntPolyhPoint; p1: IntPolyhPoint): IntPolyhPoint {.noSideEffect,
+proc `+`*(this: IntPolyh_Point; P1: IntPolyh_Point): IntPolyh_Point {.noSideEffect,
     importcpp: "(# + #)", header: "IntPolyh_Point.hxx".}
-proc sub*(this: IntPolyhPoint; p1: IntPolyhPoint): IntPolyhPoint {.noSideEffect,
+proc Sub*(this: IntPolyh_Point; P1: IntPolyh_Point): IntPolyh_Point {.noSideEffect,
     importcpp: "Sub", header: "IntPolyh_Point.hxx".}
-proc `-`*(this: IntPolyhPoint; p1: IntPolyhPoint): IntPolyhPoint {.noSideEffect,
+proc `-`*(this: IntPolyh_Point; P1: IntPolyh_Point): IntPolyh_Point {.noSideEffect,
     importcpp: "(# - #)", header: "IntPolyh_Point.hxx".}
-proc divide*(this: IntPolyhPoint; rr: StandardReal): IntPolyhPoint {.noSideEffect,
+proc Divide*(this: IntPolyh_Point; rr: Standard_Real): IntPolyh_Point {.noSideEffect,
     importcpp: "Divide", header: "IntPolyh_Point.hxx".}
-proc `/`*(this: IntPolyhPoint; rr: StandardReal): IntPolyhPoint {.noSideEffect,
+proc `/`*(this: IntPolyh_Point; rr: Standard_Real): IntPolyh_Point {.noSideEffect,
     importcpp: "(# / #)", header: "IntPolyh_Point.hxx".}
-proc multiplication*(this: IntPolyhPoint; rr: StandardReal): IntPolyhPoint {.
+proc Multiplication*(this: IntPolyh_Point; rr: Standard_Real): IntPolyh_Point {.
     noSideEffect, importcpp: "Multiplication", header: "IntPolyh_Point.hxx".}
-proc `*`*(this: IntPolyhPoint; rr: StandardReal): IntPolyhPoint {.noSideEffect,
+proc `*`*(this: IntPolyh_Point; rr: Standard_Real): IntPolyh_Point {.noSideEffect,
     importcpp: "(# * #)", header: "IntPolyh_Point.hxx".}
-proc squareModulus*(this: IntPolyhPoint): StandardReal {.noSideEffect,
+proc SquareModulus*(this: IntPolyh_Point): Standard_Real {.noSideEffect,
     importcpp: "SquareModulus", header: "IntPolyh_Point.hxx".}
-proc squareDistance*(this: IntPolyhPoint; p2: IntPolyhPoint): StandardReal {.
+proc SquareDistance*(this: IntPolyh_Point; P2: IntPolyh_Point): Standard_Real {.
     noSideEffect, importcpp: "SquareDistance", header: "IntPolyh_Point.hxx".}
-proc dot*(this: IntPolyhPoint; p2: IntPolyhPoint): StandardReal {.noSideEffect,
+proc Dot*(this: IntPolyh_Point; P2: IntPolyh_Point): Standard_Real {.noSideEffect,
     importcpp: "Dot", header: "IntPolyh_Point.hxx".}
-proc cross*(this: var IntPolyhPoint; p1: IntPolyhPoint; p2: IntPolyhPoint) {.
+proc Cross*(this: var IntPolyh_Point; P1: IntPolyh_Point; P2: IntPolyh_Point) {.
     importcpp: "Cross", header: "IntPolyh_Point.hxx".}
-proc dump*(this: IntPolyhPoint) {.noSideEffect, importcpp: "Dump",
-                               header: "IntPolyh_Point.hxx".}
-proc dump*(this: IntPolyhPoint; i: StandardInteger) {.noSideEffect, importcpp: "Dump",
-    header: "IntPolyh_Point.hxx".}
-proc setDegenerated*(this: var IntPolyhPoint; theFlag: StandardBoolean) {.
+proc Dump*(this: IntPolyh_Point) {.noSideEffect, importcpp: "Dump",
+                                header: "IntPolyh_Point.hxx".}
+proc Dump*(this: IntPolyh_Point; i: Standard_Integer) {.noSideEffect,
+    importcpp: "Dump", header: "IntPolyh_Point.hxx".}
+proc SetDegenerated*(this: var IntPolyh_Point; theFlag: Standard_Boolean) {.
     importcpp: "SetDegenerated", header: "IntPolyh_Point.hxx".}
-proc degenerated*(this: IntPolyhPoint): StandardBoolean {.noSideEffect,
+proc Degenerated*(this: IntPolyh_Point): Standard_Boolean {.noSideEffect,
     importcpp: "Degenerated", header: "IntPolyh_Point.hxx".}
-

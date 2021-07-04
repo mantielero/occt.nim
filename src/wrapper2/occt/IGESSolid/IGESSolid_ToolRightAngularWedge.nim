@@ -14,6 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 discard "forward decl of Standard_DomainError"
 discard "forward decl of IGESSolid_RightAngularWedge"
 discard "forward decl of IGESData_IGESReaderData"
@@ -26,41 +30,40 @@ discard "forward decl of Interface_Check"
 discard "forward decl of Interface_CopyTool"
 discard "forward decl of IGESData_IGESDumper"
 type
-  IGESSolidToolRightAngularWedge* {.importcpp: "IGESSolid_ToolRightAngularWedge", header: "IGESSolid_ToolRightAngularWedge.hxx",
-                                   bycopy.} = object ## ! Returns a ToolRightAngularWedge, ready to work
+  IGESSolid_ToolRightAngularWedge* {.importcpp: "IGESSolid_ToolRightAngularWedge", header: "IGESSolid_ToolRightAngularWedge.hxx",
+                                    bycopy.} = object ## ! Returns a ToolRightAngularWedge, ready to work
 
 
-proc constructIGESSolidToolRightAngularWedge*(): IGESSolidToolRightAngularWedge {.
+proc constructIGESSolid_ToolRightAngularWedge*(): IGESSolid_ToolRightAngularWedge {.
     constructor, importcpp: "IGESSolid_ToolRightAngularWedge(@)",
     header: "IGESSolid_ToolRightAngularWedge.hxx".}
-proc readOwnParams*(this: IGESSolidToolRightAngularWedge;
-                   ent: Handle[IGESSolidRightAngularWedge];
-                   ir: Handle[IGESDataIGESReaderData]; pr: var IGESDataParamReader) {.
-    noSideEffect, importcpp: "ReadOwnParams",
-    header: "IGESSolid_ToolRightAngularWedge.hxx".}
-proc writeOwnParams*(this: IGESSolidToolRightAngularWedge;
-                    ent: Handle[IGESSolidRightAngularWedge];
-                    iw: var IGESDataIGESWriter) {.noSideEffect,
+proc ReadOwnParams*(this: IGESSolid_ToolRightAngularWedge;
+                   ent: handle[IGESSolid_RightAngularWedge];
+                   IR: handle[IGESData_IGESReaderData];
+                   PR: var IGESData_ParamReader) {.noSideEffect,
+    importcpp: "ReadOwnParams", header: "IGESSolid_ToolRightAngularWedge.hxx".}
+proc WriteOwnParams*(this: IGESSolid_ToolRightAngularWedge;
+                    ent: handle[IGESSolid_RightAngularWedge];
+                    IW: var IGESData_IGESWriter) {.noSideEffect,
     importcpp: "WriteOwnParams", header: "IGESSolid_ToolRightAngularWedge.hxx".}
-proc ownShared*(this: IGESSolidToolRightAngularWedge;
-               ent: Handle[IGESSolidRightAngularWedge];
-               iter: var InterfaceEntityIterator) {.noSideEffect,
+proc OwnShared*(this: IGESSolid_ToolRightAngularWedge;
+               ent: handle[IGESSolid_RightAngularWedge];
+               iter: var Interface_EntityIterator) {.noSideEffect,
     importcpp: "OwnShared", header: "IGESSolid_ToolRightAngularWedge.hxx".}
-proc dirChecker*(this: IGESSolidToolRightAngularWedge;
-                ent: Handle[IGESSolidRightAngularWedge]): IGESDataDirChecker {.
+proc DirChecker*(this: IGESSolid_ToolRightAngularWedge;
+                ent: handle[IGESSolid_RightAngularWedge]): IGESData_DirChecker {.
     noSideEffect, importcpp: "DirChecker",
     header: "IGESSolid_ToolRightAngularWedge.hxx".}
-proc ownCheck*(this: IGESSolidToolRightAngularWedge;
-              ent: Handle[IGESSolidRightAngularWedge]; shares: InterfaceShareTool;
-              ach: var Handle[InterfaceCheck]) {.noSideEffect,
-    importcpp: "OwnCheck", header: "IGESSolid_ToolRightAngularWedge.hxx".}
-proc ownCopy*(this: IGESSolidToolRightAngularWedge;
-             entfrom: Handle[IGESSolidRightAngularWedge];
-             entto: Handle[IGESSolidRightAngularWedge]; tc: var InterfaceCopyTool) {.
-    noSideEffect, importcpp: "OwnCopy",
+proc OwnCheck*(this: IGESSolid_ToolRightAngularWedge;
+              ent: handle[IGESSolid_RightAngularWedge];
+              shares: Interface_ShareTool; ach: var handle[Interface_Check]) {.
+    noSideEffect, importcpp: "OwnCheck",
     header: "IGESSolid_ToolRightAngularWedge.hxx".}
-proc ownDump*(this: IGESSolidToolRightAngularWedge;
-             ent: Handle[IGESSolidRightAngularWedge]; dumper: IGESDataIGESDumper;
-             s: var StandardOStream; own: StandardInteger) {.noSideEffect,
-    importcpp: "OwnDump", header: "IGESSolid_ToolRightAngularWedge.hxx".}
-
+proc OwnCopy*(this: IGESSolid_ToolRightAngularWedge;
+             entfrom: handle[IGESSolid_RightAngularWedge];
+             entto: handle[IGESSolid_RightAngularWedge];
+             TC: var Interface_CopyTool) {.noSideEffect, importcpp: "OwnCopy", header: "IGESSolid_ToolRightAngularWedge.hxx".}
+proc OwnDump*(this: IGESSolid_ToolRightAngularWedge;
+             ent: handle[IGESSolid_RightAngularWedge];
+             dumper: IGESData_IGESDumper; S: var Standard_OStream;
+             own: Standard_Integer) {.noSideEffect, importcpp: "OwnDump", header: "IGESSolid_ToolRightAngularWedge.hxx".}

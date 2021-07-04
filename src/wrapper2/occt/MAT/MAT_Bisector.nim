@@ -14,82 +14,85 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Integer,
+  ../Standard/Standard_Real, ../Standard/Standard_Transient
+
 discard "forward decl of MAT_Edge"
 discard "forward decl of MAT_ListOfBisector"
 discard "forward decl of MAT_Bisector"
 discard "forward decl of MAT_Bisector"
 type
-  HandleMAT_Bisector* = Handle[MAT_Bisector]
-  MAT_Bisector* {.importcpp: "MAT_Bisector", header: "MAT_Bisector.hxx", bycopy.} = object of StandardTransient
+  Handle_MAT_Bisector* = handle[MAT_Bisector]
+  MAT_Bisector* {.importcpp: "MAT_Bisector", header: "MAT_Bisector.hxx", bycopy.} = object of Standard_Transient
 
 
 proc constructMAT_Bisector*(): MAT_Bisector {.constructor,
     importcpp: "MAT_Bisector(@)", header: "MAT_Bisector.hxx".}
-proc addBisector*(this: MAT_Bisector; abisector: Handle[MAT_Bisector]) {.
+proc AddBisector*(this: MAT_Bisector; abisector: handle[MAT_Bisector]) {.
     noSideEffect, importcpp: "AddBisector", header: "MAT_Bisector.hxx".}
-proc list*(this: MAT_Bisector): Handle[MAT_ListOfBisector] {.noSideEffect,
+proc List*(this: MAT_Bisector): handle[MAT_ListOfBisector] {.noSideEffect,
     importcpp: "List", header: "MAT_Bisector.hxx".}
-proc firstBisector*(this: MAT_Bisector): Handle[MAT_Bisector] {.noSideEffect,
+proc FirstBisector*(this: MAT_Bisector): handle[MAT_Bisector] {.noSideEffect,
     importcpp: "FirstBisector", header: "MAT_Bisector.hxx".}
-proc lastBisector*(this: MAT_Bisector): Handle[MAT_Bisector] {.noSideEffect,
+proc LastBisector*(this: MAT_Bisector): handle[MAT_Bisector] {.noSideEffect,
     importcpp: "LastBisector", header: "MAT_Bisector.hxx".}
-proc bisectorNumber*(this: var MAT_Bisector; anumber: StandardInteger) {.
+proc BisectorNumber*(this: var MAT_Bisector; anumber: Standard_Integer) {.
     importcpp: "BisectorNumber", header: "MAT_Bisector.hxx".}
-proc indexNumber*(this: var MAT_Bisector; anumber: StandardInteger) {.
+proc IndexNumber*(this: var MAT_Bisector; anumber: Standard_Integer) {.
     importcpp: "IndexNumber", header: "MAT_Bisector.hxx".}
-proc firstEdge*(this: var MAT_Bisector; anedge: Handle[MAT_Edge]) {.
+proc FirstEdge*(this: var MAT_Bisector; anedge: handle[MAT_Edge]) {.
     importcpp: "FirstEdge", header: "MAT_Bisector.hxx".}
-proc secondEdge*(this: var MAT_Bisector; anedge: Handle[MAT_Edge]) {.
+proc SecondEdge*(this: var MAT_Bisector; anedge: handle[MAT_Edge]) {.
     importcpp: "SecondEdge", header: "MAT_Bisector.hxx".}
-proc issuePoint*(this: var MAT_Bisector; apoint: StandardInteger) {.
+proc IssuePoint*(this: var MAT_Bisector; apoint: Standard_Integer) {.
     importcpp: "IssuePoint", header: "MAT_Bisector.hxx".}
-proc endPoint*(this: var MAT_Bisector; apoint: StandardInteger) {.
+proc EndPoint*(this: var MAT_Bisector; apoint: Standard_Integer) {.
     importcpp: "EndPoint", header: "MAT_Bisector.hxx".}
-proc distIssuePoint*(this: var MAT_Bisector; areal: StandardReal) {.
+proc DistIssuePoint*(this: var MAT_Bisector; areal: Standard_Real) {.
     importcpp: "DistIssuePoint", header: "MAT_Bisector.hxx".}
-proc firstVector*(this: var MAT_Bisector; avector: StandardInteger) {.
+proc FirstVector*(this: var MAT_Bisector; avector: Standard_Integer) {.
     importcpp: "FirstVector", header: "MAT_Bisector.hxx".}
-proc secondVector*(this: var MAT_Bisector; avector: StandardInteger) {.
+proc SecondVector*(this: var MAT_Bisector; avector: Standard_Integer) {.
     importcpp: "SecondVector", header: "MAT_Bisector.hxx".}
-proc sense*(this: var MAT_Bisector; asense: StandardReal) {.importcpp: "Sense",
+proc Sense*(this: var MAT_Bisector; asense: Standard_Real) {.importcpp: "Sense",
     header: "MAT_Bisector.hxx".}
-proc firstParameter*(this: var MAT_Bisector; aparameter: StandardReal) {.
+proc FirstParameter*(this: var MAT_Bisector; aparameter: Standard_Real) {.
     importcpp: "FirstParameter", header: "MAT_Bisector.hxx".}
-proc secondParameter*(this: var MAT_Bisector; aparameter: StandardReal) {.
+proc SecondParameter*(this: var MAT_Bisector; aparameter: Standard_Real) {.
     importcpp: "SecondParameter", header: "MAT_Bisector.hxx".}
-proc bisectorNumber*(this: MAT_Bisector): StandardInteger {.noSideEffect,
+proc BisectorNumber*(this: MAT_Bisector): Standard_Integer {.noSideEffect,
     importcpp: "BisectorNumber", header: "MAT_Bisector.hxx".}
-proc indexNumber*(this: MAT_Bisector): StandardInteger {.noSideEffect,
+proc IndexNumber*(this: MAT_Bisector): Standard_Integer {.noSideEffect,
     importcpp: "IndexNumber", header: "MAT_Bisector.hxx".}
-proc firstEdge*(this: MAT_Bisector): Handle[MAT_Edge] {.noSideEffect,
+proc FirstEdge*(this: MAT_Bisector): handle[MAT_Edge] {.noSideEffect,
     importcpp: "FirstEdge", header: "MAT_Bisector.hxx".}
-proc secondEdge*(this: MAT_Bisector): Handle[MAT_Edge] {.noSideEffect,
+proc SecondEdge*(this: MAT_Bisector): handle[MAT_Edge] {.noSideEffect,
     importcpp: "SecondEdge", header: "MAT_Bisector.hxx".}
-proc issuePoint*(this: MAT_Bisector): StandardInteger {.noSideEffect,
+proc IssuePoint*(this: MAT_Bisector): Standard_Integer {.noSideEffect,
     importcpp: "IssuePoint", header: "MAT_Bisector.hxx".}
-proc endPoint*(this: MAT_Bisector): StandardInteger {.noSideEffect,
+proc EndPoint*(this: MAT_Bisector): Standard_Integer {.noSideEffect,
     importcpp: "EndPoint", header: "MAT_Bisector.hxx".}
-proc distIssuePoint*(this: MAT_Bisector): StandardReal {.noSideEffect,
+proc DistIssuePoint*(this: MAT_Bisector): Standard_Real {.noSideEffect,
     importcpp: "DistIssuePoint", header: "MAT_Bisector.hxx".}
-proc firstVector*(this: MAT_Bisector): StandardInteger {.noSideEffect,
+proc FirstVector*(this: MAT_Bisector): Standard_Integer {.noSideEffect,
     importcpp: "FirstVector", header: "MAT_Bisector.hxx".}
-proc secondVector*(this: MAT_Bisector): StandardInteger {.noSideEffect,
+proc SecondVector*(this: MAT_Bisector): Standard_Integer {.noSideEffect,
     importcpp: "SecondVector", header: "MAT_Bisector.hxx".}
-proc sense*(this: MAT_Bisector): StandardReal {.noSideEffect, importcpp: "Sense",
+proc Sense*(this: MAT_Bisector): Standard_Real {.noSideEffect, importcpp: "Sense",
     header: "MAT_Bisector.hxx".}
-proc firstParameter*(this: MAT_Bisector): StandardReal {.noSideEffect,
+proc FirstParameter*(this: MAT_Bisector): Standard_Real {.noSideEffect,
     importcpp: "FirstParameter", header: "MAT_Bisector.hxx".}
-proc secondParameter*(this: MAT_Bisector): StandardReal {.noSideEffect,
+proc SecondParameter*(this: MAT_Bisector): Standard_Real {.noSideEffect,
     importcpp: "SecondParameter", header: "MAT_Bisector.hxx".}
-proc dump*(this: MAT_Bisector; ashift: StandardInteger; alevel: StandardInteger) {.
+proc Dump*(this: MAT_Bisector; ashift: Standard_Integer; alevel: Standard_Integer) {.
     noSideEffect, importcpp: "Dump", header: "MAT_Bisector.hxx".}
 type
-  MAT_BisectorbaseType* = StandardTransient
+  MAT_Bisectorbase_type* = Standard_Transient
 
-proc getTypeName*(): cstring {.importcpp: "MAT_Bisector::get_type_name(@)",
-                            header: "MAT_Bisector.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "MAT_Bisector::get_type_name(@)",
+                              header: "MAT_Bisector.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "MAT_Bisector::get_type_descriptor(@)", header: "MAT_Bisector.hxx".}
-proc dynamicType*(this: MAT_Bisector): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: MAT_Bisector): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "MAT_Bisector.hxx".}
-

@@ -13,28 +13,31 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepShape_SeamEdge"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepShapeRWSeamEdge* {.importcpp: "RWStepShape_RWSeamEdge",
-                          header: "RWStepShape_RWSeamEdge.hxx", bycopy.} = object ## !
-                                                                             ## Empty
-                                                                             ## constructor
+  RWStepShape_RWSeamEdge* {.importcpp: "RWStepShape_RWSeamEdge",
+                           header: "RWStepShape_RWSeamEdge.hxx", bycopy.} = object ## !
+                                                                              ## Empty
+                                                                              ## constructor
 
 
-proc constructRWStepShapeRWSeamEdge*(): RWStepShapeRWSeamEdge {.constructor,
+proc constructRWStepShape_RWSeamEdge*(): RWStepShape_RWSeamEdge {.constructor,
     importcpp: "RWStepShape_RWSeamEdge(@)", header: "RWStepShape_RWSeamEdge.hxx".}
-proc readStep*(this: RWStepShapeRWSeamEdge; data: Handle[StepDataStepReaderData];
-              num: StandardInteger; ach: var Handle[InterfaceCheck];
-              ent: Handle[StepShapeSeamEdge]) {.noSideEffect,
+proc ReadStep*(this: RWStepShape_RWSeamEdge; data: handle[StepData_StepReaderData];
+              num: Standard_Integer; ach: var handle[Interface_Check];
+              ent: handle[StepShape_SeamEdge]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepShape_RWSeamEdge.hxx".}
-proc writeStep*(this: RWStepShapeRWSeamEdge; sw: var StepDataStepWriter;
-               ent: Handle[StepShapeSeamEdge]) {.noSideEffect,
+proc WriteStep*(this: RWStepShape_RWSeamEdge; SW: var StepData_StepWriter;
+               ent: handle[StepShape_SeamEdge]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepShape_RWSeamEdge.hxx".}
-proc share*(this: RWStepShapeRWSeamEdge; ent: Handle[StepShapeSeamEdge];
-           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
+proc Share*(this: RWStepShape_RWSeamEdge; ent: handle[StepShape_SeamEdge];
+           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepShape_RWSeamEdge.hxx".}
-

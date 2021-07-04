@@ -14,87 +14,92 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Aspect/Aspect_VKey, ../PrsMgr/PrsMgr_PresentationManager,
+  SelectMgr_SelectableObject, ../TopLoc/TopLoc_Location
+
 discard "forward decl of V3d_Viewer"
 type
-  SelectMgrEntityOwner* {.importcpp: "SelectMgr_EntityOwner",
-                         header: "SelectMgr_EntityOwner.hxx", bycopy.} = object of StandardTransient ##
-                                                                                              ## !
-                                                                                              ## Initializes
-                                                                                              ## the
-                                                                                              ## selection
-                                                                                              ## priority
-                                                                                              ## aPriority.
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ## Sets
-                                                                                              ## the
-                                                                                              ## selectable
-                                                                                              ## object.
-    mypriority* {.importc: "mypriority".}: StandardInteger ## !< selection priority (for result with the same depth)
-    myIsSelected* {.importc: "myIsSelected".}: StandardBoolean ## !< flag indicating selected state
-    myFromDecomposition* {.importc: "myFromDecomposition".}: StandardBoolean ## !< flag indicating this owner points to a part of object (TRUE) or to entire object (FALSE)
+  SelectMgr_EntityOwner* {.importcpp: "SelectMgr_EntityOwner",
+                          header: "SelectMgr_EntityOwner.hxx", bycopy.} = object of Standard_Transient ##
+                                                                                                ## !
+                                                                                                ## Initializes
+                                                                                                ## the
+                                                                                                ## selection
+                                                                                                ## priority
+                                                                                                ## aPriority.
+                                                                                                ##
+                                                                                                ## !
+                                                                                                ## Sets
+                                                                                                ## the
+                                                                                                ## selectable
+                                                                                                ## object.
+    mypriority* {.importc: "mypriority".}: Standard_Integer ## !< selection priority (for result with the same depth)
+    myIsSelected* {.importc: "myIsSelected".}: Standard_Boolean ## !< flag indicating selected state
+    myFromDecomposition* {.importc: "myFromDecomposition".}: Standard_Boolean ## !< flag indicating this owner points to a part of object (TRUE) or to entire object (FALSE)
 
-  SelectMgrEntityOwnerbaseType* = StandardTransient
+  SelectMgr_EntityOwnerbase_type* = Standard_Transient
 
-proc getTypeName*(): cstring {.importcpp: "SelectMgr_EntityOwner::get_type_name(@)",
-                            header: "SelectMgr_EntityOwner.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "SelectMgr_EntityOwner::get_type_name(@)",
+                              header: "SelectMgr_EntityOwner.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "SelectMgr_EntityOwner::get_type_descriptor(@)",
     header: "SelectMgr_EntityOwner.hxx".}
-proc dynamicType*(this: SelectMgrEntityOwner): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "SelectMgr_EntityOwner.hxx".}
-proc constructSelectMgrEntityOwner*(aPriority: StandardInteger = 0): SelectMgrEntityOwner {.
+proc DynamicType*(this: SelectMgr_EntityOwner): handle[Standard_Type] {.
+    noSideEffect, importcpp: "DynamicType", header: "SelectMgr_EntityOwner.hxx".}
+proc constructSelectMgr_EntityOwner*(aPriority: Standard_Integer = 0): SelectMgr_EntityOwner {.
     constructor, importcpp: "SelectMgr_EntityOwner(@)",
     header: "SelectMgr_EntityOwner.hxx".}
-proc constructSelectMgrEntityOwner*(aSO: Handle[SelectMgrSelectableObject];
-                                   aPriority: StandardInteger = 0): SelectMgrEntityOwner {.
+proc constructSelectMgr_EntityOwner*(aSO: handle[SelectMgr_SelectableObject];
+                                    aPriority: Standard_Integer = 0): SelectMgr_EntityOwner {.
     constructor, importcpp: "SelectMgr_EntityOwner(@)",
     header: "SelectMgr_EntityOwner.hxx".}
-proc constructSelectMgrEntityOwner*(theOwner: Handle[SelectMgrEntityOwner];
-                                   aPriority: StandardInteger = 0): SelectMgrEntityOwner {.
+proc constructSelectMgr_EntityOwner*(theOwner: handle[SelectMgr_EntityOwner];
+                                    aPriority: Standard_Integer = 0): SelectMgr_EntityOwner {.
     constructor, importcpp: "SelectMgr_EntityOwner(@)",
     header: "SelectMgr_EntityOwner.hxx".}
-proc priority*(this: SelectMgrEntityOwner): StandardInteger {.noSideEffect,
+proc Priority*(this: SelectMgr_EntityOwner): Standard_Integer {.noSideEffect,
     importcpp: "Priority", header: "SelectMgr_EntityOwner.hxx".}
-proc setPriority*(this: var SelectMgrEntityOwner; thePriority: StandardInteger) {.
+proc SetPriority*(this: var SelectMgr_EntityOwner; thePriority: Standard_Integer) {.
     importcpp: "SetPriority", header: "SelectMgr_EntityOwner.hxx".}
-proc hasSelectable*(this: SelectMgrEntityOwner): StandardBoolean {.noSideEffect,
+proc HasSelectable*(this: SelectMgr_EntityOwner): Standard_Boolean {.noSideEffect,
     importcpp: "HasSelectable", header: "SelectMgr_EntityOwner.hxx".}
-proc selectable*(this: SelectMgrEntityOwner): Handle[SelectMgrSelectableObject] {.
+proc Selectable*(this: SelectMgr_EntityOwner): handle[SelectMgr_SelectableObject] {.
     noSideEffect, importcpp: "Selectable", header: "SelectMgr_EntityOwner.hxx".}
-proc setSelectable*(this: var SelectMgrEntityOwner;
-                   theSelObj: Handle[SelectMgrSelectableObject]) {.
+proc SetSelectable*(this: var SelectMgr_EntityOwner;
+                   theSelObj: handle[SelectMgr_SelectableObject]) {.
     importcpp: "SetSelectable", header: "SelectMgr_EntityOwner.hxx".}
-proc handleMouseClick*(this: var SelectMgrEntityOwner; thePoint: Graphic3dVec2i;
-                      theButton: AspectVKeyMouse; theModifiers: AspectVKeyFlags;
-                      theIsDoubleClick: bool): StandardBoolean {.
+proc HandleMouseClick*(this: var SelectMgr_EntityOwner; thePoint: Graphic3d_Vec2i;
+                      theButton: Aspect_VKeyMouse; theModifiers: Aspect_VKeyFlags;
+                      theIsDoubleClick: bool): Standard_Boolean {.
     importcpp: "HandleMouseClick", header: "SelectMgr_EntityOwner.hxx".}
-proc isHilighted*(this: SelectMgrEntityOwner;
-                 thePrsMgr: Handle[PrsMgrPresentationManager];
-                 theMode: StandardInteger = 0): StandardBoolean {.noSideEffect,
+proc IsHilighted*(this: SelectMgr_EntityOwner;
+                 thePrsMgr: handle[PrsMgr_PresentationManager];
+                 theMode: Standard_Integer = 0): Standard_Boolean {.noSideEffect,
     importcpp: "IsHilighted", header: "SelectMgr_EntityOwner.hxx".}
-proc hilightWithColor*(this: var SelectMgrEntityOwner;
-                      thePrsMgr: Handle[PrsMgrPresentationManager];
-                      theStyle: Handle[Prs3dDrawer]; theMode: StandardInteger = 0) {.
+proc HilightWithColor*(this: var SelectMgr_EntityOwner;
+                      thePrsMgr: handle[PrsMgr_PresentationManager];
+                      theStyle: handle[Prs3d_Drawer];
+                      theMode: Standard_Integer = 0) {.
     importcpp: "HilightWithColor", header: "SelectMgr_EntityOwner.hxx".}
-proc unhilight*(this: var SelectMgrEntityOwner;
-               thePrsMgr: Handle[PrsMgrPresentationManager];
-               theMode: StandardInteger = 0) {.importcpp: "Unhilight",
+proc Unhilight*(this: var SelectMgr_EntityOwner;
+               thePrsMgr: handle[PrsMgr_PresentationManager];
+               theMode: Standard_Integer = 0) {.importcpp: "Unhilight",
     header: "SelectMgr_EntityOwner.hxx".}
-proc clear*(this: var SelectMgrEntityOwner;
-           thePrsMgr: Handle[PrsMgrPresentationManager];
-           theMode: StandardInteger = 0) {.importcpp: "Clear",
-                                       header: "SelectMgr_EntityOwner.hxx".}
+proc Clear*(this: var SelectMgr_EntityOwner;
+           thePrsMgr: handle[PrsMgr_PresentationManager];
+           theMode: Standard_Integer = 0) {.importcpp: "Clear",
+                                        header: "SelectMgr_EntityOwner.hxx".}
   ## / TODO
-proc hasLocation*(this: SelectMgrEntityOwner): StandardBoolean {.noSideEffect,
+proc HasLocation*(this: SelectMgr_EntityOwner): Standard_Boolean {.noSideEffect,
     importcpp: "HasLocation", header: "SelectMgr_EntityOwner.hxx".}
-proc location*(this: SelectMgrEntityOwner): TopLocLocation {.noSideEffect,
+proc Location*(this: SelectMgr_EntityOwner): TopLoc_Location {.noSideEffect,
     importcpp: "Location", header: "SelectMgr_EntityOwner.hxx".}
-proc setLocation*(this: var SelectMgrEntityOwner; theLocation: TopLocLocation) {.
+proc SetLocation*(this: var SelectMgr_EntityOwner; theLocation: TopLoc_Location) {.
     importcpp: "SetLocation", header: "SelectMgr_EntityOwner.hxx".}
-proc isSelected*(this: SelectMgrEntityOwner): StandardBoolean {.noSideEffect,
+proc IsSelected*(this: SelectMgr_EntityOwner): Standard_Boolean {.noSideEffect,
     importcpp: "IsSelected", header: "SelectMgr_EntityOwner.hxx".}
-proc setSelected*(this: var SelectMgrEntityOwner; theIsSelected: StandardBoolean) {.
+proc SetSelected*(this: var SelectMgr_EntityOwner; theIsSelected: Standard_Boolean) {.
     importcpp: "SetSelected", header: "SelectMgr_EntityOwner.hxx".}
 ## !!!Ignored construct:  ! Returns selection state. Standard_DEPRECATED ( Deprecated method - IsSelected() should be used instead ) Standard_Integer State ( ) const { return myIsSelected ? 1 : 0 ; } ! Set the state of the owner.
 ## ! The method is deprecated. Use SetSelected() instead. void State ( const Standard_Integer theStatus ) { myIsSelected = ( theStatus == 1 ) ; } ! if owner is not auto hilighted, for group contains many such owners will be called one method HilightSelected of SelectableObject virtual Standard_Boolean IsAutoHilight ( ) const { return mySelectable == NULL || mySelectable -> IsAutoHilight ( ) ; } ! if this method returns TRUE the owner will always call method Hilight for SelectableObject when the owner is detected.
@@ -106,11 +111,9 @@ proc setSelected*(this: var SelectMgrEntityOwner; theIsSelected: StandardBoolean
 
 discard "forward decl of SelectMgr_EntityOwner"
 type
-  HandleSelectMgrEntityOwner* = Handle[SelectMgrEntityOwner]
+  Handle_SelectMgr_EntityOwner* = handle[SelectMgr_EntityOwner]
 
 ##  for porting old code
 
 type
-  SelectBasicsEntityOwner* = SelectMgrEntityOwner
-
-
+  SelectBasics_EntityOwner* = SelectMgr_EntityOwner

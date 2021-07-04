@@ -14,41 +14,47 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Address, ../gp/gp_Lin,
+  ../gp/gp_Pnt, ../Standard/Standard_Real,
+  ../math/math_FunctionSetWithDerivatives, ../Standard/Standard_Integer,
+  ../Standard/Standard_Boolean, ../math/math_Vector
+
 discard "forward decl of HLRBRep_SurfaceTool"
 discard "forward decl of gp_Lin"
 discard "forward decl of HLRBRep_LineTool"
 discard "forward decl of math_Matrix"
 discard "forward decl of gp_Pnt"
 type
-  HLRBRepTheCSFunctionOfInterCSurf* {.importcpp: "HLRBRep_TheCSFunctionOfInterCSurf", header: "HLRBRep_TheCSFunctionOfInterCSurf.hxx",
-                                     bycopy.} = object of MathFunctionSetWithDerivatives
+  HLRBRep_TheCSFunctionOfInterCSurf* {.importcpp: "HLRBRep_TheCSFunctionOfInterCSurf", header: "HLRBRep_TheCSFunctionOfInterCSurf.hxx",
+                                      bycopy.} = object of math_FunctionSetWithDerivatives
 
 
-proc constructHLRBRepTheCSFunctionOfInterCSurf*(s: StandardAddress; c: GpLin): HLRBRepTheCSFunctionOfInterCSurf {.
+proc constructHLRBRep_TheCSFunctionOfInterCSurf*(S: Standard_Address; C: gp_Lin): HLRBRep_TheCSFunctionOfInterCSurf {.
     constructor, importcpp: "HLRBRep_TheCSFunctionOfInterCSurf(@)",
     header: "HLRBRep_TheCSFunctionOfInterCSurf.hxx".}
-proc nbVariables*(this: HLRBRepTheCSFunctionOfInterCSurf): StandardInteger {.
+proc NbVariables*(this: HLRBRep_TheCSFunctionOfInterCSurf): Standard_Integer {.
     noSideEffect, importcpp: "NbVariables",
     header: "HLRBRep_TheCSFunctionOfInterCSurf.hxx".}
-proc nbEquations*(this: HLRBRepTheCSFunctionOfInterCSurf): StandardInteger {.
+proc NbEquations*(this: HLRBRep_TheCSFunctionOfInterCSurf): Standard_Integer {.
     noSideEffect, importcpp: "NbEquations",
     header: "HLRBRep_TheCSFunctionOfInterCSurf.hxx".}
-proc value*(this: var HLRBRepTheCSFunctionOfInterCSurf; x: MathVector;
-           f: var MathVector): StandardBoolean {.importcpp: "Value",
+proc Value*(this: var HLRBRep_TheCSFunctionOfInterCSurf; X: math_Vector;
+           F: var math_Vector): Standard_Boolean {.importcpp: "Value",
     header: "HLRBRep_TheCSFunctionOfInterCSurf.hxx".}
-proc derivatives*(this: var HLRBRepTheCSFunctionOfInterCSurf; x: MathVector;
-                 d: var MathMatrix): StandardBoolean {.importcpp: "Derivatives",
+proc Derivatives*(this: var HLRBRep_TheCSFunctionOfInterCSurf; X: math_Vector;
+                 D: var math_Matrix): Standard_Boolean {.importcpp: "Derivatives",
     header: "HLRBRep_TheCSFunctionOfInterCSurf.hxx".}
-proc values*(this: var HLRBRepTheCSFunctionOfInterCSurf; x: MathVector;
-            f: var MathVector; d: var MathMatrix): StandardBoolean {.
+proc Values*(this: var HLRBRep_TheCSFunctionOfInterCSurf; X: math_Vector;
+            F: var math_Vector; D: var math_Matrix): Standard_Boolean {.
     importcpp: "Values", header: "HLRBRep_TheCSFunctionOfInterCSurf.hxx".}
-proc point*(this: HLRBRepTheCSFunctionOfInterCSurf): GpPnt {.noSideEffect,
+proc Point*(this: HLRBRep_TheCSFunctionOfInterCSurf): gp_Pnt {.noSideEffect,
     importcpp: "Point", header: "HLRBRep_TheCSFunctionOfInterCSurf.hxx".}
-proc root*(this: HLRBRepTheCSFunctionOfInterCSurf): StandardReal {.noSideEffect,
+proc Root*(this: HLRBRep_TheCSFunctionOfInterCSurf): Standard_Real {.noSideEffect,
     importcpp: "Root", header: "HLRBRep_TheCSFunctionOfInterCSurf.hxx".}
-proc auxillarSurface*(this: HLRBRepTheCSFunctionOfInterCSurf): StandardAddress {.
+proc AuxillarSurface*(this: HLRBRep_TheCSFunctionOfInterCSurf): Standard_Address {.
     noSideEffect, importcpp: "AuxillarSurface",
     header: "HLRBRep_TheCSFunctionOfInterCSurf.hxx".}
-proc auxillarCurve*(this: HLRBRepTheCSFunctionOfInterCSurf): GpLin {.noSideEffect,
+proc AuxillarCurve*(this: HLRBRep_TheCSFunctionOfInterCSurf): gp_Lin {.noSideEffect,
     importcpp: "AuxillarCurve", header: "HLRBRep_TheCSFunctionOfInterCSurf.hxx".}
-

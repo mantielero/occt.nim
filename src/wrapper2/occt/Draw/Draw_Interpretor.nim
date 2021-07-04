@@ -14,47 +14,53 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Macro, ../Standard/Standard_Boolean, Draw_PInterp,
+  ../Standard/Standard_SStream, ../Standard/Standard_CString,
+  ../Standard/Standard_Integer, ../Standard/Standard_Real
+
 discard "forward decl of TCollection_AsciiString"
 discard "forward decl of TCollection_ExtendedString"
 type
-  DrawInterpretor* {.importcpp: "Draw_Interpretor", header: "Draw_Interpretor.hxx",
-                    bycopy.} = object ## ! Global callback function definition
-                                   ## ! Callback implementation for global function definition
-                                   ## ! Empty constructor
-                                   ## ! Destructor
+  Draw_Interpretor* {.importcpp: "Draw_Interpretor",
+                     header: "Draw_Interpretor.hxx", bycopy.} = object ## ! Global callback function definition
+                                                                  ## ! Callback implementation for global function definition
+                                                                  ## ! Empty constructor
+                                                                  ## ! Destructor
     ## !< file descriptor of log file
 
-  DrawInterpretorCommandFunction* = proc (theDI: var DrawInterpretor;
-                                       theArgNb: StandardInteger;
-                                       theArgVec: cstringArray): StandardInteger
-  DrawInterpretorCallBackData* {.importcpp: "Draw_Interpretor::CallBackData",
-                                header: "Draw_Interpretor.hxx", bycopy.} = object ## !
-                                                                             ## Main
-                                                                             ## constructor
-    myDI* {.importc: "myDI".}: ptr DrawInterpretor ## !< pointer to Draw Interpretor
-                                              ##  make sure allocation and de-allocation is done by the same memory allocator
+  Draw_InterpretorCommandFunction* = proc (theDI: var Draw_Interpretor;
+                                        theArgNb: Standard_Integer;
+                                        theArgVec: cstringArray): Standard_Integer
+  Draw_InterpretorCallBackData* {.importcpp: "Draw_Interpretor::CallBackData",
+                                 header: "Draw_Interpretor.hxx", bycopy.} = object ## !
+                                                                              ## Main
+                                                                              ## constructor
+    myDI* {.importc: "myDI".}: ptr Draw_Interpretor ## !< pointer to Draw Interpretor
+                                               ##  make sure allocation and de-allocation is done by the same memory allocator
 
 
-proc constructDrawInterpretorCallBackData*(theDI: ptr DrawInterpretor): DrawInterpretorCallBackData {.
+proc constructDraw_InterpretorCallBackData*(theDI: ptr Draw_Interpretor): Draw_InterpretorCallBackData {.
     constructor, importcpp: "Draw_Interpretor::CallBackData(@)",
     header: "Draw_Interpretor.hxx".}
-proc destroyDrawInterpretorCallBackData*(this: var DrawInterpretorCallBackData) {.
+proc destroyDraw_InterpretorCallBackData*(this: var Draw_InterpretorCallBackData) {.
     importcpp: "#.~CallBackData()", header: "Draw_Interpretor.hxx".}
-proc invoke*(this: var DrawInterpretorCallBackData; theDI: var DrawInterpretor;
-            theArgNb: StandardInteger; theArgVec: cstringArray): StandardInteger {.
+proc Invoke*(this: var Draw_InterpretorCallBackData; theDI: var Draw_Interpretor;
+            theArgNb: Standard_Integer; theArgVec: cstringArray): Standard_Integer {.
     importcpp: "Invoke", header: "Draw_Interpretor.hxx".}
-proc constructDrawInterpretor*(): DrawInterpretor {.constructor,
+proc constructDraw_Interpretor*(): Draw_Interpretor {.constructor,
     importcpp: "Draw_Interpretor(@)", header: "Draw_Interpretor.hxx".}
-proc init*(this: var DrawInterpretor) {.importcpp: "Init",
-                                    header: "Draw_Interpretor.hxx".}
-proc add*(this: var DrawInterpretor; theCommandName: StandardCString;
-         theHelp: StandardCString; theFunction: DrawInterpretorCommandFunction;
-         theGroup: StandardCString = "User Commands") {.importcpp: "Add",
+proc Init*(this: var Draw_Interpretor) {.importcpp: "Init",
+                                     header: "Draw_Interpretor.hxx".}
+proc Add*(this: var Draw_Interpretor; theCommandName: Standard_CString;
+         theHelp: Standard_CString; theFunction: Draw_InterpretorCommandFunction;
+         theGroup: Standard_CString = "User Commands") {.importcpp: "Add",
     header: "Draw_Interpretor.hxx".}
-proc add*(this: var DrawInterpretor; theCommandName: StandardCString;
-         theHelp: StandardCString; theFileName: StandardCString;
-         theFunction: DrawInterpretorCommandFunction;
-         theGroup: StandardCString = "User Commands") {.importcpp: "Add",
+proc Add*(this: var Draw_Interpretor; theCommandName: Standard_CString;
+         theHelp: Standard_CString; theFileName: Standard_CString;
+         theFunction: Draw_InterpretorCommandFunction;
+         theGroup: Standard_CString = "User Commands") {.importcpp: "Add",
     header: "Draw_Interpretor.hxx".}
 ## !!!Ignored construct:  ! Creates a new command with name <theCommandName>, help string <theHelp> in group <theGroup>.
 ## ! @param theObjPtr   callback class instance
@@ -62,73 +68,72 @@ proc add*(this: var DrawInterpretor; theCommandName: StandardCString;
 ## ! @param theFileName the name of the file that contains the implementation of the command template < typename theHandleType > [end of template] inline void Add ( Standard_CString theCommandName , Standard_CString theHelp , Standard_CString theFileName , const theHandleType & theObjPtr , typename Draw_Interpretor :: CallBackDataMethod < theHandleType > :: methodType theMethod , Standard_CString theGroup ) { Draw_Interpretor :: CallBackDataMethod < theHandleType > * aCallback = new Draw_Interpretor :: CallBackDataMethod < theHandleType > ( this , theObjPtr , theMethod ) ; add ( theCommandName , theHelp , theFileName , aCallback , theGroup ) ; } ! Removes <theCommandName>, returns true if success (the command existed). Standard_Boolean Remove ( const Standard_CString theCommandName ) ;
 ## Error: token expected: ) but got: ::!!!
 
-proc result*(this: DrawInterpretor): StandardCString {.noSideEffect,
+proc Result*(this: Draw_Interpretor): Standard_CString {.noSideEffect,
     importcpp: "Result", header: "Draw_Interpretor.hxx".}
-proc reset*(this: var DrawInterpretor) {.importcpp: "Reset",
-                                     header: "Draw_Interpretor.hxx".}
-proc append*(this: var DrawInterpretor; theResult: StandardCString): var DrawInterpretor {.
+proc Reset*(this: var Draw_Interpretor) {.importcpp: "Reset",
+                                      header: "Draw_Interpretor.hxx".}
+proc Append*(this: var Draw_Interpretor; theResult: Standard_CString): var Draw_Interpretor {.
     importcpp: "Append", header: "Draw_Interpretor.hxx".}
-proc `<<`*(this: var DrawInterpretor; theResult: StandardCString): var DrawInterpretor {.
+proc `<<`*(this: var Draw_Interpretor; theResult: Standard_CString): var Draw_Interpretor {.
     importcpp: "(# << #)", header: "Draw_Interpretor.hxx".}
-proc append*(this: var DrawInterpretor; theResult: TCollectionAsciiString): var DrawInterpretor {.
+proc Append*(this: var Draw_Interpretor; theResult: TCollection_AsciiString): var Draw_Interpretor {.
     importcpp: "Append", header: "Draw_Interpretor.hxx".}
-proc `<<`*(this: var DrawInterpretor; theResult: TCollectionAsciiString): var DrawInterpretor {.
+proc `<<`*(this: var Draw_Interpretor; theResult: TCollection_AsciiString): var Draw_Interpretor {.
     importcpp: "(# << #)", header: "Draw_Interpretor.hxx".}
-proc append*(this: var DrawInterpretor; theResult: TCollectionExtendedString): var DrawInterpretor {.
+proc Append*(this: var Draw_Interpretor; theResult: TCollection_ExtendedString): var Draw_Interpretor {.
     importcpp: "Append", header: "Draw_Interpretor.hxx".}
-proc `<<`*(this: var DrawInterpretor; theResult: TCollectionExtendedString): var DrawInterpretor {.
+proc `<<`*(this: var Draw_Interpretor; theResult: TCollection_ExtendedString): var Draw_Interpretor {.
     importcpp: "(# << #)", header: "Draw_Interpretor.hxx".}
-proc append*(this: var DrawInterpretor; theResult: StandardInteger): var DrawInterpretor {.
+proc Append*(this: var Draw_Interpretor; theResult: Standard_Integer): var Draw_Interpretor {.
     importcpp: "Append", header: "Draw_Interpretor.hxx".}
-proc `<<`*(this: var DrawInterpretor; theResult: StandardInteger): var DrawInterpretor {.
+proc `<<`*(this: var Draw_Interpretor; theResult: Standard_Integer): var Draw_Interpretor {.
     importcpp: "(# << #)", header: "Draw_Interpretor.hxx".}
-proc append*(this: var DrawInterpretor; theResult: StandardReal): var DrawInterpretor {.
+proc Append*(this: var Draw_Interpretor; theResult: Standard_Real): var Draw_Interpretor {.
     importcpp: "Append", header: "Draw_Interpretor.hxx".}
-proc `<<`*(this: var DrawInterpretor; theResult: StandardReal): var DrawInterpretor {.
+proc `<<`*(this: var Draw_Interpretor; theResult: Standard_Real): var Draw_Interpretor {.
     importcpp: "(# << #)", header: "Draw_Interpretor.hxx".}
-proc append*(this: var DrawInterpretor; theResult: StandardSStream): var DrawInterpretor {.
+proc Append*(this: var Draw_Interpretor; theResult: Standard_SStream): var Draw_Interpretor {.
     importcpp: "Append", header: "Draw_Interpretor.hxx".}
-proc `<<`*(this: var DrawInterpretor; theResult: StandardSStream): var DrawInterpretor {.
+proc `<<`*(this: var Draw_Interpretor; theResult: Standard_SStream): var Draw_Interpretor {.
     importcpp: "(# << #)", header: "Draw_Interpretor.hxx".}
-proc appendElement*(this: var DrawInterpretor; theResult: StandardCString) {.
+proc AppendElement*(this: var Draw_Interpretor; theResult: Standard_CString) {.
     importcpp: "AppendElement", header: "Draw_Interpretor.hxx".}
-proc eval*(this: var DrawInterpretor; theScript: StandardCString): StandardInteger {.
+proc Eval*(this: var Draw_Interpretor; theScript: Standard_CString): Standard_Integer {.
     importcpp: "Eval", header: "Draw_Interpretor.hxx".}
-proc recordAndEval*(this: var DrawInterpretor; theScript: StandardCString;
-                   theFlags: StandardInteger = 0): StandardInteger {.
+proc RecordAndEval*(this: var Draw_Interpretor; theScript: Standard_CString;
+                   theFlags: Standard_Integer = 0): Standard_Integer {.
     importcpp: "RecordAndEval", header: "Draw_Interpretor.hxx".}
-proc evalFile*(this: var DrawInterpretor; theFileName: StandardCString): StandardInteger {.
+proc EvalFile*(this: var Draw_Interpretor; theFileName: Standard_CString): Standard_Integer {.
     importcpp: "EvalFile", header: "Draw_Interpretor.hxx".}
-proc printHelp*(this: var DrawInterpretor; theCommandName: StandardCString): StandardInteger {.
+proc PrintHelp*(this: var Draw_Interpretor; theCommandName: Standard_CString): Standard_Integer {.
     importcpp: "PrintHelp", header: "Draw_Interpretor.hxx".}
-proc complete*(theScript: StandardCString): StandardBoolean {.
+proc Complete*(theScript: Standard_CString): Standard_Boolean {.
     importcpp: "Draw_Interpretor::Complete(@)", header: "Draw_Interpretor.hxx".}
-proc destroyDrawInterpretor*(this: var DrawInterpretor) {.
+proc destroyDraw_Interpretor*(this: var Draw_Interpretor) {.
     importcpp: "#.~Draw_Interpretor()", header: "Draw_Interpretor.hxx".}
-proc constructDrawInterpretor*(theInterp: DrawPInterp): DrawInterpretor {.
+proc constructDraw_Interpretor*(theInterp: Draw_PInterp): Draw_Interpretor {.
     constructor, importcpp: "Draw_Interpretor(@)", header: "Draw_Interpretor.hxx".}
-proc set*(this: var DrawInterpretor; theInterp: DrawPInterp) {.importcpp: "Set",
+proc Set*(this: var Draw_Interpretor; theInterp: Draw_PInterp) {.importcpp: "Set",
     header: "Draw_Interpretor.hxx".}
-proc interp*(this: DrawInterpretor): DrawPInterp {.noSideEffect, importcpp: "Interp",
-    header: "Draw_Interpretor.hxx".}
-proc setDoLog*(this: var DrawInterpretor; theDoLog: StandardBoolean) {.
+proc Interp*(this: Draw_Interpretor): Draw_PInterp {.noSideEffect,
+    importcpp: "Interp", header: "Draw_Interpretor.hxx".}
+proc SetDoLog*(this: var Draw_Interpretor; theDoLog: Standard_Boolean) {.
     importcpp: "SetDoLog", header: "Draw_Interpretor.hxx".}
-proc setDoEcho*(this: var DrawInterpretor; theDoEcho: StandardBoolean) {.
+proc SetDoEcho*(this: var Draw_Interpretor; theDoEcho: Standard_Boolean) {.
     importcpp: "SetDoEcho", header: "Draw_Interpretor.hxx".}
-proc getDoLog*(this: DrawInterpretor): StandardBoolean {.noSideEffect,
+proc GetDoLog*(this: Draw_Interpretor): Standard_Boolean {.noSideEffect,
     importcpp: "GetDoLog", header: "Draw_Interpretor.hxx".}
-proc getDoEcho*(this: DrawInterpretor): StandardBoolean {.noSideEffect,
+proc GetDoEcho*(this: Draw_Interpretor): Standard_Boolean {.noSideEffect,
     importcpp: "GetDoEcho", header: "Draw_Interpretor.hxx".}
-proc resetLog*(this: var DrawInterpretor) {.importcpp: "ResetLog",
-                                        header: "Draw_Interpretor.hxx".}
-proc addLog*(this: var DrawInterpretor; theStr: StandardCString) {.
+proc ResetLog*(this: var Draw_Interpretor) {.importcpp: "ResetLog",
+    header: "Draw_Interpretor.hxx".}
+proc AddLog*(this: var Draw_Interpretor; theStr: Standard_CString) {.
     importcpp: "AddLog", header: "Draw_Interpretor.hxx".}
-proc getLog*(this: var DrawInterpretor): TCollectionAsciiString {.
+proc GetLog*(this: var Draw_Interpretor): TCollection_AsciiString {.
     importcpp: "GetLog", header: "Draw_Interpretor.hxx".}
-proc getLogFileDescriptor*(this: var DrawInterpretor): StandardInteger {.
+proc GetLogFileDescriptor*(this: var Draw_Interpretor): Standard_Integer {.
     importcpp: "GetLogFileDescriptor", header: "Draw_Interpretor.hxx".}
-proc toColorize*(this: DrawInterpretor): StandardBoolean {.noSideEffect,
+proc ToColorize*(this: Draw_Interpretor): Standard_Boolean {.noSideEffect,
     importcpp: "ToColorize", header: "Draw_Interpretor.hxx".}
-proc setToColorize*(this: var DrawInterpretor; theToColorize: StandardBoolean) {.
+proc SetToColorize*(this: var Draw_Interpretor; theToColorize: Standard_Boolean) {.
     importcpp: "SetToColorize", header: "Draw_Interpretor.hxx".}
-

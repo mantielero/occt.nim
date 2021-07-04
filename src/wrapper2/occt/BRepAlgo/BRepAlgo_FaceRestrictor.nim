@@ -14,41 +14,47 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
+  ../TopoDS/TopoDS_Face, ../TopTools/TopTools_ListOfShape,
+  ../TopTools/TopTools_DataMapOfShapeListOfShape
+
 discard "forward decl of TopoDS_Face"
 discard "forward decl of TopoDS_Wire"
 type
-  BRepAlgoFaceRestrictor* {.importcpp: "BRepAlgo_FaceRestrictor",
-                           header: "BRepAlgo_FaceRestrictor.hxx", bycopy.} = object ## !
-                                                                               ## Evaluate
-                                                                               ## all
-                                                                               ## the
-                                                                               ## faces
-                                                                               ## limited
-                                                                               ## by
-                                                                               ## the
-                                                                               ## set
-                                                                               ## of
-                                                                               ## Wires.
+  BRepAlgo_FaceRestrictor* {.importcpp: "BRepAlgo_FaceRestrictor",
+                            header: "BRepAlgo_FaceRestrictor.hxx", bycopy.} = object ##
+                                                                                ## !
+                                                                                ## Evaluate
+                                                                                ## all
+                                                                                ## the
+                                                                                ## faces
+                                                                                ## limited
+                                                                                ## by
+                                                                                ## the
+                                                                                ## set
+                                                                                ## of
+                                                                                ## Wires.
 
 
-proc constructBRepAlgoFaceRestrictor*(): BRepAlgoFaceRestrictor {.constructor,
+proc constructBRepAlgo_FaceRestrictor*(): BRepAlgo_FaceRestrictor {.constructor,
     importcpp: "BRepAlgo_FaceRestrictor(@)", header: "BRepAlgo_FaceRestrictor.hxx".}
-proc init*(this: var BRepAlgoFaceRestrictor; f: TopoDS_Face;
-          proj: StandardBoolean = standardFalse;
-          controlOrientation: StandardBoolean = standardFalse) {.importcpp: "Init",
+proc Init*(this: var BRepAlgo_FaceRestrictor; F: TopoDS_Face;
+          Proj: Standard_Boolean = Standard_False;
+          ControlOrientation: Standard_Boolean = Standard_False) {.
+    importcpp: "Init", header: "BRepAlgo_FaceRestrictor.hxx".}
+proc Add*(this: var BRepAlgo_FaceRestrictor; W: var TopoDS_Wire) {.importcpp: "Add",
     header: "BRepAlgo_FaceRestrictor.hxx".}
-proc add*(this: var BRepAlgoFaceRestrictor; w: var TopoDS_Wire) {.importcpp: "Add",
+proc Clear*(this: var BRepAlgo_FaceRestrictor) {.importcpp: "Clear",
     header: "BRepAlgo_FaceRestrictor.hxx".}
-proc clear*(this: var BRepAlgoFaceRestrictor) {.importcpp: "Clear",
+proc Perform*(this: var BRepAlgo_FaceRestrictor) {.importcpp: "Perform",
     header: "BRepAlgo_FaceRestrictor.hxx".}
-proc perform*(this: var BRepAlgoFaceRestrictor) {.importcpp: "Perform",
-    header: "BRepAlgo_FaceRestrictor.hxx".}
-proc isDone*(this: BRepAlgoFaceRestrictor): StandardBoolean {.noSideEffect,
+proc IsDone*(this: BRepAlgo_FaceRestrictor): Standard_Boolean {.noSideEffect,
     importcpp: "IsDone", header: "BRepAlgo_FaceRestrictor.hxx".}
-proc more*(this: BRepAlgoFaceRestrictor): StandardBoolean {.noSideEffect,
+proc More*(this: BRepAlgo_FaceRestrictor): Standard_Boolean {.noSideEffect,
     importcpp: "More", header: "BRepAlgo_FaceRestrictor.hxx".}
-proc next*(this: var BRepAlgoFaceRestrictor) {.importcpp: "Next",
+proc Next*(this: var BRepAlgo_FaceRestrictor) {.importcpp: "Next",
     header: "BRepAlgo_FaceRestrictor.hxx".}
-proc current*(this: BRepAlgoFaceRestrictor): TopoDS_Face {.noSideEffect,
+proc Current*(this: BRepAlgo_FaceRestrictor): TopoDS_Face {.noSideEffect,
     importcpp: "Current", header: "BRepAlgo_FaceRestrictor.hxx".}
-

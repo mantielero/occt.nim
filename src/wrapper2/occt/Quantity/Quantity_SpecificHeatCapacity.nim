@@ -14,7 +14,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _Quantity_SpecificHeatCapacity_HeaderFile [NewLine] # _Quantity_SpecificHeatCapacity_HeaderFile [NewLine] # < Standard_Real . hxx > [NewLine] ! Defined as the quantity of heat required to raise
+## !!!Ignored construct:  # _Quantity_SpecificHeatCapacity_HeaderFile [NewLine] # _Quantity_SpecificHeatCapacity_HeaderFile [NewLine] # ../Standard/Standard_Real.hxx [NewLine] ! Defined as the quantity of heat required to raise
 ## ! unit mass by one degree temperature. For a gas
 ## ! there are two values: one at constant pressure, the
 ## ! other at constant volume. Their ratio is linked to the
@@ -25,5 +25,3 @@
 ## ! It is measured in joules per kilogram per degree
 ## ! kelvin. Standard_DEPRECATED ( This type is deprecated - Standard_Real should be used instead ) typedef Standard_Real Quantity_SpecificHeatCapacity ;
 ## Error: expected ';'!!!
-
-

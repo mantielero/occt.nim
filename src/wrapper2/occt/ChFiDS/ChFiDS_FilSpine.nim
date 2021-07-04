@@ -14,6 +14,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../TColgp/TColgp_SequenceOfXY,
+  ../Law/Law_Laws, ChFiDS_Spine, ../Standard/Standard_Real,
+  ../Standard/Standard_Boolean, ../Standard/Standard_Integer
+
 discard "forward decl of TopoDS_Edge"
 discard "forward decl of TopoDS_Vertex"
 discard "forward decl of gp_XY"
@@ -23,7 +28,7 @@ discard "forward decl of ChFiDS_HElSpine"
 discard "forward decl of ChFiDS_FilSpine"
 discard "forward decl of ChFiDS_FilSpine"
 type
-  HandleChFiDS_FilSpine* = Handle[ChFiDS_FilSpine]
+  Handle_ChFiDS_FilSpine* = handle[ChFiDS_FilSpine]
 
 ## ! Provides  data specific to  the fillets -
 ## ! vector or rule  of evolution (C2).
@@ -35,51 +40,50 @@ type
 
 proc constructChFiDS_FilSpine*(): ChFiDS_FilSpine {.constructor,
     importcpp: "ChFiDS_FilSpine(@)", header: "ChFiDS_FilSpine.hxx".}
-proc constructChFiDS_FilSpine*(tol: StandardReal): ChFiDS_FilSpine {.constructor,
+proc constructChFiDS_FilSpine*(Tol: Standard_Real): ChFiDS_FilSpine {.constructor,
     importcpp: "ChFiDS_FilSpine(@)", header: "ChFiDS_FilSpine.hxx".}
-proc reset*(this: var ChFiDS_FilSpine; allData: StandardBoolean = standardFalse) {.
+proc Reset*(this: var ChFiDS_FilSpine; AllData: Standard_Boolean = Standard_False) {.
     importcpp: "Reset", header: "ChFiDS_FilSpine.hxx".}
-proc setRadius*(this: var ChFiDS_FilSpine; radius: StandardReal; e: TopoDS_Edge) {.
+proc SetRadius*(this: var ChFiDS_FilSpine; Radius: Standard_Real; E: TopoDS_Edge) {.
     importcpp: "SetRadius", header: "ChFiDS_FilSpine.hxx".}
-proc unSetRadius*(this: var ChFiDS_FilSpine; e: TopoDS_Edge) {.
+proc UnSetRadius*(this: var ChFiDS_FilSpine; E: TopoDS_Edge) {.
     importcpp: "UnSetRadius", header: "ChFiDS_FilSpine.hxx".}
-proc setRadius*(this: var ChFiDS_FilSpine; radius: StandardReal; v: TopoDS_Vertex) {.
+proc SetRadius*(this: var ChFiDS_FilSpine; Radius: Standard_Real; V: TopoDS_Vertex) {.
     importcpp: "SetRadius", header: "ChFiDS_FilSpine.hxx".}
-proc unSetRadius*(this: var ChFiDS_FilSpine; v: TopoDS_Vertex) {.
+proc UnSetRadius*(this: var ChFiDS_FilSpine; V: TopoDS_Vertex) {.
     importcpp: "UnSetRadius", header: "ChFiDS_FilSpine.hxx".}
-proc setRadius*(this: var ChFiDS_FilSpine; uandR: GpXY; iinC: StandardInteger) {.
+proc SetRadius*(this: var ChFiDS_FilSpine; UandR: gp_XY; IinC: Standard_Integer) {.
     importcpp: "SetRadius", header: "ChFiDS_FilSpine.hxx".}
-proc setRadius*(this: var ChFiDS_FilSpine; radius: StandardReal) {.
+proc SetRadius*(this: var ChFiDS_FilSpine; Radius: Standard_Real) {.
     importcpp: "SetRadius", header: "ChFiDS_FilSpine.hxx".}
-proc setRadius*(this: var ChFiDS_FilSpine; c: Handle[LawFunction];
-               iinC: StandardInteger) {.importcpp: "SetRadius",
-                                      header: "ChFiDS_FilSpine.hxx".}
-proc isConstant*(this: ChFiDS_FilSpine): StandardBoolean {.noSideEffect,
+proc SetRadius*(this: var ChFiDS_FilSpine; C: handle[Law_Function];
+               IinC: Standard_Integer) {.importcpp: "SetRadius",
+                                       header: "ChFiDS_FilSpine.hxx".}
+proc IsConstant*(this: ChFiDS_FilSpine): Standard_Boolean {.noSideEffect,
     importcpp: "IsConstant", header: "ChFiDS_FilSpine.hxx".}
-proc isConstant*(this: ChFiDS_FilSpine; ie: StandardInteger): StandardBoolean {.
+proc IsConstant*(this: ChFiDS_FilSpine; IE: Standard_Integer): Standard_Boolean {.
     noSideEffect, importcpp: "IsConstant", header: "ChFiDS_FilSpine.hxx".}
-proc radius*(this: ChFiDS_FilSpine): StandardReal {.noSideEffect,
+proc Radius*(this: ChFiDS_FilSpine): Standard_Real {.noSideEffect,
     importcpp: "Radius", header: "ChFiDS_FilSpine.hxx".}
-proc radius*(this: ChFiDS_FilSpine; ie: StandardInteger): StandardReal {.noSideEffect,
+proc Radius*(this: ChFiDS_FilSpine; IE: Standard_Integer): Standard_Real {.
+    noSideEffect, importcpp: "Radius", header: "ChFiDS_FilSpine.hxx".}
+proc Radius*(this: ChFiDS_FilSpine; E: TopoDS_Edge): Standard_Real {.noSideEffect,
     importcpp: "Radius", header: "ChFiDS_FilSpine.hxx".}
-proc radius*(this: ChFiDS_FilSpine; e: TopoDS_Edge): StandardReal {.noSideEffect,
-    importcpp: "Radius", header: "ChFiDS_FilSpine.hxx".}
-proc appendElSpine*(this: var ChFiDS_FilSpine; els: Handle[ChFiDS_HElSpine]) {.
+proc AppendElSpine*(this: var ChFiDS_FilSpine; Els: handle[ChFiDS_HElSpine]) {.
     importcpp: "AppendElSpine", header: "ChFiDS_FilSpine.hxx".}
-proc law*(this: ChFiDS_FilSpine; els: Handle[ChFiDS_HElSpine]): Handle[LawComposite] {.
+proc Law*(this: ChFiDS_FilSpine; Els: handle[ChFiDS_HElSpine]): handle[Law_Composite] {.
     noSideEffect, importcpp: "Law", header: "ChFiDS_FilSpine.hxx".}
-proc changeLaw*(this: var ChFiDS_FilSpine; e: TopoDS_Edge): var Handle[LawFunction] {.
+proc ChangeLaw*(this: var ChFiDS_FilSpine; E: TopoDS_Edge): var handle[Law_Function] {.
     importcpp: "ChangeLaw", header: "ChFiDS_FilSpine.hxx".}
-proc maxRadFromSeqAndLaws*(this: ChFiDS_FilSpine): StandardReal {.noSideEffect,
+proc MaxRadFromSeqAndLaws*(this: ChFiDS_FilSpine): Standard_Real {.noSideEffect,
     importcpp: "MaxRadFromSeqAndLaws", header: "ChFiDS_FilSpine.hxx".}
 type
-  ChFiDS_FilSpinebaseType* = ChFiDS_Spine
+  ChFiDS_FilSpinebase_type* = ChFiDS_Spine
 
-proc getTypeName*(): cstring {.importcpp: "ChFiDS_FilSpine::get_type_name(@)",
-                            header: "ChFiDS_FilSpine.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "ChFiDS_FilSpine::get_type_name(@)",
+                              header: "ChFiDS_FilSpine.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "ChFiDS_FilSpine::get_type_descriptor(@)",
     header: "ChFiDS_FilSpine.hxx".}
-proc dynamicType*(this: ChFiDS_FilSpine): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: ChFiDS_FilSpine): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "ChFiDS_FilSpine.hxx".}
-

@@ -14,6 +14,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Real,
+  ../Standard/Standard_Boolean
+
 discard "forward decl of gp_Pnt"
 discard "forward decl of gp_XYZ"
 discard "forward decl of Intf_Polygon2d"
@@ -33,9 +38,8 @@ type
                                                            ## ! Give the plane equation of the triangle <P1> <P2> <P3>.
 
 
-proc planeEquation*(p1: GpPnt; p2: GpPnt; p3: GpPnt; normalVector: var GpXYZ;
-                   polarDistance: var StandardReal) {.
+proc PlaneEquation*(P1: gp_Pnt; P2: gp_Pnt; P3: gp_Pnt; NormalVector: var gp_XYZ;
+                   PolarDistance: var Standard_Real) {.
     importcpp: "Intf::PlaneEquation(@)", header: "Intf.hxx".}
-proc contain*(p1: GpPnt; p2: GpPnt; p3: GpPnt; thePnt: GpPnt): StandardBoolean {.
+proc Contain*(P1: gp_Pnt; P2: gp_Pnt; P3: gp_Pnt; ThePnt: gp_Pnt): Standard_Boolean {.
     importcpp: "Intf::Contain(@)", header: "Intf.hxx".}
-

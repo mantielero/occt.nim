@@ -13,6 +13,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  AIS_DataMapOfShapeDrawer, AIS_Shape, ../NCollection/NCollection_IndexedDataMap,
+  ../StdPrs/StdPrs_Volume, ../TopoDS/TopoDS_Compound,
+  ../TopTools/TopTools_MapOfShape, ../TColStd/TColStd_MapTransientHasher
+
 discard "forward decl of StdSelect_BRepOwner"
 type
   AIS_ColoredShape* {.importcpp: "AIS_ColoredShape",
@@ -155,52 +160,50 @@ type
 
 proc constructAIS_ColoredShape*(theShape: TopoDS_Shape): AIS_ColoredShape {.
     constructor, importcpp: "AIS_ColoredShape(@)", header: "AIS_ColoredShape.hxx".}
-proc constructAIS_ColoredShape*(theShape: Handle[AIS_Shape]): AIS_ColoredShape {.
+proc constructAIS_ColoredShape*(theShape: handle[AIS_Shape]): AIS_ColoredShape {.
     constructor, importcpp: "AIS_ColoredShape(@)", header: "AIS_ColoredShape.hxx".}
-proc customAspects*(this: var AIS_ColoredShape; theShape: TopoDS_Shape): Handle[
+proc CustomAspects*(this: var AIS_ColoredShape; theShape: TopoDS_Shape): handle[
     AIS_ColoredDrawer] {.importcpp: "CustomAspects", header: "AIS_ColoredShape.hxx".}
-proc clearCustomAspects*(this: var AIS_ColoredShape) {.
+proc ClearCustomAspects*(this: var AIS_ColoredShape) {.
     importcpp: "ClearCustomAspects", header: "AIS_ColoredShape.hxx".}
-proc unsetCustomAspects*(this: var AIS_ColoredShape; theShape: TopoDS_Shape;
-                        theToUnregister: StandardBoolean = standardFalse) {.
+proc UnsetCustomAspects*(this: var AIS_ColoredShape; theShape: TopoDS_Shape;
+                        theToUnregister: Standard_Boolean = Standard_False) {.
     importcpp: "UnsetCustomAspects", header: "AIS_ColoredShape.hxx".}
-proc setCustomColor*(this: var AIS_ColoredShape; theShape: TopoDS_Shape;
-                    theColor: QuantityColor) {.importcpp: "SetCustomColor",
+proc SetCustomColor*(this: var AIS_ColoredShape; theShape: TopoDS_Shape;
+                    theColor: Quantity_Color) {.importcpp: "SetCustomColor",
     header: "AIS_ColoredShape.hxx".}
-proc setCustomTransparency*(this: var AIS_ColoredShape; theShape: TopoDS_Shape;
-                           theTransparency: StandardReal) {.
+proc SetCustomTransparency*(this: var AIS_ColoredShape; theShape: TopoDS_Shape;
+                           theTransparency: Standard_Real) {.
     importcpp: "SetCustomTransparency", header: "AIS_ColoredShape.hxx".}
-proc setCustomWidth*(this: var AIS_ColoredShape; theShape: TopoDS_Shape;
-                    theLineWidth: StandardReal) {.importcpp: "SetCustomWidth",
+proc SetCustomWidth*(this: var AIS_ColoredShape; theShape: TopoDS_Shape;
+                    theLineWidth: Standard_Real) {.importcpp: "SetCustomWidth",
     header: "AIS_ColoredShape.hxx".}
-proc customAspectsMap*(this: AIS_ColoredShape): AIS_DataMapOfShapeDrawer {.
+proc CustomAspectsMap*(this: AIS_ColoredShape): AIS_DataMapOfShapeDrawer {.
     noSideEffect, importcpp: "CustomAspectsMap", header: "AIS_ColoredShape.hxx".}
-proc changeCustomAspectsMap*(this: var AIS_ColoredShape): var AIS_DataMapOfShapeDrawer {.
+proc ChangeCustomAspectsMap*(this: var AIS_ColoredShape): var AIS_DataMapOfShapeDrawer {.
     importcpp: "ChangeCustomAspectsMap", header: "AIS_ColoredShape.hxx".}
-proc setColor*(this: var AIS_ColoredShape; theColor: QuantityColor) {.
+proc SetColor*(this: var AIS_ColoredShape; theColor: Quantity_Color) {.
     importcpp: "SetColor", header: "AIS_ColoredShape.hxx".}
-proc setWidth*(this: var AIS_ColoredShape; theLineWidth: StandardReal) {.
+proc SetWidth*(this: var AIS_ColoredShape; theLineWidth: Standard_Real) {.
     importcpp: "SetWidth", header: "AIS_ColoredShape.hxx".}
-proc setTransparency*(this: var AIS_ColoredShape; theValue: StandardReal) {.
+proc SetTransparency*(this: var AIS_ColoredShape; theValue: Standard_Real) {.
     importcpp: "SetTransparency", header: "AIS_ColoredShape.hxx".}
-proc setMaterial*(this: var AIS_ColoredShape; theAspect: Graphic3dMaterialAspect) {.
+proc SetMaterial*(this: var AIS_ColoredShape; theAspect: Graphic3d_MaterialAspect) {.
     importcpp: "SetMaterial", header: "AIS_ColoredShape.hxx".}
-proc unsetTransparency*(this: var AIS_ColoredShape) {.
+proc UnsetTransparency*(this: var AIS_ColoredShape) {.
     importcpp: "UnsetTransparency", header: "AIS_ColoredShape.hxx".}
-proc unsetWidth*(this: var AIS_ColoredShape) {.importcpp: "UnsetWidth",
+proc UnsetWidth*(this: var AIS_ColoredShape) {.importcpp: "UnsetWidth",
     header: "AIS_ColoredShape.hxx".}
 type
-  AIS_ColoredShapebaseType* = AIS_Shape
+  AIS_ColoredShapebase_type* = AIS_Shape
 
-proc getTypeName*(): cstring {.importcpp: "AIS_ColoredShape::get_type_name(@)",
-                            header: "AIS_ColoredShape.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "AIS_ColoredShape::get_type_name(@)",
+                              header: "AIS_ColoredShape.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "AIS_ColoredShape::get_type_descriptor(@)",
     header: "AIS_ColoredShape.hxx".}
-proc dynamicType*(this: AIS_ColoredShape): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: AIS_ColoredShape): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "AIS_ColoredShape.hxx".}
 discard "forward decl of AIS_ColoredShape"
 type
-  HandleAIS_ColoredShape* = Handle[AIS_ColoredShape]
-
-
+  Handle_AIS_ColoredShape* = handle[AIS_ColoredShape]

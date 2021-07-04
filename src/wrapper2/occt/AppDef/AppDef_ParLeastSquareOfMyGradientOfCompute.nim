@@ -14,6 +14,15 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../AppParCurves/AppParCurves_Constraint,
+  ../AppParCurves/AppParCurves_MultiBSpCurve, ../TColStd/TColStd_HArray1OfReal,
+  ../TColStd/TColStd_HArray1OfInteger, ../math/math_Matrix, ../math/math_Vector,
+  ../math/math_IntegerVector, ../Standard/Standard_Real,
+  ../Standard/Standard_Integer, ../Standard/Standard_Boolean,
+  ../TColStd/TColStd_Array1OfReal, ../TColStd/TColStd_Array1OfInteger
+
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of Standard_DimensionError"
@@ -24,7 +33,7 @@ discard "forward decl of AppParCurves_MultiCurve"
 discard "forward decl of AppParCurves_MultiBSpCurve"
 discard "forward decl of math_Matrix"
 type
-  AppDefParLeastSquareOfMyGradientOfCompute* {.
+  AppDef_ParLeastSquareOfMyGradientOfCompute* {.
       importcpp: "AppDef_ParLeastSquareOfMyGradientOfCompute",
       header: "AppDef_ParLeastSquareOfMyGradientOfCompute.hxx", bycopy.} = object ## !
                                                                              ## given a
@@ -109,84 +118,83 @@ type
                                                                              ## above.
 
 
-proc constructAppDefParLeastSquareOfMyGradientOfCompute*(ssp: AppDefMultiLine;
-    firstPoint: StandardInteger; lastPoint: StandardInteger;
-    firstCons: AppParCurvesConstraint; lastCons: AppParCurvesConstraint;
-    parameters: MathVector; nbPol: StandardInteger): AppDefParLeastSquareOfMyGradientOfCompute {.
+proc constructAppDef_ParLeastSquareOfMyGradientOfCompute*(SSP: AppDef_MultiLine;
+    FirstPoint: Standard_Integer; LastPoint: Standard_Integer;
+    FirstCons: AppParCurves_Constraint; LastCons: AppParCurves_Constraint;
+    Parameters: math_Vector; NbPol: Standard_Integer): AppDef_ParLeastSquareOfMyGradientOfCompute {.
     constructor, importcpp: "AppDef_ParLeastSquareOfMyGradientOfCompute(@)",
     header: "AppDef_ParLeastSquareOfMyGradientOfCompute.hxx".}
-proc constructAppDefParLeastSquareOfMyGradientOfCompute*(ssp: AppDefMultiLine;
-    firstPoint: StandardInteger; lastPoint: StandardInteger;
-    firstCons: AppParCurvesConstraint; lastCons: AppParCurvesConstraint;
-    nbPol: StandardInteger): AppDefParLeastSquareOfMyGradientOfCompute {.
+proc constructAppDef_ParLeastSquareOfMyGradientOfCompute*(SSP: AppDef_MultiLine;
+    FirstPoint: Standard_Integer; LastPoint: Standard_Integer;
+    FirstCons: AppParCurves_Constraint; LastCons: AppParCurves_Constraint;
+    NbPol: Standard_Integer): AppDef_ParLeastSquareOfMyGradientOfCompute {.
     constructor, importcpp: "AppDef_ParLeastSquareOfMyGradientOfCompute(@)",
     header: "AppDef_ParLeastSquareOfMyGradientOfCompute.hxx".}
-proc constructAppDefParLeastSquareOfMyGradientOfCompute*(ssp: AppDefMultiLine;
-    knots: TColStdArray1OfReal; mults: TColStdArray1OfInteger;
-    firstPoint: StandardInteger; lastPoint: StandardInteger;
-    firstCons: AppParCurvesConstraint; lastCons: AppParCurvesConstraint;
-    parameters: MathVector; nbPol: StandardInteger): AppDefParLeastSquareOfMyGradientOfCompute {.
+proc constructAppDef_ParLeastSquareOfMyGradientOfCompute*(SSP: AppDef_MultiLine;
+    Knots: TColStd_Array1OfReal; Mults: TColStd_Array1OfInteger;
+    FirstPoint: Standard_Integer; LastPoint: Standard_Integer;
+    FirstCons: AppParCurves_Constraint; LastCons: AppParCurves_Constraint;
+    Parameters: math_Vector; NbPol: Standard_Integer): AppDef_ParLeastSquareOfMyGradientOfCompute {.
     constructor, importcpp: "AppDef_ParLeastSquareOfMyGradientOfCompute(@)",
     header: "AppDef_ParLeastSquareOfMyGradientOfCompute.hxx".}
-proc constructAppDefParLeastSquareOfMyGradientOfCompute*(ssp: AppDefMultiLine;
-    knots: TColStdArray1OfReal; mults: TColStdArray1OfInteger;
-    firstPoint: StandardInteger; lastPoint: StandardInteger;
-    firstCons: AppParCurvesConstraint; lastCons: AppParCurvesConstraint;
-    nbPol: StandardInteger): AppDefParLeastSquareOfMyGradientOfCompute {.
+proc constructAppDef_ParLeastSquareOfMyGradientOfCompute*(SSP: AppDef_MultiLine;
+    Knots: TColStd_Array1OfReal; Mults: TColStd_Array1OfInteger;
+    FirstPoint: Standard_Integer; LastPoint: Standard_Integer;
+    FirstCons: AppParCurves_Constraint; LastCons: AppParCurves_Constraint;
+    NbPol: Standard_Integer): AppDef_ParLeastSquareOfMyGradientOfCompute {.
     constructor, importcpp: "AppDef_ParLeastSquareOfMyGradientOfCompute(@)",
     header: "AppDef_ParLeastSquareOfMyGradientOfCompute.hxx".}
-proc perform*(this: var AppDefParLeastSquareOfMyGradientOfCompute;
-             parameters: MathVector) {.importcpp: "Perform", header: "AppDef_ParLeastSquareOfMyGradientOfCompute.hxx".}
-proc perform*(this: var AppDefParLeastSquareOfMyGradientOfCompute;
-             parameters: MathVector; l1: StandardReal; l2: StandardReal) {.
+proc Perform*(this: var AppDef_ParLeastSquareOfMyGradientOfCompute;
+             Parameters: math_Vector) {.importcpp: "Perform", header: "AppDef_ParLeastSquareOfMyGradientOfCompute.hxx".}
+proc Perform*(this: var AppDef_ParLeastSquareOfMyGradientOfCompute;
+             Parameters: math_Vector; l1: Standard_Real; l2: Standard_Real) {.
     importcpp: "Perform", header: "AppDef_ParLeastSquareOfMyGradientOfCompute.hxx".}
-proc perform*(this: var AppDefParLeastSquareOfMyGradientOfCompute;
-             parameters: MathVector; v1t: MathVector; v2t: MathVector;
-             l1: StandardReal; l2: StandardReal) {.importcpp: "Perform",
+proc Perform*(this: var AppDef_ParLeastSquareOfMyGradientOfCompute;
+             Parameters: math_Vector; V1t: math_Vector; V2t: math_Vector;
+             l1: Standard_Real; l2: Standard_Real) {.importcpp: "Perform",
     header: "AppDef_ParLeastSquareOfMyGradientOfCompute.hxx".}
-proc perform*(this: var AppDefParLeastSquareOfMyGradientOfCompute;
-             parameters: MathVector; v1t: MathVector; v2t: MathVector;
-             v1c: MathVector; v2c: MathVector; l1: StandardReal; l2: StandardReal) {.
+proc Perform*(this: var AppDef_ParLeastSquareOfMyGradientOfCompute;
+             Parameters: math_Vector; V1t: math_Vector; V2t: math_Vector;
+             V1c: math_Vector; V2c: math_Vector; l1: Standard_Real; l2: Standard_Real) {.
     importcpp: "Perform", header: "AppDef_ParLeastSquareOfMyGradientOfCompute.hxx".}
-proc isDone*(this: AppDefParLeastSquareOfMyGradientOfCompute): StandardBoolean {.
+proc IsDone*(this: AppDef_ParLeastSquareOfMyGradientOfCompute): Standard_Boolean {.
     noSideEffect, importcpp: "IsDone",
     header: "AppDef_ParLeastSquareOfMyGradientOfCompute.hxx".}
-proc bezierValue*(this: var AppDefParLeastSquareOfMyGradientOfCompute): AppParCurvesMultiCurve {.
+proc BezierValue*(this: var AppDef_ParLeastSquareOfMyGradientOfCompute): AppParCurves_MultiCurve {.
     importcpp: "BezierValue",
     header: "AppDef_ParLeastSquareOfMyGradientOfCompute.hxx".}
-proc bSplineValue*(this: var AppDefParLeastSquareOfMyGradientOfCompute): AppParCurvesMultiBSpCurve {.
+proc BSplineValue*(this: var AppDef_ParLeastSquareOfMyGradientOfCompute): AppParCurves_MultiBSpCurve {.
     importcpp: "BSplineValue",
     header: "AppDef_ParLeastSquareOfMyGradientOfCompute.hxx".}
-proc functionMatrix*(this: AppDefParLeastSquareOfMyGradientOfCompute): MathMatrix {.
+proc FunctionMatrix*(this: AppDef_ParLeastSquareOfMyGradientOfCompute): math_Matrix {.
     noSideEffect, importcpp: "FunctionMatrix",
     header: "AppDef_ParLeastSquareOfMyGradientOfCompute.hxx".}
-proc derivativeFunctionMatrix*(this: AppDefParLeastSquareOfMyGradientOfCompute): MathMatrix {.
+proc DerivativeFunctionMatrix*(this: AppDef_ParLeastSquareOfMyGradientOfCompute): math_Matrix {.
     noSideEffect, importcpp: "DerivativeFunctionMatrix",
     header: "AppDef_ParLeastSquareOfMyGradientOfCompute.hxx".}
-proc errorGradient*(this: var AppDefParLeastSquareOfMyGradientOfCompute;
-                   grad: var MathVector; f: var StandardReal;
-                   maxE3d: var StandardReal; maxE2d: var StandardReal) {.
+proc ErrorGradient*(this: var AppDef_ParLeastSquareOfMyGradientOfCompute;
+                   Grad: var math_Vector; F: var Standard_Real;
+                   MaxE3d: var Standard_Real; MaxE2d: var Standard_Real) {.
     importcpp: "ErrorGradient",
     header: "AppDef_ParLeastSquareOfMyGradientOfCompute.hxx".}
-proc distance*(this: var AppDefParLeastSquareOfMyGradientOfCompute): MathMatrix {.
+proc Distance*(this: var AppDef_ParLeastSquareOfMyGradientOfCompute): math_Matrix {.
     importcpp: "Distance",
     header: "AppDef_ParLeastSquareOfMyGradientOfCompute.hxx".}
-proc error*(this: var AppDefParLeastSquareOfMyGradientOfCompute;
-           f: var StandardReal; maxE3d: var StandardReal; maxE2d: var StandardReal) {.
+proc Error*(this: var AppDef_ParLeastSquareOfMyGradientOfCompute;
+           F: var Standard_Real; MaxE3d: var Standard_Real; MaxE2d: var Standard_Real) {.
     importcpp: "Error", header: "AppDef_ParLeastSquareOfMyGradientOfCompute.hxx".}
-proc firstLambda*(this: AppDefParLeastSquareOfMyGradientOfCompute): StandardReal {.
+proc FirstLambda*(this: AppDef_ParLeastSquareOfMyGradientOfCompute): Standard_Real {.
     noSideEffect, importcpp: "FirstLambda",
     header: "AppDef_ParLeastSquareOfMyGradientOfCompute.hxx".}
-proc lastLambda*(this: AppDefParLeastSquareOfMyGradientOfCompute): StandardReal {.
+proc LastLambda*(this: AppDef_ParLeastSquareOfMyGradientOfCompute): Standard_Real {.
     noSideEffect, importcpp: "LastLambda",
     header: "AppDef_ParLeastSquareOfMyGradientOfCompute.hxx".}
-proc points*(this: AppDefParLeastSquareOfMyGradientOfCompute): MathMatrix {.
+proc Points*(this: AppDef_ParLeastSquareOfMyGradientOfCompute): math_Matrix {.
     noSideEffect, importcpp: "Points",
     header: "AppDef_ParLeastSquareOfMyGradientOfCompute.hxx".}
-proc poles*(this: AppDefParLeastSquareOfMyGradientOfCompute): MathMatrix {.
+proc Poles*(this: AppDef_ParLeastSquareOfMyGradientOfCompute): math_Matrix {.
     noSideEffect, importcpp: "Poles",
     header: "AppDef_ParLeastSquareOfMyGradientOfCompute.hxx".}
-proc kIndex*(this: AppDefParLeastSquareOfMyGradientOfCompute): MathIntegerVector {.
+proc KIndex*(this: AppDef_ParLeastSquareOfMyGradientOfCompute): math_IntegerVector {.
     noSideEffect, importcpp: "KIndex",
     header: "AppDef_ParLeastSquareOfMyGradientOfCompute.hxx".}
-

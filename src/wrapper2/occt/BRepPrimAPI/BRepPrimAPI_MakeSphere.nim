@@ -14,6 +14,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../BRepPrim/BRepPrim_Sphere,
+  BRepPrimAPI_MakeOneAxis, ../Standard/Standard_Real, ../Standard/Standard_Address
+
 discard "forward decl of Standard_DomainError"
 discard "forward decl of gp_Pnt"
 discard "forward decl of gp_Ax2"
@@ -34,54 +39,53 @@ type
                                                                                                        ## radius
 
 
-proc constructBRepPrimAPI_MakeSphere*(r: StandardReal): BRepPrimAPI_MakeSphere {.
+proc constructBRepPrimAPI_MakeSphere*(R: Standard_Real): BRepPrimAPI_MakeSphere {.
     constructor, importcpp: "BRepPrimAPI_MakeSphere(@)",
     header: "BRepPrimAPI_MakeSphere.hxx".}
-proc constructBRepPrimAPI_MakeSphere*(r: StandardReal; angle: StandardReal): BRepPrimAPI_MakeSphere {.
+proc constructBRepPrimAPI_MakeSphere*(R: Standard_Real; angle: Standard_Real): BRepPrimAPI_MakeSphere {.
     constructor, importcpp: "BRepPrimAPI_MakeSphere(@)",
     header: "BRepPrimAPI_MakeSphere.hxx".}
-proc constructBRepPrimAPI_MakeSphere*(r: StandardReal; angle1: StandardReal;
-                                     angle2: StandardReal): BRepPrimAPI_MakeSphere {.
+proc constructBRepPrimAPI_MakeSphere*(R: Standard_Real; angle1: Standard_Real;
+                                     angle2: Standard_Real): BRepPrimAPI_MakeSphere {.
     constructor, importcpp: "BRepPrimAPI_MakeSphere(@)",
     header: "BRepPrimAPI_MakeSphere.hxx".}
-proc constructBRepPrimAPI_MakeSphere*(r: StandardReal; angle1: StandardReal;
-                                     angle2: StandardReal; angle3: StandardReal): BRepPrimAPI_MakeSphere {.
+proc constructBRepPrimAPI_MakeSphere*(R: Standard_Real; angle1: Standard_Real;
+                                     angle2: Standard_Real; angle3: Standard_Real): BRepPrimAPI_MakeSphere {.
     constructor, importcpp: "BRepPrimAPI_MakeSphere(@)",
     header: "BRepPrimAPI_MakeSphere.hxx".}
-proc constructBRepPrimAPI_MakeSphere*(center: GpPnt; r: StandardReal): BRepPrimAPI_MakeSphere {.
+proc constructBRepPrimAPI_MakeSphere*(Center: gp_Pnt; R: Standard_Real): BRepPrimAPI_MakeSphere {.
     constructor, importcpp: "BRepPrimAPI_MakeSphere(@)",
     header: "BRepPrimAPI_MakeSphere.hxx".}
-proc constructBRepPrimAPI_MakeSphere*(center: GpPnt; r: StandardReal;
-                                     angle: StandardReal): BRepPrimAPI_MakeSphere {.
+proc constructBRepPrimAPI_MakeSphere*(Center: gp_Pnt; R: Standard_Real;
+                                     angle: Standard_Real): BRepPrimAPI_MakeSphere {.
     constructor, importcpp: "BRepPrimAPI_MakeSphere(@)",
     header: "BRepPrimAPI_MakeSphere.hxx".}
-proc constructBRepPrimAPI_MakeSphere*(center: GpPnt; r: StandardReal;
-                                     angle1: StandardReal; angle2: StandardReal): BRepPrimAPI_MakeSphere {.
+proc constructBRepPrimAPI_MakeSphere*(Center: gp_Pnt; R: Standard_Real;
+                                     angle1: Standard_Real; angle2: Standard_Real): BRepPrimAPI_MakeSphere {.
     constructor, importcpp: "BRepPrimAPI_MakeSphere(@)",
     header: "BRepPrimAPI_MakeSphere.hxx".}
-proc constructBRepPrimAPI_MakeSphere*(center: GpPnt; r: StandardReal;
-                                     angle1: StandardReal; angle2: StandardReal;
-                                     angle3: StandardReal): BRepPrimAPI_MakeSphere {.
+proc constructBRepPrimAPI_MakeSphere*(Center: gp_Pnt; R: Standard_Real;
+                                     angle1: Standard_Real; angle2: Standard_Real;
+                                     angle3: Standard_Real): BRepPrimAPI_MakeSphere {.
     constructor, importcpp: "BRepPrimAPI_MakeSphere(@)",
     header: "BRepPrimAPI_MakeSphere.hxx".}
-proc constructBRepPrimAPI_MakeSphere*(axis: GpAx2; r: StandardReal): BRepPrimAPI_MakeSphere {.
+proc constructBRepPrimAPI_MakeSphere*(Axis: gp_Ax2; R: Standard_Real): BRepPrimAPI_MakeSphere {.
     constructor, importcpp: "BRepPrimAPI_MakeSphere(@)",
     header: "BRepPrimAPI_MakeSphere.hxx".}
-proc constructBRepPrimAPI_MakeSphere*(axis: GpAx2; r: StandardReal;
-                                     angle: StandardReal): BRepPrimAPI_MakeSphere {.
+proc constructBRepPrimAPI_MakeSphere*(Axis: gp_Ax2; R: Standard_Real;
+                                     angle: Standard_Real): BRepPrimAPI_MakeSphere {.
     constructor, importcpp: "BRepPrimAPI_MakeSphere(@)",
     header: "BRepPrimAPI_MakeSphere.hxx".}
-proc constructBRepPrimAPI_MakeSphere*(axis: GpAx2; r: StandardReal;
-                                     angle1: StandardReal; angle2: StandardReal): BRepPrimAPI_MakeSphere {.
+proc constructBRepPrimAPI_MakeSphere*(Axis: gp_Ax2; R: Standard_Real;
+                                     angle1: Standard_Real; angle2: Standard_Real): BRepPrimAPI_MakeSphere {.
     constructor, importcpp: "BRepPrimAPI_MakeSphere(@)",
     header: "BRepPrimAPI_MakeSphere.hxx".}
-proc constructBRepPrimAPI_MakeSphere*(axis: GpAx2; r: StandardReal;
-                                     angle1: StandardReal; angle2: StandardReal;
-                                     angle3: StandardReal): BRepPrimAPI_MakeSphere {.
+proc constructBRepPrimAPI_MakeSphere*(Axis: gp_Ax2; R: Standard_Real;
+                                     angle1: Standard_Real; angle2: Standard_Real;
+                                     angle3: Standard_Real): BRepPrimAPI_MakeSphere {.
     constructor, importcpp: "BRepPrimAPI_MakeSphere(@)",
     header: "BRepPrimAPI_MakeSphere.hxx".}
-proc oneAxis*(this: var BRepPrimAPI_MakeSphere): StandardAddress {.
+proc OneAxis*(this: var BRepPrimAPI_MakeSphere): Standard_Address {.
     importcpp: "OneAxis", header: "BRepPrimAPI_MakeSphere.hxx".}
-proc sphere*(this: var BRepPrimAPI_MakeSphere): var BRepPrimSphere {.
+proc Sphere*(this: var BRepPrimAPI_MakeSphere): var BRepPrim_Sphere {.
     importcpp: "Sphere", header: "BRepPrimAPI_MakeSphere.hxx".}
-

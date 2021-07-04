@@ -13,9 +13,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  IntTools_SurfaceRangeSample, ../NCollection/NCollection_List
+
 type
-  IntToolsListOfSurfaceRangeSample* = NCollectionList[IntToolsSurfaceRangeSample]
-  IntToolsListIteratorOfListOfSurfaceRangeSample* = Iterator[
-      IntToolsSurfaceRangeSample]
-
-
+  IntTools_ListOfSurfaceRangeSample* = NCollection_List[
+      IntTools_SurfaceRangeSample]
+  IntTools_ListIteratorOfListOfSurfaceRangeSample* = Iterator[
+      IntTools_SurfaceRangeSample]

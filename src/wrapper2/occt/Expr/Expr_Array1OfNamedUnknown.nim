@@ -14,8 +14,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../NCollection/NCollection_Array1
+
 discard "forward decl of Expr_NamedUnknown"
 type
-  ExprArray1OfNamedUnknown* = NCollectionArray1[Handle[ExprNamedUnknown]]
-
-
+  Expr_Array1OfNamedUnknown* = NCollection_Array1[handle[Expr_NamedUnknown]]

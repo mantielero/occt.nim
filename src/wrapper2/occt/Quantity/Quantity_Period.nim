@@ -14,58 +14,65 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer,
+  ../Standard/Standard_Boolean
+
 discard "forward decl of Quantity_PeriodDefinitionError"
 type
-  QuantityPeriod* {.importcpp: "Quantity_Period", header: "Quantity_Period.hxx",
-                   bycopy.} = object ## ! Creates a Period
-                                  ## ! With:      0 <= dd
-                                  ## ! 0 <= hh
-                                  ## ! 0 <= mn
-                                  ## ! 0 <= ss
-                                  ## ! 0 <= mis
-                                  ## ! 0 <= mics
+  Quantity_Period* {.importcpp: "Quantity_Period", header: "Quantity_Period.hxx",
+                    bycopy.} = object ## ! Creates a Period
+                                   ## ! With:      0 <= dd
+                                   ## ! 0 <= hh
+                                   ## ! 0 <= mn
+                                   ## ! 0 <= ss
+                                   ## ! 0 <= mis
+                                   ## ! 0 <= mics
 
 
-proc constructQuantityPeriod*(dd: StandardInteger; hh: StandardInteger;
-                             mn: StandardInteger; ss: StandardInteger;
-                             mis: StandardInteger = 0; mics: StandardInteger = 0): QuantityPeriod {.
+proc constructQuantity_Period*(dd: Standard_Integer; hh: Standard_Integer;
+                              mn: Standard_Integer; ss: Standard_Integer;
+                              mis: Standard_Integer = 0; mics: Standard_Integer = 0): Quantity_Period {.
     constructor, importcpp: "Quantity_Period(@)", header: "Quantity_Period.hxx".}
-proc constructQuantityPeriod*(ss: StandardInteger; mics: StandardInteger = 0): QuantityPeriod {.
+proc constructQuantity_Period*(ss: Standard_Integer; mics: Standard_Integer = 0): Quantity_Period {.
     constructor, importcpp: "Quantity_Period(@)", header: "Quantity_Period.hxx".}
-proc values*(this: QuantityPeriod; dd: var StandardInteger; hh: var StandardInteger;
-            mn: var StandardInteger; ss: var StandardInteger;
-            mis: var StandardInteger; mics: var StandardInteger) {.noSideEffect,
-    importcpp: "Values", header: "Quantity_Period.hxx".}
-proc values*(this: QuantityPeriod; ss: var StandardInteger; mics: var StandardInteger) {.
-    noSideEffect, importcpp: "Values", header: "Quantity_Period.hxx".}
-proc setValues*(this: var QuantityPeriod; dd: StandardInteger; hh: StandardInteger;
-               mn: StandardInteger; ss: StandardInteger; mis: StandardInteger = 0;
-               mics: StandardInteger = 0) {.importcpp: "SetValues",
-                                        header: "Quantity_Period.hxx".}
-proc setValues*(this: var QuantityPeriod; ss: StandardInteger;
-               mics: StandardInteger = 0) {.importcpp: "SetValues",
-                                        header: "Quantity_Period.hxx".}
-proc subtract*(this: QuantityPeriod; anOther: QuantityPeriod): QuantityPeriod {.
+proc Values*(this: Quantity_Period; dd: var Standard_Integer;
+            hh: var Standard_Integer; mn: var Standard_Integer;
+            ss: var Standard_Integer; mis: var Standard_Integer;
+            mics: var Standard_Integer) {.noSideEffect, importcpp: "Values",
+                                       header: "Quantity_Period.hxx".}
+proc Values*(this: Quantity_Period; ss: var Standard_Integer;
+            mics: var Standard_Integer) {.noSideEffect, importcpp: "Values",
+                                       header: "Quantity_Period.hxx".}
+proc SetValues*(this: var Quantity_Period; dd: Standard_Integer; hh: Standard_Integer;
+               mn: Standard_Integer; ss: Standard_Integer;
+               mis: Standard_Integer = 0; mics: Standard_Integer = 0) {.
+    importcpp: "SetValues", header: "Quantity_Period.hxx".}
+proc SetValues*(this: var Quantity_Period; ss: Standard_Integer;
+               mics: Standard_Integer = 0) {.importcpp: "SetValues",
+    header: "Quantity_Period.hxx".}
+proc Subtract*(this: Quantity_Period; anOther: Quantity_Period): Quantity_Period {.
     noSideEffect, importcpp: "Subtract", header: "Quantity_Period.hxx".}
-proc `-`*(this: QuantityPeriod; anOther: QuantityPeriod): QuantityPeriod {.
+proc `-`*(this: Quantity_Period; anOther: Quantity_Period): Quantity_Period {.
     noSideEffect, importcpp: "(# - #)", header: "Quantity_Period.hxx".}
-proc add*(this: QuantityPeriod; anOther: QuantityPeriod): QuantityPeriod {.
+proc Add*(this: Quantity_Period; anOther: Quantity_Period): Quantity_Period {.
     noSideEffect, importcpp: "Add", header: "Quantity_Period.hxx".}
-proc `+`*(this: QuantityPeriod; anOther: QuantityPeriod): QuantityPeriod {.
+proc `+`*(this: Quantity_Period; anOther: Quantity_Period): Quantity_Period {.
     noSideEffect, importcpp: "(# + #)", header: "Quantity_Period.hxx".}
-proc isEqual*(this: QuantityPeriod; anOther: QuantityPeriod): StandardBoolean {.
+proc IsEqual*(this: Quantity_Period; anOther: Quantity_Period): Standard_Boolean {.
     noSideEffect, importcpp: "IsEqual", header: "Quantity_Period.hxx".}
-proc `==`*(this: QuantityPeriod; anOther: QuantityPeriod): StandardBoolean {.
+proc `==`*(this: Quantity_Period; anOther: Quantity_Period): Standard_Boolean {.
     noSideEffect, importcpp: "(# == #)", header: "Quantity_Period.hxx".}
-proc isShorter*(this: QuantityPeriod; anOther: QuantityPeriod): StandardBoolean {.
+proc IsShorter*(this: Quantity_Period; anOther: Quantity_Period): Standard_Boolean {.
     noSideEffect, importcpp: "IsShorter", header: "Quantity_Period.hxx".}
-proc `<`*(this: QuantityPeriod; anOther: QuantityPeriod): StandardBoolean {.
+proc `<`*(this: Quantity_Period; anOther: Quantity_Period): Standard_Boolean {.
     noSideEffect, importcpp: "(# < #)", header: "Quantity_Period.hxx".}
-proc isLonger*(this: QuantityPeriod; anOther: QuantityPeriod): StandardBoolean {.
+proc IsLonger*(this: Quantity_Period; anOther: Quantity_Period): Standard_Boolean {.
     noSideEffect, importcpp: "IsLonger", header: "Quantity_Period.hxx".}
-proc isValid*(dd: StandardInteger; hh: StandardInteger; mn: StandardInteger;
-             ss: StandardInteger; mis: StandardInteger = 0; mics: StandardInteger = 0): StandardBoolean {.
+proc IsValid*(dd: Standard_Integer; hh: Standard_Integer; mn: Standard_Integer;
+             ss: Standard_Integer; mis: Standard_Integer = 0;
+             mics: Standard_Integer = 0): Standard_Boolean {.
     importcpp: "Quantity_Period::IsValid(@)", header: "Quantity_Period.hxx".}
-proc isValid*(ss: StandardInteger; mics: StandardInteger = 0): StandardBoolean {.
+proc IsValid*(ss: Standard_Integer; mics: Standard_Integer = 0): Standard_Boolean {.
     importcpp: "Quantity_Period::IsValid(@)", header: "Quantity_Period.hxx".}
-

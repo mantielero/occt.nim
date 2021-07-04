@@ -11,15 +11,19 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../NCollection/NCollection_DoubleMap, ../NCollection/NCollection_Map,
+  ../XCAFPrs/XCAFPrs_Style
+
 ## ! Material manager.
 ## ! Provides an interface for collecting all materials within the document before writing it into file,
 ## ! and for copying associated image files (textures) into sub-folder near by exported model.
 
 type
-  RWMeshMaterialMap* {.importcpp: "RWMesh_MaterialMap",
-                      header: "RWMesh_MaterialMap.hxx", bycopy.} = object ## ! Main
-                                                                     ## constructor.
-                                                                     ## ! Copy file to another place.
+  RWMesh_MaterialMap* {.importcpp: "RWMesh_MaterialMap",
+                       header: "RWMesh_MaterialMap.hxx", bycopy.} = object ## ! Main
+                                                                      ## constructor.
+                                                                      ## ! Copy file to another place.
     ## !< output folder for glTF file
     ## !< output folder for images (full  path)
     ## !< output folder for images (short path)
@@ -34,29 +38,29 @@ type
     ## !< flag indicating usage of material name as key
 
 
-proc constructRWMeshMaterialMap*(theFile: TCollectionAsciiString): RWMeshMaterialMap {.
+proc constructRWMesh_MaterialMap*(theFile: TCollection_AsciiString): RWMesh_MaterialMap {.
     constructor, importcpp: "RWMesh_MaterialMap(@)",
     header: "RWMesh_MaterialMap.hxx".}
-proc destroyRWMeshMaterialMap*(this: var RWMeshMaterialMap) {.
+proc destroyRWMesh_MaterialMap*(this: var RWMesh_MaterialMap) {.
     importcpp: "#.~RWMesh_MaterialMap()", header: "RWMesh_MaterialMap.hxx".}
-proc defaultStyle*(this: RWMeshMaterialMap): XCAFPrsStyle {.noSideEffect,
+proc DefaultStyle*(this: RWMesh_MaterialMap): XCAFPrs_Style {.noSideEffect,
     importcpp: "DefaultStyle", header: "RWMesh_MaterialMap.hxx".}
-proc setDefaultStyle*(this: var RWMeshMaterialMap; theStyle: XCAFPrsStyle) {.
+proc SetDefaultStyle*(this: var RWMesh_MaterialMap; theStyle: XCAFPrs_Style) {.
     importcpp: "SetDefaultStyle", header: "RWMesh_MaterialMap.hxx".}
-proc findMaterial*(this: RWMeshMaterialMap; theStyle: XCAFPrsStyle): TCollectionAsciiString {.
+proc FindMaterial*(this: RWMesh_MaterialMap; theStyle: XCAFPrs_Style): TCollection_AsciiString {.
     noSideEffect, importcpp: "FindMaterial", header: "RWMesh_MaterialMap.hxx".}
-proc addMaterial*(this: var RWMeshMaterialMap; theStyle: XCAFPrsStyle): TCollectionAsciiString {.
+proc AddMaterial*(this: var RWMesh_MaterialMap; theStyle: XCAFPrs_Style): TCollection_AsciiString {.
     importcpp: "AddMaterial", header: "RWMesh_MaterialMap.hxx".}
-proc createTextureFolder*(this: var RWMeshMaterialMap): bool {.
+proc CreateTextureFolder*(this: var RWMesh_MaterialMap): bool {.
     importcpp: "CreateTextureFolder", header: "RWMesh_MaterialMap.hxx".}
-proc copyTexture*(this: var RWMeshMaterialMap;
-                 theResTexture: var TCollectionAsciiString;
-                 theTexture: Handle[ImageTexture]; theKey: TCollectionAsciiString): bool {.
-    importcpp: "CopyTexture", header: "RWMesh_MaterialMap.hxx".}
-proc defineMaterial*(this: var RWMeshMaterialMap; theStyle: XCAFPrsStyle;
-                    theKey: TCollectionAsciiString;
-                    theName: TCollectionAsciiString) {.
-    importcpp: "DefineMaterial", header: "RWMesh_MaterialMap.hxx".}
-proc isFailed*(this: RWMeshMaterialMap): bool {.noSideEffect, importcpp: "IsFailed",
+proc CopyTexture*(this: var RWMesh_MaterialMap;
+                 theResTexture: var TCollection_AsciiString;
+                 theTexture: handle[Image_Texture];
+                 theKey: TCollection_AsciiString): bool {.importcpp: "CopyTexture",
     header: "RWMesh_MaterialMap.hxx".}
-
+proc DefineMaterial*(this: var RWMesh_MaterialMap; theStyle: XCAFPrs_Style;
+                    theKey: TCollection_AsciiString;
+                    theName: TCollection_AsciiString) {.
+    importcpp: "DefineMaterial", header: "RWMesh_MaterialMap.hxx".}
+proc IsFailed*(this: RWMesh_MaterialMap): bool {.noSideEffect, importcpp: "IsFailed",
+    header: "RWMesh_MaterialMap.hxx".}

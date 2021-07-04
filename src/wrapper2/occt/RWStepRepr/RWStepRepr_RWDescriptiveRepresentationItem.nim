@@ -14,28 +14,31 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepRepr_DescriptiveRepresentationItem"
 discard "forward decl of StepData_StepWriter"
 type
-  RWStepReprRWDescriptiveRepresentationItem* {.
+  RWStepRepr_RWDescriptiveRepresentationItem* {.
       importcpp: "RWStepRepr_RWDescriptiveRepresentationItem",
       header: "RWStepRepr_RWDescriptiveRepresentationItem.hxx", bycopy.} = object
 
 
-proc constructRWStepReprRWDescriptiveRepresentationItem*(): RWStepReprRWDescriptiveRepresentationItem {.
+proc constructRWStepRepr_RWDescriptiveRepresentationItem*(): RWStepRepr_RWDescriptiveRepresentationItem {.
     constructor, importcpp: "RWStepRepr_RWDescriptiveRepresentationItem(@)",
     header: "RWStepRepr_RWDescriptiveRepresentationItem.hxx".}
-proc readStep*(this: RWStepReprRWDescriptiveRepresentationItem;
-              data: Handle[StepDataStepReaderData]; num: StandardInteger;
-              ach: var Handle[InterfaceCheck];
-              ent: Handle[StepReprDescriptiveRepresentationItem]) {.noSideEffect,
+proc ReadStep*(this: RWStepRepr_RWDescriptiveRepresentationItem;
+              data: handle[StepData_StepReaderData]; num: Standard_Integer;
+              ach: var handle[Interface_Check];
+              ent: handle[StepRepr_DescriptiveRepresentationItem]) {.noSideEffect,
     importcpp: "ReadStep",
     header: "RWStepRepr_RWDescriptiveRepresentationItem.hxx".}
-proc writeStep*(this: RWStepReprRWDescriptiveRepresentationItem;
-               sw: var StepDataStepWriter;
-               ent: Handle[StepReprDescriptiveRepresentationItem]) {.noSideEffect,
-    importcpp: "WriteStep",
+proc WriteStep*(this: RWStepRepr_RWDescriptiveRepresentationItem;
+               SW: var StepData_StepWriter;
+               ent: handle[StepRepr_DescriptiveRepresentationItem]) {.
+    noSideEffect, importcpp: "WriteStep",
     header: "RWStepRepr_RWDescriptiveRepresentationItem.hxx".}
-

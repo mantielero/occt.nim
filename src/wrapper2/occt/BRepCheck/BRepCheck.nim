@@ -14,6 +14,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, BRepCheck_ListOfStatus, BRepCheck_Status,
+  ../Standard/Standard_OStream, ../Standard/Standard_Boolean
+
 discard "forward decl of TopoDS_Wire"
 discard "forward decl of TopoDS_Face"
 discard "forward decl of TopoDS_Edge"
@@ -31,15 +36,14 @@ type
   BRepCheck* {.importcpp: "BRepCheck", header: "BRepCheck.hxx", bycopy.} = object
 
 
-proc add*(list: var BRepCheckListOfStatus; stat: BRepCheckStatus) {.
+proc Add*(List: var BRepCheck_ListOfStatus; Stat: BRepCheck_Status) {.
     importcpp: "BRepCheck::Add(@)", header: "BRepCheck.hxx".}
-proc print*(stat: BRepCheckStatus; os: var StandardOStream) {.
+proc Print*(Stat: BRepCheck_Status; OS: var Standard_OStream) {.
     importcpp: "BRepCheck::Print(@)", header: "BRepCheck.hxx".}
-proc selfIntersection*(w: TopoDS_Wire; f: TopoDS_Face; e1: var TopoDS_Edge;
-                      e2: var TopoDS_Edge): StandardBoolean {.
+proc SelfIntersection*(W: TopoDS_Wire; F: TopoDS_Face; E1: var TopoDS_Edge;
+                      E2: var TopoDS_Edge): Standard_Boolean {.
     importcpp: "BRepCheck::SelfIntersection(@)", header: "BRepCheck.hxx".}
-proc precCurve*(aAC3D: Adaptor3dCurve): StandardReal {.
+proc PrecCurve*(aAC3D: Adaptor3d_Curve): Standard_Real {.
     importcpp: "BRepCheck::PrecCurve(@)", header: "BRepCheck.hxx".}
-proc precSurface*(aAHSurf: Handle[Adaptor3dHSurface]): StandardReal {.
+proc PrecSurface*(aAHSurf: handle[Adaptor3d_HSurface]): Standard_Real {.
     importcpp: "BRepCheck::PrecSurface(@)", header: "BRepCheck.hxx".}
-

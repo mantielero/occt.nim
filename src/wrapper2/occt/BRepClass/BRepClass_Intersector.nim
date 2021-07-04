@@ -14,20 +14,24 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Geom2dInt/Geom2dInt_IntConicCurveOfGInter,
+  ../Standard/Standard_Real
+
 discard "forward decl of gp_Lin2d"
 discard "forward decl of BRepClass_Edge"
 discard "forward decl of gp_Dir2d"
 type
-  BRepClassIntersector* {.importcpp: "BRepClass_Intersector",
-                         header: "BRepClass_Intersector.hxx", bycopy.} = object of Geom2dIntIntConicCurveOfGInter
+  BRepClass_Intersector* {.importcpp: "BRepClass_Intersector",
+                          header: "BRepClass_Intersector.hxx", bycopy.} = object of Geom2dInt_IntConicCurveOfGInter
 
 
-proc constructBRepClassIntersector*(): BRepClassIntersector {.constructor,
+proc constructBRepClass_Intersector*(): BRepClass_Intersector {.constructor,
     importcpp: "BRepClass_Intersector(@)", header: "BRepClass_Intersector.hxx".}
-proc perform*(this: var BRepClassIntersector; L: GpLin2d; p: StandardReal;
-             tol: StandardReal; e: BRepClassEdge) {.importcpp: "Perform",
+proc Perform*(this: var BRepClass_Intersector; L: gp_Lin2d; P: Standard_Real;
+             Tol: Standard_Real; E: BRepClass_Edge) {.importcpp: "Perform",
     header: "BRepClass_Intersector.hxx".}
-proc localGeometry*(this: BRepClassIntersector; e: BRepClassEdge; u: StandardReal;
-                   t: var GpDir2d; n: var GpDir2d; c: var StandardReal) {.noSideEffect,
-    importcpp: "LocalGeometry", header: "BRepClass_Intersector.hxx".}
-
+proc LocalGeometry*(this: BRepClass_Intersector; E: BRepClass_Edge; U: Standard_Real;
+                   T: var gp_Dir2d; N: var gp_Dir2d; C: var Standard_Real) {.
+    noSideEffect, importcpp: "LocalGeometry", header: "BRepClass_Intersector.hxx".}

@@ -14,34 +14,40 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer,
+  ../Standard/Standard_Real, ../Standard/Standard_ShortReal,
+  ../Standard/Standard_Boolean
+
 discard "forward decl of HLRAlgo_EdgeStatus"
 type
-  HLRAlgoEdgeIterator* {.importcpp: "HLRAlgo_EdgeIterator",
-                        header: "HLRAlgo_EdgeIterator.hxx", bycopy.} = object ## !
-                                                                         ## Iterator  on the  visible or  hidden  parts of  an
-                                                                         ## ! edge.
+  HLRAlgo_EdgeIterator* {.importcpp: "HLRAlgo_EdgeIterator",
+                         header: "HLRAlgo_EdgeIterator.hxx", bycopy.} = object ## !
+                                                                          ## Iterator  on the
+                                                                          ## visible or  hidden  parts of  an
+                                                                          ## ! edge.
 
 
-proc constructHLRAlgoEdgeIterator*(): HLRAlgoEdgeIterator {.constructor,
+proc constructHLRAlgo_EdgeIterator*(): HLRAlgo_EdgeIterator {.constructor,
     importcpp: "HLRAlgo_EdgeIterator(@)", header: "HLRAlgo_EdgeIterator.hxx".}
-proc initHidden*(this: var HLRAlgoEdgeIterator; status: var HLRAlgoEdgeStatus) {.
+proc InitHidden*(this: var HLRAlgo_EdgeIterator; status: var HLRAlgo_EdgeStatus) {.
     importcpp: "InitHidden", header: "HLRAlgo_EdgeIterator.hxx".}
-proc moreHidden*(this: HLRAlgoEdgeIterator): StandardBoolean {.noSideEffect,
+proc MoreHidden*(this: HLRAlgo_EdgeIterator): Standard_Boolean {.noSideEffect,
     importcpp: "MoreHidden", header: "HLRAlgo_EdgeIterator.hxx".}
-proc nextHidden*(this: var HLRAlgoEdgeIterator) {.importcpp: "NextHidden",
+proc NextHidden*(this: var HLRAlgo_EdgeIterator) {.importcpp: "NextHidden",
     header: "HLRAlgo_EdgeIterator.hxx".}
-proc hidden*(this: HLRAlgoEdgeIterator; start: var StandardReal;
-            tolStart: var StandardShortReal; `end`: var StandardReal;
-            tolEnd: var StandardShortReal) {.noSideEffect, importcpp: "Hidden",
+proc Hidden*(this: HLRAlgo_EdgeIterator; Start: var Standard_Real;
+            TolStart: var Standard_ShortReal; End: var Standard_Real;
+            TolEnd: var Standard_ShortReal) {.noSideEffect, importcpp: "Hidden",
     header: "HLRAlgo_EdgeIterator.hxx".}
-proc initVisible*(this: var HLRAlgoEdgeIterator; status: var HLRAlgoEdgeStatus) {.
+proc InitVisible*(this: var HLRAlgo_EdgeIterator; status: var HLRAlgo_EdgeStatus) {.
     importcpp: "InitVisible", header: "HLRAlgo_EdgeIterator.hxx".}
-proc moreVisible*(this: HLRAlgoEdgeIterator): StandardBoolean {.noSideEffect,
+proc MoreVisible*(this: HLRAlgo_EdgeIterator): Standard_Boolean {.noSideEffect,
     importcpp: "MoreVisible", header: "HLRAlgo_EdgeIterator.hxx".}
-proc nextVisible*(this: var HLRAlgoEdgeIterator) {.importcpp: "NextVisible",
+proc NextVisible*(this: var HLRAlgo_EdgeIterator) {.importcpp: "NextVisible",
     header: "HLRAlgo_EdgeIterator.hxx".}
-proc visible*(this: var HLRAlgoEdgeIterator; start: var StandardReal;
-             tolStart: var StandardShortReal; `end`: var StandardReal;
-             tolEnd: var StandardShortReal) {.importcpp: "Visible",
+proc Visible*(this: var HLRAlgo_EdgeIterator; Start: var Standard_Real;
+             TolStart: var Standard_ShortReal; End: var Standard_Real;
+             TolEnd: var Standard_ShortReal) {.importcpp: "Visible",
     header: "HLRAlgo_EdgeIterator.hxx".}
-

@@ -13,42 +13,46 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../BinMDF/BinMDF_ADriver,
+  ../Standard/Standard_Boolean, ../BinObjMgt/BinObjMgt_RRelocationTable,
+  ../BinObjMgt/BinObjMgt_SRelocationTable
+
 discard "forward decl of Message_Messenger"
 discard "forward decl of TDF_Attribute"
 discard "forward decl of BinObjMgt_Persistent"
 discard "forward decl of BinMFunction_ScopeDriver"
 discard "forward decl of BinMFunction_ScopeDriver"
 type
-  HandleBinMFunctionScopeDriver* = Handle[BinMFunctionScopeDriver]
+  Handle_BinMFunction_ScopeDriver* = handle[BinMFunction_ScopeDriver]
 
 ## ! Scope attribute Driver.
 
 type
-  BinMFunctionScopeDriver* {.importcpp: "BinMFunction_ScopeDriver",
-                            header: "BinMFunction_ScopeDriver.hxx", bycopy.} = object of BinMDF_ADriver
+  BinMFunction_ScopeDriver* {.importcpp: "BinMFunction_ScopeDriver",
+                             header: "BinMFunction_ScopeDriver.hxx", bycopy.} = object of BinMDF_ADriver
 
 
-proc constructBinMFunctionScopeDriver*(theMessageDriver: Handle[MessageMessenger]): BinMFunctionScopeDriver {.
+proc constructBinMFunction_ScopeDriver*(theMessageDriver: handle[Message_Messenger]): BinMFunction_ScopeDriver {.
     constructor, importcpp: "BinMFunction_ScopeDriver(@)",
     header: "BinMFunction_ScopeDriver.hxx".}
-proc newEmpty*(this: BinMFunctionScopeDriver): Handle[TDF_Attribute] {.noSideEffect,
-    importcpp: "NewEmpty", header: "BinMFunction_ScopeDriver.hxx".}
-proc paste*(this: BinMFunctionScopeDriver; source: BinObjMgtPersistent;
-           target: Handle[TDF_Attribute];
-           relocTable: var BinObjMgtRRelocationTable): StandardBoolean {.
+proc NewEmpty*(this: BinMFunction_ScopeDriver): handle[TDF_Attribute] {.
+    noSideEffect, importcpp: "NewEmpty", header: "BinMFunction_ScopeDriver.hxx".}
+proc Paste*(this: BinMFunction_ScopeDriver; Source: BinObjMgt_Persistent;
+           Target: handle[TDF_Attribute];
+           RelocTable: var BinObjMgt_RRelocationTable): Standard_Boolean {.
     noSideEffect, importcpp: "Paste", header: "BinMFunction_ScopeDriver.hxx".}
-proc paste*(this: BinMFunctionScopeDriver; source: Handle[TDF_Attribute];
-           target: var BinObjMgtPersistent;
-           relocTable: var BinObjMgtSRelocationTable) {.noSideEffect,
+proc Paste*(this: BinMFunction_ScopeDriver; Source: handle[TDF_Attribute];
+           Target: var BinObjMgt_Persistent;
+           RelocTable: var BinObjMgt_SRelocationTable) {.noSideEffect,
     importcpp: "Paste", header: "BinMFunction_ScopeDriver.hxx".}
 type
-  BinMFunctionScopeDriverbaseType* = BinMDF_ADriver
+  BinMFunction_ScopeDriverbase_type* = BinMDF_ADriver
 
-proc getTypeName*(): cstring {.importcpp: "BinMFunction_ScopeDriver::get_type_name(@)",
-                            header: "BinMFunction_ScopeDriver.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "BinMFunction_ScopeDriver::get_type_name(@)",
+                              header: "BinMFunction_ScopeDriver.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "BinMFunction_ScopeDriver::get_type_descriptor(@)",
     header: "BinMFunction_ScopeDriver.hxx".}
-proc dynamicType*(this: BinMFunctionScopeDriver): Handle[StandardType] {.
+proc DynamicType*(this: BinMFunction_ScopeDriver): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType", header: "BinMFunction_ScopeDriver.hxx".}
-

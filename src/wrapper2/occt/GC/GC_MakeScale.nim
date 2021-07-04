@@ -14,6 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Real
+
 discard "forward decl of Geom_Transformation"
 discard "forward decl of gp_Pnt"
 type
@@ -45,11 +49,10 @@ type
                                                                                    ## factor.
 
 
-proc constructGC_MakeScale*(point: GpPnt; scale: StandardReal): GC_MakeScale {.
+proc constructGC_MakeScale*(Point: gp_Pnt; Scale: Standard_Real): GC_MakeScale {.
     constructor, importcpp: "GC_MakeScale(@)", header: "GC_MakeScale.hxx".}
-proc value*(this: GC_MakeScale): Handle[GeomTransformation] {.noSideEffect,
+proc Value*(this: GC_MakeScale): handle[Geom_Transformation] {.noSideEffect,
     importcpp: "Value", header: "GC_MakeScale.hxx".}
-converter `constopencascade`*(this: GC_MakeScale): Handle[GeomTransformation] {.
+converter `constopencascade`*(this: GC_MakeScale): handle[Geom_Transformation] {.
     noSideEffect, importcpp: "GC_MakeScale::operator constopencascade",
     header: "GC_MakeScale.hxx".}
-

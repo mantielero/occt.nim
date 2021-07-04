@@ -14,6 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, GeomToStep_Root
+
 discard "forward decl of StepGeom_Direction"
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of gp_Dir"
@@ -21,22 +25,21 @@ discard "forward decl of gp_Dir2d"
 discard "forward decl of Geom_Direction"
 discard "forward decl of Geom2d_Direction"
 type
-  GeomToStepMakeDirection* {.importcpp: "GeomToStep_MakeDirection",
-                            header: "GeomToStep_MakeDirection.hxx", bycopy.} = object of GeomToStepRoot
+  GeomToStep_MakeDirection* {.importcpp: "GeomToStep_MakeDirection",
+                             header: "GeomToStep_MakeDirection.hxx", bycopy.} = object of GeomToStep_Root
 
 
-proc constructGeomToStepMakeDirection*(d: GpDir): GeomToStepMakeDirection {.
+proc constructGeomToStep_MakeDirection*(D: gp_Dir): GeomToStep_MakeDirection {.
     constructor, importcpp: "GeomToStep_MakeDirection(@)",
     header: "GeomToStep_MakeDirection.hxx".}
-proc constructGeomToStepMakeDirection*(d: GpDir2d): GeomToStepMakeDirection {.
+proc constructGeomToStep_MakeDirection*(D: gp_Dir2d): GeomToStep_MakeDirection {.
     constructor, importcpp: "GeomToStep_MakeDirection(@)",
     header: "GeomToStep_MakeDirection.hxx".}
-proc constructGeomToStepMakeDirection*(d: Handle[GeomDirection]): GeomToStepMakeDirection {.
+proc constructGeomToStep_MakeDirection*(D: handle[Geom_Direction]): GeomToStep_MakeDirection {.
     constructor, importcpp: "GeomToStep_MakeDirection(@)",
     header: "GeomToStep_MakeDirection.hxx".}
-proc constructGeomToStepMakeDirection*(d: Handle[Geom2dDirection]): GeomToStepMakeDirection {.
+proc constructGeomToStep_MakeDirection*(D: handle[Geom2d_Direction]): GeomToStep_MakeDirection {.
     constructor, importcpp: "GeomToStep_MakeDirection(@)",
     header: "GeomToStep_MakeDirection.hxx".}
-proc value*(this: GeomToStepMakeDirection): Handle[StepGeomDirection] {.
+proc Value*(this: GeomToStep_MakeDirection): handle[StepGeom_Direction] {.
     noSideEffect, importcpp: "Value", header: "GeomToStep_MakeDirection.hxx".}
-

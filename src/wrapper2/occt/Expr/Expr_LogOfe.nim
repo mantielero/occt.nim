@@ -14,6 +14,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, Expr_UnaryExpression,
+  ../Standard/Standard_Boolean, ../Standard/Standard_Real,
+  Expr_Array1OfNamedUnknown, ../TColStd/TColStd_Array1OfReal
+
 discard "forward decl of Standard_NumericError"
 discard "forward decl of Expr_NotEvaluable"
 discard "forward decl of Expr_GeneralExpression"
@@ -22,42 +27,41 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of Expr_LogOfe"
 discard "forward decl of Expr_LogOfe"
 type
-  HandleExprLogOfe* = Handle[ExprLogOfe]
-  ExprLogOfe* {.importcpp: "Expr_LogOfe", header: "Expr_LogOfe.hxx", bycopy.} = object of ExprUnaryExpression ##
-                                                                                                    ## !
-                                                                                                    ## Creates
-                                                                                                    ## the
-                                                                                                    ## natural
-                                                                                                    ## logarithm
-                                                                                                    ## of
-                                                                                                    ## <exp>
+  Handle_Expr_LogOfe* = handle[Expr_LogOfe]
+  Expr_LogOfe* {.importcpp: "Expr_LogOfe", header: "Expr_LogOfe.hxx", bycopy.} = object of Expr_UnaryExpression ##
+                                                                                                      ## !
+                                                                                                      ## Creates
+                                                                                                      ## the
+                                                                                                      ## natural
+                                                                                                      ## logarithm
+                                                                                                      ## of
+                                                                                                      ## <exp>
 
 
-proc constructExprLogOfe*(exp: Handle[ExprGeneralExpression]): ExprLogOfe {.
+proc constructExpr_LogOfe*(exp: handle[Expr_GeneralExpression]): Expr_LogOfe {.
     constructor, importcpp: "Expr_LogOfe(@)", header: "Expr_LogOfe.hxx".}
-proc shallowSimplified*(this: ExprLogOfe): Handle[ExprGeneralExpression] {.
+proc ShallowSimplified*(this: Expr_LogOfe): handle[Expr_GeneralExpression] {.
     noSideEffect, importcpp: "ShallowSimplified", header: "Expr_LogOfe.hxx".}
-proc copy*(this: ExprLogOfe): Handle[ExprGeneralExpression] {.noSideEffect,
+proc Copy*(this: Expr_LogOfe): handle[Expr_GeneralExpression] {.noSideEffect,
     importcpp: "Copy", header: "Expr_LogOfe.hxx".}
-proc isIdentical*(this: ExprLogOfe; other: Handle[ExprGeneralExpression]): StandardBoolean {.
+proc IsIdentical*(this: Expr_LogOfe; Other: handle[Expr_GeneralExpression]): Standard_Boolean {.
     noSideEffect, importcpp: "IsIdentical", header: "Expr_LogOfe.hxx".}
-proc isLinear*(this: ExprLogOfe): StandardBoolean {.noSideEffect,
+proc IsLinear*(this: Expr_LogOfe): Standard_Boolean {.noSideEffect,
     importcpp: "IsLinear", header: "Expr_LogOfe.hxx".}
-proc derivative*(this: ExprLogOfe; x: Handle[ExprNamedUnknown]): Handle[
-    ExprGeneralExpression] {.noSideEffect, importcpp: "Derivative",
-                            header: "Expr_LogOfe.hxx".}
-proc evaluate*(this: ExprLogOfe; vars: ExprArray1OfNamedUnknown;
-              vals: TColStdArray1OfReal): StandardReal {.noSideEffect,
+proc Derivative*(this: Expr_LogOfe; X: handle[Expr_NamedUnknown]): handle[
+    Expr_GeneralExpression] {.noSideEffect, importcpp: "Derivative",
+                             header: "Expr_LogOfe.hxx".}
+proc Evaluate*(this: Expr_LogOfe; vars: Expr_Array1OfNamedUnknown;
+              vals: TColStd_Array1OfReal): Standard_Real {.noSideEffect,
     importcpp: "Evaluate", header: "Expr_LogOfe.hxx".}
-proc string*(this: ExprLogOfe): TCollectionAsciiString {.noSideEffect,
+proc String*(this: Expr_LogOfe): TCollection_AsciiString {.noSideEffect,
     importcpp: "String", header: "Expr_LogOfe.hxx".}
 type
-  ExprLogOfebaseType* = ExprUnaryExpression
+  Expr_LogOfebase_type* = Expr_UnaryExpression
 
-proc getTypeName*(): cstring {.importcpp: "Expr_LogOfe::get_type_name(@)",
-                            header: "Expr_LogOfe.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "Expr_LogOfe::get_type_name(@)",
+                              header: "Expr_LogOfe.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "Expr_LogOfe::get_type_descriptor(@)", header: "Expr_LogOfe.hxx".}
-proc dynamicType*(this: ExprLogOfe): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: Expr_LogOfe): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "Expr_LogOfe.hxx".}
-

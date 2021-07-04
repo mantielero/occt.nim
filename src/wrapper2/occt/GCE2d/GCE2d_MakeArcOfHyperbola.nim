@@ -14,51 +14,54 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, GCE2d_Root, ../Geom2d/Geom2d_TrimmedCurve
+
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of gp_Hypr2d"
 discard "forward decl of gp_Pnt2d"
 type
-  GCE2dMakeArcOfHyperbola* {.importcpp: "GCE2d_MakeArcOfHyperbola",
-                            header: "GCE2d_MakeArcOfHyperbola.hxx", bycopy.} = object of GCE2dRoot ##
-                                                                                            ## !
-                                                                                            ## Makes
-                                                                                            ## an
-                                                                                            ## arc
-                                                                                            ## of
-                                                                                            ## Hyperbola
-                                                                                            ## (TrimmedCurve
-                                                                                            ## from
-                                                                                            ## Geom2d)
-                                                                                            ## from
-                                                                                            ##
-                                                                                            ## !
-                                                                                            ## a
-                                                                                            ## Hyperbola
-                                                                                            ## between
-                                                                                            ## two
-                                                                                            ## parameters
-                                                                                            ## Alpha1
-                                                                                            ## and
-                                                                                            ## Alpha2.
+  GCE2d_MakeArcOfHyperbola* {.importcpp: "GCE2d_MakeArcOfHyperbola",
+                             header: "GCE2d_MakeArcOfHyperbola.hxx", bycopy.} = object of GCE2d_Root ##
+                                                                                              ## !
+                                                                                              ## Makes
+                                                                                              ## an
+                                                                                              ## arc
+                                                                                              ## of
+                                                                                              ## Hyperbola
+                                                                                              ## (TrimmedCurve
+                                                                                              ## from
+                                                                                              ## Geom2d)
+                                                                                              ## from
+                                                                                              ##
+                                                                                              ## !
+                                                                                              ## a
+                                                                                              ## Hyperbola
+                                                                                              ## between
+                                                                                              ## two
+                                                                                              ## parameters
+                                                                                              ## Alpha1
+                                                                                              ## and
+                                                                                              ## Alpha2.
 
 
-proc constructGCE2dMakeArcOfHyperbola*(hypr: GpHypr2d; alpha1: StandardReal;
-                                      alpha2: StandardReal;
-                                      sense: StandardBoolean = standardTrue): GCE2dMakeArcOfHyperbola {.
+proc constructGCE2d_MakeArcOfHyperbola*(Hypr: gp_Hypr2d; Alpha1: Standard_Real;
+                                       Alpha2: Standard_Real;
+                                       Sense: Standard_Boolean = Standard_True): GCE2d_MakeArcOfHyperbola {.
     constructor, importcpp: "GCE2d_MakeArcOfHyperbola(@)",
     header: "GCE2d_MakeArcOfHyperbola.hxx".}
-proc constructGCE2dMakeArcOfHyperbola*(hypr: GpHypr2d; p: GpPnt2d;
-                                      alpha: StandardReal;
-                                      sense: StandardBoolean = standardTrue): GCE2dMakeArcOfHyperbola {.
+proc constructGCE2d_MakeArcOfHyperbola*(Hypr: gp_Hypr2d; P: gp_Pnt2d;
+                                       Alpha: Standard_Real;
+                                       Sense: Standard_Boolean = Standard_True): GCE2d_MakeArcOfHyperbola {.
     constructor, importcpp: "GCE2d_MakeArcOfHyperbola(@)",
     header: "GCE2d_MakeArcOfHyperbola.hxx".}
-proc constructGCE2dMakeArcOfHyperbola*(hypr: GpHypr2d; p1: GpPnt2d; p2: GpPnt2d;
-                                      sense: StandardBoolean = standardTrue): GCE2dMakeArcOfHyperbola {.
+proc constructGCE2d_MakeArcOfHyperbola*(Hypr: gp_Hypr2d; P1: gp_Pnt2d; P2: gp_Pnt2d;
+                                       Sense: Standard_Boolean = Standard_True): GCE2d_MakeArcOfHyperbola {.
     constructor, importcpp: "GCE2d_MakeArcOfHyperbola(@)",
     header: "GCE2d_MakeArcOfHyperbola.hxx".}
-proc value*(this: GCE2dMakeArcOfHyperbola): Handle[Geom2dTrimmedCurve] {.
+proc Value*(this: GCE2d_MakeArcOfHyperbola): handle[Geom2d_TrimmedCurve] {.
     noSideEffect, importcpp: "Value", header: "GCE2d_MakeArcOfHyperbola.hxx".}
-converter `constopencascade`*(this: GCE2dMakeArcOfHyperbola): Handle[
-    Geom2dTrimmedCurve] {.noSideEffect, importcpp: "GCE2d_MakeArcOfHyperbola::operator constopencascade",
-                         header: "GCE2d_MakeArcOfHyperbola.hxx".}
-
+converter `constopencascade`*(this: GCE2d_MakeArcOfHyperbola): handle[
+    Geom2d_TrimmedCurve] {.noSideEffect, importcpp: "GCE2d_MakeArcOfHyperbola::operator constopencascade",
+                          header: "GCE2d_MakeArcOfHyperbola.hxx".}

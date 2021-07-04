@@ -12,6 +12,15 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../gp/gp_XYZ, ../Graphic3d/Graphic3d_Vec2, ../Graphic3d/Graphic3d_Vec4,
+  ../Message/Message, ../Message/Message_Messenger,
+  ../Message/Message_ProgressRange, ../NCollection/NCollection_Array1,
+  ../NCollection/NCollection_DataMap, ../NCollection/NCollection_IndexedMap,
+  ../NCollection/NCollection_Vector, ../NCollection/NCollection_Shared,
+  ../RWMesh/RWMesh_CoordinateSystemConverter, RWObj_Material, RWObj_SubMesh,
+  RWObj_SubMeshReason, RWObj_Tools
+
 ## ! An abstract class implementing procedure to read OBJ file.
 ## !
 ## ! This class is not bound to particular data structure
@@ -21,160 +30,160 @@
 ## ! Call method Read() to read the file.
 
 type
-  RWObjReader* {.importcpp: "RWObj_Reader", header: "RWObj_Reader.hxx", bycopy.} = object of StandardTransient ##
-                                                                                                     ## !
-                                                                                                     ## Empty
-                                                                                                     ## constructor.
-                                                                                                     ##
-                                                                                                     ## !
-                                                                                                     ## Reads
-                                                                                                     ## data
-                                                                                                     ## from
-                                                                                                     ## OBJ
-                                                                                                     ## file.
-                                                                                                     ##
-                                                                                                     ## !
-                                                                                                     ## Unicode
-                                                                                                     ## paths
-                                                                                                     ## can
-                                                                                                     ## be
-                                                                                                     ## given
-                                                                                                     ## in
-                                                                                                     ## UTF-8
-                                                                                                     ## encoding.
-                                                                                                     ##
-                                                                                                     ## !
-                                                                                                     ## Returns
-                                                                                                     ## true
-                                                                                                     ## if
-                                                                                                     ## success,
-                                                                                                     ## false
-                                                                                                     ## on
-                                                                                                     ## error
-                                                                                                     ## or
-                                                                                                     ## user
-                                                                                                     ## break.
-                                                                                                     ##
-                                                                                                     ## !
-                                                                                                     ## Add
-                                                                                                     ## new
-                                                                                                     ## sub-mesh.
-                                                                                                     ##
-                                                                                                     ## !
-                                                                                                     ## Basically,
-                                                                                                     ## this
-                                                                                                     ## method
-                                                                                                     ## will
-                                                                                                     ## be
-                                                                                                     ## called
-                                                                                                     ## multiple
-                                                                                                     ## times
-                                                                                                     ## for
-                                                                                                     ## the
-                                                                                                     ## same
-                                                                                                     ## group
-                                                                                                     ## with
-                                                                                                     ## different
-                                                                                                     ## reason,
-                                                                                                     ##
-                                                                                                     ## !
-                                                                                                     ## so
-                                                                                                     ## that
-                                                                                                     ## implementation
-                                                                                                     ## should
-                                                                                                     ## decide
-                                                                                                     ## if
-                                                                                                     ## previously
-                                                                                                     ## allocated
-                                                                                                     ## sub-mesh
-                                                                                                     ## should
-                                                                                                     ## be
-                                                                                                     ## used
-                                                                                                     ## or
-                                                                                                     ## new
-                                                                                                     ## one
-                                                                                                     ## to
-                                                                                                     ## be
-                                                                                                     ## allocated.
-                                                                                                     ##
-                                                                                                     ## !
-                                                                                                     ## Sub-mesh
-                                                                                                     ## command
-                                                                                                     ## can
-                                                                                                     ## be
-                                                                                                     ## skipped
-                                                                                                     ## if
-                                                                                                     ## previous
-                                                                                                     ## sub-mesh
-                                                                                                     ## is
-                                                                                                     ## empty,
-                                                                                                     ##
-                                                                                                     ## !
-                                                                                                     ## or
-                                                                                                     ## if
-                                                                                                     ## the
-                                                                                                     ## reason
-                                                                                                     ## is
-                                                                                                     ## out
-                                                                                                     ## of
-                                                                                                     ## interest
-                                                                                                     ## for
-                                                                                                     ## particular
-                                                                                                     ## reader
-                                                                                                     ##
-                                                                                                     ## !
-                                                                                                     ## (e.g.
-                                                                                                     ## if
-                                                                                                     ## materials
-                                                                                                     ## are
-                                                                                                     ## ignored,
-                                                                                                     ## reader
-                                                                                                     ## may
-                                                                                                     ## ignore
-                                                                                                     ## RWObj_SubMeshReason_NewMaterial
-                                                                                                     ## reason).
-                                                                                                     ##
-                                                                                                     ## !
-                                                                                                     ## @param
-                                                                                                     ## theMesh
-                                                                                                     ## mesh
-                                                                                                     ## definition
-                                                                                                     ##
-                                                                                                     ## !
-                                                                                                     ## @param
-                                                                                                     ## theReason
-                                                                                                     ## reason
-                                                                                                     ## to
-                                                                                                     ## create
-                                                                                                     ## new
-                                                                                                     ## sub-mesh
-                                                                                                     ##
-                                                                                                     ## !
-                                                                                                     ## @return
-                                                                                                     ## TRUE
-                                                                                                     ## if
-                                                                                                     ## new
-                                                                                                     ## sub-mesh
-                                                                                                     ## should
-                                                                                                     ## be
-                                                                                                     ## started
-                                                                                                     ## since
-                                                                                                     ## this
-                                                                                                     ## point
-                                                                                                     ##
-                                                                                                     ## !
-                                                                                                     ## Handle
-                                                                                                     ## "v
-                                                                                                     ## X
-                                                                                                     ## Y
-                                                                                                     ## Z".
-                                                                                                     ##
-                                                                                                     ## !
-                                                                                                     ## Hasher
-                                                                                                     ## for
-                                                                                                     ## 3
-                                                                                                     ## ordered
-                                                                                                     ## integers.
+  RWObj_Reader* {.importcpp: "RWObj_Reader", header: "RWObj_Reader.hxx", bycopy.} = object of Standard_Transient ##
+                                                                                                       ## !
+                                                                                                       ## Empty
+                                                                                                       ## constructor.
+                                                                                                       ##
+                                                                                                       ## !
+                                                                                                       ## Reads
+                                                                                                       ## data
+                                                                                                       ## from
+                                                                                                       ## OBJ
+                                                                                                       ## file.
+                                                                                                       ##
+                                                                                                       ## !
+                                                                                                       ## Unicode
+                                                                                                       ## paths
+                                                                                                       ## can
+                                                                                                       ## be
+                                                                                                       ## given
+                                                                                                       ## in
+                                                                                                       ## UTF-8
+                                                                                                       ## encoding.
+                                                                                                       ##
+                                                                                                       ## !
+                                                                                                       ## Returns
+                                                                                                       ## true
+                                                                                                       ## if
+                                                                                                       ## success,
+                                                                                                       ## false
+                                                                                                       ## on
+                                                                                                       ## error
+                                                                                                       ## or
+                                                                                                       ## user
+                                                                                                       ## break.
+                                                                                                       ##
+                                                                                                       ## !
+                                                                                                       ## Add
+                                                                                                       ## new
+                                                                                                       ## sub-mesh.
+                                                                                                       ##
+                                                                                                       ## !
+                                                                                                       ## Basically,
+                                                                                                       ## this
+                                                                                                       ## method
+                                                                                                       ## will
+                                                                                                       ## be
+                                                                                                       ## called
+                                                                                                       ## multiple
+                                                                                                       ## times
+                                                                                                       ## for
+                                                                                                       ## the
+                                                                                                       ## same
+                                                                                                       ## group
+                                                                                                       ## with
+                                                                                                       ## different
+                                                                                                       ## reason,
+                                                                                                       ##
+                                                                                                       ## !
+                                                                                                       ## so
+                                                                                                       ## that
+                                                                                                       ## implementation
+                                                                                                       ## should
+                                                                                                       ## decide
+                                                                                                       ## if
+                                                                                                       ## previously
+                                                                                                       ## allocated
+                                                                                                       ## sub-mesh
+                                                                                                       ## should
+                                                                                                       ## be
+                                                                                                       ## used
+                                                                                                       ## or
+                                                                                                       ## new
+                                                                                                       ## one
+                                                                                                       ## to
+                                                                                                       ## be
+                                                                                                       ## allocated.
+                                                                                                       ##
+                                                                                                       ## !
+                                                                                                       ## Sub-mesh
+                                                                                                       ## command
+                                                                                                       ## can
+                                                                                                       ## be
+                                                                                                       ## skipped
+                                                                                                       ## if
+                                                                                                       ## previous
+                                                                                                       ## sub-mesh
+                                                                                                       ## is
+                                                                                                       ## empty,
+                                                                                                       ##
+                                                                                                       ## !
+                                                                                                       ## or
+                                                                                                       ## if
+                                                                                                       ## the
+                                                                                                       ## reason
+                                                                                                       ## is
+                                                                                                       ## out
+                                                                                                       ## of
+                                                                                                       ## interest
+                                                                                                       ## for
+                                                                                                       ## particular
+                                                                                                       ## reader
+                                                                                                       ##
+                                                                                                       ## !
+                                                                                                       ## (e.g.
+                                                                                                       ## if
+                                                                                                       ## materials
+                                                                                                       ## are
+                                                                                                       ## ignored,
+                                                                                                       ## reader
+                                                                                                       ## may
+                                                                                                       ## ignore
+                                                                                                       ## RWObj_SubMeshReason_NewMaterial
+                                                                                                       ## reason).
+                                                                                                       ##
+                                                                                                       ## !
+                                                                                                       ## @param
+                                                                                                       ## theMesh
+                                                                                                       ## mesh
+                                                                                                       ## definition
+                                                                                                       ##
+                                                                                                       ## !
+                                                                                                       ## @param
+                                                                                                       ## theReason
+                                                                                                       ## reason
+                                                                                                       ## to
+                                                                                                       ## create
+                                                                                                       ## new
+                                                                                                       ## sub-mesh
+                                                                                                       ##
+                                                                                                       ## !
+                                                                                                       ## @return
+                                                                                                       ## TRUE
+                                                                                                       ## if
+                                                                                                       ## new
+                                                                                                       ## sub-mesh
+                                                                                                       ## should
+                                                                                                       ## be
+                                                                                                       ## started
+                                                                                                       ## since
+                                                                                                       ## this
+                                                                                                       ## point
+                                                                                                       ##
+                                                                                                       ## !
+                                                                                                       ## Handle
+                                                                                                       ## "v
+                                                                                                       ## X
+                                                                                                       ## Y
+                                                                                                       ## Z".
+                                                                                                       ##
+                                                                                                       ## !
+                                                                                                       ## Hasher
+                                                                                                       ## for
+                                                                                                       ## 3
+                                                                                                       ## ordered
+                                                                                                       ## integers.
     ## !< list of external file references
     ## !< file header comments
     ## !< folder containing the OBJ file
@@ -198,43 +207,42 @@ type
     ## !< active sub-mesh definition
     ## !< indices for the current element
 
-  RWObjReaderbaseType* = StandardTransient
+  RWObj_Readerbase_type* = Standard_Transient
 
-proc getTypeName*(): cstring {.importcpp: "RWObj_Reader::get_type_name(@)",
-                            header: "RWObj_Reader.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "RWObj_Reader::get_type_name(@)",
+                              header: "RWObj_Reader.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "RWObj_Reader::get_type_descriptor(@)", header: "RWObj_Reader.hxx".}
-proc dynamicType*(this: RWObjReader): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: RWObj_Reader): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "RWObj_Reader.hxx".}
-proc constructRWObjReader*(): RWObjReader {.constructor,
+proc constructRWObj_Reader*(): RWObj_Reader {.constructor,
     importcpp: "RWObj_Reader(@)", header: "RWObj_Reader.hxx".}
-proc read*(this: var RWObjReader; theFile: TCollectionAsciiString;
-          theProgress: MessageProgressRange): StandardBoolean {.importcpp: "Read",
-    header: "RWObj_Reader.hxx".}
-proc probe*(this: var RWObjReader; theFile: TCollectionAsciiString;
-           theProgress: MessageProgressRange): StandardBoolean {.
+proc Read*(this: var RWObj_Reader; theFile: TCollection_AsciiString;
+          theProgress: Message_ProgressRange): Standard_Boolean {.
+    importcpp: "Read", header: "RWObj_Reader.hxx".}
+proc Probe*(this: var RWObj_Reader; theFile: TCollection_AsciiString;
+           theProgress: Message_ProgressRange): Standard_Boolean {.
     importcpp: "Probe", header: "RWObj_Reader.hxx".}
-proc fileComments*(this: RWObjReader): TCollectionAsciiString {.noSideEffect,
+proc FileComments*(this: RWObj_Reader): TCollection_AsciiString {.noSideEffect,
     importcpp: "FileComments", header: "RWObj_Reader.hxx".}
-proc externalFiles*(this: RWObjReader): NCollectionIndexedMap[
-    TCollectionAsciiString] {.noSideEffect, importcpp: "ExternalFiles",
-                             header: "RWObj_Reader.hxx".}
-proc nbProbeNodes*(this: RWObjReader): StandardInteger {.noSideEffect,
+proc ExternalFiles*(this: RWObj_Reader): NCollection_IndexedMap[
+    TCollection_AsciiString] {.noSideEffect, importcpp: "ExternalFiles",
+                              header: "RWObj_Reader.hxx".}
+proc NbProbeNodes*(this: RWObj_Reader): Standard_Integer {.noSideEffect,
     importcpp: "NbProbeNodes", header: "RWObj_Reader.hxx".}
-proc nbProbeElems*(this: RWObjReader): StandardInteger {.noSideEffect,
+proc NbProbeElems*(this: RWObj_Reader): Standard_Integer {.noSideEffect,
     importcpp: "NbProbeElems", header: "RWObj_Reader.hxx".}
-proc memoryLimit*(this: RWObjReader): StandardSize {.noSideEffect,
+proc MemoryLimit*(this: RWObj_Reader): Standard_Size {.noSideEffect,
     importcpp: "MemoryLimit", header: "RWObj_Reader.hxx".}
-proc setMemoryLimit*(this: var RWObjReader; theMemLimit: StandardSize) {.
+proc SetMemoryLimit*(this: var RWObj_Reader; theMemLimit: Standard_Size) {.
     importcpp: "SetMemoryLimit", header: "RWObj_Reader.hxx".}
-proc transformation*(this: RWObjReader): RWMeshCoordinateSystemConverter {.
+proc Transformation*(this: RWObj_Reader): RWMesh_CoordinateSystemConverter {.
     noSideEffect, importcpp: "Transformation", header: "RWObj_Reader.hxx".}
-proc setTransformation*(this: var RWObjReader;
-                       theCSConverter: RWMeshCoordinateSystemConverter) {.
+proc SetTransformation*(this: var RWObj_Reader;
+                       theCSConverter: RWMesh_CoordinateSystemConverter) {.
     importcpp: "SetTransformation", header: "RWObj_Reader.hxx".}
-proc isSinglePrecision*(this: RWObjReader): StandardBoolean {.noSideEffect,
+proc IsSinglePrecision*(this: RWObj_Reader): Standard_Boolean {.noSideEffect,
     importcpp: "IsSinglePrecision", header: "RWObj_Reader.hxx".}
-proc setSinglePrecision*(this: var RWObjReader;
-                        theIsSinglePrecision: StandardBoolean) {.
+proc SetSinglePrecision*(this: var RWObj_Reader;
+                        theIsSinglePrecision: Standard_Boolean) {.
     importcpp: "SetSinglePrecision", header: "RWObj_Reader.hxx".}
-

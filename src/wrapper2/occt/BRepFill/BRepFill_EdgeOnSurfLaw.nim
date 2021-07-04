@@ -14,33 +14,36 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Boolean,
+  BRepFill_LocationLaw
+
 discard "forward decl of TopoDS_Wire"
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of BRepFill_EdgeOnSurfLaw"
 discard "forward decl of BRepFill_EdgeOnSurfLaw"
 type
-  HandleBRepFillEdgeOnSurfLaw* = Handle[BRepFillEdgeOnSurfLaw]
+  Handle_BRepFill_EdgeOnSurfLaw* = handle[BRepFill_EdgeOnSurfLaw]
 
 ## ! Build Location Law, with a Wire and a  Surface.
 
 type
-  BRepFillEdgeOnSurfLaw* {.importcpp: "BRepFill_EdgeOnSurfLaw",
-                          header: "BRepFill_EdgeOnSurfLaw.hxx", bycopy.} = object of BRepFillLocationLaw
+  BRepFill_EdgeOnSurfLaw* {.importcpp: "BRepFill_EdgeOnSurfLaw",
+                           header: "BRepFill_EdgeOnSurfLaw.hxx", bycopy.} = object of BRepFill_LocationLaw
 
 
-proc constructBRepFillEdgeOnSurfLaw*(path: TopoDS_Wire; surf: TopoDS_Shape): BRepFillEdgeOnSurfLaw {.
+proc constructBRepFill_EdgeOnSurfLaw*(Path: TopoDS_Wire; Surf: TopoDS_Shape): BRepFill_EdgeOnSurfLaw {.
     constructor, importcpp: "BRepFill_EdgeOnSurfLaw(@)",
     header: "BRepFill_EdgeOnSurfLaw.hxx".}
-proc hasResult*(this: BRepFillEdgeOnSurfLaw): StandardBoolean {.noSideEffect,
+proc HasResult*(this: BRepFill_EdgeOnSurfLaw): Standard_Boolean {.noSideEffect,
     importcpp: "HasResult", header: "BRepFill_EdgeOnSurfLaw.hxx".}
 type
-  BRepFillEdgeOnSurfLawbaseType* = BRepFillLocationLaw
+  BRepFill_EdgeOnSurfLawbase_type* = BRepFill_LocationLaw
 
-proc getTypeName*(): cstring {.importcpp: "BRepFill_EdgeOnSurfLaw::get_type_name(@)",
-                            header: "BRepFill_EdgeOnSurfLaw.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "BRepFill_EdgeOnSurfLaw::get_type_name(@)",
+                              header: "BRepFill_EdgeOnSurfLaw.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "BRepFill_EdgeOnSurfLaw::get_type_descriptor(@)",
     header: "BRepFill_EdgeOnSurfLaw.hxx".}
-proc dynamicType*(this: BRepFillEdgeOnSurfLaw): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "BRepFill_EdgeOnSurfLaw.hxx".}
-
+proc DynamicType*(this: BRepFill_EdgeOnSurfLaw): handle[Standard_Type] {.
+    noSideEffect, importcpp: "DynamicType", header: "BRepFill_EdgeOnSurfLaw.hxx".}

@@ -14,98 +14,104 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../HLRAlgo/HLRAlgo_WiresBlock, ../Standard/Standard,
+  ../Standard/Standard_DefineAlloc, ../Standard/Standard_Handle,
+  ../Standard/Standard_Boolean, ../Standard/Standard_Integer,
+  ../HLRAlgo/HLRAlgo_EdgeStatus, HLRBRep_Curve, ../Standard/Standard_ShortReal,
+  ../Standard/Standard_Real
+
 discard "forward decl of TopoDS_Edge"
-# when defined(Status):
-#   discard
+when defined(Status):
+  discard
 type
-  HLRBRepEdgeData* {.importcpp: "HLRBRep_EdgeData", header: "HLRBRep_EdgeData.hxx",
-                    bycopy.} = object
+  HLRBRep_EdgeData* {.importcpp: "HLRBRep_EdgeData",
+                     header: "HLRBRep_EdgeData.hxx", bycopy.} = object
 
 
-proc constructHLRBRepEdgeData*(): HLRBRepEdgeData {.constructor,
+proc constructHLRBRep_EdgeData*(): HLRBRep_EdgeData {.constructor,
     importcpp: "HLRBRep_EdgeData(@)", header: "HLRBRep_EdgeData.hxx".}
-proc set*(this: var HLRBRepEdgeData; reg1: StandardBoolean; regN: StandardBoolean;
-         eg: TopoDS_Edge; v1: StandardInteger; v2: StandardInteger;
-         out1: StandardBoolean; out2: StandardBoolean; cut1: StandardBoolean;
-         cut2: StandardBoolean; start: StandardReal; tolStart: StandardShortReal;
-         `end`: StandardReal; tolEnd: StandardShortReal) {.importcpp: "Set",
+proc Set*(this: var HLRBRep_EdgeData; Reg1: Standard_Boolean; RegN: Standard_Boolean;
+         EG: TopoDS_Edge; V1: Standard_Integer; V2: Standard_Integer;
+         Out1: Standard_Boolean; Out2: Standard_Boolean; Cut1: Standard_Boolean;
+         Cut2: Standard_Boolean; Start: Standard_Real; TolStart: Standard_ShortReal;
+         End: Standard_Real; TolEnd: Standard_ShortReal) {.importcpp: "Set",
     header: "HLRBRep_EdgeData.hxx".}
-proc selected*(this: HLRBRepEdgeData): StandardBoolean {.noSideEffect,
+proc Selected*(this: HLRBRep_EdgeData): Standard_Boolean {.noSideEffect,
     importcpp: "Selected", header: "HLRBRep_EdgeData.hxx".}
-proc selected*(this: var HLRBRepEdgeData; b: StandardBoolean) {.importcpp: "Selected",
-    header: "HLRBRep_EdgeData.hxx".}
-proc rg1Line*(this: HLRBRepEdgeData): StandardBoolean {.noSideEffect,
+proc Selected*(this: var HLRBRep_EdgeData; B: Standard_Boolean) {.
+    importcpp: "Selected", header: "HLRBRep_EdgeData.hxx".}
+proc Rg1Line*(this: HLRBRep_EdgeData): Standard_Boolean {.noSideEffect,
     importcpp: "Rg1Line", header: "HLRBRep_EdgeData.hxx".}
-proc rg1Line*(this: var HLRBRepEdgeData; b: StandardBoolean) {.importcpp: "Rg1Line",
+proc Rg1Line*(this: var HLRBRep_EdgeData; B: Standard_Boolean) {.importcpp: "Rg1Line",
     header: "HLRBRep_EdgeData.hxx".}
-proc rgNLine*(this: HLRBRepEdgeData): StandardBoolean {.noSideEffect,
+proc RgNLine*(this: HLRBRep_EdgeData): Standard_Boolean {.noSideEffect,
     importcpp: "RgNLine", header: "HLRBRep_EdgeData.hxx".}
-proc rgNLine*(this: var HLRBRepEdgeData; b: StandardBoolean) {.importcpp: "RgNLine",
+proc RgNLine*(this: var HLRBRep_EdgeData; B: Standard_Boolean) {.importcpp: "RgNLine",
     header: "HLRBRep_EdgeData.hxx".}
-proc vertical*(this: HLRBRepEdgeData): StandardBoolean {.noSideEffect,
+proc Vertical*(this: HLRBRep_EdgeData): Standard_Boolean {.noSideEffect,
     importcpp: "Vertical", header: "HLRBRep_EdgeData.hxx".}
-proc vertical*(this: var HLRBRepEdgeData; b: StandardBoolean) {.importcpp: "Vertical",
-    header: "HLRBRep_EdgeData.hxx".}
-proc simple*(this: HLRBRepEdgeData): StandardBoolean {.noSideEffect,
+proc Vertical*(this: var HLRBRep_EdgeData; B: Standard_Boolean) {.
+    importcpp: "Vertical", header: "HLRBRep_EdgeData.hxx".}
+proc Simple*(this: HLRBRep_EdgeData): Standard_Boolean {.noSideEffect,
     importcpp: "Simple", header: "HLRBRep_EdgeData.hxx".}
-proc simple*(this: var HLRBRepEdgeData; b: StandardBoolean) {.importcpp: "Simple",
+proc Simple*(this: var HLRBRep_EdgeData; B: Standard_Boolean) {.importcpp: "Simple",
     header: "HLRBRep_EdgeData.hxx".}
-proc outLVSta*(this: HLRBRepEdgeData): StandardBoolean {.noSideEffect,
+proc OutLVSta*(this: HLRBRep_EdgeData): Standard_Boolean {.noSideEffect,
     importcpp: "OutLVSta", header: "HLRBRep_EdgeData.hxx".}
-proc outLVSta*(this: var HLRBRepEdgeData; b: StandardBoolean) {.importcpp: "OutLVSta",
-    header: "HLRBRep_EdgeData.hxx".}
-proc outLVEnd*(this: HLRBRepEdgeData): StandardBoolean {.noSideEffect,
+proc OutLVSta*(this: var HLRBRep_EdgeData; B: Standard_Boolean) {.
+    importcpp: "OutLVSta", header: "HLRBRep_EdgeData.hxx".}
+proc OutLVEnd*(this: HLRBRep_EdgeData): Standard_Boolean {.noSideEffect,
     importcpp: "OutLVEnd", header: "HLRBRep_EdgeData.hxx".}
-proc outLVEnd*(this: var HLRBRepEdgeData; b: StandardBoolean) {.importcpp: "OutLVEnd",
-    header: "HLRBRep_EdgeData.hxx".}
-proc cutAtSta*(this: HLRBRepEdgeData): StandardBoolean {.noSideEffect,
+proc OutLVEnd*(this: var HLRBRep_EdgeData; B: Standard_Boolean) {.
+    importcpp: "OutLVEnd", header: "HLRBRep_EdgeData.hxx".}
+proc CutAtSta*(this: HLRBRep_EdgeData): Standard_Boolean {.noSideEffect,
     importcpp: "CutAtSta", header: "HLRBRep_EdgeData.hxx".}
-proc cutAtSta*(this: var HLRBRepEdgeData; b: StandardBoolean) {.importcpp: "CutAtSta",
-    header: "HLRBRep_EdgeData.hxx".}
-proc cutAtEnd*(this: HLRBRepEdgeData): StandardBoolean {.noSideEffect,
+proc CutAtSta*(this: var HLRBRep_EdgeData; B: Standard_Boolean) {.
+    importcpp: "CutAtSta", header: "HLRBRep_EdgeData.hxx".}
+proc CutAtEnd*(this: HLRBRep_EdgeData): Standard_Boolean {.noSideEffect,
     importcpp: "CutAtEnd", header: "HLRBRep_EdgeData.hxx".}
-proc cutAtEnd*(this: var HLRBRepEdgeData; b: StandardBoolean) {.importcpp: "CutAtEnd",
-    header: "HLRBRep_EdgeData.hxx".}
-proc verAtSta*(this: HLRBRepEdgeData): StandardBoolean {.noSideEffect,
+proc CutAtEnd*(this: var HLRBRep_EdgeData; B: Standard_Boolean) {.
+    importcpp: "CutAtEnd", header: "HLRBRep_EdgeData.hxx".}
+proc VerAtSta*(this: HLRBRep_EdgeData): Standard_Boolean {.noSideEffect,
     importcpp: "VerAtSta", header: "HLRBRep_EdgeData.hxx".}
-proc verAtSta*(this: var HLRBRepEdgeData; b: StandardBoolean) {.importcpp: "VerAtSta",
-    header: "HLRBRep_EdgeData.hxx".}
-proc verAtEnd*(this: HLRBRepEdgeData): StandardBoolean {.noSideEffect,
+proc VerAtSta*(this: var HLRBRep_EdgeData; B: Standard_Boolean) {.
+    importcpp: "VerAtSta", header: "HLRBRep_EdgeData.hxx".}
+proc VerAtEnd*(this: HLRBRep_EdgeData): Standard_Boolean {.noSideEffect,
     importcpp: "VerAtEnd", header: "HLRBRep_EdgeData.hxx".}
-proc verAtEnd*(this: var HLRBRepEdgeData; b: StandardBoolean) {.importcpp: "VerAtEnd",
-    header: "HLRBRep_EdgeData.hxx".}
-proc autoIntersectionDone*(this: HLRBRepEdgeData): StandardBoolean {.noSideEffect,
+proc VerAtEnd*(this: var HLRBRep_EdgeData; B: Standard_Boolean) {.
+    importcpp: "VerAtEnd", header: "HLRBRep_EdgeData.hxx".}
+proc AutoIntersectionDone*(this: HLRBRep_EdgeData): Standard_Boolean {.noSideEffect,
     importcpp: "AutoIntersectionDone", header: "HLRBRep_EdgeData.hxx".}
-proc autoIntersectionDone*(this: var HLRBRepEdgeData; b: StandardBoolean) {.
+proc AutoIntersectionDone*(this: var HLRBRep_EdgeData; B: Standard_Boolean) {.
     importcpp: "AutoIntersectionDone", header: "HLRBRep_EdgeData.hxx".}
-proc used*(this: HLRBRepEdgeData): StandardBoolean {.noSideEffect, importcpp: "Used",
+proc Used*(this: HLRBRep_EdgeData): Standard_Boolean {.noSideEffect,
+    importcpp: "Used", header: "HLRBRep_EdgeData.hxx".}
+proc Used*(this: var HLRBRep_EdgeData; B: Standard_Boolean) {.importcpp: "Used",
     header: "HLRBRep_EdgeData.hxx".}
-proc used*(this: var HLRBRepEdgeData; b: StandardBoolean) {.importcpp: "Used",
-    header: "HLRBRep_EdgeData.hxx".}
-proc hideCount*(this: HLRBRepEdgeData): StandardInteger {.noSideEffect,
+proc HideCount*(this: HLRBRep_EdgeData): Standard_Integer {.noSideEffect,
     importcpp: "HideCount", header: "HLRBRep_EdgeData.hxx".}
-proc hideCount*(this: var HLRBRepEdgeData; i: StandardInteger) {.
+proc HideCount*(this: var HLRBRep_EdgeData; I: Standard_Integer) {.
     importcpp: "HideCount", header: "HLRBRep_EdgeData.hxx".}
-proc vSta*(this: HLRBRepEdgeData): StandardInteger {.noSideEffect, importcpp: "VSta",
+proc VSta*(this: HLRBRep_EdgeData): Standard_Integer {.noSideEffect,
+    importcpp: "VSta", header: "HLRBRep_EdgeData.hxx".}
+proc VSta*(this: var HLRBRep_EdgeData; I: Standard_Integer) {.importcpp: "VSta",
     header: "HLRBRep_EdgeData.hxx".}
-proc vSta*(this: var HLRBRepEdgeData; i: StandardInteger) {.importcpp: "VSta",
+proc VEnd*(this: HLRBRep_EdgeData): Standard_Integer {.noSideEffect,
+    importcpp: "VEnd", header: "HLRBRep_EdgeData.hxx".}
+proc VEnd*(this: var HLRBRep_EdgeData; I: Standard_Integer) {.importcpp: "VEnd",
     header: "HLRBRep_EdgeData.hxx".}
-proc vEnd*(this: HLRBRepEdgeData): StandardInteger {.noSideEffect, importcpp: "VEnd",
-    header: "HLRBRep_EdgeData.hxx".}
-proc vEnd*(this: var HLRBRepEdgeData; i: StandardInteger) {.importcpp: "VEnd",
-    header: "HLRBRep_EdgeData.hxx".}
-proc updateMinMax*(this: var HLRBRepEdgeData; theTotMinMax: MinMaxIndices) {.
+proc UpdateMinMax*(this: var HLRBRep_EdgeData; theTotMinMax: MinMaxIndices) {.
     importcpp: "UpdateMinMax", header: "HLRBRep_EdgeData.hxx".}
-proc minMax*(this: var HLRBRepEdgeData): var MinMaxIndices {.importcpp: "MinMax",
+proc MinMax*(this: var HLRBRep_EdgeData): var MinMaxIndices {.importcpp: "MinMax",
     header: "HLRBRep_EdgeData.hxx".}
-proc status*(this: var HLRBRepEdgeData): var HLRAlgoEdgeStatus {.importcpp: "Status",
-    header: "HLRBRep_EdgeData.hxx".}
-proc changeGeometry*(this: var HLRBRepEdgeData): var HLRBRepCurve {.
+proc Status*(this: var HLRBRep_EdgeData): var HLRAlgo_EdgeStatus {.
+    importcpp: "Status", header: "HLRBRep_EdgeData.hxx".}
+proc ChangeGeometry*(this: var HLRBRep_EdgeData): var HLRBRep_Curve {.
     importcpp: "ChangeGeometry", header: "HLRBRep_EdgeData.hxx".}
-proc geometry*(this: HLRBRepEdgeData): HLRBRepCurve {.noSideEffect,
+proc Geometry*(this: HLRBRep_EdgeData): HLRBRep_Curve {.noSideEffect,
     importcpp: "Geometry", header: "HLRBRep_EdgeData.hxx".}
-proc curve*(this: var HLRBRepEdgeData): ptr HLRBRepCurve {.importcpp: "Curve",
+proc Curve*(this: var HLRBRep_EdgeData): ptr HLRBRep_Curve {.importcpp: "Curve",
     header: "HLRBRep_EdgeData.hxx".}
-proc tolerance*(this: HLRBRepEdgeData): StandardShortReal {.noSideEffect,
+proc Tolerance*(this: HLRBRep_EdgeData): Standard_ShortReal {.noSideEffect,
     importcpp: "Tolerance", header: "HLRBRep_EdgeData.hxx".}
-

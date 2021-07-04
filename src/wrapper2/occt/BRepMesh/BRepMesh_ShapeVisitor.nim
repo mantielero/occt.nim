@@ -13,43 +13,47 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../IMeshTools/IMeshTools_ShapeVisitor, ../IMeshData/IMeshData_Model,
+  ../Standard/Standard_Transient, ../Standard/Standard_Type,
+  ../IMeshTools/IMeshTools_Parameters, ../IMeshData/IMeshData_Types
+
 discard "forward decl of TopoDS_Face"
 discard "forward decl of TopoDS_Edge"
 discard "forward decl of TopoDS_Wire"
 discard "forward decl of IMeshTools_Context"
 discard "forward decl of IMeshData_Wire"
 type
-  BRepMeshShapeVisitor* {.importcpp: "BRepMesh_ShapeVisitor",
-                         header: "BRepMesh_ShapeVisitor.hxx", bycopy.} = object of IMeshToolsShapeVisitor ##
-                                                                                                   ## !
-                                                                                                   ## Constructor.
-                                                                                                   ##
-                                                                                                   ## !
-                                                                                                   ## Adds
-                                                                                                   ## wire
-                                                                                                   ## to
-                                                                                                   ## face
-                                                                                                   ## discrete
-                                                                                                   ## model.
+  BRepMesh_ShapeVisitor* {.importcpp: "BRepMesh_ShapeVisitor",
+                          header: "BRepMesh_ShapeVisitor.hxx", bycopy.} = object of IMeshTools_ShapeVisitor ##
+                                                                                                     ## !
+                                                                                                     ## Constructor.
+                                                                                                     ##
+                                                                                                     ## !
+                                                                                                     ## Adds
+                                                                                                     ## wire
+                                                                                                     ## to
+                                                                                                     ## face
+                                                                                                     ## discrete
+                                                                                                     ## model.
 
 
-proc constructBRepMeshShapeVisitor*(theModel: Handle[IMeshDataModel]): BRepMeshShapeVisitor {.
+proc constructBRepMesh_ShapeVisitor*(theModel: handle[IMeshData_Model]): BRepMesh_ShapeVisitor {.
     constructor, importcpp: "BRepMesh_ShapeVisitor(@)",
     header: "BRepMesh_ShapeVisitor.hxx".}
-proc destroyBRepMeshShapeVisitor*(this: var BRepMeshShapeVisitor) {.
+proc destroyBRepMesh_ShapeVisitor*(this: var BRepMesh_ShapeVisitor) {.
     importcpp: "#.~BRepMesh_ShapeVisitor()", header: "BRepMesh_ShapeVisitor.hxx".}
-proc visit*(this: var BRepMeshShapeVisitor; theFace: TopoDS_Face) {.
+proc Visit*(this: var BRepMesh_ShapeVisitor; theFace: TopoDS_Face) {.
     importcpp: "Visit", header: "BRepMesh_ShapeVisitor.hxx".}
-proc visit*(this: var BRepMeshShapeVisitor; theEdge: TopoDS_Edge) {.
+proc Visit*(this: var BRepMesh_ShapeVisitor; theEdge: TopoDS_Edge) {.
     importcpp: "Visit", header: "BRepMesh_ShapeVisitor.hxx".}
 type
-  BRepMeshShapeVisitorbaseType* = IMeshToolsShapeVisitor
+  BRepMesh_ShapeVisitorbase_type* = IMeshTools_ShapeVisitor
 
-proc getTypeName*(): cstring {.importcpp: "BRepMesh_ShapeVisitor::get_type_name(@)",
-                            header: "BRepMesh_ShapeVisitor.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "BRepMesh_ShapeVisitor::get_type_name(@)",
+                              header: "BRepMesh_ShapeVisitor.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "BRepMesh_ShapeVisitor::get_type_descriptor(@)",
     header: "BRepMesh_ShapeVisitor.hxx".}
-proc dynamicType*(this: BRepMeshShapeVisitor): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "BRepMesh_ShapeVisitor.hxx".}
-
+proc DynamicType*(this: BRepMesh_ShapeVisitor): handle[Standard_Type] {.
+    noSideEffect, importcpp: "DynamicType", header: "BRepMesh_ShapeVisitor.hxx".}

@@ -14,8 +14,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  HLRAlgo_BiPoint, ../NCollection/NCollection_List
+
 type
-  HLRAlgoListOfBPoint* = NCollectionList[HLRAlgoBiPoint]
-  HLRAlgoListIteratorOfListOfBPoint* = Iterator[HLRAlgoBiPoint]
-
-
+  HLRAlgo_ListOfBPoint* = NCollection_List[HLRAlgo_BiPoint]
+  HLRAlgo_ListIteratorOfListOfBPoint* = Iterator[HLRAlgo_BiPoint]

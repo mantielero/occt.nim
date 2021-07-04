@@ -13,7 +13,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # NCollection_IndexedDataMap_HeaderFile [NewLine] # NCollection_IndexedDataMap_HeaderFile [NewLine] # < NCollection_BaseMap . hxx > [NewLine] # < NCollection_TListNode . hxx > [NewLine] # < Standard_TypeMismatch . hxx > [NewLine] # < Standard_NoSuchObject . hxx > [NewLine] # < NCollection_StlIterator . hxx > [NewLine] # < NCollection_DefaultHasher . hxx > [NewLine] # < Standard_OutOfRange . hxx > [NewLine] *
+## !!!Ignored construct:  # NCollection_IndexedDataMap_HeaderFile [NewLine] # NCollection_IndexedDataMap_HeaderFile [NewLine] # NCollection_BaseMap.hxx [NewLine] # NCollection_TListNode.hxx [NewLine] # ../Standard/Standard_TypeMismatch.hxx [NewLine] # ../Standard/Standard_NoSuchObject.hxx [NewLine] # NCollection_StlIterator.hxx [NewLine] # NCollection_DefaultHasher.hxx [NewLine] # ../Standard/Standard_OutOfRange.hxx [NewLine] *
 ##  Purpose:     An indexed map is used  to store keys and to  bind
 ##               an index to them.  Each  new key stored in the map
 ##               gets an index.  Index are  incremented as keys are
@@ -44,5 +44,3 @@
 ## ! @return true if key was found Standard_Boolean FindFromKey ( const TheKeyType & theKey1 , TheItemType & theValue ) const { if ( IsEmpty ( ) ) { return Standard_False ; } for ( IndexedDataMapNode * aNode = ( IndexedDataMapNode * ) myData1 [ Hasher :: HashCode ( theKey1 , NbBuckets ( ) ) ] ; aNode != NULL ; aNode = ( IndexedDataMapNode * ) aNode -> Next ( ) ) { if ( Hasher :: IsEqual ( aNode -> Key1 ( ) , theKey1 ) ) { theValue = aNode -> Value ( ) ; return Standard_True ; } } return Standard_False ; } ! Clear data. If doReleaseMemory is false then the table of
 ## ! buckets is not released and will be reused. void Clear ( const Standard_Boolean doReleaseMemory = Standard_True ) { Destroy ( IndexedDataMapNode :: delNode , doReleaseMemory ) ; } ! Clear data and reset allocator void Clear ( const opencascade :: handle < NCollection_BaseAllocator > & theAllocator ) { Clear ( ) ; this -> myAllocator = ( ! theAllocator . IsNull ( ) ? theAllocator : NCollection_BaseAllocator :: CommonBaseAllocator ( ) ) ; } ! Destructor virtual ~ NCollection_IndexedDataMap ( void ) { Clear ( ) ; } ! Size Standard_Integer Size ( void ) const { return Extent ( ) ; } private :  ----------- PRIVATE METHODS ----------- } ;
 ## Error: token expected: > [end of template] but got: =!!!
-
-

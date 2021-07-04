@@ -14,8 +14,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  CDM_Document, ../NCollection/NCollection_List
+
 type
-  CDM_ListOfDocument* = NCollectionList[Handle[CDM_Document]]
-  CDM_ListIteratorOfListOfDocument* = Iterator[Handle[CDM_Document]]
-
-
+  CDM_ListOfDocument* = NCollection_List[handle[CDM_Document]]
+  CDM_ListIteratorOfListOfDocument* = Iterator[handle[CDM_Document]]

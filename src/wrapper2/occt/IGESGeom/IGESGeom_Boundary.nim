@@ -14,6 +14,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Integer,
+  ../IGESData/IGESData_HArray1OfIGESEntity, ../TColStd/TColStd_HArray1OfInteger,
+  ../IGESData/IGESData_IGESEntity
+
 discard "forward decl of IGESData_IGESEntity"
 discard "forward decl of IGESBasic_HArray1OfHArray1OfIGESEntity"
 discard "forward decl of Standard_DimensionMismatch"
@@ -21,7 +26,7 @@ discard "forward decl of Standard_OutOfRange"
 discard "forward decl of IGESGeom_Boundary"
 discard "forward decl of IGESGeom_Boundary"
 type
-  HandleIGESGeomBoundary* = Handle[IGESGeomBoundary]
+  Handle_IGESGeom_Boundary* = handle[IGESGeom_Boundary]
 
 ## ! defines IGESBoundary, Type <141> Form <0>
 ## ! in package IGESGeom
@@ -29,47 +34,46 @@ type
 ## ! of a set of curves lying on the surface
 
 type
-  IGESGeomBoundary* {.importcpp: "IGESGeom_Boundary",
-                     header: "IGESGeom_Boundary.hxx", bycopy.} = object of IGESDataIGESEntity
+  IGESGeom_Boundary* {.importcpp: "IGESGeom_Boundary",
+                      header: "IGESGeom_Boundary.hxx", bycopy.} = object of IGESData_IGESEntity
 
 
-proc constructIGESGeomBoundary*(): IGESGeomBoundary {.constructor,
+proc constructIGESGeom_Boundary*(): IGESGeom_Boundary {.constructor,
     importcpp: "IGESGeom_Boundary(@)", header: "IGESGeom_Boundary.hxx".}
-proc init*(this: var IGESGeomBoundary; aType: StandardInteger;
-          aPreference: StandardInteger; aSurface: Handle[IGESDataIGESEntity];
-          allModelCurves: Handle[IGESDataHArray1OfIGESEntity];
-          allSenses: Handle[TColStdHArray1OfInteger];
-          allParameterCurves: Handle[IGESBasicHArray1OfHArray1OfIGESEntity]) {.
+proc Init*(this: var IGESGeom_Boundary; aType: Standard_Integer;
+          aPreference: Standard_Integer; aSurface: handle[IGESData_IGESEntity];
+          allModelCurves: handle[IGESData_HArray1OfIGESEntity];
+          allSenses: handle[TColStd_HArray1OfInteger];
+          allParameterCurves: handle[IGESBasic_HArray1OfHArray1OfIGESEntity]) {.
     importcpp: "Init", header: "IGESGeom_Boundary.hxx".}
-proc boundaryType*(this: IGESGeomBoundary): StandardInteger {.noSideEffect,
+proc BoundaryType*(this: IGESGeom_Boundary): Standard_Integer {.noSideEffect,
     importcpp: "BoundaryType", header: "IGESGeom_Boundary.hxx".}
-proc preferenceType*(this: IGESGeomBoundary): StandardInteger {.noSideEffect,
+proc PreferenceType*(this: IGESGeom_Boundary): Standard_Integer {.noSideEffect,
     importcpp: "PreferenceType", header: "IGESGeom_Boundary.hxx".}
-proc surface*(this: IGESGeomBoundary): Handle[IGESDataIGESEntity] {.noSideEffect,
+proc Surface*(this: IGESGeom_Boundary): handle[IGESData_IGESEntity] {.noSideEffect,
     importcpp: "Surface", header: "IGESGeom_Boundary.hxx".}
-proc nbModelSpaceCurves*(this: IGESGeomBoundary): StandardInteger {.noSideEffect,
+proc NbModelSpaceCurves*(this: IGESGeom_Boundary): Standard_Integer {.noSideEffect,
     importcpp: "NbModelSpaceCurves", header: "IGESGeom_Boundary.hxx".}
-proc modelSpaceCurve*(this: IGESGeomBoundary; index: StandardInteger): Handle[
-    IGESDataIGESEntity] {.noSideEffect, importcpp: "ModelSpaceCurve",
-                         header: "IGESGeom_Boundary.hxx".}
-proc sense*(this: IGESGeomBoundary; index: StandardInteger): StandardInteger {.
+proc ModelSpaceCurve*(this: IGESGeom_Boundary; Index: Standard_Integer): handle[
+    IGESData_IGESEntity] {.noSideEffect, importcpp: "ModelSpaceCurve",
+                          header: "IGESGeom_Boundary.hxx".}
+proc Sense*(this: IGESGeom_Boundary; Index: Standard_Integer): Standard_Integer {.
     noSideEffect, importcpp: "Sense", header: "IGESGeom_Boundary.hxx".}
-proc nbParameterCurves*(this: IGESGeomBoundary; index: StandardInteger): StandardInteger {.
+proc NbParameterCurves*(this: IGESGeom_Boundary; Index: Standard_Integer): Standard_Integer {.
     noSideEffect, importcpp: "NbParameterCurves", header: "IGESGeom_Boundary.hxx".}
-proc parameterCurves*(this: IGESGeomBoundary; index: StandardInteger): Handle[
-    IGESDataHArray1OfIGESEntity] {.noSideEffect, importcpp: "ParameterCurves",
-                                  header: "IGESGeom_Boundary.hxx".}
-proc parameterCurve*(this: IGESGeomBoundary; index: StandardInteger;
-                    num: StandardInteger): Handle[IGESDataIGESEntity] {.
+proc ParameterCurves*(this: IGESGeom_Boundary; Index: Standard_Integer): handle[
+    IGESData_HArray1OfIGESEntity] {.noSideEffect, importcpp: "ParameterCurves",
+                                   header: "IGESGeom_Boundary.hxx".}
+proc ParameterCurve*(this: IGESGeom_Boundary; Index: Standard_Integer;
+                    Num: Standard_Integer): handle[IGESData_IGESEntity] {.
     noSideEffect, importcpp: "ParameterCurve", header: "IGESGeom_Boundary.hxx".}
 type
-  IGESGeomBoundarybaseType* = IGESDataIGESEntity
+  IGESGeom_Boundarybase_type* = IGESData_IGESEntity
 
-proc getTypeName*(): cstring {.importcpp: "IGESGeom_Boundary::get_type_name(@)",
-                            header: "IGESGeom_Boundary.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "IGESGeom_Boundary::get_type_name(@)",
+                              header: "IGESGeom_Boundary.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "IGESGeom_Boundary::get_type_descriptor(@)",
     header: "IGESGeom_Boundary.hxx".}
-proc dynamicType*(this: IGESGeomBoundary): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: IGESGeom_Boundary): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "IGESGeom_Boundary.hxx".}
-

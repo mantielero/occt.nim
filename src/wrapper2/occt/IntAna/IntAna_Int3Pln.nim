@@ -14,24 +14,27 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Boolean, ../gp/gp_Pnt
+
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of Standard_DomainError"
 discard "forward decl of gp_Pln"
 discard "forward decl of gp_Pnt"
 type
-  IntAnaInt3Pln* {.importcpp: "IntAna_Int3Pln", header: "IntAna_Int3Pln.hxx", bycopy.} = object
+  IntAna_Int3Pln* {.importcpp: "IntAna_Int3Pln", header: "IntAna_Int3Pln.hxx", bycopy.} = object
 
 
-proc constructIntAnaInt3Pln*(): IntAnaInt3Pln {.constructor,
+proc constructIntAna_Int3Pln*(): IntAna_Int3Pln {.constructor,
     importcpp: "IntAna_Int3Pln(@)", header: "IntAna_Int3Pln.hxx".}
-proc constructIntAnaInt3Pln*(p1: GpPln; p2: GpPln; p3: GpPln): IntAnaInt3Pln {.
+proc constructIntAna_Int3Pln*(P1: gp_Pln; P2: gp_Pln; P3: gp_Pln): IntAna_Int3Pln {.
     constructor, importcpp: "IntAna_Int3Pln(@)", header: "IntAna_Int3Pln.hxx".}
-proc perform*(this: var IntAnaInt3Pln; p1: GpPln; p2: GpPln; p3: GpPln) {.
+proc Perform*(this: var IntAna_Int3Pln; P1: gp_Pln; P2: gp_Pln; P3: gp_Pln) {.
     importcpp: "Perform", header: "IntAna_Int3Pln.hxx".}
-proc isDone*(this: IntAnaInt3Pln): StandardBoolean {.noSideEffect,
+proc IsDone*(this: IntAna_Int3Pln): Standard_Boolean {.noSideEffect,
     importcpp: "IsDone", header: "IntAna_Int3Pln.hxx".}
-proc isEmpty*(this: IntAnaInt3Pln): StandardBoolean {.noSideEffect,
+proc IsEmpty*(this: IntAna_Int3Pln): Standard_Boolean {.noSideEffect,
     importcpp: "IsEmpty", header: "IntAna_Int3Pln.hxx".}
-proc value*(this: IntAnaInt3Pln): GpPnt {.noSideEffect, importcpp: "Value",
-                                      header: "IntAna_Int3Pln.hxx".}
-
+proc Value*(this: IntAna_Int3Pln): gp_Pnt {.noSideEffect, importcpp: "Value",
+                                        header: "IntAna_Int3Pln.hxx".}

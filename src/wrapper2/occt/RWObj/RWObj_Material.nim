@@ -12,21 +12,23 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Quantity/Quantity_Color, ../TCollection/TCollection_AsciiString
+
 ## ! Material definition for OBJ file format.
 
 type
-  RWObjMaterial* {.importcpp: "RWObj_Material", header: "RWObj_Material.hxx", bycopy.} = object
-    name* {.importc: "Name".}: TCollectionAsciiString ## !< material name (identifier) as defined in MTL file
-    diffuseTexture* {.importc: "DiffuseTexture".}: TCollectionAsciiString ## !< path to the texture image file defining diffuse color
-    specularTexture* {.importc: "SpecularTexture".}: TCollectionAsciiString ## !< path to the texture image file defining specular color
-    bumpTexture* {.importc: "BumpTexture".}: TCollectionAsciiString ## !< path to the texture image file defining normal map
-    ambientColor* {.importc: "AmbientColor".}: QuantityColor
-    diffuseColor* {.importc: "DiffuseColor".}: QuantityColor
-    specularColor* {.importc: "SpecularColor".}: QuantityColor
-    shininess* {.importc: "Shininess".}: StandardShortReal
-    transparency* {.importc: "Transparency".}: StandardShortReal
+  RWObj_Material* {.importcpp: "RWObj_Material", header: "RWObj_Material.hxx", bycopy.} = object
+    Name* {.importc: "Name".}: TCollection_AsciiString ## !< material name (identifier) as defined in MTL file
+    DiffuseTexture* {.importc: "DiffuseTexture".}: TCollection_AsciiString ## !< path to the texture image file defining diffuse color
+    SpecularTexture* {.importc: "SpecularTexture".}: TCollection_AsciiString ## !< path to the texture image file defining specular color
+    BumpTexture* {.importc: "BumpTexture".}: TCollection_AsciiString ## !< path to the texture image file defining normal map
+    AmbientColor* {.importc: "AmbientColor".}: Quantity_Color
+    DiffuseColor* {.importc: "DiffuseColor".}: Quantity_Color
+    SpecularColor* {.importc: "SpecularColor".}: Quantity_Color
+    Shininess* {.importc: "Shininess".}: Standard_ShortReal
+    Transparency* {.importc: "Transparency".}: Standard_ShortReal
 
 
-proc constructRWObjMaterial*(): RWObjMaterial {.constructor,
+proc constructRWObj_Material*(): RWObj_Material {.constructor,
     importcpp: "RWObj_Material(@)", header: "RWObj_Material.hxx".}
-

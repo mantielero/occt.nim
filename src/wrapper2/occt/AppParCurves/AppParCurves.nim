@@ -14,6 +14,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer, ../math/math_Vector,
+  ../Standard/Standard_Real, ../math/math_IntegerVector
+
 discard "forward decl of math_Matrix"
 discard "forward decl of AppParCurves_MultiPoint"
 discard "forward decl of AppParCurves_MultiCurve"
@@ -36,17 +41,16 @@ type
   AppParCurves* {.importcpp: "AppParCurves", header: "AppParCurves.hxx", bycopy.} = object
 
 
-proc bernsteinMatrix*(nbPoles: StandardInteger; u: MathVector; a: var MathMatrix) {.
+proc BernsteinMatrix*(NbPoles: Standard_Integer; U: math_Vector; A: var math_Matrix) {.
     importcpp: "AppParCurves::BernsteinMatrix(@)", header: "AppParCurves.hxx".}
-proc bernstein*(nbPoles: StandardInteger; u: MathVector; a: var MathMatrix;
-               da: var MathMatrix) {.importcpp: "AppParCurves::Bernstein(@)",
-                                  header: "AppParCurves.hxx".}
-proc secondDerivativeBernstein*(u: StandardReal; dda: var MathVector) {.
+proc Bernstein*(NbPoles: Standard_Integer; U: math_Vector; A: var math_Matrix;
+               DA: var math_Matrix) {.importcpp: "AppParCurves::Bernstein(@)",
+                                   header: "AppParCurves.hxx".}
+proc SecondDerivativeBernstein*(U: Standard_Real; DDA: var math_Vector) {.
     importcpp: "AppParCurves::SecondDerivativeBernstein(@)",
     header: "AppParCurves.hxx".}
-proc splineFunction*(nbPoles: StandardInteger; degree: StandardInteger;
-                    parameters: MathVector; flatKnots: MathVector;
-                    a: var MathMatrix; da: var MathMatrix;
-                    index: var MathIntegerVector) {.
+proc SplineFunction*(NbPoles: Standard_Integer; Degree: Standard_Integer;
+                    Parameters: math_Vector; FlatKnots: math_Vector;
+                    A: var math_Matrix; DA: var math_Matrix;
+                    Index: var math_IntegerVector) {.
     importcpp: "AppParCurves::SplineFunction(@)", header: "AppParCurves.hxx".}
-

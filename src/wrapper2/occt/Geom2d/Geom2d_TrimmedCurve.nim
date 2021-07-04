@@ -14,6 +14,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Real,
+  Geom2d_BoundedCurve, ../Standard/Standard_Boolean, ../GeomAbs/GeomAbs_Shape,
+  ../Standard/Standard_Integer
+
 discard "forward decl of Geom2d_Curve"
 discard "forward decl of Standard_ConstructionError"
 discard "forward decl of Standard_RangeError"
@@ -27,7 +32,7 @@ discard "forward decl of Geom2d_Geometry"
 discard "forward decl of Geom2d_TrimmedCurve"
 discard "forward decl of Geom2d_TrimmedCurve"
 type
-  HandleGeom2dTrimmedCurve* = Handle[Geom2dTrimmedCurve]
+  Handle_Geom2d_TrimmedCurve* = handle[Geom2d_TrimmedCurve]
 
 ## ! Defines a portion of a curve limited by two values of
 ## ! parameters inside the parametric domain of the curve.
@@ -38,405 +43,404 @@ type
 ## ! orientation as the basis curve or the opposite orientation.
 
 type
-  Geom2dTrimmedCurve* {.importcpp: "Geom2d_TrimmedCurve",
-                       header: "Geom2d_TrimmedCurve.hxx", bycopy.} = object of Geom2dBoundedCurve ##
-                                                                                           ## !
-                                                                                           ## Creates
-                                                                                           ## a
-                                                                                           ## trimmed
-                                                                                           ## curve
-                                                                                           ## from
-                                                                                           ## the
-                                                                                           ## basis
-                                                                                           ## curve
-                                                                                           ## C
-                                                                                           ## limited
-                                                                                           ## between
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## U1
-                                                                                           ## and
-                                                                                           ## U2.
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## .
-                                                                                           ## U1
-                                                                                           ## can
-                                                                                           ## be
-                                                                                           ## greater
-                                                                                           ## or
-                                                                                           ## lower
-                                                                                           ## than
-                                                                                           ## U2.
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## .
-                                                                                           ## The
-                                                                                           ## returned
-                                                                                           ## curve
-                                                                                           ## is
-                                                                                           ## oriented
-                                                                                           ## from
-                                                                                           ## U1
-                                                                                           ## to
-                                                                                           ## U2.
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## .
-                                                                                           ## If
-                                                                                           ## the
-                                                                                           ## basis
-                                                                                           ## curve
-                                                                                           ## C
-                                                                                           ## is
-                                                                                           ## periodic
-                                                                                           ## there
-                                                                                           ## is
-                                                                                           ## an
-                                                                                           ## ambiguity
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## because
-                                                                                           ## two
-                                                                                           ## parts
-                                                                                           ## are
-                                                                                           ## available.
-                                                                                           ## In
-                                                                                           ## this
-                                                                                           ## case
-                                                                                           ## by
-                                                                                           ## default
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## the
-                                                                                           ## trimmed
-                                                                                           ## curve
-                                                                                           ## has
-                                                                                           ## the
-                                                                                           ## same
-                                                                                           ## orientation
-                                                                                           ## as
-                                                                                           ## the
-                                                                                           ## basis
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## curve
-                                                                                           ## (Sense
-                                                                                           ## =
-                                                                                           ## True).
-                                                                                           ## If
-                                                                                           ## Sense
-                                                                                           ## =
-                                                                                           ## False
-                                                                                           ## then
-                                                                                           ## the
-                                                                                           ## orientation
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## of
-                                                                                           ## the
-                                                                                           ## trimmed
-                                                                                           ## curve
-                                                                                           ## is
-                                                                                           ## opposite
-                                                                                           ## to
-                                                                                           ## the
-                                                                                           ## orientation
-                                                                                           ## of
-                                                                                           ## the
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## basis
-                                                                                           ## curve
-                                                                                           ## C.
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## If
-                                                                                           ## the
-                                                                                           ## curve
-                                                                                           ## is
-                                                                                           ## closed
-                                                                                           ## but
-                                                                                           ## not
-                                                                                           ## periodic
-                                                                                           ## it
-                                                                                           ## is
-                                                                                           ## not
-                                                                                           ## possible
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## to
-                                                                                           ## keep
-                                                                                           ## the
-                                                                                           ## part
-                                                                                           ## of
-                                                                                           ## the
-                                                                                           ## curve
-                                                                                           ## including
-                                                                                           ## the
-                                                                                           ## junction
-                                                                                           ## point
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## (except
-                                                                                           ## if
-                                                                                           ## the
-                                                                                           ## junction
-                                                                                           ## point
-                                                                                           ## is
-                                                                                           ## at
-                                                                                           ## the
-                                                                                           ## beginning
-                                                                                           ## or
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## at
-                                                                                           ## the
-                                                                                           ## end
-                                                                                           ## of
-                                                                                           ## the
-                                                                                           ## trimmed
-                                                                                           ## curve)
-                                                                                           ## because
-                                                                                           ## you
-                                                                                           ## could
-                                                                                           ## lose
-                                                                                           ## the
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## fundamental
-                                                                                           ## characteristics
-                                                                                           ## of
-                                                                                           ## the
-                                                                                           ## basis
-                                                                                           ## curve
-                                                                                           ## which
-                                                                                           ## are
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## used
-                                                                                           ## for
-                                                                                           ## example
-                                                                                           ## to
-                                                                                           ## compute
-                                                                                           ## the
-                                                                                           ## derivatives
-                                                                                           ## of
-                                                                                           ## the
-                                                                                           ## trimmed
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## curve.
-                                                                                           ## So
-                                                                                           ## for
-                                                                                           ## a
-                                                                                           ## closed
-                                                                                           ## curve
-                                                                                           ## the
-                                                                                           ## rules
-                                                                                           ## are
-                                                                                           ## the
-                                                                                           ## same
-                                                                                           ## as
-                                                                                           ## for
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## a
-                                                                                           ## open
-                                                                                           ## curve.
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## Warnings
-                                                                                           ## :
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## In
-                                                                                           ## this
-                                                                                           ## package
-                                                                                           ## the
-                                                                                           ## entities
-                                                                                           ## are
-                                                                                           ## not
-                                                                                           ## shared.
-                                                                                           ## The
-                                                                                           ## TrimmedCurve
-                                                                                           ## is
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## built
-                                                                                           ## with
-                                                                                           ## a
-                                                                                           ## copy
-                                                                                           ## of
-                                                                                           ## the
-                                                                                           ## curve
-                                                                                           ## C.
-                                                                                           ## So
-                                                                                           ## when
-                                                                                           ## C
-                                                                                           ## is
-                                                                                           ## modified
-                                                                                           ## the
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## TrimmedCurve
-                                                                                           ## is
-                                                                                           ## not
-                                                                                           ## modified
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## Warnings
-                                                                                           ## :
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## If
-                                                                                           ## <C>
-                                                                                           ## is
-                                                                                           ## periodic
-                                                                                           ## and
-                                                                                           ## <theAdjustPeriodic>
-                                                                                           ## is
-                                                                                           ## True,
-                                                                                           ## parametrics
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## bounds
-                                                                                           ## of
-                                                                                           ## the
-                                                                                           ## TrimmedCurve,
-                                                                                           ## can
-                                                                                           ## be
-                                                                                           ## different
-                                                                                           ## to
-                                                                                           ## [<U1>;<U2>},
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## if
-                                                                                           ## <U1>
-                                                                                           ## or
-                                                                                           ## <U2>
-                                                                                           ## are
-                                                                                           ## not
-                                                                                           ## in
-                                                                                           ## the
-                                                                                           ## principal
-                                                                                           ## period.
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## Include
-                                                                                           ## :
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## For
-                                                                                           ## more
-                                                                                           ## explanation
-                                                                                           ## see
-                                                                                           ## the
-                                                                                           ## scheme
-                                                                                           ## given
-                                                                                           ## with
-                                                                                           ## this
-                                                                                           ## class.
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## Raises
-                                                                                           ## ConstructionError
-                                                                                           ## the
-                                                                                           ## C
-                                                                                           ## is
-                                                                                           ## not
-                                                                                           ## periodic
-                                                                                           ## and
-                                                                                           ## U1
-                                                                                           ## or
-                                                                                           ## U2
-                                                                                           ## are
-                                                                                           ## out
-                                                                                           ## of
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## the
-                                                                                           ## bounds
-                                                                                           ## of
-                                                                                           ## C.
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## Raised
-                                                                                           ## if
-                                                                                           ## U1
-                                                                                           ## =
-                                                                                           ## U2.
+  Geom2d_TrimmedCurve* {.importcpp: "Geom2d_TrimmedCurve",
+                        header: "Geom2d_TrimmedCurve.hxx", bycopy.} = object of Geom2d_BoundedCurve ##
+                                                                                             ## !
+                                                                                             ## Creates
+                                                                                             ## a
+                                                                                             ## trimmed
+                                                                                             ## curve
+                                                                                             ## from
+                                                                                             ## the
+                                                                                             ## basis
+                                                                                             ## curve
+                                                                                             ## C
+                                                                                             ## limited
+                                                                                             ## between
+                                                                                             ##
+                                                                                             ## !
+                                                                                             ## U1
+                                                                                             ## and
+                                                                                             ## U2.
+                                                                                             ##
+                                                                                             ## !
+                                                                                             ##
+                                                                                             ## !
+                                                                                             ## .
+                                                                                             ## U1
+                                                                                             ## can
+                                                                                             ## be
+                                                                                             ## greater
+                                                                                             ## or
+                                                                                             ## lower
+                                                                                             ## than
+                                                                                             ## U2.
+                                                                                             ##
+                                                                                             ## !
+                                                                                             ## .
+                                                                                             ## The
+                                                                                             ## returned
+                                                                                             ## curve
+                                                                                             ## is
+                                                                                             ## oriented
+                                                                                             ## from
+                                                                                             ## U1
+                                                                                             ## to
+                                                                                             ## U2.
+                                                                                             ##
+                                                                                             ## !
+                                                                                             ## .
+                                                                                             ## If
+                                                                                             ## the
+                                                                                             ## basis
+                                                                                             ## curve
+                                                                                             ## C
+                                                                                             ## is
+                                                                                             ## periodic
+                                                                                             ## there
+                                                                                             ## is
+                                                                                             ## an
+                                                                                             ## ambiguity
+                                                                                             ##
+                                                                                             ## !
+                                                                                             ## because
+                                                                                             ## two
+                                                                                             ## parts
+                                                                                             ## are
+                                                                                             ## available.
+                                                                                             ## In
+                                                                                             ## this
+                                                                                             ## case
+                                                                                             ## by
+                                                                                             ## default
+                                                                                             ##
+                                                                                             ## !
+                                                                                             ## the
+                                                                                             ## trimmed
+                                                                                             ## curve
+                                                                                             ## has
+                                                                                             ## the
+                                                                                             ## same
+                                                                                             ## orientation
+                                                                                             ## as
+                                                                                             ## the
+                                                                                             ## basis
+                                                                                             ##
+                                                                                             ## !
+                                                                                             ## curve
+                                                                                             ## (Sense
+                                                                                             ## =
+                                                                                             ## True).
+                                                                                             ## If
+                                                                                             ## Sense
+                                                                                             ## =
+                                                                                             ## False
+                                                                                             ## then
+                                                                                             ## the
+                                                                                             ## orientation
+                                                                                             ##
+                                                                                             ## !
+                                                                                             ## of
+                                                                                             ## the
+                                                                                             ## trimmed
+                                                                                             ## curve
+                                                                                             ## is
+                                                                                             ## opposite
+                                                                                             ## to
+                                                                                             ## the
+                                                                                             ## orientation
+                                                                                             ## of
+                                                                                             ## the
+                                                                                             ##
+                                                                                             ## !
+                                                                                             ## basis
+                                                                                             ## curve
+                                                                                             ## C.
+                                                                                             ##
+                                                                                             ## !
+                                                                                             ## If
+                                                                                             ## the
+                                                                                             ## curve
+                                                                                             ## is
+                                                                                             ## closed
+                                                                                             ## but
+                                                                                             ## not
+                                                                                             ## periodic
+                                                                                             ## it
+                                                                                             ## is
+                                                                                             ## not
+                                                                                             ## possible
+                                                                                             ##
+                                                                                             ## !
+                                                                                             ## to
+                                                                                             ## keep
+                                                                                             ## the
+                                                                                             ## part
+                                                                                             ## of
+                                                                                             ## the
+                                                                                             ## curve
+                                                                                             ## including
+                                                                                             ## the
+                                                                                             ## junction
+                                                                                             ## point
+                                                                                             ##
+                                                                                             ## !
+                                                                                             ## (except
+                                                                                             ## if
+                                                                                             ## the
+                                                                                             ## junction
+                                                                                             ## point
+                                                                                             ## is
+                                                                                             ## at
+                                                                                             ## the
+                                                                                             ## beginning
+                                                                                             ## or
+                                                                                             ##
+                                                                                             ## !
+                                                                                             ## at
+                                                                                             ## the
+                                                                                             ## end
+                                                                                             ## of
+                                                                                             ## the
+                                                                                             ## trimmed
+                                                                                             ## curve)
+                                                                                             ## because
+                                                                                             ## you
+                                                                                             ## could
+                                                                                             ## lose
+                                                                                             ## the
+                                                                                             ##
+                                                                                             ## !
+                                                                                             ## fundamental
+                                                                                             ## characteristics
+                                                                                             ## of
+                                                                                             ## the
+                                                                                             ## basis
+                                                                                             ## curve
+                                                                                             ## which
+                                                                                             ## are
+                                                                                             ##
+                                                                                             ## !
+                                                                                             ## used
+                                                                                             ## for
+                                                                                             ## example
+                                                                                             ## to
+                                                                                             ## compute
+                                                                                             ## the
+                                                                                             ## derivatives
+                                                                                             ## of
+                                                                                             ## the
+                                                                                             ## trimmed
+                                                                                             ##
+                                                                                             ## !
+                                                                                             ## curve.
+                                                                                             ## So
+                                                                                             ## for
+                                                                                             ## a
+                                                                                             ## closed
+                                                                                             ## curve
+                                                                                             ## the
+                                                                                             ## rules
+                                                                                             ## are
+                                                                                             ## the
+                                                                                             ## same
+                                                                                             ## as
+                                                                                             ## for
+                                                                                             ##
+                                                                                             ## !
+                                                                                             ## a
+                                                                                             ## open
+                                                                                             ## curve.
+                                                                                             ##
+                                                                                             ## !
+                                                                                             ## Warnings
+                                                                                             ## :
+                                                                                             ##
+                                                                                             ## !
+                                                                                             ## In
+                                                                                             ## this
+                                                                                             ## package
+                                                                                             ## the
+                                                                                             ## entities
+                                                                                             ## are
+                                                                                             ## not
+                                                                                             ## shared.
+                                                                                             ## The
+                                                                                             ## TrimmedCurve
+                                                                                             ## is
+                                                                                             ##
+                                                                                             ## !
+                                                                                             ## built
+                                                                                             ## with
+                                                                                             ## a
+                                                                                             ## copy
+                                                                                             ## of
+                                                                                             ## the
+                                                                                             ## curve
+                                                                                             ## C.
+                                                                                             ## So
+                                                                                             ## when
+                                                                                             ## C
+                                                                                             ## is
+                                                                                             ## modified
+                                                                                             ## the
+                                                                                             ##
+                                                                                             ## !
+                                                                                             ## TrimmedCurve
+                                                                                             ## is
+                                                                                             ## not
+                                                                                             ## modified
+                                                                                             ##
+                                                                                             ## !
+                                                                                             ## Warnings
+                                                                                             ## :
+                                                                                             ##
+                                                                                             ## !
+                                                                                             ## If
+                                                                                             ## <C>
+                                                                                             ## is
+                                                                                             ## periodic
+                                                                                             ## and
+                                                                                             ## <theAdjustPeriodic>
+                                                                                             ## is
+                                                                                             ## True,
+                                                                                             ## parametrics
+                                                                                             ##
+                                                                                             ## !
+                                                                                             ## bounds
+                                                                                             ## of
+                                                                                             ## the
+                                                                                             ## TrimmedCurve,
+                                                                                             ## can
+                                                                                             ## be
+                                                                                             ## different
+                                                                                             ## to
+                                                                                             ## [<U1>;<U2>},
+                                                                                             ##
+                                                                                             ## !
+                                                                                             ## if
+                                                                                             ## <U1>
+                                                                                             ## or
+                                                                                             ## <U2>
+                                                                                             ## are
+                                                                                             ## not
+                                                                                             ## in
+                                                                                             ## the
+                                                                                             ## principal
+                                                                                             ## period.
+                                                                                             ##
+                                                                                             ## !
+                                                                                             ## Include
+                                                                                             ## :
+                                                                                             ##
+                                                                                             ## !
+                                                                                             ## For
+                                                                                             ## more
+                                                                                             ## explanation
+                                                                                             ## see
+                                                                                             ## the
+                                                                                             ## scheme
+                                                                                             ## given
+                                                                                             ## with
+                                                                                             ## this
+                                                                                             ## class.
+                                                                                             ##
+                                                                                             ## !
+                                                                                             ## Raises
+                                                                                             ## ConstructionError
+                                                                                             ## the
+                                                                                             ## C
+                                                                                             ## is
+                                                                                             ## not
+                                                                                             ## periodic
+                                                                                             ## and
+                                                                                             ## U1
+                                                                                             ## or
+                                                                                             ## U2
+                                                                                             ## are
+                                                                                             ## out
+                                                                                             ## of
+                                                                                             ##
+                                                                                             ## !
+                                                                                             ## the
+                                                                                             ## bounds
+                                                                                             ## of
+                                                                                             ## C.
+                                                                                             ##
+                                                                                             ## !
+                                                                                             ## Raised
+                                                                                             ## if
+                                                                                             ## U1
+                                                                                             ## =
+                                                                                             ## U2.
 
 
-proc constructGeom2dTrimmedCurve*(c: Handle[Geom2dCurve]; u1: StandardReal;
-                                 u2: StandardReal;
-                                 sense: StandardBoolean = standardTrue;
-    theAdjustPeriodic: StandardBoolean = standardTrue): Geom2dTrimmedCurve {.
+proc constructGeom2d_TrimmedCurve*(C: handle[Geom2d_Curve]; U1: Standard_Real;
+                                  U2: Standard_Real;
+                                  Sense: Standard_Boolean = Standard_True;
+    theAdjustPeriodic: Standard_Boolean = Standard_True): Geom2d_TrimmedCurve {.
     constructor, importcpp: "Geom2d_TrimmedCurve(@)",
     header: "Geom2d_TrimmedCurve.hxx".}
-proc reverse*(this: var Geom2dTrimmedCurve) {.importcpp: "Reverse",
+proc Reverse*(this: var Geom2d_TrimmedCurve) {.importcpp: "Reverse",
     header: "Geom2d_TrimmedCurve.hxx".}
-proc reversedParameter*(this: Geom2dTrimmedCurve; u: StandardReal): StandardReal {.
+proc ReversedParameter*(this: Geom2d_TrimmedCurve; U: Standard_Real): Standard_Real {.
     noSideEffect, importcpp: "ReversedParameter", header: "Geom2d_TrimmedCurve.hxx".}
-proc setTrim*(this: var Geom2dTrimmedCurve; u1: StandardReal; u2: StandardReal;
-             sense: StandardBoolean = standardTrue;
-             theAdjustPeriodic: StandardBoolean = standardTrue) {.
+proc SetTrim*(this: var Geom2d_TrimmedCurve; U1: Standard_Real; U2: Standard_Real;
+             Sense: Standard_Boolean = Standard_True;
+             theAdjustPeriodic: Standard_Boolean = Standard_True) {.
     importcpp: "SetTrim", header: "Geom2d_TrimmedCurve.hxx".}
-proc basisCurve*(this: Geom2dTrimmedCurve): Handle[Geom2dCurve] {.noSideEffect,
+proc BasisCurve*(this: Geom2d_TrimmedCurve): handle[Geom2d_Curve] {.noSideEffect,
     importcpp: "BasisCurve", header: "Geom2d_TrimmedCurve.hxx".}
-proc continuity*(this: Geom2dTrimmedCurve): GeomAbsShape {.noSideEffect,
+proc Continuity*(this: Geom2d_TrimmedCurve): GeomAbs_Shape {.noSideEffect,
     importcpp: "Continuity", header: "Geom2d_TrimmedCurve.hxx".}
-proc isCN*(this: Geom2dTrimmedCurve; n: StandardInteger): StandardBoolean {.
+proc IsCN*(this: Geom2d_TrimmedCurve; N: Standard_Integer): Standard_Boolean {.
     noSideEffect, importcpp: "IsCN", header: "Geom2d_TrimmedCurve.hxx".}
-proc endPoint*(this: Geom2dTrimmedCurve): GpPnt2d {.noSideEffect,
+proc EndPoint*(this: Geom2d_TrimmedCurve): gp_Pnt2d {.noSideEffect,
     importcpp: "EndPoint", header: "Geom2d_TrimmedCurve.hxx".}
-proc firstParameter*(this: Geom2dTrimmedCurve): StandardReal {.noSideEffect,
+proc FirstParameter*(this: Geom2d_TrimmedCurve): Standard_Real {.noSideEffect,
     importcpp: "FirstParameter", header: "Geom2d_TrimmedCurve.hxx".}
-proc isClosed*(this: Geom2dTrimmedCurve): StandardBoolean {.noSideEffect,
+proc IsClosed*(this: Geom2d_TrimmedCurve): Standard_Boolean {.noSideEffect,
     importcpp: "IsClosed", header: "Geom2d_TrimmedCurve.hxx".}
-proc isPeriodic*(this: Geom2dTrimmedCurve): StandardBoolean {.noSideEffect,
+proc IsPeriodic*(this: Geom2d_TrimmedCurve): Standard_Boolean {.noSideEffect,
     importcpp: "IsPeriodic", header: "Geom2d_TrimmedCurve.hxx".}
-proc period*(this: Geom2dTrimmedCurve): StandardReal {.noSideEffect,
+proc Period*(this: Geom2d_TrimmedCurve): Standard_Real {.noSideEffect,
     importcpp: "Period", header: "Geom2d_TrimmedCurve.hxx".}
-proc lastParameter*(this: Geom2dTrimmedCurve): StandardReal {.noSideEffect,
+proc LastParameter*(this: Geom2d_TrimmedCurve): Standard_Real {.noSideEffect,
     importcpp: "LastParameter", header: "Geom2d_TrimmedCurve.hxx".}
-proc startPoint*(this: Geom2dTrimmedCurve): GpPnt2d {.noSideEffect,
+proc StartPoint*(this: Geom2d_TrimmedCurve): gp_Pnt2d {.noSideEffect,
     importcpp: "StartPoint", header: "Geom2d_TrimmedCurve.hxx".}
-proc d0*(this: Geom2dTrimmedCurve; u: StandardReal; p: var GpPnt2d) {.noSideEffect,
+proc D0*(this: Geom2d_TrimmedCurve; U: Standard_Real; P: var gp_Pnt2d) {.noSideEffect,
     importcpp: "D0", header: "Geom2d_TrimmedCurve.hxx".}
-proc d1*(this: Geom2dTrimmedCurve; u: StandardReal; p: var GpPnt2d; v1: var GpVec2d) {.
+proc D1*(this: Geom2d_TrimmedCurve; U: Standard_Real; P: var gp_Pnt2d; V1: var gp_Vec2d) {.
     noSideEffect, importcpp: "D1", header: "Geom2d_TrimmedCurve.hxx".}
-proc d2*(this: Geom2dTrimmedCurve; u: StandardReal; p: var GpPnt2d; v1: var GpVec2d;
-        v2: var GpVec2d) {.noSideEffect, importcpp: "D2",
-                        header: "Geom2d_TrimmedCurve.hxx".}
-proc d3*(this: Geom2dTrimmedCurve; u: StandardReal; p: var GpPnt2d; v1: var GpVec2d;
-        v2: var GpVec2d; v3: var GpVec2d) {.noSideEffect, importcpp: "D3",
-                                      header: "Geom2d_TrimmedCurve.hxx".}
-proc dn*(this: Geom2dTrimmedCurve; u: StandardReal; n: StandardInteger): GpVec2d {.
+proc D2*(this: Geom2d_TrimmedCurve; U: Standard_Real; P: var gp_Pnt2d; V1: var gp_Vec2d;
+        V2: var gp_Vec2d) {.noSideEffect, importcpp: "D2",
+                         header: "Geom2d_TrimmedCurve.hxx".}
+proc D3*(this: Geom2d_TrimmedCurve; U: Standard_Real; P: var gp_Pnt2d; V1: var gp_Vec2d;
+        V2: var gp_Vec2d; V3: var gp_Vec2d) {.noSideEffect, importcpp: "D3",
+                                        header: "Geom2d_TrimmedCurve.hxx".}
+proc DN*(this: Geom2d_TrimmedCurve; U: Standard_Real; N: Standard_Integer): gp_Vec2d {.
     noSideEffect, importcpp: "DN", header: "Geom2d_TrimmedCurve.hxx".}
-proc transform*(this: var Geom2dTrimmedCurve; t: GpTrsf2d) {.importcpp: "Transform",
+proc Transform*(this: var Geom2d_TrimmedCurve; T: gp_Trsf2d) {.importcpp: "Transform",
     header: "Geom2d_TrimmedCurve.hxx".}
-proc transformedParameter*(this: Geom2dTrimmedCurve; u: StandardReal; t: GpTrsf2d): StandardReal {.
+proc TransformedParameter*(this: Geom2d_TrimmedCurve; U: Standard_Real; T: gp_Trsf2d): Standard_Real {.
     noSideEffect, importcpp: "TransformedParameter",
     header: "Geom2d_TrimmedCurve.hxx".}
-proc parametricTransformation*(this: Geom2dTrimmedCurve; t: GpTrsf2d): StandardReal {.
+proc ParametricTransformation*(this: Geom2d_TrimmedCurve; T: gp_Trsf2d): Standard_Real {.
     noSideEffect, importcpp: "ParametricTransformation",
     header: "Geom2d_TrimmedCurve.hxx".}
-proc copy*(this: Geom2dTrimmedCurve): Handle[Geom2dGeometry] {.noSideEffect,
+proc Copy*(this: Geom2d_TrimmedCurve): handle[Geom2d_Geometry] {.noSideEffect,
     importcpp: "Copy", header: "Geom2d_TrimmedCurve.hxx".}
-proc dumpJson*(this: Geom2dTrimmedCurve; theOStream: var StandardOStream;
-              theDepth: StandardInteger = -1) {.noSideEffect, importcpp: "DumpJson",
+proc DumpJson*(this: Geom2d_TrimmedCurve; theOStream: var Standard_OStream;
+              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
     header: "Geom2d_TrimmedCurve.hxx".}
 type
-  Geom2dTrimmedCurvebaseType* = Geom2dBoundedCurve
+  Geom2d_TrimmedCurvebase_type* = Geom2d_BoundedCurve
 
-proc getTypeName*(): cstring {.importcpp: "Geom2d_TrimmedCurve::get_type_name(@)",
-                            header: "Geom2d_TrimmedCurve.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "Geom2d_TrimmedCurve::get_type_name(@)",
+                              header: "Geom2d_TrimmedCurve.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "Geom2d_TrimmedCurve::get_type_descriptor(@)",
     header: "Geom2d_TrimmedCurve.hxx".}
-proc dynamicType*(this: Geom2dTrimmedCurve): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: Geom2d_TrimmedCurve): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "Geom2d_TrimmedCurve.hxx".}
-

@@ -14,9 +14,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _Quantity_ElectricFieldStrength_HeaderFile [NewLine] # _Quantity_ElectricFieldStrength_HeaderFile [NewLine] # < Standard_Real . hxx > [NewLine] ! Defined as the force exerted on a unit charge at a
+## !!!Ignored construct:  # _Quantity_ElectricFieldStrength_HeaderFile [NewLine] # _Quantity_ElectricFieldStrength_HeaderFile [NewLine] # ../Standard/Standard_Real.hxx [NewLine] ! Defined as the force exerted on a unit charge at a
 ## ! given point in space.
 ## ! It is measured in volts per metre. Standard_DEPRECATED ( This type is deprecated - Standard_Real should be used instead ) typedef Standard_Real Quantity_ElectricFieldStrength ;
 ## Error: expected ';'!!!
-
-

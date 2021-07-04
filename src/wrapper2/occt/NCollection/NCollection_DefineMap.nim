@@ -33,10 +33,11 @@
 ##               method. This should be  consider only for  crucial
 ##               optimisation issues.
 
+import
+  NCollection_Map
+
 ##  *********************************************** Class Map *****************
 
-template define_Map*(className, baseCollection, theKeyType: untyped): void =
+template DEFINE_MAP*(_ClassName_, _BaseCollection_, TheKeyType: untyped): void =
   type
-    ClassName* = NCollectionMap[TheKeyType]
-
-
+    _ClassName_* = NCollection_Map[TheKeyType]

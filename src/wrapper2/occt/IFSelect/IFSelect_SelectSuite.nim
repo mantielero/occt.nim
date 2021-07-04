@@ -14,6 +14,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type,
+  ../TCollection/TCollection_AsciiString, ../TColStd/TColStd_SequenceOfTransient,
+  IFSelect_SelectDeduct, ../Standard/Standard_Boolean,
+  ../Standard/Standard_Integer, ../Standard/Standard_CString
+
 discard "forward decl of Interface_InterfaceError"
 discard "forward decl of IFSelect_Selection"
 discard "forward decl of IFSelect_SelectDeduct"
@@ -23,7 +29,7 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of IFSelect_SelectSuite"
 discard "forward decl of IFSelect_SelectSuite"
 type
-  HandleIFSelectSelectSuite* = Handle[IFSelectSelectSuite]
+  Handle_IFSelect_SelectSuite* = handle[IFSelect_SelectSuite]
 
 ## ! A SelectSuite can describe a suite of SelectDeduct as a unique
 ## ! one : in other words, it can be seen as a "macro selection"
@@ -39,42 +45,42 @@ type
 ## ! from existing ones, without having to do copies or saves
 
 type
-  IFSelectSelectSuite* {.importcpp: "IFSelect_SelectSuite",
-                        header: "IFSelect_SelectSuite.hxx", bycopy.} = object of IFSelectSelectDeduct ##
-                                                                                               ## !
-                                                                                               ## Creates
-                                                                                               ## an
-                                                                                               ## empty
-                                                                                               ## SelectSuite
+  IFSelect_SelectSuite* {.importcpp: "IFSelect_SelectSuite",
+                         header: "IFSelect_SelectSuite.hxx", bycopy.} = object of IFSelect_SelectDeduct ##
+                                                                                                 ## !
+                                                                                                 ## Creates
+                                                                                                 ## an
+                                                                                                 ## empty
+                                                                                                 ## SelectSuite
 
 
-proc constructIFSelectSelectSuite*(): IFSelectSelectSuite {.constructor,
+proc constructIFSelect_SelectSuite*(): IFSelect_SelectSuite {.constructor,
     importcpp: "IFSelect_SelectSuite(@)", header: "IFSelect_SelectSuite.hxx".}
-proc addInput*(this: var IFSelectSelectSuite; item: Handle[IFSelectSelection]): StandardBoolean {.
+proc AddInput*(this: var IFSelect_SelectSuite; item: handle[IFSelect_Selection]): Standard_Boolean {.
     importcpp: "AddInput", header: "IFSelect_SelectSuite.hxx".}
-proc addPrevious*(this: var IFSelectSelectSuite; item: Handle[IFSelectSelectDeduct]) {.
-    importcpp: "AddPrevious", header: "IFSelect_SelectSuite.hxx".}
-proc addNext*(this: var IFSelectSelectSuite; item: Handle[IFSelectSelectDeduct]) {.
+proc AddPrevious*(this: var IFSelect_SelectSuite;
+                 item: handle[IFSelect_SelectDeduct]) {.importcpp: "AddPrevious",
+    header: "IFSelect_SelectSuite.hxx".}
+proc AddNext*(this: var IFSelect_SelectSuite; item: handle[IFSelect_SelectDeduct]) {.
     importcpp: "AddNext", header: "IFSelect_SelectSuite.hxx".}
-proc nbItems*(this: IFSelectSelectSuite): StandardInteger {.noSideEffect,
+proc NbItems*(this: IFSelect_SelectSuite): Standard_Integer {.noSideEffect,
     importcpp: "NbItems", header: "IFSelect_SelectSuite.hxx".}
-proc item*(this: IFSelectSelectSuite; num: StandardInteger): Handle[
-    IFSelectSelectDeduct] {.noSideEffect, importcpp: "Item",
-                           header: "IFSelect_SelectSuite.hxx".}
-proc setLabel*(this: var IFSelectSelectSuite; lab: StandardCString) {.
+proc Item*(this: IFSelect_SelectSuite; num: Standard_Integer): handle[
+    IFSelect_SelectDeduct] {.noSideEffect, importcpp: "Item",
+                            header: "IFSelect_SelectSuite.hxx".}
+proc SetLabel*(this: var IFSelect_SelectSuite; lab: Standard_CString) {.
     importcpp: "SetLabel", header: "IFSelect_SelectSuite.hxx".}
-proc rootResult*(this: IFSelectSelectSuite; g: InterfaceGraph): InterfaceEntityIterator {.
+proc RootResult*(this: IFSelect_SelectSuite; G: Interface_Graph): Interface_EntityIterator {.
     noSideEffect, importcpp: "RootResult", header: "IFSelect_SelectSuite.hxx".}
-proc label*(this: IFSelectSelectSuite): TCollectionAsciiString {.noSideEffect,
+proc Label*(this: IFSelect_SelectSuite): TCollection_AsciiString {.noSideEffect,
     importcpp: "Label", header: "IFSelect_SelectSuite.hxx".}
 type
-  IFSelectSelectSuitebaseType* = IFSelectSelectDeduct
+  IFSelect_SelectSuitebase_type* = IFSelect_SelectDeduct
 
-proc getTypeName*(): cstring {.importcpp: "IFSelect_SelectSuite::get_type_name(@)",
-                            header: "IFSelect_SelectSuite.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "IFSelect_SelectSuite::get_type_name(@)",
+                              header: "IFSelect_SelectSuite.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "IFSelect_SelectSuite::get_type_descriptor(@)",
     header: "IFSelect_SelectSuite.hxx".}
-proc dynamicType*(this: IFSelectSelectSuite): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: IFSelect_SelectSuite): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "IFSelect_SelectSuite.hxx".}
-

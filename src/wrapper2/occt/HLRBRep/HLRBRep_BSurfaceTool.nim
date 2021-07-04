@@ -14,6 +14,14 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Real,
+  ../Standard/Standard_Integer, ../GeomAbs/GeomAbs_Shape,
+  ../TColStd/TColStd_Array1OfReal, ../Standard/Standard_Boolean, ../gp/gp_Pnt,
+  ../gp/gp_Vec, ../GeomAbs/GeomAbs_SurfaceType, ../gp/gp_Pln, ../gp/gp_Cylinder,
+  ../gp/gp_Cone, ../gp/gp_Torus, ../gp/gp_Sphere, ../gp/gp_Ax1, ../gp/gp_Dir
+
 discard "forward decl of Standard_NoSuchObject"
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of BRepAdaptor_Surface"
@@ -24,157 +32,158 @@ discard "forward decl of Geom_BezierSurface"
 discard "forward decl of Geom_BSplineSurface"
 discard "forward decl of Adaptor3d_HCurve"
 type
-  HLRBRepBSurfaceTool* {.importcpp: "HLRBRep_BSurfaceTool",
-                        header: "HLRBRep_BSurfaceTool.hxx", bycopy.} = object
+  HLRBRep_BSurfaceTool* {.importcpp: "HLRBRep_BSurfaceTool",
+                         header: "HLRBRep_BSurfaceTool.hxx", bycopy.} = object
 
 
-proc firstUParameter*(s: BRepAdaptorSurface): StandardReal {.
+proc FirstUParameter*(S: BRepAdaptor_Surface): Standard_Real {.
     importcpp: "HLRBRep_BSurfaceTool::FirstUParameter(@)",
     header: "HLRBRep_BSurfaceTool.hxx".}
-proc firstVParameter*(s: BRepAdaptorSurface): StandardReal {.
+proc FirstVParameter*(S: BRepAdaptor_Surface): Standard_Real {.
     importcpp: "HLRBRep_BSurfaceTool::FirstVParameter(@)",
     header: "HLRBRep_BSurfaceTool.hxx".}
-proc lastUParameter*(s: BRepAdaptorSurface): StandardReal {.
+proc LastUParameter*(S: BRepAdaptor_Surface): Standard_Real {.
     importcpp: "HLRBRep_BSurfaceTool::LastUParameter(@)",
     header: "HLRBRep_BSurfaceTool.hxx".}
-proc lastVParameter*(s: BRepAdaptorSurface): StandardReal {.
+proc LastVParameter*(S: BRepAdaptor_Surface): Standard_Real {.
     importcpp: "HLRBRep_BSurfaceTool::LastVParameter(@)",
     header: "HLRBRep_BSurfaceTool.hxx".}
-proc nbUIntervals*(s: BRepAdaptorSurface; sh: GeomAbsShape): StandardInteger {.
+proc NbUIntervals*(S: BRepAdaptor_Surface; Sh: GeomAbs_Shape): Standard_Integer {.
     importcpp: "HLRBRep_BSurfaceTool::NbUIntervals(@)",
     header: "HLRBRep_BSurfaceTool.hxx".}
-proc nbVIntervals*(s: BRepAdaptorSurface; sh: GeomAbsShape): StandardInteger {.
+proc NbVIntervals*(S: BRepAdaptor_Surface; Sh: GeomAbs_Shape): Standard_Integer {.
     importcpp: "HLRBRep_BSurfaceTool::NbVIntervals(@)",
     header: "HLRBRep_BSurfaceTool.hxx".}
-proc uIntervals*(s: BRepAdaptorSurface; t: var TColStdArray1OfReal; sh: GeomAbsShape) {.
-    importcpp: "HLRBRep_BSurfaceTool::UIntervals(@)",
-    header: "HLRBRep_BSurfaceTool.hxx".}
-proc vIntervals*(s: BRepAdaptorSurface; t: var TColStdArray1OfReal; sh: GeomAbsShape) {.
-    importcpp: "HLRBRep_BSurfaceTool::VIntervals(@)",
-    header: "HLRBRep_BSurfaceTool.hxx".}
-proc uTrim*(s: BRepAdaptorSurface; first: StandardReal; last: StandardReal;
-           tol: StandardReal): Handle[Adaptor3dHSurface] {.
+proc UIntervals*(S: BRepAdaptor_Surface; T: var TColStd_Array1OfReal;
+                Sh: GeomAbs_Shape) {.importcpp: "HLRBRep_BSurfaceTool::UIntervals(@)",
+                                   header: "HLRBRep_BSurfaceTool.hxx".}
+proc VIntervals*(S: BRepAdaptor_Surface; T: var TColStd_Array1OfReal;
+                Sh: GeomAbs_Shape) {.importcpp: "HLRBRep_BSurfaceTool::VIntervals(@)",
+                                   header: "HLRBRep_BSurfaceTool.hxx".}
+proc UTrim*(S: BRepAdaptor_Surface; First: Standard_Real; Last: Standard_Real;
+           Tol: Standard_Real): handle[Adaptor3d_HSurface] {.
     importcpp: "HLRBRep_BSurfaceTool::UTrim(@)",
     header: "HLRBRep_BSurfaceTool.hxx".}
-proc vTrim*(s: BRepAdaptorSurface; first: StandardReal; last: StandardReal;
-           tol: StandardReal): Handle[Adaptor3dHSurface] {.
+proc VTrim*(S: BRepAdaptor_Surface; First: Standard_Real; Last: Standard_Real;
+           Tol: Standard_Real): handle[Adaptor3d_HSurface] {.
     importcpp: "HLRBRep_BSurfaceTool::VTrim(@)",
     header: "HLRBRep_BSurfaceTool.hxx".}
-proc isUClosed*(s: BRepAdaptorSurface): StandardBoolean {.
+proc IsUClosed*(S: BRepAdaptor_Surface): Standard_Boolean {.
     importcpp: "HLRBRep_BSurfaceTool::IsUClosed(@)",
     header: "HLRBRep_BSurfaceTool.hxx".}
-proc isVClosed*(s: BRepAdaptorSurface): StandardBoolean {.
+proc IsVClosed*(S: BRepAdaptor_Surface): Standard_Boolean {.
     importcpp: "HLRBRep_BSurfaceTool::IsVClosed(@)",
     header: "HLRBRep_BSurfaceTool.hxx".}
-proc isUPeriodic*(s: BRepAdaptorSurface): StandardBoolean {.
+proc IsUPeriodic*(S: BRepAdaptor_Surface): Standard_Boolean {.
     importcpp: "HLRBRep_BSurfaceTool::IsUPeriodic(@)",
     header: "HLRBRep_BSurfaceTool.hxx".}
-proc uPeriod*(s: BRepAdaptorSurface): StandardReal {.
+proc UPeriod*(S: BRepAdaptor_Surface): Standard_Real {.
     importcpp: "HLRBRep_BSurfaceTool::UPeriod(@)",
     header: "HLRBRep_BSurfaceTool.hxx".}
-proc isVPeriodic*(s: BRepAdaptorSurface): StandardBoolean {.
+proc IsVPeriodic*(S: BRepAdaptor_Surface): Standard_Boolean {.
     importcpp: "HLRBRep_BSurfaceTool::IsVPeriodic(@)",
     header: "HLRBRep_BSurfaceTool.hxx".}
-proc vPeriod*(s: BRepAdaptorSurface): StandardReal {.
+proc VPeriod*(S: BRepAdaptor_Surface): Standard_Real {.
     importcpp: "HLRBRep_BSurfaceTool::VPeriod(@)",
     header: "HLRBRep_BSurfaceTool.hxx".}
-proc value*(s: BRepAdaptorSurface; u: StandardReal; v: StandardReal): GpPnt {.
+proc Value*(S: BRepAdaptor_Surface; u: Standard_Real; v: Standard_Real): gp_Pnt {.
     importcpp: "HLRBRep_BSurfaceTool::Value(@)",
     header: "HLRBRep_BSurfaceTool.hxx".}
-proc d0*(s: BRepAdaptorSurface; u: StandardReal; v: StandardReal; p: var GpPnt) {.
+proc D0*(S: BRepAdaptor_Surface; u: Standard_Real; v: Standard_Real; P: var gp_Pnt) {.
     importcpp: "HLRBRep_BSurfaceTool::D0(@)", header: "HLRBRep_BSurfaceTool.hxx".}
-proc d1*(s: BRepAdaptorSurface; u: StandardReal; v: StandardReal; p: var GpPnt;
-        d1u: var GpVec; d1v: var GpVec) {.importcpp: "HLRBRep_BSurfaceTool::D1(@)",
-                                    header: "HLRBRep_BSurfaceTool.hxx".}
-proc d2*(s: BRepAdaptorSurface; u: StandardReal; v: StandardReal; p: var GpPnt;
-        d1u: var GpVec; d1v: var GpVec; d2u: var GpVec; d2v: var GpVec; d2uv: var GpVec) {.
+proc D1*(S: BRepAdaptor_Surface; u: Standard_Real; v: Standard_Real; P: var gp_Pnt;
+        D1u: var gp_Vec; D1v: var gp_Vec) {.importcpp: "HLRBRep_BSurfaceTool::D1(@)",
+                                      header: "HLRBRep_BSurfaceTool.hxx".}
+proc D2*(S: BRepAdaptor_Surface; u: Standard_Real; v: Standard_Real; P: var gp_Pnt;
+        D1U: var gp_Vec; D1V: var gp_Vec; D2U: var gp_Vec; D2V: var gp_Vec; D2UV: var gp_Vec) {.
     importcpp: "HLRBRep_BSurfaceTool::D2(@)", header: "HLRBRep_BSurfaceTool.hxx".}
-proc d3*(s: BRepAdaptorSurface; u: StandardReal; v: StandardReal; p: var GpPnt;
-        d1u: var GpVec; d1v: var GpVec; d2u: var GpVec; d2v: var GpVec; d2uv: var GpVec;
-        d3u: var GpVec; d3v: var GpVec; d3uuv: var GpVec; d3uvv: var GpVec) {.
-    importcpp: "HLRBRep_BSurfaceTool::D3(@)", header: "HLRBRep_BSurfaceTool.hxx".}
-proc dn*(s: BRepAdaptorSurface; u: StandardReal; v: StandardReal; nu: StandardInteger;
-        nv: StandardInteger): GpVec {.importcpp: "HLRBRep_BSurfaceTool::DN(@)",
-                                   header: "HLRBRep_BSurfaceTool.hxx".}
-proc uContinuity*(s: BRepAdaptorSurface): GeomAbsShape {.
+proc D3*(S: BRepAdaptor_Surface; u: Standard_Real; v: Standard_Real; P: var gp_Pnt;
+        D1U: var gp_Vec; D1V: var gp_Vec; D2U: var gp_Vec; D2V: var gp_Vec;
+        D2UV: var gp_Vec; D3U: var gp_Vec; D3V: var gp_Vec; D3UUV: var gp_Vec;
+        D3UVV: var gp_Vec) {.importcpp: "HLRBRep_BSurfaceTool::D3(@)",
+                          header: "HLRBRep_BSurfaceTool.hxx".}
+proc DN*(S: BRepAdaptor_Surface; u: Standard_Real; v: Standard_Real;
+        Nu: Standard_Integer; Nv: Standard_Integer): gp_Vec {.
+    importcpp: "HLRBRep_BSurfaceTool::DN(@)", header: "HLRBRep_BSurfaceTool.hxx".}
+proc UContinuity*(S: BRepAdaptor_Surface): GeomAbs_Shape {.
     importcpp: "HLRBRep_BSurfaceTool::UContinuity(@)",
     header: "HLRBRep_BSurfaceTool.hxx".}
-proc vContinuity*(s: BRepAdaptorSurface): GeomAbsShape {.
+proc VContinuity*(S: BRepAdaptor_Surface): GeomAbs_Shape {.
     importcpp: "HLRBRep_BSurfaceTool::VContinuity(@)",
     header: "HLRBRep_BSurfaceTool.hxx".}
-proc uDegree*(s: BRepAdaptorSurface): StandardInteger {.
+proc UDegree*(S: BRepAdaptor_Surface): Standard_Integer {.
     importcpp: "HLRBRep_BSurfaceTool::UDegree(@)",
     header: "HLRBRep_BSurfaceTool.hxx".}
-proc nbUPoles*(s: BRepAdaptorSurface): StandardInteger {.
+proc NbUPoles*(S: BRepAdaptor_Surface): Standard_Integer {.
     importcpp: "HLRBRep_BSurfaceTool::NbUPoles(@)",
     header: "HLRBRep_BSurfaceTool.hxx".}
-proc nbUKnots*(s: BRepAdaptorSurface): StandardInteger {.
+proc NbUKnots*(S: BRepAdaptor_Surface): Standard_Integer {.
     importcpp: "HLRBRep_BSurfaceTool::NbUKnots(@)",
     header: "HLRBRep_BSurfaceTool.hxx".}
-proc isURational*(s: BRepAdaptorSurface): StandardBoolean {.
+proc IsURational*(S: BRepAdaptor_Surface): Standard_Boolean {.
     importcpp: "HLRBRep_BSurfaceTool::IsURational(@)",
     header: "HLRBRep_BSurfaceTool.hxx".}
-proc vDegree*(s: BRepAdaptorSurface): StandardInteger {.
+proc VDegree*(S: BRepAdaptor_Surface): Standard_Integer {.
     importcpp: "HLRBRep_BSurfaceTool::VDegree(@)",
     header: "HLRBRep_BSurfaceTool.hxx".}
-proc nbVPoles*(s: BRepAdaptorSurface): StandardInteger {.
+proc NbVPoles*(S: BRepAdaptor_Surface): Standard_Integer {.
     importcpp: "HLRBRep_BSurfaceTool::NbVPoles(@)",
     header: "HLRBRep_BSurfaceTool.hxx".}
-proc nbVKnots*(s: BRepAdaptorSurface): StandardInteger {.
+proc NbVKnots*(S: BRepAdaptor_Surface): Standard_Integer {.
     importcpp: "HLRBRep_BSurfaceTool::NbVKnots(@)",
     header: "HLRBRep_BSurfaceTool.hxx".}
-proc isVRational*(s: BRepAdaptorSurface): StandardBoolean {.
+proc IsVRational*(S: BRepAdaptor_Surface): Standard_Boolean {.
     importcpp: "HLRBRep_BSurfaceTool::IsVRational(@)",
     header: "HLRBRep_BSurfaceTool.hxx".}
-proc uResolution*(s: BRepAdaptorSurface; r3d: StandardReal): StandardReal {.
+proc UResolution*(S: BRepAdaptor_Surface; R3d: Standard_Real): Standard_Real {.
     importcpp: "HLRBRep_BSurfaceTool::UResolution(@)",
     header: "HLRBRep_BSurfaceTool.hxx".}
-proc vResolution*(s: BRepAdaptorSurface; r3d: StandardReal): StandardReal {.
+proc VResolution*(S: BRepAdaptor_Surface; R3d: Standard_Real): Standard_Real {.
     importcpp: "HLRBRep_BSurfaceTool::VResolution(@)",
     header: "HLRBRep_BSurfaceTool.hxx".}
-proc getType*(s: BRepAdaptorSurface): GeomAbsSurfaceType {.
+proc GetType*(S: BRepAdaptor_Surface): GeomAbs_SurfaceType {.
     importcpp: "HLRBRep_BSurfaceTool::GetType(@)",
     header: "HLRBRep_BSurfaceTool.hxx".}
-proc plane*(s: BRepAdaptorSurface): GpPln {.importcpp: "HLRBRep_BSurfaceTool::Plane(@)",
-                                        header: "HLRBRep_BSurfaceTool.hxx".}
-proc cylinder*(s: BRepAdaptorSurface): GpCylinder {.
+proc Plane*(S: BRepAdaptor_Surface): gp_Pln {.
+    importcpp: "HLRBRep_BSurfaceTool::Plane(@)",
+    header: "HLRBRep_BSurfaceTool.hxx".}
+proc Cylinder*(S: BRepAdaptor_Surface): gp_Cylinder {.
     importcpp: "HLRBRep_BSurfaceTool::Cylinder(@)",
     header: "HLRBRep_BSurfaceTool.hxx".}
-proc cone*(s: BRepAdaptorSurface): GpCone {.importcpp: "HLRBRep_BSurfaceTool::Cone(@)",
-                                        header: "HLRBRep_BSurfaceTool.hxx".}
-proc torus*(s: BRepAdaptorSurface): GpTorus {.
+proc Cone*(S: BRepAdaptor_Surface): gp_Cone {.
+    importcpp: "HLRBRep_BSurfaceTool::Cone(@)", header: "HLRBRep_BSurfaceTool.hxx".}
+proc Torus*(S: BRepAdaptor_Surface): gp_Torus {.
     importcpp: "HLRBRep_BSurfaceTool::Torus(@)",
     header: "HLRBRep_BSurfaceTool.hxx".}
-proc sphere*(s: BRepAdaptorSurface): GpSphere {.
+proc Sphere*(S: BRepAdaptor_Surface): gp_Sphere {.
     importcpp: "HLRBRep_BSurfaceTool::Sphere(@)",
     header: "HLRBRep_BSurfaceTool.hxx".}
-proc bezier*(s: BRepAdaptorSurface): Handle[GeomBezierSurface] {.
+proc Bezier*(S: BRepAdaptor_Surface): handle[Geom_BezierSurface] {.
     importcpp: "HLRBRep_BSurfaceTool::Bezier(@)",
     header: "HLRBRep_BSurfaceTool.hxx".}
-proc bSpline*(s: BRepAdaptorSurface): Handle[GeomBSplineSurface] {.
+proc BSpline*(S: BRepAdaptor_Surface): handle[Geom_BSplineSurface] {.
     importcpp: "HLRBRep_BSurfaceTool::BSpline(@)",
     header: "HLRBRep_BSurfaceTool.hxx".}
-proc axeOfRevolution*(s: BRepAdaptorSurface): GpAx1 {.
+proc AxeOfRevolution*(S: BRepAdaptor_Surface): gp_Ax1 {.
     importcpp: "HLRBRep_BSurfaceTool::AxeOfRevolution(@)",
     header: "HLRBRep_BSurfaceTool.hxx".}
-proc direction*(s: BRepAdaptorSurface): GpDir {.
+proc Direction*(S: BRepAdaptor_Surface): gp_Dir {.
     importcpp: "HLRBRep_BSurfaceTool::Direction(@)",
     header: "HLRBRep_BSurfaceTool.hxx".}
-proc basisCurve*(s: BRepAdaptorSurface): Handle[Adaptor3dHCurve] {.
+proc BasisCurve*(S: BRepAdaptor_Surface): handle[Adaptor3d_HCurve] {.
     importcpp: "HLRBRep_BSurfaceTool::BasisCurve(@)",
     header: "HLRBRep_BSurfaceTool.hxx".}
-proc axis*(s: BRepAdaptorSurface): GpAx1 {.importcpp: "HLRBRep_BSurfaceTool::Axis(@)",
-                                       header: "HLRBRep_BSurfaceTool.hxx".}
-proc nbSamplesU*(s: BRepAdaptorSurface): StandardInteger {.
+proc Axis*(S: BRepAdaptor_Surface): gp_Ax1 {.
+    importcpp: "HLRBRep_BSurfaceTool::Axis(@)", header: "HLRBRep_BSurfaceTool.hxx".}
+proc NbSamplesU*(S: BRepAdaptor_Surface): Standard_Integer {.
     importcpp: "HLRBRep_BSurfaceTool::NbSamplesU(@)",
     header: "HLRBRep_BSurfaceTool.hxx".}
-proc nbSamplesV*(s: BRepAdaptorSurface): StandardInteger {.
+proc NbSamplesV*(S: BRepAdaptor_Surface): Standard_Integer {.
     importcpp: "HLRBRep_BSurfaceTool::NbSamplesV(@)",
     header: "HLRBRep_BSurfaceTool.hxx".}
-proc nbSamplesU*(s: BRepAdaptorSurface; u1: StandardReal; u2: StandardReal): StandardInteger {.
+proc NbSamplesU*(S: BRepAdaptor_Surface; u1: Standard_Real; u2: Standard_Real): Standard_Integer {.
     importcpp: "HLRBRep_BSurfaceTool::NbSamplesU(@)",
     header: "HLRBRep_BSurfaceTool.hxx".}
-proc nbSamplesV*(s: BRepAdaptorSurface; v1: StandardReal; v2: StandardReal): StandardInteger {.
+proc NbSamplesV*(S: BRepAdaptor_Surface; v1: Standard_Real; v2: Standard_Real): Standard_Integer {.
     importcpp: "HLRBRep_BSurfaceTool::NbSamplesV(@)",
     header: "HLRBRep_BSurfaceTool.hxx".}
-

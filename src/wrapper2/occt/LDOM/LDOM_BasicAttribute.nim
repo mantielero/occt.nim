@@ -13,6 +13,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  LDOM_BasicNode, ../LDOMBasicString/LDOMBasicString
+
 discard "forward decl of LDOM_XmlReader"
 discard "forward decl of LDOM_Element"
 discard "forward decl of LDOM_Attr"
@@ -26,11 +29,10 @@ type
 
 proc constructLDOM_BasicAttribute*(): LDOM_BasicAttribute {.constructor,
     importcpp: "LDOM_BasicAttribute(@)", header: "LDOM_BasicAttribute.hxx".}
-proc getName*(this: LDOM_BasicAttribute): cstring {.noSideEffect,
+proc GetName*(this: LDOM_BasicAttribute): cstring {.noSideEffect,
     importcpp: "GetName", header: "LDOM_BasicAttribute.hxx".}
-proc getValue*(this: LDOM_BasicAttribute): LDOMBasicString {.noSideEffect,
+proc GetValue*(this: LDOM_BasicAttribute): LDOMBasicString {.noSideEffect,
     importcpp: "GetValue", header: "LDOM_BasicAttribute.hxx".}
-proc setValue*(this: var LDOM_BasicAttribute; aValue: LDOMBasicString;
-              aDoc: Handle[LDOM_MemManager]) {.importcpp: "SetValue",
+proc SetValue*(this: var LDOM_BasicAttribute; aValue: LDOMBasicString;
+              aDoc: handle[LDOM_MemManager]) {.importcpp: "SetValue",
     header: "LDOM_BasicAttribute.hxx".}
-

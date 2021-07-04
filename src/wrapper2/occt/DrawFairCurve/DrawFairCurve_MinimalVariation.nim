@@ -14,43 +14,47 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, DrawFairCurve_Batten,
+  ../Standard/Standard_Address, ../Standard/Standard_Integer,
+  ../Standard/Standard_Real
+
 discard "forward decl of DrawFairCurve_MinimalVariation"
 discard "forward decl of DrawFairCurve_MinimalVariation"
 type
-  HandleDrawFairCurveMinimalVariation* = Handle[DrawFairCurveMinimalVariation]
+  Handle_DrawFairCurve_MinimalVariation* = handle[DrawFairCurve_MinimalVariation]
 
 ## ! Interactive Draw object of type "MVC"
 
 type
-  DrawFairCurveMinimalVariation* {.importcpp: "DrawFairCurve_MinimalVariation",
-                                  header: "DrawFairCurve_MinimalVariation.hxx",
-                                  bycopy.} = object of DrawFairCurveBatten
+  DrawFairCurve_MinimalVariation* {.importcpp: "DrawFairCurve_MinimalVariation", header: "DrawFairCurve_MinimalVariation.hxx",
+                                   bycopy.} = object of DrawFairCurve_Batten
 
 
-proc constructDrawFairCurveMinimalVariation*(theMVC: StandardAddress): DrawFairCurveMinimalVariation {.
+proc constructDrawFairCurve_MinimalVariation*(TheMVC: Standard_Address): DrawFairCurve_MinimalVariation {.
     constructor, importcpp: "DrawFairCurve_MinimalVariation(@)",
     header: "DrawFairCurve_MinimalVariation.hxx".}
-proc setCurvature*(this: var DrawFairCurveMinimalVariation; side: StandardInteger;
-                  rho: StandardReal) {.importcpp: "SetCurvature", header: "DrawFairCurve_MinimalVariation.hxx".}
-proc setPhysicalRatio*(this: var DrawFairCurveMinimalVariation; ratio: StandardReal) {.
-    importcpp: "SetPhysicalRatio", header: "DrawFairCurve_MinimalVariation.hxx".}
-proc getCurvature*(this: DrawFairCurveMinimalVariation; side: StandardInteger): StandardReal {.
+proc SetCurvature*(this: var DrawFairCurve_MinimalVariation; Side: Standard_Integer;
+                  Rho: Standard_Real) {.importcpp: "SetCurvature", header: "DrawFairCurve_MinimalVariation.hxx".}
+proc SetPhysicalRatio*(this: var DrawFairCurve_MinimalVariation;
+                      Ratio: Standard_Real) {.importcpp: "SetPhysicalRatio",
+    header: "DrawFairCurve_MinimalVariation.hxx".}
+proc GetCurvature*(this: DrawFairCurve_MinimalVariation; Side: Standard_Integer): Standard_Real {.
     noSideEffect, importcpp: "GetCurvature",
     header: "DrawFairCurve_MinimalVariation.hxx".}
-proc getPhysicalRatio*(this: DrawFairCurveMinimalVariation): StandardReal {.
+proc GetPhysicalRatio*(this: DrawFairCurve_MinimalVariation): Standard_Real {.
     noSideEffect, importcpp: "GetPhysicalRatio",
     header: "DrawFairCurve_MinimalVariation.hxx".}
-proc freeCurvature*(this: var DrawFairCurveMinimalVariation; side: StandardInteger) {.
+proc FreeCurvature*(this: var DrawFairCurve_MinimalVariation; Side: Standard_Integer) {.
     importcpp: "FreeCurvature", header: "DrawFairCurve_MinimalVariation.hxx".}
 type
-  DrawFairCurveMinimalVariationbaseType* = DrawFairCurveBatten
+  DrawFairCurve_MinimalVariationbase_type* = DrawFairCurve_Batten
 
-proc getTypeName*(): cstring {.importcpp: "DrawFairCurve_MinimalVariation::get_type_name(@)",
-                            header: "DrawFairCurve_MinimalVariation.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "DrawFairCurve_MinimalVariation::get_type_name(@)",
+                              header: "DrawFairCurve_MinimalVariation.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "DrawFairCurve_MinimalVariation::get_type_descriptor(@)",
     header: "DrawFairCurve_MinimalVariation.hxx".}
-proc dynamicType*(this: DrawFairCurveMinimalVariation): Handle[StandardType] {.
+proc DynamicType*(this: DrawFairCurve_MinimalVariation): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType",
     header: "DrawFairCurve_MinimalVariation.hxx".}
-

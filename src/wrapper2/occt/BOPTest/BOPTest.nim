@@ -13,6 +13,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Draw/Draw_Interpretor
+
 discard "forward decl of BOPTest_Objects"
 discard "forward decl of BOPTest_DrawableShape"
 discard "forward decl of Message_Report"
@@ -20,38 +24,37 @@ type
   BOPTest* {.importcpp: "BOPTest", header: "BOPTest.hxx", bycopy.} = object
 
 
-proc allCommands*(aDI: var DrawInterpretor) {.importcpp: "BOPTest::AllCommands(@)",
+proc AllCommands*(aDI: var Draw_Interpretor) {.importcpp: "BOPTest::AllCommands(@)",
     header: "BOPTest.hxx".}
-proc bOPCommands*(aDI: var DrawInterpretor) {.importcpp: "BOPTest::BOPCommands(@)",
+proc BOPCommands*(aDI: var Draw_Interpretor) {.importcpp: "BOPTest::BOPCommands(@)",
     header: "BOPTest.hxx".}
-proc checkCommands*(aDI: var DrawInterpretor) {.
+proc CheckCommands*(aDI: var Draw_Interpretor) {.
     importcpp: "BOPTest::CheckCommands(@)", header: "BOPTest.hxx".}
-proc tolerCommands*(aDI: var DrawInterpretor) {.
+proc TolerCommands*(aDI: var Draw_Interpretor) {.
     importcpp: "BOPTest::TolerCommands(@)", header: "BOPTest.hxx".}
-proc lowCommands*(aDI: var DrawInterpretor) {.importcpp: "BOPTest::LowCommands(@)",
+proc LowCommands*(aDI: var Draw_Interpretor) {.importcpp: "BOPTest::LowCommands(@)",
     header: "BOPTest.hxx".}
-proc objCommands*(aDI: var DrawInterpretor) {.importcpp: "BOPTest::ObjCommands(@)",
+proc ObjCommands*(aDI: var Draw_Interpretor) {.importcpp: "BOPTest::ObjCommands(@)",
     header: "BOPTest.hxx".}
-proc partitionCommands*(aDI: var DrawInterpretor) {.
+proc PartitionCommands*(aDI: var Draw_Interpretor) {.
     importcpp: "BOPTest::PartitionCommands(@)", header: "BOPTest.hxx".}
-proc aPICommands*(aDI: var DrawInterpretor) {.importcpp: "BOPTest::APICommands(@)",
+proc APICommands*(aDI: var Draw_Interpretor) {.importcpp: "BOPTest::APICommands(@)",
     header: "BOPTest.hxx".}
-proc optionCommands*(aDI: var DrawInterpretor) {.
+proc OptionCommands*(aDI: var Draw_Interpretor) {.
     importcpp: "BOPTest::OptionCommands(@)", header: "BOPTest.hxx".}
-proc factory*(aDI: var DrawInterpretor) {.importcpp: "BOPTest::Factory(@)",
-                                      header: "BOPTest.hxx".}
-proc debugCommands*(aDI: var DrawInterpretor) {.
+proc Factory*(aDI: var Draw_Interpretor) {.importcpp: "BOPTest::Factory(@)",
+                                       header: "BOPTest.hxx".}
+proc DebugCommands*(aDI: var Draw_Interpretor) {.
     importcpp: "BOPTest::DebugCommands(@)", header: "BOPTest.hxx".}
-proc cellsCommands*(aDI: var DrawInterpretor) {.
+proc CellsCommands*(aDI: var Draw_Interpretor) {.
     importcpp: "BOPTest::CellsCommands(@)", header: "BOPTest.hxx".}
-proc utilityCommands*(aDI: var DrawInterpretor) {.
+proc UtilityCommands*(aDI: var Draw_Interpretor) {.
     importcpp: "BOPTest::UtilityCommands(@)", header: "BOPTest.hxx".}
-proc removeFeaturesCommands*(aDI: var DrawInterpretor) {.
+proc RemoveFeaturesCommands*(aDI: var Draw_Interpretor) {.
     importcpp: "BOPTest::RemoveFeaturesCommands(@)", header: "BOPTest.hxx".}
-proc periodicityCommands*(aDI: var DrawInterpretor) {.
+proc PeriodicityCommands*(aDI: var Draw_Interpretor) {.
     importcpp: "BOPTest::PeriodicityCommands(@)", header: "BOPTest.hxx".}
-proc mkConnectedCommands*(aDI: var DrawInterpretor) {.
+proc MkConnectedCommands*(aDI: var Draw_Interpretor) {.
     importcpp: "BOPTest::MkConnectedCommands(@)", header: "BOPTest.hxx".}
-proc reportAlerts*(theReport: Handle[MessageReport]) {.
+proc ReportAlerts*(theReport: handle[Message_Report]) {.
     importcpp: "BOPTest::ReportAlerts(@)", header: "BOPTest.hxx".}
-

@@ -14,12 +14,16 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, IFSelect_SignCounter,
+  ../Standard/Standard_Boolean, ../TColStd/TColStd_HSequenceOfTransient
+
 discard "forward decl of IFSelect_SelectDeduct"
 discard "forward decl of Interface_Graph"
 discard "forward decl of IFSelect_GraphCounter"
 discard "forward decl of IFSelect_GraphCounter"
 type
-  HandleIFSelectGraphCounter* = Handle[IFSelectGraphCounter]
+  Handle_IFSelect_GraphCounter* = handle[IFSelect_GraphCounter]
 
 ## ! A GraphCounter computes values to be sorted with the help of
 ## ! a Graph. I.E. not from a Signature
@@ -29,36 +33,36 @@ type
 ## ! from each input entities)
 
 type
-  IFSelectGraphCounter* {.importcpp: "IFSelect_GraphCounter",
-                         header: "IFSelect_GraphCounter.hxx", bycopy.} = object of IFSelectSignCounter ##
-                                                                                                ## !
-                                                                                                ## Creates
-                                                                                                ## a
-                                                                                                ## GraphCounter,
-                                                                                                ## without
-                                                                                                ## applied
-                                                                                                ## selection
+  IFSelect_GraphCounter* {.importcpp: "IFSelect_GraphCounter",
+                          header: "IFSelect_GraphCounter.hxx", bycopy.} = object of IFSelect_SignCounter ##
+                                                                                                  ## !
+                                                                                                  ## Creates
+                                                                                                  ## a
+                                                                                                  ## GraphCounter,
+                                                                                                  ## without
+                                                                                                  ## applied
+                                                                                                  ## selection
 
 
-proc constructIFSelectGraphCounter*(withmap: StandardBoolean = standardTrue;
-                                   withlist: StandardBoolean = standardFalse): IFSelectGraphCounter {.
+proc constructIFSelect_GraphCounter*(withmap: Standard_Boolean = Standard_True;
+                                    withlist: Standard_Boolean = Standard_False): IFSelect_GraphCounter {.
     constructor, importcpp: "IFSelect_GraphCounter(@)",
     header: "IFSelect_GraphCounter.hxx".}
-proc applied*(this: IFSelectGraphCounter): Handle[IFSelectSelectDeduct] {.
+proc Applied*(this: IFSelect_GraphCounter): handle[IFSelect_SelectDeduct] {.
     noSideEffect, importcpp: "Applied", header: "IFSelect_GraphCounter.hxx".}
-proc setApplied*(this: var IFSelectGraphCounter; sel: Handle[IFSelectSelectDeduct]) {.
+proc SetApplied*(this: var IFSelect_GraphCounter; sel: handle[IFSelect_SelectDeduct]) {.
     importcpp: "SetApplied", header: "IFSelect_GraphCounter.hxx".}
-proc addWithGraph*(this: var IFSelectGraphCounter;
-                  list: Handle[TColStdHSequenceOfTransient]; graph: InterfaceGraph) {.
-    importcpp: "AddWithGraph", header: "IFSelect_GraphCounter.hxx".}
+proc AddWithGraph*(this: var IFSelect_GraphCounter;
+                  list: handle[TColStd_HSequenceOfTransient];
+                  graph: Interface_Graph) {.importcpp: "AddWithGraph",
+    header: "IFSelect_GraphCounter.hxx".}
 type
-  IFSelectGraphCounterbaseType* = IFSelectSignCounter
+  IFSelect_GraphCounterbase_type* = IFSelect_SignCounter
 
-proc getTypeName*(): cstring {.importcpp: "IFSelect_GraphCounter::get_type_name(@)",
-                            header: "IFSelect_GraphCounter.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "IFSelect_GraphCounter::get_type_name(@)",
+                              header: "IFSelect_GraphCounter.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "IFSelect_GraphCounter::get_type_descriptor(@)",
     header: "IFSelect_GraphCounter.hxx".}
-proc dynamicType*(this: IFSelectGraphCounter): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "IFSelect_GraphCounter.hxx".}
-
+proc DynamicType*(this: IFSelect_GraphCounter): handle[Standard_Type] {.
+    noSideEffect, importcpp: "DynamicType", header: "IFSelect_GraphCounter.hxx".}

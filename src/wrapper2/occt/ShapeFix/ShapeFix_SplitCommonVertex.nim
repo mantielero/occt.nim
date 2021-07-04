@@ -13,39 +13,42 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../TopoDS/TopoDS_Shape,
+  ../Standard/Standard_Integer, ShapeFix_Root
+
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of ShapeFix_SplitCommonVertex"
 discard "forward decl of ShapeFix_SplitCommonVertex"
 type
-  HandleShapeFixSplitCommonVertex* = Handle[ShapeFixSplitCommonVertex]
+  Handle_ShapeFix_SplitCommonVertex* = handle[ShapeFix_SplitCommonVertex]
 
 ## ! Two wires have common vertex - this case is valid in BRep model
 ## ! and isn't valid in STEP => before writing into STEP it is necessary
 ## ! to split this vertex (each wire must has one vertex)
 
 type
-  ShapeFixSplitCommonVertex* {.importcpp: "ShapeFix_SplitCommonVertex",
-                              header: "ShapeFix_SplitCommonVertex.hxx", bycopy.} = object of ShapeFixRoot
+  ShapeFix_SplitCommonVertex* {.importcpp: "ShapeFix_SplitCommonVertex",
+                               header: "ShapeFix_SplitCommonVertex.hxx", bycopy.} = object of ShapeFix_Root
 
 
-proc constructShapeFixSplitCommonVertex*(): ShapeFixSplitCommonVertex {.
+proc constructShapeFix_SplitCommonVertex*(): ShapeFix_SplitCommonVertex {.
     constructor, importcpp: "ShapeFix_SplitCommonVertex(@)",
     header: "ShapeFix_SplitCommonVertex.hxx".}
-proc init*(this: var ShapeFixSplitCommonVertex; s: TopoDS_Shape) {.importcpp: "Init",
+proc Init*(this: var ShapeFix_SplitCommonVertex; S: TopoDS_Shape) {.importcpp: "Init",
     header: "ShapeFix_SplitCommonVertex.hxx".}
-proc perform*(this: var ShapeFixSplitCommonVertex) {.importcpp: "Perform",
+proc Perform*(this: var ShapeFix_SplitCommonVertex) {.importcpp: "Perform",
     header: "ShapeFix_SplitCommonVertex.hxx".}
-proc shape*(this: var ShapeFixSplitCommonVertex): TopoDS_Shape {.importcpp: "Shape",
+proc Shape*(this: var ShapeFix_SplitCommonVertex): TopoDS_Shape {.importcpp: "Shape",
     header: "ShapeFix_SplitCommonVertex.hxx".}
 type
-  ShapeFixSplitCommonVertexbaseType* = ShapeFixRoot
+  ShapeFix_SplitCommonVertexbase_type* = ShapeFix_Root
 
-proc getTypeName*(): cstring {.importcpp: "ShapeFix_SplitCommonVertex::get_type_name(@)",
-                            header: "ShapeFix_SplitCommonVertex.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "ShapeFix_SplitCommonVertex::get_type_name(@)",
+                              header: "ShapeFix_SplitCommonVertex.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "ShapeFix_SplitCommonVertex::get_type_descriptor(@)",
     header: "ShapeFix_SplitCommonVertex.hxx".}
-proc dynamicType*(this: ShapeFixSplitCommonVertex): Handle[StandardType] {.
+proc DynamicType*(this: ShapeFix_SplitCommonVertex): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType",
     header: "ShapeFix_SplitCommonVertex.hxx".}
-

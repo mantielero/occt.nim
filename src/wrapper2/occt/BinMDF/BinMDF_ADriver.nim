@@ -13,6 +13,13 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type,
+  ../TCollection/TCollection_AsciiString, ../Standard/Standard_Transient,
+  ../Standard/Standard_CString, ../Standard/Standard_Type,
+  ../Standard/Standard_Boolean, ../BinObjMgt/BinObjMgt_RRelocationTable,
+  ../BinObjMgt/BinObjMgt_SRelocationTable
+
 discard "forward decl of Message_Messenger"
 discard "forward decl of TDF_Attribute"
 discard "forward decl of TCollection_AsciiString"
@@ -21,45 +28,44 @@ discard "forward decl of TCollection_ExtendedString"
 discard "forward decl of BinMDF_ADriver"
 discard "forward decl of BinMDF_ADriver"
 type
-  HandleBinMDF_ADriver* = Handle[BinMDF_ADriver]
+  Handle_BinMDF_ADriver* = handle[BinMDF_ADriver]
 
 ## ! Attribute Storage/Retrieval Driver.
 
 type
-  BinMDF_ADriver* {.importcpp: "BinMDF_ADriver", header: "BinMDF_ADriver.hxx", bycopy.} = object of StandardTransient ##
-                                                                                                            ## !
-                                                                                                            ## Creates
-                                                                                                            ## a
-                                                                                                            ## new
-                                                                                                            ## attribute
-                                                                                                            ## from
-                                                                                                            ## TDF.
+  BinMDF_ADriver* {.importcpp: "BinMDF_ADriver", header: "BinMDF_ADriver.hxx", bycopy.} = object of Standard_Transient ##
+                                                                                                             ## !
+                                                                                                             ## Creates
+                                                                                                             ## a
+                                                                                                             ## new
+                                                                                                             ## attribute
+                                                                                                             ## from
+                                                                                                             ## TDF.
 
 
-proc newEmpty*(this: BinMDF_ADriver): Handle[TDF_Attribute] {.noSideEffect,
+proc NewEmpty*(this: BinMDF_ADriver): handle[TDF_Attribute] {.noSideEffect,
     importcpp: "NewEmpty", header: "BinMDF_ADriver.hxx".}
-proc sourceType*(this: BinMDF_ADriver): Handle[StandardType] {.noSideEffect,
+proc SourceType*(this: BinMDF_ADriver): handle[Standard_Type] {.noSideEffect,
     importcpp: "SourceType", header: "BinMDF_ADriver.hxx".}
-proc typeName*(this: BinMDF_ADriver): TCollectionAsciiString {.noSideEffect,
+proc TypeName*(this: BinMDF_ADriver): TCollection_AsciiString {.noSideEffect,
     importcpp: "TypeName", header: "BinMDF_ADriver.hxx".}
-proc paste*(this: BinMDF_ADriver; aSource: BinObjMgtPersistent;
-           aTarget: Handle[TDF_Attribute];
-           aRelocTable: var BinObjMgtRRelocationTable): StandardBoolean {.
+proc Paste*(this: BinMDF_ADriver; aSource: BinObjMgt_Persistent;
+           aTarget: handle[TDF_Attribute];
+           aRelocTable: var BinObjMgt_RRelocationTable): Standard_Boolean {.
     noSideEffect, importcpp: "Paste", header: "BinMDF_ADriver.hxx".}
-proc paste*(this: BinMDF_ADriver; aSource: Handle[TDF_Attribute];
-           aTarget: var BinObjMgtPersistent;
-           aRelocTable: var BinObjMgtSRelocationTable) {.noSideEffect,
+proc Paste*(this: BinMDF_ADriver; aSource: handle[TDF_Attribute];
+           aTarget: var BinObjMgt_Persistent;
+           aRelocTable: var BinObjMgt_SRelocationTable) {.noSideEffect,
     importcpp: "Paste", header: "BinMDF_ADriver.hxx".}
-proc messageDriver*(this: BinMDF_ADriver): Handle[MessageMessenger] {.noSideEffect,
+proc MessageDriver*(this: BinMDF_ADriver): handle[Message_Messenger] {.noSideEffect,
     importcpp: "MessageDriver", header: "BinMDF_ADriver.hxx".}
 type
-  BinMDF_ADriverbaseType* = StandardTransient
+  BinMDF_ADriverbase_type* = Standard_Transient
 
-proc getTypeName*(): cstring {.importcpp: "BinMDF_ADriver::get_type_name(@)",
-                            header: "BinMDF_ADriver.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "BinMDF_ADriver::get_type_name(@)",
+                              header: "BinMDF_ADriver.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "BinMDF_ADriver::get_type_descriptor(@)",
     header: "BinMDF_ADriver.hxx".}
-proc dynamicType*(this: BinMDF_ADriver): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: BinMDF_ADriver): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "BinMDF_ADriver.hxx".}
-

@@ -13,10 +13,16 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Font/Font_FontAspect, ../NCollection/NCollection_Array1,
+  ../Quantity/Quantity_Color, ../Standard/Standard_Boolean,
+  ../Standard/Standard_Integer, ../TCollection/TCollection_AsciiString,
+  ../TCollection/TCollection_ExtendedString
+
 discard "forward decl of Graphic3d_CView"
 type
-  Graphic3dAxisAspect* {.importcpp: "Graphic3d_AxisAspect",
-                        header: "Graphic3d_GraduatedTrihedron.hxx", bycopy.} = object
+  Graphic3d_AxisAspect* {.importcpp: "Graphic3d_AxisAspect",
+                         header: "Graphic3d_GraduatedTrihedron.hxx", bycopy.} = object
     ## !< Number of splits along axes
     ## !< Length of tickmarks
     ## !< Color of axis and values
@@ -24,84 +30,67 @@ type
     ## !< Offset for drawing name of axis
 
 
-proc constructGraphic3dAxisAspect*(theName: TCollectionExtendedString = "";
-    theNameColor: QuantityColor = quantityNOC_BLACK;
-                                  theColor: QuantityColor = quantityNOC_BLACK;
-                                  theValuesOffset: StandardInteger = 10;
-                                  theNameOffset: StandardInteger = 30;
-                                  theTickmarksNumber: StandardInteger = 5;
-                                  theTickmarksLength: StandardInteger = 10;
-    theToDrawName: StandardBoolean = standardTrue; theToDrawValues: StandardBoolean = standardTrue;
-    theToDrawTickmarks: StandardBoolean = standardTrue): Graphic3dAxisAspect {.
+proc constructGraphic3d_AxisAspect*(theName: TCollection_ExtendedString = "";
+    theNameColor: Quantity_Color = Quantity_NOC_BLACK; theColor: Quantity_Color = Quantity_NOC_BLACK;
+                                   theValuesOffset: Standard_Integer = 10;
+                                   theNameOffset: Standard_Integer = 30;
+                                   theTickmarksNumber: Standard_Integer = 5;
+                                   theTickmarksLength: Standard_Integer = 10;
+    theToDrawName: Standard_Boolean = Standard_True; theToDrawValues: Standard_Boolean = Standard_True;
+    theToDrawTickmarks: Standard_Boolean = Standard_True): Graphic3d_AxisAspect {.
     constructor, importcpp: "Graphic3d_AxisAspect(@)",
     header: "Graphic3d_GraduatedTrihedron.hxx".}
-proc setName*(this: var Graphic3dAxisAspect; theName: TCollectionExtendedString) {.
+proc SetName*(this: var Graphic3d_AxisAspect; theName: TCollection_ExtendedString) {.
     importcpp: "SetName", header: "Graphic3d_GraduatedTrihedron.hxx".}
-proc name*(this: Graphic3dAxisAspect): TCollectionExtendedString {.noSideEffect,
+proc Name*(this: Graphic3d_AxisAspect): TCollection_ExtendedString {.noSideEffect,
     importcpp: "Name", header: "Graphic3d_GraduatedTrihedron.hxx".}
-proc toDrawName*(this: Graphic3dAxisAspect): StandardBoolean {.noSideEffect,
+proc ToDrawName*(this: Graphic3d_AxisAspect): Standard_Boolean {.noSideEffect,
     importcpp: "ToDrawName", header: "Graphic3d_GraduatedTrihedron.hxx".}
-proc setDrawName*(this: var Graphic3dAxisAspect; theToDraw: StandardBoolean) {.
+proc SetDrawName*(this: var Graphic3d_AxisAspect; theToDraw: Standard_Boolean) {.
     importcpp: "SetDrawName", header: "Graphic3d_GraduatedTrihedron.hxx".}
-proc toDrawTickmarks*(this: Graphic3dAxisAspect): StandardBoolean {.noSideEffect,
+proc ToDrawTickmarks*(this: Graphic3d_AxisAspect): Standard_Boolean {.noSideEffect,
     importcpp: "ToDrawTickmarks", header: "Graphic3d_GraduatedTrihedron.hxx".}
-proc setDrawTickmarks*(this: var Graphic3dAxisAspect; theToDraw: StandardBoolean) {.
+proc SetDrawTickmarks*(this: var Graphic3d_AxisAspect; theToDraw: Standard_Boolean) {.
     importcpp: "SetDrawTickmarks", header: "Graphic3d_GraduatedTrihedron.hxx".}
-proc toDrawValues*(this: Graphic3dAxisAspect): StandardBoolean {.noSideEffect,
+proc ToDrawValues*(this: Graphic3d_AxisAspect): Standard_Boolean {.noSideEffect,
     importcpp: "ToDrawValues", header: "Graphic3d_GraduatedTrihedron.hxx".}
-proc setDrawValues*(this: var Graphic3dAxisAspect; theToDraw: StandardBoolean) {.
+proc SetDrawValues*(this: var Graphic3d_AxisAspect; theToDraw: Standard_Boolean) {.
     importcpp: "SetDrawValues", header: "Graphic3d_GraduatedTrihedron.hxx".}
-proc nameColor*(this: Graphic3dAxisAspect): QuantityColor {.noSideEffect,
+proc NameColor*(this: Graphic3d_AxisAspect): Quantity_Color {.noSideEffect,
     importcpp: "NameColor", header: "Graphic3d_GraduatedTrihedron.hxx".}
-proc setNameColor*(this: var Graphic3dAxisAspect; theColor: QuantityColor) {.
+proc SetNameColor*(this: var Graphic3d_AxisAspect; theColor: Quantity_Color) {.
     importcpp: "SetNameColor", header: "Graphic3d_GraduatedTrihedron.hxx".}
-proc color*(this: Graphic3dAxisAspect): QuantityColor {.noSideEffect,
+proc Color*(this: Graphic3d_AxisAspect): Quantity_Color {.noSideEffect,
     importcpp: "Color", header: "Graphic3d_GraduatedTrihedron.hxx".}
-proc setColor*(this: var Graphic3dAxisAspect; theColor: QuantityColor) {.
+proc SetColor*(this: var Graphic3d_AxisAspect; theColor: Quantity_Color) {.
     importcpp: "SetColor", header: "Graphic3d_GraduatedTrihedron.hxx".}
-proc tickmarksNumber*(this: Graphic3dAxisAspect): StandardInteger {.noSideEffect,
+proc TickmarksNumber*(this: Graphic3d_AxisAspect): Standard_Integer {.noSideEffect,
     importcpp: "TickmarksNumber", header: "Graphic3d_GraduatedTrihedron.hxx".}
-proc setTickmarksNumber*(this: var Graphic3dAxisAspect; theValue: StandardInteger) {.
+proc SetTickmarksNumber*(this: var Graphic3d_AxisAspect; theValue: Standard_Integer) {.
     importcpp: "SetTickmarksNumber", header: "Graphic3d_GraduatedTrihedron.hxx".}
-proc tickmarksLength*(this: Graphic3dAxisAspect): StandardInteger {.noSideEffect,
+proc TickmarksLength*(this: Graphic3d_AxisAspect): Standard_Integer {.noSideEffect,
     importcpp: "TickmarksLength", header: "Graphic3d_GraduatedTrihedron.hxx".}
-proc setTickmarksLength*(this: var Graphic3dAxisAspect; theValue: StandardInteger) {.
+proc SetTickmarksLength*(this: var Graphic3d_AxisAspect; theValue: Standard_Integer) {.
     importcpp: "SetTickmarksLength", header: "Graphic3d_GraduatedTrihedron.hxx".}
-proc valuesOffset*(this: Graphic3dAxisAspect): StandardInteger {.noSideEffect,
+proc ValuesOffset*(this: Graphic3d_AxisAspect): Standard_Integer {.noSideEffect,
     importcpp: "ValuesOffset", header: "Graphic3d_GraduatedTrihedron.hxx".}
-proc setValuesOffset*(this: var Graphic3dAxisAspect; theValue: StandardInteger) {.
+proc SetValuesOffset*(this: var Graphic3d_AxisAspect; theValue: Standard_Integer) {.
     importcpp: "SetValuesOffset", header: "Graphic3d_GraduatedTrihedron.hxx".}
-proc nameOffset*(this: Graphic3dAxisAspect): StandardInteger {.noSideEffect,
+proc NameOffset*(this: Graphic3d_AxisAspect): Standard_Integer {.noSideEffect,
     importcpp: "NameOffset", header: "Graphic3d_GraduatedTrihedron.hxx".}
-proc setNameOffset*(this: var Graphic3dAxisAspect; theValue: StandardInteger) {.
+proc SetNameOffset*(this: var Graphic3d_AxisAspect; theValue: Standard_Integer) {.
     importcpp: "SetNameOffset", header: "Graphic3d_GraduatedTrihedron.hxx".}
 ## ! Defines the class of a graduated trihedron.
 ## ! It contains main style parameters for implementation of graduated trihedron
 ## ! @sa OpenGl_GraduatedTrihedron
 
 type
-  Graphic3dGraduatedTrihedron* {.importcpp: "Graphic3d_GraduatedTrihedron",
-                                header: "Graphic3d_GraduatedTrihedron.hxx", bycopy.} = object ##
-                                                                                         ## !
-                                                                                         ## Default
-                                                                                         ## constructor
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## Constructs
-                                                                                         ## the
-                                                                                         ## default
-                                                                                         ## graduated
-                                                                                         ## trihedron
-                                                                                         ## with
-                                                                                         ## grid,
-                                                                                         ## X,
-                                                                                         ## Y,
-                                                                                         ## Z
-                                                                                         ## axes,
-                                                                                         ## and
-                                                                                         ## tickmarks
-    cubicAxesCallback* {.importc: "CubicAxesCallback".}: Graphic3dGraduatedTrihedronMinMaxValuesCallback ## !< Callback function to define boundary box of displayed objects
-    ptrView* {.importc: "PtrView".}: ptr Graphic3dCView
+  Graphic3d_GraduatedTrihedron* {.importcpp: "Graphic3d_GraduatedTrihedron",
+                                 header: "Graphic3d_GraduatedTrihedron.hxx",
+                                 bycopy.} = object ## ! Default constructor
+                                                ## ! Constructs the default graduated trihedron with grid, X, Y, Z axes, and tickmarks
+    CubicAxesCallback* {.importc: "CubicAxesCallback".}: Graphic3d_GraduatedTrihedronMinMaxValuesCallback ## !< Callback function to define boundary box of displayed objects
+    PtrView* {.importc: "PtrView".}: ptr Graphic3d_CView
     ## !< Font name of names of axes: Courier, Arial, ...
     ## !< Style of names of axes: OSD_FA_Regular, OSD_FA_Bold,..
     ## !< Size of names of axes: 8, 10,..
@@ -110,88 +99,97 @@ type
     ## !< Size of values: 8, 10, 12, 14, ...
     ## !< X, Y and Z axes parameters
 
-  Graphic3dGraduatedTrihedronMinMaxValuesCallback* = proc (a1: ptr Graphic3dCView)
+  Graphic3d_GraduatedTrihedronMinMaxValuesCallback* = proc (a1: ptr Graphic3d_CView)
 
-proc constructGraphic3dGraduatedTrihedron*(
-    theNamesFont: TCollectionAsciiString = "Arial";
-    theNamesStyle: FontFontAspect = fontFA_Bold; theNamesSize: StandardInteger = 12;
-    theValuesFont: TCollectionAsciiString = "Arial";
-    theValuesStyle: FontFontAspect = fontFA_Regular;
-    theValuesSize: StandardInteger = 12; theArrowsLength: StandardShortReal = 30.0f;
-    theGridColor: QuantityColor = quantityNOC_WHITE;
-    theToDrawGrid: StandardBoolean = standardTrue;
-    theToDrawAxes: StandardBoolean = standardTrue): Graphic3dGraduatedTrihedron {.
+proc constructGraphic3d_GraduatedTrihedron*(
+    theNamesFont: TCollection_AsciiString = "Arial";
+    theNamesStyle: Font_FontAspect = Font_FA_Bold;
+    theNamesSize: Standard_Integer = 12;
+    theValuesFont: TCollection_AsciiString = "Arial";
+    theValuesStyle: Font_FontAspect = Font_FA_Regular;
+    theValuesSize: Standard_Integer = 12;
+    theArrowsLength: Standard_ShortReal = 30.0f;
+    theGridColor: Quantity_Color = Quantity_NOC_WHITE;
+    theToDrawGrid: Standard_Boolean = Standard_True;
+    theToDrawAxes: Standard_Boolean = Standard_True): Graphic3d_GraduatedTrihedron {.
     constructor, importcpp: "Graphic3d_GraduatedTrihedron(@)",
     header: "Graphic3d_GraduatedTrihedron.hxx".}
-proc changeXAxisAspect*(this: var Graphic3dGraduatedTrihedron): var Graphic3dAxisAspect {.
+proc ChangeXAxisAspect*(this: var Graphic3d_GraduatedTrihedron): var Graphic3d_AxisAspect {.
     importcpp: "ChangeXAxisAspect", header: "Graphic3d_GraduatedTrihedron.hxx".}
-proc changeYAxisAspect*(this: var Graphic3dGraduatedTrihedron): var Graphic3dAxisAspect {.
+proc ChangeYAxisAspect*(this: var Graphic3d_GraduatedTrihedron): var Graphic3d_AxisAspect {.
     importcpp: "ChangeYAxisAspect", header: "Graphic3d_GraduatedTrihedron.hxx".}
-proc changeZAxisAspect*(this: var Graphic3dGraduatedTrihedron): var Graphic3dAxisAspect {.
+proc ChangeZAxisAspect*(this: var Graphic3d_GraduatedTrihedron): var Graphic3d_AxisAspect {.
     importcpp: "ChangeZAxisAspect", header: "Graphic3d_GraduatedTrihedron.hxx".}
-proc changeAxisAspect*(this: var Graphic3dGraduatedTrihedron;
-                      theIndex: StandardInteger): var Graphic3dAxisAspect {.
+proc ChangeAxisAspect*(this: var Graphic3d_GraduatedTrihedron;
+                      theIndex: Standard_Integer): var Graphic3d_AxisAspect {.
     importcpp: "ChangeAxisAspect", header: "Graphic3d_GraduatedTrihedron.hxx".}
-proc xAxisAspect*(this: Graphic3dGraduatedTrihedron): Graphic3dAxisAspect {.
+proc XAxisAspect*(this: Graphic3d_GraduatedTrihedron): Graphic3d_AxisAspect {.
     noSideEffect, importcpp: "XAxisAspect",
     header: "Graphic3d_GraduatedTrihedron.hxx".}
-proc yAxisAspect*(this: Graphic3dGraduatedTrihedron): Graphic3dAxisAspect {.
+proc YAxisAspect*(this: Graphic3d_GraduatedTrihedron): Graphic3d_AxisAspect {.
     noSideEffect, importcpp: "YAxisAspect",
     header: "Graphic3d_GraduatedTrihedron.hxx".}
-proc zAxisAspect*(this: Graphic3dGraduatedTrihedron): Graphic3dAxisAspect {.
+proc ZAxisAspect*(this: Graphic3d_GraduatedTrihedron): Graphic3d_AxisAspect {.
     noSideEffect, importcpp: "ZAxisAspect",
     header: "Graphic3d_GraduatedTrihedron.hxx".}
-proc axisAspect*(this: Graphic3dGraduatedTrihedron; theIndex: StandardInteger): Graphic3dAxisAspect {.
+proc AxisAspect*(this: Graphic3d_GraduatedTrihedron; theIndex: Standard_Integer): Graphic3d_AxisAspect {.
     noSideEffect, importcpp: "AxisAspect",
     header: "Graphic3d_GraduatedTrihedron.hxx".}
-proc arrowsLength*(this: Graphic3dGraduatedTrihedron): StandardShortReal {.
+proc ArrowsLength*(this: Graphic3d_GraduatedTrihedron): Standard_ShortReal {.
     noSideEffect, importcpp: "ArrowsLength",
     header: "Graphic3d_GraduatedTrihedron.hxx".}
-proc setArrowsLength*(this: var Graphic3dGraduatedTrihedron;
-                     theValue: StandardShortReal) {.importcpp: "SetArrowsLength",
+proc SetArrowsLength*(this: var Graphic3d_GraduatedTrihedron;
+                     theValue: Standard_ShortReal) {.importcpp: "SetArrowsLength",
     header: "Graphic3d_GraduatedTrihedron.hxx".}
-proc gridColor*(this: Graphic3dGraduatedTrihedron): QuantityColor {.noSideEffect,
+proc GridColor*(this: Graphic3d_GraduatedTrihedron): Quantity_Color {.noSideEffect,
     importcpp: "GridColor", header: "Graphic3d_GraduatedTrihedron.hxx".}
-proc setGridColor*(this: var Graphic3dGraduatedTrihedron; theColor: QuantityColor) {.
+proc SetGridColor*(this: var Graphic3d_GraduatedTrihedron; theColor: Quantity_Color) {.
     importcpp: "SetGridColor", header: "Graphic3d_GraduatedTrihedron.hxx".}
-proc toDrawGrid*(this: Graphic3dGraduatedTrihedron): StandardBoolean {.noSideEffect,
-    importcpp: "ToDrawGrid", header: "Graphic3d_GraduatedTrihedron.hxx".}
-proc setDrawGrid*(this: var Graphic3dGraduatedTrihedron; theToDraw: StandardBoolean) {.
-    importcpp: "SetDrawGrid", header: "Graphic3d_GraduatedTrihedron.hxx".}
-proc toDrawAxes*(this: Graphic3dGraduatedTrihedron): StandardBoolean {.noSideEffect,
-    importcpp: "ToDrawAxes", header: "Graphic3d_GraduatedTrihedron.hxx".}
-proc setDrawAxes*(this: var Graphic3dGraduatedTrihedron; theToDraw: StandardBoolean) {.
-    importcpp: "SetDrawAxes", header: "Graphic3d_GraduatedTrihedron.hxx".}
-proc namesFont*(this: Graphic3dGraduatedTrihedron): TCollectionAsciiString {.
+proc ToDrawGrid*(this: Graphic3d_GraduatedTrihedron): Standard_Boolean {.
+    noSideEffect, importcpp: "ToDrawGrid",
+    header: "Graphic3d_GraduatedTrihedron.hxx".}
+proc SetDrawGrid*(this: var Graphic3d_GraduatedTrihedron;
+                 theToDraw: Standard_Boolean) {.importcpp: "SetDrawGrid",
+    header: "Graphic3d_GraduatedTrihedron.hxx".}
+proc ToDrawAxes*(this: Graphic3d_GraduatedTrihedron): Standard_Boolean {.
+    noSideEffect, importcpp: "ToDrawAxes",
+    header: "Graphic3d_GraduatedTrihedron.hxx".}
+proc SetDrawAxes*(this: var Graphic3d_GraduatedTrihedron;
+                 theToDraw: Standard_Boolean) {.importcpp: "SetDrawAxes",
+    header: "Graphic3d_GraduatedTrihedron.hxx".}
+proc NamesFont*(this: Graphic3d_GraduatedTrihedron): TCollection_AsciiString {.
     noSideEffect, importcpp: "NamesFont",
     header: "Graphic3d_GraduatedTrihedron.hxx".}
-proc setNamesFont*(this: var Graphic3dGraduatedTrihedron;
-                  theFont: TCollectionAsciiString) {.importcpp: "SetNamesFont",
+proc SetNamesFont*(this: var Graphic3d_GraduatedTrihedron;
+                  theFont: TCollection_AsciiString) {.importcpp: "SetNamesFont",
     header: "Graphic3d_GraduatedTrihedron.hxx".}
-proc namesFontAspect*(this: Graphic3dGraduatedTrihedron): FontFontAspect {.
+proc NamesFontAspect*(this: Graphic3d_GraduatedTrihedron): Font_FontAspect {.
     noSideEffect, importcpp: "NamesFontAspect",
     header: "Graphic3d_GraduatedTrihedron.hxx".}
-proc setNamesFontAspect*(this: var Graphic3dGraduatedTrihedron;
-                        theAspect: FontFontAspect) {.
+proc SetNamesFontAspect*(this: var Graphic3d_GraduatedTrihedron;
+                        theAspect: Font_FontAspect) {.
     importcpp: "SetNamesFontAspect", header: "Graphic3d_GraduatedTrihedron.hxx".}
-proc namesSize*(this: Graphic3dGraduatedTrihedron): StandardInteger {.noSideEffect,
-    importcpp: "NamesSize", header: "Graphic3d_GraduatedTrihedron.hxx".}
-proc setNamesSize*(this: var Graphic3dGraduatedTrihedron; theValue: StandardInteger) {.
-    importcpp: "SetNamesSize", header: "Graphic3d_GraduatedTrihedron.hxx".}
-proc valuesFont*(this: Graphic3dGraduatedTrihedron): TCollectionAsciiString {.
+proc NamesSize*(this: Graphic3d_GraduatedTrihedron): Standard_Integer {.
+    noSideEffect, importcpp: "NamesSize",
+    header: "Graphic3d_GraduatedTrihedron.hxx".}
+proc SetNamesSize*(this: var Graphic3d_GraduatedTrihedron;
+                  theValue: Standard_Integer) {.importcpp: "SetNamesSize",
+    header: "Graphic3d_GraduatedTrihedron.hxx".}
+proc ValuesFont*(this: Graphic3d_GraduatedTrihedron): TCollection_AsciiString {.
     noSideEffect, importcpp: "ValuesFont",
     header: "Graphic3d_GraduatedTrihedron.hxx".}
-proc setValuesFont*(this: var Graphic3dGraduatedTrihedron;
-                   theFont: TCollectionAsciiString) {.importcpp: "SetValuesFont",
+proc SetValuesFont*(this: var Graphic3d_GraduatedTrihedron;
+                   theFont: TCollection_AsciiString) {.importcpp: "SetValuesFont",
     header: "Graphic3d_GraduatedTrihedron.hxx".}
-proc valuesFontAspect*(this: Graphic3dGraduatedTrihedron): FontFontAspect {.
+proc ValuesFontAspect*(this: Graphic3d_GraduatedTrihedron): Font_FontAspect {.
     noSideEffect, importcpp: "ValuesFontAspect",
     header: "Graphic3d_GraduatedTrihedron.hxx".}
-proc setValuesFontAspect*(this: var Graphic3dGraduatedTrihedron;
-                         theAspect: FontFontAspect) {.
+proc SetValuesFontAspect*(this: var Graphic3d_GraduatedTrihedron;
+                         theAspect: Font_FontAspect) {.
     importcpp: "SetValuesFontAspect", header: "Graphic3d_GraduatedTrihedron.hxx".}
-proc valuesSize*(this: Graphic3dGraduatedTrihedron): StandardInteger {.noSideEffect,
-    importcpp: "ValuesSize", header: "Graphic3d_GraduatedTrihedron.hxx".}
-proc setValuesSize*(this: var Graphic3dGraduatedTrihedron; theValue: StandardInteger) {.
-    importcpp: "SetValuesSize", header: "Graphic3d_GraduatedTrihedron.hxx".}
-
+proc ValuesSize*(this: Graphic3d_GraduatedTrihedron): Standard_Integer {.
+    noSideEffect, importcpp: "ValuesSize",
+    header: "Graphic3d_GraduatedTrihedron.hxx".}
+proc SetValuesSize*(this: var Graphic3d_GraduatedTrihedron;
+                   theValue: Standard_Integer) {.importcpp: "SetValuesSize",
+    header: "Graphic3d_GraduatedTrihedron.hxx".}

@@ -14,6 +14,13 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../gp/gp_Ax3, ../gp/gp_Lin,
+  ../GeomAbs/GeomAbs_SurfaceType, ../Standard/Standard_Real,
+  ../Standard/Standard_Boolean, ../gp/gp_Pln, ../gp/gp_Sphere, ../gp/gp_Cylinder,
+  ../gp/gp_Cone, ../gp/gp_Torus, ../Standard/Standard_Integer
+
 discard "forward decl of gp_Pln"
 discard "forward decl of gp_Cylinder"
 discard "forward decl of gp_Sphere"
@@ -22,63 +29,63 @@ discard "forward decl of gp_Torus"
 discard "forward decl of gp_Pnt"
 discard "forward decl of gp_Vec"
 type
-  IntSurfQuadric* {.importcpp: "IntSurf_Quadric", header: "IntSurf_Quadric.hxx",
-                   bycopy.} = object
+  IntSurf_Quadric* {.importcpp: "IntSurf_Quadric", header: "IntSurf_Quadric.hxx",
+                    bycopy.} = object
 
 
-proc constructIntSurfQuadric*(): IntSurfQuadric {.constructor,
+proc constructIntSurf_Quadric*(): IntSurf_Quadric {.constructor,
     importcpp: "IntSurf_Quadric(@)", header: "IntSurf_Quadric.hxx".}
-proc constructIntSurfQuadric*(p: GpPln): IntSurfQuadric {.constructor,
+proc constructIntSurf_Quadric*(P: gp_Pln): IntSurf_Quadric {.constructor,
     importcpp: "IntSurf_Quadric(@)", header: "IntSurf_Quadric.hxx".}
-proc constructIntSurfQuadric*(c: GpCylinder): IntSurfQuadric {.constructor,
+proc constructIntSurf_Quadric*(C: gp_Cylinder): IntSurf_Quadric {.constructor,
     importcpp: "IntSurf_Quadric(@)", header: "IntSurf_Quadric.hxx".}
-proc constructIntSurfQuadric*(s: GpSphere): IntSurfQuadric {.constructor,
+proc constructIntSurf_Quadric*(S: gp_Sphere): IntSurf_Quadric {.constructor,
     importcpp: "IntSurf_Quadric(@)", header: "IntSurf_Quadric.hxx".}
-proc constructIntSurfQuadric*(c: GpCone): IntSurfQuadric {.constructor,
+proc constructIntSurf_Quadric*(C: gp_Cone): IntSurf_Quadric {.constructor,
     importcpp: "IntSurf_Quadric(@)", header: "IntSurf_Quadric.hxx".}
-proc constructIntSurfQuadric*(t: GpTorus): IntSurfQuadric {.constructor,
+proc constructIntSurf_Quadric*(T: gp_Torus): IntSurf_Quadric {.constructor,
     importcpp: "IntSurf_Quadric(@)", header: "IntSurf_Quadric.hxx".}
-proc setValue*(this: var IntSurfQuadric; p: GpPln) {.importcpp: "SetValue",
+proc SetValue*(this: var IntSurf_Quadric; P: gp_Pln) {.importcpp: "SetValue",
     header: "IntSurf_Quadric.hxx".}
-proc setValue*(this: var IntSurfQuadric; c: GpCylinder) {.importcpp: "SetValue",
+proc SetValue*(this: var IntSurf_Quadric; C: gp_Cylinder) {.importcpp: "SetValue",
     header: "IntSurf_Quadric.hxx".}
-proc setValue*(this: var IntSurfQuadric; s: GpSphere) {.importcpp: "SetValue",
+proc SetValue*(this: var IntSurf_Quadric; S: gp_Sphere) {.importcpp: "SetValue",
     header: "IntSurf_Quadric.hxx".}
-proc setValue*(this: var IntSurfQuadric; c: GpCone) {.importcpp: "SetValue",
+proc SetValue*(this: var IntSurf_Quadric; C: gp_Cone) {.importcpp: "SetValue",
     header: "IntSurf_Quadric.hxx".}
-proc setValue*(this: var IntSurfQuadric; t: GpTorus) {.importcpp: "SetValue",
+proc SetValue*(this: var IntSurf_Quadric; T: gp_Torus) {.importcpp: "SetValue",
     header: "IntSurf_Quadric.hxx".}
-proc distance*(this: IntSurfQuadric; p: GpPnt): StandardReal {.noSideEffect,
+proc Distance*(this: IntSurf_Quadric; P: gp_Pnt): Standard_Real {.noSideEffect,
     importcpp: "Distance", header: "IntSurf_Quadric.hxx".}
-proc gradient*(this: IntSurfQuadric; p: GpPnt): GpVec {.noSideEffect,
+proc Gradient*(this: IntSurf_Quadric; P: gp_Pnt): gp_Vec {.noSideEffect,
     importcpp: "Gradient", header: "IntSurf_Quadric.hxx".}
-proc valAndGrad*(this: IntSurfQuadric; p: GpPnt; dist: var StandardReal; grad: var GpVec) {.
-    noSideEffect, importcpp: "ValAndGrad", header: "IntSurf_Quadric.hxx".}
-proc typeQuadric*(this: IntSurfQuadric): GeomAbsSurfaceType {.noSideEffect,
+proc ValAndGrad*(this: IntSurf_Quadric; P: gp_Pnt; Dist: var Standard_Real;
+                Grad: var gp_Vec) {.noSideEffect, importcpp: "ValAndGrad",
+                                 header: "IntSurf_Quadric.hxx".}
+proc TypeQuadric*(this: IntSurf_Quadric): GeomAbs_SurfaceType {.noSideEffect,
     importcpp: "TypeQuadric", header: "IntSurf_Quadric.hxx".}
-proc plane*(this: IntSurfQuadric): GpPln {.noSideEffect, importcpp: "Plane",
-                                       header: "IntSurf_Quadric.hxx".}
-proc sphere*(this: IntSurfQuadric): GpSphere {.noSideEffect, importcpp: "Sphere",
+proc Plane*(this: IntSurf_Quadric): gp_Pln {.noSideEffect, importcpp: "Plane",
     header: "IntSurf_Quadric.hxx".}
-proc cylinder*(this: IntSurfQuadric): GpCylinder {.noSideEffect,
+proc Sphere*(this: IntSurf_Quadric): gp_Sphere {.noSideEffect, importcpp: "Sphere",
+    header: "IntSurf_Quadric.hxx".}
+proc Cylinder*(this: IntSurf_Quadric): gp_Cylinder {.noSideEffect,
     importcpp: "Cylinder", header: "IntSurf_Quadric.hxx".}
-proc cone*(this: IntSurfQuadric): GpCone {.noSideEffect, importcpp: "Cone",
-                                       header: "IntSurf_Quadric.hxx".}
-proc torus*(this: IntSurfQuadric): GpTorus {.noSideEffect, importcpp: "Torus",
+proc Cone*(this: IntSurf_Quadric): gp_Cone {.noSideEffect, importcpp: "Cone",
     header: "IntSurf_Quadric.hxx".}
-proc value*(this: IntSurfQuadric; u: StandardReal; v: StandardReal): GpPnt {.
+proc Torus*(this: IntSurf_Quadric): gp_Torus {.noSideEffect, importcpp: "Torus",
+    header: "IntSurf_Quadric.hxx".}
+proc Value*(this: IntSurf_Quadric; U: Standard_Real; V: Standard_Real): gp_Pnt {.
     noSideEffect, importcpp: "Value", header: "IntSurf_Quadric.hxx".}
-proc d1*(this: IntSurfQuadric; u: StandardReal; v: StandardReal; p: var GpPnt;
-        d1u: var GpVec; d1v: var GpVec) {.noSideEffect, importcpp: "D1",
-                                    header: "IntSurf_Quadric.hxx".}
-proc dn*(this: IntSurfQuadric; u: StandardReal; v: StandardReal; nu: StandardInteger;
-        nv: StandardInteger): GpVec {.noSideEffect, importcpp: "DN",
-                                   header: "IntSurf_Quadric.hxx".}
-proc normale*(this: IntSurfQuadric; u: StandardReal; v: StandardReal): GpVec {.
+proc D1*(this: IntSurf_Quadric; U: Standard_Real; V: Standard_Real; P: var gp_Pnt;
+        D1U: var gp_Vec; D1V: var gp_Vec) {.noSideEffect, importcpp: "D1",
+                                      header: "IntSurf_Quadric.hxx".}
+proc DN*(this: IntSurf_Quadric; U: Standard_Real; V: Standard_Real;
+        Nu: Standard_Integer; Nv: Standard_Integer): gp_Vec {.noSideEffect,
+    importcpp: "DN", header: "IntSurf_Quadric.hxx".}
+proc Normale*(this: IntSurf_Quadric; U: Standard_Real; V: Standard_Real): gp_Vec {.
     noSideEffect, importcpp: "Normale", header: "IntSurf_Quadric.hxx".}
-proc parameters*(this: IntSurfQuadric; p: GpPnt; u: var StandardReal;
-                v: var StandardReal) {.noSideEffect, importcpp: "Parameters",
-                                    header: "IntSurf_Quadric.hxx".}
-proc normale*(this: IntSurfQuadric; p: GpPnt): GpVec {.noSideEffect,
+proc Parameters*(this: IntSurf_Quadric; P: gp_Pnt; U: var Standard_Real;
+                V: var Standard_Real) {.noSideEffect, importcpp: "Parameters",
+                                     header: "IntSurf_Quadric.hxx".}
+proc Normale*(this: IntSurf_Quadric; P: gp_Pnt): gp_Vec {.noSideEffect,
     importcpp: "Normale", header: "IntSurf_Quadric.hxx".}
-

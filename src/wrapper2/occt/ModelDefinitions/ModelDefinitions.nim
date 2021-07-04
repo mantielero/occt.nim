@@ -14,32 +14,32 @@
 ##  commercial license or contractual agreement.
 
 const
-  GEOMOBJECT_GUID* = standardGUID("6c6915ab-775f-4475-859e-befd74d26a23")
-  ATTCH_GUID* = standardGUID("12e94554-6dbc-11d4-b9c8-0060b0ee281b")
-  XTTCH_GUID* = standardGUID("12e94555-6dbc-11d4-b9c8-0060b0ee281b")
-  PTXYZ_GUID* = standardGUID("12e94556-6dbc-11d4-b9c8-0060b0ee281b")
-  PTALINE_GUID* = standardGUID("12e94557-6dbc-11d4-b9c8-0060b0ee281b")
-  PRRLINE_GUID* = standardGUID("12e94558-6dbc-11d4-b9c8-0060b0ee281b")
-  PMIRR_GUID* = standardGUID("12e94559-6dbc-11d4-b9c8-0060b0ee281b")
-  BOX_GUID* = standardGUID("12e94543-6dbc-11d4-b9c8-0060b0ee281b")
-  SPH_GUID* = standardGUID("12e94544-6dbc-11d4-b9c8-0060b0ee281b")
-  CYL_GUID* = standardGUID("12e94545-6dbc-11d4-b9c8-0060b0ee281b")
-  CONE_GUID* = standardGUID("12e94546-6dbc-11d4-b9c8-0060b0ee281b")
-  TORUS_GUID* = standardGUID("12e94547-6dbc-11d4-b9c8-0060b0ee281b")
-  CUT_GUID* = standardGUID("12e94548-6dbc-11d4-b9c8-0060b0ee281b")
-  FUSE_GUID* = standardGUID("12e94549-6dbc-11d4-b9c8-0060b0ee281b")
-  COMMON_GUID* = standardGUID("12e9454a-6dbc-11d4-b9c8-0060b0ee281b")
-  SECTION_GUID* = standardGUID("12e9454b-6dbc-11d4-b9c8-0060b0ee281b")
-  PRISM_GUID* = standardGUID("12e94550-6dbc-11d4-b9c8-0060b0ee281b")
-  FULREVOL_GUID* = standardGUID("12e94551-6dbc-11d4-b9c8-0060b0ee281b")
-  SECREVOL_GUID* = standardGUID("12e94552-6dbc-11d4-b9c8-0060b0ee281b")
-  FILLT_GUID* = standardGUID("12e94553-6dbc-11d4-b9c8-0060b0ee281b")
-  CHAMF_GUID* = standardGUID("12e9455a-6dbc-11d4-b9c8-0060b0ee281b")
-  OFFSET_GUID* = standardGUID("12e9455b-6dbc-11d4-b9c8-0060b0ee281b")
-  PNTXYZ_GUID* = standardGUID("12e9455c-6dbc-11d4-b9c8-0060b0ee281b")
-  PNTRLT_GUID* = standardGUID("12e9455d-6dbc-11d4-b9c8-0060b0ee281b")
-  LINE3D_GUID* = standardGUID("12e9455e-6dbc-11d4-b9c8-0060b0ee281b")
-  WIRE_GUID* = standardGUID("12e9455f-6dbc-11d4-b9c8-0060b0ee281b")
+  GEOMOBJECT_GUID* = Standard_GUID("6c6915ab-775f-4475-859e-befd74d26a23")
+  ATTCH_GUID* = Standard_GUID("12e94554-6dbc-11d4-b9c8-0060b0ee281b")
+  XTTCH_GUID* = Standard_GUID("12e94555-6dbc-11d4-b9c8-0060b0ee281b")
+  PTXYZ_GUID* = Standard_GUID("12e94556-6dbc-11d4-b9c8-0060b0ee281b")
+  PTALINE_GUID* = Standard_GUID("12e94557-6dbc-11d4-b9c8-0060b0ee281b")
+  PRRLINE_GUID* = Standard_GUID("12e94558-6dbc-11d4-b9c8-0060b0ee281b")
+  PMIRR_GUID* = Standard_GUID("12e94559-6dbc-11d4-b9c8-0060b0ee281b")
+  BOX_GUID* = Standard_GUID("12e94543-6dbc-11d4-b9c8-0060b0ee281b")
+  SPH_GUID* = Standard_GUID("12e94544-6dbc-11d4-b9c8-0060b0ee281b")
+  CYL_GUID* = Standard_GUID("12e94545-6dbc-11d4-b9c8-0060b0ee281b")
+  CONE_GUID* = Standard_GUID("12e94546-6dbc-11d4-b9c8-0060b0ee281b")
+  TORUS_GUID* = Standard_GUID("12e94547-6dbc-11d4-b9c8-0060b0ee281b")
+  CUT_GUID* = Standard_GUID("12e94548-6dbc-11d4-b9c8-0060b0ee281b")
+  FUSE_GUID* = Standard_GUID("12e94549-6dbc-11d4-b9c8-0060b0ee281b")
+  COMMON_GUID* = Standard_GUID("12e9454a-6dbc-11d4-b9c8-0060b0ee281b")
+  SECTION_GUID* = Standard_GUID("12e9454b-6dbc-11d4-b9c8-0060b0ee281b")
+  PRISM_GUID* = Standard_GUID("12e94550-6dbc-11d4-b9c8-0060b0ee281b")
+  FULREVOL_GUID* = Standard_GUID("12e94551-6dbc-11d4-b9c8-0060b0ee281b")
+  SECREVOL_GUID* = Standard_GUID("12e94552-6dbc-11d4-b9c8-0060b0ee281b")
+  FILLT_GUID* = Standard_GUID("12e94553-6dbc-11d4-b9c8-0060b0ee281b")
+  CHAMF_GUID* = Standard_GUID("12e9455a-6dbc-11d4-b9c8-0060b0ee281b")
+  OFFSET_GUID* = Standard_GUID("12e9455b-6dbc-11d4-b9c8-0060b0ee281b")
+  PNTXYZ_GUID* = Standard_GUID("12e9455c-6dbc-11d4-b9c8-0060b0ee281b")
+  PNTRLT_GUID* = Standard_GUID("12e9455d-6dbc-11d4-b9c8-0060b0ee281b")
+  LINE3D_GUID* = Standard_GUID("12e9455e-6dbc-11d4-b9c8-0060b0ee281b")
+  WIRE_GUID* = Standard_GUID("12e9455f-6dbc-11d4-b9c8-0060b0ee281b")
 
 ## Function structure definitions
 
@@ -47,11 +47,11 @@ const
   FUNCTION_ARGUMENTS_LABEL* = 1
   FUNCTION_RESULT_LABEL* = 2
 
-template position*(function, theA: untyped): untyped =
-  function.label().findChild(function_Arguments_Label).findChild(theA)
+template POSITION*(Function, theA: untyped): untyped =
+  Function.Label().FindChild(FUNCTION_ARGUMENTS_LABEL).FindChild(theA)
 
-template resposition*(function: untyped): untyped =
-  function.label().findChild(function_Result_Label)
+template RESPOSITION*(Function: untyped): untyped =
+  Function.Label().FindChild(FUNCTION_RESULT_LABEL)
 
 const
   BOX_DX* = 1
@@ -99,5 +99,3 @@ const
   NULL_RESULT* = 16
   WRONG_CONTEXT* = 14
   NAMING_FAILED* = 15
-
-

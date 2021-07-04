@@ -11,8 +11,13 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-when not defined(win32) and (not defined(apple) or defined(macosx_Use_Glx)) and
-    not defined(android) and not defined(qnx) and not defined(emscripten):
+import
+  ../Standard/Standard_Transient, Aspect_XAtom,
+  ../TCollection/TCollection_AsciiString, ../NCollection/NCollection_DataMap
+
+when not defined(_WIN32) and (not defined(__APPLE__) or defined(MACOSX_USE_GLX)) and
+    not defined(__ANDROID__) and not defined(__QNX__) and
+    not defined(__EMSCRIPTEN__):
   discard
 ## ! This class creates and provides connection with X server.
 ## ! Raises exception if can not connect to X server.
@@ -20,41 +25,41 @@ when not defined(win32) and (not defined(apple) or defined(macosx_Use_Glx)) and
 ## ! WARRNING: Do not close display connection manualy!
 
 type
-  AspectDisplayConnection* {.importcpp: "Aspect_DisplayConnection",
-                            header: "Aspect_DisplayConnection.hxx", bycopy.} = object of StandardTransient ##
-                                                                                                    ## !
-                                                                                                    ## Default
-                                                                                                    ## constructor.
-                                                                                                    ## Creates
-                                                                                                    ## connection
-                                                                                                    ## with
-                                                                                                    ## display
-                                                                                                    ## name
-                                                                                                    ## taken
-                                                                                                    ## from
-                                                                                                    ## "DISPLAY"
-                                                                                                    ## environment
-                                                                                                    ## variable
-                                                                                                    ##
-                                                                                                    ## !
-                                                                                                    ## To
-                                                                                                    ## protect
-                                                                                                    ## the
-                                                                                                    ## connection
-                                                                                                    ## from
-                                                                                                    ## closing
-                                                                                                    ## copying
-                                                                                                    ## allowed
-                                                                                                    ## only
-                                                                                                    ## through
-                                                                                                    ## the
-                                                                                                    ## handles.
+  Aspect_DisplayConnection* {.importcpp: "Aspect_DisplayConnection",
+                             header: "Aspect_DisplayConnection.hxx", bycopy.} = object of Standard_Transient ##
+                                                                                                      ## !
+                                                                                                      ## Default
+                                                                                                      ## constructor.
+                                                                                                      ## Creates
+                                                                                                      ## connection
+                                                                                                      ## with
+                                                                                                      ## display
+                                                                                                      ## name
+                                                                                                      ## taken
+                                                                                                      ## from
+                                                                                                      ## "DISPLAY"
+                                                                                                      ## environment
+                                                                                                      ## variable
+                                                                                                      ##
+                                                                                                      ## !
+                                                                                                      ## To
+                                                                                                      ## protect
+                                                                                                      ## the
+                                                                                                      ## connection
+                                                                                                      ## from
+                                                                                                      ## closing
+                                                                                                      ## copying
+                                                                                                      ## allowed
+                                                                                                      ## only
+                                                                                                      ## through
+                                                                                                      ## the
+                                                                                                      ## handles.
 
 
-proc constructAspectDisplayConnection*(): AspectDisplayConnection {.constructor,
+proc constructAspect_DisplayConnection*(): Aspect_DisplayConnection {.constructor,
     importcpp: "Aspect_DisplayConnection(@)",
     header: "Aspect_DisplayConnection.hxx".}
-proc destroyAspectDisplayConnection*(this: var AspectDisplayConnection) {.
+proc destroyAspect_DisplayConnection*(this: var Aspect_DisplayConnection) {.
     importcpp: "#.~Aspect_DisplayConnection()",
     header: "Aspect_DisplayConnection.hxx".}
 ## !!!Ignored construct:  # ! defined ( _WIN32 ) && ( ! defined ( __APPLE__ ) || defined ( MACOSX_USE_GLX ) ) && ! defined ( __ANDROID__ ) && ! defined ( __QNX__ ) && ! defined ( __EMSCRIPTEN__ ) [NewLine] ! Constructor. Creates connection with display specified in theDisplayName.
@@ -68,31 +73,29 @@ proc destroyAspectDisplayConnection*(this: var AspectDisplayConnection) {.
 ## ! number        - Specifies the number of the display server on that host machine.
 ## ! screen_number - Specifies the screen to be used on that server. Optional variable.!!!
 
-proc constructAspectDisplayConnection*(theDisplay: ptr Display): AspectDisplayConnection {.
+proc constructAspect_DisplayConnection*(theDisplay: ptr Display): Aspect_DisplayConnection {.
     constructor, importcpp: "Aspect_DisplayConnection(@)",
     header: "Aspect_DisplayConnection.hxx".}
-proc getDisplay*(this: var AspectDisplayConnection): ptr Display {.
+proc GetDisplay*(this: var Aspect_DisplayConnection): ptr Display {.
     importcpp: "GetDisplay", header: "Aspect_DisplayConnection.hxx".}
-proc isOwnDisplay*(this: AspectDisplayConnection): StandardBoolean {.noSideEffect,
+proc IsOwnDisplay*(this: Aspect_DisplayConnection): Standard_Boolean {.noSideEffect,
     importcpp: "IsOwnDisplay", header: "Aspect_DisplayConnection.hxx".}
-proc getAtom*(this: AspectDisplayConnection; theAtom: AspectXAtom): Atom {.
+proc GetAtom*(this: Aspect_DisplayConnection; theAtom: Aspect_XAtom): Atom {.
     noSideEffect, importcpp: "GetAtom", header: "Aspect_DisplayConnection.hxx".}
-proc getDisplayName*(this: var AspectDisplayConnection): TCollectionAsciiString {.
+proc GetDisplayName*(this: var Aspect_DisplayConnection): TCollection_AsciiString {.
     importcpp: "GetDisplayName", header: "Aspect_DisplayConnection.hxx".}
-proc init*(this: var AspectDisplayConnection; theDisplay: ptr Display) {.
+proc Init*(this: var Aspect_DisplayConnection; theDisplay: ptr Display) {.
     importcpp: "Init", header: "Aspect_DisplayConnection.hxx".}
 type
-  AspectDisplayConnectionbaseType* = StandardTransient
+  Aspect_DisplayConnectionbase_type* = Standard_Transient
 
-proc getTypeName*(): cstring {.importcpp: "Aspect_DisplayConnection::get_type_name(@)",
-                            header: "Aspect_DisplayConnection.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "Aspect_DisplayConnection::get_type_name(@)",
+                              header: "Aspect_DisplayConnection.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "Aspect_DisplayConnection::get_type_descriptor(@)",
     header: "Aspect_DisplayConnection.hxx".}
-proc dynamicType*(this: AspectDisplayConnection): Handle[StandardType] {.
+proc DynamicType*(this: Aspect_DisplayConnection): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType", header: "Aspect_DisplayConnection.hxx".}
 discard "forward decl of Aspect_DisplayConnection"
 type
-  HandleAspectDisplayConnection* = Handle[AspectDisplayConnection]
-
-
+  Handle_Aspect_DisplayConnection* = handle[Aspect_DisplayConnection]

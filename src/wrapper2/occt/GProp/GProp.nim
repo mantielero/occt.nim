@@ -14,6 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Real
+
 discard "forward decl of gp_Pnt"
 discard "forward decl of gp_Mat"
 discard "forward decl of GProp_GProps"
@@ -39,6 +43,5 @@ type
                                                               ## ! the function MatrixOfInertia on any GProp_GProps object.
 
 
-proc hOperator*(g: GpPnt; q: GpPnt; mass: StandardReal; operator: var GpMat) {.
+proc HOperator*(G: gp_Pnt; Q: gp_Pnt; Mass: Standard_Real; Operator: var gp_Mat) {.
     importcpp: "GProp::HOperator(@)", header: "GProp.hxx".}
-

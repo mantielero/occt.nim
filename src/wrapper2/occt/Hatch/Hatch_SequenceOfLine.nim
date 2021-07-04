@@ -14,7 +14,8 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  Hatch_Line, ../NCollection/NCollection_Sequence
+
 type
-  HatchSequenceOfLine* = NCollectionSequence[HatchLine]
-
-
+  Hatch_SequenceOfLine* = NCollection_Sequence[Hatch_Line]

@@ -13,31 +13,34 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ShapeUpgrade_EdgeDivide,
+  ../Standard/Standard_Boolean
+
 discard "forward decl of TopoDS_Edge"
 discard "forward decl of ShapeUpgrade_ClosedEdgeDivide"
 discard "forward decl of ShapeUpgrade_ClosedEdgeDivide"
 type
-  HandleShapeUpgradeClosedEdgeDivide* = Handle[ShapeUpgradeClosedEdgeDivide]
-  ShapeUpgradeClosedEdgeDivide* {.importcpp: "ShapeUpgrade_ClosedEdgeDivide",
-                                 header: "ShapeUpgrade_ClosedEdgeDivide.hxx",
-                                 bycopy.} = object of ShapeUpgradeEdgeDivide ## ! Empty
-                                                                        ## constructor.
+  Handle_ShapeUpgrade_ClosedEdgeDivide* = handle[ShapeUpgrade_ClosedEdgeDivide]
+  ShapeUpgrade_ClosedEdgeDivide* {.importcpp: "ShapeUpgrade_ClosedEdgeDivide",
+                                  header: "ShapeUpgrade_ClosedEdgeDivide.hxx",
+                                  bycopy.} = object of ShapeUpgrade_EdgeDivide ## ! Empty
+                                                                          ## constructor.
 
 
-proc constructShapeUpgradeClosedEdgeDivide*(): ShapeUpgradeClosedEdgeDivide {.
+proc constructShapeUpgrade_ClosedEdgeDivide*(): ShapeUpgrade_ClosedEdgeDivide {.
     constructor, importcpp: "ShapeUpgrade_ClosedEdgeDivide(@)",
     header: "ShapeUpgrade_ClosedEdgeDivide.hxx".}
-proc compute*(this: var ShapeUpgradeClosedEdgeDivide; anEdge: TopoDS_Edge): StandardBoolean {.
+proc Compute*(this: var ShapeUpgrade_ClosedEdgeDivide; anEdge: TopoDS_Edge): Standard_Boolean {.
     importcpp: "Compute", header: "ShapeUpgrade_ClosedEdgeDivide.hxx".}
 type
-  ShapeUpgradeClosedEdgeDividebaseType* = ShapeUpgradeEdgeDivide
+  ShapeUpgrade_ClosedEdgeDividebase_type* = ShapeUpgrade_EdgeDivide
 
-proc getTypeName*(): cstring {.importcpp: "ShapeUpgrade_ClosedEdgeDivide::get_type_name(@)",
-                            header: "ShapeUpgrade_ClosedEdgeDivide.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "ShapeUpgrade_ClosedEdgeDivide::get_type_name(@)",
+                              header: "ShapeUpgrade_ClosedEdgeDivide.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "ShapeUpgrade_ClosedEdgeDivide::get_type_descriptor(@)",
     header: "ShapeUpgrade_ClosedEdgeDivide.hxx".}
-proc dynamicType*(this: ShapeUpgradeClosedEdgeDivide): Handle[StandardType] {.
+proc DynamicType*(this: ShapeUpgrade_ClosedEdgeDivide): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType",
     header: "ShapeUpgrade_ClosedEdgeDivide.hxx".}
-

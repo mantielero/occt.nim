@@ -13,32 +13,35 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepDimTol_SurfaceProfileTolerance"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepDimTolRWSurfaceProfileTolerance* {.
+  RWStepDimTol_RWSurfaceProfileTolerance* {.
       importcpp: "RWStepDimTol_RWSurfaceProfileTolerance",
       header: "RWStepDimTol_RWSurfaceProfileTolerance.hxx", bycopy.} = object ## ! Empty
                                                                          ## constructor
 
 
-proc constructRWStepDimTolRWSurfaceProfileTolerance*(): RWStepDimTolRWSurfaceProfileTolerance {.
+proc constructRWStepDimTol_RWSurfaceProfileTolerance*(): RWStepDimTol_RWSurfaceProfileTolerance {.
     constructor, importcpp: "RWStepDimTol_RWSurfaceProfileTolerance(@)",
     header: "RWStepDimTol_RWSurfaceProfileTolerance.hxx".}
-proc readStep*(this: RWStepDimTolRWSurfaceProfileTolerance;
-              data: Handle[StepDataStepReaderData]; num: StandardInteger;
-              ach: var Handle[InterfaceCheck];
-              ent: Handle[StepDimTolSurfaceProfileTolerance]) {.noSideEffect,
+proc ReadStep*(this: RWStepDimTol_RWSurfaceProfileTolerance;
+              data: handle[StepData_StepReaderData]; num: Standard_Integer;
+              ach: var handle[Interface_Check];
+              ent: handle[StepDimTol_SurfaceProfileTolerance]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepDimTol_RWSurfaceProfileTolerance.hxx".}
-proc writeStep*(this: RWStepDimTolRWSurfaceProfileTolerance;
-               sw: var StepDataStepWriter;
-               ent: Handle[StepDimTolSurfaceProfileTolerance]) {.noSideEffect,
+proc WriteStep*(this: RWStepDimTol_RWSurfaceProfileTolerance;
+               SW: var StepData_StepWriter;
+               ent: handle[StepDimTol_SurfaceProfileTolerance]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepDimTol_RWSurfaceProfileTolerance.hxx".}
-proc share*(this: RWStepDimTolRWSurfaceProfileTolerance;
-           ent: Handle[StepDimTolSurfaceProfileTolerance];
-           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
+proc Share*(this: RWStepDimTol_RWSurfaceProfileTolerance;
+           ent: handle[StepDimTol_SurfaceProfileTolerance];
+           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepDimTol_RWSurfaceProfileTolerance.hxx".}
-

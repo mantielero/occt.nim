@@ -14,6 +14,14 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../TopoDS/TopoDS_Shape,
+  ../TopTools/TopTools_DataMapOfShapeListOfShape, ../gp/gp_Dir,
+  ../TColGeom/TColGeom_SequenceOfCurve, BRepFeat_StatusError, BRepFeat_Form,
+  ../Standard/Standard_Integer, ../Standard/Standard_Boolean,
+  ../Standard/Standard_Real
+
 discard "forward decl of Geom_Curve"
 discard "forward decl of Standard_ConstructionError"
 discard "forward decl of TopoDS_Shape"
@@ -21,60 +29,59 @@ discard "forward decl of TopoDS_Face"
 discard "forward decl of gp_Dir"
 discard "forward decl of TopoDS_Edge"
 type
-  BRepFeatMakePrism* {.importcpp: "BRepFeat_MakePrism",
-                      header: "BRepFeat_MakePrism.hxx", bycopy.} = object of BRepFeatForm ##
-                                                                                   ## !
-                                                                                   ## Builds
-                                                                                   ## a
-                                                                                   ## prism
-                                                                                   ## by
-                                                                                   ## projecting
-                                                                                   ## a
-                                                                                   ##
-                                                                                   ## !
-                                                                                   ## wire
-                                                                                   ## along
-                                                                                   ## the
-                                                                                   ## face
-                                                                                   ## of
-                                                                                   ## a
-                                                                                   ## shape.
-                                                                                   ## Initializes
-                                                                                   ## the
-                                                                                   ## prism
-                                                                                   ## class.
+  BRepFeat_MakePrism* {.importcpp: "BRepFeat_MakePrism",
+                       header: "BRepFeat_MakePrism.hxx", bycopy.} = object of BRepFeat_Form ##
+                                                                                     ## !
+                                                                                     ## Builds
+                                                                                     ## a
+                                                                                     ## prism
+                                                                                     ## by
+                                                                                     ## projecting
+                                                                                     ## a
+                                                                                     ##
+                                                                                     ## !
+                                                                                     ## wire
+                                                                                     ## along
+                                                                                     ## the
+                                                                                     ## face
+                                                                                     ## of
+                                                                                     ## a
+                                                                                     ## shape.
+                                                                                     ## Initializes
+                                                                                     ## the
+                                                                                     ## prism
+                                                                                     ## class.
 
 
-proc constructBRepFeatMakePrism*(): BRepFeatMakePrism {.constructor,
+proc constructBRepFeat_MakePrism*(): BRepFeat_MakePrism {.constructor,
     importcpp: "BRepFeat_MakePrism(@)", header: "BRepFeat_MakePrism.hxx".}
-proc constructBRepFeatMakePrism*(sbase: TopoDS_Shape; pbase: TopoDS_Shape;
-                                skface: TopoDS_Face; direction: GpDir;
-                                fuse: StandardInteger; modify: StandardBoolean): BRepFeatMakePrism {.
+proc constructBRepFeat_MakePrism*(Sbase: TopoDS_Shape; Pbase: TopoDS_Shape;
+                                 Skface: TopoDS_Face; Direction: gp_Dir;
+                                 Fuse: Standard_Integer; Modify: Standard_Boolean): BRepFeat_MakePrism {.
     constructor, importcpp: "BRepFeat_MakePrism(@)",
     header: "BRepFeat_MakePrism.hxx".}
-proc init*(this: var BRepFeatMakePrism; sbase: TopoDS_Shape; pbase: TopoDS_Shape;
-          skface: TopoDS_Face; direction: GpDir; fuse: StandardInteger;
-          modify: StandardBoolean) {.importcpp: "Init",
-                                   header: "BRepFeat_MakePrism.hxx".}
-proc add*(this: var BRepFeatMakePrism; e: TopoDS_Edge; onFace: TopoDS_Face) {.
+proc Init*(this: var BRepFeat_MakePrism; Sbase: TopoDS_Shape; Pbase: TopoDS_Shape;
+          Skface: TopoDS_Face; Direction: gp_Dir; Fuse: Standard_Integer;
+          Modify: Standard_Boolean) {.importcpp: "Init",
+                                    header: "BRepFeat_MakePrism.hxx".}
+proc Add*(this: var BRepFeat_MakePrism; E: TopoDS_Edge; OnFace: TopoDS_Face) {.
     importcpp: "Add", header: "BRepFeat_MakePrism.hxx".}
-proc perform*(this: var BRepFeatMakePrism; length: StandardReal) {.
+proc Perform*(this: var BRepFeat_MakePrism; Length: Standard_Real) {.
     importcpp: "Perform", header: "BRepFeat_MakePrism.hxx".}
-proc perform*(this: var BRepFeatMakePrism; until: TopoDS_Shape) {.
+proc Perform*(this: var BRepFeat_MakePrism; Until: TopoDS_Shape) {.
     importcpp: "Perform", header: "BRepFeat_MakePrism.hxx".}
-proc perform*(this: var BRepFeatMakePrism; `from`: TopoDS_Shape; until: TopoDS_Shape) {.
+proc Perform*(this: var BRepFeat_MakePrism; From: TopoDS_Shape; Until: TopoDS_Shape) {.
     importcpp: "Perform", header: "BRepFeat_MakePrism.hxx".}
-proc performUntilEnd*(this: var BRepFeatMakePrism) {.importcpp: "PerformUntilEnd",
+proc PerformUntilEnd*(this: var BRepFeat_MakePrism) {.importcpp: "PerformUntilEnd",
     header: "BRepFeat_MakePrism.hxx".}
-proc performFromEnd*(this: var BRepFeatMakePrism; fUntil: TopoDS_Shape) {.
+proc PerformFromEnd*(this: var BRepFeat_MakePrism; FUntil: TopoDS_Shape) {.
     importcpp: "PerformFromEnd", header: "BRepFeat_MakePrism.hxx".}
-proc performThruAll*(this: var BRepFeatMakePrism) {.importcpp: "PerformThruAll",
+proc PerformThruAll*(this: var BRepFeat_MakePrism) {.importcpp: "PerformThruAll",
     header: "BRepFeat_MakePrism.hxx".}
-proc performUntilHeight*(this: var BRepFeatMakePrism; until: TopoDS_Shape;
-                        length: StandardReal) {.importcpp: "PerformUntilHeight",
+proc PerformUntilHeight*(this: var BRepFeat_MakePrism; Until: TopoDS_Shape;
+                        Length: Standard_Real) {.importcpp: "PerformUntilHeight",
     header: "BRepFeat_MakePrism.hxx".}
-proc curves*(this: var BRepFeatMakePrism; s: var TColGeomSequenceOfCurve) {.
+proc Curves*(this: var BRepFeat_MakePrism; S: var TColGeom_SequenceOfCurve) {.
     importcpp: "Curves", header: "BRepFeat_MakePrism.hxx".}
-proc barycCurve*(this: var BRepFeatMakePrism): Handle[GeomCurve] {.
+proc BarycCurve*(this: var BRepFeat_MakePrism): handle[Geom_Curve] {.
     importcpp: "BarycCurve", header: "BRepFeat_MakePrism.hxx".}
-

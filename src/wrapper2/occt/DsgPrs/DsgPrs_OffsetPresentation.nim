@@ -14,84 +14,87 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Prs3d/Prs3d_Drawer, ../Prs3d/Prs3d_Presentation
+
 discard "forward decl of TCollection_ExtendedString"
 discard "forward decl of gp_Pnt"
 discard "forward decl of gp_Dir"
 type
-  DsgPrsOffsetPresentation* {.importcpp: "DsgPrs_OffsetPresentation",
-                             header: "DsgPrs_OffsetPresentation.hxx", bycopy.} = object ##
-                                                                                   ## !
-                                                                                   ## Defines
-                                                                                   ## the
-                                                                                   ## display
-                                                                                   ## of
-                                                                                   ## elements
-                                                                                   ## showing
-                                                                                   ## offset
-                                                                                   ## shapes.
-                                                                                   ##
-                                                                                   ## !
-                                                                                   ## These
-                                                                                   ## include
-                                                                                   ## the
-                                                                                   ## two
-                                                                                   ## points
-                                                                                   ## of
-                                                                                   ## attachment
-                                                                                   ##
-                                                                                   ## !
-                                                                                   ## AttachmentPoint1
-                                                                                   ## and
-                                                                                   ## AttachmentPoint1,
-                                                                                   ## the
-                                                                                   ## two
-                                                                                   ##
-                                                                                   ## !
-                                                                                   ## directions
-                                                                                   ## aDirection
-                                                                                   ## and
-                                                                                   ## aDirection2,
-                                                                                   ## and
-                                                                                   ## the
-                                                                                   ## offset
-                                                                                   ## point
-                                                                                   ## OffsetPoint.
-                                                                                   ##
-                                                                                   ## !
-                                                                                   ## These
-                                                                                   ## arguments
-                                                                                   ## are
-                                                                                   ## added
-                                                                                   ## to
-                                                                                   ## the
-                                                                                   ## presentation
-                                                                                   ##
-                                                                                   ## !
-                                                                                   ## object
-                                                                                   ## aPresentation.
-                                                                                   ## Their
-                                                                                   ## display
-                                                                                   ## attributes
-                                                                                   ## are
-                                                                                   ##
-                                                                                   ## !
-                                                                                   ## defined
-                                                                                   ## by
-                                                                                   ## the
-                                                                                   ## attribute
-                                                                                   ## manager
-                                                                                   ## aDrawer.
+  DsgPrs_OffsetPresentation* {.importcpp: "DsgPrs_OffsetPresentation",
+                              header: "DsgPrs_OffsetPresentation.hxx", bycopy.} = object ##
+                                                                                    ## !
+                                                                                    ## Defines
+                                                                                    ## the
+                                                                                    ## display
+                                                                                    ## of
+                                                                                    ## elements
+                                                                                    ## showing
+                                                                                    ## offset
+                                                                                    ## shapes.
+                                                                                    ##
+                                                                                    ## !
+                                                                                    ## These
+                                                                                    ## include
+                                                                                    ## the
+                                                                                    ## two
+                                                                                    ## points
+                                                                                    ## of
+                                                                                    ## attachment
+                                                                                    ##
+                                                                                    ## !
+                                                                                    ## AttachmentPoint1
+                                                                                    ## and
+                                                                                    ## AttachmentPoint1,
+                                                                                    ## the
+                                                                                    ## two
+                                                                                    ##
+                                                                                    ## !
+                                                                                    ## directions
+                                                                                    ## aDirection
+                                                                                    ## and
+                                                                                    ## aDirection2,
+                                                                                    ## and
+                                                                                    ## the
+                                                                                    ## offset
+                                                                                    ## point
+                                                                                    ## OffsetPoint.
+                                                                                    ##
+                                                                                    ## !
+                                                                                    ## These
+                                                                                    ## arguments
+                                                                                    ## are
+                                                                                    ## added
+                                                                                    ## to
+                                                                                    ## the
+                                                                                    ## presentation
+                                                                                    ##
+                                                                                    ## !
+                                                                                    ## object
+                                                                                    ## aPresentation.
+                                                                                    ## Their
+                                                                                    ## display
+                                                                                    ## attributes
+                                                                                    ## are
+                                                                                    ##
+                                                                                    ## !
+                                                                                    ## defined
+                                                                                    ## by
+                                                                                    ## the
+                                                                                    ## attribute
+                                                                                    ## manager
+                                                                                    ## aDrawer.
 
 
-proc add*(aPresentation: Handle[Prs3dPresentation]; aDrawer: Handle[Prs3dDrawer];
-         aText: TCollectionExtendedString; attachmentPoint1: GpPnt;
-         attachmentPoint2: GpPnt; aDirection: GpDir; aDirection2: GpDir;
-         offsetPoint: GpPnt) {.importcpp: "DsgPrs_OffsetPresentation::Add(@)",
-                             header: "DsgPrs_OffsetPresentation.hxx".}
-proc addAxes*(aPresentation: Handle[Prs3dPresentation];
-             aDrawer: Handle[Prs3dDrawer]; aText: TCollectionExtendedString;
-             attachmentPoint1: GpPnt; attachmentPoint2: GpPnt; aDirection: GpDir;
-             aDirection2: GpDir; offsetPoint: GpPnt) {.
+proc Add*(aPresentation: handle[Prs3d_Presentation]; aDrawer: handle[Prs3d_Drawer];
+         aText: TCollection_ExtendedString; AttachmentPoint1: gp_Pnt;
+         AttachmentPoint2: gp_Pnt; aDirection: gp_Dir; aDirection2: gp_Dir;
+         OffsetPoint: gp_Pnt) {.importcpp: "DsgPrs_OffsetPresentation::Add(@)",
+                              header: "DsgPrs_OffsetPresentation.hxx".}
+proc AddAxes*(aPresentation: handle[Prs3d_Presentation];
+             aDrawer: handle[Prs3d_Drawer]; aText: TCollection_ExtendedString;
+             AttachmentPoint1: gp_Pnt; AttachmentPoint2: gp_Pnt; aDirection: gp_Dir;
+             aDirection2: gp_Dir; OffsetPoint: gp_Pnt) {.
     importcpp: "DsgPrs_OffsetPresentation::AddAxes(@)",
     header: "DsgPrs_OffsetPresentation.hxx".}
-

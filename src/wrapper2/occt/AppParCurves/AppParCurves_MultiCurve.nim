@@ -14,6 +14,13 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, AppParCurves_HArray1OfMultiPoint,
+  ../Standard/Standard_Integer, AppParCurves_Array1OfMultiPoint,
+  ../TColgp/TColgp_Array1OfPnt, ../TColgp/TColgp_Array1OfPnt2d,
+  ../Standard/Standard_Real, ../Standard/Standard_OStream
+
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of Standard_DimensionError"
 discard "forward decl of Standard_ConstructionError"
@@ -23,77 +30,78 @@ discard "forward decl of gp_Pnt2d"
 discard "forward decl of gp_Vec"
 discard "forward decl of gp_Vec2d"
 type
-  AppParCurvesMultiCurve* {.importcpp: "AppParCurves_MultiCurve",
-                           header: "AppParCurves_MultiCurve.hxx", bycopy.} = object ## !
-                                                                               ## returns
-                                                                               ## an
-                                                                               ## indefinite
-                                                                               ## MultiCurve.
+  AppParCurves_MultiCurve* {.importcpp: "AppParCurves_MultiCurve",
+                            header: "AppParCurves_MultiCurve.hxx", bycopy.} = object ##
+                                                                                ## !
+                                                                                ## returns
+                                                                                ## an
+                                                                                ## indefinite
+                                                                                ## MultiCurve.
 
 
-proc constructAppParCurvesMultiCurve*(): AppParCurvesMultiCurve {.constructor,
+proc constructAppParCurves_MultiCurve*(): AppParCurves_MultiCurve {.constructor,
     importcpp: "AppParCurves_MultiCurve(@)", header: "AppParCurves_MultiCurve.hxx".}
-proc constructAppParCurvesMultiCurve*(nbPol: StandardInteger): AppParCurvesMultiCurve {.
+proc constructAppParCurves_MultiCurve*(NbPol: Standard_Integer): AppParCurves_MultiCurve {.
     constructor, importcpp: "AppParCurves_MultiCurve(@)",
     header: "AppParCurves_MultiCurve.hxx".}
-proc constructAppParCurvesMultiCurve*(tabMU: AppParCurvesArray1OfMultiPoint): AppParCurvesMultiCurve {.
+proc constructAppParCurves_MultiCurve*(tabMU: AppParCurves_Array1OfMultiPoint): AppParCurves_MultiCurve {.
     constructor, importcpp: "AppParCurves_MultiCurve(@)",
     header: "AppParCurves_MultiCurve.hxx".}
-proc destroyAppParCurvesMultiCurve*(this: var AppParCurvesMultiCurve) {.
+proc destroyAppParCurves_MultiCurve*(this: var AppParCurves_MultiCurve) {.
     importcpp: "#.~AppParCurves_MultiCurve()",
     header: "AppParCurves_MultiCurve.hxx".}
-proc setNbPoles*(this: var AppParCurvesMultiCurve; nbPoles: StandardInteger) {.
+proc SetNbPoles*(this: var AppParCurves_MultiCurve; nbPoles: Standard_Integer) {.
     importcpp: "SetNbPoles", header: "AppParCurves_MultiCurve.hxx".}
-proc setValue*(this: var AppParCurvesMultiCurve; index: StandardInteger;
-              mPoint: AppParCurvesMultiPoint) {.importcpp: "SetValue",
+proc SetValue*(this: var AppParCurves_MultiCurve; Index: Standard_Integer;
+              MPoint: AppParCurves_MultiPoint) {.importcpp: "SetValue",
     header: "AppParCurves_MultiCurve.hxx".}
-proc nbCurves*(this: AppParCurvesMultiCurve): StandardInteger {.noSideEffect,
+proc NbCurves*(this: AppParCurves_MultiCurve): Standard_Integer {.noSideEffect,
     importcpp: "NbCurves", header: "AppParCurves_MultiCurve.hxx".}
-proc nbPoles*(this: AppParCurvesMultiCurve): StandardInteger {.noSideEffect,
+proc NbPoles*(this: AppParCurves_MultiCurve): Standard_Integer {.noSideEffect,
     importcpp: "NbPoles", header: "AppParCurves_MultiCurve.hxx".}
-proc degree*(this: AppParCurvesMultiCurve): StandardInteger {.noSideEffect,
+proc Degree*(this: AppParCurves_MultiCurve): Standard_Integer {.noSideEffect,
     importcpp: "Degree", header: "AppParCurves_MultiCurve.hxx".}
-proc dimension*(this: AppParCurvesMultiCurve; cuIndex: StandardInteger): StandardInteger {.
+proc Dimension*(this: AppParCurves_MultiCurve; CuIndex: Standard_Integer): Standard_Integer {.
     noSideEffect, importcpp: "Dimension", header: "AppParCurves_MultiCurve.hxx".}
-proc curve*(this: AppParCurvesMultiCurve; cuIndex: StandardInteger;
-           tabPnt: var TColgpArray1OfPnt) {.noSideEffect, importcpp: "Curve",
+proc Curve*(this: AppParCurves_MultiCurve; CuIndex: Standard_Integer;
+           TabPnt: var TColgp_Array1OfPnt) {.noSideEffect, importcpp: "Curve",
     header: "AppParCurves_MultiCurve.hxx".}
-proc curve*(this: AppParCurvesMultiCurve; cuIndex: StandardInteger;
-           tabPnt: var TColgpArray1OfPnt2d) {.noSideEffect, importcpp: "Curve",
+proc Curve*(this: AppParCurves_MultiCurve; CuIndex: Standard_Integer;
+           TabPnt: var TColgp_Array1OfPnt2d) {.noSideEffect, importcpp: "Curve",
     header: "AppParCurves_MultiCurve.hxx".}
-proc value*(this: AppParCurvesMultiCurve; index: StandardInteger): AppParCurvesMultiPoint {.
+proc Value*(this: AppParCurves_MultiCurve; Index: Standard_Integer): AppParCurves_MultiPoint {.
     noSideEffect, importcpp: "Value", header: "AppParCurves_MultiCurve.hxx".}
-proc pole*(this: AppParCurvesMultiCurve; cuIndex: StandardInteger;
-          nieme: StandardInteger): GpPnt {.noSideEffect, importcpp: "Pole",
+proc Pole*(this: AppParCurves_MultiCurve; CuIndex: Standard_Integer;
+          Nieme: Standard_Integer): gp_Pnt {.noSideEffect, importcpp: "Pole",
+    header: "AppParCurves_MultiCurve.hxx".}
+proc Pole2d*(this: AppParCurves_MultiCurve; CuIndex: Standard_Integer;
+            Nieme: Standard_Integer): gp_Pnt2d {.noSideEffect, importcpp: "Pole2d",
+    header: "AppParCurves_MultiCurve.hxx".}
+proc Transform*(this: var AppParCurves_MultiCurve; CuIndex: Standard_Integer;
+               x: Standard_Real; dx: Standard_Real; y: Standard_Real;
+               dy: Standard_Real; z: Standard_Real; dz: Standard_Real) {.
+    importcpp: "Transform", header: "AppParCurves_MultiCurve.hxx".}
+proc Transform2d*(this: var AppParCurves_MultiCurve; CuIndex: Standard_Integer;
+                 x: Standard_Real; dx: Standard_Real; y: Standard_Real;
+                 dy: Standard_Real) {.importcpp: "Transform2d",
+                                    header: "AppParCurves_MultiCurve.hxx".}
+proc Value*(this: AppParCurves_MultiCurve; CuIndex: Standard_Integer;
+           U: Standard_Real; Pt: var gp_Pnt) {.noSideEffect, importcpp: "Value",
+    header: "AppParCurves_MultiCurve.hxx".}
+proc Value*(this: AppParCurves_MultiCurve; CuIndex: Standard_Integer;
+           U: Standard_Real; Pt: var gp_Pnt2d) {.noSideEffect, importcpp: "Value",
+    header: "AppParCurves_MultiCurve.hxx".}
+proc D1*(this: AppParCurves_MultiCurve; CuIndex: Standard_Integer; U: Standard_Real;
+        Pt: var gp_Pnt; V1: var gp_Vec) {.noSideEffect, importcpp: "D1",
+                                    header: "AppParCurves_MultiCurve.hxx".}
+proc D1*(this: AppParCurves_MultiCurve; CuIndex: Standard_Integer; U: Standard_Real;
+        Pt: var gp_Pnt2d; V1: var gp_Vec2d) {.noSideEffect, importcpp: "D1",
                                         header: "AppParCurves_MultiCurve.hxx".}
-proc pole2d*(this: AppParCurvesMultiCurve; cuIndex: StandardInteger;
-            nieme: StandardInteger): GpPnt2d {.noSideEffect, importcpp: "Pole2d",
+proc D2*(this: AppParCurves_MultiCurve; CuIndex: Standard_Integer; U: Standard_Real;
+        Pt: var gp_Pnt; V1: var gp_Vec; V2: var gp_Vec) {.noSideEffect, importcpp: "D2",
     header: "AppParCurves_MultiCurve.hxx".}
-proc transform*(this: var AppParCurvesMultiCurve; cuIndex: StandardInteger;
-               x: StandardReal; dx: StandardReal; y: StandardReal; dy: StandardReal;
-               z: StandardReal; dz: StandardReal) {.importcpp: "Transform",
-    header: "AppParCurves_MultiCurve.hxx".}
-proc transform2d*(this: var AppParCurvesMultiCurve; cuIndex: StandardInteger;
-                 x: StandardReal; dx: StandardReal; y: StandardReal; dy: StandardReal) {.
-    importcpp: "Transform2d", header: "AppParCurves_MultiCurve.hxx".}
-proc value*(this: AppParCurvesMultiCurve; cuIndex: StandardInteger; u: StandardReal;
-           pt: var GpPnt) {.noSideEffect, importcpp: "Value",
-                         header: "AppParCurves_MultiCurve.hxx".}
-proc value*(this: AppParCurvesMultiCurve; cuIndex: StandardInteger; u: StandardReal;
-           pt: var GpPnt2d) {.noSideEffect, importcpp: "Value",
-                           header: "AppParCurves_MultiCurve.hxx".}
-proc d1*(this: AppParCurvesMultiCurve; cuIndex: StandardInteger; u: StandardReal;
-        pt: var GpPnt; v1: var GpVec) {.noSideEffect, importcpp: "D1",
-                                  header: "AppParCurves_MultiCurve.hxx".}
-proc d1*(this: AppParCurvesMultiCurve; cuIndex: StandardInteger; u: StandardReal;
-        pt: var GpPnt2d; v1: var GpVec2d) {.noSideEffect, importcpp: "D1",
-                                      header: "AppParCurves_MultiCurve.hxx".}
-proc d2*(this: AppParCurvesMultiCurve; cuIndex: StandardInteger; u: StandardReal;
-        pt: var GpPnt; v1: var GpVec; v2: var GpVec) {.noSideEffect, importcpp: "D2",
-    header: "AppParCurves_MultiCurve.hxx".}
-proc d2*(this: AppParCurvesMultiCurve; cuIndex: StandardInteger; u: StandardReal;
-        pt: var GpPnt2d; v1: var GpVec2d; v2: var GpVec2d) {.noSideEffect,
+proc D2*(this: AppParCurves_MultiCurve; CuIndex: Standard_Integer; U: Standard_Real;
+        Pt: var gp_Pnt2d; V1: var gp_Vec2d; V2: var gp_Vec2d) {.noSideEffect,
     importcpp: "D2", header: "AppParCurves_MultiCurve.hxx".}
-proc dump*(this: AppParCurvesMultiCurve; o: var StandardOStream) {.noSideEffect,
+proc Dump*(this: AppParCurves_MultiCurve; o: var Standard_OStream) {.noSideEffect,
     importcpp: "Dump", header: "AppParCurves_MultiCurve.hxx".}
-

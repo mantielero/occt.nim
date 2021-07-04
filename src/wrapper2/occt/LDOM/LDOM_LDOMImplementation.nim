@@ -13,6 +13,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard_Type, LDOM_Document
+
 discard "forward decl of LDOM_DocumentType"
 type
   LDOM_LDOMImplementation* {.importcpp: "LDOM_LDOMImplementation",
@@ -23,4 +26,3 @@ proc createDocument*(aNamespaceURI: LDOMString; aQualifiedName: LDOMString;
                     aDocType: LDOM_DocumentType): LDOM_Document {.
     importcpp: "LDOM_LDOMImplementation::createDocument(@)",
     header: "LDOM_LDOMImplementation.hxx".}
-

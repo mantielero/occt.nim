@@ -11,24 +11,31 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  Graphic3d_BvhCStructureSet, Graphic3d_BvhCStructureSetTrsfPers,
+  Graphic3d_Camera, Graphic3d_ZLayerId, Graphic3d_ZLayerSettings,
+  Graphic3d_RenderingParams, ../NCollection/NCollection_Array1,
+  ../NCollection/NCollection_IndexedMap, ../NCollection/NCollection_Sequence
+
 ## ! Defines index map of structures.
 
 type
-  Graphic3dIndexedMapOfStructure* = NCollectionIndexedMap[ptr Graphic3dCStructure]
+  Graphic3d_IndexedMapOfStructure* = NCollection_IndexedMap[
+      ptr Graphic3d_CStructure]
 
 ## ! Defines array of indexed maps of structures.
 
 type
-  Graphic3dArrayOfIndexedMapOfStructure* = NCollectionArray1[
-      Graphic3dIndexedMapOfStructure]
+  Graphic3d_ArrayOfIndexedMapOfStructure* = NCollection_Array1[
+      Graphic3d_IndexedMapOfStructure]
 
 discard "forward decl of Graphic3d_CullingTool"
 type
-  Graphic3dLayer* {.importcpp: "Graphic3d_Layer", header: "Graphic3d_Layer.hxx",
-                   bycopy.} = object of StandardTransient ## ! Initializes associated priority list and layer properties
-                                                     ## ! Returns set of Graphic3d_CStructures structures for building BVH tree.
-                                                     ## ! Updates BVH trees if their state has been invalidated.
-                                                     ## ! Array of Graphic3d_CStructures by priority rendered in layer.
+  Graphic3d_Layer* {.importcpp: "Graphic3d_Layer", header: "Graphic3d_Layer.hxx",
+                    bycopy.} = object of Standard_Transient ## ! Initializes associated priority list and layer properties
+                                                       ## ! Returns set of Graphic3d_CStructures structures for building BVH tree.
+                                                       ## ! Updates BVH trees if their state has been invalidated.
+                                                       ## ! Array of Graphic3d_CStructures by priority rendered in layer.
     ## ! Overall number of structures rendered in the layer.
     ## ! Number of NOT culled structures in the layer.
     ## ! Layer setting flags.
@@ -41,90 +48,89 @@ type
     ## ! Defines if the cached bounding box is outdated.
     ## ! Cached layer bounding box.
 
-  Graphic3dLayerbaseType* = StandardTransient
+  Graphic3d_Layerbase_type* = Standard_Transient
 
-proc getTypeName*(): cstring {.importcpp: "Graphic3d_Layer::get_type_name(@)",
-                            header: "Graphic3d_Layer.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "Graphic3d_Layer::get_type_name(@)",
+                              header: "Graphic3d_Layer.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "Graphic3d_Layer::get_type_descriptor(@)",
     header: "Graphic3d_Layer.hxx".}
-proc dynamicType*(this: Graphic3dLayer): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: Graphic3d_Layer): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "Graphic3d_Layer.hxx".}
-proc constructGraphic3dLayer*(theId: Graphic3dZLayerId;
-                             theNbPriorities: StandardInteger;
-                             theBuilder: Handle[Select3D_BVHBuilder3d]): Graphic3dLayer {.
+proc constructGraphic3d_Layer*(theId: Graphic3d_ZLayerId;
+                              theNbPriorities: Standard_Integer;
+                              theBuilder: handle[Select3D_BVHBuilder3d]): Graphic3d_Layer {.
     constructor, importcpp: "Graphic3d_Layer(@)", header: "Graphic3d_Layer.hxx".}
-proc destroyGraphic3dLayer*(this: var Graphic3dLayer) {.
+proc destroyGraphic3d_Layer*(this: var Graphic3d_Layer) {.
     importcpp: "#.~Graphic3d_Layer()", header: "Graphic3d_Layer.hxx".}
-proc layerId*(this: Graphic3dLayer): Graphic3dZLayerId {.noSideEffect,
+proc LayerId*(this: Graphic3d_Layer): Graphic3d_ZLayerId {.noSideEffect,
     importcpp: "LayerId", header: "Graphic3d_Layer.hxx".}
-proc frustumCullingBVHBuilder*(this: Graphic3dLayer): Handle[Select3D_BVHBuilder3d] {.
+proc FrustumCullingBVHBuilder*(this: Graphic3d_Layer): handle[Select3D_BVHBuilder3d] {.
     noSideEffect, importcpp: "FrustumCullingBVHBuilder",
     header: "Graphic3d_Layer.hxx".}
-proc setFrustumCullingBVHBuilder*(this: var Graphic3dLayer;
-                                 theBuilder: Handle[Select3D_BVHBuilder3d]) {.
+proc SetFrustumCullingBVHBuilder*(this: var Graphic3d_Layer;
+                                 theBuilder: handle[Select3D_BVHBuilder3d]) {.
     importcpp: "SetFrustumCullingBVHBuilder", header: "Graphic3d_Layer.hxx".}
-proc isImmediate*(this: Graphic3dLayer): StandardBoolean {.noSideEffect,
+proc IsImmediate*(this: Graphic3d_Layer): Standard_Boolean {.noSideEffect,
     importcpp: "IsImmediate", header: "Graphic3d_Layer.hxx".}
-proc layerSettings*(this: Graphic3dLayer): Graphic3dZLayerSettings {.noSideEffect,
+proc LayerSettings*(this: Graphic3d_Layer): Graphic3d_ZLayerSettings {.noSideEffect,
     importcpp: "LayerSettings", header: "Graphic3d_Layer.hxx".}
   ## ! Sets settings of the layer object.
-proc setLayerSettings*(this: var Graphic3dLayer;
-                      theSettings: Graphic3dZLayerSettings) {.
+proc SetLayerSettings*(this: var Graphic3d_Layer;
+                      theSettings: Graphic3d_ZLayerSettings) {.
     importcpp: "SetLayerSettings", header: "Graphic3d_Layer.hxx".}
-proc add*(this: var Graphic3dLayer; theStruct: ptr Graphic3dCStructure;
-         thePriority: StandardInteger;
-         isForChangePriority: StandardBoolean = standardFalse) {.importcpp: "Add",
+proc Add*(this: var Graphic3d_Layer; theStruct: ptr Graphic3d_CStructure;
+         thePriority: Standard_Integer;
+         isForChangePriority: Standard_Boolean = Standard_False) {.importcpp: "Add",
     header: "Graphic3d_Layer.hxx".}
-proc remove*(this: var Graphic3dLayer; theStruct: ptr Graphic3dCStructure;
-            thePriority: var StandardInteger;
-            isForChangePriority: StandardBoolean = standardFalse): bool {.
+proc Remove*(this: var Graphic3d_Layer; theStruct: ptr Graphic3d_CStructure;
+            thePriority: var Standard_Integer;
+            isForChangePriority: Standard_Boolean = Standard_False): bool {.
     importcpp: "Remove", header: "Graphic3d_Layer.hxx".}
-proc nbStructures*(this: Graphic3dLayer): StandardInteger {.noSideEffect,
+proc NbStructures*(this: Graphic3d_Layer): Standard_Integer {.noSideEffect,
     importcpp: "NbStructures", header: "Graphic3d_Layer.hxx".}
-proc nbStructuresNotCulled*(this: Graphic3dLayer): StandardInteger {.noSideEffect,
+proc NbStructuresNotCulled*(this: Graphic3d_Layer): Standard_Integer {.noSideEffect,
     importcpp: "NbStructuresNotCulled", header: "Graphic3d_Layer.hxx".}
-proc nbPriorities*(this: Graphic3dLayer): StandardInteger {.noSideEffect,
+proc NbPriorities*(this: Graphic3d_Layer): Standard_Integer {.noSideEffect,
     importcpp: "NbPriorities", header: "Graphic3d_Layer.hxx".}
-proc append*(this: var Graphic3dLayer; theOther: Graphic3dLayer): StandardBoolean {.
+proc Append*(this: var Graphic3d_Layer; theOther: Graphic3d_Layer): Standard_Boolean {.
     importcpp: "Append", header: "Graphic3d_Layer.hxx".}
-proc arrayOfStructures*(this: Graphic3dLayer): Graphic3dArrayOfIndexedMapOfStructure {.
+proc ArrayOfStructures*(this: Graphic3d_Layer): Graphic3d_ArrayOfIndexedMapOfStructure {.
     noSideEffect, importcpp: "ArrayOfStructures", header: "Graphic3d_Layer.hxx".}
-proc invalidateBVHData*(this: var Graphic3dLayer) {.importcpp: "InvalidateBVHData",
+proc InvalidateBVHData*(this: var Graphic3d_Layer) {.importcpp: "InvalidateBVHData",
     header: "Graphic3d_Layer.hxx".}
-proc invalidateBoundingBox*(this: Graphic3dLayer) {.noSideEffect,
+proc InvalidateBoundingBox*(this: Graphic3d_Layer) {.noSideEffect,
     importcpp: "InvalidateBoundingBox", header: "Graphic3d_Layer.hxx".}
-proc boundingBox*(this: Graphic3dLayer; theViewId: StandardInteger;
-                 theCamera: Handle[Graphic3dCamera];
-                 theWindowWidth: StandardInteger;
-                 theWindowHeight: StandardInteger;
-                 theToIncludeAuxiliary: StandardBoolean): BndBox {.noSideEffect,
+proc BoundingBox*(this: Graphic3d_Layer; theViewId: Standard_Integer;
+                 theCamera: handle[Graphic3d_Camera];
+                 theWindowWidth: Standard_Integer;
+                 theWindowHeight: Standard_Integer;
+                 theToIncludeAuxiliary: Standard_Boolean): Bnd_Box {.noSideEffect,
     importcpp: "BoundingBox", header: "Graphic3d_Layer.hxx".}
-proc considerZoomPersistenceObjects*(this: Graphic3dLayer;
-                                    theViewId: StandardInteger;
-                                    theCamera: Handle[Graphic3dCamera];
-                                    theWindowWidth: StandardInteger;
-                                    theWindowHeight: StandardInteger): StandardReal {.
+proc considerZoomPersistenceObjects*(this: Graphic3d_Layer;
+                                    theViewId: Standard_Integer;
+                                    theCamera: handle[Graphic3d_Camera];
+                                    theWindowWidth: Standard_Integer;
+                                    theWindowHeight: Standard_Integer): Standard_Real {.
     noSideEffect, importcpp: "considerZoomPersistenceObjects",
     header: "Graphic3d_Layer.hxx".}
-proc updateCulling*(this: var Graphic3dLayer; theViewId: StandardInteger;
-                   theSelector: Graphic3dCullingTool;
+proc UpdateCulling*(this: var Graphic3d_Layer; theViewId: Standard_Integer;
+                   theSelector: Graphic3d_CullingTool;
                    theFrustumCullingState: FrustumCulling) {.
     importcpp: "UpdateCulling", header: "Graphic3d_Layer.hxx".}
-proc isCulled*(this: Graphic3dLayer): bool {.noSideEffect, importcpp: "IsCulled",
+proc IsCulled*(this: Graphic3d_Layer): bool {.noSideEffect, importcpp: "IsCulled",
     header: "Graphic3d_Layer.hxx".}
-proc nbOfTransformPersistenceObjects*(this: Graphic3dLayer): StandardInteger {.
+proc NbOfTransformPersistenceObjects*(this: Graphic3d_Layer): Standard_Integer {.
     noSideEffect, importcpp: "NbOfTransformPersistenceObjects",
     header: "Graphic3d_Layer.hxx".}
-proc cullableStructuresBVH*(this: Graphic3dLayer): Graphic3dBvhCStructureSet {.
+proc CullableStructuresBVH*(this: Graphic3d_Layer): Graphic3d_BvhCStructureSet {.
     noSideEffect, importcpp: "CullableStructuresBVH", header: "Graphic3d_Layer.hxx".}
-proc cullableTrsfPersStructuresBVH*(this: Graphic3dLayer): Graphic3dBvhCStructureSetTrsfPers {.
+proc CullableTrsfPersStructuresBVH*(this: Graphic3d_Layer): Graphic3d_BvhCStructureSetTrsfPers {.
     noSideEffect, importcpp: "CullableTrsfPersStructuresBVH",
     header: "Graphic3d_Layer.hxx".}
-proc nonCullableStructures*(this: Graphic3dLayer): NCollectionIndexedMap[
-    ptr Graphic3dCStructure] {.noSideEffect, importcpp: "NonCullableStructures",
-                             header: "Graphic3d_Layer.hxx".}
-proc dumpJson*(this: Graphic3dLayer; theOStream: var StandardOStream;
-              theDepth: StandardInteger = -1) {.noSideEffect, importcpp: "DumpJson",
+proc NonCullableStructures*(this: Graphic3d_Layer): NCollection_IndexedMap[
+    ptr Graphic3d_CStructure] {.noSideEffect, importcpp: "NonCullableStructures",
+                              header: "Graphic3d_Layer.hxx".}
+proc DumpJson*(this: Graphic3d_Layer; theOStream: var Standard_OStream;
+              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
     header: "Graphic3d_Layer.hxx".}
-

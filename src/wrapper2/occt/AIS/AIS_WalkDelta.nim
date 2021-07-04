@@ -11,14 +11,17 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard_Real
+
 ## ! Walking translation components.
 
 type
   AIS_WalkTranslation* {.size: sizeof(cint), importcpp: "AIS_WalkTranslation",
                         header: "AIS_WalkDelta.hxx".} = enum
-    AIS_WalkTranslationForward = 0, ## !< translation delta, Forward walk
-    AIS_WalkTranslationSide,  ## !< translation delta, Side walk
-    AIS_WalkTranslationUp     ## !< translation delta, Up walk
+    AIS_WalkTranslation_Forward = 0, ## !< translation delta, Forward walk
+    AIS_WalkTranslation_Side, ## !< translation delta, Side walk
+    AIS_WalkTranslation_Up    ## !< translation delta, Up walk
 
 
 ## ! Walking rotation components.
@@ -26,22 +29,22 @@ type
 type
   AIS_WalkRotation* {.size: sizeof(cint), importcpp: "AIS_WalkRotation",
                      header: "AIS_WalkDelta.hxx".} = enum
-    AIS_WalkRotationYaw = 0,    ## !< yaw   rotation angle
-    AIS_WalkRotationPitch,    ## !< pitch rotation angle
-    AIS_WalkRotationRoll      ## !< roll  rotation angle
+    AIS_WalkRotation_Yaw = 0,   ## !< yaw   rotation angle
+    AIS_WalkRotation_Pitch,   ## !< pitch rotation angle
+    AIS_WalkRotation_Roll     ## !< roll  rotation angle
 
 
 ## ! Walking value.
 
 type
   AIS_WalkPart* {.importcpp: "AIS_WalkPart", header: "AIS_WalkDelta.hxx", bycopy.} = object
-    value* {.importc: "Value".}: StandardReal ## !< value
-    pressure* {.importc: "Pressure".}: StandardReal ## !< key pressure
-    duration* {.importc: "Duration".}: StandardReal ## !< duration
-                                                ## ! Return TRUE if delta is empty.
+    Value* {.importc: "Value".}: Standard_Real ## !< value
+    Pressure* {.importc: "Pressure".}: Standard_Real ## !< key pressure
+    Duration* {.importc: "Duration".}: Standard_Real ## !< duration
+                                                 ## ! Return TRUE if delta is empty.
 
 
-proc isEmpty*(this: AIS_WalkPart): bool {.noSideEffect, importcpp: "IsEmpty",
+proc IsEmpty*(this: AIS_WalkPart): bool {.noSideEffect, importcpp: "IsEmpty",
                                       header: "AIS_WalkDelta.hxx".}
 proc constructAIS_WalkPart*(): AIS_WalkPart {.constructor,
     importcpp: "AIS_WalkPart(@)", header: "AIS_WalkDelta.hxx".}
@@ -64,22 +67,21 @@ proc `[]`*(this: AIS_WalkDelta; thePart: AIS_WalkRotation): AIS_WalkPart {.
     noSideEffect, importcpp: "#[@]", header: "AIS_WalkDelta.hxx".}
 proc `[]`*(this: var AIS_WalkDelta; thePart: AIS_WalkRotation): var AIS_WalkPart {.
     importcpp: "#[@]", header: "AIS_WalkDelta.hxx".}
-proc isJumping*(this: AIS_WalkDelta): bool {.noSideEffect, importcpp: "IsJumping",
+proc IsJumping*(this: AIS_WalkDelta): bool {.noSideEffect, importcpp: "IsJumping",
     header: "AIS_WalkDelta.hxx".}
-proc setJumping*(this: var AIS_WalkDelta; theIsJumping: bool) {.
+proc SetJumping*(this: var AIS_WalkDelta; theIsJumping: bool) {.
     importcpp: "SetJumping", header: "AIS_WalkDelta.hxx".}
-proc isCrouching*(this: AIS_WalkDelta): bool {.noSideEffect,
+proc IsCrouching*(this: AIS_WalkDelta): bool {.noSideEffect,
     importcpp: "IsCrouching", header: "AIS_WalkDelta.hxx".}
-proc setCrouching*(this: var AIS_WalkDelta; theIsCrouching: bool) {.
+proc SetCrouching*(this: var AIS_WalkDelta; theIsCrouching: bool) {.
     importcpp: "SetCrouching", header: "AIS_WalkDelta.hxx".}
-proc isRunning*(this: AIS_WalkDelta): bool {.noSideEffect, importcpp: "IsRunning",
+proc IsRunning*(this: AIS_WalkDelta): bool {.noSideEffect, importcpp: "IsRunning",
     header: "AIS_WalkDelta.hxx".}
-proc setRunning*(this: var AIS_WalkDelta; theIsRunning: bool) {.
+proc SetRunning*(this: var AIS_WalkDelta; theIsRunning: bool) {.
     importcpp: "SetRunning", header: "AIS_WalkDelta.hxx".}
-proc isEmpty*(this: AIS_WalkDelta): bool {.noSideEffect, importcpp: "IsEmpty",
+proc IsEmpty*(this: AIS_WalkDelta): bool {.noSideEffect, importcpp: "IsEmpty",
                                        header: "AIS_WalkDelta.hxx".}
-proc toMove*(this: AIS_WalkDelta): bool {.noSideEffect, importcpp: "ToMove",
+proc ToMove*(this: AIS_WalkDelta): bool {.noSideEffect, importcpp: "ToMove",
                                       header: "AIS_WalkDelta.hxx".}
-proc toRotate*(this: AIS_WalkDelta): bool {.noSideEffect, importcpp: "ToRotate",
+proc ToRotate*(this: AIS_WalkDelta): bool {.noSideEffect, importcpp: "ToRotate",
                                         header: "AIS_WalkDelta.hxx".}
-

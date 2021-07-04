@@ -14,6 +14,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, IGESToBRep_CurveAndSurface,
+  ../TopoDS/TopoDS_Face, ../gp/gp_Trsf2d, ../Standard/Standard_Real,
+  ../Standard/Standard_Integer, ../Standard/Standard_Transient,
+  ../Standard/Standard_Boolean, ../IGESData/IGESData_HArray1OfIGESEntity
+
 discard "forward decl of IGESData_IGESEntity"
 discard "forward decl of ShapeExtend_WireData"
 discard "forward decl of IGESToBRep_CurveAndSurface"
@@ -22,7 +28,7 @@ discard "forward decl of gp_Trsf2d"
 discard "forward decl of IGESToBRep_IGESBoundary"
 discard "forward decl of IGESToBRep_IGESBoundary"
 type
-  HandleIGESToBRepIGESBoundary* = Handle[IGESToBRepIGESBoundary]
+  Handle_IGESToBRep_IGESBoundary* = handle[IGESToBRep_IGESBoundary]
 
 ## ! This class is intended to translate IGES boundary entity
 ## ! (142-CurveOnSurface, 141-Boundary or 508-Loop) into the wire.
@@ -31,61 +37,60 @@ type
 ## ! account advanced parameters.
 
 type
-  IGESToBRepIGESBoundary* {.importcpp: "IGESToBRep_IGESBoundary",
-                           header: "IGESToBRep_IGESBoundary.hxx", bycopy.} = object of StandardTransient ##
-                                                                                                  ## !
-                                                                                                  ## Empty
-                                                                                                  ## constructor
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## Methods
-                                                                                                  ## called
-                                                                                                  ## by
-                                                                                                  ## both
-                                                                                                  ## Transfer
-                                                                                                  ## methods.
+  IGESToBRep_IGESBoundary* {.importcpp: "IGESToBRep_IGESBoundary",
+                            header: "IGESToBRep_IGESBoundary.hxx", bycopy.} = object of Standard_Transient ##
+                                                                                                    ## !
+                                                                                                    ## Empty
+                                                                                                    ## constructor
+                                                                                                    ##
+                                                                                                    ## !
+                                                                                                    ## Methods
+                                                                                                    ## called
+                                                                                                    ## by
+                                                                                                    ## both
+                                                                                                    ## Transfer
+                                                                                                    ## methods.
 
 
-proc constructIGESToBRepIGESBoundary*(): IGESToBRepIGESBoundary {.constructor,
+proc constructIGESToBRep_IGESBoundary*(): IGESToBRep_IGESBoundary {.constructor,
     importcpp: "IGESToBRep_IGESBoundary(@)", header: "IGESToBRep_IGESBoundary.hxx".}
-proc constructIGESToBRepIGESBoundary*(cs: IGESToBRepCurveAndSurface): IGESToBRepIGESBoundary {.
+proc constructIGESToBRep_IGESBoundary*(CS: IGESToBRep_CurveAndSurface): IGESToBRep_IGESBoundary {.
     constructor, importcpp: "IGESToBRep_IGESBoundary(@)",
     header: "IGESToBRep_IGESBoundary.hxx".}
-proc init*(this: var IGESToBRepIGESBoundary; cs: IGESToBRepCurveAndSurface;
-          entity: Handle[IGESDataIGESEntity]; face: TopoDS_Face; trans: GpTrsf2d;
-          uFact: StandardReal; filepreference: StandardInteger) {.importcpp: "Init",
-    header: "IGESToBRep_IGESBoundary.hxx".}
-proc wireData*(this: IGESToBRepIGESBoundary): Handle[ShapeExtendWireData] {.
+proc Init*(this: var IGESToBRep_IGESBoundary; CS: IGESToBRep_CurveAndSurface;
+          entity: handle[IGESData_IGESEntity]; face: TopoDS_Face; trans: gp_Trsf2d;
+          uFact: Standard_Real; filepreference: Standard_Integer) {.
+    importcpp: "Init", header: "IGESToBRep_IGESBoundary.hxx".}
+proc WireData*(this: IGESToBRep_IGESBoundary): handle[ShapeExtend_WireData] {.
     noSideEffect, importcpp: "WireData", header: "IGESToBRep_IGESBoundary.hxx".}
-proc wireData3d*(this: IGESToBRepIGESBoundary): Handle[ShapeExtendWireData] {.
+proc WireData3d*(this: IGESToBRep_IGESBoundary): handle[ShapeExtend_WireData] {.
     noSideEffect, importcpp: "WireData3d", header: "IGESToBRep_IGESBoundary.hxx".}
-proc wireData2d*(this: IGESToBRepIGESBoundary): Handle[ShapeExtendWireData] {.
+proc WireData2d*(this: IGESToBRep_IGESBoundary): handle[ShapeExtend_WireData] {.
     noSideEffect, importcpp: "WireData2d", header: "IGESToBRep_IGESBoundary.hxx".}
-proc transfer*(this: var IGESToBRepIGESBoundary; okCurve: var StandardBoolean;
-              okCurve3d: var StandardBoolean; okCurve2d: var StandardBoolean;
-              curve3d: Handle[IGESDataIGESEntity]; toreverse3d: StandardBoolean;
-              curves2d: Handle[IGESDataHArray1OfIGESEntity];
-              number: StandardInteger): StandardBoolean {.importcpp: "Transfer",
+proc Transfer*(this: var IGESToBRep_IGESBoundary; okCurve: var Standard_Boolean;
+              okCurve3d: var Standard_Boolean; okCurve2d: var Standard_Boolean;
+              curve3d: handle[IGESData_IGESEntity]; toreverse3d: Standard_Boolean;
+              curves2d: handle[IGESData_HArray1OfIGESEntity];
+              number: Standard_Integer): Standard_Boolean {.importcpp: "Transfer",
     header: "IGESToBRep_IGESBoundary.hxx".}
-proc transfer*(this: var IGESToBRepIGESBoundary; okCurve: var StandardBoolean;
-              okCurve3d: var StandardBoolean; okCurve2d: var StandardBoolean;
-              curve3d: Handle[ShapeExtendWireData];
-              curves2d: Handle[IGESDataHArray1OfIGESEntity];
-              toreverse2d: StandardBoolean; number: StandardInteger;
-              lsewd: var Handle[ShapeExtendWireData]): StandardBoolean {.
+proc Transfer*(this: var IGESToBRep_IGESBoundary; okCurve: var Standard_Boolean;
+              okCurve3d: var Standard_Boolean; okCurve2d: var Standard_Boolean;
+              curve3d: handle[ShapeExtend_WireData];
+              curves2d: handle[IGESData_HArray1OfIGESEntity];
+              toreverse2d: Standard_Boolean; number: Standard_Integer;
+              lsewd: var handle[ShapeExtend_WireData]): Standard_Boolean {.
     importcpp: "Transfer", header: "IGESToBRep_IGESBoundary.hxx".}
-proc check*(this: var IGESToBRepIGESBoundary; result: StandardBoolean;
-           checkclosure: StandardBoolean; okCurve3d: StandardBoolean;
-           okCurve2d: StandardBoolean) {.importcpp: "Check",
-                                       header: "IGESToBRep_IGESBoundary.hxx".}
+proc Check*(this: var IGESToBRep_IGESBoundary; result: Standard_Boolean;
+           checkclosure: Standard_Boolean; okCurve3d: Standard_Boolean;
+           okCurve2d: Standard_Boolean) {.importcpp: "Check",
+                                        header: "IGESToBRep_IGESBoundary.hxx".}
 type
-  IGESToBRepIGESBoundarybaseType* = StandardTransient
+  IGESToBRep_IGESBoundarybase_type* = Standard_Transient
 
-proc getTypeName*(): cstring {.importcpp: "IGESToBRep_IGESBoundary::get_type_name(@)",
-                            header: "IGESToBRep_IGESBoundary.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "IGESToBRep_IGESBoundary::get_type_name(@)",
+                              header: "IGESToBRep_IGESBoundary.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "IGESToBRep_IGESBoundary::get_type_descriptor(@)",
     header: "IGESToBRep_IGESBoundary.hxx".}
-proc dynamicType*(this: IGESToBRepIGESBoundary): Handle[StandardType] {.
+proc DynamicType*(this: IGESToBRep_IGESBoundary): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType", header: "IGESToBRep_IGESBoundary.hxx".}
-

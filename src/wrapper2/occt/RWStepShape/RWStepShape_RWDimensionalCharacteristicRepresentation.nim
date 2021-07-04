@@ -13,13 +13,17 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepShape_DimensionalCharacteristicRepresentation"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepShapeRWDimensionalCharacteristicRepresentation* {.
+  RWStepShape_RWDimensionalCharacteristicRepresentation* {.
       importcpp: "RWStepShape_RWDimensionalCharacteristicRepresentation",
       header: "RWStepShape_RWDimensionalCharacteristicRepresentation.hxx", bycopy.} = object ##
                                                                                         ## !
@@ -27,23 +31,22 @@ type
                                                                                         ## constructor
 
 
-proc constructRWStepShapeRWDimensionalCharacteristicRepresentation*(): RWStepShapeRWDimensionalCharacteristicRepresentation {.
+proc constructRWStepShape_RWDimensionalCharacteristicRepresentation*(): RWStepShape_RWDimensionalCharacteristicRepresentation {.
     constructor,
     importcpp: "RWStepShape_RWDimensionalCharacteristicRepresentation(@)",
     header: "RWStepShape_RWDimensionalCharacteristicRepresentation.hxx".}
-proc readStep*(this: RWStepShapeRWDimensionalCharacteristicRepresentation;
-              data: Handle[StepDataStepReaderData]; num: StandardInteger;
-              ach: var Handle[InterfaceCheck];
-              ent: Handle[StepShapeDimensionalCharacteristicRepresentation]) {.
+proc ReadStep*(this: RWStepShape_RWDimensionalCharacteristicRepresentation;
+              data: handle[StepData_StepReaderData]; num: Standard_Integer;
+              ach: var handle[Interface_Check];
+              ent: handle[StepShape_DimensionalCharacteristicRepresentation]) {.
     noSideEffect, importcpp: "ReadStep",
     header: "RWStepShape_RWDimensionalCharacteristicRepresentation.hxx".}
-proc writeStep*(this: RWStepShapeRWDimensionalCharacteristicRepresentation;
-               sw: var StepDataStepWriter;
-               ent: Handle[StepShapeDimensionalCharacteristicRepresentation]) {.
+proc WriteStep*(this: RWStepShape_RWDimensionalCharacteristicRepresentation;
+               SW: var StepData_StepWriter;
+               ent: handle[StepShape_DimensionalCharacteristicRepresentation]) {.
     noSideEffect, importcpp: "WriteStep",
     header: "RWStepShape_RWDimensionalCharacteristicRepresentation.hxx".}
-proc share*(this: RWStepShapeRWDimensionalCharacteristicRepresentation;
-           ent: Handle[StepShapeDimensionalCharacteristicRepresentation];
-           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
+proc Share*(this: RWStepShape_RWDimensionalCharacteristicRepresentation;
+           ent: handle[StepShape_DimensionalCharacteristicRepresentation];
+           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepShape_RWDimensionalCharacteristicRepresentation.hxx".}
-

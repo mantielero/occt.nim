@@ -14,6 +14,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
+  ../Standard/Standard_Integer
+
 discard "forward decl of Standard_DomainError"
 discard "forward decl of IGESGraph_HighLight"
 discard "forward decl of IGESData_IGESReaderData"
@@ -26,37 +31,42 @@ discard "forward decl of Interface_Check"
 discard "forward decl of Interface_CopyTool"
 discard "forward decl of IGESData_IGESDumper"
 type
-  IGESGraphToolHighLight* {.importcpp: "IGESGraph_ToolHighLight",
-                           header: "IGESGraph_ToolHighLight.hxx", bycopy.} = object ## !
-                                                                               ## Returns a
-                                                                               ## ToolHighLight,
-                                                                               ## ready
-                                                                               ## to
-                                                                               ## work
+  IGESGraph_ToolHighLight* {.importcpp: "IGESGraph_ToolHighLight",
+                            header: "IGESGraph_ToolHighLight.hxx", bycopy.} = object ##
+                                                                                ## !
+                                                                                ## Returns
+                                                                                ## a
+                                                                                ## ToolHighLight,
+                                                                                ## ready
+                                                                                ## to
+                                                                                ## work
 
 
-proc constructIGESGraphToolHighLight*(): IGESGraphToolHighLight {.constructor,
+proc constructIGESGraph_ToolHighLight*(): IGESGraph_ToolHighLight {.constructor,
     importcpp: "IGESGraph_ToolHighLight(@)", header: "IGESGraph_ToolHighLight.hxx".}
-proc readOwnParams*(this: IGESGraphToolHighLight; ent: Handle[IGESGraphHighLight];
-                   ir: Handle[IGESDataIGESReaderData]; pr: var IGESDataParamReader) {.
-    noSideEffect, importcpp: "ReadOwnParams", header: "IGESGraph_ToolHighLight.hxx".}
-proc writeOwnParams*(this: IGESGraphToolHighLight; ent: Handle[IGESGraphHighLight];
-                    iw: var IGESDataIGESWriter) {.noSideEffect,
-    importcpp: "WriteOwnParams", header: "IGESGraph_ToolHighLight.hxx".}
-proc ownShared*(this: IGESGraphToolHighLight; ent: Handle[IGESGraphHighLight];
-               iter: var InterfaceEntityIterator) {.noSideEffect,
+proc ReadOwnParams*(this: IGESGraph_ToolHighLight;
+                   ent: handle[IGESGraph_HighLight];
+                   IR: handle[IGESData_IGESReaderData];
+                   PR: var IGESData_ParamReader) {.noSideEffect,
+    importcpp: "ReadOwnParams", header: "IGESGraph_ToolHighLight.hxx".}
+proc WriteOwnParams*(this: IGESGraph_ToolHighLight;
+                    ent: handle[IGESGraph_HighLight]; IW: var IGESData_IGESWriter) {.
+    noSideEffect, importcpp: "WriteOwnParams",
+    header: "IGESGraph_ToolHighLight.hxx".}
+proc OwnShared*(this: IGESGraph_ToolHighLight; ent: handle[IGESGraph_HighLight];
+               iter: var Interface_EntityIterator) {.noSideEffect,
     importcpp: "OwnShared", header: "IGESGraph_ToolHighLight.hxx".}
-proc ownCorrect*(this: IGESGraphToolHighLight; ent: Handle[IGESGraphHighLight]): StandardBoolean {.
+proc OwnCorrect*(this: IGESGraph_ToolHighLight; ent: handle[IGESGraph_HighLight]): Standard_Boolean {.
     noSideEffect, importcpp: "OwnCorrect", header: "IGESGraph_ToolHighLight.hxx".}
-proc dirChecker*(this: IGESGraphToolHighLight; ent: Handle[IGESGraphHighLight]): IGESDataDirChecker {.
+proc DirChecker*(this: IGESGraph_ToolHighLight; ent: handle[IGESGraph_HighLight]): IGESData_DirChecker {.
     noSideEffect, importcpp: "DirChecker", header: "IGESGraph_ToolHighLight.hxx".}
-proc ownCheck*(this: IGESGraphToolHighLight; ent: Handle[IGESGraphHighLight];
-              shares: InterfaceShareTool; ach: var Handle[InterfaceCheck]) {.
+proc OwnCheck*(this: IGESGraph_ToolHighLight; ent: handle[IGESGraph_HighLight];
+              shares: Interface_ShareTool; ach: var handle[Interface_Check]) {.
     noSideEffect, importcpp: "OwnCheck", header: "IGESGraph_ToolHighLight.hxx".}
-proc ownCopy*(this: IGESGraphToolHighLight; entfrom: Handle[IGESGraphHighLight];
-             entto: Handle[IGESGraphHighLight]; tc: var InterfaceCopyTool) {.
+proc OwnCopy*(this: IGESGraph_ToolHighLight; entfrom: handle[IGESGraph_HighLight];
+             entto: handle[IGESGraph_HighLight]; TC: var Interface_CopyTool) {.
     noSideEffect, importcpp: "OwnCopy", header: "IGESGraph_ToolHighLight.hxx".}
-proc ownDump*(this: IGESGraphToolHighLight; ent: Handle[IGESGraphHighLight];
-             dumper: IGESDataIGESDumper; s: var StandardOStream; own: StandardInteger) {.
-    noSideEffect, importcpp: "OwnDump", header: "IGESGraph_ToolHighLight.hxx".}
-
+proc OwnDump*(this: IGESGraph_ToolHighLight; ent: handle[IGESGraph_HighLight];
+             dumper: IGESData_IGESDumper; S: var Standard_OStream;
+             own: Standard_Integer) {.noSideEffect, importcpp: "OwnDump",
+                                    header: "IGESGraph_ToolHighLight.hxx".}

@@ -14,6 +14,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, IGESToBRep_CurveAndSurface,
+  ../Standard/Standard_Real, ../Standard/Standard_Boolean
+
 discard "forward decl of IGESToBRep_CurveAndSurface"
 discard "forward decl of Geom_Surface"
 discard "forward decl of IGESData_IGESEntity"
@@ -31,77 +36,77 @@ discard "forward decl of Geom_BSplineSurface"
 discard "forward decl of IGESGeom_SplineSurface"
 discard "forward decl of IGESGeom_BSplineSurface"
 type
-  IGESToBRepBasicSurface* {.importcpp: "IGESToBRep_BasicSurface",
-                           header: "IGESToBRep_BasicSurface.hxx", bycopy.} = object of IGESToBRepCurveAndSurface ##
-                                                                                                          ## !
-                                                                                                          ## Creates
-                                                                                                          ## a
-                                                                                                          ## tool
-                                                                                                          ## BasicSurface
-                                                                                                          ## ready
-                                                                                                          ## to
-                                                                                                          ## run,
-                                                                                                          ## with
-                                                                                                          ##
-                                                                                                          ## !
-                                                                                                          ## epsilons
-                                                                                                          ## set
-                                                                                                          ## to
-                                                                                                          ## 1.E-04,
-                                                                                                          ## TheModeTopo
-                                                                                                          ## to
-                                                                                                          ## True,
-                                                                                                          ## the
-                                                                                                          ##
-                                                                                                          ## !
-                                                                                                          ## optimization
-                                                                                                          ## of
-                                                                                                          ## the
-                                                                                                          ## continuity
-                                                                                                          ## to
-                                                                                                          ## False.
+  IGESToBRep_BasicSurface* {.importcpp: "IGESToBRep_BasicSurface",
+                            header: "IGESToBRep_BasicSurface.hxx", bycopy.} = object of IGESToBRep_CurveAndSurface ##
+                                                                                                            ## !
+                                                                                                            ## Creates
+                                                                                                            ## a
+                                                                                                            ## tool
+                                                                                                            ## BasicSurface
+                                                                                                            ## ready
+                                                                                                            ## to
+                                                                                                            ## run,
+                                                                                                            ## with
+                                                                                                            ##
+                                                                                                            ## !
+                                                                                                            ## epsilons
+                                                                                                            ## set
+                                                                                                            ## to
+                                                                                                            ## 1.E-04,
+                                                                                                            ## TheModeTopo
+                                                                                                            ## to
+                                                                                                            ## True,
+                                                                                                            ## the
+                                                                                                            ##
+                                                                                                            ## !
+                                                                                                            ## optimization
+                                                                                                            ## of
+                                                                                                            ## the
+                                                                                                            ## continuity
+                                                                                                            ## to
+                                                                                                            ## False.
 
 
-proc constructIGESToBRepBasicSurface*(): IGESToBRepBasicSurface {.constructor,
+proc constructIGESToBRep_BasicSurface*(): IGESToBRep_BasicSurface {.constructor,
     importcpp: "IGESToBRep_BasicSurface(@)", header: "IGESToBRep_BasicSurface.hxx".}
-proc constructIGESToBRepBasicSurface*(cs: IGESToBRepCurveAndSurface): IGESToBRepBasicSurface {.
+proc constructIGESToBRep_BasicSurface*(CS: IGESToBRep_CurveAndSurface): IGESToBRep_BasicSurface {.
     constructor, importcpp: "IGESToBRep_BasicSurface(@)",
     header: "IGESToBRep_BasicSurface.hxx".}
-proc constructIGESToBRepBasicSurface*(eps: StandardReal; epsGeom: StandardReal;
-                                     epsCoeff: StandardReal;
-                                     mode: StandardBoolean;
-                                     modeapprox: StandardBoolean;
-                                     optimized: StandardBoolean): IGESToBRepBasicSurface {.
+proc constructIGESToBRep_BasicSurface*(eps: Standard_Real; epsGeom: Standard_Real;
+                                      epsCoeff: Standard_Real;
+                                      mode: Standard_Boolean;
+                                      modeapprox: Standard_Boolean;
+                                      optimized: Standard_Boolean): IGESToBRep_BasicSurface {.
     constructor, importcpp: "IGESToBRep_BasicSurface(@)",
     header: "IGESToBRep_BasicSurface.hxx".}
-proc transferBasicSurface*(this: var IGESToBRepBasicSurface;
-                          start: Handle[IGESDataIGESEntity]): Handle[GeomSurface] {.
+proc TransferBasicSurface*(this: var IGESToBRep_BasicSurface;
+                          start: handle[IGESData_IGESEntity]): handle[Geom_Surface] {.
     importcpp: "TransferBasicSurface", header: "IGESToBRep_BasicSurface.hxx".}
-proc transferPlaneSurface*(this: var IGESToBRepBasicSurface;
-                          start: Handle[IGESSolidPlaneSurface]): Handle[GeomPlane] {.
-    importcpp: "TransferPlaneSurface", header: "IGESToBRep_BasicSurface.hxx".}
-proc transferRigthCylindricalSurface*(this: var IGESToBRepBasicSurface;
-                                     start: Handle[IGESSolidCylindricalSurface]): Handle[
-    GeomCylindricalSurface] {.importcpp: "TransferRigthCylindricalSurface",
-                             header: "IGESToBRep_BasicSurface.hxx".}
-proc transferRigthConicalSurface*(this: var IGESToBRepBasicSurface;
-                                 start: Handle[IGESSolidConicalSurface]): Handle[
-    GeomConicalSurface] {.importcpp: "TransferRigthConicalSurface",
-                         header: "IGESToBRep_BasicSurface.hxx".}
-proc transferSphericalSurface*(this: var IGESToBRepBasicSurface;
-                              start: Handle[IGESSolidSphericalSurface]): Handle[
-    GeomSphericalSurface] {.importcpp: "TransferSphericalSurface",
-                           header: "IGESToBRep_BasicSurface.hxx".}
-proc transferToroidalSurface*(this: var IGESToBRepBasicSurface;
-                             start: Handle[IGESSolidToroidalSurface]): Handle[
-    GeomToroidalSurface] {.importcpp: "TransferToroidalSurface",
+proc TransferPlaneSurface*(this: var IGESToBRep_BasicSurface;
+                          start: handle[IGESSolid_PlaneSurface]): handle[
+    Geom_Plane] {.importcpp: "TransferPlaneSurface",
+                 header: "IGESToBRep_BasicSurface.hxx".}
+proc TransferRigthCylindricalSurface*(this: var IGESToBRep_BasicSurface; start: handle[
+    IGESSolid_CylindricalSurface]): handle[Geom_CylindricalSurface] {.
+    importcpp: "TransferRigthCylindricalSurface",
+    header: "IGESToBRep_BasicSurface.hxx".}
+proc TransferRigthConicalSurface*(this: var IGESToBRep_BasicSurface;
+                                 start: handle[IGESSolid_ConicalSurface]): handle[
+    Geom_ConicalSurface] {.importcpp: "TransferRigthConicalSurface",
                           header: "IGESToBRep_BasicSurface.hxx".}
-proc transferSplineSurface*(this: var IGESToBRepBasicSurface;
-                           start: Handle[IGESGeomSplineSurface]): Handle[
-    GeomBSplineSurface] {.importcpp: "TransferSplineSurface",
-                         header: "IGESToBRep_BasicSurface.hxx".}
-proc transferBSplineSurface*(this: var IGESToBRepBasicSurface;
-                            start: Handle[IGESGeomBSplineSurface]): Handle[
-    GeomBSplineSurface] {.importcpp: "TransferBSplineSurface",
-                         header: "IGESToBRep_BasicSurface.hxx".}
-
+proc TransferSphericalSurface*(this: var IGESToBRep_BasicSurface;
+                              start: handle[IGESSolid_SphericalSurface]): handle[
+    Geom_SphericalSurface] {.importcpp: "TransferSphericalSurface",
+                            header: "IGESToBRep_BasicSurface.hxx".}
+proc TransferToroidalSurface*(this: var IGESToBRep_BasicSurface;
+                             start: handle[IGESSolid_ToroidalSurface]): handle[
+    Geom_ToroidalSurface] {.importcpp: "TransferToroidalSurface",
+                           header: "IGESToBRep_BasicSurface.hxx".}
+proc TransferSplineSurface*(this: var IGESToBRep_BasicSurface;
+                           start: handle[IGESGeom_SplineSurface]): handle[
+    Geom_BSplineSurface] {.importcpp: "TransferSplineSurface",
+                          header: "IGESToBRep_BasicSurface.hxx".}
+proc TransferBSplineSurface*(this: var IGESToBRep_BasicSurface;
+                            start: handle[IGESGeom_BSplineSurface]): handle[
+    Geom_BSplineSurface] {.importcpp: "TransferBSplineSurface",
+                          header: "IGESToBRep_BasicSurface.hxx".}

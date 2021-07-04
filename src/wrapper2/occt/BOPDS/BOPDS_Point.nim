@@ -12,6 +12,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../gp/gp_Pnt, ../gp/gp_Pnt2d,
+  ../Standard/Standard_Integer
+
 discard "forward decl of gp_Pnt"
 discard "forward decl of gp_Pnt2d"
 type
@@ -25,20 +30,19 @@ proc constructBOPDS_Point*(): BOPDS_Point {.constructor,
     importcpp: "BOPDS_Point(@)", header: "BOPDS_Point.hxx".}
 proc destroyBOPDS_Point*(this: var BOPDS_Point) {.importcpp: "#.~BOPDS_Point()",
     header: "BOPDS_Point.hxx".}
-proc setPnt*(this: var BOPDS_Point; thePnt: GpPnt) {.importcpp: "SetPnt",
+proc SetPnt*(this: var BOPDS_Point; thePnt: gp_Pnt) {.importcpp: "SetPnt",
     header: "BOPDS_Point.hxx".}
-proc pnt*(this: BOPDS_Point): GpPnt {.noSideEffect, importcpp: "Pnt",
-                                  header: "BOPDS_Point.hxx".}
-proc setPnt2D1*(this: var BOPDS_Point; thePnt: GpPnt2d) {.importcpp: "SetPnt2D1",
+proc Pnt*(this: BOPDS_Point): gp_Pnt {.noSideEffect, importcpp: "Pnt",
+                                   header: "BOPDS_Point.hxx".}
+proc SetPnt2D1*(this: var BOPDS_Point; thePnt: gp_Pnt2d) {.importcpp: "SetPnt2D1",
     header: "BOPDS_Point.hxx".}
-proc pnt2D1*(this: BOPDS_Point): GpPnt2d {.noSideEffect, importcpp: "Pnt2D1",
-                                       header: "BOPDS_Point.hxx".}
-proc setPnt2D2*(this: var BOPDS_Point; thePnt: GpPnt2d) {.importcpp: "SetPnt2D2",
+proc Pnt2D1*(this: BOPDS_Point): gp_Pnt2d {.noSideEffect, importcpp: "Pnt2D1",
+                                        header: "BOPDS_Point.hxx".}
+proc SetPnt2D2*(this: var BOPDS_Point; thePnt: gp_Pnt2d) {.importcpp: "SetPnt2D2",
     header: "BOPDS_Point.hxx".}
-proc pnt2D2*(this: BOPDS_Point): GpPnt2d {.noSideEffect, importcpp: "Pnt2D2",
-                                       header: "BOPDS_Point.hxx".}
-proc setIndex*(this: var BOPDS_Point; theIndex: StandardInteger) {.
+proc Pnt2D2*(this: BOPDS_Point): gp_Pnt2d {.noSideEffect, importcpp: "Pnt2D2",
+                                        header: "BOPDS_Point.hxx".}
+proc SetIndex*(this: var BOPDS_Point; theIndex: Standard_Integer) {.
     importcpp: "SetIndex", header: "BOPDS_Point.hxx".}
-proc index*(this: BOPDS_Point): StandardInteger {.noSideEffect, importcpp: "Index",
+proc Index*(this: BOPDS_Point): Standard_Integer {.noSideEffect, importcpp: "Index",
     header: "BOPDS_Point.hxx".}
-

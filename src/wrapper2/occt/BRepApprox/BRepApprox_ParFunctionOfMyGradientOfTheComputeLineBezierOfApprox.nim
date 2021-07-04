@@ -14,52 +14,64 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
+  BRepApprox_TheMultiLineOfApprox, ../AppParCurves/AppParCurves_MultiCurve,
+  ../Standard/Standard_Integer, ../math/math_Vector, ../Standard/Standard_Real,
+  ../math/math_Matrix,
+  BRepApprox_ParLeastSquareOfMyGradientOfTheComputeLineBezierOfApprox,
+  ../TColStd/TColStd_HArray1OfInteger,
+  ../AppParCurves/AppParCurves_HArray1OfConstraintCouple,
+  ../math/math_MultipleVarFunctionWithGradient,
+  ../AppParCurves/AppParCurves_Constraint
+
 discard "forward decl of BRepApprox_TheMultiLineOfApprox"
 discard "forward decl of BRepApprox_TheMultiLineToolOfApprox"
 discard "forward decl of BRepApprox_ParLeastSquareOfMyGradientOfTheComputeLineBezierOfApprox"
 discard "forward decl of BRepApprox_ResConstraintOfMyGradientOfTheComputeLineBezierOfApprox"
 discard "forward decl of AppParCurves_MultiCurve"
 type
-  BRepApproxParFunctionOfMyGradientOfTheComputeLineBezierOfApprox* {.importcpp: "BRepApprox_ParFunctionOfMyGradientOfTheComputeLineBezierOfApprox", header: "BRepApprox_ParFunctionOfMyGradientOfTheComputeLineBezierOfApprox.hxx",
-      bycopy.} = object of MathMultipleVarFunctionWithGradient ## ! initializes the fields of the function. The approximating
-                                                          ## ! curve has the desired degree Deg.
-                                                          ## ! this method is used each time Value or Gradient is
-                                                          ## ! needed.
+  BRepApprox_ParFunctionOfMyGradientOfTheComputeLineBezierOfApprox* {.importcpp: "BRepApprox_ParFunctionOfMyGradientOfTheComputeLineBezierOfApprox", header: "BRepApprox_ParFunctionOfMyGradientOfTheComputeLineBezierOfApprox.hxx",
+      bycopy.} = object of math_MultipleVarFunctionWithGradient ## ! initializes the fields of the function. The approximating
+                                                           ## ! curve has the desired degree Deg.
+                                                           ## ! this method is used each time Value or Gradient is
+                                                           ## ! needed.
 
 
-proc constructBRepApproxParFunctionOfMyGradientOfTheComputeLineBezierOfApprox*(
-    ssp: BRepApproxTheMultiLineOfApprox; firstPoint: StandardInteger;
-    lastPoint: StandardInteger;
-    theConstraints: Handle[AppParCurvesHArray1OfConstraintCouple];
-    parameters: MathVector; deg: StandardInteger): BRepApproxParFunctionOfMyGradientOfTheComputeLineBezierOfApprox {.
+proc constructBRepApprox_ParFunctionOfMyGradientOfTheComputeLineBezierOfApprox*(
+    SSP: BRepApprox_TheMultiLineOfApprox; FirstPoint: Standard_Integer;
+    LastPoint: Standard_Integer;
+    TheConstraints: handle[AppParCurves_HArray1OfConstraintCouple];
+    Parameters: math_Vector; Deg: Standard_Integer): BRepApprox_ParFunctionOfMyGradientOfTheComputeLineBezierOfApprox {.
     constructor, importcpp: "BRepApprox_ParFunctionOfMyGradientOfTheComputeLineBezierOfApprox(@)", header: "BRepApprox_ParFunctionOfMyGradientOfTheComputeLineBezierOfApprox.hxx".}
-proc nbVariables*(this: BRepApproxParFunctionOfMyGradientOfTheComputeLineBezierOfApprox): StandardInteger {.
+proc NbVariables*(this: BRepApprox_ParFunctionOfMyGradientOfTheComputeLineBezierOfApprox): Standard_Integer {.
     noSideEffect, importcpp: "NbVariables", header: "BRepApprox_ParFunctionOfMyGradientOfTheComputeLineBezierOfApprox.hxx".}
-proc value*(this: var BRepApproxParFunctionOfMyGradientOfTheComputeLineBezierOfApprox;
-           x: MathVector; f: var StandardReal): StandardBoolean {.importcpp: "Value", header: "BRepApprox_ParFunctionOfMyGradientOfTheComputeLineBezierOfApprox.hxx".}
-proc gradient*(this: var BRepApproxParFunctionOfMyGradientOfTheComputeLineBezierOfApprox;
-              x: MathVector; g: var MathVector): StandardBoolean {.
+proc Value*(this: var BRepApprox_ParFunctionOfMyGradientOfTheComputeLineBezierOfApprox;
+           X: math_Vector; F: var Standard_Real): Standard_Boolean {.
+    importcpp: "Value", header: "BRepApprox_ParFunctionOfMyGradientOfTheComputeLineBezierOfApprox.hxx".}
+proc Gradient*(this: var BRepApprox_ParFunctionOfMyGradientOfTheComputeLineBezierOfApprox;
+              X: math_Vector; G: var math_Vector): Standard_Boolean {.
     importcpp: "Gradient", header: "BRepApprox_ParFunctionOfMyGradientOfTheComputeLineBezierOfApprox.hxx".}
-proc values*(this: var BRepApproxParFunctionOfMyGradientOfTheComputeLineBezierOfApprox;
-            x: MathVector; f: var StandardReal; g: var MathVector): StandardBoolean {.
+proc Values*(this: var BRepApprox_ParFunctionOfMyGradientOfTheComputeLineBezierOfApprox;
+            X: math_Vector; F: var Standard_Real; G: var math_Vector): Standard_Boolean {.
     importcpp: "Values", header: "BRepApprox_ParFunctionOfMyGradientOfTheComputeLineBezierOfApprox.hxx".}
-proc newParameters*(this: BRepApproxParFunctionOfMyGradientOfTheComputeLineBezierOfApprox): MathVector {.
+proc NewParameters*(this: BRepApprox_ParFunctionOfMyGradientOfTheComputeLineBezierOfApprox): math_Vector {.
     noSideEffect, importcpp: "NewParameters", header: "BRepApprox_ParFunctionOfMyGradientOfTheComputeLineBezierOfApprox.hxx".}
-proc curveValue*(this: var BRepApproxParFunctionOfMyGradientOfTheComputeLineBezierOfApprox): AppParCurvesMultiCurve {.
+proc CurveValue*(this: var BRepApprox_ParFunctionOfMyGradientOfTheComputeLineBezierOfApprox): AppParCurves_MultiCurve {.
     importcpp: "CurveValue", header: "BRepApprox_ParFunctionOfMyGradientOfTheComputeLineBezierOfApprox.hxx".}
-proc error*(this: BRepApproxParFunctionOfMyGradientOfTheComputeLineBezierOfApprox;
-           iPoint: StandardInteger; curveIndex: StandardInteger): StandardReal {.
+proc Error*(this: BRepApprox_ParFunctionOfMyGradientOfTheComputeLineBezierOfApprox;
+           IPoint: Standard_Integer; CurveIndex: Standard_Integer): Standard_Real {.
     noSideEffect, importcpp: "Error", header: "BRepApprox_ParFunctionOfMyGradientOfTheComputeLineBezierOfApprox.hxx".}
-proc maxError3d*(this: BRepApproxParFunctionOfMyGradientOfTheComputeLineBezierOfApprox): StandardReal {.
+proc MaxError3d*(this: BRepApprox_ParFunctionOfMyGradientOfTheComputeLineBezierOfApprox): Standard_Real {.
     noSideEffect, importcpp: "MaxError3d", header: "BRepApprox_ParFunctionOfMyGradientOfTheComputeLineBezierOfApprox.hxx".}
-proc maxError2d*(this: BRepApproxParFunctionOfMyGradientOfTheComputeLineBezierOfApprox): StandardReal {.
+proc MaxError2d*(this: BRepApprox_ParFunctionOfMyGradientOfTheComputeLineBezierOfApprox): Standard_Real {.
     noSideEffect, importcpp: "MaxError2d", header: "BRepApprox_ParFunctionOfMyGradientOfTheComputeLineBezierOfApprox.hxx".}
-proc firstConstraint*(this: BRepApproxParFunctionOfMyGradientOfTheComputeLineBezierOfApprox;
-    theConstraints: Handle[AppParCurvesHArray1OfConstraintCouple];
-                     firstPoint: StandardInteger): AppParCurvesConstraint {.
+proc FirstConstraint*(this: BRepApprox_ParFunctionOfMyGradientOfTheComputeLineBezierOfApprox;
+    TheConstraints: handle[AppParCurves_HArray1OfConstraintCouple];
+                     FirstPoint: Standard_Integer): AppParCurves_Constraint {.
     noSideEffect, importcpp: "FirstConstraint", header: "BRepApprox_ParFunctionOfMyGradientOfTheComputeLineBezierOfApprox.hxx".}
-proc lastConstraint*(this: BRepApproxParFunctionOfMyGradientOfTheComputeLineBezierOfApprox;
-    theConstraints: Handle[AppParCurvesHArray1OfConstraintCouple];
-                    lastPoint: StandardInteger): AppParCurvesConstraint {.
+proc LastConstraint*(this: BRepApprox_ParFunctionOfMyGradientOfTheComputeLineBezierOfApprox;
+    TheConstraints: handle[AppParCurves_HArray1OfConstraintCouple];
+                    LastPoint: Standard_Integer): AppParCurves_Constraint {.
     noSideEffect, importcpp: "LastConstraint", header: "BRepApprox_ParFunctionOfMyGradientOfTheComputeLineBezierOfApprox.hxx".}
-

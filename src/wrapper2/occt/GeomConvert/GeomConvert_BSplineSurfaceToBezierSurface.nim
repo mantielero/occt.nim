@@ -14,13 +14,19 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Real,
+  ../Standard/Standard_Integer, ../TColGeom/TColGeom_Array2OfBezierSurface,
+  ../TColStd/TColStd_Array1OfReal
+
 discard "forward decl of Geom_BSplineSurface"
 discard "forward decl of Standard_DimensionError"
 discard "forward decl of Standard_DomainError"
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of Geom_BezierSurface"
 type
-  GeomConvertBSplineSurfaceToBezierSurface* {.
+  GeomConvert_BSplineSurfaceToBezierSurface* {.
       importcpp: "GeomConvert_BSplineSurfaceToBezierSurface",
       header: "GeomConvert_BSplineSurfaceToBezierSurface.hxx", bycopy.} = object ## !
                                                                             ## Computes all the data
@@ -92,32 +98,30 @@ type
                                                                             ## used.
 
 
-proc constructGeomConvertBSplineSurfaceToBezierSurface*(
-    basisSurface: Handle[GeomBSplineSurface]): GeomConvertBSplineSurfaceToBezierSurface {.
+proc constructGeomConvert_BSplineSurfaceToBezierSurface*(
+    BasisSurface: handle[Geom_BSplineSurface]): GeomConvert_BSplineSurfaceToBezierSurface {.
     constructor, importcpp: "GeomConvert_BSplineSurfaceToBezierSurface(@)",
     header: "GeomConvert_BSplineSurfaceToBezierSurface.hxx".}
-proc constructGeomConvertBSplineSurfaceToBezierSurface*(
-    basisSurface: Handle[GeomBSplineSurface]; u1: StandardReal; u2: StandardReal;
-    v1: StandardReal; v2: StandardReal; parametricTolerance: StandardReal): GeomConvertBSplineSurfaceToBezierSurface {.
+proc constructGeomConvert_BSplineSurfaceToBezierSurface*(
+    BasisSurface: handle[Geom_BSplineSurface]; U1: Standard_Real; U2: Standard_Real;
+    V1: Standard_Real; V2: Standard_Real; ParametricTolerance: Standard_Real): GeomConvert_BSplineSurfaceToBezierSurface {.
     constructor, importcpp: "GeomConvert_BSplineSurfaceToBezierSurface(@)",
     header: "GeomConvert_BSplineSurfaceToBezierSurface.hxx".}
-proc patch*(this: var GeomConvertBSplineSurfaceToBezierSurface;
-           uIndex: StandardInteger; vIndex: StandardInteger): Handle[
-    GeomBezierSurface] {.importcpp: "Patch",
-                        header: "GeomConvert_BSplineSurfaceToBezierSurface.hxx".}
-proc patches*(this: var GeomConvertBSplineSurfaceToBezierSurface;
-             surfaces: var TColGeomArray2OfBezierSurface) {.importcpp: "Patches",
+proc Patch*(this: var GeomConvert_BSplineSurfaceToBezierSurface;
+           UIndex: Standard_Integer; VIndex: Standard_Integer): handle[
+    Geom_BezierSurface] {.importcpp: "Patch", header: "GeomConvert_BSplineSurfaceToBezierSurface.hxx".}
+proc Patches*(this: var GeomConvert_BSplineSurfaceToBezierSurface;
+             Surfaces: var TColGeom_Array2OfBezierSurface) {.importcpp: "Patches",
     header: "GeomConvert_BSplineSurfaceToBezierSurface.hxx".}
-proc uKnots*(this: GeomConvertBSplineSurfaceToBezierSurface;
-            tKnots: var TColStdArray1OfReal) {.noSideEffect, importcpp: "UKnots",
+proc UKnots*(this: GeomConvert_BSplineSurfaceToBezierSurface;
+            TKnots: var TColStd_Array1OfReal) {.noSideEffect, importcpp: "UKnots",
     header: "GeomConvert_BSplineSurfaceToBezierSurface.hxx".}
-proc vKnots*(this: GeomConvertBSplineSurfaceToBezierSurface;
-            tKnots: var TColStdArray1OfReal) {.noSideEffect, importcpp: "VKnots",
+proc VKnots*(this: GeomConvert_BSplineSurfaceToBezierSurface;
+            TKnots: var TColStd_Array1OfReal) {.noSideEffect, importcpp: "VKnots",
     header: "GeomConvert_BSplineSurfaceToBezierSurface.hxx".}
-proc nbUPatches*(this: GeomConvertBSplineSurfaceToBezierSurface): StandardInteger {.
+proc NbUPatches*(this: GeomConvert_BSplineSurfaceToBezierSurface): Standard_Integer {.
     noSideEffect, importcpp: "NbUPatches",
     header: "GeomConvert_BSplineSurfaceToBezierSurface.hxx".}
-proc nbVPatches*(this: GeomConvertBSplineSurfaceToBezierSurface): StandardInteger {.
+proc NbVPatches*(this: GeomConvert_BSplineSurfaceToBezierSurface): Standard_Integer {.
     noSideEffect, importcpp: "NbVPatches",
     header: "GeomConvert_BSplineSurfaceToBezierSurface.hxx".}
-

@@ -14,7 +14,8 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  MAT2d_Connexion, ../NCollection/NCollection_Array2
+
 type
-  MAT2dArray2OfConnexion* = NCollectionArray2[Handle[MAT2dConnexion]]
-
-
+  MAT2d_Array2OfConnexion* = NCollection_Array2[handle[MAT2d_Connexion]]

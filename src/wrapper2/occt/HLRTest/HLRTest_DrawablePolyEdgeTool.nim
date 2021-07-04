@@ -14,58 +14,63 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Boolean,
+  ../Standard/Standard_Integer, ../HLRBRep/HLRBRep_ListOfBPoint,
+  ../Draw/Draw_Drawable3D
+
 discard "forward decl of HLRBRep_PolyAlgo"
 discard "forward decl of Draw_Display"
 discard "forward decl of HLRTest_DrawablePolyEdgeTool"
 discard "forward decl of HLRTest_DrawablePolyEdgeTool"
 type
-  HandleHLRTestDrawablePolyEdgeTool* = Handle[HLRTestDrawablePolyEdgeTool]
+  Handle_HLRTest_DrawablePolyEdgeTool* = handle[HLRTest_DrawablePolyEdgeTool]
 
 ## ! Used to display the results.
 
 type
-  HLRTestDrawablePolyEdgeTool* {.importcpp: "HLRTest_DrawablePolyEdgeTool",
-                                header: "HLRTest_DrawablePolyEdgeTool.hxx", bycopy.} = object of DrawDrawable3D
+  HLRTest_DrawablePolyEdgeTool* {.importcpp: "HLRTest_DrawablePolyEdgeTool",
+                                 header: "HLRTest_DrawablePolyEdgeTool.hxx",
+                                 bycopy.} = object of Draw_Drawable3D
 
 
-proc constructHLRTestDrawablePolyEdgeTool*(alg: Handle[HLRBRepPolyAlgo];
-    viewId: StandardInteger; debug: StandardBoolean = standardFalse): HLRTestDrawablePolyEdgeTool {.
+proc constructHLRTest_DrawablePolyEdgeTool*(Alg: handle[HLRBRep_PolyAlgo];
+    ViewId: Standard_Integer; Debug: Standard_Boolean = Standard_False): HLRTest_DrawablePolyEdgeTool {.
     constructor, importcpp: "HLRTest_DrawablePolyEdgeTool(@)",
     header: "HLRTest_DrawablePolyEdgeTool.hxx".}
-proc show*(this: var HLRTestDrawablePolyEdgeTool) {.importcpp: "Show",
+proc Show*(this: var HLRTest_DrawablePolyEdgeTool) {.importcpp: "Show",
     header: "HLRTest_DrawablePolyEdgeTool.hxx".}
-proc hide*(this: var HLRTestDrawablePolyEdgeTool) {.importcpp: "Hide",
+proc Hide*(this: var HLRTest_DrawablePolyEdgeTool) {.importcpp: "Hide",
     header: "HLRTest_DrawablePolyEdgeTool.hxx".}
-proc displayRg1Line*(this: var HLRTestDrawablePolyEdgeTool; b: StandardBoolean) {.
+proc DisplayRg1Line*(this: var HLRTest_DrawablePolyEdgeTool; B: Standard_Boolean) {.
     importcpp: "DisplayRg1Line", header: "HLRTest_DrawablePolyEdgeTool.hxx".}
-proc displayRg1Line*(this: HLRTestDrawablePolyEdgeTool): StandardBoolean {.
+proc DisplayRg1Line*(this: HLRTest_DrawablePolyEdgeTool): Standard_Boolean {.
     noSideEffect, importcpp: "DisplayRg1Line",
     header: "HLRTest_DrawablePolyEdgeTool.hxx".}
-proc displayRgNLine*(this: var HLRTestDrawablePolyEdgeTool; b: StandardBoolean) {.
+proc DisplayRgNLine*(this: var HLRTest_DrawablePolyEdgeTool; B: Standard_Boolean) {.
     importcpp: "DisplayRgNLine", header: "HLRTest_DrawablePolyEdgeTool.hxx".}
-proc displayRgNLine*(this: HLRTestDrawablePolyEdgeTool): StandardBoolean {.
+proc DisplayRgNLine*(this: HLRTest_DrawablePolyEdgeTool): Standard_Boolean {.
     noSideEffect, importcpp: "DisplayRgNLine",
     header: "HLRTest_DrawablePolyEdgeTool.hxx".}
-proc displayHidden*(this: var HLRTestDrawablePolyEdgeTool; b: StandardBoolean) {.
+proc DisplayHidden*(this: var HLRTest_DrawablePolyEdgeTool; B: Standard_Boolean) {.
     importcpp: "DisplayHidden", header: "HLRTest_DrawablePolyEdgeTool.hxx".}
-proc displayHidden*(this: HLRTestDrawablePolyEdgeTool): StandardBoolean {.
+proc DisplayHidden*(this: HLRTest_DrawablePolyEdgeTool): Standard_Boolean {.
     noSideEffect, importcpp: "DisplayHidden",
     header: "HLRTest_DrawablePolyEdgeTool.hxx".}
-proc drawOn*(this: HLRTestDrawablePolyEdgeTool; d: var DrawDisplay) {.noSideEffect,
+proc DrawOn*(this: HLRTest_DrawablePolyEdgeTool; D: var Draw_Display) {.noSideEffect,
     importcpp: "DrawOn", header: "HLRTest_DrawablePolyEdgeTool.hxx".}
-proc debug*(this: HLRTestDrawablePolyEdgeTool): StandardBoolean {.noSideEffect,
+proc Debug*(this: HLRTest_DrawablePolyEdgeTool): Standard_Boolean {.noSideEffect,
     importcpp: "Debug", header: "HLRTest_DrawablePolyEdgeTool.hxx".}
-proc debug*(this: var HLRTestDrawablePolyEdgeTool; b: StandardBoolean) {.
+proc Debug*(this: var HLRTest_DrawablePolyEdgeTool; B: Standard_Boolean) {.
     importcpp: "Debug", header: "HLRTest_DrawablePolyEdgeTool.hxx".}
 type
-  HLRTestDrawablePolyEdgeToolbaseType* = DrawDrawable3D
+  HLRTest_DrawablePolyEdgeToolbase_type* = Draw_Drawable3D
 
-proc getTypeName*(): cstring {.importcpp: "HLRTest_DrawablePolyEdgeTool::get_type_name(@)",
-                            header: "HLRTest_DrawablePolyEdgeTool.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "HLRTest_DrawablePolyEdgeTool::get_type_name(@)",
+                              header: "HLRTest_DrawablePolyEdgeTool.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "HLRTest_DrawablePolyEdgeTool::get_type_descriptor(@)",
     header: "HLRTest_DrawablePolyEdgeTool.hxx".}
-proc dynamicType*(this: HLRTestDrawablePolyEdgeTool): Handle[StandardType] {.
+proc DynamicType*(this: HLRTest_DrawablePolyEdgeTool): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType",
     header: "HLRTest_DrawablePolyEdgeTool.hxx".}
-

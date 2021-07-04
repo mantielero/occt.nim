@@ -15,10 +15,16 @@
 
 ##  Use this macro to switch between STL and OCCT vector types
 
+import
+  ../Bnd/Bnd_Box, ../NCollection/NCollection_Mat4,
+  ../NCollection/NCollection_Vec2, ../NCollection/NCollection_Vec3,
+  ../NCollection/NCollection_Vector, ../Standard/Standard_OStream,
+  ../Standard/Standard_Type
+
 ##  GCC supports shrink function only in C++11 mode
 
-when defined(bvh_Use_Std_Vector) and defined(msc_Ver) and
-    not defined(intel_Compiler):
+when defined(_BVH_USE_STD_VECTOR_) and defined(_MSC_VER) and
+    not defined(__INTEL_COMPILER):
   discard
 ## ! Tool class for selecting appropriate vector type (Eigen or NCollection).
 ## ! \tparam T Numeric data type
@@ -38,16 +44,16 @@ type
 ## !!!Ignored construct:  template < class T > [end of template] struct VectorType < T , 3 > { typedef NCollection_Vec3 < T > Type ; } ;
 ## Error: identifier expected, but got: <!!!
 
-proc toBndBox*[T](theMin: T; theMax: T): BndBox =
+proc ToBndBox*[T](theMin: T; theMax: T): Bnd_Box =
   discard
 
-proc toBndBox*[T](theMin: NCollectionVec2[T]; theMax: NCollectionVec2[T]): BndBox =
+proc ToBndBox*[T](theMin: NCollection_Vec2[T]; theMax: NCollection_Vec2[T]): Bnd_Box =
   discard
 
-proc toBndBox*[T](theMin: NCollectionVec3[T]; theMax: NCollectionVec3[T]): BndBox =
+proc ToBndBox*[T](theMin: NCollection_Vec3[T]; theMax: NCollection_Vec3[T]): Bnd_Box =
   discard
 
-proc toBndBox*[T](theMin: NCollectionVec4[T]; theMax: NCollectionVec4[T]): BndBox =
+proc ToBndBox*[T](theMin: NCollection_Vec4[T]; theMax: NCollection_Vec4[T]): Bnd_Box =
   discard
 
 ## !!!Ignored construct:  template < class T > [end of template] struct VectorType < T , 4 > { typedef NCollection_Vec4 < T > Type ; } ;
@@ -76,121 +82,121 @@ type
 
 type
   VectorTypeVectorTypeVectorTypeVectorTypeMatrixTypeBVH_Vec2i* = Type[
-      StandardInteger, 2]
+      Standard_Integer, 2]
 
 ## ! 3D vector of integers.
 
 type
   VectorTypeVectorTypeVectorTypeVectorTypeMatrixTypeBVH_Vec3i* = Type[
-      StandardInteger, 3]
+      Standard_Integer, 3]
 
 ## ! 4D vector of integers.
 
 type
   VectorTypeVectorTypeVectorTypeVectorTypeMatrixTypeBVH_Vec4i* = Type[
-      StandardInteger, 4]
+      Standard_Integer, 4]
 
 ## ! Array of 2D vectors of integers.
 
 type
   VectorTypeVectorTypeVectorTypeVectorTypeMatrixTypeBVH_Array2i* = Type[
-      StandardInteger, 2]
+      Standard_Integer, 2]
 
 ## ! Array of 3D vectors of integers.
 
 type
   VectorTypeVectorTypeVectorTypeVectorTypeMatrixTypeBVH_Array3i* = Type[
-      StandardInteger, 3]
+      Standard_Integer, 3]
 
 ## ! Array of 4D vectors of integers.
 
 type
   VectorTypeVectorTypeVectorTypeVectorTypeMatrixTypeBVH_Array4i* = Type[
-      StandardInteger, 4]
+      Standard_Integer, 4]
 
 ## ! 2D vector of single precision reals.
 
 type
   VectorTypeVectorTypeVectorTypeVectorTypeMatrixTypeBVH_Vec2f* = Type[
-      StandardShortReal, 2]
+      Standard_ShortReal, 2]
 
 ## ! 3D vector of single precision reals.
 
 type
   VectorTypeVectorTypeVectorTypeVectorTypeMatrixTypeBVH_Vec3f* = Type[
-      StandardShortReal, 3]
+      Standard_ShortReal, 3]
 
 ## ! 4D vector of single precision reals.
 
 type
   VectorTypeVectorTypeVectorTypeVectorTypeMatrixTypeBVH_Vec4f* = Type[
-      StandardShortReal, 4]
+      Standard_ShortReal, 4]
 
 ## ! Array of 2D vectors of single precision reals.
 
 type
   VectorTypeVectorTypeVectorTypeVectorTypeMatrixTypeBVH_Array2f* = Type[
-      StandardShortReal, 2]
+      Standard_ShortReal, 2]
 
 ## ! Array of 3D vectors of single precision reals.
 
 type
   VectorTypeVectorTypeVectorTypeVectorTypeMatrixTypeBVH_Array3f* = Type[
-      StandardShortReal, 3]
+      Standard_ShortReal, 3]
 
 ## ! Array of 4D vectors of single precision reals.
 
 type
   VectorTypeVectorTypeVectorTypeVectorTypeMatrixTypeBVH_Array4f* = Type[
-      StandardShortReal, 4]
+      Standard_ShortReal, 4]
 
 ## ! 2D vector of double precision reals.
 
 type
   VectorTypeVectorTypeVectorTypeVectorTypeMatrixTypeBVH_Vec2d* = Type[
-      StandardReal, 2]
+      Standard_Real, 2]
 
 ## ! 3D vector of double precision reals.
 
 type
   VectorTypeVectorTypeVectorTypeVectorTypeMatrixTypeBVH_Vec3d* = Type[
-      StandardReal, 3]
+      Standard_Real, 3]
 
 ## ! 4D vector of double precision reals.
 
 type
   VectorTypeVectorTypeVectorTypeVectorTypeMatrixTypeBVH_Vec4d* = Type[
-      StandardReal, 4]
+      Standard_Real, 4]
 
 ## ! Array of 2D vectors of double precision reals.
 
 type
   VectorTypeVectorTypeVectorTypeVectorTypeMatrixTypeBVH_Array2d* = Type[
-      StandardReal, 2]
+      Standard_Real, 2]
 
 ## ! Array of 3D vectors of double precision reals.
 
 type
   VectorTypeVectorTypeVectorTypeVectorTypeMatrixTypeBVH_Array3d* = Type[
-      StandardReal, 3]
+      Standard_Real, 3]
 
 ## ! Array of 4D vectors of double precision reals.
 
 type
   VectorTypeVectorTypeVectorTypeVectorTypeMatrixTypeBVH_Array4d* = Type[
-      StandardReal, 4]
+      Standard_Real, 4]
 
 ## ! 4x4 matrix of single precision reals.
 
 type
   VectorTypeVectorTypeVectorTypeVectorTypeMatrixTypeBVH_Mat4f* = VectorTypeVectorTypeVectorTypeVectorTypeMatrixTypeType[
-      StandardShortReal, 4]
+      Standard_ShortReal, 4]
 
 ## ! 4x4 matrix of double precision reals.
 
 type
   VectorTypeVectorTypeVectorTypeVectorTypeMatrixTypeBVH_Mat4d* = VectorTypeVectorTypeVectorTypeVectorTypeMatrixTypeType[
-      StandardReal, 4]
+      Standard_Real, 4]
 
 ## ! Tool class for accessing specific vector component (by index).
 ## ! \tparam T Numeric data type
@@ -220,7 +226,5 @@ type
 ## ! effect in case of NCollection based array. static inline void Reserve ( BVH_ArrayNt & theArray , const Standard_Integer theCount ) { # [NewLine] if ( Size ( theArray ) == theCount ) { # [NewLine] # ( defined ( _MSC_VER ) && ( _MSC_VER < 1600 ) ) [NewLine] BVH_ArrayNt aTmpArray ( theArray ) ; theArray . swap ( aTmpArray ) ; # [NewLine] theArray . shrink_to_fit ( ) ; # [NewLine] # [NewLine] } else { theArray . reserve ( theCount ) ; } # [NewLine]  do nothing # [NewLine] } } ;
 ## Error: token expected: > [end of template] but got: =!!!
 
-proc intFloor*[T](theValue: T): StandardInteger =
+proc IntFloor*[T](theValue: T): Standard_Integer =
   discard
-
-

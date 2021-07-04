@@ -14,6 +14,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Draw/Draw_Interpretor,
+  ../Standard/Standard_OStream
+
 discard "forward decl of TDataXtd_Constraint"
 discard "forward decl of DDataStd_DrawPresentation"
 discard "forward decl of DDataStd_DrawDriver"
@@ -26,24 +31,23 @@ type
                                                                        ## attributes
 
 
-proc allCommands*(i: var DrawInterpretor) {.importcpp: "DDataStd::AllCommands(@)",
-                                        header: "DDataStd.hxx".}
-proc namedShapeCommands*(i: var DrawInterpretor) {.
+proc AllCommands*(I: var Draw_Interpretor) {.importcpp: "DDataStd::AllCommands(@)",
+    header: "DDataStd.hxx".}
+proc NamedShapeCommands*(I: var Draw_Interpretor) {.
     importcpp: "DDataStd::NamedShapeCommands(@)", header: "DDataStd.hxx".}
-proc basicCommands*(i: var DrawInterpretor) {.
+proc BasicCommands*(I: var Draw_Interpretor) {.
     importcpp: "DDataStd::BasicCommands(@)", header: "DDataStd.hxx".}
-proc datumCommands*(i: var DrawInterpretor) {.
+proc DatumCommands*(I: var Draw_Interpretor) {.
     importcpp: "DDataStd::DatumCommands(@)", header: "DDataStd.hxx".}
-proc constraintCommands*(i: var DrawInterpretor) {.
+proc ConstraintCommands*(I: var Draw_Interpretor) {.
     importcpp: "DDataStd::ConstraintCommands(@)", header: "DDataStd.hxx".}
-proc objectCommands*(i: var DrawInterpretor) {.
+proc ObjectCommands*(I: var Draw_Interpretor) {.
     importcpp: "DDataStd::ObjectCommands(@)", header: "DDataStd.hxx".}
-proc drawDisplayCommands*(i: var DrawInterpretor) {.
+proc DrawDisplayCommands*(I: var Draw_Interpretor) {.
     importcpp: "DDataStd::DrawDisplayCommands(@)", header: "DDataStd.hxx".}
-proc nameCommands*(i: var DrawInterpretor) {.importcpp: "DDataStd::NameCommands(@)",
-    header: "DDataStd.hxx".}
-proc treeCommands*(i: var DrawInterpretor) {.importcpp: "DDataStd::TreeCommands(@)",
-    header: "DDataStd.hxx".}
-proc dumpConstraint*(c: Handle[TDataXtdConstraint]; s: var StandardOStream) {.
+proc NameCommands*(I: var Draw_Interpretor) {.
+    importcpp: "DDataStd::NameCommands(@)", header: "DDataStd.hxx".}
+proc TreeCommands*(I: var Draw_Interpretor) {.
+    importcpp: "DDataStd::TreeCommands(@)", header: "DDataStd.hxx".}
+proc DumpConstraint*(C: handle[TDataXtd_Constraint]; S: var Standard_OStream) {.
     importcpp: "DDataStd::DumpConstraint(@)", header: "DDataStd.hxx".}
-

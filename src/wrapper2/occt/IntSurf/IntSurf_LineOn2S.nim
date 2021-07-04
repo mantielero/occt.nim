@@ -14,53 +14,58 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../Bnd/Bnd_Box,
+  ../Bnd/Bnd_Box2d, IntSurf_SequenceOfPntOn2S, ../Standard/Standard_Transient,
+  IntSurf_Allocator, ../Standard/Standard_Integer, ../Standard/Standard_Boolean,
+  ../Standard/Standard_Real
+
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of IntSurf_PntOn2S"
 discard "forward decl of IntSurf_LineOn2S"
 discard "forward decl of IntSurf_LineOn2S"
 type
-  HandleIntSurfLineOn2S* = Handle[IntSurfLineOn2S]
-  IntSurfLineOn2S* {.importcpp: "IntSurf_LineOn2S", header: "IntSurf_LineOn2S.hxx",
-                    bycopy.} = object of StandardTransient
+  Handle_IntSurf_LineOn2S* = handle[IntSurf_LineOn2S]
+  IntSurf_LineOn2S* {.importcpp: "IntSurf_LineOn2S",
+                     header: "IntSurf_LineOn2S.hxx", bycopy.} = object of Standard_Transient
 
 
-proc constructIntSurfLineOn2S*(theAllocator: IntSurfAllocator = 0): IntSurfLineOn2S {.
+proc constructIntSurf_LineOn2S*(theAllocator: IntSurf_Allocator = 0): IntSurf_LineOn2S {.
     constructor, importcpp: "IntSurf_LineOn2S(@)", header: "IntSurf_LineOn2S.hxx".}
-proc add*(this: var IntSurfLineOn2S; p: IntSurfPntOn2S) {.importcpp: "Add",
+proc Add*(this: var IntSurf_LineOn2S; P: IntSurf_PntOn2S) {.importcpp: "Add",
     header: "IntSurf_LineOn2S.hxx".}
-proc nbPoints*(this: IntSurfLineOn2S): StandardInteger {.noSideEffect,
+proc NbPoints*(this: IntSurf_LineOn2S): Standard_Integer {.noSideEffect,
     importcpp: "NbPoints", header: "IntSurf_LineOn2S.hxx".}
-proc value*(this: IntSurfLineOn2S; index: StandardInteger): IntSurfPntOn2S {.
+proc Value*(this: IntSurf_LineOn2S; Index: Standard_Integer): IntSurf_PntOn2S {.
     noSideEffect, importcpp: "Value", header: "IntSurf_LineOn2S.hxx".}
-proc reverse*(this: var IntSurfLineOn2S) {.importcpp: "Reverse",
-                                       header: "IntSurf_LineOn2S.hxx".}
-proc split*(this: var IntSurfLineOn2S; index: StandardInteger): Handle[IntSurfLineOn2S] {.
-    importcpp: "Split", header: "IntSurf_LineOn2S.hxx".}
-proc value*(this: var IntSurfLineOn2S; index: StandardInteger; p: IntSurfPntOn2S) {.
+proc Reverse*(this: var IntSurf_LineOn2S) {.importcpp: "Reverse",
+                                        header: "IntSurf_LineOn2S.hxx".}
+proc Split*(this: var IntSurf_LineOn2S; Index: Standard_Integer): handle[
+    IntSurf_LineOn2S] {.importcpp: "Split", header: "IntSurf_LineOn2S.hxx".}
+proc Value*(this: var IntSurf_LineOn2S; Index: Standard_Integer; P: IntSurf_PntOn2S) {.
     importcpp: "Value", header: "IntSurf_LineOn2S.hxx".}
-proc setUV*(this: var IntSurfLineOn2S; index: StandardInteger;
-           onFirst: StandardBoolean; u: StandardReal; v: StandardReal) {.
+proc SetUV*(this: var IntSurf_LineOn2S; Index: Standard_Integer;
+           OnFirst: Standard_Boolean; U: Standard_Real; V: Standard_Real) {.
     importcpp: "SetUV", header: "IntSurf_LineOn2S.hxx".}
-proc clear*(this: var IntSurfLineOn2S) {.importcpp: "Clear",
-                                     header: "IntSurf_LineOn2S.hxx".}
-proc insertBefore*(this: var IntSurfLineOn2S; i: StandardInteger; p: IntSurfPntOn2S) {.
+proc Clear*(this: var IntSurf_LineOn2S) {.importcpp: "Clear",
+                                      header: "IntSurf_LineOn2S.hxx".}
+proc InsertBefore*(this: var IntSurf_LineOn2S; I: Standard_Integer; P: IntSurf_PntOn2S) {.
     importcpp: "InsertBefore", header: "IntSurf_LineOn2S.hxx".}
-proc removePoint*(this: var IntSurfLineOn2S; i: StandardInteger) {.
+proc RemovePoint*(this: var IntSurf_LineOn2S; I: Standard_Integer) {.
     importcpp: "RemovePoint", header: "IntSurf_LineOn2S.hxx".}
-proc isOutSurf1Box*(this: var IntSurfLineOn2S; theP: GpPnt2d): StandardBoolean {.
+proc IsOutSurf1Box*(this: var IntSurf_LineOn2S; theP: gp_Pnt2d): Standard_Boolean {.
     importcpp: "IsOutSurf1Box", header: "IntSurf_LineOn2S.hxx".}
-proc isOutSurf2Box*(this: var IntSurfLineOn2S; theP: GpPnt2d): StandardBoolean {.
+proc IsOutSurf2Box*(this: var IntSurf_LineOn2S; theP: gp_Pnt2d): Standard_Boolean {.
     importcpp: "IsOutSurf2Box", header: "IntSurf_LineOn2S.hxx".}
-proc isOutBox*(this: var IntSurfLineOn2S; theP: GpPnt): StandardBoolean {.
+proc IsOutBox*(this: var IntSurf_LineOn2S; theP: gp_Pnt): Standard_Boolean {.
     importcpp: "IsOutBox", header: "IntSurf_LineOn2S.hxx".}
 type
-  IntSurfLineOn2SbaseType* = StandardTransient
+  IntSurf_LineOn2Sbase_type* = Standard_Transient
 
-proc getTypeName*(): cstring {.importcpp: "IntSurf_LineOn2S::get_type_name(@)",
-                            header: "IntSurf_LineOn2S.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "IntSurf_LineOn2S::get_type_name(@)",
+                              header: "IntSurf_LineOn2S.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "IntSurf_LineOn2S::get_type_descriptor(@)",
     header: "IntSurf_LineOn2S.hxx".}
-proc dynamicType*(this: IntSurfLineOn2S): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: IntSurf_LineOn2S): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "IntSurf_LineOn2S.hxx".}
-

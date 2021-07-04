@@ -14,6 +14,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../gp/gp_Dir, Geom_AxisPlacement
+
 discard "forward decl of Standard_ConstructionError"
 discard "forward decl of gp_Ax2"
 discard "forward decl of gp_Pnt"
@@ -23,7 +26,7 @@ discard "forward decl of Geom_Geometry"
 discard "forward decl of Geom_Axis2Placement"
 discard "forward decl of Geom_Axis2Placement"
 type
-  HandleGeomAxis2Placement* = Handle[GeomAxis2Placement]
+  Handle_Geom_Axis2Placement* = handle[Geom_Axis2Placement]
 
 ## ! Describes a right-handed coordinate system in 3D space.
 ## ! A coordinate system is defined by:
@@ -52,48 +55,47 @@ type
 ## ! several objects contained inside a common data structure.
 
 type
-  GeomAxis2Placement* {.importcpp: "Geom_Axis2Placement",
-                       header: "Geom_Axis2Placement.hxx", bycopy.} = object of GeomAxisPlacement ##
-                                                                                          ## !
-                                                                                          ## Returns
-                                                                                          ## a
-                                                                                          ## transient
-                                                                                          ## copy
-                                                                                          ## of
-                                                                                          ## A2.
+  Geom_Axis2Placement* {.importcpp: "Geom_Axis2Placement",
+                        header: "Geom_Axis2Placement.hxx", bycopy.} = object of Geom_AxisPlacement ##
+                                                                                            ## !
+                                                                                            ## Returns
+                                                                                            ## a
+                                                                                            ## transient
+                                                                                            ## copy
+                                                                                            ## of
+                                                                                            ## A2.
 
 
-proc constructGeomAxis2Placement*(a2: GpAx2): GeomAxis2Placement {.constructor,
+proc constructGeom_Axis2Placement*(A2: gp_Ax2): Geom_Axis2Placement {.constructor,
     importcpp: "Geom_Axis2Placement(@)", header: "Geom_Axis2Placement.hxx".}
-proc constructGeomAxis2Placement*(p: GpPnt; n: GpDir; vx: GpDir): GeomAxis2Placement {.
+proc constructGeom_Axis2Placement*(P: gp_Pnt; N: gp_Dir; Vx: gp_Dir): Geom_Axis2Placement {.
     constructor, importcpp: "Geom_Axis2Placement(@)",
     header: "Geom_Axis2Placement.hxx".}
-proc setAx2*(this: var GeomAxis2Placement; a2: GpAx2) {.importcpp: "SetAx2",
+proc SetAx2*(this: var Geom_Axis2Placement; A2: gp_Ax2) {.importcpp: "SetAx2",
     header: "Geom_Axis2Placement.hxx".}
-proc setDirection*(this: var GeomAxis2Placement; v: GpDir) {.
+proc SetDirection*(this: var Geom_Axis2Placement; V: gp_Dir) {.
     importcpp: "SetDirection", header: "Geom_Axis2Placement.hxx".}
-proc setXDirection*(this: var GeomAxis2Placement; vx: GpDir) {.
+proc SetXDirection*(this: var Geom_Axis2Placement; Vx: gp_Dir) {.
     importcpp: "SetXDirection", header: "Geom_Axis2Placement.hxx".}
-proc setYDirection*(this: var GeomAxis2Placement; vy: GpDir) {.
+proc SetYDirection*(this: var Geom_Axis2Placement; Vy: gp_Dir) {.
     importcpp: "SetYDirection", header: "Geom_Axis2Placement.hxx".}
-proc ax2*(this: GeomAxis2Placement): GpAx2 {.noSideEffect, importcpp: "Ax2",
+proc Ax2*(this: Geom_Axis2Placement): gp_Ax2 {.noSideEffect, importcpp: "Ax2",
     header: "Geom_Axis2Placement.hxx".}
-proc xDirection*(this: GeomAxis2Placement): GpDir {.noSideEffect,
+proc XDirection*(this: Geom_Axis2Placement): gp_Dir {.noSideEffect,
     importcpp: "XDirection", header: "Geom_Axis2Placement.hxx".}
-proc yDirection*(this: GeomAxis2Placement): GpDir {.noSideEffect,
+proc YDirection*(this: Geom_Axis2Placement): gp_Dir {.noSideEffect,
     importcpp: "YDirection", header: "Geom_Axis2Placement.hxx".}
-proc transform*(this: var GeomAxis2Placement; t: GpTrsf) {.importcpp: "Transform",
+proc Transform*(this: var Geom_Axis2Placement; T: gp_Trsf) {.importcpp: "Transform",
     header: "Geom_Axis2Placement.hxx".}
-proc copy*(this: GeomAxis2Placement): Handle[GeomGeometry] {.noSideEffect,
+proc Copy*(this: Geom_Axis2Placement): handle[Geom_Geometry] {.noSideEffect,
     importcpp: "Copy", header: "Geom_Axis2Placement.hxx".}
 type
-  GeomAxis2PlacementbaseType* = GeomAxisPlacement
+  Geom_Axis2Placementbase_type* = Geom_AxisPlacement
 
-proc getTypeName*(): cstring {.importcpp: "Geom_Axis2Placement::get_type_name(@)",
-                            header: "Geom_Axis2Placement.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "Geom_Axis2Placement::get_type_name(@)",
+                              header: "Geom_Axis2Placement.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "Geom_Axis2Placement::get_type_descriptor(@)",
     header: "Geom_Axis2Placement.hxx".}
-proc dynamicType*(this: GeomAxis2Placement): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: Geom_Axis2Placement): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "Geom_Axis2Placement.hxx".}
-

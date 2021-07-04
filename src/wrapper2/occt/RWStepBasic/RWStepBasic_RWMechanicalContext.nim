@@ -14,29 +14,32 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepBasic_MechanicalContext"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepBasicRWMechanicalContext* {.importcpp: "RWStepBasic_RWMechanicalContext", header: "RWStepBasic_RWMechanicalContext.hxx",
-                                   bycopy.} = object
+  RWStepBasic_RWMechanicalContext* {.importcpp: "RWStepBasic_RWMechanicalContext", header: "RWStepBasic_RWMechanicalContext.hxx",
+                                    bycopy.} = object
 
 
-proc constructRWStepBasicRWMechanicalContext*(): RWStepBasicRWMechanicalContext {.
+proc constructRWStepBasic_RWMechanicalContext*(): RWStepBasic_RWMechanicalContext {.
     constructor, importcpp: "RWStepBasic_RWMechanicalContext(@)",
     header: "RWStepBasic_RWMechanicalContext.hxx".}
-proc readStep*(this: RWStepBasicRWMechanicalContext;
-              data: Handle[StepDataStepReaderData]; num: StandardInteger;
-              ach: var Handle[InterfaceCheck];
-              ent: Handle[StepBasicMechanicalContext]) {.noSideEffect,
+proc ReadStep*(this: RWStepBasic_RWMechanicalContext;
+              data: handle[StepData_StepReaderData]; num: Standard_Integer;
+              ach: var handle[Interface_Check];
+              ent: handle[StepBasic_MechanicalContext]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepBasic_RWMechanicalContext.hxx".}
-proc writeStep*(this: RWStepBasicRWMechanicalContext; sw: var StepDataStepWriter;
-               ent: Handle[StepBasicMechanicalContext]) {.noSideEffect,
+proc WriteStep*(this: RWStepBasic_RWMechanicalContext; SW: var StepData_StepWriter;
+               ent: handle[StepBasic_MechanicalContext]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepBasic_RWMechanicalContext.hxx".}
-proc share*(this: RWStepBasicRWMechanicalContext;
-           ent: Handle[StepBasicMechanicalContext];
-           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
+proc Share*(this: RWStepBasic_RWMechanicalContext;
+           ent: handle[StepBasic_MechanicalContext];
+           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepBasic_RWMechanicalContext.hxx".}
-

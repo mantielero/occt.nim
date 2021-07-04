@@ -14,6 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, IFSelect_SelectExtract,
+  ../Standard/Standard_Boolean, ../Standard/Standard_Integer
+
 discard "forward decl of IFSelect_IntParam"
 discard "forward decl of Standard_DomainError"
 discard "forward decl of Standard_Transient"
@@ -22,64 +26,63 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of IFSelect_SelectRange"
 discard "forward decl of IFSelect_SelectRange"
 type
-  HandleIFSelectSelectRange* = Handle[IFSelectSelectRange]
+  Handle_IFSelect_SelectRange* = handle[IFSelect_SelectRange]
 
 ## ! A SelectRange keeps or rejects a sub-set of the input set,
 ## ! that is the Entities of which rank in the iteration list
 ## ! is in a given range (for instance form 2nd to 6th, etc...)
 
 type
-  IFSelectSelectRange* {.importcpp: "IFSelect_SelectRange",
-                        header: "IFSelect_SelectRange.hxx", bycopy.} = object of IFSelectSelectExtract ##
-                                                                                                ## !
-                                                                                                ## Creates
-                                                                                                ## a
-                                                                                                ## SelectRange.
-                                                                                                ## Default
-                                                                                                ## is
-                                                                                                ## Take
-                                                                                                ## all
-                                                                                                ## the
-                                                                                                ## input
-                                                                                                ## list
+  IFSelect_SelectRange* {.importcpp: "IFSelect_SelectRange",
+                         header: "IFSelect_SelectRange.hxx", bycopy.} = object of IFSelect_SelectExtract ##
+                                                                                                  ## !
+                                                                                                  ## Creates
+                                                                                                  ## a
+                                                                                                  ## SelectRange.
+                                                                                                  ## Default
+                                                                                                  ## is
+                                                                                                  ## Take
+                                                                                                  ## all
+                                                                                                  ## the
+                                                                                                  ## input
+                                                                                                  ## list
 
 
-proc constructIFSelectSelectRange*(): IFSelectSelectRange {.constructor,
+proc constructIFSelect_SelectRange*(): IFSelect_SelectRange {.constructor,
     importcpp: "IFSelect_SelectRange(@)", header: "IFSelect_SelectRange.hxx".}
-proc setRange*(this: var IFSelectSelectRange; rankfrom: Handle[IFSelectIntParam];
-              rankto: Handle[IFSelectIntParam]) {.importcpp: "SetRange",
+proc SetRange*(this: var IFSelect_SelectRange; rankfrom: handle[IFSelect_IntParam];
+              rankto: handle[IFSelect_IntParam]) {.importcpp: "SetRange",
     header: "IFSelect_SelectRange.hxx".}
-proc setOne*(this: var IFSelectSelectRange; rank: Handle[IFSelectIntParam]) {.
+proc SetOne*(this: var IFSelect_SelectRange; rank: handle[IFSelect_IntParam]) {.
     importcpp: "SetOne", header: "IFSelect_SelectRange.hxx".}
-proc setFrom*(this: var IFSelectSelectRange; rankfrom: Handle[IFSelectIntParam]) {.
+proc SetFrom*(this: var IFSelect_SelectRange; rankfrom: handle[IFSelect_IntParam]) {.
     importcpp: "SetFrom", header: "IFSelect_SelectRange.hxx".}
-proc setUntil*(this: var IFSelectSelectRange; rankto: Handle[IFSelectIntParam]) {.
+proc SetUntil*(this: var IFSelect_SelectRange; rankto: handle[IFSelect_IntParam]) {.
     importcpp: "SetUntil", header: "IFSelect_SelectRange.hxx".}
-proc hasLower*(this: IFSelectSelectRange): StandardBoolean {.noSideEffect,
+proc HasLower*(this: IFSelect_SelectRange): Standard_Boolean {.noSideEffect,
     importcpp: "HasLower", header: "IFSelect_SelectRange.hxx".}
-proc lower*(this: IFSelectSelectRange): Handle[IFSelectIntParam] {.noSideEffect,
+proc Lower*(this: IFSelect_SelectRange): handle[IFSelect_IntParam] {.noSideEffect,
     importcpp: "Lower", header: "IFSelect_SelectRange.hxx".}
-proc lowerValue*(this: IFSelectSelectRange): StandardInteger {.noSideEffect,
+proc LowerValue*(this: IFSelect_SelectRange): Standard_Integer {.noSideEffect,
     importcpp: "LowerValue", header: "IFSelect_SelectRange.hxx".}
-proc hasUpper*(this: IFSelectSelectRange): StandardBoolean {.noSideEffect,
+proc HasUpper*(this: IFSelect_SelectRange): Standard_Boolean {.noSideEffect,
     importcpp: "HasUpper", header: "IFSelect_SelectRange.hxx".}
-proc upper*(this: IFSelectSelectRange): Handle[IFSelectIntParam] {.noSideEffect,
+proc Upper*(this: IFSelect_SelectRange): handle[IFSelect_IntParam] {.noSideEffect,
     importcpp: "Upper", header: "IFSelect_SelectRange.hxx".}
-proc upperValue*(this: IFSelectSelectRange): StandardInteger {.noSideEffect,
+proc UpperValue*(this: IFSelect_SelectRange): Standard_Integer {.noSideEffect,
     importcpp: "UpperValue", header: "IFSelect_SelectRange.hxx".}
-proc sort*(this: IFSelectSelectRange; rank: StandardInteger;
-          ent: Handle[StandardTransient]; model: Handle[InterfaceInterfaceModel]): StandardBoolean {.
+proc Sort*(this: IFSelect_SelectRange; rank: Standard_Integer;
+          ent: handle[Standard_Transient]; model: handle[Interface_InterfaceModel]): Standard_Boolean {.
     noSideEffect, importcpp: "Sort", header: "IFSelect_SelectRange.hxx".}
-proc extractLabel*(this: IFSelectSelectRange): TCollectionAsciiString {.
+proc ExtractLabel*(this: IFSelect_SelectRange): TCollection_AsciiString {.
     noSideEffect, importcpp: "ExtractLabel", header: "IFSelect_SelectRange.hxx".}
 type
-  IFSelectSelectRangebaseType* = IFSelectSelectExtract
+  IFSelect_SelectRangebase_type* = IFSelect_SelectExtract
 
-proc getTypeName*(): cstring {.importcpp: "IFSelect_SelectRange::get_type_name(@)",
-                            header: "IFSelect_SelectRange.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "IFSelect_SelectRange::get_type_name(@)",
+                              header: "IFSelect_SelectRange.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "IFSelect_SelectRange::get_type_descriptor(@)",
     header: "IFSelect_SelectRange.hxx".}
-proc dynamicType*(this: IFSelectSelectRange): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: IFSelect_SelectRange): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "IFSelect_SelectRange.hxx".}
-

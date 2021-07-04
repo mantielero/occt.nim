@@ -14,6 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Draw/Draw_Interpretor
+
 ## ! this  package  provides  elementary commands for  curves  and
 ## ! surface.
 
@@ -26,16 +30,15 @@ type
                                                                                    ## commands.
 
 
-proc allCommands*(i: var DrawInterpretor) {.importcpp: "GeomliteTest::AllCommands(@)",
-                                        header: "GeomliteTest.hxx".}
-proc curveCommands*(i: var DrawInterpretor) {.
+proc AllCommands*(I: var Draw_Interpretor) {.
+    importcpp: "GeomliteTest::AllCommands(@)", header: "GeomliteTest.hxx".}
+proc CurveCommands*(I: var Draw_Interpretor) {.
     importcpp: "GeomliteTest::CurveCommands(@)", header: "GeomliteTest.hxx".}
-proc surfaceCommands*(i: var DrawInterpretor) {.
+proc SurfaceCommands*(I: var Draw_Interpretor) {.
     importcpp: "GeomliteTest::SurfaceCommands(@)", header: "GeomliteTest.hxx".}
-proc aPI2dCommands*(i: var DrawInterpretor) {.
+proc API2dCommands*(I: var Draw_Interpretor) {.
     importcpp: "GeomliteTest::API2dCommands(@)", header: "GeomliteTest.hxx".}
-proc approxCommands*(i: var DrawInterpretor) {.
+proc ApproxCommands*(I: var Draw_Interpretor) {.
     importcpp: "GeomliteTest::ApproxCommands(@)", header: "GeomliteTest.hxx".}
-proc modificationCommands*(i: var DrawInterpretor) {.
+proc ModificationCommands*(I: var Draw_Interpretor) {.
     importcpp: "GeomliteTest::ModificationCommands(@)", header: "GeomliteTest.hxx".}
-

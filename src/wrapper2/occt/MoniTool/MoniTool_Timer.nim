@@ -13,11 +13,17 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../OSD/OSD_Timer,
+  ../Standard/Standard_Integer, ../Standard/Standard_Real,
+  ../Standard/Standard_Transient, ../Standard/Standard_OStream,
+  ../Standard/Standard_CString, MoniTool_DataMapOfTimer
+
 discard "forward decl of OSD_Timer"
 discard "forward decl of MoniTool_Timer"
 discard "forward decl of MoniTool_Timer"
 type
-  HandleMoniToolTimer* = Handle[MoniToolTimer]
+  Handle_MoniTool_Timer* = handle[MoniTool_Timer]
 
 ## ! Provides convenient service on global timers
 ## ! accessed by string name, mostly aimed for debugging purposes
@@ -28,61 +34,60 @@ type
 ## ! and provides static methods to easily access them
 
 type
-  MoniToolTimer* {.importcpp: "MoniTool_Timer", header: "MoniTool_Timer.hxx", bycopy.} = object of StandardTransient ##
-                                                                                                           ## !
-                                                                                                           ## Create
-                                                                                                           ## timer
-                                                                                                           ## in
-                                                                                                           ## empty
-                                                                                                           ## state
+  MoniTool_Timer* {.importcpp: "MoniTool_Timer", header: "MoniTool_Timer.hxx", bycopy.} = object of Standard_Transient ##
+                                                                                                             ## !
+                                                                                                             ## Create
+                                                                                                             ## timer
+                                                                                                             ## in
+                                                                                                             ## empty
+                                                                                                             ## state
 
 
-proc constructMoniToolTimer*(): MoniToolTimer {.constructor,
+proc constructMoniTool_Timer*(): MoniTool_Timer {.constructor,
     importcpp: "MoniTool_Timer(@)", header: "MoniTool_Timer.hxx".}
-proc timer*(this: MoniToolTimer): OSD_Timer {.noSideEffect, importcpp: "Timer",
+proc Timer*(this: MoniTool_Timer): OSD_Timer {.noSideEffect, importcpp: "Timer",
     header: "MoniTool_Timer.hxx".}
-proc timer*(this: var MoniToolTimer): var OSD_Timer {.importcpp: "Timer",
+proc Timer*(this: var MoniTool_Timer): var OSD_Timer {.importcpp: "Timer",
     header: "MoniTool_Timer.hxx".}
-proc start*(this: var MoniToolTimer) {.importcpp: "Start",
-                                   header: "MoniTool_Timer.hxx".}
-proc stop*(this: var MoniToolTimer) {.importcpp: "Stop", header: "MoniTool_Timer.hxx".}
-proc reset*(this: var MoniToolTimer) {.importcpp: "Reset",
-                                   header: "MoniTool_Timer.hxx".}
-proc count*(this: MoniToolTimer): StandardInteger {.noSideEffect, importcpp: "Count",
-    header: "MoniTool_Timer.hxx".}
-proc isRunning*(this: MoniToolTimer): StandardInteger {.noSideEffect,
+proc Start*(this: var MoniTool_Timer) {.importcpp: "Start",
+                                    header: "MoniTool_Timer.hxx".}
+proc Stop*(this: var MoniTool_Timer) {.importcpp: "Stop", header: "MoniTool_Timer.hxx".}
+proc Reset*(this: var MoniTool_Timer) {.importcpp: "Reset",
+                                    header: "MoniTool_Timer.hxx".}
+proc Count*(this: MoniTool_Timer): Standard_Integer {.noSideEffect,
+    importcpp: "Count", header: "MoniTool_Timer.hxx".}
+proc IsRunning*(this: MoniTool_Timer): Standard_Integer {.noSideEffect,
     importcpp: "IsRunning", header: "MoniTool_Timer.hxx".}
-proc cpu*(this: var MoniToolTimer): StandardReal {.importcpp: "CPU",
+proc CPU*(this: var MoniTool_Timer): Standard_Real {.importcpp: "CPU",
     header: "MoniTool_Timer.hxx".}
-proc amend*(this: MoniToolTimer): StandardReal {.noSideEffect, importcpp: "Amend",
+proc Amend*(this: MoniTool_Timer): Standard_Real {.noSideEffect, importcpp: "Amend",
     header: "MoniTool_Timer.hxx".}
-proc dump*(this: var MoniToolTimer; ostr: var StandardOStream) {.importcpp: "Dump",
+proc Dump*(this: var MoniTool_Timer; ostr: var Standard_OStream) {.importcpp: "Dump",
     header: "MoniTool_Timer.hxx".}
-proc timer*(name: StandardCString): Handle[MoniToolTimer] {.
+proc Timer*(name: Standard_CString): handle[MoniTool_Timer] {.
     importcpp: "MoniTool_Timer::Timer(@)", header: "MoniTool_Timer.hxx".}
-proc start*(name: StandardCString) {.importcpp: "MoniTool_Timer::Start(@)",
+proc Start*(name: Standard_CString) {.importcpp: "MoniTool_Timer::Start(@)",
+                                   header: "MoniTool_Timer.hxx".}
+proc Stop*(name: Standard_CString) {.importcpp: "MoniTool_Timer::Stop(@)",
                                   header: "MoniTool_Timer.hxx".}
-proc stop*(name: StandardCString) {.importcpp: "MoniTool_Timer::Stop(@)",
-                                 header: "MoniTool_Timer.hxx".}
-proc dictionary*(): var MoniToolDataMapOfTimer {.
+proc Dictionary*(): var MoniTool_DataMapOfTimer {.
     importcpp: "MoniTool_Timer::Dictionary(@)", header: "MoniTool_Timer.hxx".}
-proc clearTimers*() {.importcpp: "MoniTool_Timer::ClearTimers(@)",
+proc ClearTimers*() {.importcpp: "MoniTool_Timer::ClearTimers(@)",
                     header: "MoniTool_Timer.hxx".}
-proc dumpTimers*(ostr: var StandardOStream) {.
+proc DumpTimers*(ostr: var Standard_OStream) {.
     importcpp: "MoniTool_Timer::DumpTimers(@)", header: "MoniTool_Timer.hxx".}
-proc computeAmendments*() {.importcpp: "MoniTool_Timer::ComputeAmendments(@)",
+proc ComputeAmendments*() {.importcpp: "MoniTool_Timer::ComputeAmendments(@)",
                           header: "MoniTool_Timer.hxx".}
-proc getAmendments*(access: var StandardReal; internal: var StandardReal;
-                   external: var StandardReal; error10: var StandardReal) {.
+proc GetAmendments*(Access: var Standard_Real; Internal: var Standard_Real;
+                   External: var Standard_Real; Error10: var Standard_Real) {.
     importcpp: "MoniTool_Timer::GetAmendments(@)", header: "MoniTool_Timer.hxx".}
 type
-  MoniToolTimerbaseType* = StandardTransient
+  MoniTool_Timerbase_type* = Standard_Transient
 
-proc getTypeName*(): cstring {.importcpp: "MoniTool_Timer::get_type_name(@)",
-                            header: "MoniTool_Timer.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "MoniTool_Timer::get_type_name(@)",
+                              header: "MoniTool_Timer.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "MoniTool_Timer::get_type_descriptor(@)",
     header: "MoniTool_Timer.hxx".}
-proc dynamicType*(this: MoniToolTimer): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: MoniTool_Timer): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "MoniTool_Timer.hxx".}
-

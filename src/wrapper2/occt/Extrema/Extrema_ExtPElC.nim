@@ -14,6 +14,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
+  ../Standard/Standard_Integer, ../Standard/Standard_Real, Extrema_POnCurv
+
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of gp_Pnt"
@@ -24,50 +29,49 @@ discard "forward decl of gp_Hypr"
 discard "forward decl of gp_Parab"
 discard "forward decl of Extrema_POnCurv"
 type
-  ExtremaExtPElC* {.importcpp: "Extrema_ExtPElC", header: "Extrema_ExtPElC.hxx",
-                   bycopy.} = object
+  Extrema_ExtPElC* {.importcpp: "Extrema_ExtPElC", header: "Extrema_ExtPElC.hxx",
+                    bycopy.} = object
 
 
-proc constructExtremaExtPElC*(): ExtremaExtPElC {.constructor,
+proc constructExtrema_ExtPElC*(): Extrema_ExtPElC {.constructor,
     importcpp: "Extrema_ExtPElC(@)", header: "Extrema_ExtPElC.hxx".}
-proc constructExtremaExtPElC*(p: GpPnt; c: GpLin; tol: StandardReal;
-                             uinf: StandardReal; usup: StandardReal): ExtremaExtPElC {.
+proc constructExtrema_ExtPElC*(P: gp_Pnt; C: gp_Lin; Tol: Standard_Real;
+                              Uinf: Standard_Real; Usup: Standard_Real): Extrema_ExtPElC {.
     constructor, importcpp: "Extrema_ExtPElC(@)", header: "Extrema_ExtPElC.hxx".}
-proc perform*(this: var ExtremaExtPElC; p: GpPnt; c: GpLin; tol: StandardReal;
-             uinf: StandardReal; usup: StandardReal) {.importcpp: "Perform",
+proc Perform*(this: var Extrema_ExtPElC; P: gp_Pnt; C: gp_Lin; Tol: Standard_Real;
+             Uinf: Standard_Real; Usup: Standard_Real) {.importcpp: "Perform",
     header: "Extrema_ExtPElC.hxx".}
-proc constructExtremaExtPElC*(p: GpPnt; c: GpCirc; tol: StandardReal;
-                             uinf: StandardReal; usup: StandardReal): ExtremaExtPElC {.
+proc constructExtrema_ExtPElC*(P: gp_Pnt; C: gp_Circ; Tol: Standard_Real;
+                              Uinf: Standard_Real; Usup: Standard_Real): Extrema_ExtPElC {.
     constructor, importcpp: "Extrema_ExtPElC(@)", header: "Extrema_ExtPElC.hxx".}
-proc perform*(this: var ExtremaExtPElC; p: GpPnt; c: GpCirc; tol: StandardReal;
-             uinf: StandardReal; usup: StandardReal) {.importcpp: "Perform",
+proc Perform*(this: var Extrema_ExtPElC; P: gp_Pnt; C: gp_Circ; Tol: Standard_Real;
+             Uinf: Standard_Real; Usup: Standard_Real) {.importcpp: "Perform",
     header: "Extrema_ExtPElC.hxx".}
-proc constructExtremaExtPElC*(p: GpPnt; c: GpElips; tol: StandardReal;
-                             uinf: StandardReal; usup: StandardReal): ExtremaExtPElC {.
+proc constructExtrema_ExtPElC*(P: gp_Pnt; C: gp_Elips; Tol: Standard_Real;
+                              Uinf: Standard_Real; Usup: Standard_Real): Extrema_ExtPElC {.
     constructor, importcpp: "Extrema_ExtPElC(@)", header: "Extrema_ExtPElC.hxx".}
-proc perform*(this: var ExtremaExtPElC; p: GpPnt; c: GpElips; tol: StandardReal;
-             uinf: StandardReal; usup: StandardReal) {.importcpp: "Perform",
+proc Perform*(this: var Extrema_ExtPElC; P: gp_Pnt; C: gp_Elips; Tol: Standard_Real;
+             Uinf: Standard_Real; Usup: Standard_Real) {.importcpp: "Perform",
     header: "Extrema_ExtPElC.hxx".}
-proc constructExtremaExtPElC*(p: GpPnt; c: GpHypr; tol: StandardReal;
-                             uinf: StandardReal; usup: StandardReal): ExtremaExtPElC {.
+proc constructExtrema_ExtPElC*(P: gp_Pnt; C: gp_Hypr; Tol: Standard_Real;
+                              Uinf: Standard_Real; Usup: Standard_Real): Extrema_ExtPElC {.
     constructor, importcpp: "Extrema_ExtPElC(@)", header: "Extrema_ExtPElC.hxx".}
-proc perform*(this: var ExtremaExtPElC; p: GpPnt; c: GpHypr; tol: StandardReal;
-             uinf: StandardReal; usup: StandardReal) {.importcpp: "Perform",
+proc Perform*(this: var Extrema_ExtPElC; P: gp_Pnt; C: gp_Hypr; Tol: Standard_Real;
+             Uinf: Standard_Real; Usup: Standard_Real) {.importcpp: "Perform",
     header: "Extrema_ExtPElC.hxx".}
-proc constructExtremaExtPElC*(p: GpPnt; c: GpParab; tol: StandardReal;
-                             uinf: StandardReal; usup: StandardReal): ExtremaExtPElC {.
+proc constructExtrema_ExtPElC*(P: gp_Pnt; C: gp_Parab; Tol: Standard_Real;
+                              Uinf: Standard_Real; Usup: Standard_Real): Extrema_ExtPElC {.
     constructor, importcpp: "Extrema_ExtPElC(@)", header: "Extrema_ExtPElC.hxx".}
-proc perform*(this: var ExtremaExtPElC; p: GpPnt; c: GpParab; tol: StandardReal;
-             uinf: StandardReal; usup: StandardReal) {.importcpp: "Perform",
+proc Perform*(this: var Extrema_ExtPElC; P: gp_Pnt; C: gp_Parab; Tol: Standard_Real;
+             Uinf: Standard_Real; Usup: Standard_Real) {.importcpp: "Perform",
     header: "Extrema_ExtPElC.hxx".}
-proc isDone*(this: ExtremaExtPElC): StandardBoolean {.noSideEffect,
+proc IsDone*(this: Extrema_ExtPElC): Standard_Boolean {.noSideEffect,
     importcpp: "IsDone", header: "Extrema_ExtPElC.hxx".}
-proc nbExt*(this: ExtremaExtPElC): StandardInteger {.noSideEffect,
+proc NbExt*(this: Extrema_ExtPElC): Standard_Integer {.noSideEffect,
     importcpp: "NbExt", header: "Extrema_ExtPElC.hxx".}
-proc squareDistance*(this: ExtremaExtPElC; n: StandardInteger): StandardReal {.
+proc SquareDistance*(this: Extrema_ExtPElC; N: Standard_Integer): Standard_Real {.
     noSideEffect, importcpp: "SquareDistance", header: "Extrema_ExtPElC.hxx".}
-proc isMin*(this: ExtremaExtPElC; n: StandardInteger): StandardBoolean {.noSideEffect,
-    importcpp: "IsMin", header: "Extrema_ExtPElC.hxx".}
-proc point*(this: ExtremaExtPElC; n: StandardInteger): ExtremaPOnCurv {.noSideEffect,
-    importcpp: "Point", header: "Extrema_ExtPElC.hxx".}
-
+proc IsMin*(this: Extrema_ExtPElC; N: Standard_Integer): Standard_Boolean {.
+    noSideEffect, importcpp: "IsMin", header: "Extrema_ExtPElC.hxx".}
+proc Point*(this: Extrema_ExtPElC; N: Standard_Integer): Extrema_POnCurv {.
+    noSideEffect, importcpp: "Point", header: "Extrema_ExtPElC.hxx".}

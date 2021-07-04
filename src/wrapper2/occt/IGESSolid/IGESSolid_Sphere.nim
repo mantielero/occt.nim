@@ -14,40 +14,43 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Real,
+  ../gp/gp_XYZ, ../IGESData/IGESData_IGESEntity
+
 discard "forward decl of gp_XYZ"
 discard "forward decl of gp_Pnt"
 discard "forward decl of IGESSolid_Sphere"
 discard "forward decl of IGESSolid_Sphere"
 type
-  HandleIGESSolidSphere* = Handle[IGESSolidSphere]
+  Handle_IGESSolid_Sphere* = handle[IGESSolid_Sphere]
 
 ## ! defines Sphere, Type <158> Form Number <0>
 ## ! in package IGESSolid
 ## ! This defines a sphere with a center and radius
 
 type
-  IGESSolidSphere* {.importcpp: "IGESSolid_Sphere", header: "IGESSolid_Sphere.hxx",
-                    bycopy.} = object of IGESDataIGESEntity
+  IGESSolid_Sphere* {.importcpp: "IGESSolid_Sphere",
+                     header: "IGESSolid_Sphere.hxx", bycopy.} = object of IGESData_IGESEntity
 
 
-proc constructIGESSolidSphere*(): IGESSolidSphere {.constructor,
+proc constructIGESSolid_Sphere*(): IGESSolid_Sphere {.constructor,
     importcpp: "IGESSolid_Sphere(@)", header: "IGESSolid_Sphere.hxx".}
-proc init*(this: var IGESSolidSphere; aRadius: StandardReal; aCenter: GpXYZ) {.
+proc Init*(this: var IGESSolid_Sphere; aRadius: Standard_Real; aCenter: gp_XYZ) {.
     importcpp: "Init", header: "IGESSolid_Sphere.hxx".}
-proc radius*(this: IGESSolidSphere): StandardReal {.noSideEffect,
+proc Radius*(this: IGESSolid_Sphere): Standard_Real {.noSideEffect,
     importcpp: "Radius", header: "IGESSolid_Sphere.hxx".}
-proc center*(this: IGESSolidSphere): GpPnt {.noSideEffect, importcpp: "Center",
+proc Center*(this: IGESSolid_Sphere): gp_Pnt {.noSideEffect, importcpp: "Center",
     header: "IGESSolid_Sphere.hxx".}
-proc transformedCenter*(this: IGESSolidSphere): GpPnt {.noSideEffect,
+proc TransformedCenter*(this: IGESSolid_Sphere): gp_Pnt {.noSideEffect,
     importcpp: "TransformedCenter", header: "IGESSolid_Sphere.hxx".}
 type
-  IGESSolidSpherebaseType* = IGESDataIGESEntity
+  IGESSolid_Spherebase_type* = IGESData_IGESEntity
 
-proc getTypeName*(): cstring {.importcpp: "IGESSolid_Sphere::get_type_name(@)",
-                            header: "IGESSolid_Sphere.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "IGESSolid_Sphere::get_type_name(@)",
+                              header: "IGESSolid_Sphere.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "IGESSolid_Sphere::get_type_descriptor(@)",
     header: "IGESSolid_Sphere.hxx".}
-proc dynamicType*(this: IGESSolidSphere): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: IGESSolid_Sphere): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "IGESSolid_Sphere.hxx".}
-

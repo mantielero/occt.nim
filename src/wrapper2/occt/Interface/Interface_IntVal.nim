@@ -14,32 +14,35 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Integer,
+  ../Standard/Standard_Transient
+
 discard "forward decl of Interface_IntVal"
 discard "forward decl of Interface_IntVal"
 type
-  HandleInterfaceIntVal* = Handle[InterfaceIntVal]
+  Handle_Interface_IntVal* = handle[Interface_IntVal]
 
 ## ! An Integer through a Handle (i.e. managed as TShared)
 
 type
-  InterfaceIntVal* {.importcpp: "Interface_IntVal", header: "Interface_IntVal.hxx",
-                    bycopy.} = object of StandardTransient
+  Interface_IntVal* {.importcpp: "Interface_IntVal",
+                     header: "Interface_IntVal.hxx", bycopy.} = object of Standard_Transient
 
 
-proc constructInterfaceIntVal*(): InterfaceIntVal {.constructor,
+proc constructInterface_IntVal*(): Interface_IntVal {.constructor,
     importcpp: "Interface_IntVal(@)", header: "Interface_IntVal.hxx".}
-proc value*(this: InterfaceIntVal): StandardInteger {.noSideEffect,
+proc Value*(this: Interface_IntVal): Standard_Integer {.noSideEffect,
     importcpp: "Value", header: "Interface_IntVal.hxx".}
-proc cValue*(this: var InterfaceIntVal): var StandardInteger {.importcpp: "CValue",
+proc CValue*(this: var Interface_IntVal): var Standard_Integer {.importcpp: "CValue",
     header: "Interface_IntVal.hxx".}
 type
-  InterfaceIntValbaseType* = StandardTransient
+  Interface_IntValbase_type* = Standard_Transient
 
-proc getTypeName*(): cstring {.importcpp: "Interface_IntVal::get_type_name(@)",
-                            header: "Interface_IntVal.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "Interface_IntVal::get_type_name(@)",
+                              header: "Interface_IntVal.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "Interface_IntVal::get_type_descriptor(@)",
     header: "Interface_IntVal.hxx".}
-proc dynamicType*(this: InterfaceIntVal): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: Interface_IntVal): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "Interface_IntVal.hxx".}
-

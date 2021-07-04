@@ -14,30 +14,32 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepBasic_ApprovalDateTime"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepBasicRWApprovalDateTime* {.importcpp: "RWStepBasic_RWApprovalDateTime",
-                                  header: "RWStepBasic_RWApprovalDateTime.hxx",
-                                  bycopy.} = object
+  RWStepBasic_RWApprovalDateTime* {.importcpp: "RWStepBasic_RWApprovalDateTime", header: "RWStepBasic_RWApprovalDateTime.hxx",
+                                   bycopy.} = object
 
 
-proc constructRWStepBasicRWApprovalDateTime*(): RWStepBasicRWApprovalDateTime {.
+proc constructRWStepBasic_RWApprovalDateTime*(): RWStepBasic_RWApprovalDateTime {.
     constructor, importcpp: "RWStepBasic_RWApprovalDateTime(@)",
     header: "RWStepBasic_RWApprovalDateTime.hxx".}
-proc readStep*(this: RWStepBasicRWApprovalDateTime;
-              data: Handle[StepDataStepReaderData]; num: StandardInteger;
-              ach: var Handle[InterfaceCheck];
-              ent: Handle[StepBasicApprovalDateTime]) {.noSideEffect,
+proc ReadStep*(this: RWStepBasic_RWApprovalDateTime;
+              data: handle[StepData_StepReaderData]; num: Standard_Integer;
+              ach: var handle[Interface_Check];
+              ent: handle[StepBasic_ApprovalDateTime]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepBasic_RWApprovalDateTime.hxx".}
-proc writeStep*(this: RWStepBasicRWApprovalDateTime; sw: var StepDataStepWriter;
-               ent: Handle[StepBasicApprovalDateTime]) {.noSideEffect,
+proc WriteStep*(this: RWStepBasic_RWApprovalDateTime; SW: var StepData_StepWriter;
+               ent: handle[StepBasic_ApprovalDateTime]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepBasic_RWApprovalDateTime.hxx".}
-proc share*(this: RWStepBasicRWApprovalDateTime;
-           ent: Handle[StepBasicApprovalDateTime];
-           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
+proc Share*(this: RWStepBasic_RWApprovalDateTime;
+           ent: handle[StepBasic_ApprovalDateTime];
+           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepBasic_RWApprovalDateTime.hxx".}
-

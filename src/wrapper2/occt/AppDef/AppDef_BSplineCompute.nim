@@ -14,6 +14,16 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../AppParCurves/AppParCurves_MultiBSpCurve,
+  ../Standard/Standard_Boolean, ../Approx/Approx_ParametrizationType,
+  ../TColStd/TColStd_HArray1OfReal, ../TColStd/TColStd_HArray1OfInteger,
+  ../AppParCurves/AppParCurves_HArray1OfConstraintCouple,
+  ../Standard/Standard_Integer, ../Standard/Standard_Real,
+  ../AppParCurves/AppParCurves_Constraint, ../math/math_Vector,
+  ../TColStd/TColStd_Array1OfReal, ../TColStd/TColStd_Array1OfInteger
+
 discard "forward decl of AppDef_MultiLine"
 discard "forward decl of AppDef_MyLineTool"
 discard "forward decl of AppDef_MyBSplGradientOfBSplineCompute"
@@ -28,123 +38,129 @@ discard "forward decl of AppDef_Gradient_BFGSOfMyGradientbisOfBSplineCompute"
 discard "forward decl of AppParCurves_MultiBSpCurve"
 discard "forward decl of AppParCurves_MultiCurve"
 type
-  AppDefBSplineCompute* {.importcpp: "AppDef_BSplineCompute",
-                         header: "AppDef_BSplineCompute.hxx", bycopy.} = object ## ! The
-                                                                           ## MultiLine
-                                                                           ## <Line> will be
-                                                                           ## approximated until
-                                                                           ## tolerances
-                                                                           ## ! will be
-                                                                           ## reached.
-                                                                           ## ! The
-                                                                           ## approximation will be done from
-                                                                           ## degreemin to
-                                                                           ## degreemax
-                                                                           ## ! with a
-                                                                           ## cutting if the
-                                                                           ## corresponding
-                                                                           ## boolean is True.
-                                                                           ## ! If
-                                                                           ## <Squares> is True, the
-                                                                           ## computation will be done with
-                                                                           ## ! no
-                                                                           ## iteration at all.
-                                                                           ## !
-                                                                           ## ! The
-                                                                           ## multiplicities of the
-                                                                           ## internal knots is set by
-                                                                           ## !
-                                                                           ## default.
-                                                                           ## ! is
-                                                                           ## internally used in the
-                                                                           ## algorithm.
+  AppDef_BSplineCompute* {.importcpp: "AppDef_BSplineCompute",
+                          header: "AppDef_BSplineCompute.hxx", bycopy.} = object ## ! The
+                                                                            ## MultiLine
+                                                                            ## <Line> will be
+                                                                            ## approximated
+                                                                            ## until
+                                                                            ## tolerances
+                                                                            ## ! will be
+                                                                            ## reached.
+                                                                            ## ! The
+                                                                            ## approximation will be done from
+                                                                            ## degreemin to
+                                                                            ## degreemax
+                                                                            ## ! with a
+                                                                            ## cutting if the
+                                                                            ## corresponding
+                                                                            ## boolean is
+                                                                            ## True.
+                                                                            ## ! If
+                                                                            ## <Squares> is
+                                                                            ## True, the
+                                                                            ## computation will be done with
+                                                                            ## ! no
+                                                                            ## iteration at all.
+                                                                            ## !
+                                                                            ## ! The
+                                                                            ## multiplicities of the
+                                                                            ## internal
+                                                                            ## knots is set by
+                                                                            ## !
+                                                                            ## default.
+                                                                            ## ! is
+                                                                            ## internally used in the
+                                                                            ## algorithm.
 
 
-proc constructAppDefBSplineCompute*(line: AppDefMultiLine;
-                                   degreemin: StandardInteger = 4;
-                                   degreemax: StandardInteger = 8;
-                                   tolerance3d: StandardReal = 1.0e-3;
-                                   tolerance2d: StandardReal = 1.0e-6;
-                                   nbIterations: StandardInteger = 5;
-                                   cutting: StandardBoolean = standardTrue;
-    parametrization: ApproxParametrizationType = approxChordLength;
-                                   squares: StandardBoolean = standardFalse): AppDefBSplineCompute {.
+proc constructAppDef_BSplineCompute*(Line: AppDef_MultiLine;
+                                    degreemin: Standard_Integer = 4;
+                                    degreemax: Standard_Integer = 8;
+                                    Tolerance3d: Standard_Real = 1.0e-3;
+                                    Tolerance2d: Standard_Real = 1.0e-6;
+                                    NbIterations: Standard_Integer = 5;
+                                    cutting: Standard_Boolean = Standard_True;
+    parametrization: Approx_ParametrizationType = Approx_ChordLength;
+                                    Squares: Standard_Boolean = Standard_False): AppDef_BSplineCompute {.
     constructor, importcpp: "AppDef_BSplineCompute(@)",
     header: "AppDef_BSplineCompute.hxx".}
-proc constructAppDefBSplineCompute*(line: AppDefMultiLine; parameters: MathVector;
-                                   degreemin: StandardInteger = 4;
-                                   degreemax: StandardInteger = 8;
-                                   tolerance3d: StandardReal = 1.0e-03;
-                                   tolerance2d: StandardReal = 1.0e-06;
-                                   nbIterations: StandardInteger = 5;
-                                   cutting: StandardBoolean = standardTrue;
-                                   squares: StandardBoolean = standardFalse): AppDefBSplineCompute {.
+proc constructAppDef_BSplineCompute*(Line: AppDef_MultiLine;
+                                    Parameters: math_Vector;
+                                    degreemin: Standard_Integer = 4;
+                                    degreemax: Standard_Integer = 8;
+                                    Tolerance3d: Standard_Real = 1.0e-03;
+                                    Tolerance2d: Standard_Real = 1.0e-06;
+                                    NbIterations: Standard_Integer = 5;
+                                    cutting: Standard_Boolean = Standard_True;
+                                    Squares: Standard_Boolean = Standard_False): AppDef_BSplineCompute {.
     constructor, importcpp: "AppDef_BSplineCompute(@)",
     header: "AppDef_BSplineCompute.hxx".}
-proc constructAppDefBSplineCompute*(parameters: MathVector;
-                                   degreemin: StandardInteger = 4;
-                                   degreemax: StandardInteger = 8;
-                                   tolerance3d: StandardReal = 1.0e-03;
-                                   tolerance2d: StandardReal = 1.0e-06;
-                                   nbIterations: StandardInteger = 5;
-                                   cutting: StandardBoolean = standardTrue;
-                                   squares: StandardBoolean = standardFalse): AppDefBSplineCompute {.
+proc constructAppDef_BSplineCompute*(Parameters: math_Vector;
+                                    degreemin: Standard_Integer = 4;
+                                    degreemax: Standard_Integer = 8;
+                                    Tolerance3d: Standard_Real = 1.0e-03;
+                                    Tolerance2d: Standard_Real = 1.0e-06;
+                                    NbIterations: Standard_Integer = 5;
+                                    cutting: Standard_Boolean = Standard_True;
+                                    Squares: Standard_Boolean = Standard_False): AppDef_BSplineCompute {.
     constructor, importcpp: "AppDef_BSplineCompute(@)",
     header: "AppDef_BSplineCompute.hxx".}
-proc constructAppDefBSplineCompute*(degreemin: StandardInteger = 4;
-                                   degreemax: StandardInteger = 8;
-                                   tolerance3d: StandardReal = 1.0e-03;
-                                   tolerance2d: StandardReal = 1.0e-06;
-                                   nbIterations: StandardInteger = 5;
-                                   cutting: StandardBoolean = standardTrue;
-    parametrization: ApproxParametrizationType = approxChordLength;
-                                   squares: StandardBoolean = standardFalse): AppDefBSplineCompute {.
+proc constructAppDef_BSplineCompute*(degreemin: Standard_Integer = 4;
+                                    degreemax: Standard_Integer = 8;
+                                    Tolerance3d: Standard_Real = 1.0e-03;
+                                    Tolerance2d: Standard_Real = 1.0e-06;
+                                    NbIterations: Standard_Integer = 5;
+                                    cutting: Standard_Boolean = Standard_True;
+    parametrization: Approx_ParametrizationType = Approx_ChordLength;
+                                    Squares: Standard_Boolean = Standard_False): AppDef_BSplineCompute {.
     constructor, importcpp: "AppDef_BSplineCompute(@)",
     header: "AppDef_BSplineCompute.hxx".}
-proc interpol*(this: var AppDefBSplineCompute; line: AppDefMultiLine) {.
+proc Interpol*(this: var AppDef_BSplineCompute; Line: AppDef_MultiLine) {.
     importcpp: "Interpol", header: "AppDef_BSplineCompute.hxx".}
-proc init*(this: var AppDefBSplineCompute; degreemin: StandardInteger = 4;
-          degreemax: StandardInteger = 8; tolerance3d: StandardReal = 1.0e-03;
-          tolerance2d: StandardReal = 1.0e-06; nbIterations: StandardInteger = 5;
-          cutting: StandardBoolean = standardTrue;
-          parametrization: ApproxParametrizationType = approxChordLength;
-          squares: StandardBoolean = standardFalse) {.importcpp: "Init",
+proc Init*(this: var AppDef_BSplineCompute; degreemin: Standard_Integer = 4;
+          degreemax: Standard_Integer = 8; Tolerance3d: Standard_Real = 1.0e-03;
+          Tolerance2d: Standard_Real = 1.0e-06; NbIterations: Standard_Integer = 5;
+          cutting: Standard_Boolean = Standard_True;
+          parametrization: Approx_ParametrizationType = Approx_ChordLength;
+          Squares: Standard_Boolean = Standard_False) {.importcpp: "Init",
     header: "AppDef_BSplineCompute.hxx".}
-proc perform*(this: var AppDefBSplineCompute; line: AppDefMultiLine) {.
+proc Perform*(this: var AppDef_BSplineCompute; Line: AppDef_MultiLine) {.
     importcpp: "Perform", header: "AppDef_BSplineCompute.hxx".}
-proc setParameters*(this: var AppDefBSplineCompute; thePar: MathVector) {.
+proc SetParameters*(this: var AppDef_BSplineCompute; ThePar: math_Vector) {.
     importcpp: "SetParameters", header: "AppDef_BSplineCompute.hxx".}
-proc setKnots*(this: var AppDefBSplineCompute; knots: TColStdArray1OfReal) {.
+proc SetKnots*(this: var AppDef_BSplineCompute; Knots: TColStd_Array1OfReal) {.
     importcpp: "SetKnots", header: "AppDef_BSplineCompute.hxx".}
-proc setKnotsAndMultiplicities*(this: var AppDefBSplineCompute;
-                               knots: TColStdArray1OfReal;
-                               mults: TColStdArray1OfInteger) {.
+proc SetKnotsAndMultiplicities*(this: var AppDef_BSplineCompute;
+                               Knots: TColStd_Array1OfReal;
+                               Mults: TColStd_Array1OfInteger) {.
     importcpp: "SetKnotsAndMultiplicities", header: "AppDef_BSplineCompute.hxx".}
-proc setDegrees*(this: var AppDefBSplineCompute; degreemin: StandardInteger;
-                degreemax: StandardInteger) {.importcpp: "SetDegrees",
+proc SetDegrees*(this: var AppDef_BSplineCompute; degreemin: Standard_Integer;
+                degreemax: Standard_Integer) {.importcpp: "SetDegrees",
     header: "AppDef_BSplineCompute.hxx".}
-proc setTolerances*(this: var AppDefBSplineCompute; tolerance3d: StandardReal;
-                   tolerance2d: StandardReal) {.importcpp: "SetTolerances",
+proc SetTolerances*(this: var AppDef_BSplineCompute; Tolerance3d: Standard_Real;
+                   Tolerance2d: Standard_Real) {.importcpp: "SetTolerances",
     header: "AppDef_BSplineCompute.hxx".}
-proc setContinuity*(this: var AppDefBSplineCompute; c: StandardInteger) {.
+proc SetContinuity*(this: var AppDef_BSplineCompute; C: Standard_Integer) {.
     importcpp: "SetContinuity", header: "AppDef_BSplineCompute.hxx".}
-proc setConstraints*(this: var AppDefBSplineCompute; firstC: AppParCurvesConstraint;
-                    lastC: AppParCurvesConstraint) {.importcpp: "SetConstraints",
+proc SetConstraints*(this: var AppDef_BSplineCompute;
+                    firstC: AppParCurves_Constraint;
+                    lastC: AppParCurves_Constraint) {.importcpp: "SetConstraints",
     header: "AppDef_BSplineCompute.hxx".}
-proc setPeriodic*(this: var AppDefBSplineCompute; thePeriodic: StandardBoolean) {.
+proc SetPeriodic*(this: var AppDef_BSplineCompute; thePeriodic: Standard_Boolean) {.
     importcpp: "SetPeriodic", header: "AppDef_BSplineCompute.hxx".}
-proc isAllApproximated*(this: AppDefBSplineCompute): StandardBoolean {.noSideEffect,
-    importcpp: "IsAllApproximated", header: "AppDef_BSplineCompute.hxx".}
-proc isToleranceReached*(this: AppDefBSplineCompute): StandardBoolean {.
+proc IsAllApproximated*(this: AppDef_BSplineCompute): Standard_Boolean {.
+    noSideEffect, importcpp: "IsAllApproximated",
+    header: "AppDef_BSplineCompute.hxx".}
+proc IsToleranceReached*(this: AppDef_BSplineCompute): Standard_Boolean {.
     noSideEffect, importcpp: "IsToleranceReached",
     header: "AppDef_BSplineCompute.hxx".}
-proc error*(this: AppDefBSplineCompute; tol3d: var StandardReal;
-           tol2d: var StandardReal) {.noSideEffect, importcpp: "Error",
-                                   header: "AppDef_BSplineCompute.hxx".}
-proc value*(this: AppDefBSplineCompute): AppParCurvesMultiBSpCurve {.noSideEffect,
+proc Error*(this: AppDef_BSplineCompute; tol3d: var Standard_Real;
+           tol2d: var Standard_Real) {.noSideEffect, importcpp: "Error",
+                                    header: "AppDef_BSplineCompute.hxx".}
+proc Value*(this: AppDef_BSplineCompute): AppParCurves_MultiBSpCurve {.noSideEffect,
     importcpp: "Value", header: "AppDef_BSplineCompute.hxx".}
-proc changeValue*(this: var AppDefBSplineCompute): var AppParCurvesMultiBSpCurve {.
+proc ChangeValue*(this: var AppDef_BSplineCompute): var AppParCurves_MultiBSpCurve {.
     importcpp: "ChangeValue", header: "AppDef_BSplineCompute.hxx".}
-proc parameters*(this: AppDefBSplineCompute): TColStdArray1OfReal {.noSideEffect,
+proc Parameters*(this: AppDef_BSplineCompute): TColStd_Array1OfReal {.noSideEffect,
     importcpp: "Parameters", header: "AppDef_BSplineCompute.hxx".}
-

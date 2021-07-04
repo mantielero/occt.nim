@@ -14,6 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle
+
 discard "forward decl of Geom_Transformation"
 discard "forward decl of gp_Pnt"
 discard "forward decl of gp_Ax1"
@@ -25,21 +29,20 @@ type
   GC_MakeMirror* {.importcpp: "GC_MakeMirror", header: "GC_MakeMirror.hxx", bycopy.} = object
 
 
-proc constructGC_MakeMirror*(point: GpPnt): GC_MakeMirror {.constructor,
+proc constructGC_MakeMirror*(Point: gp_Pnt): GC_MakeMirror {.constructor,
     importcpp: "GC_MakeMirror(@)", header: "GC_MakeMirror.hxx".}
-proc constructGC_MakeMirror*(axis: GpAx1): GC_MakeMirror {.constructor,
+proc constructGC_MakeMirror*(Axis: gp_Ax1): GC_MakeMirror {.constructor,
     importcpp: "GC_MakeMirror(@)", header: "GC_MakeMirror.hxx".}
-proc constructGC_MakeMirror*(line: GpLin): GC_MakeMirror {.constructor,
+proc constructGC_MakeMirror*(Line: gp_Lin): GC_MakeMirror {.constructor,
     importcpp: "GC_MakeMirror(@)", header: "GC_MakeMirror.hxx".}
-proc constructGC_MakeMirror*(point: GpPnt; direc: GpDir): GC_MakeMirror {.constructor,
+proc constructGC_MakeMirror*(Point: gp_Pnt; Direc: gp_Dir): GC_MakeMirror {.
+    constructor, importcpp: "GC_MakeMirror(@)", header: "GC_MakeMirror.hxx".}
+proc constructGC_MakeMirror*(Plane: gp_Pln): GC_MakeMirror {.constructor,
     importcpp: "GC_MakeMirror(@)", header: "GC_MakeMirror.hxx".}
-proc constructGC_MakeMirror*(plane: GpPln): GC_MakeMirror {.constructor,
+proc constructGC_MakeMirror*(Plane: gp_Ax2): GC_MakeMirror {.constructor,
     importcpp: "GC_MakeMirror(@)", header: "GC_MakeMirror.hxx".}
-proc constructGC_MakeMirror*(plane: GpAx2): GC_MakeMirror {.constructor,
-    importcpp: "GC_MakeMirror(@)", header: "GC_MakeMirror.hxx".}
-proc value*(this: GC_MakeMirror): Handle[GeomTransformation] {.noSideEffect,
+proc Value*(this: GC_MakeMirror): handle[Geom_Transformation] {.noSideEffect,
     importcpp: "Value", header: "GC_MakeMirror.hxx".}
-converter `constopencascade`*(this: GC_MakeMirror): Handle[GeomTransformation] {.
+converter `constopencascade`*(this: GC_MakeMirror): handle[Geom_Transformation] {.
     noSideEffect, importcpp: "GC_MakeMirror::operator constopencascade",
     header: "GC_MakeMirror.hxx".}
-

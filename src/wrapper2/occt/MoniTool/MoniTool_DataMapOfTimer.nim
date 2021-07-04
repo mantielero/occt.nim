@@ -14,11 +14,13 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard_CString, MoniTool_MTHasher,
+  ../NCollection/NCollection_DataMap
+
 discard "forward decl of MoniTool_Timer"
 type
-  MoniToolDataMapOfTimer* = NCollectionDataMap[StandardCString,
-      Handle[MoniToolTimer], MoniToolMTHasher]
-  MoniToolDataMapIteratorOfDataMapOfTimer* = Iterator[StandardCString,
-      Handle[MoniToolTimer], MoniToolMTHasher]
-
-
+  MoniTool_DataMapOfTimer* = NCollection_DataMap[Standard_CString,
+      handle[MoniTool_Timer], MoniTool_MTHasher]
+  MoniTool_DataMapIteratorOfDataMapOfTimer* = Iterator[Standard_CString,
+      handle[MoniTool_Timer], MoniTool_MTHasher]

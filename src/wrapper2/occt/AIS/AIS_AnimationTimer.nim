@@ -12,7 +12,8 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Media/Media_Timer
+
 type
-  AIS_AnimationTimer* = MediaTimer
-
-
+  AIS_AnimationTimer* = Media_Timer

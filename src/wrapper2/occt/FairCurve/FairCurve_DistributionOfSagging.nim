@@ -14,18 +14,25 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, FairCurve_BattenLaw,
+  FairCurve_DistributionOfEnergy, ../Standard/Standard_Integer,
+  ../TColStd/TColStd_HArray1OfReal, ../TColgp/TColgp_HArray1OfPnt2d,
+  ../Standard/Standard_Boolean, ../math/math_Vector
+
 discard "forward decl of FairCurve_BattenLaw"
 type
-  FairCurveDistributionOfSagging* {.importcpp: "FairCurve_DistributionOfSagging", header: "FairCurve_DistributionOfSagging.hxx",
-                                   bycopy.} = object of FairCurveDistributionOfEnergy
+  FairCurve_DistributionOfSagging* {.importcpp: "FairCurve_DistributionOfSagging", header: "FairCurve_DistributionOfSagging.hxx",
+                                    bycopy.} = object of FairCurve_DistributionOfEnergy
 
 
-proc constructFairCurveDistributionOfSagging*(bSplOrder: StandardInteger;
-    flatKnots: Handle[TColStdHArray1OfReal]; poles: Handle[TColgpHArray1OfPnt2d];
-    derivativeOrder: StandardInteger; law: FairCurveBattenLaw;
-    nbValAux: StandardInteger = 0): FairCurveDistributionOfSagging {.constructor,
-    importcpp: "FairCurve_DistributionOfSagging(@)",
+proc constructFairCurve_DistributionOfSagging*(BSplOrder: Standard_Integer;
+    FlatKnots: handle[TColStd_HArray1OfReal];
+    Poles: handle[TColgp_HArray1OfPnt2d]; DerivativeOrder: Standard_Integer;
+    Law: FairCurve_BattenLaw; NbValAux: Standard_Integer = 0): FairCurve_DistributionOfSagging {.
+    constructor, importcpp: "FairCurve_DistributionOfSagging(@)",
     header: "FairCurve_DistributionOfSagging.hxx".}
-proc value*(this: var FairCurveDistributionOfSagging; x: MathVector; f: var MathVector): StandardBoolean {.
-    importcpp: "Value", header: "FairCurve_DistributionOfSagging.hxx".}
-
+proc Value*(this: var FairCurve_DistributionOfSagging; X: math_Vector;
+           F: var math_Vector): Standard_Boolean {.importcpp: "Value",
+    header: "FairCurve_DistributionOfSagging.hxx".}

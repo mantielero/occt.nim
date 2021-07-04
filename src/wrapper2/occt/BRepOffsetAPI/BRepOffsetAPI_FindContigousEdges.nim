@@ -14,6 +14,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Real,
+  ../Standard/Standard_Boolean, ../Standard/Standard_Integer,
+  ../TopTools/TopTools_ListOfShape
+
 discard "forward decl of BRepBuilderAPI_Sewing"
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of Standard_NoSuchObject"
@@ -32,46 +38,45 @@ type
 
 
 proc constructBRepOffsetAPI_FindContigousEdges*(
-    tolerance: StandardReal = 1.0e-06; option: StandardBoolean = standardTrue): BRepOffsetAPI_FindContigousEdges {.
+    tolerance: Standard_Real = 1.0e-06; option: Standard_Boolean = Standard_True): BRepOffsetAPI_FindContigousEdges {.
     constructor, importcpp: "BRepOffsetAPI_FindContigousEdges(@)",
     header: "BRepOffsetAPI_FindContigousEdges.hxx".}
-proc init*(this: var BRepOffsetAPI_FindContigousEdges; tolerance: StandardReal;
-          option: StandardBoolean) {.importcpp: "Init", header: "BRepOffsetAPI_FindContigousEdges.hxx".}
-proc add*(this: var BRepOffsetAPI_FindContigousEdges; shape: TopoDS_Shape) {.
+proc Init*(this: var BRepOffsetAPI_FindContigousEdges; tolerance: Standard_Real;
+          option: Standard_Boolean) {.importcpp: "Init", header: "BRepOffsetAPI_FindContigousEdges.hxx".}
+proc Add*(this: var BRepOffsetAPI_FindContigousEdges; shape: TopoDS_Shape) {.
     importcpp: "Add", header: "BRepOffsetAPI_FindContigousEdges.hxx".}
-proc perform*(this: var BRepOffsetAPI_FindContigousEdges) {.importcpp: "Perform",
+proc Perform*(this: var BRepOffsetAPI_FindContigousEdges) {.importcpp: "Perform",
     header: "BRepOffsetAPI_FindContigousEdges.hxx".}
-proc nbEdges*(this: BRepOffsetAPI_FindContigousEdges): StandardInteger {.
+proc NbEdges*(this: BRepOffsetAPI_FindContigousEdges): Standard_Integer {.
     noSideEffect, importcpp: "NbEdges",
     header: "BRepOffsetAPI_FindContigousEdges.hxx".}
-proc nbContigousEdges*(this: BRepOffsetAPI_FindContigousEdges): StandardInteger {.
+proc NbContigousEdges*(this: BRepOffsetAPI_FindContigousEdges): Standard_Integer {.
     noSideEffect, importcpp: "NbContigousEdges",
     header: "BRepOffsetAPI_FindContigousEdges.hxx".}
-proc contigousEdge*(this: BRepOffsetAPI_FindContigousEdges; index: StandardInteger): TopoDS_Edge {.
+proc ContigousEdge*(this: BRepOffsetAPI_FindContigousEdges; index: Standard_Integer): TopoDS_Edge {.
     noSideEffect, importcpp: "ContigousEdge",
     header: "BRepOffsetAPI_FindContigousEdges.hxx".}
-proc contigousEdgeCouple*(this: BRepOffsetAPI_FindContigousEdges;
-                         index: StandardInteger): TopToolsListOfShape {.
+proc ContigousEdgeCouple*(this: BRepOffsetAPI_FindContigousEdges;
+                         index: Standard_Integer): TopTools_ListOfShape {.
     noSideEffect, importcpp: "ContigousEdgeCouple",
     header: "BRepOffsetAPI_FindContigousEdges.hxx".}
-proc sectionToBoundary*(this: BRepOffsetAPI_FindContigousEdges;
+proc SectionToBoundary*(this: BRepOffsetAPI_FindContigousEdges;
                        section: TopoDS_Edge): TopoDS_Edge {.noSideEffect,
     importcpp: "SectionToBoundary", header: "BRepOffsetAPI_FindContigousEdges.hxx".}
-proc nbDegeneratedShapes*(this: BRepOffsetAPI_FindContigousEdges): StandardInteger {.
+proc NbDegeneratedShapes*(this: BRepOffsetAPI_FindContigousEdges): Standard_Integer {.
     noSideEffect, importcpp: "NbDegeneratedShapes",
     header: "BRepOffsetAPI_FindContigousEdges.hxx".}
-proc degeneratedShape*(this: BRepOffsetAPI_FindContigousEdges;
-                      index: StandardInteger): TopoDS_Shape {.noSideEffect,
+proc DegeneratedShape*(this: BRepOffsetAPI_FindContigousEdges;
+                      index: Standard_Integer): TopoDS_Shape {.noSideEffect,
     importcpp: "DegeneratedShape", header: "BRepOffsetAPI_FindContigousEdges.hxx".}
-proc isDegenerated*(this: BRepOffsetAPI_FindContigousEdges; shape: TopoDS_Shape): StandardBoolean {.
+proc IsDegenerated*(this: BRepOffsetAPI_FindContigousEdges; shape: TopoDS_Shape): Standard_Boolean {.
     noSideEffect, importcpp: "IsDegenerated",
     header: "BRepOffsetAPI_FindContigousEdges.hxx".}
-proc isModified*(this: BRepOffsetAPI_FindContigousEdges; shape: TopoDS_Shape): StandardBoolean {.
+proc IsModified*(this: BRepOffsetAPI_FindContigousEdges; shape: TopoDS_Shape): Standard_Boolean {.
     noSideEffect, importcpp: "IsModified",
     header: "BRepOffsetAPI_FindContigousEdges.hxx".}
-proc modified*(this: BRepOffsetAPI_FindContigousEdges; shape: TopoDS_Shape): TopoDS_Shape {.
+proc Modified*(this: BRepOffsetAPI_FindContigousEdges; shape: TopoDS_Shape): TopoDS_Shape {.
     noSideEffect, importcpp: "Modified",
     header: "BRepOffsetAPI_FindContigousEdges.hxx".}
-proc dump*(this: BRepOffsetAPI_FindContigousEdges) {.noSideEffect,
+proc Dump*(this: BRepOffsetAPI_FindContigousEdges) {.noSideEffect,
     importcpp: "Dump", header: "BRepOffsetAPI_FindContigousEdges.hxx".}
-

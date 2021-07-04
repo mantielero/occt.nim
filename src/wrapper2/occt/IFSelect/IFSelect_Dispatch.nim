@@ -14,6 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Transient,
+  ../Standard/Standard_Boolean, ../Standard/Standard_Integer
+
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of IFSelect_Selection"
 discard "forward decl of Interface_InterfaceError"
@@ -25,7 +29,7 @@ discard "forward decl of IFGraph_SubPartsIterator"
 discard "forward decl of IFSelect_Dispatch"
 discard "forward decl of IFSelect_Dispatch"
 type
-  HandleIFSelectDispatch* = Handle[IFSelectDispatch]
+  Handle_IFSelect_Dispatch* = handle[IFSelect_Dispatch]
 
 ## ! This class allows to describe how a set of Entities has to be
 ## ! dispatched into resulting Packets : a Packet is a sub-set of
@@ -44,76 +48,76 @@ type
 ## ! is the Unique Root Entities list of the Final Selection
 
 type
-  IFSelectDispatch* {.importcpp: "IFSelect_Dispatch",
-                     header: "IFSelect_Dispatch.hxx", bycopy.} = object of StandardTransient ##
-                                                                                      ## !
-                                                                                      ## Sets
-                                                                                      ## a
-                                                                                      ## Root
-                                                                                      ## Name
-                                                                                      ## as
-                                                                                      ## an
-                                                                                      ## HAsciiString
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## To
-                                                                                      ## reset
-                                                                                      ## it,
-                                                                                      ## give
-                                                                                      ## a
-                                                                                      ## Null
-                                                                                      ## Handle
-                                                                                      ## (then,
-                                                                                      ## a
-                                                                                      ## ShareOut
-                                                                                      ## will
-                                                                                      ## have
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## to
-                                                                                      ## define
-                                                                                      ## the
-                                                                                      ## Default
-                                                                                      ## Root
-                                                                                      ## Name)
+  IFSelect_Dispatch* {.importcpp: "IFSelect_Dispatch",
+                      header: "IFSelect_Dispatch.hxx", bycopy.} = object of Standard_Transient ##
+                                                                                        ## !
+                                                                                        ## Sets
+                                                                                        ## a
+                                                                                        ## Root
+                                                                                        ## Name
+                                                                                        ## as
+                                                                                        ## an
+                                                                                        ## HAsciiString
+                                                                                        ##
+                                                                                        ## !
+                                                                                        ## To
+                                                                                        ## reset
+                                                                                        ## it,
+                                                                                        ## give
+                                                                                        ## a
+                                                                                        ## Null
+                                                                                        ## Handle
+                                                                                        ## (then,
+                                                                                        ## a
+                                                                                        ## ShareOut
+                                                                                        ## will
+                                                                                        ## have
+                                                                                        ##
+                                                                                        ## !
+                                                                                        ## to
+                                                                                        ## define
+                                                                                        ## the
+                                                                                        ## Default
+                                                                                        ## Root
+                                                                                        ## Name)
 
 
-proc setRootName*(this: var IFSelectDispatch; name: Handle[TCollectionHAsciiString]) {.
+proc SetRootName*(this: var IFSelect_Dispatch;
+                 name: handle[TCollection_HAsciiString]) {.
     importcpp: "SetRootName", header: "IFSelect_Dispatch.hxx".}
-proc hasRootName*(this: IFSelectDispatch): StandardBoolean {.noSideEffect,
+proc HasRootName*(this: IFSelect_Dispatch): Standard_Boolean {.noSideEffect,
     importcpp: "HasRootName", header: "IFSelect_Dispatch.hxx".}
-proc rootName*(this: IFSelectDispatch): Handle[TCollectionHAsciiString] {.
+proc RootName*(this: IFSelect_Dispatch): handle[TCollection_HAsciiString] {.
     noSideEffect, importcpp: "RootName", header: "IFSelect_Dispatch.hxx".}
-proc setFinalSelection*(this: var IFSelectDispatch; sel: Handle[IFSelectSelection]) {.
+proc SetFinalSelection*(this: var IFSelect_Dispatch; sel: handle[IFSelect_Selection]) {.
     importcpp: "SetFinalSelection", header: "IFSelect_Dispatch.hxx".}
-proc finalSelection*(this: IFSelectDispatch): Handle[IFSelectSelection] {.
+proc FinalSelection*(this: IFSelect_Dispatch): handle[IFSelect_Selection] {.
     noSideEffect, importcpp: "FinalSelection", header: "IFSelect_Dispatch.hxx".}
-proc selections*(this: IFSelectDispatch): IFSelectSelectionIterator {.noSideEffect,
-    importcpp: "Selections", header: "IFSelect_Dispatch.hxx".}
-proc canHaveRemainder*(this: IFSelectDispatch): StandardBoolean {.noSideEffect,
+proc Selections*(this: IFSelect_Dispatch): IFSelect_SelectionIterator {.
+    noSideEffect, importcpp: "Selections", header: "IFSelect_Dispatch.hxx".}
+proc CanHaveRemainder*(this: IFSelect_Dispatch): Standard_Boolean {.noSideEffect,
     importcpp: "CanHaveRemainder", header: "IFSelect_Dispatch.hxx".}
-proc limitedMax*(this: IFSelectDispatch; nbent: StandardInteger;
-                max: var StandardInteger): StandardBoolean {.noSideEffect,
+proc LimitedMax*(this: IFSelect_Dispatch; nbent: Standard_Integer;
+                max: var Standard_Integer): Standard_Boolean {.noSideEffect,
     importcpp: "LimitedMax", header: "IFSelect_Dispatch.hxx".}
-proc label*(this: IFSelectDispatch): TCollectionAsciiString {.noSideEffect,
+proc Label*(this: IFSelect_Dispatch): TCollection_AsciiString {.noSideEffect,
     importcpp: "Label", header: "IFSelect_Dispatch.hxx".}
-proc getEntities*(this: IFSelectDispatch; g: InterfaceGraph): InterfaceEntityIterator {.
+proc GetEntities*(this: IFSelect_Dispatch; G: Interface_Graph): Interface_EntityIterator {.
     noSideEffect, importcpp: "GetEntities", header: "IFSelect_Dispatch.hxx".}
-proc packets*(this: IFSelectDispatch; g: InterfaceGraph;
-             packs: var IFGraphSubPartsIterator) {.noSideEffect,
+proc Packets*(this: IFSelect_Dispatch; G: Interface_Graph;
+             packs: var IFGraph_SubPartsIterator) {.noSideEffect,
     importcpp: "Packets", header: "IFSelect_Dispatch.hxx".}
-proc packeted*(this: IFSelectDispatch; g: InterfaceGraph): InterfaceEntityIterator {.
+proc Packeted*(this: IFSelect_Dispatch; G: Interface_Graph): Interface_EntityIterator {.
     noSideEffect, importcpp: "Packeted", header: "IFSelect_Dispatch.hxx".}
-proc remainder*(this: IFSelectDispatch; g: InterfaceGraph): InterfaceEntityIterator {.
+proc Remainder*(this: IFSelect_Dispatch; G: Interface_Graph): Interface_EntityIterator {.
     noSideEffect, importcpp: "Remainder", header: "IFSelect_Dispatch.hxx".}
 type
-  IFSelectDispatchbaseType* = StandardTransient
+  IFSelect_Dispatchbase_type* = Standard_Transient
 
-proc getTypeName*(): cstring {.importcpp: "IFSelect_Dispatch::get_type_name(@)",
-                            header: "IFSelect_Dispatch.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "IFSelect_Dispatch::get_type_name(@)",
+                              header: "IFSelect_Dispatch.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "IFSelect_Dispatch::get_type_descriptor(@)",
     header: "IFSelect_Dispatch.hxx".}
-proc dynamicType*(this: IFSelectDispatch): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: IFSelect_Dispatch): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "IFSelect_Dispatch.hxx".}
-

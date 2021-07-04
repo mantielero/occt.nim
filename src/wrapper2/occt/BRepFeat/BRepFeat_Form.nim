@@ -14,59 +14,67 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
+  ../TopTools/TopTools_DataMapOfShapeListOfShape, ../TopoDS/TopoDS_Shape,
+  ../TopTools/TopTools_ListOfShape, BRepFeat_PerfSelection, ../TopoDS/TopoDS_Face,
+  ../TopTools/TopTools_DataMapOfShapeShape, BRepFeat_StatusError,
+  ../BRepBuilderAPI/BRepBuilderAPI_MakeShape,
+  ../TColGeom/TColGeom_SequenceOfCurve, ../Standard/Standard_Integer
+
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of Geom_Curve"
 discard "forward decl of LocOpe_Gluer"
 discard "forward decl of BRepAlgoAPI_BooleanOperation"
 type
-  BRepFeatForm* {.importcpp: "BRepFeat_Form", header: "BRepFeat_Form.hxx", bycopy.} = object of BRepBuilderAPI_MakeShape ##
-                                                                                                               ## !
-                                                                                                               ## returns
-                                                                                                               ## the
-                                                                                                               ## list
-                                                                                                               ## of
-                                                                                                               ## generated
-                                                                                                               ## Faces.
-                                                                                                               ##
-                                                                                                               ## !
-                                                                                                               ## Redefines
-                                                                                                               ## the
-                                                                                                               ## empty
-                                                                                                               ## constructor.
+  BRepFeat_Form* {.importcpp: "BRepFeat_Form", header: "BRepFeat_Form.hxx", bycopy.} = object of BRepBuilderAPI_MakeShape ##
+                                                                                                                ## !
+                                                                                                                ## returns
+                                                                                                                ## the
+                                                                                                                ## list
+                                                                                                                ## of
+                                                                                                                ## generated
+                                                                                                                ## Faces.
+                                                                                                                ##
+                                                                                                                ## !
+                                                                                                                ## Redefines
+                                                                                                                ## the
+                                                                                                                ## empty
+                                                                                                                ## constructor.
 
 
-proc modified*(this: var BRepFeatForm; f: TopoDS_Shape): TopToolsListOfShape {.
+proc Modified*(this: var BRepFeat_Form; F: TopoDS_Shape): TopTools_ListOfShape {.
     importcpp: "Modified", header: "BRepFeat_Form.hxx".}
-proc generated*(this: var BRepFeatForm; s: TopoDS_Shape): TopToolsListOfShape {.
+proc Generated*(this: var BRepFeat_Form; S: TopoDS_Shape): TopTools_ListOfShape {.
     importcpp: "Generated", header: "BRepFeat_Form.hxx".}
-proc isDeleted*(this: var BRepFeatForm; s: TopoDS_Shape): StandardBoolean {.
+proc IsDeleted*(this: var BRepFeat_Form; S: TopoDS_Shape): Standard_Boolean {.
     importcpp: "IsDeleted", header: "BRepFeat_Form.hxx".}
-proc firstShape*(this: BRepFeatForm): TopToolsListOfShape {.noSideEffect,
+proc FirstShape*(this: BRepFeat_Form): TopTools_ListOfShape {.noSideEffect,
     importcpp: "FirstShape", header: "BRepFeat_Form.hxx".}
-proc lastShape*(this: BRepFeatForm): TopToolsListOfShape {.noSideEffect,
+proc LastShape*(this: BRepFeat_Form): TopTools_ListOfShape {.noSideEffect,
     importcpp: "LastShape", header: "BRepFeat_Form.hxx".}
-proc newEdges*(this: BRepFeatForm): TopToolsListOfShape {.noSideEffect,
+proc NewEdges*(this: BRepFeat_Form): TopTools_ListOfShape {.noSideEffect,
     importcpp: "NewEdges", header: "BRepFeat_Form.hxx".}
-proc tgtEdges*(this: BRepFeatForm): TopToolsListOfShape {.noSideEffect,
+proc TgtEdges*(this: BRepFeat_Form): TopTools_ListOfShape {.noSideEffect,
     importcpp: "TgtEdges", header: "BRepFeat_Form.hxx".}
-proc basisShapeValid*(this: var BRepFeatForm) {.importcpp: "BasisShapeValid",
+proc BasisShapeValid*(this: var BRepFeat_Form) {.importcpp: "BasisShapeValid",
     header: "BRepFeat_Form.hxx".}
-proc generatedShapeValid*(this: var BRepFeatForm) {.
+proc GeneratedShapeValid*(this: var BRepFeat_Form) {.
     importcpp: "GeneratedShapeValid", header: "BRepFeat_Form.hxx".}
-proc shapeFromValid*(this: var BRepFeatForm) {.importcpp: "ShapeFromValid",
+proc ShapeFromValid*(this: var BRepFeat_Form) {.importcpp: "ShapeFromValid",
     header: "BRepFeat_Form.hxx".}
-proc shapeUntilValid*(this: var BRepFeatForm) {.importcpp: "ShapeUntilValid",
+proc ShapeUntilValid*(this: var BRepFeat_Form) {.importcpp: "ShapeUntilValid",
     header: "BRepFeat_Form.hxx".}
-proc gluedFacesValid*(this: var BRepFeatForm) {.importcpp: "GluedFacesValid",
+proc GluedFacesValid*(this: var BRepFeat_Form) {.importcpp: "GluedFacesValid",
     header: "BRepFeat_Form.hxx".}
-proc sketchFaceValid*(this: var BRepFeatForm) {.importcpp: "SketchFaceValid",
+proc SketchFaceValid*(this: var BRepFeat_Form) {.importcpp: "SketchFaceValid",
     header: "BRepFeat_Form.hxx".}
-proc perfSelectionValid*(this: var BRepFeatForm) {.importcpp: "PerfSelectionValid",
+proc PerfSelectionValid*(this: var BRepFeat_Form) {.importcpp: "PerfSelectionValid",
     header: "BRepFeat_Form.hxx".}
-proc curves*(this: var BRepFeatForm; s: var TColGeomSequenceOfCurve) {.
+proc Curves*(this: var BRepFeat_Form; S: var TColGeom_SequenceOfCurve) {.
     importcpp: "Curves", header: "BRepFeat_Form.hxx".}
-proc barycCurve*(this: var BRepFeatForm): Handle[GeomCurve] {.
+proc BarycCurve*(this: var BRepFeat_Form): handle[Geom_Curve] {.
     importcpp: "BarycCurve", header: "BRepFeat_Form.hxx".}
-proc currentStatusError*(this: BRepFeatForm): BRepFeatStatusError {.noSideEffect,
+proc CurrentStatusError*(this: BRepFeat_Form): BRepFeat_StatusError {.noSideEffect,
     importcpp: "CurrentStatusError", header: "BRepFeat_Form.hxx".}
-

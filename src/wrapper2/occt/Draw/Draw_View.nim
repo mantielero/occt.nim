@@ -11,103 +11,105 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../gp/gp_Trsf, Draw_Window
+
 discard "forward decl of Draw_Viewer"
 type
-  DrawView* {.importcpp: "Draw_View", header: "Draw_View.hxx", bycopy.} = object of DrawWindow ##
-                                                                                     ## !
-                                                                                     ## Constructor
-                                                                                     ##
-                                                                                     ## @name
-                                                                                     ## getters
-                                                                                     ## and
-                                                                                     ## setters
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## Sets
-                                                                                     ## horizontal
-                                                                                     ## offset.
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## @name
-                                                                                     ## public
-                                                                                     ## inline
-                                                                                     ## methods
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## Returns
-                                                                                     ## type
-                                                                                     ## of
-                                                                                     ## view.
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## @name
-                                                                                     ## view
-                                                                                     ## API
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## Initialize
-                                                                                     ## view
-                                                                                     ## by
-                                                                                     ## the
-                                                                                     ## type.
+  Draw_View* {.importcpp: "Draw_View", header: "Draw_View.hxx", bycopy.} = object of Draw_Window ##
+                                                                                       ## !
+                                                                                       ## Constructor
+                                                                                       ##
+                                                                                       ## @name
+                                                                                       ## getters
+                                                                                       ## and
+                                                                                       ## setters
+                                                                                       ##
+                                                                                       ## !
+                                                                                       ## Sets
+                                                                                       ## horizontal
+                                                                                       ## offset.
+                                                                                       ##
+                                                                                       ## !
+                                                                                       ## @name
+                                                                                       ## public
+                                                                                       ## inline
+                                                                                       ## methods
+                                                                                       ##
+                                                                                       ## !
+                                                                                       ## Returns
+                                                                                       ## type
+                                                                                       ## of
+                                                                                       ## view.
+                                                                                       ##
+                                                                                       ## !
+                                                                                       ## @name
+                                                                                       ## view
+                                                                                       ## API
+                                                                                       ##
+                                                                                       ## !
+                                                                                       ## Initialize
+                                                                                       ## view
+                                                                                       ## by
+                                                                                       ## the
+                                                                                       ## type.
 
 
-proc constructDrawView*(theId: StandardInteger; theViewer: ptr DrawViewer;
-                       theX: StandardInteger; theY: StandardInteger;
-                       theWidth: StandardInteger; theHeight: StandardInteger): DrawView {.
+proc constructDraw_View*(theId: Standard_Integer; theViewer: ptr Draw_Viewer;
+                        theX: Standard_Integer; theY: Standard_Integer;
+                        theWidth: Standard_Integer; theHeight: Standard_Integer): Draw_View {.
     constructor, importcpp: "Draw_View(@)", header: "Draw_View.hxx".}
-when defined(win32) or defined(win32):
-  proc constructDrawView*(theId: StandardInteger; theViewer: ptr DrawViewer;
-                         theX: StandardInteger; theY: StandardInteger;
-                         theWidth: StandardInteger; theHeight: StandardInteger;
-                         theWindow: Hwnd): DrawView {.constructor,
+when defined(_WIN32) or defined(__WIN32__):
+  proc constructDraw_View*(theId: Standard_Integer; theViewer: ptr Draw_Viewer;
+                          theX: Standard_Integer; theY: Standard_Integer;
+                          theWidth: Standard_Integer; theHeight: Standard_Integer;
+                          theWindow: HWND): Draw_View {.constructor,
       importcpp: "Draw_View(@)", header: "Draw_View.hxx".}
-when not (defined(win32) or defined(win32)) and
-    not (defined(win32) or defined(win32)):
-  proc constructDrawView*(theId: StandardInteger; theViewer: ptr DrawViewer;
-                         theX: StandardInteger; theY: StandardInteger;
-                         theWidth: StandardInteger; theHeight: StandardInteger;
-                         theWindow: ptr NSWindow): DrawView {.constructor,
+when not (defined(_WIN32) or defined(__WIN32__)) and
+    not (defined(_WIN32) or defined(__WIN32__)):
+  proc constructDraw_View*(theId: Standard_Integer; theViewer: ptr Draw_Viewer;
+                          theX: Standard_Integer; theY: Standard_Integer;
+                          theWidth: Standard_Integer; theHeight: Standard_Integer;
+                          theWindow: ptr NSWindow): Draw_View {.constructor,
       importcpp: "Draw_View(@)", header: "Draw_View.hxx".}
-proc constructDrawView*(theId: StandardInteger; theViewer: ptr DrawViewer;
-                       theTitle: cstring): DrawView {.constructor,
+proc constructDraw_View*(theId: Standard_Integer; theViewer: ptr Draw_Viewer;
+                        theTitle: cstring): Draw_View {.constructor,
     importcpp: "Draw_View(@)", header: "Draw_View.hxx".}
-proc destroyDrawView*(this: var DrawView) {.importcpp: "#.~Draw_View()",
-                                        header: "Draw_View.hxx".}
-proc setDx*(this: var DrawView; theDx: StandardInteger) {.importcpp: "SetDx",
+proc destroyDraw_View*(this: var Draw_View) {.importcpp: "#.~Draw_View()",
     header: "Draw_View.hxx".}
-proc setDy*(this: var DrawView; theDy: StandardInteger) {.importcpp: "SetDy",
+proc SetDx*(this: var Draw_View; theDx: Standard_Integer) {.importcpp: "SetDx",
     header: "Draw_View.hxx".}
-proc setZoom*(this: var DrawView; theZoom: StandardReal) {.importcpp: "SetZoom",
+proc SetDy*(this: var Draw_View; theDy: Standard_Integer) {.importcpp: "SetDy",
     header: "Draw_View.hxx".}
-proc setMatrix*(this: var DrawView; theMatrix: GpTrsf) {.importcpp: "SetMatrix",
+proc SetZoom*(this: var Draw_View; theZoom: Standard_Real) {.importcpp: "SetZoom",
     header: "Draw_View.hxx".}
-proc setFocalDistance*(this: var DrawView; theDistance: StandardReal) {.
+proc SetMatrix*(this: var Draw_View; theMatrix: gp_Trsf) {.importcpp: "SetMatrix",
+    header: "Draw_View.hxx".}
+proc SetFocalDistance*(this: var Draw_View; theDistance: Standard_Real) {.
     importcpp: "SetFocalDistance", header: "Draw_View.hxx".}
-proc getDx*(this: DrawView): StandardInteger {.noSideEffect, importcpp: "GetDx",
+proc GetDx*(this: Draw_View): Standard_Integer {.noSideEffect, importcpp: "GetDx",
     header: "Draw_View.hxx".}
-proc getDy*(this: DrawView): StandardInteger {.noSideEffect, importcpp: "GetDy",
+proc GetDy*(this: Draw_View): Standard_Integer {.noSideEffect, importcpp: "GetDy",
     header: "Draw_View.hxx".}
-proc getZoom*(this: DrawView): StandardReal {.noSideEffect, importcpp: "GetZoom",
+proc GetZoom*(this: Draw_View): Standard_Real {.noSideEffect, importcpp: "GetZoom",
     header: "Draw_View.hxx".}
-proc getMatrix*(this: DrawView): GpTrsf {.noSideEffect, importcpp: "GetMatrix",
-                                      header: "Draw_View.hxx".}
-proc getFocalDistance*(this: DrawView): StandardReal {.noSideEffect,
+proc GetMatrix*(this: Draw_View): gp_Trsf {.noSideEffect, importcpp: "GetMatrix",
+                                        header: "Draw_View.hxx".}
+proc GetFocalDistance*(this: Draw_View): Standard_Real {.noSideEffect,
     importcpp: "GetFocalDistance", header: "Draw_View.hxx".}
-proc `type`*(this: var DrawView): cstring {.importcpp: "Type", header: "Draw_View.hxx".}
-proc is2D*(this: DrawView): StandardBoolean {.noSideEffect, importcpp: "Is2D",
+proc Type*(this: var Draw_View): cstring {.importcpp: "Type", header: "Draw_View.hxx".}
+proc Is2D*(this: Draw_View): Standard_Boolean {.noSideEffect, importcpp: "Is2D",
     header: "Draw_View.hxx".}
-proc isPerspective*(this: DrawView): StandardReal {.noSideEffect,
+proc IsPerspective*(this: Draw_View): Standard_Real {.noSideEffect,
     importcpp: "IsPerspective", header: "Draw_View.hxx".}
-proc init*(this: var DrawView; theType: cstring): StandardBoolean {.importcpp: "Init",
-    header: "Draw_View.hxx".}
-proc transform*(this: var DrawView; theTransformation: GpTrsf) {.
+proc Init*(this: var Draw_View; theType: cstring): Standard_Boolean {.
+    importcpp: "Init", header: "Draw_View.hxx".}
+proc Transform*(this: var Draw_View; theTransformation: gp_Trsf) {.
     importcpp: "Transform", header: "Draw_View.hxx".}
-proc resetFrame*(this: var DrawView) {.importcpp: "ResetFrame",
-                                   header: "Draw_View.hxx".}
-proc getFrame*(this: var DrawView; theX0: var StandardInteger;
-              theY0: var StandardInteger; theX1: var StandardInteger;
-              theY1: var StandardInteger) {.importcpp: "GetFrame",
+proc ResetFrame*(this: var Draw_View) {.importcpp: "ResetFrame",
+                                    header: "Draw_View.hxx".}
+proc GetFrame*(this: var Draw_View; theX0: var Standard_Integer;
+              theY0: var Standard_Integer; theX1: var Standard_Integer;
+              theY1: var Standard_Integer) {.importcpp: "GetFrame",
     header: "Draw_View.hxx".}
-proc wExpose*(this: var DrawView) {.importcpp: "WExpose", header: "Draw_View.hxx".}
-
+proc WExpose*(this: var Draw_View) {.importcpp: "WExpose", header: "Draw_View.hxx".}

@@ -14,10 +14,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../MAT/MAT_Node, ../TopoDS/TopoDS_Shape, ../TColStd/TColStd_MapTransientHasher,
+  ../NCollection/NCollection_DataMap
+
 type
-  BRepFillDataMapOfNodeShape* = NCollectionDataMap[Handle[MAT_Node], TopoDS_Shape,
-      TColStdMapTransientHasher]
-  BRepFillDataMapIteratorOfDataMapOfNodeShape* = Iterator[Handle[MAT_Node],
-      TopoDS_Shape, TColStdMapTransientHasher]
-
-
+  BRepFill_DataMapOfNodeShape* = NCollection_DataMap[handle[MAT_Node],
+      TopoDS_Shape, TColStd_MapTransientHasher]
+  BRepFill_DataMapIteratorOfDataMapOfNodeShape* = Iterator[handle[MAT_Node],
+      TopoDS_Shape, TColStd_MapTransientHasher]

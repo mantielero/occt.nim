@@ -14,9 +14,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _Quantity_AngularVelocity_HeaderFile [NewLine] # _Quantity_AngularVelocity_HeaderFile [NewLine] # < Standard_Real . hxx > [NewLine] ! Defined as the rate at which a body moves around an axis.
+## !!!Ignored construct:  # _Quantity_AngularVelocity_HeaderFile [NewLine] # _Quantity_AngularVelocity_HeaderFile [NewLine] # ../Standard/Standard_Real.hxx [NewLine] ! Defined as the rate at which a body moves around an axis.
 ## ! It is quantified as change in direction per unit time.
 ## ! It is measured in radians per second. Standard_DEPRECATED ( This type is deprecated - Standard_Real should be used instead ) typedef Standard_Real Quantity_AngularVelocity ;
 ## Error: expected ';'!!!
-
-

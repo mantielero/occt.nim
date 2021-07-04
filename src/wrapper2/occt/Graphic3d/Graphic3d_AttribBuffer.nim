@@ -11,62 +11,65 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  Graphic3d_Buffer
+
 ## ! Buffer of vertex attributes.
 ## ! This class is intended for advanced usage allowing invalidation of entire buffer content or its sub-part.
 
 type
-  Graphic3dAttribBuffer* {.importcpp: "Graphic3d_AttribBuffer",
-                          header: "Graphic3d_AttribBuffer.hxx", bycopy.} = object of Graphic3dBuffer ##
-                                                                                              ## !
-                                                                                              ## Empty
-                                                                                              ## constructor.
+  Graphic3d_AttribBuffer* {.importcpp: "Graphic3d_AttribBuffer",
+                           header: "Graphic3d_AttribBuffer.hxx", bycopy.} = object of Graphic3d_Buffer ##
+                                                                                                ## !
+                                                                                                ## Empty
+                                                                                                ## constructor.
     ## !< invalidated buffer data range (as byte offsets)
     ## !< flag indicating the vertex attributes being interleaved
     ## !< flag indicating that data can be invalidated
 
-  Graphic3dAttribBufferbaseType* = Graphic3dBuffer
+  Graphic3d_AttribBufferbase_type* = Graphic3d_Buffer
 
-proc getTypeName*(): cstring {.importcpp: "Graphic3d_AttribBuffer::get_type_name(@)",
-                            header: "Graphic3d_AttribBuffer.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "Graphic3d_AttribBuffer::get_type_name(@)",
+                              header: "Graphic3d_AttribBuffer.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "Graphic3d_AttribBuffer::get_type_descriptor(@)",
     header: "Graphic3d_AttribBuffer.hxx".}
-proc dynamicType*(this: Graphic3dAttribBuffer): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "Graphic3d_AttribBuffer.hxx".}
-proc constructGraphic3dAttribBuffer*(theAlloc: Handle[NCollectionBaseAllocator]): Graphic3dAttribBuffer {.
+proc DynamicType*(this: Graphic3d_AttribBuffer): handle[Standard_Type] {.
+    noSideEffect, importcpp: "DynamicType", header: "Graphic3d_AttribBuffer.hxx".}
+proc constructGraphic3d_AttribBuffer*(theAlloc: handle[NCollection_BaseAllocator]): Graphic3d_AttribBuffer {.
     constructor, importcpp: "Graphic3d_AttribBuffer(@)",
     header: "Graphic3d_AttribBuffer.hxx".}
-proc init*(this: var Graphic3dAttribBuffer; theNbElems: StandardInteger;
-          theAttribs: ptr Graphic3dAttribute; theNbAttribs: StandardInteger): bool {.
+proc Init*(this: var Graphic3d_AttribBuffer; theNbElems: Standard_Integer;
+          theAttribs: ptr Graphic3d_Attribute; theNbAttribs: Standard_Integer): bool {.
     importcpp: "Init", header: "Graphic3d_AttribBuffer.hxx".}
-proc init*(this: var Graphic3dAttribBuffer; theNbElems: StandardInteger;
-          theAttribs: Graphic3dArray1OfAttribute): bool {.importcpp: "Init",
+proc Init*(this: var Graphic3d_AttribBuffer; theNbElems: Standard_Integer;
+          theAttribs: Graphic3d_Array1OfAttribute): bool {.importcpp: "Init",
     header: "Graphic3d_AttribBuffer.hxx".}
-proc isMutable*(this: Graphic3dAttribBuffer): StandardBoolean {.noSideEffect,
+proc IsMutable*(this: Graphic3d_AttribBuffer): Standard_Boolean {.noSideEffect,
     importcpp: "IsMutable", header: "Graphic3d_AttribBuffer.hxx".}
-proc setMutable*(this: var Graphic3dAttribBuffer; theMutable: StandardBoolean) {.
+proc SetMutable*(this: var Graphic3d_AttribBuffer; theMutable: Standard_Boolean) {.
     importcpp: "SetMutable", header: "Graphic3d_AttribBuffer.hxx".}
-proc isInterleaved*(this: Graphic3dAttribBuffer): StandardBoolean {.noSideEffect,
+proc IsInterleaved*(this: Graphic3d_AttribBuffer): Standard_Boolean {.noSideEffect,
     importcpp: "IsInterleaved", header: "Graphic3d_AttribBuffer.hxx".}
-proc setInterleaved*(this: var Graphic3dAttribBuffer;
-                    theIsInterleaved: StandardBoolean) {.
+proc SetInterleaved*(this: var Graphic3d_AttribBuffer;
+                    theIsInterleaved: Standard_Boolean) {.
     importcpp: "SetInterleaved", header: "Graphic3d_AttribBuffer.hxx".}
-proc invalidatedRange*(this: Graphic3dAttribBuffer): Graphic3dBufferRange {.
+proc InvalidatedRange*(this: Graphic3d_AttribBuffer): Graphic3d_BufferRange {.
     noSideEffect, importcpp: "InvalidatedRange",
     header: "Graphic3d_AttribBuffer.hxx".}
-proc validate*(this: var Graphic3dAttribBuffer) {.importcpp: "Validate",
+proc Validate*(this: var Graphic3d_AttribBuffer) {.importcpp: "Validate",
     header: "Graphic3d_AttribBuffer.hxx".}
-proc invalidate*(this: var Graphic3dAttribBuffer) {.importcpp: "Invalidate",
+proc Invalidate*(this: var Graphic3d_AttribBuffer) {.importcpp: "Invalidate",
     header: "Graphic3d_AttribBuffer.hxx".}
-proc invalidate*(this: var Graphic3dAttribBuffer; theAttributeIndex: StandardInteger) {.
+proc Invalidate*(this: var Graphic3d_AttribBuffer;
+                theAttributeIndex: Standard_Integer) {.importcpp: "Invalidate",
+    header: "Graphic3d_AttribBuffer.hxx".}
+proc Invalidate*(this: var Graphic3d_AttribBuffer;
+                theAttributeIndex: Standard_Integer;
+                theVertexLower: Standard_Integer; theVertexUpper: Standard_Integer) {.
     importcpp: "Invalidate", header: "Graphic3d_AttribBuffer.hxx".}
-proc invalidate*(this: var Graphic3dAttribBuffer;
-                theAttributeIndex: StandardInteger;
-                theVertexLower: StandardInteger; theVertexUpper: StandardInteger) {.
-    importcpp: "Invalidate", header: "Graphic3d_AttribBuffer.hxx".}
-proc invalidate*(this: var Graphic3dAttribBuffer; theVertexLower: StandardInteger;
-                theVertexUpper: StandardInteger) {.importcpp: "Invalidate",
+proc Invalidate*(this: var Graphic3d_AttribBuffer; theVertexLower: Standard_Integer;
+                theVertexUpper: Standard_Integer) {.importcpp: "Invalidate",
     header: "Graphic3d_AttribBuffer.hxx".}
-proc invalidate*(this: var Graphic3dAttribBuffer; theRange: Graphic3dBufferRange) {.
+proc invalidate*(this: var Graphic3d_AttribBuffer; theRange: Graphic3d_BufferRange) {.
     importcpp: "invalidate", header: "Graphic3d_AttribBuffer.hxx".}
-

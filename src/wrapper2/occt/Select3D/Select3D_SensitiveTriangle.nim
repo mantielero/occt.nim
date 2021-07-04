@@ -14,6 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  Select3D_TypeOfSensitivity, Select3D_SensitivePoly,
+  ../SelectMgr/SelectMgr_SelectingVolumeManager
+
 discard "forward decl of Standard_ConstructionError"
 discard "forward decl of Standard_OutOfRange"
 type
@@ -48,47 +52,45 @@ type
 
 
 proc constructSelect3D_SensitiveTriangle*(
-    theOwnerId: Handle[SelectMgrEntityOwner]; thePnt0: GpPnt; thePnt1: GpPnt;
-    thePnt2: GpPnt; theType: Select3D_TypeOfSensitivity = select3D_TOS_INTERIOR): Select3D_SensitiveTriangle {.
+    theOwnerId: handle[SelectMgr_EntityOwner]; thePnt0: gp_Pnt; thePnt1: gp_Pnt;
+    thePnt2: gp_Pnt; theType: Select3D_TypeOfSensitivity = Select3D_TOS_INTERIOR): Select3D_SensitiveTriangle {.
     constructor, importcpp: "Select3D_SensitiveTriangle(@)",
     header: "Select3D_SensitiveTriangle.hxx".}
-proc matches*(this: var Select3D_SensitiveTriangle;
-             theMgr: var SelectBasicsSelectingVolumeManager;
-             thePickResult: var SelectBasicsPickResult): StandardBoolean {.
+proc Matches*(this: var Select3D_SensitiveTriangle;
+             theMgr: var SelectBasics_SelectingVolumeManager;
+             thePickResult: var SelectBasics_PickResult): Standard_Boolean {.
     importcpp: "Matches", header: "Select3D_SensitiveTriangle.hxx".}
-proc points3D*(this: Select3D_SensitiveTriangle; thePnt0: var GpPnt;
-              thePnt1: var GpPnt; thePnt2: var GpPnt) {.noSideEffect,
+proc Points3D*(this: Select3D_SensitiveTriangle; thePnt0: var gp_Pnt;
+              thePnt1: var gp_Pnt; thePnt2: var gp_Pnt) {.noSideEffect,
     importcpp: "Points3D", header: "Select3D_SensitiveTriangle.hxx".}
-proc center3D*(this: Select3D_SensitiveTriangle): GpPnt {.noSideEffect,
+proc Center3D*(this: Select3D_SensitiveTriangle): gp_Pnt {.noSideEffect,
     importcpp: "Center3D", header: "Select3D_SensitiveTriangle.hxx".}
-proc getConnected*(this: var Select3D_SensitiveTriangle): Handle[
+proc GetConnected*(this: var Select3D_SensitiveTriangle): handle[
     Select3D_SensitiveEntity] {.importcpp: "GetConnected",
                                header: "Select3D_SensitiveTriangle.hxx".}
-proc boundingBox*(this: var Select3D_SensitiveTriangle): Select3D_BndBox3d {.
+proc BoundingBox*(this: var Select3D_SensitiveTriangle): Select3D_BndBox3d {.
     importcpp: "BoundingBox", header: "Select3D_SensitiveTriangle.hxx".}
-proc toBuildBVH*(this: Select3D_SensitiveTriangle): StandardBoolean {.noSideEffect,
+proc ToBuildBVH*(this: Select3D_SensitiveTriangle): Standard_Boolean {.noSideEffect,
     importcpp: "ToBuildBVH", header: "Select3D_SensitiveTriangle.hxx".}
-proc nbSubElements*(this: Select3D_SensitiveTriangle): StandardInteger {.
+proc NbSubElements*(this: Select3D_SensitiveTriangle): Standard_Integer {.
     noSideEffect, importcpp: "NbSubElements",
     header: "Select3D_SensitiveTriangle.hxx".}
-proc centerOfGeometry*(this: Select3D_SensitiveTriangle): GpPnt {.noSideEffect,
+proc CenterOfGeometry*(this: Select3D_SensitiveTriangle): gp_Pnt {.noSideEffect,
     importcpp: "CenterOfGeometry", header: "Select3D_SensitiveTriangle.hxx".}
-proc dumpJson*(this: Select3D_SensitiveTriangle; theOStream: var StandardOStream;
-              theDepth: StandardInteger = -1) {.noSideEffect, importcpp: "DumpJson",
+proc DumpJson*(this: Select3D_SensitiveTriangle; theOStream: var Standard_OStream;
+              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
     header: "Select3D_SensitiveTriangle.hxx".}
 type
-  Select3D_SensitiveTrianglebaseType* = Select3D_SensitiveEntity
+  Select3D_SensitiveTrianglebase_type* = Select3D_SensitiveEntity
 
-proc getTypeName*(): cstring {.importcpp: "Select3D_SensitiveTriangle::get_type_name(@)",
-                            header: "Select3D_SensitiveTriangle.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "Select3D_SensitiveTriangle::get_type_name(@)",
+                              header: "Select3D_SensitiveTriangle.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "Select3D_SensitiveTriangle::get_type_descriptor(@)",
     header: "Select3D_SensitiveTriangle.hxx".}
-proc dynamicType*(this: Select3D_SensitiveTriangle): Handle[StandardType] {.
+proc DynamicType*(this: Select3D_SensitiveTriangle): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType",
     header: "Select3D_SensitiveTriangle.hxx".}
 discard "forward decl of Select3D_SensitiveTriangle"
 type
-  HandleSelect3D_SensitiveTriangle* = Handle[Select3D_SensitiveTriangle]
-
-
+  Handle_Select3D_SensitiveTriangle* = handle[Select3D_SensitiveTriangle]

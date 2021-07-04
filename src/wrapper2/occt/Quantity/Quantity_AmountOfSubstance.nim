@@ -14,11 +14,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _Quantity_AmountOfSubstance_HeaderFile [NewLine] # _Quantity_AmountOfSubstance_HeaderFile [NewLine] # < Standard_Real . hxx > [NewLine] ! Defined as a dimensionless quantity proportional to
+## !!!Ignored construct:  # _Quantity_AmountOfSubstance_HeaderFile [NewLine] # _Quantity_AmountOfSubstance_HeaderFile [NewLine] # ../Standard/Standard_Real.hxx [NewLine] ! Defined as a dimensionless quantity proportional to
 ## ! the number of specified particles of a substance.
 ## ! Amount of substance is measured in moles.
 ## ! For all substances the number of molecules in a mole
 ## ! is given by Avogadro's Constant. Standard_DEPRECATED ( This type is deprecated - Standard_Real should be used instead ) typedef Standard_Real Quantity_AmountOfSubstance ;
 ## Error: expected ';'!!!
-
-

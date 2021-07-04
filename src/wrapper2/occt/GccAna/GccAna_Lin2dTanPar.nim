@@ -14,6 +14,14 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
+  ../Standard/Standard_Integer, ../TColgp/TColgp_Array1OfLin2d,
+  ../GccEnt/GccEnt_Array1OfPosition, ../TColgp/TColgp_Array1OfPnt2d,
+  ../TColStd/TColStd_Array1OfReal, ../GccEnt/GccEnt_Position,
+  ../Standard/Standard_Real
+
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of GccEnt_BadQualifier"
 discard "forward decl of StdFail_NotDone"
@@ -21,28 +29,27 @@ discard "forward decl of gp_Pnt2d"
 discard "forward decl of gp_Lin2d"
 discard "forward decl of GccEnt_QualifiedCirc"
 type
-  GccAnaLin2dTanPar* {.importcpp: "GccAna_Lin2dTanPar",
-                      header: "GccAna_Lin2dTanPar.hxx", bycopy.} = object ## ! This method implements the algorithms used to create a 2d
-                                                                     ## ! line passing through a point and parallel to
-                                                                     ## ! another line.
+  GccAna_Lin2dTanPar* {.importcpp: "GccAna_Lin2dTanPar",
+                       header: "GccAna_Lin2dTanPar.hxx", bycopy.} = object ## ! This method implements the algorithms used to create a 2d
+                                                                      ## ! line passing through a point and parallel to
+                                                                      ## ! another line.
 
 
-proc constructGccAnaLin2dTanPar*(thePoint: GpPnt2d; lin1: GpLin2d): GccAnaLin2dTanPar {.
+proc constructGccAna_Lin2dTanPar*(ThePoint: gp_Pnt2d; Lin1: gp_Lin2d): GccAna_Lin2dTanPar {.
     constructor, importcpp: "GccAna_Lin2dTanPar(@)",
     header: "GccAna_Lin2dTanPar.hxx".}
-proc constructGccAnaLin2dTanPar*(qualified1: GccEntQualifiedCirc; lin1: GpLin2d): GccAnaLin2dTanPar {.
+proc constructGccAna_Lin2dTanPar*(Qualified1: GccEnt_QualifiedCirc; Lin1: gp_Lin2d): GccAna_Lin2dTanPar {.
     constructor, importcpp: "GccAna_Lin2dTanPar(@)",
     header: "GccAna_Lin2dTanPar.hxx".}
-proc isDone*(this: GccAnaLin2dTanPar): StandardBoolean {.noSideEffect,
+proc IsDone*(this: GccAna_Lin2dTanPar): Standard_Boolean {.noSideEffect,
     importcpp: "IsDone", header: "GccAna_Lin2dTanPar.hxx".}
-proc nbSolutions*(this: GccAnaLin2dTanPar): StandardInteger {.noSideEffect,
+proc NbSolutions*(this: GccAna_Lin2dTanPar): Standard_Integer {.noSideEffect,
     importcpp: "NbSolutions", header: "GccAna_Lin2dTanPar.hxx".}
-proc thisSolution*(this: GccAnaLin2dTanPar; index: StandardInteger): GpLin2d {.
+proc ThisSolution*(this: GccAna_Lin2dTanPar; Index: Standard_Integer): gp_Lin2d {.
     noSideEffect, importcpp: "ThisSolution", header: "GccAna_Lin2dTanPar.hxx".}
-proc whichQualifier*(this: GccAnaLin2dTanPar; index: StandardInteger;
-                    qualif1: var GccEntPosition) {.noSideEffect,
+proc WhichQualifier*(this: GccAna_Lin2dTanPar; Index: Standard_Integer;
+                    Qualif1: var GccEnt_Position) {.noSideEffect,
     importcpp: "WhichQualifier", header: "GccAna_Lin2dTanPar.hxx".}
-proc tangency1*(this: GccAnaLin2dTanPar; index: StandardInteger;
-               parSol: var StandardReal; parArg: var StandardReal; pnt: var GpPnt2d) {.
+proc Tangency1*(this: GccAna_Lin2dTanPar; Index: Standard_Integer;
+               ParSol: var Standard_Real; ParArg: var Standard_Real; Pnt: var gp_Pnt2d) {.
     noSideEffect, importcpp: "Tangency1", header: "GccAna_Lin2dTanPar.hxx".}
-

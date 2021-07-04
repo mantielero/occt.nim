@@ -14,8 +14,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  BRepOffset_Interval, ../NCollection/NCollection_List
+
 type
-  BRepOffsetListOfInterval* = NCollectionList[BRepOffsetInterval]
-  BRepOffsetListIteratorOfListOfInterval* = Iterator[BRepOffsetInterval]
-
-
+  BRepOffset_ListOfInterval* = NCollection_List[BRepOffset_Interval]
+  BRepOffset_ListIteratorOfListOfInterval* = Iterator[BRepOffset_Interval]

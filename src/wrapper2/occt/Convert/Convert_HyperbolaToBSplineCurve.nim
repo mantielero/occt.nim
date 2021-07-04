@@ -14,35 +14,46 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, Convert_ConicToBSplineCurve,
+  ../Standard/Standard_Real
+
 discard "forward decl of gp_Hypr2d"
 type
-  ConvertHyperbolaToBSplineCurve* {.importcpp: "Convert_HyperbolaToBSplineCurve", header: "Convert_HyperbolaToBSplineCurve.hxx",
-                                   bycopy.} = object of ConvertConicToBSplineCurve ## !
-                                                                              ## The
-                                                                              ## hyperbola H is
-                                                                              ## limited
-                                                                              ## between
-                                                                              ## the
-                                                                              ## parametric
-                                                                              ## values
-                                                                              ## U1, U2
-                                                                              ## !
-                                                                              ## and
-                                                                              ## the
-                                                                              ## equivalent
-                                                                              ## B-spline
-                                                                              ## curve
-                                                                              ## has
-                                                                              ## the
-                                                                              ## same
-                                                                              ## orientation as
-                                                                              ## the
-                                                                              ## !
-                                                                              ## hyperbola.
+  Convert_HyperbolaToBSplineCurve* {.importcpp: "Convert_HyperbolaToBSplineCurve", header: "Convert_HyperbolaToBSplineCurve.hxx",
+                                    bycopy.} = object of Convert_ConicToBSplineCurve ##
+                                                                                ## !
+                                                                                ## The
+                                                                                ## hyperbola
+                                                                                ## H
+                                                                                ## is
+                                                                                ## limited
+                                                                                ## between
+                                                                                ## the
+                                                                                ## parametric
+                                                                                ## values
+                                                                                ## U1,
+                                                                                ## U2
+                                                                                ##
+                                                                                ## !
+                                                                                ## and
+                                                                                ## the
+                                                                                ## equivalent
+                                                                                ## B-spline
+                                                                                ## curve
+                                                                                ## has
+                                                                                ## the
+                                                                                ## same
+                                                                                ## orientation
+                                                                                ## as
+                                                                                ## the
+                                                                                ##
+                                                                                ## !
+                                                                                ## hyperbola.
 
 
-proc constructConvertHyperbolaToBSplineCurve*(h: GpHypr2d; u1: StandardReal;
-    u2: StandardReal): ConvertHyperbolaToBSplineCurve {.constructor,
+proc constructConvert_HyperbolaToBSplineCurve*(H: gp_Hypr2d; U1: Standard_Real;
+    U2: Standard_Real): Convert_HyperbolaToBSplineCurve {.constructor,
     importcpp: "Convert_HyperbolaToBSplineCurve(@)",
     header: "Convert_HyperbolaToBSplineCurve.hxx".}
-

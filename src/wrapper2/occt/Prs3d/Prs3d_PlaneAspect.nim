@@ -14,83 +14,84 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  Prs3d_LineAspect
+
 ## ! A framework to define the display of planes.
 
 type
-  Prs3dPlaneAspect* {.importcpp: "Prs3d_PlaneAspect",
-                     header: "Prs3d_PlaneAspect.hxx", bycopy.} = object of Prs3dBasicAspect ##
-                                                                                     ## !
-                                                                                     ## Constructs
-                                                                                     ## an
-                                                                                     ## empty
-                                                                                     ## framework
-                                                                                     ## for
-                                                                                     ## the
-                                                                                     ## display
-                                                                                     ## of
-                                                                                     ## planes.
+  Prs3d_PlaneAspect* {.importcpp: "Prs3d_PlaneAspect",
+                      header: "Prs3d_PlaneAspect.hxx", bycopy.} = object of Prs3d_BasicAspect ##
+                                                                                       ## !
+                                                                                       ## Constructs
+                                                                                       ## an
+                                                                                       ## empty
+                                                                                       ## framework
+                                                                                       ## for
+                                                                                       ## the
+                                                                                       ## display
+                                                                                       ## of
+                                                                                       ## planes.
 
-  Prs3dPlaneAspectbaseType* = Prs3dBasicAspect
+  Prs3d_PlaneAspectbase_type* = Prs3d_BasicAspect
 
-proc getTypeName*(): cstring {.importcpp: "Prs3d_PlaneAspect::get_type_name(@)",
-                            header: "Prs3d_PlaneAspect.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "Prs3d_PlaneAspect::get_type_name(@)",
+                              header: "Prs3d_PlaneAspect.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "Prs3d_PlaneAspect::get_type_descriptor(@)",
     header: "Prs3d_PlaneAspect.hxx".}
-proc dynamicType*(this: Prs3dPlaneAspect): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: Prs3d_PlaneAspect): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "Prs3d_PlaneAspect.hxx".}
-proc constructPrs3dPlaneAspect*(): Prs3dPlaneAspect {.constructor,
+proc constructPrs3d_PlaneAspect*(): Prs3d_PlaneAspect {.constructor,
     importcpp: "Prs3d_PlaneAspect(@)", header: "Prs3d_PlaneAspect.hxx".}
-proc edgesAspect*(this: Prs3dPlaneAspect): Handle[Prs3dLineAspect] {.noSideEffect,
+proc EdgesAspect*(this: Prs3d_PlaneAspect): handle[Prs3d_LineAspect] {.noSideEffect,
     importcpp: "EdgesAspect", header: "Prs3d_PlaneAspect.hxx".}
-proc isoAspect*(this: Prs3dPlaneAspect): Handle[Prs3dLineAspect] {.noSideEffect,
+proc IsoAspect*(this: Prs3d_PlaneAspect): handle[Prs3d_LineAspect] {.noSideEffect,
     importcpp: "IsoAspect", header: "Prs3d_PlaneAspect.hxx".}
-proc arrowAspect*(this: Prs3dPlaneAspect): Handle[Prs3dLineAspect] {.noSideEffect,
+proc ArrowAspect*(this: Prs3d_PlaneAspect): handle[Prs3d_LineAspect] {.noSideEffect,
     importcpp: "ArrowAspect", header: "Prs3d_PlaneAspect.hxx".}
-proc setArrowsLength*(this: var Prs3dPlaneAspect; theLength: StandardReal) {.
+proc SetArrowsLength*(this: var Prs3d_PlaneAspect; theLength: Standard_Real) {.
     importcpp: "SetArrowsLength", header: "Prs3d_PlaneAspect.hxx".}
-proc arrowsLength*(this: Prs3dPlaneAspect): StandardReal {.noSideEffect,
+proc ArrowsLength*(this: Prs3d_PlaneAspect): Standard_Real {.noSideEffect,
     importcpp: "ArrowsLength", header: "Prs3d_PlaneAspect.hxx".}
-proc setArrowsSize*(this: var Prs3dPlaneAspect; theSize: StandardReal) {.
+proc SetArrowsSize*(this: var Prs3d_PlaneAspect; theSize: Standard_Real) {.
     importcpp: "SetArrowsSize", header: "Prs3d_PlaneAspect.hxx".}
-proc arrowsSize*(this: Prs3dPlaneAspect): StandardReal {.noSideEffect,
+proc ArrowsSize*(this: Prs3d_PlaneAspect): Standard_Real {.noSideEffect,
     importcpp: "ArrowsSize", header: "Prs3d_PlaneAspect.hxx".}
-proc setArrowsAngle*(this: var Prs3dPlaneAspect; theAngle: StandardReal) {.
+proc SetArrowsAngle*(this: var Prs3d_PlaneAspect; theAngle: Standard_Real) {.
     importcpp: "SetArrowsAngle", header: "Prs3d_PlaneAspect.hxx".}
-proc arrowsAngle*(this: Prs3dPlaneAspect): StandardReal {.noSideEffect,
+proc ArrowsAngle*(this: Prs3d_PlaneAspect): Standard_Real {.noSideEffect,
     importcpp: "ArrowsAngle", header: "Prs3d_PlaneAspect.hxx".}
-proc setDisplayCenterArrow*(this: var Prs3dPlaneAspect; theToDraw: StandardBoolean) {.
+proc SetDisplayCenterArrow*(this: var Prs3d_PlaneAspect; theToDraw: Standard_Boolean) {.
     importcpp: "SetDisplayCenterArrow", header: "Prs3d_PlaneAspect.hxx".}
-proc displayCenterArrow*(this: Prs3dPlaneAspect): StandardBoolean {.noSideEffect,
+proc DisplayCenterArrow*(this: Prs3d_PlaneAspect): Standard_Boolean {.noSideEffect,
     importcpp: "DisplayCenterArrow", header: "Prs3d_PlaneAspect.hxx".}
-proc setDisplayEdgesArrows*(this: var Prs3dPlaneAspect; theToDraw: StandardBoolean) {.
+proc SetDisplayEdgesArrows*(this: var Prs3d_PlaneAspect; theToDraw: Standard_Boolean) {.
     importcpp: "SetDisplayEdgesArrows", header: "Prs3d_PlaneAspect.hxx".}
-proc displayEdgesArrows*(this: Prs3dPlaneAspect): StandardBoolean {.noSideEffect,
+proc DisplayEdgesArrows*(this: Prs3d_PlaneAspect): Standard_Boolean {.noSideEffect,
     importcpp: "DisplayEdgesArrows", header: "Prs3d_PlaneAspect.hxx".}
-proc setDisplayEdges*(this: var Prs3dPlaneAspect; theToDraw: StandardBoolean) {.
+proc SetDisplayEdges*(this: var Prs3d_PlaneAspect; theToDraw: Standard_Boolean) {.
     importcpp: "SetDisplayEdges", header: "Prs3d_PlaneAspect.hxx".}
-proc displayEdges*(this: Prs3dPlaneAspect): StandardBoolean {.noSideEffect,
+proc DisplayEdges*(this: Prs3d_PlaneAspect): Standard_Boolean {.noSideEffect,
     importcpp: "DisplayEdges", header: "Prs3d_PlaneAspect.hxx".}
-proc setDisplayIso*(this: var Prs3dPlaneAspect; theToDraw: StandardBoolean) {.
+proc SetDisplayIso*(this: var Prs3d_PlaneAspect; theToDraw: Standard_Boolean) {.
     importcpp: "SetDisplayIso", header: "Prs3d_PlaneAspect.hxx".}
-proc displayIso*(this: Prs3dPlaneAspect): StandardBoolean {.noSideEffect,
+proc DisplayIso*(this: Prs3d_PlaneAspect): Standard_Boolean {.noSideEffect,
     importcpp: "DisplayIso", header: "Prs3d_PlaneAspect.hxx".}
-proc setPlaneLength*(this: var Prs3dPlaneAspect; theLX: StandardReal;
-                    theLY: StandardReal) {.importcpp: "SetPlaneLength",
+proc SetPlaneLength*(this: var Prs3d_PlaneAspect; theLX: Standard_Real;
+                    theLY: Standard_Real) {.importcpp: "SetPlaneLength",
     header: "Prs3d_PlaneAspect.hxx".}
-proc planeXLength*(this: Prs3dPlaneAspect): StandardReal {.noSideEffect,
+proc PlaneXLength*(this: Prs3d_PlaneAspect): Standard_Real {.noSideEffect,
     importcpp: "PlaneXLength", header: "Prs3d_PlaneAspect.hxx".}
-proc planeYLength*(this: Prs3dPlaneAspect): StandardReal {.noSideEffect,
+proc PlaneYLength*(this: Prs3d_PlaneAspect): Standard_Real {.noSideEffect,
     importcpp: "PlaneYLength", header: "Prs3d_PlaneAspect.hxx".}
-proc setIsoDistance*(this: var Prs3dPlaneAspect; theL: StandardReal) {.
+proc SetIsoDistance*(this: var Prs3d_PlaneAspect; theL: Standard_Real) {.
     importcpp: "SetIsoDistance", header: "Prs3d_PlaneAspect.hxx".}
-proc isoDistance*(this: Prs3dPlaneAspect): StandardReal {.noSideEffect,
+proc IsoDistance*(this: Prs3d_PlaneAspect): Standard_Real {.noSideEffect,
     importcpp: "IsoDistance", header: "Prs3d_PlaneAspect.hxx".}
-proc dumpJson*(this: Prs3dPlaneAspect; theOStream: var StandardOStream;
-              theDepth: StandardInteger = -1) {.noSideEffect, importcpp: "DumpJson",
+proc DumpJson*(this: Prs3d_PlaneAspect; theOStream: var Standard_OStream;
+              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
     header: "Prs3d_PlaneAspect.hxx".}
 discard "forward decl of Prs3d_PlaneAspect"
 type
-  HandlePrs3dPlaneAspect* = Handle[Prs3dPlaneAspect]
-
-
+  Handle_Prs3d_PlaneAspect* = handle[Prs3d_PlaneAspect]

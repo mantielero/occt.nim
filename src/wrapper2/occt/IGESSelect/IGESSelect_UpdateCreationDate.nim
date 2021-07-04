@@ -14,6 +14,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, IGESSelect_ModelModifier
+
 discard "forward decl of IFSelect_ContextModif"
 discard "forward decl of IGESData_IGESModel"
 discard "forward decl of Interface_CopyTool"
@@ -21,7 +24,7 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of IGESSelect_UpdateCreationDate"
 discard "forward decl of IGESSelect_UpdateCreationDate"
 type
-  HandleIGESSelectUpdateCreationDate* = Handle[IGESSelectUpdateCreationDate]
+  Handle_IGESSelect_UpdateCreationDate* = handle[IGESSelect_UpdateCreationDate]
 
 ## ! Allows to Change the Creation Date indication in the Header
 ## ! (Global Section) of IGES File. It is taken from the operating
@@ -30,30 +33,31 @@ type
 ## ! a criterium to select IGES Files to touch up
 
 type
-  IGESSelectUpdateCreationDate* {.importcpp: "IGESSelect_UpdateCreationDate",
-                                 header: "IGESSelect_UpdateCreationDate.hxx",
-                                 bycopy.} = object of IGESSelectModelModifier ## ! Creates an
-                                                                         ## UpdateCreationDate, which uses the system Date
+  IGESSelect_UpdateCreationDate* {.importcpp: "IGESSelect_UpdateCreationDate",
+                                  header: "IGESSelect_UpdateCreationDate.hxx",
+                                  bycopy.} = object of IGESSelect_ModelModifier ## !
+                                                                           ## Creates an
+                                                                           ## UpdateCreationDate, which uses the
+                                                                           ## system Date
 
 
-proc constructIGESSelectUpdateCreationDate*(): IGESSelectUpdateCreationDate {.
+proc constructIGESSelect_UpdateCreationDate*(): IGESSelect_UpdateCreationDate {.
     constructor, importcpp: "IGESSelect_UpdateCreationDate(@)",
     header: "IGESSelect_UpdateCreationDate.hxx".}
-proc performing*(this: IGESSelectUpdateCreationDate; ctx: var IFSelectContextModif;
-                target: Handle[IGESDataIGESModel]; tc: var InterfaceCopyTool) {.
-    noSideEffect, importcpp: "Performing",
+proc Performing*(this: IGESSelect_UpdateCreationDate;
+                ctx: var IFSelect_ContextModif; target: handle[IGESData_IGESModel];
+                TC: var Interface_CopyTool) {.noSideEffect, importcpp: "Performing",
     header: "IGESSelect_UpdateCreationDate.hxx".}
-proc label*(this: IGESSelectUpdateCreationDate): TCollectionAsciiString {.
+proc Label*(this: IGESSelect_UpdateCreationDate): TCollection_AsciiString {.
     noSideEffect, importcpp: "Label", header: "IGESSelect_UpdateCreationDate.hxx".}
 type
-  IGESSelectUpdateCreationDatebaseType* = IGESSelectModelModifier
+  IGESSelect_UpdateCreationDatebase_type* = IGESSelect_ModelModifier
 
-proc getTypeName*(): cstring {.importcpp: "IGESSelect_UpdateCreationDate::get_type_name(@)",
-                            header: "IGESSelect_UpdateCreationDate.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "IGESSelect_UpdateCreationDate::get_type_name(@)",
+                              header: "IGESSelect_UpdateCreationDate.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "IGESSelect_UpdateCreationDate::get_type_descriptor(@)",
     header: "IGESSelect_UpdateCreationDate.hxx".}
-proc dynamicType*(this: IGESSelectUpdateCreationDate): Handle[StandardType] {.
+proc DynamicType*(this: IGESSelect_UpdateCreationDate): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType",
     header: "IGESSelect_UpdateCreationDate.hxx".}
-

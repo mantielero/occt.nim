@@ -14,13 +14,18 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../BRepTools/BRepTools_ReShape,
+  ../TopAbs/TopAbs_ShapeEnum, ../Standard/Standard_Integer,
+  ../Standard/Standard_Boolean, ../ShapeExtend/ShapeExtend_Status
+
 discard "forward decl of TopoDS_Shape"
-# when defined(Status):
-#   discard
+when defined(Status):
+  discard
 discard "forward decl of ShapeBuild_ReShape"
 discard "forward decl of ShapeBuild_ReShape"
 type
-  HandleShapeBuildReShape* = Handle[ShapeBuildReShape]
+  Handle_ShapeBuild_ReShape* = handle[ShapeBuild_ReShape]
 
 ## ! Rebuilds a Shape by making pre-defined substitutions on some
 ## ! of its components
@@ -36,36 +41,35 @@ type
 ## ! contain one or more of these individual shapes
 
 type
-  ShapeBuildReShape* {.importcpp: "ShapeBuild_ReShape",
-                      header: "ShapeBuild_ReShape.hxx", bycopy.} = object of BRepToolsReShape ##
-                                                                                       ## !
-                                                                                       ## Returns
-                                                                                       ## an
-                                                                                       ## empty
-                                                                                       ## Reshape
+  ShapeBuild_ReShape* {.importcpp: "ShapeBuild_ReShape",
+                       header: "ShapeBuild_ReShape.hxx", bycopy.} = object of BRepTools_ReShape ##
+                                                                                         ## !
+                                                                                         ## Returns
+                                                                                         ## an
+                                                                                         ## empty
+                                                                                         ## Reshape
 
 
-proc constructShapeBuildReShape*(): ShapeBuildReShape {.constructor,
+proc constructShapeBuild_ReShape*(): ShapeBuild_ReShape {.constructor,
     importcpp: "ShapeBuild_ReShape(@)", header: "ShapeBuild_ReShape.hxx".}
-proc apply*(this: var ShapeBuildReShape; shape: TopoDS_Shape; until: TopAbsShapeEnum;
-           buildmode: StandardInteger): TopoDS_Shape {.importcpp: "Apply",
-    header: "ShapeBuild_ReShape.hxx".}
-proc apply*(this: var ShapeBuildReShape; shape: TopoDS_Shape;
-           until: TopAbsShapeEnum = topAbsSHAPE): TopoDS_Shape {.importcpp: "Apply",
-    header: "ShapeBuild_ReShape.hxx".}
-proc status*(this: var ShapeBuildReShape; shape: TopoDS_Shape;
-            newsh: var TopoDS_Shape; last: StandardBoolean = standardFalse): StandardInteger {.
+proc Apply*(this: var ShapeBuild_ReShape; shape: TopoDS_Shape;
+           until: TopAbs_ShapeEnum; buildmode: Standard_Integer): TopoDS_Shape {.
+    importcpp: "Apply", header: "ShapeBuild_ReShape.hxx".}
+proc Apply*(this: var ShapeBuild_ReShape; shape: TopoDS_Shape;
+           until: TopAbs_ShapeEnum = TopAbs_SHAPE): TopoDS_Shape {.
+    importcpp: "Apply", header: "ShapeBuild_ReShape.hxx".}
+proc Status*(this: var ShapeBuild_ReShape; shape: TopoDS_Shape;
+            newsh: var TopoDS_Shape; last: Standard_Boolean = Standard_False): Standard_Integer {.
     importcpp: "Status", header: "ShapeBuild_ReShape.hxx".}
-proc status*(this: ShapeBuildReShape; status: ShapeExtendStatus): StandardBoolean {.
+proc Status*(this: ShapeBuild_ReShape; status: ShapeExtend_Status): Standard_Boolean {.
     noSideEffect, importcpp: "Status", header: "ShapeBuild_ReShape.hxx".}
 type
-  ShapeBuildReShapebaseType* = BRepToolsReShape
+  ShapeBuild_ReShapebase_type* = BRepTools_ReShape
 
-proc getTypeName*(): cstring {.importcpp: "ShapeBuild_ReShape::get_type_name(@)",
-                            header: "ShapeBuild_ReShape.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "ShapeBuild_ReShape::get_type_name(@)",
+                              header: "ShapeBuild_ReShape.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "ShapeBuild_ReShape::get_type_descriptor(@)",
     header: "ShapeBuild_ReShape.hxx".}
-proc dynamicType*(this: ShapeBuildReShape): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: ShapeBuild_ReShape): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "ShapeBuild_ReShape.hxx".}
-

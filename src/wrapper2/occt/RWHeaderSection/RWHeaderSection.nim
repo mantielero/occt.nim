@@ -14,6 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle
+
 discard "forward decl of RWHeaderSection_ReadWriteModule"
 discard "forward decl of RWHeaderSection_GeneralModule"
 discard "forward decl of RWHeaderSection_RWFileName"
@@ -24,5 +28,4 @@ type
                     bycopy.} = object ## ! enforced the initialisation of the  libraries
 
 
-proc init*() {.importcpp: "RWHeaderSection::Init(@)", header: "RWHeaderSection.hxx".}
-
+proc Init*() {.importcpp: "RWHeaderSection::Init(@)", header: "RWHeaderSection.hxx".}

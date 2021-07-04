@@ -14,6 +14,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../TCollection/TCollection_AsciiString, OSD_Error,
+  OSD_SysType, ../Standard/Standard_Integer, OSD_OEMType,
+  ../Standard/Standard_Boolean
+
 discard "forward decl of Standard_ConstructionError"
 discard "forward decl of Standard_NullObject"
 discard "forward decl of OSD_OSDError"
@@ -25,22 +31,21 @@ type
 
 proc constructOSD_Host*(): OSD_Host {.constructor, importcpp: "OSD_Host(@)",
                                    header: "OSD_Host.hxx".}
-proc systemVersion*(this: var OSD_Host): TCollectionAsciiString {.
+proc SystemVersion*(this: var OSD_Host): TCollection_AsciiString {.
     importcpp: "SystemVersion", header: "OSD_Host.hxx".}
-proc systemId*(this: OSD_Host): OSD_SysType {.noSideEffect, importcpp: "SystemId",
+proc SystemId*(this: OSD_Host): OSD_SysType {.noSideEffect, importcpp: "SystemId",
     header: "OSD_Host.hxx".}
-proc hostName*(this: var OSD_Host): TCollectionAsciiString {.importcpp: "HostName",
+proc HostName*(this: var OSD_Host): TCollection_AsciiString {.importcpp: "HostName",
     header: "OSD_Host.hxx".}
-proc availableMemory*(this: var OSD_Host): StandardInteger {.
+proc AvailableMemory*(this: var OSD_Host): Standard_Integer {.
     importcpp: "AvailableMemory", header: "OSD_Host.hxx".}
-proc internetAddress*(this: var OSD_Host): TCollectionAsciiString {.
+proc InternetAddress*(this: var OSD_Host): TCollection_AsciiString {.
     importcpp: "InternetAddress", header: "OSD_Host.hxx".}
-proc machineType*(this: var OSD_Host): OSD_OEMType {.importcpp: "MachineType",
+proc MachineType*(this: var OSD_Host): OSD_OEMType {.importcpp: "MachineType",
     header: "OSD_Host.hxx".}
-proc failed*(this: OSD_Host): StandardBoolean {.noSideEffect, importcpp: "Failed",
+proc Failed*(this: OSD_Host): Standard_Boolean {.noSideEffect, importcpp: "Failed",
     header: "OSD_Host.hxx".}
-proc reset*(this: var OSD_Host) {.importcpp: "Reset", header: "OSD_Host.hxx".}
-proc perror*(this: var OSD_Host) {.importcpp: "Perror", header: "OSD_Host.hxx".}
-proc error*(this: OSD_Host): StandardInteger {.noSideEffect, importcpp: "Error",
+proc Reset*(this: var OSD_Host) {.importcpp: "Reset", header: "OSD_Host.hxx".}
+proc Perror*(this: var OSD_Host) {.importcpp: "Perror", header: "OSD_Host.hxx".}
+proc Error*(this: OSD_Host): Standard_Integer {.noSideEffect, importcpp: "Error",
     header: "OSD_Host.hxx".}
-

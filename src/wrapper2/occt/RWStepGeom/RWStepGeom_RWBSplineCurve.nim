@@ -14,27 +14,30 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepGeom_BSplineCurve"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepGeomRWBSplineCurve* {.importcpp: "RWStepGeom_RWBSplineCurve",
-                             header: "RWStepGeom_RWBSplineCurve.hxx", bycopy.} = object
+  RWStepGeom_RWBSplineCurve* {.importcpp: "RWStepGeom_RWBSplineCurve",
+                              header: "RWStepGeom_RWBSplineCurve.hxx", bycopy.} = object
 
 
-proc constructRWStepGeomRWBSplineCurve*(): RWStepGeomRWBSplineCurve {.constructor,
-    importcpp: "RWStepGeom_RWBSplineCurve(@)",
+proc constructRWStepGeom_RWBSplineCurve*(): RWStepGeom_RWBSplineCurve {.
+    constructor, importcpp: "RWStepGeom_RWBSplineCurve(@)",
     header: "RWStepGeom_RWBSplineCurve.hxx".}
-proc readStep*(this: RWStepGeomRWBSplineCurve;
-              data: Handle[StepDataStepReaderData]; num: StandardInteger;
-              ach: var Handle[InterfaceCheck]; ent: Handle[StepGeomBSplineCurve]) {.
+proc ReadStep*(this: RWStepGeom_RWBSplineCurve;
+              data: handle[StepData_StepReaderData]; num: Standard_Integer;
+              ach: var handle[Interface_Check]; ent: handle[StepGeom_BSplineCurve]) {.
     noSideEffect, importcpp: "ReadStep", header: "RWStepGeom_RWBSplineCurve.hxx".}
-proc writeStep*(this: RWStepGeomRWBSplineCurve; sw: var StepDataStepWriter;
-               ent: Handle[StepGeomBSplineCurve]) {.noSideEffect,
+proc WriteStep*(this: RWStepGeom_RWBSplineCurve; SW: var StepData_StepWriter;
+               ent: handle[StepGeom_BSplineCurve]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepGeom_RWBSplineCurve.hxx".}
-proc share*(this: RWStepGeomRWBSplineCurve; ent: Handle[StepGeomBSplineCurve];
-           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
+proc Share*(this: RWStepGeom_RWBSplineCurve; ent: handle[StepGeom_BSplineCurve];
+           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepGeom_RWBSplineCurve.hxx".}
-

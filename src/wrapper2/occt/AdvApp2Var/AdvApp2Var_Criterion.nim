@@ -14,27 +14,28 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Real,
+  AdvApp2Var_CriterionType, AdvApp2Var_CriterionRepartition,
+  ../Standard/Standard_Boolean
+
 discard "forward decl of AdvApp2Var_Patch"
 discard "forward decl of AdvApp2Var_Context"
 type
-  AdvApp2VarCriterion* {.importcpp: "AdvApp2Var_Criterion",
-                        header: "AdvApp2Var_Criterion.hxx", bycopy.} = object
-# # # # 
+  AdvApp2Var_Criterion* {.importcpp: "AdvApp2Var_Criterion",
+                         header: "AdvApp2Var_Criterion.hxx", bycopy.} = object
 
-proc destroyAdvApp2VarCriterion*(this: var AdvApp2VarCriterion) {.
+
+proc destroyAdvApp2Var_Criterion*(this: var AdvApp2Var_Criterion) {.
     importcpp: "#.~AdvApp2Var_Criterion()", header: "AdvApp2Var_Criterion.hxx".}
-proc value*(this: AdvApp2VarCriterion; p: var AdvApp2VarPatch; c: AdvApp2VarContext) {.
+proc Value*(this: AdvApp2Var_Criterion; P: var AdvApp2Var_Patch; C: AdvApp2Var_Context) {.
     noSideEffect, importcpp: "Value", header: "AdvApp2Var_Criterion.hxx".}
-proc isSatisfied*(this: AdvApp2VarCriterion; p: AdvApp2VarPatch): StandardBoolean {.
+proc IsSatisfied*(this: AdvApp2Var_Criterion; P: AdvApp2Var_Patch): Standard_Boolean {.
     noSideEffect, importcpp: "IsSatisfied", header: "AdvApp2Var_Criterion.hxx".}
-proc maxValue*(this: AdvApp2VarCriterion): StandardReal {.noSideEffect,
+proc MaxValue*(this: AdvApp2Var_Criterion): Standard_Real {.noSideEffect,
     importcpp: "MaxValue", header: "AdvApp2Var_Criterion.hxx".}
-proc `type`*(this: AdvApp2VarCriterion): AdvApp2VarCriterionType {.noSideEffect,
+proc Type*(this: AdvApp2Var_Criterion): AdvApp2Var_CriterionType {.noSideEffect,
     importcpp: "Type", header: "AdvApp2Var_Criterion.hxx".}
-proc repartition*(this: AdvApp2VarCriterion): AdvApp2VarCriterionRepartition {.
+proc Repartition*(this: AdvApp2Var_Criterion): AdvApp2Var_CriterionRepartition {.
     noSideEffect, importcpp: "Repartition", header: "AdvApp2Var_Criterion.hxx".}
-
-
-
-
-

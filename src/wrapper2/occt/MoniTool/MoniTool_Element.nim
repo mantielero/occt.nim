@@ -14,11 +14,16 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Integer,
+  MoniTool_AttrList, ../Standard/Standard_Transient, ../Standard/Standard_Boolean,
+  ../Standard/Standard_Type, ../Standard/Standard_CString
+
 discard "forward decl of MoniTool_AttrList"
 discard "forward decl of MoniTool_Element"
 discard "forward decl of MoniTool_Element"
 type
-  HandleMoniToolElement* = Handle[MoniToolElement]
+  Handle_MoniTool_Element* = handle[MoniTool_Element]
 
 ## ! a Element allows to map any kind of object as a Key for a Map.
 ## ! This works by defining, for a Hash Code, that of the real Key,
@@ -27,34 +32,51 @@ type
 ## ! the code it has determined at creation time
 
 type
-  MoniToolElement* {.importcpp: "MoniTool_Element", header: "MoniTool_Element.hxx",
-                    bycopy.} = object of StandardTransient ## ! Empty constructor
-                                                      ## ! Stores the HashCode which corresponds to the Value given to
-                                                      ## ! create the Mapper
+  MoniTool_Element* {.importcpp: "MoniTool_Element",
+                     header: "MoniTool_Element.hxx", bycopy.} = object of Standard_Transient ##
+                                                                                      ## !
+                                                                                      ## Empty
+                                                                                      ## constructor
+                                                                                      ##
+                                                                                      ## !
+                                                                                      ## Stores
+                                                                                      ## the
+                                                                                      ## HashCode
+                                                                                      ## which
+                                                                                      ## corresponds
+                                                                                      ## to
+                                                                                      ## the
+                                                                                      ## Value
+                                                                                      ## given
+                                                                                      ## to
+                                                                                      ##
+                                                                                      ## !
+                                                                                      ## create
+                                                                                      ## the
+                                                                                      ## Mapper
 
 
-proc constructMoniToolElement*(): MoniToolElement {.constructor,
+proc constructMoniTool_Element*(): MoniTool_Element {.constructor,
     importcpp: "MoniTool_Element(@)", header: "MoniTool_Element.hxx".}
-proc getHashCode*(this: MoniToolElement): StandardInteger {.noSideEffect,
+proc GetHashCode*(this: MoniTool_Element): Standard_Integer {.noSideEffect,
     importcpp: "GetHashCode", header: "MoniTool_Element.hxx".}
-proc equates*(this: MoniToolElement; other: Handle[MoniToolElement]): StandardBoolean {.
+proc Equates*(this: MoniTool_Element; other: handle[MoniTool_Element]): Standard_Boolean {.
     noSideEffect, importcpp: "Equates", header: "MoniTool_Element.hxx".}
-proc valueType*(this: MoniToolElement): Handle[StandardType] {.noSideEffect,
+proc ValueType*(this: MoniTool_Element): handle[Standard_Type] {.noSideEffect,
     importcpp: "ValueType", header: "MoniTool_Element.hxx".}
-proc valueTypeName*(this: MoniToolElement): StandardCString {.noSideEffect,
+proc ValueTypeName*(this: MoniTool_Element): Standard_CString {.noSideEffect,
     importcpp: "ValueTypeName", header: "MoniTool_Element.hxx".}
-proc listAttr*(this: MoniToolElement): MoniToolAttrList {.noSideEffect,
+proc ListAttr*(this: MoniTool_Element): MoniTool_AttrList {.noSideEffect,
     importcpp: "ListAttr", header: "MoniTool_Element.hxx".}
-proc changeAttr*(this: var MoniToolElement): var MoniToolAttrList {.
+proc ChangeAttr*(this: var MoniTool_Element): var MoniTool_AttrList {.
     importcpp: "ChangeAttr", header: "MoniTool_Element.hxx".}
 type
-  MoniToolElementbaseType* = StandardTransient
+  MoniTool_Elementbase_type* = Standard_Transient
 
-proc getTypeName*(): cstring {.importcpp: "MoniTool_Element::get_type_name(@)",
-                            header: "MoniTool_Element.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "MoniTool_Element::get_type_name(@)",
+                              header: "MoniTool_Element.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "MoniTool_Element::get_type_descriptor(@)",
     header: "MoniTool_Element.hxx".}
-proc dynamicType*(this: MoniToolElement): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: MoniTool_Element): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "MoniTool_Element.hxx".}
-

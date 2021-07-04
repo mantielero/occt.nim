@@ -14,6 +14,14 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../gp/gp_Mat, ../gp/gp_Dir,
+  ../Standard/Standard_Real, ../Standard/Standard_Integer,
+  ../TColgp/TColgp_HArray1OfPnt2d, ../Standard/Standard_Boolean,
+  GeomFill_LocationLaw, ../TColgp/TColgp_Array1OfPnt2d,
+  ../TColgp/TColgp_Array1OfVec2d, ../GeomAbs/GeomAbs_Shape,
+  ../TColStd/TColStd_Array1OfReal
+
 discard "forward decl of GeomFill_DraftTrihedron"
 discard "forward decl of Adaptor3d_HSurface"
 discard "forward decl of Adaptor3d_HCurve"
@@ -27,87 +35,87 @@ discard "forward decl of gp_Pnt"
 discard "forward decl of GeomFill_LocationDraft"
 discard "forward decl of GeomFill_LocationDraft"
 type
-  HandleGeomFillLocationDraft* = Handle[GeomFillLocationDraft]
-  GeomFillLocationDraft* {.importcpp: "GeomFill_LocationDraft",
-                          header: "GeomFill_LocationDraft.hxx", bycopy.} = object of GeomFillLocationLaw
+  Handle_GeomFill_LocationDraft* = handle[GeomFill_LocationDraft]
+  GeomFill_LocationDraft* {.importcpp: "GeomFill_LocationDraft",
+                           header: "GeomFill_LocationDraft.hxx", bycopy.} = object of GeomFill_LocationLaw
 
 
-proc constructGeomFillLocationDraft*(direction: GpDir; angle: StandardReal): GeomFillLocationDraft {.
+proc constructGeomFill_LocationDraft*(Direction: gp_Dir; Angle: Standard_Real): GeomFill_LocationDraft {.
     constructor, importcpp: "GeomFill_LocationDraft(@)",
     header: "GeomFill_LocationDraft.hxx".}
-proc setStopSurf*(this: var GeomFillLocationDraft; surf: Handle[Adaptor3dHSurface]) {.
+proc SetStopSurf*(this: var GeomFill_LocationDraft; Surf: handle[Adaptor3d_HSurface]) {.
     importcpp: "SetStopSurf", header: "GeomFill_LocationDraft.hxx".}
-proc setAngle*(this: var GeomFillLocationDraft; angle: StandardReal) {.
+proc SetAngle*(this: var GeomFill_LocationDraft; Angle: Standard_Real) {.
     importcpp: "SetAngle", header: "GeomFill_LocationDraft.hxx".}
-proc setCurve*(this: var GeomFillLocationDraft; c: Handle[Adaptor3dHCurve]) {.
+proc SetCurve*(this: var GeomFill_LocationDraft; C: handle[Adaptor3d_HCurve]) {.
     importcpp: "SetCurve", header: "GeomFill_LocationDraft.hxx".}
-proc getCurve*(this: GeomFillLocationDraft): Handle[Adaptor3dHCurve] {.noSideEffect,
-    importcpp: "GetCurve", header: "GeomFill_LocationDraft.hxx".}
-proc setTrsf*(this: var GeomFillLocationDraft; transfo: GpMat) {.importcpp: "SetTrsf",
-    header: "GeomFill_LocationDraft.hxx".}
-proc copy*(this: GeomFillLocationDraft): Handle[GeomFillLocationLaw] {.noSideEffect,
-    importcpp: "Copy", header: "GeomFill_LocationDraft.hxx".}
-proc d0*(this: var GeomFillLocationDraft; param: StandardReal; m: var GpMat; v: var GpVec): StandardBoolean {.
+proc GetCurve*(this: GeomFill_LocationDraft): handle[Adaptor3d_HCurve] {.
+    noSideEffect, importcpp: "GetCurve", header: "GeomFill_LocationDraft.hxx".}
+proc SetTrsf*(this: var GeomFill_LocationDraft; Transfo: gp_Mat) {.
+    importcpp: "SetTrsf", header: "GeomFill_LocationDraft.hxx".}
+proc Copy*(this: GeomFill_LocationDraft): handle[GeomFill_LocationLaw] {.
+    noSideEffect, importcpp: "Copy", header: "GeomFill_LocationDraft.hxx".}
+proc D0*(this: var GeomFill_LocationDraft; Param: Standard_Real; M: var gp_Mat;
+        V: var gp_Vec): Standard_Boolean {.importcpp: "D0",
+                                       header: "GeomFill_LocationDraft.hxx".}
+proc D0*(this: var GeomFill_LocationDraft; Param: Standard_Real; M: var gp_Mat;
+        V: var gp_Vec; Poles2d: var TColgp_Array1OfPnt2d): Standard_Boolean {.
     importcpp: "D0", header: "GeomFill_LocationDraft.hxx".}
-proc d0*(this: var GeomFillLocationDraft; param: StandardReal; m: var GpMat;
-        v: var GpVec; poles2d: var TColgpArray1OfPnt2d): StandardBoolean {.
-    importcpp: "D0", header: "GeomFill_LocationDraft.hxx".}
-proc d1*(this: var GeomFillLocationDraft; param: StandardReal; m: var GpMat;
-        v: var GpVec; dm: var GpMat; dv: var GpVec; poles2d: var TColgpArray1OfPnt2d;
-        dPoles2d: var TColgpArray1OfVec2d): StandardBoolean {.importcpp: "D1",
+proc D1*(this: var GeomFill_LocationDraft; Param: Standard_Real; M: var gp_Mat;
+        V: var gp_Vec; DM: var gp_Mat; DV: var gp_Vec; Poles2d: var TColgp_Array1OfPnt2d;
+        DPoles2d: var TColgp_Array1OfVec2d): Standard_Boolean {.importcpp: "D1",
     header: "GeomFill_LocationDraft.hxx".}
-proc d2*(this: var GeomFillLocationDraft; param: StandardReal; m: var GpMat;
-        v: var GpVec; dm: var GpMat; dv: var GpVec; d2m: var GpMat; d2v: var GpVec;
-        poles2d: var TColgpArray1OfPnt2d; dPoles2d: var TColgpArray1OfVec2d;
-        d2Poles2d: var TColgpArray1OfVec2d): StandardBoolean {.importcpp: "D2",
+proc D2*(this: var GeomFill_LocationDraft; Param: Standard_Real; M: var gp_Mat;
+        V: var gp_Vec; DM: var gp_Mat; DV: var gp_Vec; D2M: var gp_Mat; D2V: var gp_Vec;
+        Poles2d: var TColgp_Array1OfPnt2d; DPoles2d: var TColgp_Array1OfVec2d;
+        D2Poles2d: var TColgp_Array1OfVec2d): Standard_Boolean {.importcpp: "D2",
     header: "GeomFill_LocationDraft.hxx".}
-proc hasFirstRestriction*(this: GeomFillLocationDraft): StandardBoolean {.
+proc HasFirstRestriction*(this: GeomFill_LocationDraft): Standard_Boolean {.
     noSideEffect, importcpp: "HasFirstRestriction",
     header: "GeomFill_LocationDraft.hxx".}
-proc hasLastRestriction*(this: GeomFillLocationDraft): StandardBoolean {.
+proc HasLastRestriction*(this: GeomFill_LocationDraft): Standard_Boolean {.
     noSideEffect, importcpp: "HasLastRestriction",
     header: "GeomFill_LocationDraft.hxx".}
-proc traceNumber*(this: GeomFillLocationDraft): StandardInteger {.noSideEffect,
+proc TraceNumber*(this: GeomFill_LocationDraft): Standard_Integer {.noSideEffect,
     importcpp: "TraceNumber", header: "GeomFill_LocationDraft.hxx".}
-proc nbIntervals*(this: GeomFillLocationDraft; s: GeomAbsShape): StandardInteger {.
+proc NbIntervals*(this: GeomFill_LocationDraft; S: GeomAbs_Shape): Standard_Integer {.
     noSideEffect, importcpp: "NbIntervals", header: "GeomFill_LocationDraft.hxx".}
-proc intervals*(this: GeomFillLocationDraft; t: var TColStdArray1OfReal;
-               s: GeomAbsShape) {.noSideEffect, importcpp: "Intervals",
-                                header: "GeomFill_LocationDraft.hxx".}
-proc setInterval*(this: var GeomFillLocationDraft; first: StandardReal;
-                 last: StandardReal) {.importcpp: "SetInterval",
-                                     header: "GeomFill_LocationDraft.hxx".}
-proc getInterval*(this: GeomFillLocationDraft; first: var StandardReal;
-                 last: var StandardReal) {.noSideEffect, importcpp: "GetInterval",
-                                        header: "GeomFill_LocationDraft.hxx".}
-proc getDomain*(this: GeomFillLocationDraft; first: var StandardReal;
-               last: var StandardReal) {.noSideEffect, importcpp: "GetDomain",
+proc Intervals*(this: GeomFill_LocationDraft; T: var TColStd_Array1OfReal;
+               S: GeomAbs_Shape) {.noSideEffect, importcpp: "Intervals",
+                                 header: "GeomFill_LocationDraft.hxx".}
+proc SetInterval*(this: var GeomFill_LocationDraft; First: Standard_Real;
+                 Last: Standard_Real) {.importcpp: "SetInterval",
                                       header: "GeomFill_LocationDraft.hxx".}
-proc resolution*(this: GeomFillLocationDraft; index: StandardInteger;
-                tol: StandardReal; tolU: var StandardReal; tolV: var StandardReal) {.
+proc GetInterval*(this: GeomFill_LocationDraft; First: var Standard_Real;
+                 Last: var Standard_Real) {.noSideEffect, importcpp: "GetInterval",
+    header: "GeomFill_LocationDraft.hxx".}
+proc GetDomain*(this: GeomFill_LocationDraft; First: var Standard_Real;
+               Last: var Standard_Real) {.noSideEffect, importcpp: "GetDomain",
+                                       header: "GeomFill_LocationDraft.hxx".}
+proc Resolution*(this: GeomFill_LocationDraft; Index: Standard_Integer;
+                Tol: Standard_Real; TolU: var Standard_Real; TolV: var Standard_Real) {.
     noSideEffect, importcpp: "Resolution", header: "GeomFill_LocationDraft.hxx".}
-proc getMaximalNorm*(this: var GeomFillLocationDraft): StandardReal {.
+proc GetMaximalNorm*(this: var GeomFill_LocationDraft): Standard_Real {.
     importcpp: "GetMaximalNorm", header: "GeomFill_LocationDraft.hxx".}
-proc getAverageLaw*(this: var GeomFillLocationDraft; am: var GpMat; av: var GpVec) {.
+proc GetAverageLaw*(this: var GeomFill_LocationDraft; AM: var gp_Mat; AV: var gp_Vec) {.
     importcpp: "GetAverageLaw", header: "GeomFill_LocationDraft.hxx".}
-proc isTranslation*(this: GeomFillLocationDraft; error: var StandardReal): StandardBoolean {.
+proc IsTranslation*(this: GeomFill_LocationDraft; Error: var Standard_Real): Standard_Boolean {.
     noSideEffect, importcpp: "IsTranslation", header: "GeomFill_LocationDraft.hxx".}
-proc isRotation*(this: GeomFillLocationDraft; error: var StandardReal): StandardBoolean {.
+proc IsRotation*(this: GeomFill_LocationDraft; Error: var Standard_Real): Standard_Boolean {.
     noSideEffect, importcpp: "IsRotation", header: "GeomFill_LocationDraft.hxx".}
-proc rotation*(this: GeomFillLocationDraft; center: var GpPnt) {.noSideEffect,
+proc Rotation*(this: GeomFill_LocationDraft; Center: var gp_Pnt) {.noSideEffect,
     importcpp: "Rotation", header: "GeomFill_LocationDraft.hxx".}
-proc isIntersec*(this: GeomFillLocationDraft): StandardBoolean {.noSideEffect,
+proc IsIntersec*(this: GeomFill_LocationDraft): Standard_Boolean {.noSideEffect,
     importcpp: "IsIntersec", header: "GeomFill_LocationDraft.hxx".}
-proc direction*(this: GeomFillLocationDraft): GpDir {.noSideEffect,
+proc Direction*(this: GeomFill_LocationDraft): gp_Dir {.noSideEffect,
     importcpp: "Direction", header: "GeomFill_LocationDraft.hxx".}
 type
-  GeomFillLocationDraftbaseType* = GeomFillLocationLaw
+  GeomFill_LocationDraftbase_type* = GeomFill_LocationLaw
 
-proc getTypeName*(): cstring {.importcpp: "GeomFill_LocationDraft::get_type_name(@)",
-                            header: "GeomFill_LocationDraft.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "GeomFill_LocationDraft::get_type_name(@)",
+                              header: "GeomFill_LocationDraft.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "GeomFill_LocationDraft::get_type_descriptor(@)",
     header: "GeomFill_LocationDraft.hxx".}
-proc dynamicType*(this: GeomFillLocationDraft): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "GeomFill_LocationDraft.hxx".}
-
+proc DynamicType*(this: GeomFill_LocationDraft): handle[Standard_Type] {.
+    noSideEffect, importcpp: "DynamicType", header: "GeomFill_LocationDraft.hxx".}

@@ -13,6 +13,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../gp/gp_Pnt, ../Select3D/Select3D_SensitiveSegment
+
 ## ! This class provides custom sensitive face, which will be selected if it center is in rectangle.
 
 type
@@ -20,22 +23,20 @@ type
                             header: "MeshVS_SensitiveSegment.hxx", bycopy.} = object of Select3D_SensitiveSegment
 
 
-proc constructMeshVS_SensitiveSegment*(theOwner: Handle[SelectMgrEntityOwner];
-                                      theFirstPnt: GpPnt; theLastPnt: GpPnt): MeshVS_SensitiveSegment {.
+proc constructMeshVS_SensitiveSegment*(theOwner: handle[SelectMgr_EntityOwner];
+                                      theFirstPnt: gp_Pnt; theLastPnt: gp_Pnt): MeshVS_SensitiveSegment {.
     constructor, importcpp: "MeshVS_SensitiveSegment(@)",
     header: "MeshVS_SensitiveSegment.hxx".}
 type
-  MeshVS_SensitiveSegmentbaseType* = Select3D_SensitiveSegment
+  MeshVS_SensitiveSegmentbase_type* = Select3D_SensitiveSegment
 
-proc getTypeName*(): cstring {.importcpp: "MeshVS_SensitiveSegment::get_type_name(@)",
-                            header: "MeshVS_SensitiveSegment.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "MeshVS_SensitiveSegment::get_type_name(@)",
+                              header: "MeshVS_SensitiveSegment.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "MeshVS_SensitiveSegment::get_type_descriptor(@)",
     header: "MeshVS_SensitiveSegment.hxx".}
-proc dynamicType*(this: MeshVS_SensitiveSegment): Handle[StandardType] {.
+proc DynamicType*(this: MeshVS_SensitiveSegment): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType", header: "MeshVS_SensitiveSegment.hxx".}
 discard "forward decl of MeshVS_SensitiveSegment"
 type
-  HandleMeshVS_SensitiveSegment* = Handle[MeshVS_SensitiveSegment]
-
-
+  Handle_MeshVS_SensitiveSegment* = handle[MeshVS_SensitiveSegment]

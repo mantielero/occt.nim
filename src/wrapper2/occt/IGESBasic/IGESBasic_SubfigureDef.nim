@@ -14,6 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Integer,
+  ../IGESData/IGESData_HArray1OfIGESEntity, ../IGESData/IGESData_IGESEntity
+
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of IGESData_IGESEntity"
@@ -21,7 +25,7 @@ discard "forward decl of Standard_Transient"
 discard "forward decl of IGESBasic_SubfigureDef"
 discard "forward decl of IGESBasic_SubfigureDef"
 type
-  HandleIGESBasicSubfigureDef* = Handle[IGESBasicSubfigureDef]
+  Handle_IGESBasic_SubfigureDef* = handle[IGESBasic_SubfigureDef]
 
 ## ! defines SubfigureDef, Type <308> Form <0>
 ## ! in package IGESBasic
@@ -30,36 +34,35 @@ type
 ## ! the whole picture
 
 type
-  IGESBasicSubfigureDef* {.importcpp: "IGESBasic_SubfigureDef",
-                          header: "IGESBasic_SubfigureDef.hxx", bycopy.} = object of IGESDataIGESEntity
+  IGESBasic_SubfigureDef* {.importcpp: "IGESBasic_SubfigureDef",
+                           header: "IGESBasic_SubfigureDef.hxx", bycopy.} = object of IGESData_IGESEntity
 
 
-proc constructIGESBasicSubfigureDef*(): IGESBasicSubfigureDef {.constructor,
+proc constructIGESBasic_SubfigureDef*(): IGESBasic_SubfigureDef {.constructor,
     importcpp: "IGESBasic_SubfigureDef(@)", header: "IGESBasic_SubfigureDef.hxx".}
-proc init*(this: var IGESBasicSubfigureDef; aDepth: StandardInteger;
-          aName: Handle[TCollectionHAsciiString];
-          allAssocEntities: Handle[IGESDataHArray1OfIGESEntity]) {.
+proc Init*(this: var IGESBasic_SubfigureDef; aDepth: Standard_Integer;
+          aName: handle[TCollection_HAsciiString];
+          allAssocEntities: handle[IGESData_HArray1OfIGESEntity]) {.
     importcpp: "Init", header: "IGESBasic_SubfigureDef.hxx".}
-proc depth*(this: IGESBasicSubfigureDef): StandardInteger {.noSideEffect,
+proc Depth*(this: IGESBasic_SubfigureDef): Standard_Integer {.noSideEffect,
     importcpp: "Depth", header: "IGESBasic_SubfigureDef.hxx".}
-proc name*(this: IGESBasicSubfigureDef): Handle[TCollectionHAsciiString] {.
+proc Name*(this: IGESBasic_SubfigureDef): handle[TCollection_HAsciiString] {.
     noSideEffect, importcpp: "Name", header: "IGESBasic_SubfigureDef.hxx".}
-proc nbEntities*(this: IGESBasicSubfigureDef): StandardInteger {.noSideEffect,
+proc NbEntities*(this: IGESBasic_SubfigureDef): Standard_Integer {.noSideEffect,
     importcpp: "NbEntities", header: "IGESBasic_SubfigureDef.hxx".}
-proc associatedEntity*(this: IGESBasicSubfigureDef; index: StandardInteger): Handle[
-    IGESDataIGESEntity] {.noSideEffect, importcpp: "AssociatedEntity",
+proc AssociatedEntity*(this: IGESBasic_SubfigureDef; Index: Standard_Integer): handle[
+    IGESData_IGESEntity] {.noSideEffect, importcpp: "AssociatedEntity",
+                          header: "IGESBasic_SubfigureDef.hxx".}
+proc Value*(this: IGESBasic_SubfigureDef; Index: Standard_Integer): handle[
+    Standard_Transient] {.noSideEffect, importcpp: "Value",
                          header: "IGESBasic_SubfigureDef.hxx".}
-proc value*(this: IGESBasicSubfigureDef; index: StandardInteger): Handle[
-    StandardTransient] {.noSideEffect, importcpp: "Value",
-                        header: "IGESBasic_SubfigureDef.hxx".}
 type
-  IGESBasicSubfigureDefbaseType* = IGESDataIGESEntity
+  IGESBasic_SubfigureDefbase_type* = IGESData_IGESEntity
 
-proc getTypeName*(): cstring {.importcpp: "IGESBasic_SubfigureDef::get_type_name(@)",
-                            header: "IGESBasic_SubfigureDef.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "IGESBasic_SubfigureDef::get_type_name(@)",
+                              header: "IGESBasic_SubfigureDef.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "IGESBasic_SubfigureDef::get_type_descriptor(@)",
     header: "IGESBasic_SubfigureDef.hxx".}
-proc dynamicType*(this: IGESBasicSubfigureDef): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "IGESBasic_SubfigureDef.hxx".}
-
+proc DynamicType*(this: IGESBasic_SubfigureDef): handle[Standard_Type] {.
+    noSideEffect, importcpp: "DynamicType", header: "IGESBasic_SubfigureDef.hxx".}

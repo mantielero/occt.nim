@@ -14,17 +14,26 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Real,
+  ../Standard/Standard_Boolean, ../Standard/Standard_Integer, ../gp/gp_Pnt,
+  ../gp/gp_Pnt2d, ../Standard/Standard_Transient,
+  ../ShapeExtend/ShapeExtend_Status, ../GeomAbs/GeomAbs_Shape,
+  ../TColStd/TColStd_Array1OfReal, ../TColgp/TColgp_HArray1OfPnt2d,
+  ../TColgp/TColgp_HArray1OfPnt, ../TColgp/TColgp_SequenceOfPnt,
+  ../TColgp/TColgp_SequenceOfPnt2d, ../TColStd/TColStd_SequenceOfReal
+
 discard "forward decl of ShapeAnalysis_Surface"
 discard "forward decl of Geom_Surface"
 discard "forward decl of Geom_Curve"
 discard "forward decl of Geom2d_Curve"
-# when defined(Status):
-#   discard
+when defined(Status):
+  discard
 discard "forward decl of ShapeConstruct_ProjectCurveOnSurface"
 discard "forward decl of ShapeConstruct_ProjectCurveOnSurface"
 type
-  HandleShapeConstructProjectCurveOnSurface* = Handle[
-      ShapeConstructProjectCurveOnSurface]
+  Handle_ShapeConstruct_ProjectCurveOnSurface* = handle[
+      ShapeConstruct_ProjectCurveOnSurface]
 
 ## ! This tool provides a method for computing pcurve by projecting
 ## ! 3d curve onto a surface.
@@ -38,81 +47,135 @@ type
 ## ! the surface) are recognized with the given precision.
 
 type
-  ShapeConstructProjectCurveOnSurface* {.importcpp: "ShapeConstruct_ProjectCurveOnSurface", header: "ShapeConstruct_ProjectCurveOnSurface.hxx",
-                                        bycopy.} = object of StandardTransient ## ! Empty
-                                                                          ## constructor.
-                                                                          ## ! Try to
-                                                                          ## approximate 3D curve by
-                                                                          ## Geom2d_Line
-                                                                          ## ! or
-                                                                          ## Geom2d_BsplineCurve with degree 1 with
-                                                                          ## specified
-                                                                          ## tolerance.
-                                                                          ## ! points - points
-                                                                          ## obtained from 3d curve.
-                                                                          ## ! params -
-                                                                          ## parameters
-                                                                          ## corresponding points on 3d curves
-                                                                          ## !
-                                                                          ## points2d - 2d points lies on line in
-                                                                          ## parametric space
-                                                                          ## ! theTol -
-                                                                          ## tolerance used for
-                                                                          ## compare
-                                                                          ## initial points 3d and
-                                                                          ## ! 3d points
-                                                                          ## obtained from line lying in
-                                                                          ## parameric space of
-                                                                          ## surface
+  ShapeConstruct_ProjectCurveOnSurface* {.
+      importcpp: "ShapeConstruct_ProjectCurveOnSurface",
+      header: "ShapeConstruct_ProjectCurveOnSurface.hxx", bycopy.} = object of Standard_Transient ##
+                                                                                           ## !
+                                                                                           ## Empty
+                                                                                           ## constructor.
+                                                                                           ##
+                                                                                           ## !
+                                                                                           ## Try
+                                                                                           ## to
+                                                                                           ## approximate
+                                                                                           ## 3D
+                                                                                           ## curve
+                                                                                           ## by
+                                                                                           ## Geom2d_Line
+                                                                                           ##
+                                                                                           ## !
+                                                                                           ## or
+                                                                                           ## Geom2d_BsplineCurve
+                                                                                           ## with
+                                                                                           ## degree
+                                                                                           ## 1
+                                                                                           ## with
+                                                                                           ## specified
+                                                                                           ## tolerance.
+                                                                                           ##
+                                                                                           ## !
+                                                                                           ## points
+                                                                                           ## -
+                                                                                           ## points
+                                                                                           ## obtained
+                                                                                           ## from
+                                                                                           ## 3d
+                                                                                           ## curve.
+                                                                                           ##
+                                                                                           ## !
+                                                                                           ## params
+                                                                                           ## -
+                                                                                           ## parameters
+                                                                                           ## corresponding
+                                                                                           ## points
+                                                                                           ## on
+                                                                                           ## 3d
+                                                                                           ## curves
+                                                                                           ##
+                                                                                           ## !
+                                                                                           ## points2d
+                                                                                           ## -
+                                                                                           ## 2d
+                                                                                           ## points
+                                                                                           ## lies
+                                                                                           ## on
+                                                                                           ## line
+                                                                                           ## in
+                                                                                           ## parametric
+                                                                                           ## space
+                                                                                           ##
+                                                                                           ## !
+                                                                                           ## theTol
+                                                                                           ## -
+                                                                                           ## tolerance
+                                                                                           ## used
+                                                                                           ## for
+                                                                                           ## compare
+                                                                                           ## initial
+                                                                                           ## points
+                                                                                           ## 3d
+                                                                                           ## and
+                                                                                           ##
+                                                                                           ## !
+                                                                                           ## 3d
+                                                                                           ## points
+                                                                                           ## obtained
+                                                                                           ## from
+                                                                                           ## line
+                                                                                           ## lying
+                                                                                           ## in
+                                                                                           ## parameric
+                                                                                           ## space
+                                                                                           ## of
+                                                                                           ## surface
 
 
-proc constructShapeConstructProjectCurveOnSurface*(): ShapeConstructProjectCurveOnSurface {.
+proc constructShapeConstruct_ProjectCurveOnSurface*(): ShapeConstruct_ProjectCurveOnSurface {.
     constructor, importcpp: "ShapeConstruct_ProjectCurveOnSurface(@)",
     header: "ShapeConstruct_ProjectCurveOnSurface.hxx".}
-proc init*(this: var ShapeConstructProjectCurveOnSurface; surf: Handle[GeomSurface];
-          preci: StandardReal) {.importcpp: "Init", header: "ShapeConstruct_ProjectCurveOnSurface.hxx".}
-proc init*(this: var ShapeConstructProjectCurveOnSurface;
-          surf: Handle[ShapeAnalysisSurface]; preci: StandardReal) {.
+proc Init*(this: var ShapeConstruct_ProjectCurveOnSurface;
+          surf: handle[Geom_Surface]; preci: Standard_Real) {.importcpp: "Init",
+    header: "ShapeConstruct_ProjectCurveOnSurface.hxx".}
+proc Init*(this: var ShapeConstruct_ProjectCurveOnSurface;
+          surf: handle[ShapeAnalysis_Surface]; preci: Standard_Real) {.
     importcpp: "Init", header: "ShapeConstruct_ProjectCurveOnSurface.hxx".}
-proc setSurface*(this: var ShapeConstructProjectCurveOnSurface;
-                surf: Handle[GeomSurface]) {.importcpp: "SetSurface",
+proc SetSurface*(this: var ShapeConstruct_ProjectCurveOnSurface;
+                surf: handle[Geom_Surface]) {.importcpp: "SetSurface",
     header: "ShapeConstruct_ProjectCurveOnSurface.hxx".}
-proc setSurface*(this: var ShapeConstructProjectCurveOnSurface;
-                surf: Handle[ShapeAnalysisSurface]) {.importcpp: "SetSurface",
+proc SetSurface*(this: var ShapeConstruct_ProjectCurveOnSurface;
+                surf: handle[ShapeAnalysis_Surface]) {.importcpp: "SetSurface",
     header: "ShapeConstruct_ProjectCurveOnSurface.hxx".}
-proc setPrecision*(this: var ShapeConstructProjectCurveOnSurface;
-                  preci: StandardReal) {.importcpp: "SetPrecision", header: "ShapeConstruct_ProjectCurveOnSurface.hxx".}
-proc buildCurveMode*(this: var ShapeConstructProjectCurveOnSurface): var StandardBoolean {.
+proc SetPrecision*(this: var ShapeConstruct_ProjectCurveOnSurface;
+                  preci: Standard_Real) {.importcpp: "SetPrecision", header: "ShapeConstruct_ProjectCurveOnSurface.hxx".}
+proc BuildCurveMode*(this: var ShapeConstruct_ProjectCurveOnSurface): var Standard_Boolean {.
     importcpp: "BuildCurveMode",
     header: "ShapeConstruct_ProjectCurveOnSurface.hxx".}
-proc adjustOverDegenMode*(this: var ShapeConstructProjectCurveOnSurface): var StandardInteger {.
+proc AdjustOverDegenMode*(this: var ShapeConstruct_ProjectCurveOnSurface): var Standard_Integer {.
     importcpp: "AdjustOverDegenMode",
     header: "ShapeConstruct_ProjectCurveOnSurface.hxx".}
-proc status*(this: ShapeConstructProjectCurveOnSurface;
-            theStatus: ShapeExtendStatus): StandardBoolean {.noSideEffect,
+proc Status*(this: ShapeConstruct_ProjectCurveOnSurface;
+            theStatus: ShapeExtend_Status): Standard_Boolean {.noSideEffect,
     importcpp: "Status", header: "ShapeConstruct_ProjectCurveOnSurface.hxx".}
-proc perform*(this: var ShapeConstructProjectCurveOnSurface;
-             c3d: var Handle[GeomCurve]; first: StandardReal; last: StandardReal;
-             c2d: var Handle[Geom2dCurve]; tolFirst: StandardReal = -1;
-             tolLast: StandardReal = -1): StandardBoolean {.importcpp: "Perform",
+proc Perform*(this: var ShapeConstruct_ProjectCurveOnSurface;
+             c3d: var handle[Geom_Curve]; First: Standard_Real; Last: Standard_Real;
+             c2d: var handle[Geom2d_Curve]; TolFirst: Standard_Real = -1;
+             TolLast: Standard_Real = -1): Standard_Boolean {.importcpp: "Perform",
     header: "ShapeConstruct_ProjectCurveOnSurface.hxx".}
-proc performByProjLib*(this: var ShapeConstructProjectCurveOnSurface;
-                      c3d: var Handle[GeomCurve]; first: StandardReal;
-                      last: StandardReal; c2d: var Handle[Geom2dCurve];
-                      continuity: GeomAbsShape = geomAbsC1;
-                      maxdeg: StandardInteger = 12;
-                      nbinterval: StandardInteger = -1): StandardBoolean {.
+proc PerformByProjLib*(this: var ShapeConstruct_ProjectCurveOnSurface;
+                      c3d: var handle[Geom_Curve]; First: Standard_Real;
+                      Last: Standard_Real; c2d: var handle[Geom2d_Curve];
+                      continuity: GeomAbs_Shape = GeomAbs_C1;
+                      maxdeg: Standard_Integer = 12;
+                      nbinterval: Standard_Integer = -1): Standard_Boolean {.
     importcpp: "PerformByProjLib",
     header: "ShapeConstruct_ProjectCurveOnSurface.hxx".}
 type
-  ShapeConstructProjectCurveOnSurfacebaseType* = StandardTransient
+  ShapeConstruct_ProjectCurveOnSurfacebase_type* = Standard_Transient
 
-proc getTypeName*(): cstring {.importcpp: "ShapeConstruct_ProjectCurveOnSurface::get_type_name(@)",
-                            header: "ShapeConstruct_ProjectCurveOnSurface.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "ShapeConstruct_ProjectCurveOnSurface::get_type_name(@)", header: "ShapeConstruct_ProjectCurveOnSurface.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "ShapeConstruct_ProjectCurveOnSurface::get_type_descriptor(@)",
     header: "ShapeConstruct_ProjectCurveOnSurface.hxx".}
-proc dynamicType*(this: ShapeConstructProjectCurveOnSurface): Handle[StandardType] {.
+proc DynamicType*(this: ShapeConstruct_ProjectCurveOnSurface): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType",
     header: "ShapeConstruct_ProjectCurveOnSurface.hxx".}
-

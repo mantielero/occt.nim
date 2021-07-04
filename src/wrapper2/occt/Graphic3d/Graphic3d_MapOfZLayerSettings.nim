@@ -11,8 +11,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard_TypeDef, ../NCollection/NCollection_Map,
+  Graphic3d_ZLayerId, Graphic3d_ZLayerSettings
+
 type
-  Graphic3dMapOfZLayerSettings* = NCollectionDataMap[Graphic3dZLayerId,
-      Graphic3dZLayerSettings]
-
-
+  Graphic3d_MapOfZLayerSettings* = NCollection_DataMap[Graphic3d_ZLayerId,
+      Graphic3d_ZLayerSettings]

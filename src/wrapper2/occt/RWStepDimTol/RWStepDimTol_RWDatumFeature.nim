@@ -13,30 +13,35 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepDimTol_DatumFeature"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepDimTolRWDatumFeature* {.importcpp: "RWStepDimTol_RWDatumFeature",
-                               header: "RWStepDimTol_RWDatumFeature.hxx", bycopy.} = object ##
-                                                                                       ## !
-                                                                                       ## Empty
-                                                                                       ## constructor
+  RWStepDimTol_RWDatumFeature* {.importcpp: "RWStepDimTol_RWDatumFeature",
+                                header: "RWStepDimTol_RWDatumFeature.hxx", bycopy.} = object ##
+                                                                                        ## !
+                                                                                        ## Empty
+                                                                                        ## constructor
 
 
-proc constructRWStepDimTolRWDatumFeature*(): RWStepDimTolRWDatumFeature {.
+proc constructRWStepDimTol_RWDatumFeature*(): RWStepDimTol_RWDatumFeature {.
     constructor, importcpp: "RWStepDimTol_RWDatumFeature(@)",
     header: "RWStepDimTol_RWDatumFeature.hxx".}
-proc readStep*(this: RWStepDimTolRWDatumFeature;
-              data: Handle[StepDataStepReaderData]; num: StandardInteger;
-              ach: var Handle[InterfaceCheck]; ent: Handle[StepDimTolDatumFeature]) {.
-    noSideEffect, importcpp: "ReadStep", header: "RWStepDimTol_RWDatumFeature.hxx".}
-proc writeStep*(this: RWStepDimTolRWDatumFeature; sw: var StepDataStepWriter;
-               ent: Handle[StepDimTolDatumFeature]) {.noSideEffect,
+proc ReadStep*(this: RWStepDimTol_RWDatumFeature;
+              data: handle[StepData_StepReaderData]; num: Standard_Integer;
+              ach: var handle[Interface_Check];
+              ent: handle[StepDimTol_DatumFeature]) {.noSideEffect,
+    importcpp: "ReadStep", header: "RWStepDimTol_RWDatumFeature.hxx".}
+proc WriteStep*(this: RWStepDimTol_RWDatumFeature; SW: var StepData_StepWriter;
+               ent: handle[StepDimTol_DatumFeature]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepDimTol_RWDatumFeature.hxx".}
-proc share*(this: RWStepDimTolRWDatumFeature; ent: Handle[StepDimTolDatumFeature];
-           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
+proc Share*(this: RWStepDimTol_RWDatumFeature;
+           ent: handle[StepDimTol_DatumFeature];
+           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepDimTol_RWDatumFeature.hxx".}
-

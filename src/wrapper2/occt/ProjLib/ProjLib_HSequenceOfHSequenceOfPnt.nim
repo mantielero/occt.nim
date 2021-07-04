@@ -14,7 +14,5 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # ProjLib_HSequenceOfHSequenceOfPnt_HeaderFile [NewLine] # ProjLib_HSequenceOfHSequenceOfPnt_HeaderFile [NewLine] # < TColgp_HSequenceOfPnt . hxx > [NewLine] # < ProjLib_SequenceOfHSequenceOfPnt . hxx > [NewLine] # < NCollection_DefineHSequence . hxx > [NewLine] DEFINE_HSEQUENCE ( ProjLib_HSequenceOfHSequenceOfPnt , ProjLib_SequenceOfHSequenceOfPnt ) # [NewLine]
+## !!!Ignored construct:  # ProjLib_HSequenceOfHSequenceOfPnt_HeaderFile [NewLine] # ProjLib_HSequenceOfHSequenceOfPnt_HeaderFile [NewLine] # ../TColgp/TColgp_HSequenceOfPnt.hxx [NewLine] # ProjLib_SequenceOfHSequenceOfPnt.hxx [NewLine] # ../NCollection/NCollection_DefineHSequence.hxx [NewLine] DEFINE_HSEQUENCE ( ProjLib_HSequenceOfHSequenceOfPnt , ProjLib_SequenceOfHSequenceOfPnt ) # [NewLine]
 ## Error: expected ';'!!!
-
-

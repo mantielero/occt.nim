@@ -14,6 +14,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Real,
+  ../Standard/Standard_Integer, ../TopAbs/TopAbs_Orientation,
+  ../Standard/Standard_Boolean
+
 discard "forward decl of Geom2d_Curve"
 type
   ChFiDS_FaceInterference* {.importcpp: "ChFiDS_FaceInterference",
@@ -22,37 +28,36 @@ type
 
 proc constructChFiDS_FaceInterference*(): ChFiDS_FaceInterference {.constructor,
     importcpp: "ChFiDS_FaceInterference(@)", header: "ChFiDS_FaceInterference.hxx".}
-proc setInterference*(this: var ChFiDS_FaceInterference; lineIndex: StandardInteger;
-                     trans: TopAbsOrientation; pCurv1: Handle[Geom2dCurve];
-                     pCurv2: Handle[Geom2dCurve]) {.importcpp: "SetInterference",
-    header: "ChFiDS_FaceInterference.hxx".}
-proc setTransition*(this: var ChFiDS_FaceInterference; trans: TopAbsOrientation) {.
+proc SetInterference*(this: var ChFiDS_FaceInterference;
+                     LineIndex: Standard_Integer; Trans: TopAbs_Orientation;
+                     PCurv1: handle[Geom2d_Curve]; PCurv2: handle[Geom2d_Curve]) {.
+    importcpp: "SetInterference", header: "ChFiDS_FaceInterference.hxx".}
+proc SetTransition*(this: var ChFiDS_FaceInterference; Trans: TopAbs_Orientation) {.
     importcpp: "SetTransition", header: "ChFiDS_FaceInterference.hxx".}
-proc setFirstParameter*(this: var ChFiDS_FaceInterference; u1: StandardReal) {.
+proc SetFirstParameter*(this: var ChFiDS_FaceInterference; U1: Standard_Real) {.
     importcpp: "SetFirstParameter", header: "ChFiDS_FaceInterference.hxx".}
-proc setLastParameter*(this: var ChFiDS_FaceInterference; u1: StandardReal) {.
+proc SetLastParameter*(this: var ChFiDS_FaceInterference; U1: Standard_Real) {.
     importcpp: "SetLastParameter", header: "ChFiDS_FaceInterference.hxx".}
-proc setParameter*(this: var ChFiDS_FaceInterference; u1: StandardReal;
-                  isFirst: StandardBoolean) {.importcpp: "SetParameter",
+proc SetParameter*(this: var ChFiDS_FaceInterference; U1: Standard_Real;
+                  IsFirst: Standard_Boolean) {.importcpp: "SetParameter",
     header: "ChFiDS_FaceInterference.hxx".}
-proc lineIndex*(this: ChFiDS_FaceInterference): StandardInteger {.noSideEffect,
+proc LineIndex*(this: ChFiDS_FaceInterference): Standard_Integer {.noSideEffect,
     importcpp: "LineIndex", header: "ChFiDS_FaceInterference.hxx".}
-proc setLineIndex*(this: var ChFiDS_FaceInterference; i: StandardInteger) {.
+proc SetLineIndex*(this: var ChFiDS_FaceInterference; I: Standard_Integer) {.
     importcpp: "SetLineIndex", header: "ChFiDS_FaceInterference.hxx".}
-proc transition*(this: ChFiDS_FaceInterference): TopAbsOrientation {.noSideEffect,
+proc Transition*(this: ChFiDS_FaceInterference): TopAbs_Orientation {.noSideEffect,
     importcpp: "Transition", header: "ChFiDS_FaceInterference.hxx".}
-proc pCurveOnFace*(this: ChFiDS_FaceInterference): Handle[Geom2dCurve] {.
+proc PCurveOnFace*(this: ChFiDS_FaceInterference): handle[Geom2d_Curve] {.
     noSideEffect, importcpp: "PCurveOnFace", header: "ChFiDS_FaceInterference.hxx".}
-proc pCurveOnSurf*(this: ChFiDS_FaceInterference): Handle[Geom2dCurve] {.
+proc PCurveOnSurf*(this: ChFiDS_FaceInterference): handle[Geom2d_Curve] {.
     noSideEffect, importcpp: "PCurveOnSurf", header: "ChFiDS_FaceInterference.hxx".}
-proc changePCurveOnFace*(this: var ChFiDS_FaceInterference): var Handle[Geom2dCurve] {.
+proc ChangePCurveOnFace*(this: var ChFiDS_FaceInterference): var handle[Geom2d_Curve] {.
     importcpp: "ChangePCurveOnFace", header: "ChFiDS_FaceInterference.hxx".}
-proc changePCurveOnSurf*(this: var ChFiDS_FaceInterference): var Handle[Geom2dCurve] {.
+proc ChangePCurveOnSurf*(this: var ChFiDS_FaceInterference): var handle[Geom2d_Curve] {.
     importcpp: "ChangePCurveOnSurf", header: "ChFiDS_FaceInterference.hxx".}
-proc firstParameter*(this: ChFiDS_FaceInterference): StandardReal {.noSideEffect,
+proc FirstParameter*(this: ChFiDS_FaceInterference): Standard_Real {.noSideEffect,
     importcpp: "FirstParameter", header: "ChFiDS_FaceInterference.hxx".}
-proc lastParameter*(this: ChFiDS_FaceInterference): StandardReal {.noSideEffect,
+proc LastParameter*(this: ChFiDS_FaceInterference): Standard_Real {.noSideEffect,
     importcpp: "LastParameter", header: "ChFiDS_FaceInterference.hxx".}
-proc parameter*(this: ChFiDS_FaceInterference; isFirst: StandardBoolean): StandardReal {.
+proc Parameter*(this: ChFiDS_FaceInterference; IsFirst: Standard_Boolean): Standard_Real {.
     noSideEffect, importcpp: "Parameter", header: "ChFiDS_FaceInterference.hxx".}
-

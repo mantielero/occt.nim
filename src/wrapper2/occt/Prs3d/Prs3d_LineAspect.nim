@@ -14,6 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Aspect/Aspect_TypeOfLine, ../Graphic3d/Graphic3d_AspectLine3d,
+  Prs3d_BasicAspect, ../Quantity/Quantity_Color
+
 ## ! A framework for defining how a line will be displayed
 ## ! in a presentation. Aspects of line display include
 ## ! width, color and type of line.
@@ -24,42 +28,84 @@
 ## ! as a substitute argument in the form of a field such as myDrawer for example.
 
 type
-  Prs3dLineAspect* {.importcpp: "Prs3d_LineAspect", header: "Prs3d_LineAspect.hxx",
-                    bycopy.} = object of Prs3dBasicAspect ## ! Constructs a framework for line aspect defined by
-                                                     ## ! -   the color aColor
-                                                     ## ! -   the type of line aType and
-                                                     ## ! -   the line thickness aWidth.
-                                                     ## ! Type of line refers to whether the line is solid or dotted, for example.
+  Prs3d_LineAspect* {.importcpp: "Prs3d_LineAspect",
+                     header: "Prs3d_LineAspect.hxx", bycopy.} = object of Prs3d_BasicAspect ##
+                                                                                     ## !
+                                                                                     ## Constructs
+                                                                                     ## a
+                                                                                     ## framework
+                                                                                     ## for
+                                                                                     ## line
+                                                                                     ## aspect
+                                                                                     ## defined
+                                                                                     ## by
+                                                                                     ##
+                                                                                     ## !
+                                                                                     ## -
+                                                                                     ## the
+                                                                                     ## color
+                                                                                     ## aColor
+                                                                                     ##
+                                                                                     ## !
+                                                                                     ## -
+                                                                                     ## the
+                                                                                     ## type
+                                                                                     ## of
+                                                                                     ## line
+                                                                                     ## aType
+                                                                                     ## and
+                                                                                     ##
+                                                                                     ## !
+                                                                                     ## -
+                                                                                     ## the
+                                                                                     ## line
+                                                                                     ## thickness
+                                                                                     ## aWidth.
+                                                                                     ##
+                                                                                     ## !
+                                                                                     ## Type
+                                                                                     ## of
+                                                                                     ## line
+                                                                                     ## refers
+                                                                                     ## to
+                                                                                     ## whether
+                                                                                     ## the
+                                                                                     ## line
+                                                                                     ## is
+                                                                                     ## solid
+                                                                                     ## or
+                                                                                     ## dotted,
+                                                                                     ## for
+                                                                                     ## example.
 
-  Prs3dLineAspectbaseType* = Prs3dBasicAspect
+  Prs3d_LineAspectbase_type* = Prs3d_BasicAspect
 
-proc getTypeName*(): cstring {.importcpp: "Prs3d_LineAspect::get_type_name(@)",
-                            header: "Prs3d_LineAspect.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "Prs3d_LineAspect::get_type_name(@)",
+                              header: "Prs3d_LineAspect.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "Prs3d_LineAspect::get_type_descriptor(@)",
     header: "Prs3d_LineAspect.hxx".}
-proc dynamicType*(this: Prs3dLineAspect): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: Prs3d_LineAspect): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "Prs3d_LineAspect.hxx".}
-proc constructPrs3dLineAspect*(theColor: QuantityColor; theType: AspectTypeOfLine;
-                              theWidth: StandardReal): Prs3dLineAspect {.
+proc constructPrs3d_LineAspect*(theColor: Quantity_Color;
+                               theType: Aspect_TypeOfLine; theWidth: Standard_Real): Prs3d_LineAspect {.
     constructor, importcpp: "Prs3d_LineAspect(@)", header: "Prs3d_LineAspect.hxx".}
-proc constructPrs3dLineAspect*(theAspect: Handle[Graphic3dAspectLine3d]): Prs3dLineAspect {.
+proc constructPrs3d_LineAspect*(theAspect: handle[Graphic3d_AspectLine3d]): Prs3d_LineAspect {.
     constructor, importcpp: "Prs3d_LineAspect(@)", header: "Prs3d_LineAspect.hxx".}
-proc setColor*(this: var Prs3dLineAspect; theColor: QuantityColor) {.
+proc SetColor*(this: var Prs3d_LineAspect; theColor: Quantity_Color) {.
     importcpp: "SetColor", header: "Prs3d_LineAspect.hxx".}
-proc setTypeOfLine*(this: var Prs3dLineAspect; theType: AspectTypeOfLine) {.
+proc SetTypeOfLine*(this: var Prs3d_LineAspect; theType: Aspect_TypeOfLine) {.
     importcpp: "SetTypeOfLine", header: "Prs3d_LineAspect.hxx".}
-proc setWidth*(this: var Prs3dLineAspect; theWidth: StandardReal) {.
+proc SetWidth*(this: var Prs3d_LineAspect; theWidth: Standard_Real) {.
     importcpp: "SetWidth", header: "Prs3d_LineAspect.hxx".}
-proc aspect*(this: Prs3dLineAspect): Handle[Graphic3dAspectLine3d] {.noSideEffect,
+proc Aspect*(this: Prs3d_LineAspect): handle[Graphic3d_AspectLine3d] {.noSideEffect,
     importcpp: "Aspect", header: "Prs3d_LineAspect.hxx".}
-proc setAspect*(this: var Prs3dLineAspect; theAspect: Handle[Graphic3dAspectLine3d]) {.
+proc SetAspect*(this: var Prs3d_LineAspect;
+               theAspect: handle[Graphic3d_AspectLine3d]) {.
     importcpp: "SetAspect", header: "Prs3d_LineAspect.hxx".}
-proc dumpJson*(this: Prs3dLineAspect; theOStream: var StandardOStream;
-              theDepth: StandardInteger = -1) {.noSideEffect, importcpp: "DumpJson",
+proc DumpJson*(this: Prs3d_LineAspect; theOStream: var Standard_OStream;
+              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
     header: "Prs3d_LineAspect.hxx".}
 discard "forward decl of Prs3d_LineAspect"
 type
-  HandlePrs3dLineAspect* = Handle[Prs3dLineAspect]
-
-
+  Handle_Prs3d_LineAspect* = handle[Prs3d_LineAspect]

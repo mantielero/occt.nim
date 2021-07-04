@@ -14,6 +14,14 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Integer,
+  ../TCollection/TCollection_AsciiString, ../TColStd/TColStd_SequenceOfTransient,
+  ../TColStd/TColStd_SequenceOfInteger, ../TColStd/TColStd_SequenceOfAsciiString,
+  ../Standard/Standard_Transient, ../Standard/Standard_CString,
+  ../Standard/Standard_Boolean, ../Standard/Standard_Real,
+  ../Standard/Standard_Type
+
 discard "forward decl of Standard_Transient"
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of gp_XYZ"
@@ -23,7 +31,7 @@ discard "forward decl of Message_Msg"
 discard "forward decl of MoniTool_CaseData"
 discard "forward decl of MoniTool_CaseData"
 type
-  HandleMoniToolCaseData* = Handle[MoniToolCaseData]
+  Handle_MoniTool_CaseData* = handle[MoniTool_CaseData]
 
 ## ! This class is intended to record data attached to a case to be
 ## ! exploited.
@@ -59,146 +67,146 @@ type
 ## ! (See NameRank)
 
 type
-  MoniToolCaseData* {.importcpp: "MoniTool_CaseData",
-                     header: "MoniTool_CaseData.hxx", bycopy.} = object of StandardTransient ##
-                                                                                      ## !
-                                                                                      ## Creates
-                                                                                      ## a
-                                                                                      ## CaseData
-                                                                                      ## with
-                                                                                      ## a
-                                                                                      ## CaseId
-                                                                                      ## and
-                                                                                      ## a
-                                                                                      ## Name
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## (by
-                                                                                      ## default
-                                                                                      ## not
-                                                                                      ## defined)
+  MoniTool_CaseData* {.importcpp: "MoniTool_CaseData",
+                      header: "MoniTool_CaseData.hxx", bycopy.} = object of Standard_Transient ##
+                                                                                        ## !
+                                                                                        ## Creates
+                                                                                        ## a
+                                                                                        ## CaseData
+                                                                                        ## with
+                                                                                        ## a
+                                                                                        ## CaseId
+                                                                                        ## and
+                                                                                        ## a
+                                                                                        ## Name
+                                                                                        ##
+                                                                                        ## !
+                                                                                        ## (by
+                                                                                        ## default
+                                                                                        ## not
+                                                                                        ## defined)
 
 
-proc constructMoniToolCaseData*(caseid: StandardCString = "";
-                               name: StandardCString = ""): MoniToolCaseData {.
+proc constructMoniTool_CaseData*(caseid: Standard_CString = "";
+                                name: Standard_CString = ""): MoniTool_CaseData {.
     constructor, importcpp: "MoniTool_CaseData(@)", header: "MoniTool_CaseData.hxx".}
-proc setCaseId*(this: var MoniToolCaseData; caseid: StandardCString) {.
+proc SetCaseId*(this: var MoniTool_CaseData; caseid: Standard_CString) {.
     importcpp: "SetCaseId", header: "MoniTool_CaseData.hxx".}
-proc setName*(this: var MoniToolCaseData; name: StandardCString) {.
+proc SetName*(this: var MoniTool_CaseData; name: Standard_CString) {.
     importcpp: "SetName", header: "MoniTool_CaseData.hxx".}
-proc caseId*(this: MoniToolCaseData): StandardCString {.noSideEffect,
+proc CaseId*(this: MoniTool_CaseData): Standard_CString {.noSideEffect,
     importcpp: "CaseId", header: "MoniTool_CaseData.hxx".}
-proc name*(this: MoniToolCaseData): StandardCString {.noSideEffect,
+proc Name*(this: MoniTool_CaseData): Standard_CString {.noSideEffect,
     importcpp: "Name", header: "MoniTool_CaseData.hxx".}
-proc isCheck*(this: MoniToolCaseData): StandardBoolean {.noSideEffect,
+proc IsCheck*(this: MoniTool_CaseData): Standard_Boolean {.noSideEffect,
     importcpp: "IsCheck", header: "MoniTool_CaseData.hxx".}
-proc isWarning*(this: MoniToolCaseData): StandardBoolean {.noSideEffect,
+proc IsWarning*(this: MoniTool_CaseData): Standard_Boolean {.noSideEffect,
     importcpp: "IsWarning", header: "MoniTool_CaseData.hxx".}
-proc isFail*(this: MoniToolCaseData): StandardBoolean {.noSideEffect,
+proc IsFail*(this: MoniTool_CaseData): Standard_Boolean {.noSideEffect,
     importcpp: "IsFail", header: "MoniTool_CaseData.hxx".}
-proc resetCheck*(this: var MoniToolCaseData) {.importcpp: "ResetCheck",
+proc ResetCheck*(this: var MoniTool_CaseData) {.importcpp: "ResetCheck",
     header: "MoniTool_CaseData.hxx".}
-proc setWarning*(this: var MoniToolCaseData) {.importcpp: "SetWarning",
+proc SetWarning*(this: var MoniTool_CaseData) {.importcpp: "SetWarning",
     header: "MoniTool_CaseData.hxx".}
-proc setFail*(this: var MoniToolCaseData) {.importcpp: "SetFail",
-                                        header: "MoniTool_CaseData.hxx".}
-proc setChange*(this: var MoniToolCaseData) {.importcpp: "SetChange",
+proc SetFail*(this: var MoniTool_CaseData) {.importcpp: "SetFail",
     header: "MoniTool_CaseData.hxx".}
-proc setReplace*(this: var MoniToolCaseData; num: StandardInteger) {.
+proc SetChange*(this: var MoniTool_CaseData) {.importcpp: "SetChange",
+    header: "MoniTool_CaseData.hxx".}
+proc SetReplace*(this: var MoniTool_CaseData; num: Standard_Integer) {.
     importcpp: "SetReplace", header: "MoniTool_CaseData.hxx".}
-proc addData*(this: var MoniToolCaseData; val: Handle[StandardTransient];
-             kind: StandardInteger; name: StandardCString = "") {.
+proc AddData*(this: var MoniTool_CaseData; val: handle[Standard_Transient];
+             kind: Standard_Integer; name: Standard_CString = "") {.
     importcpp: "AddData", header: "MoniTool_CaseData.hxx".}
-proc addRaised*(this: var MoniToolCaseData; theException: Handle[StandardFailure];
-               name: StandardCString = "") {.importcpp: "AddRaised",
+proc AddRaised*(this: var MoniTool_CaseData; theException: handle[Standard_Failure];
+               name: Standard_CString = "") {.importcpp: "AddRaised",
     header: "MoniTool_CaseData.hxx".}
-proc addShape*(this: var MoniToolCaseData; sh: TopoDS_Shape;
-              name: StandardCString = "") {.importcpp: "AddShape",
-                                        header: "MoniTool_CaseData.hxx".}
-proc addXYZ*(this: var MoniToolCaseData; aXYZ: GpXYZ; name: StandardCString = "") {.
+proc AddShape*(this: var MoniTool_CaseData; sh: TopoDS_Shape;
+              name: Standard_CString = "") {.importcpp: "AddShape",
+    header: "MoniTool_CaseData.hxx".}
+proc AddXYZ*(this: var MoniTool_CaseData; aXYZ: gp_XYZ; name: Standard_CString = "") {.
     importcpp: "AddXYZ", header: "MoniTool_CaseData.hxx".}
-proc addXY*(this: var MoniToolCaseData; aXY: GpXY; name: StandardCString = "") {.
+proc AddXY*(this: var MoniTool_CaseData; aXY: gp_XY; name: Standard_CString = "") {.
     importcpp: "AddXY", header: "MoniTool_CaseData.hxx".}
-proc addReal*(this: var MoniToolCaseData; val: StandardReal;
-             name: StandardCString = "") {.importcpp: "AddReal",
-                                       header: "MoniTool_CaseData.hxx".}
-proc addReals*(this: var MoniToolCaseData; v1: StandardReal; v2: StandardReal;
-              name: StandardCString = "") {.importcpp: "AddReals",
+proc AddReal*(this: var MoniTool_CaseData; val: Standard_Real;
+             name: Standard_CString = "") {.importcpp: "AddReal",
                                         header: "MoniTool_CaseData.hxx".}
-proc addCPU*(this: var MoniToolCaseData; lastCPU: StandardReal;
-            curCPU: StandardReal = 0; name: StandardCString = "") {.importcpp: "AddCPU",
+proc AddReals*(this: var MoniTool_CaseData; v1: Standard_Real; v2: Standard_Real;
+              name: Standard_CString = "") {.importcpp: "AddReals",
     header: "MoniTool_CaseData.hxx".}
-proc getCPU*(this: MoniToolCaseData): StandardReal {.noSideEffect,
+proc AddCPU*(this: var MoniTool_CaseData; lastCPU: Standard_Real;
+            curCPU: Standard_Real = 0; name: Standard_CString = "") {.
+    importcpp: "AddCPU", header: "MoniTool_CaseData.hxx".}
+proc GetCPU*(this: MoniTool_CaseData): Standard_Real {.noSideEffect,
     importcpp: "GetCPU", header: "MoniTool_CaseData.hxx".}
-proc largeCPU*(this: MoniToolCaseData; maxCPU: StandardReal; lastCPU: StandardReal;
-              curCPU: StandardReal = 0): StandardBoolean {.noSideEffect,
-    importcpp: "LargeCPU", header: "MoniTool_CaseData.hxx".}
-proc addGeom*(this: var MoniToolCaseData; geom: Handle[StandardTransient];
-             name: StandardCString = "") {.importcpp: "AddGeom",
-                                       header: "MoniTool_CaseData.hxx".}
-proc addEntity*(this: var MoniToolCaseData; ent: Handle[StandardTransient];
-               name: StandardCString = "") {.importcpp: "AddEntity",
+proc LargeCPU*(this: MoniTool_CaseData; maxCPU: Standard_Real;
+              lastCPU: Standard_Real; curCPU: Standard_Real = 0): Standard_Boolean {.
+    noSideEffect, importcpp: "LargeCPU", header: "MoniTool_CaseData.hxx".}
+proc AddGeom*(this: var MoniTool_CaseData; geom: handle[Standard_Transient];
+             name: Standard_CString = "") {.importcpp: "AddGeom",
+                                        header: "MoniTool_CaseData.hxx".}
+proc AddEntity*(this: var MoniTool_CaseData; ent: handle[Standard_Transient];
+               name: Standard_CString = "") {.importcpp: "AddEntity",
     header: "MoniTool_CaseData.hxx".}
-proc addText*(this: var MoniToolCaseData; text: StandardCString;
-             name: StandardCString = "") {.importcpp: "AddText",
-                                       header: "MoniTool_CaseData.hxx".}
-proc addInteger*(this: var MoniToolCaseData; val: StandardInteger;
-                name: StandardCString = "") {.importcpp: "AddInteger",
+proc AddText*(this: var MoniTool_CaseData; text: Standard_CString;
+             name: Standard_CString = "") {.importcpp: "AddText",
+                                        header: "MoniTool_CaseData.hxx".}
+proc AddInteger*(this: var MoniTool_CaseData; val: Standard_Integer;
+                name: Standard_CString = "") {.importcpp: "AddInteger",
     header: "MoniTool_CaseData.hxx".}
-proc addAny*(this: var MoniToolCaseData; val: Handle[StandardTransient];
-            name: StandardCString = "") {.importcpp: "AddAny",
-                                      header: "MoniTool_CaseData.hxx".}
-proc removeData*(this: var MoniToolCaseData; num: StandardInteger) {.
+proc AddAny*(this: var MoniTool_CaseData; val: handle[Standard_Transient];
+            name: Standard_CString = "") {.importcpp: "AddAny",
+                                       header: "MoniTool_CaseData.hxx".}
+proc RemoveData*(this: var MoniTool_CaseData; num: Standard_Integer) {.
     importcpp: "RemoveData", header: "MoniTool_CaseData.hxx".}
-proc nbData*(this: MoniToolCaseData): StandardInteger {.noSideEffect,
+proc NbData*(this: MoniTool_CaseData): Standard_Integer {.noSideEffect,
     importcpp: "NbData", header: "MoniTool_CaseData.hxx".}
-proc data*(this: MoniToolCaseData; nd: StandardInteger): Handle[StandardTransient] {.
+proc Data*(this: MoniTool_CaseData; nd: Standard_Integer): handle[Standard_Transient] {.
     noSideEffect, importcpp: "Data", header: "MoniTool_CaseData.hxx".}
-proc getData*(this: MoniToolCaseData; nd: StandardInteger;
-             `type`: Handle[StandardType]; val: var Handle[StandardTransient]): StandardBoolean {.
+proc GetData*(this: MoniTool_CaseData; nd: Standard_Integer;
+             `type`: handle[Standard_Type]; val: var handle[Standard_Transient]): Standard_Boolean {.
     noSideEffect, importcpp: "GetData", header: "MoniTool_CaseData.hxx".}
-proc kind*(this: MoniToolCaseData; nd: StandardInteger): StandardInteger {.
+proc Kind*(this: MoniTool_CaseData; nd: Standard_Integer): Standard_Integer {.
     noSideEffect, importcpp: "Kind", header: "MoniTool_CaseData.hxx".}
-proc name*(this: MoniToolCaseData; nd: StandardInteger): TCollectionAsciiString {.
+proc Name*(this: MoniTool_CaseData; nd: Standard_Integer): TCollection_AsciiString {.
     noSideEffect, importcpp: "Name", header: "MoniTool_CaseData.hxx".}
-proc nameNum*(this: MoniToolCaseData; name: StandardCString): StandardInteger {.
+proc NameNum*(this: MoniTool_CaseData; name: Standard_CString): Standard_Integer {.
     noSideEffect, importcpp: "NameNum", header: "MoniTool_CaseData.hxx".}
-proc shape*(this: MoniToolCaseData; nd: StandardInteger): TopoDS_Shape {.noSideEffect,
-    importcpp: "Shape", header: "MoniTool_CaseData.hxx".}
-proc xyz*(this: MoniToolCaseData; nd: StandardInteger; val: var GpXYZ): StandardBoolean {.
+proc Shape*(this: MoniTool_CaseData; nd: Standard_Integer): TopoDS_Shape {.
+    noSideEffect, importcpp: "Shape", header: "MoniTool_CaseData.hxx".}
+proc XYZ*(this: MoniTool_CaseData; nd: Standard_Integer; val: var gp_XYZ): Standard_Boolean {.
     noSideEffect, importcpp: "XYZ", header: "MoniTool_CaseData.hxx".}
-proc xy*(this: MoniToolCaseData; nd: StandardInteger; val: var GpXY): StandardBoolean {.
+proc XY*(this: MoniTool_CaseData; nd: Standard_Integer; val: var gp_XY): Standard_Boolean {.
     noSideEffect, importcpp: "XY", header: "MoniTool_CaseData.hxx".}
-proc reals*(this: MoniToolCaseData; nd: StandardInteger; v1: var StandardReal;
-           v2: var StandardReal): StandardBoolean {.noSideEffect, importcpp: "Reals",
-    header: "MoniTool_CaseData.hxx".}
-proc real*(this: MoniToolCaseData; nd: StandardInteger; val: var StandardReal): StandardBoolean {.
+proc Reals*(this: MoniTool_CaseData; nd: Standard_Integer; v1: var Standard_Real;
+           v2: var Standard_Real): Standard_Boolean {.noSideEffect,
+    importcpp: "Reals", header: "MoniTool_CaseData.hxx".}
+proc Real*(this: MoniTool_CaseData; nd: Standard_Integer; val: var Standard_Real): Standard_Boolean {.
     noSideEffect, importcpp: "Real", header: "MoniTool_CaseData.hxx".}
-proc text*(this: MoniToolCaseData; nd: StandardInteger; text: var StandardCString): StandardBoolean {.
+proc Text*(this: MoniTool_CaseData; nd: Standard_Integer; text: var Standard_CString): Standard_Boolean {.
     noSideEffect, importcpp: "Text", header: "MoniTool_CaseData.hxx".}
-proc integer*(this: MoniToolCaseData; nd: StandardInteger; val: var StandardInteger): StandardBoolean {.
-    noSideEffect, importcpp: "Integer", header: "MoniTool_CaseData.hxx".}
-proc msg*(this: MoniToolCaseData): MessageMsg {.noSideEffect, importcpp: "Msg",
+proc Integer*(this: MoniTool_CaseData; nd: Standard_Integer;
+             val: var Standard_Integer): Standard_Boolean {.noSideEffect,
+    importcpp: "Integer", header: "MoniTool_CaseData.hxx".}
+proc Msg*(this: MoniTool_CaseData): Message_Msg {.noSideEffect, importcpp: "Msg",
     header: "MoniTool_CaseData.hxx".}
-proc setDefWarning*(acode: StandardCString) {.
+proc SetDefWarning*(acode: Standard_CString) {.
     importcpp: "MoniTool_CaseData::SetDefWarning(@)",
     header: "MoniTool_CaseData.hxx".}
-proc setDefFail*(acode: StandardCString) {.importcpp: "MoniTool_CaseData::SetDefFail(@)",
-                                        header: "MoniTool_CaseData.hxx".}
-proc defCheck*(acode: StandardCString): StandardInteger {.
+proc SetDefFail*(acode: Standard_CString) {.
+    importcpp: "MoniTool_CaseData::SetDefFail(@)", header: "MoniTool_CaseData.hxx".}
+proc DefCheck*(acode: Standard_CString): Standard_Integer {.
     importcpp: "MoniTool_CaseData::DefCheck(@)", header: "MoniTool_CaseData.hxx".}
-proc setDefMsg*(casecode: StandardCString; mesdef: StandardCString) {.
+proc SetDefMsg*(casecode: Standard_CString; mesdef: Standard_CString) {.
     importcpp: "MoniTool_CaseData::SetDefMsg(@)", header: "MoniTool_CaseData.hxx".}
-proc defMsg*(casecode: StandardCString): StandardCString {.
+proc DefMsg*(casecode: Standard_CString): Standard_CString {.
     importcpp: "MoniTool_CaseData::DefMsg(@)", header: "MoniTool_CaseData.hxx".}
 type
-  MoniToolCaseDatabaseType* = StandardTransient
+  MoniTool_CaseDatabase_type* = Standard_Transient
 
-proc getTypeName*(): cstring {.importcpp: "MoniTool_CaseData::get_type_name(@)",
-                            header: "MoniTool_CaseData.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "MoniTool_CaseData::get_type_name(@)",
+                              header: "MoniTool_CaseData.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "MoniTool_CaseData::get_type_descriptor(@)",
     header: "MoniTool_CaseData.hxx".}
-proc dynamicType*(this: MoniToolCaseData): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: MoniTool_CaseData): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "MoniTool_CaseData.hxx".}
-

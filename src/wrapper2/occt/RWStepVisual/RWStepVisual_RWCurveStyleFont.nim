@@ -14,30 +14,33 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepVisual_CurveStyleFont"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepVisualRWCurveStyleFont* {.importcpp: "RWStepVisual_RWCurveStyleFont",
-                                 header: "RWStepVisual_RWCurveStyleFont.hxx",
-                                 bycopy.} = object
+  RWStepVisual_RWCurveStyleFont* {.importcpp: "RWStepVisual_RWCurveStyleFont",
+                                  header: "RWStepVisual_RWCurveStyleFont.hxx",
+                                  bycopy.} = object
 
 
-proc constructRWStepVisualRWCurveStyleFont*(): RWStepVisualRWCurveStyleFont {.
+proc constructRWStepVisual_RWCurveStyleFont*(): RWStepVisual_RWCurveStyleFont {.
     constructor, importcpp: "RWStepVisual_RWCurveStyleFont(@)",
     header: "RWStepVisual_RWCurveStyleFont.hxx".}
-proc readStep*(this: RWStepVisualRWCurveStyleFont;
-              data: Handle[StepDataStepReaderData]; num: StandardInteger;
-              ach: var Handle[InterfaceCheck];
-              ent: Handle[StepVisualCurveStyleFont]) {.noSideEffect,
+proc ReadStep*(this: RWStepVisual_RWCurveStyleFont;
+              data: handle[StepData_StepReaderData]; num: Standard_Integer;
+              ach: var handle[Interface_Check];
+              ent: handle[StepVisual_CurveStyleFont]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepVisual_RWCurveStyleFont.hxx".}
-proc writeStep*(this: RWStepVisualRWCurveStyleFont; sw: var StepDataStepWriter;
-               ent: Handle[StepVisualCurveStyleFont]) {.noSideEffect,
+proc WriteStep*(this: RWStepVisual_RWCurveStyleFont; SW: var StepData_StepWriter;
+               ent: handle[StepVisual_CurveStyleFont]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepVisual_RWCurveStyleFont.hxx".}
-proc share*(this: RWStepVisualRWCurveStyleFont;
-           ent: Handle[StepVisualCurveStyleFont];
-           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
+proc Share*(this: RWStepVisual_RWCurveStyleFont;
+           ent: handle[StepVisual_CurveStyleFont];
+           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepVisual_RWCurveStyleFont.hxx".}
-

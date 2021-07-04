@@ -14,7 +14,5 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # IGESBasic_HArray2OfHArray1OfReal_HeaderFile [NewLine] # IGESBasic_HArray2OfHArray1OfReal_HeaderFile [NewLine] # < TColStd_HArray1OfReal . hxx > [NewLine] # < IGESBasic_Array2OfHArray1OfReal . hxx > [NewLine] # < NCollection_DefineHArray2 . hxx > [NewLine] DEFINE_HARRAY2 ( IGESBasic_HArray2OfHArray1OfReal , IGESBasic_Array2OfHArray1OfReal ) # [NewLine]
+## !!!Ignored construct:  # IGESBasic_HArray2OfHArray1OfReal_HeaderFile [NewLine] # IGESBasic_HArray2OfHArray1OfReal_HeaderFile [NewLine] # ../TColStd/TColStd_HArray1OfReal.hxx [NewLine] # IGESBasic_Array2OfHArray1OfReal.hxx [NewLine] # ../NCollection/NCollection_DefineHArray2.hxx [NewLine] DEFINE_HARRAY2 ( IGESBasic_HArray2OfHArray1OfReal , IGESBasic_Array2OfHArray1OfReal ) # [NewLine]
 ## Error: expected ';'!!!
-
-

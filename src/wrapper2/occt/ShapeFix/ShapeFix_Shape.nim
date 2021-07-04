@@ -14,104 +14,109 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../TopoDS/TopoDS_Shape,
+  ../TopTools/TopTools_MapOfShape, ../Standard/Standard_Integer, ShapeFix_Root,
+  ../Standard/Standard_Boolean, ../ShapeExtend/ShapeExtend_Status,
+  ../Standard/Standard_Real, ../Message/Message_ProgressRange
+
 discard "forward decl of ShapeFix_Solid"
 discard "forward decl of ShapeFix_Shell"
 discard "forward decl of ShapeFix_Face"
 discard "forward decl of ShapeFix_Wire"
 discard "forward decl of ShapeFix_Edge"
 discard "forward decl of ShapeExtend_BasicMsgRegistrator"
-# when defined(Status):
-#   discard
+when defined(Status):
+  discard
 discard "forward decl of ShapeFix_Shape"
 discard "forward decl of ShapeFix_Shape"
 type
-  HandleShapeFixShape* = Handle[ShapeFixShape]
+  Handle_ShapeFix_Shape* = handle[ShapeFix_Shape]
 
 ## ! Fixing shape in general
 
 type
-  ShapeFixShape* {.importcpp: "ShapeFix_Shape", header: "ShapeFix_Shape.hxx", bycopy.} = object of ShapeFixRoot ##
-                                                                                                      ## !
-                                                                                                      ## Empty
-                                                                                                      ## Constructor
-                                                                                                      ##
-                                                                                                      ## !
-                                                                                                      ## Fixes
-                                                                                                      ## same
-                                                                                                      ## parameterization
-                                                                                                      ## problem
-                                                                                                      ## on
-                                                                                                      ## the
-                                                                                                      ## passed
-                                                                                                      ## shape
-                                                                                                      ##
-                                                                                                      ## !
-                                                                                                      ## by
-                                                                                                      ## updating
-                                                                                                      ## tolerances
-                                                                                                      ## of
-                                                                                                      ## the
-                                                                                                      ## corresponding
-                                                                                                      ## topological
-                                                                                                      ##
-                                                                                                      ## !
-                                                                                                      ## entitites.
+  ShapeFix_Shape* {.importcpp: "ShapeFix_Shape", header: "ShapeFix_Shape.hxx", bycopy.} = object of ShapeFix_Root ##
+                                                                                                        ## !
+                                                                                                        ## Empty
+                                                                                                        ## Constructor
+                                                                                                        ##
+                                                                                                        ## !
+                                                                                                        ## Fixes
+                                                                                                        ## same
+                                                                                                        ## parameterization
+                                                                                                        ## problem
+                                                                                                        ## on
+                                                                                                        ## the
+                                                                                                        ## passed
+                                                                                                        ## shape
+                                                                                                        ##
+                                                                                                        ## !
+                                                                                                        ## by
+                                                                                                        ## updating
+                                                                                                        ## tolerances
+                                                                                                        ## of
+                                                                                                        ## the
+                                                                                                        ## corresponding
+                                                                                                        ## topological
+                                                                                                        ##
+                                                                                                        ## !
+                                                                                                        ## entitites.
 
 
-proc constructShapeFixShape*(): ShapeFixShape {.constructor,
+proc constructShapeFix_Shape*(): ShapeFix_Shape {.constructor,
     importcpp: "ShapeFix_Shape(@)", header: "ShapeFix_Shape.hxx".}
-proc constructShapeFixShape*(shape: TopoDS_Shape): ShapeFixShape {.constructor,
+proc constructShapeFix_Shape*(shape: TopoDS_Shape): ShapeFix_Shape {.constructor,
     importcpp: "ShapeFix_Shape(@)", header: "ShapeFix_Shape.hxx".}
-proc init*(this: var ShapeFixShape; shape: TopoDS_Shape) {.importcpp: "Init",
+proc Init*(this: var ShapeFix_Shape; shape: TopoDS_Shape) {.importcpp: "Init",
     header: "ShapeFix_Shape.hxx".}
-proc perform*(this: var ShapeFixShape;
-             theProgress: MessageProgressRange = messageProgressRange()): StandardBoolean {.
+proc Perform*(this: var ShapeFix_Shape;
+             theProgress: Message_ProgressRange = Message_ProgressRange()): Standard_Boolean {.
     importcpp: "Perform", header: "ShapeFix_Shape.hxx".}
-proc shape*(this: ShapeFixShape): TopoDS_Shape {.noSideEffect, importcpp: "Shape",
+proc Shape*(this: ShapeFix_Shape): TopoDS_Shape {.noSideEffect, importcpp: "Shape",
     header: "ShapeFix_Shape.hxx".}
-proc fixSolidTool*(this: ShapeFixShape): Handle[ShapeFixSolid] {.noSideEffect,
+proc FixSolidTool*(this: ShapeFix_Shape): handle[ShapeFix_Solid] {.noSideEffect,
     importcpp: "FixSolidTool", header: "ShapeFix_Shape.hxx".}
-proc fixShellTool*(this: ShapeFixShape): Handle[ShapeFixShell] {.noSideEffect,
+proc FixShellTool*(this: ShapeFix_Shape): handle[ShapeFix_Shell] {.noSideEffect,
     importcpp: "FixShellTool", header: "ShapeFix_Shape.hxx".}
-proc fixFaceTool*(this: ShapeFixShape): Handle[ShapeFixFace] {.noSideEffect,
+proc FixFaceTool*(this: ShapeFix_Shape): handle[ShapeFix_Face] {.noSideEffect,
     importcpp: "FixFaceTool", header: "ShapeFix_Shape.hxx".}
-proc fixWireTool*(this: ShapeFixShape): Handle[ShapeFixWire] {.noSideEffect,
+proc FixWireTool*(this: ShapeFix_Shape): handle[ShapeFix_Wire] {.noSideEffect,
     importcpp: "FixWireTool", header: "ShapeFix_Shape.hxx".}
-proc fixEdgeTool*(this: ShapeFixShape): Handle[ShapeFixEdge] {.noSideEffect,
+proc FixEdgeTool*(this: ShapeFix_Shape): handle[ShapeFix_Edge] {.noSideEffect,
     importcpp: "FixEdgeTool", header: "ShapeFix_Shape.hxx".}
-proc status*(this: ShapeFixShape; status: ShapeExtendStatus): StandardBoolean {.
+proc Status*(this: ShapeFix_Shape; status: ShapeExtend_Status): Standard_Boolean {.
     noSideEffect, importcpp: "Status", header: "ShapeFix_Shape.hxx".}
-proc setMsgRegistrator*(this: var ShapeFixShape;
-                       msgreg: Handle[ShapeExtendBasicMsgRegistrator]) {.
+proc SetMsgRegistrator*(this: var ShapeFix_Shape;
+                       msgreg: handle[ShapeExtend_BasicMsgRegistrator]) {.
     importcpp: "SetMsgRegistrator", header: "ShapeFix_Shape.hxx".}
-proc setPrecision*(this: var ShapeFixShape; preci: StandardReal) {.
+proc SetPrecision*(this: var ShapeFix_Shape; preci: Standard_Real) {.
     importcpp: "SetPrecision", header: "ShapeFix_Shape.hxx".}
-proc setMinTolerance*(this: var ShapeFixShape; mintol: StandardReal) {.
+proc SetMinTolerance*(this: var ShapeFix_Shape; mintol: Standard_Real) {.
     importcpp: "SetMinTolerance", header: "ShapeFix_Shape.hxx".}
-proc setMaxTolerance*(this: var ShapeFixShape; maxtol: StandardReal) {.
+proc SetMaxTolerance*(this: var ShapeFix_Shape; maxtol: Standard_Real) {.
     importcpp: "SetMaxTolerance", header: "ShapeFix_Shape.hxx".}
-proc fixSolidMode*(this: var ShapeFixShape): var StandardInteger {.
+proc FixSolidMode*(this: var ShapeFix_Shape): var Standard_Integer {.
     importcpp: "FixSolidMode", header: "ShapeFix_Shape.hxx".}
-proc fixFreeShellMode*(this: var ShapeFixShape): var StandardInteger {.
+proc FixFreeShellMode*(this: var ShapeFix_Shape): var Standard_Integer {.
     importcpp: "FixFreeShellMode", header: "ShapeFix_Shape.hxx".}
-proc fixFreeFaceMode*(this: var ShapeFixShape): var StandardInteger {.
+proc FixFreeFaceMode*(this: var ShapeFix_Shape): var Standard_Integer {.
     importcpp: "FixFreeFaceMode", header: "ShapeFix_Shape.hxx".}
-proc fixFreeWireMode*(this: var ShapeFixShape): var StandardInteger {.
+proc FixFreeWireMode*(this: var ShapeFix_Shape): var Standard_Integer {.
     importcpp: "FixFreeWireMode", header: "ShapeFix_Shape.hxx".}
-proc fixSameParameterMode*(this: var ShapeFixShape): var StandardInteger {.
+proc FixSameParameterMode*(this: var ShapeFix_Shape): var Standard_Integer {.
     importcpp: "FixSameParameterMode", header: "ShapeFix_Shape.hxx".}
-proc fixVertexPositionMode*(this: var ShapeFixShape): var StandardInteger {.
+proc FixVertexPositionMode*(this: var ShapeFix_Shape): var Standard_Integer {.
     importcpp: "FixVertexPositionMode", header: "ShapeFix_Shape.hxx".}
-proc fixVertexTolMode*(this: var ShapeFixShape): var StandardInteger {.
+proc FixVertexTolMode*(this: var ShapeFix_Shape): var Standard_Integer {.
     importcpp: "FixVertexTolMode", header: "ShapeFix_Shape.hxx".}
 type
-  ShapeFixShapebaseType* = ShapeFixRoot
+  ShapeFix_Shapebase_type* = ShapeFix_Root
 
-proc getTypeName*(): cstring {.importcpp: "ShapeFix_Shape::get_type_name(@)",
-                            header: "ShapeFix_Shape.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "ShapeFix_Shape::get_type_name(@)",
+                              header: "ShapeFix_Shape.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "ShapeFix_Shape::get_type_descriptor(@)",
     header: "ShapeFix_Shape.hxx".}
-proc dynamicType*(this: ShapeFixShape): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: ShapeFix_Shape): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "ShapeFix_Shape.hxx".}
-

@@ -13,7 +13,8 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../TColStd/TColStd_DataMapOfAsciiStringInteger
+
 type
-  BinMDF_StringIdMap* = TColStdDataMapOfAsciiStringInteger
-
-
+  BinMDF_StringIdMap* = TColStd_DataMapOfAsciiStringInteger

@@ -15,6 +15,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, BOPDS_Iterator,
+  ../NCollection/NCollection_BaseAllocator, ../Standard/Standard_Integer
+
 ## ! The class BOPDS_IteratorSI is
 ## ! 1.to compute self-intersections between BRep sub-shapes
 ## ! of each argument of an operation (see the class BOPDS_DS)
@@ -34,8 +39,7 @@ proc constructBOPDS_IteratorSI*(): BOPDS_IteratorSI {.constructor,
     importcpp: "BOPDS_IteratorSI(@)", header: "BOPDS_IteratorSI.hxx".}
 proc destroyBOPDS_IteratorSI*(this: var BOPDS_IteratorSI) {.
     importcpp: "#.~BOPDS_IteratorSI()", header: "BOPDS_IteratorSI.hxx".}
-proc constructBOPDS_IteratorSI*(theAllocator: Handle[NCollectionBaseAllocator]): BOPDS_IteratorSI {.
+proc constructBOPDS_IteratorSI*(theAllocator: handle[NCollection_BaseAllocator]): BOPDS_IteratorSI {.
     constructor, importcpp: "BOPDS_IteratorSI(@)", header: "BOPDS_IteratorSI.hxx".}
-proc updateByLevelOfCheck*(this: var BOPDS_IteratorSI; theLevel: StandardInteger) {.
+proc UpdateByLevelOfCheck*(this: var BOPDS_IteratorSI; theLevel: Standard_Integer) {.
     importcpp: "UpdateByLevelOfCheck", header: "BOPDS_IteratorSI.hxx".}
-

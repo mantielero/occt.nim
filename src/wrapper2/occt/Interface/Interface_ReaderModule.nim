@@ -14,6 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Transient,
+  ../Standard/Standard_Integer, ../Standard/Standard_Boolean
+
 discard "forward decl of Standard_DomainError"
 discard "forward decl of Interface_FileReaderData"
 discard "forward decl of Interface_Check"
@@ -21,7 +25,7 @@ discard "forward decl of Standard_Transient"
 discard "forward decl of Interface_ReaderModule"
 discard "forward decl of Interface_ReaderModule"
 type
-  HandleInterfaceReaderModule* = Handle[InterfaceReaderModule]
+  Handle_Interface_ReaderModule* = handle[Interface_ReaderModule]
 
 ## ! Defines unitary operations required to read an Entity from a
 ## ! File (see FileReaderData, FileReaderTool), under control of
@@ -34,51 +38,50 @@ type
 ## ! ReaderModule reads it according to this Case Number
 
 type
-  InterfaceReaderModule* {.importcpp: "Interface_ReaderModule",
-                          header: "Interface_ReaderModule.hxx", bycopy.} = object of StandardTransient ##
-                                                                                                ## !
-                                                                                                ## Translates
-                                                                                                ## the
-                                                                                                ## type
-                                                                                                ## of
-                                                                                                ## record
-                                                                                                ## <num>
-                                                                                                ## in
-                                                                                                ## <data>
-                                                                                                ## to
-                                                                                                ## a
-                                                                                                ## positive
-                                                                                                ##
-                                                                                                ## !
-                                                                                                ## Case
-                                                                                                ## Number.
-                                                                                                ## If
-                                                                                                ## Recognition
-                                                                                                ## fails,
-                                                                                                ## must
-                                                                                                ## return
-                                                                                                ## 0
+  Interface_ReaderModule* {.importcpp: "Interface_ReaderModule",
+                           header: "Interface_ReaderModule.hxx", bycopy.} = object of Standard_Transient ##
+                                                                                                  ## !
+                                                                                                  ## Translates
+                                                                                                  ## the
+                                                                                                  ## type
+                                                                                                  ## of
+                                                                                                  ## record
+                                                                                                  ## <num>
+                                                                                                  ## in
+                                                                                                  ## <data>
+                                                                                                  ## to
+                                                                                                  ## a
+                                                                                                  ## positive
+                                                                                                  ##
+                                                                                                  ## !
+                                                                                                  ## Case
+                                                                                                  ## Number.
+                                                                                                  ## If
+                                                                                                  ## Recognition
+                                                                                                  ## fails,
+                                                                                                  ## must
+                                                                                                  ## return
+                                                                                                  ## 0
 
 
-proc caseNum*(this: InterfaceReaderModule; data: Handle[InterfaceFileReaderData];
-             num: StandardInteger): StandardInteger {.noSideEffect,
+proc CaseNum*(this: Interface_ReaderModule; data: handle[Interface_FileReaderData];
+             num: Standard_Integer): Standard_Integer {.noSideEffect,
     importcpp: "CaseNum", header: "Interface_ReaderModule.hxx".}
-proc read*(this: InterfaceReaderModule; casenum: StandardInteger;
-          data: Handle[InterfaceFileReaderData]; num: StandardInteger;
-          ach: var Handle[InterfaceCheck]; ent: Handle[StandardTransient]) {.
+proc Read*(this: Interface_ReaderModule; casenum: Standard_Integer;
+          data: handle[Interface_FileReaderData]; num: Standard_Integer;
+          ach: var handle[Interface_Check]; ent: handle[Standard_Transient]) {.
     noSideEffect, importcpp: "Read", header: "Interface_ReaderModule.hxx".}
-proc newRead*(this: InterfaceReaderModule; casenum: StandardInteger;
-             data: Handle[InterfaceFileReaderData]; num: StandardInteger;
-             ach: var Handle[InterfaceCheck]; ent: var Handle[StandardTransient]): StandardBoolean {.
+proc NewRead*(this: Interface_ReaderModule; casenum: Standard_Integer;
+             data: handle[Interface_FileReaderData]; num: Standard_Integer;
+             ach: var handle[Interface_Check]; ent: var handle[Standard_Transient]): Standard_Boolean {.
     noSideEffect, importcpp: "NewRead", header: "Interface_ReaderModule.hxx".}
 type
-  InterfaceReaderModulebaseType* = StandardTransient
+  Interface_ReaderModulebase_type* = Standard_Transient
 
-proc getTypeName*(): cstring {.importcpp: "Interface_ReaderModule::get_type_name(@)",
-                            header: "Interface_ReaderModule.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "Interface_ReaderModule::get_type_name(@)",
+                              header: "Interface_ReaderModule.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "Interface_ReaderModule::get_type_descriptor(@)",
     header: "Interface_ReaderModule.hxx".}
-proc dynamicType*(this: InterfaceReaderModule): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "Interface_ReaderModule.hxx".}
-
+proc DynamicType*(this: Interface_ReaderModule): handle[Standard_Type] {.
+    noSideEffect, importcpp: "DynamicType", header: "Interface_ReaderModule.hxx".}

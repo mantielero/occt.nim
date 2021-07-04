@@ -13,30 +13,33 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepGeom_OrientedSurface"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepGeomRWOrientedSurface* {.importcpp: "RWStepGeom_RWOrientedSurface",
-                                header: "RWStepGeom_RWOrientedSurface.hxx", bycopy.} = object ##
-                                                                                         ## !
-                                                                                         ## Empty
-                                                                                         ## constructor
+  RWStepGeom_RWOrientedSurface* {.importcpp: "RWStepGeom_RWOrientedSurface",
+                                 header: "RWStepGeom_RWOrientedSurface.hxx",
+                                 bycopy.} = object ## ! Empty constructor
 
 
-proc constructRWStepGeomRWOrientedSurface*(): RWStepGeomRWOrientedSurface {.
+proc constructRWStepGeom_RWOrientedSurface*(): RWStepGeom_RWOrientedSurface {.
     constructor, importcpp: "RWStepGeom_RWOrientedSurface(@)",
     header: "RWStepGeom_RWOrientedSurface.hxx".}
-proc readStep*(this: RWStepGeomRWOrientedSurface;
-              data: Handle[StepDataStepReaderData]; num: StandardInteger;
-              ach: var Handle[InterfaceCheck]; ent: Handle[StepGeomOrientedSurface]) {.
-    noSideEffect, importcpp: "ReadStep", header: "RWStepGeom_RWOrientedSurface.hxx".}
-proc writeStep*(this: RWStepGeomRWOrientedSurface; sw: var StepDataStepWriter;
-               ent: Handle[StepGeomOrientedSurface]) {.noSideEffect,
+proc ReadStep*(this: RWStepGeom_RWOrientedSurface;
+              data: handle[StepData_StepReaderData]; num: Standard_Integer;
+              ach: var handle[Interface_Check];
+              ent: handle[StepGeom_OrientedSurface]) {.noSideEffect,
+    importcpp: "ReadStep", header: "RWStepGeom_RWOrientedSurface.hxx".}
+proc WriteStep*(this: RWStepGeom_RWOrientedSurface; SW: var StepData_StepWriter;
+               ent: handle[StepGeom_OrientedSurface]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepGeom_RWOrientedSurface.hxx".}
-proc share*(this: RWStepGeomRWOrientedSurface;
-           ent: Handle[StepGeomOrientedSurface]; iter: var InterfaceEntityIterator) {.
-    noSideEffect, importcpp: "Share", header: "RWStepGeom_RWOrientedSurface.hxx".}
-
+proc Share*(this: RWStepGeom_RWOrientedSurface;
+           ent: handle[StepGeom_OrientedSurface];
+           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
+    header: "RWStepGeom_RWOrientedSurface.hxx".}

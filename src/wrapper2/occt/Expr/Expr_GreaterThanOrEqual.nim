@@ -14,6 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, Expr_SingleRelation,
+  ../Standard/Standard_Boolean
+
 discard "forward decl of Standard_NumericError"
 discard "forward decl of Expr_GeneralExpression"
 discard "forward decl of Expr_GeneralRelation"
@@ -21,40 +25,39 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of Expr_GreaterThanOrEqual"
 discard "forward decl of Expr_GreaterThanOrEqual"
 type
-  HandleExprGreaterThanOrEqual* = Handle[ExprGreaterThanOrEqual]
-  ExprGreaterThanOrEqual* {.importcpp: "Expr_GreaterThanOrEqual",
-                           header: "Expr_GreaterThanOrEqual.hxx", bycopy.} = object of ExprSingleRelation ##
-                                                                                                   ## !
-                                                                                                   ## Creates
-                                                                                                   ## the
-                                                                                                   ## relation
-                                                                                                   ## <exp1>
-                                                                                                   ## >=
-                                                                                                   ## <exp2>.
+  Handle_Expr_GreaterThanOrEqual* = handle[Expr_GreaterThanOrEqual]
+  Expr_GreaterThanOrEqual* {.importcpp: "Expr_GreaterThanOrEqual",
+                            header: "Expr_GreaterThanOrEqual.hxx", bycopy.} = object of Expr_SingleRelation ##
+                                                                                                     ## !
+                                                                                                     ## Creates
+                                                                                                     ## the
+                                                                                                     ## relation
+                                                                                                     ## <exp1>
+                                                                                                     ## >=
+                                                                                                     ## <exp2>.
 
 
-proc constructExprGreaterThanOrEqual*(exp1: Handle[ExprGeneralExpression];
-                                     exp2: Handle[ExprGeneralExpression]): ExprGreaterThanOrEqual {.
+proc constructExpr_GreaterThanOrEqual*(exp1: handle[Expr_GeneralExpression];
+                                      exp2: handle[Expr_GeneralExpression]): Expr_GreaterThanOrEqual {.
     constructor, importcpp: "Expr_GreaterThanOrEqual(@)",
     header: "Expr_GreaterThanOrEqual.hxx".}
-proc isSatisfied*(this: ExprGreaterThanOrEqual): StandardBoolean {.noSideEffect,
+proc IsSatisfied*(this: Expr_GreaterThanOrEqual): Standard_Boolean {.noSideEffect,
     importcpp: "IsSatisfied", header: "Expr_GreaterThanOrEqual.hxx".}
-proc simplified*(this: ExprGreaterThanOrEqual): Handle[ExprGeneralRelation] {.
+proc Simplified*(this: Expr_GreaterThanOrEqual): handle[Expr_GeneralRelation] {.
     noSideEffect, importcpp: "Simplified", header: "Expr_GreaterThanOrEqual.hxx".}
-proc simplify*(this: var ExprGreaterThanOrEqual) {.importcpp: "Simplify",
+proc Simplify*(this: var Expr_GreaterThanOrEqual) {.importcpp: "Simplify",
     header: "Expr_GreaterThanOrEqual.hxx".}
-proc copy*(this: ExprGreaterThanOrEqual): Handle[ExprGeneralRelation] {.
+proc Copy*(this: Expr_GreaterThanOrEqual): handle[Expr_GeneralRelation] {.
     noSideEffect, importcpp: "Copy", header: "Expr_GreaterThanOrEqual.hxx".}
-proc string*(this: ExprGreaterThanOrEqual): TCollectionAsciiString {.noSideEffect,
+proc String*(this: Expr_GreaterThanOrEqual): TCollection_AsciiString {.noSideEffect,
     importcpp: "String", header: "Expr_GreaterThanOrEqual.hxx".}
 type
-  ExprGreaterThanOrEqualbaseType* = ExprSingleRelation
+  Expr_GreaterThanOrEqualbase_type* = Expr_SingleRelation
 
-proc getTypeName*(): cstring {.importcpp: "Expr_GreaterThanOrEqual::get_type_name(@)",
-                            header: "Expr_GreaterThanOrEqual.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "Expr_GreaterThanOrEqual::get_type_name(@)",
+                              header: "Expr_GreaterThanOrEqual.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "Expr_GreaterThanOrEqual::get_type_descriptor(@)",
     header: "Expr_GreaterThanOrEqual.hxx".}
-proc dynamicType*(this: ExprGreaterThanOrEqual): Handle[StandardType] {.
+proc DynamicType*(this: Expr_GreaterThanOrEqual): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType", header: "Expr_GreaterThanOrEqual.hxx".}
-

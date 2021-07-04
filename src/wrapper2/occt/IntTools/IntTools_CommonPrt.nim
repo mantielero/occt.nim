@@ -13,65 +13,71 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../TopoDS/TopoDS_Edge, ../TopAbs/TopAbs_ShapeEnum,
+  IntTools_Range, ../Standard/Standard_Real, IntTools_SequenceOfRanges,
+  ../Standard/Standard_Boolean, ../gp/gp_Pnt
+
 discard "forward decl of TopoDS_Edge"
 discard "forward decl of IntTools_Range"
 discard "forward decl of gp_Pnt"
 type
-  IntToolsCommonPrt* {.importcpp: "IntTools_CommonPrt",
-                      header: "IntTools_CommonPrt.hxx", bycopy.} = object ## ! Empty constructor
+  IntTools_CommonPrt* {.importcpp: "IntTools_CommonPrt",
+                       header: "IntTools_CommonPrt.hxx", bycopy.} = object ## ! Empty
+                                                                      ## constructor
 
 
-proc constructIntToolsCommonPrt*(): IntToolsCommonPrt {.constructor,
+proc constructIntTools_CommonPrt*(): IntTools_CommonPrt {.constructor,
     importcpp: "IntTools_CommonPrt(@)", header: "IntTools_CommonPrt.hxx".}
-proc constructIntToolsCommonPrt*(aCPrt: IntToolsCommonPrt): IntToolsCommonPrt {.
+proc constructIntTools_CommonPrt*(aCPrt: IntTools_CommonPrt): IntTools_CommonPrt {.
     constructor, importcpp: "IntTools_CommonPrt(@)",
     header: "IntTools_CommonPrt.hxx".}
-proc assign*(this: var IntToolsCommonPrt; other: IntToolsCommonPrt): var IntToolsCommonPrt {.
+proc Assign*(this: var IntTools_CommonPrt; Other: IntTools_CommonPrt): var IntTools_CommonPrt {.
     importcpp: "Assign", header: "IntTools_CommonPrt.hxx".}
-proc setEdge1*(this: var IntToolsCommonPrt; anE: TopoDS_Edge) {.importcpp: "SetEdge1",
-    header: "IntTools_CommonPrt.hxx".}
-proc setEdge2*(this: var IntToolsCommonPrt; anE: TopoDS_Edge) {.importcpp: "SetEdge2",
-    header: "IntTools_CommonPrt.hxx".}
-proc setType*(this: var IntToolsCommonPrt; aType: TopAbsShapeEnum) {.
+proc SetEdge1*(this: var IntTools_CommonPrt; anE: TopoDS_Edge) {.
+    importcpp: "SetEdge1", header: "IntTools_CommonPrt.hxx".}
+proc SetEdge2*(this: var IntTools_CommonPrt; anE: TopoDS_Edge) {.
+    importcpp: "SetEdge2", header: "IntTools_CommonPrt.hxx".}
+proc SetType*(this: var IntTools_CommonPrt; aType: TopAbs_ShapeEnum) {.
     importcpp: "SetType", header: "IntTools_CommonPrt.hxx".}
-proc setRange1*(this: var IntToolsCommonPrt; aR: IntToolsRange) {.
+proc SetRange1*(this: var IntTools_CommonPrt; aR: IntTools_Range) {.
     importcpp: "SetRange1", header: "IntTools_CommonPrt.hxx".}
-proc setRange1*(this: var IntToolsCommonPrt; tf: StandardReal; tl: StandardReal) {.
+proc SetRange1*(this: var IntTools_CommonPrt; tf: Standard_Real; tl: Standard_Real) {.
     importcpp: "SetRange1", header: "IntTools_CommonPrt.hxx".}
-proc appendRange2*(this: var IntToolsCommonPrt; aR: IntToolsRange) {.
+proc AppendRange2*(this: var IntTools_CommonPrt; aR: IntTools_Range) {.
     importcpp: "AppendRange2", header: "IntTools_CommonPrt.hxx".}
-proc appendRange2*(this: var IntToolsCommonPrt; tf: StandardReal; tl: StandardReal) {.
+proc AppendRange2*(this: var IntTools_CommonPrt; tf: Standard_Real; tl: Standard_Real) {.
     importcpp: "AppendRange2", header: "IntTools_CommonPrt.hxx".}
-proc setVertexParameter1*(this: var IntToolsCommonPrt; tV: StandardReal) {.
+proc SetVertexParameter1*(this: var IntTools_CommonPrt; tV: Standard_Real) {.
     importcpp: "SetVertexParameter1", header: "IntTools_CommonPrt.hxx".}
-proc setVertexParameter2*(this: var IntToolsCommonPrt; tV: StandardReal) {.
+proc SetVertexParameter2*(this: var IntTools_CommonPrt; tV: Standard_Real) {.
     importcpp: "SetVertexParameter2", header: "IntTools_CommonPrt.hxx".}
-proc edge1*(this: IntToolsCommonPrt): TopoDS_Edge {.noSideEffect, importcpp: "Edge1",
-    header: "IntTools_CommonPrt.hxx".}
-proc edge2*(this: IntToolsCommonPrt): TopoDS_Edge {.noSideEffect, importcpp: "Edge2",
-    header: "IntTools_CommonPrt.hxx".}
-proc `type`*(this: IntToolsCommonPrt): TopAbsShapeEnum {.noSideEffect,
+proc Edge1*(this: IntTools_CommonPrt): TopoDS_Edge {.noSideEffect,
+    importcpp: "Edge1", header: "IntTools_CommonPrt.hxx".}
+proc Edge2*(this: IntTools_CommonPrt): TopoDS_Edge {.noSideEffect,
+    importcpp: "Edge2", header: "IntTools_CommonPrt.hxx".}
+proc Type*(this: IntTools_CommonPrt): TopAbs_ShapeEnum {.noSideEffect,
     importcpp: "Type", header: "IntTools_CommonPrt.hxx".}
-proc range1*(this: IntToolsCommonPrt): IntToolsRange {.noSideEffect,
+proc Range1*(this: IntTools_CommonPrt): IntTools_Range {.noSideEffect,
     importcpp: "Range1", header: "IntTools_CommonPrt.hxx".}
-proc range1*(this: IntToolsCommonPrt; tf: var StandardReal; tl: var StandardReal) {.
+proc Range1*(this: IntTools_CommonPrt; tf: var Standard_Real; tl: var Standard_Real) {.
     noSideEffect, importcpp: "Range1", header: "IntTools_CommonPrt.hxx".}
-proc ranges2*(this: IntToolsCommonPrt): IntToolsSequenceOfRanges {.noSideEffect,
+proc Ranges2*(this: IntTools_CommonPrt): IntTools_SequenceOfRanges {.noSideEffect,
     importcpp: "Ranges2", header: "IntTools_CommonPrt.hxx".}
-proc changeRanges2*(this: var IntToolsCommonPrt): var IntToolsSequenceOfRanges {.
+proc ChangeRanges2*(this: var IntTools_CommonPrt): var IntTools_SequenceOfRanges {.
     importcpp: "ChangeRanges2", header: "IntTools_CommonPrt.hxx".}
-proc vertexParameter1*(this: IntToolsCommonPrt): StandardReal {.noSideEffect,
+proc VertexParameter1*(this: IntTools_CommonPrt): Standard_Real {.noSideEffect,
     importcpp: "VertexParameter1", header: "IntTools_CommonPrt.hxx".}
-proc vertexParameter2*(this: IntToolsCommonPrt): StandardReal {.noSideEffect,
+proc VertexParameter2*(this: IntTools_CommonPrt): Standard_Real {.noSideEffect,
     importcpp: "VertexParameter2", header: "IntTools_CommonPrt.hxx".}
-proc copy*(this: IntToolsCommonPrt; anOther: var IntToolsCommonPrt) {.noSideEffect,
+proc Copy*(this: IntTools_CommonPrt; anOther: var IntTools_CommonPrt) {.noSideEffect,
     importcpp: "Copy", header: "IntTools_CommonPrt.hxx".}
-proc allNullFlag*(this: IntToolsCommonPrt): StandardBoolean {.noSideEffect,
+proc AllNullFlag*(this: IntTools_CommonPrt): Standard_Boolean {.noSideEffect,
     importcpp: "AllNullFlag", header: "IntTools_CommonPrt.hxx".}
-proc setAllNullFlag*(this: var IntToolsCommonPrt; aFlag: StandardBoolean) {.
+proc SetAllNullFlag*(this: var IntTools_CommonPrt; aFlag: Standard_Boolean) {.
     importcpp: "SetAllNullFlag", header: "IntTools_CommonPrt.hxx".}
-proc setBoundingPoints*(this: var IntToolsCommonPrt; aP1: GpPnt; aP2: GpPnt) {.
+proc SetBoundingPoints*(this: var IntTools_CommonPrt; aP1: gp_Pnt; aP2: gp_Pnt) {.
     importcpp: "SetBoundingPoints", header: "IntTools_CommonPrt.hxx".}
-proc boundingPoints*(this: IntToolsCommonPrt; aP1: var GpPnt; aP2: var GpPnt) {.
+proc BoundingPoints*(this: IntTools_CommonPrt; aP1: var gp_Pnt; aP2: var gp_Pnt) {.
     noSideEffect, importcpp: "BoundingPoints", header: "IntTools_CommonPrt.hxx".}
-

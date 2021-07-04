@@ -15,33 +15,38 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, BOPAlgo_Algo,
+  ../NCollection/NCollection_BaseAllocator, ../TopTools/TopTools_ListOfShape,
+  ../TopTools/TopTools_IndexedMapOfOrientedShape
+
 discard "forward decl of IntTools_Context"
 type
-  BOPAlgoBuilderArea* {.importcpp: "BOPAlgo_BuilderArea",
-                       header: "BOPAlgo_BuilderArea.hxx", bycopy.} = object of BOPAlgoAlgo ##
-                                                                                    ## !
-                                                                                    ## Sets
-                                                                                    ## the
-                                                                                    ## context
-                                                                                    ## for
-                                                                                    ## the
-                                                                                    ## algorithms
+  BOPAlgo_BuilderArea* {.importcpp: "BOPAlgo_BuilderArea",
+                        header: "BOPAlgo_BuilderArea.hxx", bycopy.} = object of BOPAlgo_Algo ##
+                                                                                      ## !
+                                                                                      ## Sets
+                                                                                      ## the
+                                                                                      ## context
+                                                                                      ## for
+                                                                                      ## the
+                                                                                      ## algorithms
 
 
-proc setContext*(this: var BOPAlgoBuilderArea; theContext: Handle[IntToolsContext]) {.
+proc SetContext*(this: var BOPAlgo_BuilderArea; theContext: handle[IntTools_Context]) {.
     importcpp: "SetContext", header: "BOPAlgo_BuilderArea.hxx".}
-proc shapes*(this: BOPAlgoBuilderArea): TopToolsListOfShape {.noSideEffect,
+proc Shapes*(this: BOPAlgo_BuilderArea): TopTools_ListOfShape {.noSideEffect,
     importcpp: "Shapes", header: "BOPAlgo_BuilderArea.hxx".}
-proc setShapes*(this: var BOPAlgoBuilderArea; theLS: TopToolsListOfShape) {.
+proc SetShapes*(this: var BOPAlgo_BuilderArea; theLS: TopTools_ListOfShape) {.
     importcpp: "SetShapes", header: "BOPAlgo_BuilderArea.hxx".}
-proc loops*(this: BOPAlgoBuilderArea): TopToolsListOfShape {.noSideEffect,
+proc Loops*(this: BOPAlgo_BuilderArea): TopTools_ListOfShape {.noSideEffect,
     importcpp: "Loops", header: "BOPAlgo_BuilderArea.hxx".}
-proc areas*(this: BOPAlgoBuilderArea): TopToolsListOfShape {.noSideEffect,
+proc Areas*(this: BOPAlgo_BuilderArea): TopTools_ListOfShape {.noSideEffect,
     importcpp: "Areas", header: "BOPAlgo_BuilderArea.hxx".}
-proc setAvoidInternalShapes*(this: var BOPAlgoBuilderArea;
-                            theAvoidInternal: StandardBoolean) {.
+proc SetAvoidInternalShapes*(this: var BOPAlgo_BuilderArea;
+                            theAvoidInternal: Standard_Boolean) {.
     importcpp: "SetAvoidInternalShapes", header: "BOPAlgo_BuilderArea.hxx".}
-proc isAvoidInternalShapes*(this: BOPAlgoBuilderArea): StandardBoolean {.
+proc IsAvoidInternalShapes*(this: BOPAlgo_BuilderArea): Standard_Boolean {.
     noSideEffect, importcpp: "IsAvoidInternalShapes",
     header: "BOPAlgo_BuilderArea.hxx".}
-

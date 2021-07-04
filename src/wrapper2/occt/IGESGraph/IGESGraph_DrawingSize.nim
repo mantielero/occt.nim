@@ -14,10 +14,14 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Integer,
+  ../Standard/Standard_Real, ../IGESData/IGESData_IGESEntity
+
 discard "forward decl of IGESGraph_DrawingSize"
 discard "forward decl of IGESGraph_DrawingSize"
 type
-  HandleIGESGraphDrawingSize* = Handle[IGESGraphDrawingSize]
+  Handle_IGESGraph_DrawingSize* = handle[IGESGraph_DrawingSize]
 
 ## ! defines IGESDrawingSize, Type <406> Form <16>
 ## ! in package IGESGraph
@@ -27,29 +31,29 @@ type
 ## ! drawing space
 
 type
-  IGESGraphDrawingSize* {.importcpp: "IGESGraph_DrawingSize",
-                         header: "IGESGraph_DrawingSize.hxx", bycopy.} = object of IGESDataIGESEntity
+  IGESGraph_DrawingSize* {.importcpp: "IGESGraph_DrawingSize",
+                          header: "IGESGraph_DrawingSize.hxx", bycopy.} = object of IGESData_IGESEntity
 
 
-proc constructIGESGraphDrawingSize*(): IGESGraphDrawingSize {.constructor,
+proc constructIGESGraph_DrawingSize*(): IGESGraph_DrawingSize {.constructor,
     importcpp: "IGESGraph_DrawingSize(@)", header: "IGESGraph_DrawingSize.hxx".}
-proc init*(this: var IGESGraphDrawingSize; nbProps: StandardInteger;
-          aXSize: StandardReal; aYSize: StandardReal) {.importcpp: "Init",
+proc Init*(this: var IGESGraph_DrawingSize; nbProps: Standard_Integer;
+          aXSize: Standard_Real; aYSize: Standard_Real) {.importcpp: "Init",
     header: "IGESGraph_DrawingSize.hxx".}
-proc nbPropertyValues*(this: IGESGraphDrawingSize): StandardInteger {.noSideEffect,
-    importcpp: "NbPropertyValues", header: "IGESGraph_DrawingSize.hxx".}
-proc xSize*(this: IGESGraphDrawingSize): StandardReal {.noSideEffect,
+proc NbPropertyValues*(this: IGESGraph_DrawingSize): Standard_Integer {.
+    noSideEffect, importcpp: "NbPropertyValues",
+    header: "IGESGraph_DrawingSize.hxx".}
+proc XSize*(this: IGESGraph_DrawingSize): Standard_Real {.noSideEffect,
     importcpp: "XSize", header: "IGESGraph_DrawingSize.hxx".}
-proc ySize*(this: IGESGraphDrawingSize): StandardReal {.noSideEffect,
+proc YSize*(this: IGESGraph_DrawingSize): Standard_Real {.noSideEffect,
     importcpp: "YSize", header: "IGESGraph_DrawingSize.hxx".}
 type
-  IGESGraphDrawingSizebaseType* = IGESDataIGESEntity
+  IGESGraph_DrawingSizebase_type* = IGESData_IGESEntity
 
-proc getTypeName*(): cstring {.importcpp: "IGESGraph_DrawingSize::get_type_name(@)",
-                            header: "IGESGraph_DrawingSize.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "IGESGraph_DrawingSize::get_type_name(@)",
+                              header: "IGESGraph_DrawingSize.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "IGESGraph_DrawingSize::get_type_descriptor(@)",
     header: "IGESGraph_DrawingSize.hxx".}
-proc dynamicType*(this: IGESGraphDrawingSize): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "IGESGraph_DrawingSize.hxx".}
-
+proc DynamicType*(this: IGESGraph_DrawingSize): handle[Standard_Type] {.
+    noSideEffect, importcpp: "DynamicType", header: "IGESGraph_DrawingSize.hxx".}

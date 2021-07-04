@@ -14,13 +14,17 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Integer,
+  IGESGeom_HArray1OfBoundary, ../IGESData/IGESData_IGESEntity
+
 discard "forward decl of IGESData_IGESEntity"
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of IGESGeom_Boundary"
 discard "forward decl of IGESGeom_BoundedSurface"
 discard "forward decl of IGESGeom_BoundedSurface"
 type
-  HandleIGESGeomBoundedSurface* = Handle[IGESGeomBoundedSurface]
+  Handle_IGESGeom_BoundedSurface* = handle[IGESGeom_BoundedSurface]
 
 ## ! defines BoundedSurface, Type <143> Form <0>
 ## ! in package IGESGeom
@@ -29,34 +33,33 @@ type
 ## ! to be represented parametrically.
 
 type
-  IGESGeomBoundedSurface* {.importcpp: "IGESGeom_BoundedSurface",
-                           header: "IGESGeom_BoundedSurface.hxx", bycopy.} = object of IGESDataIGESEntity
+  IGESGeom_BoundedSurface* {.importcpp: "IGESGeom_BoundedSurface",
+                            header: "IGESGeom_BoundedSurface.hxx", bycopy.} = object of IGESData_IGESEntity
 
 
-proc constructIGESGeomBoundedSurface*(): IGESGeomBoundedSurface {.constructor,
+proc constructIGESGeom_BoundedSurface*(): IGESGeom_BoundedSurface {.constructor,
     importcpp: "IGESGeom_BoundedSurface(@)", header: "IGESGeom_BoundedSurface.hxx".}
-proc init*(this: var IGESGeomBoundedSurface; aType: StandardInteger;
-          aSurface: Handle[IGESDataIGESEntity];
-          allBounds: Handle[IGESGeomHArray1OfBoundary]) {.importcpp: "Init",
+proc Init*(this: var IGESGeom_BoundedSurface; aType: Standard_Integer;
+          aSurface: handle[IGESData_IGESEntity];
+          allBounds: handle[IGESGeom_HArray1OfBoundary]) {.importcpp: "Init",
     header: "IGESGeom_BoundedSurface.hxx".}
-proc representationType*(this: IGESGeomBoundedSurface): StandardInteger {.
+proc RepresentationType*(this: IGESGeom_BoundedSurface): Standard_Integer {.
     noSideEffect, importcpp: "RepresentationType",
     header: "IGESGeom_BoundedSurface.hxx".}
-proc surface*(this: IGESGeomBoundedSurface): Handle[IGESDataIGESEntity] {.
+proc Surface*(this: IGESGeom_BoundedSurface): handle[IGESData_IGESEntity] {.
     noSideEffect, importcpp: "Surface", header: "IGESGeom_BoundedSurface.hxx".}
-proc nbBoundaries*(this: IGESGeomBoundedSurface): StandardInteger {.noSideEffect,
+proc NbBoundaries*(this: IGESGeom_BoundedSurface): Standard_Integer {.noSideEffect,
     importcpp: "NbBoundaries", header: "IGESGeom_BoundedSurface.hxx".}
-proc boundary*(this: IGESGeomBoundedSurface; index: StandardInteger): Handle[
-    IGESGeomBoundary] {.noSideEffect, importcpp: "Boundary",
-                       header: "IGESGeom_BoundedSurface.hxx".}
+proc Boundary*(this: IGESGeom_BoundedSurface; Index: Standard_Integer): handle[
+    IGESGeom_Boundary] {.noSideEffect, importcpp: "Boundary",
+                        header: "IGESGeom_BoundedSurface.hxx".}
 type
-  IGESGeomBoundedSurfacebaseType* = IGESDataIGESEntity
+  IGESGeom_BoundedSurfacebase_type* = IGESData_IGESEntity
 
-proc getTypeName*(): cstring {.importcpp: "IGESGeom_BoundedSurface::get_type_name(@)",
-                            header: "IGESGeom_BoundedSurface.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "IGESGeom_BoundedSurface::get_type_name(@)",
+                              header: "IGESGeom_BoundedSurface.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "IGESGeom_BoundedSurface::get_type_descriptor(@)",
     header: "IGESGeom_BoundedSurface.hxx".}
-proc dynamicType*(this: IGESGeomBoundedSurface): Handle[StandardType] {.
+proc DynamicType*(this: IGESGeom_BoundedSurface): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType", header: "IGESGeom_BoundedSurface.hxx".}
-

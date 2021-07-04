@@ -14,97 +14,103 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Geom2dAdaptor/Geom2dAdaptor_Curve,
+  Geom2dHatch_Intersector, Geom2dHatch_Elements, Geom2dHatch_Hatchings,
+  ../TopAbs/TopAbs_Orientation, ../HatchGen/HatchGen_ErrorStatus
+
 discard "forward decl of HatchGen_PointOnHatching"
 discard "forward decl of HatchGen_Domain"
-# when defined(Status):
-#   discard
+when defined(Status):
+  discard
 type
-  Geom2dHatchHatcher* {.importcpp: "Geom2dHatch_Hatcher",
-                       header: "Geom2dHatch_Hatcher.hxx", bycopy.} = object ## ! Returns an empty hatcher.
-                                                                       ## ! Returns the IndE-th element.
-                                                                       ## ! Trims the IndH-th hatching of the hatcher by the
-                                                                       ## ! IndE-th element.
+  Geom2dHatch_Hatcher* {.importcpp: "Geom2dHatch_Hatcher",
+                        header: "Geom2dHatch_Hatcher.hxx", bycopy.} = object ## ! Returns an empty hatcher.
+                                                                        ## ! Returns the IndE-th element.
+                                                                        ## ! Trims the IndH-th hatching of the hatcher by the
+                                                                        ## ! IndE-th element.
 
 
-proc constructGeom2dHatchHatcher*(intersector: Geom2dHatchIntersector;
-                                 confusion2d: StandardReal;
-                                 confusion3d: StandardReal;
-                                 keepPnt: StandardBoolean = standardFalse;
-                                 keepSeg: StandardBoolean = standardFalse): Geom2dHatchHatcher {.
+proc constructGeom2dHatch_Hatcher*(Intersector: Geom2dHatch_Intersector;
+                                  Confusion2d: Standard_Real;
+                                  Confusion3d: Standard_Real;
+                                  KeepPnt: Standard_Boolean = Standard_False;
+                                  KeepSeg: Standard_Boolean = Standard_False): Geom2dHatch_Hatcher {.
     constructor, importcpp: "Geom2dHatch_Hatcher(@)",
     header: "Geom2dHatch_Hatcher.hxx".}
-proc intersector*(this: var Geom2dHatchHatcher; intersector: Geom2dHatchIntersector) {.
+proc Intersector*(this: var Geom2dHatch_Hatcher;
+                 Intersector: Geom2dHatch_Intersector) {.importcpp: "Intersector",
+    header: "Geom2dHatch_Hatcher.hxx".}
+proc Intersector*(this: var Geom2dHatch_Hatcher): Geom2dHatch_Intersector {.
     importcpp: "Intersector", header: "Geom2dHatch_Hatcher.hxx".}
-proc intersector*(this: var Geom2dHatchHatcher): Geom2dHatchIntersector {.
-    importcpp: "Intersector", header: "Geom2dHatch_Hatcher.hxx".}
-proc changeIntersector*(this: var Geom2dHatchHatcher): var Geom2dHatchIntersector {.
+proc ChangeIntersector*(this: var Geom2dHatch_Hatcher): var Geom2dHatch_Intersector {.
     importcpp: "ChangeIntersector", header: "Geom2dHatch_Hatcher.hxx".}
-proc confusion2d*(this: var Geom2dHatchHatcher; confusion: StandardReal) {.
+proc Confusion2d*(this: var Geom2dHatch_Hatcher; Confusion: Standard_Real) {.
     importcpp: "Confusion2d", header: "Geom2dHatch_Hatcher.hxx".}
-proc confusion2d*(this: Geom2dHatchHatcher): StandardReal {.noSideEffect,
+proc Confusion2d*(this: Geom2dHatch_Hatcher): Standard_Real {.noSideEffect,
     importcpp: "Confusion2d", header: "Geom2dHatch_Hatcher.hxx".}
-proc confusion3d*(this: var Geom2dHatchHatcher; confusion: StandardReal) {.
+proc Confusion3d*(this: var Geom2dHatch_Hatcher; Confusion: Standard_Real) {.
     importcpp: "Confusion3d", header: "Geom2dHatch_Hatcher.hxx".}
-proc confusion3d*(this: Geom2dHatchHatcher): StandardReal {.noSideEffect,
+proc Confusion3d*(this: Geom2dHatch_Hatcher): Standard_Real {.noSideEffect,
     importcpp: "Confusion3d", header: "Geom2dHatch_Hatcher.hxx".}
-proc keepPoints*(this: var Geom2dHatchHatcher; keep: StandardBoolean) {.
+proc KeepPoints*(this: var Geom2dHatch_Hatcher; Keep: Standard_Boolean) {.
     importcpp: "KeepPoints", header: "Geom2dHatch_Hatcher.hxx".}
-proc keepPoints*(this: Geom2dHatchHatcher): StandardBoolean {.noSideEffect,
+proc KeepPoints*(this: Geom2dHatch_Hatcher): Standard_Boolean {.noSideEffect,
     importcpp: "KeepPoints", header: "Geom2dHatch_Hatcher.hxx".}
-proc keepSegments*(this: var Geom2dHatchHatcher; keep: StandardBoolean) {.
+proc KeepSegments*(this: var Geom2dHatch_Hatcher; Keep: Standard_Boolean) {.
     importcpp: "KeepSegments", header: "Geom2dHatch_Hatcher.hxx".}
-proc keepSegments*(this: Geom2dHatchHatcher): StandardBoolean {.noSideEffect,
+proc KeepSegments*(this: Geom2dHatch_Hatcher): Standard_Boolean {.noSideEffect,
     importcpp: "KeepSegments", header: "Geom2dHatch_Hatcher.hxx".}
-proc clear*(this: var Geom2dHatchHatcher) {.importcpp: "Clear",
-                                        header: "Geom2dHatch_Hatcher.hxx".}
-proc elementCurve*(this: Geom2dHatchHatcher; indE: StandardInteger): Geom2dAdaptorCurve {.
+proc Clear*(this: var Geom2dHatch_Hatcher) {.importcpp: "Clear",
+    header: "Geom2dHatch_Hatcher.hxx".}
+proc ElementCurve*(this: Geom2dHatch_Hatcher; IndE: Standard_Integer): Geom2dAdaptor_Curve {.
     noSideEffect, importcpp: "ElementCurve", header: "Geom2dHatch_Hatcher.hxx".}
-proc addElement*(this: var Geom2dHatchHatcher; curve: Geom2dAdaptorCurve;
-                orientation: TopAbsOrientation = topAbsFORWARD): StandardInteger {.
+proc AddElement*(this: var Geom2dHatch_Hatcher; Curve: Geom2dAdaptor_Curve;
+                Orientation: TopAbs_Orientation = TopAbs_FORWARD): Standard_Integer {.
     importcpp: "AddElement", header: "Geom2dHatch_Hatcher.hxx".}
-proc addElement*(this: var Geom2dHatchHatcher; curve: Handle[Geom2dCurve];
-                orientation: TopAbsOrientation = topAbsFORWARD): StandardInteger {.
+proc AddElement*(this: var Geom2dHatch_Hatcher; Curve: handle[Geom2d_Curve];
+                Orientation: TopAbs_Orientation = TopAbs_FORWARD): Standard_Integer {.
     importcpp: "AddElement", header: "Geom2dHatch_Hatcher.hxx".}
-proc remElement*(this: var Geom2dHatchHatcher; indE: StandardInteger) {.
+proc RemElement*(this: var Geom2dHatch_Hatcher; IndE: Standard_Integer) {.
     importcpp: "RemElement", header: "Geom2dHatch_Hatcher.hxx".}
-proc clrElements*(this: var Geom2dHatchHatcher) {.importcpp: "ClrElements",
+proc ClrElements*(this: var Geom2dHatch_Hatcher) {.importcpp: "ClrElements",
     header: "Geom2dHatch_Hatcher.hxx".}
-proc hatchingCurve*(this: Geom2dHatchHatcher; indH: StandardInteger): Geom2dAdaptorCurve {.
+proc HatchingCurve*(this: Geom2dHatch_Hatcher; IndH: Standard_Integer): Geom2dAdaptor_Curve {.
     noSideEffect, importcpp: "HatchingCurve", header: "Geom2dHatch_Hatcher.hxx".}
-proc addHatching*(this: var Geom2dHatchHatcher; curve: Geom2dAdaptorCurve): StandardInteger {.
+proc AddHatching*(this: var Geom2dHatch_Hatcher; Curve: Geom2dAdaptor_Curve): Standard_Integer {.
     importcpp: "AddHatching", header: "Geom2dHatch_Hatcher.hxx".}
-proc remHatching*(this: var Geom2dHatchHatcher; indH: StandardInteger) {.
+proc RemHatching*(this: var Geom2dHatch_Hatcher; IndH: Standard_Integer) {.
     importcpp: "RemHatching", header: "Geom2dHatch_Hatcher.hxx".}
-proc clrHatchings*(this: var Geom2dHatchHatcher) {.importcpp: "ClrHatchings",
+proc ClrHatchings*(this: var Geom2dHatch_Hatcher) {.importcpp: "ClrHatchings",
     header: "Geom2dHatch_Hatcher.hxx".}
-proc nbPoints*(this: Geom2dHatchHatcher; indH: StandardInteger): StandardInteger {.
+proc NbPoints*(this: Geom2dHatch_Hatcher; IndH: Standard_Integer): Standard_Integer {.
     noSideEffect, importcpp: "NbPoints", header: "Geom2dHatch_Hatcher.hxx".}
-proc point*(this: Geom2dHatchHatcher; indH: StandardInteger; indP: StandardInteger): HatchGenPointOnHatching {.
+proc Point*(this: Geom2dHatch_Hatcher; IndH: Standard_Integer; IndP: Standard_Integer): HatchGen_PointOnHatching {.
     noSideEffect, importcpp: "Point", header: "Geom2dHatch_Hatcher.hxx".}
-proc trim*(this: var Geom2dHatchHatcher) {.importcpp: "Trim",
-                                       header: "Geom2dHatch_Hatcher.hxx".}
-proc trim*(this: var Geom2dHatchHatcher; curve: Geom2dAdaptorCurve): StandardInteger {.
+proc Trim*(this: var Geom2dHatch_Hatcher) {.importcpp: "Trim",
+                                        header: "Geom2dHatch_Hatcher.hxx".}
+proc Trim*(this: var Geom2dHatch_Hatcher; Curve: Geom2dAdaptor_Curve): Standard_Integer {.
     importcpp: "Trim", header: "Geom2dHatch_Hatcher.hxx".}
-proc trim*(this: var Geom2dHatchHatcher; indH: StandardInteger) {.importcpp: "Trim",
+proc Trim*(this: var Geom2dHatch_Hatcher; IndH: Standard_Integer) {.importcpp: "Trim",
     header: "Geom2dHatch_Hatcher.hxx".}
-proc computeDomains*(this: var Geom2dHatchHatcher) {.importcpp: "ComputeDomains",
+proc ComputeDomains*(this: var Geom2dHatch_Hatcher) {.importcpp: "ComputeDomains",
     header: "Geom2dHatch_Hatcher.hxx".}
-proc computeDomains*(this: var Geom2dHatchHatcher; indH: StandardInteger) {.
+proc ComputeDomains*(this: var Geom2dHatch_Hatcher; IndH: Standard_Integer) {.
     importcpp: "ComputeDomains", header: "Geom2dHatch_Hatcher.hxx".}
-proc trimDone*(this: Geom2dHatchHatcher; indH: StandardInteger): StandardBoolean {.
+proc TrimDone*(this: Geom2dHatch_Hatcher; IndH: Standard_Integer): Standard_Boolean {.
     noSideEffect, importcpp: "TrimDone", header: "Geom2dHatch_Hatcher.hxx".}
-proc trimFailed*(this: Geom2dHatchHatcher; indH: StandardInteger): StandardBoolean {.
+proc TrimFailed*(this: Geom2dHatch_Hatcher; IndH: Standard_Integer): Standard_Boolean {.
     noSideEffect, importcpp: "TrimFailed", header: "Geom2dHatch_Hatcher.hxx".}
-proc isDone*(this: Geom2dHatchHatcher): StandardBoolean {.noSideEffect,
+proc IsDone*(this: Geom2dHatch_Hatcher): Standard_Boolean {.noSideEffect,
     importcpp: "IsDone", header: "Geom2dHatch_Hatcher.hxx".}
-proc isDone*(this: Geom2dHatchHatcher; indH: StandardInteger): StandardBoolean {.
+proc IsDone*(this: Geom2dHatch_Hatcher; IndH: Standard_Integer): Standard_Boolean {.
     noSideEffect, importcpp: "IsDone", header: "Geom2dHatch_Hatcher.hxx".}
-proc status*(this: Geom2dHatchHatcher; indH: StandardInteger): HatchGenErrorStatus {.
+proc Status*(this: Geom2dHatch_Hatcher; IndH: Standard_Integer): HatchGen_ErrorStatus {.
     noSideEffect, importcpp: "Status", header: "Geom2dHatch_Hatcher.hxx".}
-proc nbDomains*(this: Geom2dHatchHatcher; indH: StandardInteger): StandardInteger {.
+proc NbDomains*(this: Geom2dHatch_Hatcher; IndH: Standard_Integer): Standard_Integer {.
     noSideEffect, importcpp: "NbDomains", header: "Geom2dHatch_Hatcher.hxx".}
-proc domain*(this: Geom2dHatchHatcher; indH: StandardInteger; iDom: StandardInteger): HatchGenDomain {.
-    noSideEffect, importcpp: "Domain", header: "Geom2dHatch_Hatcher.hxx".}
-proc dump*(this: Geom2dHatchHatcher) {.noSideEffect, importcpp: "Dump",
-                                    header: "Geom2dHatch_Hatcher.hxx".}
-
+proc Domain*(this: Geom2dHatch_Hatcher; IndH: Standard_Integer;
+            IDom: Standard_Integer): HatchGen_Domain {.noSideEffect,
+    importcpp: "Domain", header: "Geom2dHatch_Hatcher.hxx".}
+proc Dump*(this: Geom2dHatch_Hatcher) {.noSideEffect, importcpp: "Dump",
+                                     header: "Geom2dHatch_Hatcher.hxx".}

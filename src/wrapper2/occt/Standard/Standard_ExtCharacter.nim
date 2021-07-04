@@ -20,6 +20,9 @@
 ## ====                  Excepting "Unicod encoding"
 ## ============================================================================
 
+import
+  Standard_TypeDef, Standard_OStream
+
 ##  ===============
 ##  inline methods
 ##  ===============
@@ -27,28 +30,26 @@
 ##  ToExtCharacter : Returns an ExtCharacter from a Character
 ##  ------------------------------------------------------------------
 
-proc toExtCharacter*(achar: StandardCharacter): StandardExtCharacter =
+proc ToExtCharacter*(achar: Standard_Character): Standard_ExtCharacter =
   discard
 
 ##  ------------------------------------------------------------------
 ##  ToCharacter : Returns an Character from an ExtCharacter
 ##  ------------------------------------------------------------------
 
-proc toCharacter*(achar: StandardExtCharacter): StandardCharacter =
+proc ToCharacter*(achar: Standard_ExtCharacter): Standard_Character =
   discard
 
 ##  ------------------------------------------------------------------
 ##  IsAnAscii : Returns True if an ExtCharacter is in the "Ascii Range"
 ##  ------------------------------------------------------------------
 
-proc isAnAscii*(achar: StandardExtCharacter): StandardBoolean =
+proc IsAnAscii*(achar: Standard_ExtCharacter): Standard_Boolean =
   discard
 
 ##  ------------------------------------------------------------------
 ##  IsEqual : Returns Standard_True if two characters have the same value
 ##  ------------------------------------------------------------------
 
-proc isEqual*(one: StandardExtCharacter; two: StandardExtCharacter): StandardBoolean =
+proc IsEqual*(One: Standard_ExtCharacter; Two: Standard_ExtCharacter): Standard_Boolean =
   discard
-
-

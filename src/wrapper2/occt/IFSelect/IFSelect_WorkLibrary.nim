@@ -14,6 +14,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Integer,
+  ../Interface/Interface_HArray1OfHAsciiString, ../Standard/Standard_Transient,
+  ../Standard/Standard_CString, ../Standard/Standard_Boolean
+
 discard "forward decl of Interface_InterfaceModel"
 discard "forward decl of Interface_Protocol"
 discard "forward decl of IFSelect_ContextWrite"
@@ -23,7 +28,7 @@ discard "forward decl of Standard_Transient"
 discard "forward decl of IFSelect_WorkLibrary"
 discard "forward decl of IFSelect_WorkLibrary"
 type
-  HandleIFSelectWorkLibrary* = Handle[IFSelectWorkLibrary]
+  Handle_IFSelect_WorkLibrary* = handle[IFSelect_WorkLibrary]
 
 ## ! This class defines the (empty) frame which can be used to
 ## ! enrich a XSTEP set with new capabilities
@@ -38,138 +43,139 @@ type
 ## ! kind of informations relevant for the norm,
 
 type
-  IFSelectWorkLibrary* {.importcpp: "IFSelect_WorkLibrary",
-                        header: "IFSelect_WorkLibrary.hxx", bycopy.} = object of StandardTransient ##
-                                                                                            ## !
-                                                                                            ## Gives
-                                                                                            ## the
-                                                                                            ## way
-                                                                                            ## to
-                                                                                            ## Read
-                                                                                            ## a
-                                                                                            ## File
-                                                                                            ## and
-                                                                                            ## transfer
-                                                                                            ## it
-                                                                                            ## to
-                                                                                            ## a
-                                                                                            ## Model
-                                                                                            ##
-                                                                                            ## !
-                                                                                            ## <mod>
-                                                                                            ## is
-                                                                                            ## the
-                                                                                            ## resulting
-                                                                                            ## Model,
-                                                                                            ## which
-                                                                                            ## has
-                                                                                            ## to
-                                                                                            ## be
-                                                                                            ## created
-                                                                                            ## by
-                                                                                            ## this
-                                                                                            ##
-                                                                                            ## !
-                                                                                            ## method.
-                                                                                            ## In
-                                                                                            ## case
-                                                                                            ## of
-                                                                                            ## error,
-                                                                                            ## <mod>
-                                                                                            ## must
-                                                                                            ## be
-                                                                                            ## returned
-                                                                                            ## Null
-                                                                                            ##
-                                                                                            ## !
-                                                                                            ## Return
-                                                                                            ## value
-                                                                                            ## is
-                                                                                            ## a
-                                                                                            ## status
-                                                                                            ## with
-                                                                                            ## free
-                                                                                            ## values.
-                                                                                            ##
-                                                                                            ## !
-                                                                                            ## Simply,
-                                                                                            ## 0
-                                                                                            ## is
-                                                                                            ## for
-                                                                                            ## "Execution
-                                                                                            ## OK"
-                                                                                            ##
-                                                                                            ## !
-                                                                                            ## The
-                                                                                            ## Protocol
-                                                                                            ## can
-                                                                                            ## be
-                                                                                            ## used
-                                                                                            ## to
-                                                                                            ## work
-                                                                                            ## (e.g.
-                                                                                            ## create
-                                                                                            ## the
-                                                                                            ## Model,
-                                                                                            ## read
-                                                                                            ##
-                                                                                            ## !
-                                                                                            ## and
-                                                                                            ## recognize
-                                                                                            ## the
-                                                                                            ## Entities)
-                                                                                            ##
-                                                                                            ## !
-                                                                                            ## Required
-                                                                                            ## to
-                                                                                            ## initialise
-                                                                                            ## fields
+  IFSelect_WorkLibrary* {.importcpp: "IFSelect_WorkLibrary",
+                         header: "IFSelect_WorkLibrary.hxx", bycopy.} = object of Standard_Transient ##
+                                                                                              ## !
+                                                                                              ## Gives
+                                                                                              ## the
+                                                                                              ## way
+                                                                                              ## to
+                                                                                              ## Read
+                                                                                              ## a
+                                                                                              ## File
+                                                                                              ## and
+                                                                                              ## transfer
+                                                                                              ## it
+                                                                                              ## to
+                                                                                              ## a
+                                                                                              ## Model
+                                                                                              ##
+                                                                                              ## !
+                                                                                              ## <mod>
+                                                                                              ## is
+                                                                                              ## the
+                                                                                              ## resulting
+                                                                                              ## Model,
+                                                                                              ## which
+                                                                                              ## has
+                                                                                              ## to
+                                                                                              ## be
+                                                                                              ## created
+                                                                                              ## by
+                                                                                              ## this
+                                                                                              ##
+                                                                                              ## !
+                                                                                              ## method.
+                                                                                              ## In
+                                                                                              ## case
+                                                                                              ## of
+                                                                                              ## error,
+                                                                                              ## <mod>
+                                                                                              ## must
+                                                                                              ## be
+                                                                                              ## returned
+                                                                                              ## Null
+                                                                                              ##
+                                                                                              ## !
+                                                                                              ## Return
+                                                                                              ## value
+                                                                                              ## is
+                                                                                              ## a
+                                                                                              ## status
+                                                                                              ## with
+                                                                                              ## free
+                                                                                              ## values.
+                                                                                              ##
+                                                                                              ## !
+                                                                                              ## Simply,
+                                                                                              ## 0
+                                                                                              ## is
+                                                                                              ## for
+                                                                                              ## "Execution
+                                                                                              ## OK"
+                                                                                              ##
+                                                                                              ## !
+                                                                                              ## The
+                                                                                              ## Protocol
+                                                                                              ## can
+                                                                                              ## be
+                                                                                              ## used
+                                                                                              ## to
+                                                                                              ## work
+                                                                                              ## (e.g.
+                                                                                              ## create
+                                                                                              ## the
+                                                                                              ## Model,
+                                                                                              ## read
+                                                                                              ##
+                                                                                              ## !
+                                                                                              ## and
+                                                                                              ## recognize
+                                                                                              ## the
+                                                                                              ## Entities)
+                                                                                              ##
+                                                                                              ## !
+                                                                                              ## Required
+                                                                                              ## to
+                                                                                              ## initialise
+                                                                                              ## fields
 
 
-proc readFile*(this: IFSelectWorkLibrary; name: StandardCString;
-              model: var Handle[InterfaceInterfaceModel];
-              protocol: Handle[InterfaceProtocol]): StandardInteger {.noSideEffect,
-    importcpp: "ReadFile", header: "IFSelect_WorkLibrary.hxx".}
-proc readStream*(this: IFSelectWorkLibrary; theName: StandardCString;
-                theIStream: var Istream;
-                model: var Handle[InterfaceInterfaceModel];
-                protocol: Handle[InterfaceProtocol]): StandardInteger {.
+proc ReadFile*(this: IFSelect_WorkLibrary; name: Standard_CString;
+              model: var handle[Interface_InterfaceModel];
+              protocol: handle[Interface_Protocol]): Standard_Integer {.
+    noSideEffect, importcpp: "ReadFile", header: "IFSelect_WorkLibrary.hxx".}
+proc ReadStream*(this: IFSelect_WorkLibrary; theName: Standard_CString;
+                theIStream: var istream;
+                model: var handle[Interface_InterfaceModel];
+                protocol: handle[Interface_Protocol]): Standard_Integer {.
     noSideEffect, importcpp: "ReadStream", header: "IFSelect_WorkLibrary.hxx".}
-proc writeFile*(this: IFSelectWorkLibrary; ctx: var IFSelectContextWrite): StandardBoolean {.
+proc WriteFile*(this: IFSelect_WorkLibrary; ctx: var IFSelect_ContextWrite): Standard_Boolean {.
     noSideEffect, importcpp: "WriteFile", header: "IFSelect_WorkLibrary.hxx".}
-proc copyModel*(this: IFSelectWorkLibrary;
-               original: Handle[InterfaceInterfaceModel];
-               newmodel: Handle[InterfaceInterfaceModel];
-               list: InterfaceEntityIterator; tc: var InterfaceCopyTool): StandardBoolean {.
+proc CopyModel*(this: IFSelect_WorkLibrary;
+               original: handle[Interface_InterfaceModel];
+               newmodel: handle[Interface_InterfaceModel];
+               list: Interface_EntityIterator; TC: var Interface_CopyTool): Standard_Boolean {.
     noSideEffect, importcpp: "CopyModel", header: "IFSelect_WorkLibrary.hxx".}
-proc dumpEntity*(this: IFSelectWorkLibrary; model: Handle[InterfaceInterfaceModel];
-                protocol: Handle[InterfaceProtocol];
-                entity: Handle[StandardTransient]; s: var StandardOStream;
-                level: StandardInteger) {.noSideEffect, importcpp: "DumpEntity",
-                                        header: "IFSelect_WorkLibrary.hxx".}
-proc dumpEntity*(this: IFSelectWorkLibrary; model: Handle[InterfaceInterfaceModel];
-                protocol: Handle[InterfaceProtocol];
-                entity: Handle[StandardTransient]; s: var StandardOStream) {.
+proc DumpEntity*(this: IFSelect_WorkLibrary;
+                model: handle[Interface_InterfaceModel];
+                protocol: handle[Interface_Protocol];
+                entity: handle[Standard_Transient]; S: var Standard_OStream;
+                level: Standard_Integer) {.noSideEffect, importcpp: "DumpEntity",
+    header: "IFSelect_WorkLibrary.hxx".}
+proc DumpEntity*(this: IFSelect_WorkLibrary;
+                model: handle[Interface_InterfaceModel];
+                protocol: handle[Interface_Protocol];
+                entity: handle[Standard_Transient]; S: var Standard_OStream) {.
     noSideEffect, importcpp: "DumpEntity", header: "IFSelect_WorkLibrary.hxx".}
-proc setDumpLevels*(this: var IFSelectWorkLibrary; def: StandardInteger;
-                   max: StandardInteger) {.importcpp: "SetDumpLevels",
+proc SetDumpLevels*(this: var IFSelect_WorkLibrary; def: Standard_Integer;
+                   max: Standard_Integer) {.importcpp: "SetDumpLevels",
     header: "IFSelect_WorkLibrary.hxx".}
-proc dumpLevels*(this: IFSelectWorkLibrary; def: var StandardInteger;
-                max: var StandardInteger) {.noSideEffect, importcpp: "DumpLevels",
+proc DumpLevels*(this: IFSelect_WorkLibrary; def: var Standard_Integer;
+                max: var Standard_Integer) {.noSideEffect, importcpp: "DumpLevels",
     header: "IFSelect_WorkLibrary.hxx".}
-proc setDumpHelp*(this: var IFSelectWorkLibrary; level: StandardInteger;
-                 help: StandardCString) {.importcpp: "SetDumpHelp",
-                                        header: "IFSelect_WorkLibrary.hxx".}
-proc dumpHelp*(this: IFSelectWorkLibrary; level: StandardInteger): StandardCString {.
+proc SetDumpHelp*(this: var IFSelect_WorkLibrary; level: Standard_Integer;
+                 help: Standard_CString) {.importcpp: "SetDumpHelp",
+    header: "IFSelect_WorkLibrary.hxx".}
+proc DumpHelp*(this: IFSelect_WorkLibrary; level: Standard_Integer): Standard_CString {.
     noSideEffect, importcpp: "DumpHelp", header: "IFSelect_WorkLibrary.hxx".}
 type
-  IFSelectWorkLibrarybaseType* = StandardTransient
+  IFSelect_WorkLibrarybase_type* = Standard_Transient
 
-proc getTypeName*(): cstring {.importcpp: "IFSelect_WorkLibrary::get_type_name(@)",
-                            header: "IFSelect_WorkLibrary.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "IFSelect_WorkLibrary::get_type_name(@)",
+                              header: "IFSelect_WorkLibrary.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "IFSelect_WorkLibrary::get_type_descriptor(@)",
     header: "IFSelect_WorkLibrary.hxx".}
-proc dynamicType*(this: IFSelectWorkLibrary): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: IFSelect_WorkLibrary): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "IFSelect_WorkLibrary.hxx".}
-

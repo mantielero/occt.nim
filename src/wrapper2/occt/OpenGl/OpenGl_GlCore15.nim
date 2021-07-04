@@ -13,46 +13,49 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  OpenGl_GlCore14
+
 ## *
 ##  OpenGL 1.5 core based on 1.4 version.
 ##
 
 type
-  OpenGlTmplCore15*[TheBaseClassT] {.importcpp: "OpenGl_TmplCore15<\'0>",
-                                    header: "OpenGl_GlCore15.hxx", bycopy.} = object of TheBaseClassT ##
-                                                                                               ## !
-                                                                                               ## @name
-                                                                                               ## OpenGL
-                                                                                               ## 1.5
-                                                                                               ## additives
-                                                                                               ## to
-                                                                                               ## 1.4
+  OpenGl_TmplCore15*[theBaseClass_t] {.importcpp: "OpenGl_TmplCore15<\'0>",
+                                      header: "OpenGl_GlCore15.hxx", bycopy.} = object of theBaseClass_t ##
+                                                                                                  ## !
+                                                                                                  ## @name
+                                                                                                  ## OpenGL
+                                                                                                  ## 1.5
+                                                                                                  ## additives
+                                                                                                  ## to
+                                                                                                  ## 1.4
 
 
-# when not defined(gl_Es_Version_20):
-#   discard
-# when not defined(gl_Es_Version_20):
-#   discard
-# when not defined(gl_Es_Version_20):
-#   discard
-# when not defined(gl_Es_Version_20):
-#   discard
-# when not defined(gl_Es_Version_20):
-#   discard
-# when not defined(gl_Es_Version_20):
-#   discard
-# when not defined(gl_Es_Version_20):
-#   discard
-# when not defined(gl_Es_Version_20):
-#   discard
-# when not defined(gl_Es_Version_20):
-#   discard
-# when not defined(gl_Es_Version_20):
-#   discard
-# when not defined(gl_Es_Version_20):
-#   discard
-# when not defined(gl_Es_Version_20):
-#   discard
+when not defined(GL_ES_VERSION_2_0):
+  discard
+when not defined(GL_ES_VERSION_2_0):
+  discard
+when not defined(GL_ES_VERSION_2_0):
+  discard
+when not defined(GL_ES_VERSION_2_0):
+  discard
+when not defined(GL_ES_VERSION_2_0):
+  discard
+when not defined(GL_ES_VERSION_2_0):
+  discard
+when not defined(GL_ES_VERSION_2_0):
+  discard
+when not defined(GL_ES_VERSION_2_0):
+  discard
+when not defined(GL_ES_VERSION_2_0):
+  discard
+when not defined(GL_ES_VERSION_2_0):
+  discard
+when not defined(GL_ES_VERSION_2_0):
+  discard
+when not defined(GL_ES_VERSION_2_0):
+  discard
 ## using statement
 
 ## using statement
@@ -70,11 +73,9 @@ type
 ## ! OpenGL 1.5 core based on 1.4 version.
 
 type
-  OpenGlGlCore15* = OpenGlTmplCore15[OpenGlGlCore14]
+  OpenGl_GlCore15* = OpenGl_TmplCore15[OpenGl_GlCore14]
 
 ## ! OpenGL 1.5 without deprecated entry points.
 
 type
-  OpenGlGlCore15Fwd* = OpenGlTmplCore15[OpenGlGlCore14Fwd]
-
-
+  OpenGl_GlCore15Fwd* = OpenGl_TmplCore15[OpenGl_GlCore14Fwd]

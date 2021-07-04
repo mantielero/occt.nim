@@ -14,37 +14,40 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Integer,
+  ../IGESData/IGESData_NameEntity
+
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of IGESBasic_Name"
 discard "forward decl of IGESBasic_Name"
 type
-  HandleIGESBasicName* = Handle[IGESBasicName]
+  Handle_IGESBasic_Name* = handle[IGESBasic_Name]
 
 ## ! defines Name, Type <406> Form <15>
 ## ! in package IGESBasic
 ## ! Used to specify a user defined name
 
 type
-  IGESBasicName* {.importcpp: "IGESBasic_Name", header: "IGESBasic_Name.hxx", bycopy.} = object of IGESDataNameEntity
+  IGESBasic_Name* {.importcpp: "IGESBasic_Name", header: "IGESBasic_Name.hxx", bycopy.} = object of IGESData_NameEntity
 
 
-proc constructIGESBasicName*(): IGESBasicName {.constructor,
+proc constructIGESBasic_Name*(): IGESBasic_Name {.constructor,
     importcpp: "IGESBasic_Name(@)", header: "IGESBasic_Name.hxx".}
-proc init*(this: var IGESBasicName; nbPropVal: StandardInteger;
-          aName: Handle[TCollectionHAsciiString]) {.importcpp: "Init",
+proc Init*(this: var IGESBasic_Name; nbPropVal: Standard_Integer;
+          aName: handle[TCollection_HAsciiString]) {.importcpp: "Init",
     header: "IGESBasic_Name.hxx".}
-proc nbPropertyValues*(this: IGESBasicName): StandardInteger {.noSideEffect,
+proc NbPropertyValues*(this: IGESBasic_Name): Standard_Integer {.noSideEffect,
     importcpp: "NbPropertyValues", header: "IGESBasic_Name.hxx".}
-proc value*(this: IGESBasicName): Handle[TCollectionHAsciiString] {.noSideEffect,
+proc Value*(this: IGESBasic_Name): handle[TCollection_HAsciiString] {.noSideEffect,
     importcpp: "Value", header: "IGESBasic_Name.hxx".}
 type
-  IGESBasicNamebaseType* = IGESDataNameEntity
+  IGESBasic_Namebase_type* = IGESData_NameEntity
 
-proc getTypeName*(): cstring {.importcpp: "IGESBasic_Name::get_type_name(@)",
-                            header: "IGESBasic_Name.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "IGESBasic_Name::get_type_name(@)",
+                              header: "IGESBasic_Name.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "IGESBasic_Name::get_type_descriptor(@)",
     header: "IGESBasic_Name.hxx".}
-proc dynamicType*(this: IGESBasicName): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: IGESBasic_Name): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "IGESBasic_Name.hxx".}
-

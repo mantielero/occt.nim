@@ -12,19 +12,20 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  Standard_Integer
+
 ## ! Returns a hash code of the given memory pointer
 ## ! @param thePointer the memory pointer which hash code it to be computed
 ## ! @param theUpperBound the upper bound of the range a resulting hash code must be within
 ## ! @return a value of a computed hash code, in range [1, UpperBound]
 
-proc hashCode*(thePointer: pointer; theUpperBound: StandardInteger): StandardInteger =
+proc HashCode*(thePointer: pointer; theUpperBound: Standard_Integer): Standard_Integer =
   discard
 
 ## ============================================================================
 ##  IsEqual : Returns Standard_True if two CString have the same value
 ## ============================================================================
 
-proc isEqual*(one: StandardAddress; two: StandardAddress): StandardBoolean =
+proc IsEqual*(One: Standard_Address; Two: Standard_Address): Standard_Boolean =
   discard
-
-

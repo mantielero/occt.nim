@@ -11,120 +11,124 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../NCollection/NCollection_Array1, ../Standard/Standard_Transient,
+  BRepMesh_VertexInspector, ../Standard/Standard_OStream, ../gp/gp_XY,
+  ../IMeshData/IMeshData_Types
+
 discard "forward decl of BRepMesh_Vertex"
 type
-  BRepMeshVertexTool* {.importcpp: "BRepMesh_VertexTool",
-                       header: "BRepMesh_VertexTool.hxx", bycopy.} = object of StandardTransient ##
-                                                                                          ## !
-                                                                                          ## Constructor.
-                                                                                          ##
-                                                                                          ## !
-                                                                                          ## @param
-                                                                                          ## theAllocator
-                                                                                          ## memory
-                                                                                          ## allocator
-                                                                                          ## to
-                                                                                          ## be
-                                                                                          ## used
-                                                                                          ## by
-                                                                                          ## internal
-                                                                                          ## collections.
-                                                                                          ##
-                                                                                          ## !
-                                                                                          ## Expands
-                                                                                          ## the
-                                                                                          ## given
-                                                                                          ## point
-                                                                                          ## according
-                                                                                          ## to
-                                                                                          ## specified
-                                                                                          ## tolerance.
-                                                                                          ##
-                                                                                          ## !
-                                                                                          ## @param
-                                                                                          ## thePoint
-                                                                                          ## point
-                                                                                          ## to
-                                                                                          ## be
-                                                                                          ## expanded.
-                                                                                          ##
-                                                                                          ## !
-                                                                                          ## @param[out]
-                                                                                          ## theMinPoint
-                                                                                          ## bottom
-                                                                                          ## left
-                                                                                          ## corner
-                                                                                          ## of
-                                                                                          ## area
-                                                                                          ## defined
-                                                                                          ## by
-                                                                                          ## expanded
-                                                                                          ## point.
-                                                                                          ##
-                                                                                          ## !
-                                                                                          ## @param[out]
-                                                                                          ## theMaxPoint
-                                                                                          ## top
-                                                                                          ## right
-                                                                                          ## corner
-                                                                                          ## of
-                                                                                          ## area
-                                                                                          ## defined
-                                                                                          ## by
-                                                                                          ## expanded
-                                                                                          ## point.
+  BRepMesh_VertexTool* {.importcpp: "BRepMesh_VertexTool",
+                        header: "BRepMesh_VertexTool.hxx", bycopy.} = object of Standard_Transient ##
+                                                                                            ## !
+                                                                                            ## Constructor.
+                                                                                            ##
+                                                                                            ## !
+                                                                                            ## @param
+                                                                                            ## theAllocator
+                                                                                            ## memory
+                                                                                            ## allocator
+                                                                                            ## to
+                                                                                            ## be
+                                                                                            ## used
+                                                                                            ## by
+                                                                                            ## internal
+                                                                                            ## collections.
+                                                                                            ##
+                                                                                            ## !
+                                                                                            ## Expands
+                                                                                            ## the
+                                                                                            ## given
+                                                                                            ## point
+                                                                                            ## according
+                                                                                            ## to
+                                                                                            ## specified
+                                                                                            ## tolerance.
+                                                                                            ##
+                                                                                            ## !
+                                                                                            ## @param
+                                                                                            ## thePoint
+                                                                                            ## point
+                                                                                            ## to
+                                                                                            ## be
+                                                                                            ## expanded.
+                                                                                            ##
+                                                                                            ## !
+                                                                                            ## @param[out]
+                                                                                            ## theMinPoint
+                                                                                            ## bottom
+                                                                                            ## left
+                                                                                            ## corner
+                                                                                            ## of
+                                                                                            ## area
+                                                                                            ## defined
+                                                                                            ## by
+                                                                                            ## expanded
+                                                                                            ## point.
+                                                                                            ##
+                                                                                            ## !
+                                                                                            ## @param[out]
+                                                                                            ## theMaxPoint
+                                                                                            ## top
+                                                                                            ## right
+                                                                                            ## corner
+                                                                                            ## of
+                                                                                            ## area
+                                                                                            ## defined
+                                                                                            ## by
+                                                                                            ## expanded
+                                                                                            ## point.
 
 
-proc constructBRepMeshVertexTool*(theAllocator: Handle[NCollectionIncAllocator]): BRepMeshVertexTool {.
+proc constructBRepMesh_VertexTool*(theAllocator: handle[NCollection_IncAllocator]): BRepMesh_VertexTool {.
     constructor, importcpp: "BRepMesh_VertexTool(@)",
     header: "BRepMesh_VertexTool.hxx".}
-proc setCellSize*(this: var BRepMeshVertexTool; theSize: StandardReal) {.
+proc SetCellSize*(this: var BRepMesh_VertexTool; theSize: Standard_Real) {.
     importcpp: "SetCellSize", header: "BRepMesh_VertexTool.hxx".}
-proc setCellSize*(this: var BRepMeshVertexTool; theSizeX: StandardReal;
-                 theSizeY: StandardReal) {.importcpp: "SetCellSize",
+proc SetCellSize*(this: var BRepMesh_VertexTool; theSizeX: Standard_Real;
+                 theSizeY: Standard_Real) {.importcpp: "SetCellSize",
     header: "BRepMesh_VertexTool.hxx".}
-proc setTolerance*(this: var BRepMeshVertexTool; theTolerance: StandardReal) {.
+proc SetTolerance*(this: var BRepMesh_VertexTool; theTolerance: Standard_Real) {.
     importcpp: "SetTolerance", header: "BRepMesh_VertexTool.hxx".}
-proc setTolerance*(this: var BRepMeshVertexTool; theToleranceX: StandardReal;
-                  theToleranceY: StandardReal) {.importcpp: "SetTolerance",
+proc SetTolerance*(this: var BRepMesh_VertexTool; theToleranceX: Standard_Real;
+                  theToleranceY: Standard_Real) {.importcpp: "SetTolerance",
     header: "BRepMesh_VertexTool.hxx".}
-proc getTolerance*(this: var BRepMeshVertexTool; theToleranceX: var StandardReal;
-                  theToleranceY: var StandardReal) {.importcpp: "GetTolerance",
+proc GetTolerance*(this: var BRepMesh_VertexTool; theToleranceX: var Standard_Real;
+                  theToleranceY: var Standard_Real) {.importcpp: "GetTolerance",
     header: "BRepMesh_VertexTool.hxx".}
-proc add*(this: var BRepMeshVertexTool; theVertex: BRepMeshVertex;
-         isForceAdd: StandardBoolean): StandardInteger {.importcpp: "Add",
+proc Add*(this: var BRepMesh_VertexTool; theVertex: BRepMesh_Vertex;
+         isForceAdd: Standard_Boolean): Standard_Integer {.importcpp: "Add",
     header: "BRepMesh_VertexTool.hxx".}
-proc deleteVertex*(this: var BRepMeshVertexTool; theIndex: StandardInteger) {.
+proc DeleteVertex*(this: var BRepMesh_VertexTool; theIndex: Standard_Integer) {.
     importcpp: "DeleteVertex", header: "BRepMesh_VertexTool.hxx".}
-proc vertices*(this: BRepMeshVertexTool): Handle[VectorOfVertex] {.noSideEffect,
+proc Vertices*(this: BRepMesh_VertexTool): handle[VectorOfVertex] {.noSideEffect,
     importcpp: "Vertices", header: "BRepMesh_VertexTool.hxx".}
-proc changeVertices*(this: var BRepMeshVertexTool): var Handle[VectorOfVertex] {.
+proc ChangeVertices*(this: var BRepMesh_VertexTool): var handle[VectorOfVertex] {.
     importcpp: "ChangeVertices", header: "BRepMesh_VertexTool.hxx".}
-proc findKey*(this: var BRepMeshVertexTool; theIndex: StandardInteger): BRepMeshVertex {.
+proc FindKey*(this: var BRepMesh_VertexTool; theIndex: Standard_Integer): BRepMesh_Vertex {.
     importcpp: "FindKey", header: "BRepMesh_VertexTool.hxx".}
-proc findIndex*(this: var BRepMeshVertexTool; theVertex: BRepMeshVertex): StandardInteger {.
+proc FindIndex*(this: var BRepMesh_VertexTool; theVertex: BRepMesh_Vertex): Standard_Integer {.
     importcpp: "FindIndex", header: "BRepMesh_VertexTool.hxx".}
-proc extent*(this: BRepMeshVertexTool): StandardInteger {.noSideEffect,
+proc Extent*(this: BRepMesh_VertexTool): Standard_Integer {.noSideEffect,
     importcpp: "Extent", header: "BRepMesh_VertexTool.hxx".}
-proc isEmpty*(this: BRepMeshVertexTool): StandardBoolean {.noSideEffect,
+proc IsEmpty*(this: BRepMesh_VertexTool): Standard_Boolean {.noSideEffect,
     importcpp: "IsEmpty", header: "BRepMesh_VertexTool.hxx".}
-proc substitute*(this: var BRepMeshVertexTool; theIndex: StandardInteger;
-                theVertex: BRepMeshVertex) {.importcpp: "Substitute",
+proc Substitute*(this: var BRepMesh_VertexTool; theIndex: Standard_Integer;
+                theVertex: BRepMesh_Vertex) {.importcpp: "Substitute",
     header: "BRepMesh_VertexTool.hxx".}
-proc removeLast*(this: var BRepMeshVertexTool) {.importcpp: "RemoveLast",
+proc RemoveLast*(this: var BRepMesh_VertexTool) {.importcpp: "RemoveLast",
     header: "BRepMesh_VertexTool.hxx".}
-proc getListOfDelNodes*(this: BRepMeshVertexTool): ListOfInteger {.noSideEffect,
+proc GetListOfDelNodes*(this: BRepMesh_VertexTool): ListOfInteger {.noSideEffect,
     importcpp: "GetListOfDelNodes", header: "BRepMesh_VertexTool.hxx".}
-proc statistics*(this: BRepMeshVertexTool; theStream: var StandardOStream) {.
+proc Statistics*(this: BRepMesh_VertexTool; theStream: var Standard_OStream) {.
     noSideEffect, importcpp: "Statistics", header: "BRepMesh_VertexTool.hxx".}
 type
-  BRepMeshVertexToolbaseType* = StandardTransient
+  BRepMesh_VertexToolbase_type* = Standard_Transient
 
-proc getTypeName*(): cstring {.importcpp: "BRepMesh_VertexTool::get_type_name(@)",
-                            header: "BRepMesh_VertexTool.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "BRepMesh_VertexTool::get_type_name(@)",
+                              header: "BRepMesh_VertexTool.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "BRepMesh_VertexTool::get_type_descriptor(@)",
     header: "BRepMesh_VertexTool.hxx".}
-proc dynamicType*(this: BRepMeshVertexTool): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: BRepMesh_VertexTool): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "BRepMesh_VertexTool.hxx".}
-

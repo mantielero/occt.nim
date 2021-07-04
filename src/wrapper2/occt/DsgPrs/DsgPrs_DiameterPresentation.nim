@@ -14,98 +14,105 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Prs3d/Prs3d_Drawer, DsgPrs_ArrowSide,
+  ../Prs3d/Prs3d_Presentation
+
 discard "forward decl of TCollection_ExtendedString"
 discard "forward decl of gp_Pnt"
 discard "forward decl of gp_Circ"
 type
-  DsgPrsDiameterPresentation* {.importcpp: "DsgPrs_DiameterPresentation",
-                               header: "DsgPrs_DiameterPresentation.hxx", bycopy.} = object ##
-                                                                                       ## !
-                                                                                       ## Draws
-                                                                                       ## the
-                                                                                       ## diameter
-                                                                                       ## of
-                                                                                       ## the
-                                                                                       ## circle
-                                                                                       ## aCircle
-                                                                                       ## displayed
-                                                                                       ## in
-                                                                                       ##
-                                                                                       ## !
-                                                                                       ## the
-                                                                                       ## presentation
-                                                                                       ## aPresentation
-                                                                                       ## and
-                                                                                       ## with
-                                                                                       ## attributes
-                                                                                       ##
-                                                                                       ## !
-                                                                                       ## defined
-                                                                                       ## by
-                                                                                       ## the
-                                                                                       ## attribute
-                                                                                       ## manager
-                                                                                       ## aDrawer.
-                                                                                       ## The
-                                                                                       ## point
-                                                                                       ##
-                                                                                       ## !
-                                                                                       ## AttachmentPoint
-                                                                                       ## defines
-                                                                                       ## the
-                                                                                       ## point
-                                                                                       ## of
-                                                                                       ## contact
-                                                                                       ##
-                                                                                       ## !
-                                                                                       ## between
-                                                                                       ## the
-                                                                                       ## circle
-                                                                                       ## and
-                                                                                       ## the
-                                                                                       ## diameter
-                                                                                       ## presentation.
-                                                                                       ##
-                                                                                       ## !
-                                                                                       ## The
-                                                                                       ## value
-                                                                                       ## of
-                                                                                       ## the
-                                                                                       ## enumeration
-                                                                                       ## ArrowSide
-                                                                                       ## controls
-                                                                                       ##
-                                                                                       ## !
-                                                                                       ## whether
-                                                                                       ## arrows
-                                                                                       ## will
-                                                                                       ## be
-                                                                                       ## displayed
-                                                                                       ## at
-                                                                                       ## either
-                                                                                       ## or
-                                                                                       ## both
-                                                                                       ##
-                                                                                       ## !
-                                                                                       ## ends
-                                                                                       ## of
-                                                                                       ## the
-                                                                                       ## length.
-                                                                                       ## The
-                                                                                       ## text
-                                                                                       ## aText
-                                                                                       ## labels
-                                                                                       ## the
-                                                                                       ## diameter.
+  DsgPrs_DiameterPresentation* {.importcpp: "DsgPrs_DiameterPresentation",
+                                header: "DsgPrs_DiameterPresentation.hxx", bycopy.} = object ##
+                                                                                        ## !
+                                                                                        ## Draws
+                                                                                        ## the
+                                                                                        ## diameter
+                                                                                        ## of
+                                                                                        ## the
+                                                                                        ## circle
+                                                                                        ## aCircle
+                                                                                        ## displayed
+                                                                                        ## in
+                                                                                        ##
+                                                                                        ## !
+                                                                                        ## the
+                                                                                        ## presentation
+                                                                                        ## aPresentation
+                                                                                        ## and
+                                                                                        ## with
+                                                                                        ## attributes
+                                                                                        ##
+                                                                                        ## !
+                                                                                        ## defined
+                                                                                        ## by
+                                                                                        ## the
+                                                                                        ## attribute
+                                                                                        ## manager
+                                                                                        ## aDrawer.
+                                                                                        ## The
+                                                                                        ## point
+                                                                                        ##
+                                                                                        ## !
+                                                                                        ## AttachmentPoint
+                                                                                        ## defines
+                                                                                        ## the
+                                                                                        ## point
+                                                                                        ## of
+                                                                                        ## contact
+                                                                                        ##
+                                                                                        ## !
+                                                                                        ## between
+                                                                                        ## the
+                                                                                        ## circle
+                                                                                        ## and
+                                                                                        ## the
+                                                                                        ## diameter
+                                                                                        ## presentation.
+                                                                                        ##
+                                                                                        ## !
+                                                                                        ## The
+                                                                                        ## value
+                                                                                        ## of
+                                                                                        ## the
+                                                                                        ## enumeration
+                                                                                        ## ArrowSide
+                                                                                        ## controls
+                                                                                        ##
+                                                                                        ## !
+                                                                                        ## whether
+                                                                                        ## arrows
+                                                                                        ## will
+                                                                                        ## be
+                                                                                        ## displayed
+                                                                                        ## at
+                                                                                        ## either
+                                                                                        ## or
+                                                                                        ## both
+                                                                                        ##
+                                                                                        ## !
+                                                                                        ## ends
+                                                                                        ## of
+                                                                                        ## the
+                                                                                        ## length.
+                                                                                        ## The
+                                                                                        ## text
+                                                                                        ## aText
+                                                                                        ## labels
+                                                                                        ## the
+                                                                                        ## diameter.
 
 
-proc add*(aPresentation: Handle[Prs3dPresentation]; aDrawer: Handle[Prs3dDrawer];
-         aText: TCollectionExtendedString; attachmentPoint: GpPnt; aCircle: GpCirc;
-         arrowSide: DsgPrsArrowSide; isDiamSymbol: StandardBoolean) {.
+proc Add*(aPresentation: handle[Prs3d_Presentation]; aDrawer: handle[Prs3d_Drawer];
+         aText: TCollection_ExtendedString; AttachmentPoint: gp_Pnt;
+         aCircle: gp_Circ; ArrowSide: DsgPrs_ArrowSide;
+         IsDiamSymbol: Standard_Boolean) {.
     importcpp: "DsgPrs_DiameterPresentation::Add(@)",
     header: "DsgPrs_DiameterPresentation.hxx".}
-proc add*(aPresentation: Handle[Prs3dPresentation]; aDrawer: Handle[Prs3dDrawer];
-         aText: TCollectionExtendedString; attachmentPoint: GpPnt; aCircle: GpCirc;
-         uFirst: StandardReal; uLast: StandardReal; arrowSide: DsgPrsArrowSide;
-         isDiamSymbol: StandardBoolean) {.importcpp: "DsgPrs_DiameterPresentation::Add(@)", header: "DsgPrs_DiameterPresentation.hxx".}
-
+proc Add*(aPresentation: handle[Prs3d_Presentation]; aDrawer: handle[Prs3d_Drawer];
+         aText: TCollection_ExtendedString; AttachmentPoint: gp_Pnt;
+         aCircle: gp_Circ; uFirst: Standard_Real; uLast: Standard_Real;
+         ArrowSide: DsgPrs_ArrowSide; IsDiamSymbol: Standard_Boolean) {.
+    importcpp: "DsgPrs_DiameterPresentation::Add(@)",
+    header: "DsgPrs_DiameterPresentation.hxx".}

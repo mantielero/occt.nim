@@ -14,22 +14,25 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepGeom_Point"
 discard "forward decl of StepData_StepWriter"
 type
-  RWStepGeomRWPoint* {.importcpp: "RWStepGeom_RWPoint",
-                      header: "RWStepGeom_RWPoint.hxx", bycopy.} = object
+  RWStepGeom_RWPoint* {.importcpp: "RWStepGeom_RWPoint",
+                       header: "RWStepGeom_RWPoint.hxx", bycopy.} = object
 
 
-proc constructRWStepGeomRWPoint*(): RWStepGeomRWPoint {.constructor,
+proc constructRWStepGeom_RWPoint*(): RWStepGeom_RWPoint {.constructor,
     importcpp: "RWStepGeom_RWPoint(@)", header: "RWStepGeom_RWPoint.hxx".}
-proc readStep*(this: RWStepGeomRWPoint; data: Handle[StepDataStepReaderData];
-              num: StandardInteger; ach: var Handle[InterfaceCheck];
-              ent: Handle[StepGeomPoint]) {.noSideEffect, importcpp: "ReadStep",
+proc ReadStep*(this: RWStepGeom_RWPoint; data: handle[StepData_StepReaderData];
+              num: Standard_Integer; ach: var handle[Interface_Check];
+              ent: handle[StepGeom_Point]) {.noSideEffect, importcpp: "ReadStep",
     header: "RWStepGeom_RWPoint.hxx".}
-proc writeStep*(this: RWStepGeomRWPoint; sw: var StepDataStepWriter;
-               ent: Handle[StepGeomPoint]) {.noSideEffect, importcpp: "WriteStep",
+proc WriteStep*(this: RWStepGeom_RWPoint; SW: var StepData_StepWriter;
+               ent: handle[StepGeom_Point]) {.noSideEffect, importcpp: "WriteStep",
     header: "RWStepGeom_RWPoint.hxx".}
-

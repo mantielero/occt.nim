@@ -14,6 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Draw/Draw_Interpretor
+
 ## ! Contains commands to activate package ShapeProcessAPI
 
 type
@@ -25,7 +29,6 @@ type
                                                                               ## ShapeProcessAPI
 
 
-proc initCommands*(theCommands: var DrawInterpretor) {.
+proc InitCommands*(theCommands: var Draw_Interpretor) {.
     importcpp: "SWDRAW_ShapeProcessAPI::InitCommands(@)",
     header: "SWDRAW_ShapeProcessAPI.hxx".}
-

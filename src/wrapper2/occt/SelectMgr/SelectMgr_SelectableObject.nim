@@ -14,133 +14,135 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../PrsMgr/PrsMgr_PresentableObject, SelectMgr_IndexedMapOfOwner,
+  SelectMgr_SequenceOfSelection, SelectMgr_Selection, SelectMgr_SequenceOfOwner
+
 discard "forward decl of SelectMgr_EntityOwner"
 discard "forward decl of Standard_NotImplemented"
 discard "forward decl of SelectMgr_SelectionManager"
 type
-  SelectMgrSelectableObject* {.importcpp: "SelectMgr_SelectableObject",
-                              header: "SelectMgr_SelectableObject.hxx", bycopy.} = object of PrsMgrPresentableObject ##
-                                                                                                              ## !
-                                                                                                              ## Clears
-                                                                                                              ## all
-                                                                                                              ## selections
-                                                                                                              ## of
-                                                                                                              ## the
-                                                                                                              ## object
-                                                                                                              ##
-                                                                                                              ## !
-                                                                                                              ## Protected
-                                                                                                              ## empty
-                                                                                                              ## constructor.
+  SelectMgr_SelectableObject* {.importcpp: "SelectMgr_SelectableObject",
+                               header: "SelectMgr_SelectableObject.hxx", bycopy.} = object of PrsMgr_PresentableObject ##
+                                                                                                                ## !
+                                                                                                                ## Clears
+                                                                                                                ## all
+                                                                                                                ## selections
+                                                                                                                ## of
+                                                                                                                ## the
+                                                                                                                ## object
+                                                                                                                ##
+                                                                                                                ## !
+                                                                                                                ## Protected
+                                                                                                                ## empty
+                                                                                                                ## constructor.
     ## !< list of selections
     ## !< optional presentation for highlighting selected object
     ## !< optional presentation for highlighting detected object
     ## !< global selection mode
     ## !< auto-highlighting flag defining
 
-  SelectMgrSelectableObjectbaseType* = PrsMgrPresentableObject
+  SelectMgr_SelectableObjectbase_type* = PrsMgr_PresentableObject
 
-proc getTypeName*(): cstring {.importcpp: "SelectMgr_SelectableObject::get_type_name(@)",
-                            header: "SelectMgr_SelectableObject.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "SelectMgr_SelectableObject::get_type_name(@)",
+                              header: "SelectMgr_SelectableObject.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "SelectMgr_SelectableObject::get_type_descriptor(@)",
     header: "SelectMgr_SelectableObject.hxx".}
-proc dynamicType*(this: SelectMgrSelectableObject): Handle[StandardType] {.
+proc DynamicType*(this: SelectMgr_SelectableObject): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType",
     header: "SelectMgr_SelectableObject.hxx".}
-proc destroySelectMgrSelectableObject*(this: var SelectMgrSelectableObject) {.
+proc destroySelectMgr_SelectableObject*(this: var SelectMgr_SelectableObject) {.
     importcpp: "#.~SelectMgr_SelectableObject()",
     header: "SelectMgr_SelectableObject.hxx".}
-proc computeSelection*(this: var SelectMgrSelectableObject;
-                      theSelection: Handle[SelectMgrSelection];
-                      theMode: StandardInteger) {.importcpp: "ComputeSelection",
+proc ComputeSelection*(this: var SelectMgr_SelectableObject;
+                      theSelection: handle[SelectMgr_Selection];
+                      theMode: Standard_Integer) {.importcpp: "ComputeSelection",
     header: "SelectMgr_SelectableObject.hxx".}
-proc acceptShapeDecomposition*(this: SelectMgrSelectableObject): StandardBoolean {.
+proc AcceptShapeDecomposition*(this: SelectMgr_SelectableObject): Standard_Boolean {.
     noSideEffect, importcpp: "AcceptShapeDecomposition",
     header: "SelectMgr_SelectableObject.hxx".}
-proc recomputePrimitives*(this: var SelectMgrSelectableObject) {.
+proc RecomputePrimitives*(this: var SelectMgr_SelectableObject) {.
     importcpp: "RecomputePrimitives", header: "SelectMgr_SelectableObject.hxx".}
-proc recomputePrimitives*(this: var SelectMgrSelectableObject;
-                         theMode: StandardInteger) {.
+proc RecomputePrimitives*(this: var SelectMgr_SelectableObject;
+                         theMode: Standard_Integer) {.
     importcpp: "RecomputePrimitives", header: "SelectMgr_SelectableObject.hxx".}
-proc addSelection*(this: var SelectMgrSelectableObject;
-                  aSelection: Handle[SelectMgrSelection]; aMode: StandardInteger) {.
+proc AddSelection*(this: var SelectMgr_SelectableObject;
+                  aSelection: handle[SelectMgr_Selection]; aMode: Standard_Integer) {.
     importcpp: "AddSelection", header: "SelectMgr_SelectableObject.hxx".}
-proc clearSelections*(this: var SelectMgrSelectableObject;
-                     update: StandardBoolean = standardFalse) {.
+proc ClearSelections*(this: var SelectMgr_SelectableObject;
+                     update: Standard_Boolean = Standard_False) {.
     importcpp: "ClearSelections", header: "SelectMgr_SelectableObject.hxx".}
-proc selection*(this: SelectMgrSelectableObject; theMode: StandardInteger): Handle[
-    SelectMgrSelection] {.noSideEffect, importcpp: "Selection",
-                         header: "SelectMgr_SelectableObject.hxx".}
-proc hasSelection*(this: SelectMgrSelectableObject; theMode: StandardInteger): StandardBoolean {.
+proc Selection*(this: SelectMgr_SelectableObject; theMode: Standard_Integer): handle[
+    SelectMgr_Selection] {.noSideEffect, importcpp: "Selection",
+                          header: "SelectMgr_SelectableObject.hxx".}
+proc HasSelection*(this: SelectMgr_SelectableObject; theMode: Standard_Integer): Standard_Boolean {.
     noSideEffect, importcpp: "HasSelection",
     header: "SelectMgr_SelectableObject.hxx".}
-proc selections*(this: SelectMgrSelectableObject): SelectMgrSequenceOfSelection {.
+proc Selections*(this: SelectMgr_SelectableObject): SelectMgr_SequenceOfSelection {.
     noSideEffect, importcpp: "Selections", header: "SelectMgr_SelectableObject.hxx".}
-proc resetTransformation*(this: var SelectMgrSelectableObject) {.
+proc ResetTransformation*(this: var SelectMgr_SelectableObject) {.
     importcpp: "ResetTransformation", header: "SelectMgr_SelectableObject.hxx".}
-proc updateTransformation*(this: var SelectMgrSelectableObject) {.
+proc UpdateTransformation*(this: var SelectMgr_SelectableObject) {.
     importcpp: "UpdateTransformation", header: "SelectMgr_SelectableObject.hxx".}
-proc updateTransformations*(this: var SelectMgrSelectableObject;
-                           aSelection: Handle[SelectMgrSelection]) {.
+proc UpdateTransformations*(this: var SelectMgr_SelectableObject;
+                           aSelection: handle[SelectMgr_Selection]) {.
     importcpp: "UpdateTransformations", header: "SelectMgr_SelectableObject.hxx".}
-proc hilightSelected*(this: var SelectMgrSelectableObject;
-                     thePrsMgr: Handle[PrsMgrPresentationManager];
-                     theSeq: SelectMgrSequenceOfOwner) {.
+proc HilightSelected*(this: var SelectMgr_SelectableObject;
+                     thePrsMgr: handle[PrsMgr_PresentationManager];
+                     theSeq: SelectMgr_SequenceOfOwner) {.
     importcpp: "HilightSelected", header: "SelectMgr_SelectableObject.hxx".}
-proc clearSelected*(this: var SelectMgrSelectableObject) {.
+proc ClearSelected*(this: var SelectMgr_SelectableObject) {.
     importcpp: "ClearSelected", header: "SelectMgr_SelectableObject.hxx".}
-proc clearDynamicHighlight*(this: var SelectMgrSelectableObject;
-                           theMgr: Handle[PrsMgrPresentationManager]) {.
+proc ClearDynamicHighlight*(this: var SelectMgr_SelectableObject;
+                           theMgr: handle[PrsMgr_PresentationManager]) {.
     importcpp: "ClearDynamicHighlight", header: "SelectMgr_SelectableObject.hxx".}
-proc hilightOwnerWithColor*(this: var SelectMgrSelectableObject;
-                           thePM: Handle[PrsMgrPresentationManager];
-                           theStyle: Handle[Prs3dDrawer];
-                           theOwner: Handle[SelectMgrEntityOwner]) {.
+proc HilightOwnerWithColor*(this: var SelectMgr_SelectableObject;
+                           thePM: handle[PrsMgr_PresentationManager];
+                           theStyle: handle[Prs3d_Drawer];
+                           theOwner: handle[SelectMgr_EntityOwner]) {.
     importcpp: "HilightOwnerWithColor", header: "SelectMgr_SelectableObject.hxx".}
-proc isAutoHilight*(this: SelectMgrSelectableObject): StandardBoolean {.
+proc IsAutoHilight*(this: SelectMgr_SelectableObject): Standard_Boolean {.
     noSideEffect, importcpp: "IsAutoHilight",
     header: "SelectMgr_SelectableObject.hxx".}
-proc setAutoHilight*(this: var SelectMgrSelectableObject;
-                    theAutoHilight: StandardBoolean) {.
+proc SetAutoHilight*(this: var SelectMgr_SelectableObject;
+                    theAutoHilight: Standard_Boolean) {.
     importcpp: "SetAutoHilight", header: "SelectMgr_SelectableObject.hxx".}
-proc getHilightPresentation*(this: var SelectMgrSelectableObject;
-                            thePrsMgr: Handle[PrsMgrPresentationManager]): Handle[
-    Prs3dPresentation] {.importcpp: "GetHilightPresentation",
-                        header: "SelectMgr_SelectableObject.hxx".}
-proc getSelectPresentation*(this: var SelectMgrSelectableObject;
-                           thePrsMgr: Handle[PrsMgrPresentationManager]): Handle[
-    Prs3dPresentation] {.importcpp: "GetSelectPresentation",
-                        header: "SelectMgr_SelectableObject.hxx".}
-proc erasePresentations*(this: var SelectMgrSelectableObject;
-                        theToRemove: StandardBoolean) {.
+proc GetHilightPresentation*(this: var SelectMgr_SelectableObject;
+                            thePrsMgr: handle[PrsMgr_PresentationManager]): handle[
+    Prs3d_Presentation] {.importcpp: "GetHilightPresentation",
+                         header: "SelectMgr_SelectableObject.hxx".}
+proc GetSelectPresentation*(this: var SelectMgr_SelectableObject;
+                           thePrsMgr: handle[PrsMgr_PresentationManager]): handle[
+    Prs3d_Presentation] {.importcpp: "GetSelectPresentation",
+                         header: "SelectMgr_SelectableObject.hxx".}
+proc ErasePresentations*(this: var SelectMgr_SelectableObject;
+                        theToRemove: Standard_Boolean) {.
     importcpp: "ErasePresentations", header: "SelectMgr_SelectableObject.hxx".}
-proc setZLayer*(this: var SelectMgrSelectableObject; theLayerId: Graphic3dZLayerId) {.
+proc SetZLayer*(this: var SelectMgr_SelectableObject; theLayerId: Graphic3d_ZLayerId) {.
     importcpp: "SetZLayer", header: "SelectMgr_SelectableObject.hxx".}
-proc updateSelection*(this: var SelectMgrSelectableObject;
-                     theMode: StandardInteger = -1) {.importcpp: "UpdateSelection",
+proc UpdateSelection*(this: var SelectMgr_SelectableObject;
+                     theMode: Standard_Integer = -1) {.importcpp: "UpdateSelection",
     header: "SelectMgr_SelectableObject.hxx".}
-proc setAssemblyOwner*(this: var SelectMgrSelectableObject;
-                      theOwner: Handle[SelectMgrEntityOwner];
-                      theMode: StandardInteger = -1) {.
+proc SetAssemblyOwner*(this: var SelectMgr_SelectableObject;
+                      theOwner: handle[SelectMgr_EntityOwner];
+                      theMode: Standard_Integer = -1) {.
     importcpp: "SetAssemblyOwner", header: "SelectMgr_SelectableObject.hxx".}
-proc bndBoxOfSelected*(this: var SelectMgrSelectableObject;
-                      theOwners: Handle[SelectMgrIndexedMapOfOwner]): BndBox {.
+proc BndBoxOfSelected*(this: var SelectMgr_SelectableObject;
+                      theOwners: handle[SelectMgr_IndexedMapOfOwner]): Bnd_Box {.
     importcpp: "BndBoxOfSelected", header: "SelectMgr_SelectableObject.hxx".}
-proc globalSelectionMode*(this: SelectMgrSelectableObject): StandardInteger {.
+proc GlobalSelectionMode*(this: SelectMgr_SelectableObject): Standard_Integer {.
     noSideEffect, importcpp: "GlobalSelectionMode",
     header: "SelectMgr_SelectableObject.hxx".}
-proc globalSelOwner*(this: SelectMgrSelectableObject): Handle[SelectMgrEntityOwner] {.
-    noSideEffect, importcpp: "GlobalSelOwner",
-    header: "SelectMgr_SelectableObject.hxx".}
-proc getAssemblyOwner*(this: SelectMgrSelectableObject): Handle[
-    SelectMgrEntityOwner] {.noSideEffect, importcpp: "GetAssemblyOwner",
-                           header: "SelectMgr_SelectableObject.hxx".}
-proc dumpJson*(this: SelectMgrSelectableObject; theOStream: var StandardOStream;
-              theDepth: StandardInteger = -1) {.noSideEffect, importcpp: "DumpJson",
+proc GlobalSelOwner*(this: SelectMgr_SelectableObject): handle[
+    SelectMgr_EntityOwner] {.noSideEffect, importcpp: "GlobalSelOwner",
+                            header: "SelectMgr_SelectableObject.hxx".}
+proc GetAssemblyOwner*(this: SelectMgr_SelectableObject): handle[
+    SelectMgr_EntityOwner] {.noSideEffect, importcpp: "GetAssemblyOwner",
+                            header: "SelectMgr_SelectableObject.hxx".}
+proc DumpJson*(this: SelectMgr_SelectableObject; theOStream: var Standard_OStream;
+              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
     header: "SelectMgr_SelectableObject.hxx".}
 discard "forward decl of SelectMgr_SelectableObject"
 type
-  HandleSelectMgrSelectableObject* = Handle[SelectMgrSelectableObject]
-
-
+  Handle_SelectMgr_SelectableObject* = handle[SelectMgr_SelectableObject]

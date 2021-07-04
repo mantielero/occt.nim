@@ -14,7 +14,5 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # GeomFill_HSequenceOfAx2_HeaderFile [NewLine] # GeomFill_HSequenceOfAx2_HeaderFile [NewLine] # < gp_Ax2 . hxx > [NewLine] # < GeomFill_SequenceOfAx2 . hxx > [NewLine] # < NCollection_DefineHSequence . hxx > [NewLine] DEFINE_HSEQUENCE ( GeomFill_HSequenceOfAx2 , GeomFill_SequenceOfAx2 ) # [NewLine]
+## !!!Ignored construct:  # GeomFill_HSequenceOfAx2_HeaderFile [NewLine] # GeomFill_HSequenceOfAx2_HeaderFile [NewLine] # ../gp/gp_Ax2.hxx [NewLine] # GeomFill_SequenceOfAx2.hxx [NewLine] # ../NCollection/NCollection_DefineHSequence.hxx [NewLine] DEFINE_HSEQUENCE ( GeomFill_HSequenceOfAx2 , GeomFill_SequenceOfAx2 ) # [NewLine]
 ## Error: expected ';'!!!
-
-

@@ -14,44 +14,49 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../math/math_MultipleVarFunctionWithGradient, ../gp/gp_Pnt,
+  ../Adaptor3d/Adaptor3d_Surface, ../Standard/Standard_Real,
+  ../Standard/Standard_Boolean, ../Standard/Standard_Integer
+
 discard "forward decl of math_Vector"
 type
-  ExtremaFuncPSDist* {.importcpp: "Extrema_FuncPSDist",
-                      header: "Extrema_FuncPSDist.hxx", bycopy.} = object of MathMultipleVarFunctionWithGradient ##
-                                                                                                          ## !
-                                                                                                          ## Constructor.
-                                                                                                          ##
-                                                                                                          ## !
-                                                                                                          ## Check
-                                                                                                          ## point
-                                                                                                          ## is
-                                                                                                          ## inside
-                                                                                                          ## of
-                                                                                                          ## the
-                                                                                                          ## surface
-                                                                                                          ## parameter
-                                                                                                          ## space.
-                                                                                                          ##
-                                                                                                          ## !
-                                                                                                          ## Returns
-                                                                                                          ## true
-                                                                                                          ## if
-                                                                                                          ## inside
-                                                                                                          ## and
-                                                                                                          ## false
-                                                                                                          ## otherwise.
+  Extrema_FuncPSDist* {.importcpp: "Extrema_FuncPSDist",
+                       header: "Extrema_FuncPSDist.hxx", bycopy.} = object of math_MultipleVarFunctionWithGradient ##
+                                                                                                            ## !
+                                                                                                            ## Constructor.
+                                                                                                            ##
+                                                                                                            ## !
+                                                                                                            ## Check
+                                                                                                            ## point
+                                                                                                            ## is
+                                                                                                            ## inside
+                                                                                                            ## of
+                                                                                                            ## the
+                                                                                                            ## surface
+                                                                                                            ## parameter
+                                                                                                            ## space.
+                                                                                                            ##
+                                                                                                            ## !
+                                                                                                            ## Returns
+                                                                                                            ## true
+                                                                                                            ## if
+                                                                                                            ## inside
+                                                                                                            ## and
+                                                                                                            ## false
+                                                                                                            ## otherwise.
 
 
-proc constructExtremaFuncPSDist*(theS: Adaptor3dSurface; theP: GpPnt): ExtremaFuncPSDist {.
+proc constructExtrema_FuncPSDist*(theS: Adaptor3d_Surface; theP: gp_Pnt): Extrema_FuncPSDist {.
     constructor, importcpp: "Extrema_FuncPSDist(@)",
     header: "Extrema_FuncPSDist.hxx".}
-proc nbVariables*(this: ExtremaFuncPSDist): StandardInteger {.noSideEffect,
+proc NbVariables*(this: Extrema_FuncPSDist): Standard_Integer {.noSideEffect,
     importcpp: "NbVariables", header: "Extrema_FuncPSDist.hxx".}
-proc value*(this: var ExtremaFuncPSDist; x: MathVector; f: var StandardReal): StandardBoolean {.
+proc Value*(this: var Extrema_FuncPSDist; X: math_Vector; F: var Standard_Real): Standard_Boolean {.
     importcpp: "Value", header: "Extrema_FuncPSDist.hxx".}
-proc gradient*(this: var ExtremaFuncPSDist; x: MathVector; g: var MathVector): StandardBoolean {.
+proc Gradient*(this: var Extrema_FuncPSDist; X: math_Vector; G: var math_Vector): Standard_Boolean {.
     importcpp: "Gradient", header: "Extrema_FuncPSDist.hxx".}
-proc values*(this: var ExtremaFuncPSDist; x: MathVector; f: var StandardReal;
-            g: var MathVector): StandardBoolean {.importcpp: "Values",
+proc Values*(this: var Extrema_FuncPSDist; X: math_Vector; F: var Standard_Real;
+            G: var math_Vector): Standard_Boolean {.importcpp: "Values",
     header: "Extrema_FuncPSDist.hxx".}
-

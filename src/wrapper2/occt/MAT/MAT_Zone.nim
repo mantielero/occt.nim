@@ -14,13 +14,18 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, MAT_SequenceOfArc,
+  ../Standard/Standard_Boolean, ../Standard/Standard_Transient,
+  ../Standard/Standard_Integer, MAT_Side
+
 discard "forward decl of MAT_BasicElt"
 discard "forward decl of MAT_Arc"
 discard "forward decl of MAT_Node"
 discard "forward decl of MAT_Zone"
 discard "forward decl of MAT_Zone"
 type
-  HandleMAT_Zone* = Handle[MAT_Zone]
+  Handle_MAT_Zone* = handle[MAT_Zone]
 
 ## ! Definition of Zone of Proximity of a BasicElt :
 ## ! ----------------------------------------------
@@ -28,30 +33,29 @@ type
 ## ! more near from the BasicElt than any other.
 
 type
-  MAT_Zone* {.importcpp: "MAT_Zone", header: "MAT_Zone.hxx", bycopy.} = object of StandardTransient
+  MAT_Zone* {.importcpp: "MAT_Zone", header: "MAT_Zone.hxx", bycopy.} = object of Standard_Transient
 
 
 proc constructMAT_Zone*(): MAT_Zone {.constructor, importcpp: "MAT_Zone(@)",
                                    header: "MAT_Zone.hxx".}
-proc constructMAT_Zone*(aBasicElt: Handle[MAT_BasicElt]): MAT_Zone {.constructor,
+proc constructMAT_Zone*(aBasicElt: handle[MAT_BasicElt]): MAT_Zone {.constructor,
     importcpp: "MAT_Zone(@)", header: "MAT_Zone.hxx".}
-proc perform*(this: var MAT_Zone; aBasicElt: Handle[MAT_BasicElt]) {.
+proc Perform*(this: var MAT_Zone; aBasicElt: handle[MAT_BasicElt]) {.
     importcpp: "Perform", header: "MAT_Zone.hxx".}
-proc numberOfArcs*(this: MAT_Zone): StandardInteger {.noSideEffect,
+proc NumberOfArcs*(this: MAT_Zone): Standard_Integer {.noSideEffect,
     importcpp: "NumberOfArcs", header: "MAT_Zone.hxx".}
-proc arcOnFrontier*(this: MAT_Zone; index: StandardInteger): Handle[MAT_Arc] {.
+proc ArcOnFrontier*(this: MAT_Zone; Index: Standard_Integer): handle[MAT_Arc] {.
     noSideEffect, importcpp: "ArcOnFrontier", header: "MAT_Zone.hxx".}
-proc noEmptyZone*(this: MAT_Zone): StandardBoolean {.noSideEffect,
+proc NoEmptyZone*(this: MAT_Zone): Standard_Boolean {.noSideEffect,
     importcpp: "NoEmptyZone", header: "MAT_Zone.hxx".}
-proc limited*(this: MAT_Zone): StandardBoolean {.noSideEffect, importcpp: "Limited",
+proc Limited*(this: MAT_Zone): Standard_Boolean {.noSideEffect, importcpp: "Limited",
     header: "MAT_Zone.hxx".}
 type
-  MAT_ZonebaseType* = StandardTransient
+  MAT_Zonebase_type* = Standard_Transient
 
-proc getTypeName*(): cstring {.importcpp: "MAT_Zone::get_type_name(@)",
-                            header: "MAT_Zone.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "MAT_Zone::get_type_name(@)",
+                              header: "MAT_Zone.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "MAT_Zone::get_type_descriptor(@)", header: "MAT_Zone.hxx".}
-proc dynamicType*(this: MAT_Zone): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: MAT_Zone): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "MAT_Zone.hxx".}
-

@@ -14,10 +14,14 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, IFSelect_SelectFlag
+
 discard "forward decl of IFSelect_SelectIncorrectEntities"
 discard "forward decl of IFSelect_SelectIncorrectEntities"
 type
-  HandleIFSelectSelectIncorrectEntities* = Handle[IFSelectSelectIncorrectEntities]
+  Handle_IFSelect_SelectIncorrectEntities* = handle[
+      IFSelect_SelectIncorrectEntities]
 
 ## ! A SelectIncorrectEntities sorts the Entities which have been
 ## ! noted as Incorrect in the Graph of the Session
@@ -26,25 +30,24 @@ type
 ## ! called on the WorkSession. Else, its result will be empty.
 
 type
-  IFSelectSelectIncorrectEntities* {.importcpp: "IFSelect_SelectIncorrectEntities", header: "IFSelect_SelectIncorrectEntities.hxx",
-                                    bycopy.} = object of IFSelectSelectFlag ## ! Creates a
-                                                                       ## SelectIncorrectEntities
-                                                                       ## ! i.e. a
-                                                                       ## SelectFlag("Incorrect")
+  IFSelect_SelectIncorrectEntities* {.importcpp: "IFSelect_SelectIncorrectEntities", header: "IFSelect_SelectIncorrectEntities.hxx",
+                                     bycopy.} = object of IFSelect_SelectFlag ## ! Creates a
+                                                                         ## SelectIncorrectEntities
+                                                                         ## ! i.e. a
+                                                                         ## SelectFlag("Incorrect")
 
 
-proc constructIFSelectSelectIncorrectEntities*(): IFSelectSelectIncorrectEntities {.
+proc constructIFSelect_SelectIncorrectEntities*(): IFSelect_SelectIncorrectEntities {.
     constructor, importcpp: "IFSelect_SelectIncorrectEntities(@)",
     header: "IFSelect_SelectIncorrectEntities.hxx".}
 type
-  IFSelectSelectIncorrectEntitiesbaseType* = IFSelectSelectFlag
+  IFSelect_SelectIncorrectEntitiesbase_type* = IFSelect_SelectFlag
 
-proc getTypeName*(): cstring {.importcpp: "IFSelect_SelectIncorrectEntities::get_type_name(@)",
-                            header: "IFSelect_SelectIncorrectEntities.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "IFSelect_SelectIncorrectEntities::get_type_name(@)",
+                              header: "IFSelect_SelectIncorrectEntities.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "IFSelect_SelectIncorrectEntities::get_type_descriptor(@)",
     header: "IFSelect_SelectIncorrectEntities.hxx".}
-proc dynamicType*(this: IFSelectSelectIncorrectEntities): Handle[StandardType] {.
+proc DynamicType*(this: IFSelect_SelectIncorrectEntities): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType",
     header: "IFSelect_SelectIncorrectEntities.hxx".}
-

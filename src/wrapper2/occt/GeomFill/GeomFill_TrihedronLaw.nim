@@ -14,6 +14,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Transient,
+  GeomFill_PipeError, ../Standard/Standard_Boolean, ../Standard/Standard_Real,
+  ../Standard/Standard_Integer, ../GeomAbs/GeomAbs_Shape,
+  ../TColStd/TColStd_Array1OfReal
+
 discard "forward decl of Adaptor3d_HCurve"
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of Standard_NotImplemented"
@@ -21,59 +27,58 @@ discard "forward decl of gp_Vec"
 discard "forward decl of GeomFill_TrihedronLaw"
 discard "forward decl of GeomFill_TrihedronLaw"
 type
-  HandleGeomFillTrihedronLaw* = Handle[GeomFillTrihedronLaw]
+  Handle_GeomFill_TrihedronLaw* = handle[GeomFill_TrihedronLaw]
 
 ## ! To define Trihedron along one Curve
 
 type
-  GeomFillTrihedronLaw* {.importcpp: "GeomFill_TrihedronLaw",
-                         header: "GeomFill_TrihedronLaw.hxx", bycopy.} = object of StandardTransient
+  GeomFill_TrihedronLaw* {.importcpp: "GeomFill_TrihedronLaw",
+                          header: "GeomFill_TrihedronLaw.hxx", bycopy.} = object of Standard_Transient
 
 
-proc setCurve*(this: var GeomFillTrihedronLaw; c: Handle[Adaptor3dHCurve]) {.
+proc SetCurve*(this: var GeomFill_TrihedronLaw; C: handle[Adaptor3d_HCurve]) {.
     importcpp: "SetCurve", header: "GeomFill_TrihedronLaw.hxx".}
-proc copy*(this: GeomFillTrihedronLaw): Handle[GeomFillTrihedronLaw] {.noSideEffect,
-    importcpp: "Copy", header: "GeomFill_TrihedronLaw.hxx".}
-proc errorStatus*(this: GeomFillTrihedronLaw): GeomFillPipeError {.noSideEffect,
+proc Copy*(this: GeomFill_TrihedronLaw): handle[GeomFill_TrihedronLaw] {.
+    noSideEffect, importcpp: "Copy", header: "GeomFill_TrihedronLaw.hxx".}
+proc ErrorStatus*(this: GeomFill_TrihedronLaw): GeomFill_PipeError {.noSideEffect,
     importcpp: "ErrorStatus", header: "GeomFill_TrihedronLaw.hxx".}
-proc d0*(this: var GeomFillTrihedronLaw; param: StandardReal; tangent: var GpVec;
-        normal: var GpVec; biNormal: var GpVec): StandardBoolean {.importcpp: "D0",
+proc D0*(this: var GeomFill_TrihedronLaw; Param: Standard_Real; Tangent: var gp_Vec;
+        Normal: var gp_Vec; BiNormal: var gp_Vec): Standard_Boolean {.importcpp: "D0",
     header: "GeomFill_TrihedronLaw.hxx".}
-proc d1*(this: var GeomFillTrihedronLaw; param: StandardReal; tangent: var GpVec;
-        dTangent: var GpVec; normal: var GpVec; dNormal: var GpVec; biNormal: var GpVec;
-        dBiNormal: var GpVec): StandardBoolean {.importcpp: "D1",
-    header: "GeomFill_TrihedronLaw.hxx".}
-proc d2*(this: var GeomFillTrihedronLaw; param: StandardReal; tangent: var GpVec;
-        dTangent: var GpVec; d2Tangent: var GpVec; normal: var GpVec; dNormal: var GpVec;
-        d2Normal: var GpVec; biNormal: var GpVec; dBiNormal: var GpVec;
-        d2BiNormal: var GpVec): StandardBoolean {.importcpp: "D2",
-    header: "GeomFill_TrihedronLaw.hxx".}
-proc nbIntervals*(this: GeomFillTrihedronLaw; s: GeomAbsShape): StandardInteger {.
+proc D1*(this: var GeomFill_TrihedronLaw; Param: Standard_Real; Tangent: var gp_Vec;
+        DTangent: var gp_Vec; Normal: var gp_Vec; DNormal: var gp_Vec;
+        BiNormal: var gp_Vec; DBiNormal: var gp_Vec): Standard_Boolean {.
+    importcpp: "D1", header: "GeomFill_TrihedronLaw.hxx".}
+proc D2*(this: var GeomFill_TrihedronLaw; Param: Standard_Real; Tangent: var gp_Vec;
+        DTangent: var gp_Vec; D2Tangent: var gp_Vec; Normal: var gp_Vec;
+        DNormal: var gp_Vec; D2Normal: var gp_Vec; BiNormal: var gp_Vec;
+        DBiNormal: var gp_Vec; D2BiNormal: var gp_Vec): Standard_Boolean {.
+    importcpp: "D2", header: "GeomFill_TrihedronLaw.hxx".}
+proc NbIntervals*(this: GeomFill_TrihedronLaw; S: GeomAbs_Shape): Standard_Integer {.
     noSideEffect, importcpp: "NbIntervals", header: "GeomFill_TrihedronLaw.hxx".}
-proc intervals*(this: GeomFillTrihedronLaw; t: var TColStdArray1OfReal;
-               s: GeomAbsShape) {.noSideEffect, importcpp: "Intervals",
-                                header: "GeomFill_TrihedronLaw.hxx".}
-proc setInterval*(this: var GeomFillTrihedronLaw; first: StandardReal;
-                 last: StandardReal) {.importcpp: "SetInterval",
-                                     header: "GeomFill_TrihedronLaw.hxx".}
-proc getInterval*(this: var GeomFillTrihedronLaw; first: var StandardReal;
-                 last: var StandardReal) {.importcpp: "GetInterval",
-                                        header: "GeomFill_TrihedronLaw.hxx".}
-proc getAverageLaw*(this: var GeomFillTrihedronLaw; aTangent: var GpVec;
-                   aNormal: var GpVec; aBiNormal: var GpVec) {.
+proc Intervals*(this: GeomFill_TrihedronLaw; T: var TColStd_Array1OfReal;
+               S: GeomAbs_Shape) {.noSideEffect, importcpp: "Intervals",
+                                 header: "GeomFill_TrihedronLaw.hxx".}
+proc SetInterval*(this: var GeomFill_TrihedronLaw; First: Standard_Real;
+                 Last: Standard_Real) {.importcpp: "SetInterval",
+                                      header: "GeomFill_TrihedronLaw.hxx".}
+proc GetInterval*(this: var GeomFill_TrihedronLaw; First: var Standard_Real;
+                 Last: var Standard_Real) {.importcpp: "GetInterval",
+    header: "GeomFill_TrihedronLaw.hxx".}
+proc GetAverageLaw*(this: var GeomFill_TrihedronLaw; ATangent: var gp_Vec;
+                   ANormal: var gp_Vec; ABiNormal: var gp_Vec) {.
     importcpp: "GetAverageLaw", header: "GeomFill_TrihedronLaw.hxx".}
-proc isConstant*(this: GeomFillTrihedronLaw): StandardBoolean {.noSideEffect,
+proc IsConstant*(this: GeomFill_TrihedronLaw): Standard_Boolean {.noSideEffect,
     importcpp: "IsConstant", header: "GeomFill_TrihedronLaw.hxx".}
-proc isOnlyBy3dCurve*(this: GeomFillTrihedronLaw): StandardBoolean {.noSideEffect,
+proc IsOnlyBy3dCurve*(this: GeomFill_TrihedronLaw): Standard_Boolean {.noSideEffect,
     importcpp: "IsOnlyBy3dCurve", header: "GeomFill_TrihedronLaw.hxx".}
 type
-  GeomFillTrihedronLawbaseType* = StandardTransient
+  GeomFill_TrihedronLawbase_type* = Standard_Transient
 
-proc getTypeName*(): cstring {.importcpp: "GeomFill_TrihedronLaw::get_type_name(@)",
-                            header: "GeomFill_TrihedronLaw.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "GeomFill_TrihedronLaw::get_type_name(@)",
+                              header: "GeomFill_TrihedronLaw.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "GeomFill_TrihedronLaw::get_type_descriptor(@)",
     header: "GeomFill_TrihedronLaw.hxx".}
-proc dynamicType*(this: GeomFillTrihedronLaw): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "GeomFill_TrihedronLaw.hxx".}
-
+proc DynamicType*(this: GeomFill_TrihedronLaw): handle[Standard_Type] {.
+    noSideEffect, importcpp: "DynamicType", header: "GeomFill_TrihedronLaw.hxx".}

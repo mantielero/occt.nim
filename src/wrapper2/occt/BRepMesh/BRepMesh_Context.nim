@@ -13,26 +13,30 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../IMeshTools/IMeshTools_Context
+
 ## ! Class implemeting default context of BRepMesh algorithm.
 ## ! Initializes context by default algorithms.
 
 type
-  BRepMeshContext* {.importcpp: "BRepMesh_Context", header: "BRepMesh_Context.hxx",
-                    bycopy.} = object of IMeshToolsContext ## ! Constructor.
+  BRepMesh_Context* {.importcpp: "BRepMesh_Context",
+                     header: "BRepMesh_Context.hxx", bycopy.} = object of IMeshTools_Context ##
+                                                                                      ## !
+                                                                                      ## Constructor.
 
 
-proc constructBRepMeshContext*(theMeshType: IMeshToolsMeshAlgoType = iMeshToolsMeshAlgoTypeDEFAULT): BRepMeshContext {.
+proc constructBRepMesh_Context*(theMeshType: IMeshTools_MeshAlgoType = IMeshTools_MeshAlgoType_DEFAULT): BRepMesh_Context {.
     constructor, importcpp: "BRepMesh_Context(@)", header: "BRepMesh_Context.hxx".}
-proc destroyBRepMeshContext*(this: var BRepMeshContext) {.
+proc destroyBRepMesh_Context*(this: var BRepMesh_Context) {.
     importcpp: "#.~BRepMesh_Context()", header: "BRepMesh_Context.hxx".}
 type
-  BRepMeshContextbaseType* = IMeshToolsContext
+  BRepMesh_Contextbase_type* = IMeshTools_Context
 
-proc getTypeName*(): cstring {.importcpp: "BRepMesh_Context::get_type_name(@)",
-                            header: "BRepMesh_Context.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "BRepMesh_Context::get_type_name(@)",
+                              header: "BRepMesh_Context.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "BRepMesh_Context::get_type_descriptor(@)",
     header: "BRepMesh_Context.hxx".}
-proc dynamicType*(this: BRepMeshContext): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: BRepMesh_Context): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "BRepMesh_Context.hxx".}
-

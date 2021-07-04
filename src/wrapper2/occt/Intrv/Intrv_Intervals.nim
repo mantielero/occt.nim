@@ -14,35 +14,39 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, Intrv_SequenceOfInterval,
+  ../Standard/Standard_Integer
+
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of Intrv_Interval"
 type
-  IntrvIntervals* {.importcpp: "Intrv_Intervals", header: "Intrv_Intervals.hxx",
-                   bycopy.} = object ## ! Creates a void sequence of intervals.
+  Intrv_Intervals* {.importcpp: "Intrv_Intervals", header: "Intrv_Intervals.hxx",
+                    bycopy.} = object ## ! Creates a void sequence of intervals.
 
 
-proc constructIntrvIntervals*(): IntrvIntervals {.constructor,
+proc constructIntrv_Intervals*(): Intrv_Intervals {.constructor,
     importcpp: "Intrv_Intervals(@)", header: "Intrv_Intervals.hxx".}
-proc constructIntrvIntervals*(int: IntrvInterval): IntrvIntervals {.constructor,
+proc constructIntrv_Intervals*(Int: Intrv_Interval): Intrv_Intervals {.constructor,
     importcpp: "Intrv_Intervals(@)", header: "Intrv_Intervals.hxx".}
-proc intersect*(this: var IntrvIntervals; tool: IntrvInterval) {.
+proc Intersect*(this: var Intrv_Intervals; Tool: Intrv_Interval) {.
     importcpp: "Intersect", header: "Intrv_Intervals.hxx".}
-proc intersect*(this: var IntrvIntervals; tool: IntrvIntervals) {.
+proc Intersect*(this: var Intrv_Intervals; Tool: Intrv_Intervals) {.
     importcpp: "Intersect", header: "Intrv_Intervals.hxx".}
-proc subtract*(this: var IntrvIntervals; tool: IntrvInterval) {.importcpp: "Subtract",
-    header: "Intrv_Intervals.hxx".}
-proc subtract*(this: var IntrvIntervals; tool: IntrvIntervals) {.
+proc Subtract*(this: var Intrv_Intervals; Tool: Intrv_Interval) {.
     importcpp: "Subtract", header: "Intrv_Intervals.hxx".}
-proc unite*(this: var IntrvIntervals; tool: IntrvInterval) {.importcpp: "Unite",
+proc Subtract*(this: var Intrv_Intervals; Tool: Intrv_Intervals) {.
+    importcpp: "Subtract", header: "Intrv_Intervals.hxx".}
+proc Unite*(this: var Intrv_Intervals; Tool: Intrv_Interval) {.importcpp: "Unite",
     header: "Intrv_Intervals.hxx".}
-proc unite*(this: var IntrvIntervals; tool: IntrvIntervals) {.importcpp: "Unite",
+proc Unite*(this: var Intrv_Intervals; Tool: Intrv_Intervals) {.importcpp: "Unite",
     header: "Intrv_Intervals.hxx".}
-proc xUnite*(this: var IntrvIntervals; tool: IntrvInterval) {.importcpp: "XUnite",
+proc XUnite*(this: var Intrv_Intervals; Tool: Intrv_Interval) {.importcpp: "XUnite",
     header: "Intrv_Intervals.hxx".}
-proc xUnite*(this: var IntrvIntervals; tool: IntrvIntervals) {.importcpp: "XUnite",
+proc XUnite*(this: var Intrv_Intervals; Tool: Intrv_Intervals) {.importcpp: "XUnite",
     header: "Intrv_Intervals.hxx".}
-proc nbIntervals*(this: IntrvIntervals): StandardInteger {.noSideEffect,
+proc NbIntervals*(this: Intrv_Intervals): Standard_Integer {.noSideEffect,
     importcpp: "NbIntervals", header: "Intrv_Intervals.hxx".}
-proc value*(this: IntrvIntervals; index: StandardInteger): IntrvInterval {.
+proc Value*(this: Intrv_Intervals; Index: Standard_Integer): Intrv_Interval {.
     noSideEffect, importcpp: "Value", header: "Intrv_Intervals.hxx".}
-

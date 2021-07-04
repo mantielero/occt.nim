@@ -12,6 +12,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  AIS_Animation
+
 discard "forward decl of Graphic3d_Camera"
 discard "forward decl of V3d_View"
 type
@@ -29,35 +32,33 @@ type
     ## !< starting camera position
     ## !< end camera position
 
-  AIS_AnimationCamerabaseType* = AIS_Animation
+  AIS_AnimationCamerabase_type* = AIS_Animation
 
-proc getTypeName*(): cstring {.importcpp: "AIS_AnimationCamera::get_type_name(@)",
-                            header: "AIS_AnimationCamera.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "AIS_AnimationCamera::get_type_name(@)",
+                              header: "AIS_AnimationCamera.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "AIS_AnimationCamera::get_type_descriptor(@)",
     header: "AIS_AnimationCamera.hxx".}
-proc dynamicType*(this: AIS_AnimationCamera): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: AIS_AnimationCamera): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "AIS_AnimationCamera.hxx".}
-proc constructAIS_AnimationCamera*(theAnimationName: TCollectionAsciiString;
-                                  theView: Handle[V3dView]): AIS_AnimationCamera {.
+proc constructAIS_AnimationCamera*(theAnimationName: TCollection_AsciiString;
+                                  theView: handle[V3d_View]): AIS_AnimationCamera {.
     constructor, importcpp: "AIS_AnimationCamera(@)",
     header: "AIS_AnimationCamera.hxx".}
-proc view*(this: AIS_AnimationCamera): Handle[V3dView] {.noSideEffect,
+proc View*(this: AIS_AnimationCamera): handle[V3d_View] {.noSideEffect,
     importcpp: "View", header: "AIS_AnimationCamera.hxx".}
-proc setView*(this: var AIS_AnimationCamera; theView: Handle[V3dView]) {.
+proc SetView*(this: var AIS_AnimationCamera; theView: handle[V3d_View]) {.
     importcpp: "SetView", header: "AIS_AnimationCamera.hxx".}
-proc cameraStart*(this: AIS_AnimationCamera): Handle[Graphic3dCamera] {.
+proc CameraStart*(this: AIS_AnimationCamera): handle[Graphic3d_Camera] {.
     noSideEffect, importcpp: "CameraStart", header: "AIS_AnimationCamera.hxx".}
-proc setCameraStart*(this: var AIS_AnimationCamera;
-                    theCameraStart: Handle[Graphic3dCamera]) {.
+proc SetCameraStart*(this: var AIS_AnimationCamera;
+                    theCameraStart: handle[Graphic3d_Camera]) {.
     importcpp: "SetCameraStart", header: "AIS_AnimationCamera.hxx".}
-proc cameraEnd*(this: AIS_AnimationCamera): Handle[Graphic3dCamera] {.noSideEffect,
+proc CameraEnd*(this: AIS_AnimationCamera): handle[Graphic3d_Camera] {.noSideEffect,
     importcpp: "CameraEnd", header: "AIS_AnimationCamera.hxx".}
-proc setCameraEnd*(this: var AIS_AnimationCamera;
-                  theCameraEnd: Handle[Graphic3dCamera]) {.
+proc SetCameraEnd*(this: var AIS_AnimationCamera;
+                  theCameraEnd: handle[Graphic3d_Camera]) {.
     importcpp: "SetCameraEnd", header: "AIS_AnimationCamera.hxx".}
 discard "forward decl of AIS_AnimationCamera"
 type
-  HandleAIS_AnimationCamera* = Handle[AIS_AnimationCamera]
-
-
+  Handle_AIS_AnimationCamera* = handle[AIS_AnimationCamera]

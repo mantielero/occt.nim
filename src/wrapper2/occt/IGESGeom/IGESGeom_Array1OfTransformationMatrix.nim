@@ -14,8 +14,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  IGESGeom_TransformationMatrix, ../NCollection/NCollection_Array1
+
 type
-  IGESGeomArray1OfTransformationMatrix* = NCollectionArray1[
-      Handle[IGESGeomTransformationMatrix]]
-
-
+  IGESGeom_Array1OfTransformationMatrix* = NCollection_Array1[
+      handle[IGESGeom_TransformationMatrix]]

@@ -13,118 +13,125 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer,
+  ../Standard/Standard_Real, IntTools_MapOfSurfaceSample,
+  IntTools_DataMapOfSurfaceSampleBox, ../TColStd/TColStd_HArray1OfReal,
+  ../TColgp/TColgp_HArray2OfPnt, ../Standard/Standard_Boolean,
+  IntTools_ListOfSurfaceRangeSample
+
 discard "forward decl of IntTools_SurfaceRangeSample"
 discard "forward decl of Bnd_Box"
 discard "forward decl of gp_Pnt"
 type
-  IntToolsSurfaceRangeLocalizeData* {.importcpp: "IntTools_SurfaceRangeLocalizeData", header: "IntTools_SurfaceRangeLocalizeData.hxx",
-                                     bycopy.} = object
+  IntTools_SurfaceRangeLocalizeData* {.importcpp: "IntTools_SurfaceRangeLocalizeData", header: "IntTools_SurfaceRangeLocalizeData.hxx",
+                                      bycopy.} = object
 
 
-proc constructIntToolsSurfaceRangeLocalizeData*(): IntToolsSurfaceRangeLocalizeData {.
+proc constructIntTools_SurfaceRangeLocalizeData*(): IntTools_SurfaceRangeLocalizeData {.
     constructor, importcpp: "IntTools_SurfaceRangeLocalizeData(@)",
     header: "IntTools_SurfaceRangeLocalizeData.hxx".}
-proc constructIntToolsSurfaceRangeLocalizeData*(theNbSampleU: StandardInteger;
-    theNbSampleV: StandardInteger; theMinRangeU: StandardReal;
-    theMinRangeV: StandardReal): IntToolsSurfaceRangeLocalizeData {.constructor,
+proc constructIntTools_SurfaceRangeLocalizeData*(theNbSampleU: Standard_Integer;
+    theNbSampleV: Standard_Integer; theMinRangeU: Standard_Real;
+    theMinRangeV: Standard_Real): IntTools_SurfaceRangeLocalizeData {.constructor,
     importcpp: "IntTools_SurfaceRangeLocalizeData(@)",
     header: "IntTools_SurfaceRangeLocalizeData.hxx".}
-proc constructIntToolsSurfaceRangeLocalizeData*(
-    other: IntToolsSurfaceRangeLocalizeData): IntToolsSurfaceRangeLocalizeData {.
+proc constructIntTools_SurfaceRangeLocalizeData*(
+    Other: IntTools_SurfaceRangeLocalizeData): IntTools_SurfaceRangeLocalizeData {.
     constructor, importcpp: "IntTools_SurfaceRangeLocalizeData(@)",
     header: "IntTools_SurfaceRangeLocalizeData.hxx".}
-proc assign*(this: var IntToolsSurfaceRangeLocalizeData;
-            other: IntToolsSurfaceRangeLocalizeData): var IntToolsSurfaceRangeLocalizeData {.
+proc Assign*(this: var IntTools_SurfaceRangeLocalizeData;
+            Other: IntTools_SurfaceRangeLocalizeData): var IntTools_SurfaceRangeLocalizeData {.
     importcpp: "Assign", header: "IntTools_SurfaceRangeLocalizeData.hxx".}
-proc getNbSampleU*(this: IntToolsSurfaceRangeLocalizeData): StandardInteger {.
+proc GetNbSampleU*(this: IntTools_SurfaceRangeLocalizeData): Standard_Integer {.
     noSideEffect, importcpp: "GetNbSampleU",
     header: "IntTools_SurfaceRangeLocalizeData.hxx".}
-proc getNbSampleV*(this: IntToolsSurfaceRangeLocalizeData): StandardInteger {.
+proc GetNbSampleV*(this: IntTools_SurfaceRangeLocalizeData): Standard_Integer {.
     noSideEffect, importcpp: "GetNbSampleV",
     header: "IntTools_SurfaceRangeLocalizeData.hxx".}
-proc getMinRangeU*(this: IntToolsSurfaceRangeLocalizeData): StandardReal {.
+proc GetMinRangeU*(this: IntTools_SurfaceRangeLocalizeData): Standard_Real {.
     noSideEffect, importcpp: "GetMinRangeU",
     header: "IntTools_SurfaceRangeLocalizeData.hxx".}
-proc getMinRangeV*(this: IntToolsSurfaceRangeLocalizeData): StandardReal {.
+proc GetMinRangeV*(this: IntTools_SurfaceRangeLocalizeData): Standard_Real {.
     noSideEffect, importcpp: "GetMinRangeV",
     header: "IntTools_SurfaceRangeLocalizeData.hxx".}
-proc addOutRange*(this: var IntToolsSurfaceRangeLocalizeData;
-                 theRange: IntToolsSurfaceRangeSample) {.importcpp: "AddOutRange",
-    header: "IntTools_SurfaceRangeLocalizeData.hxx".}
-proc addBox*(this: var IntToolsSurfaceRangeLocalizeData;
-            theRange: IntToolsSurfaceRangeSample; theBox: BndBox) {.
+proc AddOutRange*(this: var IntTools_SurfaceRangeLocalizeData;
+                 theRange: IntTools_SurfaceRangeSample) {.
+    importcpp: "AddOutRange", header: "IntTools_SurfaceRangeLocalizeData.hxx".}
+proc AddBox*(this: var IntTools_SurfaceRangeLocalizeData;
+            theRange: IntTools_SurfaceRangeSample; theBox: Bnd_Box) {.
     importcpp: "AddBox", header: "IntTools_SurfaceRangeLocalizeData.hxx".}
-proc findBox*(this: IntToolsSurfaceRangeLocalizeData;
-             theRange: IntToolsSurfaceRangeSample; theBox: var BndBox): StandardBoolean {.
+proc FindBox*(this: IntTools_SurfaceRangeLocalizeData;
+             theRange: IntTools_SurfaceRangeSample; theBox: var Bnd_Box): Standard_Boolean {.
     noSideEffect, importcpp: "FindBox",
     header: "IntTools_SurfaceRangeLocalizeData.hxx".}
-proc isRangeOut*(this: IntToolsSurfaceRangeLocalizeData;
-                theRange: IntToolsSurfaceRangeSample): StandardBoolean {.
+proc IsRangeOut*(this: IntTools_SurfaceRangeLocalizeData;
+                theRange: IntTools_SurfaceRangeSample): Standard_Boolean {.
     noSideEffect, importcpp: "IsRangeOut",
     header: "IntTools_SurfaceRangeLocalizeData.hxx".}
-proc listRangeOut*(this: IntToolsSurfaceRangeLocalizeData;
-                  theList: var IntToolsListOfSurfaceRangeSample) {.noSideEffect,
+proc ListRangeOut*(this: IntTools_SurfaceRangeLocalizeData;
+                  theList: var IntTools_ListOfSurfaceRangeSample) {.noSideEffect,
     importcpp: "ListRangeOut", header: "IntTools_SurfaceRangeLocalizeData.hxx".}
-proc removeRangeOutAll*(this: var IntToolsSurfaceRangeLocalizeData) {.
+proc RemoveRangeOutAll*(this: var IntTools_SurfaceRangeLocalizeData) {.
     importcpp: "RemoveRangeOutAll",
     header: "IntTools_SurfaceRangeLocalizeData.hxx".}
-proc setGridDeflection*(this: var IntToolsSurfaceRangeLocalizeData;
-                       theDeflection: StandardReal) {.
+proc SetGridDeflection*(this: var IntTools_SurfaceRangeLocalizeData;
+                       theDeflection: Standard_Real) {.
     importcpp: "SetGridDeflection",
     header: "IntTools_SurfaceRangeLocalizeData.hxx".}
-proc getGridDeflection*(this: IntToolsSurfaceRangeLocalizeData): StandardReal {.
+proc GetGridDeflection*(this: IntTools_SurfaceRangeLocalizeData): Standard_Real {.
     noSideEffect, importcpp: "GetGridDeflection",
     header: "IntTools_SurfaceRangeLocalizeData.hxx".}
-proc setRangeUGrid*(this: var IntToolsSurfaceRangeLocalizeData;
-                   theNbUGrid: StandardInteger) {.importcpp: "SetRangeUGrid",
+proc SetRangeUGrid*(this: var IntTools_SurfaceRangeLocalizeData;
+                   theNbUGrid: Standard_Integer) {.importcpp: "SetRangeUGrid",
     header: "IntTools_SurfaceRangeLocalizeData.hxx".}
-proc getRangeUGrid*(this: IntToolsSurfaceRangeLocalizeData): StandardInteger {.
+proc GetRangeUGrid*(this: IntTools_SurfaceRangeLocalizeData): Standard_Integer {.
     noSideEffect, importcpp: "GetRangeUGrid",
     header: "IntTools_SurfaceRangeLocalizeData.hxx".}
-proc setUParam*(this: var IntToolsSurfaceRangeLocalizeData;
-               theIndex: StandardInteger; theUParam: StandardReal) {.
+proc SetUParam*(this: var IntTools_SurfaceRangeLocalizeData;
+               theIndex: Standard_Integer; theUParam: Standard_Real) {.
     importcpp: "SetUParam", header: "IntTools_SurfaceRangeLocalizeData.hxx".}
-proc getUParam*(this: IntToolsSurfaceRangeLocalizeData; theIndex: StandardInteger): StandardReal {.
+proc GetUParam*(this: IntTools_SurfaceRangeLocalizeData; theIndex: Standard_Integer): Standard_Real {.
     noSideEffect, importcpp: "GetUParam",
     header: "IntTools_SurfaceRangeLocalizeData.hxx".}
-proc setRangeVGrid*(this: var IntToolsSurfaceRangeLocalizeData;
-                   theNbVGrid: StandardInteger) {.importcpp: "SetRangeVGrid",
+proc SetRangeVGrid*(this: var IntTools_SurfaceRangeLocalizeData;
+                   theNbVGrid: Standard_Integer) {.importcpp: "SetRangeVGrid",
     header: "IntTools_SurfaceRangeLocalizeData.hxx".}
-proc getRangeVGrid*(this: IntToolsSurfaceRangeLocalizeData): StandardInteger {.
+proc GetRangeVGrid*(this: IntTools_SurfaceRangeLocalizeData): Standard_Integer {.
     noSideEffect, importcpp: "GetRangeVGrid",
     header: "IntTools_SurfaceRangeLocalizeData.hxx".}
-proc setVParam*(this: var IntToolsSurfaceRangeLocalizeData;
-               theIndex: StandardInteger; theVParam: StandardReal) {.
+proc SetVParam*(this: var IntTools_SurfaceRangeLocalizeData;
+               theIndex: Standard_Integer; theVParam: Standard_Real) {.
     importcpp: "SetVParam", header: "IntTools_SurfaceRangeLocalizeData.hxx".}
-proc getVParam*(this: IntToolsSurfaceRangeLocalizeData; theIndex: StandardInteger): StandardReal {.
+proc GetVParam*(this: IntTools_SurfaceRangeLocalizeData; theIndex: Standard_Integer): Standard_Real {.
     noSideEffect, importcpp: "GetVParam",
     header: "IntTools_SurfaceRangeLocalizeData.hxx".}
-proc setGridPoint*(this: var IntToolsSurfaceRangeLocalizeData;
-                  theUIndex: StandardInteger; theVIndex: StandardInteger;
-                  thePoint: GpPnt) {.importcpp: "SetGridPoint", header: "IntTools_SurfaceRangeLocalizeData.hxx".}
-proc getGridPoint*(this: IntToolsSurfaceRangeLocalizeData;
-                  theUIndex: StandardInteger; theVIndex: StandardInteger): GpPnt {.
+proc SetGridPoint*(this: var IntTools_SurfaceRangeLocalizeData;
+                  theUIndex: Standard_Integer; theVIndex: Standard_Integer;
+                  thePoint: gp_Pnt) {.importcpp: "SetGridPoint", header: "IntTools_SurfaceRangeLocalizeData.hxx".}
+proc GetGridPoint*(this: IntTools_SurfaceRangeLocalizeData;
+                  theUIndex: Standard_Integer; theVIndex: Standard_Integer): gp_Pnt {.
     noSideEffect, importcpp: "GetGridPoint",
     header: "IntTools_SurfaceRangeLocalizeData.hxx".}
-proc setFrame*(this: var IntToolsSurfaceRangeLocalizeData; theUMin: StandardReal;
-              theUMax: StandardReal; theVMin: StandardReal; theVMax: StandardReal) {.
+proc SetFrame*(this: var IntTools_SurfaceRangeLocalizeData; theUMin: Standard_Real;
+              theUMax: Standard_Real; theVMin: Standard_Real; theVMax: Standard_Real) {.
     importcpp: "SetFrame", header: "IntTools_SurfaceRangeLocalizeData.hxx".}
-proc getNBUPointsInFrame*(this: IntToolsSurfaceRangeLocalizeData): StandardInteger {.
+proc GetNBUPointsInFrame*(this: IntTools_SurfaceRangeLocalizeData): Standard_Integer {.
     noSideEffect, importcpp: "GetNBUPointsInFrame",
     header: "IntTools_SurfaceRangeLocalizeData.hxx".}
-proc getNBVPointsInFrame*(this: IntToolsSurfaceRangeLocalizeData): StandardInteger {.
+proc GetNBVPointsInFrame*(this: IntTools_SurfaceRangeLocalizeData): Standard_Integer {.
     noSideEffect, importcpp: "GetNBVPointsInFrame",
     header: "IntTools_SurfaceRangeLocalizeData.hxx".}
-proc getPointInFrame*(this: IntToolsSurfaceRangeLocalizeData;
-                     theUIndex: StandardInteger; theVIndex: StandardInteger): GpPnt {.
+proc GetPointInFrame*(this: IntTools_SurfaceRangeLocalizeData;
+                     theUIndex: Standard_Integer; theVIndex: Standard_Integer): gp_Pnt {.
     noSideEffect, importcpp: "GetPointInFrame",
     header: "IntTools_SurfaceRangeLocalizeData.hxx".}
-proc getUParamInFrame*(this: IntToolsSurfaceRangeLocalizeData;
-                      theIndex: StandardInteger): StandardReal {.noSideEffect,
+proc GetUParamInFrame*(this: IntTools_SurfaceRangeLocalizeData;
+                      theIndex: Standard_Integer): Standard_Real {.noSideEffect,
     importcpp: "GetUParamInFrame", header: "IntTools_SurfaceRangeLocalizeData.hxx".}
-proc getVParamInFrame*(this: IntToolsSurfaceRangeLocalizeData;
-                      theIndex: StandardInteger): StandardReal {.noSideEffect,
+proc GetVParamInFrame*(this: IntTools_SurfaceRangeLocalizeData;
+                      theIndex: Standard_Integer): Standard_Real {.noSideEffect,
     importcpp: "GetVParamInFrame", header: "IntTools_SurfaceRangeLocalizeData.hxx".}
-proc clearGrid*(this: var IntToolsSurfaceRangeLocalizeData) {.
+proc ClearGrid*(this: var IntTools_SurfaceRangeLocalizeData) {.
     importcpp: "ClearGrid", header: "IntTools_SurfaceRangeLocalizeData.hxx".}
-

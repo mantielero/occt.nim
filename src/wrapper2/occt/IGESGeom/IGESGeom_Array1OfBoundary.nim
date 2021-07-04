@@ -14,7 +14,8 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  IGESGeom_Boundary, ../NCollection/NCollection_Array1
+
 type
-  IGESGeomArray1OfBoundary* = NCollectionArray1[Handle[IGESGeomBoundary]]
-
-
+  IGESGeom_Array1OfBoundary* = NCollection_Array1[handle[IGESGeom_Boundary]]

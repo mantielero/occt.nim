@@ -12,31 +12,33 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../NCollection/NCollection_Vec2, ../Standard/Standard_Dump
+
 ## ! Auxiliary POD structure - 2D rectangle definition.
 
 type
-  FontRect* {.importcpp: "Font_Rect", header: "Font_Rect.hxx", bycopy.} = object
-    left* {.importc: "Left".}: cfloat ## !< left   position
-    right* {.importc: "Right".}: cfloat ## !< right  position
-    top* {.importc: "Top".}: cfloat ## !< top    position
-    bottom* {.importc: "Bottom".}: cfloat ## !< bottom position
+  Font_Rect* {.importcpp: "Font_Rect", header: "Font_Rect.hxx", bycopy.} = object
+    Left* {.importc: "Left".}: cfloat ## !< left   position
+    Right* {.importc: "Right".}: cfloat ## !< right  position
+    Top* {.importc: "Top".}: cfloat ## !< top    position
+    Bottom* {.importc: "Bottom".}: cfloat ## !< bottom position
                                       ## ! Top-left corner as vec2.
 
 
-proc topLeft*(this: FontRect): NCollectionVec2[cfloat] {.noSideEffect,
+proc TopLeft*(this: Font_Rect): NCollection_Vec2[cfloat] {.noSideEffect,
     importcpp: "TopLeft", header: "Font_Rect.hxx".}
-proc topLeft*(this: FontRect; theVec: var NCollectionVec2[cfloat]): var NCollectionVec2[
+proc TopLeft*(this: Font_Rect; theVec: var NCollection_Vec2[cfloat]): var NCollection_Vec2[
     cfloat] {.noSideEffect, importcpp: "TopLeft", header: "Font_Rect.hxx".}
-proc topRight*(this: FontRect; theVec: var NCollectionVec2[cfloat]): var NCollectionVec2[
+proc TopRight*(this: Font_Rect; theVec: var NCollection_Vec2[cfloat]): var NCollection_Vec2[
     cfloat] {.noSideEffect, importcpp: "TopRight", header: "Font_Rect.hxx".}
-proc bottomLeft*(this: FontRect; theVec: var NCollectionVec2[cfloat]): var NCollectionVec2[
+proc BottomLeft*(this: Font_Rect; theVec: var NCollection_Vec2[cfloat]): var NCollection_Vec2[
     cfloat] {.noSideEffect, importcpp: "BottomLeft", header: "Font_Rect.hxx".}
-proc bottomRight*(this: FontRect; theVec: var NCollectionVec2[cfloat]): var NCollectionVec2[
+proc BottomRight*(this: Font_Rect; theVec: var NCollection_Vec2[cfloat]): var NCollection_Vec2[
     cfloat] {.noSideEffect, importcpp: "BottomRight", header: "Font_Rect.hxx".}
-proc width*(this: FontRect): cfloat {.noSideEffect, importcpp: "Width",
-                                  header: "Font_Rect.hxx".}
-proc height*(this: FontRect): cfloat {.noSideEffect, importcpp: "Height",
+proc Width*(this: Font_Rect): cfloat {.noSideEffect, importcpp: "Width",
                                    header: "Font_Rect.hxx".}
-proc dumpJson*(this: FontRect; theOStream: var StandardOStream; a3: StandardInteger) {.
+proc Height*(this: Font_Rect): cfloat {.noSideEffect, importcpp: "Height",
+                                    header: "Font_Rect.hxx".}
+proc DumpJson*(this: Font_Rect; theOStream: var Standard_OStream; a3: Standard_Integer) {.
     noSideEffect, importcpp: "DumpJson", header: "Font_Rect.hxx".}
-

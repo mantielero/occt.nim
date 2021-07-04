@@ -14,6 +14,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer,
+  ../Standard/Standard_Boolean, ../Standard/Standard_Real,
+  ../ShapeExtend/ShapeExtend_Status
+
 discard "forward decl of TopoDS_Edge"
 discard "forward decl of Geom_Curve"
 discard "forward decl of TopoDS_Face"
@@ -25,8 +31,8 @@ discard "forward decl of TopoDS_Vertex"
 discard "forward decl of gp_Vec2d"
 discard "forward decl of gp_Pnt"
 discard "forward decl of Adaptor3d_Curve"
-# when defined(Status):
-#   discard
+when defined(Status):
+  discard
 ## ! Tool for analyzing the edge.
 ## ! Queries geometrical representations of the edge (3d curve, pcurve
 ## ! on the given face or surface) and topological sub-shapes (bounding
@@ -35,108 +41,109 @@ discard "forward decl of Adaptor3d_Curve"
 ## ! (3d and pcurve(s) consistency, their adjacency to the vertices).
 
 type
-  ShapeAnalysisEdge* {.importcpp: "ShapeAnalysis_Edge",
-                      header: "ShapeAnalysis_Edge.hxx", bycopy.} = object ## ! Empty
-                                                                     ## constructor; initialises Status to OK
-                                                                     ## ! Check points by pairs (A and A, B and B) with precisions
-                                                                     ## ! (preci1 and preci2).
-                                                                     ## ! P1 are the points either from 3d curve or from vertices,
-                                                                     ## ! P2 are the points from pcurve
+  ShapeAnalysis_Edge* {.importcpp: "ShapeAnalysis_Edge",
+                       header: "ShapeAnalysis_Edge.hxx", bycopy.} = object ## ! Empty
+                                                                      ## constructor;
+                                                                      ## initialises Status to OK
+                                                                      ## ! Check points by pairs (A and A, B and B) with precisions
+                                                                      ## ! (preci1 and preci2).
+                                                                      ## ! P1 are the points either from 3d curve or from vertices,
+                                                                      ## ! P2 are the points from pcurve
 
 
-proc constructShapeAnalysisEdge*(): ShapeAnalysisEdge {.constructor,
+proc constructShapeAnalysis_Edge*(): ShapeAnalysis_Edge {.constructor,
     importcpp: "ShapeAnalysis_Edge(@)", header: "ShapeAnalysis_Edge.hxx".}
-proc hasCurve3d*(this: ShapeAnalysisEdge; edge: TopoDS_Edge): StandardBoolean {.
+proc HasCurve3d*(this: ShapeAnalysis_Edge; edge: TopoDS_Edge): Standard_Boolean {.
     noSideEffect, importcpp: "HasCurve3d", header: "ShapeAnalysis_Edge.hxx".}
-proc curve3d*(this: ShapeAnalysisEdge; edge: TopoDS_Edge; c3d: var Handle[GeomCurve];
-             cf: var StandardReal; cl: var StandardReal;
-             orient: StandardBoolean = standardTrue): StandardBoolean {.noSideEffect,
-    importcpp: "Curve3d", header: "ShapeAnalysis_Edge.hxx".}
-proc isClosed3d*(this: ShapeAnalysisEdge; edge: TopoDS_Edge): StandardBoolean {.
+proc Curve3d*(this: ShapeAnalysis_Edge; edge: TopoDS_Edge;
+             C3d: var handle[Geom_Curve]; cf: var Standard_Real;
+             cl: var Standard_Real; orient: Standard_Boolean = Standard_True): Standard_Boolean {.
+    noSideEffect, importcpp: "Curve3d", header: "ShapeAnalysis_Edge.hxx".}
+proc IsClosed3d*(this: ShapeAnalysis_Edge; edge: TopoDS_Edge): Standard_Boolean {.
     noSideEffect, importcpp: "IsClosed3d", header: "ShapeAnalysis_Edge.hxx".}
-proc hasPCurve*(this: ShapeAnalysisEdge; edge: TopoDS_Edge; face: TopoDS_Face): StandardBoolean {.
+proc HasPCurve*(this: ShapeAnalysis_Edge; edge: TopoDS_Edge; face: TopoDS_Face): Standard_Boolean {.
     noSideEffect, importcpp: "HasPCurve", header: "ShapeAnalysis_Edge.hxx".}
-proc hasPCurve*(this: ShapeAnalysisEdge; edge: TopoDS_Edge;
-               surface: Handle[GeomSurface]; location: TopLocLocation): StandardBoolean {.
+proc HasPCurve*(this: ShapeAnalysis_Edge; edge: TopoDS_Edge;
+               surface: handle[Geom_Surface]; location: TopLoc_Location): Standard_Boolean {.
     noSideEffect, importcpp: "HasPCurve", header: "ShapeAnalysis_Edge.hxx".}
-proc pCurve*(this: ShapeAnalysisEdge; edge: TopoDS_Edge; face: TopoDS_Face;
-            c2d: var Handle[Geom2dCurve]; cf: var StandardReal; cl: var StandardReal;
-            orient: StandardBoolean = standardTrue): StandardBoolean {.noSideEffect,
-    importcpp: "PCurve", header: "ShapeAnalysis_Edge.hxx".}
-proc pCurve*(this: ShapeAnalysisEdge; edge: TopoDS_Edge;
-            surface: Handle[GeomSurface]; location: TopLocLocation;
-            c2d: var Handle[Geom2dCurve]; cf: var StandardReal; cl: var StandardReal;
-            orient: StandardBoolean = standardTrue): StandardBoolean {.noSideEffect,
-    importcpp: "PCurve", header: "ShapeAnalysis_Edge.hxx".}
-proc boundUV*(this: ShapeAnalysisEdge; edge: TopoDS_Edge; face: TopoDS_Face;
-             first: var GpPnt2d; last: var GpPnt2d): StandardBoolean {.noSideEffect,
+proc PCurve*(this: ShapeAnalysis_Edge; edge: TopoDS_Edge; face: TopoDS_Face;
+            C2d: var handle[Geom2d_Curve]; cf: var Standard_Real;
+            cl: var Standard_Real; orient: Standard_Boolean = Standard_True): Standard_Boolean {.
+    noSideEffect, importcpp: "PCurve", header: "ShapeAnalysis_Edge.hxx".}
+proc PCurve*(this: ShapeAnalysis_Edge; edge: TopoDS_Edge;
+            surface: handle[Geom_Surface]; location: TopLoc_Location;
+            C2d: var handle[Geom2d_Curve]; cf: var Standard_Real;
+            cl: var Standard_Real; orient: Standard_Boolean = Standard_True): Standard_Boolean {.
+    noSideEffect, importcpp: "PCurve", header: "ShapeAnalysis_Edge.hxx".}
+proc BoundUV*(this: ShapeAnalysis_Edge; edge: TopoDS_Edge; face: TopoDS_Face;
+             first: var gp_Pnt2d; last: var gp_Pnt2d): Standard_Boolean {.noSideEffect,
     importcpp: "BoundUV", header: "ShapeAnalysis_Edge.hxx".}
-proc boundUV*(this: ShapeAnalysisEdge; edge: TopoDS_Edge;
-             surface: Handle[GeomSurface]; location: TopLocLocation;
-             first: var GpPnt2d; last: var GpPnt2d): StandardBoolean {.noSideEffect,
+proc BoundUV*(this: ShapeAnalysis_Edge; edge: TopoDS_Edge;
+             surface: handle[Geom_Surface]; location: TopLoc_Location;
+             first: var gp_Pnt2d; last: var gp_Pnt2d): Standard_Boolean {.noSideEffect,
     importcpp: "BoundUV", header: "ShapeAnalysis_Edge.hxx".}
-proc isSeam*(this: ShapeAnalysisEdge; edge: TopoDS_Edge; face: TopoDS_Face): StandardBoolean {.
+proc IsSeam*(this: ShapeAnalysis_Edge; edge: TopoDS_Edge; face: TopoDS_Face): Standard_Boolean {.
     noSideEffect, importcpp: "IsSeam", header: "ShapeAnalysis_Edge.hxx".}
-proc isSeam*(this: ShapeAnalysisEdge; edge: TopoDS_Edge;
-            surface: Handle[GeomSurface]; location: TopLocLocation): StandardBoolean {.
+proc IsSeam*(this: ShapeAnalysis_Edge; edge: TopoDS_Edge;
+            surface: handle[Geom_Surface]; location: TopLoc_Location): Standard_Boolean {.
     noSideEffect, importcpp: "IsSeam", header: "ShapeAnalysis_Edge.hxx".}
-proc firstVertex*(this: ShapeAnalysisEdge; edge: TopoDS_Edge): TopoDS_Vertex {.
+proc FirstVertex*(this: ShapeAnalysis_Edge; edge: TopoDS_Edge): TopoDS_Vertex {.
     noSideEffect, importcpp: "FirstVertex", header: "ShapeAnalysis_Edge.hxx".}
-proc lastVertex*(this: ShapeAnalysisEdge; edge: TopoDS_Edge): TopoDS_Vertex {.
+proc LastVertex*(this: ShapeAnalysis_Edge; edge: TopoDS_Edge): TopoDS_Vertex {.
     noSideEffect, importcpp: "LastVertex", header: "ShapeAnalysis_Edge.hxx".}
-proc getEndTangent2d*(this: ShapeAnalysisEdge; edge: TopoDS_Edge; face: TopoDS_Face;
-                     atEnd: StandardBoolean; pos: var GpPnt2d; tang: var GpVec2d;
-                     dparam: StandardReal = 0.0): StandardBoolean {.noSideEffect,
+proc GetEndTangent2d*(this: ShapeAnalysis_Edge; edge: TopoDS_Edge; face: TopoDS_Face;
+                     atEnd: Standard_Boolean; pos: var gp_Pnt2d; tang: var gp_Vec2d;
+                     dparam: Standard_Real = 0.0): Standard_Boolean {.noSideEffect,
     importcpp: "GetEndTangent2d", header: "ShapeAnalysis_Edge.hxx".}
-proc getEndTangent2d*(this: ShapeAnalysisEdge; edge: TopoDS_Edge;
-                     surface: Handle[GeomSurface]; location: TopLocLocation;
-                     atEnd: StandardBoolean; pos: var GpPnt2d; tang: var GpVec2d;
-                     dparam: StandardReal = 0.0): StandardBoolean {.noSideEffect,
+proc GetEndTangent2d*(this: ShapeAnalysis_Edge; edge: TopoDS_Edge;
+                     surface: handle[Geom_Surface]; location: TopLoc_Location;
+                     atEnd: Standard_Boolean; pos: var gp_Pnt2d; tang: var gp_Vec2d;
+                     dparam: Standard_Real = 0.0): Standard_Boolean {.noSideEffect,
     importcpp: "GetEndTangent2d", header: "ShapeAnalysis_Edge.hxx".}
-proc checkVerticesWithCurve3d*(this: var ShapeAnalysisEdge; edge: TopoDS_Edge;
-                              preci: StandardReal = -1; vtx: StandardInteger = 0): StandardBoolean {.
+proc CheckVerticesWithCurve3d*(this: var ShapeAnalysis_Edge; edge: TopoDS_Edge;
+                              preci: Standard_Real = -1; vtx: Standard_Integer = 0): Standard_Boolean {.
     importcpp: "CheckVerticesWithCurve3d", header: "ShapeAnalysis_Edge.hxx".}
-proc checkVerticesWithPCurve*(this: var ShapeAnalysisEdge; edge: TopoDS_Edge;
-                             face: TopoDS_Face; preci: StandardReal = -1;
-                             vtx: StandardInteger = 0): StandardBoolean {.
+proc CheckVerticesWithPCurve*(this: var ShapeAnalysis_Edge; edge: TopoDS_Edge;
+                             face: TopoDS_Face; preci: Standard_Real = -1;
+                             vtx: Standard_Integer = 0): Standard_Boolean {.
     importcpp: "CheckVerticesWithPCurve", header: "ShapeAnalysis_Edge.hxx".}
-proc checkVerticesWithPCurve*(this: var ShapeAnalysisEdge; edge: TopoDS_Edge;
-                             surface: Handle[GeomSurface];
-                             location: TopLocLocation; preci: StandardReal = -1;
-                             vtx: StandardInteger = 0): StandardBoolean {.
+proc CheckVerticesWithPCurve*(this: var ShapeAnalysis_Edge; edge: TopoDS_Edge;
+                             surface: handle[Geom_Surface];
+                             location: TopLoc_Location;
+                             preci: Standard_Real = -1; vtx: Standard_Integer = 0): Standard_Boolean {.
     importcpp: "CheckVerticesWithPCurve", header: "ShapeAnalysis_Edge.hxx".}
-proc checkVertexTolerance*(this: var ShapeAnalysisEdge; edge: TopoDS_Edge;
-                          face: TopoDS_Face; toler1: var StandardReal;
-                          toler2: var StandardReal): StandardBoolean {.
+proc CheckVertexTolerance*(this: var ShapeAnalysis_Edge; edge: TopoDS_Edge;
+                          face: TopoDS_Face; toler1: var Standard_Real;
+                          toler2: var Standard_Real): Standard_Boolean {.
     importcpp: "CheckVertexTolerance", header: "ShapeAnalysis_Edge.hxx".}
-proc checkVertexTolerance*(this: var ShapeAnalysisEdge; edge: TopoDS_Edge;
-                          toler1: var StandardReal; toler2: var StandardReal): StandardBoolean {.
+proc CheckVertexTolerance*(this: var ShapeAnalysis_Edge; edge: TopoDS_Edge;
+                          toler1: var Standard_Real; toler2: var Standard_Real): Standard_Boolean {.
     importcpp: "CheckVertexTolerance", header: "ShapeAnalysis_Edge.hxx".}
-proc checkCurve3dWithPCurve*(this: var ShapeAnalysisEdge; edge: TopoDS_Edge;
-                            face: TopoDS_Face): StandardBoolean {.
+proc CheckCurve3dWithPCurve*(this: var ShapeAnalysis_Edge; edge: TopoDS_Edge;
+                            face: TopoDS_Face): Standard_Boolean {.
     importcpp: "CheckCurve3dWithPCurve", header: "ShapeAnalysis_Edge.hxx".}
-proc checkCurve3dWithPCurve*(this: var ShapeAnalysisEdge; edge: TopoDS_Edge;
-                            surface: Handle[GeomSurface]; location: TopLocLocation): StandardBoolean {.
+proc CheckCurve3dWithPCurve*(this: var ShapeAnalysis_Edge; edge: TopoDS_Edge;
+                            surface: handle[Geom_Surface];
+                            location: TopLoc_Location): Standard_Boolean {.
     importcpp: "CheckCurve3dWithPCurve", header: "ShapeAnalysis_Edge.hxx".}
-proc status*(this: ShapeAnalysisEdge; status: ShapeExtendStatus): StandardBoolean {.
+proc Status*(this: ShapeAnalysis_Edge; status: ShapeExtend_Status): Standard_Boolean {.
     noSideEffect, importcpp: "Status", header: "ShapeAnalysis_Edge.hxx".}
-proc checkSameParameter*(this: var ShapeAnalysisEdge; edge: TopoDS_Edge;
-                        maxdev: var StandardReal; nbControl: StandardInteger = 23): StandardBoolean {.
+proc CheckSameParameter*(this: var ShapeAnalysis_Edge; edge: TopoDS_Edge;
+                        maxdev: var Standard_Real; NbControl: Standard_Integer = 23): Standard_Boolean {.
     importcpp: "CheckSameParameter", header: "ShapeAnalysis_Edge.hxx".}
-proc checkSameParameter*(this: var ShapeAnalysisEdge; theEdge: TopoDS_Edge;
-                        theFace: TopoDS_Face; theMaxdev: var StandardReal;
-                        theNbControl: StandardInteger = 23): StandardBoolean {.
+proc CheckSameParameter*(this: var ShapeAnalysis_Edge; theEdge: TopoDS_Edge;
+                        theFace: TopoDS_Face; theMaxdev: var Standard_Real;
+                        theNbControl: Standard_Integer = 23): Standard_Boolean {.
     importcpp: "CheckSameParameter", header: "ShapeAnalysis_Edge.hxx".}
-proc checkPCurveRange*(this: var ShapeAnalysisEdge; theFirst: StandardReal;
-                      theLast: StandardReal; thePC: Handle[Geom2dCurve]): StandardBoolean {.
+proc CheckPCurveRange*(this: var ShapeAnalysis_Edge; theFirst: Standard_Real;
+                      theLast: Standard_Real; thePC: handle[Geom2d_Curve]): Standard_Boolean {.
     importcpp: "CheckPCurveRange", header: "ShapeAnalysis_Edge.hxx".}
-proc computeDeviation*(cRef: Adaptor3dCurve; other: Adaptor3dCurve;
-                      sameParameter: StandardBoolean; dev: var StandardReal;
-                      ncontrol: StandardInteger): StandardBoolean {.
+proc ComputeDeviation*(CRef: Adaptor3d_Curve; Other: Adaptor3d_Curve;
+                      SameParameter: Standard_Boolean; dev: var Standard_Real;
+                      NCONTROL: Standard_Integer): Standard_Boolean {.
     importcpp: "ShapeAnalysis_Edge::ComputeDeviation(@)",
     header: "ShapeAnalysis_Edge.hxx".}
-proc checkOverlapping*(this: var ShapeAnalysisEdge; theEdge1: TopoDS_Edge;
-                      theEdge2: TopoDS_Edge; theTolOverlap: var StandardReal;
-                      theDomainDist: StandardReal = 0.0): StandardBoolean {.
+proc CheckOverlapping*(this: var ShapeAnalysis_Edge; theEdge1: TopoDS_Edge;
+                      theEdge2: TopoDS_Edge; theTolOverlap: var Standard_Real;
+                      theDomainDist: Standard_Real = 0.0): Standard_Boolean {.
     importcpp: "CheckOverlapping", header: "ShapeAnalysis_Edge.hxx".}
-

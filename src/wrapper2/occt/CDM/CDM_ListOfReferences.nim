@@ -14,8 +14,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  CDM_Reference, ../NCollection/NCollection_List
+
 type
-  CDM_ListOfReferences* = NCollectionList[Handle[CDM_Reference]]
-  CDM_ListIteratorOfListOfReferences* = Iterator[Handle[CDM_Reference]]
-
-
+  CDM_ListOfReferences* = NCollection_List[handle[CDM_Reference]]
+  CDM_ListIteratorOfListOfReferences* = Iterator[handle[CDM_Reference]]

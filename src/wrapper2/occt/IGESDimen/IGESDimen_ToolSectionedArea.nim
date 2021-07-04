@@ -14,6 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 discard "forward decl of Standard_DomainError"
 discard "forward decl of IGESDimen_SectionedArea"
 discard "forward decl of IGESData_IGESReaderData"
@@ -26,47 +30,46 @@ discard "forward decl of Interface_Check"
 discard "forward decl of Interface_CopyTool"
 discard "forward decl of IGESData_IGESDumper"
 type
-  IGESDimenToolSectionedArea* {.importcpp: "IGESDimen_ToolSectionedArea",
-                               header: "IGESDimen_ToolSectionedArea.hxx", bycopy.} = object ##
-                                                                                       ## !
-                                                                                       ## Returns
-                                                                                       ## a
-                                                                                       ## ToolSectionedArea,
-                                                                                       ## ready
-                                                                                       ## to
-                                                                                       ## work
+  IGESDimen_ToolSectionedArea* {.importcpp: "IGESDimen_ToolSectionedArea",
+                                header: "IGESDimen_ToolSectionedArea.hxx", bycopy.} = object ##
+                                                                                        ## !
+                                                                                        ## Returns
+                                                                                        ## a
+                                                                                        ## ToolSectionedArea,
+                                                                                        ## ready
+                                                                                        ## to
+                                                                                        ## work
 
 
-proc constructIGESDimenToolSectionedArea*(): IGESDimenToolSectionedArea {.
+proc constructIGESDimen_ToolSectionedArea*(): IGESDimen_ToolSectionedArea {.
     constructor, importcpp: "IGESDimen_ToolSectionedArea(@)",
     header: "IGESDimen_ToolSectionedArea.hxx".}
-proc readOwnParams*(this: IGESDimenToolSectionedArea;
-                   ent: Handle[IGESDimenSectionedArea];
-                   ir: Handle[IGESDataIGESReaderData]; pr: var IGESDataParamReader) {.
-    noSideEffect, importcpp: "ReadOwnParams",
-    header: "IGESDimen_ToolSectionedArea.hxx".}
-proc writeOwnParams*(this: IGESDimenToolSectionedArea;
-                    ent: Handle[IGESDimenSectionedArea];
-                    iw: var IGESDataIGESWriter) {.noSideEffect,
+proc ReadOwnParams*(this: IGESDimen_ToolSectionedArea;
+                   ent: handle[IGESDimen_SectionedArea];
+                   IR: handle[IGESData_IGESReaderData];
+                   PR: var IGESData_ParamReader) {.noSideEffect,
+    importcpp: "ReadOwnParams", header: "IGESDimen_ToolSectionedArea.hxx".}
+proc WriteOwnParams*(this: IGESDimen_ToolSectionedArea;
+                    ent: handle[IGESDimen_SectionedArea];
+                    IW: var IGESData_IGESWriter) {.noSideEffect,
     importcpp: "WriteOwnParams", header: "IGESDimen_ToolSectionedArea.hxx".}
-proc ownShared*(this: IGESDimenToolSectionedArea;
-               ent: Handle[IGESDimenSectionedArea];
-               iter: var InterfaceEntityIterator) {.noSideEffect,
+proc OwnShared*(this: IGESDimen_ToolSectionedArea;
+               ent: handle[IGESDimen_SectionedArea];
+               iter: var Interface_EntityIterator) {.noSideEffect,
     importcpp: "OwnShared", header: "IGESDimen_ToolSectionedArea.hxx".}
-proc dirChecker*(this: IGESDimenToolSectionedArea;
-                ent: Handle[IGESDimenSectionedArea]): IGESDataDirChecker {.
+proc DirChecker*(this: IGESDimen_ToolSectionedArea;
+                ent: handle[IGESDimen_SectionedArea]): IGESData_DirChecker {.
     noSideEffect, importcpp: "DirChecker",
     header: "IGESDimen_ToolSectionedArea.hxx".}
-proc ownCheck*(this: IGESDimenToolSectionedArea;
-              ent: Handle[IGESDimenSectionedArea]; shares: InterfaceShareTool;
-              ach: var Handle[InterfaceCheck]) {.noSideEffect,
+proc OwnCheck*(this: IGESDimen_ToolSectionedArea;
+              ent: handle[IGESDimen_SectionedArea]; shares: Interface_ShareTool;
+              ach: var handle[Interface_Check]) {.noSideEffect,
     importcpp: "OwnCheck", header: "IGESDimen_ToolSectionedArea.hxx".}
-proc ownCopy*(this: IGESDimenToolSectionedArea;
-             entfrom: Handle[IGESDimenSectionedArea];
-             entto: Handle[IGESDimenSectionedArea]; tc: var InterfaceCopyTool) {.
+proc OwnCopy*(this: IGESDimen_ToolSectionedArea;
+             entfrom: handle[IGESDimen_SectionedArea];
+             entto: handle[IGESDimen_SectionedArea]; TC: var Interface_CopyTool) {.
     noSideEffect, importcpp: "OwnCopy", header: "IGESDimen_ToolSectionedArea.hxx".}
-proc ownDump*(this: IGESDimenToolSectionedArea;
-             ent: Handle[IGESDimenSectionedArea]; dumper: IGESDataIGESDumper;
-             s: var StandardOStream; own: StandardInteger) {.noSideEffect,
+proc OwnDump*(this: IGESDimen_ToolSectionedArea;
+             ent: handle[IGESDimen_SectionedArea]; dumper: IGESData_IGESDumper;
+             S: var Standard_OStream; own: Standard_Integer) {.noSideEffect,
     importcpp: "OwnDump", header: "IGESDimen_ToolSectionedArea.hxx".}
-

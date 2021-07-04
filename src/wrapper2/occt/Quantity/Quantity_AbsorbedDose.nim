@@ -14,9 +14,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _Quantity_AbsorbedDose_HeaderFile [NewLine] # _Quantity_AbsorbedDose_HeaderFile [NewLine] # < Standard_Real . hxx > [NewLine] ! Defined as the energy absorbed per unit mass in an
+## !!!Ignored construct:  # _Quantity_AbsorbedDose_HeaderFile [NewLine] # _Quantity_AbsorbedDose_HeaderFile [NewLine] # ../Standard/Standard_Real.hxx [NewLine] ! Defined as the energy absorbed per unit mass in an
 ## ! irradiated medium.
 ## ! It is measured in grays. Standard_DEPRECATED ( This type is deprecated - Standard_Real should be used instead ) typedef Standard_Real Quantity_AbsorbedDose ;
 ## Error: expected ';'!!!
-
-

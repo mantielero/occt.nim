@@ -14,11 +14,15 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Real,
+  ../Standard/Standard_Transient
+
 discard "forward decl of ShapeBuild_ReShape"
 discard "forward decl of ShapeUpgrade_Tool"
 discard "forward decl of ShapeUpgrade_Tool"
 type
-  HandleShapeUpgradeTool* = Handle[ShapeUpgradeTool]
+  Handle_ShapeUpgrade_Tool* = handle[ShapeUpgrade_Tool]
 
 ## ! Tool is a root class for splitting classes
 ## ! Provides context for recording changes, basic
@@ -26,43 +30,42 @@ type
 ## ! values for tolerances
 
 type
-  ShapeUpgradeTool* {.importcpp: "ShapeUpgrade_Tool",
-                     header: "ShapeUpgrade_Tool.hxx", bycopy.} = object of StandardTransient ##
-                                                                                      ## !
-                                                                                      ## Empty
-                                                                                      ## constructor
+  ShapeUpgrade_Tool* {.importcpp: "ShapeUpgrade_Tool",
+                      header: "ShapeUpgrade_Tool.hxx", bycopy.} = object of Standard_Transient ##
+                                                                                        ## !
+                                                                                        ## Empty
+                                                                                        ## constructor
 
 
-proc constructShapeUpgradeTool*(): ShapeUpgradeTool {.constructor,
+proc constructShapeUpgrade_Tool*(): ShapeUpgrade_Tool {.constructor,
     importcpp: "ShapeUpgrade_Tool(@)", header: "ShapeUpgrade_Tool.hxx".}
-proc set*(this: var ShapeUpgradeTool; tool: Handle[ShapeUpgradeTool]) {.
+proc Set*(this: var ShapeUpgrade_Tool; tool: handle[ShapeUpgrade_Tool]) {.
     importcpp: "Set", header: "ShapeUpgrade_Tool.hxx".}
-proc setContext*(this: var ShapeUpgradeTool; context: Handle[ShapeBuildReShape]) {.
+proc SetContext*(this: var ShapeUpgrade_Tool; context: handle[ShapeBuild_ReShape]) {.
     importcpp: "SetContext", header: "ShapeUpgrade_Tool.hxx".}
-proc context*(this: ShapeUpgradeTool): Handle[ShapeBuildReShape] {.noSideEffect,
+proc Context*(this: ShapeUpgrade_Tool): handle[ShapeBuild_ReShape] {.noSideEffect,
     importcpp: "Context", header: "ShapeUpgrade_Tool.hxx".}
-proc setPrecision*(this: var ShapeUpgradeTool; preci: StandardReal) {.
+proc SetPrecision*(this: var ShapeUpgrade_Tool; preci: Standard_Real) {.
     importcpp: "SetPrecision", header: "ShapeUpgrade_Tool.hxx".}
-proc precision*(this: ShapeUpgradeTool): StandardReal {.noSideEffect,
+proc Precision*(this: ShapeUpgrade_Tool): Standard_Real {.noSideEffect,
     importcpp: "Precision", header: "ShapeUpgrade_Tool.hxx".}
-proc setMinTolerance*(this: var ShapeUpgradeTool; mintol: StandardReal) {.
+proc SetMinTolerance*(this: var ShapeUpgrade_Tool; mintol: Standard_Real) {.
     importcpp: "SetMinTolerance", header: "ShapeUpgrade_Tool.hxx".}
-proc minTolerance*(this: ShapeUpgradeTool): StandardReal {.noSideEffect,
+proc MinTolerance*(this: ShapeUpgrade_Tool): Standard_Real {.noSideEffect,
     importcpp: "MinTolerance", header: "ShapeUpgrade_Tool.hxx".}
-proc setMaxTolerance*(this: var ShapeUpgradeTool; maxtol: StandardReal) {.
+proc SetMaxTolerance*(this: var ShapeUpgrade_Tool; maxtol: Standard_Real) {.
     importcpp: "SetMaxTolerance", header: "ShapeUpgrade_Tool.hxx".}
-proc maxTolerance*(this: ShapeUpgradeTool): StandardReal {.noSideEffect,
+proc MaxTolerance*(this: ShapeUpgrade_Tool): Standard_Real {.noSideEffect,
     importcpp: "MaxTolerance", header: "ShapeUpgrade_Tool.hxx".}
-proc limitTolerance*(this: ShapeUpgradeTool; toler: StandardReal): StandardReal {.
+proc LimitTolerance*(this: ShapeUpgrade_Tool; toler: Standard_Real): Standard_Real {.
     noSideEffect, importcpp: "LimitTolerance", header: "ShapeUpgrade_Tool.hxx".}
 type
-  ShapeUpgradeToolbaseType* = StandardTransient
+  ShapeUpgrade_Toolbase_type* = Standard_Transient
 
-proc getTypeName*(): cstring {.importcpp: "ShapeUpgrade_Tool::get_type_name(@)",
-                            header: "ShapeUpgrade_Tool.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "ShapeUpgrade_Tool::get_type_name(@)",
+                              header: "ShapeUpgrade_Tool.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "ShapeUpgrade_Tool::get_type_descriptor(@)",
     header: "ShapeUpgrade_Tool.hxx".}
-proc dynamicType*(this: ShapeUpgradeTool): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: ShapeUpgrade_Tool): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "ShapeUpgrade_Tool.hxx".}
-

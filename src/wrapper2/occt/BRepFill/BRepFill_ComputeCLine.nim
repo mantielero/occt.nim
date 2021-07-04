@@ -14,77 +14,89 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../AppParCurves/AppParCurves_SequenceOfMultiCurve,
+  ../TColStd/TColStd_SequenceOfReal, ../AppParCurves/AppParCurves_MultiCurve,
+  ../Standard/Standard_Boolean, ../Standard/Standard_Integer,
+  ../Standard/Standard_Real, ../AppParCurves/AppParCurves_Constraint,
+  BRepFill_MultiLine
+
 discard "forward decl of AppParCurves_MultiCurve"
 type
-  BRepFillComputeCLine* {.importcpp: "BRepFill_ComputeCLine",
-                         header: "BRepFill_ComputeCLine.hxx", bycopy.} = object ## ! The
-                                                                           ## MultiLine
-                                                                           ## <Line> will be
-                                                                           ## approximated until
-                                                                           ## tolerances
-                                                                           ## ! will be
-                                                                           ## reached.
-                                                                           ## ! The
-                                                                           ## approximation will be done from
-                                                                           ## degreemin to
-                                                                           ## degreemax
-                                                                           ## ! with a
-                                                                           ## cutting if the
-                                                                           ## corresponding
-                                                                           ## boolean is True.
-                                                                           ## ! is
-                                                                           ## internally used by the
-                                                                           ## algorithms.
+  BRepFill_ComputeCLine* {.importcpp: "BRepFill_ComputeCLine",
+                          header: "BRepFill_ComputeCLine.hxx", bycopy.} = object ## ! The
+                                                                            ## MultiLine
+                                                                            ## <Line> will be
+                                                                            ## approximated
+                                                                            ## until
+                                                                            ## tolerances
+                                                                            ## ! will be
+                                                                            ## reached.
+                                                                            ## ! The
+                                                                            ## approximation will be done from
+                                                                            ## degreemin to
+                                                                            ## degreemax
+                                                                            ## ! with a
+                                                                            ## cutting if the
+                                                                            ## corresponding
+                                                                            ## boolean is
+                                                                            ## True.
+                                                                            ## ! is
+                                                                            ## internally used by the
+                                                                            ## algorithms.
 
 
-proc constructBRepFillComputeCLine*(line: BRepFillMultiLine;
-                                   degreemin: StandardInteger = 3;
-                                   degreemax: StandardInteger = 8;
-                                   tolerance3d: StandardReal = 1.0e-5;
-                                   tolerance2d: StandardReal = 1.0e-5;
-                                   cutting: StandardBoolean = standardFalse; firstC: AppParCurvesConstraint = appParCurvesTangencyPoint;
-    lastC: AppParCurvesConstraint = appParCurvesTangencyPoint): BRepFillComputeCLine {.
+proc constructBRepFill_ComputeCLine*(Line: BRepFill_MultiLine;
+                                    degreemin: Standard_Integer = 3;
+                                    degreemax: Standard_Integer = 8;
+                                    Tolerance3d: Standard_Real = 1.0e-5;
+                                    Tolerance2d: Standard_Real = 1.0e-5;
+                                    cutting: Standard_Boolean = Standard_False;
+    FirstC: AppParCurves_Constraint = AppParCurves_TangencyPoint; LastC: AppParCurves_Constraint = AppParCurves_TangencyPoint): BRepFill_ComputeCLine {.
     constructor, importcpp: "BRepFill_ComputeCLine(@)",
     header: "BRepFill_ComputeCLine.hxx".}
-proc constructBRepFillComputeCLine*(degreemin: StandardInteger = 3;
-                                   degreemax: StandardInteger = 8;
-                                   tolerance3d: StandardReal = 1.0e-05;
-                                   tolerance2d: StandardReal = 1.0e-05;
-                                   cutting: StandardBoolean = standardFalse; firstC: AppParCurvesConstraint = appParCurvesTangencyPoint;
-    lastC: AppParCurvesConstraint = appParCurvesTangencyPoint): BRepFillComputeCLine {.
+proc constructBRepFill_ComputeCLine*(degreemin: Standard_Integer = 3;
+                                    degreemax: Standard_Integer = 8;
+                                    Tolerance3d: Standard_Real = 1.0e-05;
+                                    Tolerance2d: Standard_Real = 1.0e-05;
+                                    cutting: Standard_Boolean = Standard_False;
+    FirstC: AppParCurves_Constraint = AppParCurves_TangencyPoint; LastC: AppParCurves_Constraint = AppParCurves_TangencyPoint): BRepFill_ComputeCLine {.
     constructor, importcpp: "BRepFill_ComputeCLine(@)",
     header: "BRepFill_ComputeCLine.hxx".}
-proc perform*(this: var BRepFillComputeCLine; line: BRepFillMultiLine) {.
+proc Perform*(this: var BRepFill_ComputeCLine; Line: BRepFill_MultiLine) {.
     importcpp: "Perform", header: "BRepFill_ComputeCLine.hxx".}
-proc setDegrees*(this: var BRepFillComputeCLine; degreemin: StandardInteger;
-                degreemax: StandardInteger) {.importcpp: "SetDegrees",
+proc SetDegrees*(this: var BRepFill_ComputeCLine; degreemin: Standard_Integer;
+                degreemax: Standard_Integer) {.importcpp: "SetDegrees",
     header: "BRepFill_ComputeCLine.hxx".}
-proc setTolerances*(this: var BRepFillComputeCLine; tolerance3d: StandardReal;
-                   tolerance2d: StandardReal) {.importcpp: "SetTolerances",
+proc SetTolerances*(this: var BRepFill_ComputeCLine; Tolerance3d: Standard_Real;
+                   Tolerance2d: Standard_Real) {.importcpp: "SetTolerances",
     header: "BRepFill_ComputeCLine.hxx".}
-proc setConstraints*(this: var BRepFillComputeCLine; firstC: AppParCurvesConstraint;
-                    lastC: AppParCurvesConstraint) {.importcpp: "SetConstraints",
+proc SetConstraints*(this: var BRepFill_ComputeCLine;
+                    FirstC: AppParCurves_Constraint;
+                    LastC: AppParCurves_Constraint) {.importcpp: "SetConstraints",
     header: "BRepFill_ComputeCLine.hxx".}
-proc setMaxSegments*(this: var BRepFillComputeCLine; theMaxSegments: StandardInteger) {.
+proc SetMaxSegments*(this: var BRepFill_ComputeCLine;
+                    theMaxSegments: Standard_Integer) {.
     importcpp: "SetMaxSegments", header: "BRepFill_ComputeCLine.hxx".}
-proc setInvOrder*(this: var BRepFillComputeCLine; theInvOrder: StandardBoolean) {.
+proc SetInvOrder*(this: var BRepFill_ComputeCLine; theInvOrder: Standard_Boolean) {.
     importcpp: "SetInvOrder", header: "BRepFill_ComputeCLine.hxx".}
-proc setHangChecking*(this: var BRepFillComputeCLine;
-                     theHangChecking: StandardBoolean) {.
+proc SetHangChecking*(this: var BRepFill_ComputeCLine;
+                     theHangChecking: Standard_Boolean) {.
     importcpp: "SetHangChecking", header: "BRepFill_ComputeCLine.hxx".}
-proc isAllApproximated*(this: BRepFillComputeCLine): StandardBoolean {.noSideEffect,
-    importcpp: "IsAllApproximated", header: "BRepFill_ComputeCLine.hxx".}
-proc isToleranceReached*(this: BRepFillComputeCLine): StandardBoolean {.
+proc IsAllApproximated*(this: BRepFill_ComputeCLine): Standard_Boolean {.
+    noSideEffect, importcpp: "IsAllApproximated",
+    header: "BRepFill_ComputeCLine.hxx".}
+proc IsToleranceReached*(this: BRepFill_ComputeCLine): Standard_Boolean {.
     noSideEffect, importcpp: "IsToleranceReached",
     header: "BRepFill_ComputeCLine.hxx".}
-proc error*(this: BRepFillComputeCLine; index: StandardInteger;
-           tol3d: var StandardReal; tol2d: var StandardReal) {.noSideEffect,
+proc Error*(this: BRepFill_ComputeCLine; Index: Standard_Integer;
+           tol3d: var Standard_Real; tol2d: var Standard_Real) {.noSideEffect,
     importcpp: "Error", header: "BRepFill_ComputeCLine.hxx".}
-proc nbMultiCurves*(this: BRepFillComputeCLine): StandardInteger {.noSideEffect,
+proc NbMultiCurves*(this: BRepFill_ComputeCLine): Standard_Integer {.noSideEffect,
     importcpp: "NbMultiCurves", header: "BRepFill_ComputeCLine.hxx".}
-proc value*(this: BRepFillComputeCLine; index: StandardInteger = 1): AppParCurvesMultiCurve {.
+proc Value*(this: BRepFill_ComputeCLine; Index: Standard_Integer = 1): AppParCurves_MultiCurve {.
     noSideEffect, importcpp: "Value", header: "BRepFill_ComputeCLine.hxx".}
-proc parameters*(this: BRepFillComputeCLine; index: StandardInteger;
-                firstp: var StandardReal; lastp: var StandardReal) {.noSideEffect,
+proc Parameters*(this: BRepFill_ComputeCLine; Index: Standard_Integer;
+                firstp: var Standard_Real; lastp: var Standard_Real) {.noSideEffect,
     importcpp: "Parameters", header: "BRepFill_ComputeCLine.hxx".}
-

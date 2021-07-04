@@ -14,31 +14,35 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../TColStd/TColStd_Array1OfReal,
+  ../Standard/Standard_Integer, ../Standard/Standard_Real, ../math/math_Vector
+
 discard "forward decl of Standard_DimensionError"
 discard "forward decl of Standard_RangeError"
 discard "forward decl of math_Matrix"
 type
-  BlendFuncTensor* {.importcpp: "BlendFunc_Tensor", header: "BlendFunc_Tensor.hxx",
-                    bycopy.} = object
+  BlendFunc_Tensor* {.importcpp: "BlendFunc_Tensor",
+                     header: "BlendFunc_Tensor.hxx", bycopy.} = object
 
 
-proc constructBlendFuncTensor*(nbRow: StandardInteger; nbCol: StandardInteger;
-                              nbMat: StandardInteger): BlendFuncTensor {.
+proc constructBlendFunc_Tensor*(NbRow: Standard_Integer; NbCol: Standard_Integer;
+                               NbMat: Standard_Integer): BlendFunc_Tensor {.
     constructor, importcpp: "BlendFunc_Tensor(@)", header: "BlendFunc_Tensor.hxx".}
-proc init*(this: var BlendFuncTensor; initialValue: StandardReal) {.importcpp: "Init",
+proc Init*(this: var BlendFunc_Tensor; InitialValue: Standard_Real) {.
+    importcpp: "Init", header: "BlendFunc_Tensor.hxx".}
+proc Value*(this: BlendFunc_Tensor; Row: Standard_Integer; Col: Standard_Integer;
+           Mat: Standard_Integer): Standard_Real {.noSideEffect, importcpp: "Value",
     header: "BlendFunc_Tensor.hxx".}
-proc value*(this: BlendFuncTensor; row: StandardInteger; col: StandardInteger;
-           mat: StandardInteger): StandardReal {.noSideEffect, importcpp: "Value",
+proc `()`*(this: BlendFunc_Tensor; Row: Standard_Integer; Col: Standard_Integer;
+          Mat: Standard_Integer): Standard_Real {.noSideEffect, importcpp: "#(@)",
     header: "BlendFunc_Tensor.hxx".}
-proc `()`*(this: BlendFuncTensor; row: StandardInteger; col: StandardInteger;
-          mat: StandardInteger): StandardReal {.noSideEffect, importcpp: "#(@)",
-    header: "BlendFunc_Tensor.hxx".}
-proc changeValue*(this: var BlendFuncTensor; row: StandardInteger;
-                 col: StandardInteger; mat: StandardInteger): var StandardReal {.
+proc ChangeValue*(this: var BlendFunc_Tensor; Row: Standard_Integer;
+                 Col: Standard_Integer; Mat: Standard_Integer): var Standard_Real {.
     importcpp: "ChangeValue", header: "BlendFunc_Tensor.hxx".}
-proc `()`*(this: var BlendFuncTensor; row: StandardInteger; col: StandardInteger;
-          mat: StandardInteger): var StandardReal {.importcpp: "#(@)",
+proc `()`*(this: var BlendFunc_Tensor; Row: Standard_Integer; Col: Standard_Integer;
+          Mat: Standard_Integer): var Standard_Real {.importcpp: "#(@)",
     header: "BlendFunc_Tensor.hxx".}
-proc multiply*(this: BlendFuncTensor; right: MathVector; product: var MathMatrix) {.
+proc Multiply*(this: BlendFunc_Tensor; Right: math_Vector; Product: var math_Matrix) {.
     noSideEffect, importcpp: "Multiply", header: "BlendFunc_Tensor.hxx".}
-

@@ -14,6 +14,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, Expr_UnaryExpression,
+  ../Standard/Standard_Boolean, ../Standard/Standard_Real,
+  Expr_Array1OfNamedUnknown, ../TColStd/TColStd_Array1OfReal
+
 discard "forward decl of Standard_NumericError"
 discard "forward decl of Expr_NotEvaluable"
 discard "forward decl of Expr_GeneralExpression"
@@ -22,41 +27,40 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of Expr_Cosh"
 discard "forward decl of Expr_Cosh"
 type
-  HandleExprCosh* = Handle[ExprCosh]
-  ExprCosh* {.importcpp: "Expr_Cosh", header: "Expr_Cosh.hxx", bycopy.} = object of ExprUnaryExpression ##
-                                                                                              ## !
-                                                                                              ## Creates
-                                                                                              ## the
-                                                                                              ## Cosh
-                                                                                              ## of
-                                                                                              ## <exp>
+  Handle_Expr_Cosh* = handle[Expr_Cosh]
+  Expr_Cosh* {.importcpp: "Expr_Cosh", header: "Expr_Cosh.hxx", bycopy.} = object of Expr_UnaryExpression ##
+                                                                                                ## !
+                                                                                                ## Creates
+                                                                                                ## the
+                                                                                                ## Cosh
+                                                                                                ## of
+                                                                                                ## <exp>
 
 
-proc constructExprCosh*(exp: Handle[ExprGeneralExpression]): ExprCosh {.constructor,
-    importcpp: "Expr_Cosh(@)", header: "Expr_Cosh.hxx".}
-proc shallowSimplified*(this: ExprCosh): Handle[ExprGeneralExpression] {.
+proc constructExpr_Cosh*(exp: handle[Expr_GeneralExpression]): Expr_Cosh {.
+    constructor, importcpp: "Expr_Cosh(@)", header: "Expr_Cosh.hxx".}
+proc ShallowSimplified*(this: Expr_Cosh): handle[Expr_GeneralExpression] {.
     noSideEffect, importcpp: "ShallowSimplified", header: "Expr_Cosh.hxx".}
-proc copy*(this: ExprCosh): Handle[ExprGeneralExpression] {.noSideEffect,
+proc Copy*(this: Expr_Cosh): handle[Expr_GeneralExpression] {.noSideEffect,
     importcpp: "Copy", header: "Expr_Cosh.hxx".}
-proc isIdentical*(this: ExprCosh; other: Handle[ExprGeneralExpression]): StandardBoolean {.
+proc IsIdentical*(this: Expr_Cosh; Other: handle[Expr_GeneralExpression]): Standard_Boolean {.
     noSideEffect, importcpp: "IsIdentical", header: "Expr_Cosh.hxx".}
-proc isLinear*(this: ExprCosh): StandardBoolean {.noSideEffect,
+proc IsLinear*(this: Expr_Cosh): Standard_Boolean {.noSideEffect,
     importcpp: "IsLinear", header: "Expr_Cosh.hxx".}
-proc derivative*(this: ExprCosh; x: Handle[ExprNamedUnknown]): Handle[
-    ExprGeneralExpression] {.noSideEffect, importcpp: "Derivative",
-                            header: "Expr_Cosh.hxx".}
-proc evaluate*(this: ExprCosh; vars: ExprArray1OfNamedUnknown;
-              vals: TColStdArray1OfReal): StandardReal {.noSideEffect,
+proc Derivative*(this: Expr_Cosh; X: handle[Expr_NamedUnknown]): handle[
+    Expr_GeneralExpression] {.noSideEffect, importcpp: "Derivative",
+                             header: "Expr_Cosh.hxx".}
+proc Evaluate*(this: Expr_Cosh; vars: Expr_Array1OfNamedUnknown;
+              vals: TColStd_Array1OfReal): Standard_Real {.noSideEffect,
     importcpp: "Evaluate", header: "Expr_Cosh.hxx".}
-proc string*(this: ExprCosh): TCollectionAsciiString {.noSideEffect,
+proc String*(this: Expr_Cosh): TCollection_AsciiString {.noSideEffect,
     importcpp: "String", header: "Expr_Cosh.hxx".}
 type
-  ExprCoshbaseType* = ExprUnaryExpression
+  Expr_Coshbase_type* = Expr_UnaryExpression
 
-proc getTypeName*(): cstring {.importcpp: "Expr_Cosh::get_type_name(@)",
-                            header: "Expr_Cosh.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "Expr_Cosh::get_type_name(@)",
+                              header: "Expr_Cosh.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "Expr_Cosh::get_type_descriptor(@)", header: "Expr_Cosh.hxx".}
-proc dynamicType*(this: ExprCosh): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: Expr_Cosh): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "Expr_Cosh.hxx".}
-

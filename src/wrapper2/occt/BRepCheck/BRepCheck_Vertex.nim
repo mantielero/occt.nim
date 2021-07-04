@@ -14,34 +14,37 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, BRepCheck_Result,
+  ../Standard/Standard_Real
+
 discard "forward decl of TopoDS_Vertex"
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of BRepCheck_Vertex"
 discard "forward decl of BRepCheck_Vertex"
 type
-  HandleBRepCheckVertex* = Handle[BRepCheckVertex]
-  BRepCheckVertex* {.importcpp: "BRepCheck_Vertex", header: "BRepCheck_Vertex.hxx",
-                    bycopy.} = object of BRepCheckResult
+  Handle_BRepCheck_Vertex* = handle[BRepCheck_Vertex]
+  BRepCheck_Vertex* {.importcpp: "BRepCheck_Vertex",
+                     header: "BRepCheck_Vertex.hxx", bycopy.} = object of BRepCheck_Result
 
 
-proc constructBRepCheckVertex*(v: TopoDS_Vertex): BRepCheckVertex {.constructor,
+proc constructBRepCheck_Vertex*(V: TopoDS_Vertex): BRepCheck_Vertex {.constructor,
     importcpp: "BRepCheck_Vertex(@)", header: "BRepCheck_Vertex.hxx".}
-proc inContext*(this: var BRepCheckVertex; contextShape: TopoDS_Shape) {.
+proc InContext*(this: var BRepCheck_Vertex; ContextShape: TopoDS_Shape) {.
     importcpp: "InContext", header: "BRepCheck_Vertex.hxx".}
-proc minimum*(this: var BRepCheckVertex) {.importcpp: "Minimum",
-                                       header: "BRepCheck_Vertex.hxx".}
-proc blind*(this: var BRepCheckVertex) {.importcpp: "Blind",
-                                     header: "BRepCheck_Vertex.hxx".}
-proc tolerance*(this: var BRepCheckVertex): StandardReal {.importcpp: "Tolerance",
+proc Minimum*(this: var BRepCheck_Vertex) {.importcpp: "Minimum",
+                                        header: "BRepCheck_Vertex.hxx".}
+proc Blind*(this: var BRepCheck_Vertex) {.importcpp: "Blind",
+                                      header: "BRepCheck_Vertex.hxx".}
+proc Tolerance*(this: var BRepCheck_Vertex): Standard_Real {.importcpp: "Tolerance",
     header: "BRepCheck_Vertex.hxx".}
 type
-  BRepCheckVertexbaseType* = BRepCheckResult
+  BRepCheck_Vertexbase_type* = BRepCheck_Result
 
-proc getTypeName*(): cstring {.importcpp: "BRepCheck_Vertex::get_type_name(@)",
-                            header: "BRepCheck_Vertex.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "BRepCheck_Vertex::get_type_name(@)",
+                              header: "BRepCheck_Vertex.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "BRepCheck_Vertex::get_type_descriptor(@)",
     header: "BRepCheck_Vertex.hxx".}
-proc dynamicType*(this: BRepCheckVertex): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: BRepCheck_Vertex): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "BRepCheck_Vertex.hxx".}
-

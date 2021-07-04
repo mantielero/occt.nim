@@ -14,31 +14,34 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepVisual_SurfaceStyleControlGrid"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepVisualRWSurfaceStyleControlGrid* {.
+  RWStepVisual_RWSurfaceStyleControlGrid* {.
       importcpp: "RWStepVisual_RWSurfaceStyleControlGrid",
       header: "RWStepVisual_RWSurfaceStyleControlGrid.hxx", bycopy.} = object
 
 
-proc constructRWStepVisualRWSurfaceStyleControlGrid*(): RWStepVisualRWSurfaceStyleControlGrid {.
+proc constructRWStepVisual_RWSurfaceStyleControlGrid*(): RWStepVisual_RWSurfaceStyleControlGrid {.
     constructor, importcpp: "RWStepVisual_RWSurfaceStyleControlGrid(@)",
     header: "RWStepVisual_RWSurfaceStyleControlGrid.hxx".}
-proc readStep*(this: RWStepVisualRWSurfaceStyleControlGrid;
-              data: Handle[StepDataStepReaderData]; num: StandardInteger;
-              ach: var Handle[InterfaceCheck];
-              ent: Handle[StepVisualSurfaceStyleControlGrid]) {.noSideEffect,
+proc ReadStep*(this: RWStepVisual_RWSurfaceStyleControlGrid;
+              data: handle[StepData_StepReaderData]; num: Standard_Integer;
+              ach: var handle[Interface_Check];
+              ent: handle[StepVisual_SurfaceStyleControlGrid]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepVisual_RWSurfaceStyleControlGrid.hxx".}
-proc writeStep*(this: RWStepVisualRWSurfaceStyleControlGrid;
-               sw: var StepDataStepWriter;
-               ent: Handle[StepVisualSurfaceStyleControlGrid]) {.noSideEffect,
+proc WriteStep*(this: RWStepVisual_RWSurfaceStyleControlGrid;
+               SW: var StepData_StepWriter;
+               ent: handle[StepVisual_SurfaceStyleControlGrid]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepVisual_RWSurfaceStyleControlGrid.hxx".}
-proc share*(this: RWStepVisualRWSurfaceStyleControlGrid;
-           ent: Handle[StepVisualSurfaceStyleControlGrid];
-           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
+proc Share*(this: RWStepVisual_RWSurfaceStyleControlGrid;
+           ent: handle[StepVisual_SurfaceStyleControlGrid];
+           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepVisual_RWSurfaceStyleControlGrid.hxx".}
-

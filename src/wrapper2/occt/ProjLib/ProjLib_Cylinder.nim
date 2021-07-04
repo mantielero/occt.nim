@@ -14,6 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../gp/gp_Cylinder, ProjLib_Projector
+
 discard "forward decl of Standard_NoSuchObject"
 discard "forward decl of gp_Cylinder"
 discard "forward decl of gp_Lin"
@@ -22,30 +26,32 @@ discard "forward decl of gp_Elips"
 discard "forward decl of gp_Parab"
 discard "forward decl of gp_Hypr"
 type
-  ProjLibCylinder* {.importcpp: "ProjLib_Cylinder", header: "ProjLib_Cylinder.hxx",
-                    bycopy.} = object of ProjLibProjector ## ! Undefined projection.
+  ProjLib_Cylinder* {.importcpp: "ProjLib_Cylinder",
+                     header: "ProjLib_Cylinder.hxx", bycopy.} = object of ProjLib_Projector ##
+                                                                                     ## !
+                                                                                     ## Undefined
+                                                                                     ## projection.
 
 
-proc constructProjLibCylinder*(): ProjLibCylinder {.constructor,
+proc constructProjLib_Cylinder*(): ProjLib_Cylinder {.constructor,
     importcpp: "ProjLib_Cylinder(@)", header: "ProjLib_Cylinder.hxx".}
-proc constructProjLibCylinder*(cyl: GpCylinder): ProjLibCylinder {.constructor,
+proc constructProjLib_Cylinder*(Cyl: gp_Cylinder): ProjLib_Cylinder {.constructor,
     importcpp: "ProjLib_Cylinder(@)", header: "ProjLib_Cylinder.hxx".}
-proc constructProjLibCylinder*(cyl: GpCylinder; L: GpLin): ProjLibCylinder {.
+proc constructProjLib_Cylinder*(Cyl: gp_Cylinder; L: gp_Lin): ProjLib_Cylinder {.
     constructor, importcpp: "ProjLib_Cylinder(@)", header: "ProjLib_Cylinder.hxx".}
-proc constructProjLibCylinder*(cyl: GpCylinder; c: GpCirc): ProjLibCylinder {.
+proc constructProjLib_Cylinder*(Cyl: gp_Cylinder; C: gp_Circ): ProjLib_Cylinder {.
     constructor, importcpp: "ProjLib_Cylinder(@)", header: "ProjLib_Cylinder.hxx".}
-proc constructProjLibCylinder*(cyl: GpCylinder; e: GpElips): ProjLibCylinder {.
+proc constructProjLib_Cylinder*(Cyl: gp_Cylinder; E: gp_Elips): ProjLib_Cylinder {.
     constructor, importcpp: "ProjLib_Cylinder(@)", header: "ProjLib_Cylinder.hxx".}
-proc init*(this: var ProjLibCylinder; cyl: GpCylinder) {.importcpp: "Init",
+proc Init*(this: var ProjLib_Cylinder; Cyl: gp_Cylinder) {.importcpp: "Init",
     header: "ProjLib_Cylinder.hxx".}
-proc project*(this: var ProjLibCylinder; L: GpLin) {.importcpp: "Project",
+proc Project*(this: var ProjLib_Cylinder; L: gp_Lin) {.importcpp: "Project",
     header: "ProjLib_Cylinder.hxx".}
-proc project*(this: var ProjLibCylinder; c: GpCirc) {.importcpp: "Project",
+proc Project*(this: var ProjLib_Cylinder; C: gp_Circ) {.importcpp: "Project",
     header: "ProjLib_Cylinder.hxx".}
-proc project*(this: var ProjLibCylinder; e: GpElips) {.importcpp: "Project",
+proc Project*(this: var ProjLib_Cylinder; E: gp_Elips) {.importcpp: "Project",
     header: "ProjLib_Cylinder.hxx".}
-proc project*(this: var ProjLibCylinder; p: GpParab) {.importcpp: "Project",
+proc Project*(this: var ProjLib_Cylinder; P: gp_Parab) {.importcpp: "Project",
     header: "ProjLib_Cylinder.hxx".}
-proc project*(this: var ProjLibCylinder; h: GpHypr) {.importcpp: "Project",
+proc Project*(this: var ProjLib_Cylinder; H: gp_Hypr) {.importcpp: "Project",
     header: "ProjLib_Cylinder.hxx".}
-

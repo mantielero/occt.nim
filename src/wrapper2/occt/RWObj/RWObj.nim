@@ -12,6 +12,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Message/Message_ProgressRange, ../OSD/OSD_Path, ../Poly/Poly_Triangulation,
+  ../Standard/Standard_Macro
+
 ## ! This class provides methods to read and write triangulation from / to the OBJ files.
 
 type
@@ -19,7 +23,6 @@ type
                                                               ## ! In case of error, returns Null handle.
 
 
-proc readFile*(theFile: StandardCString;
-              aProgress: MessageProgressRange = messageProgressRange()): Handle[
-    PolyTriangulation] {.importcpp: "RWObj::ReadFile(@)", header: "RWObj.hxx".}
-
+proc ReadFile*(theFile: Standard_CString;
+              aProgress: Message_ProgressRange = Message_ProgressRange()): handle[
+    Poly_Triangulation] {.importcpp: "RWObj::ReadFile(@)", header: "RWObj.hxx".}

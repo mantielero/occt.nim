@@ -12,176 +12,177 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  Graphic3d_ArrayOfPrimitives
+
 ## ! Contains triangles array definition
 
 type
-  Graphic3dArrayOfTriangles* {.importcpp: "Graphic3d_ArrayOfTriangles",
-                              header: "Graphic3d_ArrayOfTriangles.hxx", bycopy.} = object of Graphic3dArrayOfPrimitives ##
-                                                                                                                 ## !
-                                                                                                                 ## Creates
-                                                                                                                 ## an
-                                                                                                                 ## array
-                                                                                                                 ## of
-                                                                                                                 ## triangles
-                                                                                                                 ## (Graphic3d_TOPA_TRIANGLES),
-                                                                                                                 ## a
-                                                                                                                 ## triangle
-                                                                                                                 ## can
-                                                                                                                 ## be
-                                                                                                                 ## filled
-                                                                                                                 ## as:
-                                                                                                                 ##
-                                                                                                                 ## !
-                                                                                                                 ## 1)
-                                                                                                                 ## Creating
-                                                                                                                 ## a
-                                                                                                                 ## set
-                                                                                                                 ## of
-                                                                                                                 ## triangles
-                                                                                                                 ## defined
-                                                                                                                 ## with
-                                                                                                                 ## his
-                                                                                                                 ## vertexes,
-                                                                                                                 ## i.e:
-                                                                                                                 ##
-                                                                                                                 ## !
-                                                                                                                 ## @code
-                                                                                                                 ##
-                                                                                                                 ## !
-                                                                                                                 ## myArray
-                                                                                                                 ## =
-                                                                                                                 ## Graphic3d_ArrayOfTriangles
-                                                                                                                 ## (6);
-                                                                                                                 ##
-                                                                                                                 ## !
-                                                                                                                 ## myArray->AddVertex
-                                                                                                                 ## (x1,
-                                                                                                                 ## y1,
-                                                                                                                 ## z1);
-                                                                                                                 ##
-                                                                                                                 ## !
-                                                                                                                 ## ....
-                                                                                                                 ##
-                                                                                                                 ## !
-                                                                                                                 ## myArray->AddVertex
-                                                                                                                 ## (x6,
-                                                                                                                 ## y6,
-                                                                                                                 ## z6);
-                                                                                                                 ##
-                                                                                                                 ## !
-                                                                                                                 ## @endcode
-                                                                                                                 ##
-                                                                                                                 ## !
-                                                                                                                 ## 3)
-                                                                                                                 ## Creating
-                                                                                                                 ## a
-                                                                                                                 ## set
-                                                                                                                 ## of
-                                                                                                                 ## indexed
-                                                                                                                 ## triangles
-                                                                                                                 ## defined
-                                                                                                                 ## with
-                                                                                                                 ## his
-                                                                                                                 ## vertex
-                                                                                                                 ## and
-                                                                                                                 ## edges,
-                                                                                                                 ## i.e:
-                                                                                                                 ##
-                                                                                                                 ## !
-                                                                                                                 ## @code
-                                                                                                                 ##
-                                                                                                                 ## !
-                                                                                                                 ## myArray
-                                                                                                                 ## =
-                                                                                                                 ## Graphic3d_ArrayOfTriangles
-                                                                                                                 ## (4,
-                                                                                                                 ## 6);
-                                                                                                                 ##
-                                                                                                                 ## !
-                                                                                                                 ## myArray->AddVertex
-                                                                                                                 ## (x1,
-                                                                                                                 ## y1,
-                                                                                                                 ## z1);
-                                                                                                                 ##
-                                                                                                                 ## !
-                                                                                                                 ## ....
-                                                                                                                 ##
-                                                                                                                 ## !
-                                                                                                                 ## myArray->AddVertex
-                                                                                                                 ## (x4,
-                                                                                                                 ## y4,
-                                                                                                                 ## z4);
-                                                                                                                 ##
-                                                                                                                 ## !
-                                                                                                                 ## myArray->AddEdges
-                                                                                                                 ## (1,
-                                                                                                                 ## 2,
-                                                                                                                 ## 3);
-                                                                                                                 ##
-                                                                                                                 ## !
-                                                                                                                 ## myArray->AddEdges
-                                                                                                                 ## (2,
-                                                                                                                 ## 3,
-                                                                                                                 ## 4);
-                                                                                                                 ##
-                                                                                                                 ## !
-                                                                                                                 ## @endcode
-                                                                                                                 ##
-                                                                                                                 ## !
-                                                                                                                 ## @param
-                                                                                                                 ## theMaxVertexs
-                                                                                                                 ## defines
-                                                                                                                 ## the
-                                                                                                                 ## maximum
-                                                                                                                 ## allowed
-                                                                                                                 ## vertex
-                                                                                                                 ## number
-                                                                                                                 ## in
-                                                                                                                 ## the
-                                                                                                                 ## array
-                                                                                                                 ##
-                                                                                                                 ## !
-                                                                                                                 ## @param
-                                                                                                                 ## theMaxEdges
-                                                                                                                 ## defines
-                                                                                                                 ## the
-                                                                                                                 ## maximum
-                                                                                                                 ## allowed
-                                                                                                                 ## edge
-                                                                                                                 ## number
-                                                                                                                 ## in
-                                                                                                                 ## the
-                                                                                                                 ## array
-                                                                                                                 ##
-                                                                                                                 ## !
-                                                                                                                 ## @param
-                                                                                                                 ## theArrayFlags
-                                                                                                                 ## array
-                                                                                                                 ## flags
+  Graphic3d_ArrayOfTriangles* {.importcpp: "Graphic3d_ArrayOfTriangles",
+                               header: "Graphic3d_ArrayOfTriangles.hxx", bycopy.} = object of Graphic3d_ArrayOfPrimitives ##
+                                                                                                                   ## !
+                                                                                                                   ## Creates
+                                                                                                                   ## an
+                                                                                                                   ## array
+                                                                                                                   ## of
+                                                                                                                   ## triangles
+                                                                                                                   ## (Graphic3d_TOPA_TRIANGLES),
+                                                                                                                   ## a
+                                                                                                                   ## triangle
+                                                                                                                   ## can
+                                                                                                                   ## be
+                                                                                                                   ## filled
+                                                                                                                   ## as:
+                                                                                                                   ##
+                                                                                                                   ## !
+                                                                                                                   ## 1)
+                                                                                                                   ## Creating
+                                                                                                                   ## a
+                                                                                                                   ## set
+                                                                                                                   ## of
+                                                                                                                   ## triangles
+                                                                                                                   ## defined
+                                                                                                                   ## with
+                                                                                                                   ## his
+                                                                                                                   ## vertexes,
+                                                                                                                   ## i.e:
+                                                                                                                   ##
+                                                                                                                   ## !
+                                                                                                                   ## @code
+                                                                                                                   ##
+                                                                                                                   ## !
+                                                                                                                   ## myArray
+                                                                                                                   ## =
+                                                                                                                   ## Graphic3d_ArrayOfTriangles
+                                                                                                                   ## (6);
+                                                                                                                   ##
+                                                                                                                   ## !
+                                                                                                                   ## myArray->AddVertex
+                                                                                                                   ## (x1,
+                                                                                                                   ## y1,
+                                                                                                                   ## z1);
+                                                                                                                   ##
+                                                                                                                   ## !
+                                                                                                                   ## ....
+                                                                                                                   ##
+                                                                                                                   ## !
+                                                                                                                   ## myArray->AddVertex
+                                                                                                                   ## (x6,
+                                                                                                                   ## y6,
+                                                                                                                   ## z6);
+                                                                                                                   ##
+                                                                                                                   ## !
+                                                                                                                   ## @endcode
+                                                                                                                   ##
+                                                                                                                   ## !
+                                                                                                                   ## 3)
+                                                                                                                   ## Creating
+                                                                                                                   ## a
+                                                                                                                   ## set
+                                                                                                                   ## of
+                                                                                                                   ## indexed
+                                                                                                                   ## triangles
+                                                                                                                   ## defined
+                                                                                                                   ## with
+                                                                                                                   ## his
+                                                                                                                   ## vertex
+                                                                                                                   ## and
+                                                                                                                   ## edges,
+                                                                                                                   ## i.e:
+                                                                                                                   ##
+                                                                                                                   ## !
+                                                                                                                   ## @code
+                                                                                                                   ##
+                                                                                                                   ## !
+                                                                                                                   ## myArray
+                                                                                                                   ## =
+                                                                                                                   ## Graphic3d_ArrayOfTriangles
+                                                                                                                   ## (4,
+                                                                                                                   ## 6);
+                                                                                                                   ##
+                                                                                                                   ## !
+                                                                                                                   ## myArray->AddVertex
+                                                                                                                   ## (x1,
+                                                                                                                   ## y1,
+                                                                                                                   ## z1);
+                                                                                                                   ##
+                                                                                                                   ## !
+                                                                                                                   ## ....
+                                                                                                                   ##
+                                                                                                                   ## !
+                                                                                                                   ## myArray->AddVertex
+                                                                                                                   ## (x4,
+                                                                                                                   ## y4,
+                                                                                                                   ## z4);
+                                                                                                                   ##
+                                                                                                                   ## !
+                                                                                                                   ## myArray->AddEdges
+                                                                                                                   ## (1,
+                                                                                                                   ## 2,
+                                                                                                                   ## 3);
+                                                                                                                   ##
+                                                                                                                   ## !
+                                                                                                                   ## myArray->AddEdges
+                                                                                                                   ## (2,
+                                                                                                                   ## 3,
+                                                                                                                   ## 4);
+                                                                                                                   ##
+                                                                                                                   ## !
+                                                                                                                   ## @endcode
+                                                                                                                   ##
+                                                                                                                   ## !
+                                                                                                                   ## @param
+                                                                                                                   ## theMaxVertexs
+                                                                                                                   ## defines
+                                                                                                                   ## the
+                                                                                                                   ## maximum
+                                                                                                                   ## allowed
+                                                                                                                   ## vertex
+                                                                                                                   ## number
+                                                                                                                   ## in
+                                                                                                                   ## the
+                                                                                                                   ## array
+                                                                                                                   ##
+                                                                                                                   ## !
+                                                                                                                   ## @param
+                                                                                                                   ## theMaxEdges
+                                                                                                                   ## defines
+                                                                                                                   ## the
+                                                                                                                   ## maximum
+                                                                                                                   ## allowed
+                                                                                                                   ## edge
+                                                                                                                   ## number
+                                                                                                                   ## in
+                                                                                                                   ## the
+                                                                                                                   ## array
+                                                                                                                   ##
+                                                                                                                   ## !
+                                                                                                                   ## @param
+                                                                                                                   ## theArrayFlags
+                                                                                                                   ## array
+                                                                                                                   ## flags
 
-  Graphic3dArrayOfTrianglesbaseType* = Graphic3dArrayOfPrimitives
+  Graphic3d_ArrayOfTrianglesbase_type* = Graphic3d_ArrayOfPrimitives
 
-proc getTypeName*(): cstring {.importcpp: "Graphic3d_ArrayOfTriangles::get_type_name(@)",
-                            header: "Graphic3d_ArrayOfTriangles.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "Graphic3d_ArrayOfTriangles::get_type_name(@)",
+                              header: "Graphic3d_ArrayOfTriangles.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "Graphic3d_ArrayOfTriangles::get_type_descriptor(@)",
     header: "Graphic3d_ArrayOfTriangles.hxx".}
-proc dynamicType*(this: Graphic3dArrayOfTriangles): Handle[StandardType] {.
+proc DynamicType*(this: Graphic3d_ArrayOfTriangles): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType",
     header: "Graphic3d_ArrayOfTriangles.hxx".}
-proc constructGraphic3dArrayOfTriangles*(theMaxVertexs: StandardInteger;
-                                        theMaxEdges: StandardInteger;
-                                        theArrayFlags: Graphic3dArrayFlags): Graphic3dArrayOfTriangles {.
+proc constructGraphic3d_ArrayOfTriangles*(theMaxVertexs: Standard_Integer;
+    theMaxEdges: Standard_Integer; theArrayFlags: Graphic3d_ArrayFlags): Graphic3d_ArrayOfTriangles {.
     constructor, importcpp: "Graphic3d_ArrayOfTriangles(@)",
     header: "Graphic3d_ArrayOfTriangles.hxx".}
-proc constructGraphic3dArrayOfTriangles*(theMaxVertexs: StandardInteger;
-                                        theMaxEdges: StandardInteger = 0;
-    theHasVNormals: StandardBoolean = standardFalse; theHasVColors: StandardBoolean = standardFalse;
-    theHasVTexels: StandardBoolean = standardFalse): Graphic3dArrayOfTriangles {.
+proc constructGraphic3d_ArrayOfTriangles*(theMaxVertexs: Standard_Integer;
+    theMaxEdges: Standard_Integer = 0;
+    theHasVNormals: Standard_Boolean = Standard_False;
+    theHasVColors: Standard_Boolean = Standard_False;
+    theHasVTexels: Standard_Boolean = Standard_False): Graphic3d_ArrayOfTriangles {.
     constructor, importcpp: "Graphic3d_ArrayOfTriangles(@)",
     header: "Graphic3d_ArrayOfTriangles.hxx".}
 discard "forward decl of Graphic3d_ArrayOfTriangles"
 type
-  HandleGraphic3dArrayOfTriangles* = Handle[Graphic3dArrayOfTriangles]
-
-
+  Handle_Graphic3d_ArrayOfTriangles* = handle[Graphic3d_ArrayOfTriangles]

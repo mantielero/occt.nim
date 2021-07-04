@@ -14,43 +14,46 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, GeomAdaptor_GHCurve,
+  ../Standard/Standard_Real
+
 discard "forward decl of Standard_ConstructionError"
 discard "forward decl of GeomAdaptor_Curve"
 discard "forward decl of Geom_Curve"
 discard "forward decl of GeomAdaptor_HCurve"
 discard "forward decl of GeomAdaptor_HCurve"
 type
-  HandleGeomAdaptorHCurve* = Handle[GeomAdaptorHCurve]
+  Handle_GeomAdaptor_HCurve* = handle[GeomAdaptor_HCurve]
 
 ## ! An interface between the services provided by any
 ## ! curve from the package Geom and those required of
 ## ! the curve by algorithms which use it.
 
 type
-  GeomAdaptorHCurve* {.importcpp: "GeomAdaptor_HCurve",
-                      header: "GeomAdaptor_HCurve.hxx", bycopy.} = object of GeomAdaptorGHCurve
+  GeomAdaptor_HCurve* {.importcpp: "GeomAdaptor_HCurve",
+                       header: "GeomAdaptor_HCurve.hxx", bycopy.} = object of GeomAdaptor_GHCurve
 
 
-proc constructGeomAdaptorHCurve*(): GeomAdaptorHCurve {.constructor,
+proc constructGeomAdaptor_HCurve*(): GeomAdaptor_HCurve {.constructor,
     importcpp: "GeomAdaptor_HCurve(@)", header: "GeomAdaptor_HCurve.hxx".}
-proc constructGeomAdaptorHCurve*(`as`: GeomAdaptorCurve): GeomAdaptorHCurve {.
+proc constructGeomAdaptor_HCurve*(AS: GeomAdaptor_Curve): GeomAdaptor_HCurve {.
     constructor, importcpp: "GeomAdaptor_HCurve(@)",
     header: "GeomAdaptor_HCurve.hxx".}
-proc constructGeomAdaptorHCurve*(s: Handle[GeomCurve]): GeomAdaptorHCurve {.
+proc constructGeomAdaptor_HCurve*(S: handle[Geom_Curve]): GeomAdaptor_HCurve {.
     constructor, importcpp: "GeomAdaptor_HCurve(@)",
     header: "GeomAdaptor_HCurve.hxx".}
-proc constructGeomAdaptorHCurve*(s: Handle[GeomCurve]; uFirst: StandardReal;
-                                uLast: StandardReal): GeomAdaptorHCurve {.
+proc constructGeomAdaptor_HCurve*(S: handle[Geom_Curve]; UFirst: Standard_Real;
+                                 ULast: Standard_Real): GeomAdaptor_HCurve {.
     constructor, importcpp: "GeomAdaptor_HCurve(@)",
     header: "GeomAdaptor_HCurve.hxx".}
 type
-  GeomAdaptorHCurvebaseType* = GeomAdaptorGHCurve
+  GeomAdaptor_HCurvebase_type* = GeomAdaptor_GHCurve
 
-proc getTypeName*(): cstring {.importcpp: "GeomAdaptor_HCurve::get_type_name(@)",
-                            header: "GeomAdaptor_HCurve.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "GeomAdaptor_HCurve::get_type_name(@)",
+                              header: "GeomAdaptor_HCurve.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "GeomAdaptor_HCurve::get_type_descriptor(@)",
     header: "GeomAdaptor_HCurve.hxx".}
-proc dynamicType*(this: GeomAdaptorHCurve): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: GeomAdaptor_HCurve): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "GeomAdaptor_HCurve.hxx".}
-

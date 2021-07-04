@@ -13,6 +13,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Real,
+  ../Standard/Standard_Integer, ../gp/gp_Pnt, ../gp/gp_Vec, ../gp/gp_Dir,
+  ../LProp/LProp_Status, ../Standard/Standard_Boolean
+
 discard "forward decl of Adaptor3d_HCurve"
 discard "forward decl of LProp_BadContinuity"
 discard "forward decl of Standard_DomainError"
@@ -23,46 +29,45 @@ discard "forward decl of gp_Pnt"
 discard "forward decl of gp_Dir"
 discard "forward decl of LProp3d_CurveTool"
 type
-  LProp3dCLProps* {.importcpp: "LProp3d_CLProps", header: "LProp3d_CLProps.hxx",
-                   bycopy.} = object ## ! Initializes the local properties of the curve <C>
-                                  ## ! The current point and the derivatives are
-                                  ## ! computed at the same time, which allows an
-                                  ## ! optimization of the computation time.
-                                  ## ! <N> indicates the maximum number of derivations to
-                                  ## ! be done (0, 1, 2 or 3). For example, to compute
-                                  ## ! only the tangent, N should be equal to 1.
-                                  ## ! <Resolution> is the linear tolerance (it is used to test
-                                  ## ! if a vector is null).
+  LProp3d_CLProps* {.importcpp: "LProp3d_CLProps", header: "LProp3d_CLProps.hxx",
+                    bycopy.} = object ## ! Initializes the local properties of the curve <C>
+                                   ## ! The current point and the derivatives are
+                                   ## ! computed at the same time, which allows an
+                                   ## ! optimization of the computation time.
+                                   ## ! <N> indicates the maximum number of derivations to
+                                   ## ! be done (0, 1, 2 or 3). For example, to compute
+                                   ## ! only the tangent, N should be equal to 1.
+                                   ## ! <Resolution> is the linear tolerance (it is used to test
+                                   ## ! if a vector is null).
 
 
-proc constructLProp3dCLProps*(c: Handle[Adaptor3dHCurve]; n: StandardInteger;
-                             resolution: StandardReal): LProp3dCLProps {.
+proc constructLProp3d_CLProps*(C: handle[Adaptor3d_HCurve]; N: Standard_Integer;
+                              Resolution: Standard_Real): LProp3d_CLProps {.
     constructor, importcpp: "LProp3d_CLProps(@)", header: "LProp3d_CLProps.hxx".}
-proc constructLProp3dCLProps*(c: Handle[Adaptor3dHCurve]; u: StandardReal;
-                             n: StandardInteger; resolution: StandardReal): LProp3dCLProps {.
+proc constructLProp3d_CLProps*(C: handle[Adaptor3d_HCurve]; U: Standard_Real;
+                              N: Standard_Integer; Resolution: Standard_Real): LProp3d_CLProps {.
     constructor, importcpp: "LProp3d_CLProps(@)", header: "LProp3d_CLProps.hxx".}
-proc constructLProp3dCLProps*(n: StandardInteger; resolution: StandardReal): LProp3dCLProps {.
+proc constructLProp3d_CLProps*(N: Standard_Integer; Resolution: Standard_Real): LProp3d_CLProps {.
     constructor, importcpp: "LProp3d_CLProps(@)", header: "LProp3d_CLProps.hxx".}
-proc setParameter*(this: var LProp3dCLProps; u: StandardReal) {.
+proc SetParameter*(this: var LProp3d_CLProps; U: Standard_Real) {.
     importcpp: "SetParameter", header: "LProp3d_CLProps.hxx".}
-proc setCurve*(this: var LProp3dCLProps; c: Handle[Adaptor3dHCurve]) {.
+proc SetCurve*(this: var LProp3d_CLProps; C: handle[Adaptor3d_HCurve]) {.
     importcpp: "SetCurve", header: "LProp3d_CLProps.hxx".}
-proc value*(this: LProp3dCLProps): GpPnt {.noSideEffect, importcpp: "Value",
-                                       header: "LProp3d_CLProps.hxx".}
-proc d1*(this: var LProp3dCLProps): GpVec {.importcpp: "D1",
-                                       header: "LProp3d_CLProps.hxx".}
-proc d2*(this: var LProp3dCLProps): GpVec {.importcpp: "D2",
-                                       header: "LProp3d_CLProps.hxx".}
-proc d3*(this: var LProp3dCLProps): GpVec {.importcpp: "D3",
-                                       header: "LProp3d_CLProps.hxx".}
-proc isTangentDefined*(this: var LProp3dCLProps): StandardBoolean {.
+proc Value*(this: LProp3d_CLProps): gp_Pnt {.noSideEffect, importcpp: "Value",
+    header: "LProp3d_CLProps.hxx".}
+proc D1*(this: var LProp3d_CLProps): gp_Vec {.importcpp: "D1",
+    header: "LProp3d_CLProps.hxx".}
+proc D2*(this: var LProp3d_CLProps): gp_Vec {.importcpp: "D2",
+    header: "LProp3d_CLProps.hxx".}
+proc D3*(this: var LProp3d_CLProps): gp_Vec {.importcpp: "D3",
+    header: "LProp3d_CLProps.hxx".}
+proc IsTangentDefined*(this: var LProp3d_CLProps): Standard_Boolean {.
     importcpp: "IsTangentDefined", header: "LProp3d_CLProps.hxx".}
-proc tangent*(this: var LProp3dCLProps; d: var GpDir) {.importcpp: "Tangent",
+proc Tangent*(this: var LProp3d_CLProps; D: var gp_Dir) {.importcpp: "Tangent",
     header: "LProp3d_CLProps.hxx".}
-proc curvature*(this: var LProp3dCLProps): StandardReal {.importcpp: "Curvature",
+proc Curvature*(this: var LProp3d_CLProps): Standard_Real {.importcpp: "Curvature",
     header: "LProp3d_CLProps.hxx".}
-proc normal*(this: var LProp3dCLProps; n: var GpDir) {.importcpp: "Normal",
+proc Normal*(this: var LProp3d_CLProps; N: var gp_Dir) {.importcpp: "Normal",
     header: "LProp3d_CLProps.hxx".}
-proc centreOfCurvature*(this: var LProp3dCLProps; p: var GpPnt) {.
+proc CentreOfCurvature*(this: var LProp3d_CLProps; P: var gp_Pnt) {.
     importcpp: "CentreOfCurvature", header: "LProp3d_CLProps.hxx".}
-

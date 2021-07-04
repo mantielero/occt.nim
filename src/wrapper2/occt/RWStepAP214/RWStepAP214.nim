@@ -14,6 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle
+
 discard "forward decl of RWStepAP214_ReadWriteModule"
 discard "forward decl of RWStepAP214_GeneralModule"
 discard "forward decl of RWStepAP214_RWAutoDesignActualDateAndTimeAssignment"
@@ -53,5 +57,4 @@ type
                                                                                 ## libraries
 
 
-proc init*() {.importcpp: "RWStepAP214::Init(@)", header: "RWStepAP214.hxx".}
-
+proc Init*() {.importcpp: "RWStepAP214::Init(@)", header: "RWStepAP214.hxx".}

@@ -14,51 +14,55 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type,
+  ../Interface/Interface_HArray1OfHAsciiString, ../Standard/Standard_Transient,
+  ../Standard/Standard_Integer
+
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of HeaderSection_FileDescription"
 discard "forward decl of HeaderSection_FileDescription"
 type
-  HandleHeaderSectionFileDescription* = Handle[HeaderSectionFileDescription]
-  HeaderSectionFileDescription* {.importcpp: "HeaderSection_FileDescription",
-                                 header: "HeaderSection_FileDescription.hxx",
-                                 bycopy.} = object of StandardTransient ## ! Returns a
-                                                                   ## FileDescription
+  Handle_HeaderSection_FileDescription* = handle[HeaderSection_FileDescription]
+  HeaderSection_FileDescription* {.importcpp: "HeaderSection_FileDescription",
+                                  header: "HeaderSection_FileDescription.hxx",
+                                  bycopy.} = object of Standard_Transient ## ! Returns a
+                                                                     ## FileDescription
 
 
-proc constructHeaderSectionFileDescription*(): HeaderSectionFileDescription {.
+proc constructHeaderSection_FileDescription*(): HeaderSection_FileDescription {.
     constructor, importcpp: "HeaderSection_FileDescription(@)",
     header: "HeaderSection_FileDescription.hxx".}
-proc init*(this: var HeaderSectionFileDescription;
-          aDescription: Handle[InterfaceHArray1OfHAsciiString];
-          aImplementationLevel: Handle[TCollectionHAsciiString]) {.
+proc Init*(this: var HeaderSection_FileDescription;
+          aDescription: handle[Interface_HArray1OfHAsciiString];
+          aImplementationLevel: handle[TCollection_HAsciiString]) {.
     importcpp: "Init", header: "HeaderSection_FileDescription.hxx".}
-proc setDescription*(this: var HeaderSectionFileDescription;
-                    aDescription: Handle[InterfaceHArray1OfHAsciiString]) {.
+proc SetDescription*(this: var HeaderSection_FileDescription;
+                    aDescription: handle[Interface_HArray1OfHAsciiString]) {.
     importcpp: "SetDescription", header: "HeaderSection_FileDescription.hxx".}
-proc description*(this: HeaderSectionFileDescription): Handle[
-    InterfaceHArray1OfHAsciiString] {.noSideEffect, importcpp: "Description", header: "HeaderSection_FileDescription.hxx".}
-proc descriptionValue*(this: HeaderSectionFileDescription; num: StandardInteger): Handle[
-    TCollectionHAsciiString] {.noSideEffect, importcpp: "DescriptionValue",
-                              header: "HeaderSection_FileDescription.hxx".}
-proc nbDescription*(this: HeaderSectionFileDescription): StandardInteger {.
+proc Description*(this: HeaderSection_FileDescription): handle[
+    Interface_HArray1OfHAsciiString] {.noSideEffect, importcpp: "Description", header: "HeaderSection_FileDescription.hxx".}
+proc DescriptionValue*(this: HeaderSection_FileDescription; num: Standard_Integer): handle[
+    TCollection_HAsciiString] {.noSideEffect, importcpp: "DescriptionValue",
+                               header: "HeaderSection_FileDescription.hxx".}
+proc NbDescription*(this: HeaderSection_FileDescription): Standard_Integer {.
     noSideEffect, importcpp: "NbDescription",
     header: "HeaderSection_FileDescription.hxx".}
-proc setImplementationLevel*(this: var HeaderSectionFileDescription;
-    aImplementationLevel: Handle[TCollectionHAsciiString]) {.
+proc SetImplementationLevel*(this: var HeaderSection_FileDescription;
+    aImplementationLevel: handle[TCollection_HAsciiString]) {.
     importcpp: "SetImplementationLevel",
     header: "HeaderSection_FileDescription.hxx".}
-proc implementationLevel*(this: HeaderSectionFileDescription): Handle[
-    TCollectionHAsciiString] {.noSideEffect, importcpp: "ImplementationLevel",
-                              header: "HeaderSection_FileDescription.hxx".}
+proc ImplementationLevel*(this: HeaderSection_FileDescription): handle[
+    TCollection_HAsciiString] {.noSideEffect, importcpp: "ImplementationLevel",
+                               header: "HeaderSection_FileDescription.hxx".}
 type
-  HeaderSectionFileDescriptionbaseType* = StandardTransient
+  HeaderSection_FileDescriptionbase_type* = Standard_Transient
 
-proc getTypeName*(): cstring {.importcpp: "HeaderSection_FileDescription::get_type_name(@)",
-                            header: "HeaderSection_FileDescription.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "HeaderSection_FileDescription::get_type_name(@)",
+                              header: "HeaderSection_FileDescription.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "HeaderSection_FileDescription::get_type_descriptor(@)",
     header: "HeaderSection_FileDescription.hxx".}
-proc dynamicType*(this: HeaderSectionFileDescription): Handle[StandardType] {.
+proc DynamicType*(this: HeaderSection_FileDescription): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType",
     header: "HeaderSection_FileDescription.hxx".}
-

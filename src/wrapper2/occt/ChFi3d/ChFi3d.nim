@@ -14,6 +14,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer,
+  ../TopAbs/TopAbs_Orientation, ../Standard/Standard_Boolean,
+  ../ChFiDS/ChFiDS_TypeOfConcavity, ../GeomAbs/GeomAbs_Shape
+
 discard "forward decl of BRepAdaptor_Surface"
 discard "forward decl of TopoDS_Edge"
 discard "forward decl of TopoDS_Face"
@@ -25,24 +31,23 @@ type
   ChFi3d* {.importcpp: "ChFi3d", header: "ChFi3d.hxx", bycopy.} = object ## ! Defines the type of concavity in the edge of connection of two faces
 
 
-proc defineConnectType*(e: TopoDS_Edge; f1: TopoDS_Face; f2: TopoDS_Face;
-                       sinTol: StandardReal; correctPoint: StandardBoolean): ChFiDS_TypeOfConcavity {.
+proc DefineConnectType*(E: TopoDS_Edge; F1: TopoDS_Face; F2: TopoDS_Face;
+                       SinTol: Standard_Real; CorrectPoint: Standard_Boolean): ChFiDS_TypeOfConcavity {.
     importcpp: "ChFi3d::DefineConnectType(@)", header: "ChFi3d.hxx".}
-proc isTangentFaces*(theEdge: TopoDS_Edge; theFace1: TopoDS_Face;
-                    theFace2: TopoDS_Face; order: GeomAbsShape = geomAbsG1): StandardBoolean {.
+proc IsTangentFaces*(theEdge: TopoDS_Edge; theFace1: TopoDS_Face;
+                    theFace2: TopoDS_Face; Order: GeomAbs_Shape = GeomAbs_G1): Standard_Boolean {.
     importcpp: "ChFi3d::IsTangentFaces(@)", header: "ChFi3d.hxx".}
-proc concaveSide*(s1: BRepAdaptorSurface; s2: BRepAdaptorSurface; e: TopoDS_Edge;
-                 or1: var TopAbsOrientation; or2: var TopAbsOrientation): StandardInteger {.
+proc ConcaveSide*(S1: BRepAdaptor_Surface; S2: BRepAdaptor_Surface; E: TopoDS_Edge;
+                 Or1: var TopAbs_Orientation; Or2: var TopAbs_Orientation): Standard_Integer {.
     importcpp: "ChFi3d::ConcaveSide(@)", header: "ChFi3d.hxx".}
-proc nextSide*(or1: var TopAbsOrientation; or2: var TopAbsOrientation;
-              orSave1: TopAbsOrientation; orSave2: TopAbsOrientation;
-              choixSauv: StandardInteger): StandardInteger {.
+proc NextSide*(Or1: var TopAbs_Orientation; Or2: var TopAbs_Orientation;
+              OrSave1: TopAbs_Orientation; OrSave2: TopAbs_Orientation;
+              ChoixSauv: Standard_Integer): Standard_Integer {.
     importcpp: "ChFi3d::NextSide(@)", header: "ChFi3d.hxx".}
-proc nextSide*(`or`: var TopAbsOrientation; orSave: TopAbsOrientation;
-              orFace: TopAbsOrientation) {.importcpp: "ChFi3d::NextSide(@)",
+proc NextSide*(Or: var TopAbs_Orientation; OrSave: TopAbs_Orientation;
+              OrFace: TopAbs_Orientation) {.importcpp: "ChFi3d::NextSide(@)",
     header: "ChFi3d.hxx".}
-proc sameSide*(`or`: TopAbsOrientation; orSave1: TopAbsOrientation;
-              orSave2: TopAbsOrientation; orFace1: TopAbsOrientation;
-              orFace2: TopAbsOrientation): StandardBoolean {.
+proc SameSide*(Or: TopAbs_Orientation; OrSave1: TopAbs_Orientation;
+              OrSave2: TopAbs_Orientation; OrFace1: TopAbs_Orientation;
+              OrFace2: TopAbs_Orientation): Standard_Boolean {.
     importcpp: "ChFi3d::SameSide(@)", header: "ChFi3d.hxx".}
-

@@ -14,6 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Draw/Draw_Interpretor
+
 ## ! Contains commands to activate package ShapeFix
 ## ! List of DRAW commands and corresponding functionalities:
 ## ! edgesameparam - ShapeFix::SameParameter
@@ -27,6 +31,5 @@ type
                     bycopy.} = object ## ! Loads commands defined in ShapeFix
 
 
-proc initCommands*(theCommands: var DrawInterpretor) {.
+proc InitCommands*(theCommands: var Draw_Interpretor) {.
     importcpp: "SWDRAW_ShapeFix::InitCommands(@)", header: "SWDRAW_ShapeFix.hxx".}
-

@@ -14,37 +14,43 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, Plate_HArray1OfPinpointConstraint,
+  ../TColStd/TColStd_HArray2OfReal, Plate_Array1OfPinpointConstraint,
+  ../TColStd/TColStd_Array1OfReal, ../TColStd/TColStd_Array2OfReal,
+  ../Standard/Standard_Integer, ../Standard/Standard_Real
+
 discard "forward decl of Standard_DimensionMismatch"
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of Plate_PinpointConstraint"
 type
-  PlateLinearXYZConstraint* {.importcpp: "Plate_LinearXYZConstraint",
-                             header: "Plate_LinearXYZConstraint.hxx", bycopy.} = object
+  Plate_LinearXYZConstraint* {.importcpp: "Plate_LinearXYZConstraint",
+                              header: "Plate_LinearXYZConstraint.hxx", bycopy.} = object
 
 
-proc constructPlateLinearXYZConstraint*(): PlateLinearXYZConstraint {.constructor,
-    importcpp: "Plate_LinearXYZConstraint(@)",
-    header: "Plate_LinearXYZConstraint.hxx".}
-proc constructPlateLinearXYZConstraint*(thePPC: PlateArray1OfPinpointConstraint;
-                                       theCoeff: TColStdArray1OfReal): PlateLinearXYZConstraint {.
+proc constructPlate_LinearXYZConstraint*(): Plate_LinearXYZConstraint {.
     constructor, importcpp: "Plate_LinearXYZConstraint(@)",
     header: "Plate_LinearXYZConstraint.hxx".}
-proc constructPlateLinearXYZConstraint*(thePPC: PlateArray1OfPinpointConstraint;
-                                       theCoeff: TColStdArray2OfReal): PlateLinearXYZConstraint {.
+proc constructPlate_LinearXYZConstraint*(thePPC: Plate_Array1OfPinpointConstraint;
+                                        theCoeff: TColStd_Array1OfReal): Plate_LinearXYZConstraint {.
     constructor, importcpp: "Plate_LinearXYZConstraint(@)",
     header: "Plate_LinearXYZConstraint.hxx".}
-proc constructPlateLinearXYZConstraint*(colLen: StandardInteger;
-                                       rowLen: StandardInteger): PlateLinearXYZConstraint {.
+proc constructPlate_LinearXYZConstraint*(thePPC: Plate_Array1OfPinpointConstraint;
+                                        theCoeff: TColStd_Array2OfReal): Plate_LinearXYZConstraint {.
     constructor, importcpp: "Plate_LinearXYZConstraint(@)",
     header: "Plate_LinearXYZConstraint.hxx".}
-proc getPPC*(this: PlateLinearXYZConstraint): PlateArray1OfPinpointConstraint {.
+proc constructPlate_LinearXYZConstraint*(ColLen: Standard_Integer;
+                                        RowLen: Standard_Integer): Plate_LinearXYZConstraint {.
+    constructor, importcpp: "Plate_LinearXYZConstraint(@)",
+    header: "Plate_LinearXYZConstraint.hxx".}
+proc GetPPC*(this: Plate_LinearXYZConstraint): Plate_Array1OfPinpointConstraint {.
     noSideEffect, importcpp: "GetPPC", header: "Plate_LinearXYZConstraint.hxx".}
-proc coeff*(this: PlateLinearXYZConstraint): TColStdArray2OfReal {.noSideEffect,
+proc Coeff*(this: Plate_LinearXYZConstraint): TColStd_Array2OfReal {.noSideEffect,
     importcpp: "Coeff", header: "Plate_LinearXYZConstraint.hxx".}
-proc setPPC*(this: var PlateLinearXYZConstraint; index: StandardInteger;
-            value: PlatePinpointConstraint) {.importcpp: "SetPPC",
+proc SetPPC*(this: var Plate_LinearXYZConstraint; Index: Standard_Integer;
+            Value: Plate_PinpointConstraint) {.importcpp: "SetPPC",
     header: "Plate_LinearXYZConstraint.hxx".}
-proc setCoeff*(this: var PlateLinearXYZConstraint; row: StandardInteger;
-              col: StandardInteger; value: StandardReal) {.importcpp: "SetCoeff",
+proc SetCoeff*(this: var Plate_LinearXYZConstraint; Row: Standard_Integer;
+              Col: Standard_Integer; Value: Standard_Real) {.importcpp: "SetCoeff",
     header: "Plate_LinearXYZConstraint.hxx".}
-

@@ -14,6 +14,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, IGESToBRep_CurveAndSurface,
+  ../Standard/Standard_Real, ../Standard/Standard_Boolean,
+  ../Standard/Standard_Integer, ../Message/Message_ProgressRange
+
 discard "forward decl of IGESToBRep_CurveAndSurface"
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of IGESData_IGESEntity"
@@ -27,66 +33,66 @@ discard "forward decl of IGESSolid_Face"
 discard "forward decl of IGESSolid_Shell"
 discard "forward decl of IGESSolid_ManifoldSolid"
 type
-  IGESToBRepBRepEntity* {.importcpp: "IGESToBRep_BRepEntity",
-                         header: "IGESToBRep_BRepEntity.hxx", bycopy.} = object of IGESToBRepCurveAndSurface ##
-                                                                                                      ## !
-                                                                                                      ## Creates
-                                                                                                      ## a
-                                                                                                      ## tool
-                                                                                                      ## BRepEntity
-                                                                                                      ## ready
-                                                                                                      ## to
-                                                                                                      ## run,
-                                                                                                      ## with
-                                                                                                      ##
-                                                                                                      ## !
-                                                                                                      ## epsilons
-                                                                                                      ## set
-                                                                                                      ## to
-                                                                                                      ## 1.E-04,
-                                                                                                      ## TheModeTopo
-                                                                                                      ## to
-                                                                                                      ## True,
-                                                                                                      ## the
-                                                                                                      ##
-                                                                                                      ## !
-                                                                                                      ## optimization
-                                                                                                      ## of
-                                                                                                      ## the
-                                                                                                      ## continuity
-                                                                                                      ## to
-                                                                                                      ## False.
+  IGESToBRep_BRepEntity* {.importcpp: "IGESToBRep_BRepEntity",
+                          header: "IGESToBRep_BRepEntity.hxx", bycopy.} = object of IGESToBRep_CurveAndSurface ##
+                                                                                                        ## !
+                                                                                                        ## Creates
+                                                                                                        ## a
+                                                                                                        ## tool
+                                                                                                        ## BRepEntity
+                                                                                                        ## ready
+                                                                                                        ## to
+                                                                                                        ## run,
+                                                                                                        ## with
+                                                                                                        ##
+                                                                                                        ## !
+                                                                                                        ## epsilons
+                                                                                                        ## set
+                                                                                                        ## to
+                                                                                                        ## 1.E-04,
+                                                                                                        ## TheModeTopo
+                                                                                                        ## to
+                                                                                                        ## True,
+                                                                                                        ## the
+                                                                                                        ##
+                                                                                                        ## !
+                                                                                                        ## optimization
+                                                                                                        ## of
+                                                                                                        ## the
+                                                                                                        ## continuity
+                                                                                                        ## to
+                                                                                                        ## False.
 
 
-proc constructIGESToBRepBRepEntity*(): IGESToBRepBRepEntity {.constructor,
+proc constructIGESToBRep_BRepEntity*(): IGESToBRep_BRepEntity {.constructor,
     importcpp: "IGESToBRep_BRepEntity(@)", header: "IGESToBRep_BRepEntity.hxx".}
-proc constructIGESToBRepBRepEntity*(cs: IGESToBRepCurveAndSurface): IGESToBRepBRepEntity {.
+proc constructIGESToBRep_BRepEntity*(CS: IGESToBRep_CurveAndSurface): IGESToBRep_BRepEntity {.
     constructor, importcpp: "IGESToBRep_BRepEntity(@)",
     header: "IGESToBRep_BRepEntity.hxx".}
-proc constructIGESToBRepBRepEntity*(eps: StandardReal; epsGeom: StandardReal;
-                                   epsCoeff: StandardReal; mode: StandardBoolean;
-                                   modeapprox: StandardBoolean;
-                                   optimized: StandardBoolean): IGESToBRepBRepEntity {.
+proc constructIGESToBRep_BRepEntity*(eps: Standard_Real; epsGeom: Standard_Real;
+                                    epsCoeff: Standard_Real;
+                                    mode: Standard_Boolean;
+                                    modeapprox: Standard_Boolean;
+                                    optimized: Standard_Boolean): IGESToBRep_BRepEntity {.
     constructor, importcpp: "IGESToBRep_BRepEntity(@)",
     header: "IGESToBRep_BRepEntity.hxx".}
-proc transferBRepEntity*(this: var IGESToBRepBRepEntity;
-                        start: Handle[IGESDataIGESEntity]; theProgress: MessageProgressRange = messageProgressRange()): TopoDS_Shape {.
+proc TransferBRepEntity*(this: var IGESToBRep_BRepEntity;
+                        start: handle[IGESData_IGESEntity]; theProgress: Message_ProgressRange = Message_ProgressRange()): TopoDS_Shape {.
     importcpp: "TransferBRepEntity", header: "IGESToBRep_BRepEntity.hxx".}
-proc transferVertex*(this: var IGESToBRepBRepEntity;
-                    start: Handle[IGESSolidVertexList]; index: StandardInteger): TopoDS_Vertex {.
+proc TransferVertex*(this: var IGESToBRep_BRepEntity;
+                    start: handle[IGESSolid_VertexList]; index: Standard_Integer): TopoDS_Vertex {.
     importcpp: "TransferVertex", header: "IGESToBRep_BRepEntity.hxx".}
-proc transferEdge*(this: var IGESToBRepBRepEntity; start: Handle[IGESSolidEdgeList];
-                  index: StandardInteger): TopoDS_Shape {.
+proc TransferEdge*(this: var IGESToBRep_BRepEntity;
+                  start: handle[IGESSolid_EdgeList]; index: Standard_Integer): TopoDS_Shape {.
     importcpp: "TransferEdge", header: "IGESToBRep_BRepEntity.hxx".}
-proc transferLoop*(this: var IGESToBRepBRepEntity; start: Handle[IGESSolidLoop];
-                  face: TopoDS_Face; trans: GpTrsf2d; uFact: StandardReal): TopoDS_Shape {.
+proc TransferLoop*(this: var IGESToBRep_BRepEntity; start: handle[IGESSolid_Loop];
+                  Face: TopoDS_Face; trans: gp_Trsf2d; uFact: Standard_Real): TopoDS_Shape {.
     importcpp: "TransferLoop", header: "IGESToBRep_BRepEntity.hxx".}
-proc transferFace*(this: var IGESToBRepBRepEntity; start: Handle[IGESSolidFace]): TopoDS_Shape {.
+proc TransferFace*(this: var IGESToBRep_BRepEntity; start: handle[IGESSolid_Face]): TopoDS_Shape {.
     importcpp: "TransferFace", header: "IGESToBRep_BRepEntity.hxx".}
-proc transferShell*(this: var IGESToBRepBRepEntity; start: Handle[IGESSolidShell];
-                   theProgress: MessageProgressRange = messageProgressRange()): TopoDS_Shape {.
+proc TransferShell*(this: var IGESToBRep_BRepEntity; start: handle[IGESSolid_Shell];
+                   theProgress: Message_ProgressRange = Message_ProgressRange()): TopoDS_Shape {.
     importcpp: "TransferShell", header: "IGESToBRep_BRepEntity.hxx".}
-proc transferManifoldSolid*(this: var IGESToBRepBRepEntity;
-                           start: Handle[IGESSolidManifoldSolid]; theProgress: MessageProgressRange = messageProgressRange()): TopoDS_Shape {.
+proc TransferManifoldSolid*(this: var IGESToBRep_BRepEntity;
+                           start: handle[IGESSolid_ManifoldSolid]; theProgress: Message_ProgressRange = Message_ProgressRange()): TopoDS_Shape {.
     importcpp: "TransferManifoldSolid", header: "IGESToBRep_BRepEntity.hxx".}
-

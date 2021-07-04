@@ -13,10 +13,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  IntPolyh_Array
+
 ## #include <IntPolyh_Triangle.hxx>
 
 discard "forward decl of IntPolyh_Triangle"
 type
-  IntPolyhArrayOfTriangles* = IntPolyhArray[IntPolyhTriangle]
-
-
+  IntPolyh_ArrayOfTriangles* = IntPolyh_Array[IntPolyh_Triangle]

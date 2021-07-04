@@ -14,98 +14,104 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type,
+  ../Standard/Standard_PCharacter, ../Standard/Standard_Integer,
+  ../Standard/Standard_Transient, ../Standard/Standard_CString,
+  Interface_ParamType
+
 discard "forward decl of Interface_ParamList"
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of Interface_FileParameter"
 discard "forward decl of Interface_ParamSet"
 discard "forward decl of Interface_ParamSet"
 type
-  HandleInterfaceParamSet* = Handle[InterfaceParamSet]
+  Handle_Interface_ParamSet* = handle[Interface_ParamSet]
 
 ## ! Defines an ordered set of FileParameters, in a way to be
 ## ! efficient as in memory requirement or in speed
 
 type
-  InterfaceParamSet* {.importcpp: "Interface_ParamSet",
-                      header: "Interface_ParamSet.hxx", bycopy.} = object of StandardTransient ##
-                                                                                        ## !
-                                                                                        ## Creates
-                                                                                        ## an
-                                                                                        ## empty
-                                                                                        ## ParamSet,
-                                                                                        ## beginning
-                                                                                        ## at
-                                                                                        ## number
-                                                                                        ## "nst"
-                                                                                        ## and
-                                                                                        ## of
-                                                                                        ##
-                                                                                        ## !
-                                                                                        ## initial
-                                                                                        ## reservation
-                                                                                        ## "nres"
-                                                                                        ## :
-                                                                                        ## the
-                                                                                        ## "nres"
-                                                                                        ## first
-                                                                                        ## parameters
-                                                                                        ##
-                                                                                        ## !
-                                                                                        ## which
-                                                                                        ## follow
-                                                                                        ## "ndeb"
-                                                                                        ## (included)
-                                                                                        ## will
-                                                                                        ## be
-                                                                                        ## put
-                                                                                        ## in
-                                                                                        ## an
-                                                                                        ## Array
-                                                                                        ##
-                                                                                        ## !
-                                                                                        ## (a
-                                                                                        ## ParamList).
-                                                                                        ## The
-                                                                                        ## remainders
-                                                                                        ## are
-                                                                                        ## set
-                                                                                        ## in
-                                                                                        ## Next(s)
-                                                                                        ## ParamSet(s)
+  Interface_ParamSet* {.importcpp: "Interface_ParamSet",
+                       header: "Interface_ParamSet.hxx", bycopy.} = object of Standard_Transient ##
+                                                                                          ## !
+                                                                                          ## Creates
+                                                                                          ## an
+                                                                                          ## empty
+                                                                                          ## ParamSet,
+                                                                                          ## beginning
+                                                                                          ## at
+                                                                                          ## number
+                                                                                          ## "nst"
+                                                                                          ## and
+                                                                                          ## of
+                                                                                          ##
+                                                                                          ## !
+                                                                                          ## initial
+                                                                                          ## reservation
+                                                                                          ## "nres"
+                                                                                          ## :
+                                                                                          ## the
+                                                                                          ## "nres"
+                                                                                          ## first
+                                                                                          ## parameters
+                                                                                          ##
+                                                                                          ## !
+                                                                                          ## which
+                                                                                          ## follow
+                                                                                          ## "ndeb"
+                                                                                          ## (included)
+                                                                                          ## will
+                                                                                          ## be
+                                                                                          ## put
+                                                                                          ## in
+                                                                                          ## an
+                                                                                          ## Array
+                                                                                          ##
+                                                                                          ## !
+                                                                                          ## (a
+                                                                                          ## ParamList).
+                                                                                          ## The
+                                                                                          ## remainders
+                                                                                          ## are
+                                                                                          ## set
+                                                                                          ## in
+                                                                                          ## Next(s)
+                                                                                          ## ParamSet(s)
 
 
-proc constructInterfaceParamSet*(nres: StandardInteger; nst: StandardInteger = 1): InterfaceParamSet {.
+proc constructInterface_ParamSet*(nres: Standard_Integer; nst: Standard_Integer = 1): Interface_ParamSet {.
     constructor, importcpp: "Interface_ParamSet(@)",
     header: "Interface_ParamSet.hxx".}
-proc append*(this: var InterfaceParamSet; val: StandardCString;
-            lnval: StandardInteger; typ: InterfaceParamType; nument: StandardInteger): StandardInteger {.
+proc Append*(this: var Interface_ParamSet; val: Standard_CString;
+            lnval: Standard_Integer; typ: Interface_ParamType;
+            nument: Standard_Integer): Standard_Integer {.importcpp: "Append",
+    header: "Interface_ParamSet.hxx".}
+proc Append*(this: var Interface_ParamSet; FP: Interface_FileParameter): Standard_Integer {.
     importcpp: "Append", header: "Interface_ParamSet.hxx".}
-proc append*(this: var InterfaceParamSet; fp: InterfaceFileParameter): StandardInteger {.
-    importcpp: "Append", header: "Interface_ParamSet.hxx".}
-proc nbParams*(this: InterfaceParamSet): StandardInteger {.noSideEffect,
+proc NbParams*(this: Interface_ParamSet): Standard_Integer {.noSideEffect,
     importcpp: "NbParams", header: "Interface_ParamSet.hxx".}
-proc param*(this: InterfaceParamSet; num: StandardInteger): InterfaceFileParameter {.
+proc Param*(this: Interface_ParamSet; num: Standard_Integer): Interface_FileParameter {.
     noSideEffect, importcpp: "Param", header: "Interface_ParamSet.hxx".}
-proc changeParam*(this: var InterfaceParamSet; num: StandardInteger): var InterfaceFileParameter {.
+proc ChangeParam*(this: var Interface_ParamSet; num: Standard_Integer): var Interface_FileParameter {.
     importcpp: "ChangeParam", header: "Interface_ParamSet.hxx".}
-proc setParam*(this: var InterfaceParamSet; num: StandardInteger;
-              fp: InterfaceFileParameter) {.importcpp: "SetParam",
+proc SetParam*(this: var Interface_ParamSet; num: Standard_Integer;
+              FP: Interface_FileParameter) {.importcpp: "SetParam",
     header: "Interface_ParamSet.hxx".}
-proc params*(this: InterfaceParamSet; num: StandardInteger; nb: StandardInteger): Handle[
-    InterfaceParamList] {.noSideEffect, importcpp: "Params",
-                         header: "Interface_ParamSet.hxx".}
-proc destroy*(this: var InterfaceParamSet) {.importcpp: "Destroy",
+proc Params*(this: Interface_ParamSet; num: Standard_Integer; nb: Standard_Integer): handle[
+    Interface_ParamList] {.noSideEffect, importcpp: "Params",
+                          header: "Interface_ParamSet.hxx".}
+proc Destroy*(this: var Interface_ParamSet) {.importcpp: "Destroy",
     header: "Interface_ParamSet.hxx".}
-proc destroyInterfaceParamSet*(this: var InterfaceParamSet) {.
+proc destroyInterface_ParamSet*(this: var Interface_ParamSet) {.
     importcpp: "#.~Interface_ParamSet()", header: "Interface_ParamSet.hxx".}
 type
-  InterfaceParamSetbaseType* = StandardTransient
+  Interface_ParamSetbase_type* = Standard_Transient
 
-proc getTypeName*(): cstring {.importcpp: "Interface_ParamSet::get_type_name(@)",
-                            header: "Interface_ParamSet.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "Interface_ParamSet::get_type_name(@)",
+                              header: "Interface_ParamSet.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "Interface_ParamSet::get_type_descriptor(@)",
     header: "Interface_ParamSet.hxx".}
-proc dynamicType*(this: InterfaceParamSet): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: Interface_ParamSet): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "Interface_ParamSet.hxx".}
-

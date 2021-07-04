@@ -13,6 +13,14 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type,
+  ../TColStd/TColStd_IndexedMapOfTransient,
+  ../TColStd/TColStd_DataMapOfIntegerTransient, ../Standard/Standard_Boolean,
+  ../Standard/Standard_Transient, ../Standard/Standard_Integer,
+  ../Standard/Standard_Type, ../Standard/Standard_CString, Interface_DataState,
+  ../TColStd/TColStd_HSequenceOfHAsciiString
+
 discard "forward decl of Interface_Check"
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of Interface_GTool"
@@ -28,7 +36,7 @@ discard "forward decl of Interface_EntityIterator"
 discard "forward decl of Interface_InterfaceModel"
 discard "forward decl of Interface_InterfaceModel"
 type
-  HandleInterfaceInterfaceModel* = Handle[InterfaceInterfaceModel]
+  Handle_Interface_InterfaceModel* = handle[Interface_InterfaceModel]
 
 ## ! Defines an (Indexed) Set of data corresponding to a complete
 ## ! Transfer by a File Interface, i.e. File Header and Transient
@@ -58,207 +66,209 @@ type
 ## ! See also Graph, ShareTool, CheckTool for more
 
 type
-  InterfaceInterfaceModel* {.importcpp: "Interface_InterfaceModel",
-                            header: "Interface_InterfaceModel.hxx", bycopy.} = object of StandardTransient ##
-                                                                                                    ## !
-                                                                                                    ## Clears
-                                                                                                    ## the
-                                                                                                    ## list
-                                                                                                    ## of
-                                                                                                    ## entities
-                                                                                                    ## (service
-                                                                                                    ## WhenDelete)
-                                                                                                    ##
-                                                                                                    ## !
-                                                                                                    ## Defines
-                                                                                                    ## empty
-                                                                                                    ## InterfaceModel,
-                                                                                                    ## ready
-                                                                                                    ## to
-                                                                                                    ## be
-                                                                                                    ## filled
+  Interface_InterfaceModel* {.importcpp: "Interface_InterfaceModel",
+                             header: "Interface_InterfaceModel.hxx", bycopy.} = object of Standard_Transient ##
+                                                                                                      ## !
+                                                                                                      ## Clears
+                                                                                                      ## the
+                                                                                                      ## list
+                                                                                                      ## of
+                                                                                                      ## entities
+                                                                                                      ## (service
+                                                                                                      ## WhenDelete)
+                                                                                                      ##
+                                                                                                      ## !
+                                                                                                      ## Defines
+                                                                                                      ## empty
+                                                                                                      ## InterfaceModel,
+                                                                                                      ## ready
+                                                                                                      ## to
+                                                                                                      ## be
+                                                                                                      ## filled
 
 
-proc destroy*(this: var InterfaceInterfaceModel) {.importcpp: "Destroy",
+proc Destroy*(this: var Interface_InterfaceModel) {.importcpp: "Destroy",
     header: "Interface_InterfaceModel.hxx".}
-proc destroyInterfaceInterfaceModel*(this: var InterfaceInterfaceModel) {.
+proc destroyInterface_InterfaceModel*(this: var Interface_InterfaceModel) {.
     importcpp: "#.~Interface_InterfaceModel()",
     header: "Interface_InterfaceModel.hxx".}
-proc setProtocol*(this: var InterfaceInterfaceModel;
-                 proto: Handle[InterfaceProtocol]) {.importcpp: "SetProtocol",
+proc SetProtocol*(this: var Interface_InterfaceModel;
+                 proto: handle[Interface_Protocol]) {.importcpp: "SetProtocol",
     header: "Interface_InterfaceModel.hxx".}
-proc protocol*(this: InterfaceInterfaceModel): Handle[InterfaceProtocol] {.
+proc Protocol*(this: Interface_InterfaceModel): handle[Interface_Protocol] {.
     noSideEffect, importcpp: "Protocol", header: "Interface_InterfaceModel.hxx".}
-proc setGTool*(this: var InterfaceInterfaceModel; gtool: Handle[InterfaceGTool]) {.
+proc SetGTool*(this: var Interface_InterfaceModel; gtool: handle[Interface_GTool]) {.
     importcpp: "SetGTool", header: "Interface_InterfaceModel.hxx".}
-proc gTool*(this: InterfaceInterfaceModel): Handle[InterfaceGTool] {.noSideEffect,
+proc GTool*(this: Interface_InterfaceModel): handle[Interface_GTool] {.noSideEffect,
     importcpp: "GTool", header: "Interface_InterfaceModel.hxx".}
-proc dispatchStatus*(this: var InterfaceInterfaceModel): var StandardBoolean {.
+proc DispatchStatus*(this: var Interface_InterfaceModel): var Standard_Boolean {.
     importcpp: "DispatchStatus", header: "Interface_InterfaceModel.hxx".}
-proc clear*(this: var InterfaceInterfaceModel) {.importcpp: "Clear",
+proc Clear*(this: var Interface_InterfaceModel) {.importcpp: "Clear",
     header: "Interface_InterfaceModel.hxx".}
-proc clearEntities*(this: var InterfaceInterfaceModel) {.importcpp: "ClearEntities",
+proc ClearEntities*(this: var Interface_InterfaceModel) {.
+    importcpp: "ClearEntities", header: "Interface_InterfaceModel.hxx".}
+proc ClearLabels*(this: var Interface_InterfaceModel) {.importcpp: "ClearLabels",
     header: "Interface_InterfaceModel.hxx".}
-proc clearLabels*(this: var InterfaceInterfaceModel) {.importcpp: "ClearLabels",
+proc ClearHeader*(this: var Interface_InterfaceModel) {.importcpp: "ClearHeader",
     header: "Interface_InterfaceModel.hxx".}
-proc clearHeader*(this: var InterfaceInterfaceModel) {.importcpp: "ClearHeader",
-    header: "Interface_InterfaceModel.hxx".}
-proc nbEntities*(this: InterfaceInterfaceModel): StandardInteger {.noSideEffect,
+proc NbEntities*(this: Interface_InterfaceModel): Standard_Integer {.noSideEffect,
     importcpp: "NbEntities", header: "Interface_InterfaceModel.hxx".}
-proc contains*(this: InterfaceInterfaceModel; anentity: Handle[StandardTransient]): StandardBoolean {.
+proc Contains*(this: Interface_InterfaceModel; anentity: handle[Standard_Transient]): Standard_Boolean {.
     noSideEffect, importcpp: "Contains", header: "Interface_InterfaceModel.hxx".}
-proc number*(this: InterfaceInterfaceModel; anentity: Handle[StandardTransient]): StandardInteger {.
+proc Number*(this: Interface_InterfaceModel; anentity: handle[Standard_Transient]): Standard_Integer {.
     noSideEffect, importcpp: "Number", header: "Interface_InterfaceModel.hxx".}
-proc value*(this: InterfaceInterfaceModel; num: StandardInteger): Handle[
-    StandardTransient] {.noSideEffect, importcpp: "Value",
-                        header: "Interface_InterfaceModel.hxx".}
-proc nbTypes*(this: InterfaceInterfaceModel; ent: Handle[StandardTransient]): StandardInteger {.
+proc Value*(this: Interface_InterfaceModel; num: Standard_Integer): handle[
+    Standard_Transient] {.noSideEffect, importcpp: "Value",
+                         header: "Interface_InterfaceModel.hxx".}
+proc NbTypes*(this: Interface_InterfaceModel; ent: handle[Standard_Transient]): Standard_Integer {.
     noSideEffect, importcpp: "NbTypes", header: "Interface_InterfaceModel.hxx".}
-proc `type`*(this: InterfaceInterfaceModel; ent: Handle[StandardTransient];
-            num: StandardInteger = 1): Handle[StandardType] {.noSideEffect,
+proc Type*(this: Interface_InterfaceModel; ent: handle[Standard_Transient];
+          num: Standard_Integer = 1): handle[Standard_Type] {.noSideEffect,
     importcpp: "Type", header: "Interface_InterfaceModel.hxx".}
-proc typeName*(this: InterfaceInterfaceModel; ent: Handle[StandardTransient];
-              complete: StandardBoolean = standardTrue): StandardCString {.
+proc TypeName*(this: Interface_InterfaceModel; ent: handle[Standard_Transient];
+              complete: Standard_Boolean = Standard_True): Standard_CString {.
     noSideEffect, importcpp: "TypeName", header: "Interface_InterfaceModel.hxx".}
-proc className*(typnam: StandardCString): StandardCString {.
+proc ClassName*(typnam: Standard_CString): Standard_CString {.
     importcpp: "Interface_InterfaceModel::ClassName(@)",
     header: "Interface_InterfaceModel.hxx".}
-proc entityState*(this: InterfaceInterfaceModel; num: StandardInteger): InterfaceDataState {.
+proc EntityState*(this: Interface_InterfaceModel; num: Standard_Integer): Interface_DataState {.
     noSideEffect, importcpp: "EntityState", header: "Interface_InterfaceModel.hxx".}
-proc isReportEntity*(this: InterfaceInterfaceModel; num: StandardInteger;
-                    semantic: StandardBoolean = standardFalse): StandardBoolean {.
+proc IsReportEntity*(this: Interface_InterfaceModel; num: Standard_Integer;
+                    semantic: Standard_Boolean = Standard_False): Standard_Boolean {.
     noSideEffect, importcpp: "IsReportEntity",
     header: "Interface_InterfaceModel.hxx".}
-proc reportEntity*(this: InterfaceInterfaceModel; num: StandardInteger;
-                  semantic: StandardBoolean = standardFalse): Handle[
-    InterfaceReportEntity] {.noSideEffect, importcpp: "ReportEntity",
-                            header: "Interface_InterfaceModel.hxx".}
-proc isErrorEntity*(this: InterfaceInterfaceModel; num: StandardInteger): StandardBoolean {.
+proc ReportEntity*(this: Interface_InterfaceModel; num: Standard_Integer;
+                  semantic: Standard_Boolean = Standard_False): handle[
+    Interface_ReportEntity] {.noSideEffect, importcpp: "ReportEntity",
+                             header: "Interface_InterfaceModel.hxx".}
+proc IsErrorEntity*(this: Interface_InterfaceModel; num: Standard_Integer): Standard_Boolean {.
     noSideEffect, importcpp: "IsErrorEntity",
     header: "Interface_InterfaceModel.hxx".}
-proc isRedefinedContent*(this: InterfaceInterfaceModel; num: StandardInteger): StandardBoolean {.
+proc IsRedefinedContent*(this: Interface_InterfaceModel; num: Standard_Integer): Standard_Boolean {.
     noSideEffect, importcpp: "IsRedefinedContent",
     header: "Interface_InterfaceModel.hxx".}
-proc clearReportEntity*(this: var InterfaceInterfaceModel; num: StandardInteger): StandardBoolean {.
+proc ClearReportEntity*(this: var Interface_InterfaceModel; num: Standard_Integer): Standard_Boolean {.
     importcpp: "ClearReportEntity", header: "Interface_InterfaceModel.hxx".}
-proc setReportEntity*(this: var InterfaceInterfaceModel; num: StandardInteger;
-                     rep: Handle[InterfaceReportEntity]): StandardBoolean {.
+proc SetReportEntity*(this: var Interface_InterfaceModel; num: Standard_Integer;
+                     rep: handle[Interface_ReportEntity]): Standard_Boolean {.
     importcpp: "SetReportEntity", header: "Interface_InterfaceModel.hxx".}
-proc addReportEntity*(this: var InterfaceInterfaceModel;
-                     rep: Handle[InterfaceReportEntity];
-                     semantic: StandardBoolean = standardFalse): StandardBoolean {.
+proc AddReportEntity*(this: var Interface_InterfaceModel;
+                     rep: handle[Interface_ReportEntity];
+                     semantic: Standard_Boolean = Standard_False): Standard_Boolean {.
     importcpp: "AddReportEntity", header: "Interface_InterfaceModel.hxx".}
-proc isUnknownEntity*(this: InterfaceInterfaceModel; num: StandardInteger): StandardBoolean {.
+proc IsUnknownEntity*(this: Interface_InterfaceModel; num: Standard_Integer): Standard_Boolean {.
     noSideEffect, importcpp: "IsUnknownEntity",
     header: "Interface_InterfaceModel.hxx".}
-proc fillSemanticChecks*(this: var InterfaceInterfaceModel;
-                        checks: InterfaceCheckIterator;
-                        clear: StandardBoolean = standardTrue) {.
+proc FillSemanticChecks*(this: var Interface_InterfaceModel;
+                        checks: Interface_CheckIterator;
+                        clear: Standard_Boolean = Standard_True) {.
     importcpp: "FillSemanticChecks", header: "Interface_InterfaceModel.hxx".}
-proc hasSemanticChecks*(this: InterfaceInterfaceModel): StandardBoolean {.
+proc HasSemanticChecks*(this: Interface_InterfaceModel): Standard_Boolean {.
     noSideEffect, importcpp: "HasSemanticChecks",
     header: "Interface_InterfaceModel.hxx".}
-proc check*(this: InterfaceInterfaceModel; num: StandardInteger;
-           syntactic: StandardBoolean): Handle[InterfaceCheck] {.noSideEffect,
+proc Check*(this: Interface_InterfaceModel; num: Standard_Integer;
+           syntactic: Standard_Boolean): handle[Interface_Check] {.noSideEffect,
     importcpp: "Check", header: "Interface_InterfaceModel.hxx".}
-proc reservate*(this: var InterfaceInterfaceModel; nbent: StandardInteger) {.
+proc Reservate*(this: var Interface_InterfaceModel; nbent: Standard_Integer) {.
     importcpp: "Reservate", header: "Interface_InterfaceModel.hxx".}
-proc addEntity*(this: var InterfaceInterfaceModel;
-               anentity: Handle[StandardTransient]) {.importcpp: "AddEntity",
+proc AddEntity*(this: var Interface_InterfaceModel;
+               anentity: handle[Standard_Transient]) {.importcpp: "AddEntity",
     header: "Interface_InterfaceModel.hxx".}
-proc addWithRefs*(this: var InterfaceInterfaceModel;
-                 anent: Handle[StandardTransient];
-                 proto: Handle[InterfaceProtocol]; level: StandardInteger = 0;
-                 listall: StandardBoolean = standardFalse) {.
+proc AddWithRefs*(this: var Interface_InterfaceModel;
+                 anent: handle[Standard_Transient];
+                 proto: handle[Interface_Protocol]; level: Standard_Integer = 0;
+                 listall: Standard_Boolean = Standard_False) {.
     importcpp: "AddWithRefs", header: "Interface_InterfaceModel.hxx".}
-proc addWithRefs*(this: var InterfaceInterfaceModel;
-                 anent: Handle[StandardTransient]; level: StandardInteger = 0;
-                 listall: StandardBoolean = standardFalse) {.
+proc AddWithRefs*(this: var Interface_InterfaceModel;
+                 anent: handle[Standard_Transient]; level: Standard_Integer = 0;
+                 listall: Standard_Boolean = Standard_False) {.
     importcpp: "AddWithRefs", header: "Interface_InterfaceModel.hxx".}
-proc addWithRefs*(this: var InterfaceInterfaceModel;
-                 anent: Handle[StandardTransient]; lib: InterfaceGeneralLib;
-                 level: StandardInteger = 0;
-                 listall: StandardBoolean = standardFalse) {.
+proc AddWithRefs*(this: var Interface_InterfaceModel;
+                 anent: handle[Standard_Transient]; lib: Interface_GeneralLib;
+                 level: Standard_Integer = 0;
+                 listall: Standard_Boolean = Standard_False) {.
     importcpp: "AddWithRefs", header: "Interface_InterfaceModel.hxx".}
-proc replaceEntity*(this: var InterfaceInterfaceModel; nument: StandardInteger;
-                   anent: Handle[StandardTransient]) {.importcpp: "ReplaceEntity",
-    header: "Interface_InterfaceModel.hxx".}
-proc reverseOrders*(this: var InterfaceInterfaceModel; after: StandardInteger = 0) {.
+proc ReplaceEntity*(this: var Interface_InterfaceModel; nument: Standard_Integer;
+                   anent: handle[Standard_Transient]) {.
+    importcpp: "ReplaceEntity", header: "Interface_InterfaceModel.hxx".}
+proc ReverseOrders*(this: var Interface_InterfaceModel; after: Standard_Integer = 0) {.
     importcpp: "ReverseOrders", header: "Interface_InterfaceModel.hxx".}
-proc changeOrder*(this: var InterfaceInterfaceModel; oldnum: StandardInteger;
-                 newnum: StandardInteger; count: StandardInteger = 1) {.
+proc ChangeOrder*(this: var Interface_InterfaceModel; oldnum: Standard_Integer;
+                 newnum: Standard_Integer; count: Standard_Integer = 1) {.
     importcpp: "ChangeOrder", header: "Interface_InterfaceModel.hxx".}
-proc getFromTransfer*(this: var InterfaceInterfaceModel;
-                     aniter: InterfaceEntityIterator) {.
+proc GetFromTransfer*(this: var Interface_InterfaceModel;
+                     aniter: Interface_EntityIterator) {.
     importcpp: "GetFromTransfer", header: "Interface_InterfaceModel.hxx".}
-proc getFromAnother*(this: var InterfaceInterfaceModel;
-                    other: Handle[InterfaceInterfaceModel]) {.
+proc GetFromAnother*(this: var Interface_InterfaceModel;
+                    other: handle[Interface_InterfaceModel]) {.
     importcpp: "GetFromAnother", header: "Interface_InterfaceModel.hxx".}
-proc newEmptyModel*(this: InterfaceInterfaceModel): Handle[InterfaceInterfaceModel] {.
-    noSideEffect, importcpp: "NewEmptyModel",
-    header: "Interface_InterfaceModel.hxx".}
-proc setCategoryNumber*(this: var InterfaceInterfaceModel; num: StandardInteger;
-                       val: StandardInteger): StandardBoolean {.
+proc NewEmptyModel*(this: Interface_InterfaceModel): handle[
+    Interface_InterfaceModel] {.noSideEffect, importcpp: "NewEmptyModel",
+                               header: "Interface_InterfaceModel.hxx".}
+proc SetCategoryNumber*(this: var Interface_InterfaceModel; num: Standard_Integer;
+                       val: Standard_Integer): Standard_Boolean {.
     importcpp: "SetCategoryNumber", header: "Interface_InterfaceModel.hxx".}
-proc categoryNumber*(this: InterfaceInterfaceModel; num: StandardInteger): StandardInteger {.
+proc CategoryNumber*(this: Interface_InterfaceModel; num: Standard_Integer): Standard_Integer {.
     noSideEffect, importcpp: "CategoryNumber",
     header: "Interface_InterfaceModel.hxx".}
-proc fillIterator*(this: InterfaceInterfaceModel; iter: var InterfaceEntityIterator) {.
-    noSideEffect, importcpp: "FillIterator", header: "Interface_InterfaceModel.hxx".}
-proc entities*(this: InterfaceInterfaceModel): InterfaceEntityIterator {.
+proc FillIterator*(this: Interface_InterfaceModel;
+                  iter: var Interface_EntityIterator) {.noSideEffect,
+    importcpp: "FillIterator", header: "Interface_InterfaceModel.hxx".}
+proc Entities*(this: Interface_InterfaceModel): Interface_EntityIterator {.
     noSideEffect, importcpp: "Entities", header: "Interface_InterfaceModel.hxx".}
-proc reports*(this: InterfaceInterfaceModel;
-             semantic: StandardBoolean = standardFalse): InterfaceEntityIterator {.
+proc Reports*(this: Interface_InterfaceModel;
+             semantic: Standard_Boolean = Standard_False): Interface_EntityIterator {.
     noSideEffect, importcpp: "Reports", header: "Interface_InterfaceModel.hxx".}
-proc redefineds*(this: InterfaceInterfaceModel): InterfaceEntityIterator {.
+proc Redefineds*(this: Interface_InterfaceModel): Interface_EntityIterator {.
     noSideEffect, importcpp: "Redefineds", header: "Interface_InterfaceModel.hxx".}
-proc globalCheck*(this: InterfaceInterfaceModel;
-                 syntactic: StandardBoolean = standardTrue): Handle[InterfaceCheck] {.
-    noSideEffect, importcpp: "GlobalCheck", header: "Interface_InterfaceModel.hxx".}
-proc setGlobalCheck*(this: var InterfaceInterfaceModel; ach: Handle[InterfaceCheck]) {.
-    importcpp: "SetGlobalCheck", header: "Interface_InterfaceModel.hxx".}
-proc verifyCheck*(this: InterfaceInterfaceModel; ach: var Handle[InterfaceCheck]) {.
-    noSideEffect, importcpp: "VerifyCheck", header: "Interface_InterfaceModel.hxx".}
-proc dumpHeader*(this: InterfaceInterfaceModel; s: var StandardOStream;
-                level: StandardInteger = 0) {.noSideEffect, importcpp: "DumpHeader",
+proc GlobalCheck*(this: Interface_InterfaceModel;
+                 syntactic: Standard_Boolean = Standard_True): handle[
+    Interface_Check] {.noSideEffect, importcpp: "GlobalCheck",
+                      header: "Interface_InterfaceModel.hxx".}
+proc SetGlobalCheck*(this: var Interface_InterfaceModel;
+                    ach: handle[Interface_Check]) {.importcpp: "SetGlobalCheck",
     header: "Interface_InterfaceModel.hxx".}
-proc print*(this: InterfaceInterfaceModel; ent: Handle[StandardTransient];
-           s: var StandardOStream; mode: StandardInteger = 0) {.noSideEffect,
+proc VerifyCheck*(this: Interface_InterfaceModel; ach: var handle[Interface_Check]) {.
+    noSideEffect, importcpp: "VerifyCheck", header: "Interface_InterfaceModel.hxx".}
+proc DumpHeader*(this: Interface_InterfaceModel; S: var Standard_OStream;
+                level: Standard_Integer = 0) {.noSideEffect, importcpp: "DumpHeader",
+    header: "Interface_InterfaceModel.hxx".}
+proc Print*(this: Interface_InterfaceModel; ent: handle[Standard_Transient];
+           s: var Standard_OStream; mode: Standard_Integer = 0) {.noSideEffect,
     importcpp: "Print", header: "Interface_InterfaceModel.hxx".}
-proc printLabel*(this: InterfaceInterfaceModel; ent: Handle[StandardTransient];
-                s: var StandardOStream) {.noSideEffect, importcpp: "PrintLabel",
-                                       header: "Interface_InterfaceModel.hxx".}
-proc printToLog*(this: InterfaceInterfaceModel; ent: Handle[StandardTransient];
-                s: var StandardOStream) {.noSideEffect, importcpp: "PrintToLog",
-                                       header: "Interface_InterfaceModel.hxx".}
-proc stringLabel*(this: InterfaceInterfaceModel; ent: Handle[StandardTransient]): Handle[
-    TCollectionHAsciiString] {.noSideEffect, importcpp: "StringLabel",
-                              header: "Interface_InterfaceModel.hxx".}
-proc nextNumberForLabel*(this: InterfaceInterfaceModel; label: StandardCString;
-                        lastnum: StandardInteger = 0;
-                        exact: StandardBoolean = standardTrue): StandardInteger {.
+proc PrintLabel*(this: Interface_InterfaceModel; ent: handle[Standard_Transient];
+                S: var Standard_OStream) {.noSideEffect, importcpp: "PrintLabel",
+                                        header: "Interface_InterfaceModel.hxx".}
+proc PrintToLog*(this: Interface_InterfaceModel; ent: handle[Standard_Transient];
+                S: var Standard_OStream) {.noSideEffect, importcpp: "PrintToLog",
+                                        header: "Interface_InterfaceModel.hxx".}
+proc StringLabel*(this: Interface_InterfaceModel; ent: handle[Standard_Transient]): handle[
+    TCollection_HAsciiString] {.noSideEffect, importcpp: "StringLabel",
+                               header: "Interface_InterfaceModel.hxx".}
+proc NextNumberForLabel*(this: Interface_InterfaceModel; label: Standard_CString;
+                        lastnum: Standard_Integer = 0;
+                        exact: Standard_Boolean = Standard_True): Standard_Integer {.
     noSideEffect, importcpp: "NextNumberForLabel",
     header: "Interface_InterfaceModel.hxx".}
-proc hasTemplate*(name: StandardCString): StandardBoolean {.
+proc HasTemplate*(name: Standard_CString): Standard_Boolean {.
     importcpp: "Interface_InterfaceModel::HasTemplate(@)",
     header: "Interface_InterfaceModel.hxx".}
-proc `template`*(name: StandardCString): Handle[InterfaceInterfaceModel] {.
+proc Template*(name: Standard_CString): handle[Interface_InterfaceModel] {.
     importcpp: "Interface_InterfaceModel::Template(@)",
     header: "Interface_InterfaceModel.hxx".}
-proc setTemplate*(name: StandardCString; model: Handle[InterfaceInterfaceModel]): StandardBoolean {.
+proc SetTemplate*(name: Standard_CString; model: handle[Interface_InterfaceModel]): Standard_Boolean {.
     importcpp: "Interface_InterfaceModel::SetTemplate(@)",
     header: "Interface_InterfaceModel.hxx".}
-proc listTemplates*(): Handle[TColStdHSequenceOfHAsciiString] {.
+proc ListTemplates*(): handle[TColStd_HSequenceOfHAsciiString] {.
     importcpp: "Interface_InterfaceModel::ListTemplates(@)",
     header: "Interface_InterfaceModel.hxx".}
 type
-  InterfaceInterfaceModelbaseType* = StandardTransient
+  Interface_InterfaceModelbase_type* = Standard_Transient
 
-proc getTypeName*(): cstring {.importcpp: "Interface_InterfaceModel::get_type_name(@)",
-                            header: "Interface_InterfaceModel.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "Interface_InterfaceModel::get_type_name(@)",
+                              header: "Interface_InterfaceModel.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "Interface_InterfaceModel::get_type_descriptor(@)",
     header: "Interface_InterfaceModel.hxx".}
-proc dynamicType*(this: InterfaceInterfaceModel): Handle[StandardType] {.
+proc DynamicType*(this: Interface_InterfaceModel): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType", header: "Interface_InterfaceModel.hxx".}
-

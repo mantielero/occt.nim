@@ -14,30 +14,33 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepBasic_PersonAndOrganization"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepBasicRWPersonAndOrganization* {.importcpp: "RWStepBasic_RWPersonAndOrganization", header: "RWStepBasic_RWPersonAndOrganization.hxx",
-                                       bycopy.} = object
+  RWStepBasic_RWPersonAndOrganization* {.importcpp: "RWStepBasic_RWPersonAndOrganization", header: "RWStepBasic_RWPersonAndOrganization.hxx",
+                                        bycopy.} = object
 
 
-proc constructRWStepBasicRWPersonAndOrganization*(): RWStepBasicRWPersonAndOrganization {.
+proc constructRWStepBasic_RWPersonAndOrganization*(): RWStepBasic_RWPersonAndOrganization {.
     constructor, importcpp: "RWStepBasic_RWPersonAndOrganization(@)",
     header: "RWStepBasic_RWPersonAndOrganization.hxx".}
-proc readStep*(this: RWStepBasicRWPersonAndOrganization;
-              data: Handle[StepDataStepReaderData]; num: StandardInteger;
-              ach: var Handle[InterfaceCheck];
-              ent: Handle[StepBasicPersonAndOrganization]) {.noSideEffect,
+proc ReadStep*(this: RWStepBasic_RWPersonAndOrganization;
+              data: handle[StepData_StepReaderData]; num: Standard_Integer;
+              ach: var handle[Interface_Check];
+              ent: handle[StepBasic_PersonAndOrganization]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepBasic_RWPersonAndOrganization.hxx".}
-proc writeStep*(this: RWStepBasicRWPersonAndOrganization;
-               sw: var StepDataStepWriter;
-               ent: Handle[StepBasicPersonAndOrganization]) {.noSideEffect,
+proc WriteStep*(this: RWStepBasic_RWPersonAndOrganization;
+               SW: var StepData_StepWriter;
+               ent: handle[StepBasic_PersonAndOrganization]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepBasic_RWPersonAndOrganization.hxx".}
-proc share*(this: RWStepBasicRWPersonAndOrganization;
-           ent: Handle[StepBasicPersonAndOrganization];
-           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
+proc Share*(this: RWStepBasic_RWPersonAndOrganization;
+           ent: handle[StepBasic_PersonAndOrganization];
+           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepBasic_RWPersonAndOrganization.hxx".}
-

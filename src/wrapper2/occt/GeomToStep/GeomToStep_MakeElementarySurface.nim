@@ -14,18 +14,21 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, GeomToStep_Root
+
 discard "forward decl of StepGeom_ElementarySurface"
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of Geom_ElementarySurface"
 type
-  GeomToStepMakeElementarySurface* {.importcpp: "GeomToStep_MakeElementarySurface", header: "GeomToStep_MakeElementarySurface.hxx",
-                                    bycopy.} = object of GeomToStepRoot
+  GeomToStep_MakeElementarySurface* {.importcpp: "GeomToStep_MakeElementarySurface", header: "GeomToStep_MakeElementarySurface.hxx",
+                                     bycopy.} = object of GeomToStep_Root
 
 
-proc constructGeomToStepMakeElementarySurface*(s: Handle[GeomElementarySurface]): GeomToStepMakeElementarySurface {.
+proc constructGeomToStep_MakeElementarySurface*(S: handle[Geom_ElementarySurface]): GeomToStep_MakeElementarySurface {.
     constructor, importcpp: "GeomToStep_MakeElementarySurface(@)",
     header: "GeomToStep_MakeElementarySurface.hxx".}
-proc value*(this: GeomToStepMakeElementarySurface): Handle[
-    StepGeomElementarySurface] {.noSideEffect, importcpp: "Value",
-                                header: "GeomToStep_MakeElementarySurface.hxx".}
-
+proc Value*(this: GeomToStep_MakeElementarySurface): handle[
+    StepGeom_ElementarySurface] {.noSideEffect, importcpp: "Value",
+                                 header: "GeomToStep_MakeElementarySurface.hxx".}

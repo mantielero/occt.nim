@@ -14,27 +14,30 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepBasic_DocumentType"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepBasicRWDocumentType* {.importcpp: "RWStepBasic_RWDocumentType",
-                              header: "RWStepBasic_RWDocumentType.hxx", bycopy.} = object
+  RWStepBasic_RWDocumentType* {.importcpp: "RWStepBasic_RWDocumentType",
+                               header: "RWStepBasic_RWDocumentType.hxx", bycopy.} = object
 
 
-proc constructRWStepBasicRWDocumentType*(): RWStepBasicRWDocumentType {.
+proc constructRWStepBasic_RWDocumentType*(): RWStepBasic_RWDocumentType {.
     constructor, importcpp: "RWStepBasic_RWDocumentType(@)",
     header: "RWStepBasic_RWDocumentType.hxx".}
-proc readStep*(this: RWStepBasicRWDocumentType;
-              data: Handle[StepDataStepReaderData]; num: StandardInteger;
-              ach: var Handle[InterfaceCheck]; ent: Handle[StepBasicDocumentType]) {.
+proc ReadStep*(this: RWStepBasic_RWDocumentType;
+              data: handle[StepData_StepReaderData]; num: Standard_Integer;
+              ach: var handle[Interface_Check]; ent: handle[StepBasic_DocumentType]) {.
     noSideEffect, importcpp: "ReadStep", header: "RWStepBasic_RWDocumentType.hxx".}
-proc writeStep*(this: RWStepBasicRWDocumentType; sw: var StepDataStepWriter;
-               ent: Handle[StepBasicDocumentType]) {.noSideEffect,
+proc WriteStep*(this: RWStepBasic_RWDocumentType; SW: var StepData_StepWriter;
+               ent: handle[StepBasic_DocumentType]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepBasic_RWDocumentType.hxx".}
-proc share*(this: RWStepBasicRWDocumentType; ent: Handle[StepBasicDocumentType];
-           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
+proc Share*(this: RWStepBasic_RWDocumentType; ent: handle[StepBasic_DocumentType];
+           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepBasic_RWDocumentType.hxx".}
-

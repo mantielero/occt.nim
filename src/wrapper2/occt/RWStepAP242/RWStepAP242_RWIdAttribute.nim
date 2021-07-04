@@ -13,27 +13,30 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepAP242_IdAttribute"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepAP242RWIdAttribute* {.importcpp: "RWStepAP242_RWIdAttribute",
-                             header: "RWStepAP242_RWIdAttribute.hxx", bycopy.} = object
+  RWStepAP242_RWIdAttribute* {.importcpp: "RWStepAP242_RWIdAttribute",
+                              header: "RWStepAP242_RWIdAttribute.hxx", bycopy.} = object
 
 
-proc constructRWStepAP242RWIdAttribute*(): RWStepAP242RWIdAttribute {.constructor,
-    importcpp: "RWStepAP242_RWIdAttribute(@)",
+proc constructRWStepAP242_RWIdAttribute*(): RWStepAP242_RWIdAttribute {.
+    constructor, importcpp: "RWStepAP242_RWIdAttribute(@)",
     header: "RWStepAP242_RWIdAttribute.hxx".}
-proc readStep*(this: RWStepAP242RWIdAttribute;
-              data: Handle[StepDataStepReaderData]; num: StandardInteger;
-              ach: var Handle[InterfaceCheck]; ent: Handle[StepAP242IdAttribute]) {.
+proc ReadStep*(this: RWStepAP242_RWIdAttribute;
+              data: handle[StepData_StepReaderData]; num: Standard_Integer;
+              ach: var handle[Interface_Check]; ent: handle[StepAP242_IdAttribute]) {.
     noSideEffect, importcpp: "ReadStep", header: "RWStepAP242_RWIdAttribute.hxx".}
-proc writeStep*(this: RWStepAP242RWIdAttribute; sw: var StepDataStepWriter;
-               ent: Handle[StepAP242IdAttribute]) {.noSideEffect,
+proc WriteStep*(this: RWStepAP242_RWIdAttribute; SW: var StepData_StepWriter;
+               ent: handle[StepAP242_IdAttribute]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepAP242_RWIdAttribute.hxx".}
-proc share*(this: RWStepAP242RWIdAttribute; ent: Handle[StepAP242IdAttribute];
-           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
+proc Share*(this: RWStepAP242_RWIdAttribute; ent: handle[StepAP242_IdAttribute];
+           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepAP242_RWIdAttribute.hxx".}
-

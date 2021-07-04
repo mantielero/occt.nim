@@ -14,12 +14,17 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Real,
+  Law_Laws, ../Standard/Standard_Boolean, Law_Function, ../GeomAbs/GeomAbs_Shape,
+  ../Standard/Standard_Integer, ../TColStd/TColStd_Array1OfReal
+
 discard "forward decl of Law_Function"
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of Law_Composite"
 discard "forward decl of Law_Composite"
 type
-  HandleLawComposite* = Handle[LawComposite]
+  Handle_Law_Composite* = handle[Law_Composite]
 
 ## ! Loi  composite constituee  d une liste  de lois de
 ## ! ranges consecutifs.
@@ -32,59 +37,59 @@ type
 ## ! SPECIFIQUE AUX CONGES!!!
 
 type
-  LawComposite* {.importcpp: "Law_Composite", header: "Law_Composite.hxx", bycopy.} = object of LawFunction ##
-                                                                                                  ## !
-                                                                                                  ## Construct
-                                                                                                  ## an
-                                                                                                  ## empty
-                                                                                                  ## Law
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## Set
-                                                                                                  ## the
-                                                                                                  ## current
-                                                                                                  ## function.
+  Law_Composite* {.importcpp: "Law_Composite", header: "Law_Composite.hxx", bycopy.} = object of Law_Function ##
+                                                                                                    ## !
+                                                                                                    ## Construct
+                                                                                                    ## an
+                                                                                                    ## empty
+                                                                                                    ## Law
+                                                                                                    ##
+                                                                                                    ## !
+                                                                                                    ## Set
+                                                                                                    ## the
+                                                                                                    ## current
+                                                                                                    ## function.
 
 
-proc constructLawComposite*(): LawComposite {.constructor,
+proc constructLaw_Composite*(): Law_Composite {.constructor,
     importcpp: "Law_Composite(@)", header: "Law_Composite.hxx".}
-proc constructLawComposite*(first: StandardReal; last: StandardReal;
-                           tol: StandardReal): LawComposite {.constructor,
+proc constructLaw_Composite*(First: Standard_Real; Last: Standard_Real;
+                            Tol: Standard_Real): Law_Composite {.constructor,
     importcpp: "Law_Composite(@)", header: "Law_Composite.hxx".}
-proc continuity*(this: LawComposite): GeomAbsShape {.noSideEffect,
+proc Continuity*(this: Law_Composite): GeomAbs_Shape {.noSideEffect,
     importcpp: "Continuity", header: "Law_Composite.hxx".}
-proc nbIntervals*(this: LawComposite; s: GeomAbsShape): StandardInteger {.
+proc NbIntervals*(this: Law_Composite; S: GeomAbs_Shape): Standard_Integer {.
     noSideEffect, importcpp: "NbIntervals", header: "Law_Composite.hxx".}
-proc intervals*(this: LawComposite; t: var TColStdArray1OfReal; s: GeomAbsShape) {.
+proc Intervals*(this: Law_Composite; T: var TColStd_Array1OfReal; S: GeomAbs_Shape) {.
     noSideEffect, importcpp: "Intervals", header: "Law_Composite.hxx".}
-proc value*(this: var LawComposite; x: StandardReal): StandardReal {.
+proc Value*(this: var Law_Composite; X: Standard_Real): Standard_Real {.
     importcpp: "Value", header: "Law_Composite.hxx".}
-proc d1*(this: var LawComposite; x: StandardReal; f: var StandardReal;
-        d: var StandardReal) {.importcpp: "D1", header: "Law_Composite.hxx".}
-proc d2*(this: var LawComposite; x: StandardReal; f: var StandardReal;
-        d: var StandardReal; d2: var StandardReal) {.importcpp: "D2",
+proc D1*(this: var Law_Composite; X: Standard_Real; F: var Standard_Real;
+        D: var Standard_Real) {.importcpp: "D1", header: "Law_Composite.hxx".}
+proc D2*(this: var Law_Composite; X: Standard_Real; F: var Standard_Real;
+        D: var Standard_Real; D2: var Standard_Real) {.importcpp: "D2",
     header: "Law_Composite.hxx".}
-proc trim*(this: LawComposite; pFirst: StandardReal; pLast: StandardReal;
-          tol: StandardReal): Handle[LawFunction] {.noSideEffect, importcpp: "Trim",
+proc Trim*(this: Law_Composite; PFirst: Standard_Real; PLast: Standard_Real;
+          Tol: Standard_Real): handle[Law_Function] {.noSideEffect,
+    importcpp: "Trim", header: "Law_Composite.hxx".}
+proc Bounds*(this: var Law_Composite; PFirst: var Standard_Real;
+            PLast: var Standard_Real) {.importcpp: "Bounds",
+                                     header: "Law_Composite.hxx".}
+proc ChangeElementaryLaw*(this: var Law_Composite; W: Standard_Real): var handle[
+    Law_Function] {.importcpp: "ChangeElementaryLaw", header: "Law_Composite.hxx".}
+proc ChangeLaws*(this: var Law_Composite): var Law_Laws {.importcpp: "ChangeLaws",
     header: "Law_Composite.hxx".}
-proc bounds*(this: var LawComposite; pFirst: var StandardReal; pLast: var StandardReal) {.
-    importcpp: "Bounds", header: "Law_Composite.hxx".}
-proc changeElementaryLaw*(this: var LawComposite; w: StandardReal): var Handle[
-    LawFunction] {.importcpp: "ChangeElementaryLaw", header: "Law_Composite.hxx".}
-proc changeLaws*(this: var LawComposite): var LawLaws {.importcpp: "ChangeLaws",
-    header: "Law_Composite.hxx".}
-proc isPeriodic*(this: LawComposite): StandardBoolean {.noSideEffect,
+proc IsPeriodic*(this: Law_Composite): Standard_Boolean {.noSideEffect,
     importcpp: "IsPeriodic", header: "Law_Composite.hxx".}
-proc setPeriodic*(this: var LawComposite) {.importcpp: "SetPeriodic",
-                                        header: "Law_Composite.hxx".}
+proc SetPeriodic*(this: var Law_Composite) {.importcpp: "SetPeriodic",
+    header: "Law_Composite.hxx".}
 type
-  LawCompositebaseType* = LawFunction
+  Law_Compositebase_type* = Law_Function
 
-proc getTypeName*(): cstring {.importcpp: "Law_Composite::get_type_name(@)",
-                            header: "Law_Composite.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "Law_Composite::get_type_name(@)",
+                              header: "Law_Composite.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "Law_Composite::get_type_descriptor(@)",
     header: "Law_Composite.hxx".}
-proc dynamicType*(this: LawComposite): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: Law_Composite): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "Law_Composite.hxx".}
-

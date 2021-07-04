@@ -14,123 +14,31 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Real
+
 discard "forward decl of IntCurve_PConic"
 discard "forward decl of gp_Pnt2d"
 type
-  IntCurveProjectOnPConicTool* {.importcpp: "IntCurve_ProjectOnPConicTool",
-                                header: "IntCurve_ProjectOnPConicTool.hxx", bycopy.} = object ##
-                                                                                         ## !
-                                                                                         ## Returns
-                                                                                         ## the
-                                                                                         ## parameter
-                                                                                         ## V
-                                                                                         ## of
-                                                                                         ## the
-                                                                                         ## point
-                                                                                         ## on
-                                                                                         ## the
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## parametric
-                                                                                         ## curve
-                                                                                         ## corresponding
-                                                                                         ## to
-                                                                                         ## the
-                                                                                         ## Point
-                                                                                         ## Pnt.
-                                                                                         ## The
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## Correspondance
-                                                                                         ## between
-                                                                                         ## Pnt
-                                                                                         ## and
-                                                                                         ## the
-                                                                                         ## point
-                                                                                         ## P(V)
-                                                                                         ## on
-                                                                                         ## the
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## parametric
-                                                                                         ## curve
-                                                                                         ## must
-                                                                                         ## be
-                                                                                         ## coherent
-                                                                                         ## with
-                                                                                         ## the
-                                                                                         ## way
-                                                                                         ## of
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## determination
-                                                                                         ## of
-                                                                                         ## the
-                                                                                         ## signed
-                                                                                         ## distance
-                                                                                         ## between
-                                                                                         ## a
-                                                                                         ## point
-                                                                                         ## and
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## the
-                                                                                         ## implicit
-                                                                                         ## curve.
-                                                                                         ## Tol
-                                                                                         ## is
-                                                                                         ## the
-                                                                                         ## tolerance
-                                                                                         ## on
-                                                                                         ## the
-                                                                                         ## distance
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## between
-                                                                                         ## a
-                                                                                         ## point
-                                                                                         ## and
-                                                                                         ## the
-                                                                                         ## parametrised
-                                                                                         ## curve.
-                                                                                         ## In
-                                                                                         ## that
-                                                                                         ## case,
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## no
-                                                                                         ## bounds
-                                                                                         ## are
-                                                                                         ## given.
-                                                                                         ## The
-                                                                                         ## research
-                                                                                         ## of
-                                                                                         ## the
-                                                                                         ## rigth
-                                                                                         ## parameter
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## has
-                                                                                         ## to
-                                                                                         ## be
-                                                                                         ## made
-                                                                                         ## on
-                                                                                         ## the
-                                                                                         ## natural
-                                                                                         ## parametric
-                                                                                         ## domain
-                                                                                         ## of
-                                                                                         ## the
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## curve.
+  IntCurve_ProjectOnPConicTool* {.importcpp: "IntCurve_ProjectOnPConicTool",
+                                 header: "IntCurve_ProjectOnPConicTool.hxx",
+                                 bycopy.} = object ## ! Returns  the parameter V  of the  point   on the
+                                                ## ! parametric  curve corresponding to  the  Point  Pnt.   The
+                                                ## ! Correspondance between  Pnt  and the  point   P(V) on  the
+                                                ## ! parametric    curve  must  be  coherent with    the way of
+                                                ## ! determination  of the signed  distance between a point and
+                                                ## ! the implicit curve.  Tol is the tolerance on  the distance
+                                                ## ! between a point and the parametrised curve.  In that case,
+                                                ## ! no bounds are given.  The research  of the rigth parameter
+                                                ## ! has to  be  made  on the natural  parametric domain of the
+                                                ## ! curve.
 
 
-proc findParameter*(c: IntCurvePConic; pnt: GpPnt2d; tol: StandardReal): StandardReal {.
+proc FindParameter*(C: IntCurve_PConic; Pnt: gp_Pnt2d; Tol: Standard_Real): Standard_Real {.
     importcpp: "IntCurve_ProjectOnPConicTool::FindParameter(@)",
     header: "IntCurve_ProjectOnPConicTool.hxx".}
-proc findParameter*(c: IntCurvePConic; pnt: GpPnt2d; lowParameter: StandardReal;
-                   highParameter: StandardReal; tol: StandardReal): StandardReal {.
+proc FindParameter*(C: IntCurve_PConic; Pnt: gp_Pnt2d; LowParameter: Standard_Real;
+                   HighParameter: Standard_Real; Tol: Standard_Real): Standard_Real {.
     importcpp: "IntCurve_ProjectOnPConicTool::FindParameter(@)",
     header: "IntCurve_ProjectOnPConicTool.hxx".}
-

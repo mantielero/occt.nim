@@ -12,6 +12,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, BOPAlgo_ToolsProvider
+
 ## ! The **Splitter algorithm** is the algorithm for splitting a group of
 ## ! arbitrary shapes by the other group of arbitrary shapes.<br>
 ## ! The arguments of the operation are divided on two groups:<br>
@@ -40,17 +44,24 @@
 ## ! the split parts of only Objects into result, avoiding the split parts of Tools.
 
 type
-  BOPAlgoSplitter* {.importcpp: "BOPAlgo_Splitter", header: "BOPAlgo_Splitter.hxx",
-                    bycopy.} = object of BOPAlgoToolsProvider ## ! Empty constructor
-                                                         ## ! Checks the input data
+  BOPAlgo_Splitter* {.importcpp: "BOPAlgo_Splitter",
+                     header: "BOPAlgo_Splitter.hxx", bycopy.} = object of BOPAlgo_ToolsProvider ##
+                                                                                         ## !
+                                                                                         ## Empty
+                                                                                         ## constructor
+                                                                                         ##
+                                                                                         ## !
+                                                                                         ## Checks
+                                                                                         ## the
+                                                                                         ## input
+                                                                                         ## data
 
 
-proc constructBOPAlgoSplitter*(): BOPAlgoSplitter {.constructor,
+proc constructBOPAlgo_Splitter*(): BOPAlgo_Splitter {.constructor,
     importcpp: "BOPAlgo_Splitter(@)", header: "BOPAlgo_Splitter.hxx".}
-proc destroyBOPAlgoSplitter*(this: var BOPAlgoSplitter) {.
+proc destroyBOPAlgo_Splitter*(this: var BOPAlgo_Splitter) {.
     importcpp: "#.~BOPAlgo_Splitter()", header: "BOPAlgo_Splitter.hxx".}
-proc constructBOPAlgoSplitter*(theAllocator: Handle[NCollectionBaseAllocator]): BOPAlgoSplitter {.
+proc constructBOPAlgo_Splitter*(theAllocator: handle[NCollection_BaseAllocator]): BOPAlgo_Splitter {.
     constructor, importcpp: "BOPAlgo_Splitter(@)", header: "BOPAlgo_Splitter.hxx".}
-proc perform*(this: var BOPAlgoSplitter) {.importcpp: "Perform",
-                                       header: "BOPAlgo_Splitter.hxx".}
-
+proc Perform*(this: var BOPAlgo_Splitter) {.importcpp: "Perform",
+                                        header: "BOPAlgo_Splitter.hxx".}

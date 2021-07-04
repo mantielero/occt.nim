@@ -14,83 +14,86 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, Graphic3d_NameOfTexturePlane,
+  Graphic3d_Texture2D, Graphic3d_NameOfTexture2D, ../Standard/Standard_ShortReal
+
 discard "forward decl of TCollection_AsciiString"
 discard "forward decl of Graphic3d_Texture2Dplane"
 discard "forward decl of Graphic3d_Texture2Dplane"
 type
-  HandleGraphic3dTexture2Dplane* = Handle[Graphic3dTexture2Dplane]
+  Handle_Graphic3d_Texture2Dplane* = handle[Graphic3d_Texture2Dplane]
 
 ## ! This class allows the management of a 2D texture defined from a plane equation
 ## ! Use the SetXXX() methods for positioning the texture as you want.
 
 type
-  Graphic3dTexture2Dplane* {.importcpp: "Graphic3d_Texture2Dplane",
-                            header: "Graphic3d_Texture2Dplane.hxx", bycopy.} = object of Graphic3dTexture2D ##
-                                                                                                     ## !
-                                                                                                     ## Creates
-                                                                                                     ## a
-                                                                                                     ## texture
-                                                                                                     ## from
-                                                                                                     ## a
-                                                                                                     ## file
+  Graphic3d_Texture2Dplane* {.importcpp: "Graphic3d_Texture2Dplane",
+                             header: "Graphic3d_Texture2Dplane.hxx", bycopy.} = object of Graphic3d_Texture2D ##
+                                                                                                       ## !
+                                                                                                       ## Creates
+                                                                                                       ## a
+                                                                                                       ## texture
+                                                                                                       ## from
+                                                                                                       ## a
+                                                                                                       ## file
 
 
-proc constructGraphic3dTexture2Dplane*(theFileName: TCollectionAsciiString): Graphic3dTexture2Dplane {.
+proc constructGraphic3d_Texture2Dplane*(theFileName: TCollection_AsciiString): Graphic3d_Texture2Dplane {.
     constructor, importcpp: "Graphic3d_Texture2Dplane(@)",
     header: "Graphic3d_Texture2Dplane.hxx".}
-proc constructGraphic3dTexture2Dplane*(theNOT: Graphic3dNameOfTexture2D): Graphic3dTexture2Dplane {.
+proc constructGraphic3d_Texture2Dplane*(theNOT: Graphic3d_NameOfTexture2D): Graphic3d_Texture2Dplane {.
     constructor, importcpp: "Graphic3d_Texture2Dplane(@)",
     header: "Graphic3d_Texture2Dplane.hxx".}
-proc constructGraphic3dTexture2Dplane*(thePixMap: Handle[ImagePixMap]): Graphic3dTexture2Dplane {.
+proc constructGraphic3d_Texture2Dplane*(thePixMap: handle[Image_PixMap]): Graphic3d_Texture2Dplane {.
     constructor, importcpp: "Graphic3d_Texture2Dplane(@)",
     header: "Graphic3d_Texture2Dplane.hxx".}
-proc setPlaneS*(this: var Graphic3dTexture2Dplane; a: StandardShortReal;
-               b: StandardShortReal; c: StandardShortReal; d: StandardShortReal) {.
+proc SetPlaneS*(this: var Graphic3d_Texture2Dplane; A: Standard_ShortReal;
+               B: Standard_ShortReal; C: Standard_ShortReal; D: Standard_ShortReal) {.
     importcpp: "SetPlaneS", header: "Graphic3d_Texture2Dplane.hxx".}
-proc setPlaneT*(this: var Graphic3dTexture2Dplane; a: StandardShortReal;
-               b: StandardShortReal; c: StandardShortReal; d: StandardShortReal) {.
+proc SetPlaneT*(this: var Graphic3d_Texture2Dplane; A: Standard_ShortReal;
+               B: Standard_ShortReal; C: Standard_ShortReal; D: Standard_ShortReal) {.
     importcpp: "SetPlaneT", header: "Graphic3d_Texture2Dplane.hxx".}
-proc setPlane*(this: var Graphic3dTexture2Dplane;
-              thePlane: Graphic3dNameOfTexturePlane) {.importcpp: "SetPlane",
+proc SetPlane*(this: var Graphic3d_Texture2Dplane;
+              thePlane: Graphic3d_NameOfTexturePlane) {.importcpp: "SetPlane",
     header: "Graphic3d_Texture2Dplane.hxx".}
-proc setScaleS*(this: var Graphic3dTexture2Dplane; theVal: StandardShortReal) {.
+proc SetScaleS*(this: var Graphic3d_Texture2Dplane; theVal: Standard_ShortReal) {.
     importcpp: "SetScaleS", header: "Graphic3d_Texture2Dplane.hxx".}
-proc setScaleT*(this: var Graphic3dTexture2Dplane; theVal: StandardShortReal) {.
+proc SetScaleT*(this: var Graphic3d_Texture2Dplane; theVal: Standard_ShortReal) {.
     importcpp: "SetScaleT", header: "Graphic3d_Texture2Dplane.hxx".}
-proc setTranslateS*(this: var Graphic3dTexture2Dplane; theVal: StandardShortReal) {.
+proc SetTranslateS*(this: var Graphic3d_Texture2Dplane; theVal: Standard_ShortReal) {.
     importcpp: "SetTranslateS", header: "Graphic3d_Texture2Dplane.hxx".}
-proc setTranslateT*(this: var Graphic3dTexture2Dplane; theVal: StandardShortReal) {.
+proc SetTranslateT*(this: var Graphic3d_Texture2Dplane; theVal: Standard_ShortReal) {.
     importcpp: "SetTranslateT", header: "Graphic3d_Texture2Dplane.hxx".}
-proc setRotation*(this: var Graphic3dTexture2Dplane; theVal: StandardShortReal) {.
+proc SetRotation*(this: var Graphic3d_Texture2Dplane; theVal: Standard_ShortReal) {.
     importcpp: "SetRotation", header: "Graphic3d_Texture2Dplane.hxx".}
-proc plane*(this: Graphic3dTexture2Dplane): Graphic3dNameOfTexturePlane {.
+proc Plane*(this: Graphic3d_Texture2Dplane): Graphic3d_NameOfTexturePlane {.
     noSideEffect, importcpp: "Plane", header: "Graphic3d_Texture2Dplane.hxx".}
-proc planeS*(this: Graphic3dTexture2Dplane; a: var StandardShortReal;
-            b: var StandardShortReal; c: var StandardShortReal;
-            d: var StandardShortReal) {.noSideEffect, importcpp: "PlaneS",
-                                     header: "Graphic3d_Texture2Dplane.hxx".}
-proc planeT*(this: Graphic3dTexture2Dplane; a: var StandardShortReal;
-            b: var StandardShortReal; c: var StandardShortReal;
-            d: var StandardShortReal) {.noSideEffect, importcpp: "PlaneT",
-                                     header: "Graphic3d_Texture2Dplane.hxx".}
-proc translateS*(this: Graphic3dTexture2Dplane; theVal: var StandardShortReal) {.
+proc PlaneS*(this: Graphic3d_Texture2Dplane; A: var Standard_ShortReal;
+            B: var Standard_ShortReal; C: var Standard_ShortReal;
+            D: var Standard_ShortReal) {.noSideEffect, importcpp: "PlaneS",
+                                      header: "Graphic3d_Texture2Dplane.hxx".}
+proc PlaneT*(this: Graphic3d_Texture2Dplane; A: var Standard_ShortReal;
+            B: var Standard_ShortReal; C: var Standard_ShortReal;
+            D: var Standard_ShortReal) {.noSideEffect, importcpp: "PlaneT",
+                                      header: "Graphic3d_Texture2Dplane.hxx".}
+proc TranslateS*(this: Graphic3d_Texture2Dplane; theVal: var Standard_ShortReal) {.
     noSideEffect, importcpp: "TranslateS", header: "Graphic3d_Texture2Dplane.hxx".}
-proc translateT*(this: Graphic3dTexture2Dplane; theVal: var StandardShortReal) {.
+proc TranslateT*(this: Graphic3d_Texture2Dplane; theVal: var Standard_ShortReal) {.
     noSideEffect, importcpp: "TranslateT", header: "Graphic3d_Texture2Dplane.hxx".}
-proc scaleS*(this: Graphic3dTexture2Dplane; theVal: var StandardShortReal) {.
+proc ScaleS*(this: Graphic3d_Texture2Dplane; theVal: var Standard_ShortReal) {.
     noSideEffect, importcpp: "ScaleS", header: "Graphic3d_Texture2Dplane.hxx".}
-proc scaleT*(this: Graphic3dTexture2Dplane; theVal: var StandardShortReal) {.
+proc ScaleT*(this: Graphic3d_Texture2Dplane; theVal: var Standard_ShortReal) {.
     noSideEffect, importcpp: "ScaleT", header: "Graphic3d_Texture2Dplane.hxx".}
-proc rotation*(this: Graphic3dTexture2Dplane; theVal: var StandardShortReal) {.
+proc Rotation*(this: Graphic3d_Texture2Dplane; theVal: var Standard_ShortReal) {.
     noSideEffect, importcpp: "Rotation", header: "Graphic3d_Texture2Dplane.hxx".}
 type
-  Graphic3dTexture2DplanebaseType* = Graphic3dTexture2D
+  Graphic3d_Texture2Dplanebase_type* = Graphic3d_Texture2D
 
-proc getTypeName*(): cstring {.importcpp: "Graphic3d_Texture2Dplane::get_type_name(@)",
-                            header: "Graphic3d_Texture2Dplane.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "Graphic3d_Texture2Dplane::get_type_name(@)",
+                              header: "Graphic3d_Texture2Dplane.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "Graphic3d_Texture2Dplane::get_type_descriptor(@)",
     header: "Graphic3d_Texture2Dplane.hxx".}
-proc dynamicType*(this: Graphic3dTexture2Dplane): Handle[StandardType] {.
+proc DynamicType*(this: Graphic3d_Texture2Dplane): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType", header: "Graphic3d_Texture2Dplane.hxx".}
-

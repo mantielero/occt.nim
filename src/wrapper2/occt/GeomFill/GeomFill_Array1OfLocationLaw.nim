@@ -14,7 +14,8 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  GeomFill_LocationLaw, ../NCollection/NCollection_Array1
+
 type
-  GeomFillArray1OfLocationLaw* = NCollectionArray1[Handle[GeomFillLocationLaw]]
-
-
+  GeomFill_Array1OfLocationLaw* = NCollection_Array1[handle[GeomFill_LocationLaw]]

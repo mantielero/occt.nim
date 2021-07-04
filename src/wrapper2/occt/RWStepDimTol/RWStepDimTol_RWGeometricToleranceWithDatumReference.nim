@@ -13,13 +13,17 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepDimTol_GeometricToleranceWithDatumReference"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepDimTolRWGeometricToleranceWithDatumReference* {.
+  RWStepDimTol_RWGeometricToleranceWithDatumReference* {.
       importcpp: "RWStepDimTol_RWGeometricToleranceWithDatumReference",
       header: "RWStepDimTol_RWGeometricToleranceWithDatumReference.hxx", bycopy.} = object ##
                                                                                       ## !
@@ -27,23 +31,22 @@ type
                                                                                       ## constructor
 
 
-proc constructRWStepDimTolRWGeometricToleranceWithDatumReference*(): RWStepDimTolRWGeometricToleranceWithDatumReference {.
+proc constructRWStepDimTol_RWGeometricToleranceWithDatumReference*(): RWStepDimTol_RWGeometricToleranceWithDatumReference {.
     constructor,
     importcpp: "RWStepDimTol_RWGeometricToleranceWithDatumReference(@)",
     header: "RWStepDimTol_RWGeometricToleranceWithDatumReference.hxx".}
-proc readStep*(this: RWStepDimTolRWGeometricToleranceWithDatumReference;
-              data: Handle[StepDataStepReaderData]; num: StandardInteger;
-              ach: var Handle[InterfaceCheck];
-              ent: Handle[StepDimTolGeometricToleranceWithDatumReference]) {.
+proc ReadStep*(this: RWStepDimTol_RWGeometricToleranceWithDatumReference;
+              data: handle[StepData_StepReaderData]; num: Standard_Integer;
+              ach: var handle[Interface_Check];
+              ent: handle[StepDimTol_GeometricToleranceWithDatumReference]) {.
     noSideEffect, importcpp: "ReadStep",
     header: "RWStepDimTol_RWGeometricToleranceWithDatumReference.hxx".}
-proc writeStep*(this: RWStepDimTolRWGeometricToleranceWithDatumReference;
-               sw: var StepDataStepWriter;
-               ent: Handle[StepDimTolGeometricToleranceWithDatumReference]) {.
+proc WriteStep*(this: RWStepDimTol_RWGeometricToleranceWithDatumReference;
+               SW: var StepData_StepWriter;
+               ent: handle[StepDimTol_GeometricToleranceWithDatumReference]) {.
     noSideEffect, importcpp: "WriteStep",
     header: "RWStepDimTol_RWGeometricToleranceWithDatumReference.hxx".}
-proc share*(this: RWStepDimTolRWGeometricToleranceWithDatumReference;
-           ent: Handle[StepDimTolGeometricToleranceWithDatumReference];
-           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
+proc Share*(this: RWStepDimTol_RWGeometricToleranceWithDatumReference;
+           ent: handle[StepDimTol_GeometricToleranceWithDatumReference];
+           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepDimTol_RWGeometricToleranceWithDatumReference.hxx".}
-

@@ -14,11 +14,16 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Real,
+  ../Standard/Standard_Integer, BRep_ListOfCurveRepresentation,
+  ../TopoDS/TopoDS_TEdge, ../Standard/Standard_Boolean
+
 discard "forward decl of TopoDS_TShape"
 discard "forward decl of BRep_TEdge"
 discard "forward decl of BRep_TEdge"
 type
-  HandleBRepTEdge* = Handle[BRepTEdge]
+  Handle_BRep_TEdge* = handle[BRep_TEdge]
 
 ## ! The TEdge from BRep is  inherited from  the  TEdge
 ## ! from TopoDS. It contains the geometric data.
@@ -36,50 +41,49 @@ type
 ## ! *  A  list   of curve representation.
 
 type
-  BRepTEdge* {.importcpp: "BRep_TEdge", header: "BRep_TEdge.hxx", bycopy.} = object of TopoDS_TEdge ##
-                                                                                          ## !
-                                                                                          ## Creates
-                                                                                          ## an
-                                                                                          ## empty
-                                                                                          ## TEdge.
+  BRep_TEdge* {.importcpp: "BRep_TEdge", header: "BRep_TEdge.hxx", bycopy.} = object of TopoDS_TEdge ##
+                                                                                           ## !
+                                                                                           ## Creates
+                                                                                           ## an
+                                                                                           ## empty
+                                                                                           ## TEdge.
 
 
-proc constructBRepTEdge*(): BRepTEdge {.constructor, importcpp: "BRep_TEdge(@)",
-                                     header: "BRep_TEdge.hxx".}
-proc tolerance*(this: BRepTEdge): StandardReal {.noSideEffect,
+proc constructBRep_TEdge*(): BRep_TEdge {.constructor, importcpp: "BRep_TEdge(@)",
+                                       header: "BRep_TEdge.hxx".}
+proc Tolerance*(this: BRep_TEdge): Standard_Real {.noSideEffect,
     importcpp: "Tolerance", header: "BRep_TEdge.hxx".}
-proc tolerance*(this: var BRepTEdge; t: StandardReal) {.importcpp: "Tolerance",
+proc Tolerance*(this: var BRep_TEdge; T: Standard_Real) {.importcpp: "Tolerance",
     header: "BRep_TEdge.hxx".}
-proc updateTolerance*(this: var BRepTEdge; t: StandardReal) {.
+proc UpdateTolerance*(this: var BRep_TEdge; T: Standard_Real) {.
     importcpp: "UpdateTolerance", header: "BRep_TEdge.hxx".}
-proc sameParameter*(this: BRepTEdge): StandardBoolean {.noSideEffect,
+proc SameParameter*(this: BRep_TEdge): Standard_Boolean {.noSideEffect,
     importcpp: "SameParameter", header: "BRep_TEdge.hxx".}
-proc sameParameter*(this: var BRepTEdge; s: StandardBoolean) {.
+proc SameParameter*(this: var BRep_TEdge; S: Standard_Boolean) {.
     importcpp: "SameParameter", header: "BRep_TEdge.hxx".}
-proc sameRange*(this: BRepTEdge): StandardBoolean {.noSideEffect,
+proc SameRange*(this: BRep_TEdge): Standard_Boolean {.noSideEffect,
     importcpp: "SameRange", header: "BRep_TEdge.hxx".}
-proc sameRange*(this: var BRepTEdge; s: StandardBoolean) {.importcpp: "SameRange",
+proc SameRange*(this: var BRep_TEdge; S: Standard_Boolean) {.importcpp: "SameRange",
     header: "BRep_TEdge.hxx".}
-proc degenerated*(this: BRepTEdge): StandardBoolean {.noSideEffect,
+proc Degenerated*(this: BRep_TEdge): Standard_Boolean {.noSideEffect,
     importcpp: "Degenerated", header: "BRep_TEdge.hxx".}
-proc degenerated*(this: var BRepTEdge; s: StandardBoolean) {.importcpp: "Degenerated",
-    header: "BRep_TEdge.hxx".}
-proc curves*(this: BRepTEdge): BRepListOfCurveRepresentation {.noSideEffect,
+proc Degenerated*(this: var BRep_TEdge; S: Standard_Boolean) {.
+    importcpp: "Degenerated", header: "BRep_TEdge.hxx".}
+proc Curves*(this: BRep_TEdge): BRep_ListOfCurveRepresentation {.noSideEffect,
     importcpp: "Curves", header: "BRep_TEdge.hxx".}
-proc changeCurves*(this: var BRepTEdge): var BRepListOfCurveRepresentation {.
+proc ChangeCurves*(this: var BRep_TEdge): var BRep_ListOfCurveRepresentation {.
     importcpp: "ChangeCurves", header: "BRep_TEdge.hxx".}
-proc emptyCopy*(this: BRepTEdge): Handle[TopoDS_TShape] {.noSideEffect,
+proc EmptyCopy*(this: BRep_TEdge): handle[TopoDS_TShape] {.noSideEffect,
     importcpp: "EmptyCopy", header: "BRep_TEdge.hxx".}
-proc dumpJson*(this: BRepTEdge; theOStream: var StandardOStream;
-              theDepth: StandardInteger = -1) {.noSideEffect, importcpp: "DumpJson",
+proc DumpJson*(this: BRep_TEdge; theOStream: var Standard_OStream;
+              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
     header: "BRep_TEdge.hxx".}
 type
-  BRepTEdgebaseType* = TopoDS_TEdge
+  BRep_TEdgebase_type* = TopoDS_TEdge
 
-proc getTypeName*(): cstring {.importcpp: "BRep_TEdge::get_type_name(@)",
-                            header: "BRep_TEdge.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "BRep_TEdge::get_type_name(@)",
+                              header: "BRep_TEdge.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "BRep_TEdge::get_type_descriptor(@)", header: "BRep_TEdge.hxx".}
-proc dynamicType*(this: BRepTEdge): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: BRep_TEdge): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "BRep_TEdge.hxx".}
-

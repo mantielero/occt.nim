@@ -14,28 +14,34 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer, ../gp/gp_Trsf,
+  ../Standard/Standard_Real, ../HLRBRep/HLRBRep_ListOfBPoint,
+  ../TopoDS/TopoDS_Shape, ../Standard/Standard_Boolean
+
 discard "forward decl of gp_Trsf"
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of Draw_Display"
 discard "forward decl of Draw_Color"
 type
-  DBRepHideData* {.importcpp: "DBRep_HideData", header: "DBRep_HideData.hxx", bycopy.} = object
+  DBRep_HideData* {.importcpp: "DBRep_HideData", header: "DBRep_HideData.hxx", bycopy.} = object
 
 
-proc constructDBRepHideData*(): DBRepHideData {.constructor,
+proc constructDBRep_HideData*(): DBRep_HideData {.constructor,
     importcpp: "DBRep_HideData(@)", header: "DBRep_HideData.hxx".}
-proc set*(this: var DBRepHideData; viewId: StandardInteger; tProj: GpTrsf;
-         focal: StandardReal; s: TopoDS_Shape; ang: StandardReal) {.importcpp: "Set",
-    header: "DBRep_HideData.hxx".}
-proc viewId*(this: DBRepHideData): StandardInteger {.noSideEffect,
+proc Set*(this: var DBRep_HideData; ViewId: Standard_Integer; TProj: gp_Trsf;
+         Focal: Standard_Real; S: TopoDS_Shape; ang: Standard_Real) {.
+    importcpp: "Set", header: "DBRep_HideData.hxx".}
+proc ViewId*(this: DBRep_HideData): Standard_Integer {.noSideEffect,
     importcpp: "ViewId", header: "DBRep_HideData.hxx".}
-proc angle*(this: DBRepHideData): StandardReal {.noSideEffect, importcpp: "Angle",
+proc Angle*(this: DBRep_HideData): Standard_Real {.noSideEffect, importcpp: "Angle",
     header: "DBRep_HideData.hxx".}
-proc isSame*(this: DBRepHideData; tProj: GpTrsf; focla: StandardReal): StandardBoolean {.
+proc IsSame*(this: DBRep_HideData; TProj: gp_Trsf; Focla: Standard_Real): Standard_Boolean {.
     noSideEffect, importcpp: "IsSame", header: "DBRep_HideData.hxx".}
-proc drawOn*(this: var DBRepHideData; d: var DrawDisplay; withRg1: StandardBoolean;
-            withRgN: StandardBoolean; withHid: StandardBoolean; visCol: DrawColor;
-            hidCol: DrawColor) {.importcpp: "DrawOn", header: "DBRep_HideData.hxx".}
-proc lastPick*(this: DBRepHideData): TopoDS_Shape {.noSideEffect,
+proc DrawOn*(this: var DBRep_HideData; D: var Draw_Display; withRg1: Standard_Boolean;
+            withRgN: Standard_Boolean; withHid: Standard_Boolean;
+            VisCol: Draw_Color; HidCol: Draw_Color) {.importcpp: "DrawOn",
+    header: "DBRep_HideData.hxx".}
+proc LastPick*(this: DBRep_HideData): TopoDS_Shape {.noSideEffect,
     importcpp: "LastPick", header: "DBRep_HideData.hxx".}
-

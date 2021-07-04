@@ -13,43 +13,49 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  IMeshData_ParametersList, ../Standard/Standard_Type, IMeshData_Face
+
 discard "forward decl of gp_Pnt2d"
 type
-  IMeshDataPCurve* {.importcpp: "IMeshData_PCurve", header: "IMeshData_PCurve.hxx",
-                    bycopy.} = object of IMeshDataParametersList ## ! Destructor.
-                                                            ## ! Constructor.
+  IMeshData_PCurve* {.importcpp: "IMeshData_PCurve",
+                     header: "IMeshData_PCurve.hxx", bycopy.} = object of IMeshData_ParametersList ##
+                                                                                            ## !
+                                                                                            ## Destructor.
+                                                                                            ##
+                                                                                            ## !
+                                                                                            ## Constructor.
 
 
-proc destroyIMeshDataPCurve*(this: var IMeshDataPCurve) {.
+proc destroyIMeshData_PCurve*(this: var IMeshData_PCurve) {.
     importcpp: "#.~IMeshData_PCurve()", header: "IMeshData_PCurve.hxx".}
-proc insertPoint*(this: var IMeshDataPCurve; thePosition: StandardInteger;
-                 thePoint: GpPnt2d; theParamOnPCurve: StandardReal) {.
+proc InsertPoint*(this: var IMeshData_PCurve; thePosition: Standard_Integer;
+                 thePoint: gp_Pnt2d; theParamOnPCurve: Standard_Real) {.
     importcpp: "InsertPoint", header: "IMeshData_PCurve.hxx".}
-proc addPoint*(this: var IMeshDataPCurve; thePoint: GpPnt2d;
-              theParamOnPCurve: StandardReal) {.importcpp: "AddPoint",
+proc AddPoint*(this: var IMeshData_PCurve; thePoint: gp_Pnt2d;
+              theParamOnPCurve: Standard_Real) {.importcpp: "AddPoint",
     header: "IMeshData_PCurve.hxx".}
-proc getPoint*(this: var IMeshDataPCurve; theIndex: StandardInteger): var GpPnt2d {.
+proc GetPoint*(this: var IMeshData_PCurve; theIndex: Standard_Integer): var gp_Pnt2d {.
     importcpp: "GetPoint", header: "IMeshData_PCurve.hxx".}
-proc getIndex*(this: var IMeshDataPCurve; theIndex: StandardInteger): var StandardInteger {.
+proc GetIndex*(this: var IMeshData_PCurve; theIndex: Standard_Integer): var Standard_Integer {.
     importcpp: "GetIndex", header: "IMeshData_PCurve.hxx".}
-proc removePoint*(this: var IMeshDataPCurve; theIndex: StandardInteger) {.
+proc RemovePoint*(this: var IMeshData_PCurve; theIndex: Standard_Integer) {.
     importcpp: "RemovePoint", header: "IMeshData_PCurve.hxx".}
-proc isForward*(this: IMeshDataPCurve): StandardBoolean {.noSideEffect,
+proc IsForward*(this: IMeshData_PCurve): Standard_Boolean {.noSideEffect,
     importcpp: "IsForward", header: "IMeshData_PCurve.hxx".}
-proc isInternal*(this: IMeshDataPCurve): StandardBoolean {.noSideEffect,
+proc IsInternal*(this: IMeshData_PCurve): Standard_Boolean {.noSideEffect,
     importcpp: "IsInternal", header: "IMeshData_PCurve.hxx".}
-proc getOrientation*(this: IMeshDataPCurve): TopAbsOrientation {.noSideEffect,
+proc GetOrientation*(this: IMeshData_PCurve): TopAbs_Orientation {.noSideEffect,
     importcpp: "GetOrientation", header: "IMeshData_PCurve.hxx".}
-proc getFace*(this: IMeshDataPCurve): IFacePtr {.noSideEffect, importcpp: "GetFace",
+proc GetFace*(this: IMeshData_PCurve): IFacePtr {.noSideEffect, importcpp: "GetFace",
     header: "IMeshData_PCurve.hxx".}
 type
-  IMeshDataPCurvebaseType* = IMeshDataParametersList
+  IMeshData_PCurvebase_type* = IMeshData_ParametersList
 
-proc getTypeName*(): cstring {.importcpp: "IMeshData_PCurve::get_type_name(@)",
-                            header: "IMeshData_PCurve.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "IMeshData_PCurve::get_type_name(@)",
+                              header: "IMeshData_PCurve.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "IMeshData_PCurve::get_type_descriptor(@)",
     header: "IMeshData_PCurve.hxx".}
-proc dynamicType*(this: IMeshDataPCurve): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: IMeshData_PCurve): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "IMeshData_PCurve.hxx".}
-

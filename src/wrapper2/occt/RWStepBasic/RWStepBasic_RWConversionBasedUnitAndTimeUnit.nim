@@ -14,33 +14,36 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepBasic_ConversionBasedUnitAndTimeUnit"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepBasicRWConversionBasedUnitAndTimeUnit* {.
+  RWStepBasic_RWConversionBasedUnitAndTimeUnit* {.
       importcpp: "RWStepBasic_RWConversionBasedUnitAndTimeUnit",
       header: "RWStepBasic_RWConversionBasedUnitAndTimeUnit.hxx", bycopy.} = object
 
 
-proc constructRWStepBasicRWConversionBasedUnitAndTimeUnit*(): RWStepBasicRWConversionBasedUnitAndTimeUnit {.
+proc constructRWStepBasic_RWConversionBasedUnitAndTimeUnit*(): RWStepBasic_RWConversionBasedUnitAndTimeUnit {.
     constructor, importcpp: "RWStepBasic_RWConversionBasedUnitAndTimeUnit(@)",
     header: "RWStepBasic_RWConversionBasedUnitAndTimeUnit.hxx".}
-proc readStep*(this: RWStepBasicRWConversionBasedUnitAndTimeUnit;
-              data: Handle[StepDataStepReaderData]; num: StandardInteger;
-              ach: var Handle[InterfaceCheck];
-              ent: Handle[StepBasicConversionBasedUnitAndTimeUnit]) {.
+proc ReadStep*(this: RWStepBasic_RWConversionBasedUnitAndTimeUnit;
+              data: handle[StepData_StepReaderData]; num: Standard_Integer;
+              ach: var handle[Interface_Check];
+              ent: handle[StepBasic_ConversionBasedUnitAndTimeUnit]) {.
     noSideEffect, importcpp: "ReadStep",
     header: "RWStepBasic_RWConversionBasedUnitAndTimeUnit.hxx".}
-proc writeStep*(this: RWStepBasicRWConversionBasedUnitAndTimeUnit;
-               sw: var StepDataStepWriter;
-               ent: Handle[StepBasicConversionBasedUnitAndTimeUnit]) {.
+proc WriteStep*(this: RWStepBasic_RWConversionBasedUnitAndTimeUnit;
+               SW: var StepData_StepWriter;
+               ent: handle[StepBasic_ConversionBasedUnitAndTimeUnit]) {.
     noSideEffect, importcpp: "WriteStep",
     header: "RWStepBasic_RWConversionBasedUnitAndTimeUnit.hxx".}
-proc share*(this: RWStepBasicRWConversionBasedUnitAndTimeUnit;
-           ent: Handle[StepBasicConversionBasedUnitAndTimeUnit];
-           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
+proc Share*(this: RWStepBasic_RWConversionBasedUnitAndTimeUnit;
+           ent: handle[StepBasic_ConversionBasedUnitAndTimeUnit];
+           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepBasic_RWConversionBasedUnitAndTimeUnit.hxx".}
-

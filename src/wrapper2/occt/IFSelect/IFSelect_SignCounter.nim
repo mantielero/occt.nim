@@ -14,6 +14,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Boolean,
+  ../TColStd/TColStd_MapOfTransient, ../Standard/Standard_Integer,
+  IFSelect_SignatureList, ../TColStd/TColStd_HSequenceOfTransient,
+  ../Standard/Standard_CString
+
 discard "forward decl of IFSelect_Signature"
 discard "forward decl of IFSelect_Selection"
 discard "forward decl of Standard_Transient"
@@ -23,7 +29,7 @@ discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of IFSelect_SignCounter"
 discard "forward decl of IFSelect_SignCounter"
 type
-  HandleIFSelectSignCounter* = Handle[IFSelectSignCounter]
+  Handle_IFSelect_SignCounter* = handle[IFSelect_SignCounter]
 
 ## ! SignCounter gives the frame to count signatures associated
 ## ! with entities, deducted from them. Ex.: their Dynamic Type.
@@ -46,131 +52,133 @@ type
 ## ! - compute the value in the context of a Graph
 
 type
-  IFSelectSignCounter* {.importcpp: "IFSelect_SignCounter",
-                        header: "IFSelect_SignCounter.hxx", bycopy.} = object of IFSelectSignatureList ##
-                                                                                                ## !
-                                                                                                ## Creates
-                                                                                                ## a
-                                                                                                ## SignCounter,
-                                                                                                ## without
-                                                                                                ## proper
-                                                                                                ## Signature
-                                                                                                ##
-                                                                                                ## !
-                                                                                                ## If
-                                                                                                ## <withmap>
-                                                                                                ## is
-                                                                                                ## True
-                                                                                                ## (default),
-                                                                                                ## added
-                                                                                                ## entities
-                                                                                                ## are
-                                                                                                ## counted
-                                                                                                ##
-                                                                                                ## !
-                                                                                                ## only
-                                                                                                ## if
-                                                                                                ## they
-                                                                                                ## are
-                                                                                                ## not
-                                                                                                ## yet
-                                                                                                ## recorded
-                                                                                                ## in
-                                                                                                ## the
-                                                                                                ## map
-                                                                                                ##
-                                                                                                ## !
-                                                                                                ## Map
-                                                                                                ## control
-                                                                                                ## can
-                                                                                                ## be
-                                                                                                ## set
-                                                                                                ## off
-                                                                                                ## if
-                                                                                                ## the
-                                                                                                ## input
-                                                                                                ## garantees
-                                                                                                ## uniqueness
-                                                                                                ##
-                                                                                                ## !
-                                                                                                ## of
-                                                                                                ## data
-                                                                                                ##
-                                                                                                ## !
-                                                                                                ## <withlist>
-                                                                                                ## is
-                                                                                                ## transmitted
-                                                                                                ## to
-                                                                                                ## SignatureList
-                                                                                                ## (option
-                                                                                                ## to
-                                                                                                ## list
-                                                                                                ##
-                                                                                                ## !
-                                                                                                ## entities,
-                                                                                                ## not
-                                                                                                ## only
-                                                                                                ## to
-                                                                                                ## count
-                                                                                                ## them).
+  IFSelect_SignCounter* {.importcpp: "IFSelect_SignCounter",
+                         header: "IFSelect_SignCounter.hxx", bycopy.} = object of IFSelect_SignatureList ##
+                                                                                                  ## !
+                                                                                                  ## Creates
+                                                                                                  ## a
+                                                                                                  ## SignCounter,
+                                                                                                  ## without
+                                                                                                  ## proper
+                                                                                                  ## Signature
+                                                                                                  ##
+                                                                                                  ## !
+                                                                                                  ## If
+                                                                                                  ## <withmap>
+                                                                                                  ## is
+                                                                                                  ## True
+                                                                                                  ## (default),
+                                                                                                  ## added
+                                                                                                  ## entities
+                                                                                                  ## are
+                                                                                                  ## counted
+                                                                                                  ##
+                                                                                                  ## !
+                                                                                                  ## only
+                                                                                                  ## if
+                                                                                                  ## they
+                                                                                                  ## are
+                                                                                                  ## not
+                                                                                                  ## yet
+                                                                                                  ## recorded
+                                                                                                  ## in
+                                                                                                  ## the
+                                                                                                  ## map
+                                                                                                  ##
+                                                                                                  ## !
+                                                                                                  ## Map
+                                                                                                  ## control
+                                                                                                  ## can
+                                                                                                  ## be
+                                                                                                  ## set
+                                                                                                  ## off
+                                                                                                  ## if
+                                                                                                  ## the
+                                                                                                  ## input
+                                                                                                  ## garantees
+                                                                                                  ## uniqueness
+                                                                                                  ##
+                                                                                                  ## !
+                                                                                                  ## of
+                                                                                                  ## data
+                                                                                                  ##
+                                                                                                  ## !
+                                                                                                  ## <withlist>
+                                                                                                  ## is
+                                                                                                  ## transmitted
+                                                                                                  ## to
+                                                                                                  ## SignatureList
+                                                                                                  ## (option
+                                                                                                  ## to
+                                                                                                  ## list
+                                                                                                  ##
+                                                                                                  ## !
+                                                                                                  ## entities,
+                                                                                                  ## not
+                                                                                                  ## only
+                                                                                                  ## to
+                                                                                                  ## count
+                                                                                                  ## them).
 
 
-proc constructIFSelectSignCounter*(withmap: StandardBoolean = standardTrue;
-                                  withlist: StandardBoolean = standardFalse): IFSelectSignCounter {.
+proc constructIFSelect_SignCounter*(withmap: Standard_Boolean = Standard_True;
+                                   withlist: Standard_Boolean = Standard_False): IFSelect_SignCounter {.
     constructor, importcpp: "IFSelect_SignCounter(@)",
     header: "IFSelect_SignCounter.hxx".}
-proc constructIFSelectSignCounter*(matcher: Handle[IFSelectSignature];
-                                  withmap: StandardBoolean = standardTrue;
-                                  withlist: StandardBoolean = standardFalse): IFSelectSignCounter {.
+proc constructIFSelect_SignCounter*(matcher: handle[IFSelect_Signature];
+                                   withmap: Standard_Boolean = Standard_True;
+                                   withlist: Standard_Boolean = Standard_False): IFSelect_SignCounter {.
     constructor, importcpp: "IFSelect_SignCounter(@)",
     header: "IFSelect_SignCounter.hxx".}
-proc signature*(this: IFSelectSignCounter): Handle[IFSelectSignature] {.
+proc Signature*(this: IFSelect_SignCounter): handle[IFSelect_Signature] {.
     noSideEffect, importcpp: "Signature", header: "IFSelect_SignCounter.hxx".}
-proc setMap*(this: var IFSelectSignCounter; withmap: StandardBoolean) {.
+proc SetMap*(this: var IFSelect_SignCounter; withmap: Standard_Boolean) {.
     importcpp: "SetMap", header: "IFSelect_SignCounter.hxx".}
-proc addEntity*(this: var IFSelectSignCounter; ent: Handle[StandardTransient];
-               model: Handle[InterfaceInterfaceModel]): StandardBoolean {.
+proc AddEntity*(this: var IFSelect_SignCounter; ent: handle[Standard_Transient];
+               model: handle[Interface_InterfaceModel]): Standard_Boolean {.
     importcpp: "AddEntity", header: "IFSelect_SignCounter.hxx".}
-proc addSign*(this: var IFSelectSignCounter; ent: Handle[StandardTransient];
-             model: Handle[InterfaceInterfaceModel]) {.importcpp: "AddSign",
+proc AddSign*(this: var IFSelect_SignCounter; ent: handle[Standard_Transient];
+             model: handle[Interface_InterfaceModel]) {.importcpp: "AddSign",
     header: "IFSelect_SignCounter.hxx".}
-proc addList*(this: var IFSelectSignCounter;
-             list: Handle[TColStdHSequenceOfTransient];
-             model: Handle[InterfaceInterfaceModel]) {.importcpp: "AddList",
+proc AddList*(this: var IFSelect_SignCounter;
+             list: handle[TColStd_HSequenceOfTransient];
+             model: handle[Interface_InterfaceModel]) {.importcpp: "AddList",
     header: "IFSelect_SignCounter.hxx".}
-proc addWithGraph*(this: var IFSelectSignCounter;
-                  list: Handle[TColStdHSequenceOfTransient]; graph: InterfaceGraph) {.
-    importcpp: "AddWithGraph", header: "IFSelect_SignCounter.hxx".}
-proc addModel*(this: var IFSelectSignCounter; model: Handle[InterfaceInterfaceModel]) {.
-    importcpp: "AddModel", header: "IFSelect_SignCounter.hxx".}
-proc addFromSelection*(this: var IFSelectSignCounter;
-                      sel: Handle[IFSelectSelection]; g: InterfaceGraph) {.
+proc AddWithGraph*(this: var IFSelect_SignCounter;
+                  list: handle[TColStd_HSequenceOfTransient];
+                  graph: Interface_Graph) {.importcpp: "AddWithGraph",
+    header: "IFSelect_SignCounter.hxx".}
+proc AddModel*(this: var IFSelect_SignCounter;
+              model: handle[Interface_InterfaceModel]) {.importcpp: "AddModel",
+    header: "IFSelect_SignCounter.hxx".}
+proc AddFromSelection*(this: var IFSelect_SignCounter;
+                      sel: handle[IFSelect_Selection]; G: Interface_Graph) {.
     importcpp: "AddFromSelection", header: "IFSelect_SignCounter.hxx".}
-proc setSelection*(this: var IFSelectSignCounter; sel: Handle[IFSelectSelection]) {.
+proc SetSelection*(this: var IFSelect_SignCounter; sel: handle[IFSelect_Selection]) {.
     importcpp: "SetSelection", header: "IFSelect_SignCounter.hxx".}
-proc selection*(this: IFSelectSignCounter): Handle[IFSelectSelection] {.
+proc Selection*(this: IFSelect_SignCounter): handle[IFSelect_Selection] {.
     noSideEffect, importcpp: "Selection", header: "IFSelect_SignCounter.hxx".}
-proc setSelMode*(this: var IFSelectSignCounter; selmode: StandardInteger) {.
+proc SetSelMode*(this: var IFSelect_SignCounter; selmode: Standard_Integer) {.
     importcpp: "SetSelMode", header: "IFSelect_SignCounter.hxx".}
-proc selMode*(this: IFSelectSignCounter): StandardInteger {.noSideEffect,
+proc SelMode*(this: IFSelect_SignCounter): Standard_Integer {.noSideEffect,
     importcpp: "SelMode", header: "IFSelect_SignCounter.hxx".}
-proc computeSelected*(this: var IFSelectSignCounter; g: InterfaceGraph;
-                     forced: StandardBoolean = standardFalse): StandardBoolean {.
+proc ComputeSelected*(this: var IFSelect_SignCounter; G: Interface_Graph;
+                     forced: Standard_Boolean = Standard_False): Standard_Boolean {.
     importcpp: "ComputeSelected", header: "IFSelect_SignCounter.hxx".}
-proc sign*(this: IFSelectSignCounter; ent: Handle[StandardTransient];
-          model: Handle[InterfaceInterfaceModel]): Handle[TCollectionHAsciiString] {.
-    noSideEffect, importcpp: "Sign", header: "IFSelect_SignCounter.hxx".}
-proc computedSign*(this: var IFSelectSignCounter; ent: Handle[StandardTransient];
-                  g: InterfaceGraph): StandardCString {.importcpp: "ComputedSign",
-    header: "IFSelect_SignCounter.hxx".}
+proc Sign*(this: IFSelect_SignCounter; ent: handle[Standard_Transient];
+          model: handle[Interface_InterfaceModel]): handle[
+    TCollection_HAsciiString] {.noSideEffect, importcpp: "Sign",
+                               header: "IFSelect_SignCounter.hxx".}
+proc ComputedSign*(this: var IFSelect_SignCounter; ent: handle[Standard_Transient];
+                  G: Interface_Graph): Standard_CString {.
+    importcpp: "ComputedSign", header: "IFSelect_SignCounter.hxx".}
 type
-  IFSelectSignCounterbaseType* = IFSelectSignatureList
+  IFSelect_SignCounterbase_type* = IFSelect_SignatureList
 
-proc getTypeName*(): cstring {.importcpp: "IFSelect_SignCounter::get_type_name(@)",
-                            header: "IFSelect_SignCounter.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "IFSelect_SignCounter::get_type_name(@)",
+                              header: "IFSelect_SignCounter.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "IFSelect_SignCounter::get_type_descriptor(@)",
     header: "IFSelect_SignCounter.hxx".}
-proc dynamicType*(this: IFSelectSignCounter): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: IFSelect_SignCounter): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "IFSelect_SignCounter.hxx".}
-

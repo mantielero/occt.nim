@@ -13,93 +13,96 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Graphic3d/Graphic3d_Group, ../Graphic3d/Graphic3d_Structure,
+  ../NCollection/NCollection_List, OpenGl_Aspects, OpenGl_Element
+
 discard "forward decl of OpenGl_Group"
 discard "forward decl of OpenGl_Structure"
 type
-  OpenGlElementNode* {.importcpp: "OpenGl_ElementNode", header: "OpenGl_Group.hxx",
-                      bycopy.} = object
-    elem* {.importc: "elem".}: ptr OpenGlElement
-    next* {.importc: "next".}: ptr OpenGlElementNode
+  OpenGl_ElementNode* {.importcpp: "OpenGl_ElementNode",
+                       header: "OpenGl_Group.hxx", bycopy.} = object
+    elem* {.importc: "elem".}: ptr OpenGl_Element
+    next* {.importc: "next".}: ptr OpenGl_ElementNode
 
 
 ## ! Implementation of low-level graphic group.
 
 type
-  OpenGlGroup* {.importcpp: "OpenGl_Group", header: "OpenGl_Group.hxx", bycopy.} = object of Graphic3dGroup ##
-                                                                                                  ## !
-                                                                                                  ## Create
-                                                                                                  ## empty
-                                                                                                  ## group.
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## Will
-                                                                                                  ## throw
-                                                                                                  ## exception
-                                                                                                  ## if
-                                                                                                  ## not
-                                                                                                  ## created
-                                                                                                  ## by
-                                                                                                  ## OpenGl_Structure.
+  OpenGl_Group* {.importcpp: "OpenGl_Group", header: "OpenGl_Group.hxx", bycopy.} = object of Graphic3d_Group ##
+                                                                                                    ## !
+                                                                                                    ## Create
+                                                                                                    ## empty
+                                                                                                    ## group.
+                                                                                                    ##
+                                                                                                    ## !
+                                                                                                    ## Will
+                                                                                                    ## throw
+                                                                                                    ## exception
+                                                                                                    ## if
+                                                                                                    ## not
+                                                                                                    ## created
+                                                                                                    ## by
+                                                                                                    ## OpenGl_Structure.
 
 
-proc constructOpenGlGroup*(theStruct: Handle[Graphic3dStructure]): OpenGlGroup {.
+proc constructOpenGl_Group*(theStruct: handle[Graphic3d_Structure]): OpenGl_Group {.
     constructor, importcpp: "OpenGl_Group(@)", header: "OpenGl_Group.hxx".}
-proc clear*(this: var OpenGlGroup; theToUpdateStructureMgr: StandardBoolean) {.
+proc Clear*(this: var OpenGl_Group; theToUpdateStructureMgr: Standard_Boolean) {.
     importcpp: "Clear", header: "OpenGl_Group.hxx".}
-proc aspects*(this: OpenGlGroup): Handle[Graphic3dAspects] {.noSideEffect,
+proc Aspects*(this: OpenGl_Group): handle[Graphic3d_Aspects] {.noSideEffect,
     importcpp: "Aspects", header: "OpenGl_Group.hxx".}
-proc setGroupPrimitivesAspect*(this: var OpenGlGroup;
-                              theAspect: Handle[Graphic3dAspects]) {.
+proc SetGroupPrimitivesAspect*(this: var OpenGl_Group;
+                              theAspect: handle[Graphic3d_Aspects]) {.
     importcpp: "SetGroupPrimitivesAspect", header: "OpenGl_Group.hxx".}
-proc setPrimitivesAspect*(this: var OpenGlGroup; theAspect: Handle[Graphic3dAspects]) {.
+proc SetPrimitivesAspect*(this: var OpenGl_Group;
+                         theAspect: handle[Graphic3d_Aspects]) {.
     importcpp: "SetPrimitivesAspect", header: "OpenGl_Group.hxx".}
-proc synchronizeAspects*(this: var OpenGlGroup) {.importcpp: "SynchronizeAspects",
+proc SynchronizeAspects*(this: var OpenGl_Group) {.importcpp: "SynchronizeAspects",
     header: "OpenGl_Group.hxx".}
-proc replaceAspects*(this: var OpenGlGroup; theMap: Graphic3dMapOfAspectsToAspects) {.
+proc ReplaceAspects*(this: var OpenGl_Group; theMap: Graphic3d_MapOfAspectsToAspects) {.
     importcpp: "ReplaceAspects", header: "OpenGl_Group.hxx".}
-proc addPrimitiveArray*(this: var OpenGlGroup;
-                       theType: Graphic3dTypeOfPrimitiveArray;
-                       theIndices: Handle[Graphic3dIndexBuffer];
-                       theAttribs: Handle[Graphic3dBuffer];
-                       theBounds: Handle[Graphic3dBoundBuffer];
-                       theToEvalMinMax: StandardBoolean) {.
+proc AddPrimitiveArray*(this: var OpenGl_Group;
+                       theType: Graphic3d_TypeOfPrimitiveArray;
+                       theIndices: handle[Graphic3d_IndexBuffer];
+                       theAttribs: handle[Graphic3d_Buffer];
+                       theBounds: handle[Graphic3d_BoundBuffer];
+                       theToEvalMinMax: Standard_Boolean) {.
     importcpp: "AddPrimitiveArray", header: "OpenGl_Group.hxx".}
-proc addText*(this: var OpenGlGroup; theTextParams: Handle[Graphic3dText];
-             theToEvalMinMax: StandardBoolean) {.importcpp: "AddText",
+proc AddText*(this: var OpenGl_Group; theTextParams: handle[Graphic3d_Text];
+             theToEvalMinMax: Standard_Boolean) {.importcpp: "AddText",
     header: "OpenGl_Group.hxx".}
-proc setFlippingOptions*(this: var OpenGlGroup; theIsEnabled: StandardBoolean;
-                        theRefPlane: GpAx2) {.importcpp: "SetFlippingOptions",
+proc SetFlippingOptions*(this: var OpenGl_Group; theIsEnabled: Standard_Boolean;
+                        theRefPlane: gp_Ax2) {.importcpp: "SetFlippingOptions",
     header: "OpenGl_Group.hxx".}
-proc setStencilTestOptions*(this: var OpenGlGroup; theIsEnabled: StandardBoolean) {.
+proc SetStencilTestOptions*(this: var OpenGl_Group; theIsEnabled: Standard_Boolean) {.
     importcpp: "SetStencilTestOptions", header: "OpenGl_Group.hxx".}
-proc glStruct*(this: OpenGlGroup): ptr OpenGlStructure {.noSideEffect,
+proc GlStruct*(this: OpenGl_Group): ptr OpenGl_Structure {.noSideEffect,
     importcpp: "GlStruct", header: "OpenGl_Group.hxx".}
-proc addElement*(this: var OpenGlGroup; theElem: ptr OpenGlElement) {.
+proc AddElement*(this: var OpenGl_Group; theElem: ptr OpenGl_Element) {.
     importcpp: "AddElement", header: "OpenGl_Group.hxx".}
-proc render*(this: OpenGlGroup; theWorkspace: Handle[OpenGlWorkspace]) {.
+proc Render*(this: OpenGl_Group; theWorkspace: handle[OpenGl_Workspace]) {.
     noSideEffect, importcpp: "Render", header: "OpenGl_Group.hxx".}
-proc release*(this: var OpenGlGroup; theGlCtx: Handle[OpenGlContext]) {.
+proc Release*(this: var OpenGl_Group; theGlCtx: handle[OpenGl_Context]) {.
     importcpp: "Release", header: "OpenGl_Group.hxx".}
-proc firstNode*(this: OpenGlGroup): ptr OpenGlElementNode {.noSideEffect,
+proc FirstNode*(this: OpenGl_Group): ptr OpenGl_ElementNode {.noSideEffect,
     importcpp: "FirstNode", header: "OpenGl_Group.hxx".}
-proc glAspects*(this: OpenGlGroup): ptr OpenGlAspects {.noSideEffect,
+proc GlAspects*(this: OpenGl_Group): ptr OpenGl_Aspects {.noSideEffect,
     importcpp: "GlAspects", header: "OpenGl_Group.hxx".}
-proc isRaytracable*(this: OpenGlGroup): StandardBoolean {.noSideEffect,
+proc IsRaytracable*(this: OpenGl_Group): Standard_Boolean {.noSideEffect,
     importcpp: "IsRaytracable", header: "OpenGl_Group.hxx".}
-proc dumpJson*(this: OpenGlGroup; theOStream: var StandardOStream;
-              theDepth: StandardInteger = -1) {.noSideEffect, importcpp: "DumpJson",
+proc DumpJson*(this: OpenGl_Group; theOStream: var Standard_OStream;
+              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
     header: "OpenGl_Group.hxx".}
 type
-  OpenGlGroupbaseType* = Graphic3dGroup
+  OpenGl_Groupbase_type* = Graphic3d_Group
 
-proc getTypeName*(): cstring {.importcpp: "OpenGl_Group::get_type_name(@)",
-                            header: "OpenGl_Group.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "OpenGl_Group::get_type_name(@)",
+                              header: "OpenGl_Group.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "OpenGl_Group::get_type_descriptor(@)", header: "OpenGl_Group.hxx".}
-proc dynamicType*(this: OpenGlGroup): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: OpenGl_Group): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "OpenGl_Group.hxx".}
 discard "forward decl of OpenGl_Group"
 type
-  HandleOpenGlGroup* = Handle[OpenGlGroup]
-
-
+  Handle_OpenGl_Group* = handle[OpenGl_Group]

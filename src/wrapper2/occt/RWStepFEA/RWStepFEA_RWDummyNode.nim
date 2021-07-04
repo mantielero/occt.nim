@@ -13,6 +13,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepFEA_DummyNode"
@@ -27,14 +31,13 @@ type
 
 proc constructRWStepFEA_RWDummyNode*(): RWStepFEA_RWDummyNode {.constructor,
     importcpp: "RWStepFEA_RWDummyNode(@)", header: "RWStepFEA_RWDummyNode.hxx".}
-proc readStep*(this: RWStepFEA_RWDummyNode; data: Handle[StepDataStepReaderData];
-              num: StandardInteger; ach: var Handle[InterfaceCheck];
-              ent: Handle[StepFEA_DummyNode]) {.noSideEffect,
+proc ReadStep*(this: RWStepFEA_RWDummyNode; data: handle[StepData_StepReaderData];
+              num: Standard_Integer; ach: var handle[Interface_Check];
+              ent: handle[StepFEA_DummyNode]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepFEA_RWDummyNode.hxx".}
-proc writeStep*(this: RWStepFEA_RWDummyNode; sw: var StepDataStepWriter;
-               ent: Handle[StepFEA_DummyNode]) {.noSideEffect,
+proc WriteStep*(this: RWStepFEA_RWDummyNode; SW: var StepData_StepWriter;
+               ent: handle[StepFEA_DummyNode]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepFEA_RWDummyNode.hxx".}
-proc share*(this: RWStepFEA_RWDummyNode; ent: Handle[StepFEA_DummyNode];
-           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
+proc Share*(this: RWStepFEA_RWDummyNode; ent: handle[StepFEA_DummyNode];
+           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepFEA_RWDummyNode.hxx".}
-

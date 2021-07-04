@@ -14,36 +14,43 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, AppDef_HArray1OfMultiPointConstraint,
+  ../Standard/Standard_Integer, AppDef_Array1OfMultiPointConstraint,
+  ../TColgp/TColgp_Array1OfPnt, ../TColgp/TColgp_Array1OfPnt2d,
+  ../Standard/Standard_Real, ../Standard/Standard_OStream
+
 discard "forward decl of Standard_ConstructionError"
 discard "forward decl of Standard_DimensionError"
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of AppDef_MultiPointConstraint"
 type
-  AppDefMultiLine* {.importcpp: "AppDef_MultiLine", header: "AppDef_MultiLine.hxx",
-                    bycopy.} = object ## ! creates an undefined MultiLine.
+  AppDef_MultiLine* {.importcpp: "AppDef_MultiLine",
+                     header: "AppDef_MultiLine.hxx", bycopy.} = object ## ! creates an undefined MultiLine.
 
 
-proc constructAppDefMultiLine*(): AppDefMultiLine {.constructor,
+proc constructAppDef_MultiLine*(): AppDef_MultiLine {.constructor,
     importcpp: "AppDef_MultiLine(@)", header: "AppDef_MultiLine.hxx".}
-proc constructAppDefMultiLine*(nbMult: StandardInteger): AppDefMultiLine {.
+proc constructAppDef_MultiLine*(NbMult: Standard_Integer): AppDef_MultiLine {.
     constructor, importcpp: "AppDef_MultiLine(@)", header: "AppDef_MultiLine.hxx".}
-proc constructAppDefMultiLine*(tabMultiP: AppDefArray1OfMultiPointConstraint): AppDefMultiLine {.
+proc constructAppDef_MultiLine*(tabMultiP: AppDef_Array1OfMultiPointConstraint): AppDef_MultiLine {.
     constructor, importcpp: "AppDef_MultiLine(@)", header: "AppDef_MultiLine.hxx".}
-proc constructAppDefMultiLine*(tabP3d: TColgpArray1OfPnt): AppDefMultiLine {.
+proc constructAppDef_MultiLine*(tabP3d: TColgp_Array1OfPnt): AppDef_MultiLine {.
     constructor, importcpp: "AppDef_MultiLine(@)", header: "AppDef_MultiLine.hxx".}
-proc constructAppDefMultiLine*(tabP2d: TColgpArray1OfPnt2d): AppDefMultiLine {.
+proc constructAppDef_MultiLine*(tabP2d: TColgp_Array1OfPnt2d): AppDef_MultiLine {.
     constructor, importcpp: "AppDef_MultiLine(@)", header: "AppDef_MultiLine.hxx".}
-proc nbMultiPoints*(this: AppDefMultiLine): StandardInteger {.noSideEffect,
+proc NbMultiPoints*(this: AppDef_MultiLine): Standard_Integer {.noSideEffect,
     importcpp: "NbMultiPoints", header: "AppDef_MultiLine.hxx".}
-proc nbPoints*(this: AppDefMultiLine): StandardInteger {.noSideEffect,
+proc NbPoints*(this: AppDef_MultiLine): Standard_Integer {.noSideEffect,
     importcpp: "NbPoints", header: "AppDef_MultiLine.hxx".}
-proc setParameter*(this: var AppDefMultiLine; index: StandardInteger; u: StandardReal) {.
-    importcpp: "SetParameter", header: "AppDef_MultiLine.hxx".}
-proc setValue*(this: var AppDefMultiLine; index: StandardInteger;
-              mPoint: AppDefMultiPointConstraint) {.importcpp: "SetValue",
+proc SetParameter*(this: var AppDef_MultiLine; Index: Standard_Integer;
+                  U: Standard_Real) {.importcpp: "SetParameter",
+                                    header: "AppDef_MultiLine.hxx".}
+proc SetValue*(this: var AppDef_MultiLine; Index: Standard_Integer;
+              MPoint: AppDef_MultiPointConstraint) {.importcpp: "SetValue",
     header: "AppDef_MultiLine.hxx".}
-proc value*(this: AppDefMultiLine; index: StandardInteger): AppDefMultiPointConstraint {.
+proc Value*(this: AppDef_MultiLine; Index: Standard_Integer): AppDef_MultiPointConstraint {.
     noSideEffect, importcpp: "Value", header: "AppDef_MultiLine.hxx".}
-proc dump*(this: AppDefMultiLine; o: var StandardOStream) {.noSideEffect,
+proc Dump*(this: AppDef_MultiLine; o: var Standard_OStream) {.noSideEffect,
     importcpp: "Dump", header: "AppDef_MultiLine.hxx".}
-

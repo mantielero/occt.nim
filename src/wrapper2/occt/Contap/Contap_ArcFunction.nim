@@ -14,47 +14,53 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Real, Contap_TFunction,
+  ../gp/gp_Dir, ../gp/gp_Pnt, ../TColgp/TColgp_SequenceOfPnt,
+  ../IntSurf/IntSurf_Quadric, ../math/math_FunctionWithDerivative,
+  ../Standard/Standard_Boolean, ../Standard/Standard_Integer
+
 discard "forward decl of Adaptor2d_HCurve2d"
 discard "forward decl of Adaptor3d_HSurface"
 discard "forward decl of gp_Dir"
 discard "forward decl of gp_Pnt"
 discard "forward decl of IntSurf_Quadric"
 type
-  ContapArcFunction* {.importcpp: "Contap_ArcFunction",
-                      header: "Contap_ArcFunction.hxx", bycopy.} = object of MathFunctionWithDerivative
+  Contap_ArcFunction* {.importcpp: "Contap_ArcFunction",
+                       header: "Contap_ArcFunction.hxx", bycopy.} = object of math_FunctionWithDerivative
 
 
-proc constructContapArcFunction*(): ContapArcFunction {.constructor,
+proc constructContap_ArcFunction*(): Contap_ArcFunction {.constructor,
     importcpp: "Contap_ArcFunction(@)", header: "Contap_ArcFunction.hxx".}
-proc set*(this: var ContapArcFunction; s: Handle[Adaptor3dHSurface]) {.
+proc Set*(this: var Contap_ArcFunction; S: handle[Adaptor3d_HSurface]) {.
     importcpp: "Set", header: "Contap_ArcFunction.hxx".}
-proc set*(this: var ContapArcFunction; direction: GpDir) {.importcpp: "Set",
+proc Set*(this: var Contap_ArcFunction; Direction: gp_Dir) {.importcpp: "Set",
     header: "Contap_ArcFunction.hxx".}
-proc set*(this: var ContapArcFunction; direction: GpDir; angle: StandardReal) {.
+proc Set*(this: var Contap_ArcFunction; Direction: gp_Dir; Angle: Standard_Real) {.
     importcpp: "Set", header: "Contap_ArcFunction.hxx".}
-proc set*(this: var ContapArcFunction; eye: GpPnt) {.importcpp: "Set",
+proc Set*(this: var Contap_ArcFunction; Eye: gp_Pnt) {.importcpp: "Set",
     header: "Contap_ArcFunction.hxx".}
-proc set*(this: var ContapArcFunction; eye: GpPnt; angle: StandardReal) {.
+proc Set*(this: var Contap_ArcFunction; Eye: gp_Pnt; Angle: Standard_Real) {.
     importcpp: "Set", header: "Contap_ArcFunction.hxx".}
-proc set*(this: var ContapArcFunction; a: Handle[Adaptor2dHCurve2d]) {.
+proc Set*(this: var Contap_ArcFunction; A: handle[Adaptor2d_HCurve2d]) {.
     importcpp: "Set", header: "Contap_ArcFunction.hxx".}
-proc value*(this: var ContapArcFunction; x: StandardReal; f: var StandardReal): StandardBoolean {.
+proc Value*(this: var Contap_ArcFunction; X: Standard_Real; F: var Standard_Real): Standard_Boolean {.
     importcpp: "Value", header: "Contap_ArcFunction.hxx".}
-proc derivative*(this: var ContapArcFunction; x: StandardReal; d: var StandardReal): StandardBoolean {.
+proc Derivative*(this: var Contap_ArcFunction; X: Standard_Real; D: var Standard_Real): Standard_Boolean {.
     importcpp: "Derivative", header: "Contap_ArcFunction.hxx".}
-proc values*(this: var ContapArcFunction; x: StandardReal; f: var StandardReal;
-            d: var StandardReal): StandardBoolean {.importcpp: "Values",
+proc Values*(this: var Contap_ArcFunction; X: Standard_Real; F: var Standard_Real;
+            D: var Standard_Real): Standard_Boolean {.importcpp: "Values",
     header: "Contap_ArcFunction.hxx".}
-proc nbSamples*(this: ContapArcFunction): StandardInteger {.noSideEffect,
+proc NbSamples*(this: Contap_ArcFunction): Standard_Integer {.noSideEffect,
     importcpp: "NbSamples", header: "Contap_ArcFunction.hxx".}
-proc getStateNumber*(this: var ContapArcFunction): StandardInteger {.
+proc GetStateNumber*(this: var Contap_ArcFunction): Standard_Integer {.
     importcpp: "GetStateNumber", header: "Contap_ArcFunction.hxx".}
-proc valpoint*(this: ContapArcFunction; index: StandardInteger): GpPnt {.noSideEffect,
-    importcpp: "Valpoint", header: "Contap_ArcFunction.hxx".}
-proc quadric*(this: ContapArcFunction): IntSurfQuadric {.noSideEffect,
+proc Valpoint*(this: Contap_ArcFunction; Index: Standard_Integer): gp_Pnt {.
+    noSideEffect, importcpp: "Valpoint", header: "Contap_ArcFunction.hxx".}
+proc Quadric*(this: Contap_ArcFunction): IntSurf_Quadric {.noSideEffect,
     importcpp: "Quadric", header: "Contap_ArcFunction.hxx".}
-proc surface*(this: ContapArcFunction): Handle[Adaptor3dHSurface] {.noSideEffect,
+proc Surface*(this: Contap_ArcFunction): handle[Adaptor3d_HSurface] {.noSideEffect,
     importcpp: "Surface", header: "Contap_ArcFunction.hxx".}
-proc lastComputedPoint*(this: ContapArcFunction): GpPnt {.noSideEffect,
+proc LastComputedPoint*(this: Contap_ArcFunction): gp_Pnt {.noSideEffect,
     importcpp: "LastComputedPoint", header: "Contap_ArcFunction.hxx".}
-

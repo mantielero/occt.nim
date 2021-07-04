@@ -12,32 +12,39 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard_Transient, ../Standard/Standard_Type
+
 discard "forward decl of AVBufferPool"
 discard "forward decl of AVBufferRef"
 type
-  MediaBufferPool* {.importcpp: "Media_BufferPool", header: "Media_BufferPool.hxx",
-                    bycopy.} = object of StandardTransient ## ! Empty constructor
-                                                      ##  prevent copies
+  Media_BufferPool* {.importcpp: "Media_BufferPool",
+                     header: "Media_BufferPool.hxx", bycopy.} = object of Standard_Transient ##
+                                                                                      ## !
+                                                                                      ## Empty
+                                                                                      ## constructor
+                                                                                      ##
+                                                                                      ## prevent
+                                                                                      ## copies
 
-  MediaBufferPoolbaseType* = StandardTransient
+  Media_BufferPoolbase_type* = Standard_Transient
 
-proc getTypeName*(): cstring {.importcpp: "Media_BufferPool::get_type_name(@)",
-                            header: "Media_BufferPool.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "Media_BufferPool::get_type_name(@)",
+                              header: "Media_BufferPool.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "Media_BufferPool::get_type_descriptor(@)",
     header: "Media_BufferPool.hxx".}
-proc dynamicType*(this: MediaBufferPool): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: Media_BufferPool): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "Media_BufferPool.hxx".}
-proc constructMediaBufferPool*(): MediaBufferPool {.constructor,
+proc constructMedia_BufferPool*(): Media_BufferPool {.constructor,
     importcpp: "Media_BufferPool(@)", header: "Media_BufferPool.hxx".}
-proc destroyMediaBufferPool*(this: var MediaBufferPool) {.
+proc destroyMedia_BufferPool*(this: var Media_BufferPool) {.
     importcpp: "#.~Media_BufferPool()", header: "Media_BufferPool.hxx".}
-proc release*(this: var MediaBufferPool) {.importcpp: "Release",
-                                       header: "Media_BufferPool.hxx".}
-proc init*(this: var MediaBufferPool; theBufferSize: cint): bool {.importcpp: "Init",
+proc Release*(this: var Media_BufferPool) {.importcpp: "Release",
+                                        header: "Media_BufferPool.hxx".}
+proc Init*(this: var Media_BufferPool; theBufferSize: cint): bool {.importcpp: "Init",
     header: "Media_BufferPool.hxx".}
-proc bufferSize*(this: MediaBufferPool): cint {.noSideEffect,
+proc BufferSize*(this: Media_BufferPool): cint {.noSideEffect,
     importcpp: "BufferSize", header: "Media_BufferPool.hxx".}
-proc getBuffer*(this: var MediaBufferPool): ptr AVBufferRef {.importcpp: "GetBuffer",
+proc GetBuffer*(this: var Media_BufferPool): ptr AVBufferRef {.importcpp: "GetBuffer",
     header: "Media_BufferPool.hxx".}
-

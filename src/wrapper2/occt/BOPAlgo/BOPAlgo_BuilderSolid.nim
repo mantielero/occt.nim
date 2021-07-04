@@ -15,6 +15,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, BOPAlgo_BuilderArea,
+  ../NCollection/NCollection_BaseAllocator,
+  ../TopTools/TopTools_DataMapOfShapeBox
+
 ## ! Solid Builder is the algorithm for building solids from set of faces.
 ## ! The given faces should be non-intersecting, i.e. all coinciding parts
 ## ! of the faces should be shared among them.
@@ -68,141 +74,140 @@
 ## !
 
 type
-  BOPAlgoBuilderSolid* {.importcpp: "BOPAlgo_BuilderSolid",
-                        header: "BOPAlgo_BuilderSolid.hxx", bycopy.} = object of BOPAlgoBuilderArea ##
-                                                                                             ## !
-                                                                                             ## @name
-                                                                                             ## Constructors
-                                                                                             ##
-                                                                                             ## !
-                                                                                             ## Empty
-                                                                                             ## constructor
-                                                                                             ##
-                                                                                             ## !
-                                                                                             ## @name
-                                                                                             ## Performing
-                                                                                             ## the
-                                                                                             ## operation
-                                                                                             ##
-                                                                                             ## !
-                                                                                             ## Performs
-                                                                                             ## the
-                                                                                             ## construction
-                                                                                             ## of
-                                                                                             ## the
-                                                                                             ## solids
-                                                                                             ## from
-                                                                                             ## the
-                                                                                             ## given
-                                                                                             ## faces
-                                                                                             ##
-                                                                                             ## !
-                                                                                             ## @name
-                                                                                             ## Getting
-                                                                                             ## the
-                                                                                             ## bounding
-                                                                                             ## boxes
-                                                                                             ## of
-                                                                                             ## the
-                                                                                             ## created
-                                                                                             ## solids
-                                                                                             ##
-                                                                                             ## !
-                                                                                             ## For
-                                                                                             ## classification
-                                                                                             ## purposes
-                                                                                             ## the
-                                                                                             ## algorithm
-                                                                                             ## builds
-                                                                                             ## the
-                                                                                             ## bounding
-                                                                                             ## boxes
-                                                                                             ##
-                                                                                             ## !
-                                                                                             ## for
-                                                                                             ## all
-                                                                                             ## created
-                                                                                             ## solids.
-                                                                                             ## This
-                                                                                             ## method
-                                                                                             ## returns
-                                                                                             ## the
-                                                                                             ## data
-                                                                                             ## map
-                                                                                             ## of
-                                                                                             ## solid
-                                                                                             ## -
-                                                                                             ## box
-                                                                                             ## pairs.
-                                                                                             ##
-                                                                                             ## !
-                                                                                             ## @name
-                                                                                             ## Protected
-                                                                                             ## methods
-                                                                                             ## performing
-                                                                                             ## the
-                                                                                             ## operation
-                                                                                             ##
-                                                                                             ## !
-                                                                                             ## Collect
-                                                                                             ## the
-                                                                                             ## faces:
-                                                                                             ##
-                                                                                             ## !
-                                                                                             ## -
-                                                                                             ## with
-                                                                                             ## INTERNAL
-                                                                                             ## orientation;
-                                                                                             ##
-                                                                                             ## !
-                                                                                             ## -
-                                                                                             ## that
-                                                                                             ## are
-                                                                                             ## alone
-                                                                                             ## but
-                                                                                             ## given
-                                                                                             ## twice
-                                                                                             ## with
-                                                                                             ## different
-                                                                                             ## orientation.
-                                                                                             ##
-                                                                                             ## !
-                                                                                             ## These
-                                                                                             ## faces
-                                                                                             ## will
-                                                                                             ## be
-                                                                                             ## put
-                                                                                             ## into
-                                                                                             ## the
-                                                                                             ## map
-                                                                                             ## *myShapesToAvoid*
-                                                                                             ## and
-                                                                                             ## will
-                                                                                             ## be
-                                                                                             ##
-                                                                                             ## !
-                                                                                             ## avoided
-                                                                                             ## in
-                                                                                             ## shells
-                                                                                             ## construction,
-                                                                                             ## but
-                                                                                             ## will
-                                                                                             ## be
-                                                                                             ## classified
-                                                                                             ## later
-                                                                                             ## on.
+  BOPAlgo_BuilderSolid* {.importcpp: "BOPAlgo_BuilderSolid",
+                         header: "BOPAlgo_BuilderSolid.hxx", bycopy.} = object of BOPAlgo_BuilderArea ##
+                                                                                               ## !
+                                                                                               ## @name
+                                                                                               ## Constructors
+                                                                                               ##
+                                                                                               ## !
+                                                                                               ## Empty
+                                                                                               ## constructor
+                                                                                               ##
+                                                                                               ## !
+                                                                                               ## @name
+                                                                                               ## Performing
+                                                                                               ## the
+                                                                                               ## operation
+                                                                                               ##
+                                                                                               ## !
+                                                                                               ## Performs
+                                                                                               ## the
+                                                                                               ## construction
+                                                                                               ## of
+                                                                                               ## the
+                                                                                               ## solids
+                                                                                               ## from
+                                                                                               ## the
+                                                                                               ## given
+                                                                                               ## faces
+                                                                                               ##
+                                                                                               ## !
+                                                                                               ## @name
+                                                                                               ## Getting
+                                                                                               ## the
+                                                                                               ## bounding
+                                                                                               ## boxes
+                                                                                               ## of
+                                                                                               ## the
+                                                                                               ## created
+                                                                                               ## solids
+                                                                                               ##
+                                                                                               ## !
+                                                                                               ## For
+                                                                                               ## classification
+                                                                                               ## purposes
+                                                                                               ## the
+                                                                                               ## algorithm
+                                                                                               ## builds
+                                                                                               ## the
+                                                                                               ## bounding
+                                                                                               ## boxes
+                                                                                               ##
+                                                                                               ## !
+                                                                                               ## for
+                                                                                               ## all
+                                                                                               ## created
+                                                                                               ## solids.
+                                                                                               ## This
+                                                                                               ## method
+                                                                                               ## returns
+                                                                                               ## the
+                                                                                               ## data
+                                                                                               ## map
+                                                                                               ## of
+                                                                                               ## solid
+                                                                                               ## -
+                                                                                               ## box
+                                                                                               ## pairs.
+                                                                                               ##
+                                                                                               ## !
+                                                                                               ## @name
+                                                                                               ## Protected
+                                                                                               ## methods
+                                                                                               ## performing
+                                                                                               ## the
+                                                                                               ## operation
+                                                                                               ##
+                                                                                               ## !
+                                                                                               ## Collect
+                                                                                               ## the
+                                                                                               ## faces:
+                                                                                               ##
+                                                                                               ## !
+                                                                                               ## -
+                                                                                               ## with
+                                                                                               ## INTERNAL
+                                                                                               ## orientation;
+                                                                                               ##
+                                                                                               ## !
+                                                                                               ## -
+                                                                                               ## that
+                                                                                               ## are
+                                                                                               ## alone
+                                                                                               ## but
+                                                                                               ## given
+                                                                                               ## twice
+                                                                                               ## with
+                                                                                               ## different
+                                                                                               ## orientation.
+                                                                                               ##
+                                                                                               ## !
+                                                                                               ## These
+                                                                                               ## faces
+                                                                                               ## will
+                                                                                               ## be
+                                                                                               ## put
+                                                                                               ## into
+                                                                                               ## the
+                                                                                               ## map
+                                                                                               ## *myShapesToAvoid*
+                                                                                               ## and
+                                                                                               ## will
+                                                                                               ## be
+                                                                                               ##
+                                                                                               ## !
+                                                                                               ## avoided
+                                                                                               ## in
+                                                                                               ## shells
+                                                                                               ## construction,
+                                                                                               ## but
+                                                                                               ## will
+                                                                                               ## be
+                                                                                               ## classified
+                                                                                               ## later
+                                                                                               ## on.
     ##  Boxes of the produced solids
 
 
-proc constructBOPAlgoBuilderSolid*(): BOPAlgoBuilderSolid {.constructor,
+proc constructBOPAlgo_BuilderSolid*(): BOPAlgo_BuilderSolid {.constructor,
     importcpp: "BOPAlgo_BuilderSolid(@)", header: "BOPAlgo_BuilderSolid.hxx".}
-proc destroyBOPAlgoBuilderSolid*(this: var BOPAlgoBuilderSolid) {.
+proc destroyBOPAlgo_BuilderSolid*(this: var BOPAlgo_BuilderSolid) {.
     importcpp: "#.~BOPAlgo_BuilderSolid()", header: "BOPAlgo_BuilderSolid.hxx".}
-proc constructBOPAlgoBuilderSolid*(theAllocator: Handle[NCollectionBaseAllocator]): BOPAlgoBuilderSolid {.
+proc constructBOPAlgo_BuilderSolid*(theAllocator: handle[NCollection_BaseAllocator]): BOPAlgo_BuilderSolid {.
     constructor, importcpp: "BOPAlgo_BuilderSolid(@)",
     header: "BOPAlgo_BuilderSolid.hxx".}
-proc perform*(this: var BOPAlgoBuilderSolid) {.importcpp: "Perform",
+proc Perform*(this: var BOPAlgo_BuilderSolid) {.importcpp: "Perform",
     header: "BOPAlgo_BuilderSolid.hxx".}
-proc getBoxesMap*(this: BOPAlgoBuilderSolid): TopToolsDataMapOfShapeBox {.
+proc GetBoxesMap*(this: BOPAlgo_BuilderSolid): TopTools_DataMapOfShapeBox {.
     noSideEffect, importcpp: "GetBoxesMap", header: "BOPAlgo_BuilderSolid.hxx".}
-

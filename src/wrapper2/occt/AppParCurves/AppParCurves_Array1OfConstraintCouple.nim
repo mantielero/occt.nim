@@ -14,8 +14,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  AppParCurves_ConstraintCouple, ../NCollection/NCollection_Array1
+
 type
-  AppParCurvesArray1OfConstraintCouple* = NCollectionArray1[
-      AppParCurvesConstraintCouple]
-
-
+  AppParCurves_Array1OfConstraintCouple* = NCollection_Array1[
+      AppParCurves_ConstraintCouple]

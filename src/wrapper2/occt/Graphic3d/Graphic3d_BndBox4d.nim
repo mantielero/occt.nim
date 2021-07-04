@@ -13,7 +13,8 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../BVH/BVH_Box
+
 type
-  Graphic3dBndBox4d* = BVH_Box[StandardReal, 4]
-
-
+  Graphic3d_BndBox4d* = BVH_Box[Standard_Real, 4]

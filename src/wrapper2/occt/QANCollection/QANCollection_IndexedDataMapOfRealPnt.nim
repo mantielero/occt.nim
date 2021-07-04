@@ -13,8 +13,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard_Real, ../gp/gp_Pnt, ../TColStd/TColStd_MapRealHasher,
+  ../NCollection/NCollection_IndexedDataMap
+
 type
-  QANCollectionIndexedDataMapOfRealPnt* = NCollectionIndexedDataMap[StandardReal,
-      GpPnt, TColStdMapRealHasher]
-
-
+  QANCollection_IndexedDataMapOfRealPnt* = NCollection_IndexedDataMap[
+      Standard_Real, gp_Pnt, TColStd_MapRealHasher]

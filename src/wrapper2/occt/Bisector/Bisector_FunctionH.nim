@@ -14,22 +14,27 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../gp/gp_Pnt2d, ../gp/gp_Vec2d,
+  ../math/math_FunctionWithDerivative, ../Standard/Standard_Boolean,
+  ../Standard/Standard_Real
+
 discard "forward decl of Geom2d_Curve"
 discard "forward decl of gp_Pnt2d"
 discard "forward decl of gp_Vec2d"
 type
-  BisectorFunctionH* {.importcpp: "Bisector_FunctionH",
-                      header: "Bisector_FunctionH.hxx", bycopy.} = object of MathFunctionWithDerivative
+  Bisector_FunctionH* {.importcpp: "Bisector_FunctionH",
+                       header: "Bisector_FunctionH.hxx", bycopy.} = object of math_FunctionWithDerivative
 
 
-proc constructBisectorFunctionH*(c2: Handle[Geom2dCurve]; p1: GpPnt2d; t1: GpVec2d): BisectorFunctionH {.
-    constructor, importcpp: "Bisector_FunctionH(@)",
-    header: "Bisector_FunctionH.hxx".}
-proc value*(this: var BisectorFunctionH; x: StandardReal; f: var StandardReal): StandardBoolean {.
+proc constructBisector_FunctionH*(C2: handle[Geom2d_Curve]; P1: gp_Pnt2d;
+                                 T1: gp_Vec2d): Bisector_FunctionH {.constructor,
+    importcpp: "Bisector_FunctionH(@)", header: "Bisector_FunctionH.hxx".}
+proc Value*(this: var Bisector_FunctionH; X: Standard_Real; F: var Standard_Real): Standard_Boolean {.
     importcpp: "Value", header: "Bisector_FunctionH.hxx".}
-proc derivative*(this: var BisectorFunctionH; x: StandardReal; d: var StandardReal): StandardBoolean {.
+proc Derivative*(this: var Bisector_FunctionH; X: Standard_Real; D: var Standard_Real): Standard_Boolean {.
     importcpp: "Derivative", header: "Bisector_FunctionH.hxx".}
-proc values*(this: var BisectorFunctionH; x: StandardReal; f: var StandardReal;
-            d: var StandardReal): StandardBoolean {.importcpp: "Values",
+proc Values*(this: var Bisector_FunctionH; X: Standard_Real; F: var Standard_Real;
+            D: var Standard_Real): Standard_Boolean {.importcpp: "Values",
     header: "Bisector_FunctionH.hxx".}
-

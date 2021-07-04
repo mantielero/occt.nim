@@ -14,6 +14,13 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../gp/gp_Vec, ../Standard/Standard_Real,
+  ../TopTools/TopTools_DataMapOfShapeListOfShape,
+  ../TopTools/TopTools_ListOfShape, BRepFeat_RibSlot,
+  ../Standard/Standard_Integer, ../Standard/Standard_Boolean
+
 discard "forward decl of Geom_Curve"
 discard "forward decl of Geom_Plane"
 discard "forward decl of Standard_ConstructionError"
@@ -24,36 +31,35 @@ discard "forward decl of TopoDS_Edge"
 discard "forward decl of TopoDS_Face"
 discard "forward decl of gp_Pnt"
 type
-  BRepFeatMakeLinearForm* {.importcpp: "BRepFeat_MakeLinearForm",
-                           header: "BRepFeat_MakeLinearForm.hxx", bycopy.} = object of BRepFeatRibSlot ##
-                                                                                                ## !
-                                                                                                ## initializes
-                                                                                                ## the
-                                                                                                ## linear
-                                                                                                ## form
-                                                                                                ## class
+  BRepFeat_MakeLinearForm* {.importcpp: "BRepFeat_MakeLinearForm",
+                            header: "BRepFeat_MakeLinearForm.hxx", bycopy.} = object of BRepFeat_RibSlot ##
+                                                                                                  ## !
+                                                                                                  ## initializes
+                                                                                                  ## the
+                                                                                                  ## linear
+                                                                                                  ## form
+                                                                                                  ## class
 
 
-proc constructBRepFeatMakeLinearForm*(): BRepFeatMakeLinearForm {.constructor,
+proc constructBRepFeat_MakeLinearForm*(): BRepFeat_MakeLinearForm {.constructor,
     importcpp: "BRepFeat_MakeLinearForm(@)", header: "BRepFeat_MakeLinearForm.hxx".}
-proc constructBRepFeatMakeLinearForm*(sbase: TopoDS_Shape; w: TopoDS_Wire;
-                                     p: Handle[GeomPlane]; direction: GpVec;
-                                     direction1: GpVec; fuse: StandardInteger;
-                                     modify: StandardBoolean): BRepFeatMakeLinearForm {.
+proc constructBRepFeat_MakeLinearForm*(Sbase: TopoDS_Shape; W: TopoDS_Wire;
+                                      P: handle[Geom_Plane]; Direction: gp_Vec;
+                                      Direction1: gp_Vec; Fuse: Standard_Integer;
+                                      Modify: Standard_Boolean): BRepFeat_MakeLinearForm {.
     constructor, importcpp: "BRepFeat_MakeLinearForm(@)",
     header: "BRepFeat_MakeLinearForm.hxx".}
-proc init*(this: var BRepFeatMakeLinearForm; sbase: TopoDS_Shape; w: TopoDS_Wire;
-          p: Handle[GeomPlane]; direction: GpVec; direction1: GpVec;
-          fuse: StandardInteger; modify: StandardBoolean) {.importcpp: "Init",
+proc Init*(this: var BRepFeat_MakeLinearForm; Sbase: TopoDS_Shape; W: TopoDS_Wire;
+          P: handle[Geom_Plane]; Direction: gp_Vec; Direction1: gp_Vec;
+          Fuse: Standard_Integer; Modify: Standard_Boolean) {.importcpp: "Init",
     header: "BRepFeat_MakeLinearForm.hxx".}
-proc add*(this: var BRepFeatMakeLinearForm; e: TopoDS_Edge; onFace: TopoDS_Face) {.
+proc Add*(this: var BRepFeat_MakeLinearForm; E: TopoDS_Edge; OnFace: TopoDS_Face) {.
     importcpp: "Add", header: "BRepFeat_MakeLinearForm.hxx".}
-proc perform*(this: var BRepFeatMakeLinearForm) {.importcpp: "Perform",
+proc Perform*(this: var BRepFeat_MakeLinearForm) {.importcpp: "Perform",
     header: "BRepFeat_MakeLinearForm.hxx".}
-proc transformShapeFU*(this: var BRepFeatMakeLinearForm; flag: StandardInteger) {.
+proc TransformShapeFU*(this: var BRepFeat_MakeLinearForm; flag: Standard_Integer) {.
     importcpp: "TransformShapeFU", header: "BRepFeat_MakeLinearForm.hxx".}
-proc propagate*(this: var BRepFeatMakeLinearForm; L: var TopToolsListOfShape;
-               f: TopoDS_Face; fPoint: GpPnt; lPoint: GpPnt;
-               falseside: var StandardBoolean): StandardBoolean {.
+proc Propagate*(this: var BRepFeat_MakeLinearForm; L: var TopTools_ListOfShape;
+               F: TopoDS_Face; FPoint: gp_Pnt; LPoint: gp_Pnt;
+               falseside: var Standard_Boolean): Standard_Boolean {.
     importcpp: "Propagate", header: "BRepFeat_MakeLinearForm.hxx".}
-

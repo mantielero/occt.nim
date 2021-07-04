@@ -14,23 +14,27 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
+  ../Standard/Standard_Integer, ../gp/gp_Circ2d
+
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of gp_Circ2d"
 discard "forward decl of GccInt_Bisec"
 type
-  GccAnaCirc2dBisec* {.importcpp: "GccAna_Circ2dBisec",
-                      header: "GccAna_Circ2dBisec.hxx", bycopy.} = object ## ! Constructs bisecting curves between the two circles Circ1 and Circ2.
+  GccAna_Circ2dBisec* {.importcpp: "GccAna_Circ2dBisec",
+                       header: "GccAna_Circ2dBisec.hxx", bycopy.} = object ## ! Constructs bisecting curves between the two circles Circ1 and Circ2.
 
 
-proc constructGccAnaCirc2dBisec*(circ1: GpCirc2d; circ2: GpCirc2d): GccAnaCirc2dBisec {.
+proc constructGccAna_Circ2dBisec*(Circ1: gp_Circ2d; Circ2: gp_Circ2d): GccAna_Circ2dBisec {.
     constructor, importcpp: "GccAna_Circ2dBisec(@)",
     header: "GccAna_Circ2dBisec.hxx".}
-proc isDone*(this: GccAnaCirc2dBisec): StandardBoolean {.noSideEffect,
+proc IsDone*(this: GccAna_Circ2dBisec): Standard_Boolean {.noSideEffect,
     importcpp: "IsDone", header: "GccAna_Circ2dBisec.hxx".}
-proc nbSolutions*(this: GccAnaCirc2dBisec): StandardInteger {.noSideEffect,
+proc NbSolutions*(this: GccAna_Circ2dBisec): Standard_Integer {.noSideEffect,
     importcpp: "NbSolutions", header: "GccAna_Circ2dBisec.hxx".}
-proc thisSolution*(this: GccAnaCirc2dBisec; index: StandardInteger): Handle[
-    GccIntBisec] {.noSideEffect, importcpp: "ThisSolution",
-                  header: "GccAna_Circ2dBisec.hxx".}
-
+proc ThisSolution*(this: GccAna_Circ2dBisec; Index: Standard_Integer): handle[
+    GccInt_Bisec] {.noSideEffect, importcpp: "ThisSolution",
+                   header: "GccAna_Circ2dBisec.hxx".}

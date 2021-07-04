@@ -27,10 +27,12 @@
 ##               See  the  class   Map   from NCollection   for   a
 ##               discussion about the number of buckets.
 
+import
+  NCollection_IndexedDataMap
+
 ##  *********************************************** Class IndexedDataMap ******
 
-template define_Indexeddatamap*(className, baseCollection, theKeyType, theItemType: untyped): void =
+template DEFINE_INDEXEDDATAMAP*(_ClassName_, _BaseCollection_, TheKeyType,
+                               TheItemType: untyped): void =
   type
-    ClassName* = NCollectionIndexedDataMap[TheKeyType, TheItemType]
-
-
+    _ClassName_* = NCollection_IndexedDataMap[TheKeyType, TheItemType]

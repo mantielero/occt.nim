@@ -14,46 +14,46 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, IFSelect_SelectBase
+
 discard "forward decl of Interface_EntityIterator"
 discard "forward decl of Interface_Graph"
 discard "forward decl of TCollection_AsciiString"
 discard "forward decl of IFSelect_SelectModelEntities"
 discard "forward decl of IFSelect_SelectModelEntities"
 type
-  HandleIFSelectSelectModelEntities* = Handle[IFSelectSelectModelEntities]
+  Handle_IFSelect_SelectModelEntities* = handle[IFSelect_SelectModelEntities]
 
 ## ! A SelectModelEntities gets all the Entities of an
 ## ! InterfaceModel.
 
 type
-  IFSelectSelectModelEntities* {.importcpp: "IFSelect_SelectModelEntities",
-                                header: "IFSelect_SelectModelEntities.hxx", bycopy.} = object of IFSelectSelectBase ##
-                                                                                                             ## !
-                                                                                                             ## Creates
-                                                                                                             ## a
-                                                                                                             ## SelectModelRoot
+  IFSelect_SelectModelEntities* {.importcpp: "IFSelect_SelectModelEntities",
+                                 header: "IFSelect_SelectModelEntities.hxx",
+                                 bycopy.} = object of IFSelect_SelectBase ## ! Creates a
+                                                                     ## SelectModelRoot
 
 
-proc constructIFSelectSelectModelEntities*(): IFSelectSelectModelEntities {.
+proc constructIFSelect_SelectModelEntities*(): IFSelect_SelectModelEntities {.
     constructor, importcpp: "IFSelect_SelectModelEntities(@)",
     header: "IFSelect_SelectModelEntities.hxx".}
-proc rootResult*(this: IFSelectSelectModelEntities; g: InterfaceGraph): InterfaceEntityIterator {.
+proc RootResult*(this: IFSelect_SelectModelEntities; G: Interface_Graph): Interface_EntityIterator {.
     noSideEffect, importcpp: "RootResult",
     header: "IFSelect_SelectModelEntities.hxx".}
-proc completeResult*(this: IFSelectSelectModelEntities; g: InterfaceGraph): InterfaceEntityIterator {.
+proc CompleteResult*(this: IFSelect_SelectModelEntities; G: Interface_Graph): Interface_EntityIterator {.
     noSideEffect, importcpp: "CompleteResult",
     header: "IFSelect_SelectModelEntities.hxx".}
-proc label*(this: IFSelectSelectModelEntities): TCollectionAsciiString {.
+proc Label*(this: IFSelect_SelectModelEntities): TCollection_AsciiString {.
     noSideEffect, importcpp: "Label", header: "IFSelect_SelectModelEntities.hxx".}
 type
-  IFSelectSelectModelEntitiesbaseType* = IFSelectSelectBase
+  IFSelect_SelectModelEntitiesbase_type* = IFSelect_SelectBase
 
-proc getTypeName*(): cstring {.importcpp: "IFSelect_SelectModelEntities::get_type_name(@)",
-                            header: "IFSelect_SelectModelEntities.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "IFSelect_SelectModelEntities::get_type_name(@)",
+                              header: "IFSelect_SelectModelEntities.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "IFSelect_SelectModelEntities::get_type_descriptor(@)",
     header: "IFSelect_SelectModelEntities.hxx".}
-proc dynamicType*(this: IFSelectSelectModelEntities): Handle[StandardType] {.
+proc DynamicType*(this: IFSelect_SelectModelEntities): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType",
     header: "IFSelect_SelectModelEntities.hxx".}
-

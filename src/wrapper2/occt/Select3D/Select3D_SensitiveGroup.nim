@@ -14,6 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  Select3D_EntitySequence, Select3D_IndexedMapOfEntity, Select3D_SensitiveEntity,
+  Select3D_SensitiveSet, ../SelectMgr/SelectMgr_SelectingVolumeManager
+
 ## ! A framework to define selection of a sensitive group
 ## !          by a sensitive entity which is a set of 3D sensitive entities.
 ## !          Remark: 2 modes are possible for rectangle selection
@@ -91,91 +95,89 @@ type
     ## !< Bounding box of the group
     ## !< Vector of sub-entities indexes for BVH tree build
 
-  Select3D_SensitiveGroupbaseType* = Select3D_SensitiveSet
+  Select3D_SensitiveGroupbase_type* = Select3D_SensitiveSet
 
-proc getTypeName*(): cstring {.importcpp: "Select3D_SensitiveGroup::get_type_name(@)",
-                            header: "Select3D_SensitiveGroup.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "Select3D_SensitiveGroup::get_type_name(@)",
+                              header: "Select3D_SensitiveGroup.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "Select3D_SensitiveGroup::get_type_descriptor(@)",
     header: "Select3D_SensitiveGroup.hxx".}
-proc dynamicType*(this: Select3D_SensitiveGroup): Handle[StandardType] {.
+proc DynamicType*(this: Select3D_SensitiveGroup): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType", header: "Select3D_SensitiveGroup.hxx".}
-proc constructSelect3D_SensitiveGroup*(theOwnerId: Handle[SelectMgrEntityOwner];
-    theIsMustMatchAll: StandardBoolean = standardTrue): Select3D_SensitiveGroup {.
+proc constructSelect3D_SensitiveGroup*(theOwnerId: handle[SelectMgr_EntityOwner];
+    theIsMustMatchAll: Standard_Boolean = Standard_True): Select3D_SensitiveGroup {.
     constructor, importcpp: "Select3D_SensitiveGroup(@)",
     header: "Select3D_SensitiveGroup.hxx".}
-proc constructSelect3D_SensitiveGroup*(theOwnerId: Handle[SelectMgrEntityOwner];
+proc constructSelect3D_SensitiveGroup*(theOwnerId: handle[SelectMgr_EntityOwner];
                                       theEntities: var Select3D_EntitySequence;
-    theIsMustMatchAll: StandardBoolean = standardTrue): Select3D_SensitiveGroup {.
+    theIsMustMatchAll: Standard_Boolean = Standard_True): Select3D_SensitiveGroup {.
     constructor, importcpp: "Select3D_SensitiveGroup(@)",
     header: "Select3D_SensitiveGroup.hxx".}
-proc entities*(this: Select3D_SensitiveGroup): Select3D_IndexedMapOfEntity {.
+proc Entities*(this: Select3D_SensitiveGroup): Select3D_IndexedMapOfEntity {.
     noSideEffect, importcpp: "Entities", header: "Select3D_SensitiveGroup.hxx".}
-proc subEntity*(this: Select3D_SensitiveGroup; theIndex: StandardInteger): Handle[
+proc SubEntity*(this: Select3D_SensitiveGroup; theIndex: Standard_Integer): handle[
     Select3D_SensitiveEntity] {.noSideEffect, importcpp: "SubEntity",
                                header: "Select3D_SensitiveGroup.hxx".}
-proc lastDetectedEntity*(this: Select3D_SensitiveGroup): Handle[
+proc LastDetectedEntity*(this: Select3D_SensitiveGroup): handle[
     Select3D_SensitiveEntity] {.noSideEffect, importcpp: "LastDetectedEntity",
                                header: "Select3D_SensitiveGroup.hxx".}
-proc lastDetectedEntityIndex*(this: Select3D_SensitiveGroup): StandardInteger {.
+proc LastDetectedEntityIndex*(this: Select3D_SensitiveGroup): Standard_Integer {.
     noSideEffect, importcpp: "LastDetectedEntityIndex",
     header: "Select3D_SensitiveGroup.hxx".}
-proc add*(this: var Select3D_SensitiveGroup;
+proc Add*(this: var Select3D_SensitiveGroup;
          theEntities: var Select3D_EntitySequence) {.importcpp: "Add",
     header: "Select3D_SensitiveGroup.hxx".}
-proc add*(this: var Select3D_SensitiveGroup;
-         theSensitive: Handle[Select3D_SensitiveEntity]) {.importcpp: "Add",
+proc Add*(this: var Select3D_SensitiveGroup;
+         theSensitive: handle[Select3D_SensitiveEntity]) {.importcpp: "Add",
     header: "Select3D_SensitiveGroup.hxx".}
-proc remove*(this: var Select3D_SensitiveGroup;
-            theSensitive: Handle[Select3D_SensitiveEntity]) {.importcpp: "Remove",
+proc Remove*(this: var Select3D_SensitiveGroup;
+            theSensitive: handle[Select3D_SensitiveEntity]) {.importcpp: "Remove",
     header: "Select3D_SensitiveGroup.hxx".}
-proc clear*(this: var Select3D_SensitiveGroup) {.importcpp: "Clear",
+proc Clear*(this: var Select3D_SensitiveGroup) {.importcpp: "Clear",
     header: "Select3D_SensitiveGroup.hxx".}
-proc isIn*(this: Select3D_SensitiveGroup;
-          theSensitive: Handle[Select3D_SensitiveEntity]): StandardBoolean {.
+proc IsIn*(this: Select3D_SensitiveGroup;
+          theSensitive: handle[Select3D_SensitiveEntity]): Standard_Boolean {.
     noSideEffect, importcpp: "IsIn", header: "Select3D_SensitiveGroup.hxx".}
-proc setMatchType*(this: var Select3D_SensitiveGroup;
-                  theIsMustMatchAll: StandardBoolean) {.importcpp: "SetMatchType",
-    header: "Select3D_SensitiveGroup.hxx".}
-proc mustMatchAll*(this: Select3D_SensitiveGroup): StandardBoolean {.noSideEffect,
+proc SetMatchType*(this: var Select3D_SensitiveGroup;
+                  theIsMustMatchAll: Standard_Boolean) {.
+    importcpp: "SetMatchType", header: "Select3D_SensitiveGroup.hxx".}
+proc MustMatchAll*(this: Select3D_SensitiveGroup): Standard_Boolean {.noSideEffect,
     importcpp: "MustMatchAll", header: "Select3D_SensitiveGroup.hxx".}
-proc toCheckOverlapAll*(this: Select3D_SensitiveGroup): StandardBoolean {.
+proc ToCheckOverlapAll*(this: Select3D_SensitiveGroup): Standard_Boolean {.
     noSideEffect, importcpp: "ToCheckOverlapAll",
     header: "Select3D_SensitiveGroup.hxx".}
-proc setCheckOverlapAll*(this: var Select3D_SensitiveGroup;
-                        theToCheckAll: StandardBoolean) {.
+proc SetCheckOverlapAll*(this: var Select3D_SensitiveGroup;
+                        theToCheckAll: Standard_Boolean) {.
     importcpp: "SetCheckOverlapAll", header: "Select3D_SensitiveGroup.hxx".}
-proc matches*(this: var Select3D_SensitiveGroup;
-             theMgr: var SelectBasicsSelectingVolumeManager;
-             thePickResult: var SelectBasicsPickResult): StandardBoolean {.
+proc Matches*(this: var Select3D_SensitiveGroup;
+             theMgr: var SelectBasics_SelectingVolumeManager;
+             thePickResult: var SelectBasics_PickResult): Standard_Boolean {.
     importcpp: "Matches", header: "Select3D_SensitiveGroup.hxx".}
-proc nbSubElements*(this: Select3D_SensitiveGroup): StandardInteger {.noSideEffect,
+proc NbSubElements*(this: Select3D_SensitiveGroup): Standard_Integer {.noSideEffect,
     importcpp: "NbSubElements", header: "Select3D_SensitiveGroup.hxx".}
-proc getConnected*(this: var Select3D_SensitiveGroup): Handle[
+proc GetConnected*(this: var Select3D_SensitiveGroup): handle[
     Select3D_SensitiveEntity] {.importcpp: "GetConnected",
                                header: "Select3D_SensitiveGroup.hxx".}
-proc set*(this: var Select3D_SensitiveGroup;
-         theOwnerId: Handle[SelectMgrEntityOwner]) {.importcpp: "Set",
+proc Set*(this: var Select3D_SensitiveGroup;
+         theOwnerId: handle[SelectMgr_EntityOwner]) {.importcpp: "Set",
     header: "Select3D_SensitiveGroup.hxx".}
-proc boundingBox*(this: var Select3D_SensitiveGroup): Select3D_BndBox3d {.
+proc BoundingBox*(this: var Select3D_SensitiveGroup): Select3D_BndBox3d {.
     importcpp: "BoundingBox", header: "Select3D_SensitiveGroup.hxx".}
-proc centerOfGeometry*(this: Select3D_SensitiveGroup): GpPnt {.noSideEffect,
+proc CenterOfGeometry*(this: Select3D_SensitiveGroup): gp_Pnt {.noSideEffect,
     importcpp: "CenterOfGeometry", header: "Select3D_SensitiveGroup.hxx".}
-proc box*(this: Select3D_SensitiveGroup; theIdx: StandardInteger): Select3D_BndBox3d {.
+proc Box*(this: Select3D_SensitiveGroup; theIdx: Standard_Integer): Select3D_BndBox3d {.
     noSideEffect, importcpp: "Box", header: "Select3D_SensitiveGroup.hxx".}
-proc center*(this: Select3D_SensitiveGroup; theIdx: StandardInteger;
-            theAxis: StandardInteger): StandardReal {.noSideEffect,
+proc Center*(this: Select3D_SensitiveGroup; theIdx: Standard_Integer;
+            theAxis: Standard_Integer): Standard_Real {.noSideEffect,
     importcpp: "Center", header: "Select3D_SensitiveGroup.hxx".}
-proc swap*(this: var Select3D_SensitiveGroup; theIdx1: StandardInteger;
-          theIdx2: StandardInteger) {.importcpp: "Swap",
-                                    header: "Select3D_SensitiveGroup.hxx".}
-proc size*(this: Select3D_SensitiveGroup): StandardInteger {.noSideEffect,
+proc Swap*(this: var Select3D_SensitiveGroup; theIdx1: Standard_Integer;
+          theIdx2: Standard_Integer) {.importcpp: "Swap",
+                                     header: "Select3D_SensitiveGroup.hxx".}
+proc Size*(this: Select3D_SensitiveGroup): Standard_Integer {.noSideEffect,
     importcpp: "Size", header: "Select3D_SensitiveGroup.hxx".}
-proc dumpJson*(this: Select3D_SensitiveGroup; theOStream: var StandardOStream;
-              theDepth: StandardInteger = -1) {.noSideEffect, importcpp: "DumpJson",
+proc DumpJson*(this: Select3D_SensitiveGroup; theOStream: var Standard_OStream;
+              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
     header: "Select3D_SensitiveGroup.hxx".}
 discard "forward decl of Select3D_SensitiveGroup"
 type
-  HandleSelect3D_SensitiveGroup* = Handle[Select3D_SensitiveGroup]
-
-
+  Handle_Select3D_SensitiveGroup* = handle[Select3D_SensitiveGroup]

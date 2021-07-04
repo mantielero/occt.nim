@@ -13,66 +13,80 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _Message_ProgressScope_HeaderFile [NewLine] # _Message_ProgressScope_HeaderFile [NewLine] # < Standard_Assert . hxx > [NewLine] # < Standard_TypeDef . hxx > [NewLine] # < Standard_DefineAlloc . hxx > [NewLine] # < Standard_Handle . hxx > [NewLine] # < Precision . hxx > [NewLine] # < TCollection_AsciiString . hxx > [NewLine] class Message_ProgressRange ;
+## !!!Ignored construct:  # _Message_ProgressScope_HeaderFile [NewLine] # _Message_ProgressScope_HeaderFile [NewLine] # ../Standard/Standard_Assert.hxx [NewLine] # ../Standard/Standard_TypeDef.hxx [NewLine] # ../Standard/Standard_DefineAlloc.hxx [NewLine] # ../Standard/Standard_Handle.hxx [NewLine] # ../Precision/Precision.hxx [NewLine] # ../TCollection/TCollection_AsciiString.hxx [NewLine] class Message_ProgressRange ;
 ## Error: token expected: :: but got: *!!!
 
 discard "forward decl of Message_ProgressIndicator"
 type
-  MessageProgressScope* {.importcpp: "Message_ProgressScope",
-                         header: "Message_ProgressScope.hxx", bycopy.} = object ## ! @name
-                                                                           ## Preparation
-                                                                           ## methods
-                                                                           ## !
-                                                                           ## Creates dummy
-                                                                           ## scope.
-                                                                           ## ! It can be
-                                                                           ## safely
-                                                                           ## passed to
-                                                                           ## algorithms; no
-                                                                           ## progress
-                                                                           ## indication will be done.
-                                                                           ## ! @name
-                                                                           ## Advance by
-                                                                           ## iterations
-                                                                           ## !
-                                                                           ## Returns true if
-                                                                           ## ProgressIndicator
-                                                                           ## signals
-                                                                           ## UserBreak
-                                                                           ## ! @name
-                                                                           ## Auxiliary
-                                                                           ## methods to use in
-                                                                           ## ProgressIndicator
-                                                                           ## ! Force
-                                                                           ## update of
-                                                                           ## presentation of the
-                                                                           ## progress
-                                                                           ## indicator.
-                                                                           ## !
-                                                                           ## Should not be
-                                                                           ## called
-                                                                           ## concurrently.
-                                                                           ## ! @name
-                                                                           ## Destruction,
-                                                                           ## allocation
-                                                                           ## !
-                                                                           ## Destructor -
-                                                                           ## closes the scope and adds its scale to the total
-                                                                           ## progress
-                                                                           ## ! @name
-                                                                           ## Internal
-                                                                           ## methods
-                                                                           ## !
-                                                                           ## Creates a
-                                                                           ## top-level scope with
-                                                                           ## default range [0,1] and step 1.
-                                                                           ## !
-                                                                           ## Called only by
-                                                                           ## Message_ProgressIndicator
-                                                                           ## constructor.
-                                                                           ## ! Copy
-                                                                           ## constructor is
-                                                                           ## prohibited
+  Message_ProgressScope* {.importcpp: "Message_ProgressScope",
+                          header: "Message_ProgressScope.hxx", bycopy.} = object ## !
+                                                                            ## @name
+                                                                            ## Preparation
+                                                                            ## methods
+                                                                            ## !
+                                                                            ## Creates
+                                                                            ## dummy
+                                                                            ## scope.
+                                                                            ## ! It can be
+                                                                            ## safely
+                                                                            ## passed to
+                                                                            ## algorithms; no
+                                                                            ## progress
+                                                                            ## indication will be
+                                                                            ## done.
+                                                                            ## !
+                                                                            ## @name
+                                                                            ## Advance by
+                                                                            ## iterations
+                                                                            ## !
+                                                                            ## Returns true if
+                                                                            ## ProgressIndicator
+                                                                            ## signals
+                                                                            ## UserBreak
+                                                                            ## !
+                                                                            ## @name
+                                                                            ## Auxiliary
+                                                                            ## methods to use in
+                                                                            ## ProgressIndicator
+                                                                            ## !
+                                                                            ## Force
+                                                                            ## update of
+                                                                            ## presentation of the
+                                                                            ## progress
+                                                                            ## indicator.
+                                                                            ## !
+                                                                            ## Should not be
+                                                                            ## called
+                                                                            ## concurrently.
+                                                                            ## !
+                                                                            ## @name
+                                                                            ## Destruction,
+                                                                            ## allocation
+                                                                            ## !
+                                                                            ## Destructor -
+                                                                            ## closes the
+                                                                            ## scope and adds its
+                                                                            ## scale to the
+                                                                            ## total
+                                                                            ## progress
+                                                                            ## !
+                                                                            ## @name
+                                                                            ## Internal
+                                                                            ## methods
+                                                                            ## !
+                                                                            ## Creates a
+                                                                            ## top-level
+                                                                            ## scope with
+                                                                            ## default
+                                                                            ## range
+                                                                            ## [0,1] and step 1.
+                                                                            ## !
+                                                                            ## Called only by
+                                                                            ## Message_ProgressIndicator
+                                                                            ## constructor.
+                                                                            ## ! Copy
+                                                                            ## constructor is
+                                                                            ## prohibited
     ## !< Pointer to progress indicator instance
     ## !< Pointer to parent scope
     ## !< Name of the operation being done in this scope, or null
@@ -86,55 +100,57 @@ type
 
 
 discard "forward decl of NullString"
-proc constructMessageProgressScope*(): MessageProgressScope {.constructor,
+proc constructMessage_ProgressScope*(): Message_ProgressScope {.constructor,
     importcpp: "Message_ProgressScope(@)", header: "Message_ProgressScope.hxx".}
-proc constructMessageProgressScope*(theRange: MessageProgressRange;
-                                   theName: TCollectionAsciiString;
-                                   theMax: StandardReal;
-                                   isInfinite: StandardBoolean = false): MessageProgressScope {.
+proc constructMessage_ProgressScope*(theRange: Message_ProgressRange;
+                                    theName: TCollection_AsciiString;
+                                    theMax: Standard_Real;
+                                    isInfinite: Standard_Boolean = false): Message_ProgressScope {.
     constructor, importcpp: "Message_ProgressScope(@)",
     header: "Message_ProgressScope.hxx".}
-proc constructMessageProgressScope*[N: static[csize_t]](
-    theRange: MessageProgressRange; theName: array[n, char]; theMax: StandardReal;
-    isInfinite: StandardBoolean = false): MessageProgressScope {.constructor,
+proc constructMessage_ProgressScope*[N: static[csize_t]](
+    theRange: Message_ProgressRange; theName: array[N, char]; theMax: Standard_Real;
+    isInfinite: Standard_Boolean = false): Message_ProgressScope {.constructor,
     importcpp: "Message_ProgressScope(@)", header: "Message_ProgressScope.hxx".}
-proc constructMessageProgressScope*(theRange: MessageProgressRange;
-                                   theName: ptr MessageProgressScopeNullString;
-                                   theMax: StandardReal;
-                                   isInfinite: StandardBoolean = false): MessageProgressScope {.
+proc constructMessage_ProgressScope*(theRange: Message_ProgressRange; theName: ptr Message_ProgressScopeNullString;
+                                    theMax: Standard_Real;
+                                    isInfinite: Standard_Boolean = false): Message_ProgressScope {.
     constructor, importcpp: "Message_ProgressScope(@)",
     header: "Message_ProgressScope.hxx".}
-proc setName*(this: var MessageProgressScope; theName: TCollectionAsciiString) {.
+proc SetName*(this: var Message_ProgressScope; theName: TCollection_AsciiString) {.
     importcpp: "SetName", header: "Message_ProgressScope.hxx".}
-proc setName*[N: static[csize_t]](this: var MessageProgressScope;
-                                theName: array[n, char]) {.importcpp: "SetName",
+proc SetName*[N: static[csize_t]](this: var Message_ProgressScope;
+                                theName: array[N, char]) {.importcpp: "SetName",
     header: "Message_ProgressScope.hxx".}
-proc userBreak*(this: MessageProgressScope): StandardBoolean {.noSideEffect,
+proc UserBreak*(this: Message_ProgressScope): Standard_Boolean {.noSideEffect,
     importcpp: "UserBreak", header: "Message_ProgressScope.hxx".}
-proc more*(this: MessageProgressScope): StandardBoolean {.noSideEffect,
+proc More*(this: Message_ProgressScope): Standard_Boolean {.noSideEffect,
     importcpp: "More", header: "Message_ProgressScope.hxx".}
-proc next*(this: var MessageProgressScope; theStep: StandardReal = 1.0): MessageProgressRange {.
+proc Next*(this: var Message_ProgressScope; theStep: Standard_Real = 1.0): Message_ProgressRange {.
     importcpp: "Next", header: "Message_ProgressScope.hxx".}
-proc show*(this: var MessageProgressScope) {.importcpp: "Show",
+proc Show*(this: var Message_ProgressScope) {.importcpp: "Show",
     header: "Message_ProgressScope.hxx".}
-proc isActive*(this: MessageProgressScope): StandardBoolean {.noSideEffect,
+proc IsActive*(this: Message_ProgressScope): Standard_Boolean {.noSideEffect,
     importcpp: "IsActive", header: "Message_ProgressScope.hxx".}
-proc name*(this: MessageProgressScope): StandardCString {.noSideEffect,
+proc Name*(this: Message_ProgressScope): Standard_CString {.noSideEffect,
     importcpp: "Name", header: "Message_ProgressScope.hxx".}
-proc parent*(this: MessageProgressScope): ptr MessageProgressScope {.noSideEffect,
+proc Parent*(this: Message_ProgressScope): ptr Message_ProgressScope {.noSideEffect,
     importcpp: "Parent", header: "Message_ProgressScope.hxx".}
-proc maxValue*(this: MessageProgressScope): StandardReal {.noSideEffect,
+proc MaxValue*(this: Message_ProgressScope): Standard_Real {.noSideEffect,
     importcpp: "MaxValue", header: "Message_ProgressScope.hxx".}
-proc value*(this: MessageProgressScope): StandardReal {.noSideEffect,
+proc Value*(this: Message_ProgressScope): Standard_Real {.noSideEffect,
     importcpp: "Value", header: "Message_ProgressScope.hxx".}
-proc isInfinite*(this: MessageProgressScope): StandardBoolean {.noSideEffect,
+proc IsInfinite*(this: Message_ProgressScope): Standard_Boolean {.noSideEffect,
     importcpp: "IsInfinite", header: "Message_ProgressScope.hxx".}
-proc getPortion*(this: MessageProgressScope): StandardReal {.noSideEffect,
+proc GetPortion*(this: Message_ProgressScope): Standard_Real {.noSideEffect,
     importcpp: "GetPortion", header: "Message_ProgressScope.hxx".}
-proc destroyMessageProgressScope*(this: var MessageProgressScope) {.
+proc destroyMessage_ProgressScope*(this: var Message_ProgressScope) {.
     importcpp: "#.~Message_ProgressScope()", header: "Message_ProgressScope.hxx".}
-proc close*(this: var MessageProgressScope) {.importcpp: "Close",
+proc Close*(this: var Message_ProgressScope) {.importcpp: "Close",
     header: "Message_ProgressScope.hxx".}
+import
+  Message_ProgressRange
+
 ## =======================================================================
 ## function : Message_ProgressScope
 ## purpose  :
@@ -170,7 +186,5 @@ proc close*(this: var MessageProgressScope) {.importcpp: "Close",
 ## ======================================================================= inline Standard_Real Message_ProgressScope :: Value ( ) const { if ( ! myIsActive ) { return myIsInfinite ? Precision :: Infinite ( ) : myMax ; }  get current progress on the global scale counted
 ##  from the start of this scope Standard_Real aVal = myProgress -> GetPosition ( ) - myStart ;  if progress has not reached yet the start of this scope, return 0 if ( aVal <= 0.0 ) return 0.0 ;  if at end of the scope (or behind), report the maximum Standard_Real aDist = myPortion - aVal ; if ( aDist <= Precision :: Confusion ( ) ) return myIsInfinite ? Precision :: Infinite ( ) : myMax ;  map the value to the range of this scope [0, Max],
 ##  rounding up to integer, with small correction applied
-##  to avoid rounding errors return std :: ceil ( myMax * aVal / ( myIsInfinite ? aDist : myPortion ) - Precision :: Confusion ( ) ) ; } #  _Message_ProgressScope_HeaderFile
+##  to avoid rounding errors return std :: ceil ( myMax * aVal / ( myIsInfinite ? aDist : myPortion ) - Precision :: Confusion ( ) ) ; } #  _Message_ProgressScope_HeaderFile [NewLine]
 ## Error: token expected: :: but got: *!!!
-
-

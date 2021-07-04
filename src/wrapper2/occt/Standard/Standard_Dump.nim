@@ -11,7 +11,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _Standard_Dump_HeaderFile [NewLine] # _Standard_Dump_HeaderFile [NewLine] # < NCollection_IndexedDataMap . hxx > [NewLine] # < NCollection_List . hxx > [NewLine] # < Standard_SStream . hxx > [NewLine] # < TCollection_AsciiString . hxx > [NewLine] !@file
+## !!!Ignored construct:  # _Standard_Dump_HeaderFile [NewLine] # _Standard_Dump_HeaderFile [NewLine] # ../NCollection/NCollection_IndexedDataMap.hxx [NewLine] # ../NCollection/NCollection_List.hxx [NewLine] # Standard_SStream.hxx [NewLine] # ../TCollection/TCollection_AsciiString.hxx [NewLine] !@file
 ## ! The file contains interface to prepare dump output for OCCT objects. Format of the dump is JSON.
 ## !
 ## ! To prepare this output, implement method DumpJson in the object and use macro functions from this file.
@@ -82,178 +82,177 @@
 ## ! Type for storing a dump value with the stream position
 
 type
-  StandardDumpValue* {.importcpp: "Standard_DumpValue",
-                      header: "Standard_Dump.hxx", bycopy.} = object
-    myValue* {.importc: "myValue".}: TCollectionAsciiString ## !< current string value
-    myStartPosition* {.importc: "myStartPosition".}: StandardInteger ## !< position of the value first char in the whole stream
+  Standard_DumpValue* {.importcpp: "Standard_DumpValue",
+                       header: "Standard_Dump.hxx", bycopy.} = object
+    myValue* {.importc: "myValue".}: TCollection_AsciiString ## !< current string value
+    myStartPosition* {.importc: "myStartPosition".}: Standard_Integer ## !< position of the value first char in the whole stream
 
 
-proc constructStandardDumpValue*(): StandardDumpValue {.constructor,
+proc constructStandard_DumpValue*(): Standard_DumpValue {.constructor,
     importcpp: "Standard_DumpValue(@)", header: "Standard_Dump.hxx".}
-proc constructStandardDumpValue*(theValue: TCollectionAsciiString;
-                                theStartPos: StandardInteger): StandardDumpValue {.
+proc constructStandard_DumpValue*(theValue: TCollection_AsciiString;
+                                 theStartPos: Standard_Integer): Standard_DumpValue {.
     constructor, importcpp: "Standard_DumpValue(@)", header: "Standard_Dump.hxx".}
 ## ! This interface has some tool methods for stream (in JSON format) processing.
 
 type
-  StandardDump* {.importcpp: "Standard_Dump", header: "Standard_Dump.hxx", bycopy.} = object ##
-                                                                                     ## !
-                                                                                     ## Converts
-                                                                                     ## stream
-                                                                                     ## value
-                                                                                     ## to
-                                                                                     ## string
-                                                                                     ## value.
-                                                                                     ## The
-                                                                                     ## result
-                                                                                     ## is
-                                                                                     ## original
-                                                                                     ## stream
-                                                                                     ## value.
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## @param
-                                                                                     ## theStream
-                                                                                     ## source
-                                                                                     ## value
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## @return
-                                                                                     ## text
-                                                                                     ## presentation
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## Extracts
-                                                                                     ## from
-                                                                                     ## the
-                                                                                     ## string
-                                                                                     ## value
-                                                                                     ## a
-                                                                                     ## pair
-                                                                                     ## (key,
-                                                                                     ## value),
-                                                                                     ## add
-                                                                                     ## it
-                                                                                     ## into
-                                                                                     ## output
-                                                                                     ## container,
-                                                                                     ## update
-                                                                                     ## index
-                                                                                     ## value
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## Example:
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## stream
-                                                                                     ## string
-                                                                                     ## starting
-                                                                                     ## the
-                                                                                     ## index
-                                                                                     ## position
-                                                                                     ## contains:
-                                                                                     ## ..."key":
-                                                                                     ## <value>...
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## a
-                                                                                     ## pair
-                                                                                     ## key,
-                                                                                     ## value
-                                                                                     ## will
-                                                                                     ## be
-                                                                                     ## added
-                                                                                     ## into
-                                                                                     ## theValues
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## at
-                                                                                     ## beginning
-                                                                                     ## theIndex
-                                                                                     ## is
-                                                                                     ## the
-                                                                                     ## position
-                                                                                     ## of
-                                                                                     ## the
-                                                                                     ## quota
-                                                                                     ## before
-                                                                                     ## <key>,
-                                                                                     ## after
-                                                                                     ## the
-                                                                                     ## index
-                                                                                     ## is
-                                                                                     ## the
-                                                                                     ## next
-                                                                                     ## position
-                                                                                     ## after
-                                                                                     ## the
-                                                                                     ## value
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## splitDumped(aString)
-                                                                                     ## gives
-                                                                                     ## theSplitValue
-                                                                                     ## =
-                                                                                     ## "abc",
-                                                                                     ## theTailValue
-                                                                                     ## =
-                                                                                     ## "defg",
-                                                                                     ## theKey
-                                                                                     ## =
-                                                                                     ## "key"
+  Standard_Dump* {.importcpp: "Standard_Dump", header: "Standard_Dump.hxx", bycopy.} = object ##
+                                                                                      ## !
+                                                                                      ## Converts
+                                                                                      ## stream
+                                                                                      ## value
+                                                                                      ## to
+                                                                                      ## string
+                                                                                      ## value.
+                                                                                      ## The
+                                                                                      ## result
+                                                                                      ## is
+                                                                                      ## original
+                                                                                      ## stream
+                                                                                      ## value.
+                                                                                      ##
+                                                                                      ## !
+                                                                                      ## @param
+                                                                                      ## theStream
+                                                                                      ## source
+                                                                                      ## value
+                                                                                      ##
+                                                                                      ## !
+                                                                                      ## @return
+                                                                                      ## text
+                                                                                      ## presentation
+                                                                                      ##
+                                                                                      ## !
+                                                                                      ## Extracts
+                                                                                      ## from
+                                                                                      ## the
+                                                                                      ## string
+                                                                                      ## value
+                                                                                      ## a
+                                                                                      ## pair
+                                                                                      ## (key,
+                                                                                      ## value),
+                                                                                      ## add
+                                                                                      ## it
+                                                                                      ## into
+                                                                                      ## output
+                                                                                      ## container,
+                                                                                      ## update
+                                                                                      ## index
+                                                                                      ## value
+                                                                                      ##
+                                                                                      ## !
+                                                                                      ## Example:
+                                                                                      ##
+                                                                                      ## !
+                                                                                      ## stream
+                                                                                      ## string
+                                                                                      ## starting
+                                                                                      ## the
+                                                                                      ## index
+                                                                                      ## position
+                                                                                      ## contains:
+                                                                                      ## ..."key":
+                                                                                      ## <value>...
+                                                                                      ##
+                                                                                      ## !
+                                                                                      ## a
+                                                                                      ## pair
+                                                                                      ## key,
+                                                                                      ## value
+                                                                                      ## will
+                                                                                      ## be
+                                                                                      ## added
+                                                                                      ## into
+                                                                                      ## theValues
+                                                                                      ##
+                                                                                      ## !
+                                                                                      ## at
+                                                                                      ## beginning
+                                                                                      ## theIndex
+                                                                                      ## is
+                                                                                      ## the
+                                                                                      ## position
+                                                                                      ## of
+                                                                                      ## the
+                                                                                      ## quota
+                                                                                      ## before
+                                                                                      ## <key>,
+                                                                                      ## after
+                                                                                      ## the
+                                                                                      ## index
+                                                                                      ## is
+                                                                                      ## the
+                                                                                      ## next
+                                                                                      ## position
+                                                                                      ## after
+                                                                                      ## the
+                                                                                      ## value
+                                                                                      ##
+                                                                                      ## !
+                                                                                      ## splitDumped(aString)
+                                                                                      ## gives
+                                                                                      ## theSplitValue
+                                                                                      ## =
+                                                                                      ## "abc",
+                                                                                      ## theTailValue
+                                                                                      ## =
+                                                                                      ## "defg",
+                                                                                      ## theKey
+                                                                                      ## =
+                                                                                      ## "key"
 
 
-proc text*(theStream: StandardSStream): TCollectionAsciiString {.
+proc Text*(theStream: Standard_SStream): TCollection_AsciiString {.
     importcpp: "Standard_Dump::Text(@)", header: "Standard_Dump.hxx".}
-proc formatJson*(theStream: StandardSStream; theIndent: StandardInteger = 3): TCollectionAsciiString {.
+proc FormatJson*(theStream: Standard_SStream; theIndent: Standard_Integer = 3): TCollection_AsciiString {.
     importcpp: "Standard_Dump::FormatJson(@)", header: "Standard_Dump.hxx".}
-proc splitJson*(theStreamStr: TCollectionAsciiString; theKeyToValues: var NCollectionIndexedDataMap[
-    TCollectionAsciiString, StandardDumpValue]): StandardBoolean {.
+proc SplitJson*(theStreamStr: TCollection_AsciiString; theKeyToValues: var NCollection_IndexedDataMap[
+    TCollection_AsciiString, Standard_DumpValue]): Standard_Boolean {.
     importcpp: "Standard_Dump::SplitJson(@)", header: "Standard_Dump.hxx".}
-proc hierarchicalValueIndices*(theValues: NCollectionIndexedDataMap[
-    TCollectionAsciiString, TCollectionAsciiString]): NCollectionList[
-    StandardInteger] {.importcpp: "Standard_Dump::HierarchicalValueIndices(@)",
-                      header: "Standard_Dump.hxx".}
-proc hasChildKey*(theSourceValue: TCollectionAsciiString): StandardBoolean {.
+proc HierarchicalValueIndices*(theValues: NCollection_IndexedDataMap[
+    TCollection_AsciiString, TCollection_AsciiString]): NCollection_List[
+    Standard_Integer] {.importcpp: "Standard_Dump::HierarchicalValueIndices(@)",
+                       header: "Standard_Dump.hxx".}
+proc HasChildKey*(theSourceValue: TCollection_AsciiString): Standard_Boolean {.
     importcpp: "Standard_Dump::HasChildKey(@)", header: "Standard_Dump.hxx".}
-proc jsonKeyToString*(theKey: StandardJsonKey): StandardCString {.
+proc JsonKeyToString*(theKey: Standard_JsonKey): Standard_CString {.
     importcpp: "Standard_Dump::JsonKeyToString(@)", header: "Standard_Dump.hxx".}
-proc jsonKeyLength*(theKey: StandardJsonKey): StandardInteger {.
+proc JsonKeyLength*(theKey: Standard_JsonKey): Standard_Integer {.
     importcpp: "Standard_Dump::JsonKeyLength(@)", header: "Standard_Dump.hxx".}
-proc addValuesSeparator*(theOStream: var StandardOStream) {.
+proc AddValuesSeparator*(theOStream: var Standard_OStream) {.
     importcpp: "Standard_Dump::AddValuesSeparator(@)", header: "Standard_Dump.hxx".}
-proc getPointerPrefix*(): TCollectionAsciiString {.
+proc GetPointerPrefix*(): TCollection_AsciiString {.
     importcpp: "Standard_Dump::GetPointerPrefix(@)", header: "Standard_Dump.hxx".}
-proc getPointerInfo*(thePointer: Handle[StandardTransient];
-                    isShortInfo: bool = true): TCollectionAsciiString {.
+proc GetPointerInfo*(thePointer: handle[Standard_Transient];
+                    isShortInfo: bool = true): TCollection_AsciiString {.
     importcpp: "Standard_Dump::GetPointerInfo(@)", header: "Standard_Dump.hxx".}
-proc getPointerInfo*(thePointer: pointer; isShortInfo: bool = true): TCollectionAsciiString {.
+proc GetPointerInfo*(thePointer: pointer; isShortInfo: bool = true): TCollection_AsciiString {.
     importcpp: "Standard_Dump::GetPointerInfo(@)", header: "Standard_Dump.hxx".}
-proc dumpKeyToClass*(theOStream: var StandardOStream;
-                    theKey: TCollectionAsciiString;
-                    theField: TCollectionAsciiString) {.
+proc DumpKeyToClass*(theOStream: var Standard_OStream;
+                    theKey: TCollection_AsciiString;
+                    theField: TCollection_AsciiString) {.
     importcpp: "Standard_Dump::DumpKeyToClass(@)", header: "Standard_Dump.hxx".}
-proc dumpCharacterValues*(theOStream: var StandardOStream; theCount: cint) {.varargs,
+proc DumpCharacterValues*(theOStream: var Standard_OStream; theCount: cint) {.varargs,
     importcpp: "Standard_Dump::DumpCharacterValues(@)",
     header: "Standard_Dump.hxx".}
-proc dumpRealValues*(theOStream: var StandardOStream; theCount: cint) {.varargs,
+proc DumpRealValues*(theOStream: var Standard_OStream; theCount: cint) {.varargs,
     importcpp: "Standard_Dump::DumpRealValues(@)", header: "Standard_Dump.hxx".}
-proc processStreamName*(theStreamStr: TCollectionAsciiString;
-                       theName: TCollectionAsciiString;
-                       theStreamPos: var StandardInteger): StandardBoolean {.
+proc ProcessStreamName*(theStreamStr: TCollection_AsciiString;
+                       theName: TCollection_AsciiString;
+                       theStreamPos: var Standard_Integer): Standard_Boolean {.
     importcpp: "Standard_Dump::ProcessStreamName(@)", header: "Standard_Dump.hxx".}
-proc processFieldName*(theStreamStr: TCollectionAsciiString;
-                      theName: TCollectionAsciiString;
-                      theStreamPos: var StandardInteger): StandardBoolean {.
+proc ProcessFieldName*(theStreamStr: TCollection_AsciiString;
+                      theName: TCollection_AsciiString;
+                      theStreamPos: var Standard_Integer): Standard_Boolean {.
     importcpp: "Standard_Dump::ProcessFieldName(@)", header: "Standard_Dump.hxx".}
-proc initRealValues*(theStreamStr: TCollectionAsciiString;
-                    theStreamPos: var StandardInteger; theCount: cint): StandardBoolean {.
+proc InitRealValues*(theStreamStr: TCollection_AsciiString;
+                    theStreamPos: var Standard_Integer; theCount: cint): Standard_Boolean {.
     varargs, importcpp: "Standard_Dump::InitRealValues(@)",
     header: "Standard_Dump.hxx".}
-proc initValue*(theStreamStr: TCollectionAsciiString;
-               theStreamPos: var StandardInteger;
-               theValue: var TCollectionAsciiString): StandardBoolean {.
+proc InitValue*(theStreamStr: TCollection_AsciiString;
+               theStreamPos: var Standard_Integer;
+               theValue: var TCollection_AsciiString): Standard_Boolean {.
     importcpp: "Standard_Dump::InitValue(@)", header: "Standard_Dump.hxx".}
-proc dumpFieldToName*(theField: TCollectionAsciiString): TCollectionAsciiString {.
+proc DumpFieldToName*(theField: TCollection_AsciiString): TCollection_AsciiString {.
     importcpp: "Standard_Dump::DumpFieldToName(@)", header: "Standard_Dump.hxx".}
-

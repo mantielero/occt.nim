@@ -13,6 +13,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../TDF/TDF_Transaction,
+  ../Standard/Standard_Transient, ../Standard/Standard_Integer,
+  ../Standard/Standard_Boolean
+
 discard "forward decl of Standard_DomainError"
 discard "forward decl of Standard_NullObject"
 discard "forward decl of TDF_Data"
@@ -20,42 +25,41 @@ discard "forward decl of TDF_Delta"
 discard "forward decl of DDF_Transaction"
 discard "forward decl of DDF_Transaction"
 type
-  HandleDDF_Transaction* = Handle[DDF_Transaction]
+  Handle_DDF_Transaction* = handle[DDF_Transaction]
 
 ## ! This class encapsulates TDF_Transaction.
 
 type
   DDF_Transaction* {.importcpp: "DDF_Transaction", header: "DDF_Transaction.hxx",
-                    bycopy.} = object of StandardTransient ## ! Creates an empty transaction context, unable to be
-                                                      ## ! opened.
+                    bycopy.} = object of Standard_Transient ## ! Creates an empty transaction context, unable to be
+                                                       ## ! opened.
 
 
 proc constructDDF_Transaction*(): DDF_Transaction {.constructor,
     importcpp: "DDF_Transaction(@)", header: "DDF_Transaction.hxx".}
-proc constructDDF_Transaction*(aDF: Handle[TDF_Data]): DDF_Transaction {.
+proc constructDDF_Transaction*(aDF: handle[TDF_Data]): DDF_Transaction {.
     constructor, importcpp: "DDF_Transaction(@)", header: "DDF_Transaction.hxx".}
-proc open*(this: var DDF_Transaction): StandardInteger {.importcpp: "Open",
+proc Open*(this: var DDF_Transaction): Standard_Integer {.importcpp: "Open",
     header: "DDF_Transaction.hxx".}
-proc commit*(this: var DDF_Transaction; withDelta: StandardBoolean = standardFalse): Handle[
+proc Commit*(this: var DDF_Transaction; withDelta: Standard_Boolean = Standard_False): handle[
     TDF_Delta] {.importcpp: "Commit", header: "DDF_Transaction.hxx".}
-proc abort*(this: var DDF_Transaction) {.importcpp: "Abort",
+proc Abort*(this: var DDF_Transaction) {.importcpp: "Abort",
                                      header: "DDF_Transaction.hxx".}
 proc destroyDDF_Transaction*(this: var DDF_Transaction) {.
     importcpp: "#.~DDF_Transaction()", header: "DDF_Transaction.hxx".}
-proc data*(this: DDF_Transaction): Handle[TDF_Data] {.noSideEffect,
+proc Data*(this: DDF_Transaction): handle[TDF_Data] {.noSideEffect,
     importcpp: "Data", header: "DDF_Transaction.hxx".}
-proc transaction*(this: DDF_Transaction): StandardInteger {.noSideEffect,
+proc Transaction*(this: DDF_Transaction): Standard_Integer {.noSideEffect,
     importcpp: "Transaction", header: "DDF_Transaction.hxx".}
-proc isOpen*(this: DDF_Transaction): StandardBoolean {.noSideEffect,
+proc IsOpen*(this: DDF_Transaction): Standard_Boolean {.noSideEffect,
     importcpp: "IsOpen", header: "DDF_Transaction.hxx".}
 type
-  DDF_TransactionbaseType* = StandardTransient
+  DDF_Transactionbase_type* = Standard_Transient
 
-proc getTypeName*(): cstring {.importcpp: "DDF_Transaction::get_type_name(@)",
-                            header: "DDF_Transaction.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "DDF_Transaction::get_type_name(@)",
+                              header: "DDF_Transaction.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "DDF_Transaction::get_type_descriptor(@)",
     header: "DDF_Transaction.hxx".}
-proc dynamicType*(this: DDF_Transaction): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: DDF_Transaction): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "DDF_Transaction.hxx".}
-

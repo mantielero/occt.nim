@@ -13,10 +13,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard_Integer, ../gp/gp_Vec, ../TColStd/TColStd_MapIntegerHasher,
+  ../NCollection/NCollection_DataMap
+
 type
-  MeshVS_DataMapOfIntegerVector* = NCollectionDataMap[StandardInteger, GpVec,
-      TColStdMapIntegerHasher]
-  MeshVS_DataMapIteratorOfDataMapOfIntegerVector* = Iterator[StandardInteger,
-      GpVec, TColStdMapIntegerHasher]
-
-
+  MeshVS_DataMapOfIntegerVector* = NCollection_DataMap[Standard_Integer, gp_Vec,
+      TColStd_MapIntegerHasher]
+  MeshVS_DataMapIteratorOfDataMapOfIntegerVector* = Iterator[Standard_Integer,
+      gp_Vec, TColStd_MapIntegerHasher]

@@ -14,6 +14,16 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type,
+  Draft_IndexedDataMapOfFaceFaceInfo, Draft_IndexedDataMapOfEdgeEdgeInfo,
+  Draft_IndexedDataMapOfVertexVertexInfo, ../Standard/Standard_Boolean,
+  ../TopoDS/TopoDS_Shape, Draft_ErrorStatus, ../TopoDS/TopoDS_Face,
+  ../TopTools/TopTools_ListOfShape,
+  ../TopTools/TopTools_IndexedDataMapOfShapeListOfShape,
+  ../BRepTools/BRepTools_Modification, ../Standard/Standard_Real,
+  ../GeomAbs/GeomAbs_Shape, ../TopAbs/TopAbs_Orientation
+
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of Standard_NoSuchObject"
 discard "forward decl of Standard_ConstructionError"
@@ -31,65 +41,66 @@ discard "forward decl of Geom2d_Curve"
 discard "forward decl of Draft_Modification"
 discard "forward decl of Draft_Modification"
 type
-  HandleDraftModification* = Handle[DraftModification]
-  DraftModification* {.importcpp: "Draft_Modification",
-                      header: "Draft_Modification.hxx", bycopy.} = object of BRepToolsModification
+  Handle_Draft_Modification* = handle[Draft_Modification]
+  Draft_Modification* {.importcpp: "Draft_Modification",
+                       header: "Draft_Modification.hxx", bycopy.} = object of BRepTools_Modification
 
 
-proc constructDraftModification*(s: TopoDS_Shape): DraftModification {.constructor,
-    importcpp: "Draft_Modification(@)", header: "Draft_Modification.hxx".}
-proc clear*(this: var DraftModification) {.importcpp: "Clear",
-                                       header: "Draft_Modification.hxx".}
-proc init*(this: var DraftModification; s: TopoDS_Shape) {.importcpp: "Init",
+proc constructDraft_Modification*(S: TopoDS_Shape): Draft_Modification {.
+    constructor, importcpp: "Draft_Modification(@)",
     header: "Draft_Modification.hxx".}
-proc add*(this: var DraftModification; f: TopoDS_Face; direction: GpDir;
-         angle: StandardReal; neutralPlane: GpPln;
-         flag: StandardBoolean = standardTrue): StandardBoolean {.importcpp: "Add",
+proc Clear*(this: var Draft_Modification) {.importcpp: "Clear",
+                                        header: "Draft_Modification.hxx".}
+proc Init*(this: var Draft_Modification; S: TopoDS_Shape) {.importcpp: "Init",
     header: "Draft_Modification.hxx".}
-proc remove*(this: var DraftModification; f: TopoDS_Face) {.importcpp: "Remove",
+proc Add*(this: var Draft_Modification; F: TopoDS_Face; Direction: gp_Dir;
+         Angle: Standard_Real; NeutralPlane: gp_Pln;
+         Flag: Standard_Boolean = Standard_True): Standard_Boolean {.
+    importcpp: "Add", header: "Draft_Modification.hxx".}
+proc Remove*(this: var Draft_Modification; F: TopoDS_Face) {.importcpp: "Remove",
     header: "Draft_Modification.hxx".}
-proc perform*(this: var DraftModification) {.importcpp: "Perform",
+proc Perform*(this: var Draft_Modification) {.importcpp: "Perform",
     header: "Draft_Modification.hxx".}
-proc isDone*(this: DraftModification): StandardBoolean {.noSideEffect,
+proc IsDone*(this: Draft_Modification): Standard_Boolean {.noSideEffect,
     importcpp: "IsDone", header: "Draft_Modification.hxx".}
-proc error*(this: DraftModification): DraftErrorStatus {.noSideEffect,
+proc Error*(this: Draft_Modification): Draft_ErrorStatus {.noSideEffect,
     importcpp: "Error", header: "Draft_Modification.hxx".}
-proc problematicShape*(this: DraftModification): TopoDS_Shape {.noSideEffect,
+proc ProblematicShape*(this: Draft_Modification): TopoDS_Shape {.noSideEffect,
     importcpp: "ProblematicShape", header: "Draft_Modification.hxx".}
-proc connectedFaces*(this: var DraftModification; f: TopoDS_Face): TopToolsListOfShape {.
+proc ConnectedFaces*(this: var Draft_Modification; F: TopoDS_Face): TopTools_ListOfShape {.
     importcpp: "ConnectedFaces", header: "Draft_Modification.hxx".}
-proc modifiedFaces*(this: var DraftModification): TopToolsListOfShape {.
+proc ModifiedFaces*(this: var Draft_Modification): TopTools_ListOfShape {.
     importcpp: "ModifiedFaces", header: "Draft_Modification.hxx".}
-proc newSurface*(this: var DraftModification; f: TopoDS_Face;
-                s: var Handle[GeomSurface]; L: var TopLocLocation;
-                tol: var StandardReal; revWires: var StandardBoolean;
-                revFace: var StandardBoolean): StandardBoolean {.
+proc NewSurface*(this: var Draft_Modification; F: TopoDS_Face;
+                S: var handle[Geom_Surface]; L: var TopLoc_Location;
+                Tol: var Standard_Real; RevWires: var Standard_Boolean;
+                RevFace: var Standard_Boolean): Standard_Boolean {.
     importcpp: "NewSurface", header: "Draft_Modification.hxx".}
-proc newCurve*(this: var DraftModification; e: TopoDS_Edge; c: var Handle[GeomCurve];
-              L: var TopLocLocation; tol: var StandardReal): StandardBoolean {.
-    importcpp: "NewCurve", header: "Draft_Modification.hxx".}
-proc newPoint*(this: var DraftModification; v: TopoDS_Vertex; p: var GpPnt;
-              tol: var StandardReal): StandardBoolean {.importcpp: "NewPoint",
+proc NewCurve*(this: var Draft_Modification; E: TopoDS_Edge;
+              C: var handle[Geom_Curve]; L: var TopLoc_Location;
+              Tol: var Standard_Real): Standard_Boolean {.importcpp: "NewCurve",
     header: "Draft_Modification.hxx".}
-proc newCurve2d*(this: var DraftModification; e: TopoDS_Edge; f: TopoDS_Face;
-                newE: TopoDS_Edge; newF: TopoDS_Face; c: var Handle[Geom2dCurve];
-                tol: var StandardReal): StandardBoolean {.importcpp: "NewCurve2d",
+proc NewPoint*(this: var Draft_Modification; V: TopoDS_Vertex; P: var gp_Pnt;
+              Tol: var Standard_Real): Standard_Boolean {.importcpp: "NewPoint",
     header: "Draft_Modification.hxx".}
-proc newParameter*(this: var DraftModification; v: TopoDS_Vertex; e: TopoDS_Edge;
-                  p: var StandardReal; tol: var StandardReal): StandardBoolean {.
+proc NewCurve2d*(this: var Draft_Modification; E: TopoDS_Edge; F: TopoDS_Face;
+                NewE: TopoDS_Edge; NewF: TopoDS_Face; C: var handle[Geom2d_Curve];
+                Tol: var Standard_Real): Standard_Boolean {.importcpp: "NewCurve2d",
+    header: "Draft_Modification.hxx".}
+proc NewParameter*(this: var Draft_Modification; V: TopoDS_Vertex; E: TopoDS_Edge;
+                  P: var Standard_Real; Tol: var Standard_Real): Standard_Boolean {.
     importcpp: "NewParameter", header: "Draft_Modification.hxx".}
-proc continuity*(this: var DraftModification; e: TopoDS_Edge; f1: TopoDS_Face;
-                f2: TopoDS_Face; newE: TopoDS_Edge; newF1: TopoDS_Face;
-                newF2: TopoDS_Face): GeomAbsShape {.importcpp: "Continuity",
+proc Continuity*(this: var Draft_Modification; E: TopoDS_Edge; F1: TopoDS_Face;
+                F2: TopoDS_Face; NewE: TopoDS_Edge; NewF1: TopoDS_Face;
+                NewF2: TopoDS_Face): GeomAbs_Shape {.importcpp: "Continuity",
     header: "Draft_Modification.hxx".}
 type
-  DraftModificationbaseType* = BRepToolsModification
+  Draft_Modificationbase_type* = BRepTools_Modification
 
-proc getTypeName*(): cstring {.importcpp: "Draft_Modification::get_type_name(@)",
-                            header: "Draft_Modification.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "Draft_Modification::get_type_name(@)",
+                              header: "Draft_Modification.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "Draft_Modification::get_type_descriptor(@)",
     header: "Draft_Modification.hxx".}
-proc dynamicType*(this: DraftModification): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: Draft_Modification): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "Draft_Modification.hxx".}
-

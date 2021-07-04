@@ -13,6 +13,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  LDOM_CharacterData
+
 ##   Class LDOM_Comment
 
 type
@@ -23,4 +26,3 @@ proc constructLDOM_Comment*(): LDOM_Comment {.constructor,
     importcpp: "LDOM_Comment(@)", header: "LDOM_Comment.hxx".}
 proc constructLDOM_Comment*(theOther: LDOM_Comment): LDOM_Comment {.constructor,
     importcpp: "LDOM_Comment(@)", header: "LDOM_Comment.hxx".}
-

@@ -14,6 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../StdFail/StdFail_NotDone, ../TColStd/TColStd_SequenceOfReal,
+  ../TColgp/TColgp_SequenceOfPnt, ../GeomAbs/GeomAbs_Shape
+
 discard "forward decl of Standard_DomainError"
 discard "forward decl of Standard_ConstructionError"
 discard "forward decl of Standard_OutOfRange"
@@ -22,56 +26,56 @@ discard "forward decl of Adaptor3d_Curve"
 discard "forward decl of Adaptor2d_Curve2d"
 discard "forward decl of gp_Pnt"
 type
-  GCPntsQuasiUniformDeflection* {.importcpp: "GCPnts_QuasiUniformDeflection",
-                                 header: "GCPnts_QuasiUniformDeflection.hxx",
-                                 bycopy.} = object ## ! Constructs an empty algorithm. To define the problem
-                                                ## ! to be solved, use the function Initialize.
+  GCPnts_QuasiUniformDeflection* {.importcpp: "GCPnts_QuasiUniformDeflection",
+                                  header: "GCPnts_QuasiUniformDeflection.hxx",
+                                  bycopy.} = object ## ! Constructs an empty algorithm. To define the problem
+                                                 ## ! to be solved, use the function Initialize.
 
 
-proc constructGCPntsQuasiUniformDeflection*(): GCPntsQuasiUniformDeflection {.
+proc constructGCPnts_QuasiUniformDeflection*(): GCPnts_QuasiUniformDeflection {.
     constructor, importcpp: "GCPnts_QuasiUniformDeflection(@)",
     header: "GCPnts_QuasiUniformDeflection.hxx".}
-proc constructGCPntsQuasiUniformDeflection*(c: Adaptor3dCurve;
-    deflection: StandardReal; continuity: GeomAbsShape = geomAbsC1): GCPntsQuasiUniformDeflection {.
+proc constructGCPnts_QuasiUniformDeflection*(C: Adaptor3d_Curve;
+    Deflection: Standard_Real; Continuity: GeomAbs_Shape = GeomAbs_C1): GCPnts_QuasiUniformDeflection {.
     constructor, importcpp: "GCPnts_QuasiUniformDeflection(@)",
     header: "GCPnts_QuasiUniformDeflection.hxx".}
-proc constructGCPntsQuasiUniformDeflection*(c: Adaptor2dCurve2d;
-    deflection: StandardReal; continuity: GeomAbsShape = geomAbsC1): GCPntsQuasiUniformDeflection {.
+proc constructGCPnts_QuasiUniformDeflection*(C: Adaptor2d_Curve2d;
+    Deflection: Standard_Real; Continuity: GeomAbs_Shape = GeomAbs_C1): GCPnts_QuasiUniformDeflection {.
     constructor, importcpp: "GCPnts_QuasiUniformDeflection(@)",
     header: "GCPnts_QuasiUniformDeflection.hxx".}
-proc constructGCPntsQuasiUniformDeflection*(c: Adaptor3dCurve;
-    deflection: StandardReal; u1: StandardReal; u2: StandardReal;
-    continuity: GeomAbsShape = geomAbsC1): GCPntsQuasiUniformDeflection {.
+proc constructGCPnts_QuasiUniformDeflection*(C: Adaptor3d_Curve;
+    Deflection: Standard_Real; U1: Standard_Real; U2: Standard_Real;
+    Continuity: GeomAbs_Shape = GeomAbs_C1): GCPnts_QuasiUniformDeflection {.
     constructor, importcpp: "GCPnts_QuasiUniformDeflection(@)",
     header: "GCPnts_QuasiUniformDeflection.hxx".}
-proc constructGCPntsQuasiUniformDeflection*(c: Adaptor2dCurve2d;
-    deflection: StandardReal; u1: StandardReal; u2: StandardReal;
-    continuity: GeomAbsShape = geomAbsC1): GCPntsQuasiUniformDeflection {.
+proc constructGCPnts_QuasiUniformDeflection*(C: Adaptor2d_Curve2d;
+    Deflection: Standard_Real; U1: Standard_Real; U2: Standard_Real;
+    Continuity: GeomAbs_Shape = GeomAbs_C1): GCPnts_QuasiUniformDeflection {.
     constructor, importcpp: "GCPnts_QuasiUniformDeflection(@)",
     header: "GCPnts_QuasiUniformDeflection.hxx".}
-proc initialize*(this: var GCPntsQuasiUniformDeflection; c: Adaptor3dCurve;
-                deflection: StandardReal; continuity: GeomAbsShape = geomAbsC1) {.
+proc Initialize*(this: var GCPnts_QuasiUniformDeflection; C: Adaptor3d_Curve;
+                Deflection: Standard_Real; Continuity: GeomAbs_Shape = GeomAbs_C1) {.
     importcpp: "Initialize", header: "GCPnts_QuasiUniformDeflection.hxx".}
-proc initialize*(this: var GCPntsQuasiUniformDeflection; c: Adaptor2dCurve2d;
-                deflection: StandardReal; continuity: GeomAbsShape = geomAbsC1) {.
+proc Initialize*(this: var GCPnts_QuasiUniformDeflection; C: Adaptor2d_Curve2d;
+                Deflection: Standard_Real; Continuity: GeomAbs_Shape = GeomAbs_C1) {.
     importcpp: "Initialize", header: "GCPnts_QuasiUniformDeflection.hxx".}
-proc initialize*(this: var GCPntsQuasiUniformDeflection; c: Adaptor3dCurve;
-                deflection: StandardReal; u1: StandardReal; u2: StandardReal;
-                continuity: GeomAbsShape = geomAbsC1) {.importcpp: "Initialize",
+proc Initialize*(this: var GCPnts_QuasiUniformDeflection; C: Adaptor3d_Curve;
+                Deflection: Standard_Real; U1: Standard_Real; U2: Standard_Real;
+                Continuity: GeomAbs_Shape = GeomAbs_C1) {.importcpp: "Initialize",
     header: "GCPnts_QuasiUniformDeflection.hxx".}
-proc initialize*(this: var GCPntsQuasiUniformDeflection; c: Adaptor2dCurve2d;
-                deflection: StandardReal; u1: StandardReal; u2: StandardReal;
-                continuity: GeomAbsShape = geomAbsC1) {.importcpp: "Initialize",
+proc Initialize*(this: var GCPnts_QuasiUniformDeflection; C: Adaptor2d_Curve2d;
+                Deflection: Standard_Real; U1: Standard_Real; U2: Standard_Real;
+                Continuity: GeomAbs_Shape = GeomAbs_C1) {.importcpp: "Initialize",
     header: "GCPnts_QuasiUniformDeflection.hxx".}
-proc isDone*(this: GCPntsQuasiUniformDeflection): StandardBoolean {.noSideEffect,
+proc IsDone*(this: GCPnts_QuasiUniformDeflection): Standard_Boolean {.noSideEffect,
     importcpp: "IsDone", header: "GCPnts_QuasiUniformDeflection.hxx".}
-proc nbPoints*(this: GCPntsQuasiUniformDeflection): StandardInteger {.noSideEffect,
-    importcpp: "NbPoints", header: "GCPnts_QuasiUniformDeflection.hxx".}
-proc parameter*(this: GCPntsQuasiUniformDeflection; index: StandardInteger): StandardReal {.
+proc NbPoints*(this: GCPnts_QuasiUniformDeflection): Standard_Integer {.
+    noSideEffect, importcpp: "NbPoints",
+    header: "GCPnts_QuasiUniformDeflection.hxx".}
+proc Parameter*(this: GCPnts_QuasiUniformDeflection; Index: Standard_Integer): Standard_Real {.
     noSideEffect, importcpp: "Parameter",
     header: "GCPnts_QuasiUniformDeflection.hxx".}
-proc value*(this: GCPntsQuasiUniformDeflection; index: StandardInteger): GpPnt {.
+proc Value*(this: GCPnts_QuasiUniformDeflection; Index: Standard_Integer): gp_Pnt {.
     noSideEffect, importcpp: "Value", header: "GCPnts_QuasiUniformDeflection.hxx".}
-proc deflection*(this: GCPntsQuasiUniformDeflection): StandardReal {.noSideEffect,
+proc Deflection*(this: GCPnts_QuasiUniformDeflection): Standard_Real {.noSideEffect,
     importcpp: "Deflection", header: "GCPnts_QuasiUniformDeflection.hxx".}
-

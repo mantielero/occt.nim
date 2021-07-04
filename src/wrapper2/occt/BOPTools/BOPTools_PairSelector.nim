@@ -12,67 +12,70 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../BVH/BVH_Traverse, ../BVH/BVH_BoxSet, ../Standard/Standard_Integer,
+  ../TColStd/TColStd_ListOfInteger
+
 ## ! Template Selector for selection of the elements from two BVH trees.
 
 type
-  BOPToolsPairSelector*[Dimension: static[cint]] {.
+  BOPTools_PairSelector*[Dimension: static[cint]] {.
       importcpp: "BOPTools_PairSelector<\'0>",
       header: "BOPTools_PairSelector.hxx", bycopy.} = object of BVH_PairTraverse[
-      StandardReal, Dimension,
-      BVH_BoxSet[StandardReal, Dimension, StandardInteger]] ## ! @name public types
-                                                         ## ! Auxiliary structure to keep the pair of indices
-                                                         ## ! @name Constructor
-                                                         ## ! Empty constructor
-                                                         ## ! @name public interfaces
-                                                         ## ! Clears the indices
-                                                         ## ! @name Rejection/Acceptance rules
-                                                         ## ! Basing on the bounding boxes of the nodes checks if the pair of nodes should be rejected.
-                                                         ## ! @name Fields
+      Standard_Real, Dimension,
+      BVH_BoxSet[Standard_Real, Dimension, Standard_Integer]] ## ! @name public types
+                                                           ## ! Auxiliary structure to keep the pair of indices
+                                                           ## ! @name Constructor
+                                                           ## ! Empty constructor
+                                                           ## ! @name public interfaces
+                                                           ## ! Clears the indices
+                                                           ## ! @name Rejection/Acceptance rules
+                                                           ## ! Basing on the bounding boxes of the nodes checks if the pair of nodes should be rejected.
+                                                           ## ! @name Fields
     ## !< Selected pairs of indices
     ## !< Selection is performed from the same BVH trees
 
-  BOPToolsPairSelectorPairIDs*[Dimension: static[cint]] {.
+  BOPTools_PairSelectorPairIDs*[Dimension: static[cint]] {.
       importcpp: "BOPTools_PairSelector<\'0>::PairIDs",
       header: "BOPTools_PairSelector.hxx", bycopy.} = object
-    id1* {.importc: "ID1".}: StandardInteger
-    id2* {.importc: "ID2".}: StandardInteger
+    ID1* {.importc: "ID1".}: Standard_Integer
+    ID2* {.importc: "ID2".}: Standard_Integer
 
 
-proc constructBOPToolsPairSelectorPairIDs*[Dimension: static[cint]](
-    theId1: StandardInteger = -1; theId2: StandardInteger = -1): BOPToolsPairSelectorPairIDs[
+proc constructBOPTools_PairSelectorPairIDs*[Dimension: static[cint]](
+    theId1: Standard_Integer = -1; theId2: Standard_Integer = -1): BOPTools_PairSelectorPairIDs[
     Dimension] {.constructor,
                 importcpp: "BOPTools_PairSelector<\'*0>::PairIDs(@)",
                 header: "BOPTools_PairSelector.hxx".}
-proc `<`*[Dimension: static[cint]](this: BOPToolsPairSelectorPairIDs[Dimension];
-                                 theOther: BOPToolsPairSelectorPairIDs): StandardBoolean {.
+proc `<`*[Dimension: static[cint]](this: BOPTools_PairSelectorPairIDs[Dimension];
+                                 theOther: BOPTools_PairSelectorPairIDs): Standard_Boolean {.
     noSideEffect, importcpp: "(# < #)", header: "BOPTools_PairSelector.hxx".}
 type
-  BOPToolsPairSelectorBVH_VecNd*[Dimension] = Type[StandardReal, Dimension]
+  BOPTools_PairSelectorBVH_VecNd*[Dimension] = Type[Standard_Real, Dimension]
 
-proc constructBOPToolsPairSelector*[Dimension: static[cint]](): BOPToolsPairSelector[
+proc constructBOPTools_PairSelector*[Dimension: static[cint]](): BOPTools_PairSelector[
     Dimension] {.constructor, importcpp: "BOPTools_PairSelector<\'*0>(@)",
                 header: "BOPTools_PairSelector.hxx".}
-proc clear*[Dimension: static[cint]](this: var BOPToolsPairSelector[Dimension]) {.
+proc Clear*[Dimension: static[cint]](this: var BOPTools_PairSelector[Dimension]) {.
     importcpp: "Clear", header: "BOPTools_PairSelector.hxx".}
-proc sort*[Dimension: static[cint]](this: var BOPToolsPairSelector[Dimension]) {.
+proc Sort*[Dimension: static[cint]](this: var BOPTools_PairSelector[Dimension]) {.
     importcpp: "Sort", header: "BOPTools_PairSelector.hxx".}
-proc setSame*[Dimension: static[cint]](this: var BOPToolsPairSelector[Dimension];
-                                     theIsSame: StandardBoolean) {.
+proc SetSame*[Dimension: static[cint]](this: var BOPTools_PairSelector[Dimension];
+                                     theIsSame: Standard_Boolean) {.
     importcpp: "SetSame", header: "BOPTools_PairSelector.hxx".}
-proc pairs*[Dimension: static[cint]](this: BOPToolsPairSelector[Dimension]): Vector[
-    BOPToolsPairSelectorPairIDs] {.noSideEffect, importcpp: "Pairs",
-                                  header: "BOPTools_PairSelector.hxx".}
-proc rejectNode*[Dimension: static[cint]](this: BOPToolsPairSelector[Dimension];
-    theCMin1: BOPToolsPairSelectorBVH_VecNd; theCMax1: BOPToolsPairSelectorBVH_VecNd;
-    theCMin2: BOPToolsPairSelectorBVH_VecNd; theCMax2: BOPToolsPairSelectorBVH_VecNd;
-                                        a6: var StandardReal): StandardBoolean {.
+proc Pairs*[Dimension: static[cint]](this: BOPTools_PairSelector[Dimension]): vector[
+    BOPTools_PairSelectorPairIDs] {.noSideEffect, importcpp: "Pairs",
+                                   header: "BOPTools_PairSelector.hxx".}
+proc RejectNode*[Dimension: static[cint]](this: BOPTools_PairSelector[Dimension];
+    theCMin1: BOPTools_PairSelectorBVH_VecNd; theCMax1: BOPTools_PairSelectorBVH_VecNd;
+    theCMin2: BOPTools_PairSelectorBVH_VecNd; theCMax2: BOPTools_PairSelectorBVH_VecNd;
+                                        a6: var Standard_Real): Standard_Boolean {.
     noSideEffect, importcpp: "RejectNode", header: "BOPTools_PairSelector.hxx".}
-proc rejectElement*[Dimension: static[cint]](
-    this: var BOPToolsPairSelector[Dimension]; theID1: StandardInteger;
-    theID2: StandardInteger): StandardBoolean {.importcpp: "RejectElement",
+proc RejectElement*[Dimension: static[cint]](
+    this: var BOPTools_PairSelector[Dimension]; theID1: Standard_Integer;
+    theID2: Standard_Integer): Standard_Boolean {.importcpp: "RejectElement",
     header: "BOPTools_PairSelector.hxx".}
-proc accept*[Dimension: static[cint]](this: var BOPToolsPairSelector[Dimension];
-                                    theID1: StandardInteger;
-                                    theID2: StandardInteger): StandardBoolean {.
+proc Accept*[Dimension: static[cint]](this: var BOPTools_PairSelector[Dimension];
+                                    theID1: Standard_Integer;
+                                    theID2: Standard_Integer): Standard_Boolean {.
     importcpp: "Accept", header: "BOPTools_PairSelector.hxx".}
-

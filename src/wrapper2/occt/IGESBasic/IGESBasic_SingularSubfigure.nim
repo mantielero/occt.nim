@@ -14,12 +14,17 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../gp/gp_XYZ,
+  ../Standard/Standard_Real, ../Standard/Standard_Boolean,
+  ../IGESData/IGESData_IGESEntity
+
 discard "forward decl of IGESBasic_SubfigureDef"
 discard "forward decl of gp_XYZ"
 discard "forward decl of IGESBasic_SingularSubfigure"
 discard "forward decl of IGESBasic_SingularSubfigure"
 type
-  HandleIGESBasicSingularSubfigure* = Handle[IGESBasicSingularSubfigure]
+  Handle_IGESBasic_SingularSubfigure* = handle[IGESBasic_SingularSubfigure]
 
 ## ! defines SingularSubfigure, Type <408> Form <0>
 ## ! in package IGESBasic
@@ -27,38 +32,37 @@ type
 ## ! defined Subfigure.
 
 type
-  IGESBasicSingularSubfigure* {.importcpp: "IGESBasic_SingularSubfigure",
-                               header: "IGESBasic_SingularSubfigure.hxx", bycopy.} = object of IGESDataIGESEntity
+  IGESBasic_SingularSubfigure* {.importcpp: "IGESBasic_SingularSubfigure",
+                                header: "IGESBasic_SingularSubfigure.hxx", bycopy.} = object of IGESData_IGESEntity
 
 
-proc constructIGESBasicSingularSubfigure*(): IGESBasicSingularSubfigure {.
+proc constructIGESBasic_SingularSubfigure*(): IGESBasic_SingularSubfigure {.
     constructor, importcpp: "IGESBasic_SingularSubfigure(@)",
     header: "IGESBasic_SingularSubfigure.hxx".}
-proc init*(this: var IGESBasicSingularSubfigure;
-          aSubfigureDef: Handle[IGESBasicSubfigureDef]; aTranslation: GpXYZ;
-          hasScale: StandardBoolean; aScale: StandardReal) {.importcpp: "Init",
+proc Init*(this: var IGESBasic_SingularSubfigure;
+          aSubfigureDef: handle[IGESBasic_SubfigureDef]; aTranslation: gp_XYZ;
+          hasScale: Standard_Boolean; aScale: Standard_Real) {.importcpp: "Init",
     header: "IGESBasic_SingularSubfigure.hxx".}
-proc subfigure*(this: IGESBasicSingularSubfigure): Handle[IGESBasicSubfigureDef] {.
+proc Subfigure*(this: IGESBasic_SingularSubfigure): handle[IGESBasic_SubfigureDef] {.
     noSideEffect, importcpp: "Subfigure", header: "IGESBasic_SingularSubfigure.hxx".}
-proc translation*(this: IGESBasicSingularSubfigure): GpXYZ {.noSideEffect,
+proc Translation*(this: IGESBasic_SingularSubfigure): gp_XYZ {.noSideEffect,
     importcpp: "Translation", header: "IGESBasic_SingularSubfigure.hxx".}
-proc scaleFactor*(this: IGESBasicSingularSubfigure): StandardReal {.noSideEffect,
+proc ScaleFactor*(this: IGESBasic_SingularSubfigure): Standard_Real {.noSideEffect,
     importcpp: "ScaleFactor", header: "IGESBasic_SingularSubfigure.hxx".}
-proc hasScaleFactor*(this: IGESBasicSingularSubfigure): StandardBoolean {.
+proc HasScaleFactor*(this: IGESBasic_SingularSubfigure): Standard_Boolean {.
     noSideEffect, importcpp: "HasScaleFactor",
     header: "IGESBasic_SingularSubfigure.hxx".}
-proc transformedTranslation*(this: IGESBasicSingularSubfigure): GpXYZ {.
+proc TransformedTranslation*(this: IGESBasic_SingularSubfigure): gp_XYZ {.
     noSideEffect, importcpp: "TransformedTranslation",
     header: "IGESBasic_SingularSubfigure.hxx".}
 type
-  IGESBasicSingularSubfigurebaseType* = IGESDataIGESEntity
+  IGESBasic_SingularSubfigurebase_type* = IGESData_IGESEntity
 
-proc getTypeName*(): cstring {.importcpp: "IGESBasic_SingularSubfigure::get_type_name(@)",
-                            header: "IGESBasic_SingularSubfigure.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "IGESBasic_SingularSubfigure::get_type_name(@)",
+                              header: "IGESBasic_SingularSubfigure.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "IGESBasic_SingularSubfigure::get_type_descriptor(@)",
     header: "IGESBasic_SingularSubfigure.hxx".}
-proc dynamicType*(this: IGESBasicSingularSubfigure): Handle[StandardType] {.
+proc DynamicType*(this: IGESBasic_SingularSubfigure): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType",
     header: "IGESBasic_SingularSubfigure.hxx".}
-

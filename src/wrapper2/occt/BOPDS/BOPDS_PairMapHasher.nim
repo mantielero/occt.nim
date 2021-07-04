@@ -12,6 +12,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer,
+  ../Standard/Standard_Boolean, BOPDS_Pair
+
 discard "forward decl of BOPDS_Pair"
 type
   BOPDS_PairMapHasher* {.importcpp: "BOPDS_PairMapHasher",
@@ -25,10 +30,9 @@ type
                                                                         ## theUpperBound]
 
 
-proc hashCode*(thePair: BOPDS_Pair; theUpperBound: StandardInteger): StandardInteger {.
+proc HashCode*(thePair: BOPDS_Pair; theUpperBound: Standard_Integer): Standard_Integer {.
     importcpp: "BOPDS_PairMapHasher::HashCode(@)",
     header: "BOPDS_PairMapHasher.hxx".}
-proc isEqual*(thePair1: BOPDS_Pair; thePair2: BOPDS_Pair): StandardBoolean {.
+proc IsEqual*(thePair1: BOPDS_Pair; thePair2: BOPDS_Pair): Standard_Boolean {.
     importcpp: "BOPDS_PairMapHasher::IsEqual(@)",
     header: "BOPDS_PairMapHasher.hxx".}
-

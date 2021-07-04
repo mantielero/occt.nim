@@ -14,66 +14,72 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../TopoDS/TopoDS_Shape,
+  ../Standard/Standard_Boolean, ../Standard/Standard_Real,
+  ../Standard/Standard_Integer, ShapeFix_Root, ../TopTools/TopTools_MapOfShape,
+  ../TopTools/TopTools_DataMapOfShapeListOfShape,
+  ../ShapeExtend/ShapeExtend_Status
+
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of ShapeFix_Wireframe"
 discard "forward decl of ShapeFix_Wireframe"
 type
-  HandleShapeFixWireframe* = Handle[ShapeFixWireframe]
+  Handle_ShapeFix_Wireframe* = handle[ShapeFix_Wireframe]
 
 ## ! Provides methods for fixing wireframe of shape
 
 type
-  ShapeFixWireframe* {.importcpp: "ShapeFix_Wireframe",
-                      header: "ShapeFix_Wireframe.hxx", bycopy.} = object of ShapeFixRoot
+  ShapeFix_Wireframe* {.importcpp: "ShapeFix_Wireframe",
+                       header: "ShapeFix_Wireframe.hxx", bycopy.} = object of ShapeFix_Root
 
 
-proc constructShapeFixWireframe*(): ShapeFixWireframe {.constructor,
+proc constructShapeFix_Wireframe*(): ShapeFix_Wireframe {.constructor,
     importcpp: "ShapeFix_Wireframe(@)", header: "ShapeFix_Wireframe.hxx".}
-proc constructShapeFixWireframe*(shape: TopoDS_Shape): ShapeFixWireframe {.
+proc constructShapeFix_Wireframe*(shape: TopoDS_Shape): ShapeFix_Wireframe {.
     constructor, importcpp: "ShapeFix_Wireframe(@)",
     header: "ShapeFix_Wireframe.hxx".}
-proc clearStatuses*(this: var ShapeFixWireframe) {.importcpp: "ClearStatuses",
+proc ClearStatuses*(this: var ShapeFix_Wireframe) {.importcpp: "ClearStatuses",
     header: "ShapeFix_Wireframe.hxx".}
-proc load*(this: var ShapeFixWireframe; shape: TopoDS_Shape) {.importcpp: "Load",
+proc Load*(this: var ShapeFix_Wireframe; shape: TopoDS_Shape) {.importcpp: "Load",
     header: "ShapeFix_Wireframe.hxx".}
-proc fixWireGaps*(this: var ShapeFixWireframe): StandardBoolean {.
+proc FixWireGaps*(this: var ShapeFix_Wireframe): Standard_Boolean {.
     importcpp: "FixWireGaps", header: "ShapeFix_Wireframe.hxx".}
-proc fixSmallEdges*(this: var ShapeFixWireframe): StandardBoolean {.
+proc FixSmallEdges*(this: var ShapeFix_Wireframe): Standard_Boolean {.
     importcpp: "FixSmallEdges", header: "ShapeFix_Wireframe.hxx".}
-proc checkSmallEdges*(this: var ShapeFixWireframe;
-                     theSmallEdges: var TopToolsMapOfShape;
-                     theEdgeToFaces: var TopToolsDataMapOfShapeListOfShape;
-                     theFaceWithSmall: var TopToolsDataMapOfShapeListOfShape;
-                     theMultyEdges: var TopToolsMapOfShape): StandardBoolean {.
+proc CheckSmallEdges*(this: var ShapeFix_Wireframe;
+                     theSmallEdges: var TopTools_MapOfShape;
+                     theEdgeToFaces: var TopTools_DataMapOfShapeListOfShape;
+                     theFaceWithSmall: var TopTools_DataMapOfShapeListOfShape;
+                     theMultyEdges: var TopTools_MapOfShape): Standard_Boolean {.
     importcpp: "CheckSmallEdges", header: "ShapeFix_Wireframe.hxx".}
-proc mergeSmallEdges*(this: var ShapeFixWireframe;
-                     theSmallEdges: var TopToolsMapOfShape;
-                     theEdgeToFaces: var TopToolsDataMapOfShapeListOfShape;
-                     theFaceWithSmall: var TopToolsDataMapOfShapeListOfShape;
-                     theMultyEdges: var TopToolsMapOfShape;
-                     theModeDrop: StandardBoolean = standardFalse;
-                     theLimitAngle: StandardReal = -1): StandardBoolean {.
+proc MergeSmallEdges*(this: var ShapeFix_Wireframe;
+                     theSmallEdges: var TopTools_MapOfShape;
+                     theEdgeToFaces: var TopTools_DataMapOfShapeListOfShape;
+                     theFaceWithSmall: var TopTools_DataMapOfShapeListOfShape;
+                     theMultyEdges: var TopTools_MapOfShape;
+                     theModeDrop: Standard_Boolean = Standard_False;
+                     theLimitAngle: Standard_Real = -1): Standard_Boolean {.
     importcpp: "MergeSmallEdges", header: "ShapeFix_Wireframe.hxx".}
-proc statusWireGaps*(this: ShapeFixWireframe; status: ShapeExtendStatus): StandardBoolean {.
+proc StatusWireGaps*(this: ShapeFix_Wireframe; status: ShapeExtend_Status): Standard_Boolean {.
     noSideEffect, importcpp: "StatusWireGaps", header: "ShapeFix_Wireframe.hxx".}
-proc statusSmallEdges*(this: ShapeFixWireframe; status: ShapeExtendStatus): StandardBoolean {.
+proc StatusSmallEdges*(this: ShapeFix_Wireframe; status: ShapeExtend_Status): Standard_Boolean {.
     noSideEffect, importcpp: "StatusSmallEdges", header: "ShapeFix_Wireframe.hxx".}
-proc shape*(this: var ShapeFixWireframe): TopoDS_Shape {.importcpp: "Shape",
+proc Shape*(this: var ShapeFix_Wireframe): TopoDS_Shape {.importcpp: "Shape",
     header: "ShapeFix_Wireframe.hxx".}
-proc modeDropSmallEdges*(this: var ShapeFixWireframe): var StandardBoolean {.
+proc ModeDropSmallEdges*(this: var ShapeFix_Wireframe): var Standard_Boolean {.
     importcpp: "ModeDropSmallEdges", header: "ShapeFix_Wireframe.hxx".}
-proc setLimitAngle*(this: var ShapeFixWireframe; theLimitAngle: StandardReal) {.
+proc SetLimitAngle*(this: var ShapeFix_Wireframe; theLimitAngle: Standard_Real) {.
     importcpp: "SetLimitAngle", header: "ShapeFix_Wireframe.hxx".}
-proc limitAngle*(this: ShapeFixWireframe): StandardReal {.noSideEffect,
+proc LimitAngle*(this: ShapeFix_Wireframe): Standard_Real {.noSideEffect,
     importcpp: "LimitAngle", header: "ShapeFix_Wireframe.hxx".}
 type
-  ShapeFixWireframebaseType* = ShapeFixRoot
+  ShapeFix_Wireframebase_type* = ShapeFix_Root
 
-proc getTypeName*(): cstring {.importcpp: "ShapeFix_Wireframe::get_type_name(@)",
-                            header: "ShapeFix_Wireframe.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "ShapeFix_Wireframe::get_type_name(@)",
+                              header: "ShapeFix_Wireframe.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "ShapeFix_Wireframe::get_type_descriptor(@)",
     header: "ShapeFix_Wireframe.hxx".}
-proc dynamicType*(this: ShapeFixWireframe): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: ShapeFix_Wireframe): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "ShapeFix_Wireframe.hxx".}
-

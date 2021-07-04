@@ -14,85 +14,88 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Prs3d/Prs3d_Drawer, ../Prs3d/Prs3d_Presentation
+
 discard "forward decl of gp_Pnt"
 type
-  DsgPrsPerpenPresentation* {.importcpp: "DsgPrs_PerpenPresentation",
-                             header: "DsgPrs_PerpenPresentation.hxx", bycopy.} = object ##
-                                                                                   ## !
-                                                                                   ## Defines
-                                                                                   ## the
-                                                                                   ## display
-                                                                                   ## of
-                                                                                   ## elements
-                                                                                   ## showing
-                                                                                   ##
-                                                                                   ## !
-                                                                                   ## perpendicular
-                                                                                   ## constraints
-                                                                                   ## between
-                                                                                   ## shapes.
-                                                                                   ##
-                                                                                   ## !
-                                                                                   ## These
-                                                                                   ## include
-                                                                                   ## the
-                                                                                   ## two
-                                                                                   ## axis
-                                                                                   ## points
-                                                                                   ## pAx1
-                                                                                   ## and
-                                                                                   ## pAx2,
-                                                                                   ##
-                                                                                   ## !
-                                                                                   ## the
-                                                                                   ## two
-                                                                                   ## points
-                                                                                   ## pnt1
-                                                                                   ## and
-                                                                                   ## pnt2,
-                                                                                   ## the
-                                                                                   ## offset
-                                                                                   ## point
-                                                                                   ##
-                                                                                   ## !
-                                                                                   ## OffsetPoint
-                                                                                   ## and
-                                                                                   ## the
-                                                                                   ## two
-                                                                                   ## Booleans
-                                                                                   ## intOut1}
-                                                                                   ## and
-                                                                                   ## intOut2{.
-                                                                                   ##
-                                                                                   ## !
-                                                                                   ## These
-                                                                                   ## arguments
-                                                                                   ## are
-                                                                                   ## added
-                                                                                   ## to
-                                                                                   ## the
-                                                                                   ## presentation
-                                                                                   ##
-                                                                                   ## !
-                                                                                   ## object
-                                                                                   ## aPresentation.
-                                                                                   ## Their
-                                                                                   ## display
-                                                                                   ## attributes
-                                                                                   ## are
-                                                                                   ##
-                                                                                   ## !
-                                                                                   ## defined
-                                                                                   ## by
-                                                                                   ## the
-                                                                                   ## attribute
-                                                                                   ## manager
-                                                                                   ## aDrawer.
+  DsgPrs_PerpenPresentation* {.importcpp: "DsgPrs_PerpenPresentation",
+                              header: "DsgPrs_PerpenPresentation.hxx", bycopy.} = object ##
+                                                                                    ## !
+                                                                                    ## Defines
+                                                                                    ## the
+                                                                                    ## display
+                                                                                    ## of
+                                                                                    ## elements
+                                                                                    ## showing
+                                                                                    ##
+                                                                                    ## !
+                                                                                    ## perpendicular
+                                                                                    ## constraints
+                                                                                    ## between
+                                                                                    ## shapes.
+                                                                                    ##
+                                                                                    ## !
+                                                                                    ## These
+                                                                                    ## include
+                                                                                    ## the
+                                                                                    ## two
+                                                                                    ## axis
+                                                                                    ## points
+                                                                                    ## pAx1
+                                                                                    ## and
+                                                                                    ## pAx2,
+                                                                                    ##
+                                                                                    ## !
+                                                                                    ## the
+                                                                                    ## two
+                                                                                    ## points
+                                                                                    ## pnt1
+                                                                                    ## and
+                                                                                    ## pnt2,
+                                                                                    ## the
+                                                                                    ## offset
+                                                                                    ## point
+                                                                                    ##
+                                                                                    ## !
+                                                                                    ## OffsetPoint
+                                                                                    ## and
+                                                                                    ## the
+                                                                                    ## two
+                                                                                    ## Booleans
+                                                                                    ## intOut1}
+                                                                                    ## and
+                                                                                    ## intOut2{.
+                                                                                    ##
+                                                                                    ## !
+                                                                                    ## These
+                                                                                    ## arguments
+                                                                                    ## are
+                                                                                    ## added
+                                                                                    ## to
+                                                                                    ## the
+                                                                                    ## presentation
+                                                                                    ##
+                                                                                    ## !
+                                                                                    ## object
+                                                                                    ## aPresentation.
+                                                                                    ## Their
+                                                                                    ## display
+                                                                                    ## attributes
+                                                                                    ## are
+                                                                                    ##
+                                                                                    ## !
+                                                                                    ## defined
+                                                                                    ## by
+                                                                                    ## the
+                                                                                    ## attribute
+                                                                                    ## manager
+                                                                                    ## aDrawer.
 
 
-proc add*(aPresentation: Handle[Prs3dPresentation]; aDrawer: Handle[Prs3dDrawer];
-         pAx1: GpPnt; pAx2: GpPnt; pnt1: GpPnt; pnt2: GpPnt; offsetPoint: GpPnt;
-         intOut1: StandardBoolean; intOut2: StandardBoolean) {.
+proc Add*(aPresentation: handle[Prs3d_Presentation]; aDrawer: handle[Prs3d_Drawer];
+         pAx1: gp_Pnt; pAx2: gp_Pnt; pnt1: gp_Pnt; pnt2: gp_Pnt; OffsetPoint: gp_Pnt;
+         intOut1: Standard_Boolean; intOut2: Standard_Boolean) {.
     importcpp: "DsgPrs_PerpenPresentation::Add(@)",
     header: "DsgPrs_PerpenPresentation.hxx".}
-

@@ -13,30 +13,121 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  Prs3d_ToolQuadric
+
 ## ! Standard presentation algorithm that outputs graphical primitives for disk surface.
 
 type
-  Prs3dToolSector* {.importcpp: "Prs3d_ToolSector", header: "Prs3d_ToolSector.hxx",
-                    bycopy.} = object of Prs3dToolQuadric ## ! Generate primitives for 3D quadric surface.
-                                                     ## ! @param theRadius   [in] sector radius
-                                                     ## ! @param theNbSlices [in] number of slices within U parameter
-                                                     ## ! @param theNbStacks [in] number of stacks within V parameter
-                                                     ## ! @param theTrsf     [in] optional transformation to apply
-                                                     ## ! @return generated triangulation
-                                                     ## ! Initializes the algorithm creating a sector (quadrant).
-                                                     ## ! @param theRadius   [in] sector radius
-                                                     ## ! @param theNbSlices [in] number of slices within U parameter
-                                                     ## ! @param theNbStacks [in] number of stacks within V parameter
-                                                     ## ! Computes vertex at given parameter location of the surface.
+  Prs3d_ToolSector* {.importcpp: "Prs3d_ToolSector",
+                     header: "Prs3d_ToolSector.hxx", bycopy.} = object of Prs3d_ToolQuadric ##
+                                                                                     ## !
+                                                                                     ## Generate
+                                                                                     ## primitives
+                                                                                     ## for
+                                                                                     ## 3D
+                                                                                     ## quadric
+                                                                                     ## surface.
+                                                                                     ##
+                                                                                     ## !
+                                                                                     ## @param
+                                                                                     ## theRadius
+                                                                                     ## [in]
+                                                                                     ## sector
+                                                                                     ## radius
+                                                                                     ##
+                                                                                     ## !
+                                                                                     ## @param
+                                                                                     ## theNbSlices
+                                                                                     ## [in]
+                                                                                     ## number
+                                                                                     ## of
+                                                                                     ## slices
+                                                                                     ## within
+                                                                                     ## U
+                                                                                     ## parameter
+                                                                                     ##
+                                                                                     ## !
+                                                                                     ## @param
+                                                                                     ## theNbStacks
+                                                                                     ## [in]
+                                                                                     ## number
+                                                                                     ## of
+                                                                                     ## stacks
+                                                                                     ## within
+                                                                                     ## V
+                                                                                     ## parameter
+                                                                                     ##
+                                                                                     ## !
+                                                                                     ## @param
+                                                                                     ## theTrsf
+                                                                                     ## [in]
+                                                                                     ## optional
+                                                                                     ## transformation
+                                                                                     ## to
+                                                                                     ## apply
+                                                                                     ##
+                                                                                     ## !
+                                                                                     ## @return
+                                                                                     ## generated
+                                                                                     ## triangulation
+                                                                                     ##
+                                                                                     ## !
+                                                                                     ## Initializes
+                                                                                     ## the
+                                                                                     ## algorithm
+                                                                                     ## creating
+                                                                                     ## a
+                                                                                     ## sector
+                                                                                     ## (quadrant).
+                                                                                     ##
+                                                                                     ## !
+                                                                                     ## @param
+                                                                                     ## theRadius
+                                                                                     ## [in]
+                                                                                     ## sector
+                                                                                     ## radius
+                                                                                     ##
+                                                                                     ## !
+                                                                                     ## @param
+                                                                                     ## theNbSlices
+                                                                                     ## [in]
+                                                                                     ## number
+                                                                                     ## of
+                                                                                     ## slices
+                                                                                     ## within
+                                                                                     ## U
+                                                                                     ## parameter
+                                                                                     ##
+                                                                                     ## !
+                                                                                     ## @param
+                                                                                     ## theNbStacks
+                                                                                     ## [in]
+                                                                                     ## number
+                                                                                     ## of
+                                                                                     ## stacks
+                                                                                     ## within
+                                                                                     ## V
+                                                                                     ## parameter
+                                                                                     ##
+                                                                                     ## !
+                                                                                     ## Computes
+                                                                                     ## vertex
+                                                                                     ## at
+                                                                                     ## given
+                                                                                     ## parameter
+                                                                                     ## location
+                                                                                     ## of
+                                                                                     ## the
+                                                                                     ## surface.
     ## !< sector radius
 
 
-proc create*(theRadius: StandardReal; theNbSlices: StandardInteger;
-            theNbStacks: StandardInteger; theTrsf: GpTrsf): Handle[
-    Graphic3dArrayOfTriangles] {.importcpp: "Prs3d_ToolSector::Create(@)",
-                                header: "Prs3d_ToolSector.hxx".}
-proc constructPrs3dToolSector*(theRadius: StandardReal;
-                              theNbSlices: StandardInteger;
-                              theNbStacks: StandardInteger): Prs3dToolSector {.
+proc Create*(theRadius: Standard_Real; theNbSlices: Standard_Integer;
+            theNbStacks: Standard_Integer; theTrsf: gp_Trsf): handle[
+    Graphic3d_ArrayOfTriangles] {.importcpp: "Prs3d_ToolSector::Create(@)",
+                                 header: "Prs3d_ToolSector.hxx".}
+proc constructPrs3d_ToolSector*(theRadius: Standard_Real;
+                               theNbSlices: Standard_Integer;
+                               theNbStacks: Standard_Integer): Prs3d_ToolSector {.
     constructor, importcpp: "Prs3d_ToolSector(@)", header: "Prs3d_ToolSector.hxx".}
-

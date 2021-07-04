@@ -14,23 +14,26 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Quantity/Quantity_Color
+
 discard "forward decl of Quantity_Color"
 type
-  AspectBackground* {.importcpp: "Aspect_Background",
-                     header: "Aspect_Background.hxx", bycopy.} = object ## ! Creates a window background.
-                                                                   ## ! Default color :
-                                                                   ## NOC_MATRAGRAY.
+  Aspect_Background* {.importcpp: "Aspect_Background",
+                      header: "Aspect_Background.hxx", bycopy.} = object ## ! Creates a window background.
+                                                                    ## ! Default color :
+                                                                    ## NOC_MATRAGRAY.
 
 
-proc constructAspectBackground*(): AspectBackground {.constructor,
+proc constructAspect_Background*(): Aspect_Background {.constructor,
     importcpp: "Aspect_Background(@)", header: "Aspect_Background.hxx".}
-proc constructAspectBackground*(aColor: QuantityColor): AspectBackground {.
+proc constructAspect_Background*(AColor: Quantity_Color): Aspect_Background {.
     constructor, importcpp: "Aspect_Background(@)", header: "Aspect_Background.hxx".}
-proc setColor*(this: var AspectBackground; aColor: QuantityColor) {.
+proc SetColor*(this: var Aspect_Background; AColor: Quantity_Color) {.
     importcpp: "SetColor", header: "Aspect_Background.hxx".}
-proc color*(this: AspectBackground): QuantityColor {.noSideEffect,
+proc Color*(this: Aspect_Background): Quantity_Color {.noSideEffect,
     importcpp: "Color", header: "Aspect_Background.hxx".}
-proc dumpJson*(this: AspectBackground; theOStream: var StandardOStream;
-              theDepth: StandardInteger = -1) {.noSideEffect, importcpp: "DumpJson",
+proc DumpJson*(this: Aspect_Background; theOStream: var Standard_OStream;
+              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
     header: "Aspect_Background.hxx".}
-

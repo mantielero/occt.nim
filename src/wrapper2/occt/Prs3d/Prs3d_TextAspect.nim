@@ -14,61 +14,76 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Graphic3d/Graphic3d_AspectText3d, ../Graphic3d/Graphic3d_TextPath,
+  ../Graphic3d/Graphic3d_HorizontalTextAlignment,
+  ../Graphic3d/Graphic3d_VerticalTextAlignment, Prs3d_BasicAspect
+
 ## ! Defines the attributes when displaying a text.
 
 type
-  Prs3dTextAspect* {.importcpp: "Prs3d_TextAspect", header: "Prs3d_TextAspect.hxx",
-                    bycopy.} = object of Prs3dBasicAspect ## ! Constructs an empty framework for defining display attributes of text.
+  Prs3d_TextAspect* {.importcpp: "Prs3d_TextAspect",
+                     header: "Prs3d_TextAspect.hxx", bycopy.} = object of Prs3d_BasicAspect ##
+                                                                                     ## !
+                                                                                     ## Constructs
+                                                                                     ## an
+                                                                                     ## empty
+                                                                                     ## framework
+                                                                                     ## for
+                                                                                     ## defining
+                                                                                     ## display
+                                                                                     ## attributes
+                                                                                     ## of
+                                                                                     ## text.
 
-  Prs3dTextAspectbaseType* = Prs3dBasicAspect
+  Prs3d_TextAspectbase_type* = Prs3d_BasicAspect
 
-proc getTypeName*(): cstring {.importcpp: "Prs3d_TextAspect::get_type_name(@)",
-                            header: "Prs3d_TextAspect.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "Prs3d_TextAspect::get_type_name(@)",
+                              header: "Prs3d_TextAspect.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "Prs3d_TextAspect::get_type_descriptor(@)",
     header: "Prs3d_TextAspect.hxx".}
-proc dynamicType*(this: Prs3dTextAspect): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: Prs3d_TextAspect): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "Prs3d_TextAspect.hxx".}
-proc constructPrs3dTextAspect*(): Prs3dTextAspect {.constructor,
+proc constructPrs3d_TextAspect*(): Prs3d_TextAspect {.constructor,
     importcpp: "Prs3d_TextAspect(@)", header: "Prs3d_TextAspect.hxx".}
-proc constructPrs3dTextAspect*(theAspect: Handle[Graphic3dAspectText3d]): Prs3dTextAspect {.
+proc constructPrs3d_TextAspect*(theAspect: handle[Graphic3d_AspectText3d]): Prs3d_TextAspect {.
     constructor, importcpp: "Prs3d_TextAspect(@)", header: "Prs3d_TextAspect.hxx".}
-proc setColor*(this: var Prs3dTextAspect; theColor: QuantityColor) {.
+proc SetColor*(this: var Prs3d_TextAspect; theColor: Quantity_Color) {.
     importcpp: "SetColor", header: "Prs3d_TextAspect.hxx".}
-proc setFont*(this: var Prs3dTextAspect; theFont: StandardCString) {.
+proc SetFont*(this: var Prs3d_TextAspect; theFont: Standard_CString) {.
     importcpp: "SetFont", header: "Prs3d_TextAspect.hxx".}
-proc setHeight*(this: var Prs3dTextAspect; theHeight: StandardReal) {.
+proc SetHeight*(this: var Prs3d_TextAspect; theHeight: Standard_Real) {.
     importcpp: "SetHeight", header: "Prs3d_TextAspect.hxx".}
-proc setAngle*(this: var Prs3dTextAspect; theAngle: StandardReal) {.
+proc SetAngle*(this: var Prs3d_TextAspect; theAngle: Standard_Real) {.
     importcpp: "SetAngle", header: "Prs3d_TextAspect.hxx".}
-proc height*(this: Prs3dTextAspect): StandardReal {.noSideEffect,
+proc Height*(this: Prs3d_TextAspect): Standard_Real {.noSideEffect,
     importcpp: "Height", header: "Prs3d_TextAspect.hxx".}
-proc angle*(this: Prs3dTextAspect): StandardReal {.noSideEffect, importcpp: "Angle",
-    header: "Prs3d_TextAspect.hxx".}
-proc setHorizontalJustification*(this: var Prs3dTextAspect; theJustification: Graphic3dHorizontalTextAlignment) {.
+proc Angle*(this: Prs3d_TextAspect): Standard_Real {.noSideEffect,
+    importcpp: "Angle", header: "Prs3d_TextAspect.hxx".}
+proc SetHorizontalJustification*(this: var Prs3d_TextAspect; theJustification: Graphic3d_HorizontalTextAlignment) {.
     importcpp: "SetHorizontalJustification", header: "Prs3d_TextAspect.hxx".}
-proc setVerticalJustification*(this: var Prs3dTextAspect;
-                              theJustification: Graphic3dVerticalTextAlignment) {.
+proc SetVerticalJustification*(this: var Prs3d_TextAspect;
+                              theJustification: Graphic3d_VerticalTextAlignment) {.
     importcpp: "SetVerticalJustification", header: "Prs3d_TextAspect.hxx".}
-proc setOrientation*(this: var Prs3dTextAspect; theOrientation: Graphic3dTextPath) {.
+proc SetOrientation*(this: var Prs3d_TextAspect; theOrientation: Graphic3d_TextPath) {.
     importcpp: "SetOrientation", header: "Prs3d_TextAspect.hxx".}
-proc horizontalJustification*(this: Prs3dTextAspect): Graphic3dHorizontalTextAlignment {.
+proc HorizontalJustification*(this: Prs3d_TextAspect): Graphic3d_HorizontalTextAlignment {.
     noSideEffect, importcpp: "HorizontalJustification",
     header: "Prs3d_TextAspect.hxx".}
-proc verticalJustification*(this: Prs3dTextAspect): Graphic3dVerticalTextAlignment {.
+proc VerticalJustification*(this: Prs3d_TextAspect): Graphic3d_VerticalTextAlignment {.
     noSideEffect, importcpp: "VerticalJustification",
     header: "Prs3d_TextAspect.hxx".}
-proc orientation*(this: Prs3dTextAspect): Graphic3dTextPath {.noSideEffect,
+proc Orientation*(this: Prs3d_TextAspect): Graphic3d_TextPath {.noSideEffect,
     importcpp: "Orientation", header: "Prs3d_TextAspect.hxx".}
-proc aspect*(this: Prs3dTextAspect): Handle[Graphic3dAspectText3d] {.noSideEffect,
+proc Aspect*(this: Prs3d_TextAspect): handle[Graphic3d_AspectText3d] {.noSideEffect,
     importcpp: "Aspect", header: "Prs3d_TextAspect.hxx".}
-proc setAspect*(this: var Prs3dTextAspect; theAspect: Handle[Graphic3dAspectText3d]) {.
+proc SetAspect*(this: var Prs3d_TextAspect;
+               theAspect: handle[Graphic3d_AspectText3d]) {.
     importcpp: "SetAspect", header: "Prs3d_TextAspect.hxx".}
-proc dumpJson*(this: Prs3dTextAspect; theOStream: var StandardOStream;
-              theDepth: StandardInteger = -1) {.noSideEffect, importcpp: "DumpJson",
+proc DumpJson*(this: Prs3d_TextAspect; theOStream: var Standard_OStream;
+              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
     header: "Prs3d_TextAspect.hxx".}
 discard "forward decl of Prs3d_TextAspect"
 type
-  HandlePrs3dTextAspect* = Handle[Prs3dTextAspect]
-
-
+  Handle_Prs3d_TextAspect* = handle[Prs3d_TextAspect]

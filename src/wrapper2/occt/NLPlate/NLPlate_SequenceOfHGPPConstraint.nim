@@ -14,8 +14,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  NLPlate_HGPPConstraint, ../NCollection/NCollection_Sequence
+
 type
-  NLPlateSequenceOfHGPPConstraint* = NCollectionSequence[
-      Handle[NLPlateHGPPConstraint]]
-
-
+  NLPlate_SequenceOfHGPPConstraint* = NCollection_Sequence[
+      handle[NLPlate_HGPPConstraint]]

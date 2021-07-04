@@ -14,6 +14,13 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
+  ../Standard/Standard_Integer, ../Extrema/Extrema_ExtPS,
+  ../GeomAdaptor/GeomAdaptor_Surface, ../Extrema/Extrema_ExtAlgo,
+  ../Extrema/Extrema_ExtFlag, ../Standard/Standard_Real
+
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of gp_Pnt"
@@ -41,86 +48,88 @@ type
 proc constructGeomAPI_ProjectPointOnSurf*(): GeomAPI_ProjectPointOnSurf {.
     constructor, importcpp: "GeomAPI_ProjectPointOnSurf(@)",
     header: "GeomAPI_ProjectPointOnSurf.hxx".}
-proc constructGeomAPI_ProjectPointOnSurf*(p: GpPnt; surface: Handle[GeomSurface];
-    algo: ExtremaExtAlgo = extremaExtAlgoGrad): GeomAPI_ProjectPointOnSurf {.
+proc constructGeomAPI_ProjectPointOnSurf*(P: gp_Pnt; Surface: handle[Geom_Surface];
+    Algo: Extrema_ExtAlgo = Extrema_ExtAlgo_Grad): GeomAPI_ProjectPointOnSurf {.
     constructor, importcpp: "GeomAPI_ProjectPointOnSurf(@)",
     header: "GeomAPI_ProjectPointOnSurf.hxx".}
-proc constructGeomAPI_ProjectPointOnSurf*(p: GpPnt; surface: Handle[GeomSurface];
-    tolerance: StandardReal; algo: ExtremaExtAlgo = extremaExtAlgoGrad): GeomAPI_ProjectPointOnSurf {.
+proc constructGeomAPI_ProjectPointOnSurf*(P: gp_Pnt; Surface: handle[Geom_Surface];
+    Tolerance: Standard_Real; Algo: Extrema_ExtAlgo = Extrema_ExtAlgo_Grad): GeomAPI_ProjectPointOnSurf {.
     constructor, importcpp: "GeomAPI_ProjectPointOnSurf(@)",
     header: "GeomAPI_ProjectPointOnSurf.hxx".}
-proc constructGeomAPI_ProjectPointOnSurf*(p: GpPnt; surface: Handle[GeomSurface];
-    umin: StandardReal; usup: StandardReal; vmin: StandardReal; vsup: StandardReal;
-    tolerance: StandardReal; algo: ExtremaExtAlgo = extremaExtAlgoGrad): GeomAPI_ProjectPointOnSurf {.
+proc constructGeomAPI_ProjectPointOnSurf*(P: gp_Pnt; Surface: handle[Geom_Surface];
+    Umin: Standard_Real; Usup: Standard_Real; Vmin: Standard_Real;
+    Vsup: Standard_Real; Tolerance: Standard_Real;
+    Algo: Extrema_ExtAlgo = Extrema_ExtAlgo_Grad): GeomAPI_ProjectPointOnSurf {.
     constructor, importcpp: "GeomAPI_ProjectPointOnSurf(@)",
     header: "GeomAPI_ProjectPointOnSurf.hxx".}
-proc constructGeomAPI_ProjectPointOnSurf*(p: GpPnt; surface: Handle[GeomSurface];
-    umin: StandardReal; usup: StandardReal; vmin: StandardReal; vsup: StandardReal;
-    algo: ExtremaExtAlgo = extremaExtAlgoGrad): GeomAPI_ProjectPointOnSurf {.
+proc constructGeomAPI_ProjectPointOnSurf*(P: gp_Pnt; Surface: handle[Geom_Surface];
+    Umin: Standard_Real; Usup: Standard_Real; Vmin: Standard_Real;
+    Vsup: Standard_Real; Algo: Extrema_ExtAlgo = Extrema_ExtAlgo_Grad): GeomAPI_ProjectPointOnSurf {.
     constructor, importcpp: "GeomAPI_ProjectPointOnSurf(@)",
     header: "GeomAPI_ProjectPointOnSurf.hxx".}
-proc init*(this: var GeomAPI_ProjectPointOnSurf; p: GpPnt;
-          surface: Handle[GeomSurface]; tolerance: StandardReal;
-          algo: ExtremaExtAlgo = extremaExtAlgoGrad) {.importcpp: "Init",
+proc Init*(this: var GeomAPI_ProjectPointOnSurf; P: gp_Pnt;
+          Surface: handle[Geom_Surface]; Tolerance: Standard_Real;
+          Algo: Extrema_ExtAlgo = Extrema_ExtAlgo_Grad) {.importcpp: "Init",
     header: "GeomAPI_ProjectPointOnSurf.hxx".}
-proc init*(this: var GeomAPI_ProjectPointOnSurf; p: GpPnt;
-          surface: Handle[GeomSurface]; algo: ExtremaExtAlgo = extremaExtAlgoGrad) {.
+proc Init*(this: var GeomAPI_ProjectPointOnSurf; P: gp_Pnt;
+          Surface: handle[Geom_Surface];
+          Algo: Extrema_ExtAlgo = Extrema_ExtAlgo_Grad) {.importcpp: "Init",
+    header: "GeomAPI_ProjectPointOnSurf.hxx".}
+proc Init*(this: var GeomAPI_ProjectPointOnSurf; P: gp_Pnt;
+          Surface: handle[Geom_Surface]; Umin: Standard_Real; Usup: Standard_Real;
+          Vmin: Standard_Real; Vsup: Standard_Real; Tolerance: Standard_Real;
+          Algo: Extrema_ExtAlgo = Extrema_ExtAlgo_Grad) {.importcpp: "Init",
+    header: "GeomAPI_ProjectPointOnSurf.hxx".}
+proc Init*(this: var GeomAPI_ProjectPointOnSurf; P: gp_Pnt;
+          Surface: handle[Geom_Surface]; Umin: Standard_Real; Usup: Standard_Real;
+          Vmin: Standard_Real; Vsup: Standard_Real;
+          Algo: Extrema_ExtAlgo = Extrema_ExtAlgo_Grad) {.importcpp: "Init",
+    header: "GeomAPI_ProjectPointOnSurf.hxx".}
+proc Init*(this: var GeomAPI_ProjectPointOnSurf; Surface: handle[Geom_Surface];
+          Umin: Standard_Real; Usup: Standard_Real; Vmin: Standard_Real;
+          Vsup: Standard_Real; Tolerance: Standard_Real;
+          Algo: Extrema_ExtAlgo = Extrema_ExtAlgo_Grad) {.importcpp: "Init",
+    header: "GeomAPI_ProjectPointOnSurf.hxx".}
+proc Init*(this: var GeomAPI_ProjectPointOnSurf; Surface: handle[Geom_Surface];
+          Umin: Standard_Real; Usup: Standard_Real; Vmin: Standard_Real;
+          Vsup: Standard_Real; Algo: Extrema_ExtAlgo = Extrema_ExtAlgo_Grad) {.
     importcpp: "Init", header: "GeomAPI_ProjectPointOnSurf.hxx".}
-proc init*(this: var GeomAPI_ProjectPointOnSurf; p: GpPnt;
-          surface: Handle[GeomSurface]; umin: StandardReal; usup: StandardReal;
-          vmin: StandardReal; vsup: StandardReal; tolerance: StandardReal;
-          algo: ExtremaExtAlgo = extremaExtAlgoGrad) {.importcpp: "Init",
-    header: "GeomAPI_ProjectPointOnSurf.hxx".}
-proc init*(this: var GeomAPI_ProjectPointOnSurf; p: GpPnt;
-          surface: Handle[GeomSurface]; umin: StandardReal; usup: StandardReal;
-          vmin: StandardReal; vsup: StandardReal;
-          algo: ExtremaExtAlgo = extremaExtAlgoGrad) {.importcpp: "Init",
-    header: "GeomAPI_ProjectPointOnSurf.hxx".}
-proc init*(this: var GeomAPI_ProjectPointOnSurf; surface: Handle[GeomSurface];
-          umin: StandardReal; usup: StandardReal; vmin: StandardReal;
-          vsup: StandardReal; tolerance: StandardReal;
-          algo: ExtremaExtAlgo = extremaExtAlgoGrad) {.importcpp: "Init",
-    header: "GeomAPI_ProjectPointOnSurf.hxx".}
-proc init*(this: var GeomAPI_ProjectPointOnSurf; surface: Handle[GeomSurface];
-          umin: StandardReal; usup: StandardReal; vmin: StandardReal;
-          vsup: StandardReal; algo: ExtremaExtAlgo = extremaExtAlgoGrad) {.
-    importcpp: "Init", header: "GeomAPI_ProjectPointOnSurf.hxx".}
-proc setExtremaAlgo*(this: var GeomAPI_ProjectPointOnSurf; theAlgo: ExtremaExtAlgo) {.
+proc SetExtremaAlgo*(this: var GeomAPI_ProjectPointOnSurf; theAlgo: Extrema_ExtAlgo) {.
     importcpp: "SetExtremaAlgo", header: "GeomAPI_ProjectPointOnSurf.hxx".}
-proc setExtremaFlag*(this: var GeomAPI_ProjectPointOnSurf;
-                    theExtFlag: ExtremaExtFlag) {.importcpp: "SetExtremaFlag",
+proc SetExtremaFlag*(this: var GeomAPI_ProjectPointOnSurf;
+                    theExtFlag: Extrema_ExtFlag) {.importcpp: "SetExtremaFlag",
     header: "GeomAPI_ProjectPointOnSurf.hxx".}
-proc perform*(this: var GeomAPI_ProjectPointOnSurf; p: GpPnt) {.importcpp: "Perform",
+proc Perform*(this: var GeomAPI_ProjectPointOnSurf; P: gp_Pnt) {.importcpp: "Perform",
     header: "GeomAPI_ProjectPointOnSurf.hxx".}
-proc isDone*(this: GeomAPI_ProjectPointOnSurf): StandardBoolean {.noSideEffect,
+proc IsDone*(this: GeomAPI_ProjectPointOnSurf): Standard_Boolean {.noSideEffect,
     importcpp: "IsDone", header: "GeomAPI_ProjectPointOnSurf.hxx".}
-proc nbPoints*(this: GeomAPI_ProjectPointOnSurf): StandardInteger {.noSideEffect,
+proc NbPoints*(this: GeomAPI_ProjectPointOnSurf): Standard_Integer {.noSideEffect,
     importcpp: "NbPoints", header: "GeomAPI_ProjectPointOnSurf.hxx".}
-converter `standardInteger`*(this: GeomAPI_ProjectPointOnSurf): StandardInteger {.
+converter `Standard_Integer`*(this: GeomAPI_ProjectPointOnSurf): Standard_Integer {.
     noSideEffect,
     importcpp: "GeomAPI_ProjectPointOnSurf::operator Standard_Integer",
     header: "GeomAPI_ProjectPointOnSurf.hxx".}
-proc point*(this: GeomAPI_ProjectPointOnSurf; index: StandardInteger): GpPnt {.
+proc Point*(this: GeomAPI_ProjectPointOnSurf; Index: Standard_Integer): gp_Pnt {.
     noSideEffect, importcpp: "Point", header: "GeomAPI_ProjectPointOnSurf.hxx".}
-proc parameters*(this: GeomAPI_ProjectPointOnSurf; index: StandardInteger;
-                u: var StandardReal; v: var StandardReal) {.noSideEffect,
+proc Parameters*(this: GeomAPI_ProjectPointOnSurf; Index: Standard_Integer;
+                U: var Standard_Real; V: var Standard_Real) {.noSideEffect,
     importcpp: "Parameters", header: "GeomAPI_ProjectPointOnSurf.hxx".}
-proc distance*(this: GeomAPI_ProjectPointOnSurf; index: StandardInteger): StandardReal {.
+proc Distance*(this: GeomAPI_ProjectPointOnSurf; Index: Standard_Integer): Standard_Real {.
     noSideEffect, importcpp: "Distance", header: "GeomAPI_ProjectPointOnSurf.hxx".}
-proc nearestPoint*(this: GeomAPI_ProjectPointOnSurf): GpPnt {.noSideEffect,
+proc NearestPoint*(this: GeomAPI_ProjectPointOnSurf): gp_Pnt {.noSideEffect,
     importcpp: "NearestPoint", header: "GeomAPI_ProjectPointOnSurf.hxx".}
-converter `gpPnt`*(this: GeomAPI_ProjectPointOnSurf): GpPnt {.noSideEffect,
+converter `gp_Pnt`*(this: GeomAPI_ProjectPointOnSurf): gp_Pnt {.noSideEffect,
     importcpp: "GeomAPI_ProjectPointOnSurf::operator gp_Pnt",
     header: "GeomAPI_ProjectPointOnSurf.hxx".}
-proc lowerDistanceParameters*(this: GeomAPI_ProjectPointOnSurf;
-                             u: var StandardReal; v: var StandardReal) {.noSideEffect,
-    importcpp: "LowerDistanceParameters", header: "GeomAPI_ProjectPointOnSurf.hxx".}
-proc lowerDistance*(this: GeomAPI_ProjectPointOnSurf): StandardReal {.noSideEffect,
+proc LowerDistanceParameters*(this: GeomAPI_ProjectPointOnSurf;
+                             U: var Standard_Real; V: var Standard_Real) {.
+    noSideEffect, importcpp: "LowerDistanceParameters",
+    header: "GeomAPI_ProjectPointOnSurf.hxx".}
+proc LowerDistance*(this: GeomAPI_ProjectPointOnSurf): Standard_Real {.noSideEffect,
     importcpp: "LowerDistance", header: "GeomAPI_ProjectPointOnSurf.hxx".}
-converter `standardReal`*(this: GeomAPI_ProjectPointOnSurf): StandardReal {.
+converter `Standard_Real`*(this: GeomAPI_ProjectPointOnSurf): Standard_Real {.
     noSideEffect,
     importcpp: "GeomAPI_ProjectPointOnSurf::operator Standard_Real",
     header: "GeomAPI_ProjectPointOnSurf.hxx".}
-proc extrema*(this: GeomAPI_ProjectPointOnSurf): ExtremaExtPS {.noSideEffect,
+proc Extrema*(this: GeomAPI_ProjectPointOnSurf): Extrema_ExtPS {.noSideEffect,
     importcpp: "Extrema", header: "GeomAPI_ProjectPointOnSurf.hxx".}
-

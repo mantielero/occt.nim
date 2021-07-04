@@ -14,60 +14,65 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Real, ../math/math_Function,
+  ../Standard/Standard_Boolean
+
 ## ! This class compute the Heigth of an batten
 
 type
-  FairCurveBattenLaw* {.importcpp: "FairCurve_BattenLaw",
-                       header: "FairCurve_BattenLaw.hxx", bycopy.} = object of MathFunction ##
-                                                                                     ## !
-                                                                                     ## Constructor
-                                                                                     ## of
-                                                                                     ## linear
-                                                                                     ## batten
-                                                                                     ## with
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## Heigth
-                                                                                     ## :
-                                                                                     ## the
-                                                                                     ## Heigth
-                                                                                     ## at
-                                                                                     ## the
-                                                                                     ## middle
-                                                                                     ## point
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## Slope
-                                                                                     ## :
-                                                                                     ## the
-                                                                                     ## geometric
-                                                                                     ## slope
-                                                                                     ## of
-                                                                                     ## the
-                                                                                     ## batten
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## Sliding
-                                                                                     ## :
-                                                                                     ## Active
-                                                                                     ## Length
-                                                                                     ## of
-                                                                                     ## the
-                                                                                     ## batten
-                                                                                     ## without
-                                                                                     ## extension
+  FairCurve_BattenLaw* {.importcpp: "FairCurve_BattenLaw",
+                        header: "FairCurve_BattenLaw.hxx", bycopy.} = object of math_Function ##
+                                                                                       ## !
+                                                                                       ## Constructor
+                                                                                       ## of
+                                                                                       ## linear
+                                                                                       ## batten
+                                                                                       ## with
+                                                                                       ##
+                                                                                       ## !
+                                                                                       ## Heigth
+                                                                                       ## :
+                                                                                       ## the
+                                                                                       ## Heigth
+                                                                                       ## at
+                                                                                       ## the
+                                                                                       ## middle
+                                                                                       ## point
+                                                                                       ##
+                                                                                       ## !
+                                                                                       ## Slope
+                                                                                       ## :
+                                                                                       ## the
+                                                                                       ## geometric
+                                                                                       ## slope
+                                                                                       ## of
+                                                                                       ## the
+                                                                                       ## batten
+                                                                                       ##
+                                                                                       ## !
+                                                                                       ## Sliding
+                                                                                       ## :
+                                                                                       ## Active
+                                                                                       ## Length
+                                                                                       ## of
+                                                                                       ## the
+                                                                                       ## batten
+                                                                                       ## without
+                                                                                       ## extension
 
 
-proc constructFairCurveBattenLaw*(heigth: StandardReal; slope: StandardReal;
-                                 sliding: StandardReal): FairCurveBattenLaw {.
+proc constructFairCurve_BattenLaw*(Heigth: Standard_Real; Slope: Standard_Real;
+                                  Sliding: Standard_Real): FairCurve_BattenLaw {.
     constructor, importcpp: "FairCurve_BattenLaw(@)",
     header: "FairCurve_BattenLaw.hxx".}
-proc setSliding*(this: var FairCurveBattenLaw; sliding: StandardReal) {.
+proc SetSliding*(this: var FairCurve_BattenLaw; Sliding: Standard_Real) {.
     importcpp: "SetSliding", header: "FairCurve_BattenLaw.hxx".}
-proc setHeigth*(this: var FairCurveBattenLaw; heigth: StandardReal) {.
+proc SetHeigth*(this: var FairCurve_BattenLaw; Heigth: Standard_Real) {.
     importcpp: "SetHeigth", header: "FairCurve_BattenLaw.hxx".}
-proc setSlope*(this: var FairCurveBattenLaw; slope: StandardReal) {.
+proc SetSlope*(this: var FairCurve_BattenLaw; Slope: Standard_Real) {.
     importcpp: "SetSlope", header: "FairCurve_BattenLaw.hxx".}
-proc value*(this: var FairCurveBattenLaw; t: StandardReal; tHeigth: var StandardReal): StandardBoolean {.
-    importcpp: "Value", header: "FairCurve_BattenLaw.hxx".}
-
+proc Value*(this: var FairCurve_BattenLaw; T: Standard_Real;
+           THeigth: var Standard_Real): Standard_Boolean {.importcpp: "Value",
+    header: "FairCurve_BattenLaw.hxx".}

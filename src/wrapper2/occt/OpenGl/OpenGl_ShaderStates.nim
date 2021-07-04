@@ -13,157 +13,163 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../NCollection/NCollection_List, ../Graphic3d/Graphic3d_LightSet,
+  OpenGl_Element, OpenGl_Vec
+
 ## ! Defines interface for OpenGL state.
 
 type
-  OpenGlStateInterface* {.importcpp: "OpenGl_StateInterface",
-                         header: "OpenGl_ShaderStates.hxx", bycopy.} = object ## ! Creates new state.
+  OpenGl_StateInterface* {.importcpp: "OpenGl_StateInterface",
+                          header: "OpenGl_ShaderStates.hxx", bycopy.} = object ## !
+                                                                          ## Creates new state.
     ## !< current state index
 
 
-proc constructOpenGlStateInterface*(): OpenGlStateInterface {.constructor,
+proc constructOpenGl_StateInterface*(): OpenGl_StateInterface {.constructor,
     importcpp: "OpenGl_StateInterface(@)", header: "OpenGl_ShaderStates.hxx".}
-proc index*(this: OpenGlStateInterface): StandardSize {.noSideEffect,
+proc Index*(this: OpenGl_StateInterface): Standard_Size {.noSideEffect,
     importcpp: "Index", header: "OpenGl_ShaderStates.hxx".}
-proc update*(this: var OpenGlStateInterface) {.importcpp: "Update",
+proc Update*(this: var OpenGl_StateInterface) {.importcpp: "Update",
     header: "OpenGl_ShaderStates.hxx".}
 ## ! Defines state of OCCT projection transformation.
 
 type
-  OpenGlProjectionState* {.importcpp: "OpenGl_ProjectionState",
-                          header: "OpenGl_ShaderStates.hxx", bycopy.} = object of OpenGlStateInterface ##
-                                                                                                ## !
-                                                                                                ## Creates
-                                                                                                ## uninitialized
-                                                                                                ## projection
-                                                                                                ## state.
+  OpenGl_ProjectionState* {.importcpp: "OpenGl_ProjectionState",
+                           header: "OpenGl_ShaderStates.hxx", bycopy.} = object of OpenGl_StateInterface ##
+                                                                                                  ## !
+                                                                                                  ## Creates
+                                                                                                  ## uninitialized
+                                                                                                  ## projection
+                                                                                                  ## state.
     ## !< OCCT projection matrix
     ## !< Inverse of OCCT projection matrix
     ## !< Is inversed matrix outdated?
 
 
-proc constructOpenGlProjectionState*(): OpenGlProjectionState {.constructor,
+proc constructOpenGl_ProjectionState*(): OpenGl_ProjectionState {.constructor,
     importcpp: "OpenGl_ProjectionState(@)", header: "OpenGl_ShaderStates.hxx".}
-proc set*(this: var OpenGlProjectionState; theProjectionMatrix: OpenGlMat4) {.
+proc Set*(this: var OpenGl_ProjectionState; theProjectionMatrix: OpenGl_Mat4) {.
     importcpp: "Set", header: "OpenGl_ShaderStates.hxx".}
-proc projectionMatrix*(this: OpenGlProjectionState): OpenGlMat4 {.noSideEffect,
+proc ProjectionMatrix*(this: OpenGl_ProjectionState): OpenGl_Mat4 {.noSideEffect,
     importcpp: "ProjectionMatrix", header: "OpenGl_ShaderStates.hxx".}
-proc projectionMatrixInverse*(this: OpenGlProjectionState): OpenGlMat4 {.
+proc ProjectionMatrixInverse*(this: OpenGl_ProjectionState): OpenGl_Mat4 {.
     noSideEffect, importcpp: "ProjectionMatrixInverse",
     header: "OpenGl_ShaderStates.hxx".}
 ## ! Defines state of OCCT model-world transformation.
 
 type
-  OpenGlModelWorldState* {.importcpp: "OpenGl_ModelWorldState",
-                          header: "OpenGl_ShaderStates.hxx", bycopy.} = object of OpenGlStateInterface ##
-                                                                                                ## !
-                                                                                                ## Creates
-                                                                                                ## uninitialized
-                                                                                                ## model-world
-                                                                                                ## state.
+  OpenGl_ModelWorldState* {.importcpp: "OpenGl_ModelWorldState",
+                           header: "OpenGl_ShaderStates.hxx", bycopy.} = object of OpenGl_StateInterface ##
+                                                                                                  ## !
+                                                                                                  ## Creates
+                                                                                                  ## uninitialized
+                                                                                                  ## model-world
+                                                                                                  ## state.
     ## !< OCCT model-world matrix
     ## !< Inverse of OCCT model-world matrix
     ## !< Is inversed matrix outdated?
 
 
-proc constructOpenGlModelWorldState*(): OpenGlModelWorldState {.constructor,
+proc constructOpenGl_ModelWorldState*(): OpenGl_ModelWorldState {.constructor,
     importcpp: "OpenGl_ModelWorldState(@)", header: "OpenGl_ShaderStates.hxx".}
-proc set*(this: var OpenGlModelWorldState; theModelWorldMatrix: OpenGlMat4) {.
+proc Set*(this: var OpenGl_ModelWorldState; theModelWorldMatrix: OpenGl_Mat4) {.
     importcpp: "Set", header: "OpenGl_ShaderStates.hxx".}
-proc modelWorldMatrix*(this: OpenGlModelWorldState): OpenGlMat4 {.noSideEffect,
+proc ModelWorldMatrix*(this: OpenGl_ModelWorldState): OpenGl_Mat4 {.noSideEffect,
     importcpp: "ModelWorldMatrix", header: "OpenGl_ShaderStates.hxx".}
-proc modelWorldMatrixInverse*(this: OpenGlModelWorldState): OpenGlMat4 {.
+proc ModelWorldMatrixInverse*(this: OpenGl_ModelWorldState): OpenGl_Mat4 {.
     noSideEffect, importcpp: "ModelWorldMatrixInverse",
     header: "OpenGl_ShaderStates.hxx".}
 ## ! Defines state of OCCT world-view transformation.
 
 type
-  OpenGlWorldViewState* {.importcpp: "OpenGl_WorldViewState",
-                         header: "OpenGl_ShaderStates.hxx", bycopy.} = object of OpenGlStateInterface ##
-                                                                                               ## !
-                                                                                               ## Creates
-                                                                                               ## uninitialized
-                                                                                               ## world-view
-                                                                                               ## state.
+  OpenGl_WorldViewState* {.importcpp: "OpenGl_WorldViewState",
+                          header: "OpenGl_ShaderStates.hxx", bycopy.} = object of OpenGl_StateInterface ##
+                                                                                                 ## !
+                                                                                                 ## Creates
+                                                                                                 ## uninitialized
+                                                                                                 ## world-view
+                                                                                                 ## state.
     ## !< OCCT world-view matrix
     ## !< Inverse of OCCT world-view matrix
     ## !< Is inversed matrix outdated?
 
 
-proc constructOpenGlWorldViewState*(): OpenGlWorldViewState {.constructor,
+proc constructOpenGl_WorldViewState*(): OpenGl_WorldViewState {.constructor,
     importcpp: "OpenGl_WorldViewState(@)", header: "OpenGl_ShaderStates.hxx".}
-proc set*(this: var OpenGlWorldViewState; theWorldViewMatrix: OpenGlMat4) {.
+proc Set*(this: var OpenGl_WorldViewState; theWorldViewMatrix: OpenGl_Mat4) {.
     importcpp: "Set", header: "OpenGl_ShaderStates.hxx".}
-proc worldViewMatrix*(this: OpenGlWorldViewState): OpenGlMat4 {.noSideEffect,
+proc WorldViewMatrix*(this: OpenGl_WorldViewState): OpenGl_Mat4 {.noSideEffect,
     importcpp: "WorldViewMatrix", header: "OpenGl_ShaderStates.hxx".}
-proc worldViewMatrixInverse*(this: OpenGlWorldViewState): OpenGlMat4 {.noSideEffect,
-    importcpp: "WorldViewMatrixInverse", header: "OpenGl_ShaderStates.hxx".}
+proc WorldViewMatrixInverse*(this: OpenGl_WorldViewState): OpenGl_Mat4 {.
+    noSideEffect, importcpp: "WorldViewMatrixInverse",
+    header: "OpenGl_ShaderStates.hxx".}
 ## ! Defines state of OCCT light sources.
 
 type
-  OpenGlLightSourceState* {.importcpp: "OpenGl_LightSourceState",
-                           header: "OpenGl_ShaderStates.hxx", bycopy.} = object of OpenGlStateInterface ##
-                                                                                                 ## !
-                                                                                                 ## Creates
-                                                                                                 ## uninitialized
-                                                                                                 ## state
-                                                                                                 ## of
-                                                                                                 ## light
-                                                                                                 ## sources.
+  OpenGl_LightSourceState* {.importcpp: "OpenGl_LightSourceState",
+                            header: "OpenGl_ShaderStates.hxx", bycopy.} = object of OpenGl_StateInterface ##
+                                                                                                   ## !
+                                                                                                   ## Creates
+                                                                                                   ## uninitialized
+                                                                                                   ## state
+                                                                                                   ## of
+                                                                                                   ## light
+                                                                                                   ## sources.
     ## !< List of OCCT light sources
     ## !< Number of mipmap levels used in specular IBL map (0 by default or in case of using non-PBR shading model)
 
 
-proc constructOpenGlLightSourceState*(): OpenGlLightSourceState {.constructor,
+proc constructOpenGl_LightSourceState*(): OpenGl_LightSourceState {.constructor,
     importcpp: "OpenGl_LightSourceState(@)", header: "OpenGl_ShaderStates.hxx".}
-proc set*(this: var OpenGlLightSourceState;
-         theLightSources: Handle[Graphic3dLightSet]) {.importcpp: "Set",
+proc Set*(this: var OpenGl_LightSourceState;
+         theLightSources: handle[Graphic3d_LightSet]) {.importcpp: "Set",
     header: "OpenGl_ShaderStates.hxx".}
-proc lightSources*(this: OpenGlLightSourceState): Handle[Graphic3dLightSet] {.
+proc LightSources*(this: OpenGl_LightSourceState): handle[Graphic3d_LightSet] {.
     noSideEffect, importcpp: "LightSources", header: "OpenGl_ShaderStates.hxx".}
-proc specIBLMapLevels*(this: OpenGlLightSourceState): StandardInteger {.
+proc SpecIBLMapLevels*(this: OpenGl_LightSourceState): Standard_Integer {.
     noSideEffect, importcpp: "SpecIBLMapLevels", header: "OpenGl_ShaderStates.hxx".}
-proc setSpecIBLMapLevels*(this: var OpenGlLightSourceState;
-                         theSpecIBLMapLevels: StandardInteger) {.
+proc SetSpecIBLMapLevels*(this: var OpenGl_LightSourceState;
+                         theSpecIBLMapLevels: Standard_Integer) {.
     importcpp: "SetSpecIBLMapLevels", header: "OpenGl_ShaderStates.hxx".}
 ## ! Defines generic state of OCCT clipping state.
 
 type
-  OpenGlClippingState* {.importcpp: "OpenGl_ClippingState",
-                        header: "OpenGl_ShaderStates.hxx", bycopy.} = object ## ! Creates new clipping state.
+  OpenGl_ClippingState* {.importcpp: "OpenGl_ClippingState",
+                         header: "OpenGl_ShaderStates.hxx", bycopy.} = object ## ! Creates new
+                                                                         ## clipping state.
     ## !< Current state index
     ## !< Next    state index
     ## !< Stack of previous states
 
 
-proc constructOpenGlClippingState*(): OpenGlClippingState {.constructor,
+proc constructOpenGl_ClippingState*(): OpenGl_ClippingState {.constructor,
     importcpp: "OpenGl_ClippingState(@)", header: "OpenGl_ShaderStates.hxx".}
-proc index*(this: OpenGlClippingState): StandardSize {.noSideEffect,
+proc Index*(this: OpenGl_ClippingState): Standard_Size {.noSideEffect,
     importcpp: "Index", header: "OpenGl_ShaderStates.hxx".}
-proc update*(this: var OpenGlClippingState) {.importcpp: "Update",
+proc Update*(this: var OpenGl_ClippingState) {.importcpp: "Update",
     header: "OpenGl_ShaderStates.hxx".}
-proc revert*(this: var OpenGlClippingState) {.importcpp: "Revert",
+proc Revert*(this: var OpenGl_ClippingState) {.importcpp: "Revert",
     header: "OpenGl_ShaderStates.hxx".}
 ## ! Defines generic state of order-independent transparency rendering properties.
 
 type
-  OpenGlOitState* {.importcpp: "OpenGl_OitState",
-                   header: "OpenGl_ShaderStates.hxx", bycopy.} = object of OpenGlStateInterface ##
-                                                                                         ## !
-                                                                                         ## Creates
-                                                                                         ## new
-                                                                                         ## uniform
-                                                                                         ## state.
+  OpenGl_OitState* {.importcpp: "OpenGl_OitState",
+                    header: "OpenGl_ShaderStates.hxx", bycopy.} = object of OpenGl_StateInterface ##
+                                                                                           ## !
+                                                                                           ## Creates
+                                                                                           ## new
+                                                                                           ## uniform
+                                                                                           ## state.
     ## !< writing color and coverage.
     ## !< factor of depth influence to coverage.
 
 
-proc constructOpenGlOitState*(): OpenGlOitState {.constructor,
+proc constructOpenGl_OitState*(): OpenGl_OitState {.constructor,
     importcpp: "OpenGl_OitState(@)", header: "OpenGl_ShaderStates.hxx".}
-proc set*(this: var OpenGlOitState; theToEnableWrite: bool; theDepthFactor: cfloat) {.
+proc Set*(this: var OpenGl_OitState; theToEnableWrite: bool; theDepthFactor: cfloat) {.
     importcpp: "Set", header: "OpenGl_ShaderStates.hxx".}
-proc toEnableWrite*(this: OpenGlOitState): bool {.noSideEffect,
+proc ToEnableWrite*(this: OpenGl_OitState): bool {.noSideEffect,
     importcpp: "ToEnableWrite", header: "OpenGl_ShaderStates.hxx".}
-proc depthFactor*(this: OpenGlOitState): cfloat {.noSideEffect,
+proc DepthFactor*(this: OpenGl_OitState): cfloat {.noSideEffect,
     importcpp: "DepthFactor", header: "OpenGl_ShaderStates.hxx".}
-

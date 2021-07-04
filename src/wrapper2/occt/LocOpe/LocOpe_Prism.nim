@@ -14,35 +14,40 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../TopoDS/TopoDS_Shape, ../gp/gp_Vec,
+  ../Standard/Standard_Boolean, ../TopTools/TopTools_DataMapOfShapeListOfShape,
+  ../TopTools/TopTools_ListOfShape, ../TColGeom/TColGeom_SequenceOfCurve
+
 discard "forward decl of Standard_NoSuchObject"
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of gp_Vec"
 discard "forward decl of Geom_Curve"
 type
-  LocOpePrism* {.importcpp: "LocOpe_Prism", header: "LocOpe_Prism.hxx", bycopy.} = object
+  LocOpe_Prism* {.importcpp: "LocOpe_Prism", header: "LocOpe_Prism.hxx", bycopy.} = object
 
 
-proc constructLocOpePrism*(): LocOpePrism {.constructor,
+proc constructLocOpe_Prism*(): LocOpe_Prism {.constructor,
     importcpp: "LocOpe_Prism(@)", header: "LocOpe_Prism.hxx".}
-proc constructLocOpePrism*(base: TopoDS_Shape; v: GpVec): LocOpePrism {.constructor,
-    importcpp: "LocOpe_Prism(@)", header: "LocOpe_Prism.hxx".}
-proc constructLocOpePrism*(base: TopoDS_Shape; v: GpVec; vectra: GpVec): LocOpePrism {.
+proc constructLocOpe_Prism*(Base: TopoDS_Shape; V: gp_Vec): LocOpe_Prism {.
     constructor, importcpp: "LocOpe_Prism(@)", header: "LocOpe_Prism.hxx".}
-proc perform*(this: var LocOpePrism; base: TopoDS_Shape; v: GpVec) {.
+proc constructLocOpe_Prism*(Base: TopoDS_Shape; V: gp_Vec; Vectra: gp_Vec): LocOpe_Prism {.
+    constructor, importcpp: "LocOpe_Prism(@)", header: "LocOpe_Prism.hxx".}
+proc Perform*(this: var LocOpe_Prism; Base: TopoDS_Shape; V: gp_Vec) {.
     importcpp: "Perform", header: "LocOpe_Prism.hxx".}
-proc perform*(this: var LocOpePrism; base: TopoDS_Shape; v: GpVec; vtra: GpVec) {.
+proc Perform*(this: var LocOpe_Prism; Base: TopoDS_Shape; V: gp_Vec; Vtra: gp_Vec) {.
     importcpp: "Perform", header: "LocOpe_Prism.hxx".}
-proc firstShape*(this: LocOpePrism): TopoDS_Shape {.noSideEffect,
+proc FirstShape*(this: LocOpe_Prism): TopoDS_Shape {.noSideEffect,
     importcpp: "FirstShape", header: "LocOpe_Prism.hxx".}
-proc lastShape*(this: LocOpePrism): TopoDS_Shape {.noSideEffect,
+proc LastShape*(this: LocOpe_Prism): TopoDS_Shape {.noSideEffect,
     importcpp: "LastShape", header: "LocOpe_Prism.hxx".}
-proc shape*(this: LocOpePrism): TopoDS_Shape {.noSideEffect, importcpp: "Shape",
+proc Shape*(this: LocOpe_Prism): TopoDS_Shape {.noSideEffect, importcpp: "Shape",
     header: "LocOpe_Prism.hxx".}
-proc shapes*(this: LocOpePrism; s: TopoDS_Shape): TopToolsListOfShape {.noSideEffect,
-    importcpp: "Shapes", header: "LocOpe_Prism.hxx".}
-proc curves*(this: LocOpePrism; sCurves: var TColGeomSequenceOfCurve) {.noSideEffect,
-    importcpp: "Curves", header: "LocOpe_Prism.hxx".}
-proc barycCurve*(this: LocOpePrism): Handle[GeomCurve] {.noSideEffect,
+proc Shapes*(this: LocOpe_Prism; S: TopoDS_Shape): TopTools_ListOfShape {.
+    noSideEffect, importcpp: "Shapes", header: "LocOpe_Prism.hxx".}
+proc Curves*(this: LocOpe_Prism; SCurves: var TColGeom_SequenceOfCurve) {.
+    noSideEffect, importcpp: "Curves", header: "LocOpe_Prism.hxx".}
+proc BarycCurve*(this: LocOpe_Prism): handle[Geom_Curve] {.noSideEffect,
     importcpp: "BarycCurve", header: "LocOpe_Prism.hxx".}
-

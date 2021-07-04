@@ -14,11 +14,14 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, Geom2d_Curve
+
 discard "forward decl of gp_Pnt2d"
 discard "forward decl of Geom2d_BoundedCurve"
 discard "forward decl of Geom2d_BoundedCurve"
 type
-  HandleGeom2dBoundedCurve* = Handle[Geom2dBoundedCurve]
+  Handle_Geom2d_BoundedCurve* = handle[Geom2d_BoundedCurve]
 
 ## ! The abstract class BoundedCurve describes the
 ## ! common behavior of bounded curves in 2D space. A
@@ -38,52 +41,51 @@ type
 ## ! the parameter of the basis curve.
 
 type
-  Geom2dBoundedCurve* {.importcpp: "Geom2d_BoundedCurve",
-                       header: "Geom2d_BoundedCurve.hxx", bycopy.} = object of Geom2dCurve ##
-                                                                                    ## !
-                                                                                    ## Returns
-                                                                                    ## the
-                                                                                    ## end
-                                                                                    ## point
-                                                                                    ## of
-                                                                                    ## the
-                                                                                    ## curve.
-                                                                                    ##
-                                                                                    ## !
-                                                                                    ## The
-                                                                                    ## end
-                                                                                    ## point
-                                                                                    ## is
-                                                                                    ## the
-                                                                                    ## value
-                                                                                    ## of
-                                                                                    ## the
-                                                                                    ## curve
-                                                                                    ## for
-                                                                                    ## the
-                                                                                    ##
-                                                                                    ## !
-                                                                                    ## "LastParameter"
-                                                                                    ## of
-                                                                                    ## the
-                                                                                    ## curve.
+  Geom2d_BoundedCurve* {.importcpp: "Geom2d_BoundedCurve",
+                        header: "Geom2d_BoundedCurve.hxx", bycopy.} = object of Geom2d_Curve ##
+                                                                                      ## !
+                                                                                      ## Returns
+                                                                                      ## the
+                                                                                      ## end
+                                                                                      ## point
+                                                                                      ## of
+                                                                                      ## the
+                                                                                      ## curve.
+                                                                                      ##
+                                                                                      ## !
+                                                                                      ## The
+                                                                                      ## end
+                                                                                      ## point
+                                                                                      ## is
+                                                                                      ## the
+                                                                                      ## value
+                                                                                      ## of
+                                                                                      ## the
+                                                                                      ## curve
+                                                                                      ## for
+                                                                                      ## the
+                                                                                      ##
+                                                                                      ## !
+                                                                                      ## "LastParameter"
+                                                                                      ## of
+                                                                                      ## the
+                                                                                      ## curve.
 
 
-proc endPoint*(this: Geom2dBoundedCurve): GpPnt2d {.noSideEffect,
+proc EndPoint*(this: Geom2d_BoundedCurve): gp_Pnt2d {.noSideEffect,
     importcpp: "EndPoint", header: "Geom2d_BoundedCurve.hxx".}
-proc startPoint*(this: Geom2dBoundedCurve): GpPnt2d {.noSideEffect,
+proc StartPoint*(this: Geom2d_BoundedCurve): gp_Pnt2d {.noSideEffect,
     importcpp: "StartPoint", header: "Geom2d_BoundedCurve.hxx".}
-proc dumpJson*(this: Geom2dBoundedCurve; theOStream: var StandardOStream;
-              theDepth: StandardInteger = -1) {.noSideEffect, importcpp: "DumpJson",
+proc DumpJson*(this: Geom2d_BoundedCurve; theOStream: var Standard_OStream;
+              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
     header: "Geom2d_BoundedCurve.hxx".}
 type
-  Geom2dBoundedCurvebaseType* = Geom2dCurve
+  Geom2d_BoundedCurvebase_type* = Geom2d_Curve
 
-proc getTypeName*(): cstring {.importcpp: "Geom2d_BoundedCurve::get_type_name(@)",
-                            header: "Geom2d_BoundedCurve.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "Geom2d_BoundedCurve::get_type_name(@)",
+                              header: "Geom2d_BoundedCurve.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "Geom2d_BoundedCurve::get_type_descriptor(@)",
     header: "Geom2d_BoundedCurve.hxx".}
-proc dynamicType*(this: Geom2dBoundedCurve): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: Geom2d_BoundedCurve): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "Geom2d_BoundedCurve.hxx".}
-

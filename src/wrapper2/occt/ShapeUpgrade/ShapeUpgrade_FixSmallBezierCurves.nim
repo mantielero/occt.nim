@@ -13,34 +13,37 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ShapeUpgrade_FixSmallCurves,
+  ../Standard/Standard_Boolean, ../Standard/Standard_Real
+
 discard "forward decl of Geom_Curve"
 discard "forward decl of Geom2d_Curve"
 discard "forward decl of ShapeUpgrade_FixSmallBezierCurves"
 discard "forward decl of ShapeUpgrade_FixSmallBezierCurves"
 type
-  HandleShapeUpgradeFixSmallBezierCurves* = Handle[
-      ShapeUpgradeFixSmallBezierCurves]
-  ShapeUpgradeFixSmallBezierCurves* {.importcpp: "ShapeUpgrade_FixSmallBezierCurves", header: "ShapeUpgrade_FixSmallBezierCurves.hxx",
-                                     bycopy.} = object of ShapeUpgradeFixSmallCurves
+  Handle_ShapeUpgrade_FixSmallBezierCurves* = handle[
+      ShapeUpgrade_FixSmallBezierCurves]
+  ShapeUpgrade_FixSmallBezierCurves* {.importcpp: "ShapeUpgrade_FixSmallBezierCurves", header: "ShapeUpgrade_FixSmallBezierCurves.hxx",
+                                      bycopy.} = object of ShapeUpgrade_FixSmallCurves
 
 
-proc constructShapeUpgradeFixSmallBezierCurves*(): ShapeUpgradeFixSmallBezierCurves {.
+proc constructShapeUpgrade_FixSmallBezierCurves*(): ShapeUpgrade_FixSmallBezierCurves {.
     constructor, importcpp: "ShapeUpgrade_FixSmallBezierCurves(@)",
     header: "ShapeUpgrade_FixSmallBezierCurves.hxx".}
-proc approx*(this: var ShapeUpgradeFixSmallBezierCurves;
-            curve3d: var Handle[GeomCurve]; curve2d: var Handle[Geom2dCurve];
-            curve2dR: var Handle[Geom2dCurve]; first: var StandardReal;
-            last: var StandardReal): StandardBoolean {.importcpp: "Approx",
+proc Approx*(this: var ShapeUpgrade_FixSmallBezierCurves;
+            Curve3d: var handle[Geom_Curve]; Curve2d: var handle[Geom2d_Curve];
+            Curve2dR: var handle[Geom2d_Curve]; First: var Standard_Real;
+            Last: var Standard_Real): Standard_Boolean {.importcpp: "Approx",
     header: "ShapeUpgrade_FixSmallBezierCurves.hxx".}
 type
-  ShapeUpgradeFixSmallBezierCurvesbaseType* = ShapeUpgradeFixSmallCurves
+  ShapeUpgrade_FixSmallBezierCurvesbase_type* = ShapeUpgrade_FixSmallCurves
 
-proc getTypeName*(): cstring {.importcpp: "ShapeUpgrade_FixSmallBezierCurves::get_type_name(@)",
-                            header: "ShapeUpgrade_FixSmallBezierCurves.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "ShapeUpgrade_FixSmallBezierCurves::get_type_name(@)",
+                              header: "ShapeUpgrade_FixSmallBezierCurves.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "ShapeUpgrade_FixSmallBezierCurves::get_type_descriptor(@)",
     header: "ShapeUpgrade_FixSmallBezierCurves.hxx".}
-proc dynamicType*(this: ShapeUpgradeFixSmallBezierCurves): Handle[StandardType] {.
+proc DynamicType*(this: ShapeUpgrade_FixSmallBezierCurves): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType",
     header: "ShapeUpgrade_FixSmallBezierCurves.hxx".}
-

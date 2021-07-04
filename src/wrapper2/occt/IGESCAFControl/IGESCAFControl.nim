@@ -13,6 +13,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 discard "forward decl of Quantity_Color"
 discard "forward decl of IGESCAFControl_Reader"
 discard "forward decl of IGESCAFControl_Writer"
@@ -37,8 +41,7 @@ type
                                                                                          ## color
 
 
-proc decodeColor*(col: StandardInteger): QuantityColor {.
+proc DecodeColor*(col: Standard_Integer): Quantity_Color {.
     importcpp: "IGESCAFControl::DecodeColor(@)", header: "IGESCAFControl.hxx".}
-proc encodeColor*(col: QuantityColor): StandardInteger {.
+proc EncodeColor*(col: Quantity_Color): Standard_Integer {.
     importcpp: "IGESCAFControl::EncodeColor(@)", header: "IGESCAFControl.hxx".}
-

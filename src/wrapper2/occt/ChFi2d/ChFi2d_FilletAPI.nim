@@ -13,6 +13,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ChFi2d_FilletAlgo, ChFi2d_AnaFilletAlgo
+
 ## ! An interface class for 2D fillets.
 ## ! Open CASCADE provides two algorithms for 2D fillets:
 ## !     ChFi2d_Builder - it constructs a fillet or chamfer
@@ -31,32 +34,32 @@
 ## ! analyzing the arguments (a wire or two edges).
 
 type
-  ChFi2dFilletAPI* {.importcpp: "ChFi2d_FilletAPI", header: "ChFi2d_FilletAPI.hxx",
-                    bycopy.} = object ## ! An empty constructor of the fillet algorithm.
-                                   ## ! Call a method Init() to initialize the algorithm
-                                   ## ! before calling of a Perform() method.
-                                   ##  Decides whether the input parameters may use an analytical algorithm
-                                   ##  for calculation of the fillets, or an iteration-recursive method is needed.
-                                   ##  The analytical solution is applicable for linear and circular edges
-                                   ##  having a common point.
+  ChFi2d_FilletAPI* {.importcpp: "ChFi2d_FilletAPI",
+                     header: "ChFi2d_FilletAPI.hxx", bycopy.} = object ## ! An empty constructor of the fillet algorithm.
+                                                                  ## ! Call a method Init() to initialize the algorithm
+                                                                  ## ! before calling of a Perform() method.
+                                                                  ##  Decides whether the input parameters may use an analytical algorithm
+                                                                  ##  for calculation of the fillets, or an
+                                                                  ## iteration-recursive method is needed.
+                                                                  ##  The analytical solution is applicable for linear and circular edges
+                                                                  ##  having a common point.
 
 
-proc constructChFi2dFilletAPI*(): ChFi2dFilletAPI {.constructor,
+proc constructChFi2d_FilletAPI*(): ChFi2d_FilletAPI {.constructor,
     importcpp: "ChFi2d_FilletAPI(@)", header: "ChFi2d_FilletAPI.hxx".}
-proc constructChFi2dFilletAPI*(theWire: TopoDS_Wire; thePlane: GpPln): ChFi2dFilletAPI {.
+proc constructChFi2d_FilletAPI*(theWire: TopoDS_Wire; thePlane: gp_Pln): ChFi2d_FilletAPI {.
     constructor, importcpp: "ChFi2d_FilletAPI(@)", header: "ChFi2d_FilletAPI.hxx".}
-proc constructChFi2dFilletAPI*(theEdge1: TopoDS_Edge; theEdge2: TopoDS_Edge;
-                              thePlane: GpPln): ChFi2dFilletAPI {.constructor,
+proc constructChFi2d_FilletAPI*(theEdge1: TopoDS_Edge; theEdge2: TopoDS_Edge;
+                               thePlane: gp_Pln): ChFi2d_FilletAPI {.constructor,
     importcpp: "ChFi2d_FilletAPI(@)", header: "ChFi2d_FilletAPI.hxx".}
-proc init*(this: var ChFi2dFilletAPI; theWire: TopoDS_Wire; thePlane: GpPln) {.
+proc Init*(this: var ChFi2d_FilletAPI; theWire: TopoDS_Wire; thePlane: gp_Pln) {.
     importcpp: "Init", header: "ChFi2d_FilletAPI.hxx".}
-proc init*(this: var ChFi2dFilletAPI; theEdge1: TopoDS_Edge; theEdge2: TopoDS_Edge;
-          thePlane: GpPln) {.importcpp: "Init", header: "ChFi2d_FilletAPI.hxx".}
-proc perform*(this: var ChFi2dFilletAPI; theRadius: StandardReal): StandardBoolean {.
+proc Init*(this: var ChFi2d_FilletAPI; theEdge1: TopoDS_Edge; theEdge2: TopoDS_Edge;
+          thePlane: gp_Pln) {.importcpp: "Init", header: "ChFi2d_FilletAPI.hxx".}
+proc Perform*(this: var ChFi2d_FilletAPI; theRadius: Standard_Real): Standard_Boolean {.
     importcpp: "Perform", header: "ChFi2d_FilletAPI.hxx".}
-proc nbResults*(this: var ChFi2dFilletAPI; thePoint: GpPnt): StandardInteger {.
+proc NbResults*(this: var ChFi2d_FilletAPI; thePoint: gp_Pnt): Standard_Integer {.
     importcpp: "NbResults", header: "ChFi2d_FilletAPI.hxx".}
-proc result*(this: var ChFi2dFilletAPI; thePoint: GpPnt; theEdge1: var TopoDS_Edge;
-            theEdge2: var TopoDS_Edge; iSolution: StandardInteger = -1): TopoDS_Edge {.
+proc Result*(this: var ChFi2d_FilletAPI; thePoint: gp_Pnt; theEdge1: var TopoDS_Edge;
+            theEdge2: var TopoDS_Edge; iSolution: Standard_Integer = -1): TopoDS_Edge {.
     importcpp: "Result", header: "ChFi2d_FilletAPI.hxx".}
-

@@ -14,35 +14,37 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  Quantity_Color, Quantity_Array1OfColor, ../NCollection/NCollection_DefineHArray1
+
 type
-  QuantityHArray1OfColor* {.importcpp: "Quantity_HArray1OfColor",
-                           header: "Quantity_HArray1OfColor.hxx", bycopy.} = object of QuantityArray1OfColor
+  Quantity_HArray1OfColor* {.importcpp: "Quantity_HArray1OfColor",
+                            header: "Quantity_HArray1OfColor.hxx", bycopy.} = object of Quantity_Array1OfColor
 
 
-proc constructQuantityHArray1OfColor*(theLower: StandardInteger;
-                                     theUpper: StandardInteger): QuantityHArray1OfColor {.
+proc constructQuantity_HArray1OfColor*(theLower: Standard_Integer;
+                                      theUpper: Standard_Integer): Quantity_HArray1OfColor {.
     constructor, importcpp: "Quantity_HArray1OfColor(@)",
     header: "Quantity_HArray1OfColor.hxx".}
-proc constructQuantityHArray1OfColor*(theLower: StandardInteger;
-                                     theUpper: StandardInteger;
-                                     theValue: ValueType): QuantityHArray1OfColor {.
+proc constructQuantity_HArray1OfColor*(theLower: Standard_Integer;
+                                      theUpper: Standard_Integer;
+                                      theValue: value_type): Quantity_HArray1OfColor {.
     constructor, importcpp: "Quantity_HArray1OfColor(@)",
     header: "Quantity_HArray1OfColor.hxx".}
-proc constructQuantityHArray1OfColor*(theOther: QuantityArray1OfColor): QuantityHArray1OfColor {.
+proc constructQuantity_HArray1OfColor*(theOther: Quantity_Array1OfColor): Quantity_HArray1OfColor {.
     constructor, importcpp: "Quantity_HArray1OfColor(@)",
     header: "Quantity_HArray1OfColor.hxx".}
-proc array1*(this: QuantityHArray1OfColor): QuantityArray1OfColor {.noSideEffect,
+proc Array1*(this: Quantity_HArray1OfColor): Quantity_Array1OfColor {.noSideEffect,
     importcpp: "Array1", header: "Quantity_HArray1OfColor.hxx".}
-proc changeArray1*(this: var QuantityHArray1OfColor): var QuantityArray1OfColor {.
+proc ChangeArray1*(this: var Quantity_HArray1OfColor): var Quantity_Array1OfColor {.
     importcpp: "ChangeArray1", header: "Quantity_HArray1OfColor.hxx".}
 type
-  QuantityHArray1OfColorbaseType* = MMgtTShared
+  Quantity_HArray1OfColorbase_type* = MMgt_TShared
 
-proc getTypeName*(): cstring {.importcpp: "Quantity_HArray1OfColor::get_type_name(@)",
-                            header: "Quantity_HArray1OfColor.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "Quantity_HArray1OfColor::get_type_name(@)",
+                              header: "Quantity_HArray1OfColor.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "Quantity_HArray1OfColor::get_type_descriptor(@)",
     header: "Quantity_HArray1OfColor.hxx".}
-proc dynamicType*(this: QuantityHArray1OfColor): Handle[StandardType] {.
+proc DynamicType*(this: Quantity_HArray1OfColor): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType", header: "Quantity_HArray1OfColor.hxx".}
-

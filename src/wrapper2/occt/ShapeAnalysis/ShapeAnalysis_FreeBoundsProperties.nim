@@ -14,86 +14,94 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../TopoDS/TopoDS_Shape, ../Standard/Standard_Real,
+  ../Standard/Standard_Boolean, ShapeAnalysis_HSequenceOfFreeBounds,
+  ../Standard/Standard_Integer
+
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of ShapeAnalysis_FreeBoundData"
 discard "forward decl of TopoDS_Wire"
 type
-  ShapeAnalysisFreeBoundsProperties* {.importcpp: "ShapeAnalysis_FreeBoundsProperties", header: "ShapeAnalysis_FreeBoundsProperties.hxx",
-                                      bycopy.} = object ## ! Empty constructor
+  ShapeAnalysis_FreeBoundsProperties* {.importcpp: "ShapeAnalysis_FreeBoundsProperties", header: "ShapeAnalysis_FreeBoundsProperties.hxx",
+                                       bycopy.} = object ## ! Empty constructor
 
 
-proc constructShapeAnalysisFreeBoundsProperties*(): ShapeAnalysisFreeBoundsProperties {.
+proc constructShapeAnalysis_FreeBoundsProperties*(): ShapeAnalysis_FreeBoundsProperties {.
     constructor, importcpp: "ShapeAnalysis_FreeBoundsProperties(@)",
     header: "ShapeAnalysis_FreeBoundsProperties.hxx".}
-proc constructShapeAnalysisFreeBoundsProperties*(shape: TopoDS_Shape;
-    tolerance: StandardReal; splitclosed: StandardBoolean = standardFalse;
-    splitopen: StandardBoolean = standardFalse): ShapeAnalysisFreeBoundsProperties {.
+proc constructShapeAnalysis_FreeBoundsProperties*(shape: TopoDS_Shape;
+    tolerance: Standard_Real; splitclosed: Standard_Boolean = Standard_False;
+    splitopen: Standard_Boolean = Standard_False): ShapeAnalysis_FreeBoundsProperties {.
     constructor, importcpp: "ShapeAnalysis_FreeBoundsProperties(@)",
     header: "ShapeAnalysis_FreeBoundsProperties.hxx".}
-proc constructShapeAnalysisFreeBoundsProperties*(shape: TopoDS_Shape;
-    splitclosed: StandardBoolean = standardFalse;
-    splitopen: StandardBoolean = standardFalse): ShapeAnalysisFreeBoundsProperties {.
+proc constructShapeAnalysis_FreeBoundsProperties*(shape: TopoDS_Shape;
+    splitclosed: Standard_Boolean = Standard_False;
+    splitopen: Standard_Boolean = Standard_False): ShapeAnalysis_FreeBoundsProperties {.
     constructor, importcpp: "ShapeAnalysis_FreeBoundsProperties(@)",
     header: "ShapeAnalysis_FreeBoundsProperties.hxx".}
-proc init*(this: var ShapeAnalysisFreeBoundsProperties; shape: TopoDS_Shape;
-          tolerance: StandardReal; splitclosed: StandardBoolean = standardFalse;
-          splitopen: StandardBoolean = standardFalse) {.importcpp: "Init",
+proc Init*(this: var ShapeAnalysis_FreeBoundsProperties; shape: TopoDS_Shape;
+          tolerance: Standard_Real;
+          splitclosed: Standard_Boolean = Standard_False;
+          splitopen: Standard_Boolean = Standard_False) {.importcpp: "Init",
     header: "ShapeAnalysis_FreeBoundsProperties.hxx".}
-proc init*(this: var ShapeAnalysisFreeBoundsProperties; shape: TopoDS_Shape;
-          splitclosed: StandardBoolean = standardFalse;
-          splitopen: StandardBoolean = standardFalse) {.importcpp: "Init",
+proc Init*(this: var ShapeAnalysis_FreeBoundsProperties; shape: TopoDS_Shape;
+          splitclosed: Standard_Boolean = Standard_False;
+          splitopen: Standard_Boolean = Standard_False) {.importcpp: "Init",
     header: "ShapeAnalysis_FreeBoundsProperties.hxx".}
-proc perform*(this: var ShapeAnalysisFreeBoundsProperties): StandardBoolean {.
+proc Perform*(this: var ShapeAnalysis_FreeBoundsProperties): Standard_Boolean {.
     importcpp: "Perform", header: "ShapeAnalysis_FreeBoundsProperties.hxx".}
-proc isLoaded*(this: ShapeAnalysisFreeBoundsProperties): StandardBoolean {.
+proc IsLoaded*(this: ShapeAnalysis_FreeBoundsProperties): Standard_Boolean {.
     noSideEffect, importcpp: "IsLoaded",
     header: "ShapeAnalysis_FreeBoundsProperties.hxx".}
-proc shape*(this: ShapeAnalysisFreeBoundsProperties): TopoDS_Shape {.noSideEffect,
+proc Shape*(this: ShapeAnalysis_FreeBoundsProperties): TopoDS_Shape {.noSideEffect,
     importcpp: "Shape", header: "ShapeAnalysis_FreeBoundsProperties.hxx".}
-proc tolerance*(this: ShapeAnalysisFreeBoundsProperties): StandardReal {.
+proc Tolerance*(this: ShapeAnalysis_FreeBoundsProperties): Standard_Real {.
     noSideEffect, importcpp: "Tolerance",
     header: "ShapeAnalysis_FreeBoundsProperties.hxx".}
-proc nbFreeBounds*(this: ShapeAnalysisFreeBoundsProperties): StandardInteger {.
+proc NbFreeBounds*(this: ShapeAnalysis_FreeBoundsProperties): Standard_Integer {.
     noSideEffect, importcpp: "NbFreeBounds",
     header: "ShapeAnalysis_FreeBoundsProperties.hxx".}
-proc nbClosedFreeBounds*(this: ShapeAnalysisFreeBoundsProperties): StandardInteger {.
+proc NbClosedFreeBounds*(this: ShapeAnalysis_FreeBoundsProperties): Standard_Integer {.
     noSideEffect, importcpp: "NbClosedFreeBounds",
     header: "ShapeAnalysis_FreeBoundsProperties.hxx".}
-proc nbOpenFreeBounds*(this: ShapeAnalysisFreeBoundsProperties): StandardInteger {.
+proc NbOpenFreeBounds*(this: ShapeAnalysis_FreeBoundsProperties): Standard_Integer {.
     noSideEffect, importcpp: "NbOpenFreeBounds",
     header: "ShapeAnalysis_FreeBoundsProperties.hxx".}
-proc closedFreeBounds*(this: ShapeAnalysisFreeBoundsProperties): Handle[
-    ShapeAnalysisHSequenceOfFreeBounds] {.noSideEffect,
+proc ClosedFreeBounds*(this: ShapeAnalysis_FreeBoundsProperties): handle[
+    ShapeAnalysis_HSequenceOfFreeBounds] {.noSideEffect,
     importcpp: "ClosedFreeBounds",
     header: "ShapeAnalysis_FreeBoundsProperties.hxx".}
-proc openFreeBounds*(this: ShapeAnalysisFreeBoundsProperties): Handle[
-    ShapeAnalysisHSequenceOfFreeBounds] {.noSideEffect,
+proc OpenFreeBounds*(this: ShapeAnalysis_FreeBoundsProperties): handle[
+    ShapeAnalysis_HSequenceOfFreeBounds] {.noSideEffect,
     importcpp: "OpenFreeBounds", header: "ShapeAnalysis_FreeBoundsProperties.hxx".}
-proc closedFreeBound*(this: ShapeAnalysisFreeBoundsProperties;
-                     index: StandardInteger): Handle[ShapeAnalysisFreeBoundData] {.
+proc ClosedFreeBound*(this: ShapeAnalysis_FreeBoundsProperties;
+                     index: Standard_Integer): handle[ShapeAnalysis_FreeBoundData] {.
     noSideEffect, importcpp: "ClosedFreeBound",
     header: "ShapeAnalysis_FreeBoundsProperties.hxx".}
-proc openFreeBound*(this: ShapeAnalysisFreeBoundsProperties; index: StandardInteger): Handle[
-    ShapeAnalysisFreeBoundData] {.noSideEffect, importcpp: "OpenFreeBound", header: "ShapeAnalysis_FreeBoundsProperties.hxx".}
-proc dispatchBounds*(this: var ShapeAnalysisFreeBoundsProperties): StandardBoolean {.
+proc OpenFreeBound*(this: ShapeAnalysis_FreeBoundsProperties;
+                   index: Standard_Integer): handle[ShapeAnalysis_FreeBoundData] {.
+    noSideEffect, importcpp: "OpenFreeBound",
+    header: "ShapeAnalysis_FreeBoundsProperties.hxx".}
+proc DispatchBounds*(this: var ShapeAnalysis_FreeBoundsProperties): Standard_Boolean {.
     importcpp: "DispatchBounds", header: "ShapeAnalysis_FreeBoundsProperties.hxx".}
-proc checkContours*(this: var ShapeAnalysisFreeBoundsProperties;
-                   prec: StandardReal = 0.0): StandardBoolean {.
+proc CheckContours*(this: var ShapeAnalysis_FreeBoundsProperties;
+                   prec: Standard_Real = 0.0): Standard_Boolean {.
     importcpp: "CheckContours", header: "ShapeAnalysis_FreeBoundsProperties.hxx".}
-proc checkNotches*(this: var ShapeAnalysisFreeBoundsProperties;
-                  prec: StandardReal = 0.0): StandardBoolean {.
+proc CheckNotches*(this: var ShapeAnalysis_FreeBoundsProperties;
+                  prec: Standard_Real = 0.0): Standard_Boolean {.
     importcpp: "CheckNotches", header: "ShapeAnalysis_FreeBoundsProperties.hxx".}
-proc checkNotches*(this: var ShapeAnalysisFreeBoundsProperties;
-                  fbData: var Handle[ShapeAnalysisFreeBoundData];
-                  prec: StandardReal = 0.0): StandardBoolean {.
+proc CheckNotches*(this: var ShapeAnalysis_FreeBoundsProperties;
+                  fbData: var handle[ShapeAnalysis_FreeBoundData];
+                  prec: Standard_Real = 0.0): Standard_Boolean {.
     importcpp: "CheckNotches", header: "ShapeAnalysis_FreeBoundsProperties.hxx".}
-proc checkNotches*(this: var ShapeAnalysisFreeBoundsProperties;
-                  freebound: TopoDS_Wire; num: StandardInteger;
-                  notch: var TopoDS_Wire; distMax: var StandardReal;
-                  prec: StandardReal = 0.0): StandardBoolean {.
+proc CheckNotches*(this: var ShapeAnalysis_FreeBoundsProperties;
+                  freebound: TopoDS_Wire; num: Standard_Integer;
+                  notch: var TopoDS_Wire; distMax: var Standard_Real;
+                  prec: Standard_Real = 0.0): Standard_Boolean {.
     importcpp: "CheckNotches", header: "ShapeAnalysis_FreeBoundsProperties.hxx".}
-proc fillProperties*(this: var ShapeAnalysisFreeBoundsProperties;
-                    fbData: var Handle[ShapeAnalysisFreeBoundData];
-                    prec: StandardReal = 0.0): StandardBoolean {.
+proc FillProperties*(this: var ShapeAnalysis_FreeBoundsProperties;
+                    fbData: var handle[ShapeAnalysis_FreeBoundData];
+                    prec: Standard_Real = 0.0): Standard_Boolean {.
     importcpp: "FillProperties", header: "ShapeAnalysis_FreeBoundsProperties.hxx".}
-

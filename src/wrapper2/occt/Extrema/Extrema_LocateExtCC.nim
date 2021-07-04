@@ -14,31 +14,38 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
+  ../Standard/Standard_Real, Extrema_POnCurv
+
 discard "forward decl of Standard_DomainError"
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of Adaptor3d_Curve"
 discard "forward decl of Extrema_POnCurv"
 type
-  ExtremaLocateExtCC* {.importcpp: "Extrema_LocateExtCC",
-                       header: "Extrema_LocateExtCC.hxx", bycopy.} = object ## !
-                                                                       ## Calculates the distance with a close point. The
-                                                                       ## ! close point is defined by a parameter value on each
-                                                                       ## ! curve.
-                                                                       ## ! The function
-                                                                       ## F(u,v)=distance(C1(u),C2(v)) has an
-                                                                       ## ! extremun when
-                                                                       ## gradient(f)=0. The algorithm searchs
-                                                                       ## ! the zero near the close point.
+  Extrema_LocateExtCC* {.importcpp: "Extrema_LocateExtCC",
+                        header: "Extrema_LocateExtCC.hxx", bycopy.} = object ## !
+                                                                        ## Calculates the distance with a close point. The
+                                                                        ## ! close point is defined by a
+                                                                        ## parameter value on each
+                                                                        ## ! curve.
+                                                                        ## ! The function
+                                                                        ## F(u,v)=distance(C1(u),C2(v)) has an
+                                                                        ## ! extremun when
+                                                                        ## gradient(f)=0. The
+                                                                        ## algorithm searchs
+                                                                        ## ! the zero near the close point.
 
 
-proc constructExtremaLocateExtCC*(c1: Adaptor3dCurve; c2: Adaptor3dCurve;
-                                 u0: StandardReal; v0: StandardReal): ExtremaLocateExtCC {.
+proc constructExtrema_LocateExtCC*(C1: Adaptor3d_Curve; C2: Adaptor3d_Curve;
+                                  U0: Standard_Real; V0: Standard_Real): Extrema_LocateExtCC {.
     constructor, importcpp: "Extrema_LocateExtCC(@)",
     header: "Extrema_LocateExtCC.hxx".}
-proc isDone*(this: ExtremaLocateExtCC): StandardBoolean {.noSideEffect,
+proc IsDone*(this: Extrema_LocateExtCC): Standard_Boolean {.noSideEffect,
     importcpp: "IsDone", header: "Extrema_LocateExtCC.hxx".}
-proc squareDistance*(this: ExtremaLocateExtCC): StandardReal {.noSideEffect,
+proc SquareDistance*(this: Extrema_LocateExtCC): Standard_Real {.noSideEffect,
     importcpp: "SquareDistance", header: "Extrema_LocateExtCC.hxx".}
-proc point*(this: ExtremaLocateExtCC; p1: var ExtremaPOnCurv; p2: var ExtremaPOnCurv) {.
-    noSideEffect, importcpp: "Point", header: "Extrema_LocateExtCC.hxx".}
-
+proc Point*(this: Extrema_LocateExtCC; P1: var Extrema_POnCurv;
+           P2: var Extrema_POnCurv) {.noSideEffect, importcpp: "Point",
+                                   header: "Extrema_LocateExtCC.hxx".}

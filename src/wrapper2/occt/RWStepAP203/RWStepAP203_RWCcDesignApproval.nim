@@ -14,30 +14,32 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepAP203_CcDesignApproval"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepAP203RWCcDesignApproval* {.importcpp: "RWStepAP203_RWCcDesignApproval",
-                                  header: "RWStepAP203_RWCcDesignApproval.hxx",
-                                  bycopy.} = object ## ! Empty constructor
+  RWStepAP203_RWCcDesignApproval* {.importcpp: "RWStepAP203_RWCcDesignApproval", header: "RWStepAP203_RWCcDesignApproval.hxx",
+                                   bycopy.} = object ## ! Empty constructor
 
 
-proc constructRWStepAP203RWCcDesignApproval*(): RWStepAP203RWCcDesignApproval {.
+proc constructRWStepAP203_RWCcDesignApproval*(): RWStepAP203_RWCcDesignApproval {.
     constructor, importcpp: "RWStepAP203_RWCcDesignApproval(@)",
     header: "RWStepAP203_RWCcDesignApproval.hxx".}
-proc readStep*(this: RWStepAP203RWCcDesignApproval;
-              data: Handle[StepDataStepReaderData]; num: StandardInteger;
-              ach: var Handle[InterfaceCheck];
-              ent: Handle[StepAP203CcDesignApproval]) {.noSideEffect,
+proc ReadStep*(this: RWStepAP203_RWCcDesignApproval;
+              data: handle[StepData_StepReaderData]; num: Standard_Integer;
+              ach: var handle[Interface_Check];
+              ent: handle[StepAP203_CcDesignApproval]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepAP203_RWCcDesignApproval.hxx".}
-proc writeStep*(this: RWStepAP203RWCcDesignApproval; sw: var StepDataStepWriter;
-               ent: Handle[StepAP203CcDesignApproval]) {.noSideEffect,
+proc WriteStep*(this: RWStepAP203_RWCcDesignApproval; SW: var StepData_StepWriter;
+               ent: handle[StepAP203_CcDesignApproval]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepAP203_RWCcDesignApproval.hxx".}
-proc share*(this: RWStepAP203RWCcDesignApproval;
-           ent: Handle[StepAP203CcDesignApproval];
-           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
+proc Share*(this: RWStepAP203_RWCcDesignApproval;
+           ent: handle[StepAP203_CcDesignApproval];
+           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepAP203_RWCcDesignApproval.hxx".}
-

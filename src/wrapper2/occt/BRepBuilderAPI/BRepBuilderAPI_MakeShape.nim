@@ -14,6 +14,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../TopoDS/TopoDS_Shape,
+  ../TopTools/TopTools_ListOfShape, BRepBuilderAPI_Command,
+  ../Standard/Standard_Boolean
+
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of TopoDS_Shape"
 type
@@ -36,17 +42,16 @@ type
                                                                                                           ## redefined.
 
 
-proc build*(this: var BRepBuilderAPI_MakeShape) {.importcpp: "Build",
+proc Build*(this: var BRepBuilderAPI_MakeShape) {.importcpp: "Build",
     header: "BRepBuilderAPI_MakeShape.hxx".}
-proc shape*(this: var BRepBuilderAPI_MakeShape): TopoDS_Shape {.importcpp: "Shape",
+proc Shape*(this: var BRepBuilderAPI_MakeShape): TopoDS_Shape {.importcpp: "Shape",
     header: "BRepBuilderAPI_MakeShape.hxx".}
-converter `topoDS_Shape`*(this: var BRepBuilderAPI_MakeShape): TopoDS_Shape {.
+converter `TopoDS_Shape`*(this: var BRepBuilderAPI_MakeShape): TopoDS_Shape {.
     importcpp: "BRepBuilderAPI_MakeShape::operator TopoDS_Shape",
     header: "BRepBuilderAPI_MakeShape.hxx".}
-proc generated*(this: var BRepBuilderAPI_MakeShape; s: TopoDS_Shape): TopToolsListOfShape {.
+proc Generated*(this: var BRepBuilderAPI_MakeShape; S: TopoDS_Shape): TopTools_ListOfShape {.
     importcpp: "Generated", header: "BRepBuilderAPI_MakeShape.hxx".}
-proc modified*(this: var BRepBuilderAPI_MakeShape; s: TopoDS_Shape): TopToolsListOfShape {.
+proc Modified*(this: var BRepBuilderAPI_MakeShape; S: TopoDS_Shape): TopTools_ListOfShape {.
     importcpp: "Modified", header: "BRepBuilderAPI_MakeShape.hxx".}
-proc isDeleted*(this: var BRepBuilderAPI_MakeShape; s: TopoDS_Shape): StandardBoolean {.
+proc IsDeleted*(this: var BRepBuilderAPI_MakeShape; S: TopoDS_Shape): Standard_Boolean {.
     importcpp: "IsDeleted", header: "BRepBuilderAPI_MakeShape.hxx".}
-

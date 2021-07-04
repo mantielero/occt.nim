@@ -14,6 +14,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, IFSelect_Dispatch,
+  ../Standard/Standard_CString, ../Standard/Standard_Boolean,
+  ../Standard/Standard_Integer
+
 discard "forward decl of IFSelect_SignCounter"
 discard "forward decl of Interface_InterfaceError"
 discard "forward decl of TCollection_AsciiString"
@@ -22,57 +27,56 @@ discard "forward decl of IFGraph_SubPartsIterator"
 discard "forward decl of IFSelect_DispPerSignature"
 discard "forward decl of IFSelect_DispPerSignature"
 type
-  HandleIFSelectDispPerSignature* = Handle[IFSelectDispPerSignature]
+  Handle_IFSelect_DispPerSignature* = handle[IFSelect_DispPerSignature]
 
 ## ! A DispPerSignature sorts input Entities according to a
 ## ! Signature : it works with a SignCounter to do this.
 
 type
-  IFSelectDispPerSignature* {.importcpp: "IFSelect_DispPerSignature",
-                             header: "IFSelect_DispPerSignature.hxx", bycopy.} = object of IFSelectDispatch ##
-                                                                                                     ## !
-                                                                                                     ## Creates
-                                                                                                     ## a
-                                                                                                     ## DispPerSignature
-                                                                                                     ## with
-                                                                                                     ## no
-                                                                                                     ## SignCounter
-                                                                                                     ## (by
-                                                                                                     ## default,
-                                                                                                     ##
-                                                                                                     ## !
-                                                                                                     ## produces
-                                                                                                     ## only
-                                                                                                     ## one
-                                                                                                     ## packet)
+  IFSelect_DispPerSignature* {.importcpp: "IFSelect_DispPerSignature",
+                              header: "IFSelect_DispPerSignature.hxx", bycopy.} = object of IFSelect_Dispatch ##
+                                                                                                       ## !
+                                                                                                       ## Creates
+                                                                                                       ## a
+                                                                                                       ## DispPerSignature
+                                                                                                       ## with
+                                                                                                       ## no
+                                                                                                       ## SignCounter
+                                                                                                       ## (by
+                                                                                                       ## default,
+                                                                                                       ##
+                                                                                                       ## !
+                                                                                                       ## produces
+                                                                                                       ## only
+                                                                                                       ## one
+                                                                                                       ## packet)
 
 
-proc constructIFSelectDispPerSignature*(): IFSelectDispPerSignature {.constructor,
-    importcpp: "IFSelect_DispPerSignature(@)",
+proc constructIFSelect_DispPerSignature*(): IFSelect_DispPerSignature {.
+    constructor, importcpp: "IFSelect_DispPerSignature(@)",
     header: "IFSelect_DispPerSignature.hxx".}
-proc signCounter*(this: IFSelectDispPerSignature): Handle[IFSelectSignCounter] {.
+proc SignCounter*(this: IFSelect_DispPerSignature): handle[IFSelect_SignCounter] {.
     noSideEffect, importcpp: "SignCounter", header: "IFSelect_DispPerSignature.hxx".}
-proc setSignCounter*(this: var IFSelectDispPerSignature;
-                    sign: Handle[IFSelectSignCounter]) {.
+proc SetSignCounter*(this: var IFSelect_DispPerSignature;
+                    sign: handle[IFSelect_SignCounter]) {.
     importcpp: "SetSignCounter", header: "IFSelect_DispPerSignature.hxx".}
-proc signName*(this: IFSelectDispPerSignature): StandardCString {.noSideEffect,
+proc SignName*(this: IFSelect_DispPerSignature): Standard_CString {.noSideEffect,
     importcpp: "SignName", header: "IFSelect_DispPerSignature.hxx".}
-proc label*(this: IFSelectDispPerSignature): TCollectionAsciiString {.noSideEffect,
-    importcpp: "Label", header: "IFSelect_DispPerSignature.hxx".}
-proc limitedMax*(this: IFSelectDispPerSignature; nbent: StandardInteger;
-                max: var StandardInteger): StandardBoolean {.noSideEffect,
+proc Label*(this: IFSelect_DispPerSignature): TCollection_AsciiString {.
+    noSideEffect, importcpp: "Label", header: "IFSelect_DispPerSignature.hxx".}
+proc LimitedMax*(this: IFSelect_DispPerSignature; nbent: Standard_Integer;
+                max: var Standard_Integer): Standard_Boolean {.noSideEffect,
     importcpp: "LimitedMax", header: "IFSelect_DispPerSignature.hxx".}
-proc packets*(this: IFSelectDispPerSignature; g: InterfaceGraph;
-             packs: var IFGraphSubPartsIterator) {.noSideEffect,
+proc Packets*(this: IFSelect_DispPerSignature; G: Interface_Graph;
+             packs: var IFGraph_SubPartsIterator) {.noSideEffect,
     importcpp: "Packets", header: "IFSelect_DispPerSignature.hxx".}
 type
-  IFSelectDispPerSignaturebaseType* = IFSelectDispatch
+  IFSelect_DispPerSignaturebase_type* = IFSelect_Dispatch
 
-proc getTypeName*(): cstring {.importcpp: "IFSelect_DispPerSignature::get_type_name(@)",
-                            header: "IFSelect_DispPerSignature.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "IFSelect_DispPerSignature::get_type_name(@)",
+                              header: "IFSelect_DispPerSignature.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "IFSelect_DispPerSignature::get_type_descriptor(@)",
     header: "IFSelect_DispPerSignature.hxx".}
-proc dynamicType*(this: IFSelectDispPerSignature): Handle[StandardType] {.
+proc DynamicType*(this: IFSelect_DispPerSignature): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType", header: "IFSelect_DispPerSignature.hxx".}
-

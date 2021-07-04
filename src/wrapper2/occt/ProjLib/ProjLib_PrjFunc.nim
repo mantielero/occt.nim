@@ -14,28 +14,34 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Adaptor3d/Adaptor3d_CurvePtr,
+  ../Adaptor3d/Adaptor3d_SurfacePtr, ../Standard/Standard_Real,
+  ../Standard/Standard_Integer, ../math/math_FunctionSetWithDerivatives,
+  ../Standard/Standard_Boolean, ../math/math_Vector
+
 discard "forward decl of Standard_ConstructionError"
 discard "forward decl of math_Matrix"
 discard "forward decl of gp_Pnt2d"
 type
-  ProjLibPrjFunc* {.importcpp: "ProjLib_PrjFunc", header: "ProjLib_PrjFunc.hxx",
-                   bycopy.} = object of MathFunctionSetWithDerivatives
+  ProjLib_PrjFunc* {.importcpp: "ProjLib_PrjFunc", header: "ProjLib_PrjFunc.hxx",
+                    bycopy.} = object of math_FunctionSetWithDerivatives
 
 
-proc constructProjLibPrjFunc*(c: Adaptor3dCurvePtr; fixVal: StandardReal;
-                             s: Adaptor3dSurfacePtr; fix: StandardInteger): ProjLibPrjFunc {.
+proc constructProjLib_PrjFunc*(C: Adaptor3d_CurvePtr; FixVal: Standard_Real;
+                              S: Adaptor3d_SurfacePtr; Fix: Standard_Integer): ProjLib_PrjFunc {.
     constructor, importcpp: "ProjLib_PrjFunc(@)", header: "ProjLib_PrjFunc.hxx".}
-proc nbVariables*(this: ProjLibPrjFunc): StandardInteger {.noSideEffect,
+proc NbVariables*(this: ProjLib_PrjFunc): Standard_Integer {.noSideEffect,
     importcpp: "NbVariables", header: "ProjLib_PrjFunc.hxx".}
-proc nbEquations*(this: ProjLibPrjFunc): StandardInteger {.noSideEffect,
+proc NbEquations*(this: ProjLib_PrjFunc): Standard_Integer {.noSideEffect,
     importcpp: "NbEquations", header: "ProjLib_PrjFunc.hxx".}
-proc value*(this: var ProjLibPrjFunc; x: MathVector; f: var MathVector): StandardBoolean {.
+proc Value*(this: var ProjLib_PrjFunc; X: math_Vector; F: var math_Vector): Standard_Boolean {.
     importcpp: "Value", header: "ProjLib_PrjFunc.hxx".}
-proc derivatives*(this: var ProjLibPrjFunc; x: MathVector; d: var MathMatrix): StandardBoolean {.
+proc Derivatives*(this: var ProjLib_PrjFunc; X: math_Vector; D: var math_Matrix): Standard_Boolean {.
     importcpp: "Derivatives", header: "ProjLib_PrjFunc.hxx".}
-proc values*(this: var ProjLibPrjFunc; x: MathVector; f: var MathVector;
-            d: var MathMatrix): StandardBoolean {.importcpp: "Values",
+proc Values*(this: var ProjLib_PrjFunc; X: math_Vector; F: var math_Vector;
+            D: var math_Matrix): Standard_Boolean {.importcpp: "Values",
     header: "ProjLib_PrjFunc.hxx".}
-proc solution*(this: ProjLibPrjFunc): GpPnt2d {.noSideEffect, importcpp: "Solution",
-    header: "ProjLib_PrjFunc.hxx".}
-
+proc Solution*(this: ProjLib_PrjFunc): gp_Pnt2d {.noSideEffect,
+    importcpp: "Solution", header: "ProjLib_PrjFunc.hxx".}

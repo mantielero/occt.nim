@@ -14,14 +14,21 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, Interface_BitMap, Interface_InterfaceModel,
+  ../TCollection/TCollection_HAsciiString, ../TColStd/TColStd_HArray1OfInteger,
+  ../TColStd/TColStd_HArray1OfListOfInteger,
+  ../TColStd/TColStd_HSequenceOfTransient
+
 discard "forward decl of Standard_DomainError"
 discard "forward decl of Interface_GeneralLib"
 discard "forward decl of Interface_Protocol"
 discard "forward decl of Interface_GTool"
 discard "forward decl of Standard_Transient"
 discard "forward decl of Interface_EntityIterator"
-# when defined(Status):
-#   discard
+when defined(Status):
+  discard
 ## ! Gives basic data structure for operating and storing
 ## ! graph results (usage is normally internal)
 ## ! Entities are Mapped according their Number in the Model
@@ -43,116 +50,116 @@ discard "forward decl of Interface_EntityIterator"
 ## ! be changed or reset (i.e. to come back to standard answer)
 
 type
-  InterfaceGraph* {.importcpp: "Interface_Graph", header: "Interface_Graph.hxx",
-                   bycopy.} = object ## ! Creates an empty graph, ready to receive Entities from amodel
-                                  ## ! Note that this way of Creation allows <me> to verify that
-                                  ## ! Entities to work with are contained in <amodel>
-                                  ## ! Basic Shared and Sharing lists are obtained from a General
-                                  ## ! Services Library, given directly as an argument
-                                  ## ! Initialize statuses and flags
-                                  ## ! Performs the Evaluation of the Graph, from an initial Library,
-                                  ## ! either defined through a Protocol, or given dierctly
-                                  ## ! Called by the non-empty Constructors
-                                  ## !
-                                  ## ! Normally, gtool suffices. But if a Graph is created from a
-                                  ## ! GeneralLib directly, it cannot be used
-                                  ## ! If <gtool> is defined, it has priority
+  Interface_Graph* {.importcpp: "Interface_Graph", header: "Interface_Graph.hxx",
+                    bycopy.} = object ## ! Creates an empty graph, ready to receive Entities from amodel
+                                   ## ! Note that this way of Creation allows <me> to verify that
+                                   ## ! Entities to work with are contained in <amodel>
+                                   ## ! Basic Shared and Sharing lists are obtained from a General
+                                   ## ! Services Library, given directly as an argument
+                                   ## ! Initialize statuses and flags
+                                   ## ! Performs the Evaluation of the Graph, from an initial Library,
+                                   ## ! either defined through a Protocol, or given dierctly
+                                   ## ! Called by the non-empty Constructors
+                                   ## !
+                                   ## ! Normally, gtool suffices. But if a Graph is created from a
+                                   ## ! GeneralLib directly, it cannot be used
+                                   ## ! If <gtool> is defined, it has priority
 
 
-proc constructInterfaceGraph*(amodel: Handle[InterfaceInterfaceModel];
-                             lib: InterfaceGeneralLib;
-                             theModeStats: StandardBoolean = standardTrue): InterfaceGraph {.
+proc constructInterface_Graph*(amodel: handle[Interface_InterfaceModel];
+                              lib: Interface_GeneralLib;
+                              theModeStats: Standard_Boolean = Standard_True): Interface_Graph {.
     constructor, importcpp: "Interface_Graph(@)", header: "Interface_Graph.hxx".}
-proc constructInterfaceGraph*(amodel: Handle[InterfaceInterfaceModel];
-                             protocol: Handle[InterfaceProtocol];
-                             theModeStats: StandardBoolean = standardTrue): InterfaceGraph {.
+proc constructInterface_Graph*(amodel: handle[Interface_InterfaceModel];
+                              protocol: handle[Interface_Protocol];
+                              theModeStats: Standard_Boolean = Standard_True): Interface_Graph {.
     constructor, importcpp: "Interface_Graph(@)", header: "Interface_Graph.hxx".}
-proc constructInterfaceGraph*(amodel: Handle[InterfaceInterfaceModel];
-                             gtool: Handle[InterfaceGTool];
-                             theModeStats: StandardBoolean = standardTrue): InterfaceGraph {.
+proc constructInterface_Graph*(amodel: handle[Interface_InterfaceModel];
+                              gtool: handle[Interface_GTool];
+                              theModeStats: Standard_Boolean = Standard_True): Interface_Graph {.
     constructor, importcpp: "Interface_Graph(@)", header: "Interface_Graph.hxx".}
-proc constructInterfaceGraph*(amodel: Handle[InterfaceInterfaceModel];
-                             theModeStats: StandardBoolean = standardTrue): InterfaceGraph {.
+proc constructInterface_Graph*(amodel: handle[Interface_InterfaceModel];
+                              theModeStats: Standard_Boolean = Standard_True): Interface_Graph {.
     constructor, importcpp: "Interface_Graph(@)", header: "Interface_Graph.hxx".}
-proc constructInterfaceGraph*(agraph: InterfaceGraph;
-                             copied: StandardBoolean = standardFalse): InterfaceGraph {.
+proc constructInterface_Graph*(agraph: Interface_Graph;
+                              copied: Standard_Boolean = Standard_False): Interface_Graph {.
     constructor, importcpp: "Interface_Graph(@)", header: "Interface_Graph.hxx".}
-proc reset*(this: var InterfaceGraph) {.importcpp: "Reset",
-                                    header: "Interface_Graph.hxx".}
-proc resetStatus*(this: var InterfaceGraph) {.importcpp: "ResetStatus",
+proc Reset*(this: var Interface_Graph) {.importcpp: "Reset",
+                                     header: "Interface_Graph.hxx".}
+proc ResetStatus*(this: var Interface_Graph) {.importcpp: "ResetStatus",
     header: "Interface_Graph.hxx".}
-proc size*(this: InterfaceGraph): StandardInteger {.noSideEffect, importcpp: "Size",
-    header: "Interface_Graph.hxx".}
-proc nbStatuses*(this: InterfaceGraph): StandardInteger {.noSideEffect,
+proc Size*(this: Interface_Graph): Standard_Integer {.noSideEffect,
+    importcpp: "Size", header: "Interface_Graph.hxx".}
+proc NbStatuses*(this: Interface_Graph): Standard_Integer {.noSideEffect,
     importcpp: "NbStatuses", header: "Interface_Graph.hxx".}
-proc entityNumber*(this: InterfaceGraph; ent: Handle[StandardTransient]): StandardInteger {.
+proc EntityNumber*(this: Interface_Graph; ent: handle[Standard_Transient]): Standard_Integer {.
     noSideEffect, importcpp: "EntityNumber", header: "Interface_Graph.hxx".}
-proc isPresent*(this: InterfaceGraph; num: StandardInteger): StandardBoolean {.
+proc IsPresent*(this: Interface_Graph; num: Standard_Integer): Standard_Boolean {.
     noSideEffect, importcpp: "IsPresent", header: "Interface_Graph.hxx".}
-proc isPresent*(this: InterfaceGraph; ent: Handle[StandardTransient]): StandardBoolean {.
+proc IsPresent*(this: Interface_Graph; ent: handle[Standard_Transient]): Standard_Boolean {.
     noSideEffect, importcpp: "IsPresent", header: "Interface_Graph.hxx".}
-proc entity*(this: InterfaceGraph; num: StandardInteger): Handle[StandardTransient] {.
+proc Entity*(this: Interface_Graph; num: Standard_Integer): handle[Standard_Transient] {.
     noSideEffect, importcpp: "Entity", header: "Interface_Graph.hxx".}
-proc status*(this: InterfaceGraph; num: StandardInteger): StandardInteger {.
+proc Status*(this: Interface_Graph; num: Standard_Integer): Standard_Integer {.
     noSideEffect, importcpp: "Status", header: "Interface_Graph.hxx".}
-proc setStatus*(this: var InterfaceGraph; num: StandardInteger; stat: StandardInteger) {.
-    importcpp: "SetStatus", header: "Interface_Graph.hxx".}
-proc removeItem*(this: var InterfaceGraph; num: StandardInteger) {.
+proc SetStatus*(this: var Interface_Graph; num: Standard_Integer;
+               stat: Standard_Integer) {.importcpp: "SetStatus",
+                                       header: "Interface_Graph.hxx".}
+proc RemoveItem*(this: var Interface_Graph; num: Standard_Integer) {.
     importcpp: "RemoveItem", header: "Interface_Graph.hxx".}
-proc changeStatus*(this: var InterfaceGraph; oldstat: StandardInteger;
-                  newstat: StandardInteger) {.importcpp: "ChangeStatus",
+proc ChangeStatus*(this: var Interface_Graph; oldstat: Standard_Integer;
+                  newstat: Standard_Integer) {.importcpp: "ChangeStatus",
     header: "Interface_Graph.hxx".}
-proc removeStatus*(this: var InterfaceGraph; stat: StandardInteger) {.
+proc RemoveStatus*(this: var Interface_Graph; stat: Standard_Integer) {.
     importcpp: "RemoveStatus", header: "Interface_Graph.hxx".}
-proc bitMap*(this: InterfaceGraph): InterfaceBitMap {.noSideEffect,
+proc BitMap*(this: Interface_Graph): Interface_BitMap {.noSideEffect,
     importcpp: "BitMap", header: "Interface_Graph.hxx".}
-proc cBitMap*(this: var InterfaceGraph): var InterfaceBitMap {.importcpp: "CBitMap",
+proc CBitMap*(this: var Interface_Graph): var Interface_BitMap {.importcpp: "CBitMap",
     header: "Interface_Graph.hxx".}
-proc model*(this: InterfaceGraph): Handle[InterfaceInterfaceModel] {.noSideEffect,
+proc Model*(this: Interface_Graph): handle[Interface_InterfaceModel] {.noSideEffect,
     importcpp: "Model", header: "Interface_Graph.hxx".}
-proc getFromModel*(this: var InterfaceGraph) {.importcpp: "GetFromModel",
+proc GetFromModel*(this: var Interface_Graph) {.importcpp: "GetFromModel",
     header: "Interface_Graph.hxx".}
-proc getFromEntity*(this: var InterfaceGraph; ent: Handle[StandardTransient];
-                   shared: StandardBoolean; newstat: StandardInteger = 0) {.
+proc GetFromEntity*(this: var Interface_Graph; ent: handle[Standard_Transient];
+                   shared: Standard_Boolean; newstat: Standard_Integer = 0) {.
     importcpp: "GetFromEntity", header: "Interface_Graph.hxx".}
-proc getFromEntity*(this: var InterfaceGraph; ent: Handle[StandardTransient];
-                   shared: StandardBoolean; newstat: StandardInteger;
-                   overlapstat: StandardInteger; cumul: StandardBoolean) {.
+proc GetFromEntity*(this: var Interface_Graph; ent: handle[Standard_Transient];
+                   shared: Standard_Boolean; newstat: Standard_Integer;
+                   overlapstat: Standard_Integer; cumul: Standard_Boolean) {.
     importcpp: "GetFromEntity", header: "Interface_Graph.hxx".}
-proc getFromIter*(this: var InterfaceGraph; iter: InterfaceEntityIterator;
-                 newstat: StandardInteger) {.importcpp: "GetFromIter",
+proc GetFromIter*(this: var Interface_Graph; iter: Interface_EntityIterator;
+                 newstat: Standard_Integer) {.importcpp: "GetFromIter",
     header: "Interface_Graph.hxx".}
-proc getFromIter*(this: var InterfaceGraph; iter: InterfaceEntityIterator;
-                 newstat: StandardInteger; overlapstat: StandardInteger;
-                 cumul: StandardBoolean) {.importcpp: "GetFromIter",
+proc GetFromIter*(this: var Interface_Graph; iter: Interface_EntityIterator;
+                 newstat: Standard_Integer; overlapstat: Standard_Integer;
+                 cumul: Standard_Boolean) {.importcpp: "GetFromIter",
     header: "Interface_Graph.hxx".}
-proc getFromGraph*(this: var InterfaceGraph; agraph: InterfaceGraph) {.
+proc GetFromGraph*(this: var Interface_Graph; agraph: Interface_Graph) {.
     importcpp: "GetFromGraph", header: "Interface_Graph.hxx".}
-proc getFromGraph*(this: var InterfaceGraph; agraph: InterfaceGraph;
-                  stat: StandardInteger) {.importcpp: "GetFromGraph",
+proc GetFromGraph*(this: var Interface_Graph; agraph: Interface_Graph;
+                  stat: Standard_Integer) {.importcpp: "GetFromGraph",
     header: "Interface_Graph.hxx".}
-proc hasShareErrors*(this: InterfaceGraph; ent: Handle[StandardTransient]): StandardBoolean {.
+proc HasShareErrors*(this: Interface_Graph; ent: handle[Standard_Transient]): Standard_Boolean {.
     noSideEffect, importcpp: "HasShareErrors", header: "Interface_Graph.hxx".}
-proc getShareds*(this: InterfaceGraph; ent: Handle[StandardTransient]): Handle[
-    TColStdHSequenceOfTransient] {.noSideEffect, importcpp: "GetShareds",
-                                  header: "Interface_Graph.hxx".}
-proc shareds*(this: InterfaceGraph; ent: Handle[StandardTransient]): InterfaceEntityIterator {.
+proc GetShareds*(this: Interface_Graph; ent: handle[Standard_Transient]): handle[
+    TColStd_HSequenceOfTransient] {.noSideEffect, importcpp: "GetShareds",
+                                   header: "Interface_Graph.hxx".}
+proc Shareds*(this: Interface_Graph; ent: handle[Standard_Transient]): Interface_EntityIterator {.
     noSideEffect, importcpp: "Shareds", header: "Interface_Graph.hxx".}
-proc sharings*(this: InterfaceGraph; ent: Handle[StandardTransient]): InterfaceEntityIterator {.
+proc Sharings*(this: Interface_Graph; ent: handle[Standard_Transient]): Interface_EntityIterator {.
     noSideEffect, importcpp: "Sharings", header: "Interface_Graph.hxx".}
-proc getSharings*(this: InterfaceGraph; ent: Handle[StandardTransient]): Handle[
-    TColStdHSequenceOfTransient] {.noSideEffect, importcpp: "GetSharings",
-                                  header: "Interface_Graph.hxx".}
-proc typedSharings*(this: InterfaceGraph; ent: Handle[StandardTransient];
-                   `type`: Handle[StandardType]): InterfaceEntityIterator {.
+proc GetSharings*(this: Interface_Graph; ent: handle[Standard_Transient]): handle[
+    TColStd_HSequenceOfTransient] {.noSideEffect, importcpp: "GetSharings",
+                                   header: "Interface_Graph.hxx".}
+proc TypedSharings*(this: Interface_Graph; ent: handle[Standard_Transient];
+                   `type`: handle[Standard_Type]): Interface_EntityIterator {.
     noSideEffect, importcpp: "TypedSharings", header: "Interface_Graph.hxx".}
-proc rootEntities*(this: InterfaceGraph): InterfaceEntityIterator {.noSideEffect,
+proc RootEntities*(this: Interface_Graph): Interface_EntityIterator {.noSideEffect,
     importcpp: "RootEntities", header: "Interface_Graph.hxx".}
-proc name*(this: InterfaceGraph; ent: Handle[StandardTransient]): Handle[
-    TCollectionHAsciiString] {.noSideEffect, importcpp: "Name",
-                              header: "Interface_Graph.hxx".}
-proc sharingTable*(this: InterfaceGraph): Handle[TColStdHArray1OfListOfInteger] {.
+proc Name*(this: Interface_Graph; ent: handle[Standard_Transient]): handle[
+    TCollection_HAsciiString] {.noSideEffect, importcpp: "Name",
+                               header: "Interface_Graph.hxx".}
+proc SharingTable*(this: Interface_Graph): handle[TColStd_HArray1OfListOfInteger] {.
     noSideEffect, importcpp: "SharingTable", header: "Interface_Graph.hxx".}
-proc modeStat*(this: InterfaceGraph): StandardBoolean {.noSideEffect,
+proc ModeStat*(this: Interface_Graph): Standard_Boolean {.noSideEffect,
     importcpp: "ModeStat", header: "Interface_Graph.hxx".}
-

@@ -14,27 +14,30 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepVisual_CameraImage"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepVisualRWCameraImage* {.importcpp: "RWStepVisual_RWCameraImage",
-                              header: "RWStepVisual_RWCameraImage.hxx", bycopy.} = object
+  RWStepVisual_RWCameraImage* {.importcpp: "RWStepVisual_RWCameraImage",
+                               header: "RWStepVisual_RWCameraImage.hxx", bycopy.} = object
 
 
-proc constructRWStepVisualRWCameraImage*(): RWStepVisualRWCameraImage {.
+proc constructRWStepVisual_RWCameraImage*(): RWStepVisual_RWCameraImage {.
     constructor, importcpp: "RWStepVisual_RWCameraImage(@)",
     header: "RWStepVisual_RWCameraImage.hxx".}
-proc readStep*(this: RWStepVisualRWCameraImage;
-              data: Handle[StepDataStepReaderData]; num: StandardInteger;
-              ach: var Handle[InterfaceCheck]; ent: Handle[StepVisualCameraImage]) {.
+proc ReadStep*(this: RWStepVisual_RWCameraImage;
+              data: handle[StepData_StepReaderData]; num: Standard_Integer;
+              ach: var handle[Interface_Check]; ent: handle[StepVisual_CameraImage]) {.
     noSideEffect, importcpp: "ReadStep", header: "RWStepVisual_RWCameraImage.hxx".}
-proc writeStep*(this: RWStepVisualRWCameraImage; sw: var StepDataStepWriter;
-               ent: Handle[StepVisualCameraImage]) {.noSideEffect,
+proc WriteStep*(this: RWStepVisual_RWCameraImage; SW: var StepData_StepWriter;
+               ent: handle[StepVisual_CameraImage]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepVisual_RWCameraImage.hxx".}
-proc share*(this: RWStepVisualRWCameraImage; ent: Handle[StepVisualCameraImage];
-           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
+proc Share*(this: RWStepVisual_RWCameraImage; ent: handle[StepVisual_CameraImage];
+           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepVisual_RWCameraImage.hxx".}
-

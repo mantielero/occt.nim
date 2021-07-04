@@ -14,6 +14,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../LocOpe/LocOpe_Spliter,
+  ../BRepBuilderAPI/BRepBuilderAPI_MakeShape, ../Standard/Standard_Boolean,
+  ../TopTools/TopTools_ListOfShape, ../TopTools/TopTools_SequenceOfShape
+
 discard "forward decl of LocOpe_WiresOnShape"
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of Standard_ConstructionError"
@@ -24,43 +30,42 @@ discard "forward decl of TopoDS_Face"
 discard "forward decl of TopoDS_Edge"
 discard "forward decl of TopoDS_Compound"
 type
-  BRepFeatSplitShape* {.importcpp: "BRepFeat_SplitShape",
-                       header: "BRepFeat_SplitShape.hxx", bycopy.} = object of BRepBuilderAPI_MakeShape ##
-                                                                                                 ## !
-                                                                                                 ## Empty
-                                                                                                 ## constructor
+  BRepFeat_SplitShape* {.importcpp: "BRepFeat_SplitShape",
+                        header: "BRepFeat_SplitShape.hxx", bycopy.} = object of BRepBuilderAPI_MakeShape ##
+                                                                                                  ## !
+                                                                                                  ## Empty
+                                                                                                  ## constructor
 
 
-proc constructBRepFeatSplitShape*(): BRepFeatSplitShape {.constructor,
+proc constructBRepFeat_SplitShape*(): BRepFeat_SplitShape {.constructor,
     importcpp: "BRepFeat_SplitShape(@)", header: "BRepFeat_SplitShape.hxx".}
-proc constructBRepFeatSplitShape*(s: TopoDS_Shape): BRepFeatSplitShape {.
+proc constructBRepFeat_SplitShape*(S: TopoDS_Shape): BRepFeat_SplitShape {.
     constructor, importcpp: "BRepFeat_SplitShape(@)",
     header: "BRepFeat_SplitShape.hxx".}
-proc add*(this: var BRepFeatSplitShape; theEdges: TopToolsSequenceOfShape): StandardBoolean {.
+proc Add*(this: var BRepFeat_SplitShape; theEdges: TopTools_SequenceOfShape): Standard_Boolean {.
     importcpp: "Add", header: "BRepFeat_SplitShape.hxx".}
-proc init*(this: var BRepFeatSplitShape; s: TopoDS_Shape) {.importcpp: "Init",
+proc Init*(this: var BRepFeat_SplitShape; S: TopoDS_Shape) {.importcpp: "Init",
     header: "BRepFeat_SplitShape.hxx".}
-proc setCheckInterior*(this: var BRepFeatSplitShape;
-                      toCheckInterior: StandardBoolean) {.
+proc SetCheckInterior*(this: var BRepFeat_SplitShape;
+                      ToCheckInterior: Standard_Boolean) {.
     importcpp: "SetCheckInterior", header: "BRepFeat_SplitShape.hxx".}
-proc add*(this: var BRepFeatSplitShape; w: TopoDS_Wire; f: TopoDS_Face) {.
+proc Add*(this: var BRepFeat_SplitShape; W: TopoDS_Wire; F: TopoDS_Face) {.
     importcpp: "Add", header: "BRepFeat_SplitShape.hxx".}
-proc add*(this: var BRepFeatSplitShape; e: TopoDS_Edge; f: TopoDS_Face) {.
+proc Add*(this: var BRepFeat_SplitShape; E: TopoDS_Edge; F: TopoDS_Face) {.
     importcpp: "Add", header: "BRepFeat_SplitShape.hxx".}
-proc add*(this: var BRepFeatSplitShape; comp: TopoDS_Compound; f: TopoDS_Face) {.
+proc Add*(this: var BRepFeat_SplitShape; Comp: TopoDS_Compound; F: TopoDS_Face) {.
     importcpp: "Add", header: "BRepFeat_SplitShape.hxx".}
-proc add*(this: var BRepFeatSplitShape; e: TopoDS_Edge; eOn: TopoDS_Edge) {.
+proc Add*(this: var BRepFeat_SplitShape; E: TopoDS_Edge; EOn: TopoDS_Edge) {.
     importcpp: "Add", header: "BRepFeat_SplitShape.hxx".}
-proc directLeft*(this: BRepFeatSplitShape): TopToolsListOfShape {.noSideEffect,
+proc DirectLeft*(this: BRepFeat_SplitShape): TopTools_ListOfShape {.noSideEffect,
     importcpp: "DirectLeft", header: "BRepFeat_SplitShape.hxx".}
-proc left*(this: BRepFeatSplitShape): TopToolsListOfShape {.noSideEffect,
+proc Left*(this: BRepFeat_SplitShape): TopTools_ListOfShape {.noSideEffect,
     importcpp: "Left", header: "BRepFeat_SplitShape.hxx".}
-proc right*(this: BRepFeatSplitShape): TopToolsListOfShape {.noSideEffect,
+proc Right*(this: BRepFeat_SplitShape): TopTools_ListOfShape {.noSideEffect,
     importcpp: "Right", header: "BRepFeat_SplitShape.hxx".}
-proc build*(this: var BRepFeatSplitShape) {.importcpp: "Build",
-                                        header: "BRepFeat_SplitShape.hxx".}
-proc isDeleted*(this: var BRepFeatSplitShape; s: TopoDS_Shape): StandardBoolean {.
+proc Build*(this: var BRepFeat_SplitShape) {.importcpp: "Build",
+    header: "BRepFeat_SplitShape.hxx".}
+proc IsDeleted*(this: var BRepFeat_SplitShape; S: TopoDS_Shape): Standard_Boolean {.
     importcpp: "IsDeleted", header: "BRepFeat_SplitShape.hxx".}
-proc modified*(this: var BRepFeatSplitShape; f: TopoDS_Shape): TopToolsListOfShape {.
+proc Modified*(this: var BRepFeat_SplitShape; F: TopoDS_Shape): TopTools_ListOfShape {.
     importcpp: "Modified", header: "BRepFeat_SplitShape.hxx".}
-

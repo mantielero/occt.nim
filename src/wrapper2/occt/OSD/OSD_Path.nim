@@ -14,6 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../TCollection/TCollection_AsciiString, OSD_SysType
+
 type
   OSD_Path* {.importcpp: "OSD_Path", header: "OSD_Path.hxx", bycopy.} = object ## ! Creates a Path object
                                                                        ## initialized to an empty string.
@@ -32,112 +36,111 @@ type
 
 proc constructOSD_Path*(): OSD_Path {.constructor, importcpp: "OSD_Path(@)",
                                    header: "OSD_Path.hxx".}
-proc constructOSD_Path*(aDependentName: TCollectionAsciiString;
-                       aSysType: OSD_SysType = oSD_Default): OSD_Path {.constructor,
+proc constructOSD_Path*(aDependentName: TCollection_AsciiString;
+                       aSysType: OSD_SysType = OSD_Default): OSD_Path {.constructor,
     importcpp: "OSD_Path(@)", header: "OSD_Path.hxx".}
-proc constructOSD_Path*(aNode: TCollectionAsciiString;
-                       aUsername: TCollectionAsciiString;
-                       aPassword: TCollectionAsciiString;
-                       aDisk: TCollectionAsciiString;
-                       aTrek: TCollectionAsciiString;
-                       aName: TCollectionAsciiString;
-                       anExtension: TCollectionAsciiString): OSD_Path {.
+proc constructOSD_Path*(aNode: TCollection_AsciiString;
+                       aUsername: TCollection_AsciiString;
+                       aPassword: TCollection_AsciiString;
+                       aDisk: TCollection_AsciiString;
+                       aTrek: TCollection_AsciiString;
+                       aName: TCollection_AsciiString;
+                       anExtension: TCollection_AsciiString): OSD_Path {.
     constructor, importcpp: "OSD_Path(@)", header: "OSD_Path.hxx".}
-proc values*(this: OSD_Path; aNode: var TCollectionAsciiString;
-            aUsername: var TCollectionAsciiString;
-            aPassword: var TCollectionAsciiString;
-            aDisk: var TCollectionAsciiString; aTrek: var TCollectionAsciiString;
-            aName: var TCollectionAsciiString;
-            anExtension: var TCollectionAsciiString) {.noSideEffect,
+proc Values*(this: OSD_Path; aNode: var TCollection_AsciiString;
+            aUsername: var TCollection_AsciiString;
+            aPassword: var TCollection_AsciiString;
+            aDisk: var TCollection_AsciiString; aTrek: var TCollection_AsciiString;
+            aName: var TCollection_AsciiString;
+            anExtension: var TCollection_AsciiString) {.noSideEffect,
     importcpp: "Values", header: "OSD_Path.hxx".}
-proc setValues*(this: var OSD_Path; aNode: TCollectionAsciiString;
-               aUsername: TCollectionAsciiString;
-               aPassword: TCollectionAsciiString; aDisk: TCollectionAsciiString;
-               aTrek: TCollectionAsciiString; aName: TCollectionAsciiString;
-               anExtension: TCollectionAsciiString) {.importcpp: "SetValues",
+proc SetValues*(this: var OSD_Path; aNode: TCollection_AsciiString;
+               aUsername: TCollection_AsciiString;
+               aPassword: TCollection_AsciiString; aDisk: TCollection_AsciiString;
+               aTrek: TCollection_AsciiString; aName: TCollection_AsciiString;
+               anExtension: TCollection_AsciiString) {.importcpp: "SetValues",
     header: "OSD_Path.hxx".}
-proc systemName*(this: OSD_Path; fullName: var TCollectionAsciiString;
-                aType: OSD_SysType = oSD_Default) {.noSideEffect,
+proc SystemName*(this: OSD_Path; FullName: var TCollection_AsciiString;
+                aType: OSD_SysType = OSD_Default) {.noSideEffect,
     importcpp: "SystemName", header: "OSD_Path.hxx".}
-proc expandedName*(this: var OSD_Path; aName: var TCollectionAsciiString) {.
+proc ExpandedName*(this: var OSD_Path; aName: var TCollection_AsciiString) {.
     importcpp: "ExpandedName", header: "OSD_Path.hxx".}
-proc isValid*(theDependentName: TCollectionAsciiString;
-             theSysType: OSD_SysType = oSD_Default): StandardBoolean {.
+proc IsValid*(theDependentName: TCollection_AsciiString;
+             theSysType: OSD_SysType = OSD_Default): Standard_Boolean {.
     importcpp: "OSD_Path::IsValid(@)", header: "OSD_Path.hxx".}
-proc upTrek*(this: var OSD_Path) {.importcpp: "UpTrek", header: "OSD_Path.hxx".}
-proc downTrek*(this: var OSD_Path; aName: TCollectionAsciiString) {.
+proc UpTrek*(this: var OSD_Path) {.importcpp: "UpTrek", header: "OSD_Path.hxx".}
+proc DownTrek*(this: var OSD_Path; aName: TCollection_AsciiString) {.
     importcpp: "DownTrek", header: "OSD_Path.hxx".}
-proc trekLength*(this: OSD_Path): StandardInteger {.noSideEffect,
+proc TrekLength*(this: OSD_Path): Standard_Integer {.noSideEffect,
     importcpp: "TrekLength", header: "OSD_Path.hxx".}
-proc removeATrek*(this: var OSD_Path; where: StandardInteger) {.
+proc RemoveATrek*(this: var OSD_Path; where: Standard_Integer) {.
     importcpp: "RemoveATrek", header: "OSD_Path.hxx".}
-proc removeATrek*(this: var OSD_Path; aName: TCollectionAsciiString) {.
+proc RemoveATrek*(this: var OSD_Path; aName: TCollection_AsciiString) {.
     importcpp: "RemoveATrek", header: "OSD_Path.hxx".}
-proc trekValue*(this: OSD_Path; where: StandardInteger): TCollectionAsciiString {.
+proc TrekValue*(this: OSD_Path; where: Standard_Integer): TCollection_AsciiString {.
     noSideEffect, importcpp: "TrekValue", header: "OSD_Path.hxx".}
-proc insertATrek*(this: var OSD_Path; aName: TCollectionAsciiString;
-                 where: StandardInteger) {.importcpp: "InsertATrek",
+proc InsertATrek*(this: var OSD_Path; aName: TCollection_AsciiString;
+                 where: Standard_Integer) {.importcpp: "InsertATrek",
     header: "OSD_Path.hxx".}
-proc node*(this: OSD_Path): TCollectionAsciiString {.noSideEffect, importcpp: "Node",
-    header: "OSD_Path.hxx".}
-proc userName*(this: OSD_Path): TCollectionAsciiString {.noSideEffect,
+proc Node*(this: OSD_Path): TCollection_AsciiString {.noSideEffect,
+    importcpp: "Node", header: "OSD_Path.hxx".}
+proc UserName*(this: OSD_Path): TCollection_AsciiString {.noSideEffect,
     importcpp: "UserName", header: "OSD_Path.hxx".}
-proc password*(this: OSD_Path): TCollectionAsciiString {.noSideEffect,
+proc Password*(this: OSD_Path): TCollection_AsciiString {.noSideEffect,
     importcpp: "Password", header: "OSD_Path.hxx".}
-proc disk*(this: OSD_Path): TCollectionAsciiString {.noSideEffect, importcpp: "Disk",
-    header: "OSD_Path.hxx".}
-proc trek*(this: OSD_Path): TCollectionAsciiString {.noSideEffect, importcpp: "Trek",
-    header: "OSD_Path.hxx".}
-proc name*(this: OSD_Path): TCollectionAsciiString {.noSideEffect, importcpp: "Name",
-    header: "OSD_Path.hxx".}
-proc extension*(this: OSD_Path): TCollectionAsciiString {.noSideEffect,
+proc Disk*(this: OSD_Path): TCollection_AsciiString {.noSideEffect,
+    importcpp: "Disk", header: "OSD_Path.hxx".}
+proc Trek*(this: OSD_Path): TCollection_AsciiString {.noSideEffect,
+    importcpp: "Trek", header: "OSD_Path.hxx".}
+proc Name*(this: OSD_Path): TCollection_AsciiString {.noSideEffect,
+    importcpp: "Name", header: "OSD_Path.hxx".}
+proc Extension*(this: OSD_Path): TCollection_AsciiString {.noSideEffect,
     importcpp: "Extension", header: "OSD_Path.hxx".}
-proc setNode*(this: var OSD_Path; aName: TCollectionAsciiString) {.
+proc SetNode*(this: var OSD_Path; aName: TCollection_AsciiString) {.
     importcpp: "SetNode", header: "OSD_Path.hxx".}
-proc setUserName*(this: var OSD_Path; aName: TCollectionAsciiString) {.
+proc SetUserName*(this: var OSD_Path; aName: TCollection_AsciiString) {.
     importcpp: "SetUserName", header: "OSD_Path.hxx".}
-proc setPassword*(this: var OSD_Path; aName: TCollectionAsciiString) {.
+proc SetPassword*(this: var OSD_Path; aName: TCollection_AsciiString) {.
     importcpp: "SetPassword", header: "OSD_Path.hxx".}
-proc setDisk*(this: var OSD_Path; aName: TCollectionAsciiString) {.
+proc SetDisk*(this: var OSD_Path; aName: TCollection_AsciiString) {.
     importcpp: "SetDisk", header: "OSD_Path.hxx".}
-proc setTrek*(this: var OSD_Path; aName: TCollectionAsciiString) {.
+proc SetTrek*(this: var OSD_Path; aName: TCollection_AsciiString) {.
     importcpp: "SetTrek", header: "OSD_Path.hxx".}
-proc setName*(this: var OSD_Path; aName: TCollectionAsciiString) {.
+proc SetName*(this: var OSD_Path; aName: TCollection_AsciiString) {.
     importcpp: "SetName", header: "OSD_Path.hxx".}
-proc setExtension*(this: var OSD_Path; aName: TCollectionAsciiString) {.
+proc SetExtension*(this: var OSD_Path; aName: TCollection_AsciiString) {.
     importcpp: "SetExtension", header: "OSD_Path.hxx".}
-proc locateExecFile*(this: var OSD_Path; aPath: var OSD_Path): StandardBoolean {.
+proc LocateExecFile*(this: var OSD_Path; aPath: var OSD_Path): Standard_Boolean {.
     importcpp: "LocateExecFile", header: "OSD_Path.hxx".}
-proc relativePath*(dirPath: TCollectionAsciiString;
-                  absFilePath: TCollectionAsciiString): TCollectionAsciiString {.
+proc RelativePath*(DirPath: TCollection_AsciiString;
+                  AbsFilePath: TCollection_AsciiString): TCollection_AsciiString {.
     importcpp: "OSD_Path::RelativePath(@)", header: "OSD_Path.hxx".}
-proc absolutePath*(dirPath: TCollectionAsciiString;
-                  relFilePath: TCollectionAsciiString): TCollectionAsciiString {.
+proc AbsolutePath*(DirPath: TCollection_AsciiString;
+                  RelFilePath: TCollection_AsciiString): TCollection_AsciiString {.
     importcpp: "OSD_Path::AbsolutePath(@)", header: "OSD_Path.hxx".}
-proc folderAndFileFromPath*(theFilePath: TCollectionAsciiString;
-                           theFolder: var TCollectionAsciiString;
-                           theFileName: var TCollectionAsciiString) {.
+proc FolderAndFileFromPath*(theFilePath: TCollection_AsciiString;
+                           theFolder: var TCollection_AsciiString;
+                           theFileName: var TCollection_AsciiString) {.
     importcpp: "OSD_Path::FolderAndFileFromPath(@)", header: "OSD_Path.hxx".}
-proc fileNameAndExtension*(theFilePath: TCollectionAsciiString;
-                          theName: var TCollectionAsciiString;
-                          theExtension: var TCollectionAsciiString) {.
+proc FileNameAndExtension*(theFilePath: TCollection_AsciiString;
+                          theName: var TCollection_AsciiString;
+                          theExtension: var TCollection_AsciiString) {.
     importcpp: "OSD_Path::FileNameAndExtension(@)", header: "OSD_Path.hxx".}
-proc isDosPath*(thePath: cstring): StandardBoolean {.
+proc IsDosPath*(thePath: cstring): Standard_Boolean {.
     importcpp: "OSD_Path::IsDosPath(@)", header: "OSD_Path.hxx".}
-proc isNtExtendedPath*(thePath: cstring): StandardBoolean {.
+proc IsNtExtendedPath*(thePath: cstring): Standard_Boolean {.
     importcpp: "OSD_Path::IsNtExtendedPath(@)", header: "OSD_Path.hxx".}
-proc isUncPath*(thePath: cstring): StandardBoolean {.
+proc IsUncPath*(thePath: cstring): Standard_Boolean {.
     importcpp: "OSD_Path::IsUncPath(@)", header: "OSD_Path.hxx".}
-proc isUncExtendedPath*(thePath: cstring): StandardBoolean {.
+proc IsUncExtendedPath*(thePath: cstring): Standard_Boolean {.
     importcpp: "OSD_Path::IsUncExtendedPath(@)", header: "OSD_Path.hxx".}
-proc isUnixPath*(thePath: cstring): StandardBoolean {.
+proc IsUnixPath*(thePath: cstring): Standard_Boolean {.
     importcpp: "OSD_Path::IsUnixPath(@)", header: "OSD_Path.hxx".}
-proc isContentProtocolPath*(thePath: cstring): StandardBoolean {.
+proc IsContentProtocolPath*(thePath: cstring): Standard_Boolean {.
     importcpp: "OSD_Path::IsContentProtocolPath(@)", header: "OSD_Path.hxx".}
-proc isRemoteProtocolPath*(thePath: cstring): StandardBoolean {.
+proc IsRemoteProtocolPath*(thePath: cstring): Standard_Boolean {.
     importcpp: "OSD_Path::IsRemoteProtocolPath(@)", header: "OSD_Path.hxx".}
-proc isRelativePath*(thePath: cstring): StandardBoolean {.
+proc IsRelativePath*(thePath: cstring): Standard_Boolean {.
     importcpp: "OSD_Path::IsRelativePath(@)", header: "OSD_Path.hxx".}
-proc isAbsolutePath*(thePath: cstring): StandardBoolean {.
+proc IsAbsolutePath*(thePath: cstring): Standard_Boolean {.
     importcpp: "OSD_Path::IsAbsolutePath(@)", header: "OSD_Path.hxx".}
-

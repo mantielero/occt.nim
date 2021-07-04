@@ -14,6 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Boolean,
+  BRepCheck_Result, ../Standard/Standard_Real, BRepCheck_Status
+
 discard "forward decl of BRep_CurveRepresentation"
 discard "forward decl of Adaptor3d_HCurve"
 discard "forward decl of TopoDS_Edge"
@@ -21,36 +25,35 @@ discard "forward decl of TopoDS_Shape"
 discard "forward decl of BRepCheck_Edge"
 discard "forward decl of BRepCheck_Edge"
 type
-  HandleBRepCheckEdge* = Handle[BRepCheckEdge]
-  BRepCheckEdge* {.importcpp: "BRepCheck_Edge", header: "BRepCheck_Edge.hxx", bycopy.} = object of BRepCheckResult
+  Handle_BRepCheck_Edge* = handle[BRepCheck_Edge]
+  BRepCheck_Edge* {.importcpp: "BRepCheck_Edge", header: "BRepCheck_Edge.hxx", bycopy.} = object of BRepCheck_Result
 
 
-proc constructBRepCheckEdge*(e: TopoDS_Edge): BRepCheckEdge {.constructor,
+proc constructBRepCheck_Edge*(E: TopoDS_Edge): BRepCheck_Edge {.constructor,
     importcpp: "BRepCheck_Edge(@)", header: "BRepCheck_Edge.hxx".}
-proc inContext*(this: var BRepCheckEdge; contextShape: TopoDS_Shape) {.
+proc InContext*(this: var BRepCheck_Edge; ContextShape: TopoDS_Shape) {.
     importcpp: "InContext", header: "BRepCheck_Edge.hxx".}
-proc minimum*(this: var BRepCheckEdge) {.importcpp: "Minimum",
-                                     header: "BRepCheck_Edge.hxx".}
-proc blind*(this: var BRepCheckEdge) {.importcpp: "Blind",
-                                   header: "BRepCheck_Edge.hxx".}
-proc geometricControls*(this: BRepCheckEdge): StandardBoolean {.noSideEffect,
+proc Minimum*(this: var BRepCheck_Edge) {.importcpp: "Minimum",
+                                      header: "BRepCheck_Edge.hxx".}
+proc Blind*(this: var BRepCheck_Edge) {.importcpp: "Blind",
+                                    header: "BRepCheck_Edge.hxx".}
+proc GeometricControls*(this: BRepCheck_Edge): Standard_Boolean {.noSideEffect,
     importcpp: "GeometricControls", header: "BRepCheck_Edge.hxx".}
-proc geometricControls*(this: var BRepCheckEdge; b: StandardBoolean) {.
+proc GeometricControls*(this: var BRepCheck_Edge; B: Standard_Boolean) {.
     importcpp: "GeometricControls", header: "BRepCheck_Edge.hxx".}
-proc tolerance*(this: var BRepCheckEdge): StandardReal {.importcpp: "Tolerance",
+proc Tolerance*(this: var BRepCheck_Edge): Standard_Real {.importcpp: "Tolerance",
     header: "BRepCheck_Edge.hxx".}
-proc setStatus*(this: var BRepCheckEdge; theStatus: BRepCheckStatus) {.
+proc SetStatus*(this: var BRepCheck_Edge; theStatus: BRepCheck_Status) {.
     importcpp: "SetStatus", header: "BRepCheck_Edge.hxx".}
-proc checkPolygonOnTriangulation*(this: var BRepCheckEdge; theEdge: TopoDS_Edge): BRepCheckStatus {.
+proc CheckPolygonOnTriangulation*(this: var BRepCheck_Edge; theEdge: TopoDS_Edge): BRepCheck_Status {.
     importcpp: "CheckPolygonOnTriangulation", header: "BRepCheck_Edge.hxx".}
 type
-  BRepCheckEdgebaseType* = BRepCheckResult
+  BRepCheck_Edgebase_type* = BRepCheck_Result
 
-proc getTypeName*(): cstring {.importcpp: "BRepCheck_Edge::get_type_name(@)",
-                            header: "BRepCheck_Edge.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "BRepCheck_Edge::get_type_name(@)",
+                              header: "BRepCheck_Edge.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "BRepCheck_Edge::get_type_descriptor(@)",
     header: "BRepCheck_Edge.hxx".}
-proc dynamicType*(this: BRepCheckEdge): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: BRepCheck_Edge): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "BRepCheck_Edge.hxx".}
-

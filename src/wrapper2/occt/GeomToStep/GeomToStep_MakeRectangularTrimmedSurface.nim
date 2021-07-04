@@ -14,19 +14,23 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, GeomToStep_Root
+
 discard "forward decl of StepGeom_RectangularTrimmedSurface"
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of Geom_RectangularTrimmedSurface"
 type
-  GeomToStepMakeRectangularTrimmedSurface* {.
+  GeomToStep_MakeRectangularTrimmedSurface* {.
       importcpp: "GeomToStep_MakeRectangularTrimmedSurface",
-      header: "GeomToStep_MakeRectangularTrimmedSurface.hxx", bycopy.} = object of GeomToStepRoot
+      header: "GeomToStep_MakeRectangularTrimmedSurface.hxx", bycopy.} = object of GeomToStep_Root
 
 
-proc constructGeomToStepMakeRectangularTrimmedSurface*(
-    rTSurf: Handle[GeomRectangularTrimmedSurface]): GeomToStepMakeRectangularTrimmedSurface {.
+proc constructGeomToStep_MakeRectangularTrimmedSurface*(
+    RTSurf: handle[Geom_RectangularTrimmedSurface]): GeomToStep_MakeRectangularTrimmedSurface {.
     constructor, importcpp: "GeomToStep_MakeRectangularTrimmedSurface(@)",
     header: "GeomToStep_MakeRectangularTrimmedSurface.hxx".}
-proc value*(this: GeomToStepMakeRectangularTrimmedSurface): Handle[
-    StepGeomRectangularTrimmedSurface] {.noSideEffect, importcpp: "Value", header: "GeomToStep_MakeRectangularTrimmedSurface.hxx".}
-
+proc Value*(this: GeomToStep_MakeRectangularTrimmedSurface): handle[
+    StepGeom_RectangularTrimmedSurface] {.noSideEffect, importcpp: "Value",
+    header: "GeomToStep_MakeRectangularTrimmedSurface.hxx".}

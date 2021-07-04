@@ -14,6 +14,13 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Real,
+  GeomFill_SectionLaw, ../Standard/Standard_Boolean, ../TColgp/TColgp_Array1OfPnt,
+  ../TColStd/TColStd_Array1OfReal, ../TColgp/TColgp_Array1OfVec,
+  ../Standard/Standard_Integer, ../TColStd/TColStd_Array1OfInteger,
+  ../GeomAbs/GeomAbs_Shape
+
 discard "forward decl of Geom_Curve"
 discard "forward decl of Geom_BSplineCurve"
 discard "forward decl of Standard_OutOfRange"
@@ -22,101 +29,100 @@ discard "forward decl of gp_Pnt"
 discard "forward decl of GeomFill_UniformSection"
 discard "forward decl of GeomFill_UniformSection"
 type
-  HandleGeomFillUniformSection* = Handle[GeomFillUniformSection]
+  Handle_GeomFill_UniformSection* = handle[GeomFill_UniformSection]
 
 ## ! Define an Constant Section Law
 
 type
-  GeomFillUniformSection* {.importcpp: "GeomFill_UniformSection",
-                           header: "GeomFill_UniformSection.hxx", bycopy.} = object of GeomFillSectionLaw ##
-                                                                                                   ## !
-                                                                                                   ## Make
-                                                                                                   ## an
-                                                                                                   ## constant
-                                                                                                   ## Law
-                                                                                                   ## with
-                                                                                                   ## C.
-                                                                                                   ##
-                                                                                                   ## !
-                                                                                                   ## [First,
-                                                                                                   ## Last]
-                                                                                                   ## define
-                                                                                                   ## law
-                                                                                                   ## definition
-                                                                                                   ## domain
+  GeomFill_UniformSection* {.importcpp: "GeomFill_UniformSection",
+                            header: "GeomFill_UniformSection.hxx", bycopy.} = object of GeomFill_SectionLaw ##
+                                                                                                     ## !
+                                                                                                     ## Make
+                                                                                                     ## an
+                                                                                                     ## constant
+                                                                                                     ## Law
+                                                                                                     ## with
+                                                                                                     ## C.
+                                                                                                     ##
+                                                                                                     ## !
+                                                                                                     ## [First,
+                                                                                                     ## Last]
+                                                                                                     ## define
+                                                                                                     ## law
+                                                                                                     ## definition
+                                                                                                     ## domain
 
 
-proc constructGeomFillUniformSection*(c: Handle[GeomCurve];
-                                     firstParameter: StandardReal = 0.0;
-                                     lastParameter: StandardReal = 1.0): GeomFillUniformSection {.
+proc constructGeomFill_UniformSection*(C: handle[Geom_Curve];
+                                      FirstParameter: Standard_Real = 0.0;
+                                      LastParameter: Standard_Real = 1.0): GeomFill_UniformSection {.
     constructor, importcpp: "GeomFill_UniformSection(@)",
     header: "GeomFill_UniformSection.hxx".}
-proc d0*(this: var GeomFillUniformSection; param: StandardReal;
-        poles: var TColgpArray1OfPnt; weigths: var TColStdArray1OfReal): StandardBoolean {.
+proc D0*(this: var GeomFill_UniformSection; Param: Standard_Real;
+        Poles: var TColgp_Array1OfPnt; Weigths: var TColStd_Array1OfReal): Standard_Boolean {.
     importcpp: "D0", header: "GeomFill_UniformSection.hxx".}
-proc d1*(this: var GeomFillUniformSection; param: StandardReal;
-        poles: var TColgpArray1OfPnt; dPoles: var TColgpArray1OfVec;
-        weigths: var TColStdArray1OfReal; dWeigths: var TColStdArray1OfReal): StandardBoolean {.
+proc D1*(this: var GeomFill_UniformSection; Param: Standard_Real;
+        Poles: var TColgp_Array1OfPnt; DPoles: var TColgp_Array1OfVec;
+        Weigths: var TColStd_Array1OfReal; DWeigths: var TColStd_Array1OfReal): Standard_Boolean {.
     importcpp: "D1", header: "GeomFill_UniformSection.hxx".}
-proc d2*(this: var GeomFillUniformSection; param: StandardReal;
-        poles: var TColgpArray1OfPnt; dPoles: var TColgpArray1OfVec;
-        d2Poles: var TColgpArray1OfVec; weigths: var TColStdArray1OfReal;
-        dWeigths: var TColStdArray1OfReal; d2Weigths: var TColStdArray1OfReal): StandardBoolean {.
+proc D2*(this: var GeomFill_UniformSection; Param: Standard_Real;
+        Poles: var TColgp_Array1OfPnt; DPoles: var TColgp_Array1OfVec;
+        D2Poles: var TColgp_Array1OfVec; Weigths: var TColStd_Array1OfReal;
+        DWeigths: var TColStd_Array1OfReal; D2Weigths: var TColStd_Array1OfReal): Standard_Boolean {.
     importcpp: "D2", header: "GeomFill_UniformSection.hxx".}
-proc bSplineSurface*(this: GeomFillUniformSection): Handle[GeomBSplineSurface] {.
+proc BSplineSurface*(this: GeomFill_UniformSection): handle[Geom_BSplineSurface] {.
     noSideEffect, importcpp: "BSplineSurface",
     header: "GeomFill_UniformSection.hxx".}
-proc sectionShape*(this: GeomFillUniformSection; nbPoles: var StandardInteger;
-                  nbKnots: var StandardInteger; degree: var StandardInteger) {.
+proc SectionShape*(this: GeomFill_UniformSection; NbPoles: var Standard_Integer;
+                  NbKnots: var Standard_Integer; Degree: var Standard_Integer) {.
     noSideEffect, importcpp: "SectionShape", header: "GeomFill_UniformSection.hxx".}
-proc knots*(this: GeomFillUniformSection; tKnots: var TColStdArray1OfReal) {.
+proc Knots*(this: GeomFill_UniformSection; TKnots: var TColStd_Array1OfReal) {.
     noSideEffect, importcpp: "Knots", header: "GeomFill_UniformSection.hxx".}
-proc mults*(this: GeomFillUniformSection; tMults: var TColStdArray1OfInteger) {.
+proc Mults*(this: GeomFill_UniformSection; TMults: var TColStd_Array1OfInteger) {.
     noSideEffect, importcpp: "Mults", header: "GeomFill_UniformSection.hxx".}
-proc isRational*(this: GeomFillUniformSection): StandardBoolean {.noSideEffect,
+proc IsRational*(this: GeomFill_UniformSection): Standard_Boolean {.noSideEffect,
     importcpp: "IsRational", header: "GeomFill_UniformSection.hxx".}
-proc isUPeriodic*(this: GeomFillUniformSection): StandardBoolean {.noSideEffect,
+proc IsUPeriodic*(this: GeomFill_UniformSection): Standard_Boolean {.noSideEffect,
     importcpp: "IsUPeriodic", header: "GeomFill_UniformSection.hxx".}
-proc isVPeriodic*(this: GeomFillUniformSection): StandardBoolean {.noSideEffect,
+proc IsVPeriodic*(this: GeomFill_UniformSection): Standard_Boolean {.noSideEffect,
     importcpp: "IsVPeriodic", header: "GeomFill_UniformSection.hxx".}
-proc nbIntervals*(this: GeomFillUniformSection; s: GeomAbsShape): StandardInteger {.
+proc NbIntervals*(this: GeomFill_UniformSection; S: GeomAbs_Shape): Standard_Integer {.
     noSideEffect, importcpp: "NbIntervals", header: "GeomFill_UniformSection.hxx".}
-proc intervals*(this: GeomFillUniformSection; t: var TColStdArray1OfReal;
-               s: GeomAbsShape) {.noSideEffect, importcpp: "Intervals",
-                                header: "GeomFill_UniformSection.hxx".}
-proc setInterval*(this: var GeomFillUniformSection; first: StandardReal;
-                 last: StandardReal) {.importcpp: "SetInterval",
-                                     header: "GeomFill_UniformSection.hxx".}
-proc getInterval*(this: GeomFillUniformSection; first: var StandardReal;
-                 last: var StandardReal) {.noSideEffect, importcpp: "GetInterval",
-                                        header: "GeomFill_UniformSection.hxx".}
-proc getDomain*(this: GeomFillUniformSection; first: var StandardReal;
-               last: var StandardReal) {.noSideEffect, importcpp: "GetDomain",
+proc Intervals*(this: GeomFill_UniformSection; T: var TColStd_Array1OfReal;
+               S: GeomAbs_Shape) {.noSideEffect, importcpp: "Intervals",
+                                 header: "GeomFill_UniformSection.hxx".}
+proc SetInterval*(this: var GeomFill_UniformSection; First: Standard_Real;
+                 Last: Standard_Real) {.importcpp: "SetInterval",
                                       header: "GeomFill_UniformSection.hxx".}
-proc getTolerance*(this: GeomFillUniformSection; boundTol: StandardReal;
-                  surfTol: StandardReal; angleTol: StandardReal;
-                  tol3d: var TColStdArray1OfReal) {.noSideEffect,
+proc GetInterval*(this: GeomFill_UniformSection; First: var Standard_Real;
+                 Last: var Standard_Real) {.noSideEffect, importcpp: "GetInterval",
+    header: "GeomFill_UniformSection.hxx".}
+proc GetDomain*(this: GeomFill_UniformSection; First: var Standard_Real;
+               Last: var Standard_Real) {.noSideEffect, importcpp: "GetDomain",
+                                       header: "GeomFill_UniformSection.hxx".}
+proc GetTolerance*(this: GeomFill_UniformSection; BoundTol: Standard_Real;
+                  SurfTol: Standard_Real; AngleTol: Standard_Real;
+                  Tol3d: var TColStd_Array1OfReal) {.noSideEffect,
     importcpp: "GetTolerance", header: "GeomFill_UniformSection.hxx".}
-proc barycentreOfSurf*(this: GeomFillUniformSection): GpPnt {.noSideEffect,
+proc BarycentreOfSurf*(this: GeomFill_UniformSection): gp_Pnt {.noSideEffect,
     importcpp: "BarycentreOfSurf", header: "GeomFill_UniformSection.hxx".}
-proc maximalSection*(this: GeomFillUniformSection): StandardReal {.noSideEffect,
+proc MaximalSection*(this: GeomFill_UniformSection): Standard_Real {.noSideEffect,
     importcpp: "MaximalSection", header: "GeomFill_UniformSection.hxx".}
-proc getMinimalWeight*(this: GeomFillUniformSection;
-                      weigths: var TColStdArray1OfReal) {.noSideEffect,
+proc GetMinimalWeight*(this: GeomFill_UniformSection;
+                      Weigths: var TColStd_Array1OfReal) {.noSideEffect,
     importcpp: "GetMinimalWeight", header: "GeomFill_UniformSection.hxx".}
-proc isConstant*(this: GeomFillUniformSection; error: var StandardReal): StandardBoolean {.
+proc IsConstant*(this: GeomFill_UniformSection; Error: var Standard_Real): Standard_Boolean {.
     noSideEffect, importcpp: "IsConstant", header: "GeomFill_UniformSection.hxx".}
-proc constantSection*(this: GeomFillUniformSection): Handle[GeomCurve] {.
+proc ConstantSection*(this: GeomFill_UniformSection): handle[Geom_Curve] {.
     noSideEffect, importcpp: "ConstantSection",
     header: "GeomFill_UniformSection.hxx".}
 type
-  GeomFillUniformSectionbaseType* = GeomFillSectionLaw
+  GeomFill_UniformSectionbase_type* = GeomFill_SectionLaw
 
-proc getTypeName*(): cstring {.importcpp: "GeomFill_UniformSection::get_type_name(@)",
-                            header: "GeomFill_UniformSection.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "GeomFill_UniformSection::get_type_name(@)",
+                              header: "GeomFill_UniformSection.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "GeomFill_UniformSection::get_type_descriptor(@)",
     header: "GeomFill_UniformSection.hxx".}
-proc dynamicType*(this: GeomFillUniformSection): Handle[StandardType] {.
+proc DynamicType*(this: GeomFill_UniformSection): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType", header: "GeomFill_UniformSection.hxx".}
-

@@ -13,246 +13,248 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Graphic3d/Graphic3d_ShaderObject, OpenGl_GlCore20, OpenGl_Resource,
+  ../Quantity/Quantity_Date
+
 ## ! Wrapper for OpenGL shader object.
 
 type
-  OpenGlShaderObject* {.importcpp: "OpenGl_ShaderObject",
-                       header: "OpenGl_ShaderObject.hxx", bycopy.} = object of OpenGlResource ##
-                                                                                       ## !
-                                                                                       ## Non-valid
-                                                                                       ## shader
-                                                                                       ## name.
-                                                                                       ##
-                                                                                       ## !
-                                                                                       ## Structure
-                                                                                       ## defining
-                                                                                       ## shader
-                                                                                       ## uniform
-                                                                                       ## or
-                                                                                       ## in/out
-                                                                                       ## variable.
-                                                                                       ##
-                                                                                       ## !
-                                                                                       ## Creates
-                                                                                       ## uninitialized
-                                                                                       ## shader
-                                                                                       ## object.
-                                                                                       ##
-                                                                                       ## !
-                                                                                       ## Update
-                                                                                       ## the
-                                                                                       ## shader
-                                                                                       ## object
-                                                                                       ## from
-                                                                                       ## external
-                                                                                       ## file
-                                                                                       ## in
-                                                                                       ## the
-                                                                                       ## following
-                                                                                       ## way:
-                                                                                       ##
-                                                                                       ## !
-                                                                                       ## 1)
-                                                                                       ## If
-                                                                                       ## external
-                                                                                       ## file
-                                                                                       ## does
-                                                                                       ## not
-                                                                                       ## exist,
-                                                                                       ## then
-                                                                                       ## it
-                                                                                       ## will
-                                                                                       ## be
-                                                                                       ## created
-                                                                                       ## (current
-                                                                                       ## source
-                                                                                       ## code
-                                                                                       ## will
-                                                                                       ## be
-                                                                                       ## dumped,
-                                                                                       ## no
-                                                                                       ## recompilation)
-                                                                                       ## and
-                                                                                       ## FALSE
-                                                                                       ## will
-                                                                                       ## be
-                                                                                       ## returned.
-                                                                                       ##
-                                                                                       ## !
-                                                                                       ## 2)
-                                                                                       ## If
-                                                                                       ## external
-                                                                                       ## file
-                                                                                       ## exists
-                                                                                       ## and
-                                                                                       ## it
-                                                                                       ## has
-                                                                                       ## the
-                                                                                       ## same
-                                                                                       ## timestamp
-                                                                                       ## as
-                                                                                       ## myDumpDate,
-                                                                                       ## nothing
-                                                                                       ## will
-                                                                                       ## be
-                                                                                       ## done
-                                                                                       ## and
-                                                                                       ## FALSE
-                                                                                       ## will
-                                                                                       ## be
-                                                                                       ## returned.
-                                                                                       ##
-                                                                                       ## !
-                                                                                       ## 3)
-                                                                                       ## If
-                                                                                       ## external
-                                                                                       ## file
-                                                                                       ## exists
-                                                                                       ## and
-                                                                                       ## it
-                                                                                       ## has
-                                                                                       ## newer
-                                                                                       ## timestamp
-                                                                                       ## than
-                                                                                       ## myDumpDate,
-                                                                                       ## shader
-                                                                                       ## will
-                                                                                       ## be
-                                                                                       ## recompiled
-                                                                                       ## and
-                                                                                       ## TRUE
-                                                                                       ## will
-                                                                                       ## be
-                                                                                       ## returned.
-                                                                                       ##
-                                                                                       ## !
-                                                                                       ## @param
-                                                                                       ## theCtx
-                                                                                       ## OpenGL
-                                                                                       ## context
-                                                                                       ## bound
-                                                                                       ## to
-                                                                                       ## this
-                                                                                       ## working
-                                                                                       ## thread
-                                                                                       ##
-                                                                                       ## !
-                                                                                       ## @param
-                                                                                       ## theId
-                                                                                       ## GLSL
-                                                                                       ## program
-                                                                                       ## id
-                                                                                       ## to
-                                                                                       ## define
-                                                                                       ## file
-                                                                                       ## name
-                                                                                       ##
-                                                                                       ## !
-                                                                                       ## @param
-                                                                                       ## theFolder
-                                                                                       ## folder
-                                                                                       ## to
-                                                                                       ## store
-                                                                                       ## files
-                                                                                       ##
-                                                                                       ## !
-                                                                                       ## @param
-                                                                                       ## theToBeautify
-                                                                                       ## flag
-                                                                                       ## improving
-                                                                                       ## formatting
-                                                                                       ## (add
-                                                                                       ## extra
-                                                                                       ## newlines)
-                                                                                       ##
-                                                                                       ## !
-                                                                                       ## @param
-                                                                                       ## theToReset
-                                                                                       ## when
-                                                                                       ## TRUE,
-                                                                                       ## existing
-                                                                                       ## dumps
-                                                                                       ## will
-                                                                                       ## be
-                                                                                       ## overridden
+  OpenGl_ShaderObject* {.importcpp: "OpenGl_ShaderObject",
+                        header: "OpenGl_ShaderObject.hxx", bycopy.} = object of OpenGl_Resource ##
+                                                                                         ## !
+                                                                                         ## Non-valid
+                                                                                         ## shader
+                                                                                         ## name.
+                                                                                         ##
+                                                                                         ## !
+                                                                                         ## Structure
+                                                                                         ## defining
+                                                                                         ## shader
+                                                                                         ## uniform
+                                                                                         ## or
+                                                                                         ## in/out
+                                                                                         ## variable.
+                                                                                         ##
+                                                                                         ## !
+                                                                                         ## Creates
+                                                                                         ## uninitialized
+                                                                                         ## shader
+                                                                                         ## object.
+                                                                                         ##
+                                                                                         ## !
+                                                                                         ## Update
+                                                                                         ## the
+                                                                                         ## shader
+                                                                                         ## object
+                                                                                         ## from
+                                                                                         ## external
+                                                                                         ## file
+                                                                                         ## in
+                                                                                         ## the
+                                                                                         ## following
+                                                                                         ## way:
+                                                                                         ##
+                                                                                         ## !
+                                                                                         ## 1)
+                                                                                         ## If
+                                                                                         ## external
+                                                                                         ## file
+                                                                                         ## does
+                                                                                         ## not
+                                                                                         ## exist,
+                                                                                         ## then
+                                                                                         ## it
+                                                                                         ## will
+                                                                                         ## be
+                                                                                         ## created
+                                                                                         ## (current
+                                                                                         ## source
+                                                                                         ## code
+                                                                                         ## will
+                                                                                         ## be
+                                                                                         ## dumped,
+                                                                                         ## no
+                                                                                         ## recompilation)
+                                                                                         ## and
+                                                                                         ## FALSE
+                                                                                         ## will
+                                                                                         ## be
+                                                                                         ## returned.
+                                                                                         ##
+                                                                                         ## !
+                                                                                         ## 2)
+                                                                                         ## If
+                                                                                         ## external
+                                                                                         ## file
+                                                                                         ## exists
+                                                                                         ## and
+                                                                                         ## it
+                                                                                         ## has
+                                                                                         ## the
+                                                                                         ## same
+                                                                                         ## timestamp
+                                                                                         ## as
+                                                                                         ## myDumpDate,
+                                                                                         ## nothing
+                                                                                         ## will
+                                                                                         ## be
+                                                                                         ## done
+                                                                                         ## and
+                                                                                         ## FALSE
+                                                                                         ## will
+                                                                                         ## be
+                                                                                         ## returned.
+                                                                                         ##
+                                                                                         ## !
+                                                                                         ## 3)
+                                                                                         ## If
+                                                                                         ## external
+                                                                                         ## file
+                                                                                         ## exists
+                                                                                         ## and
+                                                                                         ## it
+                                                                                         ## has
+                                                                                         ## newer
+                                                                                         ## timestamp
+                                                                                         ## than
+                                                                                         ## myDumpDate,
+                                                                                         ## shader
+                                                                                         ## will
+                                                                                         ## be
+                                                                                         ## recompiled
+                                                                                         ## and
+                                                                                         ## TRUE
+                                                                                         ## will
+                                                                                         ## be
+                                                                                         ## returned.
+                                                                                         ##
+                                                                                         ## !
+                                                                                         ## @param
+                                                                                         ## theCtx
+                                                                                         ## OpenGL
+                                                                                         ## context
+                                                                                         ## bound
+                                                                                         ## to
+                                                                                         ## this
+                                                                                         ## working
+                                                                                         ## thread
+                                                                                         ##
+                                                                                         ## !
+                                                                                         ## @param
+                                                                                         ## theId
+                                                                                         ## GLSL
+                                                                                         ## program
+                                                                                         ## id
+                                                                                         ## to
+                                                                                         ## define
+                                                                                         ## file
+                                                                                         ## name
+                                                                                         ##
+                                                                                         ## !
+                                                                                         ## @param
+                                                                                         ## theFolder
+                                                                                         ## folder
+                                                                                         ## to
+                                                                                         ## store
+                                                                                         ## files
+                                                                                         ##
+                                                                                         ## !
+                                                                                         ## @param
+                                                                                         ## theToBeautify
+                                                                                         ## flag
+                                                                                         ## improving
+                                                                                         ## formatting
+                                                                                         ## (add
+                                                                                         ## extra
+                                                                                         ## newlines)
+                                                                                         ##
+                                                                                         ## !
+                                                                                         ## @param
+                                                                                         ## theToReset
+                                                                                         ## when
+                                                                                         ## TRUE,
+                                                                                         ## existing
+                                                                                         ## dumps
+                                                                                         ## will
+                                                                                         ## be
+                                                                                         ## overridden
     ## !< The recent date of the shader dump
     ## !< Type of OpenGL shader object
     ## !< Handle of OpenGL shader object
 
-  OpenGlShaderObjectbaseType* = OpenGlResource
+  OpenGl_ShaderObjectbase_type* = OpenGl_Resource
 
-proc getTypeName*(): cstring {.importcpp: "OpenGl_ShaderObject::get_type_name(@)",
-                            header: "OpenGl_ShaderObject.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "OpenGl_ShaderObject::get_type_name(@)",
+                              header: "OpenGl_ShaderObject.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "OpenGl_ShaderObject::get_type_descriptor(@)",
     header: "OpenGl_ShaderObject.hxx".}
-proc dynamicType*(this: OpenGlShaderObject): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: OpenGl_ShaderObject): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "OpenGl_ShaderObject.hxx".}
 type
-  OpenGlShaderObjectShaderVariable* {.importcpp: "OpenGl_ShaderObject::ShaderVariable",
-                                     header: "OpenGl_ShaderObject.hxx", bycopy.} = object
-    name* {.importc: "Name".}: TCollectionAsciiString ## !< variable name
-    stages* {.importc: "Stages".}: StandardInteger ## !< active stages as Graphic3d_TypeOfShaderObject bits;
-                                               ## !  for in/out variables, intermediate stages will be automatically filled
-                                               ## ! Create new shader variable.
+  OpenGl_ShaderObjectShaderVariable* {.importcpp: "OpenGl_ShaderObject::ShaderVariable",
+                                      header: "OpenGl_ShaderObject.hxx", bycopy.} = object
+    Name* {.importc: "Name".}: TCollection_AsciiString ## !< variable name
+    Stages* {.importc: "Stages".}: Standard_Integer ## !< active stages as Graphic3d_TypeOfShaderObject bits;
+                                                ## !  for in/out variables, intermediate stages will be automatically filled
+                                                ## ! Create new shader variable.
 
 
-proc constructOpenGlShaderObjectShaderVariable*(
-    theVarName: TCollectionAsciiString; theShaderStageBits: StandardInteger): OpenGlShaderObjectShaderVariable {.
+proc constructOpenGl_ShaderObjectShaderVariable*(
+    theVarName: TCollection_AsciiString; theShaderStageBits: Standard_Integer): OpenGl_ShaderObjectShaderVariable {.
     constructor, importcpp: "OpenGl_ShaderObject::ShaderVariable(@)",
     header: "OpenGl_ShaderObject.hxx".}
-proc constructOpenGlShaderObjectShaderVariable*(): OpenGlShaderObjectShaderVariable {.
+proc constructOpenGl_ShaderObjectShaderVariable*(): OpenGl_ShaderObjectShaderVariable {.
     constructor, importcpp: "OpenGl_ShaderObject::ShaderVariable(@)",
     header: "OpenGl_ShaderObject.hxx".}
 type
-  OpenGlShaderObjectShaderVariableList* = NCollectionSequence[
-      OpenGlShaderObjectShaderVariable]
+  OpenGl_ShaderObjectShaderVariableList* = NCollection_Sequence[
+      OpenGl_ShaderObjectShaderVariable]
 
-proc createFromSource*(theSource: var TCollectionAsciiString;
-                      theType: Graphic3dTypeOfShaderObject;
-                      theUniforms: OpenGlShaderObjectShaderVariableList;
-                      theStageInOuts: OpenGlShaderObjectShaderVariableList;
-    theInName: TCollectionAsciiString = tCollectionAsciiString(); theOutName: TCollectionAsciiString = tCollectionAsciiString();
-                      theNbGeomInputVerts: StandardInteger = 0): Handle[
-    Graphic3dShaderObject] {.importcpp: "OpenGl_ShaderObject::CreateFromSource(@)",
-                            header: "OpenGl_ShaderObject.hxx".}
-proc constructOpenGlShaderObject*(theType: GLenum): OpenGlShaderObject {.
+proc CreateFromSource*(theSource: var TCollection_AsciiString;
+                      theType: Graphic3d_TypeOfShaderObject;
+                      theUniforms: OpenGl_ShaderObjectShaderVariableList;
+                      theStageInOuts: OpenGl_ShaderObjectShaderVariableList;
+    theInName: TCollection_AsciiString = TCollection_AsciiString(); theOutName: TCollection_AsciiString = TCollection_AsciiString();
+                      theNbGeomInputVerts: Standard_Integer = 0): handle[
+    Graphic3d_ShaderObject] {.importcpp: "OpenGl_ShaderObject::CreateFromSource(@)",
+                             header: "OpenGl_ShaderObject.hxx".}
+proc constructOpenGl_ShaderObject*(theType: GLenum): OpenGl_ShaderObject {.
     constructor, importcpp: "OpenGl_ShaderObject(@)",
     header: "OpenGl_ShaderObject.hxx".}
-proc destroyOpenGlShaderObject*(this: var OpenGlShaderObject) {.
+proc destroyOpenGl_ShaderObject*(this: var OpenGl_ShaderObject) {.
     importcpp: "#.~OpenGl_ShaderObject()", header: "OpenGl_ShaderObject.hxx".}
-proc loadSource*(this: var OpenGlShaderObject; theCtx: Handle[OpenGlContext];
-                theSource: TCollectionAsciiString): StandardBoolean {.
+proc LoadSource*(this: var OpenGl_ShaderObject; theCtx: handle[OpenGl_Context];
+                theSource: TCollection_AsciiString): Standard_Boolean {.
     importcpp: "LoadSource", header: "OpenGl_ShaderObject.hxx".}
-proc compile*(this: var OpenGlShaderObject; theCtx: Handle[OpenGlContext]): StandardBoolean {.
+proc Compile*(this: var OpenGl_ShaderObject; theCtx: handle[OpenGl_Context]): Standard_Boolean {.
     importcpp: "Compile", header: "OpenGl_ShaderObject.hxx".}
-proc loadAndCompile*(this: var OpenGlShaderObject; theCtx: Handle[OpenGlContext];
-                    theId: TCollectionAsciiString;
-                    theSource: TCollectionAsciiString; theIsVerbose: bool = true;
-                    theToPrintSource: bool = true): StandardBoolean {.
+proc LoadAndCompile*(this: var OpenGl_ShaderObject; theCtx: handle[OpenGl_Context];
+                    theId: TCollection_AsciiString;
+                    theSource: TCollection_AsciiString; theIsVerbose: bool = true;
+                    theToPrintSource: bool = true): Standard_Boolean {.
     importcpp: "LoadAndCompile", header: "OpenGl_ShaderObject.hxx".}
-proc dumpSourceCode*(this: OpenGlShaderObject; theCtx: Handle[OpenGlContext];
-                    theId: TCollectionAsciiString;
-                    theSource: TCollectionAsciiString) {.noSideEffect,
+proc DumpSourceCode*(this: OpenGl_ShaderObject; theCtx: handle[OpenGl_Context];
+                    theId: TCollection_AsciiString;
+                    theSource: TCollection_AsciiString) {.noSideEffect,
     importcpp: "DumpSourceCode", header: "OpenGl_ShaderObject.hxx".}
-proc fetchInfoLog*(this: var OpenGlShaderObject; theCtx: Handle[OpenGlContext];
-                  theLog: var TCollectionAsciiString): StandardBoolean {.
+proc FetchInfoLog*(this: var OpenGl_ShaderObject; theCtx: handle[OpenGl_Context];
+                  theLog: var TCollection_AsciiString): Standard_Boolean {.
     importcpp: "FetchInfoLog", header: "OpenGl_ShaderObject.hxx".}
-proc create*(this: var OpenGlShaderObject; theCtx: Handle[OpenGlContext]): StandardBoolean {.
+proc Create*(this: var OpenGl_ShaderObject; theCtx: handle[OpenGl_Context]): Standard_Boolean {.
     importcpp: "Create", header: "OpenGl_ShaderObject.hxx".}
-proc release*(this: var OpenGlShaderObject; theCtx: ptr OpenGlContext) {.
+proc Release*(this: var OpenGl_ShaderObject; theCtx: ptr OpenGl_Context) {.
     importcpp: "Release", header: "OpenGl_ShaderObject.hxx".}
-proc estimatedDataSize*(this: OpenGlShaderObject): StandardSize {.noSideEffect,
+proc EstimatedDataSize*(this: OpenGl_ShaderObject): Standard_Size {.noSideEffect,
     importcpp: "EstimatedDataSize", header: "OpenGl_ShaderObject.hxx".}
-proc `type`*(this: OpenGlShaderObject): GLenum {.noSideEffect, importcpp: "Type",
+proc Type*(this: OpenGl_ShaderObject): GLenum {.noSideEffect, importcpp: "Type",
     header: "OpenGl_ShaderObject.hxx".}
-proc updateDebugDump*(this: var OpenGlShaderObject; theCtx: Handle[OpenGlContext];
-                     theId: TCollectionAsciiString;
-                     theFolder: TCollectionAsciiString;
-                     theToBeautify: StandardBoolean; theToReset: StandardBoolean): StandardBoolean {.
+proc updateDebugDump*(this: var OpenGl_ShaderObject; theCtx: handle[OpenGl_Context];
+                     theId: TCollection_AsciiString;
+                     theFolder: TCollection_AsciiString;
+                     theToBeautify: Standard_Boolean; theToReset: Standard_Boolean): Standard_Boolean {.
     importcpp: "updateDebugDump", header: "OpenGl_ShaderObject.hxx".}
 discard "forward decl of OpenGl_ShaderObject"
 type
-  HandleOpenGlShaderObject* = Handle[OpenGlShaderObject]
-
-
+  Handle_OpenGl_ShaderObject* = handle[OpenGl_ShaderObject]

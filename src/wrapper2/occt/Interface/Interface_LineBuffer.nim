@@ -14,6 +14,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../NCollection/NCollection_Array1, ../TCollection/TCollection_HAsciiString
+
 ## ! Simple Management of a Line Buffer, to be used by Interface
 ## ! File Writers.
 ## ! While a String is suitable to do that, this class ensures an
@@ -21,56 +24,62 @@
 ## ! File Writing.
 
 type
-  InterfaceLineBuffer* {.importcpp: "Interface_LineBuffer",
-                        header: "Interface_LineBuffer.hxx", bycopy.} = object ## ! Creates a
-                                                                         ## LineBuffer with an
-                                                                         ## absolute maximum size
-                                                                         ## !
-                                                                         ## (Default value is only to satisfy
-                                                                         ## compiler
-                                                                         ## requirement)
-                                                                         ## !
-                                                                         ## Prepares Move : Inserts Initial Blanks if
-                                                                         ## required, and
-                                                                         ## !
-                                                                         ## determines if SetKeep can be
-                                                                         ## supported (it cannot be if Length
-                                                                         ## ! + Next String to get (see CanGet)
-                                                                         ## overpass Max Size)
+  Interface_LineBuffer* {.importcpp: "Interface_LineBuffer",
+                         header: "Interface_LineBuffer.hxx", bycopy.} = object ## !
+                                                                          ## Creates a
+                                                                          ## LineBuffer with an
+                                                                          ## absolute
+                                                                          ## maximum size
+                                                                          ## !
+                                                                          ## (Default value is only to
+                                                                          ## satisfy
+                                                                          ## compiler
+                                                                          ## requirement)
+                                                                          ## !
+                                                                          ## Prepares Move :
+                                                                          ## Inserts
+                                                                          ## Initial Blanks if
+                                                                          ## required, and
+                                                                          ## !
+                                                                          ## determines if
+                                                                          ## SetKeep can be
+                                                                          ## supported (it cannot be if Length
+                                                                          ## ! + Next String to get (see
+                                                                          ## CanGet)
+                                                                          ## overpass Max Size)
 
 
-proc constructInterfaceLineBuffer*(size: StandardInteger = 10): InterfaceLineBuffer {.
+proc constructInterface_LineBuffer*(size: Standard_Integer = 10): Interface_LineBuffer {.
     constructor, importcpp: "Interface_LineBuffer(@)",
     header: "Interface_LineBuffer.hxx".}
-proc setMax*(this: var InterfaceLineBuffer; max: StandardInteger) {.
+proc SetMax*(this: var Interface_LineBuffer; max: Standard_Integer) {.
     importcpp: "SetMax", header: "Interface_LineBuffer.hxx".}
-proc setInitial*(this: var InterfaceLineBuffer; initial: StandardInteger) {.
+proc SetInitial*(this: var Interface_LineBuffer; initial: Standard_Integer) {.
     importcpp: "SetInitial", header: "Interface_LineBuffer.hxx".}
-proc setKeep*(this: var InterfaceLineBuffer) {.importcpp: "SetKeep",
+proc SetKeep*(this: var Interface_LineBuffer) {.importcpp: "SetKeep",
     header: "Interface_LineBuffer.hxx".}
-proc canGet*(this: var InterfaceLineBuffer; more: StandardInteger): StandardBoolean {.
+proc CanGet*(this: var Interface_LineBuffer; more: Standard_Integer): Standard_Boolean {.
     importcpp: "CanGet", header: "Interface_LineBuffer.hxx".}
-proc content*(this: InterfaceLineBuffer): StandardCString {.noSideEffect,
+proc Content*(this: Interface_LineBuffer): Standard_CString {.noSideEffect,
     importcpp: "Content", header: "Interface_LineBuffer.hxx".}
-proc length*(this: InterfaceLineBuffer): StandardInteger {.noSideEffect,
+proc Length*(this: Interface_LineBuffer): Standard_Integer {.noSideEffect,
     importcpp: "Length", header: "Interface_LineBuffer.hxx".}
-proc clear*(this: var InterfaceLineBuffer) {.importcpp: "Clear",
+proc Clear*(this: var Interface_LineBuffer) {.importcpp: "Clear",
     header: "Interface_LineBuffer.hxx".}
-proc freezeInitial*(this: var InterfaceLineBuffer) {.importcpp: "FreezeInitial",
+proc FreezeInitial*(this: var Interface_LineBuffer) {.importcpp: "FreezeInitial",
     header: "Interface_LineBuffer.hxx".}
-proc move*(this: var InterfaceLineBuffer; str: var TCollectionAsciiString) {.
+proc Move*(this: var Interface_LineBuffer; str: var TCollection_AsciiString) {.
     importcpp: "Move", header: "Interface_LineBuffer.hxx".}
-proc move*(this: var InterfaceLineBuffer; str: Handle[TCollectionHAsciiString]) {.
+proc Move*(this: var Interface_LineBuffer; str: handle[TCollection_HAsciiString]) {.
     importcpp: "Move", header: "Interface_LineBuffer.hxx".}
-proc moved*(this: var InterfaceLineBuffer): Handle[TCollectionHAsciiString] {.
+proc Moved*(this: var Interface_LineBuffer): handle[TCollection_HAsciiString] {.
     importcpp: "Moved", header: "Interface_LineBuffer.hxx".}
-proc add*(this: var InterfaceLineBuffer; text: StandardCString) {.importcpp: "Add",
+proc Add*(this: var Interface_LineBuffer; text: Standard_CString) {.importcpp: "Add",
     header: "Interface_LineBuffer.hxx".}
-proc add*(this: var InterfaceLineBuffer; text: StandardCString;
-         lntext: StandardInteger) {.importcpp: "Add",
-                                  header: "Interface_LineBuffer.hxx".}
-proc add*(this: var InterfaceLineBuffer; text: TCollectionAsciiString) {.
+proc Add*(this: var Interface_LineBuffer; text: Standard_CString;
+         lntext: Standard_Integer) {.importcpp: "Add",
+                                   header: "Interface_LineBuffer.hxx".}
+proc Add*(this: var Interface_LineBuffer; text: TCollection_AsciiString) {.
     importcpp: "Add", header: "Interface_LineBuffer.hxx".}
-proc add*(this: var InterfaceLineBuffer; text: StandardCharacter) {.importcpp: "Add",
-    header: "Interface_LineBuffer.hxx".}
-
+proc Add*(this: var Interface_LineBuffer; text: Standard_Character) {.
+    importcpp: "Add", header: "Interface_LineBuffer.hxx".}

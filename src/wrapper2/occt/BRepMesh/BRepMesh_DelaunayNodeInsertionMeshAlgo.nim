@@ -13,32 +13,34 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  BRepMesh_NodeInsertionMeshAlgo, BRepMesh_GeomTool
+
 ## ! Extends base Delaunay meshing algo in order to enable possibility
 ## ! of addition of free vertices and internal nodes into the mesh.
 
 type
-  BRepMeshDelaunayNodeInsertionMeshAlgo*[RangeSplitter; BaseAlgo] {.
+  BRepMesh_DelaunayNodeInsertionMeshAlgo*[RangeSplitter; BaseAlgo] {.
       importcpp: "BRepMesh_DelaunayNodeInsertionMeshAlgo<\'0,\'1>",
-      header: "BRepMesh_DelaunayNodeInsertionMeshAlgo.hxx", bycopy.} = object of BRepMeshNodeInsertionMeshAlgo[
+      header: "BRepMesh_DelaunayNodeInsertionMeshAlgo.hxx", bycopy.} = object of BRepMesh_NodeInsertionMeshAlgo[
       RangeSplitter, BaseAlgo] ##  Typedef for OCCT RTTI
                              ## ! Constructor.
                              ## ! Performs initialization of data structure using existing model data.
                              ## ! Registers surface nodes in data structure.
 
 
-proc constructBRepMeshDelaunayNodeInsertionMeshAlgo*[RangeSplitter; BaseAlgo](): BRepMeshDelaunayNodeInsertionMeshAlgo[
+proc constructBRepMesh_DelaunayNodeInsertionMeshAlgo*[RangeSplitter; BaseAlgo](): BRepMesh_DelaunayNodeInsertionMeshAlgo[
     RangeSplitter, BaseAlgo] {.constructor, importcpp: "BRepMesh_DelaunayNodeInsertionMeshAlgo<\'*0,\'*1>(@)", header: "BRepMesh_DelaunayNodeInsertionMeshAlgo.hxx".}
-proc destroyBRepMeshDelaunayNodeInsertionMeshAlgo*[RangeSplitter; BaseAlgo](
-    this: var BRepMeshDelaunayNodeInsertionMeshAlgo[RangeSplitter, BaseAlgo]) {.
+proc destroyBRepMesh_DelaunayNodeInsertionMeshAlgo*[RangeSplitter; BaseAlgo](
+    this: var BRepMesh_DelaunayNodeInsertionMeshAlgo[RangeSplitter, BaseAlgo]) {.
     importcpp: "#.~BRepMesh_DelaunayNodeInsertionMeshAlgo()",
     header: "BRepMesh_DelaunayNodeInsertionMeshAlgo.hxx".}
-proc isPreProcessSurfaceNodes*[RangeSplitter; BaseAlgo](
-    this: BRepMeshDelaunayNodeInsertionMeshAlgo[RangeSplitter, BaseAlgo]): StandardBoolean {.
+proc IsPreProcessSurfaceNodes*[RangeSplitter; BaseAlgo](
+    this: BRepMesh_DelaunayNodeInsertionMeshAlgo[RangeSplitter, BaseAlgo]): Standard_Boolean {.
     noSideEffect, importcpp: "IsPreProcessSurfaceNodes",
     header: "BRepMesh_DelaunayNodeInsertionMeshAlgo.hxx".}
-proc setPreProcessSurfaceNodes*[RangeSplitter; BaseAlgo](
-    this: var BRepMeshDelaunayNodeInsertionMeshAlgo[RangeSplitter, BaseAlgo];
-    isPreProcessSurfaceNodes: StandardBoolean) {.
+proc SetPreProcessSurfaceNodes*[RangeSplitter; BaseAlgo](
+    this: var BRepMesh_DelaunayNodeInsertionMeshAlgo[RangeSplitter, BaseAlgo];
+    isPreProcessSurfaceNodes: Standard_Boolean) {.
     importcpp: "SetPreProcessSurfaceNodes",
     header: "BRepMesh_DelaunayNodeInsertionMeshAlgo.hxx".}
-

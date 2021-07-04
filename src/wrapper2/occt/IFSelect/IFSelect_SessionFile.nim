@@ -14,107 +14,118 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../NCollection/NCollection_DataMap, ../Standard/Standard,
+  ../Standard/Standard_DefineAlloc, ../Standard/Standard_Handle,
+  ../Standard/Standard_Boolean, ../TColStd/TColStd_HArray1OfInteger,
+  ../TColStd/TColStd_SequenceOfAsciiString, ../Standard/Standard_Integer,
+  ../TCollection/TCollection_AsciiString, ../Standard/Standard_CString,
+  ../Standard/Standard_Character
+
 discard "forward decl of IFSelect_WorkSession"
 discard "forward decl of TCollection_AsciiString"
 discard "forward decl of Standard_Transient"
 type
-  IFSelectSessionFile* {.importcpp: "IFSelect_SessionFile",
-                        header: "IFSelect_SessionFile.hxx", bycopy.} = object ## ! Creates a
-                                                                         ## SessionFile, ready to read Files in order to load
-                                                                         ## ! them into a given
-                                                                         ## WorkSession.
-                                                                         ## ! The
-                                                                         ## following Read
-                                                                         ## Operations must then be called.
-                                                                         ## ! It is also
-                                                                         ## possible to perform a Write, which
-                                                                         ## produces a
-                                                                         ## !
-                                                                         ## complete File of all the content of the
-                                                                         ## WorkSession.
+  IFSelect_SessionFile* {.importcpp: "IFSelect_SessionFile",
+                         header: "IFSelect_SessionFile.hxx", bycopy.} = object ## !
+                                                                          ## Creates a
+                                                                          ## SessionFile, ready to read Files in order to load
+                                                                          ## ! them into a given
+                                                                          ## WorkSession.
+                                                                          ## ! The
+                                                                          ## following Read
+                                                                          ## Operations must then be
+                                                                          ## called.
+                                                                          ## ! It is also
+                                                                          ## possible to
+                                                                          ## perform a Write, which
+                                                                          ## produces a
+                                                                          ## !
+                                                                          ## complete File of all the
+                                                                          ## content of the
+                                                                          ## WorkSession.
 
 
-proc constructIFSelectSessionFile*(ws: Handle[IFSelectWorkSession]): IFSelectSessionFile {.
+proc constructIFSelect_SessionFile*(WS: handle[IFSelect_WorkSession]): IFSelect_SessionFile {.
     constructor, importcpp: "IFSelect_SessionFile(@)",
     header: "IFSelect_SessionFile.hxx".}
-proc constructIFSelectSessionFile*(ws: Handle[IFSelectWorkSession];
-                                  filename: StandardCString): IFSelectSessionFile {.
+proc constructIFSelect_SessionFile*(WS: handle[IFSelect_WorkSession];
+                                   filename: Standard_CString): IFSelect_SessionFile {.
     constructor, importcpp: "IFSelect_SessionFile(@)",
     header: "IFSelect_SessionFile.hxx".}
-proc clearLines*(this: var IFSelectSessionFile) {.importcpp: "ClearLines",
+proc ClearLines*(this: var IFSelect_SessionFile) {.importcpp: "ClearLines",
     header: "IFSelect_SessionFile.hxx".}
-proc nbLines*(this: IFSelectSessionFile): StandardInteger {.noSideEffect,
+proc NbLines*(this: IFSelect_SessionFile): Standard_Integer {.noSideEffect,
     importcpp: "NbLines", header: "IFSelect_SessionFile.hxx".}
-proc line*(this: IFSelectSessionFile; num: StandardInteger): TCollectionAsciiString {.
+proc Line*(this: IFSelect_SessionFile; num: Standard_Integer): TCollection_AsciiString {.
     noSideEffect, importcpp: "Line", header: "IFSelect_SessionFile.hxx".}
-proc addLine*(this: var IFSelectSessionFile; line: StandardCString) {.
+proc AddLine*(this: var IFSelect_SessionFile; line: Standard_CString) {.
     importcpp: "AddLine", header: "IFSelect_SessionFile.hxx".}
-proc removeLastLine*(this: var IFSelectSessionFile) {.importcpp: "RemoveLastLine",
+proc RemoveLastLine*(this: var IFSelect_SessionFile) {.importcpp: "RemoveLastLine",
     header: "IFSelect_SessionFile.hxx".}
-proc writeFile*(this: var IFSelectSessionFile; name: StandardCString): StandardBoolean {.
+proc WriteFile*(this: var IFSelect_SessionFile; name: Standard_CString): Standard_Boolean {.
     importcpp: "WriteFile", header: "IFSelect_SessionFile.hxx".}
-proc readFile*(this: var IFSelectSessionFile; name: StandardCString): StandardBoolean {.
+proc ReadFile*(this: var IFSelect_SessionFile; name: Standard_CString): Standard_Boolean {.
     importcpp: "ReadFile", header: "IFSelect_SessionFile.hxx".}
-proc recognizeFile*(this: var IFSelectSessionFile; headerline: StandardCString): StandardBoolean {.
+proc RecognizeFile*(this: var IFSelect_SessionFile; headerline: Standard_CString): Standard_Boolean {.
     importcpp: "RecognizeFile", header: "IFSelect_SessionFile.hxx".}
-proc write*(this: var IFSelectSessionFile; filename: StandardCString): StandardInteger {.
+proc Write*(this: var IFSelect_SessionFile; filename: Standard_CString): Standard_Integer {.
     importcpp: "Write", header: "IFSelect_SessionFile.hxx".}
-proc read*(this: var IFSelectSessionFile; filename: StandardCString): StandardInteger {.
+proc Read*(this: var IFSelect_SessionFile; filename: Standard_CString): Standard_Integer {.
     importcpp: "Read", header: "IFSelect_SessionFile.hxx".}
-proc writeSession*(this: var IFSelectSessionFile): StandardInteger {.
+proc WriteSession*(this: var IFSelect_SessionFile): Standard_Integer {.
     importcpp: "WriteSession", header: "IFSelect_SessionFile.hxx".}
-proc writeEnd*(this: var IFSelectSessionFile): StandardInteger {.
+proc WriteEnd*(this: var IFSelect_SessionFile): Standard_Integer {.
     importcpp: "WriteEnd", header: "IFSelect_SessionFile.hxx".}
-proc writeLine*(this: var IFSelectSessionFile; line: StandardCString;
-               follow: StandardCharacter = 0) {.importcpp: "WriteLine",
+proc WriteLine*(this: var IFSelect_SessionFile; line: Standard_CString;
+               follow: Standard_Character = 0) {.importcpp: "WriteLine",
     header: "IFSelect_SessionFile.hxx".}
-proc writeOwn*(this: var IFSelectSessionFile; item: Handle[StandardTransient]): StandardBoolean {.
+proc WriteOwn*(this: var IFSelect_SessionFile; item: handle[Standard_Transient]): Standard_Boolean {.
     importcpp: "WriteOwn", header: "IFSelect_SessionFile.hxx".}
-proc readSession*(this: var IFSelectSessionFile): StandardInteger {.
+proc ReadSession*(this: var IFSelect_SessionFile): Standard_Integer {.
     importcpp: "ReadSession", header: "IFSelect_SessionFile.hxx".}
-proc readEnd*(this: var IFSelectSessionFile): StandardInteger {.importcpp: "ReadEnd",
-    header: "IFSelect_SessionFile.hxx".}
-proc readLine*(this: var IFSelectSessionFile): StandardBoolean {.
+proc ReadEnd*(this: var IFSelect_SessionFile): Standard_Integer {.
+    importcpp: "ReadEnd", header: "IFSelect_SessionFile.hxx".}
+proc ReadLine*(this: var IFSelect_SessionFile): Standard_Boolean {.
     importcpp: "ReadLine", header: "IFSelect_SessionFile.hxx".}
-proc splitLine*(this: var IFSelectSessionFile; line: StandardCString) {.
+proc SplitLine*(this: var IFSelect_SessionFile; line: Standard_CString) {.
     importcpp: "SplitLine", header: "IFSelect_SessionFile.hxx".}
-proc readOwn*(this: var IFSelectSessionFile; item: var Handle[StandardTransient]): StandardBoolean {.
+proc ReadOwn*(this: var IFSelect_SessionFile; item: var handle[Standard_Transient]): Standard_Boolean {.
     importcpp: "ReadOwn", header: "IFSelect_SessionFile.hxx".}
-proc addItem*(this: var IFSelectSessionFile; item: Handle[StandardTransient];
-             active: StandardBoolean = standardTrue) {.importcpp: "AddItem",
+proc AddItem*(this: var IFSelect_SessionFile; item: handle[Standard_Transient];
+             active: Standard_Boolean = Standard_True) {.importcpp: "AddItem",
     header: "IFSelect_SessionFile.hxx".}
-proc isDone*(this: IFSelectSessionFile): StandardBoolean {.noSideEffect,
+proc IsDone*(this: IFSelect_SessionFile): Standard_Boolean {.noSideEffect,
     importcpp: "IsDone", header: "IFSelect_SessionFile.hxx".}
-proc workSession*(this: IFSelectSessionFile): Handle[IFSelectWorkSession] {.
+proc WorkSession*(this: IFSelect_SessionFile): handle[IFSelect_WorkSession] {.
     noSideEffect, importcpp: "WorkSession", header: "IFSelect_SessionFile.hxx".}
-proc newItem*(this: var IFSelectSessionFile; ident: StandardInteger;
-             par: Handle[StandardTransient]) {.importcpp: "NewItem",
+proc NewItem*(this: var IFSelect_SessionFile; ident: Standard_Integer;
+             par: handle[Standard_Transient]) {.importcpp: "NewItem",
     header: "IFSelect_SessionFile.hxx".}
-proc setOwn*(this: var IFSelectSessionFile; mode: StandardBoolean) {.
+proc SetOwn*(this: var IFSelect_SessionFile; mode: Standard_Boolean) {.
     importcpp: "SetOwn", header: "IFSelect_SessionFile.hxx".}
-proc sendVoid*(this: var IFSelectSessionFile) {.importcpp: "SendVoid",
+proc SendVoid*(this: var IFSelect_SessionFile) {.importcpp: "SendVoid",
     header: "IFSelect_SessionFile.hxx".}
-proc sendItem*(this: var IFSelectSessionFile; par: Handle[StandardTransient]) {.
+proc SendItem*(this: var IFSelect_SessionFile; par: handle[Standard_Transient]) {.
     importcpp: "SendItem", header: "IFSelect_SessionFile.hxx".}
-proc sendText*(this: var IFSelectSessionFile; text: StandardCString) {.
+proc SendText*(this: var IFSelect_SessionFile; text: Standard_CString) {.
     importcpp: "SendText", header: "IFSelect_SessionFile.hxx".}
-proc setLastGeneral*(this: var IFSelectSessionFile; lastgen: StandardInteger) {.
+proc SetLastGeneral*(this: var IFSelect_SessionFile; lastgen: Standard_Integer) {.
     importcpp: "SetLastGeneral", header: "IFSelect_SessionFile.hxx".}
-proc nbParams*(this: IFSelectSessionFile): StandardInteger {.noSideEffect,
+proc NbParams*(this: IFSelect_SessionFile): Standard_Integer {.noSideEffect,
     importcpp: "NbParams", header: "IFSelect_SessionFile.hxx".}
-proc isVoid*(this: IFSelectSessionFile; num: StandardInteger): StandardBoolean {.
+proc IsVoid*(this: IFSelect_SessionFile; num: Standard_Integer): Standard_Boolean {.
     noSideEffect, importcpp: "IsVoid", header: "IFSelect_SessionFile.hxx".}
-proc isText*(this: IFSelectSessionFile; num: StandardInteger): StandardBoolean {.
+proc IsText*(this: IFSelect_SessionFile; num: Standard_Integer): Standard_Boolean {.
     noSideEffect, importcpp: "IsText", header: "IFSelect_SessionFile.hxx".}
-proc paramValue*(this: IFSelectSessionFile; num: StandardInteger): TCollectionAsciiString {.
+proc ParamValue*(this: IFSelect_SessionFile; num: Standard_Integer): TCollection_AsciiString {.
     noSideEffect, importcpp: "ParamValue", header: "IFSelect_SessionFile.hxx".}
-proc textValue*(this: IFSelectSessionFile; num: StandardInteger): TCollectionAsciiString {.
+proc TextValue*(this: IFSelect_SessionFile; num: Standard_Integer): TCollection_AsciiString {.
     noSideEffect, importcpp: "TextValue", header: "IFSelect_SessionFile.hxx".}
-proc itemValue*(this: IFSelectSessionFile; num: StandardInteger): Handle[
-    StandardTransient] {.noSideEffect, importcpp: "ItemValue",
-                        header: "IFSelect_SessionFile.hxx".}
-proc destroy*(this: var IFSelectSessionFile) {.importcpp: "Destroy",
+proc ItemValue*(this: IFSelect_SessionFile; num: Standard_Integer): handle[
+    Standard_Transient] {.noSideEffect, importcpp: "ItemValue",
+                         header: "IFSelect_SessionFile.hxx".}
+proc Destroy*(this: var IFSelect_SessionFile) {.importcpp: "Destroy",
     header: "IFSelect_SessionFile.hxx".}
-proc destroyIFSelectSessionFile*(this: var IFSelectSessionFile) {.
+proc destroyIFSelect_SessionFile*(this: var IFSelect_SessionFile) {.
     importcpp: "#.~IFSelect_SessionFile()", header: "IFSelect_SessionFile.hxx".}
-

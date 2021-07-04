@@ -14,84 +14,88 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Real,
+  ../Standard/Standard_Boolean, ../Standard/Standard_Integer
+
 discard "forward decl of Adaptor3d_HSurface"
 discard "forward decl of Adaptor2d_HCurve2d"
 discard "forward decl of gp_Pnt2d"
 discard "forward decl of Adaptor3d_HVertex"
 discard "forward decl of gp_Pnt"
 type
-  IntPatchHInterTool* {.importcpp: "IntPatch_HInterTool",
-                       header: "IntPatch_HInterTool.hxx", bycopy.} = object
+  IntPatch_HInterTool* {.importcpp: "IntPatch_HInterTool",
+                        header: "IntPatch_HInterTool.hxx", bycopy.} = object
 
 
-proc constructIntPatchHInterTool*(): IntPatchHInterTool {.constructor,
+proc constructIntPatch_HInterTool*(): IntPatch_HInterTool {.constructor,
     importcpp: "IntPatch_HInterTool(@)", header: "IntPatch_HInterTool.hxx".}
-proc singularOnUMin*(s: Handle[Adaptor3dHSurface]): StandardBoolean {.
+proc SingularOnUMin*(S: handle[Adaptor3d_HSurface]): Standard_Boolean {.
     importcpp: "IntPatch_HInterTool::SingularOnUMin(@)",
     header: "IntPatch_HInterTool.hxx".}
-proc singularOnUMax*(s: Handle[Adaptor3dHSurface]): StandardBoolean {.
+proc SingularOnUMax*(S: handle[Adaptor3d_HSurface]): Standard_Boolean {.
     importcpp: "IntPatch_HInterTool::SingularOnUMax(@)",
     header: "IntPatch_HInterTool.hxx".}
-proc singularOnVMin*(s: Handle[Adaptor3dHSurface]): StandardBoolean {.
+proc SingularOnVMin*(S: handle[Adaptor3d_HSurface]): Standard_Boolean {.
     importcpp: "IntPatch_HInterTool::SingularOnVMin(@)",
     header: "IntPatch_HInterTool.hxx".}
-proc singularOnVMax*(s: Handle[Adaptor3dHSurface]): StandardBoolean {.
+proc SingularOnVMax*(S: handle[Adaptor3d_HSurface]): Standard_Boolean {.
     importcpp: "IntPatch_HInterTool::SingularOnVMax(@)",
     header: "IntPatch_HInterTool.hxx".}
-proc nbSamplesU*(s: Handle[Adaptor3dHSurface]; u1: StandardReal; u2: StandardReal): StandardInteger {.
+proc NbSamplesU*(S: handle[Adaptor3d_HSurface]; u1: Standard_Real; u2: Standard_Real): Standard_Integer {.
     importcpp: "IntPatch_HInterTool::NbSamplesU(@)",
     header: "IntPatch_HInterTool.hxx".}
-proc nbSamplesV*(s: Handle[Adaptor3dHSurface]; v1: StandardReal; v2: StandardReal): StandardInteger {.
+proc NbSamplesV*(S: handle[Adaptor3d_HSurface]; v1: Standard_Real; v2: Standard_Real): Standard_Integer {.
     importcpp: "IntPatch_HInterTool::NbSamplesV(@)",
     header: "IntPatch_HInterTool.hxx".}
-proc nbSamplePoints*(this: var IntPatchHInterTool; s: Handle[Adaptor3dHSurface]): StandardInteger {.
+proc NbSamplePoints*(this: var IntPatch_HInterTool; S: handle[Adaptor3d_HSurface]): Standard_Integer {.
     importcpp: "NbSamplePoints", header: "IntPatch_HInterTool.hxx".}
-proc samplePoint*(this: IntPatchHInterTool; s: Handle[Adaptor3dHSurface];
-                 index: StandardInteger; u: var StandardReal; v: var StandardReal) {.
+proc SamplePoint*(this: IntPatch_HInterTool; S: handle[Adaptor3d_HSurface];
+                 Index: Standard_Integer; U: var Standard_Real; V: var Standard_Real) {.
     noSideEffect, importcpp: "SamplePoint", header: "IntPatch_HInterTool.hxx".}
-proc hasBeenSeen*(c: Handle[Adaptor2dHCurve2d]): StandardBoolean {.
+proc HasBeenSeen*(C: handle[Adaptor2d_HCurve2d]): Standard_Boolean {.
     importcpp: "IntPatch_HInterTool::HasBeenSeen(@)",
     header: "IntPatch_HInterTool.hxx".}
-proc nbSamplesOnArc*(a: Handle[Adaptor2dHCurve2d]): StandardInteger {.
+proc NbSamplesOnArc*(A: handle[Adaptor2d_HCurve2d]): Standard_Integer {.
     importcpp: "IntPatch_HInterTool::NbSamplesOnArc(@)",
     header: "IntPatch_HInterTool.hxx".}
-proc bounds*(c: Handle[Adaptor2dHCurve2d]; ufirst: var StandardReal;
-            ulast: var StandardReal) {.importcpp: "IntPatch_HInterTool::Bounds(@)",
-                                    header: "IntPatch_HInterTool.hxx".}
-proc project*(c: Handle[Adaptor2dHCurve2d]; p: GpPnt2d; paramproj: var StandardReal;
-             ptproj: var GpPnt2d): StandardBoolean {.
+proc Bounds*(C: handle[Adaptor2d_HCurve2d]; Ufirst: var Standard_Real;
+            Ulast: var Standard_Real) {.importcpp: "IntPatch_HInterTool::Bounds(@)",
+                                     header: "IntPatch_HInterTool.hxx".}
+proc Project*(C: handle[Adaptor2d_HCurve2d]; P: gp_Pnt2d;
+             Paramproj: var Standard_Real; Ptproj: var gp_Pnt2d): Standard_Boolean {.
     importcpp: "IntPatch_HInterTool::Project(@)",
     header: "IntPatch_HInterTool.hxx".}
-proc tolerance*(v: Handle[Adaptor3dHVertex]; c: Handle[Adaptor2dHCurve2d]): StandardReal {.
+proc Tolerance*(V: handle[Adaptor3d_HVertex]; C: handle[Adaptor2d_HCurve2d]): Standard_Real {.
     importcpp: "IntPatch_HInterTool::Tolerance(@)",
     header: "IntPatch_HInterTool.hxx".}
-proc parameter*(v: Handle[Adaptor3dHVertex]; c: Handle[Adaptor2dHCurve2d]): StandardReal {.
+proc Parameter*(V: handle[Adaptor3d_HVertex]; C: handle[Adaptor2d_HCurve2d]): Standard_Real {.
     importcpp: "IntPatch_HInterTool::Parameter(@)",
     header: "IntPatch_HInterTool.hxx".}
-proc nbPoints*(c: Handle[Adaptor2dHCurve2d]): StandardInteger {.
+proc NbPoints*(C: handle[Adaptor2d_HCurve2d]): Standard_Integer {.
     importcpp: "IntPatch_HInterTool::NbPoints(@)",
     header: "IntPatch_HInterTool.hxx".}
-proc value*(c: Handle[Adaptor2dHCurve2d]; index: StandardInteger; pt: var GpPnt;
-           tol: var StandardReal; u: var StandardReal) {.
+proc Value*(C: handle[Adaptor2d_HCurve2d]; Index: Standard_Integer; Pt: var gp_Pnt;
+           Tol: var Standard_Real; U: var Standard_Real) {.
     importcpp: "IntPatch_HInterTool::Value(@)", header: "IntPatch_HInterTool.hxx".}
-proc isVertex*(c: Handle[Adaptor2dHCurve2d]; index: StandardInteger): StandardBoolean {.
+proc IsVertex*(C: handle[Adaptor2d_HCurve2d]; Index: Standard_Integer): Standard_Boolean {.
     importcpp: "IntPatch_HInterTool::IsVertex(@)",
     header: "IntPatch_HInterTool.hxx".}
-proc vertex*(c: Handle[Adaptor2dHCurve2d]; index: StandardInteger;
-            v: var Handle[Adaptor3dHVertex]) {.
+proc Vertex*(C: handle[Adaptor2d_HCurve2d]; Index: Standard_Integer;
+            V: var handle[Adaptor3d_HVertex]) {.
     importcpp: "IntPatch_HInterTool::Vertex(@)", header: "IntPatch_HInterTool.hxx".}
-proc nbSegments*(c: Handle[Adaptor2dHCurve2d]): StandardInteger {.
+proc NbSegments*(C: handle[Adaptor2d_HCurve2d]): Standard_Integer {.
     importcpp: "IntPatch_HInterTool::NbSegments(@)",
     header: "IntPatch_HInterTool.hxx".}
-proc hasFirstPoint*(c: Handle[Adaptor2dHCurve2d]; index: StandardInteger;
-                   indFirst: var StandardInteger): StandardBoolean {.
+proc HasFirstPoint*(C: handle[Adaptor2d_HCurve2d]; Index: Standard_Integer;
+                   IndFirst: var Standard_Integer): Standard_Boolean {.
     importcpp: "IntPatch_HInterTool::HasFirstPoint(@)",
     header: "IntPatch_HInterTool.hxx".}
-proc hasLastPoint*(c: Handle[Adaptor2dHCurve2d]; index: StandardInteger;
-                  indLast: var StandardInteger): StandardBoolean {.
+proc HasLastPoint*(C: handle[Adaptor2d_HCurve2d]; Index: Standard_Integer;
+                  IndLast: var Standard_Integer): Standard_Boolean {.
     importcpp: "IntPatch_HInterTool::HasLastPoint(@)",
     header: "IntPatch_HInterTool.hxx".}
-proc isAllSolution*(c: Handle[Adaptor2dHCurve2d]): StandardBoolean {.
+proc IsAllSolution*(C: handle[Adaptor2d_HCurve2d]): Standard_Boolean {.
     importcpp: "IntPatch_HInterTool::IsAllSolution(@)",
     header: "IntPatch_HInterTool.hxx".}
-

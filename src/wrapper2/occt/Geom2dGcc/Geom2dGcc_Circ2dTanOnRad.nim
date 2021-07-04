@@ -14,6 +14,14 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
+  ../Standard/Standard_Integer, ../TColgp/TColgp_Array1OfCirc2d,
+  ../GccEnt/GccEnt_Array1OfPosition, ../TColStd/TColStd_Array1OfInteger,
+  ../TColgp/TColgp_Array1OfPnt2d, ../TColStd/TColStd_Array1OfReal,
+  ../Standard/Standard_Real, ../GccEnt/GccEnt_Position
+
 discard "forward decl of Standard_NegativeValue"
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of GccEnt_BadQualifier"
@@ -26,68 +34,68 @@ discard "forward decl of Geom2dGcc_Circ2dTanOnRadGeo"
 discard "forward decl of gp_Circ2d"
 discard "forward decl of gp_Pnt2d"
 type
-  Geom2dGccCirc2dTanOnRad* {.importcpp: "Geom2dGcc_Circ2dTanOnRad",
-                            header: "Geom2dGcc_Circ2dTanOnRad.hxx", bycopy.} = object ##
-                                                                                 ## !
-                                                                                 ## Constructs
-                                                                                 ## one
-                                                                                 ## or
-                                                                                 ## more
-                                                                                 ## 2D
-                                                                                 ## circles
-                                                                                 ## of
-                                                                                 ## radius
-                                                                                 ## Radius,
-                                                                                 ##
-                                                                                 ## !
-                                                                                 ## centered
-                                                                                 ## on
-                                                                                 ## the
-                                                                                 ## 2D
-                                                                                 ## curve
-                                                                                 ## OnCurv
-                                                                                 ## and:
-                                                                                 ##
-                                                                                 ## !
-                                                                                 ## -
-                                                                                 ## tangential
-                                                                                 ## to
-                                                                                 ## the
-                                                                                 ## curve
-                                                                                 ## Qualified1
+  Geom2dGcc_Circ2dTanOnRad* {.importcpp: "Geom2dGcc_Circ2dTanOnRad",
+                             header: "Geom2dGcc_Circ2dTanOnRad.hxx", bycopy.} = object ##
+                                                                                  ## !
+                                                                                  ## Constructs
+                                                                                  ## one
+                                                                                  ## or
+                                                                                  ## more
+                                                                                  ## 2D
+                                                                                  ## circles
+                                                                                  ## of
+                                                                                  ## radius
+                                                                                  ## Radius,
+                                                                                  ##
+                                                                                  ## !
+                                                                                  ## centered
+                                                                                  ## on
+                                                                                  ## the
+                                                                                  ## 2D
+                                                                                  ## curve
+                                                                                  ## OnCurv
+                                                                                  ## and:
+                                                                                  ##
+                                                                                  ## !
+                                                                                  ## -
+                                                                                  ## tangential
+                                                                                  ## to
+                                                                                  ## the
+                                                                                  ## curve
+                                                                                  ## Qualified1
 
 
-proc constructGeom2dGccCirc2dTanOnRad*(qualified1: Geom2dGccQualifiedCurve;
-                                      onCurv: Geom2dAdaptorCurve;
-                                      radius: StandardReal;
-                                      tolerance: StandardReal): Geom2dGccCirc2dTanOnRad {.
+proc constructGeom2dGcc_Circ2dTanOnRad*(Qualified1: Geom2dGcc_QualifiedCurve;
+                                       OnCurv: Geom2dAdaptor_Curve;
+                                       Radius: Standard_Real;
+                                       Tolerance: Standard_Real): Geom2dGcc_Circ2dTanOnRad {.
     constructor, importcpp: "Geom2dGcc_Circ2dTanOnRad(@)",
     header: "Geom2dGcc_Circ2dTanOnRad.hxx".}
-proc constructGeom2dGccCirc2dTanOnRad*(point1: Handle[Geom2dPoint];
-                                      onCurv: Geom2dAdaptorCurve;
-                                      radius: StandardReal;
-                                      tolerance: StandardReal): Geom2dGccCirc2dTanOnRad {.
+proc constructGeom2dGcc_Circ2dTanOnRad*(Point1: handle[Geom2d_Point];
+                                       OnCurv: Geom2dAdaptor_Curve;
+                                       Radius: Standard_Real;
+                                       Tolerance: Standard_Real): Geom2dGcc_Circ2dTanOnRad {.
     constructor, importcpp: "Geom2dGcc_Circ2dTanOnRad(@)",
     header: "Geom2dGcc_Circ2dTanOnRad.hxx".}
-proc results*(this: var Geom2dGccCirc2dTanOnRad; circ: GccAnaCirc2dTanOnRad) {.
+proc Results*(this: var Geom2dGcc_Circ2dTanOnRad; Circ: GccAna_Circ2dTanOnRad) {.
     importcpp: "Results", header: "Geom2dGcc_Circ2dTanOnRad.hxx".}
-proc results*(this: var Geom2dGccCirc2dTanOnRad; circ: Geom2dGccCirc2dTanOnRadGeo) {.
+proc Results*(this: var Geom2dGcc_Circ2dTanOnRad; Circ: Geom2dGcc_Circ2dTanOnRadGeo) {.
     importcpp: "Results", header: "Geom2dGcc_Circ2dTanOnRad.hxx".}
-proc isDone*(this: Geom2dGccCirc2dTanOnRad): StandardBoolean {.noSideEffect,
+proc IsDone*(this: Geom2dGcc_Circ2dTanOnRad): Standard_Boolean {.noSideEffect,
     importcpp: "IsDone", header: "Geom2dGcc_Circ2dTanOnRad.hxx".}
-proc nbSolutions*(this: Geom2dGccCirc2dTanOnRad): StandardInteger {.noSideEffect,
+proc NbSolutions*(this: Geom2dGcc_Circ2dTanOnRad): Standard_Integer {.noSideEffect,
     importcpp: "NbSolutions", header: "Geom2dGcc_Circ2dTanOnRad.hxx".}
-proc thisSolution*(this: Geom2dGccCirc2dTanOnRad; index: StandardInteger): GpCirc2d {.
+proc ThisSolution*(this: Geom2dGcc_Circ2dTanOnRad; Index: Standard_Integer): gp_Circ2d {.
     noSideEffect, importcpp: "ThisSolution", header: "Geom2dGcc_Circ2dTanOnRad.hxx".}
-proc whichQualifier*(this: Geom2dGccCirc2dTanOnRad; index: StandardInteger;
-                    qualif1: var GccEntPosition) {.noSideEffect,
+proc WhichQualifier*(this: Geom2dGcc_Circ2dTanOnRad; Index: Standard_Integer;
+                    Qualif1: var GccEnt_Position) {.noSideEffect,
     importcpp: "WhichQualifier", header: "Geom2dGcc_Circ2dTanOnRad.hxx".}
-proc tangency1*(this: Geom2dGccCirc2dTanOnRad; index: StandardInteger;
-               parSol: var StandardReal; parArg: var StandardReal; pntSol: var GpPnt2d) {.
-    noSideEffect, importcpp: "Tangency1", header: "Geom2dGcc_Circ2dTanOnRad.hxx".}
-proc centerOn3*(this: Geom2dGccCirc2dTanOnRad; index: StandardInteger;
-               parArg: var StandardReal; pntSol: var GpPnt2d) {.noSideEffect,
+proc Tangency1*(this: Geom2dGcc_Circ2dTanOnRad; Index: Standard_Integer;
+               ParSol: var Standard_Real; ParArg: var Standard_Real;
+               PntSol: var gp_Pnt2d) {.noSideEffect, importcpp: "Tangency1",
+                                    header: "Geom2dGcc_Circ2dTanOnRad.hxx".}
+proc CenterOn3*(this: Geom2dGcc_Circ2dTanOnRad; Index: Standard_Integer;
+               ParArg: var Standard_Real; PntSol: var gp_Pnt2d) {.noSideEffect,
     importcpp: "CenterOn3", header: "Geom2dGcc_Circ2dTanOnRad.hxx".}
-proc isTheSame1*(this: Geom2dGccCirc2dTanOnRad; index: StandardInteger): StandardBoolean {.
+proc IsTheSame1*(this: Geom2dGcc_Circ2dTanOnRad; Index: Standard_Integer): Standard_Boolean {.
     noSideEffect, importcpp: "IsTheSame1", header: "Geom2dGcc_Circ2dTanOnRad.hxx".}
-

@@ -14,6 +14,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../TopoDS/TopoDS_Solid,
+  ../BRepBuilderAPI/BRepBuilderAPI_MakeShape
+
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of TopoDS_Face"
 discard "forward decl of gp_Pnt"
@@ -35,15 +40,14 @@ type
                                                                                                               ## Point.
 
 
-proc constructBRepPrimAPI_MakeHalfSpace*(face: TopoDS_Face; refPnt: GpPnt): BRepPrimAPI_MakeHalfSpace {.
+proc constructBRepPrimAPI_MakeHalfSpace*(Face: TopoDS_Face; RefPnt: gp_Pnt): BRepPrimAPI_MakeHalfSpace {.
     constructor, importcpp: "BRepPrimAPI_MakeHalfSpace(@)",
     header: "BRepPrimAPI_MakeHalfSpace.hxx".}
-proc constructBRepPrimAPI_MakeHalfSpace*(shell: TopoDS_Shell; refPnt: GpPnt): BRepPrimAPI_MakeHalfSpace {.
+proc constructBRepPrimAPI_MakeHalfSpace*(Shell: TopoDS_Shell; RefPnt: gp_Pnt): BRepPrimAPI_MakeHalfSpace {.
     constructor, importcpp: "BRepPrimAPI_MakeHalfSpace(@)",
     header: "BRepPrimAPI_MakeHalfSpace.hxx".}
-proc solid*(this: BRepPrimAPI_MakeHalfSpace): TopoDS_Solid {.noSideEffect,
+proc Solid*(this: BRepPrimAPI_MakeHalfSpace): TopoDS_Solid {.noSideEffect,
     importcpp: "Solid", header: "BRepPrimAPI_MakeHalfSpace.hxx".}
-converter `topoDS_Solid`*(this: BRepPrimAPI_MakeHalfSpace): TopoDS_Solid {.
+converter `TopoDS_Solid`*(this: BRepPrimAPI_MakeHalfSpace): TopoDS_Solid {.
     noSideEffect, importcpp: "BRepPrimAPI_MakeHalfSpace::operator TopoDS_Solid",
     header: "BRepPrimAPI_MakeHalfSpace.hxx".}
-

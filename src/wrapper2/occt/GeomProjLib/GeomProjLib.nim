@@ -14,6 +14,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Real,
+  ../Standard/Standard_Boolean
+
 discard "forward decl of Geom2d_Curve"
 discard "forward decl of Geom_Curve"
 discard "forward decl of Geom_Surface"
@@ -100,28 +105,29 @@ type
                                                                                 ## Handle.
 
 
-proc curve2d*(c: Handle[GeomCurve]; first: StandardReal; last: StandardReal;
-             s: Handle[GeomSurface]; uFirst: StandardReal; uLast: StandardReal;
-             vFirst: StandardReal; vLast: StandardReal; tolerance: var StandardReal): Handle[
-    Geom2dCurve] {.importcpp: "GeomProjLib::Curve2d(@)", header: "GeomProjLib.hxx".}
-proc curve2d*(c: Handle[GeomCurve]; first: StandardReal; last: StandardReal;
-             s: Handle[GeomSurface]; tolerance: var StandardReal): Handle[Geom2dCurve] {.
+proc Curve2d*(C: handle[Geom_Curve]; First: Standard_Real; Last: Standard_Real;
+             S: handle[Geom_Surface]; UFirst: Standard_Real; ULast: Standard_Real;
+             VFirst: Standard_Real; VLast: Standard_Real;
+             Tolerance: var Standard_Real): handle[Geom2d_Curve] {.
     importcpp: "GeomProjLib::Curve2d(@)", header: "GeomProjLib.hxx".}
-proc curve2d*(c: Handle[GeomCurve]; first: StandardReal; last: StandardReal;
-             s: Handle[GeomSurface]): Handle[Geom2dCurve] {.
+proc Curve2d*(C: handle[Geom_Curve]; First: Standard_Real; Last: Standard_Real;
+             S: handle[Geom_Surface]; Tolerance: var Standard_Real): handle[
+    Geom2d_Curve] {.importcpp: "GeomProjLib::Curve2d(@)", header: "GeomProjLib.hxx".}
+proc Curve2d*(C: handle[Geom_Curve]; First: Standard_Real; Last: Standard_Real;
+             S: handle[Geom_Surface]): handle[Geom2d_Curve] {.
     importcpp: "GeomProjLib::Curve2d(@)", header: "GeomProjLib.hxx".}
-proc curve2d*(c: Handle[GeomCurve]; s: Handle[GeomSurface]): Handle[Geom2dCurve] {.
+proc Curve2d*(C: handle[Geom_Curve]; S: handle[Geom_Surface]): handle[Geom2d_Curve] {.
     importcpp: "GeomProjLib::Curve2d(@)", header: "GeomProjLib.hxx".}
-proc curve2d*(c: Handle[GeomCurve]; s: Handle[GeomSurface]; uDeb: StandardReal;
-             uFin: StandardReal; vDeb: StandardReal; vFin: StandardReal): Handle[
-    Geom2dCurve] {.importcpp: "GeomProjLib::Curve2d(@)", header: "GeomProjLib.hxx".}
-proc curve2d*(c: Handle[GeomCurve]; s: Handle[GeomSurface]; uDeb: StandardReal;
-             uFin: StandardReal; vDeb: StandardReal; vFin: StandardReal;
-             tolerance: var StandardReal): Handle[Geom2dCurve] {.
+proc Curve2d*(C: handle[Geom_Curve]; S: handle[Geom_Surface]; UDeb: Standard_Real;
+             UFin: Standard_Real; VDeb: Standard_Real; VFin: Standard_Real): handle[
+    Geom2d_Curve] {.importcpp: "GeomProjLib::Curve2d(@)", header: "GeomProjLib.hxx".}
+proc Curve2d*(C: handle[Geom_Curve]; S: handle[Geom_Surface]; UDeb: Standard_Real;
+             UFin: Standard_Real; VDeb: Standard_Real; VFin: Standard_Real;
+             Tolerance: var Standard_Real): handle[Geom2d_Curve] {.
     importcpp: "GeomProjLib::Curve2d(@)", header: "GeomProjLib.hxx".}
-proc project*(c: Handle[GeomCurve]; s: Handle[GeomSurface]): Handle[GeomCurve] {.
+proc Project*(C: handle[Geom_Curve]; S: handle[Geom_Surface]): handle[Geom_Curve] {.
     importcpp: "GeomProjLib::Project(@)", header: "GeomProjLib.hxx".}
-proc projectOnPlane*(curve: Handle[GeomCurve]; plane: Handle[GeomPlane]; dir: GpDir;
-                    keepParametrization: StandardBoolean): Handle[GeomCurve] {.
-    importcpp: "GeomProjLib::ProjectOnPlane(@)", header: "GeomProjLib.hxx".}
-
+proc ProjectOnPlane*(Curve: handle[Geom_Curve]; Plane: handle[Geom_Plane];
+                    Dir: gp_Dir; KeepParametrization: Standard_Boolean): handle[
+    Geom_Curve] {.importcpp: "GeomProjLib::ProjectOnPlane(@)",
+                 header: "GeomProjLib.hxx".}

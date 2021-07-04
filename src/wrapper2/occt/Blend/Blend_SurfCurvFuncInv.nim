@@ -14,35 +14,40 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../math/math_FunctionSetWithDerivatives,
+  ../Standard/Standard_Integer, ../Standard/Standard_Boolean, ../math/math_Vector,
+  ../Standard/Standard_Real
+
 discard "forward decl of math_Matrix"
 discard "forward decl of Adaptor2d_HCurve2d"
 type
-  BlendSurfCurvFuncInv* {.importcpp: "Blend_SurfCurvFuncInv",
-                         header: "Blend_SurfCurvFuncInv.hxx", bycopy.} = object of MathFunctionSetWithDerivatives ##
-                                                                                                           ## !
-                                                                                                           ## Returns
-                                                                                                           ## 3.
+  Blend_SurfCurvFuncInv* {.importcpp: "Blend_SurfCurvFuncInv",
+                          header: "Blend_SurfCurvFuncInv.hxx", bycopy.} = object of math_FunctionSetWithDerivatives ##
+                                                                                                             ## !
+                                                                                                             ## Returns
+                                                                                                             ## 3.
 
 
-proc nbVariables*(this: BlendSurfCurvFuncInv): StandardInteger {.noSideEffect,
+proc NbVariables*(this: Blend_SurfCurvFuncInv): Standard_Integer {.noSideEffect,
     importcpp: "NbVariables", header: "Blend_SurfCurvFuncInv.hxx".}
-proc nbEquations*(this: BlendSurfCurvFuncInv): StandardInteger {.noSideEffect,
+proc NbEquations*(this: Blend_SurfCurvFuncInv): Standard_Integer {.noSideEffect,
     importcpp: "NbEquations", header: "Blend_SurfCurvFuncInv.hxx".}
-proc value*(this: var BlendSurfCurvFuncInv; x: MathVector; f: var MathVector): StandardBoolean {.
+proc Value*(this: var Blend_SurfCurvFuncInv; X: math_Vector; F: var math_Vector): Standard_Boolean {.
     importcpp: "Value", header: "Blend_SurfCurvFuncInv.hxx".}
-proc derivatives*(this: var BlendSurfCurvFuncInv; x: MathVector; d: var MathMatrix): StandardBoolean {.
+proc Derivatives*(this: var Blend_SurfCurvFuncInv; X: math_Vector; D: var math_Matrix): Standard_Boolean {.
     importcpp: "Derivatives", header: "Blend_SurfCurvFuncInv.hxx".}
-proc values*(this: var BlendSurfCurvFuncInv; x: MathVector; f: var MathVector;
-            d: var MathMatrix): StandardBoolean {.importcpp: "Values",
+proc Values*(this: var Blend_SurfCurvFuncInv; X: math_Vector; F: var math_Vector;
+            D: var math_Matrix): Standard_Boolean {.importcpp: "Values",
     header: "Blend_SurfCurvFuncInv.hxx".}
-proc set*(this: var BlendSurfCurvFuncInv; rst: Handle[Adaptor2dHCurve2d]) {.
+proc Set*(this: var Blend_SurfCurvFuncInv; Rst: handle[Adaptor2d_HCurve2d]) {.
     importcpp: "Set", header: "Blend_SurfCurvFuncInv.hxx".}
-proc getTolerance*(this: BlendSurfCurvFuncInv; tolerance: var MathVector;
-                  tol: StandardReal) {.noSideEffect, importcpp: "GetTolerance",
-                                     header: "Blend_SurfCurvFuncInv.hxx".}
-proc getBounds*(this: BlendSurfCurvFuncInv; infBound: var MathVector;
-               supBound: var MathVector) {.noSideEffect, importcpp: "GetBounds",
-                                        header: "Blend_SurfCurvFuncInv.hxx".}
-proc isSolution*(this: var BlendSurfCurvFuncInv; sol: MathVector; tol: StandardReal): StandardBoolean {.
+proc GetTolerance*(this: Blend_SurfCurvFuncInv; Tolerance: var math_Vector;
+                  Tol: Standard_Real) {.noSideEffect, importcpp: "GetTolerance",
+                                      header: "Blend_SurfCurvFuncInv.hxx".}
+proc GetBounds*(this: Blend_SurfCurvFuncInv; InfBound: var math_Vector;
+               SupBound: var math_Vector) {.noSideEffect, importcpp: "GetBounds",
+    header: "Blend_SurfCurvFuncInv.hxx".}
+proc IsSolution*(this: var Blend_SurfCurvFuncInv; Sol: math_Vector; Tol: Standard_Real): Standard_Boolean {.
     importcpp: "IsSolution", header: "Blend_SurfCurvFuncInv.hxx".}
-

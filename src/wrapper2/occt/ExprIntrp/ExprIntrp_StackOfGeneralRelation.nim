@@ -14,9 +14,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Expr/Expr_GeneralRelation, ../NCollection/NCollection_List
+
 type
-  ExprIntrpStackOfGeneralRelation* = NCollectionList[Handle[ExprGeneralRelation]]
-  ExprIntrpListIteratorOfStackOfGeneralRelation* = Iterator[
-      Handle[ExprGeneralRelation]]
-
-
+  ExprIntrp_StackOfGeneralRelation* = NCollection_List[
+      handle[Expr_GeneralRelation]]
+  ExprIntrp_ListIteratorOfStackOfGeneralRelation* = Iterator[
+      handle[Expr_GeneralRelation]]

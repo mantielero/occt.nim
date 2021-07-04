@@ -14,6 +14,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  AIS_InteractiveObject, ../TCollection/TCollection_AsciiString
+
 discard "forward decl of AIS_Line"
 discard "forward decl of AIS_Point"
 discard "forward decl of Geom_Plane"
@@ -38,46 +41,44 @@ type
                                                                                              ## an
                                                                                              ## axis.
 
-  AIS_PlaneTrihedronbaseType* = AIS_InteractiveObject
+  AIS_PlaneTrihedronbase_type* = AIS_InteractiveObject
 
-proc getTypeName*(): cstring {.importcpp: "AIS_PlaneTrihedron::get_type_name(@)",
-                            header: "AIS_PlaneTrihedron.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "AIS_PlaneTrihedron::get_type_name(@)",
+                              header: "AIS_PlaneTrihedron.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "AIS_PlaneTrihedron::get_type_descriptor(@)",
     header: "AIS_PlaneTrihedron.hxx".}
-proc dynamicType*(this: AIS_PlaneTrihedron): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: AIS_PlaneTrihedron): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "AIS_PlaneTrihedron.hxx".}
-proc constructAIS_PlaneTrihedron*(aPlane: Handle[GeomPlane]): AIS_PlaneTrihedron {.
+proc constructAIS_PlaneTrihedron*(aPlane: handle[Geom_Plane]): AIS_PlaneTrihedron {.
     constructor, importcpp: "AIS_PlaneTrihedron(@)",
     header: "AIS_PlaneTrihedron.hxx".}
-proc component*(this: var AIS_PlaneTrihedron): Handle[GeomPlane] {.
+proc Component*(this: var AIS_PlaneTrihedron): handle[Geom_Plane] {.
     importcpp: "Component", header: "AIS_PlaneTrihedron.hxx".}
-proc setComponent*(this: var AIS_PlaneTrihedron; aPlane: Handle[GeomPlane]) {.
+proc SetComponent*(this: var AIS_PlaneTrihedron; aPlane: handle[Geom_Plane]) {.
     importcpp: "SetComponent", header: "AIS_PlaneTrihedron.hxx".}
-proc xAxis*(this: AIS_PlaneTrihedron): Handle[AIS_Line] {.noSideEffect,
+proc XAxis*(this: AIS_PlaneTrihedron): handle[AIS_Line] {.noSideEffect,
     importcpp: "XAxis", header: "AIS_PlaneTrihedron.hxx".}
-proc yAxis*(this: AIS_PlaneTrihedron): Handle[AIS_Line] {.noSideEffect,
+proc YAxis*(this: AIS_PlaneTrihedron): handle[AIS_Line] {.noSideEffect,
     importcpp: "YAxis", header: "AIS_PlaneTrihedron.hxx".}
-proc position*(this: AIS_PlaneTrihedron): Handle[AIS_Point] {.noSideEffect,
+proc Position*(this: AIS_PlaneTrihedron): handle[AIS_Point] {.noSideEffect,
     importcpp: "Position", header: "AIS_PlaneTrihedron.hxx".}
-proc setLength*(this: var AIS_PlaneTrihedron; theLength: StandardReal) {.
+proc SetLength*(this: var AIS_PlaneTrihedron; theLength: Standard_Real) {.
     importcpp: "SetLength", header: "AIS_PlaneTrihedron.hxx".}
-proc getLength*(this: AIS_PlaneTrihedron): StandardReal {.noSideEffect,
+proc GetLength*(this: AIS_PlaneTrihedron): Standard_Real {.noSideEffect,
     importcpp: "GetLength", header: "AIS_PlaneTrihedron.hxx".}
-proc acceptDisplayMode*(this: AIS_PlaneTrihedron; aMode: StandardInteger): StandardBoolean {.
+proc AcceptDisplayMode*(this: AIS_PlaneTrihedron; aMode: Standard_Integer): Standard_Boolean {.
     noSideEffect, importcpp: "AcceptDisplayMode", header: "AIS_PlaneTrihedron.hxx".}
-proc signature*(this: AIS_PlaneTrihedron): StandardInteger {.noSideEffect,
+proc Signature*(this: AIS_PlaneTrihedron): Standard_Integer {.noSideEffect,
     importcpp: "Signature", header: "AIS_PlaneTrihedron.hxx".}
-proc `type`*(this: AIS_PlaneTrihedron): AIS_KindOfInteractive {.noSideEffect,
+proc Type*(this: AIS_PlaneTrihedron): AIS_KindOfInteractive {.noSideEffect,
     importcpp: "Type", header: "AIS_PlaneTrihedron.hxx".}
-proc setColor*(this: var AIS_PlaneTrihedron; theColor: QuantityColor) {.
+proc SetColor*(this: var AIS_PlaneTrihedron; theColor: Quantity_Color) {.
     importcpp: "SetColor", header: "AIS_PlaneTrihedron.hxx".}
-proc setXLabel*(this: var AIS_PlaneTrihedron; theLabel: TCollectionAsciiString) {.
+proc SetXLabel*(this: var AIS_PlaneTrihedron; theLabel: TCollection_AsciiString) {.
     importcpp: "SetXLabel", header: "AIS_PlaneTrihedron.hxx".}
-proc setYLabel*(this: var AIS_PlaneTrihedron; theLabel: TCollectionAsciiString) {.
+proc SetYLabel*(this: var AIS_PlaneTrihedron; theLabel: TCollection_AsciiString) {.
     importcpp: "SetYLabel", header: "AIS_PlaneTrihedron.hxx".}
 discard "forward decl of AIS_PlaneTrihedron"
 type
-  HandleAIS_PlaneTrihedron* = Handle[AIS_PlaneTrihedron]
-
-
+  Handle_AIS_PlaneTrihedron* = handle[AIS_PlaneTrihedron]

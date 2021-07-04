@@ -14,57 +14,61 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, Intf_SeqOfSectionPoint, ../Standard/Standard_Real,
+  ../Standard/Standard_Integer, ../Standard/Standard_Boolean
+
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of Intf_SectionPoint"
 type
-  IntfTangentZone* {.importcpp: "Intf_TangentZone", header: "Intf_TangentZone.hxx",
-                    bycopy.} = object ## ! Returns number of SectionPoint in this TangentZone.
+  Intf_TangentZone* {.importcpp: "Intf_TangentZone",
+                     header: "Intf_TangentZone.hxx", bycopy.} = object ## ! Returns number of SectionPoint in this TangentZone.
 
 
-proc numberOfPoints*(this: IntfTangentZone): StandardInteger {.noSideEffect,
+proc NumberOfPoints*(this: Intf_TangentZone): Standard_Integer {.noSideEffect,
     importcpp: "NumberOfPoints", header: "Intf_TangentZone.hxx".}
-proc getPoint*(this: IntfTangentZone; index: StandardInteger): IntfSectionPoint {.
+proc GetPoint*(this: Intf_TangentZone; Index: Standard_Integer): Intf_SectionPoint {.
     noSideEffect, importcpp: "GetPoint", header: "Intf_TangentZone.hxx".}
-proc isEqual*(this: IntfTangentZone; other: IntfTangentZone): StandardBoolean {.
+proc IsEqual*(this: Intf_TangentZone; Other: Intf_TangentZone): Standard_Boolean {.
     noSideEffect, importcpp: "IsEqual", header: "Intf_TangentZone.hxx".}
-proc `==`*(this: IntfTangentZone; other: IntfTangentZone): StandardBoolean {.
+proc `==`*(this: Intf_TangentZone; Other: Intf_TangentZone): Standard_Boolean {.
     noSideEffect, importcpp: "(# == #)", header: "Intf_TangentZone.hxx".}
-proc contains*(this: IntfTangentZone; thePI: IntfSectionPoint): StandardBoolean {.
+proc Contains*(this: Intf_TangentZone; ThePI: Intf_SectionPoint): Standard_Boolean {.
     noSideEffect, importcpp: "Contains", header: "Intf_TangentZone.hxx".}
-proc paramOnFirst*(this: IntfTangentZone; paraMin: var StandardReal;
-                  paraMax: var StandardReal) {.noSideEffect,
+proc ParamOnFirst*(this: Intf_TangentZone; paraMin: var Standard_Real;
+                  paraMax: var Standard_Real) {.noSideEffect,
     importcpp: "ParamOnFirst", header: "Intf_TangentZone.hxx".}
-proc paramOnSecond*(this: IntfTangentZone; paraMin: var StandardReal;
-                   paraMax: var StandardReal) {.noSideEffect,
+proc ParamOnSecond*(this: Intf_TangentZone; paraMin: var Standard_Real;
+                   paraMax: var Standard_Real) {.noSideEffect,
     importcpp: "ParamOnSecond", header: "Intf_TangentZone.hxx".}
-proc infoFirst*(this: IntfTangentZone; segMin: var StandardInteger;
-               paraMin: var StandardReal; segMax: var StandardInteger;
-               paraMax: var StandardReal) {.noSideEffect, importcpp: "InfoFirst",
+proc InfoFirst*(this: Intf_TangentZone; segMin: var Standard_Integer;
+               paraMin: var Standard_Real; segMax: var Standard_Integer;
+               paraMax: var Standard_Real) {.noSideEffect, importcpp: "InfoFirst",
     header: "Intf_TangentZone.hxx".}
-proc infoSecond*(this: IntfTangentZone; segMin: var StandardInteger;
-                paraMin: var StandardReal; segMax: var StandardInteger;
-                paraMax: var StandardReal) {.noSideEffect, importcpp: "InfoSecond",
+proc InfoSecond*(this: Intf_TangentZone; segMin: var Standard_Integer;
+                paraMin: var Standard_Real; segMax: var Standard_Integer;
+                paraMax: var Standard_Real) {.noSideEffect, importcpp: "InfoSecond",
     header: "Intf_TangentZone.hxx".}
-proc rangeContains*(this: IntfTangentZone; thePI: IntfSectionPoint): StandardBoolean {.
+proc RangeContains*(this: Intf_TangentZone; ThePI: Intf_SectionPoint): Standard_Boolean {.
     noSideEffect, importcpp: "RangeContains", header: "Intf_TangentZone.hxx".}
-proc hasCommonRange*(this: IntfTangentZone; other: IntfTangentZone): StandardBoolean {.
+proc HasCommonRange*(this: Intf_TangentZone; Other: Intf_TangentZone): Standard_Boolean {.
     noSideEffect, importcpp: "HasCommonRange", header: "Intf_TangentZone.hxx".}
-proc constructIntfTangentZone*(): IntfTangentZone {.constructor,
+proc constructIntf_TangentZone*(): Intf_TangentZone {.constructor,
     importcpp: "Intf_TangentZone(@)", header: "Intf_TangentZone.hxx".}
-proc append*(this: var IntfTangentZone; pi: IntfSectionPoint) {.importcpp: "Append",
+proc Append*(this: var Intf_TangentZone; Pi: Intf_SectionPoint) {.importcpp: "Append",
     header: "Intf_TangentZone.hxx".}
-proc append*(this: var IntfTangentZone; tzi: IntfTangentZone) {.importcpp: "Append",
+proc Append*(this: var Intf_TangentZone; Tzi: Intf_TangentZone) {.importcpp: "Append",
     header: "Intf_TangentZone.hxx".}
-proc insert*(this: var IntfTangentZone; pi: IntfSectionPoint): StandardBoolean {.
+proc Insert*(this: var Intf_TangentZone; Pi: Intf_SectionPoint): Standard_Boolean {.
     importcpp: "Insert", header: "Intf_TangentZone.hxx".}
-proc polygonInsert*(this: var IntfTangentZone; pi: IntfSectionPoint) {.
+proc PolygonInsert*(this: var Intf_TangentZone; Pi: Intf_SectionPoint) {.
     importcpp: "PolygonInsert", header: "Intf_TangentZone.hxx".}
-proc insertBefore*(this: var IntfTangentZone; index: StandardInteger;
-                  pi: IntfSectionPoint) {.importcpp: "InsertBefore",
+proc InsertBefore*(this: var Intf_TangentZone; Index: Standard_Integer;
+                  Pi: Intf_SectionPoint) {.importcpp: "InsertBefore",
+    header: "Intf_TangentZone.hxx".}
+proc InsertAfter*(this: var Intf_TangentZone; Index: Standard_Integer;
+                 Pi: Intf_SectionPoint) {.importcpp: "InsertAfter",
                                         header: "Intf_TangentZone.hxx".}
-proc insertAfter*(this: var IntfTangentZone; index: StandardInteger;
-                 pi: IntfSectionPoint) {.importcpp: "InsertAfter",
-                                       header: "Intf_TangentZone.hxx".}
-proc dump*(this: IntfTangentZone; indent: StandardInteger) {.noSideEffect,
+proc Dump*(this: Intf_TangentZone; Indent: Standard_Integer) {.noSideEffect,
     importcpp: "Dump", header: "Intf_TangentZone.hxx".}
-

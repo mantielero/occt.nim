@@ -14,8 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../TopoDS/TopoDS_Vertex, ChFiDS_ListOfStripe,
+  ../TopTools/TopTools_ShapeMapHasher, ../NCollection/NCollection_IndexedDataMap
+
 type
-  ChFiDS_IndexedDataMapOfVertexListOfStripe* = NCollectionIndexedDataMap[
-      TopoDS_Vertex, ChFiDS_ListOfStripe, TopToolsShapeMapHasher]
-
-
+  ChFiDS_IndexedDataMapOfVertexListOfStripe* = NCollection_IndexedDataMap[
+      TopoDS_Vertex, ChFiDS_ListOfStripe, TopTools_ShapeMapHasher]

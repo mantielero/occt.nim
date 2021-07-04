@@ -13,6 +13,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
+  ../Standard/Standard_CString, ../Message/Message_ProgressRange
+
 discard "forward decl of ShapeProcess_Operator"
 discard "forward decl of ShapeProcess_Context"
 discard "forward decl of ShapeProcess_Context"
@@ -33,11 +38,10 @@ type
                                                                                    ## Performer
 
 
-proc registerOperator*(name: StandardCString; op: Handle[ShapeProcessOperator]): StandardBoolean {.
+proc RegisterOperator*(name: Standard_CString; op: handle[ShapeProcess_Operator]): Standard_Boolean {.
     importcpp: "ShapeProcess::RegisterOperator(@)", header: "ShapeProcess.hxx".}
-proc findOperator*(name: StandardCString; op: var Handle[ShapeProcessOperator]): StandardBoolean {.
+proc FindOperator*(name: Standard_CString; op: var handle[ShapeProcess_Operator]): Standard_Boolean {.
     importcpp: "ShapeProcess::FindOperator(@)", header: "ShapeProcess.hxx".}
-proc perform*(context: Handle[ShapeProcessContext]; seq: StandardCString;
-             theProgress: MessageProgressRange = messageProgressRange()): StandardBoolean {.
+proc Perform*(context: handle[ShapeProcess_Context]; seq: Standard_CString;
+             theProgress: Message_ProgressRange = Message_ProgressRange()): Standard_Boolean {.
     importcpp: "ShapeProcess::Perform(@)", header: "ShapeProcess.hxx".}
-

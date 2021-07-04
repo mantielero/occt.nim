@@ -14,6 +14,10 @@
 ## 			    IGESData_Dump.hxx
 ## 		       --------------------------
 
+import
+  ../gp/gp_XY, ../gp/gp_Pnt2d, ../gp/gp_XYZ, ../gp/gp_Pnt, ../gp/gp_Vec,
+  ../gp/gp_Dir, ../gp/gp_GTrsf, ../Interface/Interface_MSG
+
 ##   ###############################################################
 ##   Macros to help Dumping Parts of IGES Entities
 ##   (for usefull and repetitive cases but which apply to different classes
@@ -71,233 +75,231 @@
 ##            Item : Real,Integer
 ##   ---------------------------------------------------------------
 
-template iGESDataDumpString*(s, str: untyped): void =
-  if str.isNull():
-    s shl "(undefined)"
+template IGESData_DumpString*(S, str: untyped): void =
+  if str.IsNull():
+    S shl "(undefined)"
   else:
-    s shl '\"' shl str.string() shl '\"'
+    S shl '\"' shl str.String() shl '\"'
 
-template iGESDataDumpXY*(s, xYval: untyped): untyped =
-  s shl " (" shl xYval.x() shl "," shl xYval.y() shl ")"
+template IGESData_DumpXY*(S, XYval: untyped): untyped =
+  S shl " (" shl XYval.X() shl "," shl XYval.Y() shl ")"
 
-template iGESDataDumpXYZ*(s, xYZval: untyped): untyped =
-  s shl " (" shl xYZval.x() shl "," shl xYZval.y() shl "," shl xYZval.z() shl ")"
+template IGESData_DumpXYZ*(S, XYZval: untyped): untyped =
+  S shl " (" shl XYZval.X() shl "," shl XYZval.Y() shl "," shl XYZval.Z() shl ")"
 
-template iGESDataDumpXYT*(s, xYval, trsf: untyped): void =
-  var xYZval: GpXYZ
-  trsf.transforms(xYZval)
-  iGESDataDumpXY(s, xYZval)
+template IGESData_DumpXYT*(S, XYval, Trsf: untyped): void =
+  var XYZval: gp_XYZ
+  Trsf.Transforms(XYZval)
+  IGESData_DumpXY(S, XYZval)
 
-template iGESDataDumpXYTZ*(s, xYval, trsf, z: untyped): void =
-  var xYZval: GpXYZ
-  trsf.transforms(xYZval)
-  iGESDataDumpXYZ(s, xYZval)
+template IGESData_DumpXYTZ*(S, XYval, Trsf, Z: untyped): void =
+  var XYZval: gp_XYZ
+  Trsf.Transforms(XYZval)
+  IGESData_DumpXYZ(S, XYZval)
 
-template iGESDataDumpXYZT*(s, xYZval, trsf: untyped): void =
-  var xYZTval: GpXYZ
-  trsf.transforms(xYZTval)
-  iGESDataDumpXYZ(s, xYZTval)
+template IGESData_DumpXYZT*(S, XYZval, Trsf: untyped): void =
+  var XYZTval: gp_XYZ
+  Trsf.Transforms(XYZTval)
+  IGESData_DumpXYZ(S, XYZTval)
 
-template iGESDataDumpXYL*(s, level, xYval, trsf: untyped): void =
-  iGESDataDumpXY(s, xYval)
-  if level > 5 and trsf.form() != gpIdentity:
-    s shl "  Transformed :"
-    iGESDataDumpXYT(s, xYval, trsf)
+template IGESData_DumpXYL*(S, Level, XYval, Trsf: untyped): void =
+  IGESData_DumpXY(S, XYval)
+  if Level > 5 and Trsf.Form() != gp_Identity:
+    S shl "  Transformed :"
+    IGESData_DumpXYT(S, XYval, Trsf)
 
-template iGESDataDumpXYLZ*(s, level, xYval, trsf, z: untyped): void =
-  iGESDataDumpXY(s, xYval)
-  if level > 5 and trsf.form() != gpIdentity:
-    s shl "  Transformed :"
-    iGESDataDumpXYTZ(s, xYval, trsf, z)
+template IGESData_DumpXYLZ*(S, Level, XYval, Trsf, Z: untyped): void =
+  IGESData_DumpXY(S, XYval)
+  if Level > 5 and Trsf.Form() != gp_Identity:
+    S shl "  Transformed :"
+    IGESData_DumpXYTZ(S, XYval, Trsf, Z)
 
-template iGESDataDumpXYZL*(s, level, xYZval, trsf: untyped): void =
-  iGESDataDumpXYZ(s, xYZval)
-  if level > 5 and trsf.form() != gpIdentity:
-    s shl "  Transformed :"
-    iGESDataDumpXYZT(s, xYZval, trsf)
+template IGESData_DumpXYZL*(S, Level, XYZval, Trsf: untyped): void =
+  IGESData_DumpXYZ(S, XYZval)
+  if Level > 5 and Trsf.Form() != gp_Identity:
+    S shl "  Transformed :"
+    IGESData_DumpXYZT(S, XYZval, Trsf)
 
-template iGESDataDumpListHeader*(s, lower, upper: untyped): void =
+template IGESData_DumpListHeader*(S, lower, upper: untyped): void =
   if lower > upper:
-    s shl " (Empty List)"
+    S shl " (Empty List)"
   elif lower == 1:
-    s shl " (Count : " shl upper shl ")"
+    S shl " (Count : " shl upper shl ")"
   else:
-    s shl " (" shl lower shl " - " shl upper shl ")"
+    S shl " (" shl lower shl " - " shl upper shl ")"
 
-template iGESDataDumpListVal*(s, lower, upper, item: untyped): void =
-  var lo: StandardInteger
-  var up: StandardInteger
-  iGESDataDumpListHeader(s, lo, up)
-  s shl " :"
-  var iopa: StandardInteger
+template IGESData_DumpListVal*(S, lower, upper, item: untyped): void =
+  var lo: Standard_Integer
+  var up: Standard_Integer
+  IGESData_DumpListHeader(S, lo, up)
+  S shl " :"
+  var iopa: Standard_Integer
   while iopa <= up:
-    s shl " " shl item(iopa)
+    S shl " " shl item(iopa)
     inc(iopa)
 
-template iGESDataDumpListXY*(s, lower, upper, item: untyped): void =
-  var lo: StandardInteger
-  var up: StandardInteger
-  iGESDataDumpListHeader(s, lo, up)
-  s shl " :"
-  var iopa: StandardInteger
+template IGESData_DumpListXY*(S, lower, upper, item: untyped): void =
+  var lo: Standard_Integer
+  var up: Standard_Integer
+  IGESData_DumpListHeader(S, lo, up)
+  S shl " :"
+  var iopa: Standard_Integer
   while iopa <= up:
-    iGESDataDumpXY(s, item(iopa))
+    IGESData_DumpXY(S, item(iopa))
     inc(iopa)
 
-template iGESDataDumpListXYZ*(s, lower, upper, item: untyped): void =
-  var lo: StandardInteger
-  var up: StandardInteger
-  iGESDataDumpListHeader(s, lo, up)
-  s shl " :"
-  var iopa: StandardInteger
+template IGESData_DumpListXYZ*(S, lower, upper, item: untyped): void =
+  var lo: Standard_Integer
+  var up: Standard_Integer
+  IGESData_DumpListHeader(S, lo, up)
+  S shl " :"
+  var iopa: Standard_Integer
   while iopa <= up:
-    iGESDataDumpXYZ(s, item(iopa))
+    IGESData_DumpXYZ(S, item(iopa))
     inc(iopa)
 
-template iGESDataDumpVals*(s, level, lower, upper, item: untyped): void =
-  var lo: StandardInteger
-  var up: StandardInteger
-  iGESDataDumpListHeader(s, lo, up)
+template IGESData_DumpVals*(S, Level, lower, upper, item: untyped): void =
+  var lo: Standard_Integer
+  var up: Standard_Integer
+  IGESData_DumpListHeader(S, lo, up)
   if lo > up:
     discard
-  elif level == 4 or level == -4:
-    s shl " [content : ask level > 4]"
-  elif level > 0:
-    s shl " :"
-    var iopa: StandardInteger
+  elif Level == 4 or Level == -4:
+    S shl " [content : ask level > 4]"
+  elif Level > 0:
+    S shl " :"
+    var iopa: Standard_Integer
     while iopa <= up:
-      s shl " " shl item(iopa)
+      S shl " " shl item(iopa)
       inc(iopa)
 
-template iGESDataDumpListXYL*(s, level, lower, upper, item, trsf: untyped): void =
-  var lo: StandardInteger
-  var up: StandardInteger
-  iGESDataDumpListHeader(s, lo, up)
+template IGESData_DumpListXYL*(S, Level, lower, upper, item, Trsf: untyped): void =
+  var lo: Standard_Integer
+  var up: Standard_Integer
+  IGESData_DumpListHeader(S, lo, up)
   if lo > up:
     discard
-  elif level == 4 or level == -4:
-    s shl " [content : ask level > 4, transformed : level > 5]"
-  elif level > 0:
-    s shl " :"
-    var iopa: StandardInteger
+  elif Level == 4 or Level == -4:
+    S shl " [content : ask level > 4, transformed : level > 5]"
+  elif Level > 0:
+    S shl " :"
+    var iopa: Standard_Integer
     while iopa <= up:
-      iGESDataDumpXY(s, item(iopa))
+      IGESData_DumpXY(S, item(iopa))
       inc(iopa)
-    if trsf.form() != gpIdentity:
-      s shl "\n Transformed :"
-      if level == 5:
-        s shl " [ask level > 5]"
+    if Trsf.Form() != gp_Identity:
+      S shl "\n Transformed :"
+      if Level == 5:
+        S shl " [ask level > 5]"
       else:
-        var jopa: StandardInteger
+        var jopa: Standard_Integer
         while jopa <= up:
-          iGESDataDumpXYT(s, item(jopa), trsf)
+          IGESData_DumpXYT(S, item(jopa), Trsf)
           inc(jopa)
 
-template iGESDataDumpListXYLZ*(s, level, lower, upper, item, trsf, z: untyped): void =
-  var lo: StandardInteger
-  var up: StandardInteger
-  iGESDataDumpListHeader(s, lo, up)
+template IGESData_DumpListXYLZ*(S, Level, lower, upper, item, Trsf, Z: untyped): void =
+  var lo: Standard_Integer
+  var up: Standard_Integer
+  IGESData_DumpListHeader(S, lo, up)
   if lo > up:
     discard
-  elif level == 4 or level == -4:
-    s shl " [content : ask level > 4, transformed : level > 5]"
-  elif level > 0:
-    s shl " :"
-    var iopa: StandardInteger
+  elif Level == 4 or Level == -4:
+    S shl " [content : ask level > 4, transformed : level > 5]"
+  elif Level > 0:
+    S shl " :"
+    var iopa: Standard_Integer
     while iopa <= up:
-      iGESDataDumpXY(s, item(iopa))
+      IGESData_DumpXY(S, item(iopa))
       inc(iopa)
-    if trsf.form() != gpIdentity:
-      s shl "\n Transformed :"
-      if level == 5:
-        s shl " [ask level > 5]"
+    if Trsf.Form() != gp_Identity:
+      S shl "\n Transformed :"
+      if Level == 5:
+        S shl " [ask level > 5]"
       else:
-        var jopa: StandardInteger
+        var jopa: Standard_Integer
         while jopa <= up:
-          iGESDataDumpXYTZ(s, item(jopa), trsf, z)
+          IGESData_DumpXYTZ(S, item(jopa), Trsf, Z)
           inc(jopa)
 
-template iGESDataDumpListXYZL*(s, level, lower, upper, item, trsf: untyped): void =
-  var lo: StandardInteger
-  var up: StandardInteger
-  iGESDataDumpListHeader(s, lo, up)
+template IGESData_DumpListXYZL*(S, Level, lower, upper, item, Trsf: untyped): void =
+  var lo: Standard_Integer
+  var up: Standard_Integer
+  IGESData_DumpListHeader(S, lo, up)
   if lo > up:
     discard
-  elif level == 4 or level == -4:
-    s shl " [content : ask level > 4, transformed : level > 5]"
-  elif level > 0:
-    s shl " :"
-    var iopa: StandardInteger
+  elif Level == 4 or Level == -4:
+    S shl " [content : ask level > 4, transformed : level > 5]"
+  elif Level > 0:
+    S shl " :"
+    var iopa: Standard_Integer
     while iopa <= up:
-      iGESDataDumpXYZ(s, item(iopa))
+      IGESData_DumpXYZ(S, item(iopa))
       inc(iopa)
-    if trsf.form() != gpIdentity:
-      s shl "\n Transformed :"
-      if level == 5:
-        s shl " [ask level > 5]"
+    if Trsf.Form() != gp_Identity:
+      S shl "\n Transformed :"
+      if Level == 5:
+        S shl " [ask level > 5]"
       else:
-        var jopa: StandardInteger
+        var jopa: Standard_Integer
         while jopa <= up:
-          iGESDataDumpXYZT(s, item(jopa), trsf)
+          IGESData_DumpXYZT(S, item(jopa), Trsf)
           inc(jopa)
 
-template iGESDataDumpStrings*(s, level, lower, upper, item: untyped): void =
-  var lo: StandardInteger
-  var up: StandardInteger
-  iGESDataDumpListHeader(s, lo, up)
+template IGESData_DumpStrings*(S, Level, lower, upper, item: untyped): void =
+  var lo: Standard_Integer
+  var up: Standard_Integer
+  IGESData_DumpListHeader(S, lo, up)
   if lo > up:
     discard
-  elif level == 4 or level == -4:
-    s shl " [content : ask level > 4]"
-  elif level > 0:
-    s shl " :"
-    var iopa: StandardInteger
+  elif Level == 4 or Level == -4:
+    S shl " [content : ask level > 4]"
+  elif Level > 0:
+    S shl " :"
+    var iopa: Standard_Integer
     while iopa <= up:
-      s shl "\n[" shl blanks(iopa, 3) shl iopa shl "]:\"" shl item(iopa).string() shl
+      S shl "\n[" shl Blanks(iopa, 3) shl iopa shl "]:\"" shl item(iopa).String() shl
           '\"'
       inc(iopa)
-    s shl "\n"
+    S shl "\n"
 
-template iGESDataDumpEntities*(s, dumper, level, lower, upper, item: untyped): void =
-  var lo: StandardInteger
-  var up: StandardInteger
-  iGESDataDumpListHeader(s, lo, up)
+template IGESData_DumpEntities*(S, dumper, Level, lower, upper, item: untyped): void =
+  var lo: Standard_Integer
+  var up: Standard_Integer
+  IGESData_DumpListHeader(S, lo, up)
   if lo > up:
     discard
-  elif level == 4 or level == -4:
-    s shl " [content : ask level > 4]"
-  elif level > 0:
-    s shl " :"
-    var iopa: StandardInteger
+  elif Level == 4 or Level == -4:
+    S shl " [content : ask level > 4]"
+  elif Level > 0:
+    S shl " :"
+    var iopa: Standard_Integer
     while iopa <= up:
-      if level == 5:
-        s shl " "
-        dumper.printDNum(item(iopa), s)
+      if Level == 5:
+        S shl " "
+        dumper.PrintDNum(item(iopa), S)
       else:
-        s shl "\n[" shl blanks(iopa, 3) shl iopa shl "]:"
-        dumper.printShort(item(iopa), s)
+        S shl "\n[" shl Blanks(iopa, 3) shl iopa shl "]:"
+        dumper.PrintShort(item(iopa), S)
       inc(iopa)
 
-template iGESDataDumpRectVals*(s, level, lowCol, upCol, lowRow, upRow, item: untyped): void =
+template IGESData_DumpRectVals*(S, Level, LowCol, UpCol, LowRow, UpRow, Item: untyped): void =
   var loco: cint
   var upc: cint
   var lor: cint
   var upr: cint
-  s shl " (Row :" shl lor shl " - " shl upr shl " ; Col :" shl loco shl " - " shl upc shl ")"
+  S shl " (Row :" shl lor shl " - " shl upr shl " ; Col :" shl loco shl " - " shl upc shl ")"
   if loco > upc or lor > upr:
     discard
-  elif level == 4 or level == -4:
-    s shl " [content : ask level > 4]"
-  elif level > 0:
-    s shl "\n"
+  elif Level == 4 or Level == -4:
+    S shl " [content : ask level > 4]"
+  elif Level > 0:
+    S shl "\n"
     var ir: cint
     while ir <= upr:
-      s shl "Row " shl ir shl ":["
+      S shl "Row " shl ir shl ":["
       var ic: cint
       while ic <= upc:
-        s shl " " shl item(ic, ir)
+        S shl " " shl Item(ic, ir)
         inc(ic)
-      s shl " ]\n"
+      S shl " ]\n"
       inc(ir)
-
-

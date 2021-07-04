@@ -14,8 +14,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  SelectMgr_Filter, ../NCollection/NCollection_List
+
 type
-  SelectMgrListOfFilter* = NCollectionList[Handle[SelectMgrFilter]]
-  SelectMgrListIteratorOfListOfFilter* = Iterator[Handle[SelectMgrFilter]]
-
-
+  SelectMgr_ListOfFilter* = NCollection_List[handle[SelectMgr_Filter]]
+  SelectMgr_ListIteratorOfListOfFilter* = Iterator[handle[SelectMgr_Filter]]

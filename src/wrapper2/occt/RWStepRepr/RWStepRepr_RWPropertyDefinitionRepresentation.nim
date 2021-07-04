@@ -13,13 +13,17 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepRepr_PropertyDefinitionRepresentation"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepReprRWPropertyDefinitionRepresentation* {.
+  RWStepRepr_RWPropertyDefinitionRepresentation* {.
       importcpp: "RWStepRepr_RWPropertyDefinitionRepresentation",
       header: "RWStepRepr_RWPropertyDefinitionRepresentation.hxx", bycopy.} = object ##
                                                                                 ## !
@@ -27,22 +31,21 @@ type
                                                                                 ## constructor
 
 
-proc constructRWStepReprRWPropertyDefinitionRepresentation*(): RWStepReprRWPropertyDefinitionRepresentation {.
+proc constructRWStepRepr_RWPropertyDefinitionRepresentation*(): RWStepRepr_RWPropertyDefinitionRepresentation {.
     constructor, importcpp: "RWStepRepr_RWPropertyDefinitionRepresentation(@)",
     header: "RWStepRepr_RWPropertyDefinitionRepresentation.hxx".}
-proc readStep*(this: RWStepReprRWPropertyDefinitionRepresentation;
-              data: Handle[StepDataStepReaderData]; num: StandardInteger;
-              ach: var Handle[InterfaceCheck];
-              ent: Handle[StepReprPropertyDefinitionRepresentation]) {.
+proc ReadStep*(this: RWStepRepr_RWPropertyDefinitionRepresentation;
+              data: handle[StepData_StepReaderData]; num: Standard_Integer;
+              ach: var handle[Interface_Check];
+              ent: handle[StepRepr_PropertyDefinitionRepresentation]) {.
     noSideEffect, importcpp: "ReadStep",
     header: "RWStepRepr_RWPropertyDefinitionRepresentation.hxx".}
-proc writeStep*(this: RWStepReprRWPropertyDefinitionRepresentation;
-               sw: var StepDataStepWriter;
-               ent: Handle[StepReprPropertyDefinitionRepresentation]) {.
+proc WriteStep*(this: RWStepRepr_RWPropertyDefinitionRepresentation;
+               SW: var StepData_StepWriter;
+               ent: handle[StepRepr_PropertyDefinitionRepresentation]) {.
     noSideEffect, importcpp: "WriteStep",
     header: "RWStepRepr_RWPropertyDefinitionRepresentation.hxx".}
-proc share*(this: RWStepReprRWPropertyDefinitionRepresentation;
-           ent: Handle[StepReprPropertyDefinitionRepresentation];
-           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
+proc Share*(this: RWStepRepr_RWPropertyDefinitionRepresentation;
+           ent: handle[StepRepr_PropertyDefinitionRepresentation];
+           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepRepr_RWPropertyDefinitionRepresentation.hxx".}
-

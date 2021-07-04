@@ -14,6 +14,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../TopoDS/TopoDS_Face, ../TopoDS/TopoDS_Edge,
+  ../Standard/Standard_Boolean, ../TColgp/TColgp_SequenceOfPnt,
+  ../Standard/Standard_Real, ../GeomAbs/GeomAbs_Shape
+
 discard "forward decl of Geom2d_Curve"
 discard "forward decl of Standard_NoSuchObject"
 discard "forward decl of TopoDS_Face"
@@ -21,26 +27,26 @@ discard "forward decl of TopoDS_Edge"
 discard "forward decl of gp_Pnt2d"
 discard "forward decl of Geom_Curve"
 type
-  BRepFillTrimSurfaceTool* {.importcpp: "BRepFill_TrimSurfaceTool",
-                            header: "BRepFill_TrimSurfaceTool.hxx", bycopy.} = object
+  BRepFill_TrimSurfaceTool* {.importcpp: "BRepFill_TrimSurfaceTool",
+                             header: "BRepFill_TrimSurfaceTool.hxx", bycopy.} = object
 
 
-proc constructBRepFillTrimSurfaceTool*(bis: Handle[Geom2dCurve];
-                                      face1: TopoDS_Face; face2: TopoDS_Face;
-                                      edge1: TopoDS_Edge; edge2: TopoDS_Edge;
-                                      inv1: StandardBoolean; inv2: StandardBoolean): BRepFillTrimSurfaceTool {.
+proc constructBRepFill_TrimSurfaceTool*(Bis: handle[Geom2d_Curve];
+                                       Face1: TopoDS_Face; Face2: TopoDS_Face;
+                                       Edge1: TopoDS_Edge; Edge2: TopoDS_Edge;
+                                       Inv1: Standard_Boolean;
+                                       Inv2: Standard_Boolean): BRepFill_TrimSurfaceTool {.
     constructor, importcpp: "BRepFill_TrimSurfaceTool(@)",
     header: "BRepFill_TrimSurfaceTool.hxx".}
-proc intersectWith*(this: BRepFillTrimSurfaceTool; edgeOnF1: TopoDS_Edge;
-                   edgeOnF2: TopoDS_Edge; points: var TColgpSequenceOfPnt) {.
+proc IntersectWith*(this: BRepFill_TrimSurfaceTool; EdgeOnF1: TopoDS_Edge;
+                   EdgeOnF2: TopoDS_Edge; Points: var TColgp_SequenceOfPnt) {.
     noSideEffect, importcpp: "IntersectWith",
     header: "BRepFill_TrimSurfaceTool.hxx".}
-proc isOnFace*(this: BRepFillTrimSurfaceTool; point: GpPnt2d): StandardBoolean {.
+proc IsOnFace*(this: BRepFill_TrimSurfaceTool; Point: gp_Pnt2d): Standard_Boolean {.
     noSideEffect, importcpp: "IsOnFace", header: "BRepFill_TrimSurfaceTool.hxx".}
-proc projOn*(this: BRepFillTrimSurfaceTool; point: GpPnt2d; edge: TopoDS_Edge): StandardReal {.
+proc ProjOn*(this: BRepFill_TrimSurfaceTool; Point: gp_Pnt2d; Edge: TopoDS_Edge): Standard_Real {.
     noSideEffect, importcpp: "ProjOn", header: "BRepFill_TrimSurfaceTool.hxx".}
-proc project*(this: BRepFillTrimSurfaceTool; u1: StandardReal; u2: StandardReal;
-             curve: var Handle[GeomCurve]; pCurve1: var Handle[Geom2dCurve];
-             pCurve2: var Handle[Geom2dCurve]; myCont: var GeomAbsShape) {.
+proc Project*(this: BRepFill_TrimSurfaceTool; U1: Standard_Real; U2: Standard_Real;
+             Curve: var handle[Geom_Curve]; PCurve1: var handle[Geom2d_Curve];
+             PCurve2: var handle[Geom2d_Curve]; myCont: var GeomAbs_Shape) {.
     noSideEffect, importcpp: "Project", header: "BRepFill_TrimSurfaceTool.hxx".}
-

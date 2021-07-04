@@ -14,14 +14,18 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Boolean,
+  ../IFSelect/IFSelect_Signature, ../Standard/Standard_CString
+
 discard "forward decl of Standard_Transient"
 discard "forward decl of Interface_InterfaceModel"
-# when defined(SetForm):
-#   discard
+when defined(SetForm):
+  discard
 discard "forward decl of IGESSelect_IGESTypeForm"
 discard "forward decl of IGESSelect_IGESTypeForm"
 type
-  HandleIGESSelectIGESTypeForm* = Handle[IGESSelectIGESTypeForm]
+  Handle_IGESSelect_IGESTypeForm* = handle[IGESSelect_IGESTypeForm]
 
 ## ! IGESTypeForm is a Signature specific to the IGES Norm :
 ## ! it gives the signature under two possible forms :
@@ -30,47 +34,46 @@ type
 ## ! - as "mmm" alone, which gives only the IGES Type Number
 
 type
-  IGESSelectIGESTypeForm* {.importcpp: "IGESSelect_IGESTypeForm",
-                           header: "IGESSelect_IGESTypeForm.hxx", bycopy.} = object of IFSelectSignature ##
-                                                                                                  ## !
-                                                                                                  ## Creates
-                                                                                                  ## a
-                                                                                                  ## Signature
-                                                                                                  ## for
-                                                                                                  ## IGES
-                                                                                                  ## Type
-                                                                                                  ## &
-                                                                                                  ## Form
-                                                                                                  ## Numbers
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## If
-                                                                                                  ## <withform>
-                                                                                                  ## is
-                                                                                                  ## False,
-                                                                                                  ## for
-                                                                                                  ## IGES
-                                                                                                  ## Type
-                                                                                                  ## Number
-                                                                                                  ## only
+  IGESSelect_IGESTypeForm* {.importcpp: "IGESSelect_IGESTypeForm",
+                            header: "IGESSelect_IGESTypeForm.hxx", bycopy.} = object of IFSelect_Signature ##
+                                                                                                    ## !
+                                                                                                    ## Creates
+                                                                                                    ## a
+                                                                                                    ## Signature
+                                                                                                    ## for
+                                                                                                    ## IGES
+                                                                                                    ## Type
+                                                                                                    ## &
+                                                                                                    ## Form
+                                                                                                    ## Numbers
+                                                                                                    ##
+                                                                                                    ## !
+                                                                                                    ## If
+                                                                                                    ## <withform>
+                                                                                                    ## is
+                                                                                                    ## False,
+                                                                                                    ## for
+                                                                                                    ## IGES
+                                                                                                    ## Type
+                                                                                                    ## Number
+                                                                                                    ## only
 
 
-proc constructIGESSelectIGESTypeForm*(withform: StandardBoolean = standardTrue): IGESSelectIGESTypeForm {.
+proc constructIGESSelect_IGESTypeForm*(withform: Standard_Boolean = Standard_True): IGESSelect_IGESTypeForm {.
     constructor, importcpp: "IGESSelect_IGESTypeForm(@)",
     header: "IGESSelect_IGESTypeForm.hxx".}
-proc setForm*(this: var IGESSelectIGESTypeForm; withform: StandardBoolean) {.
+proc SetForm*(this: var IGESSelect_IGESTypeForm; withform: Standard_Boolean) {.
     importcpp: "SetForm", header: "IGESSelect_IGESTypeForm.hxx".}
-proc value*(this: IGESSelectIGESTypeForm; ent: Handle[StandardTransient];
-           model: Handle[InterfaceInterfaceModel]): StandardCString {.noSideEffect,
-    importcpp: "Value", header: "IGESSelect_IGESTypeForm.hxx".}
+proc Value*(this: IGESSelect_IGESTypeForm; ent: handle[Standard_Transient];
+           model: handle[Interface_InterfaceModel]): Standard_CString {.
+    noSideEffect, importcpp: "Value", header: "IGESSelect_IGESTypeForm.hxx".}
 type
-  IGESSelectIGESTypeFormbaseType* = IFSelectSignature
+  IGESSelect_IGESTypeFormbase_type* = IFSelect_Signature
 
-proc getTypeName*(): cstring {.importcpp: "IGESSelect_IGESTypeForm::get_type_name(@)",
-                            header: "IGESSelect_IGESTypeForm.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "IGESSelect_IGESTypeForm::get_type_name(@)",
+                              header: "IGESSelect_IGESTypeForm.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "IGESSelect_IGESTypeForm::get_type_descriptor(@)",
     header: "IGESSelect_IGESTypeForm.hxx".}
-proc dynamicType*(this: IGESSelectIGESTypeForm): Handle[StandardType] {.
+proc DynamicType*(this: IGESSelect_IGESTypeForm): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType", header: "IGESSelect_IGESTypeForm.hxx".}
-

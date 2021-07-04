@@ -14,31 +14,34 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepGeom_SurfaceOfLinearExtrusion"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepGeomRWSurfaceOfLinearExtrusion* {.
+  RWStepGeom_RWSurfaceOfLinearExtrusion* {.
       importcpp: "RWStepGeom_RWSurfaceOfLinearExtrusion",
       header: "RWStepGeom_RWSurfaceOfLinearExtrusion.hxx", bycopy.} = object
 
 
-proc constructRWStepGeomRWSurfaceOfLinearExtrusion*(): RWStepGeomRWSurfaceOfLinearExtrusion {.
+proc constructRWStepGeom_RWSurfaceOfLinearExtrusion*(): RWStepGeom_RWSurfaceOfLinearExtrusion {.
     constructor, importcpp: "RWStepGeom_RWSurfaceOfLinearExtrusion(@)",
     header: "RWStepGeom_RWSurfaceOfLinearExtrusion.hxx".}
-proc readStep*(this: RWStepGeomRWSurfaceOfLinearExtrusion;
-              data: Handle[StepDataStepReaderData]; num: StandardInteger;
-              ach: var Handle[InterfaceCheck];
-              ent: Handle[StepGeomSurfaceOfLinearExtrusion]) {.noSideEffect,
+proc ReadStep*(this: RWStepGeom_RWSurfaceOfLinearExtrusion;
+              data: handle[StepData_StepReaderData]; num: Standard_Integer;
+              ach: var handle[Interface_Check];
+              ent: handle[StepGeom_SurfaceOfLinearExtrusion]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepGeom_RWSurfaceOfLinearExtrusion.hxx".}
-proc writeStep*(this: RWStepGeomRWSurfaceOfLinearExtrusion;
-               sw: var StepDataStepWriter;
-               ent: Handle[StepGeomSurfaceOfLinearExtrusion]) {.noSideEffect,
+proc WriteStep*(this: RWStepGeom_RWSurfaceOfLinearExtrusion;
+               SW: var StepData_StepWriter;
+               ent: handle[StepGeom_SurfaceOfLinearExtrusion]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepGeom_RWSurfaceOfLinearExtrusion.hxx".}
-proc share*(this: RWStepGeomRWSurfaceOfLinearExtrusion;
-           ent: Handle[StepGeomSurfaceOfLinearExtrusion];
-           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
+proc Share*(this: RWStepGeom_RWSurfaceOfLinearExtrusion;
+           ent: handle[StepGeom_SurfaceOfLinearExtrusion];
+           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepGeom_RWSurfaceOfLinearExtrusion.hxx".}
-

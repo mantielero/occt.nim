@@ -14,6 +14,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Boolean,
+  ../Standard/Standard_Integer, IntPatch_SequenceOfPoint,
+  ../Standard/Standard_Real, IntPatch_PointLine, ../IntSurf/IntSurf_LineOn2S,
+  ../IntSurf/IntSurf_Situation, ../IntSurf/IntSurf_TypeTrans
+
 discard "forward decl of Adaptor2d_HCurve2d"
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of Standard_DomainError"
@@ -24,128 +30,130 @@ discard "forward decl of gp_Pnt"
 discard "forward decl of IntPatch_WLine"
 discard "forward decl of IntPatch_WLine"
 type
-  HandleIntPatchWLine* = Handle[IntPatchWLine]
+  Handle_IntPatch_WLine* = handle[IntPatch_WLine]
 
 ## ! Definition of set of points as a result of the intersection
 ## ! between 2 parametrised patches.
 
 type
-  IntPatchWLine* {.importcpp: "IntPatch_WLine", header: "IntPatch_WLine.hxx", bycopy.} = object of IntPatchPointLine ##
-                                                                                                           ## !
-                                                                                                           ## Enumeration
-                                                                                                           ## of
-                                                                                                           ## ways
-                                                                                                           ## of
-                                                                                                           ## WLine
-                                                                                                           ## creation.
+  IntPatch_WLine* {.importcpp: "IntPatch_WLine", header: "IntPatch_WLine.hxx", bycopy.} = object of IntPatch_PointLine ##
+                                                                                                             ## !
+                                                                                                             ## Enumeration
+                                                                                                             ## of
+                                                                                                             ## ways
+                                                                                                             ## of
+                                                                                                             ## WLine
+                                                                                                             ## creation.
     ## ! identifies the way of <*this> creation
 
-  IntPatchWLineIntPatchWLType* {.size: sizeof(cint),
-                                importcpp: "IntPatch_WLine::IntPatch_WLType",
-                                header: "IntPatch_WLine.hxx".} = enum
-    IntPatchWLUnknown, IntPatchWLImpImp, IntPatchWLImpPrm, IntPatchWLPrmPrm
+  IntPatch_WLineIntPatch_WLType* {.size: sizeof(cint),
+                                  importcpp: "IntPatch_WLine::IntPatch_WLType",
+                                  header: "IntPatch_WLine.hxx".} = enum
+    IntPatch_WLUnknown, IntPatch_WLImpImp, IntPatch_WLImpPrm, IntPatch_WLPrmPrm
 
 
-proc constructIntPatchWLine*(line: Handle[IntSurfLineOn2S]; tang: StandardBoolean;
-                            trans1: IntSurfTypeTrans; trans2: IntSurfTypeTrans): IntPatchWLine {.
+proc constructIntPatch_WLine*(Line: handle[IntSurf_LineOn2S];
+                             Tang: Standard_Boolean; Trans1: IntSurf_TypeTrans;
+                             Trans2: IntSurf_TypeTrans): IntPatch_WLine {.
     constructor, importcpp: "IntPatch_WLine(@)", header: "IntPatch_WLine.hxx".}
-proc constructIntPatchWLine*(line: Handle[IntSurfLineOn2S]; tang: StandardBoolean;
-                            situ1: IntSurfSituation; situ2: IntSurfSituation): IntPatchWLine {.
+proc constructIntPatch_WLine*(Line: handle[IntSurf_LineOn2S];
+                             Tang: Standard_Boolean; Situ1: IntSurf_Situation;
+                             Situ2: IntSurf_Situation): IntPatch_WLine {.
     constructor, importcpp: "IntPatch_WLine(@)", header: "IntPatch_WLine.hxx".}
-proc constructIntPatchWLine*(line: Handle[IntSurfLineOn2S]; tang: StandardBoolean): IntPatchWLine {.
-    constructor, importcpp: "IntPatch_WLine(@)", header: "IntPatch_WLine.hxx".}
-proc addVertex*(this: var IntPatchWLine; pnt: IntPatchPoint;
-               theIsPrepend: StandardBoolean = standardFalse) {.
+proc constructIntPatch_WLine*(Line: handle[IntSurf_LineOn2S];
+                             Tang: Standard_Boolean): IntPatch_WLine {.constructor,
+    importcpp: "IntPatch_WLine(@)", header: "IntPatch_WLine.hxx".}
+proc AddVertex*(this: var IntPatch_WLine; Pnt: IntPatch_Point;
+               theIsPrepend: Standard_Boolean = Standard_False) {.
     importcpp: "AddVertex", header: "IntPatch_WLine.hxx".}
-proc setPoint*(this: var IntPatchWLine; index: StandardInteger; pnt: IntPatchPoint) {.
+proc SetPoint*(this: var IntPatch_WLine; Index: Standard_Integer; Pnt: IntPatch_Point) {.
     importcpp: "SetPoint", header: "IntPatch_WLine.hxx".}
-proc replace*(this: var IntPatchWLine; index: StandardInteger; pnt: IntPatchPoint) {.
+proc Replace*(this: var IntPatch_WLine; Index: Standard_Integer; Pnt: IntPatch_Point) {.
     importcpp: "Replace", header: "IntPatch_WLine.hxx".}
-proc setFirstPoint*(this: var IntPatchWLine; indFirst: StandardInteger) {.
+proc SetFirstPoint*(this: var IntPatch_WLine; IndFirst: Standard_Integer) {.
     importcpp: "SetFirstPoint", header: "IntPatch_WLine.hxx".}
-proc setLastPoint*(this: var IntPatchWLine; indLast: StandardInteger) {.
+proc SetLastPoint*(this: var IntPatch_WLine; IndLast: Standard_Integer) {.
     importcpp: "SetLastPoint", header: "IntPatch_WLine.hxx".}
-proc nbPnts*(this: IntPatchWLine): StandardInteger {.noSideEffect,
+proc NbPnts*(this: IntPatch_WLine): Standard_Integer {.noSideEffect,
     importcpp: "NbPnts", header: "IntPatch_WLine.hxx".}
-proc point*(this: IntPatchWLine; index: StandardInteger): IntSurfPntOn2S {.
+proc Point*(this: IntPatch_WLine; Index: Standard_Integer): IntSurf_PntOn2S {.
     noSideEffect, importcpp: "Point", header: "IntPatch_WLine.hxx".}
-proc hasFirstPoint*(this: IntPatchWLine): StandardBoolean {.noSideEffect,
+proc HasFirstPoint*(this: IntPatch_WLine): Standard_Boolean {.noSideEffect,
     importcpp: "HasFirstPoint", header: "IntPatch_WLine.hxx".}
-proc hasLastPoint*(this: IntPatchWLine): StandardBoolean {.noSideEffect,
+proc HasLastPoint*(this: IntPatch_WLine): Standard_Boolean {.noSideEffect,
     importcpp: "HasLastPoint", header: "IntPatch_WLine.hxx".}
-proc firstPoint*(this: IntPatchWLine): IntPatchPoint {.noSideEffect,
+proc FirstPoint*(this: IntPatch_WLine): IntPatch_Point {.noSideEffect,
     importcpp: "FirstPoint", header: "IntPatch_WLine.hxx".}
-proc lastPoint*(this: IntPatchWLine): IntPatchPoint {.noSideEffect,
+proc LastPoint*(this: IntPatch_WLine): IntPatch_Point {.noSideEffect,
     importcpp: "LastPoint", header: "IntPatch_WLine.hxx".}
-proc firstPoint*(this: IntPatchWLine; indfirst: var StandardInteger): IntPatchPoint {.
+proc FirstPoint*(this: IntPatch_WLine; Indfirst: var Standard_Integer): IntPatch_Point {.
     noSideEffect, importcpp: "FirstPoint", header: "IntPatch_WLine.hxx".}
-proc lastPoint*(this: IntPatchWLine; indlast: var StandardInteger): IntPatchPoint {.
+proc LastPoint*(this: IntPatch_WLine; Indlast: var Standard_Integer): IntPatch_Point {.
     noSideEffect, importcpp: "LastPoint", header: "IntPatch_WLine.hxx".}
-proc nbVertex*(this: IntPatchWLine): StandardInteger {.noSideEffect,
+proc NbVertex*(this: IntPatch_WLine): Standard_Integer {.noSideEffect,
     importcpp: "NbVertex", header: "IntPatch_WLine.hxx".}
-proc vertex*(this: IntPatchWLine; index: StandardInteger): IntPatchPoint {.
+proc Vertex*(this: IntPatch_WLine; Index: Standard_Integer): IntPatch_Point {.
     noSideEffect, importcpp: "Vertex", header: "IntPatch_WLine.hxx".}
-proc changeVertex*(this: var IntPatchWLine; index: StandardInteger): var IntPatchPoint {.
+proc ChangeVertex*(this: var IntPatch_WLine; Index: Standard_Integer): var IntPatch_Point {.
     importcpp: "ChangeVertex", header: "IntPatch_WLine.hxx".}
-proc computeVertexParameters*(this: var IntPatchWLine; tol: StandardReal) {.
+proc ComputeVertexParameters*(this: var IntPatch_WLine; Tol: Standard_Real) {.
     importcpp: "ComputeVertexParameters", header: "IntPatch_WLine.hxx".}
-proc curve*(this: IntPatchWLine): Handle[IntSurfLineOn2S] {.noSideEffect,
+proc Curve*(this: IntPatch_WLine): handle[IntSurf_LineOn2S] {.noSideEffect,
     importcpp: "Curve", header: "IntPatch_WLine.hxx".}
-proc isOutSurf1Box*(this: IntPatchWLine; theP: GpPnt2d): StandardBoolean {.
+proc IsOutSurf1Box*(this: IntPatch_WLine; theP: gp_Pnt2d): Standard_Boolean {.
     noSideEffect, importcpp: "IsOutSurf1Box", header: "IntPatch_WLine.hxx".}
-proc isOutSurf2Box*(this: IntPatchWLine; theP: GpPnt2d): StandardBoolean {.
+proc IsOutSurf2Box*(this: IntPatch_WLine; theP: gp_Pnt2d): Standard_Boolean {.
     noSideEffect, importcpp: "IsOutSurf2Box", header: "IntPatch_WLine.hxx".}
-proc isOutBox*(this: IntPatchWLine; theP: GpPnt): StandardBoolean {.noSideEffect,
+proc IsOutBox*(this: IntPatch_WLine; theP: gp_Pnt): Standard_Boolean {.noSideEffect,
     importcpp: "IsOutBox", header: "IntPatch_WLine.hxx".}
-proc setPeriod*(this: var IntPatchWLine; pu1: StandardReal; pv1: StandardReal;
-               pu2: StandardReal; pv2: StandardReal) {.importcpp: "SetPeriod",
+proc SetPeriod*(this: var IntPatch_WLine; pu1: Standard_Real; pv1: Standard_Real;
+               pu2: Standard_Real; pv2: Standard_Real) {.importcpp: "SetPeriod",
     header: "IntPatch_WLine.hxx".}
-proc u1Period*(this: IntPatchWLine): StandardReal {.noSideEffect,
+proc U1Period*(this: IntPatch_WLine): Standard_Real {.noSideEffect,
     importcpp: "U1Period", header: "IntPatch_WLine.hxx".}
-proc v1Period*(this: IntPatchWLine): StandardReal {.noSideEffect,
+proc V1Period*(this: IntPatch_WLine): Standard_Real {.noSideEffect,
     importcpp: "V1Period", header: "IntPatch_WLine.hxx".}
-proc u2Period*(this: IntPatchWLine): StandardReal {.noSideEffect,
+proc U2Period*(this: IntPatch_WLine): Standard_Real {.noSideEffect,
     importcpp: "U2Period", header: "IntPatch_WLine.hxx".}
-proc v2Period*(this: IntPatchWLine): StandardReal {.noSideEffect,
+proc V2Period*(this: IntPatch_WLine): Standard_Real {.noSideEffect,
     importcpp: "V2Period", header: "IntPatch_WLine.hxx".}
-proc setArcOnS1*(this: var IntPatchWLine; a: Handle[Adaptor2dHCurve2d]) {.
+proc SetArcOnS1*(this: var IntPatch_WLine; A: handle[Adaptor2d_HCurve2d]) {.
     importcpp: "SetArcOnS1", header: "IntPatch_WLine.hxx".}
-proc hasArcOnS1*(this: IntPatchWLine): StandardBoolean {.noSideEffect,
+proc HasArcOnS1*(this: IntPatch_WLine): Standard_Boolean {.noSideEffect,
     importcpp: "HasArcOnS1", header: "IntPatch_WLine.hxx".}
-proc getArcOnS1*(this: IntPatchWLine): Handle[Adaptor2dHCurve2d] {.noSideEffect,
+proc GetArcOnS1*(this: IntPatch_WLine): handle[Adaptor2d_HCurve2d] {.noSideEffect,
     importcpp: "GetArcOnS1", header: "IntPatch_WLine.hxx".}
-proc setArcOnS2*(this: var IntPatchWLine; a: Handle[Adaptor2dHCurve2d]) {.
+proc SetArcOnS2*(this: var IntPatch_WLine; A: handle[Adaptor2d_HCurve2d]) {.
     importcpp: "SetArcOnS2", header: "IntPatch_WLine.hxx".}
-proc hasArcOnS2*(this: IntPatchWLine): StandardBoolean {.noSideEffect,
+proc HasArcOnS2*(this: IntPatch_WLine): Standard_Boolean {.noSideEffect,
     importcpp: "HasArcOnS2", header: "IntPatch_WLine.hxx".}
-proc getArcOnS2*(this: IntPatchWLine): Handle[Adaptor2dHCurve2d] {.noSideEffect,
+proc GetArcOnS2*(this: IntPatch_WLine): handle[Adaptor2d_HCurve2d] {.noSideEffect,
     importcpp: "GetArcOnS2", header: "IntPatch_WLine.hxx".}
-proc clearVertexes*(this: var IntPatchWLine) {.importcpp: "ClearVertexes",
+proc ClearVertexes*(this: var IntPatch_WLine) {.importcpp: "ClearVertexes",
     header: "IntPatch_WLine.hxx".}
-proc removeVertex*(this: var IntPatchWLine; theIndex: StandardInteger) {.
+proc RemoveVertex*(this: var IntPatch_WLine; theIndex: Standard_Integer) {.
     importcpp: "RemoveVertex", header: "IntPatch_WLine.hxx".}
-proc insertVertexBefore*(this: var IntPatchWLine; theIndex: StandardInteger;
-                        thePnt: IntPatchPoint) {.importcpp: "InsertVertexBefore",
+proc InsertVertexBefore*(this: var IntPatch_WLine; theIndex: Standard_Integer;
+                        thePnt: IntPatch_Point) {.importcpp: "InsertVertexBefore",
     header: "IntPatch_WLine.hxx".}
-proc dump*(this: IntPatchWLine; theMode: StandardInteger) {.noSideEffect,
+proc Dump*(this: IntPatch_WLine; theMode: Standard_Integer) {.noSideEffect,
     importcpp: "Dump", header: "IntPatch_WLine.hxx".}
-proc enablePurging*(this: var IntPatchWLine; theIsEnabled: StandardBoolean) {.
+proc EnablePurging*(this: var IntPatch_WLine; theIsEnabled: Standard_Boolean) {.
     importcpp: "EnablePurging", header: "IntPatch_WLine.hxx".}
-proc isPurgingAllowed*(this: var IntPatchWLine): StandardBoolean {.
+proc IsPurgingAllowed*(this: var IntPatch_WLine): Standard_Boolean {.
     importcpp: "IsPurgingAllowed", header: "IntPatch_WLine.hxx".}
-proc getCreatingWay*(this: IntPatchWLine): IntPatchWLineIntPatchWLType {.
+proc GetCreatingWay*(this: IntPatch_WLine): IntPatch_WLineIntPatch_WLType {.
     noSideEffect, importcpp: "GetCreatingWay", header: "IntPatch_WLine.hxx".}
-proc setCreatingWayInfo*(this: var IntPatchWLine;
-                        theAlgo: IntPatchWLineIntPatchWLType) {.
+proc SetCreatingWayInfo*(this: var IntPatch_WLine;
+                        theAlgo: IntPatch_WLineIntPatch_WLType) {.
     importcpp: "SetCreatingWayInfo", header: "IntPatch_WLine.hxx".}
 type
-  IntPatchWLinebaseType* = IntPatchPointLine
+  IntPatch_WLinebase_type* = IntPatch_PointLine
 
-proc getTypeName*(): cstring {.importcpp: "IntPatch_WLine::get_type_name(@)",
-                            header: "IntPatch_WLine.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "IntPatch_WLine::get_type_name(@)",
+                              header: "IntPatch_WLine.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "IntPatch_WLine::get_type_descriptor(@)",
     header: "IntPatch_WLine.hxx".}
-proc dynamicType*(this: IntPatchWLine): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: IntPatch_WLine): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "IntPatch_WLine.hxx".}
-

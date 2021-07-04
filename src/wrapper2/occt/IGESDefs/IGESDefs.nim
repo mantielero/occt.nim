@@ -14,6 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle
+
 discard "forward decl of IGESDefs_Protocol"
 discard "forward decl of IGESDefs_AssociativityDef"
 discard "forward decl of IGESDefs_MacroDef"
@@ -39,7 +43,6 @@ type
                                                                        ## (Protocol, Modules) for this package
 
 
-proc init*() {.importcpp: "IGESDefs::Init(@)", header: "IGESDefs.hxx".}
-proc protocol*(): Handle[IGESDefsProtocol] {.importcpp: "IGESDefs::Protocol(@)",
+proc Init*() {.importcpp: "IGESDefs::Init(@)", header: "IGESDefs.hxx".}
+proc Protocol*(): handle[IGESDefs_Protocol] {.importcpp: "IGESDefs::Protocol(@)",
     header: "IGESDefs.hxx".}
-

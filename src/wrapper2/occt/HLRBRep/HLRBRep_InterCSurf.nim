@@ -14,6 +14,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../IntCurveSurface/IntCurveSurface_Intersection,
+  ../Standard/Standard_Address, ../Standard/Standard_Real,
+  ../TColgp/TColgp_Array2OfPnt, ../TColStd/TColStd_Array1OfReal
+
 discard "forward decl of gp_Lin"
 discard "forward decl of HLRBRep_LineTool"
 discard "forward decl of HLRBRep_SurfaceTool"
@@ -34,43 +40,44 @@ discard "forward decl of gp_Hypr"
 discard "forward decl of IntAna_IntConicQuad"
 discard "forward decl of Bnd_Box"
 type
-  HLRBRepInterCSurf* {.importcpp: "HLRBRep_InterCSurf",
-                      header: "HLRBRep_InterCSurf.hxx", bycopy.} = object of IntCurveSurfaceIntersection ##
-                                                                                                  ## !
-                                                                                                  ## Empty
-                                                                                                  ## Constructor
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## Compute
-                                                                                                  ## the
-                                                                                                  ## Intersection
-                                                                                                  ## between
-                                                                                                  ## the
-                                                                                                  ## curve
-                                                                                                  ## and
-                                                                                                  ## the
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## surface
+  HLRBRep_InterCSurf* {.importcpp: "HLRBRep_InterCSurf",
+                       header: "HLRBRep_InterCSurf.hxx", bycopy.} = object of IntCurveSurface_Intersection ##
+                                                                                                    ## !
+                                                                                                    ## Empty
+                                                                                                    ## Constructor
+                                                                                                    ##
+                                                                                                    ## !
+                                                                                                    ## Compute
+                                                                                                    ## the
+                                                                                                    ## Intersection
+                                                                                                    ## between
+                                                                                                    ## the
+                                                                                                    ## curve
+                                                                                                    ## and
+                                                                                                    ## the
+                                                                                                    ##
+                                                                                                    ## !
+                                                                                                    ## surface
 
 
-proc constructHLRBRepInterCSurf*(): HLRBRepInterCSurf {.constructor,
+proc constructHLRBRep_InterCSurf*(): HLRBRep_InterCSurf {.constructor,
     importcpp: "HLRBRep_InterCSurf(@)", header: "HLRBRep_InterCSurf.hxx".}
-proc perform*(this: var HLRBRepInterCSurf; curve: GpLin; surface: StandardAddress) {.
+proc Perform*(this: var HLRBRep_InterCSurf; Curve: gp_Lin; Surface: Standard_Address) {.
     importcpp: "Perform", header: "HLRBRep_InterCSurf.hxx".}
-proc perform*(this: var HLRBRepInterCSurf; curve: GpLin;
-             polygon: HLRBRepThePolygonOfInterCSurf; surface: StandardAddress) {.
+proc Perform*(this: var HLRBRep_InterCSurf; Curve: gp_Lin;
+             Polygon: HLRBRep_ThePolygonOfInterCSurf; Surface: Standard_Address) {.
     importcpp: "Perform", header: "HLRBRep_InterCSurf.hxx".}
-proc perform*(this: var HLRBRepInterCSurf; curve: GpLin;
-             thePolygon: HLRBRepThePolygonOfInterCSurf; surface: StandardAddress;
-             polyhedron: HLRBRepThePolyhedronOfInterCSurf) {.importcpp: "Perform",
+proc Perform*(this: var HLRBRep_InterCSurf; Curve: gp_Lin;
+             ThePolygon: HLRBRep_ThePolygonOfInterCSurf;
+             Surface: Standard_Address;
+             Polyhedron: HLRBRep_ThePolyhedronOfInterCSurf) {.
+    importcpp: "Perform", header: "HLRBRep_InterCSurf.hxx".}
+proc Perform*(this: var HLRBRep_InterCSurf; Curve: gp_Lin;
+             ThePolygon: HLRBRep_ThePolygonOfInterCSurf;
+             Surface: Standard_Address;
+             Polyhedron: HLRBRep_ThePolyhedronOfInterCSurf;
+             BndBSB: var Bnd_BoundSortBox) {.importcpp: "Perform",
     header: "HLRBRep_InterCSurf.hxx".}
-proc perform*(this: var HLRBRepInterCSurf; curve: GpLin;
-             thePolygon: HLRBRepThePolygonOfInterCSurf; surface: StandardAddress;
-             polyhedron: HLRBRepThePolyhedronOfInterCSurf;
-             bndBSB: var BndBoundSortBox) {.importcpp: "Perform",
-    header: "HLRBRep_InterCSurf.hxx".}
-proc perform*(this: var HLRBRepInterCSurf; curve: GpLin; surface: StandardAddress;
-             polyhedron: HLRBRepThePolyhedronOfInterCSurf) {.importcpp: "Perform",
-    header: "HLRBRep_InterCSurf.hxx".}
-
+proc Perform*(this: var HLRBRep_InterCSurf; Curve: gp_Lin; Surface: Standard_Address;
+             Polyhedron: HLRBRep_ThePolyhedronOfInterCSurf) {.
+    importcpp: "Perform", header: "HLRBRep_InterCSurf.hxx".}

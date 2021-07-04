@@ -14,30 +14,33 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepBasic_LengthMeasureWithUnit"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepBasicRWLengthMeasureWithUnit* {.importcpp: "RWStepBasic_RWLengthMeasureWithUnit", header: "RWStepBasic_RWLengthMeasureWithUnit.hxx",
-                                       bycopy.} = object
+  RWStepBasic_RWLengthMeasureWithUnit* {.importcpp: "RWStepBasic_RWLengthMeasureWithUnit", header: "RWStepBasic_RWLengthMeasureWithUnit.hxx",
+                                        bycopy.} = object
 
 
-proc constructRWStepBasicRWLengthMeasureWithUnit*(): RWStepBasicRWLengthMeasureWithUnit {.
+proc constructRWStepBasic_RWLengthMeasureWithUnit*(): RWStepBasic_RWLengthMeasureWithUnit {.
     constructor, importcpp: "RWStepBasic_RWLengthMeasureWithUnit(@)",
     header: "RWStepBasic_RWLengthMeasureWithUnit.hxx".}
-proc readStep*(this: RWStepBasicRWLengthMeasureWithUnit;
-              data: Handle[StepDataStepReaderData]; num: StandardInteger;
-              ach: var Handle[InterfaceCheck];
-              ent: Handle[StepBasicLengthMeasureWithUnit]) {.noSideEffect,
+proc ReadStep*(this: RWStepBasic_RWLengthMeasureWithUnit;
+              data: handle[StepData_StepReaderData]; num: Standard_Integer;
+              ach: var handle[Interface_Check];
+              ent: handle[StepBasic_LengthMeasureWithUnit]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepBasic_RWLengthMeasureWithUnit.hxx".}
-proc writeStep*(this: RWStepBasicRWLengthMeasureWithUnit;
-               sw: var StepDataStepWriter;
-               ent: Handle[StepBasicLengthMeasureWithUnit]) {.noSideEffect,
+proc WriteStep*(this: RWStepBasic_RWLengthMeasureWithUnit;
+               SW: var StepData_StepWriter;
+               ent: handle[StepBasic_LengthMeasureWithUnit]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepBasic_RWLengthMeasureWithUnit.hxx".}
-proc share*(this: RWStepBasicRWLengthMeasureWithUnit;
-           ent: Handle[StepBasicLengthMeasureWithUnit];
-           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
+proc Share*(this: RWStepBasic_RWLengthMeasureWithUnit;
+           ent: handle[StepBasic_LengthMeasureWithUnit];
+           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepBasic_RWLengthMeasureWithUnit.hxx".}
-

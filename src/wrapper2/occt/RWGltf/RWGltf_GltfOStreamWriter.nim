@@ -14,12 +14,11 @@
 ## ! rapidjson::Writer wrapper for forward declaration.
 
 type
-  RWGltfGltfOStreamWriter* {.importcpp: "RWGltf_GltfOStreamWriter",
-                            header: "RWGltf_GltfOStreamWriter.hxx", bycopy.} = object of Writer[
+  RWGltf_GltfOStreamWriter* {.importcpp: "RWGltf_GltfOStreamWriter",
+                             header: "RWGltf_GltfOStreamWriter.hxx", bycopy.} = object of Writer[
       OStreamWrapper]         ## ! Main constructor.
 
 
-proc constructRWGltfGltfOStreamWriter*(theOStream: var OStreamWrapper): RWGltfGltfOStreamWriter {.
+proc constructRWGltf_GltfOStreamWriter*(theOStream: var OStreamWrapper): RWGltf_GltfOStreamWriter {.
     constructor, importcpp: "RWGltf_GltfOStreamWriter(@)",
     header: "RWGltf_GltfOStreamWriter.hxx".}
-

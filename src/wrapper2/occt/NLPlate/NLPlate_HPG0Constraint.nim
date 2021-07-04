@@ -14,48 +14,52 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../gp/gp_XYZ,
+  ../Standard/Standard_Boolean, NLPlate_HGPPConstraint,
+  ../Standard/Standard_Integer
+
 discard "forward decl of gp_XY"
 discard "forward decl of gp_XYZ"
 discard "forward decl of NLPlate_HPG0Constraint"
 discard "forward decl of NLPlate_HPG0Constraint"
 type
-  HandleNLPlateHPG0Constraint* = Handle[NLPlateHPG0Constraint]
+  Handle_NLPlate_HPG0Constraint* = handle[NLPlate_HPG0Constraint]
 
 ## ! define a PinPoint G0  Constraint  used to load a Non Linear
 ## ! Plate
 
 type
-  NLPlateHPG0Constraint* {.importcpp: "NLPlate_HPG0Constraint",
-                          header: "NLPlate_HPG0Constraint.hxx", bycopy.} = object of NLPlateHGPPConstraint
+  NLPlate_HPG0Constraint* {.importcpp: "NLPlate_HPG0Constraint",
+                           header: "NLPlate_HPG0Constraint.hxx", bycopy.} = object of NLPlate_HGPPConstraint
 
 
-proc constructNLPlateHPG0Constraint*(uv: GpXY; value: GpXYZ): NLPlateHPG0Constraint {.
+proc constructNLPlate_HPG0Constraint*(UV: gp_XY; Value: gp_XYZ): NLPlate_HPG0Constraint {.
     constructor, importcpp: "NLPlate_HPG0Constraint(@)",
     header: "NLPlate_HPG0Constraint.hxx".}
-proc setUVFreeSliding*(this: var NLPlateHPG0Constraint; uVFree: StandardBoolean) {.
+proc SetUVFreeSliding*(this: var NLPlate_HPG0Constraint; UVFree: Standard_Boolean) {.
     importcpp: "SetUVFreeSliding", header: "NLPlate_HPG0Constraint.hxx".}
-proc setIncrementalLoadAllowed*(this: var NLPlateHPG0Constraint;
-                               ila: StandardBoolean) {.
+proc SetIncrementalLoadAllowed*(this: var NLPlate_HPG0Constraint;
+                               ILA: Standard_Boolean) {.
     importcpp: "SetIncrementalLoadAllowed", header: "NLPlate_HPG0Constraint.hxx".}
-proc uVFreeSliding*(this: NLPlateHPG0Constraint): StandardBoolean {.noSideEffect,
+proc UVFreeSliding*(this: NLPlate_HPG0Constraint): Standard_Boolean {.noSideEffect,
     importcpp: "UVFreeSliding", header: "NLPlate_HPG0Constraint.hxx".}
-proc incrementalLoadAllowed*(this: NLPlateHPG0Constraint): StandardBoolean {.
+proc IncrementalLoadAllowed*(this: NLPlate_HPG0Constraint): Standard_Boolean {.
     noSideEffect, importcpp: "IncrementalLoadAllowed",
     header: "NLPlate_HPG0Constraint.hxx".}
-proc activeOrder*(this: NLPlateHPG0Constraint): StandardInteger {.noSideEffect,
+proc ActiveOrder*(this: NLPlate_HPG0Constraint): Standard_Integer {.noSideEffect,
     importcpp: "ActiveOrder", header: "NLPlate_HPG0Constraint.hxx".}
-proc isG0*(this: NLPlateHPG0Constraint): StandardBoolean {.noSideEffect,
+proc IsG0*(this: NLPlate_HPG0Constraint): Standard_Boolean {.noSideEffect,
     importcpp: "IsG0", header: "NLPlate_HPG0Constraint.hxx".}
-proc g0Target*(this: NLPlateHPG0Constraint): GpXYZ {.noSideEffect,
+proc G0Target*(this: NLPlate_HPG0Constraint): gp_XYZ {.noSideEffect,
     importcpp: "G0Target", header: "NLPlate_HPG0Constraint.hxx".}
 type
-  NLPlateHPG0ConstraintbaseType* = NLPlateHGPPConstraint
+  NLPlate_HPG0Constraintbase_type* = NLPlate_HGPPConstraint
 
-proc getTypeName*(): cstring {.importcpp: "NLPlate_HPG0Constraint::get_type_name(@)",
-                            header: "NLPlate_HPG0Constraint.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "NLPlate_HPG0Constraint::get_type_name(@)",
+                              header: "NLPlate_HPG0Constraint.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "NLPlate_HPG0Constraint::get_type_descriptor(@)",
     header: "NLPlate_HPG0Constraint.hxx".}
-proc dynamicType*(this: NLPlateHPG0Constraint): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "NLPlate_HPG0Constraint.hxx".}
-
+proc DynamicType*(this: NLPlate_HPG0Constraint): handle[Standard_Type] {.
+    noSideEffect, importcpp: "DynamicType", header: "NLPlate_HPG0Constraint.hxx".}

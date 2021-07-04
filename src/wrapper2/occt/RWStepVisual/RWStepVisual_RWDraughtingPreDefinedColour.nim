@@ -14,27 +14,30 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepVisual_DraughtingPreDefinedColour"
 discard "forward decl of StepData_StepWriter"
 type
-  RWStepVisualRWDraughtingPreDefinedColour* {.
+  RWStepVisual_RWDraughtingPreDefinedColour* {.
       importcpp: "RWStepVisual_RWDraughtingPreDefinedColour",
       header: "RWStepVisual_RWDraughtingPreDefinedColour.hxx", bycopy.} = object
 
 
-proc constructRWStepVisualRWDraughtingPreDefinedColour*(): RWStepVisualRWDraughtingPreDefinedColour {.
+proc constructRWStepVisual_RWDraughtingPreDefinedColour*(): RWStepVisual_RWDraughtingPreDefinedColour {.
     constructor, importcpp: "RWStepVisual_RWDraughtingPreDefinedColour(@)",
     header: "RWStepVisual_RWDraughtingPreDefinedColour.hxx".}
-proc readStep*(this: RWStepVisualRWDraughtingPreDefinedColour;
-              data: Handle[StepDataStepReaderData]; num: StandardInteger;
-              ach: var Handle[InterfaceCheck];
-              ent: Handle[StepVisualDraughtingPreDefinedColour]) {.noSideEffect,
+proc ReadStep*(this: RWStepVisual_RWDraughtingPreDefinedColour;
+              data: handle[StepData_StepReaderData]; num: Standard_Integer;
+              ach: var handle[Interface_Check];
+              ent: handle[StepVisual_DraughtingPreDefinedColour]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepVisual_RWDraughtingPreDefinedColour.hxx".}
-proc writeStep*(this: RWStepVisualRWDraughtingPreDefinedColour;
-               sw: var StepDataStepWriter;
-               ent: Handle[StepVisualDraughtingPreDefinedColour]) {.noSideEffect,
+proc WriteStep*(this: RWStepVisual_RWDraughtingPreDefinedColour;
+               SW: var StepData_StepWriter;
+               ent: handle[StepVisual_DraughtingPreDefinedColour]) {.noSideEffect,
     importcpp: "WriteStep",
     header: "RWStepVisual_RWDraughtingPreDefinedColour.hxx".}
-

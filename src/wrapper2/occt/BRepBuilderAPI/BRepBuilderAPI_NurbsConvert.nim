@@ -14,6 +14,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, BRepBuilderAPI_ModifyShape,
+  ../Standard/Standard_Boolean, ../TopTools/TopTools_DataMapOfShapeShape,
+  ../BRepTools/BRepTools_ReShape
+
 discard "forward decl of TopoDS_Shape"
 type
   BRepBuilderAPI_NurbsConvert* {.importcpp: "BRepBuilderAPI_NurbsConvert",
@@ -51,16 +57,15 @@ type
 proc constructBRepBuilderAPI_NurbsConvert*(): BRepBuilderAPI_NurbsConvert {.
     constructor, importcpp: "BRepBuilderAPI_NurbsConvert(@)",
     header: "BRepBuilderAPI_NurbsConvert.hxx".}
-proc constructBRepBuilderAPI_NurbsConvert*(s: TopoDS_Shape;
-    copy: StandardBoolean = standardFalse): BRepBuilderAPI_NurbsConvert {.
+proc constructBRepBuilderAPI_NurbsConvert*(S: TopoDS_Shape;
+    Copy: Standard_Boolean = Standard_False): BRepBuilderAPI_NurbsConvert {.
     constructor, importcpp: "BRepBuilderAPI_NurbsConvert(@)",
     header: "BRepBuilderAPI_NurbsConvert.hxx".}
-proc perform*(this: var BRepBuilderAPI_NurbsConvert; s: TopoDS_Shape;
-             copy: StandardBoolean = standardFalse) {.importcpp: "Perform",
+proc Perform*(this: var BRepBuilderAPI_NurbsConvert; S: TopoDS_Shape;
+             Copy: Standard_Boolean = Standard_False) {.importcpp: "Perform",
     header: "BRepBuilderAPI_NurbsConvert.hxx".}
-proc modified*(this: var BRepBuilderAPI_NurbsConvert; s: TopoDS_Shape): TopToolsListOfShape {.
+proc Modified*(this: var BRepBuilderAPI_NurbsConvert; S: TopoDS_Shape): TopTools_ListOfShape {.
     importcpp: "Modified", header: "BRepBuilderAPI_NurbsConvert.hxx".}
-proc modifiedShape*(this: BRepBuilderAPI_NurbsConvert; s: TopoDS_Shape): TopoDS_Shape {.
+proc ModifiedShape*(this: BRepBuilderAPI_NurbsConvert; S: TopoDS_Shape): TopoDS_Shape {.
     noSideEffect, importcpp: "ModifiedShape",
     header: "BRepBuilderAPI_NurbsConvert.hxx".}
-

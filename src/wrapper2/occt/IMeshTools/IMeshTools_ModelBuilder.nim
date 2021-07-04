@@ -13,31 +13,35 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Message/Message_Algorithm, ../Standard/Standard_ErrorHandler,
+  ../Standard/Standard_Failure, ../Standard/Standard_Type, ../TopoDS/TopoDS_Shape,
+  ../IMeshData/IMeshData_Model
+
 discard "forward decl of IMeshTools_Parameters"
 type
-  IMeshToolsModelBuilder* {.importcpp: "IMeshTools_ModelBuilder",
-                           header: "IMeshTools_ModelBuilder.hxx", bycopy.} = object of MessageAlgorithm ##
-                                                                                                 ## !
-                                                                                                 ## Destructor.
-                                                                                                 ##
-                                                                                                 ## !
-                                                                                                 ## Constructor.
+  IMeshTools_ModelBuilder* {.importcpp: "IMeshTools_ModelBuilder",
+                            header: "IMeshTools_ModelBuilder.hxx", bycopy.} = object of Message_Algorithm ##
+                                                                                                   ## !
+                                                                                                   ## Destructor.
+                                                                                                   ##
+                                                                                                   ## !
+                                                                                                   ## Constructor.
 
 
-proc destroyIMeshToolsModelBuilder*(this: var IMeshToolsModelBuilder) {.
+proc destroyIMeshTools_ModelBuilder*(this: var IMeshTools_ModelBuilder) {.
     importcpp: "#.~IMeshTools_ModelBuilder()",
     header: "IMeshTools_ModelBuilder.hxx".}
-proc perform*(this: var IMeshToolsModelBuilder; theShape: TopoDS_Shape;
-             theParameters: IMeshToolsParameters): Handle[IMeshDataModel] {.
+proc Perform*(this: var IMeshTools_ModelBuilder; theShape: TopoDS_Shape;
+             theParameters: IMeshTools_Parameters): handle[IMeshData_Model] {.
     importcpp: "Perform", header: "IMeshTools_ModelBuilder.hxx".}
 type
-  IMeshToolsModelBuilderbaseType* = MessageAlgorithm
+  IMeshTools_ModelBuilderbase_type* = Message_Algorithm
 
-proc getTypeName*(): cstring {.importcpp: "IMeshTools_ModelBuilder::get_type_name(@)",
-                            header: "IMeshTools_ModelBuilder.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "IMeshTools_ModelBuilder::get_type_name(@)",
+                              header: "IMeshTools_ModelBuilder.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "IMeshTools_ModelBuilder::get_type_descriptor(@)",
     header: "IMeshTools_ModelBuilder.hxx".}
-proc dynamicType*(this: IMeshToolsModelBuilder): Handle[StandardType] {.
+proc DynamicType*(this: IMeshTools_ModelBuilder): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType", header: "IMeshTools_ModelBuilder.hxx".}
-

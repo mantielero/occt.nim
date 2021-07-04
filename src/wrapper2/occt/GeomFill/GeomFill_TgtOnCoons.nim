@@ -14,39 +14,42 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Integer,
+  GeomFill_TgtField, ../Standard/Standard_Real
+
 discard "forward decl of GeomFill_CoonsAlgPatch"
 discard "forward decl of gp_Vec"
 discard "forward decl of GeomFill_TgtOnCoons"
 discard "forward decl of GeomFill_TgtOnCoons"
 type
-  HandleGeomFillTgtOnCoons* = Handle[GeomFillTgtOnCoons]
+  Handle_GeomFill_TgtOnCoons* = handle[GeomFill_TgtOnCoons]
 
 ## ! Defines   an   algorithmic  tangents  field   on a
 ## ! boundary of a CoonsAlgPatch.
 
 type
-  GeomFillTgtOnCoons* {.importcpp: "GeomFill_TgtOnCoons",
-                       header: "GeomFill_TgtOnCoons.hxx", bycopy.} = object of GeomFillTgtField
+  GeomFill_TgtOnCoons* {.importcpp: "GeomFill_TgtOnCoons",
+                        header: "GeomFill_TgtOnCoons.hxx", bycopy.} = object of GeomFill_TgtField
 
 
-proc constructGeomFillTgtOnCoons*(k: Handle[GeomFillCoonsAlgPatch];
-                                 i: StandardInteger): GeomFillTgtOnCoons {.
+proc constructGeomFill_TgtOnCoons*(K: handle[GeomFill_CoonsAlgPatch];
+                                  I: Standard_Integer): GeomFill_TgtOnCoons {.
     constructor, importcpp: "GeomFill_TgtOnCoons(@)",
     header: "GeomFill_TgtOnCoons.hxx".}
-proc value*(this: GeomFillTgtOnCoons; w: StandardReal): GpVec {.noSideEffect,
+proc Value*(this: GeomFill_TgtOnCoons; W: Standard_Real): gp_Vec {.noSideEffect,
     importcpp: "Value", header: "GeomFill_TgtOnCoons.hxx".}
-proc d1*(this: GeomFillTgtOnCoons; w: StandardReal): GpVec {.noSideEffect,
+proc D1*(this: GeomFill_TgtOnCoons; W: Standard_Real): gp_Vec {.noSideEffect,
     importcpp: "D1", header: "GeomFill_TgtOnCoons.hxx".}
-proc d1*(this: GeomFillTgtOnCoons; w: StandardReal; t: var GpVec; dt: var GpVec) {.
+proc D1*(this: GeomFill_TgtOnCoons; W: Standard_Real; T: var gp_Vec; DT: var gp_Vec) {.
     noSideEffect, importcpp: "D1", header: "GeomFill_TgtOnCoons.hxx".}
 type
-  GeomFillTgtOnCoonsbaseType* = GeomFillTgtField
+  GeomFill_TgtOnCoonsbase_type* = GeomFill_TgtField
 
-proc getTypeName*(): cstring {.importcpp: "GeomFill_TgtOnCoons::get_type_name(@)",
-                            header: "GeomFill_TgtOnCoons.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "GeomFill_TgtOnCoons::get_type_name(@)",
+                              header: "GeomFill_TgtOnCoons.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "GeomFill_TgtOnCoons::get_type_descriptor(@)",
     header: "GeomFill_TgtOnCoons.hxx".}
-proc dynamicType*(this: GeomFillTgtOnCoons): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: GeomFill_TgtOnCoons): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "GeomFill_TgtOnCoons.hxx".}
-

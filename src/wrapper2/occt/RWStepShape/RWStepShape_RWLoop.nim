@@ -14,22 +14,25 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepShape_Loop"
 discard "forward decl of StepData_StepWriter"
 type
-  RWStepShapeRWLoop* {.importcpp: "RWStepShape_RWLoop",
-                      header: "RWStepShape_RWLoop.hxx", bycopy.} = object
+  RWStepShape_RWLoop* {.importcpp: "RWStepShape_RWLoop",
+                       header: "RWStepShape_RWLoop.hxx", bycopy.} = object
 
 
-proc constructRWStepShapeRWLoop*(): RWStepShapeRWLoop {.constructor,
+proc constructRWStepShape_RWLoop*(): RWStepShape_RWLoop {.constructor,
     importcpp: "RWStepShape_RWLoop(@)", header: "RWStepShape_RWLoop.hxx".}
-proc readStep*(this: RWStepShapeRWLoop; data: Handle[StepDataStepReaderData];
-              num: StandardInteger; ach: var Handle[InterfaceCheck];
-              ent: Handle[StepShapeLoop]) {.noSideEffect, importcpp: "ReadStep",
+proc ReadStep*(this: RWStepShape_RWLoop; data: handle[StepData_StepReaderData];
+              num: Standard_Integer; ach: var handle[Interface_Check];
+              ent: handle[StepShape_Loop]) {.noSideEffect, importcpp: "ReadStep",
     header: "RWStepShape_RWLoop.hxx".}
-proc writeStep*(this: RWStepShapeRWLoop; sw: var StepDataStepWriter;
-               ent: Handle[StepShapeLoop]) {.noSideEffect, importcpp: "WriteStep",
+proc WriteStep*(this: RWStepShape_RWLoop; SW: var StepData_StepWriter;
+               ent: handle[StepShape_Loop]) {.noSideEffect, importcpp: "WriteStep",
     header: "RWStepShape_RWLoop.hxx".}
-

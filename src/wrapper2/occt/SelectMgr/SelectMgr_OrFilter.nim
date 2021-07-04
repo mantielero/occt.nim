@@ -14,39 +14,42 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, SelectMgr_CompositionFilter,
+  ../Standard/Standard_Boolean
+
 discard "forward decl of SelectMgr_EntityOwner"
 discard "forward decl of SelectMgr_OrFilter"
 discard "forward decl of SelectMgr_OrFilter"
 type
-  HandleSelectMgrOrFilter* = Handle[SelectMgrOrFilter]
+  Handle_SelectMgr_OrFilter* = handle[SelectMgr_OrFilter]
 
 ## ! A framework to define an or selection filter.
 ## ! This selects one or another type of sensitive entity.
 
 type
-  SelectMgrOrFilter* {.importcpp: "SelectMgr_OrFilter",
-                      header: "SelectMgr_OrFilter.hxx", bycopy.} = object of SelectMgrCompositionFilter ##
-                                                                                                 ## !
-                                                                                                 ## Constructs
-                                                                                                 ## an
-                                                                                                 ## empty
-                                                                                                 ## or
-                                                                                                 ## selection
-                                                                                                 ## filter.
+  SelectMgr_OrFilter* {.importcpp: "SelectMgr_OrFilter",
+                       header: "SelectMgr_OrFilter.hxx", bycopy.} = object of SelectMgr_CompositionFilter ##
+                                                                                                   ## !
+                                                                                                   ## Constructs
+                                                                                                   ## an
+                                                                                                   ## empty
+                                                                                                   ## or
+                                                                                                   ## selection
+                                                                                                   ## filter.
 
 
-proc constructSelectMgrOrFilter*(): SelectMgrOrFilter {.constructor,
+proc constructSelectMgr_OrFilter*(): SelectMgr_OrFilter {.constructor,
     importcpp: "SelectMgr_OrFilter(@)", header: "SelectMgr_OrFilter.hxx".}
-proc isOk*(this: SelectMgrOrFilter; anobj: Handle[SelectMgrEntityOwner]): StandardBoolean {.
+proc IsOk*(this: SelectMgr_OrFilter; anobj: handle[SelectMgr_EntityOwner]): Standard_Boolean {.
     noSideEffect, importcpp: "IsOk", header: "SelectMgr_OrFilter.hxx".}
 type
-  SelectMgrOrFilterbaseType* = SelectMgrCompositionFilter
+  SelectMgr_OrFilterbase_type* = SelectMgr_CompositionFilter
 
-proc getTypeName*(): cstring {.importcpp: "SelectMgr_OrFilter::get_type_name(@)",
-                            header: "SelectMgr_OrFilter.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "SelectMgr_OrFilter::get_type_name(@)",
+                              header: "SelectMgr_OrFilter.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "SelectMgr_OrFilter::get_type_descriptor(@)",
     header: "SelectMgr_OrFilter.hxx".}
-proc dynamicType*(this: SelectMgrOrFilter): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: SelectMgr_OrFilter): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "SelectMgr_OrFilter.hxx".}
-

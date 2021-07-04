@@ -14,34 +14,37 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepGeom_ReparametrisedCompositeCurveSegment"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepGeomRWReparametrisedCompositeCurveSegment* {.
+  RWStepGeom_RWReparametrisedCompositeCurveSegment* {.
       importcpp: "RWStepGeom_RWReparametrisedCompositeCurveSegment",
       header: "RWStepGeom_RWReparametrisedCompositeCurveSegment.hxx", bycopy.} = object
 
 
-proc constructRWStepGeomRWReparametrisedCompositeCurveSegment*(): RWStepGeomRWReparametrisedCompositeCurveSegment {.
+proc constructRWStepGeom_RWReparametrisedCompositeCurveSegment*(): RWStepGeom_RWReparametrisedCompositeCurveSegment {.
     constructor,
     importcpp: "RWStepGeom_RWReparametrisedCompositeCurveSegment(@)",
     header: "RWStepGeom_RWReparametrisedCompositeCurveSegment.hxx".}
-proc readStep*(this: RWStepGeomRWReparametrisedCompositeCurveSegment;
-              data: Handle[StepDataStepReaderData]; num: StandardInteger;
-              ach: var Handle[InterfaceCheck];
-              ent: Handle[StepGeomReparametrisedCompositeCurveSegment]) {.
+proc ReadStep*(this: RWStepGeom_RWReparametrisedCompositeCurveSegment;
+              data: handle[StepData_StepReaderData]; num: Standard_Integer;
+              ach: var handle[Interface_Check];
+              ent: handle[StepGeom_ReparametrisedCompositeCurveSegment]) {.
     noSideEffect, importcpp: "ReadStep",
     header: "RWStepGeom_RWReparametrisedCompositeCurveSegment.hxx".}
-proc writeStep*(this: RWStepGeomRWReparametrisedCompositeCurveSegment;
-               sw: var StepDataStepWriter;
-               ent: Handle[StepGeomReparametrisedCompositeCurveSegment]) {.
+proc WriteStep*(this: RWStepGeom_RWReparametrisedCompositeCurveSegment;
+               SW: var StepData_StepWriter;
+               ent: handle[StepGeom_ReparametrisedCompositeCurveSegment]) {.
     noSideEffect, importcpp: "WriteStep",
     header: "RWStepGeom_RWReparametrisedCompositeCurveSegment.hxx".}
-proc share*(this: RWStepGeomRWReparametrisedCompositeCurveSegment;
-           ent: Handle[StepGeomReparametrisedCompositeCurveSegment];
-           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
+proc Share*(this: RWStepGeom_RWReparametrisedCompositeCurveSegment;
+           ent: handle[StepGeom_ReparametrisedCompositeCurveSegment];
+           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepGeom_RWReparametrisedCompositeCurveSegment.hxx".}
-

@@ -14,6 +14,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../StdFail/StdFail_NotDone, ../TColStd/TColStd_HArray1OfReal
+
 discard "forward decl of Standard_DomainError"
 discard "forward decl of Standard_ConstructionError"
 discard "forward decl of Standard_OutOfRange"
@@ -21,63 +24,62 @@ discard "forward decl of StdFail_NotDone"
 discard "forward decl of Adaptor3d_Curve"
 discard "forward decl of Adaptor2d_Curve2d"
 type
-  GCPntsQuasiUniformAbscissa* {.importcpp: "GCPnts_QuasiUniformAbscissa",
-                               header: "GCPnts_QuasiUniformAbscissa.hxx", bycopy.} = object ##
-                                                                                       ## !
-                                                                                       ## Constructs
-                                                                                       ## an
-                                                                                       ## empty
-                                                                                       ## algorithm.
-                                                                                       ## To
-                                                                                       ## define
-                                                                                       ## the
-                                                                                       ## problem
-                                                                                       ##
-                                                                                       ## !
-                                                                                       ## to
-                                                                                       ## be
-                                                                                       ## solved,
-                                                                                       ## use
-                                                                                       ## the
-                                                                                       ## function
-                                                                                       ## Initialize.
+  GCPnts_QuasiUniformAbscissa* {.importcpp: "GCPnts_QuasiUniformAbscissa",
+                                header: "GCPnts_QuasiUniformAbscissa.hxx", bycopy.} = object ##
+                                                                                        ## !
+                                                                                        ## Constructs
+                                                                                        ## an
+                                                                                        ## empty
+                                                                                        ## algorithm.
+                                                                                        ## To
+                                                                                        ## define
+                                                                                        ## the
+                                                                                        ## problem
+                                                                                        ##
+                                                                                        ## !
+                                                                                        ## to
+                                                                                        ## be
+                                                                                        ## solved,
+                                                                                        ## use
+                                                                                        ## the
+                                                                                        ## function
+                                                                                        ## Initialize.
 
 
-proc constructGCPntsQuasiUniformAbscissa*(): GCPntsQuasiUniformAbscissa {.
+proc constructGCPnts_QuasiUniformAbscissa*(): GCPnts_QuasiUniformAbscissa {.
     constructor, importcpp: "GCPnts_QuasiUniformAbscissa(@)",
     header: "GCPnts_QuasiUniformAbscissa.hxx".}
-proc constructGCPntsQuasiUniformAbscissa*(c: Adaptor3dCurve;
-    nbPoints: StandardInteger): GCPntsQuasiUniformAbscissa {.constructor,
+proc constructGCPnts_QuasiUniformAbscissa*(C: Adaptor3d_Curve;
+    NbPoints: Standard_Integer): GCPnts_QuasiUniformAbscissa {.constructor,
     importcpp: "GCPnts_QuasiUniformAbscissa(@)",
     header: "GCPnts_QuasiUniformAbscissa.hxx".}
-proc constructGCPntsQuasiUniformAbscissa*(c: Adaptor3dCurve;
-    nbPoints: StandardInteger; u1: StandardReal; u2: StandardReal): GCPntsQuasiUniformAbscissa {.
+proc constructGCPnts_QuasiUniformAbscissa*(C: Adaptor3d_Curve;
+    NbPoints: Standard_Integer; U1: Standard_Real; U2: Standard_Real): GCPnts_QuasiUniformAbscissa {.
     constructor, importcpp: "GCPnts_QuasiUniformAbscissa(@)",
     header: "GCPnts_QuasiUniformAbscissa.hxx".}
-proc initialize*(this: var GCPntsQuasiUniformAbscissa; c: Adaptor3dCurve;
-                nbPoints: StandardInteger) {.importcpp: "Initialize",
+proc Initialize*(this: var GCPnts_QuasiUniformAbscissa; C: Adaptor3d_Curve;
+                NbPoints: Standard_Integer) {.importcpp: "Initialize",
     header: "GCPnts_QuasiUniformAbscissa.hxx".}
-proc initialize*(this: var GCPntsQuasiUniformAbscissa; c: Adaptor3dCurve;
-                nbPoints: StandardInteger; u1: StandardReal; u2: StandardReal) {.
+proc Initialize*(this: var GCPnts_QuasiUniformAbscissa; C: Adaptor3d_Curve;
+                NbPoints: Standard_Integer; U1: Standard_Real; U2: Standard_Real) {.
     importcpp: "Initialize", header: "GCPnts_QuasiUniformAbscissa.hxx".}
-proc constructGCPntsQuasiUniformAbscissa*(c: Adaptor2dCurve2d;
-    nbPoints: StandardInteger): GCPntsQuasiUniformAbscissa {.constructor,
+proc constructGCPnts_QuasiUniformAbscissa*(C: Adaptor2d_Curve2d;
+    NbPoints: Standard_Integer): GCPnts_QuasiUniformAbscissa {.constructor,
     importcpp: "GCPnts_QuasiUniformAbscissa(@)",
     header: "GCPnts_QuasiUniformAbscissa.hxx".}
-proc constructGCPntsQuasiUniformAbscissa*(c: Adaptor2dCurve2d;
-    nbPoints: StandardInteger; u1: StandardReal; u2: StandardReal): GCPntsQuasiUniformAbscissa {.
+proc constructGCPnts_QuasiUniformAbscissa*(C: Adaptor2d_Curve2d;
+    NbPoints: Standard_Integer; U1: Standard_Real; U2: Standard_Real): GCPnts_QuasiUniformAbscissa {.
     constructor, importcpp: "GCPnts_QuasiUniformAbscissa(@)",
     header: "GCPnts_QuasiUniformAbscissa.hxx".}
-proc initialize*(this: var GCPntsQuasiUniformAbscissa; c: Adaptor2dCurve2d;
-                nbPoints: StandardInteger) {.importcpp: "Initialize",
+proc Initialize*(this: var GCPnts_QuasiUniformAbscissa; C: Adaptor2d_Curve2d;
+                NbPoints: Standard_Integer) {.importcpp: "Initialize",
     header: "GCPnts_QuasiUniformAbscissa.hxx".}
-proc initialize*(this: var GCPntsQuasiUniformAbscissa; c: Adaptor2dCurve2d;
-                nbPoints: StandardInteger; u1: StandardReal; u2: StandardReal) {.
+proc Initialize*(this: var GCPnts_QuasiUniformAbscissa; C: Adaptor2d_Curve2d;
+                NbPoints: Standard_Integer; U1: Standard_Real; U2: Standard_Real) {.
     importcpp: "Initialize", header: "GCPnts_QuasiUniformAbscissa.hxx".}
-proc isDone*(this: GCPntsQuasiUniformAbscissa): StandardBoolean {.noSideEffect,
+proc IsDone*(this: GCPnts_QuasiUniformAbscissa): Standard_Boolean {.noSideEffect,
     importcpp: "IsDone", header: "GCPnts_QuasiUniformAbscissa.hxx".}
-proc nbPoints*(this: GCPntsQuasiUniformAbscissa): StandardInteger {.noSideEffect,
+proc NbPoints*(this: GCPnts_QuasiUniformAbscissa): Standard_Integer {.noSideEffect,
     importcpp: "NbPoints", header: "GCPnts_QuasiUniformAbscissa.hxx".}
-proc parameter*(this: GCPntsQuasiUniformAbscissa; index: StandardInteger): StandardReal {.
+proc Parameter*(this: GCPnts_QuasiUniformAbscissa; Index: Standard_Integer): Standard_Real {.
     noSideEffect, importcpp: "Parameter", header: "GCPnts_QuasiUniformAbscissa.hxx".}
-

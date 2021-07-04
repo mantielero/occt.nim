@@ -14,110 +14,119 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer,
+  ../Standard/Standard_Real, ../Bnd/Bnd_Box, IntPolyh_ArrayOfPoints,
+  IntPolyh_ArrayOfTriangles, IntPolyh_ArrayOfEdges
+
 discard "forward decl of Adaptor3d_HSurface"
 discard "forward decl of IntPolyh_StartPoint"
 type
-  IntPolyhTriangle* {.importcpp: "IntPolyh_Triangle",
-                     header: "IntPolyh_Triangle.hxx", bycopy.} = object ## ! Constructor
+  IntPolyh_Triangle* {.importcpp: "IntPolyh_Triangle",
+                      header: "IntPolyh_Triangle.hxx", bycopy.} = object ## ! Constructor
 
 
-proc constructIntPolyhTriangle*(): IntPolyhTriangle {.constructor,
+proc constructIntPolyh_Triangle*(): IntPolyh_Triangle {.constructor,
     importcpp: "IntPolyh_Triangle(@)", header: "IntPolyh_Triangle.hxx".}
-proc constructIntPolyhTriangle*(thePoint1: StandardInteger;
-                               thePoint2: StandardInteger;
-                               thePoint3: StandardInteger): IntPolyhTriangle {.
+proc constructIntPolyh_Triangle*(thePoint1: Standard_Integer;
+                                thePoint2: Standard_Integer;
+                                thePoint3: Standard_Integer): IntPolyh_Triangle {.
     constructor, importcpp: "IntPolyh_Triangle(@)", header: "IntPolyh_Triangle.hxx".}
-proc firstPoint*(this: IntPolyhTriangle): StandardInteger {.noSideEffect,
+proc FirstPoint*(this: IntPolyh_Triangle): Standard_Integer {.noSideEffect,
     importcpp: "FirstPoint", header: "IntPolyh_Triangle.hxx".}
-proc secondPoint*(this: IntPolyhTriangle): StandardInteger {.noSideEffect,
+proc SecondPoint*(this: IntPolyh_Triangle): Standard_Integer {.noSideEffect,
     importcpp: "SecondPoint", header: "IntPolyh_Triangle.hxx".}
-proc thirdPoint*(this: IntPolyhTriangle): StandardInteger {.noSideEffect,
+proc ThirdPoint*(this: IntPolyh_Triangle): Standard_Integer {.noSideEffect,
     importcpp: "ThirdPoint", header: "IntPolyh_Triangle.hxx".}
-proc firstEdge*(this: IntPolyhTriangle): StandardInteger {.noSideEffect,
+proc FirstEdge*(this: IntPolyh_Triangle): Standard_Integer {.noSideEffect,
     importcpp: "FirstEdge", header: "IntPolyh_Triangle.hxx".}
-proc firstEdgeOrientation*(this: IntPolyhTriangle): StandardInteger {.noSideEffect,
-    importcpp: "FirstEdgeOrientation", header: "IntPolyh_Triangle.hxx".}
-proc secondEdge*(this: IntPolyhTriangle): StandardInteger {.noSideEffect,
+proc FirstEdgeOrientation*(this: IntPolyh_Triangle): Standard_Integer {.
+    noSideEffect, importcpp: "FirstEdgeOrientation",
+    header: "IntPolyh_Triangle.hxx".}
+proc SecondEdge*(this: IntPolyh_Triangle): Standard_Integer {.noSideEffect,
     importcpp: "SecondEdge", header: "IntPolyh_Triangle.hxx".}
-proc secondEdgeOrientation*(this: IntPolyhTriangle): StandardInteger {.noSideEffect,
-    importcpp: "SecondEdgeOrientation", header: "IntPolyh_Triangle.hxx".}
-proc thirdEdge*(this: IntPolyhTriangle): StandardInteger {.noSideEffect,
+proc SecondEdgeOrientation*(this: IntPolyh_Triangle): Standard_Integer {.
+    noSideEffect, importcpp: "SecondEdgeOrientation",
+    header: "IntPolyh_Triangle.hxx".}
+proc ThirdEdge*(this: IntPolyh_Triangle): Standard_Integer {.noSideEffect,
     importcpp: "ThirdEdge", header: "IntPolyh_Triangle.hxx".}
-proc thirdEdgeOrientation*(this: IntPolyhTriangle): StandardInteger {.noSideEffect,
-    importcpp: "ThirdEdgeOrientation", header: "IntPolyh_Triangle.hxx".}
-proc deflection*(this: IntPolyhTriangle): StandardReal {.noSideEffect,
+proc ThirdEdgeOrientation*(this: IntPolyh_Triangle): Standard_Integer {.
+    noSideEffect, importcpp: "ThirdEdgeOrientation",
+    header: "IntPolyh_Triangle.hxx".}
+proc Deflection*(this: IntPolyh_Triangle): Standard_Real {.noSideEffect,
     importcpp: "Deflection", header: "IntPolyh_Triangle.hxx".}
-proc isIntersectionPossible*(this: IntPolyhTriangle): StandardBoolean {.
+proc IsIntersectionPossible*(this: IntPolyh_Triangle): Standard_Boolean {.
     noSideEffect, importcpp: "IsIntersectionPossible",
     header: "IntPolyh_Triangle.hxx".}
-proc hasIntersection*(this: IntPolyhTriangle): StandardBoolean {.noSideEffect,
+proc HasIntersection*(this: IntPolyh_Triangle): Standard_Boolean {.noSideEffect,
     importcpp: "HasIntersection", header: "IntPolyh_Triangle.hxx".}
-proc isDegenerated*(this: IntPolyhTriangle): StandardBoolean {.noSideEffect,
+proc IsDegenerated*(this: IntPolyh_Triangle): Standard_Boolean {.noSideEffect,
     importcpp: "IsDegenerated", header: "IntPolyh_Triangle.hxx".}
-proc setFirstPoint*(this: var IntPolyhTriangle; thePoint: StandardInteger) {.
+proc SetFirstPoint*(this: var IntPolyh_Triangle; thePoint: Standard_Integer) {.
     importcpp: "SetFirstPoint", header: "IntPolyh_Triangle.hxx".}
-proc setSecondPoint*(this: var IntPolyhTriangle; thePoint: StandardInteger) {.
+proc SetSecondPoint*(this: var IntPolyh_Triangle; thePoint: Standard_Integer) {.
     importcpp: "SetSecondPoint", header: "IntPolyh_Triangle.hxx".}
-proc setThirdPoint*(this: var IntPolyhTriangle; thePoint: StandardInteger) {.
+proc SetThirdPoint*(this: var IntPolyh_Triangle; thePoint: Standard_Integer) {.
     importcpp: "SetThirdPoint", header: "IntPolyh_Triangle.hxx".}
-proc setFirstEdge*(this: var IntPolyhTriangle; theEdge: StandardInteger;
-                  theEdgeOrientation: StandardInteger) {.
+proc SetFirstEdge*(this: var IntPolyh_Triangle; theEdge: Standard_Integer;
+                  theEdgeOrientation: Standard_Integer) {.
     importcpp: "SetFirstEdge", header: "IntPolyh_Triangle.hxx".}
-proc setSecondEdge*(this: var IntPolyhTriangle; theEdge: StandardInteger;
-                   theEdgeOrientation: StandardInteger) {.
+proc SetSecondEdge*(this: var IntPolyh_Triangle; theEdge: Standard_Integer;
+                   theEdgeOrientation: Standard_Integer) {.
     importcpp: "SetSecondEdge", header: "IntPolyh_Triangle.hxx".}
-proc setThirdEdge*(this: var IntPolyhTriangle; theEdge: StandardInteger;
-                  theEdgeOrientation: StandardInteger) {.
+proc SetThirdEdge*(this: var IntPolyh_Triangle; theEdge: Standard_Integer;
+                  theEdgeOrientation: Standard_Integer) {.
     importcpp: "SetThirdEdge", header: "IntPolyh_Triangle.hxx".}
-proc setDeflection*(this: var IntPolyhTriangle; theDeflection: StandardReal) {.
+proc SetDeflection*(this: var IntPolyh_Triangle; theDeflection: Standard_Real) {.
     importcpp: "SetDeflection", header: "IntPolyh_Triangle.hxx".}
-proc setIntersectionPossible*(this: var IntPolyhTriangle; theIP: StandardBoolean) {.
+proc SetIntersectionPossible*(this: var IntPolyh_Triangle; theIP: Standard_Boolean) {.
     importcpp: "SetIntersectionPossible", header: "IntPolyh_Triangle.hxx".}
-proc setIntersection*(this: var IntPolyhTriangle; theInt: StandardBoolean) {.
+proc SetIntersection*(this: var IntPolyh_Triangle; theInt: Standard_Boolean) {.
     importcpp: "SetIntersection", header: "IntPolyh_Triangle.hxx".}
-proc setDegenerated*(this: var IntPolyhTriangle; theDegFlag: StandardBoolean) {.
+proc SetDegenerated*(this: var IntPolyh_Triangle; theDegFlag: Standard_Boolean) {.
     importcpp: "SetDegenerated", header: "IntPolyh_Triangle.hxx".}
-proc getEdgeNumber*(this: IntPolyhTriangle; theEdgeIndex: StandardInteger): StandardInteger {.
+proc GetEdgeNumber*(this: IntPolyh_Triangle; theEdgeIndex: Standard_Integer): Standard_Integer {.
     noSideEffect, importcpp: "GetEdgeNumber", header: "IntPolyh_Triangle.hxx".}
-proc setEdge*(this: var IntPolyhTriangle; theEdgeIndex: StandardInteger;
-             theEdgeNumber: StandardInteger) {.importcpp: "SetEdge",
+proc SetEdge*(this: var IntPolyh_Triangle; theEdgeIndex: Standard_Integer;
+             theEdgeNumber: Standard_Integer) {.importcpp: "SetEdge",
     header: "IntPolyh_Triangle.hxx".}
-proc getEdgeOrientation*(this: IntPolyhTriangle; theEdgeIndex: StandardInteger): StandardInteger {.
+proc GetEdgeOrientation*(this: IntPolyh_Triangle; theEdgeIndex: Standard_Integer): Standard_Integer {.
     noSideEffect, importcpp: "GetEdgeOrientation", header: "IntPolyh_Triangle.hxx".}
-proc setEdgeOrientation*(this: var IntPolyhTriangle; theEdgeIndex: StandardInteger;
-                        theEdgeOrientation: StandardInteger) {.
+proc SetEdgeOrientation*(this: var IntPolyh_Triangle;
+                        theEdgeIndex: Standard_Integer;
+                        theEdgeOrientation: Standard_Integer) {.
     importcpp: "SetEdgeOrientation", header: "IntPolyh_Triangle.hxx".}
-proc computeDeflection*(this: var IntPolyhTriangle;
-                       theSurface: Handle[Adaptor3dHSurface];
-                       thePoints: IntPolyhArrayOfPoints): StandardReal {.
+proc ComputeDeflection*(this: var IntPolyh_Triangle;
+                       theSurface: handle[Adaptor3d_HSurface];
+                       thePoints: IntPolyh_ArrayOfPoints): Standard_Real {.
     importcpp: "ComputeDeflection", header: "IntPolyh_Triangle.hxx".}
-proc getNextTriangle*(this: IntPolyhTriangle; theTriangle: StandardInteger;
-                     theEdgeNum: StandardInteger; tEdges: IntPolyhArrayOfEdges): StandardInteger {.
+proc GetNextTriangle*(this: IntPolyh_Triangle; theTriangle: Standard_Integer;
+                     theEdgeNum: Standard_Integer; TEdges: IntPolyh_ArrayOfEdges): Standard_Integer {.
     noSideEffect, importcpp: "GetNextTriangle", header: "IntPolyh_Triangle.hxx".}
-proc middleRefinement*(this: var IntPolyhTriangle;
-                      theTriangleNumber: StandardInteger;
-                      theSurface: Handle[Adaptor3dHSurface];
-                      tPoints: var IntPolyhArrayOfPoints;
-                      tTriangles: var IntPolyhArrayOfTriangles;
-                      tEdges: var IntPolyhArrayOfEdges) {.
+proc MiddleRefinement*(this: var IntPolyh_Triangle;
+                      theTriangleNumber: Standard_Integer;
+                      theSurface: handle[Adaptor3d_HSurface];
+                      TPoints: var IntPolyh_ArrayOfPoints;
+                      TTriangles: var IntPolyh_ArrayOfTriangles;
+                      TEdges: var IntPolyh_ArrayOfEdges) {.
     importcpp: "MiddleRefinement", header: "IntPolyh_Triangle.hxx".}
-proc multipleMiddleRefinement*(this: var IntPolyhTriangle;
-                              theRefineCriterion: StandardReal; theBox: BndBox;
-                              theTriangleNumber: StandardInteger;
-                              theSurface: Handle[Adaptor3dHSurface];
-                              tPoints: var IntPolyhArrayOfPoints;
-                              tTriangles: var IntPolyhArrayOfTriangles;
-                              tEdges: var IntPolyhArrayOfEdges) {.
+proc MultipleMiddleRefinement*(this: var IntPolyh_Triangle;
+                              theRefineCriterion: Standard_Real; theBox: Bnd_Box;
+                              theTriangleNumber: Standard_Integer;
+                              theSurface: handle[Adaptor3d_HSurface];
+                              TPoints: var IntPolyh_ArrayOfPoints;
+                              TTriangles: var IntPolyh_ArrayOfTriangles;
+                              TEdges: var IntPolyh_ArrayOfEdges) {.
     importcpp: "MultipleMiddleRefinement", header: "IntPolyh_Triangle.hxx".}
-proc linkEdges2Triangle*(this: var IntPolyhTriangle; tEdges: IntPolyhArrayOfEdges;
-                        theEdge1: StandardInteger; theEdge2: StandardInteger;
-                        theEdge3: StandardInteger) {.
+proc LinkEdges2Triangle*(this: var IntPolyh_Triangle; TEdges: IntPolyh_ArrayOfEdges;
+                        theEdge1: Standard_Integer; theEdge2: Standard_Integer;
+                        theEdge3: Standard_Integer) {.
     importcpp: "LinkEdges2Triangle", header: "IntPolyh_Triangle.hxx".}
-proc setEdgeAndOrientation*(this: var IntPolyhTriangle; theEdge: IntPolyhEdge;
-                           theEdgeIndex: StandardInteger) {.
+proc SetEdgeAndOrientation*(this: var IntPolyh_Triangle; theEdge: IntPolyh_Edge;
+                           theEdgeIndex: Standard_Integer) {.
     importcpp: "SetEdgeAndOrientation", header: "IntPolyh_Triangle.hxx".}
-proc boundingBox*(this: var IntPolyhTriangle; thePoints: IntPolyhArrayOfPoints): BndBox {.
+proc BoundingBox*(this: var IntPolyh_Triangle; thePoints: IntPolyh_ArrayOfPoints): Bnd_Box {.
     importcpp: "BoundingBox", header: "IntPolyh_Triangle.hxx".}
-proc dump*(this: IntPolyhTriangle; v: StandardInteger) {.noSideEffect,
+proc Dump*(this: IntPolyh_Triangle; v: Standard_Integer) {.noSideEffect,
     importcpp: "Dump", header: "IntPolyh_Triangle.hxx".}
-

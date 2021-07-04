@@ -14,8 +14,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  HLRTopoBRep_VData, ../NCollection/NCollection_List
+
 type
-  HLRTopoBRepListOfVData* = NCollectionList[HLRTopoBRepVData]
-  HLRTopoBRepListIteratorOfListOfVData* = Iterator[HLRTopoBRepVData]
-
-
+  HLRTopoBRep_ListOfVData* = NCollection_List[HLRTopoBRep_VData]
+  HLRTopoBRep_ListIteratorOfListOfVData* = Iterator[HLRTopoBRep_VData]

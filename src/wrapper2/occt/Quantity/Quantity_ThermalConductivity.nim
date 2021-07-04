@@ -14,10 +14,8 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _Quantity_ThermalConductivity_HeaderFile [NewLine] # _Quantity_ThermalConductivity_HeaderFile [NewLine] # < Standard_Real . hxx > [NewLine] ! Defined as the rate at which heat passes through an
+## !!!Ignored construct:  # _Quantity_ThermalConductivity_HeaderFile [NewLine] # _Quantity_ThermalConductivity_HeaderFile [NewLine] # ../Standard/Standard_Real.hxx [NewLine] ! Defined as the rate at which heat passes through an
 ## ! area inside a body. Quantified as work per unit time
 ## ! per unit length per unit of temperature.
 ## ! It is measured in watts per metre per degee kelvin. Standard_DEPRECATED ( This type is deprecated - Standard_Real should be used instead ) typedef Standard_Real Quantity_ThermalConductivity ;
 ## Error: expected ';'!!!
-
-

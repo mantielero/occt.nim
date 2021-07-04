@@ -13,7 +13,8 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  IFSelect_SessionPilot, IFSelect_ReturnStatus
+
 type
-  IFSelectActFunc* = proc (a1: Handle[IFSelectSessionPilot]): IFSelectReturnStatus
-
-
+  IFSelect_ActFunc* = proc (a1: handle[IFSelect_SessionPilot]): IFSelect_ReturnStatus

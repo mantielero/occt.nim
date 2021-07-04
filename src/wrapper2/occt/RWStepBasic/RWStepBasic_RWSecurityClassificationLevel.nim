@@ -14,27 +14,30 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepBasic_SecurityClassificationLevel"
 discard "forward decl of StepData_StepWriter"
 type
-  RWStepBasicRWSecurityClassificationLevel* {.
+  RWStepBasic_RWSecurityClassificationLevel* {.
       importcpp: "RWStepBasic_RWSecurityClassificationLevel",
       header: "RWStepBasic_RWSecurityClassificationLevel.hxx", bycopy.} = object
 
 
-proc constructRWStepBasicRWSecurityClassificationLevel*(): RWStepBasicRWSecurityClassificationLevel {.
+proc constructRWStepBasic_RWSecurityClassificationLevel*(): RWStepBasic_RWSecurityClassificationLevel {.
     constructor, importcpp: "RWStepBasic_RWSecurityClassificationLevel(@)",
     header: "RWStepBasic_RWSecurityClassificationLevel.hxx".}
-proc readStep*(this: RWStepBasicRWSecurityClassificationLevel;
-              data: Handle[StepDataStepReaderData]; num: StandardInteger;
-              ach: var Handle[InterfaceCheck];
-              ent: Handle[StepBasicSecurityClassificationLevel]) {.noSideEffect,
+proc ReadStep*(this: RWStepBasic_RWSecurityClassificationLevel;
+              data: handle[StepData_StepReaderData]; num: Standard_Integer;
+              ach: var handle[Interface_Check];
+              ent: handle[StepBasic_SecurityClassificationLevel]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepBasic_RWSecurityClassificationLevel.hxx".}
-proc writeStep*(this: RWStepBasicRWSecurityClassificationLevel;
-               sw: var StepDataStepWriter;
-               ent: Handle[StepBasicSecurityClassificationLevel]) {.noSideEffect,
+proc WriteStep*(this: RWStepBasic_RWSecurityClassificationLevel;
+               SW: var StepData_StepWriter;
+               ent: handle[StepBasic_SecurityClassificationLevel]) {.noSideEffect,
     importcpp: "WriteStep",
     header: "RWStepBasic_RWSecurityClassificationLevel.hxx".}
-

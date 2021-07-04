@@ -14,32 +14,36 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../gp/gp_Pnt, Draw_Color,
+  ../TCollection/TCollection_AsciiString, ../Standard/Standard_Real,
+  Draw_Drawable3D, ../Standard/Standard_CString
+
 discard "forward decl of gp_Pnt"
 discard "forward decl of Draw_Color"
 discard "forward decl of Draw_Display"
 discard "forward decl of Draw_Text3D"
 discard "forward decl of Draw_Text3D"
 type
-  HandleDrawText3D* = Handle[DrawText3D]
-  DrawText3D* {.importcpp: "Draw_Text3D", header: "Draw_Text3D.hxx", bycopy.} = object of DrawDrawable3D
+  Handle_Draw_Text3D* = handle[Draw_Text3D]
+  Draw_Text3D* {.importcpp: "Draw_Text3D", header: "Draw_Text3D.hxx", bycopy.} = object of Draw_Drawable3D
 
 
-proc constructDrawText3D*(p: GpPnt; t: StandardCString; col: DrawColor): DrawText3D {.
+proc constructDraw_Text3D*(p: gp_Pnt; T: Standard_CString; col: Draw_Color): Draw_Text3D {.
     constructor, importcpp: "Draw_Text3D(@)", header: "Draw_Text3D.hxx".}
-proc constructDrawText3D*(p: GpPnt; t: StandardCString; col: DrawColor;
-                         moveX: StandardReal; moveY: StandardReal): DrawText3D {.
+proc constructDraw_Text3D*(p: gp_Pnt; T: Standard_CString; col: Draw_Color;
+                          moveX: Standard_Real; moveY: Standard_Real): Draw_Text3D {.
     constructor, importcpp: "Draw_Text3D(@)", header: "Draw_Text3D.hxx".}
-proc setPnt*(this: var DrawText3D; p: GpPnt) {.importcpp: "SetPnt",
+proc SetPnt*(this: var Draw_Text3D; p: gp_Pnt) {.importcpp: "SetPnt",
     header: "Draw_Text3D.hxx".}
-proc drawOn*(this: DrawText3D; dis: var DrawDisplay) {.noSideEffect,
+proc DrawOn*(this: Draw_Text3D; dis: var Draw_Display) {.noSideEffect,
     importcpp: "DrawOn", header: "Draw_Text3D.hxx".}
 type
-  DrawText3DbaseType* = DrawDrawable3D
+  Draw_Text3Dbase_type* = Draw_Drawable3D
 
-proc getTypeName*(): cstring {.importcpp: "Draw_Text3D::get_type_name(@)",
-                            header: "Draw_Text3D.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "Draw_Text3D::get_type_name(@)",
+                              header: "Draw_Text3D.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "Draw_Text3D::get_type_descriptor(@)", header: "Draw_Text3D.hxx".}
-proc dynamicType*(this: DrawText3D): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: Draw_Text3D): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "Draw_Text3D.hxx".}
-

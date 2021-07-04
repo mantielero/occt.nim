@@ -13,26 +13,28 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  BRepMesh_UVParamRangeSplitter, ../IMeshTools/IMeshTools_Parameters
+
 ## ! Auxiliary class extending UV range splitter in order to generate
 ## ! internal nodes for NURBS surface.
 
 type
-  BRepMeshTorusRangeSplitter* {.importcpp: "BRepMesh_TorusRangeSplitter",
-                               header: "BRepMesh_TorusRangeSplitter.hxx", bycopy.} = object of BRepMeshUVParamRangeSplitter ##
-                                                                                                                     ## !
-                                                                                                                     ## Constructor.
+  BRepMesh_TorusRangeSplitter* {.importcpp: "BRepMesh_TorusRangeSplitter",
+                                header: "BRepMesh_TorusRangeSplitter.hxx", bycopy.} = object of BRepMesh_UVParamRangeSplitter ##
+                                                                                                                       ## !
+                                                                                                                       ## Constructor.
 
 
-proc constructBRepMeshTorusRangeSplitter*(): BRepMeshTorusRangeSplitter {.
+proc constructBRepMesh_TorusRangeSplitter*(): BRepMesh_TorusRangeSplitter {.
     constructor, importcpp: "BRepMesh_TorusRangeSplitter(@)",
     header: "BRepMesh_TorusRangeSplitter.hxx".}
-proc destroyBRepMeshTorusRangeSplitter*(this: var BRepMeshTorusRangeSplitter) {.
+proc destroyBRepMesh_TorusRangeSplitter*(this: var BRepMesh_TorusRangeSplitter) {.
     importcpp: "#.~BRepMesh_TorusRangeSplitter()",
     header: "BRepMesh_TorusRangeSplitter.hxx".}
-proc generateSurfaceNodes*(this: BRepMeshTorusRangeSplitter;
-                          theParameters: IMeshToolsParameters): Handle[ListOfPnt2d] {.
-    noSideEffect, importcpp: "GenerateSurfaceNodes",
-    header: "BRepMesh_TorusRangeSplitter.hxx".}
-proc addPoint*(this: var BRepMeshTorusRangeSplitter; thePoint: GpPnt2d) {.
+proc GenerateSurfaceNodes*(this: BRepMesh_TorusRangeSplitter;
+                          theParameters: IMeshTools_Parameters): handle[
+    ListOfPnt2d] {.noSideEffect, importcpp: "GenerateSurfaceNodes",
+                  header: "BRepMesh_TorusRangeSplitter.hxx".}
+proc AddPoint*(this: var BRepMesh_TorusRangeSplitter; thePoint: gp_Pnt2d) {.
     importcpp: "AddPoint", header: "BRepMesh_TorusRangeSplitter.hxx".}
-

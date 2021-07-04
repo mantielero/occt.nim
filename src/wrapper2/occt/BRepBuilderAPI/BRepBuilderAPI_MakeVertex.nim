@@ -14,6 +14,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../BRepLib/BRepLib_MakeVertex,
+  BRepBuilderAPI_MakeShape
+
 discard "forward decl of gp_Pnt"
 discard "forward decl of TopoDS_Vertex"
 type
@@ -48,12 +53,11 @@ type
                                                                                                               ## BRepBuilderAPI_MakeVertex(P);
 
 
-proc constructBRepBuilderAPI_MakeVertex*(p: GpPnt): BRepBuilderAPI_MakeVertex {.
+proc constructBRepBuilderAPI_MakeVertex*(P: gp_Pnt): BRepBuilderAPI_MakeVertex {.
     constructor, importcpp: "BRepBuilderAPI_MakeVertex(@)",
     header: "BRepBuilderAPI_MakeVertex.hxx".}
-proc vertex*(this: var BRepBuilderAPI_MakeVertex): TopoDS_Vertex {.
+proc Vertex*(this: var BRepBuilderAPI_MakeVertex): TopoDS_Vertex {.
     importcpp: "Vertex", header: "BRepBuilderAPI_MakeVertex.hxx".}
-converter `topoDS_Vertex`*(this: var BRepBuilderAPI_MakeVertex): TopoDS_Vertex {.
+converter `TopoDS_Vertex`*(this: var BRepBuilderAPI_MakeVertex): TopoDS_Vertex {.
     importcpp: "BRepBuilderAPI_MakeVertex::operator TopoDS_Vertex",
     header: "BRepBuilderAPI_MakeVertex.hxx".}
-

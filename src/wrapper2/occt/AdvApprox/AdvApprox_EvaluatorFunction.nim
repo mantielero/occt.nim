@@ -14,45 +14,49 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard_Integer, ../Standard/Standard_Real,
+  ../Standard/Standard_PrimitiveTypes
+
 ##  abv 01.04.2009: the C function pointer converted to a virtual class
 ##  in order to get rid of usage of static functions and static data
 ## ! Interface for a class implementing a function to be approximated
 ## ! by AdvApprox_ApproxAFunction
 
 type
-  AdvApproxEvaluatorFunction* {.importcpp: "AdvApprox_EvaluatorFunction",
-                               header: "AdvApprox_EvaluatorFunction.hxx", bycopy.} = object ##
-                                                                                       ## !
-                                                                                       ## Empty
-                                                                                       ## constructor
-                                                                                       ##
-                                                                                       ## !
-                                                                                       ## Copy
-                                                                                       ## constructor
-                                                                                       ## is
-                                                                                       ## declared
-                                                                                       ## private
-                                                                                       ## to
-                                                                                       ## forbid
-                                                                                       ## copying
+  AdvApprox_EvaluatorFunction* {.importcpp: "AdvApprox_EvaluatorFunction",
+                                header: "AdvApprox_EvaluatorFunction.hxx", bycopy.} = object ##
+                                                                                        ## !
+                                                                                        ## Empty
+                                                                                        ## constructor
+                                                                                        ##
+                                                                                        ## !
+                                                                                        ## Copy
+                                                                                        ## constructor
+                                                                                        ## is
+                                                                                        ## declared
+                                                                                        ## private
+                                                                                        ## to
+                                                                                        ## forbid
+                                                                                        ## copying
 
 
-proc constructAdvApproxEvaluatorFunction*(): AdvApproxEvaluatorFunction {.
+proc constructAdvApprox_EvaluatorFunction*(): AdvApprox_EvaluatorFunction {.
     constructor, importcpp: "AdvApprox_EvaluatorFunction(@)",
     header: "AdvApprox_EvaluatorFunction.hxx".}
-proc destroyAdvApproxEvaluatorFunction*(this: var AdvApproxEvaluatorFunction) {.
+proc destroyAdvApprox_EvaluatorFunction*(this: var AdvApprox_EvaluatorFunction) {.
     importcpp: "#.~AdvApprox_EvaluatorFunction()",
     header: "AdvApprox_EvaluatorFunction.hxx".}
-proc evaluate*(this: var AdvApproxEvaluatorFunction; dimension: ptr StandardInteger;
-              startEnd: array[2, StandardReal]; parameter: ptr StandardReal;
-              derivativeRequest: ptr StandardInteger; result: ptr StandardReal;
-              errorCode: ptr StandardInteger) {.importcpp: "Evaluate",
+proc Evaluate*(this: var AdvApprox_EvaluatorFunction;
+              Dimension: ptr Standard_Integer; StartEnd: array[2, Standard_Real];
+              Parameter: ptr Standard_Real;
+              DerivativeRequest: ptr Standard_Integer; Result: ptr Standard_Real;
+              ErrorCode: ptr Standard_Integer) {.importcpp: "Evaluate",
     header: "AdvApprox_EvaluatorFunction.hxx".}
   ##  [Dimension]
-proc `()`*(this: var AdvApproxEvaluatorFunction; dimension: ptr StandardInteger;
-          startEnd: array[2, StandardReal]; parameter: ptr StandardReal;
-          derivativeRequest: ptr StandardInteger; result: ptr StandardReal;
-          errorCode: ptr StandardInteger) {.importcpp: "#(@)",
+proc `()`*(this: var AdvApprox_EvaluatorFunction; Dimension: ptr Standard_Integer;
+          StartEnd: array[2, Standard_Real]; Parameter: ptr Standard_Real;
+          DerivativeRequest: ptr Standard_Integer; Result: ptr Standard_Real;
+          ErrorCode: ptr Standard_Integer) {.importcpp: "#(@)",
     header: "AdvApprox_EvaluatorFunction.hxx".}
   ##  [Dimension]
-

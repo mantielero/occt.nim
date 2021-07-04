@@ -14,27 +14,30 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepShape_SolidReplica"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepShapeRWSolidReplica* {.importcpp: "RWStepShape_RWSolidReplica",
-                              header: "RWStepShape_RWSolidReplica.hxx", bycopy.} = object
+  RWStepShape_RWSolidReplica* {.importcpp: "RWStepShape_RWSolidReplica",
+                               header: "RWStepShape_RWSolidReplica.hxx", bycopy.} = object
 
 
-proc constructRWStepShapeRWSolidReplica*(): RWStepShapeRWSolidReplica {.
+proc constructRWStepShape_RWSolidReplica*(): RWStepShape_RWSolidReplica {.
     constructor, importcpp: "RWStepShape_RWSolidReplica(@)",
     header: "RWStepShape_RWSolidReplica.hxx".}
-proc readStep*(this: RWStepShapeRWSolidReplica;
-              data: Handle[StepDataStepReaderData]; num: StandardInteger;
-              ach: var Handle[InterfaceCheck]; ent: Handle[StepShapeSolidReplica]) {.
+proc ReadStep*(this: RWStepShape_RWSolidReplica;
+              data: handle[StepData_StepReaderData]; num: Standard_Integer;
+              ach: var handle[Interface_Check]; ent: handle[StepShape_SolidReplica]) {.
     noSideEffect, importcpp: "ReadStep", header: "RWStepShape_RWSolidReplica.hxx".}
-proc writeStep*(this: RWStepShapeRWSolidReplica; sw: var StepDataStepWriter;
-               ent: Handle[StepShapeSolidReplica]) {.noSideEffect,
+proc WriteStep*(this: RWStepShape_RWSolidReplica; SW: var StepData_StepWriter;
+               ent: handle[StepShape_SolidReplica]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepShape_RWSolidReplica.hxx".}
-proc share*(this: RWStepShapeRWSolidReplica; ent: Handle[StepShapeSolidReplica];
-           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
+proc Share*(this: RWStepShape_RWSolidReplica; ent: handle[StepShape_SolidReplica];
+           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepShape_RWSolidReplica.hxx".}
-

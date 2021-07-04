@@ -14,6 +14,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Integer,
+  ../Standard/Standard_Real, ../IGESData/IGESData_ViewKindEntity,
+  ../Standard/Standard_Boolean
+
 discard "forward decl of IGESGeom_Plane"
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of IGESData_ViewKindEntity"
@@ -22,7 +27,7 @@ discard "forward decl of gp_XYZ"
 discard "forward decl of IGESDraw_View"
 discard "forward decl of IGESDraw_View"
 type
-  HandleIGESDrawView* = Handle[IGESDrawView]
+  Handle_IGESDraw_View* = handle[IGESDraw_View]
 
 ## ! defines IGES View Entity, Type <410> Form <0>
 ## ! in package IGESDraw
@@ -34,63 +39,63 @@ type
 ## ! view volume.
 
 type
-  IGESDrawView* {.importcpp: "IGESDraw_View", header: "IGESDraw_View.hxx", bycopy.} = object of IGESDataViewKindEntity
+  IGESDraw_View* {.importcpp: "IGESDraw_View", header: "IGESDraw_View.hxx", bycopy.} = object of IGESData_ViewKindEntity
 
 
-proc constructIGESDrawView*(): IGESDrawView {.constructor,
+proc constructIGESDraw_View*(): IGESDraw_View {.constructor,
     importcpp: "IGESDraw_View(@)", header: "IGESDraw_View.hxx".}
-proc init*(this: var IGESDrawView; aViewNum: StandardInteger; aScale: StandardReal;
-          aLeftPlane: Handle[IGESGeomPlane]; aTopPlane: Handle[IGESGeomPlane];
-          aRightPlane: Handle[IGESGeomPlane]; aBottomPlane: Handle[IGESGeomPlane];
-          aBackPlane: Handle[IGESGeomPlane]; aFrontPlane: Handle[IGESGeomPlane]) {.
+proc Init*(this: var IGESDraw_View; aViewNum: Standard_Integer; aScale: Standard_Real;
+          aLeftPlane: handle[IGESGeom_Plane]; aTopPlane: handle[IGESGeom_Plane];
+          aRightPlane: handle[IGESGeom_Plane];
+          aBottomPlane: handle[IGESGeom_Plane];
+          aBackPlane: handle[IGESGeom_Plane]; aFrontPlane: handle[IGESGeom_Plane]) {.
     importcpp: "Init", header: "IGESDraw_View.hxx".}
-proc isSingle*(this: IGESDrawView): StandardBoolean {.noSideEffect,
+proc IsSingle*(this: IGESDraw_View): Standard_Boolean {.noSideEffect,
     importcpp: "IsSingle", header: "IGESDraw_View.hxx".}
-proc nbViews*(this: IGESDrawView): StandardInteger {.noSideEffect,
+proc NbViews*(this: IGESDraw_View): Standard_Integer {.noSideEffect,
     importcpp: "NbViews", header: "IGESDraw_View.hxx".}
-proc viewItem*(this: IGESDrawView; num: StandardInteger): Handle[
-    IGESDataViewKindEntity] {.noSideEffect, importcpp: "ViewItem",
-                             header: "IGESDraw_View.hxx".}
-proc viewNumber*(this: IGESDrawView): StandardInteger {.noSideEffect,
+proc ViewItem*(this: IGESDraw_View; num: Standard_Integer): handle[
+    IGESData_ViewKindEntity] {.noSideEffect, importcpp: "ViewItem",
+                              header: "IGESDraw_View.hxx".}
+proc ViewNumber*(this: IGESDraw_View): Standard_Integer {.noSideEffect,
     importcpp: "ViewNumber", header: "IGESDraw_View.hxx".}
-proc scaleFactor*(this: IGESDrawView): StandardReal {.noSideEffect,
+proc ScaleFactor*(this: IGESDraw_View): Standard_Real {.noSideEffect,
     importcpp: "ScaleFactor", header: "IGESDraw_View.hxx".}
-proc hasLeftPlane*(this: IGESDrawView): StandardBoolean {.noSideEffect,
+proc HasLeftPlane*(this: IGESDraw_View): Standard_Boolean {.noSideEffect,
     importcpp: "HasLeftPlane", header: "IGESDraw_View.hxx".}
-proc leftPlane*(this: IGESDrawView): Handle[IGESGeomPlane] {.noSideEffect,
+proc LeftPlane*(this: IGESDraw_View): handle[IGESGeom_Plane] {.noSideEffect,
     importcpp: "LeftPlane", header: "IGESDraw_View.hxx".}
-proc hasTopPlane*(this: IGESDrawView): StandardBoolean {.noSideEffect,
+proc HasTopPlane*(this: IGESDraw_View): Standard_Boolean {.noSideEffect,
     importcpp: "HasTopPlane", header: "IGESDraw_View.hxx".}
-proc topPlane*(this: IGESDrawView): Handle[IGESGeomPlane] {.noSideEffect,
+proc TopPlane*(this: IGESDraw_View): handle[IGESGeom_Plane] {.noSideEffect,
     importcpp: "TopPlane", header: "IGESDraw_View.hxx".}
-proc hasRightPlane*(this: IGESDrawView): StandardBoolean {.noSideEffect,
+proc HasRightPlane*(this: IGESDraw_View): Standard_Boolean {.noSideEffect,
     importcpp: "HasRightPlane", header: "IGESDraw_View.hxx".}
-proc rightPlane*(this: IGESDrawView): Handle[IGESGeomPlane] {.noSideEffect,
+proc RightPlane*(this: IGESDraw_View): handle[IGESGeom_Plane] {.noSideEffect,
     importcpp: "RightPlane", header: "IGESDraw_View.hxx".}
-proc hasBottomPlane*(this: IGESDrawView): StandardBoolean {.noSideEffect,
+proc HasBottomPlane*(this: IGESDraw_View): Standard_Boolean {.noSideEffect,
     importcpp: "HasBottomPlane", header: "IGESDraw_View.hxx".}
-proc bottomPlane*(this: IGESDrawView): Handle[IGESGeomPlane] {.noSideEffect,
+proc BottomPlane*(this: IGESDraw_View): handle[IGESGeom_Plane] {.noSideEffect,
     importcpp: "BottomPlane", header: "IGESDraw_View.hxx".}
-proc hasBackPlane*(this: IGESDrawView): StandardBoolean {.noSideEffect,
+proc HasBackPlane*(this: IGESDraw_View): Standard_Boolean {.noSideEffect,
     importcpp: "HasBackPlane", header: "IGESDraw_View.hxx".}
-proc backPlane*(this: IGESDrawView): Handle[IGESGeomPlane] {.noSideEffect,
+proc BackPlane*(this: IGESDraw_View): handle[IGESGeom_Plane] {.noSideEffect,
     importcpp: "BackPlane", header: "IGESDraw_View.hxx".}
-proc hasFrontPlane*(this: IGESDrawView): StandardBoolean {.noSideEffect,
+proc HasFrontPlane*(this: IGESDraw_View): Standard_Boolean {.noSideEffect,
     importcpp: "HasFrontPlane", header: "IGESDraw_View.hxx".}
-proc frontPlane*(this: IGESDrawView): Handle[IGESGeomPlane] {.noSideEffect,
+proc FrontPlane*(this: IGESDraw_View): handle[IGESGeom_Plane] {.noSideEffect,
     importcpp: "FrontPlane", header: "IGESDraw_View.hxx".}
-proc viewMatrix*(this: IGESDrawView): Handle[IGESDataTransfEntity] {.noSideEffect,
+proc ViewMatrix*(this: IGESDraw_View): handle[IGESData_TransfEntity] {.noSideEffect,
     importcpp: "ViewMatrix", header: "IGESDraw_View.hxx".}
-proc modelToView*(this: IGESDrawView; coords: GpXYZ): GpXYZ {.noSideEffect,
+proc ModelToView*(this: IGESDraw_View; coords: gp_XYZ): gp_XYZ {.noSideEffect,
     importcpp: "ModelToView", header: "IGESDraw_View.hxx".}
 type
-  IGESDrawViewbaseType* = IGESDataViewKindEntity
+  IGESDraw_Viewbase_type* = IGESData_ViewKindEntity
 
-proc getTypeName*(): cstring {.importcpp: "IGESDraw_View::get_type_name(@)",
-                            header: "IGESDraw_View.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "IGESDraw_View::get_type_name(@)",
+                              header: "IGESDraw_View.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "IGESDraw_View::get_type_descriptor(@)",
     header: "IGESDraw_View.hxx".}
-proc dynamicType*(this: IGESDrawView): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: IGESDraw_View): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "IGESDraw_View.hxx".}
-

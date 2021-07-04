@@ -14,31 +14,35 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Address,
+  ../Standard/Standard_Integer
+
 type
-  IntPatchPrmPrmIntersectionT3Bits* {.importcpp: "IntPatch_PrmPrmIntersection_T3Bits", header: "IntPatch_PrmPrmIntersection_T3Bits.hxx",
-                                     bycopy.} = object
+  IntPatch_PrmPrmIntersection_T3Bits* {.importcpp: "IntPatch_PrmPrmIntersection_T3Bits", header: "IntPatch_PrmPrmIntersection_T3Bits.hxx",
+                                       bycopy.} = object
 
 
-proc constructIntPatchPrmPrmIntersectionT3Bits*(size: StandardInteger): IntPatchPrmPrmIntersectionT3Bits {.
+proc constructIntPatch_PrmPrmIntersection_T3Bits*(size: Standard_Integer): IntPatch_PrmPrmIntersection_T3Bits {.
     constructor, importcpp: "IntPatch_PrmPrmIntersection_T3Bits(@)",
     header: "IntPatch_PrmPrmIntersection_T3Bits.hxx".}
-proc destroy*(this: var IntPatchPrmPrmIntersectionT3Bits) {.importcpp: "Destroy",
+proc Destroy*(this: var IntPatch_PrmPrmIntersection_T3Bits) {.importcpp: "Destroy",
     header: "IntPatch_PrmPrmIntersection_T3Bits.hxx".}
-proc destroyIntPatchPrmPrmIntersectionT3Bits*(
-    this: var IntPatchPrmPrmIntersectionT3Bits) {.
+proc destroyIntPatch_PrmPrmIntersection_T3Bits*(
+    this: var IntPatch_PrmPrmIntersection_T3Bits) {.
     importcpp: "#.~IntPatch_PrmPrmIntersection_T3Bits()",
     header: "IntPatch_PrmPrmIntersection_T3Bits.hxx".}
-proc add*(this: var IntPatchPrmPrmIntersectionT3Bits; t: StandardInteger) {.
+proc Add*(this: var IntPatch_PrmPrmIntersection_T3Bits; t: Standard_Integer) {.
     importcpp: "Add", header: "IntPatch_PrmPrmIntersection_T3Bits.hxx".}
-proc val*(this: IntPatchPrmPrmIntersectionT3Bits; t: StandardInteger): StandardInteger {.
+proc Val*(this: IntPatch_PrmPrmIntersection_T3Bits; t: Standard_Integer): Standard_Integer {.
     noSideEffect, importcpp: "Val",
     header: "IntPatch_PrmPrmIntersection_T3Bits.hxx".}
-proc raz*(this: var IntPatchPrmPrmIntersectionT3Bits; t: StandardInteger) {.
+proc Raz*(this: var IntPatch_PrmPrmIntersection_T3Bits; t: Standard_Integer) {.
     importcpp: "Raz", header: "IntPatch_PrmPrmIntersection_T3Bits.hxx".}
-proc resetAnd*(this: var IntPatchPrmPrmIntersectionT3Bits) {.importcpp: "ResetAnd",
-    header: "IntPatch_PrmPrmIntersection_T3Bits.hxx".}
-proc `and`*(this: var IntPatchPrmPrmIntersectionT3Bits;
-           oth: var IntPatchPrmPrmIntersectionT3Bits;
-           indiceprecedent: var StandardInteger): StandardInteger {.
+proc ResetAnd*(this: var IntPatch_PrmPrmIntersection_T3Bits) {.
+    importcpp: "ResetAnd", header: "IntPatch_PrmPrmIntersection_T3Bits.hxx".}
+proc And*(this: var IntPatch_PrmPrmIntersection_T3Bits;
+         Oth: var IntPatch_PrmPrmIntersection_T3Bits;
+         indiceprecedent: var Standard_Integer): Standard_Integer {.
     importcpp: "And", header: "IntPatch_PrmPrmIntersection_T3Bits.hxx".}
-

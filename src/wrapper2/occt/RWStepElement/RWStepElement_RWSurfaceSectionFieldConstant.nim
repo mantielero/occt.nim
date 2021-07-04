@@ -13,35 +13,38 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepElement_SurfaceSectionFieldConstant"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepElementRWSurfaceSectionFieldConstant* {.
+  RWStepElement_RWSurfaceSectionFieldConstant* {.
       importcpp: "RWStepElement_RWSurfaceSectionFieldConstant",
       header: "RWStepElement_RWSurfaceSectionFieldConstant.hxx", bycopy.} = object ## !
                                                                               ## Empty
                                                                               ## constructor
 
 
-proc constructRWStepElementRWSurfaceSectionFieldConstant*(): RWStepElementRWSurfaceSectionFieldConstant {.
+proc constructRWStepElement_RWSurfaceSectionFieldConstant*(): RWStepElement_RWSurfaceSectionFieldConstant {.
     constructor, importcpp: "RWStepElement_RWSurfaceSectionFieldConstant(@)",
     header: "RWStepElement_RWSurfaceSectionFieldConstant.hxx".}
-proc readStep*(this: RWStepElementRWSurfaceSectionFieldConstant;
-              data: Handle[StepDataStepReaderData]; num: StandardInteger;
-              ach: var Handle[InterfaceCheck];
-              ent: Handle[StepElementSurfaceSectionFieldConstant]) {.noSideEffect,
-    importcpp: "ReadStep",
+proc ReadStep*(this: RWStepElement_RWSurfaceSectionFieldConstant;
+              data: handle[StepData_StepReaderData]; num: Standard_Integer;
+              ach: var handle[Interface_Check];
+              ent: handle[StepElement_SurfaceSectionFieldConstant]) {.
+    noSideEffect, importcpp: "ReadStep",
     header: "RWStepElement_RWSurfaceSectionFieldConstant.hxx".}
-proc writeStep*(this: RWStepElementRWSurfaceSectionFieldConstant;
-               sw: var StepDataStepWriter;
-               ent: Handle[StepElementSurfaceSectionFieldConstant]) {.
+proc WriteStep*(this: RWStepElement_RWSurfaceSectionFieldConstant;
+               SW: var StepData_StepWriter;
+               ent: handle[StepElement_SurfaceSectionFieldConstant]) {.
     noSideEffect, importcpp: "WriteStep",
     header: "RWStepElement_RWSurfaceSectionFieldConstant.hxx".}
-proc share*(this: RWStepElementRWSurfaceSectionFieldConstant;
-           ent: Handle[StepElementSurfaceSectionFieldConstant];
-           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
+proc Share*(this: RWStepElement_RWSurfaceSectionFieldConstant;
+           ent: handle[StepElement_SurfaceSectionFieldConstant];
+           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepElement_RWSurfaceSectionFieldConstant.hxx".}
-

@@ -14,6 +14,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Integer,
+  ../TColStd/TColStd_HArray1OfInteger, ../TColStd/TColStd_HArray1OfTransient,
+  ../IGESData/IGESData_IGESEntity, ../Standard/Standard_Real,
+  ../Standard/Standard_Boolean
+
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of Standard_DimensionMismatch"
 discard "forward decl of Standard_OutOfRange"
@@ -23,7 +29,7 @@ discard "forward decl of IGESData_IGESEntity"
 discard "forward decl of IGESDefs_GenericData"
 discard "forward decl of IGESDefs_GenericData"
 type
-  HandleIGESDefsGenericData* = Handle[IGESDefsGenericData]
+  Handle_IGESDefs_GenericData* = handle[IGESDefs_GenericData]
 
 ## ! defines IGES Generic Data, Type <406> Form <27>
 ## ! in package IGESDefs
@@ -35,48 +41,47 @@ type
 ## ! instances of this property.
 
 type
-  IGESDefsGenericData* {.importcpp: "IGESDefs_GenericData",
-                        header: "IGESDefs_GenericData.hxx", bycopy.} = object of IGESDataIGESEntity
+  IGESDefs_GenericData* {.importcpp: "IGESDefs_GenericData",
+                         header: "IGESDefs_GenericData.hxx", bycopy.} = object of IGESData_IGESEntity
 
 
-proc constructIGESDefsGenericData*(): IGESDefsGenericData {.constructor,
+proc constructIGESDefs_GenericData*(): IGESDefs_GenericData {.constructor,
     importcpp: "IGESDefs_GenericData(@)", header: "IGESDefs_GenericData.hxx".}
-proc init*(this: var IGESDefsGenericData; nbPropVal: StandardInteger;
-          aName: Handle[TCollectionHAsciiString];
-          allTypes: Handle[TColStdHArray1OfInteger];
-          allValues: Handle[TColStdHArray1OfTransient]) {.importcpp: "Init",
+proc Init*(this: var IGESDefs_GenericData; nbPropVal: Standard_Integer;
+          aName: handle[TCollection_HAsciiString];
+          allTypes: handle[TColStd_HArray1OfInteger];
+          allValues: handle[TColStd_HArray1OfTransient]) {.importcpp: "Init",
     header: "IGESDefs_GenericData.hxx".}
-proc nbPropertyValues*(this: IGESDefsGenericData): StandardInteger {.noSideEffect,
+proc NbPropertyValues*(this: IGESDefs_GenericData): Standard_Integer {.noSideEffect,
     importcpp: "NbPropertyValues", header: "IGESDefs_GenericData.hxx".}
-proc name*(this: IGESDefsGenericData): Handle[TCollectionHAsciiString] {.
+proc Name*(this: IGESDefs_GenericData): handle[TCollection_HAsciiString] {.
     noSideEffect, importcpp: "Name", header: "IGESDefs_GenericData.hxx".}
-proc nbTypeValuePairs*(this: IGESDefsGenericData): StandardInteger {.noSideEffect,
+proc NbTypeValuePairs*(this: IGESDefs_GenericData): Standard_Integer {.noSideEffect,
     importcpp: "NbTypeValuePairs", header: "IGESDefs_GenericData.hxx".}
-proc `type`*(this: IGESDefsGenericData; index: StandardInteger): StandardInteger {.
+proc Type*(this: IGESDefs_GenericData; Index: Standard_Integer): Standard_Integer {.
     noSideEffect, importcpp: "Type", header: "IGESDefs_GenericData.hxx".}
-proc value*(this: IGESDefsGenericData; index: StandardInteger): Handle[
-    StandardTransient] {.noSideEffect, importcpp: "Value",
-                        header: "IGESDefs_GenericData.hxx".}
-proc valueAsInteger*(this: IGESDefsGenericData; valueNum: StandardInteger): StandardInteger {.
-    noSideEffect, importcpp: "ValueAsInteger", header: "IGESDefs_GenericData.hxx".}
-proc valueAsReal*(this: IGESDefsGenericData; valueNum: StandardInteger): StandardReal {.
-    noSideEffect, importcpp: "ValueAsReal", header: "IGESDefs_GenericData.hxx".}
-proc valueAsString*(this: IGESDefsGenericData; valueNum: StandardInteger): Handle[
-    TCollectionHAsciiString] {.noSideEffect, importcpp: "ValueAsString",
-                              header: "IGESDefs_GenericData.hxx".}
-proc valueAsEntity*(this: IGESDefsGenericData; valueNum: StandardInteger): Handle[
-    IGESDataIGESEntity] {.noSideEffect, importcpp: "ValueAsEntity",
+proc Value*(this: IGESDefs_GenericData; Index: Standard_Integer): handle[
+    Standard_Transient] {.noSideEffect, importcpp: "Value",
                          header: "IGESDefs_GenericData.hxx".}
-proc valueAsLogical*(this: IGESDefsGenericData; valueNum: StandardInteger): StandardBoolean {.
+proc ValueAsInteger*(this: IGESDefs_GenericData; ValueNum: Standard_Integer): Standard_Integer {.
+    noSideEffect, importcpp: "ValueAsInteger", header: "IGESDefs_GenericData.hxx".}
+proc ValueAsReal*(this: IGESDefs_GenericData; ValueNum: Standard_Integer): Standard_Real {.
+    noSideEffect, importcpp: "ValueAsReal", header: "IGESDefs_GenericData.hxx".}
+proc ValueAsString*(this: IGESDefs_GenericData; ValueNum: Standard_Integer): handle[
+    TCollection_HAsciiString] {.noSideEffect, importcpp: "ValueAsString",
+                               header: "IGESDefs_GenericData.hxx".}
+proc ValueAsEntity*(this: IGESDefs_GenericData; ValueNum: Standard_Integer): handle[
+    IGESData_IGESEntity] {.noSideEffect, importcpp: "ValueAsEntity",
+                          header: "IGESDefs_GenericData.hxx".}
+proc ValueAsLogical*(this: IGESDefs_GenericData; ValueNum: Standard_Integer): Standard_Boolean {.
     noSideEffect, importcpp: "ValueAsLogical", header: "IGESDefs_GenericData.hxx".}
 type
-  IGESDefsGenericDatabaseType* = IGESDataIGESEntity
+  IGESDefs_GenericDatabase_type* = IGESData_IGESEntity
 
-proc getTypeName*(): cstring {.importcpp: "IGESDefs_GenericData::get_type_name(@)",
-                            header: "IGESDefs_GenericData.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "IGESDefs_GenericData::get_type_name(@)",
+                              header: "IGESDefs_GenericData.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "IGESDefs_GenericData::get_type_descriptor(@)",
     header: "IGESDefs_GenericData.hxx".}
-proc dynamicType*(this: IGESDefsGenericData): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: IGESDefs_GenericData): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "IGESDefs_GenericData.hxx".}
-

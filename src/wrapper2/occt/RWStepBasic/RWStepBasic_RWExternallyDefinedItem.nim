@@ -13,30 +13,33 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepBasic_ExternallyDefinedItem"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepBasicRWExternallyDefinedItem* {.importcpp: "RWStepBasic_RWExternallyDefinedItem", header: "RWStepBasic_RWExternallyDefinedItem.hxx",
-                                       bycopy.} = object ## ! Empty constructor
+  RWStepBasic_RWExternallyDefinedItem* {.importcpp: "RWStepBasic_RWExternallyDefinedItem", header: "RWStepBasic_RWExternallyDefinedItem.hxx",
+                                        bycopy.} = object ## ! Empty constructor
 
 
-proc constructRWStepBasicRWExternallyDefinedItem*(): RWStepBasicRWExternallyDefinedItem {.
+proc constructRWStepBasic_RWExternallyDefinedItem*(): RWStepBasic_RWExternallyDefinedItem {.
     constructor, importcpp: "RWStepBasic_RWExternallyDefinedItem(@)",
     header: "RWStepBasic_RWExternallyDefinedItem.hxx".}
-proc readStep*(this: RWStepBasicRWExternallyDefinedItem;
-              data: Handle[StepDataStepReaderData]; num: StandardInteger;
-              ach: var Handle[InterfaceCheck];
-              ent: Handle[StepBasicExternallyDefinedItem]) {.noSideEffect,
+proc ReadStep*(this: RWStepBasic_RWExternallyDefinedItem;
+              data: handle[StepData_StepReaderData]; num: Standard_Integer;
+              ach: var handle[Interface_Check];
+              ent: handle[StepBasic_ExternallyDefinedItem]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepBasic_RWExternallyDefinedItem.hxx".}
-proc writeStep*(this: RWStepBasicRWExternallyDefinedItem;
-               sw: var StepDataStepWriter;
-               ent: Handle[StepBasicExternallyDefinedItem]) {.noSideEffect,
+proc WriteStep*(this: RWStepBasic_RWExternallyDefinedItem;
+               SW: var StepData_StepWriter;
+               ent: handle[StepBasic_ExternallyDefinedItem]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepBasic_RWExternallyDefinedItem.hxx".}
-proc share*(this: RWStepBasicRWExternallyDefinedItem;
-           ent: Handle[StepBasicExternallyDefinedItem];
-           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
+proc Share*(this: RWStepBasic_RWExternallyDefinedItem;
+           ent: handle[StepBasic_ExternallyDefinedItem];
+           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepBasic_RWExternallyDefinedItem.hxx".}
-

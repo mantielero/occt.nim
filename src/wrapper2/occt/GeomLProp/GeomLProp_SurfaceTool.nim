@@ -14,35 +14,40 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Real,
+  ../Standard/Standard_Integer
+
 discard "forward decl of Geom_Surface"
 discard "forward decl of gp_Pnt"
 discard "forward decl of gp_Vec"
 type
-  GeomLPropSurfaceTool* {.importcpp: "GeomLProp_SurfaceTool",
-                         header: "GeomLProp_SurfaceTool.hxx", bycopy.} = object ## !
-                                                                           ## Computes the point <P> of
-                                                                           ## parameter <U> and <V> on the
-                                                                           ## !
-                                                                           ## Surface <S>.
+  GeomLProp_SurfaceTool* {.importcpp: "GeomLProp_SurfaceTool",
+                          header: "GeomLProp_SurfaceTool.hxx", bycopy.} = object ## !
+                                                                            ## Computes the
+                                                                            ## point <P> of
+                                                                            ## parameter <U> and <V> on the
+                                                                            ## !
+                                                                            ## Surface <S>.
 
 
-proc value*(s: Handle[GeomSurface]; u: StandardReal; v: StandardReal; p: var GpPnt) {.
+proc Value*(S: handle[Geom_Surface]; U: Standard_Real; V: Standard_Real; P: var gp_Pnt) {.
     importcpp: "GeomLProp_SurfaceTool::Value(@)",
     header: "GeomLProp_SurfaceTool.hxx".}
-proc d1*(s: Handle[GeomSurface]; u: StandardReal; v: StandardReal; p: var GpPnt;
-        d1u: var GpVec; d1v: var GpVec) {.importcpp: "GeomLProp_SurfaceTool::D1(@)",
-                                    header: "GeomLProp_SurfaceTool.hxx".}
-proc d2*(s: Handle[GeomSurface]; u: StandardReal; v: StandardReal; p: var GpPnt;
-        d1u: var GpVec; d1v: var GpVec; d2u: var GpVec; d2v: var GpVec; duv: var GpVec) {.
+proc D1*(S: handle[Geom_Surface]; U: Standard_Real; V: Standard_Real; P: var gp_Pnt;
+        D1U: var gp_Vec; D1V: var gp_Vec) {.importcpp: "GeomLProp_SurfaceTool::D1(@)",
+                                      header: "GeomLProp_SurfaceTool.hxx".}
+proc D2*(S: handle[Geom_Surface]; U: Standard_Real; V: Standard_Real; P: var gp_Pnt;
+        D1U: var gp_Vec; D1V: var gp_Vec; D2U: var gp_Vec; D2V: var gp_Vec; DUV: var gp_Vec) {.
     importcpp: "GeomLProp_SurfaceTool::D2(@)", header: "GeomLProp_SurfaceTool.hxx".}
-proc dn*(s: Handle[GeomSurface]; u: StandardReal; v: StandardReal; iu: StandardInteger;
-        iv: StandardInteger): GpVec {.importcpp: "GeomLProp_SurfaceTool::DN(@)",
-                                   header: "GeomLProp_SurfaceTool.hxx".}
-proc continuity*(s: Handle[GeomSurface]): StandardInteger {.
+proc DN*(S: handle[Geom_Surface]; U: Standard_Real; V: Standard_Real;
+        IU: Standard_Integer; IV: Standard_Integer): gp_Vec {.
+    importcpp: "GeomLProp_SurfaceTool::DN(@)", header: "GeomLProp_SurfaceTool.hxx".}
+proc Continuity*(S: handle[Geom_Surface]): Standard_Integer {.
     importcpp: "GeomLProp_SurfaceTool::Continuity(@)",
     header: "GeomLProp_SurfaceTool.hxx".}
-proc bounds*(s: Handle[GeomSurface]; u1: var StandardReal; v1: var StandardReal;
-            u2: var StandardReal; v2: var StandardReal) {.
+proc Bounds*(S: handle[Geom_Surface]; U1: var Standard_Real; V1: var Standard_Real;
+            U2: var Standard_Real; V2: var Standard_Real) {.
     importcpp: "GeomLProp_SurfaceTool::Bounds(@)",
     header: "GeomLProp_SurfaceTool.hxx".}
-

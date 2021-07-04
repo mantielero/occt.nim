@@ -14,6 +14,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../gp/gp_Circ, ../gp/gp_Lin,
+  ../Standard/Standard_Real
+
 discard "forward decl of gp_Circ"
 discard "forward decl of gp_Lin"
 type
@@ -23,14 +28,13 @@ type
 
 proc constructChFiDS_CircSection*(): ChFiDS_CircSection {.constructor,
     importcpp: "ChFiDS_CircSection(@)", header: "ChFiDS_CircSection.hxx".}
-proc set*(this: var ChFiDS_CircSection; c: GpCirc; f: StandardReal; L: StandardReal) {.
+proc Set*(this: var ChFiDS_CircSection; C: gp_Circ; F: Standard_Real; L: Standard_Real) {.
     importcpp: "Set", header: "ChFiDS_CircSection.hxx".}
-proc set*(this: var ChFiDS_CircSection; c: GpLin; f: StandardReal; L: StandardReal) {.
+proc Set*(this: var ChFiDS_CircSection; C: gp_Lin; F: Standard_Real; L: Standard_Real) {.
     importcpp: "Set", header: "ChFiDS_CircSection.hxx".}
-proc get*(this: ChFiDS_CircSection; c: var GpCirc; f: var StandardReal;
-         L: var StandardReal) {.noSideEffect, importcpp: "Get",
-                             header: "ChFiDS_CircSection.hxx".}
-proc get*(this: ChFiDS_CircSection; c: var GpLin; f: var StandardReal;
-         L: var StandardReal) {.noSideEffect, importcpp: "Get",
-                             header: "ChFiDS_CircSection.hxx".}
-
+proc Get*(this: ChFiDS_CircSection; C: var gp_Circ; F: var Standard_Real;
+         L: var Standard_Real) {.noSideEffect, importcpp: "Get",
+                              header: "ChFiDS_CircSection.hxx".}
+proc Get*(this: ChFiDS_CircSection; C: var gp_Lin; F: var Standard_Real;
+         L: var Standard_Real) {.noSideEffect, importcpp: "Get",
+                              header: "ChFiDS_CircSection.hxx".}

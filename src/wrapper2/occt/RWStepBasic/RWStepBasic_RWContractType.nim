@@ -14,30 +14,33 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepBasic_ContractType"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepBasicRWContractType* {.importcpp: "RWStepBasic_RWContractType",
-                              header: "RWStepBasic_RWContractType.hxx", bycopy.} = object ##
-                                                                                     ## !
-                                                                                     ## Empty
-                                                                                     ## constructor
+  RWStepBasic_RWContractType* {.importcpp: "RWStepBasic_RWContractType",
+                               header: "RWStepBasic_RWContractType.hxx", bycopy.} = object ##
+                                                                                      ## !
+                                                                                      ## Empty
+                                                                                      ## constructor
 
 
-proc constructRWStepBasicRWContractType*(): RWStepBasicRWContractType {.
+proc constructRWStepBasic_RWContractType*(): RWStepBasic_RWContractType {.
     constructor, importcpp: "RWStepBasic_RWContractType(@)",
     header: "RWStepBasic_RWContractType.hxx".}
-proc readStep*(this: RWStepBasicRWContractType;
-              data: Handle[StepDataStepReaderData]; num: StandardInteger;
-              ach: var Handle[InterfaceCheck]; ent: Handle[StepBasicContractType]) {.
+proc ReadStep*(this: RWStepBasic_RWContractType;
+              data: handle[StepData_StepReaderData]; num: Standard_Integer;
+              ach: var handle[Interface_Check]; ent: handle[StepBasic_ContractType]) {.
     noSideEffect, importcpp: "ReadStep", header: "RWStepBasic_RWContractType.hxx".}
-proc writeStep*(this: RWStepBasicRWContractType; sw: var StepDataStepWriter;
-               ent: Handle[StepBasicContractType]) {.noSideEffect,
+proc WriteStep*(this: RWStepBasic_RWContractType; SW: var StepData_StepWriter;
+               ent: handle[StepBasic_ContractType]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepBasic_RWContractType.hxx".}
-proc share*(this: RWStepBasicRWContractType; ent: Handle[StepBasicContractType];
-           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
+proc Share*(this: RWStepBasic_RWContractType; ent: handle[StepBasic_ContractType];
+           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepBasic_RWContractType.hxx".}
-

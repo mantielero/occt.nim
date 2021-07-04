@@ -14,62 +14,70 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
+  ../Standard/Standard_Real, ../Standard/Standard_Integer
+
 discard "forward decl of gp_Pnt2d"
 discard "forward decl of Adaptor3d_HSurface"
 discard "forward decl of Adaptor2d_HCurve2d"
 discard "forward decl of Adaptor3d_HVertex"
 type
-  BRepBlendBlendTool* {.importcpp: "BRepBlend_BlendTool",
-                       header: "BRepBlend_BlendTool.hxx", bycopy.} = object ## ! Projects the point P on the arc C.
-                                                                       ## ! If the methods returns
-                                                                       ## Standard_True, the
-                                                                       ## projection is
-                                                                       ## !
-                                                                       ## successful, and Paramproj is the parameter on the arc
-                                                                       ## ! of the projected point, Dist is the distance between
-                                                                       ## ! P and the curve..
-                                                                       ## ! If the method returns
-                                                                       ## Standard_False, Param proj and Dist
-                                                                       ## ! are not
-                                                                       ## significant.
+  BRepBlend_BlendTool* {.importcpp: "BRepBlend_BlendTool",
+                        header: "BRepBlend_BlendTool.hxx", bycopy.} = object ## ! Projects the point P on the arc C.
+                                                                        ## ! If the methods returns
+                                                                        ## Standard_True, the
+                                                                        ## projection is
+                                                                        ## !
+                                                                        ## successful, and
+                                                                        ## Paramproj is the
+                                                                        ## parameter on the arc
+                                                                        ## ! of the
+                                                                        ## projected point, Dist is the distance between
+                                                                        ## ! P and the curve..
+                                                                        ## ! If the method returns
+                                                                        ## Standard_False, Param proj and Dist
+                                                                        ## ! are not
+                                                                        ## significant.
 
 
-proc project*(p: GpPnt2d; s: Handle[Adaptor3dHSurface]; c: Handle[Adaptor2dHCurve2d];
-             paramproj: var StandardReal; dist: var StandardReal): StandardBoolean {.
+proc Project*(P: gp_Pnt2d; S: handle[Adaptor3d_HSurface];
+             C: handle[Adaptor2d_HCurve2d]; Paramproj: var Standard_Real;
+             Dist: var Standard_Real): Standard_Boolean {.
     importcpp: "BRepBlend_BlendTool::Project(@)",
     header: "BRepBlend_BlendTool.hxx".}
-proc inters*(p1: GpPnt2d; p2: GpPnt2d; s: Handle[Adaptor3dHSurface];
-            c: Handle[Adaptor2dHCurve2d]; param: var StandardReal;
-            dist: var StandardReal): StandardBoolean {.
+proc Inters*(P1: gp_Pnt2d; P2: gp_Pnt2d; S: handle[Adaptor3d_HSurface];
+            C: handle[Adaptor2d_HCurve2d]; Param: var Standard_Real;
+            Dist: var Standard_Real): Standard_Boolean {.
     importcpp: "BRepBlend_BlendTool::Inters(@)", header: "BRepBlend_BlendTool.hxx".}
-proc parameter*(v: Handle[Adaptor3dHVertex]; a: Handle[Adaptor2dHCurve2d]): StandardReal {.
+proc Parameter*(V: handle[Adaptor3d_HVertex]; A: handle[Adaptor2d_HCurve2d]): Standard_Real {.
     importcpp: "BRepBlend_BlendTool::Parameter(@)",
     header: "BRepBlend_BlendTool.hxx".}
-proc tolerance*(v: Handle[Adaptor3dHVertex]; a: Handle[Adaptor2dHCurve2d]): StandardReal {.
+proc Tolerance*(V: handle[Adaptor3d_HVertex]; A: handle[Adaptor2d_HCurve2d]): Standard_Real {.
     importcpp: "BRepBlend_BlendTool::Tolerance(@)",
     header: "BRepBlend_BlendTool.hxx".}
-proc singularOnUMin*(s: Handle[Adaptor3dHSurface]): StandardBoolean {.
+proc SingularOnUMin*(S: handle[Adaptor3d_HSurface]): Standard_Boolean {.
     importcpp: "BRepBlend_BlendTool::SingularOnUMin(@)",
     header: "BRepBlend_BlendTool.hxx".}
-proc singularOnUMax*(s: Handle[Adaptor3dHSurface]): StandardBoolean {.
+proc SingularOnUMax*(S: handle[Adaptor3d_HSurface]): Standard_Boolean {.
     importcpp: "BRepBlend_BlendTool::SingularOnUMax(@)",
     header: "BRepBlend_BlendTool.hxx".}
-proc singularOnVMin*(s: Handle[Adaptor3dHSurface]): StandardBoolean {.
+proc SingularOnVMin*(S: handle[Adaptor3d_HSurface]): Standard_Boolean {.
     importcpp: "BRepBlend_BlendTool::SingularOnVMin(@)",
     header: "BRepBlend_BlendTool.hxx".}
-proc singularOnVMax*(s: Handle[Adaptor3dHSurface]): StandardBoolean {.
+proc SingularOnVMax*(S: handle[Adaptor3d_HSurface]): Standard_Boolean {.
     importcpp: "BRepBlend_BlendTool::SingularOnVMax(@)",
     header: "BRepBlend_BlendTool.hxx".}
-proc nbSamplesU*(s: Handle[Adaptor3dHSurface]; u1: StandardReal; u2: StandardReal): StandardInteger {.
+proc NbSamplesU*(S: handle[Adaptor3d_HSurface]; u1: Standard_Real; u2: Standard_Real): Standard_Integer {.
     importcpp: "BRepBlend_BlendTool::NbSamplesU(@)",
     header: "BRepBlend_BlendTool.hxx".}
-proc nbSamplesV*(s: Handle[Adaptor3dHSurface]; v1: StandardReal; v2: StandardReal): StandardInteger {.
+proc NbSamplesV*(S: handle[Adaptor3d_HSurface]; v1: Standard_Real; v2: Standard_Real): Standard_Integer {.
     importcpp: "BRepBlend_BlendTool::NbSamplesV(@)",
     header: "BRepBlend_BlendTool.hxx".}
-proc bounds*(c: Handle[Adaptor2dHCurve2d]; ufirst: var StandardReal;
-            ulast: var StandardReal) {.importcpp: "BRepBlend_BlendTool::Bounds(@)",
-                                    header: "BRepBlend_BlendTool.hxx".}
-proc curveOnSurf*(c: Handle[Adaptor2dHCurve2d]; s: Handle[Adaptor3dHSurface]): Handle[
-    Adaptor2dHCurve2d] {.importcpp: "BRepBlend_BlendTool::CurveOnSurf(@)",
-                        header: "BRepBlend_BlendTool.hxx".}
-
+proc Bounds*(C: handle[Adaptor2d_HCurve2d]; Ufirst: var Standard_Real;
+            Ulast: var Standard_Real) {.importcpp: "BRepBlend_BlendTool::Bounds(@)",
+                                     header: "BRepBlend_BlendTool.hxx".}
+proc CurveOnSurf*(C: handle[Adaptor2d_HCurve2d]; S: handle[Adaptor3d_HSurface]): handle[
+    Adaptor2d_HCurve2d] {.importcpp: "BRepBlend_BlendTool::CurveOnSurf(@)",
+                         header: "BRepBlend_BlendTool.hxx".}

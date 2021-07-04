@@ -12,6 +12,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  AIS_InteractiveObject, ../Graphic3d/Graphic3d_MediaTextureSet
+
 discard "forward decl of Media_PlayerContext"
 type
   AIS_MediaPlayer* {.importcpp: "AIS_MediaPlayer", header: "AIS_MediaPlayer.hxx",
@@ -19,34 +22,34 @@ type
                                                           ## ! Accept only display mode 0.
                                                           ## ! Update frame size.
 
-  AIS_MediaPlayerbaseType* = AIS_InteractiveObject
+  AIS_MediaPlayerbase_type* = AIS_InteractiveObject
 
-proc getTypeName*(): cstring {.importcpp: "AIS_MediaPlayer::get_type_name(@)",
-                            header: "AIS_MediaPlayer.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "AIS_MediaPlayer::get_type_name(@)",
+                              header: "AIS_MediaPlayer.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "AIS_MediaPlayer::get_type_descriptor(@)",
     header: "AIS_MediaPlayer.hxx".}
-proc dynamicType*(this: AIS_MediaPlayer): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: AIS_MediaPlayer): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "AIS_MediaPlayer.hxx".}
 proc constructAIS_MediaPlayer*(): AIS_MediaPlayer {.constructor,
     importcpp: "AIS_MediaPlayer(@)", header: "AIS_MediaPlayer.hxx".}
 proc destroyAIS_MediaPlayer*(this: var AIS_MediaPlayer) {.
     importcpp: "#.~AIS_MediaPlayer()", header: "AIS_MediaPlayer.hxx".}
-proc setCallback*(this: var AIS_MediaPlayer; theCallbackFunction: CallbackOnUpdateT;
+proc SetCallback*(this: var AIS_MediaPlayer;
+                 theCallbackFunction: CallbackOnUpdate_t;
                  theCallbackUserPtr: pointer) {.importcpp: "SetCallback",
     header: "AIS_MediaPlayer.hxx".}
-proc openInput*(this: var AIS_MediaPlayer; thePath: TCollectionAsciiString;
-               theToWait: StandardBoolean) {.importcpp: "OpenInput",
+proc OpenInput*(this: var AIS_MediaPlayer; thePath: TCollection_AsciiString;
+               theToWait: Standard_Boolean) {.importcpp: "OpenInput",
     header: "AIS_MediaPlayer.hxx".}
-proc presentFrame*(this: var AIS_MediaPlayer; theLeftCorner: Graphic3dVec2i;
-                  theMaxSize: Graphic3dVec2i): bool {.importcpp: "PresentFrame",
+proc PresentFrame*(this: var AIS_MediaPlayer; theLeftCorner: Graphic3d_Vec2i;
+                  theMaxSize: Graphic3d_Vec2i): bool {.importcpp: "PresentFrame",
     header: "AIS_MediaPlayer.hxx".}
-proc playerContext*(this: AIS_MediaPlayer): Handle[MediaPlayerContext] {.
+proc PlayerContext*(this: AIS_MediaPlayer): handle[Media_PlayerContext] {.
     noSideEffect, importcpp: "PlayerContext", header: "AIS_MediaPlayer.hxx".}
-proc playPause*(this: var AIS_MediaPlayer) {.importcpp: "PlayPause",
+proc PlayPause*(this: var AIS_MediaPlayer) {.importcpp: "PlayPause",
     header: "AIS_MediaPlayer.hxx".}
-proc setClosePlayer*(this: var AIS_MediaPlayer) {.importcpp: "SetClosePlayer",
+proc SetClosePlayer*(this: var AIS_MediaPlayer) {.importcpp: "SetClosePlayer",
     header: "AIS_MediaPlayer.hxx".}
-proc duration*(this: AIS_MediaPlayer): cdouble {.noSideEffect, importcpp: "Duration",
+proc Duration*(this: AIS_MediaPlayer): cdouble {.noSideEffect, importcpp: "Duration",
     header: "AIS_MediaPlayer.hxx".}
-

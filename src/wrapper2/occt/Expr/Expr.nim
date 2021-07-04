@@ -14,6 +14,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer,
+  ../Standard/Standard_Real
+
 discard "forward decl of Expr_GeneralExpression"
 discard "forward decl of Expr_GeneralRelation"
 discard "forward decl of Expr_GeneralExpression"
@@ -71,12 +76,11 @@ type
   Expr* {.importcpp: "Expr", header: "Expr.hxx", bycopy.} = object
 
 
-proc copyShare*(exp: Handle[ExprGeneralExpression]): Handle[ExprGeneralExpression] {.
+proc CopyShare*(exp: handle[Expr_GeneralExpression]): handle[Expr_GeneralExpression] {.
     importcpp: "Expr::CopyShare(@)", header: "Expr.hxx".}
-proc nbOfFreeVariables*(exp: Handle[ExprGeneralExpression]): StandardInteger {.
+proc NbOfFreeVariables*(exp: handle[Expr_GeneralExpression]): Standard_Integer {.
     importcpp: "Expr::NbOfFreeVariables(@)", header: "Expr.hxx".}
-proc nbOfFreeVariables*(exp: Handle[ExprGeneralRelation]): StandardInteger {.
+proc NbOfFreeVariables*(exp: handle[Expr_GeneralRelation]): Standard_Integer {.
     importcpp: "Expr::NbOfFreeVariables(@)", header: "Expr.hxx".}
-proc sign*(val: StandardReal): StandardReal {.importcpp: "Expr::Sign(@)",
+proc Sign*(val: Standard_Real): Standard_Real {.importcpp: "Expr::Sign(@)",
     header: "Expr.hxx".}
-

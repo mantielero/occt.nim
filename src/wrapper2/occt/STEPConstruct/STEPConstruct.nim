@@ -14,6 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Boolean
+
 discard "forward decl of StepRepr_RepresentationItem"
 discard "forward decl of Transfer_FinderProcess"
 discard "forward decl of TopoDS_Shape"
@@ -66,17 +70,17 @@ type
                                                                                       ## recorded
 
 
-proc findEntity*(finderProcess: Handle[TransferFinderProcess]; shape: TopoDS_Shape): Handle[
-    StepReprRepresentationItem] {.importcpp: "STEPConstruct::FindEntity(@)",
-                                 header: "STEPConstruct.hxx".}
-proc findEntity*(finderProcess: Handle[TransferFinderProcess]; shape: TopoDS_Shape;
-                loc: var TopLocLocation): Handle[StepReprRepresentationItem] {.
-    importcpp: "STEPConstruct::FindEntity(@)", header: "STEPConstruct.hxx".}
-proc findShape*(transientProcess: Handle[TransferTransientProcess];
-               item: Handle[StepReprRepresentationItem]): TopoDS_Shape {.
+proc FindEntity*(FinderProcess: handle[Transfer_FinderProcess]; Shape: TopoDS_Shape): handle[
+    StepRepr_RepresentationItem] {.importcpp: "STEPConstruct::FindEntity(@)",
+                                  header: "STEPConstruct.hxx".}
+proc FindEntity*(FinderProcess: handle[Transfer_FinderProcess];
+                Shape: TopoDS_Shape; Loc: var TopLoc_Location): handle[
+    StepRepr_RepresentationItem] {.importcpp: "STEPConstruct::FindEntity(@)",
+                                  header: "STEPConstruct.hxx".}
+proc FindShape*(TransientProcess: handle[Transfer_TransientProcess];
+               item: handle[StepRepr_RepresentationItem]): TopoDS_Shape {.
     importcpp: "STEPConstruct::FindShape(@)", header: "STEPConstruct.hxx".}
-proc findCDSR*(componentBinder: Handle[TransferBinder];
-              assemblySDR: Handle[StepShapeShapeDefinitionRepresentation];
-    componentCDSR: var Handle[StepShapeContextDependentShapeRepresentation]): StandardBoolean {.
+proc FindCDSR*(ComponentBinder: handle[Transfer_Binder];
+              AssemblySDR: handle[StepShape_ShapeDefinitionRepresentation];
+    ComponentCDSR: var handle[StepShape_ContextDependentShapeRepresentation]): Standard_Boolean {.
     importcpp: "STEPConstruct::FindCDSR(@)", header: "STEPConstruct.hxx".}
-

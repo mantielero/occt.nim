@@ -14,17 +14,22 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, Plate_LinearXYZConstraint,
+  Plate_SequenceOfPinpointConstraint, ../Standard/Standard_Integer
+
 discard "forward decl of Standard_DimensionMismatch"
 discard "forward decl of Plate_LinearXYZConstraint"
 type
-  PlateSampledCurveConstraint* {.importcpp: "Plate_SampledCurveConstraint",
-                                header: "Plate_SampledCurveConstraint.hxx", bycopy.} = object
+  Plate_SampledCurveConstraint* {.importcpp: "Plate_SampledCurveConstraint",
+                                 header: "Plate_SampledCurveConstraint.hxx",
+                                 bycopy.} = object
 
 
-proc constructPlateSampledCurveConstraint*(
-    soppc: PlateSequenceOfPinpointConstraint; n: StandardInteger): PlateSampledCurveConstraint {.
+proc constructPlate_SampledCurveConstraint*(
+    SOPPC: Plate_SequenceOfPinpointConstraint; n: Standard_Integer): Plate_SampledCurveConstraint {.
     constructor, importcpp: "Plate_SampledCurveConstraint(@)",
     header: "Plate_SampledCurveConstraint.hxx".}
-proc lxyzc*(this: PlateSampledCurveConstraint): PlateLinearXYZConstraint {.
+proc LXYZC*(this: Plate_SampledCurveConstraint): Plate_LinearXYZConstraint {.
     noSideEffect, importcpp: "LXYZC", header: "Plate_SampledCurveConstraint.hxx".}
-

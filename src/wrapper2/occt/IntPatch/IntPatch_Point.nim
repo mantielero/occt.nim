@@ -14,93 +14,100 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../IntSurf/IntSurf_PntOn2S,
+  ../Standard/Standard_Real, ../Standard/Standard_Boolean,
+  ../IntSurf/IntSurf_Transition, ../Adaptor2d/Adaptor2d_HCurve2d
+
 discard "forward decl of Adaptor3d_HVertex"
 discard "forward decl of Standard_DomainError"
 discard "forward decl of gp_Pnt"
 discard "forward decl of IntSurf_Transition"
 discard "forward decl of IntSurf_PntOn2S"
 type
-  IntPatchPoint* {.importcpp: "IntPatch_Point", header: "IntPatch_Point.hxx", bycopy.} = object ##
-                                                                                        ## !
-                                                                                        ## Empty
-                                                                                        ## constructor.
+  IntPatch_Point* {.importcpp: "IntPatch_Point", header: "IntPatch_Point.hxx", bycopy.} = object ##
+                                                                                         ## !
+                                                                                         ## Empty
+                                                                                         ## constructor.
     ## TRUE if the point is in several intersection lines
 
 
-proc constructIntPatchPoint*(): IntPatchPoint {.constructor,
+proc constructIntPatch_Point*(): IntPatch_Point {.constructor,
     importcpp: "IntPatch_Point(@)", header: "IntPatch_Point.hxx".}
-proc setValue*(this: var IntPatchPoint; pt: GpPnt; tol: StandardReal;
-              tangent: StandardBoolean) {.importcpp: "SetValue",
-                                        header: "IntPatch_Point.hxx".}
-proc setValue*(this: var IntPatchPoint; pt: GpPnt) {.importcpp: "SetValue",
+proc SetValue*(this: var IntPatch_Point; Pt: gp_Pnt; Tol: Standard_Real;
+              Tangent: Standard_Boolean) {.importcpp: "SetValue",
     header: "IntPatch_Point.hxx".}
-proc setValue*(this: var IntPatchPoint; thePOn2S: IntSurfPntOn2S) {.
+proc SetValue*(this: var IntPatch_Point; Pt: gp_Pnt) {.importcpp: "SetValue",
+    header: "IntPatch_Point.hxx".}
+proc SetValue*(this: var IntPatch_Point; thePOn2S: IntSurf_PntOn2S) {.
     importcpp: "SetValue", header: "IntPatch_Point.hxx".}
-proc setTolerance*(this: var IntPatchPoint; tol: StandardReal) {.
+proc SetTolerance*(this: var IntPatch_Point; Tol: Standard_Real) {.
     importcpp: "SetTolerance", header: "IntPatch_Point.hxx".}
-proc setParameters*(this: var IntPatchPoint; u1: StandardReal; v1: StandardReal;
-                   u2: StandardReal; v2: StandardReal) {.importcpp: "SetParameters",
-    header: "IntPatch_Point.hxx".}
-proc setParameter*(this: var IntPatchPoint; para: StandardReal) {.
+proc SetParameters*(this: var IntPatch_Point; U1: Standard_Real; V1: Standard_Real;
+                   U2: Standard_Real; V2: Standard_Real) {.
+    importcpp: "SetParameters", header: "IntPatch_Point.hxx".}
+proc SetParameter*(this: var IntPatch_Point; Para: Standard_Real) {.
     importcpp: "SetParameter", header: "IntPatch_Point.hxx".}
-proc setVertex*(this: var IntPatchPoint; onFirst: StandardBoolean;
-               v: Handle[Adaptor3dHVertex]) {.importcpp: "SetVertex",
+proc SetVertex*(this: var IntPatch_Point; OnFirst: Standard_Boolean;
+               V: handle[Adaptor3d_HVertex]) {.importcpp: "SetVertex",
     header: "IntPatch_Point.hxx".}
-proc setArc*(this: var IntPatchPoint; onFirst: StandardBoolean;
-            a: Handle[Adaptor2dHCurve2d]; param: StandardReal;
-            tLine: IntSurfTransition; tArc: IntSurfTransition) {.
+proc SetArc*(this: var IntPatch_Point; OnFirst: Standard_Boolean;
+            A: handle[Adaptor2d_HCurve2d]; Param: Standard_Real;
+            TLine: IntSurf_Transition; TArc: IntSurf_Transition) {.
     importcpp: "SetArc", header: "IntPatch_Point.hxx".}
-proc setMultiple*(this: var IntPatchPoint; isMult: StandardBoolean) {.
+proc SetMultiple*(this: var IntPatch_Point; IsMult: Standard_Boolean) {.
     importcpp: "SetMultiple", header: "IntPatch_Point.hxx".}
-proc value*(this: IntPatchPoint): GpPnt {.noSideEffect, importcpp: "Value",
-                                      header: "IntPatch_Point.hxx".}
-proc parameterOnLine*(this: IntPatchPoint): StandardReal {.noSideEffect,
+proc Value*(this: IntPatch_Point): gp_Pnt {.noSideEffect, importcpp: "Value",
+                                        header: "IntPatch_Point.hxx".}
+proc ParameterOnLine*(this: IntPatch_Point): Standard_Real {.noSideEffect,
     importcpp: "ParameterOnLine", header: "IntPatch_Point.hxx".}
-proc tolerance*(this: IntPatchPoint): StandardReal {.noSideEffect,
+proc Tolerance*(this: IntPatch_Point): Standard_Real {.noSideEffect,
     importcpp: "Tolerance", header: "IntPatch_Point.hxx".}
-proc isTangencyPoint*(this: IntPatchPoint): StandardBoolean {.noSideEffect,
+proc IsTangencyPoint*(this: IntPatch_Point): Standard_Boolean {.noSideEffect,
     importcpp: "IsTangencyPoint", header: "IntPatch_Point.hxx".}
-proc parametersOnS1*(this: IntPatchPoint; u1: var StandardReal; v1: var StandardReal) {.
-    noSideEffect, importcpp: "ParametersOnS1", header: "IntPatch_Point.hxx".}
-proc parametersOnS2*(this: IntPatchPoint; u2: var StandardReal; v2: var StandardReal) {.
-    noSideEffect, importcpp: "ParametersOnS2", header: "IntPatch_Point.hxx".}
-proc isMultiple*(this: IntPatchPoint): StandardBoolean {.noSideEffect,
+proc ParametersOnS1*(this: IntPatch_Point; U1: var Standard_Real;
+                    V1: var Standard_Real) {.noSideEffect,
+    importcpp: "ParametersOnS1", header: "IntPatch_Point.hxx".}
+proc ParametersOnS2*(this: IntPatch_Point; U2: var Standard_Real;
+                    V2: var Standard_Real) {.noSideEffect,
+    importcpp: "ParametersOnS2", header: "IntPatch_Point.hxx".}
+proc IsMultiple*(this: IntPatch_Point): Standard_Boolean {.noSideEffect,
     importcpp: "IsMultiple", header: "IntPatch_Point.hxx".}
-proc isOnDomS1*(this: IntPatchPoint): StandardBoolean {.noSideEffect,
+proc IsOnDomS1*(this: IntPatch_Point): Standard_Boolean {.noSideEffect,
     importcpp: "IsOnDomS1", header: "IntPatch_Point.hxx".}
-proc isVertexOnS1*(this: IntPatchPoint): StandardBoolean {.noSideEffect,
+proc IsVertexOnS1*(this: IntPatch_Point): Standard_Boolean {.noSideEffect,
     importcpp: "IsVertexOnS1", header: "IntPatch_Point.hxx".}
-proc vertexOnS1*(this: IntPatchPoint): Handle[Adaptor3dHVertex] {.noSideEffect,
+proc VertexOnS1*(this: IntPatch_Point): handle[Adaptor3d_HVertex] {.noSideEffect,
     importcpp: "VertexOnS1", header: "IntPatch_Point.hxx".}
-proc arcOnS1*(this: IntPatchPoint): Handle[Adaptor2dHCurve2d] {.noSideEffect,
+proc ArcOnS1*(this: IntPatch_Point): handle[Adaptor2d_HCurve2d] {.noSideEffect,
     importcpp: "ArcOnS1", header: "IntPatch_Point.hxx".}
-proc transitionLineArc1*(this: IntPatchPoint): IntSurfTransition {.noSideEffect,
+proc TransitionLineArc1*(this: IntPatch_Point): IntSurf_Transition {.noSideEffect,
     importcpp: "TransitionLineArc1", header: "IntPatch_Point.hxx".}
-proc transitionOnS1*(this: IntPatchPoint): IntSurfTransition {.noSideEffect,
+proc TransitionOnS1*(this: IntPatch_Point): IntSurf_Transition {.noSideEffect,
     importcpp: "TransitionOnS1", header: "IntPatch_Point.hxx".}
-proc parameterOnArc1*(this: IntPatchPoint): StandardReal {.noSideEffect,
+proc ParameterOnArc1*(this: IntPatch_Point): Standard_Real {.noSideEffect,
     importcpp: "ParameterOnArc1", header: "IntPatch_Point.hxx".}
-proc isOnDomS2*(this: IntPatchPoint): StandardBoolean {.noSideEffect,
+proc IsOnDomS2*(this: IntPatch_Point): Standard_Boolean {.noSideEffect,
     importcpp: "IsOnDomS2", header: "IntPatch_Point.hxx".}
-proc isVertexOnS2*(this: IntPatchPoint): StandardBoolean {.noSideEffect,
+proc IsVertexOnS2*(this: IntPatch_Point): Standard_Boolean {.noSideEffect,
     importcpp: "IsVertexOnS2", header: "IntPatch_Point.hxx".}
-proc vertexOnS2*(this: IntPatchPoint): Handle[Adaptor3dHVertex] {.noSideEffect,
+proc VertexOnS2*(this: IntPatch_Point): handle[Adaptor3d_HVertex] {.noSideEffect,
     importcpp: "VertexOnS2", header: "IntPatch_Point.hxx".}
-proc arcOnS2*(this: IntPatchPoint): Handle[Adaptor2dHCurve2d] {.noSideEffect,
+proc ArcOnS2*(this: IntPatch_Point): handle[Adaptor2d_HCurve2d] {.noSideEffect,
     importcpp: "ArcOnS2", header: "IntPatch_Point.hxx".}
-proc transitionLineArc2*(this: IntPatchPoint): IntSurfTransition {.noSideEffect,
+proc TransitionLineArc2*(this: IntPatch_Point): IntSurf_Transition {.noSideEffect,
     importcpp: "TransitionLineArc2", header: "IntPatch_Point.hxx".}
-proc transitionOnS2*(this: IntPatchPoint): IntSurfTransition {.noSideEffect,
+proc TransitionOnS2*(this: IntPatch_Point): IntSurf_Transition {.noSideEffect,
     importcpp: "TransitionOnS2", header: "IntPatch_Point.hxx".}
-proc parameterOnArc2*(this: IntPatchPoint): StandardReal {.noSideEffect,
+proc ParameterOnArc2*(this: IntPatch_Point): Standard_Real {.noSideEffect,
     importcpp: "ParameterOnArc2", header: "IntPatch_Point.hxx".}
-proc pntOn2S*(this: IntPatchPoint): IntSurfPntOn2S {.noSideEffect,
+proc PntOn2S*(this: IntPatch_Point): IntSurf_PntOn2S {.noSideEffect,
     importcpp: "PntOn2S", header: "IntPatch_Point.hxx".}
-proc parameters*(this: IntPatchPoint; u1: var StandardReal; v1: var StandardReal;
-                u2: var StandardReal; v2: var StandardReal) {.noSideEffect,
+proc Parameters*(this: IntPatch_Point; U1: var Standard_Real; V1: var Standard_Real;
+                U2: var Standard_Real; V2: var Standard_Real) {.noSideEffect,
     importcpp: "Parameters", header: "IntPatch_Point.hxx".}
-proc reverseTransition*(this: var IntPatchPoint) {.importcpp: "ReverseTransition",
+proc ReverseTransition*(this: var IntPatch_Point) {.importcpp: "ReverseTransition",
     header: "IntPatch_Point.hxx".}
-proc dump*(this: IntPatchPoint) {.noSideEffect, importcpp: "Dump",
-                               header: "IntPatch_Point.hxx".}
-
+proc Dump*(this: IntPatch_Point) {.noSideEffect, importcpp: "Dump",
+                                header: "IntPatch_Point.hxx".}

@@ -14,12 +14,16 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Real,
+  ../IGESData/IGESData_IGESEntity, ../Standard/Standard_Boolean
+
 discard "forward decl of IGESGeom_Point"
 discard "forward decl of IGESGeom_Direction"
 discard "forward decl of IGESSolid_ConicalSurface"
 discard "forward decl of IGESSolid_ConicalSurface"
 type
-  HandleIGESSolidConicalSurface* = Handle[IGESSolidConicalSurface]
+  Handle_IGESSolid_ConicalSurface* = handle[IGESSolid_ConicalSurface]
 
 ## ! defines ConicalSurface, Type <194> Form Number <0,1>
 ## ! in package IGESSolid
@@ -29,38 +33,38 @@ type
 ## ! the cone semi-angle.
 
 type
-  IGESSolidConicalSurface* {.importcpp: "IGESSolid_ConicalSurface",
-                            header: "IGESSolid_ConicalSurface.hxx", bycopy.} = object of IGESDataIGESEntity
+  IGESSolid_ConicalSurface* {.importcpp: "IGESSolid_ConicalSurface",
+                             header: "IGESSolid_ConicalSurface.hxx", bycopy.} = object of IGESData_IGESEntity
 
 
-proc constructIGESSolidConicalSurface*(): IGESSolidConicalSurface {.constructor,
+proc constructIGESSolid_ConicalSurface*(): IGESSolid_ConicalSurface {.constructor,
     importcpp: "IGESSolid_ConicalSurface(@)",
     header: "IGESSolid_ConicalSurface.hxx".}
-proc init*(this: var IGESSolidConicalSurface; aLocation: Handle[IGESGeomPoint];
-          anAxis: Handle[IGESGeomDirection]; aRadius: StandardReal;
-          anAngle: StandardReal; aRefdir: Handle[IGESGeomDirection]) {.
+proc Init*(this: var IGESSolid_ConicalSurface; aLocation: handle[IGESGeom_Point];
+          anAxis: handle[IGESGeom_Direction]; aRadius: Standard_Real;
+          anAngle: Standard_Real; aRefdir: handle[IGESGeom_Direction]) {.
     importcpp: "Init", header: "IGESSolid_ConicalSurface.hxx".}
-proc locationPoint*(this: IGESSolidConicalSurface): Handle[IGESGeomPoint] {.
+proc LocationPoint*(this: IGESSolid_ConicalSurface): handle[IGESGeom_Point] {.
     noSideEffect, importcpp: "LocationPoint",
     header: "IGESSolid_ConicalSurface.hxx".}
-proc axis*(this: IGESSolidConicalSurface): Handle[IGESGeomDirection] {.noSideEffect,
-    importcpp: "Axis", header: "IGESSolid_ConicalSurface.hxx".}
-proc radius*(this: IGESSolidConicalSurface): StandardReal {.noSideEffect,
+proc Axis*(this: IGESSolid_ConicalSurface): handle[IGESGeom_Direction] {.
+    noSideEffect, importcpp: "Axis", header: "IGESSolid_ConicalSurface.hxx".}
+proc Radius*(this: IGESSolid_ConicalSurface): Standard_Real {.noSideEffect,
     importcpp: "Radius", header: "IGESSolid_ConicalSurface.hxx".}
-proc semiAngle*(this: IGESSolidConicalSurface): StandardReal {.noSideEffect,
+proc SemiAngle*(this: IGESSolid_ConicalSurface): Standard_Real {.noSideEffect,
     importcpp: "SemiAngle", header: "IGESSolid_ConicalSurface.hxx".}
-proc referenceDir*(this: IGESSolidConicalSurface): Handle[IGESGeomDirection] {.
+proc ReferenceDir*(this: IGESSolid_ConicalSurface): handle[IGESGeom_Direction] {.
     noSideEffect, importcpp: "ReferenceDir", header: "IGESSolid_ConicalSurface.hxx".}
-proc isParametrised*(this: IGESSolidConicalSurface): StandardBoolean {.noSideEffect,
-    importcpp: "IsParametrised", header: "IGESSolid_ConicalSurface.hxx".}
+proc IsParametrised*(this: IGESSolid_ConicalSurface): Standard_Boolean {.
+    noSideEffect, importcpp: "IsParametrised",
+    header: "IGESSolid_ConicalSurface.hxx".}
 type
-  IGESSolidConicalSurfacebaseType* = IGESDataIGESEntity
+  IGESSolid_ConicalSurfacebase_type* = IGESData_IGESEntity
 
-proc getTypeName*(): cstring {.importcpp: "IGESSolid_ConicalSurface::get_type_name(@)",
-                            header: "IGESSolid_ConicalSurface.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "IGESSolid_ConicalSurface::get_type_name(@)",
+                              header: "IGESSolid_ConicalSurface.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "IGESSolid_ConicalSurface::get_type_descriptor(@)",
     header: "IGESSolid_ConicalSurface.hxx".}
-proc dynamicType*(this: IGESSolidConicalSurface): Handle[StandardType] {.
+proc DynamicType*(this: IGESSolid_ConicalSurface): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType", header: "IGESSolid_ConicalSurface.hxx".}
-

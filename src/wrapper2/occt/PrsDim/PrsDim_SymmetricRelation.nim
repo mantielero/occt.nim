@@ -14,9 +14,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../TopoDS/TopoDS_Shape, ../gp/gp_Pnt, ../gp/gp_Dir, PrsDim_Relation
+
 discard "forward decl of PrsDim_SymmetricRelation"
 type
-  HandlePrsDimSymmetricRelation* = Handle[PrsDimSymmetricRelation]
+  Handle_PrsDim_SymmetricRelation* = handle[PrsDim_SymmetricRelation]
 
 ## ! A framework to display constraints of symmetricity
 ## ! between two or more datum Interactive Objects.
@@ -24,112 +27,111 @@ type
 ## ! shapes of which the datums are parts.
 
 type
-  PrsDimSymmetricRelation* {.importcpp: "PrsDim_SymmetricRelation",
-                            header: "PrsDim_SymmetricRelation.hxx", bycopy.} = object of PrsDimRelation ##
-                                                                                                 ## !
-                                                                                                 ## Constructs
-                                                                                                 ## an
-                                                                                                 ## object
-                                                                                                 ## to
-                                                                                                 ## display
-                                                                                                 ## constraints
-                                                                                                 ## of
-                                                                                                 ## symmetricity.
-                                                                                                 ##
-                                                                                                 ## !
-                                                                                                 ## This
-                                                                                                 ## object
-                                                                                                 ## is
-                                                                                                 ## defined
-                                                                                                 ## by
-                                                                                                 ## a
-                                                                                                 ## tool
-                                                                                                 ## aSymmTool,
-                                                                                                 ## a
-                                                                                                 ## first
-                                                                                                 ##
-                                                                                                 ## !
-                                                                                                 ## shape
-                                                                                                 ## FirstShape,
-                                                                                                 ## a
-                                                                                                 ## second
-                                                                                                 ## shape
-                                                                                                 ## SecondShape,
-                                                                                                 ## and
-                                                                                                 ## a
-                                                                                                 ## plane
-                                                                                                 ## aPlane.
-                                                                                                 ##
-                                                                                                 ## !
-                                                                                                 ## aPlane
-                                                                                                 ## serves
-                                                                                                 ## as
-                                                                                                 ## the
-                                                                                                 ## axis
-                                                                                                 ## of
-                                                                                                 ## symmetry.
-                                                                                                 ##
-                                                                                                 ## !
-                                                                                                 ## aSymmTool
-                                                                                                 ## is
-                                                                                                 ## the
-                                                                                                 ## shape
-                                                                                                 ## composed
-                                                                                                 ## of
-                                                                                                 ## FirstShape
-                                                                                                 ##
-                                                                                                 ## !
-                                                                                                 ## SecondShape
-                                                                                                 ## and
-                                                                                                 ## aPlane.
-                                                                                                 ## It
-                                                                                                 ## may
-                                                                                                 ## be
-                                                                                                 ## queried
-                                                                                                 ## and
-                                                                                                 ##
-                                                                                                 ## !
-                                                                                                 ## edited
-                                                                                                 ## using
-                                                                                                 ## the
-                                                                                                 ## functions
-                                                                                                 ## GetTool
-                                                                                                 ## and
-                                                                                                 ## SetTool.
-                                                                                                 ##
-                                                                                                 ## !
-                                                                                                 ## The
-                                                                                                 ## two
-                                                                                                 ## shapes
-                                                                                                 ## are
-                                                                                                 ## typically
-                                                                                                 ## two
-                                                                                                 ## edges,
-                                                                                                 ## two
-                                                                                                 ## vertices
-                                                                                                 ## or
-                                                                                                 ## two
-                                                                                                 ## points.
+  PrsDim_SymmetricRelation* {.importcpp: "PrsDim_SymmetricRelation",
+                             header: "PrsDim_SymmetricRelation.hxx", bycopy.} = object of PrsDim_Relation ##
+                                                                                                   ## !
+                                                                                                   ## Constructs
+                                                                                                   ## an
+                                                                                                   ## object
+                                                                                                   ## to
+                                                                                                   ## display
+                                                                                                   ## constraints
+                                                                                                   ## of
+                                                                                                   ## symmetricity.
+                                                                                                   ##
+                                                                                                   ## !
+                                                                                                   ## This
+                                                                                                   ## object
+                                                                                                   ## is
+                                                                                                   ## defined
+                                                                                                   ## by
+                                                                                                   ## a
+                                                                                                   ## tool
+                                                                                                   ## aSymmTool,
+                                                                                                   ## a
+                                                                                                   ## first
+                                                                                                   ##
+                                                                                                   ## !
+                                                                                                   ## shape
+                                                                                                   ## FirstShape,
+                                                                                                   ## a
+                                                                                                   ## second
+                                                                                                   ## shape
+                                                                                                   ## SecondShape,
+                                                                                                   ## and
+                                                                                                   ## a
+                                                                                                   ## plane
+                                                                                                   ## aPlane.
+                                                                                                   ##
+                                                                                                   ## !
+                                                                                                   ## aPlane
+                                                                                                   ## serves
+                                                                                                   ## as
+                                                                                                   ## the
+                                                                                                   ## axis
+                                                                                                   ## of
+                                                                                                   ## symmetry.
+                                                                                                   ##
+                                                                                                   ## !
+                                                                                                   ## aSymmTool
+                                                                                                   ## is
+                                                                                                   ## the
+                                                                                                   ## shape
+                                                                                                   ## composed
+                                                                                                   ## of
+                                                                                                   ## FirstShape
+                                                                                                   ##
+                                                                                                   ## !
+                                                                                                   ## SecondShape
+                                                                                                   ## and
+                                                                                                   ## aPlane.
+                                                                                                   ## It
+                                                                                                   ## may
+                                                                                                   ## be
+                                                                                                   ## queried
+                                                                                                   ## and
+                                                                                                   ##
+                                                                                                   ## !
+                                                                                                   ## edited
+                                                                                                   ## using
+                                                                                                   ## the
+                                                                                                   ## functions
+                                                                                                   ## GetTool
+                                                                                                   ## and
+                                                                                                   ## SetTool.
+                                                                                                   ##
+                                                                                                   ## !
+                                                                                                   ## The
+                                                                                                   ## two
+                                                                                                   ## shapes
+                                                                                                   ## are
+                                                                                                   ## typically
+                                                                                                   ## two
+                                                                                                   ## edges,
+                                                                                                   ## two
+                                                                                                   ## vertices
+                                                                                                   ## or
+                                                                                                   ## two
+                                                                                                   ## points.
 
-  PrsDimSymmetricRelationbaseType* = PrsDimRelation
+  PrsDim_SymmetricRelationbase_type* = PrsDim_Relation
 
-proc getTypeName*(): cstring {.importcpp: "PrsDim_SymmetricRelation::get_type_name(@)",
-                            header: "PrsDim_SymmetricRelation.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "PrsDim_SymmetricRelation::get_type_name(@)",
+                              header: "PrsDim_SymmetricRelation.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "PrsDim_SymmetricRelation::get_type_descriptor(@)",
     header: "PrsDim_SymmetricRelation.hxx".}
-proc dynamicType*(this: PrsDimSymmetricRelation): Handle[StandardType] {.
+proc DynamicType*(this: PrsDim_SymmetricRelation): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType", header: "PrsDim_SymmetricRelation.hxx".}
-proc constructPrsDimSymmetricRelation*(aSymmTool: TopoDS_Shape;
-                                      firstShape: TopoDS_Shape;
-                                      secondShape: TopoDS_Shape;
-                                      aPlane: Handle[GeomPlane]): PrsDimSymmetricRelation {.
+proc constructPrsDim_SymmetricRelation*(aSymmTool: TopoDS_Shape;
+                                       FirstShape: TopoDS_Shape;
+                                       SecondShape: TopoDS_Shape;
+                                       aPlane: handle[Geom_Plane]): PrsDim_SymmetricRelation {.
     constructor, importcpp: "PrsDim_SymmetricRelation(@)",
     header: "PrsDim_SymmetricRelation.hxx".}
-proc isMovable*(this: PrsDimSymmetricRelation): StandardBoolean {.noSideEffect,
+proc IsMovable*(this: PrsDim_SymmetricRelation): Standard_Boolean {.noSideEffect,
     importcpp: "IsMovable", header: "PrsDim_SymmetricRelation.hxx".}
-proc setTool*(this: var PrsDimSymmetricRelation; aSymmetricTool: TopoDS_Shape) {.
+proc SetTool*(this: var PrsDim_SymmetricRelation; aSymmetricTool: TopoDS_Shape) {.
     importcpp: "SetTool", header: "PrsDim_SymmetricRelation.hxx".}
-proc getTool*(this: PrsDimSymmetricRelation): TopoDS_Shape {.noSideEffect,
+proc GetTool*(this: PrsDim_SymmetricRelation): TopoDS_Shape {.noSideEffect,
     importcpp: "GetTool", header: "PrsDim_SymmetricRelation.hxx".}
-

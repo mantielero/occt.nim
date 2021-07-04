@@ -14,15 +14,17 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 ## ! Data structure of a triangle.
 
 type
-  HLRAlgoTriangleData* {.importcpp: "HLRAlgo_TriangleData",
-                        header: "HLRAlgo_TriangleData.hxx", bycopy.} = object
-    node1* {.importc: "Node1".}: StandardInteger
-    node2* {.importc: "Node2".}: StandardInteger
-    node3* {.importc: "Node3".}: StandardInteger
-    flags* {.importc: "Flags".}: StandardInteger
-
-
+  HLRAlgo_TriangleData* {.importcpp: "HLRAlgo_TriangleData",
+                         header: "HLRAlgo_TriangleData.hxx", bycopy.} = object
+    Node1* {.importc: "Node1".}: Standard_Integer
+    Node2* {.importc: "Node2".}: Standard_Integer
+    Node3* {.importc: "Node3".}: Standard_Integer
+    Flags* {.importc: "Flags".}: Standard_Integer
 

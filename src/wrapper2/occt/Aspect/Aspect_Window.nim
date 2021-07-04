@@ -13,89 +13,96 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  Aspect_Background, Aspect_GradientBackground, Aspect_FBConfig, Aspect_FillMethod,
+  ../Quantity/Quantity_Color, Aspect_GradientFillMethod, Aspect_TypeOfResize,
+  Aspect_Drawable, ../Standard/Standard, ../Standard/Standard_Transient,
+  ../Standard/Standard_Type, ../TCollection/TCollection_AsciiString
+
 discard "forward decl of Aspect_DisplayConnection"
 discard "forward decl of Aspect_Window"
 type
-  HandleAspectWindow* = Handle[AspectWindow]
+  Handle_Aspect_Window* = handle[Aspect_Window]
 
 ## ! Defines a window.
 
 type
-  AspectWindow* {.importcpp: "Aspect_Window", header: "Aspect_Window.hxx", bycopy.} = object of StandardTransient ##
-                                                                                                        ## !
-                                                                                                        ## Modifies
-                                                                                                        ## the
-                                                                                                        ## window
-                                                                                                        ## background.
-                                                                                                        ##
-                                                                                                        ## !
-                                                                                                        ## Initializes
-                                                                                                        ## the
-                                                                                                        ## datas
-                                                                                                        ## of
-                                                                                                        ## a
-                                                                                                        ## Window.
+  Aspect_Window* {.importcpp: "Aspect_Window", header: "Aspect_Window.hxx", bycopy.} = object of Standard_Transient ##
+                                                                                                          ## !
+                                                                                                          ## Modifies
+                                                                                                          ## the
+                                                                                                          ## window
+                                                                                                          ## background.
+                                                                                                          ##
+                                                                                                          ## !
+                                                                                                          ## Initializes
+                                                                                                          ## the
+                                                                                                          ## datas
+                                                                                                          ## of
+                                                                                                          ## a
+                                                                                                          ## Window.
 
 
-proc setBackground*(this: var AspectWindow; aBack: AspectBackground) {.
+proc SetBackground*(this: var Aspect_Window; ABack: Aspect_Background) {.
     importcpp: "SetBackground", header: "Aspect_Window.hxx".}
-proc setBackground*(this: var AspectWindow; color: QuantityColor) {.
+proc SetBackground*(this: var Aspect_Window; color: Quantity_Color) {.
     importcpp: "SetBackground", header: "Aspect_Window.hxx".}
-proc setBackground*(this: var AspectWindow; aBackground: AspectGradientBackground) {.
+proc SetBackground*(this: var Aspect_Window; ABackground: Aspect_GradientBackground) {.
     importcpp: "SetBackground", header: "Aspect_Window.hxx".}
-proc setBackground*(this: var AspectWindow; theFirstColor: QuantityColor;
-                   theSecondColor: QuantityColor;
-                   theFillMethod: AspectGradientFillMethod) {.
+proc SetBackground*(this: var Aspect_Window; theFirstColor: Quantity_Color;
+                   theSecondColor: Quantity_Color;
+                   theFillMethod: Aspect_GradientFillMethod) {.
     importcpp: "SetBackground", header: "Aspect_Window.hxx".}
-proc map*(this: AspectWindow) {.noSideEffect, importcpp: "Map",
-                             header: "Aspect_Window.hxx".}
-proc unmap*(this: AspectWindow) {.noSideEffect, importcpp: "Unmap",
-                               header: "Aspect_Window.hxx".}
-proc doResize*(this: var AspectWindow): AspectTypeOfResize {.importcpp: "DoResize",
+proc Map*(this: Aspect_Window) {.noSideEffect, importcpp: "Map",
+                              header: "Aspect_Window.hxx".}
+proc Unmap*(this: Aspect_Window) {.noSideEffect, importcpp: "Unmap",
+                                header: "Aspect_Window.hxx".}
+proc DoResize*(this: var Aspect_Window): Aspect_TypeOfResize {.importcpp: "DoResize",
     header: "Aspect_Window.hxx".}
-proc doMapping*(this: AspectWindow): StandardBoolean {.noSideEffect,
+proc DoMapping*(this: Aspect_Window): Standard_Boolean {.noSideEffect,
     importcpp: "DoMapping", header: "Aspect_Window.hxx".}
-proc background*(this: AspectWindow): AspectBackground {.noSideEffect,
+proc Background*(this: Aspect_Window): Aspect_Background {.noSideEffect,
     importcpp: "Background", header: "Aspect_Window.hxx".}
-proc backgroundFillMethod*(this: AspectWindow): AspectFillMethod {.noSideEffect,
+proc BackgroundFillMethod*(this: Aspect_Window): Aspect_FillMethod {.noSideEffect,
     importcpp: "BackgroundFillMethod", header: "Aspect_Window.hxx".}
-proc gradientBackground*(this: AspectWindow): AspectGradientBackground {.
+proc GradientBackground*(this: Aspect_Window): Aspect_GradientBackground {.
     noSideEffect, importcpp: "GradientBackground", header: "Aspect_Window.hxx".}
-proc isMapped*(this: AspectWindow): StandardBoolean {.noSideEffect,
+proc IsMapped*(this: Aspect_Window): Standard_Boolean {.noSideEffect,
     importcpp: "IsMapped", header: "Aspect_Window.hxx".}
-proc isVirtual*(this: AspectWindow): StandardBoolean {.noSideEffect,
+proc IsVirtual*(this: Aspect_Window): Standard_Boolean {.noSideEffect,
     importcpp: "IsVirtual", header: "Aspect_Window.hxx".}
-proc setVirtual*(this: var AspectWindow; theVirtual: StandardBoolean) {.
+proc SetVirtual*(this: var Aspect_Window; theVirtual: Standard_Boolean) {.
     importcpp: "SetVirtual", header: "Aspect_Window.hxx".}
-proc ratio*(this: AspectWindow): StandardReal {.noSideEffect, importcpp: "Ratio",
+proc Ratio*(this: Aspect_Window): Standard_Real {.noSideEffect, importcpp: "Ratio",
     header: "Aspect_Window.hxx".}
-proc position*(this: AspectWindow; x1: var StandardInteger; y1: var StandardInteger;
-              x2: var StandardInteger; y2: var StandardInteger) {.noSideEffect,
-    importcpp: "Position", header: "Aspect_Window.hxx".}
-proc size*(this: AspectWindow; width: var StandardInteger; height: var StandardInteger) {.
-    noSideEffect, importcpp: "Size", header: "Aspect_Window.hxx".}
-proc nativeHandle*(this: AspectWindow): AspectDrawable {.noSideEffect,
+proc Position*(this: Aspect_Window; X1: var Standard_Integer;
+              Y1: var Standard_Integer; X2: var Standard_Integer;
+              Y2: var Standard_Integer) {.noSideEffect, importcpp: "Position",
+                                       header: "Aspect_Window.hxx".}
+proc Size*(this: Aspect_Window; Width: var Standard_Integer;
+          Height: var Standard_Integer) {.noSideEffect, importcpp: "Size",
+                                       header: "Aspect_Window.hxx".}
+proc NativeHandle*(this: Aspect_Window): Aspect_Drawable {.noSideEffect,
     importcpp: "NativeHandle", header: "Aspect_Window.hxx".}
-proc nativeParentHandle*(this: AspectWindow): AspectDrawable {.noSideEffect,
+proc NativeParentHandle*(this: Aspect_Window): Aspect_Drawable {.noSideEffect,
     importcpp: "NativeParentHandle", header: "Aspect_Window.hxx".}
-proc nativeFBConfig*(this: AspectWindow): AspectFBConfig {.noSideEffect,
+proc NativeFBConfig*(this: Aspect_Window): Aspect_FBConfig {.noSideEffect,
     importcpp: "NativeFBConfig", header: "Aspect_Window.hxx".}
-proc setTitle*(this: var AspectWindow; theTitle: TCollectionAsciiString) {.
+proc SetTitle*(this: var Aspect_Window; theTitle: TCollection_AsciiString) {.
     importcpp: "SetTitle", header: "Aspect_Window.hxx".}
-proc invalidateContent*(this: var AspectWindow;
-                       theDisp: Handle[AspectDisplayConnection]) {.
+proc InvalidateContent*(this: var Aspect_Window;
+                       theDisp: handle[Aspect_DisplayConnection]) {.
     importcpp: "InvalidateContent", header: "Aspect_Window.hxx".}
-proc dumpJson*(this: AspectWindow; theOStream: var StandardOStream;
-              theDepth: StandardInteger = -1) {.noSideEffect, importcpp: "DumpJson",
+proc DumpJson*(this: Aspect_Window; theOStream: var Standard_OStream;
+              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
     header: "Aspect_Window.hxx".}
 type
-  AspectWindowbaseType* = StandardTransient
+  Aspect_Windowbase_type* = Standard_Transient
 
-proc getTypeName*(): cstring {.importcpp: "Aspect_Window::get_type_name(@)",
-                            header: "Aspect_Window.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "Aspect_Window::get_type_name(@)",
+                              header: "Aspect_Window.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "Aspect_Window::get_type_descriptor(@)",
     header: "Aspect_Window.hxx".}
-proc dynamicType*(this: AspectWindow): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: Aspect_Window): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "Aspect_Window.hxx".}
-

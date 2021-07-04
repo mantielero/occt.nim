@@ -14,34 +14,40 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../TopoDS/TopoDS_Shape, ../gp/gp_Vec,
+  ../Standard/Standard_Boolean, ../TopTools/TopTools_DataMapOfShapeListOfShape,
+  ../gp/gp_Pnt, ../TopTools/TopTools_ListOfShape
+
 discard "forward decl of Standard_NoSuchObject"
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of gp_Vec"
 discard "forward decl of gp_Pnt"
 type
-  LocOpeLinearForm* {.importcpp: "LocOpe_LinearForm",
-                     header: "LocOpe_LinearForm.hxx", bycopy.} = object
+  LocOpe_LinearForm* {.importcpp: "LocOpe_LinearForm",
+                      header: "LocOpe_LinearForm.hxx", bycopy.} = object
 
 
-proc constructLocOpeLinearForm*(): LocOpeLinearForm {.constructor,
+proc constructLocOpe_LinearForm*(): LocOpe_LinearForm {.constructor,
     importcpp: "LocOpe_LinearForm(@)", header: "LocOpe_LinearForm.hxx".}
-proc constructLocOpeLinearForm*(base: TopoDS_Shape; v: GpVec; pnt1: GpPnt; pnt2: GpPnt): LocOpeLinearForm {.
+proc constructLocOpe_LinearForm*(Base: TopoDS_Shape; V: gp_Vec; Pnt1: gp_Pnt;
+                                Pnt2: gp_Pnt): LocOpe_LinearForm {.constructor,
+    importcpp: "LocOpe_LinearForm(@)", header: "LocOpe_LinearForm.hxx".}
+proc constructLocOpe_LinearForm*(Base: TopoDS_Shape; V: gp_Vec; Vectra: gp_Vec;
+                                Pnt1: gp_Pnt; Pnt2: gp_Pnt): LocOpe_LinearForm {.
     constructor, importcpp: "LocOpe_LinearForm(@)", header: "LocOpe_LinearForm.hxx".}
-proc constructLocOpeLinearForm*(base: TopoDS_Shape; v: GpVec; vectra: GpVec;
-                               pnt1: GpPnt; pnt2: GpPnt): LocOpeLinearForm {.
-    constructor, importcpp: "LocOpe_LinearForm(@)", header: "LocOpe_LinearForm.hxx".}
-proc perform*(this: var LocOpeLinearForm; base: TopoDS_Shape; v: GpVec; pnt1: GpPnt;
-             pnt2: GpPnt) {.importcpp: "Perform", header: "LocOpe_LinearForm.hxx".}
-proc perform*(this: var LocOpeLinearForm; base: TopoDS_Shape; v: GpVec; vectra: GpVec;
-             pnt1: GpPnt; pnt2: GpPnt) {.importcpp: "Perform",
-                                     header: "LocOpe_LinearForm.hxx".}
-proc firstShape*(this: LocOpeLinearForm): TopoDS_Shape {.noSideEffect,
-    importcpp: "FirstShape", header: "LocOpe_LinearForm.hxx".}
-proc lastShape*(this: LocOpeLinearForm): TopoDS_Shape {.noSideEffect,
-    importcpp: "LastShape", header: "LocOpe_LinearForm.hxx".}
-proc shape*(this: LocOpeLinearForm): TopoDS_Shape {.noSideEffect, importcpp: "Shape",
+proc Perform*(this: var LocOpe_LinearForm; Base: TopoDS_Shape; V: gp_Vec; Pnt1: gp_Pnt;
+             Pnt2: gp_Pnt) {.importcpp: "Perform", header: "LocOpe_LinearForm.hxx".}
+proc Perform*(this: var LocOpe_LinearForm; Base: TopoDS_Shape; V: gp_Vec;
+             Vectra: gp_Vec; Pnt1: gp_Pnt; Pnt2: gp_Pnt) {.importcpp: "Perform",
     header: "LocOpe_LinearForm.hxx".}
-proc shapes*(this: LocOpeLinearForm; s: TopoDS_Shape): TopToolsListOfShape {.
+proc FirstShape*(this: LocOpe_LinearForm): TopoDS_Shape {.noSideEffect,
+    importcpp: "FirstShape", header: "LocOpe_LinearForm.hxx".}
+proc LastShape*(this: LocOpe_LinearForm): TopoDS_Shape {.noSideEffect,
+    importcpp: "LastShape", header: "LocOpe_LinearForm.hxx".}
+proc Shape*(this: LocOpe_LinearForm): TopoDS_Shape {.noSideEffect,
+    importcpp: "Shape", header: "LocOpe_LinearForm.hxx".}
+proc Shapes*(this: LocOpe_LinearForm; S: TopoDS_Shape): TopTools_ListOfShape {.
     noSideEffect, importcpp: "Shapes", header: "LocOpe_LinearForm.hxx".}
-

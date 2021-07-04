@@ -13,6 +13,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard_Transient, ../Standard/Standard, ../Standard/Standard_Macro
+
 discard "forward decl of Draw_Interpretor"
 discard "forward decl of WNT_WClass"
 type
@@ -21,21 +24,20 @@ type
 
   IVtkDrawIVtkWinParams* {.importcpp: "IVtkDraw::IVtkWinParams",
                           header: "IVtkDraw.hxx", bycopy.} = object
-    topLeft* {.importc: "TopLeft".}: Graphic3dVec2i
-    size* {.importc: "Size".}: Graphic3dVec2i
-    nbMsaaSample* {.importc: "NbMsaaSample".}: StandardInteger
-    useSRGBColorSpace* {.importc: "UseSRGBColorSpace".}: StandardBoolean
+    TopLeft* {.importc: "TopLeft".}: Graphic3d_Vec2i
+    Size* {.importc: "Size".}: Graphic3d_Vec2i
+    NbMsaaSample* {.importc: "NbMsaaSample".}: Standard_Integer
+    UseSRGBColorSpace* {.importc: "UseSRGBColorSpace".}: Standard_Boolean
 
 
 proc constructIVtkDrawIVtkWinParams*(): IVtkDrawIVtkWinParams {.constructor,
     importcpp: "IVtkDraw::IVtkWinParams(@)", header: "IVtkDraw.hxx".}
-proc viewerInit*(theParams: IVtkDrawIVtkWinParams) {.
+proc ViewerInit*(theParams: IVtkDrawIVtkWinParams) {.
     importcpp: "IVtkDraw::ViewerInit(@)", header: "IVtkDraw.hxx".}
-proc viewerInit*(thePxLeft: StandardInteger; thePxTop: StandardInteger;
-                thePxWidth: StandardInteger; thePxHeight: StandardInteger) {.
+proc ViewerInit*(thePxLeft: Standard_Integer; thePxTop: Standard_Integer;
+                thePxWidth: Standard_Integer; thePxHeight: Standard_Integer) {.
     importcpp: "IVtkDraw::ViewerInit(@)", header: "IVtkDraw.hxx".}
-proc factory*(theDI: var DrawInterpretor) {.importcpp: "IVtkDraw::Factory(@)",
-                                        header: "IVtkDraw.hxx".}
-proc commands*(theCommands: var DrawInterpretor) {.
+proc Factory*(theDI: var Draw_Interpretor) {.importcpp: "IVtkDraw::Factory(@)",
+    header: "IVtkDraw.hxx".}
+proc Commands*(theCommands: var Draw_Interpretor) {.
     importcpp: "IVtkDraw::Commands(@)", header: "IVtkDraw.hxx".}
-

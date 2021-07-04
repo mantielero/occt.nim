@@ -14,32 +14,36 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
+  ../Standard/Standard_Integer, ../gp/gp_Pnt, ../Standard/Standard_Real
+
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of gp_Lin"
 discard "forward decl of gp_Torus"
 discard "forward decl of gp_Pnt"
 type
-  IntAnaIntLinTorus* {.importcpp: "IntAna_IntLinTorus",
-                      header: "IntAna_IntLinTorus.hxx", bycopy.} = object
+  IntAna_IntLinTorus* {.importcpp: "IntAna_IntLinTorus",
+                       header: "IntAna_IntLinTorus.hxx", bycopy.} = object
 
 
-proc constructIntAnaIntLinTorus*(): IntAnaIntLinTorus {.constructor,
+proc constructIntAna_IntLinTorus*(): IntAna_IntLinTorus {.constructor,
     importcpp: "IntAna_IntLinTorus(@)", header: "IntAna_IntLinTorus.hxx".}
-proc constructIntAnaIntLinTorus*(L: GpLin; t: GpTorus): IntAnaIntLinTorus {.
+proc constructIntAna_IntLinTorus*(L: gp_Lin; T: gp_Torus): IntAna_IntLinTorus {.
     constructor, importcpp: "IntAna_IntLinTorus(@)",
     header: "IntAna_IntLinTorus.hxx".}
-proc perform*(this: var IntAnaIntLinTorus; L: GpLin; t: GpTorus) {.importcpp: "Perform",
-    header: "IntAna_IntLinTorus.hxx".}
-proc isDone*(this: IntAnaIntLinTorus): StandardBoolean {.noSideEffect,
+proc Perform*(this: var IntAna_IntLinTorus; L: gp_Lin; T: gp_Torus) {.
+    importcpp: "Perform", header: "IntAna_IntLinTorus.hxx".}
+proc IsDone*(this: IntAna_IntLinTorus): Standard_Boolean {.noSideEffect,
     importcpp: "IsDone", header: "IntAna_IntLinTorus.hxx".}
-proc nbPoints*(this: IntAnaIntLinTorus): StandardInteger {.noSideEffect,
+proc NbPoints*(this: IntAna_IntLinTorus): Standard_Integer {.noSideEffect,
     importcpp: "NbPoints", header: "IntAna_IntLinTorus.hxx".}
-proc value*(this: IntAnaIntLinTorus; index: StandardInteger): GpPnt {.noSideEffect,
+proc Value*(this: IntAna_IntLinTorus; Index: Standard_Integer): gp_Pnt {.noSideEffect,
     importcpp: "Value", header: "IntAna_IntLinTorus.hxx".}
-proc paramOnLine*(this: IntAnaIntLinTorus; index: StandardInteger): StandardReal {.
+proc ParamOnLine*(this: IntAna_IntLinTorus; Index: Standard_Integer): Standard_Real {.
     noSideEffect, importcpp: "ParamOnLine", header: "IntAna_IntLinTorus.hxx".}
-proc paramOnTorus*(this: IntAnaIntLinTorus; index: StandardInteger;
-                  fi: var StandardReal; theta: var StandardReal) {.noSideEffect,
+proc ParamOnTorus*(this: IntAna_IntLinTorus; Index: Standard_Integer;
+                  FI: var Standard_Real; THETA: var Standard_Real) {.noSideEffect,
     importcpp: "ParamOnTorus", header: "IntAna_IntLinTorus.hxx".}
-

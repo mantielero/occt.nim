@@ -14,36 +14,42 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../TColStd/TColStd_IndexedMapOfTransient,
+  ../Standard/Standard_Integer, ../Standard/Standard_OStream,
+  ../Standard/Standard_IStream, ../Standard/Standard_Boolean,
+  ../Message/Message_ProgressRange
+
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of Geom_Curve"
 type
-  GeomToolsCurveSet* {.importcpp: "GeomTools_CurveSet",
-                      header: "GeomTools_CurveSet.hxx", bycopy.} = object ## ! Returns an empty set of Curves.
+  GeomTools_CurveSet* {.importcpp: "GeomTools_CurveSet",
+                       header: "GeomTools_CurveSet.hxx", bycopy.} = object ## ! Returns an empty set of Curves.
 
 
-proc constructGeomToolsCurveSet*(): GeomToolsCurveSet {.constructor,
+proc constructGeomTools_CurveSet*(): GeomTools_CurveSet {.constructor,
     importcpp: "GeomTools_CurveSet(@)", header: "GeomTools_CurveSet.hxx".}
-proc clear*(this: var GeomToolsCurveSet) {.importcpp: "Clear",
-                                       header: "GeomTools_CurveSet.hxx".}
-proc add*(this: var GeomToolsCurveSet; c: Handle[GeomCurve]): StandardInteger {.
+proc Clear*(this: var GeomTools_CurveSet) {.importcpp: "Clear",
+                                        header: "GeomTools_CurveSet.hxx".}
+proc Add*(this: var GeomTools_CurveSet; C: handle[Geom_Curve]): Standard_Integer {.
     importcpp: "Add", header: "GeomTools_CurveSet.hxx".}
-proc curve*(this: GeomToolsCurveSet; i: StandardInteger): Handle[GeomCurve] {.
+proc Curve*(this: GeomTools_CurveSet; I: Standard_Integer): handle[Geom_Curve] {.
     noSideEffect, importcpp: "Curve", header: "GeomTools_CurveSet.hxx".}
-proc index*(this: GeomToolsCurveSet; c: Handle[GeomCurve]): StandardInteger {.
+proc Index*(this: GeomTools_CurveSet; C: handle[Geom_Curve]): Standard_Integer {.
     noSideEffect, importcpp: "Index", header: "GeomTools_CurveSet.hxx".}
-proc dump*(this: GeomToolsCurveSet; os: var StandardOStream) {.noSideEffect,
+proc Dump*(this: GeomTools_CurveSet; OS: var Standard_OStream) {.noSideEffect,
     importcpp: "Dump", header: "GeomTools_CurveSet.hxx".}
-proc write*(this: GeomToolsCurveSet; os: var StandardOStream;
-           theProgress: MessageProgressRange = messageProgressRange()) {.
+proc Write*(this: GeomTools_CurveSet; OS: var Standard_OStream;
+           theProgress: Message_ProgressRange = Message_ProgressRange()) {.
     noSideEffect, importcpp: "Write", header: "GeomTools_CurveSet.hxx".}
-proc read*(this: var GeomToolsCurveSet; `is`: var StandardIStream;
-          theProgress: MessageProgressRange = messageProgressRange()) {.
+proc Read*(this: var GeomTools_CurveSet; IS: var Standard_IStream;
+          theProgress: Message_ProgressRange = Message_ProgressRange()) {.
     importcpp: "Read", header: "GeomTools_CurveSet.hxx".}
-proc printCurve*(c: Handle[GeomCurve]; os: var StandardOStream;
-                compact: StandardBoolean = standardFalse) {.
+proc PrintCurve*(C: handle[Geom_Curve]; OS: var Standard_OStream;
+                compact: Standard_Boolean = Standard_False) {.
     importcpp: "GeomTools_CurveSet::PrintCurve(@)",
     header: "GeomTools_CurveSet.hxx".}
-proc readCurve*(`is`: var StandardIStream): Handle[GeomCurve] {.
+proc ReadCurve*(IS: var Standard_IStream): handle[Geom_Curve] {.
     importcpp: "GeomTools_CurveSet::ReadCurve(@)",
     header: "GeomTools_CurveSet.hxx".}
-

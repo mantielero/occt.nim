@@ -1,654 +1,137 @@
+##  Copyright (c) 2020 OPEN CASCADE SAS
+##
+##  This file is part of Open CASCADE Technology software library.
+##
+##  This library is free software; you can redistribute it and/or modify it under
+##  the terms of the GNU Lesser General Public License version 2.1 as published
+##  by the Free Software Foundation, with special exception defined in the file
+##  OCCT_LGPL_EXCEPTION.txt. Consult the file LICENSE_LGPL_21.txt included in OCCT
+##  distribution for complete text of the license and disclaimer of any warranty.
+##
+##  Alternatively, this file may be used under the terms of Open CASCADE
+##  commercial license or contractual agreement.
+
+## !!!Ignored construct:  # _OpenGl_GLESExtensions_Header [NewLine] # _OpenGl_GLESExtensions_Header [NewLine]  define items to unify code paths with desktop OpenGL typedef double GLdouble ;
+## Error: did not expect [NewLine]!!!
+
 type
-  GLdouble* = cdouble
   GLclampd* = cdouble
 
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLREADBUFFERPROC ) ( GLenum src ) ;
-## Error: token expected: :: but got: *!!!
+##  GL_EXT_sRGB_write_control extension for OpenGL ES
+##  adds GL_FRAMEBUFFER_SRGB_EXT flag as on desktop OpenGL
+
+const
+  GL_FRAMEBUFFER_SRGB* = 0x8DB9
+
+##  OpenGL ES 3.1+
+
+const
+  GL_TEXTURE_2D_MULTISAMPLE* = 0x9100
+
+##  OpenGL ES 3.2+ or GL_EXT_texture_buffer for OpenGL ES 3.1+
+
+const
+  GL_TEXTURE_BUFFER* = 0x8C2A
+
+##  in core since OpenGL ES 3.0, extension GL_OES_rgb8_rgba8
+
+const
+  GL_LUMINANCE8* = 0x8040
+
+##  GL_EXT_texture_format_BGRA8888
+
+const
+  GL_BGRA_EXT* = 0x80E1
+  GL_R16* = 0x822A
+  GL_RGB4* = 0x804F
+  GL_RGB5* = 0x8050
+  GL_RGB10* = 0x8052
+  GL_RGB12* = 0x8053
+  GL_RGB16* = 0x8054
+  GL_RGB10_A2* = 0x8059
+  GL_RGBA12* = 0x805A
+  GL_RGBA16* = 0x805B
+  GL_ALPHA8* = 0x803C
+  GL_ALPHA16* = 0x803E
+  GL_RG16* = 0x822C
+  GL_R16_SNORM* = 0x8F98
+  GL_RG16_SNORM* = 0x8F99
+  GL_RGB16_SNORM* = 0x8F9A
+  GL_RGBA16_SNORM* = 0x8F9B
+  GL_RED_SNORM* = 0x8F90
+  GL_RG_SNORM* = 0x8F91
+  GL_RGB_SNORM* = 0x8F92
+  GL_RGBA_SNORM* = 0x8F93
+
+##  GL_EXT_texture_filter_anisotropic
+
+const
+  GL_TEXTURE_MAX_ANISOTROPY_EXT* = 0x84FE
+  GL_MAX_TEXTURE_MAX_ANISOTROPY_EXT* = 0x84FF
+
+##  debug ARB extension
+
+const
+  GL_DEBUG_OUTPUT* = 0x92E0
+  GL_DEBUG_OUTPUT_SYNCHRONOUS* = 0x8242
+  GL_DEBUG_NEXT_LOGGED_MESSAGE_LENGTH* = 0x8243
+  GL_DEBUG_CALLBACK_FUNCTION* = 0x8244
+  GL_DEBUG_CALLBACK_USER_PARAM* = 0x8245
+  GL_DEBUG_SOURCE_API* = 0x8246
+  GL_DEBUG_SOURCE_WINDOW_SYSTEM* = 0x8247
+  GL_DEBUG_SOURCE_SHADER_COMPILER* = 0x8248
+  GL_DEBUG_SOURCE_THIRD_PARTY* = 0x8249
+  GL_DEBUG_SOURCE_APPLICATION* = 0x824A
+  GL_DEBUG_SOURCE_OTHER* = 0x824B
+  GL_DEBUG_TYPE_ERROR* = 0x824C
+  GL_DEBUG_TYPE_DEPRECATED_BEHAVIOR* = 0x824D
+  GL_DEBUG_TYPE_UNDEFINED_BEHAVIOR* = 0x824E
+  GL_DEBUG_TYPE_PORTABILITY* = 0x824F
+  GL_DEBUG_TYPE_PERFORMANCE* = 0x8250
+  GL_DEBUG_TYPE_OTHER* = 0x8251
+  GL_MAX_DEBUG_MESSAGE_LENGTH* = 0x9143
+  GL_MAX_DEBUG_LOGGED_MESSAGES* = 0x9144
+  GL_DEBUG_LOGGED_MESSAGES* = 0x9145
+  GL_DEBUG_SEVERITY_HIGH* = 0x9146
+  GL_DEBUG_SEVERITY_MEDIUM* = 0x9147
+  GL_DEBUG_SEVERITY_LOW* = 0x9148
+
+##  OpenGL ES 3.0+ or OES_texture_half_float
+
+const
+  GL_HALF_FLOAT_OES* = 0x8D61
+
+##  OpenGL ES 3.1+
+
+const
+  GL_COMPUTE_SHADER* = 0x91B9
+
+##  OpenGL ES 3.2+
+
+const
+  GL_GEOMETRY_SHADER* = 0x8DD9
+  GL_TESS_CONTROL_SHADER* = 0x8E88
+  GL_TESS_EVALUATION_SHADER* = 0x8E87
+  GL_LINES_ADJACENCY* = 0x000A
+  GL_LINE_STRIP_ADJACENCY* = 0x000B
+  GL_TRIANGLES_ADJACENCY* = 0x000C
+  GL_TRIANGLE_STRIP_ADJACENCY* = 0x000D
+  GL_PATCHES* = 0x000E
+
+##  GL_EXT_texture_compression_s3tc extension
 
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLDRAWRANGEELEMENTSPROC ) ( GLenum mode , GLuint start , GLuint end , GLsizei count , GLenum type , const void * indices ) ;
-## Error: token expected: :: but got: *!!!
+const
+  GL_COMPRESSED_RGB_S3TC_DXT1_EXT* = 0x83F0
+  GL_COMPRESSED_RGBA_S3TC_DXT1_EXT* = 0x83F1
+  GL_COMPRESSED_RGBA_S3TC_DXT3_EXT* = 0x83F2
+  GL_COMPRESSED_RGBA_S3TC_DXT5_EXT* = 0x83F3
 
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLTEXIMAGE3DPROC ) ( GLenum target , GLint level , GLint internalformat , GLsizei width , GLsizei height , GLsizei depth , GLint border , GLenum format , GLenum type , const void * pixels ) ;
-## Error: token expected: :: but got: *!!!
 
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLTEXSUBIMAGE3DPROC ) ( GLenum target , GLint level , GLint xoffset , GLint yoffset , GLint zoffset , GLsizei width , GLsizei height , GLsizei depth , GLenum format , GLenum type , const void * pixels ) ;
-## Error: token expected: :: but got: *!!!
+const
+  GL_COMPRESSED_SRGB_S3TC_DXT1_EXT* = 0x8C4C
+  GL_COMPRESSED_SRGB_ALPHA_S3TC_DXT1_EXT* = 0x8C4D
+  GL_COMPRESSED_SRGB_ALPHA_S3TC_DXT3_EXT* = 0x8C4E
+  GL_COMPRESSED_SRGB_ALPHA_S3TC_DXT5_EXT* = 0x8C4F
 
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLCOPYTEXSUBIMAGE3DPROC ) ( GLenum target , GLint level , GLint xoffset , GLint yoffset , GLint zoffset , GLint x , GLint y , GLsizei width , GLsizei height ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLCOMPRESSEDTEXIMAGE3DPROC ) ( GLenum target , GLint level , GLenum internalformat , GLsizei width , GLsizei height , GLsizei depth , GLint border , GLsizei imageSize , const void * data ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLCOMPRESSEDTEXSUBIMAGE3DPROC ) ( GLenum target , GLint level , GLint xoffset , GLint yoffset , GLint zoffset , GLsizei width , GLsizei height , GLsizei depth , GLenum format , GLsizei imageSize , const void * data ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLGENQUERIESPROC ) ( GLsizei n , GLuint * ids ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLDELETEQUERIESPROC ) ( GLsizei n , const GLuint * ids ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef GLboolean ( GL_APIENTRY * PFNGLISQUERYPROC ) ( GLuint id ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLBEGINQUERYPROC ) ( GLenum target , GLuint id ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLENDQUERYPROC ) ( GLenum target ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLGETQUERYIVPROC ) ( GLenum target , GLenum pname , GLint * params ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLGETQUERYOBJECTUIVPROC ) ( GLuint id , GLenum pname , GLuint * params ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef GLboolean ( GL_APIENTRY * PFNGLUNMAPBUFFERPROC ) ( GLenum target ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLGETBUFFERPOINTERVPROC ) ( GLenum target , GLenum pname , void * * params ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLDRAWBUFFERSPROC ) ( GLsizei n , const GLenum * bufs ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLUNIFORMMATRIX2X3FVPROC ) ( GLint location , GLsizei count , GLboolean transpose , const GLfloat * value ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLUNIFORMMATRIX3X2FVPROC ) ( GLint location , GLsizei count , GLboolean transpose , const GLfloat * value ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLUNIFORMMATRIX2X4FVPROC ) ( GLint location , GLsizei count , GLboolean transpose , const GLfloat * value ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLUNIFORMMATRIX4X2FVPROC ) ( GLint location , GLsizei count , GLboolean transpose , const GLfloat * value ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLUNIFORMMATRIX3X4FVPROC ) ( GLint location , GLsizei count , GLboolean transpose , const GLfloat * value ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLUNIFORMMATRIX4X3FVPROC ) ( GLint location , GLsizei count , GLboolean transpose , const GLfloat * value ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLBLITFRAMEBUFFERPROC ) ( GLint srcX0 , GLint srcY0 , GLint srcX1 , GLint srcY1 , GLint dstX0 , GLint dstY0 , GLint dstX1 , GLint dstY1 , GLbitfield mask , GLenum filter ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLRENDERBUFFERSTORAGEMULTISAMPLEPROC ) ( GLenum target , GLsizei samples , GLenum internalformat , GLsizei width , GLsizei height ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLFRAMEBUFFERTEXTURELAYERPROC ) ( GLenum target , GLenum attachment , GLuint texture , GLint level , GLint layer ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void * ( GL_APIENTRY * PFNGLMAPBUFFERRANGEPROC ) ( GLenum target , GLintptr offset , GLsizeiptr length , GLbitfield access ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLFLUSHMAPPEDBUFFERRANGEPROC ) ( GLenum target , GLintptr offset , GLsizeiptr length ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLBINDVERTEXARRAYPROC ) ( GLuint array ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLDELETEVERTEXARRAYSPROC ) ( GLsizei n , const GLuint * arrays ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLGENVERTEXARRAYSPROC ) ( GLsizei n , GLuint * arrays ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef GLboolean ( GL_APIENTRY * PFNGLISVERTEXARRAYPROC ) ( GLuint array ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLGETINTEGERI_VPROC ) ( GLenum target , GLuint index , GLint * data ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLBEGINTRANSFORMFEEDBACKPROC ) ( GLenum primitiveMode ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLENDTRANSFORMFEEDBACKPROC ) ( void ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLBINDBUFFERRANGEPROC ) ( GLenum target , GLuint index , GLuint buffer , GLintptr offset , GLsizeiptr size ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLBINDBUFFERBASEPROC ) ( GLenum target , GLuint index , GLuint buffer ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLTRANSFORMFEEDBACKVARYINGSPROC ) ( GLuint program , GLsizei count , const GLchar * const * varyings , GLenum bufferMode ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLGETTRANSFORMFEEDBACKVARYINGPROC ) ( GLuint program , GLuint index , GLsizei bufSize , GLsizei * length , GLsizei * size , GLenum * type , GLchar * name ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLVERTEXATTRIBIPOINTERPROC ) ( GLuint index , GLint size , GLenum type , GLsizei stride , const void * pointer ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLGETVERTEXATTRIBIIVPROC ) ( GLuint index , GLenum pname , GLint * params ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLGETVERTEXATTRIBIUIVPROC ) ( GLuint index , GLenum pname , GLuint * params ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLVERTEXATTRIBI4IPROC ) ( GLuint index , GLint x , GLint y , GLint z , GLint w ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLVERTEXATTRIBI4UIPROC ) ( GLuint index , GLuint x , GLuint y , GLuint z , GLuint w ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLVERTEXATTRIBI4IVPROC ) ( GLuint index , const GLint * v ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLVERTEXATTRIBI4UIVPROC ) ( GLuint index , const GLuint * v ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLGETUNIFORMUIVPROC ) ( GLuint program , GLint location , GLuint * params ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef GLint ( GL_APIENTRY * PFNGLGETFRAGDATALOCATIONPROC ) ( GLuint program , const GLchar * name ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLUNIFORM1UIPROC ) ( GLint location , GLuint v0 ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLUNIFORM2UIPROC ) ( GLint location , GLuint v0 , GLuint v1 ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLUNIFORM3UIPROC ) ( GLint location , GLuint v0 , GLuint v1 , GLuint v2 ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLUNIFORM4UIPROC ) ( GLint location , GLuint v0 , GLuint v1 , GLuint v2 , GLuint v3 ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLUNIFORM1UIVPROC ) ( GLint location , GLsizei count , const GLuint * value ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLUNIFORM2UIVPROC ) ( GLint location , GLsizei count , const GLuint * value ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLUNIFORM3UIVPROC ) ( GLint location , GLsizei count , const GLuint * value ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLUNIFORM4UIVPROC ) ( GLint location , GLsizei count , const GLuint * value ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLCLEARBUFFERIVPROC ) ( GLenum buffer , GLint drawbuffer , const GLint * value ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLCLEARBUFFERUIVPROC ) ( GLenum buffer , GLint drawbuffer , const GLuint * value ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLCLEARBUFFERFVPROC ) ( GLenum buffer , GLint drawbuffer , const GLfloat * value ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLCLEARBUFFERFIPROC ) ( GLenum buffer , GLint drawbuffer , GLfloat depth , GLint stencil ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef const GLubyte * ( GL_APIENTRY * PFNGLGETSTRINGIPROC ) ( GLenum name , GLuint index ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLCOPYBUFFERSUBDATAPROC ) ( GLenum readTarget , GLenum writeTarget , GLintptr readOffset , GLintptr writeOffset , GLsizeiptr size ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLGETUNIFORMINDICESPROC ) ( GLuint program , GLsizei uniformCount , const GLchar * const * uniformNames , GLuint * uniformIndices ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLGETACTIVEUNIFORMSIVPROC ) ( GLuint program , GLsizei uniformCount , const GLuint * uniformIndices , GLenum pname , GLint * params ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef GLuint ( GL_APIENTRY * PFNGLGETUNIFORMBLOCKINDEXPROC ) ( GLuint program , const GLchar * uniformBlockName ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLGETACTIVEUNIFORMBLOCKIVPROC ) ( GLuint program , GLuint uniformBlockIndex , GLenum pname , GLint * params ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLGETACTIVEUNIFORMBLOCKNAMEPROC ) ( GLuint program , GLuint uniformBlockIndex , GLsizei bufSize , GLsizei * length , GLchar * uniformBlockName ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLUNIFORMBLOCKBINDINGPROC ) ( GLuint program , GLuint uniformBlockIndex , GLuint uniformBlockBinding ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLDRAWARRAYSINSTANCEDPROC ) ( GLenum mode , GLint first , GLsizei count , GLsizei instancecount ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLDRAWELEMENTSINSTANCEDPROC ) ( GLenum mode , GLsizei count , GLenum type , const void * indices , GLsizei instancecount ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef GLsync ( GL_APIENTRY * PFNGLFENCESYNCPROC ) ( GLenum condition , GLbitfield flags ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef GLboolean ( GL_APIENTRY * PFNGLISSYNCPROC ) ( GLsync sync ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLDELETESYNCPROC ) ( GLsync sync ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef GLenum ( GL_APIENTRY * PFNGLCLIENTWAITSYNCPROC ) ( GLsync sync , GLbitfield flags , GLuint64 timeout ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLWAITSYNCPROC ) ( GLsync sync , GLbitfield flags , GLuint64 timeout ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLGETINTEGER64VPROC ) ( GLenum pname , GLint64 * data ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLGETSYNCIVPROC ) ( GLsync sync , GLenum pname , GLsizei bufSize , GLsizei * length , GLint * values ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLGETINTEGER64I_VPROC ) ( GLenum target , GLuint index , GLint64 * data ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLGETBUFFERPARAMETERI64VPROC ) ( GLenum target , GLenum pname , GLint64 * params ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLGENSAMPLERSPROC ) ( GLsizei count , GLuint * samplers ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLDELETESAMPLERSPROC ) ( GLsizei count , const GLuint * samplers ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef GLboolean ( GL_APIENTRY * PFNGLISSAMPLERPROC ) ( GLuint sampler ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLBINDSAMPLERPROC ) ( GLuint unit , GLuint sampler ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLSAMPLERPARAMETERIPROC ) ( GLuint sampler , GLenum pname , GLint param ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLSAMPLERPARAMETERIVPROC ) ( GLuint sampler , GLenum pname , const GLint * param ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLSAMPLERPARAMETERFPROC ) ( GLuint sampler , GLenum pname , GLfloat param ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLSAMPLERPARAMETERFVPROC ) ( GLuint sampler , GLenum pname , const GLfloat * param ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLGETSAMPLERPARAMETERIVPROC ) ( GLuint sampler , GLenum pname , GLint * params ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLGETSAMPLERPARAMETERFVPROC ) ( GLuint sampler , GLenum pname , GLfloat * params ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLVERTEXATTRIBDIVISORPROC ) ( GLuint index , GLuint divisor ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLBINDTRANSFORMFEEDBACKPROC ) ( GLenum target , GLuint id ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLDELETETRANSFORMFEEDBACKSPROC ) ( GLsizei n , const GLuint * ids ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLGENTRANSFORMFEEDBACKSPROC ) ( GLsizei n , GLuint * ids ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef GLboolean ( GL_APIENTRY * PFNGLISTRANSFORMFEEDBACKPROC ) ( GLuint id ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLPAUSETRANSFORMFEEDBACKPROC ) ( void ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLRESUMETRANSFORMFEEDBACKPROC ) ( void ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLGETPROGRAMBINARYPROC ) ( GLuint program , GLsizei bufSize , GLsizei * length , GLenum * binaryFormat , void * binary ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLPROGRAMBINARYPROC ) ( GLuint program , GLenum binaryFormat , const void * binary , GLsizei length ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLPROGRAMPARAMETERIPROC ) ( GLuint program , GLenum pname , GLint value ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLINVALIDATEFRAMEBUFFERPROC ) ( GLenum target , GLsizei numAttachments , const GLenum * attachments ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLINVALIDATESUBFRAMEBUFFERPROC ) ( GLenum target , GLsizei numAttachments , const GLenum * attachments , GLint x , GLint y , GLsizei width , GLsizei height ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLTEXSTORAGE2DPROC ) ( GLenum target , GLsizei levels , GLenum internalformat , GLsizei width , GLsizei height ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLTEXSTORAGE3DPROC ) ( GLenum target , GLsizei levels , GLenum internalformat , GLsizei width , GLsizei height , GLsizei depth ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLGETINTERNALFORMATIVPROC ) ( GLenum target , GLenum internalformat , GLenum pname , GLsizei bufSize , GLint * params ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLDISPATCHCOMPUTEPROC ) ( GLuint num_groups_x , GLuint num_groups_y , GLuint num_groups_z ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLDISPATCHCOMPUTEINDIRECTPROC ) ( GLintptr indirect ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLDRAWARRAYSINDIRECTPROC ) ( GLenum mode , const void * indirect ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLDRAWELEMENTSINDIRECTPROC ) ( GLenum mode , GLenum type , const void * indirect ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLFRAMEBUFFERPARAMETERIPROC ) ( GLenum target , GLenum pname , GLint param ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLGETFRAMEBUFFERPARAMETERIVPROC ) ( GLenum target , GLenum pname , GLint * params ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLGETPROGRAMINTERFACEIVPROC ) ( GLuint program , GLenum programInterface , GLenum pname , GLint * params ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef GLuint ( GL_APIENTRY * PFNGLGETPROGRAMRESOURCEINDEXPROC ) ( GLuint program , GLenum programInterface , const GLchar * name ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLGETPROGRAMRESOURCENAMEPROC ) ( GLuint program , GLenum programInterface , GLuint index , GLsizei bufSize , GLsizei * length , GLchar * name ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLGETPROGRAMRESOURCEIVPROC ) ( GLuint program , GLenum programInterface , GLuint index , GLsizei propCount , const GLenum * props , GLsizei bufSize , GLsizei * length , GLint * params ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef GLint ( GL_APIENTRY * PFNGLGETPROGRAMRESOURCELOCATIONPROC ) ( GLuint program , GLenum programInterface , const GLchar * name ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLUSEPROGRAMSTAGESPROC ) ( GLuint pipeline , GLbitfield stages , GLuint program ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLACTIVESHADERPROGRAMPROC ) ( GLuint pipeline , GLuint program ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef GLuint ( GL_APIENTRY * PFNGLCREATESHADERPROGRAMVPROC ) ( GLenum type , GLsizei count , const GLchar * const * strings ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLBINDPROGRAMPIPELINEPROC ) ( GLuint pipeline ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLDELETEPROGRAMPIPELINESPROC ) ( GLsizei n , const GLuint * pipelines ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLGENPROGRAMPIPELINESPROC ) ( GLsizei n , GLuint * pipelines ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef GLboolean ( GL_APIENTRY * PFNGLISPROGRAMPIPELINEPROC ) ( GLuint pipeline ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLGETPROGRAMPIPELINEIVPROC ) ( GLuint pipeline , GLenum pname , GLint * params ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLPROGRAMUNIFORM1IPROC ) ( GLuint program , GLint location , GLint v0 ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLPROGRAMUNIFORM2IPROC ) ( GLuint program , GLint location , GLint v0 , GLint v1 ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLPROGRAMUNIFORM3IPROC ) ( GLuint program , GLint location , GLint v0 , GLint v1 , GLint v2 ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLPROGRAMUNIFORM4IPROC ) ( GLuint program , GLint location , GLint v0 , GLint v1 , GLint v2 , GLint v3 ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLPROGRAMUNIFORM1UIPROC ) ( GLuint program , GLint location , GLuint v0 ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLPROGRAMUNIFORM2UIPROC ) ( GLuint program , GLint location , GLuint v0 , GLuint v1 ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLPROGRAMUNIFORM3UIPROC ) ( GLuint program , GLint location , GLuint v0 , GLuint v1 , GLuint v2 ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLPROGRAMUNIFORM4UIPROC ) ( GLuint program , GLint location , GLuint v0 , GLuint v1 , GLuint v2 , GLuint v3 ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLPROGRAMUNIFORM1FPROC ) ( GLuint program , GLint location , GLfloat v0 ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLPROGRAMUNIFORM2FPROC ) ( GLuint program , GLint location , GLfloat v0 , GLfloat v1 ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLPROGRAMUNIFORM3FPROC ) ( GLuint program , GLint location , GLfloat v0 , GLfloat v1 , GLfloat v2 ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLPROGRAMUNIFORM4FPROC ) ( GLuint program , GLint location , GLfloat v0 , GLfloat v1 , GLfloat v2 , GLfloat v3 ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLPROGRAMUNIFORM1IVPROC ) ( GLuint program , GLint location , GLsizei count , const GLint * value ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLPROGRAMUNIFORM2IVPROC ) ( GLuint program , GLint location , GLsizei count , const GLint * value ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLPROGRAMUNIFORM3IVPROC ) ( GLuint program , GLint location , GLsizei count , const GLint * value ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLPROGRAMUNIFORM4IVPROC ) ( GLuint program , GLint location , GLsizei count , const GLint * value ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLPROGRAMUNIFORM1UIVPROC ) ( GLuint program , GLint location , GLsizei count , const GLuint * value ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLPROGRAMUNIFORM2UIVPROC ) ( GLuint program , GLint location , GLsizei count , const GLuint * value ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLPROGRAMUNIFORM3UIVPROC ) ( GLuint program , GLint location , GLsizei count , const GLuint * value ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLPROGRAMUNIFORM4UIVPROC ) ( GLuint program , GLint location , GLsizei count , const GLuint * value ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLPROGRAMUNIFORM1FVPROC ) ( GLuint program , GLint location , GLsizei count , const GLfloat * value ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLPROGRAMUNIFORM2FVPROC ) ( GLuint program , GLint location , GLsizei count , const GLfloat * value ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLPROGRAMUNIFORM3FVPROC ) ( GLuint program , GLint location , GLsizei count , const GLfloat * value ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLPROGRAMUNIFORM4FVPROC ) ( GLuint program , GLint location , GLsizei count , const GLfloat * value ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLPROGRAMUNIFORMMATRIX2FVPROC ) ( GLuint program , GLint location , GLsizei count , GLboolean transpose , const GLfloat * value ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLPROGRAMUNIFORMMATRIX3FVPROC ) ( GLuint program , GLint location , GLsizei count , GLboolean transpose , const GLfloat * value ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLPROGRAMUNIFORMMATRIX4FVPROC ) ( GLuint program , GLint location , GLsizei count , GLboolean transpose , const GLfloat * value ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLPROGRAMUNIFORMMATRIX2X3FVPROC ) ( GLuint program , GLint location , GLsizei count , GLboolean transpose , const GLfloat * value ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLPROGRAMUNIFORMMATRIX3X2FVPROC ) ( GLuint program , GLint location , GLsizei count , GLboolean transpose , const GLfloat * value ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLPROGRAMUNIFORMMATRIX2X4FVPROC ) ( GLuint program , GLint location , GLsizei count , GLboolean transpose , const GLfloat * value ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLPROGRAMUNIFORMMATRIX4X2FVPROC ) ( GLuint program , GLint location , GLsizei count , GLboolean transpose , const GLfloat * value ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLPROGRAMUNIFORMMATRIX3X4FVPROC ) ( GLuint program , GLint location , GLsizei count , GLboolean transpose , const GLfloat * value ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLPROGRAMUNIFORMMATRIX4X3FVPROC ) ( GLuint program , GLint location , GLsizei count , GLboolean transpose , const GLfloat * value ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLVALIDATEPROGRAMPIPELINEPROC ) ( GLuint pipeline ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLGETPROGRAMPIPELINEINFOLOGPROC ) ( GLuint pipeline , GLsizei bufSize , GLsizei * length , GLchar * infoLog ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLBINDIMAGETEXTUREPROC ) ( GLuint unit , GLuint texture , GLint level , GLboolean layered , GLint layer , GLenum access , GLenum format ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLGETBOOLEANI_VPROC ) ( GLenum target , GLuint index , GLboolean * data ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLMEMORYBARRIERPROC ) ( GLbitfield barriers ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLMEMORYBARRIERBYREGIONPROC ) ( GLbitfield barriers ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLTEXSTORAGE2DMULTISAMPLEPROC ) ( GLenum target , GLsizei samples , GLenum internalformat , GLsizei width , GLsizei height , GLboolean fixedsamplelocations ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLGETMULTISAMPLEFVPROC ) ( GLenum pname , GLuint index , GLfloat * val ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLSAMPLEMASKIPROC ) ( GLuint maskNumber , GLbitfield mask ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLGETTEXLEVELPARAMETERIVPROC ) ( GLenum target , GLint level , GLenum pname , GLint * params ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLGETTEXLEVELPARAMETERFVPROC ) ( GLenum target , GLint level , GLenum pname , GLfloat * params ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLBINDVERTEXBUFFERPROC ) ( GLuint bindingindex , GLuint buffer , GLintptr offset , GLsizei stride ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLVERTEXATTRIBFORMATPROC ) ( GLuint attribindex , GLint size , GLenum type , GLboolean normalized , GLuint relativeoffset ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLVERTEXATTRIBIFORMATPROC ) ( GLuint attribindex , GLint size , GLenum type , GLuint relativeoffset ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLVERTEXATTRIBBINDINGPROC ) ( GLuint attribindex , GLuint bindingindex ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLVERTEXBINDINGDIVISORPROC ) ( GLuint bindingindex , GLuint divisor ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * GLDEBUGPROC ) ( GLenum source , GLenum type , GLuint id , GLenum severity , GLsizei length , const GLchar * message , const void * userParam ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLBLENDBARRIERPROC ) ( void ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLCOPYIMAGESUBDATAPROC ) ( GLuint srcName , GLenum srcTarget , GLint srcLevel , GLint srcX , GLint srcY , GLint srcZ , GLuint dstName , GLenum dstTarget , GLint dstLevel , GLint dstX , GLint dstY , GLint dstZ , GLsizei srcWidth , GLsizei srcHeight , GLsizei srcDepth ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLDEBUGMESSAGECONTROLPROC ) ( GLenum source , GLenum type , GLenum severity , GLsizei count , const GLuint * ids , GLboolean enabled ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLDEBUGMESSAGEINSERTPROC ) ( GLenum source , GLenum type , GLuint id , GLenum severity , GLsizei length , const GLchar * buf ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLDEBUGMESSAGECALLBACKPROC ) ( GLDEBUGPROC callback , const void * userParam ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef GLuint ( GL_APIENTRY * PFNGLGETDEBUGMESSAGELOGPROC ) ( GLuint count , GLsizei bufSize , GLenum * sources , GLenum * types , GLuint * ids , GLenum * severities , GLsizei * lengths , GLchar * messageLog ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLPUSHDEBUGGROUPPROC ) ( GLenum source , GLuint id , GLsizei length , const GLchar * message ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLPOPDEBUGGROUPPROC ) ( void ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLOBJECTLABELPROC ) ( GLenum identifier , GLuint name , GLsizei length , const GLchar * label ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLGETOBJECTLABELPROC ) ( GLenum identifier , GLuint name , GLsizei bufSize , GLsizei * length , GLchar * label ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLOBJECTPTRLABELPROC ) ( const void * ptr , GLsizei length , const GLchar * label ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLGETOBJECTPTRLABELPROC ) ( const void * ptr , GLsizei bufSize , GLsizei * length , GLchar * label ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLGETPOINTERVPROC ) ( GLenum pname , void * * params ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLENABLEIPROC ) ( GLenum target , GLuint index ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLDISABLEIPROC ) ( GLenum target , GLuint index ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLBLENDEQUATIONIPROC ) ( GLuint buf , GLenum mode ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLBLENDEQUATIONSEPARATEIPROC ) ( GLuint buf , GLenum modeRGB , GLenum modeAlpha ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLBLENDFUNCIPROC ) ( GLuint buf , GLenum src , GLenum dst ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLBLENDFUNCSEPARATEIPROC ) ( GLuint buf , GLenum srcRGB , GLenum dstRGB , GLenum srcAlpha , GLenum dstAlpha ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLCOLORMASKIPROC ) ( GLuint index , GLboolean r , GLboolean g , GLboolean b , GLboolean a ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef GLboolean ( GL_APIENTRY * PFNGLISENABLEDIPROC ) ( GLenum target , GLuint index ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLDRAWELEMENTSBASEVERTEXPROC ) ( GLenum mode , GLsizei count , GLenum type , const void * indices , GLint basevertex ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLDRAWRANGEELEMENTSBASEVERTEXPROC ) ( GLenum mode , GLuint start , GLuint end , GLsizei count , GLenum type , const void * indices , GLint basevertex ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLDRAWELEMENTSINSTANCEDBASEVERTEXPROC ) ( GLenum mode , GLsizei count , GLenum type , const void * indices , GLsizei instancecount , GLint basevertex ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLFRAMEBUFFERTEXTUREPROC ) ( GLenum target , GLenum attachment , GLuint texture , GLint level ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLPRIMITIVEBOUNDINGBOXPROC ) ( GLfloat minX , GLfloat minY , GLfloat minZ , GLfloat minW , GLfloat maxX , GLfloat maxY , GLfloat maxZ , GLfloat maxW ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef GLenum ( GL_APIENTRY * PFNGLGETGRAPHICSRESETSTATUSPROC ) ( void ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLREADNPIXELSPROC ) ( GLint x , GLint y , GLsizei width , GLsizei height , GLenum format , GLenum type , GLsizei bufSize , void * data ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLGETNUNIFORMFVPROC ) ( GLuint program , GLint location , GLsizei bufSize , GLfloat * params ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLGETNUNIFORMIVPROC ) ( GLuint program , GLint location , GLsizei bufSize , GLint * params ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLGETNUNIFORMUIVPROC ) ( GLuint program , GLint location , GLsizei bufSize , GLuint * params ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLMINSAMPLESHADINGPROC ) ( GLfloat value ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLPATCHPARAMETERIPROC ) ( GLenum pname , GLint value ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLTEXPARAMETERIIVPROC ) ( GLenum target , GLenum pname , const GLint * params ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLTEXPARAMETERIUIVPROC ) ( GLenum target , GLenum pname , const GLuint * params ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLGETTEXPARAMETERIIVPROC ) ( GLenum target , GLenum pname , GLint * params ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLGETTEXPARAMETERIUIVPROC ) ( GLenum target , GLenum pname , GLuint * params ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLSAMPLERPARAMETERIIVPROC ) ( GLuint sampler , GLenum pname , const GLint * param ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLSAMPLERPARAMETERIUIVPROC ) ( GLuint sampler , GLenum pname , const GLuint * param ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLGETSAMPLERPARAMETERIIVPROC ) ( GLuint sampler , GLenum pname , GLint * params ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLGETSAMPLERPARAMETERIUIVPROC ) ( GLuint sampler , GLenum pname , GLuint * params ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLTEXBUFFERPROC ) ( GLenum target , GLenum internalformat , GLuint buffer ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLTEXBUFFERRANGEPROC ) ( GLenum target , GLenum internalformat , GLuint buffer , GLintptr offset , GLsizeiptr size ) ;
-## Error: token expected: :: but got: *!!!
-
-## !!!Ignored construct:  typedef void ( GL_APIENTRY * PFNGLTEXSTORAGE3DMULTISAMPLEPROC ) ( GLenum target , GLsizei samples , GLenum internalformat , GLsizei width , GLsizei height , GLsizei depth , GLboolean fixedsamplelocations ) ;
-## Error: token expected: :: but got: *!!!
+## !!!Ignored construct:  # GL_APIENTRYP [NewLine] # GL_APIENTRYP GL_APIENTRY * [NewLine] # [NewLine]  put into namespace to avoid collisions with system headers namespace opencascade { #ifndef GL_ES_VERSION_3_0 typedef void ( GL_APIENTRYP PFNGLREADBUFFERPROC ) ( GLenum src ) ; typedef void ( GL_APIENTRYP PFNGLDRAWRANGEELEMENTSPROC ) ( GLenum mode , GLuint start , GLuint end , GLsizei count , GLenum type , const void * indices ) ; typedef void ( GL_APIENTRYP PFNGLTEXIMAGE3DPROC ) ( GLenum target , GLint level , GLint internalformat , GLsizei width , GLsizei height , GLsizei depth , GLint border , GLenum format , GLenum type , const void * pixels ) ; typedef void ( GL_APIENTRYP PFNGLTEXSUBIMAGE3DPROC ) ( GLenum target , GLint level , GLint xoffset , GLint yoffset , GLint zoffset , GLsizei width , GLsizei height , GLsizei depth , GLenum format , GLenum type , const void * pixels ) ; typedef void ( GL_APIENTRYP PFNGLCOPYTEXSUBIMAGE3DPROC ) ( GLenum target , GLint level , GLint xoffset , GLint yoffset , GLint zoffset , GLint x , GLint y , GLsizei width , GLsizei height ) ; typedef void ( GL_APIENTRYP PFNGLCOMPRESSEDTEXIMAGE3DPROC ) ( GLenum target , GLint level , GLenum internalformat , GLsizei width , GLsizei height , GLsizei depth , GLint border , GLsizei imageSize , const void * data ) ; typedef void ( GL_APIENTRYP PFNGLCOMPRESSEDTEXSUBIMAGE3DPROC ) ( GLenum target , GLint level , GLint xoffset , GLint yoffset , GLint zoffset , GLsizei width , GLsizei height , GLsizei depth , GLenum format , GLsizei imageSize , const void * data ) ; typedef void ( GL_APIENTRYP PFNGLGENQUERIESPROC ) ( GLsizei n , GLuint * ids ) ; typedef void ( GL_APIENTRYP PFNGLDELETEQUERIESPROC ) ( GLsizei n , const GLuint * ids ) ; typedef GLboolean ( GL_APIENTRYP PFNGLISQUERYPROC ) ( GLuint id ) ; typedef void ( GL_APIENTRYP PFNGLBEGINQUERYPROC ) ( GLenum target , GLuint id ) ; typedef void ( GL_APIENTRYP PFNGLENDQUERYPROC ) ( GLenum target ) ; typedef void ( GL_APIENTRYP PFNGLGETQUERYIVPROC ) ( GLenum target , GLenum pname , GLint * params ) ; typedef void ( GL_APIENTRYP PFNGLGETQUERYOBJECTUIVPROC ) ( GLuint id , GLenum pname , GLuint * params ) ; typedef GLboolean ( GL_APIENTRYP PFNGLUNMAPBUFFERPROC ) ( GLenum target ) ; typedef void ( GL_APIENTRYP PFNGLGETBUFFERPOINTERVPROC ) ( GLenum target , GLenum pname , void * * params ) ; typedef void ( GL_APIENTRYP PFNGLDRAWBUFFERSPROC ) ( GLsizei n , const GLenum * bufs ) ; typedef void ( GL_APIENTRYP PFNGLUNIFORMMATRIX2X3FVPROC ) ( GLint location , GLsizei count , GLboolean transpose , const GLfloat * value ) ; typedef void ( GL_APIENTRYP PFNGLUNIFORMMATRIX3X2FVPROC ) ( GLint location , GLsizei count , GLboolean transpose , const GLfloat * value ) ; typedef void ( GL_APIENTRYP PFNGLUNIFORMMATRIX2X4FVPROC ) ( GLint location , GLsizei count , GLboolean transpose , const GLfloat * value ) ; typedef void ( GL_APIENTRYP PFNGLUNIFORMMATRIX4X2FVPROC ) ( GLint location , GLsizei count , GLboolean transpose , const GLfloat * value ) ; typedef void ( GL_APIENTRYP PFNGLUNIFORMMATRIX3X4FVPROC ) ( GLint location , GLsizei count , GLboolean transpose , const GLfloat * value ) ; typedef void ( GL_APIENTRYP PFNGLUNIFORMMATRIX4X3FVPROC ) ( GLint location , GLsizei count , GLboolean transpose , const GLfloat * value ) ; typedef void ( GL_APIENTRYP PFNGLBLITFRAMEBUFFERPROC ) ( GLint srcX0 , GLint srcY0 , GLint srcX1 , GLint srcY1 , GLint dstX0 , GLint dstY0 , GLint dstX1 , GLint dstY1 , GLbitfield mask , GLenum filter ) ; typedef void ( GL_APIENTRYP PFNGLRENDERBUFFERSTORAGEMULTISAMPLEPROC ) ( GLenum target , GLsizei samples , GLenum internalformat , GLsizei width , GLsizei height ) ; typedef void ( GL_APIENTRYP PFNGLFRAMEBUFFERTEXTURELAYERPROC ) ( GLenum target , GLenum attachment , GLuint texture , GLint level , GLint layer ) ; typedef void * ( GL_APIENTRYP PFNGLMAPBUFFERRANGEPROC ) ( GLenum target , GLintptr offset , GLsizeiptr length , GLbitfield access ) ; typedef void ( GL_APIENTRYP PFNGLFLUSHMAPPEDBUFFERRANGEPROC ) ( GLenum target , GLintptr offset , GLsizeiptr length ) ; typedef void ( GL_APIENTRYP PFNGLBINDVERTEXARRAYPROC ) ( GLuint array ) ; typedef void ( GL_APIENTRYP PFNGLDELETEVERTEXARRAYSPROC ) ( GLsizei n , const GLuint * arrays ) ; typedef void ( GL_APIENTRYP PFNGLGENVERTEXARRAYSPROC ) ( GLsizei n , GLuint * arrays ) ; typedef GLboolean ( GL_APIENTRYP PFNGLISVERTEXARRAYPROC ) ( GLuint array ) ; typedef void ( GL_APIENTRYP PFNGLGETINTEGERI_VPROC ) ( GLenum target , GLuint index , GLint * data ) ; typedef void ( GL_APIENTRYP PFNGLBEGINTRANSFORMFEEDBACKPROC ) ( GLenum primitiveMode ) ; typedef void ( GL_APIENTRYP PFNGLENDTRANSFORMFEEDBACKPROC ) ( void ) ; typedef void ( GL_APIENTRYP PFNGLBINDBUFFERRANGEPROC ) ( GLenum target , GLuint index , GLuint buffer , GLintptr offset , GLsizeiptr size ) ; typedef void ( GL_APIENTRYP PFNGLBINDBUFFERBASEPROC ) ( GLenum target , GLuint index , GLuint buffer ) ; typedef void ( GL_APIENTRYP PFNGLTRANSFORMFEEDBACKVARYINGSPROC ) ( GLuint program , GLsizei count , const GLchar * const * varyings , GLenum bufferMode ) ; typedef void ( GL_APIENTRYP PFNGLGETTRANSFORMFEEDBACKVARYINGPROC ) ( GLuint program , GLuint index , GLsizei bufSize , GLsizei * length , GLsizei * size , GLenum * type , GLchar * name ) ; typedef void ( GL_APIENTRYP PFNGLVERTEXATTRIBIPOINTERPROC ) ( GLuint index , GLint size , GLenum type , GLsizei stride , const void * pointer ) ; typedef void ( GL_APIENTRYP PFNGLGETVERTEXATTRIBIIVPROC ) ( GLuint index , GLenum pname , GLint * params ) ; typedef void ( GL_APIENTRYP PFNGLGETVERTEXATTRIBIUIVPROC ) ( GLuint index , GLenum pname , GLuint * params ) ; typedef void ( GL_APIENTRYP PFNGLVERTEXATTRIBI4IPROC ) ( GLuint index , GLint x , GLint y , GLint z , GLint w ) ; typedef void ( GL_APIENTRYP PFNGLVERTEXATTRIBI4UIPROC ) ( GLuint index , GLuint x , GLuint y , GLuint z , GLuint w ) ; typedef void ( GL_APIENTRYP PFNGLVERTEXATTRIBI4IVPROC ) ( GLuint index , const GLint * v ) ; typedef void ( GL_APIENTRYP PFNGLVERTEXATTRIBI4UIVPROC ) ( GLuint index , const GLuint * v ) ; typedef void ( GL_APIENTRYP PFNGLGETUNIFORMUIVPROC ) ( GLuint program , GLint location , GLuint * params ) ; typedef GLint ( GL_APIENTRYP PFNGLGETFRAGDATALOCATIONPROC ) ( GLuint program , const GLchar * name ) ; typedef void ( GL_APIENTRYP PFNGLUNIFORM1UIPROC ) ( GLint location , GLuint v0 ) ; typedef void ( GL_APIENTRYP PFNGLUNIFORM2UIPROC ) ( GLint location , GLuint v0 , GLuint v1 ) ; typedef void ( GL_APIENTRYP PFNGLUNIFORM3UIPROC ) ( GLint location , GLuint v0 , GLuint v1 , GLuint v2 ) ; typedef void ( GL_APIENTRYP PFNGLUNIFORM4UIPROC ) ( GLint location , GLuint v0 , GLuint v1 , GLuint v2 , GLuint v3 ) ; typedef void ( GL_APIENTRYP PFNGLUNIFORM1UIVPROC ) ( GLint location , GLsizei count , const GLuint * value ) ; typedef void ( GL_APIENTRYP PFNGLUNIFORM2UIVPROC ) ( GLint location , GLsizei count , const GLuint * value ) ; typedef void ( GL_APIENTRYP PFNGLUNIFORM3UIVPROC ) ( GLint location , GLsizei count , const GLuint * value ) ; typedef void ( GL_APIENTRYP PFNGLUNIFORM4UIVPROC ) ( GLint location , GLsizei count , const GLuint * value ) ; typedef void ( GL_APIENTRYP PFNGLCLEARBUFFERIVPROC ) ( GLenum buffer , GLint drawbuffer , const GLint * value ) ; typedef void ( GL_APIENTRYP PFNGLCLEARBUFFERUIVPROC ) ( GLenum buffer , GLint drawbuffer , const GLuint * value ) ; typedef void ( GL_APIENTRYP PFNGLCLEARBUFFERFVPROC ) ( GLenum buffer , GLint drawbuffer , const GLfloat * value ) ; typedef void ( GL_APIENTRYP PFNGLCLEARBUFFERFIPROC ) ( GLenum buffer , GLint drawbuffer , GLfloat depth , GLint stencil ) ; typedef const GLubyte * ( GL_APIENTRYP PFNGLGETSTRINGIPROC ) ( GLenum name , GLuint index ) ; typedef void ( GL_APIENTRYP PFNGLCOPYBUFFERSUBDATAPROC ) ( GLenum readTarget , GLenum writeTarget , GLintptr readOffset , GLintptr writeOffset , GLsizeiptr size ) ; typedef void ( GL_APIENTRYP PFNGLGETUNIFORMINDICESPROC ) ( GLuint program , GLsizei uniformCount , const GLchar * const * uniformNames , GLuint * uniformIndices ) ; typedef void ( GL_APIENTRYP PFNGLGETACTIVEUNIFORMSIVPROC ) ( GLuint program , GLsizei uniformCount , const GLuint * uniformIndices , GLenum pname , GLint * params ) ; typedef GLuint ( GL_APIENTRYP PFNGLGETUNIFORMBLOCKINDEXPROC ) ( GLuint program , const GLchar * uniformBlockName ) ; typedef void ( GL_APIENTRYP PFNGLGETACTIVEUNIFORMBLOCKIVPROC ) ( GLuint program , GLuint uniformBlockIndex , GLenum pname , GLint * params ) ; typedef void ( GL_APIENTRYP PFNGLGETACTIVEUNIFORMBLOCKNAMEPROC ) ( GLuint program , GLuint uniformBlockIndex , GLsizei bufSize , GLsizei * length , GLchar * uniformBlockName ) ; typedef void ( GL_APIENTRYP PFNGLUNIFORMBLOCKBINDINGPROC ) ( GLuint program , GLuint uniformBlockIndex , GLuint uniformBlockBinding ) ; typedef void ( GL_APIENTRYP PFNGLDRAWARRAYSINSTANCEDPROC ) ( GLenum mode , GLint first , GLsizei count , GLsizei instancecount ) ; typedef void ( GL_APIENTRYP PFNGLDRAWELEMENTSINSTANCEDPROC ) ( GLenum mode , GLsizei count , GLenum type , const void * indices , GLsizei instancecount ) ; typedef GLsync ( GL_APIENTRYP PFNGLFENCESYNCPROC ) ( GLenum condition , GLbitfield flags ) ; typedef GLboolean ( GL_APIENTRYP PFNGLISSYNCPROC ) ( GLsync sync ) ; typedef void ( GL_APIENTRYP PFNGLDELETESYNCPROC ) ( GLsync sync ) ; typedef GLenum ( GL_APIENTRYP PFNGLCLIENTWAITSYNCPROC ) ( GLsync sync , GLbitfield flags , GLuint64 timeout ) ; typedef void ( GL_APIENTRYP PFNGLWAITSYNCPROC ) ( GLsync sync , GLbitfield flags , GLuint64 timeout ) ; typedef void ( GL_APIENTRYP PFNGLGETINTEGER64VPROC ) ( GLenum pname , GLint64 * data ) ; typedef void ( GL_APIENTRYP PFNGLGETSYNCIVPROC ) ( GLsync sync , GLenum pname , GLsizei bufSize , GLsizei * length , GLint * values ) ; typedef void ( GL_APIENTRYP PFNGLGETINTEGER64I_VPROC ) ( GLenum target , GLuint index , GLint64 * data ) ; typedef void ( GL_APIENTRYP PFNGLGETBUFFERPARAMETERI64VPROC ) ( GLenum target , GLenum pname , GLint64 * params ) ; typedef void ( GL_APIENTRYP PFNGLGENSAMPLERSPROC ) ( GLsizei count , GLuint * samplers ) ; typedef void ( GL_APIENTRYP PFNGLDELETESAMPLERSPROC ) ( GLsizei count , const GLuint * samplers ) ; typedef GLboolean ( GL_APIENTRYP PFNGLISSAMPLERPROC ) ( GLuint sampler ) ; typedef void ( GL_APIENTRYP PFNGLBINDSAMPLERPROC ) ( GLuint unit , GLuint sampler ) ; typedef void ( GL_APIENTRYP PFNGLSAMPLERPARAMETERIPROC ) ( GLuint sampler , GLenum pname , GLint param ) ; typedef void ( GL_APIENTRYP PFNGLSAMPLERPARAMETERIVPROC ) ( GLuint sampler , GLenum pname , const GLint * param ) ; typedef void ( GL_APIENTRYP PFNGLSAMPLERPARAMETERFPROC ) ( GLuint sampler , GLenum pname , GLfloat param ) ; typedef void ( GL_APIENTRYP PFNGLSAMPLERPARAMETERFVPROC ) ( GLuint sampler , GLenum pname , const GLfloat * param ) ; typedef void ( GL_APIENTRYP PFNGLGETSAMPLERPARAMETERIVPROC ) ( GLuint sampler , GLenum pname , GLint * params ) ; typedef void ( GL_APIENTRYP PFNGLGETSAMPLERPARAMETERFVPROC ) ( GLuint sampler , GLenum pname , GLfloat * params ) ; typedef void ( GL_APIENTRYP PFNGLVERTEXATTRIBDIVISORPROC ) ( GLuint index , GLuint divisor ) ; typedef void ( GL_APIENTRYP PFNGLBINDTRANSFORMFEEDBACKPROC ) ( GLenum target , GLuint id ) ; typedef void ( GL_APIENTRYP PFNGLDELETETRANSFORMFEEDBACKSPROC ) ( GLsizei n , const GLuint * ids ) ; typedef void ( GL_APIENTRYP PFNGLGENTRANSFORMFEEDBACKSPROC ) ( GLsizei n , GLuint * ids ) ; typedef GLboolean ( GL_APIENTRYP PFNGLISTRANSFORMFEEDBACKPROC ) ( GLuint id ) ; typedef void ( GL_APIENTRYP PFNGLPAUSETRANSFORMFEEDBACKPROC ) ( void ) ; typedef void ( GL_APIENTRYP PFNGLRESUMETRANSFORMFEEDBACKPROC ) ( void ) ; typedef void ( GL_APIENTRYP PFNGLGETPROGRAMBINARYPROC ) ( GLuint program , GLsizei bufSize , GLsizei * length , GLenum * binaryFormat , void * binary ) ; typedef void ( GL_APIENTRYP PFNGLPROGRAMBINARYPROC ) ( GLuint program , GLenum binaryFormat , const void * binary , GLsizei length ) ; typedef void ( GL_APIENTRYP PFNGLPROGRAMPARAMETERIPROC ) ( GLuint program , GLenum pname , GLint value ) ; typedef void ( GL_APIENTRYP PFNGLINVALIDATEFRAMEBUFFERPROC ) ( GLenum target , GLsizei numAttachments , const GLenum * attachments ) ; typedef void ( GL_APIENTRYP PFNGLINVALIDATESUBFRAMEBUFFERPROC ) ( GLenum target , GLsizei numAttachments , const GLenum * attachments , GLint x , GLint y , GLsizei width , GLsizei height ) ; typedef void ( GL_APIENTRYP PFNGLTEXSTORAGE2DPROC ) ( GLenum target , GLsizei levels , GLenum internalformat , GLsizei width , GLsizei height ) ; typedef void ( GL_APIENTRYP PFNGLTEXSTORAGE3DPROC ) ( GLenum target , GLsizei levels , GLenum internalformat , GLsizei width , GLsizei height , GLsizei depth ) ; typedef void ( GL_APIENTRYP PFNGLGETINTERNALFORMATIVPROC ) ( GLenum target , GLenum internalformat , GLenum pname , GLsizei bufSize , GLint * params ) ; #endif GL_ES_VERSION_3_0 #ifndef GL_ES_VERSION_3_1 typedef void ( GL_APIENTRYP PFNGLDISPATCHCOMPUTEPROC ) ( GLuint num_groups_x , GLuint num_groups_y , GLuint num_groups_z ) ; typedef void ( GL_APIENTRYP PFNGLDISPATCHCOMPUTEINDIRECTPROC ) ( GLintptr indirect ) ; typedef void ( GL_APIENTRYP PFNGLDRAWARRAYSINDIRECTPROC ) ( GLenum mode , const void * indirect ) ; typedef void ( GL_APIENTRYP PFNGLDRAWELEMENTSINDIRECTPROC ) ( GLenum mode , GLenum type , const void * indirect ) ; typedef void ( GL_APIENTRYP PFNGLFRAMEBUFFERPARAMETERIPROC ) ( GLenum target , GLenum pname , GLint param ) ; typedef void ( GL_APIENTRYP PFNGLGETFRAMEBUFFERPARAMETERIVPROC ) ( GLenum target , GLenum pname , GLint * params ) ; typedef void ( GL_APIENTRYP PFNGLGETPROGRAMINTERFACEIVPROC ) ( GLuint program , GLenum programInterface , GLenum pname , GLint * params ) ; typedef GLuint ( GL_APIENTRYP PFNGLGETPROGRAMRESOURCEINDEXPROC ) ( GLuint program , GLenum programInterface , const GLchar * name ) ; typedef void ( GL_APIENTRYP PFNGLGETPROGRAMRESOURCENAMEPROC ) ( GLuint program , GLenum programInterface , GLuint index , GLsizei bufSize , GLsizei * length , GLchar * name ) ; typedef void ( GL_APIENTRYP PFNGLGETPROGRAMRESOURCEIVPROC ) ( GLuint program , GLenum programInterface , GLuint index , GLsizei propCount , const GLenum * props , GLsizei bufSize , GLsizei * length , GLint * params ) ; typedef GLint ( GL_APIENTRYP PFNGLGETPROGRAMRESOURCELOCATIONPROC ) ( GLuint program , GLenum programInterface , const GLchar * name ) ; typedef void ( GL_APIENTRYP PFNGLUSEPROGRAMSTAGESPROC ) ( GLuint pipeline , GLbitfield stages , GLuint program ) ; typedef void ( GL_APIENTRYP PFNGLACTIVESHADERPROGRAMPROC ) ( GLuint pipeline , GLuint program ) ; typedef GLuint ( GL_APIENTRYP PFNGLCREATESHADERPROGRAMVPROC ) ( GLenum type , GLsizei count , const GLchar * const * strings ) ; typedef void ( GL_APIENTRYP PFNGLBINDPROGRAMPIPELINEPROC ) ( GLuint pipeline ) ; typedef void ( GL_APIENTRYP PFNGLDELETEPROGRAMPIPELINESPROC ) ( GLsizei n , const GLuint * pipelines ) ; typedef void ( GL_APIENTRYP PFNGLGENPROGRAMPIPELINESPROC ) ( GLsizei n , GLuint * pipelines ) ; typedef GLboolean ( GL_APIENTRYP PFNGLISPROGRAMPIPELINEPROC ) ( GLuint pipeline ) ; typedef void ( GL_APIENTRYP PFNGLGETPROGRAMPIPELINEIVPROC ) ( GLuint pipeline , GLenum pname , GLint * params ) ; typedef void ( GL_APIENTRYP PFNGLPROGRAMUNIFORM1IPROC ) ( GLuint program , GLint location , GLint v0 ) ; typedef void ( GL_APIENTRYP PFNGLPROGRAMUNIFORM2IPROC ) ( GLuint program , GLint location , GLint v0 , GLint v1 ) ; typedef void ( GL_APIENTRYP PFNGLPROGRAMUNIFORM3IPROC ) ( GLuint program , GLint location , GLint v0 , GLint v1 , GLint v2 ) ; typedef void ( GL_APIENTRYP PFNGLPROGRAMUNIFORM4IPROC ) ( GLuint program , GLint location , GLint v0 , GLint v1 , GLint v2 , GLint v3 ) ; typedef void ( GL_APIENTRYP PFNGLPROGRAMUNIFORM1UIPROC ) ( GLuint program , GLint location , GLuint v0 ) ; typedef void ( GL_APIENTRYP PFNGLPROGRAMUNIFORM2UIPROC ) ( GLuint program , GLint location , GLuint v0 , GLuint v1 ) ; typedef void ( GL_APIENTRYP PFNGLPROGRAMUNIFORM3UIPROC ) ( GLuint program , GLint location , GLuint v0 , GLuint v1 , GLuint v2 ) ; typedef void ( GL_APIENTRYP PFNGLPROGRAMUNIFORM4UIPROC ) ( GLuint program , GLint location , GLuint v0 , GLuint v1 , GLuint v2 , GLuint v3 ) ; typedef void ( GL_APIENTRYP PFNGLPROGRAMUNIFORM1FPROC ) ( GLuint program , GLint location , GLfloat v0 ) ; typedef void ( GL_APIENTRYP PFNGLPROGRAMUNIFORM2FPROC ) ( GLuint program , GLint location , GLfloat v0 , GLfloat v1 ) ; typedef void ( GL_APIENTRYP PFNGLPROGRAMUNIFORM3FPROC ) ( GLuint program , GLint location , GLfloat v0 , GLfloat v1 , GLfloat v2 ) ; typedef void ( GL_APIENTRYP PFNGLPROGRAMUNIFORM4FPROC ) ( GLuint program , GLint location , GLfloat v0 , GLfloat v1 , GLfloat v2 , GLfloat v3 ) ; typedef void ( GL_APIENTRYP PFNGLPROGRAMUNIFORM1IVPROC ) ( GLuint program , GLint location , GLsizei count , const GLint * value ) ; typedef void ( GL_APIENTRYP PFNGLPROGRAMUNIFORM2IVPROC ) ( GLuint program , GLint location , GLsizei count , const GLint * value ) ; typedef void ( GL_APIENTRYP PFNGLPROGRAMUNIFORM3IVPROC ) ( GLuint program , GLint location , GLsizei count , const GLint * value ) ; typedef void ( GL_APIENTRYP PFNGLPROGRAMUNIFORM4IVPROC ) ( GLuint program , GLint location , GLsizei count , const GLint * value ) ; typedef void ( GL_APIENTRYP PFNGLPROGRAMUNIFORM1UIVPROC ) ( GLuint program , GLint location , GLsizei count , const GLuint * value ) ; typedef void ( GL_APIENTRYP PFNGLPROGRAMUNIFORM2UIVPROC ) ( GLuint program , GLint location , GLsizei count , const GLuint * value ) ; typedef void ( GL_APIENTRYP PFNGLPROGRAMUNIFORM3UIVPROC ) ( GLuint program , GLint location , GLsizei count , const GLuint * value ) ; typedef void ( GL_APIENTRYP PFNGLPROGRAMUNIFORM4UIVPROC ) ( GLuint program , GLint location , GLsizei count , const GLuint * value ) ; typedef void ( GL_APIENTRYP PFNGLPROGRAMUNIFORM1FVPROC ) ( GLuint program , GLint location , GLsizei count , const GLfloat * value ) ; typedef void ( GL_APIENTRYP PFNGLPROGRAMUNIFORM2FVPROC ) ( GLuint program , GLint location , GLsizei count , const GLfloat * value ) ; typedef void ( GL_APIENTRYP PFNGLPROGRAMUNIFORM3FVPROC ) ( GLuint program , GLint location , GLsizei count , const GLfloat * value ) ; typedef void ( GL_APIENTRYP PFNGLPROGRAMUNIFORM4FVPROC ) ( GLuint program , GLint location , GLsizei count , const GLfloat * value ) ; typedef void ( GL_APIENTRYP PFNGLPROGRAMUNIFORMMATRIX2FVPROC ) ( GLuint program , GLint location , GLsizei count , GLboolean transpose , const GLfloat * value ) ; typedef void ( GL_APIENTRYP PFNGLPROGRAMUNIFORMMATRIX3FVPROC ) ( GLuint program , GLint location , GLsizei count , GLboolean transpose , const GLfloat * value ) ; typedef void ( GL_APIENTRYP PFNGLPROGRAMUNIFORMMATRIX4FVPROC ) ( GLuint program , GLint location , GLsizei count , GLboolean transpose , const GLfloat * value ) ; typedef void ( GL_APIENTRYP PFNGLPROGRAMUNIFORMMATRIX2X3FVPROC ) ( GLuint program , GLint location , GLsizei count , GLboolean transpose , const GLfloat * value ) ; typedef void ( GL_APIENTRYP PFNGLPROGRAMUNIFORMMATRIX3X2FVPROC ) ( GLuint program , GLint location , GLsizei count , GLboolean transpose , const GLfloat * value ) ; typedef void ( GL_APIENTRYP PFNGLPROGRAMUNIFORMMATRIX2X4FVPROC ) ( GLuint program , GLint location , GLsizei count , GLboolean transpose , const GLfloat * value ) ; typedef void ( GL_APIENTRYP PFNGLPROGRAMUNIFORMMATRIX4X2FVPROC ) ( GLuint program , GLint location , GLsizei count , GLboolean transpose , const GLfloat * value ) ; typedef void ( GL_APIENTRYP PFNGLPROGRAMUNIFORMMATRIX3X4FVPROC ) ( GLuint program , GLint location , GLsizei count , GLboolean transpose , const GLfloat * value ) ; typedef void ( GL_APIENTRYP PFNGLPROGRAMUNIFORMMATRIX4X3FVPROC ) ( GLuint program , GLint location , GLsizei count , GLboolean transpose , const GLfloat * value ) ; typedef void ( GL_APIENTRYP PFNGLVALIDATEPROGRAMPIPELINEPROC ) ( GLuint pipeline ) ; typedef void ( GL_APIENTRYP PFNGLGETPROGRAMPIPELINEINFOLOGPROC ) ( GLuint pipeline , GLsizei bufSize , GLsizei * length , GLchar * infoLog ) ; typedef void ( GL_APIENTRYP PFNGLBINDIMAGETEXTUREPROC ) ( GLuint unit , GLuint texture , GLint level , GLboolean layered , GLint layer , GLenum access , GLenum format ) ; typedef void ( GL_APIENTRYP PFNGLGETBOOLEANI_VPROC ) ( GLenum target , GLuint index , GLboolean * data ) ; typedef void ( GL_APIENTRYP PFNGLMEMORYBARRIERPROC ) ( GLbitfield barriers ) ; typedef void ( GL_APIENTRYP PFNGLMEMORYBARRIERBYREGIONPROC ) ( GLbitfield barriers ) ; typedef void ( GL_APIENTRYP PFNGLTEXSTORAGE2DMULTISAMPLEPROC ) ( GLenum target , GLsizei samples , GLenum internalformat , GLsizei width , GLsizei height , GLboolean fixedsamplelocations ) ; typedef void ( GL_APIENTRYP PFNGLGETMULTISAMPLEFVPROC ) ( GLenum pname , GLuint index , GLfloat * val ) ; typedef void ( GL_APIENTRYP PFNGLSAMPLEMASKIPROC ) ( GLuint maskNumber , GLbitfield mask ) ; typedef void ( GL_APIENTRYP PFNGLGETTEXLEVELPARAMETERIVPROC ) ( GLenum target , GLint level , GLenum pname , GLint * params ) ; typedef void ( GL_APIENTRYP PFNGLGETTEXLEVELPARAMETERFVPROC ) ( GLenum target , GLint level , GLenum pname , GLfloat * params ) ; typedef void ( GL_APIENTRYP PFNGLBINDVERTEXBUFFERPROC ) ( GLuint bindingindex , GLuint buffer , GLintptr offset , GLsizei stride ) ; typedef void ( GL_APIENTRYP PFNGLVERTEXATTRIBFORMATPROC ) ( GLuint attribindex , GLint size , GLenum type , GLboolean normalized , GLuint relativeoffset ) ; typedef void ( GL_APIENTRYP PFNGLVERTEXATTRIBIFORMATPROC ) ( GLuint attribindex , GLint size , GLenum type , GLuint relativeoffset ) ; typedef void ( GL_APIENTRYP PFNGLVERTEXATTRIBBINDINGPROC ) ( GLuint attribindex , GLuint bindingindex ) ; typedef void ( GL_APIENTRYP PFNGLVERTEXBINDINGDIVISORPROC ) ( GLuint bindingindex , GLuint divisor ) ; #endif GL_ES_VERSION_3_1 #ifndef GL_ES_VERSION_3_2 typedef void ( GL_APIENTRY * GLDEBUGPROC ) ( GLenum source , GLenum type , GLuint id , GLenum severity , GLsizei length , const GLchar * message , const void * userParam ) ; typedef void ( GL_APIENTRYP PFNGLBLENDBARRIERPROC ) ( void ) ; typedef void ( GL_APIENTRYP PFNGLCOPYIMAGESUBDATAPROC ) ( GLuint srcName , GLenum srcTarget , GLint srcLevel , GLint srcX , GLint srcY , GLint srcZ , GLuint dstName , GLenum dstTarget , GLint dstLevel , GLint dstX , GLint dstY , GLint dstZ , GLsizei srcWidth , GLsizei srcHeight , GLsizei srcDepth ) ; typedef void ( GL_APIENTRYP PFNGLDEBUGMESSAGECONTROLPROC ) ( GLenum source , GLenum type , GLenum severity , GLsizei count , const GLuint * ids , GLboolean enabled ) ; typedef void ( GL_APIENTRYP PFNGLDEBUGMESSAGEINSERTPROC ) ( GLenum source , GLenum type , GLuint id , GLenum severity , GLsizei length , const GLchar * buf ) ; typedef void ( GL_APIENTRYP PFNGLDEBUGMESSAGECALLBACKPROC ) ( GLDEBUGPROC callback , const void * userParam ) ; typedef GLuint ( GL_APIENTRYP PFNGLGETDEBUGMESSAGELOGPROC ) ( GLuint count , GLsizei bufSize , GLenum * sources , GLenum * types , GLuint * ids , GLenum * severities , GLsizei * lengths , GLchar * messageLog ) ; typedef void ( GL_APIENTRYP PFNGLPUSHDEBUGGROUPPROC ) ( GLenum source , GLuint id , GLsizei length , const GLchar * message ) ; typedef void ( GL_APIENTRYP PFNGLPOPDEBUGGROUPPROC ) ( void ) ; typedef void ( GL_APIENTRYP PFNGLOBJECTLABELPROC ) ( GLenum identifier , GLuint name , GLsizei length , const GLchar * label ) ; typedef void ( GL_APIENTRYP PFNGLGETOBJECTLABELPROC ) ( GLenum identifier , GLuint name , GLsizei bufSize , GLsizei * length , GLchar * label ) ; typedef void ( GL_APIENTRYP PFNGLOBJECTPTRLABELPROC ) ( const void * ptr , GLsizei length , const GLchar * label ) ; typedef void ( GL_APIENTRYP PFNGLGETOBJECTPTRLABELPROC ) ( const void * ptr , GLsizei bufSize , GLsizei * length , GLchar * label ) ; typedef void ( GL_APIENTRYP PFNGLGETPOINTERVPROC ) ( GLenum pname , void * * params ) ; typedef void ( GL_APIENTRYP PFNGLENABLEIPROC ) ( GLenum target , GLuint index ) ; typedef void ( GL_APIENTRYP PFNGLDISABLEIPROC ) ( GLenum target , GLuint index ) ; typedef void ( GL_APIENTRYP PFNGLBLENDEQUATIONIPROC ) ( GLuint buf , GLenum mode ) ; typedef void ( GL_APIENTRYP PFNGLBLENDEQUATIONSEPARATEIPROC ) ( GLuint buf , GLenum modeRGB , GLenum modeAlpha ) ; typedef void ( GL_APIENTRYP PFNGLBLENDFUNCIPROC ) ( GLuint buf , GLenum src , GLenum dst ) ; typedef void ( GL_APIENTRYP PFNGLBLENDFUNCSEPARATEIPROC ) ( GLuint buf , GLenum srcRGB , GLenum dstRGB , GLenum srcAlpha , GLenum dstAlpha ) ; typedef void ( GL_APIENTRYP PFNGLCOLORMASKIPROC ) ( GLuint index , GLboolean r , GLboolean g , GLboolean b , GLboolean a ) ; typedef GLboolean ( GL_APIENTRYP PFNGLISENABLEDIPROC ) ( GLenum target , GLuint index ) ; typedef void ( GL_APIENTRYP PFNGLDRAWELEMENTSBASEVERTEXPROC ) ( GLenum mode , GLsizei count , GLenum type , const void * indices , GLint basevertex ) ; typedef void ( GL_APIENTRYP PFNGLDRAWRANGEELEMENTSBASEVERTEXPROC ) ( GLenum mode , GLuint start , GLuint end , GLsizei count , GLenum type , const void * indices , GLint basevertex ) ; typedef void ( GL_APIENTRYP PFNGLDRAWELEMENTSINSTANCEDBASEVERTEXPROC ) ( GLenum mode , GLsizei count , GLenum type , const void * indices , GLsizei instancecount , GLint basevertex ) ; typedef void ( GL_APIENTRYP PFNGLFRAMEBUFFERTEXTUREPROC ) ( GLenum target , GLenum attachment , GLuint texture , GLint level ) ; typedef void ( GL_APIENTRYP PFNGLPRIMITIVEBOUNDINGBOXPROC ) ( GLfloat minX , GLfloat minY , GLfloat minZ , GLfloat minW , GLfloat maxX , GLfloat maxY , GLfloat maxZ , GLfloat maxW ) ; typedef GLenum ( GL_APIENTRYP PFNGLGETGRAPHICSRESETSTATUSPROC ) ( void ) ; typedef void ( GL_APIENTRYP PFNGLREADNPIXELSPROC ) ( GLint x , GLint y , GLsizei width , GLsizei height , GLenum format , GLenum type , GLsizei bufSize , void * data ) ; typedef void ( GL_APIENTRYP PFNGLGETNUNIFORMFVPROC ) ( GLuint program , GLint location , GLsizei bufSize , GLfloat * params ) ; typedef void ( GL_APIENTRYP PFNGLGETNUNIFORMIVPROC ) ( GLuint program , GLint location , GLsizei bufSize , GLint * params ) ; typedef void ( GL_APIENTRYP PFNGLGETNUNIFORMUIVPROC ) ( GLuint program , GLint location , GLsizei bufSize , GLuint * params ) ; typedef void ( GL_APIENTRYP PFNGLMINSAMPLESHADINGPROC ) ( GLfloat value ) ; typedef void ( GL_APIENTRYP PFNGLPATCHPARAMETERIPROC ) ( GLenum pname , GLint value ) ; typedef void ( GL_APIENTRYP PFNGLTEXPARAMETERIIVPROC ) ( GLenum target , GLenum pname , const GLint * params ) ; typedef void ( GL_APIENTRYP PFNGLTEXPARAMETERIUIVPROC ) ( GLenum target , GLenum pname , const GLuint * params ) ; typedef void ( GL_APIENTRYP PFNGLGETTEXPARAMETERIIVPROC ) ( GLenum target , GLenum pname , GLint * params ) ; typedef void ( GL_APIENTRYP PFNGLGETTEXPARAMETERIUIVPROC ) ( GLenum target , GLenum pname , GLuint * params ) ; typedef void ( GL_APIENTRYP PFNGLSAMPLERPARAMETERIIVPROC ) ( GLuint sampler , GLenum pname , const GLint * param ) ; typedef void ( GL_APIENTRYP PFNGLSAMPLERPARAMETERIUIVPROC ) ( GLuint sampler , GLenum pname , const GLuint * param ) ; typedef void ( GL_APIENTRYP PFNGLGETSAMPLERPARAMETERIIVPROC ) ( GLuint sampler , GLenum pname , GLint * params ) ; typedef void ( GL_APIENTRYP PFNGLGETSAMPLERPARAMETERIUIVPROC ) ( GLuint sampler , GLenum pname , GLuint * params ) ; typedef void ( GL_APIENTRYP PFNGLTEXBUFFERPROC ) ( GLenum target , GLenum internalformat , GLuint buffer ) ; typedef void ( GL_APIENTRYP PFNGLTEXBUFFERRANGEPROC ) ( GLenum target , GLenum internalformat , GLuint buffer , GLintptr offset , GLsizeiptr size ) ; typedef void ( GL_APIENTRYP PFNGLTEXSTORAGE3DMULTISAMPLEPROC ) ( GLenum target , GLsizei samples , GLenum internalformat , GLsizei width , GLsizei height , GLsizei depth , GLboolean fixedsamplelocations ) ; #endif GL_ES_VERSION_3_2 }  namespace opencascade #  _OpenGl_GLESExtensions_Header [NewLine]
+## Error: did not expect [NewLine]!!!

@@ -14,11 +14,17 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Integer,
+  ../TColStd/TColStd_HArray1OfReal, PLib_Base, ../GeomAbs/GeomAbs_Shape,
+  ../TColStd/TColStd_Array1OfReal, ../TColStd/TColStd_Array2OfReal,
+  ../Standard/Standard_Real
+
 discard "forward decl of Standard_ConstructionError"
 discard "forward decl of PLib_JacobiPolynomial"
 discard "forward decl of PLib_JacobiPolynomial"
 type
-  HandlePLibJacobiPolynomial* = Handle[PLibJacobiPolynomial]
+  Handle_PLib_JacobiPolynomial* = handle[PLib_JacobiPolynomial]
 
 ## ! This class provides method  to work with Jacobi  Polynomials
 ## ! relativly to   an order of constraint
@@ -48,106 +54,105 @@ type
 ## ! Q(t) = c2*iordre+2  J0(t) + ...+ cDegree JDegree-2*iordre-2
 
 type
-  PLibJacobiPolynomial* {.importcpp: "PLib_JacobiPolynomial",
-                         header: "PLib_JacobiPolynomial.hxx", bycopy.} = object of PLibBase ##
-                                                                                     ## !
-                                                                                     ## Initialize
-                                                                                     ## the
-                                                                                     ## polynomial
-                                                                                     ## class
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## Degree
-                                                                                     ## has
-                                                                                     ## to
-                                                                                     ## be
-                                                                                     ## <=
-                                                                                     ## 30
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## ConstraintOrder
-                                                                                     ## has
-                                                                                     ## to
-                                                                                     ## be
-                                                                                     ## GeomAbs_C0
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## GeomAbs_C1
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## GeomAbs_C2
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## Compute
-                                                                                     ## the
-                                                                                     ## values
-                                                                                     ## and
-                                                                                     ## the
-                                                                                     ## derivatives
-                                                                                     ## values
-                                                                                     ## of
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## the
-                                                                                     ## basis
-                                                                                     ## functions
-                                                                                     ## in
-                                                                                     ## u
+  PLib_JacobiPolynomial* {.importcpp: "PLib_JacobiPolynomial",
+                          header: "PLib_JacobiPolynomial.hxx", bycopy.} = object of PLib_Base ##
+                                                                                       ## !
+                                                                                       ## Initialize
+                                                                                       ## the
+                                                                                       ## polynomial
+                                                                                       ## class
+                                                                                       ##
+                                                                                       ## !
+                                                                                       ## Degree
+                                                                                       ## has
+                                                                                       ## to
+                                                                                       ## be
+                                                                                       ## <=
+                                                                                       ## 30
+                                                                                       ##
+                                                                                       ## !
+                                                                                       ## ConstraintOrder
+                                                                                       ## has
+                                                                                       ## to
+                                                                                       ## be
+                                                                                       ## GeomAbs_C0
+                                                                                       ##
+                                                                                       ## !
+                                                                                       ## GeomAbs_C1
+                                                                                       ##
+                                                                                       ## !
+                                                                                       ## GeomAbs_C2
+                                                                                       ##
+                                                                                       ## !
+                                                                                       ## Compute
+                                                                                       ## the
+                                                                                       ## values
+                                                                                       ## and
+                                                                                       ## the
+                                                                                       ## derivatives
+                                                                                       ## values
+                                                                                       ## of
+                                                                                       ##
+                                                                                       ## !
+                                                                                       ## the
+                                                                                       ## basis
+                                                                                       ## functions
+                                                                                       ## in
+                                                                                       ## u
 
 
-proc constructPLibJacobiPolynomial*(workDegree: StandardInteger;
-                                   constraintOrder: GeomAbsShape): PLibJacobiPolynomial {.
+proc constructPLib_JacobiPolynomial*(WorkDegree: Standard_Integer;
+                                    ConstraintOrder: GeomAbs_Shape): PLib_JacobiPolynomial {.
     constructor, importcpp: "PLib_JacobiPolynomial(@)",
     header: "PLib_JacobiPolynomial.hxx".}
-proc points*(this: PLibJacobiPolynomial; nbGaussPoints: StandardInteger;
-            tabPoints: var TColStdArray1OfReal) {.noSideEffect, importcpp: "Points",
-    header: "PLib_JacobiPolynomial.hxx".}
-proc weights*(this: PLibJacobiPolynomial; nbGaussPoints: StandardInteger;
-             tabWeights: var TColStdArray2OfReal) {.noSideEffect,
+proc Points*(this: PLib_JacobiPolynomial; NbGaussPoints: Standard_Integer;
+            TabPoints: var TColStd_Array1OfReal) {.noSideEffect,
+    importcpp: "Points", header: "PLib_JacobiPolynomial.hxx".}
+proc Weights*(this: PLib_JacobiPolynomial; NbGaussPoints: Standard_Integer;
+             TabWeights: var TColStd_Array2OfReal) {.noSideEffect,
     importcpp: "Weights", header: "PLib_JacobiPolynomial.hxx".}
-proc maxValue*(this: PLibJacobiPolynomial; tabMax: var TColStdArray1OfReal) {.
+proc MaxValue*(this: PLib_JacobiPolynomial; TabMax: var TColStd_Array1OfReal) {.
     noSideEffect, importcpp: "MaxValue", header: "PLib_JacobiPolynomial.hxx".}
-proc maxError*(this: PLibJacobiPolynomial; dimension: StandardInteger;
-              jacCoeff: var StandardReal; newDegree: StandardInteger): StandardReal {.
+proc MaxError*(this: PLib_JacobiPolynomial; Dimension: Standard_Integer;
+              JacCoeff: var Standard_Real; NewDegree: Standard_Integer): Standard_Real {.
     noSideEffect, importcpp: "MaxError", header: "PLib_JacobiPolynomial.hxx".}
-proc reduceDegree*(this: PLibJacobiPolynomial; dimension: StandardInteger;
-                  maxDegree: StandardInteger; tol: StandardReal;
-                  jacCoeff: var StandardReal; newDegree: var StandardInteger;
-                  maxError: var StandardReal) {.noSideEffect,
+proc ReduceDegree*(this: PLib_JacobiPolynomial; Dimension: Standard_Integer;
+                  MaxDegree: Standard_Integer; Tol: Standard_Real;
+                  JacCoeff: var Standard_Real; NewDegree: var Standard_Integer;
+                  MaxError: var Standard_Real) {.noSideEffect,
     importcpp: "ReduceDegree", header: "PLib_JacobiPolynomial.hxx".}
-proc averageError*(this: PLibJacobiPolynomial; dimension: StandardInteger;
-                  jacCoeff: var StandardReal; newDegree: StandardInteger): StandardReal {.
+proc AverageError*(this: PLib_JacobiPolynomial; Dimension: Standard_Integer;
+                  JacCoeff: var Standard_Real; NewDegree: Standard_Integer): Standard_Real {.
     noSideEffect, importcpp: "AverageError", header: "PLib_JacobiPolynomial.hxx".}
-proc toCoefficients*(this: PLibJacobiPolynomial; dimension: StandardInteger;
-                    degree: StandardInteger; jacCoeff: TColStdArray1OfReal;
-                    coefficients: var TColStdArray1OfReal) {.noSideEffect,
+proc ToCoefficients*(this: PLib_JacobiPolynomial; Dimension: Standard_Integer;
+                    Degree: Standard_Integer; JacCoeff: TColStd_Array1OfReal;
+                    Coefficients: var TColStd_Array1OfReal) {.noSideEffect,
     importcpp: "ToCoefficients", header: "PLib_JacobiPolynomial.hxx".}
-proc d0*(this: var PLibJacobiPolynomial; u: StandardReal;
-        basisValue: var TColStdArray1OfReal) {.importcpp: "D0",
+proc D0*(this: var PLib_JacobiPolynomial; U: Standard_Real;
+        BasisValue: var TColStd_Array1OfReal) {.importcpp: "D0",
     header: "PLib_JacobiPolynomial.hxx".}
-proc d1*(this: var PLibJacobiPolynomial; u: StandardReal;
-        basisValue: var TColStdArray1OfReal; basisD1: var TColStdArray1OfReal) {.
+proc D1*(this: var PLib_JacobiPolynomial; U: Standard_Real;
+        BasisValue: var TColStd_Array1OfReal; BasisD1: var TColStd_Array1OfReal) {.
     importcpp: "D1", header: "PLib_JacobiPolynomial.hxx".}
-proc d2*(this: var PLibJacobiPolynomial; u: StandardReal;
-        basisValue: var TColStdArray1OfReal; basisD1: var TColStdArray1OfReal;
-        basisD2: var TColStdArray1OfReal) {.importcpp: "D2",
+proc D2*(this: var PLib_JacobiPolynomial; U: Standard_Real;
+        BasisValue: var TColStd_Array1OfReal; BasisD1: var TColStd_Array1OfReal;
+        BasisD2: var TColStd_Array1OfReal) {.importcpp: "D2",
     header: "PLib_JacobiPolynomial.hxx".}
-proc d3*(this: var PLibJacobiPolynomial; u: StandardReal;
-        basisValue: var TColStdArray1OfReal; basisD1: var TColStdArray1OfReal;
-        basisD2: var TColStdArray1OfReal; basisD3: var TColStdArray1OfReal) {.
+proc D3*(this: var PLib_JacobiPolynomial; U: Standard_Real;
+        BasisValue: var TColStd_Array1OfReal; BasisD1: var TColStd_Array1OfReal;
+        BasisD2: var TColStd_Array1OfReal; BasisD3: var TColStd_Array1OfReal) {.
     importcpp: "D3", header: "PLib_JacobiPolynomial.hxx".}
-proc workDegree*(this: PLibJacobiPolynomial): StandardInteger {.noSideEffect,
+proc WorkDegree*(this: PLib_JacobiPolynomial): Standard_Integer {.noSideEffect,
     importcpp: "WorkDegree", header: "PLib_JacobiPolynomial.hxx".}
-proc nivConstr*(this: PLibJacobiPolynomial): StandardInteger {.noSideEffect,
+proc NivConstr*(this: PLib_JacobiPolynomial): Standard_Integer {.noSideEffect,
     importcpp: "NivConstr", header: "PLib_JacobiPolynomial.hxx".}
 type
-  PLibJacobiPolynomialbaseType* = PLibBase
+  PLib_JacobiPolynomialbase_type* = PLib_Base
 
-proc getTypeName*(): cstring {.importcpp: "PLib_JacobiPolynomial::get_type_name(@)",
-                            header: "PLib_JacobiPolynomial.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "PLib_JacobiPolynomial::get_type_name(@)",
+                              header: "PLib_JacobiPolynomial.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "PLib_JacobiPolynomial::get_type_descriptor(@)",
     header: "PLib_JacobiPolynomial.hxx".}
-proc dynamicType*(this: PLibJacobiPolynomial): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "PLib_JacobiPolynomial.hxx".}
-
+proc DynamicType*(this: PLib_JacobiPolynomial): handle[Standard_Type] {.
+    noSideEffect, importcpp: "DynamicType", header: "PLib_JacobiPolynomial.hxx".}

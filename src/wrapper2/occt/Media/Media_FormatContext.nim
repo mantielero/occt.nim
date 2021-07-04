@@ -12,89 +12,91 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  Media_Packet, ../TCollection/TCollection_AsciiString
+
 discard "forward decl of AVCodecContext"
 discard "forward decl of AVFormatContext"
 discard "forward decl of AVStream"
 discard "forward decl of AVRational"
 type
-  MediaFormatContext* {.importcpp: "Media_FormatContext",
-                       header: "Media_FormatContext.hxx", bycopy.} = object of StandardTransient ##
-                                                                                          ## !
-                                                                                          ## Returns
-                                                                                          ## string
-                                                                                          ## description
-                                                                                          ## for
-                                                                                          ## AVError
-                                                                                          ## code.
-                                                                                          ##
-                                                                                          ## !
-                                                                                          ## Constructor.
+  Media_FormatContext* {.importcpp: "Media_FormatContext",
+                        header: "Media_FormatContext.hxx", bycopy.} = object of Standard_Transient ##
+                                                                                            ## !
+                                                                                            ## Returns
+                                                                                            ## string
+                                                                                            ## description
+                                                                                            ## for
+                                                                                            ## AVError
+                                                                                            ## code.
+                                                                                            ##
+                                                                                            ## !
+                                                                                            ## Constructor.
     ## !< format context
     ## !< start time
     ## !< duration
 
-  MediaFormatContextbaseType* = StandardTransient
+  Media_FormatContextbase_type* = Standard_Transient
 
-proc getTypeName*(): cstring {.importcpp: "Media_FormatContext::get_type_name(@)",
-                            header: "Media_FormatContext.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "Media_FormatContext::get_type_name(@)",
+                              header: "Media_FormatContext.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "Media_FormatContext::get_type_descriptor(@)",
     header: "Media_FormatContext.hxx".}
-proc dynamicType*(this: MediaFormatContext): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: Media_FormatContext): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "Media_FormatContext.hxx".}
-proc formatAVErrorDescription*(theErrCodeAV: cint): TCollectionAsciiString {.
+proc FormatAVErrorDescription*(theErrCodeAV: cint): TCollection_AsciiString {.
     importcpp: "Media_FormatContext::FormatAVErrorDescription(@)",
     header: "Media_FormatContext.hxx".}
-proc formatUnitsToSeconds*(theTimeUnits: int64T): cdouble {.
+proc FormatUnitsToSeconds*(theTimeUnits: int64_t): cdouble {.
     importcpp: "Media_FormatContext::FormatUnitsToSeconds(@)",
     header: "Media_FormatContext.hxx".}
-proc unitsToSeconds*(theTimeBase: AVRational; theTimeUnits: int64T): cdouble {.
+proc UnitsToSeconds*(theTimeBase: AVRational; theTimeUnits: int64_t): cdouble {.
     importcpp: "Media_FormatContext::UnitsToSeconds(@)",
     header: "Media_FormatContext.hxx".}
-proc streamUnitsToSeconds*(theStream: AVStream; theTimeUnits: int64T): cdouble {.
+proc StreamUnitsToSeconds*(theStream: AVStream; theTimeUnits: int64_t): cdouble {.
     importcpp: "Media_FormatContext::StreamUnitsToSeconds(@)",
     header: "Media_FormatContext.hxx".}
-proc secondsToUnits*(theTimeSeconds: cdouble): int64T {.
+proc SecondsToUnits*(theTimeSeconds: cdouble): int64_t {.
     importcpp: "Media_FormatContext::SecondsToUnits(@)",
     header: "Media_FormatContext.hxx".}
-proc secondsToUnits*(theTimeBase: AVRational; theTimeSeconds: cdouble): int64T {.
+proc SecondsToUnits*(theTimeBase: AVRational; theTimeSeconds: cdouble): int64_t {.
     importcpp: "Media_FormatContext::SecondsToUnits(@)",
     header: "Media_FormatContext.hxx".}
-proc streamSecondsToUnits*(theStream: AVStream; theTimeSeconds: cdouble): int64T {.
+proc StreamSecondsToUnits*(theStream: AVStream; theTimeSeconds: cdouble): int64_t {.
     importcpp: "Media_FormatContext::StreamSecondsToUnits(@)",
     header: "Media_FormatContext.hxx".}
-proc formatTime*(theSeconds: cdouble): TCollectionAsciiString {.
+proc FormatTime*(theSeconds: cdouble): TCollection_AsciiString {.
     importcpp: "Media_FormatContext::FormatTime(@)",
     header: "Media_FormatContext.hxx".}
-proc formatTimeProgress*(theProgress: cdouble; theDuration: cdouble): TCollectionAsciiString {.
+proc FormatTimeProgress*(theProgress: cdouble; theDuration: cdouble): TCollection_AsciiString {.
     importcpp: "Media_FormatContext::FormatTimeProgress(@)",
     header: "Media_FormatContext.hxx".}
-proc constructMediaFormatContext*(): MediaFormatContext {.constructor,
+proc constructMedia_FormatContext*(): Media_FormatContext {.constructor,
     importcpp: "Media_FormatContext(@)", header: "Media_FormatContext.hxx".}
-proc destroyMediaFormatContext*(this: var MediaFormatContext) {.
+proc destroyMedia_FormatContext*(this: var Media_FormatContext) {.
     importcpp: "#.~Media_FormatContext()", header: "Media_FormatContext.hxx".}
-proc context*(this: MediaFormatContext): ptr AVFormatContext {.noSideEffect,
+proc Context*(this: Media_FormatContext): ptr AVFormatContext {.noSideEffect,
     importcpp: "Context", header: "Media_FormatContext.hxx".}
-proc openInput*(this: var MediaFormatContext; theInput: TCollectionAsciiString): bool {.
+proc OpenInput*(this: var Media_FormatContext; theInput: TCollection_AsciiString): bool {.
     importcpp: "OpenInput", header: "Media_FormatContext.hxx".}
-proc close*(this: var MediaFormatContext) {.importcpp: "Close",
-                                        header: "Media_FormatContext.hxx".}
-proc nbSteams*(this: MediaFormatContext): cuint {.noSideEffect,
+proc Close*(this: var Media_FormatContext) {.importcpp: "Close",
+    header: "Media_FormatContext.hxx".}
+proc NbSteams*(this: Media_FormatContext): cuint {.noSideEffect,
     importcpp: "NbSteams", header: "Media_FormatContext.hxx".}
-proc stream*(this: MediaFormatContext; theIndex: cuint): AVStream {.noSideEffect,
+proc Stream*(this: Media_FormatContext; theIndex: cuint): AVStream {.noSideEffect,
     importcpp: "Stream", header: "Media_FormatContext.hxx".}
-proc streamInfo*(this: MediaFormatContext; theIndex: cuint;
-                theCodecCtx: ptr AVCodecContext = nil): TCollectionAsciiString {.
+proc StreamInfo*(this: Media_FormatContext; theIndex: cuint;
+                theCodecCtx: ptr AVCodecContext = nil): TCollection_AsciiString {.
     noSideEffect, importcpp: "StreamInfo", header: "Media_FormatContext.hxx".}
-proc ptsStartBase*(this: MediaFormatContext): cdouble {.noSideEffect,
+proc PtsStartBase*(this: Media_FormatContext): cdouble {.noSideEffect,
     importcpp: "PtsStartBase", header: "Media_FormatContext.hxx".}
-proc duration*(this: MediaFormatContext): cdouble {.noSideEffect,
+proc Duration*(this: Media_FormatContext): cdouble {.noSideEffect,
     importcpp: "Duration", header: "Media_FormatContext.hxx".}
-proc readPacket*(this: var MediaFormatContext; thePacket: Handle[MediaPacket]): bool {.
+proc ReadPacket*(this: var Media_FormatContext; thePacket: handle[Media_Packet]): bool {.
     importcpp: "ReadPacket", header: "Media_FormatContext.hxx".}
-proc seekStream*(this: var MediaFormatContext; theStreamId: cuint;
+proc SeekStream*(this: var Media_FormatContext; theStreamId: cuint;
                 theSeekPts: cdouble; toSeekBack: bool): bool {.
     importcpp: "SeekStream", header: "Media_FormatContext.hxx".}
-proc seek*(this: var MediaFormatContext; theSeekPts: cdouble; toSeekBack: bool): bool {.
+proc Seek*(this: var Media_FormatContext; theSeekPts: cdouble; toSeekBack: bool): bool {.
     importcpp: "Seek", header: "Media_FormatContext.hxx".}
-

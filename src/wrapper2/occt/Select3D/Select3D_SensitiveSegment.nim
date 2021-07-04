@@ -14,6 +14,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  Select3D_SensitiveEntity, ../SelectMgr/SelectMgr_SelectingVolumeManager
+
 ## ! A framework to define sensitive zones along a segment
 ## !          One gives the 3D start and end point
 
@@ -49,52 +52,50 @@ type
     ## !< Start point
     ## !< End point
 
-  Select3D_SensitiveSegmentbaseType* = Select3D_SensitiveEntity
+  Select3D_SensitiveSegmentbase_type* = Select3D_SensitiveEntity
 
-proc getTypeName*(): cstring {.importcpp: "Select3D_SensitiveSegment::get_type_name(@)",
-                            header: "Select3D_SensitiveSegment.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "Select3D_SensitiveSegment::get_type_name(@)",
+                              header: "Select3D_SensitiveSegment.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "Select3D_SensitiveSegment::get_type_descriptor(@)",
     header: "Select3D_SensitiveSegment.hxx".}
-proc dynamicType*(this: Select3D_SensitiveSegment): Handle[StandardType] {.
+proc DynamicType*(this: Select3D_SensitiveSegment): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType", header: "Select3D_SensitiveSegment.hxx".}
-proc constructSelect3D_SensitiveSegment*(theOwnerId: Handle[SelectMgrEntityOwner];
-                                        theFirstPnt: GpPnt; theLastPnt: GpPnt): Select3D_SensitiveSegment {.
+proc constructSelect3D_SensitiveSegment*(theOwnerId: handle[SelectMgr_EntityOwner];
+                                        theFirstPnt: gp_Pnt; theLastPnt: gp_Pnt): Select3D_SensitiveSegment {.
     constructor, importcpp: "Select3D_SensitiveSegment(@)",
     header: "Select3D_SensitiveSegment.hxx".}
-proc setStartPoint*(this: var Select3D_SensitiveSegment; thePnt: GpPnt) {.
+proc SetStartPoint*(this: var Select3D_SensitiveSegment; thePnt: gp_Pnt) {.
     importcpp: "SetStartPoint", header: "Select3D_SensitiveSegment.hxx".}
-proc setEndPoint*(this: var Select3D_SensitiveSegment; thePnt: GpPnt) {.
+proc SetEndPoint*(this: var Select3D_SensitiveSegment; thePnt: gp_Pnt) {.
     importcpp: "SetEndPoint", header: "Select3D_SensitiveSegment.hxx".}
-proc startPoint*(this: Select3D_SensitiveSegment): GpPnt {.noSideEffect,
+proc StartPoint*(this: Select3D_SensitiveSegment): gp_Pnt {.noSideEffect,
     importcpp: "StartPoint", header: "Select3D_SensitiveSegment.hxx".}
-proc endPoint*(this: Select3D_SensitiveSegment): GpPnt {.noSideEffect,
+proc EndPoint*(this: Select3D_SensitiveSegment): gp_Pnt {.noSideEffect,
     importcpp: "EndPoint", header: "Select3D_SensitiveSegment.hxx".}
-proc nbSubElements*(this: Select3D_SensitiveSegment): StandardInteger {.
+proc NbSubElements*(this: Select3D_SensitiveSegment): Standard_Integer {.
     noSideEffect, importcpp: "NbSubElements",
     header: "Select3D_SensitiveSegment.hxx".}
-proc getConnected*(this: var Select3D_SensitiveSegment): Handle[
+proc GetConnected*(this: var Select3D_SensitiveSegment): handle[
     Select3D_SensitiveEntity] {.importcpp: "GetConnected",
                                header: "Select3D_SensitiveSegment.hxx".}
-proc matches*(this: var Select3D_SensitiveSegment;
-             theMgr: var SelectBasicsSelectingVolumeManager;
-             thePickResult: var SelectBasicsPickResult): StandardBoolean {.
+proc Matches*(this: var Select3D_SensitiveSegment;
+             theMgr: var SelectBasics_SelectingVolumeManager;
+             thePickResult: var SelectBasics_PickResult): Standard_Boolean {.
     importcpp: "Matches", header: "Select3D_SensitiveSegment.hxx".}
-proc centerOfGeometry*(this: Select3D_SensitiveSegment): GpPnt {.noSideEffect,
+proc CenterOfGeometry*(this: Select3D_SensitiveSegment): gp_Pnt {.noSideEffect,
     importcpp: "CenterOfGeometry", header: "Select3D_SensitiveSegment.hxx".}
-proc boundingBox*(this: var Select3D_SensitiveSegment): Select3D_BndBox3d {.
+proc BoundingBox*(this: var Select3D_SensitiveSegment): Select3D_BndBox3d {.
     importcpp: "BoundingBox", header: "Select3D_SensitiveSegment.hxx".}
-proc toBuildBVH*(this: Select3D_SensitiveSegment): StandardBoolean {.noSideEffect,
+proc ToBuildBVH*(this: Select3D_SensitiveSegment): Standard_Boolean {.noSideEffect,
     importcpp: "ToBuildBVH", header: "Select3D_SensitiveSegment.hxx".}
-proc startPoint*(this: var Select3D_SensitiveSegment; thePnt: GpPnt) {.
+proc StartPoint*(this: var Select3D_SensitiveSegment; thePnt: gp_Pnt) {.
     importcpp: "StartPoint", header: "Select3D_SensitiveSegment.hxx".}
-proc endPoint*(this: var Select3D_SensitiveSegment; thePnt: GpPnt) {.
+proc EndPoint*(this: var Select3D_SensitiveSegment; thePnt: gp_Pnt) {.
     importcpp: "EndPoint", header: "Select3D_SensitiveSegment.hxx".}
-proc dumpJson*(this: Select3D_SensitiveSegment; theOStream: var StandardOStream;
-              theDepth: StandardInteger = -1) {.noSideEffect, importcpp: "DumpJson",
+proc DumpJson*(this: Select3D_SensitiveSegment; theOStream: var Standard_OStream;
+              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
     header: "Select3D_SensitiveSegment.hxx".}
 discard "forward decl of Select3D_SensitiveSegment"
 type
-  HandleSelect3D_SensitiveSegment* = Handle[Select3D_SensitiveSegment]
-
-
+  Handle_Select3D_SensitiveSegment* = handle[Select3D_SensitiveSegment]

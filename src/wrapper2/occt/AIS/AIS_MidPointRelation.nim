@@ -11,7 +11,5 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _AIS_MidPointRelation_HeaderFile [NewLine] # _AIS_MidPointRelation_HeaderFile [NewLine] # < PrsDim_MidPointRelation . hxx > [NewLine] Standard_DEPRECATED ( Deprecated alias to moved class ) typedef PrsDim_MidPointRelation AIS_MidPointRelation ;
+## !!!Ignored construct:  # _AIS_MidPointRelation_HeaderFile [NewLine] # _AIS_MidPointRelation_HeaderFile [NewLine] # ../PrsDim/PrsDim_MidPointRelation.hxx [NewLine] Standard_DEPRECATED ( Deprecated alias to moved class ) typedef PrsDim_MidPointRelation AIS_MidPointRelation ;
 ## Error: expected ';'!!!
-
-

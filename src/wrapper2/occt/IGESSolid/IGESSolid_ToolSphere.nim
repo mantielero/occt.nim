@@ -14,6 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 discard "forward decl of Standard_DomainError"
 discard "forward decl of IGESSolid_Sphere"
 discard "forward decl of IGESData_IGESReaderData"
@@ -26,31 +30,33 @@ discard "forward decl of Interface_Check"
 discard "forward decl of Interface_CopyTool"
 discard "forward decl of IGESData_IGESDumper"
 type
-  IGESSolidToolSphere* {.importcpp: "IGESSolid_ToolSphere",
-                        header: "IGESSolid_ToolSphere.hxx", bycopy.} = object ## ! Returns a
-                                                                         ## ToolSphere, ready to work
+  IGESSolid_ToolSphere* {.importcpp: "IGESSolid_ToolSphere",
+                         header: "IGESSolid_ToolSphere.hxx", bycopy.} = object ## !
+                                                                          ## Returns a
+                                                                          ## ToolSphere, ready to work
 
 
-proc constructIGESSolidToolSphere*(): IGESSolidToolSphere {.constructor,
+proc constructIGESSolid_ToolSphere*(): IGESSolid_ToolSphere {.constructor,
     importcpp: "IGESSolid_ToolSphere(@)", header: "IGESSolid_ToolSphere.hxx".}
-proc readOwnParams*(this: IGESSolidToolSphere; ent: Handle[IGESSolidSphere];
-                   ir: Handle[IGESDataIGESReaderData]; pr: var IGESDataParamReader) {.
-    noSideEffect, importcpp: "ReadOwnParams", header: "IGESSolid_ToolSphere.hxx".}
-proc writeOwnParams*(this: IGESSolidToolSphere; ent: Handle[IGESSolidSphere];
-                    iw: var IGESDataIGESWriter) {.noSideEffect,
+proc ReadOwnParams*(this: IGESSolid_ToolSphere; ent: handle[IGESSolid_Sphere];
+                   IR: handle[IGESData_IGESReaderData];
+                   PR: var IGESData_ParamReader) {.noSideEffect,
+    importcpp: "ReadOwnParams", header: "IGESSolid_ToolSphere.hxx".}
+proc WriteOwnParams*(this: IGESSolid_ToolSphere; ent: handle[IGESSolid_Sphere];
+                    IW: var IGESData_IGESWriter) {.noSideEffect,
     importcpp: "WriteOwnParams", header: "IGESSolid_ToolSphere.hxx".}
-proc ownShared*(this: IGESSolidToolSphere; ent: Handle[IGESSolidSphere];
-               iter: var InterfaceEntityIterator) {.noSideEffect,
+proc OwnShared*(this: IGESSolid_ToolSphere; ent: handle[IGESSolid_Sphere];
+               iter: var Interface_EntityIterator) {.noSideEffect,
     importcpp: "OwnShared", header: "IGESSolid_ToolSphere.hxx".}
-proc dirChecker*(this: IGESSolidToolSphere; ent: Handle[IGESSolidSphere]): IGESDataDirChecker {.
+proc DirChecker*(this: IGESSolid_ToolSphere; ent: handle[IGESSolid_Sphere]): IGESData_DirChecker {.
     noSideEffect, importcpp: "DirChecker", header: "IGESSolid_ToolSphere.hxx".}
-proc ownCheck*(this: IGESSolidToolSphere; ent: Handle[IGESSolidSphere];
-              shares: InterfaceShareTool; ach: var Handle[InterfaceCheck]) {.
+proc OwnCheck*(this: IGESSolid_ToolSphere; ent: handle[IGESSolid_Sphere];
+              shares: Interface_ShareTool; ach: var handle[Interface_Check]) {.
     noSideEffect, importcpp: "OwnCheck", header: "IGESSolid_ToolSphere.hxx".}
-proc ownCopy*(this: IGESSolidToolSphere; entfrom: Handle[IGESSolidSphere];
-             entto: Handle[IGESSolidSphere]; tc: var InterfaceCopyTool) {.
+proc OwnCopy*(this: IGESSolid_ToolSphere; entfrom: handle[IGESSolid_Sphere];
+             entto: handle[IGESSolid_Sphere]; TC: var Interface_CopyTool) {.
     noSideEffect, importcpp: "OwnCopy", header: "IGESSolid_ToolSphere.hxx".}
-proc ownDump*(this: IGESSolidToolSphere; ent: Handle[IGESSolidSphere];
-             dumper: IGESDataIGESDumper; s: var StandardOStream; own: StandardInteger) {.
-    noSideEffect, importcpp: "OwnDump", header: "IGESSolid_ToolSphere.hxx".}
-
+proc OwnDump*(this: IGESSolid_ToolSphere; ent: handle[IGESSolid_Sphere];
+             dumper: IGESData_IGESDumper; S: var Standard_OStream;
+             own: Standard_Integer) {.noSideEffect, importcpp: "OwnDump",
+                                    header: "IGESSolid_ToolSphere.hxx".}

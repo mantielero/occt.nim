@@ -14,46 +14,52 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../TopTools/TopTools_HSequenceOfShape,
+  ../Standard/Standard_Boolean, ../TopTools/TopTools_ListOfShape,
+  ../TopAbs/TopAbs_ShapeEnum
+
 discard "forward decl of Standard_TypeMismatch"
 discard "forward decl of TopoDS_Shape"
 type
-  ShapeExtendExplorer* {.importcpp: "ShapeExtend_Explorer",
-                        header: "ShapeExtend_Explorer.hxx", bycopy.} = object ## ! Creates an object
-                                                                         ## Explorer
+  ShapeExtend_Explorer* {.importcpp: "ShapeExtend_Explorer",
+                         header: "ShapeExtend_Explorer.hxx", bycopy.} = object ## !
+                                                                          ## Creates an object
+                                                                          ## Explorer
 
 
-proc constructShapeExtendExplorer*(): ShapeExtendExplorer {.constructor,
+proc constructShapeExtend_Explorer*(): ShapeExtend_Explorer {.constructor,
     importcpp: "ShapeExtend_Explorer(@)", header: "ShapeExtend_Explorer.hxx".}
-proc compoundFromSeq*(this: ShapeExtendExplorer;
-                     seqval: Handle[TopToolsHSequenceOfShape]): TopoDS_Shape {.
+proc CompoundFromSeq*(this: ShapeExtend_Explorer;
+                     seqval: handle[TopTools_HSequenceOfShape]): TopoDS_Shape {.
     noSideEffect, importcpp: "CompoundFromSeq", header: "ShapeExtend_Explorer.hxx".}
-proc seqFromCompound*(this: ShapeExtendExplorer; comp: TopoDS_Shape;
-                     expcomp: StandardBoolean): Handle[TopToolsHSequenceOfShape] {.
+proc SeqFromCompound*(this: ShapeExtend_Explorer; comp: TopoDS_Shape;
+                     expcomp: Standard_Boolean): handle[TopTools_HSequenceOfShape] {.
     noSideEffect, importcpp: "SeqFromCompound", header: "ShapeExtend_Explorer.hxx".}
-proc listFromSeq*(this: ShapeExtendExplorer;
-                 seqval: Handle[TopToolsHSequenceOfShape];
-                 lisval: var TopToolsListOfShape;
-                 clear: StandardBoolean = standardTrue) {.noSideEffect,
+proc ListFromSeq*(this: ShapeExtend_Explorer;
+                 seqval: handle[TopTools_HSequenceOfShape];
+                 lisval: var TopTools_ListOfShape;
+                 clear: Standard_Boolean = Standard_True) {.noSideEffect,
     importcpp: "ListFromSeq", header: "ShapeExtend_Explorer.hxx".}
-proc seqFromList*(this: ShapeExtendExplorer; lisval: TopToolsListOfShape): Handle[
-    TopToolsHSequenceOfShape] {.noSideEffect, importcpp: "SeqFromList",
-                               header: "ShapeExtend_Explorer.hxx".}
-proc shapeType*(this: ShapeExtendExplorer; shape: TopoDS_Shape;
-               compound: StandardBoolean): TopAbsShapeEnum {.noSideEffect,
+proc SeqFromList*(this: ShapeExtend_Explorer; lisval: TopTools_ListOfShape): handle[
+    TopTools_HSequenceOfShape] {.noSideEffect, importcpp: "SeqFromList",
+                                header: "ShapeExtend_Explorer.hxx".}
+proc ShapeType*(this: ShapeExtend_Explorer; shape: TopoDS_Shape;
+               compound: Standard_Boolean): TopAbs_ShapeEnum {.noSideEffect,
     importcpp: "ShapeType", header: "ShapeExtend_Explorer.hxx".}
-proc sortedCompound*(this: ShapeExtendExplorer; shape: TopoDS_Shape;
-                    `type`: TopAbsShapeEnum; explore: StandardBoolean;
-                    compound: StandardBoolean): TopoDS_Shape {.noSideEffect,
+proc SortedCompound*(this: ShapeExtend_Explorer; shape: TopoDS_Shape;
+                    `type`: TopAbs_ShapeEnum; explore: Standard_Boolean;
+                    compound: Standard_Boolean): TopoDS_Shape {.noSideEffect,
     importcpp: "SortedCompound", header: "ShapeExtend_Explorer.hxx".}
-proc dispatchList*(this: ShapeExtendExplorer;
-                  list: Handle[TopToolsHSequenceOfShape];
-                  vertices: var Handle[TopToolsHSequenceOfShape];
-                  edges: var Handle[TopToolsHSequenceOfShape];
-                  wires: var Handle[TopToolsHSequenceOfShape];
-                  faces: var Handle[TopToolsHSequenceOfShape];
-                  shells: var Handle[TopToolsHSequenceOfShape];
-                  solids: var Handle[TopToolsHSequenceOfShape];
-                  compsols: var Handle[TopToolsHSequenceOfShape];
-                  compounds: var Handle[TopToolsHSequenceOfShape]) {.noSideEffect,
+proc DispatchList*(this: ShapeExtend_Explorer;
+                  list: handle[TopTools_HSequenceOfShape];
+                  vertices: var handle[TopTools_HSequenceOfShape];
+                  edges: var handle[TopTools_HSequenceOfShape];
+                  wires: var handle[TopTools_HSequenceOfShape];
+                  faces: var handle[TopTools_HSequenceOfShape];
+                  shells: var handle[TopTools_HSequenceOfShape];
+                  solids: var handle[TopTools_HSequenceOfShape];
+                  compsols: var handle[TopTools_HSequenceOfShape];
+                  compounds: var handle[TopTools_HSequenceOfShape]) {.noSideEffect,
     importcpp: "DispatchList", header: "ShapeExtend_Explorer.hxx".}
-

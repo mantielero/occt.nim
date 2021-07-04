@@ -14,26 +14,31 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../TColgp/TColgp_Array1OfVec, ../gp/gp_Mat,
+  ../Standard/Standard_Boolean, ../Standard/Standard_Real,
+  ../Standard/Standard_Integer
+
 discard "forward decl of GeomFill_LocationLaw"
 type
-  GeomFillLocFunction* {.importcpp: "GeomFill_LocFunction",
-                        header: "GeomFill_LocFunction.hxx", bycopy.} = object
+  GeomFill_LocFunction* {.importcpp: "GeomFill_LocFunction",
+                         header: "GeomFill_LocFunction.hxx", bycopy.} = object
 
 
-proc constructGeomFillLocFunction*(law: Handle[GeomFillLocationLaw]): GeomFillLocFunction {.
+proc constructGeomFill_LocFunction*(Law: handle[GeomFill_LocationLaw]): GeomFill_LocFunction {.
     constructor, importcpp: "GeomFill_LocFunction(@)",
     header: "GeomFill_LocFunction.hxx".}
-proc d0*(this: var GeomFillLocFunction; param: StandardReal; first: StandardReal;
-        last: StandardReal): StandardBoolean {.importcpp: "D0",
+proc D0*(this: var GeomFill_LocFunction; Param: Standard_Real; First: Standard_Real;
+        Last: Standard_Real): Standard_Boolean {.importcpp: "D0",
     header: "GeomFill_LocFunction.hxx".}
-proc d1*(this: var GeomFillLocFunction; param: StandardReal; first: StandardReal;
-        last: StandardReal): StandardBoolean {.importcpp: "D1",
+proc D1*(this: var GeomFill_LocFunction; Param: Standard_Real; First: Standard_Real;
+        Last: Standard_Real): Standard_Boolean {.importcpp: "D1",
     header: "GeomFill_LocFunction.hxx".}
-proc d2*(this: var GeomFillLocFunction; param: StandardReal; first: StandardReal;
-        last: StandardReal): StandardBoolean {.importcpp: "D2",
+proc D2*(this: var GeomFill_LocFunction; Param: Standard_Real; First: Standard_Real;
+        Last: Standard_Real): Standard_Boolean {.importcpp: "D2",
     header: "GeomFill_LocFunction.hxx".}
-proc dn*(this: var GeomFillLocFunction; param: StandardReal; first: StandardReal;
-        last: StandardReal; order: StandardInteger; result: var StandardReal;
-        ier: var StandardInteger) {.importcpp: "DN",
-                                 header: "GeomFill_LocFunction.hxx".}
-
+proc DN*(this: var GeomFill_LocFunction; Param: Standard_Real; First: Standard_Real;
+        Last: Standard_Real; Order: Standard_Integer; Result: var Standard_Real;
+        Ier: var Standard_Integer) {.importcpp: "DN",
+                                  header: "GeomFill_LocFunction.hxx".}

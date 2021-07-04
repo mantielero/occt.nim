@@ -14,17 +14,15 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _LProp_NotDefined_HeaderFile [NewLine] # _LProp_NotDefined_HeaderFile [NewLine] # < Standard_Type . hxx > [NewLine] # < Standard_DefineException . hxx > [NewLine] # < Standard_SStream . hxx > [NewLine] # < Standard_Failure . hxx > [NewLine] class LProp_NotDefined ;
+## !!!Ignored construct:  # _LProp_NotDefined_HeaderFile [NewLine] # _LProp_NotDefined_HeaderFile [NewLine] # ../Standard/Standard_Type.hxx [NewLine] # ../Standard/Standard_DefineException.hxx [NewLine] # ../Standard/Standard_SStream.hxx [NewLine] # ../Standard/Standard_Failure.hxx [NewLine] class LProp_NotDefined ;
 ## Error: expected ';'!!!
 
 discard "forward decl of LProp_NotDefined"
 type
-  HandleLPropNotDefinedLPropNotDefined* = Handle[LPropNotDefined]
+  Handle_LProp_NotDefinedLProp_NotDefined* = handle[LProp_NotDefined]
 
 ## !!!Ignored construct:  # ! defined No_Exception && ! defined No_LProp_NotDefined [NewLine] # if ( CONDITION ) throw LProp_NotDefined ( MESSAGE ) ;
 ## Error: did not expect [NewLine]!!!
 
-## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( LProp_NotDefined , Standard_Failure ) #  _LProp_NotDefined_HeaderFile
+## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( LProp_NotDefined , Standard_Failure ) #  _LProp_NotDefined_HeaderFile [NewLine]
 ## Error: did not expect [NewLine]!!!
-
-

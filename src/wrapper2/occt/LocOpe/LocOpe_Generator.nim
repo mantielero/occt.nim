@@ -14,6 +14,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../TopoDS/TopoDS_Shape,
+  ../Standard/Standard_Boolean, ../TopTools/TopTools_DataMapOfShapeListOfShape,
+  ../TopTools/TopTools_ListOfShape
+
 discard "forward decl of LocOpe_GeneratedShape"
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of Standard_NullObject"
@@ -21,24 +27,23 @@ discard "forward decl of Standard_NoSuchObject"
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of TopoDS_Face"
 type
-  LocOpeGenerator* {.importcpp: "LocOpe_Generator", header: "LocOpe_Generator.hxx",
-                    bycopy.} = object ## ! Empty constructor.
+  LocOpe_Generator* {.importcpp: "LocOpe_Generator",
+                     header: "LocOpe_Generator.hxx", bycopy.} = object ## ! Empty constructor.
 
 
-proc constructLocOpeGenerator*(): LocOpeGenerator {.constructor,
+proc constructLocOpe_Generator*(): LocOpe_Generator {.constructor,
     importcpp: "LocOpe_Generator(@)", header: "LocOpe_Generator.hxx".}
-proc constructLocOpeGenerator*(s: TopoDS_Shape): LocOpeGenerator {.constructor,
+proc constructLocOpe_Generator*(S: TopoDS_Shape): LocOpe_Generator {.constructor,
     importcpp: "LocOpe_Generator(@)", header: "LocOpe_Generator.hxx".}
-proc init*(this: var LocOpeGenerator; s: TopoDS_Shape) {.importcpp: "Init",
+proc Init*(this: var LocOpe_Generator; S: TopoDS_Shape) {.importcpp: "Init",
     header: "LocOpe_Generator.hxx".}
-proc perform*(this: var LocOpeGenerator; g: Handle[LocOpeGeneratedShape]) {.
+proc Perform*(this: var LocOpe_Generator; G: handle[LocOpe_GeneratedShape]) {.
     importcpp: "Perform", header: "LocOpe_Generator.hxx".}
-proc isDone*(this: LocOpeGenerator): StandardBoolean {.noSideEffect,
+proc IsDone*(this: LocOpe_Generator): Standard_Boolean {.noSideEffect,
     importcpp: "IsDone", header: "LocOpe_Generator.hxx".}
-proc resultingShape*(this: LocOpeGenerator): TopoDS_Shape {.noSideEffect,
+proc ResultingShape*(this: LocOpe_Generator): TopoDS_Shape {.noSideEffect,
     importcpp: "ResultingShape", header: "LocOpe_Generator.hxx".}
-proc shape*(this: LocOpeGenerator): TopoDS_Shape {.noSideEffect, importcpp: "Shape",
+proc Shape*(this: LocOpe_Generator): TopoDS_Shape {.noSideEffect, importcpp: "Shape",
     header: "LocOpe_Generator.hxx".}
-proc descendantFace*(this: var LocOpeGenerator; f: TopoDS_Face): TopToolsListOfShape {.
+proc DescendantFace*(this: var LocOpe_Generator; F: TopoDS_Face): TopTools_ListOfShape {.
     importcpp: "DescendantFace", header: "LocOpe_Generator.hxx".}
-

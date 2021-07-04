@@ -12,41 +12,50 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../NCollection/NCollection_DataMap, ../NCollection/NCollection_Shared,
+  ../Standard/Standard_Transient, ../TopoDS/TopoDS_Shape
+
 ##  prevent disabling some MSVC warning messages by VTK headers
 
+import
+  ../Standard/Standard_WarningsDisable, ../Standard/Standard_WarningsRestore,
+  ../IVtk/IVtk_Types, ../IVtkTools/IVtkTools_DisplayModeFilter,
+  ../IVtkTools/IVtkTools_SubPolyDataFilter
+
 type
-  DisplayModeFiltersMap* = NCollectionDataMap[IVtkIdType,
-      VtkSmartPointer[IVtkToolsDisplayModeFilter]]
-  SubShapesFiltersMap* = NCollectionDataMap[IVtkIdType,
-      VtkSmartPointer[IVtkToolsSubPolyDataFilter]]
+  DisplayModeFiltersMap* = NCollection_DataMap[IVtk_IdType,
+      vtkSmartPointer[IVtkTools_DisplayModeFilter]]
+  SubShapesFiltersMap* = NCollection_DataMap[IVtk_IdType,
+      vtkSmartPointer[IVtkTools_SubPolyDataFilter]]
 
 discard "forward decl of IVtkDraw_HighlightAndSelectionPipeline"
 discard "forward decl of IVtkDraw_HighlightAndSelectionPipeline"
 type
-  HandleIVtkDrawHighlightAndSelectionPipeline* = Handle[
-      IVtkDrawHighlightAndSelectionPipeline]
-  IVtkDrawHighlightAndSelectionPipeline* {.
+  Handle_IVtkDraw_HighlightAndSelectionPipeline* = handle[
+      IVtkDraw_HighlightAndSelectionPipeline]
+  IVtkDraw_HighlightAndSelectionPipeline* {.
       importcpp: "IVtkDraw_HighlightAndSelectionPipeline",
-      header: "IVtkDraw_HighlightAndSelectionPipeline.hxx", bycopy.} = object of StandardTransient ##
-                                                                                            ## !
-                                                                                            ## Filters
-                                                                                            ## comprising
-                                                                                            ## the
-                                                                                            ## pipeline.
-                                                                                            ##
-                                                                                            ## !
-                                                                                            ## Auxiliary
-                                                                                            ## map
-                                                                                            ## of
-                                                                                            ## internal
-                                                                                            ## filters
-                                                                                            ## by
-                                                                                            ## their
-                                                                                            ## correspondent
-                                                                                            ## IDs.
-                                                                                            ##
-                                                                                            ## !
-                                                                                            ## Actor.
+      header: "IVtkDraw_HighlightAndSelectionPipeline.hxx", bycopy.} = object of Standard_Transient ##
+                                                                                             ## !
+                                                                                             ## Filters
+                                                                                             ## comprising
+                                                                                             ## the
+                                                                                             ## pipeline.
+                                                                                             ##
+                                                                                             ## !
+                                                                                             ## Auxiliary
+                                                                                             ## map
+                                                                                             ## of
+                                                                                             ## internal
+                                                                                             ## filters
+                                                                                             ## by
+                                                                                             ## their
+                                                                                             ## correspondent
+                                                                                             ## IDs.
+                                                                                             ##
+                                                                                             ## !
+                                                                                             ## Actor.
     ## ! Polygonal mapper.
     ## ! Actor for highlighting.
     ## ! Polygonal mapper for highlighting.
@@ -54,76 +63,74 @@ type
     ## ! Polygonal mapper for selection.
     ## ! Map of involved VTK filters.
 
-  IVtkDrawHighlightAndSelectionPipelinebaseType* = StandardTransient
+  IVtkDraw_HighlightAndSelectionPipelinebase_type* = Standard_Transient
 
-proc getTypeName*(): cstring {.importcpp: "IVtkDraw_HighlightAndSelectionPipeline::get_type_name(@)", header: "IVtkDraw_HighlightAndSelectionPipeline.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "IVtkDraw_HighlightAndSelectionPipeline::get_type_descriptor(@)",
+proc get_type_name*(): cstring {.importcpp: "IVtkDraw_HighlightAndSelectionPipeline::get_type_name(@)", header: "IVtkDraw_HighlightAndSelectionPipeline.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.importcpp: "IVtkDraw_HighlightAndSelectionPipeline::get_type_descriptor(@)",
     header: "IVtkDraw_HighlightAndSelectionPipeline.hxx".}
-proc dynamicType*(this: IVtkDrawHighlightAndSelectionPipeline): Handle[StandardType] {.
-    noSideEffect, importcpp: "DynamicType",
-    header: "IVtkDraw_HighlightAndSelectionPipeline.hxx".}
+proc DynamicType*(this: IVtkDraw_HighlightAndSelectionPipeline): handle[
+    Standard_Type] {.noSideEffect, importcpp: "DynamicType",
+                    header: "IVtkDraw_HighlightAndSelectionPipeline.hxx".}
 type
-  IVtkDrawHighlightAndSelectionPipelineFilterId* {.size: sizeof(cint),
+  IVtkDraw_HighlightAndSelectionPipelineFilterId* {.size: sizeof(cint),
       importcpp: "IVtkDraw_HighlightAndSelectionPipeline::FilterId",
       header: "IVtkDraw_HighlightAndSelectionPipeline.hxx".} = enum
-    FilterDM_Shape = 1,         ## !< Display Mode filter for shape.
-    FilterDM_Hili,            ## !< Display Mode filter for highlighting.
-    FilterDM_Sel,             ## !< Display Mode filter for selection.
-    FilterSUB_Hili,           ## !< Sub-shapes filter for highlighting.
-    FilterSUB_Sel             ## !< Sub-shapes filter for selection.
+    Filter_DM_Shape = 1,        ## !< Display Mode filter for shape.
+    Filter_DM_Hili,           ## !< Display Mode filter for highlighting.
+    Filter_DM_Sel,            ## !< Display Mode filter for selection.
+    Filter_SUB_Hili,          ## !< Sub-shapes filter for highlighting.
+    Filter_SUB_Sel            ## !< Sub-shapes filter for selection.
 
 
-proc constructIVtkDrawHighlightAndSelectionPipeline*(theShape: TopoDS_Shape;
-    theShapeID: StandardInteger): IVtkDrawHighlightAndSelectionPipeline {.
+proc constructIVtkDraw_HighlightAndSelectionPipeline*(theShape: TopoDS_Shape;
+    theShapeID: Standard_Integer): IVtkDraw_HighlightAndSelectionPipeline {.
     constructor, importcpp: "IVtkDraw_HighlightAndSelectionPipeline(@)",
     header: "IVtkDraw_HighlightAndSelectionPipeline.hxx".}
-proc destroyIVtkDrawHighlightAndSelectionPipeline*(
-    this: var IVtkDrawHighlightAndSelectionPipeline) {.
+proc destroyIVtkDraw_HighlightAndSelectionPipeline*(
+    this: var IVtkDraw_HighlightAndSelectionPipeline) {.
     importcpp: "#.~IVtkDraw_HighlightAndSelectionPipeline()",
     header: "IVtkDraw_HighlightAndSelectionPipeline.hxx".}
-proc addToRenderer*(this: var IVtkDrawHighlightAndSelectionPipeline;
-                   theRenderer: ptr VtkRenderer) {.importcpp: "AddToRenderer",
+proc AddToRenderer*(this: var IVtkDraw_HighlightAndSelectionPipeline;
+                   theRenderer: ptr vtkRenderer) {.importcpp: "AddToRenderer",
     header: "IVtkDraw_HighlightAndSelectionPipeline.hxx".}
-proc removeFromRenderer*(this: var IVtkDrawHighlightAndSelectionPipeline;
-                        theRenderer: ptr VtkRenderer) {.
+proc RemoveFromRenderer*(this: var IVtkDraw_HighlightAndSelectionPipeline;
+                        theRenderer: ptr vtkRenderer) {.
     importcpp: "RemoveFromRenderer",
     header: "IVtkDraw_HighlightAndSelectionPipeline.hxx".}
-proc actor*(this: var IVtkDrawHighlightAndSelectionPipeline): ptr VtkActor {.
+proc Actor*(this: var IVtkDraw_HighlightAndSelectionPipeline): ptr vtkActor {.
     importcpp: "Actor", header: "IVtkDraw_HighlightAndSelectionPipeline.hxx".}
-proc mapper*(this: var IVtkDrawHighlightAndSelectionPipeline): ptr VtkMapper {.
+proc Mapper*(this: var IVtkDraw_HighlightAndSelectionPipeline): ptr vtkMapper {.
     importcpp: "Mapper", header: "IVtkDraw_HighlightAndSelectionPipeline.hxx".}
-proc clearHighlightFilters*(this: var IVtkDrawHighlightAndSelectionPipeline) {.
+proc ClearHighlightFilters*(this: var IVtkDraw_HighlightAndSelectionPipeline) {.
     importcpp: "ClearHighlightFilters",
     header: "IVtkDraw_HighlightAndSelectionPipeline.hxx".}
-proc clearSelectionFilters*(this: var IVtkDrawHighlightAndSelectionPipeline) {.
+proc ClearSelectionFilters*(this: var IVtkDraw_HighlightAndSelectionPipeline) {.
     importcpp: "ClearSelectionFilters",
     header: "IVtkDraw_HighlightAndSelectionPipeline.hxx".}
-proc getDisplayModeFilter*(this: var IVtkDrawHighlightAndSelectionPipeline): ptr IVtkToolsDisplayModeFilter {.
+proc GetDisplayModeFilter*(this: var IVtkDraw_HighlightAndSelectionPipeline): ptr IVtkTools_DisplayModeFilter {.
     importcpp: "GetDisplayModeFilter",
     header: "IVtkDraw_HighlightAndSelectionPipeline.hxx".}
-proc getHighlightFilter*(this: var IVtkDrawHighlightAndSelectionPipeline): ptr IVtkToolsSubPolyDataFilter {.
+proc GetHighlightFilter*(this: var IVtkDraw_HighlightAndSelectionPipeline): ptr IVtkTools_SubPolyDataFilter {.
     importcpp: "GetHighlightFilter",
     header: "IVtkDraw_HighlightAndSelectionPipeline.hxx".}
-proc getSelectionFilter*(this: var IVtkDrawHighlightAndSelectionPipeline): ptr IVtkToolsSubPolyDataFilter {.
+proc GetSelectionFilter*(this: var IVtkDraw_HighlightAndSelectionPipeline): ptr IVtkTools_SubPolyDataFilter {.
     importcpp: "GetSelectionFilter",
     header: "IVtkDraw_HighlightAndSelectionPipeline.hxx".}
-proc getHighlightDMFilter*(this: var IVtkDrawHighlightAndSelectionPipeline): ptr IVtkToolsDisplayModeFilter {.
+proc GetHighlightDMFilter*(this: var IVtkDraw_HighlightAndSelectionPipeline): ptr IVtkTools_DisplayModeFilter {.
     importcpp: "GetHighlightDMFilter",
     header: "IVtkDraw_HighlightAndSelectionPipeline.hxx".}
-proc getSelectionDMFilter*(this: var IVtkDrawHighlightAndSelectionPipeline): ptr IVtkToolsDisplayModeFilter {.
+proc GetSelectionDMFilter*(this: var IVtkDraw_HighlightAndSelectionPipeline): ptr IVtkTools_DisplayModeFilter {.
     importcpp: "GetSelectionDMFilter",
     header: "IVtkDraw_HighlightAndSelectionPipeline.hxx".}
-proc sharedVerticesSelectionOn*(this: var IVtkDrawHighlightAndSelectionPipeline) {.
+proc SharedVerticesSelectionOn*(this: var IVtkDraw_HighlightAndSelectionPipeline) {.
     importcpp: "SharedVerticesSelectionOn",
     header: "IVtkDraw_HighlightAndSelectionPipeline.hxx".}
-proc sharedVerticesSelectionOff*(this: var IVtkDrawHighlightAndSelectionPipeline) {.
+proc SharedVerticesSelectionOff*(this: var IVtkDraw_HighlightAndSelectionPipeline) {.
     importcpp: "SharedVerticesSelectionOff",
     header: "IVtkDraw_HighlightAndSelectionPipeline.hxx".}
 ## ! Mapping between OCCT topological shape IDs and their correspondent
 ## ! visualization pipelines.
 
 type
-  ShapePipelineMap* = NCollectionShared[NCollectionDataMap[IVtkIdType,
-      Handle[IVtkDrawHighlightAndSelectionPipeline]]]
-
-
+  ShapePipelineMap* = NCollection_Shared[NCollection_DataMap[IVtk_IdType,
+      handle[IVtkDraw_HighlightAndSelectionPipeline]]]

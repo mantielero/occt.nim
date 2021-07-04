@@ -14,15 +14,19 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Type,
+  ../Standard/Standard_CString
+
 discard "forward decl of Standard_Transient"
 type
-  MoniToolDataInfo* {.importcpp: "MoniTool_DataInfo",
-                     header: "MoniTool_DataInfo.hxx", bycopy.} = object ## ! Returns the Type attached to an object
-                                                                   ## ! Here, the Dynamic Type of a Transient. Null Type if unknown
+  MoniTool_DataInfo* {.importcpp: "MoniTool_DataInfo",
+                      header: "MoniTool_DataInfo.hxx", bycopy.} = object ## ! Returns the Type attached to an object
+                                                                    ## ! Here, the Dynamic Type of a Transient. Null Type if unknown
 
 
-proc `type`*(ent: Handle[StandardTransient]): Handle[StandardType] {.
+proc Type*(ent: handle[Standard_Transient]): handle[Standard_Type] {.
     importcpp: "MoniTool_DataInfo::Type(@)", header: "MoniTool_DataInfo.hxx".}
-proc typeName*(ent: Handle[StandardTransient]): StandardCString {.
+proc TypeName*(ent: handle[Standard_Transient]): Standard_CString {.
     importcpp: "MoniTool_DataInfo::TypeName(@)", header: "MoniTool_DataInfo.hxx".}
-

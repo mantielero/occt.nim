@@ -21,71 +21,77 @@
 ##               the  list  length is  continuously updated,  so the  method
 ##               Extent is quite quick.
 
+import
+  ../Standard/Standard_NoSuchObject, NCollection_DefineAlloc, NCollection_ListNode
+
 type
-  NCollectionDelListNode* = proc (a1: ptr NCollectionListNode;
-                               theAl: var Handle[NCollectionBaseAllocator])
+  NCollection_DelListNode* = proc (a1: ptr NCollection_ListNode;
+                                theAl: var handle[NCollection_BaseAllocator])
 
 ##  ********************************************************** BaseList class
 
 type
-  NCollectionBaseList* {.importcpp: "NCollection_BaseList",
-                        header: "NCollection_BaseList.hxx", bycopy.} = object ## ! Memory
-                                                                         ## allocation
-                                                                         ##
-                                                                         ## ---------- PUBLIC METHODS
-                                                                         ## ------------
-                                                                         ##
-                                                                         ## ******** Extent
-                                                                         ##
-                                                                         ## Purpose: Returns the number of nodes in the list
-                                                                         ##
-                                                                         ## ---------
-                                                                         ## PROTECTED METHODS
-                                                                         ## ----------
-                                                                         ##
-                                                                         ## ********
-                                                                         ## Constructor
-                                                                         ##
-                                                                         ## Purpose:
-                                                                         ## Initializes an empty list
-                                                                         ##
-                                                                         ## ------------
-                                                                         ## PROTECTED FIELDS
-                                                                         ## ------------
+  NCollection_BaseList* {.importcpp: "NCollection_BaseList",
+                         header: "NCollection_BaseList.hxx", bycopy.} = object ## ! Memory
+                                                                          ## allocation
+                                                                          ##
+                                                                          ## ---------- PUBLIC
+                                                                          ## METHODS
+                                                                          ## ------------
+                                                                          ##
+                                                                          ## ******** Extent
+                                                                          ##
+                                                                          ## Purpose:
+                                                                          ## Returns the number of nodes in the list
+                                                                          ##
+                                                                          ## ---------
+                                                                          ## PROTECTED
+                                                                          ## METHODS
+                                                                          ## ----------
+                                                                          ##
+                                                                          ## ********
+                                                                          ## Constructor
+                                                                          ##
+                                                                          ## Purpose:
+                                                                          ## Initializes an empty list
+                                                                          ##
+                                                                          ## ------------
+                                                                          ## PROTECTED FIELDS
+                                                                          ## ------------
     ##  Pointer to the head
     ##  Pointer to the tail
     ##  Actual length
     ##  ------------ FRIEND CLASSES ------------
 
-  NCollectionBaseListIterator* {.importcpp: "NCollection_BaseList::Iterator",
-                                header: "NCollection_BaseList.hxx", bycopy.} = object ##  ******** Empty constructor
-    myCurrent* {.importc: "myCurrent".}: ptr NCollectionListNode ##  Pointer to the current node
-    myPrevious* {.importc: "myPrevious".}: ptr NCollectionListNode ##  Pointer to the previous one
+  NCollection_BaseListIterator* {.importcpp: "NCollection_BaseList::Iterator",
+                                 header: "NCollection_BaseList.hxx", bycopy.} = object ##  ******** Empty constructor
+    myCurrent* {.importc: "myCurrent".}: ptr NCollection_ListNode ##  Pointer to the current node
+    myPrevious* {.importc: "myPrevious".}: ptr NCollection_ListNode ##  Pointer to the previous one
 
 
-proc constructNCollectionBaseListIterator*(): NCollectionBaseListIterator {.
+proc constructNCollection_BaseListIterator*(): NCollection_BaseListIterator {.
     constructor, importcpp: "NCollection_BaseList::Iterator(@)",
     header: "NCollection_BaseList.hxx".}
-proc constructNCollectionBaseListIterator*(theList: NCollectionBaseList): NCollectionBaseListIterator {.
+proc constructNCollection_BaseListIterator*(theList: NCollection_BaseList): NCollection_BaseListIterator {.
     constructor, importcpp: "NCollection_BaseList::Iterator(@)",
     header: "NCollection_BaseList.hxx".}
-proc init*(this: var NCollectionBaseListIterator; theList: NCollectionBaseList) {.
+proc Init*(this: var NCollection_BaseListIterator; theList: NCollection_BaseList) {.
     importcpp: "Init", header: "NCollection_BaseList.hxx".}
-proc initialize*(this: var NCollectionBaseListIterator; theList: NCollectionBaseList) {.
-    importcpp: "Initialize", header: "NCollection_BaseList.hxx".}
-proc more*(this: NCollectionBaseListIterator): StandardBoolean {.noSideEffect,
+proc Initialize*(this: var NCollection_BaseListIterator;
+                theList: NCollection_BaseList) {.importcpp: "Initialize",
+    header: "NCollection_BaseList.hxx".}
+proc More*(this: NCollection_BaseListIterator): Standard_Boolean {.noSideEffect,
     importcpp: "More", header: "NCollection_BaseList.hxx".}
-proc `==`*(this: NCollectionBaseListIterator; theIt: NCollectionBaseListIterator): StandardBoolean {.
+proc `==`*(this: NCollection_BaseListIterator; theIt: NCollection_BaseListIterator): Standard_Boolean {.
     noSideEffect, importcpp: "(# == #)", header: "NCollection_BaseList.hxx".}
-proc isEqual*(this: NCollectionBaseListIterator;
-             theOther: NCollectionBaseListIterator): StandardBoolean {.
+proc IsEqual*(this: NCollection_BaseListIterator;
+             theOther: NCollection_BaseListIterator): Standard_Boolean {.
     noSideEffect, importcpp: "IsEqual", header: "NCollection_BaseList.hxx".}
-proc extent*(this: NCollectionBaseList): StandardInteger {.noSideEffect,
+proc Extent*(this: NCollection_BaseList): Standard_Integer {.noSideEffect,
     importcpp: "Extent", header: "NCollection_BaseList.hxx".}
-proc isEmpty*(this: NCollectionBaseList): StandardBoolean {.noSideEffect,
+proc IsEmpty*(this: NCollection_BaseList): Standard_Boolean {.noSideEffect,
     importcpp: "IsEmpty", header: "NCollection_BaseList.hxx".}
-proc allocator*(this: NCollectionBaseList): Handle[NCollectionBaseAllocator] {.
+proc Allocator*(this: NCollection_BaseList): handle[NCollection_BaseAllocator] {.
     noSideEffect, importcpp: "Allocator", header: "NCollection_BaseList.hxx".}
-proc destroyNCollectionBaseList*(this: var NCollectionBaseList) {.
+proc destroyNCollection_BaseList*(this: var NCollection_BaseList) {.
     importcpp: "#.~NCollection_BaseList()", header: "NCollection_BaseList.hxx".}
-

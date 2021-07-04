@@ -14,10 +14,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-proc chFiKPartCornerSpine*(s1: Handle[Adaptor3dHSurface];
-                          s2: Handle[Adaptor3dHSurface]; p1s1: GpPnt2d;
-                          p2s1: GpPnt2d; p1s2: GpPnt2d; p2s2: GpPnt2d;
-                          r: StandardReal; cyl: var GpCylinder; circ: var GpCirc;
-                          first: var StandardReal; last: var StandardReal) {.
-    importcpp: "ChFiKPart_CornerSpine(@)", header: "ChFiKPart_ComputeData_CS.hxx".}
+import
+  ../Adaptor3d/Adaptor3d_HSurface, ../gp/gp_Pnt2d, ../gp/gp_Cylinder, ../gp/gp_Circ
 
+proc ChFiKPart_CornerSpine*(S1: handle[Adaptor3d_HSurface];
+                           S2: handle[Adaptor3d_HSurface]; P1S1: gp_Pnt2d;
+                           P2S1: gp_Pnt2d; P1S2: gp_Pnt2d; P2S2: gp_Pnt2d;
+                           R: Standard_Real; cyl: var gp_Cylinder; circ: var gp_Circ;
+                           First: var Standard_Real; Last: var Standard_Real) {.
+    importcpp: "ChFiKPart_CornerSpine(@)", header: "ChFiKPart_ComputeData_CS.hxx".}

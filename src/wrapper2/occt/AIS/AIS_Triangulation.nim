@@ -13,10 +13,13 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../TColStd/TColStd_HArray1OfInteger, AIS_InteractiveObject
+
 discard "forward decl of Poly_Triangulation"
 discard "forward decl of AIS_Triangulation"
 type
-  HandleAIS_Triangulation* = Handle[AIS_Triangulation]
+  Handle_AIS_Triangulation* = handle[AIS_Triangulation]
 
 ## ! Interactive object that draws data from  Poly_Triangulation, optionally with colors associated
 ## ! with each triangulation vertex. For maximum efficiency colors are represented as 32-bit integers
@@ -33,30 +36,30 @@ type
                                                                                            ## display
                                                                                            ## object
 
-  AIS_TriangulationbaseType* = AIS_InteractiveObject
+  AIS_Triangulationbase_type* = AIS_InteractiveObject
 
-proc getTypeName*(): cstring {.importcpp: "AIS_Triangulation::get_type_name(@)",
-                            header: "AIS_Triangulation.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "AIS_Triangulation::get_type_name(@)",
+                              header: "AIS_Triangulation.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "AIS_Triangulation::get_type_descriptor(@)",
     header: "AIS_Triangulation.hxx".}
-proc dynamicType*(this: AIS_Triangulation): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: AIS_Triangulation): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "AIS_Triangulation.hxx".}
-proc constructAIS_Triangulation*(aTriangulation: Handle[PolyTriangulation]): AIS_Triangulation {.
+proc constructAIS_Triangulation*(aTriangulation: handle[Poly_Triangulation]): AIS_Triangulation {.
     constructor, importcpp: "AIS_Triangulation(@)", header: "AIS_Triangulation.hxx".}
-proc setColors*(this: var AIS_Triangulation; aColor: Handle[TColStdHArray1OfInteger]) {.
-    importcpp: "SetColors", header: "AIS_Triangulation.hxx".}
-proc getColors*(this: AIS_Triangulation): Handle[TColStdHArray1OfInteger] {.
+proc SetColors*(this: var AIS_Triangulation;
+               aColor: handle[TColStd_HArray1OfInteger]) {.importcpp: "SetColors",
+    header: "AIS_Triangulation.hxx".}
+proc GetColors*(this: AIS_Triangulation): handle[TColStd_HArray1OfInteger] {.
     noSideEffect, importcpp: "GetColors", header: "AIS_Triangulation.hxx".}
-proc hasVertexColors*(this: AIS_Triangulation): StandardBoolean {.noSideEffect,
+proc HasVertexColors*(this: AIS_Triangulation): Standard_Boolean {.noSideEffect,
     importcpp: "HasVertexColors", header: "AIS_Triangulation.hxx".}
-proc setTriangulation*(this: var AIS_Triangulation;
-                      aTriangulation: Handle[PolyTriangulation]) {.
+proc SetTriangulation*(this: var AIS_Triangulation;
+                      aTriangulation: handle[Poly_Triangulation]) {.
     importcpp: "SetTriangulation", header: "AIS_Triangulation.hxx".}
-proc getTriangulation*(this: AIS_Triangulation): Handle[PolyTriangulation] {.
+proc GetTriangulation*(this: AIS_Triangulation): handle[Poly_Triangulation] {.
     noSideEffect, importcpp: "GetTriangulation", header: "AIS_Triangulation.hxx".}
-proc setTransparency*(this: var AIS_Triangulation; aValue: StandardReal = 0.6) {.
+proc SetTransparency*(this: var AIS_Triangulation; aValue: Standard_Real = 0.6) {.
     importcpp: "SetTransparency", header: "AIS_Triangulation.hxx".}
-proc unsetTransparency*(this: var AIS_Triangulation) {.
+proc UnsetTransparency*(this: var AIS_Triangulation) {.
     importcpp: "UnsetTransparency", header: "AIS_Triangulation.hxx".}
-

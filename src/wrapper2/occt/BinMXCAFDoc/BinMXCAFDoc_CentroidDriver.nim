@@ -13,39 +13,43 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../BinMDF/BinMDF_ADriver,
+  ../Standard/Standard_Boolean, ../BinObjMgt/BinObjMgt_RRelocationTable,
+  ../BinObjMgt/BinObjMgt_SRelocationTable
+
 discard "forward decl of Message_Messenger"
 discard "forward decl of TDF_Attribute"
 discard "forward decl of BinObjMgt_Persistent"
 discard "forward decl of BinMXCAFDoc_CentroidDriver"
 discard "forward decl of BinMXCAFDoc_CentroidDriver"
 type
-  HandleBinMXCAFDocCentroidDriver* = Handle[BinMXCAFDocCentroidDriver]
-  BinMXCAFDocCentroidDriver* {.importcpp: "BinMXCAFDoc_CentroidDriver",
-                              header: "BinMXCAFDoc_CentroidDriver.hxx", bycopy.} = object of BinMDF_ADriver
+  Handle_BinMXCAFDoc_CentroidDriver* = handle[BinMXCAFDoc_CentroidDriver]
+  BinMXCAFDoc_CentroidDriver* {.importcpp: "BinMXCAFDoc_CentroidDriver",
+                               header: "BinMXCAFDoc_CentroidDriver.hxx", bycopy.} = object of BinMDF_ADriver
 
 
-proc constructBinMXCAFDocCentroidDriver*(theMsgDriver: Handle[MessageMessenger]): BinMXCAFDocCentroidDriver {.
+proc constructBinMXCAFDoc_CentroidDriver*(theMsgDriver: handle[Message_Messenger]): BinMXCAFDoc_CentroidDriver {.
     constructor, importcpp: "BinMXCAFDoc_CentroidDriver(@)",
     header: "BinMXCAFDoc_CentroidDriver.hxx".}
-proc newEmpty*(this: BinMXCAFDocCentroidDriver): Handle[TDF_Attribute] {.
+proc NewEmpty*(this: BinMXCAFDoc_CentroidDriver): handle[TDF_Attribute] {.
     noSideEffect, importcpp: "NewEmpty", header: "BinMXCAFDoc_CentroidDriver.hxx".}
-proc paste*(this: BinMXCAFDocCentroidDriver; theSource: BinObjMgtPersistent;
-           theTarget: Handle[TDF_Attribute];
-           theRelocTable: var BinObjMgtRRelocationTable): StandardBoolean {.
+proc Paste*(this: BinMXCAFDoc_CentroidDriver; theSource: BinObjMgt_Persistent;
+           theTarget: handle[TDF_Attribute];
+           theRelocTable: var BinObjMgt_RRelocationTable): Standard_Boolean {.
     noSideEffect, importcpp: "Paste", header: "BinMXCAFDoc_CentroidDriver.hxx".}
-proc paste*(this: BinMXCAFDocCentroidDriver; theSource: Handle[TDF_Attribute];
-           theTarget: var BinObjMgtPersistent;
-           theRelocTable: var BinObjMgtSRelocationTable) {.noSideEffect,
+proc Paste*(this: BinMXCAFDoc_CentroidDriver; theSource: handle[TDF_Attribute];
+           theTarget: var BinObjMgt_Persistent;
+           theRelocTable: var BinObjMgt_SRelocationTable) {.noSideEffect,
     importcpp: "Paste", header: "BinMXCAFDoc_CentroidDriver.hxx".}
 type
-  BinMXCAFDocCentroidDriverbaseType* = BinMDF_ADriver
+  BinMXCAFDoc_CentroidDriverbase_type* = BinMDF_ADriver
 
-proc getTypeName*(): cstring {.importcpp: "BinMXCAFDoc_CentroidDriver::get_type_name(@)",
-                            header: "BinMXCAFDoc_CentroidDriver.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "BinMXCAFDoc_CentroidDriver::get_type_name(@)",
+                              header: "BinMXCAFDoc_CentroidDriver.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "BinMXCAFDoc_CentroidDriver::get_type_descriptor(@)",
     header: "BinMXCAFDoc_CentroidDriver.hxx".}
-proc dynamicType*(this: BinMXCAFDocCentroidDriver): Handle[StandardType] {.
+proc DynamicType*(this: BinMXCAFDoc_CentroidDriver): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType",
     header: "BinMXCAFDoc_CentroidDriver.hxx".}
-

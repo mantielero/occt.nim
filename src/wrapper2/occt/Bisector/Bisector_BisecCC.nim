@@ -14,6 +14,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Real,
+  ../TColStd/TColStd_SequenceOfReal, ../Standard/Standard_Integer,
+  Bisector_PolyBis, ../Standard/Standard_Boolean, ../gp/gp_Pnt2d, Bisector_Curve,
+  ../GeomAbs/GeomAbs_Shape
+
 discard "forward decl of Geom2d_Curve"
 discard "forward decl of Standard_DomainError"
 discard "forward decl of Standard_RangeError"
@@ -25,101 +31,101 @@ discard "forward decl of Bisector_PolyBis"
 discard "forward decl of Bisector_BisecCC"
 discard "forward decl of Bisector_BisecCC"
 type
-  HandleBisectorBisecCC* = Handle[BisectorBisecCC]
+  Handle_Bisector_BisecCC* = handle[Bisector_BisecCC]
 
 ## ! Construct the bisector between two curves.
 ## ! The curves can intersect only in their extremities.
 
 type
-  BisectorBisecCC* {.importcpp: "Bisector_BisecCC", header: "Bisector_BisecCC.hxx",
-                    bycopy.} = object of BisectorCurve
+  Bisector_BisecCC* {.importcpp: "Bisector_BisecCC",
+                     header: "Bisector_BisecCC.hxx", bycopy.} = object of Bisector_Curve
 
 
-proc constructBisectorBisecCC*(): BisectorBisecCC {.constructor,
+proc constructBisector_BisecCC*(): Bisector_BisecCC {.constructor,
     importcpp: "Bisector_BisecCC(@)", header: "Bisector_BisecCC.hxx".}
-proc constructBisectorBisecCC*(cu1: Handle[Geom2dCurve]; cu2: Handle[Geom2dCurve];
-                              side1: StandardReal; side2: StandardReal;
-                              origin: GpPnt2d; distMax: StandardReal = 500): BisectorBisecCC {.
+proc constructBisector_BisecCC*(Cu1: handle[Geom2d_Curve];
+                               Cu2: handle[Geom2d_Curve]; Side1: Standard_Real;
+                               Side2: Standard_Real; Origin: gp_Pnt2d;
+                               DistMax: Standard_Real = 500): Bisector_BisecCC {.
     constructor, importcpp: "Bisector_BisecCC(@)", header: "Bisector_BisecCC.hxx".}
-proc perform*(this: var BisectorBisecCC; cu1: Handle[Geom2dCurve];
-             cu2: Handle[Geom2dCurve]; side1: StandardReal; side2: StandardReal;
-             origin: GpPnt2d; distMax: StandardReal = 500) {.importcpp: "Perform",
+proc Perform*(this: var Bisector_BisecCC; Cu1: handle[Geom2d_Curve];
+             Cu2: handle[Geom2d_Curve]; Side1: Standard_Real; Side2: Standard_Real;
+             Origin: gp_Pnt2d; DistMax: Standard_Real = 500) {.importcpp: "Perform",
     header: "Bisector_BisecCC.hxx".}
-proc isExtendAtStart*(this: BisectorBisecCC): StandardBoolean {.noSideEffect,
+proc IsExtendAtStart*(this: Bisector_BisecCC): Standard_Boolean {.noSideEffect,
     importcpp: "IsExtendAtStart", header: "Bisector_BisecCC.hxx".}
-proc isExtendAtEnd*(this: BisectorBisecCC): StandardBoolean {.noSideEffect,
+proc IsExtendAtEnd*(this: Bisector_BisecCC): Standard_Boolean {.noSideEffect,
     importcpp: "IsExtendAtEnd", header: "Bisector_BisecCC.hxx".}
-proc reverse*(this: var BisectorBisecCC) {.importcpp: "Reverse",
-                                       header: "Bisector_BisecCC.hxx".}
-proc reversedParameter*(this: BisectorBisecCC; u: StandardReal): StandardReal {.
+proc Reverse*(this: var Bisector_BisecCC) {.importcpp: "Reverse",
+                                        header: "Bisector_BisecCC.hxx".}
+proc ReversedParameter*(this: Bisector_BisecCC; U: Standard_Real): Standard_Real {.
     noSideEffect, importcpp: "ReversedParameter", header: "Bisector_BisecCC.hxx".}
-proc isCN*(this: BisectorBisecCC; n: StandardInteger): StandardBoolean {.noSideEffect,
-    importcpp: "IsCN", header: "Bisector_BisecCC.hxx".}
-proc changeGuide*(this: BisectorBisecCC): Handle[BisectorBisecCC] {.noSideEffect,
+proc IsCN*(this: Bisector_BisecCC; N: Standard_Integer): Standard_Boolean {.
+    noSideEffect, importcpp: "IsCN", header: "Bisector_BisecCC.hxx".}
+proc ChangeGuide*(this: Bisector_BisecCC): handle[Bisector_BisecCC] {.noSideEffect,
     importcpp: "ChangeGuide", header: "Bisector_BisecCC.hxx".}
-proc copy*(this: BisectorBisecCC): Handle[Geom2dGeometry] {.noSideEffect,
+proc Copy*(this: Bisector_BisecCC): handle[Geom2d_Geometry] {.noSideEffect,
     importcpp: "Copy", header: "Bisector_BisecCC.hxx".}
-proc transform*(this: var BisectorBisecCC; t: GpTrsf2d) {.importcpp: "Transform",
+proc Transform*(this: var Bisector_BisecCC; T: gp_Trsf2d) {.importcpp: "Transform",
     header: "Bisector_BisecCC.hxx".}
-proc firstParameter*(this: BisectorBisecCC): StandardReal {.noSideEffect,
+proc FirstParameter*(this: Bisector_BisecCC): Standard_Real {.noSideEffect,
     importcpp: "FirstParameter", header: "Bisector_BisecCC.hxx".}
-proc lastParameter*(this: BisectorBisecCC): StandardReal {.noSideEffect,
+proc LastParameter*(this: Bisector_BisecCC): Standard_Real {.noSideEffect,
     importcpp: "LastParameter", header: "Bisector_BisecCC.hxx".}
-proc continuity*(this: BisectorBisecCC): GeomAbsShape {.noSideEffect,
+proc Continuity*(this: Bisector_BisecCC): GeomAbs_Shape {.noSideEffect,
     importcpp: "Continuity", header: "Bisector_BisecCC.hxx".}
-proc nbIntervals*(this: BisectorBisecCC): StandardInteger {.noSideEffect,
+proc NbIntervals*(this: Bisector_BisecCC): Standard_Integer {.noSideEffect,
     importcpp: "NbIntervals", header: "Bisector_BisecCC.hxx".}
-proc intervalFirst*(this: BisectorBisecCC; index: StandardInteger): StandardReal {.
+proc IntervalFirst*(this: Bisector_BisecCC; Index: Standard_Integer): Standard_Real {.
     noSideEffect, importcpp: "IntervalFirst", header: "Bisector_BisecCC.hxx".}
-proc intervalLast*(this: BisectorBisecCC; index: StandardInteger): StandardReal {.
+proc IntervalLast*(this: Bisector_BisecCC; Index: Standard_Integer): Standard_Real {.
     noSideEffect, importcpp: "IntervalLast", header: "Bisector_BisecCC.hxx".}
-proc intervalContinuity*(this: BisectorBisecCC): GeomAbsShape {.noSideEffect,
+proc IntervalContinuity*(this: Bisector_BisecCC): GeomAbs_Shape {.noSideEffect,
     importcpp: "IntervalContinuity", header: "Bisector_BisecCC.hxx".}
-proc isClosed*(this: BisectorBisecCC): StandardBoolean {.noSideEffect,
+proc IsClosed*(this: Bisector_BisecCC): Standard_Boolean {.noSideEffect,
     importcpp: "IsClosed", header: "Bisector_BisecCC.hxx".}
-proc isPeriodic*(this: BisectorBisecCC): StandardBoolean {.noSideEffect,
+proc IsPeriodic*(this: Bisector_BisecCC): Standard_Boolean {.noSideEffect,
     importcpp: "IsPeriodic", header: "Bisector_BisecCC.hxx".}
-proc valueAndDist*(this: BisectorBisecCC; u: StandardReal; u1: var StandardReal;
-                  u2: var StandardReal; distance: var StandardReal): GpPnt2d {.
+proc ValueAndDist*(this: Bisector_BisecCC; U: Standard_Real; U1: var Standard_Real;
+                  U2: var Standard_Real; Distance: var Standard_Real): gp_Pnt2d {.
     noSideEffect, importcpp: "ValueAndDist", header: "Bisector_BisecCC.hxx".}
-proc valueByInt*(this: BisectorBisecCC; u: StandardReal; u1: var StandardReal;
-                u2: var StandardReal; distance: var StandardReal): GpPnt2d {.
+proc ValueByInt*(this: Bisector_BisecCC; U: Standard_Real; U1: var Standard_Real;
+                U2: var Standard_Real; Distance: var Standard_Real): gp_Pnt2d {.
     noSideEffect, importcpp: "ValueByInt", header: "Bisector_BisecCC.hxx".}
-proc d0*(this: BisectorBisecCC; u: StandardReal; p: var GpPnt2d) {.noSideEffect,
+proc D0*(this: Bisector_BisecCC; U: Standard_Real; P: var gp_Pnt2d) {.noSideEffect,
     importcpp: "D0", header: "Bisector_BisecCC.hxx".}
-proc d1*(this: BisectorBisecCC; u: StandardReal; p: var GpPnt2d; v: var GpVec2d) {.
+proc D1*(this: Bisector_BisecCC; U: Standard_Real; P: var gp_Pnt2d; V: var gp_Vec2d) {.
     noSideEffect, importcpp: "D1", header: "Bisector_BisecCC.hxx".}
-proc d2*(this: BisectorBisecCC; u: StandardReal; p: var GpPnt2d; v1: var GpVec2d;
-        v2: var GpVec2d) {.noSideEffect, importcpp: "D2",
-                        header: "Bisector_BisecCC.hxx".}
-proc d3*(this: BisectorBisecCC; u: StandardReal; p: var GpPnt2d; v1: var GpVec2d;
-        v2: var GpVec2d; v3: var GpVec2d) {.noSideEffect, importcpp: "D3",
-                                      header: "Bisector_BisecCC.hxx".}
-proc dn*(this: BisectorBisecCC; u: StandardReal; n: StandardInteger): GpVec2d {.
+proc D2*(this: Bisector_BisecCC; U: Standard_Real; P: var gp_Pnt2d; V1: var gp_Vec2d;
+        V2: var gp_Vec2d) {.noSideEffect, importcpp: "D2",
+                         header: "Bisector_BisecCC.hxx".}
+proc D3*(this: Bisector_BisecCC; U: Standard_Real; P: var gp_Pnt2d; V1: var gp_Vec2d;
+        V2: var gp_Vec2d; V3: var gp_Vec2d) {.noSideEffect, importcpp: "D3",
+                                        header: "Bisector_BisecCC.hxx".}
+proc DN*(this: Bisector_BisecCC; U: Standard_Real; N: Standard_Integer): gp_Vec2d {.
     noSideEffect, importcpp: "DN", header: "Bisector_BisecCC.hxx".}
-proc isEmpty*(this: BisectorBisecCC): StandardBoolean {.noSideEffect,
+proc IsEmpty*(this: Bisector_BisecCC): Standard_Boolean {.noSideEffect,
     importcpp: "IsEmpty", header: "Bisector_BisecCC.hxx".}
-proc linkBisCurve*(this: BisectorBisecCC; u: StandardReal): StandardReal {.
+proc LinkBisCurve*(this: Bisector_BisecCC; U: Standard_Real): Standard_Real {.
     noSideEffect, importcpp: "LinkBisCurve", header: "Bisector_BisecCC.hxx".}
-proc linkCurveBis*(this: BisectorBisecCC; u: StandardReal): StandardReal {.
+proc LinkCurveBis*(this: Bisector_BisecCC; U: Standard_Real): Standard_Real {.
     noSideEffect, importcpp: "LinkCurveBis", header: "Bisector_BisecCC.hxx".}
-proc parameter*(this: BisectorBisecCC; p: GpPnt2d): StandardReal {.noSideEffect,
+proc Parameter*(this: Bisector_BisecCC; P: gp_Pnt2d): Standard_Real {.noSideEffect,
     importcpp: "Parameter", header: "Bisector_BisecCC.hxx".}
-proc curve*(this: BisectorBisecCC; indCurve: StandardInteger): Handle[Geom2dCurve] {.
+proc Curve*(this: Bisector_BisecCC; IndCurve: Standard_Integer): handle[Geom2d_Curve] {.
     noSideEffect, importcpp: "Curve", header: "Bisector_BisecCC.hxx".}
-proc polygon*(this: BisectorBisecCC): BisectorPolyBis {.noSideEffect,
+proc Polygon*(this: Bisector_BisecCC): Bisector_PolyBis {.noSideEffect,
     importcpp: "Polygon", header: "Bisector_BisecCC.hxx".}
-proc dump*(this: BisectorBisecCC; deep: StandardInteger = 0;
-          offset: StandardInteger = 0) {.noSideEffect, importcpp: "Dump",
-                                     header: "Bisector_BisecCC.hxx".}
+proc Dump*(this: Bisector_BisecCC; Deep: Standard_Integer = 0;
+          Offset: Standard_Integer = 0) {.noSideEffect, importcpp: "Dump",
+                                      header: "Bisector_BisecCC.hxx".}
 type
-  BisectorBisecCCbaseType* = BisectorCurve
+  Bisector_BisecCCbase_type* = Bisector_Curve
 
-proc getTypeName*(): cstring {.importcpp: "Bisector_BisecCC::get_type_name(@)",
-                            header: "Bisector_BisecCC.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "Bisector_BisecCC::get_type_name(@)",
+                              header: "Bisector_BisecCC.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "Bisector_BisecCC::get_type_descriptor(@)",
     header: "Bisector_BisecCC.hxx".}
-proc dynamicType*(this: BisectorBisecCC): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: Bisector_BisecCC): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "Bisector_BisecCC.hxx".}
-

@@ -14,12 +14,15 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, IGESBasic_Group
+
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of IGESBasic_OrderedGroupWithoutBackP"
 discard "forward decl of IGESBasic_OrderedGroupWithoutBackP"
 type
-  HandleIGESBasicOrderedGroupWithoutBackP* = Handle[
-      IGESBasicOrderedGroupWithoutBackP]
+  Handle_IGESBasic_OrderedGroupWithoutBackP* = handle[
+      IGESBasic_OrderedGroupWithoutBackP]
 
 ## ! defines OrderedGroupWithoutBackP, Type <402> Form <15>
 ## ! in package IGESBasic
@@ -29,22 +32,21 @@ type
 ## ! It inherits from Group
 
 type
-  IGESBasicOrderedGroupWithoutBackP* {.importcpp: "IGESBasic_OrderedGroupWithoutBackP", header: "IGESBasic_OrderedGroupWithoutBackP.hxx",
-                                      bycopy.} = object of IGESBasicGroup
+  IGESBasic_OrderedGroupWithoutBackP* {.importcpp: "IGESBasic_OrderedGroupWithoutBackP", header: "IGESBasic_OrderedGroupWithoutBackP.hxx",
+                                       bycopy.} = object of IGESBasic_Group
 
 
-proc constructIGESBasicOrderedGroupWithoutBackP*(): IGESBasicOrderedGroupWithoutBackP {.
+proc constructIGESBasic_OrderedGroupWithoutBackP*(): IGESBasic_OrderedGroupWithoutBackP {.
     constructor, importcpp: "IGESBasic_OrderedGroupWithoutBackP(@)",
     header: "IGESBasic_OrderedGroupWithoutBackP.hxx".}
 type
-  IGESBasicOrderedGroupWithoutBackPbaseType* = IGESBasicGroup
+  IGESBasic_OrderedGroupWithoutBackPbase_type* = IGESBasic_Group
 
-proc getTypeName*(): cstring {.importcpp: "IGESBasic_OrderedGroupWithoutBackP::get_type_name(@)",
-                            header: "IGESBasic_OrderedGroupWithoutBackP.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "IGESBasic_OrderedGroupWithoutBackP::get_type_name(@)",
+                              header: "IGESBasic_OrderedGroupWithoutBackP.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "IGESBasic_OrderedGroupWithoutBackP::get_type_descriptor(@)",
     header: "IGESBasic_OrderedGroupWithoutBackP.hxx".}
-proc dynamicType*(this: IGESBasicOrderedGroupWithoutBackP): Handle[StandardType] {.
+proc DynamicType*(this: IGESBasic_OrderedGroupWithoutBackP): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType",
     header: "IGESBasic_OrderedGroupWithoutBackP.hxx".}
-

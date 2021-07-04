@@ -14,6 +14,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, Expr_UnaryExpression,
+  ../Standard/Standard_Boolean, ../Standard/Standard_Real,
+  Expr_Array1OfNamedUnknown, ../TColStd/TColStd_Array1OfReal
+
 discard "forward decl of Expr_GeneralFunction"
 discard "forward decl of Expr_InvalidFunction"
 discard "forward decl of Standard_NumericError"
@@ -24,60 +29,59 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of Expr_UnaryFunction"
 discard "forward decl of Expr_UnaryFunction"
 type
-  HandleExprUnaryFunction* = Handle[ExprUnaryFunction]
+  Handle_Expr_UnaryFunction* = handle[Expr_UnaryFunction]
 
 ## ! Defines the use of an unary function in an expression
 ## ! with a given argument.
 
 type
-  ExprUnaryFunction* {.importcpp: "Expr_UnaryFunction",
-                      header: "Expr_UnaryFunction.hxx", bycopy.} = object of ExprUnaryExpression ##
-                                                                                          ## !
-                                                                                          ## Creates
-                                                                                          ## me
-                                                                                          ## as
-                                                                                          ## <func>(<exp>).
-                                                                                          ##
-                                                                                          ## !
-                                                                                          ## Raises
-                                                                                          ## exception
-                                                                                          ## if
-                                                                                          ## <func>
-                                                                                          ## is
-                                                                                          ## not
-                                                                                          ## unary.
+  Expr_UnaryFunction* {.importcpp: "Expr_UnaryFunction",
+                       header: "Expr_UnaryFunction.hxx", bycopy.} = object of Expr_UnaryExpression ##
+                                                                                            ## !
+                                                                                            ## Creates
+                                                                                            ## me
+                                                                                            ## as
+                                                                                            ## <func>(<exp>).
+                                                                                            ##
+                                                                                            ## !
+                                                                                            ## Raises
+                                                                                            ## exception
+                                                                                            ## if
+                                                                                            ## <func>
+                                                                                            ## is
+                                                                                            ## not
+                                                                                            ## unary.
 
 
-proc constructExprUnaryFunction*(`func`: Handle[ExprGeneralFunction];
-                                exp: Handle[ExprGeneralExpression]): ExprUnaryFunction {.
+proc constructExpr_UnaryFunction*(`func`: handle[Expr_GeneralFunction];
+                                 exp: handle[Expr_GeneralExpression]): Expr_UnaryFunction {.
     constructor, importcpp: "Expr_UnaryFunction(@)",
     header: "Expr_UnaryFunction.hxx".}
-proc function*(this: ExprUnaryFunction): Handle[ExprGeneralFunction] {.noSideEffect,
-    importcpp: "Function", header: "Expr_UnaryFunction.hxx".}
-proc shallowSimplified*(this: ExprUnaryFunction): Handle[ExprGeneralExpression] {.
+proc Function*(this: Expr_UnaryFunction): handle[Expr_GeneralFunction] {.
+    noSideEffect, importcpp: "Function", header: "Expr_UnaryFunction.hxx".}
+proc ShallowSimplified*(this: Expr_UnaryFunction): handle[Expr_GeneralExpression] {.
     noSideEffect, importcpp: "ShallowSimplified", header: "Expr_UnaryFunction.hxx".}
-proc copy*(this: ExprUnaryFunction): Handle[ExprGeneralExpression] {.noSideEffect,
+proc Copy*(this: Expr_UnaryFunction): handle[Expr_GeneralExpression] {.noSideEffect,
     importcpp: "Copy", header: "Expr_UnaryFunction.hxx".}
-proc isIdentical*(this: ExprUnaryFunction; other: Handle[ExprGeneralExpression]): StandardBoolean {.
+proc IsIdentical*(this: Expr_UnaryFunction; Other: handle[Expr_GeneralExpression]): Standard_Boolean {.
     noSideEffect, importcpp: "IsIdentical", header: "Expr_UnaryFunction.hxx".}
-proc isLinear*(this: ExprUnaryFunction): StandardBoolean {.noSideEffect,
+proc IsLinear*(this: Expr_UnaryFunction): Standard_Boolean {.noSideEffect,
     importcpp: "IsLinear", header: "Expr_UnaryFunction.hxx".}
-proc derivative*(this: ExprUnaryFunction; x: Handle[ExprNamedUnknown]): Handle[
-    ExprGeneralExpression] {.noSideEffect, importcpp: "Derivative",
-                            header: "Expr_UnaryFunction.hxx".}
-proc evaluate*(this: ExprUnaryFunction; vars: ExprArray1OfNamedUnknown;
-              vals: TColStdArray1OfReal): StandardReal {.noSideEffect,
+proc Derivative*(this: Expr_UnaryFunction; X: handle[Expr_NamedUnknown]): handle[
+    Expr_GeneralExpression] {.noSideEffect, importcpp: "Derivative",
+                             header: "Expr_UnaryFunction.hxx".}
+proc Evaluate*(this: Expr_UnaryFunction; vars: Expr_Array1OfNamedUnknown;
+              vals: TColStd_Array1OfReal): Standard_Real {.noSideEffect,
     importcpp: "Evaluate", header: "Expr_UnaryFunction.hxx".}
-proc string*(this: ExprUnaryFunction): TCollectionAsciiString {.noSideEffect,
+proc String*(this: Expr_UnaryFunction): TCollection_AsciiString {.noSideEffect,
     importcpp: "String", header: "Expr_UnaryFunction.hxx".}
 type
-  ExprUnaryFunctionbaseType* = ExprUnaryExpression
+  Expr_UnaryFunctionbase_type* = Expr_UnaryExpression
 
-proc getTypeName*(): cstring {.importcpp: "Expr_UnaryFunction::get_type_name(@)",
-                            header: "Expr_UnaryFunction.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "Expr_UnaryFunction::get_type_name(@)",
+                              header: "Expr_UnaryFunction.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "Expr_UnaryFunction::get_type_descriptor(@)",
     header: "Expr_UnaryFunction.hxx".}
-proc dynamicType*(this: ExprUnaryFunction): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: Expr_UnaryFunction): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "Expr_UnaryFunction.hxx".}
-

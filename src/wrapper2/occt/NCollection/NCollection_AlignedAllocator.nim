@@ -13,58 +13,47 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  NCollection_BaseAllocator, ../Standard/Standard
+
 ## ! NCollection allocator with managed memory alignment capabilities.
 
 type
-  NCollectionAlignedAllocator* {.importcpp: "NCollection_AlignedAllocator",
-                                header: "NCollection_AlignedAllocator.hxx", bycopy.} = object of NCollectionBaseAllocator ##
-                                                                                                                   ## !
-                                                                                                                   ## Constructor.
-                                                                                                                   ## The
-                                                                                                                   ## alignment
-                                                                                                                   ## should
-                                                                                                                   ## be
-                                                                                                                   ## specified
-                                                                                                                   ## explicitly:
-                                                                                                                   ##
-                                                                                                                   ## !
-                                                                                                                   ## 16
-                                                                                                                   ## bytes
-                                                                                                                   ## for
-                                                                                                                   ## SSE
-                                                                                                                   ## instructions
-                                                                                                                   ##
-                                                                                                                   ## !
-                                                                                                                   ## 32
-                                                                                                                   ## bytes
-                                                                                                                   ## for
-                                                                                                                   ## AVX
-                                                                                                                   ## instructions
+  NCollection_AlignedAllocator* {.importcpp: "NCollection_AlignedAllocator",
+                                 header: "NCollection_AlignedAllocator.hxx",
+                                 bycopy.} = object of NCollection_BaseAllocator ## !
+                                                                           ## Constructor. The
+                                                                           ## alignment
+                                                                           ## should be
+                                                                           ## specified
+                                                                           ## explicitly:
+                                                                           ## ! 16 bytes for SSE
+                                                                           ## instructions
+                                                                           ## ! 32 bytes for AVX
+                                                                           ## instructions
     ## !< alignment in bytes
 
 
-proc constructNCollectionAlignedAllocator*(theAlignment: csize_t): NCollectionAlignedAllocator {.
+proc constructNCollection_AlignedAllocator*(theAlignment: csize_t): NCollection_AlignedAllocator {.
     constructor, importcpp: "NCollection_AlignedAllocator(@)",
     header: "NCollection_AlignedAllocator.hxx".}
-proc allocate*(this: var NCollectionAlignedAllocator; theSize: csize_t): pointer {.
+proc Allocate*(this: var NCollection_AlignedAllocator; theSize: csize_t): pointer {.
     importcpp: "Allocate", header: "NCollection_AlignedAllocator.hxx".}
-proc free*(this: var NCollectionAlignedAllocator; thePtr: pointer) {.
+proc Free*(this: var NCollection_AlignedAllocator; thePtr: pointer) {.
     importcpp: "Free", header: "NCollection_AlignedAllocator.hxx".}
 type
-  NCollectionAlignedAllocatorbaseType* = NCollectionBaseAllocator
+  NCollection_AlignedAllocatorbase_type* = NCollection_BaseAllocator
 
-proc getTypeName*(): cstring {.importcpp: "NCollection_AlignedAllocator::get_type_name(@)",
-                            header: "NCollection_AlignedAllocator.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "NCollection_AlignedAllocator::get_type_name(@)",
+                              header: "NCollection_AlignedAllocator.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "NCollection_AlignedAllocator::get_type_descriptor(@)",
     header: "NCollection_AlignedAllocator.hxx".}
-proc dynamicType*(this: NCollectionAlignedAllocator): Handle[StandardType] {.
+proc DynamicType*(this: NCollection_AlignedAllocator): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType",
     header: "NCollection_AlignedAllocator.hxx".}
 ##  Definition of HANDLE object using Standard_DefineHandle.hxx
 
 discard "forward decl of NCollection_AlignedAllocator"
 type
-  HandleNCollectionAlignedAllocator* = Handle[NCollectionAlignedAllocator]
-
-
+  Handle_NCollection_AlignedAllocator* = handle[NCollection_AlignedAllocator]

@@ -14,6 +14,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  Standard_DefineAlloc, Standard_Address, Standard_Size, Standard_Integer
+
 discard "forward decl of Standard_ErrorHandler"
 discard "forward decl of Standard_Persistent"
 discard "forward decl of Standard_Transient"
@@ -23,22 +26,23 @@ type
                                                                        ## ! aSize - bytes to  allocate
 
 
-proc allocate*(aSize: StandardSize): StandardAddress {.
+proc Allocate*(aSize: Standard_Size): Standard_Address {.
     importcpp: "Standard::Allocate(@)", header: "Standard.hxx".}
-proc free*(thePtr: StandardAddress) {.importcpp: "Standard::Free(@)",
-                                   header: "Standard.hxx".}
-proc free*[T](thePtr: ptr T) {.importcpp: "Standard::Free(@)", header: "Standard.hxx".}
-proc reallocate*(aStorage: StandardAddress; aNewSize: StandardSize): StandardAddress {.
+proc Free*(thePtr: Standard_Address) {.importcpp: "Standard::Free(@)",
+                                    header: "Standard.hxx".}
+proc Free*[T](thePtr: ptr T) {.importcpp: "Standard::Free(@)", header: "Standard.hxx".}
+proc Reallocate*(aStorage: Standard_Address; aNewSize: Standard_Size): Standard_Address {.
     importcpp: "Standard::Reallocate(@)", header: "Standard.hxx".}
-proc allocateAligned*(theSize: StandardSize; theAlign: StandardSize): StandardAddress {.
+proc AllocateAligned*(theSize: Standard_Size; theAlign: Standard_Size): Standard_Address {.
     importcpp: "Standard::AllocateAligned(@)", header: "Standard.hxx".}
-proc freeAligned*(thePtrAligned: StandardAddress) {.
+proc FreeAligned*(thePtrAligned: Standard_Address) {.
     importcpp: "Standard::FreeAligned(@)", header: "Standard.hxx".}
-proc freeAligned*[T](thePtrAligned: ptr T) {.importcpp: "Standard::FreeAligned(@)",
+proc FreeAligned*[T](thePtrAligned: ptr T) {.importcpp: "Standard::FreeAligned(@)",
     header: "Standard.hxx".}
-proc purge*(): StandardInteger {.importcpp: "Standard::Purge(@)",
-                              header: "Standard.hxx".}
+proc Purge*(): Standard_Integer {.importcpp: "Standard::Purge(@)",
+                               header: "Standard.hxx".}
 ##  include definition of handle to make it always visible
 ##  (put at the and of the file due to cyclic dependency between headers)
 
-
+import
+  Standard_Transient

@@ -14,11 +14,15 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Integer,
+  ../IGESData/IGESData_IGESEntity
+
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of IGESDimen_DimensionUnits"
 discard "forward decl of IGESDimen_DimensionUnits"
 type
-  HandleIGESDimenDimensionUnits* = Handle[IGESDimenDimensionUnits]
+  Handle_IGESDimen_DimensionUnits* = handle[IGESDimen_DimensionUnits]
 
 ## ! defines Dimension Units, Type <406>, Form <28>
 ## ! in package IGESDimen
@@ -26,43 +30,43 @@ type
 ## ! nominal value of a dimension.
 
 type
-  IGESDimenDimensionUnits* {.importcpp: "IGESDimen_DimensionUnits",
-                            header: "IGESDimen_DimensionUnits.hxx", bycopy.} = object of IGESDataIGESEntity
+  IGESDimen_DimensionUnits* {.importcpp: "IGESDimen_DimensionUnits",
+                             header: "IGESDimen_DimensionUnits.hxx", bycopy.} = object of IGESData_IGESEntity
 
 
-proc constructIGESDimenDimensionUnits*(): IGESDimenDimensionUnits {.constructor,
+proc constructIGESDimen_DimensionUnits*(): IGESDimen_DimensionUnits {.constructor,
     importcpp: "IGESDimen_DimensionUnits(@)",
     header: "IGESDimen_DimensionUnits.hxx".}
-proc init*(this: var IGESDimenDimensionUnits; nbPropVal: StandardInteger;
-          aSecondPos: StandardInteger; aUnitsInd: StandardInteger;
-          aCharSet: StandardInteger; aFormat: Handle[TCollectionHAsciiString];
-          aFracFlag: StandardInteger; aPrecision: StandardInteger) {.
+proc Init*(this: var IGESDimen_DimensionUnits; nbPropVal: Standard_Integer;
+          aSecondPos: Standard_Integer; aUnitsInd: Standard_Integer;
+          aCharSet: Standard_Integer; aFormat: handle[TCollection_HAsciiString];
+          aFracFlag: Standard_Integer; aPrecision: Standard_Integer) {.
     importcpp: "Init", header: "IGESDimen_DimensionUnits.hxx".}
-proc nbPropertyValues*(this: IGESDimenDimensionUnits): StandardInteger {.
+proc NbPropertyValues*(this: IGESDimen_DimensionUnits): Standard_Integer {.
     noSideEffect, importcpp: "NbPropertyValues",
     header: "IGESDimen_DimensionUnits.hxx".}
-proc secondaryDimenPosition*(this: IGESDimenDimensionUnits): StandardInteger {.
+proc SecondaryDimenPosition*(this: IGESDimen_DimensionUnits): Standard_Integer {.
     noSideEffect, importcpp: "SecondaryDimenPosition",
     header: "IGESDimen_DimensionUnits.hxx".}
-proc unitsIndicator*(this: IGESDimenDimensionUnits): StandardInteger {.noSideEffect,
-    importcpp: "UnitsIndicator", header: "IGESDimen_DimensionUnits.hxx".}
-proc characterSet*(this: IGESDimenDimensionUnits): StandardInteger {.noSideEffect,
+proc UnitsIndicator*(this: IGESDimen_DimensionUnits): Standard_Integer {.
+    noSideEffect, importcpp: "UnitsIndicator",
+    header: "IGESDimen_DimensionUnits.hxx".}
+proc CharacterSet*(this: IGESDimen_DimensionUnits): Standard_Integer {.noSideEffect,
     importcpp: "CharacterSet", header: "IGESDimen_DimensionUnits.hxx".}
-proc formatString*(this: IGESDimenDimensionUnits): Handle[TCollectionHAsciiString] {.
+proc FormatString*(this: IGESDimen_DimensionUnits): handle[TCollection_HAsciiString] {.
     noSideEffect, importcpp: "FormatString", header: "IGESDimen_DimensionUnits.hxx".}
-proc fractionFlag*(this: IGESDimenDimensionUnits): StandardInteger {.noSideEffect,
+proc FractionFlag*(this: IGESDimen_DimensionUnits): Standard_Integer {.noSideEffect,
     importcpp: "FractionFlag", header: "IGESDimen_DimensionUnits.hxx".}
-proc precisionOrDenominator*(this: IGESDimenDimensionUnits): StandardInteger {.
+proc PrecisionOrDenominator*(this: IGESDimen_DimensionUnits): Standard_Integer {.
     noSideEffect, importcpp: "PrecisionOrDenominator",
     header: "IGESDimen_DimensionUnits.hxx".}
 type
-  IGESDimenDimensionUnitsbaseType* = IGESDataIGESEntity
+  IGESDimen_DimensionUnitsbase_type* = IGESData_IGESEntity
 
-proc getTypeName*(): cstring {.importcpp: "IGESDimen_DimensionUnits::get_type_name(@)",
-                            header: "IGESDimen_DimensionUnits.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "IGESDimen_DimensionUnits::get_type_name(@)",
+                              header: "IGESDimen_DimensionUnits.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "IGESDimen_DimensionUnits::get_type_descriptor(@)",
     header: "IGESDimen_DimensionUnits.hxx".}
-proc dynamicType*(this: IGESDimenDimensionUnits): Handle[StandardType] {.
+proc DynamicType*(this: IGESDimen_DimensionUnits): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType", header: "IGESDimen_DimensionUnits.hxx".}
-

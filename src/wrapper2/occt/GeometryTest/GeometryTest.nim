@@ -14,6 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Draw/Draw_Interpretor
+
 ## ! this  package  provides  commands for  curves  and
 ## ! surface.
 
@@ -26,24 +30,23 @@ type
                                                                                    ## commands.
 
 
-proc allCommands*(i: var DrawInterpretor) {.importcpp: "GeometryTest::AllCommands(@)",
-                                        header: "GeometryTest.hxx".}
-proc curveCommands*(i: var DrawInterpretor) {.
+proc AllCommands*(I: var Draw_Interpretor) {.
+    importcpp: "GeometryTest::AllCommands(@)", header: "GeometryTest.hxx".}
+proc CurveCommands*(I: var Draw_Interpretor) {.
     importcpp: "GeometryTest::CurveCommands(@)", header: "GeometryTest.hxx".}
-proc curveTanCommands*(i: var DrawInterpretor) {.
+proc CurveTanCommands*(I: var Draw_Interpretor) {.
     importcpp: "GeometryTest::CurveTanCommands(@)", header: "GeometryTest.hxx".}
-proc fairCurveCommands*(i: var DrawInterpretor) {.
+proc FairCurveCommands*(I: var Draw_Interpretor) {.
     importcpp: "GeometryTest::FairCurveCommands(@)", header: "GeometryTest.hxx".}
-proc surfaceCommands*(i: var DrawInterpretor) {.
+proc SurfaceCommands*(I: var Draw_Interpretor) {.
     importcpp: "GeometryTest::SurfaceCommands(@)", header: "GeometryTest.hxx".}
-proc constraintCommands*(i: var DrawInterpretor) {.
+proc ConstraintCommands*(I: var Draw_Interpretor) {.
     importcpp: "GeometryTest::ConstraintCommands(@)", header: "GeometryTest.hxx".}
-proc aPICommands*(i: var DrawInterpretor) {.importcpp: "GeometryTest::APICommands(@)",
-                                        header: "GeometryTest.hxx".}
-proc continuityCommands*(i: var DrawInterpretor) {.
+proc APICommands*(I: var Draw_Interpretor) {.
+    importcpp: "GeometryTest::APICommands(@)", header: "GeometryTest.hxx".}
+proc ContinuityCommands*(I: var Draw_Interpretor) {.
     importcpp: "GeometryTest::ContinuityCommands(@)", header: "GeometryTest.hxx".}
-proc polyCommands*(i: var DrawInterpretor) {.
+proc PolyCommands*(I: var Draw_Interpretor) {.
     importcpp: "GeometryTest::PolyCommands(@)", header: "GeometryTest.hxx".}
-proc testProjCommands*(i: var DrawInterpretor) {.
+proc TestProjCommands*(I: var Draw_Interpretor) {.
     importcpp: "GeometryTest::TestProjCommands(@)", header: "GeometryTest.hxx".}
-

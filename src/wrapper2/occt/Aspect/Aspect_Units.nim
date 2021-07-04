@@ -27,19 +27,17 @@ const
   METER* = 1000.0[]
   CENTIMETER* = 10.0[]
 
-template tocentimeter*(v: untyped): untyped =
+template TOCENTIMETER*(v: untyped): untyped =
   (v) div 10.0
 
-template fromcentimeter*(v: untyped): untyped =
+template FROMCENTIMETER*(v: untyped): untyped =
   (v) * 10.0
 
 const
   MILLIMETER* = 1.0[]
 
-template tomillimeter*(v: untyped): untyped =
+template TOMILLIMETER*(v: untyped): untyped =
   v
 
-template frommillimeter*(v: untyped): untyped =
+template FROMMILLIMETER*(v: untyped): untyped =
   v
-
-

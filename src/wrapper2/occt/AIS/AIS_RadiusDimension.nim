@@ -11,7 +11,5 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _AIS_RadiusDimension_HeaderFile [NewLine] # _AIS_RadiusDimension_HeaderFile [NewLine] # < PrsDim_RadiusDimension . hxx > [NewLine] Standard_DEPRECATED ( Deprecated alias to moved class ) typedef PrsDim_RadiusDimension AIS_RadiusDimension ;
+## !!!Ignored construct:  # _AIS_RadiusDimension_HeaderFile [NewLine] # _AIS_RadiusDimension_HeaderFile [NewLine] # ../PrsDim/PrsDim_RadiusDimension.hxx [NewLine] Standard_DEPRECATED ( Deprecated alias to moved class ) typedef PrsDim_RadiusDimension AIS_RadiusDimension ;
 ## Error: expected ';'!!!
-
-

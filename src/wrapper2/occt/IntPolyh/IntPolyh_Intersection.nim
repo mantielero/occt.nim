@@ -14,39 +14,53 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, IntPolyh_ArrayOfPointNormal,
+  IntPolyh_ArrayOfSectionLines, IntPolyh_ArrayOfTangentZones,
+  IntPolyh_ListOfCouples, IntPolyh_PMaillageAffinage,
+  ../TColStd/TColStd_Array1OfReal, ../Standard/Standard_Boolean,
+  ../Standard/Standard_Real
+
 discard "forward decl of Adaptor3d_HSurface"
 type
-  IntPolyhIntersection* {.importcpp: "IntPolyh_Intersection",
-                         header: "IntPolyh_Intersection.hxx", bycopy.} = object ## ! @name
-                                                                           ## Constructors
-                                                                           ## !
-                                                                           ## Constructor for
-                                                                           ## intersection of two
-                                                                           ## surfaces with
-                                                                           ## default
-                                                                           ## parameters.
-                                                                           ## !
-                                                                           ## Performs
-                                                                           ## intersection.
-                                                                           ## ! @name
-                                                                           ## Getting the
-                                                                           ## results
-                                                                           ## !
-                                                                           ## Returns state of the
-                                                                           ## operation
-                                                                           ## ! @name
-                                                                           ## Performing the
-                                                                           ## intersection
-                                                                           ## !
-                                                                           ## Compute the
-                                                                           ## intersection by first
-                                                                           ## making the
-                                                                           ## sampling of the
-                                                                           ## surfaces.
-                                                                           ## ! @name
-                                                                           ## Fields
-                                                                           ##
-                                                                           ## Inputs
+  IntPolyh_Intersection* {.importcpp: "IntPolyh_Intersection",
+                          header: "IntPolyh_Intersection.hxx", bycopy.} = object ## !
+                                                                            ## @name
+                                                                            ## Constructors
+                                                                            ## !
+                                                                            ## Constructor for
+                                                                            ## intersection of two
+                                                                            ## surfaces with
+                                                                            ## default
+                                                                            ## parameters.
+                                                                            ## !
+                                                                            ## Performs
+                                                                            ## intersection.
+                                                                            ## !
+                                                                            ## @name
+                                                                            ## Getting the
+                                                                            ## results
+                                                                            ## !
+                                                                            ## Returns
+                                                                            ## state of the
+                                                                            ## operation
+                                                                            ## !
+                                                                            ## @name
+                                                                            ## Performing the
+                                                                            ## intersection
+                                                                            ## !
+                                                                            ## Compute the
+                                                                            ## intersection by
+                                                                            ## first
+                                                                            ## making the
+                                                                            ## sampling of the
+                                                                            ## surfaces.
+                                                                            ## !
+                                                                            ## @name
+                                                                            ## Fields
+                                                                            ##
+                                                                            ## Inputs
     ## !< First surface
     ## !< Second surface
     ## !< Number of samples in U direction for first surface
@@ -59,47 +73,46 @@ type
     ## !< Tangent zones
 
 
-proc constructIntPolyhIntersection*(theS1: Handle[Adaptor3dHSurface];
-                                   theS2: Handle[Adaptor3dHSurface]): IntPolyhIntersection {.
+proc constructIntPolyh_Intersection*(theS1: handle[Adaptor3d_HSurface];
+                                    theS2: handle[Adaptor3d_HSurface]): IntPolyh_Intersection {.
     constructor, importcpp: "IntPolyh_Intersection(@)",
     header: "IntPolyh_Intersection.hxx".}
-proc constructIntPolyhIntersection*(theS1: Handle[Adaptor3dHSurface];
-                                   theNbSU1: StandardInteger;
-                                   theNbSV1: StandardInteger;
-                                   theS2: Handle[Adaptor3dHSurface];
-                                   theNbSU2: StandardInteger;
-                                   theNbSV2: StandardInteger): IntPolyhIntersection {.
+proc constructIntPolyh_Intersection*(theS1: handle[Adaptor3d_HSurface];
+                                    theNbSU1: Standard_Integer;
+                                    theNbSV1: Standard_Integer;
+                                    theS2: handle[Adaptor3d_HSurface];
+                                    theNbSU2: Standard_Integer;
+                                    theNbSV2: Standard_Integer): IntPolyh_Intersection {.
     constructor, importcpp: "IntPolyh_Intersection(@)",
     header: "IntPolyh_Intersection.hxx".}
-proc constructIntPolyhIntersection*(theS1: Handle[Adaptor3dHSurface];
-                                   theUPars1: TColStdArray1OfReal;
-                                   theVPars1: TColStdArray1OfReal;
-                                   theS2: Handle[Adaptor3dHSurface];
-                                   theUPars2: TColStdArray1OfReal;
-                                   theVPars2: TColStdArray1OfReal): IntPolyhIntersection {.
+proc constructIntPolyh_Intersection*(theS1: handle[Adaptor3d_HSurface];
+                                    theUPars1: TColStd_Array1OfReal;
+                                    theVPars1: TColStd_Array1OfReal;
+                                    theS2: handle[Adaptor3d_HSurface];
+                                    theUPars2: TColStd_Array1OfReal;
+                                    theVPars2: TColStd_Array1OfReal): IntPolyh_Intersection {.
     constructor, importcpp: "IntPolyh_Intersection(@)",
     header: "IntPolyh_Intersection.hxx".}
-proc isDone*(this: IntPolyhIntersection): StandardBoolean {.noSideEffect,
+proc IsDone*(this: IntPolyh_Intersection): Standard_Boolean {.noSideEffect,
     importcpp: "IsDone", header: "IntPolyh_Intersection.hxx".}
-proc nbSectionLines*(this: IntPolyhIntersection): StandardInteger {.noSideEffect,
+proc NbSectionLines*(this: IntPolyh_Intersection): Standard_Integer {.noSideEffect,
     importcpp: "NbSectionLines", header: "IntPolyh_Intersection.hxx".}
-proc nbPointsInLine*(this: IntPolyhIntersection; indexLine: StandardInteger): StandardInteger {.
+proc NbPointsInLine*(this: IntPolyh_Intersection; IndexLine: Standard_Integer): Standard_Integer {.
     noSideEffect, importcpp: "NbPointsInLine", header: "IntPolyh_Intersection.hxx".}
-proc nbTangentZones*(this: IntPolyhIntersection): StandardInteger {.noSideEffect,
+proc NbTangentZones*(this: IntPolyh_Intersection): Standard_Integer {.noSideEffect,
     importcpp: "NbTangentZones", header: "IntPolyh_Intersection.hxx".}
-proc nbPointsInTangentZone*(this: IntPolyhIntersection; a2: StandardInteger): StandardInteger {.
+proc NbPointsInTangentZone*(this: IntPolyh_Intersection; a2: Standard_Integer): Standard_Integer {.
     noSideEffect, importcpp: "NbPointsInTangentZone",
     header: "IntPolyh_Intersection.hxx".}
-proc getLinePoint*(this: IntPolyhIntersection; indexLine: StandardInteger;
-                  indexPoint: StandardInteger; x: var StandardReal;
-                  y: var StandardReal; z: var StandardReal; u1: var StandardReal;
-                  v1: var StandardReal; u2: var StandardReal; v2: var StandardReal;
-                  incidence: var StandardReal) {.noSideEffect,
+proc GetLinePoint*(this: IntPolyh_Intersection; IndexLine: Standard_Integer;
+                  IndexPoint: Standard_Integer; x: var Standard_Real;
+                  y: var Standard_Real; z: var Standard_Real; u1: var Standard_Real;
+                  v1: var Standard_Real; u2: var Standard_Real; v2: var Standard_Real;
+                  incidence: var Standard_Real) {.noSideEffect,
     importcpp: "GetLinePoint", header: "IntPolyh_Intersection.hxx".}
-proc getTangentZonePoint*(this: IntPolyhIntersection; indexLine: StandardInteger;
-                         indexPoint: StandardInteger; x: var StandardReal;
-                         y: var StandardReal; z: var StandardReal;
-                         u1: var StandardReal; v1: var StandardReal;
-                         u2: var StandardReal; v2: var StandardReal) {.noSideEffect,
+proc GetTangentZonePoint*(this: IntPolyh_Intersection; IndexLine: Standard_Integer;
+                         IndexPoint: Standard_Integer; x: var Standard_Real;
+                         y: var Standard_Real; z: var Standard_Real;
+                         u1: var Standard_Real; v1: var Standard_Real;
+                         u2: var Standard_Real; v2: var Standard_Real) {.noSideEffect,
     importcpp: "GetTangentZonePoint", header: "IntPolyh_Intersection.hxx".}
-

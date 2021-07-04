@@ -14,6 +14,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  Select3D_SensitiveEntity, ../SelectMgr/SelectMgr_SelectingVolumeManager
+
 ## ! A framework to define sensitive 3D points.
 
 type
@@ -38,41 +41,39 @@ type
                                                                                                           ## Point.
     ## !< 3d coordinates of the point
 
-  Select3D_SensitivePointbaseType* = Select3D_SensitiveEntity
+  Select3D_SensitivePointbase_type* = Select3D_SensitiveEntity
 
-proc getTypeName*(): cstring {.importcpp: "Select3D_SensitivePoint::get_type_name(@)",
-                            header: "Select3D_SensitivePoint.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "Select3D_SensitivePoint::get_type_name(@)",
+                              header: "Select3D_SensitivePoint.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "Select3D_SensitivePoint::get_type_descriptor(@)",
     header: "Select3D_SensitivePoint.hxx".}
-proc dynamicType*(this: Select3D_SensitivePoint): Handle[StandardType] {.
+proc DynamicType*(this: Select3D_SensitivePoint): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType", header: "Select3D_SensitivePoint.hxx".}
-proc constructSelect3D_SensitivePoint*(theOwnerId: Handle[SelectMgrEntityOwner];
-                                      thePoint: GpPnt): Select3D_SensitivePoint {.
+proc constructSelect3D_SensitivePoint*(theOwnerId: handle[SelectMgr_EntityOwner];
+                                      thePoint: gp_Pnt): Select3D_SensitivePoint {.
     constructor, importcpp: "Select3D_SensitivePoint(@)",
     header: "Select3D_SensitivePoint.hxx".}
-proc nbSubElements*(this: Select3D_SensitivePoint): StandardInteger {.noSideEffect,
+proc NbSubElements*(this: Select3D_SensitivePoint): Standard_Integer {.noSideEffect,
     importcpp: "NbSubElements", header: "Select3D_SensitivePoint.hxx".}
-proc getConnected*(this: var Select3D_SensitivePoint): Handle[
+proc GetConnected*(this: var Select3D_SensitivePoint): handle[
     Select3D_SensitiveEntity] {.importcpp: "GetConnected",
                                header: "Select3D_SensitivePoint.hxx".}
-proc matches*(this: var Select3D_SensitivePoint;
-             theMgr: var SelectBasicsSelectingVolumeManager;
-             thePickResult: var SelectBasicsPickResult): StandardBoolean {.
+proc Matches*(this: var Select3D_SensitivePoint;
+             theMgr: var SelectBasics_SelectingVolumeManager;
+             thePickResult: var SelectBasics_PickResult): Standard_Boolean {.
     importcpp: "Matches", header: "Select3D_SensitivePoint.hxx".}
-proc point*(this: Select3D_SensitivePoint): GpPnt {.noSideEffect, importcpp: "Point",
-    header: "Select3D_SensitivePoint.hxx".}
-proc centerOfGeometry*(this: Select3D_SensitivePoint): GpPnt {.noSideEffect,
+proc Point*(this: Select3D_SensitivePoint): gp_Pnt {.noSideEffect,
+    importcpp: "Point", header: "Select3D_SensitivePoint.hxx".}
+proc CenterOfGeometry*(this: Select3D_SensitivePoint): gp_Pnt {.noSideEffect,
     importcpp: "CenterOfGeometry", header: "Select3D_SensitivePoint.hxx".}
-proc boundingBox*(this: var Select3D_SensitivePoint): Select3D_BndBox3d {.
+proc BoundingBox*(this: var Select3D_SensitivePoint): Select3D_BndBox3d {.
     importcpp: "BoundingBox", header: "Select3D_SensitivePoint.hxx".}
-proc toBuildBVH*(this: Select3D_SensitivePoint): StandardBoolean {.noSideEffect,
+proc ToBuildBVH*(this: Select3D_SensitivePoint): Standard_Boolean {.noSideEffect,
     importcpp: "ToBuildBVH", header: "Select3D_SensitivePoint.hxx".}
-proc dumpJson*(this: Select3D_SensitivePoint; theOStream: var StandardOStream;
-              theDepth: StandardInteger = -1) {.noSideEffect, importcpp: "DumpJson",
+proc DumpJson*(this: Select3D_SensitivePoint; theOStream: var Standard_OStream;
+              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
     header: "Select3D_SensitivePoint.hxx".}
 discard "forward decl of Select3D_SensitivePoint"
 type
-  HandleSelect3D_SensitivePoint* = Handle[Select3D_SensitivePoint]
-
-
+  Handle_Select3D_SensitivePoint* = handle[Select3D_SensitivePoint]

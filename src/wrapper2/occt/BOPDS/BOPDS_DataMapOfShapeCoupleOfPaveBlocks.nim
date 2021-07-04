@@ -12,9 +12,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  BOPDS_CoupleOfPaveBlocks, ../NCollection/NCollection_DataMap,
+  ../TopTools/TopTools_ShapeMapHasher
+
 type
-  BOPDS_DataMapOfShapeCoupleOfPaveBlocks* = NCollectionDataMap[TopoDS_Shape,
-      BOPDS_CoupleOfPaveBlocks, TopToolsShapeMapHasher]
+  BOPDS_DataMapOfShapeCoupleOfPaveBlocks* = NCollection_DataMap[TopoDS_Shape,
+      BOPDS_CoupleOfPaveBlocks, TopTools_ShapeMapHasher]
   BOPDS_DataMapIteratorOfDataMapOfShapeCoupleOfPaveBlocks* = Iterator
-
-

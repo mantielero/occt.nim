@@ -14,6 +14,20 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Real,
+  ../Standard/Standard_Boolean, ../TopTools/TopTools_IndexedDataMapOfShapeShape,
+  ../TopoDS/TopoDS_Shape, ../TopTools/TopTools_IndexedMapOfShape,
+  ../TopTools/TopTools_IndexedDataMapOfShapeListOfShape,
+  ../TopTools/TopTools_DataMapOfShapeShape, ../Standard/Standard_Integer,
+  ../TopTools/TopTools_DataMapOfShapeListOfShape,
+  ../TopTools/TopTools_MapOfShape, ../Standard/Standard_Transient,
+  ../TopTools/TopTools_ListOfShape, ../TopTools/TopTools_SequenceOfShape,
+  ../TColStd/TColStd_IndexedMapOfInteger, ../TColStd/TColStd_SequenceOfBoolean,
+  ../TColStd/TColStd_SequenceOfInteger, ../TColStd/TColStd_Array1OfBoolean,
+  ../TColStd/TColStd_Array1OfReal, ../TColgp/TColgp_Array1OfPnt,
+  ../TColStd/TColStd_SequenceOfReal, ../Message/Message_ProgressRange
+
 discard "forward decl of BRepTools_ReShape"
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of Standard_NoSuchObject"
@@ -27,7 +41,7 @@ discard "forward decl of Geom_Curve"
 discard "forward decl of BRepBuilderAPI_Sewing"
 discard "forward decl of BRepBuilderAPI_Sewing"
 type
-  HandleBRepBuilderAPI_Sewing* = Handle[BRepBuilderAPI_Sewing]
+  Handle_BRepBuilderAPI_Sewing* = handle[BRepBuilderAPI_Sewing]
 
 ## ! Provides methods to
 ## !
@@ -54,186 +68,186 @@ type
 
 type
   BRepBuilderAPI_Sewing* {.importcpp: "BRepBuilderAPI_Sewing",
-                          header: "BRepBuilderAPI_Sewing.hxx", bycopy.} = object of StandardTransient ##
-                                                                                               ## !
-                                                                                               ## Creates
-                                                                                               ## an
-                                                                                               ## object
-                                                                                               ## with
-                                                                                               ##
-                                                                                               ## !
-                                                                                               ## tolerance
-                                                                                               ## of
-                                                                                               ## connexity
-                                                                                               ##
-                                                                                               ## !
-                                                                                               ## option
-                                                                                               ## for
-                                                                                               ## sewing
-                                                                                               ## (if
-                                                                                               ## false
-                                                                                               ## only
-                                                                                               ## control)
-                                                                                               ##
-                                                                                               ## !
-                                                                                               ## option
-                                                                                               ## for
-                                                                                               ## analysis
-                                                                                               ## of
-                                                                                               ## degenerated
-                                                                                               ## shapes
-                                                                                               ##
-                                                                                               ## !
-                                                                                               ## option
-                                                                                               ## for
-                                                                                               ## cutting
-                                                                                               ## of
-                                                                                               ## free
-                                                                                               ## edges.
-                                                                                               ##
-                                                                                               ## !
-                                                                                               ## option
-                                                                                               ## for
-                                                                                               ## non
-                                                                                               ## manifold
-                                                                                               ## processing
-                                                                                               ##
-                                                                                               ## !
-                                                                                               ## Performs
-                                                                                               ## cutting
-                                                                                               ## of
-                                                                                               ## sections
-                                                                                               ##
-                                                                                               ## !
-                                                                                               ## theProgress
-                                                                                               ## -
-                                                                                               ## progress
-                                                                                               ## indicator
-                                                                                               ## of
-                                                                                               ## processing
+                          header: "BRepBuilderAPI_Sewing.hxx", bycopy.} = object of Standard_Transient ##
+                                                                                                ## !
+                                                                                                ## Creates
+                                                                                                ## an
+                                                                                                ## object
+                                                                                                ## with
+                                                                                                ##
+                                                                                                ## !
+                                                                                                ## tolerance
+                                                                                                ## of
+                                                                                                ## connexity
+                                                                                                ##
+                                                                                                ## !
+                                                                                                ## option
+                                                                                                ## for
+                                                                                                ## sewing
+                                                                                                ## (if
+                                                                                                ## false
+                                                                                                ## only
+                                                                                                ## control)
+                                                                                                ##
+                                                                                                ## !
+                                                                                                ## option
+                                                                                                ## for
+                                                                                                ## analysis
+                                                                                                ## of
+                                                                                                ## degenerated
+                                                                                                ## shapes
+                                                                                                ##
+                                                                                                ## !
+                                                                                                ## option
+                                                                                                ## for
+                                                                                                ## cutting
+                                                                                                ## of
+                                                                                                ## free
+                                                                                                ## edges.
+                                                                                                ##
+                                                                                                ## !
+                                                                                                ## option
+                                                                                                ## for
+                                                                                                ## non
+                                                                                                ## manifold
+                                                                                                ## processing
+                                                                                                ##
+                                                                                                ## !
+                                                                                                ## Performs
+                                                                                                ## cutting
+                                                                                                ## of
+                                                                                                ## sections
+                                                                                                ##
+                                                                                                ## !
+                                                                                                ## theProgress
+                                                                                                ## -
+                                                                                                ## progress
+                                                                                                ## indicator
+                                                                                                ## of
+                                                                                                ## processing
 
 
-proc constructBRepBuilderAPI_Sewing*(tolerance: StandardReal = 1.0e-06;
-                                    option1: StandardBoolean = standardTrue;
-                                    option2: StandardBoolean = standardTrue;
-                                    option3: StandardBoolean = standardTrue;
-                                    option4: StandardBoolean = standardFalse): BRepBuilderAPI_Sewing {.
+proc constructBRepBuilderAPI_Sewing*(tolerance: Standard_Real = 1.0e-06;
+                                    option1: Standard_Boolean = Standard_True;
+                                    option2: Standard_Boolean = Standard_True;
+                                    option3: Standard_Boolean = Standard_True;
+                                    option4: Standard_Boolean = Standard_False): BRepBuilderAPI_Sewing {.
     constructor, importcpp: "BRepBuilderAPI_Sewing(@)",
     header: "BRepBuilderAPI_Sewing.hxx".}
-proc init*(this: var BRepBuilderAPI_Sewing; tolerance: StandardReal = 1.0e-06;
-          option1: StandardBoolean = standardTrue;
-          option2: StandardBoolean = standardTrue;
-          option3: StandardBoolean = standardTrue;
-          option4: StandardBoolean = standardFalse) {.importcpp: "Init",
+proc Init*(this: var BRepBuilderAPI_Sewing; tolerance: Standard_Real = 1.0e-06;
+          option1: Standard_Boolean = Standard_True;
+          option2: Standard_Boolean = Standard_True;
+          option3: Standard_Boolean = Standard_True;
+          option4: Standard_Boolean = Standard_False) {.importcpp: "Init",
     header: "BRepBuilderAPI_Sewing.hxx".}
-proc load*(this: var BRepBuilderAPI_Sewing; shape: TopoDS_Shape) {.importcpp: "Load",
+proc Load*(this: var BRepBuilderAPI_Sewing; shape: TopoDS_Shape) {.importcpp: "Load",
     header: "BRepBuilderAPI_Sewing.hxx".}
-proc add*(this: var BRepBuilderAPI_Sewing; shape: TopoDS_Shape) {.importcpp: "Add",
+proc Add*(this: var BRepBuilderAPI_Sewing; shape: TopoDS_Shape) {.importcpp: "Add",
     header: "BRepBuilderAPI_Sewing.hxx".}
-proc perform*(this: var BRepBuilderAPI_Sewing;
-             theProgress: MessageProgressRange = messageProgressRange()) {.
+proc Perform*(this: var BRepBuilderAPI_Sewing;
+             theProgress: Message_ProgressRange = Message_ProgressRange()) {.
     importcpp: "Perform", header: "BRepBuilderAPI_Sewing.hxx".}
-proc sewedShape*(this: BRepBuilderAPI_Sewing): TopoDS_Shape {.noSideEffect,
+proc SewedShape*(this: BRepBuilderAPI_Sewing): TopoDS_Shape {.noSideEffect,
     importcpp: "SewedShape", header: "BRepBuilderAPI_Sewing.hxx".}
-proc setContext*(this: var BRepBuilderAPI_Sewing;
-                theContext: Handle[BRepToolsReShape]) {.importcpp: "SetContext",
+proc SetContext*(this: var BRepBuilderAPI_Sewing;
+                theContext: handle[BRepTools_ReShape]) {.importcpp: "SetContext",
     header: "BRepBuilderAPI_Sewing.hxx".}
-proc getContext*(this: BRepBuilderAPI_Sewing): Handle[BRepToolsReShape] {.
+proc GetContext*(this: BRepBuilderAPI_Sewing): handle[BRepTools_ReShape] {.
     noSideEffect, importcpp: "GetContext", header: "BRepBuilderAPI_Sewing.hxx".}
-proc nbFreeEdges*(this: BRepBuilderAPI_Sewing): StandardInteger {.noSideEffect,
+proc NbFreeEdges*(this: BRepBuilderAPI_Sewing): Standard_Integer {.noSideEffect,
     importcpp: "NbFreeEdges", header: "BRepBuilderAPI_Sewing.hxx".}
-proc freeEdge*(this: BRepBuilderAPI_Sewing; index: StandardInteger): TopoDS_Edge {.
+proc FreeEdge*(this: BRepBuilderAPI_Sewing; index: Standard_Integer): TopoDS_Edge {.
     noSideEffect, importcpp: "FreeEdge", header: "BRepBuilderAPI_Sewing.hxx".}
-proc nbMultipleEdges*(this: BRepBuilderAPI_Sewing): StandardInteger {.noSideEffect,
+proc NbMultipleEdges*(this: BRepBuilderAPI_Sewing): Standard_Integer {.noSideEffect,
     importcpp: "NbMultipleEdges", header: "BRepBuilderAPI_Sewing.hxx".}
-proc multipleEdge*(this: BRepBuilderAPI_Sewing; index: StandardInteger): TopoDS_Edge {.
+proc MultipleEdge*(this: BRepBuilderAPI_Sewing; index: Standard_Integer): TopoDS_Edge {.
     noSideEffect, importcpp: "MultipleEdge", header: "BRepBuilderAPI_Sewing.hxx".}
-proc nbContigousEdges*(this: BRepBuilderAPI_Sewing): StandardInteger {.noSideEffect,
-    importcpp: "NbContigousEdges", header: "BRepBuilderAPI_Sewing.hxx".}
-proc contigousEdge*(this: BRepBuilderAPI_Sewing; index: StandardInteger): TopoDS_Edge {.
+proc NbContigousEdges*(this: BRepBuilderAPI_Sewing): Standard_Integer {.
+    noSideEffect, importcpp: "NbContigousEdges",
+    header: "BRepBuilderAPI_Sewing.hxx".}
+proc ContigousEdge*(this: BRepBuilderAPI_Sewing; index: Standard_Integer): TopoDS_Edge {.
     noSideEffect, importcpp: "ContigousEdge", header: "BRepBuilderAPI_Sewing.hxx".}
-proc contigousEdgeCouple*(this: BRepBuilderAPI_Sewing; index: StandardInteger): TopToolsListOfShape {.
+proc ContigousEdgeCouple*(this: BRepBuilderAPI_Sewing; index: Standard_Integer): TopTools_ListOfShape {.
     noSideEffect, importcpp: "ContigousEdgeCouple",
     header: "BRepBuilderAPI_Sewing.hxx".}
-proc isSectionBound*(this: BRepBuilderAPI_Sewing; section: TopoDS_Edge): StandardBoolean {.
+proc IsSectionBound*(this: BRepBuilderAPI_Sewing; section: TopoDS_Edge): Standard_Boolean {.
     noSideEffect, importcpp: "IsSectionBound", header: "BRepBuilderAPI_Sewing.hxx".}
-proc sectionToBoundary*(this: BRepBuilderAPI_Sewing; section: TopoDS_Edge): TopoDS_Edge {.
+proc SectionToBoundary*(this: BRepBuilderAPI_Sewing; section: TopoDS_Edge): TopoDS_Edge {.
     noSideEffect, importcpp: "SectionToBoundary",
     header: "BRepBuilderAPI_Sewing.hxx".}
-proc nbDegeneratedShapes*(this: BRepBuilderAPI_Sewing): StandardInteger {.
+proc NbDegeneratedShapes*(this: BRepBuilderAPI_Sewing): Standard_Integer {.
     noSideEffect, importcpp: "NbDegeneratedShapes",
     header: "BRepBuilderAPI_Sewing.hxx".}
-proc degeneratedShape*(this: BRepBuilderAPI_Sewing; index: StandardInteger): TopoDS_Shape {.
+proc DegeneratedShape*(this: BRepBuilderAPI_Sewing; index: Standard_Integer): TopoDS_Shape {.
     noSideEffect, importcpp: "DegeneratedShape",
     header: "BRepBuilderAPI_Sewing.hxx".}
-proc isDegenerated*(this: BRepBuilderAPI_Sewing; shape: TopoDS_Shape): StandardBoolean {.
+proc IsDegenerated*(this: BRepBuilderAPI_Sewing; shape: TopoDS_Shape): Standard_Boolean {.
     noSideEffect, importcpp: "IsDegenerated", header: "BRepBuilderAPI_Sewing.hxx".}
-proc isModified*(this: BRepBuilderAPI_Sewing; shape: TopoDS_Shape): StandardBoolean {.
+proc IsModified*(this: BRepBuilderAPI_Sewing; shape: TopoDS_Shape): Standard_Boolean {.
     noSideEffect, importcpp: "IsModified", header: "BRepBuilderAPI_Sewing.hxx".}
-proc modified*(this: BRepBuilderAPI_Sewing; shape: TopoDS_Shape): TopoDS_Shape {.
+proc Modified*(this: BRepBuilderAPI_Sewing; shape: TopoDS_Shape): TopoDS_Shape {.
     noSideEffect, importcpp: "Modified", header: "BRepBuilderAPI_Sewing.hxx".}
-proc isModifiedSubShape*(this: BRepBuilderAPI_Sewing; shape: TopoDS_Shape): StandardBoolean {.
+proc IsModifiedSubShape*(this: BRepBuilderAPI_Sewing; shape: TopoDS_Shape): Standard_Boolean {.
     noSideEffect, importcpp: "IsModifiedSubShape",
     header: "BRepBuilderAPI_Sewing.hxx".}
-proc modifiedSubShape*(this: BRepBuilderAPI_Sewing; shape: TopoDS_Shape): TopoDS_Shape {.
+proc ModifiedSubShape*(this: BRepBuilderAPI_Sewing; shape: TopoDS_Shape): TopoDS_Shape {.
     noSideEffect, importcpp: "ModifiedSubShape",
     header: "BRepBuilderAPI_Sewing.hxx".}
-proc dump*(this: BRepBuilderAPI_Sewing) {.noSideEffect, importcpp: "Dump",
+proc Dump*(this: BRepBuilderAPI_Sewing) {.noSideEffect, importcpp: "Dump",
                                        header: "BRepBuilderAPI_Sewing.hxx".}
-proc nbDeletedFaces*(this: BRepBuilderAPI_Sewing): StandardInteger {.noSideEffect,
+proc NbDeletedFaces*(this: BRepBuilderAPI_Sewing): Standard_Integer {.noSideEffect,
     importcpp: "NbDeletedFaces", header: "BRepBuilderAPI_Sewing.hxx".}
-proc deletedFace*(this: BRepBuilderAPI_Sewing; index: StandardInteger): TopoDS_Face {.
+proc DeletedFace*(this: BRepBuilderAPI_Sewing; index: Standard_Integer): TopoDS_Face {.
     noSideEffect, importcpp: "DeletedFace", header: "BRepBuilderAPI_Sewing.hxx".}
-proc whichFace*(this: BRepBuilderAPI_Sewing; theEdg: TopoDS_Edge;
-               index: StandardInteger = 1): TopoDS_Face {.noSideEffect,
+proc WhichFace*(this: BRepBuilderAPI_Sewing; theEdg: TopoDS_Edge;
+               index: Standard_Integer = 1): TopoDS_Face {.noSideEffect,
     importcpp: "WhichFace", header: "BRepBuilderAPI_Sewing.hxx".}
-proc sameParameterMode*(this: BRepBuilderAPI_Sewing): StandardBoolean {.
+proc SameParameterMode*(this: BRepBuilderAPI_Sewing): Standard_Boolean {.
     noSideEffect, importcpp: "SameParameterMode",
     header: "BRepBuilderAPI_Sewing.hxx".}
-proc setSameParameterMode*(this: var BRepBuilderAPI_Sewing;
-                          sameParameterMode: StandardBoolean) {.
+proc SetSameParameterMode*(this: var BRepBuilderAPI_Sewing;
+                          SameParameterMode: Standard_Boolean) {.
     importcpp: "SetSameParameterMode", header: "BRepBuilderAPI_Sewing.hxx".}
-proc tolerance*(this: BRepBuilderAPI_Sewing): StandardReal {.noSideEffect,
+proc Tolerance*(this: BRepBuilderAPI_Sewing): Standard_Real {.noSideEffect,
     importcpp: "Tolerance", header: "BRepBuilderAPI_Sewing.hxx".}
-proc setTolerance*(this: var BRepBuilderAPI_Sewing; theToler: StandardReal) {.
+proc SetTolerance*(this: var BRepBuilderAPI_Sewing; theToler: Standard_Real) {.
     importcpp: "SetTolerance", header: "BRepBuilderAPI_Sewing.hxx".}
-proc minTolerance*(this: BRepBuilderAPI_Sewing): StandardReal {.noSideEffect,
+proc MinTolerance*(this: BRepBuilderAPI_Sewing): Standard_Real {.noSideEffect,
     importcpp: "MinTolerance", header: "BRepBuilderAPI_Sewing.hxx".}
-proc setMinTolerance*(this: var BRepBuilderAPI_Sewing; theMinToler: StandardReal) {.
+proc SetMinTolerance*(this: var BRepBuilderAPI_Sewing; theMinToler: Standard_Real) {.
     importcpp: "SetMinTolerance", header: "BRepBuilderAPI_Sewing.hxx".}
-proc maxTolerance*(this: BRepBuilderAPI_Sewing): StandardReal {.noSideEffect,
+proc MaxTolerance*(this: BRepBuilderAPI_Sewing): Standard_Real {.noSideEffect,
     importcpp: "MaxTolerance", header: "BRepBuilderAPI_Sewing.hxx".}
-proc setMaxTolerance*(this: var BRepBuilderAPI_Sewing; theMaxToler: StandardReal) {.
+proc SetMaxTolerance*(this: var BRepBuilderAPI_Sewing; theMaxToler: Standard_Real) {.
     importcpp: "SetMaxTolerance", header: "BRepBuilderAPI_Sewing.hxx".}
-proc faceMode*(this: BRepBuilderAPI_Sewing): StandardBoolean {.noSideEffect,
+proc FaceMode*(this: BRepBuilderAPI_Sewing): Standard_Boolean {.noSideEffect,
     importcpp: "FaceMode", header: "BRepBuilderAPI_Sewing.hxx".}
-proc setFaceMode*(this: var BRepBuilderAPI_Sewing; theFaceMode: StandardBoolean) {.
+proc SetFaceMode*(this: var BRepBuilderAPI_Sewing; theFaceMode: Standard_Boolean) {.
     importcpp: "SetFaceMode", header: "BRepBuilderAPI_Sewing.hxx".}
-proc floatingEdgesMode*(this: BRepBuilderAPI_Sewing): StandardBoolean {.
+proc FloatingEdgesMode*(this: BRepBuilderAPI_Sewing): Standard_Boolean {.
     noSideEffect, importcpp: "FloatingEdgesMode",
     header: "BRepBuilderAPI_Sewing.hxx".}
-proc setFloatingEdgesMode*(this: var BRepBuilderAPI_Sewing;
-                          theFloatingEdgesMode: StandardBoolean) {.
+proc SetFloatingEdgesMode*(this: var BRepBuilderAPI_Sewing;
+                          theFloatingEdgesMode: Standard_Boolean) {.
     importcpp: "SetFloatingEdgesMode", header: "BRepBuilderAPI_Sewing.hxx".}
-proc localTolerancesMode*(this: BRepBuilderAPI_Sewing): StandardBoolean {.
+proc LocalTolerancesMode*(this: BRepBuilderAPI_Sewing): Standard_Boolean {.
     noSideEffect, importcpp: "LocalTolerancesMode",
     header: "BRepBuilderAPI_Sewing.hxx".}
-proc setLocalTolerancesMode*(this: var BRepBuilderAPI_Sewing;
-                            theLocalTolerancesMode: StandardBoolean) {.
+proc SetLocalTolerancesMode*(this: var BRepBuilderAPI_Sewing;
+                            theLocalTolerancesMode: Standard_Boolean) {.
     importcpp: "SetLocalTolerancesMode", header: "BRepBuilderAPI_Sewing.hxx".}
-proc setNonManifoldMode*(this: var BRepBuilderAPI_Sewing;
-                        theNonManifoldMode: StandardBoolean) {.
+proc SetNonManifoldMode*(this: var BRepBuilderAPI_Sewing;
+                        theNonManifoldMode: Standard_Boolean) {.
     importcpp: "SetNonManifoldMode", header: "BRepBuilderAPI_Sewing.hxx".}
-proc nonManifoldMode*(this: BRepBuilderAPI_Sewing): StandardBoolean {.noSideEffect,
+proc NonManifoldMode*(this: BRepBuilderAPI_Sewing): Standard_Boolean {.noSideEffect,
     importcpp: "NonManifoldMode", header: "BRepBuilderAPI_Sewing.hxx".}
 type
-  BRepBuilderAPI_SewingbaseType* = StandardTransient
+  BRepBuilderAPI_Sewingbase_type* = Standard_Transient
 
-proc getTypeName*(): cstring {.importcpp: "BRepBuilderAPI_Sewing::get_type_name(@)",
-                            header: "BRepBuilderAPI_Sewing.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "BRepBuilderAPI_Sewing::get_type_name(@)",
+                              header: "BRepBuilderAPI_Sewing.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "BRepBuilderAPI_Sewing::get_type_descriptor(@)",
     header: "BRepBuilderAPI_Sewing.hxx".}
-proc dynamicType*(this: BRepBuilderAPI_Sewing): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "BRepBuilderAPI_Sewing.hxx".}
-
+proc DynamicType*(this: BRepBuilderAPI_Sewing): handle[Standard_Type] {.
+    noSideEffect, importcpp: "DynamicType", header: "BRepBuilderAPI_Sewing.hxx".}

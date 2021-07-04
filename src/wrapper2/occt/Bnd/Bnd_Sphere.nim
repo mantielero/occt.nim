@@ -13,49 +13,53 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../gp/gp_XYZ, ../Standard/Standard_Real,
+  ../Standard/Standard_Boolean, ../Standard/Standard_Integer
+
 discard "forward decl of gp_XYZ"
 type
-  BndSphere* {.importcpp: "Bnd_Sphere", header: "Bnd_Sphere.hxx", bycopy.} = object ## !
-                                                                            ## Empty
-                                                                            ## constructor
+  Bnd_Sphere* {.importcpp: "Bnd_Sphere", header: "Bnd_Sphere.hxx", bycopy.} = object ## !
+                                                                             ## Empty
+                                                                             ## constructor
 
 
-proc constructBndSphere*(): BndSphere {.constructor, importcpp: "Bnd_Sphere(@)",
+proc constructBnd_Sphere*(): Bnd_Sphere {.constructor, importcpp: "Bnd_Sphere(@)",
+                                       header: "Bnd_Sphere.hxx".}
+proc constructBnd_Sphere*(theCntr: gp_XYZ; theRad: Standard_Real;
+                         theU: Standard_Integer; theV: Standard_Integer): Bnd_Sphere {.
+    constructor, importcpp: "Bnd_Sphere(@)", header: "Bnd_Sphere.hxx".}
+proc U*(this: Bnd_Sphere): Standard_Integer {.noSideEffect, importcpp: "U",
+    header: "Bnd_Sphere.hxx".}
+proc V*(this: Bnd_Sphere): Standard_Integer {.noSideEffect, importcpp: "V",
+    header: "Bnd_Sphere.hxx".}
+proc IsValid*(this: Bnd_Sphere): Standard_Boolean {.noSideEffect,
+    importcpp: "IsValid", header: "Bnd_Sphere.hxx".}
+proc SetValid*(this: var Bnd_Sphere; isValid: Standard_Boolean) {.
+    importcpp: "SetValid", header: "Bnd_Sphere.hxx".}
+proc Center*(this: Bnd_Sphere): gp_XYZ {.noSideEffect, importcpp: "Center",
                                      header: "Bnd_Sphere.hxx".}
-proc constructBndSphere*(theCntr: GpXYZ; theRad: StandardReal; theU: StandardInteger;
-                        theV: StandardInteger): BndSphere {.constructor,
-    importcpp: "Bnd_Sphere(@)", header: "Bnd_Sphere.hxx".}
-proc u*(this: BndSphere): StandardInteger {.noSideEffect, importcpp: "U",
-                                        header: "Bnd_Sphere.hxx".}
-proc v*(this: BndSphere): StandardInteger {.noSideEffect, importcpp: "V",
-                                        header: "Bnd_Sphere.hxx".}
-proc isValid*(this: BndSphere): StandardBoolean {.noSideEffect, importcpp: "IsValid",
+proc Radius*(this: Bnd_Sphere): Standard_Real {.noSideEffect, importcpp: "Radius",
     header: "Bnd_Sphere.hxx".}
-proc setValid*(this: var BndSphere; isValid: StandardBoolean) {.importcpp: "SetValid",
+proc Distances*(this: Bnd_Sphere; theXYZ: gp_XYZ; theMin: var Standard_Real;
+               theMax: var Standard_Real) {.noSideEffect, importcpp: "Distances",
     header: "Bnd_Sphere.hxx".}
-proc center*(this: BndSphere): GpXYZ {.noSideEffect, importcpp: "Center",
-                                   header: "Bnd_Sphere.hxx".}
-proc radius*(this: BndSphere): StandardReal {.noSideEffect, importcpp: "Radius",
-    header: "Bnd_Sphere.hxx".}
-proc distances*(this: BndSphere; theXYZ: GpXYZ; theMin: var StandardReal;
-               theMax: var StandardReal) {.noSideEffect, importcpp: "Distances",
-                                        header: "Bnd_Sphere.hxx".}
-proc squareDistances*(this: BndSphere; theXYZ: GpXYZ; theMin: var StandardReal;
-                     theMax: var StandardReal) {.noSideEffect,
+proc SquareDistances*(this: Bnd_Sphere; theXYZ: gp_XYZ; theMin: var Standard_Real;
+                     theMax: var Standard_Real) {.noSideEffect,
     importcpp: "SquareDistances", header: "Bnd_Sphere.hxx".}
-proc project*(this: BndSphere; theNode: GpXYZ; theProjNode: var GpXYZ;
-             theDist: var StandardReal; theInside: var StandardBoolean): StandardBoolean {.
+proc Project*(this: Bnd_Sphere; theNode: gp_XYZ; theProjNode: var gp_XYZ;
+             theDist: var Standard_Real; theInside: var Standard_Boolean): Standard_Boolean {.
     noSideEffect, importcpp: "Project", header: "Bnd_Sphere.hxx".}
-proc distance*(this: BndSphere; theNode: GpXYZ): StandardReal {.noSideEffect,
+proc Distance*(this: Bnd_Sphere; theNode: gp_XYZ): Standard_Real {.noSideEffect,
     importcpp: "Distance", header: "Bnd_Sphere.hxx".}
-proc squareDistance*(this: BndSphere; theNode: GpXYZ): StandardReal {.noSideEffect,
+proc SquareDistance*(this: Bnd_Sphere; theNode: gp_XYZ): Standard_Real {.noSideEffect,
     importcpp: "SquareDistance", header: "Bnd_Sphere.hxx".}
-proc add*(this: var BndSphere; theOther: BndSphere) {.importcpp: "Add",
+proc Add*(this: var Bnd_Sphere; theOther: Bnd_Sphere) {.importcpp: "Add",
     header: "Bnd_Sphere.hxx".}
-proc isOut*(this: BndSphere; theOther: BndSphere): StandardBoolean {.noSideEffect,
+proc IsOut*(this: Bnd_Sphere; theOther: Bnd_Sphere): Standard_Boolean {.noSideEffect,
     importcpp: "IsOut", header: "Bnd_Sphere.hxx".}
-proc isOut*(this: BndSphere; thePnt: GpXYZ; theMaxDist: var StandardReal): StandardBoolean {.
+proc IsOut*(this: Bnd_Sphere; thePnt: gp_XYZ; theMaxDist: var Standard_Real): Standard_Boolean {.
     noSideEffect, importcpp: "IsOut", header: "Bnd_Sphere.hxx".}
-proc squareExtent*(this: BndSphere): StandardReal {.noSideEffect,
+proc SquareExtent*(this: Bnd_Sphere): Standard_Real {.noSideEffect,
     importcpp: "SquareExtent", header: "Bnd_Sphere.hxx".}
-

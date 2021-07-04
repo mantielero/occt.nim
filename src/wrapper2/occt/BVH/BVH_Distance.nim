@@ -13,6 +13,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  BVH_Traverse
+
 ## ! Abstract class for computation of the min distance between some
 ## ! Object and elements of BVH tree.
 ## ! To use this class it is required to define two methods:
@@ -46,27 +49,27 @@ type
 proc constructBVH_Distance*[NumType; Dimension: static[cint]; ObjectType; BVHSetType](): BVH_Distance[
     NumType, Dimension, ObjectType, BVHSetType] {.constructor,
     importcpp: "BVH_Distance<\'*0,\'*1,\'*2,\'*3>(@)", header: "BVH_Distance.hxx".}
-proc setObject*[NumType; Dimension: static[cint]; ObjectType; BVHSetType](
+proc SetObject*[NumType; Dimension: static[cint]; ObjectType; BVHSetType](
     this: var BVH_Distance[NumType, Dimension, ObjectType, BVHSetType];
     theObject: ObjectType) {.importcpp: "SetObject", header: "BVH_Distance.hxx".}
-proc computeDistance*[NumType; Dimension: static[cint]; ObjectType; BVHSetType](
+proc ComputeDistance*[NumType; Dimension: static[cint]; ObjectType; BVHSetType](
     this: var BVH_Distance[NumType, Dimension, ObjectType, BVHSetType]): NumType {.
     importcpp: "ComputeDistance", header: "BVH_Distance.hxx".}
-proc isDone*[NumType; Dimension: static[cint]; ObjectType; BVHSetType](
-    this: BVH_Distance[NumType, Dimension, ObjectType, BVHSetType]): StandardBoolean {.
+proc IsDone*[NumType; Dimension: static[cint]; ObjectType; BVHSetType](
+    this: BVH_Distance[NumType, Dimension, ObjectType, BVHSetType]): Standard_Boolean {.
     noSideEffect, importcpp: "IsDone", header: "BVH_Distance.hxx".}
-proc distance*[NumType; Dimension: static[cint]; ObjectType; BVHSetType](
+proc Distance*[NumType; Dimension: static[cint]; ObjectType; BVHSetType](
     this: BVH_Distance[NumType, Dimension, ObjectType, BVHSetType]): NumType {.
     noSideEffect, importcpp: "Distance", header: "BVH_Distance.hxx".}
-proc isMetricBetter*[NumType; Dimension: static[cint]; ObjectType; BVHSetType](
+proc IsMetricBetter*[NumType; Dimension: static[cint]; ObjectType; BVHSetType](
     this: BVH_Distance[NumType, Dimension, ObjectType, BVHSetType]; theLeft: NumType;
-    theRight: NumType): StandardBoolean {.noSideEffect, importcpp: "IsMetricBetter",
-                                       header: "BVH_Distance.hxx".}
-proc rejectMetric*[NumType; Dimension: static[cint]; ObjectType; BVHSetType](
-    this: BVH_Distance[NumType, Dimension, ObjectType, BVHSetType];
-    theMetric: NumType): StandardBoolean {.noSideEffect, importcpp: "RejectMetric",
+    theRight: NumType): Standard_Boolean {.noSideEffect,
+                                        importcpp: "IsMetricBetter",
                                         header: "BVH_Distance.hxx".}
-proc stop*[NumType; Dimension: static[cint]; ObjectType; BVHSetType](
-    this: BVH_Distance[NumType, Dimension, ObjectType, BVHSetType]): StandardBoolean {.
+proc RejectMetric*[NumType; Dimension: static[cint]; ObjectType; BVHSetType](
+    this: BVH_Distance[NumType, Dimension, ObjectType, BVHSetType];
+    theMetric: NumType): Standard_Boolean {.noSideEffect, importcpp: "RejectMetric",
+    header: "BVH_Distance.hxx".}
+proc Stop*[NumType; Dimension: static[cint]; ObjectType; BVHSetType](
+    this: BVH_Distance[NumType, Dimension, ObjectType, BVHSetType]): Standard_Boolean {.
     noSideEffect, importcpp: "Stop", header: "BVH_Distance.hxx".}
-

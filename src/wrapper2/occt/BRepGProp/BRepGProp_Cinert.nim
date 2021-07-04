@@ -14,19 +14,22 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../GProp/GProp_GProps
+
 discard "forward decl of BRepAdaptor_Curve"
 discard "forward decl of gp_Pnt"
 type
-  BRepGPropCinert* {.importcpp: "BRepGProp_Cinert", header: "BRepGProp_Cinert.hxx",
-                    bycopy.} = object of GPropGProps
+  BRepGProp_Cinert* {.importcpp: "BRepGProp_Cinert",
+                     header: "BRepGProp_Cinert.hxx", bycopy.} = object of GProp_GProps
 
 
-proc constructBRepGPropCinert*(): BRepGPropCinert {.constructor,
+proc constructBRepGProp_Cinert*(): BRepGProp_Cinert {.constructor,
     importcpp: "BRepGProp_Cinert(@)", header: "BRepGProp_Cinert.hxx".}
-proc constructBRepGPropCinert*(c: BRepAdaptorCurve; cLocation: GpPnt): BRepGPropCinert {.
+proc constructBRepGProp_Cinert*(C: BRepAdaptor_Curve; CLocation: gp_Pnt): BRepGProp_Cinert {.
     constructor, importcpp: "BRepGProp_Cinert(@)", header: "BRepGProp_Cinert.hxx".}
-proc setLocation*(this: var BRepGPropCinert; cLocation: GpPnt) {.
+proc SetLocation*(this: var BRepGProp_Cinert; CLocation: gp_Pnt) {.
     importcpp: "SetLocation", header: "BRepGProp_Cinert.hxx".}
-proc perform*(this: var BRepGPropCinert; c: BRepAdaptorCurve) {.importcpp: "Perform",
-    header: "BRepGProp_Cinert.hxx".}
-
+proc Perform*(this: var BRepGProp_Cinert; C: BRepAdaptor_Curve) {.
+    importcpp: "Perform", header: "BRepGProp_Cinert.hxx".}

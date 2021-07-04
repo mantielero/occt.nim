@@ -14,7 +14,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _Quantity_Capacitance_HeaderFile [NewLine] # _Quantity_Capacitance_HeaderFile [NewLine] # < Standard_Real . hxx > [NewLine] ! Defined as a measure of the increase in voltage on
+## !!!Ignored construct:  # _Quantity_Capacitance_HeaderFile [NewLine] # _Quantity_Capacitance_HeaderFile [NewLine] # ../Standard/Standard_Real.hxx [NewLine] ! Defined as a measure of the increase in voltage on
 ## ! an isolated conductor by the addition of a charge.
 ## ! for two isolated conductors, it is the ratio of the charge
 ## ! on either conductor to the potential difference between
@@ -22,5 +22,3 @@
 ## ! It is measured in farads (coulomb per volt).
 ## ! In practice micro-, nano-, and pico-farads are used. Standard_DEPRECATED ( This type is deprecated - Standard_Real should be used instead ) typedef Standard_Real Quantity_Capacitance ;
 ## Error: expected ';'!!!
-
-

@@ -14,12 +14,17 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Integer,
+  ../Standard/Standard_Real, ../TColgp/TColgp_HArray1OfXY,
+  ../IGESData/IGESData_IGESEntity
+
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of gp_Pnt"
 discard "forward decl of IGESDimen_WitnessLine"
 discard "forward decl of IGESDimen_WitnessLine"
 type
-  HandleIGESDimenWitnessLine* = Handle[IGESDimenWitnessLine]
+  Handle_IGESDimen_WitnessLine* = handle[IGESDimen_WitnessLine]
 
 ## ! defines WitnessLine, Type <106> Form <40>
 ## ! in package IGESDimen
@@ -27,34 +32,33 @@ type
 ## ! with drafting entities of various types
 
 type
-  IGESDimenWitnessLine* {.importcpp: "IGESDimen_WitnessLine",
-                         header: "IGESDimen_WitnessLine.hxx", bycopy.} = object of IGESDataIGESEntity
+  IGESDimen_WitnessLine* {.importcpp: "IGESDimen_WitnessLine",
+                          header: "IGESDimen_WitnessLine.hxx", bycopy.} = object of IGESData_IGESEntity
 
 
-proc constructIGESDimenWitnessLine*(): IGESDimenWitnessLine {.constructor,
+proc constructIGESDimen_WitnessLine*(): IGESDimen_WitnessLine {.constructor,
     importcpp: "IGESDimen_WitnessLine(@)", header: "IGESDimen_WitnessLine.hxx".}
-proc init*(this: var IGESDimenWitnessLine; dataType: StandardInteger;
-          aDisp: StandardReal; dataPoints: Handle[TColgpHArray1OfXY]) {.
+proc Init*(this: var IGESDimen_WitnessLine; dataType: Standard_Integer;
+          aDisp: Standard_Real; dataPoints: handle[TColgp_HArray1OfXY]) {.
     importcpp: "Init", header: "IGESDimen_WitnessLine.hxx".}
-proc datatype*(this: IGESDimenWitnessLine): StandardInteger {.noSideEffect,
+proc Datatype*(this: IGESDimen_WitnessLine): Standard_Integer {.noSideEffect,
     importcpp: "Datatype", header: "IGESDimen_WitnessLine.hxx".}
-proc nbPoints*(this: IGESDimenWitnessLine): StandardInteger {.noSideEffect,
+proc NbPoints*(this: IGESDimen_WitnessLine): Standard_Integer {.noSideEffect,
     importcpp: "NbPoints", header: "IGESDimen_WitnessLine.hxx".}
-proc zDisplacement*(this: IGESDimenWitnessLine): StandardReal {.noSideEffect,
+proc ZDisplacement*(this: IGESDimen_WitnessLine): Standard_Real {.noSideEffect,
     importcpp: "ZDisplacement", header: "IGESDimen_WitnessLine.hxx".}
-proc point*(this: IGESDimenWitnessLine; index: StandardInteger): GpPnt {.noSideEffect,
-    importcpp: "Point", header: "IGESDimen_WitnessLine.hxx".}
-proc transformedPoint*(this: IGESDimenWitnessLine; index: StandardInteger): GpPnt {.
+proc Point*(this: IGESDimen_WitnessLine; Index: Standard_Integer): gp_Pnt {.
+    noSideEffect, importcpp: "Point", header: "IGESDimen_WitnessLine.hxx".}
+proc TransformedPoint*(this: IGESDimen_WitnessLine; Index: Standard_Integer): gp_Pnt {.
     noSideEffect, importcpp: "TransformedPoint",
     header: "IGESDimen_WitnessLine.hxx".}
 type
-  IGESDimenWitnessLinebaseType* = IGESDataIGESEntity
+  IGESDimen_WitnessLinebase_type* = IGESData_IGESEntity
 
-proc getTypeName*(): cstring {.importcpp: "IGESDimen_WitnessLine::get_type_name(@)",
-                            header: "IGESDimen_WitnessLine.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "IGESDimen_WitnessLine::get_type_name(@)",
+                              header: "IGESDimen_WitnessLine.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "IGESDimen_WitnessLine::get_type_descriptor(@)",
     header: "IGESDimen_WitnessLine.hxx".}
-proc dynamicType*(this: IGESDimenWitnessLine): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "IGESDimen_WitnessLine.hxx".}
-
+proc DynamicType*(this: IGESDimen_WitnessLine): handle[Standard_Type] {.
+    noSideEffect, importcpp: "DynamicType", header: "IGESDimen_WitnessLine.hxx".}

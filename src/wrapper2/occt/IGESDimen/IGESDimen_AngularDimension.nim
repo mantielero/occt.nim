@@ -14,6 +14,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../gp/gp_XY,
+  ../Standard/Standard_Real, ../IGESData/IGESData_IGESEntity,
+  ../Standard/Standard_Boolean
+
 discard "forward decl of IGESDimen_GeneralNote"
 discard "forward decl of IGESDimen_WitnessLine"
 discard "forward decl of IGESDimen_LeaderArrow"
@@ -22,61 +27,61 @@ discard "forward decl of gp_Pnt2d"
 discard "forward decl of IGESDimen_AngularDimension"
 discard "forward decl of IGESDimen_AngularDimension"
 type
-  HandleIGESDimenAngularDimension* = Handle[IGESDimenAngularDimension]
+  Handle_IGESDimen_AngularDimension* = handle[IGESDimen_AngularDimension]
 
 ## ! defines AngularDimension, Type <202> Form <0>
 ## ! in package IGESDimen
 ## ! Used to dimension angles
 
 type
-  IGESDimenAngularDimension* {.importcpp: "IGESDimen_AngularDimension",
-                              header: "IGESDimen_AngularDimension.hxx", bycopy.} = object of IGESDataIGESEntity
+  IGESDimen_AngularDimension* {.importcpp: "IGESDimen_AngularDimension",
+                               header: "IGESDimen_AngularDimension.hxx", bycopy.} = object of IGESData_IGESEntity
 
 
-proc constructIGESDimenAngularDimension*(): IGESDimenAngularDimension {.
+proc constructIGESDimen_AngularDimension*(): IGESDimen_AngularDimension {.
     constructor, importcpp: "IGESDimen_AngularDimension(@)",
     header: "IGESDimen_AngularDimension.hxx".}
-proc init*(this: var IGESDimenAngularDimension; aNote: Handle[IGESDimenGeneralNote];
-          aLine: Handle[IGESDimenWitnessLine];
-          anotherLine: Handle[IGESDimenWitnessLine]; aVertex: GpXY;
-          aRadius: StandardReal; aLeader: Handle[IGESDimenLeaderArrow];
-          anotherLeader: Handle[IGESDimenLeaderArrow]) {.importcpp: "Init",
+proc Init*(this: var IGESDimen_AngularDimension;
+          aNote: handle[IGESDimen_GeneralNote];
+          aLine: handle[IGESDimen_WitnessLine];
+          anotherLine: handle[IGESDimen_WitnessLine]; aVertex: gp_XY;
+          aRadius: Standard_Real; aLeader: handle[IGESDimen_LeaderArrow];
+          anotherLeader: handle[IGESDimen_LeaderArrow]) {.importcpp: "Init",
     header: "IGESDimen_AngularDimension.hxx".}
-proc note*(this: IGESDimenAngularDimension): Handle[IGESDimenGeneralNote] {.
+proc Note*(this: IGESDimen_AngularDimension): handle[IGESDimen_GeneralNote] {.
     noSideEffect, importcpp: "Note", header: "IGESDimen_AngularDimension.hxx".}
-proc hasFirstWitnessLine*(this: IGESDimenAngularDimension): StandardBoolean {.
+proc HasFirstWitnessLine*(this: IGESDimen_AngularDimension): Standard_Boolean {.
     noSideEffect, importcpp: "HasFirstWitnessLine",
     header: "IGESDimen_AngularDimension.hxx".}
-proc firstWitnessLine*(this: IGESDimenAngularDimension): Handle[
-    IGESDimenWitnessLine] {.noSideEffect, importcpp: "FirstWitnessLine",
-                           header: "IGESDimen_AngularDimension.hxx".}
-proc hasSecondWitnessLine*(this: IGESDimenAngularDimension): StandardBoolean {.
+proc FirstWitnessLine*(this: IGESDimen_AngularDimension): handle[
+    IGESDimen_WitnessLine] {.noSideEffect, importcpp: "FirstWitnessLine",
+                            header: "IGESDimen_AngularDimension.hxx".}
+proc HasSecondWitnessLine*(this: IGESDimen_AngularDimension): Standard_Boolean {.
     noSideEffect, importcpp: "HasSecondWitnessLine",
     header: "IGESDimen_AngularDimension.hxx".}
-proc secondWitnessLine*(this: IGESDimenAngularDimension): Handle[
-    IGESDimenWitnessLine] {.noSideEffect, importcpp: "SecondWitnessLine",
-                           header: "IGESDimen_AngularDimension.hxx".}
-proc vertex*(this: IGESDimenAngularDimension): GpPnt2d {.noSideEffect,
+proc SecondWitnessLine*(this: IGESDimen_AngularDimension): handle[
+    IGESDimen_WitnessLine] {.noSideEffect, importcpp: "SecondWitnessLine",
+                            header: "IGESDimen_AngularDimension.hxx".}
+proc Vertex*(this: IGESDimen_AngularDimension): gp_Pnt2d {.noSideEffect,
     importcpp: "Vertex", header: "IGESDimen_AngularDimension.hxx".}
-proc transformedVertex*(this: IGESDimenAngularDimension): GpPnt2d {.noSideEffect,
+proc TransformedVertex*(this: IGESDimen_AngularDimension): gp_Pnt2d {.noSideEffect,
     importcpp: "TransformedVertex", header: "IGESDimen_AngularDimension.hxx".}
-proc radius*(this: IGESDimenAngularDimension): StandardReal {.noSideEffect,
+proc Radius*(this: IGESDimen_AngularDimension): Standard_Real {.noSideEffect,
     importcpp: "Radius", header: "IGESDimen_AngularDimension.hxx".}
-proc firstLeader*(this: IGESDimenAngularDimension): Handle[IGESDimenLeaderArrow] {.
+proc FirstLeader*(this: IGESDimen_AngularDimension): handle[IGESDimen_LeaderArrow] {.
     noSideEffect, importcpp: "FirstLeader",
     header: "IGESDimen_AngularDimension.hxx".}
-proc secondLeader*(this: IGESDimenAngularDimension): Handle[IGESDimenLeaderArrow] {.
+proc SecondLeader*(this: IGESDimen_AngularDimension): handle[IGESDimen_LeaderArrow] {.
     noSideEffect, importcpp: "SecondLeader",
     header: "IGESDimen_AngularDimension.hxx".}
 type
-  IGESDimenAngularDimensionbaseType* = IGESDataIGESEntity
+  IGESDimen_AngularDimensionbase_type* = IGESData_IGESEntity
 
-proc getTypeName*(): cstring {.importcpp: "IGESDimen_AngularDimension::get_type_name(@)",
-                            header: "IGESDimen_AngularDimension.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "IGESDimen_AngularDimension::get_type_name(@)",
+                              header: "IGESDimen_AngularDimension.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "IGESDimen_AngularDimension::get_type_descriptor(@)",
     header: "IGESDimen_AngularDimension.hxx".}
-proc dynamicType*(this: IGESDimenAngularDimension): Handle[StandardType] {.
+proc DynamicType*(this: IGESDimen_AngularDimension): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType",
     header: "IGESDimen_AngularDimension.hxx".}
-

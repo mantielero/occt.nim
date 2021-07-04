@@ -14,6 +14,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Integer,
+  ../Standard/Standard_Real, ../Transfer/Transfer_ActorOfTransientProcess,
+  ../Standard/Standard_Boolean, ../Message/Message_ProgressRange
+
 discard "forward decl of Interface_InterfaceModel"
 discard "forward decl of Standard_Transient"
 discard "forward decl of Transfer_Binder"
@@ -21,7 +26,7 @@ discard "forward decl of Transfer_TransientProcess"
 discard "forward decl of IGESToBRep_Actor"
 discard "forward decl of IGESToBRep_Actor"
 type
-  HandleIGESToBRepActor* = Handle[IGESToBRepActor]
+  Handle_IGESToBRep_Actor* = handle[IGESToBRep_Actor]
 
 ## ! This class performs the transfer of an Entity from
 ## ! IGESToBRep
@@ -30,34 +35,33 @@ type
 ## ! then returns the Binder which contains the Result
 
 type
-  IGESToBRepActor* {.importcpp: "IGESToBRep_Actor", header: "IGESToBRep_Actor.hxx",
-                    bycopy.} = object of TransferActorOfTransientProcess
+  IGESToBRep_Actor* {.importcpp: "IGESToBRep_Actor",
+                     header: "IGESToBRep_Actor.hxx", bycopy.} = object of Transfer_ActorOfTransientProcess
 
 
-proc constructIGESToBRepActor*(): IGESToBRepActor {.constructor,
+proc constructIGESToBRep_Actor*(): IGESToBRep_Actor {.constructor,
     importcpp: "IGESToBRep_Actor(@)", header: "IGESToBRep_Actor.hxx".}
-proc setModel*(this: var IGESToBRepActor; model: Handle[InterfaceInterfaceModel]) {.
+proc SetModel*(this: var IGESToBRep_Actor; model: handle[Interface_InterfaceModel]) {.
     importcpp: "SetModel", header: "IGESToBRep_Actor.hxx".}
-proc setContinuity*(this: var IGESToBRepActor; continuity: StandardInteger = 0) {.
+proc SetContinuity*(this: var IGESToBRep_Actor; continuity: Standard_Integer = 0) {.
     importcpp: "SetContinuity", header: "IGESToBRep_Actor.hxx".}
-proc getContinuity*(this: IGESToBRepActor): StandardInteger {.noSideEffect,
+proc GetContinuity*(this: IGESToBRep_Actor): Standard_Integer {.noSideEffect,
     importcpp: "GetContinuity", header: "IGESToBRep_Actor.hxx".}
-proc recognize*(this: var IGESToBRepActor; start: Handle[StandardTransient]): StandardBoolean {.
+proc Recognize*(this: var IGESToBRep_Actor; start: handle[Standard_Transient]): Standard_Boolean {.
     importcpp: "Recognize", header: "IGESToBRep_Actor.hxx".}
-proc transfer*(this: var IGESToBRepActor; start: Handle[StandardTransient];
-              tp: Handle[TransferTransientProcess];
-              theProgress: MessageProgressRange = messageProgressRange()): Handle[
-    TransferBinder] {.importcpp: "Transfer", header: "IGESToBRep_Actor.hxx".}
-proc usedTolerance*(this: IGESToBRepActor): StandardReal {.noSideEffect,
+proc Transfer*(this: var IGESToBRep_Actor; start: handle[Standard_Transient];
+              TP: handle[Transfer_TransientProcess];
+              theProgress: Message_ProgressRange = Message_ProgressRange()): handle[
+    Transfer_Binder] {.importcpp: "Transfer", header: "IGESToBRep_Actor.hxx".}
+proc UsedTolerance*(this: IGESToBRep_Actor): Standard_Real {.noSideEffect,
     importcpp: "UsedTolerance", header: "IGESToBRep_Actor.hxx".}
 type
-  IGESToBRepActorbaseType* = TransferActorOfTransientProcess
+  IGESToBRep_Actorbase_type* = Transfer_ActorOfTransientProcess
 
-proc getTypeName*(): cstring {.importcpp: "IGESToBRep_Actor::get_type_name(@)",
-                            header: "IGESToBRep_Actor.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "IGESToBRep_Actor::get_type_name(@)",
+                              header: "IGESToBRep_Actor.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "IGESToBRep_Actor::get_type_descriptor(@)",
     header: "IGESToBRep_Actor.hxx".}
-proc dynamicType*(this: IGESToBRepActor): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: IGESToBRep_Actor): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "IGESToBRep_Actor.hxx".}
-

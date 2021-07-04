@@ -11,7 +11,5 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _AIS_DimensionOwner_HeaderFile [NewLine] # _AIS_DimensionOwner_HeaderFile [NewLine] # < PrsDim_DimensionOwner . hxx > [NewLine] Standard_DEPRECATED ( Alias to moved class ) typedef PrsDim_DimensionOwner AIS_DimensionOwner ;
+## !!!Ignored construct:  # _AIS_DimensionOwner_HeaderFile [NewLine] # _AIS_DimensionOwner_HeaderFile [NewLine] # ../PrsDim/PrsDim_DimensionOwner.hxx [NewLine] Standard_DEPRECATED ( Alias to moved class ) typedef PrsDim_DimensionOwner AIS_DimensionOwner ;
 ## Error: expected ';'!!!
-
-

@@ -13,6 +13,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Message/Message_Algorithm, IMeshTools_Context, ../Standard/Standard_Type,
+  ../Message/Message_ProgressRange
+
 ## ! Builds mesh for each face of shape without triangulation.
 ## ! In case if some faces of shape have already been triangulated
 ## ! checks deflection of existing polygonal model and re-uses it
@@ -31,34 +35,33 @@
 ## ! Message_Warn1 - shape contains no objects to mesh.
 
 type
-  IMeshToolsMeshBuilder* {.importcpp: "IMeshTools_MeshBuilder",
-                          header: "IMeshTools_MeshBuilder.hxx", bycopy.} = object of MessageAlgorithm ##
-                                                                                               ## !
-                                                                                               ## Constructor.
+  IMeshTools_MeshBuilder* {.importcpp: "IMeshTools_MeshBuilder",
+                           header: "IMeshTools_MeshBuilder.hxx", bycopy.} = object of Message_Algorithm ##
+                                                                                                 ## !
+                                                                                                 ## Constructor.
 
 
-proc constructIMeshToolsMeshBuilder*(): IMeshToolsMeshBuilder {.constructor,
+proc constructIMeshTools_MeshBuilder*(): IMeshTools_MeshBuilder {.constructor,
     importcpp: "IMeshTools_MeshBuilder(@)", header: "IMeshTools_MeshBuilder.hxx".}
-proc constructIMeshToolsMeshBuilder*(theContext: Handle[IMeshToolsContext]): IMeshToolsMeshBuilder {.
+proc constructIMeshTools_MeshBuilder*(theContext: handle[IMeshTools_Context]): IMeshTools_MeshBuilder {.
     constructor, importcpp: "IMeshTools_MeshBuilder(@)",
     header: "IMeshTools_MeshBuilder.hxx".}
-proc destroyIMeshToolsMeshBuilder*(this: var IMeshToolsMeshBuilder) {.
+proc destroyIMeshTools_MeshBuilder*(this: var IMeshTools_MeshBuilder) {.
     importcpp: "#.~IMeshTools_MeshBuilder()", header: "IMeshTools_MeshBuilder.hxx".}
-proc setContext*(this: var IMeshToolsMeshBuilder;
-                theContext: Handle[IMeshToolsContext]) {.importcpp: "SetContext",
+proc SetContext*(this: var IMeshTools_MeshBuilder;
+                theContext: handle[IMeshTools_Context]) {.importcpp: "SetContext",
     header: "IMeshTools_MeshBuilder.hxx".}
-proc getContext*(this: IMeshToolsMeshBuilder): Handle[IMeshToolsContext] {.
+proc GetContext*(this: IMeshTools_MeshBuilder): handle[IMeshTools_Context] {.
     noSideEffect, importcpp: "GetContext", header: "IMeshTools_MeshBuilder.hxx".}
-proc perform*(this: var IMeshToolsMeshBuilder; theRange: MessageProgressRange) {.
+proc Perform*(this: var IMeshTools_MeshBuilder; theRange: Message_ProgressRange) {.
     importcpp: "Perform", header: "IMeshTools_MeshBuilder.hxx".}
 type
-  IMeshToolsMeshBuilderbaseType* = MessageAlgorithm
+  IMeshTools_MeshBuilderbase_type* = Message_Algorithm
 
-proc getTypeName*(): cstring {.importcpp: "IMeshTools_MeshBuilder::get_type_name(@)",
-                            header: "IMeshTools_MeshBuilder.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "IMeshTools_MeshBuilder::get_type_name(@)",
+                              header: "IMeshTools_MeshBuilder.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "IMeshTools_MeshBuilder::get_type_descriptor(@)",
     header: "IMeshTools_MeshBuilder.hxx".}
-proc dynamicType*(this: IMeshToolsMeshBuilder): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "IMeshTools_MeshBuilder.hxx".}
-
+proc DynamicType*(this: IMeshTools_MeshBuilder): handle[Standard_Type] {.
+    noSideEffect, importcpp: "DynamicType", header: "IMeshTools_MeshBuilder.hxx".}

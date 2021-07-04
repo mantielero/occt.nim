@@ -14,31 +14,35 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../ShapeAnalysis/ShapeAnalysis_WireVertex,
+  ../Standard/Standard_Real, ../Standard/Standard_Integer
+
 discard "forward decl of TopoDS_Wire"
 discard "forward decl of ShapeExtend_WireData"
 discard "forward decl of ShapeAnalysis_WireVertex"
 type
-  ShapeFixWireVertex* {.importcpp: "ShapeFix_WireVertex",
-                       header: "ShapeFix_WireVertex.hxx", bycopy.} = object
+  ShapeFix_WireVertex* {.importcpp: "ShapeFix_WireVertex",
+                        header: "ShapeFix_WireVertex.hxx", bycopy.} = object
 
 
-proc constructShapeFixWireVertex*(): ShapeFixWireVertex {.constructor,
+proc constructShapeFix_WireVertex*(): ShapeFix_WireVertex {.constructor,
     importcpp: "ShapeFix_WireVertex(@)", header: "ShapeFix_WireVertex.hxx".}
-proc init*(this: var ShapeFixWireVertex; wire: TopoDS_Wire; preci: StandardReal) {.
+proc Init*(this: var ShapeFix_WireVertex; wire: TopoDS_Wire; preci: Standard_Real) {.
     importcpp: "Init", header: "ShapeFix_WireVertex.hxx".}
-proc init*(this: var ShapeFixWireVertex; sbwd: Handle[ShapeExtendWireData];
-          preci: StandardReal) {.importcpp: "Init",
-                               header: "ShapeFix_WireVertex.hxx".}
-proc init*(this: var ShapeFixWireVertex; sawv: ShapeAnalysisWireVertex) {.
+proc Init*(this: var ShapeFix_WireVertex; sbwd: handle[ShapeExtend_WireData];
+          preci: Standard_Real) {.importcpp: "Init",
+                                header: "ShapeFix_WireVertex.hxx".}
+proc Init*(this: var ShapeFix_WireVertex; sawv: ShapeAnalysis_WireVertex) {.
     importcpp: "Init", header: "ShapeFix_WireVertex.hxx".}
-proc analyzer*(this: ShapeFixWireVertex): ShapeAnalysisWireVertex {.noSideEffect,
+proc Analyzer*(this: ShapeFix_WireVertex): ShapeAnalysis_WireVertex {.noSideEffect,
     importcpp: "Analyzer", header: "ShapeFix_WireVertex.hxx".}
-proc wireData*(this: ShapeFixWireVertex): Handle[ShapeExtendWireData] {.
+proc WireData*(this: ShapeFix_WireVertex): handle[ShapeExtend_WireData] {.
     noSideEffect, importcpp: "WireData", header: "ShapeFix_WireVertex.hxx".}
-proc wire*(this: ShapeFixWireVertex): TopoDS_Wire {.noSideEffect, importcpp: "Wire",
+proc Wire*(this: ShapeFix_WireVertex): TopoDS_Wire {.noSideEffect, importcpp: "Wire",
     header: "ShapeFix_WireVertex.hxx".}
-proc fixSame*(this: var ShapeFixWireVertex): StandardInteger {.importcpp: "FixSame",
+proc FixSame*(this: var ShapeFix_WireVertex): Standard_Integer {.
+    importcpp: "FixSame", header: "ShapeFix_WireVertex.hxx".}
+proc Fix*(this: var ShapeFix_WireVertex): Standard_Integer {.importcpp: "Fix",
     header: "ShapeFix_WireVertex.hxx".}
-proc fix*(this: var ShapeFixWireVertex): StandardInteger {.importcpp: "Fix",
-    header: "ShapeFix_WireVertex.hxx".}
-

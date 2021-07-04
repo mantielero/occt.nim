@@ -14,22 +14,29 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../gp/gp_Circ2d,
+  ../Geom2dAdaptor/Geom2dAdaptor_Curve, ../Standard/Standard_Real,
+  ../math/math_FunctionWithDerivative, ../Standard/Standard_Boolean
+
 discard "forward decl of gp_Circ2d"
 discard "forward decl of Geom2dAdaptor_Curve"
 type
-  Geom2dGccFunctionTanCirCu* {.importcpp: "Geom2dGcc_FunctionTanCirCu",
-                              header: "Geom2dGcc_FunctionTanCirCu.hxx", bycopy.} = object of MathFunctionWithDerivative
+  Geom2dGcc_FunctionTanCirCu* {.importcpp: "Geom2dGcc_FunctionTanCirCu",
+                               header: "Geom2dGcc_FunctionTanCirCu.hxx", bycopy.} = object of math_FunctionWithDerivative
 
 
-proc constructGeom2dGccFunctionTanCirCu*(circ: GpCirc2d; curv: Geom2dAdaptorCurve): Geom2dGccFunctionTanCirCu {.
-    constructor, importcpp: "Geom2dGcc_FunctionTanCirCu(@)",
+proc constructGeom2dGcc_FunctionTanCirCu*(Circ: gp_Circ2d;
+    Curv: Geom2dAdaptor_Curve): Geom2dGcc_FunctionTanCirCu {.constructor,
+    importcpp: "Geom2dGcc_FunctionTanCirCu(@)",
     header: "Geom2dGcc_FunctionTanCirCu.hxx".}
-proc value*(this: var Geom2dGccFunctionTanCirCu; x: StandardReal; f: var StandardReal): StandardBoolean {.
-    importcpp: "Value", header: "Geom2dGcc_FunctionTanCirCu.hxx".}
-proc derivative*(this: var Geom2dGccFunctionTanCirCu; x: StandardReal;
-                deriv: var StandardReal): StandardBoolean {.importcpp: "Derivative",
+proc Value*(this: var Geom2dGcc_FunctionTanCirCu; X: Standard_Real;
+           F: var Standard_Real): Standard_Boolean {.importcpp: "Value",
     header: "Geom2dGcc_FunctionTanCirCu.hxx".}
-proc values*(this: var Geom2dGccFunctionTanCirCu; x: StandardReal;
-            f: var StandardReal; deriv: var StandardReal): StandardBoolean {.
+proc Derivative*(this: var Geom2dGcc_FunctionTanCirCu; X: Standard_Real;
+                Deriv: var Standard_Real): Standard_Boolean {.
+    importcpp: "Derivative", header: "Geom2dGcc_FunctionTanCirCu.hxx".}
+proc Values*(this: var Geom2dGcc_FunctionTanCirCu; X: Standard_Real;
+            F: var Standard_Real; Deriv: var Standard_Real): Standard_Boolean {.
     importcpp: "Values", header: "Geom2dGcc_FunctionTanCirCu.hxx".}
-

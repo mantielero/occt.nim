@@ -11,69 +11,71 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  Graphic3d_TextureMap, ../NCollection/NCollection_Array1
+
 ## ! Class holding array of textures to be mapped as a set.
 ## ! Textures should be defined in ascending order of texture units within the set.
 
 type
-  Graphic3dTextureSet* {.importcpp: "Graphic3d_TextureSet",
-                        header: "Graphic3d_TextureSet.hxx", bycopy.} = object of StandardTransient ##
-                                                                                            ## !
-                                                                                            ## Class
-                                                                                            ## for
-                                                                                            ## iterating
-                                                                                            ## texture
-                                                                                            ## set.
-                                                                                            ##
-                                                                                            ## !
-                                                                                            ## Empty
-                                                                                            ## constructor.
+  Graphic3d_TextureSet* {.importcpp: "Graphic3d_TextureSet",
+                         header: "Graphic3d_TextureSet.hxx", bycopy.} = object of Standard_Transient ##
+                                                                                              ## !
+                                                                                              ## Class
+                                                                                              ## for
+                                                                                              ## iterating
+                                                                                              ## texture
+                                                                                              ## set.
+                                                                                              ##
+                                                                                              ## !
+                                                                                              ## Empty
+                                                                                              ## constructor.
 
-  Graphic3dTextureSetbaseType* = StandardTransient
+  Graphic3d_TextureSetbase_type* = Standard_Transient
 
-proc getTypeName*(): cstring {.importcpp: "Graphic3d_TextureSet::get_type_name(@)",
-                            header: "Graphic3d_TextureSet.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "Graphic3d_TextureSet::get_type_name(@)",
+                              header: "Graphic3d_TextureSet.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "Graphic3d_TextureSet::get_type_descriptor(@)",
     header: "Graphic3d_TextureSet.hxx".}
-proc dynamicType*(this: Graphic3dTextureSet): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: Graphic3d_TextureSet): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "Graphic3d_TextureSet.hxx".}
 type
-  Graphic3dTextureSetIterator* {.importcpp: "Graphic3d_TextureSet::Iterator",
-                                header: "Graphic3d_TextureSet.hxx", bycopy.} = object of Graphic3dTextureSetIterator[
-      Handle[Graphic3dTextureMap]] ## ! Empty constructor.
+  Graphic3d_TextureSetIterator* {.importcpp: "Graphic3d_TextureSet::Iterator",
+                                 header: "Graphic3d_TextureSet.hxx", bycopy.} = object of Graphic3d_TextureSetIterator[
+      handle[Graphic3d_TextureMap]] ## ! Empty constructor.
 
 
-proc constructGraphic3dTextureSetIterator*(): Graphic3dTextureSetIterator {.
+proc constructGraphic3d_TextureSetIterator*(): Graphic3d_TextureSetIterator {.
     constructor, importcpp: "Graphic3d_TextureSet::Iterator(@)",
     header: "Graphic3d_TextureSet.hxx".}
-proc constructGraphic3dTextureSetIterator*(theSet: Handle[Graphic3dTextureSet]): Graphic3dTextureSetIterator {.
+proc constructGraphic3d_TextureSetIterator*(theSet: handle[Graphic3d_TextureSet]): Graphic3d_TextureSetIterator {.
     constructor, importcpp: "Graphic3d_TextureSet::Iterator(@)",
     header: "Graphic3d_TextureSet.hxx".}
-proc constructGraphic3dTextureSet*(): Graphic3dTextureSet {.constructor,
+proc constructGraphic3d_TextureSet*(): Graphic3d_TextureSet {.constructor,
     importcpp: "Graphic3d_TextureSet(@)", header: "Graphic3d_TextureSet.hxx".}
-proc constructGraphic3dTextureSet*(theNbTextures: StandardInteger): Graphic3dTextureSet {.
+proc constructGraphic3d_TextureSet*(theNbTextures: Standard_Integer): Graphic3d_TextureSet {.
     constructor, importcpp: "Graphic3d_TextureSet(@)",
     header: "Graphic3d_TextureSet.hxx".}
-proc constructGraphic3dTextureSet*(theTexture: Handle[Graphic3dTextureMap]): Graphic3dTextureSet {.
+proc constructGraphic3d_TextureSet*(theTexture: handle[Graphic3d_TextureMap]): Graphic3d_TextureSet {.
     constructor, importcpp: "Graphic3d_TextureSet(@)",
     header: "Graphic3d_TextureSet.hxx".}
-proc isEmpty*(this: Graphic3dTextureSet): StandardBoolean {.noSideEffect,
+proc IsEmpty*(this: Graphic3d_TextureSet): Standard_Boolean {.noSideEffect,
     importcpp: "IsEmpty", header: "Graphic3d_TextureSet.hxx".}
-proc size*(this: Graphic3dTextureSet): StandardInteger {.noSideEffect,
+proc Size*(this: Graphic3d_TextureSet): Standard_Integer {.noSideEffect,
     importcpp: "Size", header: "Graphic3d_TextureSet.hxx".}
-proc lower*(this: Graphic3dTextureSet): StandardInteger {.noSideEffect,
+proc Lower*(this: Graphic3d_TextureSet): Standard_Integer {.noSideEffect,
     importcpp: "Lower", header: "Graphic3d_TextureSet.hxx".}
-proc upper*(this: Graphic3dTextureSet): StandardInteger {.noSideEffect,
+proc Upper*(this: Graphic3d_TextureSet): Standard_Integer {.noSideEffect,
     importcpp: "Upper", header: "Graphic3d_TextureSet.hxx".}
-proc first*(this: Graphic3dTextureSet): Handle[Graphic3dTextureMap] {.noSideEffect,
-    importcpp: "First", header: "Graphic3d_TextureSet.hxx".}
-proc setFirst*(this: var Graphic3dTextureSet;
-              theTexture: Handle[Graphic3dTextureMap]) {.importcpp: "SetFirst",
+proc First*(this: Graphic3d_TextureSet): handle[Graphic3d_TextureMap] {.
+    noSideEffect, importcpp: "First", header: "Graphic3d_TextureSet.hxx".}
+proc SetFirst*(this: var Graphic3d_TextureSet;
+              theTexture: handle[Graphic3d_TextureMap]) {.importcpp: "SetFirst",
     header: "Graphic3d_TextureSet.hxx".}
-proc value*(this: Graphic3dTextureSet; theIndex: StandardInteger): Handle[
-    Graphic3dTextureMap] {.noSideEffect, importcpp: "Value",
-                          header: "Graphic3d_TextureSet.hxx".}
-proc setValue*(this: var Graphic3dTextureSet; theIndex: StandardInteger;
-              theTexture: Handle[Graphic3dTextureMap]) {.importcpp: "SetValue",
+proc Value*(this: Graphic3d_TextureSet; theIndex: Standard_Integer): handle[
+    Graphic3d_TextureMap] {.noSideEffect, importcpp: "Value",
+                           header: "Graphic3d_TextureSet.hxx".}
+proc SetValue*(this: var Graphic3d_TextureSet; theIndex: Standard_Integer;
+              theTexture: handle[Graphic3d_TextureMap]) {.importcpp: "SetValue",
     header: "Graphic3d_TextureSet.hxx".}
-

@@ -14,38 +14,37 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _HLRBRep_ThePolygonToolOfInterCSurf_HeaderFile [NewLine] # _HLRBRep_ThePolygonToolOfInterCSurf_HeaderFile [NewLine] # < Standard . hxx > [NewLine] # < Standard_DefineAlloc . hxx > [NewLine] # < Standard_Handle . hxx > [NewLine] # < Standard_Real . hxx > [NewLine] # < Standard_Boolean . hxx > [NewLine] # < Standard_Integer . hxx > [NewLine] class Standard_OutOfRange ;
+## !!!Ignored construct:  # _HLRBRep_ThePolygonToolOfInterCSurf_HeaderFile [NewLine] # _HLRBRep_ThePolygonToolOfInterCSurf_HeaderFile [NewLine] # ../Standard/Standard.hxx [NewLine] # ../Standard/Standard_DefineAlloc.hxx [NewLine] # ../Standard/Standard_Handle.hxx [NewLine] # ../Standard/Standard_Real.hxx [NewLine] # ../Standard/Standard_Boolean.hxx [NewLine] # ../Standard/Standard_Integer.hxx [NewLine] class Standard_OutOfRange ;
 ## Error: did not expect <!!!
 
 discard "forward decl of gp_Pnt"
 discard "forward decl of HLRBRep_ThePolygonOfInterCSurf"
 discard "forward decl of Bnd_Box"
 type
-  HLRBRepThePolygonToolOfInterCSurf* {.importcpp: "HLRBRep_ThePolygonToolOfInterCSurf", header: "HLRBRep_ThePolygonToolOfInterCSurf.hxx",
-                                      bycopy.} = object ## ! Give the bounding box of the polygon.
+  HLRBRep_ThePolygonToolOfInterCSurf* {.importcpp: "HLRBRep_ThePolygonToolOfInterCSurf", header: "HLRBRep_ThePolygonToolOfInterCSurf.hxx",
+                                       bycopy.} = object ## ! Give the bounding box of the polygon.
 
 
-proc bounding*(thePolygon: HLRBRepThePolygonOfInterCSurf): BndBox {.
+proc Bounding*(thePolygon: HLRBRep_ThePolygonOfInterCSurf): Bnd_Box {.
     importcpp: "HLRBRep_ThePolygonToolOfInterCSurf::Bounding(@)",
     header: "HLRBRep_ThePolygonToolOfInterCSurf.hxx".}
-proc deflectionOverEstimation*(thePolygon: HLRBRepThePolygonOfInterCSurf): StandardReal {.importcpp: "HLRBRep_ThePolygonToolOfInterCSurf::DeflectionOverEstimation(@)",
+proc DeflectionOverEstimation*(thePolygon: HLRBRep_ThePolygonOfInterCSurf): Standard_Real {.importcpp: "HLRBRep_ThePolygonToolOfInterCSurf::DeflectionOverEstimation(@)",
     header: "HLRBRep_ThePolygonToolOfInterCSurf.hxx".}
-proc closed*(thePolygon: HLRBRepThePolygonOfInterCSurf): StandardBoolean {.
+proc Closed*(thePolygon: HLRBRep_ThePolygonOfInterCSurf): Standard_Boolean {.
     importcpp: "HLRBRep_ThePolygonToolOfInterCSurf::Closed(@)",
     header: "HLRBRep_ThePolygonToolOfInterCSurf.hxx".}
-proc nbSegments*(thePolygon: HLRBRepThePolygonOfInterCSurf): StandardInteger {.
+proc NbSegments*(thePolygon: HLRBRep_ThePolygonOfInterCSurf): Standard_Integer {.
     importcpp: "HLRBRep_ThePolygonToolOfInterCSurf::NbSegments(@)",
     header: "HLRBRep_ThePolygonToolOfInterCSurf.hxx".}
-proc beginOfSeg*(thePolygon: HLRBRepThePolygonOfInterCSurf; index: StandardInteger): GpPnt {.
+proc BeginOfSeg*(thePolygon: HLRBRep_ThePolygonOfInterCSurf;
+                Index: Standard_Integer): gp_Pnt {.
     importcpp: "HLRBRep_ThePolygonToolOfInterCSurf::BeginOfSeg(@)",
     header: "HLRBRep_ThePolygonToolOfInterCSurf.hxx".}
-proc endOfSeg*(thePolygon: HLRBRepThePolygonOfInterCSurf; index: StandardInteger): GpPnt {.
+proc EndOfSeg*(thePolygon: HLRBRep_ThePolygonOfInterCSurf; Index: Standard_Integer): gp_Pnt {.
     importcpp: "HLRBRep_ThePolygonToolOfInterCSurf::EndOfSeg(@)",
     header: "HLRBRep_ThePolygonToolOfInterCSurf.hxx".}
-proc dump*(thePolygon: HLRBRepThePolygonOfInterCSurf) {.
+proc Dump*(thePolygon: HLRBRep_ThePolygonOfInterCSurf) {.
     importcpp: "HLRBRep_ThePolygonToolOfInterCSurf::Dump(@)",
     header: "HLRBRep_ThePolygonToolOfInterCSurf.hxx".}
-## !!!Ignored construct:  # ThePoint gp_Pnt [NewLine] # ThePoint_hxx < gp_Pnt . hxx > [NewLine] # ThePolygon HLRBRep_ThePolygonOfInterCSurf [NewLine] # ThePolygon_hxx < HLRBRep_ThePolygonOfInterCSurf . hxx > [NewLine] # TheBoundingBox Bnd_Box [NewLine] # TheBoundingBox_hxx < Bnd_Box . hxx > [NewLine] # IntCurveSurface_PolygonTool HLRBRep_ThePolygonToolOfInterCSurf [NewLine] # IntCurveSurface_PolygonTool_hxx < HLRBRep_ThePolygonToolOfInterCSurf . hxx > [NewLine] # < IntCurveSurface_PolygonTool . lxx > [NewLine] # ThePoint [NewLine] # ThePoint_hxx [NewLine] # ThePolygon [NewLine] # ThePolygon_hxx [NewLine] # TheBoundingBox [NewLine] # TheBoundingBox_hxx [NewLine] # IntCurveSurface_PolygonTool [NewLine] # IntCurveSurface_PolygonTool_hxx [NewLine] #  _HLRBRep_ThePolygonToolOfInterCSurf_HeaderFile
+## !!!Ignored construct:  # ThePoint gp_Pnt [NewLine] # ThePoint_hxx < gp_Pnt . hxx > [NewLine] # ThePolygon HLRBRep_ThePolygonOfInterCSurf [NewLine] # ThePolygon_hxx < HLRBRep_ThePolygonOfInterCSurf . hxx > [NewLine] # TheBoundingBox Bnd_Box [NewLine] # TheBoundingBox_hxx < Bnd_Box . hxx > [NewLine] # IntCurveSurface_PolygonTool HLRBRep_ThePolygonToolOfInterCSurf [NewLine] # IntCurveSurface_PolygonTool_hxx < HLRBRep_ThePolygonToolOfInterCSurf . hxx > [NewLine] # < IntCurveSurface_PolygonTool . lxx > [NewLine] # ThePoint [NewLine] # ThePoint_hxx [NewLine] # ThePolygon [NewLine] # ThePolygon_hxx [NewLine] # TheBoundingBox [NewLine] # TheBoundingBox_hxx [NewLine] # IntCurveSurface_PolygonTool [NewLine] # IntCurveSurface_PolygonTool_hxx [NewLine] #  _HLRBRep_ThePolygonToolOfInterCSurf_HeaderFile [NewLine]
 ## Error: did not expect <!!!
-
-

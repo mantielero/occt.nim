@@ -14,7 +14,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  IGESDraw_ConnectPoint, ../NCollection/NCollection_Array1
+
 type
-  IGESDrawArray1OfConnectPoint* = NCollectionArray1[Handle[IGESDrawConnectPoint]]
-
-
+  IGESDraw_Array1OfConnectPoint* = NCollection_Array1[
+      handle[IGESDraw_ConnectPoint]]

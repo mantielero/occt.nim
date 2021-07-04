@@ -14,6 +14,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type,
+  ../StepData/StepData_ReadWriteModule, ../Standard/Standard_Integer,
+  ../TColStd/TColStd_SequenceOfAsciiString, ../Standard/Standard_Boolean
+
 discard "forward decl of TCollection_AsciiString"
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
@@ -22,47 +27,46 @@ discard "forward decl of StepData_StepWriter"
 discard "forward decl of RWStepAP214_ReadWriteModule"
 discard "forward decl of RWStepAP214_ReadWriteModule"
 type
-  HandleRWStepAP214ReadWriteModule* = Handle[RWStepAP214ReadWriteModule]
+  Handle_RWStepAP214_ReadWriteModule* = handle[RWStepAP214_ReadWriteModule]
 
 ## ! General module to read and write StepAP214 entities
 
 type
-  RWStepAP214ReadWriteModule* {.importcpp: "RWStepAP214_ReadWriteModule",
-                               header: "RWStepAP214_ReadWriteModule.hxx", bycopy.} = object of StepDataReadWriteModule
+  RWStepAP214_ReadWriteModule* {.importcpp: "RWStepAP214_ReadWriteModule",
+                                header: "RWStepAP214_ReadWriteModule.hxx", bycopy.} = object of StepData_ReadWriteModule
 
 
-proc constructRWStepAP214ReadWriteModule*(): RWStepAP214ReadWriteModule {.
+proc constructRWStepAP214_ReadWriteModule*(): RWStepAP214_ReadWriteModule {.
     constructor, importcpp: "RWStepAP214_ReadWriteModule(@)",
     header: "RWStepAP214_ReadWriteModule.hxx".}
-proc caseStep*(this: RWStepAP214ReadWriteModule; atype: TCollectionAsciiString): StandardInteger {.
+proc CaseStep*(this: RWStepAP214_ReadWriteModule; atype: TCollection_AsciiString): Standard_Integer {.
     noSideEffect, importcpp: "CaseStep", header: "RWStepAP214_ReadWriteModule.hxx".}
-proc caseStep*(this: RWStepAP214ReadWriteModule;
-              types: TColStdSequenceOfAsciiString): StandardInteger {.noSideEffect,
-    importcpp: "CaseStep", header: "RWStepAP214_ReadWriteModule.hxx".}
-proc isComplex*(this: RWStepAP214ReadWriteModule; cn: StandardInteger): StandardBoolean {.
+proc CaseStep*(this: RWStepAP214_ReadWriteModule;
+              types: TColStd_SequenceOfAsciiString): Standard_Integer {.
+    noSideEffect, importcpp: "CaseStep", header: "RWStepAP214_ReadWriteModule.hxx".}
+proc IsComplex*(this: RWStepAP214_ReadWriteModule; CN: Standard_Integer): Standard_Boolean {.
     noSideEffect, importcpp: "IsComplex", header: "RWStepAP214_ReadWriteModule.hxx".}
-proc stepType*(this: RWStepAP214ReadWriteModule; cn: StandardInteger): TCollectionAsciiString {.
+proc StepType*(this: RWStepAP214_ReadWriteModule; CN: Standard_Integer): TCollection_AsciiString {.
     noSideEffect, importcpp: "StepType", header: "RWStepAP214_ReadWriteModule.hxx".}
-proc complexType*(this: RWStepAP214ReadWriteModule; cn: StandardInteger;
-                 types: var TColStdSequenceOfAsciiString): StandardBoolean {.
+proc ComplexType*(this: RWStepAP214_ReadWriteModule; CN: Standard_Integer;
+                 types: var TColStd_SequenceOfAsciiString): Standard_Boolean {.
     noSideEffect, importcpp: "ComplexType",
     header: "RWStepAP214_ReadWriteModule.hxx".}
-proc readStep*(this: RWStepAP214ReadWriteModule; cn: StandardInteger;
-              data: Handle[StepDataStepReaderData]; num: StandardInteger;
-              ach: var Handle[InterfaceCheck]; ent: Handle[StandardTransient]) {.
+proc ReadStep*(this: RWStepAP214_ReadWriteModule; CN: Standard_Integer;
+              data: handle[StepData_StepReaderData]; num: Standard_Integer;
+              ach: var handle[Interface_Check]; ent: handle[Standard_Transient]) {.
     noSideEffect, importcpp: "ReadStep", header: "RWStepAP214_ReadWriteModule.hxx".}
-proc writeStep*(this: RWStepAP214ReadWriteModule; cn: StandardInteger;
-               sw: var StepDataStepWriter; ent: Handle[StandardTransient]) {.
+proc WriteStep*(this: RWStepAP214_ReadWriteModule; CN: Standard_Integer;
+               SW: var StepData_StepWriter; ent: handle[Standard_Transient]) {.
     noSideEffect, importcpp: "WriteStep", header: "RWStepAP214_ReadWriteModule.hxx".}
 type
-  RWStepAP214ReadWriteModulebaseType* = StepDataReadWriteModule
+  RWStepAP214_ReadWriteModulebase_type* = StepData_ReadWriteModule
 
-proc getTypeName*(): cstring {.importcpp: "RWStepAP214_ReadWriteModule::get_type_name(@)",
-                            header: "RWStepAP214_ReadWriteModule.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "RWStepAP214_ReadWriteModule::get_type_name(@)",
+                              header: "RWStepAP214_ReadWriteModule.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "RWStepAP214_ReadWriteModule::get_type_descriptor(@)",
     header: "RWStepAP214_ReadWriteModule.hxx".}
-proc dynamicType*(this: RWStepAP214ReadWriteModule): Handle[StandardType] {.
+proc DynamicType*(this: RWStepAP214_ReadWriteModule): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType",
     header: "RWStepAP214_ReadWriteModule.hxx".}
-

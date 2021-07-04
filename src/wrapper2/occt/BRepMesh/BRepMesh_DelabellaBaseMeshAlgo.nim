@@ -13,38 +13,40 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  BRepMesh_CustomBaseMeshAlgo, ../NCollection/NCollection_Shared,
+  ../IMeshTools/IMeshTools_Parameters
+
 discard "forward decl of BRepMesh_DataStructureOfDelaun"
 discard "forward decl of BRepMesh_Delaun"
 type
-  BRepMeshDelabellaBaseMeshAlgo* {.importcpp: "BRepMesh_DelabellaBaseMeshAlgo",
-                                  header: "BRepMesh_DelabellaBaseMeshAlgo.hxx",
-                                  bycopy.} = object of BRepMeshCustomBaseMeshAlgo ## !
-                                                                             ## Constructor.
-                                                                             ## !
-                                                                             ## Builds
-                                                                             ## base
-                                                                             ## triangulation
-                                                                             ## using
-                                                                             ## Delabella
-                                                                             ## project.
+  BRepMesh_DelabellaBaseMeshAlgo* {.importcpp: "BRepMesh_DelabellaBaseMeshAlgo", header: "BRepMesh_DelabellaBaseMeshAlgo.hxx",
+                                   bycopy.} = object of BRepMesh_CustomBaseMeshAlgo ## !
+                                                                               ## Constructor.
+                                                                               ## !
+                                                                               ## Builds
+                                                                               ## base
+                                                                               ## triangulation
+                                                                               ## using
+                                                                               ## Delabella
+                                                                               ## project.
 
 
-proc constructBRepMeshDelabellaBaseMeshAlgo*(): BRepMeshDelabellaBaseMeshAlgo {.
+proc constructBRepMesh_DelabellaBaseMeshAlgo*(): BRepMesh_DelabellaBaseMeshAlgo {.
     constructor, importcpp: "BRepMesh_DelabellaBaseMeshAlgo(@)",
     header: "BRepMesh_DelabellaBaseMeshAlgo.hxx".}
-proc destroyBRepMeshDelabellaBaseMeshAlgo*(
-    this: var BRepMeshDelabellaBaseMeshAlgo) {.
+proc destroyBRepMesh_DelabellaBaseMeshAlgo*(
+    this: var BRepMesh_DelabellaBaseMeshAlgo) {.
     importcpp: "#.~BRepMesh_DelabellaBaseMeshAlgo()",
     header: "BRepMesh_DelabellaBaseMeshAlgo.hxx".}
 type
-  BRepMeshDelabellaBaseMeshAlgobaseType* = BRepMeshCustomBaseMeshAlgo
+  BRepMesh_DelabellaBaseMeshAlgobase_type* = BRepMesh_CustomBaseMeshAlgo
 
-proc getTypeName*(): cstring {.importcpp: "BRepMesh_DelabellaBaseMeshAlgo::get_type_name(@)",
-                            header: "BRepMesh_DelabellaBaseMeshAlgo.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "BRepMesh_DelabellaBaseMeshAlgo::get_type_name(@)",
+                              header: "BRepMesh_DelabellaBaseMeshAlgo.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "BRepMesh_DelabellaBaseMeshAlgo::get_type_descriptor(@)",
     header: "BRepMesh_DelabellaBaseMeshAlgo.hxx".}
-proc dynamicType*(this: BRepMeshDelabellaBaseMeshAlgo): Handle[StandardType] {.
+proc DynamicType*(this: BRepMesh_DelabellaBaseMeshAlgo): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType",
     header: "BRepMesh_DelabellaBaseMeshAlgo.hxx".}
-

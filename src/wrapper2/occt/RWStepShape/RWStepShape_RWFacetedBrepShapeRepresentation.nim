@@ -14,33 +14,36 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepShape_FacetedBrepShapeRepresentation"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepShapeRWFacetedBrepShapeRepresentation* {.
+  RWStepShape_RWFacetedBrepShapeRepresentation* {.
       importcpp: "RWStepShape_RWFacetedBrepShapeRepresentation",
       header: "RWStepShape_RWFacetedBrepShapeRepresentation.hxx", bycopy.} = object
 
 
-proc constructRWStepShapeRWFacetedBrepShapeRepresentation*(): RWStepShapeRWFacetedBrepShapeRepresentation {.
+proc constructRWStepShape_RWFacetedBrepShapeRepresentation*(): RWStepShape_RWFacetedBrepShapeRepresentation {.
     constructor, importcpp: "RWStepShape_RWFacetedBrepShapeRepresentation(@)",
     header: "RWStepShape_RWFacetedBrepShapeRepresentation.hxx".}
-proc readStep*(this: RWStepShapeRWFacetedBrepShapeRepresentation;
-              data: Handle[StepDataStepReaderData]; num: StandardInteger;
-              ach: var Handle[InterfaceCheck];
-              ent: Handle[StepShapeFacetedBrepShapeRepresentation]) {.
+proc ReadStep*(this: RWStepShape_RWFacetedBrepShapeRepresentation;
+              data: handle[StepData_StepReaderData]; num: Standard_Integer;
+              ach: var handle[Interface_Check];
+              ent: handle[StepShape_FacetedBrepShapeRepresentation]) {.
     noSideEffect, importcpp: "ReadStep",
     header: "RWStepShape_RWFacetedBrepShapeRepresentation.hxx".}
-proc writeStep*(this: RWStepShapeRWFacetedBrepShapeRepresentation;
-               sw: var StepDataStepWriter;
-               ent: Handle[StepShapeFacetedBrepShapeRepresentation]) {.
+proc WriteStep*(this: RWStepShape_RWFacetedBrepShapeRepresentation;
+               SW: var StepData_StepWriter;
+               ent: handle[StepShape_FacetedBrepShapeRepresentation]) {.
     noSideEffect, importcpp: "WriteStep",
     header: "RWStepShape_RWFacetedBrepShapeRepresentation.hxx".}
-proc share*(this: RWStepShapeRWFacetedBrepShapeRepresentation;
-           ent: Handle[StepShapeFacetedBrepShapeRepresentation];
-           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
+proc Share*(this: RWStepShape_RWFacetedBrepShapeRepresentation;
+           ent: handle[StepShape_FacetedBrepShapeRepresentation];
+           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepShape_RWFacetedBrepShapeRepresentation.hxx".}
-

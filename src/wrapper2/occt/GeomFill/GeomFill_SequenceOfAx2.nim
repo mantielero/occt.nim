@@ -14,7 +14,8 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../gp/gp_Ax2, ../NCollection/NCollection_Sequence
+
 type
-  GeomFillSequenceOfAx2* = NCollectionSequence[GpAx2]
-
-
+  GeomFill_SequenceOfAx2* = NCollection_Sequence[gp_Ax2]

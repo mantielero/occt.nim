@@ -14,36 +14,39 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../IGESData/IGESData_Protocol,
+  ../Standard/Standard_Integer, ../Standard/Standard_Type
+
 discard "forward decl of Interface_Protocol"
 discard "forward decl of IGESGeom_Protocol"
 discard "forward decl of IGESGeom_Protocol"
 type
-  HandleIGESGeomProtocol* = Handle[IGESGeomProtocol]
+  Handle_IGESGeom_Protocol* = handle[IGESGeom_Protocol]
 
 ## ! Description of Protocol for IGESGeom
 
 type
-  IGESGeomProtocol* {.importcpp: "IGESGeom_Protocol",
-                     header: "IGESGeom_Protocol.hxx", bycopy.} = object of IGESDataProtocol
+  IGESGeom_Protocol* {.importcpp: "IGESGeom_Protocol",
+                      header: "IGESGeom_Protocol.hxx", bycopy.} = object of IGESData_Protocol
 
 
-proc constructIGESGeomProtocol*(): IGESGeomProtocol {.constructor,
+proc constructIGESGeom_Protocol*(): IGESGeom_Protocol {.constructor,
     importcpp: "IGESGeom_Protocol(@)", header: "IGESGeom_Protocol.hxx".}
-proc nbResources*(this: IGESGeomProtocol): StandardInteger {.noSideEffect,
+proc NbResources*(this: IGESGeom_Protocol): Standard_Integer {.noSideEffect,
     importcpp: "NbResources", header: "IGESGeom_Protocol.hxx".}
-proc resource*(this: IGESGeomProtocol; num: StandardInteger): Handle[
-    InterfaceProtocol] {.noSideEffect, importcpp: "Resource",
-                        header: "IGESGeom_Protocol.hxx".}
-proc typeNumber*(this: IGESGeomProtocol; atype: Handle[StandardType]): StandardInteger {.
+proc Resource*(this: IGESGeom_Protocol; num: Standard_Integer): handle[
+    Interface_Protocol] {.noSideEffect, importcpp: "Resource",
+                         header: "IGESGeom_Protocol.hxx".}
+proc TypeNumber*(this: IGESGeom_Protocol; atype: handle[Standard_Type]): Standard_Integer {.
     noSideEffect, importcpp: "TypeNumber", header: "IGESGeom_Protocol.hxx".}
 type
-  IGESGeomProtocolbaseType* = IGESDataProtocol
+  IGESGeom_Protocolbase_type* = IGESData_Protocol
 
-proc getTypeName*(): cstring {.importcpp: "IGESGeom_Protocol::get_type_name(@)",
-                            header: "IGESGeom_Protocol.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "IGESGeom_Protocol::get_type_name(@)",
+                              header: "IGESGeom_Protocol.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "IGESGeom_Protocol::get_type_descriptor(@)",
     header: "IGESGeom_Protocol.hxx".}
-proc dynamicType*(this: IGESGeomProtocol): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: IGESGeom_Protocol): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "IGESGeom_Protocol.hxx".}
-

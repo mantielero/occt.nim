@@ -14,38 +14,42 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Real, ../GProp/GProp_GProps
+
 discard "forward decl of BRepGProp_Face"
 discard "forward decl of gp_Pnt"
 discard "forward decl of BRepGProp_Domain"
 type
-  BRepGPropSinert* {.importcpp: "BRepGProp_Sinert", header: "BRepGProp_Sinert.hxx",
-                    bycopy.} = object of GPropGProps
+  BRepGProp_Sinert* {.importcpp: "BRepGProp_Sinert",
+                     header: "BRepGProp_Sinert.hxx", bycopy.} = object of GProp_GProps
 
 
-proc constructBRepGPropSinert*(): BRepGPropSinert {.constructor,
+proc constructBRepGProp_Sinert*(): BRepGProp_Sinert {.constructor,
     importcpp: "BRepGProp_Sinert(@)", header: "BRepGProp_Sinert.hxx".}
-proc constructBRepGPropSinert*(s: BRepGPropFace; sLocation: GpPnt): BRepGPropSinert {.
+proc constructBRepGProp_Sinert*(S: BRepGProp_Face; SLocation: gp_Pnt): BRepGProp_Sinert {.
     constructor, importcpp: "BRepGProp_Sinert(@)", header: "BRepGProp_Sinert.hxx".}
-proc constructBRepGPropSinert*(s: var BRepGPropFace; d: var BRepGPropDomain;
-                              sLocation: GpPnt): BRepGPropSinert {.constructor,
+proc constructBRepGProp_Sinert*(S: var BRepGProp_Face; D: var BRepGProp_Domain;
+                               SLocation: gp_Pnt): BRepGProp_Sinert {.constructor,
     importcpp: "BRepGProp_Sinert(@)", header: "BRepGProp_Sinert.hxx".}
-proc constructBRepGPropSinert*(s: var BRepGPropFace; sLocation: GpPnt;
-                              eps: StandardReal): BRepGPropSinert {.constructor,
+proc constructBRepGProp_Sinert*(S: var BRepGProp_Face; SLocation: gp_Pnt;
+                               Eps: Standard_Real): BRepGProp_Sinert {.constructor,
     importcpp: "BRepGProp_Sinert(@)", header: "BRepGProp_Sinert.hxx".}
-proc constructBRepGPropSinert*(s: var BRepGPropFace; d: var BRepGPropDomain;
-                              sLocation: GpPnt; eps: StandardReal): BRepGPropSinert {.
+proc constructBRepGProp_Sinert*(S: var BRepGProp_Face; D: var BRepGProp_Domain;
+                               SLocation: gp_Pnt; Eps: Standard_Real): BRepGProp_Sinert {.
     constructor, importcpp: "BRepGProp_Sinert(@)", header: "BRepGProp_Sinert.hxx".}
-proc setLocation*(this: var BRepGPropSinert; sLocation: GpPnt) {.
+proc SetLocation*(this: var BRepGProp_Sinert; SLocation: gp_Pnt) {.
     importcpp: "SetLocation", header: "BRepGProp_Sinert.hxx".}
-proc perform*(this: var BRepGPropSinert; s: BRepGPropFace) {.importcpp: "Perform",
+proc Perform*(this: var BRepGProp_Sinert; S: BRepGProp_Face) {.importcpp: "Perform",
     header: "BRepGProp_Sinert.hxx".}
-proc perform*(this: var BRepGPropSinert; s: var BRepGPropFace; d: var BRepGPropDomain) {.
+proc Perform*(this: var BRepGProp_Sinert; S: var BRepGProp_Face;
+             D: var BRepGProp_Domain) {.importcpp: "Perform",
+                                     header: "BRepGProp_Sinert.hxx".}
+proc Perform*(this: var BRepGProp_Sinert; S: var BRepGProp_Face; Eps: Standard_Real): Standard_Real {.
     importcpp: "Perform", header: "BRepGProp_Sinert.hxx".}
-proc perform*(this: var BRepGPropSinert; s: var BRepGPropFace; eps: StandardReal): StandardReal {.
+proc Perform*(this: var BRepGProp_Sinert; S: var BRepGProp_Face;
+             D: var BRepGProp_Domain; Eps: Standard_Real): Standard_Real {.
     importcpp: "Perform", header: "BRepGProp_Sinert.hxx".}
-proc perform*(this: var BRepGPropSinert; s: var BRepGPropFace; d: var BRepGPropDomain;
-             eps: StandardReal): StandardReal {.importcpp: "Perform",
-    header: "BRepGProp_Sinert.hxx".}
-proc getEpsilon*(this: var BRepGPropSinert): StandardReal {.importcpp: "GetEpsilon",
-    header: "BRepGProp_Sinert.hxx".}
-
+proc GetEpsilon*(this: var BRepGProp_Sinert): Standard_Real {.
+    importcpp: "GetEpsilon", header: "BRepGProp_Sinert.hxx".}

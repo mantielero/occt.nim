@@ -12,6 +12,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Real,
+  ../Standard/Standard_Integer, ../Standard/Standard_Boolean
+
 discard "forward decl of TopoDS_Edge"
 discard "forward decl of TopoDS_Face"
 discard "forward decl of gp_Dir"
@@ -22,90 +27,90 @@ discard "forward decl of IntTools_Context"
 discard "forward decl of gp_Pnt2d"
 discard "forward decl of TopoDS_Shape"
 type
-  BOPToolsAlgoTools3D* {.importcpp: "BOPTools_AlgoTools3D",
-                        header: "BOPTools_AlgoTools3D.hxx", bycopy.} = object ## ! Makes the edge
-                                                                         ## <theESplit> seam edge for the face
-                                                                         ## <theFace> basing on the surface
-                                                                         ## properties (U and V
-                                                                         ## periods)
+  BOPTools_AlgoTools3D* {.importcpp: "BOPTools_AlgoTools3D",
+                         header: "BOPTools_AlgoTools3D.hxx", bycopy.} = object ## ! Makes the edge
+                                                                          ## <theESplit> seam edge for the face
+                                                                          ## <theFace> basing on the
+                                                                          ## surface
+                                                                          ## properties (U and V
+                                                                          ## periods)
 
 
-proc doSplitSEAMOnFace*(theESplit: TopoDS_Edge; theFace: TopoDS_Face): StandardBoolean {.
+proc DoSplitSEAMOnFace*(theESplit: TopoDS_Edge; theFace: TopoDS_Face): Standard_Boolean {.
     importcpp: "BOPTools_AlgoTools3D::DoSplitSEAMOnFace(@)",
     header: "BOPTools_AlgoTools3D.hxx".}
-proc doSplitSEAMOnFace*(theEOrigin: TopoDS_Edge; theESplit: TopoDS_Edge;
-                       theFace: TopoDS_Face): StandardBoolean {.
+proc DoSplitSEAMOnFace*(theEOrigin: TopoDS_Edge; theESplit: TopoDS_Edge;
+                       theFace: TopoDS_Face): Standard_Boolean {.
     importcpp: "BOPTools_AlgoTools3D::DoSplitSEAMOnFace(@)",
     header: "BOPTools_AlgoTools3D.hxx".}
-proc getNormalToFaceOnEdge*(aE: TopoDS_Edge; aF: TopoDS_Face; aT: StandardReal;
-                           aD: var GpDir; theContext: Handle[IntToolsContext] = handle[
-    IntToolsContext]()) {.importcpp: "BOPTools_AlgoTools3D::GetNormalToFaceOnEdge(@)",
-                         header: "BOPTools_AlgoTools3D.hxx".}
-proc getNormalToFaceOnEdge*(aE: TopoDS_Edge; aF: TopoDS_Face; aD: var GpDir; theContext: Handle[
-    IntToolsContext] = handle[IntToolsContext]()) {.
+proc GetNormalToFaceOnEdge*(aE: TopoDS_Edge; aF: TopoDS_Face; aT: Standard_Real;
+                           aD: var gp_Dir; theContext: handle[IntTools_Context] = handle[
+    IntTools_Context]()) {.importcpp: "BOPTools_AlgoTools3D::GetNormalToFaceOnEdge(@)",
+                          header: "BOPTools_AlgoTools3D.hxx".}
+proc GetNormalToFaceOnEdge*(aE: TopoDS_Edge; aF: TopoDS_Face; aD: var gp_Dir; theContext: handle[
+    IntTools_Context] = handle[IntTools_Context]()) {.
     importcpp: "BOPTools_AlgoTools3D::GetNormalToFaceOnEdge(@)",
     header: "BOPTools_AlgoTools3D.hxx".}
-proc senseFlag*(aNF1: GpDir; aNF2: GpDir): StandardInteger {.
+proc SenseFlag*(aNF1: gp_Dir; aNF2: gp_Dir): Standard_Integer {.
     importcpp: "BOPTools_AlgoTools3D::SenseFlag(@)",
     header: "BOPTools_AlgoTools3D.hxx".}
-proc getNormalToSurface*(`aS`: Handle[GeomSurface]; u: StandardReal; v: StandardReal;
-                        aD: var GpDir): StandardBoolean {.
+proc GetNormalToSurface*(`aS`: handle[Geom_Surface]; U: Standard_Real;
+                        V: Standard_Real; aD: var gp_Dir): Standard_Boolean {.
     importcpp: "BOPTools_AlgoTools3D::GetNormalToSurface(@)",
     header: "BOPTools_AlgoTools3D.hxx".}
-proc getApproxNormalToFaceOnEdge*(aE: TopoDS_Edge; aF: TopoDS_Face; aT: StandardReal;
-                                 aPx: var GpPnt; aD: var GpDir;
-                                 theContext: Handle[IntToolsContext]): StandardBoolean {.
+proc GetApproxNormalToFaceOnEdge*(aE: TopoDS_Edge; aF: TopoDS_Face;
+                                 aT: Standard_Real; aPx: var gp_Pnt; aD: var gp_Dir;
+                                 theContext: handle[IntTools_Context]): Standard_Boolean {.
     importcpp: "BOPTools_AlgoTools3D::GetApproxNormalToFaceOnEdge(@)",
     header: "BOPTools_AlgoTools3D.hxx".}
-proc getApproxNormalToFaceOnEdge*(theE: TopoDS_Edge; theF: TopoDS_Face;
-                                 aT: StandardReal; aP: var GpPnt; aDNF: var GpDir;
-                                 aDt2D: StandardReal): StandardBoolean {.
+proc GetApproxNormalToFaceOnEdge*(theE: TopoDS_Edge; theF: TopoDS_Face;
+                                 aT: Standard_Real; aP: var gp_Pnt; aDNF: var gp_Dir;
+                                 aDt2D: Standard_Real): Standard_Boolean {.
     importcpp: "BOPTools_AlgoTools3D::GetApproxNormalToFaceOnEdge(@)",
     header: "BOPTools_AlgoTools3D.hxx".}
-proc getApproxNormalToFaceOnEdge*(theE: TopoDS_Edge; theF: TopoDS_Face;
-                                 aT: StandardReal; aDt2D: StandardReal;
-                                 aP: var GpPnt; aDNF: var GpDir;
-                                 theContext: Handle[IntToolsContext]): StandardBoolean {.
+proc GetApproxNormalToFaceOnEdge*(theE: TopoDS_Edge; theF: TopoDS_Face;
+                                 aT: Standard_Real; aDt2D: Standard_Real;
+                                 aP: var gp_Pnt; aDNF: var gp_Dir;
+                                 theContext: handle[IntTools_Context]): Standard_Boolean {.
     importcpp: "BOPTools_AlgoTools3D::GetApproxNormalToFaceOnEdge(@)",
     header: "BOPTools_AlgoTools3D.hxx".}
-proc pointNearEdge*(aE: TopoDS_Edge; aF: TopoDS_Face; aT: StandardReal;
-                   aDt2D: StandardReal; aP2D: var GpPnt2d; aPx: var GpPnt;
-                   theContext: Handle[IntToolsContext]): StandardInteger {.
+proc PointNearEdge*(aE: TopoDS_Edge; aF: TopoDS_Face; aT: Standard_Real;
+                   aDt2D: Standard_Real; aP2D: var gp_Pnt2d; aPx: var gp_Pnt;
+                   theContext: handle[IntTools_Context]): Standard_Integer {.
     importcpp: "BOPTools_AlgoTools3D::PointNearEdge(@)",
     header: "BOPTools_AlgoTools3D.hxx".}
-proc pointNearEdge*(aE: TopoDS_Edge; aF: TopoDS_Face; aT: StandardReal;
-                   aDt2D: StandardReal; aP2D: var GpPnt2d; aPx: var GpPnt): StandardInteger {.
+proc PointNearEdge*(aE: TopoDS_Edge; aF: TopoDS_Face; aT: Standard_Real;
+                   aDt2D: Standard_Real; aP2D: var gp_Pnt2d; aPx: var gp_Pnt): Standard_Integer {.
     importcpp: "BOPTools_AlgoTools3D::PointNearEdge(@)",
     header: "BOPTools_AlgoTools3D.hxx".}
-proc pointNearEdge*(aE: TopoDS_Edge; aF: TopoDS_Face; aT: StandardReal;
-                   aP2D: var GpPnt2d; aPx: var GpPnt;
-                   theContext: Handle[IntToolsContext]): StandardInteger {.
+proc PointNearEdge*(aE: TopoDS_Edge; aF: TopoDS_Face; aT: Standard_Real;
+                   aP2D: var gp_Pnt2d; aPx: var gp_Pnt;
+                   theContext: handle[IntTools_Context]): Standard_Integer {.
     importcpp: "BOPTools_AlgoTools3D::PointNearEdge(@)",
     header: "BOPTools_AlgoTools3D.hxx".}
-proc pointNearEdge*(aE: TopoDS_Edge; aF: TopoDS_Face; aP2D: var GpPnt2d; aPx: var GpPnt;
-                   theContext: Handle[IntToolsContext]): StandardInteger {.
+proc PointNearEdge*(aE: TopoDS_Edge; aF: TopoDS_Face; aP2D: var gp_Pnt2d;
+                   aPx: var gp_Pnt; theContext: handle[IntTools_Context]): Standard_Integer {.
     importcpp: "BOPTools_AlgoTools3D::PointNearEdge(@)",
     header: "BOPTools_AlgoTools3D.hxx".}
-proc minStepIn2d*(): StandardReal {.importcpp: "BOPTools_AlgoTools3D::MinStepIn2d(@)",
-                                 header: "BOPTools_AlgoTools3D.hxx".}
-proc isEmptyShape*(`aS`: TopoDS_Shape): StandardBoolean {.
+proc MinStepIn2d*(): Standard_Real {.importcpp: "BOPTools_AlgoTools3D::MinStepIn2d(@)",
+                                  header: "BOPTools_AlgoTools3D.hxx".}
+proc IsEmptyShape*(`aS`: TopoDS_Shape): Standard_Boolean {.
     importcpp: "BOPTools_AlgoTools3D::IsEmptyShape(@)",
     header: "BOPTools_AlgoTools3D.hxx".}
-proc orientEdgeOnFace*(aE: TopoDS_Edge; aF: TopoDS_Face; aER: var TopoDS_Edge) {.
+proc OrientEdgeOnFace*(aE: TopoDS_Edge; aF: TopoDS_Face; aER: var TopoDS_Edge) {.
     importcpp: "BOPTools_AlgoTools3D::OrientEdgeOnFace(@)",
     header: "BOPTools_AlgoTools3D.hxx".}
-proc pointInFace*(theF: TopoDS_Face; theP: var GpPnt; theP2D: var GpPnt2d;
-                 theContext: Handle[IntToolsContext]): StandardInteger {.
+proc PointInFace*(theF: TopoDS_Face; theP: var gp_Pnt; theP2D: var gp_Pnt2d;
+                 theContext: handle[IntTools_Context]): Standard_Integer {.
     importcpp: "BOPTools_AlgoTools3D::PointInFace(@)",
     header: "BOPTools_AlgoTools3D.hxx".}
-proc pointInFace*(theF: TopoDS_Face; theE: TopoDS_Edge; theT: StandardReal;
-                 theDt2D: StandardReal; theP: var GpPnt; theP2D: var GpPnt2d;
-                 theContext: Handle[IntToolsContext]): StandardInteger {.
+proc PointInFace*(theF: TopoDS_Face; theE: TopoDS_Edge; theT: Standard_Real;
+                 theDt2D: Standard_Real; theP: var gp_Pnt; theP2D: var gp_Pnt2d;
+                 theContext: handle[IntTools_Context]): Standard_Integer {.
     importcpp: "BOPTools_AlgoTools3D::PointInFace(@)",
     header: "BOPTools_AlgoTools3D.hxx".}
-proc pointInFace*(theF: TopoDS_Face; theL: Handle[Geom2dCurve]; theP: var GpPnt;
-                 theP2D: var GpPnt2d; theContext: Handle[IntToolsContext];
-                 theDt2D: StandardReal = 0.0): StandardInteger {.
+proc PointInFace*(theF: TopoDS_Face; theL: handle[Geom2d_Curve]; theP: var gp_Pnt;
+                 theP2D: var gp_Pnt2d; theContext: handle[IntTools_Context];
+                 theDt2D: Standard_Real = 0.0): Standard_Integer {.
     importcpp: "BOPTools_AlgoTools3D::PointInFace(@)",
     header: "BOPTools_AlgoTools3D.hxx".}
-

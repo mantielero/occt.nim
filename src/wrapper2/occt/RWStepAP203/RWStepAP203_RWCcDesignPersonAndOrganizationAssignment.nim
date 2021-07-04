@@ -14,13 +14,17 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepAP203_CcDesignPersonAndOrganizationAssignment"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepAP203RWCcDesignPersonAndOrganizationAssignment* {.
+  RWStepAP203_RWCcDesignPersonAndOrganizationAssignment* {.
       importcpp: "RWStepAP203_RWCcDesignPersonAndOrganizationAssignment",
       header: "RWStepAP203_RWCcDesignPersonAndOrganizationAssignment.hxx", bycopy.} = object ##
                                                                                         ## !
@@ -28,23 +32,22 @@ type
                                                                                         ## constructor
 
 
-proc constructRWStepAP203RWCcDesignPersonAndOrganizationAssignment*(): RWStepAP203RWCcDesignPersonAndOrganizationAssignment {.
+proc constructRWStepAP203_RWCcDesignPersonAndOrganizationAssignment*(): RWStepAP203_RWCcDesignPersonAndOrganizationAssignment {.
     constructor,
     importcpp: "RWStepAP203_RWCcDesignPersonAndOrganizationAssignment(@)",
     header: "RWStepAP203_RWCcDesignPersonAndOrganizationAssignment.hxx".}
-proc readStep*(this: RWStepAP203RWCcDesignPersonAndOrganizationAssignment;
-              data: Handle[StepDataStepReaderData]; num: StandardInteger;
-              ach: var Handle[InterfaceCheck];
-              ent: Handle[StepAP203CcDesignPersonAndOrganizationAssignment]) {.
+proc ReadStep*(this: RWStepAP203_RWCcDesignPersonAndOrganizationAssignment;
+              data: handle[StepData_StepReaderData]; num: Standard_Integer;
+              ach: var handle[Interface_Check];
+              ent: handle[StepAP203_CcDesignPersonAndOrganizationAssignment]) {.
     noSideEffect, importcpp: "ReadStep",
     header: "RWStepAP203_RWCcDesignPersonAndOrganizationAssignment.hxx".}
-proc writeStep*(this: RWStepAP203RWCcDesignPersonAndOrganizationAssignment;
-               sw: var StepDataStepWriter;
-               ent: Handle[StepAP203CcDesignPersonAndOrganizationAssignment]) {.
+proc WriteStep*(this: RWStepAP203_RWCcDesignPersonAndOrganizationAssignment;
+               SW: var StepData_StepWriter;
+               ent: handle[StepAP203_CcDesignPersonAndOrganizationAssignment]) {.
     noSideEffect, importcpp: "WriteStep",
     header: "RWStepAP203_RWCcDesignPersonAndOrganizationAssignment.hxx".}
-proc share*(this: RWStepAP203RWCcDesignPersonAndOrganizationAssignment;
-           ent: Handle[StepAP203CcDesignPersonAndOrganizationAssignment];
-           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
+proc Share*(this: RWStepAP203_RWCcDesignPersonAndOrganizationAssignment;
+           ent: handle[StepAP203_CcDesignPersonAndOrganizationAssignment];
+           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepAP203_RWCcDesignPersonAndOrganizationAssignment.hxx".}
-

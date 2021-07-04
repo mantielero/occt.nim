@@ -14,6 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Real
+
 discard "forward decl of Geom2d_BSplineCurve"
 discard "forward decl of Geom_BSplineCurve"
 type
@@ -21,14 +25,13 @@ type
                                                                  ## ! be multiplicated with BS later.
 
 
-proc solution*(bs: Handle[GeomBSplineCurve]; tolPoles: StandardReal = 0.000001;
-              tolKnots: StandardReal = 0.000001): Handle[Geom2dBSplineCurve] {.
+proc Solution*(BS: handle[Geom_BSplineCurve]; TolPoles: Standard_Real = 0.000001;
+              TolKnots: Standard_Real = 0.000001): handle[Geom2d_BSplineCurve] {.
     importcpp: "Hermit::Solution(@)", header: "Hermit.hxx".}
-proc solution*(bs: Handle[Geom2dBSplineCurve]; tolPoles: StandardReal = 0.000001;
-              tolKnots: StandardReal = 0.000001): Handle[Geom2dBSplineCurve] {.
+proc Solution*(BS: handle[Geom2d_BSplineCurve]; TolPoles: Standard_Real = 0.000001;
+              TolKnots: Standard_Real = 0.000001): handle[Geom2d_BSplineCurve] {.
     importcpp: "Hermit::Solution(@)", header: "Hermit.hxx".}
-proc solutionbis*(bs: Handle[GeomBSplineCurve]; knotmin: var StandardReal;
-                 knotmax: var StandardReal; tolPoles: StandardReal = 0.000001;
-                 tolKnots: StandardReal = 0.000001) {.
+proc Solutionbis*(BS: handle[Geom_BSplineCurve]; Knotmin: var Standard_Real;
+                 Knotmax: var Standard_Real; TolPoles: Standard_Real = 0.000001;
+                 TolKnots: Standard_Real = 0.000001) {.
     importcpp: "Hermit::Solutionbis(@)", header: "Hermit.hxx".}
-

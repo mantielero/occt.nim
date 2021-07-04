@@ -13,46 +13,50 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  AIS_Manipulator, ../SelectMgr/SelectMgr_EntityOwner,
+  ../SelectMgr/SelectMgr_SelectableObject
+
 discard "forward decl of AIS_ManipulatorOwner"
 type
-  HandleAIS_ManipulatorOwner* = Handle[AIS_ManipulatorOwner]
+  Handle_AIS_ManipulatorOwner* = handle[AIS_ManipulatorOwner]
 
 ## ! Entity owner for selection management of AIS_Manipulator object.
 
 type
   AIS_ManipulatorOwner* {.importcpp: "AIS_ManipulatorOwner",
-                         header: "AIS_ManipulatorOwner.hxx", bycopy.} = object of SelectMgrEntityOwner
+                         header: "AIS_ManipulatorOwner.hxx", bycopy.} = object of SelectMgr_EntityOwner
     ## !< index of manipulator axis.
     ## !< manipulation (highlight) mode.
 
-  AIS_ManipulatorOwnerbaseType* = SelectMgrEntityOwner
+  AIS_ManipulatorOwnerbase_type* = SelectMgr_EntityOwner
 
-proc getTypeName*(): cstring {.importcpp: "AIS_ManipulatorOwner::get_type_name(@)",
-                            header: "AIS_ManipulatorOwner.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "AIS_ManipulatorOwner::get_type_name(@)",
+                              header: "AIS_ManipulatorOwner.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "AIS_ManipulatorOwner::get_type_descriptor(@)",
     header: "AIS_ManipulatorOwner.hxx".}
-proc dynamicType*(this: AIS_ManipulatorOwner): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: AIS_ManipulatorOwner): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "AIS_ManipulatorOwner.hxx".}
-proc constructAIS_ManipulatorOwner*(theSelObject: Handle[SelectMgrSelectableObject];
-                                   theIndex: StandardInteger;
+proc constructAIS_ManipulatorOwner*(theSelObject: handle[
+    SelectMgr_SelectableObject]; theIndex: Standard_Integer;
                                    theMode: AIS_ManipulatorMode;
-                                   thePriority: StandardInteger = 0): AIS_ManipulatorOwner {.
+                                   thePriority: Standard_Integer = 0): AIS_ManipulatorOwner {.
     constructor, importcpp: "AIS_ManipulatorOwner(@)",
     header: "AIS_ManipulatorOwner.hxx".}
-proc hilightWithColor*(this: var AIS_ManipulatorOwner;
-                      thePM: Handle[PrsMgrPresentationManager3d];
-                      theStyle: Handle[Prs3dDrawer]; theMode: StandardInteger) {.
+proc HilightWithColor*(this: var AIS_ManipulatorOwner;
+                      thePM: handle[PrsMgr_PresentationManager3d];
+                      theStyle: handle[Prs3d_Drawer]; theMode: Standard_Integer) {.
     importcpp: "HilightWithColor", header: "AIS_ManipulatorOwner.hxx".}
-proc isHilighted*(this: AIS_ManipulatorOwner;
-                 thePM: Handle[PrsMgrPresentationManager];
-                 theMode: StandardInteger): StandardBoolean {.noSideEffect,
+proc IsHilighted*(this: AIS_ManipulatorOwner;
+                 thePM: handle[PrsMgr_PresentationManager];
+                 theMode: Standard_Integer): Standard_Boolean {.noSideEffect,
     importcpp: "IsHilighted", header: "AIS_ManipulatorOwner.hxx".}
-proc unhilight*(this: var AIS_ManipulatorOwner;
-               thePM: Handle[PrsMgrPresentationManager]; theMode: StandardInteger) {.
-    importcpp: "Unhilight", header: "AIS_ManipulatorOwner.hxx".}
-proc mode*(this: AIS_ManipulatorOwner): AIS_ManipulatorMode {.noSideEffect,
+proc Unhilight*(this: var AIS_ManipulatorOwner;
+               thePM: handle[PrsMgr_PresentationManager];
+               theMode: Standard_Integer) {.importcpp: "Unhilight",
+    header: "AIS_ManipulatorOwner.hxx".}
+proc Mode*(this: AIS_ManipulatorOwner): AIS_ManipulatorMode {.noSideEffect,
     importcpp: "Mode", header: "AIS_ManipulatorOwner.hxx".}
-proc index*(this: AIS_ManipulatorOwner): StandardInteger {.noSideEffect,
+proc Index*(this: AIS_ManipulatorOwner): Standard_Integer {.noSideEffect,
     importcpp: "Index", header: "AIS_ManipulatorOwner.hxx".}
-

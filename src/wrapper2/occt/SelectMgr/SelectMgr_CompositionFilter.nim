@@ -14,63 +14,67 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, SelectMgr_ListOfFilter,
+  SelectMgr_Filter, ../Standard/Standard_Boolean, ../TopAbs/TopAbs_ShapeEnum
+
 discard "forward decl of SelectMgr_Filter"
 discard "forward decl of SelectMgr_CompositionFilter"
 discard "forward decl of SelectMgr_CompositionFilter"
 type
-  HandleSelectMgrCompositionFilter* = Handle[SelectMgrCompositionFilter]
+  Handle_SelectMgr_CompositionFilter* = handle[SelectMgr_CompositionFilter]
 
 ## ! A framework to define a compound filter composed of
 ## ! two or more simple filters.
 
 type
-  SelectMgrCompositionFilter* {.importcpp: "SelectMgr_CompositionFilter",
-                               header: "SelectMgr_CompositionFilter.hxx", bycopy.} = object of SelectMgrFilter ##
-                                                                                                        ## !
-                                                                                                        ## Adds
-                                                                                                        ## the
-                                                                                                        ## filter
-                                                                                                        ## afilter
-                                                                                                        ## to
-                                                                                                        ## a
-                                                                                                        ## filter
-                                                                                                        ## object
-                                                                                                        ## created
-                                                                                                        ## by
-                                                                                                        ## a
-                                                                                                        ##
-                                                                                                        ## !
-                                                                                                        ## filter
-                                                                                                        ## class
-                                                                                                        ## inheriting
-                                                                                                        ## this
-                                                                                                        ## framework.
+  SelectMgr_CompositionFilter* {.importcpp: "SelectMgr_CompositionFilter",
+                                header: "SelectMgr_CompositionFilter.hxx", bycopy.} = object of SelectMgr_Filter ##
+                                                                                                          ## !
+                                                                                                          ## Adds
+                                                                                                          ## the
+                                                                                                          ## filter
+                                                                                                          ## afilter
+                                                                                                          ## to
+                                                                                                          ## a
+                                                                                                          ## filter
+                                                                                                          ## object
+                                                                                                          ## created
+                                                                                                          ## by
+                                                                                                          ## a
+                                                                                                          ##
+                                                                                                          ## !
+                                                                                                          ## filter
+                                                                                                          ## class
+                                                                                                          ## inheriting
+                                                                                                          ## this
+                                                                                                          ## framework.
 
 
-proc add*(this: var SelectMgrCompositionFilter; afilter: Handle[SelectMgrFilter]) {.
+proc Add*(this: var SelectMgr_CompositionFilter; afilter: handle[SelectMgr_Filter]) {.
     importcpp: "Add", header: "SelectMgr_CompositionFilter.hxx".}
-proc remove*(this: var SelectMgrCompositionFilter; aFilter: Handle[SelectMgrFilter]) {.
-    importcpp: "Remove", header: "SelectMgr_CompositionFilter.hxx".}
-proc isEmpty*(this: SelectMgrCompositionFilter): StandardBoolean {.noSideEffect,
+proc Remove*(this: var SelectMgr_CompositionFilter;
+            aFilter: handle[SelectMgr_Filter]) {.importcpp: "Remove",
+    header: "SelectMgr_CompositionFilter.hxx".}
+proc IsEmpty*(this: SelectMgr_CompositionFilter): Standard_Boolean {.noSideEffect,
     importcpp: "IsEmpty", header: "SelectMgr_CompositionFilter.hxx".}
-proc isIn*(this: SelectMgrCompositionFilter; aFilter: Handle[SelectMgrFilter]): StandardBoolean {.
+proc IsIn*(this: SelectMgr_CompositionFilter; aFilter: handle[SelectMgr_Filter]): Standard_Boolean {.
     noSideEffect, importcpp: "IsIn", header: "SelectMgr_CompositionFilter.hxx".}
-proc storedFilters*(this: SelectMgrCompositionFilter): SelectMgrListOfFilter {.
+proc StoredFilters*(this: SelectMgr_CompositionFilter): SelectMgr_ListOfFilter {.
     noSideEffect, importcpp: "StoredFilters",
     header: "SelectMgr_CompositionFilter.hxx".}
-proc clear*(this: var SelectMgrCompositionFilter) {.importcpp: "Clear",
+proc Clear*(this: var SelectMgr_CompositionFilter) {.importcpp: "Clear",
     header: "SelectMgr_CompositionFilter.hxx".}
-proc actsOn*(this: SelectMgrCompositionFilter; aStandardMode: TopAbsShapeEnum): StandardBoolean {.
+proc ActsOn*(this: SelectMgr_CompositionFilter; aStandardMode: TopAbs_ShapeEnum): Standard_Boolean {.
     noSideEffect, importcpp: "ActsOn", header: "SelectMgr_CompositionFilter.hxx".}
 type
-  SelectMgrCompositionFilterbaseType* = SelectMgrFilter
+  SelectMgr_CompositionFilterbase_type* = SelectMgr_Filter
 
-proc getTypeName*(): cstring {.importcpp: "SelectMgr_CompositionFilter::get_type_name(@)",
-                            header: "SelectMgr_CompositionFilter.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "SelectMgr_CompositionFilter::get_type_name(@)",
+                              header: "SelectMgr_CompositionFilter.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "SelectMgr_CompositionFilter::get_type_descriptor(@)",
     header: "SelectMgr_CompositionFilter.hxx".}
-proc dynamicType*(this: SelectMgrCompositionFilter): Handle[StandardType] {.
+proc DynamicType*(this: SelectMgr_CompositionFilter): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType",
     header: "SelectMgr_CompositionFilter.hxx".}
-

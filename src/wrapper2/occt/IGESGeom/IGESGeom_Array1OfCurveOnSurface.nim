@@ -14,8 +14,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  IGESGeom_CurveOnSurface, ../NCollection/NCollection_Array1
+
 type
-  IGESGeomArray1OfCurveOnSurface* = NCollectionArray1[
-      Handle[IGESGeomCurveOnSurface]]
-
-
+  IGESGeom_Array1OfCurveOnSurface* = NCollection_Array1[
+      handle[IGESGeom_CurveOnSurface]]

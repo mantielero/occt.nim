@@ -14,26 +14,29 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepShape_Face"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepShapeRWFace* {.importcpp: "RWStepShape_RWFace",
-                      header: "RWStepShape_RWFace.hxx", bycopy.} = object
+  RWStepShape_RWFace* {.importcpp: "RWStepShape_RWFace",
+                       header: "RWStepShape_RWFace.hxx", bycopy.} = object
 
 
-proc constructRWStepShapeRWFace*(): RWStepShapeRWFace {.constructor,
+proc constructRWStepShape_RWFace*(): RWStepShape_RWFace {.constructor,
     importcpp: "RWStepShape_RWFace(@)", header: "RWStepShape_RWFace.hxx".}
-proc readStep*(this: RWStepShapeRWFace; data: Handle[StepDataStepReaderData];
-              num: StandardInteger; ach: var Handle[InterfaceCheck];
-              ent: Handle[StepShapeFace]) {.noSideEffect, importcpp: "ReadStep",
+proc ReadStep*(this: RWStepShape_RWFace; data: handle[StepData_StepReaderData];
+              num: Standard_Integer; ach: var handle[Interface_Check];
+              ent: handle[StepShape_Face]) {.noSideEffect, importcpp: "ReadStep",
     header: "RWStepShape_RWFace.hxx".}
-proc writeStep*(this: RWStepShapeRWFace; sw: var StepDataStepWriter;
-               ent: Handle[StepShapeFace]) {.noSideEffect, importcpp: "WriteStep",
+proc WriteStep*(this: RWStepShape_RWFace; SW: var StepData_StepWriter;
+               ent: handle[StepShape_Face]) {.noSideEffect, importcpp: "WriteStep",
     header: "RWStepShape_RWFace.hxx".}
-proc share*(this: RWStepShapeRWFace; ent: Handle[StepShapeFace];
-           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
+proc Share*(this: RWStepShape_RWFace; ent: handle[StepShape_Face];
+           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepShape_RWFace.hxx".}
-

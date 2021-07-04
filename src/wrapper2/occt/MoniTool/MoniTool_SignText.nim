@@ -14,12 +14,16 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Transient,
+  ../Standard/Standard_CString
+
 discard "forward decl of TCollection_AsciiString"
 discard "forward decl of Standard_Transient"
 discard "forward decl of MoniTool_SignText"
 discard "forward decl of MoniTool_SignText"
 type
-  HandleMoniToolSignText* = Handle[MoniToolSignText]
+  Handle_MoniTool_SignText* = handle[MoniTool_SignText]
 
 ## ! Provides the basic service to get a text which identifies
 ## ! an object in a context
@@ -28,40 +32,39 @@ type
 ## ! is to be identified
 
 type
-  MoniToolSignText* {.importcpp: "MoniTool_SignText",
-                     header: "MoniTool_SignText.hxx", bycopy.} = object of StandardTransient ##
-                                                                                      ## !
-                                                                                      ## Returns
-                                                                                      ## an
-                                                                                      ## identification
-                                                                                      ## of
-                                                                                      ## the
-                                                                                      ## Signature
-                                                                                      ## (a
-                                                                                      ## word),
-                                                                                      ## given
-                                                                                      ## at
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## initialization
-                                                                                      ## time
+  MoniTool_SignText* {.importcpp: "MoniTool_SignText",
+                      header: "MoniTool_SignText.hxx", bycopy.} = object of Standard_Transient ##
+                                                                                        ## !
+                                                                                        ## Returns
+                                                                                        ## an
+                                                                                        ## identification
+                                                                                        ## of
+                                                                                        ## the
+                                                                                        ## Signature
+                                                                                        ## (a
+                                                                                        ## word),
+                                                                                        ## given
+                                                                                        ## at
+                                                                                        ##
+                                                                                        ## !
+                                                                                        ## initialization
+                                                                                        ## time
 
 
-proc name*(this: MoniToolSignText): StandardCString {.noSideEffect,
+proc Name*(this: MoniTool_SignText): Standard_CString {.noSideEffect,
     importcpp: "Name", header: "MoniTool_SignText.hxx".}
-proc textAlone*(this: MoniToolSignText; ent: Handle[StandardTransient]): TCollectionAsciiString {.
+proc TextAlone*(this: MoniTool_SignText; ent: handle[Standard_Transient]): TCollection_AsciiString {.
     noSideEffect, importcpp: "TextAlone", header: "MoniTool_SignText.hxx".}
-proc text*(this: MoniToolSignText; ent: Handle[StandardTransient];
-          context: Handle[StandardTransient]): TCollectionAsciiString {.
+proc Text*(this: MoniTool_SignText; ent: handle[Standard_Transient];
+          context: handle[Standard_Transient]): TCollection_AsciiString {.
     noSideEffect, importcpp: "Text", header: "MoniTool_SignText.hxx".}
 type
-  MoniToolSignTextbaseType* = StandardTransient
+  MoniTool_SignTextbase_type* = Standard_Transient
 
-proc getTypeName*(): cstring {.importcpp: "MoniTool_SignText::get_type_name(@)",
-                            header: "MoniTool_SignText.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "MoniTool_SignText::get_type_name(@)",
+                              header: "MoniTool_SignText.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "MoniTool_SignText::get_type_descriptor(@)",
     header: "MoniTool_SignText.hxx".}
-proc dynamicType*(this: MoniToolSignText): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: MoniTool_SignText): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "MoniTool_SignText.hxx".}
-

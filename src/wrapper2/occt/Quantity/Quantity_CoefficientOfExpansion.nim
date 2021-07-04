@@ -14,7 +14,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _Quantity_CoefficientOfExpansion_HeaderFile [NewLine] # _Quantity_CoefficientOfExpansion_HeaderFile [NewLine] # < Standard_Real . hxx > [NewLine] ! Defined as the proportional change in the length,
+## !!!Ignored construct:  # _Quantity_CoefficientOfExpansion_HeaderFile [NewLine] # _Quantity_CoefficientOfExpansion_HeaderFile [NewLine] # ../Standard/Standard_Real.hxx [NewLine] ! Defined as the proportional change in the length,
 ## ! area, or volume of a solid per degree of temperature.
 ## ! For a liquid the expansion of the container must be
 ## ! taken into account.
@@ -22,5 +22,3 @@
 ## ! and constant volume changes.
 ## ! It is measured in units of reciprocal degree kelvin. Standard_DEPRECATED ( This type is deprecated - Standard_Real should be used instead ) typedef Standard_Real Quantity_CoefficientOfExpansion ;
 ## Error: expected ';'!!!
-
-

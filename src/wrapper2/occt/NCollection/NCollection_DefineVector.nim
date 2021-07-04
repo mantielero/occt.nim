@@ -14,6 +14,9 @@
 ##  commercial license or contractual agreement.
 ##             Automatically created from NCollection_Vector.hxx by GAWK
 
+import
+  NCollection_Vector
+
 ##   Class NCollection_Vector (dynamic array of objects)
 ##  This class is similar to NCollection_Array1  though the indices always start
 ##  at 0 (in Array1 the first index must be specified)
@@ -31,8 +34,6 @@
 ##  at index 0  and stops at the index equal to (remembered_length-1).  It is OK
 ##  to enlarge the vector during the iteration.
 
-template define_Vector*(className, baseCollection, theItemType: untyped): void =
+template DEFINE_VECTOR*(_ClassName_, _BaseCollection_, TheItemType: untyped): void =
   type
-    ClassName* = NCollectionVector[TheItemType]
-
-
+    _ClassName_* = NCollection_Vector[TheItemType]

@@ -14,38 +14,44 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../gp/gp_Pnt, ../Standard/Standard_Integer,
+  ../Blend/Blend_CurvPointFuncInv, ../Standard/Standard_Boolean,
+  ../math/math_Vector, ../Standard/Standard_Real
+
 discard "forward decl of Adaptor3d_HCurve"
 discard "forward decl of math_Matrix"
 discard "forward decl of gp_Pnt"
 type
-  BRepBlendCurvPointRadInv* {.importcpp: "BRepBlend_CurvPointRadInv",
-                             header: "BRepBlend_CurvPointRadInv.hxx", bycopy.} = object of BlendCurvPointFuncInv
+  BRepBlend_CurvPointRadInv* {.importcpp: "BRepBlend_CurvPointRadInv",
+                              header: "BRepBlend_CurvPointRadInv.hxx", bycopy.} = object of Blend_CurvPointFuncInv
 
 
-proc constructBRepBlendCurvPointRadInv*(c1: Handle[Adaptor3dHCurve];
-                                       c2: Handle[Adaptor3dHCurve]): BRepBlendCurvPointRadInv {.
+proc constructBRepBlend_CurvPointRadInv*(C1: handle[Adaptor3d_HCurve];
+                                        C2: handle[Adaptor3d_HCurve]): BRepBlend_CurvPointRadInv {.
     constructor, importcpp: "BRepBlend_CurvPointRadInv(@)",
     header: "BRepBlend_CurvPointRadInv.hxx".}
-proc set*(this: var BRepBlendCurvPointRadInv; choix: StandardInteger) {.
+proc Set*(this: var BRepBlend_CurvPointRadInv; Choix: Standard_Integer) {.
     importcpp: "Set", header: "BRepBlend_CurvPointRadInv.hxx".}
-proc nbEquations*(this: BRepBlendCurvPointRadInv): StandardInteger {.noSideEffect,
+proc NbEquations*(this: BRepBlend_CurvPointRadInv): Standard_Integer {.noSideEffect,
     importcpp: "NbEquations", header: "BRepBlend_CurvPointRadInv.hxx".}
-proc value*(this: var BRepBlendCurvPointRadInv; x: MathVector; f: var MathVector): StandardBoolean {.
+proc Value*(this: var BRepBlend_CurvPointRadInv; X: math_Vector; F: var math_Vector): Standard_Boolean {.
     importcpp: "Value", header: "BRepBlend_CurvPointRadInv.hxx".}
-proc derivatives*(this: var BRepBlendCurvPointRadInv; x: MathVector; d: var MathMatrix): StandardBoolean {.
-    importcpp: "Derivatives", header: "BRepBlend_CurvPointRadInv.hxx".}
-proc values*(this: var BRepBlendCurvPointRadInv; x: MathVector; f: var MathVector;
-            d: var MathMatrix): StandardBoolean {.importcpp: "Values",
+proc Derivatives*(this: var BRepBlend_CurvPointRadInv; X: math_Vector;
+                 D: var math_Matrix): Standard_Boolean {.importcpp: "Derivatives",
     header: "BRepBlend_CurvPointRadInv.hxx".}
-proc set*(this: var BRepBlendCurvPointRadInv; p: GpPnt) {.importcpp: "Set",
+proc Values*(this: var BRepBlend_CurvPointRadInv; X: math_Vector; F: var math_Vector;
+            D: var math_Matrix): Standard_Boolean {.importcpp: "Values",
     header: "BRepBlend_CurvPointRadInv.hxx".}
-proc getTolerance*(this: BRepBlendCurvPointRadInv; tolerance: var MathVector;
-                  tol: StandardReal) {.noSideEffect, importcpp: "GetTolerance",
-                                     header: "BRepBlend_CurvPointRadInv.hxx".}
-proc getBounds*(this: BRepBlendCurvPointRadInv; infBound: var MathVector;
-               supBound: var MathVector) {.noSideEffect, importcpp: "GetBounds",
-                                        header: "BRepBlend_CurvPointRadInv.hxx".}
-proc isSolution*(this: var BRepBlendCurvPointRadInv; sol: MathVector;
-                tol: StandardReal): StandardBoolean {.importcpp: "IsSolution",
+proc Set*(this: var BRepBlend_CurvPointRadInv; P: gp_Pnt) {.importcpp: "Set",
     header: "BRepBlend_CurvPointRadInv.hxx".}
-
+proc GetTolerance*(this: BRepBlend_CurvPointRadInv; Tolerance: var math_Vector;
+                  Tol: Standard_Real) {.noSideEffect, importcpp: "GetTolerance",
+                                      header: "BRepBlend_CurvPointRadInv.hxx".}
+proc GetBounds*(this: BRepBlend_CurvPointRadInv; InfBound: var math_Vector;
+               SupBound: var math_Vector) {.noSideEffect, importcpp: "GetBounds",
+    header: "BRepBlend_CurvPointRadInv.hxx".}
+proc IsSolution*(this: var BRepBlend_CurvPointRadInv; Sol: math_Vector;
+                Tol: Standard_Real): Standard_Boolean {.importcpp: "IsSolution",
+    header: "BRepBlend_CurvPointRadInv.hxx".}

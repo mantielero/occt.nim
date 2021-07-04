@@ -14,6 +14,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_CString,
+  ../Draw/Draw_Interpretor, ../Standard/Standard_Boolean,
+  ../Standard/Standard_Real
+
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of gp_Pnt"
 discard "forward decl of TopoDS_Edge"
@@ -35,19 +41,19 @@ type
                                                                     ## ! ========
 
 
-proc drawShapeName*(ashape: TopoDS_Shape; aname: StandardCString) {.
+proc DrawShapeName*(ashape: TopoDS_Shape; aname: Standard_CString) {.
     importcpp: "DrawDim::DrawShapeName(@)", header: "DrawDim.hxx".}
-proc allCommands*(i: var DrawInterpretor) {.importcpp: "DrawDim::AllCommands(@)",
-                                        header: "DrawDim.hxx".}
-proc planarDimensionCommands*(i: var DrawInterpretor) {.
+proc AllCommands*(I: var Draw_Interpretor) {.importcpp: "DrawDim::AllCommands(@)",
+    header: "DrawDim.hxx".}
+proc PlanarDimensionCommands*(I: var Draw_Interpretor) {.
     importcpp: "DrawDim::PlanarDimensionCommands(@)", header: "DrawDim.hxx".}
-proc nearest*(aShape: TopoDS_Shape; apoint: GpPnt): GpPnt {.
+proc Nearest*(aShape: TopoDS_Shape; apoint: gp_Pnt): gp_Pnt {.
     importcpp: "DrawDim::Nearest(@)", header: "DrawDim.hxx".}
-proc lin*(e: TopoDS_Edge; l: var GpLin; infinite: var StandardBoolean;
-         first: var StandardReal; last: var StandardReal): StandardBoolean {.
+proc Lin*(e: TopoDS_Edge; l: var gp_Lin; infinite: var Standard_Boolean;
+         first: var Standard_Real; last: var Standard_Real): Standard_Boolean {.
     importcpp: "DrawDim::Lin(@)", header: "DrawDim.hxx".}
-proc circ*(e: TopoDS_Edge; l: var GpCirc; first: var StandardReal; last: var StandardReal): StandardBoolean {.
+proc Circ*(e: TopoDS_Edge; l: var gp_Circ; first: var Standard_Real;
+          last: var Standard_Real): Standard_Boolean {.
     importcpp: "DrawDim::Circ(@)", header: "DrawDim.hxx".}
-proc pln*(f: TopoDS_Face; p: var GpPln): StandardBoolean {.
+proc Pln*(f: TopoDS_Face; p: var gp_Pln): Standard_Boolean {.
     importcpp: "DrawDim::Pln(@)", header: "DrawDim.hxx".}
-

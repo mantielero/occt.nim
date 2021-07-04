@@ -14,10 +14,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard_Integer, ../gp/gp_Vec2d,
+  ../TColStd/TColStd_MapIntegerHasher, ../NCollection/NCollection_DataMap
+
 type
-  MAT2dDataMapOfIntegerVec2d* = NCollectionDataMap[StandardInteger, GpVec2d,
-      TColStdMapIntegerHasher]
-  MAT2dDataMapIteratorOfDataMapOfIntegerVec2d* = Iterator[StandardInteger, GpVec2d,
-      TColStdMapIntegerHasher]
-
-
+  MAT2d_DataMapOfIntegerVec2d* = NCollection_DataMap[Standard_Integer, gp_Vec2d,
+      TColStd_MapIntegerHasher]
+  MAT2d_DataMapIteratorOfDataMapOfIntegerVec2d* = Iterator[Standard_Integer,
+      gp_Vec2d, TColStd_MapIntegerHasher]

@@ -14,186 +14,112 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../TopoDS/TopoDS_Shape,
+  ../Standard/Standard_Integer, ../Standard/Standard_Real,
+  ../Standard/Standard_Boolean, ../TopTools/TopTools_DataMapOfShapeListOfShape,
+  ShapeAnalysis_DataMapOfShapeListOfReal,
+  ../TopTools/TopTools_DataMapOfShapeShape, ../ShapeExtend/ShapeExtend_Status
+
 discard "forward decl of TopoDS_Face"
 discard "forward decl of gp_Pnt"
 discard "forward decl of TopoDS_Edge"
 discard "forward decl of TopoDS_Compound"
-# when defined(Status):
-#   discard
+when defined(Status):
+  discard
 ## ! Analysis of the face size
 
 type
-  ShapeAnalysisCheckSmallFace* {.importcpp: "ShapeAnalysis_CheckSmallFace",
-                                header: "ShapeAnalysis_CheckSmallFace.hxx", bycopy.} = object ##
-                                                                                         ## !
-                                                                                         ## Creates
-                                                                                         ## an
-                                                                                         ## empty
-                                                                                         ## tool
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## Checks
-                                                                                         ## a
-                                                                                         ## Shape
-                                                                                         ## i.e.
-                                                                                         ## each
-                                                                                         ## of
-                                                                                         ## its
-                                                                                         ## faces,
-                                                                                         ## records
-                                                                                         ## checks
-                                                                                         ## as
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## diagnostics
-                                                                                         ## in
-                                                                                         ## the
-                                                                                         ## <infos>
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## If
-                                                                                         ## <infos>
-                                                                                         ## has
-                                                                                         ## not
-                                                                                         ## been
-                                                                                         ## set
-                                                                                         ## before,
-                                                                                         ## no
-                                                                                         ## check
-                                                                                         ## is
-                                                                                         ## done
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## For
-                                                                                         ## faces
-                                                                                         ## which
-                                                                                         ## are
-                                                                                         ## in
-                                                                                         ## a
-                                                                                         ## Shell,
-                                                                                         ## topological
-                                                                                         ## data
-                                                                                         ## are
-                                                                                         ## recorded
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## to
-                                                                                         ## allow
-                                                                                         ## recovering
-                                                                                         ## connectivities
-                                                                                         ## after
-                                                                                         ## fixing
-                                                                                         ## or
-                                                                                         ## removing
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## the
-                                                                                         ## small
-                                                                                         ## faces
-                                                                                         ## or
-                                                                                         ## parts
-                                                                                         ## of
-                                                                                         ## faces
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## Enchains
-                                                                                         ## various
-                                                                                         ## checks
-                                                                                         ## on
-                                                                                         ## a
-                                                                                         ## face
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## inshell
-                                                                                         ## :
-                                                                                         ## to
-                                                                                         ## compute
-                                                                                         ## more
-                                                                                         ## informations,
-                                                                                         ## relevant
-                                                                                         ## to
-                                                                                         ## topology
+  ShapeAnalysis_CheckSmallFace* {.importcpp: "ShapeAnalysis_CheckSmallFace",
+                                 header: "ShapeAnalysis_CheckSmallFace.hxx",
+                                 bycopy.} = object ## ! Creates an empty tool
+                                                ## ! Checks a Shape i.e. each of its faces, records checks as
+                                                ## ! diagnostics in the <infos>
+                                                ## !
+                                                ## ! If <infos> has not been set before, no check is done
+                                                ## !
+                                                ## ! For faces which are in a Shell, topological data are recorded
+                                                ## ! to allow recovering connectivities after fixing or removing
+                                                ## ! the small faces or parts of faces
+                                                ## ! Enchains various checks on a face
+                                                ## ! inshell : to compute more informations, relevant to topology
 
 
-proc constructShapeAnalysisCheckSmallFace*(): ShapeAnalysisCheckSmallFace {.
+proc constructShapeAnalysis_CheckSmallFace*(): ShapeAnalysis_CheckSmallFace {.
     constructor, importcpp: "ShapeAnalysis_CheckSmallFace(@)",
     header: "ShapeAnalysis_CheckSmallFace.hxx".}
-proc isSpotFace*(this: ShapeAnalysisCheckSmallFace; f: TopoDS_Face; spot: var GpPnt;
-                spotol: var StandardReal; tol: StandardReal = -1.0): StandardInteger {.
-    noSideEffect, importcpp: "IsSpotFace",
-    header: "ShapeAnalysis_CheckSmallFace.hxx".}
-proc checkSpotFace*(this: var ShapeAnalysisCheckSmallFace; f: TopoDS_Face;
-                   tol: StandardReal = -1.0): StandardBoolean {.
+proc IsSpotFace*(this: ShapeAnalysis_CheckSmallFace; F: TopoDS_Face;
+                spot: var gp_Pnt; spotol: var Standard_Real;
+                tol: Standard_Real = -1.0): Standard_Integer {.noSideEffect,
+    importcpp: "IsSpotFace", header: "ShapeAnalysis_CheckSmallFace.hxx".}
+proc CheckSpotFace*(this: var ShapeAnalysis_CheckSmallFace; F: TopoDS_Face;
+                   tol: Standard_Real = -1.0): Standard_Boolean {.
     importcpp: "CheckSpotFace", header: "ShapeAnalysis_CheckSmallFace.hxx".}
-proc isStripSupport*(this: var ShapeAnalysisCheckSmallFace; f: TopoDS_Face;
-                    tol: StandardReal = -1.0): StandardBoolean {.
+proc IsStripSupport*(this: var ShapeAnalysis_CheckSmallFace; F: TopoDS_Face;
+                    tol: Standard_Real = -1.0): Standard_Boolean {.
     importcpp: "IsStripSupport", header: "ShapeAnalysis_CheckSmallFace.hxx".}
-proc checkStripEdges*(this: ShapeAnalysisCheckSmallFace; e1: TopoDS_Edge;
-                     e2: TopoDS_Edge; tol: StandardReal; dmax: var StandardReal): StandardBoolean {.
+proc CheckStripEdges*(this: ShapeAnalysis_CheckSmallFace; E1: TopoDS_Edge;
+                     E2: TopoDS_Edge; tol: Standard_Real; dmax: var Standard_Real): Standard_Boolean {.
     noSideEffect, importcpp: "CheckStripEdges",
     header: "ShapeAnalysis_CheckSmallFace.hxx".}
-proc findStripEdges*(this: var ShapeAnalysisCheckSmallFace; f: TopoDS_Face;
-                    e1: var TopoDS_Edge; e2: var TopoDS_Edge; tol: StandardReal;
-                    dmax: var StandardReal): StandardBoolean {.
+proc FindStripEdges*(this: var ShapeAnalysis_CheckSmallFace; F: TopoDS_Face;
+                    E1: var TopoDS_Edge; E2: var TopoDS_Edge; tol: Standard_Real;
+                    dmax: var Standard_Real): Standard_Boolean {.
     importcpp: "FindStripEdges", header: "ShapeAnalysis_CheckSmallFace.hxx".}
-proc checkSingleStrip*(this: var ShapeAnalysisCheckSmallFace; f: TopoDS_Face;
-                      e1: var TopoDS_Edge; e2: var TopoDS_Edge;
-                      tol: StandardReal = -1.0): StandardBoolean {.
+proc CheckSingleStrip*(this: var ShapeAnalysis_CheckSmallFace; F: TopoDS_Face;
+                      E1: var TopoDS_Edge; E2: var TopoDS_Edge;
+                      tol: Standard_Real = -1.0): Standard_Boolean {.
     importcpp: "CheckSingleStrip", header: "ShapeAnalysis_CheckSmallFace.hxx".}
-proc checkStripFace*(this: var ShapeAnalysisCheckSmallFace; f: TopoDS_Face;
-                    e1: var TopoDS_Edge; e2: var TopoDS_Edge;
-                    tol: StandardReal = -1.0): StandardBoolean {.
+proc CheckStripFace*(this: var ShapeAnalysis_CheckSmallFace; F: TopoDS_Face;
+                    E1: var TopoDS_Edge; E2: var TopoDS_Edge;
+                    tol: Standard_Real = -1.0): Standard_Boolean {.
     importcpp: "CheckStripFace", header: "ShapeAnalysis_CheckSmallFace.hxx".}
-proc checkSplittingVertices*(this: var ShapeAnalysisCheckSmallFace; f: TopoDS_Face;
-                            mapEdges: var TopToolsDataMapOfShapeListOfShape;
-    mapParam: var ShapeAnalysisDataMapOfShapeListOfReal;
-                            theAllVert: var TopoDS_Compound): StandardInteger {.
+proc CheckSplittingVertices*(this: var ShapeAnalysis_CheckSmallFace; F: TopoDS_Face;
+                            MapEdges: var TopTools_DataMapOfShapeListOfShape;
+    MapParam: var ShapeAnalysis_DataMapOfShapeListOfReal;
+                            theAllVert: var TopoDS_Compound): Standard_Integer {.
     importcpp: "CheckSplittingVertices",
     header: "ShapeAnalysis_CheckSmallFace.hxx".}
-proc checkPin*(this: var ShapeAnalysisCheckSmallFace; f: TopoDS_Face;
-              whatrow: var StandardInteger; sence: var StandardInteger): StandardBoolean {.
+proc CheckPin*(this: var ShapeAnalysis_CheckSmallFace; F: TopoDS_Face;
+              whatrow: var Standard_Integer; sence: var Standard_Integer): Standard_Boolean {.
     importcpp: "CheckPin", header: "ShapeAnalysis_CheckSmallFace.hxx".}
-proc checkTwisted*(this: var ShapeAnalysisCheckSmallFace; f: TopoDS_Face;
-                  paramu: var StandardReal; paramv: var StandardReal): StandardBoolean {.
+proc CheckTwisted*(this: var ShapeAnalysis_CheckSmallFace; F: TopoDS_Face;
+                  paramu: var Standard_Real; paramv: var Standard_Real): Standard_Boolean {.
     importcpp: "CheckTwisted", header: "ShapeAnalysis_CheckSmallFace.hxx".}
-proc checkPinFace*(this: var ShapeAnalysisCheckSmallFace; f: TopoDS_Face;
-                  mapEdges: var TopToolsDataMapOfShapeShape;
-                  toler: StandardReal = -1.0): StandardBoolean {.
+proc CheckPinFace*(this: var ShapeAnalysis_CheckSmallFace; F: TopoDS_Face;
+                  mapEdges: var TopTools_DataMapOfShapeShape;
+                  toler: Standard_Real = -1.0): Standard_Boolean {.
     importcpp: "CheckPinFace", header: "ShapeAnalysis_CheckSmallFace.hxx".}
-proc checkPinEdges*(this: ShapeAnalysisCheckSmallFace; theFirstEdge: TopoDS_Edge;
-                   theSecondEdge: TopoDS_Edge; coef1: StandardReal;
-                   coef2: StandardReal; toler: StandardReal): StandardBoolean {.
+proc CheckPinEdges*(this: ShapeAnalysis_CheckSmallFace; theFirstEdge: TopoDS_Edge;
+                   theSecondEdge: TopoDS_Edge; coef1: Standard_Real;
+                   coef2: Standard_Real; toler: Standard_Real): Standard_Boolean {.
     noSideEffect, importcpp: "CheckPinEdges",
     header: "ShapeAnalysis_CheckSmallFace.hxx".}
-proc status*(this: ShapeAnalysisCheckSmallFace; status: ShapeExtendStatus): StandardBoolean {.
+proc Status*(this: ShapeAnalysis_CheckSmallFace; status: ShapeExtend_Status): Standard_Boolean {.
     noSideEffect, importcpp: "Status", header: "ShapeAnalysis_CheckSmallFace.hxx".}
-proc setTolerance*(this: var ShapeAnalysisCheckSmallFace; tol: StandardReal) {.
+proc SetTolerance*(this: var ShapeAnalysis_CheckSmallFace; tol: Standard_Real) {.
     importcpp: "SetTolerance", header: "ShapeAnalysis_CheckSmallFace.hxx".}
-proc tolerance*(this: ShapeAnalysisCheckSmallFace): StandardReal {.noSideEffect,
+proc Tolerance*(this: ShapeAnalysis_CheckSmallFace): Standard_Real {.noSideEffect,
     importcpp: "Tolerance", header: "ShapeAnalysis_CheckSmallFace.hxx".}
-proc statusSpot*(this: ShapeAnalysisCheckSmallFace; status: ShapeExtendStatus): StandardBoolean {.
+proc StatusSpot*(this: ShapeAnalysis_CheckSmallFace; status: ShapeExtend_Status): Standard_Boolean {.
     noSideEffect, importcpp: "StatusSpot",
     header: "ShapeAnalysis_CheckSmallFace.hxx".}
-proc statusStrip*(this: ShapeAnalysisCheckSmallFace; status: ShapeExtendStatus): StandardBoolean {.
+proc StatusStrip*(this: ShapeAnalysis_CheckSmallFace; status: ShapeExtend_Status): Standard_Boolean {.
     noSideEffect, importcpp: "StatusStrip",
     header: "ShapeAnalysis_CheckSmallFace.hxx".}
-proc statusPin*(this: ShapeAnalysisCheckSmallFace; status: ShapeExtendStatus): StandardBoolean {.
+proc StatusPin*(this: ShapeAnalysis_CheckSmallFace; status: ShapeExtend_Status): Standard_Boolean {.
     noSideEffect, importcpp: "StatusPin",
     header: "ShapeAnalysis_CheckSmallFace.hxx".}
-proc statusTwisted*(this: ShapeAnalysisCheckSmallFace; status: ShapeExtendStatus): StandardBoolean {.
+proc StatusTwisted*(this: ShapeAnalysis_CheckSmallFace; status: ShapeExtend_Status): Standard_Boolean {.
     noSideEffect, importcpp: "StatusTwisted",
     header: "ShapeAnalysis_CheckSmallFace.hxx".}
-proc statusSplitVert*(this: ShapeAnalysisCheckSmallFace; status: ShapeExtendStatus): StandardBoolean {.
-    noSideEffect, importcpp: "StatusSplitVert",
-    header: "ShapeAnalysis_CheckSmallFace.hxx".}
-proc statusPinFace*(this: ShapeAnalysisCheckSmallFace; status: ShapeExtendStatus): StandardBoolean {.
+proc StatusSplitVert*(this: ShapeAnalysis_CheckSmallFace;
+                     status: ShapeExtend_Status): Standard_Boolean {.noSideEffect,
+    importcpp: "StatusSplitVert", header: "ShapeAnalysis_CheckSmallFace.hxx".}
+proc StatusPinFace*(this: ShapeAnalysis_CheckSmallFace; status: ShapeExtend_Status): Standard_Boolean {.
     noSideEffect, importcpp: "StatusPinFace",
     header: "ShapeAnalysis_CheckSmallFace.hxx".}
-proc statusPinEdges*(this: ShapeAnalysisCheckSmallFace; status: ShapeExtendStatus): StandardBoolean {.
+proc StatusPinEdges*(this: ShapeAnalysis_CheckSmallFace; status: ShapeExtend_Status): Standard_Boolean {.
     noSideEffect, importcpp: "StatusPinEdges",
     header: "ShapeAnalysis_CheckSmallFace.hxx".}
-

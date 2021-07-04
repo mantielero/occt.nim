@@ -14,6 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../Plate/Plate_D3,
+  NLPlate_HPG0G2Constraint, ../Standard/Standard_Integer
+
 discard "forward decl of gp_XY"
 discard "forward decl of gp_XYZ"
 discard "forward decl of Plate_D1"
@@ -22,32 +26,31 @@ discard "forward decl of Plate_D3"
 discard "forward decl of NLPlate_HPG0G3Constraint"
 discard "forward decl of NLPlate_HPG0G3Constraint"
 type
-  HandleNLPlateHPG0G3Constraint* = Handle[NLPlateHPG0G3Constraint]
+  Handle_NLPlate_HPG0G3Constraint* = handle[NLPlate_HPG0G3Constraint]
 
 ## ! define a PinPoint G0+G3  Constraint  used to load a Non Linear
 ## ! Plate
 
 type
-  NLPlateHPG0G3Constraint* {.importcpp: "NLPlate_HPG0G3Constraint",
-                            header: "NLPlate_HPG0G3Constraint.hxx", bycopy.} = object of NLPlateHPG0G2Constraint
+  NLPlate_HPG0G3Constraint* {.importcpp: "NLPlate_HPG0G3Constraint",
+                             header: "NLPlate_HPG0G3Constraint.hxx", bycopy.} = object of NLPlate_HPG0G2Constraint
 
 
-proc constructNLPlateHPG0G3Constraint*(uv: GpXY; value: GpXYZ; d1t: PlateD1;
-                                      d2t: PlateD2; d3t: PlateD3): NLPlateHPG0G3Constraint {.
+proc constructNLPlate_HPG0G3Constraint*(UV: gp_XY; Value: gp_XYZ; D1T: Plate_D1;
+                                       D2T: Plate_D2; D3T: Plate_D3): NLPlate_HPG0G3Constraint {.
     constructor, importcpp: "NLPlate_HPG0G3Constraint(@)",
     header: "NLPlate_HPG0G3Constraint.hxx".}
-proc activeOrder*(this: NLPlateHPG0G3Constraint): StandardInteger {.noSideEffect,
+proc ActiveOrder*(this: NLPlate_HPG0G3Constraint): Standard_Integer {.noSideEffect,
     importcpp: "ActiveOrder", header: "NLPlate_HPG0G3Constraint.hxx".}
-proc g3Target*(this: NLPlateHPG0G3Constraint): PlateD3 {.noSideEffect,
+proc G3Target*(this: NLPlate_HPG0G3Constraint): Plate_D3 {.noSideEffect,
     importcpp: "G3Target", header: "NLPlate_HPG0G3Constraint.hxx".}
 type
-  NLPlateHPG0G3ConstraintbaseType* = NLPlateHPG0G2Constraint
+  NLPlate_HPG0G3Constraintbase_type* = NLPlate_HPG0G2Constraint
 
-proc getTypeName*(): cstring {.importcpp: "NLPlate_HPG0G3Constraint::get_type_name(@)",
-                            header: "NLPlate_HPG0G3Constraint.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "NLPlate_HPG0G3Constraint::get_type_name(@)",
+                              header: "NLPlate_HPG0G3Constraint.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "NLPlate_HPG0G3Constraint::get_type_descriptor(@)",
     header: "NLPlate_HPG0G3Constraint.hxx".}
-proc dynamicType*(this: NLPlateHPG0G3Constraint): Handle[StandardType] {.
+proc DynamicType*(this: NLPlate_HPG0G3Constraint): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType", header: "NLPlate_HPG0G3Constraint.hxx".}
-

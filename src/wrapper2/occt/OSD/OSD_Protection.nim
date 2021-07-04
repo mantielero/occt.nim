@@ -14,6 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, OSD_SingleProtection, ../Standard/Standard_Integer
+
 discard "forward decl of OSD_FileNode"
 discard "forward decl of OSD_File"
 discard "forward decl of OSD_Directory"
@@ -68,39 +72,38 @@ type
 
 proc constructOSD_Protection*(): OSD_Protection {.constructor,
     importcpp: "OSD_Protection(@)", header: "OSD_Protection.hxx".}
-proc constructOSD_Protection*(system: OSD_SingleProtection;
-                             user: OSD_SingleProtection;
-                             group: OSD_SingleProtection;
-                             world: OSD_SingleProtection): OSD_Protection {.
+proc constructOSD_Protection*(System: OSD_SingleProtection;
+                             User: OSD_SingleProtection;
+                             Group: OSD_SingleProtection;
+                             World: OSD_SingleProtection): OSD_Protection {.
     constructor, importcpp: "OSD_Protection(@)", header: "OSD_Protection.hxx".}
-proc values*(this: var OSD_Protection; system: var OSD_SingleProtection;
-            user: var OSD_SingleProtection; group: var OSD_SingleProtection;
-            world: var OSD_SingleProtection) {.importcpp: "Values",
+proc Values*(this: var OSD_Protection; System: var OSD_SingleProtection;
+            User: var OSD_SingleProtection; Group: var OSD_SingleProtection;
+            World: var OSD_SingleProtection) {.importcpp: "Values",
     header: "OSD_Protection.hxx".}
-proc setValues*(this: var OSD_Protection; system: OSD_SingleProtection;
-               user: OSD_SingleProtection; group: OSD_SingleProtection;
-               world: OSD_SingleProtection) {.importcpp: "SetValues",
+proc SetValues*(this: var OSD_Protection; System: OSD_SingleProtection;
+               User: OSD_SingleProtection; Group: OSD_SingleProtection;
+               World: OSD_SingleProtection) {.importcpp: "SetValues",
     header: "OSD_Protection.hxx".}
-proc setSystem*(this: var OSD_Protection; priv: OSD_SingleProtection) {.
+proc SetSystem*(this: var OSD_Protection; priv: OSD_SingleProtection) {.
     importcpp: "SetSystem", header: "OSD_Protection.hxx".}
-proc setUser*(this: var OSD_Protection; priv: OSD_SingleProtection) {.
+proc SetUser*(this: var OSD_Protection; priv: OSD_SingleProtection) {.
     importcpp: "SetUser", header: "OSD_Protection.hxx".}
-proc setGroup*(this: var OSD_Protection; priv: OSD_SingleProtection) {.
+proc SetGroup*(this: var OSD_Protection; priv: OSD_SingleProtection) {.
     importcpp: "SetGroup", header: "OSD_Protection.hxx".}
-proc setWorld*(this: var OSD_Protection; priv: OSD_SingleProtection) {.
+proc SetWorld*(this: var OSD_Protection; priv: OSD_SingleProtection) {.
     importcpp: "SetWorld", header: "OSD_Protection.hxx".}
-proc system*(this: OSD_Protection): OSD_SingleProtection {.noSideEffect,
+proc System*(this: OSD_Protection): OSD_SingleProtection {.noSideEffect,
     importcpp: "System", header: "OSD_Protection.hxx".}
-proc user*(this: OSD_Protection): OSD_SingleProtection {.noSideEffect,
+proc User*(this: OSD_Protection): OSD_SingleProtection {.noSideEffect,
     importcpp: "User", header: "OSD_Protection.hxx".}
-proc group*(this: OSD_Protection): OSD_SingleProtection {.noSideEffect,
+proc Group*(this: OSD_Protection): OSD_SingleProtection {.noSideEffect,
     importcpp: "Group", header: "OSD_Protection.hxx".}
-proc world*(this: OSD_Protection): OSD_SingleProtection {.noSideEffect,
+proc World*(this: OSD_Protection): OSD_SingleProtection {.noSideEffect,
     importcpp: "World", header: "OSD_Protection.hxx".}
-proc add*(this: var OSD_Protection; aProt: var OSD_SingleProtection;
+proc Add*(this: var OSD_Protection; aProt: var OSD_SingleProtection;
          aRight: OSD_SingleProtection) {.importcpp: "Add",
                                        header: "OSD_Protection.hxx".}
-proc sub*(this: var OSD_Protection; aProt: var OSD_SingleProtection;
+proc Sub*(this: var OSD_Protection; aProt: var OSD_SingleProtection;
          aRight: OSD_SingleProtection) {.importcpp: "Sub",
                                        header: "OSD_Protection.hxx".}
-

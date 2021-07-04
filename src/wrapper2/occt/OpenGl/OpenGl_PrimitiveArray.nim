@@ -13,133 +13,139 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  OpenGl_IndexBuffer, ../Aspect/Aspect_InteriorStyle,
+  ../Aspect/Aspect_TypeOfMarker, ../Graphic3d/Graphic3d_TypeOfPrimitiveArray,
+  ../Graphic3d/Graphic3d_IndexBuffer, ../Graphic3d/Graphic3d_BoundBuffer,
+  OpenGl_Element
+
 discard "forward decl of OpenGl_GraphicDriver"
 type
-  OpenGlPrimitiveArray* {.importcpp: "OpenGl_PrimitiveArray",
-                         header: "OpenGl_PrimitiveArray.hxx", bycopy.} = object of OpenGlElement ##
-                                                                                          ## !
-                                                                                          ## OpenGL
-                                                                                          ## does
-                                                                                          ## not
-                                                                                          ## provide
-                                                                                          ## a
-                                                                                          ## constant
-                                                                                          ## for
-                                                                                          ## "none"
-                                                                                          ## draw
-                                                                                          ## mode.
-                                                                                          ##
-                                                                                          ## !
-                                                                                          ## So
-                                                                                          ## we
-                                                                                          ## define
-                                                                                          ## our
-                                                                                          ## own
-                                                                                          ## one
-                                                                                          ## that
-                                                                                          ## does
-                                                                                          ## not
-                                                                                          ## conflict
-                                                                                          ## with
-                                                                                          ## GL
-                                                                                          ## constants
-                                                                                          ## and
-                                                                                          ## utilizes
-                                                                                          ## common
-                                                                                          ## GL
-                                                                                          ## invalid
-                                                                                          ## value.
-                                                                                          ##
-                                                                                          ## !
-                                                                                          ## Returns
-                                                                                          ## index
-                                                                                          ## VBO.
-                                                                                          ##
-                                                                                          ## !
-                                                                                          ## VBO
-                                                                                          ## initialization
-                                                                                          ## procedures
-                                                                                          ##
-                                                                                          ## !
-                                                                                          ## @param
-                                                                                          ## theCtx
-                                                                                          ## bound
-                                                                                          ## GL
-                                                                                          ## context
-                                                                                          ##
-                                                                                          ## !
-                                                                                          ## @param
-                                                                                          ## theToKeepData
-                                                                                          ## when
-                                                                                          ## true,
-                                                                                          ## myAttribs
-                                                                                          ## will
-                                                                                          ## not
-                                                                                          ## be
-                                                                                          ## nullified
-                                                                                          ## after
-                                                                                          ## VBO
-                                                                                          ## creation
-                                                                                          ##
-                                                                                          ## !
-                                                                                          ## Initialize
-                                                                                          ## normal
-                                                                                          ## (OpenGL-provided)
-                                                                                          ## VBO
+  OpenGl_PrimitiveArray* {.importcpp: "OpenGl_PrimitiveArray",
+                          header: "OpenGl_PrimitiveArray.hxx", bycopy.} = object of OpenGl_Element ##
+                                                                                            ## !
+                                                                                            ## OpenGL
+                                                                                            ## does
+                                                                                            ## not
+                                                                                            ## provide
+                                                                                            ## a
+                                                                                            ## constant
+                                                                                            ## for
+                                                                                            ## "none"
+                                                                                            ## draw
+                                                                                            ## mode.
+                                                                                            ##
+                                                                                            ## !
+                                                                                            ## So
+                                                                                            ## we
+                                                                                            ## define
+                                                                                            ## our
+                                                                                            ## own
+                                                                                            ## one
+                                                                                            ## that
+                                                                                            ## does
+                                                                                            ## not
+                                                                                            ## conflict
+                                                                                            ## with
+                                                                                            ## GL
+                                                                                            ## constants
+                                                                                            ## and
+                                                                                            ## utilizes
+                                                                                            ## common
+                                                                                            ## GL
+                                                                                            ## invalid
+                                                                                            ## value.
+                                                                                            ##
+                                                                                            ## !
+                                                                                            ## Returns
+                                                                                            ## index
+                                                                                            ## VBO.
+                                                                                            ##
+                                                                                            ## !
+                                                                                            ## VBO
+                                                                                            ## initialization
+                                                                                            ## procedures
+                                                                                            ##
+                                                                                            ## !
+                                                                                            ## @param
+                                                                                            ## theCtx
+                                                                                            ## bound
+                                                                                            ## GL
+                                                                                            ## context
+                                                                                            ##
+                                                                                            ## !
+                                                                                            ## @param
+                                                                                            ## theToKeepData
+                                                                                            ## when
+                                                                                            ## true,
+                                                                                            ## myAttribs
+                                                                                            ## will
+                                                                                            ## not
+                                                                                            ## be
+                                                                                            ## nullified
+                                                                                            ## after
+                                                                                            ## VBO
+                                                                                            ## creation
+                                                                                            ##
+                                                                                            ## !
+                                                                                            ## Initialize
+                                                                                            ## normal
+                                                                                            ## (OpenGL-provided)
+                                                                                            ## VBO
     ## !< Unique ID of primitive array.
 
 
 const
-  OpenGlPrimitiveArrayDRAW_MODE_NONE* = -1
+  OpenGl_PrimitiveArrayDRAW_MODE_NONE* = -1
 
-proc constructOpenGlPrimitiveArray*(theDriver: ptr OpenGlGraphicDriver): OpenGlPrimitiveArray {.
+proc constructOpenGl_PrimitiveArray*(theDriver: ptr OpenGl_GraphicDriver): OpenGl_PrimitiveArray {.
     constructor, importcpp: "OpenGl_PrimitiveArray(@)",
     header: "OpenGl_PrimitiveArray.hxx".}
-proc constructOpenGlPrimitiveArray*(theDriver: ptr OpenGlGraphicDriver;
-                                   theType: Graphic3dTypeOfPrimitiveArray;
-                                   theIndices: Handle[Graphic3dIndexBuffer];
-                                   theAttribs: Handle[Graphic3dBuffer];
-                                   theBounds: Handle[Graphic3dBoundBuffer]): OpenGlPrimitiveArray {.
+proc constructOpenGl_PrimitiveArray*(theDriver: ptr OpenGl_GraphicDriver;
+                                    theType: Graphic3d_TypeOfPrimitiveArray;
+                                    theIndices: handle[Graphic3d_IndexBuffer];
+                                    theAttribs: handle[Graphic3d_Buffer];
+                                    theBounds: handle[Graphic3d_BoundBuffer]): OpenGl_PrimitiveArray {.
     constructor, importcpp: "OpenGl_PrimitiveArray(@)",
     header: "OpenGl_PrimitiveArray.hxx".}
-proc destroyOpenGlPrimitiveArray*(this: var OpenGlPrimitiveArray) {.
+proc destroyOpenGl_PrimitiveArray*(this: var OpenGl_PrimitiveArray) {.
     importcpp: "#.~OpenGl_PrimitiveArray()", header: "OpenGl_PrimitiveArray.hxx".}
-proc render*(this: OpenGlPrimitiveArray; theWorkspace: Handle[OpenGlWorkspace]) {.
+proc Render*(this: OpenGl_PrimitiveArray; theWorkspace: handle[OpenGl_Workspace]) {.
     noSideEffect, importcpp: "Render", header: "OpenGl_PrimitiveArray.hxx".}
-proc release*(this: var OpenGlPrimitiveArray; theContext: ptr OpenGlContext) {.
+proc Release*(this: var OpenGl_PrimitiveArray; theContext: ptr OpenGl_Context) {.
     importcpp: "Release", header: "OpenGl_PrimitiveArray.hxx".}
-proc estimatedDataSize*(this: OpenGlPrimitiveArray): StandardSize {.noSideEffect,
+proc EstimatedDataSize*(this: OpenGl_PrimitiveArray): Standard_Size {.noSideEffect,
     importcpp: "EstimatedDataSize", header: "OpenGl_PrimitiveArray.hxx".}
-proc updateDrawStats*(this: OpenGlPrimitiveArray;
-                     theStats: var Graphic3dFrameStatsDataTmp; theIsDetailed: bool) {.
+proc UpdateDrawStats*(this: OpenGl_PrimitiveArray;
+                     theStats: var Graphic3d_FrameStatsDataTmp; theIsDetailed: bool) {.
     noSideEffect, importcpp: "UpdateDrawStats", header: "OpenGl_PrimitiveArray.hxx".}
-proc isInitialized*(this: OpenGlPrimitiveArray): StandardBoolean {.noSideEffect,
+proc IsInitialized*(this: OpenGl_PrimitiveArray): Standard_Boolean {.noSideEffect,
     importcpp: "IsInitialized", header: "OpenGl_PrimitiveArray.hxx".}
-proc invalidate*(this: OpenGlPrimitiveArray) {.noSideEffect,
+proc Invalidate*(this: OpenGl_PrimitiveArray) {.noSideEffect,
     importcpp: "Invalidate", header: "OpenGl_PrimitiveArray.hxx".}
-proc drawMode*(this: OpenGlPrimitiveArray): GLint {.noSideEffect,
+proc DrawMode*(this: OpenGl_PrimitiveArray): GLint {.noSideEffect,
     importcpp: "DrawMode", header: "OpenGl_PrimitiveArray.hxx".}
-proc isFillDrawMode*(this: OpenGlPrimitiveArray): StandardBoolean {.noSideEffect,
+proc IsFillDrawMode*(this: OpenGl_PrimitiveArray): Standard_Boolean {.noSideEffect,
     importcpp: "IsFillDrawMode", header: "OpenGl_PrimitiveArray.hxx".}
-proc indices*(this: OpenGlPrimitiveArray): Handle[Graphic3dIndexBuffer] {.
+proc Indices*(this: OpenGl_PrimitiveArray): handle[Graphic3d_IndexBuffer] {.
     noSideEffect, importcpp: "Indices", header: "OpenGl_PrimitiveArray.hxx".}
-proc attributes*(this: OpenGlPrimitiveArray): Handle[Graphic3dBuffer] {.
+proc Attributes*(this: OpenGl_PrimitiveArray): handle[Graphic3d_Buffer] {.
     noSideEffect, importcpp: "Attributes", header: "OpenGl_PrimitiveArray.hxx".}
-proc bounds*(this: OpenGlPrimitiveArray): Handle[Graphic3dBoundBuffer] {.
+proc Bounds*(this: OpenGl_PrimitiveArray): handle[Graphic3d_BoundBuffer] {.
     noSideEffect, importcpp: "Bounds", header: "OpenGl_PrimitiveArray.hxx".}
-proc getUID*(this: OpenGlPrimitiveArray): StandardSize {.noSideEffect,
+proc GetUID*(this: OpenGl_PrimitiveArray): Standard_Size {.noSideEffect,
     importcpp: "GetUID", header: "OpenGl_PrimitiveArray.hxx".}
-proc initBuffers*(this: var OpenGlPrimitiveArray; theContext: Handle[OpenGlContext];
-                 theType: Graphic3dTypeOfPrimitiveArray;
-                 theIndices: Handle[Graphic3dIndexBuffer];
-                 theAttribs: Handle[Graphic3dBuffer];
-                 theBounds: Handle[Graphic3dBoundBuffer]) {.
+proc InitBuffers*(this: var OpenGl_PrimitiveArray;
+                 theContext: handle[OpenGl_Context];
+                 theType: Graphic3d_TypeOfPrimitiveArray;
+                 theIndices: handle[Graphic3d_IndexBuffer];
+                 theAttribs: handle[Graphic3d_Buffer];
+                 theBounds: handle[Graphic3d_BoundBuffer]) {.
     importcpp: "InitBuffers", header: "OpenGl_PrimitiveArray.hxx".}
-proc indexVbo*(this: OpenGlPrimitiveArray): Handle[OpenGlVertexBuffer] {.
+proc IndexVbo*(this: OpenGl_PrimitiveArray): handle[OpenGl_VertexBuffer] {.
     noSideEffect, importcpp: "IndexVbo", header: "OpenGl_PrimitiveArray.hxx".}
-proc attributesVbo*(this: OpenGlPrimitiveArray): Handle[OpenGlVertexBuffer] {.
+proc AttributesVbo*(this: OpenGl_PrimitiveArray): handle[OpenGl_VertexBuffer] {.
     noSideEffect, importcpp: "AttributesVbo", header: "OpenGl_PrimitiveArray.hxx".}
-proc dumpJson*(this: OpenGlPrimitiveArray; theOStream: var StandardOStream;
-              theDepth: StandardInteger = -1) {.noSideEffect, importcpp: "DumpJson",
+proc DumpJson*(this: OpenGl_PrimitiveArray; theOStream: var Standard_OStream;
+              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
     header: "OpenGl_PrimitiveArray.hxx".}
-

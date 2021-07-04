@@ -14,6 +14,14 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Boolean,
+  ../TColgp/TColgp_HArray2OfPnt, ../TColStd/TColStd_HArray2OfReal,
+  ../Standard/Standard_Real, ../Standard/Standard_Integer, Geom_BoundedSurface,
+  ../TColgp/TColgp_Array2OfPnt, ../TColStd/TColStd_Array2OfReal,
+  ../TColgp/TColgp_Array1OfPnt, ../TColStd/TColStd_Array1OfReal,
+  ../GeomAbs/GeomAbs_Shape, ../BSplSLib/BSplSLib
+
 discard "forward decl of Standard_ConstructionError"
 discard "forward decl of Standard_DimensionError"
 discard "forward decl of Standard_RangeError"
@@ -26,7 +34,7 @@ discard "forward decl of Geom_Geometry"
 discard "forward decl of Geom_BezierSurface"
 discard "forward decl of Geom_BezierSurface"
 type
-  HandleGeomBezierSurface* = Handle[GeomBezierSurface]
+  Handle_Geom_BezierSurface* = handle[Geom_BezierSurface]
 
 ## ! Describes a rational or non-rational Bezier surface.
 ## ! - A non-rational Bezier surface is defined by a table
@@ -97,283 +105,284 @@ type
 ## ! considered equal if: |W2-W1| <= gp::Resolution()
 
 type
-  GeomBezierSurface* {.importcpp: "Geom_BezierSurface",
-                      header: "Geom_BezierSurface.hxx", bycopy.} = object of GeomBoundedSurface ##
-                                                                                         ## !
-                                                                                         ## Creates
-                                                                                         ## a
-                                                                                         ## non-rational
-                                                                                         ## Bezier
-                                                                                         ## surface
-                                                                                         ## with
-                                                                                         ## a
-                                                                                         ## set
-                                                                                         ## of
-                                                                                         ## poles.
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## Control
-                                                                                         ## points
-                                                                                         ## representation
-                                                                                         ## :
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## SPoles(Uorigin,Vorigin)
-                                                                                         ## ...................SPoles(Uorigin,Vend)
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## .
-                                                                                         ## .
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## .
-                                                                                         ## .
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## SPoles(Uend,
-                                                                                         ## Vorigin)
-                                                                                         ## .....................SPoles(Uend,
-                                                                                         ## Vend)
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## For
-                                                                                         ## the
-                                                                                         ## double
-                                                                                         ## array
-                                                                                         ## the
-                                                                                         ## row
-                                                                                         ## indice
-                                                                                         ## corresponds
-                                                                                         ## to
-                                                                                         ## the
-                                                                                         ## parametric
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## U
-                                                                                         ## direction
-                                                                                         ## and
-                                                                                         ## the
-                                                                                         ## columns
-                                                                                         ## indice
-                                                                                         ## corresponds
-                                                                                         ## to
-                                                                                         ## the
-                                                                                         ## parametric
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## V
-                                                                                         ## direction.
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## The
-                                                                                         ## weights
-                                                                                         ## are
-                                                                                         ## defaulted
-                                                                                         ## to
-                                                                                         ## all
-                                                                                         ## being
-                                                                                         ## 1.
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## Raised
-                                                                                         ## if
-                                                                                         ## the
-                                                                                         ## number
-                                                                                         ## of
-                                                                                         ## poles
-                                                                                         ## of
-                                                                                         ## the
-                                                                                         ## surface
-                                                                                         ## is
-                                                                                         ## lower
-                                                                                         ## than
-                                                                                         ## 2
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## or
-                                                                                         ## greater
-                                                                                         ## than
-                                                                                         ## MaxDegree
-                                                                                         ## +
-                                                                                         ## 1
-                                                                                         ## in
-                                                                                         ## one
-                                                                                         ## of
-                                                                                         ## the
-                                                                                         ## two
-                                                                                         ## directions
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## U
-                                                                                         ## or
-                                                                                         ## V.
+  Geom_BezierSurface* {.importcpp: "Geom_BezierSurface",
+                       header: "Geom_BezierSurface.hxx", bycopy.} = object of Geom_BoundedSurface ##
+                                                                                           ## !
+                                                                                           ## Creates
+                                                                                           ## a
+                                                                                           ## non-rational
+                                                                                           ## Bezier
+                                                                                           ## surface
+                                                                                           ## with
+                                                                                           ## a
+                                                                                           ## set
+                                                                                           ## of
+                                                                                           ## poles.
+                                                                                           ##
+                                                                                           ## !
+                                                                                           ## Control
+                                                                                           ## points
+                                                                                           ## representation
+                                                                                           ## :
+                                                                                           ##
+                                                                                           ## !
+                                                                                           ## SPoles(Uorigin,Vorigin)
+                                                                                           ## ...................SPoles(Uorigin,Vend)
+                                                                                           ##
+                                                                                           ## !
+                                                                                           ## .
+                                                                                           ## .
+                                                                                           ##
+                                                                                           ## !
+                                                                                           ## .
+                                                                                           ## .
+                                                                                           ##
+                                                                                           ## !
+                                                                                           ## SPoles(Uend,
+                                                                                           ## Vorigin)
+                                                                                           ## .....................SPoles(Uend,
+                                                                                           ## Vend)
+                                                                                           ##
+                                                                                           ## !
+                                                                                           ## For
+                                                                                           ## the
+                                                                                           ## double
+                                                                                           ## array
+                                                                                           ## the
+                                                                                           ## row
+                                                                                           ## indice
+                                                                                           ## corresponds
+                                                                                           ## to
+                                                                                           ## the
+                                                                                           ## parametric
+                                                                                           ##
+                                                                                           ## !
+                                                                                           ## U
+                                                                                           ## direction
+                                                                                           ## and
+                                                                                           ## the
+                                                                                           ## columns
+                                                                                           ## indice
+                                                                                           ## corresponds
+                                                                                           ## to
+                                                                                           ## the
+                                                                                           ## parametric
+                                                                                           ##
+                                                                                           ## !
+                                                                                           ## V
+                                                                                           ## direction.
+                                                                                           ##
+                                                                                           ## !
+                                                                                           ## The
+                                                                                           ## weights
+                                                                                           ## are
+                                                                                           ## defaulted
+                                                                                           ## to
+                                                                                           ## all
+                                                                                           ## being
+                                                                                           ## 1.
+                                                                                           ##
+                                                                                           ## !
+                                                                                           ##
+                                                                                           ## !
+                                                                                           ## Raised
+                                                                                           ## if
+                                                                                           ## the
+                                                                                           ## number
+                                                                                           ## of
+                                                                                           ## poles
+                                                                                           ## of
+                                                                                           ## the
+                                                                                           ## surface
+                                                                                           ## is
+                                                                                           ## lower
+                                                                                           ## than
+                                                                                           ## 2
+                                                                                           ##
+                                                                                           ## !
+                                                                                           ## or
+                                                                                           ## greater
+                                                                                           ## than
+                                                                                           ## MaxDegree
+                                                                                           ## +
+                                                                                           ## 1
+                                                                                           ## in
+                                                                                           ## one
+                                                                                           ## of
+                                                                                           ## the
+                                                                                           ## two
+                                                                                           ## directions
+                                                                                           ##
+                                                                                           ## !
+                                                                                           ## U
+                                                                                           ## or
+                                                                                           ## V.
 
 
-proc constructGeomBezierSurface*(surfacePoles: TColgpArray2OfPnt): GeomBezierSurface {.
+proc constructGeom_BezierSurface*(SurfacePoles: TColgp_Array2OfPnt): Geom_BezierSurface {.
     constructor, importcpp: "Geom_BezierSurface(@)",
     header: "Geom_BezierSurface.hxx".}
-proc constructGeomBezierSurface*(surfacePoles: TColgpArray2OfPnt;
-                                poleWeights: TColStdArray2OfReal): GeomBezierSurface {.
+proc constructGeom_BezierSurface*(SurfacePoles: TColgp_Array2OfPnt;
+                                 PoleWeights: TColStd_Array2OfReal): Geom_BezierSurface {.
     constructor, importcpp: "Geom_BezierSurface(@)",
     header: "Geom_BezierSurface.hxx".}
-proc exchangeUV*(this: var GeomBezierSurface) {.importcpp: "ExchangeUV",
+proc ExchangeUV*(this: var Geom_BezierSurface) {.importcpp: "ExchangeUV",
     header: "Geom_BezierSurface.hxx".}
-proc increase*(this: var GeomBezierSurface; uDeg: StandardInteger;
-              vDeg: StandardInteger) {.importcpp: "Increase",
-                                     header: "Geom_BezierSurface.hxx".}
-proc insertPoleColAfter*(this: var GeomBezierSurface; vIndex: StandardInteger;
-                        cPoles: TColgpArray1OfPnt) {.
+proc Increase*(this: var Geom_BezierSurface; UDeg: Standard_Integer;
+              VDeg: Standard_Integer) {.importcpp: "Increase",
+                                      header: "Geom_BezierSurface.hxx".}
+proc InsertPoleColAfter*(this: var Geom_BezierSurface; VIndex: Standard_Integer;
+                        CPoles: TColgp_Array1OfPnt) {.
     importcpp: "InsertPoleColAfter", header: "Geom_BezierSurface.hxx".}
-proc insertPoleColAfter*(this: var GeomBezierSurface; vIndex: StandardInteger;
-                        cPoles: TColgpArray1OfPnt;
-                        cPoleWeights: TColStdArray1OfReal) {.
+proc InsertPoleColAfter*(this: var Geom_BezierSurface; VIndex: Standard_Integer;
+                        CPoles: TColgp_Array1OfPnt;
+                        CPoleWeights: TColStd_Array1OfReal) {.
     importcpp: "InsertPoleColAfter", header: "Geom_BezierSurface.hxx".}
-proc insertPoleColBefore*(this: var GeomBezierSurface; vIndex: StandardInteger;
-                         cPoles: TColgpArray1OfPnt) {.
+proc InsertPoleColBefore*(this: var Geom_BezierSurface; VIndex: Standard_Integer;
+                         CPoles: TColgp_Array1OfPnt) {.
     importcpp: "InsertPoleColBefore", header: "Geom_BezierSurface.hxx".}
-proc insertPoleColBefore*(this: var GeomBezierSurface; vIndex: StandardInteger;
-                         cPoles: TColgpArray1OfPnt;
-                         cPoleWeights: TColStdArray1OfReal) {.
+proc InsertPoleColBefore*(this: var Geom_BezierSurface; VIndex: Standard_Integer;
+                         CPoles: TColgp_Array1OfPnt;
+                         CPoleWeights: TColStd_Array1OfReal) {.
     importcpp: "InsertPoleColBefore", header: "Geom_BezierSurface.hxx".}
-proc insertPoleRowAfter*(this: var GeomBezierSurface; uIndex: StandardInteger;
-                        cPoles: TColgpArray1OfPnt) {.
+proc InsertPoleRowAfter*(this: var Geom_BezierSurface; UIndex: Standard_Integer;
+                        CPoles: TColgp_Array1OfPnt) {.
     importcpp: "InsertPoleRowAfter", header: "Geom_BezierSurface.hxx".}
-proc insertPoleRowAfter*(this: var GeomBezierSurface; uIndex: StandardInteger;
-                        cPoles: TColgpArray1OfPnt;
-                        cPoleWeights: TColStdArray1OfReal) {.
+proc InsertPoleRowAfter*(this: var Geom_BezierSurface; UIndex: Standard_Integer;
+                        CPoles: TColgp_Array1OfPnt;
+                        CPoleWeights: TColStd_Array1OfReal) {.
     importcpp: "InsertPoleRowAfter", header: "Geom_BezierSurface.hxx".}
-proc insertPoleRowBefore*(this: var GeomBezierSurface; uIndex: StandardInteger;
-                         cPoles: TColgpArray1OfPnt) {.
+proc InsertPoleRowBefore*(this: var Geom_BezierSurface; UIndex: Standard_Integer;
+                         CPoles: TColgp_Array1OfPnt) {.
     importcpp: "InsertPoleRowBefore", header: "Geom_BezierSurface.hxx".}
-proc insertPoleRowBefore*(this: var GeomBezierSurface; uIndex: StandardInteger;
-                         cPoles: TColgpArray1OfPnt;
-                         cPoleWeights: TColStdArray1OfReal) {.
+proc InsertPoleRowBefore*(this: var Geom_BezierSurface; UIndex: Standard_Integer;
+                         CPoles: TColgp_Array1OfPnt;
+                         CPoleWeights: TColStd_Array1OfReal) {.
     importcpp: "InsertPoleRowBefore", header: "Geom_BezierSurface.hxx".}
-proc removePoleCol*(this: var GeomBezierSurface; vIndex: StandardInteger) {.
+proc RemovePoleCol*(this: var Geom_BezierSurface; VIndex: Standard_Integer) {.
     importcpp: "RemovePoleCol", header: "Geom_BezierSurface.hxx".}
-proc removePoleRow*(this: var GeomBezierSurface; uIndex: StandardInteger) {.
+proc RemovePoleRow*(this: var Geom_BezierSurface; UIndex: Standard_Integer) {.
     importcpp: "RemovePoleRow", header: "Geom_BezierSurface.hxx".}
-proc segment*(this: var GeomBezierSurface; u1: StandardReal; u2: StandardReal;
-             v1: StandardReal; v2: StandardReal) {.importcpp: "Segment",
+proc Segment*(this: var Geom_BezierSurface; U1: Standard_Real; U2: Standard_Real;
+             V1: Standard_Real; V2: Standard_Real) {.importcpp: "Segment",
     header: "Geom_BezierSurface.hxx".}
-proc setPole*(this: var GeomBezierSurface; uIndex: StandardInteger;
-             vIndex: StandardInteger; p: GpPnt) {.importcpp: "SetPole",
+proc SetPole*(this: var Geom_BezierSurface; UIndex: Standard_Integer;
+             VIndex: Standard_Integer; P: gp_Pnt) {.importcpp: "SetPole",
     header: "Geom_BezierSurface.hxx".}
-proc setPole*(this: var GeomBezierSurface; uIndex: StandardInteger;
-             vIndex: StandardInteger; p: GpPnt; weight: StandardReal) {.
+proc SetPole*(this: var Geom_BezierSurface; UIndex: Standard_Integer;
+             VIndex: Standard_Integer; P: gp_Pnt; Weight: Standard_Real) {.
     importcpp: "SetPole", header: "Geom_BezierSurface.hxx".}
-proc setPoleCol*(this: var GeomBezierSurface; vIndex: StandardInteger;
-                cPoles: TColgpArray1OfPnt) {.importcpp: "SetPoleCol",
+proc SetPoleCol*(this: var Geom_BezierSurface; VIndex: Standard_Integer;
+                CPoles: TColgp_Array1OfPnt) {.importcpp: "SetPoleCol",
     header: "Geom_BezierSurface.hxx".}
-proc setPoleCol*(this: var GeomBezierSurface; vIndex: StandardInteger;
-                cPoles: TColgpArray1OfPnt; cPoleWeights: TColStdArray1OfReal) {.
+proc SetPoleCol*(this: var Geom_BezierSurface; VIndex: Standard_Integer;
+                CPoles: TColgp_Array1OfPnt; CPoleWeights: TColStd_Array1OfReal) {.
     importcpp: "SetPoleCol", header: "Geom_BezierSurface.hxx".}
-proc setPoleRow*(this: var GeomBezierSurface; uIndex: StandardInteger;
-                cPoles: TColgpArray1OfPnt) {.importcpp: "SetPoleRow",
+proc SetPoleRow*(this: var Geom_BezierSurface; UIndex: Standard_Integer;
+                CPoles: TColgp_Array1OfPnt) {.importcpp: "SetPoleRow",
     header: "Geom_BezierSurface.hxx".}
-proc setPoleRow*(this: var GeomBezierSurface; uIndex: StandardInteger;
-                cPoles: TColgpArray1OfPnt; cPoleWeights: TColStdArray1OfReal) {.
+proc SetPoleRow*(this: var Geom_BezierSurface; UIndex: Standard_Integer;
+                CPoles: TColgp_Array1OfPnt; CPoleWeights: TColStd_Array1OfReal) {.
     importcpp: "SetPoleRow", header: "Geom_BezierSurface.hxx".}
-proc setWeight*(this: var GeomBezierSurface; uIndex: StandardInteger;
-               vIndex: StandardInteger; weight: StandardReal) {.
+proc SetWeight*(this: var Geom_BezierSurface; UIndex: Standard_Integer;
+               VIndex: Standard_Integer; Weight: Standard_Real) {.
     importcpp: "SetWeight", header: "Geom_BezierSurface.hxx".}
-proc setWeightCol*(this: var GeomBezierSurface; vIndex: StandardInteger;
-                  cPoleWeights: TColStdArray1OfReal) {.importcpp: "SetWeightCol",
+proc SetWeightCol*(this: var Geom_BezierSurface; VIndex: Standard_Integer;
+                  CPoleWeights: TColStd_Array1OfReal) {.importcpp: "SetWeightCol",
     header: "Geom_BezierSurface.hxx".}
-proc setWeightRow*(this: var GeomBezierSurface; uIndex: StandardInteger;
-                  cPoleWeights: TColStdArray1OfReal) {.importcpp: "SetWeightRow",
+proc SetWeightRow*(this: var Geom_BezierSurface; UIndex: Standard_Integer;
+                  CPoleWeights: TColStd_Array1OfReal) {.importcpp: "SetWeightRow",
     header: "Geom_BezierSurface.hxx".}
-proc uReverse*(this: var GeomBezierSurface) {.importcpp: "UReverse",
+proc UReverse*(this: var Geom_BezierSurface) {.importcpp: "UReverse",
     header: "Geom_BezierSurface.hxx".}
-proc uReversedParameter*(this: GeomBezierSurface; u: StandardReal): StandardReal {.
+proc UReversedParameter*(this: Geom_BezierSurface; U: Standard_Real): Standard_Real {.
     noSideEffect, importcpp: "UReversedParameter", header: "Geom_BezierSurface.hxx".}
-proc vReverse*(this: var GeomBezierSurface) {.importcpp: "VReverse",
+proc VReverse*(this: var Geom_BezierSurface) {.importcpp: "VReverse",
     header: "Geom_BezierSurface.hxx".}
-proc vReversedParameter*(this: GeomBezierSurface; v: StandardReal): StandardReal {.
+proc VReversedParameter*(this: Geom_BezierSurface; V: Standard_Real): Standard_Real {.
     noSideEffect, importcpp: "VReversedParameter", header: "Geom_BezierSurface.hxx".}
-proc bounds*(this: GeomBezierSurface; u1: var StandardReal; u2: var StandardReal;
-            v1: var StandardReal; v2: var StandardReal) {.noSideEffect,
+proc Bounds*(this: Geom_BezierSurface; U1: var Standard_Real; U2: var Standard_Real;
+            V1: var Standard_Real; V2: var Standard_Real) {.noSideEffect,
     importcpp: "Bounds", header: "Geom_BezierSurface.hxx".}
-proc continuity*(this: GeomBezierSurface): GeomAbsShape {.noSideEffect,
+proc Continuity*(this: Geom_BezierSurface): GeomAbs_Shape {.noSideEffect,
     importcpp: "Continuity", header: "Geom_BezierSurface.hxx".}
-proc d0*(this: GeomBezierSurface; u: StandardReal; v: StandardReal; p: var GpPnt) {.
+proc D0*(this: Geom_BezierSurface; U: Standard_Real; V: Standard_Real; P: var gp_Pnt) {.
     noSideEffect, importcpp: "D0", header: "Geom_BezierSurface.hxx".}
-proc d1*(this: GeomBezierSurface; u: StandardReal; v: StandardReal; p: var GpPnt;
-        d1u: var GpVec; d1v: var GpVec) {.noSideEffect, importcpp: "D1",
-                                    header: "Geom_BezierSurface.hxx".}
-proc d2*(this: GeomBezierSurface; u: StandardReal; v: StandardReal; p: var GpPnt;
-        d1u: var GpVec; d1v: var GpVec; d2u: var GpVec; d2v: var GpVec; d2uv: var GpVec) {.
+proc D1*(this: Geom_BezierSurface; U: Standard_Real; V: Standard_Real; P: var gp_Pnt;
+        D1U: var gp_Vec; D1V: var gp_Vec) {.noSideEffect, importcpp: "D1",
+                                      header: "Geom_BezierSurface.hxx".}
+proc D2*(this: Geom_BezierSurface; U: Standard_Real; V: Standard_Real; P: var gp_Pnt;
+        D1U: var gp_Vec; D1V: var gp_Vec; D2U: var gp_Vec; D2V: var gp_Vec; D2UV: var gp_Vec) {.
     noSideEffect, importcpp: "D2", header: "Geom_BezierSurface.hxx".}
-proc d3*(this: GeomBezierSurface; u: StandardReal; v: StandardReal; p: var GpPnt;
-        d1u: var GpVec; d1v: var GpVec; d2u: var GpVec; d2v: var GpVec; d2uv: var GpVec;
-        d3u: var GpVec; d3v: var GpVec; d3uuv: var GpVec; d3uvv: var GpVec) {.noSideEffect,
-    importcpp: "D3", header: "Geom_BezierSurface.hxx".}
-proc dn*(this: GeomBezierSurface; u: StandardReal; v: StandardReal;
-        nu: StandardInteger; nv: StandardInteger): GpVec {.noSideEffect,
+proc D3*(this: Geom_BezierSurface; U: Standard_Real; V: Standard_Real; P: var gp_Pnt;
+        D1U: var gp_Vec; D1V: var gp_Vec; D2U: var gp_Vec; D2V: var gp_Vec;
+        D2UV: var gp_Vec; D3U: var gp_Vec; D3V: var gp_Vec; D3UUV: var gp_Vec;
+        D3UVV: var gp_Vec) {.noSideEffect, importcpp: "D3",
+                          header: "Geom_BezierSurface.hxx".}
+proc DN*(this: Geom_BezierSurface; U: Standard_Real; V: Standard_Real;
+        Nu: Standard_Integer; Nv: Standard_Integer): gp_Vec {.noSideEffect,
     importcpp: "DN", header: "Geom_BezierSurface.hxx".}
-proc nbUPoles*(this: GeomBezierSurface): StandardInteger {.noSideEffect,
+proc NbUPoles*(this: Geom_BezierSurface): Standard_Integer {.noSideEffect,
     importcpp: "NbUPoles", header: "Geom_BezierSurface.hxx".}
-proc nbVPoles*(this: GeomBezierSurface): StandardInteger {.noSideEffect,
+proc NbVPoles*(this: Geom_BezierSurface): Standard_Integer {.noSideEffect,
     importcpp: "NbVPoles", header: "Geom_BezierSurface.hxx".}
-proc pole*(this: GeomBezierSurface; uIndex: StandardInteger; vIndex: StandardInteger): GpPnt {.
-    noSideEffect, importcpp: "Pole", header: "Geom_BezierSurface.hxx".}
-proc poles*(this: GeomBezierSurface; p: var TColgpArray2OfPnt) {.noSideEffect,
-    importcpp: "Poles", header: "Geom_BezierSurface.hxx".}
-proc poles*(this: GeomBezierSurface): TColgpArray2OfPnt {.noSideEffect,
-    importcpp: "Poles", header: "Geom_BezierSurface.hxx".}
-proc uDegree*(this: GeomBezierSurface): StandardInteger {.noSideEffect,
-    importcpp: "UDegree", header: "Geom_BezierSurface.hxx".}
-proc uIso*(this: GeomBezierSurface; u: StandardReal): Handle[GeomCurve] {.
-    noSideEffect, importcpp: "UIso", header: "Geom_BezierSurface.hxx".}
-proc vDegree*(this: GeomBezierSurface): StandardInteger {.noSideEffect,
-    importcpp: "VDegree", header: "Geom_BezierSurface.hxx".}
-proc vIso*(this: GeomBezierSurface; v: StandardReal): Handle[GeomCurve] {.
-    noSideEffect, importcpp: "VIso", header: "Geom_BezierSurface.hxx".}
-proc weight*(this: GeomBezierSurface; uIndex: StandardInteger;
-            vIndex: StandardInteger): StandardReal {.noSideEffect,
-    importcpp: "Weight", header: "Geom_BezierSurface.hxx".}
-proc weights*(this: GeomBezierSurface; w: var TColStdArray2OfReal) {.noSideEffect,
-    importcpp: "Weights", header: "Geom_BezierSurface.hxx".}
-proc weights*(this: GeomBezierSurface): ptr TColStdArray2OfReal {.noSideEffect,
-    importcpp: "Weights", header: "Geom_BezierSurface.hxx".}
-proc isUClosed*(this: GeomBezierSurface): StandardBoolean {.noSideEffect,
-    importcpp: "IsUClosed", header: "Geom_BezierSurface.hxx".}
-proc isVClosed*(this: GeomBezierSurface): StandardBoolean {.noSideEffect,
-    importcpp: "IsVClosed", header: "Geom_BezierSurface.hxx".}
-proc isCNu*(this: GeomBezierSurface; n: StandardInteger): StandardBoolean {.
-    noSideEffect, importcpp: "IsCNu", header: "Geom_BezierSurface.hxx".}
-proc isCNv*(this: GeomBezierSurface; n: StandardInteger): StandardBoolean {.
-    noSideEffect, importcpp: "IsCNv", header: "Geom_BezierSurface.hxx".}
-proc isUPeriodic*(this: GeomBezierSurface): StandardBoolean {.noSideEffect,
-    importcpp: "IsUPeriodic", header: "Geom_BezierSurface.hxx".}
-proc isVPeriodic*(this: GeomBezierSurface): StandardBoolean {.noSideEffect,
-    importcpp: "IsVPeriodic", header: "Geom_BezierSurface.hxx".}
-proc isURational*(this: GeomBezierSurface): StandardBoolean {.noSideEffect,
-    importcpp: "IsURational", header: "Geom_BezierSurface.hxx".}
-proc isVRational*(this: GeomBezierSurface): StandardBoolean {.noSideEffect,
-    importcpp: "IsVRational", header: "Geom_BezierSurface.hxx".}
-proc transform*(this: var GeomBezierSurface; t: GpTrsf) {.importcpp: "Transform",
+proc Pole*(this: Geom_BezierSurface; UIndex: Standard_Integer;
+          VIndex: Standard_Integer): gp_Pnt {.noSideEffect, importcpp: "Pole",
     header: "Geom_BezierSurface.hxx".}
-proc maxDegree*(): StandardInteger {.importcpp: "Geom_BezierSurface::MaxDegree(@)",
-                                  header: "Geom_BezierSurface.hxx".}
-proc resolution*(this: var GeomBezierSurface; tolerance3D: StandardReal;
-                uTolerance: var StandardReal; vTolerance: var StandardReal) {.
+proc Poles*(this: Geom_BezierSurface; P: var TColgp_Array2OfPnt) {.noSideEffect,
+    importcpp: "Poles", header: "Geom_BezierSurface.hxx".}
+proc Poles*(this: Geom_BezierSurface): TColgp_Array2OfPnt {.noSideEffect,
+    importcpp: "Poles", header: "Geom_BezierSurface.hxx".}
+proc UDegree*(this: Geom_BezierSurface): Standard_Integer {.noSideEffect,
+    importcpp: "UDegree", header: "Geom_BezierSurface.hxx".}
+proc UIso*(this: Geom_BezierSurface; U: Standard_Real): handle[Geom_Curve] {.
+    noSideEffect, importcpp: "UIso", header: "Geom_BezierSurface.hxx".}
+proc VDegree*(this: Geom_BezierSurface): Standard_Integer {.noSideEffect,
+    importcpp: "VDegree", header: "Geom_BezierSurface.hxx".}
+proc VIso*(this: Geom_BezierSurface; V: Standard_Real): handle[Geom_Curve] {.
+    noSideEffect, importcpp: "VIso", header: "Geom_BezierSurface.hxx".}
+proc Weight*(this: Geom_BezierSurface; UIndex: Standard_Integer;
+            VIndex: Standard_Integer): Standard_Real {.noSideEffect,
+    importcpp: "Weight", header: "Geom_BezierSurface.hxx".}
+proc Weights*(this: Geom_BezierSurface; W: var TColStd_Array2OfReal) {.noSideEffect,
+    importcpp: "Weights", header: "Geom_BezierSurface.hxx".}
+proc Weights*(this: Geom_BezierSurface): ptr TColStd_Array2OfReal {.noSideEffect,
+    importcpp: "Weights", header: "Geom_BezierSurface.hxx".}
+proc IsUClosed*(this: Geom_BezierSurface): Standard_Boolean {.noSideEffect,
+    importcpp: "IsUClosed", header: "Geom_BezierSurface.hxx".}
+proc IsVClosed*(this: Geom_BezierSurface): Standard_Boolean {.noSideEffect,
+    importcpp: "IsVClosed", header: "Geom_BezierSurface.hxx".}
+proc IsCNu*(this: Geom_BezierSurface; N: Standard_Integer): Standard_Boolean {.
+    noSideEffect, importcpp: "IsCNu", header: "Geom_BezierSurface.hxx".}
+proc IsCNv*(this: Geom_BezierSurface; N: Standard_Integer): Standard_Boolean {.
+    noSideEffect, importcpp: "IsCNv", header: "Geom_BezierSurface.hxx".}
+proc IsUPeriodic*(this: Geom_BezierSurface): Standard_Boolean {.noSideEffect,
+    importcpp: "IsUPeriodic", header: "Geom_BezierSurface.hxx".}
+proc IsVPeriodic*(this: Geom_BezierSurface): Standard_Boolean {.noSideEffect,
+    importcpp: "IsVPeriodic", header: "Geom_BezierSurface.hxx".}
+proc IsURational*(this: Geom_BezierSurface): Standard_Boolean {.noSideEffect,
+    importcpp: "IsURational", header: "Geom_BezierSurface.hxx".}
+proc IsVRational*(this: Geom_BezierSurface): Standard_Boolean {.noSideEffect,
+    importcpp: "IsVRational", header: "Geom_BezierSurface.hxx".}
+proc Transform*(this: var Geom_BezierSurface; T: gp_Trsf) {.importcpp: "Transform",
+    header: "Geom_BezierSurface.hxx".}
+proc MaxDegree*(): Standard_Integer {.importcpp: "Geom_BezierSurface::MaxDegree(@)",
+                                   header: "Geom_BezierSurface.hxx".}
+proc Resolution*(this: var Geom_BezierSurface; Tolerance3D: Standard_Real;
+                UTolerance: var Standard_Real; VTolerance: var Standard_Real) {.
     importcpp: "Resolution", header: "Geom_BezierSurface.hxx".}
-proc copy*(this: GeomBezierSurface): Handle[GeomGeometry] {.noSideEffect,
+proc Copy*(this: Geom_BezierSurface): handle[Geom_Geometry] {.noSideEffect,
     importcpp: "Copy", header: "Geom_BezierSurface.hxx".}
-proc dumpJson*(this: GeomBezierSurface; theOStream: var StandardOStream;
-              theDepth: StandardInteger = -1) {.noSideEffect, importcpp: "DumpJson",
+proc DumpJson*(this: Geom_BezierSurface; theOStream: var Standard_OStream;
+              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
     header: "Geom_BezierSurface.hxx".}
 type
-  GeomBezierSurfacebaseType* = GeomBoundedSurface
+  Geom_BezierSurfacebase_type* = Geom_BoundedSurface
 
-proc getTypeName*(): cstring {.importcpp: "Geom_BezierSurface::get_type_name(@)",
-                            header: "Geom_BezierSurface.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "Geom_BezierSurface::get_type_name(@)",
+                              header: "Geom_BezierSurface.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "Geom_BezierSurface::get_type_descriptor(@)",
     header: "Geom_BezierSurface.hxx".}
-proc dynamicType*(this: GeomBezierSurface): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: Geom_BezierSurface): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "Geom_BezierSurface.hxx".}
-

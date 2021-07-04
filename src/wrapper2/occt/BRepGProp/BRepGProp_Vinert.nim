@@ -14,81 +14,87 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Real, ../GProp/GProp_GProps
+
 discard "forward decl of BRepGProp_Face"
 discard "forward decl of gp_Pnt"
 discard "forward decl of gp_Pln"
 discard "forward decl of BRepGProp_Domain"
 type
-  BRepGPropVinert* {.importcpp: "BRepGProp_Vinert", header: "BRepGProp_Vinert.hxx",
-                    bycopy.} = object of GPropGProps
+  BRepGProp_Vinert* {.importcpp: "BRepGProp_Vinert",
+                     header: "BRepGProp_Vinert.hxx", bycopy.} = object of GProp_GProps
 
 
-proc constructBRepGPropVinert*(): BRepGPropVinert {.constructor,
+proc constructBRepGProp_Vinert*(): BRepGProp_Vinert {.constructor,
     importcpp: "BRepGProp_Vinert(@)", header: "BRepGProp_Vinert.hxx".}
-proc constructBRepGPropVinert*(s: BRepGPropFace; vLocation: GpPnt): BRepGPropVinert {.
+proc constructBRepGProp_Vinert*(S: BRepGProp_Face; VLocation: gp_Pnt): BRepGProp_Vinert {.
     constructor, importcpp: "BRepGProp_Vinert(@)", header: "BRepGProp_Vinert.hxx".}
-proc constructBRepGPropVinert*(s: var BRepGPropFace; vLocation: GpPnt;
-                              eps: StandardReal): BRepGPropVinert {.constructor,
+proc constructBRepGProp_Vinert*(S: var BRepGProp_Face; VLocation: gp_Pnt;
+                               Eps: Standard_Real): BRepGProp_Vinert {.constructor,
     importcpp: "BRepGProp_Vinert(@)", header: "BRepGProp_Vinert.hxx".}
-proc constructBRepGPropVinert*(s: BRepGPropFace; o: GpPnt; vLocation: GpPnt): BRepGPropVinert {.
+proc constructBRepGProp_Vinert*(S: BRepGProp_Face; O: gp_Pnt; VLocation: gp_Pnt): BRepGProp_Vinert {.
     constructor, importcpp: "BRepGProp_Vinert(@)", header: "BRepGProp_Vinert.hxx".}
-proc constructBRepGPropVinert*(s: var BRepGPropFace; o: GpPnt; vLocation: GpPnt;
-                              eps: StandardReal): BRepGPropVinert {.constructor,
+proc constructBRepGProp_Vinert*(S: var BRepGProp_Face; O: gp_Pnt; VLocation: gp_Pnt;
+                               Eps: Standard_Real): BRepGProp_Vinert {.constructor,
     importcpp: "BRepGProp_Vinert(@)", header: "BRepGProp_Vinert.hxx".}
-proc constructBRepGPropVinert*(s: BRepGPropFace; pl: GpPln; vLocation: GpPnt): BRepGPropVinert {.
+proc constructBRepGProp_Vinert*(S: BRepGProp_Face; Pl: gp_Pln; VLocation: gp_Pnt): BRepGProp_Vinert {.
     constructor, importcpp: "BRepGProp_Vinert(@)", header: "BRepGProp_Vinert.hxx".}
-proc constructBRepGPropVinert*(s: var BRepGPropFace; pl: GpPln; vLocation: GpPnt;
-                              eps: StandardReal): BRepGPropVinert {.constructor,
+proc constructBRepGProp_Vinert*(S: var BRepGProp_Face; Pl: gp_Pln; VLocation: gp_Pnt;
+                               Eps: Standard_Real): BRepGProp_Vinert {.constructor,
     importcpp: "BRepGProp_Vinert(@)", header: "BRepGProp_Vinert.hxx".}
-proc constructBRepGPropVinert*(s: var BRepGPropFace; d: var BRepGPropDomain;
-                              vLocation: GpPnt): BRepGPropVinert {.constructor,
+proc constructBRepGProp_Vinert*(S: var BRepGProp_Face; D: var BRepGProp_Domain;
+                               VLocation: gp_Pnt): BRepGProp_Vinert {.constructor,
     importcpp: "BRepGProp_Vinert(@)", header: "BRepGProp_Vinert.hxx".}
-proc constructBRepGPropVinert*(s: var BRepGPropFace; d: var BRepGPropDomain;
-                              vLocation: GpPnt; eps: StandardReal): BRepGPropVinert {.
+proc constructBRepGProp_Vinert*(S: var BRepGProp_Face; D: var BRepGProp_Domain;
+                               VLocation: gp_Pnt; Eps: Standard_Real): BRepGProp_Vinert {.
     constructor, importcpp: "BRepGProp_Vinert(@)", header: "BRepGProp_Vinert.hxx".}
-proc constructBRepGPropVinert*(s: var BRepGPropFace; d: var BRepGPropDomain; o: GpPnt;
-                              vLocation: GpPnt): BRepGPropVinert {.constructor,
-    importcpp: "BRepGProp_Vinert(@)", header: "BRepGProp_Vinert.hxx".}
-proc constructBRepGPropVinert*(s: var BRepGPropFace; d: var BRepGPropDomain; o: GpPnt;
-                              vLocation: GpPnt; eps: StandardReal): BRepGPropVinert {.
+proc constructBRepGProp_Vinert*(S: var BRepGProp_Face; D: var BRepGProp_Domain;
+                               O: gp_Pnt; VLocation: gp_Pnt): BRepGProp_Vinert {.
     constructor, importcpp: "BRepGProp_Vinert(@)", header: "BRepGProp_Vinert.hxx".}
-proc constructBRepGPropVinert*(s: var BRepGPropFace; d: var BRepGPropDomain; pl: GpPln;
-                              vLocation: GpPnt): BRepGPropVinert {.constructor,
-    importcpp: "BRepGProp_Vinert(@)", header: "BRepGProp_Vinert.hxx".}
-proc constructBRepGPropVinert*(s: var BRepGPropFace; d: var BRepGPropDomain; pl: GpPln;
-                              vLocation: GpPnt; eps: StandardReal): BRepGPropVinert {.
+proc constructBRepGProp_Vinert*(S: var BRepGProp_Face; D: var BRepGProp_Domain;
+                               O: gp_Pnt; VLocation: gp_Pnt; Eps: Standard_Real): BRepGProp_Vinert {.
     constructor, importcpp: "BRepGProp_Vinert(@)", header: "BRepGProp_Vinert.hxx".}
-proc setLocation*(this: var BRepGPropVinert; vLocation: GpPnt) {.
+proc constructBRepGProp_Vinert*(S: var BRepGProp_Face; D: var BRepGProp_Domain;
+                               Pl: gp_Pln; VLocation: gp_Pnt): BRepGProp_Vinert {.
+    constructor, importcpp: "BRepGProp_Vinert(@)", header: "BRepGProp_Vinert.hxx".}
+proc constructBRepGProp_Vinert*(S: var BRepGProp_Face; D: var BRepGProp_Domain;
+                               Pl: gp_Pln; VLocation: gp_Pnt; Eps: Standard_Real): BRepGProp_Vinert {.
+    constructor, importcpp: "BRepGProp_Vinert(@)", header: "BRepGProp_Vinert.hxx".}
+proc SetLocation*(this: var BRepGProp_Vinert; VLocation: gp_Pnt) {.
     importcpp: "SetLocation", header: "BRepGProp_Vinert.hxx".}
-proc perform*(this: var BRepGPropVinert; s: BRepGPropFace) {.importcpp: "Perform",
+proc Perform*(this: var BRepGProp_Vinert; S: BRepGProp_Face) {.importcpp: "Perform",
     header: "BRepGProp_Vinert.hxx".}
-proc perform*(this: var BRepGPropVinert; s: var BRepGPropFace; eps: StandardReal): StandardReal {.
+proc Perform*(this: var BRepGProp_Vinert; S: var BRepGProp_Face; Eps: Standard_Real): Standard_Real {.
     importcpp: "Perform", header: "BRepGProp_Vinert.hxx".}
-proc perform*(this: var BRepGPropVinert; s: BRepGPropFace; o: GpPnt) {.
+proc Perform*(this: var BRepGProp_Vinert; S: BRepGProp_Face; O: gp_Pnt) {.
     importcpp: "Perform", header: "BRepGProp_Vinert.hxx".}
-proc perform*(this: var BRepGPropVinert; s: var BRepGPropFace; o: GpPnt;
-             eps: StandardReal): StandardReal {.importcpp: "Perform",
+proc Perform*(this: var BRepGProp_Vinert; S: var BRepGProp_Face; O: gp_Pnt;
+             Eps: Standard_Real): Standard_Real {.importcpp: "Perform",
     header: "BRepGProp_Vinert.hxx".}
-proc perform*(this: var BRepGPropVinert; s: BRepGPropFace; pl: GpPln) {.
+proc Perform*(this: var BRepGProp_Vinert; S: BRepGProp_Face; Pl: gp_Pln) {.
     importcpp: "Perform", header: "BRepGProp_Vinert.hxx".}
-proc perform*(this: var BRepGPropVinert; s: var BRepGPropFace; pl: GpPln;
-             eps: StandardReal): StandardReal {.importcpp: "Perform",
+proc Perform*(this: var BRepGProp_Vinert; S: var BRepGProp_Face; Pl: gp_Pln;
+             Eps: Standard_Real): Standard_Real {.importcpp: "Perform",
     header: "BRepGProp_Vinert.hxx".}
-proc perform*(this: var BRepGPropVinert; s: var BRepGPropFace; d: var BRepGPropDomain) {.
+proc Perform*(this: var BRepGProp_Vinert; S: var BRepGProp_Face;
+             D: var BRepGProp_Domain) {.importcpp: "Perform",
+                                     header: "BRepGProp_Vinert.hxx".}
+proc Perform*(this: var BRepGProp_Vinert; S: var BRepGProp_Face;
+             D: var BRepGProp_Domain; Eps: Standard_Real): Standard_Real {.
     importcpp: "Perform", header: "BRepGProp_Vinert.hxx".}
-proc perform*(this: var BRepGPropVinert; s: var BRepGPropFace; d: var BRepGPropDomain;
-             eps: StandardReal): StandardReal {.importcpp: "Perform",
+proc Perform*(this: var BRepGProp_Vinert; S: var BRepGProp_Face;
+             D: var BRepGProp_Domain; O: gp_Pnt) {.importcpp: "Perform",
     header: "BRepGProp_Vinert.hxx".}
-proc perform*(this: var BRepGPropVinert; s: var BRepGPropFace; d: var BRepGPropDomain;
-             o: GpPnt) {.importcpp: "Perform", header: "BRepGProp_Vinert.hxx".}
-proc perform*(this: var BRepGPropVinert; s: var BRepGPropFace; d: var BRepGPropDomain;
-             o: GpPnt; eps: StandardReal): StandardReal {.importcpp: "Perform",
+proc Perform*(this: var BRepGProp_Vinert; S: var BRepGProp_Face;
+             D: var BRepGProp_Domain; O: gp_Pnt; Eps: Standard_Real): Standard_Real {.
+    importcpp: "Perform", header: "BRepGProp_Vinert.hxx".}
+proc Perform*(this: var BRepGProp_Vinert; S: var BRepGProp_Face;
+             D: var BRepGProp_Domain; Pl: gp_Pln) {.importcpp: "Perform",
     header: "BRepGProp_Vinert.hxx".}
-proc perform*(this: var BRepGPropVinert; s: var BRepGPropFace; d: var BRepGPropDomain;
-             pl: GpPln) {.importcpp: "Perform", header: "BRepGProp_Vinert.hxx".}
-proc perform*(this: var BRepGPropVinert; s: var BRepGPropFace; d: var BRepGPropDomain;
-             pl: GpPln; eps: StandardReal): StandardReal {.importcpp: "Perform",
-    header: "BRepGProp_Vinert.hxx".}
-proc getEpsilon*(this: var BRepGPropVinert): StandardReal {.importcpp: "GetEpsilon",
-    header: "BRepGProp_Vinert.hxx".}
-
+proc Perform*(this: var BRepGProp_Vinert; S: var BRepGProp_Face;
+             D: var BRepGProp_Domain; Pl: gp_Pln; Eps: Standard_Real): Standard_Real {.
+    importcpp: "Perform", header: "BRepGProp_Vinert.hxx".}
+proc GetEpsilon*(this: var BRepGProp_Vinert): Standard_Real {.
+    importcpp: "GetEpsilon", header: "BRepGProp_Vinert.hxx".}

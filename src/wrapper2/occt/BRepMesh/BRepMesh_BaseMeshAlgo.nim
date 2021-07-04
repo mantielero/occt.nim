@@ -13,87 +13,92 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../IMeshTools/IMeshTools_MeshAlgo, ../NCollection/NCollection_Shared,
+  ../IMeshTools/IMeshTools_Parameters, BRepMesh_DegreeOfFreedom,
+  ../Poly/Poly_Triangulation
+
 discard "forward decl of BRepMesh_DataStructureOfDelaun"
 discard "forward decl of BRepMesh_Delaun"
 type
-  BRepMeshBaseMeshAlgo* {.importcpp: "BRepMesh_BaseMeshAlgo",
-                         header: "BRepMesh_BaseMeshAlgo.hxx", bycopy.} = object of IMeshToolsMeshAlgo ##
-                                                                                               ## !
-                                                                                               ## Gets
-                                                                                               ## discrete
-                                                                                               ## face.
-                                                                                               ##
-                                                                                               ## !
-                                                                                               ## Registers
-                                                                                               ## the
-                                                                                               ## given
-                                                                                               ## point
-                                                                                               ## in
-                                                                                               ## vertex
-                                                                                               ## map
-                                                                                               ## and
-                                                                                               ## adds
-                                                                                               ## 2d
-                                                                                               ## point
-                                                                                               ## to
-                                                                                               ## mesh
-                                                                                               ## data
-                                                                                               ## structure.
-                                                                                               ##
-                                                                                               ## !
-                                                                                               ## Returns
-                                                                                               ## index
-                                                                                               ## of
-                                                                                               ## node
-                                                                                               ## in
-                                                                                               ## the
-                                                                                               ## structure.
-                                                                                               ##
-                                                                                               ## !
-                                                                                               ## If
-                                                                                               ## the
-                                                                                               ## given
-                                                                                               ## edge
-                                                                                               ## has
-                                                                                               ## another
-                                                                                               ## pcurve
-                                                                                               ## for
-                                                                                               ## current
-                                                                                               ## face
-                                                                                               ## coinciding
-                                                                                               ## with
-                                                                                               ## specified
-                                                                                               ## one,
-                                                                                               ##
-                                                                                               ## !
-                                                                                               ## returns
-                                                                                               ## TopAbs_INTERNAL
-                                                                                               ## flag.
-                                                                                               ## Elsewhere
-                                                                                               ## returns
-                                                                                               ## orientation
-                                                                                               ## of
-                                                                                               ## specified
-                                                                                               ## pcurve.
+  BRepMesh_BaseMeshAlgo* {.importcpp: "BRepMesh_BaseMeshAlgo",
+                          header: "BRepMesh_BaseMeshAlgo.hxx", bycopy.} = object of IMeshTools_MeshAlgo ##
+                                                                                                 ## !
+                                                                                                 ## Gets
+                                                                                                 ## discrete
+                                                                                                 ## face.
+                                                                                                 ##
+                                                                                                 ## !
+                                                                                                 ## Registers
+                                                                                                 ## the
+                                                                                                 ## given
+                                                                                                 ## point
+                                                                                                 ## in
+                                                                                                 ## vertex
+                                                                                                 ## map
+                                                                                                 ## and
+                                                                                                 ## adds
+                                                                                                 ## 2d
+                                                                                                 ## point
+                                                                                                 ## to
+                                                                                                 ## mesh
+                                                                                                 ## data
+                                                                                                 ## structure.
+                                                                                                 ##
+                                                                                                 ## !
+                                                                                                 ## Returns
+                                                                                                 ## index
+                                                                                                 ## of
+                                                                                                 ## node
+                                                                                                 ## in
+                                                                                                 ## the
+                                                                                                 ## structure.
+                                                                                                 ##
+                                                                                                 ## !
+                                                                                                 ## If
+                                                                                                 ## the
+                                                                                                 ## given
+                                                                                                 ## edge
+                                                                                                 ## has
+                                                                                                 ## another
+                                                                                                 ## pcurve
+                                                                                                 ## for
+                                                                                                 ## current
+                                                                                                 ## face
+                                                                                                 ## coinciding
+                                                                                                 ## with
+                                                                                                 ## specified
+                                                                                                 ## one,
+                                                                                                 ##
+                                                                                                 ## !
+                                                                                                 ## returns
+                                                                                                 ## TopAbs_INTERNAL
+                                                                                                 ## flag.
+                                                                                                 ## Elsewhere
+                                                                                                 ## returns
+                                                                                                 ## orientation
+                                                                                                 ## of
+                                                                                                 ## specified
+                                                                                                 ## pcurve.
 
-  BRepMeshBaseMeshAlgoVectorOfPnt* = NCollectionShared[NCollectionVector[GpPnt]]
+  BRepMesh_BaseMeshAlgoVectorOfPnt* = NCollection_Shared[
+      NCollection_Vector[gp_Pnt]]
 
-proc constructBRepMeshBaseMeshAlgo*(): BRepMeshBaseMeshAlgo {.constructor,
+proc constructBRepMesh_BaseMeshAlgo*(): BRepMesh_BaseMeshAlgo {.constructor,
     importcpp: "BRepMesh_BaseMeshAlgo(@)", header: "BRepMesh_BaseMeshAlgo.hxx".}
-proc destroyBRepMeshBaseMeshAlgo*(this: var BRepMeshBaseMeshAlgo) {.
+proc destroyBRepMesh_BaseMeshAlgo*(this: var BRepMesh_BaseMeshAlgo) {.
     importcpp: "#.~BRepMesh_BaseMeshAlgo()", header: "BRepMesh_BaseMeshAlgo.hxx".}
-proc perform*(this: var BRepMeshBaseMeshAlgo; theDFace: IFaceHandle;
-             theParameters: IMeshToolsParameters;
-             theRange: MessageProgressRange = messageProgressRange()) {.
+proc Perform*(this: var BRepMesh_BaseMeshAlgo; theDFace: IFaceHandle;
+             theParameters: IMeshTools_Parameters;
+             theRange: Message_ProgressRange = Message_ProgressRange()) {.
     importcpp: "Perform", header: "BRepMesh_BaseMeshAlgo.hxx".}
 type
-  BRepMeshBaseMeshAlgobaseType* = IMeshToolsMeshAlgo
+  BRepMesh_BaseMeshAlgobase_type* = IMeshTools_MeshAlgo
 
-proc getTypeName*(): cstring {.importcpp: "BRepMesh_BaseMeshAlgo::get_type_name(@)",
-                            header: "BRepMesh_BaseMeshAlgo.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "BRepMesh_BaseMeshAlgo::get_type_name(@)",
+                              header: "BRepMesh_BaseMeshAlgo.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "BRepMesh_BaseMeshAlgo::get_type_descriptor(@)",
     header: "BRepMesh_BaseMeshAlgo.hxx".}
-proc dynamicType*(this: BRepMeshBaseMeshAlgo): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "BRepMesh_BaseMeshAlgo.hxx".}
-
+proc DynamicType*(this: BRepMesh_BaseMeshAlgo): handle[Standard_Type] {.
+    noSideEffect, importcpp: "DynamicType", header: "BRepMesh_BaseMeshAlgo.hxx".}

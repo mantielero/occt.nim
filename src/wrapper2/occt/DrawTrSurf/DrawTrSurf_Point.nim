@@ -14,6 +14,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../gp/gp_Pnt,
+  ../Standard/Standard_Boolean, ../Draw/Draw_MarkerShape, ../Draw/Draw_Color,
+  ../Draw/Draw_Drawable3D, ../Standard/Standard_OStream, ../Draw/Draw_Interpretor
+
 discard "forward decl of gp_Pnt"
 discard "forward decl of Draw_Color"
 discard "forward decl of gp_Pnt2d"
@@ -22,53 +27,52 @@ discard "forward decl of Draw_Drawable3D"
 discard "forward decl of DrawTrSurf_Point"
 discard "forward decl of DrawTrSurf_Point"
 type
-  HandleDrawTrSurfPoint* = Handle[DrawTrSurfPoint]
+  Handle_DrawTrSurf_Point* = handle[DrawTrSurf_Point]
 
 ## ! A drawable point.
 
 type
-  DrawTrSurfPoint* {.importcpp: "DrawTrSurf_Point", header: "DrawTrSurf_Point.hxx",
-                    bycopy.} = object of DrawDrawable3D
+  DrawTrSurf_Point* {.importcpp: "DrawTrSurf_Point",
+                     header: "DrawTrSurf_Point.hxx", bycopy.} = object of Draw_Drawable3D
 
 
-proc constructDrawTrSurfPoint*(p: GpPnt; shape: DrawMarkerShape; col: DrawColor): DrawTrSurfPoint {.
+proc constructDrawTrSurf_Point*(P: gp_Pnt; Shape: Draw_MarkerShape; Col: Draw_Color): DrawTrSurf_Point {.
     constructor, importcpp: "DrawTrSurf_Point(@)", header: "DrawTrSurf_Point.hxx".}
-proc constructDrawTrSurfPoint*(p: GpPnt2d; shape: DrawMarkerShape; col: DrawColor): DrawTrSurfPoint {.
+proc constructDrawTrSurf_Point*(P: gp_Pnt2d; Shape: Draw_MarkerShape; Col: Draw_Color): DrawTrSurf_Point {.
     constructor, importcpp: "DrawTrSurf_Point(@)", header: "DrawTrSurf_Point.hxx".}
-proc drawOn*(this: DrawTrSurfPoint; dis: var DrawDisplay) {.noSideEffect,
+proc DrawOn*(this: DrawTrSurf_Point; dis: var Draw_Display) {.noSideEffect,
     importcpp: "DrawOn", header: "DrawTrSurf_Point.hxx".}
-proc is3D*(this: DrawTrSurfPoint): StandardBoolean {.noSideEffect, importcpp: "Is3D",
+proc Is3D*(this: DrawTrSurf_Point): Standard_Boolean {.noSideEffect,
+    importcpp: "Is3D", header: "DrawTrSurf_Point.hxx".}
+proc Point*(this: DrawTrSurf_Point): gp_Pnt {.noSideEffect, importcpp: "Point",
     header: "DrawTrSurf_Point.hxx".}
-proc point*(this: DrawTrSurfPoint): GpPnt {.noSideEffect, importcpp: "Point",
-                                        header: "DrawTrSurf_Point.hxx".}
-proc point*(this: var DrawTrSurfPoint; p: GpPnt) {.importcpp: "Point",
+proc Point*(this: var DrawTrSurf_Point; P: gp_Pnt) {.importcpp: "Point",
     header: "DrawTrSurf_Point.hxx".}
-proc point2d*(this: DrawTrSurfPoint): GpPnt2d {.noSideEffect, importcpp: "Point2d",
+proc Point2d*(this: DrawTrSurf_Point): gp_Pnt2d {.noSideEffect, importcpp: "Point2d",
     header: "DrawTrSurf_Point.hxx".}
-proc point2d*(this: var DrawTrSurfPoint; p: GpPnt2d) {.importcpp: "Point2d",
+proc Point2d*(this: var DrawTrSurf_Point; P: gp_Pnt2d) {.importcpp: "Point2d",
     header: "DrawTrSurf_Point.hxx".}
-proc color*(this: var DrawTrSurfPoint; aColor: DrawColor) {.importcpp: "Color",
+proc Color*(this: var DrawTrSurf_Point; aColor: Draw_Color) {.importcpp: "Color",
     header: "DrawTrSurf_Point.hxx".}
-proc color*(this: DrawTrSurfPoint): DrawColor {.noSideEffect, importcpp: "Color",
+proc Color*(this: DrawTrSurf_Point): Draw_Color {.noSideEffect, importcpp: "Color",
     header: "DrawTrSurf_Point.hxx".}
-proc shape*(this: var DrawTrSurfPoint; s: DrawMarkerShape) {.importcpp: "Shape",
+proc Shape*(this: var DrawTrSurf_Point; S: Draw_MarkerShape) {.importcpp: "Shape",
     header: "DrawTrSurf_Point.hxx".}
-proc shape*(this: DrawTrSurfPoint): DrawMarkerShape {.noSideEffect,
+proc Shape*(this: DrawTrSurf_Point): Draw_MarkerShape {.noSideEffect,
     importcpp: "Shape", header: "DrawTrSurf_Point.hxx".}
-proc copy*(this: DrawTrSurfPoint): Handle[DrawDrawable3D] {.noSideEffect,
+proc Copy*(this: DrawTrSurf_Point): handle[Draw_Drawable3D] {.noSideEffect,
     importcpp: "Copy", header: "DrawTrSurf_Point.hxx".}
-proc dump*(this: DrawTrSurfPoint; s: var StandardOStream) {.noSideEffect,
+proc Dump*(this: DrawTrSurf_Point; S: var Standard_OStream) {.noSideEffect,
     importcpp: "Dump", header: "DrawTrSurf_Point.hxx".}
-proc whatis*(this: DrawTrSurfPoint; i: var DrawInterpretor) {.noSideEffect,
+proc Whatis*(this: DrawTrSurf_Point; I: var Draw_Interpretor) {.noSideEffect,
     importcpp: "Whatis", header: "DrawTrSurf_Point.hxx".}
 type
-  DrawTrSurfPointbaseType* = DrawDrawable3D
+  DrawTrSurf_Pointbase_type* = Draw_Drawable3D
 
-proc getTypeName*(): cstring {.importcpp: "DrawTrSurf_Point::get_type_name(@)",
-                            header: "DrawTrSurf_Point.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "DrawTrSurf_Point::get_type_name(@)",
+                              header: "DrawTrSurf_Point.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "DrawTrSurf_Point::get_type_descriptor(@)",
     header: "DrawTrSurf_Point.hxx".}
-proc dynamicType*(this: DrawTrSurfPoint): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: DrawTrSurf_Point): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "DrawTrSurf_Point.hxx".}
-

@@ -14,60 +14,65 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Real
+
 
 discard "forward decl of Adaptor3d_Curve"
 discard "forward decl of Bnd_Box"
 discard "forward decl of gp_Circ"
 discard "forward decl of gp_Elips"
 type
-  BndLibAdd3dCurve* {.importcpp: "BndLib_Add3dCurve",
-                     header: "BndLib_Add3dCurve.hxx", bycopy.} = object ## ! Adds to the bounding box B the curve C
-                                                                   ## ! B is then enlarged by the tolerance value Tol.
-                                                                   ## ! Note: depending on the type of curve, one of the following
-                                                                   ## !
-                                                                   ## representations of the curve C is used to include it in the bounding box B:
-                                                                   ## ! -   an exact
-                                                                   ## representation if C is built from a line, a circle   or a conic curve,
-                                                                   ## ! -   the poles of the curve if C is built from a Bezier curve or   a BSpline curve,
-                                                                   ## ! if not, the points of an approximation of the curve C.
-                                                                   ## ! Warning
-                                                                   ## ! C is an adapted curve, that is, an object which is an interface between:
-                                                                   ## ! -   the services provided by a 3D curve from the package   Geom
-                                                                   ## ! -   and those required of the curve by the computation algorithm.
-                                                                   ## ! The adapted curve is created in the following way:
-                                                                   ## !
-                                                                   ## Handle(Geom_Curve) mycurve = ... ;
-                                                                   ## !
-                                                                   ## GeomAdaptor_Curve C(mycurve);
-                                                                   ## ! The bounding box B is then enlarged by adding it:
-                                                                   ## ! Bnd_Box B;
-                                                                   ## ! // ...
-                                                                   ## ! Standard_Real Tol = ... ;
-                                                                   ## !
-                                                                   ## Add3dCurve::Add ( C, Tol, B );
-                                                                   ## ! Exceptions
-                                                                   ## !
-                                                                   ## Standard_Failure if the curve is built from:
-                                                                   ## ! -   a Geom_Line, or
-                                                                   ## ! -   a
-                                                                   ## Geom_Parabola, or
-                                                                   ## ! -   a
-                                                                   ## Geom_Hyperbola,
-                                                                   ## ! and P1 and P2 are either two negative infinite real
-                                                                   ## ! numbers, or two positive infinite real numbers.
+  BndLib_Add3dCurve* {.importcpp: "BndLib_Add3dCurve",
+                      header: "BndLib_Add3dCurve.hxx", bycopy.} = object ## ! Adds to the bounding box B the curve C
+                                                                    ## ! B is then enlarged by the tolerance value Tol.
+                                                                    ## ! Note: depending on the type of curve, one of the following
+                                                                    ## !
+                                                                    ## representations of the curve C is used to include it in the bounding box B:
+                                                                    ## ! -   an exact
+                                                                    ## representation if C is built from a line, a circle   or a conic curve,
+                                                                    ## ! -   the poles of the curve if C is built from a Bezier curve or   a BSpline curve,
+                                                                    ## ! if not, the points of an
+                                                                    ## approximation of the curve C.
+                                                                    ## ! Warning
+                                                                    ## ! C is an adapted curve, that is, an object which is an interface between:
+                                                                    ## ! -   the services provided by a 3D curve from the package   Geom
+                                                                    ## ! -   and those required of the curve by the computation algorithm.
+                                                                    ## ! The adapted curve is created in the following way:
+                                                                    ## !
+                                                                    ## Handle(Geom_Curve) mycurve = ... ;
+                                                                    ## !
+                                                                    ## GeomAdaptor_Curve C(mycurve);
+                                                                    ## ! The bounding box B is then enlarged by adding it:
+                                                                    ## ! Bnd_Box B;
+                                                                    ## ! // ...
+                                                                    ## !
+                                                                    ## Standard_Real Tol = ... ;
+                                                                    ## !
+                                                                    ## Add3dCurve::Add ( C, Tol, B );
+                                                                    ## ! Exceptions
+                                                                    ## !
+                                                                    ## Standard_Failure if the curve is built from:
+                                                                    ## ! -   a Geom_Line, or
+                                                                    ## ! -   a
+                                                                    ## Geom_Parabola, or
+                                                                    ## ! -   a
+                                                                    ## Geom_Hyperbola,
+                                                                    ## ! and P1 and P2 are either two negative infinite real
+                                                                    ## ! numbers, or two positive infinite real numbers.
 
 
-proc add*(c: Adaptor3dCurve; tol: StandardReal; b: var BndBox) {.
+proc Add*(C: Adaptor3d_Curve; Tol: Standard_Real; B: var Bnd_Box) {.
     importcpp: "BndLib_Add3dCurve::Add(@)", header: "BndLib_Add3dCurve.hxx".}
-proc add*(c: Adaptor3dCurve; u1: StandardReal; u2: StandardReal; tol: StandardReal;
-         b: var BndBox) {.importcpp: "BndLib_Add3dCurve::Add(@)",
-                       header: "BndLib_Add3dCurve.hxx".}
-proc addOptimal*(c: Adaptor3dCurve; tol: StandardReal; b: var BndBox) {.
+proc Add*(C: Adaptor3d_Curve; U1: Standard_Real; U2: Standard_Real; Tol: Standard_Real;
+         B: var Bnd_Box) {.importcpp: "BndLib_Add3dCurve::Add(@)",
+                        header: "BndLib_Add3dCurve.hxx".}
+proc AddOptimal*(C: Adaptor3d_Curve; Tol: Standard_Real; B: var Bnd_Box) {.
     importcpp: "BndLib_Add3dCurve::AddOptimal(@)", header: "BndLib_Add3dCurve.hxx".}
-proc addOptimal*(c: Adaptor3dCurve; u1: StandardReal; u2: StandardReal;
-                tol: StandardReal; b: var BndBox) {.
+proc AddOptimal*(C: Adaptor3d_Curve; U1: Standard_Real; U2: Standard_Real;
+                Tol: Standard_Real; B: var Bnd_Box) {.
     importcpp: "BndLib_Add3dCurve::AddOptimal(@)", header: "BndLib_Add3dCurve.hxx".}
-proc addGenCurv*(c: Adaptor3dCurve; uMin: StandardReal; uMax: StandardReal;
-                tol: StandardReal; b: var BndBox) {.
+proc AddGenCurv*(C: Adaptor3d_Curve; UMin: Standard_Real; UMax: Standard_Real;
+                Tol: Standard_Real; B: var Bnd_Box) {.
     importcpp: "BndLib_Add3dCurve::AddGenCurv(@)", header: "BndLib_Add3dCurve.hxx".}
-

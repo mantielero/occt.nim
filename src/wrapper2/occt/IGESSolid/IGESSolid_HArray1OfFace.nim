@@ -14,35 +14,37 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  IGESSolid_Face, IGESSolid_Array1OfFace, ../NCollection/NCollection_DefineHArray1
+
 type
-  IGESSolidHArray1OfFace* {.importcpp: "IGESSolid_HArray1OfFace",
-                           header: "IGESSolid_HArray1OfFace.hxx", bycopy.} = object of IGESSolidArray1OfFace
+  IGESSolid_HArray1OfFace* {.importcpp: "IGESSolid_HArray1OfFace",
+                            header: "IGESSolid_HArray1OfFace.hxx", bycopy.} = object of IGESSolid_Array1OfFace
 
 
-proc constructIGESSolidHArray1OfFace*(theLower: StandardInteger;
-                                     theUpper: StandardInteger): IGESSolidHArray1OfFace {.
+proc constructIGESSolid_HArray1OfFace*(theLower: Standard_Integer;
+                                      theUpper: Standard_Integer): IGESSolid_HArray1OfFace {.
     constructor, importcpp: "IGESSolid_HArray1OfFace(@)",
     header: "IGESSolid_HArray1OfFace.hxx".}
-proc constructIGESSolidHArray1OfFace*(theLower: StandardInteger;
-                                     theUpper: StandardInteger;
-                                     theValue: ValueType): IGESSolidHArray1OfFace {.
+proc constructIGESSolid_HArray1OfFace*(theLower: Standard_Integer;
+                                      theUpper: Standard_Integer;
+                                      theValue: value_type): IGESSolid_HArray1OfFace {.
     constructor, importcpp: "IGESSolid_HArray1OfFace(@)",
     header: "IGESSolid_HArray1OfFace.hxx".}
-proc constructIGESSolidHArray1OfFace*(theOther: IGESSolidArray1OfFace): IGESSolidHArray1OfFace {.
+proc constructIGESSolid_HArray1OfFace*(theOther: IGESSolid_Array1OfFace): IGESSolid_HArray1OfFace {.
     constructor, importcpp: "IGESSolid_HArray1OfFace(@)",
     header: "IGESSolid_HArray1OfFace.hxx".}
-proc array1*(this: IGESSolidHArray1OfFace): IGESSolidArray1OfFace {.noSideEffect,
+proc Array1*(this: IGESSolid_HArray1OfFace): IGESSolid_Array1OfFace {.noSideEffect,
     importcpp: "Array1", header: "IGESSolid_HArray1OfFace.hxx".}
-proc changeArray1*(this: var IGESSolidHArray1OfFace): var IGESSolidArray1OfFace {.
+proc ChangeArray1*(this: var IGESSolid_HArray1OfFace): var IGESSolid_Array1OfFace {.
     importcpp: "ChangeArray1", header: "IGESSolid_HArray1OfFace.hxx".}
 type
-  IGESSolidHArray1OfFacebaseType* = MMgtTShared
+  IGESSolid_HArray1OfFacebase_type* = MMgt_TShared
 
-proc getTypeName*(): cstring {.importcpp: "IGESSolid_HArray1OfFace::get_type_name(@)",
-                            header: "IGESSolid_HArray1OfFace.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "IGESSolid_HArray1OfFace::get_type_name(@)",
+                              header: "IGESSolid_HArray1OfFace.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "IGESSolid_HArray1OfFace::get_type_descriptor(@)",
     header: "IGESSolid_HArray1OfFace.hxx".}
-proc dynamicType*(this: IGESSolidHArray1OfFace): Handle[StandardType] {.
+proc DynamicType*(this: IGESSolid_HArray1OfFace): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType", header: "IGESSolid_HArray1OfFace.hxx".}
-

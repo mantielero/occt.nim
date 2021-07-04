@@ -14,6 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Boolean,
+  IFSelect_SelectDeduct, ../Standard/Standard_Integer
+
 discard "forward decl of Interface_EntityIterator"
 discard "forward decl of Interface_Graph"
 discard "forward decl of Standard_Transient"
@@ -22,7 +26,7 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of IFSelect_SelectExtract"
 discard "forward decl of IFSelect_SelectExtract"
 type
-  HandleIFSelectSelectExtract* = Handle[IFSelectSelectExtract]
+  Handle_IFSelect_SelectExtract* = handle[IFSelect_SelectExtract]
 
 ## ! A SelectExtract determines a list of Entities from an Input
 ## ! Selection, as a sub-list of the Input Result
@@ -33,57 +37,56 @@ type
 ## ! Basic features (the unique Input) are inherited from SelectDeduct
 
 type
-  IFSelectSelectExtract* {.importcpp: "IFSelect_SelectExtract",
-                          header: "IFSelect_SelectExtract.hxx", bycopy.} = object of IFSelectSelectDeduct ##
-                                                                                                   ## !
-                                                                                                   ## Returns
-                                                                                                   ## True
-                                                                                                   ## if
-                                                                                                   ## Sort
-                                                                                                   ## criterium
-                                                                                                   ## is
-                                                                                                   ## Direct,
-                                                                                                   ## False
-                                                                                                   ## if
-                                                                                                   ## Reverse
-                                                                                                   ##
-                                                                                                   ## !
-                                                                                                   ## Initializes
-                                                                                                   ## a
-                                                                                                   ## SelectExtract
-                                                                                                   ## :
-                                                                                                   ## enforces
-                                                                                                   ## the
-                                                                                                   ## sort
-                                                                                                   ## to
-                                                                                                   ## be
-                                                                                                   ## Direct
+  IFSelect_SelectExtract* {.importcpp: "IFSelect_SelectExtract",
+                           header: "IFSelect_SelectExtract.hxx", bycopy.} = object of IFSelect_SelectDeduct ##
+                                                                                                     ## !
+                                                                                                     ## Returns
+                                                                                                     ## True
+                                                                                                     ## if
+                                                                                                     ## Sort
+                                                                                                     ## criterium
+                                                                                                     ## is
+                                                                                                     ## Direct,
+                                                                                                     ## False
+                                                                                                     ## if
+                                                                                                     ## Reverse
+                                                                                                     ##
+                                                                                                     ## !
+                                                                                                     ## Initializes
+                                                                                                     ## a
+                                                                                                     ## SelectExtract
+                                                                                                     ## :
+                                                                                                     ## enforces
+                                                                                                     ## the
+                                                                                                     ## sort
+                                                                                                     ## to
+                                                                                                     ## be
+                                                                                                     ## Direct
 
 
-proc isDirect*(this: IFSelectSelectExtract): StandardBoolean {.noSideEffect,
+proc IsDirect*(this: IFSelect_SelectExtract): Standard_Boolean {.noSideEffect,
     importcpp: "IsDirect", header: "IFSelect_SelectExtract.hxx".}
-proc setDirect*(this: var IFSelectSelectExtract; direct: StandardBoolean) {.
+proc SetDirect*(this: var IFSelect_SelectExtract; direct: Standard_Boolean) {.
     importcpp: "SetDirect", header: "IFSelect_SelectExtract.hxx".}
-proc rootResult*(this: IFSelectSelectExtract; g: InterfaceGraph): InterfaceEntityIterator {.
+proc RootResult*(this: IFSelect_SelectExtract; G: Interface_Graph): Interface_EntityIterator {.
     noSideEffect, importcpp: "RootResult", header: "IFSelect_SelectExtract.hxx".}
-proc sort*(this: IFSelectSelectExtract; rank: StandardInteger;
-          ent: Handle[StandardTransient]; model: Handle[InterfaceInterfaceModel]): StandardBoolean {.
+proc Sort*(this: IFSelect_SelectExtract; rank: Standard_Integer;
+          ent: handle[Standard_Transient]; model: handle[Interface_InterfaceModel]): Standard_Boolean {.
     noSideEffect, importcpp: "Sort", header: "IFSelect_SelectExtract.hxx".}
-proc sortInGraph*(this: IFSelectSelectExtract; rank: StandardInteger;
-                 ent: Handle[StandardTransient]; g: InterfaceGraph): StandardBoolean {.
+proc SortInGraph*(this: IFSelect_SelectExtract; rank: Standard_Integer;
+                 ent: handle[Standard_Transient]; G: Interface_Graph): Standard_Boolean {.
     noSideEffect, importcpp: "SortInGraph", header: "IFSelect_SelectExtract.hxx".}
-proc label*(this: IFSelectSelectExtract): TCollectionAsciiString {.noSideEffect,
+proc Label*(this: IFSelect_SelectExtract): TCollection_AsciiString {.noSideEffect,
     importcpp: "Label", header: "IFSelect_SelectExtract.hxx".}
-proc extractLabel*(this: IFSelectSelectExtract): TCollectionAsciiString {.
+proc ExtractLabel*(this: IFSelect_SelectExtract): TCollection_AsciiString {.
     noSideEffect, importcpp: "ExtractLabel", header: "IFSelect_SelectExtract.hxx".}
 type
-  IFSelectSelectExtractbaseType* = IFSelectSelectDeduct
+  IFSelect_SelectExtractbase_type* = IFSelect_SelectDeduct
 
-proc getTypeName*(): cstring {.importcpp: "IFSelect_SelectExtract::get_type_name(@)",
-                            header: "IFSelect_SelectExtract.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "IFSelect_SelectExtract::get_type_name(@)",
+                              header: "IFSelect_SelectExtract.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "IFSelect_SelectExtract::get_type_descriptor(@)",
     header: "IFSelect_SelectExtract.hxx".}
-proc dynamicType*(this: IFSelectSelectExtract): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "IFSelect_SelectExtract.hxx".}
-
+proc DynamicType*(this: IFSelect_SelectExtract): handle[Standard_Type] {.
+    noSideEffect, importcpp: "DynamicType", header: "IFSelect_SelectExtract.hxx".}

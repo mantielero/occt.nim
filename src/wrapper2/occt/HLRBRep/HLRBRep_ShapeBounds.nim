@@ -14,54 +14,59 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../HLRAlgo/HLRAlgo_EdgesBlock, ../Standard/Standard,
+  ../Standard/Standard_DefineAlloc, ../Standard/Standard_Handle,
+  ../Standard/Standard_Integer
+
 discard "forward decl of HLRTopoBRep_OutLiner"
 discard "forward decl of Standard_Transient"
 type
-  HLRBRepShapeBounds* {.importcpp: "HLRBRep_ShapeBounds",
-                       header: "HLRBRep_ShapeBounds.hxx", bycopy.} = object
+  HLRBRep_ShapeBounds* {.importcpp: "HLRBRep_ShapeBounds",
+                        header: "HLRBRep_ShapeBounds.hxx", bycopy.} = object
 
 
-proc constructHLRBRepShapeBounds*(): HLRBRepShapeBounds {.constructor,
+proc constructHLRBRep_ShapeBounds*(): HLRBRep_ShapeBounds {.constructor,
     importcpp: "HLRBRep_ShapeBounds(@)", header: "HLRBRep_ShapeBounds.hxx".}
-proc constructHLRBRepShapeBounds*(s: Handle[HLRTopoBRepOutLiner];
-                                 sData: Handle[StandardTransient];
-                                 nbIso: StandardInteger; v1: StandardInteger;
-                                 v2: StandardInteger; e1: StandardInteger;
-                                 e2: StandardInteger; f1: StandardInteger;
-                                 f2: StandardInteger): HLRBRepShapeBounds {.
+proc constructHLRBRep_ShapeBounds*(S: handle[HLRTopoBRep_OutLiner];
+                                  SData: handle[Standard_Transient];
+                                  nbIso: Standard_Integer; V1: Standard_Integer;
+                                  V2: Standard_Integer; E1: Standard_Integer;
+                                  E2: Standard_Integer; F1: Standard_Integer;
+                                  F2: Standard_Integer): HLRBRep_ShapeBounds {.
     constructor, importcpp: "HLRBRep_ShapeBounds(@)",
     header: "HLRBRep_ShapeBounds.hxx".}
-proc constructHLRBRepShapeBounds*(s: Handle[HLRTopoBRepOutLiner];
-                                 nbIso: StandardInteger; v1: StandardInteger;
-                                 v2: StandardInteger; e1: StandardInteger;
-                                 e2: StandardInteger; f1: StandardInteger;
-                                 f2: StandardInteger): HLRBRepShapeBounds {.
+proc constructHLRBRep_ShapeBounds*(S: handle[HLRTopoBRep_OutLiner];
+                                  nbIso: Standard_Integer; V1: Standard_Integer;
+                                  V2: Standard_Integer; E1: Standard_Integer;
+                                  E2: Standard_Integer; F1: Standard_Integer;
+                                  F2: Standard_Integer): HLRBRep_ShapeBounds {.
     constructor, importcpp: "HLRBRep_ShapeBounds(@)",
     header: "HLRBRep_ShapeBounds.hxx".}
-proc translate*(this: var HLRBRepShapeBounds; nv: StandardInteger;
-               ne: StandardInteger; nf: StandardInteger) {.importcpp: "Translate",
+proc Translate*(this: var HLRBRep_ShapeBounds; NV: Standard_Integer;
+               NE: Standard_Integer; NF: Standard_Integer) {.importcpp: "Translate",
     header: "HLRBRep_ShapeBounds.hxx".}
-proc shape*(this: var HLRBRepShapeBounds; s: Handle[HLRTopoBRepOutLiner]) {.
+proc Shape*(this: var HLRBRep_ShapeBounds; S: handle[HLRTopoBRep_OutLiner]) {.
     importcpp: "Shape", header: "HLRBRep_ShapeBounds.hxx".}
-proc shape*(this: HLRBRepShapeBounds): Handle[HLRTopoBRepOutLiner] {.noSideEffect,
+proc Shape*(this: HLRBRep_ShapeBounds): handle[HLRTopoBRep_OutLiner] {.noSideEffect,
     importcpp: "Shape", header: "HLRBRep_ShapeBounds.hxx".}
-proc shapeData*(this: var HLRBRepShapeBounds; sd: Handle[StandardTransient]) {.
+proc ShapeData*(this: var HLRBRep_ShapeBounds; SD: handle[Standard_Transient]) {.
     importcpp: "ShapeData", header: "HLRBRep_ShapeBounds.hxx".}
-proc shapeData*(this: HLRBRepShapeBounds): Handle[StandardTransient] {.noSideEffect,
-    importcpp: "ShapeData", header: "HLRBRep_ShapeBounds.hxx".}
-proc nbOfIso*(this: var HLRBRepShapeBounds; nbIso: StandardInteger) {.
+proc ShapeData*(this: HLRBRep_ShapeBounds): handle[Standard_Transient] {.
+    noSideEffect, importcpp: "ShapeData", header: "HLRBRep_ShapeBounds.hxx".}
+proc NbOfIso*(this: var HLRBRep_ShapeBounds; nbIso: Standard_Integer) {.
     importcpp: "NbOfIso", header: "HLRBRep_ShapeBounds.hxx".}
-proc nbOfIso*(this: HLRBRepShapeBounds): StandardInteger {.noSideEffect,
+proc NbOfIso*(this: HLRBRep_ShapeBounds): Standard_Integer {.noSideEffect,
     importcpp: "NbOfIso", header: "HLRBRep_ShapeBounds.hxx".}
-proc sizes*(this: HLRBRepShapeBounds; nv: var StandardInteger;
-           ne: var StandardInteger; nf: var StandardInteger) {.noSideEffect,
+proc Sizes*(this: HLRBRep_ShapeBounds; NV: var Standard_Integer;
+           NE: var Standard_Integer; NF: var Standard_Integer) {.noSideEffect,
     importcpp: "Sizes", header: "HLRBRep_ShapeBounds.hxx".}
-proc bounds*(this: HLRBRepShapeBounds; v1: var StandardInteger;
-            v2: var StandardInteger; e1: var StandardInteger; e2: var StandardInteger;
-            f1: var StandardInteger; f2: var StandardInteger) {.noSideEffect,
-    importcpp: "Bounds", header: "HLRBRep_ShapeBounds.hxx".}
-proc updateMinMax*(this: var HLRBRepShapeBounds; theTotMinMax: MinMaxIndices) {.
+proc Bounds*(this: HLRBRep_ShapeBounds; V1: var Standard_Integer;
+            V2: var Standard_Integer; E1: var Standard_Integer;
+            E2: var Standard_Integer; F1: var Standard_Integer;
+            F2: var Standard_Integer) {.noSideEffect, importcpp: "Bounds",
+                                     header: "HLRBRep_ShapeBounds.hxx".}
+proc UpdateMinMax*(this: var HLRBRep_ShapeBounds; theTotMinMax: MinMaxIndices) {.
     importcpp: "UpdateMinMax", header: "HLRBRep_ShapeBounds.hxx".}
-proc minMax*(this: var HLRBRepShapeBounds): var MinMaxIndices {.importcpp: "MinMax",
+proc MinMax*(this: var HLRBRep_ShapeBounds): var MinMaxIndices {.importcpp: "MinMax",
     header: "HLRBRep_ShapeBounds.hxx".}
-

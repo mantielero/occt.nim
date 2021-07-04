@@ -14,65 +14,67 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Integer,
+  ../Standard/Standard_Real, Aspect_Grid
+
 discard "forward decl of Standard_NegativeValue"
 discard "forward decl of Standard_NullValue"
 discard "forward decl of Standard_NumericError"
 type
-  AspectCircularGrid* {.importcpp: "Aspect_CircularGrid",
-                       header: "Aspect_CircularGrid.hxx", bycopy.} = object of AspectGrid ##
-                                                                                   ## !
-                                                                                   ## creates
-                                                                                   ## a
-                                                                                   ## new
-                                                                                   ## grid.
-                                                                                   ## By
-                                                                                   ## default
-                                                                                   ## this
-                                                                                   ## grid
-                                                                                   ## is
-                                                                                   ## not
-                                                                                   ##
-                                                                                   ## !
-                                                                                   ## active.
+  Aspect_CircularGrid* {.importcpp: "Aspect_CircularGrid",
+                        header: "Aspect_CircularGrid.hxx", bycopy.} = object of Aspect_Grid ##
+                                                                                     ## !
+                                                                                     ## creates
+                                                                                     ## a
+                                                                                     ## new
+                                                                                     ## grid.
+                                                                                     ## By
+                                                                                     ## default
+                                                                                     ## this
+                                                                                     ## grid
+                                                                                     ## is
+                                                                                     ## not
+                                                                                     ##
+                                                                                     ## !
+                                                                                     ## active.
 
-  AspectCircularGridbaseType* = AspectGrid
+  Aspect_CircularGridbase_type* = Aspect_Grid
 
-proc getTypeName*(): cstring {.importcpp: "Aspect_CircularGrid::get_type_name(@)",
-                            header: "Aspect_CircularGrid.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "Aspect_CircularGrid::get_type_name(@)",
+                              header: "Aspect_CircularGrid.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "Aspect_CircularGrid::get_type_descriptor(@)",
     header: "Aspect_CircularGrid.hxx".}
-proc dynamicType*(this: AspectCircularGrid): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: Aspect_CircularGrid): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "Aspect_CircularGrid.hxx".}
-proc constructAspectCircularGrid*(aRadiusStep: StandardReal;
-                                 aDivisionNumber: StandardInteger;
-                                 xOrigin: StandardReal = 0;
-                                 anYOrigin: StandardReal = 0;
-                                 aRotationAngle: StandardReal = 0): AspectCircularGrid {.
+proc constructAspect_CircularGrid*(aRadiusStep: Standard_Real;
+                                  aDivisionNumber: Standard_Integer;
+                                  XOrigin: Standard_Real = 0;
+                                  anYOrigin: Standard_Real = 0;
+                                  aRotationAngle: Standard_Real = 0): Aspect_CircularGrid {.
     constructor, importcpp: "Aspect_CircularGrid(@)",
     header: "Aspect_CircularGrid.hxx".}
-proc setRadiusStep*(this: var AspectCircularGrid; aStep: StandardReal) {.
+proc SetRadiusStep*(this: var Aspect_CircularGrid; aStep: Standard_Real) {.
     importcpp: "SetRadiusStep", header: "Aspect_CircularGrid.hxx".}
-proc setDivisionNumber*(this: var AspectCircularGrid; aNumber: StandardInteger) {.
+proc SetDivisionNumber*(this: var Aspect_CircularGrid; aNumber: Standard_Integer) {.
     importcpp: "SetDivisionNumber", header: "Aspect_CircularGrid.hxx".}
-proc setGridValues*(this: var AspectCircularGrid; xOrigin: StandardReal;
-                   yOrigin: StandardReal; radiusStep: StandardReal;
-                   divisionNumber: StandardInteger; rotationAngle: StandardReal) {.
+proc SetGridValues*(this: var Aspect_CircularGrid; XOrigin: Standard_Real;
+                   YOrigin: Standard_Real; RadiusStep: Standard_Real;
+                   DivisionNumber: Standard_Integer; RotationAngle: Standard_Real) {.
     importcpp: "SetGridValues", header: "Aspect_CircularGrid.hxx".}
-proc compute*(this: AspectCircularGrid; x: StandardReal; y: StandardReal;
-             gridX: var StandardReal; gridY: var StandardReal) {.noSideEffect,
+proc Compute*(this: Aspect_CircularGrid; X: Standard_Real; Y: Standard_Real;
+             gridX: var Standard_Real; gridY: var Standard_Real) {.noSideEffect,
     importcpp: "Compute", header: "Aspect_CircularGrid.hxx".}
-proc radiusStep*(this: AspectCircularGrid): StandardReal {.noSideEffect,
+proc RadiusStep*(this: Aspect_CircularGrid): Standard_Real {.noSideEffect,
     importcpp: "RadiusStep", header: "Aspect_CircularGrid.hxx".}
-proc divisionNumber*(this: AspectCircularGrid): StandardInteger {.noSideEffect,
+proc DivisionNumber*(this: Aspect_CircularGrid): Standard_Integer {.noSideEffect,
     importcpp: "DivisionNumber", header: "Aspect_CircularGrid.hxx".}
-proc init*(this: var AspectCircularGrid) {.importcpp: "Init",
-                                       header: "Aspect_CircularGrid.hxx".}
-proc dumpJson*(this: AspectCircularGrid; theOStream: var StandardOStream;
-              theDepth: StandardInteger = -1) {.noSideEffect, importcpp: "DumpJson",
+proc Init*(this: var Aspect_CircularGrid) {.importcpp: "Init",
+                                        header: "Aspect_CircularGrid.hxx".}
+proc DumpJson*(this: Aspect_CircularGrid; theOStream: var Standard_OStream;
+              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
     header: "Aspect_CircularGrid.hxx".}
 discard "forward decl of Aspect_CircularGrid"
 type
-  HandleAspectCircularGrid* = Handle[AspectCircularGrid]
-
-
+  Handle_Aspect_CircularGrid* = handle[Aspect_CircularGrid]

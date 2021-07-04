@@ -14,6 +14,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
+  ../Standard/Standard_Integer
+
 discard "forward decl of Interface_NodeOfReaderLib"
 discard "forward decl of Standard_NoSuchObject"
 discard "forward decl of Standard_Transient"
@@ -21,39 +26,39 @@ discard "forward decl of Interface_ReaderModule"
 discard "forward decl of Interface_Protocol"
 discard "forward decl of Interface_GlobalNodeOfReaderLib"
 type
-  InterfaceReaderLib* {.importcpp: "Interface_ReaderLib",
-                       header: "Interface_ReaderLib.hxx", bycopy.} = object ## ! Adds a couple
-                                                                       ## (Module-Protocol) into the global
-                                                                       ## definition set
-                                                                       ## ! for this class of Library.
+  Interface_ReaderLib* {.importcpp: "Interface_ReaderLib",
+                        header: "Interface_ReaderLib.hxx", bycopy.} = object ## ! Adds a couple
+                                                                        ## (Module-Protocol) into the global
+                                                                        ## definition set
+                                                                        ## ! for this class of Library.
 
 
-proc setGlobal*(amodule: Handle[InterfaceReaderModule];
-               aprotocol: Handle[InterfaceProtocol]) {.
+proc SetGlobal*(amodule: handle[Interface_ReaderModule];
+               aprotocol: handle[Interface_Protocol]) {.
     importcpp: "Interface_ReaderLib::SetGlobal(@)",
     header: "Interface_ReaderLib.hxx".}
-proc constructInterfaceReaderLib*(aprotocol: Handle[InterfaceProtocol]): InterfaceReaderLib {.
+proc constructInterface_ReaderLib*(aprotocol: handle[Interface_Protocol]): Interface_ReaderLib {.
     constructor, importcpp: "Interface_ReaderLib(@)",
     header: "Interface_ReaderLib.hxx".}
-proc constructInterfaceReaderLib*(): InterfaceReaderLib {.constructor,
+proc constructInterface_ReaderLib*(): Interface_ReaderLib {.constructor,
     importcpp: "Interface_ReaderLib(@)", header: "Interface_ReaderLib.hxx".}
-proc addProtocol*(this: var InterfaceReaderLib; aprotocol: Handle[StandardTransient]) {.
+proc AddProtocol*(this: var Interface_ReaderLib;
+                 aprotocol: handle[Standard_Transient]) {.
     importcpp: "AddProtocol", header: "Interface_ReaderLib.hxx".}
-proc clear*(this: var InterfaceReaderLib) {.importcpp: "Clear",
-                                        header: "Interface_ReaderLib.hxx".}
-proc setComplete*(this: var InterfaceReaderLib) {.importcpp: "SetComplete",
+proc Clear*(this: var Interface_ReaderLib) {.importcpp: "Clear",
     header: "Interface_ReaderLib.hxx".}
-proc select*(this: InterfaceReaderLib; obj: Handle[StandardTransient];
-            module: var Handle[InterfaceReaderModule]; cn: var StandardInteger): StandardBoolean {.
+proc SetComplete*(this: var Interface_ReaderLib) {.importcpp: "SetComplete",
+    header: "Interface_ReaderLib.hxx".}
+proc Select*(this: Interface_ReaderLib; obj: handle[Standard_Transient];
+            module: var handle[Interface_ReaderModule]; CN: var Standard_Integer): Standard_Boolean {.
     noSideEffect, importcpp: "Select", header: "Interface_ReaderLib.hxx".}
-proc start*(this: var InterfaceReaderLib) {.importcpp: "Start",
-                                        header: "Interface_ReaderLib.hxx".}
-proc more*(this: InterfaceReaderLib): StandardBoolean {.noSideEffect,
+proc Start*(this: var Interface_ReaderLib) {.importcpp: "Start",
+    header: "Interface_ReaderLib.hxx".}
+proc More*(this: Interface_ReaderLib): Standard_Boolean {.noSideEffect,
     importcpp: "More", header: "Interface_ReaderLib.hxx".}
-proc next*(this: var InterfaceReaderLib) {.importcpp: "Next",
-                                       header: "Interface_ReaderLib.hxx".}
-proc module*(this: InterfaceReaderLib): Handle[InterfaceReaderModule] {.
+proc Next*(this: var Interface_ReaderLib) {.importcpp: "Next",
+                                        header: "Interface_ReaderLib.hxx".}
+proc Module*(this: Interface_ReaderLib): handle[Interface_ReaderModule] {.
     noSideEffect, importcpp: "Module", header: "Interface_ReaderLib.hxx".}
-proc protocol*(this: InterfaceReaderLib): Handle[InterfaceProtocol] {.noSideEffect,
-    importcpp: "Protocol", header: "Interface_ReaderLib.hxx".}
-
+proc Protocol*(this: Interface_ReaderLib): handle[Interface_Protocol] {.
+    noSideEffect, importcpp: "Protocol", header: "Interface_ReaderLib.hxx".}

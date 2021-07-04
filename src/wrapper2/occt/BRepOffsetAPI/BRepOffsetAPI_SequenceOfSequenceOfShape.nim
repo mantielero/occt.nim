@@ -14,8 +14,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../TopTools/TopTools_SequenceOfShape, ../NCollection/NCollection_Sequence
+
 type
-  BRepOffsetAPI_SequenceOfSequenceOfShape* = NCollectionSequence[
-      TopToolsSequenceOfShape]
-
-
+  BRepOffsetAPI_SequenceOfSequenceOfShape* = NCollection_Sequence[
+      TopTools_SequenceOfShape]

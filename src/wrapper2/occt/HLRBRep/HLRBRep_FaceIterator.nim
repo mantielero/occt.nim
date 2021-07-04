@@ -14,40 +14,44 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer,
+  ../Standard/Standard_Boolean, ../TopAbs/TopAbs_Orientation
+
 discard "forward decl of HLRAlgo_WiresBlock"
 discard "forward decl of HLRAlgo_EdgesBlock"
 discard "forward decl of HLRBRep_FaceData"
 type
-  HLRBRepFaceIterator* {.importcpp: "HLRBRep_FaceIterator",
-                        header: "HLRBRep_FaceIterator.hxx", bycopy.} = object
+  HLRBRep_FaceIterator* {.importcpp: "HLRBRep_FaceIterator",
+                         header: "HLRBRep_FaceIterator.hxx", bycopy.} = object
 
 
-proc constructHLRBRepFaceIterator*(): HLRBRepFaceIterator {.constructor,
+proc constructHLRBRep_FaceIterator*(): HLRBRep_FaceIterator {.constructor,
     importcpp: "HLRBRep_FaceIterator(@)", header: "HLRBRep_FaceIterator.hxx".}
-proc initEdge*(this: var HLRBRepFaceIterator; fd: var HLRBRepFaceData) {.
+proc InitEdge*(this: var HLRBRep_FaceIterator; fd: var HLRBRep_FaceData) {.
     importcpp: "InitEdge", header: "HLRBRep_FaceIterator.hxx".}
-proc moreEdge*(this: HLRBRepFaceIterator): StandardBoolean {.noSideEffect,
+proc MoreEdge*(this: HLRBRep_FaceIterator): Standard_Boolean {.noSideEffect,
     importcpp: "MoreEdge", header: "HLRBRep_FaceIterator.hxx".}
-proc nextEdge*(this: var HLRBRepFaceIterator) {.importcpp: "NextEdge",
+proc NextEdge*(this: var HLRBRep_FaceIterator) {.importcpp: "NextEdge",
     header: "HLRBRep_FaceIterator.hxx".}
-proc beginningOfWire*(this: HLRBRepFaceIterator): StandardBoolean {.noSideEffect,
+proc BeginningOfWire*(this: HLRBRep_FaceIterator): Standard_Boolean {.noSideEffect,
     importcpp: "BeginningOfWire", header: "HLRBRep_FaceIterator.hxx".}
-proc endOfWire*(this: HLRBRepFaceIterator): StandardBoolean {.noSideEffect,
+proc EndOfWire*(this: HLRBRep_FaceIterator): Standard_Boolean {.noSideEffect,
     importcpp: "EndOfWire", header: "HLRBRep_FaceIterator.hxx".}
-proc skipWire*(this: var HLRBRepFaceIterator) {.importcpp: "SkipWire",
+proc SkipWire*(this: var HLRBRep_FaceIterator) {.importcpp: "SkipWire",
     header: "HLRBRep_FaceIterator.hxx".}
-proc wire*(this: HLRBRepFaceIterator): Handle[HLRAlgoEdgesBlock] {.noSideEffect,
+proc Wire*(this: HLRBRep_FaceIterator): handle[HLRAlgo_EdgesBlock] {.noSideEffect,
     importcpp: "Wire", header: "HLRBRep_FaceIterator.hxx".}
-proc edge*(this: HLRBRepFaceIterator): StandardInteger {.noSideEffect,
+proc Edge*(this: HLRBRep_FaceIterator): Standard_Integer {.noSideEffect,
     importcpp: "Edge", header: "HLRBRep_FaceIterator.hxx".}
-proc orientation*(this: HLRBRepFaceIterator): TopAbsOrientation {.noSideEffect,
+proc Orientation*(this: HLRBRep_FaceIterator): TopAbs_Orientation {.noSideEffect,
     importcpp: "Orientation", header: "HLRBRep_FaceIterator.hxx".}
-proc outLine*(this: HLRBRepFaceIterator): StandardBoolean {.noSideEffect,
+proc OutLine*(this: HLRBRep_FaceIterator): Standard_Boolean {.noSideEffect,
     importcpp: "OutLine", header: "HLRBRep_FaceIterator.hxx".}
-proc internal*(this: HLRBRepFaceIterator): StandardBoolean {.noSideEffect,
+proc Internal*(this: HLRBRep_FaceIterator): Standard_Boolean {.noSideEffect,
     importcpp: "Internal", header: "HLRBRep_FaceIterator.hxx".}
-proc double*(this: HLRBRepFaceIterator): StandardBoolean {.noSideEffect,
+proc Double*(this: HLRBRep_FaceIterator): Standard_Boolean {.noSideEffect,
     importcpp: "Double", header: "HLRBRep_FaceIterator.hxx".}
-proc isoLine*(this: HLRBRepFaceIterator): StandardBoolean {.noSideEffect,
+proc IsoLine*(this: HLRBRep_FaceIterator): Standard_Boolean {.noSideEffect,
     importcpp: "IsoLine", header: "HLRBRep_FaceIterator.hxx".}
-

@@ -14,6 +14,13 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
+  IntPatch_SequenceOfPoint, IntPatch_SequenceOfLine, ../Standard/Standard_Real,
+  ../IntSurf/IntSurf_ListOfPntOn2S, ../GeomAbs/GeomAbs_SurfaceType,
+  ../Standard/Standard_Integer
+
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of Standard_DomainError"
@@ -23,73 +30,73 @@ discard "forward decl of Adaptor3d_TopolTool"
 discard "forward decl of IntPatch_Point"
 discard "forward decl of IntPatch_Line"
 type
-  IntPatchIntersection* {.importcpp: "IntPatch_Intersection",
-                         header: "IntPatch_Intersection.hxx", bycopy.} = object
+  IntPatch_Intersection* {.importcpp: "IntPatch_Intersection",
+                          header: "IntPatch_Intersection.hxx", bycopy.} = object
 
 
-proc constructIntPatchIntersection*(): IntPatchIntersection {.constructor,
+proc constructIntPatch_Intersection*(): IntPatch_Intersection {.constructor,
     importcpp: "IntPatch_Intersection(@)", header: "IntPatch_Intersection.hxx".}
-proc constructIntPatchIntersection*(s1: Handle[Adaptor3dHSurface];
-                                   d1: Handle[Adaptor3dTopolTool];
-                                   s2: Handle[Adaptor3dHSurface];
-                                   d2: Handle[Adaptor3dTopolTool];
-                                   tolArc: StandardReal; tolTang: StandardReal): IntPatchIntersection {.
+proc constructIntPatch_Intersection*(S1: handle[Adaptor3d_HSurface];
+                                    D1: handle[Adaptor3d_TopolTool];
+                                    S2: handle[Adaptor3d_HSurface];
+                                    D2: handle[Adaptor3d_TopolTool];
+                                    TolArc: Standard_Real; TolTang: Standard_Real): IntPatch_Intersection {.
     constructor, importcpp: "IntPatch_Intersection(@)",
     header: "IntPatch_Intersection.hxx".}
-proc constructIntPatchIntersection*(s1: Handle[Adaptor3dHSurface];
-                                   d1: Handle[Adaptor3dTopolTool];
-                                   tolArc: StandardReal; tolTang: StandardReal): IntPatchIntersection {.
+proc constructIntPatch_Intersection*(S1: handle[Adaptor3d_HSurface];
+                                    D1: handle[Adaptor3d_TopolTool];
+                                    TolArc: Standard_Real; TolTang: Standard_Real): IntPatch_Intersection {.
     constructor, importcpp: "IntPatch_Intersection(@)",
     header: "IntPatch_Intersection.hxx".}
-proc setTolerances*(this: var IntPatchIntersection; tolArc: StandardReal;
-                   tolTang: StandardReal; uVMaxStep: StandardReal;
-                   fleche: StandardReal) {.importcpp: "SetTolerances",
+proc SetTolerances*(this: var IntPatch_Intersection; TolArc: Standard_Real;
+                   TolTang: Standard_Real; UVMaxStep: Standard_Real;
+                   Fleche: Standard_Real) {.importcpp: "SetTolerances",
     header: "IntPatch_Intersection.hxx".}
-proc perform*(this: var IntPatchIntersection; s1: Handle[Adaptor3dHSurface];
-             d1: Handle[Adaptor3dTopolTool]; s2: Handle[Adaptor3dHSurface];
-             d2: Handle[Adaptor3dTopolTool]; tolArc: StandardReal;
-             tolTang: StandardReal; isGeomInt: StandardBoolean = standardTrue;
-             theIsReqToKeepRLine: StandardBoolean = standardFalse;
-             theIsReqToPostWLProc: StandardBoolean = standardTrue) {.
+proc Perform*(this: var IntPatch_Intersection; S1: handle[Adaptor3d_HSurface];
+             D1: handle[Adaptor3d_TopolTool]; S2: handle[Adaptor3d_HSurface];
+             D2: handle[Adaptor3d_TopolTool]; TolArc: Standard_Real;
+             TolTang: Standard_Real; isGeomInt: Standard_Boolean = Standard_True;
+             theIsReqToKeepRLine: Standard_Boolean = Standard_False;
+             theIsReqToPostWLProc: Standard_Boolean = Standard_True) {.
     importcpp: "Perform", header: "IntPatch_Intersection.hxx".}
-proc perform*(this: var IntPatchIntersection; s1: Handle[Adaptor3dHSurface];
-             d1: Handle[Adaptor3dTopolTool]; s2: Handle[Adaptor3dHSurface];
-             d2: Handle[Adaptor3dTopolTool]; tolArc: StandardReal;
-             tolTang: StandardReal; lOfPnts: var IntSurfListOfPntOn2S;
-             isGeomInt: StandardBoolean = standardTrue;
-             theIsReqToKeepRLine: StandardBoolean = standardFalse;
-             theIsReqToPostWLProc: StandardBoolean = standardTrue) {.
+proc Perform*(this: var IntPatch_Intersection; S1: handle[Adaptor3d_HSurface];
+             D1: handle[Adaptor3d_TopolTool]; S2: handle[Adaptor3d_HSurface];
+             D2: handle[Adaptor3d_TopolTool]; TolArc: Standard_Real;
+             TolTang: Standard_Real; LOfPnts: var IntSurf_ListOfPntOn2S;
+             isGeomInt: Standard_Boolean = Standard_True;
+             theIsReqToKeepRLine: Standard_Boolean = Standard_False;
+             theIsReqToPostWLProc: Standard_Boolean = Standard_True) {.
     importcpp: "Perform", header: "IntPatch_Intersection.hxx".}
-proc perform*(this: var IntPatchIntersection; s1: Handle[Adaptor3dHSurface];
-             d1: Handle[Adaptor3dTopolTool]; s2: Handle[Adaptor3dHSurface];
-             d2: Handle[Adaptor3dTopolTool]; u1: StandardReal; v1: StandardReal;
-             u2: StandardReal; v2: StandardReal; tolArc: StandardReal;
-             tolTang: StandardReal) {.importcpp: "Perform",
-                                    header: "IntPatch_Intersection.hxx".}
-proc perform*(this: var IntPatchIntersection; s1: Handle[Adaptor3dHSurface];
-             d1: Handle[Adaptor3dTopolTool]; tolArc: StandardReal;
-             tolTang: StandardReal) {.importcpp: "Perform",
-                                    header: "IntPatch_Intersection.hxx".}
-proc isDone*(this: IntPatchIntersection): StandardBoolean {.noSideEffect,
+proc Perform*(this: var IntPatch_Intersection; S1: handle[Adaptor3d_HSurface];
+             D1: handle[Adaptor3d_TopolTool]; S2: handle[Adaptor3d_HSurface];
+             D2: handle[Adaptor3d_TopolTool]; U1: Standard_Real; V1: Standard_Real;
+             U2: Standard_Real; V2: Standard_Real; TolArc: Standard_Real;
+             TolTang: Standard_Real) {.importcpp: "Perform",
+                                     header: "IntPatch_Intersection.hxx".}
+proc Perform*(this: var IntPatch_Intersection; S1: handle[Adaptor3d_HSurface];
+             D1: handle[Adaptor3d_TopolTool]; TolArc: Standard_Real;
+             TolTang: Standard_Real) {.importcpp: "Perform",
+                                     header: "IntPatch_Intersection.hxx".}
+proc IsDone*(this: IntPatch_Intersection): Standard_Boolean {.noSideEffect,
     importcpp: "IsDone", header: "IntPatch_Intersection.hxx".}
-proc isEmpty*(this: IntPatchIntersection): StandardBoolean {.noSideEffect,
+proc IsEmpty*(this: IntPatch_Intersection): Standard_Boolean {.noSideEffect,
     importcpp: "IsEmpty", header: "IntPatch_Intersection.hxx".}
-proc tangentFaces*(this: IntPatchIntersection): StandardBoolean {.noSideEffect,
+proc TangentFaces*(this: IntPatch_Intersection): Standard_Boolean {.noSideEffect,
     importcpp: "TangentFaces", header: "IntPatch_Intersection.hxx".}
-proc oppositeFaces*(this: IntPatchIntersection): StandardBoolean {.noSideEffect,
+proc OppositeFaces*(this: IntPatch_Intersection): Standard_Boolean {.noSideEffect,
     importcpp: "OppositeFaces", header: "IntPatch_Intersection.hxx".}
-proc nbPnts*(this: IntPatchIntersection): StandardInteger {.noSideEffect,
+proc NbPnts*(this: IntPatch_Intersection): Standard_Integer {.noSideEffect,
     importcpp: "NbPnts", header: "IntPatch_Intersection.hxx".}
-proc point*(this: IntPatchIntersection; index: StandardInteger): IntPatchPoint {.
+proc Point*(this: IntPatch_Intersection; Index: Standard_Integer): IntPatch_Point {.
     noSideEffect, importcpp: "Point", header: "IntPatch_Intersection.hxx".}
-proc nbLines*(this: IntPatchIntersection): StandardInteger {.noSideEffect,
+proc NbLines*(this: IntPatch_Intersection): Standard_Integer {.noSideEffect,
     importcpp: "NbLines", header: "IntPatch_Intersection.hxx".}
-proc line*(this: IntPatchIntersection; index: StandardInteger): Handle[IntPatchLine] {.
-    noSideEffect, importcpp: "Line", header: "IntPatch_Intersection.hxx".}
-proc sequenceOfLine*(this: IntPatchIntersection): IntPatchSequenceOfLine {.
+proc Line*(this: IntPatch_Intersection; Index: Standard_Integer): handle[
+    IntPatch_Line] {.noSideEffect, importcpp: "Line",
+                    header: "IntPatch_Intersection.hxx".}
+proc SequenceOfLine*(this: IntPatch_Intersection): IntPatch_SequenceOfLine {.
     noSideEffect, importcpp: "SequenceOfLine", header: "IntPatch_Intersection.hxx".}
-proc dump*(this: IntPatchIntersection; mode: StandardInteger;
-          s1: Handle[Adaptor3dHSurface]; d1: Handle[Adaptor3dTopolTool];
-          s2: Handle[Adaptor3dHSurface]; d2: Handle[Adaptor3dTopolTool]) {.
+proc Dump*(this: IntPatch_Intersection; Mode: Standard_Integer;
+          S1: handle[Adaptor3d_HSurface]; D1: handle[Adaptor3d_TopolTool];
+          S2: handle[Adaptor3d_HSurface]; D2: handle[Adaptor3d_TopolTool]) {.
     noSideEffect, importcpp: "Dump", header: "IntPatch_Intersection.hxx".}
-

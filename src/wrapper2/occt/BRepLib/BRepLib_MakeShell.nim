@@ -14,36 +14,40 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, BRepLib_ShellError, BRepLib_MakeShape,
+  ../Standard/Standard_Boolean, ../Standard/Standard_Real
+
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of Geom_Surface"
 discard "forward decl of TopoDS_Shell"
 type
-  BRepLibMakeShell* {.importcpp: "BRepLib_MakeShell",
-                     header: "BRepLib_MakeShell.hxx", bycopy.} = object of BRepLibMakeShape ##
-                                                                                     ## !
-                                                                                     ## Not
-                                                                                     ## done.
+  BRepLib_MakeShell* {.importcpp: "BRepLib_MakeShell",
+                      header: "BRepLib_MakeShell.hxx", bycopy.} = object of BRepLib_MakeShape ##
+                                                                                       ## !
+                                                                                       ## Not
+                                                                                       ## done.
 
 
-proc constructBRepLibMakeShell*(): BRepLibMakeShell {.constructor,
+proc constructBRepLib_MakeShell*(): BRepLib_MakeShell {.constructor,
     importcpp: "BRepLib_MakeShell(@)", header: "BRepLib_MakeShell.hxx".}
-proc constructBRepLibMakeShell*(s: Handle[GeomSurface];
-                               segment: StandardBoolean = standardFalse): BRepLibMakeShell {.
+proc constructBRepLib_MakeShell*(S: handle[Geom_Surface];
+                                Segment: Standard_Boolean = Standard_False): BRepLib_MakeShell {.
     constructor, importcpp: "BRepLib_MakeShell(@)", header: "BRepLib_MakeShell.hxx".}
-proc constructBRepLibMakeShell*(s: Handle[GeomSurface]; uMin: StandardReal;
-                               uMax: StandardReal; vMin: StandardReal;
-                               vMax: StandardReal;
-                               segment: StandardBoolean = standardFalse): BRepLibMakeShell {.
+proc constructBRepLib_MakeShell*(S: handle[Geom_Surface]; UMin: Standard_Real;
+                                UMax: Standard_Real; VMin: Standard_Real;
+                                VMax: Standard_Real;
+                                Segment: Standard_Boolean = Standard_False): BRepLib_MakeShell {.
     constructor, importcpp: "BRepLib_MakeShell(@)", header: "BRepLib_MakeShell.hxx".}
-proc init*(this: var BRepLibMakeShell; s: Handle[GeomSurface]; uMin: StandardReal;
-          uMax: StandardReal; vMin: StandardReal; vMax: StandardReal;
-          segment: StandardBoolean = standardFalse) {.importcpp: "Init",
+proc Init*(this: var BRepLib_MakeShell; S: handle[Geom_Surface]; UMin: Standard_Real;
+          UMax: Standard_Real; VMin: Standard_Real; VMax: Standard_Real;
+          Segment: Standard_Boolean = Standard_False) {.importcpp: "Init",
     header: "BRepLib_MakeShell.hxx".}
-proc error*(this: BRepLibMakeShell): BRepLibShellError {.noSideEffect,
+proc Error*(this: BRepLib_MakeShell): BRepLib_ShellError {.noSideEffect,
     importcpp: "Error", header: "BRepLib_MakeShell.hxx".}
-proc shell*(this: BRepLibMakeShell): TopoDS_Shell {.noSideEffect, importcpp: "Shell",
-    header: "BRepLib_MakeShell.hxx".}
-converter `topoDS_Shell`*(this: BRepLibMakeShell): TopoDS_Shell {.noSideEffect,
+proc Shell*(this: BRepLib_MakeShell): TopoDS_Shell {.noSideEffect,
+    importcpp: "Shell", header: "BRepLib_MakeShell.hxx".}
+converter `TopoDS_Shell`*(this: BRepLib_MakeShell): TopoDS_Shell {.noSideEffect,
     importcpp: "BRepLib_MakeShell::operator TopoDS_Shell",
     header: "BRepLib_MakeShell.hxx".}
-

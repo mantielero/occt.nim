@@ -13,22 +13,24 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  OpenGl_Group
+
 ##  Forward declaration
 
 discard "forward decl of OpenGl_CappingPlaneResource"
 discard "forward decl of OpenGl_Structure"
 type
-  OpenGlCappingAlgo* {.importcpp: "OpenGl_CappingAlgo",
-                      header: "OpenGl_CappingAlgo.hxx", bycopy.} = object ## ! Draw capping surfaces by OpenGl for the clipping planes enabled in current context state.
-                                                                     ## ! Depth buffer must be generated  for the passed groups.
-                                                                     ## ! @param
-                                                                     ## theWorkspace [in] the GL workspace, context state
-                                                                     ## ! @param
-                                                                     ## theStructure [in] the structure to be capped
+  OpenGl_CappingAlgo* {.importcpp: "OpenGl_CappingAlgo",
+                       header: "OpenGl_CappingAlgo.hxx", bycopy.} = object ## ! Draw capping surfaces by OpenGl for the clipping planes enabled in current context state.
+                                                                      ## ! Depth buffer must be generated  for the passed groups.
+                                                                      ## ! @param
+                                                                      ## theWorkspace [in] the GL workspace, context state
+                                                                      ## ! @param
+                                                                      ## theStructure [in] the structure to be capped
 
 
-proc renderCapping*(theWorkspace: Handle[OpenGlWorkspace];
-                   theStructure: OpenGlStructure) {.
+proc RenderCapping*(theWorkspace: handle[OpenGl_Workspace];
+                   theStructure: OpenGl_Structure) {.
     importcpp: "OpenGl_CappingAlgo::RenderCapping(@)",
     header: "OpenGl_CappingAlgo.hxx".}
-

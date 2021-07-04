@@ -14,76 +14,81 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../gp/gp_Pnt2d, ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Real,
+  ../Standard/Standard_Integer, ../Standard/Standard_Boolean
+
 discard "forward decl of Standard_ConstructionError"
 discard "forward decl of gp_Dir2d"
 discard "forward decl of gp_Trsf2d"
 type
-  BndBox2d* {.importcpp: "Bnd_Box2d", header: "Bnd_Box2d.hxx", bycopy.} = object ## ! Creates an empty 2D
-                                                                         ## bounding box.
-                                                                         ## ! The
-                                                                         ## constructed box is
-                                                                         ## qualified Void. Its gap is null.
-                                                                         ## ! Bit flags.
-    bndBox2d* {.importc: "Bnd_Box2d".}: StandardNODISCARD
+  Bnd_Box2d* {.importcpp: "Bnd_Box2d", header: "Bnd_Box2d.hxx", bycopy.} = object ## !
+                                                                          ## Creates an empty 2D
+                                                                          ## bounding box.
+                                                                          ## ! The
+                                                                          ## constructed box is
+                                                                          ## qualified Void. Its gap is null.
+                                                                          ## ! Bit flags.
+    Bnd_Box2d* {.importc: "Bnd_Box2d".}: Standard_NODISCARD
 
 
-proc constructBndBox2d*(): BndBox2d {.constructor, importcpp: "Bnd_Box2d(@)",
-                                   header: "Bnd_Box2d.hxx".}
-proc setWhole*(this: var BndBox2d) {.importcpp: "SetWhole", header: "Bnd_Box2d.hxx".}
-proc setVoid*(this: var BndBox2d) {.importcpp: "SetVoid", header: "Bnd_Box2d.hxx".}
-proc set*(this: var BndBox2d; thePnt: GpPnt2d) {.importcpp: "Set",
+proc constructBnd_Box2d*(): Bnd_Box2d {.constructor, importcpp: "Bnd_Box2d(@)",
+                                     header: "Bnd_Box2d.hxx".}
+proc SetWhole*(this: var Bnd_Box2d) {.importcpp: "SetWhole", header: "Bnd_Box2d.hxx".}
+proc SetVoid*(this: var Bnd_Box2d) {.importcpp: "SetVoid", header: "Bnd_Box2d.hxx".}
+proc Set*(this: var Bnd_Box2d; thePnt: gp_Pnt2d) {.importcpp: "Set",
     header: "Bnd_Box2d.hxx".}
-proc set*(this: var BndBox2d; thePnt: GpPnt2d; theDir: GpDir2d) {.importcpp: "Set",
+proc Set*(this: var Bnd_Box2d; thePnt: gp_Pnt2d; theDir: gp_Dir2d) {.importcpp: "Set",
     header: "Bnd_Box2d.hxx".}
-proc update*(this: var BndBox2d; aXmin: StandardReal; aYmin: StandardReal;
-            aXmax: StandardReal; aYmax: StandardReal) {.importcpp: "Update",
+proc Update*(this: var Bnd_Box2d; aXmin: Standard_Real; aYmin: Standard_Real;
+            aXmax: Standard_Real; aYmax: Standard_Real) {.importcpp: "Update",
     header: "Bnd_Box2d.hxx".}
-proc update*(this: var BndBox2d; x: StandardReal; y: StandardReal) {.
+proc Update*(this: var Bnd_Box2d; X: Standard_Real; Y: Standard_Real) {.
     importcpp: "Update", header: "Bnd_Box2d.hxx".}
-proc getGap*(this: BndBox2d): StandardReal {.noSideEffect, importcpp: "GetGap",
+proc GetGap*(this: Bnd_Box2d): Standard_Real {.noSideEffect, importcpp: "GetGap",
     header: "Bnd_Box2d.hxx".}
-proc setGap*(this: var BndBox2d; tol: StandardReal) {.importcpp: "SetGap",
+proc SetGap*(this: var Bnd_Box2d; Tol: Standard_Real) {.importcpp: "SetGap",
     header: "Bnd_Box2d.hxx".}
-proc enlarge*(this: var BndBox2d; theTol: StandardReal) {.importcpp: "Enlarge",
+proc Enlarge*(this: var Bnd_Box2d; theTol: Standard_Real) {.importcpp: "Enlarge",
     header: "Bnd_Box2d.hxx".}
-proc get*(this: BndBox2d; aXmin: var StandardReal; aYmin: var StandardReal;
-         aXmax: var StandardReal; aYmax: var StandardReal) {.noSideEffect,
+proc Get*(this: Bnd_Box2d; aXmin: var Standard_Real; aYmin: var Standard_Real;
+         aXmax: var Standard_Real; aYmax: var Standard_Real) {.noSideEffect,
     importcpp: "Get", header: "Bnd_Box2d.hxx".}
-proc openXmin*(this: var BndBox2d) {.importcpp: "OpenXmin", header: "Bnd_Box2d.hxx".}
-proc openXmax*(this: var BndBox2d) {.importcpp: "OpenXmax", header: "Bnd_Box2d.hxx".}
-proc openYmin*(this: var BndBox2d) {.importcpp: "OpenYmin", header: "Bnd_Box2d.hxx".}
-proc openYmax*(this: var BndBox2d) {.importcpp: "OpenYmax", header: "Bnd_Box2d.hxx".}
-proc isOpenXmin*(this: BndBox2d): StandardBoolean {.noSideEffect,
+proc OpenXmin*(this: var Bnd_Box2d) {.importcpp: "OpenXmin", header: "Bnd_Box2d.hxx".}
+proc OpenXmax*(this: var Bnd_Box2d) {.importcpp: "OpenXmax", header: "Bnd_Box2d.hxx".}
+proc OpenYmin*(this: var Bnd_Box2d) {.importcpp: "OpenYmin", header: "Bnd_Box2d.hxx".}
+proc OpenYmax*(this: var Bnd_Box2d) {.importcpp: "OpenYmax", header: "Bnd_Box2d.hxx".}
+proc IsOpenXmin*(this: Bnd_Box2d): Standard_Boolean {.noSideEffect,
     importcpp: "IsOpenXmin", header: "Bnd_Box2d.hxx".}
-proc isOpenXmax*(this: BndBox2d): StandardBoolean {.noSideEffect,
+proc IsOpenXmax*(this: Bnd_Box2d): Standard_Boolean {.noSideEffect,
     importcpp: "IsOpenXmax", header: "Bnd_Box2d.hxx".}
-proc isOpenYmin*(this: BndBox2d): StandardBoolean {.noSideEffect,
+proc IsOpenYmin*(this: Bnd_Box2d): Standard_Boolean {.noSideEffect,
     importcpp: "IsOpenYmin", header: "Bnd_Box2d.hxx".}
-proc isOpenYmax*(this: BndBox2d): StandardBoolean {.noSideEffect,
+proc IsOpenYmax*(this: Bnd_Box2d): Standard_Boolean {.noSideEffect,
     importcpp: "IsOpenYmax", header: "Bnd_Box2d.hxx".}
-proc isWhole*(this: BndBox2d): StandardBoolean {.noSideEffect, importcpp: "IsWhole",
-    header: "Bnd_Box2d.hxx".}
-proc isVoid*(this: BndBox2d): StandardBoolean {.noSideEffect, importcpp: "IsVoid",
+proc IsWhole*(this: Bnd_Box2d): Standard_Boolean {.noSideEffect,
+    importcpp: "IsWhole", header: "Bnd_Box2d.hxx".}
+proc IsVoid*(this: Bnd_Box2d): Standard_Boolean {.noSideEffect, importcpp: "IsVoid",
     header: "Bnd_Box2d.hxx".}
 ## !!!Ignored construct:  Transformed ( const gp_Trsf2d & T ) const ;
 ## Error: token expected: ) but got: [identifier]!!!
 
-proc add*(this: var BndBox2d; other: BndBox2d) {.importcpp: "Add",
+proc Add*(this: var Bnd_Box2d; Other: Bnd_Box2d) {.importcpp: "Add",
     header: "Bnd_Box2d.hxx".}
-proc add*(this: var BndBox2d; thePnt: GpPnt2d) {.importcpp: "Add",
+proc Add*(this: var Bnd_Box2d; thePnt: gp_Pnt2d) {.importcpp: "Add",
     header: "Bnd_Box2d.hxx".}
-proc add*(this: var BndBox2d; thePnt: GpPnt2d; theDir: GpDir2d) {.importcpp: "Add",
+proc Add*(this: var Bnd_Box2d; thePnt: gp_Pnt2d; theDir: gp_Dir2d) {.importcpp: "Add",
     header: "Bnd_Box2d.hxx".}
-proc add*(this: var BndBox2d; d: GpDir2d) {.importcpp: "Add", header: "Bnd_Box2d.hxx".}
-proc isOut*(this: BndBox2d; p: GpPnt2d): StandardBoolean {.noSideEffect,
+proc Add*(this: var Bnd_Box2d; D: gp_Dir2d) {.importcpp: "Add", header: "Bnd_Box2d.hxx".}
+proc IsOut*(this: Bnd_Box2d; P: gp_Pnt2d): Standard_Boolean {.noSideEffect,
     importcpp: "IsOut", header: "Bnd_Box2d.hxx".}
-proc isOut*(this: BndBox2d; other: BndBox2d): StandardBoolean {.noSideEffect,
+proc IsOut*(this: Bnd_Box2d; Other: Bnd_Box2d): Standard_Boolean {.noSideEffect,
     importcpp: "IsOut", header: "Bnd_Box2d.hxx".}
-proc isOut*(this: BndBox2d; theOther: BndBox2d; theTrsf: GpTrsf2d): StandardBoolean {.
+proc IsOut*(this: Bnd_Box2d; theOther: Bnd_Box2d; theTrsf: gp_Trsf2d): Standard_Boolean {.
     noSideEffect, importcpp: "IsOut", header: "Bnd_Box2d.hxx".}
-proc isOut*(this: BndBox2d; t1: GpTrsf2d; other: BndBox2d; t2: GpTrsf2d): StandardBoolean {.
+proc IsOut*(this: Bnd_Box2d; T1: gp_Trsf2d; Other: Bnd_Box2d; T2: gp_Trsf2d): Standard_Boolean {.
     noSideEffect, importcpp: "IsOut", header: "Bnd_Box2d.hxx".}
-proc dump*(this: BndBox2d) {.noSideEffect, importcpp: "Dump", header: "Bnd_Box2d.hxx".}
-proc squareExtent*(this: BndBox2d): StandardReal {.noSideEffect,
+proc Dump*(this: Bnd_Box2d) {.noSideEffect, importcpp: "Dump", header: "Bnd_Box2d.hxx".}
+proc SquareExtent*(this: Bnd_Box2d): Standard_Real {.noSideEffect,
     importcpp: "SquareExtent", header: "Bnd_Box2d.hxx".}
-

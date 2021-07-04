@@ -14,6 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, Geom2dToIGES_Geom2dEntity
+
 discard "forward decl of Geom2dToIGES_Geom2dEntity"
 discard "forward decl of IGESGeom_Point"
 discard "forward decl of Geom2d_Point"
@@ -26,13 +30,12 @@ type
 proc constructGeom2dToIGES_Geom2dPoint*(): Geom2dToIGES_Geom2dPoint {.constructor,
     importcpp: "Geom2dToIGES_Geom2dPoint(@)",
     header: "Geom2dToIGES_Geom2dPoint.hxx".}
-proc constructGeom2dToIGES_Geom2dPoint*(g2dE: Geom2dToIGES_Geom2dEntity): Geom2dToIGES_Geom2dPoint {.
+proc constructGeom2dToIGES_Geom2dPoint*(G2dE: Geom2dToIGES_Geom2dEntity): Geom2dToIGES_Geom2dPoint {.
     constructor, importcpp: "Geom2dToIGES_Geom2dPoint(@)",
     header: "Geom2dToIGES_Geom2dPoint.hxx".}
-proc transfer2dPoint*(this: var Geom2dToIGES_Geom2dPoint; start: Handle[Geom2dPoint]): Handle[
-    IGESGeomPoint] {.importcpp: "Transfer2dPoint",
-                    header: "Geom2dToIGES_Geom2dPoint.hxx".}
-proc transfer2dPoint*(this: var Geom2dToIGES_Geom2dPoint;
-                     start: Handle[Geom2dCartesianPoint]): Handle[IGESGeomPoint] {.
+proc Transfer2dPoint*(this: var Geom2dToIGES_Geom2dPoint;
+                     start: handle[Geom2d_Point]): handle[IGESGeom_Point] {.
     importcpp: "Transfer2dPoint", header: "Geom2dToIGES_Geom2dPoint.hxx".}
-
+proc Transfer2dPoint*(this: var Geom2dToIGES_Geom2dPoint;
+                     start: handle[Geom2d_CartesianPoint]): handle[IGESGeom_Point] {.
+    importcpp: "Transfer2dPoint", header: "Geom2dToIGES_Geom2dPoint.hxx".}

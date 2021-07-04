@@ -12,49 +12,52 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../SelectMgr/SelectMgr_EntityOwner, ../SelectMgr/SelectMgr_SelectableObject,
+  ../Prs3d/Prs3d_DatumParts
+
 ## ! Entity owner for selection management of AIS_Trihedron object.
 
 type
   AIS_TrihedronOwner* {.importcpp: "AIS_TrihedronOwner",
-                       header: "AIS_TrihedronOwner.hxx", bycopy.} = object of SelectMgrEntityOwner ##
-                                                                                            ## !
-                                                                                            ## Creates
-                                                                                            ## an
-                                                                                            ## owner
-                                                                                            ## of
-                                                                                            ## AIS_Trihedron
-                                                                                            ## object.
+                       header: "AIS_TrihedronOwner.hxx", bycopy.} = object of SelectMgr_EntityOwner ##
+                                                                                             ## !
+                                                                                             ## Creates
+                                                                                             ## an
+                                                                                             ## owner
+                                                                                             ## of
+                                                                                             ## AIS_Trihedron
+                                                                                             ## object.
     ## !< part of datum selected
 
-  AIS_TrihedronOwnerbaseType* = SelectMgrEntityOwner
+  AIS_TrihedronOwnerbase_type* = SelectMgr_EntityOwner
 
-proc getTypeName*(): cstring {.importcpp: "AIS_TrihedronOwner::get_type_name(@)",
-                            header: "AIS_TrihedronOwner.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "AIS_TrihedronOwner::get_type_name(@)",
+                              header: "AIS_TrihedronOwner.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "AIS_TrihedronOwner::get_type_descriptor(@)",
     header: "AIS_TrihedronOwner.hxx".}
-proc dynamicType*(this: AIS_TrihedronOwner): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: AIS_TrihedronOwner): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "AIS_TrihedronOwner.hxx".}
-proc constructAIS_TrihedronOwner*(theSelObject: Handle[SelectMgrSelectableObject];
-                                 theDatumPart: Prs3dDatumParts;
-                                 thePriority: StandardInteger): AIS_TrihedronOwner {.
+proc constructAIS_TrihedronOwner*(theSelObject: handle[SelectMgr_SelectableObject];
+                                 theDatumPart: Prs3d_DatumParts;
+                                 thePriority: Standard_Integer): AIS_TrihedronOwner {.
     constructor, importcpp: "AIS_TrihedronOwner(@)",
     header: "AIS_TrihedronOwner.hxx".}
-proc datumPart*(this: AIS_TrihedronOwner): Prs3dDatumParts {.noSideEffect,
+proc DatumPart*(this: AIS_TrihedronOwner): Prs3d_DatumParts {.noSideEffect,
     importcpp: "DatumPart", header: "AIS_TrihedronOwner.hxx".}
-proc hilightWithColor*(this: var AIS_TrihedronOwner;
-                      thePM: Handle[PrsMgrPresentationManager3d];
-                      theStyle: Handle[Prs3dDrawer]; theMode: StandardInteger) {.
+proc HilightWithColor*(this: var AIS_TrihedronOwner;
+                      thePM: handle[PrsMgr_PresentationManager3d];
+                      theStyle: handle[Prs3d_Drawer]; theMode: Standard_Integer) {.
     importcpp: "HilightWithColor", header: "AIS_TrihedronOwner.hxx".}
-proc isHilighted*(this: AIS_TrihedronOwner;
-                 thePM: Handle[PrsMgrPresentationManager];
-                 theMode: StandardInteger): StandardBoolean {.noSideEffect,
+proc IsHilighted*(this: AIS_TrihedronOwner;
+                 thePM: handle[PrsMgr_PresentationManager];
+                 theMode: Standard_Integer): Standard_Boolean {.noSideEffect,
     importcpp: "IsHilighted", header: "AIS_TrihedronOwner.hxx".}
-proc unhilight*(this: var AIS_TrihedronOwner;
-               thePM: Handle[PrsMgrPresentationManager]; theMode: StandardInteger) {.
-    importcpp: "Unhilight", header: "AIS_TrihedronOwner.hxx".}
+proc Unhilight*(this: var AIS_TrihedronOwner;
+               thePM: handle[PrsMgr_PresentationManager];
+               theMode: Standard_Integer) {.importcpp: "Unhilight",
+    header: "AIS_TrihedronOwner.hxx".}
 discard "forward decl of AIS_TrihedronOwner"
 type
-  HandleAIS_TrihedronOwner* = Handle[AIS_TrihedronOwner]
-
-
+  Handle_AIS_TrihedronOwner* = handle[AIS_TrihedronOwner]

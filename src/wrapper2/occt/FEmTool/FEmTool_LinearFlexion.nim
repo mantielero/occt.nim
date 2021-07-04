@@ -14,43 +14,48 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../math/math_Matrix,
+  ../Standard/Standard_Integer, FEmTool_ElementaryCriterion,
+  ../GeomAbs/GeomAbs_Shape, ../TColStd/TColStd_HArray2OfInteger,
+  ../Standard/Standard_Real, ../math/math_Vector
+
 discard "forward decl of Standard_NotImplemented"
 discard "forward decl of Standard_DomainError"
 discard "forward decl of math_Matrix"
 discard "forward decl of FEmTool_LinearFlexion"
 discard "forward decl of FEmTool_LinearFlexion"
 type
-  HandleFEmToolLinearFlexion* = Handle[FEmToolLinearFlexion]
+  Handle_FEmTool_LinearFlexion* = handle[FEmTool_LinearFlexion]
 
 ## ! Criterium of LinearFlexion To Hermit-Jacobi  elements
 
 type
-  FEmToolLinearFlexion* {.importcpp: "FEmTool_LinearFlexion",
-                         header: "FEmTool_LinearFlexion.hxx", bycopy.} = object of FEmToolElementaryCriterion
+  FEmTool_LinearFlexion* {.importcpp: "FEmTool_LinearFlexion",
+                          header: "FEmTool_LinearFlexion.hxx", bycopy.} = object of FEmTool_ElementaryCriterion
 
 
-proc constructFEmToolLinearFlexion*(workDegree: StandardInteger;
-                                   constraintOrder: GeomAbsShape): FEmToolLinearFlexion {.
+proc constructFEmTool_LinearFlexion*(WorkDegree: Standard_Integer;
+                                    ConstraintOrder: GeomAbs_Shape): FEmTool_LinearFlexion {.
     constructor, importcpp: "FEmTool_LinearFlexion(@)",
     header: "FEmTool_LinearFlexion.hxx".}
-proc dependenceTable*(this: FEmToolLinearFlexion): Handle[TColStdHArray2OfInteger] {.
+proc DependenceTable*(this: FEmTool_LinearFlexion): handle[TColStd_HArray2OfInteger] {.
     noSideEffect, importcpp: "DependenceTable", header: "FEmTool_LinearFlexion.hxx".}
-proc value*(this: var FEmToolLinearFlexion): StandardReal {.importcpp: "Value",
+proc Value*(this: var FEmTool_LinearFlexion): Standard_Real {.importcpp: "Value",
     header: "FEmTool_LinearFlexion.hxx".}
-proc hessian*(this: var FEmToolLinearFlexion; dimension1: StandardInteger;
-             dimension2: StandardInteger; h: var MathMatrix) {.importcpp: "Hessian",
-    header: "FEmTool_LinearFlexion.hxx".}
-proc gradient*(this: var FEmToolLinearFlexion; dimension: StandardInteger;
-              g: var MathVector) {.importcpp: "Gradient",
-                                header: "FEmTool_LinearFlexion.hxx".}
+proc Hessian*(this: var FEmTool_LinearFlexion; Dimension1: Standard_Integer;
+             Dimension2: Standard_Integer; H: var math_Matrix) {.
+    importcpp: "Hessian", header: "FEmTool_LinearFlexion.hxx".}
+proc Gradient*(this: var FEmTool_LinearFlexion; Dimension: Standard_Integer;
+              G: var math_Vector) {.importcpp: "Gradient",
+                                 header: "FEmTool_LinearFlexion.hxx".}
 type
-  FEmToolLinearFlexionbaseType* = FEmToolElementaryCriterion
+  FEmTool_LinearFlexionbase_type* = FEmTool_ElementaryCriterion
 
-proc getTypeName*(): cstring {.importcpp: "FEmTool_LinearFlexion::get_type_name(@)",
-                            header: "FEmTool_LinearFlexion.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "FEmTool_LinearFlexion::get_type_name(@)",
+                              header: "FEmTool_LinearFlexion.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "FEmTool_LinearFlexion::get_type_descriptor(@)",
     header: "FEmTool_LinearFlexion.hxx".}
-proc dynamicType*(this: FEmToolLinearFlexion): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "FEmTool_LinearFlexion.hxx".}
-
+proc DynamicType*(this: FEmTool_LinearFlexion): handle[Standard_Type] {.
+    noSideEffect, importcpp: "DynamicType", header: "FEmTool_LinearFlexion.hxx".}

@@ -11,24 +11,27 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../NCollection/NCollection_Vec2, ../Standard/Standard_Boolean,
+  ../Standard/Standard_Real
+
 ## ! Structure holding touch position - original and current location.
 
 type
-  AspectTouch* {.importcpp: "Aspect_Touch", header: "Aspect_Touch.hxx", bycopy.} = object
-    `from`* {.importc: "From".}: NCollectionVec2[StandardReal] ## !< original touch position
-    to* {.importc: "To".}: NCollectionVec2[StandardReal] ## !< current  touch position
-    isPreciseDevice* {.importc: "IsPreciseDevice".}: StandardBoolean ## !< precise device input (e.g. mouse cursor, NOT emulated from touch screen)
-                                                                 ## ! Return values delta.
+  Aspect_Touch* {.importcpp: "Aspect_Touch", header: "Aspect_Touch.hxx", bycopy.} = object
+    From* {.importc: "From".}: NCollection_Vec2[Standard_Real] ## !< original touch position
+    To* {.importc: "To".}: NCollection_Vec2[Standard_Real] ## !< current  touch position
+    IsPreciseDevice* {.importc: "IsPreciseDevice".}: Standard_Boolean ## !< precise device input (e.g. mouse cursor, NOT emulated from touch screen)
+                                                                  ## ! Return values delta.
 
 
-proc delta*(this: AspectTouch): NCollectionVec2[StandardReal] {.noSideEffect,
+proc Delta*(this: Aspect_Touch): NCollection_Vec2[Standard_Real] {.noSideEffect,
     importcpp: "Delta", header: "Aspect_Touch.hxx".}
-proc constructAspectTouch*(): AspectTouch {.constructor,
+proc constructAspect_Touch*(): Aspect_Touch {.constructor,
     importcpp: "Aspect_Touch(@)", header: "Aspect_Touch.hxx".}
-proc constructAspectTouch*(thePnt: NCollectionVec2[StandardReal];
-                          theIsPreciseDevice: StandardBoolean): AspectTouch {.
+proc constructAspect_Touch*(thePnt: NCollection_Vec2[Standard_Real];
+                           theIsPreciseDevice: Standard_Boolean): Aspect_Touch {.
     constructor, importcpp: "Aspect_Touch(@)", header: "Aspect_Touch.hxx".}
-proc constructAspectTouch*(theX: StandardReal; theY: StandardReal;
-                          theIsPreciseDevice: StandardBoolean): AspectTouch {.
+proc constructAspect_Touch*(theX: Standard_Real; theY: Standard_Real;
+                           theIsPreciseDevice: Standard_Boolean): Aspect_Touch {.
     constructor, importcpp: "Aspect_Touch(@)", header: "Aspect_Touch.hxx".}
-

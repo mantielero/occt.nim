@@ -14,8 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _Quantity_Volume_HeaderFile [NewLine] # _Quantity_Volume_HeaderFile [NewLine] # < Standard_Real . hxx > [NewLine] ! Defined as an extension in three dimensions.
+## !!!Ignored construct:  # _Quantity_Volume_HeaderFile [NewLine] # _Quantity_Volume_HeaderFile [NewLine] # ../Standard/Standard_Real.hxx [NewLine] ! Defined as an extension in three dimensions.
 ## ! It is measured in cubic metres. Standard_DEPRECATED ( This type is deprecated - Standard_Real should be used instead ) typedef Standard_Real Quantity_Volume ;
 ## Error: expected ';'!!!
-
-

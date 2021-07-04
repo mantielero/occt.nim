@@ -14,12 +14,15 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
+  ChFi2d_ConstructionError
+
 discard "forward decl of TopoDS_Edge"
 discard "forward decl of TopoDS_Vertex"
 discard "forward decl of TopoDS_Face"
 discard "forward decl of ChFi2d_Builder"
 type
   ChFi2d* {.importcpp: "ChFi2d", header: "ChFi2d.hxx", bycopy.} = object
-
-
 

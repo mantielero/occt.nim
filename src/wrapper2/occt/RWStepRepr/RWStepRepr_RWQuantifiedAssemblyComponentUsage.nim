@@ -13,13 +13,17 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepRepr_QuantifiedAssemblyComponentUsage"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepReprRWQuantifiedAssemblyComponentUsage* {.
+  RWStepRepr_RWQuantifiedAssemblyComponentUsage* {.
       importcpp: "RWStepRepr_RWQuantifiedAssemblyComponentUsage",
       header: "RWStepRepr_RWQuantifiedAssemblyComponentUsage.hxx", bycopy.} = object ##
                                                                                 ## !
@@ -27,22 +31,21 @@ type
                                                                                 ## constructor
 
 
-proc constructRWStepReprRWQuantifiedAssemblyComponentUsage*(): RWStepReprRWQuantifiedAssemblyComponentUsage {.
+proc constructRWStepRepr_RWQuantifiedAssemblyComponentUsage*(): RWStepRepr_RWQuantifiedAssemblyComponentUsage {.
     constructor, importcpp: "RWStepRepr_RWQuantifiedAssemblyComponentUsage(@)",
     header: "RWStepRepr_RWQuantifiedAssemblyComponentUsage.hxx".}
-proc readStep*(this: RWStepReprRWQuantifiedAssemblyComponentUsage;
-              data: Handle[StepDataStepReaderData]; num: StandardInteger;
-              ach: var Handle[InterfaceCheck];
-              ent: Handle[StepReprQuantifiedAssemblyComponentUsage]) {.
+proc ReadStep*(this: RWStepRepr_RWQuantifiedAssemblyComponentUsage;
+              data: handle[StepData_StepReaderData]; num: Standard_Integer;
+              ach: var handle[Interface_Check];
+              ent: handle[StepRepr_QuantifiedAssemblyComponentUsage]) {.
     noSideEffect, importcpp: "ReadStep",
     header: "RWStepRepr_RWQuantifiedAssemblyComponentUsage.hxx".}
-proc writeStep*(this: RWStepReprRWQuantifiedAssemblyComponentUsage;
-               sw: var StepDataStepWriter;
-               ent: Handle[StepReprQuantifiedAssemblyComponentUsage]) {.
+proc WriteStep*(this: RWStepRepr_RWQuantifiedAssemblyComponentUsage;
+               SW: var StepData_StepWriter;
+               ent: handle[StepRepr_QuantifiedAssemblyComponentUsage]) {.
     noSideEffect, importcpp: "WriteStep",
     header: "RWStepRepr_RWQuantifiedAssemblyComponentUsage.hxx".}
-proc share*(this: RWStepReprRWQuantifiedAssemblyComponentUsage;
-           ent: Handle[StepReprQuantifiedAssemblyComponentUsage];
-           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
+proc Share*(this: RWStepRepr_RWQuantifiedAssemblyComponentUsage;
+           ent: handle[StepRepr_QuantifiedAssemblyComponentUsage];
+           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepRepr_RWQuantifiedAssemblyComponentUsage.hxx".}
-

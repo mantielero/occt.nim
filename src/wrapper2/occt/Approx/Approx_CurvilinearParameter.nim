@@ -14,6 +14,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer,
+  ../Standard/Standard_Boolean, ../Standard/Standard_Real,
+  ../GeomAbs/GeomAbs_Shape, ../Standard/Standard_OStream
+
 discard "forward decl of Geom_BSplineCurve"
 discard "forward decl of Geom2d_BSplineCurve"
 discard "forward decl of Standard_OutOfRange"
@@ -22,49 +28,48 @@ discard "forward decl of Adaptor3d_HCurve"
 discard "forward decl of Adaptor2d_HCurve2d"
 discard "forward decl of Adaptor3d_HSurface"
 type
-  ApproxCurvilinearParameter* {.importcpp: "Approx_CurvilinearParameter",
-                               header: "Approx_CurvilinearParameter.hxx", bycopy.} = object ##
-                                                                                       ## !
-                                                                                       ## case
-                                                                                       ## of
-                                                                                       ## a
-                                                                                       ## free
-                                                                                       ## 3D
-                                                                                       ## curve
+  Approx_CurvilinearParameter* {.importcpp: "Approx_CurvilinearParameter",
+                                header: "Approx_CurvilinearParameter.hxx", bycopy.} = object ##
+                                                                                        ## !
+                                                                                        ## case
+                                                                                        ## of
+                                                                                        ## a
+                                                                                        ## free
+                                                                                        ## 3D
+                                                                                        ## curve
 
 
-proc constructApproxCurvilinearParameter*(c3d: Handle[Adaptor3dHCurve];
-    tol: StandardReal; order: GeomAbsShape; maxDegree: StandardInteger;
-    maxSegments: StandardInteger): ApproxCurvilinearParameter {.constructor,
+proc constructApprox_CurvilinearParameter*(C3D: handle[Adaptor3d_HCurve];
+    Tol: Standard_Real; Order: GeomAbs_Shape; MaxDegree: Standard_Integer;
+    MaxSegments: Standard_Integer): Approx_CurvilinearParameter {.constructor,
     importcpp: "Approx_CurvilinearParameter(@)",
     header: "Approx_CurvilinearParameter.hxx".}
-proc constructApproxCurvilinearParameter*(c2d: Handle[Adaptor2dHCurve2d];
-    surf: Handle[Adaptor3dHSurface]; tol: StandardReal; order: GeomAbsShape;
-    maxDegree: StandardInteger; maxSegments: StandardInteger): ApproxCurvilinearParameter {.
+proc constructApprox_CurvilinearParameter*(C2D: handle[Adaptor2d_HCurve2d];
+    Surf: handle[Adaptor3d_HSurface]; Tol: Standard_Real; Order: GeomAbs_Shape;
+    MaxDegree: Standard_Integer; MaxSegments: Standard_Integer): Approx_CurvilinearParameter {.
     constructor, importcpp: "Approx_CurvilinearParameter(@)",
     header: "Approx_CurvilinearParameter.hxx".}
-proc constructApproxCurvilinearParameter*(c2d1: Handle[Adaptor2dHCurve2d];
-    surf1: Handle[Adaptor3dHSurface]; c2d2: Handle[Adaptor2dHCurve2d];
-    surf2: Handle[Adaptor3dHSurface]; tol: StandardReal; order: GeomAbsShape;
-    maxDegree: StandardInteger; maxSegments: StandardInteger): ApproxCurvilinearParameter {.
+proc constructApprox_CurvilinearParameter*(C2D1: handle[Adaptor2d_HCurve2d];
+    Surf1: handle[Adaptor3d_HSurface]; C2D2: handle[Adaptor2d_HCurve2d];
+    Surf2: handle[Adaptor3d_HSurface]; Tol: Standard_Real; Order: GeomAbs_Shape;
+    MaxDegree: Standard_Integer; MaxSegments: Standard_Integer): Approx_CurvilinearParameter {.
     constructor, importcpp: "Approx_CurvilinearParameter(@)",
     header: "Approx_CurvilinearParameter.hxx".}
-proc isDone*(this: ApproxCurvilinearParameter): StandardBoolean {.noSideEffect,
+proc IsDone*(this: Approx_CurvilinearParameter): Standard_Boolean {.noSideEffect,
     importcpp: "IsDone", header: "Approx_CurvilinearParameter.hxx".}
-proc hasResult*(this: ApproxCurvilinearParameter): StandardBoolean {.noSideEffect,
+proc HasResult*(this: Approx_CurvilinearParameter): Standard_Boolean {.noSideEffect,
     importcpp: "HasResult", header: "Approx_CurvilinearParameter.hxx".}
-proc curve3d*(this: ApproxCurvilinearParameter): Handle[GeomBSplineCurve] {.
+proc Curve3d*(this: Approx_CurvilinearParameter): handle[Geom_BSplineCurve] {.
     noSideEffect, importcpp: "Curve3d", header: "Approx_CurvilinearParameter.hxx".}
-proc maxError3d*(this: ApproxCurvilinearParameter): StandardReal {.noSideEffect,
+proc MaxError3d*(this: Approx_CurvilinearParameter): Standard_Real {.noSideEffect,
     importcpp: "MaxError3d", header: "Approx_CurvilinearParameter.hxx".}
-proc curve2d1*(this: ApproxCurvilinearParameter): Handle[Geom2dBSplineCurve] {.
+proc Curve2d1*(this: Approx_CurvilinearParameter): handle[Geom2d_BSplineCurve] {.
     noSideEffect, importcpp: "Curve2d1", header: "Approx_CurvilinearParameter.hxx".}
-proc maxError2d1*(this: ApproxCurvilinearParameter): StandardReal {.noSideEffect,
+proc MaxError2d1*(this: Approx_CurvilinearParameter): Standard_Real {.noSideEffect,
     importcpp: "MaxError2d1", header: "Approx_CurvilinearParameter.hxx".}
-proc curve2d2*(this: ApproxCurvilinearParameter): Handle[Geom2dBSplineCurve] {.
+proc Curve2d2*(this: Approx_CurvilinearParameter): handle[Geom2d_BSplineCurve] {.
     noSideEffect, importcpp: "Curve2d2", header: "Approx_CurvilinearParameter.hxx".}
-proc maxError2d2*(this: ApproxCurvilinearParameter): StandardReal {.noSideEffect,
+proc MaxError2d2*(this: Approx_CurvilinearParameter): Standard_Real {.noSideEffect,
     importcpp: "MaxError2d2", header: "Approx_CurvilinearParameter.hxx".}
-proc dump*(this: ApproxCurvilinearParameter; o: var StandardOStream) {.noSideEffect,
+proc Dump*(this: Approx_CurvilinearParameter; o: var Standard_OStream) {.noSideEffect,
     importcpp: "Dump", header: "Approx_CurvilinearParameter.hxx".}
-

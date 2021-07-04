@@ -14,13 +14,19 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Integer,
+  ../TColStd/TColStd_HArray1OfInteger, ../IGESData/IGESData_IGESEntity,
+  ../Standard/Standard_Boolean, ../Standard/Standard_Real,
+  ../TColStd/TColStd_HArray1OfReal
+
 discard "forward decl of IGESBasic_HArray1OfHArray1OfReal"
 discard "forward decl of Standard_DimensionMismatch"
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of IGESDefs_TabularData"
 discard "forward decl of IGESDefs_TabularData"
 type
-  HandleIGESDefsTabularData* = Handle[IGESDefsTabularData]
+  Handle_IGESDefs_TabularData* = handle[IGESDefs_TabularData]
 
 ## ! Defines IGES Tabular Data, Type <406> Form <11>,
 ## ! in package IGESDefs
@@ -28,53 +34,52 @@ type
 ## ! point form data.
 
 type
-  IGESDefsTabularData* {.importcpp: "IGESDefs_TabularData",
-                        header: "IGESDefs_TabularData.hxx", bycopy.} = object of IGESDataIGESEntity
+  IGESDefs_TabularData* {.importcpp: "IGESDefs_TabularData",
+                         header: "IGESDefs_TabularData.hxx", bycopy.} = object of IGESData_IGESEntity
 
 
-proc constructIGESDefsTabularData*(): IGESDefsTabularData {.constructor,
+proc constructIGESDefs_TabularData*(): IGESDefs_TabularData {.constructor,
     importcpp: "IGESDefs_TabularData(@)", header: "IGESDefs_TabularData.hxx".}
-proc init*(this: var IGESDefsTabularData; nbProps: StandardInteger;
-          propType: StandardInteger; typesInd: Handle[TColStdHArray1OfInteger];
-          nbValuesInd: Handle[TColStdHArray1OfInteger];
-          valuesInd: Handle[IGESBasicHArray1OfHArray1OfReal];
-          valuesDep: Handle[IGESBasicHArray1OfHArray1OfReal]) {.importcpp: "Init",
-    header: "IGESDefs_TabularData.hxx".}
-proc nbPropertyValues*(this: IGESDefsTabularData): StandardInteger {.noSideEffect,
+proc Init*(this: var IGESDefs_TabularData; nbProps: Standard_Integer;
+          propType: Standard_Integer; typesInd: handle[TColStd_HArray1OfInteger];
+          nbValuesInd: handle[TColStd_HArray1OfInteger];
+          valuesInd: handle[IGESBasic_HArray1OfHArray1OfReal];
+          valuesDep: handle[IGESBasic_HArray1OfHArray1OfReal]) {.
+    importcpp: "Init", header: "IGESDefs_TabularData.hxx".}
+proc NbPropertyValues*(this: IGESDefs_TabularData): Standard_Integer {.noSideEffect,
     importcpp: "NbPropertyValues", header: "IGESDefs_TabularData.hxx".}
-proc computedNbPropertyValues*(this: IGESDefsTabularData): StandardInteger {.
+proc ComputedNbPropertyValues*(this: IGESDefs_TabularData): Standard_Integer {.
     noSideEffect, importcpp: "ComputedNbPropertyValues",
     header: "IGESDefs_TabularData.hxx".}
-proc ownCorrect*(this: var IGESDefsTabularData): StandardBoolean {.
+proc OwnCorrect*(this: var IGESDefs_TabularData): Standard_Boolean {.
     importcpp: "OwnCorrect", header: "IGESDefs_TabularData.hxx".}
-proc propertyType*(this: IGESDefsTabularData): StandardInteger {.noSideEffect,
+proc PropertyType*(this: IGESDefs_TabularData): Standard_Integer {.noSideEffect,
     importcpp: "PropertyType", header: "IGESDefs_TabularData.hxx".}
-proc nbDependents*(this: IGESDefsTabularData): StandardInteger {.noSideEffect,
+proc NbDependents*(this: IGESDefs_TabularData): Standard_Integer {.noSideEffect,
     importcpp: "NbDependents", header: "IGESDefs_TabularData.hxx".}
-proc nbIndependents*(this: IGESDefsTabularData): StandardInteger {.noSideEffect,
+proc NbIndependents*(this: IGESDefs_TabularData): Standard_Integer {.noSideEffect,
     importcpp: "NbIndependents", header: "IGESDefs_TabularData.hxx".}
-proc typeOfIndependents*(this: IGESDefsTabularData; num: StandardInteger): StandardInteger {.
+proc TypeOfIndependents*(this: IGESDefs_TabularData; num: Standard_Integer): Standard_Integer {.
     noSideEffect, importcpp: "TypeOfIndependents",
     header: "IGESDefs_TabularData.hxx".}
-proc nbValues*(this: IGESDefsTabularData; num: StandardInteger): StandardInteger {.
+proc NbValues*(this: IGESDefs_TabularData; num: Standard_Integer): Standard_Integer {.
     noSideEffect, importcpp: "NbValues", header: "IGESDefs_TabularData.hxx".}
-proc independentValue*(this: IGESDefsTabularData; variablenum: StandardInteger;
-                      valuenum: StandardInteger): StandardReal {.noSideEffect,
+proc IndependentValue*(this: IGESDefs_TabularData; variablenum: Standard_Integer;
+                      valuenum: Standard_Integer): Standard_Real {.noSideEffect,
     importcpp: "IndependentValue", header: "IGESDefs_TabularData.hxx".}
-proc dependentValues*(this: IGESDefsTabularData; num: StandardInteger): Handle[
-    TColStdHArray1OfReal] {.noSideEffect, importcpp: "DependentValues",
-                           header: "IGESDefs_TabularData.hxx".}
-proc dependentValue*(this: IGESDefsTabularData; variablenum: StandardInteger;
-                    valuenum: StandardInteger): StandardReal {.noSideEffect,
+proc DependentValues*(this: IGESDefs_TabularData; num: Standard_Integer): handle[
+    TColStd_HArray1OfReal] {.noSideEffect, importcpp: "DependentValues",
+                            header: "IGESDefs_TabularData.hxx".}
+proc DependentValue*(this: IGESDefs_TabularData; variablenum: Standard_Integer;
+                    valuenum: Standard_Integer): Standard_Real {.noSideEffect,
     importcpp: "DependentValue", header: "IGESDefs_TabularData.hxx".}
 type
-  IGESDefsTabularDatabaseType* = IGESDataIGESEntity
+  IGESDefs_TabularDatabase_type* = IGESData_IGESEntity
 
-proc getTypeName*(): cstring {.importcpp: "IGESDefs_TabularData::get_type_name(@)",
-                            header: "IGESDefs_TabularData.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "IGESDefs_TabularData::get_type_name(@)",
+                              header: "IGESDefs_TabularData.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "IGESDefs_TabularData::get_type_descriptor(@)",
     header: "IGESDefs_TabularData.hxx".}
-proc dynamicType*(this: IGESDefsTabularData): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: IGESDefs_TabularData): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "IGESDefs_TabularData.hxx".}
-

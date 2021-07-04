@@ -14,32 +14,35 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Integer,
+  ../Standard/Standard_Transient
+
 discard "forward decl of MoniTool_IntVal"
 discard "forward decl of MoniTool_IntVal"
 type
-  HandleMoniToolIntVal* = Handle[MoniToolIntVal]
+  Handle_MoniTool_IntVal* = handle[MoniTool_IntVal]
 
 ## ! An Integer through a Handle (i.e. managed as TShared)
 
 type
-  MoniToolIntVal* {.importcpp: "MoniTool_IntVal", header: "MoniTool_IntVal.hxx",
-                   bycopy.} = object of StandardTransient
+  MoniTool_IntVal* {.importcpp: "MoniTool_IntVal", header: "MoniTool_IntVal.hxx",
+                    bycopy.} = object of Standard_Transient
 
 
-proc constructMoniToolIntVal*(val: StandardInteger = 0): MoniToolIntVal {.constructor,
-    importcpp: "MoniTool_IntVal(@)", header: "MoniTool_IntVal.hxx".}
-proc value*(this: MoniToolIntVal): StandardInteger {.noSideEffect,
+proc constructMoniTool_IntVal*(val: Standard_Integer = 0): MoniTool_IntVal {.
+    constructor, importcpp: "MoniTool_IntVal(@)", header: "MoniTool_IntVal.hxx".}
+proc Value*(this: MoniTool_IntVal): Standard_Integer {.noSideEffect,
     importcpp: "Value", header: "MoniTool_IntVal.hxx".}
-proc cValue*(this: var MoniToolIntVal): var StandardInteger {.importcpp: "CValue",
+proc CValue*(this: var MoniTool_IntVal): var Standard_Integer {.importcpp: "CValue",
     header: "MoniTool_IntVal.hxx".}
 type
-  MoniToolIntValbaseType* = StandardTransient
+  MoniTool_IntValbase_type* = Standard_Transient
 
-proc getTypeName*(): cstring {.importcpp: "MoniTool_IntVal::get_type_name(@)",
-                            header: "MoniTool_IntVal.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "MoniTool_IntVal::get_type_name(@)",
+                              header: "MoniTool_IntVal.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "MoniTool_IntVal::get_type_descriptor(@)",
     header: "MoniTool_IntVal.hxx".}
-proc dynamicType*(this: MoniToolIntVal): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: MoniTool_IntVal): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "MoniTool_IntVal.hxx".}
-

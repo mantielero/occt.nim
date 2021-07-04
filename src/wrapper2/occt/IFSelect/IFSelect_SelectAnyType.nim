@@ -14,46 +14,50 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, IFSelect_SelectExtract,
+  ../Standard/Standard_Type, ../Standard/Standard_Boolean,
+  ../Standard/Standard_Integer
+
 discard "forward decl of Standard_Transient"
 discard "forward decl of Interface_InterfaceModel"
 discard "forward decl of IFSelect_SelectAnyType"
 discard "forward decl of IFSelect_SelectAnyType"
 type
-  HandleIFSelectSelectAnyType* = Handle[IFSelectSelectAnyType]
+  Handle_IFSelect_SelectAnyType* = handle[IFSelect_SelectAnyType]
 
 ## ! A SelectAnyType sorts the Entities of which the Type is Kind
 ## ! of a given Type : this Type for Match is specific of each
 ## ! class of SelectAnyType
 
 type
-  IFSelectSelectAnyType* {.importcpp: "IFSelect_SelectAnyType",
-                          header: "IFSelect_SelectAnyType.hxx", bycopy.} = object of IFSelectSelectExtract ##
-                                                                                                    ## !
-                                                                                                    ## Returns
-                                                                                                    ## the
-                                                                                                    ## Type
-                                                                                                    ## which
-                                                                                                    ## has
-                                                                                                    ## to
-                                                                                                    ## be
-                                                                                                    ## matched
-                                                                                                    ## for
-                                                                                                    ## select
+  IFSelect_SelectAnyType* {.importcpp: "IFSelect_SelectAnyType",
+                           header: "IFSelect_SelectAnyType.hxx", bycopy.} = object of IFSelect_SelectExtract ##
+                                                                                                      ## !
+                                                                                                      ## Returns
+                                                                                                      ## the
+                                                                                                      ## Type
+                                                                                                      ## which
+                                                                                                      ## has
+                                                                                                      ## to
+                                                                                                      ## be
+                                                                                                      ## matched
+                                                                                                      ## for
+                                                                                                      ## select
 
 
-proc typeForMatch*(this: IFSelectSelectAnyType): Handle[StandardType] {.
+proc TypeForMatch*(this: IFSelect_SelectAnyType): handle[Standard_Type] {.
     noSideEffect, importcpp: "TypeForMatch", header: "IFSelect_SelectAnyType.hxx".}
-proc sort*(this: IFSelectSelectAnyType; rank: StandardInteger;
-          ent: Handle[StandardTransient]; model: Handle[InterfaceInterfaceModel]): StandardBoolean {.
+proc Sort*(this: IFSelect_SelectAnyType; rank: Standard_Integer;
+          ent: handle[Standard_Transient]; model: handle[Interface_InterfaceModel]): Standard_Boolean {.
     noSideEffect, importcpp: "Sort", header: "IFSelect_SelectAnyType.hxx".}
 type
-  IFSelectSelectAnyTypebaseType* = IFSelectSelectExtract
+  IFSelect_SelectAnyTypebase_type* = IFSelect_SelectExtract
 
-proc getTypeName*(): cstring {.importcpp: "IFSelect_SelectAnyType::get_type_name(@)",
-                            header: "IFSelect_SelectAnyType.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "IFSelect_SelectAnyType::get_type_name(@)",
+                              header: "IFSelect_SelectAnyType.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "IFSelect_SelectAnyType::get_type_descriptor(@)",
     header: "IFSelect_SelectAnyType.hxx".}
-proc dynamicType*(this: IFSelectSelectAnyType): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "IFSelect_SelectAnyType.hxx".}
-
+proc DynamicType*(this: IFSelect_SelectAnyType): handle[Standard_Type] {.
+    noSideEffect, importcpp: "DynamicType", header: "IFSelect_SelectAnyType.hxx".}

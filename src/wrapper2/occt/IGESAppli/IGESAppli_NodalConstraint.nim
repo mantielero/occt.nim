@@ -14,13 +14,17 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Integer,
+  ../IGESDefs/IGESDefs_HArray1OfTabularData, ../IGESData/IGESData_IGESEntity
+
 discard "forward decl of IGESAppli_Node"
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of IGESDefs_TabularData"
 discard "forward decl of IGESAppli_NodalConstraint"
 discard "forward decl of IGESAppli_NodalConstraint"
 type
-  HandleIGESAppliNodalConstraint* = Handle[IGESAppliNodalConstraint]
+  Handle_IGESAppli_NodalConstraint* = handle[IGESAppli_NodalConstraint]
 
 ## ! defines NodalConstraint, Type <418> Form <0>
 ## ! in package IGESAppli
@@ -30,34 +34,33 @@ type
 ## ! the load or constraint data
 
 type
-  IGESAppliNodalConstraint* {.importcpp: "IGESAppli_NodalConstraint",
-                             header: "IGESAppli_NodalConstraint.hxx", bycopy.} = object of IGESDataIGESEntity
+  IGESAppli_NodalConstraint* {.importcpp: "IGESAppli_NodalConstraint",
+                              header: "IGESAppli_NodalConstraint.hxx", bycopy.} = object of IGESData_IGESEntity
 
 
-proc constructIGESAppliNodalConstraint*(): IGESAppliNodalConstraint {.constructor,
-    importcpp: "IGESAppli_NodalConstraint(@)",
+proc constructIGESAppli_NodalConstraint*(): IGESAppli_NodalConstraint {.
+    constructor, importcpp: "IGESAppli_NodalConstraint(@)",
     header: "IGESAppli_NodalConstraint.hxx".}
-proc init*(this: var IGESAppliNodalConstraint; aType: StandardInteger;
-          aNode: Handle[IGESAppliNode];
-          allTabData: Handle[IGESDefsHArray1OfTabularData]) {.importcpp: "Init",
+proc Init*(this: var IGESAppli_NodalConstraint; aType: Standard_Integer;
+          aNode: handle[IGESAppli_Node];
+          allTabData: handle[IGESDefs_HArray1OfTabularData]) {.importcpp: "Init",
     header: "IGESAppli_NodalConstraint.hxx".}
-proc nbCases*(this: IGESAppliNodalConstraint): StandardInteger {.noSideEffect,
+proc NbCases*(this: IGESAppli_NodalConstraint): Standard_Integer {.noSideEffect,
     importcpp: "NbCases", header: "IGESAppli_NodalConstraint.hxx".}
-proc `type`*(this: IGESAppliNodalConstraint): StandardInteger {.noSideEffect,
+proc Type*(this: IGESAppli_NodalConstraint): Standard_Integer {.noSideEffect,
     importcpp: "Type", header: "IGESAppli_NodalConstraint.hxx".}
-proc nodeEntity*(this: IGESAppliNodalConstraint): Handle[IGESAppliNode] {.
+proc NodeEntity*(this: IGESAppli_NodalConstraint): handle[IGESAppli_Node] {.
     noSideEffect, importcpp: "NodeEntity", header: "IGESAppli_NodalConstraint.hxx".}
-proc tabularData*(this: IGESAppliNodalConstraint; index: StandardInteger): Handle[
-    IGESDefsTabularData] {.noSideEffect, importcpp: "TabularData",
-                          header: "IGESAppli_NodalConstraint.hxx".}
+proc TabularData*(this: IGESAppli_NodalConstraint; Index: Standard_Integer): handle[
+    IGESDefs_TabularData] {.noSideEffect, importcpp: "TabularData",
+                           header: "IGESAppli_NodalConstraint.hxx".}
 type
-  IGESAppliNodalConstraintbaseType* = IGESDataIGESEntity
+  IGESAppli_NodalConstraintbase_type* = IGESData_IGESEntity
 
-proc getTypeName*(): cstring {.importcpp: "IGESAppli_NodalConstraint::get_type_name(@)",
-                            header: "IGESAppli_NodalConstraint.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "IGESAppli_NodalConstraint::get_type_name(@)",
+                              header: "IGESAppli_NodalConstraint.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "IGESAppli_NodalConstraint::get_type_descriptor(@)",
     header: "IGESAppli_NodalConstraint.hxx".}
-proc dynamicType*(this: IGESAppliNodalConstraint): Handle[StandardType] {.
+proc DynamicType*(this: IGESAppli_NodalConstraint): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType", header: "IGESAppli_NodalConstraint.hxx".}
-

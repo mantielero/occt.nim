@@ -14,6 +14,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer,
+  ../Standard/Standard_Real
+
 discard "forward decl of IGESGeom_SplineCurve"
 discard "forward decl of Geom_BSplineCurve"
 discard "forward decl of Geom2d_BSplineCurve"
@@ -165,28 +170,27 @@ type
                                                                                    ## produced)
 
 
-proc splineCurveFromIGES*(igesent: Handle[IGESGeomSplineCurve];
-                         epscoef: StandardReal; epsgeom: StandardReal;
-                         result: var Handle[GeomBSplineCurve]): StandardInteger {.
+proc SplineCurveFromIGES*(igesent: handle[IGESGeom_SplineCurve];
+                         epscoef: Standard_Real; epsgeom: Standard_Real;
+                         result: var handle[Geom_BSplineCurve]): Standard_Integer {.
     importcpp: "IGESConvGeom::SplineCurveFromIGES(@)", header: "IGESConvGeom.hxx".}
-proc increaseCurveContinuity*(curve: Handle[GeomBSplineCurve];
-                             epsgeom: StandardReal;
-                             continuity: StandardInteger = 2): StandardInteger {.
+proc IncreaseCurveContinuity*(curve: handle[Geom_BSplineCurve];
+                             epsgeom: Standard_Real;
+                             continuity: Standard_Integer = 2): Standard_Integer {.
     importcpp: "IGESConvGeom::IncreaseCurveContinuity(@)",
     header: "IGESConvGeom.hxx".}
-proc increaseCurveContinuity*(curve: Handle[Geom2dBSplineCurve];
-                             epsgeom: StandardReal;
-                             continuity: StandardInteger = 2): StandardInteger {.
+proc IncreaseCurveContinuity*(curve: handle[Geom2d_BSplineCurve];
+                             epsgeom: Standard_Real;
+                             continuity: Standard_Integer = 2): Standard_Integer {.
     importcpp: "IGESConvGeom::IncreaseCurveContinuity(@)",
     header: "IGESConvGeom.hxx".}
-proc splineSurfaceFromIGES*(igesent: Handle[IGESGeomSplineSurface];
-                           epscoef: StandardReal; epsgeom: StandardReal;
-                           result: var Handle[GeomBSplineSurface]): StandardInteger {.
+proc SplineSurfaceFromIGES*(igesent: handle[IGESGeom_SplineSurface];
+                           epscoef: Standard_Real; epsgeom: Standard_Real;
+                           result: var handle[Geom_BSplineSurface]): Standard_Integer {.
     importcpp: "IGESConvGeom::SplineSurfaceFromIGES(@)",
     header: "IGESConvGeom.hxx".}
-proc increaseSurfaceContinuity*(surface: Handle[GeomBSplineSurface];
-                               epsgeom: StandardReal;
-                               continuity: StandardInteger = 2): StandardInteger {.
+proc IncreaseSurfaceContinuity*(surface: handle[Geom_BSplineSurface];
+                               epsgeom: Standard_Real;
+                               continuity: Standard_Integer = 2): Standard_Integer {.
     importcpp: "IGESConvGeom::IncreaseSurfaceContinuity(@)",
     header: "IGESConvGeom.hxx".}
-

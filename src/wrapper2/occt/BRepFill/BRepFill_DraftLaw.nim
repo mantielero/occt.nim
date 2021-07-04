@@ -14,33 +14,36 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, BRepFill_Edge3DLaw,
+  ../Standard/Standard_Real
+
 discard "forward decl of TopoDS_Wire"
 discard "forward decl of GeomFill_LocationDraft"
 discard "forward decl of BRepFill_DraftLaw"
 discard "forward decl of BRepFill_DraftLaw"
 type
-  HandleBRepFillDraftLaw* = Handle[BRepFillDraftLaw]
+  Handle_BRepFill_DraftLaw* = handle[BRepFill_DraftLaw]
 
 ## ! Build Location Law, with a  Wire.
 
 type
-  BRepFillDraftLaw* {.importcpp: "BRepFill_DraftLaw",
-                     header: "BRepFill_DraftLaw.hxx", bycopy.} = object of BRepFillEdge3DLaw
+  BRepFill_DraftLaw* {.importcpp: "BRepFill_DraftLaw",
+                      header: "BRepFill_DraftLaw.hxx", bycopy.} = object of BRepFill_Edge3DLaw
 
 
-proc constructBRepFillDraftLaw*(path: TopoDS_Wire;
-                               law: Handle[GeomFillLocationDraft]): BRepFillDraftLaw {.
+proc constructBRepFill_DraftLaw*(Path: TopoDS_Wire;
+                                Law: handle[GeomFill_LocationDraft]): BRepFill_DraftLaw {.
     constructor, importcpp: "BRepFill_DraftLaw(@)", header: "BRepFill_DraftLaw.hxx".}
-proc cleanLaw*(this: var BRepFillDraftLaw; tolAngular: StandardReal) {.
+proc CleanLaw*(this: var BRepFill_DraftLaw; TolAngular: Standard_Real) {.
     importcpp: "CleanLaw", header: "BRepFill_DraftLaw.hxx".}
 type
-  BRepFillDraftLawbaseType* = BRepFillEdge3DLaw
+  BRepFill_DraftLawbase_type* = BRepFill_Edge3DLaw
 
-proc getTypeName*(): cstring {.importcpp: "BRepFill_DraftLaw::get_type_name(@)",
-                            header: "BRepFill_DraftLaw.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "BRepFill_DraftLaw::get_type_name(@)",
+                              header: "BRepFill_DraftLaw.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "BRepFill_DraftLaw::get_type_descriptor(@)",
     header: "BRepFill_DraftLaw.hxx".}
-proc dynamicType*(this: BRepFillDraftLaw): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: BRepFill_DraftLaw): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "BRepFill_DraftLaw.hxx".}
-

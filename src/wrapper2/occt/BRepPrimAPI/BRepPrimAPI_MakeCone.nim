@@ -14,6 +14,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../BRepPrim/BRepPrim_Cone, BRepPrimAPI_MakeOneAxis,
+  ../Standard/Standard_Real, ../Standard/Standard_Address
+
 discard "forward decl of Standard_DomainError"
 discard "forward decl of gp_Ax2"
 discard "forward decl of BRepPrim_Cone"
@@ -61,24 +66,24 @@ type
                                                                                                    ## height
 
 
-proc constructBRepPrimAPI_MakeCone*(r1: StandardReal; r2: StandardReal;
-                                   h: StandardReal): BRepPrimAPI_MakeCone {.
+proc constructBRepPrimAPI_MakeCone*(R1: Standard_Real; R2: Standard_Real;
+                                   H: Standard_Real): BRepPrimAPI_MakeCone {.
     constructor, importcpp: "BRepPrimAPI_MakeCone(@)",
     header: "BRepPrimAPI_MakeCone.hxx".}
-proc constructBRepPrimAPI_MakeCone*(r1: StandardReal; r2: StandardReal;
-                                   h: StandardReal; angle: StandardReal): BRepPrimAPI_MakeCone {.
+proc constructBRepPrimAPI_MakeCone*(R1: Standard_Real; R2: Standard_Real;
+                                   H: Standard_Real; angle: Standard_Real): BRepPrimAPI_MakeCone {.
     constructor, importcpp: "BRepPrimAPI_MakeCone(@)",
     header: "BRepPrimAPI_MakeCone.hxx".}
-proc constructBRepPrimAPI_MakeCone*(axes: GpAx2; r1: StandardReal; r2: StandardReal;
-                                   h: StandardReal): BRepPrimAPI_MakeCone {.
+proc constructBRepPrimAPI_MakeCone*(Axes: gp_Ax2; R1: Standard_Real;
+                                   R2: Standard_Real; H: Standard_Real): BRepPrimAPI_MakeCone {.
     constructor, importcpp: "BRepPrimAPI_MakeCone(@)",
     header: "BRepPrimAPI_MakeCone.hxx".}
-proc constructBRepPrimAPI_MakeCone*(axes: GpAx2; r1: StandardReal; r2: StandardReal;
-                                   h: StandardReal; angle: StandardReal): BRepPrimAPI_MakeCone {.
+proc constructBRepPrimAPI_MakeCone*(Axes: gp_Ax2; R1: Standard_Real;
+                                   R2: Standard_Real; H: Standard_Real;
+                                   angle: Standard_Real): BRepPrimAPI_MakeCone {.
     constructor, importcpp: "BRepPrimAPI_MakeCone(@)",
     header: "BRepPrimAPI_MakeCone.hxx".}
-proc oneAxis*(this: var BRepPrimAPI_MakeCone): StandardAddress {.
+proc OneAxis*(this: var BRepPrimAPI_MakeCone): Standard_Address {.
     importcpp: "OneAxis", header: "BRepPrimAPI_MakeCone.hxx".}
-proc cone*(this: var BRepPrimAPI_MakeCone): var BRepPrimCone {.importcpp: "Cone",
+proc Cone*(this: var BRepPrimAPI_MakeCone): var BRepPrim_Cone {.importcpp: "Cone",
     header: "BRepPrimAPI_MakeCone.hxx".}
-

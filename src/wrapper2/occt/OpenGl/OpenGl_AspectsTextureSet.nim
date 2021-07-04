@@ -11,38 +11,41 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Graphic3d/Graphic3d_Aspects, ../Graphic3d/Graphic3d_TextureMap,
+  ../Graphic3d/Graphic3d_TextureSet
+
 discard "forward decl of OpenGl_Context"
 discard "forward decl of OpenGl_TextureSet"
 discard "forward decl of OpenGl_PointSprite"
 type
-  OpenGlAspectsTextureSet* {.importcpp: "OpenGl_AspectsTextureSet",
-                            header: "OpenGl_AspectsTextureSet.hxx", bycopy.} = object ##
-                                                                                 ## !
-                                                                                 ## Empty
-                                                                                 ## constructor.
-                                                                                 ##
-                                                                                 ## !
-                                                                                 ## Build
-                                                                                 ## texture
-                                                                                 ## resource.
+  OpenGl_AspectsTextureSet* {.importcpp: "OpenGl_AspectsTextureSet",
+                             header: "OpenGl_AspectsTextureSet.hxx", bycopy.} = object ##
+                                                                                  ## !
+                                                                                  ## Empty
+                                                                                  ## constructor.
+                                                                                  ##
+                                                                                  ## !
+                                                                                  ## Build
+                                                                                  ## texture
+                                                                                  ## resource.
 
 
-proc constructOpenGlAspectsTextureSet*(): OpenGlAspectsTextureSet {.constructor,
+proc constructOpenGl_AspectsTextureSet*(): OpenGl_AspectsTextureSet {.constructor,
     importcpp: "OpenGl_AspectsTextureSet(@)",
     header: "OpenGl_AspectsTextureSet.hxx".}
-proc isReady*(this: OpenGlAspectsTextureSet): bool {.noSideEffect,
+proc IsReady*(this: OpenGl_AspectsTextureSet): bool {.noSideEffect,
     importcpp: "IsReady", header: "OpenGl_AspectsTextureSet.hxx".}
-proc invalidate*(this: var OpenGlAspectsTextureSet) {.importcpp: "Invalidate",
+proc Invalidate*(this: var OpenGl_AspectsTextureSet) {.importcpp: "Invalidate",
     header: "OpenGl_AspectsTextureSet.hxx".}
-proc textureSet*(this: var OpenGlAspectsTextureSet; theCtx: Handle[OpenGlContext];
-                theAspect: Handle[Graphic3dAspects];
-                theSprite: Handle[OpenGlPointSprite];
-                theSpriteA: Handle[OpenGlPointSprite]; theToHighlight: bool): Handle[
-    OpenGlTextureSet] {.importcpp: "TextureSet",
-                       header: "OpenGl_AspectsTextureSet.hxx".}
-proc updateRediness*(this: var OpenGlAspectsTextureSet;
-                    theAspect: Handle[Graphic3dAspects]) {.
+proc TextureSet*(this: var OpenGl_AspectsTextureSet; theCtx: handle[OpenGl_Context];
+                theAspect: handle[Graphic3d_Aspects];
+                theSprite: handle[OpenGl_PointSprite];
+                theSpriteA: handle[OpenGl_PointSprite]; theToHighlight: bool): handle[
+    OpenGl_TextureSet] {.importcpp: "TextureSet",
+                        header: "OpenGl_AspectsTextureSet.hxx".}
+proc UpdateRediness*(this: var OpenGl_AspectsTextureSet;
+                    theAspect: handle[Graphic3d_Aspects]) {.
     importcpp: "UpdateRediness", header: "OpenGl_AspectsTextureSet.hxx".}
-proc release*(this: var OpenGlAspectsTextureSet; theCtx: ptr OpenGlContext) {.
+proc Release*(this: var OpenGl_AspectsTextureSet; theCtx: ptr OpenGl_Context) {.
     importcpp: "Release", header: "OpenGl_AspectsTextureSet.hxx".}
-

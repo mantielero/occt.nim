@@ -11,43 +11,44 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  Aspect_XRAction
+
 ## ! XR action set.
 
 type
-  AspectXRActionSet* {.importcpp: "Aspect_XRActionSet",
-                      header: "Aspect_XRActionSet.hxx", bycopy.} = object of StandardTransient ##
-                                                                                        ## !
-                                                                                        ## Return
-                                                                                        ## action
-                                                                                        ## id.
+  Aspect_XRActionSet* {.importcpp: "Aspect_XRActionSet",
+                       header: "Aspect_XRActionSet.hxx", bycopy.} = object of Standard_Transient ##
+                                                                                          ## !
+                                                                                          ## Return
+                                                                                          ## action
+                                                                                          ## id.
     ## !< action set id
     ## !< action set handle
     ## !< map of actions
 
-  AspectXRActionSetbaseType* = StandardTransient
+  Aspect_XRActionSetbase_type* = Standard_Transient
 
-proc getTypeName*(): cstring {.importcpp: "Aspect_XRActionSet::get_type_name(@)",
-                            header: "Aspect_XRActionSet.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "Aspect_XRActionSet::get_type_name(@)",
+                              header: "Aspect_XRActionSet.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "Aspect_XRActionSet::get_type_descriptor(@)",
     header: "Aspect_XRActionSet.hxx".}
-proc dynamicType*(this: AspectXRActionSet): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: Aspect_XRActionSet): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "Aspect_XRActionSet.hxx".}
-proc id*(this: AspectXRActionSet): TCollectionAsciiString {.noSideEffect,
+proc Id*(this: Aspect_XRActionSet): TCollection_AsciiString {.noSideEffect,
     importcpp: "Id", header: "Aspect_XRActionSet.hxx".}
-proc rawHandle*(this: AspectXRActionSet): uint64T {.noSideEffect,
+proc RawHandle*(this: Aspect_XRActionSet): uint64_t {.noSideEffect,
     importcpp: "RawHandle", header: "Aspect_XRActionSet.hxx".}
-proc setRawHandle*(this: var AspectXRActionSet; theHande: uint64T) {.
+proc SetRawHandle*(this: var Aspect_XRActionSet; theHande: uint64_t) {.
     importcpp: "SetRawHandle", header: "Aspect_XRActionSet.hxx".}
-proc addAction*(this: var AspectXRActionSet; theAction: Handle[AspectXRAction]) {.
+proc AddAction*(this: var Aspect_XRActionSet; theAction: handle[Aspect_XRAction]) {.
     importcpp: "AddAction", header: "Aspect_XRActionSet.hxx".}
-proc actions*(this: AspectXRActionSet): AspectXRActionMap {.noSideEffect,
+proc Actions*(this: Aspect_XRActionSet): Aspect_XRActionMap {.noSideEffect,
     importcpp: "Actions", header: "Aspect_XRActionSet.hxx".}
-proc constructAspectXRActionSet*(theId: TCollectionAsciiString): AspectXRActionSet {.
+proc constructAspect_XRActionSet*(theId: TCollection_AsciiString): Aspect_XRActionSet {.
     constructor, importcpp: "Aspect_XRActionSet(@)",
     header: "Aspect_XRActionSet.hxx".}
 type
-  AspectXRActionSetMap* = NCollectionIndexedDataMap[TCollectionAsciiString,
-      Handle[AspectXRActionSet], TCollectionAsciiString]
-
-
+  Aspect_XRActionSetMap* = NCollection_IndexedDataMap[TCollection_AsciiString,
+      handle[Aspect_XRActionSet], TCollection_AsciiString]

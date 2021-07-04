@@ -14,21 +14,24 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, GeomToStep_Root
+
 discard "forward decl of StepGeom_Curve"
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of Geom_Curve"
 discard "forward decl of Geom2d_Curve"
 type
-  GeomToStepMakeCurve* {.importcpp: "GeomToStep_MakeCurve",
-                        header: "GeomToStep_MakeCurve.hxx", bycopy.} = object of GeomToStepRoot
+  GeomToStep_MakeCurve* {.importcpp: "GeomToStep_MakeCurve",
+                         header: "GeomToStep_MakeCurve.hxx", bycopy.} = object of GeomToStep_Root
 
 
-proc constructGeomToStepMakeCurve*(c: Handle[GeomCurve]): GeomToStepMakeCurve {.
+proc constructGeomToStep_MakeCurve*(C: handle[Geom_Curve]): GeomToStep_MakeCurve {.
     constructor, importcpp: "GeomToStep_MakeCurve(@)",
     header: "GeomToStep_MakeCurve.hxx".}
-proc constructGeomToStepMakeCurve*(c: Handle[Geom2dCurve]): GeomToStepMakeCurve {.
+proc constructGeomToStep_MakeCurve*(C: handle[Geom2d_Curve]): GeomToStep_MakeCurve {.
     constructor, importcpp: "GeomToStep_MakeCurve(@)",
     header: "GeomToStep_MakeCurve.hxx".}
-proc value*(this: GeomToStepMakeCurve): Handle[StepGeomCurve] {.noSideEffect,
+proc Value*(this: GeomToStep_MakeCurve): handle[StepGeom_Curve] {.noSideEffect,
     importcpp: "Value", header: "GeomToStep_MakeCurve.hxx".}
-

@@ -14,143 +14,154 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer,
+  ../Standard/Standard_Boolean, ../TopTools/TopTools_HSequenceOfShape
+
 discard "forward decl of TopoDS_Shape"
 type
-  ShapeAnalysisShapeContents* {.importcpp: "ShapeAnalysis_ShapeContents",
-                               header: "ShapeAnalysis_ShapeContents.hxx", bycopy.} = object ##
-                                                                                       ## !
-                                                                                       ## Initialize
-                                                                                       ## fields
-                                                                                       ## and
-                                                                                       ## call
-                                                                                       ## ClearFlags()
+  ShapeAnalysis_ShapeContents* {.importcpp: "ShapeAnalysis_ShapeContents",
+                                header: "ShapeAnalysis_ShapeContents.hxx", bycopy.} = object ##
+                                                                                        ## !
+                                                                                        ## Initialize
+                                                                                        ## fields
+                                                                                        ## and
+                                                                                        ## call
+                                                                                        ## ClearFlags()
 
 
-proc constructShapeAnalysisShapeContents*(): ShapeAnalysisShapeContents {.
+proc constructShapeAnalysis_ShapeContents*(): ShapeAnalysis_ShapeContents {.
     constructor, importcpp: "ShapeAnalysis_ShapeContents(@)",
     header: "ShapeAnalysis_ShapeContents.hxx".}
-proc clear*(this: var ShapeAnalysisShapeContents) {.importcpp: "Clear",
+proc Clear*(this: var ShapeAnalysis_ShapeContents) {.importcpp: "Clear",
     header: "ShapeAnalysis_ShapeContents.hxx".}
-proc clearFlags*(this: var ShapeAnalysisShapeContents) {.importcpp: "ClearFlags",
+proc ClearFlags*(this: var ShapeAnalysis_ShapeContents) {.importcpp: "ClearFlags",
     header: "ShapeAnalysis_ShapeContents.hxx".}
-proc perform*(this: var ShapeAnalysisShapeContents; shape: TopoDS_Shape) {.
+proc Perform*(this: var ShapeAnalysis_ShapeContents; shape: TopoDS_Shape) {.
     importcpp: "Perform", header: "ShapeAnalysis_ShapeContents.hxx".}
-proc modifyBigSplineMode*(this: var ShapeAnalysisShapeContents): var StandardBoolean {.
+proc ModifyBigSplineMode*(this: var ShapeAnalysis_ShapeContents): var Standard_Boolean {.
     importcpp: "ModifyBigSplineMode", header: "ShapeAnalysis_ShapeContents.hxx".}
-proc modifyIndirectMode*(this: var ShapeAnalysisShapeContents): var StandardBoolean {.
+proc ModifyIndirectMode*(this: var ShapeAnalysis_ShapeContents): var Standard_Boolean {.
     importcpp: "ModifyIndirectMode", header: "ShapeAnalysis_ShapeContents.hxx".}
-proc modifyOffestSurfaceMode*(this: var ShapeAnalysisShapeContents): var StandardBoolean {.
+proc ModifyOffestSurfaceMode*(this: var ShapeAnalysis_ShapeContents): var Standard_Boolean {.
     importcpp: "ModifyOffestSurfaceMode",
     header: "ShapeAnalysis_ShapeContents.hxx".}
-proc modifyTrimmed3dMode*(this: var ShapeAnalysisShapeContents): var StandardBoolean {.
+proc ModifyTrimmed3dMode*(this: var ShapeAnalysis_ShapeContents): var Standard_Boolean {.
     importcpp: "ModifyTrimmed3dMode", header: "ShapeAnalysis_ShapeContents.hxx".}
-proc modifyOffsetCurveMode*(this: var ShapeAnalysisShapeContents): var StandardBoolean {.
+proc ModifyOffsetCurveMode*(this: var ShapeAnalysis_ShapeContents): var Standard_Boolean {.
     importcpp: "ModifyOffsetCurveMode", header: "ShapeAnalysis_ShapeContents.hxx".}
-proc modifyTrimmed2dMode*(this: var ShapeAnalysisShapeContents): var StandardBoolean {.
+proc ModifyTrimmed2dMode*(this: var ShapeAnalysis_ShapeContents): var Standard_Boolean {.
     importcpp: "ModifyTrimmed2dMode", header: "ShapeAnalysis_ShapeContents.hxx".}
-proc nbSolids*(this: ShapeAnalysisShapeContents): StandardInteger {.noSideEffect,
+proc NbSolids*(this: ShapeAnalysis_ShapeContents): Standard_Integer {.noSideEffect,
     importcpp: "NbSolids", header: "ShapeAnalysis_ShapeContents.hxx".}
-proc nbShells*(this: ShapeAnalysisShapeContents): StandardInteger {.noSideEffect,
+proc NbShells*(this: ShapeAnalysis_ShapeContents): Standard_Integer {.noSideEffect,
     importcpp: "NbShells", header: "ShapeAnalysis_ShapeContents.hxx".}
-proc nbFaces*(this: ShapeAnalysisShapeContents): StandardInteger {.noSideEffect,
+proc NbFaces*(this: ShapeAnalysis_ShapeContents): Standard_Integer {.noSideEffect,
     importcpp: "NbFaces", header: "ShapeAnalysis_ShapeContents.hxx".}
-proc nbWires*(this: ShapeAnalysisShapeContents): StandardInteger {.noSideEffect,
+proc NbWires*(this: ShapeAnalysis_ShapeContents): Standard_Integer {.noSideEffect,
     importcpp: "NbWires", header: "ShapeAnalysis_ShapeContents.hxx".}
-proc nbEdges*(this: ShapeAnalysisShapeContents): StandardInteger {.noSideEffect,
+proc NbEdges*(this: ShapeAnalysis_ShapeContents): Standard_Integer {.noSideEffect,
     importcpp: "NbEdges", header: "ShapeAnalysis_ShapeContents.hxx".}
-proc nbVertices*(this: ShapeAnalysisShapeContents): StandardInteger {.noSideEffect,
-    importcpp: "NbVertices", header: "ShapeAnalysis_ShapeContents.hxx".}
-proc nbSolidsWithVoids*(this: ShapeAnalysisShapeContents): StandardInteger {.
+proc NbVertices*(this: ShapeAnalysis_ShapeContents): Standard_Integer {.
+    noSideEffect, importcpp: "NbVertices",
+    header: "ShapeAnalysis_ShapeContents.hxx".}
+proc NbSolidsWithVoids*(this: ShapeAnalysis_ShapeContents): Standard_Integer {.
     noSideEffect, importcpp: "NbSolidsWithVoids",
     header: "ShapeAnalysis_ShapeContents.hxx".}
-proc nbBigSplines*(this: ShapeAnalysisShapeContents): StandardInteger {.
+proc NbBigSplines*(this: ShapeAnalysis_ShapeContents): Standard_Integer {.
     noSideEffect, importcpp: "NbBigSplines",
     header: "ShapeAnalysis_ShapeContents.hxx".}
-proc nbC0Surfaces*(this: ShapeAnalysisShapeContents): StandardInteger {.
+proc NbC0Surfaces*(this: ShapeAnalysis_ShapeContents): Standard_Integer {.
     noSideEffect, importcpp: "NbC0Surfaces",
     header: "ShapeAnalysis_ShapeContents.hxx".}
-proc nbC0Curves*(this: ShapeAnalysisShapeContents): StandardInteger {.noSideEffect,
-    importcpp: "NbC0Curves", header: "ShapeAnalysis_ShapeContents.hxx".}
-proc nbOffsetSurf*(this: ShapeAnalysisShapeContents): StandardInteger {.
+proc NbC0Curves*(this: ShapeAnalysis_ShapeContents): Standard_Integer {.
+    noSideEffect, importcpp: "NbC0Curves",
+    header: "ShapeAnalysis_ShapeContents.hxx".}
+proc NbOffsetSurf*(this: ShapeAnalysis_ShapeContents): Standard_Integer {.
     noSideEffect, importcpp: "NbOffsetSurf",
     header: "ShapeAnalysis_ShapeContents.hxx".}
-proc nbIndirectSurf*(this: ShapeAnalysisShapeContents): StandardInteger {.
+proc NbIndirectSurf*(this: ShapeAnalysis_ShapeContents): Standard_Integer {.
     noSideEffect, importcpp: "NbIndirectSurf",
     header: "ShapeAnalysis_ShapeContents.hxx".}
-proc nbOffsetCurves*(this: ShapeAnalysisShapeContents): StandardInteger {.
+proc NbOffsetCurves*(this: ShapeAnalysis_ShapeContents): Standard_Integer {.
     noSideEffect, importcpp: "NbOffsetCurves",
     header: "ShapeAnalysis_ShapeContents.hxx".}
-proc nbTrimmedCurve2d*(this: ShapeAnalysisShapeContents): StandardInteger {.
+proc NbTrimmedCurve2d*(this: ShapeAnalysis_ShapeContents): Standard_Integer {.
     noSideEffect, importcpp: "NbTrimmedCurve2d",
     header: "ShapeAnalysis_ShapeContents.hxx".}
-proc nbTrimmedCurve3d*(this: ShapeAnalysisShapeContents): StandardInteger {.
+proc NbTrimmedCurve3d*(this: ShapeAnalysis_ShapeContents): Standard_Integer {.
     noSideEffect, importcpp: "NbTrimmedCurve3d",
     header: "ShapeAnalysis_ShapeContents.hxx".}
-proc nbBSplibeSurf*(this: ShapeAnalysisShapeContents): StandardInteger {.
+proc NbBSplibeSurf*(this: ShapeAnalysis_ShapeContents): Standard_Integer {.
     noSideEffect, importcpp: "NbBSplibeSurf",
     header: "ShapeAnalysis_ShapeContents.hxx".}
-proc nbBezierSurf*(this: ShapeAnalysisShapeContents): StandardInteger {.
+proc NbBezierSurf*(this: ShapeAnalysis_ShapeContents): Standard_Integer {.
     noSideEffect, importcpp: "NbBezierSurf",
     header: "ShapeAnalysis_ShapeContents.hxx".}
-proc nbTrimSurf*(this: ShapeAnalysisShapeContents): StandardInteger {.noSideEffect,
-    importcpp: "NbTrimSurf", header: "ShapeAnalysis_ShapeContents.hxx".}
-proc nbWireWitnSeam*(this: ShapeAnalysisShapeContents): StandardInteger {.
+proc NbTrimSurf*(this: ShapeAnalysis_ShapeContents): Standard_Integer {.
+    noSideEffect, importcpp: "NbTrimSurf",
+    header: "ShapeAnalysis_ShapeContents.hxx".}
+proc NbWireWitnSeam*(this: ShapeAnalysis_ShapeContents): Standard_Integer {.
     noSideEffect, importcpp: "NbWireWitnSeam",
     header: "ShapeAnalysis_ShapeContents.hxx".}
-proc nbWireWithSevSeams*(this: ShapeAnalysisShapeContents): StandardInteger {.
+proc NbWireWithSevSeams*(this: ShapeAnalysis_ShapeContents): Standard_Integer {.
     noSideEffect, importcpp: "NbWireWithSevSeams",
     header: "ShapeAnalysis_ShapeContents.hxx".}
-proc nbFaceWithSevWires*(this: ShapeAnalysisShapeContents): StandardInteger {.
+proc NbFaceWithSevWires*(this: ShapeAnalysis_ShapeContents): Standard_Integer {.
     noSideEffect, importcpp: "NbFaceWithSevWires",
     header: "ShapeAnalysis_ShapeContents.hxx".}
-proc nbNoPCurve*(this: ShapeAnalysisShapeContents): StandardInteger {.noSideEffect,
-    importcpp: "NbNoPCurve", header: "ShapeAnalysis_ShapeContents.hxx".}
-proc nbFreeFaces*(this: ShapeAnalysisShapeContents): StandardInteger {.noSideEffect,
-    importcpp: "NbFreeFaces", header: "ShapeAnalysis_ShapeContents.hxx".}
-proc nbFreeWires*(this: ShapeAnalysisShapeContents): StandardInteger {.noSideEffect,
-    importcpp: "NbFreeWires", header: "ShapeAnalysis_ShapeContents.hxx".}
-proc nbFreeEdges*(this: ShapeAnalysisShapeContents): StandardInteger {.noSideEffect,
-    importcpp: "NbFreeEdges", header: "ShapeAnalysis_ShapeContents.hxx".}
-proc nbSharedSolids*(this: ShapeAnalysisShapeContents): StandardInteger {.
+proc NbNoPCurve*(this: ShapeAnalysis_ShapeContents): Standard_Integer {.
+    noSideEffect, importcpp: "NbNoPCurve",
+    header: "ShapeAnalysis_ShapeContents.hxx".}
+proc NbFreeFaces*(this: ShapeAnalysis_ShapeContents): Standard_Integer {.
+    noSideEffect, importcpp: "NbFreeFaces",
+    header: "ShapeAnalysis_ShapeContents.hxx".}
+proc NbFreeWires*(this: ShapeAnalysis_ShapeContents): Standard_Integer {.
+    noSideEffect, importcpp: "NbFreeWires",
+    header: "ShapeAnalysis_ShapeContents.hxx".}
+proc NbFreeEdges*(this: ShapeAnalysis_ShapeContents): Standard_Integer {.
+    noSideEffect, importcpp: "NbFreeEdges",
+    header: "ShapeAnalysis_ShapeContents.hxx".}
+proc NbSharedSolids*(this: ShapeAnalysis_ShapeContents): Standard_Integer {.
     noSideEffect, importcpp: "NbSharedSolids",
     header: "ShapeAnalysis_ShapeContents.hxx".}
-proc nbSharedShells*(this: ShapeAnalysisShapeContents): StandardInteger {.
+proc NbSharedShells*(this: ShapeAnalysis_ShapeContents): Standard_Integer {.
     noSideEffect, importcpp: "NbSharedShells",
     header: "ShapeAnalysis_ShapeContents.hxx".}
-proc nbSharedFaces*(this: ShapeAnalysisShapeContents): StandardInteger {.
+proc NbSharedFaces*(this: ShapeAnalysis_ShapeContents): Standard_Integer {.
     noSideEffect, importcpp: "NbSharedFaces",
     header: "ShapeAnalysis_ShapeContents.hxx".}
-proc nbSharedWires*(this: ShapeAnalysisShapeContents): StandardInteger {.
+proc NbSharedWires*(this: ShapeAnalysis_ShapeContents): Standard_Integer {.
     noSideEffect, importcpp: "NbSharedWires",
     header: "ShapeAnalysis_ShapeContents.hxx".}
-proc nbSharedFreeWires*(this: ShapeAnalysisShapeContents): StandardInteger {.
+proc NbSharedFreeWires*(this: ShapeAnalysis_ShapeContents): Standard_Integer {.
     noSideEffect, importcpp: "NbSharedFreeWires",
     header: "ShapeAnalysis_ShapeContents.hxx".}
-proc nbSharedFreeEdges*(this: ShapeAnalysisShapeContents): StandardInteger {.
+proc NbSharedFreeEdges*(this: ShapeAnalysis_ShapeContents): Standard_Integer {.
     noSideEffect, importcpp: "NbSharedFreeEdges",
     header: "ShapeAnalysis_ShapeContents.hxx".}
-proc nbSharedEdges*(this: ShapeAnalysisShapeContents): StandardInteger {.
+proc NbSharedEdges*(this: ShapeAnalysis_ShapeContents): Standard_Integer {.
     noSideEffect, importcpp: "NbSharedEdges",
     header: "ShapeAnalysis_ShapeContents.hxx".}
-proc nbSharedVertices*(this: ShapeAnalysisShapeContents): StandardInteger {.
+proc NbSharedVertices*(this: ShapeAnalysis_ShapeContents): Standard_Integer {.
     noSideEffect, importcpp: "NbSharedVertices",
     header: "ShapeAnalysis_ShapeContents.hxx".}
-proc bigSplineSec*(this: ShapeAnalysisShapeContents): Handle[
-    TopToolsHSequenceOfShape] {.noSideEffect, importcpp: "BigSplineSec",
-                               header: "ShapeAnalysis_ShapeContents.hxx".}
-proc indirectSec*(this: ShapeAnalysisShapeContents): Handle[
-    TopToolsHSequenceOfShape] {.noSideEffect, importcpp: "IndirectSec",
-                               header: "ShapeAnalysis_ShapeContents.hxx".}
-proc offsetSurfaceSec*(this: ShapeAnalysisShapeContents): Handle[
-    TopToolsHSequenceOfShape] {.noSideEffect, importcpp: "OffsetSurfaceSec",
-                               header: "ShapeAnalysis_ShapeContents.hxx".}
-proc trimmed3dSec*(this: ShapeAnalysisShapeContents): Handle[
-    TopToolsHSequenceOfShape] {.noSideEffect, importcpp: "Trimmed3dSec",
-                               header: "ShapeAnalysis_ShapeContents.hxx".}
-proc offsetCurveSec*(this: ShapeAnalysisShapeContents): Handle[
-    TopToolsHSequenceOfShape] {.noSideEffect, importcpp: "OffsetCurveSec",
-                               header: "ShapeAnalysis_ShapeContents.hxx".}
-proc trimmed2dSec*(this: ShapeAnalysisShapeContents): Handle[
-    TopToolsHSequenceOfShape] {.noSideEffect, importcpp: "Trimmed2dSec",
-                               header: "ShapeAnalysis_ShapeContents.hxx".}
-
+proc BigSplineSec*(this: ShapeAnalysis_ShapeContents): handle[
+    TopTools_HSequenceOfShape] {.noSideEffect, importcpp: "BigSplineSec",
+                                header: "ShapeAnalysis_ShapeContents.hxx".}
+proc IndirectSec*(this: ShapeAnalysis_ShapeContents): handle[
+    TopTools_HSequenceOfShape] {.noSideEffect, importcpp: "IndirectSec",
+                                header: "ShapeAnalysis_ShapeContents.hxx".}
+proc OffsetSurfaceSec*(this: ShapeAnalysis_ShapeContents): handle[
+    TopTools_HSequenceOfShape] {.noSideEffect, importcpp: "OffsetSurfaceSec",
+                                header: "ShapeAnalysis_ShapeContents.hxx".}
+proc Trimmed3dSec*(this: ShapeAnalysis_ShapeContents): handle[
+    TopTools_HSequenceOfShape] {.noSideEffect, importcpp: "Trimmed3dSec",
+                                header: "ShapeAnalysis_ShapeContents.hxx".}
+proc OffsetCurveSec*(this: ShapeAnalysis_ShapeContents): handle[
+    TopTools_HSequenceOfShape] {.noSideEffect, importcpp: "OffsetCurveSec",
+                                header: "ShapeAnalysis_ShapeContents.hxx".}
+proc Trimmed2dSec*(this: ShapeAnalysis_ShapeContents): handle[
+    TopTools_HSequenceOfShape] {.noSideEffect, importcpp: "Trimmed2dSec",
+                                header: "ShapeAnalysis_ShapeContents.hxx".}

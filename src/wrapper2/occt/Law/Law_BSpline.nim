@@ -14,6 +14,14 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Boolean,
+  ../GeomAbs/GeomAbs_BSplKnotDistribution, ../GeomAbs/GeomAbs_Shape,
+  ../Standard/Standard_Integer, ../TColStd/TColStd_HArray1OfReal,
+  ../TColStd/TColStd_HArray1OfInteger, ../Standard/Standard_Transient,
+  ../TColStd/TColStd_Array1OfReal, ../TColStd/TColStd_Array1OfInteger,
+  ../Standard/Standard_Real
+
 discard "forward decl of Standard_ConstructionError"
 discard "forward decl of Standard_DimensionError"
 discard "forward decl of Standard_DomainError"
@@ -23,7 +31,7 @@ discard "forward decl of Standard_NoSuchObject"
 discard "forward decl of Law_BSpline"
 discard "forward decl of Law_BSpline"
 type
-  HandleLawBSpline* = Handle[LawBSpline]
+  Handle_Law_BSpline* = handle[Law_BSpline]
 
 ## ! Definition of the 1D B_spline curve.
 ## !
@@ -79,232 +87,236 @@ type
 ## ! a practical guide Gerald Farin
 
 type
-  LawBSpline* {.importcpp: "Law_BSpline", header: "Law_BSpline.hxx", bycopy.} = object of StandardTransient ##
-                                                                                                  ## !
-                                                                                                  ## Creates
-                                                                                                  ## a
-                                                                                                  ## non-rational
-                                                                                                  ## B_spline
-                                                                                                  ## curve
-                                                                                                  ## on
-                                                                                                  ## the
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## basis
-                                                                                                  ## <Knots,
-                                                                                                  ## Multiplicities>
-                                                                                                  ## of
-                                                                                                  ## degree
-                                                                                                  ## <Degree>.
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## Tells
-                                                                                                  ## whether
-                                                                                                  ## the
-                                                                                                  ## Cache
-                                                                                                  ## is
-                                                                                                  ## valid
-                                                                                                  ## for
-                                                                                                  ## the
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## given
-                                                                                                  ## parameter
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## Warnings
-                                                                                                  ## :
-                                                                                                  ## the
-                                                                                                  ## parameter
-                                                                                                  ## must
-                                                                                                  ## be
-                                                                                                  ## normalized
-                                                                                                  ## within
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## the
-                                                                                                  ## period
-                                                                                                  ## if
-                                                                                                  ## the
-                                                                                                  ## curve
-                                                                                                  ## is
-                                                                                                  ## periodic.
-                                                                                                  ## Otherwise
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## the
-                                                                                                  ## answer
-                                                                                                  ## will
-                                                                                                  ## be
-                                                                                                  ## false
+  Law_BSpline* {.importcpp: "Law_BSpline", header: "Law_BSpline.hxx", bycopy.} = object of Standard_Transient ##
+                                                                                                    ## !
+                                                                                                    ## Creates
+                                                                                                    ## a
+                                                                                                    ## non-rational
+                                                                                                    ## B_spline
+                                                                                                    ## curve
+                                                                                                    ## on
+                                                                                                    ## the
+                                                                                                    ##
+                                                                                                    ## !
+                                                                                                    ## basis
+                                                                                                    ## <Knots,
+                                                                                                    ## Multiplicities>
+                                                                                                    ## of
+                                                                                                    ## degree
+                                                                                                    ## <Degree>.
+                                                                                                    ##
+                                                                                                    ## !
+                                                                                                    ## Tells
+                                                                                                    ## whether
+                                                                                                    ## the
+                                                                                                    ## Cache
+                                                                                                    ## is
+                                                                                                    ## valid
+                                                                                                    ## for
+                                                                                                    ## the
+                                                                                                    ##
+                                                                                                    ## !
+                                                                                                    ## given
+                                                                                                    ## parameter
+                                                                                                    ##
+                                                                                                    ## !
+                                                                                                    ## Warnings
+                                                                                                    ## :
+                                                                                                    ## the
+                                                                                                    ## parameter
+                                                                                                    ## must
+                                                                                                    ## be
+                                                                                                    ## normalized
+                                                                                                    ## within
+                                                                                                    ##
+                                                                                                    ## !
+                                                                                                    ## the
+                                                                                                    ## period
+                                                                                                    ## if
+                                                                                                    ## the
+                                                                                                    ## curve
+                                                                                                    ## is
+                                                                                                    ## periodic.
+                                                                                                    ## Otherwise
+                                                                                                    ##
+                                                                                                    ## !
+                                                                                                    ## the
+                                                                                                    ## answer
+                                                                                                    ## will
+                                                                                                    ## be
+                                                                                                    ## false
 
 
-proc constructLawBSpline*(poles: TColStdArray1OfReal; knots: TColStdArray1OfReal;
-                         multiplicities: TColStdArray1OfInteger;
-                         degree: StandardInteger;
-                         periodic: StandardBoolean = standardFalse): LawBSpline {.
+proc constructLaw_BSpline*(Poles: TColStd_Array1OfReal;
+                          Knots: TColStd_Array1OfReal;
+                          Multiplicities: TColStd_Array1OfInteger;
+                          Degree: Standard_Integer;
+                          Periodic: Standard_Boolean = Standard_False): Law_BSpline {.
     constructor, importcpp: "Law_BSpline(@)", header: "Law_BSpline.hxx".}
-proc constructLawBSpline*(poles: TColStdArray1OfReal; weights: TColStdArray1OfReal;
-                         knots: TColStdArray1OfReal;
-                         multiplicities: TColStdArray1OfInteger;
-                         degree: StandardInteger;
-                         periodic: StandardBoolean = standardFalse): LawBSpline {.
+proc constructLaw_BSpline*(Poles: TColStd_Array1OfReal;
+                          Weights: TColStd_Array1OfReal;
+                          Knots: TColStd_Array1OfReal;
+                          Multiplicities: TColStd_Array1OfInteger;
+                          Degree: Standard_Integer;
+                          Periodic: Standard_Boolean = Standard_False): Law_BSpline {.
     constructor, importcpp: "Law_BSpline(@)", header: "Law_BSpline.hxx".}
-proc increaseDegree*(this: var LawBSpline; degree: StandardInteger) {.
+proc IncreaseDegree*(this: var Law_BSpline; Degree: Standard_Integer) {.
     importcpp: "IncreaseDegree", header: "Law_BSpline.hxx".}
-proc increaseMultiplicity*(this: var LawBSpline; index: StandardInteger;
-                          m: StandardInteger) {.importcpp: "IncreaseMultiplicity",
-    header: "Law_BSpline.hxx".}
-proc increaseMultiplicity*(this: var LawBSpline; i1: StandardInteger;
-                          i2: StandardInteger; m: StandardInteger) {.
+proc IncreaseMultiplicity*(this: var Law_BSpline; Index: Standard_Integer;
+                          M: Standard_Integer) {.
     importcpp: "IncreaseMultiplicity", header: "Law_BSpline.hxx".}
-proc incrementMultiplicity*(this: var LawBSpline; i1: StandardInteger;
-                           i2: StandardInteger; m: StandardInteger) {.
+proc IncreaseMultiplicity*(this: var Law_BSpline; I1: Standard_Integer;
+                          I2: Standard_Integer; M: Standard_Integer) {.
+    importcpp: "IncreaseMultiplicity", header: "Law_BSpline.hxx".}
+proc IncrementMultiplicity*(this: var Law_BSpline; I1: Standard_Integer;
+                           I2: Standard_Integer; M: Standard_Integer) {.
     importcpp: "IncrementMultiplicity", header: "Law_BSpline.hxx".}
-proc insertKnot*(this: var LawBSpline; u: StandardReal; m: StandardInteger = 1;
-                parametricTolerance: StandardReal = 0.0;
-                add: StandardBoolean = standardTrue) {.importcpp: "InsertKnot",
+proc InsertKnot*(this: var Law_BSpline; U: Standard_Real; M: Standard_Integer = 1;
+                ParametricTolerance: Standard_Real = 0.0;
+                Add: Standard_Boolean = Standard_True) {.importcpp: "InsertKnot",
     header: "Law_BSpline.hxx".}
-proc insertKnots*(this: var LawBSpline; knots: TColStdArray1OfReal;
-                 mults: TColStdArray1OfInteger;
-                 parametricTolerance: StandardReal = 0.0;
-                 add: StandardBoolean = standardFalse) {.importcpp: "InsertKnots",
+proc InsertKnots*(this: var Law_BSpline; Knots: TColStd_Array1OfReal;
+                 Mults: TColStd_Array1OfInteger;
+                 ParametricTolerance: Standard_Real = 0.0;
+                 Add: Standard_Boolean = Standard_False) {.importcpp: "InsertKnots",
     header: "Law_BSpline.hxx".}
-proc removeKnot*(this: var LawBSpline; index: StandardInteger; m: StandardInteger;
-                tolerance: StandardReal): StandardBoolean {.
+proc RemoveKnot*(this: var Law_BSpline; Index: Standard_Integer; M: Standard_Integer;
+                Tolerance: Standard_Real): Standard_Boolean {.
     importcpp: "RemoveKnot", header: "Law_BSpline.hxx".}
-proc reverse*(this: var LawBSpline) {.importcpp: "Reverse", header: "Law_BSpline.hxx".}
-proc reversedParameter*(this: LawBSpline; u: StandardReal): StandardReal {.
+proc Reverse*(this: var Law_BSpline) {.importcpp: "Reverse", header: "Law_BSpline.hxx".}
+proc ReversedParameter*(this: Law_BSpline; U: Standard_Real): Standard_Real {.
     noSideEffect, importcpp: "ReversedParameter", header: "Law_BSpline.hxx".}
-proc segment*(this: var LawBSpline; u1: StandardReal; u2: StandardReal) {.
+proc Segment*(this: var Law_BSpline; U1: Standard_Real; U2: Standard_Real) {.
     importcpp: "Segment", header: "Law_BSpline.hxx".}
-proc setKnot*(this: var LawBSpline; index: StandardInteger; k: StandardReal) {.
+proc SetKnot*(this: var Law_BSpline; Index: Standard_Integer; K: Standard_Real) {.
     importcpp: "SetKnot", header: "Law_BSpline.hxx".}
-proc setKnots*(this: var LawBSpline; k: TColStdArray1OfReal) {.importcpp: "SetKnots",
-    header: "Law_BSpline.hxx".}
-proc setKnot*(this: var LawBSpline; index: StandardInteger; k: StandardReal;
-             m: StandardInteger) {.importcpp: "SetKnot", header: "Law_BSpline.hxx".}
-proc periodicNormalization*(this: LawBSpline; u: var StandardReal) {.noSideEffect,
+proc SetKnots*(this: var Law_BSpline; K: TColStd_Array1OfReal) {.
+    importcpp: "SetKnots", header: "Law_BSpline.hxx".}
+proc SetKnot*(this: var Law_BSpline; Index: Standard_Integer; K: Standard_Real;
+             M: Standard_Integer) {.importcpp: "SetKnot", header: "Law_BSpline.hxx".}
+proc PeriodicNormalization*(this: Law_BSpline; U: var Standard_Real) {.noSideEffect,
     importcpp: "PeriodicNormalization", header: "Law_BSpline.hxx".}
-proc setPeriodic*(this: var LawBSpline) {.importcpp: "SetPeriodic",
-                                      header: "Law_BSpline.hxx".}
-proc setOrigin*(this: var LawBSpline; index: StandardInteger) {.
+proc SetPeriodic*(this: var Law_BSpline) {.importcpp: "SetPeriodic",
+                                       header: "Law_BSpline.hxx".}
+proc SetOrigin*(this: var Law_BSpline; Index: Standard_Integer) {.
     importcpp: "SetOrigin", header: "Law_BSpline.hxx".}
-proc setNotPeriodic*(this: var LawBSpline) {.importcpp: "SetNotPeriodic",
+proc SetNotPeriodic*(this: var Law_BSpline) {.importcpp: "SetNotPeriodic",
     header: "Law_BSpline.hxx".}
-proc setPole*(this: var LawBSpline; index: StandardInteger; p: StandardReal) {.
+proc SetPole*(this: var Law_BSpline; Index: Standard_Integer; P: Standard_Real) {.
     importcpp: "SetPole", header: "Law_BSpline.hxx".}
-proc setPole*(this: var LawBSpline; index: StandardInteger; p: StandardReal;
-             weight: StandardReal) {.importcpp: "SetPole", header: "Law_BSpline.hxx".}
-proc setWeight*(this: var LawBSpline; index: StandardInteger; weight: StandardReal) {.
+proc SetPole*(this: var Law_BSpline; Index: Standard_Integer; P: Standard_Real;
+             Weight: Standard_Real) {.importcpp: "SetPole",
+                                    header: "Law_BSpline.hxx".}
+proc SetWeight*(this: var Law_BSpline; Index: Standard_Integer; Weight: Standard_Real) {.
     importcpp: "SetWeight", header: "Law_BSpline.hxx".}
-proc isCN*(this: LawBSpline; n: StandardInteger): StandardBoolean {.noSideEffect,
+proc IsCN*(this: Law_BSpline; N: Standard_Integer): Standard_Boolean {.noSideEffect,
     importcpp: "IsCN", header: "Law_BSpline.hxx".}
-proc isClosed*(this: LawBSpline): StandardBoolean {.noSideEffect,
+proc IsClosed*(this: Law_BSpline): Standard_Boolean {.noSideEffect,
     importcpp: "IsClosed", header: "Law_BSpline.hxx".}
-proc isPeriodic*(this: LawBSpline): StandardBoolean {.noSideEffect,
+proc IsPeriodic*(this: Law_BSpline): Standard_Boolean {.noSideEffect,
     importcpp: "IsPeriodic", header: "Law_BSpline.hxx".}
-proc isRational*(this: LawBSpline): StandardBoolean {.noSideEffect,
+proc IsRational*(this: Law_BSpline): Standard_Boolean {.noSideEffect,
     importcpp: "IsRational", header: "Law_BSpline.hxx".}
-proc continuity*(this: LawBSpline): GeomAbsShape {.noSideEffect,
+proc Continuity*(this: Law_BSpline): GeomAbs_Shape {.noSideEffect,
     importcpp: "Continuity", header: "Law_BSpline.hxx".}
-proc degree*(this: LawBSpline): StandardInteger {.noSideEffect, importcpp: "Degree",
-    header: "Law_BSpline.hxx".}
-proc value*(this: LawBSpline; u: StandardReal): StandardReal {.noSideEffect,
+proc Degree*(this: Law_BSpline): Standard_Integer {.noSideEffect,
+    importcpp: "Degree", header: "Law_BSpline.hxx".}
+proc Value*(this: Law_BSpline; U: Standard_Real): Standard_Real {.noSideEffect,
     importcpp: "Value", header: "Law_BSpline.hxx".}
-proc d0*(this: LawBSpline; u: StandardReal; p: var StandardReal) {.noSideEffect,
+proc D0*(this: Law_BSpline; U: Standard_Real; P: var Standard_Real) {.noSideEffect,
     importcpp: "D0", header: "Law_BSpline.hxx".}
-proc d1*(this: LawBSpline; u: StandardReal; p: var StandardReal; v1: var StandardReal) {.
-    noSideEffect, importcpp: "D1", header: "Law_BSpline.hxx".}
-proc d2*(this: LawBSpline; u: StandardReal; p: var StandardReal; v1: var StandardReal;
-        v2: var StandardReal) {.noSideEffect, importcpp: "D2",
-                             header: "Law_BSpline.hxx".}
-proc d3*(this: LawBSpline; u: StandardReal; p: var StandardReal; v1: var StandardReal;
-        v2: var StandardReal; v3: var StandardReal) {.noSideEffect, importcpp: "D3",
+proc D1*(this: Law_BSpline; U: Standard_Real; P: var Standard_Real;
+        V1: var Standard_Real) {.noSideEffect, importcpp: "D1",
+                              header: "Law_BSpline.hxx".}
+proc D2*(this: Law_BSpline; U: Standard_Real; P: var Standard_Real;
+        V1: var Standard_Real; V2: var Standard_Real) {.noSideEffect, importcpp: "D2",
     header: "Law_BSpline.hxx".}
-proc dn*(this: LawBSpline; u: StandardReal; n: StandardInteger): StandardReal {.
+proc D3*(this: Law_BSpline; U: Standard_Real; P: var Standard_Real;
+        V1: var Standard_Real; V2: var Standard_Real; V3: var Standard_Real) {.
+    noSideEffect, importcpp: "D3", header: "Law_BSpline.hxx".}
+proc DN*(this: Law_BSpline; U: Standard_Real; N: Standard_Integer): Standard_Real {.
     noSideEffect, importcpp: "DN", header: "Law_BSpline.hxx".}
-proc localValue*(this: LawBSpline; u: StandardReal; fromK1: StandardInteger;
-                toK2: StandardInteger): StandardReal {.noSideEffect,
+proc LocalValue*(this: Law_BSpline; U: Standard_Real; FromK1: Standard_Integer;
+                ToK2: Standard_Integer): Standard_Real {.noSideEffect,
     importcpp: "LocalValue", header: "Law_BSpline.hxx".}
-proc localD0*(this: LawBSpline; u: StandardReal; fromK1: StandardInteger;
-             toK2: StandardInteger; p: var StandardReal) {.noSideEffect,
+proc LocalD0*(this: Law_BSpline; U: Standard_Real; FromK1: Standard_Integer;
+             ToK2: Standard_Integer; P: var Standard_Real) {.noSideEffect,
     importcpp: "LocalD0", header: "Law_BSpline.hxx".}
-proc localD1*(this: LawBSpline; u: StandardReal; fromK1: StandardInteger;
-             toK2: StandardInteger; p: var StandardReal; v1: var StandardReal) {.
+proc LocalD1*(this: Law_BSpline; U: Standard_Real; FromK1: Standard_Integer;
+             ToK2: Standard_Integer; P: var Standard_Real; V1: var Standard_Real) {.
     noSideEffect, importcpp: "LocalD1", header: "Law_BSpline.hxx".}
-proc localD2*(this: LawBSpline; u: StandardReal; fromK1: StandardInteger;
-             toK2: StandardInteger; p: var StandardReal; v1: var StandardReal;
-             v2: var StandardReal) {.noSideEffect, importcpp: "LocalD2",
-                                  header: "Law_BSpline.hxx".}
-proc localD3*(this: LawBSpline; u: StandardReal; fromK1: StandardInteger;
-             toK2: StandardInteger; p: var StandardReal; v1: var StandardReal;
-             v2: var StandardReal; v3: var StandardReal) {.noSideEffect,
+proc LocalD2*(this: Law_BSpline; U: Standard_Real; FromK1: Standard_Integer;
+             ToK2: Standard_Integer; P: var Standard_Real; V1: var Standard_Real;
+             V2: var Standard_Real) {.noSideEffect, importcpp: "LocalD2",
+                                   header: "Law_BSpline.hxx".}
+proc LocalD3*(this: Law_BSpline; U: Standard_Real; FromK1: Standard_Integer;
+             ToK2: Standard_Integer; P: var Standard_Real; V1: var Standard_Real;
+             V2: var Standard_Real; V3: var Standard_Real) {.noSideEffect,
     importcpp: "LocalD3", header: "Law_BSpline.hxx".}
-proc localDN*(this: LawBSpline; u: StandardReal; fromK1: StandardInteger;
-             toK2: StandardInteger; n: StandardInteger): StandardReal {.noSideEffect,
-    importcpp: "LocalDN", header: "Law_BSpline.hxx".}
-proc endPoint*(this: LawBSpline): StandardReal {.noSideEffect, importcpp: "EndPoint",
-    header: "Law_BSpline.hxx".}
-proc firstUKnotIndex*(this: LawBSpline): StandardInteger {.noSideEffect,
+proc LocalDN*(this: Law_BSpline; U: Standard_Real; FromK1: Standard_Integer;
+             ToK2: Standard_Integer; N: Standard_Integer): Standard_Real {.
+    noSideEffect, importcpp: "LocalDN", header: "Law_BSpline.hxx".}
+proc EndPoint*(this: Law_BSpline): Standard_Real {.noSideEffect,
+    importcpp: "EndPoint", header: "Law_BSpline.hxx".}
+proc FirstUKnotIndex*(this: Law_BSpline): Standard_Integer {.noSideEffect,
     importcpp: "FirstUKnotIndex", header: "Law_BSpline.hxx".}
-proc firstParameter*(this: LawBSpline): StandardReal {.noSideEffect,
+proc FirstParameter*(this: Law_BSpline): Standard_Real {.noSideEffect,
     importcpp: "FirstParameter", header: "Law_BSpline.hxx".}
-proc knot*(this: LawBSpline; index: StandardInteger): StandardReal {.noSideEffect,
+proc Knot*(this: Law_BSpline; Index: Standard_Integer): Standard_Real {.noSideEffect,
     importcpp: "Knot", header: "Law_BSpline.hxx".}
-proc knots*(this: LawBSpline; k: var TColStdArray1OfReal) {.noSideEffect,
+proc Knots*(this: Law_BSpline; K: var TColStd_Array1OfReal) {.noSideEffect,
     importcpp: "Knots", header: "Law_BSpline.hxx".}
-proc knotSequence*(this: LawBSpline; k: var TColStdArray1OfReal) {.noSideEffect,
+proc KnotSequence*(this: Law_BSpline; K: var TColStd_Array1OfReal) {.noSideEffect,
     importcpp: "KnotSequence", header: "Law_BSpline.hxx".}
-proc knotDistribution*(this: LawBSpline): GeomAbsBSplKnotDistribution {.
+proc KnotDistribution*(this: Law_BSpline): GeomAbs_BSplKnotDistribution {.
     noSideEffect, importcpp: "KnotDistribution", header: "Law_BSpline.hxx".}
-proc lastUKnotIndex*(this: LawBSpline): StandardInteger {.noSideEffect,
+proc LastUKnotIndex*(this: Law_BSpline): Standard_Integer {.noSideEffect,
     importcpp: "LastUKnotIndex", header: "Law_BSpline.hxx".}
-proc lastParameter*(this: LawBSpline): StandardReal {.noSideEffect,
+proc LastParameter*(this: Law_BSpline): Standard_Real {.noSideEffect,
     importcpp: "LastParameter", header: "Law_BSpline.hxx".}
-proc locateU*(this: LawBSpline; u: StandardReal; parametricTolerance: StandardReal;
-             i1: var StandardInteger; i2: var StandardInteger;
-             withKnotRepetition: StandardBoolean = standardFalse) {.noSideEffect,
+proc LocateU*(this: Law_BSpline; U: Standard_Real;
+             ParametricTolerance: Standard_Real; I1: var Standard_Integer;
+             I2: var Standard_Integer;
+             WithKnotRepetition: Standard_Boolean = Standard_False) {.noSideEffect,
     importcpp: "LocateU", header: "Law_BSpline.hxx".}
-proc multiplicity*(this: LawBSpline; index: StandardInteger): StandardInteger {.
+proc Multiplicity*(this: Law_BSpline; Index: Standard_Integer): Standard_Integer {.
     noSideEffect, importcpp: "Multiplicity", header: "Law_BSpline.hxx".}
-proc multiplicities*(this: LawBSpline; m: var TColStdArray1OfInteger) {.noSideEffect,
-    importcpp: "Multiplicities", header: "Law_BSpline.hxx".}
-proc nbKnots*(this: LawBSpline): StandardInteger {.noSideEffect,
+proc Multiplicities*(this: Law_BSpline; M: var TColStd_Array1OfInteger) {.
+    noSideEffect, importcpp: "Multiplicities", header: "Law_BSpline.hxx".}
+proc NbKnots*(this: Law_BSpline): Standard_Integer {.noSideEffect,
     importcpp: "NbKnots", header: "Law_BSpline.hxx".}
-proc nbPoles*(this: LawBSpline): StandardInteger {.noSideEffect,
+proc NbPoles*(this: Law_BSpline): Standard_Integer {.noSideEffect,
     importcpp: "NbPoles", header: "Law_BSpline.hxx".}
-proc pole*(this: LawBSpline; index: StandardInteger): StandardReal {.noSideEffect,
+proc Pole*(this: Law_BSpline; Index: Standard_Integer): Standard_Real {.noSideEffect,
     importcpp: "Pole", header: "Law_BSpline.hxx".}
-proc poles*(this: LawBSpline; p: var TColStdArray1OfReal) {.noSideEffect,
+proc Poles*(this: Law_BSpline; P: var TColStd_Array1OfReal) {.noSideEffect,
     importcpp: "Poles", header: "Law_BSpline.hxx".}
-proc startPoint*(this: LawBSpline): StandardReal {.noSideEffect,
+proc StartPoint*(this: Law_BSpline): Standard_Real {.noSideEffect,
     importcpp: "StartPoint", header: "Law_BSpline.hxx".}
-proc weight*(this: LawBSpline; index: StandardInteger): StandardReal {.noSideEffect,
-    importcpp: "Weight", header: "Law_BSpline.hxx".}
-proc weights*(this: LawBSpline; w: var TColStdArray1OfReal) {.noSideEffect,
+proc Weight*(this: Law_BSpline; Index: Standard_Integer): Standard_Real {.
+    noSideEffect, importcpp: "Weight", header: "Law_BSpline.hxx".}
+proc Weights*(this: Law_BSpline; W: var TColStd_Array1OfReal) {.noSideEffect,
     importcpp: "Weights", header: "Law_BSpline.hxx".}
-proc maxDegree*(): StandardInteger {.importcpp: "Law_BSpline::MaxDegree(@)",
-                                  header: "Law_BSpline.hxx".}
-proc movePointAndTangent*(this: var LawBSpline; u: StandardReal;
-                         newValue: StandardReal; derivative: StandardReal;
-                         tolerance: StandardReal;
-                         startingCondition: StandardInteger;
-                         endingCondition: StandardInteger;
-                         errorStatus: var StandardInteger) {.
+proc MaxDegree*(): Standard_Integer {.importcpp: "Law_BSpline::MaxDegree(@)",
+                                   header: "Law_BSpline.hxx".}
+proc MovePointAndTangent*(this: var Law_BSpline; U: Standard_Real;
+                         NewValue: Standard_Real; Derivative: Standard_Real;
+                         Tolerance: Standard_Real;
+                         StartingCondition: Standard_Integer;
+                         EndingCondition: Standard_Integer;
+                         ErrorStatus: var Standard_Integer) {.
     importcpp: "MovePointAndTangent", header: "Law_BSpline.hxx".}
-proc resolution*(this: LawBSpline; tolerance3D: StandardReal;
-                uTolerance: var StandardReal) {.noSideEffect,
+proc Resolution*(this: Law_BSpline; Tolerance3D: Standard_Real;
+                UTolerance: var Standard_Real) {.noSideEffect,
     importcpp: "Resolution", header: "Law_BSpline.hxx".}
-proc copy*(this: LawBSpline): Handle[LawBSpline] {.noSideEffect, importcpp: "Copy",
+proc Copy*(this: Law_BSpline): handle[Law_BSpline] {.noSideEffect, importcpp: "Copy",
     header: "Law_BSpline.hxx".}
 type
-  LawBSplinebaseType* = StandardTransient
+  Law_BSplinebase_type* = Standard_Transient
 
-proc getTypeName*(): cstring {.importcpp: "Law_BSpline::get_type_name(@)",
-                            header: "Law_BSpline.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "Law_BSpline::get_type_name(@)",
+                              header: "Law_BSpline.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "Law_BSpline::get_type_descriptor(@)", header: "Law_BSpline.hxx".}
-proc dynamicType*(this: LawBSpline): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: Law_BSpline): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "Law_BSpline.hxx".}
-

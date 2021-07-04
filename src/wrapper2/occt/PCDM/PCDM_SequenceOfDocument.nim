@@ -14,7 +14,8 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  PCDM_Document, ../NCollection/NCollection_Sequence
+
 type
-  PCDM_SequenceOfDocument* = NCollectionSequence[Handle[PCDM_Document]]
-
-
+  PCDM_SequenceOfDocument* = NCollection_Sequence[handle[PCDM_Document]]

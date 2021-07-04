@@ -14,6 +14,14 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type,
+  ../TCollection/TCollection_AsciiString, ../Standard/Standard_Integer,
+  ../TColStd/TColStd_Array1OfAsciiString, ../TColStd/TColStd_Array1OfInteger,
+  ../Standard/Standard_Boolean, ../TColStd/TColStd_SequenceOfAsciiString,
+  IFSelect_Activator, ../Standard/Standard_CString, IFSelect_ReturnStatus,
+  IFSelect_PrintCount
+
 discard "forward decl of IFSelect_WorkSession"
 discard "forward decl of Standard_Transient"
 discard "forward decl of IFSelect_WorkLibrary"
@@ -22,7 +30,7 @@ discard "forward decl of IFSelect_SignCounter"
 discard "forward decl of IFSelect_SessionPilot"
 discard "forward decl of IFSelect_SessionPilot"
 type
-  HandleIFSelectSessionPilot* = Handle[IFSelectSessionPilot]
+  Handle_IFSelect_SessionPilot* = handle[IFSelect_SessionPilot]
 
 ## ! A SessionPilot is intended to make easier the use of a
 ## ! WorkSession. It receives commands, under alphanumeric form,
@@ -59,106 +67,107 @@ type
 ## ! are skipped (comment lines are display if read from file)
 
 type
-  IFSelectSessionPilot* {.importcpp: "IFSelect_SessionPilot",
-                         header: "IFSelect_SessionPilot.hxx", bycopy.} = object of IFSelectActivator ##
-                                                                                              ## !
-                                                                                              ## Creates
-                                                                                              ## an
-                                                                                              ## empty
-                                                                                              ## SessionPilot,
-                                                                                              ## with
-                                                                                              ## a
-                                                                                              ## prompt
-                                                                                              ## which
-                                                                                              ## will
-                                                                                              ## be
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ## displayed
-                                                                                              ## on
-                                                                                              ## querying
-                                                                                              ## commands.
-                                                                                              ## If
-                                                                                              ## not
-                                                                                              ## precised
-                                                                                              ## (""),
-                                                                                              ## this
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ## prompt
-                                                                                              ## is
-                                                                                              ## set
-                                                                                              ## to
-                                                                                              ## "Test-XSTEP>"
+  IFSelect_SessionPilot* {.importcpp: "IFSelect_SessionPilot",
+                          header: "IFSelect_SessionPilot.hxx", bycopy.} = object of IFSelect_Activator ##
+                                                                                                ## !
+                                                                                                ## Creates
+                                                                                                ## an
+                                                                                                ## empty
+                                                                                                ## SessionPilot,
+                                                                                                ## with
+                                                                                                ## a
+                                                                                                ## prompt
+                                                                                                ## which
+                                                                                                ## will
+                                                                                                ## be
+                                                                                                ##
+                                                                                                ## !
+                                                                                                ## displayed
+                                                                                                ## on
+                                                                                                ## querying
+                                                                                                ## commands.
+                                                                                                ## If
+                                                                                                ## not
+                                                                                                ## precised
+                                                                                                ## (""),
+                                                                                                ## this
+                                                                                                ##
+                                                                                                ## !
+                                                                                                ## prompt
+                                                                                                ## is
+                                                                                                ## set
+                                                                                                ## to
+                                                                                                ## "Test-XSTEP>"
 
 
-proc constructIFSelectSessionPilot*(prompt: StandardCString = ""): IFSelectSessionPilot {.
+proc constructIFSelect_SessionPilot*(prompt: Standard_CString = ""): IFSelect_SessionPilot {.
     constructor, importcpp: "IFSelect_SessionPilot(@)",
     header: "IFSelect_SessionPilot.hxx".}
-proc session*(this: IFSelectSessionPilot): Handle[IFSelectWorkSession] {.
+proc Session*(this: IFSelect_SessionPilot): handle[IFSelect_WorkSession] {.
     noSideEffect, importcpp: "Session", header: "IFSelect_SessionPilot.hxx".}
-proc library*(this: IFSelectSessionPilot): Handle[IFSelectWorkLibrary] {.
+proc Library*(this: IFSelect_SessionPilot): handle[IFSelect_WorkLibrary] {.
     noSideEffect, importcpp: "Library", header: "IFSelect_SessionPilot.hxx".}
-proc recordMode*(this: IFSelectSessionPilot): StandardBoolean {.noSideEffect,
+proc RecordMode*(this: IFSelect_SessionPilot): Standard_Boolean {.noSideEffect,
     importcpp: "RecordMode", header: "IFSelect_SessionPilot.hxx".}
-proc setSession*(this: var IFSelectSessionPilot; ws: Handle[IFSelectWorkSession]) {.
+proc SetSession*(this: var IFSelect_SessionPilot; WS: handle[IFSelect_WorkSession]) {.
     importcpp: "SetSession", header: "IFSelect_SessionPilot.hxx".}
-proc setLibrary*(this: var IFSelectSessionPilot; wl: Handle[IFSelectWorkLibrary]) {.
+proc SetLibrary*(this: var IFSelect_SessionPilot; WL: handle[IFSelect_WorkLibrary]) {.
     importcpp: "SetLibrary", header: "IFSelect_SessionPilot.hxx".}
-proc setRecordMode*(this: var IFSelectSessionPilot; mode: StandardBoolean) {.
+proc SetRecordMode*(this: var IFSelect_SessionPilot; mode: Standard_Boolean) {.
     importcpp: "SetRecordMode", header: "IFSelect_SessionPilot.hxx".}
-proc setCommandLine*(this: var IFSelectSessionPilot; command: TCollectionAsciiString) {.
+proc SetCommandLine*(this: var IFSelect_SessionPilot;
+                    command: TCollection_AsciiString) {.
     importcpp: "SetCommandLine", header: "IFSelect_SessionPilot.hxx".}
-proc commandLine*(this: IFSelectSessionPilot): TCollectionAsciiString {.
+proc CommandLine*(this: IFSelect_SessionPilot): TCollection_AsciiString {.
     noSideEffect, importcpp: "CommandLine", header: "IFSelect_SessionPilot.hxx".}
-proc commandPart*(this: IFSelectSessionPilot; numarg: StandardInteger = 0): StandardCString {.
+proc CommandPart*(this: IFSelect_SessionPilot; numarg: Standard_Integer = 0): Standard_CString {.
     noSideEffect, importcpp: "CommandPart", header: "IFSelect_SessionPilot.hxx".}
-proc nbWords*(this: IFSelectSessionPilot): StandardInteger {.noSideEffect,
+proc NbWords*(this: IFSelect_SessionPilot): Standard_Integer {.noSideEffect,
     importcpp: "NbWords", header: "IFSelect_SessionPilot.hxx".}
-proc word*(this: IFSelectSessionPilot; num: StandardInteger): TCollectionAsciiString {.
+proc Word*(this: IFSelect_SessionPilot; num: Standard_Integer): TCollection_AsciiString {.
     noSideEffect, importcpp: "Word", header: "IFSelect_SessionPilot.hxx".}
-proc arg*(this: IFSelectSessionPilot; num: StandardInteger): StandardCString {.
+proc Arg*(this: IFSelect_SessionPilot; num: Standard_Integer): Standard_CString {.
     noSideEffect, importcpp: "Arg", header: "IFSelect_SessionPilot.hxx".}
-proc removeWord*(this: var IFSelectSessionPilot; num: StandardInteger): StandardBoolean {.
+proc RemoveWord*(this: var IFSelect_SessionPilot; num: Standard_Integer): Standard_Boolean {.
     importcpp: "RemoveWord", header: "IFSelect_SessionPilot.hxx".}
-proc nbCommands*(this: IFSelectSessionPilot): StandardInteger {.noSideEffect,
+proc NbCommands*(this: IFSelect_SessionPilot): Standard_Integer {.noSideEffect,
     importcpp: "NbCommands", header: "IFSelect_SessionPilot.hxx".}
-proc command*(this: IFSelectSessionPilot; num: StandardInteger): TCollectionAsciiString {.
+proc Command*(this: IFSelect_SessionPilot; num: Standard_Integer): TCollection_AsciiString {.
     noSideEffect, importcpp: "Command", header: "IFSelect_SessionPilot.hxx".}
-proc recordItem*(this: var IFSelectSessionPilot; item: Handle[StandardTransient]): IFSelectReturnStatus {.
+proc RecordItem*(this: var IFSelect_SessionPilot; item: handle[Standard_Transient]): IFSelect_ReturnStatus {.
     importcpp: "RecordItem", header: "IFSelect_SessionPilot.hxx".}
-proc recordedItem*(this: IFSelectSessionPilot): Handle[StandardTransient] {.
+proc RecordedItem*(this: IFSelect_SessionPilot): handle[Standard_Transient] {.
     noSideEffect, importcpp: "RecordedItem", header: "IFSelect_SessionPilot.hxx".}
-proc clear*(this: var IFSelectSessionPilot) {.importcpp: "Clear",
+proc Clear*(this: var IFSelect_SessionPilot) {.importcpp: "Clear",
     header: "IFSelect_SessionPilot.hxx".}
-proc readScript*(this: var IFSelectSessionPilot; file: StandardCString = ""): IFSelectReturnStatus {.
+proc ReadScript*(this: var IFSelect_SessionPilot; file: Standard_CString = ""): IFSelect_ReturnStatus {.
     importcpp: "ReadScript", header: "IFSelect_SessionPilot.hxx".}
-proc perform*(this: var IFSelectSessionPilot): IFSelectReturnStatus {.
+proc Perform*(this: var IFSelect_SessionPilot): IFSelect_ReturnStatus {.
     importcpp: "Perform", header: "IFSelect_SessionPilot.hxx".}
-proc executeAlias*(this: var IFSelectSessionPilot; aliasname: TCollectionAsciiString): IFSelectReturnStatus {.
+proc ExecuteAlias*(this: var IFSelect_SessionPilot;
+                  aliasname: TCollection_AsciiString): IFSelect_ReturnStatus {.
     importcpp: "ExecuteAlias", header: "IFSelect_SessionPilot.hxx".}
-proc execute*(this: var IFSelectSessionPilot; command: TCollectionAsciiString): IFSelectReturnStatus {.
+proc Execute*(this: var IFSelect_SessionPilot; command: TCollection_AsciiString): IFSelect_ReturnStatus {.
     importcpp: "Execute", header: "IFSelect_SessionPilot.hxx".}
-proc executeCounter*(this: var IFSelectSessionPilot;
-                    counter: Handle[IFSelectSignCounter];
-                    numword: StandardInteger;
-                    mode: IFSelectPrintCount = iFSelectCountByItem): IFSelectReturnStatus {.
+proc ExecuteCounter*(this: var IFSelect_SessionPilot;
+                    counter: handle[IFSelect_SignCounter];
+                    numword: Standard_Integer;
+                    mode: IFSelect_PrintCount = IFSelect_CountByItem): IFSelect_ReturnStatus {.
     importcpp: "ExecuteCounter", header: "IFSelect_SessionPilot.hxx".}
-proc number*(this: IFSelectSessionPilot; val: StandardCString): StandardInteger {.
+proc Number*(this: IFSelect_SessionPilot; val: Standard_CString): Standard_Integer {.
     noSideEffect, importcpp: "Number", header: "IFSelect_SessionPilot.hxx".}
-proc `do`*(this: var IFSelectSessionPilot; number: StandardInteger;
-          session: Handle[IFSelectSessionPilot]): IFSelectReturnStatus {.
+proc Do*(this: var IFSelect_SessionPilot; number: Standard_Integer;
+        session: handle[IFSelect_SessionPilot]): IFSelect_ReturnStatus {.
     importcpp: "Do", header: "IFSelect_SessionPilot.hxx".}
-proc help*(this: IFSelectSessionPilot; number: StandardInteger): StandardCString {.
+proc Help*(this: IFSelect_SessionPilot; number: Standard_Integer): Standard_CString {.
     noSideEffect, importcpp: "Help", header: "IFSelect_SessionPilot.hxx".}
 type
-  IFSelectSessionPilotbaseType* = IFSelectActivator
+  IFSelect_SessionPilotbase_type* = IFSelect_Activator
 
-proc getTypeName*(): cstring {.importcpp: "IFSelect_SessionPilot::get_type_name(@)",
-                            header: "IFSelect_SessionPilot.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "IFSelect_SessionPilot::get_type_name(@)",
+                              header: "IFSelect_SessionPilot.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "IFSelect_SessionPilot::get_type_descriptor(@)",
     header: "IFSelect_SessionPilot.hxx".}
-proc dynamicType*(this: IFSelectSessionPilot): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "IFSelect_SessionPilot.hxx".}
-
+proc DynamicType*(this: IFSelect_SessionPilot): handle[Standard_Type] {.
+    noSideEffect, importcpp: "DynamicType", header: "IFSelect_SessionPilot.hxx".}

@@ -14,6 +14,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../IntRes2d/IntRes2d_Intersection,
+  ../Standard/Standard_Address, ../Standard/Standard_Real,
+  ../Standard/Standard_Integer, ../TColStd/TColStd_Array1OfReal
+
 discard "forward decl of Standard_ConstructionError"
 discard "forward decl of IntCurve_IConicTool"
 discard "forward decl of HLRBRep_CurveTool"
@@ -22,51 +28,50 @@ discard "forward decl of HLRBRep_MyImpParToolOfTheIntersectorOfTheIntConicCurveO
 discard "forward decl of IntRes2d_Domain"
 discard "forward decl of gp_Pnt2d"
 type
-  HLRBRepTheIntersectorOfTheIntConicCurveOfCInter* {.
+  HLRBRep_TheIntersectorOfTheIntConicCurveOfCInter* {.
       importcpp: "HLRBRep_TheIntersectorOfTheIntConicCurveOfCInter",
-      header: "HLRBRep_TheIntersectorOfTheIntConicCurveOfCInter.hxx", bycopy.} = object of IntRes2dIntersection ##
-                                                                                                         ## !
-                                                                                                         ## Empty
-                                                                                                         ## constructor.
+      header: "HLRBRep_TheIntersectorOfTheIntConicCurveOfCInter.hxx", bycopy.} = object of IntRes2d_Intersection ##
+                                                                                                          ## !
+                                                                                                          ## Empty
+                                                                                                          ## constructor.
 
 
-proc constructHLRBRepTheIntersectorOfTheIntConicCurveOfCInter*(): HLRBRepTheIntersectorOfTheIntConicCurveOfCInter {.
+proc constructHLRBRep_TheIntersectorOfTheIntConicCurveOfCInter*(): HLRBRep_TheIntersectorOfTheIntConicCurveOfCInter {.
     constructor,
     importcpp: "HLRBRep_TheIntersectorOfTheIntConicCurveOfCInter(@)",
     header: "HLRBRep_TheIntersectorOfTheIntConicCurveOfCInter.hxx".}
-proc constructHLRBRepTheIntersectorOfTheIntConicCurveOfCInter*(
-    iTool: IntCurveIConicTool; dom1: IntRes2dDomain; pCurve: StandardAddress;
-    dom2: IntRes2dDomain; tolConf: StandardReal; tol: StandardReal): HLRBRepTheIntersectorOfTheIntConicCurveOfCInter {.
+proc constructHLRBRep_TheIntersectorOfTheIntConicCurveOfCInter*(
+    ITool: IntCurve_IConicTool; Dom1: IntRes2d_Domain; PCurve: Standard_Address;
+    Dom2: IntRes2d_Domain; TolConf: Standard_Real; Tol: Standard_Real): HLRBRep_TheIntersectorOfTheIntConicCurveOfCInter {.
     constructor,
     importcpp: "HLRBRep_TheIntersectorOfTheIntConicCurveOfCInter(@)",
     header: "HLRBRep_TheIntersectorOfTheIntConicCurveOfCInter.hxx".}
-proc perform*(this: var HLRBRepTheIntersectorOfTheIntConicCurveOfCInter;
-             iTool: IntCurveIConicTool; dom1: IntRes2dDomain;
-             pCurve: StandardAddress; dom2: IntRes2dDomain; tolConf: StandardReal;
-             tol: StandardReal) {.importcpp: "Perform", header: "HLRBRep_TheIntersectorOfTheIntConicCurveOfCInter.hxx".}
-proc findU*(this: HLRBRepTheIntersectorOfTheIntConicCurveOfCInter;
-           parameter: StandardReal; point: var GpPnt2d; theParCurev: StandardAddress;
-           theImpTool: IntCurveIConicTool): StandardReal {.noSideEffect,
-    importcpp: "FindU",
+proc Perform*(this: var HLRBRep_TheIntersectorOfTheIntConicCurveOfCInter;
+             ITool: IntCurve_IConicTool; Dom1: IntRes2d_Domain;
+             PCurve: Standard_Address; Dom2: IntRes2d_Domain;
+             TolConf: Standard_Real; Tol: Standard_Real) {.importcpp: "Perform",
     header: "HLRBRep_TheIntersectorOfTheIntConicCurveOfCInter.hxx".}
-proc findV*(this: HLRBRepTheIntersectorOfTheIntConicCurveOfCInter;
-           parameter: StandardReal; point: var GpPnt2d;
-           theImpTool: IntCurveIConicTool; parCurve: StandardAddress;
-           theParCurveDomain: IntRes2dDomain; v0: StandardReal; v1: StandardReal;
-           tolerance: StandardReal): StandardReal {.noSideEffect,
+proc FindU*(this: HLRBRep_TheIntersectorOfTheIntConicCurveOfCInter;
+           parameter: Standard_Real; point: var gp_Pnt2d;
+           TheParCurev: Standard_Address; TheImpTool: IntCurve_IConicTool): Standard_Real {.
+    noSideEffect, importcpp: "FindU",
+    header: "HLRBRep_TheIntersectorOfTheIntConicCurveOfCInter.hxx".}
+proc FindV*(this: HLRBRep_TheIntersectorOfTheIntConicCurveOfCInter;
+           parameter: Standard_Real; point: var gp_Pnt2d;
+           TheImpTool: IntCurve_IConicTool; ParCurve: Standard_Address;
+           TheParCurveDomain: IntRes2d_Domain; V0: Standard_Real; V1: Standard_Real;
+           Tolerance: Standard_Real): Standard_Real {.noSideEffect,
     importcpp: "FindV",
     header: "HLRBRep_TheIntersectorOfTheIntConicCurveOfCInter.hxx".}
-proc andDomaineObjet1Intersections*(this: HLRBRepTheIntersectorOfTheIntConicCurveOfCInter;
-                                   theImpTool: IntCurveIConicTool;
-                                   theParCurve: StandardAddress;
-                                   theImpCurveDomain: IntRes2dDomain;
-                                   theParCurveDomain: IntRes2dDomain;
-                                   nbResultats: var StandardInteger;
-                                   inter2AndDomain2: var TColStdArray1OfReal;
-                                   inter1: var TColStdArray1OfReal;
-                                   resultat1: var TColStdArray1OfReal;
-                                   resultat2: var TColStdArray1OfReal;
-                                   epsNul: StandardReal) {.noSideEffect,
+proc And_Domaine_Objet1_Intersections*(this: HLRBRep_TheIntersectorOfTheIntConicCurveOfCInter;
+                                      TheImpTool: IntCurve_IConicTool;
+                                      TheParCurve: Standard_Address;
+                                      TheImpCurveDomain: IntRes2d_Domain;
+                                      TheParCurveDomain: IntRes2d_Domain;
+                                      NbResultats: var Standard_Integer;
+    Inter2_And_Domain2: var TColStd_Array1OfReal; Inter1: var TColStd_Array1OfReal;
+                                      Resultat1: var TColStd_Array1OfReal;
+                                      Resultat2: var TColStd_Array1OfReal;
+                                      EpsNul: Standard_Real) {.noSideEffect,
     importcpp: "And_Domaine_Objet1_Intersections",
     header: "HLRBRep_TheIntersectorOfTheIntConicCurveOfCInter.hxx".}
-

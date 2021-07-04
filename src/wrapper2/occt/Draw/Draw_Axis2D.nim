@@ -14,6 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../gp/gp_Ax22d, Draw_Color,
+  ../Standard/Standard_Integer, Draw_Drawable2D
+
 discard "forward decl of Draw_Color"
 discard "forward decl of gp_Pnt2d"
 discard "forward decl of gp_Ax22d"
@@ -21,25 +25,24 @@ discard "forward decl of Draw_Display"
 discard "forward decl of Draw_Axis2D"
 discard "forward decl of Draw_Axis2D"
 type
-  HandleDrawAxis2D* = Handle[DrawAxis2D]
-  DrawAxis2D* {.importcpp: "Draw_Axis2D", header: "Draw_Axis2D.hxx", bycopy.} = object of DrawDrawable2D
+  Handle_Draw_Axis2D* = handle[Draw_Axis2D]
+  Draw_Axis2D* {.importcpp: "Draw_Axis2D", header: "Draw_Axis2D.hxx", bycopy.} = object of Draw_Drawable2D
 
 
-proc constructDrawAxis2D*(col: DrawColor; size: StandardInteger = 5): DrawAxis2D {.
+proc constructDraw_Axis2D*(col: Draw_Color; Size: Standard_Integer = 5): Draw_Axis2D {.
     constructor, importcpp: "Draw_Axis2D(@)", header: "Draw_Axis2D.hxx".}
-proc constructDrawAxis2D*(p: GpPnt2d; col: DrawColor; size: StandardInteger = 5): DrawAxis2D {.
+proc constructDraw_Axis2D*(p: gp_Pnt2d; col: Draw_Color; Size: Standard_Integer = 5): Draw_Axis2D {.
     constructor, importcpp: "Draw_Axis2D(@)", header: "Draw_Axis2D.hxx".}
-proc constructDrawAxis2D*(a: GpAx22d; col: DrawColor; size: StandardInteger = 5): DrawAxis2D {.
+proc constructDraw_Axis2D*(A: gp_Ax22d; col: Draw_Color; Size: Standard_Integer = 5): Draw_Axis2D {.
     constructor, importcpp: "Draw_Axis2D(@)", header: "Draw_Axis2D.hxx".}
-proc drawOn*(this: DrawAxis2D; dis: var DrawDisplay) {.noSideEffect,
+proc DrawOn*(this: Draw_Axis2D; dis: var Draw_Display) {.noSideEffect,
     importcpp: "DrawOn", header: "Draw_Axis2D.hxx".}
 type
-  DrawAxis2DbaseType* = DrawDrawable2D
+  Draw_Axis2Dbase_type* = Draw_Drawable2D
 
-proc getTypeName*(): cstring {.importcpp: "Draw_Axis2D::get_type_name(@)",
-                            header: "Draw_Axis2D.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "Draw_Axis2D::get_type_name(@)",
+                              header: "Draw_Axis2D.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "Draw_Axis2D::get_type_descriptor(@)", header: "Draw_Axis2D.hxx".}
-proc dynamicType*(this: DrawAxis2D): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: Draw_Axis2D): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "Draw_Axis2D.hxx".}
-

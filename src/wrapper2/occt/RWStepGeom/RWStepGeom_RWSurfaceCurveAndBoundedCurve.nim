@@ -14,31 +14,34 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepGeom_SurfaceCurveAndBoundedCurve"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepGeomRWSurfaceCurveAndBoundedCurve* {.
+  RWStepGeom_RWSurfaceCurveAndBoundedCurve* {.
       importcpp: "RWStepGeom_RWSurfaceCurveAndBoundedCurve",
       header: "RWStepGeom_RWSurfaceCurveAndBoundedCurve.hxx", bycopy.} = object
 
 
-proc constructRWStepGeomRWSurfaceCurveAndBoundedCurve*(): RWStepGeomRWSurfaceCurveAndBoundedCurve {.
+proc constructRWStepGeom_RWSurfaceCurveAndBoundedCurve*(): RWStepGeom_RWSurfaceCurveAndBoundedCurve {.
     constructor, importcpp: "RWStepGeom_RWSurfaceCurveAndBoundedCurve(@)",
     header: "RWStepGeom_RWSurfaceCurveAndBoundedCurve.hxx".}
-proc readStep*(this: RWStepGeomRWSurfaceCurveAndBoundedCurve;
-              data: Handle[StepDataStepReaderData]; num: StandardInteger;
-              ach: var Handle[InterfaceCheck];
-              ent: Handle[StepGeomSurfaceCurveAndBoundedCurve]) {.noSideEffect,
+proc ReadStep*(this: RWStepGeom_RWSurfaceCurveAndBoundedCurve;
+              data: handle[StepData_StepReaderData]; num: Standard_Integer;
+              ach: var handle[Interface_Check];
+              ent: handle[StepGeom_SurfaceCurveAndBoundedCurve]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepGeom_RWSurfaceCurveAndBoundedCurve.hxx".}
-proc writeStep*(this: RWStepGeomRWSurfaceCurveAndBoundedCurve;
-               sw: var StepDataStepWriter;
-               ent: Handle[StepGeomSurfaceCurveAndBoundedCurve]) {.noSideEffect,
+proc WriteStep*(this: RWStepGeom_RWSurfaceCurveAndBoundedCurve;
+               SW: var StepData_StepWriter;
+               ent: handle[StepGeom_SurfaceCurveAndBoundedCurve]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepGeom_RWSurfaceCurveAndBoundedCurve.hxx".}
-proc share*(this: RWStepGeomRWSurfaceCurveAndBoundedCurve;
-           ent: Handle[StepGeomSurfaceCurveAndBoundedCurve];
-           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
+proc Share*(this: RWStepGeom_RWSurfaceCurveAndBoundedCurve;
+           ent: handle[StepGeom_SurfaceCurveAndBoundedCurve];
+           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepGeom_RWSurfaceCurveAndBoundedCurve.hxx".}
-

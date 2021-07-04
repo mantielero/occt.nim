@@ -14,69 +14,73 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type,
+  ../TopTools/TopTools_DataMapOfShapeListOfShape, ../Standard/Standard_Transient,
+  ../TopTools/TopTools_ListOfShape, ../Standard/Standard_Boolean
+
 discard "forward decl of Standard_ConstructionError"
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of BRepAlgo_AsDes"
 discard "forward decl of BRepAlgo_AsDes"
 type
-  HandleBRepAlgoAsDes* = Handle[BRepAlgoAsDes]
+  Handle_BRepAlgo_AsDes* = handle[BRepAlgo_AsDes]
 
 ## ! SD to store descendants and ascendants of Shapes.
 
 type
-  BRepAlgoAsDes* {.importcpp: "BRepAlgo_AsDes", header: "BRepAlgo_AsDes.hxx", bycopy.} = object of StandardTransient ##
-                                                                                                           ## !
-                                                                                                           ## Creates
-                                                                                                           ## an
-                                                                                                           ## empty
-                                                                                                           ## AsDes.
-                                                                                                           ##
-                                                                                                           ## !
-                                                                                                           ## Replace
-                                                                                                           ## <OldS>
-                                                                                                           ## by
-                                                                                                           ## <NewS>.
-                                                                                                           ##
-                                                                                                           ## !
-                                                                                                           ## <OldS>
-                                                                                                           ## disapear
-                                                                                                           ## from
-                                                                                                           ## <me>.
+  BRepAlgo_AsDes* {.importcpp: "BRepAlgo_AsDes", header: "BRepAlgo_AsDes.hxx", bycopy.} = object of Standard_Transient ##
+                                                                                                             ## !
+                                                                                                             ## Creates
+                                                                                                             ## an
+                                                                                                             ## empty
+                                                                                                             ## AsDes.
+                                                                                                             ##
+                                                                                                             ## !
+                                                                                                             ## Replace
+                                                                                                             ## <OldS>
+                                                                                                             ## by
+                                                                                                             ## <NewS>.
+                                                                                                             ##
+                                                                                                             ## !
+                                                                                                             ## <OldS>
+                                                                                                             ## disapear
+                                                                                                             ## from
+                                                                                                             ## <me>.
 
 
-proc constructBRepAlgoAsDes*(): BRepAlgoAsDes {.constructor,
+proc constructBRepAlgo_AsDes*(): BRepAlgo_AsDes {.constructor,
     importcpp: "BRepAlgo_AsDes(@)", header: "BRepAlgo_AsDes.hxx".}
-proc clear*(this: var BRepAlgoAsDes) {.importcpp: "Clear",
-                                   header: "BRepAlgo_AsDes.hxx".}
-proc add*(this: var BRepAlgoAsDes; s: TopoDS_Shape; ss: TopoDS_Shape) {.
+proc Clear*(this: var BRepAlgo_AsDes) {.importcpp: "Clear",
+                                    header: "BRepAlgo_AsDes.hxx".}
+proc Add*(this: var BRepAlgo_AsDes; S: TopoDS_Shape; SS: TopoDS_Shape) {.
     importcpp: "Add", header: "BRepAlgo_AsDes.hxx".}
-proc add*(this: var BRepAlgoAsDes; s: TopoDS_Shape; ss: TopToolsListOfShape) {.
+proc Add*(this: var BRepAlgo_AsDes; S: TopoDS_Shape; SS: TopTools_ListOfShape) {.
     importcpp: "Add", header: "BRepAlgo_AsDes.hxx".}
-proc hasAscendant*(this: BRepAlgoAsDes; s: TopoDS_Shape): StandardBoolean {.
+proc HasAscendant*(this: BRepAlgo_AsDes; S: TopoDS_Shape): Standard_Boolean {.
     noSideEffect, importcpp: "HasAscendant", header: "BRepAlgo_AsDes.hxx".}
-proc hasDescendant*(this: BRepAlgoAsDes; s: TopoDS_Shape): StandardBoolean {.
+proc HasDescendant*(this: BRepAlgo_AsDes; S: TopoDS_Shape): Standard_Boolean {.
     noSideEffect, importcpp: "HasDescendant", header: "BRepAlgo_AsDes.hxx".}
-proc ascendant*(this: BRepAlgoAsDes; s: TopoDS_Shape): TopToolsListOfShape {.
+proc Ascendant*(this: BRepAlgo_AsDes; S: TopoDS_Shape): TopTools_ListOfShape {.
     noSideEffect, importcpp: "Ascendant", header: "BRepAlgo_AsDes.hxx".}
-proc descendant*(this: BRepAlgoAsDes; s: TopoDS_Shape): TopToolsListOfShape {.
+proc Descendant*(this: BRepAlgo_AsDes; S: TopoDS_Shape): TopTools_ListOfShape {.
     noSideEffect, importcpp: "Descendant", header: "BRepAlgo_AsDes.hxx".}
-proc changeDescendant*(this: var BRepAlgoAsDes; s: TopoDS_Shape): var TopToolsListOfShape {.
+proc ChangeDescendant*(this: var BRepAlgo_AsDes; S: TopoDS_Shape): var TopTools_ListOfShape {.
     importcpp: "ChangeDescendant", header: "BRepAlgo_AsDes.hxx".}
-proc replace*(this: var BRepAlgoAsDes; oldS: TopoDS_Shape; newS: TopoDS_Shape) {.
+proc Replace*(this: var BRepAlgo_AsDes; OldS: TopoDS_Shape; NewS: TopoDS_Shape) {.
     importcpp: "Replace", header: "BRepAlgo_AsDes.hxx".}
-proc remove*(this: var BRepAlgoAsDes; s: TopoDS_Shape) {.importcpp: "Remove",
+proc Remove*(this: var BRepAlgo_AsDes; S: TopoDS_Shape) {.importcpp: "Remove",
     header: "BRepAlgo_AsDes.hxx".}
-proc hasCommonDescendant*(this: BRepAlgoAsDes; s1: TopoDS_Shape; s2: TopoDS_Shape;
-                         lc: var TopToolsListOfShape): StandardBoolean {.
+proc HasCommonDescendant*(this: BRepAlgo_AsDes; S1: TopoDS_Shape; S2: TopoDS_Shape;
+                         LC: var TopTools_ListOfShape): Standard_Boolean {.
     noSideEffect, importcpp: "HasCommonDescendant", header: "BRepAlgo_AsDes.hxx".}
 type
-  BRepAlgoAsDesbaseType* = StandardTransient
+  BRepAlgo_AsDesbase_type* = Standard_Transient
 
-proc getTypeName*(): cstring {.importcpp: "BRepAlgo_AsDes::get_type_name(@)",
-                            header: "BRepAlgo_AsDes.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "BRepAlgo_AsDes::get_type_name(@)",
+                              header: "BRepAlgo_AsDes.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "BRepAlgo_AsDes::get_type_descriptor(@)",
     header: "BRepAlgo_AsDes.hxx".}
-proc dynamicType*(this: BRepAlgoAsDes): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: BRepAlgo_AsDes): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "BRepAlgo_AsDes.hxx".}
-

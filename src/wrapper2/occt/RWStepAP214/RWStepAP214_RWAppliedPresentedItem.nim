@@ -14,30 +14,33 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepAP214_AppliedPresentedItem"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepAP214RWAppliedPresentedItem* {.importcpp: "RWStepAP214_RWAppliedPresentedItem", header: "RWStepAP214_RWAppliedPresentedItem.hxx",
-                                      bycopy.} = object
+  RWStepAP214_RWAppliedPresentedItem* {.importcpp: "RWStepAP214_RWAppliedPresentedItem", header: "RWStepAP214_RWAppliedPresentedItem.hxx",
+                                       bycopy.} = object
 
 
-proc constructRWStepAP214RWAppliedPresentedItem*(): RWStepAP214RWAppliedPresentedItem {.
+proc constructRWStepAP214_RWAppliedPresentedItem*(): RWStepAP214_RWAppliedPresentedItem {.
     constructor, importcpp: "RWStepAP214_RWAppliedPresentedItem(@)",
     header: "RWStepAP214_RWAppliedPresentedItem.hxx".}
-proc readStep*(this: RWStepAP214RWAppliedPresentedItem;
-              data: Handle[StepDataStepReaderData]; num: StandardInteger;
-              ach: var Handle[InterfaceCheck];
-              ent: Handle[StepAP214AppliedPresentedItem]) {.noSideEffect,
+proc ReadStep*(this: RWStepAP214_RWAppliedPresentedItem;
+              data: handle[StepData_StepReaderData]; num: Standard_Integer;
+              ach: var handle[Interface_Check];
+              ent: handle[StepAP214_AppliedPresentedItem]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepAP214_RWAppliedPresentedItem.hxx".}
-proc writeStep*(this: RWStepAP214RWAppliedPresentedItem;
-               sw: var StepDataStepWriter;
-               ent: Handle[StepAP214AppliedPresentedItem]) {.noSideEffect,
+proc WriteStep*(this: RWStepAP214_RWAppliedPresentedItem;
+               SW: var StepData_StepWriter;
+               ent: handle[StepAP214_AppliedPresentedItem]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepAP214_RWAppliedPresentedItem.hxx".}
-proc share*(this: RWStepAP214RWAppliedPresentedItem;
-           ent: Handle[StepAP214AppliedPresentedItem];
-           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
+proc Share*(this: RWStepAP214_RWAppliedPresentedItem;
+           ent: handle[StepAP214_AppliedPresentedItem];
+           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepAP214_RWAppliedPresentedItem.hxx".}
-

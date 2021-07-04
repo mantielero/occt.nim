@@ -14,7 +14,8 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  IGESSolid_Face, ../NCollection/NCollection_Array1
+
 type
-  IGESSolidArray1OfFace* = NCollectionArray1[Handle[IGESSolidFace]]
-
-
+  IGESSolid_Array1OfFace* = NCollection_Array1[handle[IGESSolid_Face]]

@@ -14,82 +14,88 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
+  ../Standard/Standard_Real, CPnts_MyRootFunction
+
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of Standard_ConstructionError"
 discard "forward decl of Adaptor3d_Curve"
 discard "forward decl of Adaptor2d_Curve2d"
 type
-  CPntsAbscissaPoint* {.importcpp: "CPnts_AbscissaPoint",
-                       header: "CPnts_AbscissaPoint.hxx", bycopy.} = object ## ! Computes the length of the Curve <C>.
+  CPnts_AbscissaPoint* {.importcpp: "CPnts_AbscissaPoint",
+                        header: "CPnts_AbscissaPoint.hxx", bycopy.} = object ## ! Computes the length of the Curve <C>.
 
 
-proc length*(c: Adaptor3dCurve): StandardReal {.
+proc Length*(C: Adaptor3d_Curve): Standard_Real {.
     importcpp: "CPnts_AbscissaPoint::Length(@)", header: "CPnts_AbscissaPoint.hxx".}
-proc length*(c: Adaptor2dCurve2d): StandardReal {.
+proc Length*(C: Adaptor2d_Curve2d): Standard_Real {.
     importcpp: "CPnts_AbscissaPoint::Length(@)", header: "CPnts_AbscissaPoint.hxx".}
-proc length*(c: Adaptor3dCurve; tol: StandardReal): StandardReal {.
+proc Length*(C: Adaptor3d_Curve; Tol: Standard_Real): Standard_Real {.
     importcpp: "CPnts_AbscissaPoint::Length(@)", header: "CPnts_AbscissaPoint.hxx".}
-proc length*(c: Adaptor2dCurve2d; tol: StandardReal): StandardReal {.
+proc Length*(C: Adaptor2d_Curve2d; Tol: Standard_Real): Standard_Real {.
     importcpp: "CPnts_AbscissaPoint::Length(@)", header: "CPnts_AbscissaPoint.hxx".}
-proc length*(c: Adaptor3dCurve; u1: StandardReal; u2: StandardReal): StandardReal {.
+proc Length*(C: Adaptor3d_Curve; U1: Standard_Real; U2: Standard_Real): Standard_Real {.
     importcpp: "CPnts_AbscissaPoint::Length(@)", header: "CPnts_AbscissaPoint.hxx".}
-proc length*(c: Adaptor2dCurve2d; u1: StandardReal; u2: StandardReal): StandardReal {.
+proc Length*(C: Adaptor2d_Curve2d; U1: Standard_Real; U2: Standard_Real): Standard_Real {.
     importcpp: "CPnts_AbscissaPoint::Length(@)", header: "CPnts_AbscissaPoint.hxx".}
-proc length*(c: Adaptor3dCurve; u1: StandardReal; u2: StandardReal; tol: StandardReal): StandardReal {.
+proc Length*(C: Adaptor3d_Curve; U1: Standard_Real; U2: Standard_Real;
+            Tol: Standard_Real): Standard_Real {.
     importcpp: "CPnts_AbscissaPoint::Length(@)", header: "CPnts_AbscissaPoint.hxx".}
-proc length*(c: Adaptor2dCurve2d; u1: StandardReal; u2: StandardReal; tol: StandardReal): StandardReal {.
+proc Length*(C: Adaptor2d_Curve2d; U1: Standard_Real; U2: Standard_Real;
+            Tol: Standard_Real): Standard_Real {.
     importcpp: "CPnts_AbscissaPoint::Length(@)", header: "CPnts_AbscissaPoint.hxx".}
-proc constructCPntsAbscissaPoint*(): CPntsAbscissaPoint {.constructor,
+proc constructCPnts_AbscissaPoint*(): CPnts_AbscissaPoint {.constructor,
     importcpp: "CPnts_AbscissaPoint(@)", header: "CPnts_AbscissaPoint.hxx".}
-proc constructCPntsAbscissaPoint*(c: Adaptor3dCurve; abscissa: StandardReal;
-                                 u0: StandardReal; resolution: StandardReal): CPntsAbscissaPoint {.
+proc constructCPnts_AbscissaPoint*(C: Adaptor3d_Curve; Abscissa: Standard_Real;
+                                  U0: Standard_Real; Resolution: Standard_Real): CPnts_AbscissaPoint {.
     constructor, importcpp: "CPnts_AbscissaPoint(@)",
     header: "CPnts_AbscissaPoint.hxx".}
-proc constructCPntsAbscissaPoint*(c: Adaptor2dCurve2d; abscissa: StandardReal;
-                                 u0: StandardReal; resolution: StandardReal): CPntsAbscissaPoint {.
+proc constructCPnts_AbscissaPoint*(C: Adaptor2d_Curve2d; Abscissa: Standard_Real;
+                                  U0: Standard_Real; Resolution: Standard_Real): CPnts_AbscissaPoint {.
     constructor, importcpp: "CPnts_AbscissaPoint(@)",
     header: "CPnts_AbscissaPoint.hxx".}
-proc constructCPntsAbscissaPoint*(c: Adaptor3dCurve; abscissa: StandardReal;
-                                 u0: StandardReal; ui: StandardReal;
-                                 resolution: StandardReal): CPntsAbscissaPoint {.
+proc constructCPnts_AbscissaPoint*(C: Adaptor3d_Curve; Abscissa: Standard_Real;
+                                  U0: Standard_Real; Ui: Standard_Real;
+                                  Resolution: Standard_Real): CPnts_AbscissaPoint {.
     constructor, importcpp: "CPnts_AbscissaPoint(@)",
     header: "CPnts_AbscissaPoint.hxx".}
-proc constructCPntsAbscissaPoint*(c: Adaptor2dCurve2d; abscissa: StandardReal;
-                                 u0: StandardReal; ui: StandardReal;
-                                 resolution: StandardReal): CPntsAbscissaPoint {.
+proc constructCPnts_AbscissaPoint*(C: Adaptor2d_Curve2d; Abscissa: Standard_Real;
+                                  U0: Standard_Real; Ui: Standard_Real;
+                                  Resolution: Standard_Real): CPnts_AbscissaPoint {.
     constructor, importcpp: "CPnts_AbscissaPoint(@)",
     header: "CPnts_AbscissaPoint.hxx".}
-proc init*(this: var CPntsAbscissaPoint; c: Adaptor3dCurve) {.importcpp: "Init",
+proc Init*(this: var CPnts_AbscissaPoint; C: Adaptor3d_Curve) {.importcpp: "Init",
     header: "CPnts_AbscissaPoint.hxx".}
-proc init*(this: var CPntsAbscissaPoint; c: Adaptor2dCurve2d) {.importcpp: "Init",
+proc Init*(this: var CPnts_AbscissaPoint; C: Adaptor2d_Curve2d) {.importcpp: "Init",
     header: "CPnts_AbscissaPoint.hxx".}
-proc init*(this: var CPntsAbscissaPoint; c: Adaptor3dCurve; tol: StandardReal) {.
+proc Init*(this: var CPnts_AbscissaPoint; C: Adaptor3d_Curve; Tol: Standard_Real) {.
     importcpp: "Init", header: "CPnts_AbscissaPoint.hxx".}
-proc init*(this: var CPntsAbscissaPoint; c: Adaptor2dCurve2d; tol: StandardReal) {.
+proc Init*(this: var CPnts_AbscissaPoint; C: Adaptor2d_Curve2d; Tol: Standard_Real) {.
     importcpp: "Init", header: "CPnts_AbscissaPoint.hxx".}
-proc init*(this: var CPntsAbscissaPoint; c: Adaptor3dCurve; u1: StandardReal;
-          u2: StandardReal) {.importcpp: "Init", header: "CPnts_AbscissaPoint.hxx".}
-proc init*(this: var CPntsAbscissaPoint; c: Adaptor2dCurve2d; u1: StandardReal;
-          u2: StandardReal) {.importcpp: "Init", header: "CPnts_AbscissaPoint.hxx".}
-proc init*(this: var CPntsAbscissaPoint; c: Adaptor3dCurve; u1: StandardReal;
-          u2: StandardReal; tol: StandardReal) {.importcpp: "Init",
+proc Init*(this: var CPnts_AbscissaPoint; C: Adaptor3d_Curve; U1: Standard_Real;
+          U2: Standard_Real) {.importcpp: "Init", header: "CPnts_AbscissaPoint.hxx".}
+proc Init*(this: var CPnts_AbscissaPoint; C: Adaptor2d_Curve2d; U1: Standard_Real;
+          U2: Standard_Real) {.importcpp: "Init", header: "CPnts_AbscissaPoint.hxx".}
+proc Init*(this: var CPnts_AbscissaPoint; C: Adaptor3d_Curve; U1: Standard_Real;
+          U2: Standard_Real; Tol: Standard_Real) {.importcpp: "Init",
     header: "CPnts_AbscissaPoint.hxx".}
-proc init*(this: var CPntsAbscissaPoint; c: Adaptor2dCurve2d; u1: StandardReal;
-          u2: StandardReal; tol: StandardReal) {.importcpp: "Init",
+proc Init*(this: var CPnts_AbscissaPoint; C: Adaptor2d_Curve2d; U1: Standard_Real;
+          U2: Standard_Real; Tol: Standard_Real) {.importcpp: "Init",
     header: "CPnts_AbscissaPoint.hxx".}
-proc perform*(this: var CPntsAbscissaPoint; abscissa: StandardReal; u0: StandardReal;
-             resolution: StandardReal) {.importcpp: "Perform",
-                                       header: "CPnts_AbscissaPoint.hxx".}
-proc perform*(this: var CPntsAbscissaPoint; abscissa: StandardReal; u0: StandardReal;
-             ui: StandardReal; resolution: StandardReal) {.importcpp: "Perform",
+proc Perform*(this: var CPnts_AbscissaPoint; Abscissa: Standard_Real;
+             U0: Standard_Real; Resolution: Standard_Real) {.importcpp: "Perform",
     header: "CPnts_AbscissaPoint.hxx".}
-proc advPerform*(this: var CPntsAbscissaPoint; abscissa: StandardReal;
-                u0: StandardReal; ui: StandardReal; resolution: StandardReal) {.
+proc Perform*(this: var CPnts_AbscissaPoint; Abscissa: Standard_Real;
+             U0: Standard_Real; Ui: Standard_Real; Resolution: Standard_Real) {.
+    importcpp: "Perform", header: "CPnts_AbscissaPoint.hxx".}
+proc AdvPerform*(this: var CPnts_AbscissaPoint; Abscissa: Standard_Real;
+                U0: Standard_Real; Ui: Standard_Real; Resolution: Standard_Real) {.
     importcpp: "AdvPerform", header: "CPnts_AbscissaPoint.hxx".}
-proc isDone*(this: CPntsAbscissaPoint): StandardBoolean {.noSideEffect,
+proc IsDone*(this: CPnts_AbscissaPoint): Standard_Boolean {.noSideEffect,
     importcpp: "IsDone", header: "CPnts_AbscissaPoint.hxx".}
-proc parameter*(this: CPntsAbscissaPoint): StandardReal {.noSideEffect,
+proc Parameter*(this: CPnts_AbscissaPoint): Standard_Real {.noSideEffect,
     importcpp: "Parameter", header: "CPnts_AbscissaPoint.hxx".}
-proc setParameter*(this: var CPntsAbscissaPoint; p: StandardReal) {.
+proc SetParameter*(this: var CPnts_AbscissaPoint; P: Standard_Real) {.
     importcpp: "SetParameter", header: "CPnts_AbscissaPoint.hxx".}
-

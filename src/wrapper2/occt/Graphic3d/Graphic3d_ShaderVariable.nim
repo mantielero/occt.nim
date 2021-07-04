@@ -13,13 +13,13 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _Graphic3d_ShaderVariable_HeaderFile [NewLine] # _Graphic3d_ShaderVariable_HeaderFile [NewLine] # < Graphic3d_Vec . hxx > [NewLine] # < Standard_Transient . hxx > [NewLine] # < TCollection_AsciiString . hxx > [NewLine] ! Interface for generic variable value. struct Graphic3d_ValueInterface { ! Releases memory resources of variable value. virtual ~ Graphic3d_ValueInterface ( ) ; ! Returns unique identifier of value type. virtual Standard_Size TypeID ( ) const = 0 ; ! Returns variable value casted to specified type. template < class T > [end of template] T & As ( ) ; ! Returns variable value casted to specified type. template < class T > [end of template] const T & As ( ) const ; } ;
+## !!!Ignored construct:  # _Graphic3d_ShaderVariable_HeaderFile [NewLine] # _Graphic3d_ShaderVariable_HeaderFile [NewLine] # Graphic3d_Vec.hxx [NewLine] # ../Standard/Standard_Transient.hxx [NewLine] # ../TCollection/TCollection_AsciiString.hxx [NewLine] ! Interface for generic variable value. struct Graphic3d_ValueInterface { ! Releases memory resources of variable value. virtual ~ Graphic3d_ValueInterface ( ) ; ! Returns unique identifier of value type. virtual Standard_Size TypeID ( ) const = 0 ; ! Returns variable value casted to specified type. template < class T > [end of template] T & As ( ) ; ! Returns variable value casted to specified type. template < class T > [end of template] const T & As ( ) const ; } ;
 ## Error: identifier expected, but got: <!!!
 
 ## ! Generates unique type identifier for variable value.
 
 type
-  Graphic3dUniformValueTypeIDGraphic3dUniformValueTypeID*[T] {.importcpp: "Graphic3d_UniformValueTypeID<\'0>::Graphic3d_UniformValueTypeID<\'1>",
+  Graphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeID*[T] {.importcpp: "Graphic3d_UniformValueTypeID<\'0>::Graphic3d_UniformValueTypeID<\'1>",
       header: "Graphic3d_ShaderVariable.hxx", bycopy.} = object ##  Not implemented
 
 
@@ -50,122 +50,122 @@ type
 ## ! Describes specific value of custom uniform variable.
 
 type
-  Graphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValue*[
+  Graphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValue*[
       T] {.importcpp: "Graphic3d_UniformValueTypeID<\'0>::Graphic3d_UniformValueTypeID<\'1>::Graphic3d_UniformValueTypeID<\'2>::Graphic3d_UniformValueTypeID<\'3>::Graphic3d_UniformValueTypeID<\'4>::Graphic3d_UniformValueTypeID<\'5>::Graphic3d_UniformValueTypeID<\'6>::Graphic3d_UniformValueTypeID<\'7>::Graphic3d_UniformValueTypeID<\'8>::Graphic3d_UniformValue<\'9>",
-          header: "Graphic3d_ShaderVariable.hxx", bycopy.} = object of Graphic3dValueInterface ##
-                                                                                        ## !
-                                                                                        ## Creates
-                                                                                        ## new
-                                                                                        ## variable
-                                                                                        ## value.
-    value* {.importc: "Value".}: T
+          header: "Graphic3d_ShaderVariable.hxx", bycopy.} = object of Graphic3d_ValueInterface ##
+                                                                                         ## !
+                                                                                         ## Creates
+                                                                                         ## new
+                                                                                         ## variable
+                                                                                         ## value.
+    Value* {.importc: "Value".}: T
 
 
-proc constructGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValue*[
-    T](theValue: T): Graphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValue[
+proc constructGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValue*[
+    T](theValue: T): Graphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValue[
     T] {.constructor, importcpp: "Graphic3d_UniformValueTypeID<\'*0>::Graphic3d_UniformValueTypeID<\'*1>::Graphic3d_UniformValueTypeID<\'*2>::Graphic3d_UniformValueTypeID<\'*3>::Graphic3d_UniformValueTypeID<\'*4>::Graphic3d_UniformValueTypeID<\'*5>::Graphic3d_UniformValueTypeID<\'*6>::Graphic3d_UniformValueTypeID<\'*7>::Graphic3d_UniformValueTypeID<\'*8>::Graphic3d_UniformValue<\'*9>(@)",
         header: "Graphic3d_ShaderVariable.hxx".}
-proc typeID*[T](this: Graphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValue[
-    T]): StandardSize {.noSideEffect, importcpp: "TypeID",
-                      header: "Graphic3d_ShaderVariable.hxx".}
+proc TypeID*[T](this: Graphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValue[
+    T]): Standard_Size {.noSideEffect, importcpp: "TypeID",
+                       header: "Graphic3d_ShaderVariable.hxx".}
 ## ! Integer uniform value.
 
 type
-  Graphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformInt* = Graphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValue[
-      StandardInteger]
+  Graphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformInt* = Graphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValue[
+      Standard_Integer]
 
 ## ! Integer uniform 2D vector.
 
 type
-  Graphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformVec2i* = Graphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValue[
-      Graphic3dVec2i]
+  Graphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformVec2i* = Graphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValue[
+      Graphic3d_Vec2i]
 
 ## ! Integer uniform 3D vector.
 
 type
-  Graphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformVec3i* = Graphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValue[
-      Graphic3dVec3i]
+  Graphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformVec3i* = Graphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValue[
+      Graphic3d_Vec3i]
 
 ## ! Integer uniform 4D vector.
 
 type
-  Graphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformVec4i* = Graphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValue[
-      Graphic3dVec4i]
+  Graphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformVec4i* = Graphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValue[
+      Graphic3d_Vec4i]
 
 ## ! Floating-point uniform value.
 
 type
-  Graphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformFloat* = Graphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValue[
-      StandardShortReal]
+  Graphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformFloat* = Graphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValue[
+      Standard_ShortReal]
 
 ## ! Floating-point uniform 2D vector.
 
 type
-  Graphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformVec2* = Graphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValue[
-      Graphic3dVec2]
+  Graphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformVec2* = Graphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValue[
+      Graphic3d_Vec2]
 
 ## ! Floating-point uniform 3D vector.
 
 type
-  Graphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformVec3* = Graphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValue[
-      Graphic3dVec3]
+  Graphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformVec3* = Graphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValue[
+      Graphic3d_Vec3]
 
 ## ! Floating-point uniform 4D vector.
 
 type
-  Graphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformVec4* = Graphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValue[
-      Graphic3dVec4]
+  Graphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformVec4* = Graphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValue[
+      Graphic3d_Vec4]
 
 ## ! Describes custom uniform shader variable.
 
 type
-  Graphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dShaderVariable* {.importcpp: "Graphic3d_UniformValueTypeID<\'0>::Graphic3d_UniformValueTypeID<\'1>::Graphic3d_UniformValueTypeID<\'2>::Graphic3d_UniformValueTypeID<\'3>::Graphic3d_UniformValueTypeID<\'4>::Graphic3d_UniformValueTypeID<\'5>::Graphic3d_UniformValueTypeID<\'6>::Graphic3d_UniformValueTypeID<\'7>::Graphic3d_UniformValueTypeID<\'8>::Graphic3d_ShaderVariable",
-      header: "Graphic3d_ShaderVariable.hxx", bycopy.} = object of StandardTransient ## !
-                                                                              ## Releases
-                                                                              ## resources of
-                                                                              ## shader
-                                                                              ## variable.
-                                                                              ## !
-                                                                              ## Creates
-                                                                              ## new
-                                                                              ## uninitialized
-                                                                              ## shader
-                                                                              ## variable.
-                                                                              ## !
-                                                                              ## The
-                                                                              ## name of
-                                                                              ## uniform
-                                                                              ## shader
-                                                                              ## variable.
+  Graphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_ShaderVariable* {.importcpp: "Graphic3d_UniformValueTypeID<\'0>::Graphic3d_UniformValueTypeID<\'1>::Graphic3d_UniformValueTypeID<\'2>::Graphic3d_UniformValueTypeID<\'3>::Graphic3d_UniformValueTypeID<\'4>::Graphic3d_UniformValueTypeID<\'5>::Graphic3d_UniformValueTypeID<\'6>::Graphic3d_UniformValueTypeID<\'7>::Graphic3d_UniformValueTypeID<\'8>::Graphic3d_ShaderVariable",
+      header: "Graphic3d_ShaderVariable.hxx", bycopy.} = object of Standard_Transient ## !
+                                                                               ## Releases
+                                                                               ## resources
+                                                                               ## of
+                                                                               ## shader
+                                                                               ## variable.
+                                                                               ## !
+                                                                               ## Creates
+                                                                               ## new
+                                                                               ## uninitialized
+                                                                               ## shader
+                                                                               ## variable.
+                                                                               ## !
+                                                                               ## The
+                                                                               ## name
+                                                                               ## of
+                                                                               ## uniform
+                                                                               ## shader
+                                                                               ## variable.
     ## ! The generic value of shader variable.
 
 
-proc destroyGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dShaderVariable*(
-    this: var Graphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dShaderVariable) {.
+proc destroyGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_ShaderVariable*(
+    this: var Graphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_ShaderVariable) {.
     importcpp: "#.~Graphic3d_ShaderVariable()",
     header: "Graphic3d_ShaderVariable.hxx".}
-proc name*(this: Graphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dShaderVariable): TCollectionAsciiString {.
+proc Name*(this: Graphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_ShaderVariable): TCollection_AsciiString {.
     noSideEffect, importcpp: "Name", header: "Graphic3d_ShaderVariable.hxx".}
-proc isDone*(this: Graphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dShaderVariable): StandardBoolean {.
+proc IsDone*(this: Graphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_ShaderVariable): Standard_Boolean {.
     noSideEffect, importcpp: "IsDone", header: "Graphic3d_ShaderVariable.hxx".}
-proc value*(this: var Graphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dShaderVariable): ptr Graphic3dValueInterface {.
+proc Value*(this: var Graphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_ShaderVariable): ptr Graphic3d_ValueInterface {.
     importcpp: "Value", header: "Graphic3d_ShaderVariable.hxx".}
-proc create*[T](theName: TCollectionAsciiString; theValue: T): ptr Graphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dShaderVariable {.
+proc Create*[T](theName: TCollection_AsciiString; theValue: T): ptr Graphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_ShaderVariable {.
     importcpp: "Graphic3d_ShaderVariable::Create(@)",
     header: "Graphic3d_ShaderVariable.hxx".}
 type
-  Graphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dShaderVariablebaseType* = StandardTransient
+  Graphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_ShaderVariablebase_type* = Standard_Transient
 
-proc getTypeName*(): cstring {.importcpp: "Graphic3d_ShaderVariable::get_type_name(@)",
-                            header: "Graphic3d_ShaderVariable.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "Graphic3d_ShaderVariable::get_type_name(@)",
+                              header: "Graphic3d_ShaderVariable.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "Graphic3d_ShaderVariable::get_type_descriptor(@)",
     header: "Graphic3d_ShaderVariable.hxx".}
-proc dynamicType*(this: Graphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dShaderVariable): Handle[
-    StandardType] {.noSideEffect, importcpp: "DynamicType",
-                   header: "Graphic3d_ShaderVariable.hxx".}
+proc DynamicType*(this: Graphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_ShaderVariable): handle[
+    Standard_Type] {.noSideEffect, importcpp: "DynamicType",
+                    header: "Graphic3d_ShaderVariable.hxx".}
 discard "forward decl of Graphic3d_ShaderVariable"
 type
-  Graphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDHandleGraphic3dShaderVariable* = Handle[Graphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dUniformValueTypeIDGraphic3dShaderVariable]
-
-
+  Graphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDHandle_Graphic3d_ShaderVariable* = handle[Graphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_UniformValueTypeIDGraphic3d_ShaderVariable]

@@ -14,25 +14,29 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, IntPatch_SequenceOfLine,
+  ../Standard/Standard_Integer, ../Standard/Standard_Real
+
 discard "forward decl of IntPatch_Line"
 discard "forward decl of Adaptor3d_HSurface"
 discard "forward decl of Adaptor3d_TopolTool"
 type
-  IntPatchLineConstructor* {.importcpp: "IntPatch_LineConstructor",
-                            header: "IntPatch_LineConstructor.hxx", bycopy.} = object
+  IntPatch_LineConstructor* {.importcpp: "IntPatch_LineConstructor",
+                             header: "IntPatch_LineConstructor.hxx", bycopy.} = object
 
 
-proc constructIntPatchLineConstructor*(mode: StandardInteger): IntPatchLineConstructor {.
+proc constructIntPatch_LineConstructor*(mode: Standard_Integer): IntPatch_LineConstructor {.
     constructor, importcpp: "IntPatch_LineConstructor(@)",
     header: "IntPatch_LineConstructor.hxx".}
-proc perform*(this: var IntPatchLineConstructor; sl: IntPatchSequenceOfLine;
-             L: Handle[IntPatchLine]; s1: Handle[Adaptor3dHSurface];
-             d1: Handle[Adaptor3dTopolTool]; s2: Handle[Adaptor3dHSurface];
-             d2: Handle[Adaptor3dTopolTool]; tol: StandardReal) {.
+proc Perform*(this: var IntPatch_LineConstructor; SL: IntPatch_SequenceOfLine;
+             L: handle[IntPatch_Line]; S1: handle[Adaptor3d_HSurface];
+             D1: handle[Adaptor3d_TopolTool]; S2: handle[Adaptor3d_HSurface];
+             D2: handle[Adaptor3d_TopolTool]; Tol: Standard_Real) {.
     importcpp: "Perform", header: "IntPatch_LineConstructor.hxx".}
-proc nbLines*(this: IntPatchLineConstructor): StandardInteger {.noSideEffect,
+proc NbLines*(this: IntPatch_LineConstructor): Standard_Integer {.noSideEffect,
     importcpp: "NbLines", header: "IntPatch_LineConstructor.hxx".}
-proc line*(this: IntPatchLineConstructor; index: StandardInteger): Handle[
-    IntPatchLine] {.noSideEffect, importcpp: "Line",
-                   header: "IntPatch_LineConstructor.hxx".}
-
+proc Line*(this: IntPatch_LineConstructor; index: Standard_Integer): handle[
+    IntPatch_Line] {.noSideEffect, importcpp: "Line",
+                    header: "IntPatch_LineConstructor.hxx".}

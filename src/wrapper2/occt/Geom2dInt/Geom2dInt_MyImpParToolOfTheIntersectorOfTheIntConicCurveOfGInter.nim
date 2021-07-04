@@ -14,24 +14,29 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Address,
+  ../IntCurve/IntCurve_IConicTool, ../math/math_FunctionWithDerivative,
+  ../Standard/Standard_Boolean, ../Standard/Standard_Real
+
 discard "forward decl of IntCurve_IConicTool"
 discard "forward decl of Adaptor2d_Curve2d"
 discard "forward decl of Geom2dInt_Geom2dCurveTool"
 type
-  Geom2dIntMyImpParToolOfTheIntersectorOfTheIntConicCurveOfGInter* {.importcpp: "Geom2dInt_MyImpParToolOfTheIntersectorOfTheIntConicCurveOfGInter", header: "Geom2dInt_MyImpParToolOfTheIntersectorOfTheIntConicCurveOfGInter.hxx",
-      bycopy.} = object of MathFunctionWithDerivative ## ! Constructor of the class.
+  Geom2dInt_MyImpParToolOfTheIntersectorOfTheIntConicCurveOfGInter* {.importcpp: "Geom2dInt_MyImpParToolOfTheIntersectorOfTheIntConicCurveOfGInter", header: "Geom2dInt_MyImpParToolOfTheIntersectorOfTheIntConicCurveOfGInter.hxx",
+      bycopy.} = object of math_FunctionWithDerivative ## ! Constructor of the class.
 
 
-proc constructGeom2dIntMyImpParToolOfTheIntersectorOfTheIntConicCurveOfGInter*(
-    it: IntCurveIConicTool; pc: Adaptor2dCurve2d): Geom2dIntMyImpParToolOfTheIntersectorOfTheIntConicCurveOfGInter {.
+proc constructGeom2dInt_MyImpParToolOfTheIntersectorOfTheIntConicCurveOfGInter*(
+    IT: IntCurve_IConicTool; PC: Adaptor2d_Curve2d): Geom2dInt_MyImpParToolOfTheIntersectorOfTheIntConicCurveOfGInter {.
     constructor, importcpp: "Geom2dInt_MyImpParToolOfTheIntersectorOfTheIntConicCurveOfGInter(@)", header: "Geom2dInt_MyImpParToolOfTheIntersectorOfTheIntConicCurveOfGInter.hxx".}
-proc value*(this: var Geom2dIntMyImpParToolOfTheIntersectorOfTheIntConicCurveOfGInter;
-           param: StandardReal; f: var StandardReal): StandardBoolean {.
+proc Value*(this: var Geom2dInt_MyImpParToolOfTheIntersectorOfTheIntConicCurveOfGInter;
+           Param: Standard_Real; F: var Standard_Real): Standard_Boolean {.
     importcpp: "Value", header: "Geom2dInt_MyImpParToolOfTheIntersectorOfTheIntConicCurveOfGInter.hxx".}
-proc derivative*(this: var Geom2dIntMyImpParToolOfTheIntersectorOfTheIntConicCurveOfGInter;
-                param: StandardReal; d: var StandardReal): StandardBoolean {.
+proc Derivative*(this: var Geom2dInt_MyImpParToolOfTheIntersectorOfTheIntConicCurveOfGInter;
+                Param: Standard_Real; D: var Standard_Real): Standard_Boolean {.
     importcpp: "Derivative", header: "Geom2dInt_MyImpParToolOfTheIntersectorOfTheIntConicCurveOfGInter.hxx".}
-proc values*(this: var Geom2dIntMyImpParToolOfTheIntersectorOfTheIntConicCurveOfGInter;
-            param: StandardReal; f: var StandardReal; d: var StandardReal): StandardBoolean {.
+proc Values*(this: var Geom2dInt_MyImpParToolOfTheIntersectorOfTheIntConicCurveOfGInter;
+            Param: Standard_Real; F: var Standard_Real; D: var Standard_Real): Standard_Boolean {.
     importcpp: "Values", header: "Geom2dInt_MyImpParToolOfTheIntersectorOfTheIntConicCurveOfGInter.hxx".}
-

@@ -25,10 +25,11 @@
 ##               can  be done only  if aKey was previously bound to
 ##               an item in the map.
 
+import
+  NCollection_DataMap
+
 ##  *********************************************** Class DataMap *************
 
-template define_Datamap*(className, baseCollection, theKeyType, theItemType: untyped): void =
+template DEFINE_DATAMAP*(_ClassName_, _BaseCollection_, TheKeyType, TheItemType: untyped): void =
   type
-    ClassName* = NCollectionDataMap[TheKeyType, TheItemType]
-
-
+    _ClassName_* = NCollection_DataMap[TheKeyType, TheItemType]

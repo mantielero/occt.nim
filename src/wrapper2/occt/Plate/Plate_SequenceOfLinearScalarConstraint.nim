@@ -14,8 +14,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  Plate_LinearScalarConstraint, ../NCollection/NCollection_Sequence
+
 type
-  PlateSequenceOfLinearScalarConstraint* = NCollectionSequence[
-      PlateLinearScalarConstraint]
-
-
+  Plate_SequenceOfLinearScalarConstraint* = NCollection_Sequence[
+      Plate_LinearScalarConstraint]

@@ -13,7 +13,8 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Quantity/Quantity_Color, ../NCollection/NCollection_Sequence
+
 type
-  AspectSequenceOfColor* = NCollectionSequence[QuantityColor]
-
-
+  Aspect_SequenceOfColor* = NCollection_Sequence[Quantity_Color]

@@ -14,6 +14,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
+  ../Standard/Standard_Integer, ../GeomAbs/GeomAbs_CurveType, ../gp/gp_Pnt,
+  ../gp/gp_Dir, ../Standard/Standard_Real, ../gp/gp_Circ
+
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of Standard_DomainError"
 discard "forward decl of Standard_OutOfRange"
@@ -24,37 +30,36 @@ discard "forward decl of gp_Cylinder"
 discard "forward decl of gp_Cone"
 discard "forward decl of gp_Lin"
 type
-  ContapContAna* {.importcpp: "Contap_ContAna", header: "Contap_ContAna.hxx", bycopy.} = object
+  Contap_ContAna* {.importcpp: "Contap_ContAna", header: "Contap_ContAna.hxx", bycopy.} = object
 
 
-proc constructContapContAna*(): ContapContAna {.constructor,
+proc constructContap_ContAna*(): Contap_ContAna {.constructor,
     importcpp: "Contap_ContAna(@)", header: "Contap_ContAna.hxx".}
-proc perform*(this: var ContapContAna; s: GpSphere; d: GpDir) {.importcpp: "Perform",
+proc Perform*(this: var Contap_ContAna; S: gp_Sphere; D: gp_Dir) {.importcpp: "Perform",
     header: "Contap_ContAna.hxx".}
-proc perform*(this: var ContapContAna; s: GpSphere; d: GpDir; ang: StandardReal) {.
+proc Perform*(this: var Contap_ContAna; S: gp_Sphere; D: gp_Dir; Ang: Standard_Real) {.
     importcpp: "Perform", header: "Contap_ContAna.hxx".}
-proc perform*(this: var ContapContAna; s: GpSphere; eye: GpPnt) {.importcpp: "Perform",
-    header: "Contap_ContAna.hxx".}
-proc perform*(this: var ContapContAna; c: GpCylinder; d: GpDir) {.importcpp: "Perform",
-    header: "Contap_ContAna.hxx".}
-proc perform*(this: var ContapContAna; c: GpCylinder; d: GpDir; ang: StandardReal) {.
+proc Perform*(this: var Contap_ContAna; S: gp_Sphere; Eye: gp_Pnt) {.
     importcpp: "Perform", header: "Contap_ContAna.hxx".}
-proc perform*(this: var ContapContAna; c: GpCylinder; eye: GpPnt) {.
+proc Perform*(this: var Contap_ContAna; C: gp_Cylinder; D: gp_Dir) {.
     importcpp: "Perform", header: "Contap_ContAna.hxx".}
-proc perform*(this: var ContapContAna; c: GpCone; d: GpDir) {.importcpp: "Perform",
-    header: "Contap_ContAna.hxx".}
-proc perform*(this: var ContapContAna; c: GpCone; d: GpDir; ang: StandardReal) {.
+proc Perform*(this: var Contap_ContAna; C: gp_Cylinder; D: gp_Dir; Ang: Standard_Real) {.
     importcpp: "Perform", header: "Contap_ContAna.hxx".}
-proc perform*(this: var ContapContAna; c: GpCone; eye: GpPnt) {.importcpp: "Perform",
+proc Perform*(this: var Contap_ContAna; C: gp_Cylinder; Eye: gp_Pnt) {.
+    importcpp: "Perform", header: "Contap_ContAna.hxx".}
+proc Perform*(this: var Contap_ContAna; C: gp_Cone; D: gp_Dir) {.importcpp: "Perform",
     header: "Contap_ContAna.hxx".}
-proc isDone*(this: ContapContAna): StandardBoolean {.noSideEffect,
+proc Perform*(this: var Contap_ContAna; C: gp_Cone; D: gp_Dir; Ang: Standard_Real) {.
+    importcpp: "Perform", header: "Contap_ContAna.hxx".}
+proc Perform*(this: var Contap_ContAna; C: gp_Cone; Eye: gp_Pnt) {.importcpp: "Perform",
+    header: "Contap_ContAna.hxx".}
+proc IsDone*(this: Contap_ContAna): Standard_Boolean {.noSideEffect,
     importcpp: "IsDone", header: "Contap_ContAna.hxx".}
-proc nbContours*(this: ContapContAna): StandardInteger {.noSideEffect,
+proc NbContours*(this: Contap_ContAna): Standard_Integer {.noSideEffect,
     importcpp: "NbContours", header: "Contap_ContAna.hxx".}
-proc typeContour*(this: ContapContAna): GeomAbsCurveType {.noSideEffect,
+proc TypeContour*(this: Contap_ContAna): GeomAbs_CurveType {.noSideEffect,
     importcpp: "TypeContour", header: "Contap_ContAna.hxx".}
-proc circle*(this: ContapContAna): GpCirc {.noSideEffect, importcpp: "Circle",
-                                        header: "Contap_ContAna.hxx".}
-proc line*(this: ContapContAna; index: StandardInteger): GpLin {.noSideEffect,
+proc Circle*(this: Contap_ContAna): gp_Circ {.noSideEffect, importcpp: "Circle",
+    header: "Contap_ContAna.hxx".}
+proc Line*(this: Contap_ContAna; Index: Standard_Integer): gp_Lin {.noSideEffect,
     importcpp: "Line", header: "Contap_ContAna.hxx".}
-

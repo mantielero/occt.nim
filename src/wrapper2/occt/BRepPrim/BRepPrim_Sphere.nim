@@ -14,23 +14,26 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Real, BRepPrim_Revolution
+
 discard "forward decl of Standard_DomainError"
 discard "forward decl of gp_Pnt"
 discard "forward decl of gp_Ax2"
 discard "forward decl of TopoDS_Face"
 type
-  BRepPrimSphere* {.importcpp: "BRepPrim_Sphere", header: "BRepPrim_Sphere.hxx",
-                   bycopy.} = object of BRepPrimRevolution ## ! Creates a Sphere at  origin with  Radius. The axes
-                                                      ## ! of the sphere are the  reference axes. An error is
-                                                      ## ! raised if the radius is < Resolution.
+  BRepPrim_Sphere* {.importcpp: "BRepPrim_Sphere", header: "BRepPrim_Sphere.hxx",
+                    bycopy.} = object of BRepPrim_Revolution ## ! Creates a Sphere at  origin with  Radius. The axes
+                                                        ## ! of the sphere are the  reference axes. An error is
+                                                        ## ! raised if the radius is < Resolution.
 
 
-proc constructBRepPrimSphere*(radius: StandardReal): BRepPrimSphere {.constructor,
-    importcpp: "BRepPrim_Sphere(@)", header: "BRepPrim_Sphere.hxx".}
-proc constructBRepPrimSphere*(center: GpPnt; radius: StandardReal): BRepPrimSphere {.
+proc constructBRepPrim_Sphere*(Radius: Standard_Real): BRepPrim_Sphere {.
     constructor, importcpp: "BRepPrim_Sphere(@)", header: "BRepPrim_Sphere.hxx".}
-proc constructBRepPrimSphere*(axes: GpAx2; radius: StandardReal): BRepPrimSphere {.
+proc constructBRepPrim_Sphere*(Center: gp_Pnt; Radius: Standard_Real): BRepPrim_Sphere {.
     constructor, importcpp: "BRepPrim_Sphere(@)", header: "BRepPrim_Sphere.hxx".}
-proc makeEmptyLateralFace*(this: BRepPrimSphere): TopoDS_Face {.noSideEffect,
+proc constructBRepPrim_Sphere*(Axes: gp_Ax2; Radius: Standard_Real): BRepPrim_Sphere {.
+    constructor, importcpp: "BRepPrim_Sphere(@)", header: "BRepPrim_Sphere.hxx".}
+proc MakeEmptyLateralFace*(this: BRepPrim_Sphere): TopoDS_Face {.noSideEffect,
     importcpp: "MakeEmptyLateralFace", header: "BRepPrim_Sphere.hxx".}
-

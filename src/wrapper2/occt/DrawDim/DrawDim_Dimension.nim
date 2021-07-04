@@ -14,41 +14,44 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Boolean,
+  ../Standard/Standard_Real, ../Draw/Draw_Color, ../Draw/Draw_Drawable3D
+
 discard "forward decl of Draw_Color"
 discard "forward decl of gp_Pnt"
 discard "forward decl of Draw_Display"
 discard "forward decl of DrawDim_Dimension"
 discard "forward decl of DrawDim_Dimension"
 type
-  HandleDrawDimDimension* = Handle[DrawDimDimension]
+  Handle_DrawDim_Dimension* = handle[DrawDim_Dimension]
 
 ## ! Dimension between planes and cylinder
 
 type
-  DrawDimDimension* {.importcpp: "DrawDim_Dimension",
-                     header: "DrawDim_Dimension.hxx", bycopy.} = object of DrawDrawable3D
+  DrawDim_Dimension* {.importcpp: "DrawDim_Dimension",
+                      header: "DrawDim_Dimension.hxx", bycopy.} = object of Draw_Drawable3D
 
 
-proc setValue*(this: var DrawDimDimension; avalue: StandardReal) {.
+proc SetValue*(this: var DrawDim_Dimension; avalue: Standard_Real) {.
     importcpp: "SetValue", header: "DrawDim_Dimension.hxx".}
-proc getValue*(this: DrawDimDimension): StandardReal {.noSideEffect,
+proc GetValue*(this: DrawDim_Dimension): Standard_Real {.noSideEffect,
     importcpp: "GetValue", header: "DrawDim_Dimension.hxx".}
-proc isValued*(this: DrawDimDimension): StandardBoolean {.noSideEffect,
+proc IsValued*(this: DrawDim_Dimension): Standard_Boolean {.noSideEffect,
     importcpp: "IsValued", header: "DrawDim_Dimension.hxx".}
-proc textColor*(this: var DrawDimDimension; c: DrawColor) {.importcpp: "TextColor",
+proc TextColor*(this: var DrawDim_Dimension; C: Draw_Color) {.importcpp: "TextColor",
     header: "DrawDim_Dimension.hxx".}
-proc textColor*(this: DrawDimDimension): DrawColor {.noSideEffect,
+proc TextColor*(this: DrawDim_Dimension): Draw_Color {.noSideEffect,
     importcpp: "TextColor", header: "DrawDim_Dimension.hxx".}
-proc drawText*(this: DrawDimDimension; pos: GpPnt; d: var DrawDisplay) {.noSideEffect,
-    importcpp: "DrawText", header: "DrawDim_Dimension.hxx".}
+proc DrawText*(this: DrawDim_Dimension; Pos: gp_Pnt; D: var Draw_Display) {.
+    noSideEffect, importcpp: "DrawText", header: "DrawDim_Dimension.hxx".}
 type
-  DrawDimDimensionbaseType* = DrawDrawable3D
+  DrawDim_Dimensionbase_type* = Draw_Drawable3D
 
-proc getTypeName*(): cstring {.importcpp: "DrawDim_Dimension::get_type_name(@)",
-                            header: "DrawDim_Dimension.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "DrawDim_Dimension::get_type_name(@)",
+                              header: "DrawDim_Dimension.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "DrawDim_Dimension::get_type_descriptor(@)",
     header: "DrawDim_Dimension.hxx".}
-proc dynamicType*(this: DrawDimDimension): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: DrawDim_Dimension): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "DrawDim_Dimension.hxx".}
-

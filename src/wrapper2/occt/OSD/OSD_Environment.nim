@@ -14,6 +14,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../TCollection/TCollection_AsciiString, OSD_Error,
+  ../Standard/Standard_Boolean, ../Standard/Standard_Integer
+
 discard "forward decl of Standard_ConstructionError"
 discard "forward decl of Standard_NullObject"
 discard "forward decl of OSD_OSDError"
@@ -25,29 +30,28 @@ type
 
 proc constructOSD_Environment*(): OSD_Environment {.constructor,
     importcpp: "OSD_Environment(@)", header: "OSD_Environment.hxx".}
-proc constructOSD_Environment*(name: TCollectionAsciiString): OSD_Environment {.
+proc constructOSD_Environment*(Name: TCollection_AsciiString): OSD_Environment {.
     constructor, importcpp: "OSD_Environment(@)", header: "OSD_Environment.hxx".}
-proc constructOSD_Environment*(name: TCollectionAsciiString;
-                              value: TCollectionAsciiString): OSD_Environment {.
+proc constructOSD_Environment*(Name: TCollection_AsciiString;
+                              Value: TCollection_AsciiString): OSD_Environment {.
     constructor, importcpp: "OSD_Environment(@)", header: "OSD_Environment.hxx".}
-proc setValue*(this: var OSD_Environment; value: TCollectionAsciiString) {.
+proc SetValue*(this: var OSD_Environment; Value: TCollection_AsciiString) {.
     importcpp: "SetValue", header: "OSD_Environment.hxx".}
-proc value*(this: var OSD_Environment): TCollectionAsciiString {.importcpp: "Value",
+proc Value*(this: var OSD_Environment): TCollection_AsciiString {.importcpp: "Value",
     header: "OSD_Environment.hxx".}
-proc setName*(this: var OSD_Environment; name: TCollectionAsciiString) {.
+proc SetName*(this: var OSD_Environment; name: TCollection_AsciiString) {.
     importcpp: "SetName", header: "OSD_Environment.hxx".}
-proc name*(this: OSD_Environment): TCollectionAsciiString {.noSideEffect,
+proc Name*(this: OSD_Environment): TCollection_AsciiString {.noSideEffect,
     importcpp: "Name", header: "OSD_Environment.hxx".}
-proc build*(this: var OSD_Environment) {.importcpp: "Build",
+proc Build*(this: var OSD_Environment) {.importcpp: "Build",
                                      header: "OSD_Environment.hxx".}
-proc remove*(this: var OSD_Environment) {.importcpp: "Remove",
+proc Remove*(this: var OSD_Environment) {.importcpp: "Remove",
                                       header: "OSD_Environment.hxx".}
-proc failed*(this: OSD_Environment): StandardBoolean {.noSideEffect,
+proc Failed*(this: OSD_Environment): Standard_Boolean {.noSideEffect,
     importcpp: "Failed", header: "OSD_Environment.hxx".}
-proc reset*(this: var OSD_Environment) {.importcpp: "Reset",
+proc Reset*(this: var OSD_Environment) {.importcpp: "Reset",
                                      header: "OSD_Environment.hxx".}
-proc perror*(this: var OSD_Environment) {.importcpp: "Perror",
+proc Perror*(this: var OSD_Environment) {.importcpp: "Perror",
                                       header: "OSD_Environment.hxx".}
-proc error*(this: OSD_Environment): StandardInteger {.noSideEffect,
+proc Error*(this: OSD_Environment): Standard_Integer {.noSideEffect,
     importcpp: "Error", header: "OSD_Environment.hxx".}
-

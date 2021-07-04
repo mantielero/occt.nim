@@ -14,6 +14,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, Expr_UnaryExpression,
+  ../Standard/Standard_Boolean, ../Standard/Standard_Real,
+  Expr_Array1OfNamedUnknown, ../TColStd/TColStd_Array1OfReal
+
 discard "forward decl of Standard_NumericError"
 discard "forward decl of Expr_NotEvaluable"
 discard "forward decl of Expr_GeneralExpression"
@@ -22,41 +27,40 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of Expr_Tangent"
 discard "forward decl of Expr_Tangent"
 type
-  HandleExprTangent* = Handle[ExprTangent]
-  ExprTangent* {.importcpp: "Expr_Tangent", header: "Expr_Tangent.hxx", bycopy.} = object of ExprUnaryExpression ##
-                                                                                                       ## !
-                                                                                                       ## Creates
-                                                                                                       ## the
-                                                                                                       ## tangent
-                                                                                                       ## of
-                                                                                                       ## <exp>.
+  Handle_Expr_Tangent* = handle[Expr_Tangent]
+  Expr_Tangent* {.importcpp: "Expr_Tangent", header: "Expr_Tangent.hxx", bycopy.} = object of Expr_UnaryExpression ##
+                                                                                                         ## !
+                                                                                                         ## Creates
+                                                                                                         ## the
+                                                                                                         ## tangent
+                                                                                                         ## of
+                                                                                                         ## <exp>.
 
 
-proc constructExprTangent*(exp: Handle[ExprGeneralExpression]): ExprTangent {.
+proc constructExpr_Tangent*(exp: handle[Expr_GeneralExpression]): Expr_Tangent {.
     constructor, importcpp: "Expr_Tangent(@)", header: "Expr_Tangent.hxx".}
-proc shallowSimplified*(this: ExprTangent): Handle[ExprGeneralExpression] {.
+proc ShallowSimplified*(this: Expr_Tangent): handle[Expr_GeneralExpression] {.
     noSideEffect, importcpp: "ShallowSimplified", header: "Expr_Tangent.hxx".}
-proc copy*(this: ExprTangent): Handle[ExprGeneralExpression] {.noSideEffect,
+proc Copy*(this: Expr_Tangent): handle[Expr_GeneralExpression] {.noSideEffect,
     importcpp: "Copy", header: "Expr_Tangent.hxx".}
-proc isIdentical*(this: ExprTangent; other: Handle[ExprGeneralExpression]): StandardBoolean {.
+proc IsIdentical*(this: Expr_Tangent; Other: handle[Expr_GeneralExpression]): Standard_Boolean {.
     noSideEffect, importcpp: "IsIdentical", header: "Expr_Tangent.hxx".}
-proc isLinear*(this: ExprTangent): StandardBoolean {.noSideEffect,
+proc IsLinear*(this: Expr_Tangent): Standard_Boolean {.noSideEffect,
     importcpp: "IsLinear", header: "Expr_Tangent.hxx".}
-proc derivative*(this: ExprTangent; x: Handle[ExprNamedUnknown]): Handle[
-    ExprGeneralExpression] {.noSideEffect, importcpp: "Derivative",
-                            header: "Expr_Tangent.hxx".}
-proc evaluate*(this: ExprTangent; vars: ExprArray1OfNamedUnknown;
-              vals: TColStdArray1OfReal): StandardReal {.noSideEffect,
+proc Derivative*(this: Expr_Tangent; X: handle[Expr_NamedUnknown]): handle[
+    Expr_GeneralExpression] {.noSideEffect, importcpp: "Derivative",
+                             header: "Expr_Tangent.hxx".}
+proc Evaluate*(this: Expr_Tangent; vars: Expr_Array1OfNamedUnknown;
+              vals: TColStd_Array1OfReal): Standard_Real {.noSideEffect,
     importcpp: "Evaluate", header: "Expr_Tangent.hxx".}
-proc string*(this: ExprTangent): TCollectionAsciiString {.noSideEffect,
+proc String*(this: Expr_Tangent): TCollection_AsciiString {.noSideEffect,
     importcpp: "String", header: "Expr_Tangent.hxx".}
 type
-  ExprTangentbaseType* = ExprUnaryExpression
+  Expr_Tangentbase_type* = Expr_UnaryExpression
 
-proc getTypeName*(): cstring {.importcpp: "Expr_Tangent::get_type_name(@)",
-                            header: "Expr_Tangent.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "Expr_Tangent::get_type_name(@)",
+                              header: "Expr_Tangent.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "Expr_Tangent::get_type_descriptor(@)", header: "Expr_Tangent.hxx".}
-proc dynamicType*(this: ExprTangent): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: Expr_Tangent): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "Expr_Tangent.hxx".}
-

@@ -14,63 +14,73 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../MAT2d/MAT2d_SequenceOfSequenceOfCurve,
+  ../Standard/Standard_Integer, ../TopoDS/TopoDS_Shape,
+  ../TColStd/TColStd_SequenceOfBoolean,
+  ../TopTools/TopTools_IndexedDataMapOfShapeShape, ../Standard/Standard_Boolean,
+  ../TColGeom2d/TColGeom2d_SequenceOfCurve
+
 discard "forward decl of TopoDS_Face"
 discard "forward decl of TopoDS_Wire"
 discard "forward decl of Geom2d_Curve"
 discard "forward decl of TopoDS_Shape"
 type
-  BRepMAT2dExplorer* {.importcpp: "BRepMAT2d_Explorer",
-                      header: "BRepMAT2d_Explorer.hxx", bycopy.} = object ## !
-                                                                     ## Construction from a set of cuves from Geom2d.
-                                                                     ## ! Assume  the   orientation  of  the  closed   lines are
-                                                                     ## ! compatible. (ie if A is in B, the orientation of A and B
-                                                                     ## ! has to be different.
-                                                                     ## !
-                                                                     ## ! Assume the explo contains only lines located in the
-                                                                     ## ! area where the bisecting locus will be computed.
-                                                                     ## !
-                                                                     ## ! Assume a line don't cross itself or an other line.
-                                                                     ## !
-                                                                     ## ! A contour has to be construct in adding each curve in
-                                                                     ## ! respect to the sense of the contour.
-                                                                     ## !
-                                                                     ## ! afirst point of a curve in a contour is equal to the last
-                                                                     ## ! point of the precedent curve.
-                                                                     ## !
-                                                                     ## ! No  control of this  rules is done in the
-                                                                     ## construction
-                                                                     ## ! of the explorer
+  BRepMAT2d_Explorer* {.importcpp: "BRepMAT2d_Explorer",
+                       header: "BRepMAT2d_Explorer.hxx", bycopy.} = object ## !
+                                                                      ## Construction from a set of cuves from Geom2d.
+                                                                      ## ! Assume  the
+                                                                      ## orientation  of  the  closed   lines are
+                                                                      ## !
+                                                                      ## compatible. (ie if A is in B, the
+                                                                      ## orientation of A and B
+                                                                      ## ! has to be different.
+                                                                      ## !
+                                                                      ## ! Assume the explo contains only lines located in the
+                                                                      ## ! area where the bisecting locus will be computed.
+                                                                      ## !
+                                                                      ## ! Assume a line don't cross itself or an other line.
+                                                                      ## !
+                                                                      ## ! A contour has to be construct in adding each curve in
+                                                                      ## ! respect to the sense of the contour.
+                                                                      ## !
+                                                                      ## ! afirst point of a curve in a contour is equal to the last
+                                                                      ## ! point of the precedent curve.
+                                                                      ## !
+                                                                      ## ! No  control of this  rules is done in the
+                                                                      ## construction
+                                                                      ## ! of the explorer
 
 
-proc constructBRepMAT2dExplorer*(): BRepMAT2dExplorer {.constructor,
+proc constructBRepMAT2d_Explorer*(): BRepMAT2d_Explorer {.constructor,
     importcpp: "BRepMAT2d_Explorer(@)", header: "BRepMAT2d_Explorer.hxx".}
-proc constructBRepMAT2dExplorer*(aFace: TopoDS_Face): BRepMAT2dExplorer {.
+proc constructBRepMAT2d_Explorer*(aFace: TopoDS_Face): BRepMAT2d_Explorer {.
     constructor, importcpp: "BRepMAT2d_Explorer(@)",
     header: "BRepMAT2d_Explorer.hxx".}
-proc clear*(this: var BRepMAT2dExplorer) {.importcpp: "Clear",
-                                       header: "BRepMAT2d_Explorer.hxx".}
-proc perform*(this: var BRepMAT2dExplorer; aFace: TopoDS_Face) {.importcpp: "Perform",
-    header: "BRepMAT2d_Explorer.hxx".}
-proc numberOfContours*(this: BRepMAT2dExplorer): StandardInteger {.noSideEffect,
+proc Clear*(this: var BRepMAT2d_Explorer) {.importcpp: "Clear",
+                                        header: "BRepMAT2d_Explorer.hxx".}
+proc Perform*(this: var BRepMAT2d_Explorer; aFace: TopoDS_Face) {.
+    importcpp: "Perform", header: "BRepMAT2d_Explorer.hxx".}
+proc NumberOfContours*(this: BRepMAT2d_Explorer): Standard_Integer {.noSideEffect,
     importcpp: "NumberOfContours", header: "BRepMAT2d_Explorer.hxx".}
-proc numberOfCurves*(this: BRepMAT2dExplorer; indexContour: StandardInteger): StandardInteger {.
+proc NumberOfCurves*(this: BRepMAT2d_Explorer; IndexContour: Standard_Integer): Standard_Integer {.
     noSideEffect, importcpp: "NumberOfCurves", header: "BRepMAT2d_Explorer.hxx".}
-proc init*(this: var BRepMAT2dExplorer; indexContour: StandardInteger) {.
+proc Init*(this: var BRepMAT2d_Explorer; IndexContour: Standard_Integer) {.
     importcpp: "Init", header: "BRepMAT2d_Explorer.hxx".}
-proc more*(this: BRepMAT2dExplorer): StandardBoolean {.noSideEffect,
+proc More*(this: BRepMAT2d_Explorer): Standard_Boolean {.noSideEffect,
     importcpp: "More", header: "BRepMAT2d_Explorer.hxx".}
-proc next*(this: var BRepMAT2dExplorer) {.importcpp: "Next",
-                                      header: "BRepMAT2d_Explorer.hxx".}
-proc value*(this: BRepMAT2dExplorer): Handle[Geom2dCurve] {.noSideEffect,
+proc Next*(this: var BRepMAT2d_Explorer) {.importcpp: "Next",
+                                       header: "BRepMAT2d_Explorer.hxx".}
+proc Value*(this: BRepMAT2d_Explorer): handle[Geom2d_Curve] {.noSideEffect,
     importcpp: "Value", header: "BRepMAT2d_Explorer.hxx".}
-proc shape*(this: BRepMAT2dExplorer): TopoDS_Shape {.noSideEffect,
+proc Shape*(this: BRepMAT2d_Explorer): TopoDS_Shape {.noSideEffect,
     importcpp: "Shape", header: "BRepMAT2d_Explorer.hxx".}
-proc contour*(this: BRepMAT2dExplorer; indexContour: StandardInteger): TColGeom2dSequenceOfCurve {.
+proc Contour*(this: BRepMAT2d_Explorer; IndexContour: Standard_Integer): TColGeom2d_SequenceOfCurve {.
     noSideEffect, importcpp: "Contour", header: "BRepMAT2d_Explorer.hxx".}
-proc isModified*(this: BRepMAT2dExplorer; aShape: TopoDS_Shape): StandardBoolean {.
+proc IsModified*(this: BRepMAT2d_Explorer; aShape: TopoDS_Shape): Standard_Boolean {.
     noSideEffect, importcpp: "IsModified", header: "BRepMAT2d_Explorer.hxx".}
-proc modifiedShape*(this: BRepMAT2dExplorer; aShape: TopoDS_Shape): TopoDS_Shape {.
+proc ModifiedShape*(this: BRepMAT2d_Explorer; aShape: TopoDS_Shape): TopoDS_Shape {.
     noSideEffect, importcpp: "ModifiedShape", header: "BRepMAT2d_Explorer.hxx".}
-proc getIsClosed*(this: BRepMAT2dExplorer): TColStdSequenceOfBoolean {.noSideEffect,
-    importcpp: "GetIsClosed", header: "BRepMAT2d_Explorer.hxx".}
-
+proc GetIsClosed*(this: BRepMAT2d_Explorer): TColStd_SequenceOfBoolean {.
+    noSideEffect, importcpp: "GetIsClosed", header: "BRepMAT2d_Explorer.hxx".}

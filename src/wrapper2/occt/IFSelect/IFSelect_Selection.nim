@@ -14,6 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Transient,
+  ../Standard/Standard_Boolean
+
 discard "forward decl of Interface_InterfaceError"
 discard "forward decl of Interface_EntityIterator"
 discard "forward decl of Interface_Graph"
@@ -22,7 +26,7 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of IFSelect_Selection"
 discard "forward decl of IFSelect_Selection"
 type
-  HandleIFSelectSelection* = Handle[IFSelectSelection]
+  Handle_IFSelect_Selection* = handle[IFSelect_Selection]
 
 ## ! A Selection allows to define a set of Interface Entities.
 ## ! Entities to be put on an output file should be identified in
@@ -35,97 +39,96 @@ type
 ## ! computations start from an input Graph (from IFGraph)
 
 type
-  IFSelectSelection* {.importcpp: "IFSelect_Selection",
-                      header: "IFSelect_Selection.hxx", bycopy.} = object of StandardTransient ##
-                                                                                        ## !
-                                                                                        ## Returns
-                                                                                        ## the
-                                                                                        ## list
-                                                                                        ## of
-                                                                                        ## selected
-                                                                                        ## entities,
-                                                                                        ## computed
-                                                                                        ## from
-                                                                                        ## Input
-                                                                                        ##
-                                                                                        ## !
-                                                                                        ## given
-                                                                                        ## as
-                                                                                        ## a
-                                                                                        ## Graph.
-                                                                                        ## Specific
-                                                                                        ## to
-                                                                                        ## each
-                                                                                        ## class
-                                                                                        ## of
-                                                                                        ## Selection
-                                                                                        ##
-                                                                                        ## !
-                                                                                        ## Note
-                                                                                        ## that
-                                                                                        ## uniqueness
-                                                                                        ## of
-                                                                                        ## each
-                                                                                        ## entity
-                                                                                        ## is
-                                                                                        ## not
-                                                                                        ## required
-                                                                                        ## here
-                                                                                        ##
-                                                                                        ## !
-                                                                                        ## This
-                                                                                        ## method
-                                                                                        ## can
-                                                                                        ## raise
-                                                                                        ## an
-                                                                                        ## exception
-                                                                                        ## as
-                                                                                        ## necessary
-                                                                                        ##
-                                                                                        ## !
-                                                                                        ## Returns
-                                                                                        ## True
-                                                                                        ## if
-                                                                                        ## RootResult
-                                                                                        ## guarantees
-                                                                                        ## uniqueness
-                                                                                        ## for
-                                                                                        ## each
-                                                                                        ##
-                                                                                        ## !
-                                                                                        ## Entity.
-                                                                                        ## Called
-                                                                                        ## by
-                                                                                        ## UniqueResult.
-                                                                                        ##
-                                                                                        ## !
-                                                                                        ## Default
-                                                                                        ## answer
-                                                                                        ## is
-                                                                                        ## False.
-                                                                                        ## Can
-                                                                                        ## be
-                                                                                        ## redefined.
+  IFSelect_Selection* {.importcpp: "IFSelect_Selection",
+                       header: "IFSelect_Selection.hxx", bycopy.} = object of Standard_Transient ##
+                                                                                          ## !
+                                                                                          ## Returns
+                                                                                          ## the
+                                                                                          ## list
+                                                                                          ## of
+                                                                                          ## selected
+                                                                                          ## entities,
+                                                                                          ## computed
+                                                                                          ## from
+                                                                                          ## Input
+                                                                                          ##
+                                                                                          ## !
+                                                                                          ## given
+                                                                                          ## as
+                                                                                          ## a
+                                                                                          ## Graph.
+                                                                                          ## Specific
+                                                                                          ## to
+                                                                                          ## each
+                                                                                          ## class
+                                                                                          ## of
+                                                                                          ## Selection
+                                                                                          ##
+                                                                                          ## !
+                                                                                          ## Note
+                                                                                          ## that
+                                                                                          ## uniqueness
+                                                                                          ## of
+                                                                                          ## each
+                                                                                          ## entity
+                                                                                          ## is
+                                                                                          ## not
+                                                                                          ## required
+                                                                                          ## here
+                                                                                          ##
+                                                                                          ## !
+                                                                                          ## This
+                                                                                          ## method
+                                                                                          ## can
+                                                                                          ## raise
+                                                                                          ## an
+                                                                                          ## exception
+                                                                                          ## as
+                                                                                          ## necessary
+                                                                                          ##
+                                                                                          ## !
+                                                                                          ## Returns
+                                                                                          ## True
+                                                                                          ## if
+                                                                                          ## RootResult
+                                                                                          ## guarantees
+                                                                                          ## uniqueness
+                                                                                          ## for
+                                                                                          ## each
+                                                                                          ##
+                                                                                          ## !
+                                                                                          ## Entity.
+                                                                                          ## Called
+                                                                                          ## by
+                                                                                          ## UniqueResult.
+                                                                                          ##
+                                                                                          ## !
+                                                                                          ## Default
+                                                                                          ## answer
+                                                                                          ## is
+                                                                                          ## False.
+                                                                                          ## Can
+                                                                                          ## be
+                                                                                          ## redefined.
 
 
-proc rootResult*(this: IFSelectSelection; g: InterfaceGraph): InterfaceEntityIterator {.
+proc RootResult*(this: IFSelect_Selection; G: Interface_Graph): Interface_EntityIterator {.
     noSideEffect, importcpp: "RootResult", header: "IFSelect_Selection.hxx".}
-proc uniqueResult*(this: IFSelectSelection; g: InterfaceGraph): InterfaceEntityIterator {.
+proc UniqueResult*(this: IFSelect_Selection; G: Interface_Graph): Interface_EntityIterator {.
     noSideEffect, importcpp: "UniqueResult", header: "IFSelect_Selection.hxx".}
-proc completeResult*(this: IFSelectSelection; g: InterfaceGraph): InterfaceEntityIterator {.
+proc CompleteResult*(this: IFSelect_Selection; G: Interface_Graph): Interface_EntityIterator {.
     noSideEffect, importcpp: "CompleteResult", header: "IFSelect_Selection.hxx".}
-proc fillIterator*(this: IFSelectSelection; iter: var IFSelectSelectionIterator) {.
+proc FillIterator*(this: IFSelect_Selection; iter: var IFSelect_SelectionIterator) {.
     noSideEffect, importcpp: "FillIterator", header: "IFSelect_Selection.hxx".}
-proc label*(this: IFSelectSelection): TCollectionAsciiString {.noSideEffect,
+proc Label*(this: IFSelect_Selection): TCollection_AsciiString {.noSideEffect,
     importcpp: "Label", header: "IFSelect_Selection.hxx".}
 type
-  IFSelectSelectionbaseType* = StandardTransient
+  IFSelect_Selectionbase_type* = Standard_Transient
 
-proc getTypeName*(): cstring {.importcpp: "IFSelect_Selection::get_type_name(@)",
-                            header: "IFSelect_Selection.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "IFSelect_Selection::get_type_name(@)",
+                              header: "IFSelect_Selection.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "IFSelect_Selection::get_type_descriptor(@)",
     header: "IFSelect_Selection.hxx".}
-proc dynamicType*(this: IFSelectSelection): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: IFSelect_Selection): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "IFSelect_Selection.hxx".}
-

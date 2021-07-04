@@ -12,77 +12,91 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle,
+  ../BOPDS/BOPDS_IndexedDataMapOfPaveBlockListOfInteger,
+  ../BOPDS/BOPDS_IndexedDataMapOfPaveBlockListOfPaveBlock, ../BOPDS/BOPDS_PDS,
+  ../NCollection/NCollection_BaseAllocator,
+  ../TopTools/TopTools_DataMapOfShapeBox,
+  ../TopTools/TopTools_DataMapOfShapeListOfShape,
+  ../TopTools/TopTools_IndexedDataMapOfShapeListOfShape,
+  ../TopTools/TopTools_IndexedDataMapOfShapeReal,
+  ../TopTools/TopTools_ListOfListOfShape, ../TopTools/TopTools_ListOfShape,
+  ../TopTools/TopTools_MapOfShape, ../Standard/Standard_Integer
+
 discard "forward decl of BOPDS_PaveBlock"
 discard "forward decl of BOPDS_CommonBlock"
 discard "forward decl of IntTools_Context"
 discard "forward decl of TopoDS_Shape"
 type
-  BOPAlgoTools* {.importcpp: "BOPAlgo_Tools", header: "BOPAlgo_Tools.hxx", bycopy.} = object ##
-                                                                                     ## !
-                                                                                     ## Makes
-                                                                                     ## the
-                                                                                     ## chains
-                                                                                     ## of
-                                                                                     ## the
-                                                                                     ## connected
-                                                                                     ## elements
-                                                                                     ## from
-                                                                                     ## the
-                                                                                     ## given
-                                                                                     ## connexity
-                                                                                     ## map
+  BOPAlgo_Tools* {.importcpp: "BOPAlgo_Tools", header: "BOPAlgo_Tools.hxx", bycopy.} = object ##
+                                                                                      ## !
+                                                                                      ## Makes
+                                                                                      ## the
+                                                                                      ## chains
+                                                                                      ## of
+                                                                                      ## the
+                                                                                      ## connected
+                                                                                      ## elements
+                                                                                      ## from
+                                                                                      ## the
+                                                                                      ## given
+                                                                                      ## connexity
+                                                                                      ## map
 
 
-proc makeBlocks*[TheType; TheTypeHasher](theMILI: NCollectionIndexedDataMap[
-    TheType, NCollectionList[TheType], TheTypeHasher]; theMBlocks: var NCollectionList[
-    NCollectionList[TheType]]; theAllocator: Handle[NCollectionBaseAllocator]) {.
+proc MakeBlocks*[theType; theTypeHasher](theMILI: NCollection_IndexedDataMap[
+    theType, NCollection_List[theType], theTypeHasher]; theMBlocks: var NCollection_List[
+    NCollection_List[theType]]; theAllocator: handle[NCollection_BaseAllocator]) {.
     importcpp: "BOPAlgo_Tools::MakeBlocks(@)", header: "BOPAlgo_Tools.hxx".}
-proc fillMap*[TheType; TheTypeHasher](n1: TheType; n2: TheType; theMILI: var NCollectionIndexedDataMap[
-    TheType, NCollectionList[TheType], TheTypeHasher]; theAllocator: Handle[
-    NCollectionBaseAllocator]) {.importcpp: "BOPAlgo_Tools::FillMap(@)",
-                                header: "BOPAlgo_Tools.hxx".}
-proc fillMap*(thePB1: Handle[BOPDS_PaveBlock]; theF: StandardInteger;
+proc FillMap*[theType; theTypeHasher](n1: theType; n2: theType; theMILI: var NCollection_IndexedDataMap[
+    theType, NCollection_List[theType], theTypeHasher]; theAllocator: handle[
+    NCollection_BaseAllocator]) {.importcpp: "BOPAlgo_Tools::FillMap(@)",
+                                 header: "BOPAlgo_Tools.hxx".}
+proc FillMap*(thePB1: handle[BOPDS_PaveBlock]; theF: Standard_Integer;
              theMILI: var BOPDS_IndexedDataMapOfPaveBlockListOfInteger;
-             theAllocator: Handle[NCollectionBaseAllocator]) {.
+             theAllocator: handle[NCollection_BaseAllocator]) {.
     importcpp: "BOPAlgo_Tools::FillMap(@)", header: "BOPAlgo_Tools.hxx".}
-proc performCommonBlocks*(theMBlocks: var BOPDS_IndexedDataMapOfPaveBlockListOfPaveBlock;
-                         theAllocator: Handle[NCollectionBaseAllocator];
-                         theDS: var Bopds_Pds; theContext: Handle[IntToolsContext] = handle[
-    IntToolsContext]()) {.importcpp: "BOPAlgo_Tools::PerformCommonBlocks(@)",
-                         header: "BOPAlgo_Tools.hxx".}
-proc performCommonBlocks*(theMBlocks: BOPDS_IndexedDataMapOfPaveBlockListOfInteger;
-                         theAllocator: Handle[NCollectionBaseAllocator];
-                         pDS: var Bopds_Pds; theContext: Handle[IntToolsContext] = handle[
-    IntToolsContext]()) {.importcpp: "BOPAlgo_Tools::PerformCommonBlocks(@)",
-                         header: "BOPAlgo_Tools.hxx".}
-proc computeToleranceOfCB*(theCB: Handle[BOPDS_CommonBlock]; theDS: Bopds_Pds;
-                          theContext: Handle[IntToolsContext]): StandardReal {.
+proc PerformCommonBlocks*(theMBlocks: var BOPDS_IndexedDataMapOfPaveBlockListOfPaveBlock;
+                         theAllocator: handle[NCollection_BaseAllocator];
+                         theDS: var BOPDS_PDS; theContext: handle[IntTools_Context] = handle[
+    IntTools_Context]()) {.importcpp: "BOPAlgo_Tools::PerformCommonBlocks(@)",
+                          header: "BOPAlgo_Tools.hxx".}
+proc PerformCommonBlocks*(theMBlocks: BOPDS_IndexedDataMapOfPaveBlockListOfInteger;
+                         theAllocator: handle[NCollection_BaseAllocator];
+                         pDS: var BOPDS_PDS; theContext: handle[IntTools_Context] = handle[
+    IntTools_Context]()) {.importcpp: "BOPAlgo_Tools::PerformCommonBlocks(@)",
+                          header: "BOPAlgo_Tools.hxx".}
+proc ComputeToleranceOfCB*(theCB: handle[BOPDS_CommonBlock]; theDS: BOPDS_PDS;
+                          theContext: handle[IntTools_Context]): Standard_Real {.
     importcpp: "BOPAlgo_Tools::ComputeToleranceOfCB(@)",
     header: "BOPAlgo_Tools.hxx".}
-proc edgesToWires*(theEdges: TopoDS_Shape; theWires: var TopoDS_Shape;
-                  theShared: StandardBoolean = standardFalse;
-                  theAngTol: StandardReal = 1.e-8): StandardInteger {.
+proc EdgesToWires*(theEdges: TopoDS_Shape; theWires: var TopoDS_Shape;
+                  theShared: Standard_Boolean = Standard_False;
+                  theAngTol: Standard_Real = 1.e-8): Standard_Integer {.
     importcpp: "BOPAlgo_Tools::EdgesToWires(@)", header: "BOPAlgo_Tools.hxx".}
-proc wiresToFaces*(theWires: TopoDS_Shape; theFaces: var TopoDS_Shape;
-                  theAngTol: StandardReal = 1.e-8): StandardBoolean {.
+proc WiresToFaces*(theWires: TopoDS_Shape; theFaces: var TopoDS_Shape;
+                  theAngTol: Standard_Real = 1.e-8): Standard_Boolean {.
     importcpp: "BOPAlgo_Tools::WiresToFaces(@)", header: "BOPAlgo_Tools.hxx".}
-proc intersectVertices*(theVertices: TopToolsIndexedDataMapOfShapeReal;
-                       theFuzzyValue: StandardReal;
-                       theChains: var TopToolsListOfListOfShape) {.
+proc IntersectVertices*(theVertices: TopTools_IndexedDataMapOfShapeReal;
+                       theFuzzyValue: Standard_Real;
+                       theChains: var TopTools_ListOfListOfShape) {.
     importcpp: "BOPAlgo_Tools::IntersectVertices(@)", header: "BOPAlgo_Tools.hxx".}
-proc classifyFaces*(theFaces: TopToolsListOfShape; theSolids: TopToolsListOfShape;
-                   theRunParallel: StandardBoolean;
-                   theContext: var Handle[IntToolsContext];
-                   theInParts: var TopToolsIndexedDataMapOfShapeListOfShape;
-    theShapeBoxMap: TopToolsDataMapOfShapeBox = topToolsDataMapOfShapeBox();
-    theSolidsIF: TopToolsDataMapOfShapeListOfShape = topToolsDataMapOfShapeListOfShape()) {.
+proc ClassifyFaces*(theFaces: TopTools_ListOfShape;
+                   theSolids: TopTools_ListOfShape;
+                   theRunParallel: Standard_Boolean;
+                   theContext: var handle[IntTools_Context];
+                   theInParts: var TopTools_IndexedDataMapOfShapeListOfShape;
+    theShapeBoxMap: TopTools_DataMapOfShapeBox = TopTools_DataMapOfShapeBox();
+    theSolidsIF: TopTools_DataMapOfShapeListOfShape = TopTools_DataMapOfShapeListOfShape()) {.
     importcpp: "BOPAlgo_Tools::ClassifyFaces(@)", header: "BOPAlgo_Tools.hxx".}
-proc fillInternals*(theSolids: TopToolsListOfShape; theParts: TopToolsListOfShape;
-                   theImages: TopToolsDataMapOfShapeListOfShape;
-                   theContext: Handle[IntToolsContext]) {.
+proc FillInternals*(theSolids: TopTools_ListOfShape;
+                   theParts: TopTools_ListOfShape;
+                   theImages: TopTools_DataMapOfShapeListOfShape;
+                   theContext: handle[IntTools_Context]) {.
     importcpp: "BOPAlgo_Tools::FillInternals(@)", header: "BOPAlgo_Tools.hxx".}
-proc trsfToPoint*(theBox1: BndBox; theBox2: BndBox; theTrsf: var GpTrsf;
-                 thePoint: GpPnt = gpPnt(0.0, 0.0, 0.0);
-                 theCriteria: StandardReal = 1.e+5): StandardBoolean {.
+proc TrsfToPoint*(theBox1: Bnd_Box; theBox2: Bnd_Box; theTrsf: var gp_Trsf;
+                 thePoint: gp_Pnt = gp_Pnt(0.0, 0.0, 0.0);
+                 theCriteria: Standard_Real = 1.e+5): Standard_Boolean {.
     importcpp: "BOPAlgo_Tools::TrsfToPoint(@)", header: "BOPAlgo_Tools.hxx".}
-

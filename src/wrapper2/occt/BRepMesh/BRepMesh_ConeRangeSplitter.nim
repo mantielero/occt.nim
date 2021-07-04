@@ -13,29 +13,31 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  BRepMesh_DefaultRangeSplitter, ../IMeshTools/IMeshTools_Parameters
+
 ## ! Auxiliary class extending default range splitter in
 ## ! order to generate internal nodes for conical surface.
 
 type
-  BRepMeshConeRangeSplitter* {.importcpp: "BRepMesh_ConeRangeSplitter",
-                              header: "BRepMesh_ConeRangeSplitter.hxx", bycopy.} = object of BRepMeshDefaultRangeSplitter ##
-                                                                                                                   ## !
-                                                                                                                   ## Constructor.
+  BRepMesh_ConeRangeSplitter* {.importcpp: "BRepMesh_ConeRangeSplitter",
+                               header: "BRepMesh_ConeRangeSplitter.hxx", bycopy.} = object of BRepMesh_DefaultRangeSplitter ##
+                                                                                                                     ## !
+                                                                                                                     ## Constructor.
 
 
-proc constructBRepMeshConeRangeSplitter*(): BRepMeshConeRangeSplitter {.
+proc constructBRepMesh_ConeRangeSplitter*(): BRepMesh_ConeRangeSplitter {.
     constructor, importcpp: "BRepMesh_ConeRangeSplitter(@)",
     header: "BRepMesh_ConeRangeSplitter.hxx".}
-proc destroyBRepMeshConeRangeSplitter*(this: var BRepMeshConeRangeSplitter) {.
+proc destroyBRepMesh_ConeRangeSplitter*(this: var BRepMesh_ConeRangeSplitter) {.
     importcpp: "#.~BRepMesh_ConeRangeSplitter()",
     header: "BRepMesh_ConeRangeSplitter.hxx".}
-proc getSplitSteps*(this: BRepMeshConeRangeSplitter;
-                   theParameters: IMeshToolsParameters;
-                   theStepsNb: var Pair[StandardInteger, StandardInteger]): Pair[
-    StandardReal, StandardReal] {.noSideEffect, importcpp: "GetSplitSteps",
-                                header: "BRepMesh_ConeRangeSplitter.hxx".}
-proc generateSurfaceNodes*(this: BRepMeshConeRangeSplitter;
-                          theParameters: IMeshToolsParameters): Handle[ListOfPnt2d] {.
-    noSideEffect, importcpp: "GenerateSurfaceNodes",
-    header: "BRepMesh_ConeRangeSplitter.hxx".}
-
+proc GetSplitSteps*(this: BRepMesh_ConeRangeSplitter;
+                   theParameters: IMeshTools_Parameters;
+                   theStepsNb: var pair[Standard_Integer, Standard_Integer]): pair[
+    Standard_Real, Standard_Real] {.noSideEffect, importcpp: "GetSplitSteps",
+                                  header: "BRepMesh_ConeRangeSplitter.hxx".}
+proc GenerateSurfaceNodes*(this: BRepMesh_ConeRangeSplitter;
+                          theParameters: IMeshTools_Parameters): handle[
+    ListOfPnt2d] {.noSideEffect, importcpp: "GenerateSurfaceNodes",
+                  header: "BRepMesh_ConeRangeSplitter.hxx".}

@@ -14,6 +14,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
+  ../Standard/Standard_Integer
+
 discard "forward decl of Standard_DomainError"
 discard "forward decl of IGESGeom_Flash"
 discard "forward decl of IGESData_IGESReaderData"
@@ -26,32 +31,33 @@ discard "forward decl of Interface_Check"
 discard "forward decl of Interface_CopyTool"
 discard "forward decl of IGESData_IGESDumper"
 type
-  IGESGeomToolFlash* {.importcpp: "IGESGeom_ToolFlash",
-                      header: "IGESGeom_ToolFlash.hxx", bycopy.} = object ## ! Returns a ToolFlash, ready to work
+  IGESGeom_ToolFlash* {.importcpp: "IGESGeom_ToolFlash",
+                       header: "IGESGeom_ToolFlash.hxx", bycopy.} = object ## ! Returns a ToolFlash, ready to work
 
 
-proc constructIGESGeomToolFlash*(): IGESGeomToolFlash {.constructor,
+proc constructIGESGeom_ToolFlash*(): IGESGeom_ToolFlash {.constructor,
     importcpp: "IGESGeom_ToolFlash(@)", header: "IGESGeom_ToolFlash.hxx".}
-proc readOwnParams*(this: IGESGeomToolFlash; ent: Handle[IGESGeomFlash];
-                   ir: Handle[IGESDataIGESReaderData]; pr: var IGESDataParamReader) {.
-    noSideEffect, importcpp: "ReadOwnParams", header: "IGESGeom_ToolFlash.hxx".}
-proc writeOwnParams*(this: IGESGeomToolFlash; ent: Handle[IGESGeomFlash];
-                    iw: var IGESDataIGESWriter) {.noSideEffect,
+proc ReadOwnParams*(this: IGESGeom_ToolFlash; ent: handle[IGESGeom_Flash];
+                   IR: handle[IGESData_IGESReaderData];
+                   PR: var IGESData_ParamReader) {.noSideEffect,
+    importcpp: "ReadOwnParams", header: "IGESGeom_ToolFlash.hxx".}
+proc WriteOwnParams*(this: IGESGeom_ToolFlash; ent: handle[IGESGeom_Flash];
+                    IW: var IGESData_IGESWriter) {.noSideEffect,
     importcpp: "WriteOwnParams", header: "IGESGeom_ToolFlash.hxx".}
-proc ownShared*(this: IGESGeomToolFlash; ent: Handle[IGESGeomFlash];
-               iter: var InterfaceEntityIterator) {.noSideEffect,
+proc OwnShared*(this: IGESGeom_ToolFlash; ent: handle[IGESGeom_Flash];
+               iter: var Interface_EntityIterator) {.noSideEffect,
     importcpp: "OwnShared", header: "IGESGeom_ToolFlash.hxx".}
-proc ownCorrect*(this: IGESGeomToolFlash; ent: Handle[IGESGeomFlash]): StandardBoolean {.
+proc OwnCorrect*(this: IGESGeom_ToolFlash; ent: handle[IGESGeom_Flash]): Standard_Boolean {.
     noSideEffect, importcpp: "OwnCorrect", header: "IGESGeom_ToolFlash.hxx".}
-proc dirChecker*(this: IGESGeomToolFlash; ent: Handle[IGESGeomFlash]): IGESDataDirChecker {.
+proc DirChecker*(this: IGESGeom_ToolFlash; ent: handle[IGESGeom_Flash]): IGESData_DirChecker {.
     noSideEffect, importcpp: "DirChecker", header: "IGESGeom_ToolFlash.hxx".}
-proc ownCheck*(this: IGESGeomToolFlash; ent: Handle[IGESGeomFlash];
-              shares: InterfaceShareTool; ach: var Handle[InterfaceCheck]) {.
+proc OwnCheck*(this: IGESGeom_ToolFlash; ent: handle[IGESGeom_Flash];
+              shares: Interface_ShareTool; ach: var handle[Interface_Check]) {.
     noSideEffect, importcpp: "OwnCheck", header: "IGESGeom_ToolFlash.hxx".}
-proc ownCopy*(this: IGESGeomToolFlash; entfrom: Handle[IGESGeomFlash];
-             entto: Handle[IGESGeomFlash]; tc: var InterfaceCopyTool) {.noSideEffect,
-    importcpp: "OwnCopy", header: "IGESGeom_ToolFlash.hxx".}
-proc ownDump*(this: IGESGeomToolFlash; ent: Handle[IGESGeomFlash];
-             dumper: IGESDataIGESDumper; s: var StandardOStream; own: StandardInteger) {.
-    noSideEffect, importcpp: "OwnDump", header: "IGESGeom_ToolFlash.hxx".}
-
+proc OwnCopy*(this: IGESGeom_ToolFlash; entfrom: handle[IGESGeom_Flash];
+             entto: handle[IGESGeom_Flash]; TC: var Interface_CopyTool) {.
+    noSideEffect, importcpp: "OwnCopy", header: "IGESGeom_ToolFlash.hxx".}
+proc OwnDump*(this: IGESGeom_ToolFlash; ent: handle[IGESGeom_Flash];
+             dumper: IGESData_IGESDumper; S: var Standard_OStream;
+             own: Standard_Integer) {.noSideEffect, importcpp: "OwnDump",
+                                    header: "IGESGeom_ToolFlash.hxx".}

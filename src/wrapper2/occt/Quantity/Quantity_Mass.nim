@@ -14,9 +14,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _Quantity_Mass_HeaderFile [NewLine] # _Quantity_Mass_HeaderFile [NewLine] # < Standard_Real . hxx > [NewLine] ! Defined as a quantity of matter. Gives rise to the
+## !!!Ignored construct:  # _Quantity_Mass_HeaderFile [NewLine] # _Quantity_Mass_HeaderFile [NewLine] # ../Standard/Standard_Real.hxx [NewLine] ! Defined as a quantity of matter. Gives rise to the
 ## ! inertial and gravitational properties of a body.
 ## ! It is measured in kilograms. Standard_DEPRECATED ( This type is deprecated - Standard_Real should be used instead ) typedef Standard_Real Quantity_Mass ;
 ## Error: expected ';'!!!
-
-

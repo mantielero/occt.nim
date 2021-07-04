@@ -11,24 +11,27 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Macro, ../gp/gp_XY
+
 ## ! Describes a 2d circle with a size of only 3 Standard_Real
 ## ! numbers instead of gp who needs 7 Standard_Real numbers.
 
 type
-  BRepMeshCircle* {.importcpp: "BRepMesh_Circle", header: "BRepMesh_Circle.hxx",
-                   bycopy.} = object ## ! Default constructor.
+  BRepMesh_Circle* {.importcpp: "BRepMesh_Circle", header: "BRepMesh_Circle.hxx",
+                    bycopy.} = object ## ! Default constructor.
 
 
-proc constructBRepMeshCircle*(): BRepMeshCircle {.constructor,
+proc constructBRepMesh_Circle*(): BRepMesh_Circle {.constructor,
     importcpp: "BRepMesh_Circle(@)", header: "BRepMesh_Circle.hxx".}
-proc constructBRepMeshCircle*(theLocation: GpXY; theRadius: StandardReal): BRepMeshCircle {.
+proc constructBRepMesh_Circle*(theLocation: gp_XY; theRadius: Standard_Real): BRepMesh_Circle {.
     constructor, importcpp: "BRepMesh_Circle(@)", header: "BRepMesh_Circle.hxx".}
-proc setLocation*(this: var BRepMeshCircle; theLocation: GpXY) {.
+proc SetLocation*(this: var BRepMesh_Circle; theLocation: gp_XY) {.
     importcpp: "SetLocation", header: "BRepMesh_Circle.hxx".}
-proc setRadius*(this: var BRepMeshCircle; theRadius: StandardReal) {.
+proc SetRadius*(this: var BRepMesh_Circle; theRadius: Standard_Real) {.
     importcpp: "SetRadius", header: "BRepMesh_Circle.hxx".}
-proc location*(this: BRepMeshCircle): GpXY {.noSideEffect, importcpp: "Location",
+proc Location*(this: BRepMesh_Circle): gp_XY {.noSideEffect, importcpp: "Location",
     header: "BRepMesh_Circle.hxx".}
-proc radius*(this: BRepMeshCircle): StandardReal {.noSideEffect, importcpp: "Radius",
-    header: "BRepMesh_Circle.hxx".}
-
+proc Radius*(this: BRepMesh_Circle): Standard_Real {.noSideEffect,
+    importcpp: "Radius", header: "BRepMesh_Circle.hxx".}

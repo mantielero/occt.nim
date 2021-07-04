@@ -14,6 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Real,
+  Geom_Conic, ../Standard/Standard_Boolean, ../Standard/Standard_Integer
+
 discard "forward decl of Standard_ConstructionError"
 discard "forward decl of Standard_DomainError"
 discard "forward decl of Standard_RangeError"
@@ -27,7 +31,7 @@ discard "forward decl of Geom_Geometry"
 discard "forward decl of Geom_Hyperbola"
 discard "forward decl of Geom_Hyperbola"
 type
-  HandleGeomHyperbola* = Handle[GeomHyperbola]
+  Handle_Geom_Hyperbola* = handle[Geom_Hyperbola]
 
 ## ! Describes a branch of a hyperbola in 3D space.
 ## ! A hyperbola is defined by its major and minor radii
@@ -81,96 +85,96 @@ type
 ## ! be less than the value of the minor radius (on the minor axis).
 
 type
-  GeomHyperbola* {.importcpp: "Geom_Hyperbola", header: "Geom_Hyperbola.hxx", bycopy.} = object of GeomConic ##
-                                                                                                   ## !
-                                                                                                   ## Constructs
-                                                                                                   ## a
-                                                                                                   ## hyperbola
-                                                                                                   ## by
-                                                                                                   ## conversion
-                                                                                                   ## of
-                                                                                                   ## the
-                                                                                                   ## gp_Hypr
-                                                                                                   ## hyperbola
-                                                                                                   ## H.
+  Geom_Hyperbola* {.importcpp: "Geom_Hyperbola", header: "Geom_Hyperbola.hxx", bycopy.} = object of Geom_Conic ##
+                                                                                                     ## !
+                                                                                                     ## Constructs
+                                                                                                     ## a
+                                                                                                     ## hyperbola
+                                                                                                     ## by
+                                                                                                     ## conversion
+                                                                                                     ## of
+                                                                                                     ## the
+                                                                                                     ## gp_Hypr
+                                                                                                     ## hyperbola
+                                                                                                     ## H.
 
 
-proc constructGeomHyperbola*(h: GpHypr): GeomHyperbola {.constructor,
+proc constructGeom_Hyperbola*(H: gp_Hypr): Geom_Hyperbola {.constructor,
     importcpp: "Geom_Hyperbola(@)", header: "Geom_Hyperbola.hxx".}
-proc constructGeomHyperbola*(a2: GpAx2; majorRadius: StandardReal;
-                            minorRadius: StandardReal): GeomHyperbola {.
+proc constructGeom_Hyperbola*(A2: gp_Ax2; MajorRadius: Standard_Real;
+                             MinorRadius: Standard_Real): Geom_Hyperbola {.
     constructor, importcpp: "Geom_Hyperbola(@)", header: "Geom_Hyperbola.hxx".}
-proc setHypr*(this: var GeomHyperbola; h: GpHypr) {.importcpp: "SetHypr",
+proc SetHypr*(this: var Geom_Hyperbola; H: gp_Hypr) {.importcpp: "SetHypr",
     header: "Geom_Hyperbola.hxx".}
-proc setMajorRadius*(this: var GeomHyperbola; majorRadius: StandardReal) {.
+proc SetMajorRadius*(this: var Geom_Hyperbola; MajorRadius: Standard_Real) {.
     importcpp: "SetMajorRadius", header: "Geom_Hyperbola.hxx".}
-proc setMinorRadius*(this: var GeomHyperbola; minorRadius: StandardReal) {.
+proc SetMinorRadius*(this: var Geom_Hyperbola; MinorRadius: Standard_Real) {.
     importcpp: "SetMinorRadius", header: "Geom_Hyperbola.hxx".}
-proc hypr*(this: GeomHyperbola): GpHypr {.noSideEffect, importcpp: "Hypr",
-                                      header: "Geom_Hyperbola.hxx".}
-proc reversedParameter*(this: GeomHyperbola; u: StandardReal): StandardReal {.
+proc Hypr*(this: Geom_Hyperbola): gp_Hypr {.noSideEffect, importcpp: "Hypr",
+                                        header: "Geom_Hyperbola.hxx".}
+proc ReversedParameter*(this: Geom_Hyperbola; U: Standard_Real): Standard_Real {.
     noSideEffect, importcpp: "ReversedParameter", header: "Geom_Hyperbola.hxx".}
-proc firstParameter*(this: GeomHyperbola): StandardReal {.noSideEffect,
+proc FirstParameter*(this: Geom_Hyperbola): Standard_Real {.noSideEffect,
     importcpp: "FirstParameter", header: "Geom_Hyperbola.hxx".}
-proc lastParameter*(this: GeomHyperbola): StandardReal {.noSideEffect,
+proc LastParameter*(this: Geom_Hyperbola): Standard_Real {.noSideEffect,
     importcpp: "LastParameter", header: "Geom_Hyperbola.hxx".}
-proc isClosed*(this: GeomHyperbola): StandardBoolean {.noSideEffect,
+proc IsClosed*(this: Geom_Hyperbola): Standard_Boolean {.noSideEffect,
     importcpp: "IsClosed", header: "Geom_Hyperbola.hxx".}
-proc isPeriodic*(this: GeomHyperbola): StandardBoolean {.noSideEffect,
+proc IsPeriodic*(this: Geom_Hyperbola): Standard_Boolean {.noSideEffect,
     importcpp: "IsPeriodic", header: "Geom_Hyperbola.hxx".}
-proc asymptote1*(this: GeomHyperbola): GpAx1 {.noSideEffect, importcpp: "Asymptote1",
-    header: "Geom_Hyperbola.hxx".}
-proc asymptote2*(this: GeomHyperbola): GpAx1 {.noSideEffect, importcpp: "Asymptote2",
-    header: "Geom_Hyperbola.hxx".}
-proc conjugateBranch1*(this: GeomHyperbola): GpHypr {.noSideEffect,
+proc Asymptote1*(this: Geom_Hyperbola): gp_Ax1 {.noSideEffect,
+    importcpp: "Asymptote1", header: "Geom_Hyperbola.hxx".}
+proc Asymptote2*(this: Geom_Hyperbola): gp_Ax1 {.noSideEffect,
+    importcpp: "Asymptote2", header: "Geom_Hyperbola.hxx".}
+proc ConjugateBranch1*(this: Geom_Hyperbola): gp_Hypr {.noSideEffect,
     importcpp: "ConjugateBranch1", header: "Geom_Hyperbola.hxx".}
-proc conjugateBranch2*(this: GeomHyperbola): GpHypr {.noSideEffect,
+proc ConjugateBranch2*(this: Geom_Hyperbola): gp_Hypr {.noSideEffect,
     importcpp: "ConjugateBranch2", header: "Geom_Hyperbola.hxx".}
-proc directrix1*(this: GeomHyperbola): GpAx1 {.noSideEffect, importcpp: "Directrix1",
-    header: "Geom_Hyperbola.hxx".}
-proc directrix2*(this: GeomHyperbola): GpAx1 {.noSideEffect, importcpp: "Directrix2",
-    header: "Geom_Hyperbola.hxx".}
-proc eccentricity*(this: GeomHyperbola): StandardReal {.noSideEffect,
+proc Directrix1*(this: Geom_Hyperbola): gp_Ax1 {.noSideEffect,
+    importcpp: "Directrix1", header: "Geom_Hyperbola.hxx".}
+proc Directrix2*(this: Geom_Hyperbola): gp_Ax1 {.noSideEffect,
+    importcpp: "Directrix2", header: "Geom_Hyperbola.hxx".}
+proc Eccentricity*(this: Geom_Hyperbola): Standard_Real {.noSideEffect,
     importcpp: "Eccentricity", header: "Geom_Hyperbola.hxx".}
-proc focal*(this: GeomHyperbola): StandardReal {.noSideEffect, importcpp: "Focal",
+proc Focal*(this: Geom_Hyperbola): Standard_Real {.noSideEffect, importcpp: "Focal",
     header: "Geom_Hyperbola.hxx".}
-proc focus1*(this: GeomHyperbola): GpPnt {.noSideEffect, importcpp: "Focus1",
-                                       header: "Geom_Hyperbola.hxx".}
-proc focus2*(this: GeomHyperbola): GpPnt {.noSideEffect, importcpp: "Focus2",
-                                       header: "Geom_Hyperbola.hxx".}
-proc majorRadius*(this: GeomHyperbola): StandardReal {.noSideEffect,
+proc Focus1*(this: Geom_Hyperbola): gp_Pnt {.noSideEffect, importcpp: "Focus1",
+    header: "Geom_Hyperbola.hxx".}
+proc Focus2*(this: Geom_Hyperbola): gp_Pnt {.noSideEffect, importcpp: "Focus2",
+    header: "Geom_Hyperbola.hxx".}
+proc MajorRadius*(this: Geom_Hyperbola): Standard_Real {.noSideEffect,
     importcpp: "MajorRadius", header: "Geom_Hyperbola.hxx".}
-proc minorRadius*(this: GeomHyperbola): StandardReal {.noSideEffect,
+proc MinorRadius*(this: Geom_Hyperbola): Standard_Real {.noSideEffect,
     importcpp: "MinorRadius", header: "Geom_Hyperbola.hxx".}
-proc otherBranch*(this: GeomHyperbola): GpHypr {.noSideEffect,
+proc OtherBranch*(this: Geom_Hyperbola): gp_Hypr {.noSideEffect,
     importcpp: "OtherBranch", header: "Geom_Hyperbola.hxx".}
-proc parameter*(this: GeomHyperbola): StandardReal {.noSideEffect,
+proc Parameter*(this: Geom_Hyperbola): Standard_Real {.noSideEffect,
     importcpp: "Parameter", header: "Geom_Hyperbola.hxx".}
-proc d0*(this: GeomHyperbola; u: StandardReal; p: var GpPnt) {.noSideEffect,
+proc D0*(this: Geom_Hyperbola; U: Standard_Real; P: var gp_Pnt) {.noSideEffect,
     importcpp: "D0", header: "Geom_Hyperbola.hxx".}
-proc d1*(this: GeomHyperbola; u: StandardReal; p: var GpPnt; v1: var GpVec) {.noSideEffect,
-    importcpp: "D1", header: "Geom_Hyperbola.hxx".}
-proc d2*(this: GeomHyperbola; u: StandardReal; p: var GpPnt; v1: var GpVec; v2: var GpVec) {.
-    noSideEffect, importcpp: "D2", header: "Geom_Hyperbola.hxx".}
-proc d3*(this: GeomHyperbola; u: StandardReal; p: var GpPnt; v1: var GpVec; v2: var GpVec;
-        v3: var GpVec) {.noSideEffect, importcpp: "D3", header: "Geom_Hyperbola.hxx".}
-proc dn*(this: GeomHyperbola; u: StandardReal; n: StandardInteger): GpVec {.
+proc D1*(this: Geom_Hyperbola; U: Standard_Real; P: var gp_Pnt; V1: var gp_Vec) {.
+    noSideEffect, importcpp: "D1", header: "Geom_Hyperbola.hxx".}
+proc D2*(this: Geom_Hyperbola; U: Standard_Real; P: var gp_Pnt; V1: var gp_Vec;
+        V2: var gp_Vec) {.noSideEffect, importcpp: "D2", header: "Geom_Hyperbola.hxx".}
+proc D3*(this: Geom_Hyperbola; U: Standard_Real; P: var gp_Pnt; V1: var gp_Vec;
+        V2: var gp_Vec; V3: var gp_Vec) {.noSideEffect, importcpp: "D3",
+                                    header: "Geom_Hyperbola.hxx".}
+proc DN*(this: Geom_Hyperbola; U: Standard_Real; N: Standard_Integer): gp_Vec {.
     noSideEffect, importcpp: "DN", header: "Geom_Hyperbola.hxx".}
-proc transform*(this: var GeomHyperbola; t: GpTrsf) {.importcpp: "Transform",
+proc Transform*(this: var Geom_Hyperbola; T: gp_Trsf) {.importcpp: "Transform",
     header: "Geom_Hyperbola.hxx".}
-proc copy*(this: GeomHyperbola): Handle[GeomGeometry] {.noSideEffect,
+proc Copy*(this: Geom_Hyperbola): handle[Geom_Geometry] {.noSideEffect,
     importcpp: "Copy", header: "Geom_Hyperbola.hxx".}
-proc dumpJson*(this: GeomHyperbola; theOStream: var StandardOStream;
-              theDepth: StandardInteger = -1) {.noSideEffect, importcpp: "DumpJson",
+proc DumpJson*(this: Geom_Hyperbola; theOStream: var Standard_OStream;
+              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
     header: "Geom_Hyperbola.hxx".}
 type
-  GeomHyperbolabaseType* = GeomConic
+  Geom_Hyperbolabase_type* = Geom_Conic
 
-proc getTypeName*(): cstring {.importcpp: "Geom_Hyperbola::get_type_name(@)",
-                            header: "Geom_Hyperbola.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "Geom_Hyperbola::get_type_name(@)",
+                              header: "Geom_Hyperbola.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "Geom_Hyperbola::get_type_descriptor(@)",
     header: "Geom_Hyperbola.hxx".}
-proc dynamicType*(this: GeomHyperbola): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: Geom_Hyperbola): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "Geom_Hyperbola.hxx".}
-

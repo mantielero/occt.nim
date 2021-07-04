@@ -14,105 +14,109 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Prs3d/Prs3d_Drawer, ../Standard/Standard_Real,
+  DsgPrs_ArrowSide, ../Standard/Standard_Boolean, ../Prs3d/Prs3d_Presentation
+
 discard "forward decl of TCollection_ExtendedString"
 discard "forward decl of gp_Circ"
 discard "forward decl of gp_Pnt"
 discard "forward decl of gp_Dir"
 discard "forward decl of gp_Ax1"
 type
-  DsgPrsAnglePresentation* {.importcpp: "DsgPrs_AnglePresentation",
-                            header: "DsgPrs_AnglePresentation.hxx", bycopy.} = object ##
-                                                                                 ## !
-                                                                                 ## Draws
-                                                                                 ## the
-                                                                                 ## presenation
-                                                                                 ## of
-                                                                                 ## the
-                                                                                 ## full
-                                                                                 ## angle
-                                                                                 ## of
-                                                                                 ## a
-                                                                                 ## cone.
-                                                                                 ##
-                                                                                 ## !
-                                                                                 ## VminCircle
-                                                                                 ## -
-                                                                                 ## a
-                                                                                 ## circle
-                                                                                 ## at
-                                                                                 ## V
-                                                                                 ## parameter
-                                                                                 ## =
-                                                                                 ## Vmin
-                                                                                 ##
-                                                                                 ## !
-                                                                                 ## VmaxCircle
-                                                                                 ## -
-                                                                                 ## a
-                                                                                 ## circle
-                                                                                 ## at
-                                                                                 ## V
-                                                                                 ## parameter
-                                                                                 ## =
-                                                                                 ## Vmax
-                                                                                 ##
-                                                                                 ## !
-                                                                                 ## aCircle
-                                                                                 ## -
-                                                                                 ## a
-                                                                                 ## circle
-                                                                                 ## at
-                                                                                 ## V
-                                                                                 ## parameter
-                                                                                 ## from
-                                                                                 ## projection
-                                                                                 ## of
-                                                                                 ## aPosition
-                                                                                 ## to
-                                                                                 ## axis
-                                                                                 ## of
-                                                                                 ## the
-                                                                                 ## cone
+  DsgPrs_AnglePresentation* {.importcpp: "DsgPrs_AnglePresentation",
+                             header: "DsgPrs_AnglePresentation.hxx", bycopy.} = object ##
+                                                                                  ## !
+                                                                                  ## Draws
+                                                                                  ## the
+                                                                                  ## presenation
+                                                                                  ## of
+                                                                                  ## the
+                                                                                  ## full
+                                                                                  ## angle
+                                                                                  ## of
+                                                                                  ## a
+                                                                                  ## cone.
+                                                                                  ##
+                                                                                  ## !
+                                                                                  ## VminCircle
+                                                                                  ## -
+                                                                                  ## a
+                                                                                  ## circle
+                                                                                  ## at
+                                                                                  ## V
+                                                                                  ## parameter
+                                                                                  ## =
+                                                                                  ## Vmin
+                                                                                  ##
+                                                                                  ## !
+                                                                                  ## VmaxCircle
+                                                                                  ## -
+                                                                                  ## a
+                                                                                  ## circle
+                                                                                  ## at
+                                                                                  ## V
+                                                                                  ## parameter
+                                                                                  ## =
+                                                                                  ## Vmax
+                                                                                  ##
+                                                                                  ## !
+                                                                                  ## aCircle
+                                                                                  ## -
+                                                                                  ## a
+                                                                                  ## circle
+                                                                                  ## at
+                                                                                  ## V
+                                                                                  ## parameter
+                                                                                  ## from
+                                                                                  ## projection
+                                                                                  ## of
+                                                                                  ## aPosition
+                                                                                  ## to
+                                                                                  ## axis
+                                                                                  ## of
+                                                                                  ## the
+                                                                                  ## cone
 
 
-proc add*(aPresentation: Handle[Prs3dPresentation]; aDrawer: Handle[Prs3dDrawer];
-         aVal: StandardReal; aText: TCollectionExtendedString; aCircle: GpCirc;
-         aPosition: GpPnt; apex: GpPnt; vminCircle: GpCirc; vmaxCircle: GpCirc;
-         aArrowSize: StandardReal) {.importcpp: "DsgPrs_AnglePresentation::Add(@)",
-                                   header: "DsgPrs_AnglePresentation.hxx".}
-proc add*(aPresentation: Handle[Prs3dPresentation]; aDrawer: Handle[Prs3dDrawer];
-         theval: StandardReal; centerPoint: GpPnt; attachmentPoint1: GpPnt;
-         attachmentPoint2: GpPnt; dir1: GpDir; dir2: GpDir; offsetPoint: GpPnt) {.
+proc Add*(aPresentation: handle[Prs3d_Presentation]; aDrawer: handle[Prs3d_Drawer];
+         aVal: Standard_Real; aText: TCollection_ExtendedString; aCircle: gp_Circ;
+         aPosition: gp_Pnt; Apex: gp_Pnt; VminCircle: gp_Circ; VmaxCircle: gp_Circ;
+         aArrowSize: Standard_Real) {.importcpp: "DsgPrs_AnglePresentation::Add(@)",
+                                    header: "DsgPrs_AnglePresentation.hxx".}
+proc Add*(aPresentation: handle[Prs3d_Presentation]; aDrawer: handle[Prs3d_Drawer];
+         theval: Standard_Real; CenterPoint: gp_Pnt; AttachmentPoint1: gp_Pnt;
+         AttachmentPoint2: gp_Pnt; dir1: gp_Dir; dir2: gp_Dir; OffsetPoint: gp_Pnt) {.
     importcpp: "DsgPrs_AnglePresentation::Add(@)",
     header: "DsgPrs_AnglePresentation.hxx".}
-proc add*(aPresentation: Handle[Prs3dPresentation]; aDrawer: Handle[Prs3dDrawer];
-         theval: StandardReal; thevalstring: TCollectionExtendedString;
-         centerPoint: GpPnt; attachmentPoint1: GpPnt; attachmentPoint2: GpPnt;
-         dir1: GpDir; dir2: GpDir; offsetPoint: GpPnt) {.
+proc Add*(aPresentation: handle[Prs3d_Presentation]; aDrawer: handle[Prs3d_Drawer];
+         theval: Standard_Real; thevalstring: TCollection_ExtendedString;
+         CenterPoint: gp_Pnt; AttachmentPoint1: gp_Pnt; AttachmentPoint2: gp_Pnt;
+         dir1: gp_Dir; dir2: gp_Dir; OffsetPoint: gp_Pnt) {.
     importcpp: "DsgPrs_AnglePresentation::Add(@)",
     header: "DsgPrs_AnglePresentation.hxx".}
-proc add*(aPresentation: Handle[Prs3dPresentation]; aDrawer: Handle[Prs3dDrawer];
-         theval: StandardReal; thevalstring: TCollectionExtendedString;
-         centerPoint: GpPnt; attachmentPoint1: GpPnt; attachmentPoint2: GpPnt;
-         dir1: GpDir; dir2: GpDir; offsetPoint: GpPnt; arrowSide: DsgPrsArrowSide) {.
+proc Add*(aPresentation: handle[Prs3d_Presentation]; aDrawer: handle[Prs3d_Drawer];
+         theval: Standard_Real; thevalstring: TCollection_ExtendedString;
+         CenterPoint: gp_Pnt; AttachmentPoint1: gp_Pnt; AttachmentPoint2: gp_Pnt;
+         dir1: gp_Dir; dir2: gp_Dir; OffsetPoint: gp_Pnt; ArrowSide: DsgPrs_ArrowSide) {.
     importcpp: "DsgPrs_AnglePresentation::Add(@)",
     header: "DsgPrs_AnglePresentation.hxx".}
-proc add*(aPresentation: Handle[Prs3dPresentation]; aDrawer: Handle[Prs3dDrawer];
-         theval: StandardReal; thevalstring: TCollectionExtendedString;
-         centerPoint: GpPnt; attachmentPoint1: GpPnt; attachmentPoint2: GpPnt;
-         dir1: GpDir; dir2: GpDir; axisdir: GpDir; offsetPoint: GpPnt) {.
+proc Add*(aPresentation: handle[Prs3d_Presentation]; aDrawer: handle[Prs3d_Drawer];
+         theval: Standard_Real; thevalstring: TCollection_ExtendedString;
+         CenterPoint: gp_Pnt; AttachmentPoint1: gp_Pnt; AttachmentPoint2: gp_Pnt;
+         dir1: gp_Dir; dir2: gp_Dir; axisdir: gp_Dir; OffsetPoint: gp_Pnt) {.
     importcpp: "DsgPrs_AnglePresentation::Add(@)",
     header: "DsgPrs_AnglePresentation.hxx".}
-proc add*(aPresentation: Handle[Prs3dPresentation]; aDrawer: Handle[Prs3dDrawer];
-         theval: StandardReal; thevalstring: TCollectionExtendedString;
-         centerPoint: GpPnt; attachmentPoint1: GpPnt; attachmentPoint2: GpPnt;
-         dir1: GpDir; dir2: GpDir; axisdir: GpDir; isPlane: StandardBoolean;
-         axisOfSurf: GpAx1; offsetPoint: GpPnt; arrowSide: DsgPrsArrowSide) {.
+proc Add*(aPresentation: handle[Prs3d_Presentation]; aDrawer: handle[Prs3d_Drawer];
+         theval: Standard_Real; thevalstring: TCollection_ExtendedString;
+         CenterPoint: gp_Pnt; AttachmentPoint1: gp_Pnt; AttachmentPoint2: gp_Pnt;
+         dir1: gp_Dir; dir2: gp_Dir; axisdir: gp_Dir; isPlane: Standard_Boolean;
+         AxisOfSurf: gp_Ax1; OffsetPoint: gp_Pnt; ArrowSide: DsgPrs_ArrowSide) {.
     importcpp: "DsgPrs_AnglePresentation::Add(@)",
     header: "DsgPrs_AnglePresentation.hxx".}
-proc add*(aPresentation: Handle[Prs3dPresentation]; aDrawer: Handle[Prs3dDrawer];
-         theval: StandardReal; theCenter: GpPnt; attachmentPoint1: GpPnt;
-         theAxe: GpAx1; arrowSide: DsgPrsArrowSide) {.
+proc Add*(aPresentation: handle[Prs3d_Presentation]; aDrawer: handle[Prs3d_Drawer];
+         theval: Standard_Real; theCenter: gp_Pnt; AttachmentPoint1: gp_Pnt;
+         theAxe: gp_Ax1; ArrowSide: DsgPrs_ArrowSide) {.
     importcpp: "DsgPrs_AnglePresentation::Add(@)",
     header: "DsgPrs_AnglePresentation.hxx".}
-

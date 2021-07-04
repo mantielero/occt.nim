@@ -13,47 +13,56 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../TopoDS/TopoDS_Wire, ../TopoDS/TopoDS_Edge, ../gp/gp_Pln
+
 ## ! An analytical algorithm for calculation of the fillets.
 ## ! It is implemented for segments and arcs of circle only.
 
 type
-  ChFi2dAnaFilletAlgo* {.importcpp: "ChFi2d_AnaFilletAlgo",
-                        header: "ChFi2d_AnaFilletAlgo.hxx", bycopy.} = object ## ! An empty
-                                                                         ## constructor.
-                                                                         ## ! Use the method Init() to
-                                                                         ## initialize the class.
-                                                                         ##  WW5 method to compute fillet.
-                                                                         ##  It returns a
-                                                                         ## constructed fillet
-                                                                         ## definition:
-                                                                         ##      center point (xc, yc)
-                                                                         ##      point on the 1st segment
-                                                                         ## (xstart, ystart)
-                                                                         ##      point on the 2nd segment (xend, yend)
-                                                                         ##      is the arc of fillet
-                                                                         ## clockwise (cw = true) or
-                                                                         ## counterclockwise (cw = false).
+  ChFi2d_AnaFilletAlgo* {.importcpp: "ChFi2d_AnaFilletAlgo",
+                         header: "ChFi2d_AnaFilletAlgo.hxx", bycopy.} = object ## ! An empty
+                                                                          ## constructor.
+                                                                          ## ! Use the method Init() to
+                                                                          ## initialize the class.
+                                                                          ##  WW5 method to
+                                                                          ## compute
+                                                                          ## fillet.
+                                                                          ##  It
+                                                                          ## returns a
+                                                                          ## constructed fillet
+                                                                          ## definition:
+                                                                          ##      center point (xc, yc)
+                                                                          ##      point on the 1st
+                                                                          ## segment
+                                                                          ## (xstart,
+                                                                          ## ystart)
+                                                                          ##      point on the 2nd
+                                                                          ## segment (xend, yend)
+                                                                          ##      is the arc of fillet
+                                                                          ## clockwise (cw = true) or
+                                                                          ## counterclockwise (cw =
+                                                                          ## false).
     ##  Left neighbour.
     ##  Right neighbour.
     ##  Fillet (result).
 
 
-proc constructChFi2dAnaFilletAlgo*(): ChFi2dAnaFilletAlgo {.constructor,
+proc constructChFi2d_AnaFilletAlgo*(): ChFi2d_AnaFilletAlgo {.constructor,
     importcpp: "ChFi2d_AnaFilletAlgo(@)", header: "ChFi2d_AnaFilletAlgo.hxx".}
-proc constructChFi2dAnaFilletAlgo*(theWire: TopoDS_Wire; thePlane: GpPln): ChFi2dAnaFilletAlgo {.
+proc constructChFi2d_AnaFilletAlgo*(theWire: TopoDS_Wire; thePlane: gp_Pln): ChFi2d_AnaFilletAlgo {.
     constructor, importcpp: "ChFi2d_AnaFilletAlgo(@)",
     header: "ChFi2d_AnaFilletAlgo.hxx".}
-proc constructChFi2dAnaFilletAlgo*(theEdge1: TopoDS_Edge; theEdge2: TopoDS_Edge;
-                                  thePlane: GpPln): ChFi2dAnaFilletAlgo {.
+proc constructChFi2d_AnaFilletAlgo*(theEdge1: TopoDS_Edge; theEdge2: TopoDS_Edge;
+                                   thePlane: gp_Pln): ChFi2d_AnaFilletAlgo {.
     constructor, importcpp: "ChFi2d_AnaFilletAlgo(@)",
     header: "ChFi2d_AnaFilletAlgo.hxx".}
-proc init*(this: var ChFi2dAnaFilletAlgo; theWire: TopoDS_Wire; thePlane: GpPln) {.
+proc Init*(this: var ChFi2d_AnaFilletAlgo; theWire: TopoDS_Wire; thePlane: gp_Pln) {.
     importcpp: "Init", header: "ChFi2d_AnaFilletAlgo.hxx".}
-proc init*(this: var ChFi2dAnaFilletAlgo; theEdge1: TopoDS_Edge;
-          theEdge2: TopoDS_Edge; thePlane: GpPln) {.importcpp: "Init",
+proc Init*(this: var ChFi2d_AnaFilletAlgo; theEdge1: TopoDS_Edge;
+          theEdge2: TopoDS_Edge; thePlane: gp_Pln) {.importcpp: "Init",
     header: "ChFi2d_AnaFilletAlgo.hxx".}
-proc perform*(this: var ChFi2dAnaFilletAlgo; radius: StandardReal): StandardBoolean {.
+proc Perform*(this: var ChFi2d_AnaFilletAlgo; radius: Standard_Real): Standard_Boolean {.
     importcpp: "Perform", header: "ChFi2d_AnaFilletAlgo.hxx".}
-proc result*(this: var ChFi2dAnaFilletAlgo; e1: var TopoDS_Edge; e2: var TopoDS_Edge): TopoDS_Edge {.
+proc Result*(this: var ChFi2d_AnaFilletAlgo; e1: var TopoDS_Edge; e2: var TopoDS_Edge): TopoDS_Edge {.
     importcpp: "Result", header: "ChFi2d_AnaFilletAlgo.hxx".}
-

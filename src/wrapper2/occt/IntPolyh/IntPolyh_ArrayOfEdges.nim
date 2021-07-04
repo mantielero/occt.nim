@@ -13,7 +13,8 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  IntPolyh_Array, IntPolyh_Edge
+
 type
-  IntPolyhArrayOfEdges* = IntPolyhArray[IntPolyhEdge]
-
-
+  IntPolyh_ArrayOfEdges* = IntPolyh_Array[IntPolyh_Edge]

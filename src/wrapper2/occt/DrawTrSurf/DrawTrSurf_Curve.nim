@@ -14,6 +14,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../Draw/Draw_Color,
+  ../Standard/Standard_Boolean, ../Standard/Standard_Real, DrawTrSurf_Drawable,
+  ../Standard/Standard_Integer, ../Standard/Standard_OStream,
+  ../Draw/Draw_Interpretor
+
 discard "forward decl of Geom_Curve"
 discard "forward decl of Draw_Color"
 discard "forward decl of Draw_Display"
@@ -21,64 +27,75 @@ discard "forward decl of Draw_Drawable3D"
 discard "forward decl of DrawTrSurf_Curve"
 discard "forward decl of DrawTrSurf_Curve"
 type
-  HandleDrawTrSurfCurve* = Handle[DrawTrSurfCurve]
+  Handle_DrawTrSurf_Curve* = handle[DrawTrSurf_Curve]
 
 ## ! This class defines a drawable curve in 3d space.
 
 type
-  DrawTrSurfCurve* {.importcpp: "DrawTrSurf_Curve", header: "DrawTrSurf_Curve.hxx",
-                    bycopy.} = object of DrawTrSurfDrawable ## ! creates a drawable curve from a curve of package Geom.
+  DrawTrSurf_Curve* {.importcpp: "DrawTrSurf_Curve",
+                     header: "DrawTrSurf_Curve.hxx", bycopy.} = object of DrawTrSurf_Drawable ##
+                                                                                       ## !
+                                                                                       ## creates
+                                                                                       ## a
+                                                                                       ## drawable
+                                                                                       ## curve
+                                                                                       ## from
+                                                                                       ## a
+                                                                                       ## curve
+                                                                                       ## of
+                                                                                       ## package
+                                                                                       ## Geom.
 
 
-proc constructDrawTrSurfCurve*(c: Handle[GeomCurve];
-                              dispOrigin: StandardBoolean = standardTrue): DrawTrSurfCurve {.
+proc constructDrawTrSurf_Curve*(C: handle[Geom_Curve];
+                               DispOrigin: Standard_Boolean = Standard_True): DrawTrSurf_Curve {.
     constructor, importcpp: "DrawTrSurf_Curve(@)", header: "DrawTrSurf_Curve.hxx".}
-proc constructDrawTrSurfCurve*(c: Handle[GeomCurve]; aColor: DrawColor;
-                              discret: StandardInteger; deflection: StandardReal;
-                              drawMode: StandardInteger;
-                              dispOrigin: StandardBoolean = standardTrue;
-                              dispCurvRadius: StandardBoolean = standardFalse;
-                              radiusMax: StandardReal = 1.0e3;
-                              ratioOfRadius: StandardReal = 0.1): DrawTrSurfCurve {.
+proc constructDrawTrSurf_Curve*(C: handle[Geom_Curve]; aColor: Draw_Color;
+                               Discret: Standard_Integer;
+                               Deflection: Standard_Real;
+                               DrawMode: Standard_Integer;
+                               DispOrigin: Standard_Boolean = Standard_True;
+    DispCurvRadius: Standard_Boolean = Standard_False;
+                               RadiusMax: Standard_Real = 1.0e3;
+                               RatioOfRadius: Standard_Real = 0.1): DrawTrSurf_Curve {.
     constructor, importcpp: "DrawTrSurf_Curve(@)", header: "DrawTrSurf_Curve.hxx".}
-proc drawOn*(this: DrawTrSurfCurve; dis: var DrawDisplay) {.noSideEffect,
+proc DrawOn*(this: DrawTrSurf_Curve; dis: var Draw_Display) {.noSideEffect,
     importcpp: "DrawOn", header: "DrawTrSurf_Curve.hxx".}
-proc getCurve*(this: DrawTrSurfCurve): Handle[GeomCurve] {.noSideEffect,
+proc GetCurve*(this: DrawTrSurf_Curve): handle[Geom_Curve] {.noSideEffect,
     importcpp: "GetCurve", header: "DrawTrSurf_Curve.hxx".}
-proc setColor*(this: var DrawTrSurfCurve; aColor: DrawColor) {.importcpp: "SetColor",
-    header: "DrawTrSurf_Curve.hxx".}
-proc displayOrigin*(this: DrawTrSurfCurve): StandardBoolean {.noSideEffect,
+proc SetColor*(this: var DrawTrSurf_Curve; aColor: Draw_Color) {.
+    importcpp: "SetColor", header: "DrawTrSurf_Curve.hxx".}
+proc DisplayOrigin*(this: DrawTrSurf_Curve): Standard_Boolean {.noSideEffect,
     importcpp: "DisplayOrigin", header: "DrawTrSurf_Curve.hxx".}
-proc displayOrigin*(this: var DrawTrSurfCurve; v: StandardBoolean) {.
+proc DisplayOrigin*(this: var DrawTrSurf_Curve; V: Standard_Boolean) {.
     importcpp: "DisplayOrigin", header: "DrawTrSurf_Curve.hxx".}
-proc showCurvature*(this: var DrawTrSurfCurve) {.importcpp: "ShowCurvature",
+proc ShowCurvature*(this: var DrawTrSurf_Curve) {.importcpp: "ShowCurvature",
     header: "DrawTrSurf_Curve.hxx".}
-proc clearCurvature*(this: var DrawTrSurfCurve) {.importcpp: "ClearCurvature",
+proc ClearCurvature*(this: var DrawTrSurf_Curve) {.importcpp: "ClearCurvature",
     header: "DrawTrSurf_Curve.hxx".}
-proc setRadiusMax*(this: var DrawTrSurfCurve; radius: StandardReal) {.
+proc SetRadiusMax*(this: var DrawTrSurf_Curve; Radius: Standard_Real) {.
     importcpp: "SetRadiusMax", header: "DrawTrSurf_Curve.hxx".}
-proc setRadiusRatio*(this: var DrawTrSurfCurve; ratio: StandardReal) {.
+proc SetRadiusRatio*(this: var DrawTrSurf_Curve; Ratio: Standard_Real) {.
     importcpp: "SetRadiusRatio", header: "DrawTrSurf_Curve.hxx".}
-proc color*(this: DrawTrSurfCurve): DrawColor {.noSideEffect, importcpp: "Color",
+proc Color*(this: DrawTrSurf_Curve): Draw_Color {.noSideEffect, importcpp: "Color",
     header: "DrawTrSurf_Curve.hxx".}
-proc radiusMax*(this: DrawTrSurfCurve): StandardReal {.noSideEffect,
+proc RadiusMax*(this: DrawTrSurf_Curve): Standard_Real {.noSideEffect,
     importcpp: "RadiusMax", header: "DrawTrSurf_Curve.hxx".}
-proc radiusRatio*(this: DrawTrSurfCurve): StandardReal {.noSideEffect,
+proc RadiusRatio*(this: DrawTrSurf_Curve): Standard_Real {.noSideEffect,
     importcpp: "RadiusRatio", header: "DrawTrSurf_Curve.hxx".}
-proc copy*(this: DrawTrSurfCurve): Handle[DrawDrawable3D] {.noSideEffect,
+proc Copy*(this: DrawTrSurf_Curve): handle[Draw_Drawable3D] {.noSideEffect,
     importcpp: "Copy", header: "DrawTrSurf_Curve.hxx".}
-proc dump*(this: DrawTrSurfCurve; s: var StandardOStream) {.noSideEffect,
+proc Dump*(this: DrawTrSurf_Curve; S: var Standard_OStream) {.noSideEffect,
     importcpp: "Dump", header: "DrawTrSurf_Curve.hxx".}
-proc whatis*(this: DrawTrSurfCurve; i: var DrawInterpretor) {.noSideEffect,
+proc Whatis*(this: DrawTrSurf_Curve; I: var Draw_Interpretor) {.noSideEffect,
     importcpp: "Whatis", header: "DrawTrSurf_Curve.hxx".}
 type
-  DrawTrSurfCurvebaseType* = DrawTrSurfDrawable
+  DrawTrSurf_Curvebase_type* = DrawTrSurf_Drawable
 
-proc getTypeName*(): cstring {.importcpp: "DrawTrSurf_Curve::get_type_name(@)",
-                            header: "DrawTrSurf_Curve.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "DrawTrSurf_Curve::get_type_name(@)",
+                              header: "DrawTrSurf_Curve.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "DrawTrSurf_Curve::get_type_descriptor(@)",
     header: "DrawTrSurf_Curve.hxx".}
-proc dynamicType*(this: DrawTrSurfCurve): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: DrawTrSurf_Curve): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "DrawTrSurf_Curve.hxx".}
-

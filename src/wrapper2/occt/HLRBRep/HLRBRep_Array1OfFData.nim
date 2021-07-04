@@ -14,7 +14,8 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  HLRBRep_FaceData, ../NCollection/NCollection_Array1
+
 type
-  HLRBRepArray1OfFData* = NCollectionArray1[HLRBRepFaceData]
-
-
+  HLRBRep_Array1OfFData* = NCollection_Array1[HLRBRep_FaceData]

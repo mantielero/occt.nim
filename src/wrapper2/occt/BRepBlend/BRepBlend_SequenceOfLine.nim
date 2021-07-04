@@ -14,7 +14,8 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  BRepBlend_Line, ../NCollection/NCollection_Sequence
+
 type
-  BRepBlendSequenceOfLine* = NCollectionSequence[Handle[BRepBlendLine]]
-
-
+  BRepBlend_SequenceOfLine* = NCollection_Sequence[handle[BRepBlend_Line]]

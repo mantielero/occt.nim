@@ -14,24 +14,29 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
+  GeomLib_InterpolationErrors, ../Standard/Standard_Integer,
+  ../TColgp/TColgp_Array1OfPnt, ../TColStd/TColStd_Array1OfReal
+
 discard "forward decl of Geom_BSplineCurve"
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of Standard_OutOfRange"
 type
-  GeomLibInterpolate* {.importcpp: "GeomLib_Interpolate",
-                       header: "GeomLib_Interpolate.hxx", bycopy.} = object
+  GeomLib_Interpolate* {.importcpp: "GeomLib_Interpolate",
+                        header: "GeomLib_Interpolate.hxx", bycopy.} = object
 
 
-proc constructGeomLibInterpolate*(degree: StandardInteger;
-                                 numPoints: StandardInteger;
-                                 points: TColgpArray1OfPnt;
-                                 parameters: TColStdArray1OfReal): GeomLibInterpolate {.
+proc constructGeomLib_Interpolate*(Degree: Standard_Integer;
+                                  NumPoints: Standard_Integer;
+                                  Points: TColgp_Array1OfPnt;
+                                  Parameters: TColStd_Array1OfReal): GeomLib_Interpolate {.
     constructor, importcpp: "GeomLib_Interpolate(@)",
     header: "GeomLib_Interpolate.hxx".}
-proc isDone*(this: GeomLibInterpolate): StandardBoolean {.noSideEffect,
+proc IsDone*(this: GeomLib_Interpolate): Standard_Boolean {.noSideEffect,
     importcpp: "IsDone", header: "GeomLib_Interpolate.hxx".}
-proc error*(this: GeomLibInterpolate): GeomLibInterpolationErrors {.noSideEffect,
+proc Error*(this: GeomLib_Interpolate): GeomLib_InterpolationErrors {.noSideEffect,
     importcpp: "Error", header: "GeomLib_Interpolate.hxx".}
-proc curve*(this: GeomLibInterpolate): Handle[GeomBSplineCurve] {.noSideEffect,
+proc Curve*(this: GeomLib_Interpolate): handle[Geom_BSplineCurve] {.noSideEffect,
     importcpp: "Curve", header: "GeomLib_Interpolate.hxx".}
-

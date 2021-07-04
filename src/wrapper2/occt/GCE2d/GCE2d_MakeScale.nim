@@ -14,20 +14,23 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Real
+
 discard "forward decl of Geom2d_Transformation"
 discard "forward decl of gp_Pnt2d"
 type
-  GCE2dMakeScale* {.importcpp: "GCE2d_MakeScale", header: "GCE2d_MakeScale.hxx",
-                   bycopy.} = object ## ! Constructs a scaling transformation with
-                                  ## ! -   Point as the center of the transformation, and
-                                  ## ! -   Scale as the scale factor.
+  GCE2d_MakeScale* {.importcpp: "GCE2d_MakeScale", header: "GCE2d_MakeScale.hxx",
+                    bycopy.} = object ## ! Constructs a scaling transformation with
+                                   ## ! -   Point as the center of the transformation, and
+                                   ## ! -   Scale as the scale factor.
 
 
-proc constructGCE2dMakeScale*(point: GpPnt2d; scale: StandardReal): GCE2dMakeScale {.
+proc constructGCE2d_MakeScale*(Point: gp_Pnt2d; Scale: Standard_Real): GCE2d_MakeScale {.
     constructor, importcpp: "GCE2d_MakeScale(@)", header: "GCE2d_MakeScale.hxx".}
-proc value*(this: GCE2dMakeScale): Handle[Geom2dTransformation] {.noSideEffect,
+proc Value*(this: GCE2d_MakeScale): handle[Geom2d_Transformation] {.noSideEffect,
     importcpp: "Value", header: "GCE2d_MakeScale.hxx".}
-converter `constopencascade`*(this: GCE2dMakeScale): Handle[Geom2dTransformation] {.
+converter `constopencascade`*(this: GCE2d_MakeScale): handle[Geom2d_Transformation] {.
     noSideEffect, importcpp: "GCE2d_MakeScale::operator constopencascade",
     header: "GCE2d_MakeScale.hxx".}
-

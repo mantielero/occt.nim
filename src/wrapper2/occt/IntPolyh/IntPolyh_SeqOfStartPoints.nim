@@ -14,7 +14,8 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  IntPolyh_StartPoint, ../NCollection/NCollection_Sequence
+
 type
-  IntPolyhSeqOfStartPoints* = NCollectionSequence[IntPolyhStartPoint]
-
-
+  IntPolyh_SeqOfStartPoints* = NCollection_Sequence[IntPolyh_StartPoint]

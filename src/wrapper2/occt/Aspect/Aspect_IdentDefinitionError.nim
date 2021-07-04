@@ -13,18 +13,16 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _Aspect_IdentDefinitionError_HeaderFile [NewLine] # _Aspect_IdentDefinitionError_HeaderFile [NewLine] # < Standard_Type . hxx > [NewLine] # < Standard_DefineException . hxx > [NewLine] # < Standard_SStream . hxx > [NewLine] # < Standard_OutOfRange . hxx > [NewLine] class Aspect_IdentDefinitionError ;
+## !!!Ignored construct:  # _Aspect_IdentDefinitionError_HeaderFile [NewLine] # _Aspect_IdentDefinitionError_HeaderFile [NewLine] # ../Standard/Standard_Type.hxx [NewLine] # ../Standard/Standard_DefineException.hxx [NewLine] # ../Standard/Standard_SStream.hxx [NewLine] # ../Standard/Standard_OutOfRange.hxx [NewLine] class Aspect_IdentDefinitionError ;
 ## Error: expected ';'!!!
 
 discard "forward decl of Aspect_IdentDefinitionError"
 type
-  HandleAspectIdentDefinitionErrorAspectIdentDefinitionError* = Handle[
-      AspectIdentDefinitionError]
+  Handle_Aspect_IdentDefinitionErrorAspect_IdentDefinitionError* = handle[
+      Aspect_IdentDefinitionError]
 
 ## !!!Ignored construct:  # ! defined No_Exception && ! defined No_Aspect_IdentDefinitionError [NewLine] # if ( CONDITION ) throw Aspect_IdentDefinitionError ( MESSAGE ) ;
 ## Error: did not expect [NewLine]!!!
 
-## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( Aspect_IdentDefinitionError , Standard_OutOfRange ) #  _Aspect_IdentDefinitionError_HeaderFile
+## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( Aspect_IdentDefinitionError , Standard_OutOfRange ) #  _Aspect_IdentDefinitionError_HeaderFile [NewLine]
 ## Error: did not expect [NewLine]!!!
-
-

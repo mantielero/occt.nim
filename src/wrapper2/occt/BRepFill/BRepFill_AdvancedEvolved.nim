@@ -13,33 +13,37 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../TopoDS/TopoDS_Compound, ../TopoDS/TopoDS_Wire,
+  ../TopTools/TopTools_IndexedMapOfShape, ../TopTools/TopTools_ListOfShape,
+  ../Standard/Standard_CString
+
 discard "forward decl of BOPAlgo_MakerVolume"
 discard "forward decl of TopoDS_Face"
 type
-  BRepFillAdvancedEvolved* {.importcpp: "BRepFill_AdvancedEvolved",
-                            header: "BRepFill_AdvancedEvolved.hxx", bycopy.} = object ##
-                                                                                 ## !
-                                                                                 ## Constructor
+  BRepFill_AdvancedEvolved* {.importcpp: "BRepFill_AdvancedEvolved",
+                             header: "BRepFill_AdvancedEvolved.hxx", bycopy.} = object ##
+                                                                                  ## !
+                                                                                  ## Constructor
     ##  Lids can be split on several faces
 
 
-proc constructBRepFillAdvancedEvolved*(): BRepFillAdvancedEvolved {.constructor,
+proc constructBRepFill_AdvancedEvolved*(): BRepFill_AdvancedEvolved {.constructor,
     importcpp: "BRepFill_AdvancedEvolved(@)",
     header: "BRepFill_AdvancedEvolved.hxx".}
-proc perform*(this: var BRepFillAdvancedEvolved; theSpine: TopoDS_Wire;
-             theProfile: TopoDS_Wire; theTolerance: StandardReal;
-             theSolidReq: StandardBoolean = standardTrue) {.importcpp: "Perform",
+proc Perform*(this: var BRepFill_AdvancedEvolved; theSpine: TopoDS_Wire;
+             theProfile: TopoDS_Wire; theTolerance: Standard_Real;
+             theSolidReq: Standard_Boolean = Standard_True) {.importcpp: "Perform",
     header: "BRepFill_AdvancedEvolved.hxx".}
-proc isDone*(this: BRepFillAdvancedEvolved; theErrorCode: ptr cuint = 0): StandardBoolean {.
+proc IsDone*(this: BRepFill_AdvancedEvolved; theErrorCode: ptr cuint = 0): Standard_Boolean {.
     noSideEffect, importcpp: "IsDone", header: "BRepFill_AdvancedEvolved.hxx".}
-proc shape*(this: BRepFillAdvancedEvolved): TopoDS_Shape {.noSideEffect,
+proc Shape*(this: BRepFill_AdvancedEvolved): TopoDS_Shape {.noSideEffect,
     importcpp: "Shape", header: "BRepFill_AdvancedEvolved.hxx".}
-proc setTemporaryDirectory*(this: var BRepFillAdvancedEvolved;
-                           thePath: StandardCString) {.
+proc SetTemporaryDirectory*(this: var BRepFill_AdvancedEvolved;
+                           thePath: Standard_CString) {.
     importcpp: "SetTemporaryDirectory", header: "BRepFill_AdvancedEvolved.hxx".}
-proc setParallelMode*(this: var BRepFillAdvancedEvolved; theVal: StandardBoolean) {.
+proc SetParallelMode*(this: var BRepFill_AdvancedEvolved; theVal: Standard_Boolean) {.
     importcpp: "SetParallelMode", header: "BRepFill_AdvancedEvolved.hxx".}
 ## !!!Ignored construct:  private : enum { BRepFill_AdvancedEvolved_Empty = 0 , BRepFill_AdvancedEvolved_NotPlanarSpine , BRepFill_AdvancedEvolved_SweepError , BRepFill_AdvancedEvolved_NoLids , BRepFill_AdvancedEvolved_NotSolid , BRepFill_AdvancedEvolved_NotVolume , BRepFill_AdvancedEvolved_OK = UINT_MAX } myErrorStatus ;
 ## Error: token expected: ; but got: [identifier]!!!
-
-

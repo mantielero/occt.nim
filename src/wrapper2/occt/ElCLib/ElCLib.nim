@@ -14,6 +14,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Real, ../gp/gp_Pnt,
+  ../Standard/Standard_Integer, ../gp/gp_Vec, ../gp/gp_Pnt2d, ../gp/gp_Vec2d
+
 discard "forward decl of gp_Pnt"
 discard "forward decl of gp_Lin"
 discard "forward decl of gp_Circ"
@@ -42,285 +47,293 @@ type
                                                                  ## !   It is expected but not checked that (ULast > UFirst)
 
 
-proc inPeriod*(u: StandardReal; uFirst: StandardReal; uLast: StandardReal): StandardReal {.
+proc InPeriod*(U: Standard_Real; UFirst: Standard_Real; ULast: Standard_Real): Standard_Real {.
     importcpp: "ElCLib::InPeriod(@)", header: "ElCLib.hxx".}
-proc adjustPeriodic*(uFirst: StandardReal; uLast: StandardReal;
-                    precision: StandardReal; u1: var StandardReal;
-                    u2: var StandardReal) {.importcpp: "ElCLib::AdjustPeriodic(@)",
+proc AdjustPeriodic*(UFirst: Standard_Real; ULast: Standard_Real;
+                    Precision: Standard_Real; U1: var Standard_Real;
+                    U2: var Standard_Real) {.
+    importcpp: "ElCLib::AdjustPeriodic(@)", header: "ElCLib.hxx".}
+proc Value*(U: Standard_Real; L: gp_Lin): gp_Pnt {.importcpp: "ElCLib::Value(@)",
     header: "ElCLib.hxx".}
-proc value*(u: StandardReal; L: GpLin): GpPnt {.importcpp: "ElCLib::Value(@)",
+proc Value*(U: Standard_Real; C: gp_Circ): gp_Pnt {.importcpp: "ElCLib::Value(@)",
     header: "ElCLib.hxx".}
-proc value*(u: StandardReal; c: GpCirc): GpPnt {.importcpp: "ElCLib::Value(@)",
+proc Value*(U: Standard_Real; E: gp_Elips): gp_Pnt {.importcpp: "ElCLib::Value(@)",
     header: "ElCLib.hxx".}
-proc value*(u: StandardReal; e: GpElips): GpPnt {.importcpp: "ElCLib::Value(@)",
+proc Value*(U: Standard_Real; H: gp_Hypr): gp_Pnt {.importcpp: "ElCLib::Value(@)",
     header: "ElCLib.hxx".}
-proc value*(u: StandardReal; h: GpHypr): GpPnt {.importcpp: "ElCLib::Value(@)",
+proc Value*(U: Standard_Real; Prb: gp_Parab): gp_Pnt {.importcpp: "ElCLib::Value(@)",
     header: "ElCLib.hxx".}
-proc value*(u: StandardReal; prb: GpParab): GpPnt {.importcpp: "ElCLib::Value(@)",
-    header: "ElCLib.hxx".}
-proc d1*(u: StandardReal; L: GpLin; p: var GpPnt; v1: var GpVec) {.
+proc D1*(U: Standard_Real; L: gp_Lin; P: var gp_Pnt; V1: var gp_Vec) {.
     importcpp: "ElCLib::D1(@)", header: "ElCLib.hxx".}
-proc d1*(u: StandardReal; c: GpCirc; p: var GpPnt; v1: var GpVec) {.
+proc D1*(U: Standard_Real; C: gp_Circ; P: var gp_Pnt; V1: var gp_Vec) {.
     importcpp: "ElCLib::D1(@)", header: "ElCLib.hxx".}
-proc d1*(u: StandardReal; e: GpElips; p: var GpPnt; v1: var GpVec) {.
+proc D1*(U: Standard_Real; E: gp_Elips; P: var gp_Pnt; V1: var gp_Vec) {.
     importcpp: "ElCLib::D1(@)", header: "ElCLib.hxx".}
-proc d1*(u: StandardReal; h: GpHypr; p: var GpPnt; v1: var GpVec) {.
+proc D1*(U: Standard_Real; H: gp_Hypr; P: var gp_Pnt; V1: var gp_Vec) {.
     importcpp: "ElCLib::D1(@)", header: "ElCLib.hxx".}
-proc d1*(u: StandardReal; prb: GpParab; p: var GpPnt; v1: var GpVec) {.
+proc D1*(U: Standard_Real; Prb: gp_Parab; P: var gp_Pnt; V1: var gp_Vec) {.
     importcpp: "ElCLib::D1(@)", header: "ElCLib.hxx".}
-proc d2*(u: StandardReal; c: GpCirc; p: var GpPnt; v1: var GpVec; v2: var GpVec) {.
+proc D2*(U: Standard_Real; C: gp_Circ; P: var gp_Pnt; V1: var gp_Vec; V2: var gp_Vec) {.
     importcpp: "ElCLib::D2(@)", header: "ElCLib.hxx".}
-proc d2*(u: StandardReal; e: GpElips; p: var GpPnt; v1: var GpVec; v2: var GpVec) {.
+proc D2*(U: Standard_Real; E: gp_Elips; P: var gp_Pnt; V1: var gp_Vec; V2: var gp_Vec) {.
     importcpp: "ElCLib::D2(@)", header: "ElCLib.hxx".}
-proc d2*(u: StandardReal; h: GpHypr; p: var GpPnt; v1: var GpVec; v2: var GpVec) {.
+proc D2*(U: Standard_Real; H: gp_Hypr; P: var gp_Pnt; V1: var gp_Vec; V2: var gp_Vec) {.
     importcpp: "ElCLib::D2(@)", header: "ElCLib.hxx".}
-proc d2*(u: StandardReal; prb: GpParab; p: var GpPnt; v1: var GpVec; v2: var GpVec) {.
+proc D2*(U: Standard_Real; Prb: gp_Parab; P: var gp_Pnt; V1: var gp_Vec; V2: var gp_Vec) {.
     importcpp: "ElCLib::D2(@)", header: "ElCLib.hxx".}
-proc d3*(u: StandardReal; c: GpCirc; p: var GpPnt; v1: var GpVec; v2: var GpVec; v3: var GpVec) {.
-    importcpp: "ElCLib::D3(@)", header: "ElCLib.hxx".}
-proc d3*(u: StandardReal; e: GpElips; p: var GpPnt; v1: var GpVec; v2: var GpVec;
-        v3: var GpVec) {.importcpp: "ElCLib::D3(@)", header: "ElCLib.hxx".}
-proc d3*(u: StandardReal; h: GpHypr; p: var GpPnt; v1: var GpVec; v2: var GpVec; v3: var GpVec) {.
-    importcpp: "ElCLib::D3(@)", header: "ElCLib.hxx".}
-proc dn*(u: StandardReal; L: GpLin; n: StandardInteger): GpVec {.
+proc D3*(U: Standard_Real; C: gp_Circ; P: var gp_Pnt; V1: var gp_Vec; V2: var gp_Vec;
+        V3: var gp_Vec) {.importcpp: "ElCLib::D3(@)", header: "ElCLib.hxx".}
+proc D3*(U: Standard_Real; E: gp_Elips; P: var gp_Pnt; V1: var gp_Vec; V2: var gp_Vec;
+        V3: var gp_Vec) {.importcpp: "ElCLib::D3(@)", header: "ElCLib.hxx".}
+proc D3*(U: Standard_Real; H: gp_Hypr; P: var gp_Pnt; V1: var gp_Vec; V2: var gp_Vec;
+        V3: var gp_Vec) {.importcpp: "ElCLib::D3(@)", header: "ElCLib.hxx".}
+proc DN*(U: Standard_Real; L: gp_Lin; N: Standard_Integer): gp_Vec {.
     importcpp: "ElCLib::DN(@)", header: "ElCLib.hxx".}
-proc dn*(u: StandardReal; c: GpCirc; n: StandardInteger): GpVec {.
+proc DN*(U: Standard_Real; C: gp_Circ; N: Standard_Integer): gp_Vec {.
     importcpp: "ElCLib::DN(@)", header: "ElCLib.hxx".}
-proc dn*(u: StandardReal; e: GpElips; n: StandardInteger): GpVec {.
+proc DN*(U: Standard_Real; E: gp_Elips; N: Standard_Integer): gp_Vec {.
     importcpp: "ElCLib::DN(@)", header: "ElCLib.hxx".}
-proc dn*(u: StandardReal; h: GpHypr; n: StandardInteger): GpVec {.
+proc DN*(U: Standard_Real; H: gp_Hypr; N: Standard_Integer): gp_Vec {.
     importcpp: "ElCLib::DN(@)", header: "ElCLib.hxx".}
-proc dn*(u: StandardReal; prb: GpParab; n: StandardInteger): GpVec {.
+proc DN*(U: Standard_Real; Prb: gp_Parab; N: Standard_Integer): gp_Vec {.
     importcpp: "ElCLib::DN(@)", header: "ElCLib.hxx".}
-proc value*(u: StandardReal; L: GpLin2d): GpPnt2d {.importcpp: "ElCLib::Value(@)",
+proc Value*(U: Standard_Real; L: gp_Lin2d): gp_Pnt2d {.importcpp: "ElCLib::Value(@)",
     header: "ElCLib.hxx".}
-proc value*(u: StandardReal; c: GpCirc2d): GpPnt2d {.importcpp: "ElCLib::Value(@)",
+proc Value*(U: Standard_Real; C: gp_Circ2d): gp_Pnt2d {.importcpp: "ElCLib::Value(@)",
     header: "ElCLib.hxx".}
-proc value*(u: StandardReal; e: GpElips2d): GpPnt2d {.importcpp: "ElCLib::Value(@)",
+proc Value*(U: Standard_Real; E: gp_Elips2d): gp_Pnt2d {.
+    importcpp: "ElCLib::Value(@)", header: "ElCLib.hxx".}
+proc Value*(U: Standard_Real; H: gp_Hypr2d): gp_Pnt2d {.importcpp: "ElCLib::Value(@)",
     header: "ElCLib.hxx".}
-proc value*(u: StandardReal; h: GpHypr2d): GpPnt2d {.importcpp: "ElCLib::Value(@)",
-    header: "ElCLib.hxx".}
-proc value*(u: StandardReal; prb: GpParab2d): GpPnt2d {.importcpp: "ElCLib::Value(@)",
-    header: "ElCLib.hxx".}
-proc d1*(u: StandardReal; L: GpLin2d; p: var GpPnt2d; v1: var GpVec2d) {.
+proc Value*(U: Standard_Real; Prb: gp_Parab2d): gp_Pnt2d {.
+    importcpp: "ElCLib::Value(@)", header: "ElCLib.hxx".}
+proc D1*(U: Standard_Real; L: gp_Lin2d; P: var gp_Pnt2d; V1: var gp_Vec2d) {.
     importcpp: "ElCLib::D1(@)", header: "ElCLib.hxx".}
-proc d1*(u: StandardReal; c: GpCirc2d; p: var GpPnt2d; v1: var GpVec2d) {.
+proc D1*(U: Standard_Real; C: gp_Circ2d; P: var gp_Pnt2d; V1: var gp_Vec2d) {.
     importcpp: "ElCLib::D1(@)", header: "ElCLib.hxx".}
-proc d1*(u: StandardReal; e: GpElips2d; p: var GpPnt2d; v1: var GpVec2d) {.
+proc D1*(U: Standard_Real; E: gp_Elips2d; P: var gp_Pnt2d; V1: var gp_Vec2d) {.
     importcpp: "ElCLib::D1(@)", header: "ElCLib.hxx".}
-proc d1*(u: StandardReal; h: GpHypr2d; p: var GpPnt2d; v1: var GpVec2d) {.
+proc D1*(U: Standard_Real; H: gp_Hypr2d; P: var gp_Pnt2d; V1: var gp_Vec2d) {.
     importcpp: "ElCLib::D1(@)", header: "ElCLib.hxx".}
-proc d1*(u: StandardReal; prb: GpParab2d; p: var GpPnt2d; v1: var GpVec2d) {.
+proc D1*(U: Standard_Real; Prb: gp_Parab2d; P: var gp_Pnt2d; V1: var gp_Vec2d) {.
     importcpp: "ElCLib::D1(@)", header: "ElCLib.hxx".}
-proc d2*(u: StandardReal; c: GpCirc2d; p: var GpPnt2d; v1: var GpVec2d; v2: var GpVec2d) {.
-    importcpp: "ElCLib::D2(@)", header: "ElCLib.hxx".}
-proc d2*(u: StandardReal; e: GpElips2d; p: var GpPnt2d; v1: var GpVec2d; v2: var GpVec2d) {.
-    importcpp: "ElCLib::D2(@)", header: "ElCLib.hxx".}
-proc d2*(u: StandardReal; h: GpHypr2d; p: var GpPnt2d; v1: var GpVec2d; v2: var GpVec2d) {.
-    importcpp: "ElCLib::D2(@)", header: "ElCLib.hxx".}
-proc d2*(u: StandardReal; prb: GpParab2d; p: var GpPnt2d; v1: var GpVec2d; v2: var GpVec2d) {.
-    importcpp: "ElCLib::D2(@)", header: "ElCLib.hxx".}
-proc d3*(u: StandardReal; c: GpCirc2d; p: var GpPnt2d; v1: var GpVec2d; v2: var GpVec2d;
-        v3: var GpVec2d) {.importcpp: "ElCLib::D3(@)", header: "ElCLib.hxx".}
-proc d3*(u: StandardReal; e: GpElips2d; p: var GpPnt2d; v1: var GpVec2d; v2: var GpVec2d;
-        v3: var GpVec2d) {.importcpp: "ElCLib::D3(@)", header: "ElCLib.hxx".}
-proc d3*(u: StandardReal; h: GpHypr2d; p: var GpPnt2d; v1: var GpVec2d; v2: var GpVec2d;
-        v3: var GpVec2d) {.importcpp: "ElCLib::D3(@)", header: "ElCLib.hxx".}
-proc dn*(u: StandardReal; L: GpLin2d; n: StandardInteger): GpVec2d {.
-    importcpp: "ElCLib::DN(@)", header: "ElCLib.hxx".}
-proc dn*(u: StandardReal; c: GpCirc2d; n: StandardInteger): GpVec2d {.
-    importcpp: "ElCLib::DN(@)", header: "ElCLib.hxx".}
-proc dn*(u: StandardReal; e: GpElips2d; n: StandardInteger): GpVec2d {.
-    importcpp: "ElCLib::DN(@)", header: "ElCLib.hxx".}
-proc dn*(u: StandardReal; h: GpHypr2d; n: StandardInteger): GpVec2d {.
-    importcpp: "ElCLib::DN(@)", header: "ElCLib.hxx".}
-proc dn*(u: StandardReal; prb: GpParab2d; n: StandardInteger): GpVec2d {.
-    importcpp: "ElCLib::DN(@)", header: "ElCLib.hxx".}
-proc lineValue*(u: StandardReal; pos: GpAx1): GpPnt {.
-    importcpp: "ElCLib::LineValue(@)", header: "ElCLib.hxx".}
-proc circleValue*(u: StandardReal; pos: GpAx2; radius: StandardReal): GpPnt {.
-    importcpp: "ElCLib::CircleValue(@)", header: "ElCLib.hxx".}
-proc ellipseValue*(u: StandardReal; pos: GpAx2; majorRadius: StandardReal;
-                  minorRadius: StandardReal): GpPnt {.
-    importcpp: "ElCLib::EllipseValue(@)", header: "ElCLib.hxx".}
-proc hyperbolaValue*(u: StandardReal; pos: GpAx2; majorRadius: StandardReal;
-                    minorRadius: StandardReal): GpPnt {.
-    importcpp: "ElCLib::HyperbolaValue(@)", header: "ElCLib.hxx".}
-proc parabolaValue*(u: StandardReal; pos: GpAx2; focal: StandardReal): GpPnt {.
-    importcpp: "ElCLib::ParabolaValue(@)", header: "ElCLib.hxx".}
-proc lineD1*(u: StandardReal; pos: GpAx1; p: var GpPnt; v1: var GpVec) {.
-    importcpp: "ElCLib::LineD1(@)", header: "ElCLib.hxx".}
-proc circleD1*(u: StandardReal; pos: GpAx2; radius: StandardReal; p: var GpPnt;
-              v1: var GpVec) {.importcpp: "ElCLib::CircleD1(@)", header: "ElCLib.hxx".}
-proc ellipseD1*(u: StandardReal; pos: GpAx2; majorRadius: StandardReal;
-               minorRadius: StandardReal; p: var GpPnt; v1: var GpVec) {.
-    importcpp: "ElCLib::EllipseD1(@)", header: "ElCLib.hxx".}
-proc hyperbolaD1*(u: StandardReal; pos: GpAx2; majorRadius: StandardReal;
-                 minorRadius: StandardReal; p: var GpPnt; v1: var GpVec) {.
-    importcpp: "ElCLib::HyperbolaD1(@)", header: "ElCLib.hxx".}
-proc parabolaD1*(u: StandardReal; pos: GpAx2; focal: StandardReal; p: var GpPnt;
-                v1: var GpVec) {.importcpp: "ElCLib::ParabolaD1(@)",
-                              header: "ElCLib.hxx".}
-proc circleD2*(u: StandardReal; pos: GpAx2; radius: StandardReal; p: var GpPnt;
-              v1: var GpVec; v2: var GpVec) {.importcpp: "ElCLib::CircleD2(@)",
+proc D2*(U: Standard_Real; C: gp_Circ2d; P: var gp_Pnt2d; V1: var gp_Vec2d;
+        V2: var gp_Vec2d) {.importcpp: "ElCLib::D2(@)", header: "ElCLib.hxx".}
+proc D2*(U: Standard_Real; E: gp_Elips2d; P: var gp_Pnt2d; V1: var gp_Vec2d;
+        V2: var gp_Vec2d) {.importcpp: "ElCLib::D2(@)", header: "ElCLib.hxx".}
+proc D2*(U: Standard_Real; H: gp_Hypr2d; P: var gp_Pnt2d; V1: var gp_Vec2d;
+        V2: var gp_Vec2d) {.importcpp: "ElCLib::D2(@)", header: "ElCLib.hxx".}
+proc D2*(U: Standard_Real; Prb: gp_Parab2d; P: var gp_Pnt2d; V1: var gp_Vec2d;
+        V2: var gp_Vec2d) {.importcpp: "ElCLib::D2(@)", header: "ElCLib.hxx".}
+proc D3*(U: Standard_Real; C: gp_Circ2d; P: var gp_Pnt2d; V1: var gp_Vec2d;
+        V2: var gp_Vec2d; V3: var gp_Vec2d) {.importcpp: "ElCLib::D3(@)",
                                         header: "ElCLib.hxx".}
-proc ellipseD2*(u: StandardReal; pos: GpAx2; majorRadius: StandardReal;
-               minorRadius: StandardReal; p: var GpPnt; v1: var GpVec; v2: var GpVec) {.
-    importcpp: "ElCLib::EllipseD2(@)", header: "ElCLib.hxx".}
-proc hyperbolaD2*(u: StandardReal; pos: GpAx2; majorRadius: StandardReal;
-                 minorRadius: StandardReal; p: var GpPnt; v1: var GpVec; v2: var GpVec) {.
-    importcpp: "ElCLib::HyperbolaD2(@)", header: "ElCLib.hxx".}
-proc parabolaD2*(u: StandardReal; pos: GpAx2; focal: StandardReal; p: var GpPnt;
-                v1: var GpVec; v2: var GpVec) {.importcpp: "ElCLib::ParabolaD2(@)",
-    header: "ElCLib.hxx".}
-proc circleD3*(u: StandardReal; pos: GpAx2; radius: StandardReal; p: var GpPnt;
-              v1: var GpVec; v2: var GpVec; v3: var GpVec) {.
-    importcpp: "ElCLib::CircleD3(@)", header: "ElCLib.hxx".}
-proc ellipseD3*(u: StandardReal; pos: GpAx2; majorRadius: StandardReal;
-               minorRadius: StandardReal; p: var GpPnt; v1: var GpVec; v2: var GpVec;
-               v3: var GpVec) {.importcpp: "ElCLib::EllipseD3(@)",
+proc D3*(U: Standard_Real; E: gp_Elips2d; P: var gp_Pnt2d; V1: var gp_Vec2d;
+        V2: var gp_Vec2d; V3: var gp_Vec2d) {.importcpp: "ElCLib::D3(@)",
+                                        header: "ElCLib.hxx".}
+proc D3*(U: Standard_Real; H: gp_Hypr2d; P: var gp_Pnt2d; V1: var gp_Vec2d;
+        V2: var gp_Vec2d; V3: var gp_Vec2d) {.importcpp: "ElCLib::D3(@)",
+                                        header: "ElCLib.hxx".}
+proc DN*(U: Standard_Real; L: gp_Lin2d; N: Standard_Integer): gp_Vec2d {.
+    importcpp: "ElCLib::DN(@)", header: "ElCLib.hxx".}
+proc DN*(U: Standard_Real; C: gp_Circ2d; N: Standard_Integer): gp_Vec2d {.
+    importcpp: "ElCLib::DN(@)", header: "ElCLib.hxx".}
+proc DN*(U: Standard_Real; E: gp_Elips2d; N: Standard_Integer): gp_Vec2d {.
+    importcpp: "ElCLib::DN(@)", header: "ElCLib.hxx".}
+proc DN*(U: Standard_Real; H: gp_Hypr2d; N: Standard_Integer): gp_Vec2d {.
+    importcpp: "ElCLib::DN(@)", header: "ElCLib.hxx".}
+proc DN*(U: Standard_Real; Prb: gp_Parab2d; N: Standard_Integer): gp_Vec2d {.
+    importcpp: "ElCLib::DN(@)", header: "ElCLib.hxx".}
+proc LineValue*(U: Standard_Real; Pos: gp_Ax1): gp_Pnt {.
+    importcpp: "ElCLib::LineValue(@)", header: "ElCLib.hxx".}
+proc CircleValue*(U: Standard_Real; Pos: gp_Ax2; Radius: Standard_Real): gp_Pnt {.
+    importcpp: "ElCLib::CircleValue(@)", header: "ElCLib.hxx".}
+proc EllipseValue*(U: Standard_Real; Pos: gp_Ax2; MajorRadius: Standard_Real;
+                  MinorRadius: Standard_Real): gp_Pnt {.
+    importcpp: "ElCLib::EllipseValue(@)", header: "ElCLib.hxx".}
+proc HyperbolaValue*(U: Standard_Real; Pos: gp_Ax2; MajorRadius: Standard_Real;
+                    MinorRadius: Standard_Real): gp_Pnt {.
+    importcpp: "ElCLib::HyperbolaValue(@)", header: "ElCLib.hxx".}
+proc ParabolaValue*(U: Standard_Real; Pos: gp_Ax2; Focal: Standard_Real): gp_Pnt {.
+    importcpp: "ElCLib::ParabolaValue(@)", header: "ElCLib.hxx".}
+proc LineD1*(U: Standard_Real; Pos: gp_Ax1; P: var gp_Pnt; V1: var gp_Vec) {.
+    importcpp: "ElCLib::LineD1(@)", header: "ElCLib.hxx".}
+proc CircleD1*(U: Standard_Real; Pos: gp_Ax2; Radius: Standard_Real; P: var gp_Pnt;
+              V1: var gp_Vec) {.importcpp: "ElCLib::CircleD1(@)",
                              header: "ElCLib.hxx".}
-proc hyperbolaD3*(u: StandardReal; pos: GpAx2; majorRadius: StandardReal;
-                 minorRadius: StandardReal; p: var GpPnt; v1: var GpVec; v2: var GpVec;
-                 v3: var GpVec) {.importcpp: "ElCLib::HyperbolaD3(@)",
-                               header: "ElCLib.hxx".}
-proc lineDN*(u: StandardReal; pos: GpAx1; n: StandardInteger): GpVec {.
-    importcpp: "ElCLib::LineDN(@)", header: "ElCLib.hxx".}
-proc circleDN*(u: StandardReal; pos: GpAx2; radius: StandardReal; n: StandardInteger): GpVec {.
-    importcpp: "ElCLib::CircleDN(@)", header: "ElCLib.hxx".}
-proc ellipseDN*(u: StandardReal; pos: GpAx2; majorRadius: StandardReal;
-               minorRadius: StandardReal; n: StandardInteger): GpVec {.
-    importcpp: "ElCLib::EllipseDN(@)", header: "ElCLib.hxx".}
-proc hyperbolaDN*(u: StandardReal; pos: GpAx2; majorRadius: StandardReal;
-                 minorRadius: StandardReal; n: StandardInteger): GpVec {.
-    importcpp: "ElCLib::HyperbolaDN(@)", header: "ElCLib.hxx".}
-proc parabolaDN*(u: StandardReal; pos: GpAx2; focal: StandardReal; n: StandardInteger): GpVec {.
-    importcpp: "ElCLib::ParabolaDN(@)", header: "ElCLib.hxx".}
-proc lineValue*(u: StandardReal; pos: GpAx2d): GpPnt2d {.
-    importcpp: "ElCLib::LineValue(@)", header: "ElCLib.hxx".}
-proc circleValue*(u: StandardReal; pos: GpAx22d; radius: StandardReal): GpPnt2d {.
-    importcpp: "ElCLib::CircleValue(@)", header: "ElCLib.hxx".}
-proc ellipseValue*(u: StandardReal; pos: GpAx22d; majorRadius: StandardReal;
-                  minorRadius: StandardReal): GpPnt2d {.
-    importcpp: "ElCLib::EllipseValue(@)", header: "ElCLib.hxx".}
-proc hyperbolaValue*(u: StandardReal; pos: GpAx22d; majorRadius: StandardReal;
-                    minorRadius: StandardReal): GpPnt2d {.
-    importcpp: "ElCLib::HyperbolaValue(@)", header: "ElCLib.hxx".}
-proc parabolaValue*(u: StandardReal; pos: GpAx22d; focal: StandardReal): GpPnt2d {.
-    importcpp: "ElCLib::ParabolaValue(@)", header: "ElCLib.hxx".}
-proc lineD1*(u: StandardReal; pos: GpAx2d; p: var GpPnt2d; v1: var GpVec2d) {.
-    importcpp: "ElCLib::LineD1(@)", header: "ElCLib.hxx".}
-proc circleD1*(u: StandardReal; pos: GpAx22d; radius: StandardReal; p: var GpPnt2d;
-              v1: var GpVec2d) {.importcpp: "ElCLib::CircleD1(@)",
-                              header: "ElCLib.hxx".}
-proc ellipseD1*(u: StandardReal; pos: GpAx22d; majorRadius: StandardReal;
-               minorRadius: StandardReal; p: var GpPnt2d; v1: var GpVec2d) {.
+proc EllipseD1*(U: Standard_Real; Pos: gp_Ax2; MajorRadius: Standard_Real;
+               MinorRadius: Standard_Real; P: var gp_Pnt; V1: var gp_Vec) {.
     importcpp: "ElCLib::EllipseD1(@)", header: "ElCLib.hxx".}
-proc hyperbolaD1*(u: StandardReal; pos: GpAx22d; majorRadius: StandardReal;
-                 minorRadius: StandardReal; p: var GpPnt2d; v1: var GpVec2d) {.
+proc HyperbolaD1*(U: Standard_Real; Pos: gp_Ax2; MajorRadius: Standard_Real;
+                 MinorRadius: Standard_Real; P: var gp_Pnt; V1: var gp_Vec) {.
     importcpp: "ElCLib::HyperbolaD1(@)", header: "ElCLib.hxx".}
-proc parabolaD1*(u: StandardReal; pos: GpAx22d; focal: StandardReal; p: var GpPnt2d;
-                v1: var GpVec2d) {.importcpp: "ElCLib::ParabolaD1(@)",
-                                header: "ElCLib.hxx".}
-proc circleD2*(u: StandardReal; pos: GpAx22d; radius: StandardReal; p: var GpPnt2d;
-              v1: var GpVec2d; v2: var GpVec2d) {.importcpp: "ElCLib::CircleD2(@)",
-    header: "ElCLib.hxx".}
-proc ellipseD2*(u: StandardReal; pos: GpAx22d; majorRadius: StandardReal;
-               minorRadius: StandardReal; p: var GpPnt2d; v1: var GpVec2d;
-               v2: var GpVec2d) {.importcpp: "ElCLib::EllipseD2(@)",
+proc ParabolaD1*(U: Standard_Real; Pos: gp_Ax2; Focal: Standard_Real; P: var gp_Pnt;
+                V1: var gp_Vec) {.importcpp: "ElCLib::ParabolaD1(@)",
                                header: "ElCLib.hxx".}
-proc hyperbolaD2*(u: StandardReal; pos: GpAx22d; majorRadius: StandardReal;
-                 minorRadius: StandardReal; p: var GpPnt2d; v1: var GpVec2d;
-                 v2: var GpVec2d) {.importcpp: "ElCLib::HyperbolaD2(@)",
-                                 header: "ElCLib.hxx".}
-proc parabolaD2*(u: StandardReal; pos: GpAx22d; focal: StandardReal; p: var GpPnt2d;
-                v1: var GpVec2d; v2: var GpVec2d) {.
-    importcpp: "ElCLib::ParabolaD2(@)", header: "ElCLib.hxx".}
-proc circleD3*(u: StandardReal; pos: GpAx22d; radius: StandardReal; p: var GpPnt2d;
-              v1: var GpVec2d; v2: var GpVec2d; v3: var GpVec2d) {.
+proc CircleD2*(U: Standard_Real; Pos: gp_Ax2; Radius: Standard_Real; P: var gp_Pnt;
+              V1: var gp_Vec; V2: var gp_Vec) {.importcpp: "ElCLib::CircleD2(@)",
+    header: "ElCLib.hxx".}
+proc EllipseD2*(U: Standard_Real; Pos: gp_Ax2; MajorRadius: Standard_Real;
+               MinorRadius: Standard_Real; P: var gp_Pnt; V1: var gp_Vec; V2: var gp_Vec) {.
+    importcpp: "ElCLib::EllipseD2(@)", header: "ElCLib.hxx".}
+proc HyperbolaD2*(U: Standard_Real; Pos: gp_Ax2; MajorRadius: Standard_Real;
+                 MinorRadius: Standard_Real; P: var gp_Pnt; V1: var gp_Vec;
+                 V2: var gp_Vec) {.importcpp: "ElCLib::HyperbolaD2(@)",
+                                header: "ElCLib.hxx".}
+proc ParabolaD2*(U: Standard_Real; Pos: gp_Ax2; Focal: Standard_Real; P: var gp_Pnt;
+                V1: var gp_Vec; V2: var gp_Vec) {.importcpp: "ElCLib::ParabolaD2(@)",
+    header: "ElCLib.hxx".}
+proc CircleD3*(U: Standard_Real; Pos: gp_Ax2; Radius: Standard_Real; P: var gp_Pnt;
+              V1: var gp_Vec; V2: var gp_Vec; V3: var gp_Vec) {.
     importcpp: "ElCLib::CircleD3(@)", header: "ElCLib.hxx".}
-proc ellipseD3*(u: StandardReal; pos: GpAx22d; majorRadius: StandardReal;
-               minorRadius: StandardReal; p: var GpPnt2d; v1: var GpVec2d;
-               v2: var GpVec2d; v3: var GpVec2d) {.importcpp: "ElCLib::EllipseD3(@)",
+proc EllipseD3*(U: Standard_Real; Pos: gp_Ax2; MajorRadius: Standard_Real;
+               MinorRadius: Standard_Real; P: var gp_Pnt; V1: var gp_Vec;
+               V2: var gp_Vec; V3: var gp_Vec) {.importcpp: "ElCLib::EllipseD3(@)",
     header: "ElCLib.hxx".}
-proc hyperbolaD3*(u: StandardReal; pos: GpAx22d; majorRadius: StandardReal;
-                 minorRadius: StandardReal; p: var GpPnt2d; v1: var GpVec2d;
-                 v2: var GpVec2d; v3: var GpVec2d) {.
+proc HyperbolaD3*(U: Standard_Real; Pos: gp_Ax2; MajorRadius: Standard_Real;
+                 MinorRadius: Standard_Real; P: var gp_Pnt; V1: var gp_Vec;
+                 V2: var gp_Vec; V3: var gp_Vec) {.
     importcpp: "ElCLib::HyperbolaD3(@)", header: "ElCLib.hxx".}
-proc lineDN*(u: StandardReal; pos: GpAx2d; n: StandardInteger): GpVec2d {.
+proc LineDN*(U: Standard_Real; Pos: gp_Ax1; N: Standard_Integer): gp_Vec {.
     importcpp: "ElCLib::LineDN(@)", header: "ElCLib.hxx".}
-proc circleDN*(u: StandardReal; pos: GpAx22d; radius: StandardReal; n: StandardInteger): GpVec2d {.
-    importcpp: "ElCLib::CircleDN(@)", header: "ElCLib.hxx".}
-proc ellipseDN*(u: StandardReal; pos: GpAx22d; majorRadius: StandardReal;
-               minorRadius: StandardReal; n: StandardInteger): GpVec2d {.
+proc CircleDN*(U: Standard_Real; Pos: gp_Ax2; Radius: Standard_Real;
+              N: Standard_Integer): gp_Vec {.importcpp: "ElCLib::CircleDN(@)",
+    header: "ElCLib.hxx".}
+proc EllipseDN*(U: Standard_Real; Pos: gp_Ax2; MajorRadius: Standard_Real;
+               MinorRadius: Standard_Real; N: Standard_Integer): gp_Vec {.
     importcpp: "ElCLib::EllipseDN(@)", header: "ElCLib.hxx".}
-proc hyperbolaDN*(u: StandardReal; pos: GpAx22d; majorRadius: StandardReal;
-                 minorRadius: StandardReal; n: StandardInteger): GpVec2d {.
+proc HyperbolaDN*(U: Standard_Real; Pos: gp_Ax2; MajorRadius: Standard_Real;
+                 MinorRadius: Standard_Real; N: Standard_Integer): gp_Vec {.
     importcpp: "ElCLib::HyperbolaDN(@)", header: "ElCLib.hxx".}
-proc parabolaDN*(u: StandardReal; pos: GpAx22d; focal: StandardReal; n: StandardInteger): GpVec2d {.
+proc ParabolaDN*(U: Standard_Real; Pos: gp_Ax2; Focal: Standard_Real;
+                N: Standard_Integer): gp_Vec {.importcpp: "ElCLib::ParabolaDN(@)",
+    header: "ElCLib.hxx".}
+proc LineValue*(U: Standard_Real; Pos: gp_Ax2d): gp_Pnt2d {.
+    importcpp: "ElCLib::LineValue(@)", header: "ElCLib.hxx".}
+proc CircleValue*(U: Standard_Real; Pos: gp_Ax22d; Radius: Standard_Real): gp_Pnt2d {.
+    importcpp: "ElCLib::CircleValue(@)", header: "ElCLib.hxx".}
+proc EllipseValue*(U: Standard_Real; Pos: gp_Ax22d; MajorRadius: Standard_Real;
+                  MinorRadius: Standard_Real): gp_Pnt2d {.
+    importcpp: "ElCLib::EllipseValue(@)", header: "ElCLib.hxx".}
+proc HyperbolaValue*(U: Standard_Real; Pos: gp_Ax22d; MajorRadius: Standard_Real;
+                    MinorRadius: Standard_Real): gp_Pnt2d {.
+    importcpp: "ElCLib::HyperbolaValue(@)", header: "ElCLib.hxx".}
+proc ParabolaValue*(U: Standard_Real; Pos: gp_Ax22d; Focal: Standard_Real): gp_Pnt2d {.
+    importcpp: "ElCLib::ParabolaValue(@)", header: "ElCLib.hxx".}
+proc LineD1*(U: Standard_Real; Pos: gp_Ax2d; P: var gp_Pnt2d; V1: var gp_Vec2d) {.
+    importcpp: "ElCLib::LineD1(@)", header: "ElCLib.hxx".}
+proc CircleD1*(U: Standard_Real; Pos: gp_Ax22d; Radius: Standard_Real; P: var gp_Pnt2d;
+              V1: var gp_Vec2d) {.importcpp: "ElCLib::CircleD1(@)",
+                               header: "ElCLib.hxx".}
+proc EllipseD1*(U: Standard_Real; Pos: gp_Ax22d; MajorRadius: Standard_Real;
+               MinorRadius: Standard_Real; P: var gp_Pnt2d; V1: var gp_Vec2d) {.
+    importcpp: "ElCLib::EllipseD1(@)", header: "ElCLib.hxx".}
+proc HyperbolaD1*(U: Standard_Real; Pos: gp_Ax22d; MajorRadius: Standard_Real;
+                 MinorRadius: Standard_Real; P: var gp_Pnt2d; V1: var gp_Vec2d) {.
+    importcpp: "ElCLib::HyperbolaD1(@)", header: "ElCLib.hxx".}
+proc ParabolaD1*(U: Standard_Real; Pos: gp_Ax22d; Focal: Standard_Real;
+                P: var gp_Pnt2d; V1: var gp_Vec2d) {.
+    importcpp: "ElCLib::ParabolaD1(@)", header: "ElCLib.hxx".}
+proc CircleD2*(U: Standard_Real; Pos: gp_Ax22d; Radius: Standard_Real; P: var gp_Pnt2d;
+              V1: var gp_Vec2d; V2: var gp_Vec2d) {.importcpp: "ElCLib::CircleD2(@)",
+    header: "ElCLib.hxx".}
+proc EllipseD2*(U: Standard_Real; Pos: gp_Ax22d; MajorRadius: Standard_Real;
+               MinorRadius: Standard_Real; P: var gp_Pnt2d; V1: var gp_Vec2d;
+               V2: var gp_Vec2d) {.importcpp: "ElCLib::EllipseD2(@)",
+                                header: "ElCLib.hxx".}
+proc HyperbolaD2*(U: Standard_Real; Pos: gp_Ax22d; MajorRadius: Standard_Real;
+                 MinorRadius: Standard_Real; P: var gp_Pnt2d; V1: var gp_Vec2d;
+                 V2: var gp_Vec2d) {.importcpp: "ElCLib::HyperbolaD2(@)",
+                                  header: "ElCLib.hxx".}
+proc ParabolaD2*(U: Standard_Real; Pos: gp_Ax22d; Focal: Standard_Real;
+                P: var gp_Pnt2d; V1: var gp_Vec2d; V2: var gp_Vec2d) {.
+    importcpp: "ElCLib::ParabolaD2(@)", header: "ElCLib.hxx".}
+proc CircleD3*(U: Standard_Real; Pos: gp_Ax22d; Radius: Standard_Real; P: var gp_Pnt2d;
+              V1: var gp_Vec2d; V2: var gp_Vec2d; V3: var gp_Vec2d) {.
+    importcpp: "ElCLib::CircleD3(@)", header: "ElCLib.hxx".}
+proc EllipseD3*(U: Standard_Real; Pos: gp_Ax22d; MajorRadius: Standard_Real;
+               MinorRadius: Standard_Real; P: var gp_Pnt2d; V1: var gp_Vec2d;
+               V2: var gp_Vec2d; V3: var gp_Vec2d) {.
+    importcpp: "ElCLib::EllipseD3(@)", header: "ElCLib.hxx".}
+proc HyperbolaD3*(U: Standard_Real; Pos: gp_Ax22d; MajorRadius: Standard_Real;
+                 MinorRadius: Standard_Real; P: var gp_Pnt2d; V1: var gp_Vec2d;
+                 V2: var gp_Vec2d; V3: var gp_Vec2d) {.
+    importcpp: "ElCLib::HyperbolaD3(@)", header: "ElCLib.hxx".}
+proc LineDN*(U: Standard_Real; Pos: gp_Ax2d; N: Standard_Integer): gp_Vec2d {.
+    importcpp: "ElCLib::LineDN(@)", header: "ElCLib.hxx".}
+proc CircleDN*(U: Standard_Real; Pos: gp_Ax22d; Radius: Standard_Real;
+              N: Standard_Integer): gp_Vec2d {.importcpp: "ElCLib::CircleDN(@)",
+    header: "ElCLib.hxx".}
+proc EllipseDN*(U: Standard_Real; Pos: gp_Ax22d; MajorRadius: Standard_Real;
+               MinorRadius: Standard_Real; N: Standard_Integer): gp_Vec2d {.
+    importcpp: "ElCLib::EllipseDN(@)", header: "ElCLib.hxx".}
+proc HyperbolaDN*(U: Standard_Real; Pos: gp_Ax22d; MajorRadius: Standard_Real;
+                 MinorRadius: Standard_Real; N: Standard_Integer): gp_Vec2d {.
+    importcpp: "ElCLib::HyperbolaDN(@)", header: "ElCLib.hxx".}
+proc ParabolaDN*(U: Standard_Real; Pos: gp_Ax22d; Focal: Standard_Real;
+                N: Standard_Integer): gp_Vec2d {.
     importcpp: "ElCLib::ParabolaDN(@)", header: "ElCLib.hxx".}
-proc parameter*(L: GpLin; p: GpPnt): StandardReal {.importcpp: "ElCLib::Parameter(@)",
-    header: "ElCLib.hxx".}
-proc parameter*(L: GpLin2d; p: GpPnt2d): StandardReal {.
+proc Parameter*(L: gp_Lin; P: gp_Pnt): Standard_Real {.
     importcpp: "ElCLib::Parameter(@)", header: "ElCLib.hxx".}
-proc parameter*(c: GpCirc; p: GpPnt): StandardReal {.
+proc Parameter*(L: gp_Lin2d; P: gp_Pnt2d): Standard_Real {.
     importcpp: "ElCLib::Parameter(@)", header: "ElCLib.hxx".}
-proc parameter*(c: GpCirc2d; p: GpPnt2d): StandardReal {.
+proc Parameter*(C: gp_Circ; P: gp_Pnt): Standard_Real {.
     importcpp: "ElCLib::Parameter(@)", header: "ElCLib.hxx".}
-proc parameter*(e: GpElips; p: GpPnt): StandardReal {.
+proc Parameter*(C: gp_Circ2d; P: gp_Pnt2d): Standard_Real {.
     importcpp: "ElCLib::Parameter(@)", header: "ElCLib.hxx".}
-proc parameter*(e: GpElips2d; p: GpPnt2d): StandardReal {.
+proc Parameter*(E: gp_Elips; P: gp_Pnt): Standard_Real {.
     importcpp: "ElCLib::Parameter(@)", header: "ElCLib.hxx".}
-proc parameter*(h: GpHypr; p: GpPnt): StandardReal {.
+proc Parameter*(E: gp_Elips2d; P: gp_Pnt2d): Standard_Real {.
     importcpp: "ElCLib::Parameter(@)", header: "ElCLib.hxx".}
-proc parameter*(h: GpHypr2d; p: GpPnt2d): StandardReal {.
+proc Parameter*(H: gp_Hypr; P: gp_Pnt): Standard_Real {.
     importcpp: "ElCLib::Parameter(@)", header: "ElCLib.hxx".}
-proc parameter*(prb: GpParab; p: GpPnt): StandardReal {.
+proc Parameter*(H: gp_Hypr2d; P: gp_Pnt2d): Standard_Real {.
     importcpp: "ElCLib::Parameter(@)", header: "ElCLib.hxx".}
-proc parameter*(prb: GpParab2d; p: GpPnt2d): StandardReal {.
+proc Parameter*(Prb: gp_Parab; P: gp_Pnt): Standard_Real {.
     importcpp: "ElCLib::Parameter(@)", header: "ElCLib.hxx".}
-proc lineParameter*(pos: GpAx1; p: GpPnt): StandardReal {.
+proc Parameter*(Prb: gp_Parab2d; P: gp_Pnt2d): Standard_Real {.
+    importcpp: "ElCLib::Parameter(@)", header: "ElCLib.hxx".}
+proc LineParameter*(Pos: gp_Ax1; P: gp_Pnt): Standard_Real {.
     importcpp: "ElCLib::LineParameter(@)", header: "ElCLib.hxx".}
-proc lineParameter*(pos: GpAx2d; p: GpPnt2d): StandardReal {.
+proc LineParameter*(Pos: gp_Ax2d; P: gp_Pnt2d): Standard_Real {.
     importcpp: "ElCLib::LineParameter(@)", header: "ElCLib.hxx".}
-proc circleParameter*(pos: GpAx2; p: GpPnt): StandardReal {.
+proc CircleParameter*(Pos: gp_Ax2; P: gp_Pnt): Standard_Real {.
     importcpp: "ElCLib::CircleParameter(@)", header: "ElCLib.hxx".}
-proc circleParameter*(pos: GpAx22d; p: GpPnt2d): StandardReal {.
+proc CircleParameter*(Pos: gp_Ax22d; P: gp_Pnt2d): Standard_Real {.
     importcpp: "ElCLib::CircleParameter(@)", header: "ElCLib.hxx".}
-proc ellipseParameter*(pos: GpAx2; majorRadius: StandardReal;
-                      minorRadius: StandardReal; p: GpPnt): StandardReal {.
+proc EllipseParameter*(Pos: gp_Ax2; MajorRadius: Standard_Real;
+                      MinorRadius: Standard_Real; P: gp_Pnt): Standard_Real {.
     importcpp: "ElCLib::EllipseParameter(@)", header: "ElCLib.hxx".}
-proc ellipseParameter*(pos: GpAx22d; majorRadius: StandardReal;
-                      minorRadius: StandardReal; p: GpPnt2d): StandardReal {.
+proc EllipseParameter*(Pos: gp_Ax22d; MajorRadius: Standard_Real;
+                      MinorRadius: Standard_Real; P: gp_Pnt2d): Standard_Real {.
     importcpp: "ElCLib::EllipseParameter(@)", header: "ElCLib.hxx".}
-proc hyperbolaParameter*(pos: GpAx2; majorRadius: StandardReal;
-                        minorRadius: StandardReal; p: GpPnt): StandardReal {.
+proc HyperbolaParameter*(Pos: gp_Ax2; MajorRadius: Standard_Real;
+                        MinorRadius: Standard_Real; P: gp_Pnt): Standard_Real {.
     importcpp: "ElCLib::HyperbolaParameter(@)", header: "ElCLib.hxx".}
-proc hyperbolaParameter*(pos: GpAx22d; majorRadius: StandardReal;
-                        minorRadius: StandardReal; p: GpPnt2d): StandardReal {.
+proc HyperbolaParameter*(Pos: gp_Ax22d; MajorRadius: Standard_Real;
+                        MinorRadius: Standard_Real; P: gp_Pnt2d): Standard_Real {.
     importcpp: "ElCLib::HyperbolaParameter(@)", header: "ElCLib.hxx".}
-proc parabolaParameter*(pos: GpAx2; p: GpPnt): StandardReal {.
+proc ParabolaParameter*(Pos: gp_Ax2; P: gp_Pnt): Standard_Real {.
     importcpp: "ElCLib::ParabolaParameter(@)", header: "ElCLib.hxx".}
-proc parabolaParameter*(pos: GpAx22d; p: GpPnt2d): StandardReal {.
+proc ParabolaParameter*(Pos: gp_Ax22d; P: gp_Pnt2d): Standard_Real {.
     importcpp: "ElCLib::ParabolaParameter(@)", header: "ElCLib.hxx".}
-proc to3d*(pos: GpAx2; p: GpPnt2d): GpPnt {.importcpp: "ElCLib::To3d(@)",
-                                      header: "ElCLib.hxx".}
-proc to3d*(pos: GpAx2; v: GpVec2d): GpVec {.importcpp: "ElCLib::To3d(@)",
-                                      header: "ElCLib.hxx".}
-proc to3d*(pos: GpAx2; v: GpDir2d): GpDir {.importcpp: "ElCLib::To3d(@)",
-                                      header: "ElCLib.hxx".}
-proc to3d*(pos: GpAx2; a: GpAx2d): GpAx1 {.importcpp: "ElCLib::To3d(@)",
-                                     header: "ElCLib.hxx".}
-proc to3d*(pos: GpAx2; a: GpAx22d): GpAx2 {.importcpp: "ElCLib::To3d(@)",
-                                      header: "ElCLib.hxx".}
-proc to3d*(pos: GpAx2; L: GpLin2d): GpLin {.importcpp: "ElCLib::To3d(@)",
-                                      header: "ElCLib.hxx".}
-proc to3d*(pos: GpAx2; c: GpCirc2d): GpCirc {.importcpp: "ElCLib::To3d(@)",
-                                        header: "ElCLib.hxx".}
-proc to3d*(pos: GpAx2; e: GpElips2d): GpElips {.importcpp: "ElCLib::To3d(@)",
+proc To3d*(Pos: gp_Ax2; P: gp_Pnt2d): gp_Pnt {.importcpp: "ElCLib::To3d(@)",
     header: "ElCLib.hxx".}
-proc to3d*(pos: GpAx2; h: GpHypr2d): GpHypr {.importcpp: "ElCLib::To3d(@)",
-                                        header: "ElCLib.hxx".}
-proc to3d*(pos: GpAx2; prb: GpParab2d): GpParab {.importcpp: "ElCLib::To3d(@)",
+proc To3d*(Pos: gp_Ax2; V: gp_Vec2d): gp_Vec {.importcpp: "ElCLib::To3d(@)",
     header: "ElCLib.hxx".}
-
+proc To3d*(Pos: gp_Ax2; V: gp_Dir2d): gp_Dir {.importcpp: "ElCLib::To3d(@)",
+    header: "ElCLib.hxx".}
+proc To3d*(Pos: gp_Ax2; A: gp_Ax2d): gp_Ax1 {.importcpp: "ElCLib::To3d(@)",
+                                        header: "ElCLib.hxx".}
+proc To3d*(Pos: gp_Ax2; A: gp_Ax22d): gp_Ax2 {.importcpp: "ElCLib::To3d(@)",
+    header: "ElCLib.hxx".}
+proc To3d*(Pos: gp_Ax2; L: gp_Lin2d): gp_Lin {.importcpp: "ElCLib::To3d(@)",
+    header: "ElCLib.hxx".}
+proc To3d*(Pos: gp_Ax2; C: gp_Circ2d): gp_Circ {.importcpp: "ElCLib::To3d(@)",
+    header: "ElCLib.hxx".}
+proc To3d*(Pos: gp_Ax2; E: gp_Elips2d): gp_Elips {.importcpp: "ElCLib::To3d(@)",
+    header: "ElCLib.hxx".}
+proc To3d*(Pos: gp_Ax2; H: gp_Hypr2d): gp_Hypr {.importcpp: "ElCLib::To3d(@)",
+    header: "ElCLib.hxx".}
+proc To3d*(Pos: gp_Ax2; Prb: gp_Parab2d): gp_Parab {.importcpp: "ElCLib::To3d(@)",
+    header: "ElCLib.hxx".}

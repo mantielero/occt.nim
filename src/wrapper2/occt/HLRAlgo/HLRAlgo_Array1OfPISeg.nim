@@ -14,7 +14,8 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  HLRAlgo_PolyInternalSegment, ../NCollection/NCollection_Array1
+
 type
-  HLRAlgoArray1OfPISeg* = NCollectionArray1[HLRAlgoPolyInternalSegment]
-
-
+  HLRAlgo_Array1OfPISeg* = NCollection_Array1[HLRAlgo_PolyInternalSegment]

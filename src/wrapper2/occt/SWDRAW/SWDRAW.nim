@@ -14,6 +14,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Draw/Draw_Interpretor,
+  ../Standard/Standard_CString
+
 discard "forward decl of SWDRAW_ShapeTool"
 discard "forward decl of SWDRAW_ShapeAnalysis"
 discard "forward decl of SWDRAW_ShapeCustom"
@@ -23,12 +28,11 @@ discard "forward decl of SWDRAW_ShapeUpgrade"
 discard "forward decl of SWDRAW_ShapeProcess"
 discard "forward decl of SWDRAW_ShapeProcessAPI"
 type
-  Swdraw* {.importcpp: "SWDRAW", header: "SWDRAW.hxx", bycopy.} = object ## ! Loads commands defined in SWDRAW
+  SWDRAW* {.importcpp: "SWDRAW", header: "SWDRAW.hxx", bycopy.} = object ## ! Loads commands defined in SWDRAW
                                                                  ## ! Returns the name of the DRAW group accumulating the
                                                                  ## ! commands from the classes prefixed with Shape*.
                                                                  ## ! Returns "Shape Healing".
 
 
-proc init*(theCommands: var DrawInterpretor) {.importcpp: "SWDRAW::Init(@)",
+proc Init*(theCommands: var Draw_Interpretor) {.importcpp: "SWDRAW::Init(@)",
     header: "SWDRAW.hxx".}
-

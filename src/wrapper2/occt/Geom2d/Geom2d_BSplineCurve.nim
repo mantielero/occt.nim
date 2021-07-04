@@ -14,6 +14,15 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../Precision/Precision,
+  ../Standard/Standard_Boolean, ../GeomAbs/GeomAbs_BSplKnotDistribution,
+  ../GeomAbs/GeomAbs_Shape, ../Standard/Standard_Integer,
+  ../TColgp/TColgp_HArray1OfPnt2d, ../TColStd/TColStd_HArray1OfReal,
+  ../TColStd/TColStd_HArray1OfInteger, ../Standard/Standard_Real,
+  Geom2d_BoundedCurve, ../TColgp/TColgp_Array1OfPnt2d,
+  ../TColStd/TColStd_Array1OfReal, ../TColStd/TColStd_Array1OfInteger
+
 discard "forward decl of Standard_ConstructionError"
 discard "forward decl of Standard_DimensionError"
 discard "forward decl of Standard_DomainError"
@@ -28,7 +37,7 @@ discard "forward decl of Geom2d_Geometry"
 discard "forward decl of Geom2d_BSplineCurve"
 discard "forward decl of Geom2d_BSplineCurve"
 type
-  HandleGeom2dBSplineCurve* = Handle[Geom2dBSplineCurve]
+  Handle_Geom2d_BSplineCurve* = handle[Geom2d_BSplineCurve]
 
 ## ! Describes a BSpline curve.
 ## ! A BSpline curve can be:
@@ -122,381 +131,380 @@ type
 ## ! a practical guide Gerald Farin
 
 type
-  Geom2dBSplineCurve* {.importcpp: "Geom2d_BSplineCurve",
-                       header: "Geom2d_BSplineCurve.hxx", bycopy.} = object of Geom2dBoundedCurve ##
-                                                                                           ## !
-                                                                                           ## Creates
-                                                                                           ## a
-                                                                                           ## non-rational
-                                                                                           ## B_spline
-                                                                                           ## curve
-                                                                                           ## on
-                                                                                           ## the
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## basis
-                                                                                           ## <Knots,
-                                                                                           ## Multiplicities>
-                                                                                           ## of
-                                                                                           ## degree
-                                                                                           ## <Degree>.
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## The
-                                                                                           ## following
-                                                                                           ## conditions
-                                                                                           ## must
-                                                                                           ## be
-                                                                                           ## verified.
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## 0
-                                                                                           ## <
-                                                                                           ## Degree
-                                                                                           ## <=
-                                                                                           ## MaxDegree.
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## Knots.Length()
-                                                                                           ## ==
-                                                                                           ## Mults.Length()
-                                                                                           ## >=
-                                                                                           ## 2
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## Knots(i)
-                                                                                           ## <
-                                                                                           ## Knots(i+1)
-                                                                                           ## (Knots
-                                                                                           ## are
-                                                                                           ## increasing)
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## 1
-                                                                                           ## <=
-                                                                                           ## Mults(i)
-                                                                                           ## <=
-                                                                                           ## Degree
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## On
-                                                                                           ## a
-                                                                                           ## non
-                                                                                           ## periodic
-                                                                                           ## curve
-                                                                                           ## the
-                                                                                           ## first
-                                                                                           ## and
-                                                                                           ## last
-                                                                                           ## multiplicities
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## may
-                                                                                           ## be
-                                                                                           ## Degree+1
-                                                                                           ## (this
-                                                                                           ## is
-                                                                                           ## even
-                                                                                           ## recommanded
-                                                                                           ## if
-                                                                                           ## you
-                                                                                           ## want
-                                                                                           ## the
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## curve
-                                                                                           ## to
-                                                                                           ## start
-                                                                                           ## and
-                                                                                           ## finish
-                                                                                           ## on
-                                                                                           ## the
-                                                                                           ## first
-                                                                                           ## and
-                                                                                           ## last
-                                                                                           ## pole).
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## On
-                                                                                           ## a
-                                                                                           ## periodic
-                                                                                           ## curve
-                                                                                           ## the
-                                                                                           ## first
-                                                                                           ## and
-                                                                                           ## the
-                                                                                           ## last
-                                                                                           ## multicities
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## must
-                                                                                           ## be
-                                                                                           ## the
-                                                                                           ## same.
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## on
-                                                                                           ## non-periodic
-                                                                                           ## curves
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## Poles.Length()
-                                                                                           ## ==
-                                                                                           ## Sum(Mults(i))
-                                                                                           ## -
-                                                                                           ## Degree
-                                                                                           ## -
-                                                                                           ## 1
-                                                                                           ## >=
-                                                                                           ## 2
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## on
-                                                                                           ## periodic
-                                                                                           ## curves
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## Poles.Length()
-                                                                                           ## ==
-                                                                                           ## Sum(Mults(i))
-                                                                                           ## except
-                                                                                           ## the
-                                                                                           ## first
-                                                                                           ## or
-                                                                                           ## last
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## Recompute
-                                                                                           ## the
-                                                                                           ## flatknots,
-                                                                                           ## the
-                                                                                           ## knotsdistribution,
-                                                                                           ## the
-                                                                                           ## continuity.
+  Geom2d_BSplineCurve* {.importcpp: "Geom2d_BSplineCurve",
+                        header: "Geom2d_BSplineCurve.hxx", bycopy.} = object of Geom2d_BoundedCurve ##
+                                                                                             ## !
+                                                                                             ## Creates
+                                                                                             ## a
+                                                                                             ## non-rational
+                                                                                             ## B_spline
+                                                                                             ## curve
+                                                                                             ## on
+                                                                                             ## the
+                                                                                             ##
+                                                                                             ## !
+                                                                                             ## basis
+                                                                                             ## <Knots,
+                                                                                             ## Multiplicities>
+                                                                                             ## of
+                                                                                             ## degree
+                                                                                             ## <Degree>.
+                                                                                             ##
+                                                                                             ## !
+                                                                                             ## The
+                                                                                             ## following
+                                                                                             ## conditions
+                                                                                             ## must
+                                                                                             ## be
+                                                                                             ## verified.
+                                                                                             ##
+                                                                                             ## !
+                                                                                             ## 0
+                                                                                             ## <
+                                                                                             ## Degree
+                                                                                             ## <=
+                                                                                             ## MaxDegree.
+                                                                                             ##
+                                                                                             ## !
+                                                                                             ##
+                                                                                             ## !
+                                                                                             ## Knots.Length()
+                                                                                             ## ==
+                                                                                             ## Mults.Length()
+                                                                                             ## >=
+                                                                                             ## 2
+                                                                                             ##
+                                                                                             ## !
+                                                                                             ##
+                                                                                             ## !
+                                                                                             ## Knots(i)
+                                                                                             ## <
+                                                                                             ## Knots(i+1)
+                                                                                             ## (Knots
+                                                                                             ## are
+                                                                                             ## increasing)
+                                                                                             ##
+                                                                                             ## !
+                                                                                             ##
+                                                                                             ## !
+                                                                                             ## 1
+                                                                                             ## <=
+                                                                                             ## Mults(i)
+                                                                                             ## <=
+                                                                                             ## Degree
+                                                                                             ##
+                                                                                             ## !
+                                                                                             ##
+                                                                                             ## !
+                                                                                             ## On
+                                                                                             ## a
+                                                                                             ## non
+                                                                                             ## periodic
+                                                                                             ## curve
+                                                                                             ## the
+                                                                                             ## first
+                                                                                             ## and
+                                                                                             ## last
+                                                                                             ## multiplicities
+                                                                                             ##
+                                                                                             ## !
+                                                                                             ## may
+                                                                                             ## be
+                                                                                             ## Degree+1
+                                                                                             ## (this
+                                                                                             ## is
+                                                                                             ## even
+                                                                                             ## recommanded
+                                                                                             ## if
+                                                                                             ## you
+                                                                                             ## want
+                                                                                             ## the
+                                                                                             ##
+                                                                                             ## !
+                                                                                             ## curve
+                                                                                             ## to
+                                                                                             ## start
+                                                                                             ## and
+                                                                                             ## finish
+                                                                                             ## on
+                                                                                             ## the
+                                                                                             ## first
+                                                                                             ## and
+                                                                                             ## last
+                                                                                             ## pole).
+                                                                                             ##
+                                                                                             ## !
+                                                                                             ##
+                                                                                             ## !
+                                                                                             ## On
+                                                                                             ## a
+                                                                                             ## periodic
+                                                                                             ## curve
+                                                                                             ## the
+                                                                                             ## first
+                                                                                             ## and
+                                                                                             ## the
+                                                                                             ## last
+                                                                                             ## multicities
+                                                                                             ##
+                                                                                             ## !
+                                                                                             ## must
+                                                                                             ## be
+                                                                                             ## the
+                                                                                             ## same.
+                                                                                             ##
+                                                                                             ## !
+                                                                                             ##
+                                                                                             ## !
+                                                                                             ## on
+                                                                                             ## non-periodic
+                                                                                             ## curves
+                                                                                             ##
+                                                                                             ## !
+                                                                                             ##
+                                                                                             ## !
+                                                                                             ## Poles.Length()
+                                                                                             ## ==
+                                                                                             ## Sum(Mults(i))
+                                                                                             ## -
+                                                                                             ## Degree
+                                                                                             ## -
+                                                                                             ## 1
+                                                                                             ## >=
+                                                                                             ## 2
+                                                                                             ##
+                                                                                             ## !
+                                                                                             ##
+                                                                                             ## !
+                                                                                             ## on
+                                                                                             ## periodic
+                                                                                             ## curves
+                                                                                             ##
+                                                                                             ## !
+                                                                                             ##
+                                                                                             ## !
+                                                                                             ## Poles.Length()
+                                                                                             ## ==
+                                                                                             ## Sum(Mults(i))
+                                                                                             ## except
+                                                                                             ## the
+                                                                                             ## first
+                                                                                             ## or
+                                                                                             ## last
+                                                                                             ##
+                                                                                             ## !
+                                                                                             ## Recompute
+                                                                                             ## the
+                                                                                             ## flatknots,
+                                                                                             ## the
+                                                                                             ## knotsdistribution,
+                                                                                             ## the
+                                                                                             ## continuity.
 
 
-proc constructGeom2dBSplineCurve*(poles: TColgpArray1OfPnt2d;
-                                 knots: TColStdArray1OfReal;
-                                 multiplicities: TColStdArray1OfInteger;
-                                 degree: StandardInteger;
-                                 periodic: StandardBoolean = standardFalse): Geom2dBSplineCurve {.
+proc constructGeom2d_BSplineCurve*(Poles: TColgp_Array1OfPnt2d;
+                                  Knots: TColStd_Array1OfReal;
+                                  Multiplicities: TColStd_Array1OfInteger;
+                                  Degree: Standard_Integer;
+                                  Periodic: Standard_Boolean = Standard_False): Geom2d_BSplineCurve {.
     constructor, importcpp: "Geom2d_BSplineCurve(@)",
     header: "Geom2d_BSplineCurve.hxx".}
-proc constructGeom2dBSplineCurve*(poles: TColgpArray1OfPnt2d;
-                                 weights: TColStdArray1OfReal;
-                                 knots: TColStdArray1OfReal;
-                                 multiplicities: TColStdArray1OfInteger;
-                                 degree: StandardInteger;
-                                 periodic: StandardBoolean = standardFalse): Geom2dBSplineCurve {.
+proc constructGeom2d_BSplineCurve*(Poles: TColgp_Array1OfPnt2d;
+                                  Weights: TColStd_Array1OfReal;
+                                  Knots: TColStd_Array1OfReal;
+                                  Multiplicities: TColStd_Array1OfInteger;
+                                  Degree: Standard_Integer;
+                                  Periodic: Standard_Boolean = Standard_False): Geom2d_BSplineCurve {.
     constructor, importcpp: "Geom2d_BSplineCurve(@)",
     header: "Geom2d_BSplineCurve.hxx".}
-proc increaseDegree*(this: var Geom2dBSplineCurve; degree: StandardInteger) {.
+proc IncreaseDegree*(this: var Geom2d_BSplineCurve; Degree: Standard_Integer) {.
     importcpp: "IncreaseDegree", header: "Geom2d_BSplineCurve.hxx".}
-proc increaseMultiplicity*(this: var Geom2dBSplineCurve; index: StandardInteger;
-                          m: StandardInteger) {.importcpp: "IncreaseMultiplicity",
-    header: "Geom2d_BSplineCurve.hxx".}
-proc increaseMultiplicity*(this: var Geom2dBSplineCurve; i1: StandardInteger;
-                          i2: StandardInteger; m: StandardInteger) {.
+proc IncreaseMultiplicity*(this: var Geom2d_BSplineCurve; Index: Standard_Integer;
+                          M: Standard_Integer) {.
     importcpp: "IncreaseMultiplicity", header: "Geom2d_BSplineCurve.hxx".}
-proc incrementMultiplicity*(this: var Geom2dBSplineCurve; i1: StandardInteger;
-                           i2: StandardInteger; m: StandardInteger) {.
+proc IncreaseMultiplicity*(this: var Geom2d_BSplineCurve; I1: Standard_Integer;
+                          I2: Standard_Integer; M: Standard_Integer) {.
+    importcpp: "IncreaseMultiplicity", header: "Geom2d_BSplineCurve.hxx".}
+proc IncrementMultiplicity*(this: var Geom2d_BSplineCurve; I1: Standard_Integer;
+                           I2: Standard_Integer; M: Standard_Integer) {.
     importcpp: "IncrementMultiplicity", header: "Geom2d_BSplineCurve.hxx".}
-proc insertKnot*(this: var Geom2dBSplineCurve; u: StandardReal;
-                m: StandardInteger = 1; parametricTolerance: StandardReal = 0.0) {.
+proc InsertKnot*(this: var Geom2d_BSplineCurve; U: Standard_Real;
+                M: Standard_Integer = 1; ParametricTolerance: Standard_Real = 0.0) {.
     importcpp: "InsertKnot", header: "Geom2d_BSplineCurve.hxx".}
-proc insertKnots*(this: var Geom2dBSplineCurve; knots: TColStdArray1OfReal;
-                 mults: TColStdArray1OfInteger;
-                 parametricTolerance: StandardReal = 0.0;
-                 add: StandardBoolean = standardFalse) {.importcpp: "InsertKnots",
+proc InsertKnots*(this: var Geom2d_BSplineCurve; Knots: TColStd_Array1OfReal;
+                 Mults: TColStd_Array1OfInteger;
+                 ParametricTolerance: Standard_Real = 0.0;
+                 Add: Standard_Boolean = Standard_False) {.importcpp: "InsertKnots",
     header: "Geom2d_BSplineCurve.hxx".}
-proc removeKnot*(this: var Geom2dBSplineCurve; index: StandardInteger;
-                m: StandardInteger; tolerance: StandardReal): StandardBoolean {.
+proc RemoveKnot*(this: var Geom2d_BSplineCurve; Index: Standard_Integer;
+                M: Standard_Integer; Tolerance: Standard_Real): Standard_Boolean {.
     importcpp: "RemoveKnot", header: "Geom2d_BSplineCurve.hxx".}
-proc insertPoleAfter*(this: var Geom2dBSplineCurve; index: StandardInteger;
-                     p: GpPnt2d; weight: StandardReal = 1.0) {.
+proc InsertPoleAfter*(this: var Geom2d_BSplineCurve; Index: Standard_Integer;
+                     P: gp_Pnt2d; Weight: Standard_Real = 1.0) {.
     importcpp: "InsertPoleAfter", header: "Geom2d_BSplineCurve.hxx".}
-proc insertPoleBefore*(this: var Geom2dBSplineCurve; index: StandardInteger;
-                      p: GpPnt2d; weight: StandardReal = 1.0) {.
+proc InsertPoleBefore*(this: var Geom2d_BSplineCurve; Index: Standard_Integer;
+                      P: gp_Pnt2d; Weight: Standard_Real = 1.0) {.
     importcpp: "InsertPoleBefore", header: "Geom2d_BSplineCurve.hxx".}
-proc removePole*(this: var Geom2dBSplineCurve; index: StandardInteger) {.
+proc RemovePole*(this: var Geom2d_BSplineCurve; Index: Standard_Integer) {.
     importcpp: "RemovePole", header: "Geom2d_BSplineCurve.hxx".}
-proc reverse*(this: var Geom2dBSplineCurve) {.importcpp: "Reverse",
+proc Reverse*(this: var Geom2d_BSplineCurve) {.importcpp: "Reverse",
     header: "Geom2d_BSplineCurve.hxx".}
-proc reversedParameter*(this: Geom2dBSplineCurve; u: StandardReal): StandardReal {.
+proc ReversedParameter*(this: Geom2d_BSplineCurve; U: Standard_Real): Standard_Real {.
     noSideEffect, importcpp: "ReversedParameter", header: "Geom2d_BSplineCurve.hxx".}
-proc segment*(this: var Geom2dBSplineCurve; u1: StandardReal; u2: StandardReal;
-             theTolerance: StandardReal = pConfusion()) {.importcpp: "Segment",
+proc Segment*(this: var Geom2d_BSplineCurve; U1: Standard_Real; U2: Standard_Real;
+             theTolerance: Standard_Real = PConfusion()) {.importcpp: "Segment",
     header: "Geom2d_BSplineCurve.hxx".}
-proc setKnot*(this: var Geom2dBSplineCurve; index: StandardInteger; k: StandardReal) {.
+proc SetKnot*(this: var Geom2d_BSplineCurve; Index: Standard_Integer; K: Standard_Real) {.
     importcpp: "SetKnot", header: "Geom2d_BSplineCurve.hxx".}
-proc setKnots*(this: var Geom2dBSplineCurve; k: TColStdArray1OfReal) {.
+proc SetKnots*(this: var Geom2d_BSplineCurve; K: TColStd_Array1OfReal) {.
     importcpp: "SetKnots", header: "Geom2d_BSplineCurve.hxx".}
-proc setKnot*(this: var Geom2dBSplineCurve; index: StandardInteger; k: StandardReal;
-             m: StandardInteger) {.importcpp: "SetKnot",
-                                 header: "Geom2d_BSplineCurve.hxx".}
-proc periodicNormalization*(this: Geom2dBSplineCurve; u: var StandardReal) {.
+proc SetKnot*(this: var Geom2d_BSplineCurve; Index: Standard_Integer;
+             K: Standard_Real; M: Standard_Integer) {.importcpp: "SetKnot",
+    header: "Geom2d_BSplineCurve.hxx".}
+proc PeriodicNormalization*(this: Geom2d_BSplineCurve; U: var Standard_Real) {.
     noSideEffect, importcpp: "PeriodicNormalization",
     header: "Geom2d_BSplineCurve.hxx".}
-proc setPeriodic*(this: var Geom2dBSplineCurve) {.importcpp: "SetPeriodic",
+proc SetPeriodic*(this: var Geom2d_BSplineCurve) {.importcpp: "SetPeriodic",
     header: "Geom2d_BSplineCurve.hxx".}
-proc setOrigin*(this: var Geom2dBSplineCurve; index: StandardInteger) {.
+proc SetOrigin*(this: var Geom2d_BSplineCurve; Index: Standard_Integer) {.
     importcpp: "SetOrigin", header: "Geom2d_BSplineCurve.hxx".}
-proc setNotPeriodic*(this: var Geom2dBSplineCurve) {.importcpp: "SetNotPeriodic",
+proc SetNotPeriodic*(this: var Geom2d_BSplineCurve) {.importcpp: "SetNotPeriodic",
     header: "Geom2d_BSplineCurve.hxx".}
-proc setPole*(this: var Geom2dBSplineCurve; index: StandardInteger; p: GpPnt2d) {.
+proc SetPole*(this: var Geom2d_BSplineCurve; Index: Standard_Integer; P: gp_Pnt2d) {.
     importcpp: "SetPole", header: "Geom2d_BSplineCurve.hxx".}
-proc setPole*(this: var Geom2dBSplineCurve; index: StandardInteger; p: GpPnt2d;
-             weight: StandardReal) {.importcpp: "SetPole",
-                                   header: "Geom2d_BSplineCurve.hxx".}
-proc setWeight*(this: var Geom2dBSplineCurve; index: StandardInteger;
-               weight: StandardReal) {.importcpp: "SetWeight",
-                                     header: "Geom2d_BSplineCurve.hxx".}
-proc movePoint*(this: var Geom2dBSplineCurve; u: StandardReal; p: GpPnt2d;
-               index1: StandardInteger; index2: StandardInteger;
-               firstModifiedPole: var StandardInteger;
-               lastModifiedPole: var StandardInteger) {.importcpp: "MovePoint",
-    header: "Geom2d_BSplineCurve.hxx".}
-proc movePointAndTangent*(this: var Geom2dBSplineCurve; u: StandardReal; p: GpPnt2d;
-                         tangent: GpVec2d; tolerance: StandardReal;
-                         startingCondition: StandardInteger;
-                         endingCondition: StandardInteger;
-                         errorStatus: var StandardInteger) {.
-    importcpp: "MovePointAndTangent", header: "Geom2d_BSplineCurve.hxx".}
-proc isCN*(this: Geom2dBSplineCurve; n: StandardInteger): StandardBoolean {.
-    noSideEffect, importcpp: "IsCN", header: "Geom2d_BSplineCurve.hxx".}
-proc isG1*(this: Geom2dBSplineCurve; theTf: StandardReal; theTl: StandardReal;
-          theAngTol: StandardReal): StandardBoolean {.noSideEffect,
-    importcpp: "IsG1", header: "Geom2d_BSplineCurve.hxx".}
-proc isClosed*(this: Geom2dBSplineCurve): StandardBoolean {.noSideEffect,
-    importcpp: "IsClosed", header: "Geom2d_BSplineCurve.hxx".}
-proc isPeriodic*(this: Geom2dBSplineCurve): StandardBoolean {.noSideEffect,
-    importcpp: "IsPeriodic", header: "Geom2d_BSplineCurve.hxx".}
-proc isRational*(this: Geom2dBSplineCurve): StandardBoolean {.noSideEffect,
-    importcpp: "IsRational", header: "Geom2d_BSplineCurve.hxx".}
-proc continuity*(this: Geom2dBSplineCurve): GeomAbsShape {.noSideEffect,
-    importcpp: "Continuity", header: "Geom2d_BSplineCurve.hxx".}
-proc degree*(this: Geom2dBSplineCurve): StandardInteger {.noSideEffect,
-    importcpp: "Degree", header: "Geom2d_BSplineCurve.hxx".}
-proc d0*(this: Geom2dBSplineCurve; u: StandardReal; p: var GpPnt2d) {.noSideEffect,
-    importcpp: "D0", header: "Geom2d_BSplineCurve.hxx".}
-proc d1*(this: Geom2dBSplineCurve; u: StandardReal; p: var GpPnt2d; v1: var GpVec2d) {.
-    noSideEffect, importcpp: "D1", header: "Geom2d_BSplineCurve.hxx".}
-proc d2*(this: Geom2dBSplineCurve; u: StandardReal; p: var GpPnt2d; v1: var GpVec2d;
-        v2: var GpVec2d) {.noSideEffect, importcpp: "D2",
-                        header: "Geom2d_BSplineCurve.hxx".}
-proc d3*(this: Geom2dBSplineCurve; u: StandardReal; p: var GpPnt2d; v1: var GpVec2d;
-        v2: var GpVec2d; v3: var GpVec2d) {.noSideEffect, importcpp: "D3",
+proc SetPole*(this: var Geom2d_BSplineCurve; Index: Standard_Integer; P: gp_Pnt2d;
+             Weight: Standard_Real) {.importcpp: "SetPole",
+                                    header: "Geom2d_BSplineCurve.hxx".}
+proc SetWeight*(this: var Geom2d_BSplineCurve; Index: Standard_Integer;
+               Weight: Standard_Real) {.importcpp: "SetWeight",
                                       header: "Geom2d_BSplineCurve.hxx".}
-proc dn*(this: Geom2dBSplineCurve; u: StandardReal; n: StandardInteger): GpVec2d {.
+proc MovePoint*(this: var Geom2d_BSplineCurve; U: Standard_Real; P: gp_Pnt2d;
+               Index1: Standard_Integer; Index2: Standard_Integer;
+               FirstModifiedPole: var Standard_Integer;
+               LastModifiedPole: var Standard_Integer) {.importcpp: "MovePoint",
+    header: "Geom2d_BSplineCurve.hxx".}
+proc MovePointAndTangent*(this: var Geom2d_BSplineCurve; U: Standard_Real;
+                         P: gp_Pnt2d; Tangent: gp_Vec2d; Tolerance: Standard_Real;
+                         StartingCondition: Standard_Integer;
+                         EndingCondition: Standard_Integer;
+                         ErrorStatus: var Standard_Integer) {.
+    importcpp: "MovePointAndTangent", header: "Geom2d_BSplineCurve.hxx".}
+proc IsCN*(this: Geom2d_BSplineCurve; N: Standard_Integer): Standard_Boolean {.
+    noSideEffect, importcpp: "IsCN", header: "Geom2d_BSplineCurve.hxx".}
+proc IsG1*(this: Geom2d_BSplineCurve; theTf: Standard_Real; theTl: Standard_Real;
+          theAngTol: Standard_Real): Standard_Boolean {.noSideEffect,
+    importcpp: "IsG1", header: "Geom2d_BSplineCurve.hxx".}
+proc IsClosed*(this: Geom2d_BSplineCurve): Standard_Boolean {.noSideEffect,
+    importcpp: "IsClosed", header: "Geom2d_BSplineCurve.hxx".}
+proc IsPeriodic*(this: Geom2d_BSplineCurve): Standard_Boolean {.noSideEffect,
+    importcpp: "IsPeriodic", header: "Geom2d_BSplineCurve.hxx".}
+proc IsRational*(this: Geom2d_BSplineCurve): Standard_Boolean {.noSideEffect,
+    importcpp: "IsRational", header: "Geom2d_BSplineCurve.hxx".}
+proc Continuity*(this: Geom2d_BSplineCurve): GeomAbs_Shape {.noSideEffect,
+    importcpp: "Continuity", header: "Geom2d_BSplineCurve.hxx".}
+proc Degree*(this: Geom2d_BSplineCurve): Standard_Integer {.noSideEffect,
+    importcpp: "Degree", header: "Geom2d_BSplineCurve.hxx".}
+proc D0*(this: Geom2d_BSplineCurve; U: Standard_Real; P: var gp_Pnt2d) {.noSideEffect,
+    importcpp: "D0", header: "Geom2d_BSplineCurve.hxx".}
+proc D1*(this: Geom2d_BSplineCurve; U: Standard_Real; P: var gp_Pnt2d; V1: var gp_Vec2d) {.
+    noSideEffect, importcpp: "D1", header: "Geom2d_BSplineCurve.hxx".}
+proc D2*(this: Geom2d_BSplineCurve; U: Standard_Real; P: var gp_Pnt2d; V1: var gp_Vec2d;
+        V2: var gp_Vec2d) {.noSideEffect, importcpp: "D2",
+                         header: "Geom2d_BSplineCurve.hxx".}
+proc D3*(this: Geom2d_BSplineCurve; U: Standard_Real; P: var gp_Pnt2d; V1: var gp_Vec2d;
+        V2: var gp_Vec2d; V3: var gp_Vec2d) {.noSideEffect, importcpp: "D3",
+                                        header: "Geom2d_BSplineCurve.hxx".}
+proc DN*(this: Geom2d_BSplineCurve; U: Standard_Real; N: Standard_Integer): gp_Vec2d {.
     noSideEffect, importcpp: "DN", header: "Geom2d_BSplineCurve.hxx".}
-proc localValue*(this: Geom2dBSplineCurve; u: StandardReal; fromK1: StandardInteger;
-                toK2: StandardInteger): GpPnt2d {.noSideEffect,
-    importcpp: "LocalValue", header: "Geom2d_BSplineCurve.hxx".}
-proc localD0*(this: Geom2dBSplineCurve; u: StandardReal; fromK1: StandardInteger;
-             toK2: StandardInteger; p: var GpPnt2d) {.noSideEffect,
+proc LocalValue*(this: Geom2d_BSplineCurve; U: Standard_Real;
+                FromK1: Standard_Integer; ToK2: Standard_Integer): gp_Pnt2d {.
+    noSideEffect, importcpp: "LocalValue", header: "Geom2d_BSplineCurve.hxx".}
+proc LocalD0*(this: Geom2d_BSplineCurve; U: Standard_Real; FromK1: Standard_Integer;
+             ToK2: Standard_Integer; P: var gp_Pnt2d) {.noSideEffect,
     importcpp: "LocalD0", header: "Geom2d_BSplineCurve.hxx".}
-proc localD1*(this: Geom2dBSplineCurve; u: StandardReal; fromK1: StandardInteger;
-             toK2: StandardInteger; p: var GpPnt2d; v1: var GpVec2d) {.noSideEffect,
+proc LocalD1*(this: Geom2d_BSplineCurve; U: Standard_Real; FromK1: Standard_Integer;
+             ToK2: Standard_Integer; P: var gp_Pnt2d; V1: var gp_Vec2d) {.noSideEffect,
     importcpp: "LocalD1", header: "Geom2d_BSplineCurve.hxx".}
-proc localD2*(this: Geom2dBSplineCurve; u: StandardReal; fromK1: StandardInteger;
-             toK2: StandardInteger; p: var GpPnt2d; v1: var GpVec2d; v2: var GpVec2d) {.
+proc LocalD2*(this: Geom2d_BSplineCurve; U: Standard_Real; FromK1: Standard_Integer;
+             ToK2: Standard_Integer; P: var gp_Pnt2d; V1: var gp_Vec2d; V2: var gp_Vec2d) {.
     noSideEffect, importcpp: "LocalD2", header: "Geom2d_BSplineCurve.hxx".}
-proc localD3*(this: Geom2dBSplineCurve; u: StandardReal; fromK1: StandardInteger;
-             toK2: StandardInteger; p: var GpPnt2d; v1: var GpVec2d; v2: var GpVec2d;
-             v3: var GpVec2d) {.noSideEffect, importcpp: "LocalD3",
-                             header: "Geom2d_BSplineCurve.hxx".}
-proc localDN*(this: Geom2dBSplineCurve; u: StandardReal; fromK1: StandardInteger;
-             toK2: StandardInteger; n: StandardInteger): GpVec2d {.noSideEffect,
+proc LocalD3*(this: Geom2d_BSplineCurve; U: Standard_Real; FromK1: Standard_Integer;
+             ToK2: Standard_Integer; P: var gp_Pnt2d; V1: var gp_Vec2d;
+             V2: var gp_Vec2d; V3: var gp_Vec2d) {.noSideEffect, importcpp: "LocalD3",
+    header: "Geom2d_BSplineCurve.hxx".}
+proc LocalDN*(this: Geom2d_BSplineCurve; U: Standard_Real; FromK1: Standard_Integer;
+             ToK2: Standard_Integer; N: Standard_Integer): gp_Vec2d {.noSideEffect,
     importcpp: "LocalDN", header: "Geom2d_BSplineCurve.hxx".}
-proc endPoint*(this: Geom2dBSplineCurve): GpPnt2d {.noSideEffect,
+proc EndPoint*(this: Geom2d_BSplineCurve): gp_Pnt2d {.noSideEffect,
     importcpp: "EndPoint", header: "Geom2d_BSplineCurve.hxx".}
-proc firstUKnotIndex*(this: Geom2dBSplineCurve): StandardInteger {.noSideEffect,
+proc FirstUKnotIndex*(this: Geom2d_BSplineCurve): Standard_Integer {.noSideEffect,
     importcpp: "FirstUKnotIndex", header: "Geom2d_BSplineCurve.hxx".}
-proc firstParameter*(this: Geom2dBSplineCurve): StandardReal {.noSideEffect,
+proc FirstParameter*(this: Geom2d_BSplineCurve): Standard_Real {.noSideEffect,
     importcpp: "FirstParameter", header: "Geom2d_BSplineCurve.hxx".}
-proc knot*(this: Geom2dBSplineCurve; index: StandardInteger): StandardReal {.
+proc Knot*(this: Geom2d_BSplineCurve; Index: Standard_Integer): Standard_Real {.
     noSideEffect, importcpp: "Knot", header: "Geom2d_BSplineCurve.hxx".}
-proc knots*(this: Geom2dBSplineCurve; k: var TColStdArray1OfReal) {.noSideEffect,
+proc Knots*(this: Geom2d_BSplineCurve; K: var TColStd_Array1OfReal) {.noSideEffect,
     importcpp: "Knots", header: "Geom2d_BSplineCurve.hxx".}
-proc knots*(this: Geom2dBSplineCurve): TColStdArray1OfReal {.noSideEffect,
+proc Knots*(this: Geom2d_BSplineCurve): TColStd_Array1OfReal {.noSideEffect,
     importcpp: "Knots", header: "Geom2d_BSplineCurve.hxx".}
-proc knotSequence*(this: Geom2dBSplineCurve; k: var TColStdArray1OfReal) {.
+proc KnotSequence*(this: Geom2d_BSplineCurve; K: var TColStd_Array1OfReal) {.
     noSideEffect, importcpp: "KnotSequence", header: "Geom2d_BSplineCurve.hxx".}
-proc knotSequence*(this: Geom2dBSplineCurve): TColStdArray1OfReal {.noSideEffect,
+proc KnotSequence*(this: Geom2d_BSplineCurve): TColStd_Array1OfReal {.noSideEffect,
     importcpp: "KnotSequence", header: "Geom2d_BSplineCurve.hxx".}
-proc knotDistribution*(this: Geom2dBSplineCurve): GeomAbsBSplKnotDistribution {.
+proc KnotDistribution*(this: Geom2d_BSplineCurve): GeomAbs_BSplKnotDistribution {.
     noSideEffect, importcpp: "KnotDistribution", header: "Geom2d_BSplineCurve.hxx".}
-proc lastUKnotIndex*(this: Geom2dBSplineCurve): StandardInteger {.noSideEffect,
+proc LastUKnotIndex*(this: Geom2d_BSplineCurve): Standard_Integer {.noSideEffect,
     importcpp: "LastUKnotIndex", header: "Geom2d_BSplineCurve.hxx".}
-proc lastParameter*(this: Geom2dBSplineCurve): StandardReal {.noSideEffect,
+proc LastParameter*(this: Geom2d_BSplineCurve): Standard_Real {.noSideEffect,
     importcpp: "LastParameter", header: "Geom2d_BSplineCurve.hxx".}
-proc locateU*(this: Geom2dBSplineCurve; u: StandardReal;
-             parametricTolerance: StandardReal; i1: var StandardInteger;
-             i2: var StandardInteger;
-             withKnotRepetition: StandardBoolean = standardFalse) {.noSideEffect,
+proc LocateU*(this: Geom2d_BSplineCurve; U: Standard_Real;
+             ParametricTolerance: Standard_Real; I1: var Standard_Integer;
+             I2: var Standard_Integer;
+             WithKnotRepetition: Standard_Boolean = Standard_False) {.noSideEffect,
     importcpp: "LocateU", header: "Geom2d_BSplineCurve.hxx".}
-proc multiplicity*(this: Geom2dBSplineCurve; index: StandardInteger): StandardInteger {.
+proc Multiplicity*(this: Geom2d_BSplineCurve; Index: Standard_Integer): Standard_Integer {.
     noSideEffect, importcpp: "Multiplicity", header: "Geom2d_BSplineCurve.hxx".}
-proc multiplicities*(this: Geom2dBSplineCurve; m: var TColStdArray1OfInteger) {.
+proc Multiplicities*(this: Geom2d_BSplineCurve; M: var TColStd_Array1OfInteger) {.
     noSideEffect, importcpp: "Multiplicities", header: "Geom2d_BSplineCurve.hxx".}
-proc multiplicities*(this: Geom2dBSplineCurve): TColStdArray1OfInteger {.
+proc Multiplicities*(this: Geom2d_BSplineCurve): TColStd_Array1OfInteger {.
     noSideEffect, importcpp: "Multiplicities", header: "Geom2d_BSplineCurve.hxx".}
-proc nbKnots*(this: Geom2dBSplineCurve): StandardInteger {.noSideEffect,
+proc NbKnots*(this: Geom2d_BSplineCurve): Standard_Integer {.noSideEffect,
     importcpp: "NbKnots", header: "Geom2d_BSplineCurve.hxx".}
-proc nbPoles*(this: Geom2dBSplineCurve): StandardInteger {.noSideEffect,
+proc NbPoles*(this: Geom2d_BSplineCurve): Standard_Integer {.noSideEffect,
     importcpp: "NbPoles", header: "Geom2d_BSplineCurve.hxx".}
-proc pole*(this: Geom2dBSplineCurve; index: StandardInteger): GpPnt2d {.noSideEffect,
-    importcpp: "Pole", header: "Geom2d_BSplineCurve.hxx".}
-proc poles*(this: Geom2dBSplineCurve; p: var TColgpArray1OfPnt2d) {.noSideEffect,
+proc Pole*(this: Geom2d_BSplineCurve; Index: Standard_Integer): gp_Pnt2d {.
+    noSideEffect, importcpp: "Pole", header: "Geom2d_BSplineCurve.hxx".}
+proc Poles*(this: Geom2d_BSplineCurve; P: var TColgp_Array1OfPnt2d) {.noSideEffect,
     importcpp: "Poles", header: "Geom2d_BSplineCurve.hxx".}
-proc poles*(this: Geom2dBSplineCurve): TColgpArray1OfPnt2d {.noSideEffect,
+proc Poles*(this: Geom2d_BSplineCurve): TColgp_Array1OfPnt2d {.noSideEffect,
     importcpp: "Poles", header: "Geom2d_BSplineCurve.hxx".}
-proc startPoint*(this: Geom2dBSplineCurve): GpPnt2d {.noSideEffect,
+proc StartPoint*(this: Geom2d_BSplineCurve): gp_Pnt2d {.noSideEffect,
     importcpp: "StartPoint", header: "Geom2d_BSplineCurve.hxx".}
-proc weight*(this: Geom2dBSplineCurve; index: StandardInteger): StandardReal {.
+proc Weight*(this: Geom2d_BSplineCurve; Index: Standard_Integer): Standard_Real {.
     noSideEffect, importcpp: "Weight", header: "Geom2d_BSplineCurve.hxx".}
-proc weights*(this: Geom2dBSplineCurve; w: var TColStdArray1OfReal) {.noSideEffect,
+proc Weights*(this: Geom2d_BSplineCurve; W: var TColStd_Array1OfReal) {.noSideEffect,
     importcpp: "Weights", header: "Geom2d_BSplineCurve.hxx".}
-proc weights*(this: Geom2dBSplineCurve): ptr TColStdArray1OfReal {.noSideEffect,
+proc Weights*(this: Geom2d_BSplineCurve): ptr TColStd_Array1OfReal {.noSideEffect,
     importcpp: "Weights", header: "Geom2d_BSplineCurve.hxx".}
-proc transform*(this: var Geom2dBSplineCurve; t: GpTrsf2d) {.importcpp: "Transform",
+proc Transform*(this: var Geom2d_BSplineCurve; T: gp_Trsf2d) {.importcpp: "Transform",
     header: "Geom2d_BSplineCurve.hxx".}
-proc maxDegree*(): StandardInteger {.importcpp: "Geom2d_BSplineCurve::MaxDegree(@)",
-                                  header: "Geom2d_BSplineCurve.hxx".}
-proc resolution*(this: var Geom2dBSplineCurve; toleranceUV: StandardReal;
-                uTolerance: var StandardReal) {.importcpp: "Resolution",
+proc MaxDegree*(): Standard_Integer {.importcpp: "Geom2d_BSplineCurve::MaxDegree(@)",
+                                   header: "Geom2d_BSplineCurve.hxx".}
+proc Resolution*(this: var Geom2d_BSplineCurve; ToleranceUV: Standard_Real;
+                UTolerance: var Standard_Real) {.importcpp: "Resolution",
     header: "Geom2d_BSplineCurve.hxx".}
-proc copy*(this: Geom2dBSplineCurve): Handle[Geom2dGeometry] {.noSideEffect,
+proc Copy*(this: Geom2d_BSplineCurve): handle[Geom2d_Geometry] {.noSideEffect,
     importcpp: "Copy", header: "Geom2d_BSplineCurve.hxx".}
-proc dumpJson*(this: Geom2dBSplineCurve; theOStream: var StandardOStream;
-              theDepth: StandardInteger = -1) {.noSideEffect, importcpp: "DumpJson",
+proc DumpJson*(this: Geom2d_BSplineCurve; theOStream: var Standard_OStream;
+              theDepth: Standard_Integer = -1) {.noSideEffect, importcpp: "DumpJson",
     header: "Geom2d_BSplineCurve.hxx".}
 type
-  Geom2dBSplineCurvebaseType* = Geom2dBoundedCurve
+  Geom2d_BSplineCurvebase_type* = Geom2d_BoundedCurve
 
-proc getTypeName*(): cstring {.importcpp: "Geom2d_BSplineCurve::get_type_name(@)",
-                            header: "Geom2d_BSplineCurve.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "Geom2d_BSplineCurve::get_type_name(@)",
+                              header: "Geom2d_BSplineCurve.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "Geom2d_BSplineCurve::get_type_descriptor(@)",
     header: "Geom2d_BSplineCurve.hxx".}
-proc dynamicType*(this: Geom2dBSplineCurve): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: Geom2d_BSplineCurve): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "Geom2d_BSplineCurve.hxx".}
-

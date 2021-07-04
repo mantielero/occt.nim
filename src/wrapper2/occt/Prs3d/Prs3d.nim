@@ -14,30 +14,34 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Bnd/Bnd_Box, ../Graphic3d/Graphic3d_ArrayOfPrimitives,
+  ../Standard/Standard_DefineAlloc, Prs3d_Drawer, Prs3d_NListOfSequenceOfPnt,
+  Prs3d_Presentation
+
 discard "forward decl of Poly_Triangulation"
 type
   Prs3d* {.importcpp: "Prs3d", header: "Prs3d.hxx", bycopy.} = object ## ! draws an arrow at a given location, with respect
                                                               ## ! to a given direction.
 
 
-proc matchSegment*(x: StandardReal; y: StandardReal; z: StandardReal;
-                  aDistance: StandardReal; p1: GpPnt; p2: GpPnt;
-                  dist: var StandardReal): StandardBoolean {.
+proc MatchSegment*(X: Standard_Real; Y: Standard_Real; Z: Standard_Real;
+                  aDistance: Standard_Real; p1: gp_Pnt; p2: gp_Pnt;
+                  dist: var Standard_Real): Standard_Boolean {.
     importcpp: "Prs3d::MatchSegment(@)", header: "Prs3d.hxx".}
-proc getDeflection*(theBndMin: Graphic3dVec3d; theBndMax: Graphic3dVec3d;
-                   theDeviationCoefficient: StandardReal): StandardReal {.
+proc GetDeflection*(theBndMin: Graphic3d_Vec3d; theBndMax: Graphic3d_Vec3d;
+                   theDeviationCoefficient: Standard_Real): Standard_Real {.
     importcpp: "Prs3d::GetDeflection(@)", header: "Prs3d.hxx".}
-proc getDeflection*(theBndBox: BndBox; theDeviationCoefficient: StandardReal;
-                   theMaximalChordialDeviation: StandardReal): StandardReal {.
+proc GetDeflection*(theBndBox: Bnd_Box; theDeviationCoefficient: Standard_Real;
+                   theMaximalChordialDeviation: Standard_Real): Standard_Real {.
     importcpp: "Prs3d::GetDeflection(@)", header: "Prs3d.hxx".}
-proc primitivesFromPolylines*(thePoints: Prs3dNListOfSequenceOfPnt): Handle[
-    Graphic3dArrayOfPrimitives] {.importcpp: "Prs3d::PrimitivesFromPolylines(@)",
-                                 header: "Prs3d.hxx".}
-proc addPrimitivesGroup*(thePrs: Handle[Prs3dPresentation];
-                        theAspect: Handle[Prs3dLineAspect];
-                        thePolylines: var Prs3dNListOfSequenceOfPnt) {.
+proc PrimitivesFromPolylines*(thePoints: Prs3d_NListOfSequenceOfPnt): handle[
+    Graphic3d_ArrayOfPrimitives] {.importcpp: "Prs3d::PrimitivesFromPolylines(@)",
+                                  header: "Prs3d.hxx".}
+proc AddPrimitivesGroup*(thePrs: handle[Prs3d_Presentation];
+                        theAspect: handle[Prs3d_LineAspect];
+                        thePolylines: var Prs3d_NListOfSequenceOfPnt) {.
     importcpp: "Prs3d::AddPrimitivesGroup(@)", header: "Prs3d.hxx".}
-proc addFreeEdges*(theSegments: var TColgpSequenceOfPnt;
-                  thePolyTri: Handle[PolyTriangulation]; theLocation: GpTrsf) {.
+proc AddFreeEdges*(theSegments: var TColgp_SequenceOfPnt;
+                  thePolyTri: handle[Poly_Triangulation]; theLocation: gp_Trsf) {.
     importcpp: "Prs3d::AddFreeEdges(@)", header: "Prs3d.hxx".}
-

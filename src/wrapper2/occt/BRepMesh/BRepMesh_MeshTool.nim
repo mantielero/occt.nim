@@ -13,99 +13,106 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard_Transient, ../Standard/Standard_DefineHandle,
+  BRepMesh_DataStructureOfDelaun, BRepMesh_CircleTool, ../gp/gp_Lin2d,
+  ../IMeshData/IMeshData_Types, BRepMesh_Edge
+
 ## ! Auxiliary tool providing API for manipulation with BRepMesh_DataStructureOfDelaun.
 
 type
-  BRepMeshMeshTool* {.importcpp: "BRepMesh_MeshTool",
-                     header: "BRepMesh_MeshTool.hxx", bycopy.} = object of StandardTransient ##
-                                                                                      ## !
-                                                                                      ## Helper
-                                                                                      ## functor
-                                                                                      ## intended
-                                                                                      ## to
-                                                                                      ## separate
-                                                                                      ## points
-                                                                                      ## to
-                                                                                      ## left
-                                                                                      ## and
-                                                                                      ## right
-                                                                                      ## from
-                                                                                      ## the
-                                                                                      ## constraint.
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## Returns
-                                                                                      ## True
-                                                                                      ## if
-                                                                                      ## the
-                                                                                      ## given
-                                                                                      ## point
-                                                                                      ## lies
-                                                                                      ## within
-                                                                                      ## circumcircle
-                                                                                      ## of
-                                                                                      ## the
-                                                                                      ## given
-                                                                                      ## triangle.
+  BRepMesh_MeshTool* {.importcpp: "BRepMesh_MeshTool",
+                      header: "BRepMesh_MeshTool.hxx", bycopy.} = object of Standard_Transient ##
+                                                                                        ## !
+                                                                                        ## Helper
+                                                                                        ## functor
+                                                                                        ## intended
+                                                                                        ## to
+                                                                                        ## separate
+                                                                                        ## points
+                                                                                        ## to
+                                                                                        ## left
+                                                                                        ## and
+                                                                                        ## right
+                                                                                        ## from
+                                                                                        ## the
+                                                                                        ## constraint.
+                                                                                        ##
+                                                                                        ## !
+                                                                                        ## Returns
+                                                                                        ## True
+                                                                                        ## if
+                                                                                        ## the
+                                                                                        ## given
+                                                                                        ## point
+                                                                                        ## lies
+                                                                                        ## within
+                                                                                        ## circumcircle
+                                                                                        ## of
+                                                                                        ## the
+                                                                                        ## given
+                                                                                        ## triangle.
 
-  BRepMeshMeshToolNodeClassifier* {.importcpp: "BRepMesh_MeshTool::NodeClassifier",
-                                   header: "BRepMesh_MeshTool.hxx", bycopy.} = object
+  BRepMesh_MeshToolNodeClassifier* {.importcpp: "BRepMesh_MeshTool::NodeClassifier",
+                                    header: "BRepMesh_MeshTool.hxx", bycopy.} = object
 
 
-proc constructBRepMeshMeshToolNodeClassifier*(theConstraint: BRepMeshEdge;
-    theStructure: Handle[BRepMeshDataStructureOfDelaun]): BRepMeshMeshToolNodeClassifier {.
+proc constructBRepMesh_MeshToolNodeClassifier*(theConstraint: BRepMesh_Edge;
+    theStructure: handle[BRepMesh_DataStructureOfDelaun]): BRepMesh_MeshToolNodeClassifier {.
     constructor, importcpp: "BRepMesh_MeshTool::NodeClassifier(@)",
     header: "BRepMesh_MeshTool.hxx".}
-proc isAbove*(this: BRepMeshMeshToolNodeClassifier; theNodeIndex: StandardInteger): StandardBoolean {.
+proc IsAbove*(this: BRepMesh_MeshToolNodeClassifier; theNodeIndex: Standard_Integer): Standard_Boolean {.
     noSideEffect, importcpp: "IsAbove", header: "BRepMesh_MeshTool.hxx".}
-proc constructBRepMeshMeshTool*(theStructure: Handle[BRepMeshDataStructureOfDelaun]): BRepMeshMeshTool {.
-    constructor, importcpp: "BRepMesh_MeshTool(@)", header: "BRepMesh_MeshTool.hxx".}
-proc destroyBRepMeshMeshTool*(this: var BRepMeshMeshTool) {.
+proc constructBRepMesh_MeshTool*(theStructure: handle[
+    BRepMesh_DataStructureOfDelaun]): BRepMesh_MeshTool {.constructor,
+    importcpp: "BRepMesh_MeshTool(@)", header: "BRepMesh_MeshTool.hxx".}
+proc destroyBRepMesh_MeshTool*(this: var BRepMesh_MeshTool) {.
     importcpp: "#.~BRepMesh_MeshTool()", header: "BRepMesh_MeshTool.hxx".}
-proc getStructure*(this: BRepMeshMeshTool): Handle[BRepMeshDataStructureOfDelaun] {.
+proc GetStructure*(this: BRepMesh_MeshTool): handle[BRepMesh_DataStructureOfDelaun] {.
     noSideEffect, importcpp: "GetStructure", header: "BRepMesh_MeshTool.hxx".}
-proc dumpTriangles*(this: var BRepMeshMeshTool; theFileName: StandardCString;
+proc DumpTriangles*(this: var BRepMesh_MeshTool; theFileName: Standard_CString;
                    theTriangles: ptr MapOfInteger) {.importcpp: "DumpTriangles",
     header: "BRepMesh_MeshTool.hxx".}
-proc addAndLegalizeTriangle*(this: var BRepMeshMeshTool; thePoint1: StandardInteger;
-                            thePoint2: StandardInteger; thePoint3: StandardInteger) {.
+proc AddAndLegalizeTriangle*(this: var BRepMesh_MeshTool;
+                            thePoint1: Standard_Integer;
+                            thePoint2: Standard_Integer;
+                            thePoint3: Standard_Integer) {.
     importcpp: "AddAndLegalizeTriangle", header: "BRepMesh_MeshTool.hxx".}
-proc addTriangle*(this: var BRepMeshMeshTool; thePoint1: StandardInteger;
-                 thePoint2: StandardInteger; thePoint3: StandardInteger;
-                 theEdges: array[3, StandardInteger]) {.importcpp: "AddTriangle",
+proc AddTriangle*(this: var BRepMesh_MeshTool; thePoint1: Standard_Integer;
+                 thePoint2: Standard_Integer; thePoint3: Standard_Integer;
+                 theEdges: array[3, Standard_Integer]) {.importcpp: "AddTriangle",
     header: "BRepMesh_MeshTool.hxx".}
-proc addLink*(this: var BRepMeshMeshTool; theFirstNode: StandardInteger;
-             theLastNode: StandardInteger; theLinkIndex: var StandardInteger;
-             theLinkOri: var StandardBoolean) {.importcpp: "AddLink",
+proc AddLink*(this: var BRepMesh_MeshTool; theFirstNode: Standard_Integer;
+             theLastNode: Standard_Integer; theLinkIndex: var Standard_Integer;
+             theLinkOri: var Standard_Boolean) {.importcpp: "AddLink",
     header: "BRepMesh_MeshTool.hxx".}
-proc legalize*(this: var BRepMeshMeshTool; theLinkIndex: StandardInteger) {.
+proc Legalize*(this: var BRepMesh_MeshTool; theLinkIndex: Standard_Integer) {.
     importcpp: "Legalize", header: "BRepMesh_MeshTool.hxx".}
-proc eraseItemsConnectedTo*(this: var BRepMeshMeshTool;
-                           theNodeIndex: StandardInteger) {.
+proc EraseItemsConnectedTo*(this: var BRepMesh_MeshTool;
+                           theNodeIndex: Standard_Integer) {.
     importcpp: "EraseItemsConnectedTo", header: "BRepMesh_MeshTool.hxx".}
-proc cleanFrontierLinks*(this: var BRepMeshMeshTool) {.
+proc CleanFrontierLinks*(this: var BRepMesh_MeshTool) {.
     importcpp: "CleanFrontierLinks", header: "BRepMesh_MeshTool.hxx".}
-proc eraseTriangles*(this: var BRepMeshMeshTool; theTriangles: MapOfInteger;
+proc EraseTriangles*(this: var BRepMesh_MeshTool; theTriangles: MapOfInteger;
                     theLoopEdges: var MapOfIntegerInteger) {.
     importcpp: "EraseTriangles", header: "BRepMesh_MeshTool.hxx".}
-proc eraseTriangle*(this: var BRepMeshMeshTool; theTriangleIndex: StandardInteger;
+proc EraseTriangle*(this: var BRepMesh_MeshTool; theTriangleIndex: Standard_Integer;
                    theLoopEdges: var MapOfIntegerInteger) {.
     importcpp: "EraseTriangle", header: "BRepMesh_MeshTool.hxx".}
-proc eraseFreeLinks*(this: var BRepMeshMeshTool) {.importcpp: "EraseFreeLinks",
+proc EraseFreeLinks*(this: var BRepMesh_MeshTool) {.importcpp: "EraseFreeLinks",
     header: "BRepMesh_MeshTool.hxx".}
-proc eraseFreeLinks*(this: var BRepMeshMeshTool; theLinks: MapOfIntegerInteger) {.
+proc EraseFreeLinks*(this: var BRepMesh_MeshTool; theLinks: MapOfIntegerInteger) {.
     importcpp: "EraseFreeLinks", header: "BRepMesh_MeshTool.hxx".}
-proc getEdgesByType*(this: BRepMeshMeshTool; theEdgeType: BRepMeshDegreeOfFreedom): Handle[
+proc GetEdgesByType*(this: BRepMesh_MeshTool; theEdgeType: BRepMesh_DegreeOfFreedom): handle[
     MapOfInteger] {.noSideEffect, importcpp: "GetEdgesByType",
                    header: "BRepMesh_MeshTool.hxx".}
 type
-  BRepMeshMeshToolbaseType* = StandardTransient
+  BRepMesh_MeshToolbase_type* = Standard_Transient
 
-proc getTypeName*(): cstring {.importcpp: "BRepMesh_MeshTool::get_type_name(@)",
-                            header: "BRepMesh_MeshTool.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "BRepMesh_MeshTool::get_type_name(@)",
+                              header: "BRepMesh_MeshTool.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "BRepMesh_MeshTool::get_type_descriptor(@)",
     header: "BRepMesh_MeshTool.hxx".}
-proc dynamicType*(this: BRepMeshMeshTool): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: BRepMesh_MeshTool): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "BRepMesh_MeshTool.hxx".}
-

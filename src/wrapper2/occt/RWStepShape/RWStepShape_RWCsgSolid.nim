@@ -14,26 +14,29 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepShape_CsgSolid"
 discard "forward decl of StepData_StepWriter"
 discard "forward decl of Interface_EntityIterator"
 type
-  RWStepShapeRWCsgSolid* {.importcpp: "RWStepShape_RWCsgSolid",
-                          header: "RWStepShape_RWCsgSolid.hxx", bycopy.} = object
+  RWStepShape_RWCsgSolid* {.importcpp: "RWStepShape_RWCsgSolid",
+                           header: "RWStepShape_RWCsgSolid.hxx", bycopy.} = object
 
 
-proc constructRWStepShapeRWCsgSolid*(): RWStepShapeRWCsgSolid {.constructor,
+proc constructRWStepShape_RWCsgSolid*(): RWStepShape_RWCsgSolid {.constructor,
     importcpp: "RWStepShape_RWCsgSolid(@)", header: "RWStepShape_RWCsgSolid.hxx".}
-proc readStep*(this: RWStepShapeRWCsgSolid; data: Handle[StepDataStepReaderData];
-              num: StandardInteger; ach: var Handle[InterfaceCheck];
-              ent: Handle[StepShapeCsgSolid]) {.noSideEffect,
+proc ReadStep*(this: RWStepShape_RWCsgSolid; data: handle[StepData_StepReaderData];
+              num: Standard_Integer; ach: var handle[Interface_Check];
+              ent: handle[StepShape_CsgSolid]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepShape_RWCsgSolid.hxx".}
-proc writeStep*(this: RWStepShapeRWCsgSolid; sw: var StepDataStepWriter;
-               ent: Handle[StepShapeCsgSolid]) {.noSideEffect,
+proc WriteStep*(this: RWStepShape_RWCsgSolid; SW: var StepData_StepWriter;
+               ent: handle[StepShape_CsgSolid]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepShape_RWCsgSolid.hxx".}
-proc share*(this: RWStepShapeRWCsgSolid; ent: Handle[StepShapeCsgSolid];
-           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
+proc Share*(this: RWStepShape_RWCsgSolid; ent: handle[StepShape_CsgSolid];
+           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepShape_RWCsgSolid.hxx".}
-

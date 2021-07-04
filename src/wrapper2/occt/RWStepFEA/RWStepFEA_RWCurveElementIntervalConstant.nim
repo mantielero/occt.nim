@@ -13,6 +13,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepFEA_CurveElementIntervalConstant"
@@ -28,17 +32,16 @@ type
 proc constructRWStepFEA_RWCurveElementIntervalConstant*(): RWStepFEA_RWCurveElementIntervalConstant {.
     constructor, importcpp: "RWStepFEA_RWCurveElementIntervalConstant(@)",
     header: "RWStepFEA_RWCurveElementIntervalConstant.hxx".}
-proc readStep*(this: RWStepFEA_RWCurveElementIntervalConstant;
-              data: Handle[StepDataStepReaderData]; num: StandardInteger;
-              ach: var Handle[InterfaceCheck];
-              ent: Handle[StepFEA_CurveElementIntervalConstant]) {.noSideEffect,
+proc ReadStep*(this: RWStepFEA_RWCurveElementIntervalConstant;
+              data: handle[StepData_StepReaderData]; num: Standard_Integer;
+              ach: var handle[Interface_Check];
+              ent: handle[StepFEA_CurveElementIntervalConstant]) {.noSideEffect,
     importcpp: "ReadStep", header: "RWStepFEA_RWCurveElementIntervalConstant.hxx".}
-proc writeStep*(this: RWStepFEA_RWCurveElementIntervalConstant;
-               sw: var StepDataStepWriter;
-               ent: Handle[StepFEA_CurveElementIntervalConstant]) {.noSideEffect,
+proc WriteStep*(this: RWStepFEA_RWCurveElementIntervalConstant;
+               SW: var StepData_StepWriter;
+               ent: handle[StepFEA_CurveElementIntervalConstant]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepFEA_RWCurveElementIntervalConstant.hxx".}
-proc share*(this: RWStepFEA_RWCurveElementIntervalConstant;
-           ent: Handle[StepFEA_CurveElementIntervalConstant];
-           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
+proc Share*(this: RWStepFEA_RWCurveElementIntervalConstant;
+           ent: handle[StepFEA_CurveElementIntervalConstant];
+           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepFEA_RWCurveElementIntervalConstant.hxx".}
-

@@ -14,6 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Integer,
+  IFSelect_SelectDeduct, ../Standard/Standard_Boolean
+
 discard "forward decl of Interface_EntityIterator"
 discard "forward decl of Interface_Graph"
 discard "forward decl of Standard_Transient"
@@ -21,7 +25,7 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of IFSelect_SelectExplore"
 discard "forward decl of IFSelect_SelectExplore"
 type
-  HandleIFSelectSelectExplore* = Handle[IFSelectSelectExplore]
+  Handle_IFSelect_SelectExplore* = handle[IFSelect_SelectExplore]
 
 ## ! A SelectExplore determines from an input list of Entities,
 ## ! a list obtained by a way of exploration. This implies the
@@ -42,61 +46,60 @@ type
 ## ! until all entities have been either taken or rejected
 
 type
-  IFSelectSelectExplore* {.importcpp: "IFSelect_SelectExplore",
-                          header: "IFSelect_SelectExplore.hxx", bycopy.} = object of IFSelectSelectDeduct ##
-                                                                                                   ## !
-                                                                                                   ## Returns
-                                                                                                   ## the
-                                                                                                   ## required
-                                                                                                   ## exploring
-                                                                                                   ## level
-                                                                                                   ##
-                                                                                                   ## !
-                                                                                                   ## Initializes
-                                                                                                   ## a
-                                                                                                   ## SelectExplore
-                                                                                                   ## :
-                                                                                                   ## the
-                                                                                                   ## level
-                                                                                                   ## must
-                                                                                                   ## be
-                                                                                                   ## specified
-                                                                                                   ## on
-                                                                                                   ##
-                                                                                                   ## !
-                                                                                                   ## starting.
-                                                                                                   ## 0
-                                                                                                   ## means
-                                                                                                   ## all
-                                                                                                   ## levels,
-                                                                                                   ## 1
-                                                                                                   ## means
-                                                                                                   ## level
-                                                                                                   ## one
-                                                                                                   ## only,
-                                                                                                   ## etc...
+  IFSelect_SelectExplore* {.importcpp: "IFSelect_SelectExplore",
+                           header: "IFSelect_SelectExplore.hxx", bycopy.} = object of IFSelect_SelectDeduct ##
+                                                                                                     ## !
+                                                                                                     ## Returns
+                                                                                                     ## the
+                                                                                                     ## required
+                                                                                                     ## exploring
+                                                                                                     ## level
+                                                                                                     ##
+                                                                                                     ## !
+                                                                                                     ## Initializes
+                                                                                                     ## a
+                                                                                                     ## SelectExplore
+                                                                                                     ## :
+                                                                                                     ## the
+                                                                                                     ## level
+                                                                                                     ## must
+                                                                                                     ## be
+                                                                                                     ## specified
+                                                                                                     ## on
+                                                                                                     ##
+                                                                                                     ## !
+                                                                                                     ## starting.
+                                                                                                     ## 0
+                                                                                                     ## means
+                                                                                                     ## all
+                                                                                                     ## levels,
+                                                                                                     ## 1
+                                                                                                     ## means
+                                                                                                     ## level
+                                                                                                     ## one
+                                                                                                     ## only,
+                                                                                                     ## etc...
 
 
-proc level*(this: IFSelectSelectExplore): StandardInteger {.noSideEffect,
+proc Level*(this: IFSelect_SelectExplore): Standard_Integer {.noSideEffect,
     importcpp: "Level", header: "IFSelect_SelectExplore.hxx".}
-proc rootResult*(this: IFSelectSelectExplore; g: InterfaceGraph): InterfaceEntityIterator {.
+proc RootResult*(this: IFSelect_SelectExplore; G: Interface_Graph): Interface_EntityIterator {.
     noSideEffect, importcpp: "RootResult", header: "IFSelect_SelectExplore.hxx".}
-proc explore*(this: IFSelectSelectExplore; level: StandardInteger;
-             ent: Handle[StandardTransient]; g: InterfaceGraph;
-             explored: var InterfaceEntityIterator): StandardBoolean {.noSideEffect,
-    importcpp: "Explore", header: "IFSelect_SelectExplore.hxx".}
-proc label*(this: IFSelectSelectExplore): TCollectionAsciiString {.noSideEffect,
+proc Explore*(this: IFSelect_SelectExplore; level: Standard_Integer;
+             ent: handle[Standard_Transient]; G: Interface_Graph;
+             explored: var Interface_EntityIterator): Standard_Boolean {.
+    noSideEffect, importcpp: "Explore", header: "IFSelect_SelectExplore.hxx".}
+proc Label*(this: IFSelect_SelectExplore): TCollection_AsciiString {.noSideEffect,
     importcpp: "Label", header: "IFSelect_SelectExplore.hxx".}
-proc exploreLabel*(this: IFSelectSelectExplore): TCollectionAsciiString {.
+proc ExploreLabel*(this: IFSelect_SelectExplore): TCollection_AsciiString {.
     noSideEffect, importcpp: "ExploreLabel", header: "IFSelect_SelectExplore.hxx".}
 type
-  IFSelectSelectExplorebaseType* = IFSelectSelectDeduct
+  IFSelect_SelectExplorebase_type* = IFSelect_SelectDeduct
 
-proc getTypeName*(): cstring {.importcpp: "IFSelect_SelectExplore::get_type_name(@)",
-                            header: "IFSelect_SelectExplore.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "IFSelect_SelectExplore::get_type_name(@)",
+                              header: "IFSelect_SelectExplore.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "IFSelect_SelectExplore::get_type_descriptor(@)",
     header: "IFSelect_SelectExplore.hxx".}
-proc dynamicType*(this: IFSelectSelectExplore): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "IFSelect_SelectExplore.hxx".}
-
+proc DynamicType*(this: IFSelect_SelectExplore): handle[Standard_Type] {.
+    noSideEffect, importcpp: "DynamicType", header: "IFSelect_SelectExplore.hxx".}

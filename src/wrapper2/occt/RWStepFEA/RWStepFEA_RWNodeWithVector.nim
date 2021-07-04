@@ -13,6 +13,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepFEA_NodeWithVector"
@@ -29,14 +33,13 @@ type
 proc constructRWStepFEA_RWNodeWithVector*(): RWStepFEA_RWNodeWithVector {.
     constructor, importcpp: "RWStepFEA_RWNodeWithVector(@)",
     header: "RWStepFEA_RWNodeWithVector.hxx".}
-proc readStep*(this: RWStepFEA_RWNodeWithVector;
-              data: Handle[StepDataStepReaderData]; num: StandardInteger;
-              ach: var Handle[InterfaceCheck]; ent: Handle[StepFEA_NodeWithVector]) {.
+proc ReadStep*(this: RWStepFEA_RWNodeWithVector;
+              data: handle[StepData_StepReaderData]; num: Standard_Integer;
+              ach: var handle[Interface_Check]; ent: handle[StepFEA_NodeWithVector]) {.
     noSideEffect, importcpp: "ReadStep", header: "RWStepFEA_RWNodeWithVector.hxx".}
-proc writeStep*(this: RWStepFEA_RWNodeWithVector; sw: var StepDataStepWriter;
-               ent: Handle[StepFEA_NodeWithVector]) {.noSideEffect,
+proc WriteStep*(this: RWStepFEA_RWNodeWithVector; SW: var StepData_StepWriter;
+               ent: handle[StepFEA_NodeWithVector]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepFEA_RWNodeWithVector.hxx".}
-proc share*(this: RWStepFEA_RWNodeWithVector; ent: Handle[StepFEA_NodeWithVector];
-           iter: var InterfaceEntityIterator) {.noSideEffect, importcpp: "Share",
+proc Share*(this: RWStepFEA_RWNodeWithVector; ent: handle[StepFEA_NodeWithVector];
+           iter: var Interface_EntityIterator) {.noSideEffect, importcpp: "Share",
     header: "RWStepFEA_RWNodeWithVector.hxx".}
-

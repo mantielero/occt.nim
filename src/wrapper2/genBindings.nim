@@ -1,15 +1,63 @@
 import os, osproc, strutils, strformat, glob
+import npeg
+import system
 
 const
   lib = "/usr/include/opencascade/"
   dest = "occt"
   c2nimFile = "occt.c2nim"
+  newHeadersDir = "headers"
 
+# 0. Create folder with modified headers
+#var groups = newSeq[seq[string]]()
+#var old = ""
+#var group = newSeq[string]()
+createDir(newHeadersDir)
+for i in walkFiles(lib & "*.hxx"):
+  let (dir, name, ext) = i.splitFile()
+  copyFile( i, newHeadersDir / name & ext)
+
+for j in walkFiles(newHeadersDir / "*.hxx"):
+  let (dir0, name0, ext0) = j.splitFile()
+  let origBase = name0.split("_")[0]
+  var txt = ""
+  for line in j.readFile.split("\n"):
+    var newLine = line
+    if line.startsWith("#include "):  # #include <Standard.hxx>
+      let tmp1 = line.split("#include ")[1].strip
+      if tmp1.startsWith('<') and tmp1.endsWith('>'):
+        let fname = tmp1[1..^2]
+        let (dir1, name1, ext1) = fname.splitFile()
+        let nameBase = name1.split("_")[0]
+        var newFileName = ".." / nameBase / fname
+        if origBase == nameBase:
+          newFileName = fname 
+
+        if (newHeadersDir / fname).fileExists:
+          newLine = line.replace('<', '"').replace('>', '"').replace(&"{fname}", &"{newFileName}")
+
+    txt &= newLine & "\n"
+  j.writeFile txt
+
+  # Parse includes
+
+  # let nameBase = name.split("_")
+  # #echo nameBase
+  # if nameBase[0] != old:
+  #   old = nameBase[0]
+  #   #echo old
+  #   groups &= group
+  #   group = newSeq[string]()
+  # group &= i
+# groups &= group
+
+
+#quit("prueba")
 # 1. Create group of files to wrap together
 var groups = newSeq[seq[string]]()
 var old = ""
 var group = newSeq[string]()
-for i in walkFiles(lib & "*.hxx"):
+for i in walkFiles(newHeadersDir / "*.hxx"):
   let (dir, name, ext) = i.splitFile()
   let nameBase = name.split("_")
   #echo nameBase
@@ -21,22 +69,33 @@ for i in walkFiles(lib & "*.hxx"):
   group &= i
 groups &= group
 
+#echo groups
 # 2. Process the files
 var cfgFiles = newSeq[string]()
 for group in groups:
-#for i in 0..<3:#groups.len:  
+#for i in 0..<3:#groups.len:
 #  let group = groups[i]
   if group.len > 0:
     let (dir, name, ext) = group[0].splitFile()
     var base = name.split("_")[0]
     var outDir = &"{dest}/{base}"
     createDir(outDir)
+    
     for file in group:
       let (dir, name, ext) = file.splitFile()
-      let data = &"c2nim --cpp --header --nep1 --skipinclude --out:{outDir}/{name}.nim {c2nimFile} {file}"
+      let data = &"c2nim --cpp --header --out:{outDir}/{name}.nim {c2nimFile} {file}"
+      # --nep1
       echo data
       let result = execCmdEx(data)
-
+    
+    
+    # var includes = ""
+    # for file in group:
+    #   includes &= file & " "
+    # let data = &"c2nim --cpp --header --concat --out:{outDir}/{base}.nim {c2nimFile} {includes}"
+    # echo data
+    # let result = execCmdEx(data)
+    
 
 
 # 3. Create big file with all the includes
@@ -72,8 +131,8 @@ type
 let
   tKernel = Group(
     name:"tKernel",
-    prefix: @["FSD", "Message", "NCollection", "OSD", "Plugin", "Quantity", 
-              "Resource", "Standard", "StdFail", "Storage", "TColStd", 
+    prefix: @["FSD", "Message", "NCollection", "OSD", "Plugin", "Quantity",
+              "Resource", "Standard", "StdFail", "Storage", "TColStd",
               "TCollection", "TShort", "Units", "UnitsAPI"],
     header: &"""{{.experimental: "codeReordering".}}
 #{{.experimental: "callOperator".}}
@@ -110,15 +169,17 @@ for tk in groupOfToolkits:
     for group in groups:
       if group.len > 0:
         let (dir, name, ext) = group[0].splitFile()
-        let base = name.split("_")[0]          
+        let base = name.split("_")[0]
         if base == prefix:
           for filename in group:
             let (dir, name, ext) = filename.splitFile()
             let fname = &"{dest}/{base}/{name}.nim"
             if fname.fileExists:
-              tkTxt &= &"include {base}/{name}\n"
+              tkTxt &= &"import {base}/{name}\n"
+              tkTxt &= &"export {name}\n"
             else:
               tkTxt &= &"# include {base}/{name}\n"
+              tkTxt &= &"# export {name}\n"
           tkTxt &= "\n\n"
   writeFile(&"occt/{tk.name}.nim", tkTxt)
 
@@ -127,14 +188,16 @@ for tk in groupOfToolkits:
 for group in groups:
   if group.len > 0:
     let (dir, name, ext) = group[0].splitFile()
-    let base = name.split("_")[0]    
+    let base = name.split("_")[0]
     for filename in group:
       let (dir, name, ext) = filename.splitFile()
       let fname = &"{dest}/{base}/{name}.nim"
       if fname.fileExists:
-        occt &= &"include {base}/{name}\n"
+        occt &= &"import {base}/{name}\n"
+        occt &= &"export {name}\n"
       else:
         occt &= &"# include {base}/{name}\n"
+        occt &= &"# export {name}\n"
 
     occt &= "\n\n"
 #echo occt
@@ -216,7 +279,7 @@ proc commentWhens(filename:string) =
           res &= line &  "\n"
         tmp = ""
         flag = false
-      else:     
+      else:
         res &= line &  "\n"
   filename.writeFile res
 
@@ -269,10 +332,10 @@ proc globCommentWhens(glb:string) =
   Counter* = ref object
 
   """)
-"occt/Message/Message_Alert.nim".comment(97, 5)  
-"occt/Message/Message_AlertExtended.nim".comment(123, 5) 
-"occt/Message/Message_Status.nim".comment(123, 5) 
-"occt/Message/Message_StatusType.nim".fileReplace("MessageDONE", "messageDONE") 
+"occt/Message/Message_Alert.nim".comment(97, 5)
+"occt/Message/Message_AlertExtended.nim".comment(123, 5)
+"occt/Message/Message_Status.nim".comment(123, 5)
+"occt/Message/Message_StatusType.nim".fileReplace("MessageDONE", "messageDONE")
 
 "occt/MeshVS/MeshVS_TwoColors.nim".fileReplace( ".} {.", ", " )
 "occt/MeshVS/MeshVS_TwoNodes.nim".comment( 14, 4 )
@@ -298,7 +361,7 @@ proc globCommentWhens(glb:string) =
 "occt/Standard/Standard_TypeDef.nim".fileReplace("StandardFalse", "standardFalse")
 "occt/Standard/Standard_TypeDef.nim".fileReplace("StandardTrue", "standardTrue")
 # Define types for char
-"occt/Standard/Standard_TypeDef.nim".comment(80, 18) 
+"occt/Standard/Standard_TypeDef.nim".comment(80, 18)
 "occt/Standard/Standard_TypeDef.nim".append(98, """type
   StandardExtCharacter* = char  # char16T
   StandardUtf16Char* = char     # char16T
@@ -307,7 +370,7 @@ proc globCommentWhens(glb:string) =
   # !< UTF-32 char (always unsigned)
 
   StandardWideChar* = char #  WcharT
-  
+
   """)
 
 
@@ -347,7 +410,7 @@ type
     "NCollectionStdAllocator")
 "occt/NCollection/NCollection_StdAllocator.nim".comment(51, 3)
 
-"occt/TCollection/TCollection_BasicMap".fileReplace(
+"occt/TCollection/TCollection_BasicMap.nim".fileReplace(
   """  TCollectionBasicMap* {.importcpp: "TCollection_BasicMap",
                         header: "TCollection_BasicMap.hxx", bycopy.} = object ## ! Returns the number of buckets in <me>.""",
   """  TCollectionBasicMap* {.importcpp: "TCollection_BasicMap",
@@ -393,3 +456,4 @@ type
   NCollectionArray1[TCollectionExtendedString] = object of RootObj #{.inheritable.}
   TColStdArray1OfExtendedString* = NCollectionArray1[TCollectionExtendedString]
 ]#
+

@@ -13,15 +13,18 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Quantity/Quantity_Color
+
 type
   MeshVS_TwoColors* {.importcpp: "MeshVS_TwoColors",
                      header: "MeshVS_TwoColors.hxx", bycopy.} = object
-    r1* {.importc: "r1", bitsize: 8.}: cuint
-    g1* {.importc: "g1", bitsize: 8.}: cuint
-    b1* {.importc: "b1", bitsize: 8.}: cuint
-    r2* {.importc: "r2", bitsize: 8.}: cuint
-    g2* {.importc: "g2", bitsize: 8.}: cuint
-    b2* {.importc: "b2", bitsize: 8.}: cuint
+    r1* {.importc: "r1".} {.bitsize: 8.}: cuint
+    g1* {.importc: "g1".} {.bitsize: 8.}: cuint
+    b1* {.importc: "b1".} {.bitsize: 8.}: cuint
+    r2* {.importc: "r2".} {.bitsize: 8.}: cuint
+    g2* {.importc: "g2".} {.bitsize: 8.}: cuint
+    b2* {.importc: "b2".} {.bitsize: 8.}: cuint
 
 
 ## ! Computes a hash code for the key, in the range [1, theUpperBound]
@@ -29,17 +32,16 @@ type
 ## ! @param theUpperBound the upper bound of the range a computing hash code must be within
 ## ! @return a computed hash code, in the range [1, theUpperBound]
 
-proc hashCode*(theKey: MeshVS_TwoColors; theUpperBound: StandardInteger): StandardInteger {.
+proc HashCode*(theKey: MeshVS_TwoColors; theUpperBound: Standard_Integer): Standard_Integer {.
     importcpp: "HashCode(@)", header: "MeshVS_TwoColors.hxx".}
-proc isEqual*(k1: MeshVS_TwoColors; k2: MeshVS_TwoColors): StandardBoolean {.
+proc IsEqual*(K1: MeshVS_TwoColors; K2: MeshVS_TwoColors): Standard_Boolean {.
     importcpp: "IsEqual(@)", header: "MeshVS_TwoColors.hxx".}
-proc `==`*(k1: MeshVS_TwoColors; k2: MeshVS_TwoColors): StandardBoolean {.
+proc `==`*(K1: MeshVS_TwoColors; K2: MeshVS_TwoColors): Standard_Boolean {.
     importcpp: "(# == #)", header: "MeshVS_TwoColors.hxx".}
-proc bindTwoColors*(a1: QuantityColor; a2: QuantityColor): MeshVS_TwoColors {.
+proc BindTwoColors*(a1: Quantity_Color; a2: Quantity_Color): MeshVS_TwoColors {.
     importcpp: "BindTwoColors(@)", header: "MeshVS_TwoColors.hxx".}
-proc extractColor*(a1: var MeshVS_TwoColors; a2: StandardInteger): QuantityColor {.
+proc ExtractColor*(a1: var MeshVS_TwoColors; a2: Standard_Integer): Quantity_Color {.
     importcpp: "ExtractColor(@)", header: "MeshVS_TwoColors.hxx".}
-proc extractColors*(a1: var MeshVS_TwoColors; a2: var QuantityColor;
-                   a3: var QuantityColor) {.importcpp: "ExtractColors(@)",
+proc ExtractColors*(a1: var MeshVS_TwoColors; a2: var Quantity_Color;
+                   a3: var Quantity_Color) {.importcpp: "ExtractColors(@)",
     header: "MeshVS_TwoColors.hxx".}
-

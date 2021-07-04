@@ -13,163 +13,166 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  Message_ConsoleColor, Message_Printer, ../Standard/Standard_Address,
+  ../Standard/Standard_OStream
+
 discard "forward decl of Message_PrinterOStream"
 discard "forward decl of Message_PrinterOStream"
 type
-  HandleMessagePrinterOStream* = Handle[MessagePrinterOStream]
+  Handle_Message_PrinterOStream* = handle[Message_PrinterOStream]
 
 ## ! Implementation of a message printer associated with an std::ostream
 ## ! The std::ostream may be either externally defined one (e.g. std::cout),
 ## ! or file stream maintained internally (depending on constructor).
 
 type
-  MessagePrinterOStream* {.importcpp: "Message_PrinterOStream",
-                          header: "Message_PrinterOStream.hxx", bycopy.} = object of MessagePrinter ##
-                                                                                             ## !
-                                                                                             ## Setup
-                                                                                             ## console
-                                                                                             ## text
-                                                                                             ## color.
-                                                                                             ##
-                                                                                             ## !
-                                                                                             ##
-                                                                                             ## !
-                                                                                             ## On
-                                                                                             ## Windows,
-                                                                                             ## this
-                                                                                             ## would
-                                                                                             ## affect
-                                                                                             ## active
-                                                                                             ## terminal
-                                                                                             ## color
-                                                                                             ## output.
-                                                                                             ##
-                                                                                             ## !
-                                                                                             ## On
-                                                                                             ## other
-                                                                                             ## systems,
-                                                                                             ## this
-                                                                                             ## would
-                                                                                             ## put
-                                                                                             ## special
-                                                                                             ## terminal
-                                                                                             ## codes;
-                                                                                             ##
-                                                                                             ## !
-                                                                                             ## the
-                                                                                             ## terminal
-                                                                                             ## should
-                                                                                             ## support
-                                                                                             ## these
-                                                                                             ## codes
-                                                                                             ## or
-                                                                                             ## them
-                                                                                             ## will
-                                                                                             ## appear
-                                                                                             ## in
-                                                                                             ## text
-                                                                                             ## otherwise.
-                                                                                             ##
-                                                                                             ## !
-                                                                                             ## The
-                                                                                             ## same
-                                                                                             ## will
-                                                                                             ## happen
-                                                                                             ## when
-                                                                                             ## stream
-                                                                                             ## is
-                                                                                             ## redirected
-                                                                                             ## into
-                                                                                             ## text
-                                                                                             ## file.
-                                                                                             ##
-                                                                                             ## !
-                                                                                             ##
-                                                                                             ## !
-                                                                                             ## Beware
-                                                                                             ## that
-                                                                                             ## within
-                                                                                             ## multi-threaded
-                                                                                             ## environment
-                                                                                             ## inducing
-                                                                                             ## console
-                                                                                             ## colors
-                                                                                             ##
-                                                                                             ## !
-                                                                                             ## might
-                                                                                             ## lead
-                                                                                             ## to
-                                                                                             ## colored
-                                                                                             ## text
-                                                                                             ## mixture
-                                                                                             ## due
-                                                                                             ## to
-                                                                                             ## concurrency.
-                                                                                             ##
-                                                                                             ## !
-                                                                                             ## Empty
-                                                                                             ## constructor,
-                                                                                             ## defaulting
-                                                                                             ## to
-                                                                                             ## cout
-                                                                                             ##
-                                                                                             ## !
-                                                                                             ## Puts
-                                                                                             ## a
-                                                                                             ## message
-                                                                                             ## to
-                                                                                             ## the
-                                                                                             ## current
-                                                                                             ## stream
-                                                                                             ##
-                                                                                             ## !
-                                                                                             ## if
-                                                                                             ## its
-                                                                                             ## gravity
-                                                                                             ## is
-                                                                                             ## equal
-                                                                                             ## or
-                                                                                             ## greater
-                                                                                             ##
-                                                                                             ## !
-                                                                                             ## to
-                                                                                             ## the
-                                                                                             ## trace
-                                                                                             ## level
-                                                                                             ## set
-                                                                                             ## by
-                                                                                             ## SetTraceLevel()
+  Message_PrinterOStream* {.importcpp: "Message_PrinterOStream",
+                           header: "Message_PrinterOStream.hxx", bycopy.} = object of Message_Printer ##
+                                                                                               ## !
+                                                                                               ## Setup
+                                                                                               ## console
+                                                                                               ## text
+                                                                                               ## color.
+                                                                                               ##
+                                                                                               ## !
+                                                                                               ##
+                                                                                               ## !
+                                                                                               ## On
+                                                                                               ## Windows,
+                                                                                               ## this
+                                                                                               ## would
+                                                                                               ## affect
+                                                                                               ## active
+                                                                                               ## terminal
+                                                                                               ## color
+                                                                                               ## output.
+                                                                                               ##
+                                                                                               ## !
+                                                                                               ## On
+                                                                                               ## other
+                                                                                               ## systems,
+                                                                                               ## this
+                                                                                               ## would
+                                                                                               ## put
+                                                                                               ## special
+                                                                                               ## terminal
+                                                                                               ## codes;
+                                                                                               ##
+                                                                                               ## !
+                                                                                               ## the
+                                                                                               ## terminal
+                                                                                               ## should
+                                                                                               ## support
+                                                                                               ## these
+                                                                                               ## codes
+                                                                                               ## or
+                                                                                               ## them
+                                                                                               ## will
+                                                                                               ## appear
+                                                                                               ## in
+                                                                                               ## text
+                                                                                               ## otherwise.
+                                                                                               ##
+                                                                                               ## !
+                                                                                               ## The
+                                                                                               ## same
+                                                                                               ## will
+                                                                                               ## happen
+                                                                                               ## when
+                                                                                               ## stream
+                                                                                               ## is
+                                                                                               ## redirected
+                                                                                               ## into
+                                                                                               ## text
+                                                                                               ## file.
+                                                                                               ##
+                                                                                               ## !
+                                                                                               ##
+                                                                                               ## !
+                                                                                               ## Beware
+                                                                                               ## that
+                                                                                               ## within
+                                                                                               ## multi-threaded
+                                                                                               ## environment
+                                                                                               ## inducing
+                                                                                               ## console
+                                                                                               ## colors
+                                                                                               ##
+                                                                                               ## !
+                                                                                               ## might
+                                                                                               ## lead
+                                                                                               ## to
+                                                                                               ## colored
+                                                                                               ## text
+                                                                                               ## mixture
+                                                                                               ## due
+                                                                                               ## to
+                                                                                               ## concurrency.
+                                                                                               ##
+                                                                                               ## !
+                                                                                               ## Empty
+                                                                                               ## constructor,
+                                                                                               ## defaulting
+                                                                                               ## to
+                                                                                               ## cout
+                                                                                               ##
+                                                                                               ## !
+                                                                                               ## Puts
+                                                                                               ## a
+                                                                                               ## message
+                                                                                               ## to
+                                                                                               ## the
+                                                                                               ## current
+                                                                                               ## stream
+                                                                                               ##
+                                                                                               ## !
+                                                                                               ## if
+                                                                                               ## its
+                                                                                               ## gravity
+                                                                                               ## is
+                                                                                               ## equal
+                                                                                               ## or
+                                                                                               ## greater
+                                                                                               ##
+                                                                                               ## !
+                                                                                               ## to
+                                                                                               ## the
+                                                                                               ## trace
+                                                                                               ## level
+                                                                                               ## set
+                                                                                               ## by
+                                                                                               ## SetTraceLevel()
 
-  MessagePrinterOStreambaseType* = MessagePrinter
+  Message_PrinterOStreambase_type* = Message_Printer
 
-proc getTypeName*(): cstring {.importcpp: "Message_PrinterOStream::get_type_name(@)",
-                            header: "Message_PrinterOStream.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "Message_PrinterOStream::get_type_name(@)",
+                              header: "Message_PrinterOStream.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "Message_PrinterOStream::get_type_descriptor(@)",
     header: "Message_PrinterOStream.hxx".}
-proc dynamicType*(this: MessagePrinterOStream): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "Message_PrinterOStream.hxx".}
-proc setConsoleTextColor*(theOStream: ptr StandardOStream;
-                         theTextColor: MessageConsoleColor;
+proc DynamicType*(this: Message_PrinterOStream): handle[Standard_Type] {.
+    noSideEffect, importcpp: "DynamicType", header: "Message_PrinterOStream.hxx".}
+proc SetConsoleTextColor*(theOStream: ptr Standard_OStream;
+                         theTextColor: Message_ConsoleColor;
                          theIsIntenseText: bool = false) {.
     importcpp: "Message_PrinterOStream::SetConsoleTextColor(@)",
     header: "Message_PrinterOStream.hxx".}
-proc constructMessagePrinterOStream*(theTraceLevel: MessageGravity = messageInfo): MessagePrinterOStream {.
+proc constructMessage_PrinterOStream*(theTraceLevel: Message_Gravity = Message_Info): Message_PrinterOStream {.
     constructor, importcpp: "Message_PrinterOStream(@)",
     header: "Message_PrinterOStream.hxx".}
-proc constructMessagePrinterOStream*(theFileName: StandardCString;
-                                    theDoAppend: StandardBoolean;
-                                    theTraceLevel: MessageGravity = messageInfo): MessagePrinterOStream {.
+proc constructMessage_PrinterOStream*(theFileName: Standard_CString;
+                                     theDoAppend: Standard_Boolean; theTraceLevel: Message_Gravity = Message_Info): Message_PrinterOStream {.
     constructor, importcpp: "Message_PrinterOStream(@)",
     header: "Message_PrinterOStream.hxx".}
-proc close*(this: var MessagePrinterOStream) {.importcpp: "Close",
+proc Close*(this: var Message_PrinterOStream) {.importcpp: "Close",
     header: "Message_PrinterOStream.hxx".}
-proc destroyMessagePrinterOStream*(this: var MessagePrinterOStream) {.
+proc destroyMessage_PrinterOStream*(this: var Message_PrinterOStream) {.
     importcpp: "#.~Message_PrinterOStream()", header: "Message_PrinterOStream.hxx".}
-proc getStream*(this: MessagePrinterOStream): var StandardOStream {.noSideEffect,
+proc GetStream*(this: Message_PrinterOStream): var Standard_OStream {.noSideEffect,
     importcpp: "GetStream", header: "Message_PrinterOStream.hxx".}
-proc toColorize*(this: MessagePrinterOStream): StandardBoolean {.noSideEffect,
+proc ToColorize*(this: Message_PrinterOStream): Standard_Boolean {.noSideEffect,
     importcpp: "ToColorize", header: "Message_PrinterOStream.hxx".}
-proc setToColorize*(this: var MessagePrinterOStream; theToColorize: StandardBoolean) {.
-    importcpp: "SetToColorize", header: "Message_PrinterOStream.hxx".}
-
+proc SetToColorize*(this: var Message_PrinterOStream;
+                   theToColorize: Standard_Boolean) {.importcpp: "SetToColorize",
+    header: "Message_PrinterOStream.hxx".}

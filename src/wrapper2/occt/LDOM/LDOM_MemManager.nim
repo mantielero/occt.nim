@@ -13,52 +13,54 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard_Transient, ../Standard/Standard_Type
+
 discard "forward decl of LDOM_Document"
 discard "forward decl of LDOM_BasicElement"
 discard "forward decl of LDOM_MemManager"
 discard "forward decl of LDOMBasicString"
 discard "forward decl of LDOM_MemManager"
 type
-  HandleLDOM_MemManager* = Handle[LDOM_MemManager]
+  Handle_LDOM_MemManager* = handle[LDOM_MemManager]
 
 ##   Class LDOM_MemManager (underlying structure of LDOM_Document)
 ##
 
 type
   LDOM_MemManager* {.importcpp: "LDOM_MemManager::LDOM_MemManager",
-                    header: "LDOM_MemManager.hxx", bycopy.} = object of StandardTransient ##  ---------- PUBLIC METHODS ----------
-                                                                                   ##  CASCADE RTTI
+                    header: "LDOM_MemManager.hxx", bycopy.} = object of Standard_Transient ##  ---------- PUBLIC METHODS ----------
+                                                                                    ##  CASCADE RTTI
 
 
-proc constructLDOM_MemManager*(aBlockSize: StandardInteger): LDOM_MemManager {.
+proc constructLDOM_MemManager*(aBlockSize: Standard_Integer): LDOM_MemManager {.
     constructor, importcpp: "LDOM_MemManager(@)", header: "LDOM_MemManager.hxx".}
 proc destroyLDOM_MemManager*(this: var LDOM_MemManager) {.
     importcpp: "#.~LDOM_MemManager()", header: "LDOM_MemManager.hxx".}
-proc allocate*(this: var LDOM_MemManager; aSize: StandardInteger): pointer {.
+proc Allocate*(this: var LDOM_MemManager; aSize: Standard_Integer): pointer {.
     importcpp: "Allocate", header: "LDOM_MemManager.hxx".}
-proc hashedAllocate*(this: var LDOM_MemManager; aString: cstring;
-                    theLen: StandardInteger; theHash: var StandardInteger): cstring {.
+proc HashedAllocate*(this: var LDOM_MemManager; aString: cstring;
+                    theLen: Standard_Integer; theHash: var Standard_Integer): cstring {.
     importcpp: "HashedAllocate", header: "LDOM_MemManager.hxx".}
-proc hashedAllocate*(this: var LDOM_MemManager; aString: cstring;
-                    theLen: StandardInteger; theResult: var LDOMBasicString) {.
+proc HashedAllocate*(this: var LDOM_MemManager; aString: cstring;
+                    theLen: Standard_Integer; theResult: var LDOMBasicString) {.
     importcpp: "HashedAllocate", header: "LDOM_MemManager.hxx".}
-proc hash*(theString: cstring; theLen: StandardInteger): StandardInteger {.
+proc Hash*(theString: cstring; theLen: Standard_Integer): Standard_Integer {.
     importcpp: "LDOM_MemManager::Hash(@)", header: "LDOM_MemManager.hxx".}
-proc compareStrings*(theString: cstring; theHashValue: StandardInteger;
-                    theHashedStr: cstring): StandardBoolean {.
+proc CompareStrings*(theString: cstring; theHashValue: Standard_Integer;
+                    theHashedStr: cstring): Standard_Boolean {.
     importcpp: "LDOM_MemManager::CompareStrings(@)", header: "LDOM_MemManager.hxx".}
-proc self*(this: LDOM_MemManager): LDOM_MemManager {.noSideEffect, importcpp: "Self",
+proc Self*(this: LDOM_MemManager): LDOM_MemManager {.noSideEffect, importcpp: "Self",
     header: "LDOM_MemManager.hxx".}
-proc rootElement*(this: LDOM_MemManager): ptr LDOM_BasicElement {.noSideEffect,
+proc RootElement*(this: LDOM_MemManager): ptr LDOM_BasicElement {.noSideEffect,
     importcpp: "RootElement", header: "LDOM_MemManager.hxx".}
 type
-  LDOM_MemManagerbaseType* = StandardTransient
+  LDOM_MemManagerbase_type* = Standard_Transient
 
-proc getTypeName*(): cstring {.importcpp: "LDOM_MemManager::get_type_name(@)",
-                            header: "LDOM_MemManager.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "LDOM_MemManager::get_type_name(@)",
+                              header: "LDOM_MemManager.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "LDOM_MemManager::get_type_descriptor(@)",
     header: "LDOM_MemManager.hxx".}
-proc dynamicType*(this: LDOM_MemManager): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: LDOM_MemManager): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "LDOM_MemManager.hxx".}
-

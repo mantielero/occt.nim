@@ -14,89 +14,98 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../Standard/Standard_Transient,
+  ../Standard/Standard_Boolean, ../Standard/Standard_Real,
+  ../TColgp/TColgp_Array1OfPnt, ../TColgp/TColgp_Array1OfPnt2d,
+  ../TColStd/TColStd_Array1OfReal, ../TColgp/TColgp_Array1OfVec,
+  ../TColgp/TColgp_Array1OfVec2d, ../Standard/Standard_Integer,
+  ../TColStd/TColStd_Array1OfInteger, ../GeomAbs/GeomAbs_Shape
+
 discard "forward decl of Standard_NotImplemented"
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of gp_Pnt"
 discard "forward decl of Approx_SweepFunction"
 discard "forward decl of Approx_SweepFunction"
 type
-  HandleApproxSweepFunction* = Handle[ApproxSweepFunction]
+  Handle_Approx_SweepFunction* = handle[Approx_SweepFunction]
 
 ## ! defined the function used by SweepApproximation to
 ## ! perform sweeping application.
 
 type
-  ApproxSweepFunction* {.importcpp: "Approx_SweepFunction",
-                        header: "Approx_SweepFunction.hxx", bycopy.} = object of StandardTransient ##
-                                                                                            ## !
-                                                                                            ## compute
-                                                                                            ## the
-                                                                                            ## section
-                                                                                            ## for
-                                                                                            ## v
-                                                                                            ## =
-                                                                                            ## param
+  Approx_SweepFunction* {.importcpp: "Approx_SweepFunction",
+                         header: "Approx_SweepFunction.hxx", bycopy.} = object of Standard_Transient ##
+                                                                                              ## !
+                                                                                              ## compute
+                                                                                              ## the
+                                                                                              ## section
+                                                                                              ## for
+                                                                                              ## v
+                                                                                              ## =
+                                                                                              ## param
 
 
-proc d0*(this: var ApproxSweepFunction; param: StandardReal; first: StandardReal;
-        last: StandardReal; poles: var TColgpArray1OfPnt;
-        poles2d: var TColgpArray1OfPnt2d; weigths: var TColStdArray1OfReal): StandardBoolean {.
+proc D0*(this: var Approx_SweepFunction; Param: Standard_Real; First: Standard_Real;
+        Last: Standard_Real; Poles: var TColgp_Array1OfPnt;
+        Poles2d: var TColgp_Array1OfPnt2d; Weigths: var TColStd_Array1OfReal): Standard_Boolean {.
     importcpp: "D0", header: "Approx_SweepFunction.hxx".}
-proc d1*(this: var ApproxSweepFunction; param: StandardReal; first: StandardReal;
-        last: StandardReal; poles: var TColgpArray1OfPnt;
-        dPoles: var TColgpArray1OfVec; poles2d: var TColgpArray1OfPnt2d;
-        dPoles2d: var TColgpArray1OfVec2d; weigths: var TColStdArray1OfReal;
-        dWeigths: var TColStdArray1OfReal): StandardBoolean {.importcpp: "D1",
+proc D1*(this: var Approx_SweepFunction; Param: Standard_Real; First: Standard_Real;
+        Last: Standard_Real; Poles: var TColgp_Array1OfPnt;
+        DPoles: var TColgp_Array1OfVec; Poles2d: var TColgp_Array1OfPnt2d;
+        DPoles2d: var TColgp_Array1OfVec2d; Weigths: var TColStd_Array1OfReal;
+        DWeigths: var TColStd_Array1OfReal): Standard_Boolean {.importcpp: "D1",
     header: "Approx_SweepFunction.hxx".}
-proc d2*(this: var ApproxSweepFunction; param: StandardReal; first: StandardReal;
-        last: StandardReal; poles: var TColgpArray1OfPnt;
-        dPoles: var TColgpArray1OfVec; d2Poles: var TColgpArray1OfVec;
-        poles2d: var TColgpArray1OfPnt2d; dPoles2d: var TColgpArray1OfVec2d;
-        d2Poles2d: var TColgpArray1OfVec2d; weigths: var TColStdArray1OfReal;
-        dWeigths: var TColStdArray1OfReal; d2Weigths: var TColStdArray1OfReal): StandardBoolean {.
+proc D2*(this: var Approx_SweepFunction; Param: Standard_Real; First: Standard_Real;
+        Last: Standard_Real; Poles: var TColgp_Array1OfPnt;
+        DPoles: var TColgp_Array1OfVec; D2Poles: var TColgp_Array1OfVec;
+        Poles2d: var TColgp_Array1OfPnt2d; DPoles2d: var TColgp_Array1OfVec2d;
+        D2Poles2d: var TColgp_Array1OfVec2d; Weigths: var TColStd_Array1OfReal;
+        DWeigths: var TColStd_Array1OfReal; D2Weigths: var TColStd_Array1OfReal): Standard_Boolean {.
     importcpp: "D2", header: "Approx_SweepFunction.hxx".}
-proc nb2dCurves*(this: ApproxSweepFunction): StandardInteger {.noSideEffect,
+proc Nb2dCurves*(this: Approx_SweepFunction): Standard_Integer {.noSideEffect,
     importcpp: "Nb2dCurves", header: "Approx_SweepFunction.hxx".}
-proc sectionShape*(this: ApproxSweepFunction; nbPoles: var StandardInteger;
-                  nbKnots: var StandardInteger; degree: var StandardInteger) {.
+proc SectionShape*(this: Approx_SweepFunction; NbPoles: var Standard_Integer;
+                  NbKnots: var Standard_Integer; Degree: var Standard_Integer) {.
     noSideEffect, importcpp: "SectionShape", header: "Approx_SweepFunction.hxx".}
-proc knots*(this: ApproxSweepFunction; tKnots: var TColStdArray1OfReal) {.
+proc Knots*(this: Approx_SweepFunction; TKnots: var TColStd_Array1OfReal) {.
     noSideEffect, importcpp: "Knots", header: "Approx_SweepFunction.hxx".}
-proc mults*(this: ApproxSweepFunction; tMults: var TColStdArray1OfInteger) {.
+proc Mults*(this: Approx_SweepFunction; TMults: var TColStd_Array1OfInteger) {.
     noSideEffect, importcpp: "Mults", header: "Approx_SweepFunction.hxx".}
-proc isRational*(this: ApproxSweepFunction): StandardBoolean {.noSideEffect,
+proc IsRational*(this: Approx_SweepFunction): Standard_Boolean {.noSideEffect,
     importcpp: "IsRational", header: "Approx_SweepFunction.hxx".}
-proc nbIntervals*(this: ApproxSweepFunction; s: GeomAbsShape): StandardInteger {.
+proc NbIntervals*(this: Approx_SweepFunction; S: GeomAbs_Shape): Standard_Integer {.
     noSideEffect, importcpp: "NbIntervals", header: "Approx_SweepFunction.hxx".}
-proc intervals*(this: ApproxSweepFunction; t: var TColStdArray1OfReal; s: GeomAbsShape) {.
-    noSideEffect, importcpp: "Intervals", header: "Approx_SweepFunction.hxx".}
-proc setInterval*(this: var ApproxSweepFunction; first: StandardReal;
-                 last: StandardReal) {.importcpp: "SetInterval",
-                                     header: "Approx_SweepFunction.hxx".}
-proc resolution*(this: ApproxSweepFunction; index: StandardInteger;
-                tol: StandardReal; tolU: var StandardReal; tolV: var StandardReal) {.
+proc Intervals*(this: Approx_SweepFunction; T: var TColStd_Array1OfReal;
+               S: GeomAbs_Shape) {.noSideEffect, importcpp: "Intervals",
+                                 header: "Approx_SweepFunction.hxx".}
+proc SetInterval*(this: var Approx_SweepFunction; First: Standard_Real;
+                 Last: Standard_Real) {.importcpp: "SetInterval",
+                                      header: "Approx_SweepFunction.hxx".}
+proc Resolution*(this: Approx_SweepFunction; Index: Standard_Integer;
+                Tol: Standard_Real; TolU: var Standard_Real; TolV: var Standard_Real) {.
     noSideEffect, importcpp: "Resolution", header: "Approx_SweepFunction.hxx".}
-proc getTolerance*(this: ApproxSweepFunction; boundTol: StandardReal;
-                  surfTol: StandardReal; angleTol: StandardReal;
-                  tol3d: var TColStdArray1OfReal) {.noSideEffect,
+proc GetTolerance*(this: Approx_SweepFunction; BoundTol: Standard_Real;
+                  SurfTol: Standard_Real; AngleTol: Standard_Real;
+                  Tol3d: var TColStd_Array1OfReal) {.noSideEffect,
     importcpp: "GetTolerance", header: "Approx_SweepFunction.hxx".}
-proc setTolerance*(this: var ApproxSweepFunction; tol3d: StandardReal;
-                  tol2d: StandardReal) {.importcpp: "SetTolerance",
-                                       header: "Approx_SweepFunction.hxx".}
-proc barycentreOfSurf*(this: ApproxSweepFunction): GpPnt {.noSideEffect,
+proc SetTolerance*(this: var Approx_SweepFunction; Tol3d: Standard_Real;
+                  Tol2d: Standard_Real) {.importcpp: "SetTolerance",
+                                        header: "Approx_SweepFunction.hxx".}
+proc BarycentreOfSurf*(this: Approx_SweepFunction): gp_Pnt {.noSideEffect,
     importcpp: "BarycentreOfSurf", header: "Approx_SweepFunction.hxx".}
-proc maximalSection*(this: ApproxSweepFunction): StandardReal {.noSideEffect,
+proc MaximalSection*(this: Approx_SweepFunction): Standard_Real {.noSideEffect,
     importcpp: "MaximalSection", header: "Approx_SweepFunction.hxx".}
-proc getMinimalWeight*(this: ApproxSweepFunction; weigths: var TColStdArray1OfReal) {.
-    noSideEffect, importcpp: "GetMinimalWeight", header: "Approx_SweepFunction.hxx".}
+proc GetMinimalWeight*(this: Approx_SweepFunction;
+                      Weigths: var TColStd_Array1OfReal) {.noSideEffect,
+    importcpp: "GetMinimalWeight", header: "Approx_SweepFunction.hxx".}
 type
-  ApproxSweepFunctionbaseType* = StandardTransient
+  Approx_SweepFunctionbase_type* = Standard_Transient
 
-proc getTypeName*(): cstring {.importcpp: "Approx_SweepFunction::get_type_name(@)",
-                            header: "Approx_SweepFunction.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "Approx_SweepFunction::get_type_name(@)",
+                              header: "Approx_SweepFunction.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "Approx_SweepFunction::get_type_descriptor(@)",
     header: "Approx_SweepFunction.hxx".}
-proc dynamicType*(this: ApproxSweepFunction): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: Approx_SweepFunction): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "Approx_SweepFunction.hxx".}
-

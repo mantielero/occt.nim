@@ -14,16 +14,20 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, Plate_LinearXYZConstraint,
+  ../TColgp/TColgp_SequenceOfXY
+
 discard "forward decl of Plate_LinearXYZConstraint"
 type
-  PlateGlobalTranslationConstraint* {.importcpp: "Plate_GlobalTranslationConstraint", header: "Plate_GlobalTranslationConstraint.hxx",
-                                     bycopy.} = object
+  Plate_GlobalTranslationConstraint* {.importcpp: "Plate_GlobalTranslationConstraint", header: "Plate_GlobalTranslationConstraint.hxx",
+                                      bycopy.} = object
 
 
-proc constructPlateGlobalTranslationConstraint*(sOfXY: TColgpSequenceOfXY): PlateGlobalTranslationConstraint {.
+proc constructPlate_GlobalTranslationConstraint*(SOfXY: TColgp_SequenceOfXY): Plate_GlobalTranslationConstraint {.
     constructor, importcpp: "Plate_GlobalTranslationConstraint(@)",
     header: "Plate_GlobalTranslationConstraint.hxx".}
-proc lxyzc*(this: PlateGlobalTranslationConstraint): PlateLinearXYZConstraint {.
+proc LXYZC*(this: Plate_GlobalTranslationConstraint): Plate_LinearXYZConstraint {.
     noSideEffect, importcpp: "LXYZC",
     header: "Plate_GlobalTranslationConstraint.hxx".}
-

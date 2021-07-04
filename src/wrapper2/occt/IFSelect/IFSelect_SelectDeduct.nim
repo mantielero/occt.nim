@@ -14,6 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, IFSelect_Selection,
+  ../Standard/Standard_Boolean
+
 discard "forward decl of IFSelect_Selection"
 discard "forward decl of IFSelect_SelectPointed"
 discard "forward decl of Interface_InterfaceError"
@@ -23,7 +27,7 @@ discard "forward decl of IFSelect_SelectionIterator"
 discard "forward decl of IFSelect_SelectDeduct"
 discard "forward decl of IFSelect_SelectDeduct"
 type
-  HandleIFSelectSelectDeduct* = Handle[IFSelectSelectDeduct]
+  Handle_IFSelect_SelectDeduct* = handle[IFSelect_SelectDeduct]
 
 ## ! A SelectDeduct determines a list of Entities from an Input
 ## ! Selection, by a computation : Output list is not obliged to be
@@ -39,39 +43,39 @@ type
 ## ! of calling the input selection, then clears it immediately
 
 type
-  IFSelectSelectDeduct* {.importcpp: "IFSelect_SelectDeduct",
-                         header: "IFSelect_SelectDeduct.hxx", bycopy.} = object of IFSelectSelection ##
-                                                                                              ## !
-                                                                                              ## Defines
-                                                                                              ## or
-                                                                                              ## Changes
-                                                                                              ## the
-                                                                                              ## Input
-                                                                                              ## Selection
+  IFSelect_SelectDeduct* {.importcpp: "IFSelect_SelectDeduct",
+                          header: "IFSelect_SelectDeduct.hxx", bycopy.} = object of IFSelect_Selection ##
+                                                                                                ## !
+                                                                                                ## Defines
+                                                                                                ## or
+                                                                                                ## Changes
+                                                                                                ## the
+                                                                                                ## Input
+                                                                                                ## Selection
 
 
-proc setInput*(this: var IFSelectSelectDeduct; sel: Handle[IFSelectSelection]) {.
+proc SetInput*(this: var IFSelect_SelectDeduct; sel: handle[IFSelect_Selection]) {.
     importcpp: "SetInput", header: "IFSelect_SelectDeduct.hxx".}
-proc input*(this: IFSelectSelectDeduct): Handle[IFSelectSelection] {.noSideEffect,
+proc Input*(this: IFSelect_SelectDeduct): handle[IFSelect_Selection] {.noSideEffect,
     importcpp: "Input", header: "IFSelect_SelectDeduct.hxx".}
-proc hasInput*(this: IFSelectSelectDeduct): StandardBoolean {.noSideEffect,
+proc HasInput*(this: IFSelect_SelectDeduct): Standard_Boolean {.noSideEffect,
     importcpp: "HasInput", header: "IFSelect_SelectDeduct.hxx".}
-proc hasAlternate*(this: IFSelectSelectDeduct): StandardBoolean {.noSideEffect,
+proc HasAlternate*(this: IFSelect_SelectDeduct): Standard_Boolean {.noSideEffect,
     importcpp: "HasAlternate", header: "IFSelect_SelectDeduct.hxx".}
-proc alternate*(this: var IFSelectSelectDeduct): var Handle[IFSelectSelectPointed] {.
+proc Alternate*(this: var IFSelect_SelectDeduct): var handle[IFSelect_SelectPointed] {.
     importcpp: "Alternate", header: "IFSelect_SelectDeduct.hxx".}
-proc inputResult*(this: IFSelectSelectDeduct; g: InterfaceGraph): InterfaceEntityIterator {.
+proc InputResult*(this: IFSelect_SelectDeduct; G: Interface_Graph): Interface_EntityIterator {.
     noSideEffect, importcpp: "InputResult", header: "IFSelect_SelectDeduct.hxx".}
-proc fillIterator*(this: IFSelectSelectDeduct; iter: var IFSelectSelectionIterator) {.
-    noSideEffect, importcpp: "FillIterator", header: "IFSelect_SelectDeduct.hxx".}
+proc FillIterator*(this: IFSelect_SelectDeduct;
+                  iter: var IFSelect_SelectionIterator) {.noSideEffect,
+    importcpp: "FillIterator", header: "IFSelect_SelectDeduct.hxx".}
 type
-  IFSelectSelectDeductbaseType* = IFSelectSelection
+  IFSelect_SelectDeductbase_type* = IFSelect_Selection
 
-proc getTypeName*(): cstring {.importcpp: "IFSelect_SelectDeduct::get_type_name(@)",
-                            header: "IFSelect_SelectDeduct.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "IFSelect_SelectDeduct::get_type_name(@)",
+                              header: "IFSelect_SelectDeduct.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "IFSelect_SelectDeduct::get_type_descriptor(@)",
     header: "IFSelect_SelectDeduct.hxx".}
-proc dynamicType*(this: IFSelectSelectDeduct): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "IFSelect_SelectDeduct.hxx".}
-
+proc DynamicType*(this: IFSelect_SelectDeduct): handle[Standard_Type] {.
+    noSideEffect, importcpp: "DynamicType", header: "IFSelect_SelectDeduct.hxx".}

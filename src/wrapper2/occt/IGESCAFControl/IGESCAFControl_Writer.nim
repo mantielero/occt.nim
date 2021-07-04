@@ -13,101 +13,107 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
+  ../IGESControl/IGESControl_Writer, ../Standard/Standard_CString,
+  ../TDF/TDF_LabelSequence, ../XCAFPrs/XCAFPrs_IndexedDataMapOfShapeStyle,
+  ../XCAFPrs/XCAFPrs_DataMapOfStyleTransient, ../TopTools/TopTools_MapOfShape
+
 discard "forward decl of XSControl_WorkSession"
 discard "forward decl of TDocStd_Document"
 discard "forward decl of TCollection_AsciiString"
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of XCAFPrs_Style"
 type
-  IGESCAFControlWriter* {.importcpp: "IGESCAFControl_Writer",
-                         header: "IGESCAFControl_Writer.hxx", bycopy.} = object of IGESControlWriter ##
-                                                                                              ## !
-                                                                                              ## Creates
-                                                                                              ## a
-                                                                                              ## writer
-                                                                                              ## with
-                                                                                              ## an
-                                                                                              ## empty
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ## IGES
-                                                                                              ## model
-                                                                                              ## and
-                                                                                              ## sets
-                                                                                              ## ColorMode,
-                                                                                              ## LayerMode
-                                                                                              ## and
-                                                                                              ## NameMode
-                                                                                              ## to
-                                                                                              ## Standard_True.
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ## Reads
-                                                                                              ## colors
-                                                                                              ## from
-                                                                                              ## DECAF
-                                                                                              ## document
-                                                                                              ## and
-                                                                                              ## assigns
-                                                                                              ## them
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ## to
-                                                                                              ## corresponding
-                                                                                              ## IGES
-                                                                                              ## entities
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ## Recursively
-                                                                                              ## iterates
-                                                                                              ## on
-                                                                                              ## subshapes
-                                                                                              ## and
-                                                                                              ## assigns
-                                                                                              ## colors
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ## to
-                                                                                              ## faces
-                                                                                              ## and
-                                                                                              ## edges
-                                                                                              ## (if
-                                                                                              ## set)
+  IGESCAFControl_Writer* {.importcpp: "IGESCAFControl_Writer",
+                          header: "IGESCAFControl_Writer.hxx", bycopy.} = object of IGESControl_Writer ##
+                                                                                                ## !
+                                                                                                ## Creates
+                                                                                                ## a
+                                                                                                ## writer
+                                                                                                ## with
+                                                                                                ## an
+                                                                                                ## empty
+                                                                                                ##
+                                                                                                ## !
+                                                                                                ## IGES
+                                                                                                ## model
+                                                                                                ## and
+                                                                                                ## sets
+                                                                                                ## ColorMode,
+                                                                                                ## LayerMode
+                                                                                                ## and
+                                                                                                ## NameMode
+                                                                                                ## to
+                                                                                                ## Standard_True.
+                                                                                                ##
+                                                                                                ## !
+                                                                                                ## Reads
+                                                                                                ## colors
+                                                                                                ## from
+                                                                                                ## DECAF
+                                                                                                ## document
+                                                                                                ## and
+                                                                                                ## assigns
+                                                                                                ## them
+                                                                                                ##
+                                                                                                ## !
+                                                                                                ## to
+                                                                                                ## corresponding
+                                                                                                ## IGES
+                                                                                                ## entities
+                                                                                                ##
+                                                                                                ## !
+                                                                                                ## Recursively
+                                                                                                ## iterates
+                                                                                                ## on
+                                                                                                ## subshapes
+                                                                                                ## and
+                                                                                                ## assigns
+                                                                                                ## colors
+                                                                                                ##
+                                                                                                ## !
+                                                                                                ## to
+                                                                                                ## faces
+                                                                                                ## and
+                                                                                                ## edges
+                                                                                                ## (if
+                                                                                                ## set)
 
 
-proc constructIGESCAFControlWriter*(): IGESCAFControlWriter {.constructor,
+proc constructIGESCAFControl_Writer*(): IGESCAFControl_Writer {.constructor,
     importcpp: "IGESCAFControl_Writer(@)", header: "IGESCAFControl_Writer.hxx".}
-proc constructIGESCAFControlWriter*(ws: Handle[XSControlWorkSession];
-                                   scratch: StandardBoolean = standardTrue): IGESCAFControlWriter {.
+proc constructIGESCAFControl_Writer*(WS: handle[XSControl_WorkSession];
+                                    scratch: Standard_Boolean = Standard_True): IGESCAFControl_Writer {.
     constructor, importcpp: "IGESCAFControl_Writer(@)",
     header: "IGESCAFControl_Writer.hxx".}
-proc transfer*(this: var IGESCAFControlWriter; doc: Handle[TDocStdDocument];
-              theProgress: MessageProgressRange = messageProgressRange()): StandardBoolean {.
+proc Transfer*(this: var IGESCAFControl_Writer; doc: handle[TDocStd_Document];
+              theProgress: Message_ProgressRange = Message_ProgressRange()): Standard_Boolean {.
     importcpp: "Transfer", header: "IGESCAFControl_Writer.hxx".}
-proc transfer*(this: var IGESCAFControlWriter; labels: TDF_LabelSequence;
-              theProgress: MessageProgressRange = messageProgressRange()): StandardBoolean {.
+proc Transfer*(this: var IGESCAFControl_Writer; labels: TDF_LabelSequence;
+              theProgress: Message_ProgressRange = Message_ProgressRange()): Standard_Boolean {.
     importcpp: "Transfer", header: "IGESCAFControl_Writer.hxx".}
-proc transfer*(this: var IGESCAFControlWriter; label: TDF_Label;
-              theProgress: MessageProgressRange = messageProgressRange()): StandardBoolean {.
+proc Transfer*(this: var IGESCAFControl_Writer; label: TDF_Label;
+              theProgress: Message_ProgressRange = Message_ProgressRange()): Standard_Boolean {.
     importcpp: "Transfer", header: "IGESCAFControl_Writer.hxx".}
-proc perform*(this: var IGESCAFControlWriter; doc: Handle[TDocStdDocument];
-             filename: TCollectionAsciiString;
-             theProgress: MessageProgressRange = messageProgressRange()): StandardBoolean {.
+proc Perform*(this: var IGESCAFControl_Writer; doc: handle[TDocStd_Document];
+             filename: TCollection_AsciiString;
+             theProgress: Message_ProgressRange = Message_ProgressRange()): Standard_Boolean {.
     importcpp: "Perform", header: "IGESCAFControl_Writer.hxx".}
-proc perform*(this: var IGESCAFControlWriter; doc: Handle[TDocStdDocument];
-             filename: StandardCString;
-             theProgress: MessageProgressRange = messageProgressRange()): StandardBoolean {.
+proc Perform*(this: var IGESCAFControl_Writer; doc: handle[TDocStd_Document];
+             filename: Standard_CString;
+             theProgress: Message_ProgressRange = Message_ProgressRange()): Standard_Boolean {.
     importcpp: "Perform", header: "IGESCAFControl_Writer.hxx".}
-proc setColorMode*(this: var IGESCAFControlWriter; colormode: StandardBoolean) {.
+proc SetColorMode*(this: var IGESCAFControl_Writer; colormode: Standard_Boolean) {.
     importcpp: "SetColorMode", header: "IGESCAFControl_Writer.hxx".}
-proc getColorMode*(this: IGESCAFControlWriter): StandardBoolean {.noSideEffect,
+proc GetColorMode*(this: IGESCAFControl_Writer): Standard_Boolean {.noSideEffect,
     importcpp: "GetColorMode", header: "IGESCAFControl_Writer.hxx".}
-proc setNameMode*(this: var IGESCAFControlWriter; namemode: StandardBoolean) {.
+proc SetNameMode*(this: var IGESCAFControl_Writer; namemode: Standard_Boolean) {.
     importcpp: "SetNameMode", header: "IGESCAFControl_Writer.hxx".}
-proc getNameMode*(this: IGESCAFControlWriter): StandardBoolean {.noSideEffect,
+proc GetNameMode*(this: IGESCAFControl_Writer): Standard_Boolean {.noSideEffect,
     importcpp: "GetNameMode", header: "IGESCAFControl_Writer.hxx".}
-proc setLayerMode*(this: var IGESCAFControlWriter; layermode: StandardBoolean) {.
+proc SetLayerMode*(this: var IGESCAFControl_Writer; layermode: Standard_Boolean) {.
     importcpp: "SetLayerMode", header: "IGESCAFControl_Writer.hxx".}
-proc getLayerMode*(this: IGESCAFControlWriter): StandardBoolean {.noSideEffect,
+proc GetLayerMode*(this: IGESCAFControl_Writer): Standard_Boolean {.noSideEffect,
     importcpp: "GetLayerMode", header: "IGESCAFControl_Writer.hxx".}
-

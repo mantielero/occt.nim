@@ -14,38 +14,42 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../gp/gp_Pnt, ../TopoDS/TopoDS_Face,
+  ../TopAbs/TopAbs_Orientation, ../Standard/Standard_Real
+
 discard "forward decl of gp_Pnt"
 discard "forward decl of TopoDS_Face"
 type
-  LocOpePntFace* {.importcpp: "LocOpe_PntFace", header: "LocOpe_PntFace.hxx", bycopy.} = object ##
-                                                                                        ## !
-                                                                                        ## Empty
-                                                                                        ## constructor.
-                                                                                        ## Useful
-                                                                                        ## only
-                                                                                        ## for
-                                                                                        ## the
-                                                                                        ## list.
+  LocOpe_PntFace* {.importcpp: "LocOpe_PntFace", header: "LocOpe_PntFace.hxx", bycopy.} = object ##
+                                                                                         ## !
+                                                                                         ## Empty
+                                                                                         ## constructor.
+                                                                                         ## Useful
+                                                                                         ## only
+                                                                                         ## for
+                                                                                         ## the
+                                                                                         ## list.
 
 
-proc constructLocOpePntFace*(): LocOpePntFace {.constructor,
+proc constructLocOpe_PntFace*(): LocOpe_PntFace {.constructor,
     importcpp: "LocOpe_PntFace(@)", header: "LocOpe_PntFace.hxx".}
-proc constructLocOpePntFace*(p: GpPnt; f: TopoDS_Face; `or`: TopAbsOrientation;
-                            param: StandardReal; uPar: StandardReal;
-                            vPar: StandardReal): LocOpePntFace {.constructor,
+proc constructLocOpe_PntFace*(P: gp_Pnt; F: TopoDS_Face; Or: TopAbs_Orientation;
+                             Param: Standard_Real; UPar: Standard_Real;
+                             VPar: Standard_Real): LocOpe_PntFace {.constructor,
     importcpp: "LocOpe_PntFace(@)", header: "LocOpe_PntFace.hxx".}
-proc pnt*(this: LocOpePntFace): GpPnt {.noSideEffect, importcpp: "Pnt",
-                                    header: "LocOpe_PntFace.hxx".}
-proc face*(this: LocOpePntFace): TopoDS_Face {.noSideEffect, importcpp: "Face",
+proc Pnt*(this: LocOpe_PntFace): gp_Pnt {.noSideEffect, importcpp: "Pnt",
+                                      header: "LocOpe_PntFace.hxx".}
+proc Face*(this: LocOpe_PntFace): TopoDS_Face {.noSideEffect, importcpp: "Face",
     header: "LocOpe_PntFace.hxx".}
-proc orientation*(this: LocOpePntFace): TopAbsOrientation {.noSideEffect,
+proc Orientation*(this: LocOpe_PntFace): TopAbs_Orientation {.noSideEffect,
     importcpp: "Orientation", header: "LocOpe_PntFace.hxx".}
-proc changeOrientation*(this: var LocOpePntFace): var TopAbsOrientation {.
+proc ChangeOrientation*(this: var LocOpe_PntFace): var TopAbs_Orientation {.
     importcpp: "ChangeOrientation", header: "LocOpe_PntFace.hxx".}
-proc parameter*(this: LocOpePntFace): StandardReal {.noSideEffect,
+proc Parameter*(this: LocOpe_PntFace): Standard_Real {.noSideEffect,
     importcpp: "Parameter", header: "LocOpe_PntFace.hxx".}
-proc uParameter*(this: LocOpePntFace): StandardReal {.noSideEffect,
+proc UParameter*(this: LocOpe_PntFace): Standard_Real {.noSideEffect,
     importcpp: "UParameter", header: "LocOpe_PntFace.hxx".}
-proc vParameter*(this: LocOpePntFace): StandardReal {.noSideEffect,
+proc VParameter*(this: LocOpe_PntFace): Standard_Real {.noSideEffect,
     importcpp: "VParameter", header: "LocOpe_PntFace.hxx".}
-

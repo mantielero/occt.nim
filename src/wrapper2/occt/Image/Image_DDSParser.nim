@@ -11,25 +11,27 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  Image_CompressedPixMap, ../NCollection/NCollection_Buffer
+
 discard "forward decl of Image_SupportedFormats"
 type
-  ImageDDSParser* {.importcpp: "Image_DDSParser", header: "Image_DDSParser.hxx",
-                   bycopy.} = object ## ! Load the face from DDS file.
-                                  ## ! @param theSupported [in] list of supported image formats
-                                  ## ! @param theFile      [in] file path
-                                  ## ! @param theFaceIndex [in] face index, within [0, Image_CompressedPixMap::NbFaces()) range;
-                                  ## !                          use -1 to skip reading the face data
-                                  ## ! @param theFileOffset [in] offset to the DDS data
-                                  ## ! @return loaded face or NULL if file cannot be read or not valid DDS file
-                                  ## ! Parse DDS header.
+  Image_DDSParser* {.importcpp: "Image_DDSParser", header: "Image_DDSParser.hxx",
+                    bycopy.} = object ## ! Load the face from DDS file.
+                                   ## ! @param theSupported [in] list of supported image formats
+                                   ## ! @param theFile      [in] file path
+                                   ## ! @param theFaceIndex [in] face index, within [0, Image_CompressedPixMap::NbFaces()) range;
+                                   ## !                          use -1 to skip reading the face data
+                                   ## ! @param theFileOffset [in] offset to the DDS data
+                                   ## ! @return loaded face or NULL if file cannot be read or not valid DDS file
+                                   ## ! Parse DDS header.
 
 
-proc load*(theSupported: Handle[ImageSupportedFormats];
-          theFile: TCollectionAsciiString; theFaceIndex: StandardInteger;
-          theFileOffset: int64T = 0): Handle[ImageCompressedPixMap] {.
+proc Load*(theSupported: handle[Image_SupportedFormats];
+          theFile: TCollection_AsciiString; theFaceIndex: Standard_Integer;
+          theFileOffset: int64_t = 0): handle[Image_CompressedPixMap] {.
     importcpp: "Image_DDSParser::Load(@)", header: "Image_DDSParser.hxx".}
-proc load*(theSupported: Handle[ImageSupportedFormats];
-          theBuffer: Handle[NCollectionBuffer]; theFaceIndex: StandardInteger): Handle[
-    ImageCompressedPixMap] {.importcpp: "Image_DDSParser::Load(@)",
-                            header: "Image_DDSParser.hxx".}
-
+proc Load*(theSupported: handle[Image_SupportedFormats];
+          theBuffer: handle[NCollection_Buffer]; theFaceIndex: Standard_Integer): handle[
+    Image_CompressedPixMap] {.importcpp: "Image_DDSParser::Load(@)",
+                             header: "Image_DDSParser.hxx".}

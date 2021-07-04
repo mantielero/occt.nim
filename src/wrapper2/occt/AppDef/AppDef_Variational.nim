@@ -14,6 +14,17 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, AppDef_MultiLine, ../Standard/Standard_Integer,
+  ../TColStd/TColStd_HArray1OfReal,
+  ../AppParCurves/AppParCurves_HArray1OfConstraintCouple,
+  ../TColStd/TColStd_HArray1OfInteger, ../Standard/Standard_Real,
+  ../GeomAbs/GeomAbs_Shape, ../Standard/Standard_Boolean,
+  ../AppParCurves/AppParCurves_MultiBSpCurve, ../Standard/Standard_OStream,
+  ../TColStd/TColStd_Array1OfReal, ../math/math_Vector,
+  ../AppParCurves/AppParCurves_Constraint
+
 discard "forward decl of AppDef_SmoothCriterion"
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of Standard_DimensionError"
@@ -28,111 +39,114 @@ discard "forward decl of FEmTool_Curve"
 discard "forward decl of FEmTool_Assembly"
 discard "forward decl of PLib_Base"
 type
-  AppDefVariational* {.importcpp: "AppDef_Variational",
-                      header: "AppDef_Variational.hxx", bycopy.} = object ## !
-                                                                     ## Constructor.
-                                                                     ## !
-                                                                     ## Initialization of   the   fields.
-                                                                     ## ! warning :  Nc0 : number of
-                                                                     ## PassagePoint consraints
-                                                                     ## ! Nc2 : number  of
-                                                                     ## TangencyPoint constraints
-                                                                     ## ! Nc3 : number of
-                                                                     ## CurvaturePoint   constraints
-                                                                     ## ! if
-                                                                     ## !
-                                                                     ## ((MaxDegree-Continuity)*MaxSegment -Nc0  - 2*Nc1
-                                                                     ## ! -3*Nc2)
-                                                                     ## ! is  negative
-                                                                     ## ! The problem is
-                                                                     ## over-constrained.
-                                                                     ## !
-                                                                     ## ! Limitation : The MultiLine from AppDef has to be composed by
-                                                                     ## ! only one Line ( Dimension 2 or 3).
+  AppDef_Variational* {.importcpp: "AppDef_Variational",
+                       header: "AppDef_Variational.hxx", bycopy.} = object ## !
+                                                                      ## Constructor.
+                                                                      ## !
+                                                                      ## Initialization of   the   fields.
+                                                                      ## ! warning :  Nc0 : number of
+                                                                      ## PassagePoint consraints
+                                                                      ## ! Nc2 : number  of
+                                                                      ## TangencyPoint
+                                                                      ## constraints
+                                                                      ## ! Nc3 : number of
+                                                                      ## CurvaturePoint
+                                                                      ## constraints
+                                                                      ## ! if
+                                                                      ## !
+                                                                      ## ((MaxDegree-Continuity)*MaxSegment -Nc0  - 2*Nc1
+                                                                      ## ! -3*Nc2)
+                                                                      ## ! is  negative
+                                                                      ## ! The problem is
+                                                                      ## over-constrained.
+                                                                      ## !
+                                                                      ## ! Limitation : The MultiLine from AppDef has to be composed by
+                                                                      ## ! only one Line ( Dimension 2 or 3).
 
 
-proc constructAppDefVariational*(ssp: AppDefMultiLine; firstPoint: StandardInteger;
-                                lastPoint: StandardInteger; theConstraints: Handle[
-    AppParCurvesHArray1OfConstraintCouple]; maxDegree: StandardInteger = 14;
-                                maxSegment: StandardInteger = 100;
-                                continuity: GeomAbsShape = geomAbsC2;
-                                withMinMax: StandardBoolean = standardFalse;
-                                withCutting: StandardBoolean = standardTrue;
-                                tolerance: StandardReal = 1.0;
-                                nbIterations: StandardInteger = 2): AppDefVariational {.
+proc constructAppDef_Variational*(SSP: AppDef_MultiLine;
+                                 FirstPoint: Standard_Integer;
+                                 LastPoint: Standard_Integer; TheConstraints: handle[
+    AppParCurves_HArray1OfConstraintCouple]; MaxDegree: Standard_Integer = 14;
+                                 MaxSegment: Standard_Integer = 100;
+                                 Continuity: GeomAbs_Shape = GeomAbs_C2;
+                                 WithMinMax: Standard_Boolean = Standard_False;
+                                 WithCutting: Standard_Boolean = Standard_True;
+                                 Tolerance: Standard_Real = 1.0;
+                                 NbIterations: Standard_Integer = 2): AppDef_Variational {.
     constructor, importcpp: "AppDef_Variational(@)",
     header: "AppDef_Variational.hxx".}
-proc approximate*(this: var AppDefVariational) {.importcpp: "Approximate",
+proc Approximate*(this: var AppDef_Variational) {.importcpp: "Approximate",
     header: "AppDef_Variational.hxx".}
-proc isCreated*(this: AppDefVariational): StandardBoolean {.noSideEffect,
+proc IsCreated*(this: AppDef_Variational): Standard_Boolean {.noSideEffect,
     importcpp: "IsCreated", header: "AppDef_Variational.hxx".}
-proc isDone*(this: AppDefVariational): StandardBoolean {.noSideEffect,
+proc IsDone*(this: AppDef_Variational): Standard_Boolean {.noSideEffect,
     importcpp: "IsDone", header: "AppDef_Variational.hxx".}
-proc isOverConstrained*(this: AppDefVariational): StandardBoolean {.noSideEffect,
+proc IsOverConstrained*(this: AppDef_Variational): Standard_Boolean {.noSideEffect,
     importcpp: "IsOverConstrained", header: "AppDef_Variational.hxx".}
-proc value*(this: AppDefVariational): AppParCurvesMultiBSpCurve {.noSideEffect,
+proc Value*(this: AppDef_Variational): AppParCurves_MultiBSpCurve {.noSideEffect,
     importcpp: "Value", header: "AppDef_Variational.hxx".}
-proc maxError*(this: AppDefVariational): StandardReal {.noSideEffect,
+proc MaxError*(this: AppDef_Variational): Standard_Real {.noSideEffect,
     importcpp: "MaxError", header: "AppDef_Variational.hxx".}
-proc maxErrorIndex*(this: AppDefVariational): StandardInteger {.noSideEffect,
+proc MaxErrorIndex*(this: AppDef_Variational): Standard_Integer {.noSideEffect,
     importcpp: "MaxErrorIndex", header: "AppDef_Variational.hxx".}
-proc quadraticError*(this: AppDefVariational): StandardReal {.noSideEffect,
+proc QuadraticError*(this: AppDef_Variational): Standard_Real {.noSideEffect,
     importcpp: "QuadraticError", header: "AppDef_Variational.hxx".}
-proc distance*(this: var AppDefVariational; mat: var MathMatrix) {.
+proc Distance*(this: var AppDef_Variational; mat: var math_Matrix) {.
     importcpp: "Distance", header: "AppDef_Variational.hxx".}
-proc averageError*(this: AppDefVariational): StandardReal {.noSideEffect,
+proc AverageError*(this: AppDef_Variational): Standard_Real {.noSideEffect,
     importcpp: "AverageError", header: "AppDef_Variational.hxx".}
-proc parameters*(this: AppDefVariational): Handle[TColStdHArray1OfReal] {.
+proc Parameters*(this: AppDef_Variational): handle[TColStd_HArray1OfReal] {.
     noSideEffect, importcpp: "Parameters", header: "AppDef_Variational.hxx".}
-proc knots*(this: AppDefVariational): Handle[TColStdHArray1OfReal] {.noSideEffect,
+proc Knots*(this: AppDef_Variational): handle[TColStd_HArray1OfReal] {.noSideEffect,
     importcpp: "Knots", header: "AppDef_Variational.hxx".}
-proc criterium*(this: AppDefVariational; vFirstOrder: var StandardReal;
-               vSecondOrder: var StandardReal; vThirdOrder: var StandardReal) {.
+proc Criterium*(this: AppDef_Variational; VFirstOrder: var Standard_Real;
+               VSecondOrder: var Standard_Real; VThirdOrder: var Standard_Real) {.
     noSideEffect, importcpp: "Criterium", header: "AppDef_Variational.hxx".}
-proc criteriumWeight*(this: AppDefVariational; percent1: var StandardReal;
-                     percent2: var StandardReal; percent3: var StandardReal) {.
+proc CriteriumWeight*(this: AppDef_Variational; Percent1: var Standard_Real;
+                     Percent2: var Standard_Real; Percent3: var Standard_Real) {.
     noSideEffect, importcpp: "CriteriumWeight", header: "AppDef_Variational.hxx".}
-proc maxDegree*(this: AppDefVariational): StandardInteger {.noSideEffect,
+proc MaxDegree*(this: AppDef_Variational): Standard_Integer {.noSideEffect,
     importcpp: "MaxDegree", header: "AppDef_Variational.hxx".}
-proc maxSegment*(this: AppDefVariational): StandardInteger {.noSideEffect,
+proc MaxSegment*(this: AppDef_Variational): Standard_Integer {.noSideEffect,
     importcpp: "MaxSegment", header: "AppDef_Variational.hxx".}
-proc continuity*(this: AppDefVariational): GeomAbsShape {.noSideEffect,
+proc Continuity*(this: AppDef_Variational): GeomAbs_Shape {.noSideEffect,
     importcpp: "Continuity", header: "AppDef_Variational.hxx".}
-proc withMinMax*(this: AppDefVariational): StandardBoolean {.noSideEffect,
+proc WithMinMax*(this: AppDef_Variational): Standard_Boolean {.noSideEffect,
     importcpp: "WithMinMax", header: "AppDef_Variational.hxx".}
-proc withCutting*(this: AppDefVariational): StandardBoolean {.noSideEffect,
+proc WithCutting*(this: AppDef_Variational): Standard_Boolean {.noSideEffect,
     importcpp: "WithCutting", header: "AppDef_Variational.hxx".}
-proc tolerance*(this: AppDefVariational): StandardReal {.noSideEffect,
+proc Tolerance*(this: AppDef_Variational): Standard_Real {.noSideEffect,
     importcpp: "Tolerance", header: "AppDef_Variational.hxx".}
-proc nbIterations*(this: AppDefVariational): StandardInteger {.noSideEffect,
+proc NbIterations*(this: AppDef_Variational): Standard_Integer {.noSideEffect,
     importcpp: "NbIterations", header: "AppDef_Variational.hxx".}
-proc dump*(this: AppDefVariational; o: var StandardOStream) {.noSideEffect,
+proc Dump*(this: AppDef_Variational; o: var Standard_OStream) {.noSideEffect,
     importcpp: "Dump", header: "AppDef_Variational.hxx".}
-proc setConstraints*(this: var AppDefVariational;
-                    aConstrainst: Handle[AppParCurvesHArray1OfConstraintCouple]): StandardBoolean {.
+proc SetConstraints*(this: var AppDef_Variational; aConstrainst: handle[
+    AppParCurves_HArray1OfConstraintCouple]): Standard_Boolean {.
     importcpp: "SetConstraints", header: "AppDef_Variational.hxx".}
-proc setParameters*(this: var AppDefVariational; param: Handle[TColStdHArray1OfReal]) {.
+proc SetParameters*(this: var AppDef_Variational;
+                   param: handle[TColStd_HArray1OfReal]) {.
     importcpp: "SetParameters", header: "AppDef_Variational.hxx".}
-proc setKnots*(this: var AppDefVariational; knots: Handle[TColStdHArray1OfReal]): StandardBoolean {.
+proc SetKnots*(this: var AppDef_Variational; knots: handle[TColStd_HArray1OfReal]): Standard_Boolean {.
     importcpp: "SetKnots", header: "AppDef_Variational.hxx".}
-proc setMaxDegree*(this: var AppDefVariational; degree: StandardInteger): StandardBoolean {.
+proc SetMaxDegree*(this: var AppDef_Variational; Degree: Standard_Integer): Standard_Boolean {.
     importcpp: "SetMaxDegree", header: "AppDef_Variational.hxx".}
-proc setMaxSegment*(this: var AppDefVariational; nbSegment: StandardInteger): StandardBoolean {.
+proc SetMaxSegment*(this: var AppDef_Variational; NbSegment: Standard_Integer): Standard_Boolean {.
     importcpp: "SetMaxSegment", header: "AppDef_Variational.hxx".}
-proc setContinuity*(this: var AppDefVariational; c: GeomAbsShape): StandardBoolean {.
+proc SetContinuity*(this: var AppDef_Variational; C: GeomAbs_Shape): Standard_Boolean {.
     importcpp: "SetContinuity", header: "AppDef_Variational.hxx".}
-proc setWithMinMax*(this: var AppDefVariational; minMax: StandardBoolean) {.
+proc SetWithMinMax*(this: var AppDef_Variational; MinMax: Standard_Boolean) {.
     importcpp: "SetWithMinMax", header: "AppDef_Variational.hxx".}
-proc setWithCutting*(this: var AppDefVariational; cutting: StandardBoolean): StandardBoolean {.
+proc SetWithCutting*(this: var AppDef_Variational; Cutting: Standard_Boolean): Standard_Boolean {.
     importcpp: "SetWithCutting", header: "AppDef_Variational.hxx".}
-proc setCriteriumWeight*(this: var AppDefVariational; percent1: StandardReal;
-                        percent2: StandardReal; percent3: StandardReal) {.
+proc SetCriteriumWeight*(this: var AppDef_Variational; Percent1: Standard_Real;
+                        Percent2: Standard_Real; Percent3: Standard_Real) {.
     importcpp: "SetCriteriumWeight", header: "AppDef_Variational.hxx".}
-proc setCriteriumWeight*(this: var AppDefVariational; order: StandardInteger;
-                        percent: StandardReal) {.importcpp: "SetCriteriumWeight",
+proc SetCriteriumWeight*(this: var AppDef_Variational; Order: Standard_Integer;
+                        Percent: Standard_Real) {.importcpp: "SetCriteriumWeight",
     header: "AppDef_Variational.hxx".}
-proc setTolerance*(this: var AppDefVariational; tol: StandardReal) {.
+proc SetTolerance*(this: var AppDef_Variational; Tol: Standard_Real) {.
     importcpp: "SetTolerance", header: "AppDef_Variational.hxx".}
-proc setNbIterations*(this: var AppDefVariational; iter: StandardInteger) {.
+proc SetNbIterations*(this: var AppDef_Variational; Iter: Standard_Integer) {.
     importcpp: "SetNbIterations", header: "AppDef_Variational.hxx".}
-

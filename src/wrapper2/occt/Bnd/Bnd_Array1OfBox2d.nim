@@ -14,7 +14,8 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  Bnd_Box2d, ../NCollection/NCollection_Array1
+
 type
-  BndArray1OfBox2d* = NCollectionArray1[BndBox2d]
-
-
+  Bnd_Array1OfBox2d* = NCollection_Array1[Bnd_Box2d]

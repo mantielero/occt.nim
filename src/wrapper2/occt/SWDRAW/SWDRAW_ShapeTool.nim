@@ -14,6 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Draw/Draw_Interpretor
+
 ## ! Defines functions to control shapes (in way useful for XSTEP),
 ## ! additional features which should be basic, or call tools which
 ## ! are bound with transfer needs.
@@ -25,6 +29,5 @@ type
                      header: "SWDRAW_ShapeTool.hxx", bycopy.} = object ## ! Defines and loads all basic functions for SWDRAW on Shapes
 
 
-proc initCommands*(theCommands: var DrawInterpretor) {.
+proc InitCommands*(theCommands: var Draw_Interpretor) {.
     importcpp: "SWDRAW_ShapeTool::InitCommands(@)", header: "SWDRAW_ShapeTool.hxx".}
-

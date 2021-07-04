@@ -14,34 +14,39 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Boolean,
+  ../XSControl/XSControl_Reader, ../Standard/Standard_Integer,
+  ../IFSelect/IFSelect_PrintFail, ../IFSelect/IFSelect_PrintCount
+
 discard "forward decl of XSControl_WorkSession"
 discard "forward decl of IGESData_IGESModel"
 type
-  IGESControlReader* {.importcpp: "IGESControl_Reader",
-                      header: "IGESControl_Reader.hxx", bycopy.} = object of XSControlReader ##
-                                                                                      ## !
-                                                                                      ## Creates
-                                                                                      ## a
-                                                                                      ## Reader
-                                                                                      ## from
-                                                                                      ## scratch
+  IGESControl_Reader* {.importcpp: "IGESControl_Reader",
+                       header: "IGESControl_Reader.hxx", bycopy.} = object of XSControl_Reader ##
+                                                                                        ## !
+                                                                                        ## Creates
+                                                                                        ## a
+                                                                                        ## Reader
+                                                                                        ## from
+                                                                                        ## scratch
 
 
-proc constructIGESControlReader*(): IGESControlReader {.constructor,
+proc constructIGESControl_Reader*(): IGESControl_Reader {.constructor,
     importcpp: "IGESControl_Reader(@)", header: "IGESControl_Reader.hxx".}
-proc constructIGESControlReader*(ws: Handle[XSControlWorkSession];
-                                scratch: StandardBoolean = standardTrue): IGESControlReader {.
+proc constructIGESControl_Reader*(WS: handle[XSControl_WorkSession];
+                                 scratch: Standard_Boolean = Standard_True): IGESControl_Reader {.
     constructor, importcpp: "IGESControl_Reader(@)",
     header: "IGESControl_Reader.hxx".}
-proc setReadVisible*(this: var IGESControlReader; readRoot: StandardBoolean) {.
+proc SetReadVisible*(this: var IGESControl_Reader; ReadRoot: Standard_Boolean) {.
     importcpp: "SetReadVisible", header: "IGESControl_Reader.hxx".}
-proc getReadVisible*(this: IGESControlReader): StandardBoolean {.noSideEffect,
+proc GetReadVisible*(this: IGESControl_Reader): Standard_Boolean {.noSideEffect,
     importcpp: "GetReadVisible", header: "IGESControl_Reader.hxx".}
-proc iGESModel*(this: IGESControlReader): Handle[IGESDataIGESModel] {.noSideEffect,
-    importcpp: "IGESModel", header: "IGESControl_Reader.hxx".}
-proc nbRootsForTransfer*(this: var IGESControlReader): StandardInteger {.
+proc IGESModel*(this: IGESControl_Reader): handle[IGESData_IGESModel] {.
+    noSideEffect, importcpp: "IGESModel", header: "IGESControl_Reader.hxx".}
+proc NbRootsForTransfer*(this: var IGESControl_Reader): Standard_Integer {.
     importcpp: "NbRootsForTransfer", header: "IGESControl_Reader.hxx".}
-proc printTransferInfo*(this: IGESControlReader; failwarn: IFSelectPrintFail;
-                       mode: IFSelectPrintCount) {.noSideEffect,
+proc PrintTransferInfo*(this: IGESControl_Reader; failwarn: IFSelect_PrintFail;
+                       mode: IFSelect_PrintCount) {.noSideEffect,
     importcpp: "PrintTransferInfo", header: "IGESControl_Reader.hxx".}
-

@@ -14,27 +14,32 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../TColGeom2d/TColGeom2d_SequenceOfCurve,
+  ../MAT/MAT_Side, ../Standard/Standard_Boolean, ../Standard/Standard_Integer
+
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of Geom2d_Curve"
 discard "forward decl of Geom2d_TrimmedCurve"
 type
-  MAT2dCutCurve* {.importcpp: "MAT2d_CutCurve", header: "MAT2d_CutCurve.hxx", bycopy.} = object
+  MAT2d_CutCurve* {.importcpp: "MAT2d_CutCurve", header: "MAT2d_CutCurve.hxx", bycopy.} = object
 
 
-proc constructMAT2dCutCurve*(): MAT2dCutCurve {.constructor,
+proc constructMAT2d_CutCurve*(): MAT2d_CutCurve {.constructor,
     importcpp: "MAT2d_CutCurve(@)", header: "MAT2d_CutCurve.hxx".}
-proc constructMAT2dCutCurve*(c: Handle[Geom2dCurve]): MAT2dCutCurve {.constructor,
-    importcpp: "MAT2d_CutCurve(@)", header: "MAT2d_CutCurve.hxx".}
-proc perform*(this: var MAT2dCutCurve; c: Handle[Geom2dCurve]) {.importcpp: "Perform",
-    header: "MAT2d_CutCurve.hxx".}
-proc perform*(this: var MAT2dCutCurve; c: Handle[Geom2dCurve]; aSide: MAT_Side) {.
+proc constructMAT2d_CutCurve*(C: handle[Geom2d_Curve]): MAT2d_CutCurve {.
+    constructor, importcpp: "MAT2d_CutCurve(@)", header: "MAT2d_CutCurve.hxx".}
+proc Perform*(this: var MAT2d_CutCurve; C: handle[Geom2d_Curve]) {.
     importcpp: "Perform", header: "MAT2d_CutCurve.hxx".}
-proc performInf*(this: var MAT2dCutCurve; c: Handle[Geom2dCurve]) {.
+proc Perform*(this: var MAT2d_CutCurve; C: handle[Geom2d_Curve]; aSide: MAT_Side) {.
+    importcpp: "Perform", header: "MAT2d_CutCurve.hxx".}
+proc PerformInf*(this: var MAT2d_CutCurve; C: handle[Geom2d_Curve]) {.
     importcpp: "PerformInf", header: "MAT2d_CutCurve.hxx".}
-proc unModified*(this: MAT2dCutCurve): StandardBoolean {.noSideEffect,
+proc UnModified*(this: MAT2d_CutCurve): Standard_Boolean {.noSideEffect,
     importcpp: "UnModified", header: "MAT2d_CutCurve.hxx".}
-proc nbCurves*(this: MAT2dCutCurve): StandardInteger {.noSideEffect,
+proc NbCurves*(this: MAT2d_CutCurve): Standard_Integer {.noSideEffect,
     importcpp: "NbCurves", header: "MAT2d_CutCurve.hxx".}
-proc value*(this: MAT2dCutCurve; index: StandardInteger): Handle[Geom2dTrimmedCurve] {.
-    noSideEffect, importcpp: "Value", header: "MAT2d_CutCurve.hxx".}
-
+proc Value*(this: MAT2d_CutCurve; Index: Standard_Integer): handle[
+    Geom2d_TrimmedCurve] {.noSideEffect, importcpp: "Value",
+                          header: "MAT2d_CutCurve.hxx".}

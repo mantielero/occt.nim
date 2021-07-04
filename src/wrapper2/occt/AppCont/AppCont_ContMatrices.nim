@@ -12,20 +12,22 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../math/math_Vector, ../Standard/Standard_Real
+
 ##  Stockage des matrices de resolution d approxiamtion continue.
 ##  La classe est limitee a 26 pour MMatrix et InvMMatrix, (pas de contraintes)
 ##  pour IBPMatrix (contraintes de passage aux extremites)
 ##  et IBTMatrix (contraintes de tangence aux extremites).
 
-proc invMMatrix*(classe: StandardInteger; m: var MathMatrix) {.
+proc InvMMatrix*(classe: Standard_Integer; M: var math_Matrix) {.
     importcpp: "InvMMatrix(@)", header: "AppCont_ContMatrices.hxx".}
-proc mMatrix*(classe: StandardInteger; m: var MathMatrix) {.importcpp: "MMatrix(@)",
+proc MMatrix*(classe: Standard_Integer; M: var math_Matrix) {.importcpp: "MMatrix(@)",
     header: "AppCont_ContMatrices.hxx".}
-proc iBPMatrix*(classe: StandardInteger; m: var MathMatrix) {.
+proc IBPMatrix*(classe: Standard_Integer; M: var math_Matrix) {.
     importcpp: "IBPMatrix(@)", header: "AppCont_ContMatrices.hxx".}
-proc iBTMatrix*(classe: StandardInteger; m: var MathMatrix) {.
+proc IBTMatrix*(classe: Standard_Integer; M: var math_Matrix) {.
     importcpp: "IBTMatrix(@)", header: "AppCont_ContMatrices.hxx".}
-proc vBernstein*(classe: StandardInteger; nbpoints: StandardInteger;
-                m: var MathMatrix) {.importcpp: "VBernstein(@)",
-                                  header: "AppCont_ContMatrices.hxx".}
-
+proc VBernstein*(classe: Standard_Integer; nbpoints: Standard_Integer;
+                M: var math_Matrix) {.importcpp: "VBernstein(@)",
+                                   header: "AppCont_ContMatrices.hxx".}

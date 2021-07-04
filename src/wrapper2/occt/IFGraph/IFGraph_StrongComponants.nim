@@ -14,47 +14,51 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, IFGraph_SubPartsIterator,
+  ../Standard/Standard_Boolean
+
 discard "forward decl of Interface_Graph"
 type
-  IFGraphStrongComponants* {.importcpp: "IFGraph_StrongComponants",
-                            header: "IFGraph_StrongComponants.hxx", bycopy.} = object of IFGraphSubPartsIterator ##
-                                                                                                          ## !
-                                                                                                          ## creates
-                                                                                                          ## with
-                                                                                                          ## a
-                                                                                                          ## Graph,
-                                                                                                          ## and
-                                                                                                          ## will
-                                                                                                          ## analyse
-                                                                                                          ## :
-                                                                                                          ##
-                                                                                                          ## !
-                                                                                                          ## whole
-                                                                                                          ## True
-                                                                                                          ## :
-                                                                                                          ## all
-                                                                                                          ## the
-                                                                                                          ## contents
-                                                                                                          ## of
-                                                                                                          ## the
-                                                                                                          ## Model
-                                                                                                          ##
-                                                                                                          ## !
-                                                                                                          ## whole
-                                                                                                          ## False
-                                                                                                          ## :
-                                                                                                          ## sub-parts
-                                                                                                          ## which
-                                                                                                          ## will
-                                                                                                          ## be
-                                                                                                          ## given
-                                                                                                          ## later
+  IFGraph_StrongComponants* {.importcpp: "IFGraph_StrongComponants",
+                             header: "IFGraph_StrongComponants.hxx", bycopy.} = object of IFGraph_SubPartsIterator ##
+                                                                                                            ## !
+                                                                                                            ## creates
+                                                                                                            ## with
+                                                                                                            ## a
+                                                                                                            ## Graph,
+                                                                                                            ## and
+                                                                                                            ## will
+                                                                                                            ## analyse
+                                                                                                            ## :
+                                                                                                            ##
+                                                                                                            ## !
+                                                                                                            ## whole
+                                                                                                            ## True
+                                                                                                            ## :
+                                                                                                            ## all
+                                                                                                            ## the
+                                                                                                            ## contents
+                                                                                                            ## of
+                                                                                                            ## the
+                                                                                                            ## Model
+                                                                                                            ##
+                                                                                                            ## !
+                                                                                                            ## whole
+                                                                                                            ## False
+                                                                                                            ## :
+                                                                                                            ## sub-parts
+                                                                                                            ## which
+                                                                                                            ## will
+                                                                                                            ## be
+                                                                                                            ## given
+                                                                                                            ## later
 
 
-proc constructIFGraphStrongComponants*(agraph: InterfaceGraph;
-                                      whole: StandardBoolean): IFGraphStrongComponants {.
+proc constructIFGraph_StrongComponants*(agraph: Interface_Graph;
+                                       whole: Standard_Boolean): IFGraph_StrongComponants {.
     constructor, importcpp: "IFGraph_StrongComponants(@)",
     header: "IFGraph_StrongComponants.hxx".}
-proc evaluate*(this: var IFGraphStrongComponants) {.importcpp: "Evaluate",
+proc Evaluate*(this: var IFGraph_StrongComponants) {.importcpp: "Evaluate",
     header: "IFGraph_StrongComponants.hxx".}
-

@@ -14,7 +14,5 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # Interface_HSequenceOfCheck_HeaderFile [NewLine] # Interface_HSequenceOfCheck_HeaderFile [NewLine] # < Interface_Check . hxx > [NewLine] # < Interface_SequenceOfCheck . hxx > [NewLine] # < NCollection_DefineHSequence . hxx > [NewLine] DEFINE_HSEQUENCE ( Interface_HSequenceOfCheck , Interface_SequenceOfCheck ) # [NewLine]
+## !!!Ignored construct:  # Interface_HSequenceOfCheck_HeaderFile [NewLine] # Interface_HSequenceOfCheck_HeaderFile [NewLine] # Interface_Check.hxx [NewLine] # Interface_SequenceOfCheck.hxx [NewLine] # ../NCollection/NCollection_DefineHSequence.hxx [NewLine] DEFINE_HSEQUENCE ( Interface_HSequenceOfCheck , Interface_SequenceOfCheck ) # [NewLine]
 ## Error: expected ';'!!!
-
-

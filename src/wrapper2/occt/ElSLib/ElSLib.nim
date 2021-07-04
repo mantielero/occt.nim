@@ -14,6 +14,11 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Real, ../gp/gp_Pnt,
+  ../Standard/Standard_Integer, ../gp/gp_Vec
+
 discard "forward decl of gp_Pnt"
 discard "forward decl of gp_Pln"
 discard "forward decl of gp_Cone"
@@ -30,214 +35,222 @@ type
                                                                  ## ! of parameters (U, V).
 
 
-proc value*(u: StandardReal; v: StandardReal; pl: GpPln): GpPnt {.
+proc Value*(U: Standard_Real; V: Standard_Real; Pl: gp_Pln): gp_Pnt {.
     importcpp: "ElSLib::Value(@)", header: "ElSLib.hxx".}
-proc value*(u: StandardReal; v: StandardReal; c: GpCone): GpPnt {.
+proc Value*(U: Standard_Real; V: Standard_Real; C: gp_Cone): gp_Pnt {.
     importcpp: "ElSLib::Value(@)", header: "ElSLib.hxx".}
-proc value*(u: StandardReal; v: StandardReal; c: GpCylinder): GpPnt {.
+proc Value*(U: Standard_Real; V: Standard_Real; C: gp_Cylinder): gp_Pnt {.
     importcpp: "ElSLib::Value(@)", header: "ElSLib.hxx".}
-proc value*(u: StandardReal; v: StandardReal; s: GpSphere): GpPnt {.
+proc Value*(U: Standard_Real; V: Standard_Real; S: gp_Sphere): gp_Pnt {.
     importcpp: "ElSLib::Value(@)", header: "ElSLib.hxx".}
-proc value*(u: StandardReal; v: StandardReal; t: GpTorus): GpPnt {.
+proc Value*(U: Standard_Real; V: Standard_Real; T: gp_Torus): gp_Pnt {.
     importcpp: "ElSLib::Value(@)", header: "ElSLib.hxx".}
-proc dn*(u: StandardReal; v: StandardReal; pl: GpPln; nu: StandardInteger;
-        nv: StandardInteger): GpVec {.importcpp: "ElSLib::DN(@)",
-                                   header: "ElSLib.hxx".}
-proc dn*(u: StandardReal; v: StandardReal; c: GpCone; nu: StandardInteger;
-        nv: StandardInteger): GpVec {.importcpp: "ElSLib::DN(@)",
-                                   header: "ElSLib.hxx".}
-proc dn*(u: StandardReal; v: StandardReal; c: GpCylinder; nu: StandardInteger;
-        nv: StandardInteger): GpVec {.importcpp: "ElSLib::DN(@)",
-                                   header: "ElSLib.hxx".}
-proc dn*(u: StandardReal; v: StandardReal; s: GpSphere; nu: StandardInteger;
-        nv: StandardInteger): GpVec {.importcpp: "ElSLib::DN(@)",
-                                   header: "ElSLib.hxx".}
-proc dn*(u: StandardReal; v: StandardReal; t: GpTorus; nu: StandardInteger;
-        nv: StandardInteger): GpVec {.importcpp: "ElSLib::DN(@)",
-                                   header: "ElSLib.hxx".}
-proc d0*(u: StandardReal; v: StandardReal; pl: GpPln; p: var GpPnt) {.
+proc DN*(U: Standard_Real; V: Standard_Real; Pl: gp_Pln; Nu: Standard_Integer;
+        Nv: Standard_Integer): gp_Vec {.importcpp: "ElSLib::DN(@)",
+                                     header: "ElSLib.hxx".}
+proc DN*(U: Standard_Real; V: Standard_Real; C: gp_Cone; Nu: Standard_Integer;
+        Nv: Standard_Integer): gp_Vec {.importcpp: "ElSLib::DN(@)",
+                                     header: "ElSLib.hxx".}
+proc DN*(U: Standard_Real; V: Standard_Real; C: gp_Cylinder; Nu: Standard_Integer;
+        Nv: Standard_Integer): gp_Vec {.importcpp: "ElSLib::DN(@)",
+                                     header: "ElSLib.hxx".}
+proc DN*(U: Standard_Real; V: Standard_Real; S: gp_Sphere; Nu: Standard_Integer;
+        Nv: Standard_Integer): gp_Vec {.importcpp: "ElSLib::DN(@)",
+                                     header: "ElSLib.hxx".}
+proc DN*(U: Standard_Real; V: Standard_Real; T: gp_Torus; Nu: Standard_Integer;
+        Nv: Standard_Integer): gp_Vec {.importcpp: "ElSLib::DN(@)",
+                                     header: "ElSLib.hxx".}
+proc D0*(U: Standard_Real; V: Standard_Real; Pl: gp_Pln; P: var gp_Pnt) {.
     importcpp: "ElSLib::D0(@)", header: "ElSLib.hxx".}
-proc d0*(u: StandardReal; v: StandardReal; c: GpCone; p: var GpPnt) {.
+proc D0*(U: Standard_Real; V: Standard_Real; C: gp_Cone; P: var gp_Pnt) {.
     importcpp: "ElSLib::D0(@)", header: "ElSLib.hxx".}
-proc d0*(u: StandardReal; v: StandardReal; c: GpCylinder; p: var GpPnt) {.
+proc D0*(U: Standard_Real; V: Standard_Real; C: gp_Cylinder; P: var gp_Pnt) {.
     importcpp: "ElSLib::D0(@)", header: "ElSLib.hxx".}
-proc d0*(u: StandardReal; v: StandardReal; s: GpSphere; p: var GpPnt) {.
+proc D0*(U: Standard_Real; V: Standard_Real; S: gp_Sphere; P: var gp_Pnt) {.
     importcpp: "ElSLib::D0(@)", header: "ElSLib.hxx".}
-proc d0*(u: StandardReal; v: StandardReal; t: GpTorus; p: var GpPnt) {.
+proc D0*(U: Standard_Real; V: Standard_Real; T: gp_Torus; P: var gp_Pnt) {.
     importcpp: "ElSLib::D0(@)", header: "ElSLib.hxx".}
-proc d1*(u: StandardReal; v: StandardReal; pl: GpPln; p: var GpPnt; vu: var GpVec;
-        vv: var GpVec) {.importcpp: "ElSLib::D1(@)", header: "ElSLib.hxx".}
-proc d1*(u: StandardReal; v: StandardReal; c: GpCone; p: var GpPnt; vu: var GpVec;
-        vv: var GpVec) {.importcpp: "ElSLib::D1(@)", header: "ElSLib.hxx".}
-proc d1*(u: StandardReal; v: StandardReal; c: GpCylinder; p: var GpPnt; vu: var GpVec;
-        vv: var GpVec) {.importcpp: "ElSLib::D1(@)", header: "ElSLib.hxx".}
-proc d1*(u: StandardReal; v: StandardReal; s: GpSphere; p: var GpPnt; vu: var GpVec;
-        vv: var GpVec) {.importcpp: "ElSLib::D1(@)", header: "ElSLib.hxx".}
-proc d1*(u: StandardReal; v: StandardReal; t: GpTorus; p: var GpPnt; vu: var GpVec;
-        vv: var GpVec) {.importcpp: "ElSLib::D1(@)", header: "ElSLib.hxx".}
-proc d2*(u: StandardReal; v: StandardReal; c: GpCone; p: var GpPnt; vu: var GpVec;
-        vv: var GpVec; vuu: var GpVec; vvv: var GpVec; vuv: var GpVec) {.
+proc D1*(U: Standard_Real; V: Standard_Real; Pl: gp_Pln; P: var gp_Pnt; Vu: var gp_Vec;
+        Vv: var gp_Vec) {.importcpp: "ElSLib::D1(@)", header: "ElSLib.hxx".}
+proc D1*(U: Standard_Real; V: Standard_Real; C: gp_Cone; P: var gp_Pnt; Vu: var gp_Vec;
+        Vv: var gp_Vec) {.importcpp: "ElSLib::D1(@)", header: "ElSLib.hxx".}
+proc D1*(U: Standard_Real; V: Standard_Real; C: gp_Cylinder; P: var gp_Pnt;
+        Vu: var gp_Vec; Vv: var gp_Vec) {.importcpp: "ElSLib::D1(@)",
+                                    header: "ElSLib.hxx".}
+proc D1*(U: Standard_Real; V: Standard_Real; S: gp_Sphere; P: var gp_Pnt; Vu: var gp_Vec;
+        Vv: var gp_Vec) {.importcpp: "ElSLib::D1(@)", header: "ElSLib.hxx".}
+proc D1*(U: Standard_Real; V: Standard_Real; T: gp_Torus; P: var gp_Pnt; Vu: var gp_Vec;
+        Vv: var gp_Vec) {.importcpp: "ElSLib::D1(@)", header: "ElSLib.hxx".}
+proc D2*(U: Standard_Real; V: Standard_Real; C: gp_Cone; P: var gp_Pnt; Vu: var gp_Vec;
+        Vv: var gp_Vec; Vuu: var gp_Vec; Vvv: var gp_Vec; Vuv: var gp_Vec) {.
     importcpp: "ElSLib::D2(@)", header: "ElSLib.hxx".}
-proc d2*(u: StandardReal; v: StandardReal; c: GpCylinder; p: var GpPnt; vu: var GpVec;
-        vv: var GpVec; vuu: var GpVec; vvv: var GpVec; vuv: var GpVec) {.
+proc D2*(U: Standard_Real; V: Standard_Real; C: gp_Cylinder; P: var gp_Pnt;
+        Vu: var gp_Vec; Vv: var gp_Vec; Vuu: var gp_Vec; Vvv: var gp_Vec; Vuv: var gp_Vec) {.
     importcpp: "ElSLib::D2(@)", header: "ElSLib.hxx".}
-proc d2*(u: StandardReal; v: StandardReal; s: GpSphere; p: var GpPnt; vu: var GpVec;
-        vv: var GpVec; vuu: var GpVec; vvv: var GpVec; vuv: var GpVec) {.
+proc D2*(U: Standard_Real; V: Standard_Real; S: gp_Sphere; P: var gp_Pnt; Vu: var gp_Vec;
+        Vv: var gp_Vec; Vuu: var gp_Vec; Vvv: var gp_Vec; Vuv: var gp_Vec) {.
     importcpp: "ElSLib::D2(@)", header: "ElSLib.hxx".}
-proc d2*(u: StandardReal; v: StandardReal; t: GpTorus; p: var GpPnt; vu: var GpVec;
-        vv: var GpVec; vuu: var GpVec; vvv: var GpVec; vuv: var GpVec) {.
+proc D2*(U: Standard_Real; V: Standard_Real; T: gp_Torus; P: var gp_Pnt; Vu: var gp_Vec;
+        Vv: var gp_Vec; Vuu: var gp_Vec; Vvv: var gp_Vec; Vuv: var gp_Vec) {.
     importcpp: "ElSLib::D2(@)", header: "ElSLib.hxx".}
-proc d3*(u: StandardReal; v: StandardReal; c: GpCone; p: var GpPnt; vu: var GpVec;
-        vv: var GpVec; vuu: var GpVec; vvv: var GpVec; vuv: var GpVec; vuuu: var GpVec;
-        vvvv: var GpVec; vuuv: var GpVec; vuvv: var GpVec) {.importcpp: "ElSLib::D3(@)",
-    header: "ElSLib.hxx".}
-proc d3*(u: StandardReal; v: StandardReal; c: GpCylinder; p: var GpPnt; vu: var GpVec;
-        vv: var GpVec; vuu: var GpVec; vvv: var GpVec; vuv: var GpVec; vuuu: var GpVec;
-        vvvv: var GpVec; vuuv: var GpVec; vuvv: var GpVec) {.importcpp: "ElSLib::D3(@)",
-    header: "ElSLib.hxx".}
-proc d3*(u: StandardReal; v: StandardReal; s: GpSphere; p: var GpPnt; vu: var GpVec;
-        vv: var GpVec; vuu: var GpVec; vvv: var GpVec; vuv: var GpVec; vuuu: var GpVec;
-        vvvv: var GpVec; vuuv: var GpVec; vuvv: var GpVec) {.importcpp: "ElSLib::D3(@)",
-    header: "ElSLib.hxx".}
-proc d3*(u: StandardReal; v: StandardReal; t: GpTorus; p: var GpPnt; vu: var GpVec;
-        vv: var GpVec; vuu: var GpVec; vvv: var GpVec; vuv: var GpVec; vuuu: var GpVec;
-        vvvv: var GpVec; vuuv: var GpVec; vuvv: var GpVec) {.importcpp: "ElSLib::D3(@)",
-    header: "ElSLib.hxx".}
-proc planeValue*(u: StandardReal; v: StandardReal; pos: GpAx3): GpPnt {.
+proc D3*(U: Standard_Real; V: Standard_Real; C: gp_Cone; P: var gp_Pnt; Vu: var gp_Vec;
+        Vv: var gp_Vec; Vuu: var gp_Vec; Vvv: var gp_Vec; Vuv: var gp_Vec; Vuuu: var gp_Vec;
+        Vvvv: var gp_Vec; Vuuv: var gp_Vec; Vuvv: var gp_Vec) {.
+    importcpp: "ElSLib::D3(@)", header: "ElSLib.hxx".}
+proc D3*(U: Standard_Real; V: Standard_Real; C: gp_Cylinder; P: var gp_Pnt;
+        Vu: var gp_Vec; Vv: var gp_Vec; Vuu: var gp_Vec; Vvv: var gp_Vec; Vuv: var gp_Vec;
+        Vuuu: var gp_Vec; Vvvv: var gp_Vec; Vuuv: var gp_Vec; Vuvv: var gp_Vec) {.
+    importcpp: "ElSLib::D3(@)", header: "ElSLib.hxx".}
+proc D3*(U: Standard_Real; V: Standard_Real; S: gp_Sphere; P: var gp_Pnt; Vu: var gp_Vec;
+        Vv: var gp_Vec; Vuu: var gp_Vec; Vvv: var gp_Vec; Vuv: var gp_Vec; Vuuu: var gp_Vec;
+        Vvvv: var gp_Vec; Vuuv: var gp_Vec; Vuvv: var gp_Vec) {.
+    importcpp: "ElSLib::D3(@)", header: "ElSLib.hxx".}
+proc D3*(U: Standard_Real; V: Standard_Real; T: gp_Torus; P: var gp_Pnt; Vu: var gp_Vec;
+        Vv: var gp_Vec; Vuu: var gp_Vec; Vvv: var gp_Vec; Vuv: var gp_Vec; Vuuu: var gp_Vec;
+        Vvvv: var gp_Vec; Vuuv: var gp_Vec; Vuvv: var gp_Vec) {.
+    importcpp: "ElSLib::D3(@)", header: "ElSLib.hxx".}
+proc PlaneValue*(U: Standard_Real; V: Standard_Real; Pos: gp_Ax3): gp_Pnt {.
     importcpp: "ElSLib::PlaneValue(@)", header: "ElSLib.hxx".}
-proc cylinderValue*(u: StandardReal; v: StandardReal; pos: GpAx3; radius: StandardReal): GpPnt {.
+proc CylinderValue*(U: Standard_Real; V: Standard_Real; Pos: gp_Ax3;
+                   Radius: Standard_Real): gp_Pnt {.
     importcpp: "ElSLib::CylinderValue(@)", header: "ElSLib.hxx".}
-proc coneValue*(u: StandardReal; v: StandardReal; pos: GpAx3; radius: StandardReal;
-               sAngle: StandardReal): GpPnt {.importcpp: "ElSLib::ConeValue(@)",
+proc ConeValue*(U: Standard_Real; V: Standard_Real; Pos: gp_Ax3; Radius: Standard_Real;
+               SAngle: Standard_Real): gp_Pnt {.importcpp: "ElSLib::ConeValue(@)",
     header: "ElSLib.hxx".}
-proc sphereValue*(u: StandardReal; v: StandardReal; pos: GpAx3; radius: StandardReal): GpPnt {.
+proc SphereValue*(U: Standard_Real; V: Standard_Real; Pos: gp_Ax3;
+                 Radius: Standard_Real): gp_Pnt {.
     importcpp: "ElSLib::SphereValue(@)", header: "ElSLib.hxx".}
-proc torusValue*(u: StandardReal; v: StandardReal; pos: GpAx3;
-                majorRadius: StandardReal; minorRadius: StandardReal): GpPnt {.
+proc TorusValue*(U: Standard_Real; V: Standard_Real; Pos: gp_Ax3;
+                MajorRadius: Standard_Real; MinorRadius: Standard_Real): gp_Pnt {.
     importcpp: "ElSLib::TorusValue(@)", header: "ElSLib.hxx".}
-proc planeDN*(u: StandardReal; v: StandardReal; pos: GpAx3; nu: StandardInteger;
-             nv: StandardInteger): GpVec {.importcpp: "ElSLib::PlaneDN(@)",
-                                        header: "ElSLib.hxx".}
-proc cylinderDN*(u: StandardReal; v: StandardReal; pos: GpAx3; radius: StandardReal;
-                nu: StandardInteger; nv: StandardInteger): GpVec {.
-    importcpp: "ElSLib::CylinderDN(@)", header: "ElSLib.hxx".}
-proc coneDN*(u: StandardReal; v: StandardReal; pos: GpAx3; radius: StandardReal;
-            sAngle: StandardReal; nu: StandardInteger; nv: StandardInteger): GpVec {.
-    importcpp: "ElSLib::ConeDN(@)", header: "ElSLib.hxx".}
-proc sphereDN*(u: StandardReal; v: StandardReal; pos: GpAx3; radius: StandardReal;
-              nu: StandardInteger; nv: StandardInteger): GpVec {.
-    importcpp: "ElSLib::SphereDN(@)", header: "ElSLib.hxx".}
-proc torusDN*(u: StandardReal; v: StandardReal; pos: GpAx3; majorRadius: StandardReal;
-             minorRadius: StandardReal; nu: StandardInteger; nv: StandardInteger): GpVec {.
-    importcpp: "ElSLib::TorusDN(@)", header: "ElSLib.hxx".}
-proc planeD0*(u: StandardReal; v: StandardReal; pos: GpAx3; p: var GpPnt) {.
-    importcpp: "ElSLib::PlaneD0(@)", header: "ElSLib.hxx".}
-proc coneD0*(u: StandardReal; v: StandardReal; pos: GpAx3; radius: StandardReal;
-            sAngle: StandardReal; p: var GpPnt) {.importcpp: "ElSLib::ConeD0(@)",
+proc PlaneDN*(U: Standard_Real; V: Standard_Real; Pos: gp_Ax3; Nu: Standard_Integer;
+             Nv: Standard_Integer): gp_Vec {.importcpp: "ElSLib::PlaneDN(@)",
     header: "ElSLib.hxx".}
-proc cylinderD0*(u: StandardReal; v: StandardReal; pos: GpAx3; radius: StandardReal;
-                p: var GpPnt) {.importcpp: "ElSLib::CylinderD0(@)",
-                             header: "ElSLib.hxx".}
-proc sphereD0*(u: StandardReal; v: StandardReal; pos: GpAx3; radius: StandardReal;
-              p: var GpPnt) {.importcpp: "ElSLib::SphereD0(@)", header: "ElSLib.hxx".}
-proc torusD0*(u: StandardReal; v: StandardReal; pos: GpAx3; majorRadius: StandardReal;
-             minorRadius: StandardReal; p: var GpPnt) {.
+proc CylinderDN*(U: Standard_Real; V: Standard_Real; Pos: gp_Ax3;
+                Radius: Standard_Real; Nu: Standard_Integer; Nv: Standard_Integer): gp_Vec {.
+    importcpp: "ElSLib::CylinderDN(@)", header: "ElSLib.hxx".}
+proc ConeDN*(U: Standard_Real; V: Standard_Real; Pos: gp_Ax3; Radius: Standard_Real;
+            SAngle: Standard_Real; Nu: Standard_Integer; Nv: Standard_Integer): gp_Vec {.
+    importcpp: "ElSLib::ConeDN(@)", header: "ElSLib.hxx".}
+proc SphereDN*(U: Standard_Real; V: Standard_Real; Pos: gp_Ax3; Radius: Standard_Real;
+              Nu: Standard_Integer; Nv: Standard_Integer): gp_Vec {.
+    importcpp: "ElSLib::SphereDN(@)", header: "ElSLib.hxx".}
+proc TorusDN*(U: Standard_Real; V: Standard_Real; Pos: gp_Ax3;
+             MajorRadius: Standard_Real; MinorRadius: Standard_Real;
+             Nu: Standard_Integer; Nv: Standard_Integer): gp_Vec {.
+    importcpp: "ElSLib::TorusDN(@)", header: "ElSLib.hxx".}
+proc PlaneD0*(U: Standard_Real; V: Standard_Real; Pos: gp_Ax3; P: var gp_Pnt) {.
+    importcpp: "ElSLib::PlaneD0(@)", header: "ElSLib.hxx".}
+proc ConeD0*(U: Standard_Real; V: Standard_Real; Pos: gp_Ax3; Radius: Standard_Real;
+            SAngle: Standard_Real; P: var gp_Pnt) {.importcpp: "ElSLib::ConeD0(@)",
+    header: "ElSLib.hxx".}
+proc CylinderD0*(U: Standard_Real; V: Standard_Real; Pos: gp_Ax3;
+                Radius: Standard_Real; P: var gp_Pnt) {.
+    importcpp: "ElSLib::CylinderD0(@)", header: "ElSLib.hxx".}
+proc SphereD0*(U: Standard_Real; V: Standard_Real; Pos: gp_Ax3; Radius: Standard_Real;
+              P: var gp_Pnt) {.importcpp: "ElSLib::SphereD0(@)", header: "ElSLib.hxx".}
+proc TorusD0*(U: Standard_Real; V: Standard_Real; Pos: gp_Ax3;
+             MajorRadius: Standard_Real; MinorRadius: Standard_Real; P: var gp_Pnt) {.
     importcpp: "ElSLib::TorusD0(@)", header: "ElSLib.hxx".}
-proc planeD1*(u: StandardReal; v: StandardReal; pos: GpAx3; p: var GpPnt; vu: var GpVec;
-             vv: var GpVec) {.importcpp: "ElSLib::PlaneD1(@)", header: "ElSLib.hxx".}
-proc coneD1*(u: StandardReal; v: StandardReal; pos: GpAx3; radius: StandardReal;
-            sAngle: StandardReal; p: var GpPnt; vu: var GpVec; vv: var GpVec) {.
+proc PlaneD1*(U: Standard_Real; V: Standard_Real; Pos: gp_Ax3; P: var gp_Pnt;
+             Vu: var gp_Vec; Vv: var gp_Vec) {.importcpp: "ElSLib::PlaneD1(@)",
+    header: "ElSLib.hxx".}
+proc ConeD1*(U: Standard_Real; V: Standard_Real; Pos: gp_Ax3; Radius: Standard_Real;
+            SAngle: Standard_Real; P: var gp_Pnt; Vu: var gp_Vec; Vv: var gp_Vec) {.
     importcpp: "ElSLib::ConeD1(@)", header: "ElSLib.hxx".}
-proc cylinderD1*(u: StandardReal; v: StandardReal; pos: GpAx3; radius: StandardReal;
-                p: var GpPnt; vu: var GpVec; vv: var GpVec) {.
+proc CylinderD1*(U: Standard_Real; V: Standard_Real; Pos: gp_Ax3;
+                Radius: Standard_Real; P: var gp_Pnt; Vu: var gp_Vec; Vv: var gp_Vec) {.
     importcpp: "ElSLib::CylinderD1(@)", header: "ElSLib.hxx".}
-proc sphereD1*(u: StandardReal; v: StandardReal; pos: GpAx3; radius: StandardReal;
-              p: var GpPnt; vu: var GpVec; vv: var GpVec) {.
+proc SphereD1*(U: Standard_Real; V: Standard_Real; Pos: gp_Ax3; Radius: Standard_Real;
+              P: var gp_Pnt; Vu: var gp_Vec; Vv: var gp_Vec) {.
     importcpp: "ElSLib::SphereD1(@)", header: "ElSLib.hxx".}
-proc torusD1*(u: StandardReal; v: StandardReal; pos: GpAx3; majorRadius: StandardReal;
-             minorRadius: StandardReal; p: var GpPnt; vu: var GpVec; vv: var GpVec) {.
-    importcpp: "ElSLib::TorusD1(@)", header: "ElSLib.hxx".}
-proc coneD2*(u: StandardReal; v: StandardReal; pos: GpAx3; radius: StandardReal;
-            sAngle: StandardReal; p: var GpPnt; vu: var GpVec; vv: var GpVec;
-            vuu: var GpVec; vvv: var GpVec; vuv: var GpVec) {.
+proc TorusD1*(U: Standard_Real; V: Standard_Real; Pos: gp_Ax3;
+             MajorRadius: Standard_Real; MinorRadius: Standard_Real; P: var gp_Pnt;
+             Vu: var gp_Vec; Vv: var gp_Vec) {.importcpp: "ElSLib::TorusD1(@)",
+    header: "ElSLib.hxx".}
+proc ConeD2*(U: Standard_Real; V: Standard_Real; Pos: gp_Ax3; Radius: Standard_Real;
+            SAngle: Standard_Real; P: var gp_Pnt; Vu: var gp_Vec; Vv: var gp_Vec;
+            Vuu: var gp_Vec; Vvv: var gp_Vec; Vuv: var gp_Vec) {.
     importcpp: "ElSLib::ConeD2(@)", header: "ElSLib.hxx".}
-proc cylinderD2*(u: StandardReal; v: StandardReal; pos: GpAx3; radius: StandardReal;
-                p: var GpPnt; vu: var GpVec; vv: var GpVec; vuu: var GpVec; vvv: var GpVec;
-                vuv: var GpVec) {.importcpp: "ElSLib::CylinderD2(@)",
-                               header: "ElSLib.hxx".}
-proc sphereD2*(u: StandardReal; v: StandardReal; pos: GpAx3; radius: StandardReal;
-              p: var GpPnt; vu: var GpVec; vv: var GpVec; vuu: var GpVec; vvv: var GpVec;
-              vuv: var GpVec) {.importcpp: "ElSLib::SphereD2(@)",
-                             header: "ElSLib.hxx".}
-proc torusD2*(u: StandardReal; v: StandardReal; pos: GpAx3; majorRadius: StandardReal;
-             minorRadius: StandardReal; p: var GpPnt; vu: var GpVec; vv: var GpVec;
-             vuu: var GpVec; vvv: var GpVec; vuv: var GpVec) {.
-    importcpp: "ElSLib::TorusD2(@)", header: "ElSLib.hxx".}
-proc coneD3*(u: StandardReal; v: StandardReal; pos: GpAx3; radius: StandardReal;
-            sAngle: StandardReal; p: var GpPnt; vu: var GpVec; vv: var GpVec;
-            vuu: var GpVec; vvv: var GpVec; vuv: var GpVec; vuuu: var GpVec;
-            vvvv: var GpVec; vuuv: var GpVec; vuvv: var GpVec) {.
+proc CylinderD2*(U: Standard_Real; V: Standard_Real; Pos: gp_Ax3;
+                Radius: Standard_Real; P: var gp_Pnt; Vu: var gp_Vec; Vv: var gp_Vec;
+                Vuu: var gp_Vec; Vvv: var gp_Vec; Vuv: var gp_Vec) {.
+    importcpp: "ElSLib::CylinderD2(@)", header: "ElSLib.hxx".}
+proc SphereD2*(U: Standard_Real; V: Standard_Real; Pos: gp_Ax3; Radius: Standard_Real;
+              P: var gp_Pnt; Vu: var gp_Vec; Vv: var gp_Vec; Vuu: var gp_Vec;
+              Vvv: var gp_Vec; Vuv: var gp_Vec) {.importcpp: "ElSLib::SphereD2(@)",
+    header: "ElSLib.hxx".}
+proc TorusD2*(U: Standard_Real; V: Standard_Real; Pos: gp_Ax3;
+             MajorRadius: Standard_Real; MinorRadius: Standard_Real; P: var gp_Pnt;
+             Vu: var gp_Vec; Vv: var gp_Vec; Vuu: var gp_Vec; Vvv: var gp_Vec;
+             Vuv: var gp_Vec) {.importcpp: "ElSLib::TorusD2(@)", header: "ElSLib.hxx".}
+proc ConeD3*(U: Standard_Real; V: Standard_Real; Pos: gp_Ax3; Radius: Standard_Real;
+            SAngle: Standard_Real; P: var gp_Pnt; Vu: var gp_Vec; Vv: var gp_Vec;
+            Vuu: var gp_Vec; Vvv: var gp_Vec; Vuv: var gp_Vec; Vuuu: var gp_Vec;
+            Vvvv: var gp_Vec; Vuuv: var gp_Vec; Vuvv: var gp_Vec) {.
     importcpp: "ElSLib::ConeD3(@)", header: "ElSLib.hxx".}
-proc cylinderD3*(u: StandardReal; v: StandardReal; pos: GpAx3; radius: StandardReal;
-                p: var GpPnt; vu: var GpVec; vv: var GpVec; vuu: var GpVec; vvv: var GpVec;
-                vuv: var GpVec; vuuu: var GpVec; vvvv: var GpVec; vuuv: var GpVec;
-                vuvv: var GpVec) {.importcpp: "ElSLib::CylinderD3(@)",
-                                header: "ElSLib.hxx".}
-proc sphereD3*(u: StandardReal; v: StandardReal; pos: GpAx3; radius: StandardReal;
-              p: var GpPnt; vu: var GpVec; vv: var GpVec; vuu: var GpVec; vvv: var GpVec;
-              vuv: var GpVec; vuuu: var GpVec; vvvv: var GpVec; vuuv: var GpVec;
-              vuvv: var GpVec) {.importcpp: "ElSLib::SphereD3(@)",
+proc CylinderD3*(U: Standard_Real; V: Standard_Real; Pos: gp_Ax3;
+                Radius: Standard_Real; P: var gp_Pnt; Vu: var gp_Vec; Vv: var gp_Vec;
+                Vuu: var gp_Vec; Vvv: var gp_Vec; Vuv: var gp_Vec; Vuuu: var gp_Vec;
+                Vvvv: var gp_Vec; Vuuv: var gp_Vec; Vuvv: var gp_Vec) {.
+    importcpp: "ElSLib::CylinderD3(@)", header: "ElSLib.hxx".}
+proc SphereD3*(U: Standard_Real; V: Standard_Real; Pos: gp_Ax3; Radius: Standard_Real;
+              P: var gp_Pnt; Vu: var gp_Vec; Vv: var gp_Vec; Vuu: var gp_Vec;
+              Vvv: var gp_Vec; Vuv: var gp_Vec; Vuuu: var gp_Vec; Vvvv: var gp_Vec;
+              Vuuv: var gp_Vec; Vuvv: var gp_Vec) {.importcpp: "ElSLib::SphereD3(@)",
+    header: "ElSLib.hxx".}
+proc TorusD3*(U: Standard_Real; V: Standard_Real; Pos: gp_Ax3;
+             MajorRadius: Standard_Real; MinorRadius: Standard_Real; P: var gp_Pnt;
+             Vu: var gp_Vec; Vv: var gp_Vec; Vuu: var gp_Vec; Vvv: var gp_Vec;
+             Vuv: var gp_Vec; Vuuu: var gp_Vec; Vvvv: var gp_Vec; Vuuv: var gp_Vec;
+             Vuvv: var gp_Vec) {.importcpp: "ElSLib::TorusD3(@)",
                               header: "ElSLib.hxx".}
-proc torusD3*(u: StandardReal; v: StandardReal; pos: GpAx3; majorRadius: StandardReal;
-             minorRadius: StandardReal; p: var GpPnt; vu: var GpVec; vv: var GpVec;
-             vuu: var GpVec; vvv: var GpVec; vuv: var GpVec; vuuu: var GpVec;
-             vvvv: var GpVec; vuuv: var GpVec; vuvv: var GpVec) {.
-    importcpp: "ElSLib::TorusD3(@)", header: "ElSLib.hxx".}
-proc parameters*(pl: GpPln; p: GpPnt; u: var StandardReal; v: var StandardReal) {.
+proc Parameters*(Pl: gp_Pln; P: gp_Pnt; U: var Standard_Real; V: var Standard_Real) {.
     importcpp: "ElSLib::Parameters(@)", header: "ElSLib.hxx".}
-proc parameters*(c: GpCylinder; p: GpPnt; u: var StandardReal; v: var StandardReal) {.
+proc Parameters*(C: gp_Cylinder; P: gp_Pnt; U: var Standard_Real; V: var Standard_Real) {.
     importcpp: "ElSLib::Parameters(@)", header: "ElSLib.hxx".}
-proc parameters*(c: GpCone; p: GpPnt; u: var StandardReal; v: var StandardReal) {.
+proc Parameters*(C: gp_Cone; P: gp_Pnt; U: var Standard_Real; V: var Standard_Real) {.
     importcpp: "ElSLib::Parameters(@)", header: "ElSLib.hxx".}
-proc parameters*(s: GpSphere; p: GpPnt; u: var StandardReal; v: var StandardReal) {.
+proc Parameters*(S: gp_Sphere; P: gp_Pnt; U: var Standard_Real; V: var Standard_Real) {.
     importcpp: "ElSLib::Parameters(@)", header: "ElSLib.hxx".}
-proc parameters*(t: GpTorus; p: GpPnt; u: var StandardReal; v: var StandardReal) {.
+proc Parameters*(T: gp_Torus; P: gp_Pnt; U: var Standard_Real; V: var Standard_Real) {.
     importcpp: "ElSLib::Parameters(@)", header: "ElSLib.hxx".}
-proc planeParameters*(pos: GpAx3; p: GpPnt; u: var StandardReal; v: var StandardReal) {.
+proc PlaneParameters*(Pos: gp_Ax3; P: gp_Pnt; U: var Standard_Real; V: var Standard_Real) {.
     importcpp: "ElSLib::PlaneParameters(@)", header: "ElSLib.hxx".}
-proc cylinderParameters*(pos: GpAx3; radius: StandardReal; p: GpPnt;
-                        u: var StandardReal; v: var StandardReal) {.
+proc CylinderParameters*(Pos: gp_Ax3; Radius: Standard_Real; P: gp_Pnt;
+                        U: var Standard_Real; V: var Standard_Real) {.
     importcpp: "ElSLib::CylinderParameters(@)", header: "ElSLib.hxx".}
-proc coneParameters*(pos: GpAx3; radius: StandardReal; sAngle: StandardReal; p: GpPnt;
-                    u: var StandardReal; v: var StandardReal) {.
+proc ConeParameters*(Pos: gp_Ax3; Radius: Standard_Real; SAngle: Standard_Real;
+                    P: gp_Pnt; U: var Standard_Real; V: var Standard_Real) {.
     importcpp: "ElSLib::ConeParameters(@)", header: "ElSLib.hxx".}
-proc sphereParameters*(pos: GpAx3; radius: StandardReal; p: GpPnt; u: var StandardReal;
-                      v: var StandardReal) {.
+proc SphereParameters*(Pos: gp_Ax3; Radius: Standard_Real; P: gp_Pnt;
+                      U: var Standard_Real; V: var Standard_Real) {.
     importcpp: "ElSLib::SphereParameters(@)", header: "ElSLib.hxx".}
-proc torusParameters*(pos: GpAx3; majorRadius: StandardReal;
-                     minorRadius: StandardReal; p: GpPnt; u: var StandardReal;
-                     v: var StandardReal) {.
+proc TorusParameters*(Pos: gp_Ax3; MajorRadius: Standard_Real;
+                     MinorRadius: Standard_Real; P: gp_Pnt; U: var Standard_Real;
+                     V: var Standard_Real) {.
     importcpp: "ElSLib::TorusParameters(@)", header: "ElSLib.hxx".}
-proc planeUIso*(pos: GpAx3; u: StandardReal): GpLin {.
+proc PlaneUIso*(Pos: gp_Ax3; U: Standard_Real): gp_Lin {.
     importcpp: "ElSLib::PlaneUIso(@)", header: "ElSLib.hxx".}
-proc cylinderUIso*(pos: GpAx3; radius: StandardReal; u: StandardReal): GpLin {.
+proc CylinderUIso*(Pos: gp_Ax3; Radius: Standard_Real; U: Standard_Real): gp_Lin {.
     importcpp: "ElSLib::CylinderUIso(@)", header: "ElSLib.hxx".}
-proc coneUIso*(pos: GpAx3; radius: StandardReal; sAngle: StandardReal; u: StandardReal): GpLin {.
-    importcpp: "ElSLib::ConeUIso(@)", header: "ElSLib.hxx".}
-proc sphereUIso*(pos: GpAx3; radius: StandardReal; u: StandardReal): GpCirc {.
+proc ConeUIso*(Pos: gp_Ax3; Radius: Standard_Real; SAngle: Standard_Real;
+              U: Standard_Real): gp_Lin {.importcpp: "ElSLib::ConeUIso(@)",
+                                       header: "ElSLib.hxx".}
+proc SphereUIso*(Pos: gp_Ax3; Radius: Standard_Real; U: Standard_Real): gp_Circ {.
     importcpp: "ElSLib::SphereUIso(@)", header: "ElSLib.hxx".}
-proc torusUIso*(pos: GpAx3; majorRadius: StandardReal; minorRadius: StandardReal;
-               u: StandardReal): GpCirc {.importcpp: "ElSLib::TorusUIso(@)",
-                                       header: "ElSLib.hxx".}
-proc planeVIso*(pos: GpAx3; v: StandardReal): GpLin {.
+proc TorusUIso*(Pos: gp_Ax3; MajorRadius: Standard_Real; MinorRadius: Standard_Real;
+               U: Standard_Real): gp_Circ {.importcpp: "ElSLib::TorusUIso(@)",
+    header: "ElSLib.hxx".}
+proc PlaneVIso*(Pos: gp_Ax3; V: Standard_Real): gp_Lin {.
     importcpp: "ElSLib::PlaneVIso(@)", header: "ElSLib.hxx".}
-proc cylinderVIso*(pos: GpAx3; radius: StandardReal; v: StandardReal): GpCirc {.
+proc CylinderVIso*(Pos: gp_Ax3; Radius: Standard_Real; V: Standard_Real): gp_Circ {.
     importcpp: "ElSLib::CylinderVIso(@)", header: "ElSLib.hxx".}
-proc coneVIso*(pos: GpAx3; radius: StandardReal; sAngle: StandardReal; v: StandardReal): GpCirc {.
-    importcpp: "ElSLib::ConeVIso(@)", header: "ElSLib.hxx".}
-proc sphereVIso*(pos: GpAx3; radius: StandardReal; v: StandardReal): GpCirc {.
+proc ConeVIso*(Pos: gp_Ax3; Radius: Standard_Real; SAngle: Standard_Real;
+              V: Standard_Real): gp_Circ {.importcpp: "ElSLib::ConeVIso(@)",
+                                        header: "ElSLib.hxx".}
+proc SphereVIso*(Pos: gp_Ax3; Radius: Standard_Real; V: Standard_Real): gp_Circ {.
     importcpp: "ElSLib::SphereVIso(@)", header: "ElSLib.hxx".}
-proc torusVIso*(pos: GpAx3; majorRadius: StandardReal; minorRadius: StandardReal;
-               v: StandardReal): GpCirc {.importcpp: "ElSLib::TorusVIso(@)",
-                                       header: "ElSLib.hxx".}
-
+proc TorusVIso*(Pos: gp_Ax3; MajorRadius: Standard_Real; MinorRadius: Standard_Real;
+               V: Standard_Real): gp_Circ {.importcpp: "ElSLib::TorusVIso(@)",
+    header: "ElSLib.hxx".}

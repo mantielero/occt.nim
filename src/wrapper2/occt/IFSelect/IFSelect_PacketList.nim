@@ -14,6 +14,13 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type,
+  ../TColStd/TColStd_Array1OfInteger, ../Interface/Interface_IntList,
+  ../Standard/Standard_Integer, ../Standard/Standard_Boolean,
+  ../TCollection/TCollection_AsciiString, ../Standard/Standard_Transient,
+  ../Standard/Standard_CString, ../TColStd/TColStd_HSequenceOfTransient
+
 discard "forward decl of Interface_InterfaceModel"
 discard "forward decl of Interface_InterfaceError"
 discard "forward decl of Standard_Transient"
@@ -21,7 +28,7 @@ discard "forward decl of Interface_EntityIterator"
 discard "forward decl of IFSelect_PacketList"
 discard "forward decl of IFSelect_PacketList"
 type
-  HandleIFSelectPacketList* = Handle[IFSelectPacketList]
+  Handle_IFSelect_PacketList* = handle[IFSelect_PacketList]
 
 ## ! This class gives a simple way to return then consult a
 ## ! list of packets, determined from the content of a Model,
@@ -33,64 +40,63 @@ type
 ## ! the duplications (with their count).
 
 type
-  IFSelectPacketList* {.importcpp: "IFSelect_PacketList",
-                       header: "IFSelect_PacketList.hxx", bycopy.} = object of StandardTransient ##
-                                                                                          ## !
-                                                                                          ## Creates
-                                                                                          ## a
-                                                                                          ## PackList,
-                                                                                          ## empty,
-                                                                                          ## ready
-                                                                                          ## to
-                                                                                          ## receive
-                                                                                          ## entities
-                                                                                          ## from
-                                                                                          ## a
-                                                                                          ##
-                                                                                          ## !
-                                                                                          ## given
-                                                                                          ## Model
+  IFSelect_PacketList* {.importcpp: "IFSelect_PacketList",
+                        header: "IFSelect_PacketList.hxx", bycopy.} = object of Standard_Transient ##
+                                                                                            ## !
+                                                                                            ## Creates
+                                                                                            ## a
+                                                                                            ## PackList,
+                                                                                            ## empty,
+                                                                                            ## ready
+                                                                                            ## to
+                                                                                            ## receive
+                                                                                            ## entities
+                                                                                            ## from
+                                                                                            ## a
+                                                                                            ##
+                                                                                            ## !
+                                                                                            ## given
+                                                                                            ## Model
 
 
-proc constructIFSelectPacketList*(model: Handle[InterfaceInterfaceModel]): IFSelectPacketList {.
+proc constructIFSelect_PacketList*(model: handle[Interface_InterfaceModel]): IFSelect_PacketList {.
     constructor, importcpp: "IFSelect_PacketList(@)",
     header: "IFSelect_PacketList.hxx".}
-proc setName*(this: var IFSelectPacketList; name: StandardCString) {.
+proc SetName*(this: var IFSelect_PacketList; name: Standard_CString) {.
     importcpp: "SetName", header: "IFSelect_PacketList.hxx".}
-proc name*(this: IFSelectPacketList): StandardCString {.noSideEffect,
+proc Name*(this: IFSelect_PacketList): Standard_CString {.noSideEffect,
     importcpp: "Name", header: "IFSelect_PacketList.hxx".}
-proc model*(this: IFSelectPacketList): Handle[InterfaceInterfaceModel] {.
+proc Model*(this: IFSelect_PacketList): handle[Interface_InterfaceModel] {.
     noSideEffect, importcpp: "Model", header: "IFSelect_PacketList.hxx".}
-proc addPacket*(this: var IFSelectPacketList) {.importcpp: "AddPacket",
+proc AddPacket*(this: var IFSelect_PacketList) {.importcpp: "AddPacket",
     header: "IFSelect_PacketList.hxx".}
-proc add*(this: var IFSelectPacketList; ent: Handle[StandardTransient]) {.
+proc Add*(this: var IFSelect_PacketList; ent: handle[Standard_Transient]) {.
     importcpp: "Add", header: "IFSelect_PacketList.hxx".}
-proc addList*(this: var IFSelectPacketList;
-             list: Handle[TColStdHSequenceOfTransient]) {.importcpp: "AddList",
+proc AddList*(this: var IFSelect_PacketList;
+             list: handle[TColStd_HSequenceOfTransient]) {.importcpp: "AddList",
     header: "IFSelect_PacketList.hxx".}
-proc nbPackets*(this: IFSelectPacketList): StandardInteger {.noSideEffect,
+proc NbPackets*(this: IFSelect_PacketList): Standard_Integer {.noSideEffect,
     importcpp: "NbPackets", header: "IFSelect_PacketList.hxx".}
-proc nbEntities*(this: IFSelectPacketList; numpack: StandardInteger): StandardInteger {.
+proc NbEntities*(this: IFSelect_PacketList; numpack: Standard_Integer): Standard_Integer {.
     noSideEffect, importcpp: "NbEntities", header: "IFSelect_PacketList.hxx".}
-proc entities*(this: IFSelectPacketList; numpack: StandardInteger): InterfaceEntityIterator {.
+proc Entities*(this: IFSelect_PacketList; numpack: Standard_Integer): Interface_EntityIterator {.
     noSideEffect, importcpp: "Entities", header: "IFSelect_PacketList.hxx".}
-proc highestDuplicationCount*(this: IFSelectPacketList): StandardInteger {.
+proc HighestDuplicationCount*(this: IFSelect_PacketList): Standard_Integer {.
     noSideEffect, importcpp: "HighestDuplicationCount",
     header: "IFSelect_PacketList.hxx".}
-proc nbDuplicated*(this: IFSelectPacketList; count: StandardInteger;
-                  andmore: StandardBoolean): StandardInteger {.noSideEffect,
+proc NbDuplicated*(this: IFSelect_PacketList; count: Standard_Integer;
+                  andmore: Standard_Boolean): Standard_Integer {.noSideEffect,
     importcpp: "NbDuplicated", header: "IFSelect_PacketList.hxx".}
-proc duplicated*(this: IFSelectPacketList; count: StandardInteger;
-                andmore: StandardBoolean): InterfaceEntityIterator {.noSideEffect,
-    importcpp: "Duplicated", header: "IFSelect_PacketList.hxx".}
+proc Duplicated*(this: IFSelect_PacketList; count: Standard_Integer;
+                andmore: Standard_Boolean): Interface_EntityIterator {.
+    noSideEffect, importcpp: "Duplicated", header: "IFSelect_PacketList.hxx".}
 type
-  IFSelectPacketListbaseType* = StandardTransient
+  IFSelect_PacketListbase_type* = Standard_Transient
 
-proc getTypeName*(): cstring {.importcpp: "IFSelect_PacketList::get_type_name(@)",
-                            header: "IFSelect_PacketList.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "IFSelect_PacketList::get_type_name(@)",
+                              header: "IFSelect_PacketList.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "IFSelect_PacketList::get_type_descriptor(@)",
     header: "IFSelect_PacketList.hxx".}
-proc dynamicType*(this: IFSelectPacketList): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: IFSelect_PacketList): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "IFSelect_PacketList.hxx".}
-

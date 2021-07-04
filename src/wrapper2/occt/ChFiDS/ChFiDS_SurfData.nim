@@ -14,139 +14,145 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ChFiDS_CommonPoint,
+  ChFiDS_FaceInterference, ../gp/gp_Pnt2d, ../Standard/Standard_Real,
+  ../Standard/Standard_Integer, ../Standard/Standard_Boolean,
+  ../TopAbs/TopAbs_Orientation, ../Standard/Standard_Transient
+
 discard "forward decl of ChFiDS_FaceInterference"
 discard "forward decl of ChFiDS_CommonPoint"
 discard "forward decl of gp_Pnt2d"
 discard "forward decl of ChFiDS_SurfData"
 discard "forward decl of ChFiDS_SurfData"
 type
-  HandleChFiDS_SurfData* = Handle[ChFiDS_SurfData]
+  Handle_ChFiDS_SurfData* = handle[ChFiDS_SurfData]
 
 ## ! data structure for all information related to  the
 ## ! fillet and to 2 faces vis a vis
 
 type
   ChFiDS_SurfData* {.importcpp: "ChFiDS_SurfData", header: "ChFiDS_SurfData.hxx",
-                    bycopy.} = object of StandardTransient
+                    bycopy.} = object of Standard_Transient
 
 
 proc constructChFiDS_SurfData*(): ChFiDS_SurfData {.constructor,
     importcpp: "ChFiDS_SurfData(@)", header: "ChFiDS_SurfData.hxx".}
-proc copy*(this: var ChFiDS_SurfData; other: Handle[ChFiDS_SurfData]) {.
+proc Copy*(this: var ChFiDS_SurfData; Other: handle[ChFiDS_SurfData]) {.
     importcpp: "Copy", header: "ChFiDS_SurfData.hxx".}
-proc indexOfS1*(this: ChFiDS_SurfData): StandardInteger {.noSideEffect,
+proc IndexOfS1*(this: ChFiDS_SurfData): Standard_Integer {.noSideEffect,
     importcpp: "IndexOfS1", header: "ChFiDS_SurfData.hxx".}
-proc indexOfS2*(this: ChFiDS_SurfData): StandardInteger {.noSideEffect,
+proc IndexOfS2*(this: ChFiDS_SurfData): Standard_Integer {.noSideEffect,
     importcpp: "IndexOfS2", header: "ChFiDS_SurfData.hxx".}
-proc isOnCurve1*(this: ChFiDS_SurfData): StandardBoolean {.noSideEffect,
+proc IsOnCurve1*(this: ChFiDS_SurfData): Standard_Boolean {.noSideEffect,
     importcpp: "IsOnCurve1", header: "ChFiDS_SurfData.hxx".}
-proc isOnCurve2*(this: ChFiDS_SurfData): StandardBoolean {.noSideEffect,
+proc IsOnCurve2*(this: ChFiDS_SurfData): Standard_Boolean {.noSideEffect,
     importcpp: "IsOnCurve2", header: "ChFiDS_SurfData.hxx".}
-proc indexOfC1*(this: ChFiDS_SurfData): StandardInteger {.noSideEffect,
+proc IndexOfC1*(this: ChFiDS_SurfData): Standard_Integer {.noSideEffect,
     importcpp: "IndexOfC1", header: "ChFiDS_SurfData.hxx".}
-proc indexOfC2*(this: ChFiDS_SurfData): StandardInteger {.noSideEffect,
+proc IndexOfC2*(this: ChFiDS_SurfData): Standard_Integer {.noSideEffect,
     importcpp: "IndexOfC2", header: "ChFiDS_SurfData.hxx".}
-proc surf*(this: ChFiDS_SurfData): StandardInteger {.noSideEffect, importcpp: "Surf",
-    header: "ChFiDS_SurfData.hxx".}
-proc orientation*(this: ChFiDS_SurfData): TopAbsOrientation {.noSideEffect,
+proc Surf*(this: ChFiDS_SurfData): Standard_Integer {.noSideEffect,
+    importcpp: "Surf", header: "ChFiDS_SurfData.hxx".}
+proc Orientation*(this: ChFiDS_SurfData): TopAbs_Orientation {.noSideEffect,
     importcpp: "Orientation", header: "ChFiDS_SurfData.hxx".}
-proc interferenceOnS1*(this: ChFiDS_SurfData): ChFiDS_FaceInterference {.
+proc InterferenceOnS1*(this: ChFiDS_SurfData): ChFiDS_FaceInterference {.
     noSideEffect, importcpp: "InterferenceOnS1", header: "ChFiDS_SurfData.hxx".}
-proc interferenceOnS2*(this: ChFiDS_SurfData): ChFiDS_FaceInterference {.
+proc InterferenceOnS2*(this: ChFiDS_SurfData): ChFiDS_FaceInterference {.
     noSideEffect, importcpp: "InterferenceOnS2", header: "ChFiDS_SurfData.hxx".}
-proc vertexFirstOnS1*(this: ChFiDS_SurfData): ChFiDS_CommonPoint {.noSideEffect,
+proc VertexFirstOnS1*(this: ChFiDS_SurfData): ChFiDS_CommonPoint {.noSideEffect,
     importcpp: "VertexFirstOnS1", header: "ChFiDS_SurfData.hxx".}
-proc vertexFirstOnS2*(this: ChFiDS_SurfData): ChFiDS_CommonPoint {.noSideEffect,
+proc VertexFirstOnS2*(this: ChFiDS_SurfData): ChFiDS_CommonPoint {.noSideEffect,
     importcpp: "VertexFirstOnS2", header: "ChFiDS_SurfData.hxx".}
-proc vertexLastOnS1*(this: ChFiDS_SurfData): ChFiDS_CommonPoint {.noSideEffect,
+proc VertexLastOnS1*(this: ChFiDS_SurfData): ChFiDS_CommonPoint {.noSideEffect,
     importcpp: "VertexLastOnS1", header: "ChFiDS_SurfData.hxx".}
-proc vertexLastOnS2*(this: ChFiDS_SurfData): ChFiDS_CommonPoint {.noSideEffect,
+proc VertexLastOnS2*(this: ChFiDS_SurfData): ChFiDS_CommonPoint {.noSideEffect,
     importcpp: "VertexLastOnS2", header: "ChFiDS_SurfData.hxx".}
-proc changeIndexOfS1*(this: var ChFiDS_SurfData; index: StandardInteger) {.
+proc ChangeIndexOfS1*(this: var ChFiDS_SurfData; Index: Standard_Integer) {.
     importcpp: "ChangeIndexOfS1", header: "ChFiDS_SurfData.hxx".}
-proc changeIndexOfS2*(this: var ChFiDS_SurfData; index: StandardInteger) {.
+proc ChangeIndexOfS2*(this: var ChFiDS_SurfData; Index: Standard_Integer) {.
     importcpp: "ChangeIndexOfS2", header: "ChFiDS_SurfData.hxx".}
-proc changeSurf*(this: var ChFiDS_SurfData; index: StandardInteger) {.
+proc ChangeSurf*(this: var ChFiDS_SurfData; Index: Standard_Integer) {.
     importcpp: "ChangeSurf", header: "ChFiDS_SurfData.hxx".}
-proc setIndexOfC1*(this: var ChFiDS_SurfData; index: StandardInteger) {.
+proc SetIndexOfC1*(this: var ChFiDS_SurfData; Index: Standard_Integer) {.
     importcpp: "SetIndexOfC1", header: "ChFiDS_SurfData.hxx".}
-proc setIndexOfC2*(this: var ChFiDS_SurfData; index: StandardInteger) {.
+proc SetIndexOfC2*(this: var ChFiDS_SurfData; Index: Standard_Integer) {.
     importcpp: "SetIndexOfC2", header: "ChFiDS_SurfData.hxx".}
-proc changeOrientation*(this: var ChFiDS_SurfData): var TopAbsOrientation {.
+proc ChangeOrientation*(this: var ChFiDS_SurfData): var TopAbs_Orientation {.
     importcpp: "ChangeOrientation", header: "ChFiDS_SurfData.hxx".}
-proc changeInterferenceOnS1*(this: var ChFiDS_SurfData): var ChFiDS_FaceInterference {.
+proc ChangeInterferenceOnS1*(this: var ChFiDS_SurfData): var ChFiDS_FaceInterference {.
     importcpp: "ChangeInterferenceOnS1", header: "ChFiDS_SurfData.hxx".}
-proc changeInterferenceOnS2*(this: var ChFiDS_SurfData): var ChFiDS_FaceInterference {.
+proc ChangeInterferenceOnS2*(this: var ChFiDS_SurfData): var ChFiDS_FaceInterference {.
     importcpp: "ChangeInterferenceOnS2", header: "ChFiDS_SurfData.hxx".}
-proc changeVertexFirstOnS1*(this: var ChFiDS_SurfData): var ChFiDS_CommonPoint {.
+proc ChangeVertexFirstOnS1*(this: var ChFiDS_SurfData): var ChFiDS_CommonPoint {.
     importcpp: "ChangeVertexFirstOnS1", header: "ChFiDS_SurfData.hxx".}
-proc changeVertexFirstOnS2*(this: var ChFiDS_SurfData): var ChFiDS_CommonPoint {.
+proc ChangeVertexFirstOnS2*(this: var ChFiDS_SurfData): var ChFiDS_CommonPoint {.
     importcpp: "ChangeVertexFirstOnS2", header: "ChFiDS_SurfData.hxx".}
-proc changeVertexLastOnS1*(this: var ChFiDS_SurfData): var ChFiDS_CommonPoint {.
+proc ChangeVertexLastOnS1*(this: var ChFiDS_SurfData): var ChFiDS_CommonPoint {.
     importcpp: "ChangeVertexLastOnS1", header: "ChFiDS_SurfData.hxx".}
-proc changeVertexLastOnS2*(this: var ChFiDS_SurfData): var ChFiDS_CommonPoint {.
+proc ChangeVertexLastOnS2*(this: var ChFiDS_SurfData): var ChFiDS_CommonPoint {.
     importcpp: "ChangeVertexLastOnS2", header: "ChFiDS_SurfData.hxx".}
-proc interference*(this: ChFiDS_SurfData; onS: StandardInteger): ChFiDS_FaceInterference {.
+proc Interference*(this: ChFiDS_SurfData; OnS: Standard_Integer): ChFiDS_FaceInterference {.
     noSideEffect, importcpp: "Interference", header: "ChFiDS_SurfData.hxx".}
-proc changeInterference*(this: var ChFiDS_SurfData; onS: StandardInteger): var ChFiDS_FaceInterference {.
+proc ChangeInterference*(this: var ChFiDS_SurfData; OnS: Standard_Integer): var ChFiDS_FaceInterference {.
     importcpp: "ChangeInterference", header: "ChFiDS_SurfData.hxx".}
-proc index*(this: ChFiDS_SurfData; ofS: StandardInteger): StandardInteger {.
+proc Index*(this: ChFiDS_SurfData; OfS: Standard_Integer): Standard_Integer {.
     noSideEffect, importcpp: "Index", header: "ChFiDS_SurfData.hxx".}
-proc vertex*(this: ChFiDS_SurfData; first: StandardBoolean; onS: StandardInteger): ChFiDS_CommonPoint {.
+proc Vertex*(this: ChFiDS_SurfData; First: Standard_Boolean; OnS: Standard_Integer): ChFiDS_CommonPoint {.
     noSideEffect, importcpp: "Vertex", header: "ChFiDS_SurfData.hxx".}
-proc changeVertex*(this: var ChFiDS_SurfData; first: StandardBoolean;
-                  onS: StandardInteger): var ChFiDS_CommonPoint {.
+proc ChangeVertex*(this: var ChFiDS_SurfData; First: Standard_Boolean;
+                  OnS: Standard_Integer): var ChFiDS_CommonPoint {.
     importcpp: "ChangeVertex", header: "ChFiDS_SurfData.hxx".}
-proc isOnCurve*(this: ChFiDS_SurfData; onS: StandardInteger): StandardBoolean {.
+proc IsOnCurve*(this: ChFiDS_SurfData; OnS: Standard_Integer): Standard_Boolean {.
     noSideEffect, importcpp: "IsOnCurve", header: "ChFiDS_SurfData.hxx".}
-proc indexOfC*(this: ChFiDS_SurfData; onS: StandardInteger): StandardInteger {.
+proc IndexOfC*(this: ChFiDS_SurfData; OnS: Standard_Integer): Standard_Integer {.
     noSideEffect, importcpp: "IndexOfC", header: "ChFiDS_SurfData.hxx".}
-proc firstSpineParam*(this: ChFiDS_SurfData): StandardReal {.noSideEffect,
+proc FirstSpineParam*(this: ChFiDS_SurfData): Standard_Real {.noSideEffect,
     importcpp: "FirstSpineParam", header: "ChFiDS_SurfData.hxx".}
-proc lastSpineParam*(this: ChFiDS_SurfData): StandardReal {.noSideEffect,
+proc LastSpineParam*(this: ChFiDS_SurfData): Standard_Real {.noSideEffect,
     importcpp: "LastSpineParam", header: "ChFiDS_SurfData.hxx".}
-proc firstSpineParam*(this: var ChFiDS_SurfData; par: StandardReal) {.
+proc FirstSpineParam*(this: var ChFiDS_SurfData; Par: Standard_Real) {.
     importcpp: "FirstSpineParam", header: "ChFiDS_SurfData.hxx".}
-proc lastSpineParam*(this: var ChFiDS_SurfData; par: StandardReal) {.
+proc LastSpineParam*(this: var ChFiDS_SurfData; Par: Standard_Real) {.
     importcpp: "LastSpineParam", header: "ChFiDS_SurfData.hxx".}
-proc firstExtensionValue*(this: ChFiDS_SurfData): StandardReal {.noSideEffect,
+proc FirstExtensionValue*(this: ChFiDS_SurfData): Standard_Real {.noSideEffect,
     importcpp: "FirstExtensionValue", header: "ChFiDS_SurfData.hxx".}
-proc lastExtensionValue*(this: ChFiDS_SurfData): StandardReal {.noSideEffect,
+proc LastExtensionValue*(this: ChFiDS_SurfData): Standard_Real {.noSideEffect,
     importcpp: "LastExtensionValue", header: "ChFiDS_SurfData.hxx".}
-proc firstExtensionValue*(this: var ChFiDS_SurfData; extend: StandardReal) {.
+proc FirstExtensionValue*(this: var ChFiDS_SurfData; Extend: Standard_Real) {.
     importcpp: "FirstExtensionValue", header: "ChFiDS_SurfData.hxx".}
-proc lastExtensionValue*(this: var ChFiDS_SurfData; extend: StandardReal) {.
+proc LastExtensionValue*(this: var ChFiDS_SurfData; Extend: Standard_Real) {.
     importcpp: "LastExtensionValue", header: "ChFiDS_SurfData.hxx".}
-proc simul*(this: ChFiDS_SurfData): Handle[StandardTransient] {.noSideEffect,
+proc Simul*(this: ChFiDS_SurfData): handle[Standard_Transient] {.noSideEffect,
     importcpp: "Simul", header: "ChFiDS_SurfData.hxx".}
-proc setSimul*(this: var ChFiDS_SurfData; s: Handle[StandardTransient]) {.
+proc SetSimul*(this: var ChFiDS_SurfData; S: handle[Standard_Transient]) {.
     importcpp: "SetSimul", header: "ChFiDS_SurfData.hxx".}
-proc resetSimul*(this: var ChFiDS_SurfData) {.importcpp: "ResetSimul",
+proc ResetSimul*(this: var ChFiDS_SurfData) {.importcpp: "ResetSimul",
     header: "ChFiDS_SurfData.hxx".}
-proc get2dPoints*(this: ChFiDS_SurfData; first: StandardBoolean; onS: StandardInteger): GpPnt2d {.
-    noSideEffect, importcpp: "Get2dPoints", header: "ChFiDS_SurfData.hxx".}
-proc get2dPoints*(this: ChFiDS_SurfData; p2df1: var GpPnt2d; p2dl1: var GpPnt2d;
-                 p2df2: var GpPnt2d; p2dl2: var GpPnt2d) {.noSideEffect,
+proc Get2dPoints*(this: ChFiDS_SurfData; First: Standard_Boolean;
+                 OnS: Standard_Integer): gp_Pnt2d {.noSideEffect,
     importcpp: "Get2dPoints", header: "ChFiDS_SurfData.hxx".}
-proc set2dPoints*(this: var ChFiDS_SurfData; p2df1: GpPnt2d; p2dl1: GpPnt2d;
-                 p2df2: GpPnt2d; p2dl2: GpPnt2d) {.importcpp: "Set2dPoints",
+proc Get2dPoints*(this: ChFiDS_SurfData; P2df1: var gp_Pnt2d; P2dl1: var gp_Pnt2d;
+                 P2df2: var gp_Pnt2d; P2dl2: var gp_Pnt2d) {.noSideEffect,
+    importcpp: "Get2dPoints", header: "ChFiDS_SurfData.hxx".}
+proc Set2dPoints*(this: var ChFiDS_SurfData; P2df1: gp_Pnt2d; P2dl1: gp_Pnt2d;
+                 P2df2: gp_Pnt2d; P2dl2: gp_Pnt2d) {.importcpp: "Set2dPoints",
     header: "ChFiDS_SurfData.hxx".}
-proc twistOnS1*(this: ChFiDS_SurfData): StandardBoolean {.noSideEffect,
+proc TwistOnS1*(this: ChFiDS_SurfData): Standard_Boolean {.noSideEffect,
     importcpp: "TwistOnS1", header: "ChFiDS_SurfData.hxx".}
-proc twistOnS2*(this: ChFiDS_SurfData): StandardBoolean {.noSideEffect,
+proc TwistOnS2*(this: ChFiDS_SurfData): Standard_Boolean {.noSideEffect,
     importcpp: "TwistOnS2", header: "ChFiDS_SurfData.hxx".}
-proc twistOnS1*(this: var ChFiDS_SurfData; t: StandardBoolean) {.
+proc TwistOnS1*(this: var ChFiDS_SurfData; T: Standard_Boolean) {.
     importcpp: "TwistOnS1", header: "ChFiDS_SurfData.hxx".}
-proc twistOnS2*(this: var ChFiDS_SurfData; t: StandardBoolean) {.
+proc TwistOnS2*(this: var ChFiDS_SurfData; T: Standard_Boolean) {.
     importcpp: "TwistOnS2", header: "ChFiDS_SurfData.hxx".}
 type
-  ChFiDS_SurfDatabaseType* = StandardTransient
+  ChFiDS_SurfDatabase_type* = Standard_Transient
 
-proc getTypeName*(): cstring {.importcpp: "ChFiDS_SurfData::get_type_name(@)",
-                            header: "ChFiDS_SurfData.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "ChFiDS_SurfData::get_type_name(@)",
+                              header: "ChFiDS_SurfData.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "ChFiDS_SurfData::get_type_descriptor(@)",
     header: "ChFiDS_SurfData.hxx".}
-proc dynamicType*(this: ChFiDS_SurfData): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: ChFiDS_SurfData): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "ChFiDS_SurfData.hxx".}
-

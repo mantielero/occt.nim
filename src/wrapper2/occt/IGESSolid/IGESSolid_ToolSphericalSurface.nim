@@ -14,6 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 discard "forward decl of Standard_DomainError"
 discard "forward decl of IGESSolid_SphericalSurface"
 discard "forward decl of IGESData_IGESReaderData"
@@ -26,42 +30,41 @@ discard "forward decl of Interface_Check"
 discard "forward decl of Interface_CopyTool"
 discard "forward decl of IGESData_IGESDumper"
 type
-  IGESSolidToolSphericalSurface* {.importcpp: "IGESSolid_ToolSphericalSurface",
-                                  header: "IGESSolid_ToolSphericalSurface.hxx",
-                                  bycopy.} = object ## ! Returns a ToolSphericalSurface, ready to work
+  IGESSolid_ToolSphericalSurface* {.importcpp: "IGESSolid_ToolSphericalSurface", header: "IGESSolid_ToolSphericalSurface.hxx",
+                                   bycopy.} = object ## ! Returns a ToolSphericalSurface, ready to work
 
 
-proc constructIGESSolidToolSphericalSurface*(): IGESSolidToolSphericalSurface {.
+proc constructIGESSolid_ToolSphericalSurface*(): IGESSolid_ToolSphericalSurface {.
     constructor, importcpp: "IGESSolid_ToolSphericalSurface(@)",
     header: "IGESSolid_ToolSphericalSurface.hxx".}
-proc readOwnParams*(this: IGESSolidToolSphericalSurface;
-                   ent: Handle[IGESSolidSphericalSurface];
-                   ir: Handle[IGESDataIGESReaderData]; pr: var IGESDataParamReader) {.
-    noSideEffect, importcpp: "ReadOwnParams",
-    header: "IGESSolid_ToolSphericalSurface.hxx".}
-proc writeOwnParams*(this: IGESSolidToolSphericalSurface;
-                    ent: Handle[IGESSolidSphericalSurface];
-                    iw: var IGESDataIGESWriter) {.noSideEffect,
+proc ReadOwnParams*(this: IGESSolid_ToolSphericalSurface;
+                   ent: handle[IGESSolid_SphericalSurface];
+                   IR: handle[IGESData_IGESReaderData];
+                   PR: var IGESData_ParamReader) {.noSideEffect,
+    importcpp: "ReadOwnParams", header: "IGESSolid_ToolSphericalSurface.hxx".}
+proc WriteOwnParams*(this: IGESSolid_ToolSphericalSurface;
+                    ent: handle[IGESSolid_SphericalSurface];
+                    IW: var IGESData_IGESWriter) {.noSideEffect,
     importcpp: "WriteOwnParams", header: "IGESSolid_ToolSphericalSurface.hxx".}
-proc ownShared*(this: IGESSolidToolSphericalSurface;
-               ent: Handle[IGESSolidSphericalSurface];
-               iter: var InterfaceEntityIterator) {.noSideEffect,
+proc OwnShared*(this: IGESSolid_ToolSphericalSurface;
+               ent: handle[IGESSolid_SphericalSurface];
+               iter: var Interface_EntityIterator) {.noSideEffect,
     importcpp: "OwnShared", header: "IGESSolid_ToolSphericalSurface.hxx".}
-proc dirChecker*(this: IGESSolidToolSphericalSurface;
-                ent: Handle[IGESSolidSphericalSurface]): IGESDataDirChecker {.
+proc DirChecker*(this: IGESSolid_ToolSphericalSurface;
+                ent: handle[IGESSolid_SphericalSurface]): IGESData_DirChecker {.
     noSideEffect, importcpp: "DirChecker",
     header: "IGESSolid_ToolSphericalSurface.hxx".}
-proc ownCheck*(this: IGESSolidToolSphericalSurface;
-              ent: Handle[IGESSolidSphericalSurface]; shares: InterfaceShareTool;
-              ach: var Handle[InterfaceCheck]) {.noSideEffect,
-    importcpp: "OwnCheck", header: "IGESSolid_ToolSphericalSurface.hxx".}
-proc ownCopy*(this: IGESSolidToolSphericalSurface;
-             entfrom: Handle[IGESSolidSphericalSurface];
-             entto: Handle[IGESSolidSphericalSurface]; tc: var InterfaceCopyTool) {.
+proc OwnCheck*(this: IGESSolid_ToolSphericalSurface;
+              ent: handle[IGESSolid_SphericalSurface];
+              shares: Interface_ShareTool; ach: var handle[Interface_Check]) {.
+    noSideEffect, importcpp: "OwnCheck",
+    header: "IGESSolid_ToolSphericalSurface.hxx".}
+proc OwnCopy*(this: IGESSolid_ToolSphericalSurface;
+             entfrom: handle[IGESSolid_SphericalSurface];
+             entto: handle[IGESSolid_SphericalSurface]; TC: var Interface_CopyTool) {.
     noSideEffect, importcpp: "OwnCopy",
     header: "IGESSolid_ToolSphericalSurface.hxx".}
-proc ownDump*(this: IGESSolidToolSphericalSurface;
-             ent: Handle[IGESSolidSphericalSurface]; dumper: IGESDataIGESDumper;
-             s: var StandardOStream; own: StandardInteger) {.noSideEffect,
+proc OwnDump*(this: IGESSolid_ToolSphericalSurface;
+             ent: handle[IGESSolid_SphericalSurface]; dumper: IGESData_IGESDumper;
+             S: var Standard_OStream; own: Standard_Integer) {.noSideEffect,
     importcpp: "OwnDump", header: "IGESSolid_ToolSphericalSurface.hxx".}
-

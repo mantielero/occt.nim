@@ -14,13 +14,17 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../gp/gp_XYZ,
+  ../IGESData/IGESData_IGESEntity
+
 discard "forward decl of IGESData_IGESEntity"
 discard "forward decl of gp_XYZ"
 discard "forward decl of gp_Pnt"
 discard "forward decl of IGESGeom_TabulatedCylinder"
 discard "forward decl of IGESGeom_TabulatedCylinder"
 type
-  HandleIGESGeomTabulatedCylinder* = Handle[IGESGeomTabulatedCylinder]
+  Handle_IGESGeom_TabulatedCylinder* = handle[IGESGeom_TabulatedCylinder]
 
 ## ! defines IGESTabulatedCylinder, Type <122> Form <0>
 ## ! in package IGESGeom
@@ -31,31 +35,30 @@ type
 ## ! curve or composite curve.
 
 type
-  IGESGeomTabulatedCylinder* {.importcpp: "IGESGeom_TabulatedCylinder",
-                              header: "IGESGeom_TabulatedCylinder.hxx", bycopy.} = object of IGESDataIGESEntity
+  IGESGeom_TabulatedCylinder* {.importcpp: "IGESGeom_TabulatedCylinder",
+                               header: "IGESGeom_TabulatedCylinder.hxx", bycopy.} = object of IGESData_IGESEntity
 
 
-proc constructIGESGeomTabulatedCylinder*(): IGESGeomTabulatedCylinder {.
+proc constructIGESGeom_TabulatedCylinder*(): IGESGeom_TabulatedCylinder {.
     constructor, importcpp: "IGESGeom_TabulatedCylinder(@)",
     header: "IGESGeom_TabulatedCylinder.hxx".}
-proc init*(this: var IGESGeomTabulatedCylinder;
-          aDirectrix: Handle[IGESDataIGESEntity]; anEnd: GpXYZ) {.importcpp: "Init",
-    header: "IGESGeom_TabulatedCylinder.hxx".}
-proc directrix*(this: IGESGeomTabulatedCylinder): Handle[IGESDataIGESEntity] {.
+proc Init*(this: var IGESGeom_TabulatedCylinder;
+          aDirectrix: handle[IGESData_IGESEntity]; anEnd: gp_XYZ) {.
+    importcpp: "Init", header: "IGESGeom_TabulatedCylinder.hxx".}
+proc Directrix*(this: IGESGeom_TabulatedCylinder): handle[IGESData_IGESEntity] {.
     noSideEffect, importcpp: "Directrix", header: "IGESGeom_TabulatedCylinder.hxx".}
-proc endPoint*(this: IGESGeomTabulatedCylinder): GpPnt {.noSideEffect,
+proc EndPoint*(this: IGESGeom_TabulatedCylinder): gp_Pnt {.noSideEffect,
     importcpp: "EndPoint", header: "IGESGeom_TabulatedCylinder.hxx".}
-proc transformedEndPoint*(this: IGESGeomTabulatedCylinder): GpPnt {.noSideEffect,
+proc TransformedEndPoint*(this: IGESGeom_TabulatedCylinder): gp_Pnt {.noSideEffect,
     importcpp: "TransformedEndPoint", header: "IGESGeom_TabulatedCylinder.hxx".}
 type
-  IGESGeomTabulatedCylinderbaseType* = IGESDataIGESEntity
+  IGESGeom_TabulatedCylinderbase_type* = IGESData_IGESEntity
 
-proc getTypeName*(): cstring {.importcpp: "IGESGeom_TabulatedCylinder::get_type_name(@)",
-                            header: "IGESGeom_TabulatedCylinder.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "IGESGeom_TabulatedCylinder::get_type_name(@)",
+                              header: "IGESGeom_TabulatedCylinder.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "IGESGeom_TabulatedCylinder::get_type_descriptor(@)",
     header: "IGESGeom_TabulatedCylinder.hxx".}
-proc dynamicType*(this: IGESGeomTabulatedCylinder): Handle[StandardType] {.
+proc DynamicType*(this: IGESGeom_TabulatedCylinder): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType",
     header: "IGESGeom_TabulatedCylinder.hxx".}
-

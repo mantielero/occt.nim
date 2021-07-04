@@ -14,6 +14,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  Draw_Interpretor, ../Quantity/Quantity_ColorRGBA, ../Standard/Standard_Handle
+
 discard "forward decl of Draw_Drawable3D"
 discard "forward decl of Draw_ProgressIndicator"
 type
@@ -38,66 +41,65 @@ type
                                                            ## ! @param theToAllowPick [in] when TRUE, "." name will activate picking
 
 
-proc load*(theDI: var DrawInterpretor; theKey: TCollectionAsciiString;
-          theResourceFileName: TCollectionAsciiString;
-          theDefaultsDirectory: TCollectionAsciiString;
-          theUserDefaultsDirectory: TCollectionAsciiString;
-          theIsVerbose: StandardBoolean = standardFalse) {.
+proc Load*(theDI: var Draw_Interpretor; theKey: TCollection_AsciiString;
+          theResourceFileName: TCollection_AsciiString;
+          theDefaultsDirectory: TCollection_AsciiString;
+          theUserDefaultsDirectory: TCollection_AsciiString;
+          theIsVerbose: Standard_Boolean = Standard_False) {.
     importcpp: "Draw::Load(@)", header: "Draw.hxx".}
-proc set*(name: StandardCString; d: Handle[DrawDrawable3D]; disp: StandardBoolean) {.
+proc Set*(Name: Standard_CString; D: handle[Draw_Drawable3D]; Disp: Standard_Boolean) {.
     importcpp: "Draw::Set(@)", header: "Draw.hxx".}
-proc set*(name: StandardCString; d: Handle[DrawDrawable3D]) {.
+proc Set*(Name: Standard_CString; D: handle[Draw_Drawable3D]) {.
     importcpp: "Draw::Set(@)", header: "Draw.hxx".}
-proc set*(name: StandardCString; val: StandardReal) {.importcpp: "Draw::Set(@)",
+proc Set*(Name: Standard_CString; val: Standard_Real) {.importcpp: "Draw::Set(@)",
     header: "Draw.hxx".}
-proc getInterpretor*(): var DrawInterpretor {.importcpp: "Draw::GetInterpretor(@)",
+proc GetInterpretor*(): var Draw_Interpretor {.importcpp: "Draw::GetInterpretor(@)",
     header: "Draw.hxx".}
-proc get*(theName: var StandardCString): Handle[DrawDrawable3D] {.
+proc Get*(theName: var Standard_CString): handle[Draw_Drawable3D] {.
     importcpp: "Draw::Get(@)", header: "Draw.hxx".}
-proc getExisting*(theName: StandardCString): Handle[DrawDrawable3D] {.
+proc GetExisting*(theName: Standard_CString): handle[Draw_Drawable3D] {.
     importcpp: "Draw::GetExisting(@)", header: "Draw.hxx".}
-proc get*(name: StandardCString; val: var StandardReal): StandardBoolean {.
+proc Get*(Name: Standard_CString; val: var Standard_Real): Standard_Boolean {.
     importcpp: "Draw::Get(@)", header: "Draw.hxx".}
-proc set*(name: StandardCString; val: StandardCString) {.importcpp: "Draw::Set(@)",
+proc Set*(Name: Standard_CString; val: Standard_CString) {.importcpp: "Draw::Set(@)",
     header: "Draw.hxx".}
-proc atof*(name: StandardCString): StandardReal {.importcpp: "Draw::Atof(@)",
+proc Atof*(Name: Standard_CString): Standard_Real {.importcpp: "Draw::Atof(@)",
     header: "Draw.hxx".}
-proc parseReal*(theExpressionString: StandardCString;
-               theParsedRealValue: var StandardReal): bool {.
+proc ParseReal*(theExpressionString: Standard_CString;
+               theParsedRealValue: var Standard_Real): bool {.
     importcpp: "Draw::ParseReal(@)", header: "Draw.hxx".}
-proc atoi*(name: StandardCString): StandardInteger {.importcpp: "Draw::Atoi(@)",
+proc Atoi*(Name: Standard_CString): Standard_Integer {.importcpp: "Draw::Atoi(@)",
     header: "Draw.hxx".}
-proc parseInteger*(theExpressionString: StandardCString;
-                  theParsedIntegerValue: var StandardInteger): bool {.
+proc ParseInteger*(theExpressionString: Standard_CString;
+                  theParsedIntegerValue: var Standard_Integer): bool {.
     importcpp: "Draw::ParseInteger(@)", header: "Draw.hxx".}
-proc parseColor*(theArgNb: StandardInteger; theArgVec: cstringArray;
-                theColor: var QuantityColorRGBA): StandardInteger {.
+proc ParseColor*(theArgNb: Standard_Integer; theArgVec: cstringArray;
+                theColor: var Quantity_ColorRGBA): Standard_Integer {.
     importcpp: "Draw::ParseColor(@)", header: "Draw.hxx".}
-proc parseColor*(theArgNb: StandardInteger; theArgVec: cstringArray;
-                theColor: var QuantityColor): StandardInteger {.
+proc ParseColor*(theArgNb: Standard_Integer; theArgVec: cstringArray;
+                theColor: var Quantity_Color): Standard_Integer {.
     importcpp: "Draw::ParseColor(@)", header: "Draw.hxx".}
-proc parseOnOff*(theArg: StandardCString; theIsOn: var StandardBoolean): StandardBoolean {.
+proc ParseOnOff*(theArg: Standard_CString; theIsOn: var Standard_Boolean): Standard_Boolean {.
     importcpp: "Draw::ParseOnOff(@)", header: "Draw.hxx".}
-proc lastPick*(view: var StandardInteger; x: var StandardInteger;
-              y: var StandardInteger; button: var StandardInteger) {.
+proc LastPick*(view: var Standard_Integer; X: var Standard_Integer;
+              Y: var Standard_Integer; button: var Standard_Integer) {.
     importcpp: "Draw::LastPick(@)", header: "Draw.hxx".}
-proc repaint*() {.importcpp: "Draw::Repaint(@)", header: "Draw.hxx".}
-proc setProgressBar*(theProgress: Handle[DrawProgressIndicator]) {.
+proc Repaint*() {.importcpp: "Draw::Repaint(@)", header: "Draw.hxx".}
+proc SetProgressBar*(theProgress: handle[Draw_ProgressIndicator]) {.
     importcpp: "Draw::SetProgressBar(@)", header: "Draw.hxx".}
-proc getProgressBar*(): Handle[DrawProgressIndicator] {.
+proc GetProgressBar*(): handle[Draw_ProgressIndicator] {.
     importcpp: "Draw::GetProgressBar(@)", header: "Draw.hxx".}
-proc commands*(i: var DrawInterpretor) {.importcpp: "Draw::Commands(@)",
-                                     header: "Draw.hxx".}
-proc basicCommands*(i: var DrawInterpretor) {.importcpp: "Draw::BasicCommands(@)",
+proc Commands*(I: var Draw_Interpretor) {.importcpp: "Draw::Commands(@)",
+                                      header: "Draw.hxx".}
+proc BasicCommands*(I: var Draw_Interpretor) {.importcpp: "Draw::BasicCommands(@)",
     header: "Draw.hxx".}
-proc messageCommands*(i: var DrawInterpretor) {.
+proc MessageCommands*(I: var Draw_Interpretor) {.
     importcpp: "Draw::MessageCommands(@)", header: "Draw.hxx".}
-proc variableCommands*(i: var DrawInterpretor) {.
+proc VariableCommands*(I: var Draw_Interpretor) {.
     importcpp: "Draw::VariableCommands(@)", header: "Draw.hxx".}
-proc graphicCommands*(i: var DrawInterpretor) {.
+proc GraphicCommands*(I: var Draw_Interpretor) {.
     importcpp: "Draw::GraphicCommands(@)", header: "Draw.hxx".}
-proc ploadCommands*(i: var DrawInterpretor) {.importcpp: "Draw::PloadCommands(@)",
+proc PloadCommands*(I: var Draw_Interpretor) {.importcpp: "Draw::PloadCommands(@)",
     header: "Draw.hxx".}
-proc unitCommands*(i: var DrawInterpretor) {.importcpp: "Draw::UnitCommands(@)",
+proc UnitCommands*(I: var Draw_Interpretor) {.importcpp: "Draw::UnitCommands(@)",
     header: "Draw.hxx".}
-

@@ -14,18 +14,21 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, GeomToStep_Root
+
 discard "forward decl of StepGeom_SurfaceOfRevolution"
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of Geom_SurfaceOfRevolution"
 type
-  GeomToStepMakeSurfaceOfRevolution* {.importcpp: "GeomToStep_MakeSurfaceOfRevolution", header: "GeomToStep_MakeSurfaceOfRevolution.hxx",
-                                      bycopy.} = object of GeomToStepRoot
+  GeomToStep_MakeSurfaceOfRevolution* {.importcpp: "GeomToStep_MakeSurfaceOfRevolution", header: "GeomToStep_MakeSurfaceOfRevolution.hxx",
+                                       bycopy.} = object of GeomToStep_Root
 
 
-proc constructGeomToStepMakeSurfaceOfRevolution*(
-    revSurf: Handle[GeomSurfaceOfRevolution]): GeomToStepMakeSurfaceOfRevolution {.
+proc constructGeomToStep_MakeSurfaceOfRevolution*(
+    RevSurf: handle[Geom_SurfaceOfRevolution]): GeomToStep_MakeSurfaceOfRevolution {.
     constructor, importcpp: "GeomToStep_MakeSurfaceOfRevolution(@)",
     header: "GeomToStep_MakeSurfaceOfRevolution.hxx".}
-proc value*(this: GeomToStepMakeSurfaceOfRevolution): Handle[
-    StepGeomSurfaceOfRevolution] {.noSideEffect, importcpp: "Value", header: "GeomToStep_MakeSurfaceOfRevolution.hxx".}
-
+proc Value*(this: GeomToStep_MakeSurfaceOfRevolution): handle[
+    StepGeom_SurfaceOfRevolution] {.noSideEffect, importcpp: "Value", header: "GeomToStep_MakeSurfaceOfRevolution.hxx".}

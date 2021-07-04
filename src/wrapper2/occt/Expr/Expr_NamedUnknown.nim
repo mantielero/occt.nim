@@ -14,6 +14,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, Expr_NamedExpression,
+  ../Standard/Standard_Boolean, ../Standard/Standard_Integer,
+  ../Standard/Standard_Real, Expr_Array1OfNamedUnknown,
+  ../TColStd/TColStd_Array1OfReal
+
 discard "forward decl of Expr_GeneralExpression"
 discard "forward decl of Expr_NotAssigned"
 discard "forward decl of Standard_OutOfRange"
@@ -25,60 +31,59 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of Expr_NamedUnknown"
 discard "forward decl of Expr_NamedUnknown"
 type
-  HandleExprNamedUnknown* = Handle[ExprNamedUnknown]
+  Handle_Expr_NamedUnknown* = handle[Expr_NamedUnknown]
 
 ## ! This class describes any variable of an expression.
 ## ! Assignment is treated directly in this class.
 
 type
-  ExprNamedUnknown* {.importcpp: "Expr_NamedUnknown",
-                     header: "Expr_NamedUnknown.hxx", bycopy.} = object of ExprNamedExpression
+  Expr_NamedUnknown* {.importcpp: "Expr_NamedUnknown",
+                      header: "Expr_NamedUnknown.hxx", bycopy.} = object of Expr_NamedExpression
 
 
-proc constructExprNamedUnknown*(name: TCollectionAsciiString): ExprNamedUnknown {.
+proc constructExpr_NamedUnknown*(name: TCollection_AsciiString): Expr_NamedUnknown {.
     constructor, importcpp: "Expr_NamedUnknown(@)", header: "Expr_NamedUnknown.hxx".}
-proc isAssigned*(this: ExprNamedUnknown): StandardBoolean {.noSideEffect,
+proc IsAssigned*(this: Expr_NamedUnknown): Standard_Boolean {.noSideEffect,
     importcpp: "IsAssigned", header: "Expr_NamedUnknown.hxx".}
-proc assignedExpression*(this: ExprNamedUnknown): Handle[ExprGeneralExpression] {.
+proc AssignedExpression*(this: Expr_NamedUnknown): handle[Expr_GeneralExpression] {.
     noSideEffect, importcpp: "AssignedExpression", header: "Expr_NamedUnknown.hxx".}
-proc assign*(this: var ExprNamedUnknown; exp: Handle[ExprGeneralExpression]) {.
+proc Assign*(this: var Expr_NamedUnknown; exp: handle[Expr_GeneralExpression]) {.
     importcpp: "Assign", header: "Expr_NamedUnknown.hxx".}
-proc deassign*(this: var ExprNamedUnknown) {.importcpp: "Deassign",
+proc Deassign*(this: var Expr_NamedUnknown) {.importcpp: "Deassign",
     header: "Expr_NamedUnknown.hxx".}
-proc nbSubExpressions*(this: ExprNamedUnknown): StandardInteger {.noSideEffect,
+proc NbSubExpressions*(this: Expr_NamedUnknown): Standard_Integer {.noSideEffect,
     importcpp: "NbSubExpressions", header: "Expr_NamedUnknown.hxx".}
-proc subExpression*(this: ExprNamedUnknown; i: StandardInteger): Handle[
-    ExprGeneralExpression] {.noSideEffect, importcpp: "SubExpression",
-                            header: "Expr_NamedUnknown.hxx".}
-proc simplified*(this: ExprNamedUnknown): Handle[ExprGeneralExpression] {.
+proc SubExpression*(this: Expr_NamedUnknown; I: Standard_Integer): handle[
+    Expr_GeneralExpression] {.noSideEffect, importcpp: "SubExpression",
+                             header: "Expr_NamedUnknown.hxx".}
+proc Simplified*(this: Expr_NamedUnknown): handle[Expr_GeneralExpression] {.
     noSideEffect, importcpp: "Simplified", header: "Expr_NamedUnknown.hxx".}
-proc shallowSimplified*(this: ExprNamedUnknown): Handle[ExprGeneralExpression] {.
+proc ShallowSimplified*(this: Expr_NamedUnknown): handle[Expr_GeneralExpression] {.
     noSideEffect, importcpp: "ShallowSimplified", header: "Expr_NamedUnknown.hxx".}
-proc copy*(this: ExprNamedUnknown): Handle[ExprGeneralExpression] {.noSideEffect,
+proc Copy*(this: Expr_NamedUnknown): handle[Expr_GeneralExpression] {.noSideEffect,
     importcpp: "Copy", header: "Expr_NamedUnknown.hxx".}
-proc containsUnknowns*(this: ExprNamedUnknown): StandardBoolean {.noSideEffect,
+proc ContainsUnknowns*(this: Expr_NamedUnknown): Standard_Boolean {.noSideEffect,
     importcpp: "ContainsUnknowns", header: "Expr_NamedUnknown.hxx".}
-proc contains*(this: ExprNamedUnknown; exp: Handle[ExprGeneralExpression]): StandardBoolean {.
+proc Contains*(this: Expr_NamedUnknown; exp: handle[Expr_GeneralExpression]): Standard_Boolean {.
     noSideEffect, importcpp: "Contains", header: "Expr_NamedUnknown.hxx".}
-proc isLinear*(this: ExprNamedUnknown): StandardBoolean {.noSideEffect,
+proc IsLinear*(this: Expr_NamedUnknown): Standard_Boolean {.noSideEffect,
     importcpp: "IsLinear", header: "Expr_NamedUnknown.hxx".}
-proc derivative*(this: ExprNamedUnknown; x: Handle[ExprNamedUnknown]): Handle[
-    ExprGeneralExpression] {.noSideEffect, importcpp: "Derivative",
-                            header: "Expr_NamedUnknown.hxx".}
-proc replace*(this: var ExprNamedUnknown; `var`: Handle[ExprNamedUnknown];
-             with: Handle[ExprGeneralExpression]) {.importcpp: "Replace",
+proc Derivative*(this: Expr_NamedUnknown; X: handle[Expr_NamedUnknown]): handle[
+    Expr_GeneralExpression] {.noSideEffect, importcpp: "Derivative",
+                             header: "Expr_NamedUnknown.hxx".}
+proc Replace*(this: var Expr_NamedUnknown; `var`: handle[Expr_NamedUnknown];
+             with: handle[Expr_GeneralExpression]) {.importcpp: "Replace",
     header: "Expr_NamedUnknown.hxx".}
-proc evaluate*(this: ExprNamedUnknown; vars: ExprArray1OfNamedUnknown;
-              vals: TColStdArray1OfReal): StandardReal {.noSideEffect,
+proc Evaluate*(this: Expr_NamedUnknown; vars: Expr_Array1OfNamedUnknown;
+              vals: TColStd_Array1OfReal): Standard_Real {.noSideEffect,
     importcpp: "Evaluate", header: "Expr_NamedUnknown.hxx".}
 type
-  ExprNamedUnknownbaseType* = ExprNamedExpression
+  Expr_NamedUnknownbase_type* = Expr_NamedExpression
 
-proc getTypeName*(): cstring {.importcpp: "Expr_NamedUnknown::get_type_name(@)",
-                            header: "Expr_NamedUnknown.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "Expr_NamedUnknown::get_type_name(@)",
+                              header: "Expr_NamedUnknown.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "Expr_NamedUnknown::get_type_descriptor(@)",
     header: "Expr_NamedUnknown.hxx".}
-proc dynamicType*(this: ExprNamedUnknown): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: Expr_NamedUnknown): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "Expr_NamedUnknown.hxx".}
-

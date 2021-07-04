@@ -13,6 +13,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  BVH_Object, BVH_Builder, BVH_BinnedBuilder
+
 ## ! Set of abstract geometric primitives organized with bounding
 ## ! volume hierarchy (BVH). Unlike an object set, this collection
 ## ! is designed for storing structural elements of a single object
@@ -38,18 +41,17 @@ proc constructBVH_PrimitiveSet*[T; N: static[cint]](): BVH_PrimitiveSet[T, N] {.
     constructor, importcpp: "BVH_PrimitiveSet<\'*0,\'*1>(@)",
     header: "BVH_PrimitiveSet.hxx".}
 proc constructBVH_PrimitiveSet*[T; N: static[cint]](
-    theBuilder: Handle[BVH_Builder[T, N]]): BVH_PrimitiveSet[T, N] {.constructor,
+    theBuilder: handle[BVH_Builder[T, N]]): BVH_PrimitiveSet[T, N] {.constructor,
     importcpp: "BVH_PrimitiveSet<\'*0,\'*1>(@)", header: "BVH_PrimitiveSet.hxx".}
 proc destroyBVH_PrimitiveSet*[T; N: static[cint]](this: var BVH_PrimitiveSet[T, N]) {.
     importcpp: "#.~BVH_PrimitiveSet()", header: "BVH_PrimitiveSet.hxx".}
-proc box*[T; N: static[cint]](this: BVH_PrimitiveSet[T, N]): BVH_Box[T, N] {.
+proc Box*[T; N: static[cint]](this: BVH_PrimitiveSet[T, N]): BVH_Box[T, N] {.
     noSideEffect, importcpp: "Box", header: "BVH_PrimitiveSet.hxx".}
-proc bvh*[T; N: static[cint]](this: var BVH_PrimitiveSet[T, N]): Handle[BVH_Tree[T, N]] {.
+proc BVH*[T; N: static[cint]](this: var BVH_PrimitiveSet[T, N]): handle[BVH_Tree[T, N]] {.
     importcpp: "BVH", header: "BVH_PrimitiveSet.hxx".}
-proc builder*[T; N: static[cint]](this: BVH_PrimitiveSet[T, N]): Handle[
+proc Builder*[T; N: static[cint]](this: BVH_PrimitiveSet[T, N]): handle[
     BVH_Builder[T, N]] {.noSideEffect, importcpp: "Builder",
                        header: "BVH_PrimitiveSet.hxx".}
-proc setBuilder*[T; N: static[cint]](this: var BVH_PrimitiveSet[T, N];
-                                  theBuilder: Handle[BVH_Builder[T, N]]) {.
+proc SetBuilder*[T; N: static[cint]](this: var BVH_PrimitiveSet[T, N];
+                                  theBuilder: handle[BVH_Builder[T, N]]) {.
     importcpp: "SetBuilder", header: "BVH_PrimitiveSet.hxx".}
-

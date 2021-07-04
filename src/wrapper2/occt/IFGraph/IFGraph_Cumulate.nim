@@ -14,32 +14,43 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Interface/Interface_Graph,
+  ../Interface/Interface_GraphContent, ../Standard/Standard_Integer
+
 discard "forward decl of Interface_Graph"
 discard "forward decl of Standard_Transient"
 discard "forward decl of Interface_EntityIterator"
 type
-  IFGraphCumulate* {.importcpp: "IFGraph_Cumulate", header: "IFGraph_Cumulate.hxx",
-                    bycopy.} = object of InterfaceGraphContent ## ! creates empty Cumulate, ready to work
+  IFGraph_Cumulate* {.importcpp: "IFGraph_Cumulate",
+                     header: "IFGraph_Cumulate.hxx", bycopy.} = object of Interface_GraphContent ##
+                                                                                          ## !
+                                                                                          ## creates
+                                                                                          ## empty
+                                                                                          ## Cumulate,
+                                                                                          ## ready
+                                                                                          ## to
+                                                                                          ## work
 
 
-proc constructIFGraphCumulate*(agraph: InterfaceGraph): IFGraphCumulate {.
+proc constructIFGraph_Cumulate*(agraph: Interface_Graph): IFGraph_Cumulate {.
     constructor, importcpp: "IFGraph_Cumulate(@)", header: "IFGraph_Cumulate.hxx".}
-proc getFromEntity*(this: var IFGraphCumulate; ent: Handle[StandardTransient]) {.
+proc GetFromEntity*(this: var IFGraph_Cumulate; ent: handle[Standard_Transient]) {.
     importcpp: "GetFromEntity", header: "IFGraph_Cumulate.hxx".}
-proc getFromIter*(this: var IFGraphCumulate; iter: InterfaceEntityIterator) {.
+proc GetFromIter*(this: var IFGraph_Cumulate; iter: Interface_EntityIterator) {.
     importcpp: "GetFromIter", header: "IFGraph_Cumulate.hxx".}
-proc resetData*(this: var IFGraphCumulate) {.importcpp: "ResetData",
+proc ResetData*(this: var IFGraph_Cumulate) {.importcpp: "ResetData",
     header: "IFGraph_Cumulate.hxx".}
-proc evaluate*(this: var IFGraphCumulate) {.importcpp: "Evaluate",
-                                        header: "IFGraph_Cumulate.hxx".}
-proc overlapped*(this: IFGraphCumulate): InterfaceEntityIterator {.noSideEffect,
+proc Evaluate*(this: var IFGraph_Cumulate) {.importcpp: "Evaluate",
+    header: "IFGraph_Cumulate.hxx".}
+proc Overlapped*(this: IFGraph_Cumulate): Interface_EntityIterator {.noSideEffect,
     importcpp: "Overlapped", header: "IFGraph_Cumulate.hxx".}
-proc forgotten*(this: IFGraphCumulate): InterfaceEntityIterator {.noSideEffect,
+proc Forgotten*(this: IFGraph_Cumulate): Interface_EntityIterator {.noSideEffect,
     importcpp: "Forgotten", header: "IFGraph_Cumulate.hxx".}
-proc perCount*(this: IFGraphCumulate; count: StandardInteger = 1): InterfaceEntityIterator {.
+proc PerCount*(this: IFGraph_Cumulate; count: Standard_Integer = 1): Interface_EntityIterator {.
     noSideEffect, importcpp: "PerCount", header: "IFGraph_Cumulate.hxx".}
-proc nbTimes*(this: IFGraphCumulate; ent: Handle[StandardTransient]): StandardInteger {.
+proc NbTimes*(this: IFGraph_Cumulate; ent: handle[Standard_Transient]): Standard_Integer {.
     noSideEffect, importcpp: "NbTimes", header: "IFGraph_Cumulate.hxx".}
-proc highestNbTimes*(this: IFGraphCumulate): StandardInteger {.noSideEffect,
+proc HighestNbTimes*(this: IFGraph_Cumulate): Standard_Integer {.noSideEffect,
     importcpp: "HighestNbTimes", header: "IFGraph_Cumulate.hxx".}
-

@@ -14,6 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type,
+  ../IGESData/IGESData_ReadWriteModule, ../Standard/Standard_Integer
+
 discard "forward decl of Standard_DomainError"
 discard "forward decl of IGESData_IGESEntity"
 discard "forward decl of IGESData_IGESReaderData"
@@ -22,51 +26,50 @@ discard "forward decl of IGESData_IGESWriter"
 discard "forward decl of IGESDraw_ReadWriteModule"
 discard "forward decl of IGESDraw_ReadWriteModule"
 type
-  HandleIGESDrawReadWriteModule* = Handle[IGESDrawReadWriteModule]
+  Handle_IGESDraw_ReadWriteModule* = handle[IGESDraw_ReadWriteModule]
 
 ## ! Defines Draw File Access Module for IGESDraw (specific parts)
 ## ! Specific actions concern : Read and Write Own Parameters of
 ## ! an IGESEntity.
 
 type
-  IGESDrawReadWriteModule* {.importcpp: "IGESDraw_ReadWriteModule",
-                            header: "IGESDraw_ReadWriteModule.hxx", bycopy.} = object of IGESDataReadWriteModule ##
-                                                                                                          ## !
-                                                                                                          ## Creates
-                                                                                                          ## a
-                                                                                                          ## ReadWriteModule
-                                                                                                          ## &
-                                                                                                          ## puts
-                                                                                                          ## it
-                                                                                                          ## into
-                                                                                                          ## ReaderLib
-                                                                                                          ## &
-                                                                                                          ## WriterLib
+  IGESDraw_ReadWriteModule* {.importcpp: "IGESDraw_ReadWriteModule",
+                             header: "IGESDraw_ReadWriteModule.hxx", bycopy.} = object of IGESData_ReadWriteModule ##
+                                                                                                            ## !
+                                                                                                            ## Creates
+                                                                                                            ## a
+                                                                                                            ## ReadWriteModule
+                                                                                                            ## &
+                                                                                                            ## puts
+                                                                                                            ## it
+                                                                                                            ## into
+                                                                                                            ## ReaderLib
+                                                                                                            ## &
+                                                                                                            ## WriterLib
 
 
-proc constructIGESDrawReadWriteModule*(): IGESDrawReadWriteModule {.constructor,
+proc constructIGESDraw_ReadWriteModule*(): IGESDraw_ReadWriteModule {.constructor,
     importcpp: "IGESDraw_ReadWriteModule(@)",
     header: "IGESDraw_ReadWriteModule.hxx".}
-proc caseIGES*(this: IGESDrawReadWriteModule; typenum: StandardInteger;
-              formnum: StandardInteger): StandardInteger {.noSideEffect,
+proc CaseIGES*(this: IGESDraw_ReadWriteModule; typenum: Standard_Integer;
+              formnum: Standard_Integer): Standard_Integer {.noSideEffect,
     importcpp: "CaseIGES", header: "IGESDraw_ReadWriteModule.hxx".}
-proc readOwnParams*(this: IGESDrawReadWriteModule; cn: StandardInteger;
-                   ent: Handle[IGESDataIGESEntity];
-                   ir: Handle[IGESDataIGESReaderData]; pr: var IGESDataParamReader) {.
-    noSideEffect, importcpp: "ReadOwnParams",
-    header: "IGESDraw_ReadWriteModule.hxx".}
-proc writeOwnParams*(this: IGESDrawReadWriteModule; cn: StandardInteger;
-                    ent: Handle[IGESDataIGESEntity]; iw: var IGESDataIGESWriter) {.
+proc ReadOwnParams*(this: IGESDraw_ReadWriteModule; CN: Standard_Integer;
+                   ent: handle[IGESData_IGESEntity];
+                   IR: handle[IGESData_IGESReaderData];
+                   PR: var IGESData_ParamReader) {.noSideEffect,
+    importcpp: "ReadOwnParams", header: "IGESDraw_ReadWriteModule.hxx".}
+proc WriteOwnParams*(this: IGESDraw_ReadWriteModule; CN: Standard_Integer;
+                    ent: handle[IGESData_IGESEntity]; IW: var IGESData_IGESWriter) {.
     noSideEffect, importcpp: "WriteOwnParams",
     header: "IGESDraw_ReadWriteModule.hxx".}
 type
-  IGESDrawReadWriteModulebaseType* = IGESDataReadWriteModule
+  IGESDraw_ReadWriteModulebase_type* = IGESData_ReadWriteModule
 
-proc getTypeName*(): cstring {.importcpp: "IGESDraw_ReadWriteModule::get_type_name(@)",
-                            header: "IGESDraw_ReadWriteModule.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "IGESDraw_ReadWriteModule::get_type_name(@)",
+                              header: "IGESDraw_ReadWriteModule.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "IGESDraw_ReadWriteModule::get_type_descriptor(@)",
     header: "IGESDraw_ReadWriteModule.hxx".}
-proc dynamicType*(this: IGESDrawReadWriteModule): Handle[StandardType] {.
+proc DynamicType*(this: IGESDraw_ReadWriteModule): handle[Standard_Type] {.
     noSideEffect, importcpp: "DynamicType", header: "IGESDraw_ReadWriteModule.hxx".}
-

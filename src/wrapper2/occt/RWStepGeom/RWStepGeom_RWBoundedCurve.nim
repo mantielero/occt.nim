@@ -14,23 +14,26 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer
+
 discard "forward decl of StepData_StepReaderData"
 discard "forward decl of Interface_Check"
 discard "forward decl of StepGeom_BoundedCurve"
 discard "forward decl of StepData_StepWriter"
 type
-  RWStepGeomRWBoundedCurve* {.importcpp: "RWStepGeom_RWBoundedCurve",
-                             header: "RWStepGeom_RWBoundedCurve.hxx", bycopy.} = object
+  RWStepGeom_RWBoundedCurve* {.importcpp: "RWStepGeom_RWBoundedCurve",
+                              header: "RWStepGeom_RWBoundedCurve.hxx", bycopy.} = object
 
 
-proc constructRWStepGeomRWBoundedCurve*(): RWStepGeomRWBoundedCurve {.constructor,
-    importcpp: "RWStepGeom_RWBoundedCurve(@)",
+proc constructRWStepGeom_RWBoundedCurve*(): RWStepGeom_RWBoundedCurve {.
+    constructor, importcpp: "RWStepGeom_RWBoundedCurve(@)",
     header: "RWStepGeom_RWBoundedCurve.hxx".}
-proc readStep*(this: RWStepGeomRWBoundedCurve;
-              data: Handle[StepDataStepReaderData]; num: StandardInteger;
-              ach: var Handle[InterfaceCheck]; ent: Handle[StepGeomBoundedCurve]) {.
+proc ReadStep*(this: RWStepGeom_RWBoundedCurve;
+              data: handle[StepData_StepReaderData]; num: Standard_Integer;
+              ach: var handle[Interface_Check]; ent: handle[StepGeom_BoundedCurve]) {.
     noSideEffect, importcpp: "ReadStep", header: "RWStepGeom_RWBoundedCurve.hxx".}
-proc writeStep*(this: RWStepGeomRWBoundedCurve; sw: var StepDataStepWriter;
-               ent: Handle[StepGeomBoundedCurve]) {.noSideEffect,
+proc WriteStep*(this: RWStepGeom_RWBoundedCurve; SW: var StepData_StepWriter;
+               ent: handle[StepGeom_BoundedCurve]) {.noSideEffect,
     importcpp: "WriteStep", header: "RWStepGeom_RWBoundedCurve.hxx".}
-

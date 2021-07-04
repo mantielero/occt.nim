@@ -13,6 +13,13 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../TColStd/TColStd_SequenceOfTransient,
+  ../TColStd/TColStd_SequenceOfInteger, STEPConstruct_Tool,
+  ../Standard/Standard_Boolean, ../Standard/Standard_Integer,
+  ../Standard/Standard_CString
+
 discard "forward decl of StepBasic_ProductRelatedProductCategory"
 discard "forward decl of StepBasic_DocumentType"
 discard "forward decl of StepBasic_ProductDefinitionContext"
@@ -24,78 +31,78 @@ discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepAP214_AppliedDocumentReference"
 discard "forward decl of StepBasic_DocumentFile"
 type
-  STEPConstructExternRefs* {.importcpp: "STEPConstruct_ExternRefs",
-                            header: "STEPConstruct_ExternRefs.hxx", bycopy.} = object of STEPConstructTool ##
-                                                                                                    ## !
-                                                                                                    ## Creates
-                                                                                                    ## an
-                                                                                                    ## empty
-                                                                                                    ## tool
-                                                                                                    ##
-                                                                                                    ## !
-                                                                                                    ## Create
-                                                                                                    ## a
-                                                                                                    ## new
-                                                                                                    ## additional
-                                                                                                    ## structure
-                                                                                                    ## entities
-                                                                                                    ## and
-                                                                                                    ## add
-                                                                                                    ## ncessary
-                                                                                                    ## references
-                                                                                                    ##
-                                                                                                    ## !
-                                                                                                    ## Note:
-                                                                                                    ## do
-                                                                                                    ## not
-                                                                                                    ## refer
-                                                                                                    ## from
-                                                                                                    ## ADR
-                                                                                                    ## to
-                                                                                                    ## DF
-                                                                                                    ## directly
-                                                                                                    ## in
-                                                                                                    ## AP214
-                                                                                                    ## (TRJ11).
+  STEPConstruct_ExternRefs* {.importcpp: "STEPConstruct_ExternRefs",
+                             header: "STEPConstruct_ExternRefs.hxx", bycopy.} = object of STEPConstruct_Tool ##
+                                                                                                      ## !
+                                                                                                      ## Creates
+                                                                                                      ## an
+                                                                                                      ## empty
+                                                                                                      ## tool
+                                                                                                      ##
+                                                                                                      ## !
+                                                                                                      ## Create
+                                                                                                      ## a
+                                                                                                      ## new
+                                                                                                      ## additional
+                                                                                                      ## structure
+                                                                                                      ## entities
+                                                                                                      ## and
+                                                                                                      ## add
+                                                                                                      ## ncessary
+                                                                                                      ## references
+                                                                                                      ##
+                                                                                                      ## !
+                                                                                                      ## Note:
+                                                                                                      ## do
+                                                                                                      ## not
+                                                                                                      ## refer
+                                                                                                      ## from
+                                                                                                      ## ADR
+                                                                                                      ## to
+                                                                                                      ## DF
+                                                                                                      ## directly
+                                                                                                      ## in
+                                                                                                      ## AP214
+                                                                                                      ## (TRJ11).
 
 
-proc constructSTEPConstructExternRefs*(): STEPConstructExternRefs {.constructor,
+proc constructSTEPConstruct_ExternRefs*(): STEPConstruct_ExternRefs {.constructor,
     importcpp: "STEPConstruct_ExternRefs(@)",
     header: "STEPConstruct_ExternRefs.hxx".}
-proc constructSTEPConstructExternRefs*(ws: Handle[XSControlWorkSession]): STEPConstructExternRefs {.
+proc constructSTEPConstruct_ExternRefs*(WS: handle[XSControl_WorkSession]): STEPConstruct_ExternRefs {.
     constructor, importcpp: "STEPConstruct_ExternRefs(@)",
     header: "STEPConstruct_ExternRefs.hxx".}
-proc init*(this: var STEPConstructExternRefs; ws: Handle[XSControlWorkSession]): StandardBoolean {.
+proc Init*(this: var STEPConstruct_ExternRefs; WS: handle[XSControl_WorkSession]): Standard_Boolean {.
     importcpp: "Init", header: "STEPConstruct_ExternRefs.hxx".}
-proc clear*(this: var STEPConstructExternRefs) {.importcpp: "Clear",
+proc Clear*(this: var STEPConstruct_ExternRefs) {.importcpp: "Clear",
     header: "STEPConstruct_ExternRefs.hxx".}
-proc loadExternRefs*(this: var STEPConstructExternRefs): StandardBoolean {.
+proc LoadExternRefs*(this: var STEPConstruct_ExternRefs): Standard_Boolean {.
     importcpp: "LoadExternRefs", header: "STEPConstruct_ExternRefs.hxx".}
-proc nbExternRefs*(this: STEPConstructExternRefs): StandardInteger {.noSideEffect,
+proc NbExternRefs*(this: STEPConstruct_ExternRefs): Standard_Integer {.noSideEffect,
     importcpp: "NbExternRefs", header: "STEPConstruct_ExternRefs.hxx".}
-proc fileName*(this: STEPConstructExternRefs; num: StandardInteger): StandardCString {.
+proc FileName*(this: STEPConstruct_ExternRefs; num: Standard_Integer): Standard_CString {.
     noSideEffect, importcpp: "FileName", header: "STEPConstruct_ExternRefs.hxx".}
-proc prodDef*(this: STEPConstructExternRefs; num: StandardInteger): Handle[
-    StepBasicProductDefinition] {.noSideEffect, importcpp: "ProdDef",
-                                 header: "STEPConstruct_ExternRefs.hxx".}
-proc docFile*(this: STEPConstructExternRefs; num: StandardInteger): Handle[
-    StepBasicDocumentFile] {.noSideEffect, importcpp: "DocFile",
-                            header: "STEPConstruct_ExternRefs.hxx".}
-proc format*(this: STEPConstructExternRefs; num: StandardInteger): Handle[
-    TCollectionHAsciiString] {.noSideEffect, importcpp: "Format",
-                              header: "STEPConstruct_ExternRefs.hxx".}
-proc addExternRef*(this: var STEPConstructExternRefs; filename: StandardCString;
-                  pd: Handle[StepBasicProductDefinition]; format: StandardCString): StandardInteger {.
+proc ProdDef*(this: STEPConstruct_ExternRefs; num: Standard_Integer): handle[
+    StepBasic_ProductDefinition] {.noSideEffect, importcpp: "ProdDef",
+                                  header: "STEPConstruct_ExternRefs.hxx".}
+proc DocFile*(this: STEPConstruct_ExternRefs; num: Standard_Integer): handle[
+    StepBasic_DocumentFile] {.noSideEffect, importcpp: "DocFile",
+                             header: "STEPConstruct_ExternRefs.hxx".}
+proc Format*(this: STEPConstruct_ExternRefs; num: Standard_Integer): handle[
+    TCollection_HAsciiString] {.noSideEffect, importcpp: "Format",
+                               header: "STEPConstruct_ExternRefs.hxx".}
+proc AddExternRef*(this: var STEPConstruct_ExternRefs; filename: Standard_CString;
+                  PD: handle[StepBasic_ProductDefinition];
+                  format: Standard_CString): Standard_Integer {.
     importcpp: "AddExternRef", header: "STEPConstruct_ExternRefs.hxx".}
-proc checkAP214Shared*(this: var STEPConstructExternRefs) {.
+proc checkAP214Shared*(this: var STEPConstruct_ExternRefs) {.
     importcpp: "checkAP214Shared", header: "STEPConstruct_ExternRefs.hxx".}
-proc writeExternRefs*(this: STEPConstructExternRefs; num: StandardInteger): StandardInteger {.
+proc WriteExternRefs*(this: STEPConstruct_ExternRefs; num: Standard_Integer): Standard_Integer {.
     noSideEffect, importcpp: "WriteExternRefs",
     header: "STEPConstruct_ExternRefs.hxx".}
-proc setAP214APD*(this: var STEPConstructExternRefs;
-                 apd: Handle[StepBasicApplicationProtocolDefinition]) {.
+proc SetAP214APD*(this: var STEPConstruct_ExternRefs;
+                 APD: handle[StepBasic_ApplicationProtocolDefinition]) {.
     importcpp: "SetAP214APD", header: "STEPConstruct_ExternRefs.hxx".}
-proc getAP214APD*(this: var STEPConstructExternRefs): Handle[
-    StepBasicApplicationProtocolDefinition] {.importcpp: "GetAP214APD",
+proc GetAP214APD*(this: var STEPConstruct_ExternRefs): handle[
+    StepBasic_ApplicationProtocolDefinition] {.importcpp: "GetAP214APD",
     header: "STEPConstruct_ExternRefs.hxx".}
-

@@ -14,6 +14,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_DefineAlloc,
+  ../Standard/Standard_Handle, ../Standard/Standard_Integer,
+  ../Standard/Standard_Boolean, ../Standard/Standard_Real, ../gp/gp_Trsf,
+  ../gp/gp_Vec2d
+
 discard "forward decl of Standard_NoSuchObject"
 discard "forward decl of gp_Ax2"
 discard "forward decl of gp_Trsf"
@@ -23,52 +29,51 @@ discard "forward decl of gp_Pnt"
 discard "forward decl of gp_Pnt2d"
 discard "forward decl of gp_Lin"
 type
-  HLRAlgoProjector* {.importcpp: "HLRAlgo_Projector",
-                     header: "HLRAlgo_Projector.hxx", bycopy.} = object
+  HLRAlgo_Projector* {.importcpp: "HLRAlgo_Projector",
+                      header: "HLRAlgo_Projector.hxx", bycopy.} = object
 
 
-proc constructHLRAlgoProjector*(): HLRAlgoProjector {.constructor,
+proc constructHLRAlgo_Projector*(): HLRAlgo_Projector {.constructor,
     importcpp: "HLRAlgo_Projector(@)", header: "HLRAlgo_Projector.hxx".}
-proc constructHLRAlgoProjector*(cs: GpAx2): HLRAlgoProjector {.constructor,
+proc constructHLRAlgo_Projector*(CS: gp_Ax2): HLRAlgo_Projector {.constructor,
     importcpp: "HLRAlgo_Projector(@)", header: "HLRAlgo_Projector.hxx".}
-proc constructHLRAlgoProjector*(cs: GpAx2; focus: StandardReal): HLRAlgoProjector {.
+proc constructHLRAlgo_Projector*(CS: gp_Ax2; Focus: Standard_Real): HLRAlgo_Projector {.
     constructor, importcpp: "HLRAlgo_Projector(@)", header: "HLRAlgo_Projector.hxx".}
-proc constructHLRAlgoProjector*(t: GpTrsf; persp: StandardBoolean;
-                               focus: StandardReal): HLRAlgoProjector {.
+proc constructHLRAlgo_Projector*(T: gp_Trsf; Persp: Standard_Boolean;
+                                Focus: Standard_Real): HLRAlgo_Projector {.
     constructor, importcpp: "HLRAlgo_Projector(@)", header: "HLRAlgo_Projector.hxx".}
-proc constructHLRAlgoProjector*(t: GpTrsf; persp: StandardBoolean;
-                               focus: StandardReal; v1: GpVec2d; v2: GpVec2d;
-                               v3: GpVec2d): HLRAlgoProjector {.constructor,
+proc constructHLRAlgo_Projector*(T: gp_Trsf; Persp: Standard_Boolean;
+                                Focus: Standard_Real; v1: gp_Vec2d; v2: gp_Vec2d;
+                                v3: gp_Vec2d): HLRAlgo_Projector {.constructor,
     importcpp: "HLRAlgo_Projector(@)", header: "HLRAlgo_Projector.hxx".}
-proc set*(this: var HLRAlgoProjector; t: GpTrsf; persp: StandardBoolean;
-         focus: StandardReal) {.importcpp: "Set", header: "HLRAlgo_Projector.hxx".}
-proc directions*(this: HLRAlgoProjector; d1: var GpVec2d; d2: var GpVec2d;
-                d3: var GpVec2d) {.noSideEffect, importcpp: "Directions",
-                                header: "HLRAlgo_Projector.hxx".}
-proc scaled*(this: var HLRAlgoProjector; on: StandardBoolean = standardFalse) {.
+proc Set*(this: var HLRAlgo_Projector; T: gp_Trsf; Persp: Standard_Boolean;
+         Focus: Standard_Real) {.importcpp: "Set", header: "HLRAlgo_Projector.hxx".}
+proc Directions*(this: HLRAlgo_Projector; D1: var gp_Vec2d; D2: var gp_Vec2d;
+                D3: var gp_Vec2d) {.noSideEffect, importcpp: "Directions",
+                                 header: "HLRAlgo_Projector.hxx".}
+proc Scaled*(this: var HLRAlgo_Projector; On: Standard_Boolean = Standard_False) {.
     importcpp: "Scaled", header: "HLRAlgo_Projector.hxx".}
-proc perspective*(this: HLRAlgoProjector): StandardBoolean {.noSideEffect,
+proc Perspective*(this: HLRAlgo_Projector): Standard_Boolean {.noSideEffect,
     importcpp: "Perspective", header: "HLRAlgo_Projector.hxx".}
-proc transformation*(this: HLRAlgoProjector): GpTrsf {.noSideEffect,
+proc Transformation*(this: HLRAlgo_Projector): gp_Trsf {.noSideEffect,
     importcpp: "Transformation", header: "HLRAlgo_Projector.hxx".}
-proc invertedTransformation*(this: HLRAlgoProjector): GpTrsf {.noSideEffect,
+proc InvertedTransformation*(this: HLRAlgo_Projector): gp_Trsf {.noSideEffect,
     importcpp: "InvertedTransformation", header: "HLRAlgo_Projector.hxx".}
-proc fullTransformation*(this: HLRAlgoProjector): GpTrsf {.noSideEffect,
+proc FullTransformation*(this: HLRAlgo_Projector): gp_Trsf {.noSideEffect,
     importcpp: "FullTransformation", header: "HLRAlgo_Projector.hxx".}
-proc focus*(this: HLRAlgoProjector): StandardReal {.noSideEffect, importcpp: "Focus",
-    header: "HLRAlgo_Projector.hxx".}
-proc transform*(this: HLRAlgoProjector; d: var GpVec) {.noSideEffect,
+proc Focus*(this: HLRAlgo_Projector): Standard_Real {.noSideEffect,
+    importcpp: "Focus", header: "HLRAlgo_Projector.hxx".}
+proc Transform*(this: HLRAlgo_Projector; D: var gp_Vec) {.noSideEffect,
     importcpp: "Transform", header: "HLRAlgo_Projector.hxx".}
-proc transform*(this: HLRAlgoProjector; pnt: var GpPnt) {.noSideEffect,
+proc Transform*(this: HLRAlgo_Projector; Pnt: var gp_Pnt) {.noSideEffect,
     importcpp: "Transform", header: "HLRAlgo_Projector.hxx".}
-proc project*(this: HLRAlgoProjector; p: GpPnt; pout: var GpPnt2d) {.noSideEffect,
+proc Project*(this: HLRAlgo_Projector; P: gp_Pnt; Pout: var gp_Pnt2d) {.noSideEffect,
     importcpp: "Project", header: "HLRAlgo_Projector.hxx".}
-proc project*(this: HLRAlgoProjector; p: GpPnt; x: var StandardReal;
-             y: var StandardReal; z: var StandardReal) {.noSideEffect,
+proc Project*(this: HLRAlgo_Projector; P: gp_Pnt; X: var Standard_Real;
+             Y: var Standard_Real; Z: var Standard_Real) {.noSideEffect,
     importcpp: "Project", header: "HLRAlgo_Projector.hxx".}
-proc project*(this: HLRAlgoProjector; p: GpPnt; d1: GpVec; pout: var GpPnt2d;
-             d1out: var GpVec2d) {.noSideEffect, importcpp: "Project",
-                                header: "HLRAlgo_Projector.hxx".}
-proc shoot*(this: HLRAlgoProjector; x: StandardReal; y: StandardReal): GpLin {.
+proc Project*(this: HLRAlgo_Projector; P: gp_Pnt; D1: gp_Vec; Pout: var gp_Pnt2d;
+             D1out: var gp_Vec2d) {.noSideEffect, importcpp: "Project",
+                                 header: "HLRAlgo_Projector.hxx".}
+proc Shoot*(this: HLRAlgo_Projector; X: Standard_Real; Y: Standard_Real): gp_Lin {.
     noSideEffect, importcpp: "Shoot", header: "HLRAlgo_Projector.hxx".}
-

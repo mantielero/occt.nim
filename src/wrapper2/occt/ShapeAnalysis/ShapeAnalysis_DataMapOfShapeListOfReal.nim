@@ -14,10 +14,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../TopoDS/TopoDS_Shape, ../TColStd/TColStd_ListOfReal,
+  ../TopTools/TopTools_ShapeMapHasher, ../NCollection/NCollection_DataMap
+
 type
-  ShapeAnalysisDataMapOfShapeListOfReal* = NCollectionDataMap[TopoDS_Shape,
-      TColStdListOfReal, TopToolsShapeMapHasher]
-  ShapeAnalysisDataMapIteratorOfDataMapOfShapeListOfReal* = Iterator[TopoDS_Shape,
-      TColStdListOfReal, TopToolsShapeMapHasher]
-
-
+  ShapeAnalysis_DataMapOfShapeListOfReal* = NCollection_DataMap[TopoDS_Shape,
+      TColStd_ListOfReal, TopTools_ShapeMapHasher]
+  ShapeAnalysis_DataMapIteratorOfDataMapOfShapeListOfReal* = Iterator[
+      TopoDS_Shape, TColStd_ListOfReal, TopTools_ShapeMapHasher]

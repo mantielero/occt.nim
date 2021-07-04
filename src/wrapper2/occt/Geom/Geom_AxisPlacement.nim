@@ -14,6 +14,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import
+  ../Standard/Standard, ../Standard/Standard_Type, ../gp/gp_Ax1, Geom_Geometry,
+  ../Standard/Standard_Real
+
 discard "forward decl of Standard_ConstructionError"
 discard "forward decl of gp_Ax1"
 discard "forward decl of gp_Dir"
@@ -21,7 +25,7 @@ discard "forward decl of gp_Pnt"
 discard "forward decl of Geom_AxisPlacement"
 discard "forward decl of Geom_AxisPlacement"
 type
-  HandleGeomAxisPlacement* = Handle[GeomAxisPlacement]
+  Handle_Geom_AxisPlacement* = handle[Geom_AxisPlacement]
 
 ## ! The abstract class AxisPlacement describes the
 ## ! common behavior of positioning systems in 3D space,
@@ -51,105 +55,104 @@ type
 ## ! also called the "Axis" or "main Axis" of the positioning system.
 
 type
-  GeomAxisPlacement* {.importcpp: "Geom_AxisPlacement",
-                      header: "Geom_AxisPlacement.hxx", bycopy.} = object of GeomGeometry ##
-                                                                                   ## !
-                                                                                   ## Assigns
-                                                                                   ## A1
-                                                                                   ## as
-                                                                                   ## the
-                                                                                   ## "main
-                                                                                   ## Axis"
-                                                                                   ## of
-                                                                                   ## this
-                                                                                   ## positioning
-                                                                                   ## system.
-                                                                                   ## This
-                                                                                   ## modifies
-                                                                                   ##
-                                                                                   ## !
-                                                                                   ## -
-                                                                                   ## its
-                                                                                   ## origin,
-                                                                                   ## and
-                                                                                   ##
-                                                                                   ## !
-                                                                                   ## -
-                                                                                   ## its
-                                                                                   ## "main
-                                                                                   ## Direction".
-                                                                                   ##
-                                                                                   ## !
-                                                                                   ## If
-                                                                                   ## this
-                                                                                   ## positioning
-                                                                                   ## system
-                                                                                   ## is
-                                                                                   ## a
-                                                                                   ##
-                                                                                   ## !
-                                                                                   ## Geom_Axis2Placement,
-                                                                                   ## then
-                                                                                   ## its
-                                                                                   ## "X
-                                                                                   ## Direction"
-                                                                                   ## and
-                                                                                   ##
-                                                                                   ## !
-                                                                                   ## "Y
-                                                                                   ## Direction"
-                                                                                   ## are
-                                                                                   ## recomputed.
-                                                                                   ##
-                                                                                   ## !
-                                                                                   ## Exceptions
-                                                                                   ##
-                                                                                   ## !
-                                                                                   ## For
-                                                                                   ## a
-                                                                                   ## Geom_Axis2Placement:
-                                                                                   ##
-                                                                                   ## !
-                                                                                   ## Standard_ConstructionError
-                                                                                   ## if
-                                                                                   ## A1
-                                                                                   ## and
-                                                                                   ## the
-                                                                                   ##
-                                                                                   ## !
-                                                                                   ## previous
-                                                                                   ## "X
-                                                                                   ## Direction"
-                                                                                   ## of
-                                                                                   ## the
-                                                                                   ## coordinate
-                                                                                   ## system
-                                                                                   ## are
-                                                                                   ## parallel.
+  Geom_AxisPlacement* {.importcpp: "Geom_AxisPlacement",
+                       header: "Geom_AxisPlacement.hxx", bycopy.} = object of Geom_Geometry ##
+                                                                                     ## !
+                                                                                     ## Assigns
+                                                                                     ## A1
+                                                                                     ## as
+                                                                                     ## the
+                                                                                     ## "main
+                                                                                     ## Axis"
+                                                                                     ## of
+                                                                                     ## this
+                                                                                     ## positioning
+                                                                                     ## system.
+                                                                                     ## This
+                                                                                     ## modifies
+                                                                                     ##
+                                                                                     ## !
+                                                                                     ## -
+                                                                                     ## its
+                                                                                     ## origin,
+                                                                                     ## and
+                                                                                     ##
+                                                                                     ## !
+                                                                                     ## -
+                                                                                     ## its
+                                                                                     ## "main
+                                                                                     ## Direction".
+                                                                                     ##
+                                                                                     ## !
+                                                                                     ## If
+                                                                                     ## this
+                                                                                     ## positioning
+                                                                                     ## system
+                                                                                     ## is
+                                                                                     ## a
+                                                                                     ##
+                                                                                     ## !
+                                                                                     ## Geom_Axis2Placement,
+                                                                                     ## then
+                                                                                     ## its
+                                                                                     ## "X
+                                                                                     ## Direction"
+                                                                                     ## and
+                                                                                     ##
+                                                                                     ## !
+                                                                                     ## "Y
+                                                                                     ## Direction"
+                                                                                     ## are
+                                                                                     ## recomputed.
+                                                                                     ##
+                                                                                     ## !
+                                                                                     ## Exceptions
+                                                                                     ##
+                                                                                     ## !
+                                                                                     ## For
+                                                                                     ## a
+                                                                                     ## Geom_Axis2Placement:
+                                                                                     ##
+                                                                                     ## !
+                                                                                     ## Standard_ConstructionError
+                                                                                     ## if
+                                                                                     ## A1
+                                                                                     ## and
+                                                                                     ## the
+                                                                                     ##
+                                                                                     ## !
+                                                                                     ## previous
+                                                                                     ## "X
+                                                                                     ## Direction"
+                                                                                     ## of
+                                                                                     ## the
+                                                                                     ## coordinate
+                                                                                     ## system
+                                                                                     ## are
+                                                                                     ## parallel.
 
 
-proc setAxis*(this: var GeomAxisPlacement; a1: GpAx1) {.importcpp: "SetAxis",
+proc SetAxis*(this: var Geom_AxisPlacement; A1: gp_Ax1) {.importcpp: "SetAxis",
     header: "Geom_AxisPlacement.hxx".}
-proc setDirection*(this: var GeomAxisPlacement; v: GpDir) {.importcpp: "SetDirection",
+proc SetDirection*(this: var Geom_AxisPlacement; V: gp_Dir) {.
+    importcpp: "SetDirection", header: "Geom_AxisPlacement.hxx".}
+proc SetLocation*(this: var Geom_AxisPlacement; P: gp_Pnt) {.importcpp: "SetLocation",
     header: "Geom_AxisPlacement.hxx".}
-proc setLocation*(this: var GeomAxisPlacement; p: GpPnt) {.importcpp: "SetLocation",
-    header: "Geom_AxisPlacement.hxx".}
-proc angle*(this: GeomAxisPlacement; other: Handle[GeomAxisPlacement]): StandardReal {.
+proc Angle*(this: Geom_AxisPlacement; Other: handle[Geom_AxisPlacement]): Standard_Real {.
     noSideEffect, importcpp: "Angle", header: "Geom_AxisPlacement.hxx".}
-proc axis*(this: GeomAxisPlacement): GpAx1 {.noSideEffect, importcpp: "Axis",
+proc Axis*(this: Geom_AxisPlacement): gp_Ax1 {.noSideEffect, importcpp: "Axis",
     header: "Geom_AxisPlacement.hxx".}
-proc direction*(this: GeomAxisPlacement): GpDir {.noSideEffect,
+proc Direction*(this: Geom_AxisPlacement): gp_Dir {.noSideEffect,
     importcpp: "Direction", header: "Geom_AxisPlacement.hxx".}
-proc location*(this: GeomAxisPlacement): GpPnt {.noSideEffect, importcpp: "Location",
-    header: "Geom_AxisPlacement.hxx".}
+proc Location*(this: Geom_AxisPlacement): gp_Pnt {.noSideEffect,
+    importcpp: "Location", header: "Geom_AxisPlacement.hxx".}
 type
-  GeomAxisPlacementbaseType* = GeomGeometry
+  Geom_AxisPlacementbase_type* = Geom_Geometry
 
-proc getTypeName*(): cstring {.importcpp: "Geom_AxisPlacement::get_type_name(@)",
-                            header: "Geom_AxisPlacement.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+proc get_type_name*(): cstring {.importcpp: "Geom_AxisPlacement::get_type_name(@)",
+                              header: "Geom_AxisPlacement.hxx".}
+proc get_type_descriptor*(): handle[Standard_Type] {.
     importcpp: "Geom_AxisPlacement::get_type_descriptor(@)",
     header: "Geom_AxisPlacement.hxx".}
-proc dynamicType*(this: GeomAxisPlacement): Handle[StandardType] {.noSideEffect,
+proc DynamicType*(this: Geom_AxisPlacement): handle[Standard_Type] {.noSideEffect,
     importcpp: "DynamicType", header: "Geom_AxisPlacement.hxx".}
-

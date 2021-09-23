@@ -16,7 +16,7 @@ echo aPnt4
 
 
 #let aArcOfCircle = GC_MakeArcOfCircle.init()
-let aArcOfCircle = GC_MakeArcOfCircle.init(aPnt2.Pnt,aPnt3.Pnt,aPnt4.Pnt)
+let aArcOfCircle:Handle_Geom_TrimmedCurve = GC_MakeArcOfCircle.init(aPnt2,aPnt3,aPnt4)
 
 #[
 let 

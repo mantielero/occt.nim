@@ -1,0 +1,32 @@
+# 1 "/usr/include/opencascade/XCAFDimTolObjects_DatumSingleModif.hxx"
+# 1 "<interno>"
+# 1 "<línea-de-órdenes>"
+# 1 "/usr/include/stdc-predef.h" 1 3 4
+# 1 "<línea-de-órdenes>" 2
+# 1 "/usr/include/opencascade/XCAFDimTolObjects_DatumSingleModif.hxx"
+# 21 "/usr/include/opencascade/XCAFDimTolObjects_DatumSingleModif.hxx"
+enum XCAFDimTolObjects_DatumSingleModif
+{
+XCAFDimTolObjects_DatumSingleModif_AnyCrossSection,
+XCAFDimTolObjects_DatumSingleModif_Any_LongitudinalSection,
+XCAFDimTolObjects_DatumSingleModif_Basic,
+XCAFDimTolObjects_DatumSingleModif_ContactingFeature,
+XCAFDimTolObjects_DatumSingleModif_DegreeOfFreedomConstraintU,
+XCAFDimTolObjects_DatumSingleModif_DegreeOfFreedomConstraintV,
+XCAFDimTolObjects_DatumSingleModif_DegreeOfFreedomConstraintW,
+XCAFDimTolObjects_DatumSingleModif_DegreeOfFreedomConstraintX,
+XCAFDimTolObjects_DatumSingleModif_DegreeOfFreedomConstraintY,
+XCAFDimTolObjects_DatumSingleModif_DegreeOfFreedomConstraintZ,
+XCAFDimTolObjects_DatumSingleModif_DistanceVariable,
+XCAFDimTolObjects_DatumSingleModif_FreeState,
+XCAFDimTolObjects_DatumSingleModif_LeastMaterialRequirement,
+XCAFDimTolObjects_DatumSingleModif_Line,
+XCAFDimTolObjects_DatumSingleModif_MajorDiameter,
+XCAFDimTolObjects_DatumSingleModif_MaximumMaterialRequirement,
+XCAFDimTolObjects_DatumSingleModif_MinorDiameter,
+XCAFDimTolObjects_DatumSingleModif_Orientation,
+XCAFDimTolObjects_DatumSingleModif_PitchDiameter,
+XCAFDimTolObjects_DatumSingleModif_Plane,
+XCAFDimTolObjects_DatumSingleModif_Point,
+XCAFDimTolObjects_DatumSingleModif_Translation
+};

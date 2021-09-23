@@ -1,0 +1,39 @@
+# 1 "/usr/include/opencascade/XCAFDimTolObjects_DimensionFormVariance.hxx"
+# 1 "<interno>"
+# 1 "<línea-de-órdenes>"
+# 1 "/usr/include/stdc-predef.h" 1 3 4
+# 1 "<línea-de-órdenes>" 2
+# 1 "/usr/include/opencascade/XCAFDimTolObjects_DimensionFormVariance.hxx"
+# 21 "/usr/include/opencascade/XCAFDimTolObjects_DimensionFormVariance.hxx"
+enum XCAFDimTolObjects_DimensionFormVariance
+{
+XCAFDimTolObjects_DimensionFormVariance_None,
+XCAFDimTolObjects_DimensionFormVariance_A,
+XCAFDimTolObjects_DimensionFormVariance_B,
+XCAFDimTolObjects_DimensionFormVariance_C,
+XCAFDimTolObjects_DimensionFormVariance_CD,
+XCAFDimTolObjects_DimensionFormVariance_D,
+XCAFDimTolObjects_DimensionFormVariance_E,
+XCAFDimTolObjects_DimensionFormVariance_EF,
+XCAFDimTolObjects_DimensionFormVariance_F,
+XCAFDimTolObjects_DimensionFormVariance_FG,
+XCAFDimTolObjects_DimensionFormVariance_G,
+XCAFDimTolObjects_DimensionFormVariance_H,
+XCAFDimTolObjects_DimensionFormVariance_JS,
+XCAFDimTolObjects_DimensionFormVariance_J,
+XCAFDimTolObjects_DimensionFormVariance_K,
+XCAFDimTolObjects_DimensionFormVariance_M,
+XCAFDimTolObjects_DimensionFormVariance_N,
+XCAFDimTolObjects_DimensionFormVariance_P,
+XCAFDimTolObjects_DimensionFormVariance_R,
+XCAFDimTolObjects_DimensionFormVariance_S,
+XCAFDimTolObjects_DimensionFormVariance_T,
+XCAFDimTolObjects_DimensionFormVariance_U,
+XCAFDimTolObjects_DimensionFormVariance_V,
+XCAFDimTolObjects_DimensionFormVariance_X,
+XCAFDimTolObjects_DimensionFormVariance_Y,
+XCAFDimTolObjects_DimensionFormVariance_Z,
+XCAFDimTolObjects_DimensionFormVariance_ZA,
+XCAFDimTolObjects_DimensionFormVariance_ZB,
+XCAFDimTolObjects_DimensionFormVariance_ZC
+};

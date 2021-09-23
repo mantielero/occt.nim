@@ -62,7 +62,7 @@ let aPrismVec = Vec(0.0, 0.0, myHeight)
 let myBody:TopoDS_Shape = MakePrism(myFaceProfile, aPrismVec)
 
 # - Applying fillets
-let mkFillet = BRepFilletAPI_MakeFillet(myBody)
+let mkFillet = BRepFilletAPI_MakeFillet(myBody)  # <--- Error: type mismatch: got <TopoDS_Shape> but expected 'BRepFilletAPI_MakeFillet = object'
 #let anEdgeExplorer = TopExp_Explorer(myBody, TopAbs_EDGE)
 mkFillet.add(myThickness / 12.0, anEdge)
 myBody = mkFillet.shape()

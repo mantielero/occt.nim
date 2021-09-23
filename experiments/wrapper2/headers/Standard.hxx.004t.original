@@ -1,0 +1,6486 @@
+
+;; Function Standard_Integer Abs(Standard_Integer) (null)
+;; enabled by -tree-original
+
+
+return <retval> = (Standard_Integer) ABS_EXPR <Value>;
+
+
+;; Function Standard_Boolean IsEven(Standard_Integer) (null)
+;; enabled by -tree-original
+
+
+return <retval> = ((unsigned int) Value & 1) == 0;
+
+
+;; Function Standard_Boolean IsOdd(Standard_Integer) (null)
+;; enabled by -tree-original
+
+
+return <retval> = (int) Value % 2 == 1;
+
+
+;; Function Standard_Integer Max(Standard_Integer, Standard_Integer) (null)
+;; enabled by -tree-original
+
+
+return <retval> = Val1 >= Val2 ? (Standard_Integer) Val1 : (Standard_Integer) Val2;
+
+
+;; Function Standard_Integer Min(Standard_Integer, Standard_Integer) (null)
+;; enabled by -tree-original
+
+
+return <retval> = Val1 <= Val2 ? (Standard_Integer) Val1 : (Standard_Integer) Val2;
+
+
+;; Function Standard_Integer Modulus(Standard_Integer, Standard_Integer) (null)
+;; enabled by -tree-original
+
+
+return <retval> = (int) Value % (int) Divisor;
+
+
+;; Function Standard_Integer Square(Standard_Integer) (null)
+;; enabled by -tree-original
+
+
+return <retval> = (int) Value * (int) Value;
+
+
+;; Function Standard_Integer IntegerFirst() (null)
+;; enabled by -tree-original
+
+
+return <retval> = -2147483648;
+
+
+;; Function Standard_Integer IntegerLast() (null)
+;; enabled by -tree-original
+
+
+return <retval> = 2147483647;
+
+
+;; Function Standard_Integer IntegerSize() (null)
+;; enabled by -tree-original
+
+
+return <retval> = 32;
+
+
+;; Function Standard_Integer HashCode(Standard_Integer, Standard_Integer) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = IntegerHashCode<int> ((Standard_Integer) theValue, IntegerLast (), (Standard_Integer) theUpperBound)>>;
+
+
+;; Function Standard_Boolean IsEqual(Standard_Integer, Standard_Integer) (null)
+;; enabled by -tree-original
+
+
+return <retval> = theOne == theTwo;
+
+
+;; Function Standard_Integer HashCode(unsigned int, Standard_Integer) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = HashCode ((Standard_Integer) theValue, (Standard_Integer) theUpperBound)>>;
+
+
+;; Function Standard_Integer HashCode(long long int, Standard_Integer) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = IntegerHashCode<long long int> ((long long int) theValue, 9223372036854775807, (Standard_Integer) theUpperBound)>>;
+
+
+;; Function Standard_Boolean IsEqual(Standard_Utf32Char, Standard_Utf32Char) (null)
+;; enabled by -tree-original
+
+
+return <retval> = theOne == theTwo;
+
+
+;; Function Standard_Integer HashCode(const void*, Standard_Integer) (null)
+;; enabled by -tree-original
+
+
+{
+  typedef union ._anon_5 ._anon_5;
+  union ._anon_5 U;
+
+    union ._anon_5 U;
+  <<cleanup_point <<< Unknown tree: expr_stmt
+  (void) (U.I[0] = 0) >>>>>;
+  <<cleanup_point <<< Unknown tree: expr_stmt
+  (void) (U.I[1] = 0) >>>>>;
+  <<cleanup_point <<< Unknown tree: expr_stmt
+  (void) (U.L = (const void *) thePointer) >>>>>;
+  <<cleanup_point return <retval> = HashCode (U.I[0] ^ U.I[1], (Standard_Integer) theUpperBound)>>;
+}
+
+
+;; Function Standard_Boolean IsEqual(Standard_Address, Standard_Address) (null)
+;; enabled by -tree-original
+
+
+return <retval> = (void *) One == (void *) Two;
+
+
+;; Function Standard_Boolean IsEqual(Standard_Size, Standard_Size) (null)
+;; enabled by -tree-original
+
+
+return <retval> = One == Two;
+
+
+;; Function static void* Standard::operator new(size_t) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = (void *) Standard::Allocate (theSize)>>;
+
+
+;; Function static void Standard::operator delete(void*) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point <<< Unknown tree: expr_stmt
+  Standard::Free (theAddress) >>>>>;
+
+
+;; Function static void* Standard::operator new [](size_t) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = (void *) Standard::Allocate (theSize)>>;
+
+
+;; Function static void Standard::operator delete [](void*) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point <<< Unknown tree: expr_stmt
+  Standard::Free (theAddress) >>>>>;
+
+
+;; Function static void* Standard::operator new(size_t, void*) (null)
+;; enabled by -tree-original
+
+
+return <retval> = theAddress;
+
+
+;; Function static void Standard::operator delete(void*, void*) (null)
+;; enabled by -tree-original
+
+
+
+
+
+;; Function __uint16_t __bswap_16(__uint16_t) (null)
+;; enabled by -tree-original
+
+
+return <retval> = __builtin_bswap16 ((int) __bsx);
+
+
+;; Function __uint32_t __bswap_32(__uint32_t) (null)
+;; enabled by -tree-original
+
+
+return <retval> = __builtin_bswap32 (__bsx);
+
+
+;; Function __uint64_t __bswap_64(__uint64_t) (null)
+;; enabled by -tree-original
+
+
+return <retval> = __builtin_bswap64 (__bsx);
+
+
+;; Function __uint16_t __uint16_identity(__uint16_t) (null)
+;; enabled by -tree-original
+
+
+return <retval> = __x;
+
+
+;; Function __uint32_t __uint32_identity(__uint32_t) (null)
+;; enabled by -tree-original
+
+
+return <retval> = __x;
+
+
+;; Function __uint64_t __uint64_identity(__uint64_t) (null)
+;; enabled by -tree-original
+
+
+return <retval> = __x;
+
+
+;; Function long int std::abs(long int) (null)
+;; enabled by -tree-original
+
+
+return <retval> = ABS_EXPR <__i>;
+
+
+;; Function long long int std::abs(long long int) (null)
+;; enabled by -tree-original
+
+
+return <retval> = ABS_EXPR <__x>;
+
+
+;; Function constexpr double std::abs(double) (null)
+;; enabled by -tree-original
+
+
+return <retval> = ABS_EXPR <__x>;
+
+
+;; Function constexpr float std::abs(float) (null)
+;; enabled by -tree-original
+
+
+return <retval> = ABS_EXPR <__x>;
+
+
+;; Function constexpr long double std::abs(long double) (null)
+;; enabled by -tree-original
+
+
+return <retval> = ABS_EXPR <__x>;
+
+
+;; Function constexpr __int128 std::abs(__int128) (null)
+;; enabled by -tree-original
+
+
+return <retval> = ABS_EXPR <__x>;
+
+
+;; Function constexpr __float128 std::abs(__float128) (null)
+;; enabled by -tree-original
+
+
+return <retval> = __x < 0.0 ? -NON_LVALUE_EXPR <__x> : __x;
+
+
+;; Function ldiv_t std::div(long int, long int) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = TARGET_EXPR <D.7125, ldiv (__i, __j)>>>;
+
+
+;; Function lldiv_t __gnu_cxx::div(long long int, long long int) (null)
+;; enabled by -tree-original
+
+
+{
+  struct lldiv_t __q;
+
+    struct lldiv_t __q;
+  <<cleanup_point <<< Unknown tree: expr_stmt
+  (void) (__q.quot = __n / __d) >>>>>;
+  <<cleanup_point <<< Unknown tree: expr_stmt
+  (void) (__q.rem = __n % __d) >>>>>;
+  <<cleanup_point return <retval> = TARGET_EXPR <D.7197, *(struct lldiv_t &) &__q>>>;
+}
+
+
+;; Function bool __gnu_cxx::__is_null_pointer(std::nullptr_t) (null)
+;; enabled by -tree-original
+
+
+return <retval> = 1;
+
+
+;; Function int iscanonical(float) (null)
+;; enabled by -tree-original
+
+
+return <retval> = <<< Unknown tree: void_cst >>>, 1;
+
+
+;; Function int iscanonical(double) (null)
+;; enabled by -tree-original
+
+
+return <retval> = <<< Unknown tree: void_cst >>>, 1;
+
+
+;; Function int iscanonical(long double) (null)
+;; enabled by -tree-original
+
+
+return <retval> = __iscanonicall (__val);
+
+
+;; Function int iscanonical(_Float128) (null)
+;; enabled by -tree-original
+
+
+return <retval> = <<< Unknown tree: void_cst >>>, 1;
+
+
+;; Function int issignaling(float) (null)
+;; enabled by -tree-original
+
+
+return <retval> = __issignalingf (__val);
+
+
+;; Function int issignaling(double) (null)
+;; enabled by -tree-original
+
+
+return <retval> = __issignaling (__val);
+
+
+;; Function int issignaling(long double) (null)
+;; enabled by -tree-original
+
+
+return <retval> = __issignalingl (__val);
+
+
+;; Function int issignaling(_Float128) (null)
+;; enabled by -tree-original
+
+
+return <retval> = __issignalingf128 (__val);
+
+
+;; Function static int __iseqsig_type<float>::__call(float, float) (null)
+;; enabled by -tree-original
+
+
+<<< Unknown tree: eh_spec_block
+  <<cleanup_point return <retval> = __iseqsigf (__x, __y)>>
+   >>>;
+
+
+;; Function static int __iseqsig_type<double>::__call(double, double) (null)
+;; enabled by -tree-original
+
+
+<<< Unknown tree: eh_spec_block
+  <<cleanup_point return <retval> = __iseqsig (__x, __y)>>
+   >>>;
+
+
+;; Function static int __iseqsig_type<long double>::__call(long double, long double) (null)
+;; enabled by -tree-original
+
+
+<<< Unknown tree: eh_spec_block
+  <<cleanup_point return <retval> = __iseqsigl (__x, __y)>>
+   >>>;
+
+
+;; Function static int __iseqsig_type<__float128>::__call(_Float128, _Float128) (null)
+;; enabled by -tree-original
+
+
+<<< Unknown tree: eh_spec_block
+  <<cleanup_point return <retval> = __iseqsigf128 (__x, __y)>>
+   >>>;
+
+
+;; Function constexpr float std::acos(float) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = __builtin_acosf (__x)>>;
+
+
+;; Function constexpr long double std::acos(long double) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = __builtin_acosl (__x)>>;
+
+
+;; Function constexpr float std::asin(float) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = __builtin_asinf (__x)>>;
+
+
+;; Function constexpr long double std::asin(long double) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = __builtin_asinl (__x)>>;
+
+
+;; Function constexpr float std::atan(float) (null)
+;; enabled by -tree-original
+
+
+return <retval> = __builtin_atanf (__x);
+
+
+;; Function constexpr long double std::atan(long double) (null)
+;; enabled by -tree-original
+
+
+return <retval> = __builtin_atanl (__x);
+
+
+;; Function constexpr float std::atan2(float, float) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = __builtin_atan2f (__y, __x)>>;
+
+
+;; Function constexpr long double std::atan2(long double, long double) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = __builtin_atan2l (__y, __x)>>;
+
+
+;; Function constexpr float std::ceil(float) (null)
+;; enabled by -tree-original
+
+
+return <retval> = __builtin_ceilf (__x);
+
+
+;; Function constexpr long double std::ceil(long double) (null)
+;; enabled by -tree-original
+
+
+return <retval> = __builtin_ceill (__x);
+
+
+;; Function constexpr float std::cos(float) (null)
+;; enabled by -tree-original
+
+
+return <retval> = __builtin_cosf (__x);
+
+
+;; Function constexpr long double std::cos(long double) (null)
+;; enabled by -tree-original
+
+
+return <retval> = __builtin_cosl (__x);
+
+
+;; Function constexpr float std::cosh(float) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = __builtin_coshf (__x)>>;
+
+
+;; Function constexpr long double std::cosh(long double) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = __builtin_coshl (__x)>>;
+
+
+;; Function constexpr float std::exp(float) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = __builtin_expf (__x)>>;
+
+
+;; Function constexpr long double std::exp(long double) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = __builtin_expl (__x)>>;
+
+
+;; Function constexpr float std::fabs(float) (null)
+;; enabled by -tree-original
+
+
+return <retval> = ABS_EXPR <__x>;
+
+
+;; Function constexpr long double std::fabs(long double) (null)
+;; enabled by -tree-original
+
+
+return <retval> = ABS_EXPR <__x>;
+
+
+;; Function constexpr float std::floor(float) (null)
+;; enabled by -tree-original
+
+
+return <retval> = __builtin_floorf (__x);
+
+
+;; Function constexpr long double std::floor(long double) (null)
+;; enabled by -tree-original
+
+
+return <retval> = __builtin_floorl (__x);
+
+
+;; Function constexpr float std::fmod(float, float) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = __builtin_fmodf (__x, __y)>>;
+
+
+;; Function constexpr long double std::fmod(long double, long double) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = __builtin_fmodl (__x, __y)>>;
+
+
+;; Function float std::frexp(float, int*) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = __builtin_frexpf (__x, __exp)>>;
+
+
+;; Function long double std::frexp(long double, int*) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = __builtin_frexpl (__x, __exp)>>;
+
+
+;; Function constexpr float std::ldexp(float, int) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = __builtin_ldexpf (__x, __exp)>>;
+
+
+;; Function constexpr long double std::ldexp(long double, int) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = __builtin_ldexpl (__x, __exp)>>;
+
+
+;; Function constexpr float std::log(float) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = __builtin_logf (__x)>>;
+
+
+;; Function constexpr long double std::log(long double) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = __builtin_logl (__x)>>;
+
+
+;; Function constexpr float std::log10(float) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = __builtin_log10f (__x)>>;
+
+
+;; Function constexpr long double std::log10(long double) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = __builtin_log10l (__x)>>;
+
+
+;; Function float std::modf(float, float*) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = __builtin_modff (__x, __iptr)>>;
+
+
+;; Function long double std::modf(long double, long double*) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = __builtin_modfl (__x, __iptr)>>;
+
+
+;; Function constexpr float std::pow(float, float) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = __builtin_powf (__x, __y)>>;
+
+
+;; Function constexpr long double std::pow(long double, long double) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = __builtin_powl (__x, __y)>>;
+
+
+;; Function constexpr float std::sin(float) (null)
+;; enabled by -tree-original
+
+
+return <retval> = __builtin_sinf (__x);
+
+
+;; Function constexpr long double std::sin(long double) (null)
+;; enabled by -tree-original
+
+
+return <retval> = __builtin_sinl (__x);
+
+
+;; Function constexpr float std::sinh(float) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = __builtin_sinhf (__x)>>;
+
+
+;; Function constexpr long double std::sinh(long double) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = __builtin_sinhl (__x)>>;
+
+
+;; Function constexpr float std::sqrt(float) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = __builtin_sqrtf (__x)>>;
+
+
+;; Function constexpr long double std::sqrt(long double) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = __builtin_sqrtl (__x)>>;
+
+
+;; Function constexpr float std::tan(float) (null)
+;; enabled by -tree-original
+
+
+return <retval> = __builtin_tanf (__x);
+
+
+;; Function constexpr long double std::tan(long double) (null)
+;; enabled by -tree-original
+
+
+return <retval> = __builtin_tanl (__x);
+
+
+;; Function constexpr float std::tanh(float) (null)
+;; enabled by -tree-original
+
+
+return <retval> = __builtin_tanhf (__x);
+
+
+;; Function constexpr long double std::tanh(long double) (null)
+;; enabled by -tree-original
+
+
+return <retval> = __builtin_tanhl (__x);
+
+
+;; Function constexpr int std::fpclassify(float) (null)
+;; enabled by -tree-original
+
+
+return <retval> = SAVE_EXPR <ABS_EXPR <__x>> ord SAVE_EXPR <ABS_EXPR <__x>> ? SAVE_EXPR <ABS_EXPR <__x>> u<= 3.4028234663852885981170418348451692544e+38 ? SAVE_EXPR <ABS_EXPR <__x>> >= 1.17549435082228750796873653722224567781866555677208752151e-38 ? 4 : SAVE_EXPR <ABS_EXPR <__x>> == 0.0 ? 2 : 3 : 1 : 0;
+
+
+;; Function constexpr int std::fpclassify(double) (null)
+;; enabled by -tree-original
+
+
+return <retval> = SAVE_EXPR <ABS_EXPR <__x>> ord SAVE_EXPR <ABS_EXPR <__x>> ? SAVE_EXPR <ABS_EXPR <__x>> u<= 1.79769313486231570814527423731704356798070567525844996599e+308 ? SAVE_EXPR <ABS_EXPR <__x>> >= 2.22507385850720138309023271733240406421921598046233183055e-308 ? 4 : SAVE_EXPR <ABS_EXPR <__x>> == 0.0 ? 2 : 3 : 1 : 0;
+
+
+;; Function constexpr int std::fpclassify(long double) (null)
+;; enabled by -tree-original
+
+
+return <retval> = SAVE_EXPR <ABS_EXPR <__x>> ord SAVE_EXPR <ABS_EXPR <__x>> ? SAVE_EXPR <ABS_EXPR <__x>> u<= 1.18973149535723176502126385303097020516906332229462420044e+4932 ? SAVE_EXPR <ABS_EXPR <__x>> >= 3.36210314311209350626267781732175260259807934484647124011e-4932 ? 4 : SAVE_EXPR <ABS_EXPR <__x>> == 0.0 ? 2 : 3 : 1 : 0;
+
+
+;; Function constexpr bool std::isfinite(float) (null)
+;; enabled by -tree-original
+
+
+return <retval> = !(ABS_EXPR <__x> u> 3.4028234663852885981170418348451692544e+38) != 0;
+
+
+;; Function constexpr bool std::isfinite(double) (null)
+;; enabled by -tree-original
+
+
+return <retval> = !(ABS_EXPR <__x> u> 1.79769313486231570814527423731704356798070567525844996599e+308) != 0;
+
+
+;; Function constexpr bool std::isfinite(long double) (null)
+;; enabled by -tree-original
+
+
+return <retval> = !(ABS_EXPR <__x> u> 1.18973149535723176502126385303097020516906332229462420044e+4932) != 0;
+
+
+;; Function constexpr bool std::isinf(float) (null)
+;; enabled by -tree-original
+
+
+return <retval> = !(ABS_EXPR <__x> u<= 3.4028234663852885981170418348451692544e+38) != 0;
+
+
+;; Function constexpr bool std::isinf(double) (null)
+;; enabled by -tree-original
+
+
+return <retval> = !(ABS_EXPR <__x> u<= 1.79769313486231570814527423731704356798070567525844996599e+308) != 0;
+
+
+;; Function constexpr bool std::isinf(long double) (null)
+;; enabled by -tree-original
+
+
+return <retval> = !(ABS_EXPR <__x> u<= 1.18973149535723176502126385303097020516906332229462420044e+4932) != 0;
+
+
+;; Function constexpr bool std::isnan(float) (null)
+;; enabled by -tree-original
+
+
+return <retval> = __x unord __x != 0;
+
+
+;; Function constexpr bool std::isnan(double) (null)
+;; enabled by -tree-original
+
+
+return <retval> = __x unord __x != 0;
+
+
+;; Function constexpr bool std::isnan(long double) (null)
+;; enabled by -tree-original
+
+
+return <retval> = __x unord __x != 0;
+
+
+;; Function constexpr bool std::isnormal(float) (null)
+;; enabled by -tree-original
+
+
+return <retval> = (int) ((bool) !(ABS_EXPR <__x> u> 3.4028234663852885981170418348451692544e+38) && (bool) !(ABS_EXPR <__x> u< 1.17549435082228750796873653722224567781866555677208752151e-38)) != 0;
+
+
+;; Function constexpr bool std::isnormal(double) (null)
+;; enabled by -tree-original
+
+
+return <retval> = (int) ((bool) !(ABS_EXPR <__x> u> 1.79769313486231570814527423731704356798070567525844996599e+308) && (bool) !(ABS_EXPR <__x> u< 2.22507385850720138309023271733240406421921598046233183055e-308)) != 0;
+
+
+;; Function constexpr bool std::isnormal(long double) (null)
+;; enabled by -tree-original
+
+
+return <retval> = (int) ((bool) !(ABS_EXPR <__x> u> 1.18973149535723176502126385303097020516906332229462420044e+4932) && (bool) !(ABS_EXPR <__x> u< 3.36210314311209350626267781732175260259807934484647124011e-4932)) != 0;
+
+
+;; Function constexpr bool std::signbit(float) (null)
+;; enabled by -tree-original
+
+
+return <retval> = __builtin_signbit (__x) != 0;
+
+
+;; Function constexpr bool std::signbit(double) (null)
+;; enabled by -tree-original
+
+
+return <retval> = __builtin_signbit (__x) != 0;
+
+
+;; Function constexpr bool std::signbit(long double) (null)
+;; enabled by -tree-original
+
+
+return <retval> = __builtin_signbit (__x) != 0;
+
+
+;; Function constexpr bool std::isgreater(float, float) (null)
+;; enabled by -tree-original
+
+
+return <retval> = !(__x u<= __y) != 0;
+
+
+;; Function constexpr bool std::isgreater(double, double) (null)
+;; enabled by -tree-original
+
+
+return <retval> = !(__x u<= __y) != 0;
+
+
+;; Function constexpr bool std::isgreater(long double, long double) (null)
+;; enabled by -tree-original
+
+
+return <retval> = !(__x u<= __y) != 0;
+
+
+;; Function constexpr bool std::isgreaterequal(float, float) (null)
+;; enabled by -tree-original
+
+
+return <retval> = !(__x u< __y) != 0;
+
+
+;; Function constexpr bool std::isgreaterequal(double, double) (null)
+;; enabled by -tree-original
+
+
+return <retval> = !(__x u< __y) != 0;
+
+
+;; Function constexpr bool std::isgreaterequal(long double, long double) (null)
+;; enabled by -tree-original
+
+
+return <retval> = !(__x u< __y) != 0;
+
+
+;; Function constexpr bool std::isless(float, float) (null)
+;; enabled by -tree-original
+
+
+return <retval> = !(__x u>= __y) != 0;
+
+
+;; Function constexpr bool std::isless(double, double) (null)
+;; enabled by -tree-original
+
+
+return <retval> = !(__x u>= __y) != 0;
+
+
+;; Function constexpr bool std::isless(long double, long double) (null)
+;; enabled by -tree-original
+
+
+return <retval> = !(__x u>= __y) != 0;
+
+
+;; Function constexpr bool std::islessequal(float, float) (null)
+;; enabled by -tree-original
+
+
+return <retval> = !(__x u> __y) != 0;
+
+
+;; Function constexpr bool std::islessequal(double, double) (null)
+;; enabled by -tree-original
+
+
+return <retval> = !(__x u> __y) != 0;
+
+
+;; Function constexpr bool std::islessequal(long double, long double) (null)
+;; enabled by -tree-original
+
+
+return <retval> = !(__x u> __y) != 0;
+
+
+;; Function constexpr bool std::islessgreater(float, float) (null)
+;; enabled by -tree-original
+
+
+return <retval> = !(__x u== __y) != 0;
+
+
+;; Function constexpr bool std::islessgreater(double, double) (null)
+;; enabled by -tree-original
+
+
+return <retval> = !(__x u== __y) != 0;
+
+
+;; Function constexpr bool std::islessgreater(long double, long double) (null)
+;; enabled by -tree-original
+
+
+return <retval> = !(__x u== __y) != 0;
+
+
+;; Function constexpr bool std::isunordered(float, float) (null)
+;; enabled by -tree-original
+
+
+return <retval> = __x unord __y != 0;
+
+
+;; Function constexpr bool std::isunordered(double, double) (null)
+;; enabled by -tree-original
+
+
+return <retval> = __x unord __y != 0;
+
+
+;; Function constexpr bool std::isunordered(long double, long double) (null)
+;; enabled by -tree-original
+
+
+return <retval> = __x unord __y != 0;
+
+
+;; Function constexpr float std::acosh(float) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = __builtin_acoshf (__x)>>;
+
+
+;; Function constexpr long double std::acosh(long double) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = __builtin_acoshl (__x)>>;
+
+
+;; Function constexpr float std::asinh(float) (null)
+;; enabled by -tree-original
+
+
+return <retval> = __builtin_asinhf (__x);
+
+
+;; Function constexpr long double std::asinh(long double) (null)
+;; enabled by -tree-original
+
+
+return <retval> = __builtin_asinhl (__x);
+
+
+;; Function constexpr float std::atanh(float) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = __builtin_atanhf (__x)>>;
+
+
+;; Function constexpr long double std::atanh(long double) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = __builtin_atanhl (__x)>>;
+
+
+;; Function constexpr float std::cbrt(float) (null)
+;; enabled by -tree-original
+
+
+return <retval> = __builtin_cbrtf (__x);
+
+
+;; Function constexpr long double std::cbrt(long double) (null)
+;; enabled by -tree-original
+
+
+return <retval> = __builtin_cbrtl (__x);
+
+
+;; Function constexpr float std::copysign(float, float) (null)
+;; enabled by -tree-original
+
+
+return <retval> = __builtin_copysignf (__x, __y);
+
+
+;; Function constexpr long double std::copysign(long double, long double) (null)
+;; enabled by -tree-original
+
+
+return <retval> = __builtin_copysignl (__x, __y);
+
+
+;; Function constexpr float std::erf(float) (null)
+;; enabled by -tree-original
+
+
+return <retval> = __builtin_erff (__x);
+
+
+;; Function constexpr long double std::erf(long double) (null)
+;; enabled by -tree-original
+
+
+return <retval> = __builtin_erfl (__x);
+
+
+;; Function constexpr float std::erfc(float) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = __builtin_erfcf (__x)>>;
+
+
+;; Function constexpr long double std::erfc(long double) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = __builtin_erfcl (__x)>>;
+
+
+;; Function constexpr float std::exp2(float) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = __builtin_exp2f (__x)>>;
+
+
+;; Function constexpr long double std::exp2(long double) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = __builtin_exp2l (__x)>>;
+
+
+;; Function constexpr float std::expm1(float) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = __builtin_expm1f (__x)>>;
+
+
+;; Function constexpr long double std::expm1(long double) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = __builtin_expm1l (__x)>>;
+
+
+;; Function constexpr float std::fdim(float, float) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = __builtin_fdimf (__x, __y)>>;
+
+
+;; Function constexpr long double std::fdim(long double, long double) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = __builtin_fdiml (__x, __y)>>;
+
+
+;; Function constexpr float std::fma(float, float, float) (null)
+;; enabled by -tree-original
+
+
+return <retval> = __builtin_fmaf (__x, __y, __z);
+
+
+;; Function constexpr long double std::fma(long double, long double, long double) (null)
+;; enabled by -tree-original
+
+
+return <retval> = __builtin_fmal (__x, __y, __z);
+
+
+;; Function constexpr float std::fmax(float, float) (null)
+;; enabled by -tree-original
+
+
+return <retval> = __builtin_fmaxf (__x, __y);
+
+
+;; Function constexpr long double std::fmax(long double, long double) (null)
+;; enabled by -tree-original
+
+
+return <retval> = __builtin_fmaxl (__x, __y);
+
+
+;; Function constexpr float std::fmin(float, float) (null)
+;; enabled by -tree-original
+
+
+return <retval> = __builtin_fminf (__x, __y);
+
+
+;; Function constexpr long double std::fmin(long double, long double) (null)
+;; enabled by -tree-original
+
+
+return <retval> = __builtin_fminl (__x, __y);
+
+
+;; Function constexpr float std::hypot(float, float) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = __builtin_hypotf (__x, __y)>>;
+
+
+;; Function constexpr long double std::hypot(long double, long double) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = __builtin_hypotl (__x, __y)>>;
+
+
+;; Function constexpr int std::ilogb(float) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = __builtin_ilogbf (__x)>>;
+
+
+;; Function constexpr int std::ilogb(long double) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = __builtin_ilogbl (__x)>>;
+
+
+;; Function constexpr float std::lgamma(float) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = __builtin_lgammaf (__x)>>;
+
+
+;; Function constexpr long double std::lgamma(long double) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = __builtin_lgammal (__x)>>;
+
+
+;; Function constexpr long long int std::llrint(float) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = __builtin_llrintf (__x)>>;
+
+
+;; Function constexpr long long int std::llrint(long double) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = __builtin_llrintl (__x)>>;
+
+
+;; Function constexpr long long int std::llround(float) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = __builtin_llroundf (__x)>>;
+
+
+;; Function constexpr long long int std::llround(long double) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = __builtin_llroundl (__x)>>;
+
+
+;; Function constexpr float std::log1p(float) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = __builtin_log1pf (__x)>>;
+
+
+;; Function constexpr long double std::log1p(long double) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = __builtin_log1pl (__x)>>;
+
+
+;; Function constexpr float std::log2(float) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = __builtin_log2f (__x)>>;
+
+
+;; Function constexpr long double std::log2(long double) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = __builtin_log2l (__x)>>;
+
+
+;; Function constexpr float std::logb(float) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = __builtin_logbf (__x)>>;
+
+
+;; Function constexpr long double std::logb(long double) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = __builtin_logbl (__x)>>;
+
+
+;; Function constexpr long int std::lrint(float) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = __builtin_lrintf (__x)>>;
+
+
+;; Function constexpr long int std::lrint(long double) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = __builtin_lrintl (__x)>>;
+
+
+;; Function constexpr long int std::lround(float) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = __builtin_lroundf (__x)>>;
+
+
+;; Function constexpr long int std::lround(long double) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = __builtin_lroundl (__x)>>;
+
+
+;; Function constexpr float std::nearbyint(float) (null)
+;; enabled by -tree-original
+
+
+return <retval> = __builtin_nearbyintf (__x);
+
+
+;; Function constexpr long double std::nearbyint(long double) (null)
+;; enabled by -tree-original
+
+
+return <retval> = __builtin_nearbyintl (__x);
+
+
+;; Function constexpr float std::nextafter(float, float) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = __builtin_nextafterf (__x, __y)>>;
+
+
+;; Function constexpr long double std::nextafter(long double, long double) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = __builtin_nextafterl (__x, __y)>>;
+
+
+;; Function constexpr float std::nexttoward(float, long double) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = __builtin_nexttowardf (__x, __y)>>;
+
+
+;; Function constexpr long double std::nexttoward(long double, long double) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = __builtin_nexttowardl (__x, __y)>>;
+
+
+;; Function constexpr float std::remainder(float, float) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = __builtin_remainderf (__x, __y)>>;
+
+
+;; Function constexpr long double std::remainder(long double, long double) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = __builtin_remainderl (__x, __y)>>;
+
+
+;; Function float std::remquo(float, float, int*) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = __builtin_remquof (__x, __y, __pquo)>>;
+
+
+;; Function long double std::remquo(long double, long double, int*) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = __builtin_remquol (__x, __y, __pquo)>>;
+
+
+;; Function constexpr float std::rint(float) (null)
+;; enabled by -tree-original
+
+
+return <retval> = __builtin_rintf (__x);
+
+
+;; Function constexpr long double std::rint(long double) (null)
+;; enabled by -tree-original
+
+
+return <retval> = __builtin_rintl (__x);
+
+
+;; Function constexpr float std::round(float) (null)
+;; enabled by -tree-original
+
+
+return <retval> = __builtin_roundf (__x);
+
+
+;; Function constexpr long double std::round(long double) (null)
+;; enabled by -tree-original
+
+
+return <retval> = __builtin_roundl (__x);
+
+
+;; Function constexpr float std::scalbln(float, long int) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = __builtin_scalblnf (__x, __ex)>>;
+
+
+;; Function constexpr long double std::scalbln(long double, long int) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = __builtin_scalblnl (__x, __ex)>>;
+
+
+;; Function constexpr float std::scalbn(float, int) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = __builtin_scalbnf (__x, __ex)>>;
+
+
+;; Function constexpr long double std::scalbn(long double, int) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = __builtin_scalbnl (__x, __ex)>>;
+
+
+;; Function constexpr float std::tgamma(float) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = __builtin_tgammaf (__x)>>;
+
+
+;; Function constexpr long double std::tgamma(long double) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = __builtin_tgammal (__x)>>;
+
+
+;; Function constexpr float std::trunc(float) (null)
+;; enabled by -tree-original
+
+
+return <retval> = __builtin_truncf (__x);
+
+
+;; Function constexpr long double std::trunc(long double) (null)
+;; enabled by -tree-original
+
+
+return <retval> = __builtin_truncl (__x);
+
+
+;; Function Standard_Real RealSmall() (null)
+;; enabled by -tree-original
+
+
+return <retval> = 2.22507385850720138309023271733240406421921598046233183055e-308;
+
+
+;; Function Standard_Real Abs(Standard_Real) (null)
+;; enabled by -tree-original
+
+
+return <retval> = ABS_EXPR <(double) Value>;
+
+
+;; Function Standard_Boolean IsEqual(Standard_Real, Standard_Real) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = Abs ((Standard_Real) Value1 - (Standard_Real) Value2) < RealSmall ()>>;
+
+
+;; Function Standard_Integer RealDigits() (null)
+;; enabled by -tree-original
+
+
+return <retval> = 15;
+
+
+;; Function Standard_Real RealEpsilon() (null)
+;; enabled by -tree-original
+
+
+return <retval> = 2.220446049250313080847263336181640625e-16;
+
+
+;; Function Standard_Real RealFirst() (null)
+;; enabled by -tree-original
+
+
+return <retval> = -1.79769313486231570814527423731704356798070567525844996599e+308;
+
+
+;; Function Standard_Integer RealFirst10Exp() (null)
+;; enabled by -tree-original
+
+
+return <retval> = -307;
+
+
+;; Function Standard_Real RealLast() (null)
+;; enabled by -tree-original
+
+
+return <retval> = 1.79769313486231570814527423731704356798070567525844996599e+308;
+
+
+;; Function Standard_Integer RealLast10Exp() (null)
+;; enabled by -tree-original
+
+
+return <retval> = 308;
+
+
+;; Function Standard_Integer RealMantissa() (null)
+;; enabled by -tree-original
+
+
+return <retval> = 53;
+
+
+;; Function Standard_Integer RealRadix() (null)
+;; enabled by -tree-original
+
+
+return <retval> = 2;
+
+
+;; Function Standard_Integer RealSize() (null)
+;; enabled by -tree-original
+
+
+return <retval> = 64;
+
+
+;; Function Standard_Real IntToReal(Standard_Integer) (null)
+;; enabled by -tree-original
+
+
+return <retval> = (Standard_Real) Value;
+
+
+;; Function Standard_Real ATan(Standard_Real) (null)
+;; enabled by -tree-original
+
+
+return <retval> = atan ((Standard_Real) Value);
+
+
+;; Function Standard_Real Ceiling(Standard_Real) (null)
+;; enabled by -tree-original
+
+
+return <retval> = ceil ((Standard_Real) Value);
+
+
+;; Function Standard_Real Cos(Standard_Real) (null)
+;; enabled by -tree-original
+
+
+return <retval> = cos ((Standard_Real) Value);
+
+
+;; Function Standard_Real Epsilon(Standard_Real) (null)
+;; enabled by -tree-original
+
+
+{
+  Standard_Real aEpsilon;
+
+    Standard_Real aEpsilon;
+  if ((Standard_Real) Value >= 0.0)
+    {
+      <<cleanup_point <<< Unknown tree: expr_stmt
+  (void) (aEpsilon = NextAfter ((Standard_Real) Value, RealLast ()) - (Standard_Real) Value) >>>>>;
+    }
+  else
+    {
+      <<cleanup_point <<< Unknown tree: expr_stmt
+  (void) (aEpsilon = (Standard_Real) Value - NextAfter ((Standard_Real) Value, RealFirst ())) >>>>>;
+    }
+  return <retval> = aEpsilon;
+}
+
+
+;; Function Standard_Real Exp(Standard_Real) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = exp ((Standard_Real) Value)>>;
+
+
+;; Function Standard_Real Floor(Standard_Real) (null)
+;; enabled by -tree-original
+
+
+return <retval> = floor ((Standard_Real) Value);
+
+
+;; Function Standard_Real IntegerPart(Standard_Real) (null)
+;; enabled by -tree-original
+
+
+return <retval> = (Standard_Real) Value > 0.0 ? floor ((Standard_Real) Value) : ceil ((Standard_Real) Value);
+
+
+;; Function Standard_Real Log10(Standard_Real) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = log10 ((Standard_Real) Value)>>;
+
+
+;; Function Standard_Real Max(Standard_Real, Standard_Real) (null)
+;; enabled by -tree-original
+
+
+return <retval> = (Standard_Real) ((Standard_Real) Val1 >= (Standard_Real) Val2 ? Val1 : Val2);
+
+
+;; Function Standard_Real Min(Standard_Real, Standard_Real) (null)
+;; enabled by -tree-original
+
+
+return <retval> = (Standard_Real) ((Standard_Real) Val1 <= (Standard_Real) Val2 ? Val1 : Val2);
+
+
+;; Function Standard_Real Pow(Standard_Real, Standard_Real) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = pow ((Standard_Real) Value, (Standard_Real) P)>>;
+
+
+;; Function Standard_Real RealPart(Standard_Real) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = ABS_EXPR <(double) (IntegerPart ((Standard_Real) Value) - (Standard_Real) Value)>>>;
+
+
+;; Function Standard_Integer RealToInt(Standard_Real) (null)
+;; enabled by -tree-original
+
+
+return <retval> = (Standard_Real) Value < -2.147483648e+9 ? -2147483648 : (Standard_Real) Value > 2.147483647e+9 ? 2147483647 : (Standard_Integer) Value;
+
+
+;; Function Standard_ShortReal RealToShortReal(Standard_Real) (null)
+;; enabled by -tree-original
+
+
+return <retval> = (Standard_Real) theVal < -3.4028234663852885981170418348451692544e+38 ? -3.4028234663852885981170418348451692544e+38 : (Standard_Real) theVal > 3.4028234663852885981170418348451692544e+38 ? 3.4028234663852885981170418348451692544e+38 : (Standard_ShortReal) theVal;
+
+
+;; Function Standard_Real Round(Standard_Real) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = IntegerPart (((Standard_Real) Value > 0.0 ? 5.0e-1 : -5.0e-1) + (Standard_Real) Value)>>;
+
+
+;; Function Standard_Real Sin(Standard_Real) (null)
+;; enabled by -tree-original
+
+
+return <retval> = sin ((Standard_Real) Value);
+
+
+;; Function Standard_Real ASinh(Standard_Real) (null)
+;; enabled by -tree-original
+
+
+return <retval> = asinh ((Standard_Real) Value);
+
+
+;; Function Standard_Real Square(Standard_Real) (null)
+;; enabled by -tree-original
+
+
+return <retval> = (Standard_Real) Value * (Standard_Real) Value;
+
+
+;; Function Standard_Real Tan(Standard_Real) (null)
+;; enabled by -tree-original
+
+
+return <retval> = tan ((Standard_Real) Value);
+
+
+;; Function Standard_Real Tanh(Standard_Real) (null)
+;; enabled by -tree-original
+
+
+return <retval> = tanh ((Standard_Real) Value);
+
+
+;; Function Standard_Boolean IsEqual(Standard_Character, Standard_Character) (null)
+;; enabled by -tree-original
+
+
+return <retval> = One == Two;
+
+
+;; Function Standard_Boolean IsAlphabetic(Standard_Character) (null)
+;; enabled by -tree-original
+
+
+return <retval> = isalpha ((int) (unsigned char) me) != 0;
+
+
+;; Function Standard_Boolean IsDigit(Standard_Character) (null)
+;; enabled by -tree-original
+
+
+return <retval> = (unsigned int) (unsigned char) me + 4294967248 <= 9 != 0;
+
+
+;; Function Standard_Boolean IsXDigit(Standard_Character) (null)
+;; enabled by -tree-original
+
+
+return <retval> = isxdigit ((int) (unsigned char) me) != 0;
+
+
+;; Function Standard_Boolean IsAlphanumeric(Standard_Character) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = IsAlphabetic ((int) me) || IsDigit ((int) me)>>;
+
+
+;; Function Standard_Boolean IsControl(Standard_Character) (null)
+;; enabled by -tree-original
+
+
+return <retval> = iscntrl ((int) (unsigned char) me) != 0;
+
+
+;; Function Standard_Boolean IsGraphic(Standard_Character) (null)
+;; enabled by -tree-original
+
+
+return <retval> = isgraph ((int) (unsigned char) me) != 0;
+
+
+;; Function Standard_Boolean IsLowerCase(Standard_Character) (null)
+;; enabled by -tree-original
+
+
+return <retval> = islower ((int) (unsigned char) me) != 0;
+
+
+;; Function Standard_Boolean IsPrintable(Standard_Character) (null)
+;; enabled by -tree-original
+
+
+return <retval> = isprint ((int) (unsigned char) me) != 0;
+
+
+;; Function Standard_Boolean IsPunctuation(Standard_Character) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = IsGraphic ((int) me) && !IsAlphanumeric ((int) me)>>;
+
+
+;; Function Standard_Boolean IsSpace(Standard_Character) (null)
+;; enabled by -tree-original
+
+
+return <retval> = isspace ((int) (unsigned char) me) != 0;
+
+
+;; Function Standard_Boolean IsUpperCase(Standard_Character) (null)
+;; enabled by -tree-original
+
+
+return <retval> = isupper ((int) (unsigned char) me) != 0;
+
+
+;; Function Standard_Character LowerCase(Standard_Character) (null)
+;; enabled by -tree-original
+
+
+return <retval> = (Standard_Character) tolower ((int) (unsigned char) me);
+
+
+;; Function Standard_Character UpperCase(Standard_Character) (null)
+;; enabled by -tree-original
+
+
+return <retval> = (Standard_Character) toupper ((int) (unsigned char) me);
+
+
+;; Function std::exception::exception() (null)
+;; enabled by -tree-original
+
+
+<<< Unknown tree: must_not_throw_expr
+  <<cleanup_point <<< Unknown tree: expr_stmt
+  *(struct exception *) this = {CLOBBER} >>>>>;
+  {
+    <<cleanup_point <<< Unknown tree: expr_stmt
+  (void) (((struct exception *) this)->_vptr.exception = &_ZTVSt9exception + 16) >>>>>;
+  }
+   >>>;
+
+
+;; Function std::bad_exception::bad_exception() (null)
+;; enabled by -tree-original
+
+
+<<< Unknown tree: must_not_throw_expr
+  <<cleanup_point <<< Unknown tree: expr_stmt
+  *(struct bad_exception *) this = {CLOBBER} >>>>>;
+  {
+    <<cleanup_point <<< Unknown tree: expr_stmt
+  std::exception::exception (&((struct bad_exception *) this)->D.13849) >>>>>;
+    try
+      {
+        <<cleanup_point <<< Unknown tree: expr_stmt
+  (void) (((struct bad_exception *) this)->D.13849._vptr.exception = &_ZTVSt13bad_exception + 16) >>>>>;
+      }
+    catch
+      {
+        std::exception::~exception (&((struct bad_exception *) this)->D.13849);
+      }
+  }
+   >>>;
+
+
+;; Function const char* std::type_info::name() const (null)
+;; enabled by -tree-original
+
+
+<<< Unknown tree: must_not_throw_expr
+  return <retval> = *(const char *) ((const struct type_info *) this)->__name == 42 ? (const char *) ((const struct type_info *) this)->__name + 1 : (const char *) ((const struct type_info *) this)->__name
+   >>>;
+
+
+;; Function bool std::type_info::before(const std::type_info&) const (null)
+;; enabled by -tree-original
+
+
+<<< Unknown tree: must_not_throw_expr
+  return <retval> = *(const char *) ((const struct type_info *) this)->__name == 42 && *(const char *) __arg->__name == 42 ? (const char *) ((const struct type_info *) this)->__name < (const char *) __arg->__name : __builtin_strcmp ((const char *) ((const struct type_info *) this)->__name, (const char *) __arg->__name) < 0
+   >>>;
+
+
+;; Function bool std::type_info::operator==(const std::type_info&) const (null)
+;; enabled by -tree-original
+
+
+<<< Unknown tree: must_not_throw_expr
+  return <retval> = (const char *) ((const struct type_info *) this)->__name == (const char *) __arg->__name || *(const char *) ((const struct type_info *) this)->__name != 42 && __builtin_strcmp ((const char *) ((const struct type_info *) this)->__name, (const char *) __arg->__name) == 0
+   >>>;
+
+
+;; Function bool std::type_info::operator!=(const std::type_info&) const (null)
+;; enabled by -tree-original
+
+
+<<< Unknown tree: must_not_throw_expr
+  <<cleanup_point return <retval> = !std::type_info::operator== ((const struct type_info *) this, __arg)>>
+   >>>;
+
+
+;; Function std::size_t std::type_info::hash_code() const (null)
+;; enabled by -tree-original
+
+
+<<< Unknown tree: must_not_throw_expr
+  <<cleanup_point return <retval> = std::_Hash_bytes ((const void *) std::type_info::name ((const struct type_info *) this), __builtin_strlen (std::type_info::name ((const struct type_info *) this)), 3339675911)>>
+   >>>;
+
+
+;; Function std::type_info::type_info(const char*) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point <<< Unknown tree: expr_stmt
+  *(struct type_info *) this = {CLOBBER} >>>>>;
+{
+  <<cleanup_point <<< Unknown tree: expr_stmt
+  (void) (((struct type_info *) this)->_vptr.type_info = &_ZTVSt9type_info + 16) >>>>>;
+  <<cleanup_point <<< Unknown tree: expr_stmt
+  (void) (((struct type_info *) this)->__name = __n) >>>>>;
+}
+
+
+;; Function std::bad_cast::bad_cast() (null)
+;; enabled by -tree-original
+
+
+<<< Unknown tree: must_not_throw_expr
+  <<cleanup_point <<< Unknown tree: expr_stmt
+  *(struct bad_cast *) this = {CLOBBER} >>>>>;
+  {
+    <<cleanup_point <<< Unknown tree: expr_stmt
+  std::exception::exception (&((struct bad_cast *) this)->D.13987) >>>>>;
+    try
+      {
+        <<cleanup_point <<< Unknown tree: expr_stmt
+  (void) (((struct bad_cast *) this)->D.13987._vptr.exception = &_ZTVSt8bad_cast + 16) >>>>>;
+      }
+    catch
+      {
+        std::exception::~exception (&((struct bad_cast *) this)->D.13987);
+      }
+  }
+   >>>;
+
+
+;; Function std::bad_typeid::bad_typeid() (null)
+;; enabled by -tree-original
+
+
+<<< Unknown tree: must_not_throw_expr
+  <<cleanup_point <<< Unknown tree: expr_stmt
+  *(struct bad_typeid *) this = {CLOBBER} >>>>>;
+  {
+    <<cleanup_point <<< Unknown tree: expr_stmt
+  std::exception::exception (&((struct bad_typeid *) this)->D.14016) >>>>>;
+    try
+      {
+        <<cleanup_point <<< Unknown tree: expr_stmt
+  (void) (((struct bad_typeid *) this)->D.14016._vptr.exception = &_ZTVSt10bad_typeid + 16) >>>>>;
+      }
+    catch
+      {
+        std::exception::~exception (&((struct bad_typeid *) this)->D.14016);
+      }
+  }
+   >>>;
+
+
+;; Function std::bad_alloc::bad_alloc() (null)
+;; enabled by -tree-original
+
+
+<<< Unknown tree: eh_spec_block
+  <<cleanup_point <<< Unknown tree: expr_stmt
+  *(struct bad_alloc *) this = {CLOBBER} >>>>>;
+  {
+    <<cleanup_point <<< Unknown tree: expr_stmt
+  std::exception::exception (&((struct bad_alloc *) this)->D.14063) >>>>>;
+    try
+      {
+        <<cleanup_point <<< Unknown tree: expr_stmt
+  (void) (((struct bad_alloc *) this)->D.14063._vptr.exception = &_ZTVSt9bad_alloc + 16) >>>>>;
+      }
+    catch
+      {
+        std::exception::~exception (&((struct bad_alloc *) this)->D.14063);
+      }
+  }
+   >>>;
+
+
+;; Function std::bad_array_new_length::bad_array_new_length() (null)
+;; enabled by -tree-original
+
+
+<<< Unknown tree: eh_spec_block
+  <<cleanup_point <<< Unknown tree: expr_stmt
+  *(struct bad_array_new_length *) this = {CLOBBER} >>>>>;
+  {
+    <<cleanup_point <<< Unknown tree: expr_stmt
+  std::bad_alloc::bad_alloc (&((struct bad_array_new_length *) this)->D.14092) >>>>>;
+    try
+      {
+        <<cleanup_point <<< Unknown tree: expr_stmt
+  (void) (((struct bad_array_new_length *) this)->D.14092.D.14063._vptr.exception = &_ZTVSt20bad_array_new_length + 16) >>>>>;
+      }
+    catch
+      {
+        std::bad_alloc::~bad_alloc (&((struct bad_array_new_length *) this)->D.14092);
+      }
+  }
+   >>>;
+
+
+;; Function void* operator new(std::size_t, void*) (null)
+;; enabled by -tree-original
+
+
+<<< Unknown tree: must_not_throw_expr
+  return <retval> = __p
+   >>>;
+
+
+;; Function void* operator new [](std::size_t, void*) (null)
+;; enabled by -tree-original
+
+
+<<< Unknown tree: must_not_throw_expr
+  return <retval> = __p
+   >>>;
+
+
+;; Function void operator delete(void*, void*) (null)
+;; enabled by -tree-original
+
+
+<<< Unknown tree: must_not_throw_expr
+  
+   >>>;
+
+
+;; Function void operator delete [](void*, void*) (null)
+;; enabled by -tree-original
+
+
+<<< Unknown tree: must_not_throw_expr
+  
+   >>>;
+
+
+;; Function std::__exception_ptr::exception_ptr::exception_ptr(std::nullptr_t) (null)
+;; enabled by -tree-original
+
+
+<<< Unknown tree: must_not_throw_expr
+  <<cleanup_point <<< Unknown tree: expr_stmt
+  *(struct exception_ptr *) this = {CLOBBER} >>>>>;
+  {
+    <<cleanup_point <<< Unknown tree: expr_stmt
+  (void) (((struct exception_ptr *) this)->_M_exception_object = 0B) >>>>>;
+  }
+   >>>;
+
+
+;; Function std::__exception_ptr::exception_ptr::exception_ptr(std::__exception_ptr::exception_ptr&&) (null)
+;; enabled by -tree-original
+
+
+<<< Unknown tree: must_not_throw_expr
+  <<cleanup_point <<< Unknown tree: expr_stmt
+  *(struct exception_ptr *) this = {CLOBBER} >>>>>;
+  {
+    <<cleanup_point <<< Unknown tree: expr_stmt
+  (void) (((struct exception_ptr *) this)->_M_exception_object = __o->_M_exception_object) >>>>>;
+    <<cleanup_point <<< Unknown tree: expr_stmt
+  (void) (__o->_M_exception_object = 0B) >>>>>;
+  }
+   >>>;
+
+
+;; Function std::__exception_ptr::exception_ptr& std::__exception_ptr::exception_ptr::operator=(std::__exception_ptr::exception_ptr&&) (null)
+;; enabled by -tree-original
+
+
+<<< Unknown tree: must_not_throw_expr
+  <<cleanup_point <<< Unknown tree: expr_stmt
+  std::__exception_ptr::exception_ptr::swap (&TARGET_EXPR <D.14256, <<< Unknown tree: aggr_init_expr
+  5
+  __ct_comp 
+  D.14256
+  (struct exception_ptr *) <<< Unknown tree: void_cst >>>
+  NON_LVALUE_EXPR <__o> >>>>, (struct exception_ptr &) this) >>>>>;
+  return <retval> = (struct exception_ptr &) this;
+   >>>;
+
+
+;; Function std::__exception_ptr::exception_ptr::operator bool() const (null)
+;; enabled by -tree-original
+
+
+return <retval> = (void *) ((const struct exception_ptr *) this)->_M_exception_object != 0B;
+
+
+;; Function void std::__exception_ptr::swap(std::__exception_ptr::exception_ptr&, std::__exception_ptr::exception_ptr&) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point <<< Unknown tree: expr_stmt
+  std::__exception_ptr::exception_ptr::swap ((struct exception_ptr *) __lhs, __rhs) >>>>>;
+
+
+;; Function std::nested_exception::nested_exception() (null)
+;; enabled by -tree-original
+
+
+<<< Unknown tree: must_not_throw_expr
+  <<cleanup_point <<< Unknown tree: expr_stmt
+  *(struct nested_exception *) this = {CLOBBER} >>>>>;
+  {
+    <<cleanup_point <<< Unknown tree: expr_stmt
+  (void) (((struct nested_exception *) this)->_vptr.nested_exception = &_ZTVSt16nested_exception + 16) >>>>>;
+    <<cleanup_point <<< Unknown tree: expr_stmt
+  (void) (((struct nested_exception *) this)->_M_ptr = TARGET_EXPR <D.14402, <<< Unknown tree: aggr_init_expr
+  3
+  current_exception
+  D.14402 >>>>) >>>>>;
+    try
+      {
+        
+      }
+    catch
+      {
+        std::__exception_ptr::exception_ptr::~exception_ptr (&((struct nested_exception *) this)->_M_ptr);
+      }
+  }
+   >>>;
+
+
+;; Function void std::nested_exception::rethrow_nested() const (null)
+;; enabled by -tree-original
+
+
+if (<<cleanup_point std::__exception_ptr::exception_ptr::operator bool (&((const struct nested_exception *) this)->_M_ptr)>>)
+  {
+    <<cleanup_point <<< Unknown tree: expr_stmt
+  std::rethrow_exception (&TARGET_EXPR <D.14407, <<< Unknown tree: aggr_init_expr
+  5
+  __ct_comp 
+  D.14407
+  (struct exception_ptr *) <<< Unknown tree: void_cst >>>
+  (const struct exception_ptr &) &((const struct nested_exception *) this)->_M_ptr >>>>) >>>>>;
+  }
+<<cleanup_point <<< Unknown tree: expr_stmt
+  std::terminate () >>>>>;
+
+
+;; Function std::__exception_ptr::exception_ptr std::nested_exception::nested_ptr() const (null)
+;; enabled by -tree-original
+
+
+<<< Unknown tree: must_not_throw_expr
+  <<cleanup_point return *<retval> = TARGET_EXPR <D.14409, <<< Unknown tree: aggr_init_expr
+  5
+  __ct_comp 
+  D.14409
+  (struct exception_ptr *) <<< Unknown tree: void_cst >>>
+  (const struct exception_ptr &) &((const struct nested_exception *) this)->_M_ptr >>>>>>
+   >>>;
+
+
+;; Function void std::__rethrow_if_nested_impl(const void*) (null)
+;; enabled by -tree-original
+
+
+
+
+
+;; Function constexpr __gnu_cxx::__ops::_Iter_less_iter __gnu_cxx::__ops::__iter_less_iter() (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = TARGET_EXPR <D.16422, {}>>>;
+
+
+;; Function __gnu_cxx::__ops::_Iter_less_val::_Iter_less_val(__gnu_cxx::__ops::_Iter_less_iter) (null)
+;; enabled by -tree-original
+
+
+{
+  
+}
+
+
+;; Function __gnu_cxx::__ops::_Iter_less_val __gnu_cxx::__ops::__iter_less_val() (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = TARGET_EXPR <D.16495, {}>>>;
+
+
+;; Function __gnu_cxx::__ops::_Iter_less_val __gnu_cxx::__ops::__iter_comp_val(__gnu_cxx::__ops::_Iter_less_iter) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = TARGET_EXPR <D.16500, {}>>>;
+
+
+;; Function __gnu_cxx::__ops::_Val_less_iter::_Val_less_iter(__gnu_cxx::__ops::_Iter_less_iter) (null)
+;; enabled by -tree-original
+
+
+{
+  
+}
+
+
+;; Function __gnu_cxx::__ops::_Val_less_iter __gnu_cxx::__ops::__val_less_iter() (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = TARGET_EXPR <D.16562, {}>>>;
+
+
+;; Function __gnu_cxx::__ops::_Val_less_iter __gnu_cxx::__ops::__val_comp_iter(__gnu_cxx::__ops::_Iter_less_iter) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = TARGET_EXPR <D.16567, {}>>>;
+
+
+;; Function __gnu_cxx::__ops::_Iter_equal_to_iter __gnu_cxx::__ops::__iter_equal_to_iter() (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = TARGET_EXPR <D.16605, {}>>>;
+
+
+;; Function __gnu_cxx::__ops::_Iter_equal_to_val __gnu_cxx::__ops::__iter_equal_to_val() (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = TARGET_EXPR <D.16652, {}>>>;
+
+
+;; Function __gnu_cxx::__ops::_Iter_equal_to_val __gnu_cxx::__ops::__iter_comp_val(__gnu_cxx::__ops::_Iter_equal_to_iter) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = TARGET_EXPR <D.16665, {}>>>;
+
+
+;; Function constexpr int std::__size_to_integer(int) (null)
+;; enabled by -tree-original
+
+
+return <retval> = __n;
+
+
+;; Function constexpr unsigned int std::__size_to_integer(unsigned int) (null)
+;; enabled by -tree-original
+
+
+return <retval> = __n;
+
+
+;; Function constexpr long int std::__size_to_integer(long int) (null)
+;; enabled by -tree-original
+
+
+return <retval> = __n;
+
+
+;; Function constexpr long unsigned int std::__size_to_integer(long unsigned int) (null)
+;; enabled by -tree-original
+
+
+return <retval> = __n;
+
+
+;; Function constexpr long long int std::__size_to_integer(long long int) (null)
+;; enabled by -tree-original
+
+
+return <retval> = __n;
+
+
+;; Function constexpr long long unsigned int std::__size_to_integer(long long unsigned int) (null)
+;; enabled by -tree-original
+
+
+return <retval> = __n;
+
+
+;; Function constexpr __int128 std::__size_to_integer(__int128) (null)
+;; enabled by -tree-original
+
+
+return <retval> = __n;
+
+
+;; Function constexpr __int128 unsigned std::__size_to_integer(__int128 unsigned) (null)
+;; enabled by -tree-original
+
+
+return <retval> = __n;
+
+
+;; Function constexpr long long int std::__size_to_integer(float) (null)
+;; enabled by -tree-original
+
+
+return <retval> = (long long int) __n;
+
+
+;; Function constexpr long long int std::__size_to_integer(double) (null)
+;; enabled by -tree-original
+
+
+return <retval> = (long long int) __n;
+
+
+;; Function constexpr long long int std::__size_to_integer(long double) (null)
+;; enabled by -tree-original
+
+
+return <retval> = (long long int) __n;
+
+
+;; Function constexpr long long int std::__size_to_integer(__float128) (null)
+;; enabled by -tree-original
+
+
+return <retval> = (long long int) __n;
+
+
+;; Function constexpr int std::__lg(int) (null)
+;; enabled by -tree-original
+
+
+return <retval> = 31 - __builtin_clz ((unsigned int) __n);
+
+
+;; Function constexpr unsigned int std::__lg(unsigned int) (null)
+;; enabled by -tree-original
+
+
+return <retval> = (unsigned int) (31 - __builtin_clz (__n));
+
+
+;; Function constexpr long int std::__lg(long int) (null)
+;; enabled by -tree-original
+
+
+return <retval> = (long int) (63 - __builtin_clzl ((long unsigned int) __n));
+
+
+;; Function constexpr long unsigned int std::__lg(long unsigned int) (null)
+;; enabled by -tree-original
+
+
+return <retval> = (long unsigned int) (63 - __builtin_clzl (__n));
+
+
+;; Function constexpr long long int std::__lg(long long int) (null)
+;; enabled by -tree-original
+
+
+return <retval> = (long long int) (63 - __builtin_clzll ((long long unsigned int) __n));
+
+
+;; Function constexpr long long unsigned int std::__lg(long long unsigned int) (null)
+;; enabled by -tree-original
+
+
+return <retval> = (long long unsigned int) (63 - __builtin_clzll (__n));
+
+
+;; Function static void std::char_traits<char>::assign(std::char_traits<char>::char_type&, const char_type&) (null)
+;; enabled by -tree-original
+
+
+<<< Unknown tree: must_not_throw_expr
+  <<cleanup_point <<< Unknown tree: expr_stmt
+  (void) (*__c1 = (char_type) *__c2) >>>>>
+   >>>;
+
+
+;; Function static constexpr bool std::char_traits<char>::eq(const char_type&, const char_type&) (null)
+;; enabled by -tree-original
+
+
+<<< Unknown tree: must_not_throw_expr
+  return <retval> = *__c1 == *__c2
+   >>>;
+
+
+;; Function static constexpr bool std::char_traits<char>::lt(const char_type&, const char_type&) (null)
+;; enabled by -tree-original
+
+
+<<< Unknown tree: must_not_throw_expr
+  return <retval> = (unsigned char) *__c1 < (unsigned char) *__c2
+   >>>;
+
+
+;; Function static int std::char_traits<char>::compare(const char_type*, const char_type*, std::size_t) (null)
+;; enabled by -tree-original
+
+
+if (__n == 0)
+  {
+    return <retval> = 0;
+  }
+return <retval> = __builtin_memcmp ((const void *) __s1, (const void *) __s2, __n);
+
+
+;; Function static std::size_t std::char_traits<char>::length(const char_type*) (null)
+;; enabled by -tree-original
+
+
+return <retval> = __builtin_strlen (__s);
+
+
+;; Function static const char_type* std::char_traits<char>::find(const char_type*, std::size_t, const char_type&) (null)
+;; enabled by -tree-original
+
+
+if (__n == 0)
+  {
+    return <retval> = 0B;
+  }
+return <retval> = (const char_type *) __builtin_memchr ((const void *) __s, (int) *__a, __n);
+
+
+;; Function static std::char_traits<char>::char_type* std::char_traits<char>::move(std::char_traits<char>::char_type*, const char_type*, std::size_t) (null)
+;; enabled by -tree-original
+
+
+if (__n == 0)
+  {
+    return <retval> = __s1;
+  }
+<<cleanup_point return <retval> = (char_type *) __builtin_memmove ((void *) __s1, (const void *) __s2, __n)>>;
+
+
+;; Function static std::char_traits<char>::char_type* std::char_traits<char>::copy(std::char_traits<char>::char_type*, const char_type*, std::size_t) (null)
+;; enabled by -tree-original
+
+
+if (__n == 0)
+  {
+    return <retval> = __s1;
+  }
+<<cleanup_point return <retval> = (char_type *) __builtin_memcpy ((void *) __s1, (const void *) __s2, __n)>>;
+
+
+;; Function static std::char_traits<char>::char_type* std::char_traits<char>::assign(std::char_traits<char>::char_type*, std::size_t, std::char_traits<char>::char_type) (null)
+;; enabled by -tree-original
+
+
+if (__n == 0)
+  {
+    return <retval> = __s;
+  }
+<<cleanup_point return <retval> = (char_type *) __builtin_memset ((void *) __s, (int) __a, __n)>>;
+
+
+;; Function static constexpr std::char_traits<char>::char_type std::char_traits<char>::to_char_type(const int_type&) (null)
+;; enabled by -tree-original
+
+
+<<< Unknown tree: must_not_throw_expr
+  return <retval> = (char_type) *__c
+   >>>;
+
+
+;; Function static constexpr std::char_traits<char>::int_type std::char_traits<char>::to_int_type(const char_type&) (null)
+;; enabled by -tree-original
+
+
+<<< Unknown tree: must_not_throw_expr
+  return <retval> = (int_type) (unsigned char) *__c
+   >>>;
+
+
+;; Function static constexpr bool std::char_traits<char>::eq_int_type(const int_type&, const int_type&) (null)
+;; enabled by -tree-original
+
+
+<<< Unknown tree: must_not_throw_expr
+  return <retval> = *__c1 == *__c2
+   >>>;
+
+
+;; Function static constexpr std::char_traits<char>::int_type std::char_traits<char>::eof() (null)
+;; enabled by -tree-original
+
+
+<<< Unknown tree: must_not_throw_expr
+  return <retval> = -1
+   >>>;
+
+
+;; Function static constexpr std::char_traits<char>::int_type std::char_traits<char>::not_eof(const int_type&) (null)
+;; enabled by -tree-original
+
+
+<<< Unknown tree: must_not_throw_expr
+  <<cleanup_point return <retval> = (int) *__c != std::char_traits<char>::eof () ? (int_type) *__c : 0>>
+   >>>;
+
+
+;; Function static void std::char_traits<wchar_t>::assign(std::char_traits<wchar_t>::char_type&, const char_type&) (null)
+;; enabled by -tree-original
+
+
+<<< Unknown tree: must_not_throw_expr
+  <<cleanup_point <<< Unknown tree: expr_stmt
+  (void) (*__c1 = (char_type) *__c2) >>>>>
+   >>>;
+
+
+;; Function static constexpr bool std::char_traits<wchar_t>::eq(const char_type&, const char_type&) (null)
+;; enabled by -tree-original
+
+
+<<< Unknown tree: must_not_throw_expr
+  return <retval> = *__c1 == *__c2
+   >>>;
+
+
+;; Function static constexpr bool std::char_traits<wchar_t>::lt(const char_type&, const char_type&) (null)
+;; enabled by -tree-original
+
+
+<<< Unknown tree: must_not_throw_expr
+  return <retval> = *__c1 < *__c2
+   >>>;
+
+
+;; Function static int std::char_traits<wchar_t>::compare(const char_type*, const char_type*, std::size_t) (null)
+;; enabled by -tree-original
+
+
+if (__n == 0)
+  {
+    return <retval> = 0;
+  }
+return <retval> = wmemcmp (__s1, __s2, __n);
+
+
+;; Function static std::size_t std::char_traits<wchar_t>::length(const char_type*) (null)
+;; enabled by -tree-original
+
+
+return <retval> = wcslen (__s);
+
+
+;; Function static const char_type* std::char_traits<wchar_t>::find(const char_type*, std::size_t, const char_type&) (null)
+;; enabled by -tree-original
+
+
+if (__n == 0)
+  {
+    return <retval> = 0B;
+  }
+return <retval> = (const char_type *) wmemchr (__s, (char_type) *__a, __n);
+
+
+;; Function static std::char_traits<wchar_t>::char_type* std::char_traits<wchar_t>::move(std::char_traits<wchar_t>::char_type*, const char_type*, std::size_t) (null)
+;; enabled by -tree-original
+
+
+if (__n == 0)
+  {
+    return <retval> = __s1;
+  }
+<<cleanup_point return <retval> = (char_type *) wmemmove (__s1, __s2, __n)>>;
+
+
+;; Function static std::char_traits<wchar_t>::char_type* std::char_traits<wchar_t>::copy(std::char_traits<wchar_t>::char_type*, const char_type*, std::size_t) (null)
+;; enabled by -tree-original
+
+
+if (__n == 0)
+  {
+    return <retval> = __s1;
+  }
+<<cleanup_point return <retval> = (char_type *) wmemcpy (__s1, __s2, __n)>>;
+
+
+;; Function static std::char_traits<wchar_t>::char_type* std::char_traits<wchar_t>::assign(std::char_traits<wchar_t>::char_type*, std::size_t, std::char_traits<wchar_t>::char_type) (null)
+;; enabled by -tree-original
+
+
+if (__n == 0)
+  {
+    return <retval> = __s;
+  }
+<<cleanup_point return <retval> = (char_type *) wmemset (__s, __a, __n)>>;
+
+
+;; Function static constexpr std::char_traits<wchar_t>::char_type std::char_traits<wchar_t>::to_char_type(const int_type&) (null)
+;; enabled by -tree-original
+
+
+<<< Unknown tree: must_not_throw_expr
+  return <retval> = (char_type) *__c
+   >>>;
+
+
+;; Function static constexpr std::char_traits<wchar_t>::int_type std::char_traits<wchar_t>::to_int_type(const char_type&) (null)
+;; enabled by -tree-original
+
+
+<<< Unknown tree: must_not_throw_expr
+  return <retval> = (int_type) *__c
+   >>>;
+
+
+;; Function static constexpr bool std::char_traits<wchar_t>::eq_int_type(const int_type&, const int_type&) (null)
+;; enabled by -tree-original
+
+
+<<< Unknown tree: must_not_throw_expr
+  return <retval> = *__c1 == *__c2
+   >>>;
+
+
+;; Function static constexpr std::char_traits<wchar_t>::int_type std::char_traits<wchar_t>::eof() (null)
+;; enabled by -tree-original
+
+
+<<< Unknown tree: must_not_throw_expr
+  return <retval> = 4294967295
+   >>>;
+
+
+;; Function static constexpr std::char_traits<wchar_t>::int_type std::char_traits<wchar_t>::not_eof(const int_type&) (null)
+;; enabled by -tree-original
+
+
+<<< Unknown tree: must_not_throw_expr
+  <<cleanup_point return <retval> = std::char_traits<wchar_t>::eq_int_type (__c, (const int_type &) &TARGET_EXPR <D.18501, std::char_traits<wchar_t>::eof ()>) ? 0 : (int_type) *__c>>
+   >>>;
+
+
+;; Function static void std::char_traits<char16_t>::assign(std::char_traits<char16_t>::char_type&, const char_type&) (null)
+;; enabled by -tree-original
+
+
+<<< Unknown tree: must_not_throw_expr
+  <<cleanup_point <<< Unknown tree: expr_stmt
+  (void) (*__c1 = (char_type) *__c2) >>>>>
+   >>>;
+
+
+;; Function static constexpr bool std::char_traits<char16_t>::eq(const char_type&, const char_type&) (null)
+;; enabled by -tree-original
+
+
+<<< Unknown tree: must_not_throw_expr
+  return <retval> = *__c1 == *__c2
+   >>>;
+
+
+;; Function static constexpr bool std::char_traits<char16_t>::lt(const char_type&, const char_type&) (null)
+;; enabled by -tree-original
+
+
+<<< Unknown tree: must_not_throw_expr
+  return <retval> = *__c1 < *__c2
+   >>>;
+
+
+;; Function static int std::char_traits<char16_t>::compare(const char_type*, const char_type*, std::size_t) (null)
+;; enabled by -tree-original
+
+
+{
+  {
+    size_t __i = 0;
+
+    <<cleanup_point     size_t __i = 0;>>;
+    while (1)
+      {
+        if (__i >= __n) goto <D.18564>;
+        if (<<cleanup_point std::char_traits<char16_t>::lt ((const char_type &) (__s1 + (sizetype) (__i * 2)), (const char_type &) (__s2 + (sizetype) (__i * 2)))>>)
+          {
+            return <retval> = -1;
+          }
+        else
+          {
+            if (<<cleanup_point std::char_traits<char16_t>::lt ((const char_type &) (__s2 + (sizetype) (__i * 2)), (const char_type &) (__s1 + (sizetype) (__i * 2)))>>)
+              {
+                return <retval> = 1;
+              }
+          }
+        <<cleanup_point (void)  ++__i>>;
+      }
+    <D.18564>:;
+  }
+  return <retval> = 0;
+}
+
+
+;; Function static std::size_t std::char_traits<char16_t>::length(const char_type*) (null)
+;; enabled by -tree-original
+
+
+{
+  size_t __i = 0;
+
+  <<cleanup_point   size_t __i = 0;>>;
+  while (1)
+    {
+      if (<<cleanup_point !std::char_traits<char16_t>::eq ((const char_type &) (__s + (sizetype) (__i * 2)), (const char_type &) &TARGET_EXPR <D.18568, 0>)>>) (void) 0; else goto <D.18569>;
+      <<cleanup_point <<< Unknown tree: expr_stmt
+  (void)  ++__i >>>>>;
+    }
+  <D.18569>:;
+  return <retval> = __i;
+}
+
+
+;; Function static const char_type* std::char_traits<char16_t>::find(const char_type*, std::size_t, const char_type&) (null)
+;; enabled by -tree-original
+
+
+{
+  {
+    size_t __i = 0;
+
+    <<cleanup_point     size_t __i = 0;>>;
+    while (1)
+      {
+        if (__i >= __n) goto <D.18573>;
+        if (<<cleanup_point std::char_traits<char16_t>::eq ((const char_type &) (__s + (sizetype) (__i * 2)), __a)>>)
+          {
+            return <retval> = __s + (sizetype) (__i * 2);
+          }
+        <<cleanup_point (void)  ++__i>>;
+      }
+    <D.18573>:;
+  }
+  return <retval> = 0B;
+}
+
+
+;; Function static std::char_traits<char16_t>::char_type* std::char_traits<char16_t>::move(std::char_traits<char16_t>::char_type*, const char_type*, std::size_t) (null)
+;; enabled by -tree-original
+
+
+if (__n == 0)
+  {
+    return <retval> = __s1;
+  }
+<<cleanup_point return <retval> = (char_type *) __builtin_memmove ((void *) __s1, (const void *) __s2, __n * 2)>>;
+
+
+;; Function static std::char_traits<char16_t>::char_type* std::char_traits<char16_t>::copy(std::char_traits<char16_t>::char_type*, const char_type*, std::size_t) (null)
+;; enabled by -tree-original
+
+
+if (__n == 0)
+  {
+    return <retval> = __s1;
+  }
+<<cleanup_point return <retval> = (char_type *) __builtin_memcpy ((void *) __s1, (const void *) __s2, __n * 2)>>;
+
+
+;; Function static std::char_traits<char16_t>::char_type* std::char_traits<char16_t>::assign(std::char_traits<char16_t>::char_type*, std::size_t, std::char_traits<char16_t>::char_type) (null)
+;; enabled by -tree-original
+
+
+{
+  {
+    size_t __i = 0;
+
+    <<cleanup_point     size_t __i = 0;>>;
+    while (1)
+      {
+        if (__i >= __n) goto <D.18579>;
+        <<cleanup_point <<< Unknown tree: expr_stmt
+  std::char_traits<char16_t>::assign ((char_type &) (__s + (sizetype) (__i * 2)), (const char_type &) &__a) >>>>>;
+        <<cleanup_point (void)  ++__i>>;
+      }
+    <D.18579>:;
+  }
+  return <retval> = __s;
+}
+
+
+;; Function static constexpr std::char_traits<char16_t>::char_type std::char_traits<char16_t>::to_char_type(const int_type&) (null)
+;; enabled by -tree-original
+
+
+<<< Unknown tree: must_not_throw_expr
+  return <retval> = (char_type) *__c
+   >>>;
+
+
+;; Function static constexpr std::char_traits<char16_t>::int_type std::char_traits<char16_t>::to_int_type(const char_type&) (null)
+;; enabled by -tree-original
+
+
+<<< Unknown tree: must_not_throw_expr
+  <<cleanup_point return <retval> = *__c != (const char_type) std::char_traits<char16_t>::eof () ? (int_type) *__c : 65533>>
+   >>>;
+
+
+;; Function static constexpr bool std::char_traits<char16_t>::eq_int_type(const int_type&, const int_type&) (null)
+;; enabled by -tree-original
+
+
+<<< Unknown tree: must_not_throw_expr
+  return <retval> = *__c1 == *__c2
+   >>>;
+
+
+;; Function static constexpr std::char_traits<char16_t>::int_type std::char_traits<char16_t>::eof() (null)
+;; enabled by -tree-original
+
+
+<<< Unknown tree: must_not_throw_expr
+  return <retval> = 65535
+   >>>;
+
+
+;; Function static constexpr std::char_traits<char16_t>::int_type std::char_traits<char16_t>::not_eof(const int_type&) (null)
+;; enabled by -tree-original
+
+
+<<< Unknown tree: must_not_throw_expr
+  <<cleanup_point return <retval> = std::char_traits<char16_t>::eq_int_type (__c, (const int_type &) &TARGET_EXPR <D.18594, std::char_traits<char16_t>::eof ()>) ? 0 : (int_type) *__c>>
+   >>>;
+
+
+;; Function static void std::char_traits<char32_t>::assign(std::char_traits<char32_t>::char_type&, const char_type&) (null)
+;; enabled by -tree-original
+
+
+<<< Unknown tree: must_not_throw_expr
+  <<cleanup_point <<< Unknown tree: expr_stmt
+  (void) (*__c1 = (char_type) *__c2) >>>>>
+   >>>;
+
+
+;; Function static constexpr bool std::char_traits<char32_t>::eq(const char_type&, const char_type&) (null)
+;; enabled by -tree-original
+
+
+<<< Unknown tree: must_not_throw_expr
+  return <retval> = *__c1 == *__c2
+   >>>;
+
+
+;; Function static constexpr bool std::char_traits<char32_t>::lt(const char_type&, const char_type&) (null)
+;; enabled by -tree-original
+
+
+<<< Unknown tree: must_not_throw_expr
+  return <retval> = *__c1 < *__c2
+   >>>;
+
+
+;; Function static int std::char_traits<char32_t>::compare(const char_type*, const char_type*, std::size_t) (null)
+;; enabled by -tree-original
+
+
+{
+  {
+    size_t __i = 0;
+
+    <<cleanup_point     size_t __i = 0;>>;
+    while (1)
+      {
+        if (__i >= __n) goto <D.18657>;
+        if (<<cleanup_point std::char_traits<char32_t>::lt ((const char_type &) (__s1 + (sizetype) (__i * 4)), (const char_type &) (__s2 + (sizetype) (__i * 4)))>>)
+          {
+            return <retval> = -1;
+          }
+        else
+          {
+            if (<<cleanup_point std::char_traits<char32_t>::lt ((const char_type &) (__s2 + (sizetype) (__i * 4)), (const char_type &) (__s1 + (sizetype) (__i * 4)))>>)
+              {
+                return <retval> = 1;
+              }
+          }
+        <<cleanup_point (void)  ++__i>>;
+      }
+    <D.18657>:;
+  }
+  return <retval> = 0;
+}
+
+
+;; Function static std::size_t std::char_traits<char32_t>::length(const char_type*) (null)
+;; enabled by -tree-original
+
+
+{
+  size_t __i = 0;
+
+  <<cleanup_point   size_t __i = 0;>>;
+  while (1)
+    {
+      if (<<cleanup_point !std::char_traits<char32_t>::eq ((const char_type &) (__s + (sizetype) (__i * 4)), (const char_type &) &TARGET_EXPR <D.18661, 0>)>>) (void) 0; else goto <D.18662>;
+      <<cleanup_point <<< Unknown tree: expr_stmt
+  (void)  ++__i >>>>>;
+    }
+  <D.18662>:;
+  return <retval> = __i;
+}
+
+
+;; Function static const char_type* std::char_traits<char32_t>::find(const char_type*, std::size_t, const char_type&) (null)
+;; enabled by -tree-original
+
+
+{
+  {
+    size_t __i = 0;
+
+    <<cleanup_point     size_t __i = 0;>>;
+    while (1)
+      {
+        if (__i >= __n) goto <D.18666>;
+        if (<<cleanup_point std::char_traits<char32_t>::eq ((const char_type &) (__s + (sizetype) (__i * 4)), __a)>>)
+          {
+            return <retval> = __s + (sizetype) (__i * 4);
+          }
+        <<cleanup_point (void)  ++__i>>;
+      }
+    <D.18666>:;
+  }
+  return <retval> = 0B;
+}
+
+
+;; Function static std::char_traits<char32_t>::char_type* std::char_traits<char32_t>::move(std::char_traits<char32_t>::char_type*, const char_type*, std::size_t) (null)
+;; enabled by -tree-original
+
+
+if (__n == 0)
+  {
+    return <retval> = __s1;
+  }
+<<cleanup_point return <retval> = (char_type *) __builtin_memmove ((void *) __s1, (const void *) __s2, __n * 4)>>;
+
+
+;; Function static std::char_traits<char32_t>::char_type* std::char_traits<char32_t>::copy(std::char_traits<char32_t>::char_type*, const char_type*, std::size_t) (null)
+;; enabled by -tree-original
+
+
+if (__n == 0)
+  {
+    return <retval> = __s1;
+  }
+<<cleanup_point return <retval> = (char_type *) __builtin_memcpy ((void *) __s1, (const void *) __s2, __n * 4)>>;
+
+
+;; Function static std::char_traits<char32_t>::char_type* std::char_traits<char32_t>::assign(std::char_traits<char32_t>::char_type*, std::size_t, std::char_traits<char32_t>::char_type) (null)
+;; enabled by -tree-original
+
+
+{
+  {
+    size_t __i = 0;
+
+    <<cleanup_point     size_t __i = 0;>>;
+    while (1)
+      {
+        if (__i >= __n) goto <D.18672>;
+        <<cleanup_point <<< Unknown tree: expr_stmt
+  std::char_traits<char32_t>::assign ((char_type &) (__s + (sizetype) (__i * 4)), (const char_type &) &__a) >>>>>;
+        <<cleanup_point (void)  ++__i>>;
+      }
+    <D.18672>:;
+  }
+  return <retval> = __s;
+}
+
+
+;; Function static constexpr std::char_traits<char32_t>::char_type std::char_traits<char32_t>::to_char_type(const int_type&) (null)
+;; enabled by -tree-original
+
+
+<<< Unknown tree: must_not_throw_expr
+  return <retval> = (char_type) *__c
+   >>>;
+
+
+;; Function static constexpr std::char_traits<char32_t>::int_type std::char_traits<char32_t>::to_int_type(const char_type&) (null)
+;; enabled by -tree-original
+
+
+<<< Unknown tree: must_not_throw_expr
+  return <retval> = (int_type) *__c
+   >>>;
+
+
+;; Function static constexpr bool std::char_traits<char32_t>::eq_int_type(const int_type&, const int_type&) (null)
+;; enabled by -tree-original
+
+
+<<< Unknown tree: must_not_throw_expr
+  return <retval> = *__c1 == *__c2
+   >>>;
+
+
+;; Function static constexpr std::char_traits<char32_t>::int_type std::char_traits<char32_t>::eof() (null)
+;; enabled by -tree-original
+
+
+<<< Unknown tree: must_not_throw_expr
+  return <retval> = 4294967295
+   >>>;
+
+
+;; Function static constexpr std::char_traits<char32_t>::int_type std::char_traits<char32_t>::not_eof(const int_type&) (null)
+;; enabled by -tree-original
+
+
+<<< Unknown tree: must_not_throw_expr
+  <<cleanup_point return <retval> = std::char_traits<char32_t>::eq_int_type (__c, (const int_type &) &TARGET_EXPR <D.18687, std::char_traits<char32_t>::eof ()>) ? 0 : (int_type) *__c>>
+   >>>;
+
+
+;; Function int std::__convert_from_v(__locale_struct* const&, char*, int, const char*, ...) (null)
+;; enabled by -tree-original
+
+
+{
+  struct __locale_struct * __old;
+  struct  __args[1];
+  const int __ret;
+
+    struct __locale_struct * __old;
+  <<cleanup_point <<< Unknown tree: expr_stmt
+  (void) (__old = __gnu_cxx::__uselocale ((struct __locale_struct *) *__cloc)) >>>>>;
+    struct  __args[1];
+  <<cleanup_point <<< Unknown tree: expr_stmt
+  __builtin_va_start ((struct  *) &__args, __fmt) >>>>>;
+    const int __ret;
+  <<cleanup_point <<< Unknown tree: expr_stmt
+  (void) (__ret = __builtin_vsnprintf (__out, (long unsigned int) __size, __fmt, (struct  *) &__args)) >>>>>;
+  <<cleanup_point <<< Unknown tree: expr_stmt
+  __builtin_va_end ((struct  *) &__args) >>>>>;
+  <<cleanup_point <<< Unknown tree: expr_stmt
+  (void) __gnu_cxx::__uselocale (__old) >>>>>;
+  return <retval> = (int) __ret;
+}
+
+
+;; Function __pthread_cleanup_class::__pthread_cleanup_class(void (*)(void*), void*) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point <<< Unknown tree: expr_stmt
+  *(struct __pthread_cleanup_class *) this = {CLOBBER} >>>>>;
+{
+  <<cleanup_point <<< Unknown tree: expr_stmt
+  (void) (((struct __pthread_cleanup_class *) this)->__cancel_routine = __fct) >>>>>;
+  <<cleanup_point <<< Unknown tree: expr_stmt
+  (void) (((struct __pthread_cleanup_class *) this)->__cancel_arg = __arg) >>>>>;
+  <<cleanup_point <<< Unknown tree: expr_stmt
+  (void) (((struct __pthread_cleanup_class *) this)->__do_it = 1) >>>>>;
+}
+
+
+;; Function __pthread_cleanup_class::~__pthread_cleanup_class() (null)
+;; enabled by -tree-original
+
+
+<<< Unknown tree: must_not_throw_expr
+  {
+    try
+      {
+        if (((struct __pthread_cleanup_class *) this)->__do_it != 0)
+          {
+            <<cleanup_point <<< Unknown tree: expr_stmt
+  ((struct __pthread_cleanup_class *) this)->__cancel_routine (((struct __pthread_cleanup_class *) this)->__cancel_arg) >>>>>;
+          }
+      }
+    finally
+      {
+        *(struct __pthread_cleanup_class *) this = {CLOBBER};
+      }
+  }
+  <D.19236>:;
+   >>>;
+
+
+;; Function void __pthread_cleanup_class::__setdoit(int) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point <<< Unknown tree: expr_stmt
+  (void) (((struct __pthread_cleanup_class *) this)->__do_it = __newval) >>>>>;
+
+
+;; Function void __pthread_cleanup_class::__defer() (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point <<< Unknown tree: expr_stmt
+  (void) pthread_setcanceltype (0, &((struct __pthread_cleanup_class *) this)->__cancel_type) >>>>>;
+
+
+;; Function void __pthread_cleanup_class::__restore() const (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point <<< Unknown tree: expr_stmt
+  (void) pthread_setcanceltype ((int) ((const struct __pthread_cleanup_class *) this)->__cancel_type, 0B) >>>>>;
+
+
+;; Function int __gthread_active_p() (null)
+;; enabled by -tree-original
+
+
+{
+  static void * const __gthread_active_ptr = (void *) __gthrw___pthread_key_create;
+
+  <<cleanup_point   static void * const __gthread_active_ptr = (void *) __gthrw___pthread_key_create;>>;
+  return <retval> = (void *) __gthrw___pthread_key_create != 0B;
+}
+
+
+;; Function int __gthread_create(__gthread_t*, void* (*)(void*), void*) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = __gthrw_pthread_create (__threadid, 0B, __func, __args)>>;
+
+
+;; Function int __gthread_join(__gthread_t, void**) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = __gthrw_pthread_join (__threadid, __value_ptr)>>;
+
+
+;; Function int __gthread_detach(__gthread_t) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = __gthrw_pthread_detach (__threadid)>>;
+
+
+;; Function int __gthread_equal(__gthread_t, __gthread_t) (null)
+;; enabled by -tree-original
+
+
+return <retval> = __gthrw_pthread_equal (__t1, __t2);
+
+
+;; Function __gthread_t __gthread_self() (null)
+;; enabled by -tree-original
+
+
+return <retval> = __gthrw_pthread_self ();
+
+
+;; Function int __gthread_yield() (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = __gthrw_sched_yield ()>>;
+
+
+;; Function int __gthread_once(__gthread_once_t*, void (*)()) (null)
+;; enabled by -tree-original
+
+
+if (<<cleanup_point __gthread_active_p () != 0>>)
+  {
+    <<cleanup_point return <retval> = __gthrw_pthread_once (__once, __func)>>;
+  }
+else
+  {
+    return <retval> = -1;
+  }
+
+
+;; Function int __gthread_key_create(__gthread_key_t*, void (*)(void*)) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = __gthrw_pthread_key_create (__key, __dtor)>>;
+
+
+;; Function int __gthread_key_delete(__gthread_key_t) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = __gthrw_pthread_key_delete (__key)>>;
+
+
+;; Function void* __gthread_getspecific(__gthread_key_t) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = __gthrw_pthread_getspecific (__key)>>;
+
+
+;; Function int __gthread_setspecific(__gthread_key_t, const void*) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = __gthrw_pthread_setspecific (__key, __ptr)>>;
+
+
+;; Function void __gthread_mutex_init_function(__gthread_mutex_t*) (null)
+;; enabled by -tree-original
+
+
+if (<<cleanup_point __gthread_active_p () != 0>>)
+  {
+    <<cleanup_point <<< Unknown tree: expr_stmt
+  (void) __gthrw_pthread_mutex_init (__mutex, 0B) >>>>>;
+  }
+
+
+;; Function int __gthread_mutex_destroy(__gthread_mutex_t*) (null)
+;; enabled by -tree-original
+
+
+if (<<cleanup_point __gthread_active_p () != 0>>)
+  {
+    <<cleanup_point return <retval> = __gthrw_pthread_mutex_destroy (__mutex)>>;
+  }
+else
+  {
+    return <retval> = 0;
+  }
+
+
+;; Function int __gthread_mutex_lock(__gthread_mutex_t*) (null)
+;; enabled by -tree-original
+
+
+if (<<cleanup_point __gthread_active_p () != 0>>)
+  {
+    <<cleanup_point return <retval> = __gthrw_pthread_mutex_lock (__mutex)>>;
+  }
+else
+  {
+    return <retval> = 0;
+  }
+
+
+;; Function int __gthread_mutex_trylock(__gthread_mutex_t*) (null)
+;; enabled by -tree-original
+
+
+if (<<cleanup_point __gthread_active_p () != 0>>)
+  {
+    <<cleanup_point return <retval> = __gthrw_pthread_mutex_trylock (__mutex)>>;
+  }
+else
+  {
+    return <retval> = 0;
+  }
+
+
+;; Function int __gthread_mutex_timedlock(__gthread_mutex_t*, const __gthread_time_t*) (null)
+;; enabled by -tree-original
+
+
+if (<<cleanup_point __gthread_active_p () != 0>>)
+  {
+    <<cleanup_point return <retval> = __gthrw_pthread_mutex_timedlock (__mutex, __abs_timeout)>>;
+  }
+else
+  {
+    return <retval> = 0;
+  }
+
+
+;; Function int __gthread_mutex_unlock(__gthread_mutex_t*) (null)
+;; enabled by -tree-original
+
+
+if (<<cleanup_point __gthread_active_p () != 0>>)
+  {
+    <<cleanup_point return <retval> = __gthrw_pthread_mutex_unlock (__mutex)>>;
+  }
+else
+  {
+    return <retval> = 0;
+  }
+
+
+;; Function int __gthread_recursive_mutex_lock(__gthread_recursive_mutex_t*) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = __gthread_mutex_lock (__mutex)>>;
+
+
+;; Function int __gthread_recursive_mutex_trylock(__gthread_recursive_mutex_t*) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = __gthread_mutex_trylock (__mutex)>>;
+
+
+;; Function int __gthread_recursive_mutex_timedlock(__gthread_recursive_mutex_t*, const __gthread_time_t*) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = __gthread_mutex_timedlock (__mutex, __abs_timeout)>>;
+
+
+;; Function int __gthread_recursive_mutex_unlock(__gthread_recursive_mutex_t*) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = __gthread_mutex_unlock (__mutex)>>;
+
+
+;; Function int __gthread_recursive_mutex_destroy(__gthread_recursive_mutex_t*) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = __gthread_mutex_destroy (__mutex)>>;
+
+
+;; Function int __gthread_cond_broadcast(__gthread_cond_t*) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = __gthrw_pthread_cond_broadcast (__cond)>>;
+
+
+;; Function int __gthread_cond_signal(__gthread_cond_t*) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = __gthrw_pthread_cond_signal (__cond)>>;
+
+
+;; Function int __gthread_cond_wait(__gthread_cond_t*, __gthread_mutex_t*) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = __gthrw_pthread_cond_wait (__cond, __mutex)>>;
+
+
+;; Function int __gthread_cond_timedwait(__gthread_cond_t*, __gthread_mutex_t*, const __gthread_time_t*) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = __gthrw_pthread_cond_timedwait (__cond, __mutex, __abs_timeout)>>;
+
+
+;; Function int __gthread_cond_wait_recursive(__gthread_cond_t*, __gthread_recursive_mutex_t*) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = __gthread_cond_wait (__cond, __mutex)>>;
+
+
+;; Function int __gthread_cond_destroy(__gthread_cond_t*) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = __gthrw_pthread_cond_destroy (__cond)>>;
+
+
+;; Function _Atomic_word __gnu_cxx::__exchange_and_add(volatile _Atomic_word*, int) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = (int) __atomic_fetch_add_4 ((volatile void *) __mem, (unsigned int) __val, 4)>>;
+
+
+;; Function void __gnu_cxx::__atomic_add(volatile _Atomic_word*, int) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point <<< Unknown tree: expr_stmt
+  (void) (int) __atomic_fetch_add_4 ((volatile void *) __mem, (unsigned int) __val, 4) >>>>>;
+
+
+;; Function _Atomic_word __gnu_cxx::__exchange_and_add_single(_Atomic_word*, int) (null)
+;; enabled by -tree-original
+
+
+{
+  _Atomic_word __result = *__mem;
+
+    _Atomic_word __result = *__mem;
+  <<cleanup_point <<< Unknown tree: expr_stmt
+  (void) (*__mem = *__mem + __val) >>>>>;
+  return <retval> = __result;
+}
+
+
+;; Function void __gnu_cxx::__atomic_add_single(_Atomic_word*, int) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point <<< Unknown tree: expr_stmt
+  (void) (*__mem = *__mem + __val) >>>>>;
+
+
+;; Function _Atomic_word __gnu_cxx::__exchange_and_add_dispatch(_Atomic_word*, int) (null)
+;; enabled by -tree-original
+
+
+if (<<cleanup_point __gthread_active_p () != 0>>)
+  {
+    <<cleanup_point return <retval> = __gnu_cxx::__exchange_and_add ((volatile _Atomic_word *) __mem, __val)>>;
+  }
+<<cleanup_point return <retval> = __gnu_cxx::__exchange_and_add_single (__mem, __val)>>;
+
+
+;; Function void __gnu_cxx::__atomic_add_dispatch(_Atomic_word*, int) (null)
+;; enabled by -tree-original
+
+
+if (<<cleanup_point __gthread_active_p () != 0>>)
+  {
+    <<cleanup_point <<< Unknown tree: expr_stmt
+  __gnu_cxx::__atomic_add ((volatile _Atomic_word *) __mem, __val) >>>>>;
+    return;
+  }
+<<cleanup_point <<< Unknown tree: expr_stmt
+  __gnu_cxx::__atomic_add_single (__mem, __val) >>>>>;
+
+
+;; Function int std::__cxx11::stoi(const string&, std::size_t*, int) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = __gnu_cxx::__stoa<long int, int, char, int> (strtol, (const char *) "stoi", std::__cxx11::basic_string<char>::c_str ((const struct string *) __str), __idx, __base)>>;
+
+
+;; Function long int std::__cxx11::stol(const string&, std::size_t*, int) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = __gnu_cxx::__stoa<long int> (strtol, (const char *) "stol", std::__cxx11::basic_string<char>::c_str ((const struct string *) __str), __idx, __base)>>;
+
+
+;; Function long unsigned int std::__cxx11::stoul(const string&, std::size_t*, int) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = __gnu_cxx::__stoa<long unsigned int> (strtoul, (const char *) "stoul", std::__cxx11::basic_string<char>::c_str ((const struct string *) __str), __idx, __base)>>;
+
+
+;; Function long long int std::__cxx11::stoll(const string&, std::size_t*, int) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = __gnu_cxx::__stoa<long long int> (strtoll, (const char *) "stoll", std::__cxx11::basic_string<char>::c_str ((const struct string *) __str), __idx, __base)>>;
+
+
+;; Function long long unsigned int std::__cxx11::stoull(const string&, std::size_t*, int) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = __gnu_cxx::__stoa<long long unsigned int> (strtoull, (const char *) "stoull", std::__cxx11::basic_string<char>::c_str ((const struct string *) __str), __idx, __base)>>;
+
+
+;; Function float std::__cxx11::stof(const string&, std::size_t*) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = __gnu_cxx::__stoa<float> (strtof, (const char *) "stof", std::__cxx11::basic_string<char>::c_str ((const struct string *) __str), __idx)>>;
+
+
+;; Function double std::__cxx11::stod(const string&, std::size_t*) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = __gnu_cxx::__stoa<double> (strtod, (const char *) "stod", std::__cxx11::basic_string<char>::c_str ((const struct string *) __str), __idx)>>;
+
+
+;; Function long double std::__cxx11::stold(const string&, std::size_t*) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = __gnu_cxx::__stoa<long double> (strtold, (const char *) "stold", std::__cxx11::basic_string<char>::c_str ((const struct string *) __str), __idx)>>;
+
+
+;; Function std::string std::__cxx11::to_string(int) (null)
+;; enabled by -tree-original
+
+
+{
+  const bool __neg = __val < 0;
+  const unsigned int __uval = (bool) __neg ? -(unsigned int) __val : (unsigned int) __val;
+  const unsigned int __len;
+  struct string __str [value-expr: *<retval>];
+
+    const bool __neg = __val < 0;
+    const unsigned int __uval = (bool) __neg ? -(unsigned int) __val : (unsigned int) __val;
+    const unsigned int __len;
+  <<cleanup_point <<< Unknown tree: expr_stmt
+  (void) (__len = std::__detail::__to_chars_len<unsigned int> ((unsigned int) __uval, 10)) >>>>>;
+  (void) 0;
+  <<cleanup_point <<< Unknown tree: expr_stmt
+  std::__cxx11::basic_string<char>::basic_string ((struct string *) <retval>, (size_type) ((unsigned int) __neg + (unsigned int) __len), 45, (const struct allocator &) &TARGET_EXPR <D.26113, <<< Unknown tree: aggr_init_expr
+  4
+  __ct_comp 
+  D.26113
+  (struct allocator *) <<< Unknown tree: void_cst >>> >>>>) >>>>>;
+  try
+    {
+      <<cleanup_point <<< Unknown tree: expr_stmt
+  std::__detail::__to_chars_10_impl<unsigned int> ((value_type *) std::__cxx11::basic_string<char>::operator[] ((struct string *) <retval>, (size_type) __neg), (unsigned int) __len, (unsigned int) __uval) >>>>>;
+      <<cleanup_point return <retval>>>;
+    }
+  catch
+    {
+      std::__cxx11::basic_string<char>::~basic_string ((struct string *) <retval>);
+    }
+}
+
+
+;; Function constexpr unsigned int std::__detail::__to_chars_len(_Tp, int) [with _Tp = unsigned int] (null)
+;; enabled by -tree-original
+
+
+<<< Unknown tree: must_not_throw_expr
+  {
+    unsigned int __n = 1;
+    const unsigned int __b2 = (unsigned int) (__base * __base);
+    const unsigned int __b3 = (unsigned int) __b2 * (unsigned int) __base;
+    const long unsigned int __b4 = (long unsigned int) ((unsigned int) __b3 * (unsigned int) __base);
+
+    <<cleanup_point     unsigned int __n = 1;>>;
+        const unsigned int __b2 = (unsigned int) (__base * __base);
+        const unsigned int __b3 = (unsigned int) __b2 * (unsigned int) __base;
+        const long unsigned int __b4 = (long unsigned int) ((unsigned int) __b3 * (unsigned int) __base);
+    while (1)
+      {
+        if (__value < (unsigned int) __base)
+          {
+            return <retval> = __n;
+          }
+        if (__value < (unsigned int) __b2)
+          {
+            return <retval> = __n + 1;
+          }
+        if (__value < (unsigned int) __b3)
+          {
+            return <retval> = __n + 2;
+          }
+        if ((long unsigned int) __value < (long unsigned int) __b4)
+          {
+            return <retval> = __n + 3;
+          }
+        <<cleanup_point <<< Unknown tree: expr_stmt
+  (void) (__value = (unsigned int) ((long unsigned int) __value / (long unsigned int) __b4)) >>>>>;
+        <<cleanup_point <<< Unknown tree: expr_stmt
+  (void) (__n = __n + 4) >>>>>;
+      }
+  }
+   >>>;
+
+
+;; Function std::string std::__cxx11::to_string(unsigned int) (null)
+;; enabled by -tree-original
+
+
+{
+  struct string __str [value-expr: *<retval>];
+
+  (void) 0;
+  <<cleanup_point <<< Unknown tree: expr_stmt
+  std::__cxx11::basic_string<char>::basic_string ((struct string *) <retval>, (size_type) std::__detail::__to_chars_len<unsigned int> (__val, 10), 0, (const struct allocator &) &TARGET_EXPR <D.26170, <<< Unknown tree: aggr_init_expr
+  4
+  __ct_comp 
+  D.26170
+  (struct allocator *) <<< Unknown tree: void_cst >>> >>>>) >>>>>;
+  try
+    {
+      <<cleanup_point <<< Unknown tree: expr_stmt
+  std::__detail::__to_chars_10_impl<unsigned int> ((value_type *) std::__cxx11::basic_string<char>::operator[] ((struct string *) <retval>, 0), (unsigned int) std::__cxx11::basic_string<char>::size ((struct string *) <retval>), __val) >>>>>;
+      <<cleanup_point return <retval>>>;
+    }
+  catch
+    {
+      std::__cxx11::basic_string<char>::~basic_string ((struct string *) <retval>);
+    }
+}
+
+
+;; Function std::string std::__cxx11::to_string(long int) (null)
+;; enabled by -tree-original
+
+
+{
+  const bool __neg = __val < 0;
+  const long unsigned int __uval = (bool) __neg ? -(long unsigned int) __val : (long unsigned int) __val;
+  const unsigned int __len;
+  struct string __str [value-expr: *<retval>];
+
+    const bool __neg = __val < 0;
+    const long unsigned int __uval = (bool) __neg ? -(long unsigned int) __val : (long unsigned int) __val;
+    const unsigned int __len;
+  <<cleanup_point <<< Unknown tree: expr_stmt
+  (void) (__len = std::__detail::__to_chars_len<long unsigned int> ((long unsigned int) __uval, 10)) >>>>>;
+  (void) 0;
+  <<cleanup_point <<< Unknown tree: expr_stmt
+  std::__cxx11::basic_string<char>::basic_string ((struct string *) <retval>, (size_type) ((unsigned int) __neg + (unsigned int) __len), 45, (const struct allocator &) &TARGET_EXPR <D.26183, <<< Unknown tree: aggr_init_expr
+  4
+  __ct_comp 
+  D.26183
+  (struct allocator *) <<< Unknown tree: void_cst >>> >>>>) >>>>>;
+  try
+    {
+      <<cleanup_point <<< Unknown tree: expr_stmt
+  std::__detail::__to_chars_10_impl<long unsigned int> ((value_type *) std::__cxx11::basic_string<char>::operator[] ((struct string *) <retval>, (size_type) __neg), (unsigned int) __len, (long unsigned int) __uval) >>>>>;
+      <<cleanup_point return <retval>>>;
+    }
+  catch
+    {
+      std::__cxx11::basic_string<char>::~basic_string ((struct string *) <retval>);
+    }
+}
+
+
+;; Function constexpr unsigned int std::__detail::__to_chars_len(_Tp, int) [with _Tp = long unsigned int] (null)
+;; enabled by -tree-original
+
+
+<<< Unknown tree: must_not_throw_expr
+  {
+    unsigned int __n = 1;
+    const unsigned int __b2 = (unsigned int) (__base * __base);
+    const unsigned int __b3 = (unsigned int) __b2 * (unsigned int) __base;
+    const long unsigned int __b4 = (long unsigned int) ((unsigned int) __b3 * (unsigned int) __base);
+
+    <<cleanup_point     unsigned int __n = 1;>>;
+        const unsigned int __b2 = (unsigned int) (__base * __base);
+        const unsigned int __b3 = (unsigned int) __b2 * (unsigned int) __base;
+        const long unsigned int __b4 = (long unsigned int) ((unsigned int) __b3 * (unsigned int) __base);
+    while (1)
+      {
+        if ((long unsigned int) (unsigned int) __base > __value)
+          {
+            return <retval> = __n;
+          }
+        if ((long unsigned int) __b2 > __value)
+          {
+            return <retval> = __n + 1;
+          }
+        if ((long unsigned int) __b3 > __value)
+          {
+            return <retval> = __n + 2;
+          }
+        if (__value < (long unsigned int) __b4)
+          {
+            return <retval> = __n + 3;
+          }
+        <<cleanup_point <<< Unknown tree: expr_stmt
+  (void) (__value = __value / (long unsigned int) __b4) >>>>>;
+        <<cleanup_point <<< Unknown tree: expr_stmt
+  (void) (__n = __n + 4) >>>>>;
+      }
+  }
+   >>>;
+
+
+;; Function std::string std::__cxx11::to_string(long unsigned int) (null)
+;; enabled by -tree-original
+
+
+{
+  struct string __str [value-expr: *<retval>];
+
+  (void) 0;
+  <<cleanup_point <<< Unknown tree: expr_stmt
+  std::__cxx11::basic_string<char>::basic_string ((struct string *) <retval>, (size_type) std::__detail::__to_chars_len<long unsigned int> (__val, 10), 0, (const struct allocator &) &TARGET_EXPR <D.26230, <<< Unknown tree: aggr_init_expr
+  4
+  __ct_comp 
+  D.26230
+  (struct allocator *) <<< Unknown tree: void_cst >>> >>>>) >>>>>;
+  try
+    {
+      <<cleanup_point <<< Unknown tree: expr_stmt
+  std::__detail::__to_chars_10_impl<long unsigned int> ((value_type *) std::__cxx11::basic_string<char>::operator[] ((struct string *) <retval>, 0), (unsigned int) std::__cxx11::basic_string<char>::size ((struct string *) <retval>), __val) >>>>>;
+      <<cleanup_point return <retval>>>;
+    }
+  catch
+    {
+      std::__cxx11::basic_string<char>::~basic_string ((struct string *) <retval>);
+    }
+}
+
+
+;; Function std::string std::__cxx11::to_string(long long int) (null)
+;; enabled by -tree-original
+
+
+{
+  const bool __neg = __val < 0;
+  const long long unsigned int __uval = (bool) __neg ? -(long long unsigned int) __val : (long long unsigned int) __val;
+  const unsigned int __len;
+  struct string __str [value-expr: *<retval>];
+
+    const bool __neg = __val < 0;
+    const long long unsigned int __uval = (bool) __neg ? -(long long unsigned int) __val : (long long unsigned int) __val;
+    const unsigned int __len;
+  <<cleanup_point <<< Unknown tree: expr_stmt
+  (void) (__len = std::__detail::__to_chars_len<long long unsigned int> ((long long unsigned int) __uval, 10)) >>>>>;
+  (void) 0;
+  <<cleanup_point <<< Unknown tree: expr_stmt
+  std::__cxx11::basic_string<char>::basic_string ((struct string *) <retval>, (size_type) ((unsigned int) __neg + (unsigned int) __len), 45, (const struct allocator &) &TARGET_EXPR <D.26243, <<< Unknown tree: aggr_init_expr
+  4
+  __ct_comp 
+  D.26243
+  (struct allocator *) <<< Unknown tree: void_cst >>> >>>>) >>>>>;
+  try
+    {
+      <<cleanup_point <<< Unknown tree: expr_stmt
+  std::__detail::__to_chars_10_impl<long long unsigned int> ((value_type *) std::__cxx11::basic_string<char>::operator[] ((struct string *) <retval>, (size_type) __neg), (unsigned int) __len, (long long unsigned int) __uval) >>>>>;
+      <<cleanup_point return <retval>>>;
+    }
+  catch
+    {
+      std::__cxx11::basic_string<char>::~basic_string ((struct string *) <retval>);
+    }
+}
+
+
+;; Function constexpr unsigned int std::__detail::__to_chars_len(_Tp, int) [with _Tp = long long unsigned int] (null)
+;; enabled by -tree-original
+
+
+<<< Unknown tree: must_not_throw_expr
+  {
+    unsigned int __n = 1;
+    const unsigned int __b2 = (unsigned int) (__base * __base);
+    const unsigned int __b3 = (unsigned int) __b2 * (unsigned int) __base;
+    const long unsigned int __b4 = (long unsigned int) ((unsigned int) __b3 * (unsigned int) __base);
+
+    <<cleanup_point     unsigned int __n = 1;>>;
+        const unsigned int __b2 = (unsigned int) (__base * __base);
+        const unsigned int __b3 = (unsigned int) __b2 * (unsigned int) __base;
+        const long unsigned int __b4 = (long unsigned int) ((unsigned int) __b3 * (unsigned int) __base);
+    while (1)
+      {
+        if ((long long unsigned int) (unsigned int) __base > __value)
+          {
+            return <retval> = __n;
+          }
+        if ((long long unsigned int) __b2 > __value)
+          {
+            return <retval> = __n + 1;
+          }
+        if ((long long unsigned int) __b3 > __value)
+          {
+            return <retval> = __n + 2;
+          }
+        if (__value < (long long unsigned int) __b4)
+          {
+            return <retval> = __n + 3;
+          }
+        <<cleanup_point <<< Unknown tree: expr_stmt
+  (void) (__value = __value / (long long unsigned int) __b4) >>>>>;
+        <<cleanup_point <<< Unknown tree: expr_stmt
+  (void) (__n = __n + 4) >>>>>;
+      }
+  }
+   >>>;
+
+
+;; Function std::string std::__cxx11::to_string(long long unsigned int) (null)
+;; enabled by -tree-original
+
+
+{
+  struct string __str [value-expr: *<retval>];
+
+  (void) 0;
+  <<cleanup_point <<< Unknown tree: expr_stmt
+  std::__cxx11::basic_string<char>::basic_string ((struct string *) <retval>, (size_type) std::__detail::__to_chars_len<long long unsigned int> (__val, 10), 0, (const struct allocator &) &TARGET_EXPR <D.26296, <<< Unknown tree: aggr_init_expr
+  4
+  __ct_comp 
+  D.26296
+  (struct allocator *) <<< Unknown tree: void_cst >>> >>>>) >>>>>;
+  try
+    {
+      <<cleanup_point <<< Unknown tree: expr_stmt
+  std::__detail::__to_chars_10_impl<long long unsigned int> ((value_type *) std::__cxx11::basic_string<char>::operator[] ((struct string *) <retval>, 0), (unsigned int) std::__cxx11::basic_string<char>::size ((struct string *) <retval>), __val) >>>>>;
+      <<cleanup_point return <retval>>>;
+    }
+  catch
+    {
+      std::__cxx11::basic_string<char>::~basic_string ((struct string *) <retval>);
+    }
+}
+
+
+;; Function std::string std::__cxx11::to_string(float) (null)
+;; enabled by -tree-original
+
+
+{
+  const int __n = 58;
+
+  <<cleanup_point   const int __n = 58;>>;
+  <<cleanup_point return *<retval> = TARGET_EXPR <D.26332, <<< Unknown tree: aggr_init_expr
+  7
+  __to_xstring
+  D.26332
+  vsnprintf
+  58
+  (const char *) "%f"
+  (double) __val >>>>>>;
+}
+
+
+;; Function std::string std::__cxx11::to_string(double) (null)
+;; enabled by -tree-original
+
+
+{
+  const int __n = 328;
+
+  <<cleanup_point   const int __n = 328;>>;
+  <<cleanup_point return *<retval> = TARGET_EXPR <D.26363, <<< Unknown tree: aggr_init_expr
+  7
+  __to_xstring
+  D.26363
+  vsnprintf
+  328
+  (const char *) "%f"
+  __val >>>>>>;
+}
+
+
+;; Function std::string std::__cxx11::to_string(long double) (null)
+;; enabled by -tree-original
+
+
+{
+  const int __n = 4952;
+
+  <<cleanup_point   const int __n = 4952;>>;
+  <<cleanup_point return *<retval> = TARGET_EXPR <D.26394, <<< Unknown tree: aggr_init_expr
+  7
+  __to_xstring
+  D.26394
+  vsnprintf
+  4952
+  (const char *) "%Lf"
+  __val >>>>>>;
+}
+
+
+;; Function int std::__cxx11::stoi(const wstring&, std::size_t*, int) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = __gnu_cxx::__stoa<long int, int, wchar_t, int> (wcstol, (const char *) "stoi", std::__cxx11::basic_string<wchar_t>::c_str ((const struct wstring *) __str), __idx, __base)>>;
+
+
+;; Function long int std::__cxx11::stol(const wstring&, std::size_t*, int) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = __gnu_cxx::__stoa<long int> (wcstol, (const char *) "stol", std::__cxx11::basic_string<wchar_t>::c_str ((const struct wstring *) __str), __idx, __base)>>;
+
+
+;; Function long unsigned int std::__cxx11::stoul(const wstring&, std::size_t*, int) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = __gnu_cxx::__stoa<long unsigned int> (wcstoul, (const char *) "stoul", std::__cxx11::basic_string<wchar_t>::c_str ((const struct wstring *) __str), __idx, __base)>>;
+
+
+;; Function long long int std::__cxx11::stoll(const wstring&, std::size_t*, int) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = __gnu_cxx::__stoa<long long int> (wcstoll, (const char *) "stoll", std::__cxx11::basic_string<wchar_t>::c_str ((const struct wstring *) __str), __idx, __base)>>;
+
+
+;; Function long long unsigned int std::__cxx11::stoull(const wstring&, std::size_t*, int) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = __gnu_cxx::__stoa<long long unsigned int> (wcstoull, (const char *) "stoull", std::__cxx11::basic_string<wchar_t>::c_str ((const struct wstring *) __str), __idx, __base)>>;
+
+
+;; Function float std::__cxx11::stof(const wstring&, std::size_t*) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = __gnu_cxx::__stoa<float> (wcstof, (const char *) "stof", std::__cxx11::basic_string<wchar_t>::c_str ((const struct wstring *) __str), __idx)>>;
+
+
+;; Function double std::__cxx11::stod(const wstring&, std::size_t*) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = __gnu_cxx::__stoa<double> (wcstod, (const char *) "stod", std::__cxx11::basic_string<wchar_t>::c_str ((const struct wstring *) __str), __idx)>>;
+
+
+;; Function long double std::__cxx11::stold(const wstring&, std::size_t*) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = __gnu_cxx::__stoa<long double> (wcstold, (const char *) "stold", std::__cxx11::basic_string<wchar_t>::c_str ((const struct wstring *) __str), __idx)>>;
+
+
+;; Function std::wstring std::__cxx11::to_wstring(int) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return *<retval> = TARGET_EXPR <D.27449, <<< Unknown tree: aggr_init_expr
+  7
+  __to_xstring
+  D.27449
+  vswprintf
+  16
+  (const wchar_t *) "%\x00\x00\x00d\x00\x00\x00\x00\x00\x00"
+  __val >>>>>>;
+
+
+;; Function std::wstring std::__cxx11::to_wstring(unsigned int) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return *<retval> = TARGET_EXPR <D.27515, <<< Unknown tree: aggr_init_expr
+  7
+  __to_xstring
+  D.27515
+  vswprintf
+  16
+  (const wchar_t *) "%\x00\x00\x00u\x00\x00\x00\x00\x00\x00"
+  __val >>>>>>;
+
+
+;; Function std::wstring std::__cxx11::to_wstring(long int) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return *<retval> = TARGET_EXPR <D.27519, <<< Unknown tree: aggr_init_expr
+  7
+  __to_xstring
+  D.27519
+  vswprintf
+  32
+  (const wchar_t *) "%\x00\x00\x00l\x00\x00\x00d\x00\x00\x00\x00\x00\x00"
+  __val >>>>>>;
+
+
+;; Function std::wstring std::__cxx11::to_wstring(long unsigned int) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return *<retval> = TARGET_EXPR <D.27523, <<< Unknown tree: aggr_init_expr
+  7
+  __to_xstring
+  D.27523
+  vswprintf
+  32
+  (const wchar_t *) "%\x00\x00\x00l\x00\x00\x00u\x00\x00\x00\x00\x00\x00"
+  __val >>>>>>;
+
+
+;; Function std::wstring std::__cxx11::to_wstring(long long int) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return *<retval> = TARGET_EXPR <D.27527, <<< Unknown tree: aggr_init_expr
+  7
+  __to_xstring
+  D.27527
+  vswprintf
+  32
+  (const wchar_t *) "%\x00\x00\x00l\x00\x00\x00l\x00\x00\x00d\x00\x00\x00\x00\x00\x00"
+  __val >>>>>>;
+
+
+;; Function std::wstring std::__cxx11::to_wstring(long long unsigned int) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return *<retval> = TARGET_EXPR <D.27531, <<< Unknown tree: aggr_init_expr
+  7
+  __to_xstring
+  D.27531
+  vswprintf
+  32
+  (const wchar_t *) "%\x00\x00\x00l\x00\x00\x00l\x00\x00\x00u\x00\x00\x00\x00\x00\x00"
+  __val >>>>>>;
+
+
+;; Function std::wstring std::__cxx11::to_wstring(float) (null)
+;; enabled by -tree-original
+
+
+{
+  const int __n = 58;
+
+  <<cleanup_point   const int __n = 58;>>;
+  <<cleanup_point return *<retval> = TARGET_EXPR <D.27536, <<< Unknown tree: aggr_init_expr
+  7
+  __to_xstring
+  D.27536
+  vswprintf
+  58
+  (const wchar_t *) "%\x00\x00\x00f\x00\x00\x00\x00\x00\x00"
+  (double) __val >>>>>>;
+}
+
+
+;; Function std::wstring std::__cxx11::to_wstring(double) (null)
+;; enabled by -tree-original
+
+
+{
+  const int __n = 328;
+
+  <<cleanup_point   const int __n = 328;>>;
+  <<cleanup_point return *<retval> = TARGET_EXPR <D.27541, <<< Unknown tree: aggr_init_expr
+  7
+  __to_xstring
+  D.27541
+  vswprintf
+  328
+  (const wchar_t *) "%\x00\x00\x00f\x00\x00\x00\x00\x00\x00"
+  __val >>>>>>;
+}
+
+
+;; Function std::wstring std::__cxx11::to_wstring(long double) (null)
+;; enabled by -tree-original
+
+
+{
+  const int __n = 4952;
+
+  <<cleanup_point   const int __n = 4952;>>;
+  <<cleanup_point return *<retval> = TARGET_EXPR <D.27546, <<< Unknown tree: aggr_init_expr
+  7
+  __to_xstring
+  D.27546
+  vswprintf
+  4952
+  (const wchar_t *) "%\x00\x00\x00L\x00\x00\x00f\x00\x00\x00\x00\x00\x00"
+  __val >>>>>>;
+}
+
+
+;; Function std::size_t std::hash<bool>::operator()(bool) const (null)
+;; enabled by -tree-original
+
+
+<<< Unknown tree: must_not_throw_expr
+  return <retval> = (size_t) __val
+   >>>;
+
+
+;; Function std::size_t std::hash<char>::operator()(char) const (null)
+;; enabled by -tree-original
+
+
+<<< Unknown tree: must_not_throw_expr
+  return <retval> = (size_t) __val
+   >>>;
+
+
+;; Function std::size_t std::hash<signed char>::operator()(signed char) const (null)
+;; enabled by -tree-original
+
+
+<<< Unknown tree: must_not_throw_expr
+  return <retval> = (size_t) __val
+   >>>;
+
+
+;; Function std::size_t std::hash<unsigned char>::operator()(unsigned char) const (null)
+;; enabled by -tree-original
+
+
+<<< Unknown tree: must_not_throw_expr
+  return <retval> = (size_t) __val
+   >>>;
+
+
+;; Function std::size_t std::hash<wchar_t>::operator()(wchar_t) const (null)
+;; enabled by -tree-original
+
+
+<<< Unknown tree: must_not_throw_expr
+  return <retval> = (size_t) __val
+   >>>;
+
+
+;; Function std::size_t std::hash<char16_t>::operator()(char16_t) const (null)
+;; enabled by -tree-original
+
+
+<<< Unknown tree: must_not_throw_expr
+  return <retval> = (size_t) __val
+   >>>;
+
+
+;; Function std::size_t std::hash<char32_t>::operator()(char32_t) const (null)
+;; enabled by -tree-original
+
+
+<<< Unknown tree: must_not_throw_expr
+  return <retval> = (size_t) __val
+   >>>;
+
+
+;; Function std::size_t std::hash<short int>::operator()(short int) const (null)
+;; enabled by -tree-original
+
+
+<<< Unknown tree: must_not_throw_expr
+  return <retval> = (size_t) __val
+   >>>;
+
+
+;; Function std::size_t std::hash<int>::operator()(int) const (null)
+;; enabled by -tree-original
+
+
+<<< Unknown tree: must_not_throw_expr
+  return <retval> = (size_t) __val
+   >>>;
+
+
+;; Function std::size_t std::hash<long int>::operator()(long int) const (null)
+;; enabled by -tree-original
+
+
+<<< Unknown tree: must_not_throw_expr
+  return <retval> = (size_t) __val
+   >>>;
+
+
+;; Function std::size_t std::hash<long long int>::operator()(long long int) const (null)
+;; enabled by -tree-original
+
+
+<<< Unknown tree: must_not_throw_expr
+  return <retval> = (size_t) __val
+   >>>;
+
+
+;; Function std::size_t std::hash<short unsigned int>::operator()(short unsigned int) const (null)
+;; enabled by -tree-original
+
+
+<<< Unknown tree: must_not_throw_expr
+  return <retval> = (size_t) __val
+   >>>;
+
+
+;; Function std::size_t std::hash<unsigned int>::operator()(unsigned int) const (null)
+;; enabled by -tree-original
+
+
+<<< Unknown tree: must_not_throw_expr
+  return <retval> = (size_t) __val
+   >>>;
+
+
+;; Function std::size_t std::hash<long unsigned int>::operator()(long unsigned int) const (null)
+;; enabled by -tree-original
+
+
+<<< Unknown tree: must_not_throw_expr
+  return <retval> = __val
+   >>>;
+
+
+;; Function std::size_t std::hash<long long unsigned int>::operator()(long long unsigned int) const (null)
+;; enabled by -tree-original
+
+
+<<< Unknown tree: must_not_throw_expr
+  return <retval> = (size_t) __val
+   >>>;
+
+
+;; Function std::size_t std::hash<__int128>::operator()(__int128) const (null)
+;; enabled by -tree-original
+
+
+<<< Unknown tree: must_not_throw_expr
+  return <retval> = (size_t) __val
+   >>>;
+
+
+;; Function std::size_t std::hash<__int128 unsigned>::operator()(__int128 unsigned) const (null)
+;; enabled by -tree-original
+
+
+<<< Unknown tree: must_not_throw_expr
+  return <retval> = (size_t) __val
+   >>>;
+
+
+;; Function static std::size_t std::_Hash_impl::hash(const void*, std::size_t, std::size_t) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = std::_Hash_bytes (__ptr, __clength, __seed)>>;
+
+
+;; Function static std::size_t std::_Fnv_hash_impl::hash(const void*, std::size_t, std::size_t) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = std::_Fnv_hash_bytes (__ptr, __clength, __seed)>>;
+
+
+;; Function std::size_t std::hash<float>::operator()(float) const (null)
+;; enabled by -tree-original
+
+
+<<< Unknown tree: must_not_throw_expr
+  <<cleanup_point return <retval> = __val != 0.0 ? std::_Hash_impl::hash<float> ((const float &) &__val) : 0>>
+   >>>;
+
+
+;; Function std::size_t std::hash<double>::operator()(double) const (null)
+;; enabled by -tree-original
+
+
+<<< Unknown tree: must_not_throw_expr
+  <<cleanup_point return <retval> = __val != 0.0 ? std::_Hash_impl::hash<double> ((const double &) &__val) : 0>>
+   >>>;
+
+
+;; Function std::size_t std::hash<std::__cxx11::basic_string<char> >::operator()(const string&) const (null)
+;; enabled by -tree-original
+
+
+<<< Unknown tree: must_not_throw_expr
+  <<cleanup_point return <retval> = std::_Hash_impl::hash ((const void *) std::__cxx11::basic_string<char>::data ((const struct string *) __s), std::__cxx11::basic_string<char>::length ((const struct string *) __s), 3339675911)>>
+   >>>;
+
+
+;; Function std::size_t std::hash<std::__cxx11::basic_string<wchar_t> >::operator()(const wstring&) const (null)
+;; enabled by -tree-original
+
+
+<<< Unknown tree: must_not_throw_expr
+  <<cleanup_point return <retval> = std::_Hash_impl::hash ((const void *) std::__cxx11::basic_string<wchar_t>::data ((const struct wstring *) __s), std::__cxx11::basic_string<wchar_t>::length ((const struct wstring *) __s) * 4, 3339675911)>>
+   >>>;
+
+
+;; Function std::size_t std::hash<std::__cxx11::basic_string<char16_t> >::operator()(const u16string&) const (null)
+;; enabled by -tree-original
+
+
+<<< Unknown tree: must_not_throw_expr
+  <<cleanup_point return <retval> = std::_Hash_impl::hash ((const void *) std::__cxx11::basic_string<char16_t>::data ((const struct u16string *) __s), std::__cxx11::basic_string<char16_t>::length ((const struct u16string *) __s) * 2, 3339675911)>>
+   >>>;
+
+
+;; Function std::size_t std::hash<std::__cxx11::basic_string<char32_t> >::operator()(const u32string&) const (null)
+;; enabled by -tree-original
+
+
+<<< Unknown tree: must_not_throw_expr
+  <<cleanup_point return <retval> = std::_Hash_impl::hash ((const void *) std::__cxx11::basic_string<char32_t>::data ((const struct u32string *) __s), std::__cxx11::basic_string<char32_t>::length ((const struct u32string *) __s) * 4, 3339675911)>>
+   >>>;
+
+
+;; Function std::__cxx11::basic_string<char> std::literals::string_literals::operator""s(const char*, std::size_t) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return *<retval> = TARGET_EXPR <D.30215, <<< Unknown tree: aggr_init_expr
+  7
+  __ct_comp 
+  D.30215
+  (struct basic_string *) <<< Unknown tree: void_cst >>>
+  __str
+  __len
+  (const struct allocator &) &TARGET_EXPR <D.30214, <<< Unknown tree: aggr_init_expr
+  4
+  __ct_comp 
+  D.30214
+  (struct allocator *) <<< Unknown tree: void_cst >>> >>>> >>>>>>;
+
+
+;; Function std::__cxx11::basic_string<wchar_t> std::literals::string_literals::operator""s(const wchar_t*, std::size_t) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return *<retval> = TARGET_EXPR <D.30222, <<< Unknown tree: aggr_init_expr
+  7
+  __ct_comp 
+  D.30222
+  (struct basic_string *) <<< Unknown tree: void_cst >>>
+  __str
+  __len
+  (const struct allocator &) &TARGET_EXPR <D.30221, <<< Unknown tree: aggr_init_expr
+  4
+  __ct_comp 
+  D.30221
+  (struct allocator *) <<< Unknown tree: void_cst >>> >>>> >>>>>>;
+
+
+;; Function std::__cxx11::basic_string<char16_t> std::literals::string_literals::operator""s(const char16_t*, std::size_t) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return *<retval> = TARGET_EXPR <D.30282, <<< Unknown tree: aggr_init_expr
+  7
+  __ct_comp 
+  D.30282
+  (struct basic_string *) <<< Unknown tree: void_cst >>>
+  __str
+  __len
+  (const struct allocator &) &TARGET_EXPR <D.30281, <<< Unknown tree: aggr_init_expr
+  4
+  __ct_comp 
+  D.30281
+  (struct allocator *) <<< Unknown tree: void_cst >>> >>>> >>>>>>;
+
+
+;; Function std::__cxx11::basic_string<char32_t> std::literals::string_literals::operator""s(const char32_t*, std::size_t) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return *<retval> = TARGET_EXPR <D.30351, <<< Unknown tree: aggr_init_expr
+  7
+  __ct_comp 
+  D.30351
+  (struct basic_string *) <<< Unknown tree: void_cst >>>
+  __str
+  __len
+  (const struct allocator &) &TARGET_EXPR <D.30350, <<< Unknown tree: aggr_init_expr
+  4
+  __ct_comp 
+  D.30350
+  (struct allocator *) <<< Unknown tree: void_cst >>> >>>> >>>>>>;
+
+
+;; Function std::locale::locale(const string&) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point <<< Unknown tree: expr_stmt
+  *(struct locale *) this = {CLOBBER} >>>>>;
+{
+  <<cleanup_point <<< Unknown tree: expr_stmt
+  std::locale::locale ((struct locale *) this, std::__cxx11::basic_string<char>::c_str ((const struct string *) __s)) >>>>>;
+  try
+    {
+      
+    }
+  catch
+    {
+      std::locale::~locale ((struct locale *) this);
+    }
+}
+
+
+;; Function std::locale::locale(const std::locale&, const string&, std::locale::category) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point <<< Unknown tree: expr_stmt
+  *(struct locale *) this = {CLOBBER} >>>>>;
+{
+  <<cleanup_point <<< Unknown tree: expr_stmt
+  std::locale::locale ((struct locale *) this, __base, std::__cxx11::basic_string<char>::c_str ((const struct string *) __s), __cat) >>>>>;
+  try
+    {
+      
+    }
+  catch
+    {
+      std::locale::~locale ((struct locale *) this);
+    }
+}
+
+
+;; Function bool std::locale::operator!=(const std::locale&) const (null)
+;; enabled by -tree-original
+
+
+<<< Unknown tree: eh_spec_block
+  <<cleanup_point return <retval> = !std::locale::operator== ((const struct locale *) this, __other)>>
+   >>>;
+
+
+;; Function std::locale::facet::facet(std::size_t) (null)
+;; enabled by -tree-original
+
+
+<<< Unknown tree: eh_spec_block
+  <<cleanup_point <<< Unknown tree: expr_stmt
+  *(struct 
+  {
+    int (*) () * _vptr.facet;
+    _Atomic_word _M_refcount;
+  } &) this = {CLOBBER} >>>>>;
+  {
+    <<cleanup_point <<< Unknown tree: expr_stmt
+  (void) (((struct facet *) this)->_vptr.facet = &_ZTVNSt6locale5facetE + 16) >>>>>;
+    <<cleanup_point <<< Unknown tree: expr_stmt
+  (void) (((struct facet *) this)->_M_refcount = __refs != 0 ? 1 : 0) >>>>>;
+  }
+   >>>;
+
+
+;; Function void std::locale::facet::_M_add_reference() const (null)
+;; enabled by -tree-original
+
+
+<<< Unknown tree: eh_spec_block
+  <<cleanup_point <<< Unknown tree: expr_stmt
+  __gnu_cxx::__atomic_add_dispatch (&((const struct facet *) this)->_M_refcount, 1) >>>>>
+   >>>;
+
+
+;; Function void std::locale::facet::_M_remove_reference() const (null)
+;; enabled by -tree-original
+
+
+<<< Unknown tree: eh_spec_block
+  if (<<cleanup_point __gnu_cxx::__exchange_and_add_dispatch (&((const struct facet *) this)->_M_refcount, -1) == 1>>)
+    {
+      <<< Unknown tree: try_block
+  <<cleanup_point <<< Unknown tree: expr_stmt
+  if ((struct facet *) this != 0B)
+    {
+      OBJ_TYPE_REF(*(((struct facet *) this)->_vptr.facet + 8);(struct facet)(struct facet *) this->1) ((struct facet *) this);
+    }
+  else
+    {
+      <<< Unknown tree: void_cst >>>
+    } >>>>>
+  <<< Unknown tree: handler
+  
+  try
+    {
+      <<cleanup_point <<< Unknown tree: expr_stmt
+  (void) __cxa_begin_catch (__builtin_eh_pointer (0)) >>>>>;
+    }
+  finally
+    {
+      __cxa_end_catch ();
+    } >>> >>>;
+    }
+   >>>;
+
+
+;; Function std::locale::id::id() (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point <<< Unknown tree: expr_stmt
+  *(struct id *) this = {CLOBBER} >>>>>;
+{
+  
+}
+
+
+;; Function void std::locale::_Impl::_M_add_reference() (null)
+;; enabled by -tree-original
+
+
+<<< Unknown tree: eh_spec_block
+  <<cleanup_point <<< Unknown tree: expr_stmt
+  __gnu_cxx::__atomic_add_dispatch (&((struct _Impl *) this)->_M_refcount, 1) >>>>>
+   >>>;
+
+
+;; Function void std::locale::_Impl::_M_remove_reference() (null)
+;; enabled by -tree-original
+
+
+<<< Unknown tree: eh_spec_block
+  if (<<cleanup_point __gnu_cxx::__exchange_and_add_dispatch (&((struct _Impl *) this)->_M_refcount, -1) == 1>>)
+    {
+      <<< Unknown tree: try_block
+  <<cleanup_point <<< Unknown tree: expr_stmt
+  if ((struct _Impl *) this != 0B)
+    {
+      try
+        {
+          std::locale::_Impl::~_Impl ((struct _Impl *) this);
+        }
+      finally
+        {
+          operator delete ((void *) this, 40);
+        }
+    }
+  else
+    {
+      <<< Unknown tree: void_cst >>>
+    } >>>>>
+  <<< Unknown tree: handler
+  
+  try
+    {
+      <<cleanup_point <<< Unknown tree: expr_stmt
+  (void) __cxa_begin_catch (__builtin_eh_pointer (0)) >>>>>;
+    }
+  finally
+    {
+      __cxa_end_catch ();
+    } >>> >>>;
+    }
+   >>>;
+
+
+;; Function bool std::locale::_Impl::_M_check_same_name() (null)
+;; enabled by -tree-original
+
+
+{
+  bool __ret = 1;
+
+  <<cleanup_point   bool __ret = 1;>>;
+  {
+    if (*(((struct _Impl *) this)->_M_names + 8) != 0B)
+      {
+        {
+          {
+            size_t __i = 0;
+
+            <<cleanup_point             size_t __i = 0;>>;
+            while (1)
+              {
+                if (!__ret || __i > 10) goto <D.31376>;
+                <<cleanup_point <<< Unknown tree: expr_stmt
+  (void) (__ret = __builtin_strcmp ((const char *) *(((struct _Impl *) this)->_M_names + (sizetype) (__i * 8)), (const char *) *(((struct _Impl *) this)->_M_names + ((sizetype) __i + 1) * 8)) == 0) >>>>>;
+                <<cleanup_point (void)  ++__i>>;
+              }
+            <D.31376>:;
+          }
+        }
+      }
+  }
+  return <retval> = __ret;
+}
+
+
+;; Function bool std::_V2::error_category::operator==(const std::_V2::error_category&) const (null)
+;; enabled by -tree-original
+
+
+<<< Unknown tree: must_not_throw_expr
+  return <retval> = (const struct error_category *) this == (const struct error_category *) __other
+   >>>;
+
+
+;; Function bool std::_V2::error_category::operator!=(const std::_V2::error_category&) const (null)
+;; enabled by -tree-original
+
+
+<<< Unknown tree: must_not_throw_expr
+  return <retval> = (const struct error_category *) this != (const struct error_category *) __other
+   >>>;
+
+
+;; Function bool std::_V2::error_category::operator<(const std::_V2::error_category&) const (null)
+;; enabled by -tree-original
+
+
+<<< Unknown tree: must_not_throw_expr
+  <<cleanup_point return <retval> = std::less<const std::_V2::error_category*>::operator() (&TARGET_EXPR <D.32826, {}>, (const struct error_category *) this, (const struct error_category *) __other)>>
+   >>>;
+
+
+;; Function std::error_code::error_code() (null)
+;; enabled by -tree-original
+
+
+<<< Unknown tree: must_not_throw_expr
+  <<cleanup_point <<< Unknown tree: expr_stmt
+  *(struct error_code *) this = {CLOBBER} >>>>>;
+  {
+    <<cleanup_point <<< Unknown tree: expr_stmt
+  (void) (((struct error_code *) this)->_M_value = 0) >>>>>;
+    <<cleanup_point <<< Unknown tree: expr_stmt
+  (void) (((struct error_code *) this)->_M_cat = (const struct error_category *) std::_V2::system_category ()) >>>>>;
+  }
+   >>>;
+
+
+;; Function std::error_code::error_code(int, const std::_V2::error_category&) (null)
+;; enabled by -tree-original
+
+
+<<< Unknown tree: must_not_throw_expr
+  <<cleanup_point <<< Unknown tree: expr_stmt
+  *(struct error_code *) this = {CLOBBER} >>>>>;
+  {
+    <<cleanup_point <<< Unknown tree: expr_stmt
+  (void) (((struct error_code *) this)->_M_value = __v) >>>>>;
+    <<cleanup_point <<< Unknown tree: expr_stmt
+  (void) (((struct error_code *) this)->_M_cat = (const struct error_category *) __cat) >>>>>;
+  }
+   >>>;
+
+
+;; Function void std::error_code::assign(int, const std::_V2::error_category&) (null)
+;; enabled by -tree-original
+
+
+<<< Unknown tree: must_not_throw_expr
+  <<cleanup_point <<< Unknown tree: expr_stmt
+  (void) (((struct error_code *) this)->_M_value = __v) >>>>>;
+  <<cleanup_point <<< Unknown tree: expr_stmt
+  (void) (((struct error_code *) this)->_M_cat = (const struct error_category *) __cat) >>>>>;
+   >>>;
+
+
+;; Function void std::error_code::clear() (null)
+;; enabled by -tree-original
+
+
+<<< Unknown tree: must_not_throw_expr
+  <<cleanup_point <<< Unknown tree: expr_stmt
+  std::error_code::assign ((struct error_code *) this, 0, std::_V2::system_category ()) >>>>>
+   >>>;
+
+
+;; Function int std::error_code::value() const (null)
+;; enabled by -tree-original
+
+
+<<< Unknown tree: must_not_throw_expr
+  return <retval> = (int) ((const struct error_code *) this)->_M_value
+   >>>;
+
+
+;; Function const std::_V2::error_category& std::error_code::category() const (null)
+;; enabled by -tree-original
+
+
+<<< Unknown tree: must_not_throw_expr
+  return <retval> = (const struct error_category &) ((const struct error_code *) this)->_M_cat
+   >>>;
+
+
+;; Function std::string std::error_code::message() const (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return *<retval> = TARGET_EXPR <D.32915, <<< Unknown tree: aggr_init_expr
+  5
+  OBJ_TYPE_REF(*((SAVE_EXPR <(const struct error_category *) std::error_code::category ((const struct error_code *) this)>)->_vptr.error_category + 32);(const struct error_category)SAVE_EXPR <(const struct error_category *) std::error_code::category ((const struct error_code *) this)>->4)
+  D.32915
+  SAVE_EXPR <(const struct error_category *) std::error_code::category ((const struct error_code *) this)>
+  std::error_code::value ((const struct error_code *) this) >>>>>>;
+
+
+;; Function std::error_code::operator bool() const (null)
+;; enabled by -tree-original
+
+
+<<< Unknown tree: must_not_throw_expr
+  return <retval> = ((const struct error_code *) this)->_M_value != 0
+   >>>;
+
+
+;; Function std::error_code std::make_error_code(std::errc) (null)
+;; enabled by -tree-original
+
+
+<<< Unknown tree: must_not_throw_expr
+  <<cleanup_point return <retval> = TARGET_EXPR <D.32938, <<< Unknown tree: aggr_init_expr
+  6
+  __ct_comp 
+  D.32938
+  (struct error_code *) <<< Unknown tree: void_cst >>>
+  (int) __e
+  std::_V2::generic_category () >>>>;, D.32938>>
+   >>>;
+
+
+;; Function bool std::operator<(const std::error_code&, const std::error_code&) (null)
+;; enabled by -tree-original
+
+
+<<< Unknown tree: must_not_throw_expr
+  <<cleanup_point return <retval> = std::_V2::error_category::operator< ((const struct error_category *) std::error_code::category ((const struct error_code *) __lhs), std::error_code::category ((const struct error_code *) __rhs)) || std::_V2::error_category::operator== ((const struct error_category *) std::error_code::category ((const struct error_code *) __lhs), std::error_code::category ((const struct error_code *) __rhs)) && std::error_code::value ((const struct error_code *) __lhs) < std::error_code::value ((const struct error_code *) __rhs)>>
+   >>>;
+
+
+;; Function std::error_condition::error_condition() (null)
+;; enabled by -tree-original
+
+
+<<< Unknown tree: must_not_throw_expr
+  <<cleanup_point <<< Unknown tree: expr_stmt
+  *(struct error_condition *) this = {CLOBBER} >>>>>;
+  {
+    <<cleanup_point <<< Unknown tree: expr_stmt
+  (void) (((struct error_condition *) this)->_M_value = 0) >>>>>;
+    <<cleanup_point <<< Unknown tree: expr_stmt
+  (void) (((struct error_condition *) this)->_M_cat = (const struct error_category *) std::_V2::generic_category ()) >>>>>;
+  }
+   >>>;
+
+
+;; Function std::error_condition::error_condition(int, const std::_V2::error_category&) (null)
+;; enabled by -tree-original
+
+
+<<< Unknown tree: must_not_throw_expr
+  <<cleanup_point <<< Unknown tree: expr_stmt
+  *(struct error_condition *) this = {CLOBBER} >>>>>;
+  {
+    <<cleanup_point <<< Unknown tree: expr_stmt
+  (void) (((struct error_condition *) this)->_M_value = __v) >>>>>;
+    <<cleanup_point <<< Unknown tree: expr_stmt
+  (void) (((struct error_condition *) this)->_M_cat = (const struct error_category *) __cat) >>>>>;
+  }
+   >>>;
+
+
+;; Function void std::error_condition::assign(int, const std::_V2::error_category&) (null)
+;; enabled by -tree-original
+
+
+<<< Unknown tree: must_not_throw_expr
+  <<cleanup_point <<< Unknown tree: expr_stmt
+  (void) (((struct error_condition *) this)->_M_value = __v) >>>>>;
+  <<cleanup_point <<< Unknown tree: expr_stmt
+  (void) (((struct error_condition *) this)->_M_cat = (const struct error_category *) __cat) >>>>>;
+   >>>;
+
+
+;; Function void std::error_condition::clear() (null)
+;; enabled by -tree-original
+
+
+<<< Unknown tree: must_not_throw_expr
+  <<cleanup_point <<< Unknown tree: expr_stmt
+  std::error_condition::assign ((struct error_condition *) this, 0, std::_V2::generic_category ()) >>>>>
+   >>>;
+
+
+;; Function int std::error_condition::value() const (null)
+;; enabled by -tree-original
+
+
+<<< Unknown tree: must_not_throw_expr
+  return <retval> = (int) ((const struct error_condition *) this)->_M_value
+   >>>;
+
+
+;; Function const std::_V2::error_category& std::error_condition::category() const (null)
+;; enabled by -tree-original
+
+
+<<< Unknown tree: must_not_throw_expr
+  return <retval> = (const struct error_category &) ((const struct error_condition *) this)->_M_cat
+   >>>;
+
+
+;; Function std::string std::error_condition::message() const (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return *<retval> = TARGET_EXPR <D.33039, <<< Unknown tree: aggr_init_expr
+  5
+  OBJ_TYPE_REF(*((SAVE_EXPR <(const struct error_category *) std::error_condition::category ((const struct error_condition *) this)>)->_vptr.error_category + 32);(const struct error_category)SAVE_EXPR <(const struct error_category *) std::error_condition::category ((const struct error_condition *) this)>->4)
+  D.33039
+  SAVE_EXPR <(const struct error_category *) std::error_condition::category ((const struct error_condition *) this)>
+  std::error_condition::value ((const struct error_condition *) this) >>>>>>;
+
+
+;; Function std::error_condition::operator bool() const (null)
+;; enabled by -tree-original
+
+
+<<< Unknown tree: must_not_throw_expr
+  return <retval> = ((const struct error_condition *) this)->_M_value != 0
+   >>>;
+
+
+;; Function std::error_condition std::make_error_condition(std::errc) (null)
+;; enabled by -tree-original
+
+
+<<< Unknown tree: must_not_throw_expr
+  <<cleanup_point return <retval> = TARGET_EXPR <D.33062, <<< Unknown tree: aggr_init_expr
+  6
+  __ct_comp 
+  D.33062
+  (struct error_condition *) <<< Unknown tree: void_cst >>>
+  (int) __e
+  std::_V2::generic_category () >>>>;, D.33062>>
+   >>>;
+
+
+;; Function bool std::operator==(const std::error_code&, const std::error_code&) (null)
+;; enabled by -tree-original
+
+
+<<< Unknown tree: must_not_throw_expr
+  <<cleanup_point return <retval> = std::_V2::error_category::operator== ((const struct error_category *) std::error_code::category ((const struct error_code *) __lhs), std::error_code::category ((const struct error_code *) __rhs)) && std::error_code::value ((const struct error_code *) __lhs) == std::error_code::value ((const struct error_code *) __rhs)>>
+   >>>;
+
+
+;; Function bool std::operator==(const std::error_code&, const std::error_condition&) (null)
+;; enabled by -tree-original
+
+
+<<< Unknown tree: must_not_throw_expr
+  <<cleanup_point return <retval> = OBJ_TYPE_REF(*((SAVE_EXPR <(const struct error_category *) std::error_code::category ((const struct error_code *) __lhs)>)->_vptr.error_category + 48);(const struct error_category)SAVE_EXPR <(const struct error_category *) std::error_code::category ((const struct error_code *) __lhs)>->6) (SAVE_EXPR <(const struct error_category *) std::error_code::category ((const struct error_code *) __lhs)>, std::error_code::value ((const struct error_code *) __lhs), __rhs) || OBJ_TYPE_REF(*((SAVE_EXPR <(const struct error_category *) std::error_condition::category ((const struct error_condition *) __rhs)>)->_vptr.error_category + 56);(const struct error_category)SAVE_EXPR <(const struct error_category *) std::error_condition::category ((const struct error_condition *) __rhs)>->7) (SAVE_EXPR <(const struct error_category *) std::error_condition::category ((const struct error_condition *) __rhs)>, __lhs, std::error_condition::value ((const struct error_condition *) __rhs))>>
+   >>>;
+
+
+;; Function bool std::operator==(const std::error_condition&, const std::error_condition&) (null)
+;; enabled by -tree-original
+
+
+<<< Unknown tree: must_not_throw_expr
+  <<cleanup_point return <retval> = std::_V2::error_category::operator== ((const struct error_category *) std::error_condition::category ((const struct error_condition *) __lhs), std::error_condition::category ((const struct error_condition *) __rhs)) && std::error_condition::value ((const struct error_condition *) __lhs) == std::error_condition::value ((const struct error_condition *) __rhs)>>
+   >>>;
+
+
+;; Function bool std::operator<(const std::error_condition&, const std::error_condition&) (null)
+;; enabled by -tree-original
+
+
+<<< Unknown tree: must_not_throw_expr
+  <<cleanup_point return <retval> = std::_V2::error_category::operator< ((const struct error_category *) std::error_condition::category ((const struct error_condition *) __lhs), std::error_condition::category ((const struct error_condition *) __rhs)) || std::_V2::error_category::operator== ((const struct error_category *) std::error_condition::category ((const struct error_condition *) __lhs), std::error_condition::category ((const struct error_condition *) __rhs)) && std::error_condition::value ((const struct error_condition *) __lhs) < std::error_condition::value ((const struct error_condition *) __rhs)>>
+   >>>;
+
+
+;; Function bool std::operator==(const std::error_condition&, const std::error_code&) (null)
+;; enabled by -tree-original
+
+
+<<< Unknown tree: must_not_throw_expr
+  <<cleanup_point return <retval> = OBJ_TYPE_REF(*((SAVE_EXPR <(const struct error_category *) std::error_code::category ((const struct error_code *) __rhs)>)->_vptr.error_category + 48);(const struct error_category)SAVE_EXPR <(const struct error_category *) std::error_code::category ((const struct error_code *) __rhs)>->6) (SAVE_EXPR <(const struct error_category *) std::error_code::category ((const struct error_code *) __rhs)>, std::error_code::value ((const struct error_code *) __rhs), __lhs) || OBJ_TYPE_REF(*((SAVE_EXPR <(const struct error_category *) std::error_condition::category ((const struct error_condition *) __lhs)>)->_vptr.error_category + 56);(const struct error_category)SAVE_EXPR <(const struct error_category *) std::error_condition::category ((const struct error_condition *) __lhs)>->7) (SAVE_EXPR <(const struct error_category *) std::error_condition::category ((const struct error_condition *) __lhs)>, __rhs, std::error_condition::value ((const struct error_condition *) __lhs))>>
+   >>>;
+
+
+;; Function bool std::operator!=(const std::error_code&, const std::error_code&) (null)
+;; enabled by -tree-original
+
+
+<<< Unknown tree: must_not_throw_expr
+  <<cleanup_point return <retval> = !std::operator== (__lhs, __rhs)>>
+   >>>;
+
+
+;; Function bool std::operator!=(const std::error_code&, const std::error_condition&) (null)
+;; enabled by -tree-original
+
+
+<<< Unknown tree: must_not_throw_expr
+  <<cleanup_point return <retval> = !std::operator== (__lhs, __rhs)>>
+   >>>;
+
+
+;; Function bool std::operator!=(const std::error_condition&, const std::error_code&) (null)
+;; enabled by -tree-original
+
+
+<<< Unknown tree: must_not_throw_expr
+  <<cleanup_point return <retval> = !std::operator== (__lhs, __rhs)>>
+   >>>;
+
+
+;; Function bool std::operator!=(const std::error_condition&, const std::error_condition&) (null)
+;; enabled by -tree-original
+
+
+<<< Unknown tree: must_not_throw_expr
+  <<cleanup_point return <retval> = !std::operator== (__lhs, __rhs)>>
+   >>>;
+
+
+;; Function std::system_error::system_error(std::error_code) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point <<< Unknown tree: expr_stmt
+  *(struct system_error *) this = {CLOBBER} >>>>>;
+{
+  <<cleanup_point <<< Unknown tree: expr_stmt
+  std::runtime_error::runtime_error (&((struct system_error *) this)->D.33236, (const struct string &) &TARGET_EXPR <D.33243, <<< Unknown tree: aggr_init_expr
+  4
+  message
+  D.33243
+  &__ec >>>>) >>>>>;
+  try
+    {
+      <<cleanup_point <<< Unknown tree: expr_stmt
+  (void) (((struct system_error *) this)->D.33236.D.32449._vptr.exception = &_ZTVSt12system_error + 16) >>>>>;
+      <<cleanup_point <<< Unknown tree: expr_stmt
+  (void) (((struct system_error *) this)->_M_code = __ec) >>>>>;
+    }
+  catch
+    {
+      std::runtime_error::~runtime_error (&((struct system_error *) this)->D.33236);
+    }
+}
+
+
+;; Function std::system_error::system_error(std::error_code, const string&) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point <<< Unknown tree: expr_stmt
+  *(struct system_error *) this = {CLOBBER} >>>>>;
+{
+  <<cleanup_point <<< Unknown tree: expr_stmt
+  std::runtime_error::runtime_error (&((struct system_error *) this)->D.33236, (const struct string &) &TARGET_EXPR <D.33265, <<< Unknown tree: aggr_init_expr
+  5
+  operator+
+  D.33265
+  (struct basic_string &) &TARGET_EXPR <D.33251, <<< Unknown tree: aggr_init_expr
+  5
+  operator+
+  D.33251
+  (const struct basic_string &) __what
+  (const char *) ": " >>>>
+  (struct basic_string &) &TARGET_EXPR <D.33252, <<< Unknown tree: aggr_init_expr
+  4
+  message
+  D.33252
+  &__ec >>>> >>>>) >>>>>;
+  try
+    {
+      <<cleanup_point <<< Unknown tree: expr_stmt
+  (void) (((struct system_error *) this)->D.33236.D.32449._vptr.exception = &_ZTVSt12system_error + 16) >>>>>;
+      <<cleanup_point <<< Unknown tree: expr_stmt
+  (void) (((struct system_error *) this)->_M_code = __ec) >>>>>;
+    }
+  catch
+    {
+      std::runtime_error::~runtime_error (&((struct system_error *) this)->D.33236);
+    }
+}
+
+
+;; Function std::system_error::system_error(std::error_code, const char*) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point <<< Unknown tree: expr_stmt
+  *(struct system_error *) this = {CLOBBER} >>>>>;
+{
+  <<cleanup_point <<< Unknown tree: expr_stmt
+  std::runtime_error::runtime_error (&((struct system_error *) this)->D.33236, (const struct string &) &TARGET_EXPR <D.33280, <<< Unknown tree: aggr_init_expr
+  5
+  operator+
+  D.33280
+  __what
+  (struct basic_string &) &TARGET_EXPR <D.33279, <<< Unknown tree: aggr_init_expr
+  5
+  operator+
+  D.33279
+  (const char *) ": "
+  (struct basic_string &) &TARGET_EXPR <D.33272, <<< Unknown tree: aggr_init_expr
+  4
+  message
+  D.33272
+  &__ec >>>> >>>> >>>>) >>>>>;
+  try
+    {
+      <<cleanup_point <<< Unknown tree: expr_stmt
+  (void) (((struct system_error *) this)->D.33236.D.32449._vptr.exception = &_ZTVSt12system_error + 16) >>>>>;
+      <<cleanup_point <<< Unknown tree: expr_stmt
+  (void) (((struct system_error *) this)->_M_code = __ec) >>>>>;
+    }
+  catch
+    {
+      std::runtime_error::~runtime_error (&((struct system_error *) this)->D.33236);
+    }
+}
+
+
+;; Function std::system_error::system_error(int, const std::_V2::error_category&, const char*) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point <<< Unknown tree: expr_stmt
+  *(struct system_error *) this = {CLOBBER} >>>>>;
+{
+  <<cleanup_point <<< Unknown tree: expr_stmt
+  std::system_error::system_error ((struct system_error *) this, TARGET_EXPR <D.33287, <<< Unknown tree: aggr_init_expr
+  6
+  __ct_comp 
+  D.33287
+  (struct error_code *) <<< Unknown tree: void_cst >>>
+  __v
+  __ecat >>>>, __what) >>>>>;
+  try
+    {
+      
+    }
+  catch
+    {
+      std::system_error::~system_error ((struct system_error *) this);
+    }
+}
+
+
+;; Function std::system_error::system_error(int, const std::_V2::error_category&) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point <<< Unknown tree: expr_stmt
+  *(struct system_error *) this = {CLOBBER} >>>>>;
+{
+  <<cleanup_point <<< Unknown tree: expr_stmt
+  std::runtime_error::runtime_error (&((struct system_error *) this)->D.33236, (const struct string &) &TARGET_EXPR <D.33293, <<< Unknown tree: aggr_init_expr
+  4
+  message
+  D.33293
+  &TARGET_EXPR <D.33292, <<< Unknown tree: aggr_init_expr
+  6
+  __ct_comp 
+  D.33292
+  (struct error_code *) <<< Unknown tree: void_cst >>>
+  __v
+  __ecat >>>> >>>>) >>>>>;
+  try
+    {
+      <<cleanup_point <<< Unknown tree: expr_stmt
+  (void) (((struct system_error *) this)->D.33236.D.32449._vptr.exception = &_ZTVSt12system_error + 16) >>>>>;
+      <<cleanup_point <<< Unknown tree: expr_stmt
+  std::error_code::error_code (&((struct system_error *) this)->_M_code, __v, __ecat) >>>>>;
+    }
+  catch
+    {
+      std::runtime_error::~runtime_error (&((struct system_error *) this)->D.33236);
+    }
+}
+
+
+;; Function std::system_error::system_error(int, const std::_V2::error_category&, const string&) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point <<< Unknown tree: expr_stmt
+  *(struct system_error *) this = {CLOBBER} >>>>>;
+{
+  <<cleanup_point <<< Unknown tree: expr_stmt
+  std::runtime_error::runtime_error (&((struct system_error *) this)->D.33236, (const struct string &) &TARGET_EXPR <D.33302, <<< Unknown tree: aggr_init_expr
+  5
+  operator+
+  D.33302
+  (struct basic_string &) &TARGET_EXPR <D.33299, <<< Unknown tree: aggr_init_expr
+  5
+  operator+
+  D.33299
+  (const struct basic_string &) __what
+  (const char *) ": " >>>>
+  (struct basic_string &) &TARGET_EXPR <D.33301, <<< Unknown tree: aggr_init_expr
+  4
+  message
+  D.33301
+  &TARGET_EXPR <D.33300, <<< Unknown tree: aggr_init_expr
+  6
+  __ct_comp 
+  D.33300
+  (struct error_code *) <<< Unknown tree: void_cst >>>
+  __v
+  __ecat >>>> >>>> >>>>) >>>>>;
+  try
+    {
+      <<cleanup_point <<< Unknown tree: expr_stmt
+  (void) (((struct system_error *) this)->D.33236.D.32449._vptr.exception = &_ZTVSt12system_error + 16) >>>>>;
+      <<cleanup_point <<< Unknown tree: expr_stmt
+  std::error_code::error_code (&((struct system_error *) this)->_M_code, __v, __ecat) >>>>>;
+    }
+  catch
+    {
+      std::runtime_error::~runtime_error (&((struct system_error *) this)->D.33236);
+    }
+}
+
+
+;; Function const std::error_code& std::system_error::code() const (null)
+;; enabled by -tree-original
+
+
+<<< Unknown tree: must_not_throw_expr
+  return <retval> = (const struct error_code &) &((const struct system_error *) this)->_M_code
+   >>>;
+
+
+;; Function std::size_t std::hash<std::error_code>::operator()(const std::error_code&) const (null)
+;; enabled by -tree-original
+
+
+<<< Unknown tree: must_not_throw_expr
+  {
+    const size_t __tmp;
+
+        const size_t __tmp;
+    <<cleanup_point <<< Unknown tree: expr_stmt
+  (void) (__tmp = std::_Hash_impl::hash<int> ((const int &) &TARGET_EXPR <D.33324, std::error_code::value ((const struct error_code *) __e)>)) >>>>>;
+    <<cleanup_point return <retval> = std::_Hash_impl::__hash_combine<const std::_V2::error_category*> ((const struct error_category * const &) &TARGET_EXPR <D.33328, (const struct error_category *) std::error_code::category ((const struct error_code *) __e)>, (size_t) __tmp)>>;
+  }
+   >>>;
+
+
+;; Function constexpr std::_Ios_Fmtflags std::operator&(std::_Ios_Fmtflags, std::_Ios_Fmtflags) (null)
+;; enabled by -tree-original
+
+
+return <retval> = (_Ios_Fmtflags) ((int) __a & (int) __b);
+
+
+;; Function constexpr std::_Ios_Fmtflags std::operator|(std::_Ios_Fmtflags, std::_Ios_Fmtflags) (null)
+;; enabled by -tree-original
+
+
+return <retval> = (_Ios_Fmtflags) ((int) __a | (int) __b);
+
+
+;; Function constexpr std::_Ios_Fmtflags std::operator^(std::_Ios_Fmtflags, std::_Ios_Fmtflags) (null)
+;; enabled by -tree-original
+
+
+return <retval> = (_Ios_Fmtflags) ((int) __a ^ (int) __b);
+
+
+;; Function constexpr std::_Ios_Fmtflags std::operator~(std::_Ios_Fmtflags) (null)
+;; enabled by -tree-original
+
+
+return <retval> = ~__a;
+
+
+;; Function const std::_Ios_Fmtflags& std::operator|=(std::_Ios_Fmtflags&, std::_Ios_Fmtflags) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = *__a = std::operator| (*__a, __b);, (const _Ios_Fmtflags &) __a;>>;
+
+
+;; Function const std::_Ios_Fmtflags& std::operator&=(std::_Ios_Fmtflags&, std::_Ios_Fmtflags) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = *__a = std::operator& (*__a, __b);, (const _Ios_Fmtflags &) __a;>>;
+
+
+;; Function const std::_Ios_Fmtflags& std::operator^=(std::_Ios_Fmtflags&, std::_Ios_Fmtflags) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = *__a = std::operator^ (*__a, __b);, (const _Ios_Fmtflags &) __a;>>;
+
+
+;; Function constexpr std::_Ios_Openmode std::operator&(std::_Ios_Openmode, std::_Ios_Openmode) (null)
+;; enabled by -tree-original
+
+
+return <retval> = (_Ios_Openmode) ((int) __a & (int) __b);
+
+
+;; Function constexpr std::_Ios_Openmode std::operator|(std::_Ios_Openmode, std::_Ios_Openmode) (null)
+;; enabled by -tree-original
+
+
+return <retval> = (_Ios_Openmode) ((int) __a | (int) __b);
+
+
+;; Function constexpr std::_Ios_Openmode std::operator^(std::_Ios_Openmode, std::_Ios_Openmode) (null)
+;; enabled by -tree-original
+
+
+return <retval> = (_Ios_Openmode) ((int) __a ^ (int) __b);
+
+
+;; Function constexpr std::_Ios_Openmode std::operator~(std::_Ios_Openmode) (null)
+;; enabled by -tree-original
+
+
+return <retval> = ~__a;
+
+
+;; Function const std::_Ios_Openmode& std::operator|=(std::_Ios_Openmode&, std::_Ios_Openmode) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = *__a = std::operator| (*__a, __b);, (const _Ios_Openmode &) __a;>>;
+
+
+;; Function const std::_Ios_Openmode& std::operator&=(std::_Ios_Openmode&, std::_Ios_Openmode) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = *__a = std::operator& (*__a, __b);, (const _Ios_Openmode &) __a;>>;
+
+
+;; Function const std::_Ios_Openmode& std::operator^=(std::_Ios_Openmode&, std::_Ios_Openmode) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = *__a = std::operator^ (*__a, __b);, (const _Ios_Openmode &) __a;>>;
+
+
+;; Function constexpr std::_Ios_Iostate std::operator&(std::_Ios_Iostate, std::_Ios_Iostate) (null)
+;; enabled by -tree-original
+
+
+return <retval> = (_Ios_Iostate) ((int) __a & (int) __b);
+
+
+;; Function constexpr std::_Ios_Iostate std::operator|(std::_Ios_Iostate, std::_Ios_Iostate) (null)
+;; enabled by -tree-original
+
+
+return <retval> = (_Ios_Iostate) ((int) __a | (int) __b);
+
+
+;; Function constexpr std::_Ios_Iostate std::operator^(std::_Ios_Iostate, std::_Ios_Iostate) (null)
+;; enabled by -tree-original
+
+
+return <retval> = (_Ios_Iostate) ((int) __a ^ (int) __b);
+
+
+;; Function constexpr std::_Ios_Iostate std::operator~(std::_Ios_Iostate) (null)
+;; enabled by -tree-original
+
+
+return <retval> = ~__a;
+
+
+;; Function const std::_Ios_Iostate& std::operator|=(std::_Ios_Iostate&, std::_Ios_Iostate) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = *__a = std::operator| (*__a, __b);, (const _Ios_Iostate &) __a;>>;
+
+
+;; Function const std::_Ios_Iostate& std::operator&=(std::_Ios_Iostate&, std::_Ios_Iostate) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = *__a = std::operator& (*__a, __b);, (const _Ios_Iostate &) __a;>>;
+
+
+;; Function const std::_Ios_Iostate& std::operator^=(std::_Ios_Iostate&, std::_Ios_Iostate) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = *__a = std::operator^ (*__a, __b);, (const _Ios_Iostate &) __a;>>;
+
+
+;; Function std::error_code std::make_error_code(std::io_errc) (null)
+;; enabled by -tree-original
+
+
+<<< Unknown tree: must_not_throw_expr
+  <<cleanup_point return <retval> = TARGET_EXPR <D.33496, <<< Unknown tree: aggr_init_expr
+  6
+  __ct_comp 
+  D.33496
+  (struct error_code *) <<< Unknown tree: void_cst >>>
+  (int) __e
+  std::iostream_category () >>>>;, D.33496>>
+   >>>;
+
+
+;; Function std::error_condition std::make_error_condition(std::io_errc) (null)
+;; enabled by -tree-original
+
+
+<<< Unknown tree: must_not_throw_expr
+  <<cleanup_point return <retval> = TARGET_EXPR <D.33500, <<< Unknown tree: aggr_init_expr
+  6
+  __ct_comp 
+  D.33500
+  (struct error_condition *) <<< Unknown tree: void_cst >>>
+  (int) __e
+  std::iostream_category () >>>>;, D.33500>>
+   >>>;
+
+
+;; Function std::ios_base::_Callback_list::_Callback_list(std::ios_base::event_callback, int, std::ios_base::_Callback_list*) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point <<< Unknown tree: expr_stmt
+  *(struct _Callback_list *) this = {CLOBBER} >>>>>;
+{
+  <<cleanup_point <<< Unknown tree: expr_stmt
+  (void) (((struct _Callback_list *) this)->_M_next = __cb) >>>>>;
+  <<cleanup_point <<< Unknown tree: expr_stmt
+  (void) (((struct _Callback_list *) this)->_M_fn = __fn) >>>>>;
+  <<cleanup_point <<< Unknown tree: expr_stmt
+  (void) (((struct _Callback_list *) this)->_M_index = __index) >>>>>;
+  <<cleanup_point <<< Unknown tree: expr_stmt
+  (void) (((struct _Callback_list *) this)->_M_refcount = 0) >>>>>;
+}
+
+
+;; Function void std::ios_base::_Callback_list::_M_add_reference() (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point <<< Unknown tree: expr_stmt
+  __gnu_cxx::__atomic_add_dispatch (&((struct _Callback_list *) this)->_M_refcount, 1) >>>>>;
+
+
+;; Function int std::ios_base::_Callback_list::_M_remove_reference() (null)
+;; enabled by -tree-original
+
+
+{
+  int __res;
+
+    int __res;
+  <<cleanup_point <<< Unknown tree: expr_stmt
+  (void) (__res = __gnu_cxx::__exchange_and_add_dispatch (&((struct _Callback_list *) this)->_M_refcount, -1)) >>>>>;
+  if (__res == 0)
+    {
+      
+    }
+  return <retval> = __res;
+}
+
+
+;; Function std::ios_base::_Words::_Words() (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point <<< Unknown tree: expr_stmt
+  *(struct _Words *) this = {CLOBBER} >>>>>;
+{
+  <<cleanup_point <<< Unknown tree: expr_stmt
+  (void) (((struct _Words *) this)->_M_pword = 0B) >>>>>;
+  <<cleanup_point <<< Unknown tree: expr_stmt
+  (void) (((struct _Words *) this)->_M_iword = 0) >>>>>;
+}
+
+
+;; Function std::ios_base::fmtflags std::ios_base::flags() const (null)
+;; enabled by -tree-original
+
+
+return <retval> = (fmtflags) ((const struct ios_base *) this)->_M_flags;
+
+
+;; Function std::ios_base::fmtflags std::ios_base::flags(std::ios_base::fmtflags) (null)
+;; enabled by -tree-original
+
+
+{
+  fmtflags __old = ((struct ios_base *) this)->_M_flags;
+
+    fmtflags __old = ((struct ios_base *) this)->_M_flags;
+  <<cleanup_point <<< Unknown tree: expr_stmt
+  (void) (((struct ios_base *) this)->_M_flags = __fmtfl) >>>>>;
+  return <retval> = __old;
+}
+
+
+;; Function std::ios_base::fmtflags std::ios_base::setf(std::ios_base::fmtflags) (null)
+;; enabled by -tree-original
+
+
+{
+  fmtflags __old = ((struct ios_base *) this)->_M_flags;
+
+    fmtflags __old = ((struct ios_base *) this)->_M_flags;
+  <<cleanup_point <<< Unknown tree: expr_stmt
+  (void) std::operator|= ((_Ios_Fmtflags &) &((struct ios_base *) this)->_M_flags, __fmtfl) >>>>>;
+  return <retval> = __old;
+}
+
+
+;; Function std::ios_base::fmtflags std::ios_base::setf(std::ios_base::fmtflags, std::ios_base::fmtflags) (null)
+;; enabled by -tree-original
+
+
+{
+  fmtflags __old = ((struct ios_base *) this)->_M_flags;
+
+    fmtflags __old = ((struct ios_base *) this)->_M_flags;
+  <<cleanup_point <<< Unknown tree: expr_stmt
+  (void) std::operator&= ((_Ios_Fmtflags &) &((struct ios_base *) this)->_M_flags, std::operator~ (__mask)) >>>>>;
+  <<cleanup_point <<< Unknown tree: expr_stmt
+  (void) std::operator|= ((_Ios_Fmtflags &) &((struct ios_base *) this)->_M_flags, std::operator& (__fmtfl, __mask)) >>>>>;
+  return <retval> = __old;
+}
+
+
+;; Function void std::ios_base::unsetf(std::ios_base::fmtflags) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point <<< Unknown tree: expr_stmt
+  (void) std::operator&= ((_Ios_Fmtflags &) &((struct ios_base *) this)->_M_flags, std::operator~ (__mask)) >>>>>;
+
+
+;; Function std::streamsize std::ios_base::precision() const (null)
+;; enabled by -tree-original
+
+
+return <retval> = (streamsize) ((const struct ios_base *) this)->_M_precision;
+
+
+;; Function std::streamsize std::ios_base::precision(std::streamsize) (null)
+;; enabled by -tree-original
+
+
+{
+  streamsize __old = ((struct ios_base *) this)->_M_precision;
+
+    streamsize __old = ((struct ios_base *) this)->_M_precision;
+  <<cleanup_point <<< Unknown tree: expr_stmt
+  (void) (((struct ios_base *) this)->_M_precision = __prec) >>>>>;
+  return <retval> = __old;
+}
+
+
+;; Function std::streamsize std::ios_base::width() const (null)
+;; enabled by -tree-original
+
+
+return <retval> = (streamsize) ((const struct ios_base *) this)->_M_width;
+
+
+;; Function std::streamsize std::ios_base::width(std::streamsize) (null)
+;; enabled by -tree-original
+
+
+{
+  streamsize __old = ((struct ios_base *) this)->_M_width;
+
+    streamsize __old = ((struct ios_base *) this)->_M_width;
+  <<cleanup_point <<< Unknown tree: expr_stmt
+  (void) (((struct ios_base *) this)->_M_width = __wide) >>>>>;
+  return <retval> = __old;
+}
+
+
+;; Function std::locale std::ios_base::getloc() const (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return *<retval> = TARGET_EXPR <D.33840, <<< Unknown tree: aggr_init_expr
+  5
+  __ct_comp 
+  D.33840
+  (struct locale *) <<< Unknown tree: void_cst >>>
+  (const struct locale &) &((const struct ios_base *) this)->_M_ios_locale >>>>>>;
+
+
+;; Function const std::locale& std::ios_base::_M_getloc() const (null)
+;; enabled by -tree-original
+
+
+return <retval> = (const struct locale &) &((const struct ios_base *) this)->_M_ios_locale;
+
+
+;; Function long int& std::ios_base::iword(int) (null)
+;; enabled by -tree-original
+
+
+{
+  struct _Words & __word;
+
+    struct _Words & __word;
+  <<cleanup_point <<< Unknown tree: expr_stmt
+  (void) (__word = (unsigned int) ((struct ios_base *) this)->_M_word_size > (unsigned int) __ix ? (struct _Words &) (((struct ios_base *) this)->_M_word + (sizetype) ((long unsigned int) __ix * 16)) : std::ios_base::_M_grow_words ((struct ios_base *) this, __ix, 1)) >>>>>;
+  return <retval> = (long int &) &__word->_M_iword;
+}
+
+
+;; Function void*& std::ios_base::pword(int) (null)
+;; enabled by -tree-original
+
+
+{
+  struct _Words & __word;
+
+    struct _Words & __word;
+  <<cleanup_point <<< Unknown tree: expr_stmt
+  (void) (__word = (unsigned int) ((struct ios_base *) this)->_M_word_size > (unsigned int) __ix ? (struct _Words &) (((struct ios_base *) this)->_M_word + (sizetype) ((long unsigned int) __ix * 16)) : std::ios_base::_M_grow_words ((struct ios_base *) this, __ix, 0)) >>>>>;
+  return <retval> = (void * &) &__word->_M_pword;
+}
+
+
+;; Function std::ios_base& std::boolalpha(std::ios_base&) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point <<< Unknown tree: expr_stmt
+  (void) std::ios_base::setf ((struct ios_base *) __base, 1) >>>>>;
+return <retval> = __base;
+
+
+;; Function std::ios_base& std::noboolalpha(std::ios_base&) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point <<< Unknown tree: expr_stmt
+  std::ios_base::unsetf ((struct ios_base *) __base, 1) >>>>>;
+return <retval> = __base;
+
+
+;; Function std::ios_base& std::showbase(std::ios_base&) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point <<< Unknown tree: expr_stmt
+  (void) std::ios_base::setf ((struct ios_base *) __base, 512) >>>>>;
+return <retval> = __base;
+
+
+;; Function std::ios_base& std::noshowbase(std::ios_base&) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point <<< Unknown tree: expr_stmt
+  std::ios_base::unsetf ((struct ios_base *) __base, 512) >>>>>;
+return <retval> = __base;
+
+
+;; Function std::ios_base& std::showpoint(std::ios_base&) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point <<< Unknown tree: expr_stmt
+  (void) std::ios_base::setf ((struct ios_base *) __base, 1024) >>>>>;
+return <retval> = __base;
+
+
+;; Function std::ios_base& std::noshowpoint(std::ios_base&) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point <<< Unknown tree: expr_stmt
+  std::ios_base::unsetf ((struct ios_base *) __base, 1024) >>>>>;
+return <retval> = __base;
+
+
+;; Function std::ios_base& std::showpos(std::ios_base&) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point <<< Unknown tree: expr_stmt
+  (void) std::ios_base::setf ((struct ios_base *) __base, 2048) >>>>>;
+return <retval> = __base;
+
+
+;; Function std::ios_base& std::noshowpos(std::ios_base&) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point <<< Unknown tree: expr_stmt
+  std::ios_base::unsetf ((struct ios_base *) __base, 2048) >>>>>;
+return <retval> = __base;
+
+
+;; Function std::ios_base& std::skipws(std::ios_base&) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point <<< Unknown tree: expr_stmt
+  (void) std::ios_base::setf ((struct ios_base *) __base, 4096) >>>>>;
+return <retval> = __base;
+
+
+;; Function std::ios_base& std::noskipws(std::ios_base&) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point <<< Unknown tree: expr_stmt
+  std::ios_base::unsetf ((struct ios_base *) __base, 4096) >>>>>;
+return <retval> = __base;
+
+
+;; Function std::ios_base& std::uppercase(std::ios_base&) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point <<< Unknown tree: expr_stmt
+  (void) std::ios_base::setf ((struct ios_base *) __base, 16384) >>>>>;
+return <retval> = __base;
+
+
+;; Function std::ios_base& std::nouppercase(std::ios_base&) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point <<< Unknown tree: expr_stmt
+  std::ios_base::unsetf ((struct ios_base *) __base, 16384) >>>>>;
+return <retval> = __base;
+
+
+;; Function std::ios_base& std::unitbuf(std::ios_base&) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point <<< Unknown tree: expr_stmt
+  (void) std::ios_base::setf ((struct ios_base *) __base, 8192) >>>>>;
+return <retval> = __base;
+
+
+;; Function std::ios_base& std::nounitbuf(std::ios_base&) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point <<< Unknown tree: expr_stmt
+  std::ios_base::unsetf ((struct ios_base *) __base, 8192) >>>>>;
+return <retval> = __base;
+
+
+;; Function std::ios_base& std::internal(std::ios_base&) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point <<< Unknown tree: expr_stmt
+  (void) std::ios_base::setf ((struct ios_base *) __base, 16, 176) >>>>>;
+return <retval> = __base;
+
+
+;; Function std::ios_base& std::left(std::ios_base&) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point <<< Unknown tree: expr_stmt
+  (void) std::ios_base::setf ((struct ios_base *) __base, 32, 176) >>>>>;
+return <retval> = __base;
+
+
+;; Function std::ios_base& std::right(std::ios_base&) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point <<< Unknown tree: expr_stmt
+  (void) std::ios_base::setf ((struct ios_base *) __base, 128, 176) >>>>>;
+return <retval> = __base;
+
+
+;; Function std::ios_base& std::dec(std::ios_base&) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point <<< Unknown tree: expr_stmt
+  (void) std::ios_base::setf ((struct ios_base *) __base, 2, 74) >>>>>;
+return <retval> = __base;
+
+
+;; Function std::ios_base& std::hex(std::ios_base&) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point <<< Unknown tree: expr_stmt
+  (void) std::ios_base::setf ((struct ios_base *) __base, 8, 74) >>>>>;
+return <retval> = __base;
+
+
+;; Function std::ios_base& std::oct(std::ios_base&) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point <<< Unknown tree: expr_stmt
+  (void) std::ios_base::setf ((struct ios_base *) __base, 64, 74) >>>>>;
+return <retval> = __base;
+
+
+;; Function std::ios_base& std::fixed(std::ios_base&) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point <<< Unknown tree: expr_stmt
+  (void) std::ios_base::setf ((struct ios_base *) __base, 4, 260) >>>>>;
+return <retval> = __base;
+
+
+;; Function std::ios_base& std::scientific(std::ios_base&) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point <<< Unknown tree: expr_stmt
+  (void) std::ios_base::setf ((struct ios_base *) __base, 256, 260) >>>>>;
+return <retval> = __base;
+
+
+;; Function std::ios_base& std::hexfloat(std::ios_base&) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point <<< Unknown tree: expr_stmt
+  (void) std::ios_base::setf ((struct ios_base *) __base, std::operator| (4, 256), 260) >>>>>;
+return <retval> = __base;
+
+
+;; Function std::ios_base& std::defaultfloat(std::ios_base&) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point <<< Unknown tree: expr_stmt
+  std::ios_base::unsetf ((struct ios_base *) __base, 260) >>>>>;
+return <retval> = __base;
+
+
+;; Function constexpr std::integral_constant<_Tp, __v>::operator std::integral_constant<_Tp, __v>::value_type() const [with _Tp = bool; _Tp __v = true; std::integral_constant<_Tp, __v>::value_type = bool] (null)
+;; enabled by -tree-original
+
+
+<<< Unknown tree: must_not_throw_expr
+  return <retval> = 1
+   >>>;
+
+
+;; Function constexpr std::true_type std::__is_complete_or_unbounded(std::__type_identity<_Tp>) [with _Tp = std::locale; long unsigned int <anonymous> = 8; std::true_type = std::integral_constant<bool, true>] (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = TARGET_EXPR <D.34391, {}>>>;
+
+
+;; Function std::ctype<char>::char_type std::ctype<char>::toupper(std::ctype<char>::char_type) const (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = OBJ_TYPE_REF(*(((const struct ctype *) this)->D.35898._vptr.facet + 16);(const struct ctype)(const struct ctype *) this->2) ((const struct ctype *) this, (int) __c)>>;
+
+
+;; Function const char_type* std::ctype<char>::toupper(std::ctype<char>::char_type*, const char_type*) const (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = OBJ_TYPE_REF(*(((const struct ctype *) this)->D.35898._vptr.facet + 24);(const struct ctype)(const struct ctype *) this->3) ((const struct ctype *) this, __lo, __hi)>>;
+
+
+;; Function std::ctype<char>::char_type std::ctype<char>::tolower(std::ctype<char>::char_type) const (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = OBJ_TYPE_REF(*(((const struct ctype *) this)->D.35898._vptr.facet + 32);(const struct ctype)(const struct ctype *) this->4) ((const struct ctype *) this, (int) __c)>>;
+
+
+;; Function const char_type* std::ctype<char>::tolower(std::ctype<char>::char_type*, const char_type*) const (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = OBJ_TYPE_REF(*(((const struct ctype *) this)->D.35898._vptr.facet + 40);(const struct ctype)(const struct ctype *) this->5) ((const struct ctype *) this, __lo, __hi)>>;
+
+
+;; Function std::ctype<char>::char_type std::ctype<char>::widen(char) const (null)
+;; enabled by -tree-original
+
+
+if (((const struct ctype *) this)->_M_widen_ok != 0)
+  {
+    return <retval> = ((const struct ctype *) this)->_M_widen[(int) (unsigned char) __c];
+  }
+<<cleanup_point <<< Unknown tree: expr_stmt
+  std::ctype<char>::_M_widen_init ((const struct ctype *) this) >>>>>;
+<<cleanup_point return <retval> = OBJ_TYPE_REF(*(((const struct ctype *) this)->D.35898._vptr.facet + 48);(const struct ctype)(const struct ctype *) this->6) ((const struct ctype *) this, (int) __c)>>;
+
+
+;; Function const char* std::ctype<char>::widen(const char*, const char*, std::ctype<char>::char_type*) const (null)
+;; enabled by -tree-original
+
+
+if (((const struct ctype *) this)->_M_widen_ok == 1)
+  {
+    if (__builtin_expect (__hi != __lo, 1) != 0)
+      {
+        <<cleanup_point <<< Unknown tree: expr_stmt
+  (void) __builtin_memcpy ((void *) __to, (const void *) __lo, (long unsigned int) (__hi - __lo)) >>>>>;
+      }
+    return <retval> = __hi;
+  }
+if (((const struct ctype *) this)->_M_widen_ok == 0)
+  {
+    <<cleanup_point <<< Unknown tree: expr_stmt
+  std::ctype<char>::_M_widen_init ((const struct ctype *) this) >>>>>;
+  }
+<<cleanup_point return <retval> = OBJ_TYPE_REF(*(((const struct ctype *) this)->D.35898._vptr.facet + 56);(const struct ctype)(const struct ctype *) this->7) ((const struct ctype *) this, __lo, __hi, __to)>>;
+
+
+;; Function char std::ctype<char>::narrow(std::ctype<char>::char_type, char) const (null)
+;; enabled by -tree-original
+
+
+{
+  const char __t;
+
+  if (((const struct ctype *) this)->_M_narrow[(int) (unsigned char) __c] != 0)
+    {
+      return <retval> = ((const struct ctype *) this)->_M_narrow[(int) (unsigned char) __c];
+    }
+    const char __t;
+  <<cleanup_point <<< Unknown tree: expr_stmt
+  (void) (__t = OBJ_TYPE_REF(*(((const struct ctype *) this)->D.35898._vptr.facet + 64);(const struct ctype)(const struct ctype *) this->8) ((const struct ctype *) this, (int) __c, (int) __dfault)) >>>>>;
+  if (__t != (const char) __dfault)
+    {
+      <<cleanup_point <<< Unknown tree: expr_stmt
+  (void) (((const struct ctype *) this)->_M_narrow[(int) (unsigned char) __c] = (char) __t) >>>>>;
+    }
+  return <retval> = (char) __t;
+}
+
+
+;; Function const char_type* std::ctype<char>::narrow(const char_type*, const char_type*, char, char*) const (null)
+;; enabled by -tree-original
+
+
+if (__builtin_expect (((const struct ctype *) this)->_M_narrow_ok == 1, 1) != 0)
+  {
+    if (__builtin_expect (__hi != __lo, 1) != 0)
+      {
+        <<cleanup_point <<< Unknown tree: expr_stmt
+  (void) __builtin_memcpy ((void *) __to, (const void *) __lo, (long unsigned int) (__hi - __lo)) >>>>>;
+      }
+    return <retval> = __hi;
+  }
+if (((const struct ctype *) this)->_M_narrow_ok == 0)
+  {
+    <<cleanup_point <<< Unknown tree: expr_stmt
+  std::ctype<char>::_M_narrow_init ((const struct ctype *) this) >>>>>;
+  }
+<<cleanup_point return <retval> = OBJ_TYPE_REF(*(((const struct ctype *) this)->D.35898._vptr.facet + 72);(const struct ctype)(const struct ctype *) this->9) ((const struct ctype *) this, __lo, __hi, (int) __dfault, __to)>>;
+
+
+;; Function const mask* std::ctype<char>::table() const (null)
+;; enabled by -tree-original
+
+
+<<< Unknown tree: eh_spec_block
+  return <retval> = (const mask *) ((const struct ctype *) this)->_M_table
+   >>>;
+
+
+;; Function virtual std::ctype<char>::char_type std::ctype<char>::do_widen(char) const (null)
+;; enabled by -tree-original
+
+
+return <retval> = __c;
+
+
+;; Function virtual const char* std::ctype<char>::do_widen(const char*, const char*, std::ctype<char>::char_type*) const (null)
+;; enabled by -tree-original
+
+
+if (__builtin_expect (__hi != __lo, 1) != 0)
+  {
+    <<cleanup_point <<< Unknown tree: expr_stmt
+  (void) __builtin_memcpy ((void *) __to, (const void *) __lo, (long unsigned int) (__hi - __lo)) >>>>>;
+  }
+return <retval> = __hi;
+
+
+;; Function virtual char std::ctype<char>::do_narrow(std::ctype<char>::char_type, char) const (null)
+;; enabled by -tree-original
+
+
+return <retval> = __c;
+
+
+;; Function virtual const char_type* std::ctype<char>::do_narrow(const char_type*, const char_type*, char, char*) const (null)
+;; enabled by -tree-original
+
+
+if (__builtin_expect (__hi != __lo, 1) != 0)
+  {
+    <<cleanup_point <<< Unknown tree: expr_stmt
+  (void) __builtin_memcpy ((void *) __to, (const void *) __lo, (long unsigned int) (__hi - __lo)) >>>>>;
+  }
+return <retval> = __hi;
+
+
+;; Function bool std::ctype<char>::is(std::ctype_base::mask, char) const (null)
+;; enabled by -tree-original
+
+
+return <retval> = ((short unsigned int) *((const mask *) ((const struct ctype *) this)->_M_table + (sizetype) ((long unsigned int) (unsigned char) __c * 2)) & __m) != 0;
+
+
+;; Function const char* std::ctype<char>::is(const char*, const char*, std::ctype_base::mask*) const (null)
+;; enabled by -tree-original
+
+
+while (1)
+  {
+    if (__low >= __high) goto <D.36290>;
+    <<cleanup_point <<< Unknown tree: expr_stmt
+  (void) (*__vec++  = (mask) *((const mask *) ((const struct ctype *) this)->_M_table + (sizetype) ((long unsigned int) (unsigned char) *__low++  * 2))) >>>>>;
+  }
+<D.36290>:;
+return <retval> = __high;
+
+
+;; Function const char* std::ctype<char>::scan_is(std::ctype_base::mask, const char*, const char*) const (null)
+;; enabled by -tree-original
+
+
+while (1)
+  {
+    if (__low >= __high || ((short unsigned int) *((const mask *) ((const struct ctype *) this)->_M_table + (sizetype) ((long unsigned int) (unsigned char) *__low * 2)) & __m) != 0) goto <D.36298>;
+    <<cleanup_point <<< Unknown tree: expr_stmt
+  (void)  ++__low >>>>>;
+  }
+<D.36298>:;
+return <retval> = __low;
+
+
+;; Function const char* std::ctype<char>::scan_not(std::ctype_base::mask, const char*, const char*) const (null)
+;; enabled by -tree-original
+
+
+while (1)
+  {
+    if (__low >= __high || ((short unsigned int) *((const mask *) ((const struct ctype *) this)->_M_table + (sizetype) ((long unsigned int) (unsigned char) *__low * 2)) & __m) == 0) goto <D.36306>;
+    <<cleanup_point <<< Unknown tree: expr_stmt
+  (void)  ++__low >>>>>;
+  }
+<D.36306>:;
+return <retval> = __low;
+
+
+;; Function constexpr std::true_type std::__is_complete_or_unbounded(std::__type_identity<_Tp>) [with _Tp = bool; long unsigned int <anonymous> = 1; std::true_type = std::integral_constant<bool, true>] (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = TARGET_EXPR <D.38960, {}>>>;
+
+
+;; Function constexpr std::true_type std::__is_complete_or_unbounded(std::__type_identity<_Tp>) [with _Tp = long int; long unsigned int <anonymous> = 8; std::true_type = std::integral_constant<bool, true>] (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = TARGET_EXPR <D.40887, {}>>>;
+
+
+;; Function std::codecvt<char16_t, char, __mbstate_t>::codecvt(std::size_t) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point <<< Unknown tree: expr_stmt
+  *(struct 
+  {
+    struct 
+    {
+      struct 
+      {
+        int (*) () * _vptr.facet;
+        _Atomic_word _M_refcount;
+      } D.45496;
+    } D.45562;
+  } &) this = {CLOBBER} >>>>>;
+{
+  <<cleanup_point <<< Unknown tree: expr_stmt
+  std::__codecvt_abstract_base<char16_t, char, __mbstate_t>::__codecvt_abstract_base (&((struct codecvt *) this)->D.45561, __refs) >>>>>;
+  try
+    {
+      <<cleanup_point <<< Unknown tree: expr_stmt
+  (void) (((struct codecvt *) this)->D.45561.D.45495._vptr.facet = &_ZTVSt7codecvtIDsc11__mbstate_tE + 16) >>>>>;
+    }
+  catch
+    {
+      std::__codecvt_abstract_base<char16_t, char, __mbstate_t>::~__codecvt_abstract_base (&((struct codecvt *) this)->D.45561);
+    }
+}
+
+
+;; Function std::codecvt<char32_t, char, __mbstate_t>::codecvt(std::size_t) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point <<< Unknown tree: expr_stmt
+  *(struct 
+  {
+    struct 
+    {
+      struct 
+      {
+        int (*) () * _vptr.facet;
+        _Atomic_word _M_refcount;
+      } D.45701;
+    } D.45767;
+  } &) this = {CLOBBER} >>>>>;
+{
+  <<cleanup_point <<< Unknown tree: expr_stmt
+  std::__codecvt_abstract_base<char32_t, char, __mbstate_t>::__codecvt_abstract_base (&((struct codecvt *) this)->D.45766, __refs) >>>>>;
+  try
+    {
+      <<cleanup_point <<< Unknown tree: expr_stmt
+  (void) (((struct codecvt *) this)->D.45766.D.45700._vptr.facet = &_ZTVSt7codecvtIDic11__mbstate_tE + 16) >>>>>;
+    }
+  catch
+    {
+      std::__codecvt_abstract_base<char32_t, char, __mbstate_t>::~__codecvt_abstract_base (&((struct codecvt *) this)->D.45766);
+    }
+}
+
+
+;; Function std::codecvt_byname<char16_t, char, __mbstate_t>::codecvt_byname(const char*, std::size_t) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point <<< Unknown tree: expr_stmt
+  *(struct 
+  {
+    struct 
+    {
+      struct 
+      {
+        struct 
+        {
+          int (*) () * _vptr.facet;
+          _Atomic_word _M_refcount;
+        } D.45496;
+      } D.45562;
+    } D.45845;
+  } &) this = {CLOBBER} >>>>>;
+{
+  <<cleanup_point <<< Unknown tree: expr_stmt
+  std::codecvt<char16_t, char, __mbstate_t>::codecvt (&((struct codecvt_byname *) this)->D.45844, __refs) >>>>>;
+  try
+    {
+      <<cleanup_point <<< Unknown tree: expr_stmt
+  (void) (((struct codecvt_byname *) this)->D.45844.D.45561.D.45495._vptr.facet = &_ZTVSt14codecvt_bynameIDsc11__mbstate_tE + 16) >>>>>;
+    }
+  catch
+    {
+      std::codecvt<char16_t, char, __mbstate_t>::~codecvt (&((struct codecvt_byname *) this)->D.45844);
+    }
+}
+
+
+;; Function std::codecvt_byname<char16_t, char, __mbstate_t>::codecvt_byname(const string&, std::size_t) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point <<< Unknown tree: expr_stmt
+  *(struct 
+  {
+    struct 
+    {
+      struct 
+      {
+        struct 
+        {
+          int (*) () * _vptr.facet;
+          _Atomic_word _M_refcount;
+        } D.45496;
+      } D.45562;
+    } D.45845;
+  } &) this = {CLOBBER} >>>>>;
+{
+  <<cleanup_point <<< Unknown tree: expr_stmt
+  std::codecvt_byname<char16_t, char, __mbstate_t>::codecvt_byname ((struct codecvt_byname *) this, std::__cxx11::basic_string<char>::c_str ((const struct string *) __s), __refs) >>>>>;
+  try
+    {
+      
+    }
+  catch
+    {
+      std::codecvt_byname<char16_t, char, __mbstate_t>::~codecvt_byname ((struct codecvt_byname *) this);
+    }
+}
+
+
+;; Function virtual std::codecvt_byname<char16_t, char, __mbstate_t>::~codecvt_byname() (null)
+;; enabled by -tree-original
+
+
+<<< Unknown tree: must_not_throw_expr
+  {
+    <<cleanup_point <<< Unknown tree: expr_stmt
+  (void) (((struct codecvt_byname *) this)->D.45844.D.45561.D.45495._vptr.facet = &_ZTVSt14codecvt_bynameIDsc11__mbstate_tE + 16) >>>>>;
+    try
+      {
+        try
+          {
+            
+          }
+        finally
+          {
+            std::codecvt<char16_t, char, __mbstate_t>::~codecvt (&((struct codecvt_byname *) this)->D.45844);
+          }
+      }
+    finally
+      {
+        *(struct 
+        {
+          struct 
+          {
+            struct 
+            {
+              struct 
+              {
+                int (*) () * _vptr.facet;
+                _Atomic_word _M_refcount;
+              } D.45496;
+            } D.45562;
+          } D.45845;
+        } &) this = {CLOBBER};
+      }
+  }
+  <D.45873>:;
+   >>>;
+
+
+;; Function std::codecvt_byname<char32_t, char, __mbstate_t>::codecvt_byname(const char*, std::size_t) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point <<< Unknown tree: expr_stmt
+  *(struct 
+  {
+    struct 
+    {
+      struct 
+      {
+        struct 
+        {
+          int (*) () * _vptr.facet;
+          _Atomic_word _M_refcount;
+        } D.45701;
+      } D.45767;
+    } D.45920;
+  } &) this = {CLOBBER} >>>>>;
+{
+  <<cleanup_point <<< Unknown tree: expr_stmt
+  std::codecvt<char32_t, char, __mbstate_t>::codecvt (&((struct codecvt_byname *) this)->D.45919, __refs) >>>>>;
+  try
+    {
+      <<cleanup_point <<< Unknown tree: expr_stmt
+  (void) (((struct codecvt_byname *) this)->D.45919.D.45766.D.45700._vptr.facet = &_ZTVSt14codecvt_bynameIDic11__mbstate_tE + 16) >>>>>;
+    }
+  catch
+    {
+      std::codecvt<char32_t, char, __mbstate_t>::~codecvt (&((struct codecvt_byname *) this)->D.45919);
+    }
+}
+
+
+;; Function std::codecvt_byname<char32_t, char, __mbstate_t>::codecvt_byname(const string&, std::size_t) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point <<< Unknown tree: expr_stmt
+  *(struct 
+  {
+    struct 
+    {
+      struct 
+      {
+        struct 
+        {
+          int (*) () * _vptr.facet;
+          _Atomic_word _M_refcount;
+        } D.45701;
+      } D.45767;
+    } D.45920;
+  } &) this = {CLOBBER} >>>>>;
+{
+  <<cleanup_point <<< Unknown tree: expr_stmt
+  std::codecvt_byname<char32_t, char, __mbstate_t>::codecvt_byname ((struct codecvt_byname *) this, std::__cxx11::basic_string<char>::c_str ((const struct string *) __s), __refs) >>>>>;
+  try
+    {
+      
+    }
+  catch
+    {
+      std::codecvt_byname<char32_t, char, __mbstate_t>::~codecvt_byname ((struct codecvt_byname *) this);
+    }
+}
+
+
+;; Function virtual std::codecvt_byname<char32_t, char, __mbstate_t>::~codecvt_byname() (null)
+;; enabled by -tree-original
+
+
+<<< Unknown tree: must_not_throw_expr
+  {
+    <<cleanup_point <<< Unknown tree: expr_stmt
+  (void) (((struct codecvt_byname *) this)->D.45919.D.45766.D.45700._vptr.facet = &_ZTVSt14codecvt_bynameIDic11__mbstate_tE + 16) >>>>>;
+    try
+      {
+        try
+          {
+            
+          }
+        finally
+          {
+            std::codecvt<char32_t, char, __mbstate_t>::~codecvt (&((struct codecvt_byname *) this)->D.45919);
+          }
+      }
+    finally
+      {
+        *(struct 
+        {
+          struct 
+          {
+            struct 
+            {
+              struct 
+              {
+                int (*) () * _vptr.facet;
+                _Atomic_word _M_refcount;
+              } D.45701;
+            } D.45767;
+          } D.45920;
+        } &) this = {CLOBBER};
+      }
+  }
+  <D.45948>:;
+   >>>;
+
+
+;; Function void std::__uses_alloc0::_Sink::operator=(const void*) (null)
+;; enabled by -tree-original
+
+
+
+
+
+;; Function void std::tuple<>::swap(std::tuple<>&) (null)
+;; enabled by -tree-original
+
+
+<<< Unknown tree: must_not_throw_expr
+  
+   >>>;
+
+
+;; Function constexpr std::true_type std::__is_complete_or_unbounded(std::__type_identity<_Tp>) [with _Tp = std::_Ios_Openmode; long unsigned int <anonymous> = 4; std::true_type = std::integral_constant<bool, true>] (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = TARGET_EXPR <D.53043, {}>>>;
+
+
+;; Function std::_Resetiosflags std::resetiosflags(std::ios_base::fmtflags) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = TARGET_EXPR <D.54693, {._M_mask=__mask}>>>;
+
+
+;; Function std::_Setiosflags std::setiosflags(std::ios_base::fmtflags) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = TARGET_EXPR <D.54723, {._M_mask=__mask}>>>;
+
+
+;; Function std::_Setbase std::setbase(int) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = TARGET_EXPR <D.54753, {._M_base=__base}>>>;
+
+
+;; Function std::_Setprecision std::setprecision(int) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = TARGET_EXPR <D.54810, {._M_n=__n}>>>;
+
+
+;; Function std::_Setw std::setw(int) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = TARGET_EXPR <D.54840, {._M_n=__n}>>>;
+
+
+;; Function std::__basic_file<char>::__basic_file(std::__basic_file<char>&&, std::__c_lock*) (null)
+;; enabled by -tree-original
+
+
+<<< Unknown tree: must_not_throw_expr
+  <<cleanup_point <<< Unknown tree: expr_stmt
+  *(struct 
+  {
+    struct __c_file * _M_cfile;
+    bool _M_cfile_created;
+  } &) this = {CLOBBER} >>>>>;
+  {
+    <<cleanup_point <<< Unknown tree: expr_stmt
+  (void) (((struct __basic_file *) this)->_M_cfile = __rv->_M_cfile) >>>>>;
+    <<cleanup_point <<< Unknown tree: expr_stmt
+  (void) (((struct __basic_file *) this)->_M_cfile_created = __rv->_M_cfile_created) >>>>>;
+    <<cleanup_point <<< Unknown tree: expr_stmt
+  (void) (__rv->_M_cfile = 0B) >>>>>;
+    <<cleanup_point <<< Unknown tree: expr_stmt
+  (void) (__rv->_M_cfile_created = 0) >>>>>;
+  }
+   >>>;
+
+
+;; Function constexpr std::true_type std::__is_complete_or_unbounded(std::__type_identity<_Tp>) [with _Tp = _IO_FILE*; long unsigned int <anonymous> = 8; std::true_type = std::integral_constant<bool, true>] (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = TARGET_EXPR <D.55410, {}>>>;
+
+
+;; Function void std::__basic_file<char>::swap(std::__basic_file<char>&) (null)
+;; enabled by -tree-original
+
+
+<<< Unknown tree: must_not_throw_expr
+  <<cleanup_point <<< Unknown tree: expr_stmt
+  std::swap<_IO_FILE*> ((struct _IO_FILE * &) &((struct __basic_file *) this)->_M_cfile, (struct _IO_FILE * &) &__f->_M_cfile) >>>>>;
+  <<cleanup_point <<< Unknown tree: expr_stmt
+  std::swap<bool> ((bool &) &((struct __basic_file *) this)->_M_cfile_created, (bool &) &__f->_M_cfile_created) >>>>>;
+   >>>;
+
+
+;; Function constexpr std::true_type std::__is_complete_or_unbounded(std::__type_identity<_Tp>) [with _Tp = long unsigned int; long unsigned int <anonymous> = 8; std::true_type = std::integral_constant<bool, true>] (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = TARGET_EXPR <D.56204, {}>>>;
+
+
+;; Function constexpr std::true_type std::__is_complete_or_unbounded(std::__type_identity<_Tp>) [with _Tp = char*; long unsigned int <anonymous> = 8; std::true_type = std::integral_constant<bool, true>] (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = TARGET_EXPR <D.56347, {}>>>;
+
+
+;; Function constexpr std::true_type std::__is_complete_or_unbounded(std::__type_identity<_Tp>) [with _Tp = const char*; long unsigned int <anonymous> = 8; std::true_type = std::integral_constant<bool, true>] (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = TARGET_EXPR <D.56490, {}>>>;
+
+
+;; Function constexpr const _Tp& std::min(const _Tp&, const _Tp&) [with _Tp = long int] (null)
+;; enabled by -tree-original
+
+
+if (*__b < *__a)
+  {
+    return <retval> = __b;
+  }
+return <retval> = __a;
+
+
+;; Function constexpr std::true_type std::__is_complete_or_unbounded(std::__type_identity<_Tp>) [with _Tp = __mbstate_t; long unsigned int <anonymous> = 8; std::true_type = std::integral_constant<bool, true>] (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = TARGET_EXPR <D.56920, {}>>>;
+
+
+;; Function Standard_ExtCharacter ToExtCharacter(Standard_Character) (null)
+;; enabled by -tree-original
+
+
+return <retval> = (Standard_ExtCharacter) (unsigned char) achar;
+
+
+;; Function Standard_Character ToCharacter(Standard_ExtCharacter) (null)
+;; enabled by -tree-original
+
+
+return <retval> = (Standard_Character) achar;
+
+
+;; Function Standard_Boolean IsAnAscii(Standard_ExtCharacter) (null)
+;; enabled by -tree-original
+
+
+return <retval> = ((int) achar & 65280) == 0;
+
+
+;; Function Standard_Boolean IsEqual(Standard_ExtCharacter, Standard_ExtCharacter) (null)
+;; enabled by -tree-original
+
+
+return <retval> = One == Two;
+
+
+;; Function Standard_Integer HashCode(Standard_CString, Standard_Integer, Standard_Integer) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = HashCode (HashCodes ((const Standard_Character *) theString, (Standard_Integer) theLength), (Standard_Integer) theUpperBound)>>;
+
+
+;; Function Standard_Boolean IsEqual(Standard_CString, Standard_CString) (null)
+;; enabled by -tree-original
+
+
+return <retval> = strcmp ((const Standard_Character *) theOne, (const Standard_Character *) theTwo) == 0;
+
+
+;; Function static void* Standard_Transient::operator new(size_t) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = (void *) Standard::Allocate (theSize)>>;
+
+
+;; Function static void Standard_Transient::operator delete(void*) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point <<< Unknown tree: expr_stmt
+  Standard::Free (theAddress) >>>>>;
+
+
+;; Function static void* Standard_Transient::operator new [](size_t) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = (void *) Standard::Allocate (theSize)>>;
+
+
+;; Function static void Standard_Transient::operator delete [](void*) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point <<< Unknown tree: expr_stmt
+  Standard::Free (theAddress) >>>>>;
+
+
+;; Function static void* Standard_Transient::operator new(size_t, void*) (null)
+;; enabled by -tree-original
+
+
+return <retval> = theAddress;
+
+
+;; Function static void Standard_Transient::operator delete(void*, void*) (null)
+;; enabled by -tree-original
+
+
+
+
+
+;; Function Standard_Transient::Standard_Transient() (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point <<< Unknown tree: expr_stmt
+  *(struct 
+  {
+    int (*) () * _vptr.Standard_Transient;
+    volatile Standard_Integer myRefCount_;
+  } &) this = {CLOBBER} >>>>>;
+{
+  <<cleanup_point <<< Unknown tree: expr_stmt
+  (void) (((struct Standard_Transient *) this)->_vptr.Standard_Transient = &_ZTV18Standard_Transient + 16) >>>>>;
+  <<cleanup_point <<< Unknown tree: expr_stmt
+  (void) (((struct Standard_Transient *) this)->myRefCount_ = 0) >>>>>;
+}
+
+
+;; Function Standard_Transient::Standard_Transient(const Standard_Transient&) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point <<< Unknown tree: expr_stmt
+  *(struct 
+  {
+    int (*) () * _vptr.Standard_Transient;
+    volatile Standard_Integer myRefCount_;
+  } &) this = {CLOBBER} >>>>>;
+{
+  <<cleanup_point <<< Unknown tree: expr_stmt
+  (void) (((struct Standard_Transient *) this)->_vptr.Standard_Transient = &_ZTV18Standard_Transient + 16) >>>>>;
+  <<cleanup_point <<< Unknown tree: expr_stmt
+  (void) (((struct Standard_Transient *) this)->myRefCount_ = 0) >>>>>;
+}
+
+
+;; Function Standard_Transient& Standard_Transient::operator=(const Standard_Transient&) (null)
+;; enabled by -tree-original
+
+
+return <retval> = (struct Standard_Transient &) this;
+
+
+;; Function virtual Standard_Transient::~Standard_Transient() (null)
+;; enabled by -tree-original
+
+
+<<< Unknown tree: must_not_throw_expr
+  {
+    <<cleanup_point <<< Unknown tree: expr_stmt
+  (void) (((struct Standard_Transient *) this)->_vptr.Standard_Transient = &_ZTV18Standard_Transient + 16) >>>>>;
+    try
+      {
+        
+      }
+    finally
+      {
+        *(struct 
+        {
+          int (*) () * _vptr.Standard_Transient;
+          volatile Standard_Integer myRefCount_;
+        } &) this = {CLOBBER};
+      }
+  }
+  <D.58376>:;
+   >>>;
+
+
+;; Function static const char* Standard_Transient::get_type_name() (null)
+;; enabled by -tree-original
+
+
+return <retval> = (const char *) "Standard_Transient";
+
+
+;; Function Standard_Integer Standard_Transient::GetRefCount() const (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = (Standard_Integer) ((const struct Standard_Transient *) this)->myRefCount_>>;
+
+
+;; Function Standard_Integer HashCode(const Standard_Transient*, Standard_Integer) (null)
+;; enabled by -tree-original
+
+
+<<cleanup_point return <retval> = HashCode ((const void *) theTransientObject, (Standard_Integer) theUpperBound)>>;
+

@@ -1,3 +1,8 @@
+#[
+Using unittest (to consider using testament)
+
+$ nim cpp -r test_pnt
+]#
 import unittest
 import occt #tkMath/tkmath
 import sugar

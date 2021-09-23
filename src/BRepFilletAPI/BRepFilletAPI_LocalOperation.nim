@@ -13,6 +13,7 @@ discard "forward decl of TopoDS_Edge"
 discard "forward decl of TopoDS_Vertex"
 
 {.push header: "BRepFilletAPI_LocalOperation.hxx"}
+#[
 proc `new`*(this: var BRepFilletAPI_LocalOperation; theSize: csize_t): pointer {.
     importcpp: "BRepFilletAPI_LocalOperation::operator new".}
 proc `delete`*(this: var BRepFilletAPI_LocalOperation; theAddress: pointer) {.
@@ -25,6 +26,7 @@ proc `new`*(this: var BRepFilletAPI_LocalOperation; a2: csize_t; theAddress: poi
     importcpp: "BRepFilletAPI_LocalOperation::operator new".}
 proc `delete`*(this: var BRepFilletAPI_LocalOperation; a2: pointer; a3: pointer) {.
     importcpp: "BRepFilletAPI_LocalOperation::operator delete".}
+]#
 proc add*(this: var BRepFilletAPI_LocalOperation; e: TopoDS_Edge) {.importcpp: "Add".}
 proc resetContour*(this: var BRepFilletAPI_LocalOperation; ic: StandardInteger) {.
     importcpp: "ResetContour".}

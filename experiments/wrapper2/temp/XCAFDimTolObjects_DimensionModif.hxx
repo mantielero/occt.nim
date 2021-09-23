@@ -1,0 +1,34 @@
+# 1 "/usr/include/opencascade/XCAFDimTolObjects_DimensionModif.hxx"
+# 1 "<interno>"
+# 1 "<línea-de-órdenes>"
+# 1 "/usr/include/stdc-predef.h" 1 3 4
+# 1 "<línea-de-órdenes>" 2
+# 1 "/usr/include/opencascade/XCAFDimTolObjects_DimensionModif.hxx"
+# 21 "/usr/include/opencascade/XCAFDimTolObjects_DimensionModif.hxx"
+enum XCAFDimTolObjects_DimensionModif
+{
+XCAFDimTolObjects_DimensionModif_ControlledRadius,
+XCAFDimTolObjects_DimensionModif_Square,
+XCAFDimTolObjects_DimensionModif_StatisticalTolerance,
+XCAFDimTolObjects_DimensionModif_ContinuousFeature,
+XCAFDimTolObjects_DimensionModif_TwoPointSize,
+XCAFDimTolObjects_DimensionModif_LocalSizeDefinedBySphere,
+XCAFDimTolObjects_DimensionModif_LeastSquaresAssociationCriterion,
+XCAFDimTolObjects_DimensionModif_MaximumInscribedAssociation,
+XCAFDimTolObjects_DimensionModif_MinimumCircumscribedAssociation,
+XCAFDimTolObjects_DimensionModif_CircumferenceDiameter,
+XCAFDimTolObjects_DimensionModif_AreaDiameter,
+XCAFDimTolObjects_DimensionModif_VolumeDiameter,
+XCAFDimTolObjects_DimensionModif_MaximumSize,
+XCAFDimTolObjects_DimensionModif_MinimumSize,
+XCAFDimTolObjects_DimensionModif_AverageSize,
+XCAFDimTolObjects_DimensionModif_MedianSize,
+XCAFDimTolObjects_DimensionModif_MidRangeSize,
+XCAFDimTolObjects_DimensionModif_RangeOfSizes,
+XCAFDimTolObjects_DimensionModif_AnyRestrictedPortionOfFeature,
+XCAFDimTolObjects_DimensionModif_AnyCrossSection,
+XCAFDimTolObjects_DimensionModif_SpecificFixedCrossSection,
+XCAFDimTolObjects_DimensionModif_CommonTolerance,
+XCAFDimTolObjects_DimensionModif_FreeStateCondition,
+XCAFDimTolObjects_DimensionModif_Between
+};
